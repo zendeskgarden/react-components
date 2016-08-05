@@ -1,5 +1,7 @@
 # Zendesk Garden React components
 
+[![Build Status](https://travis-ci.com/zendeskgarden/react-components.svg?token=qLYczvyB4t6HuYhWeUq4&branch=master)](https://travis-ci.com/zendeskgarden/react-components)
+
 ## Description
 
 This projects provides React components that uses the
