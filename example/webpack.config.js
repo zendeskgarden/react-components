@@ -38,21 +38,27 @@ var config = {
       {
         test: /\.css$/,
         include: path.resolve(__dirname, 'node_modules'),
-        loader: ExtractTextPlugin.extract('style', 'css')
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: 'style',
+          loader: 'css'
+        })
       },
       {
         test: /\.css$/,
         include: path.resolve(__dirname, 'src'),
-        loader: ExtractTextPlugin.extract(
-          'style',
-          'css?module&importLoaders=1&localIdentName=[path][name]---[local]---[hash:base64:5]!postcss'
-        )
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: 'style',
+          loader: 'css?module&importLoaders=1&localIdentName=[path][name]---[local]---[hash:base64:5]!postcss'
+        })
       }
     ]
   },
 
   plugins: [
-    new ExtractTextPlugin('[name].css'),
+    new ExtractTextPlugin({
+      filename: '[name].css',
+      allChunks: true
+    }),
     new CommonsChunkPlugin({
       names: ['vendor'],
       minChunks: Infinity
