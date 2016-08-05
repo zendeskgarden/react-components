@@ -1,0 +1,2 @@
+#!/bin/sh
+[ -z "$(git status --untracked-files=no -z)" ]

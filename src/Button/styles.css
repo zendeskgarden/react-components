@@ -1,0 +1,50 @@
+@import "zd-css-buttons";
+@import "zd-css-variables";
+
+.focused {
+  composes: is-focused;
+}
+
+.type_default {
+  composes: c-btn;
+}
+
+.type_primary {
+  composes: c-btn c-btn--primary;
+}
+
+.type_basic {
+  composes: c-btn c-btn--basic;
+}
+
+.type_danger {
+  color: color(var(--zd-color-dark-pastel-red) lightness(60%));
+
+  composes: c-btn;
+}
+
+.type_danger:focus,
+.type_danger:hover {
+  color: var(--zd-color-dark-pastel-red);
+}
+
+.pill {
+  composes: c-btn--pill;
+}
+
+.size_medium {
+  composes: c-btn--medium;
+}
+
+.size_large {
+  composes: c-btn--large;
+}
+
+.stretched {
+  composes: c-btn--full;
+  flex: 1;
+}
+
+.disabled {
+  composes: c-btn is-disabled;
+}

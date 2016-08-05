@@ -1,0 +1,137 @@
+@import "zd-css-menus";
+@import "zd-css-arrows";
+
+.container {
+  position: relative;
+
+  display: inline-block;
+}
+
+.stretched {
+  display: flex;
+
+  width: 100%;
+  height: 100%;
+
+  flex-basis: auto;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.menu {
+  position: relative;
+
+  padding: 10px initial;
+
+  composes: c-menu;
+}
+
+.size_large {
+  composes: c-menu--large;
+}
+
+.size_small.fixed_width {
+  max-width: var(--zd-menu-min-width);
+}
+
+.size_large.fixed_width {
+  max-width: var(--zd-menu--large-min-width);
+}
+
+.item {
+  composes: c-menu__item;
+}
+
+.item:hover:not(.selected) {
+  background: transparent;
+}
+
+.item:first-child {
+  margin-top: initial;
+}
+
+.item:last-child {
+  margin-bottom: initial;
+}
+
+.items {
+  position: relative;
+  z-index: 2;
+}
+
+.scrollable {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.disabled {
+  composes: is-disabled;
+}
+
+.selected {
+  composes: is-selected;
+}
+
+.separator {
+  composes: c-menu__separator;
+}
+
+.rtl {
+  composes: is-rtl;
+}
+
+.arrow {
+  composes: c-arrow;
+}
+
+.arrow:after {
+  z-index: 0;
+}
+
+.border_mask {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  background: white;
+}
+
+.position_bottom_stretch,
+.position_top_stretch {
+  width: 100%;
+}
+
+.arrow_bottom {
+  composes: arrow c-arrow--b;
+}
+
+.arrow_bottom_left {
+  composes: arrow c-arrow--bl;
+}
+
+.arrow_bottom_right {
+  composes: arrow c-arrow--br;
+}
+
+.arrow_left {
+  composes: arrow c-arrow--l;
+}
+
+.arrow_right {
+  composes: arrow c-arrow--r;
+}
+
+.arrow_top {
+  composes: arrow c-arrow--t;
+}
+
+.arrow_top_left {
+  composes: arrow c-arrow--tl;
+}
+
+.arrow_top_right {
+  composes: arrow c-arrow--tr;
+}

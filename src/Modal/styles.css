@@ -1,0 +1,37 @@
+@import "zd-css-modals";
+
+.backdrop {
+  composes: l-backdrop;
+}
+
+.dialog {
+  composes: c-dialog c-dialog--center;
+}
+
+.dialog[aria-hidden="true"] {
+  display: none;
+}
+
+.type_transparent {
+  composes: l-backdrop--transparent;
+}
+
+.type_lightbox {
+  composes: l-backdrop--lightbox;
+}
+
+.header {
+  composes: c-dialog__header;
+}
+
+.body {
+  composes: c-dialog__body;
+}
+
+.footer {
+  composes: c-dialog__footer;
+}
+
+.close {
+  composes: c-dialog__close;
+}

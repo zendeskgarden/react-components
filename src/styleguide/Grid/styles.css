@@ -1,0 +1,29 @@
+.grid {
+  display: table;
+
+  table-layout: fixed;
+}
+
+.row {
+  display: table-row;
+}
+
+.cell {
+  display: table-cell;
+}
+
+.stretched {
+  width: 100%;
+}
+
+.spacing_small > .row > .cell {
+  padding: 4px;
+}
+
+.spacing_medium > .row > .cell {
+  padding: 10px;
+}
+
+.spacing_large > .row > .cell {
+  padding: 20px;
+}

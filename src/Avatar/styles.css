@@ -1,0 +1,29 @@
+@import 'zd-css-avatars/dist/index.css';
+
+.avatar {
+  composes: c-avatar;
+}
+
+.size_small {
+  composes: c-avatar--small;
+}
+
+.size_large {
+  composes: c-avatar--large;
+}
+
+.status_active {
+  composes: is-active;
+}
+
+.status_present {
+  composes: is-in;
+}
+
+.status_away {
+  composes: is-out;
+}
+
+.type_system {
+  composes: c-avatar--system;
+}

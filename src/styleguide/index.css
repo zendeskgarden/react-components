@@ -1,0 +1,24 @@
+.ReactStyleguidist-Playground__root {
+  overflow: visible;
+}
+
+.ReactStyleguidist-Section__heading,
+.ReactStyleguidist-ReactComponent__heading {
+  line-height: 36px;
+}
+
+.ReactStyleguidist-Layout__sidebar {
+  width: 210px;
+}
+
+.ReactStyleguidist-TableOfContents__item {
+  font-size: 14px;
+}
+
+:focus {
+  outline: 0;
+}
+
+*::-ms-clear {
+  display: none;
+}

@@ -1,0 +1,33 @@
+.popup {
+  position: fixed;
+  z-index: 100;
+
+  opacity: 1;
+  border: none;
+  outline: none;
+}
+
+.opening {
+  opacity: 0;
+}
+
+.popup[aria-hidden="true"] {
+  display: inherit;
+  visibility: hidden;
+}
+
+.stretched {
+  display: flex;
+
+  width: 100%;
+  height: 100%;
+
+  flex-basis: auto;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.container,
+.trigger {
+  display: inline-block;
+}

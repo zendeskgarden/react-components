@@ -1,0 +1,34 @@
+#!/bin/bash
+rootDir="$(git rev-parse --show-toplevel)"
+currentDir="$(pwd)"
+
+if [ "--single-run" == "$1" ]
+then
+  shift
+   ./node_modules/.bin/karma start --single-run $*
+elif [ "--watch" == "$1" ]
+then
+  cd $rootDir
+  shift
+  ./node_modules/.bin/karma start $*
+elif [ "--grep" == "$1" ]
+then
+   cd $rootDir
+   PATTERN=$2
+   ./node_modules/.bin/karma run $* -- --grep "${PATTERN}"
+elif [ -z $1 ]
+then
+  cd $rootDir
+  ./node_modules/.bin/karma run $*
+elif grep -qm 1 describe $1
+then
+  PATTERN=$(grep -m 1 describe $1 | sed s/describe\(.// | sed s/.,.*//)
+  shift
+  echo karma run $* -- --grep "${PATTERN}"
+  cd $rootDir
+  ./node_modules/.bin/karma run $* -- --grep "${PATTERN}"
+fi
+
+exitStatus=${PIPESTATUS[0]}
+cd $currentDir
+exit $exitStatus

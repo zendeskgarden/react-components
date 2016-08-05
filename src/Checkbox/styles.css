@@ -1,0 +1,21 @@
+@import "zd-css-forms/dist/index.css";
+
+.checkbox {
+  composes: c-chk;
+}
+
+.rtl {
+  composes: is-rtl;
+}
+
+.focused {
+  composes: is-focused;
+}
+
+.input {
+  composes: c-chk__input;
+}
+
+.label {
+  composes: c-chk__label;
+}
