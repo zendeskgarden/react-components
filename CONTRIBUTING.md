@@ -44,8 +44,8 @@ When that tests are running in test mode, you can run the tests of a single file
 
 * You *must* have one :+1: in order to merge.
 * You are responsible for your code. You merge, you release.
-* You can coordinate the deploy on the
-  [Bastards](https://zendesk.slack.com/messages/bastardshq/) channel on Slack.
+* You can coordinate the release on
+[#bastardshq](https://zendesk.slack.com/messages/bastardshq/) or [#garden](https://zendesk.slack.com/messages/garden/).
 
 ## Releasing
 
