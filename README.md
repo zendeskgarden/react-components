@@ -29,7 +29,7 @@ for more information on the setup.
 
 ## Owners
 * Email: [bastards@zendesk.com](mailto:bastards@zendesk.com)
-* Slack: [#bastardshq](https://zendesk.slack.com/messages/bastardshq/)
+* Slack: [#bastardshq](https://zendesk.slack.com/messages/bastardshq/) or [#garden](https://zendesk.slack.com/messages/garden/)
 * GitHub: `@zendesk/bastards`
 
 ## Contribute
