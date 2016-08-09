@@ -53,7 +53,7 @@
     "karma-sinon": "1.0.5",
     "karma-sourcemap-loader": "0.3.7",
     "karma-spec-reporter": "0.0.26",
-    "karma-webpack-with-fast-source-maps": "1.9.2",
+    "karma-webpack": "1.8.0",
     "mocha": "2.5.3",
     "postcss-cssnext": "^2.4",
     "postcss-import": "8.1.0",
