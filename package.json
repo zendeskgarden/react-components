@@ -1,6 +1,6 @@
 {
   "name": "zd-react-components",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Shared React components",
   "private": "true",
   "main": "./dist/bundle.js",
