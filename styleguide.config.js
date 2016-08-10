@@ -12,7 +12,7 @@ module.exports = {
     {name: 'Core', content: './src/core/index.md', components: './src/core/*/index.js'},
     {name: 'Styleguide', content: './src/styleguide/index.md', components: './src/styleguide/*/index.js'}
   ],
-  serverPort: 4000,
+  serverPort: 5000,
   updateWebpackConfig: function (webpackConfig, env) {
     var sourceDir = path.join(__dirname, 'src')
     webpackConfig.entry.unshift('babel-polyfill')
