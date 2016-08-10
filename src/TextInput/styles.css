@@ -1,17 +1,16 @@
-@import "zd-css-variables";
-@import "zd-css-forms";
+@import 'zd-css-variables';
+@import 'zd-css-forms';
 
 .input {
   composes: c-txt__input;
 }
 
 .size_small {
-  line-height: 32px;
-
-  height: 32px;
-  min-height: 32px;
   padding-top: 0;
   padding-bottom: 0;
+  height: 32px;
+  min-height: 32px;
+  line-height: 32px;
 }
 
 .type_basic {

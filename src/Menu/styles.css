@@ -1,10 +1,11 @@
-@import "zd-css-menus";
-@import "zd-css-arrows";
+@import 'zd-css-variables';
+@import 'zd-css-menus';
+@import 'zd-css-arrows';
 
 .container {
-  position: relative;
-
   display: inline-block;
+
+  position: relative;
 }
 
 .stretched {
@@ -90,13 +91,13 @@
 
 .border_mask {
   position: absolute;
-  z-index: 1;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  z-index: 1;
 
-  background: white;
+  background: var(--zd-menu-background-color);
 }
 
 .position_bottom_stretch,

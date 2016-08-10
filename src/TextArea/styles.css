@@ -1,5 +1,5 @@
-@import "zd-css-variables";
-@import "zd-css-forms";
+@import 'zd-css-variables';
+@import 'zd-css-forms';
 
 .input {
   composes: c-txt__input c-txt__input--area;

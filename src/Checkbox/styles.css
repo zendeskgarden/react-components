@@ -1,4 +1,4 @@
-@import "zd-css-forms/dist/index.css";
+@import 'zd-css-forms/dist/index.css';
 
 .checkbox {
   composes: c-chk;

@@ -1,4 +1,4 @@
-@import "zd-css-modals";
+@import 'zd-css-modals';
 
 .backdrop {
   composes: l-backdrop;
@@ -8,7 +8,7 @@
   composes: c-dialog c-dialog--center;
 }
 
-.dialog[aria-hidden="true"] {
+.dialog[aria-hidden='true'] {
   display: none;
 }
 

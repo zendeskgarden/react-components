@@ -1,5 +1,5 @@
-@import "zd-css-buttons";
-@import "zd-css-variables";
+@import 'zd-css-buttons';
+@import 'zd-css-variables';
 
 .focused {
   composes: is-focused;
