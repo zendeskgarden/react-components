@@ -24,17 +24,3 @@ initialState={ value: '' };
   />
 </Grid>
 ```
-
-Types:
-
-```
-<Grid columns={1} stretched>
-  <TextArea
-    placeholder='Write something'
-  />
-  <TextArea
-    placeholder='Write something'
-    type='basic'
-  />
-</Grid>
-```

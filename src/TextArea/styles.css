@@ -1,28 +1,14 @@
 @import 'zd-css-variables';
 @import 'zd-css-forms';
 
+.txt {
+  composes: c-txt;
+}
+
 .input {
   composes: c-txt__input c-txt__input--area;
 }
 
 .resizable {
   composes: is-resizable;
-}
-
-.type_basic {
-  border-color: transparent;
-}
-
-.type_basic:hover {
-  border: var(--zd-txt__input-border);
-}
-
-.type_basic:hover:focus {
-  border-color: var(--zd-txt-focused-border-color);
-}
-
-.autoresizable {
-  overflow: hidden;
-
-  resize: none;
 }

@@ -17,17 +17,6 @@
   composes: c-btn c-btn--basic;
 }
 
-.type_danger {
-  color: color(var(--zd-color-dark-pastel-red) lightness(60%));
-
-  composes: c-btn;
-}
-
-.type_danger:focus,
-.type_danger:hover {
-  color: var(--zd-color-dark-pastel-red);
-}
-
 .pill {
   composes: c-btn--pill;
 }

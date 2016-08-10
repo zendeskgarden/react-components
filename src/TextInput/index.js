@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import classNames from 'classnames'
 
+import View from '../core/View'
 import Core from './Core'
+
 import styles from './styles.css'
 
 export default class TextInput extends Component {
@@ -10,6 +12,7 @@ export default class TextInput extends Component {
   static propTypes = {
     autoComplete: PropTypes.oneOf(['on', 'off']),
     autoFocus: PropTypes.bool,
+    className: PropTypes.string,
     isFocused: PropTypes.bool,
     dir: PropTypes.oneOf(['ltr', 'rtl']),
     name: PropTypes.string,
@@ -25,31 +28,28 @@ export default class TextInput extends Component {
     onFocus: PropTypes.func,
     onKeyDown: PropTypes.func,
     placeholder: PropTypes.string,
-    size: PropTypes.oneOf(['small', 'medium']),
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
-    type: PropTypes.oneOf(['default', 'basic']),
     value: PropTypes.string
   }
 
   static defaultProps = {
-    autoComplete: 'off',
-    size: 'medium',
-    type: 'default'
+    autoComplete: 'off'
   }
 
   render () {
     const {
-      type,
-      size,
+      className,
       ...other
     } = this.props
 
     return (
-      <Core
-        { ...other }
-        className={ classNames(styles.input, styles[`size_${size}`], styles[`type_${type}`]) }
-      />
+      <View className={ styles.txt }>
+        <Core
+          { ...other }
+          className={ classNames(styles.input, className) }
+        />
+      </View>
     )
   }
 }

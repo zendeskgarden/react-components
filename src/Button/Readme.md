@@ -1,14 +1,12 @@
 Types:
 
 ```
-<Grid columns={4}>
+<Grid columns={3}>
   <Button>Default</Button>
   <Button type='primary'>Primary</Button>
-  <Button type='danger'>Danger</Button>
   <Button type='basic'>Basic</Button>
   <Button pill>Default</Button>
   <Button pill type='primary'>Primary</Button>
-  <Button pill type='danger'>Danger</Button>
   <Button pill type='basic'>Basic</Button>
 </Grid>
 ```
@@ -41,8 +39,6 @@ States:
   <Button disabled>Disabled</Button>
   <Button type='primary'>Primary</Button>
   <Button type='primary' disabled>Disabled</Button>
-  <Button type='danger'>Danger</Button>
-  <Button type='danger' disabled>Disabled</Button>
   <Button type='basic'>Basic</Button>
   <Button type='basic' disabled>Disabled</Button>
 </Grid>

@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import classNames from 'classnames'
 
+import View from '../core/View'
 import Core from './Core'
+
 import styles from './styles.css'
 
 export default class TextArea extends Component {
@@ -10,6 +12,7 @@ export default class TextArea extends Component {
   static propTypes = {
     autoComplete: PropTypes.oneOf(['on', 'off']),
     autoFocus: PropTypes.bool,
+    className: PropTypes.string,
     isFocused: PropTypes.bool,
     dir: PropTypes.oneOf(['ltr', 'rtl']),
     name: PropTypes.string,
@@ -28,7 +31,6 @@ export default class TextArea extends Component {
     resizable: PropTypes.bool,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
-    type: PropTypes.oneOf(['default', 'basic']),
     value: PropTypes.string
   }
 
@@ -40,18 +42,20 @@ export default class TextArea extends Component {
 
   render () {
     const {
-      type,
+      className,
       resizable,
       ...other
     } = this.props
 
     return (
-      <Core
-        { ...other }
-        className={ classNames(styles.input, styles[`type_${type}`], {
-          [styles.resizable]: resizable
-        }) }
-      />
+      <View className={ styles.txt }>
+        <Core
+          { ...other }
+          className={ classNames(styles.input, {
+            [styles.resizable]: resizable
+          }, className) }
+        />
+      </View>
     )
   }
 }

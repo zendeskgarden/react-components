@@ -8,7 +8,8 @@ import styles from './styles.css'
 export default class Button extends Component {
   static propTypes = {
     autoFocus: PropTypes.bool,
-    type: PropTypes.oneOf(['default', 'primary', 'danger', 'basic']),
+    className: PropTypes.string,
+    type: PropTypes.oneOf(['default', 'primary', 'basic']),
     size: PropTypes.oneOf(['small', 'medium', 'large']),
     disabled: PropTypes.bool,
     stretched: PropTypes.bool,
@@ -36,6 +37,7 @@ export default class Button extends Component {
   render () {
     const {
       autoFocus,
+      className,
       children,
       disabled,
       stretched,
@@ -49,18 +51,19 @@ export default class Button extends Component {
     } = this.props
 
     const { focused } = this.state
-    const className = classNames(styles[`size_${size}`], {
-      [styles[`type_${type}`]]: !disabled,
-      [styles.focused]: focused,
-      [styles.pill]: pill,
-      [styles.stretched]: stretched,
-      [styles.disabled]: disabled
-    })
 
     return (
       <button
         autoFocus={ autoFocus }
-        className={ className }
+        className={
+          classNames(styles[`size_${size}`], {
+            [styles[`type_${type}`]]: !disabled,
+            [styles.focused]: focused,
+            [styles.pill]: pill,
+            [styles.stretched]: stretched,
+            [styles.disabled]: disabled
+          }, className)
+        }
         data-test-id={ testId }
         disabled={ disabled }
         onClick={ onClick }

@@ -1,26 +1,9 @@
-@import 'zd-css-variables';
 @import 'zd-css-forms';
+
+.txt {
+  composes: c-txt;
+}
 
 .input {
   composes: c-txt__input;
-}
-
-.size_small {
-  padding-top: 0;
-  padding-bottom: 0;
-  height: 32px;
-  min-height: 32px;
-  line-height: 20px;
-}
-
-.type_basic {
-  border-color: transparent;
-}
-
-.type_basic:hover {
-  border: var(--zd-txt__input-border);
-}
-
-.type_basic:hover:focus {
-  border-color: var(--zd-txt-focused-border-color);
 }
