@@ -7,7 +7,7 @@
   "scripts": {
     "start": "styleguidist server",
     "build": "styleguidist build",
-    "lint": "standard && stylelint",
+    "lint": "standard && stylelint ./src/**/*.css",
     "test": "karma start --single-run; npm run lint",
     "dist": "webpack --progress && NODE_ENV=production webpack -p --progress",
     "changelog": "github-changes -o zendeskgarden -r react-components -a --only-pulls --use-commit-body",
