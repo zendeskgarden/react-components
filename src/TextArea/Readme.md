@@ -29,10 +29,10 @@ Types:
 
 ```
 <Grid columns={1} stretched>
-  <TextInput
+  <TextArea
     placeholder='Write something'
   />
-  <TextInput
+  <TextArea
     placeholder='Write something'
     type='basic'
   />
