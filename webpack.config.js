@@ -38,7 +38,7 @@ module.exports = {
         test: /\.css$/,
         loader: [
           'style',
-          'css?module&importLoaders=1&localIdentName=ssc-[path]-[local]-[hash:base64:5]!postcss'
+          'css?module&importLoaders=1&localIdentName=rc-[path]-[local]-[hash:base64:5]!postcss'
         ]
       },
       {
