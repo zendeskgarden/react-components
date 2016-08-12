@@ -1,6 +1,7 @@
 export { default as Avatar } from './Avatar'
 export { default as Button } from './Button'
 export { default as Checkbox } from './Checkbox'
+export { default as Ellipsis } from './core/Ellipsis'
 export { default as Menu } from './Menu'
 export { default as Modal } from './Modal'
 export { default as RelativePositionedPopup } from './core/RelativePositionedPopup'
