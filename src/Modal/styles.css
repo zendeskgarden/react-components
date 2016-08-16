@@ -1,11 +1,14 @@
 @import 'zd-css-modals';
 
 .backdrop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   composes: l-backdrop;
 }
 
 .dialog {
-  composes: c-dialog c-dialog--center;
+  composes: c-dialog;
 }
 
 .dialog[aria-hidden='true'] {

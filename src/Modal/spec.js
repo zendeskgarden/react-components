@@ -21,7 +21,7 @@ describe('Modal', () => {
         >
           <section
             aria-labelledby='dialog-title'
-            className='dialog c-dialog c-dialog--center'
+            className='dialog c-dialog'
             role='dialog'
             tabIndex='-1'
           >
@@ -61,7 +61,7 @@ describe('Modal', () => {
         >
           <section
             aria-labelledby='dialog-title'
-            className='dialog c-dialog c-dialog--center'
+            className='dialog c-dialog'
             role='dialog'
             tabIndex='-1'
           >
