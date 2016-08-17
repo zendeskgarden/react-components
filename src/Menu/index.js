@@ -20,6 +20,8 @@ export default class Menu extends Component {
     ]),
     children: PropTypes.node.isRequired,
     fixedWidth: PropTypes.bool,
+    onClose: PropTypes.func,
+    onOpen: PropTypes.func,
     onSelect: PropTypes.func,
     marginBottom: PropTypes.number,
     marginLeft: PropTypes.number,
@@ -97,14 +99,22 @@ export default class Menu extends Component {
   }
 
   showMenu = () => {
+    const { onOpen } = this.props
+
     if (this.state.hidden) {
-      this.setState({ hidden: false })
+      this.setState({ hidden: false }, () => {
+        onOpen && onOpen()
+      })
     }
   }
 
   closeMenu = () => {
+    const { onClose } = this.props
+
     this.selectionModel.clear()
-    this.setState({ hidden: true })
+    this.setState({ hidden: true }, () => {
+      onClose && onClose()
+    })
   }
 
   toggleHidden = () => {

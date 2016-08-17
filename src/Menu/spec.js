@@ -1,5 +1,6 @@
 import React from 'react'
 import unexpected from 'test/expect'
+import sinon from 'sinon'
 import Menu from './'
 import View from '../core/View'
 import Button from '../Button'
@@ -211,6 +212,49 @@ describe('Menu', () => {
         'to contain',
         <View className='menu fixed_width'/>
       )
+    })
+  })
+
+  describe('visibility hooks', () => {
+    it('onOpen is called when the menu is shown', () => {
+      const onOpen = sinon.spy()
+
+      return expect(
+        <Menu
+          trigger={ <Button>trigger</Button> }
+          onOpen={ onOpen }
+        >
+          <Menu.Item>One</Menu.Item>
+          <Menu.Item>Two</Menu.Item>
+          <Menu.Item>Three</Menu.Item>
+        </Menu>,
+        'when clicking on the trigger',
+        'to satisfy', () => {
+          expect(onOpen, 'was called once')
+        }
+      )
+    })
+
+    it('onClose is called when the menu is closed', () => {
+      const onClose = sinon.spy()
+
+      return expect(
+        <Menu
+          trigger={ <Button>trigger</Button> }
+          onClose={ onClose }
+        >
+          <Menu.Item>One</Menu.Item>
+          <Menu.Item>Two</Menu.Item>
+          <Menu.Item>Three</Menu.Item>
+        </Menu>,
+        'when deeply rendered',
+        'with event', 'click', 'on',
+        <Button>trigger</Button>,
+        'with event', 'click', 'on',
+        <Button>trigger</Button>
+      ).then(() => {
+        expect(onClose, 'was called once')
+      })
     })
   })
 })

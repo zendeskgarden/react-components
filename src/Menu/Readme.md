@@ -255,3 +255,25 @@ Using the menu styling in other components:
   <Menu.Item>Sign Out</Menu.Item>
 </Menu.Container>
 ```
+
+Visibility hooks:
+
+```
+initialState = { hidden: true };
+
+<Grid columns={1}>
+  <Text>{ `Menu is ${ state.hidden ? 'closed' : 'open' }` }</Text>
+  <Menu
+    trigger={ <Button>Large</Button> }
+    onOpen={ () => setState({ hidden: false }) }
+    onClose={ () => setState({ hidden: true }) }
+  >
+    <Menu.Item>Profile</Menu.Item>
+    <Menu.Item>Settings</Menu.Item>
+    <Menu.Item>Theme Editor</Menu.Item>
+    <Menu.Separator/>
+    <Menu.Item>Article Editor</Menu.Item>
+    <Menu.Item>Sign Out</Menu.Item>
+  </Menu>
+</Grid>
+```
