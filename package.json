@@ -79,6 +79,7 @@
     "zd-css-forms": "git+ssh://git@github.com/zendeskgarden/css-forms.git#0.0.6",
     "zd-css-menus": "git+ssh://git@github.com/zendeskgarden/css-menus.git#1.2.0",
     "zd-css-modals": "git+ssh://git@github.com/zendeskgarden/css-modals.git#0.1.1",
+    "zd-css-tabs": "git+ssh://git@github.com/zendeskgarden/css-tabs.git#1.0.0",
     "zd-css-variables": "git+ssh://git@github.com/zendeskgarden/css-variables.git#0.3.0",
     "zd-svg-icons": "git+ssh://git@github.com/zendeskgarden/svg-icons.git#0.3.1"
   },

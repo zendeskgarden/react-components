@@ -1,0 +1,37 @@
+@import 'zd-css-tabs/dist/index.css';
+
+.tabs {
+  composes: c-tab;
+}
+
+.list {
+  composes: c-tab__list;
+}
+
+.label {
+  composes: c-tab__list__item;
+}
+
+.panel {
+  composes: c-tab__panel;
+}
+
+.selected {
+  composes: is-selected;
+}
+
+.focused {
+  composes: is-focused;
+}
+
+.vertical {
+  composes: c-tab--block;
+}
+
+.disabled {
+  composes: is-disabled;
+}
+
+.rtl {
+  composes: is-rtl;
+}
