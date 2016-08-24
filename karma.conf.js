@@ -57,7 +57,6 @@ module.exports = function (config) {
           'test/expect': path.join(__dirname, 'test', 'unexpected-with-plugins.js'),
           'sinon': path.join(__dirname, 'test', 'sinon.js')
         },
-        extensions: ['', '.js', '.jsx', '.json', '.css'],
         fallback: path.join(__dirname, 'node_modules')
       },
       resolveLoader: { fallback: path.join(__dirname, 'node_modules') }
