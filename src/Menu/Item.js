@@ -10,6 +10,9 @@ class Item extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
     disabled: PropTypes.bool,
+    onMouseDown: PropTypes.func,
+    onMouseEnter: PropTypes.func,
+    onMouseLeave: PropTypes.func,
     onSelect: PropTypes.func,
     role: PropTypes.string,
     selected: PropTypes.bool,
@@ -26,6 +29,9 @@ class Item extends Component {
     const {
       children,
       disabled,
+      onMouseDown,
+      onMouseEnter,
+      onMouseLeave,
       role,
       selected,
       testId
@@ -33,10 +39,16 @@ class Item extends Component {
 
     return (
       <View
+        aria-activedescendant={ selected }
+        aria-disabled={ disabled }
         className={ classNames(styles.item, {
           [styles.disabled]: disabled,
           [styles.selected]: selected
         }) }
+        disabled={ disabled }
+        onMouseDown={ onMouseDown }
+        onMouseEnter={ onMouseEnter }
+        onMouseLeave={ onMouseLeave }
         role={ role }
         testId={ testId }
       >

@@ -46,6 +46,12 @@ describe('SingleSelectionModel', () => {
         expect(model.selectPrevious(), 'to be false')
       })
     })
+
+    describe('reactivate', () => {
+      it('returns false as no change happened', () => {
+        expect(model.reactivate(), 'to be false')
+      })
+    })
   })
 
   describe('with items', () => {
@@ -178,6 +184,36 @@ describe('SingleSelectionModel', () => {
           model.selectPrevious()
           expect(model.onSelectionChanged, 'to have calls satisfying', () => {
             model.onSelectionChanged('baz', null)
+          })
+        })
+      })
+    })
+
+    describe('reactivate', () => {
+      describe('when the selection has never been cleared', () => {
+        it('selects the first item', () => {
+          model.reactivate()
+          expect(model, 'to have selection', 'foo')
+        })
+      })
+
+      describe('when the selection has been cleared', () => {
+        it('reactivates the old selection', () => {
+          model.selection = 'bar'
+          model.clear()
+          expect(model, 'to have no selection')
+          expect(model.reactivate(), 'to be true')
+          expect(model, 'to have selection', 'bar')
+        })
+
+        describe('and the old selection no longer exists', () => {
+          it('selects the first item', () => {
+            model.selection = 'bar'
+            model.clear()
+            model.items = ['foo', 'baz']
+            expect(model, 'to have no selection')
+            expect(model.reactivate(), 'to be true')
+            expect(model, 'to have selection', 'foo')
           })
         })
       })

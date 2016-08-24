@@ -86,8 +86,37 @@ export default class SingleSelectionModel {
     }
   }
 
+  selectFirst () {
+    if (this.items.length > 0) {
+      this.select(this.items[0] || null)
+      return true
+    } else {
+      return false
+    }
+  }
+
+  selectLast () {
+    if (this.items.length > 0) {
+      this.select(this.items[this.items.length - 1] || null)
+      return true
+    } else {
+      return false
+    }
+  }
+
   clear () {
+    this.clearedSelection = this.selection
     this.select(null)
+  }
+
+  reactivate () {
+    if (this.items.indexOf(this.clearedSelection) === -1) {
+      return this.selectFirst()
+    }
+
+    this.select(this.clearedSelection)
+    this.clearedSelection = null
+    return true
   }
 
   hasSelection () {

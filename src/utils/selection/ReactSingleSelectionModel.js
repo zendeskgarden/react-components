@@ -2,7 +2,12 @@ import React from 'react'
 import SingleSelectionModel from './SingleSelectionModel'
 
 export default class ReactSingleSelectionModel {
-  constructor ({ wrapping = 'items', selectOnSpace = true } = {}) {
+  constructor ({
+    rtl = false,
+    wrapping = 'items',
+    selectOnSpace = true,
+    vertical = true
+  } = {}) {
     this.model = new SingleSelectionModel({ wrapping })
     this.onSelectionChanged = null
     this.onValueChosen = null
@@ -11,7 +16,10 @@ export default class ReactSingleSelectionModel {
         this.onSelectionChanged && this.onSelectionChanged()
       }
     }
+    this.selectedByMouse = false
     this.selectOnSpace = selectOnSpace
+    this.rtl = rtl
+    this.vertical = vertical
     this._items = []
   }
 
@@ -36,8 +44,13 @@ export default class ReactSingleSelectionModel {
     return React.Children.map(this._items, (child) => {
       if (child && child.type && child.type.selectable) {
         return React.cloneElement(child, {
-          onSelect: () => this.model.select(child),
-          onValueChosen: (value) => {
+          selectedByMouse: this.selectedByMouse,
+          onSelect: () => {
+            this.selectedByMouse = true
+            this.model.select(child)
+          },
+          onValueChosen: () => {
+            this.selectedByMouse = true
             if (this.model.selection !== child) {
               this.model.select(child)
             }
@@ -60,15 +73,28 @@ export default class ReactSingleSelectionModel {
   }
 
   handleKeyDown = (event) => {
-    const keyDownHandlers = {
-      '13': this.onEnter,
-      '32': this.onSpace,
-      '38': this.onArrowUp,
-      '40': this.onArrowDown
-    }
+    const keyDownHandlers = this.vertical
+      ? {
+        '13': this.onEnter,
+        '32': this.onSpace,
+        '38': this.onArrowUp,
+        '40': this.onArrowDown
+      }
+      : {
+        '13': this.onEnter,
+        '32': this.onSpace,
+        '37': this.onArrowLeft,
+        '39': this.onArrowRight
+      }
+
+    keyDownHandlers['35'] = this.onEnd
+    keyDownHandlers['36'] = this.onHome
 
     const handler = keyDownHandlers[event.keyCode]
-    handler && handler(event)
+    if (handler) {
+      this.selectedByMouse = false
+      handler(event)
+    }
   }
 
   choseSelection = () => {
@@ -109,6 +135,46 @@ export default class ReactSingleSelectionModel {
       event.preventDefault()
       event.stopPropagation()
     }
+  }
+
+  onArrowRight = (event) => {
+    const success = this.rtl
+          ? this.model.selectPrevious()
+          : this.model.selectNext()
+
+    if (success) {
+      event.preventDefault()
+      event.stopPropagation()
+    }
+  }
+
+  onArrowLeft = (event) => {
+    const success = this.rtl
+          ? this.model.selectNext()
+          : this.model.selectPrevious()
+
+    if (success) {
+      event.preventDefault()
+      event.stopPropagation()
+    }
+  }
+
+  onHome = (event) => {
+    if (this.model.selectFirst()) {
+      event.preventDefault()
+      event.stopPropagation()
+    }
+  }
+
+  onEnd = (event) => {
+    if (this.model.selectLast()) {
+      event.preventDefault()
+      event.stopPropagation()
+    }
+  }
+
+  reactivate = () => {
+    this.model.reactivate()
   }
 
   clear = () => {

@@ -1,11 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 import { findDOMNode } from 'react-dom'
 
-import View from '../View'
-
 const Selectable = (ChildComponent, {
   preventDefault = false,
-  selectOnHover = true
+  selectOnHover = true,
+  selectEvent = 'onMouseDown'
 } = {}) => {
   class Selectable extends Component {
     static selectable = true
@@ -22,7 +21,7 @@ const Selectable = (ChildComponent, {
       disabled: false
     }
 
-    onMouseDown = (e) => {
+    onSelect = (e) => {
       const { disabled, onValueChosen, value } = this.props
 
       if (!disabled && onValueChosen) {
@@ -36,7 +35,7 @@ const Selectable = (ChildComponent, {
     onMouseEnter = (e) => {
       const { onSelect } = this.props
 
-      this.setState({ hover: true })
+      this.hover = true
       if (selectOnHover) {
         setTimeout(() => {
           onSelect && onSelect(e, this)
@@ -45,14 +44,13 @@ const Selectable = (ChildComponent, {
     }
 
     onMouseLeave = (e) => {
-      this.setState({ hover: false })
+      this.hover = false
     }
 
     componentWillReceiveProps (nextProps) {
       const { selected } = this.props
-      const { hover } = this.state || {}
 
-      if (!selected && nextProps.selected && !hover) {
+      if (!selected && nextProps.selected && !this.hover) {
         setTimeout(() => {
           if (this.domNode.scrollIntoViewIfNeeded) {
             this.domNode.scrollIntoViewIfNeeded(false)
@@ -64,24 +62,20 @@ const Selectable = (ChildComponent, {
     }
 
     render () {
-      const {
-        disabled,
-        selected
-      } = this.props
+      const props = {
+        ...this.props,
+        onMouseEnter: this.onMouseEnter,
+        onMouseLeave: this.onMouseLeave,
+        [selectEvent]: this.onSelect
+      }
 
       return (
-        <View
-          aria-disabled={ disabled }
-          aria-activedescendant={ selected }
-          onMouseDown={ this.onMouseDown }
-          onMouseEnter={ this.onMouseEnter }
-          onMouseLeave={ this.onMouseLeave }
+        <ChildComponent
           ref={ (ref) => {
             this.domNode = this.domNode || (ref && findDOMNode(ref))
           } }
-        >
-          <ChildComponent { ...this.props }/>
-        </View>
+          { ...props }
+        />
       )
     }
   }
