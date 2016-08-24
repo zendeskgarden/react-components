@@ -1,5 +1,8 @@
 ## Change Log
 
+### v1.0.0 (2016/08/24 12:17 +00:00)
+- [#10](https://github.com/zendeskgarden/react-components/pull/10) Tabs component (Major) (@sunesimonsen)
+
 ### v0.4.0 (2016/08/17 09:23 +00:00)
 - [#9](https://github.com/zendeskgarden/react-components/pull/9) Added visibility hooks for the menu (@sunesimonsen)
 
