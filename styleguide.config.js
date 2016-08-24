@@ -60,8 +60,6 @@ module.exports = {
       cssnext()
     ]
 
-    webpackConfig.resolve.extensions.push('.js', '.css', '.svg')
-
     return webpackConfig
   }
 }
