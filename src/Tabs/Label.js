@@ -3,7 +3,7 @@ import classNames from 'classnames'
 
 import Selectable from '../core/Selectable'
 
-import styles from './styles'
+import styles from './styles.css'
 
 class Label extends Component {
   static propTypes = {
