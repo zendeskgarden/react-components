@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 
 import View from '../core/View'
 
-import styles from './styles'
+import styles from './styles.css'
 
 export default class Panel extends Component {
   static propTypes = {
