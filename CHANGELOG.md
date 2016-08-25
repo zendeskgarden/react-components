@@ -1,5 +1,8 @@
 ## Change Log
 
+### v1.0.1 (2016/08/25 08:07 +00:00)
+- [#13](https://github.com/zendeskgarden/react-components/pull/13) Fixes flashing focus bug in the tabs component (@sunesimonsen)
+
 ### v1.0.0 (2016/08/24 12:17 +00:00)
 - [#10](https://github.com/zendeskgarden/react-components/pull/10) Tabs component (Major) (@sunesimonsen)
 
