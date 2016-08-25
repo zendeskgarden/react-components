@@ -178,6 +178,7 @@ export default class ReactSingleSelectionModel {
   }
 
   clear = () => {
+    this.selectedByMouse = false
     this.model.clear()
   }
 }

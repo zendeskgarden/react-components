@@ -35,6 +35,7 @@ export default class Tabs extends Component {
     })
     this.selectionModel.onSelectionChanged = this.onSelectionChanged
     this.selectionModel.onValueChosen = props.onActivate
+    this.keyboard = true
     this.state = {}
   }
 
@@ -149,9 +150,16 @@ export default class Tabs extends Component {
         <ul
           className={ styles.list }
           onFocus={ () => {
-            if (!this.selectionModel.hasSelection()) {
+            if (!this.selectionModel.hasSelection() && this.keyboard) {
               this.selectionModel.reactivate()
             }
+            this.keyboard = true
+          } }
+          onMouseDown={ () => {
+            this.keyboard = false
+            setTimeout(() => {
+              this.keyboard = true
+            }, 0)
           } }
           onBlur={ this.selectionModel.clear }
           onKeyDown={ this.selectionModel.handleKeyDown }
