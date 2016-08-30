@@ -1,33 +1,37 @@
-import React, { PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react'
 
-const Text = ({
-  children,
-  className,
-  onClick,
-  tabIndex,
-  testId,
-  title,
-  ...others
-}) => (
-  <span
-    className={ className }
-    data-test-id={ testId }
-    onClick={ onClick }
-    tabIndex={ tabIndex }
-    title={ title }
-    { ...others }
-  >
-    { children }
-  </span>
-)
+export default class Text extends Component {
+  static propTypes = {
+    children: PropTypes.node,
+    className: PropTypes.string,
+    onClick: PropTypes.func,
+    tabIndex: PropTypes.number,
+    testId: PropTypes.string,
+    title: PropTypes.string
+  }
 
-Text.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  onClick: PropTypes.func,
-  tabIndex: PropTypes.number,
-  testId: PropTypes.string,
-  title: PropTypes.string
+  render () {
+    const {
+      children,
+      className,
+      onClick,
+      tabIndex,
+      testId,
+      title,
+      ...others
+    } = this.props
+
+    return (
+      <span
+        className={ className }
+        data-test-id={ testId }
+        onClick={ onClick }
+        tabIndex={ tabIndex }
+        title={ title }
+        { ...others }
+      >
+        { children }
+      </span>
+    )
+  }
 }
-
-export default Text
