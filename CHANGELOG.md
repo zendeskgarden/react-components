@@ -1,5 +1,10 @@
 ## Change Log
 
+### v1.1.0 (2016/08/30 09:07 +00:00)
+- [#17](https://github.com/zendeskgarden/react-components/pull/17) Make css class names shorter (@sunesimonsen)
+- [#14](https://github.com/zendeskgarden/react-components/pull/14) Make the Text and View Stateless components (@sunesimonsen)
+- [#16](https://github.com/zendeskgarden/react-components/pull/16) Added support for the Garden button group (@sunesimonsen)
+
 ### v1.0.1 (2016/08/25 08:07 +00:00)
 - [#13](https://github.com/zendeskgarden/react-components/pull/13) Fixes flashing focus bug in the tabs component (@sunesimonsen)
 
