@@ -186,6 +186,26 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
 
+	var _getPrototypeOf = __webpack_require__(3);
+
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+	var _classCallCheck2 = __webpack_require__(1);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(2);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(5);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(4);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
 	var _keys = __webpack_require__(104);
 
 	var _keys2 = _interopRequireDefault(_keys);
@@ -210,61 +230,76 @@ return /******/ (function(modules) { // webpackBootstrap
 	  });
 	};
 
-	var View = function View(_ref) {
-	  var children = _ref.children;
-	  var className = _ref.className;
-	  var hidden = _ref.hidden;
-	  var onArrowDown = _ref.onArrowDown;
-	  var onArrowLeft = _ref.onArrowLeft;
-	  var onArrowRight = _ref.onArrowRight;
-	  var onArrowUp = _ref.onArrowUp;
-	  var onDelete = _ref.onDelete;
-	  var onEnter = _ref.onEnter;
-	  var onEscape = _ref.onEscape;
-	  var onKeyDown = _ref.onKeyDown;
-	  var onSpace = _ref.onSpace;
-	  var testId = _ref.testId;
-	  var other = (0, _objectWithoutProperties3.default)(_ref, ['children', 'className', 'hidden', 'onArrowDown', 'onArrowLeft', 'onArrowRight', 'onArrowUp', 'onDelete', 'onEnter', 'onEscape', 'onKeyDown', 'onSpace', 'testId']);
+	var View = function (_Component) {
+	  (0, _inherits3.default)(View, _Component);
 
-	  var keyDownHandlers = {
-	    '8': onDelete,
-	    '13': onEnter,
-	    '27': onEscape,
-	    '32': onSpace,
-	    '37': onArrowLeft,
-	    '38': onArrowUp,
-	    '39': onArrowRight,
-	    '40': onArrowDown
-	  };
-
-	  var eventHandlers = {};
-
-	  if (onKeyDown || hasAnyHandlers(keyDownHandlers)) {
-	    eventHandlers.onKeyDown = function (e) {
-	      var handler = keyDownHandlers[e.keyCode];
-	      handler && handler(e);
-	      onKeyDown && onKeyDown(e);
-	    };
+	  function View() {
+	    (0, _classCallCheck3.default)(this, View);
+	    return (0, _possibleConstructorReturn3.default)(this, (View.__proto__ || (0, _getPrototypeOf2.default)(View)).apply(this, arguments));
 	  }
 
-	  var newProps = (0, _extends3.default)({}, other, eventHandlers);
+	  (0, _createClass3.default)(View, [{
+	    key: 'render',
+	    value: function render() {
+	      var _props = this.props;
+	      var children = _props.children;
+	      var className = _props.className;
+	      var hidden = _props.hidden;
+	      var onArrowDown = _props.onArrowDown;
+	      var onArrowLeft = _props.onArrowLeft;
+	      var onArrowRight = _props.onArrowRight;
+	      var onArrowUp = _props.onArrowUp;
+	      var onDelete = _props.onDelete;
+	      var onEnter = _props.onEnter;
+	      var onEscape = _props.onEscape;
+	      var onKeyDown = _props.onKeyDown;
+	      var onSpace = _props.onSpace;
+	      var testId = _props.testId;
+	      var other = (0, _objectWithoutProperties3.default)(_props, ['children', 'className', 'hidden', 'onArrowDown', 'onArrowLeft', 'onArrowRight', 'onArrowUp', 'onDelete', 'onEnter', 'onEscape', 'onKeyDown', 'onSpace', 'testId']);
 
-	  if (testId) {
-	    newProps['data-test-id'] = testId;
-	  }
 
-	  if (hidden) {
-	    newProps['aria-hidden'] = true;
-	  }
+	      var keyDownHandlers = {
+	        '8': onDelete,
+	        '13': onEnter,
+	        '27': onEscape,
+	        '32': onSpace,
+	        '37': onArrowLeft,
+	        '38': onArrowUp,
+	        '39': onArrowRight,
+	        '40': onArrowDown
+	      };
 
-	  return _react2.default.createElement(
-	    'div',
-	    (0, _extends3.default)({}, newProps, {
-	      className: (0, _classnames2.default)(_styles2.default.view, className)
-	    }),
-	    children
-	  );
-	};
+	      var eventHandlers = {};
+
+	      if (onKeyDown || hasAnyHandlers(keyDownHandlers)) {
+	        eventHandlers.onKeyDown = function (e) {
+	          var handler = keyDownHandlers[e.keyCode];
+	          handler && handler(e);
+	          onKeyDown && onKeyDown(e);
+	        };
+	      }
+
+	      var props = (0, _extends3.default)({}, other, eventHandlers);
+
+	      if (testId) {
+	        props['data-test-id'] = testId;
+	      }
+
+	      if (hidden) {
+	        props['aria-hidden'] = true;
+	      }
+
+	      return _react2.default.createElement(
+	        'div',
+	        (0, _extends3.default)({}, props, {
+	          className: (0, _classnames2.default)(_styles2.default.view, className)
+	        }),
+	        children
+	      );
+	    }
+	  }]);
+	  return View;
+	}(_react.Component);
 
 	View.propTypes = {
 	  autoFocus: _react.PropTypes.bool,
@@ -290,7 +325,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  testId: _react.PropTypes.string,
 	  title: _react.PropTypes.string
 	};
-
 	exports.default = View;
 
 /***/ },
@@ -1044,7 +1078,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    (0, _inherits3.default)(Selectable, _Component);
 
 	    function Selectable() {
-	      var _Object$getPrototypeO;
+	      var _ref2;
 
 	      var _temp, _this, _ret;
 
@@ -1054,7 +1088,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        args[_key] = arguments[_key];
 	      }
 
-	      return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_Object$getPrototypeO = (0, _getPrototypeOf2.default)(Selectable)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.onSelect = function (e) {
+	      return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref2 = Selectable.__proto__ || (0, _getPrototypeOf2.default)(Selectable)).call.apply(_ref2, [this].concat(args))), _this), _this.onSelect = function (e) {
 	        var _this$props = _this.props;
 	        var disabled = _this$props.disabled;
 	        var onValueChosen = _this$props.onValueChosen;
@@ -1111,8 +1145,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }, selectEvent, this.onSelect));
 
 	        return _react2.default.createElement(ChildComponent, (0, _extends4.default)({
-	          ref: function ref(_ref2) {
-	            _this3.domNode = _this3.domNode || _ref2 && (0, _reactDom.findDOMNode)(_ref2);
+	          ref: function ref(_ref3) {
+	            _this3.domNode = _this3.domNode || _ref3 && (0, _reactDom.findDOMNode)(_ref3);
 	          }
 	        }, props));
 	      }
@@ -1465,7 +1499,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  (0, _inherits3.default)(RelativePositionedPopup, _Component);
 
 	  function RelativePositionedPopup() {
-	    var _Object$getPrototypeO;
+	    var _ref;
 
 	    var _temp, _this, _ret;
 
@@ -1475,7 +1509,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      args[_key] = arguments[_key];
 	    }
 
-	    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_Object$getPrototypeO = (0, _getPrototypeOf2.default)(RelativePositionedPopup)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.updatePlacement = function () {
+	    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = RelativePositionedPopup.__proto__ || (0, _getPrototypeOf2.default)(RelativePositionedPopup)).call.apply(_ref, [this].concat(args))), _this), _this.updatePlacement = function () {
 	      var hidden = _this.props.hidden;
 
 
@@ -1617,10 +1651,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var testId = _props.testId;
 	      var stretched = _props.stretched;
 
-	      var _ref = this.state || {};
+	      var _ref2 = this.state || {};
 
-	      var opening = _ref.opening;
-	      var placement = _ref.placement;
+	      var opening = _ref2.opening;
+	      var placement = _ref2.placement;
 
 
 	      var popupStyle = null;
@@ -1645,8 +1679,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	          _View2.default,
 	          {
 	            className: (0, _classnames2.default)(_styles2.default.trigger, (0, _defineProperty3.default)({}, _styles2.default.stretched, stretched)),
-	            ref: function ref(_ref2) {
-	              _this5.anchorElement = (0, _reactDom.findDOMNode)(_ref2);
+	            ref: function ref(_ref3) {
+	              _this5.anchorElement = (0, _reactDom.findDOMNode)(_ref3);
 	            }
 	          },
 	          anchor
@@ -1657,8 +1691,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            className: (0, _classnames2.default)(_styles2.default.popup, (0, _defineProperty3.default)({}, _styles2.default.opening, opening)),
 	            hidden: hidden,
 	            style: popupStyle,
-	            ref: function ref(_ref3) {
-	              _this5.popupElement = (0, _reactDom.findDOMNode)(_ref3);
+	            ref: function ref(_ref4) {
+	              _this5.popupElement = (0, _reactDom.findDOMNode)(_ref4);
 	            }
 	          },
 	          hidden ? null : children(position)
@@ -1711,32 +1745,68 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
 
+	var _getPrototypeOf = __webpack_require__(3);
+
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+	var _classCallCheck2 = __webpack_require__(1);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(2);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(5);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(4);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
 	var _react = __webpack_require__(0);
 
 	var _react2 = _interopRequireDefault(_react);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var Text = function Text(_ref) {
-	  var children = _ref.children;
-	  var className = _ref.className;
-	  var onClick = _ref.onClick;
-	  var tabIndex = _ref.tabIndex;
-	  var testId = _ref.testId;
-	  var title = _ref.title;
-	  var others = (0, _objectWithoutProperties3.default)(_ref, ['children', 'className', 'onClick', 'tabIndex', 'testId', 'title']);
-	  return _react2.default.createElement(
-	    'span',
-	    (0, _extends3.default)({
-	      className: className,
-	      'data-test-id': testId,
-	      onClick: onClick,
-	      tabIndex: tabIndex,
-	      title: title
-	    }, others),
-	    children
-	  );
-	};
+	var Text = function (_Component) {
+	  (0, _inherits3.default)(Text, _Component);
+
+	  function Text() {
+	    (0, _classCallCheck3.default)(this, Text);
+	    return (0, _possibleConstructorReturn3.default)(this, (Text.__proto__ || (0, _getPrototypeOf2.default)(Text)).apply(this, arguments));
+	  }
+
+	  (0, _createClass3.default)(Text, [{
+	    key: 'render',
+	    value: function render() {
+	      var _props = this.props;
+	      var children = _props.children;
+	      var className = _props.className;
+	      var onClick = _props.onClick;
+	      var tabIndex = _props.tabIndex;
+	      var testId = _props.testId;
+	      var title = _props.title;
+	      var others = (0, _objectWithoutProperties3.default)(_props, ['children', 'className', 'onClick', 'tabIndex', 'testId', 'title']);
+
+
+	      return _react2.default.createElement(
+	        'span',
+	        (0, _extends3.default)({
+	          className: className,
+	          'data-test-id': testId,
+	          onClick: onClick,
+	          tabIndex: tabIndex,
+	          title: title
+	        }, others),
+	        children
+	      );
+	    }
+	  }]);
+	  return Text;
+	}(_react.Component);
 
 	Text.propTypes = {
 	  children: _react.PropTypes.node,
@@ -1746,7 +1816,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  testId: _react.PropTypes.string,
 	  title: _react.PropTypes.string
 	};
-
 	exports.default = Text;
 
 /***/ },
@@ -2482,7 +2551,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  function Avatar() {
 	    (0, _classCallCheck3.default)(this, Avatar);
-	    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Avatar).apply(this, arguments));
+	    return (0, _possibleConstructorReturn3.default)(this, (Avatar.__proto__ || (0, _getPrototypeOf2.default)(Avatar)).apply(this, arguments));
 	  }
 
 	  (0, _createClass3.default)(Avatar, [{
@@ -2582,7 +2651,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function Button(props, context) {
 	    (0, _classCallCheck3.default)(this, Button);
 
-	    var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Button).call(this, props, context));
+	    var _this = (0, _possibleConstructorReturn3.default)(this, (Button.__proto__ || (0, _getPrototypeOf2.default)(Button)).call(this, props, context));
 
 	    _this.keyboard = true;
 	    _this.state = {
@@ -2767,7 +2836,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function Checkbox(props, context) {
 	    (0, _classCallCheck3.default)(this, Checkbox);
 
-	    var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Checkbox).call(this, props, context));
+	    var _this = (0, _possibleConstructorReturn3.default)(this, (Checkbox.__proto__ || (0, _getPrototypeOf2.default)(Checkbox)).call(this, props, context));
 
 	    _this.toggle = function () {
 	      var _this$props = _this.props;
@@ -2943,7 +3012,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function Menu(props) {
 	    (0, _classCallCheck3.default)(this, Menu);
 
-	    var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Menu).call(this, props));
+	    var _this = (0, _possibleConstructorReturn3.default)(this, (Menu.__proto__ || (0, _getPrototypeOf2.default)(Menu)).call(this, props));
 
 	    _this.componentWillReceiveProps = function (nextProps) {
 	      var children = nextProps.children;
@@ -3195,7 +3264,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  function Modal() {
 	    (0, _classCallCheck3.default)(this, Modal);
-	    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Modal).apply(this, arguments));
+	    return (0, _possibleConstructorReturn3.default)(this, (Modal.__proto__ || (0, _getPrototypeOf2.default)(Modal)).apply(this, arguments));
 	  }
 
 	  (0, _createClass3.default)(Modal, [{
@@ -3333,7 +3402,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function Tabs(props) {
 	    (0, _classCallCheck3.default)(this, Tabs);
 
-	    var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Tabs).call(this, props));
+	    var _this = (0, _possibleConstructorReturn3.default)(this, (Tabs.__proto__ || (0, _getPrototypeOf2.default)(Tabs)).call(this, props));
 
 	    _this.onSelectionChanged = function () {
 	      var labels = _this.selectionModel.items;
@@ -3580,7 +3649,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  function TextArea() {
 	    (0, _classCallCheck3.default)(this, TextArea);
-	    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(TextArea).apply(this, arguments));
+	    return (0, _possibleConstructorReturn3.default)(this, (TextArea.__proto__ || (0, _getPrototypeOf2.default)(TextArea)).apply(this, arguments));
 	  }
 
 	  (0, _createClass3.default)(TextArea, [{
@@ -3701,7 +3770,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  function TextInput() {
 	    (0, _classCallCheck3.default)(this, TextInput);
-	    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(TextInput).apply(this, arguments));
+	    return (0, _possibleConstructorReturn3.default)(this, (TextInput.__proto__ || (0, _getPrototypeOf2.default)(TextInput)).apply(this, arguments));
 	  }
 
 	  (0, _createClass3.default)(TextInput, [{
@@ -3813,7 +3882,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function Toggle(props, context) {
 	    (0, _classCallCheck3.default)(this, Toggle);
 
-	    var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Toggle).call(this, props, context));
+	    var _this = (0, _possibleConstructorReturn3.default)(this, (Toggle.__proto__ || (0, _getPrototypeOf2.default)(Toggle)).call(this, props, context));
 
 	    _this.toggle = function () {
 	      var _this$props = _this.props;
@@ -3984,7 +4053,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  function Ellipsis() {
 	    (0, _classCallCheck3.default)(this, Ellipsis);
-	    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Ellipsis).apply(this, arguments));
+	    return (0, _possibleConstructorReturn3.default)(this, (Ellipsis.__proto__ || (0, _getPrototypeOf2.default)(Ellipsis)).apply(this, arguments));
 	  }
 
 	  (0, _createClass3.default)(Ellipsis, [{
@@ -4064,7 +4133,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  function SVG() {
 	    (0, _classCallCheck3.default)(this, SVG);
-	    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(SVG).apply(this, arguments));
+	    return (0, _possibleConstructorReturn3.default)(this, (SVG.__proto__ || (0, _getPrototypeOf2.default)(SVG)).apply(this, arguments));
 	  }
 
 	  (0, _createClass3.default)(SVG, [{
@@ -4239,7 +4308,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  function Item() {
 	    (0, _classCallCheck3.default)(this, Item);
-	    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Item).apply(this, arguments));
+	    return (0, _possibleConstructorReturn3.default)(this, (Item.__proto__ || (0, _getPrototypeOf2.default)(Item)).apply(this, arguments));
 	  }
 
 	  (0, _createClass3.default)(Item, [{
@@ -4378,7 +4447,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  function Header() {
 	    (0, _classCallCheck3.default)(this, Header);
-	    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Header).apply(this, arguments));
+	    return (0, _possibleConstructorReturn3.default)(this, (Header.__proto__ || (0, _getPrototypeOf2.default)(Header)).apply(this, arguments));
 	  }
 
 	  (0, _createClass3.default)(Header, [{
@@ -4451,7 +4520,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  function CloseButton() {
 	    (0, _classCallCheck3.default)(this, CloseButton);
-	    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(CloseButton).apply(this, arguments));
+	    return (0, _possibleConstructorReturn3.default)(this, (CloseButton.__proto__ || (0, _getPrototypeOf2.default)(CloseButton)).apply(this, arguments));
 	  }
 
 	  (0, _createClass3.default)(CloseButton, [{
@@ -4524,7 +4593,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  function Footer() {
 	    (0, _classCallCheck3.default)(this, Footer);
-	    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Footer).apply(this, arguments));
+	    return (0, _possibleConstructorReturn3.default)(this, (Footer.__proto__ || (0, _getPrototypeOf2.default)(Footer)).apply(this, arguments));
 	  }
 
 	  (0, _createClass3.default)(Footer, [{
@@ -4589,7 +4658,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  function Header() {
 	    (0, _classCallCheck3.default)(this, Header);
-	    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Header).apply(this, arguments));
+	    return (0, _possibleConstructorReturn3.default)(this, (Header.__proto__ || (0, _getPrototypeOf2.default)(Header)).apply(this, arguments));
 	  }
 
 	  (0, _createClass3.default)(Header, [{
@@ -4658,7 +4727,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  function Header() {
 	    (0, _classCallCheck3.default)(this, Header);
-	    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Header).apply(this, arguments));
+	    return (0, _possibleConstructorReturn3.default)(this, (Header.__proto__ || (0, _getPrototypeOf2.default)(Header)).apply(this, arguments));
 	  }
 
 	  (0, _createClass3.default)(Header, [{
@@ -4739,7 +4808,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  function Label(props) {
 	    (0, _classCallCheck3.default)(this, Label);
-	    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Label).call(this, props));
+	    return (0, _possibleConstructorReturn3.default)(this, (Label.__proto__ || (0, _getPrototypeOf2.default)(Label)).call(this, props));
 	  }
 
 	  (0, _createClass3.default)(Label, [{
@@ -4838,7 +4907,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  function Panel() {
 	    (0, _classCallCheck3.default)(this, Panel);
-	    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Panel).apply(this, arguments));
+	    return (0, _possibleConstructorReturn3.default)(this, (Panel.__proto__ || (0, _getPrototypeOf2.default)(Panel)).apply(this, arguments));
 	  }
 
 	  (0, _createClass3.default)(Panel, [{
@@ -4902,7 +4971,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  function PanelConfig() {
 	    (0, _classCallCheck3.default)(this, PanelConfig);
-	    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(PanelConfig).apply(this, arguments));
+	    return (0, _possibleConstructorReturn3.default)(this, (PanelConfig.__proto__ || (0, _getPrototypeOf2.default)(PanelConfig)).apply(this, arguments));
 	  }
 
 	  (0, _createClass3.default)(PanelConfig, [{
@@ -4963,7 +5032,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  function Core() {
 	    (0, _classCallCheck3.default)(this, Core);
-	    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Core).apply(this, arguments));
+	    return (0, _possibleConstructorReturn3.default)(this, (Core.__proto__ || (0, _getPrototypeOf2.default)(Core)).apply(this, arguments));
 	  }
 
 	  (0, _createClass3.default)(Core, [{
@@ -5117,7 +5186,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  function Core() {
 	    (0, _classCallCheck3.default)(this, Core);
-	    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Core).apply(this, arguments));
+	    return (0, _possibleConstructorReturn3.default)(this, (Core.__proto__ || (0, _getPrototypeOf2.default)(Core)).apply(this, arguments));
 	  }
 
 	  (0, _createClass3.default)(Core, [{
@@ -6895,7 +6964,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.i, "\n\n/* stylelint-disable max-line-length */\n/* stylelint-enable */\n.rc-l-backdrop-1As8a {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 400;\n  background-color: rgba(255, 255, 255, 0.8);\n  overflow: auto;\n  -webkit-overflow-scrolling: touch; /* smooth iOS scrolling */\n}\n.rc-l-backdrop--lightbox-tTUzG {\n  background-color: rgba(0, 0, 0, 0.8);\n}\n.rc-l-backdrop--transparent-3-zhD {\n  background-color: transparent;\n  overflow: hidden;\n}\n.rc-c-dialog-OSS6k {\n  display: inline-block;\n  position: relative;\n  border-radius: 4px;\n  box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.1),\n    0 0 4px 0 rgba(0, 0, 0, 0.15);\n  background-color: rgb(255, 255, 255);\n  padding: 40px;\n  width: 600px;\n}\n.rc-c-dialog-OSS6k:focus {\n  outline: none;\n}\n.rc-c-dialog--center-NtK0G {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n}\n/* Custom media width is:\n * `calc(var(--zd-dialog-width) + (var(--zd-dialog--center-margin) * 2));`\n * PSA: custom property usage is not valid within a media query.\n */\n@media (max-height: 399px) {\n  .rc-c-dialog--center-NtK0G {\n    top: 0;\n    -webkit-transform: translate(-50%, 0);\n            transform: translate(-50%, 0);\n    margin: 20px 0;\n  }\n}\n@media (max-width: 639px) {\n  .rc-c-dialog--center-NtK0G {\n    left: 0;\n    -webkit-transform: translate(0, -50%);\n            transform: translate(0, -50%);\n    margin: 0 20px;\n  }\n}\n@media (max-height: 399px) and (max-width: 639px) {\n  .rc-c-dialog--center-NtK0G {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n    margin: 20px;\n  }\n}\n/* Dialog close styling supports the use of a\n * [multiplication X](http://graphemica.com/%E2%9C%95) (U+2715) although the\n * recommended treatment is to use a child SVG.\n *\n * 1.Reset for <button> element.\n */\n.rc-c-dialog__close-3t_Xq {\n  display: block;\n  position: absolute;\n  top: 0;\n  right: 0;\n  border: none; /* [1] */\n  border-radius: inherit;\n  background-color: transparent; /* [1] */\n  cursor: pointer;\n  width: 40px;\n  text-align: center;\n  text-decoration: none;\n  line-height: 40px;\n  color: rgb(221, 221, 221);\n  font-family: 'Courier New', monospace;\n  font-size: 14px;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n.rc-c-dialog__close-3t_Xq:hover {\n  color: rgb(85, 85, 85);\n}\n.rc-c-dialog__close-3t_Xq > svg {\n  width: 20px;\n  height: 20px;\n  vertical-align: middle;\n}\n/* davidwalsh.name/sass-color-variables-dont-suck\n * name-of-color.com */\n:root {\n\n  /* Aliases */\n}\n/* csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css\n * www.modularscale.com/?14&px&1.125 */\n:root {\n  /* Larger than H1 */\n\n  /* H1-H6 */\n\n  /* Smaller than H6 */\n}\n:root {\n\n  /* Aliases */\n}\n.rc-c-dialog__header-3IfO_ {\n  display: block;\n  margin-bottom: 20px;\n  line-height: 1.11111;\n  color: rgb(51, 51, 51);\n  font-size: 18px;\n}\n.rc-c-dialog__body-5fVMw {\n  display: block;\n  line-height: 1.42857;\n  color: rgb(153, 153, 153);\n  font-size: 14px;\n}\n.rc-c-dialog__footer-2B045 {\n  display: block;\n  margin-top: 30px;\n  text-align: right;\n}\n.rc-backdrop-1LmPN {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n.rc-dialog-1BuO_ {\n}\n.rc-dialog-1BuO_[aria-hidden='true'] {\n  display: none;\n}\n.rc-type_transparent-2jRIN {\n}\n.rc-type_lightbox-3mq9k {\n}\n.rc-header-3x35N {\n}\n.rc-body-1u030 {\n}\n.rc-footer-128gi {\n}\n.rc-close-3qn4Q {\n}\n", ""]);
+	exports.push([module.i, "/* davidwalsh.name/sass-color-variables-dont-suck\n * name-of-color.com */\n\n:root {\n\n  /* Aliases */\n}\n\n/* csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css\n * www.modularscale.com/?14&px&1.125 */\n\n:root {\n  /* Larger than H1 */\n\n  /* H1-H6 */\n\n  /* Smaller than H6 */\n}\n\n:root {\n\n  /* Aliases */\n}\n\n/* stylelint-disable max-line-length */\n\n/* stylelint-enable */\n\n.rc-l-backdrop-1As8a {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 400;\n  background-color: rgba(255, 255, 255, 0.8);\n  overflow: auto;\n  -webkit-overflow-scrolling: touch; /* smooth iOS scrolling */\n}\n\n.rc-l-backdrop--lightbox-tTUzG {\n  background-color: rgba(0, 0, 0, 0.8);\n}\n\n.rc-l-backdrop--transparent-3-zhD {\n  background-color: transparent;\n  overflow: hidden;\n}\n\n.rc-c-dialog-OSS6k {\n  display: inline-block;\n  position: relative;\n  border-radius: 4px;\n  box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.1),\n    0 0 4px 0 rgba(0, 0, 0, 0.15);\n  background-color: rgb(255, 255, 255);\n  padding: 40px;\n  width: 600px;\n}\n\n.rc-c-dialog-OSS6k:focus {\n  outline: none;\n}\n\n.rc-c-dialog--center-NtK0G {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n}\n\n/* Custom media width is:\n * `calc(var(--zd-dialog-width) + (var(--zd-dialog--center-margin) * 2));`\n * PSA: custom property usage is not valid within a media query.\n */\n\n@media (max-height: 399px) {\n  .rc-c-dialog--center-NtK0G {\n    top: 0;\n    -webkit-transform: translate(-50%, 0);\n            transform: translate(-50%, 0);\n    margin: 20px 0;\n  }\n}\n\n@media (max-width: 639px) {\n  .rc-c-dialog--center-NtK0G {\n    left: 0;\n    -webkit-transform: translate(0, -50%);\n            transform: translate(0, -50%);\n    margin: 0 20px;\n  }\n}\n\n@media (max-height: 399px) and (max-width: 639px) {\n  .rc-c-dialog--center-NtK0G {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n    margin: 20px;\n  }\n}\n\n/* Dialog close styling supports the use of a\n * [multiplication X](http://graphemica.com/%E2%9C%95) (U+2715) although the\n * recommended treatment is to use a child SVG.\n *\n * 1.Reset for <button> element.\n */\n\n.rc-c-dialog__close-3t_Xq {\n  display: block;\n  position: absolute;\n  top: 0;\n  right: 0;\n  border: none; /* [1] */\n  border-radius: inherit;\n  background-color: transparent; /* [1] */\n  cursor: pointer;\n  width: 40px;\n  text-align: center;\n  text-decoration: none;\n  line-height: 40px;\n  color: rgb(221, 221, 221);\n  font-family: 'Courier New', monospace;\n  font-size: 14px;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n\n.rc-c-dialog__close-3t_Xq:hover {\n  color: rgb(85, 85, 85);\n}\n\n.rc-c-dialog__close-3t_Xq > svg {\n  width: 20px;\n  height: 20px;\n  vertical-align: middle;\n}\n\n.rc-c-dialog__header-3IfO_ {\n  display: block;\n  margin-bottom: 20px;\n  line-height: 1.11111;\n  color: rgb(51, 51, 51);\n  font-size: 18px;\n}\n\n.rc-c-dialog__body-5fVMw {\n  display: block;\n  line-height: 1.42857;\n  color: rgb(153, 153, 153);\n  font-size: 14px;\n}\n\n.rc-c-dialog__footer-2B045 {\n  display: block;\n  margin-top: 30px;\n  text-align: right;\n}\n\n.rc-backdrop-1LmPN {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.rc-dialog-1BuO_ {\n}\n\n.rc-dialog-1BuO_[aria-hidden='true'] {\n  display: none;\n}\n\n.rc-type_transparent-2jRIN {\n}\n\n.rc-type_lightbox-3mq9k {\n}\n\n.rc-header-3x35N {\n}\n\n.rc-body-1u030 {\n}\n\n.rc-footer-128gi {\n}\n\n.rc-close-3qn4Q {\n}\n", ""]);
 
 	// exports
 	exports.locals = {
