@@ -37,3 +37,7 @@
 .disabled {
   composes: c-btn is-disabled;
 }
+
+.group {
+  composes: l-btn-group;
+}
