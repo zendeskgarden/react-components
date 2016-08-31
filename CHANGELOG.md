@@ -1,5 +1,8 @@
 ## Change Log
 
+### v1.1.2 (2016/08/31 07:35 +00:00)
+- [#21](https://github.com/zendeskgarden/react-components/pull/21) Added warning about potential API change in the button group component. (@sunesimonsen)
+
 ### v1.1.1 (2016/08/30 13:10 +00:00)
 - [#18](https://github.com/zendeskgarden/react-components/pull/18) Revert "Make the Text and View Stateless components" (@sunesimonsen)
 
