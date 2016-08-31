@@ -1,3 +1,9 @@
+## *Warning:* the API for this component will probably change.
+
+We consider changing the keyboard navigation of the buttons. See the
+[issue](https://github.com/zendeskgarden/react-components/issues/19) for more
+information.
+
 ```
 initialState = { clicked: null };
 
