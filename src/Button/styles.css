@@ -1,8 +1,16 @@
 @import 'zd-css-buttons';
 @import 'zd-css-variables';
 
+.active {
+  composes: is-active;
+}
+
 .focused {
   composes: is-focused;
+}
+
+.rtl {
+  composes: is-rtl;
 }
 
 .type_default {
