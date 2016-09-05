@@ -22,10 +22,6 @@ class Item extends Component {
     size: 'small'
   }
 
-  constructor (props) {
-    super(props)
-  }
-
   render () {
     const {
       active,
