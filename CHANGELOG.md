@@ -1,5 +1,8 @@
 ## Change Log
 
+### v1.2.0 (2016/09/05 13:02 +00:00)
+- [#23](https://github.com/zendeskgarden/react-components/pull/23) Make the button group work like tabs without a content panel (@sunesimonsen)
+
 ### v1.1.2 (2016/08/31 07:35 +00:00)
 - [#21](https://github.com/zendeskgarden/react-components/pull/21) Added warning about potential API change in the button group component. (@sunesimonsen)
 
