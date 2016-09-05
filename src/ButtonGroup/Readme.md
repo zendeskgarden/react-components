@@ -1,43 +1,55 @@
-## *Warning:* the API for this component will probably change.
-
-We consider changing the keyboard navigation of the buttons. See the
-[issue](https://github.com/zendeskgarden/react-components/issues/19) for more
-information.
+The button group is a navigation element just like tabs but with no content
+panel associated.
 
 ```
-initialState = { clicked: null };
+initialState = { active: 'two' };
 
-<Grid columns={1}>
-  <ButtonGroup>
-    <Button onClick={ () => setState({ clicked: 'One' }) }>One</Button>
-    <Button onClick={ () => setState({ clicked: 'Two' }) }>Two</Button>
-    <Button onClick={ () => setState({ clicked: 'Three' }) }>Three</Button>
-  </ButtonGroup>
-
-  <Text>
-    { state.clicked ? `You clicked: ${state.clicked}` : 'Click a button'}
-  </Text>
-</Grid>
+<ButtonGroup
+  active={ state.active }
+  onActivate={ (active) => setState({ active })}
+>
+  <ButtonGroup.Item id='one'>One</ButtonGroup.Item>
+  <ButtonGroup.Item id='two'>Two</ButtonGroup.Item>
+  <ButtonGroup.Item id='three'>Three</ButtonGroup.Item>
+</ButtonGroup>
 ```
 
 Sizes:
 
 ```
+initialState = {
+  activeSmall: null,
+  activeMedium: null,
+  activeLarge: null
+};
+
 <Grid columns={1}>
-  <ButtonGroup>
-    <Button size='small'>One</Button>
-    <Button size='small'>Two</Button>
-    <Button size='small'>Three</Button>
+  <ButtonGroup
+    active={ state.activeSmall }
+    onActivate={ (activeSmall) => setState({ activeSmall })}
+    size='small'
+  >
+    <ButtonGroup.Item id='one'>One</ButtonGroup.Item>
+    <ButtonGroup.Item id='two'>Two</ButtonGroup.Item>
+    <ButtonGroup.Item id='three'>Three</ButtonGroup.Item>
   </ButtonGroup>
-  <ButtonGroup>
-    <Button size='medium'>One</Button>
-    <Button size='medium'>Two</Button>
-    <Button size='medium'>Three</Button>
+  <ButtonGroup
+    active={ state.activeMedium }
+    onActivate={ (activeMedium) => setState({ activeMedium })}
+    size='medium'
+  >
+    <ButtonGroup.Item id='one'>One</ButtonGroup.Item>
+    <ButtonGroup.Item id='two'>Two</ButtonGroup.Item>
+    <ButtonGroup.Item id='three'>Three</ButtonGroup.Item>
   </ButtonGroup>
-  <ButtonGroup>
-    <Button size='large'>One</Button>
-    <Button size='large'>Two</Button>
-    <Button size='large'>Three</Button>
+  <ButtonGroup
+    active={ state.activeLarge }
+    onActivate={ (activeLarge) => setState({ activeLarge })}
+    size='large'
+  >
+    <ButtonGroup.Item id='one'>One</ButtonGroup.Item>
+    <ButtonGroup.Item id='two'>Two</ButtonGroup.Item>
+    <ButtonGroup.Item id='three'>Three</ButtonGroup.Item>
   </ButtonGroup>
 </Grid>
 ```
@@ -45,31 +57,34 @@ Sizes:
 States:
 
 ```
-<ButtonGroup>
-  <Button>One</Button>
-  <Button disabled>Two</Button>
-  <Button>Three</Button>
+initialState = { active: 'one' };
+
+<ButtonGroup
+  active={ state.active }
+  onActivate={ (active) => setState({ active })}
+>
+  <ButtonGroup.Item id='one'>One</ButtonGroup.Item>
+  <ButtonGroup.Item id='two'>Two</ButtonGroup.Item>
+  <ButtonGroup.Item id='three'>Three</ButtonGroup.Item>
+  <ButtonGroup.Item id='four' disabled>Four</ButtonGroup.Item>
+  <ButtonGroup.Item id='five'>Five</ButtonGroup.Item>
 </ButtonGroup>
 ```
 
-Types:
+Support for RTL:
 
 ```
-<Grid columns={1}>
-  <ButtonGroup>
-    <Button type='default'>One</Button>
-    <Button type='default'>Two</Button>
-    <Button type='default'>Three</Button>
-  </ButtonGroup>
-  <ButtonGroup>
-    <Button>One</Button>
-    <Button>Two</Button>
-    <Button type='primary'>Three</Button>
-  </ButtonGroup>
-  <ButtonGroup>
-    <Button type='basic'>One</Button>
-    <Button type='basic'>Two</Button>
-    <Button type='basic'>Three</Button>
-  </ButtonGroup>
-</Grid>
+initialState = { active: 'one' };
+
+<ButtonGroup
+  dir='rtl'
+  active={ state.active }
+  onActivate={ (active) => setState({ active })}
+>
+  <ButtonGroup.Item id='one'>One</ButtonGroup.Item>
+  <ButtonGroup.Item id='two'>Two</ButtonGroup.Item>
+  <ButtonGroup.Item id='three'>Three</ButtonGroup.Item>
+  <ButtonGroup.Item id='four' disabled>Four</ButtonGroup.Item>
+  <ButtonGroup.Item id='five'>Five</ButtonGroup.Item>
+</ButtonGroup>
 ```

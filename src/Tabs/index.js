@@ -40,13 +40,11 @@ export default class Tabs extends Component {
   }
 
   setSelectableItems ({ children, dir, active, vertical }) {
-    const panelConfigs = []
     const labels = []
 
     Children.forEach(children, (child) => {
       if (child && child.type === PanelConfig) {
         const { disabled, id, label } = child.props
-        panelConfigs.push(child.props)
         labels.push(
           <Label
             active={ id === active }
