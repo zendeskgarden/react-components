@@ -1,9 +1,7 @@
-@import 'zd-css-forms';
-
 .txt {
-  composes: c-txt;
+  composes: c-txt from 'zd-css-forms';
 }
 
 .input {
-  composes: c-txt__input;
+  composes: c-txt__input from 'zd-css-forms';
 }

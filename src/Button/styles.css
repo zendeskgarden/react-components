@@ -1,51 +1,48 @@
-@import 'zd-css-buttons';
-@import 'zd-css-variables';
-
 .active {
-  composes: is-active;
+  composes: is-active from 'zd-css-buttons';
 }
 
 .focused {
-  composes: is-focused;
+  composes: is-focused from 'zd-css-buttons';
 }
 
 .rtl {
-  composes: is-rtl;
+  composes: is-rtl from 'zd-css-buttons';
 }
 
 .type_default {
-  composes: c-btn;
+  composes: c-btn from 'zd-css-buttons';
 }
 
 .type_primary {
-  composes: c-btn c-btn--primary;
+  composes: c-btn c-btn--primary from 'zd-css-buttons';
 }
 
 .type_basic {
-  composes: c-btn c-btn--basic;
+  composes: c-btn c-btn--basic from 'zd-css-buttons';
 }
 
 .pill {
-  composes: c-btn--pill;
+  composes: c-btn--pill from 'zd-css-buttons';
 }
 
 .size_medium {
-  composes: c-btn--medium;
+  composes: c-btn--medium from 'zd-css-buttons';
 }
 
 .size_large {
-  composes: c-btn--large;
+  composes: c-btn--large from 'zd-css-buttons';
 }
 
 .stretched {
-  composes: c-btn--full;
+  composes: c-btn--full from 'zd-css-buttons';
   flex: 1;
 }
 
 .disabled {
-  composes: c-btn is-disabled;
+  composes: c-btn is-disabled from 'zd-css-buttons';
 }
 
 .group {
-  composes: l-btn-group;
+  composes: l-btn-group from 'zd-css-buttons';
 }

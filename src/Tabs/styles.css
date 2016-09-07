@@ -1,37 +1,35 @@
-@import 'zd-css-tabs/dist/index.css';
-
 .tabs {
-  composes: c-tab;
+  composes: c-tab from 'zd-css-tabs';
 }
 
 .list {
-  composes: c-tab__list;
+  composes: c-tab__list from 'zd-css-tabs';
 }
 
 .label {
-  composes: c-tab__list__item;
+  composes: c-tab__list__item from 'zd-css-tabs';
 }
 
 .panel {
-  composes: c-tab__panel;
+  composes: c-tab__panel from 'zd-css-tabs';
 }
 
 .selected {
-  composes: is-selected;
+  composes: is-selected from 'zd-css-tabs';
 }
 
 .focused {
-  composes: is-focused;
+  composes: is-focused from 'zd-css-tabs';
 }
 
 .vertical {
-  composes: c-tab--block;
+  composes: c-tab--block from 'zd-css-tabs';
 }
 
 .disabled {
-  composes: is-disabled;
+  composes: is-disabled from 'zd-css-tabs';
 }
 
 .rtl {
-  composes: is-rtl;
+  composes: is-rtl from 'zd-css-tabs';
 }

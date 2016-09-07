@@ -1,29 +1,27 @@
-@import 'zd-css-avatars/dist/index.css';
-
 .avatar {
-  composes: c-avatar;
+  composes: c-avatar from 'zd-css-avatars';
 }
 
 .size_small {
-  composes: c-avatar--small;
+  composes: c-avatar--small from 'zd-css-avatars';
 }
 
 .size_large {
-  composes: c-avatar--large;
+  composes: c-avatar--large from 'zd-css-avatars';
 }
 
 .status_active {
-  composes: is-active;
+  composes: is-active from 'zd-css-avatars';
 }
 
 .status_present {
-  composes: is-in;
+  composes: is-in from 'zd-css-avatars';
 }
 
 .status_away {
-  composes: is-out;
+  composes: is-out from 'zd-css-avatars';
 }
 
 .type_system {
-  composes: c-avatar--system;
+  composes: c-avatar--system from 'zd-css-avatars';
 }

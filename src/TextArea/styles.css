@@ -1,14 +1,11 @@
-@import 'zd-css-variables';
-@import 'zd-css-forms';
-
 .txt {
-  composes: c-txt;
+  composes: c-txt from 'zd-css-forms';
 }
 
 .input {
-  composes: c-txt__input c-txt__input--area;
+  composes: c-txt__input c-txt__input--area from 'zd-css-forms';
 }
 
 .resizable {
-  composes: is-resizable;
+  composes: is-resizable from 'zd-css-forms';
 }
