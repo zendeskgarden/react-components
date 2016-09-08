@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import classNames from 'classnames'
 
-import Text from '../core/Text'
+import View from '../core/View'
 
 import styles from './styles.css'
 
@@ -22,6 +22,7 @@ export default class Button extends Component {
   }
 
   static defaultProps = {
+    tabIndex: 0,
     type: 'default',
     size: 'small'
   }
@@ -53,7 +54,7 @@ export default class Button extends Component {
     const { focused } = this.state
 
     return (
-      <button
+      <View
         autoFocus={ autoFocus }
         className={
           classNames(styles[`size_${size}`], {
@@ -64,7 +65,7 @@ export default class Button extends Component {
             [styles.disabled]: disabled
           }, className)
         }
-        data-test-id={ testId }
+        testId={ testId }
         disabled={ disabled }
         onClick={ onClick }
         onBlur={ () => this.setState({ focused: false }) }
@@ -74,13 +75,11 @@ export default class Button extends Component {
         } }
         onMouseDown={ () => this.keyboard = false }
         tabIndex={ tabIndex }
+        role='button'
         title={ title }
-        type='button'
       >
-        <Text>
         { children }
-        </Text>
-      </button>
+      </View>
     )
   }
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import expect from 'test/expect'
 import Button from './'
+import View from '../core/View'
 
 const handler = () => { console.log('wat') }
 
@@ -9,7 +10,7 @@ describe('Button', () => {
     expect(
       <Button>Default</Button>,
       'to render as',
-      <button>Default</button>
+      <View role='button'>Default</View>
     )
   })
 
@@ -18,7 +19,7 @@ describe('Button', () => {
       expect(
         <Button onClick={ handler }>Click me!</Button>,
         'to render as',
-        <button onClick={ handler }>Click me!</button>
+        <View role='button'onClick={ handler }>Click me!</View>
       )
     })
   })
@@ -28,7 +29,7 @@ describe('Button', () => {
       expect(
         <Button testId='wat'>Testable</Button>,
         'to render as',
-        <button data-test-id='wat'>Testable</button>
+        <View role='button'testId='wat'>Testable</View>
       )
     })
   })
@@ -38,7 +39,7 @@ describe('Button', () => {
       expect(
         <Button type='primary'>Primary</Button>,
         'to render as',
-        <button className='type_primary c-btn c-btn--primary'>Primary</button>
+        <View role='button'className='type_primary c-btn c-btn--primary'>Primary</View>
       )
     })
   })
@@ -48,7 +49,7 @@ describe('Button', () => {
       expect(
         <Button type='basic'>Basic</Button>,
         'to render as',
-        <button className='type_basic c-btn c-btn--basic'>Basic</button>
+        <View role='button'className='type_basic c-btn c-btn--basic'>Basic</View>
       )
     })
   })
@@ -58,7 +59,7 @@ describe('Button', () => {
       expect(
         <Button disabled>Disabled</Button>,
         'to render as',
-        <button className='c-btn is-disabled' disabled>Disabled</button>
+        <View role='button'className='c-btn is-disabled' disabled>Disabled</View>
       )
     })
   })
@@ -68,7 +69,7 @@ describe('Button', () => {
       expect(
         <Button stretched>Stretched</Button>,
         'to render as',
-        <button className='type_default c-btn c-btn--full'>Stretched</button>
+        <View role='button'className='type_default c-btn c-btn--full'>Stretched</View>
       )
     })
   })
@@ -78,7 +79,7 @@ describe('Button', () => {
       expect(
         <Button size='medium'>Medium</Button>,
         'to render as',
-        <button className='type_default c-btn c-btn--medium'>Medium</button>
+        <View role='button'className='type_default c-btn c-btn--medium'>Medium</View>
       )
     })
   })
@@ -88,7 +89,7 @@ describe('Button', () => {
       expect(
         <Button size='large'>Large</Button>,
         'to render as',
-        <button className='type_default c-btn c-btn--large'>Large</button>
+        <View role='button'className='type_default c-btn c-btn--large'>Large</View>
       )
     })
   })
@@ -98,7 +99,7 @@ describe('Button', () => {
       expect(
         <Button tabIndex={42}>Tab order</Button>,
         'to render as',
-        <button tabIndex={42}>Tab order</button>
+        <View role='button'tabIndex={42}>Tab order</View>
       )
     })
   })
