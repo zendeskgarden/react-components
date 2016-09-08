@@ -40,9 +40,10 @@ const Container = ({
         styles.menu,
         styles[`size_${size}`],
         styles[`position_${position}`],
-        arrow && styles[`arrow_${arrowPositions[position]}`],
         styles[dir], {
-          [styles.fixed_width]: fixedWidth
+          [styles.fixed_width]: fixedWidth,
+          [styles.arrow]: arrow,
+          [styles[`arrow_${arrowPositions[position]}`]]: arrow
         }
       ) }
       role='menu'
