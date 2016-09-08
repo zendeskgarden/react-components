@@ -1,0 +1,11 @@
+.container {
+  composes: c-range from 'zd-css-forms';
+}
+
+.input {
+  composes: c-range__input from 'zd-css-forms';
+}
+
+.focused {
+  composes: is-focused from 'zd-css-forms';
+}
