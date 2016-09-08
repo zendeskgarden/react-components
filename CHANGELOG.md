@@ -1,5 +1,8 @@
 ## Change Log
 
+### v1.3.0 (2016/09/08 06:23 +00:00)
+- [#24](https://github.com/zendeskgarden/react-components/pull/24) Import Garden css with the css-loader (@sunesimonsen)
+
 ### v1.2.1 (2016/09/08 06:15 +00:00)
 - [#25](https://github.com/zendeskgarden/react-components/pull/25) Replace the button element with a <div role="button"> as button works differently in different browsers (@sunesimonsen)
 
