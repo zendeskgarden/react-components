@@ -1,40 +1,34 @@
-@import 'zd-css-modals';
-
 .backdrop {
   display: flex;
   align-items: center;
   justify-content: center;
-  composes: l-backdrop;
+  composes: l-backdrop from 'zd-css-modals';
 }
 
 .dialog {
-  composes: c-dialog;
-}
-
-.dialog[aria-hidden='true'] {
-  display: none;
+  composes: c-dialog from 'zd-css-modals';
 }
 
 .type_transparent {
-  composes: l-backdrop--transparent;
+  composes: l-backdrop--transparent from 'zd-css-modals';
 }
 
 .type_lightbox {
-  composes: l-backdrop--lightbox;
+  composes: l-backdrop--lightbox from 'zd-css-modals';
 }
 
 .header {
-  composes: c-dialog__header;
+  composes: c-dialog__header from 'zd-css-modals';
 }
 
 .body {
-  composes: c-dialog__body;
+  composes: c-dialog__body from 'zd-css-modals';
 }
 
 .footer {
-  composes: c-dialog__footer;
+  composes: c-dialog__footer from 'zd-css-modals';
 }
 
 .close {
-  composes: c-dialog__close;
+  composes: c-dialog__close from 'zd-css-modals';
 }

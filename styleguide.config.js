@@ -30,7 +30,7 @@ module.exports = {
         include: sourceDir,
         loaders: [
           'style',
-          'css?module&importLoaders=1&localIdentName=[path][name]---[local]---[hash:base64:5]!postcss'
+          'css?module&importLoaders=1&localIdentName=rc-[local]-[hash:base64:5]!postcss'
         ]
       },
       {

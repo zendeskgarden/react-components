@@ -1,21 +1,19 @@
-@import 'zd-css-forms/dist/index.css';
-
 .toggle {
-  composes: c-chk c-chk--toggle;
+  composes: c-chk c-chk--toggle from 'zd-css-forms';
 }
 
 .rtl {
-  composes: is-rtl;
+  composes: is-rtl from 'zd-css-forms';
 }
 
 .focused {
-  composes: is-focused;
+  composes: is-focused from 'zd-css-forms';
 }
 
 .input {
-  composes: c-chk__input;
+  composes: c-chk__input from 'zd-css-forms';
 }
 
 .label {
-  composes: c-chk__label;
+  composes: c-chk__label from 'zd-css-forms';
 }

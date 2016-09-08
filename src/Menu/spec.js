@@ -124,7 +124,7 @@ describe('Menu', () => {
         </Menu>,
         'when clicking on the trigger',
         'to contain',
-        <View className='menu c-menu arrow_top arrow c-arrow c-arrow--t' role='menu'/>
+        <View className='menu c-menu arrow_top c-arrow c-arrow--t' role='menu'/>
       )
     ))
   })

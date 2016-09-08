@@ -1,6 +1,10 @@
 @import 'zd-css-variables';
-@import 'zd-css-menus';
-@import 'zd-css-arrows';
+
+:root {
+  --zd-menu-background-color: var(--zd-color-white);
+  --zd-menu-min-width: 140px;
+  --zd-menu--large-min-width: 270px;
+}
 
 .container {
   display: inline-block;
@@ -24,11 +28,11 @@
 
   padding: 10px initial;
 
-  composes: c-menu;
+  composes: c-menu from 'zd-css-menus';
 }
 
 .size_large {
-  composes: c-menu--large;
+  composes: c-menu--large from 'zd-css-menus';
 }
 
 .size_small.fixed_width {
@@ -40,7 +44,7 @@
 }
 
 .item {
-  composes: c-menu__item;
+  composes: c-menu__item from 'zd-css-menus';
 }
 
 .item:hover:not(.selected) {
@@ -66,23 +70,19 @@
 }
 
 .disabled {
-  composes: is-disabled;
+  composes: is-disabled from 'zd-css-menus';
 }
 
 .selected {
-  composes: is-selected;
+  composes: is-selected from 'zd-css-menus';
 }
 
 .separator {
-  composes: c-menu__separator;
+  composes: c-menu__separator from 'zd-css-menus';
 }
 
 .rtl {
-  composes: is-rtl;
-}
-
-.arrow {
-  composes: c-arrow;
+  composes: is-rtl from 'zd-css-menus';
 }
 
 .arrow:after {
@@ -106,33 +106,33 @@
 }
 
 .arrow_bottom {
-  composes: arrow c-arrow--b;
+  composes: c-arrow c-arrow--b from 'zd-css-arrows';
 }
 
 .arrow_bottom_left {
-  composes: arrow c-arrow--bl;
+  composes: c-arrow c-arrow--bl from 'zd-css-arrows';
 }
 
 .arrow_bottom_right {
-  composes: arrow c-arrow--br;
+  composes: c-arrow c-arrow--br from 'zd-css-arrows';
 }
 
 .arrow_left {
-  composes: arrow c-arrow--l;
+  composes: c-arrow c-arrow--l from 'zd-css-arrows';
 }
 
 .arrow_right {
-  composes: arrow c-arrow--r;
+  composes: c-arrow c-arrow--r from 'zd-css-arrows';
 }
 
 .arrow_top {
-  composes: arrow c-arrow--t;
+  composes: c-arrow c-arrow--t from 'zd-css-arrows';
 }
 
 .arrow_top_left {
-  composes: arrow c-arrow--tl;
+  composes: c-arrow c-arrow--tl from 'zd-css-arrows';
 }
 
 .arrow_top_right {
-  composes: arrow c-arrow--tr;
+  composes: c-arrow c-arrow--tr from 'zd-css-arrows';
 }
