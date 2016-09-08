@@ -35,6 +35,12 @@ export default class Button extends Component {
     }
   }
 
+  onKeyboardClick = (e) => {
+    const { onClick } = this.props
+    onClick && onClick(e)
+    e.preventDefault()
+  }
+
   render () {
     const {
       autoFocus,
@@ -67,13 +73,15 @@ export default class Button extends Component {
         }
         testId={ testId }
         disabled={ disabled }
-        onClick={ onClick }
         onBlur={ () => this.setState({ focused: false }) }
+        onClick={ onClick }
+        onEnter={ this.onKeyboardClick }
         onFocus={ () => {
           this.setState({ focused: this.keyboard })
           this.keyboard = true
         } }
         onMouseDown={ () => this.keyboard = false }
+        onSpace={ this.onKeyboardClick }
         tabIndex={ tabIndex }
         role='button'
         title={ title }
