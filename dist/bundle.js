@@ -2753,6 +2753,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    var _this = (0, _possibleConstructorReturn3.default)(this, (Button.__proto__ || (0, _getPrototypeOf2.default)(Button)).call(this, props, context));
 
+	    _this.onKeyboardClick = function (e) {
+	      var onClick = _this.props.onClick;
+
+	      onClick && onClick(e);
+	      e.preventDefault();
+	    };
+
 	    _this.keyboard = true;
 	    _this.state = {
 	      focused: false
@@ -2789,10 +2796,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	          className: (0, _classnames2.default)(_styles2.default['size_' + size], (_classNames = {}, (0, _defineProperty3.default)(_classNames, _styles2.default['type_' + type], !disabled), (0, _defineProperty3.default)(_classNames, _styles2.default.focused, focused), (0, _defineProperty3.default)(_classNames, _styles2.default.pill, pill), (0, _defineProperty3.default)(_classNames, _styles2.default.stretched, stretched), (0, _defineProperty3.default)(_classNames, _styles2.default.disabled, disabled), _classNames), className),
 	          testId: testId,
 	          disabled: disabled,
-	          onClick: onClick,
 	          onBlur: function onBlur() {
 	            return _this2.setState({ focused: false });
 	          },
+	          onClick: onClick,
+	          onEnter: this.onKeyboardClick,
 	          onFocus: function onFocus() {
 	            _this2.setState({ focused: _this2.keyboard });
 	            _this2.keyboard = true;
@@ -2800,6 +2808,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          onMouseDown: function onMouseDown() {
 	            return _this2.keyboard = false;
 	          },
+	          onSpace: this.onKeyboardClick,
 	          tabIndex: tabIndex,
 	          role: 'button',
 	          title: title
@@ -3322,6 +3331,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	    };
 
+	    _this.keyboardToggleHidden = function (e) {
+	      if (!_this.selectionModel.hasSelection()) {
+	        _this.toggleHidden();
+	        e.preventDefault();
+	        e.stopPropagation();
+	      }
+	    };
+
 	    _this.selectionModel = new _ReactSingleSelectionModel2.default();
 	    _this.selectionModel.onSelectionChanged = _this.onSelectionChanged;
 	    _this.selectionModel.onValueChosen = _this.onValueChosen;
@@ -3372,7 +3389,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	          onKeyDown: this.selectionModel.handleKeyDown,
 	          onBlur: this.closeMenu,
 	          onClick: this.toggleHidden,
-	          onEscape: this.closeMenu
+	          onEnter: this.keyboardToggleHidden,
+	          onEscape: this.closeMenu,
+	          onSpace: this.keyboardToggleHidden
 	        },
 	        typeof trigger === 'function' ? trigger({ open: !hidden }) : trigger
 	      );
