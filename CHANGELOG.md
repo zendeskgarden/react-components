@@ -1,5 +1,8 @@
 ## Change Log
 
+### v1.3.2 (2016/09/08 08:44 +00:00)
+- [#27](https://github.com/zendeskgarden/react-components/pull/27) I broke the arrows, this PR fixes it. (@sunesimonsen)
+
 ### v1.3.1 (2016/09/08 06:57 +00:00)
 - [#26](https://github.com/zendeskgarden/react-components/pull/26) Fixed: space and enter on buttons after quickfix :-( (@sunesimonsen)
 
