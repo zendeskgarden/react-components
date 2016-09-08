@@ -125,6 +125,14 @@ export default class Menu extends Component {
     }
   }
 
+  keyboardToggleHidden = (e) => {
+    if (!this.selectionModel.hasSelection()) {
+      this.toggleHidden()
+      e.preventDefault()
+      e.stopPropagation()
+    }
+  }
+
   render () {
     const {
       arrow,
@@ -153,7 +161,9 @@ export default class Menu extends Component {
         onKeyDown={ this.selectionModel.handleKeyDown }
         onBlur={ this.closeMenu }
         onClick={ this.toggleHidden }
+        onEnter={ this.keyboardToggleHidden }
         onEscape={ this.closeMenu }
+        onSpace={ this.keyboardToggleHidden }
       >
         {
           (typeof trigger === 'function')
