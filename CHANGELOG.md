@@ -1,5 +1,8 @@
 ## Change Log
 
+### v1.3.1 (2016/09/08 06:57 +00:00)
+- [#26](https://github.com/zendeskgarden/react-components/pull/26) Fixed: space and enter on buttons after quickfix :-( (@sunesimonsen)
+
 ### v1.3.0 (2016/09/08 06:23 +00:00)
 - [#24](https://github.com/zendeskgarden/react-components/pull/24) Import Garden css with the css-loader (@sunesimonsen)
 
