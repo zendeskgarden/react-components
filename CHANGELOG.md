@@ -1,5 +1,8 @@
 ## Change Log
 
+### v1.2.1 (2016/09/08 06:15 +00:00)
+- [#25](https://github.com/zendeskgarden/react-components/pull/25) Replace the button element with a <div role="button"> as button works differently in different browsers (@sunesimonsen)
+
 ### v1.2.0 (2016/09/05 13:02 +00:00)
 - [#23](https://github.com/zendeskgarden/react-components/pull/23) Make the button group work like tabs without a content panel (@sunesimonsen)
 
