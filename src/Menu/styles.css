@@ -105,34 +105,42 @@
   width: 100%;
 }
 
+.arrow {
+  composes: c-arrow from 'zd-css-arrows';
+}
+
+.arrow:after {
+  z-index: 0;
+}
+
 .arrow_bottom {
-  composes: c-arrow c-arrow--b from 'zd-css-arrows';
+  composes: c-arrow--b from 'zd-css-arrows';
 }
 
 .arrow_bottom_left {
-  composes: c-arrow c-arrow--bl from 'zd-css-arrows';
+  composes: c-arrow--bl from 'zd-css-arrows';
 }
 
 .arrow_bottom_right {
-  composes: c-arrow c-arrow--br from 'zd-css-arrows';
+  composes: c-arrow--br from 'zd-css-arrows';
 }
 
 .arrow_left {
-  composes: c-arrow c-arrow--l from 'zd-css-arrows';
+  composes: c-arrow--l from 'zd-css-arrows';
 }
 
 .arrow_right {
-  composes: c-arrow c-arrow--r from 'zd-css-arrows';
+  composes: c-arrow--r from 'zd-css-arrows';
 }
 
 .arrow_top {
-  composes: c-arrow c-arrow--t from 'zd-css-arrows';
+  composes: c-arrow--t from 'zd-css-arrows';
 }
 
 .arrow_top_left {
-  composes: c-arrow c-arrow--tl from 'zd-css-arrows';
+  composes: c-arrow--tl from 'zd-css-arrows';
 }
 
 .arrow_top_right {
-  composes: c-arrow c-arrow--tr from 'zd-css-arrows';
+  composes: c-arrow--tr from 'zd-css-arrows';
 }
