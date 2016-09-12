@@ -2769,6 +2769,32 @@ return /******/ (function(modules) { // webpackBootstrap
 	      e.preventDefault();
 	    };
 
+	    _this.onMouseDown = function (e) {
+	      var disabled = _this.props.disabled;
+
+
+	      if (disabled) {
+	        e.stopPropagation();
+	        e.preventDefault();
+	      } else {
+	        _this.keyboard = false;
+	      }
+	    };
+
+	    _this.onClick = function (e) {
+	      var _this$props = _this.props;
+	      var disabled = _this$props.disabled;
+	      var onClick = _this$props.onClick;
+
+
+	      if (disabled) {
+	        e.stopPropagation();
+	        e.preventDefault();
+	      } else {
+	        onClick && onClick(e);
+	      }
+	    };
+
 	    _this.keyboard = true;
 	    _this.state = {
 	      focused: false
@@ -2788,7 +2814,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var children = _props.children;
 	      var disabled = _props.disabled;
 	      var stretched = _props.stretched;
-	      var onClick = _props.onClick;
 	      var pill = _props.pill;
 	      var size = _props.size;
 	      var tabIndex = _props.tabIndex;
@@ -2808,17 +2833,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	          onBlur: function onBlur() {
 	            return _this2.setState({ focused: false });
 	          },
-	          onClick: onClick,
+	          onClick: this.onClick,
 	          onEnter: this.onKeyboardClick,
 	          onFocus: function onFocus() {
 	            _this2.setState({ focused: _this2.keyboard });
 	            _this2.keyboard = true;
 	          },
-	          onMouseDown: function onMouseDown() {
-	            return _this2.keyboard = false;
-	          },
+	          onMouseDown: this.onMouseDown,
 	          onSpace: this.onKeyboardClick,
-	          tabIndex: tabIndex,
+	          tabIndex: disabled ? -1 : tabIndex,
 	          role: 'button',
 	          title: title
 	        },
