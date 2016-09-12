@@ -34,13 +34,15 @@ Stretching:
 States:
 
 ```
+const onClick = () => alert('Clicked!');
+
 <Grid columns={2}>
-  <Button>Default</Button>
-  <Button disabled>Disabled</Button>
-  <Button type='primary'>Primary</Button>
-  <Button type='primary' disabled>Disabled</Button>
-  <Button type='basic'>Basic</Button>
-  <Button type='basic' disabled>Disabled</Button>
+  <Button onClick={ onClick }>Default</Button>
+  <Button onClick={ onClick } disabled>Disabled</Button>
+  <Button onClick={ onClick } type='primary'>Primary</Button>
+  <Button onClick={ onClick } type='primary' disabled>Disabled</Button>
+  <Button onClick={ onClick } type='basic'>Basic</Button>
+  <Button onClick={ onClick } type='basic' disabled>Disabled</Button>
 </Grid>
 ```
 

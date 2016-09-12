@@ -1,9 +1,8 @@
 import React from 'react'
 import expect from 'test/expect'
+import sinon from 'sinon'
 import Button from './'
 import View from '../core/View'
-
-const handler = () => { console.log('wat') }
 
 describe('Button', () => {
   it('renders a default button', () => {
@@ -14,13 +13,15 @@ describe('Button', () => {
     )
   })
 
-  describe('when given a onClick handler', () => {
-    it('renders a button with that onClick handler', () => {
-      expect(
-        <Button onClick={ handler }>Click me!</Button>,
-        'to render as',
-        <View role='button'onClick={ handler }>Click me!</View>
-      )
+  it('is clickable', () => {
+    const onClick = sinon.spy()
+
+    return expect(
+      <Button onClick={ onClick }>Click me!</Button>,
+      'when deeply rendered',
+      'with event', 'click'
+    ).then(() => {
+      expect(onClick, 'was called once')
     })
   })
 
@@ -29,7 +30,7 @@ describe('Button', () => {
       expect(
         <Button testId='wat'>Testable</Button>,
         'to render as',
-        <View role='button'testId='wat'>Testable</View>
+        <View role='button' testId='wat'>Testable</View>
       )
     })
   })
@@ -39,7 +40,7 @@ describe('Button', () => {
       expect(
         <Button type='primary'>Primary</Button>,
         'to render as',
-        <View role='button'className='type_primary c-btn c-btn--primary'>Primary</View>
+        <View role='button' className='type_primary c-btn c-btn--primary'>Primary</View>
       )
     })
   })
@@ -49,7 +50,7 @@ describe('Button', () => {
       expect(
         <Button type='basic'>Basic</Button>,
         'to render as',
-        <View role='button'className='type_basic c-btn c-btn--basic'>Basic</View>
+        <View role='button' className='type_basic c-btn c-btn--basic'>Basic</View>
       )
     })
   })
@@ -59,8 +60,20 @@ describe('Button', () => {
       expect(
         <Button disabled>Disabled</Button>,
         'to render as',
-        <View role='button'className='c-btn is-disabled' disabled>Disabled</View>
+        <View role='button' tabIndex={-1} className='c-btn is-disabled' disabled>Disabled</View>
       )
+    })
+
+    it('is not clickable', () => {
+      const onClick = sinon.spy()
+
+      return expect(
+        <Button onClick={ onClick } disabled>Disabled</Button>,
+        'when deeply rendered',
+        'with event', 'click'
+      ).then(() => {
+        expect(onClick, 'was not called')
+      })
     })
   })
 
@@ -69,7 +82,7 @@ describe('Button', () => {
       expect(
         <Button stretched>Stretched</Button>,
         'to render as',
-        <View role='button'className='type_default c-btn c-btn--full'>Stretched</View>
+        <View role='button' className='type_default c-btn c-btn--full'>Stretched</View>
       )
     })
   })
@@ -79,7 +92,7 @@ describe('Button', () => {
       expect(
         <Button size='medium'>Medium</Button>,
         'to render as',
-        <View role='button'className='type_default c-btn c-btn--medium'>Medium</View>
+        <View role='button' className='type_default c-btn c-btn--medium'>Medium</View>
       )
     })
   })
@@ -89,7 +102,7 @@ describe('Button', () => {
       expect(
         <Button size='large'>Large</Button>,
         'to render as',
-        <View role='button'className='type_default c-btn c-btn--large'>Large</View>
+        <View role='button' className='type_default c-btn c-btn--large'>Large</View>
       )
     })
   })
@@ -99,7 +112,7 @@ describe('Button', () => {
       expect(
         <Button tabIndex={42}>Tab order</Button>,
         'to render as',
-        <View role='button'tabIndex={42}>Tab order</View>
+        <View role='button' tabIndex={42}>Tab order</View>
       )
     })
   })
