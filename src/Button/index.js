@@ -41,6 +41,28 @@ export default class Button extends Component {
     e.preventDefault()
   }
 
+  onMouseDown = (e) => {
+    const { disabled } = this.props
+
+    if (disabled) {
+      e.stopPropagation()
+      e.preventDefault()
+    } else {
+      this.keyboard = false
+    }
+  }
+
+  onClick = (e) => {
+    const { disabled, onClick } = this.props
+
+    if (disabled) {
+      e.stopPropagation()
+      e.preventDefault()
+    } else {
+      onClick && onClick(e)
+    }
+  }
+
   render () {
     const {
       autoFocus,
@@ -48,7 +70,6 @@ export default class Button extends Component {
       children,
       disabled,
       stretched,
-      onClick,
       pill,
       size,
       tabIndex,
@@ -74,15 +95,15 @@ export default class Button extends Component {
         testId={ testId }
         disabled={ disabled }
         onBlur={ () => this.setState({ focused: false }) }
-        onClick={ onClick }
+        onClick={ this.onClick }
         onEnter={ this.onKeyboardClick }
         onFocus={ () => {
           this.setState({ focused: this.keyboard })
           this.keyboard = true
         } }
-        onMouseDown={ () => this.keyboard = false }
+        onMouseDown={ this.onMouseDown }
         onSpace={ this.onKeyboardClick }
-        tabIndex={ tabIndex }
+        tabIndex={ disabled ? -1 : tabIndex }
         role='button'
         title={ title }
       >
