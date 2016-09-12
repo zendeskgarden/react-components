@@ -1,5 +1,8 @@
 ## Change Log
 
+### v1.4.1 (2016/09/12 13:21 +00:00)
+- [#30](https://github.com/zendeskgarden/react-components/pull/30) Fixed: button was clickable when disabled (@sunesimonsen)
+
 ### v1.4.0 (2016/09/08 12:55 +00:00)
 - [#28](https://github.com/zendeskgarden/react-components/pull/28) Add Range component (@csk157)
 
