@@ -1,7 +1,6 @@
 @import 'zd-css-variables';
 
 :root {
-  --zd-menu-background-color: var(--zd-color-white);
   --zd-menu-min-width: 140px;
   --zd-menu--large-min-width: 270px;
 }
@@ -24,8 +23,6 @@
 }
 
 .menu {
-  position: relative;
-
   padding: 10px initial;
 
   composes: c-menu from 'zd-css-menus';
@@ -59,11 +56,6 @@
   margin-bottom: initial;
 }
 
-.items {
-  position: relative;
-  z-index: 2;
-}
-
 .scrollable {
   overflow-x: hidden;
   overflow-y: auto;
@@ -85,21 +77,6 @@
   composes: is-rtl from 'zd-css-menus';
 }
 
-.arrow:after {
-  z-index: 0;
-}
-
-.border_mask {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-
-  background: var(--zd-menu-background-color);
-}
-
 .position_bottom_stretch,
 .position_top_stretch {
   width: 100%;
@@ -107,10 +84,6 @@
 
 .arrow {
   composes: c-arrow from 'zd-css-arrows';
-}
-
-.arrow:after {
-  z-index: 0;
 }
 
 .arrow_bottom {

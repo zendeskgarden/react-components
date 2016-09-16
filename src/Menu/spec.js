@@ -31,7 +31,7 @@ describe('Menu', () => {
         </Menu>,
         'when clicking on the trigger',
         'to contain',
-        <View className='items'>
+        <View>
           <View className='item'>One</View>
           <View className='item'>Two</View>
           <View className='item'>Three</View>
@@ -99,7 +99,7 @@ describe('Menu', () => {
         </Menu>,
         'when clicking on the trigger',
         'to contain',
-        <View className='items'>
+        <View>
           <View className='item'>One</View>
           <View className='item'>Two</View>
           <View className='separator'/>
@@ -165,7 +165,7 @@ describe('Menu', () => {
           </Menu>,
           'when clicking on the trigger',
           'to contain',
-          <View className='items scrollable' style={{ maxHeight: '150px' }}>
+          <View className='scrollable' style={{ maxHeight: '150px' }}>
             <View className='item'>One</View>
             <View className='item'>Two</View>
             <View className='item'>Three</View>
@@ -187,7 +187,7 @@ describe('Menu', () => {
           </Menu>,
           'when clicking on the trigger',
           'to contain',
-          <View className='items scrollable' style={{ maxHeight: '80vh' }}>
+          <View className='scrollable' style={{ maxHeight: '80vh' }}>
             <View className='item'>One</View>
             <View className='item'>Two</View>
             <View className='item'>Three</View>
