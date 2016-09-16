@@ -49,14 +49,13 @@ const Container = ({
       role='menu'
     >
       <View
-        className={ classNames(styles.items, {
+        className={ classNames({
           [styles.scrollable]: hasMaxHeight
         }) }
         style={ style }
       >
         { children }
       </View>
-      <View className={ styles.border_mask }/>
     </View>
   )
 }

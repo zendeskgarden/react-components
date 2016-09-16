@@ -72,7 +72,7 @@
     "unexpected-sinon": "10.2.1",
     "url-loader": "0.5.7",
     "webpack": "2.1.0-beta.4",
-    "zd-css-arrows": "git+ssh://git@github.com/zendeskgarden/css-arrows.git#0.1.1",
+    "zd-css-arrows": "git+ssh://git@github.com/zendeskgarden/css-arrows.git#0.2.0",
     "zd-css-avatars": "git+ssh://git@github.com/zendeskgarden/css-avatars.git#0.2.0",
     "zd-css-bedrock": "git+ssh://git@github.com/zendeskgarden/css-bedrock.git#0.2.0",
     "zd-css-buttons": "git+ssh://git@github.com/zendeskgarden/css-buttons.git#1.1.0",

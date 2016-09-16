@@ -243,10 +243,7 @@ Fixing the width of the menu:
 Using the menu styling in other components:
 
 ```
-<Menu.Container
-  position='bottom'
-  arrow
->
+<Menu.Container position='bottom'>
   <Menu.Item>Profile</Menu.Item>
   <Menu.Item>Settings</Menu.Item>
   <Menu.Item>Theme Editor</Menu.Item>
