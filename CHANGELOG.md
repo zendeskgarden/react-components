@@ -1,5 +1,8 @@
 ## Change Log
 
+### v1.4.2 (2016/09/16 11:16 +00:00)
+- [#32](https://github.com/zendeskgarden/react-components/pull/32) Upgraded the css-arrows to v0.2 (@sunesimonsen)
+
 ### v1.4.1 (2016/09/12 13:21 +00:00)
 - [#30](https://github.com/zendeskgarden/react-components/pull/30) Fixed: button was clickable when disabled (@sunesimonsen)
 
