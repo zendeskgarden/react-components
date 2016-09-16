@@ -796,7 +796,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.i, ".rc-c-arrow-8IEPU{\n  position:relative;\n}\n\n.rc-c-arrow-8IEPU:before{\n  border-width:inherit;\n  border-style:inherit;\n  border-color:transparent;\n  background-clip:content-box;\n}\n\n.rc-c-arrow-8IEPU:after{\n  z-index:-1;\n  border:inherit;\n  box-shadow:inherit;\n  background-color:inherit;\n}\n\n.rc-c-arrow-8IEPU:after,.rc-c-arrow-8IEPU:before{\n  position:absolute;\n  -webkit-transform:rotate(45deg);\n          transform:rotate(45deg);\n  background-color:inherit;\n  width:1em;\n  height:1em;\n  content:'';\n}\n\n.rc-c-arrow--t-bkPOr:after,.rc-c-arrow--t-bkPOr:before{\n  top:-.5em;\n  left:50%;\n  margin-left:-.5em;\n}\n\n.rc-c-arrow--tl-1yjg3:after,.rc-c-arrow--tl-1yjg3:before{\n  top:-.5em;\n  left:1em;\n}\n\n.rc-c-arrow--tr-33qri:after,.rc-c-arrow--tr-33qri:before{\n  top:-.5em;\n  right:1em;\n}\n\n.rc-c-arrow--r-18YcM:after,.rc-c-arrow--r-18YcM:before{\n  top:50%;\n  right:-.5em;\n  margin-top:-.5em;\n}\n\n.rc-c-arrow--l-4lAoW:after,.rc-c-arrow--l-4lAoW:before{\n  top:50%;\n  left:-.5em;\n  margin-top:-.5em;\n}\n\n.rc-c-arrow--b-1fSTl:after,.rc-c-arrow--b-1fSTl:before{\n  bottom:-.5em;\n  left:50%;\n  margin-left:-.5em;\n}\n\n.rc-c-arrow--bl-3drwu:after,.rc-c-arrow--bl-3drwu:before{\n  bottom:-.5em;\n  left:1em;\n}\n\n.rc-c-arrow--br-29nBG:after,.rc-c-arrow--br-29nBG:before{\n  right:1em;\n  bottom:-.5em;\n}\n", ""]);
+	exports.push([module.i, ".rc-c-arrow-8IEPU{\n  position:relative;\n}\n.rc-c-arrow-8IEPU:before{\n  border-width:inherit;\n  border-style:inherit;\n  border-color:transparent;\n  background-clip:content-box;\n}\n.rc-c-arrow-8IEPU:after{\n  z-index:-1;\n  border:inherit;\n  box-shadow:inherit;\n}\n.rc-c-arrow-8IEPU:after,.rc-c-arrow-8IEPU:before{\n  position:absolute;\n  -webkit-transform:rotate(45deg);\n          transform:rotate(45deg);\n  background-color:inherit;\n  width:1em;\n  height:1em;\n  content:'';\n}\n.rc-c-arrow--t-bkPOr:before,.rc-c-arrow--tl-1yjg3:before,.rc-c-arrow--tr-33qri:before{\n  border-bottom-right-radius:100%;\n  -webkit-clip-path:polygon(100% 0,100% 1px,1px 100%,0 100%,0 0);\n          clip-path:polygon(100% 0,100% 1px,1px 100%,0 100%,0 0);\n}\n.rc-c-arrow--t-bkPOr:after,.rc-c-arrow--t-bkPOr:before{\n  top:-.5em;\n  left:50%;\n  margin-left:-.5em;\n}\n.rc-c-arrow--tl-1yjg3:after,.rc-c-arrow--tl-1yjg3:before{\n  top:-.5em;\n  left:1em;\n}\n.rc-c-arrow--tr-33qri:after,.rc-c-arrow--tr-33qri:before{\n  top:-.5em;\n  right:1em;\n}\n.rc-c-arrow--r-18YcM:before{\n  border-bottom-left-radius:100%;\n  -webkit-clip-path:polygon(100% 0,100% 100%,calc(100% - 1px) 100%,0 1px,0 0);\n          clip-path:polygon(100% 0,100% 100%,calc(100% - 1px) 100%,0 1px,0 0);\n}\n.rc-c-arrow--r-18YcM:after,.rc-c-arrow--r-18YcM:before{\n  top:50%;\n  right:-.5em;\n  margin-top:-.5em;\n}\n.rc-c-arrow--l-4lAoW:before{\n  border-top-right-radius:100%;\n  -webkit-clip-path:polygon(0 100%,100% 100%,100% calc(100% - 1px),1px 0,0 0);\n          clip-path:polygon(0 100%,100% 100%,100% calc(100% - 1px),1px 0,0 0);\n}\n.rc-c-arrow--l-4lAoW:after,.rc-c-arrow--l-4lAoW:before{\n  top:50%;\n  left:-.5em;\n  margin-top:-.5em;\n}\n.rc-c-arrow--b-1fSTl:before,.rc-c-arrow--bl-3drwu:before,.rc-c-arrow--br-29nBG:before{\n  border-top-left-radius:100%;\n  -webkit-clip-path:polygon(100% 0,calc(100% - 1px) 0,0 calc(100% - 1px),0 100%,100% 100%);\n          clip-path:polygon(100% 0,calc(100% - 1px) 0,0 calc(100% - 1px),0 100%,100% 100%);\n}\n.rc-c-arrow--b-1fSTl:after,.rc-c-arrow--b-1fSTl:before{\n  bottom:-.5em;\n  left:50%;\n  margin-left:-.5em;\n}\n.rc-c-arrow--bl-3drwu:after,.rc-c-arrow--bl-3drwu:before{\n  bottom:-.5em;\n  left:1em;\n}\n.rc-c-arrow--br-29nBG:after,.rc-c-arrow--br-29nBG:before{\n  right:1em;\n  bottom:-.5em;\n}\n", ""]);
 
 	// exports
 	exports.locals = {
@@ -4946,12 +4946,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _react2.default.createElement(
 	      _View2.default,
 	      {
-	        className: (0, _classnames2.default)(_styles2.default.items, (0, _defineProperty3.default)({}, _styles2.default.scrollable, hasMaxHeight)),
+	        className: (0, _classnames2.default)((0, _defineProperty3.default)({}, _styles2.default.scrollable, hasMaxHeight)),
 	        style: style
 	      },
 	      children
-	    ),
-	    _react2.default.createElement(_View2.default, { className: _styles2.default.border_mask })
+	    )
 	  );
 	};
 
@@ -7589,7 +7588,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.i(__webpack_require__(16), undefined);
 
 	// module
-	exports.push([module.i, "/* davidwalsh.name/sass-color-variables-dont-suck\n * name-of-color.com */\n\n:root {\n\n  /* Aliases */\n}\n\n/* csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css\n * www.modularscale.com/?14&px&1.125 */\n\n:root {\n  /* Larger than H1 */\n\n  /* H1-H6 */\n\n  /* Smaller than H6 */\n}\n\n:root {\n\n  /* Aliases */\n}\n\n.rc-container-2fr4n {\n  display: inline-block;\n\n  position: relative;\n}\n\n.rc-stretched-2ldEi {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n\n  width: 100%;\n  height: 100%;\n\n  -ms-flex-preferred-size: auto;\n\n      flex-basis: auto;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 1;\n      flex-shrink: 1;\n}\n\n.rc-menu-1xszq {\n  position: relative;\n\n  padding: 10px 0;\n\n  padding: 10px initial;\n}\n\n.rc-size_large-3L1Px {\n}\n\n.rc-size_small-2pEE1.rc-fixed_width-1NXYn {\n  max-width: 140px;\n}\n\n.rc-size_large-3L1Px.rc-fixed_width-1NXYn {\n  max-width: 270px;\n}\n\n.rc-item-3B--m {\n}\n\n.rc-item-3B--m:hover:not(.rc-selected--N4Wq) {\n  background: transparent;\n}\n\n.rc-item-3B--m:first-child {\n  margin-top: 0;\n  margin-top: initial;\n}\n\n.rc-item-3B--m:last-child {\n  margin-bottom: 0;\n  margin-bottom: initial;\n}\n\n.rc-items-3lUkx {\n  position: relative;\n  z-index: 2;\n}\n\n.rc-scrollable-1nCMo {\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n\n.rc-disabled-1oY7A {\n}\n\n.rc-selected--N4Wq {\n}\n\n.rc-separator-e_c9B {\n}\n\n.rc-rtl-2gBMd {\n}\n\n.rc-arrow-2LG05:after {\n  z-index: 0;\n}\n\n.rc-border_mask-28CnB {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 1;\n\n  background: rgb(255, 255, 255);\n}\n\n.rc-position_bottom_stretch-3z6yC,\n.rc-position_top_stretch-2RsmI {\n  width: 100%;\n}\n\n.rc-arrow-2LG05 {\n}\n\n.rc-arrow-2LG05:after {\n  z-index: 0;\n}\n\n.rc-arrow_bottom-xPpl8 {\n}\n\n.rc-arrow_bottom_left-3Y2xe {\n}\n\n.rc-arrow_bottom_right-2w3_o {\n}\n\n.rc-arrow_left-UZIe0 {\n}\n\n.rc-arrow_right-1HXRB {\n}\n\n.rc-arrow_top-1l8TM {\n}\n\n.rc-arrow_top_left-3hDaw {\n}\n\n.rc-arrow_top_right-2frQz {\n}\n", ""]);
+	exports.push([module.i, "/* davidwalsh.name/sass-color-variables-dont-suck\n * name-of-color.com */\n\n:root {\n\n  /* Aliases */\n}\n\n/* csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css\n * www.modularscale.com/?14&px&1.125 */\n\n:root {\n  /* Larger than H1 */\n\n  /* H1-H6 */\n\n  /* Smaller than H6 */\n}\n\n:root {\n\n  /* Aliases */\n}\n\n.rc-container-2fr4n {\n  display: inline-block;\n\n  position: relative;\n}\n\n.rc-stretched-2ldEi {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n\n  width: 100%;\n  height: 100%;\n\n  -ms-flex-preferred-size: auto;\n\n      flex-basis: auto;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -ms-flex-negative: 1;\n      flex-shrink: 1;\n}\n\n.rc-menu-1xszq {\n  padding: 10px 0;\n  padding: 10px initial;\n}\n\n.rc-size_large-3L1Px {\n}\n\n.rc-size_small-2pEE1.rc-fixed_width-1NXYn {\n  max-width: 140px;\n}\n\n.rc-size_large-3L1Px.rc-fixed_width-1NXYn {\n  max-width: 270px;\n}\n\n.rc-item-3B--m {\n}\n\n.rc-item-3B--m:hover:not(.rc-selected--N4Wq) {\n  background: transparent;\n}\n\n.rc-item-3B--m:first-child {\n  margin-top: 0;\n  margin-top: initial;\n}\n\n.rc-item-3B--m:last-child {\n  margin-bottom: 0;\n  margin-bottom: initial;\n}\n\n.rc-scrollable-1nCMo {\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n\n.rc-disabled-1oY7A {\n}\n\n.rc-selected--N4Wq {\n}\n\n.rc-separator-e_c9B {\n}\n\n.rc-rtl-2gBMd {\n}\n\n.rc-position_bottom_stretch-3z6yC,\n.rc-position_top_stretch-2RsmI {\n  width: 100%;\n}\n\n.rc-arrow-2LG05 {\n}\n\n.rc-arrow_bottom-xPpl8 {\n}\n\n.rc-arrow_bottom_left-3Y2xe {\n}\n\n.rc-arrow_bottom_right-2w3_o {\n}\n\n.rc-arrow_left-UZIe0 {\n}\n\n.rc-arrow_right-1HXRB {\n}\n\n.rc-arrow_top-1l8TM {\n}\n\n.rc-arrow_top_left-3hDaw {\n}\n\n.rc-arrow_top_right-2frQz {\n}\n", ""]);
 
 	// exports
 	exports.locals = {
@@ -7601,15 +7600,13 @@ return /******/ (function(modules) { // webpackBootstrap
 		"fixed_width": "rc-fixed_width-1NXYn",
 		"item": "rc-item-3B--m " + __webpack_require__(23).locals["c-menu__item"] + "",
 		"selected": "rc-selected--N4Wq " + __webpack_require__(23).locals["is-selected"] + "",
-		"items": "rc-items-3lUkx",
 		"scrollable": "rc-scrollable-1nCMo",
 		"disabled": "rc-disabled-1oY7A " + __webpack_require__(23).locals["is-disabled"] + "",
 		"separator": "rc-separator-e_c9B " + __webpack_require__(23).locals["c-menu__separator"] + "",
 		"rtl": "rc-rtl-2gBMd " + __webpack_require__(23).locals["is-rtl"] + "",
-		"arrow": "rc-arrow-2LG05 " + __webpack_require__(16).locals["c-arrow"] + "",
-		"border_mask": "rc-border_mask-28CnB",
 		"position_bottom_stretch": "rc-position_bottom_stretch-3z6yC",
 		"position_top_stretch": "rc-position_top_stretch-2RsmI",
+		"arrow": "rc-arrow-2LG05 " + __webpack_require__(16).locals["c-arrow"] + "",
 		"arrow_bottom": "rc-arrow_bottom-xPpl8 " + __webpack_require__(16).locals["c-arrow--b"] + "",
 		"arrow_bottom_left": "rc-arrow_bottom_left-3Y2xe " + __webpack_require__(16).locals["c-arrow--bl"] + "",
 		"arrow_bottom_right": "rc-arrow_bottom_right-2w3_o " + __webpack_require__(16).locals["c-arrow--br"] + "",
