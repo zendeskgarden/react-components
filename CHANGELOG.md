@@ -1,5 +1,8 @@
 ## Change Log
 
+### v1.4.3 (2016/09/16 11:31 +00:00)
+- [#33](https://github.com/zendeskgarden/react-components/pull/33) Fixed menu positioning when embedded into other components (@sunesimonsen)
+
 ### v1.4.2 (2016/09/16 11:16 +00:00)
 - [#32](https://github.com/zendeskgarden/react-components/pull/32) Upgraded the css-arrows to v0.2 (@sunesimonsen)
 
