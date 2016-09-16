@@ -23,6 +23,7 @@
 }
 
 .menu {
+  position: relative;
   padding: 10px initial;
 
   composes: c-menu from 'zd-css-menus';
