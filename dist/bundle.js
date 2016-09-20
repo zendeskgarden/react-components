@@ -4216,6 +4216,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  className: _react.PropTypes.string,
 	  isFocused: _react.PropTypes.bool,
 	  dir: _react.PropTypes.oneOf(['ltr', 'rtl']),
+	  disabled: _react.PropTypes.bool.isRequired,
 	  name: _react.PropTypes.string,
 	  maxLength: _react.PropTypes.number,
 	  onArrowDown: _react.PropTypes.func,
@@ -4236,6 +4237,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	TextArea.defaultProps = {
 	  autoComplete: 'off',
+	  disabled: false,
 	  resizable: false,
 	  type: 'default'
 	};
@@ -4336,6 +4338,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  className: _react.PropTypes.string,
 	  isFocused: _react.PropTypes.bool,
 	  dir: _react.PropTypes.oneOf(['ltr', 'rtl']),
+	  disabled: _react.PropTypes.bool.isRequired,
 	  name: _react.PropTypes.string,
 	  maxLength: _react.PropTypes.number,
 	  onArrowDown: _react.PropTypes.func,
@@ -4354,7 +4357,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: _react.PropTypes.string
 	};
 	TextInput.defaultProps = {
-	  autoComplete: 'off'
+	  autoComplete: 'off',
+	  disabled: false
 	};
 	exports.default = TextInput;
 
@@ -5843,6 +5847,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var autoFocus = _props.autoFocus;
 	      var className = _props.className;
 	      var dir = _props.dir;
+	      var disabled = _props.disabled;
 	      var isFocused = _props.isFocused;
 	      var name = _props.name;
 	      var maxLength = _props.maxLength;
@@ -5881,6 +5886,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        className: className,
 	        'data-test-id': testId,
 	        dir: dir,
+	        disabled: disabled,
 	        name: name,
 	        maxLength: maxLength,
 	        onBlur: onBlur,
@@ -5917,6 +5923,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  isFocused: _react.PropTypes.bool,
 	  className: _react.PropTypes.string,
 	  dir: _react.PropTypes.oneOf(['ltr', 'rtl']),
+	  disabled: _react.PropTypes.bool.isRequired,
 	  name: _react.PropTypes.string,
 	  maxLength: _react.PropTypes.number,
 	  onArrowDown: _react.PropTypes.func,
@@ -5939,6 +5946,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	Core.defaultProps = {
 	  autoComplete: 'off',
+	  disabled: false,
 	  rows: 2,
 	  type: 'text',
 	  value: ''
@@ -5997,6 +6005,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var autoFocus = _props.autoFocus;
 	      var className = _props.className;
 	      var dir = _props.dir;
+	      var disabled = _props.disabled;
 	      var isFocused = _props.isFocused;
 	      var name = _props.name;
 	      var maxLength = _props.maxLength;
@@ -6034,6 +6043,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        className: className,
 	        'data-test-id': testId,
 	        dir: dir,
+	        disabled: disabled,
 	        name: name,
 	        maxLength: maxLength,
 	        onBlur: onBlur,
@@ -6069,6 +6079,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  isFocused: _react.PropTypes.bool,
 	  className: _react.PropTypes.string,
 	  dir: _react.PropTypes.oneOf(['ltr', 'rtl']),
+	  disabled: _react.PropTypes.bool.isRequired,
 	  name: _react.PropTypes.string,
 	  maxLength: _react.PropTypes.number,
 	  onArrowDown: _react.PropTypes.func,
@@ -6090,6 +6101,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	Core.defaultProps = {
 	  autoComplete: 'off',
+	  disabled: false,
 	  type: 'text',
 	  value: ''
 	};
