@@ -1,5 +1,8 @@
 ## Change Log
 
+### v1.5.0 (2016/09/20 10:51 +00:00)
+- [#34](https://github.com/zendeskgarden/react-components/pull/34) Make the modal trap focus (@sunesimonsen)
+
 ### v1.4.3 (2016/09/16 11:31 +00:00)
 - [#33](https://github.com/zendeskgarden/react-components/pull/33) Fixed menu positioning when embedded into other components (@sunesimonsen)
 
