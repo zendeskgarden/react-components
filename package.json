@@ -66,6 +66,7 @@
     "sinon": "1.17.4",
     "stylelint": "^3.2.2",
     "stylelint-config-zendesk": "git+ssh://git@github.com/zendeskgarden/stylelint-config.git#1.0.2",
+    "tabbable": "1.0.4",
     "unexpected": "10.13.3",
     "unexpected-check": "1.7.0",
     "unexpected-react": "3.2.3",

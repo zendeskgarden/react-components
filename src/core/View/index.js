@@ -29,8 +29,17 @@ export default class View extends Component {
     onEscape: PropTypes.func,
     onKeyDown: PropTypes.func,
     onSpace: PropTypes.func,
+    onTab: PropTypes.func,
     testId: PropTypes.string,
     title: PropTypes.string
+  }
+
+  componentDidMount () {
+    const { autoFocus } = this.props
+
+    if (autoFocus) {
+      this.element.focus()
+    }
   }
 
   render () {
@@ -47,12 +56,14 @@ export default class View extends Component {
       onEscape,
       onKeyDown,
       onSpace,
+      onTab,
       testId,
       ...other
     } = this.props
 
     const keyDownHandlers = {
       '8': onDelete,
+      '9': onTab,
       '13': onEnter,
       '27': onEscape,
       '32': onSpace,
@@ -89,6 +100,7 @@ export default class View extends Component {
       <div
         { ...props }
         className={ classNames(styles.view, className) }
+        ref={ ref => this.element = ref }
       >
         { children }
       </div>
