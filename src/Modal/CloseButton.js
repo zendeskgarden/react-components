@@ -16,6 +16,7 @@ export default class CloseButton extends Component {
         aria-label='close'
         className={ styles.close }
         onClick={ onClick }
+        tabIndex={-1}
       >
         <CloseIcon/>
       </button>

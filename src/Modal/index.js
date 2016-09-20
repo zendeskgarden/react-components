@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import classNames from 'classnames'
+import { findDOMNode } from 'react-dom'
 
 import styles from './styles.css'
 import View from '../core/View/'
@@ -9,6 +10,8 @@ import CloseButton from './CloseButton'
 import Footer from './Footer'
 import Header from './Header'
 import Title from './Title'
+
+import tabbable from 'tabbable'
 
 export default class Modal extends Component {
   static propTypes = {
@@ -30,6 +33,34 @@ export default class Modal extends Component {
   static Header = Header
   static Title = Title
 
+  onTab = (e) => {
+    const elements = tabbable(this.modalElement)
+
+    const index = elements.indexOf(e.target)
+
+    if (elements.length === 0) {
+      setTimeout(() => {
+        this.dialogElement.focus()
+      }, 0)
+      e.stopPropagation()
+      e.preventDefault()
+    } else if (index < 1 && e.shiftKey) {
+      // Shift tab on the first tabbable element or the dialog
+      setTimeout(() => {
+        elements[elements.length - 1].focus()
+      }, 0)
+      e.stopPropagation()
+      e.preventDefault()
+    } else if (index === elements.length - 1 && !e.shiftKey) {
+      // Tab on the last tabbable element
+      setTimeout(() => {
+        elements[0].focus()
+      }, 0)
+      e.stopPropagation()
+      e.preventDefault()
+    }
+  }
+
   render () {
     const {
       children,
@@ -48,15 +79,27 @@ export default class Modal extends Component {
         className={ classNames(styles.backdrop, styles[`type_${type}`]) }
         onClick={ onClose }
         onEscape={ onClose }
+        onTab={ this.onTab }
+        ref={ ref => {
+          if (ref) {
+            this.modalElement = findDOMNode(ref)
+            this.dialogElement = this.modalElement.firstChild
+
+            setTimeout(() => {
+              if (!this.dialogElement.contains(window.document.activeElement)) {
+                this.dialogElement.focus()
+              }
+            }, 1)
+          }
+        } }
       >
         <section
-          autoFocus
           aria-labelledby='dialog-title'
           className={ styles.dialog }
-          role='dialog'
-          tabIndex='-1'
           onClick={ (e) => e.stopPropagation() }
+          role='dialog'
           style={{ width }}
+          tabIndex={ -1 }
         >
           { children }
         </section>

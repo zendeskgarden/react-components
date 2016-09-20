@@ -19,10 +19,28 @@ class ModalExample extends Component {
           onClose={ () => this.setState({ hidden: true }) }
           type={ type }
         >
-          <Grid columns={1}>
-            <Text>Modal content.</Text>
-            <Button>Focus content by pressing tab</Button>
-          </Grid>
+          <State initialState={{ value: '' }}>
+            {
+              (state, setState) => (
+                <Grid columns={1} spacing='medium'>
+                  <Text>You can place anything inside a modal.</Text>
+
+                  <Checkbox
+                    checked={ state.checked }
+                    onChange={ checked => setState({ checked }) }
+                  >
+                    are you happy?
+                  </Checkbox>
+
+                  <TextInput
+                    onChangeText={ (value) => setState({ value }) }
+                    placeholder='Write something here'
+                    value={ state.value }
+                  />
+                </Grid>
+              )
+            }
+          </State>
         </Modal>
       </View>
     )
@@ -89,6 +107,7 @@ class ModalExample extends Component {
 Content:
 
 ```
+initialState = { hidden: true }
 const onClose = () => setState({ hidden: true })
 const onOpen = () => setState({ hidden: false });
 
@@ -108,7 +127,28 @@ const onOpen = () => setState({ hidden: false });
       />
     </Modal.Header>
     <Modal.Body>
-      Modal content.
+      <State initialState={{ value: '' }}>
+        {
+          (state, setState) => (
+            <Grid columns={1} spacing='medium'>
+              <Text>You can place anything inside a modal.</Text>
+
+              <Checkbox
+                checked={ state.checked }
+                onChange={ checked => setState({ checked }) }
+              >
+                are you happy?
+              </Checkbox>
+
+              <TextInput
+                onChangeText={ (value) => setState({ value }) }
+                placeholder='Write something here'
+                value={ state.value }
+              />
+            </Grid>
+          )
+        }
+      </State>
     </Modal.Body>
     <Modal.Footer>
       <Button autoFocus onClick={ onClose }>

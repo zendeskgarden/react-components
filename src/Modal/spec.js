@@ -23,7 +23,7 @@ describe('Modal', () => {
             aria-labelledby='dialog-title'
             className='dialog c-dialog'
             role='dialog'
-            tabIndex='-1'
+            tabIndex={ -1 }
           >
             Content.
           </section>
@@ -63,7 +63,7 @@ describe('Modal', () => {
             aria-labelledby='dialog-title'
             className='dialog c-dialog'
             role='dialog'
-            tabIndex='-1'
+            tabIndex={ -1 }
           >
             <header>
               <h1>Dialog Title</h1>
