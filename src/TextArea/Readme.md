@@ -24,3 +24,18 @@ initialState={ value: '' };
   />
 </Grid>
 ```
+
+Disabled:
+
+```
+initialState={ value: '' };
+
+<Grid columns={1} stretched>
+  <TextArea
+    disabled
+    onChangeText={ (value) => setState({ value }) }
+    placeholder='Write something'
+    value={ state.value }
+  />
+</Grid>
+```
