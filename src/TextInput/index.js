@@ -15,6 +15,7 @@ export default class TextInput extends Component {
     className: PropTypes.string,
     isFocused: PropTypes.bool,
     dir: PropTypes.oneOf(['ltr', 'rtl']),
+    disabled: PropTypes.bool.isRequired,
     name: PropTypes.string,
     maxLength: PropTypes.number,
     onArrowDown: PropTypes.func,
@@ -34,7 +35,8 @@ export default class TextInput extends Component {
   }
 
   static defaultProps = {
-    autoComplete: 'off'
+    autoComplete: 'off',
+    disabled: false
   }
 
   render () {

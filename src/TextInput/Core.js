@@ -7,6 +7,7 @@ export default class Core extends Component {
     isFocused: PropTypes.bool,
     className: PropTypes.string,
     dir: PropTypes.oneOf(['ltr', 'rtl']),
+    disabled: PropTypes.bool.isRequired,
     name: PropTypes.string,
     maxLength: PropTypes.number,
     onArrowDown: PropTypes.func,
@@ -29,6 +30,7 @@ export default class Core extends Component {
 
   static defaultProps = {
     autoComplete: 'off',
+    disabled: false,
     type: 'text',
     value: ''
   }
@@ -39,6 +41,7 @@ export default class Core extends Component {
       autoFocus,
       className,
       dir,
+      disabled,
       isFocused,
       name,
       maxLength,
@@ -76,6 +79,7 @@ export default class Core extends Component {
       className,
       'data-test-id': testId,
       dir,
+      disabled,
       name,
       maxLength,
       onBlur,
