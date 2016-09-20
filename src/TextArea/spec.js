@@ -13,6 +13,16 @@ describe('TextArea', () => {
     )
   })
 
+  describe('when disabled', () => {
+    it('renders a disabled textarea', () => {
+      expect(
+        <TextArea.Core disabled />,
+        'to render as',
+        <textarea disabled />
+      )
+    })
+  })
+
   describe('when changing the text', () => {
     it('onChangeText is called', () => {
       const onChangeText = sinon.spy()
