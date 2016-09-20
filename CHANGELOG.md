@@ -1,5 +1,8 @@
 ## Change Log
 
+### v1.6.0 (2016/09/20 14:58 +00:00)
+- [#36](https://github.com/zendeskgarden/react-components/pull/36) Adds support for disabled TextInput & TextArea (@albertfdp)
+
 ### v1.5.0 (2016/09/20 10:51 +00:00)
 - [#34](https://github.com/zendeskgarden/react-components/pull/34) Make the modal trap focus (@sunesimonsen)
 
