@@ -1,0 +1,23 @@
+.checkbox {
+  composes: c-chk from 'zd-css-forms';
+}
+
+.radio {
+  composes: c-chk--radio from 'zd-css-forms';
+}
+
+.input {
+  composes: c-chk__input from 'zd-css-forms';
+}
+
+.label {
+  composes: c-chk__label from 'zd-css-forms';
+}
+
+.rtl {
+  composes: is-rtl from 'zd-css-forms';
+}
+
+.focused {
+  composes: is-focused from 'zd-css-forms';
+}
