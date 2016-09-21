@@ -1,5 +1,9 @@
 ## Change Log
 
+### v1.7.0 (2016/09/21 11:56 +00:00)
+- [#37](https://github.com/zendeskgarden/react-components/pull/37) Add RadioButton and RadioButtonGroup (@csk157)
+- [#38](https://github.com/zendeskgarden/react-components/pull/38) Added a test id to the modal frame (@sunesimonsen)
+
 ### v1.6.0 (2016/09/20 14:58 +00:00)
 - [#36](https://github.com/zendeskgarden/react-components/pull/36) Adds support for disabled TextInput & TextArea (@albertfdp)
 
