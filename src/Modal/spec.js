@@ -19,14 +19,37 @@ describe('Modal', () => {
           className='backdrop l-backdrop'
           onClick={ handler }
         >
-          <section
+          <View
             aria-labelledby='dialog-title'
             className='dialog c-dialog'
             role='dialog'
             tabIndex={ -1 }
           >
             Content.
-          </section>
+          </View>
+        </View>
+      )
+    })
+  })
+
+  describe('when given a test id', () => {
+    it('renders a modal with the given test id', () => {
+      expect(
+        <Modal onClose={ handler } hidden={ false } testId='test-me'>Content.</Modal>,
+        'to deeply render as',
+        <View
+          className='backdrop l-backdrop'
+          onClick={ handler }
+        >
+          <View
+            aria-labelledby='dialog-title'
+            className='dialog c-dialog'
+            role='dialog'
+            tabIndex={ -1 }
+            testId='test-me'
+          >
+            Content.
+          </View>
         </View>
       )
     })
@@ -59,7 +82,7 @@ describe('Modal', () => {
           className='backdrop l-backdrop'
           onClick={ handler }
         >
-          <section
+          <View
             aria-labelledby='dialog-title'
             className='dialog c-dialog'
             role='dialog'
@@ -77,7 +100,7 @@ describe('Modal', () => {
                 Ok
               </Button>
             </footer>
-          </section>
+          </View>
         </View>
       )
     })
