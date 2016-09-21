@@ -19,6 +19,7 @@ export default class Modal extends Component {
     hidden: PropTypes.bool,
     onClose: PropTypes.func,
     type: PropTypes.oneOf(['default', 'transparent', 'lightbox']),
+    testId: PropTypes.string,
     width: PropTypes.string
   }
 
@@ -67,6 +68,7 @@ export default class Modal extends Component {
       hidden,
       onClose,
       type,
+      testId,
       width
     } = this.props
 
@@ -93,16 +95,17 @@ export default class Modal extends Component {
           }
         } }
       >
-        <section
+        <View
           aria-labelledby='dialog-title'
           className={ styles.dialog }
           onClick={ (e) => e.stopPropagation() }
           role='dialog'
           style={{ width }}
           tabIndex={ -1 }
+          testId={ testId }
         >
           { children }
-        </section>
+        </View>
       </View>
     )
   }
