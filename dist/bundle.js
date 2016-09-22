@@ -3877,7 +3877,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  children: _react.PropTypes.node,
 	  dir: _react.PropTypes.oneOf(['ltr', 'rtl']),
 	  disabled: _react.PropTypes.bool,
-	  name: _react.PropTypes.string.isRequired,
+	  name: _react.PropTypes.string,
 	  onChange: _react.PropTypes.func,
 	  tabIndex: _react.PropTypes.number,
 	  testId: _react.PropTypes.string,
