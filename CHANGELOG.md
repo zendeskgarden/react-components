@@ -1,5 +1,9 @@
 ## Change Log
 
+### v1.7.1 (2016/09/22 14:19 +00:00)
+- [#40](https://github.com/zendeskgarden/react-components/pull/40) Fixed proptype warning (@sunesimonsen)
+- [#39](https://github.com/zendeskgarden/react-components/pull/39) Add tests for TextInput (@csk157)
+
 ### v1.7.0 (2016/09/21 11:56 +00:00)
 - [#37](https://github.com/zendeskgarden/react-components/pull/37) Add RadioButton and RadioButtonGroup (@csk157)
 - [#38](https://github.com/zendeskgarden/react-components/pull/38) Added a test id to the modal frame (@sunesimonsen)
