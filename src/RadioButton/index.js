@@ -11,7 +11,7 @@ export default class RadioButton extends Component {
     children: PropTypes.node,
     dir: PropTypes.oneOf(['ltr', 'rtl']),
     disabled: PropTypes.bool,
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
     onChange: PropTypes.func,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
