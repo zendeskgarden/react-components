@@ -214,3 +214,49 @@ initialState = { active: 'pancetta' };
   </Tabs.Panel>
 </Tabs>
 ```
+
+## Components in labels
+
+```
+initialState = { active: 'human' };
+
+<Tabs active={ state.active } onActivate={ (active) => setState({ active }) }>
+  <Tabs.Panel
+    label={
+      <Grid>
+        <Avatar type='human' src='https://garden.zendesk.com/assets/images/avatars/amir-f98c75408944397dd78edd18860e71bc.png'/>
+        Human
+      </Grid>
+    }
+    id='human'
+  >
+    Modern humans (Homo sapiens, primarily ssp. Homo sapiens sapiens) are the only
+    extant members of Hominina clade (or human clade), a branch of the taxonomical
+    tribe Hominini belonging to the family of great apes. They are characterized by
+    erect posture and bipedal locomotion; manual dexterity and increased tool use,
+    compared to other animals; and a general trend toward larger, more complex
+    brains and societies.
+  </Tabs.Panel>
+  <Tabs.Panel
+    label={
+      <Grid>
+        <Avatar type='system' src='https://garden.zendesk.com/assets/images/avatars/zendesk-44abc2dfc7415e4aff556a166caf0b4f.png'/>
+        Machine
+      </Grid>
+    }
+    id='machine'
+  >
+    Artificial intelligence (AI) is intelligence exhibited by machines. In computer
+    science, an ideal "intelligent" machine is a flexible rational agent that
+    perceives its environment and takes actions that maximize its chance of success
+    at some goal.[1] Colloquially, the term "artificial intelligence" is applied
+    when a machine mimics "cognitive" functions that humans associate with other
+    human minds, such as "learning" and "problem solving".[2] As machines become
+    increasingly capable, facilities once thought to require intelligence are
+    removed from the definition. For example, optical character recognition is no
+    longer perceived as an exemplar of "artificial intelligence" having become a
+    routine technology.[3] Capabilities still classified as AI include advanced
+    Chess and Go systems and self-driving cars
+  </Tabs.Panel>
+</Tabs>
+```
