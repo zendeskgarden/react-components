@@ -1,14 +1,14 @@
 @import './variables.css';
 
-/* stylelint-disable declaration-no-important */
+/* stylelint-disable declaration-no-important, max-line-length */
 .input:not(:disabled)::range-track {
   background-image: linear-gradient(var(--zd-accent-color), var(--zd-accent-color));
 }
 
 .input:not(:disabled)::range-thumb {
   border-color: var(--zd-accent-color) !important;
-  color: var(--zd-accent-color) !important;
   background-color: var(--zd-accent-color) !important;
+  color: var(--zd-accent-color) !important;
 }
 
 .input:not(:disabled)::range-lower {
@@ -22,4 +22,4 @@
 .input:not(:disabled):active::range-thumb {
   background-color: var(--zd-active-color) !important;
 }
-/* stylelint-enable declaration-no-important */
+/* stylelint-enable */

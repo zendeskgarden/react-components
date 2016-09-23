@@ -1,6 +1,7 @@
 @import 'zd-css-variables';
 @import './variables.css';
 
+/* stylelint-disable declaration-no-important, max-line-length */
 .button {
   border-color: var(--zd-accent-color) !important;
   color: var(--zd-accent-color) !important;
@@ -17,9 +18,7 @@
 
 .button:hover,
 .button.active:hover {
-  /* stylelint-disable max-line-length */
   background-color: color(var(--zd-accent-color) lightness(+10%) saturation(+10%)) !important;
-  /* stylelint-enable max-line-length */
   color: var(--zd-color-white) !important;
 }
 
@@ -36,8 +35,8 @@
 .disabled,
 .disabled:active,
 .disabled:hover {
-  background-color: var(--zd-color-gainsboro) !important;
   border-color: var(--zd-color-pelorous) !important;
+  background-color: var(--zd-color-gainsboro) !important;
   color: var(--zd-color-white) !important;
 }
 
@@ -59,3 +58,4 @@
   border-color: var(--zd-accent-color) !important;
   color: var(--zd-color-white) !important;
 }
+/* stylelint-enable */

@@ -3,7 +3,6 @@ import Checkbox from './Checkbox.css'
 import RadioButton from './RadioButton.css'
 import Range from './Range.css'
 import Tabs from './Tabs.css'
-import TextArea from './TextArea.css'
 import TextInput from './TextInput.css'
 import Toggle from './Toggle.css'
 
@@ -13,7 +12,7 @@ const theme = {
   RadioButton,
   Range,
   Tabs,
-  TextArea,
+  TextArea: TextInput,
   TextInput,
   Toggle
 }
