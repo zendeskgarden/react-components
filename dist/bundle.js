@@ -6077,7 +6077,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  children: _react.PropTypes.oneOfType([_react.PropTypes.node, _react.PropTypes.func]),
 	  disabled: _react.PropTypes.bool,
 	  id: _react.PropTypes.string.isRequired,
-	  label: _react.PropTypes.string.isRequired
+	  label: _react.PropTypes.node.isRequired
 	};
 	exports.default = PanelConfig;
 
