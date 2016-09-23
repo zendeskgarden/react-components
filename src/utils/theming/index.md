@@ -1,4 +1,4 @@
-The Garden React Compnents supports theming using build in themes.
+The Garden React Components supports theming using build in accent themes.
 
 Right now we only have an example theme, but the idea is to support several
 accent themes for each of the projects as the new branding becomes available.
@@ -6,13 +6,19 @@ accent themes for each of the projects as the new branding becomes available.
 Below you can change the theme of the styleguide:
 
 ```
+const exampleTheme = require('../../themes/example-theme').default
+
 const selectTheme = (theme) => {
   localStorage.setItem('rc-theme', theme)
   location.reload()
 };
 
 <Grid>
-  <Button onClick={ () => selectTheme('default') }>Default theme</Button>
-  <Button onClick={ () => selectTheme('example') }>Example theme</Button>
+  <ThemeProvider theme={ null }>
+    <Button onClick={ () => selectTheme('default') }>Default theme</Button>
+  </ThemeProvider>
+  <ThemeProvider theme={ exampleTheme }>
+    <Button onClick={ () => selectTheme('example') }>Example theme</Button>
+  </ThemeProvider>
 </Grid>
 ```

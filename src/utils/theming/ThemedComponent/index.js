@@ -20,11 +20,11 @@ const extendStyles = (styles, theme, namespace) => {
 
 export default class ThemedComponent extends Component {
   static contextTypes = {
-    theme: PropTypes.object
+    rcTheme: PropTypes.object
   }
 
   constructor (props, context, { namespace, styles }) {
     super(props, context)
-    this.theme = extendStyles(styles, context.theme, namespace)
+    this.theme = extendStyles(styles, context.rcTheme, namespace)
   }
 }

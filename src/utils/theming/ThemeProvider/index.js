@@ -7,12 +7,12 @@ export default class ThemeProvider extends Component {
   }
 
   static childContextTypes = {
-    theme: PropTypes.object.isRequired
+    rcTheme: PropTypes.object.isRequired
   }
 
   getChildContext () {
     const { theme } = this.props
-    return { theme }
+    return { rcTheme: theme }
   }
 
   render () {
