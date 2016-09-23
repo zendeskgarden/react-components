@@ -1,5 +1,8 @@
 ## Change Log
 
+### v1.8.0 (2016/09/23 09:21 +00:00)
+- [#41](https://github.com/zendeskgarden/react-components/pull/41) Support components in tab labels (@sunesimonsen)
+
 ### v1.7.1 (2016/09/22 14:19 +00:00)
 - [#40](https://github.com/zendeskgarden/react-components/pull/40) Fixed proptype warning (@sunesimonsen)
 - [#39](https://github.com/zendeskgarden/react-components/pull/39) Add tests for TextInput (@csk157)
