@@ -8,7 +8,7 @@ export default class PanelConfig extends Component {
     ]),
     disabled: PropTypes.bool,
     id: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired
+    label: PropTypes.node.isRequired
   }
 
   render () {
