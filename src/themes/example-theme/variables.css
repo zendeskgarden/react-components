@@ -1,0 +1,5 @@
+:root {
+  --zd-accent-color: #30AABC;
+  --zd-focus-color: color(var(--zd-accent-color) alpha(40%));
+  --zd-active-color: color(var(--zd-accent-color) lightness(50%));
+}

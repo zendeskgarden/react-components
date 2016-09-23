@@ -1,0 +1,15 @@
+@import './variables.css';
+
+/* stylelint-disable declaration-no-important */
+.label.selected {
+  border-color: var(--zd-accent-color) !important;
+}
+
+.label.active {
+  border-color: var(--zd-active-color) !important;
+}
+
+.label.focused {
+  box-shadow: inset 0 0 0 2px var(--zd-focus-color) !important;
+}
+/* stylelint-enable declaration-no-important */
