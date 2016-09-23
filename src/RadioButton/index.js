@@ -1,11 +1,12 @@
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 import uuid from 'uuid'
 import classNames from 'classnames'
 
 import View from '../core/View'
+import ThemedComponent from '../utils/theming/ThemedComponent'
 import styles from './styles.css'
 
-export default class RadioButton extends Component {
+export default class RadioButton extends ThemedComponent {
   static propTypes = {
     checked: PropTypes.bool,
     children: PropTypes.node,
@@ -24,7 +25,10 @@ export default class RadioButton extends Component {
   }
 
   constructor (props, context) {
-    super(props, context)
+    super(props, context, {
+      namespace: 'RadioButton',
+      styles
+    })
     this.id = uuid.v4()
     this.keyboard = true
     this.state = {
@@ -50,17 +54,18 @@ export default class RadioButton extends Component {
     } = this.props
 
     const { focused } = this.state
+    const { theme } = this
 
     return (
       <View
-        className={ classNames(styles.checkbox, styles.radio, {
-          [styles.focused]: focused,
-          [styles.rtl]: dir === 'rtl'
+        className={ classNames(theme.checkbox, theme.radio, {
+          [theme.focused]: focused,
+          [theme.rtl]: dir === 'rtl'
         }) }
       >
         <input
           checked={ checked }
-          className={ styles.input }
+          className={ theme.input }
           data-test-id={ testId }
           disabled={ disabled }
           id={ this.id }
@@ -75,7 +80,7 @@ export default class RadioButton extends Component {
           type='radio'
         />
         <label
-          className={ styles.label }
+          className={ theme.label }
           dir={ dir }
           htmlFor={ this.id }
           onMouseUp={ () => this.keyboard = false }

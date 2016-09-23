@@ -10,16 +10,16 @@
   composes: is-rtl from 'zd-css-buttons';
 }
 
-.type_default {
+.button {
   composes: c-btn from 'zd-css-buttons';
 }
 
 .type_primary {
-  composes: c-btn c-btn--primary from 'zd-css-buttons';
+  composes: c-btn--primary from 'zd-css-buttons';
 }
 
 .type_basic {
-  composes: c-btn c-btn--basic from 'zd-css-buttons';
+  composes: c-btn--basic from 'zd-css-buttons';
 }
 
 .pill {
@@ -40,7 +40,7 @@
 }
 
 .disabled {
-  composes: c-btn is-disabled from 'zd-css-buttons';
+  composes: is-disabled from 'zd-css-buttons';
 }
 
 .group {

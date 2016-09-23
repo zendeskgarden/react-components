@@ -13,9 +13,9 @@ describe('ButtonGroup', () => {
       </ButtonGroup>,
       'to deeply render as',
       <nav className='group' role='tablist'>
-        <button aria-selected={ false } className='type_default c-btn' role='tab'>One</button>
-        <button aria-selected className='type_default c-btn active' role='tab'>Two</button>
-        <button aria-selected={ false } className='type_default c-btn' role='tab'>Three</button>
+        <button aria-selected={ false } className='c-btn' role='tab'>One</button>
+        <button aria-selected className='c-btn active' role='tab'>Two</button>
+        <button aria-selected={ false } className='c-btn' role='tab'>Three</button>
       </nav>
     )
   })

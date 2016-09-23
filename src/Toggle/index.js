@@ -1,11 +1,13 @@
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 import uuid from 'uuid'
 import classNames from 'classnames'
 
-import { View } from '../'
+import ThemedComponent from '../utils/theming/ThemedComponent'
+import View from '../core/View'
+
 import styles from './styles.css'
 
-export default class Toggle extends Component {
+export default class Toggle extends ThemedComponent {
   static propTypes = {
     children: PropTypes.node,
     checked: PropTypes.bool,
@@ -22,7 +24,11 @@ export default class Toggle extends Component {
   }
 
   constructor (props, context) {
-    super(props, context)
+    super(props, context, {
+      namespace: 'Toggle',
+      styles
+    })
+
     this.id = uuid.v4()
 
     this.handlers = {
@@ -69,17 +75,18 @@ export default class Toggle extends Component {
     } = this.props
 
     const { focused } = this.state
+    const { theme } = this
 
     return (
       <View
-        className={ classNames(styles.toggle, {
-          [styles.focused]: focused,
-          [styles.rtl]: dir === 'rtl'
+        className={ classNames(theme.toggle, {
+          [theme.focused]: focused,
+          [theme.rtl]: dir === 'rtl'
         }) }
       >
         <input
           checked={ checked }
-          className={ styles.input }
+          className={ theme.input }
           data-test-id={ testId }
           disabled={ disabled }
           id={ this.id }
@@ -97,7 +104,7 @@ export default class Toggle extends Component {
           type='checkbox'
         />
         <label
-          className={ styles.label }
+          className={ theme.label }
           dir={ dir }
           htmlFor={ this.id }
           onMouseUp={ () => this.keyboard = false }

@@ -1,12 +1,13 @@
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 import classNames from 'classnames'
 
 import View from '../core/View'
+import ThemedComponent from '../utils/theming/ThemedComponent'
 import Core from './Core'
 
 import styles from './styles.css'
 
-export default class TextInput extends Component {
+export default class TextInput extends ThemedComponent {
   static Core = Core
 
   static propTypes = {
@@ -39,17 +40,26 @@ export default class TextInput extends Component {
     disabled: false
   }
 
+  constructor (props, context) {
+    super(props, context, {
+      namespace: 'TextInput',
+      styles
+    })
+  }
+
   render () {
     const {
       className,
       ...other
     } = this.props
 
+    const { theme } = this
+
     return (
-      <View className={ styles.txt }>
+      <View className={ theme.txt }>
         <Core
           { ...other }
-          className={ classNames(styles.input, className) }
+          className={ classNames(theme.input, className) }
         />
       </View>
     )

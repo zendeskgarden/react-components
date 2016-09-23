@@ -1,13 +1,14 @@
-import React, { Children, Component, PropTypes } from 'react'
+import React, { Children, PropTypes } from 'react'
 import classNames from 'classnames'
 
 import ItemConfig from './ItemConfig'
 import Item from './Item'
 import ReactSingleSelectionModel from '../utils/selection/ReactSingleSelectionModel'
+import ThemedComponent from '../utils/theming/ThemedComponent'
 
 import styles from '../Button/styles.css'
 
-export default class ButtonGroup extends Component {
+export default class ButtonGroup extends ThemedComponent {
   static Item = ItemConfig
 
   static propTypes = {
@@ -26,8 +27,11 @@ export default class ButtonGroup extends Component {
     vertical: false
   }
 
-  constructor (props) {
-    super(props)
+  constructor (props, context) {
+    super(props, context, {
+      namespace: 'Button',
+      styles
+    })
     this.selectionModel = new ReactSingleSelectionModel({
       rtl: props.dir === 'rtl',
       vertical: false
@@ -87,6 +91,7 @@ export default class ButtonGroup extends Component {
     } = this.props
 
     const { buttons } = this.state
+    const { theme } = this
 
     const props = {}
     if (testId) {
@@ -99,8 +104,8 @@ export default class ButtonGroup extends Component {
 
     return (
       <nav
-        className={ classNames(styles.group, {
-          [styles.rtl]: dir === 'rtl'
+        className={ classNames(theme.group, {
+          [theme.rtl]: dir === 'rtl'
         }) }
         tabIndex={ tabIndex }
         onFocus={ () => {

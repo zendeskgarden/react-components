@@ -1,14 +1,15 @@
-import React, { Children, Component, PropTypes } from 'react'
+import React, { Children, PropTypes } from 'react'
 import classNames from 'classnames'
 
 import PanelConfig from './PanelConfig'
 import Label from './Label'
 import Panel from './Panel'
 import ReactSingleSelectionModel from '../utils/selection/ReactSingleSelectionModel'
+import ThemedComponent from '../utils/theming/ThemedComponent'
 
 import styles from './styles.css'
 
-export default class Tabs extends Component {
+export default class Tabs extends ThemedComponent {
   static Panel = PanelConfig
 
   static propTypes = {
@@ -27,8 +28,11 @@ export default class Tabs extends Component {
     vertical: false
   }
 
-  constructor (props) {
-    super(props)
+  constructor (props, context) {
+    super(props, context, {
+      namespace: 'Tabs',
+      styles
+    })
     this.selectionModel = new ReactSingleSelectionModel({
       rtl: props.dir === 'rtl',
       vertical: props.vertical
@@ -127,6 +131,7 @@ export default class Tabs extends Component {
     } = this.props
 
     const { labels, panel } = this.state
+    const { theme } = this
 
     const props = {}
     if (testId) {
@@ -139,14 +144,14 @@ export default class Tabs extends Component {
 
     return (
       <nav
-        className={ classNames(styles.tabs, {
-          [styles.vertical]: vertical,
-          [styles.rtl]: dir === 'rtl'
+        className={ classNames(theme.tabs, {
+          [theme.vertical]: vertical,
+          [theme.rtl]: dir === 'rtl'
         }) }
         { ...props }
       >
         <ul
-          className={ styles.list }
+          className={ theme.list }
           onFocus={ () => {
             if (!this.selectionModel.hasSelection() && this.keyboard) {
               this.selectionModel.reactivate()

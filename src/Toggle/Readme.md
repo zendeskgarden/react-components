@@ -1,4 +1,6 @@
 ```
+initialState = { checked: true };
+
 <Toggle
   checked={ state.checked }
   onChange={ checked => setState({ checked }) }

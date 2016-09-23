@@ -1,11 +1,12 @@
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 import classNames from 'classnames'
 
+import ThemedComponent from '../utils/theming/ThemedComponent'
 import View from '../core/View'
 
 import styles from './styles.css'
 
-export default class Button extends Component {
+export default class Button extends ThemedComponent {
   static propTypes = {
     autoFocus: PropTypes.bool,
     className: PropTypes.string,
@@ -28,7 +29,10 @@ export default class Button extends Component {
   }
 
   constructor (props, context) {
-    super(props, context)
+    super(props, context, {
+      namespace: 'Button',
+      styles
+    })
     this.keyboard = true
     this.state = {
       focused: false
@@ -78,18 +82,20 @@ export default class Button extends Component {
       type
     } = this.props
 
+    const { theme } = this
     const { focused } = this.state
 
+    const typeStyle = theme[`type_${type}`]
     return (
       <View
         autoFocus={ autoFocus }
         className={
-          classNames(styles[`size_${size}`], {
-            [styles[`type_${type}`]]: !disabled,
-            [styles.focused]: focused,
-            [styles.pill]: pill,
-            [styles.stretched]: stretched,
-            [styles.disabled]: disabled
+          classNames(theme.button, theme[`size_${size}`], {
+            [typeStyle]: typeStyle && !disabled,
+            [theme.focused]: focused,
+            [theme.pill]: pill,
+            [theme.stretched]: stretched,
+            [theme.disabled]: disabled
           }, className)
         }
         testId={ testId }

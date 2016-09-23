@@ -82,7 +82,7 @@ describe('Button', () => {
       expect(
         <Button stretched>Stretched</Button>,
         'to render as',
-        <View role='button' className='type_default c-btn c-btn--full'>Stretched</View>
+        <View role='button' className='c-btn c-btn--full'>Stretched</View>
       )
     })
   })
@@ -92,7 +92,7 @@ describe('Button', () => {
       expect(
         <Button size='medium'>Medium</Button>,
         'to render as',
-        <View role='button' className='type_default c-btn c-btn--medium'>Medium</View>
+        <View role='button' className='c-btn c-btn--medium'>Medium</View>
       )
     })
   })
@@ -102,7 +102,7 @@ describe('Button', () => {
       expect(
         <Button size='large'>Large</Button>,
         'to render as',
-        <View role='button' className='type_default c-btn c-btn--large'>Large</View>
+        <View role='button' className='c-btn c-btn--large'>Large</View>
       )
     })
   })
