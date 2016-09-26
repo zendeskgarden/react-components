@@ -16,7 +16,7 @@
   visibility: hidden;
 }
 
-.stretched {
+.stretched.container, .stretched.trigger, .stretched {
   display: flex;
 
   width: 100%;

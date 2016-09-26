@@ -11,7 +11,7 @@
   position: relative;
 }
 
-.stretched {
+.stretched.container, .stretched {
   display: flex;
 
   width: 100%;
