@@ -1,5 +1,8 @@
 ## Change Log
 
+### v1.9.0 (2016/09/26 19:27 +00:00)
+- [#42](https://github.com/zendeskgarden/react-components/pull/42) Support accent theming (@sunesimonsen)
+
 ### v1.8.1 (2016/09/26 14:54 +00:00)
 - [#43](https://github.com/zendeskgarden/react-components/pull/43) Make .stretched override .container and .trigger (@csk157)
 
