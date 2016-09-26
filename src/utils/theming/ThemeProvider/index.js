@@ -3,11 +3,11 @@ import React, { Component, PropTypes } from 'react'
 export default class ThemeProvider extends Component {
   static propTypes = {
     children: PropTypes.node,
-    theme: PropTypes.object.isRequired
+    theme: PropTypes.object
   }
 
   static childContextTypes = {
-    rcTheme: PropTypes.object.isRequired
+    rcTheme: PropTypes.object
   }
 
   getChildContext () {

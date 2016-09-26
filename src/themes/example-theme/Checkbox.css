@@ -6,10 +6,6 @@
   color: var(--zd-accent-color) !important;
 }
 
-.checked {
-  color: var(--zd-accent-color) !important;
-}
-
 .checkbox.focused > .label::after {
   box-shadow: 0 0 0 2px var(--zd-focus-color) !important;
 }

@@ -5,7 +5,7 @@
   border-color: var(--zd-accent-color) !important;
 }
 
-.label.active {
+.label:active {
   border-color: var(--zd-active-color) !important;
 }
 
