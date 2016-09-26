@@ -1,0 +1,25 @@
+@import './variables.css';
+
+/* stylelint-disable declaration-no-important, max-line-length */
+.input:not(:disabled)::range-track {
+  background-image: linear-gradient(var(--zd-accent-color), var(--zd-accent-color));
+}
+
+.input:not(:disabled)::range-thumb {
+  border-color: var(--zd-accent-color) !important;
+  background-color: var(--zd-accent-color) !important;
+  color: var(--zd-accent-color) !important;
+}
+
+.input:not(:disabled)::range-lower {
+  background-color: var(--zd-accent-color) !important;
+}
+
+.focused > .input::range-thumb {
+  box-shadow: 0 0 0 2px var(--zd-focus-color) !important;
+}
+
+.input:not(:disabled):active::range-thumb {
+  background-color: var(--zd-active-color) !important;
+}
+/* stylelint-enable */

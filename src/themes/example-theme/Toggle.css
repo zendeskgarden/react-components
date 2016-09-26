@@ -1,0 +1,11 @@
+@import './variables.css';
+
+/* stylelint-disable declaration-no-important */
+.label::after {
+  color: var(--zd-accent-color) !important;
+}
+
+input:enabled:checked + .label:active::after {
+  background-color: var(--zd-active-color) !important;
+}
+/* stylelint-enable declaration-no-important */

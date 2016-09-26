@@ -1,17 +1,16 @@
 .popup {
   position: fixed;
-  z-index: 100;
-
   opacity: 1;
-  border: none;
+  z-index: 100;
   outline: none;
+  border: none;
 }
 
 .opening {
   opacity: 0;
 }
 
-.popup[aria-hidden="true"] {
+.popup[aria-hidden='true'] {
   display: inherit;
   visibility: hidden;
 }

@@ -1,11 +1,12 @@
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 import classNames from 'classnames'
 
 import Selectable from '../core/Selectable'
+import ThemedComponent from '../utils/theming/ThemedComponent'
 
 import styles from '../Button/styles.css'
 
-class Item extends Component {
+class Item extends ThemedComponent {
   static propTypes = {
     active: PropTypes.bool,
     children: PropTypes.node,
@@ -22,6 +23,13 @@ class Item extends Component {
     size: 'small'
   }
 
+  constructor (props, context) {
+    super(props, context, {
+      namespace: 'Button',
+      styles
+    })
+  }
+
   render () {
     const {
       active,
@@ -35,16 +43,18 @@ class Item extends Component {
       size
     } = this.props
 
+    const { theme } = this
+
     return (
       <button
         aria-activedescendant={ selected }
         aria-disabled={ disabled }
         aria-selected={ active }
         className={
-          classNames(styles.type_default, styles[`size_${size}`], {
-            [styles.disabled]: disabled,
-            [styles.active]: active,
-            [styles.focused]: !selectedByMouse && selected
+          classNames(theme.button, theme[`size_${size}`], {
+            [theme.disabled]: disabled,
+            [theme.active]: active,
+            [theme.focused]: !selectedByMouse && selected
           })
         }
         onClick={ onClick }

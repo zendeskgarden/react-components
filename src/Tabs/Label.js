@@ -1,11 +1,12 @@
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 import classNames from 'classnames'
 
 import Selectable from '../core/Selectable'
+import ThemedComponent from '../utils/theming/ThemedComponent'
 
 import styles from './styles.css'
 
-class Label extends Component {
+class Label extends ThemedComponent {
   static propTypes = {
     active: PropTypes.bool,
     children: PropTypes.node,
@@ -17,8 +18,11 @@ class Label extends Component {
     selectedByMouse: PropTypes.bool
   }
 
-  constructor (props) {
-    super(props)
+  constructor (props, context) {
+    super(props, context, {
+      namespace: 'Tabs',
+      styles
+    })
   }
 
   render () {
@@ -33,16 +37,18 @@ class Label extends Component {
       selectedByMouse
     } = this.props
 
+    const { theme } = this
+
     return (
       <li
         aria-activedescendant={ selected }
         aria-disabled={ disabled }
         aria-selected={ active }
         className={
-          classNames(styles.label, {
-            [styles.disabled]: disabled,
-            [styles.selected]: active,
-            [styles.focused]: !selectedByMouse && selected
+          classNames(theme.label, {
+            [theme.disabled]: disabled,
+            [theme.selected]: active,
+            [theme.focused]: !selectedByMouse && selected
           })
         }
         onClick={ onClick }

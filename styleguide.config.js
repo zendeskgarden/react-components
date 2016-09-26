@@ -2,6 +2,7 @@ var path = require('path')
 
 var cssnext = require('postcss-cssnext')
 var importer = require('postcss-import')
+var inputRange = require('postcss-input-range')
 
 module.exports = {
   title: 'Style guide',
@@ -9,6 +10,7 @@ module.exports = {
   skipComponentsWithoutExample: true,
   sections: [
     {name: 'Zendesk Garden', components: './src/*/index.js'},
+    {name: 'Theming', content: './src/utils/theming/index.md', components: './src/utils/theming/*/index.js'},
     {name: 'Core', content: './src/core/index.md', components: './src/core/*/index.js'},
     {name: 'Styleguide', content: './src/styleguide/index.md', components: './src/styleguide/*/index.js'}
   ],
@@ -50,6 +52,8 @@ module.exports = {
       }
     )
 
+    webpackConfig.resolve.alias['rsg-components/Wrapper'] = path.join(__dirname, 'src/styleguide/Wrapper')
+
     webpackConfig.postcss = [
       importer({
         path: [
@@ -57,6 +61,7 @@ module.exports = {
           path.resolve(__dirname, 'src')
         ]
       }),
+      inputRange(),
       cssnext()
     ]
 

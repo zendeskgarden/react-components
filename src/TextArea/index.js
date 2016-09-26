@@ -1,12 +1,13 @@
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 import classNames from 'classnames'
 
 import View from '../core/View'
+import ThemedComponent from '../utils/theming/ThemedComponent'
 import Core from './Core'
 
 import styles from './styles.css'
 
-export default class TextArea extends Component {
+export default class TextArea extends ThemedComponent {
   static Core = Core
 
   static propTypes = {
@@ -42,6 +43,13 @@ export default class TextArea extends Component {
     type: 'default'
   }
 
+  constructor (props, context) {
+    super(props, context, {
+      namespace: 'TextArea',
+      styles
+    })
+  }
+
   render () {
     const {
       className,
@@ -49,12 +57,14 @@ export default class TextArea extends Component {
       ...other
     } = this.props
 
+    const { theme } = this
+
     return (
-      <View className={ styles.txt }>
+      <View className={ theme.txt }>
         <Core
           { ...other }
-          className={ classNames(styles.input, {
-            [styles.resizable]: resizable
+          className={ classNames(theme.input, {
+            [theme.resizable]: resizable
           }, className) }
         />
       </View>

@@ -1,11 +1,12 @@
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 import classNames from 'classnames'
 import uuid from 'uuid'
 
 import View from '../core/View'
+import ThemedComponent from '../utils/theming/ThemedComponent'
 import styles from './styles.css'
 
-export default class Range extends Component {
+export default class Range extends ThemedComponent {
   static propTypes = {
     min: PropTypes.number,
     max: PropTypes.number,
@@ -14,13 +15,15 @@ export default class Range extends Component {
     disabled: PropTypes.bool,
     onChange: PropTypes.func,
     testId: PropTypes.string,
-    className: PropTypes.string,
     tabIndex: PropTypes.number,
     title: PropTypes.string
   }
 
   constructor (props, context) {
-    super(props, context)
+    super(props, context, {
+      namespace: 'Range',
+      styles
+    })
     this.id = uuid.v4()
     this.state = { focused: false }
   }
@@ -52,15 +55,17 @@ export default class Range extends Component {
     } = this.props
 
     const { focused } = this.state
+    const { theme } = this
+
     const css = `.range-${this.id}::-webkit-slider-runnable-track { background-size: ${this.getBgWidth()} }`
 
     return (
-      <View className={classNames(styles.container, {
-        [styles.focused]: focused
+      <View className={classNames(theme.range, {
+        [theme.focused]: focused
       })}>
         <style>{css}</style>
         <input
-          className={ classNames(styles.input, `range-${this.id}`) }
+          className={ classNames(theme.input, `range-${this.id}`) }
           data-test-id={ testId }
           disabled={ disabled }
           max={ max }

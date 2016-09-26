@@ -1,0 +1,12 @@
+@import './variables.css';
+
+/* stylelint-disable declaration-no-important */
+.label::before,
+.label::after {
+  color: var(--zd-accent-color) !important;
+}
+
+.checkbox.focused > .label::after {
+  box-shadow: 0 0 0 2px var(--zd-focus-color) !important;
+}
+/* stylelint-enable declaration-no-important */
