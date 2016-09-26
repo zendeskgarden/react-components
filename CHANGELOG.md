@@ -1,5 +1,8 @@
 ## Change Log
 
+### v1.8.1 (2016/09/26 14:54 +00:00)
+- [#43](https://github.com/zendeskgarden/react-components/pull/43) Make .stretched override .container and .trigger (@csk157)
+
 ### v1.8.0 (2016/09/23 09:21 +00:00)
 - [#41](https://github.com/zendeskgarden/react-components/pull/41) Support components in tab labels (@sunesimonsen)
 
