@@ -88,26 +88,19 @@ export default class Tabs extends ThemedComponent {
       panelConfigs[0]
     )
 
-    const updatePanel = (
-      !this.state.panel ||
-      active !== this.props.active
+    const activePanelContent = activePanelConfig.children
+
+    const panel = (
+      <Panel id={ activePanelConfig.id }>
+        {
+          typeof activePanelContent === 'function'
+            ? activePanelContent(activePanelConfig.id)
+            : activePanelContent
+        }
+      </Panel>
     )
 
-    if (updatePanel) {
-      const activePanelContent = activePanelConfig.children
-
-      const panel = (
-        <Panel id={ activePanelConfig.id }>
-          {
-            typeof activePanelContent === 'function'
-              ? activePanelContent(activePanelConfig.id)
-              : activePanelContent
-          }
-        </Panel>
-      )
-
-      this.setState({ panel })
-    }
+    this.setState({ panel })
   }
 
   componentWillMount () {
