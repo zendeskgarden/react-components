@@ -4044,19 +4044,15 @@ var Tabs = function (_ThemedComponent) {
         return active === id;
       }) || panelConfigs[0];
 
-      var updatePanel = !_this.state.panel || active !== _this.props.active;
+      var activePanelContent = activePanelConfig.children;
 
-      if (updatePanel) {
-        var activePanelContent = activePanelConfig.children;
+      var panel = _react2.default.createElement(
+        _Panel2.default,
+        { id: activePanelConfig.id },
+        typeof activePanelContent === 'function' ? activePanelContent(activePanelConfig.id) : activePanelContent
+      );
 
-        var panel = _react2.default.createElement(
-          _Panel2.default,
-          { id: activePanelConfig.id },
-          typeof activePanelContent === 'function' ? activePanelContent(activePanelConfig.id) : activePanelContent
-        );
-
-        _this.setState({ panel: panel });
-      }
+      _this.setState({ panel: panel });
     };
 
     _this.componentWillReceiveProps = function (nextProps) {
