@@ -1,5 +1,8 @@
 ## Change Log
 
+### v1.9.1 (2016/09/28 19:08 +00:00)
+- [#44](https://github.com/zendeskgarden/react-components/pull/44) Fixed bug where changing the children of a tab panel would not rerender (@sunesimonsen)
+
 ### v1.9.0 (2016/09/26 19:27 +00:00)
 - [#42](https://github.com/zendeskgarden/react-components/pull/42) Support accent theming (@sunesimonsen)
 
