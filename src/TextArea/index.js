@@ -48,6 +48,32 @@ export default class TextArea extends ThemedComponent {
       namespace: 'TextArea',
       styles
     })
+
+    this.state = {
+      focused: false
+    }
+
+    this.keyboard = true
+  }
+
+  onBlur = (e) => {
+    const { onBlur } = this.props
+
+    this.setState({ focused: false })
+    this.keyboard = true
+    onBlur && onBlur(e)
+  }
+
+  onFocus = (e) => {
+    const { onFocus } = this.props
+
+    this.setState({ focused: this.keyboard })
+    this.keyboard = true
+    onFocus && onFocus(e)
+  }
+
+  onMouseDown = () => {
+    this.keyboard = false
   }
 
   render () {
@@ -57,12 +83,20 @@ export default class TextArea extends ThemedComponent {
       ...other
     } = this.props
 
+    const { focused } = this.state
     const { theme } = this
 
     return (
-      <View className={ theme.txt }>
+      <View
+        className={ classNames(theme.txt, {
+          [theme.focused]: !other.disabled && focused
+        }) }
+      >
         <Core
           { ...other }
+          onBlur={ this.onBlur }
+          onFocus={ this.onFocus }
+          onMouseDown={ this.onMouseDown }
           className={ classNames(theme.input, {
             [theme.resizable]: resizable
           }, className) }

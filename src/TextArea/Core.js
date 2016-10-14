@@ -16,11 +16,14 @@ export default class Core extends Component {
     onArrowUp: PropTypes.func,
     onBlur: PropTypes.func,
     onChangeText: PropTypes.func,
+    onClick: PropTypes.func,
     onDelete: PropTypes.func,
     onEnter: PropTypes.func,
     onEscape: PropTypes.func,
     onFocus: PropTypes.func,
     onKeyDown: PropTypes.func,
+    onMouseDown: PropTypes.func,
+    onMouseUp: PropTypes.func,
     placeholder: PropTypes.string,
     rows: PropTypes.number,
     tabIndex: PropTypes.number,
@@ -39,31 +42,18 @@ export default class Core extends Component {
 
   render () {
     const {
-      autoComplete,
-      autoFocus,
-      className,
-      dir,
-      disabled,
       isFocused,
-      name,
-      maxLength,
       onArrowDown,
       onArrowLeft,
       onArrowRight,
       onArrowUp,
-      onBlur,
       onChangeText,
       onDelete,
       onEnter,
       onEscape,
-      onFocus,
       onKeyDown,
-      placeholder,
-      rows,
-      tabIndex,
       testId,
-      type,
-      value
+      ...other
     } = this.props
 
     const handlers = {
@@ -77,31 +67,44 @@ export default class Core extends Component {
     }
 
     const props = {
-      autoFocus,
-      autoComplete,
-      className,
+      ...other,
       'data-test-id': testId,
-      dir,
-      disabled,
-      name,
-      maxLength,
-      onBlur,
       onChange (event) { onChangeText && onChangeText(event.target.value) },
-      onFocus,
       onKeyDown (event) {
         const handler = handlers[event.keyCode]
         handler && handler(event)
         onKeyDown && onKeyDown(event)
       },
-      placeholder,
-      rows,
-      tabIndex,
-      type,
-      value,
       ref (input) {
         input && isFocused && input.focus()
       }
     }
+    // const props = {
+    //   autoFocus,
+    //   autoComplete,
+    //   className,
+    //   'data-test-id': testId,
+    //   dir,
+    //   disabled,
+    //   name,
+    //   maxLength,
+    //   onBlur,
+    //   onChange (event) { onChangeText && onChangeText(event.target.value) },
+    //   onFocus,
+    //   onKeyDown (event) {
+    //     const handler = handlers[event.keyCode]
+    //     handler && handler(event)
+    //     onKeyDown && onKeyDown(event)
+    //   },
+    //   placeholder,
+    //   rows,
+    //   tabIndex,
+    //   type,
+    //   value,
+    //   ref (input) {
+    //     input && isFocused && input.focus()
+    //   }
+    // }
 
     return <textarea { ...props }/>
   }
