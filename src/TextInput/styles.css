@@ -5,11 +5,3 @@
 .input {
   composes: c-txt__input from 'zd-css-forms';
 }
-
-.focused {
-  composes: is-focused from 'zd-css-forms';
-}
-
-.txt:not(.focused) .input:focus {
-  box-shadow: none;
-}
