@@ -182,13 +182,11 @@ exports = module.exports = __webpack_require__(5)();
 
 
 // module
-exports.push([module.i, "/* stylelint-disable declaration-no-important */\n\n.rc-focused-1OuFm .rc-input-1uAIa {\n  border-color: #30aabc !important;\n  box-shadow: 0 0 0 3px rgba(48, 170, 188, 0.4) !important;\n}\n\n.rc-txt-36pPC:not(.rc-focused-1OuFm) .rc-input-1uAIa:focus {\n  border-color: #30aabc !important;\n  box-shadow: none;\n}\n\n/* stylelint-enable */\n", ""]);
+exports.push([module.i, "/* stylelint-disable declaration-no-important */\n\n.rc-input-1uAIa:focus {\n  border-color: #30aabc !important;\n  box-shadow: 0 0 0 3px rgba(48, 170, 188, 0.4) !important;\n}\n\n/* stylelint-enable */\n", ""]);
 
 // exports
 exports.locals = {
-	"focused": "rc-focused-1OuFm",
-	"input": "rc-input-1uAIa",
-	"txt": "rc-txt-36pPC"
+	"input": "rc-input-1uAIa"
 };
 
 /***/ },
