@@ -1,13 +1,8 @@
 @import './variables.css';
 
 /* stylelint-disable declaration-no-important */
-.focused .input {
+.input:focus {
   border-color: var(--zd-accent-color) !important;
   box-shadow: 0 0 0 3px var(--zd-focus-color) !important;
-}
-
-.txt:not(.focused) .input:focus {
-  border-color: var(--zd-accent-color) !important;
-  box-shadow: none;
 }
 /* stylelint-enable */
