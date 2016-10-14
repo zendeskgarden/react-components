@@ -35,7 +35,7 @@
 .disabled,
 .disabled:active,
 .disabled:hover {
-  border-color: var(--zd-color-pelorous) !important;
+  border-color: transparent !important;
   background-color: var(--zd-color-gainsboro) !important;
   color: var(--zd-color-white) !important;
 }
