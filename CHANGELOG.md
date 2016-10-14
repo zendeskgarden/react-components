@@ -1,5 +1,9 @@
 ## Change Log
 
+### v1.9.2 (2016/10/14 11:17 +00:00)
+- [#47](https://github.com/zendeskgarden/react-components/pull/47) Inputs: Only use the box-shadow focus styling when using keyboard navigation (@sunesimonsen)
+- [#48](https://github.com/zendeskgarden/react-components/pull/48) Removed incorrect accent color around disabled buttons (@sunesimonsen)
+
 ### v1.9.1 (2016/09/28 19:08 +00:00)
 - [#44](https://github.com/zendeskgarden/react-components/pull/44) Fixed bug where changing the children of a tab panel would not rerender (@sunesimonsen)
 
