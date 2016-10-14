@@ -1,5 +1,8 @@
 ## Change Log
 
+### v1.9.3 (2016/10/14 14:15 +00:00)
+- [#49](https://github.com/zendeskgarden/react-components/pull/49) Revert "Inputs: Only use the box-shadow focus styling when using keyboard navigation" (@sunesimonsen)
+
 ### v1.9.2 (2016/10/14 11:17 +00:00)
 - [#47](https://github.com/zendeskgarden/react-components/pull/47) Inputs: Only use the box-shadow focus styling when using keyboard navigation (@sunesimonsen)
 - [#48](https://github.com/zendeskgarden/react-components/pull/48) Removed incorrect accent color around disabled buttons (@sunesimonsen)
