@@ -79,32 +79,6 @@ export default class Core extends Component {
         input && isFocused && input.focus()
       }
     }
-    // const props = {
-    //   autoFocus,
-    //   autoComplete,
-    //   className,
-    //   'data-test-id': testId,
-    //   dir,
-    //   disabled,
-    //   name,
-    //   maxLength,
-    //   onBlur,
-    //   onChange (event) { onChangeText && onChangeText(event.target.value) },
-    //   onFocus,
-    //   onKeyDown (event) {
-    //     const handler = handlers[event.keyCode]
-    //     handler && handler(event)
-    //     onKeyDown && onKeyDown(event)
-    //   },
-    //   placeholder,
-    //   rows,
-    //   tabIndex,
-    //   type,
-    //   value,
-    //   ref (input) {
-    //     input && isFocused && input.focus()
-    //   }
-    // }
 
     return <textarea { ...props }/>
   }
