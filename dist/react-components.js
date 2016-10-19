@@ -2236,7 +2236,7 @@ var RelativePositionedPopup = function (_Component) {
             _this5.popupElement = (0, _reactDom.findDOMNode)(_ref3);
           }
         },
-        hidden ? null : children(position)
+        hidden ? null : typeof children === 'function' ? children(position) : children
       )
     );
   };
@@ -2247,7 +2247,7 @@ var RelativePositionedPopup = function (_Component) {
 RelativePositionedPopup.propTypes = {
   anchor: _react.PropTypes.node.isRequired,
   dir: _react.PropTypes.oneOf(['ltr', 'rtl']),
-  children: _react.PropTypes.func.isRequired,
+  children: _react.PropTypes.oneOfType([_react.PropTypes.node, _react.PropTypes.func]).isRequired,
   hidden: _react.PropTypes.bool,
   marginBottom: _react.PropTypes.number,
   marginLeft: _react.PropTypes.number,
@@ -2683,6 +2683,15 @@ var Button = function (_ThemedComponent) {
       }
     };
 
+    _this.onFocus = function (e) {
+      var onFocus = _this.props.onFocus;
+
+
+      _this.setState({ focused: _this.keyboard });
+      _this.keyboard = true;
+      onFocus && onFocus(e);
+    };
+
     _this.keyboard = true;
     _this.state = {
       focused: false
@@ -2723,10 +2732,7 @@ var Button = function (_ThemedComponent) {
         },
         onClick: this.onClick,
         onEnter: this.onKeyboardClick,
-        onFocus: function onFocus() {
-          _this2.setState({ focused: _this2.keyboard });
-          _this2.keyboard = true;
-        },
+        onFocus: this.onFocus,
         onMouseDown: this.onMouseDown,
         onSpace: this.onKeyboardClick,
         tabIndex: disabled ? -1 : tabIndex,
@@ -2748,6 +2754,7 @@ Button.propTypes = {
   disabled: _react.PropTypes.bool,
   stretched: _react.PropTypes.bool,
   onClick: _react.PropTypes.func,
+  onFocus: _react.PropTypes.func,
   pill: _react.PropTypes.bool,
   tabIndex: _react.PropTypes.number,
   testId: _react.PropTypes.string,
