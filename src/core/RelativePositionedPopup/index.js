@@ -63,7 +63,10 @@ class RelativePositionedPopup extends Component {
   static propTypes = {
     anchor: PropTypes.node.isRequired,
     dir: PropTypes.oneOf([ 'ltr', 'rtl' ]),
-    children: PropTypes.func.isRequired,
+    children: PropTypes.oneOfType([
+      PropTypes.node,
+      PropTypes.func
+    ]).isRequired,
     hidden: PropTypes.bool,
     marginBottom: PropTypes.number,
     marginLeft: PropTypes.number,
@@ -254,7 +257,11 @@ class RelativePositionedPopup extends Component {
             this.popupElement = findDOMNode(ref)
           }}
         >
-          { hidden ? null : children(position) }
+          {
+            hidden
+              ? null
+              : (typeof children === 'function' ? children(position) : children)
+          }
         </View>
       </View>
     )
