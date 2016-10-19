@@ -1,5 +1,8 @@
 ## Change Log
 
+### v1.11.0 (2016/10/19 20:21 +00:00)
+- [#54](https://github.com/zendeskgarden/react-components/pull/54) Set the range defaults to min:0, max:100, step:1 (@sunesimonsen)
+
 ### v1.10.0 (2016/10/19 12:52 +00:00)
 - [#52](https://github.com/zendeskgarden/react-components/pull/52) Updating RelativePositionedPopup so it can also accept a node as children (@luis-almeida)
 - [#53](https://github.com/zendeskgarden/react-components/pull/53) Luis/button onfocus prop (@luis-almeida)
