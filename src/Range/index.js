@@ -43,13 +43,13 @@ export default class Range extends ThemedComponent {
   }
 
   getBgWidth () {
-    let { max = 100, min = 0, value } = this.props
+    let { max, min, value } = this.props
 
     if (parseFloat(max) < parseFloat(min)) {
       max = 100
     }
 
-    const percentFilled = max ? (100 * (value - min) / (max - min)) : value
+    const percentFilled = 100 * (value - min) / (max - min)
     return percentFilled + '%'
   }
 
