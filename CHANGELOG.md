@@ -1,5 +1,9 @@
 ## Change Log
 
+### v1.10.0 (2016/10/19 12:52 +00:00)
+- [#52](https://github.com/zendeskgarden/react-components/pull/52) Updating RelativePositionedPopup so it can also accept a node as children (@luis-almeida)
+- [#53](https://github.com/zendeskgarden/react-components/pull/53) Luis/button onfocus prop (@luis-almeida)
+
 ### v1.9.3 (2016/10/14 14:15 +00:00)
 - [#49](https://github.com/zendeskgarden/react-components/pull/49) Revert "Inputs: Only use the box-shadow focus styling when using keyboard navigation" (@sunesimonsen)
 
