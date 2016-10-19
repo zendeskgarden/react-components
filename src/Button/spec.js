@@ -25,6 +25,18 @@ describe('Button', () => {
     })
   })
 
+  it('is focusable', () => {
+    const onFocus = sinon.spy()
+
+    return expect(
+      <Button onFocus={ onFocus }>Focus on me!</Button>,
+      'when deeply rendered',
+      'with event', 'focus'
+    ).then(() => {
+      expect(onFocus, 'was called once')
+    })
+  })
+
   describe('with a test id', () => {
     it('renders a button with the test id', () => {
       expect(
