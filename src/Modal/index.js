@@ -16,6 +16,10 @@ import tabbable from 'tabbable'
 export default class Modal extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
+    dir: PropTypes.oneOf([
+      'ltr',
+      'rtl'
+    ]),
     hidden: PropTypes.bool,
     onClose: PropTypes.func,
     type: PropTypes.oneOf(['default', 'transparent', 'lightbox']),
@@ -24,6 +28,7 @@ export default class Modal extends Component {
   }
 
   static defaultProps = {
+    dir: 'ltr',
     hidden: true,
     type: 'default'
   }
@@ -33,6 +38,17 @@ export default class Modal extends Component {
   static Footer = Footer
   static Header = Header
   static Title = Title
+
+  componentWillUpdate(props) {
+    const { hidden } = props
+    const html = document.getElementsByTagName('html')[0]
+
+    if (hidden) {
+      html.style.overflow = ''
+    } else {
+      html.style.overflow = 'hidden'
+    }
+  }
 
   onTab = (e) => {
     const elements = tabbable(this.modalElement)
@@ -65,6 +81,7 @@ export default class Modal extends Component {
   render () {
     const {
       children,
+      dir,
       hidden,
       onClose,
       type,
@@ -97,7 +114,12 @@ export default class Modal extends Component {
       >
         <View
           aria-labelledby='dialog-title'
-          className={ styles.dialog }
+          className={ classNames(
+            styles.dialog,
+            styles[dir], {
+              [styles.open]: !hidden
+            }
+          ) }
           onClick={ (e) => e.stopPropagation() }
           role='dialog'
           style={{ width }}
