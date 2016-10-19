@@ -43,9 +43,9 @@ export default class Range extends ThemedComponent {
   }
 
   getBgWidth () {
-    let { max, min = 0, value } = this.props
+    let { max = 100, min = 0, value } = this.props
 
-    if (max && (parseFloat(max) < parseFloat(min))) {
+    if (parseFloat(max) < parseFloat(min)) {
       max = 100
     }
 
