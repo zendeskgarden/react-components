@@ -15,6 +15,7 @@ export default class Button extends ThemedComponent {
     disabled: PropTypes.bool,
     stretched: PropTypes.bool,
     onClick: PropTypes.func,
+    onFocus: PropTypes.func,
     pill: PropTypes.bool,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
@@ -67,6 +68,14 @@ export default class Button extends ThemedComponent {
     }
   }
 
+  onFocus = (e) => {
+    const { onFocus } = this.props
+
+    this.setState({ focused: this.keyboard })
+    this.keyboard = true
+    onFocus && onFocus(e)
+  }
+
   render () {
     const {
       autoFocus,
@@ -103,10 +112,7 @@ export default class Button extends ThemedComponent {
         onBlur={ () => this.setState({ focused: false }) }
         onClick={ this.onClick }
         onEnter={ this.onKeyboardClick }
-        onFocus={ () => {
-          this.setState({ focused: this.keyboard })
-          this.keyboard = true
-        } }
+        onFocus={ this.onFocus }
         onMouseDown={ this.onMouseDown }
         onSpace={ this.onKeyboardClick }
         tabIndex={ disabled ? -1 : tabIndex }
