@@ -260,7 +260,7 @@ class RelativePositionedPopup extends Component {
           {
             hidden
               ? null
-              : typeof children === 'function' ? children(position) : children
+              : (typeof children === 'function' ? children(position) : children)
           }
         </View>
       </View>
