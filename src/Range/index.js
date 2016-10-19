@@ -49,8 +49,7 @@ export default class Range extends ThemedComponent {
       max = 100
     }
 
-    const percentFilled = 100 * (value - min) / (max - min)
-    return percentFilled + '%'
+    return 100 * (value - min) / (max - min)
   }
 
   render () {
@@ -68,15 +67,12 @@ export default class Range extends ThemedComponent {
     const { focused } = this.state
     const { theme } = this
 
-    const css = `.range-${this.id} { background-size: ${this.getBgWidth()} }`
-
     return (
       <View className={classNames(theme.range, {
         [theme.focused]: focused
       })}>
-        <style>{css}</style>
         <input
-          className={ classNames(theme.input, `range-${this.id}`) }
+          className={ theme.input }
           data-test-id={ testId }
           disabled={ disabled }
           max={ max }
@@ -85,6 +81,7 @@ export default class Range extends ThemedComponent {
           onChange={ this.onChange }
           onFocus={ () => this.setState({ focused: true }) }
           step={ step }
+          style={{ backgroundSize: `${this.getBgWidth()}%` }}
           tabIndex={ tabIndex }
           type='range'
           title={ title }
