@@ -43,13 +43,13 @@ export default class Range extends ThemedComponent {
   }
 
   getBgWidth () {
-    let { max, min=0, value } = this.props
+    let { max, min = 0, value } = this.props
 
     if (max && (parseFloat(max) < parseFloat(min))) {
       max = 100
     }
 
-    const percentFilled = max ? ~~(100 * (value - min) / (max - min)) : value
+    const percentFilled = max ? (100 * (value - min) / (max - min)) : value
     return percentFilled + '%'
   }
 
@@ -68,7 +68,7 @@ export default class Range extends ThemedComponent {
     const { focused } = this.state
     const { theme } = this
 
-    const css = `.range-${this.id}::-webkit-slider-runnable-track { background-size: ${this.getBgWidth()} }`
+    const css = `.range-${this.id} { background-size: ${this.getBgWidth()} }`
 
     return (
       <View className={classNames(theme.range, {
