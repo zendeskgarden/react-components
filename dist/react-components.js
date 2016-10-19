@@ -3955,6 +3955,11 @@ Range.propTypes = {
   tabIndex: _react.PropTypes.number,
   title: _react.PropTypes.string
 };
+Range.defaultProps = {
+  min: 0,
+  max: 100,
+  step: 1
+};
 exports.default = Range;
 
 /***/ },
