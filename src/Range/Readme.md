@@ -1,4 +1,10 @@
 Various settings:
+
+```
+initialState = { value: 50 };
+<Range value={ state.value } title={ `${state.value}` } onChange={ (value) => setState({ value }) } />
+```
+
 ```
 initialState = { value: 10 };
 <Range min={0} max={100} step={1} value={ state.value } title={ `${state.value}` } onChange={ (value) => setState({ value }) } />

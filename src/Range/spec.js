@@ -27,6 +27,24 @@ describe('Range', () => {
     )
   })
 
+  it('renders an input of type range with default min, max, step', () => {
+    expect(
+      <Range
+        value={ 10 }
+      />,
+      'to render as',
+      <View>
+        <input
+          max={ 100 }
+          min={ 0 }
+          step={ 1 }
+          type='range'
+          value={ 10 }
+        />
+      </View>
+    )
+  })
+
   describe('when disabled', () => {
     it('renders a disabled range', () => {
       expect(
