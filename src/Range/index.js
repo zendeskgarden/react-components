@@ -19,6 +19,12 @@ export default class Range extends ThemedComponent {
     title: PropTypes.string
   }
 
+  static defaultProps = {
+    min: 0,
+    max: 100,
+    step: 1
+  }
+
   constructor (props, context) {
     super(props, context, {
       namespace: 'Range',
