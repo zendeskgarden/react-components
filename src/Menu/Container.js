@@ -19,6 +19,7 @@ const arrowPositions = {
 const Container = ({
   arrow,
   children,
+  className,
   dir,
   fixedWidth,
   maxHeight,
@@ -44,7 +45,8 @@ const Container = ({
           [styles.fixed_width]: fixedWidth,
           [styles.arrow]: arrow,
           [styles[`arrow_${arrowPositions[position]}`]]: arrow
-        }
+        },
+        className
       ) }
       role='menu'
     >
@@ -68,6 +70,7 @@ Container.propTypes = {
   ]),
   fixedWidth: PropTypes.bool,
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
   maxHeight: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string

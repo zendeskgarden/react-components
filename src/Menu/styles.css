@@ -83,6 +83,30 @@
   width: 100%;
 }
 
+.position_top_right,
+.position_top_left,
+.position_top {
+  composes: c-menu--up from 'zd-css-menus';
+}
+
+.position_bottom_right,
+.position_bottom_left,
+.position_bottom {
+  composes: c-menu--down from 'zd-css-menus';
+}
+
+.position_left {
+  composes: c-menu--left from 'zd-css-menus';
+}
+
+.position_right {
+  composes: c-menu--right from 'zd-css-menus';
+}
+
+.is_open {
+  composes: is-open from 'zd-css-menus';
+}
+
 .arrow {
   composes: c-arrow from 'zd-css-arrows';
 }
