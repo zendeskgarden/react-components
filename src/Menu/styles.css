@@ -107,6 +107,39 @@
   composes: is-open from 'zd-css-menus';
 }
 
+@keyframes zd-menu--up-open {
+  0% {
+    margin-top: var(--zd-spacing);
+  }
+
+  100% {
+    margin-top: 0;
+  }
+}
+
+@keyframes zd-menu--left-open {
+  0% {
+    margin-left: var(--zd-spacing);
+  }
+
+  100% {
+    margin-left: 0;
+  }
+}
+
+
+.position_top_left.is_open,
+.position_top_right.is_open,
+.position_top.is_open {
+  animation-name: zd-menu--up-open;
+}
+
+.position_left_top.is_open,
+.position_left_bottom.is_open,
+.position_left.is_open {
+  animation-name: zd-menu--left-open;
+}
+
 .arrow {
   composes: c-arrow from 'zd-css-arrows';
 }
