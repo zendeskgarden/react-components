@@ -51,7 +51,7 @@ class Item extends ThemedComponent {
         aria-disabled={ disabled }
         aria-selected={ active }
         className={
-          classNames(theme.button, theme[`size_${size}`], {
+          classNames(theme.type_default, theme[`size_${size}`], {
             [theme.disabled]: disabled,
             [theme.active]: active,
             [theme.focused]: !selectedByMouse && selected

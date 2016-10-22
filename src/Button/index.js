@@ -90,8 +90,8 @@ export default class Button extends ThemedComponent {
       <View
         autoFocus={ autoFocus }
         className={
-          classNames(theme.button, theme[`size_${size}`], {
-            [typeStyle]: typeStyle && !disabled,
+          classNames(theme[`size_${size}`], {
+            [typeStyle]: typeStyle,
             [theme.focused]: focused,
             [theme.pill]: pill,
             [theme.stretched]: stretched,
