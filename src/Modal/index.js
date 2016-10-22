@@ -39,7 +39,7 @@ export default class Modal extends Component {
   static Header = Header
   static Title = Title
 
-  componentWillUpdate(props) {
+  componentWillUpdate (props) {
     const { hidden } = props
     const html = document.getElementsByTagName('html')[0]
 
