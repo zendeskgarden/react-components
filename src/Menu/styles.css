@@ -83,22 +83,28 @@
   width: 100%;
 }
 
+.position_top_stretch,
 .position_top_right,
 .position_top_left,
 .position_top {
   composes: c-menu--up from 'zd-css-menus';
 }
 
+.position_bottom_stretch,
 .position_bottom_right,
 .position_bottom_left,
 .position_bottom {
   composes: c-menu--down from 'zd-css-menus';
 }
 
+.position_left_top,
+.position_left_bottom,
 .position_left {
   composes: c-menu--left from 'zd-css-menus';
 }
 
+.position_right_top,
+.position_right_bottom,
 .position_right {
   composes: c-menu--right from 'zd-css-menus';
 }
@@ -127,6 +133,7 @@
   }
 }
 
+.position_top_stretch.animate,
 .position_top_left.animate,
 .position_top_right.animate,
 .position_top.animate {
