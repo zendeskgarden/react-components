@@ -26,8 +26,8 @@
 
 .type_default.active,
 .type_primary.active {
-  color: var(--zd-color-white) !important;
   background-color: var(--zd-accent-color) !important;
+  color: var(--zd-color-white) !important;
 }
 
 .type_default:active,

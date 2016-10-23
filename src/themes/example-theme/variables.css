@@ -1,6 +1,8 @@
+/* stylelint-disable max-line-length */
 :root {
   --zd-accent-color: #e64e65;
   --zd-focus-color: color(var(--zd-accent-color) alpha(40%));
   --zd-active-color: color(var(--zd-accent-color) blackness(+10%));
   --zd-hover-color: color(var(--zd-accent-color) lightness(+10%) saturation(+10%));
 }
+/* stylelint-enable */
