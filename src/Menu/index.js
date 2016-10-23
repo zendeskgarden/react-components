@@ -197,12 +197,10 @@ export default class Menu extends Component {
             (position) => (
               <Container
                 {...other}
+                animate={ !hidden }
                 dir={ dir }
                 arrow={ arrow }
                 position={ position }
-                className={ classNames({
-                  [styles.is_open]: !hidden
-                }) }
               >
                 { items }
               </Container>

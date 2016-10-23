@@ -103,7 +103,7 @@
   composes: c-menu--right from 'zd-css-menus';
 }
 
-.is_open {
+.animate {
   composes: is-open from 'zd-css-menus';
 }
 
@@ -127,15 +127,15 @@
   }
 }
 
-.position_top_left.is_open,
-.position_top_right.is_open,
-.position_top.is_open {
+.position_top_left.animate,
+.position_top_right.animate,
+.position_top.animate {
   animation-name: zd-menu--up-open;
 }
 
-.position_left_top.is_open,
-.position_left_bottom.is_open,
-.position_left.is_open {
+.position_left_top.animate,
+.position_left_bottom.animate,
+.position_left.animate {
   animation-name: zd-menu--left-open;
 }
 
