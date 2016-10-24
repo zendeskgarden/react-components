@@ -17,6 +17,7 @@ const arrowPositions = {
 }
 
 const Container = ({
+  animate,
   arrow,
   children,
   dir,
@@ -41,6 +42,7 @@ const Container = ({
         styles[`size_${size}`],
         styles[`position_${position}`],
         styles[dir], {
+          [styles.animate]: animate,
           [styles.fixed_width]: fixedWidth,
           [styles.arrow]: arrow,
           [styles[`arrow_${arrowPositions[position]}`]]: arrow
@@ -61,6 +63,7 @@ const Container = ({
 }
 
 Container.propTypes = {
+  animate: PropTypes.bool,
   arrow: PropTypes.bool,
   dir: PropTypes.oneOf([
     'ltr',
@@ -91,6 +94,7 @@ Container.propTypes = {
 }
 
 Container.defaultProps = {
+  animate: false,
   arrow: false,
   dir: 'ltr',
   position: 'bottom_right',

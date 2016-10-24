@@ -158,3 +158,44 @@ const onOpen = () => setState({ hidden: false });
   </Modal>
 </View>
 ```
+
+Support for RTL:
+
+```
+initialState = { hidden: true }
+const onClose = () => setState({ hidden: true })
+const onOpen = () => setState({ hidden: false });
+
+<View>
+  <Button onClick={ onOpen }>
+    Show modal
+  </Button>
+
+  <Modal
+    dir='rtl'
+    hidden={ state.hidden }
+    onClose={ onClose }
+  >
+    <Modal.Header>
+      <Modal.Title>Dialog Title</Modal.Title>
+      <Modal.CloseButton
+        onClick={ onClose }
+      />
+    </Modal.Header>
+    <Modal.Body>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+      Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+      unknown printer took a galley of type and scrambled it to make a type specimen
+      book. It has survived not only five centuries, but also the leap into electronic
+      typesetting, remaining essentially unchanged. It was popularised in the 1960s
+      with the release of Letraset sheets containing Lorem Ipsum passages, and more
+      recently with desktop publishing software like Aldus PageMaker including
+      versions of Lorem Ipsum.
+    </Modal.Body>
+    <Modal.Footer>
+      <Button className='u-ml' onClick={ onClose } type='basic'>Cancel</Button>
+      <Button autoFocus>Ok</Button>
+    </Modal.Footer>
+  </Modal>
+</View>
+```

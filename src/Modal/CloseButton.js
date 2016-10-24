@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
+import classNames from 'classnames'
 
-import CloseIcon from '!!babel!react-svg!zd-svg-icons/src/14-remove.svg'
 import styles from './styles.css'
 
 export default class CloseButton extends Component {
@@ -8,18 +8,27 @@ export default class CloseButton extends Component {
     onClick: PropTypes.func.isRequired
   }
 
+  constructor (props, context) {
+    super(props, context)
+    this.state = { focused: false }
+  }
+
   render () {
     const { onClick } = this.props
+    const { focused } = this.state
 
     return (
       <button
         aria-label='close'
-        className={ styles.close }
+        className={
+          classNames(styles.close, {
+            [styles.close_focused]: focused
+          })
+        }
+        onBlur={ () => this.setState({ focused: false }) }
         onClick={ onClick }
-        tabIndex={-1}
-      >
-        <CloseIcon/>
-      </button>
+        onFocus={ () => this.setState({ focused: true }) }
+      />
     )
   }
 }

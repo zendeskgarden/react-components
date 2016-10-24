@@ -16,6 +16,10 @@ import tabbable from 'tabbable'
 export default class Modal extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
+    dir: PropTypes.oneOf([
+      'ltr',
+      'rtl'
+    ]),
     hidden: PropTypes.bool,
     onClose: PropTypes.func,
     type: PropTypes.oneOf(['default', 'transparent', 'lightbox']),
@@ -24,6 +28,7 @@ export default class Modal extends Component {
   }
 
   static defaultProps = {
+    dir: 'ltr',
     hidden: true,
     type: 'default'
   }
@@ -34,8 +39,30 @@ export default class Modal extends Component {
   static Header = Header
   static Title = Title
 
+  componentDidUpdate (prevProps) {
+    const { hidden } = this.props
+    const { hidden: prevHidden } = prevProps
+
+    if (!hidden && prevHidden) {
+      document.querySelector('html').style.overflow = 'hidden'
+    } else if (hidden && !prevHidden) {
+      document.querySelector('html').style.overflow = ''
+      this.modalElement = null
+    }
+  }
+
   onTab = (e) => {
-    const elements = tabbable(this.modalElement)
+    let elements = tabbable(this.modalElement)
+
+    const isFirstElementClose = (
+      elements.length > 0 &&
+      elements[0].getAttribute('aria-label') === 'close'
+    )
+
+    if (isFirstElementClose) {
+      const [first, ...rest] = elements
+      elements = [...rest, first]
+    }
 
     const index = elements.indexOf(e.target)
 
@@ -45,17 +72,17 @@ export default class Modal extends Component {
       }, 0)
       e.stopPropagation()
       e.preventDefault()
-    } else if (index < 1 && e.shiftKey) {
-      // Shift tab on the first tabbable element or the dialog
+    } else if (e.shiftKey) {
+      const newIndex = index <= 0 ? elements.length - 1 : index - 1
       setTimeout(() => {
-        elements[elements.length - 1].focus()
+        elements[newIndex].focus()
       }, 0)
       e.stopPropagation()
       e.preventDefault()
-    } else if (index === elements.length - 1 && !e.shiftKey) {
-      // Tab on the last tabbable element
+    } else if (!e.shiftKey) {
+      const newIndex = (index + 1) % elements.length
       setTimeout(() => {
-        elements[0].focus()
+        elements[newIndex].focus()
       }, 0)
       e.stopPropagation()
       e.preventDefault()
@@ -65,6 +92,7 @@ export default class Modal extends Component {
   render () {
     const {
       children,
+      dir,
       hidden,
       onClose,
       type,
@@ -84,7 +112,7 @@ export default class Modal extends Component {
         onTab={ this.onTab }
         ref={ ref => {
           if (ref) {
-            this.modalElement = findDOMNode(ref)
+            this.modalElement = this.modalElement || findDOMNode(ref)
             this.dialogElement = this.modalElement.firstChild
 
             setTimeout(() => {
@@ -97,7 +125,12 @@ export default class Modal extends Component {
       >
         <View
           aria-labelledby='dialog-title'
-          className={ styles.dialog }
+          className={ classNames(
+            styles.dialog,
+            styles[dir], {
+              [styles.open]: !hidden
+            }
+          ) }
           onClick={ (e) => e.stopPropagation() }
           role='dialog'
           style={{ width }}

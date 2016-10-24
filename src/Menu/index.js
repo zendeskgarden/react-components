@@ -197,6 +197,7 @@ export default class Menu extends Component {
             (position) => (
               <Container
                 {...other}
+                animate={ !hidden }
                 dir={ dir }
                 arrow={ arrow }
                 position={ position }

@@ -9,6 +9,14 @@
   composes: c-dialog from 'zd-css-modals';
 }
 
+.open {
+  composes: is-open from 'zd-css-modals';
+}
+
+.rtl {
+  composes: is-rtl from 'zd-css-modals';
+}
+
 .type_transparent {
   composes: l-backdrop--transparent from 'zd-css-modals';
 }
@@ -31,4 +39,8 @@
 
 .close {
   composes: c-dialog__close from 'zd-css-modals';
+}
+
+.close_focused {
+  composes: is-focused from 'zd-css-modals';
 }

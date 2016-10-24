@@ -28,6 +28,7 @@ export default class View extends Component {
     onEnter: PropTypes.func,
     onEscape: PropTypes.func,
     onKeyDown: PropTypes.func,
+    onScroll: PropTypes.func,
     onSpace: PropTypes.func,
     onTab: PropTypes.func,
     testId: PropTypes.string,
