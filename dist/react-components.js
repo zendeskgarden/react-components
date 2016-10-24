@@ -3219,12 +3219,13 @@ var Menu = function (_Component) {
       });
     };
 
-    _this.toggleHidden = function () {
+    _this.toggleHidden = function (e) {
       if (_this.state.hidden) {
         _this.showMenu();
       } else {
         _this.closeMenu();
       }
+      e.stopPropagation();
     };
 
     _this.keyboardToggleHidden = function (e) {
