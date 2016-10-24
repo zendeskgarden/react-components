@@ -1,5 +1,8 @@
 ## Change Log
 
+### v2.0.1 (2016/10/24 16:17 +00:00)
+- [#56](https://github.com/zendeskgarden/react-components/pull/56) Stop propagating Menu clicks (@sunesimonsen)
+
 ### v2.0.0 (2016/10/24 15:26 +00:00)
 - [#51](https://github.com/zendeskgarden/react-components/pull/51) Improve Range component performance (@jzempel)
 - [#50](https://github.com/zendeskgarden/react-components/pull/50) Update CSS package dependencies for Electroid styling (@sunesimonsen, @albertfdp, @jzempel)
