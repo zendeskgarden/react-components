@@ -47,6 +47,7 @@ export default class Modal extends Component {
       document.querySelector('html').style.overflow = 'hidden'
     } else if (hidden && !prevHidden) {
       document.querySelector('html').style.overflow = ''
+      this.modalElement = null
     }
   }
 
