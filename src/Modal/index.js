@@ -52,7 +52,17 @@ export default class Modal extends Component {
   }
 
   onTab = (e) => {
-    const elements = tabbable(this.modalElement)
+    let elements = tabbable(this.modalElement)
+
+    const isFirstElementClose = (
+      elements.length > 0 &&
+      elements[0].getAttribute('aria-label') === 'close'
+    )
+
+    if (isFirstElementClose) {
+      const [first, ...rest] = elements
+      elements = [...rest, first]
+    }
 
     const index = elements.indexOf(e.target)
 
@@ -62,17 +72,17 @@ export default class Modal extends Component {
       }, 0)
       e.stopPropagation()
       e.preventDefault()
-    } else if (index < 1 && e.shiftKey) {
-      // Shift tab on the first tabbable element or the dialog
+    } else if (e.shiftKey) {
+      const newIndex = index <= 0 ? elements.length - 1 : index - 1
       setTimeout(() => {
-        elements[elements.length - 1].focus()
+        elements[newIndex].focus()
       }, 0)
       e.stopPropagation()
       e.preventDefault()
-    } else if (index === elements.length - 1 && !e.shiftKey) {
-      // Tab on the last tabbable element
+    } else if (!e.shiftKey) {
+      const newIndex = (index + 1) % elements.length
       setTimeout(() => {
-        elements[0].focus()
+        elements[newIndex].focus()
       }, 0)
       e.stopPropagation()
       e.preventDefault()
