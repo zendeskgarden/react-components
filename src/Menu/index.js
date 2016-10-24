@@ -117,12 +117,13 @@ export default class Menu extends Component {
     })
   }
 
-  toggleHidden = () => {
+  toggleHidden = (e) => {
     if (this.state.hidden) {
       this.showMenu()
     } else {
       this.closeMenu()
     }
+    e.stopPropagation()
   }
 
   keyboardToggleHidden = (e) => {
