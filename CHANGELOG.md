@@ -1,5 +1,9 @@
 ## Change Log
 
+### v2.0.0 (2016/10/24 15:26 +00:00)
+- [#51](https://github.com/zendeskgarden/react-components/pull/51) Improve Range component performance (@jzempel)
+- [#50](https://github.com/zendeskgarden/react-components/pull/50) Update CSS package dependencies for Electroid styling (@sunesimonsen, @albertfdp, @jzempel)
+
 ### v1.11.0 (2016/10/19 20:21 +00:00)
 - [#54](https://github.com/zendeskgarden/react-components/pull/54) Set the range defaults to min:0, max:100, step:1 (@sunesimonsen)
 
