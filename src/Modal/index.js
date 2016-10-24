@@ -39,14 +39,14 @@ export default class Modal extends Component {
   static Header = Header
   static Title = Title
 
-  componentWillUpdate (props) {
-    const { hidden } = props
-    const html = document.getElementsByTagName('html')[0]
+  componentDidUpdate (prevProps) {
+    const { hidden } = this.props
+    const { hidden: prevHidden } = prevProps
 
-    if (hidden) {
-      html.style.overflow = ''
-    } else {
-      html.style.overflow = 'hidden'
+    if (!hidden && prevHidden) {
+      document.querySelector('html').style.overflow = 'hidden'
+    } else if (hidden && !prevHidden) {
+      document.querySelector('html').style.overflow = ''
     }
   }
 
@@ -101,7 +101,7 @@ export default class Modal extends Component {
         onTab={ this.onTab }
         ref={ ref => {
           if (ref) {
-            this.modalElement = findDOMNode(ref)
+            this.modalElement = this.modalElement || findDOMNode(ref)
             this.dialogElement = this.modalElement.firstChild
 
             setTimeout(() => {
