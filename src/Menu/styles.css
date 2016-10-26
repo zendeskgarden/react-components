@@ -49,14 +49,6 @@
   background: transparent;
 }
 
-.item:first-child {
-  margin-top: initial;
-}
-
-.item:last-child {
-  margin-bottom: initial;
-}
-
 .scrollable {
   overflow-x: hidden;
   overflow-y: auto;
