@@ -1,5 +1,8 @@
 ## Change Log
 
+### v2.0.2 (2016/10/26 10:56 +00:00)
+- [#58](https://github.com/zendeskgarden/react-components/pull/58) Fixed: Incorrect scrollbar positioning in menus (@sunesimonsen)
+
 ### v2.0.1 (2016/10/24 16:17 +00:00)
 - [#56](https://github.com/zendeskgarden/react-components/pull/56) Stop propagating Menu clicks (@sunesimonsen)
 
