@@ -45,19 +45,14 @@ const Container = ({
           [styles.animate]: animate,
           [styles.fixed_width]: fixedWidth,
           [styles.arrow]: arrow,
-          [styles[`arrow_${arrowPositions[position]}`]]: arrow
+          [styles[`arrow_${arrowPositions[position]}`]]: arrow,
+          [styles.scrollable]: hasMaxHeight
         }
       ) }
       role='menu'
+      style={ style }
     >
-      <View
-        className={ classNames({
-          [styles.scrollable]: hasMaxHeight
-        }) }
-        style={ style }
-      >
-        { children }
-      </View>
+      { children }
     </View>
   )
 }
