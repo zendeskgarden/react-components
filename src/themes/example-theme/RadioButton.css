@@ -5,6 +5,10 @@ input:checked ~ .label:after {
   background-color: var(--zd-accent-color) !important;
 }
 
+input ~ .label:hover:after {
+  border-color: var(--zd-accent-color) !important;
+}
+
 .label:active:after {
   border-color: var(--zd-accent-color) !important;
 }

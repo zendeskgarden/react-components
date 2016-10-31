@@ -8,7 +8,7 @@
 }
 
 .type_basic {
-  border-color: transparent !important;
+  color: var(--zd-accent-color) !important;
 }
 
 .type_primary {
@@ -18,29 +18,36 @@
 
 .type_default.active:hover,
 .type_primary.active:hover,
+.type_basic.active:hover,
 .type_default:hover,
-.type_primary:hover {
+.type_primary:hover,
+.type_basic:hover {
   background-color: var(--zd-hover-color) !important;
   color: var(--zd-color-white) !important;
 }
 
 .type_default.active,
-.type_primary.active {
+.type_primary.active,
+.type_basic.active {
   background-color: var(--zd-accent-color) !important;
   color: var(--zd-color-white) !important;
 }
 
 .type_default:active,
 .type_primary:active,
+.type_basic:active,
 .type_default.active:active,
-.type_primary.active:active {
+.type_primary.active:active,
+.type_basic.active:active {
   background-color: var(--zd-active-color) !important;
 }
 
 .type_default.focused,
-.type_default.focused:focus,
 .type_primary.focused,
-.type_primary.focused:focus {
+.type_basic.focused,
+.type_default.focused:focus,
+.type_primary.focused:focus,
+.type_basic.focused:focus {
   box-shadow: 0 0 0 3px var(--zd-focus-color) !important;
 }
 
