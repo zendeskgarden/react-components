@@ -1,5 +1,8 @@
 ## Change Log
 
+### v2.2.0 (2016/11/08 09:00 +00:00)
+- [#61](https://github.com/zendeskgarden/react-components/pull/61) Upgrade to the latest version of css-buttons (@sunesimonsen)
+
 ### v2.1.0 (2016/10/31 09:21 +00:00)
 - [#59](https://github.com/zendeskgarden/react-components/pull/59) Upgraded to the latest Garden styling (@sunesimonsen)
 
