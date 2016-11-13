@@ -1,5 +1,8 @@
 ## Change Log
 
+### v2.2.1 (2016/11/13 20:43 +00:00)
+- [#64](https://github.com/zendeskgarden/react-components/pull/64) Upgraded css-forms to fix positioning bug (@sunesimonsen)
+
 ### v2.2.0 (2016/11/08 09:00 +00:00)
 - [#61](https://github.com/zendeskgarden/react-components/pull/61) Upgrade to the latest version of css-buttons (@sunesimonsen)
 
