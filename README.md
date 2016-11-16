@@ -31,7 +31,7 @@ for more information on the setup.
 
 ## Owners
 * Email: [bastards@zendesk.com](mailto:bastards@zendesk.com)
-* Slack: [#react-components](https://zendesk.slack.com/messages/react-components/) or [#garden](https://zendesk.slack.com/messages/garden/)
+* Slack: [#react](https://zendesk.slack.com/messages/react/) or [#garden](https://zendesk.slack.com/messages/garden/)
 * GitHub: `@zendesk/bastards`
 
 ## Contribute
