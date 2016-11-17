@@ -4828,8 +4828,6 @@ var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _react = __webpack_require__(0);
 
-var _react2 = _interopRequireDefault(_react);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ThemeProvider = function (_Component) {
@@ -4850,11 +4848,7 @@ var ThemeProvider = function (_Component) {
     var children = this.props.children;
 
 
-    return _react2.default.createElement(
-      'div',
-      null,
-      children
-    );
+    return children;
   };
 
   return ThemeProvider;
