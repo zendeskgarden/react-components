@@ -1,11 +1,4 @@
 {
-  "env": {
-    "styleguidist": {
-      "presets": [
-        "react-hmre"
-      ]
-    }
-  },
   "plugins": [
     "transform-runtime"
   ],
