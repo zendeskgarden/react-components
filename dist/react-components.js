@@ -617,22 +617,22 @@ var View = function (_Component) {
   View.prototype.render = function render() {
     var _this2 = this;
 
-    var _props = this.props;
-    var children = _props.children;
-    var className = _props.className;
-    var hidden = _props.hidden;
-    var onArrowDown = _props.onArrowDown;
-    var onArrowLeft = _props.onArrowLeft;
-    var onArrowRight = _props.onArrowRight;
-    var onArrowUp = _props.onArrowUp;
-    var onDelete = _props.onDelete;
-    var onEnter = _props.onEnter;
-    var onEscape = _props.onEscape;
-    var onKeyDown = _props.onKeyDown;
-    var onSpace = _props.onSpace;
-    var onTab = _props.onTab;
-    var testId = _props.testId;
-    var other = (0, _objectWithoutProperties3.default)(_props, ['children', 'className', 'hidden', 'onArrowDown', 'onArrowLeft', 'onArrowRight', 'onArrowUp', 'onDelete', 'onEnter', 'onEscape', 'onKeyDown', 'onSpace', 'onTab', 'testId']);
+    var _props = this.props,
+        children = _props.children,
+        className = _props.className,
+        hidden = _props.hidden,
+        onArrowDown = _props.onArrowDown,
+        onArrowLeft = _props.onArrowLeft,
+        onArrowRight = _props.onArrowRight,
+        onArrowUp = _props.onArrowUp,
+        onDelete = _props.onDelete,
+        onEnter = _props.onEnter,
+        onEscape = _props.onEscape,
+        onKeyDown = _props.onKeyDown,
+        onSpace = _props.onSpace,
+        onTab = _props.onTab,
+        testId = _props.testId,
+        other = (0, _objectWithoutProperties3.default)(_props, ['children', 'className', 'hidden', 'onArrowDown', 'onArrowLeft', 'onArrowRight', 'onArrowUp', 'onDelete', 'onEnter', 'onEscape', 'onKeyDown', 'onSpace', 'onTab', 'testId']);
 
 
     var keyDownHandlers = {
@@ -781,10 +781,8 @@ var _react = __webpack_require__(0);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var extendStyles = function extendStyles(styles, theme, namespace) {
-  var _ref = theme || {};
-
-  var themeStyles = _ref[namespace];
-
+  var _ref = theme || {},
+      themeStyles = _ref[namespace];
 
   if (themeStyles) {
     var _ret = function () {
@@ -817,8 +815,8 @@ var ThemedComponent = function (_Component) {
   (0, _inherits3.default)(ThemedComponent, _Component);
 
   function ThemedComponent(props, context, _ref2) {
-    var namespace = _ref2.namespace;
-    var styles = _ref2.styles;
+    var namespace = _ref2.namespace,
+        styles = _ref2.styles;
     (0, _classCallCheck3.default)(this, ThemedComponent);
 
     var _this = (0, _possibleConstructorReturn3.default)(this, _Component.call(this, props, context));
@@ -1284,14 +1282,13 @@ var _reactDom = __webpack_require__(58);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Selectable = function Selectable(ChildComponent) {
-  var _ref = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-
-  var _ref$preventDefault = _ref.preventDefault;
-  var preventDefault = _ref$preventDefault === undefined ? false : _ref$preventDefault;
-  var _ref$selectOnHover = _ref.selectOnHover;
-  var selectOnHover = _ref$selectOnHover === undefined ? true : _ref$selectOnHover;
-  var _ref$selectEvent = _ref.selectEvent;
-  var selectEvent = _ref$selectEvent === undefined ? 'onMouseDown' : _ref$selectEvent;
+  var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+      _ref$preventDefault = _ref.preventDefault,
+      preventDefault = _ref$preventDefault === undefined ? false : _ref$preventDefault,
+      _ref$selectOnHover = _ref.selectOnHover,
+      selectOnHover = _ref$selectOnHover === undefined ? true : _ref$selectOnHover,
+      _ref$selectEvent = _ref.selectEvent,
+      selectEvent = _ref$selectEvent === undefined ? 'onMouseDown' : _ref$selectEvent;
 
   var Selectable = function (_Component) {
     (0, _inherits3.default)(Selectable, _Component);
@@ -1306,10 +1303,10 @@ var Selectable = function Selectable(ChildComponent) {
       }
 
       return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.onSelect = function (e) {
-        var _this$props = _this.props;
-        var disabled = _this$props.disabled;
-        var onValueChosen = _this$props.onValueChosen;
-        var value = _this$props.value;
+        var _this$props = _this.props,
+            disabled = _this$props.disabled,
+            onValueChosen = _this$props.onValueChosen,
+            value = _this$props.value;
 
 
         if (!disabled && onValueChosen) {
@@ -1472,16 +1469,16 @@ var ReactSingleSelectionModel = function () {
   function ReactSingleSelectionModel() {
     var _this = this;
 
-    var _ref = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+    var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+        _ref$rtl = _ref.rtl,
+        rtl = _ref$rtl === undefined ? false : _ref$rtl,
+        _ref$wrapping = _ref.wrapping,
+        wrapping = _ref$wrapping === undefined ? 'items' : _ref$wrapping,
+        _ref$selectOnSpace = _ref.selectOnSpace,
+        selectOnSpace = _ref$selectOnSpace === undefined ? true : _ref$selectOnSpace,
+        _ref$vertical = _ref.vertical,
+        vertical = _ref$vertical === undefined ? true : _ref$vertical;
 
-    var _ref$rtl = _ref.rtl;
-    var rtl = _ref$rtl === undefined ? false : _ref$rtl;
-    var _ref$wrapping = _ref.wrapping;
-    var wrapping = _ref$wrapping === undefined ? 'items' : _ref$wrapping;
-    var _ref$selectOnSpace = _ref.selectOnSpace;
-    var selectOnSpace = _ref$selectOnSpace === undefined ? true : _ref$selectOnSpace;
-    var _ref$vertical = _ref.vertical;
-    var vertical = _ref$vertical === undefined ? true : _ref$vertical;
     (0, _classCallCheck3.default)(this, ReactSingleSelectionModel);
 
     this.handleKeyDown = function (event) {
@@ -2056,9 +2053,9 @@ var RelativePositionedPopup = function (_Component) {
         });
       }
     }, _this.clickOutsideHandler = function (e) {
-      var _this$props = _this.props;
-      var hidden = _this$props.hidden;
-      var onClickOutside = _this$props.onClickOutside;
+      var _this$props = _this.props,
+          hidden = _this$props.hidden,
+          onClickOutside = _this$props.onClickOutside;
 
 
       var isLeftClick = e.which === 1;
@@ -2072,9 +2069,9 @@ var RelativePositionedPopup = function (_Component) {
         }
       }
     }, _this.getPositions = function () {
-      var _this$props2 = _this.props;
-      var dir = _this$props2.dir;
-      var positioning = _this$props2.positioning;
+      var _this$props2 = _this.props,
+          dir = _this$props2.dir,
+          positioning = _this$props2.positioning;
 
 
       var positions = Array.isArray(positioning) ? positioning : [positioning];
@@ -2083,11 +2080,11 @@ var RelativePositionedPopup = function (_Component) {
         return rtlMapping[position] || position;
       }) : positions;
     }, _this.getAnchorMargins = function () {
-      var _this$props3 = _this.props;
-      var marginBottom = _this$props3.marginBottom;
-      var marginLeft = _this$props3.marginLeft;
-      var marginRight = _this$props3.marginRight;
-      var marginTop = _this$props3.marginTop;
+      var _this$props3 = _this.props,
+          marginBottom = _this$props3.marginBottom,
+          marginLeft = _this$props3.marginLeft,
+          marginRight = _this$props3.marginRight,
+          marginTop = _this$props3.marginTop;
 
 
       return {
@@ -2177,18 +2174,16 @@ var RelativePositionedPopup = function (_Component) {
         _this5 = this,
         _classNames3;
 
-    var _props = this.props;
-    var anchor = _props.anchor;
-    var children = _props.children;
-    var hidden = _props.hidden;
-    var testId = _props.testId;
-    var stretched = _props.stretched;
+    var _props = this.props,
+        anchor = _props.anchor,
+        children = _props.children,
+        hidden = _props.hidden,
+        testId = _props.testId,
+        stretched = _props.stretched;
 
-    var _ref = this.state || {};
-
-    var opening = _ref.opening;
-    var placement = _ref.placement;
-
+    var _ref = this.state || {},
+        opening = _ref.opening,
+        placement = _ref.placement;
 
     var popupStyle = null;
     if (placement) {
@@ -2550,12 +2545,12 @@ var Avatar = function (_Component) {
   }
 
   Avatar.prototype.render = function render() {
-    var _props = this.props;
-    var alt = _props.alt;
-    var src = _props.src;
-    var size = _props.size;
-    var status = _props.status;
-    var type = _props.type;
+    var _props = this.props,
+        alt = _props.alt,
+        src = _props.src,
+        size = _props.size,
+        status = _props.status,
+        type = _props.type;
 
 
     var className = (0, _classnames2.default)(_styles2.default.avatar, _styles2.default['size_' + size], _styles2.default['status_' + status], _styles2.default['type_' + type]);
@@ -2662,9 +2657,9 @@ var Button = function (_ThemedComponent) {
     };
 
     _this.onClick = function (e) {
-      var _this$props = _this.props;
-      var disabled = _this$props.disabled;
-      var onClick = _this$props.onClick;
+      var _this$props = _this.props,
+          disabled = _this$props.disabled,
+          onClick = _this$props.onClick;
 
 
       if (disabled) {
@@ -2695,18 +2690,18 @@ var Button = function (_ThemedComponent) {
     var _classNames,
         _this2 = this;
 
-    var _props = this.props;
-    var autoFocus = _props.autoFocus;
-    var className = _props.className;
-    var children = _props.children;
-    var disabled = _props.disabled;
-    var stretched = _props.stretched;
-    var pill = _props.pill;
-    var size = _props.size;
-    var tabIndex = _props.tabIndex;
-    var testId = _props.testId;
-    var title = _props.title;
-    var type = _props.type;
+    var _props = this.props,
+        autoFocus = _props.autoFocus,
+        className = _props.className,
+        children = _props.children,
+        disabled = _props.disabled,
+        stretched = _props.stretched,
+        pill = _props.pill,
+        size = _props.size,
+        tabIndex = _props.tabIndex,
+        testId = _props.testId,
+        title = _props.title,
+        type = _props.type;
     var theme = this.theme;
     var focused = this.state.focused;
 
@@ -2850,20 +2845,20 @@ var ButtonGroup = function (_ThemedComponent) {
   }
 
   ButtonGroup.prototype.setSelectableItems = function setSelectableItems(_ref) {
-    var active = _ref.active;
-    var children = _ref.children;
-    var dir = _ref.dir;
-    var size = _ref.size;
-    var vertical = _ref.vertical;
+    var active = _ref.active,
+        children = _ref.children,
+        dir = _ref.dir,
+        size = _ref.size,
+        vertical = _ref.vertical;
 
     var buttons = [];
 
     _react.Children.forEach(children, function (child) {
       if (child && child.type === _ItemConfig2.default) {
-        var _child$props = child.props;
-        var _children = _child$props.children;
-        var disabled = _child$props.disabled;
-        var id = _child$props.id;
+        var _child$props = child.props,
+            _children = _child$props.children,
+            disabled = _child$props.disabled,
+            id = _child$props.id;
 
         buttons.push(_react2.default.createElement(
           _Item2.default,
@@ -2894,10 +2889,10 @@ var ButtonGroup = function (_ThemedComponent) {
     var _classNames,
         _this2 = this;
 
-    var _props = this.props;
-    var dir = _props.dir;
-    var tabIndex = _props.tabIndex;
-    var testId = _props.testId;
+    var _props = this.props,
+        dir = _props.dir,
+        tabIndex = _props.tabIndex,
+        testId = _props.testId;
     var buttons = this.state.buttons;
     var theme = this.theme;
 
@@ -3017,9 +3012,9 @@ var Checkbox = function (_ThemedComponent) {
     }));
 
     _this.toggle = function () {
-      var _this$props = _this.props;
-      var checked = _this$props.checked;
-      var onChange = _this$props.onChange;
+      var _this$props = _this.props,
+          checked = _this$props.checked,
+          onChange = _this$props.onChange;
 
 
       onChange && onChange(!checked);
@@ -3037,13 +3032,13 @@ var Checkbox = function (_ThemedComponent) {
     var _classNames,
         _this2 = this;
 
-    var _props = this.props;
-    var checked = _props.checked;
-    var children = _props.children;
-    var disabled = _props.disabled;
-    var dir = _props.dir;
-    var tabIndex = _props.tabIndex;
-    var testId = _props.testId;
+    var _props = this.props,
+        checked = _props.checked,
+        children = _props.children,
+        disabled = _props.disabled,
+        dir = _props.dir,
+        tabIndex = _props.tabIndex,
+        testId = _props.testId;
     var focused = this.state.focused;
     var theme = this.theme;
 
@@ -3261,21 +3256,21 @@ var Menu = function (_Component) {
   Menu.prototype.render = function render() {
     var _classNames, _classNames2;
 
-    var _props = this.props;
-    var arrow = _props.arrow;
-    var dir = _props.dir;
-    var marginBottom = _props.marginBottom;
-    var marginLeft = _props.marginLeft;
-    var marginRight = _props.marginRight;
-    var marginTop = _props.marginTop;
-    var positioning = _props.positioning;
-    var trigger = _props.trigger;
-    var testId = _props.testId;
-    var stretched = _props.stretched;
-    var other = (0, _objectWithoutProperties3.default)(_props, ['arrow', 'dir', 'marginBottom', 'marginLeft', 'marginRight', 'marginTop', 'positioning', 'trigger', 'testId', 'stretched']);
-    var _state = this.state;
-    var hidden = _state.hidden;
-    var items = _state.items;
+    var _props = this.props,
+        arrow = _props.arrow,
+        dir = _props.dir,
+        marginBottom = _props.marginBottom,
+        marginLeft = _props.marginLeft,
+        marginRight = _props.marginRight,
+        marginTop = _props.marginTop,
+        positioning = _props.positioning,
+        trigger = _props.trigger,
+        testId = _props.testId,
+        stretched = _props.stretched,
+        other = (0, _objectWithoutProperties3.default)(_props, ['arrow', 'dir', 'marginBottom', 'marginLeft', 'marginRight', 'marginTop', 'positioning', 'trigger', 'testId', 'stretched']);
+    var _state = this.state,
+        hidden = _state.hidden,
+        items = _state.items;
 
 
     var anchor = _react2.default.createElement(
@@ -3452,10 +3447,9 @@ var Modal = function (_Component) {
       var isFirstElementClose = elements.length > 0 && elements[0].getAttribute('aria-label') === 'close';
 
       if (isFirstElementClose) {
-        var _elements = elements;
-        var first = _elements[0];
-
-        var rest = _elements.slice(1);
+        var _elements = elements,
+            first = _elements[0],
+            rest = _elements.slice(1);
 
         elements = [].concat(rest, [first]);
       }
@@ -3507,14 +3501,14 @@ var Modal = function (_Component) {
     var _this2 = this,
         _classNames;
 
-    var _props = this.props;
-    var children = _props.children;
-    var dir = _props.dir;
-    var hidden = _props.hidden;
-    var onClose = _props.onClose;
-    var type = _props.type;
-    var testId = _props.testId;
-    var width = _props.width;
+    var _props = this.props,
+        children = _props.children,
+        dir = _props.dir,
+        hidden = _props.hidden,
+        onClose = _props.onClose,
+        type = _props.type,
+        testId = _props.testId,
+        width = _props.width;
 
 
     if (hidden) {
@@ -3644,9 +3638,9 @@ var RadioButton = function (_ThemedComponent) {
     }));
 
     _this.onChange = function () {
-      var _this$props = _this.props;
-      var value = _this$props.value;
-      var onChange = _this$props.onChange;
+      var _this$props = _this.props,
+          value = _this$props.value,
+          onChange = _this$props.onChange;
 
 
       onChange && onChange(value);
@@ -3664,14 +3658,14 @@ var RadioButton = function (_ThemedComponent) {
     var _classNames,
         _this2 = this;
 
-    var _props = this.props;
-    var checked = _props.checked;
-    var children = _props.children;
-    var dir = _props.dir;
-    var disabled = _props.disabled;
-    var name = _props.name;
-    var tabIndex = _props.tabIndex;
-    var testId = _props.testId;
+    var _props = this.props,
+        checked = _props.checked,
+        children = _props.children,
+        dir = _props.dir,
+        disabled = _props.disabled,
+        name = _props.name,
+        tabIndex = _props.tabIndex,
+        testId = _props.testId;
     var focused = this.state.focused;
     var theme = this.theme;
 
@@ -3794,11 +3788,11 @@ var RadioButtonGroup = function (_Component) {
   RadioButtonGroup.prototype.render = function render() {
     var _this2 = this;
 
-    var _props = this.props;
-    var children = _props.children;
-    var dir = _props.dir;
-    var disabled = _props.disabled;
-    var selected = _props.selected;
+    var _props = this.props,
+        children = _props.children,
+        dir = _props.dir,
+        disabled = _props.disabled,
+        selected = _props.selected;
 
 
     var radios = _react2.default.Children.map(children, function (item, index) {
@@ -3909,10 +3903,10 @@ var Range = function (_ThemedComponent) {
   }
 
   Range.prototype.getBgWidth = function getBgWidth() {
-    var _props = this.props;
-    var max = _props.max;
-    var min = _props.min;
-    var value = _props.value;
+    var _props = this.props,
+        max = _props.max,
+        min = _props.min,
+        value = _props.value;
 
 
     if (parseFloat(max) < parseFloat(min)) {
@@ -3926,15 +3920,15 @@ var Range = function (_ThemedComponent) {
     var _classNames,
         _this2 = this;
 
-    var _props2 = this.props;
-    var disabled = _props2.disabled;
-    var max = _props2.max;
-    var min = _props2.min;
-    var step = _props2.step;
-    var tabIndex = _props2.tabIndex;
-    var testId = _props2.testId;
-    var title = _props2.title;
-    var value = _props2.value;
+    var _props2 = this.props,
+        disabled = _props2.disabled,
+        max = _props2.max,
+        min = _props2.min,
+        step = _props2.step,
+        tabIndex = _props2.tabIndex,
+        testId = _props2.testId,
+        title = _props2.title,
+        value = _props2.value;
     var focused = this.state.focused;
     var theme = this.theme;
 
@@ -4064,8 +4058,8 @@ var Tabs = function (_ThemedComponent) {
     };
 
     _this.updatePanel = function (_ref) {
-      var children = _ref.children;
-      var active = _ref.active;
+      var children = _ref.children,
+          active = _ref.active;
 
       var panelConfigs = [];
 
@@ -4110,19 +4104,19 @@ var Tabs = function (_ThemedComponent) {
   }
 
   Tabs.prototype.setSelectableItems = function setSelectableItems(_ref3) {
-    var children = _ref3.children;
-    var dir = _ref3.dir;
-    var active = _ref3.active;
-    var vertical = _ref3.vertical;
+    var children = _ref3.children,
+        dir = _ref3.dir,
+        active = _ref3.active,
+        vertical = _ref3.vertical;
 
     var labels = [];
 
     _react.Children.forEach(children, function (child) {
       if (child && child.type === _PanelConfig2.default) {
-        var _child$props = child.props;
-        var disabled = _child$props.disabled;
-        var id = _child$props.id;
-        var label = _child$props.label;
+        var _child$props = child.props,
+            disabled = _child$props.disabled,
+            id = _child$props.id,
+            label = _child$props.label;
 
         labels.push(_react2.default.createElement(
           _Label2.default,
@@ -4153,14 +4147,14 @@ var Tabs = function (_ThemedComponent) {
     var _classNames,
         _this2 = this;
 
-    var _props = this.props;
-    var dir = _props.dir;
-    var tabIndex = _props.tabIndex;
-    var testId = _props.testId;
-    var vertical = _props.vertical;
-    var _state = this.state;
-    var labels = _state.labels;
-    var panel = _state.panel;
+    var _props = this.props,
+        dir = _props.dir,
+        tabIndex = _props.tabIndex,
+        testId = _props.testId,
+        vertical = _props.vertical;
+    var _state = this.state,
+        labels = _state.labels,
+        panel = _state.panel;
     var theme = this.theme;
 
 
@@ -4296,10 +4290,10 @@ var TextArea = function (_ThemedComponent) {
   TextArea.prototype.render = function render() {
     var _classNames;
 
-    var _props = this.props;
-    var className = _props.className;
-    var resizable = _props.resizable;
-    var other = (0, _objectWithoutProperties3.default)(_props, ['className', 'resizable']);
+    var _props = this.props,
+        className = _props.className,
+        resizable = _props.resizable,
+        other = (0, _objectWithoutProperties3.default)(_props, ['className', 'resizable']);
     var theme = this.theme;
 
 
@@ -4418,9 +4412,9 @@ var TextInput = function (_ThemedComponent) {
   }
 
   TextInput.prototype.render = function render() {
-    var _props = this.props;
-    var className = _props.className;
-    var other = (0, _objectWithoutProperties3.default)(_props, ['className']);
+    var _props = this.props,
+        className = _props.className,
+        other = (0, _objectWithoutProperties3.default)(_props, ['className']);
     var theme = this.theme;
 
 
@@ -4528,18 +4522,18 @@ var Toggle = function (_ThemedComponent) {
     }));
 
     _this.toggle = function () {
-      var _this$props = _this.props;
-      var checked = _this$props.checked;
-      var onChange = _this$props.onChange;
+      var _this$props = _this.props,
+          checked = _this$props.checked,
+          onChange = _this$props.onChange;
 
 
       onChange && onChange(!checked);
     };
 
     _this.onArrowLeft = function () {
-      var _this$props2 = _this.props;
-      var checked = _this$props2.checked;
-      var onChange = _this$props2.onChange;
+      var _this$props2 = _this.props,
+          checked = _this$props2.checked,
+          onChange = _this$props2.onChange;
 
 
       if (checked) {
@@ -4548,9 +4542,9 @@ var Toggle = function (_ThemedComponent) {
     };
 
     _this.onArrowRight = function () {
-      var _this$props3 = _this.props;
-      var checked = _this$props3.checked;
-      var onChange = _this$props3.onChange;
+      var _this$props3 = _this.props,
+          checked = _this$props3.checked,
+          onChange = _this$props3.onChange;
 
 
       if (!checked) {
@@ -4576,13 +4570,13 @@ var Toggle = function (_ThemedComponent) {
     var _classNames,
         _this2 = this;
 
-    var _props = this.props;
-    var children = _props.children;
-    var checked = _props.checked;
-    var dir = _props.dir;
-    var disabled = _props.disabled;
-    var tabIndex = _props.tabIndex;
-    var testId = _props.testId;
+    var _props = this.props,
+        children = _props.children,
+        checked = _props.checked,
+        dir = _props.dir,
+        disabled = _props.disabled,
+        tabIndex = _props.tabIndex,
+        testId = _props.testId;
     var focused = this.state.focused;
     var theme = this.theme;
 
@@ -4692,9 +4686,9 @@ var Ellipsis = function (_Component) {
   }
 
   Ellipsis.prototype.render = function render() {
-    var _props = this.props;
-    var children = _props.children;
-    var title = _props.title;
+    var _props = this.props,
+        children = _props.children,
+        title = _props.title;
 
 
     var props = { className: _styles2.default.ellipsis };
@@ -4767,14 +4761,14 @@ var Text = function (_Component) {
   }
 
   Text.prototype.render = function render() {
-    var _props = this.props;
-    var children = _props.children;
-    var className = _props.className;
-    var onClick = _props.onClick;
-    var tabIndex = _props.tabIndex;
-    var testId = _props.testId;
-    var title = _props.title;
-    var others = (0, _objectWithoutProperties3.default)(_props, ['children', 'className', 'onClick', 'tabIndex', 'testId', 'title']);
+    var _props = this.props,
+        children = _props.children,
+        className = _props.className,
+        onClick = _props.onClick,
+        tabIndex = _props.tabIndex,
+        testId = _props.testId,
+        title = _props.title,
+        others = (0, _objectWithoutProperties3.default)(_props, ['children', 'className', 'onClick', 'tabIndex', 'testId', 'title']);
 
 
     return _react2.default.createElement(
@@ -4929,16 +4923,16 @@ var Item = function (_ThemedComponent) {
   Item.prototype.render = function render() {
     var _classNames;
 
-    var _props = this.props;
-    var active = _props.active;
-    var children = _props.children;
-    var disabled = _props.disabled;
-    var onClick = _props.onClick;
-    var onMouseEnter = _props.onMouseEnter;
-    var onMouseLeave = _props.onMouseLeave;
-    var selected = _props.selected;
-    var selectedByMouse = _props.selectedByMouse;
-    var size = _props.size;
+    var _props = this.props,
+        active = _props.active,
+        children = _props.children,
+        disabled = _props.disabled,
+        onClick = _props.onClick,
+        onMouseEnter = _props.onMouseEnter,
+        onMouseLeave = _props.onMouseLeave,
+        selected = _props.selected,
+        selectedByMouse = _props.selectedByMouse,
+        size = _props.size;
     var theme = this.theme;
 
 
@@ -5070,14 +5064,14 @@ var arrowPositions = {
 var Container = function Container(_ref) {
   var _classNames;
 
-  var animate = _ref.animate;
-  var arrow = _ref.arrow;
-  var children = _ref.children;
-  var dir = _ref.dir;
-  var fixedWidth = _ref.fixedWidth;
-  var maxHeight = _ref.maxHeight;
-  var position = _ref.position;
-  var size = _ref.size;
+  var animate = _ref.animate,
+      arrow = _ref.arrow,
+      children = _ref.children,
+      dir = _ref.dir,
+      fixedWidth = _ref.fixedWidth,
+      maxHeight = _ref.maxHeight,
+      position = _ref.position,
+      size = _ref.size;
 
   var style = {};
   var hasMaxHeight = typeof maxHeight !== 'undefined';
@@ -5174,15 +5168,15 @@ var Item = function (_Component) {
   Item.prototype.render = function render() {
     var _classNames;
 
-    var _props = this.props;
-    var children = _props.children;
-    var disabled = _props.disabled;
-    var onMouseDown = _props.onMouseDown;
-    var onMouseEnter = _props.onMouseEnter;
-    var onMouseLeave = _props.onMouseLeave;
-    var role = _props.role;
-    var selected = _props.selected;
-    var testId = _props.testId;
+    var _props = this.props,
+        children = _props.children,
+        disabled = _props.disabled,
+        onMouseDown = _props.onMouseDown,
+        onMouseEnter = _props.onMouseEnter,
+        onMouseLeave = _props.onMouseLeave,
+        role = _props.role,
+        selected = _props.selected,
+        testId = _props.testId;
 
 
     return _react2.default.createElement(
@@ -5634,15 +5628,15 @@ var Label = function (_ThemedComponent) {
   Label.prototype.render = function render() {
     var _classNames;
 
-    var _props = this.props;
-    var active = _props.active;
-    var children = _props.children;
-    var disabled = _props.disabled;
-    var onClick = _props.onClick;
-    var onMouseEnter = _props.onMouseEnter;
-    var onMouseLeave = _props.onMouseLeave;
-    var selected = _props.selected;
-    var selectedByMouse = _props.selectedByMouse;
+    var _props = this.props,
+        active = _props.active,
+        children = _props.children,
+        disabled = _props.disabled,
+        onClick = _props.onClick,
+        onMouseEnter = _props.onMouseEnter,
+        onMouseLeave = _props.onMouseLeave,
+        selected = _props.selected,
+        selectedByMouse = _props.selectedByMouse;
     var theme = this.theme;
 
 
@@ -5838,32 +5832,32 @@ var Core = function (_Component) {
   }
 
   Core.prototype.render = function render() {
-    var _props = this.props;
-    var autoComplete = _props.autoComplete;
-    var autoFocus = _props.autoFocus;
-    var className = _props.className;
-    var dir = _props.dir;
-    var disabled = _props.disabled;
-    var isFocused = _props.isFocused;
-    var name = _props.name;
-    var maxLength = _props.maxLength;
-    var onArrowDown = _props.onArrowDown;
-    var onArrowLeft = _props.onArrowLeft;
-    var onArrowRight = _props.onArrowRight;
-    var onArrowUp = _props.onArrowUp;
-    var onBlur = _props.onBlur;
-    var onChangeText = _props.onChangeText;
-    var onDelete = _props.onDelete;
-    var onEnter = _props.onEnter;
-    var onEscape = _props.onEscape;
-    var onFocus = _props.onFocus;
-    var _onKeyDown = _props.onKeyDown;
-    var placeholder = _props.placeholder;
-    var rows = _props.rows;
-    var tabIndex = _props.tabIndex;
-    var testId = _props.testId;
-    var type = _props.type;
-    var value = _props.value;
+    var _props = this.props,
+        autoComplete = _props.autoComplete,
+        autoFocus = _props.autoFocus,
+        className = _props.className,
+        dir = _props.dir,
+        disabled = _props.disabled,
+        isFocused = _props.isFocused,
+        name = _props.name,
+        maxLength = _props.maxLength,
+        onArrowDown = _props.onArrowDown,
+        onArrowLeft = _props.onArrowLeft,
+        onArrowRight = _props.onArrowRight,
+        onArrowUp = _props.onArrowUp,
+        onBlur = _props.onBlur,
+        onChangeText = _props.onChangeText,
+        onDelete = _props.onDelete,
+        onEnter = _props.onEnter,
+        onEscape = _props.onEscape,
+        onFocus = _props.onFocus,
+        _onKeyDown = _props.onKeyDown,
+        placeholder = _props.placeholder,
+        rows = _props.rows,
+        tabIndex = _props.tabIndex,
+        testId = _props.testId,
+        type = _props.type,
+        value = _props.value;
 
 
     var handlers = {
@@ -5987,31 +5981,31 @@ var Core = function (_Component) {
   }
 
   Core.prototype.render = function render() {
-    var _props = this.props;
-    var autoComplete = _props.autoComplete;
-    var autoFocus = _props.autoFocus;
-    var className = _props.className;
-    var dir = _props.dir;
-    var disabled = _props.disabled;
-    var isFocused = _props.isFocused;
-    var name = _props.name;
-    var maxLength = _props.maxLength;
-    var onArrowDown = _props.onArrowDown;
-    var onArrowLeft = _props.onArrowLeft;
-    var onArrowRight = _props.onArrowRight;
-    var onArrowUp = _props.onArrowUp;
-    var onBlur = _props.onBlur;
-    var onChangeText = _props.onChangeText;
-    var onDelete = _props.onDelete;
-    var onEnter = _props.onEnter;
-    var onEscape = _props.onEscape;
-    var onFocus = _props.onFocus;
-    var _onKeyDown = _props.onKeyDown;
-    var placeholder = _props.placeholder;
-    var tabIndex = _props.tabIndex;
-    var testId = _props.testId;
-    var type = _props.type;
-    var value = _props.value;
+    var _props = this.props,
+        autoComplete = _props.autoComplete,
+        autoFocus = _props.autoFocus,
+        className = _props.className,
+        dir = _props.dir,
+        disabled = _props.disabled,
+        isFocused = _props.isFocused,
+        name = _props.name,
+        maxLength = _props.maxLength,
+        onArrowDown = _props.onArrowDown,
+        onArrowLeft = _props.onArrowLeft,
+        onArrowRight = _props.onArrowRight,
+        onArrowUp = _props.onArrowUp,
+        onBlur = _props.onBlur,
+        onChangeText = _props.onChangeText,
+        onDelete = _props.onDelete,
+        onEnter = _props.onEnter,
+        onEscape = _props.onEscape,
+        onFocus = _props.onFocus,
+        _onKeyDown = _props.onKeyDown,
+        placeholder = _props.placeholder,
+        tabIndex = _props.tabIndex,
+        testId = _props.testId,
+        type = _props.type,
+        value = _props.value;
 
 
     var handlers = {
@@ -6144,10 +6138,10 @@ var _keepInViewport2 = _interopRequireDefault(_keepInViewport);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var getBestRelativePlacement = function getBestRelativePlacement(_ref) {
-  var positions = _ref.positions;
-  var anchor = _ref.anchor;
-  var target = _ref.target;
-  var viewport = _ref.viewport;
+  var positions = _ref.positions,
+      anchor = _ref.anchor,
+      target = _ref.target,
+      viewport = _ref.viewport;
 
   var possiblePlacements = positions.map(function (position) {
     return {
@@ -6216,8 +6210,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var isInsideViewport = function isInsideViewport(_ref) {
-  var target = _ref.target;
-  var viewport = _ref.viewport;
+  var target = _ref.target,
+      viewport = _ref.viewport;
 
   return target.top >= 0 && target.left >= 0 && target.left + target.width <= viewport.width && target.top + target.height <= viewport.height;
 };
@@ -6235,8 +6229,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var keepInViewport = function keepInViewport(_ref) {
-  var target = _ref.target;
-  var viewport = _ref.viewport;
+  var target = _ref.target,
+      viewport = _ref.viewport;
 
   var result = {
     top: target.top,
@@ -6274,8 +6268,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 var calculateTargetBasedOnPosition = {
   bottom: function bottom(_ref) {
-    var anchor = _ref.anchor;
-    var target = _ref.target;
+    var anchor = _ref.anchor,
+        target = _ref.target;
     return {
       top: anchor.top + anchor.margins.bottom + anchor.height,
       left: anchor.left + anchor.width / 2 - target.width / 2,
@@ -6284,8 +6278,8 @@ var calculateTargetBasedOnPosition = {
     };
   },
   bottom_left: function bottom_left(_ref2) {
-    var anchor = _ref2.anchor;
-    var target = _ref2.target;
+    var anchor = _ref2.anchor,
+        target = _ref2.target;
     return {
       top: anchor.top + anchor.margins.bottom + anchor.height,
       left: anchor.left + anchor.width - target.width,
@@ -6294,8 +6288,8 @@ var calculateTargetBasedOnPosition = {
     };
   },
   bottom_right: function bottom_right(_ref3) {
-    var anchor = _ref3.anchor;
-    var target = _ref3.target;
+    var anchor = _ref3.anchor,
+        target = _ref3.target;
     return {
       top: anchor.top + anchor.margins.bottom + anchor.height,
       left: anchor.left,
@@ -6304,8 +6298,8 @@ var calculateTargetBasedOnPosition = {
     };
   },
   bottom_stretch: function bottom_stretch(_ref4) {
-    var anchor = _ref4.anchor;
-    var target = _ref4.target;
+    var anchor = _ref4.anchor,
+        target = _ref4.target;
     return {
       top: anchor.top + anchor.margins.bottom + anchor.height,
       left: anchor.left,
@@ -6314,8 +6308,8 @@ var calculateTargetBasedOnPosition = {
     };
   },
   left: function left(_ref5) {
-    var anchor = _ref5.anchor;
-    var target = _ref5.target;
+    var anchor = _ref5.anchor,
+        target = _ref5.target;
     return {
       top: anchor.top + anchor.height / 2 - target.height / 2,
       left: anchor.left - anchor.margins.left - target.width,
@@ -6324,8 +6318,8 @@ var calculateTargetBasedOnPosition = {
     };
   },
   left_top: function left_top(_ref6) {
-    var anchor = _ref6.anchor;
-    var target = _ref6.target;
+    var anchor = _ref6.anchor,
+        target = _ref6.target;
     return {
       top: anchor.top,
       left: anchor.left - anchor.margins.left - target.width,
@@ -6334,8 +6328,8 @@ var calculateTargetBasedOnPosition = {
     };
   },
   left_bottom: function left_bottom(_ref7) {
-    var anchor = _ref7.anchor;
-    var target = _ref7.target;
+    var anchor = _ref7.anchor,
+        target = _ref7.target;
     return {
       top: anchor.top + anchor.margins.top + anchor.height - target.height,
       left: anchor.left - anchor.margins.left - target.width,
@@ -6344,8 +6338,8 @@ var calculateTargetBasedOnPosition = {
     };
   },
   right: function right(_ref8) {
-    var anchor = _ref8.anchor;
-    var target = _ref8.target;
+    var anchor = _ref8.anchor,
+        target = _ref8.target;
     return {
       top: anchor.top + anchor.height / 2 - target.height / 2,
       left: anchor.left + anchor.margins.right + anchor.width,
@@ -6354,8 +6348,8 @@ var calculateTargetBasedOnPosition = {
     };
   },
   right_top: function right_top(_ref9) {
-    var anchor = _ref9.anchor;
-    var target = _ref9.target;
+    var anchor = _ref9.anchor,
+        target = _ref9.target;
     return {
       top: anchor.top,
       left: anchor.left + anchor.margins.right + anchor.width,
@@ -6364,8 +6358,8 @@ var calculateTargetBasedOnPosition = {
     };
   },
   right_bottom: function right_bottom(_ref10) {
-    var anchor = _ref10.anchor;
-    var target = _ref10.target;
+    var anchor = _ref10.anchor,
+        target = _ref10.target;
     return {
       top: anchor.top + anchor.margins.top + anchor.height - target.height,
       left: anchor.left + anchor.margins.right + anchor.width,
@@ -6374,8 +6368,8 @@ var calculateTargetBasedOnPosition = {
     };
   },
   top: function top(_ref11) {
-    var anchor = _ref11.anchor;
-    var target = _ref11.target;
+    var anchor = _ref11.anchor,
+        target = _ref11.target;
     return {
       top: anchor.top - anchor.margins.top - target.height,
       left: anchor.left + anchor.width / 2 - target.width / 2,
@@ -6384,8 +6378,8 @@ var calculateTargetBasedOnPosition = {
     };
   },
   top_left: function top_left(_ref12) {
-    var anchor = _ref12.anchor;
-    var target = _ref12.target;
+    var anchor = _ref12.anchor,
+        target = _ref12.target;
     return {
       top: anchor.top - anchor.margins.top - target.height,
       left: anchor.left + anchor.width - target.width,
@@ -6394,8 +6388,8 @@ var calculateTargetBasedOnPosition = {
     };
   },
   top_right: function top_right(_ref13) {
-    var anchor = _ref13.anchor;
-    var target = _ref13.target;
+    var anchor = _ref13.anchor,
+        target = _ref13.target;
     return {
       top: anchor.top - anchor.margins.top - target.height,
       left: anchor.left,
@@ -6404,8 +6398,8 @@ var calculateTargetBasedOnPosition = {
     };
   },
   top_stretch: function top_stretch(_ref14) {
-    var anchor = _ref14.anchor;
-    var target = _ref14.target;
+    var anchor = _ref14.anchor,
+        target = _ref14.target;
     return {
       top: anchor.top - anchor.margins.top - target.height,
       left: anchor.left,
@@ -6416,9 +6410,9 @@ var calculateTargetBasedOnPosition = {
 };
 
 var positionRelative = function positionRelative(_ref15) {
-  var position = _ref15.position;
-  var anchor = _ref15.anchor;
-  var target = _ref15.target;
+  var position = _ref15.position,
+      anchor = _ref15.anchor,
+      target = _ref15.target;
 
   var repositionedTarget = calculateTargetBasedOnPosition[position]({
     anchor: anchor, target: target
@@ -6457,10 +6451,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var SingleSelectionModel = function () {
   function SingleSelectionModel() {
-    var _ref = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+    var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+        _ref$wrapping = _ref.wrapping,
+        wrapping = _ref$wrapping === undefined ? 'items' : _ref$wrapping;
 
-    var _ref$wrapping = _ref.wrapping;
-    var wrapping = _ref$wrapping === undefined ? 'items' : _ref$wrapping;
     (0, _classCallCheck3.default)(this, SingleSelectionModel);
 
     this.selection = null;
