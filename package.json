@@ -1,6 +1,6 @@
 {
   "name": "zd-react-components",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "description": "Shared React components",
   "private": "true",
   "main": "./dist/react-components.js",
