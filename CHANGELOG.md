@@ -1,5 +1,8 @@
 ## Change Log
 
+### v2.4.0 (2016/11/17 21:10 +00:00)
+- [#69](https://github.com/zendeskgarden/react-components/pull/69) Use yarn (@albertfdp)
+
 ### v2.3.0 (2016/11/17 09:31 +00:00)
 - [#68](https://github.com/zendeskgarden/react-components/pull/68) Removed the theme provider wrapper element (@sunesimonsen)
 - [#66](https://github.com/zendeskgarden/react-components/pull/66) Changing the Slack channel to #react (@sunesimonsen)
