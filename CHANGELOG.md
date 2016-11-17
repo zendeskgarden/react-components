@@ -1,5 +1,10 @@
 ## Change Log
 
+### v2.3.0 (2016/11/17 09:31 +00:00)
+- [#68](https://github.com/zendeskgarden/react-components/pull/68) Removed the theme provider wrapper element (@sunesimonsen)
+- [#66](https://github.com/zendeskgarden/react-components/pull/66) Changing the Slack channel to #react (@sunesimonsen)
+- [#65](https://github.com/zendeskgarden/react-components/pull/65) Updated the Slack channel in the readme (@sunesimonsen)
+
 ### v2.2.1 (2016/11/13 20:43 +00:00)
 - [#64](https://github.com/zendeskgarden/react-components/pull/64) Upgraded css-forms to fix positioning bug (@sunesimonsen)
 
