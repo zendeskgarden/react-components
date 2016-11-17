@@ -64,7 +64,7 @@
     "react": "15.3.0",
     "react-addons-test-utils": "15.3.0",
     "react-dom": "15.3.0",
-    "react-styleguidist": "3.1.1",
+    "react-styleguidist": "4.3.3",
     "react-svg-loader": "1.0.1",
     "sinon": "1.17.4",
     "standard": "5.4.1",

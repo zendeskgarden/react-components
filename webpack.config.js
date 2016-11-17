@@ -1,4 +1,5 @@
 var path = require('path')
+var webpack = require('webpack')
 var cssnext = require('postcss-cssnext')
 var importer = require('postcss-import')
 var inputRange = require('postcss-input-range')
@@ -60,11 +61,19 @@ module.exports = {
     ]
   },
 
-  postcss: [
-    importer({
-      path: [sourceDir, nodeModulesDir]
-    }),
-    inputRange(),
-    cssnext()
+  plugins: [
+    new webpack.LoaderOptionsPlugin({
+      test: /\.css$/,
+      options: {
+        context: __dirname,
+        postcss: [
+          importer({
+            path: [sourceDir, nodeModulesDir]
+          }),
+          inputRange(),
+          cssnext()
+        ]
+      }
+    })
   ]
 }
