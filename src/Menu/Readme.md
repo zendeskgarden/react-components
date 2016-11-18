@@ -73,9 +73,10 @@ You can specify the size of the menu:
 Positioning and arrows:
 
 ```
-const createMenu = (label, positioning, arrow) => (
+const createMenu = (label, positioning, { arrow, centerArrow }) => (
   <Menu
     arrow={ !!arrow }
+    centerArrow={ centerArrow }
     positioning={ positioning }
     stretched
     trigger={ <Button stretched>{ label }</Button> }
@@ -87,22 +88,30 @@ const createMenu = (label, positioning, arrow) => (
 
 <Grid>
   <Grid columns={3} spacing='large'>
-    { createMenu('Bottom right', 'bottom_right', state.arrow) }
-    { createMenu('Bottom', 'bottom', state.arrow) }
-    { createMenu('Bottom left', 'bottom_left', state.arrow) }
-    { createMenu('Right', 'right', state.arrow) }
-    { createMenu('Auto', ['bottom', 'bottom_left', 'bottom_right', 'left', 'right', 'top', 'top_left', 'top_right'], state.arrow) }
-    { createMenu('Left', 'left', state.arrow) }
-    { createMenu('Top right', 'top_right', state.arrow) }
-    { createMenu('Top', 'top', state.arrow) }
-    { createMenu('Top left', 'top_left', state.arrow) }
+    { createMenu('Bottom right', 'bottom_right', state) }
+    { createMenu('Bottom', 'bottom', state) }
+    { createMenu('Bottom left', 'bottom_left', state) }
+    { createMenu('Right', 'right', state) }
+    { createMenu('Auto', ['bottom', 'bottom_left', 'bottom_right', 'left', 'right', 'top', 'top_left', 'top_right'], state) }
+    { createMenu('Left', 'left', state) }
+    { createMenu('Top right', 'top_right', state) }
+    { createMenu('Top', 'top', state) }
+    { createMenu('Top left', 'top_left', state) }
   </Grid>
-  <Checkbox
-    checked={ !!state.arrow }
-    onChange={ () => setState({ arrow: !state.arrow }) }
-  >
-    Use arrows
-  </Checkbox>
+  <Grid columns={1}>
+    <Checkbox
+      checked={ !!state.arrow }
+      onChange={ () => setState({ arrow: !state.arrow }) }
+    >
+      Use arrows
+    </Checkbox>
+    <Checkbox
+      checked={ !!state.centerArrow }
+      onChange={ () => setState({ centerArrow: !state.centerArrow }) }
+    >
+      Center arrows
+    </Checkbox>
+  </Grid>
 </Grid>
 ```
 
@@ -273,4 +282,23 @@ initialState = { hidden: true };
     <Menu.Item>Sign Out</Menu.Item>
   </Menu>
 </Grid>
+```
+
+Creating a menu with an avatar as the trigger:
+
+```
+<Menu
+  trigger={
+    <Avatar tabIndex={-1} size='large' src='https://garden.zendesk.com/assets/images/avatars/jason-dc0f96e91d6dcc4500cc7ee6d22dae41.png'/>
+  }
+  arrow
+  centerArrow
+>
+  <Menu.Item>Profile</Menu.Item>
+  <Menu.Item>Settings</Menu.Item>
+  <Menu.Item>Theme Editor</Menu.Item>
+  <Menu.Separator/>
+  <Menu.Item>Article Editor</Menu.Item>
+  <Menu.Item>Sign Out</Menu.Item>
+</Menu>
 ```

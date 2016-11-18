@@ -5,15 +5,23 @@ const calculateTargetBasedOnPosition = {
     height: target.height,
     width: target.width
   }),
-  bottom_left: ({ anchor, target }) => ({
+  bottom_left: ({ anchor, centerPoint, target }) => ({
     top: anchor.top + anchor.margins.bottom + anchor.height,
-    left: anchor.left + anchor.width - target.width,
+    left: (
+      typeof centerPoint === 'number'
+        ? anchor.left + (anchor.width / 2) - target.width + centerPoint
+        : anchor.left + anchor.width - target.width
+    ),
     height: target.height,
     width: target.width
   }),
-  bottom_right: ({ anchor, target }) => ({
+  bottom_right: ({ anchor, centerPoint, target }) => ({
     top: anchor.top + anchor.margins.bottom + anchor.height,
-    left: anchor.left,
+    left: (
+      typeof centerPoint === 'number'
+        ? anchor.left + (anchor.width / 2) - centerPoint
+        : anchor.left
+    ),
     height: target.height,
     width: target.width
   }),
@@ -65,15 +73,23 @@ const calculateTargetBasedOnPosition = {
     height: target.height,
     width: target.width
   }),
-  top_left: ({ anchor, target }) => ({
+  top_left: ({ anchor, centerPoint, target }) => ({
     top: anchor.top - anchor.margins.top - target.height,
-    left: anchor.left + anchor.width - target.width,
+    left: (
+      typeof centerPoint === 'number'
+        ? anchor.left + (anchor.width / 2) - target.width + centerPoint
+        : anchor.left + anchor.width - target.width
+    ),
     height: target.height,
     width: target.width
   }),
-  top_right: ({ anchor, target }) => ({
+  top_right: ({ anchor, centerPoint, target }) => ({
     top: anchor.top - anchor.margins.top - target.height,
-    left: anchor.left,
+    left: (
+      typeof centerPoint === 'number'
+        ? anchor.left + (anchor.width / 2) - centerPoint
+        : anchor.left
+    ),
     height: target.height,
     width: target.width
   }),
@@ -85,9 +101,9 @@ const calculateTargetBasedOnPosition = {
   })
 }
 
-const positionRelative = ({ position, anchor, target }) => {
+const positionRelative = ({ anchor, centerPoint, position, target }) => {
   const repositionedTarget = calculateTargetBasedOnPosition[position]({
-    anchor, target
+    anchor, centerPoint, target
   })
 
   return {

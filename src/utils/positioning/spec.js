@@ -147,6 +147,16 @@ describe('positioning', () => {
           { top: 390, left: 300 }
         )
       })
+
+      describe('with a center point', () => {
+        it('centers the point according to the anchor', () => {
+          expect(
+            positionRelative({ position: 'bottom_left', anchor, centerPoint: 20, target }),
+            'to satisfy',
+            { top: 390, left: 270 }
+          )
+        })
+      })
     })
 
     describe('bottom_right', () => {
@@ -156,6 +166,16 @@ describe('positioning', () => {
           'to satisfy',
           { top: 390, left: 400 }
         )
+      })
+
+      describe('with a center point', () => {
+        it('centers the point according to the anchor', () => {
+          expect(
+            positionRelative({ position: 'bottom_right', anchor, centerPoint: 20, target }),
+            'to satisfy',
+            { top: 390, left: 430 }
+          )
+        })
       })
     })
 
@@ -169,6 +189,46 @@ describe('positioning', () => {
       })
     })
 
+    describe('left_top', () => {
+      it('places the target left of the anchor aligned with the top', () => {
+        expect(
+          positionRelative({ position: 'left_top', anchor, target }),
+          'to satisfy',
+          { top: 350, left: 200 }
+        )
+      })
+
+      describe('with a center point', () => {
+        it('centers the point according to the anchor', () => {
+          expect(
+            positionRelative({ position: 'left_top', anchor, centerPoint: 20, target }),
+            'to satisfy',
+            { top: 350, left: 200 }
+          )
+        })
+      })
+    })
+
+    describe('left_bottom', () => {
+      it('places the target left of the anchor aligned with the bottom', () => {
+        expect(
+          positionRelative({ position: 'left_bottom', anchor, target }),
+          'to satisfy',
+          { top: -10, left: 200 }
+        )
+      })
+
+      describe('with a center point', () => {
+        it('centers the point according to the anchor', () => {
+          expect(
+            positionRelative({ position: 'left_bottom', anchor, centerPoint: 20, target }),
+            'to satisfy',
+            { top: -10, left: 200 }
+          )
+        })
+      })
+    })
+
     describe('right', () => {
       it('places the target centered top the right of the anchor', () => {
         expect(
@@ -176,6 +236,46 @@ describe('positioning', () => {
           'to satisfy',
           { top: 170, left: 500 }
         )
+      })
+    })
+
+    describe('right_top', () => {
+      it('places the target right of the anchor aligned with the top', () => {
+        expect(
+          positionRelative({ position: 'right_top', anchor, target }),
+          'to satisfy',
+          { top: 350, left: 500 }
+        )
+      })
+
+      describe('with a center point', () => {
+        it('centers the point according to the anchor', () => {
+          expect(
+            positionRelative({ position: 'right_top', anchor, centerPoint: 20, target }),
+            'to satisfy',
+            { top: 350, left: 500 }
+          )
+        })
+      })
+    })
+
+    describe('right_bottom', () => {
+      it('places the target right of the anchor aligned with the bottom', () => {
+        expect(
+          positionRelative({ position: 'right_bottom', anchor, target }),
+          'to satisfy',
+          { top: -10, left: 500 }
+        )
+      })
+
+      describe('with a center point', () => {
+        it('centers the point according to the anchor', () => {
+          expect(
+            positionRelative({ position: 'right_bottom', anchor, centerPoint: 20, target }),
+            'to satisfy',
+            { top: -10, left: 500 }
+          )
+        })
       })
     })
 
@@ -197,6 +297,16 @@ describe('positioning', () => {
           { top: -50, left: 300 }
         )
       })
+
+      describe('with a center point', () => {
+        it('centers the point according to the anchor', () => {
+          expect(
+            positionRelative({ position: 'top_left', anchor, centerPoint: 20, target }),
+            'to satisfy',
+            { top: -50, left: 270 }
+          )
+        })
+      })
     })
 
     describe('top_right', () => {
@@ -206,6 +316,16 @@ describe('positioning', () => {
           'to satisfy',
           { top: -50, left: 400 }
         )
+      })
+
+      describe('with a center point', () => {
+        it('centers the point according to the anchor', () => {
+          expect(
+            positionRelative({ position: 'top_right', anchor, centerPoint: 20, target }),
+            'to satisfy',
+            { top: -50, left: 430 }
+          )
+        })
       })
     })
   })

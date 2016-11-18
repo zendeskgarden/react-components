@@ -4,15 +4,17 @@ import distance from './distance'
 import keepInViewport from './keepInViewport'
 
 const getBestRelativePlacement = ({
-  positions,
   anchor,
+  centerPoint,
+  positions,
   target,
   viewport
 }) => {
   const possiblePlacements = positions.map((position) => ({
     rect: positionRelative({
-      position,
       anchor,
+      centerPoint,
+      position,
       target
     }),
     position
