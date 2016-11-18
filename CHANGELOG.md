@@ -1,5 +1,8 @@
 ## Change Log
 
+### v2.5.0 (2016/11/18 09:56 +00:00)
+- [#70](https://github.com/zendeskgarden/react-components/pull/70) Upgrade to styleguidist 4.3.3 (@albertfdp, @sunesimonsen)
+
 ### v2.4.0 (2016/11/17 21:10 +00:00)
 - [#69](https://github.com/zendeskgarden/react-components/pull/69) Use yarn (@albertfdp)
 
