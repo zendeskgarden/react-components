@@ -1,4 +1,5 @@
 var path = require('path')
+var webpack = require('webpack')
 
 var cssnext = require('postcss-cssnext')
 var importer = require('postcss-import')
@@ -54,16 +55,24 @@ module.exports = {
 
     webpackConfig.resolve.alias['rsg-components/Wrapper'] = path.join(__dirname, 'src/styleguide/Wrapper')
 
-    webpackConfig.postcss = [
-      importer({
-        path: [
-          path.resolve(__dirname, 'node_modules'),
-          path.resolve(__dirname, 'src')
-        ]
-      }),
-      inputRange(),
-      cssnext()
-    ]
+    webpackConfig.plugins.push(
+      new webpack.LoaderOptionsPlugin({
+        test: /\.css$/,
+        options: {
+          context: __dirname,
+          postcss: [
+            importer({
+              path: [
+                path.resolve(__dirname, 'node_modules'),
+                path.resolve(__dirname, 'src')
+              ]
+            }),
+            inputRange(),
+            cssnext()
+          ]
+        }
+      })
+    )
 
     return webpackConfig
   }
