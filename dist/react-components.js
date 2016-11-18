@@ -2107,6 +2107,9 @@ var RelativePositionedPopup = function (_Component) {
         margins: _this.getAnchorMargins()
       };
 
+      var centerPoint = _this.props.centerPoint;
+
+
       var target = {
         top: _this.popupRect.top,
         left: _this.popupRect.left,
@@ -2117,6 +2120,7 @@ var RelativePositionedPopup = function (_Component) {
       var bestPlacement = (0, _getBestRelativePlacement2.default)({
         positions: _this.getPositions(),
         anchor: anchorRect,
+        centerPoint: centerPoint,
         target: target,
         viewport: viewport
       });
@@ -2240,6 +2244,7 @@ RelativePositionedPopup.propTypes = {
   marginLeft: _react.PropTypes.number,
   marginRight: _react.PropTypes.number,
   marginTop: _react.PropTypes.number,
+  centerPoint: _react.PropTypes.number,
   positioning: _react.PropTypes.oneOfType([_react.PropTypes.oneOf(positions), _react.PropTypes.arrayOf(_react.PropTypes.oneOf(positions))]).isRequired,
   testId: _react.PropTypes.string,
   stretched: _react.PropTypes.bool,
@@ -2550,6 +2555,8 @@ var Avatar = function (_Component) {
         src = _props.src,
         size = _props.size,
         status = _props.status,
+        tabIndex = _props.tabIndex,
+        testId = _props.testId,
         type = _props.type;
 
 
@@ -2558,7 +2565,10 @@ var Avatar = function (_Component) {
     return _react2.default.createElement(
       _View2.default,
       {
-        className: className },
+        className: className,
+        tabIndex: tabIndex,
+        testId: testId
+      },
       _react2.default.createElement('img', { alt: alt, src: src })
     );
   };
@@ -2571,6 +2581,8 @@ Avatar.propTypes = {
   src: _react.PropTypes.string.isRequired,
   size: _react.PropTypes.oneOf(['small', 'medium', 'large']).isRequired,
   status: _react.PropTypes.oneOf(['default', 'present', 'away', 'active']).isRequired,
+  tabIndex: _react.PropTypes.number,
+  testId: _react.PropTypes.string,
   type: _react.PropTypes.oneOf(['human', 'system']).isRequired
 };
 Avatar.defaultProps = {
@@ -3259,6 +3271,7 @@ var Menu = function (_Component) {
     var _props = this.props,
         arrow = _props.arrow,
         dir = _props.dir,
+        centerArrow = _props.centerArrow,
         marginBottom = _props.marginBottom,
         marginLeft = _props.marginLeft,
         marginRight = _props.marginRight,
@@ -3267,7 +3280,7 @@ var Menu = function (_Component) {
         trigger = _props.trigger,
         testId = _props.testId,
         stretched = _props.stretched,
-        other = (0, _objectWithoutProperties3.default)(_props, ['arrow', 'dir', 'marginBottom', 'marginLeft', 'marginRight', 'marginTop', 'positioning', 'trigger', 'testId', 'stretched']);
+        other = (0, _objectWithoutProperties3.default)(_props, ['arrow', 'dir', 'centerArrow', 'marginBottom', 'marginLeft', 'marginRight', 'marginTop', 'positioning', 'trigger', 'testId', 'stretched']);
     var _state = this.state,
         hidden = _state.hidden,
         items = _state.items;
@@ -3289,6 +3302,8 @@ var Menu = function (_Component) {
 
     var arrowMargin = arrow ? 3 : 0;
 
+    var centerPoint = centerArrow ? 19 : null;
+
     return _react2.default.createElement(
       _View2.default,
       {
@@ -3299,6 +3314,7 @@ var Menu = function (_Component) {
         _RelativePositionedPopup2.default,
         {
           anchor: anchor,
+          centerPoint: centerPoint,
           dir: dir,
           hidden: hidden,
           positioning: positioning,
@@ -3330,6 +3346,7 @@ var Menu = function (_Component) {
 Menu.propTypes = {
   arrow: _react.PropTypes.bool,
   dir: _react.PropTypes.oneOf(['ltr', 'rtl']),
+  centerArrow: _react.PropTypes.bool.isRequired,
   children: _react.PropTypes.node.isRequired,
   fixedWidth: _react.PropTypes.bool,
   onClose: _react.PropTypes.func,
@@ -3349,6 +3366,7 @@ Menu.propTypes = {
 Menu.defaultProps = {
   arrow: false,
   dir: 'ltr',
+  centerArrow: false,
   marginBottom: 2,
   marginLeft: 2,
   marginRight: 2,
@@ -6138,16 +6156,18 @@ var _keepInViewport2 = _interopRequireDefault(_keepInViewport);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var getBestRelativePlacement = function getBestRelativePlacement(_ref) {
-  var positions = _ref.positions,
-      anchor = _ref.anchor,
+  var anchor = _ref.anchor,
+      centerPoint = _ref.centerPoint,
+      positions = _ref.positions,
       target = _ref.target,
       viewport = _ref.viewport;
 
   var possiblePlacements = positions.map(function (position) {
     return {
       rect: (0, _positionRelative2.default)({
-        position: position,
         anchor: anchor,
+        centerPoint: centerPoint,
+        position: position,
         target: target
       }),
       position: position
@@ -6261,7 +6281,7 @@ exports.default = keepInViewport;
 /***/ function(module, exports) {
 
 "use strict";
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -6279,20 +6299,22 @@ var calculateTargetBasedOnPosition = {
   },
   bottom_left: function bottom_left(_ref2) {
     var anchor = _ref2.anchor,
+        centerPoint = _ref2.centerPoint,
         target = _ref2.target;
     return {
       top: anchor.top + anchor.margins.bottom + anchor.height,
-      left: anchor.left + anchor.width - target.width,
+      left: typeof centerPoint === 'number' ? anchor.left + anchor.width / 2 - target.width + centerPoint : anchor.left + anchor.width - target.width,
       height: target.height,
       width: target.width
     };
   },
   bottom_right: function bottom_right(_ref3) {
     var anchor = _ref3.anchor,
+        centerPoint = _ref3.centerPoint,
         target = _ref3.target;
     return {
       top: anchor.top + anchor.margins.bottom + anchor.height,
-      left: anchor.left,
+      left: typeof centerPoint === 'number' ? anchor.left + anchor.width / 2 - centerPoint : anchor.left,
       height: target.height,
       width: target.width
     };
@@ -6379,20 +6401,22 @@ var calculateTargetBasedOnPosition = {
   },
   top_left: function top_left(_ref12) {
     var anchor = _ref12.anchor,
+        centerPoint = _ref12.centerPoint,
         target = _ref12.target;
     return {
       top: anchor.top - anchor.margins.top - target.height,
-      left: anchor.left + anchor.width - target.width,
+      left: typeof centerPoint === 'number' ? anchor.left + anchor.width / 2 - target.width + centerPoint : anchor.left + anchor.width - target.width,
       height: target.height,
       width: target.width
     };
   },
   top_right: function top_right(_ref13) {
     var anchor = _ref13.anchor,
+        centerPoint = _ref13.centerPoint,
         target = _ref13.target;
     return {
       top: anchor.top - anchor.margins.top - target.height,
-      left: anchor.left,
+      left: typeof centerPoint === 'number' ? anchor.left + anchor.width / 2 - centerPoint : anchor.left,
       height: target.height,
       width: target.width
     };
@@ -6410,12 +6434,13 @@ var calculateTargetBasedOnPosition = {
 };
 
 var positionRelative = function positionRelative(_ref15) {
-  var position = _ref15.position,
-      anchor = _ref15.anchor,
+  var anchor = _ref15.anchor,
+      centerPoint = _ref15.centerPoint,
+      position = _ref15.position,
       target = _ref15.target;
 
   var repositionedTarget = calculateTargetBasedOnPosition[position]({
-    anchor: anchor, target: target
+    anchor: anchor, centerPoint: centerPoint, target: target
   });
 
   return {
