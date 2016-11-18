@@ -72,6 +72,7 @@ class RelativePositionedPopup extends Component {
     marginLeft: PropTypes.number,
     marginRight: PropTypes.number,
     marginTop: PropTypes.number,
+    centerPoint: PropTypes.number,
     positioning: PropTypes.oneOfType([
       PropTypes.oneOf(positions),
       PropTypes.arrayOf(PropTypes.oneOf(positions))
@@ -195,6 +196,8 @@ class RelativePositionedPopup extends Component {
       margins: this.getAnchorMargins()
     }
 
+    const { centerPoint } = this.props
+
     const target = {
       top: this.popupRect.top,
       left: this.popupRect.left,
@@ -205,6 +208,7 @@ class RelativePositionedPopup extends Component {
     const bestPlacement = getBestRelativePlacement({
       positions: this.getPositions(),
       anchor: anchorRect,
+      centerPoint,
       target,
       viewport
     })

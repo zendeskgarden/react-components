@@ -11,6 +11,8 @@ export default class Avatar extends Component {
     src: PropTypes.string.isRequired,
     size: PropTypes.oneOf([ 'small', 'medium', 'large' ]).isRequired,
     status: PropTypes.oneOf([ 'default', 'present', 'away', 'active' ]).isRequired,
+    tabIndex: PropTypes.number,
+    testId: PropTypes.string,
     type: PropTypes.oneOf([ 'human', 'system' ]).isRequired
   }
 
@@ -27,6 +29,8 @@ export default class Avatar extends Component {
       src,
       size,
       status,
+      tabIndex,
+      testId,
       type
     } = this.props
 
@@ -38,7 +42,10 @@ export default class Avatar extends Component {
 
     return (
       <View
-        className={ className }>
+        className={ className }
+        tabIndex={ tabIndex }
+        testId={ testId }
+      >
         <img alt={ alt } src={ src } />
       </View>
     )

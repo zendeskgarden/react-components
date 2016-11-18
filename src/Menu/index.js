@@ -18,6 +18,7 @@ export default class Menu extends Component {
       'ltr',
       'rtl'
     ]),
+    centerArrow: PropTypes.bool.isRequired,
     children: PropTypes.node.isRequired,
     fixedWidth: PropTypes.bool,
     onClose: PropTypes.func,
@@ -47,6 +48,7 @@ export default class Menu extends Component {
   static defaultProps = {
     arrow: false,
     dir: 'ltr',
+    centerArrow: false,
     marginBottom: 2,
     marginLeft: 2,
     marginRight: 2,
@@ -138,6 +140,7 @@ export default class Menu extends Component {
     const {
       arrow,
       dir,
+      centerArrow,
       marginBottom,
       marginLeft,
       marginRight,
@@ -176,6 +179,8 @@ export default class Menu extends Component {
 
     const arrowMargin = arrow ? 3 : 0
 
+    const centerPoint = centerArrow ? 19 : null
+
     return (
       <View
         className={ classNames(styles.container, {
@@ -185,6 +190,7 @@ export default class Menu extends Component {
       >
         <RelativePositionedPopup
           anchor={ anchor }
+          centerPoint={ centerPoint }
           dir={ dir }
           hidden={ hidden }
           positioning={ positioning }
