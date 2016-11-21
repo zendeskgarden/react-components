@@ -4,14 +4,13 @@ import { findDOMNode } from 'react-dom'
 
 import styles from './styles.css'
 import View from '../core/View/'
+import FocusJail from '../utils/FocusJail'
 
 import Body from './Body'
 import CloseButton from './CloseButton'
 import Footer from './Footer'
 import Header from './Header'
 import Title from './Title'
-
-import tabbable from 'tabbable'
 
 export default class Modal extends Component {
   static propTypes = {
@@ -47,46 +46,12 @@ export default class Modal extends Component {
       document.querySelector('html').style.overflow = 'hidden'
     } else if (hidden && !prevHidden) {
       document.querySelector('html').style.overflow = ''
-      this.modalElement = null
+      this.tabJail = null
     }
   }
 
   onTab = (e) => {
-    let elements = tabbable(this.modalElement)
-
-    const isFirstElementClose = (
-      elements.length > 0 &&
-      elements[0].getAttribute('aria-label') === 'close'
-    )
-
-    if (isFirstElementClose) {
-      const [first, ...rest] = elements
-      elements = [...rest, first]
-    }
-
-    const index = elements.indexOf(e.target)
-
-    if (elements.length === 0) {
-      setTimeout(() => {
-        this.dialogElement.focus()
-      }, 0)
-      e.stopPropagation()
-      e.preventDefault()
-    } else if (e.shiftKey) {
-      const newIndex = index <= 0 ? elements.length - 1 : index - 1
-      setTimeout(() => {
-        elements[newIndex].focus()
-      }, 0)
-      e.stopPropagation()
-      e.preventDefault()
-    } else if (!e.shiftKey) {
-      const newIndex = (index + 1) % elements.length
-      setTimeout(() => {
-        elements[newIndex].focus()
-      }, 0)
-      e.stopPropagation()
-      e.preventDefault()
-    }
+    this.tabJail && this.tabJail.onTab(e)
   }
 
   render () {
@@ -111,15 +76,8 @@ export default class Modal extends Component {
         onEscape={ onClose }
         onTab={ this.onTab }
         ref={ ref => {
-          if (ref) {
-            this.modalElement = this.modalElement || findDOMNode(ref)
-            this.dialogElement = this.modalElement.firstChild
-
-            setTimeout(() => {
-              if (!this.dialogElement.contains(window.document.activeElement)) {
-                this.dialogElement.focus()
-              }
-            }, 1)
+          if (ref && !this.tabJail) {
+            this.tabJail = new FocusJail(findDOMNode(ref).firstChild)
           }
         } }
       >
