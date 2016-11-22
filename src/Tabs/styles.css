@@ -6,6 +6,10 @@
   composes: c-tab__list from 'zd-css-tabs';
 }
 
+.list:focus {
+  outline: none;
+}
+
 .label {
   composes: c-tab__list__item from 'zd-css-tabs';
 }

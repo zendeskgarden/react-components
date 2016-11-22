@@ -57,7 +57,7 @@ Adding a click handler:
 Tab order:
 
 ```
-<Grid tabIndex={0}>
+<Grid>
   <Button tabIndex={0}>Tab</Button>
   <Button tabIndex={-1}>Skip</Button>
   <Button tabIndex={0}>Tab</Button>

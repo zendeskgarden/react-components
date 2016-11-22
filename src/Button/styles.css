@@ -46,3 +46,7 @@
 .group {
   composes: l-btn-group from 'zd-css-buttons';
 }
+
+.group:focus {
+  outline: none;
+}
