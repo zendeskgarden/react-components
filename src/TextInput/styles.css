@@ -5,3 +5,7 @@
 .input {
   composes: c-txt__input from 'zd-css-forms';
 }
+
+.input::-ms-clear {
+  display: none;
+}
