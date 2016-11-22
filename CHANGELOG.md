@@ -1,5 +1,8 @@
 ## Change Log
 
+### v2.6.1 (2016/11/22 22:11 +00:00)
+- [#73](https://github.com/zendeskgarden/react-components/pull/73) Move focus outline reset into components (@sunesimonsen)
+
 ### v2.6.0 (2016/11/18 12:29 +00:00)
 - [#71](https://github.com/zendeskgarden/react-components/pull/71) Allow menu positioning to be centered around the arrow (@sunesimonsen)
 
