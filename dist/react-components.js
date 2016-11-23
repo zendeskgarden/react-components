@@ -2555,6 +2555,7 @@ var Avatar = function (_Component) {
     var _props = this.props,
         alt = _props.alt,
         onError = _props.onError,
+        onLoad = _props.onLoad,
         src = _props.src,
         size = _props.size,
         status = _props.status,
@@ -2582,7 +2583,7 @@ var Avatar = function (_Component) {
         tabIndex: tabIndex,
         testId: testId
       },
-      _react2.default.createElement('img', { alt: alt, src: src, onError: onError })
+      _react2.default.createElement('img', { alt: alt, src: src, onError: onError, onLoad: onLoad })
     );
   };
 
@@ -2592,6 +2593,7 @@ var Avatar = function (_Component) {
 Avatar.propTypes = {
   alt: _react.PropTypes.string,
   onError: _react.PropTypes.func,
+  onLoad: _react.PropTypes.func,
   src: _react.PropTypes.string.isRequired,
   size: _react.PropTypes.oneOfType([_react.PropTypes.oneOf(sizes).isRequired, _react.PropTypes.string.isRequired]),
   status: _react.PropTypes.oneOf(['default', 'present', 'away', 'active']).isRequired,
