@@ -39,3 +39,17 @@ initialState = { url: 'https://example.tld/image.png' };
   onError={ () => setState({ url: 'https://garden.zendesk.com/assets/images/avatars/jason-dc0f96e91d6dcc4500cc7ee6d22dae41.png' })}
 />
 ```
+
+Do something when the image is loaded successfully
+
+```
+initialState = { loaded: false };
+
+<Grid>
+  <Avatar
+    src={ 'https://garden.zendesk.com/assets/images/avatars/jason-dc0f96e91d6dcc4500cc7ee6d22dae41.png' }
+    onLoad={ () => setState({ loaded: true }) }
+  />
+  { state.loaded ? 'Loaded' : 'Loading...' }
+</Grid>
+```
