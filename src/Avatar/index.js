@@ -1,15 +1,20 @@
 import React, { Component, PropTypes } from 'react'
-import classnames from 'classnames'
+import classNames from 'classnames'
 
 import View from '../core/View'
 
 import styles from './styles.css'
 
+const sizes = ['small', 'medium', 'large']
+
 export default class Avatar extends Component {
   static propTypes = {
     alt: PropTypes.string,
     src: PropTypes.string.isRequired,
-    size: PropTypes.oneOf([ 'small', 'medium', 'large' ]).isRequired,
+    size: PropTypes.oneOfType([
+      PropTypes.oneOf(sizes).isRequired,
+      PropTypes.string.isRequired
+    ]),
     status: PropTypes.oneOf([ 'default', 'present', 'away', 'active' ]).isRequired,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
@@ -34,15 +39,25 @@ export default class Avatar extends Component {
       type
     } = this.props
 
-    const className = classnames(styles.avatar,
-      styles[`size_${size}`],
+    const classes = [
+      styles.avatar,
       styles[`status_${status}`],
       styles[`type_${type}`]
-    )
+    ]
+
+    const avatarStyles = {}
+
+    if (sizes.includes(size)) {
+      classes.push(styles[`size_${size}`])
+    } else {
+      avatarStyles.height = size
+      avatarStyles.width = size
+    }
 
     return (
       <View
-        className={ className }
+        className={ classNames(classes) }
+        style={ avatarStyles }
         tabIndex={ tabIndex }
         testId={ testId }
       >
