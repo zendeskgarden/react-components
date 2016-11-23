@@ -95,4 +95,16 @@ describe('Avatar', () => {
       )
     })
   })
+
+  describe('when size is given as pixels', () => {
+    it('renders a large avatar', () => {
+      expect(
+        <Avatar src='zendesk.png' alt='Zendesk' size='65px' />,
+        'to render as',
+        <View className='c-avatar' style={{ height: '65px', width: '65px' }}>
+          <img src='zendesk.png' alt='Zendesk' />
+        </View>
+      )
+    })
+  })
 })
