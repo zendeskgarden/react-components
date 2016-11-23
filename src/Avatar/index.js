@@ -10,6 +10,7 @@ const sizes = ['small', 'medium', 'large']
 export default class Avatar extends Component {
   static propTypes = {
     alt: PropTypes.string,
+    onError: PropTypes.func,
     src: PropTypes.string.isRequired,
     size: PropTypes.oneOfType([
       PropTypes.oneOf(sizes).isRequired,
@@ -31,6 +32,7 @@ export default class Avatar extends Component {
   render () {
     const {
       alt,
+      onError,
       src,
       size,
       status,
@@ -61,7 +63,7 @@ export default class Avatar extends Component {
         tabIndex={ tabIndex }
         testId={ testId }
       >
-        <img alt={ alt } src={ src } />
+        <img alt={ alt } src={ src } onError={ onError } />
       </View>
     )
   }

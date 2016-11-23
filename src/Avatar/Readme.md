@@ -28,3 +28,14 @@ Status:
   <Avatar status='active' src='https://garden.zendesk.com/assets/images/avatars/jason-dc0f96e91d6dcc4500cc7ee6d22dae41.png'/>
 </Grid>
 ```
+
+Showing a fallback image:
+
+```
+initialState = { url: 'https://example.tld/image.png' };
+
+<Avatar
+  src={ state.url }
+  onError={ () => setState({ url: 'https://garden.zendesk.com/assets/images/avatars/jason-dc0f96e91d6dcc4500cc7ee6d22dae41.png' })}
+/>
+```
