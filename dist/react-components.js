@@ -2541,6 +2541,8 @@ var _styles2 = _interopRequireDefault(_styles);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var sizes = ['small', 'medium', 'large'];
+
 var Avatar = function (_Component) {
   (0, _inherits3.default)(Avatar, _Component);
 
@@ -2552,6 +2554,7 @@ var Avatar = function (_Component) {
   Avatar.prototype.render = function render() {
     var _props = this.props,
         alt = _props.alt,
+        onError = _props.onError,
         src = _props.src,
         size = _props.size,
         status = _props.status,
@@ -2560,16 +2563,26 @@ var Avatar = function (_Component) {
         type = _props.type;
 
 
-    var className = (0, _classnames2.default)(_styles2.default.avatar, _styles2.default['size_' + size], _styles2.default['status_' + status], _styles2.default['type_' + type]);
+    var classes = [_styles2.default.avatar, _styles2.default['status_' + status], _styles2.default['type_' + type]];
+
+    var avatarStyles = {};
+
+    if (sizes.includes(size)) {
+      classes.push(_styles2.default['size_' + size]);
+    } else {
+      avatarStyles.height = size;
+      avatarStyles.width = size;
+    }
 
     return _react2.default.createElement(
       _View2.default,
       {
-        className: className,
+        className: (0, _classnames2.default)(classes),
+        style: avatarStyles,
         tabIndex: tabIndex,
         testId: testId
       },
-      _react2.default.createElement('img', { alt: alt, src: src })
+      _react2.default.createElement('img', { alt: alt, src: src, onError: onError })
     );
   };
 
@@ -2578,8 +2591,9 @@ var Avatar = function (_Component) {
 
 Avatar.propTypes = {
   alt: _react.PropTypes.string,
+  onError: _react.PropTypes.func,
   src: _react.PropTypes.string.isRequired,
-  size: _react.PropTypes.oneOf(['small', 'medium', 'large']).isRequired,
+  size: _react.PropTypes.oneOfType([_react.PropTypes.oneOf(sizes).isRequired, _react.PropTypes.string.isRequired]),
   status: _react.PropTypes.oneOf(['default', 'present', 'away', 'active']).isRequired,
   tabIndex: _react.PropTypes.number,
   testId: _react.PropTypes.string,
