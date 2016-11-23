@@ -1,5 +1,9 @@
 ## Change Log
 
+### v2.7.0 (2016/11/23 10:55 +00:00)
+- [#76](https://github.com/zendeskgarden/react-components/pull/76) Expose an onError hook in the Avatar (@albertfdp)
+- [#75](https://github.com/zendeskgarden/react-components/pull/75) Allow to specify a custom size for the avatar (@sunesimonsen)
+
 ### v2.6.1 (2016/11/22 22:11 +00:00)
 - [#73](https://github.com/zendeskgarden/react-components/pull/73) Move focus outline reset into components (@sunesimonsen)
 
