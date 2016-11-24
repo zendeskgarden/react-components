@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNames from 'classnames'
+import uuid from 'uuid'
 
 import View from '../core/View'
 import ThemedComponent from '../utils/theming/ThemedComponent'
@@ -17,6 +18,7 @@ export default class TextArea extends ThemedComponent {
     isFocused: PropTypes.bool,
     dir: PropTypes.oneOf(['ltr', 'rtl']),
     disabled: PropTypes.bool.isRequired,
+    id: PropTypes.string,
     name: PropTypes.string,
     maxLength: PropTypes.number,
     onArrowDown: PropTypes.func,
@@ -40,7 +42,7 @@ export default class TextArea extends ThemedComponent {
     autoComplete: 'off',
     disabled: false,
     resizable: false,
-    type: 'default'
+    type: 'text'
   }
 
   constructor (props, context) {
@@ -48,6 +50,30 @@ export default class TextArea extends ThemedComponent {
       namespace: 'TextArea',
       styles
     })
+
+    this.generatedId = uuid.v4()
+  }
+
+  getId = () => (
+    this.props.id || this.generatedId
+  )
+
+  renderLabel = () => {
+    const { label } = this.props
+    const { theme } = this
+
+    if (!label) {
+      return null
+    }
+
+    return (
+      <label
+        className={ theme.label }
+        htmlFor={ this.getId() }
+      >
+        { label }
+      </label>
+    )
   }
 
   render () {
@@ -61,6 +87,7 @@ export default class TextArea extends ThemedComponent {
 
     return (
       <View className={ theme.txt }>
+        { this.renderLabel() }
         <Core
           { ...other }
           className={ classNames(theme.input, {

@@ -105,4 +105,56 @@ describe('Range', () => {
         })
     })
   })
+
+  describe('with a label', () => {
+    it('renders a label above the input', () => {
+      expect(
+        <Range
+          label='This is a label'
+          max={ 100 }
+          min={ 0 }
+          step={ 5 }
+          value={ 10 }
+        />,
+        'to render as',
+        <View>
+          <label>This is a label</label>
+          <input
+            max={ 100 }
+            min={ 0 }
+            step={ 5 }
+            type='range'
+            value={ 10 }
+          />
+        </View>
+      )
+    })
+
+    describe('with an id', () => {
+      it('uses the id for the input and wires the label to it', () => {
+        expect(
+          <Range
+            id='my-id'
+            label='This is a label'
+            max={ 100 }
+            min={ 0 }
+            step={ 5 }
+            value={ 10 }
+          />,
+          'to render as',
+          <View>
+            <label htmlFor='my-id'>This is a label</label>
+            <input
+              id='my-id'
+              max={ 100 }
+              min={ 0 }
+              step={ 5 }
+              type='range'
+              value={ 10 }
+            />
+          </View>
+        )
+      })
+    })
+  })
 })
