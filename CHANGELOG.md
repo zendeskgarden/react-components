@@ -1,5 +1,12 @@
 ## Change Log
 
+### v2.9.0 (2016/11/29 21:38 +00:00)
+- [#81](https://github.com/zendeskgarden/react-components/pull/81) Added support for labels on TextInput, TextArea and Range (@sunesimonsen)
+- [#72](https://github.com/zendeskgarden/react-components/pull/72) Added ability to trap focus in a relative positioned popup (@sunesimonsen)
+
+### v2.8.1 (2016/11/29 21:33 +00:00)
+- [#83](https://github.com/zendeskgarden/react-components/pull/83) Moved the avatar images into the styleguide (@sunesimonsen)
+
 ### v2.8.0 (2016/11/23 19:27 +00:00)
 - [#78](https://github.com/zendeskgarden/react-components/pull/78) Expose onload (@zillding)
 - [#77](https://github.com/zendeskgarden/react-components/pull/77) Expose an onLoad hook in the Avatar (@zillding)
