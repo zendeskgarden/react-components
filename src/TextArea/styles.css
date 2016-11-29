@@ -9,3 +9,7 @@
 .resizable {
   composes: is-resizable from 'zd-css-forms';
 }
+
+.label {
+  composes: c-txt__label from 'zd-css-forms';
+}

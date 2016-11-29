@@ -9,3 +9,7 @@
 .input::-ms-clear {
   display: none;
 }
+
+.label {
+  composes: c-txt__label from 'zd-css-forms';
+}

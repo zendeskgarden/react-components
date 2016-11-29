@@ -8,6 +8,7 @@ import styles from './styles.css'
 
 export default class Range extends ThemedComponent {
   static propTypes = {
+    id: PropTypes.string,
     min: PropTypes.number,
     max: PropTypes.number,
     value: PropTypes.number,
@@ -30,9 +31,13 @@ export default class Range extends ThemedComponent {
       namespace: 'Range',
       styles
     })
-    this.id = uuid.v4()
+    this.generatedId = uuid.v4()
     this.state = { focused: false }
   }
+
+  getId = () => (
+    this.props.id || this.generatedId
+  )
 
   onChange = (e) => {
     const { onChange } = this.props
@@ -50,6 +55,24 @@ export default class Range extends ThemedComponent {
     }
 
     return 100 * (value - min) / (max - min)
+  }
+
+  renderLabel = () => {
+    const { label } = this.props
+    const { theme } = this
+
+    if (!label) {
+      return null
+    }
+
+    return (
+      <label
+        className={ theme.label }
+        htmlFor={ this.getId() }
+      >
+        { label }
+      </label>
+    )
   }
 
   render () {
@@ -71,10 +94,12 @@ export default class Range extends ThemedComponent {
       <View className={classNames(theme.range, {
         [theme.focused]: focused
       })}>
+        { this.renderLabel() }
         <input
           className={ theme.input }
           data-test-id={ testId }
           disabled={ disabled }
+          id={ this.getId() }
           max={ max }
           min={ min }
           onBlur={ () => this.setState({ focused: false }) }

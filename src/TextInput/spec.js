@@ -15,6 +15,35 @@ describe('TextInput', () => {
       </View>
     )
   })
+
+  describe('with a label', () => {
+    it('renders a label above the input', () => {
+      expect(
+        <TextInput label='This is a label' />,
+        'to deeply render as',
+        <View>
+          <label>This is a label</label>
+          <input value='' />
+        </View>
+      )
+    })
+
+    describe('with an id', () => {
+      it('uses the id for the input and wires the label to it', () => {
+        expect(
+          <TextInput
+            id='my-id'
+            label='This is a label'
+          />,
+          'to deeply render as',
+          <View>
+            <label htmlFor='my-id'>This is a label</label>
+            <input value='' />
+          </View>
+        )
+      })
+    })
+  })
 })
 
 describe('TextInput.Core', () => {
