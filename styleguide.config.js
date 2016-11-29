@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 var cssnext = require('postcss-cssnext')
 var importer = require('postcss-import')
@@ -56,6 +57,9 @@ module.exports = {
     webpackConfig.resolve.alias['rsg-components/Wrapper'] = path.join(__dirname, 'src/styleguide/Wrapper')
 
     webpackConfig.plugins.push(
+      new CopyWebpackPlugin([
+        { from: 'src/styleguide/images/*.png', to: 'images/[name].[ext]' }
+      ]),
       new webpack.LoaderOptionsPlugin({
         test: /\.css$/,
         options: {
