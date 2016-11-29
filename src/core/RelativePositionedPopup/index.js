@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import classNames from 'classnames'
 import { findDOMNode } from 'react-dom'
+import FocusJail from '../../utils/FocusJail'
 
 import View from '../View'
 import getBestRelativePlacement from '../../utils/positioning/getBestRelativePlacement'
@@ -78,6 +79,7 @@ class RelativePositionedPopup extends Component {
       PropTypes.arrayOf(PropTypes.oneOf(positions))
     ]).isRequired,
     testId: PropTypes.string,
+    trapFocus: PropTypes.bool,
     stretched: PropTypes.bool,
     onClickOutside: PropTypes.func
   }
@@ -88,7 +90,8 @@ class RelativePositionedPopup extends Component {
     marginBottom: 0,
     marginLeft: 0,
     marginRight: 0,
-    marginTop: 0
+    marginTop: 0,
+    trapFocus: false
   }
 
   updatePlacement = () => {
@@ -137,9 +140,10 @@ class RelativePositionedPopup extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    const { hidden } = this.props
+    const { hidden, trapFocus } = this.props
 
     if (hidden && !nextProps.hidden) {
+      this.tabJail = trapFocus && new FocusJail(this.popupElement)
       this.setState({ opening: true })
       setTimeout(() => {
         this.setState({ opening: false })
@@ -216,6 +220,10 @@ class RelativePositionedPopup extends Component {
     return bestPlacement
   }
 
+  onTab = (e) => {
+    this.tabJail && this.tabJail.onTab(e)
+  }
+
   render () {
     const { anchor, children, hidden, testId, stretched } = this.props
     const { opening, placement } = this.state || {}
@@ -246,7 +254,7 @@ class RelativePositionedPopup extends Component {
             [styles.stretched]: stretched
           }) }
           ref={ (ref) => {
-            this.anchorElement = findDOMNode(ref)
+            this.anchorElement = this.anchorElement || findDOMNode(ref)
           }}
         >
           { anchor }
@@ -256,9 +264,10 @@ class RelativePositionedPopup extends Component {
             [styles.opening]: opening
           }) }
           hidden={ hidden }
+          onTab={ this.onTab }
           style={ popupStyle }
           ref={ (ref) => {
-            this.popupElement = findDOMNode(ref)
+            this.popupElement = this.popupElement || findDOMNode(ref)
           }}
         >
           {
