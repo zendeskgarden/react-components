@@ -224,7 +224,7 @@ initialState = { active: 'human' };
   <Tabs.Panel
     label={
       <Grid>
-        <Avatar type='human' src='https://garden.zendesk.com/assets/images/avatars/amir-f98c75408944397dd78edd18860e71bc.png'/>
+        <Avatar type='human' src='./images/amir.png'/>
         Human
       </Grid>
     }
@@ -240,7 +240,7 @@ initialState = { active: 'human' };
   <Tabs.Panel
     label={
       <Grid>
-        <Avatar type='system' src='https://garden.zendesk.com/assets/images/avatars/zendesk-44abc2dfc7415e4aff556a166caf0b4f.png'/>
+        <Avatar type='system' src='./images/zendesk.png'/>
         Machine
       </Grid>
     }
