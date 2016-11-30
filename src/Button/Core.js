@@ -60,12 +60,6 @@ export default class Core extends Component {
     }
   }
 
-  onBlur = (e) => {
-    const { onBlur } = this.props
-
-    onBlur && onBlur(e)
-  }
-
   onFocus = (e) => {
     const { onFocus, onKeyboardFocus } = this.props
 
@@ -81,6 +75,7 @@ export default class Core extends Component {
       className,
       children,
       disabled,
+      onBlur,
       tabIndex,
       testId,
       title
@@ -92,7 +87,7 @@ export default class Core extends Component {
         className={ className }
         testId={ testId }
         disabled={ disabled }
-        onBlur={ this.onBlur }
+        onBlur={ onBlur }
         onClick={ this.onClick }
         onEnter={ this.onKeyboardClick }
         onFocus={ this.onFocus }

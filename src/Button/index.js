@@ -16,6 +16,7 @@ export default class Button extends ThemedComponent {
     size: PropTypes.oneOf(['small', 'medium', 'large']),
     disabled: PropTypes.bool,
     stretched: PropTypes.bool,
+    onBlur: PropTypes.func,
     onClick: PropTypes.func,
     onFocus: PropTypes.func,
     pill: PropTypes.bool,
