@@ -1,39 +1,83 @@
 import React from 'react'
 import expect from 'test/expect'
 import sinon from 'sinon'
-import Button from './'
+
+import Button from '.'
+
 import View from '../core/View'
 
 describe('Button', () => {
-  it('renders a default button', () => {
-    expect(
-      <Button>Default</Button>,
-      'to render as',
-      <View role='button'>Default</View>
-    )
-  })
-
-  it('is clickable', () => {
-    const onClick = sinon.spy()
-
-    return expect(
-      <Button onClick={ onClick }>Click me!</Button>,
-      'when deeply rendered',
-      'with event', 'click'
-    ).then(() => {
-      expect(onClick, 'was called once')
+  describe('Core', () => {
+    it('renders a default button', () => {
+      expect(
+        <Button.Core>Default</Button.Core>,
+        'to render as',
+        <View role='button'>Default</View>
+      )
     })
-  })
 
-  it('is focusable', () => {
-    const onFocus = sinon.spy()
+    it('is clickable', () => {
+      const onClick = sinon.spy()
 
-    return expect(
-      <Button onFocus={ onFocus }>Focus on me!</Button>,
-      'when deeply rendered',
-      'with event', 'focus'
-    ).then(() => {
-      expect(onFocus, 'was called once')
+      return expect(
+        <Button.Core onClick={ onClick }>Click me!</Button.Core>,
+        'when deeply rendered',
+        'with event', 'click'
+      ).then(() => {
+        expect(onClick, 'was called once')
+      })
+    })
+
+    describe('it is focusable', () => {
+      describe('using the keyboard', () => {
+        it('is focusable', () => {
+          const onKeyboardFocus = sinon.spy()
+
+          return expect(
+            <Button.Core onKeyboardFocus={ onKeyboardFocus }>Focus on me!</Button.Core>,
+            'when deeply rendered',
+            'with event', 'focus',
+          ).then(() => {
+            expect(onKeyboardFocus, 'was called times', 1)
+          })
+        })
+      })
+
+      describe('using the mouse', () => {
+        it('is focusable', () => {
+          const onFocus = sinon.spy()
+          const onKeyboardFocus = sinon.spy()
+
+          return expect(
+            <Button.Core
+              onFocus={ onFocus }
+              onKeyboardFocus={ onKeyboardFocus }
+            >
+              Focus on me!
+            </Button.Core>,
+            'when deeply rendered',
+            'with event', 'mouseDown',
+            'with event', 'focus'
+          ).then(() => {
+            expect(onKeyboardFocus, 'was called times', 0)
+            expect(onFocus, 'was called times', 1)
+          })
+        })
+      })
+    })
+
+    describe('when disabled', () => {
+      it('is not clickable', () => {
+        const onClick = sinon.spy()
+
+        return expect(
+          <Button.Core onClick={ onClick } disabled>Disabled</Button.Core>,
+          'when deeply rendered',
+          'with event', 'click'
+        ).then(() => {
+          expect(onClick, 'was not called')
+        })
+      })
     })
   })
 
@@ -41,7 +85,7 @@ describe('Button', () => {
     it('renders a button with the test id', () => {
       expect(
         <Button testId='wat'>Testable</Button>,
-        'to render as',
+        'to deeply render as',
         <View role='button' testId='wat'>Testable</View>
       )
     })
@@ -51,7 +95,7 @@ describe('Button', () => {
     it('renders a primary button', () => {
       expect(
         <Button type='primary'>Primary</Button>,
-        'to render as',
+        'to deeply render as',
         <View role='button' className='type_primary c-btn c-btn--primary'>Primary</View>
       )
     })
@@ -61,31 +105,9 @@ describe('Button', () => {
     it('renders a basic button', () => {
       expect(
         <Button type='basic'>Basic</Button>,
-        'to render as',
+        'to deeply render as',
         <View role='button' className='type_basic c-btn c-btn--basic'>Basic</View>
       )
-    })
-  })
-
-  describe('when disabled', () => {
-    it('renders a disabled button', () => {
-      expect(
-        <Button disabled>Disabled</Button>,
-        'to render as',
-        <View role='button' tabIndex={-1} className='c-btn is-disabled' disabled>Disabled</View>
-      )
-    })
-
-    it('is not clickable', () => {
-      const onClick = sinon.spy()
-
-      return expect(
-        <Button onClick={ onClick } disabled>Disabled</Button>,
-        'when deeply rendered',
-        'with event', 'click'
-      ).then(() => {
-        expect(onClick, 'was not called')
-      })
     })
   })
 
@@ -93,7 +115,7 @@ describe('Button', () => {
     it('renders a stretched button', () => {
       expect(
         <Button stretched>Stretched</Button>,
-        'to render as',
+        'to deeply render as',
         <View role='button' className='c-btn c-btn--full'>Stretched</View>
       )
     })
@@ -103,7 +125,7 @@ describe('Button', () => {
     it('renders a medium sized button', () => {
       expect(
         <Button size='medium'>Medium</Button>,
-        'to render as',
+        'to deeply render as',
         <View role='button' className='c-btn c-btn--medium'>Medium</View>
       )
     })
@@ -113,7 +135,7 @@ describe('Button', () => {
     it('renders a large button', () => {
       expect(
         <Button size='large'>Large</Button>,
-        'to render as',
+        'to deeply render as',
         <View role='button' className='c-btn c-btn--large'>Large</View>
       )
     })
@@ -123,8 +145,18 @@ describe('Button', () => {
     it('renders a button with that tab index', () => {
       expect(
         <Button tabIndex={42}>Tab order</Button>,
-        'to render as',
+        'to deeply render as',
         <View role='button' tabIndex={42}>Tab order</View>
+      )
+    })
+  })
+
+  describe('when disabled', () => {
+    it('renders a disabled button', () => {
+      expect(
+        <Button disabled>Disabled</Button>,
+        'to deeply render as',
+        <View role='button' tabIndex={-1} className='c-btn is-disabled' disabled>Disabled</View>
       )
     })
   })
