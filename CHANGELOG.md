@@ -1,5 +1,8 @@
 ## Change Log
 
+### v2.11.0 (2016/12/01 21:08 +00:00)
+- [#87](https://github.com/zendeskgarden/react-components/pull/87) Upgrade to the newest version of css-tabs (@sunesimonsen)
+
 ### v2.10.0 (2016/12/01 08:44 +00:00)
 - [#85](https://github.com/zendeskgarden/react-components/pull/85) Split styling and behavior on Button component (@albertfdp)
 
