@@ -1434,7 +1434,7 @@ bluebird@1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-1.0.3.tgz#c4b441184802e3b64a61eeed4578271b4c8bf6ac"
 
-bluebird@^2.10.2, bluebird@^2.9.27, bluebird@^2.9.33:
+bluebird@^2.9.27, bluebird@^2.9.33:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-2.11.0.tgz#534b9033c022c9579c56ba3b3e5a5caafbb650e1"
 
