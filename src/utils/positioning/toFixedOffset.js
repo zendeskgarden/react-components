@@ -1,4 +1,4 @@
-/* globals window */
+/* globals window, document */
 
 const fixedContainers = new WeakMap()
 
@@ -7,6 +7,8 @@ function parents (el) {
   while (el = el.parentElement) { parents.push(el) } // eslint-disable-line no-cond-assign
   return parents
 }
+
+const ROOT_ELEMENT = document.body.parentElement
 
 function hasTransform (el) {
   const transform = window.getComputedStyle(el).transform || 'none'
@@ -27,7 +29,7 @@ export function getFixedContainer (el) {
 
 export function getFixedContainerOffsetRect (el) {
   const container = getFixedContainer(el)
-  return container === document.firstElementChild
+  return container === ROOT_ELEMENT
     ? {top: 0, left: 0}
     : container.getBoundingClientRect()
 }
