@@ -1,5 +1,8 @@
 ## Change Log
 
+### v2.10.0 (2016/12/01 08:44 +00:00)
+- [#85](https://github.com/zendeskgarden/react-components/pull/85) Split styling and behavior on Button component (@albertfdp)
+
 ### v2.9.0 (2016/11/29 21:38 +00:00)
 - [#81](https://github.com/zendeskgarden/react-components/pull/81) Added support for labels on TextInput, TextArea and Range (@sunesimonsen)
 - [#72](https://github.com/zendeskgarden/react-components/pull/72) Added ability to trap focus in a relative positioned popup (@sunesimonsen)
