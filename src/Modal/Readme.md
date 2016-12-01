@@ -25,6 +25,18 @@ class ModalExample extends Component {
                 <Grid columns={1} spacing='medium'>
                   <Text>You can place anything inside a modal.</Text>
 
+                  <Menu
+                    trigger={ <Button>Click me</Button> }
+                    onSelect={ (value) => console.log(value) }
+                  >
+                    <Menu.Item value='profile'>Profile</Menu.Item>
+                    <Menu.Item value='settings'>Settings</Menu.Item>
+                    <Menu.Item value='theme editor' disabled>Theme Editor</Menu.Item>
+                    <Menu.Separator/>
+                    <Menu.Item value='article editor'>Article Editor</Menu.Item>
+                    <Menu.Item value='sign out'>Sign Out</Menu.Item>
+                  </Menu>
+
                   <Checkbox
                     checked={ state.checked }
                     onChange={ checked => setState({ checked }) }
