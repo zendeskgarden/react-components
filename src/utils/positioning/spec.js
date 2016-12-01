@@ -515,7 +515,7 @@ describe('positioning', () => {
         })
       })
       describe('with transformed parents', () => {
-        let gcs, containerElements
+        let gcs
         beforeEach(() => {
           gcs = window.getComputedStyle
           window.getComputedStyle = (ele) => {
@@ -525,17 +525,14 @@ describe('positioning', () => {
               return gcs(ele)
             }
           }
-          containerElements = () => {
-            const rect = squares()
-            grandparentEl.getBoundingClientRect = () => rect
-            return grandparentEl
-          }
         })
         afterEach(() => {
           window.getComputedStyle = gcs
         })
         it('returns rect relative to fixed container', () => {
-          expect((containerElement, placement) => {
+          expect((boundingClientRect, placement) => {
+            grandparentEl.getBoundingClientRect = () => boundingClientRect
+
             expect(toFixedOffset(placement, el), 'to equal', {
               position: placement.position,
               rect: {
@@ -544,7 +541,7 @@ describe('positioning', () => {
                 left: placement.rect.left - grandparentEl.getBoundingClientRect().left
               }
             })
-          }, 'to be valid for all', containerElements, placements)
+          }, 'to be valid for all', squares, placements)
         })
       })
     })
