@@ -2,11 +2,13 @@ import React, { PropTypes } from 'react'
 import classNames from 'classnames'
 
 import ThemedComponent from '../utils/theming/ThemedComponent'
-import View from '../core/View'
+import Core from './Core'
 
 import styles from './styles.css'
 
 export default class Button extends ThemedComponent {
+  static Core = Core
+
   static propTypes = {
     autoFocus: PropTypes.bool,
     className: PropTypes.string,
@@ -14,6 +16,7 @@ export default class Button extends ThemedComponent {
     size: PropTypes.oneOf(['small', 'medium', 'large']),
     disabled: PropTypes.bool,
     stretched: PropTypes.bool,
+    onBlur: PropTypes.func,
     onClick: PropTypes.func,
     onFocus: PropTypes.func,
     pill: PropTypes.bool,
@@ -34,70 +37,44 @@ export default class Button extends ThemedComponent {
       namespace: 'Button',
       styles
     })
-    this.keyboard = true
     this.state = {
       focused: false
     }
   }
 
-  onKeyboardClick = (e) => {
-    const { onClick } = this.props
-    onClick && onClick(e)
-    e.preventDefault()
+  onBlur = (e) => {
+    const { onBlur } = this.props
+
+    this.setState({ focused: false })
+    onBlur && onBlur(e)
   }
 
-  onMouseDown = (e) => {
-    const { disabled } = this.props
-
-    if (disabled) {
-      e.stopPropagation()
-      e.preventDefault()
-    } else {
-      this.keyboard = false
-    }
-  }
-
-  onClick = (e) => {
-    const { disabled, onClick } = this.props
-
-    if (disabled) {
-      e.stopPropagation()
-      e.preventDefault()
-    } else {
-      onClick && onClick(e)
-    }
-  }
-
-  onFocus = (e) => {
-    const { onFocus } = this.props
-
-    this.setState({ focused: this.keyboard })
-    this.keyboard = true
-    onFocus && onFocus(e)
+  onKeyboardFocus = (e) => {
+    this.setState({ focused: true })
   }
 
   render () {
     const {
-      autoFocus,
       className,
       children,
       disabled,
       stretched,
       pill,
       size,
-      tabIndex,
-      testId,
-      title,
-      type
+      type,
+      ...other
     } = this.props
+    const { focused } = this.state
 
     const { theme } = this
-    const { focused } = this.state
 
     const typeStyle = theme[`type_${type}`]
     return (
-      <View
-        autoFocus={ autoFocus }
+      <Core
+        {...other}
+        disabled={ disabled }
+        onBlur={ this.onBlur }
+        onKeyboardFocus={ this.onKeyboardFocus }
         className={
           classNames(theme[`size_${size}`], {
             [typeStyle]: typeStyle,
@@ -107,20 +84,9 @@ export default class Button extends ThemedComponent {
             [theme.disabled]: disabled
           }, className)
         }
-        testId={ testId }
-        disabled={ disabled }
-        onBlur={ () => this.setState({ focused: false }) }
-        onClick={ this.onClick }
-        onEnter={ this.onKeyboardClick }
-        onFocus={ this.onFocus }
-        onMouseDown={ this.onMouseDown }
-        onSpace={ this.onKeyboardClick }
-        tabIndex={ disabled ? -1 : tabIndex }
-        role='button'
-        title={ title }
       >
         { children }
-      </View>
+      </Core>
     )
   }
 }
