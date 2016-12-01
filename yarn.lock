@@ -7915,6 +7915,10 @@ yeast@0.1.2:
   version "1.0.0"
   resolved "git+ssh://git@github.com/zendeskgarden/css-tabs.git#1ef67713c902872f8982215705d90135d02c62da"
 
+"zd-css-tabs@git+ssh://git@github.com/zendeskgarden/css-tabs.git#2.0.0":
+  version "2.0.0"
+  resolved "git+ssh://git@github.com/zendeskgarden/css-tabs.git#e3cb0b87ad644366de45315471beef9b9a7d9e43"
+
 "zd-css-variables@git+ssh://git@github.com/zendeskgarden/css-variables.git#0.9.0":
   version "0.9.0"
   resolved "git+ssh://git@github.com/zendeskgarden/css-variables.git#a20ca8bad5bbc1a7a61c02237603a36c781827a7"
