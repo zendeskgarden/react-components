@@ -510,7 +510,7 @@ describe('positioning', () => {
         it('returns equivalent rect', () => {
           expect((documentRect) => {
             document.firstElementChild.getBoundingClientRect = () => documentRect
-            expect(toFixedOffset(position, el), 'to equal', position)
+            expect(toFixedOffset(position, el, {detect: false}), 'to equal', position)
           }, 'to be valid for all', squares)
         })
       })
@@ -533,7 +533,7 @@ describe('positioning', () => {
           expect((boundingClientRect, placement) => {
             grandparentEl.getBoundingClientRect = () => boundingClientRect
 
-            expect(toFixedOffset(placement, el), 'to equal', {
+            expect(toFixedOffset(placement, el, {detect: false}), 'to equal', {
               position: placement.position,
               rect: {
                 ...placement.rect,

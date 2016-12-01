@@ -2,6 +2,26 @@
 
 const fixedContainers = new WeakMap()
 
+// feature detect for css fixed position layout.
+// IE11 doesn't follow the CSS spec and doesn't need the
+// adjustments we implement here
+const FIXED_OFFSET = (() => {
+  const container = document.createElement('div')
+  container.style.transform = 'matrix(1, 0, 0, 1, 0, 0)'
+  container.style.position = 'absolute'
+  container.style.top = '1px'
+  container.style.left = '1px'
+  const fixed = document.createElement('div')
+  fixed.style.position = 'fixed'
+  fixed.style.top = '1px'
+  fixed.style.left = '1px'
+  document.body.appendChild(container)
+  container.appendChild(fixed)
+  const position = fixed.getBoundingClientRect()
+  document.body.removeChild(container)
+  return position.top === 2 && position.left === 2
+})()
+
 function parents (el) {
   const parents = []
   while (el = el.parentElement) { parents.push(el) } // eslint-disable-line no-cond-assign
@@ -30,20 +50,25 @@ export function getFixedContainer (el) {
 export function getFixedContainerOffsetRect (el) {
   const container = getFixedContainer(el)
   return container === ROOT_ELEMENT
-    ? {top: 0, left: 0}
+    ? null
     : container.getBoundingClientRect()
 }
 
 /* adjust top and left for position:fixed containing block
    see https://www.w3.org/TR/css-transforms-1/#propdef-transform
 */
-export default function toFixedOffset ({position, rect}, el) {
+export default function toFixedOffset (placement, el, {detect = true} = {}) {
+  if (detect && !FIXED_OFFSET) return placement
   const base = getFixedContainerOffsetRect(el)
-  const fixedRect = {
-    ...rect,
-    top: rect.top - base.top,
-    left: rect.left - base.left
-  }
+  if (base === null) return placement
 
-  return {position, rect: fixedRect}
+  const {position, rect} = placement
+  return {
+    position,
+    rect: {
+      ...rect,
+      top: rect.top - base.top,
+      left: rect.left - base.left
+    }
+  }
 }
