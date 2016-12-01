@@ -100,7 +100,7 @@ class RelativePositionedPopup extends Component {
     if (!hidden) {
       this.anchorRect = this.anchorElement.firstChild.getBoundingClientRect()
       this.popupRect = this.popupElement.firstChild.getBoundingClientRect()
-      const placement = toFixedOffset(this.getBestRelativePlacement(), this.popupElement.firstChild)
+      const placement = toFixedOffset(this.getBestRelativePlacement(), this.popupElement)
       this.setState({
         placement
       })
