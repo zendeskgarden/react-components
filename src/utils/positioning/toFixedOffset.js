@@ -22,53 +22,61 @@ const FIXED_OFFSET = (() => {
   return position.top === 2 && position.left === 2
 })()
 
-function parents (el) {
+function parents (element) {
   const parents = []
-  while (el = el.parentElement) { parents.push(el) } // eslint-disable-line no-cond-assign
+  while ((element = element.parentElement)) {
+    parents.push(element)
+  }
   return parents
 }
 
 const ROOT_ELEMENT = document.body.parentElement
 
-function hasTransform (el) {
-  const transform = window.getComputedStyle(el).transform || 'none'
+function hasTransform (element) {
+  const transform = window.getComputedStyle(element).transform || 'none'
   return transform !== 'none'
 }
 
-/* position: fixed top and left are calculated from
-   the containing block orign, not the document origin
-   so, check parents for closest element with transform (if any)
-   and use that as fixed base
-*/
-export function getFixedContainer (el) {
-  if (fixedContainers.has(el)) { return fixedContainers.get(el) }
-  const container = parents(el).find(el => !(el.parentElement) || hasTransform(el))
-  fixedContainers.set(el, container)
+// position: fixed top and left are calculated from
+// the containing block orign, not the document origin
+// so, check parents for closest element with transform (if any)
+// and use that as fixed base
+export function getFixedContainer (element) {
+  if (fixedContainers.has(element)) return fixedContainers.get(element)
+
+  const container = parents(element).find(element => !(element.parentElement) || hasTransform(element))
+  fixedContainers.set(element, container)
+
   return container
 }
 
-export function getFixedContainerOffsetRect (el) {
-  const container = getFixedContainer(el)
+export function getFixedContainerOffsetRect (element) {
+  const container = getFixedContainer(element)
+
   return container === ROOT_ELEMENT
     ? null
     : container.getBoundingClientRect()
 }
 
-/* adjust top and left for position:fixed containing block
-   see https://www.w3.org/TR/css-transforms-1/#propdef-transform
-*/
-export default function toFixedOffset (placement, el, {detect = true} = {}) {
+// adjust top and left for position:fixed containing block
+// see https://www.w3.org/TR/css-transforms-1/#propdef-transform
+export default function toFixedOffset (placement, element, {detect = true} = {}) {
   if (detect && !FIXED_OFFSET) return placement
-  const base = getFixedContainerOffsetRect(el)
-  if (base === null) return placement
 
-  const {position, rect} = placement
-  return {
-    position,
-    rect: {
-      ...rect,
-      top: rect.top - base.top,
-      left: rect.left - base.left
+  const base = getFixedContainerOffsetRect(element)
+
+  if (base) {
+    const {position, rect} = placement
+
+    return {
+      position,
+      rect: {
+        ...rect,
+        top: rect.top - base.top,
+        left: rect.left - base.left
+      }
     }
+  } else {
+    return placement
   }
 }

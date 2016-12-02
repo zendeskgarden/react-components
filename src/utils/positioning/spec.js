@@ -456,47 +456,52 @@ describe('positioning', () => {
   })
 
   describe('fixed offsets', () => {
-    let el, parentEl, grandparentEl
-    beforeEach(() => {
-      parentEl = document.createElement('div')
-      parentEl.id = 'parent'
-      grandparentEl = document.createElement('div')
-      grandparentEl.id = 'grandparent'
-      el = document.createElement('div')
-      el.id = 'el'
+    let element, parent, grandparent
 
-      document.body.appendChild(grandparentEl)
-      grandparentEl.appendChild(parentEl)
-      parentEl.appendChild(el)
+    beforeEach(() => {
+      parent = document.createElement('div')
+      parent.id = 'parent'
+      grandparent = document.createElement('div')
+      grandparent.id = 'grandparent'
+      element = document.createElement('div')
+      element.id = 'element'
+
+      document.body.appendChild(grandparent)
+      grandparent.appendChild(parent)
+      parent.appendChild(element)
     })
-    describe('getFixedContainer(el)', () => {
+
+    describe('getFixedContainer(element)', () => {
       describe('when no transformed parents', () => {
         it('returns root parent', () => {
-          expect(getFixedContainer(el), 'to equal', document.firstElementChild)
+          expect(getFixedContainer(element), 'to equal', document.firstElementChild)
         })
       })
+
       describe('with transformed parents', () => {
-        let gcs
+        let getComputedStyle
         beforeEach(() => {
-          gcs = window.getComputedStyle
-          window.getComputedStyle = (ele) => {
-            if (ele === grandparentEl) {
-              return {transform: 'matrix(1, 0, 0, 1, 0, 0)'}
-            } else {
-              return gcs(ele)
-            }
-          }
+          getComputedStyle = window.getComputedStyle
+          window.getComputedStyle = (element) => (
+            element === grandparent
+              ? {transform: 'matrix(1, 0, 0, 1, 0, 0)'}
+              : getComputedStyle(element)
+          )
         })
+
         afterEach(() => {
-          window.getComputedStyle = gcs
+          window.getComputedStyle = getComputedStyle
         })
+
         it('returns the closest transformed parent', () => {
-          expect(getFixedContainer(el), 'to equal', grandparentEl)
+          expect(getFixedContainer(element), 'to equal', grandparent)
         })
       })
     })
-    describe('toFixedOffset(rect, el)', () => {
+
+    describe('toFixedOffset(rect, element)', () => {
       let position
+
       beforeEach(() => {
         position = {
           position: 'bottom',
@@ -506,39 +511,42 @@ describe('positioning', () => {
           }
         }
       })
+
       describe('when no transformed parents', () => {
         it('returns equivalent rect', () => {
           expect((documentRect) => {
             document.firstElementChild.getBoundingClientRect = () => documentRect
-            expect(toFixedOffset(position, el, {detect: false}), 'to equal', position)
+            expect(toFixedOffset(position, element, {detect: false}), 'to equal', position)
           }, 'to be valid for all', squares)
         })
       })
+
       describe('with transformed parents', () => {
-        let gcs
+        let getComputedStyle
+
         beforeEach(() => {
-          gcs = window.getComputedStyle
-          window.getComputedStyle = (ele) => {
-            if (ele === grandparentEl) {
-              return {transform: 'matrix(1, 0, 0, 1, 0, 0)'}
-            } else {
-              return gcs(ele)
-            }
-          }
+          getComputedStyle = window.getComputedStyle
+          window.getComputedStyle = (element) => (
+            element === grandparent
+              ? {transform: 'matrix(1, 0, 0, 1, 0, 0)'}
+              : getComputedStyle(element)
+          )
         })
+
         afterEach(() => {
-          window.getComputedStyle = gcs
+          window.getComputedStyle = getComputedStyle
         })
+
         it('returns rect relative to fixed container', () => {
           expect((boundingClientRect, placement) => {
-            grandparentEl.getBoundingClientRect = () => boundingClientRect
+            grandparent.getBoundingClientRect = () => boundingClientRect
 
-            expect(toFixedOffset(placement, el, {detect: false}), 'to equal', {
+            expect(toFixedOffset(placement, element, {detect: false}), 'to equal', {
               position: placement.position,
               rect: {
                 ...placement.rect,
-                top: placement.rect.top - grandparentEl.getBoundingClientRect().top,
-                left: placement.rect.left - grandparentEl.getBoundingClientRect().left
+                top: placement.rect.top - grandparent.getBoundingClientRect().top,
+                left: placement.rect.left - grandparent.getBoundingClientRect().left
               }
             })
           }, 'to be valid for all', squares, placements)
