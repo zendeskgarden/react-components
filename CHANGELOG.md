@@ -1,5 +1,10 @@
 ## Change Log
 
+### v2.12.0 (2016/12/05 10:07 +00:00)
+- [#86](https://github.com/zendeskgarden/react-components/pull/86) Fix positioning offset for transform containing blocks (@sunesimonsen, @jsdnxx)
+- [#89](https://github.com/zendeskgarden/react-components/pull/89) Upgraded unexpected and friends (@sunesimonsen)
+- [#88](https://github.com/zendeskgarden/react-components/pull/88) Removed comment that was committed by mistake. (@sunesimonsen)
+
 ### v2.11.0 (2016/12/01 21:08 +00:00)
 - [#87](https://github.com/zendeskgarden/react-components/pull/87) Upgrade to the newest version of css-tabs (@sunesimonsen)
 
