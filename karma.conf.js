@@ -3,6 +3,8 @@ var path = require('path')
 var cssnext = require('postcss-cssnext')
 var importer = require('postcss-import')
 
+var webpack = require('webpack')
+
 module.exports = function (config) {
   config.set({
     files: [
@@ -52,6 +54,12 @@ module.exports = function (config) {
         cssnext()
       ],
 
+      plugins: [
+        new webpack.DefinePlugin({
+          'process.env.UNEXPECTED_CHECK_MAX_ITERATIONS': JSON.stringify(process.env.UNEXPECTED_CHECK_MAX_ITERATIONS)
+        })
+      ],
+
       resolve: {
         alias: {
           'test/expect': path.join(__dirname, 'test', 'unexpected-with-plugins.js'),
@@ -69,12 +77,12 @@ module.exports = function (config) {
     browsers: ['jsdom'],
     frameworks: ['mocha', 'sinon'],
 
-    browserDisconnectTimeout: '60000',
-    browserNoActivityTimeout: '60000',
+    browserDisconnectTimeout: '600000',
+    browserNoActivityTimeout: '600000',
 
     client: {
       mocha: {
-        timeout: '60000'
+        timeout: '600000'
       }
     },
 

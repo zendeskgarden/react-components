@@ -5,7 +5,7 @@ import FocusJail from '../../utils/FocusJail'
 
 import View from '../View'
 import getBestRelativePlacement from '../../utils/positioning/getBestRelativePlacement'
-
+import toFixedOffset from '../../utils/positioning/toFixedOffset'
 import styles from './styles.css'
 
 const positions = [
@@ -100,8 +100,9 @@ class RelativePositionedPopup extends Component {
     if (!hidden) {
       this.anchorRect = this.anchorElement.firstChild.getBoundingClientRect()
       this.popupRect = this.popupElement.firstChild.getBoundingClientRect()
+      const placement = toFixedOffset(this.getBestRelativePlacement(), this.popupElement)
       this.setState({
-        placement: this.getBestRelativePlacement()
+        placement
       })
     }
   }

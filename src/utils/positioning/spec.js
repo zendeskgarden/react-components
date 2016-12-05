@@ -4,6 +4,7 @@ import positionRelative from './positionRelative'
 import getBestRelativePlacement from './getBestRelativePlacement'
 import isInsideViewport from './isInsideViewport'
 import keepInViewport from './keepInViewport'
+import toFixedOffset, { getFixedContainer } from './toFixedOffset'
 
 const expect = unexpected.clone()
 
@@ -88,6 +89,11 @@ const squares = shape({
 const viewports = shape({
   height: natural({ min: 100, max: 1200 }),
   width: natural({ min: 100, max: 1200 })
+})
+
+const placements = shape({
+  position: positionsWithoutStretching(),
+  rect: squares()
 })
 
 describe('positioning', () => {
@@ -444,6 +450,106 @@ describe('positioning', () => {
               rect: expect.it('to be inside viewport', viewport)
             })
           }, 'to be valid for all', shuffle(possiblePositions), shapes)
+        })
+      })
+    })
+  })
+
+  describe('fixed offsets', () => {
+    let element, parent, grandparent
+
+    beforeEach(() => {
+      parent = document.createElement('div')
+      parent.id = 'parent'
+      grandparent = document.createElement('div')
+      grandparent.id = 'grandparent'
+      element = document.createElement('div')
+      element.id = 'element'
+
+      document.body.appendChild(grandparent)
+      grandparent.appendChild(parent)
+      parent.appendChild(element)
+    })
+
+    describe('getFixedContainer(element)', () => {
+      describe('when no transformed parents', () => {
+        it('returns root parent', () => {
+          expect(getFixedContainer(element), 'to equal', document.firstElementChild)
+        })
+      })
+
+      describe('with transformed parents', () => {
+        let getComputedStyle
+        beforeEach(() => {
+          getComputedStyle = window.getComputedStyle
+          window.getComputedStyle = (element) => (
+            element === grandparent
+              ? {transform: 'matrix(1, 0, 0, 1, 0, 0)'}
+              : getComputedStyle(element)
+          )
+        })
+
+        afterEach(() => {
+          window.getComputedStyle = getComputedStyle
+        })
+
+        it('returns the closest transformed parent', () => {
+          expect(getFixedContainer(element), 'to equal', grandparent)
+        })
+      })
+    })
+
+    describe('toFixedOffset(rect, element)', () => {
+      let position
+
+      beforeEach(() => {
+        position = {
+          position: 'bottom',
+          rect: {
+            top: 100,
+            left: 100
+          }
+        }
+      })
+
+      describe('when no transformed parents', () => {
+        it('returns equivalent rect', () => {
+          expect((documentRect) => {
+            document.firstElementChild.getBoundingClientRect = () => documentRect
+            expect(toFixedOffset(position, element, {detect: false}), 'to equal', position)
+          }, 'to be valid for all', squares)
+        })
+      })
+
+      describe('with transformed parents', () => {
+        let getComputedStyle
+
+        beforeEach(() => {
+          getComputedStyle = window.getComputedStyle
+          window.getComputedStyle = (element) => (
+            element === grandparent
+              ? {transform: 'matrix(1, 0, 0, 1, 0, 0)'}
+              : getComputedStyle(element)
+          )
+        })
+
+        afterEach(() => {
+          window.getComputedStyle = getComputedStyle
+        })
+
+        it('returns rect relative to fixed container', () => {
+          expect((boundingClientRect, placement) => {
+            grandparent.getBoundingClientRect = () => boundingClientRect
+
+            expect(toFixedOffset(placement, element, {detect: false}), 'to equal', {
+              position: placement.position,
+              rect: {
+                ...placement.rect,
+                top: placement.rect.top - grandparent.getBoundingClientRect().top,
+                left: placement.rect.left - grandparent.getBoundingClientRect().left
+              }
+            })
+          }, 'to be valid for all', squares, placements)
         })
       })
     })
