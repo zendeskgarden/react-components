@@ -16,7 +16,7 @@
 }
 
 .ReactStyleguidist-ComponentsList__heading {
-  font-weight: normal;
+  font-weight: 600;
 }
 
 .ReactStyleguidist-ComponentsList__item {
@@ -25,9 +25,9 @@
   text-overflow: ellipsis;
   line-height: 1.81818;
   letter-spacing: .04em;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 300;
-  color: #819a9e;
+  color: #777;
 }
 
 .ReactStyleguidist-ComponentsList__link {
@@ -36,6 +36,7 @@
 
 .ReactStyleguidist-ComponentsList__list {
   padding-top: 10px;
+  padding-left: 20px;
 }
 
 .ReactStyleguidist-Playground__root {
@@ -66,7 +67,7 @@
 
 .ReactStyleguidist-StyleGuide__sidebar {
   left: 300px;
-  width: 235px;
+  width: 210px;
   background-color: transparent;
 }
 
