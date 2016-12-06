@@ -1,16 +1,75 @@
+.ReactStyleguidist-common__font {
+  font-family: inherit;
+  color: #555;
+}
+.ReactStyleguidist-colors__link,
+.ReactStyleguidist-colors__link:active,
+.ReactStyleguidist-colors__link:hover,
+.ReactStyleguidist-colors__link:link,
+.ReactStyleguidist-colors__link:visited {
+  color: #30aabc;
+}
+
+.ReactStyleguidist-colors__link:focus {
+  outline: none;
+  text-decoration: underline;
+}
+
+.ReactStyleguidist-ComponentsList__heading {
+  font-weight: normal;
+}
+
+.ReactStyleguidist-ComponentsList__item {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.81818;
+  letter-spacing: .04em;
+  font-size: 16px;
+  font-weight: 300;
+  color: #819a9e;
+}
+
+.ReactStyleguidist-ComponentsList__link {
+  color: inherit !important;
+}
+
+.ReactStyleguidist-ComponentsList__list {
+  padding-top: 10px;
+}
+
 .ReactStyleguidist-Playground__root {
   overflow: visible;
 }
 
-.ReactStyleguidist-Section__heading,
-.ReactStyleguidist-ReactComponent__heading {
-  line-height: 36px;
+.ReactStyleguidist-ReactComponent__primaryHeading {
+  line-height: 1.81818;
+  letter-spacing: .04em;
+  font-size: 25px;
+}
+
+.ReactStyleguidist-Section__heading {
+  line-height: 1.11111;
+  letter-spacing: 1.9px;
+  color: #30aabc;
+  font-size: 36px;
+  font-weight: normal;
+}
+
+.ReactStyleguidist-StyleGuide__footer {
+  display: none;
+}
+
+.ReactStyleguidist-StyleGuide__heading {
+  display: none;
 }
 
 .ReactStyleguidist-StyleGuide__sidebar {
-  width: 210px;
+  left: 300px;
+  width: 235px;
+  background-color: transparent;
 }
 
-.ReactStyleguidist-ComponentsList__item {
-  font-size: 14px;
+.ReactStyleguidist-TableOfContents__search:focus {
+  border-color: #30aabc;
 }

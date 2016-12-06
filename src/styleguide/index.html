@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%=htmlWebpackPlugin.options.title%></title>
+  <link href="http://garden.zendesk.com/index.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="c-nav">
+    <figure class="c-nav__logo">
+      <svg class="c-nav__logo__svg svg-square">
+        <use xlink:href="http://garden.zendesk.com/index.svg#zd-svg-icon-26-zendesk">
+      </svg>
+    </figure>
+    <div class="c-tab c-tab--block c-tab--main">
+      <ul class="c-tab__list c-tab__list">
+        <li class="c-tab__list__item" tabindex="0">
+          <a href="http://garden.zendesk.com/" tabindex="-1">Home</a>
+        </li>
+        <li class="c-tab__list__item" tabindex="0">
+          <a href="http://garden.zendesk.com/assets" tabindex="-1">Assets</a>
+        </li>
+        <li class="c-tab__list__item" tabindex="0">
+          <a href="http://garden.zendesk.com/bedrock" tabindex="-1">Bedrock</a>
+        </li>
+        <li class="c-tab__list__item" tabindex="0">
+          <a href="http://garden.zendesk.com/components" tabindex="-1">Components</a>
+        </li>
+        <li class="c-tab__list__item is-selected" tabindex="0">
+          <a href="." tabindex="-1">React Style Guide</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <main class="c-main">
+    <div id="app"></div>
+  </main>
+  <script src="http://garden.zendesk.com/svg4everybody.js"></script>
+</body>
+</html>
