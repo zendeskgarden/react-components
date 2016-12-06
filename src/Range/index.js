@@ -41,10 +41,7 @@ export default class Range extends ThemedComponent {
 
   onChange = (e) => {
     const { onChange } = this.props
-
-    if (onChange) {
-      onChange(parseFloat(e.target.value))
-    }
+    onChange && onChange(parseFloat(e.target.value))
   }
 
   getBgWidth () {
@@ -103,6 +100,7 @@ export default class Range extends ThemedComponent {
           max={ max }
           min={ min }
           onBlur={ () => this.setState({ focused: false }) }
+          onClick={ this.onChange }
           onChange={ this.onChange }
           onFocus={ () => this.setState({ focused: true }) }
           step={ step }
