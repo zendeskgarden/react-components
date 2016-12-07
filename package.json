@@ -8,8 +8,9 @@
     "start": "styleguidist server",
     "build": "styleguidist build",
     "css-lint": "stylelint `find src -name '*.css'`",
+    "jest": "jest --watch",
     "lint": "standard && npm run css-lint",
-    "test": "karma start --single-run && npm run lint",
+    "test": "jest && npm run lint",
     "dist": "webpack --progress && NODE_ENV=production webpack -p --progress",
     "changelog": "github-changes -o zendeskgarden -r react-components -a --only-pulls --use-commit-body",
     "gh-pages": "npm run build && gh-pages -d styleguide",
@@ -45,7 +46,9 @@
     "file-loader": "0.9.0",
     "gh-pages": "0.11.0",
     "github-changes": "1.0.2",
+    "identity-obj-proxy": "3.0.0",
     "isparta-loader": "2.0.0",
+    "jest": "17.0.3",
     "json-loader": "0.5.4",
     "karma": "0.13.22",
     "karma-chrome-launcher": "1.0.1",
@@ -106,5 +109,20 @@
     ],
     "ignore": "/dist/",
     "parser": "babel-eslint"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css)$": "<rootDir>/test/styleMock.js",
+      "test/expect": "<rootDir>/test/unexpected-with-plugins.js"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/test/index.js",
+    "testPathIgnorePatterns": [
+      "<rootDir>/(build|node_modules)/"
+    ],
+    "testRegex": "\\.*(spec\\.js)$"
   }
 }

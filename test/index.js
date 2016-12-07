@@ -1,14 +1,13 @@
-import 'babel-polyfill'
+import sinon from 'sinon'
 
 import unexpectedReact from 'unexpected-react'
 import 'react'
 
-afterEach(() => {
-  unexpectedReact.clearAll()
+beforeEach(() => {
+  sinon.stub(console, 'error')
 })
 
-const runTestsContext = (testsContext) => {
-  testsContext.keys().forEach(testsContext)
-}
-
-runTestsContext(require.context('../src', true, /[.\/]spec$/))
+afterEach(() => {
+  unexpectedReact.clearAll()
+  console.error.restore()
+})

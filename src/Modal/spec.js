@@ -16,12 +16,12 @@ describe('Modal', () => {
         <Modal onClose={ handler } hidden={ false }>Content.</Modal>,
         'to deeply render as',
         <View
-          className='backdrop l-backdrop'
+          className='backdrop'
           onClick={ handler }
         >
           <View
             aria-labelledby='dialog-title'
-            className='dialog c-dialog'
+            className='dialog'
             role='dialog'
             tabIndex={ -1 }
           >
@@ -38,12 +38,12 @@ describe('Modal', () => {
         <Modal onClose={ handler } hidden={ false } testId='test-me'>Content.</Modal>,
         'to deeply render as',
         <View
-          className='backdrop l-backdrop'
+          className='backdrop'
           onClick={ handler }
         >
           <View
             aria-labelledby='dialog-title'
-            className='dialog c-dialog'
+            className='dialog'
             role='dialog'
             tabIndex={ -1 }
             testId='test-me'
@@ -79,12 +79,12 @@ describe('Modal', () => {
         </Modal>,
         'to deeply render as',
         <View
-          className='backdrop l-backdrop'
+          className='backdrop'
           onClick={ handler }
         >
           <View
             aria-labelledby='dialog-title'
-            className='dialog c-dialog'
+            className='dialog'
             role='dialog'
             tabIndex={ -1 }
           >
