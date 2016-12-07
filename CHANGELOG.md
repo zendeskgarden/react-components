@@ -1,5 +1,8 @@
 ## Change Log
 
+### v2.12.1 (2016/12/06 20:10 +00:00)
+- [#90](https://github.com/zendeskgarden/react-components/pull/90) Upgraded css-forms to 0.3.1 to fix bug in IE (@sunesimonsen)
+
 ### v2.12.0 (2016/12/05 10:07 +00:00)
 - [#86](https://github.com/zendeskgarden/react-components/pull/86) Fix positioning offset for transform containing blocks (@sunesimonsen, @jsdnxx)
 - [#89](https://github.com/zendeskgarden/react-components/pull/89) Upgraded unexpected and friends (@sunesimonsen)
