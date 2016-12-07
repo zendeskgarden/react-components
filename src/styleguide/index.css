@@ -12,7 +12,12 @@
 
 .ReactStyleguidist-colors__link:focus {
   outline: none;
+  opacity: 1;
   text-decoration: underline;
+}
+
+.ReactStyleguidist-colors__link:active {
+  text-decoration: none;
 }
 
 .ReactStyleguidist-ComponentsList__heading {
