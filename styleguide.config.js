@@ -7,21 +7,22 @@ var importer = require('postcss-import')
 var inputRange = require('postcss-input-range')
 
 module.exports = {
-  title: 'Style guide',
+  title: 'Zendesk Garden / React Style Guide',
   rootDir: './src',
   skipComponentsWithoutExample: true,
   sections: [
-    {name: 'Zendesk Garden', components: './src/*/index.js'},
+    {name: 'Components', components: './src/*/index.js'},
     {name: 'Theming', content: './src/utils/theming/index.md', components: './src/utils/theming/*/index.js'},
     {name: 'Core', content: './src/core/index.md', components: './src/core/*/index.js'},
     {name: 'Styleguide', content: './src/styleguide/index.md', components: './src/styleguide/*/index.js'}
   ],
   serverPort: 5000,
+  template: './src/styleguide/index.html',
   updateWebpackConfig: function (webpackConfig, env) {
     var sourceDir = path.join(__dirname, 'src')
     webpackConfig.entry.unshift('babel-polyfill')
     webpackConfig.entry.push('!!style!css!./node_modules/zd-css-bedrock/dist/index.css')
-    webpackConfig.entry.push('!!style!css!./src/styleguide/index.css')
+    webpackConfig.entry.push('!!style!css!postcss!./src/styleguide/index.css')
 
     webpackConfig.module.loaders.push(
       {
