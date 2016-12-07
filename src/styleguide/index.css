@@ -1,20 +1,23 @@
+@import 'zd-css-variables';
+
 .ReactStyleguidist-common__font {
+  color: var(--zd-color-dark-gray);
   font-family: inherit;
-  color: #555;
 }
+
 .ReactStyleguidist-colors__link,
 .ReactStyleguidist-colors__link:active,
 .ReactStyleguidist-colors__link:hover,
 .ReactStyleguidist-colors__link:link,
 .ReactStyleguidist-colors__link:visited {
-  color: #30aabc;
+  color: var(--zd-color-pelorous);
 }
 
 .ReactStyleguidist-colors__link:focus {
-  outline: none;
-  opacity: 1;
-  text-decoration: underline;
   transition: none;
+  opacity: 1;
+  outline: none;
+  text-decoration: underline;
 }
 
 .ReactStyleguidist-colors__link:active {
@@ -22,27 +25,31 @@
 }
 
 .ReactStyleguidist-ComponentsList__heading {
-  font-weight: 600;
+  font-weight: var(--zd-font-weight-semibold);
 }
 
 .ReactStyleguidist-ComponentsList__item {
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 1.81818;
+  line-height: calc(25 / 14);
   letter-spacing: .04em;
-  font-size: 14px;
-  font-weight: 300;
-  color: #777;
+  color: var(--zd-color-monsoon);
+  font-size: var(--zd-font-size-epsilon);
+  font-weight: var(--zd-font-weight-light);
 }
 
-.ReactStyleguidist-ComponentsList__link {
-  color: inherit !important;
+.ReactStyleguidist-ComponentsList__link,
+.ReactStyleguidist-ComponentsList__link:active,
+.ReactStyleguidist-ComponentsList__link:hover,
+.ReactStyleguidist-ComponentsList__link:link,
+.ReactStyleguidist-ComponentsList__link:visited {
+  color: inherit;
 }
 
 .ReactStyleguidist-ComponentsList__list {
-  padding-top: 10px;
-  padding-left: 20px;
+  padding-top: var(--zd-spacing-sm);
+  padding-left: var(--zd-spacing);
 }
 
 .ReactStyleguidist-Playground__root {
@@ -50,17 +57,17 @@
 }
 
 .ReactStyleguidist-ReactComponent__primaryHeading {
-  line-height: 1.81818;
+  line-height: calc(25 / 14);
   letter-spacing: .04em;
-  font-size: 25px;
+  font-size: var(--zd-font-size-kilo);
 }
 
 .ReactStyleguidist-Section__heading {
-  line-height: 1.11111;
+  line-height: calc(40 / 36);
   letter-spacing: 1.9px;
-  color: #30aabc;
-  font-size: 36px;
-  font-weight: normal;
+  color: var(--zd-color-pelorous);
+  font-size: var(--zd-font-size-giga);
+  font-weight: var(--zd-font-weight-regular);
 }
 
 .ReactStyleguidist-StyleGuide__footer {
@@ -73,10 +80,10 @@
 
 .ReactStyleguidist-StyleGuide__sidebar {
   left: 300px;
-  width: 210px;
   background-color: transparent;
+  width: 210px;
 }
 
 .ReactStyleguidist-TableOfContents__search:focus {
-  border-color: #30aabc;
+  border-color: var(--zd-color-pelorous);
 }

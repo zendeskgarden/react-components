@@ -22,7 +22,7 @@ module.exports = {
     var sourceDir = path.join(__dirname, 'src')
     webpackConfig.entry.unshift('babel-polyfill')
     webpackConfig.entry.push('!!style!css!./node_modules/zd-css-bedrock/dist/index.css')
-    webpackConfig.entry.push('!!style!css!./src/styleguide/index.css')
+    webpackConfig.entry.push('!!style!css!postcss!./src/styleguide/index.css')
 
     webpackConfig.module.loaders.push(
       {
