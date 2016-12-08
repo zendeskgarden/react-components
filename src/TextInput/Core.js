@@ -6,9 +6,11 @@ export default class Core extends Component {
     autoFocus: PropTypes.bool,
     isFocused: PropTypes.bool,
     className: PropTypes.string,
+    defaultValue: PropTypes.string,
     dir: PropTypes.oneOf(['ltr', 'rtl']),
     disabled: PropTypes.bool.isRequired,
     id: PropTypes.string,
+    inputRef: PropTypes.func,
     name: PropTypes.string,
     maxLength: PropTypes.number,
     onArrowDown: PropTypes.func,
@@ -32,8 +34,7 @@ export default class Core extends Component {
   static defaultProps = {
     autoComplete: 'off',
     disabled: false,
-    type: 'text',
-    value: ''
+    type: 'text'
   }
 
   render () {
@@ -41,9 +42,11 @@ export default class Core extends Component {
       autoComplete,
       autoFocus,
       className,
+      defaultValue,
       dir,
       disabled,
       id,
+      inputRef,
       isFocused,
       name,
       maxLength,
@@ -80,6 +83,7 @@ export default class Core extends Component {
       autoComplete,
       className,
       'data-test-id': testId,
+      defaultValue,
       dir,
       disabled,
       id,
@@ -99,6 +103,7 @@ export default class Core extends Component {
       value,
       ref (input) {
         input && isFocused && input.focus()
+        inputRef && inputRef(input)
       }
     }
 
