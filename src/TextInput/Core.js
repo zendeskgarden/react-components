@@ -10,7 +10,6 @@ export default class Core extends Component {
     dir: PropTypes.oneOf(['ltr', 'rtl']),
     disabled: PropTypes.bool.isRequired,
     id: PropTypes.string,
-    inputRef: PropTypes.func,
     name: PropTypes.string,
     maxLength: PropTypes.number,
     onArrowDown: PropTypes.func,
@@ -46,7 +45,6 @@ export default class Core extends Component {
       dir,
       disabled,
       id,
-      inputRef,
       isFocused,
       name,
       maxLength,
@@ -100,13 +98,17 @@ export default class Core extends Component {
       placeholder,
       tabIndex,
       type,
-      value,
-      ref (input) {
-        input && isFocused && input.focus()
-        inputRef && inputRef(input)
-      }
+      value
     }
 
-    return <input { ...props }/>
+    return (
+      <input
+        { ...props }
+        ref={(input) => {
+          this.input = input
+          input && isFocused && input.focus()
+        }}
+      />
+    )
   }
 }

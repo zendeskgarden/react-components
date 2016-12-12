@@ -20,7 +20,6 @@ export default class TextInput extends ThemedComponent {
     defaultValue: PropTypes.string,
     dir: PropTypes.oneOf(['ltr', 'rtl']),
     disabled: PropTypes.bool.isRequired,
-    inputRef: PropTypes.func,
     label: PropTypes.string,
     name: PropTypes.string,
     maxLength: PropTypes.number,
@@ -91,6 +90,11 @@ export default class TextInput extends ThemedComponent {
           { ...other }
           id={ this.getId() }
           className={ classNames(theme.input, className) }
+          ref={ ref => {
+            if (ref && ref.input) {
+              this.input = ref.input
+            }
+          }}
         />
       </View>
     )

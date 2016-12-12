@@ -309,13 +309,13 @@ describe('TextInput.Core', () => {
       return expect(
         <TextInput.Core
           defaultValue='Hello'
-          inputRef={ (ref) => node = ref }
+          ref={ (ref) => node = ref }
           value='Hi'
         />,
         'when deeply rendered',
         'with event', 'focus', 'on', <input type='text' />
       ).then(() => {
-        expect(node.value, 'to equal', 'Hi')
+        expect(node.input.value, 'to equal', 'Hi')
       })
     })
   })
@@ -328,13 +328,13 @@ describe('TextInput.Core', () => {
         const component = TestUtils.renderIntoDocument(
           <TextInput.Core
             defaultValue='Hello'
-            inputRef={ (ref) => node = ref }
+            ref={ (ref) => node = ref }
           />
         )
         const input = findDOMNode(component)
 
         expect(input.value, 'to equal', 'Hello')
-        expect(input.value, 'to equal', node.value)
+        expect(input.value, 'to equal', node.input.value)
       })
     })
   })
@@ -346,14 +346,15 @@ describe('TextInput.Core', () => {
       const component = TestUtils.renderIntoDocument(
         <TextInput.Core
           defaultValue='Hello'
-          inputRef={ (ref) => node = ref }
+          ref={ (ref) => node = ref }
         />
       )
       const input = findDOMNode(component)
       input.value = 'Hello world'
       TestUtils.Simulate.change(input)
 
-      expect(input.value, 'to equal', node.value)
+      expect(node.input.value, 'to equal', input.value)
+      expect(node.input.value, 'to equal', 'Hello world')
     })
   })
 })

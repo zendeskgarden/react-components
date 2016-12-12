@@ -25,7 +25,7 @@ initialState={ value: '' };
 ### Uncontrolled component
 
 By not providing a `value` prop, the component becomes "uncontrolled" (Read more [here](https://facebook.github.io/react/docs/uncontrolled-components.html)). To pass an
-initial value, use `defaultValue`.
+initial value, use `defaultValue`. You can access the underlying input ref through `ref.input`.
 
 ```
 initialState={ value: 'Bob', uncontrolled: '' };
@@ -41,7 +41,7 @@ initialState={ value: 'Bob', uncontrolled: '' };
   <Text>Uncontrolled</Text>
   <TextInput
     defaultValue='Bob'
-    inputRef={ (input) => this.input = input }
+    ref={ (ref) => ref && (this.input = ref.input) }
   />
   <Text>Value: { state.uncontrolled }</Text>
 
