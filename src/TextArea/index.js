@@ -16,6 +16,7 @@ export default class TextArea extends ThemedComponent {
     autoFocus: PropTypes.bool,
     className: PropTypes.string,
     isFocused: PropTypes.bool,
+    defaultValue: PropTypes.string,
     dir: PropTypes.oneOf(['ltr', 'rtl']),
     disabled: PropTypes.bool.isRequired,
     id: PropTypes.string,
@@ -93,6 +94,11 @@ export default class TextArea extends ThemedComponent {
           className={ classNames(theme.input, {
             [theme.resizable]: resizable
           }, className) }
+          ref={ ref => {
+            if (ref && ref.input) {
+              this.input = ref.input
+            }
+          }}
         />
       </View>
     )
