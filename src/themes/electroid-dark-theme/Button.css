@@ -1,0 +1,5 @@
+.type_default,
+.type_primary,
+.type_basic {
+  composes: c-btn--dark from 'zd-css-buttons';
+}

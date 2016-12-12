@@ -1,17 +1,28 @@
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
+
+import ThemedComponent from '../utils/theming/ThemedComponent'
 
 import styles from './styles.css'
 
-export default class Header extends Component {
+export default class Header extends ThemedComponent {
   static propTypes = {
     children: PropTypes.node.isRequired
+  }
+
+  constructor (props, context) {
+    super(props, context, {
+      namespace: 'Modal',
+      styles
+    })
   }
 
   render () {
     const { children } = this.props
 
+    const { theme } = this
+
     return (
-      <h1 className={ styles.header }>
+      <h1 className={ theme.header }>
         { children }
       </h1>
     )

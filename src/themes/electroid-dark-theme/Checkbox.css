@@ -1,0 +1,3 @@
+.checkbox {
+  composes: c-chk--dark from 'zd-css-forms';
+}

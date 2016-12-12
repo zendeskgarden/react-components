@@ -16,6 +16,7 @@ Below you can change the theme of the styleguide:
 
 ```
 const exampleTheme = require('../../../themes/example-theme').default
+const electroidDarkTheme = require('../../../themes/electroid-dark-theme').default
 
 const selectTheme = (theme) => {
   localStorage.setItem('rc-theme', theme)
@@ -25,6 +26,9 @@ const selectTheme = (theme) => {
 <Grid>
   <ThemeProvider theme={ null }>
     <Button onClick={ () => selectTheme('default') }>Default theme</Button>
+  </ThemeProvider>
+  <ThemeProvider theme={ electroidDarkTheme }>
+    <Button onClick={ () => selectTheme('electroid-dark') }>Electroid Dark theme</Button>
   </ThemeProvider>
   <ThemeProvider theme={ exampleTheme }>
     <Button onClick={ () => selectTheme('example') }>Example theme</Button>

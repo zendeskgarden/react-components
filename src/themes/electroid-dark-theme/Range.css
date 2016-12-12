@@ -1,0 +1,3 @@
+.range {
+  composes: c-range--dark from 'zd-css-forms';
+}
