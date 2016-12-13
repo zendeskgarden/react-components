@@ -11,6 +11,7 @@ export default class Checkbox extends ThemedComponent {
   static propTypes = {
     checked: PropTypes.bool,
     children: PropTypes.node,
+    defaultChecked: PropTypes.bool,
     dir: PropTypes.oneOf(['ltr', 'rtl']),
     disabled: PropTypes.bool,
     onChange: PropTypes.func,
@@ -19,7 +20,6 @@ export default class Checkbox extends ThemedComponent {
   }
 
   static defaultProps = {
-    checked: false,
     dir: 'ltr'
   }
 
@@ -35,16 +35,17 @@ export default class Checkbox extends ThemedComponent {
     }
   }
 
-  toggle = () => {
-    const { checked, onChange } = this.props
+  onChange = (event) => {
+    const { onChange } = this.props
 
-    onChange && onChange(!checked)
+    onChange && onChange(event.target.checked)
   }
 
   render () {
     const {
       checked,
       children,
+      defaultChecked,
       disabled,
       dir,
       tabIndex,
@@ -65,14 +66,16 @@ export default class Checkbox extends ThemedComponent {
           checked={ checked }
           className={ theme.input }
           data-test-id={ testId }
+          defaultChecked={ defaultChecked }
           disabled={ disabled }
           id={ this.id }
           onBlur={ () => this.setState({ focused: false }) }
-          onChange={ this.toggle }
+          onChange={ this.onChange }
           onFocus={ () => {
             this.setState({ focused: this.keyboard })
             this.keyboard = true
           } }
+          ref={ ref => this.input = ref }
           tabIndex={ tabIndex }
           type='checkbox'
         />
