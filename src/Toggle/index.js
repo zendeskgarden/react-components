@@ -11,6 +11,7 @@ export default class Toggle extends ThemedComponent {
   static propTypes = {
     children: PropTypes.node,
     checked: PropTypes.bool,
+    defaultChecked: PropTypes.bool,
     dir: PropTypes.oneOf(['ltr', 'rtl']),
     disabled: PropTypes.bool,
     onChange: PropTypes.func,
@@ -19,7 +20,6 @@ export default class Toggle extends ThemedComponent {
   }
 
   static defaultProps = {
-    checked: false,
     dir: 'ltr'
   }
 
@@ -42,24 +42,28 @@ export default class Toggle extends ThemedComponent {
     }
   }
 
-  toggle = () => {
-    const { checked, onChange } = this.props
+  onChange = (event) => {
+    const { onChange } = this.props
 
-    onChange && onChange(!checked)
+    onChange && onChange(event.target.checked)
   }
 
   onArrowLeft = () => {
-    const { checked, onChange } = this.props
+    const { onChange } = this.props
+    const { checked } = this.input
 
     if (checked) {
+      this.input.checked = false
       onChange && onChange(false)
     }
   }
 
   onArrowRight = () => {
-    const { checked, onChange } = this.props
+    const { onChange } = this.props
+    const { checked } = this.input
 
     if (!checked) {
+      this.input.checked = true
       onChange && onChange(true)
     }
   }
@@ -68,6 +72,7 @@ export default class Toggle extends ThemedComponent {
     const {
       children,
       checked,
+      defaultChecked,
       dir,
       disabled,
       tabIndex,
@@ -88,10 +93,11 @@ export default class Toggle extends ThemedComponent {
           checked={ checked }
           className={ theme.input }
           data-test-id={ testId }
+          defaultChecked={ defaultChecked }
           disabled={ disabled }
           id={ this.id }
           onBlur={ () => this.setState({ focused: false }) }
-          onChange={ this.toggle }
+          onChange={ this.onChange }
           onKeyDown={ (event) => {
             const handler = this.handlers[event.keyCode]
             handler && handler()
@@ -100,6 +106,7 @@ export default class Toggle extends ThemedComponent {
             this.setState({ focused: this.keyboard })
             this.keyboard = true
           } }
+          ref={ ref => this.input = ref }
           tabIndex={ tabIndex }
           type='checkbox'
         />
