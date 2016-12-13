@@ -7921,13 +7921,13 @@ yeast@0.1.2:
   version "0.3.1"
   resolved "git+ssh://git@github.com/zendeskgarden/css-forms.git#ddc2f3202d910f0c0097d42bf9e21254104c7776"
 
-"zd-css-menus@git+ssh://git@github.com/zendeskgarden/css-menus.git#2.2.1":
-  version "2.2.1"
-  resolved "git+ssh://git@github.com/zendeskgarden/css-menus.git#369cd73422c47676ffc85b819ed0d610049e1553"
+"zd-css-menus@git+ssh://git@github.com/zendeskgarden/css-menus.git#2.3.0":
+  version "2.3.0"
+  resolved "git+ssh://git@github.com/zendeskgarden/css-menus.git#a69210709416c41acdf67136b9f93828907a9660"
 
-"zd-css-modals@git+ssh://git@github.com/zendeskgarden/css-modals.git#2.0.0":
-  version "2.0.0"
-  resolved "git+ssh://git@github.com/zendeskgarden/css-modals.git#736805cb8b5c035a0970ef5ef88c250b19008044"
+"zd-css-modals@git+ssh://git@github.com/zendeskgarden/css-modals.git#2.1.0":
+  version "2.1.0"
+  resolved "git+ssh://git@github.com/zendeskgarden/css-modals.git#7a06a4ea95a3d54c92e7c8c8cef36d60a69ec4b7"
 
 "zd-css-tabs@git+ssh://git@github.com/zendeskgarden/css-tabs.git#2.0.0":
   version "2.0.0"
@@ -7940,3 +7940,7 @@ yeast@0.1.2:
 "zd-svg-icons@git+ssh://git@github.com/zendeskgarden/svg-icons.git#0.11.0":
   version "0.11.0"
   resolved "git+ssh://git@github.com/zendeskgarden/svg-icons.git#1ba5d685f94d171591659e0819e905441aea6357"
+
+"zd-svg-icons@git+ssh://git@github.com/zendeskgarden/svg-icons.git#0.12.0":
+  version "0.12.0"
+  resolved "git+ssh://git@github.com/zendeskgarden/svg-icons.git#baf24b8a9d394b8e61af0eb47ab9ab9b54bf5964"
