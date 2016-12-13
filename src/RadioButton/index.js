@@ -10,6 +10,7 @@ export default class RadioButton extends ThemedComponent {
   static propTypes = {
     checked: PropTypes.bool,
     children: PropTypes.node,
+    defaultChecked: PropTypes.bool,
     dir: PropTypes.oneOf(['ltr', 'rtl']),
     disabled: PropTypes.bool,
     name: PropTypes.string,
@@ -20,7 +21,6 @@ export default class RadioButton extends ThemedComponent {
   }
 
   static defaultProps = {
-    checked: false,
     dir: 'ltr'
   }
 
@@ -46,6 +46,7 @@ export default class RadioButton extends ThemedComponent {
     const {
       checked,
       children,
+      defaultChecked,
       dir,
       disabled,
       name,
@@ -67,9 +68,11 @@ export default class RadioButton extends ThemedComponent {
           checked={ checked }
           className={ theme.input }
           data-test-id={ testId }
+          defaultChecked={ defaultChecked }
           disabled={ disabled }
           id={ this.id }
           name={ name }
+          ref={ ref => this.input = ref }
           onBlur={ () => this.setState({ focused: false }) }
           onChange={ this.onChange }
           onFocus={ () => {
