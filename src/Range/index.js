@@ -13,6 +13,7 @@ export default class Range extends ThemedComponent {
     max: PropTypes.number,
     value: PropTypes.number,
     step: PropTypes.number,
+    defaultValue: PropTypes.number,
     disabled: PropTypes.bool,
     onChange: PropTypes.func,
     testId: PropTypes.string,
@@ -32,7 +33,16 @@ export default class Range extends ThemedComponent {
       styles
     })
     this.generatedId = uuid.v4()
-    this.state = { focused: false }
+    this.state = {
+      focused: false,
+      bgWidth: 0
+    }
+  }
+
+  componentDidMount () {
+    this.setState({
+      bgWidth: this.getBgWidth()
+    })
   }
 
   getId = () => (
@@ -41,11 +51,15 @@ export default class Range extends ThemedComponent {
 
   onChange = (e) => {
     const { onChange } = this.props
+
     onChange && onChange(parseFloat(e.target.value))
+
+    this.setState({ bgWidth: this.getBgWidth() })
   }
 
   getBgWidth () {
-    let { max, min, value } = this.props
+    let { max, min } = this.props
+    const { value } = this.input
 
     if (parseFloat(max) < parseFloat(min)) {
       max = 100
@@ -74,6 +88,7 @@ export default class Range extends ThemedComponent {
 
   render () {
     const {
+      defaultValue,
       disabled,
       max,
       min,
@@ -84,7 +99,7 @@ export default class Range extends ThemedComponent {
       value
     } = this.props
 
-    const { focused } = this.state
+    const { focused, bgWidth } = this.state
     const { theme } = this
 
     return (
@@ -95,6 +110,7 @@ export default class Range extends ThemedComponent {
         <input
           className={ theme.input }
           data-test-id={ testId }
+          defaultValue={ defaultValue }
           disabled={ disabled }
           id={ this.getId() }
           max={ max }
@@ -104,11 +120,12 @@ export default class Range extends ThemedComponent {
           onChange={ this.onChange }
           onFocus={ () => this.setState({ focused: true }) }
           step={ step }
-          style={{ backgroundSize: `${this.getBgWidth()}%` }}
+          style={{ backgroundSize: `${bgWidth}%` }}
           tabIndex={ tabIndex }
           type='range'
           title={ title }
           value={ value }
+          ref={ ref => this.input = ref }
         />
       </View>
     )

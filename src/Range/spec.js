@@ -1,6 +1,7 @@
 import React from 'react'
 import expect from 'test/expect'
 import sinon from 'sinon'
+import TestUtils from 'react-addons-test-utils'
 
 import Range from '.'
 import View from '../core/View'
@@ -154,6 +155,44 @@ describe('Range', () => {
             />
           </View>
         )
+      })
+    })
+  })
+
+  describe('when using it as an uncontrolled Range', () => {
+    describe('when using defaultValue', () => {
+      it('it is set on the DOM node', () => {
+        let node
+
+        TestUtils.renderIntoDocument(
+          <Range
+            defaultValue={ 30 }
+            ref={ ref => node = ref.input }
+          />
+        )
+
+        expect(node.value, 'to equal', '30')
+      })
+    })
+
+    describe('when value changes', () => {
+      it('calls an onChange handle with a new value', () => {
+        const onChange = sinon.spy()
+
+        return expect(
+          <Range
+            defaultValue={ 10 }
+            max={ 15 }
+            min={ 0 }
+            onChange={ onChange }
+          />,
+          'when deeply rendered',
+          'with event change', 'on', <input/>,
+          ).then(() => {
+            expect(onChange, 'to have calls satisfying', () => {
+              onChange(10)
+            })
+          })
       })
     })
   })

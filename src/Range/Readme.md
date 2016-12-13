@@ -63,3 +63,26 @@ initialState = { value: 21 };
   onChange={ (value) => setState({ value }) }
 />
 ```
+
+Uncontrolled:
+```
+initialState = { value: 25 };
+
+<Grid columns={1} stretched>
+  <Range
+    label='How satisfied are you?'
+    title={ `Value: ${(this.input && this.input.value) || 25}` }
+    defaultValue={ 25 }
+    ref={ (ref) => ref && (this.input = ref.input) }
+  />
+
+  <Grid columns={ 2 }>
+    <Button onClick={ () => {
+      setState({ value: this.input.value })
+    }}>
+      Click me
+    </Button>
+    <Text>Value: {state.value}</Text>
+  </Grid>
+</Grid>
+```
