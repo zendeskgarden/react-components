@@ -6,7 +6,7 @@ const { Component } = require('react')
 class ModalExample extends Component {
   render () {
     const { type } = this.props
-    const { hidden } = this.state || {}
+    const { hidden } = this.state || { hidden: true }
 
     return (
       <View>
@@ -74,7 +74,7 @@ const { Component } = require('react')
 class ModalExample extends Component {
   render () {
     const { width } = this.props
-    const { hidden } = this.state || {}
+    const { hidden } = this.state || { hidden: true }
 
     return (
       <View>

@@ -28,7 +28,7 @@ export default class Modal extends Component {
 
   static defaultProps = {
     dir: 'ltr',
-    hidden: true,
+    hidden: false,
     type: 'default'
   }
 
