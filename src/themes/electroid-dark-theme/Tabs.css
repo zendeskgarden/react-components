@@ -1,0 +1,3 @@
+.tabs {
+  composes: c-tab--dark from 'zd-css-tabs';
+}

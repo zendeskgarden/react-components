@@ -1,7 +1,8 @@
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 import classNames from 'classnames'
 import { findDOMNode } from 'react-dom'
 
+import ThemedComponent from '../utils/theming/ThemedComponent'
 import styles from './styles.css'
 import View from '../core/View/'
 import FocusJail from '../utils/FocusJail'
@@ -12,7 +13,7 @@ import Footer from './Footer'
 import Header from './Header'
 import Title from './Title'
 
-export default class Modal extends Component {
+export default class Modal extends ThemedComponent {
   static propTypes = {
     children: PropTypes.node.isRequired,
     dir: PropTypes.oneOf([
@@ -37,6 +38,13 @@ export default class Modal extends Component {
   static Footer = Footer
   static Header = Header
   static Title = Title
+
+  constructor (props, context) {
+    super(props, context, {
+      namespace: 'Modal',
+      styles
+    })
+  }
 
   componentDidUpdate (prevProps) {
     const { hidden } = this.props
@@ -69,9 +77,11 @@ export default class Modal extends Component {
       return null
     }
 
+    const { theme } = this
+
     return (
       <View
-        className={ classNames(styles.backdrop, styles[`type_${type}`]) }
+        className={ classNames(theme.backdrop, theme[`type_${type}`]) }
         onClick={ onClose }
         onEscape={ onClose }
         onTab={ this.onTab }
@@ -84,9 +94,9 @@ export default class Modal extends Component {
         <View
           aria-labelledby='dialog-title'
           className={ classNames(
-            styles.dialog,
-            styles[dir], {
-              [styles.open]: !hidden
+            theme.dialog,
+            theme[dir], {
+              [theme.open]: !hidden
             }
           ) }
           onClick={ (e) => e.stopPropagation() }

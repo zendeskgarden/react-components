@@ -1,0 +1,3 @@
+.dialog {
+  composes: c-dialog--dark from 'zd-css-modals';
+}
