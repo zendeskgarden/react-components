@@ -66,19 +66,20 @@ initialState = { value: 21 };
 
 Uncontrolled:
 ```
+let node;
 initialState = { value: 25 };
 
 <Grid columns={1} stretched>
   <Range
     label='How satisfied are you?'
-    title={ `Value: ${(this.input && this.input.value) || 25}` }
+    title={ `Value: ${(node && node.value) || 25}` }
     defaultValue={ 25 }
-    ref={ (ref) => ref && (this.input = ref.input) }
+    ref={ (ref) => ref && (node = ref.input) }
   />
 
   <Grid columns={ 2 }>
     <Button onClick={ () => {
-      setState({ value: this.input.value })
+      setState({ value: node.value })
     }}>
       Click me
     </Button>

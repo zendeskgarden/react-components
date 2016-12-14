@@ -37,19 +37,20 @@ initialState = { checked: false };
 Uncontrolled:
 
 ```
+let node;
 initialState={ checked: false };
 
 <Grid columns={ 1 } spacing='large'>
   <Toggle
     defaultChecked={ false }
-    ref={ ref => ref && (this.input = ref.input)}
+    ref={ ref => ref && (node = ref.input)}
   >
     Click me
   </Toggle>
 
   <Grid columns={ 2 }>
     <Button onClick={ () => {
-      setState({ checked: this.input.checked })
+      setState({ checked: node.checked })
     }}>Click me</Button>
 
     <Text>Checked: { state.checked ? 'On' : 'Off' }</Text>
