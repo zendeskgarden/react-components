@@ -1,4 +1,6 @@
 ```
+initialState = { value: 1 };
+
 <Grid columns={ 2 }>
   <RadioButton name="group1" checked={ state.value === 1 } value={ 1 } onChange={ (v) => setState({ value: v })}>One</RadioButton>
   <RadioButton name="group1" checked={ state.value === 2 } value={ 2 } onChange={ (v) => setState({ value: v })}>Two</RadioButton>
@@ -9,8 +11,44 @@
 
 RTL:
 ```
+initialState = { value: 1 };
+
 <Grid columns={ 1 } stretched>
   <RadioButton dir='rtl' name="group2" checked={ state.value === 1 } value={ 1 } onChange={ (v) => setState({ value: v })}>One</RadioButton>
   <RadioButton dir='rtl' name="group2" checked={ state.value === 2 } value={ 2 } onChange={ (v) => setState({ value: v })}>Two</RadioButton>
+</Grid>
+```
+
+Uncontrolled:
+
+```
+initialState={ value: 1 };
+
+<Grid columns={ 1 }>
+  <RadioButton name="uncontrolled" value={ 1 }
+    ref={ ref => ref && (this.radioOne = ref.input) }
+  >
+    One
+  </RadioButton>
+
+  <RadioButton name="uncontrolled" value={ 2 }
+    ref={ ref => ref && (this.radioTwo = ref.input) }
+  >
+    Two
+  </RadioButton>
+
+  <Grid columns={ 2 }>
+    <Button onClick={ () => {
+      const name = this.radioOne.checked
+        ? 'One'
+        : this.radioTwo.checked
+          ? 'Two'
+          : 'None'
+
+      setState({ value: name })
+    }}>Click me</Button>
+
+    <Text>Value: { state.value }</Text>
+  </Grid>
 </Grid>
 ```

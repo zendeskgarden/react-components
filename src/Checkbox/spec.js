@@ -1,6 +1,7 @@
 import React from 'react'
 import expect from 'test/expect'
 import sinon from 'sinon'
+import TestUtils from 'react-addons-test-utils'
 
 import Checkbox from '.'
 import View from '../core/View'
@@ -8,7 +9,7 @@ import View from '../core/View'
 describe('Checkbox', () => {
   it('renders a checkbox that is not checked', () => {
     expect(
-      <Checkbox>Check me out!</Checkbox>,
+      <Checkbox checked={ false }>Check me out!</Checkbox>,
       'to render as',
       <View className='checkbox'>
         <input
@@ -49,7 +50,7 @@ describe('Checkbox', () => {
             Check me out!
           </Checkbox>,
           'when deeply rendered',
-          'with event change', 'on', <input/>,
+          'with event change', { target: { checked: false } }, 'on', <input/>,
         ).then(() => {
           expect(onChange, 'to have calls satisfying', () => {
             onChange(false)
@@ -64,9 +65,9 @@ describe('Checkbox', () => {
       const onChange = sinon.spy()
 
       return expect(
-        <Checkbox onChange={ onChange }>Check me out!</Checkbox>,
+        <Checkbox checked={ false } onChange={ onChange }>Check me out!</Checkbox>,
         'when deeply rendered',
-        'with event change', 'on', <input/>,
+        'with event change', { target: { checked: true } }, 'on', <input/>,
       ).then(() => {
         expect(onChange, 'to have calls satisfying', () => {
           onChange(true)
@@ -78,7 +79,7 @@ describe('Checkbox', () => {
   describe('when disabled', () => {
     it('renders a checkbox that is disabled', () => {
       expect(
-        <Checkbox disabled>Check me out!</Checkbox>,
+        <Checkbox checked={ false } disabled>Check me out!</Checkbox>,
         'to render as',
         <View className='checkbox'>
           <input
@@ -107,6 +108,76 @@ describe('Checkbox', () => {
             <label className='label' dir='ltr'>Check me out!</label>
           </View>
         )
+      })
+    })
+  })
+
+  describe('when using it as an uncontrolled input', () => {
+    describe('when using defaultChecked', () => {
+      it('it is checked on the DOM node', () => {
+        let node
+
+        TestUtils.renderIntoDocument(
+          <Checkbox
+            defaultChecked
+            ref={ (ref) => ref && (node = ref.input) }
+          />
+        )
+
+        expect(node.checked, 'to equal', true)
+      })
+
+      it('it is not checked on the DOM node', () => {
+        let node
+
+        TestUtils.renderIntoDocument(
+          <Checkbox
+            defaultChecked={ false }
+            ref={ (ref) => ref && (node = ref.input) }
+          />
+        )
+
+        expect(node.checked, 'to be false')
+      })
+    })
+
+    describe('when toggled', () => {
+      it('calls the onChange handle with the new state of the checkbox', () => {
+        let node
+        const onChange = sinon.spy()
+
+        TestUtils.renderIntoDocument(
+          <Checkbox
+            defaultChecked={ false }
+            onChange={ onChange }
+            ref={ (ref) => ref && (node = ref.input) }
+          />
+        )
+
+        TestUtils.Simulate.change(node, { target: { checked: true } })
+
+        expect(onChange, 'to have calls satisfying', () => {
+          onChange(true)
+        })
+      })
+
+      it('calls the onChange handle with the new state of the checkbox', () => {
+        const onChange = sinon.spy()
+        let node
+
+        TestUtils.renderIntoDocument(
+          <Checkbox
+            defaultChecked
+            onChange={ onChange }
+            ref={ (ref) => ref && (node = ref.input) }
+          />
+        )
+
+        TestUtils.Simulate.change(node, { target: { checked: false } })
+
+        expect(onChange, 'to have calls satisfying', () => {
+          onChange(false)
+        })
       })
     })
   })
