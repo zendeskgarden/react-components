@@ -1,5 +1,11 @@
 ## Change Log
 
+### v3.1.0 (2016/12/14 15:32 +00:00)
+- [#95](https://github.com/zendeskgarden/react-components/pull/95) Added an dark electroid theme (@sunesimonsen)
+
+### v3.0.1 (2016/12/14 11:02 +00:00)
+- [#97](https://github.com/zendeskgarden/react-components/pull/97) Use local variables for node (@albertfdp)
+
 ### v3.0.0 (2016/12/14 09:20 +00:00)
 - [#92](https://github.com/zendeskgarden/react-components/pull/92) Enable TextInput to be an uncontrolled component (Major) (@albertfdp)
 - [#94](https://github.com/zendeskgarden/react-components/pull/94) Show modals by default (Major) (@sunesimonsen)
