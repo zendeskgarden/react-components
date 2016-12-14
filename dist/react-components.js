@@ -558,7 +558,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends2 = __webpack_require__(14);
+var _extends2 = __webpack_require__(12);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
@@ -840,13 +840,42 @@ exports.default = ThemedComponent;
 
 /***/ },
 /* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+"use strict";
+
+exports.__esModule = true;
+
+var _assign = __webpack_require__(132);
+
+var _assign2 = _interopRequireDefault(_assign);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _assign2.default || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];
+
+    for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }
+
+  return target;
+};
+
+/***/ },
+/* 13 */
 /***/ function(module, exports) {
 
 var core = module.exports = {version: '2.4.0'};
 if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(5)();
@@ -877,35 +906,6 @@ exports.locals = {
 	"is-focused": "rc-is-focused-3Nxtp",
 	"c-dialog__body": "rc-c-dialog__body-2Aq8h",
 	"c-dialog__footer": "rc-c-dialog__footer-3oDu5"
-};
-
-/***/ },
-/* 14 */
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-"use strict";
-
-exports.__esModule = true;
-
-var _assign = __webpack_require__(132);
-
-var _assign2 = _interopRequireDefault(_assign);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _assign2.default || function (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];
-
-    for (var key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        target[key] = source[key];
-      }
-    }
-  }
-
-  return target;
 };
 
 /***/ },
@@ -983,7 +983,7 @@ exports.locals = {
 /***/ function(module, exports, __webpack_require__) {
 
 var global    = __webpack_require__(19)
-  , core      = __webpack_require__(12)
+  , core      = __webpack_require__(13)
   , ctx       = __webpack_require__(32)
   , hide      = __webpack_require__(25)
   , PROTOTYPE = 'prototype';
@@ -1300,7 +1300,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends3 = __webpack_require__(14);
+var _extends3 = __webpack_require__(12);
 
 var _extends4 = _interopRequireDefault(_extends3);
 
@@ -2010,7 +2010,7 @@ module.exports = function(it, S){
 /***/ function(module, exports, __webpack_require__) {
 
 var global         = __webpack_require__(19)
-  , core           = __webpack_require__(12)
+  , core           = __webpack_require__(13)
   , LIBRARY        = __webpack_require__(51)
   , wksExt         = __webpack_require__(60)
   , defineProperty = __webpack_require__(21).f;
@@ -2826,7 +2826,7 @@ module.exports = function(target, src, safe){
 var classof   = __webpack_require__(153)
   , ITERATOR  = __webpack_require__(15)('iterator')
   , Iterators = __webpack_require__(33);
-module.exports = __webpack_require__(12).getIteratorMethod = function(it){
+module.exports = __webpack_require__(13).getIteratorMethod = function(it){
   if(it != undefined)return it[ITERATOR]
     || it['@@iterator']
     || Iterators[classof(it)];
@@ -2999,7 +2999,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends2 = __webpack_require__(14);
+var _extends2 = __webpack_require__(12);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
@@ -3137,7 +3137,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends2 = __webpack_require__(14);
+var _extends2 = __webpack_require__(12);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
@@ -3382,13 +3382,11 @@ var Checkbox = function (_ThemedComponent) {
       styles: _styles2.default
     }));
 
-    _this.toggle = function () {
-      var _this$props = _this.props,
-          checked = _this$props.checked,
-          onChange = _this$props.onChange;
+    _this.onChange = function (event) {
+      var onChange = _this.props.onChange;
 
 
-      onChange && onChange(!checked);
+      onChange && onChange(event.target.checked);
     };
 
     _this.id = _uuid2.default.v4();
@@ -3406,6 +3404,7 @@ var Checkbox = function (_ThemedComponent) {
     var _props = this.props,
         checked = _props.checked,
         children = _props.children,
+        defaultChecked = _props.defaultChecked,
         disabled = _props.disabled,
         dir = _props.dir,
         tabIndex = _props.tabIndex,
@@ -3423,15 +3422,19 @@ var Checkbox = function (_ThemedComponent) {
         checked: checked,
         className: theme.input,
         'data-test-id': testId,
+        defaultChecked: defaultChecked,
         disabled: disabled,
         id: this.id,
         onBlur: function onBlur() {
           return _this2.setState({ focused: false });
         },
-        onChange: this.toggle,
+        onChange: this.onChange,
         onFocus: function onFocus() {
           _this2.setState({ focused: _this2.keyboard });
           _this2.keyboard = true;
+        },
+        ref: function ref(_ref) {
+          return _this2.input = _ref;
         },
         tabIndex: tabIndex,
         type: 'checkbox'
@@ -3457,6 +3460,7 @@ var Checkbox = function (_ThemedComponent) {
 Checkbox.propTypes = {
   checked: _react.PropTypes.bool,
   children: _react.PropTypes.node,
+  defaultChecked: _react.PropTypes.bool,
   dir: _react.PropTypes.oneOf(['ltr', 'rtl']),
   disabled: _react.PropTypes.bool,
   onChange: _react.PropTypes.func,
@@ -3464,7 +3468,6 @@ Checkbox.propTypes = {
   testId: _react.PropTypes.string
 };
 Checkbox.defaultProps = {
-  checked: false,
   dir: 'ltr'
 };
 exports.default = Checkbox;
@@ -3480,7 +3483,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends2 = __webpack_require__(14);
+var _extends2 = __webpack_require__(12);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
@@ -3899,7 +3902,7 @@ Modal.propTypes = {
 };
 Modal.defaultProps = {
   dir: 'ltr',
-  hidden: true,
+  hidden: false,
   type: 'default'
 };
 Modal.Body = _Body2.default;
@@ -3993,6 +3996,7 @@ var RadioButton = function (_ThemedComponent) {
     var _props = this.props,
         checked = _props.checked,
         children = _props.children,
+        defaultChecked = _props.defaultChecked,
         dir = _props.dir,
         disabled = _props.disabled,
         name = _props.name,
@@ -4011,9 +4015,13 @@ var RadioButton = function (_ThemedComponent) {
         checked: checked,
         className: theme.input,
         'data-test-id': testId,
+        defaultChecked: defaultChecked,
         disabled: disabled,
         id: this.id,
         name: name,
+        ref: function ref(_ref) {
+          return _this2.input = _ref;
+        },
         onBlur: function onBlur() {
           return _this2.setState({ focused: false });
         },
@@ -4046,6 +4054,7 @@ var RadioButton = function (_ThemedComponent) {
 RadioButton.propTypes = {
   checked: _react.PropTypes.bool,
   children: _react.PropTypes.node,
+  defaultChecked: _react.PropTypes.bool,
   dir: _react.PropTypes.oneOf(['ltr', 'rtl']),
   disabled: _react.PropTypes.bool,
   name: _react.PropTypes.string,
@@ -4055,7 +4064,6 @@ RadioButton.propTypes = {
   value: _react.PropTypes.any
 };
 RadioButton.defaultProps = {
-  checked: false,
   dir: 'ltr'
 };
 exports.default = RadioButton;
@@ -4227,7 +4235,10 @@ var Range = function (_ThemedComponent) {
     _this.onChange = function (e) {
       var onChange = _this.props.onChange;
 
+
       onChange && onChange(parseFloat(e.target.value));
+
+      _this.setState({ bgWidth: _this.getBgWidth() });
     };
 
     _this.renderLabel = function () {
@@ -4250,15 +4261,24 @@ var Range = function (_ThemedComponent) {
     };
 
     _this.generatedId = _uuid2.default.v4();
-    _this.state = { focused: false };
+    _this.state = {
+      focused: false,
+      bgWidth: 0
+    };
     return _this;
   }
+
+  Range.prototype.componentDidMount = function componentDidMount() {
+    this.setState({
+      bgWidth: this.getBgWidth()
+    });
+  };
 
   Range.prototype.getBgWidth = function getBgWidth() {
     var _props = this.props,
         max = _props.max,
-        min = _props.min,
-        value = _props.value;
+        min = _props.min;
+    var value = this.input.value;
 
 
     if (parseFloat(max) < parseFloat(min)) {
@@ -4273,6 +4293,7 @@ var Range = function (_ThemedComponent) {
         _this2 = this;
 
     var _props2 = this.props,
+        defaultValue = _props2.defaultValue,
         disabled = _props2.disabled,
         max = _props2.max,
         min = _props2.min,
@@ -4281,7 +4302,9 @@ var Range = function (_ThemedComponent) {
         testId = _props2.testId,
         title = _props2.title,
         value = _props2.value;
-    var focused = this.state.focused;
+    var _state = this.state,
+        focused = _state.focused,
+        bgWidth = _state.bgWidth;
     var theme = this.theme;
 
 
@@ -4292,6 +4315,7 @@ var Range = function (_ThemedComponent) {
       _react2.default.createElement('input', {
         className: theme.input,
         'data-test-id': testId,
+        defaultValue: defaultValue,
         disabled: disabled,
         id: this.getId(),
         max: max,
@@ -4305,11 +4329,14 @@ var Range = function (_ThemedComponent) {
           return _this2.setState({ focused: true });
         },
         step: step,
-        style: { backgroundSize: this.getBgWidth() + '%' },
+        style: { backgroundSize: bgWidth + '%' },
         tabIndex: tabIndex,
         type: 'range',
         title: title,
-        value: value
+        value: value,
+        ref: function ref(_ref) {
+          return _this2.input = _ref;
+        }
       })
     );
   };
@@ -4323,6 +4350,7 @@ Range.propTypes = {
   max: _react.PropTypes.number,
   value: _react.PropTypes.number,
   step: _react.PropTypes.number,
+  defaultValue: _react.PropTypes.number,
   disabled: _react.PropTypes.bool,
   onChange: _react.PropTypes.func,
   testId: _react.PropTypes.string,
@@ -4347,7 +4375,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends2 = __webpack_require__(14);
+var _extends2 = __webpack_require__(12);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
@@ -4586,7 +4614,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends2 = __webpack_require__(14);
+var _extends2 = __webpack_require__(12);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
@@ -4675,7 +4703,8 @@ var TextArea = function (_ThemedComponent) {
   }
 
   TextArea.prototype.render = function render() {
-    var _classNames;
+    var _classNames,
+        _this2 = this;
 
     var _props = this.props,
         className = _props.className,
@@ -4689,7 +4718,12 @@ var TextArea = function (_ThemedComponent) {
       { className: theme.txt },
       this.renderLabel(),
       _react2.default.createElement(_Core2.default, (0, _extends3.default)({}, other, {
-        className: (0, _classnames2.default)(theme.input, (_classNames = {}, _classNames[theme.resizable] = resizable, _classNames), className)
+        className: (0, _classnames2.default)(theme.input, (_classNames = {}, _classNames[theme.resizable] = resizable, _classNames), className),
+        ref: function ref(_ref) {
+          if (_ref && _ref.input) {
+            _this2.input = _ref.input;
+          }
+        }
       }))
     );
   };
@@ -4703,6 +4737,7 @@ TextArea.propTypes = {
   autoFocus: _react.PropTypes.bool,
   className: _react.PropTypes.string,
   isFocused: _react.PropTypes.bool,
+  defaultValue: _react.PropTypes.string,
   dir: _react.PropTypes.oneOf(['ltr', 'rtl']),
   disabled: _react.PropTypes.bool.isRequired,
   id: _react.PropTypes.string,
@@ -4743,7 +4778,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends2 = __webpack_require__(14);
+var _extends2 = __webpack_require__(12);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
@@ -4832,6 +4867,8 @@ var TextInput = function (_ThemedComponent) {
   }
 
   TextInput.prototype.render = function render() {
+    var _this2 = this;
+
     var _props = this.props,
         className = _props.className,
         other = (0, _objectWithoutProperties3.default)(_props, ['className']);
@@ -4844,7 +4881,12 @@ var TextInput = function (_ThemedComponent) {
       this.renderLabel(),
       _react2.default.createElement(_Core2.default, (0, _extends3.default)({}, other, {
         id: this.getId(),
-        className: (0, _classnames2.default)(theme.input, className)
+        className: (0, _classnames2.default)(theme.input, className),
+        ref: function ref(_ref) {
+          if (_ref && _ref.input) {
+            _this2.input = _ref.input;
+          }
+        }
       }))
     );
   };
@@ -4859,6 +4901,7 @@ TextInput.propTypes = {
   className: _react.PropTypes.string,
   id: _react.PropTypes.string,
   isFocused: _react.PropTypes.bool,
+  defaultValue: _react.PropTypes.string,
   dir: _react.PropTypes.oneOf(['ltr', 'rtl']),
   disabled: _react.PropTypes.bool.isRequired,
   label: _react.PropTypes.string,
@@ -4945,33 +4988,31 @@ var Toggle = function (_ThemedComponent) {
       styles: _styles2.default
     }));
 
-    _this.toggle = function () {
-      var _this$props = _this.props,
-          checked = _this$props.checked,
-          onChange = _this$props.onChange;
+    _this.onChange = function (event) {
+      var onChange = _this.props.onChange;
 
 
-      onChange && onChange(!checked);
+      onChange && onChange(event.target.checked);
     };
 
     _this.onArrowLeft = function () {
-      var _this$props2 = _this.props,
-          checked = _this$props2.checked,
-          onChange = _this$props2.onChange;
+      var onChange = _this.props.onChange;
+      var checked = _this.input.checked;
 
 
       if (checked) {
+        _this.input.checked = false;
         onChange && onChange(false);
       }
     };
 
     _this.onArrowRight = function () {
-      var _this$props3 = _this.props,
-          checked = _this$props3.checked,
-          onChange = _this$props3.onChange;
+      var onChange = _this.props.onChange;
+      var checked = _this.input.checked;
 
 
       if (!checked) {
+        _this.input.checked = true;
         onChange && onChange(true);
       }
     };
@@ -4997,6 +5038,7 @@ var Toggle = function (_ThemedComponent) {
     var _props = this.props,
         children = _props.children,
         checked = _props.checked,
+        defaultChecked = _props.defaultChecked,
         dir = _props.dir,
         disabled = _props.disabled,
         tabIndex = _props.tabIndex,
@@ -5014,12 +5056,13 @@ var Toggle = function (_ThemedComponent) {
         checked: checked,
         className: theme.input,
         'data-test-id': testId,
+        defaultChecked: defaultChecked,
         disabled: disabled,
         id: this.id,
         onBlur: function onBlur() {
           return _this2.setState({ focused: false });
         },
-        onChange: this.toggle,
+        onChange: this.onChange,
         onKeyDown: function onKeyDown(event) {
           var handler = _this2.handlers[event.keyCode];
           handler && handler();
@@ -5027,6 +5070,9 @@ var Toggle = function (_ThemedComponent) {
         onFocus: function onFocus() {
           _this2.setState({ focused: _this2.keyboard });
           _this2.keyboard = true;
+        },
+        ref: function ref(_ref) {
+          return _this2.input = _ref;
         },
         tabIndex: tabIndex,
         type: 'checkbox'
@@ -5052,6 +5098,7 @@ var Toggle = function (_ThemedComponent) {
 Toggle.propTypes = {
   children: _react.PropTypes.node,
   checked: _react.PropTypes.bool,
+  defaultChecked: _react.PropTypes.bool,
   dir: _react.PropTypes.oneOf(['ltr', 'rtl']),
   disabled: _react.PropTypes.bool,
   onChange: _react.PropTypes.func,
@@ -5059,7 +5106,6 @@ Toggle.propTypes = {
   testId: _react.PropTypes.string
 };
 Toggle.defaultProps = {
-  checked: false,
   dir: 'ltr'
 };
 exports.default = Toggle;
@@ -5150,7 +5196,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends2 = __webpack_require__(14);
+var _extends2 = __webpack_require__(12);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
@@ -6379,6 +6425,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends2 = __webpack_require__(12);
+
+var _extends3 = _interopRequireDefault(_extends2);
+
 var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
@@ -6406,10 +6456,13 @@ var Core = function (_Component) {
   }
 
   Core.prototype.render = function render() {
+    var _this2 = this;
+
     var _props = this.props,
         autoComplete = _props.autoComplete,
         autoFocus = _props.autoFocus,
         className = _props.className,
+        defaultValue = _props.defaultValue,
         dir = _props.dir,
         disabled = _props.disabled,
         isFocused = _props.isFocused,
@@ -6449,6 +6502,7 @@ var Core = function (_Component) {
       autoComplete: autoComplete,
       className: className,
       'data-test-id': testId,
+      defaultValue: defaultValue,
       dir: dir,
       disabled: disabled,
       name: name,
@@ -6469,13 +6523,15 @@ var Core = function (_Component) {
       rows: rows,
       tabIndex: tabIndex,
       type: type,
-      value: value,
-      ref: function ref(input) {
-        input && isFocused && input.focus();
-      }
+      value: value
     };
 
-    return _react2.default.createElement('textarea', props);
+    return _react2.default.createElement('textarea', (0, _extends3.default)({}, props, {
+      ref: function ref(input) {
+        _this2.input = input;
+        input && isFocused && input.focus();
+      }
+    }));
   };
 
   return Core;
@@ -6486,6 +6542,7 @@ Core.propTypes = {
   autoFocus: _react.PropTypes.bool,
   isFocused: _react.PropTypes.bool,
   className: _react.PropTypes.string,
+  defaultValue: _react.PropTypes.string,
   dir: _react.PropTypes.oneOf(['ltr', 'rtl']),
   disabled: _react.PropTypes.bool.isRequired,
   name: _react.PropTypes.string,
@@ -6512,8 +6569,7 @@ Core.defaultProps = {
   autoComplete: 'off',
   disabled: false,
   rows: 2,
-  type: 'text',
-  value: ''
+  type: 'text'
 };
 exports.default = Core;
 
@@ -6527,6 +6583,10 @@ exports.default = Core;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _extends2 = __webpack_require__(12);
+
+var _extends3 = _interopRequireDefault(_extends2);
 
 var _classCallCheck2 = __webpack_require__(0);
 
@@ -6555,10 +6615,13 @@ var Core = function (_Component) {
   }
 
   Core.prototype.render = function render() {
+    var _this2 = this;
+
     var _props = this.props,
         autoComplete = _props.autoComplete,
         autoFocus = _props.autoFocus,
         className = _props.className,
+        defaultValue = _props.defaultValue,
         dir = _props.dir,
         disabled = _props.disabled,
         id = _props.id,
@@ -6598,6 +6661,7 @@ var Core = function (_Component) {
       autoComplete: autoComplete,
       className: className,
       'data-test-id': testId,
+      defaultValue: defaultValue,
       dir: dir,
       disabled: disabled,
       id: id,
@@ -6618,13 +6682,15 @@ var Core = function (_Component) {
       placeholder: placeholder,
       tabIndex: tabIndex,
       type: type,
-      value: value,
-      ref: function ref(input) {
-        input && isFocused && input.focus();
-      }
+      value: value
     };
 
-    return _react2.default.createElement('input', props);
+    return _react2.default.createElement('input', (0, _extends3.default)({}, props, {
+      ref: function ref(input) {
+        _this2.input = input;
+        input && isFocused && input.focus();
+      }
+    }));
   };
 
   return Core;
@@ -6635,6 +6701,7 @@ Core.propTypes = {
   autoFocus: _react.PropTypes.bool,
   isFocused: _react.PropTypes.bool,
   className: _react.PropTypes.string,
+  defaultValue: _react.PropTypes.string,
   dir: _react.PropTypes.oneOf(['ltr', 'rtl']),
   disabled: _react.PropTypes.bool.isRequired,
   id: _react.PropTypes.string,
@@ -6660,8 +6727,7 @@ Core.propTypes = {
 Core.defaultProps = {
   autoComplete: 'off',
   disabled: false,
-  type: 'text',
-  value: ''
+  type: 'text'
 };
 exports.default = Core;
 
@@ -6692,7 +6758,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends2 = __webpack_require__(14);
+var _extends2 = __webpack_require__(12);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
@@ -7023,7 +7089,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends2 = __webpack_require__(14);
+var _extends2 = __webpack_require__(12);
 
 var _extends3 = _interopRequireDefault(_extends2);
 
@@ -7338,21 +7404,21 @@ module.exports = { "default": __webpack_require__(147), __esModule: true };
 
 __webpack_require__(83);
 __webpack_require__(170);
-module.exports = __webpack_require__(12).Array.from;
+module.exports = __webpack_require__(13).Array.from;
 
 /***/ },
 /* 140 */
 /***/ function(module, exports, __webpack_require__) {
 
 __webpack_require__(172);
-module.exports = __webpack_require__(12).Object.assign;
+module.exports = __webpack_require__(13).Object.assign;
 
 /***/ },
 /* 141 */
 /***/ function(module, exports, __webpack_require__) {
 
 __webpack_require__(173);
-var $Object = __webpack_require__(12).Object;
+var $Object = __webpack_require__(13).Object;
 module.exports = function create(P, D){
   return $Object.create(P, D);
 };
@@ -7362,7 +7428,7 @@ module.exports = function create(P, D){
 /***/ function(module, exports, __webpack_require__) {
 
 __webpack_require__(174);
-var $Object = __webpack_require__(12).Object;
+var $Object = __webpack_require__(13).Object;
 module.exports = function defineProperty(it, key, desc){
   return $Object.defineProperty(it, key, desc);
 };
@@ -7372,14 +7438,14 @@ module.exports = function defineProperty(it, key, desc){
 /***/ function(module, exports, __webpack_require__) {
 
 __webpack_require__(175);
-module.exports = __webpack_require__(12).Object.keys;
+module.exports = __webpack_require__(13).Object.keys;
 
 /***/ },
 /* 144 */
 /***/ function(module, exports, __webpack_require__) {
 
 __webpack_require__(176);
-module.exports = __webpack_require__(12).Object.setPrototypeOf;
+module.exports = __webpack_require__(13).Object.setPrototypeOf;
 
 /***/ },
 /* 145 */
@@ -7389,7 +7455,7 @@ __webpack_require__(177);
 __webpack_require__(82);
 __webpack_require__(179);
 __webpack_require__(180);
-module.exports = __webpack_require__(12).Symbol;
+module.exports = __webpack_require__(13).Symbol;
 
 /***/ },
 /* 146 */
@@ -7406,7 +7472,7 @@ module.exports = __webpack_require__(60).f('iterator');
 __webpack_require__(82);
 __webpack_require__(84);
 __webpack_require__(178);
-module.exports = __webpack_require__(12).WeakMap;
+module.exports = __webpack_require__(13).WeakMap;
 
 /***/ },
 /* 148 */
@@ -7838,7 +7904,7 @@ module.exports = Object.getPrototypeOf || function(O){
 
 // most Object methods by ES6 should accept primitives
 var $export = __webpack_require__(18)
-  , core    = __webpack_require__(12)
+  , core    = __webpack_require__(13)
   , fails   = __webpack_require__(27);
 module.exports = function(KEY, exec){
   var fn  = (core.Object || {})[KEY] || Object[KEY]
@@ -8486,24 +8552,24 @@ exports.locals = {
 
 exports = module.exports = __webpack_require__(5)();
 // imports
-exports.i(__webpack_require__(13), undefined);
+exports.i(__webpack_require__(14), undefined);
 
 // module
 exports.push([module.i, ".rc-backdrop-1LmPN {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.rc-dialog-1BuO_ {\n}\n\n.rc-open-_M3u7 {\n}\n\n.rc-rtl-3S3hC {\n}\n\n.rc-type_transparent-2jRIN {\n}\n\n.rc-type_lightbox-3mq9k {\n}\n\n.rc-header-3x35N {\n}\n\n.rc-body-1u030 {\n}\n\n.rc-footer-128gi {\n}\n\n.rc-close-3qn4Q {\n}\n\n.rc-close_focused-XFPXG {\n}\n", ""]);
 
 // exports
 exports.locals = {
-	"backdrop": "rc-backdrop-1LmPN " + __webpack_require__(13).locals["l-backdrop"] + "",
-	"dialog": "rc-dialog-1BuO_ " + __webpack_require__(13).locals["c-dialog"] + "",
-	"open": "rc-open-_M3u7 " + __webpack_require__(13).locals["is-open"] + "",
-	"rtl": "rc-rtl-3S3hC " + __webpack_require__(13).locals["is-rtl"] + "",
-	"type_transparent": "rc-type_transparent-2jRIN " + __webpack_require__(13).locals["l-backdrop--transparent"] + "",
-	"type_lightbox": "rc-type_lightbox-3mq9k " + __webpack_require__(13).locals["l-backdrop--lightbox"] + "",
-	"header": "rc-header-3x35N " + __webpack_require__(13).locals["c-dialog__header"] + "",
-	"body": "rc-body-1u030 " + __webpack_require__(13).locals["c-dialog__body"] + "",
-	"footer": "rc-footer-128gi " + __webpack_require__(13).locals["c-dialog__footer"] + "",
-	"close": "rc-close-3qn4Q " + __webpack_require__(13).locals["c-dialog__close"] + "",
-	"close_focused": "rc-close_focused-XFPXG " + __webpack_require__(13).locals["is-focused"] + ""
+	"backdrop": "rc-backdrop-1LmPN " + __webpack_require__(14).locals["l-backdrop"] + "",
+	"dialog": "rc-dialog-1BuO_ " + __webpack_require__(14).locals["c-dialog"] + "",
+	"open": "rc-open-_M3u7 " + __webpack_require__(14).locals["is-open"] + "",
+	"rtl": "rc-rtl-3S3hC " + __webpack_require__(14).locals["is-rtl"] + "",
+	"type_transparent": "rc-type_transparent-2jRIN " + __webpack_require__(14).locals["l-backdrop--transparent"] + "",
+	"type_lightbox": "rc-type_lightbox-3mq9k " + __webpack_require__(14).locals["l-backdrop--lightbox"] + "",
+	"header": "rc-header-3x35N " + __webpack_require__(14).locals["c-dialog__header"] + "",
+	"body": "rc-body-1u030 " + __webpack_require__(14).locals["c-dialog__body"] + "",
+	"footer": "rc-footer-128gi " + __webpack_require__(14).locals["c-dialog__footer"] + "",
+	"close": "rc-close-3qn4Q " + __webpack_require__(14).locals["c-dialog__close"] + "",
+	"close_focused": "rc-close_focused-XFPXG " + __webpack_require__(14).locals["is-focused"] + ""
 };
 
 /***/ },
