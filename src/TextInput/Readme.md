@@ -28,6 +28,7 @@ By not providing a `value` prop, the component becomes "uncontrolled" (Read more
 initial value, use `defaultValue`. You can access the underlying input ref through `ref.input`.
 
 ```
+let node;
 initialState={ value: 'Bob', uncontrolled: '' };
 
 <Grid columns={ 3 }>
@@ -41,12 +42,12 @@ initialState={ value: 'Bob', uncontrolled: '' };
   <Text>Uncontrolled</Text>
   <TextInput
     defaultValue='Bob'
-    ref={ (ref) => ref && (this.input = ref.input) }
+    ref={ (ref) => ref && (node = ref.input) }
   />
   <Text>Value: { state.uncontrolled }</Text>
 
   <Button onClick={ () => {
-    setState({ uncontrolled: this.input.value })
+    setState({ uncontrolled: node.value })
   }}>Submit</Button>
 
 </Grid>
