@@ -6,6 +6,7 @@ export default class Core extends Component {
     autoFocus: PropTypes.bool,
     isFocused: PropTypes.bool,
     className: PropTypes.string,
+    defaultValue: PropTypes.string,
     dir: PropTypes.oneOf(['ltr', 'rtl']),
     disabled: PropTypes.bool.isRequired,
     name: PropTypes.string,
@@ -33,8 +34,7 @@ export default class Core extends Component {
     autoComplete: 'off',
     disabled: false,
     rows: 2,
-    type: 'text',
-    value: ''
+    type: 'text'
   }
 
   render () {
@@ -42,6 +42,7 @@ export default class Core extends Component {
       autoComplete,
       autoFocus,
       className,
+      defaultValue,
       dir,
       disabled,
       isFocused,
@@ -81,6 +82,7 @@ export default class Core extends Component {
       autoComplete,
       className,
       'data-test-id': testId,
+      defaultValue,
       dir,
       disabled,
       name,
@@ -97,12 +99,17 @@ export default class Core extends Component {
       rows,
       tabIndex,
       type,
-      value,
-      ref (input) {
-        input && isFocused && input.focus()
-      }
+      value
     }
 
-    return <textarea { ...props }/>
+    return (
+      <textarea
+        { ...props }
+        ref={(input) => {
+          this.input = input
+          input && isFocused && input.focus()
+        }}
+      />
+    )
   }
 }

@@ -1,6 +1,8 @@
 import React from 'react'
 import expect from 'test/expect'
 import sinon from 'sinon'
+import TestUtils from 'react-addons-test-utils'
+import { findDOMNode } from 'react-dom'
 
 import TextArea from './'
 import View from '../core/View'
@@ -31,7 +33,7 @@ describe('TextArea', () => {
   describe('with a label', () => {
     it('renders a label above the input', () => {
       expect(
-        <TextArea label='This is a label' />,
+        <TextArea label='This is a label' value='' />,
         'to deeply render as',
         <View>
           <label>This is a label</label>
@@ -46,6 +48,7 @@ describe('TextArea', () => {
           <TextArea
             id='my-id'
             label='This is a label'
+            value=''
           />,
           'to deeply render as',
           <View>
@@ -300,6 +303,62 @@ describe('TextArea.Core', () => {
       ).then(() => {
         expect(onEscape, 'was called times', 1)
       })
+    })
+  })
+
+  describe('when using it as a controlled input', () => {
+    it('the defaultValue is ignored', () => {
+      let node
+
+      return expect(
+        <TextArea.Core
+          defaultValue='Hello'
+          ref={ (ref) => node = ref }
+          value='Hi'
+        />,
+        'when deeply rendered',
+        'with event', 'focus', 'on', <textarea />
+      ).then(() => {
+        expect(node.input.value, 'to equal', 'Hi')
+      })
+    })
+  })
+
+  describe('when using it as an uncontrolled input', () => {
+    describe('when using defaultValue', () => {
+      it('it is set on the DOM node', () => {
+        let node
+
+        const component = TestUtils.renderIntoDocument(
+          <TextArea.Core
+            defaultValue='Hello'
+            ref={ (ref) => node = ref }
+          />
+        )
+        const input = findDOMNode(component)
+
+        expect(input.value, 'to equal', 'Hello')
+        expect(input.value, 'to equal', node.input.value)
+      })
+    })
+  })
+
+  describe('when changing the text', () => {
+    it('the value is set on the DOM node', () => {
+      let node
+
+      const component = TestUtils.renderIntoDocument(
+        <TextArea.Core
+          defaultValue='Hello'
+          ref={ (ref) => node = ref }
+        />
+      )
+      const input = findDOMNode(component)
+      input.value = 'Hello world'
+      TestUtils.Simulate.change(input)
+
+      expect(node.input.value, 'to equal', input.value)
+      expect(node.input.value, 'to equal', 'Hello world')
     })
   })
 })

@@ -17,6 +17,7 @@ export default class TextInput extends ThemedComponent {
     className: PropTypes.string,
     id: PropTypes.string,
     isFocused: PropTypes.bool,
+    defaultValue: PropTypes.string,
     dir: PropTypes.oneOf(['ltr', 'rtl']),
     disabled: PropTypes.bool.isRequired,
     label: PropTypes.string,
@@ -89,6 +90,11 @@ export default class TextInput extends ThemedComponent {
           { ...other }
           id={ this.getId() }
           className={ classNames(theme.input, className) }
+          ref={ ref => {
+            if (ref && ref.input) {
+              this.input = ref.input
+            }
+          }}
         />
       </View>
     )
