@@ -1,5 +1,10 @@
 ## Change Log
 
+### v3.0.0 (2016/12/14 09:20 +00:00)
+- [#92](https://github.com/zendeskgarden/react-components/pull/92) Enable TextInput to be an uncontrolled component (Major) (@albertfdp)
+- [#94](https://github.com/zendeskgarden/react-components/pull/94) Show modals by default (Major) (@sunesimonsen)
+- [#96](https://github.com/zendeskgarden/react-components/pull/96) Support more uncontrolled components (Major) (@albertfdp)
+
 ### v2.12.1 (2016/12/06 20:10 +00:00)
 - [#90](https://github.com/zendeskgarden/react-components/pull/90) Upgraded css-forms to 0.3.1 to fix bug in IE (@sunesimonsen)
 
