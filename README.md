@@ -26,6 +26,10 @@ import { Button, Avatar } from 'zd-react-components'
 In order to make the components look correctly, you need to include the
 [css-bedrock](https://github.com/zendeskgarden/css-bedrock) stylesheet.
 
+```
+$ npm install --save git+ssh://git@github.com:zendeskgarden/css-bedrock.git
+```
+
 See the [example](https://github.com/zendeskgarden/react-components/tree/master/example)
 for more information on the setup.
 

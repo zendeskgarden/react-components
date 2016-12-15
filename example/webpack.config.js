@@ -1,7 +1,5 @@
 var path = require('path')
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin')
-var cssnext = require('postcss-cssnext')
-var importer = require('postcss-import')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
@@ -12,7 +10,10 @@ var config = {
 
   entry: {
     'bundle': './src/index.js',
+
+    // This includes the bedrock CSS
     'bedrock': 'zd-css-bedrock',
+
     'vendor': [
       'react',
       'react-dom',
@@ -32,7 +33,7 @@ var config = {
     loaders: [
       {
         test: /\.js$/,
-        include: path.resolve(__dirname, 'src'),
+        include: path.resolve(sourceDir),
         loader: 'babel'
       },
       {
@@ -45,10 +46,10 @@ var config = {
       },
       {
         test: /\.css$/,
-        include: path.resolve(__dirname, 'src'),
+        include: path.resolve(sourceDir),
         loader: ExtractTextPlugin.extract({
           fallbackLoader: 'style',
-          loader: 'css?module&importLoaders=1&localIdentName=[path][name]---[local]---[hash:base64:5]!postcss'
+          loader: 'css'
         })
       }
     ]
@@ -64,16 +65,6 @@ var config = {
       minChunks: Infinity
     }),
     new HtmlWebpackPlugin()
-  ],
-
-  postcss: [
-    importer({
-      path: [
-        path.resolve(__dirname, 'node_modules'),
-        sourceDir
-      ]
-    }),
-    cssnext()
   ]
 }
 
