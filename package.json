@@ -8,8 +8,9 @@
     "start": "styleguidist server",
     "build": "styleguidist build",
     "css-lint": "stylelint `find src -name '*.css'`",
+    "jest": "jest --watch",
     "lint": "standard && npm run css-lint",
-    "test": "karma start --single-run && npm run lint",
+    "test": "npm run lint && jest",
     "dist": "webpack --progress && NODE_ENV=production webpack -p --progress",
     "changelog": "github-changes -o zendeskgarden -r react-components -a --only-pulls --use-commit-body",
     "gh-pages": "npm run build && gh-pages -d styleguide",
@@ -45,18 +46,9 @@
     "file-loader": "0.9.0",
     "gh-pages": "0.11.0",
     "github-changes": "1.0.2",
-    "isparta-loader": "2.0.0",
+    "identity-obj-proxy": "3.0.0",
+    "jest": "17.0.3",
     "json-loader": "0.5.4",
-    "karma": "0.13.22",
-    "karma-chrome-launcher": "1.0.1",
-    "karma-coverage": "1.0.0",
-    "karma-jsdom-launcher": "3.0.0",
-    "karma-mocha": "1.0.1",
-    "karma-sinon": "1.0.5",
-    "karma-sourcemap-loader": "0.3.7",
-    "karma-spec-reporter": "0.0.26",
-    "karma-webpack": "1.8.0",
-    "mocha": "2.5.3",
     "postcss-cssnext": "^2.4",
     "postcss-import": "8.1.0",
     "postcss-input-range": "git+ssh://git@github.com/jonathantneal/postcss-input-range#ed1b254ba56316dbb4a939b86f39278bda53f4fa",
@@ -106,5 +98,20 @@
     ],
     "ignore": "/dist/",
     "parser": "babel-eslint"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css)$": "<rootDir>/test/styleMock.js",
+      "test/expect": "<rootDir>/test/unexpected-with-plugins.js"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/test/index.js",
+    "testPathIgnorePatterns": [
+      "<rootDir>/(build|node_modules)/"
+    ],
+    "testRegex": "\\.*(spec\\.js)$"
   }
 }

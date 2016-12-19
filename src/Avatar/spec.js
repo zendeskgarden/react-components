@@ -17,7 +17,7 @@ describe('Avatar', () => {
       expect(
         <Avatar src='zendesk.png' alt='Zendesk' type='system' />,
         'to render as',
-        <View className='c-avatar type_system'>
+        <View className='avatar type_system'>
           <img src='zendesk.png' alt='Zendesk' />
         </View>
       )
@@ -29,7 +29,7 @@ describe('Avatar', () => {
       expect(
         <Avatar src='zendesk.png' alt='Zendesk' status='present' />,
         'to render as',
-        <View className='c-avatar status_present'>
+        <View className='avatar status_present'>
           <img src='zendesk.png' alt='Zendesk' />
         </View>
       )
@@ -41,7 +41,7 @@ describe('Avatar', () => {
       expect(
         <Avatar src='zendesk.png' alt='Zendesk' status='away' />,
         'to render as',
-        <View className='c-avatar status_away'>
+        <View className='avatar status_away'>
           <img src='zendesk.png' alt='Zendesk' />
         </View>
       )
@@ -53,7 +53,7 @@ describe('Avatar', () => {
       expect(
         <Avatar src='zendesk.png' alt='Zendesk' status='active' />,
         'to render as',
-        <View className='c-avatar status_active'>
+        <View className='avatar status_active'>
           <img src='zendesk.png' alt='Zendesk' />
         </View>
       )
@@ -65,7 +65,7 @@ describe('Avatar', () => {
       expect(
         <Avatar src='zendesk.png' alt='Zendesk' size='small' />,
         'to render as',
-        <View className='c-avatar size_small'>
+        <View className='avatar size_small'>
           <img src='zendesk.png' alt='Zendesk' />
         </View>
       )
@@ -77,7 +77,7 @@ describe('Avatar', () => {
       expect(
         <Avatar src='zendesk.png' alt='Zendesk' size='medium' />,
         'to render as',
-        <View className='c-avatar'>
+        <View className='avatar'>
           <img src='zendesk.png' alt='Zendesk' />
         </View>
       )
@@ -89,7 +89,7 @@ describe('Avatar', () => {
       expect(
         <Avatar src='zendesk.png' alt='Zendesk' size='large' />,
         'to render as',
-        <View className='c-avatar size_large'>
+        <View className='avatar size_large'>
           <img src='zendesk.png' alt='Zendesk' />
         </View>
       )
@@ -101,7 +101,7 @@ describe('Avatar', () => {
       expect(
         <Avatar src='zendesk.png' alt='Zendesk' size='65px' />,
         'to render as',
-        <View className='c-avatar' style={{ height: '65px', width: '65px' }}>
+        <View className='avatar' style={{ height: '65px', width: '65px' }}>
           <img src='zendesk.png' alt='Zendesk' />
         </View>
       )

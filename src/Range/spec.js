@@ -51,9 +51,9 @@ describe('Range', () => {
       expect(
         <Range disabled />,
         'to render as',
-        <View className='c-range'>
+        <View className='range'>
           <input
-            className='c-range__input'
+            className='input'
             disabled
             type='range'
           />

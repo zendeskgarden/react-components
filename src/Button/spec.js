@@ -96,7 +96,7 @@ describe('Button', () => {
       expect(
         <Button type='primary'>Primary</Button>,
         'to deeply render as',
-        <View role='button' className='type_primary c-btn c-btn--primary'>Primary</View>
+        <View role='button' className='type_primary'>Primary</View>
       )
     })
   })
@@ -106,7 +106,7 @@ describe('Button', () => {
       expect(
         <Button type='basic'>Basic</Button>,
         'to deeply render as',
-        <View role='button' className='type_basic c-btn c-btn--basic'>Basic</View>
+        <View role='button' className='type_basic'>Basic</View>
       )
     })
   })
@@ -116,7 +116,7 @@ describe('Button', () => {
       expect(
         <Button stretched>Stretched</Button>,
         'to deeply render as',
-        <View role='button' className='c-btn c-btn--full'>Stretched</View>
+        <View role='button' className='stretched'>Stretched</View>
       )
     })
   })
@@ -126,7 +126,7 @@ describe('Button', () => {
       expect(
         <Button size='medium'>Medium</Button>,
         'to deeply render as',
-        <View role='button' className='c-btn c-btn--medium'>Medium</View>
+        <View role='button' className='size_medium'>Medium</View>
       )
     })
   })
@@ -136,7 +136,7 @@ describe('Button', () => {
       expect(
         <Button size='large'>Large</Button>,
         'to deeply render as',
-        <View role='button' className='c-btn c-btn--large'>Large</View>
+        <View role='button' className='size_large'>Large</View>
       )
     })
   })
@@ -156,7 +156,7 @@ describe('Button', () => {
       expect(
         <Button disabled>Disabled</Button>,
         'to deeply render as',
-        <View role='button' tabIndex={-1} className='c-btn is-disabled' disabled>Disabled</View>
+        <View role='button' tabIndex={-1} className='disabled' disabled>Disabled</View>
       )
     })
   })

@@ -24,7 +24,7 @@ describe('TextArea', () => {
         <TextArea resizable/>,
         'to render as',
         <View className='txt'>
-          <TextArea.Core className='is-resizable' />
+          <TextArea.Core className='input resizable' />
         </View>
       )
     })
