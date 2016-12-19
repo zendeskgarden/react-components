@@ -70,6 +70,11 @@
   font-weight: var(--zd-font-weight-regular);
 }
 
+.ReactStyleguidist-StyleGuide__content {
+  margin: 0;
+  min-width: 640px;
+}
+
 .ReactStyleguidist-StyleGuide__footer {
   display: none;
 }
@@ -80,7 +85,7 @@
 
 .ReactStyleguidist-StyleGuide__sidebar {
   left: 300px;
-  background-color: transparent;
+  background-color: inherit;
   width: 210px;
 }
 
