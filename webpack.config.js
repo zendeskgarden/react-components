@@ -35,14 +35,7 @@ module.exports = {
       {
         test: /\.js$/,
         include: sourceDir,
-        loader: 'babel',
-        query: {
-          presets: [
-            [ 'es2015', { 'loose': true, 'modules': false } ],
-            'react',
-            'stage-0'
-          ]
-        }
+        loader: 'babel'
       },
       {
         test: /\.css$/,
