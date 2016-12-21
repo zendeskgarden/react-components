@@ -76,7 +76,8 @@ module.exports = {
             cssnext()
           ]
         }
-      })
+      }),
+      new webpack.optimize.OccurrenceOrderPlugin()
     )
 
     return webpackConfig
