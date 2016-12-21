@@ -1,5 +1,11 @@
 ## Change Log
 
+### v3.1.1 (2016/12/21 12:37 +00:00)
+- [#104](https://github.com/zendeskgarden/react-components/pull/104) Fix toggle hidden crash in menu (@sunesimonsen)
+- [#103](https://github.com/zendeskgarden/react-components/pull/103) Use the .babelrc file and optimize the module order (@sunesimonsen)
+- [#99](https://github.com/zendeskgarden/react-components/pull/99) Use jest (@albertfdp)
+- [#98](https://github.com/zendeskgarden/react-components/pull/98) Simplify example (@albertfdp)
+
 ### v3.1.0 (2016/12/14 15:32 +00:00)
 - [#95](https://github.com/zendeskgarden/react-components/pull/95) Added an dark electroid theme (@sunesimonsen)
 
