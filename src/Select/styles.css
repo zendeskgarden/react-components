@@ -1,0 +1,39 @@
+@import 'zd-css-variables';
+
+.stretched {
+  width: 100%;
+
+  flex: 1;
+}
+
+.txt {
+  composes: c-txt from 'zd-css-forms';
+}
+
+.txt:focus {
+  outline: none;
+}
+
+.input {
+  composes: c-txt__input c-txt__input--select from 'zd-css-forms';
+}
+
+.label {
+  composes: c-txt__label from 'zd-css-forms';
+}
+
+.rtl {
+  composes: is-rtl from 'zd-css-forms';
+}
+
+.open {
+  composes: is-open from 'zd-css-forms';
+}
+
+.focused {
+  composes: is-focused from 'zd-css-forms';
+}
+
+.disabled {
+  composes: is-disabled from 'zd-css-forms';
+}
