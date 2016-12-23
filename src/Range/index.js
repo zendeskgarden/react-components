@@ -9,6 +9,7 @@ import styles from './styles.css'
 export default class Range extends ThemedComponent {
   static propTypes = {
     id: PropTypes.string,
+    label: PropTypes.string,
     min: PropTypes.number,
     max: PropTypes.number,
     value: PropTypes.number,

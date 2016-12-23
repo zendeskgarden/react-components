@@ -4,6 +4,7 @@ import Menu from './Menu.css'
 import Modal from './Modal.css'
 import RadioButton from './RadioButton.css'
 import Range from './Range.css'
+import Select from './Select.css'
 import Tabs from './Tabs.css'
 import TextArea from './TextArea.css'
 import TextInput from './TextInput.css'
@@ -16,6 +17,7 @@ const theme = {
   Modal,
   RadioButton,
   Range,
+  Select,
   Tabs,
   TextArea,
   TextInput,

@@ -7905,9 +7905,9 @@ yargs@~4.6.0:
   version "0.2.0"
   resolved "git+ssh://git@github.com/zendeskgarden/css-fonts.git#48353a907f59779efeb259a7136f23d2a6234fb8"
 
-"zd-css-forms@git+ssh://git@github.com/zendeskgarden/css-forms.git#0.3.1":
-  version "0.3.1"
-  resolved "git+ssh://git@github.com/zendeskgarden/css-forms.git#ddc2f3202d910f0c0097d42bf9e21254104c7776"
+"zd-css-forms@git+ssh://git@github.com/zendeskgarden/css-forms.git#0.3.2":
+  version "0.3.2"
+  resolved "git+ssh://git@github.com/zendeskgarden/css-forms.git#7ed5059de2290a2427cd32c6d2ab58eb9b8f89c5"
 
 "zd-css-menus@git+ssh://git@github.com/zendeskgarden/css-menus.git#2.3.0":
   version "2.3.0"
@@ -7924,10 +7924,6 @@ yargs@~4.6.0:
 "zd-css-variables@git+ssh://git@github.com/zendeskgarden/css-variables.git#0.9.0":
   version "0.9.0"
   resolved "git+ssh://git@github.com/zendeskgarden/css-variables.git#a20ca8bad5bbc1a7a61c02237603a36c781827a7"
-
-"zd-svg-icons@git+ssh://git@github.com/zendeskgarden/svg-icons.git#0.11.0":
-  version "0.11.0"
-  resolved "git+ssh://git@github.com/zendeskgarden/svg-icons.git#1ba5d685f94d171591659e0819e905441aea6357"
 
 "zd-svg-icons@git+ssh://git@github.com/zendeskgarden/svg-icons.git#0.12.0":
   version "0.12.0"

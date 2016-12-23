@@ -93,7 +93,7 @@ export default class Core extends Component {
         onFocus={ this.onFocus }
         onMouseDown={ this.onMouseDown }
         onSpace={ this.onKeyboardClick }
-        tabIndex={ disabled ? -1 : tabIndex }
+        tabIndex={ disabled ? null : tabIndex }
         role='button'
         title={ title }
       >

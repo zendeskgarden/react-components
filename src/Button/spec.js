@@ -156,7 +156,7 @@ describe('Button', () => {
       expect(
         <Button disabled>Disabled</Button>,
         'to deeply render as',
-        <View role='button' tabIndex={-1} className='disabled' disabled>Disabled</View>
+        <View role='button' tabIndex={null} className='disabled' disabled>Disabled</View>
       )
     })
   })
