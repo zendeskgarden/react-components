@@ -1,5 +1,8 @@
 ## Change Log
 
+### v3.2.0 (2016/12/23 19:33 +00:00)
+- [#105](https://github.com/zendeskgarden/react-components/pull/105) New Garden styled Select component (@sunesimonsen)
+
 ### v3.1.1 (2016/12/21 12:37 +00:00)
 - [#104](https://github.com/zendeskgarden/react-components/pull/104) Fix toggle hidden crash in menu (@sunesimonsen)
 - [#103](https://github.com/zendeskgarden/react-components/pull/103) Use the .babelrc file and optimize the module order (@sunesimonsen)
