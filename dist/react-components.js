@@ -1831,7 +1831,7 @@ var ReactSingleSelectionModel = function () {
       _react2.default.Children.forEach(this._items, function (item) {
         if (item && item.type && item.type.selectable && !item.props.disabled) {
           selectable.push(item);
-          if (_this2.hasSelection() && item.key === selection.key) {
+          if (_this2.hasSelection() && item.props.value === selection.props.value) {
             _this2.model.selection = item;
           }
         }
@@ -4855,11 +4855,15 @@ Select.Item = _.Menu.Item;
 Select.Separator = _.Menu.Separator;
 Select.propTypes = {
   children: _react.PropTypes.node.isRequired,
-  /* This is for use in self-service-components only */
+  /**
+   * This is for use in self-service-components only
+   */
   className: _react.PropTypes.string,
   dir: _react.PropTypes.oneOf(['ltr', 'rtl']),
   disabled: _react.PropTypes.bool,
-  /* This is for use in self-service-components only */
+  /**
+   * This is for use in self-service-components only
+   */
   inputClassName: _react.PropTypes.string,
   label: _react.PropTypes.string,
   maxHeight: _react.PropTypes.oneOfType([_react.PropTypes.number, _react.PropTypes.string]),
