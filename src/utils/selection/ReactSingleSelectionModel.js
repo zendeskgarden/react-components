@@ -31,7 +31,7 @@ export default class ReactSingleSelectionModel {
     React.Children.forEach(this._items, (item) => {
       if (item && item.type && item.type.selectable && !item.props.disabled) {
         selectable.push(item)
-        if (this.hasSelection() && item.key === selection.key) {
+        if (this.hasSelection() && item.props.value === selection.props.value) {
           this.model.selection = item
         }
       }
