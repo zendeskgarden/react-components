@@ -1,5 +1,8 @@
 ## Change Log
 
+### v3.2.1 (2016/12/25 09:04 +00:00)
+- [#107](https://github.com/zendeskgarden/react-components/pull/107) Fix select (@sunesimonsen)
+
 ### v3.2.0 (2016/12/23 19:33 +00:00)
 - [#105](https://github.com/zendeskgarden/react-components/pull/105) New Garden styled Select component (@sunesimonsen)
 
