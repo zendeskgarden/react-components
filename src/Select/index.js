@@ -13,11 +13,15 @@ export default class Select extends ThemedComponent {
 
   static propTypes = {
     children: PropTypes.node.isRequired,
-    /* This is for use in self-service-components only */
+    /**
+     * This is for use in self-service-components only
+     */
     className: PropTypes.string,
     dir: PropTypes.oneOf(['ltr', 'rtl']),
     disabled: PropTypes.bool,
-    /* This is for use in self-service-components only */
+    /**
+     * This is for use in self-service-components only
+     */
     inputClassName: PropTypes.string,
     label: PropTypes.string,
     maxHeight: PropTypes.oneOfType([
@@ -70,7 +74,7 @@ export default class Select extends ThemedComponent {
       <label
         className={ theme.label }
         htmlFor={ this.getId() }
-        >
+      >
         { label }
       </label>
     )
