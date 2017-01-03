@@ -10,7 +10,7 @@ const extendStyles = (styles, theme, namespace) => {
       const styleDefined = key in styles
 
       if (!styleDefined) {
-        throw new Error(
+        console.warn(
           `Trying to override an undefined style: ${namespace}.${key}\n` +
           `Styles defined for ${namespace}:\n` +
           Object.keys(styles).join('\n')
