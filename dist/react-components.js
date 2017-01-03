@@ -823,7 +823,7 @@ var extendStyles = function extendStyles(styles, theme, namespace) {
         var styleDefined = key in styles;
 
         if (!styleDefined) {
-          throw new Error('Trying to override an undefined style: ' + namespace + '.' + key + '\n' + ('Styles defined for ' + namespace + ':\n') + (0, _keys2.default)(styles).join('\n'));
+          console.warn('Trying to override an undefined style: ' + namespace + '.' + key + '\n' + ('Styles defined for ' + namespace + ':\n') + (0, _keys2.default)(styles).join('\n'));
         }
       });
 
