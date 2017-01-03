@@ -1,5 +1,8 @@
 ## Change Log
 
+### v3.3.0 (2017/01/03 15:18 +00:00)
+- [#109](https://github.com/zendeskgarden/react-components/pull/109) Don't thrown an error when you are overriding an undefined style just log a warning (@sunesimonsen)
+
 ### v3.2.1 (2016/12/25 09:04 +00:00)
 - [#107](https://github.com/zendeskgarden/react-components/pull/107) Fix select (@sunesimonsen)
 
