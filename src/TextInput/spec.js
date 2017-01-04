@@ -108,9 +108,9 @@ describe('TextInput.Core', () => {
 
   it('renders text input with maxLength value', () => {
     expect(
-      <TextInput.Core maxLength={ 10 } />,
+      <TextInput.Core maxLength={10} />,
       'to render as',
-      <input type='text' maxLength={ 10 } />
+      <input type='text' maxLength={10} />
     )
   })
 
@@ -151,7 +151,7 @@ describe('TextInput.Core', () => {
       const onChangeText = sinon.spy()
 
       return expect(
-        <TextInput.Core onChangeText={ onChangeText }/>,
+        <TextInput.Core onChangeText={onChangeText} />,
         'when deeply rendered',
         'with event', 'change', { target: { value: 'hello' } }, 'on', <input type='text' />,
       ).then(() => {
@@ -167,7 +167,7 @@ describe('TextInput.Core', () => {
       const onFocus = sinon.spy()
 
       return expect(
-        <TextInput.Core onFocus={ onFocus }/>,
+        <TextInput.Core onFocus={onFocus} />,
         'when deeply rendered',
         'with event', 'focus', 'on', <input type='text' />,
       ).then(() => {
@@ -181,7 +181,7 @@ describe('TextInput.Core', () => {
       const onBlur = sinon.spy()
 
       return expect(
-        <TextInput.Core onBlur={ onBlur }/>,
+        <TextInput.Core onBlur={onBlur} />,
         'when deeply rendered',
         'with event', 'blur', 'on', <input type='text' />,
       ).then(() => {
@@ -195,7 +195,7 @@ describe('TextInput.Core', () => {
       const onKeyDown = sinon.spy()
 
       return expect(
-        <TextInput.Core onKeyDown={ onKeyDown }/>,
+        <TextInput.Core onKeyDown={onKeyDown} />,
         'when deeply rendered',
         'with event', 'keyDown', 'on', <input type='text' />,
       ).then(() => {
@@ -209,7 +209,7 @@ describe('TextInput.Core', () => {
       const onArrowUp = sinon.spy()
 
       return expect(
-        <TextInput.Core onArrowUp={ onArrowUp }/>,
+        <TextInput.Core onArrowUp={onArrowUp} />,
         'when deeply rendered',
         'with event', 'keyDown', { keyCode: 38 }, 'on', <input type='text' />,
       ).then(() => {
@@ -223,7 +223,7 @@ describe('TextInput.Core', () => {
       const onArrowDown = sinon.spy()
 
       return expect(
-        <TextInput.Core onArrowDown={ onArrowDown }/>,
+        <TextInput.Core onArrowDown={onArrowDown} />,
         'when deeply rendered',
         'with event', 'keyDown', { keyCode: 40 }, 'on', <input type='text' />,
       ).then(() => {
@@ -237,7 +237,7 @@ describe('TextInput.Core', () => {
       const onArrowLeft = sinon.spy()
 
       return expect(
-        <TextInput.Core onArrowLeft={ onArrowLeft }/>,
+        <TextInput.Core onArrowLeft={onArrowLeft} />,
         'when deeply rendered',
         'with event', 'keyDown', { keyCode: 37 }, 'on', <input type='text' />,
       ).then(() => {
@@ -251,7 +251,7 @@ describe('TextInput.Core', () => {
       const onArrowRight = sinon.spy()
 
       return expect(
-        <TextInput.Core onArrowRight={ onArrowRight }/>,
+        <TextInput.Core onArrowRight={onArrowRight} />,
         'when deeply rendered',
         'with event', 'keyDown', { keyCode: 39 }, 'on', <input type='text' />,
       ).then(() => {
@@ -265,7 +265,7 @@ describe('TextInput.Core', () => {
       const onDelete = sinon.spy()
 
       return expect(
-        <TextInput.Core onDelete={ onDelete }/>,
+        <TextInput.Core onDelete={onDelete} />,
         'when deeply rendered',
         'with event', 'keyDown', { keyCode: 8 }, 'on', <input type='text' />,
       ).then(() => {
@@ -279,7 +279,7 @@ describe('TextInput.Core', () => {
       const onEnter = sinon.spy()
 
       return expect(
-        <TextInput.Core onEnter={ onEnter }/>,
+        <TextInput.Core onEnter={onEnter} />,
         'when deeply rendered',
         'with event', 'keyDown', { keyCode: 13 }, 'on', <input type='text' />,
       ).then(() => {
@@ -293,7 +293,7 @@ describe('TextInput.Core', () => {
       const onEscape = sinon.spy()
 
       return expect(
-        <TextInput.Core onEscape={ onEscape }/>,
+        <TextInput.Core onEscape={onEscape} />,
         'when deeply rendered',
         'with event', 'keyDown', { keyCode: 27 }, 'on', <input type='text' />,
       ).then(() => {
@@ -309,7 +309,7 @@ describe('TextInput.Core', () => {
       return expect(
         <TextInput.Core
           defaultValue='Hello'
-          ref={ (ref) => node = ref }
+          ref={(ref) => { node = ref }}
           value='Hi'
         />,
         'when deeply rendered',
@@ -328,7 +328,7 @@ describe('TextInput.Core', () => {
         const component = TestUtils.renderIntoDocument(
           <TextInput.Core
             defaultValue='Hello'
-            ref={ (ref) => node = ref }
+            ref={(ref) => { node = ref }}
           />
         )
         const input = findDOMNode(component)
@@ -346,7 +346,7 @@ describe('TextInput.Core', () => {
       const component = TestUtils.renderIntoDocument(
         <TextInput.Core
           defaultValue='Hello'
-          ref={ (ref) => node = ref }
+          ref={(ref) => { node = ref }}
         />
       )
       const input = findDOMNode(component)

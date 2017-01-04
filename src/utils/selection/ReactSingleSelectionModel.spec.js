@@ -19,7 +19,7 @@ describe('ReactSingleSelectionModel', () => {
       model.items = [
         <Menu.Item value='foo'>Foo</Menu.Item>,
         <Menu.Item value='bar'>Bar</Menu.Item>,
-        <Menu.Separator/>,
+        <Menu.Separator />,
         <Menu.Item value='baz' disabled>Baz</Menu.Item>,
         <Menu.Item value='qux'>Qux</Menu.Item>
       ]
@@ -32,7 +32,7 @@ describe('ReactSingleSelectionModel', () => {
 
         model.items = [
           <Menu.Item value='bar' selected>Bar</Menu.Item>,
-          <Menu.Separator/>,
+          <Menu.Separator />,
           <Menu.Item value='baz' disabled>Baz</Menu.Item>,
           <Menu.Item value='qux'>Qux</Menu.Item>
         ]
@@ -46,7 +46,7 @@ describe('ReactSingleSelectionModel', () => {
         expect(model.items, 'to satisfy', [
           <Menu.Item value='foo' selected>Foo</Menu.Item>,
           <Menu.Item value='bar'>Bar</Menu.Item>,
-          <Menu.Separator/>,
+          <Menu.Separator />,
           <Menu.Item value='baz' disabled>Baz</Menu.Item>,
           <Menu.Item value='qux'>Qux</Menu.Item>
         ])
@@ -58,7 +58,7 @@ describe('ReactSingleSelectionModel', () => {
         expect(model.items, 'to satisfy', [
           <Menu.Item value='foo'>Foo</Menu.Item>,
           <Menu.Item value='bar'>Bar</Menu.Item>,
-          <Menu.Separator/>,
+          <Menu.Separator />,
           <Menu.Item value='baz' disabled>Baz</Menu.Item>,
           <Menu.Item value='qux' selected>Qux</Menu.Item>
         ])
@@ -70,7 +70,7 @@ describe('ReactSingleSelectionModel', () => {
         expect(model.items, 'to satisfy', [
           <Menu.Item value='foo' selected>Foo</Menu.Item>,
           <Menu.Item value='bar'>Bar</Menu.Item>,
-          <Menu.Separator/>,
+          <Menu.Separator />,
           <Menu.Item value='baz' disabled>Baz</Menu.Item>,
           <Menu.Item value='qux'>Qux</Menu.Item>
         ])
@@ -82,7 +82,7 @@ describe('ReactSingleSelectionModel', () => {
         expect(model.items, 'to satisfy', [
           <Menu.Item value='foo'>Foo</Menu.Item>,
           <Menu.Item value='bar'>Bar</Menu.Item>,
-          <Menu.Separator/>,
+          <Menu.Separator />,
           <Menu.Item value='baz' disabled>Baz</Menu.Item>,
           <Menu.Item value='qux' selected>Qux</Menu.Item>
         ])
@@ -115,7 +115,7 @@ describe('ReactSingleSelectionModel', () => {
         expect(model.items, 'to satisfy', [
           <Menu.Item value='foo'>Foo</Menu.Item>,
           <Menu.Item value='bar' selected>Bar</Menu.Item>,
-          <Menu.Separator/>,
+          <Menu.Separator />,
           <Menu.Item value='baz' disabled>Baz</Menu.Item>,
           <Menu.Item value='qux'>Qux</Menu.Item>
         ])
@@ -132,7 +132,7 @@ describe('ReactSingleSelectionModel', () => {
           expect(model.items, 'to satisfy', [
             <Menu.Item value='foo'>Foo</Menu.Item>,
             <Menu.Item value='bar'>Bar</Menu.Item>,
-            <Menu.Separator/>,
+            <Menu.Separator />,
             <Menu.Item value='baz' disabled>Baz</Menu.Item>,
             <Menu.Item value='qux' selected>Qux</Menu.Item>
           ])
@@ -144,7 +144,7 @@ describe('ReactSingleSelectionModel', () => {
           expect(model.items, 'to satisfy', [
             <Menu.Item value='foo' selected>Foo</Menu.Item>,
             <Menu.Item value='bar'>Bar</Menu.Item>,
-            <Menu.Separator/>,
+            <Menu.Separator />,
             <Menu.Item value='baz' disabled>Baz</Menu.Item>,
             <Menu.Item value='qux'>Qux</Menu.Item>
           ])
@@ -156,7 +156,7 @@ describe('ReactSingleSelectionModel', () => {
           expect(model.items, 'to satisfy', [
             <Menu.Item value='foo' selected>Foo</Menu.Item>,
             <Menu.Item value='bar'>Bar</Menu.Item>,
-            <Menu.Separator/>,
+            <Menu.Separator />,
             <Menu.Item value='baz' disabled>Baz</Menu.Item>,
             <Menu.Item value='qux'>Qux</Menu.Item>
           ])
@@ -168,7 +168,7 @@ describe('ReactSingleSelectionModel', () => {
           expect(model.items, 'to satisfy', [
             <Menu.Item value='foo'>Foo</Menu.Item>,
             <Menu.Item value='bar'>Bar</Menu.Item>,
-            <Menu.Separator/>,
+            <Menu.Separator />,
             <Menu.Item value='baz' disabled>Baz</Menu.Item>,
             <Menu.Item value='qux' selected>Qux</Menu.Item>
           ])
@@ -185,7 +185,7 @@ describe('ReactSingleSelectionModel', () => {
             expect(model.items, 'to satisfy', [
               <Menu.Item value='foo' selected>Foo</Menu.Item>,
               <Menu.Item value='bar'>Bar</Menu.Item>,
-              <Menu.Separator/>,
+              <Menu.Separator />,
               <Menu.Item value='baz' disabled>Baz</Menu.Item>,
               <Menu.Item value='qux'>Qux</Menu.Item>
             ])
@@ -197,7 +197,7 @@ describe('ReactSingleSelectionModel', () => {
             expect(model.items, 'to satisfy', [
               <Menu.Item value='foo'>Foo</Menu.Item>,
               <Menu.Item value='bar'>Bar</Menu.Item>,
-              <Menu.Separator/>,
+              <Menu.Separator />,
               <Menu.Item value='baz' disabled>Baz</Menu.Item>,
               <Menu.Item value='qux' selected>Qux</Menu.Item>
             ])
@@ -209,7 +209,7 @@ describe('ReactSingleSelectionModel', () => {
             expect(model.items, 'to satisfy', [
               <Menu.Item value='foo' selected>Foo</Menu.Item>,
               <Menu.Item value='bar'>Bar</Menu.Item>,
-              <Menu.Separator/>,
+              <Menu.Separator />,
               <Menu.Item value='baz' disabled>Baz</Menu.Item>,
               <Menu.Item value='qux'>Qux</Menu.Item>
             ])
@@ -221,7 +221,7 @@ describe('ReactSingleSelectionModel', () => {
             expect(model.items, 'to satisfy', [
               <Menu.Item value='foo'>Foo</Menu.Item>,
               <Menu.Item value='bar'>Bar</Menu.Item>,
-              <Menu.Separator/>,
+              <Menu.Separator />,
               <Menu.Item value='baz' disabled>Baz</Menu.Item>,
               <Menu.Item value='qux' selected>Qux</Menu.Item>
             ])

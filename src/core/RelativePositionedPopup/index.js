@@ -245,29 +245,29 @@ class RelativePositionedPopup extends Component {
 
     return (
       <View
-        className={ classNames(styles.container, {
+        className={classNames(styles.container, {
           [styles.stretched]: stretched
-        }) }
-        testId={ testId }
+        })}
+        testId={testId}
       >
         <View
-          className={ classNames(styles.trigger, {
+          className={classNames(styles.trigger, {
             [styles.stretched]: stretched
-          }) }
-          ref={ (ref) => {
+          })}
+          ref={(ref) => {
             this.anchorElement = this.anchorElement || findDOMNode(ref)
           }}
         >
           { anchor }
         </View>
         <View
-          className={ classNames(styles.popup, {
+          className={classNames(styles.popup, {
             [styles.opening]: opening
-          }) }
-          hidden={ hidden }
-          onTab={ this.onTab }
-          style={ popupStyle }
-          ref={ (ref) => {
+          })}
+          hidden={hidden}
+          onTab={this.onTab}
+          style={popupStyle}
+          ref={(ref) => {
             this.popupElement = this.popupElement || findDOMNode(ref)
           }}
         >

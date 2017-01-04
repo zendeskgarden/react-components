@@ -23,7 +23,7 @@ describe('Menu', () => {
     it('renders a menu containing the items', () => (
       expect(
         <Menu
-          trigger={ <Button>trigger</Button> }
+          trigger={<Button>trigger</Button>}
         >
           <Menu.Item>One</Menu.Item>
           <Menu.Item>Two</Menu.Item>
@@ -44,7 +44,7 @@ describe('Menu', () => {
     it('renders a menu that is not hidden', () => (
       expect(
         <Menu
-          trigger={ <Button>trigger</Button> }
+          trigger={<Button>trigger</Button>}
         >
           <Menu.Item>One</Menu.Item>
           <Menu.Item>Two</Menu.Item>
@@ -52,7 +52,7 @@ describe('Menu', () => {
         </Menu>,
         'when clicking on the trigger',
         'to contain',
-        <View className='popup' hidden={ false }/>
+        <View className='popup' hidden={false} />
       )
     ))
   })
@@ -61,7 +61,7 @@ describe('Menu', () => {
     it('the margins are delegated to the popup', () => (
       expect(
         <Menu
-          trigger={ <Button>trigger</Button> }
+          trigger={<Button>trigger</Button>}
           marginBottom={0}
           marginLeft={0}
           marginRight={0}
@@ -90,11 +90,11 @@ describe('Menu', () => {
     it('renders a menu containing a separator', () => (
       expect(
         <Menu
-          trigger={ <Button>trigger</Button> }
+          trigger={<Button>trigger</Button>}
         >
           <Menu.Item>One</Menu.Item>
           <Menu.Item>Two</Menu.Item>
-          <Menu.Separator/>
+          <Menu.Separator />
           <Menu.Item>Three</Menu.Item>
         </Menu>,
         'when clicking on the trigger',
@@ -102,7 +102,7 @@ describe('Menu', () => {
         <View>
           <View className='item'>One</View>
           <View className='item'>Two</View>
-          <View className='separator'/>
+          <View className='separator' />
           <View className='item'>Three</View>
         </View>
       )
@@ -115,16 +115,16 @@ describe('Menu', () => {
         <Menu
           arrow
           positioning='bottom'
-          trigger={ <Button>trigger</Button> }
+          trigger={<Button>trigger</Button>}
         >
           <Menu.Item>One</Menu.Item>
           <Menu.Item>Two</Menu.Item>
-          <Menu.Separator/>
+          <Menu.Separator />
           <Menu.Item>Three</Menu.Item>
         </Menu>,
         'when clicking on the trigger',
         'to contain',
-        <View className='menu arrow_top' role='menu'/>
+        <View className='menu arrow_top' role='menu' />
       )
     ))
   })
@@ -134,11 +134,11 @@ describe('Menu', () => {
       expect(
         <Menu
           size='large'
-          trigger={ <Button>trigger</Button> }
+          trigger={<Button>trigger</Button>}
         >
           <Menu.Item>One</Menu.Item>
           <Menu.Item>Two</Menu.Item>
-          <Menu.Separator/>
+          <Menu.Separator />
           <Menu.Item>Three</Menu.Item>
         </Menu>,
         'when clicking on the trigger',
@@ -156,8 +156,8 @@ describe('Menu', () => {
       it('makes the item list scrollable and set a max height', () => {
         expect(
           <Menu
-            trigger={ <Button>trigger</Button> }
-            maxHeight={ 150 }
+            trigger={<Button>trigger</Button>}
+            maxHeight={150}
           >
             <Menu.Item>One</Menu.Item>
             <Menu.Item>Two</Menu.Item>
@@ -178,8 +178,8 @@ describe('Menu', () => {
       it('makes the item list scrollable and set a max height', () => {
         expect(
           <Menu
-            trigger={ <Button>trigger</Button> }
-            maxHeight={ '80vh' }
+            trigger={<Button>trigger</Button>}
+            maxHeight={'80vh'}
           >
             <Menu.Item>One</Menu.Item>
             <Menu.Item>Two</Menu.Item>
@@ -202,7 +202,7 @@ describe('Menu', () => {
       expect(
         <Menu
           fixedWidth
-          trigger={ <Button>trigger</Button> }
+          trigger={<Button>trigger</Button>}
         >
           <Menu.Item>One</Menu.Item>
           <Menu.Item>Two</Menu.Item>
@@ -210,7 +210,7 @@ describe('Menu', () => {
         </Menu>,
         'when clicking on the trigger',
         'to contain',
-        <View className='menu fixed_width'/>
+        <View className='menu fixed_width' />
       )
     })
   })
@@ -221,8 +221,8 @@ describe('Menu', () => {
 
       return expect(
         <Menu
-          trigger={ <Button>trigger</Button> }
-          onOpen={ onOpen }
+          trigger={<Button>trigger</Button>}
+          onOpen={onOpen}
         >
           <Menu.Item>One</Menu.Item>
           <Menu.Item>Two</Menu.Item>
@@ -240,8 +240,8 @@ describe('Menu', () => {
 
       return expect(
         <Menu
-          trigger={ <Button>trigger</Button> }
-          onClose={ onClose }
+          trigger={<Button>trigger</Button>}
+          onClose={onClose}
         >
           <Menu.Item>One</Menu.Item>
           <Menu.Item>Two</Menu.Item>

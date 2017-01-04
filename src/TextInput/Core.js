@@ -103,7 +103,7 @@ export default class Core extends Component {
 
     return (
       <input
-        { ...props }
+        {...props}
         ref={(input) => {
           this.input = input
           input && isFocused && input.focus()

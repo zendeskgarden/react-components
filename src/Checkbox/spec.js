@@ -9,11 +9,11 @@ import View from '../core/View'
 describe('Checkbox', () => {
   it('renders a checkbox that is not checked', () => {
     expect(
-      <Checkbox checked={ false }>Check me out!</Checkbox>,
+      <Checkbox checked={false}>Check me out!</Checkbox>,
       'to render as',
       <View className='checkbox'>
         <input
-          checked={ false }
+          checked={false}
           className='input'
           type='checkbox'
         />
@@ -44,13 +44,13 @@ describe('Checkbox', () => {
 
         return expect(
           <Checkbox
-            onChange={ onChange }
+            onChange={onChange}
             checked
           >
             Check me out!
           </Checkbox>,
           'when deeply rendered',
-          'with event change', { target: { checked: false } }, 'on', <input/>,
+          'with event change', { target: { checked: false } }, 'on', <input />,
         ).then(() => {
           expect(onChange, 'to have calls satisfying', () => {
             onChange(false)
@@ -65,9 +65,9 @@ describe('Checkbox', () => {
       const onChange = sinon.spy()
 
       return expect(
-        <Checkbox checked={ false } onChange={ onChange }>Check me out!</Checkbox>,
+        <Checkbox checked={false} onChange={onChange}>Check me out!</Checkbox>,
         'when deeply rendered',
-        'with event change', { target: { checked: true } }, 'on', <input/>,
+        'with event change', { target: { checked: true } }, 'on', <input />,
       ).then(() => {
         expect(onChange, 'to have calls satisfying', () => {
           onChange(true)
@@ -79,11 +79,11 @@ describe('Checkbox', () => {
   describe('when disabled', () => {
     it('renders a checkbox that is disabled', () => {
       expect(
-        <Checkbox checked={ false } disabled>Check me out!</Checkbox>,
+        <Checkbox checked={false} disabled>Check me out!</Checkbox>,
         'to render as',
         <View className='checkbox'>
           <input
-            checked={ false }
+            checked={false}
             className='input'
             disabled
             type='checkbox'
@@ -120,7 +120,7 @@ describe('Checkbox', () => {
         TestUtils.renderIntoDocument(
           <Checkbox
             defaultChecked
-            ref={ (ref) => ref && (node = ref.input) }
+            ref={(ref) => ref && (node = ref.input)}
           />
         )
 
@@ -132,8 +132,8 @@ describe('Checkbox', () => {
 
         TestUtils.renderIntoDocument(
           <Checkbox
-            defaultChecked={ false }
-            ref={ (ref) => ref && (node = ref.input) }
+            defaultChecked={false}
+            ref={(ref) => ref && (node = ref.input)}
           />
         )
 
@@ -148,9 +148,9 @@ describe('Checkbox', () => {
 
         TestUtils.renderIntoDocument(
           <Checkbox
-            defaultChecked={ false }
-            onChange={ onChange }
-            ref={ (ref) => ref && (node = ref.input) }
+            defaultChecked={false}
+            onChange={onChange}
+            ref={(ref) => ref && (node = ref.input)}
           />
         )
 
@@ -168,8 +168,8 @@ describe('Checkbox', () => {
         TestUtils.renderIntoDocument(
           <Checkbox
             defaultChecked
-            onChange={ onChange }
-            ref={ (ref) => ref && (node = ref.input) }
+            onChange={onChange}
+            ref={(ref) => ref && (node = ref.input)}
           />
         )
 
@@ -197,10 +197,10 @@ describe('Checkbox', () => {
   describe('with a tab index', () => {
     it('renders a checkbox with the specified tab index', () => {
       expect(
-        <Checkbox tabIndex={ 42 }>Check me out!</Checkbox>,
+        <Checkbox tabIndex={42}>Check me out!</Checkbox>,
         'to contain',
         <input
-          tabIndex={ 42 }
+          tabIndex={42}
         />
       )
     })

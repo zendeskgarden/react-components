@@ -81,29 +81,29 @@ export default class Modal extends ThemedComponent {
 
     return (
       <View
-        className={ classNames(theme.backdrop, theme[`type_${type}`]) }
-        onClick={ onClose }
-        onEscape={ onClose }
-        onTab={ this.onTab }
-        ref={ ref => {
+        className={classNames(theme.backdrop, theme[`type_${type}`])}
+        onClick={onClose}
+        onEscape={onClose}
+        onTab={this.onTab}
+        ref={ref => {
           if (ref && !this.tabJail) {
             this.tabJail = new FocusJail(findDOMNode(ref).firstChild)
           }
-        } }
+        }}
       >
         <View
           aria-labelledby='dialog-title'
-          className={ classNames(
+          className={classNames(
             theme.dialog,
             theme[dir], {
               [theme.open]: !hidden
             }
-          ) }
-          onClick={ (e) => e.stopPropagation() }
+          )}
+          onClick={(e) => e.stopPropagation()}
           role='dialog'
           style={{ width }}
-          tabIndex={ -1 }
-          testId={ testId }
+          tabIndex={-1}
+          testId={testId}
         >
           { children }
         </View>

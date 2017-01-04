@@ -23,7 +23,7 @@ export default class Header extends ThemedComponent {
     const { theme } = this
 
     return (
-      <View className={ theme.body }>
+      <View className={theme.body}>
         { children }
       </View>
     )

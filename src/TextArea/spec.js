@@ -21,7 +21,7 @@ describe('TextArea', () => {
   describe('with the resizable flag', () => {
     it('renders a resizable text area', () => {
       expect(
-        <TextArea resizable/>,
+        <TextArea resizable />,
         'to render as',
         <View className='txt'>
           <TextArea.Core className='input resizable' />
@@ -120,9 +120,9 @@ describe('TextArea.Core', () => {
 
   it('renders text area with maxLength value', () => {
     expect(
-      <TextArea.Core maxLength={ 10 } />,
+      <TextArea.Core maxLength={10} />,
       'to render as',
-      <textarea maxLength={ 10 } />
+      <textarea maxLength={10} />
     )
   })
 
@@ -155,7 +155,7 @@ describe('TextArea.Core', () => {
       const onChangeText = sinon.spy()
 
       return expect(
-        <TextArea.Core onChangeText={ onChangeText }/>,
+        <TextArea.Core onChangeText={onChangeText} />,
         'when deeply rendered',
         'with event', 'change', { target: { value: 'hello' } }, 'on', <textarea />,
       ).then(() => {
@@ -171,7 +171,7 @@ describe('TextArea.Core', () => {
       const onFocus = sinon.spy()
 
       return expect(
-        <TextArea.Core onFocus={ onFocus }/>,
+        <TextArea.Core onFocus={onFocus} />,
         'when deeply rendered',
         'with event', 'focus', 'on', <textarea />,
       ).then(() => {
@@ -185,7 +185,7 @@ describe('TextArea.Core', () => {
       const onBlur = sinon.spy()
 
       return expect(
-        <TextArea.Core onBlur={ onBlur }/>,
+        <TextArea.Core onBlur={onBlur} />,
         'when deeply rendered',
         'with event', 'blur', 'on', <textarea />,
       ).then(() => {
@@ -199,7 +199,7 @@ describe('TextArea.Core', () => {
       const onKeyDown = sinon.spy()
 
       return expect(
-        <TextArea.Core onKeyDown={ onKeyDown }/>,
+        <TextArea.Core onKeyDown={onKeyDown} />,
         'when deeply rendered',
         'with event', 'keyDown', 'on', <textarea />,
       ).then(() => {
@@ -213,7 +213,7 @@ describe('TextArea.Core', () => {
       const onArrowUp = sinon.spy()
 
       return expect(
-        <TextArea.Core onArrowUp={ onArrowUp }/>,
+        <TextArea.Core onArrowUp={onArrowUp} />,
         'when deeply rendered',
         'with event', 'keyDown', { keyCode: 38 }, 'on', <textarea />,
       ).then(() => {
@@ -227,7 +227,7 @@ describe('TextArea.Core', () => {
       const onArrowDown = sinon.spy()
 
       return expect(
-        <TextArea.Core onArrowDown={ onArrowDown }/>,
+        <TextArea.Core onArrowDown={onArrowDown} />,
         'when deeply rendered',
         'with event', 'keyDown', { keyCode: 40 }, 'on', <textarea />,
       ).then(() => {
@@ -241,7 +241,7 @@ describe('TextArea.Core', () => {
       const onArrowLeft = sinon.spy()
 
       return expect(
-        <TextArea.Core onArrowLeft={ onArrowLeft }/>,
+        <TextArea.Core onArrowLeft={onArrowLeft} />,
         'when deeply rendered',
         'with event', 'keyDown', { keyCode: 37 }, 'on', <textarea />,
       ).then(() => {
@@ -255,7 +255,7 @@ describe('TextArea.Core', () => {
       const onArrowRight = sinon.spy()
 
       return expect(
-        <TextArea.Core onArrowRight={ onArrowRight }/>,
+        <TextArea.Core onArrowRight={onArrowRight} />,
         'when deeply rendered',
         'with event', 'keyDown', { keyCode: 39 }, 'on', <textarea />,
       ).then(() => {
@@ -269,7 +269,7 @@ describe('TextArea.Core', () => {
       const onDelete = sinon.spy()
 
       return expect(
-        <TextArea.Core onDelete={ onDelete }/>,
+        <TextArea.Core onDelete={onDelete} />,
         'when deeply rendered',
         'with event', 'keyDown', { keyCode: 8 }, 'on', <textarea />,
       ).then(() => {
@@ -283,7 +283,7 @@ describe('TextArea.Core', () => {
       const onEnter = sinon.spy()
 
       return expect(
-        <TextArea.Core onEnter={ onEnter }/>,
+        <TextArea.Core onEnter={onEnter} />,
         'when deeply rendered',
         'with event', 'keyDown', { keyCode: 13 }, 'on', <textarea />,
       ).then(() => {
@@ -297,7 +297,7 @@ describe('TextArea.Core', () => {
       const onEscape = sinon.spy()
 
       return expect(
-        <TextArea.Core onEscape={ onEscape }/>,
+        <TextArea.Core onEscape={onEscape} />,
         'when deeply rendered',
         'with event', 'keyDown', { keyCode: 27 }, 'on', <textarea />,
       ).then(() => {
@@ -313,7 +313,7 @@ describe('TextArea.Core', () => {
       return expect(
         <TextArea.Core
           defaultValue='Hello'
-          ref={ (ref) => node = ref }
+          ref={(ref) => { node = ref }}
           value='Hi'
         />,
         'when deeply rendered',
@@ -332,7 +332,7 @@ describe('TextArea.Core', () => {
         const component = TestUtils.renderIntoDocument(
           <TextArea.Core
             defaultValue='Hello'
-            ref={ (ref) => node = ref }
+            ref={(ref) => { node = ref }}
           />
         )
         const input = findDOMNode(component)
@@ -350,7 +350,7 @@ describe('TextArea.Core', () => {
       const component = TestUtils.renderIntoDocument(
         <TextArea.Core
           defaultValue='Hello'
-          ref={ (ref) => node = ref }
+          ref={(ref) => { node = ref }}
         />
       )
       const input = findDOMNode(component)

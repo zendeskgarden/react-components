@@ -71,10 +71,10 @@ const Selectable = (ChildComponent, {
 
       return (
         <ChildComponent
-          ref={ (ref) => {
+          ref={(ref) => {
             this.domNode = this.domNode || (ref && findDOMNode(ref))
-          } }
-          { ...props }
+          }}
+          {...props}
         />
       )
     }

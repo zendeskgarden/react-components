@@ -43,7 +43,7 @@ describe('Select', () => {
       return expect(
         <Select
           label='Select a value:'
-          onOpen={ onOpen }
+          onOpen={onOpen}
           selected='bar'
         >
           <Select.Item value='foo'>foo</Select.Item>
@@ -51,7 +51,7 @@ describe('Select', () => {
           <Select.Item value='baz'>baz</Select.Item>
         </Select>,
         'when deeply rendered',
-        'with event', 'click', 'on', <View role='button'/>
+        'with event', 'click', 'on', <View role='button' />
       ).then(() => {
         expect(onOpen, 'was called')
       })
@@ -102,7 +102,7 @@ describe('Select', () => {
         <Select
           disabled
           label='Select a value:'
-          onOpen={ onOpen }
+          onOpen={onOpen}
           selected='bar'
         >
           <Select.Item value='foo'>foo</Select.Item>
@@ -110,7 +110,7 @@ describe('Select', () => {
           <Select.Item value='baz'>baz</Select.Item>
         </Select>,
         'when deeply rendered',
-        'with event', 'click', 'on', <View role='button'/>
+        'with event', 'click', 'on', <View role='button' />
       ).then(() => {
         expect(onOpen, 'was not called')
       })

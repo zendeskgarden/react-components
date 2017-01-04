@@ -22,7 +22,7 @@ export default class Ellipsis extends Component {
 
     return (
       <View
-        { ...props }
+        {...props}
       >
         { children }
       </View>

@@ -22,7 +22,7 @@ export default class Footer extends ThemedComponent {
     const { theme } = this
 
     return (
-      <footer className={ theme.footer }>
+      <footer className={theme.footer}>
         { children }
       </footer>
     )

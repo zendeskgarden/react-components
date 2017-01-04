@@ -83,19 +83,19 @@ export default class Core extends Component {
 
     return (
       <View
-        autoFocus={ autoFocus }
-        className={ className }
-        testId={ testId }
-        disabled={ disabled }
-        onBlur={ onBlur }
-        onClick={ this.onClick }
-        onEnter={ this.onKeyboardClick }
-        onFocus={ this.onFocus }
-        onMouseDown={ this.onMouseDown }
-        onSpace={ this.onKeyboardClick }
-        tabIndex={ disabled ? null : tabIndex }
+        autoFocus={autoFocus}
+        className={className}
+        testId={testId}
+        disabled={disabled}
+        onBlur={onBlur}
+        onClick={this.onClick}
+        onEnter={this.onKeyboardClick}
+        onFocus={this.onFocus}
+        onMouseDown={this.onMouseDown}
+        onSpace={this.onKeyboardClick}
+        tabIndex={disabled ? null : tabIndex}
         role='button'
-        title={ title }
+        title={title}
       >
         { children }
       </View>

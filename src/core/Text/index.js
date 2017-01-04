@@ -23,12 +23,12 @@ export default class Text extends Component {
 
     return (
       <span
-        className={ className }
-        data-test-id={ testId }
-        onClick={ onClick }
-        tabIndex={ tabIndex }
-        title={ title }
-        { ...others }
+        className={className}
+        data-test-id={testId}
+        onClick={onClick}
+        tabIndex={tabIndex}
+        title={title}
+        {...others}
       >
         { children }
       </span>

@@ -25,9 +25,9 @@ export default class CloseButton extends Component {
             [styles.close_focused]: focused
           })
         }
-        onBlur={ () => this.setState({ focused: false }) }
-        onClick={ onClick }
-        onFocus={ () => this.setState({ focused: true }) }
+        onBlur={() => this.setState({ focused: false })}
+        onClick={onClick}
+        onFocus={() => this.setState({ focused: true })}
       />
     )
   }

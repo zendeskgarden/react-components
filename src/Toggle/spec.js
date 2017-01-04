@@ -9,11 +9,11 @@ import View from '../core/View'
 describe('Toggle', () => {
   it('renders a toggle that is not checked', () => {
     expect(
-      <Toggle checked={ false }>Toggle me!</Toggle>,
+      <Toggle checked={false}>Toggle me!</Toggle>,
       'to render as',
       <View className='toggle'>
         <input
-          checked={ false }
+          checked={false}
           className='input'
           type='checkbox'
         />
@@ -44,13 +44,13 @@ describe('Toggle', () => {
 
         return expect(
           <Toggle
-            onChange={ onChange }
+            onChange={onChange}
             checked
           >
             Toggle me!
           </Toggle>,
           'when deeply rendered',
-          'with event change', { target: { checked: false } }, 'on', <input/>,
+          'with event change', { target: { checked: false } }, 'on', <input />,
         ).then(() => {
           expect(onChange, 'to have calls satisfying', () => {
             onChange(false)
@@ -65,9 +65,9 @@ describe('Toggle', () => {
       const onChange = sinon.spy()
 
       return expect(
-        <Toggle checked={ false } onChange={ onChange }>Toggle me!</Toggle>,
+        <Toggle checked={false} onChange={onChange}>Toggle me!</Toggle>,
         'when deeply rendered',
-        'with event change', { target: { checked: true } }, 'on', <input/>,
+        'with event change', { target: { checked: true } }, 'on', <input />,
       ).then(() => {
         expect(onChange, 'to have calls satisfying', () => {
           onChange(true)
@@ -79,11 +79,11 @@ describe('Toggle', () => {
   describe('when disabled', () => {
     it('renders a toggle that is disabled', () => {
       expect(
-        <Toggle checked={ false } disabled>Toggle me!</Toggle>,
+        <Toggle checked={false} disabled>Toggle me!</Toggle>,
         'to render as',
         <View className='toggle'>
           <input
-            checked={ false }
+            checked={false}
             className='input'
             disabled
             type='checkbox'
@@ -120,7 +120,7 @@ describe('Toggle', () => {
         TestUtils.renderIntoDocument(
           <Toggle
             defaultChecked
-            ref={ (ref) => ref && (node = ref.input) }
+            ref={(ref) => ref && (node = ref.input)}
           />
         )
 
@@ -132,8 +132,8 @@ describe('Toggle', () => {
 
         TestUtils.renderIntoDocument(
           <Toggle
-            defaultChecked={ false }
-            ref={ (ref) => ref && (node = ref.input) }
+            defaultChecked={false}
+            ref={(ref) => ref && (node = ref.input)}
           />
         )
 
@@ -148,9 +148,9 @@ describe('Toggle', () => {
 
         TestUtils.renderIntoDocument(
           <Toggle
-            defaultChecked={ false }
-            onChange={ onChange }
-            ref={ (ref) => ref && (node = ref.input) }
+            defaultChecked={false}
+            onChange={onChange}
+            ref={(ref) => ref && (node = ref.input)}
           />
         )
 
@@ -168,8 +168,8 @@ describe('Toggle', () => {
         TestUtils.renderIntoDocument(
           <Toggle
             defaultChecked
-            onChange={ onChange }
-            ref={ (ref) => ref && (node = ref.input) }
+            onChange={onChange}
+            ref={(ref) => ref && (node = ref.input)}
           />
         )
 
@@ -197,10 +197,10 @@ describe('Toggle', () => {
   describe('with a tab index', () => {
     it('renders a toggle with the specified tab index', () => {
       expect(
-        <Toggle tabIndex={ 42 }>Toggle me!</Toggle>,
+        <Toggle tabIndex={42}>Toggle me!</Toggle>,
         'to contain',
         <input
-          tabIndex={ 42 }
+          tabIndex={42}
         />
       )
     })

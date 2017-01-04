@@ -90,7 +90,7 @@ export default class Container extends ThemedComponent {
 
     return (
       <View
-        className={ classNames(
+        className={classNames(
           theme.menu,
           theme[`size_${size}`],
           theme[`position_${position}`],
@@ -101,9 +101,9 @@ export default class Container extends ThemedComponent {
             [theme[`arrow_${arrowPositions[position]}`]]: arrow,
             [theme.scrollable]: hasMaxHeight
           }
-        ) }
+        )}
         role='menu'
-        style={ style }
+        style={style}
       >
         { children }
       </View>

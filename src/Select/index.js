@@ -72,8 +72,8 @@ export default class Select extends ThemedComponent {
 
     return (
       <label
-        className={ theme.label }
-        htmlFor={ this.getId() }
+        className={theme.label}
+        htmlFor={this.getId()}
       >
         { label }
       </label>
@@ -123,38 +123,38 @@ export default class Select extends ThemedComponent {
 
     return (
       <View
-        className={ classNames(theme.txt, {
+        className={classNames(theme.txt, {
           [theme.rtl]: dir === 'rtl',
           [theme.stretched]: stretched
-        }, className) }
-        testId={ testId }
+        }, className)}
+        testId={testId}
       >
         { this.renderLabel() }
         <Menu
-          dir={ dir }
-          maxHeight={ maxHeight }
-          onSelect={ onSelect }
+          dir={dir}
+          maxHeight={maxHeight}
+          onSelect={onSelect}
           positioning={['bottom_stretch', 'top_stretch']}
-          onOpen={ this.onOpen }
-          onClose={ this.onClose }
+          onOpen={this.onOpen}
+          onClose={this.onClose}
           trigger={
             <View
-              className={ classNames(theme.input, {
+              className={classNames(theme.input, {
                 [theme.disabled]: disabled,
                 [theme.open]: open
-              }, inputClassName) }
-              dir={ dir }
-              disabled={ disabled }
-              onBlur={ onBlur }
-              onClick={ this.onClick }
-              onFocus={ onFocus }
+              }, inputClassName)}
+              dir={dir}
+              disabled={disabled}
+              onBlur={onBlur}
+              onClick={this.onClick}
+              onFocus={onFocus}
               role='button'
-              tabIndex={ disabled ? null : tabIndex }
+              tabIndex={disabled ? null : tabIndex}
             >
               { selected }
             </View>
           }
-          stretched={ stretched }
+          stretched={stretched}
         >
           { children }
         </Menu>

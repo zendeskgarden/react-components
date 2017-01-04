@@ -57,33 +57,33 @@ export default class Checkbox extends ThemedComponent {
 
     return (
       <View
-        className={ classNames(theme.checkbox, {
+        className={classNames(theme.checkbox, {
           [theme.focused]: focused,
           [theme.rtl]: dir === 'rtl'
-        }) }
+        })}
       >
         <input
-          checked={ checked }
-          className={ theme.input }
-          data-test-id={ testId }
-          defaultChecked={ defaultChecked }
-          disabled={ disabled }
-          id={ this.id }
-          onBlur={ () => this.setState({ focused: false }) }
-          onChange={ this.onChange }
-          onFocus={ () => {
+          checked={checked}
+          className={theme.input}
+          data-test-id={testId}
+          defaultChecked={defaultChecked}
+          disabled={disabled}
+          id={this.id}
+          onBlur={() => this.setState({ focused: false })}
+          onChange={this.onChange}
+          onFocus={() => {
             this.setState({ focused: this.keyboard })
             this.keyboard = true
-          } }
-          ref={ ref => this.input = ref }
-          tabIndex={ tabIndex }
+          }}
+          ref={ref => { this.input = ref }}
+          tabIndex={tabIndex}
           type='checkbox'
         />
         <label
-          className={ theme.label }
-          dir={ dir }
-          htmlFor={ this.id }
-          onMouseUp={ () => this.keyboard = false }
+          className={theme.label}
+          dir={dir}
+          htmlFor={this.id}
+          onMouseUp={() => { this.keyboard = false }}
         >
           { children }
         </label>

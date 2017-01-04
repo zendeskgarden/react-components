@@ -9,11 +9,11 @@ import View from '../core/View'
 describe('RadioButton', () => {
   it('renders a RadioButton that is not checked', () => {
     expect(
-      <RadioButton checked={ false } name='g1'>Check me out!</RadioButton>,
+      <RadioButton checked={false} name='g1'>Check me out!</RadioButton>,
       'to render as',
       <View className='radio'>
         <input
-          checked={ false }
+          checked={false}
           className='input'
           type='radio'
         />
@@ -39,11 +39,11 @@ describe('RadioButton', () => {
 
   it('renders a RadioButton with a right name', () => {
     expect(
-      <RadioButton checked={ false } name='g1'>Check me out!</RadioButton>,
+      <RadioButton checked={false} name='g1'>Check me out!</RadioButton>,
       'to render as',
       <View className='radio'>
         <input
-          checked={ false }
+          checked={false}
           className='input'
           type='radio'
         />
@@ -71,7 +71,7 @@ describe('RadioButton', () => {
     const onChange = sinon.spy()
 
     return expect(
-      <RadioButton name='g1' checked onChange={ onChange } value={ 123 }>Check me out!</RadioButton>,
+      <RadioButton name='g1' checked onChange={onChange} value={123}>Check me out!</RadioButton>,
       'when deeply rendered',
       'with event change', 'on', <input />,
     ).then(() => {
@@ -84,11 +84,11 @@ describe('RadioButton', () => {
   describe('when disabled', () => {
     it('renders a RadioButton that is disabled', () => {
       expect(
-        <RadioButton checked={ false } name='g1' disabled>Check me out!</RadioButton>,
+        <RadioButton checked={false} name='g1' disabled>Check me out!</RadioButton>,
         'to render as',
         <View className='radio'>
           <input
-            checked={ false }
+            checked={false}
             className='input'
             disabled
             type='radio'
@@ -125,7 +125,7 @@ describe('RadioButton', () => {
         TestUtils.renderIntoDocument(
           <RadioButton
             defaultChecked
-            ref={ (ref) => ref && (node = ref.input) }
+            ref={(ref) => ref && (node = ref.input)}
           />
         )
 
@@ -137,8 +137,8 @@ describe('RadioButton', () => {
 
         TestUtils.renderIntoDocument(
           <RadioButton
-            defaultChecked={ false }
-            ref={ (ref) => ref && (node = ref.input) }
+            defaultChecked={false}
+            ref={(ref) => ref && (node = ref.input)}
           />
         )
 
@@ -153,10 +153,10 @@ describe('RadioButton', () => {
 
         TestUtils.renderIntoDocument(
           <RadioButton
-            defaultChecked={ false }
-            onChange={ onChange }
-            value={ 123 }
-            ref={ (ref) => ref && (node = ref.input) }
+            defaultChecked={false}
+            onChange={onChange}
+            value={123}
+            ref={(ref) => ref && (node = ref.input)}
           />
         )
 
@@ -174,9 +174,9 @@ describe('RadioButton', () => {
         TestUtils.renderIntoDocument(
           <RadioButton
             defaultChecked
-            onChange={ onChange }
-            value={ 123 }
-            ref={ (ref) => ref && (node = ref.input) }
+            onChange={onChange}
+            value={123}
+            ref={(ref) => ref && (node = ref.input)}
           />
         )
 
@@ -204,10 +204,10 @@ describe('RadioButton', () => {
   describe('with a tab index', () => {
     it('renders a RadioButton with the specified tab index', () => {
       expect(
-        <RadioButton name='g1' tabIndex={ 42 }>Check me out!</RadioButton>,
+        <RadioButton name='g1' tabIndex={42}>Check me out!</RadioButton>,
         'to contain',
         <input
-          tabIndex={ 42 }
+          tabIndex={42}
         />
       )
     })

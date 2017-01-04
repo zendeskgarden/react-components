@@ -51,11 +51,11 @@ export default class Tabs extends ThemedComponent {
         const { disabled, id, label } = child.props
         labels.push(
           <Label
-            active={ id === active }
-            disabled={ disabled }
-            id={ id }
-            key={ id }
-            value={ id }
+            active={id === active}
+            disabled={disabled}
+            id={id}
+            key={id}
+            value={id}
           >
             { label }
           </Label>
@@ -91,7 +91,7 @@ export default class Tabs extends ThemedComponent {
     const activePanelContent = activePanelConfig.children
 
     const panel = (
-      <Panel id={ activePanelConfig.id }>
+      <Panel id={activePanelConfig.id}>
         {
           typeof activePanelContent === 'function'
             ? activePanelContent(activePanelConfig.id)
@@ -137,30 +137,30 @@ export default class Tabs extends ThemedComponent {
 
     return (
       <nav
-        className={ classNames(theme.tabs, {
+        className={classNames(theme.tabs, {
           [theme.vertical]: vertical,
           [theme.rtl]: dir === 'rtl'
-        }) }
-        { ...props }
+        })}
+        {...props}
       >
         <ul
-          className={ theme.list }
-          onFocus={ () => {
+          className={theme.list}
+          onFocus={() => {
             if (!this.selectionModel.hasSelection() && this.keyboard) {
               this.selectionModel.reactivate()
             }
             this.keyboard = true
-          } }
-          onMouseDown={ () => {
+          }}
+          onMouseDown={() => {
             this.keyboard = false
             setTimeout(() => {
               this.keyboard = true
             }, 0)
-          } }
-          onBlur={ this.selectionModel.clear }
-          onKeyDown={ this.selectionModel.handleKeyDown }
+          }}
+          onBlur={this.selectionModel.clear}
+          onKeyDown={this.selectionModel.handleKeyDown}
           role='tablist'
-          tabIndex={ tabIndex }
+          tabIndex={tabIndex}
         >
           { labels }
         </ul>
