@@ -47,9 +47,9 @@ class Item extends ThemedComponent {
 
     return (
       <button
-        aria-activedescendant={ selected }
-        aria-disabled={ disabled }
-        aria-selected={ active }
+        aria-activedescendant={selected}
+        aria-disabled={disabled}
+        aria-selected={active}
         className={
           classNames(theme.type_default, theme[`size_${size}`], {
             [theme.disabled]: disabled,
@@ -57,9 +57,9 @@ class Item extends ThemedComponent {
             [theme.focused]: !selectedByMouse && selected
           })
         }
-        onClick={ onClick }
-        onMouseEnter={ onMouseEnter }
-        onMouseLeave={ onMouseLeave }
+        onClick={onClick}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
         role='tab'
         tabIndex='-1'
       >

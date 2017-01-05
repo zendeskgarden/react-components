@@ -21,9 +21,9 @@ describe('Tabs', () => {
       'to deeply render as',
       <nav className='tabs'>
         <ul className='list' role='tablist'>
-          <li aria-selected={ false } className='label' role='tab'>One</li>
+          <li aria-selected={false} className='label' role='tab'>One</li>
           <li aria-selected className='label selected' role='tab'>Two</li>
-          <li aria-selected={ false } className='label' role='tab'>Three</li>
+          <li aria-selected={false} className='label' role='tab'>Three</li>
         </ul>
         <div className='panel' role='tabpanel'>
           Panel two
@@ -49,9 +49,9 @@ describe('Tabs', () => {
         'to deeply render as',
         <nav className='tabs vertical'>
           <ul className='list' role='tablist'>
-            <li aria-selected={ false } className='label' role='tab'>One</li>
+            <li aria-selected={false} className='label' role='tab'>One</li>
             <li aria-selected className='label selected' role='tab'>Two</li>
-            <li aria-selected={ false } className='label' role='tab'>Three</li>
+            <li aria-selected={false} className='label' role='tab'>Three</li>
           </ul>
           <div className='panel' role='tabpanel'>
             Panel two
@@ -89,7 +89,7 @@ describe('Tabs', () => {
       const onActivate = sinon.spy()
 
       return expect(
-        <Tabs active='three' onActivate={ onActivate }>
+        <Tabs active='three' onActivate={onActivate}>
           <Tabs.Panel label='One' id='one'>
             Panel one
           </Tabs.Panel>
@@ -115,7 +115,7 @@ describe('Tabs', () => {
       const onActivate = sinon.spy()
 
       return expect(
-        <Tabs active='three' onActivate={ onActivate }>
+        <Tabs active='three' onActivate={onActivate}>
           <Tabs.Panel label='One' id='one'>
             Panel one
           </Tabs.Panel>
@@ -149,7 +149,7 @@ describe('Tabs', () => {
           </Tabs.Panel>
         </Tabs>,
         'to deeply render as',
-        <nav className='tabs' data-test-id='test-me'/>
+        <nav className='tabs' data-test-id='test-me' />
       )
     })
   })

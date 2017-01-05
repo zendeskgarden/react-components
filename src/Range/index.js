@@ -79,8 +79,8 @@ export default class Range extends ThemedComponent {
 
     return (
       <label
-        className={ theme.label }
-        htmlFor={ this.getId() }
+        className={theme.label}
+        htmlFor={this.getId()}
       >
         { label }
       </label>
@@ -109,24 +109,24 @@ export default class Range extends ThemedComponent {
       })}>
         { this.renderLabel() }
         <input
-          className={ theme.input }
-          data-test-id={ testId }
-          defaultValue={ defaultValue }
-          disabled={ disabled }
-          id={ this.getId() }
-          max={ max }
-          min={ min }
-          onBlur={ () => this.setState({ focused: false }) }
-          onClick={ this.onChange }
-          onChange={ this.onChange }
-          onFocus={ () => this.setState({ focused: true }) }
-          step={ step }
+          className={theme.input}
+          data-test-id={testId}
+          defaultValue={defaultValue}
+          disabled={disabled}
+          id={this.getId()}
+          max={max}
+          min={min}
+          onBlur={() => this.setState({ focused: false })}
+          onClick={this.onChange}
+          onChange={this.onChange}
+          onFocus={() => this.setState({ focused: true })}
+          step={step}
           style={{ backgroundSize: `${bgWidth}%` }}
-          tabIndex={ tabIndex }
+          tabIndex={tabIndex}
           type='range'
-          title={ title }
-          value={ value }
-          ref={ ref => this.input = ref }
+          title={title}
+          value={value}
+          ref={ref => { this.input = ref }}
         />
       </View>
     )

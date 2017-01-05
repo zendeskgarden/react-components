@@ -4,7 +4,7 @@ import View from '../../core/View'
 import styles from './styles.css'
 
 const Row = ({ children }) => (
-  <View className={ styles.row }>
+  <View className={styles.row}>
     { children }
   </View>
 )

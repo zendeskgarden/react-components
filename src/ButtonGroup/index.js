@@ -50,12 +50,12 @@ export default class ButtonGroup extends ThemedComponent {
         const { children, disabled, id } = child.props
         buttons.push(
           <Item
-            active={ id === active }
-            disabled={ disabled }
-            id={ id }
-            key={ id }
-            value={ id }
-            size={ size }
+            active={id === active}
+            disabled={disabled}
+            id={id}
+            key={id}
+            value={id}
+            size={size}
           >
             { children }
           </Item>
@@ -104,26 +104,26 @@ export default class ButtonGroup extends ThemedComponent {
 
     return (
       <nav
-        className={ classNames(theme.group, {
+        className={classNames(theme.group, {
           [theme.rtl]: dir === 'rtl'
-        }) }
-        tabIndex={ tabIndex }
-        onFocus={ () => {
+        })}
+        tabIndex={tabIndex}
+        onFocus={() => {
           if (!this.selectionModel.hasSelection() && this.keyboard) {
             this.selectionModel.reactivate()
           }
           this.keyboard = true
-        } }
-        onMouseDown={ () => {
+        }}
+        onMouseDown={() => {
           this.keyboard = false
           setTimeout(() => {
             this.keyboard = true
           }, 0)
-        } }
-        onBlur={ this.selectionModel.clear }
-        onKeyDown={ this.selectionModel.handleKeyDown }
+        }}
+        onBlur={this.selectionModel.clear}
+        onKeyDown={this.selectionModel.handleKeyDown}
         role='tablist'
-        { ...props }
+        {...props}
       >
         { buttons }
       </nav>

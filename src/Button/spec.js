@@ -20,7 +20,7 @@ describe('Button', () => {
       const onClick = sinon.spy()
 
       return expect(
-        <Button.Core onClick={ onClick }>Click me!</Button.Core>,
+        <Button.Core onClick={onClick}>Click me!</Button.Core>,
         'when deeply rendered',
         'with event', 'click'
       ).then(() => {
@@ -34,7 +34,7 @@ describe('Button', () => {
           const onKeyboardFocus = sinon.spy()
 
           return expect(
-            <Button.Core onKeyboardFocus={ onKeyboardFocus }>Focus on me!</Button.Core>,
+            <Button.Core onKeyboardFocus={onKeyboardFocus}>Focus on me!</Button.Core>,
             'when deeply rendered',
             'with event', 'focus',
           ).then(() => {
@@ -50,8 +50,8 @@ describe('Button', () => {
 
           return expect(
             <Button.Core
-              onFocus={ onFocus }
-              onKeyboardFocus={ onKeyboardFocus }
+              onFocus={onFocus}
+              onKeyboardFocus={onKeyboardFocus}
             >
               Focus on me!
             </Button.Core>,
@@ -71,7 +71,7 @@ describe('Button', () => {
         const onClick = sinon.spy()
 
         return expect(
-          <Button.Core onClick={ onClick } disabled>Disabled</Button.Core>,
+          <Button.Core onClick={onClick} disabled>Disabled</Button.Core>,
           'when deeply rendered',
           'with event', 'click'
         ).then(() => {

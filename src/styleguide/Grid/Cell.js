@@ -4,7 +4,7 @@ import View from '../../core/View'
 import styles from './styles.css'
 
 const Cell = ({ children }) => (
-  <View className={ styles.cell }>
+  <View className={styles.cell}>
     { children }
   </View>
 )

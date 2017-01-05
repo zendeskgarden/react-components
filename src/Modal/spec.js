@@ -13,17 +13,17 @@ describe('Modal', () => {
   describe('with only text content', () => {
     it('renders a modal with the given content', () => {
       expect(
-        <Modal onClose={ handler } hidden={ false }>Content.</Modal>,
+        <Modal onClose={handler} hidden={false}>Content.</Modal>,
         'to deeply render as',
         <View
           className='backdrop'
-          onClick={ handler }
+          onClick={handler}
         >
           <View
             aria-labelledby='dialog-title'
             className='dialog'
             role='dialog'
-            tabIndex={ -1 }
+            tabIndex={-1}
           >
             Content.
           </View>
@@ -35,17 +35,17 @@ describe('Modal', () => {
   describe('when given a test id', () => {
     it('renders a modal with the given test id', () => {
       expect(
-        <Modal onClose={ handler } hidden={ false } testId='test-me'>Content.</Modal>,
+        <Modal onClose={handler} hidden={false} testId='test-me'>Content.</Modal>,
         'to deeply render as',
         <View
           className='backdrop'
-          onClick={ handler }
+          onClick={handler}
         >
           <View
             aria-labelledby='dialog-title'
             className='dialog'
             role='dialog'
-            tabIndex={ -1 }
+            tabIndex={-1}
             testId='test-me'
           >
             Content.
@@ -59,20 +59,20 @@ describe('Modal', () => {
     it('renders a modal a header, a body and a footer', () => {
       expect(
         <Modal
-          hidden={ false }
-          onClose={ handler }
+          hidden={false}
+          onClose={handler}
         >
           <Modal.Header>
             <Modal.Title>Dialog Title</Modal.Title>
             <Modal.CloseButton
-              onClick={ handler }
+              onClick={handler}
             />
           </Modal.Header>
           <Modal.Body>
             Content.
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={ handler }>
+            <Button onClick={handler}>
               Ok
             </Button>
           </Modal.Footer>
@@ -80,23 +80,23 @@ describe('Modal', () => {
         'to deeply render as',
         <View
           className='backdrop'
-          onClick={ handler }
+          onClick={handler}
         >
           <View
             aria-labelledby='dialog-title'
             className='dialog'
             role='dialog'
-            tabIndex={ -1 }
+            tabIndex={-1}
           >
             <header>
               <h1>Dialog Title</h1>
-              <CloseButton onClick={ handler }/>
+              <CloseButton onClick={handler} />
             </header>
             <View className='body'>
               Content.
             </View>
             <footer className='footer'>
-              <Button onClick={ handler }>
+              <Button onClick={handler}>
                 Ok
               </Button>
             </footer>

@@ -159,15 +159,15 @@ export default class Menu extends Component {
 
     const anchor = (
       <View
-        className={ classNames({
+        className={classNames({
           [styles.stretched]: stretched
-        }) }
-        onKeyDown={ this.selectionModel.handleKeyDown }
-        onBlur={ this.closeMenu }
-        onClick={ this.toggleHidden }
-        onEnter={ this.keyboardToggleHidden }
-        onEscape={ this.closeMenu }
-        onSpace={ this.keyboardToggleHidden }
+        })}
+        onKeyDown={this.selectionModel.handleKeyDown}
+        onBlur={this.closeMenu}
+        onClick={this.toggleHidden}
+        onEnter={this.keyboardToggleHidden}
+        onEscape={this.closeMenu}
+        onSpace={this.keyboardToggleHidden}
       >
         {
           (typeof trigger === 'function')
@@ -183,31 +183,31 @@ export default class Menu extends Component {
 
     return (
       <View
-        className={ classNames(styles.container, {
+        className={classNames(styles.container, {
           [styles.stretched]: stretched
-        }) }
-        testId={ testId }
+        })}
+        testId={testId}
       >
         <RelativePositionedPopup
-          anchor={ anchor }
-          centerPoint={ centerPoint }
-          dir={ dir }
-          hidden={ hidden }
-          positioning={ positioning }
-          marginTop={ marginTop + arrowMargin }
-          marginLeft={ marginLeft + arrowMargin }
-          marginRight={ marginRight + arrowMargin }
-          marginBottom={ marginBottom + arrowMargin }
-          stretched={ stretched }
+          anchor={anchor}
+          centerPoint={centerPoint}
+          dir={dir}
+          hidden={hidden}
+          positioning={positioning}
+          marginTop={marginTop + arrowMargin}
+          marginLeft={marginLeft + arrowMargin}
+          marginRight={marginRight + arrowMargin}
+          marginBottom={marginBottom + arrowMargin}
+          stretched={stretched}
         >
           {
             (position) => (
               <Container
                 {...other}
-                animate={ !hidden }
-                dir={ dir }
-                arrow={ arrow }
-                position={ position }
+                animate={!hidden}
+                dir={dir}
+                arrow={arrow}
+                position={position}
               >
                 { items }
               </Container>

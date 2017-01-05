@@ -26,7 +26,7 @@ export default class Panel extends ThemedComponent {
     const { theme } = this
 
     return (
-      <View className={ theme.panel } role='tabpanel'>
+      <View className={theme.panel} role='tabpanel'>
         { children }
       </View>
     )

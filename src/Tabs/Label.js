@@ -41,9 +41,9 @@ class Label extends ThemedComponent {
 
     return (
       <li
-        aria-activedescendant={ selected }
-        aria-disabled={ disabled }
-        aria-selected={ active }
+        aria-activedescendant={selected}
+        aria-disabled={disabled}
+        aria-selected={active}
         className={
           classNames(theme.label, {
             [theme.disabled]: disabled,
@@ -51,9 +51,9 @@ class Label extends ThemedComponent {
             [theme.focused]: !selectedByMouse && selected
           })
         }
-        onClick={ onClick }
-        onMouseEnter={ onMouseEnter }
-        onMouseLeave={ onMouseLeave }
+        onClick={onClick}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
         role='tab'
       >
         { children }

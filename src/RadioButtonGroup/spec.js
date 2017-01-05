@@ -10,13 +10,13 @@ describe('RadioButtonGroup', () => {
   it('renders a RadioButtonGroup with RadioButtons', () => {
     expect(
       <RadioButtonGroup>
-        <RadioButton value={ 1 }>1</RadioButton>
-        <RadioButton value={ 2 }>2</RadioButton>
+        <RadioButton value={1}>1</RadioButton>
+        <RadioButton value={2}>2</RadioButton>
       </RadioButtonGroup>,
       'to render as',
       <View>
-        <RadioButton value={ 1 }>1</RadioButton>
-        <RadioButton value={ 2 }>2</RadioButton>
+        <RadioButton value={1}>1</RadioButton>
+        <RadioButton value={2}>2</RadioButton>
       </View>
     )
   })
@@ -24,15 +24,15 @@ describe('RadioButtonGroup', () => {
   it('renders RadioButtons as disabled when set by RadioButton', () => {
     expect(
       <RadioButtonGroup>
-        <RadioButton value={ 1 }>1</RadioButton>
-        <RadioButton disabled value={ 2 }>2</RadioButton>
-        <RadioButton value={ 3 }>3</RadioButton>
+        <RadioButton value={1}>1</RadioButton>
+        <RadioButton disabled value={2}>2</RadioButton>
+        <RadioButton value={3}>3</RadioButton>
       </RadioButtonGroup>,
       'to render as',
       <View>
-        <RadioButton value={ 1 }>1</RadioButton>
-        <RadioButton disabled value={ 2 }>2</RadioButton>
-        <RadioButton value={ 3 }>3</RadioButton>
+        <RadioButton value={1}>1</RadioButton>
+        <RadioButton disabled value={2}>2</RadioButton>
+        <RadioButton value={3}>3</RadioButton>
       </View>
     )
   })
@@ -41,10 +41,10 @@ describe('RadioButtonGroup', () => {
     const onSelect = sinon.spy()
 
     return expect(
-      <RadioButtonGroup onSelect={ onSelect }>
-        <RadioButton value={ 1 }>1</RadioButton>
-        <RadioButton value={ 2 }>2</RadioButton>
-        <RadioButton value={ 3 }>3</RadioButton>
+      <RadioButtonGroup onSelect={onSelect}>
+        <RadioButton value={1}>1</RadioButton>
+        <RadioButton value={2}>2</RadioButton>
+        <RadioButton value={3}>3</RadioButton>
       </RadioButtonGroup>,
       'when deeply rendered',
       'with event change', 'on', <input />,
@@ -58,16 +58,16 @@ describe('RadioButtonGroup', () => {
   describe('with value matching one of the RadioButtons', () => {
     it('renders RadioButton as checked', () => {
       expect(
-        <RadioButtonGroup selected={ 2 }>
-          <RadioButton value={ 1 }>1</RadioButton>
-          <RadioButton value={ 2 }>2</RadioButton>
-          <RadioButton value={ 3 }>3</RadioButton>
+        <RadioButtonGroup selected={2}>
+          <RadioButton value={1}>1</RadioButton>
+          <RadioButton value={2}>2</RadioButton>
+          <RadioButton value={3}>3</RadioButton>
         </RadioButtonGroup>,
         'to render as',
         <View>
-          <RadioButton value={ 1 }>1</RadioButton>
-          <RadioButton checked value={ 2 }>2</RadioButton>
-          <RadioButton value={ 3 }>3</RadioButton>
+          <RadioButton value={1}>1</RadioButton>
+          <RadioButton checked value={2}>2</RadioButton>
+          <RadioButton value={3}>3</RadioButton>
         </View>
       )
     })
@@ -77,15 +77,15 @@ describe('RadioButtonGroup', () => {
     it('renders rtl RadioButtons', () => {
       expect(
         <RadioButtonGroup dir='rtl'>
-          <RadioButton value={ 1 }>1</RadioButton>
-          <RadioButton value={ 2 }>2</RadioButton>
-          <RadioButton value={ 3 }>3</RadioButton>
+          <RadioButton value={1}>1</RadioButton>
+          <RadioButton value={2}>2</RadioButton>
+          <RadioButton value={3}>3</RadioButton>
         </RadioButtonGroup>,
         'to render as',
         <View>
-          <RadioButton dir='rtl' value={ 1 }>1</RadioButton>
-          <RadioButton dir='rtl' value={ 2 }>2</RadioButton>
-          <RadioButton dir='rtl' value={ 3 }>3</RadioButton>
+          <RadioButton dir='rtl' value={1}>1</RadioButton>
+          <RadioButton dir='rtl' value={2}>2</RadioButton>
+          <RadioButton dir='rtl' value={3}>3</RadioButton>
         </View>
       )
     })
@@ -95,15 +95,15 @@ describe('RadioButtonGroup', () => {
     it('renders RadioButtons as disabled', () => {
       expect(
         <RadioButtonGroup disabled>
-          <RadioButton value={ 1 }>1</RadioButton>
-          <RadioButton value={ 2 }>2</RadioButton>
-          <RadioButton value={ 3 }>3</RadioButton>
+          <RadioButton value={1}>1</RadioButton>
+          <RadioButton value={2}>2</RadioButton>
+          <RadioButton value={3}>3</RadioButton>
         </RadioButtonGroup>,
         'to render as',
         <View>
-          <RadioButton disabled value={ 1 }>1</RadioButton>
-          <RadioButton disabled value={ 2 }>2</RadioButton>
-          <RadioButton disabled value={ 3 }>3</RadioButton>
+          <RadioButton disabled value={1}>1</RadioButton>
+          <RadioButton disabled value={2}>2</RadioButton>
+          <RadioButton disabled value={3}>3</RadioButton>
         </View>
       )
     })
@@ -111,15 +111,15 @@ describe('RadioButtonGroup', () => {
     it('renders RadioButtons as not disabled when overriden by RadioButton', () => {
       expect(
         <RadioButtonGroup disabled>
-          <RadioButton value={ 1 }>1</RadioButton>
-          <RadioButton disabled={ false } value={ 2 }>2</RadioButton>
-          <RadioButton value={ 3 }>3</RadioButton>
+          <RadioButton value={1}>1</RadioButton>
+          <RadioButton disabled={false} value={2}>2</RadioButton>
+          <RadioButton value={3}>3</RadioButton>
         </RadioButtonGroup>,
         'to render as',
         <View>
-          <RadioButton disabled value={ 1 }>1</RadioButton>
-          <RadioButton value={ 2 }>2</RadioButton>
-          <RadioButton disabled value={ 3 }>3</RadioButton>
+          <RadioButton disabled value={1}>1</RadioButton>
+          <RadioButton value={2}>2</RadioButton>
+          <RadioButton disabled value={3}>3</RadioButton>
         </View>
       )
     })

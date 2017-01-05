@@ -104,7 +104,7 @@ export default class Core extends Component {
 
     return (
       <textarea
-        { ...props }
+        {...props}
         ref={(input) => {
           this.input = input
           input && isFocused && input.focus()

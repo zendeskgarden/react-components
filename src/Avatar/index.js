@@ -60,12 +60,12 @@ export default class Avatar extends Component {
 
     return (
       <View
-        className={ classNames(classes) }
-        style={ avatarStyles }
-        tabIndex={ tabIndex }
-        testId={ testId }
+        className={classNames(classes)}
+        style={avatarStyles}
+        tabIndex={tabIndex}
+        testId={testId}
       >
-        <img alt={ alt } src={ src } onError={ onError } onLoad={ onLoad } />
+        <img alt={alt} src={src} onError={onError} onLoad={onLoad} />
       </View>
     )
   }

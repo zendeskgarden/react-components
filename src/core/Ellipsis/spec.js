@@ -12,7 +12,7 @@ describe('Ellipsis', () => {
         Taumatawhakatangi­hangakoauauotamatea­turipukakapikimaunga­horonukupokaiwhen­uakitanatahu
       </Ellipsis>,
       'to render as',
-      <View className='ellipsis'/>
+      <View className='ellipsis' />
     )
   })
 

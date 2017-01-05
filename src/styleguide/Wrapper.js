@@ -18,14 +18,14 @@ export default class Wrapper extends Component {
     switch (theme) {
       case 'example':
         return (
-            <ThemeProvider theme={ exampleTheme }>
-              { children }
-            </ThemeProvider>
+          <ThemeProvider theme={exampleTheme}>
+            { children }
+          </ThemeProvider>
         )
       case 'electroid-dark':
         return (
           <div className='u-bg-daintree u-fg-white' style={{ padding: '15px', margin: '-15px' }}>
-            <ThemeProvider theme={ electroidDarkTheme }>
+            <ThemeProvider theme={electroidDarkTheme}>
               { children }
             </ThemeProvider>
           </div>
@@ -33,6 +33,5 @@ export default class Wrapper extends Component {
       default:
         return children
     }
-    return
   }
 }

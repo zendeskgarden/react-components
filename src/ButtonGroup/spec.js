@@ -13,9 +13,9 @@ describe('ButtonGroup', () => {
       </ButtonGroup>,
       'to deeply render as',
       <nav className='group' role='tablist'>
-        <button aria-selected={ false } role='tab'>One</button>
+        <button aria-selected={false} role='tab'>One</button>
         <button aria-selected className='active' role='tab'>Two</button>
-        <button aria-selected={ false } role='tab'>Three</button>
+        <button aria-selected={false} role='tab'>Three</button>
       </nav>
     )
   })
@@ -41,7 +41,7 @@ describe('ButtonGroup', () => {
       const onActivate = sinon.spy()
 
       return expect(
-        <ButtonGroup active='three' onActivate={ onActivate }>
+        <ButtonGroup active='three' onActivate={onActivate}>
           <ButtonGroup.Item id='one' disabled>One</ButtonGroup.Item>
           <ButtonGroup.Item id='two'>Two</ButtonGroup.Item>
           <ButtonGroup.Item id='three'>Three</ButtonGroup.Item>
@@ -61,7 +61,7 @@ describe('ButtonGroup', () => {
       const onActivate = sinon.spy()
 
       return expect(
-        <ButtonGroup active='three' onActivate={ onActivate }>
+        <ButtonGroup active='three' onActivate={onActivate}>
           <ButtonGroup.Item id='one'>One</ButtonGroup.Item>
           <ButtonGroup.Item id='two' disabled>Two</ButtonGroup.Item>
           <ButtonGroup.Item id='three'>Three</ButtonGroup.Item>
@@ -83,7 +83,7 @@ describe('ButtonGroup', () => {
           <ButtonGroup.Item id='three'>Three</ButtonGroup.Item>
         </ButtonGroup>,
         'to deeply render as',
-        <nav className='group' data-test-id='test-me'/>
+        <nav className='group' data-test-id='test-me' />
       )
     })
   })

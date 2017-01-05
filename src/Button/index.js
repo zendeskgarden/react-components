@@ -72,9 +72,9 @@ export default class Button extends ThemedComponent {
     return (
       <Core
         {...other}
-        disabled={ disabled }
-        onBlur={ this.onBlur }
-        onKeyboardFocus={ this.onKeyboardFocus }
+        disabled={disabled}
+        onBlur={this.onBlur}
+        onKeyboardFocus={this.onKeyboardFocus}
         className={
           classNames(theme[`size_${size}`], {
             [typeStyle]: typeStyle,

@@ -22,7 +22,7 @@ export default class Header extends ThemedComponent {
     const { theme } = this
 
     return (
-      <h1 className={ theme.header }>
+      <h1 className={theme.header}>
         { children }
       </h1>
     )

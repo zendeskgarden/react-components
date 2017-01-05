@@ -5,7 +5,7 @@ import View from '../core/View'
 
 const Separator = () => (
   <View
-    className={ styles.separator }
+    className={styles.separator}
     role='separator'
   />
 )

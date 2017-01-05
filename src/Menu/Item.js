@@ -39,18 +39,18 @@ class Item extends Component {
 
     return (
       <View
-        aria-activedescendant={ selected }
-        aria-disabled={ disabled }
-        className={ classNames(styles.item, {
+        aria-activedescendant={selected}
+        aria-disabled={disabled}
+        className={classNames(styles.item, {
           [styles.disabled]: disabled,
           [styles.selected]: selected
-        }) }
-        disabled={ disabled }
-        onMouseDown={ onMouseDown }
-        onMouseEnter={ onMouseEnter }
-        onMouseLeave={ onMouseLeave }
-        role={ role }
-        testId={ testId }
+        })}
+        disabled={disabled}
+        onMouseDown={onMouseDown}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        role={role}
+        testId={testId}
       >
         { children }
       </View>

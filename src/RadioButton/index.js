@@ -59,34 +59,34 @@ export default class RadioButton extends ThemedComponent {
 
     return (
       <View
-        className={ classNames(theme.checkbox, theme.radio, {
+        className={classNames(theme.checkbox, theme.radio, {
           [theme.focused]: focused,
           [theme.rtl]: dir === 'rtl'
-        }) }
+        })}
       >
         <input
-          checked={ checked }
-          className={ theme.input }
-          data-test-id={ testId }
-          defaultChecked={ defaultChecked }
-          disabled={ disabled }
-          id={ this.id }
-          name={ name }
-          ref={ ref => this.input = ref }
-          onBlur={ () => this.setState({ focused: false }) }
-          onChange={ this.onChange }
-          onFocus={ () => {
+          checked={checked}
+          className={theme.input}
+          data-test-id={testId}
+          defaultChecked={defaultChecked}
+          disabled={disabled}
+          id={this.id}
+          name={name}
+          ref={ref => { this.input = ref }}
+          onBlur={() => this.setState({ focused: false })}
+          onChange={this.onChange}
+          onFocus={() => {
             this.setState({ focused: this.keyboard })
             this.keyboard = true
-          } }
-          tabIndex={ tabIndex }
+          }}
+          tabIndex={tabIndex}
           type='radio'
         />
         <label
-          className={ theme.label }
-          dir={ dir }
-          htmlFor={ this.id }
-          onMouseUp={ () => this.keyboard = false }
+          className={theme.label}
+          dir={dir}
+          htmlFor={this.id}
+          onMouseUp={() => { this.keyboard = false }}
         >
           { children }
         </label>

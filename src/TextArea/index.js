@@ -69,8 +69,8 @@ export default class TextArea extends ThemedComponent {
 
     return (
       <label
-        className={ theme.label }
-        htmlFor={ this.getId() }
+        className={theme.label}
+        htmlFor={this.getId()}
       >
         { label }
       </label>
@@ -87,14 +87,14 @@ export default class TextArea extends ThemedComponent {
     const { theme } = this
 
     return (
-      <View className={ theme.txt }>
+      <View className={theme.txt}>
         { this.renderLabel() }
         <Core
-          { ...other }
-          className={ classNames(theme.input, {
+          {...other}
+          className={classNames(theme.input, {
             [theme.resizable]: resizable
-          }, className) }
-          ref={ ref => {
+          }, className)}
+          ref={ref => {
             if (ref && ref.input) {
               this.input = ref.input
             }

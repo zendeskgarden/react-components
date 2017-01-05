@@ -44,10 +44,10 @@ class Grid extends Component {
 
     return (
       <View
-        { ...other }
-        className={ classNames(styles.grid, styles[`spacing_${spacing}`], {
+        {...other}
+        className={classNames(styles.grid, styles[`spacing_${spacing}`], {
           [styles.stretched]: stretched
-        }) }
+        })}
       >
         {
           rows.map((row, i) => (

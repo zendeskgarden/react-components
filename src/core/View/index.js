@@ -99,9 +99,9 @@ export default class View extends Component {
 
     return (
       <div
-        { ...props }
-        className={ classNames(styles.view, className) }
-        ref={ ref => this.element = ref }
+        {...props}
+        className={classNames(styles.view, className)}
+        ref={ref => { this.element = ref }}
       >
         { children }
       </div>

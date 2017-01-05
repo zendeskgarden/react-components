@@ -26,9 +26,9 @@ describe('Text', () => {
   describe('when given a onClick handler', () => {
     it('renders a text with that onClick handler', () => {
       expect(
-        <Text onClick={ handler }>Click me!</Text>,
+        <Text onClick={handler}>Click me!</Text>,
         'to render as',
-        <span onClick={ handler }>Click me!</span>
+        <span onClick={handler}>Click me!</span>
       )
     })
   })
