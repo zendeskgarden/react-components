@@ -49,3 +49,16 @@ Bugs and feature requests are tracked in the
 
 Note that bugs should have clear reproduction steps, some notion of
 urgency/scope, and relevant references.
+
+## Supported browsers
+
+The last two versions of the following browsers are supported:
+
+- Google Chrome
+- Mozilla Firefox
+- Apple Safari
+- Microsoft Edge
+
+Microsoft Internet Explorer 11 is also supported.
+
+Browser support is publicly stated [here](https://support.zendesk.com/hc/en-us/articles/203664346-Getting-started-with-Help-Center#topic_xxg_2pf_mk)
