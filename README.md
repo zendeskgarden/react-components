@@ -62,3 +62,5 @@ The last two versions of the following browsers are supported:
 Microsoft Internet Explorer 11 is also supported.
 
 Browser support is publicly stated [here](https://support.zendesk.com/hc/en-us/articles/203664346-Getting-started-with-Help-Center#topic_xxg_2pf_mk)
+
+react-components requires [babel-polyfill](https://babeljs.io/docs/usage/polyfill/) or some other ES6 polyfill to work in some browsers.
