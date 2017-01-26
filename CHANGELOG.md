@@ -1,5 +1,10 @@
 ## Change Log
 
+### v3.4.0 (2017/01/26 09:58 +00:00)
+- [#117](https://github.com/zendeskgarden/react-components/pull/117) Default to optimized build (@sunesimonsen)
+- [#113](https://github.com/zendeskgarden/react-components/pull/113) Note required babel-polyfill in readme (@jsdnxx)
+- [#110](https://github.com/zendeskgarden/react-components/pull/110) Upgrade standard to the newest version (@sunesimonsen)
+
 ### v3.3.0 (2017/01/03 15:18 +00:00)
 - [#109](https://github.com/zendeskgarden/react-components/pull/109) Don't thrown an error when you are overriding an undefined style just log a warning (@sunesimonsen)
 
