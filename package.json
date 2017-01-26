@@ -11,7 +11,7 @@
     "jest": "jest --watch",
     "lint": "standard && npm run css-lint",
     "test": "npm run lint && jest",
-    "dist": "webpack --progress && NODE_ENV=production webpack -p --progress",
+    "dist": "webpack --progress && NODE_ENV=production webpack --progress",
     "changelog": "github-changes -o zendeskgarden -r react-components -a --only-pulls --use-commit-body",
     "gh-pages": "npm run build && gh-pages -d styleguide",
     "commit-dist": "git add dist && git commit -m 'Build dist'",
