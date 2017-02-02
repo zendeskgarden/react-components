@@ -2176,7 +2176,7 @@
             onError: _react.PropTypes.func,
             onLoad: _react.PropTypes.func,
             src: _react.PropTypes.string.isRequired,
-            size: _react.PropTypes.oneOfType([ _react.PropTypes.oneOf(sizes).isRequired, _react.PropTypes.string.isRequired ]),
+            size: _react.PropTypes.oneOfType([ _react.PropTypes.oneOf(sizes).isRequired, _react.PropTypes.number.isRequired, _react.PropTypes.string.isRequired ]),
             status: _react.PropTypes.oneOf([ "default", "present", "away", "active" ]).isRequired,
             tabIndex: _react.PropTypes.number,
             testId: _react.PropTypes.string,

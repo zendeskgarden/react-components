@@ -1502,7 +1502,7 @@
             onError: h.PropTypes.func,
             onLoad: h.PropTypes.func,
             src: h.PropTypes.string.isRequired,
-            size: h.PropTypes.oneOfType([ h.PropTypes.oneOf(x).isRequired, h.PropTypes.string.isRequired ]),
+            size: h.PropTypes.oneOfType([ h.PropTypes.oneOf(x).isRequired, h.PropTypes.number.isRequired, h.PropTypes.string.isRequired ]),
             status: h.PropTypes.oneOf([ "default", "present", "away", "active" ]).isRequired,
             tabIndex: h.PropTypes.number,
             testId: h.PropTypes.string,
