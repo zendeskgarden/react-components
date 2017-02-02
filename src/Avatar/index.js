@@ -15,6 +15,7 @@ export default class Avatar extends Component {
     src: PropTypes.string.isRequired,
     size: PropTypes.oneOfType([
       PropTypes.oneOf(sizes).isRequired,
+      PropTypes.number.isRequired,
       PropTypes.string.isRequired
     ]),
     status: PropTypes.oneOf([ 'default', 'present', 'away', 'active' ]).isRequired,
