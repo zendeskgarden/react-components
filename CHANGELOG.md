@@ -1,5 +1,8 @@
 ## Change Log
 
+### v3.5.0 (2017/02/02 10:23 +00:00)
+- [#119](https://github.com/zendeskgarden/react-components/pull/119) Allow size prop to be number type for Avatar component (@zillding)
+
 ### v3.4.0 (2017/01/26 09:58 +00:00)
 - [#117](https://github.com/zendeskgarden/react-components/pull/117) Default to optimized build (@sunesimonsen)
 - [#113](https://github.com/zendeskgarden/react-components/pull/113) Note required babel-polyfill in readme (@jsdnxx)
