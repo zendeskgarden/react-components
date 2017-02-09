@@ -7244,9 +7244,9 @@ yargs@~4.6.0:
   version "0.2.0"
   resolved "git+ssh://git@github.com/zendeskgarden/css-avatars.git#7c1025a40a6d1ea92b8d89e22d5aaa3149ebf39e"
 
-"zd-css-bedrock@git+ssh://git@github.com/zendeskgarden/css-bedrock.git#0.4.0":
-  version "0.4.0"
-  resolved "git+ssh://git@github.com/zendeskgarden/css-bedrock.git#a5bf97017404e7b6a21180cee5b79eb95fb33094"
+"zd-css-bedrock@git+ssh://git@github.com/zendeskgarden/css-bedrock.git#1.0.1":
+  version "1.0.1"
+  resolved "git+ssh://git@github.com/zendeskgarden/css-bedrock.git#be9b1649702c945b431e61cad5723e78563d5f2e"
   dependencies:
     normalize.css "^5.0.0"
     zd-css-fonts "git+ssh://git@github.com/zendeskgarden/css-fonts.git#0.2.0"
