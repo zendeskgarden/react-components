@@ -63,7 +63,7 @@
     "standard": "8.6.0",
     "stylelint": "^3.2.2",
     "stylelint-config-zendesk": "git+ssh://git@github.com/zendeskgarden/stylelint-config.git#1.0.2",
-    "tabbable": "1.0.4",
+    "tabbable": "1.0.5",
     "unexpected": "10.20.0",
     "unexpected-check": "1.12.0",
     "unexpected-react": "3.3.2",
