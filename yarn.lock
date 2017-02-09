@@ -7320,3 +7320,7 @@ yargs@~4.6.0:
 "zd-svg-icons@git+ssh://git@github.com/zendeskgarden/svg-icons.git#0.12.0":
   version "0.12.0"
   resolved "git+ssh://git@github.com/zendeskgarden/svg-icons.git#baf24b8a9d394b8e61af0eb47ab9ab9b54bf5964"
+
+"zd-svg-icons@git+ssh://git@github.com/zendeskgarden/svg-icons.git#0.13.0":
+  version "0.13.0"
+  resolved "git+ssh://git@github.com/zendeskgarden/svg-icons.git#b82ee198ab17fb1c97d8fb44c9654c7db80dd606"
