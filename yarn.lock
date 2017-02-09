@@ -306,10 +306,6 @@ autoprefixer@^6.0.0, autoprefixer@^6.0.2, autoprefixer@^6.3.1:
     postcss "^5.2.5"
     postcss-value-parser "^3.2.3"
 
-autosize@3.0.17:
-  version "3.0.17"
-  resolved "https://registry.yarnpkg.com/autosize/-/autosize-3.0.17.tgz#f5a2cd35b96d864634cffc600c8c628c658d805b"
-
 aws-sign2@~0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.6.0.tgz#14342dd38dbcc94d0e5b87d763cd63612c0e794f"

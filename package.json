@@ -85,7 +85,6 @@
     "react-dom": "^0.14.0 || ^15.0.0"
   },
   "dependencies": {
-    "autosize": "3.0.17",
     "classnames": "2.2.5",
     "uuid": "2.0.2"
   },
