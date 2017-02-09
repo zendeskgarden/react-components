@@ -7251,9 +7251,9 @@ yargs@~4.6.0:
     normalize.css "^5.0.0"
     zd-css-fonts "git+ssh://git@github.com/zendeskgarden/css-fonts.git#0.2.0"
 
-"zd-css-buttons@git+ssh://git@github.com/zendeskgarden/css-buttons.git#2.1.1":
-  version "2.1.1"
-  resolved "git+ssh://git@github.com/zendeskgarden/css-buttons.git#7ea79ff1d1e5eb9829d3b1fed08d3e4e9f8842a7"
+"zd-css-buttons@git+ssh://git@github.com/zendeskgarden/css-buttons.git#2.1.2":
+  version "2.1.2"
+  resolved "git+ssh://git@github.com/zendeskgarden/css-buttons.git#cea875d7f41b70018f29885628c73a36d22fcf60"
 
 "zd-css-fonts@git+ssh://git@github.com/zendeskgarden/css-fonts.git#0.2.0":
   version "0.2.0"
