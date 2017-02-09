@@ -7301,9 +7301,9 @@ yargs@~4.6.0:
     postcss-input-range jonathantneal/postcss-input-range#ed1b254ba56316dbb4a939b86f39278bda53f4fa
     zd-svg-icons "git+ssh://git@github.com/zendeskgarden/svg-icons.git#0.12.0"
 
-"zd-css-menus@git+ssh://git@github.com/zendeskgarden/css-menus.git#2.3.0":
-  version "2.3.0"
-  resolved "git+ssh://git@github.com/zendeskgarden/css-menus.git#a69210709416c41acdf67136b9f93828907a9660"
+"zd-css-menus@git+ssh://git@github.com/zendeskgarden/css-menus.git#2.3.1":
+  version "2.3.1"
+  resolved "git+ssh://git@github.com/zendeskgarden/css-menus.git#ec1c3803d98b080ce33453e979c889d579c87c7e"
 
 "zd-css-modals@git+ssh://git@github.com/zendeskgarden/css-modals.git#2.1.0":
   version "2.1.0"
