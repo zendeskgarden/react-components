@@ -24,6 +24,7 @@ export default class View extends Component {
     onArrowLeft: PropTypes.func,
     onArrowRight: PropTypes.func,
     onArrowUp: PropTypes.func,
+    onBackspace: PropTypes.func,
     onDelete: PropTypes.func,
     onEnter: PropTypes.func,
     onEscape: PropTypes.func,
