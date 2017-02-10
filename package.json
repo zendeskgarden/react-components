@@ -46,7 +46,7 @@
     "css-loader": "0.23.1",
     "file-loader": "0.9.0",
     "gh-pages": "0.11.0",
-    "github-changes": "1.0.2",
+    "github-changes": "1.0.4",
     "identity-obj-proxy": "3.0.0",
     "jest": "18.1.0",
     "json-loader": "0.5.4",

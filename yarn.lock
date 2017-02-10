@@ -2939,16 +2939,16 @@ ghauth@3.0.0:
     read "~1.0.5"
     xtend "~4.0.0"
 
-github-changes@1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/github-changes/-/github-changes-1.0.2.tgz#0a12768012a2e2617b341aaa0495a22bd9aed3ae"
+github-changes@1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/github-changes/-/github-changes-1.0.4.tgz#b9bbad261f2ec43e39c0a2fc36f3c7bcc1fd05bb"
   dependencies:
     bluebird "1.0.3"
     ghauth "3.0.0"
     github "0.1.16"
     github-commit-stream "0.1.0"
     lodash "2.4.1"
-    moment "2.5.1"
+    moment-timezone "0.5.5"
     nomnom "1.6.2"
     parse-link-header "0.1.0"
     semver "2.2.1"
@@ -4540,9 +4540,15 @@ modify-babel-preset@^1.0.0:
   dependencies:
     require-relative "^0.8.7"
 
-moment@2.5.1:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.5.1.tgz#7146a3900533064ca799d5e792f4e480ee0e82bc"
+moment-timezone@0.5.5:
+  version "0.5.5"
+  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.5.tgz#a1d5410a72c18a5f293f2a2e62870a80ad432dae"
+  dependencies:
+    moment ">= 2.6.0"
+
+"moment@>= 2.6.0":
+  version "2.17.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.17.1.tgz#fed9506063f36b10f066c8b59a144d7faebe1d82"
 
 ms@0.7.1:
   version "0.7.1"
@@ -4561,13 +4567,9 @@ multimatch@^2.1.0:
     arrify "^1.0.0"
     minimatch "^3.0.0"
 
-mute-stream@0.0.5:
+mute-stream@0.0.5, mute-stream@~0.0.4:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.5.tgz#8fbfabb0a98a253d3184331f9e8deb7372fac6c0"
-
-mute-stream@~0.0.4:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.6.tgz#48962b19e169fd1dfc240b3f1e7317627bbc47db"
 
 nan@^2.3.0:
   version "2.4.0"
