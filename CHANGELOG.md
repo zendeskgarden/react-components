@@ -1,5 +1,8 @@
 ## Change Log
 
+### v3.6.0 (2017/02/10 09:57 +00:00)
+- [#122](https://github.com/zendeskgarden/react-components/pull/122) Upgrade dependencies (@sunesimonsen)
+
 ### v3.5.0 (2017/02/02 10:23 +00:00)
 - [#119](https://github.com/zendeskgarden/react-components/pull/119) Allow size prop to be number type for Avatar component (@zillding)
 
