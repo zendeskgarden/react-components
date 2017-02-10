@@ -1,5 +1,9 @@
 ## Change Log
 
+### v3.7.0 (2017/02/10 22:39 +00:00)
+- [#124](https://github.com/zendeskgarden/react-components/pull/124) Added support for Garden labels (@sunesimonsen)
+- [#121](https://github.com/zendeskgarden/react-components/pull/121) Remove unnecessary `isRequired` in component type checking (@zillding)
+
 ### v3.6.0 (2017/02/10 09:57 +00:00)
 - [#122](https://github.com/zendeskgarden/react-components/pull/122) Upgrade dependencies (@sunesimonsen)
 
