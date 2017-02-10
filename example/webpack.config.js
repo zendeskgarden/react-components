@@ -18,7 +18,6 @@ var config = {
       'react',
       'react-dom',
       'classnames',
-      'autosize',
       'uuid',
       'zd-react-components'
     ]

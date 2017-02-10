@@ -26,7 +26,6 @@ module.exports = {
   },
 
   externals: [
-    'autosize',
     'classnames',
     'react',
     'react-dom',
