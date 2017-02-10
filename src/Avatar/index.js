@@ -14,10 +14,10 @@ export default class Avatar extends Component {
     onLoad: PropTypes.func,
     src: PropTypes.string.isRequired,
     size: PropTypes.oneOfType([
-      PropTypes.oneOf(sizes).isRequired,
-      PropTypes.number.isRequired,
-      PropTypes.string.isRequired
-    ]),
+      PropTypes.oneOf(sizes),
+      PropTypes.number,
+      PropTypes.string
+    ]).isRequired,
     status: PropTypes.oneOf([ 'default', 'present', 'away', 'active' ]).isRequired,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
