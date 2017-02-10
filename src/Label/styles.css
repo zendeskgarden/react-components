@@ -1,0 +1,47 @@
+.default {
+  composes: c-label from 'zd-css-labels';
+}
+
+.success {
+  composes: c-label c-label--success from 'zd-css-labels';
+}
+
+.warning {
+  composes: c-label c-label--warning from 'zd-css-labels';
+}
+
+.error {
+  composes: c-label c-label--error from 'zd-css-labels';
+}
+
+.small {
+  composes: c-label--sm from 'zd-css-labels';
+}
+
+.large {
+  composes: c-label--lg from 'zd-css-labels';
+}
+
+.pill {
+  composes: c-label--pill from 'zd-css-labels';
+}
+
+.stretched {
+  width: 100%;
+}
+
+.avatar {
+  composes: c-label__avatar from 'zd-css-labels';
+}
+
+.remove {
+  composes: c-label__remove from 'zd-css-labels';
+}
+
+.round {
+  composes: c-label--round from 'zd-css-labels';
+}
+
+.rtl {
+  composes: is-rtl from 'zd-css-labels';
+}
