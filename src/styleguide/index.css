@@ -1,5 +1,9 @@
 @import 'zd-css-variables';
 
+html {
+  overflow: hidden;
+}
+
 .ReactStyleguidist-common__font {
   color: var(--zd-color-dark-gray);
   font-family: inherit;
@@ -87,6 +91,7 @@
   left: 300px;
   background-color: inherit;
   width: 210px;
+  overflow-x: hidden;
 }
 
 .ReactStyleguidist-TableOfContents__search:focus {
