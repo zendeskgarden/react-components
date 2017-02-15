@@ -1,5 +1,8 @@
 ## Change Log
 
+### v3.8.0 (2017/02/15 14:40 +00:00)
+- [#127](https://github.com/zendeskgarden/react-components/pull/127) Added added support for link items in the menu (@sunesimonsen)
+
 ### v3.7.0 (2017/02/10 22:39 +00:00)
 - [#124](https://github.com/zendeskgarden/react-components/pull/124) Added support for Garden labels (@sunesimonsen)
 - [#121](https://github.com/zendeskgarden/react-components/pull/121) Remove unnecessary `isRequired` in component type checking (@zillding)
