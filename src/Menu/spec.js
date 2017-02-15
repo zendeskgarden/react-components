@@ -257,4 +257,190 @@ describe('Menu', () => {
       })
     })
   })
+
+  describe('with an onSelect on the menu', () => {
+    it('calls the onSelect handler when an item is clicked', () => {
+      const onSelect = sinon.spy()
+
+      return expect(
+        <Menu
+          onSelect={onSelect}
+          trigger={<Button>trigger</Button>}
+        >
+          <Menu.Item value='one'>One</Menu.Item>
+          <Menu.Item value='two'>Two</Menu.Item>
+          <Menu.Item value='three'>Three</Menu.Item>
+        </Menu>,
+        'when deeply rendered',
+        'with event', 'click', 'on',
+        <Button>trigger</Button>,
+        'with event', 'mouseDown', 'on',
+        <Menu.Item>Two</Menu.Item>
+      ).then(() => {
+        expect(onSelect, 'to have calls satisfying', () => {
+          onSelect('two')
+        })
+      })
+    })
+  })
+
+  describe('with an onSelect handle on the individual items', () => {
+    it('calls the onSelect handler when the item is clicked', () => {
+      const onSelect = sinon.spy()
+
+      return expect(
+        <Menu
+          trigger={<Button>trigger</Button>}
+        >
+          <Menu.Item onSelect={onSelect} value='one'>One</Menu.Item>
+          <Menu.Item onSelect={onSelect} value='two'>Two</Menu.Item>
+          <Menu.Item onSelect={onSelect} value='three'>Three</Menu.Item>
+        </Menu>,
+        'when deeply rendered',
+        'with event', 'click', 'on',
+        <Button>trigger</Button>,
+        'with event', 'mouseDown', 'on',
+        <Menu.Item>One</Menu.Item>
+      ).then(() => {
+        expect(onSelect, 'to have calls satisfying', () => {
+          onSelect('one')
+        })
+      })
+    })
+
+    it('calls the onSelect handler when the item is selected with the keyboard', () => {
+      const onSelect = sinon.spy()
+
+      return expect(
+        <Menu
+          trigger={<Button>trigger</Button>}
+        >
+          <Menu.Item onSelect={onSelect} value='one'>One</Menu.Item>
+          <Menu.Item onSelect={onSelect} value='two'>Two</Menu.Item>
+          <Menu.Item onSelect={onSelect} value='three'>Three</Menu.Item>
+        </Menu>,
+        'when deeply rendered',
+        'with event', 'click', 'on',
+        <Button>trigger</Button>,
+        'with event', 'keyDown', { keyCode: 40 }, 'on', <Button>trigger</Button>,
+        'with event', 'keyDown', { keyCode: 40 }, 'on', <Button>trigger</Button>,
+        'with event', 'keyDown', { keyCode: 13 }, 'on', <Button>trigger</Button>,
+      ).then(() => {
+        expect(onSelect, 'to have calls satisfying', () => {
+          onSelect('two')
+        })
+      })
+    })
+  })
+
+  describe('containing link items', () => {
+    const menu = (
+      <Menu
+        trigger={<Button>trigger</Button>}
+      >
+        <Menu.LinkItem href='https://www.zendesk.com'>Link</Menu.LinkItem>
+        <Menu.LinkItem href='https://www.zendesk.com/help-center' target='_blank'>Blank</Menu.LinkItem>
+        <Menu.LinkItem href='https://www.zendesk.com/support' disabled>Disabled</Menu.LinkItem>
+      </Menu>
+    )
+
+    beforeEach(() => {
+      sinon.stub(window, 'open').returns({
+        opener: 'evil opener'
+      })
+    })
+
+    afterEach(() => {
+      window.open.restore()
+    })
+
+    it('opens the link when you click on a link item', () => {
+      return expect(
+        menu,
+        'when deeply rendered',
+        'with event', 'click', 'on',
+        <Button>trigger</Button>,
+        'with event', 'mouseDown', 'on',
+        <Menu.LinkItem>Link</Menu.LinkItem>
+      ).then(() => {
+        expect(window.open, 'to have calls satisfying', () => {
+          window.open('https://www.zendesk.com', '_self')
+        })
+      })
+    })
+
+    it('ctrl clicking a link item sets the target to blank', () => {
+      return expect(
+        menu,
+        'when deeply rendered',
+        'with event', 'click', 'on',
+        <Button>trigger</Button>,
+        'with event', 'mouseDown', { ctrlKey: true }, 'on',
+        <Menu.LinkItem>Link</Menu.LinkItem>
+      ).then(() => {
+        expect(window.open, 'to have calls satisfying', () => {
+          window.open('https://www.zendesk.com', '_blank')
+        })
+      })
+    })
+
+    it('respects the link target', () => {
+      return expect(
+        menu,
+        'when deeply rendered',
+        'with event', 'click', 'on',
+        <Button>trigger</Button>,
+        'with event', 'mouseDown', 'on',
+        <Menu.LinkItem target='_blank'>Blank</Menu.LinkItem>
+      ).then(() => {
+        expect(window.open, 'to have calls satisfying', () => {
+          window.open('https://www.zendesk.com/help-center', '_blank')
+        })
+      })
+    })
+
+    it('respects the disabled flag', () => {
+      return expect(
+        menu,
+        'when deeply rendered',
+        'with event', 'click', 'on',
+        <Button>trigger</Button>,
+        'with event', 'mouseDown', 'on',
+        <Menu.LinkItem disabled>Disabled</Menu.LinkItem>
+      ).then(() => {
+        expect(window.open, 'was not called')
+      })
+    })
+
+    it('opens the link when selected with the keyboard', () => {
+      return expect(
+        menu,
+        'when deeply rendered',
+        'with event', 'click', 'on',
+        <Button>trigger</Button>,
+        'with event', 'keyDown', { keyCode: 40 }, 'on', <Button>trigger</Button>,
+        'with event', 'keyDown', { keyCode: 40 }, 'on', <Button>trigger</Button>,
+        'with event', 'keyDown', { keyCode: 13 }, 'on', <Button>trigger</Button>,
+      ).then(() => {
+        expect(window.open, 'to have calls satisfying', () => {
+          window.open('https://www.zendesk.com/help-center', '_blank')
+        })
+      })
+    })
+
+    it('opens the link in a new window when a link is selected by ctrl-enter', () => {
+      return expect(
+        menu,
+        'when deeply rendered',
+        'with event', 'click', 'on',
+        <Button>trigger</Button>,
+        'with event', 'keyDown', { keyCode: 40 }, 'on', <Button>trigger</Button>,
+        'with event', 'keyDown', { keyCode: 13, ctrlKey: true }, 'on', <Button>trigger</Button>,
+      ).then(() => {
+        expect(window.open, 'to have calls satisfying', () => {
+          window.open('https://www.zendesk.com', '_blank')
+        })
+      })
+    })
+  })
 })

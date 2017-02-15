@@ -49,12 +49,12 @@ export default class ReactSingleSelectionModel {
             this.selectedByMouse = true
             this.model.select(child)
           },
-          onValueChosen: () => {
+          onValueChosen: (value, event) => {
             this.selectedByMouse = true
             if (this.model.selection !== child) {
               this.model.select(child)
             }
-            this.choseSelection()
+            this.choseSelection(event)
           },
           selected: child === this.model.selection
         })
@@ -97,11 +97,13 @@ export default class ReactSingleSelectionModel {
     }
   }
 
-  choseSelection = () => {
+  choseSelection = (event) => {
     if (this.hasSelection()) {
       const selection = this.model.selection
       const value = selection.props.value
-      selection.props.onSelect && selection.props.onSelect(value)
+      if (selection.props.action) {
+        selection.props.action && selection.props.action(selection.props, event)
+      }
       this.onValueChosen && this.onValueChosen(value)
       return true
     }
@@ -110,14 +112,14 @@ export default class ReactSingleSelectionModel {
   hasSelection = () => this.model.hasSelection()
 
   onEnter = (event) => {
-    if (this.choseSelection()) {
+    if (this.choseSelection(event)) {
       event.preventDefault()
       event.stopPropagation()
     }
   }
 
   onSpace = (event) => {
-    if (this.selectOnSpace && this.choseSelection()) {
+    if (this.selectOnSpace && this.choseSelection(event)) {
       event.preventDefault()
       event.stopPropagation()
     }

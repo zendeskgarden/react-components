@@ -5,8 +5,9 @@ import ReactSingleSelectionModel from '../utils/selection/ReactSingleSelectionMo
 import View from '../core/View'
 import RelativePositionedPopup from '../core/RelativePositionedPopup'
 
-import Item from './Item'
 import Container from './Container'
+import Item from './Item'
+import LinkItem from './LinkItem'
 import Separator from './Separator'
 
 import styles from './styles.css'
@@ -60,6 +61,7 @@ export default class Menu extends Component {
 
   static Container = Container
   static Item = Item
+  static LinkItem = LinkItem
   static Separator = Separator
 
   constructor (props) {
