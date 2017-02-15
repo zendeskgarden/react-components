@@ -1,28 +1,28 @@
 import React, { Component, PropTypes } from 'react'
 import classNames from 'classnames'
 
-import View from '../core/View'
 import Selectable from '../core/Selectable'
 
 import styles from './styles.css'
 
-class Item extends Component {
+class LinkItem extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
     disabled: PropTypes.bool,
     onMouseDown: PropTypes.func,
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
-    onSelect: PropTypes.func,
     role: PropTypes.string,
     selected: PropTypes.bool,
     testId: PropTypes.string,
-    value: PropTypes.any
+    href: PropTypes.string.isRequired,
+    target: PropTypes.oneOf([ '_self', '_blank', '_parent', '_top' ])
   }
 
   static defaultProps = {
     disabled: false,
-    role: 'menuitem'
+    role: 'menuitem',
+    target: '_self'
   }
 
   render () {
@@ -34,35 +34,43 @@ class Item extends Component {
       onMouseLeave,
       role,
       selected,
-      testId
+      testId,
+      href,
+      target
     } = this.props
 
     return (
-      <View
+      <a
         aria-activedescendant={selected}
         aria-disabled={disabled}
-        className={classNames(styles.item, {
-          [styles.disabled]: disabled,
-          [styles.selected]: selected
-        })}
+        className={
+          classNames(styles.item, {
+            [styles.disabled]: disabled,
+            [styles.selected]: selected
+          })
+        }
         disabled={disabled}
         onMouseDown={onMouseDown}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         role={role}
-        testId={testId}
+        data-test-id={testId}
+        href={href}
+        target={target}
       >
-        { children }
-      </View>
+        {children}
+      </a>
     )
   }
 }
 
-export default Selectable(Item, {
+export default Selectable(LinkItem, {
   action: (props, event) => {
-    const { onSelect, value } = props
+    const { href, target } = props
+    const openInNewWindow = event.ctrlKey || event.metaKey
 
-    onSelect && onSelect(value)
+    const newWindow = window.open(href, openInNewWindow ? '_blank' : target)
+    newWindow.opener = null
   },
   preventDefault: true
 })

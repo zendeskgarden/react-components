@@ -2,7 +2,9 @@ import React, { Component, PropTypes } from 'react'
 import { findDOMNode } from 'react-dom'
 
 const Selectable = (ChildComponent, {
+  action,
   preventDefault = false,
+  stopPropagation = false,
   selectOnHover = true,
   selectEvent = 'onMouseDown'
 } = {}) => {
@@ -10,6 +12,7 @@ const Selectable = (ChildComponent, {
     static selectable = true
 
     static propTypes = {
+      action: PropTypes.func,
       disabled: PropTypes.bool,
       onSelect: PropTypes.func,
       onValueChosen: PropTypes.func,
@@ -17,18 +20,18 @@ const Selectable = (ChildComponent, {
       value: PropTypes.any
     }
 
-    static defaultProps = {
+    static defaultProps = Object.assign({}, ChildComponent.defaultProps || {}, {
+      action,
       disabled: false
-    }
+    })
 
-    onSelect = (e) => {
+    onChoseValue = (e) => {
       const { disabled, onValueChosen, value } = this.props
 
       if (!disabled && onValueChosen) {
-        onValueChosen(value)
-        if (preventDefault) {
-          e.preventDefault()
-        }
+        onValueChosen(value, e)
+        preventDefault && e.preventDefault()
+        stopPropagation && e.stopPropagation()
       }
     }
 
@@ -66,7 +69,7 @@ const Selectable = (ChildComponent, {
         ...this.props,
         onMouseEnter: this.onMouseEnter,
         onMouseLeave: this.onMouseLeave,
-        [selectEvent]: this.onSelect
+        [selectEvent]: this.onChoseValue
       }
 
       return (

@@ -27,6 +27,18 @@ You can add an `onSelect` handler directly to the items the follwing way:
 </Menu>
 ```
 
+Links:
+
+```
+<Menu
+  trigger={ <Button>Links</Button> }
+>
+  <Menu.LinkItem href='https://www.zendesk.com'>Zendesk</Menu.LinkItem>
+  <Menu.LinkItem href='https://www.zendesk.com' target='_blank'>Zendesk (new window)</Menu.LinkItem>
+  <Menu.LinkItem href='https://www.zendesk.com/help-center' disabled>Help Center</Menu.LinkItem>
+</Menu>
+```
+
 You can pass `trigger` as a function, which will return an `{ open: PropTypes.Boolean }`,
 that you can use for styling.
 
