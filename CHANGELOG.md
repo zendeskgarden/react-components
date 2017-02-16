@@ -1,5 +1,8 @@
 ## Change Log
 
+### v3.8.1 (2017/02/16 19:36 +00:00)
+- [#128](https://github.com/zendeskgarden/react-components/pull/128) I accidentally scrambled the label examples (@sunesimonsen)
+
 ### v3.8.0 (2017/02/15 14:40 +00:00)
 - [#127](https://github.com/zendeskgarden/react-components/pull/127) Added added support for link items in the menu (@sunesimonsen)
 
