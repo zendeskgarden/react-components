@@ -22,10 +22,10 @@ Sizes:
 ```
 <Grid columns={2} spacing='medium' style={{ textAlign: 'center' }}>
   <Label size='small'>This is a small label</Label>
-  <Label size='small' pill>This is a medium label</Label>
-  <Label size='medium'>This is a small label</Label>
-  <Label size='medium' pill>This is a large label</Label>
-  <Label size='large'>This is a medium label</Label>
+  <Label size='small' pill>This is a small label</Label>
+  <Label size='medium'>This is a medium label</Label>
+  <Label size='medium' pill>This is a medium label</Label>
+  <Label size='large'>This is a large label</Label>
   <Label size='large' pill>This is a large label</Label>
 </Grid>
 ```
@@ -56,10 +56,10 @@ const avatar = <img src='http://placeskull.com/16/16/03363d'/>;
 
 <Grid columns={2} spacing='medium' style={{ textAlign: 'center' }}>
   <Label avatar={avatar} size='small'>This is a small label</Label>
-  <Label avatar={avatar} size='small' pill>This is a medium label</Label>
-  <Label avatar={avatar} size='medium'>This is a small label</Label>
-  <Label avatar={avatar} size='medium' pill>This is a large label</Label>
-  <Label avatar={avatar} size='large'>This is a medium label</Label>
+  <Label avatar={avatar} size='small' pill>This is a small label</Label>
+  <Label avatar={avatar} size='medium'>This is a medium label</Label>
+  <Label avatar={avatar} size='medium' pill>This is a medium label</Label>
+  <Label avatar={avatar} size='large'>This is a large label</Label>
   <Label avatar={avatar} size='large' pill>This is a large label</Label>
 </Grid>
 ```
