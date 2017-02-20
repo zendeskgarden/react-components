@@ -54,6 +54,7 @@
     "postcss-import": "8.1.0",
     "postcss-input-range": "git+ssh://git@github.com/jonathantneal/postcss-input-range#ed1b254ba56316dbb4a939b86f39278bda53f4fa",
     "postcss-loader": "0.9.1",
+    "querystring": "0.2.0",
     "react": "15.4.2",
     "react-addons-test-utils": "15.4.2",
     "react-dom": "15.4.2",
