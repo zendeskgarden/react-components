@@ -7,16 +7,13 @@
 
 .container {
   display: inline-block;
-
   position: relative;
 }
 
 .stretched.container, .stretched {
   display: flex;
-
   width: 100%;
   height: 100%;
-
   flex-basis: auto;
   flex-grow: 1;
   flex-shrink: 1;
@@ -25,7 +22,6 @@
 .menu {
   position: relative;
   padding: 10px initial;
-
   composes: c-menu from 'zd-css-menus';
 }
 
