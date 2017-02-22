@@ -16,6 +16,13 @@
   color: var(--zd-color-white) !important;
 }
 
+.type_default.active,
+.type_primary.active,
+.type_basic.active {
+  background-color: var(--zd-accent-color) !important;
+  color: var(--zd-color-white) !important;
+}
+
 .type_default.active:hover,
 .type_primary.active:hover,
 .type_basic.active:hover,
@@ -23,13 +30,6 @@
 .type_primary:hover,
 .type_basic:hover {
   background-color: var(--zd-hover-color) !important;
-  color: var(--zd-color-white) !important;
-}
-
-.type_default.active,
-.type_primary.active,
-.type_basic.active {
-  background-color: var(--zd-accent-color) !important;
   color: var(--zd-color-white) !important;
 }
 

@@ -1,20 +1,20 @@
 @import './variables.css';
 
 /* stylelint-disable declaration-no-important */
-input:checked ~ .label:after {
-  background-color: var(--zd-accent-color) !important;
-}
-
 .label:active:after {
   border-color: var(--zd-accent-color) !important;
-}
-
-input:checked ~ .label:active:after {
-  background-color: var(--zd-accent-color) !important;
 }
 
 .toggle.focused > .label::after {
   border-color: var(--zd-accent-color) !important;
   box-shadow: 0 0 0 3px var(--zd-focus-color) !important;
+}
+
+input:checked ~ .label:after {
+  background-color: var(--zd-accent-color) !important;
+}
+
+input:checked ~ .label:active:after {
+  background-color: var(--zd-accent-color) !important;
 }
 /* stylelint-enable declaration-no-important */

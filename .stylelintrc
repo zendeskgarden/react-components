@@ -1,3 +1,9 @@
 {
-  "extends": "stylelint-config-zendesk"
+  "extends": "stylelint-config-zendesk",
+  "rules": {
+    "property-no-unknown": [true, {
+      "ignoreProperties": ["composes"]
+    }],
+    "selector-max-specificity": "0,4,2"
+  }
 }

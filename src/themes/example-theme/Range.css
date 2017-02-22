@@ -1,6 +1,6 @@
 @import './variables.css';
 
-/* stylelint-disable declaration-no-important, max-line-length */
+/* stylelint-disable declaration-no-important, max-line-length, selector-pseudo-element-no-unknown */
 .input:not(:disabled)::range-track {
   background-image: linear-gradient(var(--zd-accent-color), var(--zd-accent-color));
 }
@@ -22,4 +22,4 @@
 .input:not(:disabled):active::range-thumb {
   background-color: var(--zd-active-color) !important;
 }
-/* stylelint-enable */
+/* stylelint-enable, selector-pseudo-element-no-unknown */
