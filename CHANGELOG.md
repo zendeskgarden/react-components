@@ -1,5 +1,10 @@
 ## Change Log
 
+### v3.9.0 (2017/03/06 22:06 +00:00)
+- [#131](https://github.com/zendeskgarden/react-components/pull/131) Add `onEscape` prop check to `TextInput` and `TextArea` components (@zillding)
+- [#130](https://github.com/zendeskgarden/react-components/pull/130) Upgraded the stylelint dependencies and configuration (@sunesimonsen)
+- [#129](https://github.com/zendeskgarden/react-components/pull/129) Support testing the styleguide without Proxima-nova (@sunesimonsen)
+
 ### v3.8.1 (2017/02/16 19:36 +00:00)
 - [#128](https://github.com/zendeskgarden/react-components/pull/128) I accidentally scrambled the label examples (@sunesimonsen)
 
