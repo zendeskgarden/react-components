@@ -166,7 +166,7 @@ gulp.task('js', () => {
         'transform-runtime'
       ],
       presets: [
-        ['latest', { es2015: { loose: true, modules: 'commonjs' } }],
+        ['es2015', { loose: true, modules: 'commonjs' }],
         'react',
         'stage-0'
       ]
