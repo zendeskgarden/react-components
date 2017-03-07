@@ -131,8 +131,8 @@ const externalizeComposes = (contents, file) => (
 
 // When we have processed all external composes we are ready to transpile the
 // CSS files in our project. We externalize the composes to point to the
-// composed CSS class names. Then we transpile the CSS-module and place result
-// JavaScript file in the lib folder.
+// composed CSS class names. Then we transpile the CSS-module and place the
+// resulting JavaScript file in the lib folder.
 gulp.task('css', ['process-composed-files'], () => {
   return gulp.src('src/**/*.css')
     .pipe(transform(externalizeComposes, {encoding: 'utf8'}))
