@@ -1,3 +1,12 @@
+// This build script is transpiling JavaScript and CSS file by file into a lib
+// folder. The folder structure will be kept and JavaScript files will be
+// transpiled to ES5. CSS files will be transpiled to JavaScript files that will
+// return a CSS-modules hash and insert the actual CSS in the head. When a CSS
+// file composes another CSS file from node_modules it will be transpiled in to
+// the folder lib/garden and a dependency will be added to the composed file.
+// This ensured that composed CSS modules will be shared among the files
+// referencing them.
+
 const gulp = require('gulp')
 const postcss = require('gulp-postcss')
 const babel = require('gulp-babel')
@@ -18,15 +27,18 @@ const styleMappings = {}
 const composes = {}
 const fileDependencies = {}
 
-const cssToJSTemplate = (contents, styles, dependencies) => `\
-${contents ? "import insertCss from 'insert-css'" : ''}
+// Template for the transpiled CSS-modules file
+const cssToJSTemplate = (css, styles, dependencies) => `\
+${css ? "import insertCss from 'insert-css'" : ''}
 ${dependencies}
 
-${contents ? `insertCss(${JSON.stringify(contents)})` : ''}
+${css ? `insertCss(${JSON.stringify(css)})` : ''}
 
 export default ${JSON.stringify(styles)}
 `
 
+// This function transforms a CSS file to JavaScript that will return the
+// CSS-modules hash and insert the actual CSS in the head.
 const cssToJS = (contents, file) => {
   const relativePath = path.relative(path.dirname(file.path), path.join(__dirname, 'src'))
 
@@ -40,6 +52,10 @@ const cssToJS = (contents, file) => {
   )
 }
 
+// This function collects all composes references to external node_modules and
+// records them into the composes variable. Furthermore it records a file
+// dependency between this CSS file and the CSS files it is composing - this
+// information is kept in the fileDependencies variable.
 const collectCompose = (contents, file) => {
   const composeRegexp = /composes: (.*) from '([^/.].*)';/g
   const dependencies = []
@@ -62,11 +78,15 @@ const collectCompose = (contents, file) => {
   return contents
 }
 
+// Runs collect composes for all CSS files in the project.
 gulp.task('collect-composes', (cb) => {
   return gulp.src('src/**/*.css')
     .pipe(transform(collectCompose, {encoding: 'utf8'}))
 })
 
+// When we have collected all the references to composed CSS files,
+// we can then transpile each of the them into JavaScript files that will be
+// stored in the lib/garden folder.
 gulp.task('process-composed-files', ['collect-composes'], () => {
   const sources = Object.keys(composes).map((module) => (
     require.resolve(module)
@@ -91,6 +111,10 @@ gulp.task('process-composed-files', ['collect-composes'], () => {
     .pipe(gulp.dest('lib/'))
 })
 
+// This function will externalize all composes referencing CSS files
+// node_modules. We have already collected all the composes and transpiled the
+// referenced CSS files. So now we just replaced all composed class names with
+// their hashed CSS-module name from the global scope.
 const externalizeComposes = (contents, file) => (
   contents.replace(/composes: (.*) from '([^/.].*)';/g, ($0, $1, module) => {
     const cssFileName = require.resolve(module)
@@ -101,6 +125,10 @@ const externalizeComposes = (contents, file) => (
   })
 )
 
+// When we have processed all external composes we are ready to transpile the
+// CSS files in our project. We externalize the composes to point to the
+// composed CSS class names. Then we transpile the CSS-module and place result
+// JavaScript file in the lib folder.
 gulp.task('css', ['process-composed-files'], () => {
   return gulp.src('src/**/*.css')
     .pipe(transform(externalizeComposes, {encoding: 'utf8'}))
@@ -117,7 +145,6 @@ gulp.task('css', ['process-composed-files'], () => {
         }
       })
     ]))
-    // .pipe(transform(log, {encoding: 'utf8'}))
     .pipe(cleanCSS())
     .pipe(transform(cssToJS, {encoding: 'utf8'}))
     .pipe(rename((path) => {
@@ -128,6 +155,8 @@ gulp.task('css', ['process-composed-files'], () => {
 
 const cssImports = (contents) => contents.replace(/(import.*from '.*)\.css'/g, '$1\'')
 
+// This task will transpile all JavaScript ES5 files in the lib folder and
+// replace imported CSS files to point to the transpiled CSS-module.
 gulp.task('js', () => {
   return gulp.src(['src/**/*.js', '!src/**/spec.js', '!src/**/*.spec.js'])
     .pipe(transform(cssImports, {encoding: 'utf8'}))
