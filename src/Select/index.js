@@ -2,7 +2,8 @@ import React, { PropTypes } from 'react'
 import classNames from 'classnames'
 import uuid from 'uuid'
 
-import { Menu, View } from '..'
+import Menu from '../Menu'
+import View from '../core/View'
 import ThemedComponent from '../utils/theming/ThemedComponent'
 
 import styles from './styles.css'
