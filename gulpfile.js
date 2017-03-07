@@ -29,12 +29,16 @@ const fileDependencies = {}
 
 // Template for the transpiled CSS-modules file
 const cssToJSTemplate = (css, styles, dependencies) => `\
-${css ? "import insertCss from 'insert-css'" : ''}
+'use strict';
+
+exports.__esModule = true;
+
+${css ? "var insertCss = require('insert-css')" : ''}
 ${dependencies}
 
 ${css ? `insertCss(${JSON.stringify(css)})` : ''}
 
-export default ${JSON.stringify(styles)}
+exports.default = ${JSON.stringify(styles)}
 `
 
 // This function transforms a CSS file to JavaScript that will return the
@@ -47,7 +51,7 @@ const cssToJS = (contents, file) => {
     styleMappings[file.path],
     unique(fileDependencies[file.path] || []).map(dependency => {
       const dependencyPath = path.join(relativePath, 'garden', `${dependency}.js`)
-      return `import '${dependencyPath}'`
+      return `require('${dependencyPath}')`
     }).join('\n')
   )
 }
