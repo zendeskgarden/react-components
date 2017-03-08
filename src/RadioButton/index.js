@@ -17,6 +17,9 @@ export default class RadioButton extends ThemedComponent {
     onChange: PropTypes.func,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
+    title: PropTypes.string,
+    /** <a href="#View">See View</a> */
+    tooltipPositioning: () => {},
     value: PropTypes.any
   }
 
@@ -51,7 +54,9 @@ export default class RadioButton extends ThemedComponent {
       disabled,
       name,
       tabIndex,
-      testId
+      testId,
+      title,
+      tooltipPositioning
     } = this.props
 
     const { focused } = this.state
@@ -63,6 +68,8 @@ export default class RadioButton extends ThemedComponent {
           [theme.focused]: focused,
           [theme.rtl]: dir === 'rtl'
         })}
+        title={title}
+        tooltipPositioning={tooltipPositioning}
       >
         <input
           checked={checked}
