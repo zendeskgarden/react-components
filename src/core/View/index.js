@@ -37,7 +37,7 @@ export default class View extends Component {
     onTab: PropTypes.func,
     testId: PropTypes.string,
     title: PropTypes.string,
-    tooltipPositioning: PropTypes.array
+    tooltipPositioning: PropTypes.oneOf([ 'top', 'right', 'bottom', 'left' ])
   }
 
   componentDidMount () {
