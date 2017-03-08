@@ -7,18 +7,18 @@
   /* stylelint-enable */
 }
 
-.l {
-  composes: c-arrow--l from 'zd-css-arrows';
+.left {
+  composes: c-arrow--r from 'zd-css-arrows';
 }
 
-.b {
-  composes: c-arrow--b from 'zd-css-arrows';
-}
-
-.t {
+.bottom {
   composes: c-arrow--t from 'zd-css-arrows';
 }
 
-.r {
-  composes: c-arrow--r from 'zd-css-arrows';
+.top {
+  composes: c-arrow--b from 'zd-css-arrows';
+}
+
+.right {
+  composes: c-arrow--l from 'zd-css-arrows';
 }
