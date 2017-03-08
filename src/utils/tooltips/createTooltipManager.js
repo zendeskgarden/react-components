@@ -19,16 +19,16 @@ const createTooltipManager = renderNode => {
     render(<TooltipContainer />, renderNode)
   }
 
-  if (window[globalKey]) {
-    return null
+  if (!window[globalKey]) {
+    // Attach to window
+    window[globalKey] = { show, hide }
+
+    // Event handlers
+    document.body.addEventListener('scroll', hide)
+    window.addEventListener('resize', hide)
   }
 
-  // Attach to window
-  window[globalKey] = { show, hide }
-
-  // Event handlers
-  document.body.addEventListener('scroll', hide)
-  window.addEventListener('resize', hide)
+  return window[globalKey]
 }
 
 export default createTooltipManager
