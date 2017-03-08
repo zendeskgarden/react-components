@@ -33,6 +33,45 @@ $ npm install --save git+ssh://git@github.com:zendeskgarden/css-bedrock.git
 See the [example](https://github.com/zendeskgarden/react-components/tree/master/example)
 for more information on the setup.
 
+## Optimizing your build
+
+Webpack 2 currently does not tree-shake index files containing re-exports
+because of a bug. This will be fixed at some point. To help Webpack a bit, you
+can transform imports to point to the individual components
+using [babel-plugin-transform-imports](https://www.npmjs.com/package/babel-plugin-transform-imports):
+
+```js
+import {Button, Menu, Text} from 'zd-react-components'
+```
+
+will be transformed to:
+
+```js
+import Button from 'zd-react-components/lib/Button'
+import Menu from 'zd-react-components/lib/Menu'
+import Text from 'zd-react-components/lib/Text'
+```
+
+You setup the plugin by adding the plugin to your babel configuration:
+
+```json
+{
+  "plugins": [
+    ["transform-imports", {
+      "zd-react-components": {
+        "transform": "zd-react-components/lib/${member}",
+        "preventFullImport": true
+      }
+    }]
+  ],
+  ...
+}
+```
+
+Notice: Webpack will only tree-shake the components if the components is in the
+same Webpack chunk as the code that is using them. So if you put the components
+in a vendor bundle Webpack will include all the components.
+
 ## Owners
 * Email: [bastards@zendesk.com](mailto:bastards@zendesk.com)
 * Slack: [#react](https://zendesk.slack.com/messages/react/) or [#garden](https://zendesk.slack.com/messages/garden/)
