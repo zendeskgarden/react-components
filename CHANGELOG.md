@@ -1,5 +1,9 @@
 ## Change Log
 
+### v4.0.0 (2017/03/08 20:21 +00:00)
+- [#132](https://github.com/zendeskgarden/react-components/pull/132) Replaced the Webpack build with a Gulp based build (Major) (@sunesimonsen)
+- [#134](https://github.com/zendeskgarden/react-components/pull/134) Fixed typo in export (Major) (@sunesimonsen)
+
 ### v3.9.0 (2017/03/06 22:06 +00:00)
 - [#131](https://github.com/zendeskgarden/react-components/pull/131) Add `onEscape` prop check to `TextInput` and `TextArea` components (@zillding)
 - [#130](https://github.com/zendeskgarden/react-components/pull/130) Upgraded the stylelint dependencies and configuration (@sunesimonsen)
