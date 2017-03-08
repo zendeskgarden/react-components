@@ -43,7 +43,11 @@ class TooltipContainer extends Component {
     }
 
     const { tooltipBounds: tBounds } = this.state
-    const { content, anchor, positions } = this.props
+    const { content, anchor, positions: rawPositions } = this.props
+
+    const positions = typeof rawPositions === 'string'
+      ? [ rawPositions ]
+      : rawPositions
 
     const aBounds = anchor.getBoundingClientRect()
 
@@ -83,7 +87,10 @@ class TooltipContainer extends Component {
 }
 
 TooltipContainer.propTypes = {
-  positions: PropTypes.array
+  positions: PropTypes.oneOfType([
+    PropTypes.oneOf([ 'top', 'right', 'bottom', 'left' ]),
+    PropTypes.arrayOf(PropTypes.oneOf([ 'top', 'right', 'bottom', 'left' ]))
+  ])
 }
 
 TooltipContainer.defaultProps = {
