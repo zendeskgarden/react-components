@@ -90,27 +90,32 @@ export default class View extends Component {
         onKeyDown && onKeyDown(e)
       }
     }
-    const tooltipManager = window[tooltipGlobalKey]
-
-    if (tooltipManager && title) {
-      ['onMouseOver'].forEach(handler => {
-        eventHandlers[handler] = e => {
-          tooltipManager.show(this.element, title, tooltipPositioning)
-          this.props[handler] && this.props[handler](e)
-        }
-      })
-
-      ;['onMouseOut', 'onBlur'].forEach(handler => {
-        eventHandlers[handler] = e => {
-          tooltipManager.hide()
-          this.props[handler] && this.props[handler](e)
-        }
-      })
-    }
 
     const props = {
       ...other,
       ...eventHandlers
+    }
+
+    const tooltipManager = typeof window === 'undefined'
+      ? null
+      : window[tooltipGlobalKey]
+
+    if (tooltipManager && title) {
+      props.onMouseOver = e => {
+        tooltipManager.show(this.element, title, tooltipPositioning)
+        this.props.onMouseOver && this.props.onMouseOver(e)
+      }
+
+      ;['onMouseOut', 'onBlur'].forEach(handler => {
+        props[handler] = e => {
+          tooltipManager.hide()
+          this.props[handler] && this.props[handler](e)
+        }
+      })
+
+      props['aria-label'] = title
+    } else if (title) {
+      props.title = title
     }
 
     if (testId) {

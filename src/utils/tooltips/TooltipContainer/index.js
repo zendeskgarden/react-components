@@ -56,7 +56,7 @@ class TooltipContainer extends Component {
         bottom: aBounds.bottom,
         width: aBounds.width,
         height: aBounds.height,
-        margins: { left: 10, top: 10, right: 10, bottom: 10 }
+        margins: { left: 5, top: 5, right: 5, bottom: 5 }
       },
       centerPoint: 0,
       target: {
