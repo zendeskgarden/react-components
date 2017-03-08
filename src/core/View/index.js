@@ -38,7 +38,7 @@ export default class View extends Component {
     testId: PropTypes.string,
     title: PropTypes.string,
     /** One of: 'top', 'right', 'bottom', 'left' or as array (prioritization) */
-    tooltipPositioning: PropTypes.mixed
+    tooltipPositioning: () => {}
   }
 
   componentDidMount () {
