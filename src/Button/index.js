@@ -11,21 +11,21 @@ export default class Button extends ThemedComponent {
 
   static propTypes = {
     autoFocus: PropTypes.bool,
+    children: PropTypes.node.isRequired,
     className: PropTypes.string,
-    type: PropTypes.oneOf(['default', 'primary', 'basic']),
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
     disabled: PropTypes.bool,
-    stretched: PropTypes.bool,
     onBlur: PropTypes.func,
     onClick: PropTypes.func,
     onFocus: PropTypes.func,
     pill: PropTypes.bool,
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
+    stretched: PropTypes.bool,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
     title: PropTypes.string,
     /** <a href="#View">See View</a> */
     tooltipPositioning: () => {},
-    children: PropTypes.node.isRequired
+    type: PropTypes.oneOf(['default', 'primary', 'basic'])
   }
 
   static defaultProps = {
