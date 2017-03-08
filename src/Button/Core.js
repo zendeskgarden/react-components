@@ -78,7 +78,8 @@ export default class Core extends Component {
       onBlur,
       tabIndex,
       testId,
-      title
+      title,
+      tooltipPositioning
     } = this.props
 
     return (
@@ -96,6 +97,7 @@ export default class Core extends Component {
         tabIndex={disabled ? null : tabIndex}
         role='button'
         title={title}
+        tooltipPositioning={tooltipPositioning}
       >
         { children }
       </View>
