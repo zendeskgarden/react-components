@@ -1,0 +1,22 @@
+.tooltip {
+  position: fixed;
+  pointer-events: none;
+  composes: c-tooltip from 'zd-css-tooltips';
+  composes: c-arrow from 'zd-css-arrows';
+}
+
+.l {
+  composes: c-arrow--l from 'zd-css-arrows';
+}
+
+.b {
+  composes: c-arrow--b from 'zd-css-arrows';
+}
+
+.t {
+  composes: c-arrow--t from 'zd-css-arrows';
+}
+
+.r {
+  composes: c-arrow--r from 'zd-css-arrows';
+}
