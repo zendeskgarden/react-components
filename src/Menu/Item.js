@@ -17,6 +17,9 @@ class Item extends Component {
     role: PropTypes.string,
     selected: PropTypes.bool,
     testId: PropTypes.string,
+    title: PropTypes.string,
+    /** <a href="#View">See View</a> */
+    tooltipPositioning: () => {},
     value: PropTypes.any
   }
 
@@ -34,7 +37,9 @@ class Item extends Component {
       onMouseLeave,
       role,
       selected,
-      testId
+      testId,
+      title,
+      tooltipPositioning
     } = this.props
 
     return (
@@ -51,6 +56,8 @@ class Item extends Component {
         onMouseLeave={onMouseLeave}
         role={role}
         testId={testId}
+        title={title}
+        tooltipPositioning={tooltipPositioning}
       >
         { children }
       </View>
