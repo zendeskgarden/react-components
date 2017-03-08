@@ -1,4 +1,7 @@
 import React, { Component, PropTypes } from 'react'
+
+import tooltipGlobalKey from '../../utils/tooltips/globalKey'
+
 import classNames from 'classnames'
 
 import styles from './styles.css'
@@ -33,7 +36,8 @@ export default class View extends Component {
     onSpace: PropTypes.func,
     onTab: PropTypes.func,
     testId: PropTypes.string,
-    title: PropTypes.string
+    title: PropTypes.string,
+    tooltipPositioning: PropTypes.array
   }
 
   componentDidMount () {
@@ -59,6 +63,8 @@ export default class View extends Component {
       onKeyDown,
       onSpace,
       onTab,
+      title,
+      tooltipPositioning,
       testId,
       ...other
     } = this.props
@@ -83,6 +89,23 @@ export default class View extends Component {
         handler && handler(e)
         onKeyDown && onKeyDown(e)
       }
+    }
+    const tooltipManager = window[tooltipGlobalKey]
+
+    if (tooltipManager && title) {
+      ['onMouseOver'].forEach(handler => {
+        eventHandlers[handler] = e => {
+          tooltipManager.show(this.element, title, tooltipPositioning)
+          this.props[handler] && this.props[handler](e)
+        }
+      })
+
+      ;['onMouseOut', 'onBlur'].forEach(handler => {
+        eventHandlers[handler] = e => {
+          tooltipManager.hide()
+          this.props[handler] && this.props[handler](e)
+        }
+      })
     }
 
     const props = {

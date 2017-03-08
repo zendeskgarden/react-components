@@ -1,8 +1,11 @@
 import React, { Component, PropTypes } from 'react'
+import { createTooltipManager } from '../'
 import ThemeProvider from '../utils/theming/ThemeProvider'
 import exampleTheme from '../themes/example-theme'
 import electroidDarkTheme from '../themes/electroid-dark-theme'
 import querystring from 'querystring'
+
+createTooltipManager(document.getElementById('tooltips'))
 
 export default class Wrapper extends Component {
   static propTypes = {
