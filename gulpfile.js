@@ -19,6 +19,7 @@ const inputRange = require('postcss-input-range')
 const rename = require('gulp-rename')
 const path = require('path')
 const unique = require('array-unique')
+const clean = require('gulp-clean')
 
 const sourceDir = path.resolve(__dirname, 'src')
 const nodeModulesDir = path.resolve(__dirname, 'node_modules')
@@ -133,7 +134,7 @@ const externalizeComposes = (contents, file) => (
 // CSS files in our project. We externalize the composes to point to the
 // composed CSS class names. Then we transpile the CSS-module and place the
 // resulting JavaScript file in the lib folder.
-gulp.task('css', ['process-composed-files'], () => {
+gulp.task('css', ['clean', 'process-composed-files'], () => {
   return gulp.src('src/**/*.css')
     .pipe(transform(externalizeComposes, {encoding: 'utf8'}))
     .pipe(postcss([
@@ -161,7 +162,7 @@ const cssImports = (contents) => contents.replace(/(import.*from '.*)\.css'/g, '
 
 // This task will transpile all JavaScript ES5 files in the lib folder and
 // replace imported CSS files to point to the transpiled CSS-module.
-gulp.task('js', () => {
+gulp.task('js', ['clean'], () => {
   return gulp.src(['src/**/*.js', '!src/**/spec.js', '!src/**/*.spec.js'])
     .pipe(transform(cssImports, {encoding: 'utf8'}))
     .pipe(babel({
@@ -183,6 +184,11 @@ gulp.task('watch', () => {
   watcher.on('change', (event) => {
     console.log('File ' + event.path + ' was ' + event.type + ', running tasks...')
   })
+})
+
+gulp.task('clean', () => {
+  return gulp.src('lib/', {read: false})
+    .pipe(clean())
 })
 
 gulp.task('default', ['css', 'js'])
