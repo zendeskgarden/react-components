@@ -17,6 +17,9 @@ export default class Label extends Component {
     size: PropTypes.oneOf(['small', 'medium', 'large']),
     stretched: PropTypes.bool,
     tabIndex: PropTypes.number,
+    title: PropTypes.string,
+    /** <a href="#View">See View</a> */
+    tooltipPositioning: () => {},
     type: PropTypes.oneOf(['default', 'success', 'warning', 'error'])
   }
 
@@ -54,7 +57,9 @@ export default class Label extends Component {
       size,
       stretched,
       tabIndex,
-      type
+      type,
+      title,
+      tooltipPositioning
     } = this.props
 
     return (
@@ -67,6 +72,8 @@ export default class Label extends Component {
         }, className)}
         onDelete={onRemove && this.onKeyboardRemove}
         tabIndex={tabIndex}
+        title={title}
+        tooltipPositioning={tooltipPositioning}
       >
         { avatar && this.renderAvatar(avatar) }
         { children }
