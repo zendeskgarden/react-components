@@ -1,8 +1,10 @@
 .tooltip {
   position: fixed;
   pointer-events: none;
+  /* stylelint-disable */
   composes: c-tooltip from 'zd-css-tooltips';
   composes: c-arrow from 'zd-css-arrows';
+  /* stylelint-enable */
 }
 
 .l {
