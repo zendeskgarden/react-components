@@ -1,5 +1,8 @@
 ## Change Log
 
+### v4.1.0 (2017/03/09 21:29 +00:00)
+- [#133](https://github.com/zendeskgarden/react-components/pull/133) Introduction of tooltips (@sunesimonsen, @Anifacted)
+
 ### v4.0.1 (2017/03/09 19:42 +00:00)
 - [#136](https://github.com/zendeskgarden/react-components/pull/136) Two minor patches for v4.0.0 that break the build when consumed (@sunesimonsen)
 
