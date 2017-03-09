@@ -1,7 +1,5 @@
 import React, { Component, PropTypes } from 'react'
 
-import tooltipGlobalKey from '../../utils/tooltips/globalKey'
-
 import classNames from 'classnames'
 
 import styles from './styles.css'
@@ -39,6 +37,10 @@ export default class View extends Component {
     title: PropTypes.string,
     /** One of: 'top', 'right', 'bottom', 'left' or as array (prioritization) */
     tooltipPositioning: () => {}
+  }
+
+  static contextTypes = {
+    tooltips: PropTypes.object
   }
 
   componentDidMount () {
@@ -97,19 +99,17 @@ export default class View extends Component {
       ...eventHandlers
     }
 
-    const tooltipManager = typeof window === 'undefined'
-      ? null
-      : window[tooltipGlobalKey]
+    const { tooltips } = this.context
 
-    if (tooltipManager && title) {
+    if (tooltips && title) {
       props.onMouseOver = e => {
-        tooltipManager.show(this.element, title, tooltipPositioning)
+        tooltips.show(this.element, title, tooltipPositioning)
         this.props.onMouseOver && this.props.onMouseOver(e)
       }
 
       ;['onMouseOut', 'onBlur'].forEach(handler => {
         props[handler] = e => {
-          tooltipManager.hide()
+          tooltips.hide()
           this.props[handler] && this.props[handler](e)
         }
       })

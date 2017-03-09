@@ -1,7 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-import globalKey from './globalKey'
 import TooltipContainer from './TooltipContainer'
 
 const createTooltipManager = renderNode => {
@@ -19,16 +18,11 @@ const createTooltipManager = renderNode => {
     render(<TooltipContainer />, renderNode)
   }
 
-  if (!window[globalKey]) {
-    // Attach to window
-    window[globalKey] = { show, hide }
+  // Event handlers
+  document.body.addEventListener('scroll', hide)
+  window.addEventListener('resize', hide)
 
-    // Event handlers
-    document.body.addEventListener('scroll', hide)
-    window.addEventListener('resize', hide)
-  }
-
-  return window[globalKey]
+  return { show, hide }
 }
 
 export default createTooltipManager
