@@ -18,6 +18,8 @@ export default class Core extends Component {
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
     title: PropTypes.string,
+    /** <a href="#View">See View</a> */
+    tooltipPositioning: () => {},
     children: PropTypes.node.isRequired
   }
 
