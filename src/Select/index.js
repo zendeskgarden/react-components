@@ -37,7 +37,10 @@ export default class Select extends ThemedComponent {
     selected: PropTypes.node,
     stretched: PropTypes.bool,
     tabIndex: PropTypes.number,
-    testId: PropTypes.string
+    testId: PropTypes.string,
+    title: PropTypes.string,
+    /** <a href="#View">See View</a> */
+    tooltipPositioning: () => {}
   }
 
   static defaultProps = {
@@ -116,7 +119,9 @@ export default class Select extends ThemedComponent {
       selected,
       stretched,
       tabIndex,
-      testId
+      testId,
+      title,
+      tooltipPositioning
     } = this.props
 
     const { open } = this.state
@@ -151,6 +156,8 @@ export default class Select extends ThemedComponent {
               onFocus={onFocus}
               role='button'
               tabIndex={disabled ? null : tabIndex}
+              title={title}
+              tooltipPositioning={tooltipPositioning}
             >
               { selected }
             </View>
