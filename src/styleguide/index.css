@@ -97,3 +97,7 @@ html {
 .ReactStyleguidist-TableOfContents__search:focus {
   border-color: var(--zd-color-pelorous);
 }
+
+.ReactStyleguidist-Markdown__pre {
+  margin-bottom: 20px;
+}

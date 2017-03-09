@@ -18,6 +18,8 @@ export default class Core extends Component {
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
     title: PropTypes.string,
+    /** <a href="#View">See View</a> */
+    tooltipPositioning: () => {},
     children: PropTypes.node.isRequired
   }
 
@@ -78,7 +80,8 @@ export default class Core extends Component {
       onBlur,
       tabIndex,
       testId,
-      title
+      title,
+      tooltipPositioning
     } = this.props
 
     return (
@@ -96,6 +99,7 @@ export default class Core extends Component {
         tabIndex={disabled ? null : tabIndex}
         role='button'
         title={title}
+        tooltipPositioning={tooltipPositioning}
       >
         { children }
       </View>

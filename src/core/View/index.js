@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+
 import classNames from 'classnames'
 
 import styles from './styles.css'
@@ -33,7 +34,13 @@ export default class View extends Component {
     onSpace: PropTypes.func,
     onTab: PropTypes.func,
     testId: PropTypes.string,
-    title: PropTypes.string
+    title: PropTypes.string,
+    /** One of: 'top', 'right', 'bottom', 'left' or as array (prioritization) */
+    tooltipPositioning: () => {}
+  }
+
+  static contextTypes = {
+    tooltips: PropTypes.object
   }
 
   componentDidMount () {
@@ -59,6 +66,8 @@ export default class View extends Component {
       onKeyDown,
       onSpace,
       onTab,
+      title,
+      tooltipPositioning,
       testId,
       ...other
     } = this.props
@@ -88,6 +97,26 @@ export default class View extends Component {
     const props = {
       ...other,
       ...eventHandlers
+    }
+
+    const { tooltips } = this.context
+
+    if (tooltips && title) {
+      props.onMouseOver = e => {
+        tooltips.show(this.element, title, tooltipPositioning)
+        this.props.onMouseOver && this.props.onMouseOver(e)
+      }
+
+      ;['onMouseOut', 'onBlur'].forEach(handler => {
+        props[handler] = e => {
+          tooltips.hide()
+          this.props[handler] && this.props[handler](e)
+        }
+      })
+
+      props['aria-label'] = title
+    } else if (title) {
+      props.title = title
     }
 
     if (testId) {

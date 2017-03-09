@@ -8397,6 +8397,10 @@ yargs@~4.6.0:
   version "2.0.1"
   resolved "git+ssh://git@github.com/zendeskgarden/css-tabs.git#ccd0f3a7f6272b894ebb7492e56047d7481e7eca"
 
+"zd-css-tooltips@git+ssh://git@github.com/zendeskgarden/css-tooltips.git#1.1.0":
+  version "1.1.0"
+  resolved "git+ssh://git@github.com/zendeskgarden/css-tooltips.git#0f242d02817128ca233b3919811ac3dd9559e556"
+
 "zd-css-variables@git+ssh://git@github.com/zendeskgarden/css-variables.git#0.10.0":
   version "0.10.0"
   resolved "git+ssh://git@github.com/zendeskgarden/css-variables.git#a0ebd48eca236ed1e64c1856a3689fdcabc6f467"

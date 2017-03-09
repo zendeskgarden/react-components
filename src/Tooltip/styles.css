@@ -1,0 +1,28 @@
+.tooltip {
+  position: fixed;
+  pointer-events: none;
+  /* stylelint-disable */
+  composes: c-tooltip c-arrow from 'zd-css-tooltips';
+  composes: c-arrow from 'zd-css-arrows';
+  /* stylelint-enable */
+}
+
+.left {
+  composes: c-arrow--r from 'zd-css-arrows';
+}
+
+.bottom {
+  composes: c-arrow--t from 'zd-css-arrows';
+}
+
+.top {
+  composes: c-arrow--b from 'zd-css-arrows';
+}
+
+.right {
+  composes: c-arrow--l from 'zd-css-arrows';
+}
+
+.inline {
+  position: absolute;
+}
