@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 
 import styles from './styles.css'
 
-import { Tooltip } from '../../..'
+import Tooltip from '../../../Tooltip'
 import getBestRelativePlacement from '../../positioning/getBestRelativePlacement'
 
 class TooltipContainer extends Component {
@@ -27,11 +27,12 @@ class TooltipContainer extends Component {
 
     // Render an invisible tooltip into the DOM in order to analyze its dimensions,
     // so we know exactly how to place it correctly when we render it.
-    render(<Tooltip content={content} placement={placement} />,
+    render(
+      <Tooltip content={content} placement={placement} />,
       this.container,
       () => {
         const tooltipBounds = this.container
-          .querySelector(`div`)
+          .firstElementChild
           .getBoundingClientRect()
 
         this.setState({ tooltipBounds })
