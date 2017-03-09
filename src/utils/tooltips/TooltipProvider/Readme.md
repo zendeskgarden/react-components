@@ -25,7 +25,6 @@ import { createTooltipManager } from 'zd-react-components'
 
 const tooltipManager = createTooltipManager(document.getElementById('my-tooltips'))
 ```
-#
 
 The Tooltip Manager will expose an API to show and hide tooltips:
 
@@ -41,8 +40,6 @@ tooltipManager.show(
   ['top', 'bottom']
 )
 ```
-#
-
 **Hiding tooltips:**
 
 ```javascript
