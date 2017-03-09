@@ -22,3 +22,7 @@
 .right {
   composes: c-arrow--l from 'zd-css-arrows';
 }
+
+.inline {
+  position: absolute;
+}

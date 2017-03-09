@@ -4,8 +4,12 @@ import styles from './styles.css'
 
 const Tooltip = ({ left, top, content, position, inline }) => (
   <div
-    className={classNames(styles.tooltip, styles[position])}
-    style={{ left, top, position: inline ? 'absolute' : 'fixed' }}
+    className={classNames(
+      styles.tooltip,
+      styles[position],
+      { [styles.inline]: inline }
+    )}
+    style={{ left, top }}
   >
     {content}
   </div>
