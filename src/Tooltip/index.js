@@ -14,13 +14,16 @@ const Tooltip = ({ left, top, content, position, inline }) => (
 Tooltip.propTypes = {
   position: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
   top: PropTypes.number,
-  left: PropTypes.number
+  left: PropTypes.number,
+  /** For displaying a plain, independent tooltip  */
+  inline: PropTypes.bool
 }
 
 Tooltip.defaultProps = {
   top: 0,
   left: 0,
-  position: 'top'
+  position: 'top',
+  inline: false
 }
 
 export default Tooltip
