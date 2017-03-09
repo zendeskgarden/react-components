@@ -13,7 +13,7 @@ module.exports = {
   sections: [
     {name: 'Components', content: './src/index.md', components: './src/*/index.js'},
     {name: 'Theming', content: './src/utils/theming/index.md', components: './src/utils/theming/*/index.js'},
-    {name: 'Tooltips', content: './src/utils/tooltips/index.md', components: './src/utils/tooltips/*/index.js'},
+    {name: 'Tooltips', components: './src/utils/tooltips/*/index.js'},
     {name: 'Core', content: './src/core/index.md', components: './src/core/*/index.js'},
     {name: 'Styleguide', content: './src/styleguide/index.md', components: './src/styleguide/*/index.js'}
   ],
