@@ -1,5 +1,8 @@
 ## Change Log
 
+### v4.0.1 (2017/03/09 19:42 +00:00)
+- [#136](https://github.com/zendeskgarden/react-components/pull/136) Two minor patches for v4.0.0 that break the build when consumed (@sunesimonsen)
+
 ### v4.0.0 (2017/03/08 20:21 +00:00)
 - [#132](https://github.com/zendeskgarden/react-components/pull/132) Replaced the Webpack build with a Gulp based build (Major) (@sunesimonsen)
 - [#134](https://github.com/zendeskgarden/react-components/pull/134) Fixed typo in export (Major) (@sunesimonsen)
