@@ -14,10 +14,11 @@ Basic tooltip:
 Positioning:
 ```
 <Grid>
-  <Button title='Just a basic tooltip' tooltipPositioning={['top']}>Top</Button>
-  <Button title='Just a basic tooltip' tooltipPositioning={['bottom']}>Bottom</Button>
-  <Button title='Just a basic tooltip' tooltipPositioning={['right']}>Right</Button>
-  <Button title='Just a basic tooltip' tooltipPositioning={['left']}>Left</Button>
-  <Button title='Just a basic tooltip'>Adaptive</Button>
+  <Button title='Just a basic tooltip'>Default</Button>
+  <Button title='Just a basic tooltip' tooltipPositioning='top'>Top</Button>
+  <Button title='Just a basic tooltip' tooltipPositioning='bottom'>Bottom</Button>
+  <Button title='Just a basic tooltip' tooltipPositioning='right'>Right</Button>
+  <Button title='Just a basic tooltip' tooltipPositioning='left'>Left</Button>
+  <Button title='Just a basic tooltip' tooltipPositioning={['bottom', 'top', 'right', 'left']}>Adaptive</Button>
 </Grid>
 ```
