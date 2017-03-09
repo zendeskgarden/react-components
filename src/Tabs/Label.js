@@ -3,6 +3,7 @@ import classNames from 'classnames'
 
 import Selectable from '../core/Selectable'
 import ThemedComponent from '../utils/theming/ThemedComponent'
+import View from '../core/View'
 
 import styles from './styles.css'
 
@@ -15,7 +16,10 @@ class Label extends ThemedComponent {
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
     selected: PropTypes.bool,
-    selectedByMouse: PropTypes.bool
+    selectedByMouse: PropTypes.bool,
+    title: PropTypes.string,
+    /** <a href="#View">See View</a> */
+    tooltipPositioning: () => {}
   }
 
   constructor (props, context) {
@@ -34,7 +38,9 @@ class Label extends ThemedComponent {
       onMouseEnter,
       onMouseLeave,
       selected,
-      selectedByMouse
+      selectedByMouse,
+      title,
+      tooltipPositioning
     } = this.props
 
     const { theme } = this
@@ -56,7 +62,9 @@ class Label extends ThemedComponent {
         onMouseLeave={onMouseLeave}
         role='tab'
       >
-        { children }
+        <View title={title} tooltipPositioning={tooltipPositioning}>
+          { children }
+        </View>
       </li>
     )
   }
