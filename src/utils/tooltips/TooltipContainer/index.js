@@ -25,6 +25,8 @@ class TooltipContainer extends Component {
       return null
     }
 
+    // Render an invisible tooltip into the DOM in order to analyze its dimensions,
+    // so we know exactly how to place it correctly when we render it.
     render(<Tooltip content={content} placement={placement} />,
       this.container,
       () => {
