@@ -19,8 +19,5 @@ Attaching a click handler:
 The text component supports arbitrary child elements.
 
 ```
-<Text>
-  <View>Hello</View>
-  <View>world</View>
-</Text>
+<Text>Here's a link: <a href='#'>Hello</a></Text>
 ```
