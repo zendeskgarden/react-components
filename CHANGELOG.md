@@ -1,5 +1,8 @@
 ## Change Log
 
+### v4.2.0 (2017/03/10 10:45 +00:00)
+- [#135](https://github.com/zendeskgarden/react-components/pull/135) Tooltips component support (@Anifacted)
+
 ### v4.1.0 (2017/03/09 21:29 +00:00)
 - [#133](https://github.com/zendeskgarden/react-components/pull/133) Introduction of tooltips (@sunesimonsen, @Anifacted)
 
