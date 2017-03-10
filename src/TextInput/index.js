@@ -37,6 +37,9 @@ export default class TextInput extends ThemedComponent {
     placeholder: PropTypes.string,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
+    title: PropTypes.string,
+    /** <a href="#View">See View</a> */
+    tooltipPositioning: () => {},
     value: PropTypes.string
   }
 
@@ -79,13 +82,19 @@ export default class TextInput extends ThemedComponent {
   render () {
     const {
       className,
+      title,
+      tooltipPositioning,
       ...other
     } = this.props
 
     const { theme } = this
 
     return (
-      <View className={theme.txt}>
+      <View
+        className={theme.txt}
+        title={title}
+        tooltipPositioning={tooltipPositioning}
+      >
         { this.renderLabel() }
         <Core
           {...other}

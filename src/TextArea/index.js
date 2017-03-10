@@ -37,6 +37,9 @@ export default class TextArea extends ThemedComponent {
     resizable: PropTypes.bool,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
+    title: PropTypes.string,
+    /** <a href="#View">See View</a> */
+    tooltipPositioning: () => {},
     value: PropTypes.string
   }
 
@@ -82,13 +85,19 @@ export default class TextArea extends ThemedComponent {
     const {
       className,
       resizable,
+      title,
+      tooltipPositioning,
       ...other
     } = this.props
 
     const { theme } = this
 
     return (
-      <View className={theme.txt}>
+      <View
+        className={theme.txt}
+        title={title}
+        tooltipPositioning={tooltipPositioning}
+      >
         { this.renderLabel() }
         <Core
           {...other}

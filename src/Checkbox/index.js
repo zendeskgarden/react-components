@@ -16,7 +16,10 @@ export default class Checkbox extends ThemedComponent {
     disabled: PropTypes.bool,
     onChange: PropTypes.func,
     tabIndex: PropTypes.number,
-    testId: PropTypes.string
+    testId: PropTypes.string,
+    title: PropTypes.string,
+    /** <a href="#View">See View</a> */
+    tooltipPositioning: () => {}
   }
 
   static defaultProps = {
@@ -49,7 +52,9 @@ export default class Checkbox extends ThemedComponent {
       disabled,
       dir,
       tabIndex,
-      testId
+      testId,
+      title,
+      tooltipPositioning
     } = this.props
 
     const { focused } = this.state
@@ -61,6 +66,8 @@ export default class Checkbox extends ThemedComponent {
           [theme.focused]: focused,
           [theme.rtl]: dir === 'rtl'
         })}
+        title={title}
+        tooltipPositioning={tooltipPositioning}
       >
         <input
           checked={checked}

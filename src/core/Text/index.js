@@ -1,4 +1,8 @@
 import React, { Component, PropTypes } from 'react'
+import classNames from 'classnames'
+
+import View from '../View'
+import styles from './styles.css'
 
 export default class Text extends Component {
   static propTypes = {
@@ -22,16 +26,16 @@ export default class Text extends Component {
     } = this.props
 
     return (
-      <span
-        className={className}
-        data-test-id={testId}
+      <View
+        className={classNames(className, styles.container)}
+        testId={testId}
         onClick={onClick}
         tabIndex={tabIndex}
         title={title}
         {...others}
       >
         { children }
-      </span>
+      </View>
     )
   }
 }

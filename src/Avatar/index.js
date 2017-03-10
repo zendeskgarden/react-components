@@ -21,6 +21,9 @@ export default class Avatar extends Component {
     status: PropTypes.oneOf([ 'default', 'present', 'away', 'active' ]).isRequired,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
+    title: PropTypes.string,
+    /** <a href="#View">See View</a> */
+    tooltipPositioning: () => {},
     type: PropTypes.oneOf([ 'human', 'system' ]).isRequired
   }
 
@@ -41,7 +44,9 @@ export default class Avatar extends Component {
       status,
       tabIndex,
       testId,
-      type
+      type,
+      title,
+      tooltipPositioning
     } = this.props
 
     const classes = [
@@ -65,6 +70,8 @@ export default class Avatar extends Component {
         style={avatarStyles}
         tabIndex={tabIndex}
         testId={testId}
+        title={title}
+        tooltipPositioning={tooltipPositioning}
       >
         <img alt={alt} src={src} onError={onError} onLoad={onLoad} />
       </View>

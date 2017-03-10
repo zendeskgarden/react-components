@@ -1,6 +1,7 @@
 import React from 'react'
 import expect from 'test/expect'
 import Text from './'
+import View from '../View'
 
 const handler = () => { console.log('wat') }
 
@@ -9,7 +10,7 @@ describe('Text', () => {
     expect(
       <Text>Hello world</Text>,
       'to render as',
-      <span>Hello world</span>
+      <View className='container'>Hello world</View>
     )
   })
 
@@ -18,7 +19,7 @@ describe('Text', () => {
       expect(
         <Text testId='wat'>Testable</Text>,
         'to render as',
-        <span data-test-id='wat'>Testable</span>
+        <View testId='wat' className='container'>Testable</View>
       )
     })
   })
@@ -28,7 +29,7 @@ describe('Text', () => {
       expect(
         <Text onClick={handler}>Click me!</Text>,
         'to render as',
-        <span onClick={handler}>Click me!</span>
+        <View onClick={handler} className='container'>Click me!</View>
       )
     })
   })
@@ -38,7 +39,7 @@ describe('Text', () => {
       expect(
         <Text tabIndex={42}>Tab order</Text>,
         'to render as',
-        <span tabIndex={42}>Tab order</span>
+        <View tabIndex={42} className='container'>Tab order</View>
       )
     })
   })
@@ -48,7 +49,7 @@ describe('Text', () => {
       expect(
         <Text className='foo'>Custom</Text>,
         'to render as',
-        <span className='foo'>Custom</span>
+        <View className='container foo'>Custom</View>
       )
     })
   })

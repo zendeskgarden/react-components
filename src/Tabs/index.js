@@ -48,13 +48,15 @@ export default class Tabs extends ThemedComponent {
 
     Children.forEach(children, (child) => {
       if (child && child.type === PanelConfig) {
-        const { disabled, id, label } = child.props
+        const { disabled, id, label, title, tooltipPositioning } = child.props
         labels.push(
           <Label
             active={id === active}
             disabled={disabled}
             id={id}
             key={id}
+            title={title}
+            tooltipPositioning={tooltipPositioning}
             value={id}
           >
             { label }

@@ -8,7 +8,10 @@ export default class PanelConfig extends Component {
     ]),
     disabled: PropTypes.bool,
     id: PropTypes.string.isRequired,
-    label: PropTypes.node.isRequired
+    label: PropTypes.node.isRequired,
+    title: PropTypes.string,
+    /** <a href="#View">See View</a> */
+    tooltipPositioning: () => {}
   }
 
   render () {
