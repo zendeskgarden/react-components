@@ -1,5 +1,8 @@
 ## Change Log
 
+### v4.2.1 (2017/03/13 10:58 +00:00)
+- [#137](https://github.com/zendeskgarden/react-components/pull/137) Add tests that assert that we export valid root modules (@Anifacted)
+
 ### v4.2.0 (2017/03/10 10:45 +00:00)
 - [#135](https://github.com/zendeskgarden/react-components/pull/135) Tooltips component support (@Anifacted)
 
