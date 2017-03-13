@@ -5,8 +5,15 @@
   composes: c-tooltip c-arrow from 'zd-css-tooltips';
   composes: c-arrow from 'zd-css-arrows';
   /* stylelint-enable */
+}
+
+.size_medium {
   max-width: 270px;
-  text-align: center;
+  composes: c-tooltip--medium from 'zd-css-tooltips';
+}
+
+.size_large {
+  composes: c-tooltip--large from 'zd-css-tooltips';
 }
 
 .left {
