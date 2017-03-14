@@ -18,6 +18,9 @@ const createTooltipManager = renderNode => {
     render(<TooltipContainer />, renderNode)
   }
 
+  // Initial empty render that creates the container element
+  render(<TooltipContainer />, renderNode)
+
   // Event handlers
   document.body.addEventListener('scroll', hide)
   window.addEventListener('resize', hide)
