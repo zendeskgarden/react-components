@@ -1,5 +1,8 @@
 ## Change Log
 
+### v4.4.0 (2017/03/14 22:05 +00:00)
+- [#141](https://github.com/zendeskgarden/react-components/pull/141) Added the new Garden light and dark labels types (@sunesimonsen)
+
 ### v4.3.1 (2017/03/14 12:33 +00:00)
 - [#140](https://github.com/zendeskgarden/react-components/pull/140) Fix bug where tooltips would not render on very first mouse-over (@Anifacted)
 
