@@ -20,7 +20,9 @@ export default class Label extends Component {
     title: PropTypes.string,
     /** <a href="#View">See View</a> */
     tooltipPositioning: () => {},
-    type: PropTypes.oneOf(['default', 'success', 'warning', 'error'])
+    type: PropTypes.oneOf([
+      'default', 'dark', 'light', 'success', 'warning', 'error'
+    ])
   }
 
   static defaultProps = {

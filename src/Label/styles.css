@@ -2,6 +2,14 @@
   composes: c-label from 'zd-css-labels';
 }
 
+.light {
+  composes: c-label c-label--light from 'zd-css-labels';
+}
+
+.dark {
+  composes: c-label c-label--dark from 'zd-css-labels';
+}
+
 .success {
   composes: c-label c-label--success from 'zd-css-labels';
 }
