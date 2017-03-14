@@ -8385,6 +8385,10 @@ yargs@~4.6.0:
   version "0.1.0"
   resolved "git+ssh://git@github.com/zendeskgarden/css-labels.git#5675495362a5729e8ee95f46d8537c584319ecb6"
 
+"zd-css-labels@git+ssh://git@github.com/zendeskgarden/css-labels.git#0.2.0":
+  version "0.2.0"
+  resolved "git+ssh://git@github.com/zendeskgarden/css-labels.git#f7b87232aa7e8008cb748d388a48d6cdb0f46a7b"
+
 "zd-css-menus@git+ssh://git@github.com/zendeskgarden/css-menus.git#2.3.1":
   version "2.3.1"
   resolved "git+ssh://git@github.com/zendeskgarden/css-menus.git#ec1c3803d98b080ce33453e979c889d579c87c7e"

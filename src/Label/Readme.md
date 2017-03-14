@@ -5,12 +5,16 @@
 Types:
 
 ```
-<Grid columns={4} style={{ textAlign: 'center' }}>
+<Grid columns={6} style={{ textAlign: 'center' }}>
   <Label type='default'>Default</Label>
+  <Label type='light'>Light</Label>
+  <Label type='dark'>Dark</Label>
   <Label type='success'>Success</Label>
   <Label type='warning'>Warning</Label>
   <Label type='error'>Error</Label>
   <Label type='default' pill>Default</Label>
+  <Label type='light' pill>Light</Label>
+  <Label type='dark' pill>Dark</Label>
   <Label type='success' pill>Success</Label>
   <Label type='warning' pill>Warning</Label>
   <Label type='error' pill>Error</Label>
@@ -33,16 +37,22 @@ Sizes:
 Round labels:
 
 ```
-<Grid columns={4} spacing='medium' style={{ textAlign: 'center' }}>
+<Grid columns={6} spacing='medium' style={{ textAlign: 'center' }}>
   <Label size='small' round>8</Label>
+  <Label size='small' type='light' round>8</Label>
+  <Label size='small' type='dark' round>8</Label>
   <Label size='small' type='success' round>8</Label>
   <Label size='small' type='warning' round>8</Label>
   <Label size='small' type='error' round>8</Label>
   <Label size='medium' round>13</Label>
+  <Label size='medium' type='light' round>13</Label>
+  <Label size='medium' type='dark' round>13</Label>
   <Label size='medium' type='success' round>13</Label>
   <Label size='medium' type='warning' round>13</Label>
   <Label size='medium' type='error' round>13</Label>
   <Label size='large' round>21</Label>
+  <Label size='large' type='light' round>21</Label>
+  <Label size='large' type='dark' round>21</Label>
   <Label size='large' type='success' round>21</Label>
   <Label size='large' type='warning' round>21</Label>
   <Label size='large' type='error' round>21</Label>

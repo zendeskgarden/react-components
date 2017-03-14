@@ -24,7 +24,7 @@ describe('Label', () => {
     ))
   })
 
-  const types = ['default', 'success', 'warning', 'error']
+  const types = ['default', 'light', 'dark', 'success', 'warning', 'error']
   types.forEach((type) => {
     describe(`when given the type ${type}`, () => {
       it(`renders a ${type} label`, () => {
