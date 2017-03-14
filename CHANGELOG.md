@@ -1,5 +1,8 @@
 ## Change Log
 
+### v4.3.1 (2017/03/14 12:33 +00:00)
+- [#140](https://github.com/zendeskgarden/react-components/pull/140) Fix bug where tooltips would not render on very first mouse-over (@Anifacted)
+
 ### v4.3.0 (2017/03/14 11:49 +00:00)
 - [#138](https://github.com/zendeskgarden/react-components/pull/138) Tooltips: Max width & hide on `onWheel` event (@sunesimonsen, @Anifacted)
 
