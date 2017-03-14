@@ -1,5 +1,8 @@
 ## Change Log
 
+### v4.3.0 (2017/03/14 11:49 +00:00)
+- [#138](https://github.com/zendeskgarden/react-components/pull/138) Tooltips: Max width & hide on `onWheel` event (@sunesimonsen, @Anifacted)
+
 ### v4.2.1 (2017/03/13 10:58 +00:00)
 - [#137](https://github.com/zendeskgarden/react-components/pull/137) Add tests that assert that we export valid root modules (@Anifacted)
 
