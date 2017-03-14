@@ -1,16 +1,3 @@
-Basic tooltip:
-```
-<Grid>
-  <View style={{ margin: 10}}>
-    <Tooltip
-      left={10}
-      top={10}
-      content='This is a tooltip with some text.'
-      inline
-    />
-  </View>
-</Grid>
-```
 Positioning:
 ```
 <Grid>
