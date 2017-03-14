@@ -7,6 +7,15 @@
   /* stylelint-enable */
 }
 
+.size_medium {
+  max-width: 270px;
+  composes: c-tooltip--medium from 'zd-css-tooltips';
+}
+
+.size_large {
+  composes: c-tooltip--large from 'zd-css-tooltips';
+}
+
 .left {
   composes: c-arrow--r from 'zd-css-arrows';
 }

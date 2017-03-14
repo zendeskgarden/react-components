@@ -6,6 +6,12 @@ import styles from './styles.css'
 import Tooltip from '../../../Tooltip'
 import getBestRelativePlacement from '../../positioning/getBestRelativePlacement'
 
+const mediumTooltipLimit = 50
+
+const calculateTooltipSize = (content) => (
+  mediumTooltipLimit < content.length ? 'medium' : 'default'
+)
+
 class TooltipContainer extends Component {
   componentWillMount = () => {
     this.container = document.createElement('div')
@@ -28,7 +34,11 @@ class TooltipContainer extends Component {
     // Render an invisible tooltip into the DOM in order to analyze its dimensions,
     // so we know exactly how to place it correctly when we render it.
     render(
-      <Tooltip content={content} placement={placement} />,
+      <Tooltip
+        content={content}
+        placement={placement}
+        size={calculateTooltipSize(content)}
+      />,
       this.container,
       () => {
         const tooltipBounds = this.container
@@ -83,6 +93,7 @@ class TooltipContainer extends Component {
           top={top}
           content={content}
           position={position}
+          size={calculateTooltipSize(content)}
         />
       </div>
     )

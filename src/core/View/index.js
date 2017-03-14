@@ -107,7 +107,7 @@ export default class View extends Component {
         this.props.onMouseOver && this.props.onMouseOver(e)
       }
 
-      ;['onMouseOut', 'onBlur'].forEach(handler => {
+      ;['onMouseOut', 'onBlur', 'onWheel'].forEach(handler => {
         props[handler] = e => {
           tooltips.hide()
           this.props[handler] && this.props[handler](e)
