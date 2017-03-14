@@ -24,7 +24,7 @@ class TooltipContainer extends Component {
     document.body.appendChild(this.container)
   }
 
-  componentWillReceiveProps = ({ content, placement }) => {
+  componentWillReceiveProps = ({ content }) => {
     if (!content) {
       this.setState({ tooltipBounds: null })
 
@@ -36,7 +36,6 @@ class TooltipContainer extends Component {
     render(
       <Tooltip
         content={content}
-        placement={placement}
         size={calculateTooltipSize(content)}
       />,
       this.container,
