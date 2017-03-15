@@ -106,10 +106,11 @@
   },
   "standard": {
     "globals": [
+      "afterEach",
+      "beforeEach",
       "describe",
       "it",
-      "beforeEach",
-      "afterEach"
+      "jest"
     ],
     "ignore": "/lib/",
     "parser": "babel-eslint"
