@@ -34,6 +34,20 @@ initialState = { checked: false };
 </Checkbox>
 ```
 
+With a hint:
+
+```
+initialState = { checked: false };
+
+<Checkbox
+  checked={ state.checked }
+  hint='Hint'
+  onChange={ (checked) => setState({ checked }) }
+>
+  Click me
+</Checkbox>
+```
+
 Support for RTL:
 
 ```

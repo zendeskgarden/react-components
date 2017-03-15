@@ -29,6 +29,16 @@ initialState = { value: 1 };
 </Grid>
 ```
 
+With a hint:
+```
+initialState = { value: 1 };
+
+<Grid columns={ 1 } stretched>
+  <RadioButton hint='Hint' name="group4" checked={ state.value === 1 } value={ 1 } onChange={ (v) => setState({ value: v })}>One</RadioButton>
+  <RadioButton hint='Hint' name="group4" checked={ state.value === 2 } value={ 2 } onChange={ (v) => setState({ value: v })}>Two</RadioButton>
+</Grid>
+```
+
 Uncontrolled:
 
 ```
