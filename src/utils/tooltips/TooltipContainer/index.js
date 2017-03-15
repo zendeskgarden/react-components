@@ -12,6 +12,13 @@ const calculateTooltipSize = (content) => (
   mediumTooltipLimit < content.length ? 'medium' : 'default'
 )
 
+const rtlPositions = {
+  top: 'top',
+  bottom: 'bottom',
+  left: 'right',
+  right: 'left'
+}
+
 class TooltipContainer extends Component {
   componentWillMount = () => {
     this.container = document.createElement('div')
@@ -61,16 +68,11 @@ class TooltipContainer extends Component {
         ? [ rawPositions ]
         : rawPositions
 
-    )().map(position => {
-      if (position === 'left') {
-        return dir === 'rtl' ? 'right' : 'left'
-      }
-      if (position === 'right') {
-        return dir === 'rtl' ? 'left' : 'right'
-      }
-
-      return position
-    })
+    )().map(position => (
+      dir === 'rtl'
+        ? rtlPositions[position]
+        : position
+    ))
 
     const aBounds = anchor.getBoundingClientRect()
 
