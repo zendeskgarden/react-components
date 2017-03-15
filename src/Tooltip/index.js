@@ -6,7 +6,7 @@ import ThemedComponent from '../utils/theming/ThemedComponent'
 
 export default class Tooltip extends ThemedComponent {
   static propTypes = {
-    content: PropTypes.string,
+    children: PropTypes.node,
     inline: PropTypes.bool,
     left: PropTypes.number,
     /** For displaying a plain, independent tooltip  */
@@ -27,7 +27,7 @@ export default class Tooltip extends ThemedComponent {
     const {
       left,
       top,
-      content,
+      children,
       position,
       inline,
       size
@@ -43,7 +43,7 @@ export default class Tooltip extends ThemedComponent {
         )}
         style={{ left, top }}
       >
-        {content}
+        {children}
       </div>
     )
   }

@@ -34,10 +34,9 @@ class TooltipContainer extends Component {
     // Render an invisible tooltip into the DOM in order to analyze its dimensions,
     // so we know exactly how to place it correctly when we render it.
     render(
-      <Tooltip
-        content={content}
-        size={calculateTooltipSize(content)}
-      />,
+      <Tooltip size={calculateTooltipSize(content)}>
+        {content}
+      </Tooltip>,
       this.container,
       () => {
         const tooltipBounds = this.container
@@ -90,10 +89,11 @@ class TooltipContainer extends Component {
         <Tooltip
           left={left}
           top={top}
-          content={content}
           position={position}
           size={calculateTooltipSize(content)}
-        />
+        >
+          {content}
+        </Tooltip>
       </div>
     )
   }
