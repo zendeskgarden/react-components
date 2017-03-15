@@ -1,5 +1,9 @@
 ## Change Log
 
+### v4.5.0 (2017/03/15 12:14 +00:00)
+- [#147](https://github.com/zendeskgarden/react-components/pull/147) Added support for positioning the select menu (@sunesimonsen)
+- [#144](https://github.com/zendeskgarden/react-components/pull/144) Improve the first select component example (@sunesimonsen)
+
 ### v4.4.0 (2017/03/14 22:05 +00:00)
 - [#141](https://github.com/zendeskgarden/react-components/pull/141) Added the new Garden light and dark labels types (@sunesimonsen)
 
