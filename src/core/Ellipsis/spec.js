@@ -37,7 +37,7 @@ describe('Ellipsis', () => {
           Taumatawhakatangi­hangakoauauotamatea­turipukakapikimaunga­horonukupokaiwhen­uakitanatahu
         </Ellipsis>,
         'to render as',
-        <View title='Taumatawhakatangi­hangakoauauotamatea­turipukakapikimaunga­horonukupokaiwhen­uakitanatahu'>
+        <View>
           Taumatawhakatangi­hangakoauauotamatea­turipukakapikimaunga­horonukupokaiwhen­uakitanatahu
         </View>
       )
