@@ -14,6 +14,8 @@ export default class Checkbox extends ThemedComponent {
     defaultChecked: PropTypes.bool,
     dir: PropTypes.oneOf(['ltr', 'rtl']),
     disabled: PropTypes.bool,
+    hint: PropTypes.node,
+    muted: PropTypes.bool,
     onChange: PropTypes.func,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
@@ -23,7 +25,8 @@ export default class Checkbox extends ThemedComponent {
   }
 
   static defaultProps = {
-    dir: 'ltr'
+    dir: 'ltr',
+    muted: false
   }
 
   constructor (props, context) {
@@ -51,6 +54,8 @@ export default class Checkbox extends ThemedComponent {
       defaultChecked,
       disabled,
       dir,
+      hint,
+      muted,
       tabIndex,
       testId,
       title,
@@ -87,13 +92,14 @@ export default class Checkbox extends ThemedComponent {
           type='checkbox'
         />
         <label
-          className={theme.label}
+          className={classNames(theme.label, { [theme.muted]: muted })}
           dir={dir}
           htmlFor={this.id}
           onMouseUp={() => { this.keyboard = false }}
         >
           { children }
         </label>
+        {hint && <small className={theme.hint}>{hint}</small>}
       </View>
     )
   }

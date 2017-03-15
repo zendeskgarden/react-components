@@ -22,6 +22,22 @@ describe('Checkbox', () => {
     )
   })
 
+  it('renders a checkbox that with a hint', () => {
+    expect(
+      <Checkbox checked={false} hint='Watch out'>Check me out!</Checkbox>,
+      'to render as',
+      <View className='checkbox'>
+        <input
+          checked={false}
+          className='input'
+          type='checkbox'
+        />
+        <label className='label' dir='ltr'>Check me out!</label>
+        <small className='hint'>Watch out</small>
+      </View>
+    )
+  })
+
   describe('when checked', () => {
     it('renders a checkbox that is checked', () => {
       expect(
@@ -73,6 +89,23 @@ describe('Checkbox', () => {
           onChange(true)
         })
       })
+    })
+  })
+
+  describe('when muted', () => {
+    it('renders a checkbox that is muted', () => {
+      expect(
+        <Checkbox checked={false} muted>Check me out!</Checkbox>,
+        'to render as',
+        <View className='checkbox'>
+          <input
+            checked={false}
+            className='input'
+            type='checkbox'
+          />
+          <label className='label muted' dir='ltr'>Check me out!</label>
+        </View>
+      )
     })
   })
 

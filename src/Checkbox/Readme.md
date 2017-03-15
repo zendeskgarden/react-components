@@ -20,6 +20,20 @@ initialState = { checked: false };
 </Checkbox>
 ```
 
+Muted:
+
+```
+initialState = { checked: false };
+
+<Checkbox
+  checked={ state.checked }
+  muted
+  onChange={ (checked) => setState({ checked }) }
+>
+  Click me
+</Checkbox>
+```
+
 Support for RTL:
 
 ```
