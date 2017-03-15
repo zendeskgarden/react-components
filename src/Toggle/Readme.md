@@ -15,6 +15,21 @@ initialState = { checked: false };
 <Toggle
   checked={ state.checked }
   onChange={ checked => setState({ checked }) }
+  hint='With some hint too'
+>
+  Toggle me
+</Toggle>
+```
+
+Muted:
+
+```
+initialState = { checked: false };
+
+<Toggle
+  checked={ state.checked }
+  onChange={ checked => setState({ checked }) }
+  muted
 >
   Toggle me
 </Toggle>

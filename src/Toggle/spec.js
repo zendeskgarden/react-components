@@ -22,6 +22,22 @@ describe('Toggle', () => {
     )
   })
 
+  it('renders a toggle with a hint', () => {
+    expect(
+      <Toggle checked={false} hint='Watch out'>Toggle me!</Toggle>,
+      'to render as',
+      <View className='toggle'>
+        <input
+          checked={false}
+          className='input'
+          type='checkbox'
+        />
+        <label className='label' dir='ltr'>Toggle me!</label>
+        <small className='hint'>Watch out</small>
+      </View>
+    )
+  })
+
   describe('when checked', () => {
     it('renders a toggle that is checked', () => {
       expect(
@@ -73,6 +89,23 @@ describe('Toggle', () => {
           onChange(true)
         })
       })
+    })
+  })
+
+  describe('when muted', () => {
+    it('renders a toggle that is disabled', () => {
+      expect(
+        <Toggle checked={false} muted>Toggle me!</Toggle>,
+        'to render as',
+        <View className='toggle'>
+          <input
+            checked={false}
+            className='input'
+            type='checkbox'
+          />
+          <label className='label muted' dir='ltr'>Toggle me!</label>
+        </View>
+      )
     })
   })
 
