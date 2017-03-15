@@ -1,14 +1,51 @@
 ```
-initialState = { value: 'foo' };
+const colors = [
+  { name: 'Apple Green', hex: '#78A300' },
+  { name: 'Verdigris', hex: '#37B8AF' },
+  { name: 'Pelorous', hex: '#30AABC' },
+  { name: 'Mandy', hex: '#EB4962' },
+  { name: 'Persimmon', hex: '#FF6D5A' },
+  { name: 'Flamingo', hex: '#EB6651' },
+  { name: 'Sea Buckthorn', hex: '#F79A3E' },
+  { name: 'Golden Dream', hex: '#EFC93D' }
+]
+
+const ColorSample = ({ color }) => (
+  <View style={{
+    backgroundColor: color.hex,
+    height: '14px',
+    width: '14px'
+  }} />
+)
+
+const Color = ({ color, includeSample }) => (
+  includeSample
+    ? (
+      <Grid>
+        <ColorSample color={color} /> {color.name} ({color.hex})
+      </Grid>
+    )
+    : (
+      <View>
+        {color.name} (<Text style={{ color: color.hex }}>{color.hex}</Text>)
+      </View>
+    )
+)
+
+initialState = { value: colors[0] };
 
 <Select
-  label='Select your favorite value:'
-  selected={ state.value }
+  label='Select your favorite color:'
+  selected={<Color color={state.value} />}
   onSelect={ value => setState({ value }) }
 >
-  <Select.Item value='foo'>foo</Select.Item>
-  <Select.Item value='bar'>bar</Select.Item>
-  <Select.Item value='baz'>baz</Select.Item>
+  {
+    colors.map(color => (
+      <Select.Item value={color}>
+        <Color color={color} includeSample />
+      </Select.Item>
+    ))
+  }
 </Select>
 ```
 
