@@ -137,6 +137,35 @@ initialState = { value: 'Two' };
 </Select>
 ```
 
+Menu positioning same as the <a href="#Menu">menu</a>:
+
+```
+const items = [
+  'Done chats',
+  'Served chats',
+  'Triaged chats',
+  'Number of agent messages',
+  'Number of customer messages'
+]
+
+initialState = { value: items[0] };
+
+<View style={{ width: '200px' }}>
+  <Select
+    selected={ <Ellipsis>{state.value}</Ellipsis> }
+    positioning={['bottom_right', 'top_right']}
+    onSelect={ value => setState({ value }) }
+  >
+    { items.map(item => (
+        <Select.Item value={item}>
+          <Text style={{ whiteSpace: 'nowrap' }}>{item}</Text>
+        </Select.Item>
+      ))
+    }
+  </Select>
+</View>
+```
+
 Support for RTL:
 
 ```

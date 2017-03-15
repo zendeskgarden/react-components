@@ -34,6 +34,7 @@ export default class Select extends ThemedComponent {
     onFocus: PropTypes.func,
     onOpen: PropTypes.func,
     onSelect: PropTypes.func,
+    positioning: Menu.propTypes.positioning,
     selected: PropTypes.node,
     stretched: PropTypes.bool,
     tabIndex: PropTypes.number,
@@ -46,6 +47,7 @@ export default class Select extends ThemedComponent {
   static defaultProps = {
     dir: 'ltr',
     disabled: false,
+    positioning: ['bottom_stretch', 'top_stretch'],
     stretched: true,
     tabIndex: 0
   }
@@ -116,6 +118,7 @@ export default class Select extends ThemedComponent {
       onBlur,
       onFocus,
       onSelect,
+      positioning,
       selected,
       stretched,
       tabIndex,
@@ -140,7 +143,7 @@ export default class Select extends ThemedComponent {
           dir={dir}
           maxHeight={maxHeight}
           onSelect={onSelect}
-          positioning={['bottom_stretch', 'top_stretch']}
+          positioning={positioning}
           onOpen={this.onOpen}
           onClose={this.onClose}
           trigger={

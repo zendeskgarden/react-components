@@ -57,6 +57,37 @@ describe('Select', () => {
       })
     })
   })
+  describe('when given positioning configuration', () => {
+    it('forwards the configuration to the menu', () => {
+      expect(
+        <Select
+          label='Select a value:'
+          positioning={[ 'bottom_right', 'top_right' ]}
+          selected='bar'
+        >
+          <Select.Item value='foo'>foo</Select.Item>
+          <Select.Item value='bar'>bar</Select.Item>
+          <Select.Item value='baz'>baz</Select.Item>
+        </Select>,
+        'to render as',
+        <View className='txt'>
+          <Menu
+            positioning={[ 'bottom_right', 'top_right' ]}
+            stretched
+            trigger={
+              <View className='input' tabIndex={0}>
+                  bar
+                </View>
+              }
+            >
+            <Menu.Item value='foo'>foo</Menu.Item>
+            <Menu.Item value='bar'>bar</Menu.Item>
+            <Menu.Item value='baz'>baz</Menu.Item>
+          </Menu>
+        </View>
+      )
+    })
+  })
 
   describe('when disabled', () => {
     it('renders a disabled select component', () => {
