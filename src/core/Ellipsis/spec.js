@@ -24,6 +24,7 @@ describe('Ellipsis', () => {
         </Ellipsis>,
         'to render as',
         <View title='Something else'>
+          <div />
           Taumatawhakatangi­hangakoauauotamatea­turipukakapikimaunga­horonukupokaiwhen­uakitanatahu
         </View>
       )
@@ -37,7 +38,8 @@ describe('Ellipsis', () => {
           Taumatawhakatangi­hangakoauauotamatea­turipukakapikimaunga­horonukupokaiwhen­uakitanatahu
         </Ellipsis>,
         'to render as',
-        <View title='Taumatawhakatangi­hangakoauauotamatea­turipukakapikimaunga­horonukupokaiwhen­uakitanatahu'>
+        <View>
+          <div />
           Taumatawhakatangi­hangakoauauotamatea­turipukakapikimaunga­horonukupokaiwhen­uakitanatahu
         </View>
       )
@@ -52,6 +54,7 @@ describe('Ellipsis', () => {
         </Ellipsis>,
         'to render exactly as',
         <View className='ellipsis'>
+          <div />
           <Text>Taumatawhakatangi­hangakoauauotamatea­turipukakapikimaunga­horonukupokaiwhen­uakitanatahu</Text>
         </View>
       )
