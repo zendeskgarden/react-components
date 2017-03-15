@@ -40,12 +40,27 @@ export default class TextInput extends ThemedComponent {
     title: PropTypes.string,
     /** <a href="#View">See View</a> */
     tooltipPositioning: () => {},
-    value: PropTypes.string
+    /** Use `valueType` instead */
+    type: (props, propName, componentName) => {
+      if (propName in props) {
+        return new Error('The TextInput does not accept a type prop use valueType instead')
+      }
+    },
+    value: PropTypes.string,
+    valueType: PropTypes.oneOf([
+      'email',
+      'number',
+      'password',
+      'search',
+      'tel',
+      'text'
+    ])
   }
 
   static defaultProps = {
     autoComplete: 'off',
-    disabled: false
+    disabled: false,
+    valueType: 'text'
   }
 
   constructor (props, context) {
@@ -84,6 +99,7 @@ export default class TextInput extends ThemedComponent {
       className,
       title,
       tooltipPositioning,
+      valueType,
       ...other
     } = this.props
 
@@ -98,6 +114,7 @@ export default class TextInput extends ThemedComponent {
         { this.renderLabel() }
         <Core
           {...other}
+          valueType={valueType}
           id={this.getId()}
           className={classNames(theme.input, className)}
           ref={ref => {

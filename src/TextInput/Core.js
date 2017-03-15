@@ -26,14 +26,27 @@ export default class Core extends Component {
     placeholder: PropTypes.string,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
-    type: PropTypes.string,
+    /** Use `valueType` instead */
+    type: (props, propName, componentName) => {
+      if (propName in props) {
+        return new Error('The TextInput does not accept a type prop use valueType instead')
+      }
+    },
+    valueType: PropTypes.oneOf([
+      'email',
+      'number',
+      'password',
+      'search',
+      'tel',
+      'text'
+    ]),
     value: PropTypes.string
   }
 
   static defaultProps = {
     autoComplete: 'off',
     disabled: false,
-    type: 'text'
+    valueType: 'text'
   }
 
   render () {
@@ -63,7 +76,8 @@ export default class Core extends Component {
       tabIndex,
       testId,
       type,
-      value
+      value,
+      valueType
     } = this.props
 
     const handlers = {
@@ -97,7 +111,7 @@ export default class Core extends Component {
       },
       placeholder,
       tabIndex,
-      type,
+      type: valueType || type,
       value
     }
 
