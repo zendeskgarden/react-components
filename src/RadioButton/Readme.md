@@ -19,6 +19,16 @@ initialState = { value: 1 };
 </Grid>
 ```
 
+Muted:
+```
+initialState = { value: 1 };
+
+<Grid columns={ 1 } stretched>
+  <RadioButton muted name="group3" checked={ state.value === 1 } value={ 1 } onChange={ (v) => setState({ value: v })}>One</RadioButton>
+  <RadioButton muted name="group3" checked={ state.value === 2 } value={ 2 } onChange={ (v) => setState({ value: v })}>Two</RadioButton>
+</Grid>
+```
+
 Uncontrolled:
 
 ```
