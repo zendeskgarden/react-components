@@ -1,10 +1,32 @@
+The component uses the `title` prop to display a tooltip containing the full text, in cases where overflow applies.
+The `title` prop can also be manually set, in which case it will always trigger a tooltip. Examples below demonstrate:
+
+Overflowing (clipped at 200px) - always shows title/tooltip:
+
 ```
-<Grid columns={1} style={{ width: '200px' }}>
+<View style={{ width: '200px' }}>
   <Ellipsis>
-    Taumatawhakatangi­hangakoauauotamatea­turipukakapikimaunga­horonukupokaiwhen­uakitanatahu
+    Bacon ipsum dolor amet short ribs salami pancetta porchetta biltong boudin prosciutto rump andouille tail leberkas turducken.
   </Ellipsis>
-  <Ellipsis title='Something else'>
-    Taumatawhakatangi­hangakoauauotamatea­turipukakapikimaunga­horonukupokaiwhen­uakitanatahu
+</View>
+```
+
+Always shows a title/tooltip - both when clipped and when not:
+
+```
+<View>
+  <Ellipsis title='Some hardcoded title'>
+    Bacon ipsum dolor amet short ribs salami pancetta porchetta biltong boudin prosciutto rump andouille tail leberkas turducken.
   </Ellipsis>
-</Grid>
+</View>
+```
+
+Adaptable: Only shows title/tooltip when clipped (resize window to demonstrate)
+
+```
+<View>
+  <Ellipsis>
+    Bacon ipsum dolor amet short ribs salami pancetta porchetta biltong boudin prosciutto rump andouille tail leberkas turducken.
+  </Ellipsis>
+</View>
 ```
