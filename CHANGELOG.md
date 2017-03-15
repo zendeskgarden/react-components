@@ -1,5 +1,8 @@
 ## Change Log
 
+### v4.7.0 (2017/03/15 20:30 +00:00)
+- [#145](https://github.com/zendeskgarden/react-components/pull/145) Added a valueType to the text input (@sunesimonsen)
+
 ### v4.6.0 (2017/03/15 14:17 +00:00)
 - [#143](https://github.com/zendeskgarden/react-components/pull/143) Ellipsis: Only set `title` prop when text actually overflows (@Anifacted)
 
