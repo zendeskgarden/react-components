@@ -103,7 +103,9 @@ TooltipContainer.propTypes = {
   positions: PropTypes.oneOfType([
     PropTypes.oneOf([ 'top', 'right', 'bottom', 'left' ]),
     PropTypes.arrayOf(PropTypes.oneOf([ 'top', 'right', 'bottom', 'left' ]))
-  ])
+  ]),
+  content: PropTypes.string,
+  anchor: PropTypes.object
 }
 
 TooltipContainer.defaultProps = {
