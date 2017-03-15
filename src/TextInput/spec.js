@@ -143,11 +143,11 @@ describe('TextInput.Core', () => {
     )
   })
 
-  it('renders text input with type value', () => {
+  it('renders text input with the given value type', () => {
     expect(
-      <TextInput.Core type='foo' />,
+      <TextInput.Core valueType='password' />,
       'to render as',
-      <input type='foo' />
+      <input type='password' />
     )
   })
 

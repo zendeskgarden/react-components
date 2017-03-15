@@ -40,6 +40,12 @@ export default class TextInput extends ThemedComponent {
     title: PropTypes.string,
     /** <a href="#View">See View</a> */
     tooltipPositioning: () => {},
+    /** Use `valueType` instead */
+    type: (props, propName, componentName) => {
+      if (propName in props) {
+        return new Error('The TextInput does not accept a type prop use valueType instead')
+      }
+    },
     value: PropTypes.string,
     valueType: PropTypes.oneOf([
       'email',
@@ -108,7 +114,7 @@ export default class TextInput extends ThemedComponent {
         { this.renderLabel() }
         <Core
           {...other}
-          type={valueType}
+          valueType={valueType}
           id={this.getId()}
           className={classNames(theme.input, className)}
           ref={ref => {
