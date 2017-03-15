@@ -47,6 +47,19 @@ describe('TextInput', () => {
       })
     })
   })
+
+  const types = ['email', 'number', 'password', 'search', 'tel', 'text']
+  types.forEach((type) => {
+    describe(`with a value type of ${type}`, () => {
+      it(`renders an ${type} input`, () => {
+        expect(
+          <TextInput valueType={type} />,
+          'to contain',
+          <input type={type} />
+        )
+      })
+    })
+  })
 })
 
 describe('TextInput.Core', () => {

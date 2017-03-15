@@ -9,6 +9,16 @@ initialState={ value: '' };
 />
 ```
 
+Value types:
+
+```
+<Grid columns={3} stretched>
+  <TextInput label='Email' valueType='email' defaultValue='bob@example.com' />
+  <TextInput label='Password' valueType='password' />
+  <TextInput label='Telephone' valueType='tel' />
+</Grid>
+```
+
 Disabled
 
 ```

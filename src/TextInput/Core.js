@@ -26,7 +26,14 @@ export default class Core extends Component {
     placeholder: PropTypes.string,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
-    type: PropTypes.string,
+    type: PropTypes.oneOf([
+      'email',
+      'number',
+      'password',
+      'search',
+      'tel',
+      'text'
+    ]),
     value: PropTypes.string
   }
 
