@@ -1,5 +1,8 @@
 ## Change Log
 
+### upcoming (2017/03/15 14:17 +00:00)
+- [#143](https://github.com/zendeskgarden/react-components/pull/143) Ellipsis: Only set `title` prop when text actually overflows (@Anifacted)
+
 ### v4.5.0 (2017/03/15 12:14 +00:00)
 - [#147](https://github.com/zendeskgarden/react-components/pull/147) Added support for positioning the select menu (@sunesimonsen)
 - [#144](https://github.com/zendeskgarden/react-components/pull/144) Improve the first select component example (@sunesimonsen)
