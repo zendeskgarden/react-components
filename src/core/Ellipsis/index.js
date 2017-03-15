@@ -52,8 +52,14 @@ export default class Ellipsis extends Component {
       props.title = children
     }
 
+    /*
+      <div />
+      Prevent Safari quirk that causes native tooltips to show along-side our tooltips:
+      http://stackoverflow.com/a/42023502
+    */
     return (
       <View ref='main' {...props}>
+        <div />
         { children }
       </View>
     )
