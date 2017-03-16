@@ -61,7 +61,7 @@ class TooltipContainer extends Component {
     }
 
     const { tooltipBounds: tBounds } = this.state
-    const { content, anchor, positions: rawPositions, dir } = this.props
+    const { content, anchor, positions: rawPositions, dir, zIndex } = this.props
 
     const positions = (() =>
       typeof rawPositions === 'string'
@@ -99,7 +99,7 @@ class TooltipContainer extends Component {
     })
 
     return (
-      <div className={styles.container}>
+      <div className={styles.container} style={{ zIndex }}>
         <Tooltip
           left={left}
           top={top}
@@ -120,12 +120,14 @@ TooltipContainer.propTypes = {
   ]),
   content: PropTypes.string,
   anchor: PropTypes.object,
-  dir: PropTypes.oneOf(['rtl', 'ltr'])
+  dir: PropTypes.oneOf(['rtl', 'ltr']),
+  zIndex: PropTypes.number
 }
 
 TooltipContainer.defaultProps = {
   positions: ['top', 'bottom', 'left', 'right'],
-  dir: 'ltr'
+  dir: 'ltr',
+  zIndex: 600
 }
 
 export default TooltipContainer

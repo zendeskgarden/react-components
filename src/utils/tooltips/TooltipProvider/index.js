@@ -7,11 +7,13 @@ export default class TooltipProvider extends Component {
     children: PropTypes.node,
     /** Used to identify the provider and the element that will contain the tooltips. Defaults to a generated UUID */
     id: PropTypes.string,
-    dir: PropTypes.oneOf(['rtl', 'ltr'])
+    dir: PropTypes.oneOf(['rtl', 'ltr']),
+    zIndex: PropTypes.number
   }
 
   static defaultProps = {
-    dir: 'ltr'
+    dir: 'ltr',
+    zIndex: 600
   }
 
   static childContextTypes = {
@@ -32,9 +34,9 @@ export default class TooltipProvider extends Component {
       document.body.appendChild(container)
     }
 
-    const { dir } = this.props
+    const { dir, zIndex } = this.props
 
-    this.tooltipManager = createTooltipManager(container, { dir })
+    this.tooltipManager = createTooltipManager(container, { dir, zIndex })
   }
 
   getChildContext () {
