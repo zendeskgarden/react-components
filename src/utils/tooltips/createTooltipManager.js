@@ -9,8 +9,9 @@ const createTooltipManager = (renderNode, options = {}) => {
       <TooltipContainer
         anchor={anchor}
         content={content}
-        positions={positions}
         dir={options.dir}
+        positions={positions}
+        zIndex={options.zIndex}
       />
     , renderNode)
   }

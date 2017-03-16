@@ -16,6 +16,24 @@ With `dir` set to `"rtl"`
 </TooltipProvider>
 ```
 
+Controlling z-depth via `zIndex`
+
+```
+<View>
+  <View style={{position: 'relative', height: 40}}>
+    <View style={{position: 'absolute', zIndex: 300}}>
+      <Label Label type='success'>z-index 300</Label>
+    </View>
+    <View style={{position: 'absolute', zIndex: 100, left: 90}}>
+      <Label type='default'>z-index 100</Label>
+    </View>
+  </View>
+  <TooltipProvider zIndex={200}>
+    <Button title='z-index 200'>Hover to trigger</Button>
+  </TooltipProvider>
+</View>
+```
+
 ## Using tooltips without the TooltipProvider
 
 Tooltips should be used implicitly via props on the trigger-components, rather than instantiated directly.
@@ -61,11 +79,12 @@ tooltipManager.hide()
 
 `createTooltipManager` takes an `options` object as its second parameter.
 Via this, you can configure specifics about the behavior of your tooltips.
-Currently the following properties are available:
+Currently the following properties are available (default values shown):
 
 ```javascript
 const options = {
   dir: 'ltr' // Controls the direction of the tooltip. One of 'rtl' or 'ltr'.
+  zIndex: 600 // Controls the z-index style rule applied to the tooltip container.
 }
 
 const tooltipManager = createTooltipManager(myNode, options)
