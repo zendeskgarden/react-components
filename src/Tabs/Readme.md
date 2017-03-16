@@ -240,7 +240,7 @@ initialState = { active: 'human' };
   <Tabs.Panel
     label={
       <Grid>
-        <Avatar type='system' src='./images/zendesk.png'/>
+        <Avatar type='system' src='./images/zendesk.jpeg'/>
         Machine
       </Grid>
     }

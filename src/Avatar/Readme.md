@@ -3,7 +3,7 @@ Types:
 ```
 <Grid>
   <Avatar type='human' src='./images/amir.png'/>
-  <Avatar type='system' src='./images/zendesk.png'/>
+  <Avatar type='system' src='./images/zendesk.jpeg'/>
 </Grid>
 ```
 

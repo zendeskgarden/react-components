@@ -60,7 +60,7 @@ module.exports = {
 
     webpackConfig.plugins.push(
       new CopyWebpackPlugin([
-        { from: 'src/styleguide/images/*.png', to: 'images/[name].[ext]' }
+        { from: 'src/styleguide/images/*.{png,jpeg}', to: 'images/[name].[ext]' }
       ]),
       new webpack.LoaderOptionsPlugin({
         test: /\.css$/,
