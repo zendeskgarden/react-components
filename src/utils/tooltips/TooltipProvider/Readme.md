@@ -36,17 +36,23 @@ Controlling z-depth via `zIndex`
 
 ## Using tooltips without the TooltipProvider
 
-Tooltips should be used implicitly via props on the trigger-components, rather than instantiated directly.
-They are rendered in a different render-origin than the application from which they are triggered.
-As soon as you wrap your components with the `TooltipProvider` component, any supported component with a `title` property will spawn tooltips when hovered.
+Tooltips should be used implicitly via props on the trigger-components, rather
+than instantiated directly. They are rendered in a different render-origin than
+the application from which they are triggered. As soon as you wrap your
+components with the `TooltipProvider` component, any supported component with a
+`title` property will spawn tooltips when hovered.
 
-It is, however, possible to trigger tooltips directly on an ad-hoc basis by utilizing the API that the `View` component implements internally.
+It is, however, possible to trigger tooltips directly on an ad-hoc basis by
+utilizing the API that the `View` component implements internally.
 
 ### Creating a Tooltip Manager
 
-To create a Tooltip Manager, simply call its instantiation function and pass as argument the target node in which you would like the tooltips to be rendered.
+To create a Tooltip Manager, simply call its instantiation function and pass as
+argument the target node in which you would like the tooltips to be rendered.
 
-**Tip:** If you are already using `TooltipProvider` in your application, it will have created an element for you with an `id` that matches the `id` prop that was specified for the provider. I.e. you can reuse that container element.
+**Tip:** If you are already using `TooltipProvider` in your application, it will
+have created an element for you with an `id` that matches the `id` prop that was
+specified for the provider. I.e. you can reuse that container element.
 
 ```javascript
 import { createTooltipManager } from 'zd-react-components'
@@ -58,21 +64,32 @@ The Tooltip Manager will expose an API to show and hide tooltips:
 
 **Showing a tooltip:**
 
-```javascript
-// anchor: HTMLElement
-// content: String
-// positions (optional): Array
-const tooltipId = tooltipManager.show(
-  document.getElementById('my-button'),
-  'This button can be clicked',
-  ['top', 'bottom']
-)
-```
-**Hiding tooltips:**
+You can show a tooltip for a given DOM element the following way:
 
 ```javascript
-// tooltipId (optional): Number (Allows for hiding specific tooltips by their ID. If unspecified, any tooltip on-screen will be hidden.)
+const element = document.getElementById('my-button')
+const content = 'This button can be clicked'
+const positioning = ['top', 'bottom']
+
+const tooltipId = tooltipManager.show(
+  element, content, positioning
+)
+```
+
+**Hiding tooltips:**
+
+When showing a tooltip, you get a tooltip id that you can use to hide the
+tooltip again:
+
+```javascript
 tooltipManager.hide(tooltipId)
+```
+
+If you just want to hide all the tooltips, you can call the method without any
+parameters:
+
+```javascript
+tooltipManager.hide()
 ```
 
 ### Configuring the Tooltip Manager
