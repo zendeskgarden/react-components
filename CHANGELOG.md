@@ -1,5 +1,9 @@
 ## Change Log
 
+### v4.9.0 (2017/03/16 14:27 +00:00)
+- [#153](https://github.com/zendeskgarden/react-components/pull/153) Tooltips hide on unmount (@Anifacted)
+- [#154](https://github.com/zendeskgarden/react-components/pull/154) Add missing `key` prop to kill warnings in Select example (@Anifacted)
+
 ### v4.8.0 (2017/03/16 09:56 +00:00)
 - [#151](https://github.com/zendeskgarden/react-components/pull/151) Tooltips: Control z-depth via `zIndex` prop (@Anifacted)
 - [#149](https://github.com/zendeskgarden/react-components/pull/149) Support tooltip direction configurability (@Anifacted)
