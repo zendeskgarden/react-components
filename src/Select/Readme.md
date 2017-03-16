@@ -41,7 +41,7 @@ initialState = { value: colors[0] };
 >
   {
     colors.map(color => (
-      <Select.Item value={color}>
+      <Select.Item value={color} key={color.hex}>
         <Color color={color} includeSample />
       </Select.Item>
     ))
@@ -157,7 +157,7 @@ initialState = { value: items[0] };
     onSelect={ value => setState({ value }) }
   >
     { items.map(item => (
-        <Select.Item value={item}>
+        <Select.Item value={item} key={item}>
           <Text style={{ whiteSpace: 'nowrap' }}>{item}</Text>
         </Select.Item>
       ))
