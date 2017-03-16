@@ -193,6 +193,7 @@ describe('RadioButton', () => {
     it('renders a RadioButton with the specified test id', () => {
       expect(
         <RadioButton name='g1' testId='testing'>Check me out!</RadioButton>,
+        'when deeply rendered',
         'to contain',
         <input
           data-test-id='testing'
@@ -205,6 +206,7 @@ describe('RadioButton', () => {
     it('renders a RadioButton with the specified tab index', () => {
       expect(
         <RadioButton name='g1' tabIndex={42}>Check me out!</RadioButton>,
+        'when deeply rendered',
         'to contain',
         <input
           tabIndex={42}

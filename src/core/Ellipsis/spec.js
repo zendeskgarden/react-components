@@ -52,7 +52,7 @@ describe('Ellipsis', () => {
         <Ellipsis>
           <Text>Taumatawhakatangi­hangakoauauotamatea­turipukakapikimaunga­horonukupokaiwhen­uakitanatahu</Text>
         </Ellipsis>,
-        'to render exactly as',
+        'to exactly render as',
         <View className='ellipsis'>
           <div />
           <Text>Taumatawhakatangi­hangakoauauotamatea­turipukakapikimaunga­horonukupokaiwhen­uakitanatahu</Text>

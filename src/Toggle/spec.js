@@ -186,6 +186,7 @@ describe('Toggle', () => {
     it('renders a toggle with the specified test id', () => {
       expect(
         <Toggle testId='testing'>Toggle me!</Toggle>,
+        'when deeply rendered',
         'to contain',
         <input
           data-test-id='testing'
@@ -198,6 +199,7 @@ describe('Toggle', () => {
     it('renders a toggle with the specified tab index', () => {
       expect(
         <Toggle tabIndex={42}>Toggle me!</Toggle>,
+        'when deeply rendered',
         'to contain',
         <input
           tabIndex={42}
