@@ -21,13 +21,9 @@ const createTooltipManager = (renderNode, options = {}) => {
   }
 
   const hide = tooltipId => {
-    // If the intention is to close a specific tooltip, we make sure that it
-    // is currently on display, and return early if not.
-    if (typeof tooltipId === 'number' && tooltipId !== currentTooltipId) {
-      return null
+    if (typeof tooltipId !== 'number' || tooltipId === currentTooltipId) {
+      render(<TooltipContainer />, renderNode)
     }
-
-    render(<TooltipContainer />, renderNode)
   }
 
   // Initial empty render that creates the container element
