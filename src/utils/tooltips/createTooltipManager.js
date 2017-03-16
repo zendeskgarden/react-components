@@ -23,7 +23,7 @@ const createTooltipManager = (renderNode, options = {}) => {
   const hide = tooltipId => {
     // If the intention is to close a specific tooltip, we make sure that it
     // is currently on display, and return early if not.
-    if (tooltipId != null && tooltipId !== currentTooltipId) {
+    if (typeof tooltipId === 'number' && tooltipId !== currentTooltipId) {
       return null
     }
 

@@ -51,6 +51,14 @@ export default class View extends Component {
     }
   }
 
+  componentWillUnmount () {
+    const { tooltips } = this.context
+
+    if (tooltips && this.tooltipId != null) {
+      tooltips.hide(this.tooltipId)
+    }
+  }
+
   render () {
     const {
       children,
@@ -103,7 +111,7 @@ export default class View extends Component {
 
     if (tooltips && title) {
       props.onMouseOver = e => {
-        tooltips.show(this.element, title, tooltipPositioning)
+        this.tooltipId = tooltips.show(this.element, title, tooltipPositioning)
         this.props.onMouseOver && this.props.onMouseOver(e)
       }
 
