@@ -6,6 +6,16 @@ Use the TooltipProvider to enable tooltips on your components.
 </TooltipProvider>
 ```
 
+With `dir` set to `"rtl"`
+
+```
+<TooltipProvider id='example-tooltips' dir='rtl'>
+  <Button title='This tooltip flows left even though positioning states right!' tooltipPositioning='right'>
+    Hover to trigger
+  </Button>
+</TooltipProvider>
+```
+
 ## Using tooltips without the TooltipProvider
 
 Tooltips should be used implicitly via props on the trigger-components, rather than instantiated directly.
@@ -46,3 +56,17 @@ tooltipManager.show(
 tooltipManager.hide()
 ```
 #
+
+### Configuring the Tooltip Manager
+
+`createTooltipManager` takes an `options` object as its second parameter.
+Via this, you can configure specifics about the behavior of your tooltips.
+Currently the following properties are available:
+
+```javascript
+const options = {
+  dir: 'ltr' // Controls the direction of the tooltip. One of 'rtl' or 'ltr'.
+}
+
+const tooltipManager = createTooltipManager(myNode, options)
+```

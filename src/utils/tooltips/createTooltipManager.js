@@ -3,13 +3,14 @@ import { render } from 'react-dom'
 
 import TooltipContainer from './TooltipContainer'
 
-const createTooltipManager = renderNode => {
+const createTooltipManager = (renderNode, options = {}) => {
   const show = (anchor, content, positions) => {
     render(
       <TooltipContainer
         anchor={anchor}
         content={content}
         positions={positions}
+        dir={options.dir}
       />
     , renderNode)
   }
