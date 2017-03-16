@@ -1,5 +1,10 @@
 ## Change Log
 
+### v4.8.0 (2017/03/16 09:56 +00:00)
+- [#151](https://github.com/zendeskgarden/react-components/pull/151) Tooltips: Control z-depth via `zIndex` prop (@Anifacted)
+- [#149](https://github.com/zendeskgarden/react-components/pull/149) Support tooltip direction configurability (@Anifacted)
+- [#148](https://github.com/zendeskgarden/react-components/pull/148) Tooltip: Accept content through children instead of designated prop (@Anifacted)
+
 ### v4.7.0 (2017/03/15 20:30 +00:00)
 - [#145](https://github.com/zendeskgarden/react-components/pull/145) Added a valueType to the text input (@sunesimonsen)
 
