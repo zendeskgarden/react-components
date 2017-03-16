@@ -4,6 +4,8 @@ import { render } from 'react-dom'
 import TooltipContainer from './TooltipContainer'
 
 const createTooltipManager = (renderNode, options = {}) => {
+  let currentTooltipId = 0
+
   const show = (anchor, content, positions) => {
     render(
       <TooltipContainer
@@ -14,10 +16,14 @@ const createTooltipManager = (renderNode, options = {}) => {
         zIndex={options.zIndex}
       />
     , renderNode)
+
+    return ++currentTooltipId
   }
 
-  const hide = () => {
-    render(<TooltipContainer />, renderNode)
+  const hide = tooltipId => {
+    if (typeof tooltipId !== 'number' || tooltipId === currentTooltipId) {
+      render(<TooltipContainer />, renderNode)
+    }
   }
 
   // Initial empty render that creates the container element

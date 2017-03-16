@@ -61,8 +61,8 @@ The Tooltip Manager will expose an API to show and hide tooltips:
 ```javascript
 // anchor: HTMLElement
 // content: String
-// positions: Array
-tooltipManager.show(
+// positions (optional): Array
+const tooltipId = tooltipManager.show(
   document.getElementById('my-button'),
   'This button can be clicked',
   ['top', 'bottom']
@@ -71,9 +71,9 @@ tooltipManager.show(
 **Hiding tooltips:**
 
 ```javascript
-tooltipManager.hide()
+// tooltipId (optional): Number (Allows for hiding specific tooltips by their ID. If unspecified, any tooltip on-screen will be hidden.)
+tooltipManager.hide(tooltipId)
 ```
-#
 
 ### Configuring the Tooltip Manager
 
