@@ -66,6 +66,7 @@ describe('Range', () => {
     it('renders a range with the specified test id', () => {
       expect(
         <Range testId='testing' />,
+        'when deeply rendered',
         'to contain',
         <input
           data-test-id='testing'
@@ -78,6 +79,7 @@ describe('Range', () => {
     it('renders a range with the specified tab index', () => {
       expect(
         <Range tabIndex={42} />,
+        'when deeply rendered',
         'to contain',
         <input
           tabIndex={42}

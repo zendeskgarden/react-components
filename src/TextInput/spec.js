@@ -54,6 +54,7 @@ describe('TextInput', () => {
       it(`renders an ${type} input`, () => {
         expect(
           <TextInput valueType={type} />,
+          'when deeply rendered',
           'to contain',
           <input type={type} />
         )

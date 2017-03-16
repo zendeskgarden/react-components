@@ -186,6 +186,7 @@ describe('Checkbox', () => {
     it('renders a checkbox with the specified test id', () => {
       expect(
         <Checkbox testId='testing'>Check me out!</Checkbox>,
+        'when deeply rendered',
         'to contain',
         <input
           data-test-id='testing'
@@ -198,6 +199,7 @@ describe('Checkbox', () => {
     it('renders a checkbox with the specified tab index', () => {
       expect(
         <Checkbox tabIndex={42}>Check me out!</Checkbox>,
+        'when deeply rendered',
         'to contain',
         <input
           tabIndex={42}
