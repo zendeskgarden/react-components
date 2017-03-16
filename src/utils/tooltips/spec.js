@@ -59,5 +59,15 @@ describe('Tooltips', () => {
         <TooltipContainer positions={[ 'top', 'bottom', 'left', 'right' ]} />
       )
     })
+
+    it('should correctly increment the tooltip id', () => {
+      const instance = createTooltipManager(document.createElement('div'))
+
+      expect(
+        [instance.show(), instance.show(), instance.show()],
+        'to equal',
+        [1, 2, 3]
+      )
+    })
   })
 })

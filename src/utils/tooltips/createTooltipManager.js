@@ -4,6 +4,8 @@ import { render } from 'react-dom'
 import TooltipContainer from './TooltipContainer'
 
 const createTooltipManager = (renderNode, options = {}) => {
+  let currentTooltipId = 0
+
   const show = (anchor, content, positions) => {
     render(
       <TooltipContainer
@@ -14,9 +16,17 @@ const createTooltipManager = (renderNode, options = {}) => {
         zIndex={options.zIndex}
       />
     , renderNode)
+
+    return ++currentTooltipId
   }
 
-  const hide = () => {
+  const hide = tooltipId => {
+    // If the intention is to close a specific tooltip, we make sure that it
+    // is currently on display, and return early if not.
+    if (tooltipId != null && tooltipId !== currentTooltipId) {
+      return null
+    }
+
     render(<TooltipContainer />, renderNode)
   }
 
