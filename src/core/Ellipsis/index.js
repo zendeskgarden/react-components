@@ -18,6 +18,10 @@ export default class Ellipsis extends Component {
     // setTimeout before reading the DOM element's dimensions:
     // In some cases, they may not be ready in the current stack.
     setTimeout(() => {
+      if (!this.refs.main) {
+        return null
+      }
+
       const { offsetWidth, scrollWidth } = this.refs.main.element
       const isOverflowing = offsetWidth < scrollWidth
 
