@@ -1,5 +1,8 @@
 ## Change Log
 
+### v4.9.2 (2017/03/17 11:34 +00:00)
+- [#157](https://github.com/zendeskgarden/react-components/pull/157) Ellipsis: Fix potential missing ref (@Anifacted)
+
 ### v4.9.1 (2017/03/17 09:41 +00:00)
 - [#156](https://github.com/zendeskgarden/react-components/pull/156) Ellipsis: Fix issue with analyze overflow logic (@Anifacted)
 - [#155](https://github.com/zendeskgarden/react-components/pull/155) Upgrade test deps and use unexpected-react new features (@sunesimonsen)
