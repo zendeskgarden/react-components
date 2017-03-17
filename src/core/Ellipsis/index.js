@@ -15,12 +15,16 @@ export default class Ellipsis extends Component {
   }
 
   analyzeOverflow = () => {
-    const { offsetWidth, scrollWidth } = this.refs.main.element
-    const isOverflowing = offsetWidth < scrollWidth
+    // setTimeout before reading the DOM element's dimensions:
+    // In some cases, they may not be ready in the current stack.
+    setTimeout(() => {
+      const { offsetWidth, scrollWidth } = this.refs.main.element
+      const isOverflowing = offsetWidth < scrollWidth
 
-    if (isOverflowing !== this.state.isOverflowing) {
-      this.setState({ isOverflowing })
-    }
+      if (isOverflowing !== this.state.isOverflowing) {
+        this.setState({ isOverflowing })
+      }
+    }, 0)
   }
 
   onWindowResize = e => {
