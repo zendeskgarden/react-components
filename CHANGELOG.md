@@ -1,5 +1,9 @@
 ## Change Log
 
+### v4.9.1 (2017/03/17 09:41 +00:00)
+- [#156](https://github.com/zendeskgarden/react-components/pull/156) Ellipsis: Fix issue with analyze overflow logic (@Anifacted)
+- [#155](https://github.com/zendeskgarden/react-components/pull/155) Upgrade test deps and use unexpected-react new features (@sunesimonsen)
+
 ### v4.9.0 (2017/03/16 14:27 +00:00)
 - [#153](https://github.com/zendeskgarden/react-components/pull/153) Tooltips hide on unmount (@Anifacted)
 - [#154](https://github.com/zendeskgarden/react-components/pull/154) Add missing `key` prop to kill warnings in Select example (@Anifacted)
