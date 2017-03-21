@@ -6,8 +6,6 @@ export default class Core extends Component {
   static propTypes = {
     autoFocus: PropTypes.bool,
     className: PropTypes.string,
-    type: PropTypes.oneOf(['default', 'primary', 'basic']),
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
     disabled: PropTypes.bool,
     stretched: PropTypes.bool,
     onBlur: PropTypes.func,
@@ -24,9 +22,7 @@ export default class Core extends Component {
   }
 
   static defaultProps = {
-    tabIndex: 0,
-    type: 'default',
-    size: 'small'
+    tabIndex: 0
   }
 
   constructor (props, context) {
