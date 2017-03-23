@@ -1,5 +1,8 @@
 ## Change Log
 
+### v4.10.0 (2017/03/23 15:42 +00:00)
+- [#160](https://github.com/zendeskgarden/react-components/pull/160) Prepend <style> tags so they load before app CSS (@Anifacted)
+
 ### v4.9.2 (2017/03/17 11:34 +00:00)
 - [#157](https://github.com/zendeskgarden/react-components/pull/157) Ellipsis: Fix potential missing ref (@Anifacted)
 
