@@ -37,7 +37,7 @@ exports.__esModule = true;
 ${css ? "var insertCss = require('insert-css')" : ''}
 ${dependencies}
 
-${css ? `insertCss(${JSON.stringify(css)})` : ''}
+${css ? `insertCss(${JSON.stringify(css)}, { prepend: true })` : ''}
 
 exports.default = ${JSON.stringify(styles)}
 `
