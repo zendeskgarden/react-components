@@ -95,8 +95,8 @@
     "zd-svg-icons": "git+ssh://git@github.com/zendeskgarden/svg-icons.git#0.13.0"
   },
   "dependencies": {
+    "append-styles": "^1.0.0",
     "classnames": "^2.2.5",
-    "insert-css": "2.0.0",
     "tabbable": "1.0.5",
     "uuid": "^2.0.2 || ^3.0.0"
   },
