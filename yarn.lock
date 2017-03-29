@@ -126,7 +126,7 @@ anymatch@^1.3.0:
     arrify "^1.0.0"
     micromatch "^2.1.5"
 
-append-styles@1.0.0:
+append-styles@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/append-styles/-/append-styles-1.0.0.tgz#068a4ecfa0bebe055bacb27ba3183aa381fb0467"
 
