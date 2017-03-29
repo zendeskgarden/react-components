@@ -1,5 +1,9 @@
 ## Change Log
 
+### v4.11.0 (2017/03/29 15:01 +00:00)
+- [#161](https://github.com/zendeskgarden/react-components/pull/161) Make sure that we always inject our CSS before SSC and scope it by version (@sunesimonsen)
+- [#158](https://github.com/zendeskgarden/react-components/pull/158) Removed unused props from Button.Core. (@sunesimonsen)
+
 ### v4.10.0 (2017/03/23 15:42 +00:00)
 - [#160](https://github.com/zendeskgarden/react-components/pull/160) Prepend <style> tags so they load before app CSS (@Anifacted)
 
