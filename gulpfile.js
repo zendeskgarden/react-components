@@ -21,6 +21,8 @@ const path = require('path')
 const unique = require('array-unique')
 const clean = require('gulp-clean')
 
+const version = require('./package.json').version
+
 const sourceDir = path.resolve(__dirname, 'src')
 const nodeModulesDir = path.resolve(__dirname, 'node_modules')
 
@@ -34,11 +36,15 @@ const cssToJSTemplate = (css, styles, dependencies) => `\
 
 exports.__esModule = true;
 
-${css ? "var insertCss = require('insert-css')" : ''}
+${css ? "var appendStyles = require('append-styles')" : ''}
 ${dependencies}
-
-${css ? `insertCss(${JSON.stringify(css)}, { prepend: true })` : ''}
-
+${css ? `
+appendStyles({
+  css: ${JSON.stringify(css)},
+  id: 'rc-styles',
+  before: 'ssc-styles'
+})
+` : ''}
 exports.default = ${JSON.stringify(styles)}
 `
 
@@ -100,7 +106,7 @@ gulp.task('process-composed-files', ['collect-composes'], () => {
   return gulp.src(sources, {base: path.join(__dirname, 'node_modules')})
     .pipe(postcss([
       modules({
-        generateScopedName: 'rc-[local]-[hash:base64:5]',
+        generateScopedName: `rc${version.replace(/\./g, '_')}-[local]-[hash:base64:5]`,
         getJSON: (cssFileName, json) => {
           styleMappings[cssFileName] = json
         }
@@ -144,7 +150,7 @@ gulp.task('css', ['clean', 'process-composed-files'], () => {
       cssnext(),
       inputRange(),
       modules({
-        generateScopedName: 'rc-[local]-[hash:base64:5]',
+        generateScopedName: `rc${version.replace(/\./g, '_')}-[local]-[hash:base64:5]`,
         getJSON: (cssFileName, json) => {
           styleMappings[cssFileName] = json
         }
