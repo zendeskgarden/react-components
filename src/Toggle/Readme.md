@@ -7,29 +7,36 @@ initialState = { checked: true };
 />
 ```
 
-Use a label for the toggle:
+With a hint:
 
 ```
 initialState = { checked: false };
 
-<Toggle
-  checked={ state.checked }
-  onChange={ checked => setState({ checked }) }
->
+<Toggle hint='Hint hint'>
   Toggle me
 </Toggle>
+```
+
+Muted:
+
+Toggles support being muted in order to logically display under a label heading.
+
+```
+<Grid columns={1} spacing='medium'>
+  Article settings
+  <Toggle muted>
+    Open for comments
+  </Toggle>
+  <Toggle muted>
+    Promoted
+  </Toggle>
+</Grid>
 ```
 
 Support for RTL:
 
 ```
-initialState = { checked: false };
-
-<Toggle
-  checked={ state.checked }
-  dir='rtl'
-  onChange={ checked => setState({ checked }) }
->
+<Toggle dir='rtl'>
   Toggle me
 </Toggle>
 ```

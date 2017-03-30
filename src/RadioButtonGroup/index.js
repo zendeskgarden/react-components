@@ -8,6 +8,7 @@ export default class RadioButtonGroup extends Component {
     children: PropTypes.node,
     dir: PropTypes.oneOf(['ltr', 'rtl']),
     disabled: PropTypes.bool,
+    muted: PropTypes.bool,
     onSelect: PropTypes.func,
     selected: PropTypes.any
   }
@@ -33,6 +34,7 @@ export default class RadioButtonGroup extends Component {
       children,
       dir,
       disabled,
+      muted,
       selected
     } = this.props
 
@@ -43,6 +45,7 @@ export default class RadioButtonGroup extends Component {
         dir: dir,
         key: `radio-${index}`,
         name: this.id,
+        muted: 'muted' in item.props ? item.props.muted : muted,
         onChange: this.onSelect
       })
     ))

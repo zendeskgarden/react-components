@@ -17,3 +17,8 @@
 .label {
   composes: c-chk__label from 'zd-css-forms';
 }
+
+.hint,
+.muted {
+  composes: c-chk__hint from 'zd-css-forms';
+}

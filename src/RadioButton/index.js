@@ -13,6 +13,8 @@ export default class RadioButton extends ThemedComponent {
     defaultChecked: PropTypes.bool,
     dir: PropTypes.oneOf(['ltr', 'rtl']),
     disabled: PropTypes.bool,
+    hint: PropTypes.node,
+    muted: PropTypes.bool,
     name: PropTypes.string,
     onChange: PropTypes.func,
     tabIndex: PropTypes.number,
@@ -52,6 +54,8 @@ export default class RadioButton extends ThemedComponent {
       defaultChecked,
       dir,
       disabled,
+      hint,
+      muted,
       name,
       tabIndex,
       testId,
@@ -90,13 +94,16 @@ export default class RadioButton extends ThemedComponent {
           type='radio'
         />
         <label
-          className={theme.label}
+          className={classNames(theme.label, {
+            [theme.muted]: muted
+          })}
           dir={dir}
           htmlFor={this.id}
           onMouseUp={() => { this.keyboard = false }}
         >
           { children }
         </label>
+        { hint && <small className={styles.hint}>{hint}</small>}
       </View>
     )
   }

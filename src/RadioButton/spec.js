@@ -52,6 +52,22 @@ describe('RadioButton', () => {
     )
   })
 
+  it('renders a RadioButton with a hint', () => {
+    expect(
+      <RadioButton checked={false} hint='Foo' name='g1'>Check me out!</RadioButton>,
+      'to render as',
+      <View className='radio'>
+        <input
+          checked={false}
+          className='input'
+          type='radio'
+        />
+        <label className='label' dir='ltr'>Check me out!</label>
+        <small className='hint'>Foo</small>
+      </View>
+    )
+  })
+
   it('renders a RadioButton that is checked', () => {
     expect(
       <RadioButton name='g1' checked>Check me out!</RadioButton>,
@@ -63,6 +79,20 @@ describe('RadioButton', () => {
           type='radio'
         />
         <label className='label' dir='ltr'>Check me out!</label>
+      </View>
+    )
+  })
+
+  it('renders a RadioButton that is muted', () => {
+    expect(
+      <RadioButton name='g1' muted>Check me out!</RadioButton>,
+      'to render as',
+      <View className='radio'>
+        <input
+          className='input'
+          type='radio'
+        />
+        <label className='label muted' dir='ltr'>Check me out!</label>
       </View>
     )
   })
@@ -147,7 +177,7 @@ describe('RadioButton', () => {
     })
 
     describe('when toggled', () => {
-      it('calls the onChange handle with the new state of the checkbox', () => {
+      it('calls the onChange handle with the new state of the radio button', () => {
         let node
         const onChange = sinon.spy()
 
@@ -167,7 +197,7 @@ describe('RadioButton', () => {
         })
       })
 
-      it('calls the onChange handle with the new state of the checkbox', () => {
+      it('calls the onChange handle with the new state of the radio button', () => {
         const onChange = sinon.spy()
         let node
 

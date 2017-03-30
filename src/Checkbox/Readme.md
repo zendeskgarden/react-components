@@ -20,6 +20,32 @@ initialState = { checked: false };
 </Checkbox>
 ```
 
+With a hint:
+
+```
+<Checkbox hint='Hint hint'>
+  Click me
+</Checkbox>
+```
+
+Muted:
+
+Checkboxes support being muted in order to logically display under a label heading.
+
+```
+<Grid columns={1} spacing='medium'>
+  Article settings
+  <Grid columns={1}>
+    <Checkbox muted>
+      Open for comments
+    </Checkbox>
+    <Checkbox muted>
+      Promoted
+    </Checkbox>
+  </Grid>
+</Grid>
+```
+
 Support for RTL:
 
 ```
