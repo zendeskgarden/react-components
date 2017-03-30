@@ -26,8 +26,7 @@ export default class RadioButton extends ThemedComponent {
   }
 
   static defaultProps = {
-    dir: 'ltr',
-    muted: false
+    dir: 'ltr'
   }
 
   constructor (props, context) {

@@ -20,32 +20,30 @@ initialState = { checked: false };
 </Checkbox>
 ```
 
-Muted:
-
-```
-initialState = { checked: false };
-
-<Checkbox
-  checked={ state.checked }
-  muted
-  onChange={ (checked) => setState({ checked }) }
->
-  Click me
-</Checkbox>
-```
-
 With a hint:
 
 ```
-initialState = { checked: false };
-
-<Checkbox
-  checked={ state.checked }
-  hint='Hint'
-  onChange={ (checked) => setState({ checked }) }
->
+<Checkbox hint='Hint hint'>
   Click me
 </Checkbox>
+```
+
+Muted:
+
+Checkboxes support being muted in order to logically display under a label heading.
+
+```
+<Grid columns={1} spacing='medium'>
+  Article settings
+  <Grid columns={1}>
+    <Checkbox muted>
+      Open for comments
+    </Checkbox>
+    <Checkbox muted>
+      Promoted
+    </Checkbox>
+  </Grid>
+</Grid>
 ```
 
 Support for RTL:

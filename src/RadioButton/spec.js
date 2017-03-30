@@ -177,7 +177,7 @@ describe('RadioButton', () => {
     })
 
     describe('when toggled', () => {
-      it('calls the onChange handle with the new state of the checkbox', () => {
+      it('calls the onChange handle with the new state of the radio button', () => {
         let node
         const onChange = sinon.spy()
 
@@ -197,7 +197,7 @@ describe('RadioButton', () => {
         })
       })
 
-      it('calls the onChange handle with the new state of the checkbox', () => {
+      it('calls the onChange handle with the new state of the radio button', () => {
         const onChange = sinon.spy()
         let node
 

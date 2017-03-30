@@ -7,7 +7,7 @@ import RadioButtonGroup from '.'
 import View from '../core/View'
 
 describe('RadioButtonGroup', () => {
-  it('renders a RadioButtonGroup with RadioButtons', () => {
+  it('renders a RadioButtonGroup with radio buttons', () => {
     expect(
       <RadioButtonGroup>
         <RadioButton value={1}>1</RadioButton>
@@ -21,7 +21,7 @@ describe('RadioButtonGroup', () => {
     )
   })
 
-  it('renders RadioButtons as disabled when set by RadioButton', () => {
+  it('renders radio buttons as disabled when set by individual items', () => {
     expect(
       <RadioButtonGroup>
         <RadioButton value={1}>1</RadioButton>
@@ -37,7 +37,7 @@ describe('RadioButtonGroup', () => {
     )
   })
 
-  it('calls the onChange handle with the new value of the RadioButtonGroup', () => {
+  it('calls the onChange handle with the new value of the radio button group', () => {
     const onSelect = sinon.spy()
 
     return expect(
@@ -55,7 +55,7 @@ describe('RadioButtonGroup', () => {
     })
   })
 
-  describe('with value matching one of the RadioButtons', () => {
+  describe('with value matching one of the radio buttons', () => {
     it('renders RadioButton as checked', () => {
       expect(
         <RadioButtonGroup selected={2}>
@@ -73,8 +73,26 @@ describe('RadioButtonGroup', () => {
     })
   })
 
+  describe('when muted', () => {
+    it('renders muted radio buttons', () => {
+      expect(
+        <RadioButtonGroup muted>
+          <RadioButton value={1}>1</RadioButton>
+          <RadioButton value={2}>2</RadioButton>
+          <RadioButton value={3}>3</RadioButton>
+        </RadioButtonGroup>,
+        'to render as',
+        <View>
+          <RadioButton muted value={1}>1</RadioButton>
+          <RadioButton muted value={2}>2</RadioButton>
+          <RadioButton muted value={3}>3</RadioButton>
+        </View>
+      )
+    })
+  })
+
   describe('with dir set to rtl', () => {
-    it('renders rtl RadioButtons', () => {
+    it('renders rtl radio buttons', () => {
       expect(
         <RadioButtonGroup dir='rtl'>
           <RadioButton value={1}>1</RadioButton>
@@ -91,8 +109,8 @@ describe('RadioButtonGroup', () => {
     })
   })
 
-  describe('with disabled RadioButtonGroup', () => {
-    it('renders RadioButtons as disabled', () => {
+  describe('with a disabled radio button group', () => {
+    it('renders radio buttons as disabled', () => {
       expect(
         <RadioButtonGroup disabled>
           <RadioButton value={1}>1</RadioButton>
@@ -108,7 +126,7 @@ describe('RadioButtonGroup', () => {
       )
     })
 
-    it('renders RadioButtons as not disabled when overriden by RadioButton', () => {
+    it('renders radio buttons as not disabled when overriden by an individual radio button', () => {
       expect(
         <RadioButtonGroup disabled>
           <RadioButton value={1}>1</RadioButton>
