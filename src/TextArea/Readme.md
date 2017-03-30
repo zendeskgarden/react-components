@@ -27,6 +27,28 @@ initialState={ value: '' };
 </Grid>
 ```
 
+Validation:
+
+```
+<Grid columns={1} stretched>
+  <TextArea
+    label='Error:'
+    placeholder='Write something'
+    validation='error'
+  />
+  <TextArea
+    label='Warning:'
+    placeholder='Write something'
+    validation='warning'
+  />
+  <TextArea
+    label='Success:'
+    placeholder='Write something'
+    validation='success'
+  />
+</Grid>
+```
+
 Disabled:
 
 ```
