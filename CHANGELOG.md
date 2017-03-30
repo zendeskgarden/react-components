@@ -1,5 +1,8 @@
 ## Change Log
 
+### v4.13.0 (2017/03/30 17:07 +00:00)
+- [#162](https://github.com/zendeskgarden/react-components/pull/162) Added hints to form inputs (@sunesimonsen)
+
 ### v4.12.0 (2017/03/30 13:04 +00:00)
 - [#150](https://github.com/zendeskgarden/react-components/pull/150) Upgrades zd-css-forms (@sunesimonsen, @albertfdp)
 
