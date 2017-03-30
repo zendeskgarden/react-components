@@ -5,6 +5,7 @@ initialState={ value: '' };
 
 <TextArea
   onChangeText={ (value) => setState({ value }) }
+  hint="Don't be scared"
   label='Dump your brain here:'
   placeholder='Write something'
   value={ state.value }

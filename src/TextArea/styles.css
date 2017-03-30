@@ -13,3 +13,7 @@
 .label {
   composes: c-txt__label from 'zd-css-forms';
 }
+
+.hint {
+  composes: c-txt__hint from 'zd-css-forms';
+}

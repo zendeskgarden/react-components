@@ -132,32 +132,45 @@ describe('Range', () => {
         </View>
       )
     })
+  })
 
-    describe('with an id', () => {
-      it('uses the id for the input and wires the label to it', () => {
-        expect(
-          <Range
+  describe('with a hint', () => {
+    it('renders a hint below the input', () => {
+      expect(
+        <Range hint='This is a hint' />,
+        'to render as',
+        <View>
+          <input type='range' />
+          <small className='hint'>This is a hint</small>
+        </View>
+      )
+    })
+  })
+
+  describe('with an id', () => {
+    it('uses the id for the input and wires the label to it', () => {
+      expect(
+        <Range
+          id='my-id'
+          label='This is a label'
+          max={100}
+          min={0}
+          step={5}
+          value={10}
+        />,
+        'to render as',
+        <View>
+          <label htmlFor='my-id'>This is a label</label>
+          <input
             id='my-id'
-            label='This is a label'
             max={100}
             min={0}
             step={5}
+            type='range'
             value={10}
-          />,
-          'to render as',
-          <View>
-            <label htmlFor='my-id'>This is a label</label>
-            <input
-              id='my-id'
-              max={100}
-              min={0}
-              step={5}
-              type='range'
-              value={10}
-            />
-          </View>
-        )
-      })
+          />
+        </View>
+      )
     })
   })
 

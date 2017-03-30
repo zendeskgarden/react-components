@@ -5,6 +5,7 @@ initialState = { value: 50 };
 
 <Range
   label='How satisfied are you?'
+  hint='Not very satisfied to the left and very satisfied to the right'
   value={ state.value }
   title={ `${state.value}` }
   onChange={ (value) => setState({ value }) }

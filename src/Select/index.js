@@ -23,8 +23,9 @@ export default class Select extends ThemedComponent {
     /**
      * This is for use in self-service-components only
      */
+    hint: PropTypes.node,
     inputClassName: PropTypes.string,
-    label: PropTypes.string,
+    label: PropTypes.node,
     maxHeight: PropTypes.oneOfType([
       PropTypes.number,
       PropTypes.string
@@ -114,6 +115,7 @@ export default class Select extends ThemedComponent {
       inputClassName,
       dir,
       disabled,
+      hint,
       maxHeight,
       onBlur,
       onFocus,
@@ -138,7 +140,7 @@ export default class Select extends ThemedComponent {
         }, className)}
         testId={testId}
       >
-        { this.renderLabel() }
+        {this.renderLabel()}
         <Menu
           dir={dir}
           maxHeight={maxHeight}
@@ -169,6 +171,7 @@ export default class Select extends ThemedComponent {
         >
           { children }
         </Menu>
+        {hint && <small className={theme.hint}>{hint}</small>}
       </View>
     )
   }
