@@ -20,9 +20,10 @@ export default class TextInput extends ThemedComponent {
     defaultValue: PropTypes.string,
     dir: PropTypes.oneOf(['ltr', 'rtl']),
     disabled: PropTypes.bool.isRequired,
-    label: PropTypes.string,
-    name: PropTypes.string,
+    hint: PropTypes.node,
+    label: PropTypes.node,
     maxLength: PropTypes.number,
+    name: PropTypes.string,
     onArrowDown: PropTypes.func,
     onArrowLeft: PropTypes.func,
     onArrowRight: PropTypes.func,
@@ -97,6 +98,7 @@ export default class TextInput extends ThemedComponent {
   render () {
     const {
       className,
+      hint,
       title,
       tooltipPositioning,
       valueType,
@@ -111,7 +113,7 @@ export default class TextInput extends ThemedComponent {
         title={title}
         tooltipPositioning={tooltipPositioning}
       >
-        { this.renderLabel() }
+        {this.renderLabel()}
         <Core
           {...other}
           valueType={valueType}
@@ -123,6 +125,7 @@ export default class TextInput extends ThemedComponent {
             }
           }}
         />
+        {hint && <small className={theme.hint}>{hint}</small>}
       </View>
     )
   }
