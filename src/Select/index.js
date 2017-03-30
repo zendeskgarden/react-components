@@ -42,7 +42,10 @@ export default class Select extends ThemedComponent {
     testId: PropTypes.string,
     title: PropTypes.string,
     /** <a href="#View">See View</a> */
-    tooltipPositioning: () => {}
+    tooltipPositioning: () => {},
+    validation: PropTypes.oneOf([
+      'error', 'warning', 'success'
+    ])
   }
 
   static defaultProps = {
@@ -126,7 +129,8 @@ export default class Select extends ThemedComponent {
       tabIndex,
       testId,
       title,
-      tooltipPositioning
+      tooltipPositioning,
+      validation
     } = this.props
 
     const { open } = this.state
@@ -134,7 +138,7 @@ export default class Select extends ThemedComponent {
 
     return (
       <View
-        className={classNames(theme.txt, {
+        className={classNames(theme.txt, theme[validation], {
           [theme.rtl]: dir === 'rtl',
           [theme.stretched]: stretched
         }, className)}

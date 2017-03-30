@@ -50,7 +50,50 @@ initialState = { value: colors[0] };
 </Select>
 ```
 
-States:
+Validation:
+
+```
+initialState = {
+  errorState: 'foo',
+  warningState: 'foo',
+  successState: 'foo'
+};
+
+<Grid columns={1} stretched>
+  <Select
+    label='Error:'
+    selected={ state.errorState }
+    onSelect={ value => setState({ errorState: value }) }
+    validation='error'
+  >
+    <Select.Item value='foo'>foo</Select.Item>
+    <Select.Item value='bar'>bar</Select.Item>
+    <Select.Item value='baz'>baz</Select.Item>
+  </Select>
+  <Select
+    label='Warning:'
+    selected={ state.warningState }
+    onSelect={ value => setState({ warningState: value }) }
+    validation='warning'
+  >
+    <Select.Item value='foo'>foo</Select.Item>
+    <Select.Item value='bar'>bar</Select.Item>
+    <Select.Item value='baz'>baz</Select.Item>
+  </Select>
+  <Select
+    label='Success:'
+    selected={ state.successState }
+    onSelect={ value => setState({ successState: value }) }
+    validation='success'
+  >
+    <Select.Item value='foo'>foo</Select.Item>
+    <Select.Item value='bar'>bar</Select.Item>
+    <Select.Item value='baz'>baz</Select.Item>
+  </Select>
+</Grid>
+```
+
+Disabled:
 
 ```
 initialState = { value: 'foo' };
