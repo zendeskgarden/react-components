@@ -9,3 +9,11 @@
 .focused {
   composes: is-focused from 'zd-css-forms';
 }
+
+.label {
+  composes: c-range__label from 'zd-css-forms';
+}
+
+.hint {
+  composes: c-range__hint from 'zd-css-forms';
+}

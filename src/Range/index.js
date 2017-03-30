@@ -8,18 +8,19 @@ import styles from './styles.css'
 
 export default class Range extends ThemedComponent {
   static propTypes = {
-    id: PropTypes.string,
-    label: PropTypes.string,
-    min: PropTypes.number,
-    max: PropTypes.number,
-    value: PropTypes.number,
-    step: PropTypes.number,
     defaultValue: PropTypes.number,
     disabled: PropTypes.bool,
+    hint: PropTypes.node,
+    id: PropTypes.string,
+    label: PropTypes.string,
+    max: PropTypes.number,
+    min: PropTypes.number,
     onChange: PropTypes.func,
-    testId: PropTypes.string,
+    step: PropTypes.number,
     tabIndex: PropTypes.number,
-    title: PropTypes.string
+    testId: PropTypes.string,
+    title: PropTypes.string,
+    value: PropTypes.number
   }
 
   static defaultProps = {
@@ -91,6 +92,7 @@ export default class Range extends ThemedComponent {
     const {
       defaultValue,
       disabled,
+      hint,
       max,
       min,
       step,
@@ -128,6 +130,7 @@ export default class Range extends ThemedComponent {
           value={value}
           ref={ref => { this.input = ref }}
         />
+        {hint && <small className={theme.hint}>{hint}</small>}
       </View>
     )
   }
