@@ -1,5 +1,8 @@
 ## Change Log
 
+### v4.12.0 (2017/03/30 13:04 +00:00)
+- [#150](https://github.com/zendeskgarden/react-components/pull/150) Upgrades zd-css-forms (@sunesimonsen, @albertfdp)
+
 ### v4.11.0 (2017/03/29 15:01 +00:00)
 - [#161](https://github.com/zendeskgarden/react-components/pull/161) Make sure that we always inject our CSS before SSC and scope it by version (@sunesimonsen)
 - [#158](https://github.com/zendeskgarden/react-components/pull/158) Removed unused props from Button.Core. (@sunesimonsen)
