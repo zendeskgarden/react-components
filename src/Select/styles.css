@@ -21,6 +21,11 @@
   composes: c-txt__label from 'zd-css-forms';
 }
 
+.hint {
+  margin-top: 10px;
+  composes: c-txt__hint from 'zd-css-forms';
+}
+
 .rtl {
   composes: is-rtl from 'zd-css-forms';
 }

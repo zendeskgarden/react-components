@@ -36,6 +36,7 @@ initialState = { value: colors[0] };
 
 <Select
   label='Select your favorite color:'
+  hint='It better be Pelorous'
   selected={<Color color={state.value} />}
   onSelect={ value => setState({ value }) }
 >
