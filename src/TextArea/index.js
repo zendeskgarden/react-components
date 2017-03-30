@@ -19,7 +19,9 @@ export default class TextArea extends ThemedComponent {
     defaultValue: PropTypes.string,
     dir: PropTypes.oneOf(['ltr', 'rtl']),
     disabled: PropTypes.bool.isRequired,
+    hint: PropTypes.node,
     id: PropTypes.string,
+    label: PropTypes.node,
     name: PropTypes.string,
     maxLength: PropTypes.number,
     onArrowDown: PropTypes.func,
@@ -84,6 +86,7 @@ export default class TextArea extends ThemedComponent {
   render () {
     const {
       className,
+      hint,
       resizable,
       title,
       tooltipPositioning,
@@ -98,7 +101,7 @@ export default class TextArea extends ThemedComponent {
         title={title}
         tooltipPositioning={tooltipPositioning}
       >
-        { this.renderLabel() }
+        {this.renderLabel()}
         <Core
           {...other}
           className={classNames(theme.input, {
@@ -110,6 +113,7 @@ export default class TextArea extends ThemedComponent {
             }
           }}
         />
+        { hint && <small className={theme.hint}>{hint}</small> }
       </View>
     )
   }

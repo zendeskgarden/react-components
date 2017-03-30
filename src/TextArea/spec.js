@@ -41,22 +41,35 @@ describe('TextArea', () => {
         </View>
       )
     })
+  })
 
-    describe('with an id', () => {
-      it('uses the id for the input and wires the label to it', () => {
-        expect(
-          <TextArea
-            id='my-id'
-            label='This is a label'
-            value=''
-          />,
-          'to deeply render as',
-          <View>
-            <label htmlFor='my-id'>This is a label</label>
-            <textarea value='' />
-          </View>
-        )
-      })
+  describe('with a hint', () => {
+    it('renders a hint below the input', () => {
+      expect(
+        <TextArea hint='This is a hint' value='' />,
+        'to deeply render as',
+        <View>
+          <textarea value='' />
+          <small className='hint'>This is a hint</small>
+        </View>
+      )
+    })
+  })
+
+  describe('with an id', () => {
+    it('uses the id for the input and wires the label to it', () => {
+      expect(
+        <TextArea
+          id='my-id'
+          label='This is a label'
+          value=''
+        />,
+        'to deeply render as',
+        <View>
+          <label htmlFor='my-id'>This is a label</label>
+          <textarea value='' />
+        </View>
+      )
     })
   })
 })
