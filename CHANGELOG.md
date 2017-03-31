@@ -1,5 +1,8 @@
 ## Change Log
 
+### v4.13.1 (2017/03/31 11:40 +00:00)
+- [#164](https://github.com/zendeskgarden/react-components/pull/164) Update css-tooltips (1.1.1) - fixes the text overflow issue (@Anifacted)
+
 ### v4.13.0 (2017/03/30 17:07 +00:00)
 - [#162](https://github.com/zendeskgarden/react-components/pull/162) Added hints to form inputs (@sunesimonsen)
 
