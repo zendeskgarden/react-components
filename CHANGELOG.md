@@ -1,5 +1,8 @@
 ## Change Log
 
+### v4.13.2 (2017/04/03 12:00 +00:00)
+- [#165](https://github.com/zendeskgarden/react-components/pull/165) Hide tooltips when clicking a View (@Anifacted)
+
 ### v4.13.1 (2017/03/31 11:40 +00:00)
 - [#164](https://github.com/zendeskgarden/react-components/pull/164) Update css-tooltips (1.1.1) - fixes the text overflow issue (@Anifacted)
 
