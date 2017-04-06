@@ -26,6 +26,18 @@
   composes: c-txt__hint from 'zd-css-forms';
 }
 
+.success {
+  composes: has-success from 'zd-css-forms';
+}
+
+.warning {
+  composes: has-warning from 'zd-css-forms';
+}
+
+.error {
+  composes: has-error from 'zd-css-forms';
+}
+
 .rtl {
   composes: is-rtl from 'zd-css-forms';
 }

@@ -47,6 +47,9 @@ export default class TextInput extends ThemedComponent {
         return new Error('The TextInput does not accept a type prop use valueType instead')
       }
     },
+    validation: PropTypes.oneOf([
+      'error', 'warning', 'success'
+    ]),
     value: PropTypes.string,
     valueType: PropTypes.oneOf([
       'email',
@@ -101,6 +104,7 @@ export default class TextInput extends ThemedComponent {
       hint,
       title,
       tooltipPositioning,
+      validation,
       valueType,
       ...other
     } = this.props
@@ -109,7 +113,7 @@ export default class TextInput extends ThemedComponent {
 
     return (
       <View
-        className={theme.txt}
+        className={classNames(theme.txt, theme[validation])}
         title={title}
         tooltipPositioning={tooltipPositioning}
       >

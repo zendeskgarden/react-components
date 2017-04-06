@@ -61,6 +61,32 @@ describe('TextInput', () => {
     })
   })
 
+  describe('when disabled', () => {
+    it('renders a disabled text input', () => {
+      expect(
+        <TextInput disabled />,
+        'to deeply render as',
+        <View>
+          <input disabled />
+        </View>
+      )
+    })
+  })
+
+  const validations = ['error', 'warning', 'success']
+
+  validations.forEach((validation) => {
+    describe(`when given a ${validation} validation`, () => {
+      it('renders a text input with the given validation', () => {
+        expect(
+          <TextInput validation={validation} />,
+          'to render as',
+          <View className={`txt ${validation}`} />
+        )
+      })
+    })
+  })
+
   const types = ['email', 'number', 'password', 'search', 'tel', 'text']
   types.forEach((type) => {
     describe(`with a value type of ${type}`, () => {

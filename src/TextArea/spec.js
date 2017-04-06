@@ -56,6 +56,32 @@ describe('TextArea', () => {
     })
   })
 
+  describe('when disabled', () => {
+    it('renders a disabled text area', () => {
+      expect(
+        <TextArea disabled />,
+        'to deeply render as',
+        <View>
+          <textarea disabled />
+        </View>
+      )
+    })
+  })
+
+  const validations = ['error', 'warning', 'success']
+
+  validations.forEach((validation) => {
+    describe(`when given a ${validation} validation`, () => {
+      it('renders a text area with the given validation', () => {
+        expect(
+          <TextArea validation={validation} />,
+          'to render as',
+          <View className={`txt ${validation}`} />
+        )
+      })
+    })
+  })
+
   describe('with an id', () => {
     it('uses the id for the input and wires the label to it', () => {
       expect(

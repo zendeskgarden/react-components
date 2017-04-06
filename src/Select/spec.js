@@ -57,6 +57,7 @@ describe('Select', () => {
       })
     })
   })
+
   describe('when given positioning configuration', () => {
     it('forwards the configuration to the menu', () => {
       expect(
@@ -86,6 +87,23 @@ describe('Select', () => {
           </Menu>
         </View>
       )
+    })
+  })
+
+  const validations = ['error', 'warning', 'success']
+
+  validations.forEach((validation) => {
+    describe(`when given a ${validation} validation`, () => {
+      it('renders a select component with the given validation', () => {
+        expect(
+          <Select selected='bar' validation={validation}>
+            <Select.Item value='foo'>foo</Select.Item>
+            <Select.Item value='bar'>bar</Select.Item>
+          </Select>,
+          'to render as',
+          <View className={`txt ${validation}`} />
+        )
+      })
     })
   })
 

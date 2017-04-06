@@ -42,6 +42,9 @@ export default class TextArea extends ThemedComponent {
     title: PropTypes.string,
     /** <a href="#View">See View</a> */
     tooltipPositioning: () => {},
+    validation: PropTypes.oneOf([
+      'error', 'warning', 'success'
+    ]),
     value: PropTypes.string
   }
 
@@ -90,6 +93,7 @@ export default class TextArea extends ThemedComponent {
       resizable,
       title,
       tooltipPositioning,
+      validation,
       ...other
     } = this.props
 
@@ -97,7 +101,7 @@ export default class TextArea extends ThemedComponent {
 
     return (
       <View
-        className={theme.txt}
+        className={classNames(theme.txt, theme[validation])}
         title={title}
         tooltipPositioning={tooltipPositioning}
       >

@@ -10,6 +10,28 @@ initialState={ value: '' };
 />
 ```
 
+Validation:
+
+```
+<Grid columns={1} stretched>
+  <TextInput
+    label='Error:'
+    placeholder='Write something'
+    validation='error'
+  />
+  <TextInput
+    label='Warning:'
+    placeholder='Write something'
+    validation='warning'
+  />
+  <TextInput
+    label='Success:'
+    placeholder='Write something'
+    validation='success'
+  />
+</Grid>
+```
+
 Value types:
 
 ```
