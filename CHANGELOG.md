@@ -1,5 +1,8 @@
 ## Change Log
 
+### v4.15.0 (2017/04/11 07:39 +00:00)
+- [#166](https://github.com/zendeskgarden/react-components/pull/166) Upgrade to React 15.5.0 (@albertfdp)
+
 ### v4.14.0 (2017/04/06 13:52 +00:00)
 - [#163](https://github.com/zendeskgarden/react-components/pull/163) Added support for validation styling (@sunesimonsen)
 
