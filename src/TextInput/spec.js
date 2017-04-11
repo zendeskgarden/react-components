@@ -1,7 +1,7 @@
 import React from 'react'
 import expect from 'test/expect'
 import sinon from 'sinon'
-import TestUtils from 'react-addons-test-utils'
+import TestUtils from 'react-dom/test-utils'
 import { findDOMNode } from 'react-dom'
 
 import View from '../core/View'
