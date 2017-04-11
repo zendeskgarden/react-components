@@ -32,7 +32,6 @@
     "url-loader": "^0.5.7",
     "webpack": "2.2.1",
     "webpack-bundle-analyzer": "2.3.0",
-    "zd-css-bedrock": "git+ssh://git@github.com/zendeskgarden/css-bedrock.git",
-    "zd-react-components": ".."
+    "zd-css-bedrock": "git+ssh://git@github.com/zendeskgarden/css-bedrock.git"
   }
 }
