@@ -64,7 +64,6 @@
     "postcss-input-range": "git+ssh://git@github.com/jonathantneal/postcss-input-range#ed1b254ba56316dbb4a939b86f39278bda53f4fa",
     "postcss-loader": "0.9.1",
     "postcss-modules": "0.6.4",
-    "prop-types": "15.5.6",
     "querystring": "0.2.0",
     "react": "15.5.3",
     "react-dom": "15.5.3",
@@ -97,6 +96,7 @@
   "dependencies": {
     "append-styles": "^1.0.0",
     "classnames": "^2.2.5",
+    "prop-types": "^15.5.0",
     "tabbable": "1.0.5",
     "uuid": "^2.0.2 || ^3.0.0"
   },
