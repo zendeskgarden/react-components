@@ -65,9 +65,8 @@
     "postcss-loader": "0.9.1",
     "postcss-modules": "0.6.4",
     "querystring": "0.2.0",
-    "react": "15.4.2",
-    "react-addons-test-utils": "15.4.2",
-    "react-dom": "15.4.2",
+    "react": "15.5.3",
+    "react-dom": "15.5.3",
     "react-styleguidist": "4.3.3",
     "react-svg-loader": "1.0.1",
     "sinon": "1.17.7",
@@ -97,6 +96,7 @@
   "dependencies": {
     "append-styles": "^1.0.0",
     "classnames": "^2.2.5",
+    "prop-types": "^15.5.0",
     "tabbable": "1.0.5",
     "uuid": "^2.0.2 || ^3.0.0"
   },
@@ -118,7 +118,8 @@
   "jest": {
     "moduleNameMapper": {
       "\\.(css)$": "<rootDir>/test/styleMock.js",
-      "test/expect": "<rootDir>/test/unexpected-with-plugins.js"
+      "test/expect": "<rootDir>/test/unexpected-with-plugins.js",
+      "react-addons-test-utils": "react-dom/test-utils.js"
     },
     "moduleFileExtensions": [
       "js",

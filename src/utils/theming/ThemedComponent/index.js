@@ -1,4 +1,5 @@
-import { Component, PropTypes } from 'react'
+import { Component } from 'react'
+import PropTypes from 'prop-types'
 
 const extendStyles = (styles, theme, namespace) => {
   const { [namespace]: themeStyles } = theme || {}

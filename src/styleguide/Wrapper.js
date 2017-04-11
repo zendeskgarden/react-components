@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import ThemeProvider from '../utils/theming/ThemeProvider'
 import TooltipProvider from '../utils/tooltips/TooltipProvider'
 import exampleTheme from '../themes/example-theme'

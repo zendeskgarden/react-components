@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 import View from '../core/View'
 import ThemedComponent from '../utils/theming/ThemedComponent'

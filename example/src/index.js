@@ -6,7 +6,7 @@ import { render } from 'react-dom'
 // Will not treeshake yet :-(
 // But you can use babel-plugin-transform-imports
 // to transform these imports to individual import.
-import {Button, Menu, Text} from 'zd-react-components'
+import {Button, Menu, Text} from '../../lib'
 
 import './styles.css'
 
