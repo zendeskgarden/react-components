@@ -167,37 +167,31 @@ export default class Menu extends Component {
     const centerPoint = centerArrow ? 19 : null;
 
     return (
-      <View
-        className={classNames(styles.container, {
-          [styles.stretched]: stretched
-        })}
+      <RelativePositionedPopup
+        anchor={anchor}
+        centerPoint={centerPoint}
+        dir={dir}
+        hidden={hidden}
+        positioning={positioning}
+        marginTop={marginTop + arrowMargin}
+        marginLeft={marginLeft + arrowMargin}
+        marginRight={marginRight + arrowMargin}
+        marginBottom={marginBottom + arrowMargin}
+        stretched={stretched}
         testId={testId}
       >
-        <RelativePositionedPopup
-          anchor={anchor}
-          centerPoint={centerPoint}
-          dir={dir}
-          hidden={hidden}
-          positioning={positioning}
-          marginTop={marginTop + arrowMargin}
-          marginLeft={marginLeft + arrowMargin}
-          marginRight={marginRight + arrowMargin}
-          marginBottom={marginBottom + arrowMargin}
-          stretched={stretched}
-        >
-          {position => (
-            <Container
-              {...other}
-              animate={!hidden}
-              dir={dir}
-              arrow={arrow}
-              position={position}
-            >
-              {items}
-            </Container>
-          )}
-        </RelativePositionedPopup>
-      </View>
+        {position => (
+          <Container
+            {...other}
+            animate={!hidden}
+            dir={dir}
+            arrow={arrow}
+            position={position}
+          >
+            {items}
+          </Container>
+        )}
+      </RelativePositionedPopup>
     );
   }
 }
