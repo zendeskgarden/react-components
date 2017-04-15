@@ -90,6 +90,7 @@ export default class TextArea extends ThemedComponent {
   render () {
     const {
       className,
+      disabled,
       hint,
       resizable,
       title,
@@ -102,13 +103,18 @@ export default class TextArea extends ThemedComponent {
 
     return (
       <View
-        className={classNames(theme.txt, theme[validation])}
+        className={classNames(
+          theme.txt,
+          theme[validation],
+          { [theme.disabled]: disabled }
+        )}
         title={title}
         tooltipPositioning={tooltipPositioning}
       >
         {this.renderLabel()}
         <Core
           {...other}
+          disabled={disabled}
           className={classNames(theme.input, {
             [theme.resizable]: resizable
           }, className)}

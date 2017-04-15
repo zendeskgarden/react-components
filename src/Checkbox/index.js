@@ -70,7 +70,8 @@ export default class Checkbox extends ThemedComponent {
       <View
         className={classNames(theme.checkbox, {
           [theme.focused]: focused,
-          [theme.rtl]: dir === 'rtl'
+          [theme.rtl]: dir === 'rtl',
+          [theme.disabled]: disabled
         })}
         title={title}
         tooltipPositioning={tooltipPositioning}

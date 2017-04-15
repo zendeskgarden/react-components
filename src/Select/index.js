@@ -141,7 +141,8 @@ export default class Select extends ThemedComponent {
       <View
         className={classNames(theme.txt, theme[validation], {
           [theme.rtl]: dir === 'rtl',
-          [theme.stretched]: stretched
+          [theme.stretched]: stretched,
+          [theme.disabled]: disabled
         }, className)}
         testId={testId}
       >
@@ -156,7 +157,6 @@ export default class Select extends ThemedComponent {
           trigger={
             <View
               className={classNames(theme.input, {
-                [theme.disabled]: disabled,
                 [theme.open]: open
               }, inputClassName)}
               dir={dir}
