@@ -112,6 +112,7 @@ export default class TextArea extends ThemedComponent {
           className={classNames(theme.input, {
             [theme.resizable]: resizable
           }, className)}
+          id={this.getId()}
           ref={ref => {
             if (ref && ref.input) {
               this.input = ref.input
