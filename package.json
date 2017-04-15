@@ -1,6 +1,6 @@
 {
   "name": "zd-react-components",
-  "version": "4.15.0",
+  "version": "4.15.1",
   "description": "Shared React components",
   "private": "true",
   "main": "./lib",
