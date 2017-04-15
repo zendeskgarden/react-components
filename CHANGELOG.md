@@ -1,5 +1,8 @@
 ## Change Log
 
+### v4.15.1 (2017/04/15 19:17 +00:00)
+- [#169](https://github.com/zendeskgarden/react-components/pull/169) Fix TextArea focus on label click (@aravindet)
+
 ### v4.15.0 (2017/04/11 07:39 +00:00)
 - [#166](https://github.com/zendeskgarden/react-components/pull/166) Upgrade to React 15.5.0 (@albertfdp)
 
