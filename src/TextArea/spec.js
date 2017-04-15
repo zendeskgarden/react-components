@@ -61,7 +61,7 @@ describe('TextArea', () => {
       expect(
         <TextArea disabled />,
         'to deeply render as',
-        <View>
+        <View className='disabled'>
           <textarea disabled />
         </View>
       )

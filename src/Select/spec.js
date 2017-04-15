@@ -120,7 +120,7 @@ describe('Select', () => {
           <Select.Item value='baz'>baz</Select.Item>
         </Select>,
         'to render as',
-        <View className='txt'>
+        <View className='txt disabled'>
           <label>Select a value:</label>
           <Menu
             dir='ltr'
@@ -129,7 +129,7 @@ describe('Select', () => {
             trigger={
               <View
                 disabled
-                className='input disabled'
+                className='input'
                 tabIndex={null}
               >
                 bar

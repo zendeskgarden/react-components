@@ -66,7 +66,7 @@ describe('TextInput', () => {
       expect(
         <TextInput disabled />,
         'to deeply render as',
-        <View>
+        <View className='disabled'>
           <input disabled />
         </View>
       )

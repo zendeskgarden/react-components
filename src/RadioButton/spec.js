@@ -116,7 +116,7 @@ describe('RadioButton', () => {
       expect(
         <RadioButton checked={false} name='g1' disabled>Check me out!</RadioButton>,
         'to render as',
-        <View className='radio'>
+        <View className='radio disabled'>
           <input
             checked={false}
             className='input'
@@ -133,7 +133,7 @@ describe('RadioButton', () => {
         expect(
           <RadioButton name='g1' checked disabled>Check me out!</RadioButton>,
           'to render as',
-          <View className='radio'>
+          <View className='radio disabled'>
             <input
               checked
               className='input'

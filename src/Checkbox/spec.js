@@ -114,7 +114,7 @@ describe('Checkbox', () => {
       expect(
         <Checkbox checked={false} disabled>Check me out!</Checkbox>,
         'to render as',
-        <View className='checkbox'>
+        <View className='checkbox disabled'>
           <input
             checked={false}
             className='input'
@@ -131,7 +131,7 @@ describe('Checkbox', () => {
         expect(
           <Checkbox checked disabled>Check me out!</Checkbox>,
           'to render as',
-          <View className='checkbox'>
+          <View className='checkbox disabled'>
             <input
               checked
               className='input'
