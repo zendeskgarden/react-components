@@ -55,7 +55,7 @@ describe('TextInput', () => {
         'to deeply render as',
         <View>
           <label htmlFor='my-id'>This is a label</label>
-          <input value='' />
+          <input id='my-id' value='' />
         </View>
       )
     })

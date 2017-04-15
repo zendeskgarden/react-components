@@ -93,7 +93,7 @@ describe('TextArea', () => {
         'to deeply render as',
         <View>
           <label htmlFor='my-id'>This is a label</label>
-          <textarea value='' />
+          <textarea id='my-id' value='' />
         </View>
       )
     })
