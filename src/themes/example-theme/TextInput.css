@@ -6,7 +6,7 @@
   box-shadow: 0 0 0 3px var(--zd-focus-color) !important;
 }
 
-.input:hover {
+.txt:not(.disabled) .input:hover {
   border-color: var(--zd-accent-color) !important;
 }
 /* stylelint-enable */
