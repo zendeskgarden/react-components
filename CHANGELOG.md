@@ -1,5 +1,8 @@
 ## Change Log
 
+### v4.15.2 (2017/04/17 07:18 +00:00)
+- [#168](https://github.com/zendeskgarden/react-components/pull/168) Add disabled class for TextInput, TextArea, Select, Checkbox and RadioButton (@aravindet)
+
 ### v4.15.1 (2017/04/15 19:17 +00:00)
 - [#169](https://github.com/zendeskgarden/react-components/pull/169) Fix TextArea focus on label click (@aravindet)
 
