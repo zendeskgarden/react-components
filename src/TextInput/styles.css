@@ -29,3 +29,7 @@
 .error {
   composes: has-error from 'zd-css-forms';
 }
+
+.disabled {
+  composes: is-disabled from 'zd-css-forms';
+}

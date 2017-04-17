@@ -22,3 +22,7 @@
 .hint {
   composes: c-chk__hint from 'zd-css-forms';
 }
+
+.disabled {
+  composes: is-disabled from 'zd-css-forms';
+}

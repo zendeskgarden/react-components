@@ -102,6 +102,7 @@ export default class TextInput extends ThemedComponent {
   render () {
     const {
       className,
+      disabled,
       hint,
       title,
       tooltipPositioning,
@@ -114,13 +115,18 @@ export default class TextInput extends ThemedComponent {
 
     return (
       <View
-        className={classNames(theme.txt, theme[validation])}
+        className={classNames(
+          theme.txt,
+          theme[validation],
+          { [theme.disabled]: disabled }
+        )}
         title={title}
         tooltipPositioning={tooltipPositioning}
       >
         {this.renderLabel()}
         <Core
           {...other}
+          disabled={disabled}
           valueType={valueType}
           id={this.getId()}
           className={classNames(theme.input, className)}
