@@ -1,5 +1,8 @@
 ## Change Log
 
+### v4.15.3 (2017/04/18 09:24 +00:00)
+- [#171](https://github.com/zendeskgarden/react-components/pull/171) Fixed: example theme styling of checkboxes, toggles and radio buttons. (@sunesimonsen)
+
 ### v4.15.2 (2017/04/17 07:18 +00:00)
 - [#168](https://github.com/zendeskgarden/react-components/pull/168) Add disabled class for TextInput, TextArea, Select, Checkbox and RadioButton (@aravindet)
 
