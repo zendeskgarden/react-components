@@ -1,20 +1,20 @@
 @import './variables.css';
 
 /* stylelint-disable declaration-no-important */
-.label:active:after {
+.toggle:not(.disabled) .label:active:before {
   border-color: var(--zd-accent-color) !important;
 }
 
-.toggle.focused > .label::after {
+.toggle.focused > .label::before {
   border-color: var(--zd-accent-color) !important;
   box-shadow: 0 0 0 3px var(--zd-focus-color) !important;
 }
 
-input:checked ~ .label:after {
+.toggle:not(.disabled) .input:checked ~ .label:before {
   background-color: var(--zd-accent-color) !important;
 }
 
-input:checked ~ .label:active:after {
+.toggle:not(.disabled) .input:checked ~ .label:active:before {
   background-color: var(--zd-accent-color) !important;
 }
 /* stylelint-enable declaration-no-important */

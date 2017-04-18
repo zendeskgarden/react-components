@@ -1,24 +1,25 @@
 @import './variables.css';
 
 /* stylelint-disable declaration-no-important */
-.checkbox.focused > .label::after {
+.checkbox.focused > .label::before {
   border-color: var(--zd-accent-color) !important;
   box-shadow: 0 0 0 3px var(--zd-focus-color) !important;
 }
 
-.label:active:after {
+.checkbox:not(.disabled) .label:active:before {
   border-color: var(--zd-accent-color) !important;
 }
 
-input:checked ~ .label:after {
+.checkbox .input:checked ~ .label:before {
+  border-color: transparent !important;
   background-color: var(--zd-accent-color) !important;
 }
 
-input ~ .label:hover:after {
+.checkbox:not(.disabled) .input ~ .label:hover:before {
   border-color: var(--zd-accent-color) !important;
 }
 
-input:checked ~ .label:active:after {
+.checkbox:not(.disabled) .input:checked ~ .label:active:before {
   background-color: var(--zd-accent-color) !important;
 }
 /* stylelint-enable declaration-no-important */
