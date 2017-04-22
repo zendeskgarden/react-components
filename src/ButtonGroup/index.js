@@ -1,16 +1,17 @@
-import React, { Children } from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React, { Children } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-import ItemConfig from './ItemConfig'
-import Item from './Item'
-import ReactSingleSelectionModel from '../utils/selection/ReactSingleSelectionModel'
-import ThemedComponent from '../utils/theming/ThemedComponent'
+import ItemConfig from './ItemConfig';
+import Item from './Item';
+import ReactSingleSelectionModel
+  from '../utils/selection/ReactSingleSelectionModel';
+import ThemedComponent from '../utils/theming/ThemedComponent';
 
-import styles from '../Button/styles.css'
+import styles from '../Button/styles.css';
 
 export default class ButtonGroup extends ThemedComponent {
-  static Item = ItemConfig
+  static Item = ItemConfig;
 
   static propTypes = {
     active: PropTypes.string,
@@ -20,35 +21,35 @@ export default class ButtonGroup extends ThemedComponent {
     size: PropTypes.oneOf(['small', 'medium', 'large']),
     tabIndex: PropTypes.number,
     testId: PropTypes.string
-  }
+  };
 
   static defaultProps = {
     dir: 'ltr',
     tabIndex: 0,
     vertical: false
-  }
+  };
 
-  constructor (props, context) {
+  constructor(props, context) {
     super(props, context, {
       namespace: 'Button',
       styles
-    })
+    });
     this.selectionModel = new ReactSingleSelectionModel({
       rtl: props.dir === 'rtl',
       vertical: false
-    })
-    this.selectionModel.onSelectionChanged = this.onSelectionChanged
-    this.selectionModel.onValueChosen = props.onActivate
-    this.keyboard = true
-    this.state = {}
+    });
+    this.selectionModel.onSelectionChanged = this.onSelectionChanged;
+    this.selectionModel.onValueChosen = props.onActivate;
+    this.keyboard = true;
+    this.state = {};
   }
 
-  setSelectableItems ({ active, children, dir, size, vertical }) {
-    const buttons = []
+  setSelectableItems({ active, children, dir, size, vertical }) {
+    const buttons = [];
 
-    Children.forEach(children, (child) => {
+    Children.forEach(children, child => {
       if (child && child.type === ItemConfig) {
-        const { children, disabled, id } = child.props
+        const { children, disabled, id } = child.props;
         buttons.push(
           <Item
             active={id === active}
@@ -58,49 +59,45 @@ export default class ButtonGroup extends ThemedComponent {
             value={id}
             size={size}
           >
-            { children }
+            {children}
           </Item>
-        )
+        );
       } else {
-        buttons.push(child)
+        buttons.push(child);
       }
-    })
+    });
 
-    this.selectionModel.items = buttons
-    this.setState({ buttons: this.selectionModel.items })
+    this.selectionModel.items = buttons;
+    this.setState({ buttons: this.selectionModel.items });
   }
 
   onSelectionChanged = () => {
-    const buttons = this.selectionModel.items
-    this.setState({ buttons })
+    const buttons = this.selectionModel.items;
+    this.setState({ buttons });
+  };
+
+  componentWillMount() {
+    this.setSelectableItems(this.props);
   }
 
-  componentWillMount () {
-    this.setSelectableItems(this.props)
-  }
+  componentWillReceiveProps = nextProps => {
+    this.selectionModel.rtl = nextProps.dir === 'rtl';
+    this.setSelectableItems(nextProps);
+  };
 
-  componentWillReceiveProps = (nextProps) => {
-    this.selectionModel.rtl = nextProps.dir === 'rtl'
-    this.setSelectableItems(nextProps)
-  }
+  render() {
+    const { dir, tabIndex, testId } = this.props;
 
-  render () {
-    const {
-      dir,
-      tabIndex,
-      testId
-    } = this.props
+    const { buttons } = this.state;
+    const { theme } = this;
 
-    const { buttons } = this.state
-    const { theme } = this
-
-    const props = {}
+    const props = {};
     if (testId) {
-      props['data-test-id'] = testId
+      props['data-test-id'] = testId;
     }
 
     if (dir === 'rtl') {
-      props.dir = dir
+      props.dir = dir;
     }
 
     return (
@@ -111,23 +108,23 @@ export default class ButtonGroup extends ThemedComponent {
         tabIndex={tabIndex}
         onFocus={() => {
           if (!this.selectionModel.hasSelection() && this.keyboard) {
-            this.selectionModel.reactivate()
+            this.selectionModel.reactivate();
           }
-          this.keyboard = true
+          this.keyboard = true;
         }}
         onMouseDown={() => {
-          this.keyboard = false
+          this.keyboard = false;
           setTimeout(() => {
-            this.keyboard = true
-          }, 0)
+            this.keyboard = true;
+          }, 0);
         }}
         onBlur={this.selectionModel.clear}
         onKeyDown={this.selectionModel.handleKeyDown}
-        role='tablist'
+        role="tablist"
         {...props}
       >
-        { buttons }
+        {buttons}
       </nav>
-    )
+    );
   }
 }

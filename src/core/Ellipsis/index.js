@@ -1,18 +1,18 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import View from '../View'
-import styles from './styles.css'
+import View from '../View';
+import styles from './styles.css';
 
 export default class Ellipsis extends Component {
   static propTypes = {
     children: PropTypes.node,
     title: PropTypes.string
-  }
+  };
 
-  constructor (props) {
-    super(props)
-    this.state = {}
+  constructor(props) {
+    super(props);
+    this.state = {};
   }
 
   analyzeOverflow = () => {
@@ -20,45 +20,45 @@ export default class Ellipsis extends Component {
     // In some cases, they may not be ready in the current stack.
     setTimeout(() => {
       if (!this.refs.main) {
-        return null
+        return null;
       }
 
-      const { offsetWidth, scrollWidth } = this.refs.main.element
-      const isOverflowing = offsetWidth < scrollWidth
+      const { offsetWidth, scrollWidth } = this.refs.main.element;
+      const isOverflowing = offsetWidth < scrollWidth;
 
       if (isOverflowing !== this.state.isOverflowing) {
-        this.setState({ isOverflowing })
+        this.setState({ isOverflowing });
       }
-    }, 0)
-  }
+    }, 0);
+  };
 
   onWindowResize = e => {
-    this.analyzeOverflow()
+    this.analyzeOverflow();
+  };
+
+  componentDidMount() {
+    this.analyzeOverflow();
+
+    window.addEventListener('resize', this.onWindowResize);
   }
 
-  componentDidMount () {
-    this.analyzeOverflow()
-
-    window.addEventListener('resize', this.onWindowResize)
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onWindowResize);
   }
 
-  componentWillUnmount () {
-    window.removeEventListener('resize', this.onWindowResize)
+  componentDidUpdate() {
+    this.analyzeOverflow();
   }
 
-  componentDidUpdate () {
-    this.analyzeOverflow()
-  }
+  render() {
+    const { children, title } = this.props;
 
-  render () {
-    const { children, title } = this.props
-
-    const props = { className: styles.ellipsis }
+    const props = { className: styles.ellipsis };
 
     if ('title' in this.props) {
-      props.title = title
+      props.title = title;
     } else if (typeof children === 'string' && this.state.isOverflowing) {
-      props.title = children
+      props.title = children;
     }
 
     /*
@@ -67,10 +67,10 @@ export default class Ellipsis extends Component {
       http://stackoverflow.com/a/42023502
     */
     return (
-      <View ref='main' {...props}>
+      <View ref="main" {...props}>
         <div />
-        { children }
+        {children}
       </View>
-    )
+    );
   }
 }

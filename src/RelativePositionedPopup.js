@@ -1,1 +1,1 @@
-export { default } from './core/RelativePositionedPopup'
+export { default } from './core/RelativePositionedPopup';

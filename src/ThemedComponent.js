@@ -1,1 +1,1 @@
-export { default } from './utils/theming/ThemedComponent'
+export { default } from './utils/theming/ThemedComponent';

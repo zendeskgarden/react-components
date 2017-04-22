@@ -1,7 +1,7 @@
-import positionRelative from './positionRelative'
-import isInsideViewport from './isInsideViewport'
-import distance from './distance'
-import keepInViewport from './keepInViewport'
+import positionRelative from './positionRelative';
+import isInsideViewport from './isInsideViewport';
+import distance from './distance';
+import keepInViewport from './keepInViewport';
 
 const getBestRelativePlacement = ({
   anchor,
@@ -10,7 +10,7 @@ const getBestRelativePlacement = ({
   target,
   viewport
 }) => {
-  const possiblePlacements = positions.map((position) => ({
+  const possiblePlacements = positions.map(position => ({
     rect: positionRelative({
       anchor,
       centerPoint,
@@ -18,31 +18,36 @@ const getBestRelativePlacement = ({
       target
     }),
     position
-  }))
+  }));
 
-  const placementWithinViewport = possiblePlacements.find((placement) => (
+  const placementWithinViewport = possiblePlacements.find(placement =>
     isInsideViewport({
       target: placement.rect,
       viewport
     })
-  ))
+  );
 
   if (placementWithinViewport) {
-    return placementWithinViewport
+    return placementWithinViewport;
   }
 
-  const bestPlacement = possiblePlacements.map((placement) => ({
-    distance: distance(placement.rect, keepInViewport({
-      target: placement.rect,
-      viewport
-    })),
-    ...placement
-  })).sort((a, b) => a.distance - b.distance)[0]
+  const bestPlacement = possiblePlacements
+    .map(placement => ({
+      distance: distance(
+        placement.rect,
+        keepInViewport({
+          target: placement.rect,
+          viewport
+        })
+      ),
+      ...placement
+    }))
+    .sort((a, b) => a.distance - b.distance)[0];
 
   const anchorIsInsideViewport = isInsideViewport({
     target: anchor,
     viewport
-  })
+  });
 
   if (anchorIsInsideViewport) {
     return {
@@ -51,13 +56,13 @@ const getBestRelativePlacement = ({
         viewport
       }),
       position: bestPlacement.position
-    }
+    };
   } else {
     return {
       rect: bestPlacement.rect,
       position: bestPlacement.position
-    }
+    };
   }
-}
+};
 
-export default getBestRelativePlacement
+export default getBestRelativePlacement;

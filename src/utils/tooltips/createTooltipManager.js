@@ -1,10 +1,10 @@
-import React from 'react'
-import { render } from 'react-dom'
+import React from 'react';
+import { render } from 'react-dom';
 
-import TooltipContainer from './TooltipContainer'
+import TooltipContainer from './TooltipContainer';
 
 const createTooltipManager = (renderNode, options = {}) => {
-  let currentTooltipId = 0
+  let currentTooltipId = 0;
 
   const show = (anchor, content, positions) => {
     render(
@@ -14,26 +14,27 @@ const createTooltipManager = (renderNode, options = {}) => {
         dir={options.dir}
         positions={positions}
         zIndex={options.zIndex}
-      />
-    , renderNode)
+      />,
+      renderNode
+    );
 
-    return ++currentTooltipId
-  }
+    return ++currentTooltipId;
+  };
 
   const hide = tooltipId => {
     if (typeof tooltipId !== 'number' || tooltipId === currentTooltipId) {
-      render(<TooltipContainer />, renderNode)
+      render(<TooltipContainer />, renderNode);
     }
-  }
+  };
 
   // Initial empty render that creates the container element
-  render(<TooltipContainer />, renderNode)
+  render(<TooltipContainer />, renderNode);
 
   // Event handlers
-  document.body.addEventListener('scroll', hide)
-  window.addEventListener('resize', hide)
+  document.body.addEventListener('scroll', hide);
+  window.addEventListener('resize', hide);
 
-  return { show, hide }
-}
+  return { show, hide };
+};
 
-export default createTooltipManager
+export default createTooltipManager;

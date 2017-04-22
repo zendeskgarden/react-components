@@ -1,10 +1,10 @@
-import React from 'react'
-import expect from 'test/expect'
-import sinon from 'sinon'
+import React from 'react';
+import expect from 'test/expect';
+import sinon from 'sinon';
 
-import RadioButton from '../RadioButton'
-import RadioButtonGroup from '.'
-import View from '../core/View'
+import RadioButton from '../RadioButton';
+import RadioButtonGroup from '.';
+import View from '../core/View';
 
 describe('RadioButtonGroup', () => {
   it('renders a RadioButtonGroup with radio buttons', () => {
@@ -18,8 +18,8 @@ describe('RadioButtonGroup', () => {
         <RadioButton value={1}>1</RadioButton>
         <RadioButton value={2}>2</RadioButton>
       </View>
-    )
-  })
+    );
+  });
 
   it('renders radio buttons as disabled when set by individual items', () => {
     expect(
@@ -34,11 +34,11 @@ describe('RadioButtonGroup', () => {
         <RadioButton disabled value={2}>2</RadioButton>
         <RadioButton value={3}>3</RadioButton>
       </View>
-    )
-  })
+    );
+  });
 
   it('calls the onChange handle with the new value of the radio button group', () => {
-    const onSelect = sinon.spy()
+    const onSelect = sinon.spy();
 
     return expect(
       <RadioButtonGroup onSelect={onSelect}>
@@ -47,13 +47,15 @@ describe('RadioButtonGroup', () => {
         <RadioButton value={3}>3</RadioButton>
       </RadioButtonGroup>,
       'when deeply rendered',
-      'with event change', 'on', <input />,
+      'with event change',
+      'on',
+      <input />
     ).then(() => {
       expect(onSelect, 'to have calls satisfying', () => {
-        onSelect(1)
-      })
-    })
-  })
+        onSelect(1);
+      });
+    });
+  });
 
   describe('with value matching one of the radio buttons', () => {
     it('renders RadioButton as checked', () => {
@@ -69,9 +71,9 @@ describe('RadioButtonGroup', () => {
           <RadioButton checked value={2}>2</RadioButton>
           <RadioButton value={3}>3</RadioButton>
         </View>
-      )
-    })
-  })
+      );
+    });
+  });
 
   describe('when muted', () => {
     it('renders muted radio buttons', () => {
@@ -87,27 +89,27 @@ describe('RadioButtonGroup', () => {
           <RadioButton muted value={2}>2</RadioButton>
           <RadioButton muted value={3}>3</RadioButton>
         </View>
-      )
-    })
-  })
+      );
+    });
+  });
 
   describe('with dir set to rtl', () => {
     it('renders rtl radio buttons', () => {
       expect(
-        <RadioButtonGroup dir='rtl'>
+        <RadioButtonGroup dir="rtl">
           <RadioButton value={1}>1</RadioButton>
           <RadioButton value={2}>2</RadioButton>
           <RadioButton value={3}>3</RadioButton>
         </RadioButtonGroup>,
         'to render as',
         <View>
-          <RadioButton dir='rtl' value={1}>1</RadioButton>
-          <RadioButton dir='rtl' value={2}>2</RadioButton>
-          <RadioButton dir='rtl' value={3}>3</RadioButton>
+          <RadioButton dir="rtl" value={1}>1</RadioButton>
+          <RadioButton dir="rtl" value={2}>2</RadioButton>
+          <RadioButton dir="rtl" value={3}>3</RadioButton>
         </View>
-      )
-    })
-  })
+      );
+    });
+  });
 
   describe('with a disabled radio button group', () => {
     it('renders radio buttons as disabled', () => {
@@ -123,8 +125,8 @@ describe('RadioButtonGroup', () => {
           <RadioButton disabled value={2}>2</RadioButton>
           <RadioButton disabled value={3}>3</RadioButton>
         </View>
-      )
-    })
+      );
+    });
 
     it('renders radio buttons as not disabled when overriden by an individual radio button', () => {
       expect(
@@ -139,7 +141,7 @@ describe('RadioButtonGroup', () => {
           <RadioButton value={2}>2</RadioButton>
           <RadioButton disabled value={3}>3</RadioButton>
         </View>
-      )
-    })
-  })
-})
+      );
+    });
+  });
+});

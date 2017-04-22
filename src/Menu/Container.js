@@ -1,38 +1,32 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-import ThemedComponent from '../utils/theming/ThemedComponent'
+import ThemedComponent from '../utils/theming/ThemedComponent';
 
-import styles from './styles.css'
+import styles from './styles.css';
 
-import View from '../core/View'
+import View from '../core/View';
 
 const arrowPositions = {
-  'bottom': 'top',
-  'bottom_left': 'top_right',
-  'bottom_right': 'top_left',
-  'left': 'right',
-  'right': 'left',
-  'top': 'bottom',
-  'top_left': 'bottom_right',
-  'top_right': 'bottom_left'
-}
+  bottom: 'top',
+  bottom_left: 'top_right',
+  bottom_right: 'top_left',
+  left: 'right',
+  right: 'left',
+  top: 'bottom',
+  top_left: 'bottom_right',
+  top_right: 'bottom_left'
+};
 
 export default class Container extends ThemedComponent {
   static propTypes = {
     animate: PropTypes.bool,
     arrow: PropTypes.bool,
-    dir: PropTypes.oneOf([
-      'ltr',
-      'rtl'
-    ]),
+    dir: PropTypes.oneOf(['ltr', 'rtl']),
     fixedWidth: PropTypes.bool,
     children: PropTypes.node.isRequired,
-    maxHeight: PropTypes.oneOfType([
-      PropTypes.number,
-      PropTypes.string
-    ]),
+    maxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     position: PropTypes.oneOf([
       'bottom',
       'bottom_left',
@@ -45,11 +39,8 @@ export default class Container extends ThemedComponent {
       'top_right',
       'top_stretch'
     ]),
-    size: PropTypes.oneOf([
-      'small',
-      'large'
-    ])
-  }
+    size: PropTypes.oneOf(['small', 'large'])
+  };
 
   static defaultProps = {
     animate: false,
@@ -57,16 +48,16 @@ export default class Container extends ThemedComponent {
     dir: 'ltr',
     position: 'bottom_right',
     size: 'small'
-  }
+  };
 
-  constructor (props, context) {
+  constructor(props, context) {
     super(props, context, {
       namespace: 'Menu',
       styles
-    })
+    });
   }
 
-  render () {
+  render() {
     const {
       animate,
       arrow,
@@ -76,18 +67,18 @@ export default class Container extends ThemedComponent {
       maxHeight,
       position,
       size
-    } = this.props
+    } = this.props;
 
-    const style = {}
-    const hasMaxHeight = typeof maxHeight !== 'undefined'
+    const style = {};
+    const hasMaxHeight = typeof maxHeight !== 'undefined';
 
     if (hasMaxHeight) {
       style.maxHeight = typeof maxHeight === 'number'
         ? `${maxHeight}px`
-        : maxHeight
+        : maxHeight;
     }
 
-    const { theme } = this
+    const { theme } = this;
 
     return (
       <View
@@ -95,7 +86,8 @@ export default class Container extends ThemedComponent {
           theme.menu,
           theme[`size_${size}`],
           theme[`position_${position}`],
-          theme[dir], {
+          theme[dir],
+          {
             [theme.animate]: animate,
             [theme.fixed_width]: fixedWidth,
             [theme.arrow]: arrow,
@@ -103,11 +95,11 @@ export default class Container extends ThemedComponent {
             [theme.scrollable]: hasMaxHeight
           }
         )}
-        role='menu'
+        role="menu"
         style={style}
       >
-        { children }
+        {children}
       </View>
-    )
+    );
   }
 }

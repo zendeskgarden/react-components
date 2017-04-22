@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-import View from '../../core/View'
-import styles from './styles.css'
+import View from '../../core/View';
+import styles from './styles.css';
 
-import Row from './Row'
-import Cell from './Cell'
+import Row from './Row';
+import Cell from './Cell';
 
 class Grid extends Component {
   static propTypes = {
@@ -14,34 +14,28 @@ class Grid extends Component {
     spacing: PropTypes.oneOf(['none', 'small', 'medium', 'large']),
     stretched: PropTypes.bool,
     columns: PropTypes.number.isRequired
-  }
+  };
 
   static defaultProps = {
     columns: Infinity,
     spacing: 'small',
     stretched: false
-  }
+  };
 
-  render () {
-    const {
-      children,
-      columns,
-      spacing,
-      stretched,
-      ...other
-    } = this.props
+  render() {
+    const { children, columns, spacing, stretched, ...other } = this.props;
 
-    const rows = []
-    let currentRow
+    const rows = [];
+    let currentRow;
 
     React.Children.forEach(children, (child, i) => {
       if (i % columns === 0) {
-        currentRow = []
-        rows.push(currentRow)
+        currentRow = [];
+        rows.push(currentRow);
       }
 
-      currentRow.push(child)
-    })
+      currentRow.push(child);
+    });
 
     return (
       <View
@@ -50,20 +44,14 @@ class Grid extends Component {
           [styles.stretched]: stretched
         })}
       >
-        {
-          rows.map((row, i) => (
-            <Row key={i}>
-              {
-                row.map((cell, i) => (
-                  <Cell key={i}>{ cell }</Cell>
-                ))
-              }
-            </Row>
-          ))
-        }
+        {rows.map((row, i) => (
+          <Row key={i}>
+            {row.map((cell, i) => <Cell key={i}>{cell}</Cell>)}
+          </Row>
+        ))}
       </View>
-    )
+    );
   }
 }
 
-export default Grid
+export default Grid;

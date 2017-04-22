@@ -1,25 +1,23 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-import ReactSingleSelectionModel from '../utils/selection/ReactSingleSelectionModel'
-import View from '../core/View'
-import RelativePositionedPopup from '../core/RelativePositionedPopup'
+import ReactSingleSelectionModel
+  from '../utils/selection/ReactSingleSelectionModel';
+import View from '../core/View';
+import RelativePositionedPopup from '../core/RelativePositionedPopup';
 
-import Container from './Container'
-import Item from './Item'
-import LinkItem from './LinkItem'
-import Separator from './Separator'
+import Container from './Container';
+import Item from './Item';
+import LinkItem from './LinkItem';
+import Separator from './Separator';
 
-import styles from './styles.css'
+import styles from './styles.css';
 
 export default class Menu extends Component {
   static propTypes = {
     arrow: PropTypes.bool,
-    dir: PropTypes.oneOf([
-      'ltr',
-      'rtl'
-    ]),
+    dir: PropTypes.oneOf(['ltr', 'rtl']),
     centerArrow: PropTypes.bool.isRequired,
     children: PropTypes.node.isRequired,
     fixedWidth: PropTypes.bool,
@@ -30,22 +28,13 @@ export default class Menu extends Component {
     marginLeft: PropTypes.number,
     marginRight: PropTypes.number,
     marginTop: PropTypes.number,
-    maxHeight: PropTypes.oneOfType([
-      PropTypes.number,
-      PropTypes.string
-    ]),
+    maxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     positioning: RelativePositionedPopup.propTypes.positioning,
-    size: PropTypes.oneOf([
-      'small',
-      'large'
-    ]),
+    size: PropTypes.oneOf(['small', 'large']),
     stretched: PropTypes.bool,
     testId: PropTypes.string,
-    trigger: PropTypes.oneOfType([
-      PropTypes.element,
-      PropTypes.func
-    ]).isRequired
-  }
+    trigger: PropTypes.oneOfType([PropTypes.element, PropTypes.func]).isRequired
+  };
 
   static defaultProps = {
     arrow: false,
@@ -58,88 +47,88 @@ export default class Menu extends Component {
     positioning: ['bottom_right', 'top_right'],
     stretched: false,
     size: 'small'
-  }
+  };
 
-  static Container = Container
-  static Item = Item
-  static LinkItem = LinkItem
-  static Separator = Separator
+  static Container = Container;
+  static Item = Item;
+  static LinkItem = LinkItem;
+  static Separator = Separator;
 
-  constructor (props) {
-    super(props)
-    this.selectionModel = new ReactSingleSelectionModel()
-    this.selectionModel.onSelectionChanged = this.onSelectionChanged
-    this.selectionModel.onValueChosen = this.onValueChosen
+  constructor(props) {
+    super(props);
+    this.selectionModel = new ReactSingleSelectionModel();
+    this.selectionModel.onSelectionChanged = this.onSelectionChanged;
+    this.selectionModel.onValueChosen = this.onValueChosen;
     this.state = {
       hidden: true,
       items: []
-    }
+    };
   }
 
-  setSelectableItems (children) {
-    this.selectionModel.items = children
-    this.setState({ items: this.selectionModel.items })
+  setSelectableItems(children) {
+    this.selectionModel.items = children;
+    this.setState({ items: this.selectionModel.items });
   }
 
-  componentWillMount () {
-    const { children } = this.props
-    this.setSelectableItems(children)
+  componentWillMount() {
+    const { children } = this.props;
+    this.setSelectableItems(children);
   }
 
-  componentWillReceiveProps = (nextProps) => {
-    const { children } = nextProps
-    this.setSelectableItems(children)
-  }
+  componentWillReceiveProps = nextProps => {
+    const { children } = nextProps;
+    this.setSelectableItems(children);
+  };
 
   onSelectionChanged = () => {
-    const items = this.selectionModel.items
-    this.setState({ items })
-    this.showMenu()
-  }
+    const items = this.selectionModel.items;
+    this.setState({ items });
+    this.showMenu();
+  };
 
-  onValueChosen = (value) => {
-    const { onSelect } = this.props
-    this.closeMenu()
-    onSelect && onSelect(value)
-  }
+  onValueChosen = value => {
+    const { onSelect } = this.props;
+    this.closeMenu();
+    onSelect && onSelect(value);
+  };
 
   showMenu = () => {
-    const { onOpen } = this.props
+    const { onOpen } = this.props;
 
     if (this.state.hidden) {
       this.setState({ hidden: false }, () => {
-        onOpen && onOpen()
-      })
+        onOpen && onOpen();
+      });
     }
-  }
+  };
 
   closeMenu = () => {
-    const { onClose } = this.props
+    const { onClose } = this.props;
 
-    this.selectionModel.clear()
+    this.selectionModel.clear();
     this.setState({ hidden: true }, () => {
-      onClose && onClose()
-    })
-  }
+      onClose && onClose();
+    });
+  };
 
-  toggleHidden = (e) => {
+  toggleHidden = e => {
     if (this.state.hidden) {
-      this.showMenu()
+      this.showMenu();
     } else {
-      this.closeMenu()
+      this.closeMenu();
     }
-    e && e.stopPropagation()
-  }
+    e && e.stopPropagation();
+  };
 
-  keyboardToggleHidden = (e) => {
+  keyboardToggleHidden = e => {
     if (!this.selectionModel.hasSelection()) {
-      this.toggleHidden()
-      e.preventDefault()
-      e.stopPropagation()
+      this.toggleHidden();
+      e.preventDefault();
+      e.stopPropagation();
     }
-  }
+  };
 
-  render () {
+  render() {
     const {
       arrow,
       dir,
@@ -153,12 +142,9 @@ export default class Menu extends Component {
       testId,
       stretched,
       ...other
-    } = this.props
+    } = this.props;
 
-    const {
-      hidden,
-      items
-    } = this.state
+    const { hidden, items } = this.state;
 
     const anchor = (
       <View
@@ -172,17 +158,13 @@ export default class Menu extends Component {
         onEscape={this.closeMenu}
         onSpace={this.keyboardToggleHidden}
       >
-        {
-          (typeof trigger === 'function')
-          ? trigger({ open: !hidden })
-          : trigger
-        }
+        {typeof trigger === 'function' ? trigger({ open: !hidden }) : trigger}
       </View>
-    )
+    );
 
-    const arrowMargin = arrow ? 3 : 0
+    const arrowMargin = arrow ? 3 : 0;
 
-    const centerPoint = centerArrow ? 19 : null
+    const centerPoint = centerArrow ? 19 : null;
 
     return (
       <View
@@ -203,21 +185,19 @@ export default class Menu extends Component {
           marginBottom={marginBottom + arrowMargin}
           stretched={stretched}
         >
-          {
-            (position) => (
-              <Container
-                {...other}
-                animate={!hidden}
-                dir={dir}
-                arrow={arrow}
-                position={position}
-              >
-                { items }
-              </Container>
-            )
-          }
+          {position => (
+            <Container
+              {...other}
+              animate={!hidden}
+              dir={dir}
+              arrow={arrow}
+              position={position}
+            >
+              {items}
+            </Container>
+          )}
         </RelativePositionedPopup>
       </View>
-    )
+    );
   }
 }

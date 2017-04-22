@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-import View from '../core/View'
-import Selectable from '../core/Selectable'
+import View from '../core/View';
+import Selectable from '../core/Selectable';
 
-import styles from './styles.css'
+import styles from './styles.css';
 
 class Item extends Component {
   static propTypes = {
@@ -14,22 +14,20 @@ class Item extends Component {
     onMouseDown: PropTypes.func,
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
-    onSelect: PropTypes.func,
     role: PropTypes.string,
     selected: PropTypes.bool,
     testId: PropTypes.string,
     title: PropTypes.string,
     /** <a href="#View">See View</a> */
-    tooltipPositioning: () => {},
-    value: PropTypes.any
-  }
+    tooltipPositioning: () => {}
+  };
 
   static defaultProps = {
     disabled: false,
     role: 'menuitem'
-  }
+  };
 
-  render () {
+  render() {
     const {
       children,
       disabled,
@@ -41,7 +39,7 @@ class Item extends Component {
       testId,
       title,
       tooltipPositioning
-    } = this.props
+    } = this.props;
 
     return (
       <View
@@ -60,17 +58,17 @@ class Item extends Component {
         title={title}
         tooltipPositioning={tooltipPositioning}
       >
-        { children }
+        {children}
       </View>
-    )
+    );
   }
 }
 
 export default Selectable(Item, {
   action: (props, event) => {
-    const { onSelect, value } = props
+    const { onSelect, value } = props;
 
-    onSelect && onSelect(value)
+    onSelect && onSelect(value);
   },
   preventDefault: true
-})
+});

@@ -1,11 +1,11 @@
-import sinon from 'sinon'
+import sinon from 'sinon';
 
-const createFakeEvent = (data) => {
+const createFakeEvent = data => {
   return {
     preventDefault: sinon.spy(),
     stopPropagation: sinon.spy(),
     ...data
-  }
-}
+  };
+};
 
-export default createFakeEvent
+export default createFakeEvent;

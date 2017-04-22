@@ -1,11 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-import Selectable from '../core/Selectable'
-import ThemedComponent from '../utils/theming/ThemedComponent'
+import Selectable from '../core/Selectable';
+import ThemedComponent from '../utils/theming/ThemedComponent';
 
-import styles from '../Button/styles.css'
+import styles from '../Button/styles.css';
 
 class Item extends ThemedComponent {
   static propTypes = {
@@ -18,20 +18,20 @@ class Item extends ThemedComponent {
     selected: PropTypes.bool,
     selectedByMouse: PropTypes.bool,
     size: PropTypes.oneOf(['small', 'medium', 'large'])
-  }
+  };
 
   static defaultProps = {
     size: 'small'
-  }
+  };
 
-  constructor (props, context) {
+  constructor(props, context) {
     super(props, context, {
       namespace: 'Button',
       styles
-    })
+    });
   }
 
-  render () {
+  render() {
     const {
       active,
       children,
@@ -42,32 +42,33 @@ class Item extends ThemedComponent {
       selected,
       selectedByMouse,
       size
-    } = this.props
+    } = this.props;
 
-    const { theme } = this
+    const { theme } = this;
 
     return (
       <button
         aria-activedescendant={selected}
         aria-disabled={disabled}
         aria-selected={active}
-        className={
-          classNames(theme.type_default, theme[`size_${size}`], {
-            [theme.disabled]: disabled,
-            [theme.active]: active,
-            [theme.focused]: !selectedByMouse && selected
-          })
-        }
+        className={classNames(theme.type_default, theme[`size_${size}`], {
+          [theme.disabled]: disabled,
+          [theme.active]: active,
+          [theme.focused]: !selectedByMouse && selected
+        })}
         onClick={onClick}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
-        role='tab'
-        tabIndex='-1'
+        role="tab"
+        tabIndex="-1"
       >
-        { children }
+        {children}
       </button>
-    )
+    );
   }
 }
 
-export default Selectable(Item, { selectOnHover: false, selectEvent: 'onClick' })
+export default Selectable(Item, {
+  selectOnHover: false,
+  selectEvent: 'onClick'
+});

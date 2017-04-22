@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-import View from '../core/View'
+import View from '../core/View';
 
-import styles from './styles.css'
+import styles from './styles.css';
 
 export default class Label extends Component {
   static propTypes = {
@@ -22,33 +22,39 @@ export default class Label extends Component {
     /** <a href="#View">See View</a> */
     tooltipPositioning: () => {},
     type: PropTypes.oneOf([
-      'default', 'dark', 'light', 'success', 'warning', 'error'
+      'default',
+      'dark',
+      'light',
+      'success',
+      'warning',
+      'error'
     ])
-  }
+  };
 
   static defaultProps = {
     dir: 'ltr',
     size: 'medium',
     stretched: false,
     type: 'default'
-  }
+  };
 
-  renderAvatar = (avatar) => React.cloneElement(avatar, {
-    className: classNames(styles.avatar, avatar.props.className)
-  })
+  renderAvatar = avatar =>
+    React.cloneElement(avatar, {
+      className: classNames(styles.avatar, avatar.props.className)
+    });
 
-  onKeyboardRemove = (e) => {
-    const { onRemove } = this.props
+  onKeyboardRemove = e => {
+    const { onRemove } = this.props;
 
-    e.preventDefault()
-    onRemove(e)
-  }
+    e.preventDefault();
+    onRemove(e);
+  };
 
-  renderRemove = (onRemove) => (
+  renderRemove = onRemove => (
     <button tabIndex={-1} className={styles.remove} onClick={onRemove} />
-  )
+  );
 
-  render () {
+  render() {
     const {
       avatar,
       children,
@@ -63,25 +69,30 @@ export default class Label extends Component {
       type,
       title,
       tooltipPositioning
-    } = this.props
+    } = this.props;
 
     return (
       <View
-        className={classNames(styles[type], styles[size], {
-          [styles.pill]: pill,
-          [styles.round]: round,
-          [styles.rtl]: dir === 'rtl',
-          [styles.stretched]: stretched
-        }, className)}
+        className={classNames(
+          styles[type],
+          styles[size],
+          {
+            [styles.pill]: pill,
+            [styles.round]: round,
+            [styles.rtl]: dir === 'rtl',
+            [styles.stretched]: stretched
+          },
+          className
+        )}
         onDelete={onRemove && this.onKeyboardRemove}
         tabIndex={tabIndex}
         title={title}
         tooltipPositioning={tooltipPositioning}
       >
-        { avatar && this.renderAvatar(avatar) }
-        { children }
-        { onRemove && this.renderRemove(onRemove) }
+        {avatar && this.renderAvatar(avatar)}
+        {children}
+        {onRemove && this.renderRemove(onRemove)}
       </View>
-    )
+    );
   }
 }

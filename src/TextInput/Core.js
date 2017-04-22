@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class Core extends Component {
   static propTypes = {
@@ -30,7 +30,9 @@ export default class Core extends Component {
     /** Use `valueType` instead */
     type: (props, propName, componentName) => {
       if (propName in props) {
-        return new Error('The TextInput does not accept a type prop use valueType instead')
+        return new Error(
+          'The TextInput does not accept a type prop use valueType instead'
+        );
       }
     },
     valueType: PropTypes.oneOf([
@@ -42,15 +44,15 @@ export default class Core extends Component {
       'text'
     ]),
     value: PropTypes.string
-  }
+  };
 
   static defaultProps = {
     autoComplete: 'off',
     disabled: false,
     valueType: 'text'
-  }
+  };
 
-  render () {
+  render() {
     const {
       autoComplete,
       autoFocus,
@@ -79,7 +81,7 @@ export default class Core extends Component {
       type,
       value,
       valueType
-    } = this.props
+    } = this.props;
 
     const handlers = {
       '8': onDelete,
@@ -89,7 +91,7 @@ export default class Core extends Component {
       '38': onArrowUp,
       '39': onArrowRight,
       '40': onArrowDown
-    }
+    };
 
     const props = {
       autoFocus,
@@ -103,27 +105,29 @@ export default class Core extends Component {
       name,
       maxLength,
       onBlur,
-      onChange (event) { onChangeText && onChangeText(event.target.value) },
+      onChange(event) {
+        onChangeText && onChangeText(event.target.value);
+      },
       onFocus,
-      onKeyDown (event) {
-        const handler = handlers[event.keyCode]
-        handler && handler(event)
-        onKeyDown && onKeyDown(event)
+      onKeyDown(event) {
+        const handler = handlers[event.keyCode];
+        handler && handler(event);
+        onKeyDown && onKeyDown(event);
       },
       placeholder,
       tabIndex,
       type: valueType || type,
       value
-    }
+    };
 
     return (
       <input
         {...props}
-        ref={(input) => {
-          this.input = input
-          input && isFocused && input.focus()
+        ref={input => {
+          this.input = input;
+          input && isFocused && input.focus();
         }}
       />
-    )
+    );
   }
 }

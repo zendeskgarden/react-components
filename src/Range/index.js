@@ -1,11 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
-import uuid from 'uuid'
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import uuid from 'uuid';
 
-import View from '../core/View'
-import ThemedComponent from '../utils/theming/ThemedComponent'
-import styles from './styles.css'
+import View from '../core/View';
+import ThemedComponent from '../utils/theming/ThemedComponent';
+import styles from './styles.css';
 
 export default class Range extends ThemedComponent {
   static propTypes = {
@@ -22,74 +22,69 @@ export default class Range extends ThemedComponent {
     testId: PropTypes.string,
     title: PropTypes.string,
     value: PropTypes.number
-  }
+  };
 
   static defaultProps = {
     min: 0,
     max: 100,
     step: 1
-  }
+  };
 
-  constructor (props, context) {
+  constructor(props, context) {
     super(props, context, {
       namespace: 'Range',
       styles
-    })
-    this.generatedId = uuid.v4()
+    });
+    this.generatedId = uuid.v4();
     this.state = {
       focused: false,
       bgWidth: 0
-    }
+    };
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.setState({
       bgWidth: this.getBgWidth()
-    })
+    });
   }
 
-  getId = () => (
-    this.props.id || this.generatedId
-  )
+  getId = () => this.props.id || this.generatedId;
 
-  onChange = (e) => {
-    const { onChange } = this.props
+  onChange = e => {
+    const { onChange } = this.props;
 
-    onChange && onChange(parseFloat(e.target.value))
+    onChange && onChange(parseFloat(e.target.value));
 
-    this.setState({ bgWidth: this.getBgWidth() })
-  }
+    this.setState({ bgWidth: this.getBgWidth() });
+  };
 
-  getBgWidth () {
-    let { max, min } = this.props
-    const { value } = this.input
+  getBgWidth() {
+    let { max, min } = this.props;
+    const { value } = this.input;
 
     if (parseFloat(max) < parseFloat(min)) {
-      max = 100
+      max = 100;
     }
 
-    return 100 * (value - min) / (max - min)
+    return 100 * (value - min) / (max - min);
   }
 
   renderLabel = () => {
-    const { label } = this.props
-    const { theme } = this
+    const { label } = this.props;
+    const { theme } = this;
 
     if (!label) {
-      return null
+      return null;
     }
 
     return (
-      <label
-        className={theme.label}
-        htmlFor={this.getId()}
-      >
-        { label }
+      <label className={theme.label} htmlFor={this.getId()}>
+        {label}
       </label>
-    )
-  }
+    );
+  };
 
-  render () {
+  render() {
     const {
       defaultValue,
       disabled,
@@ -101,16 +96,18 @@ export default class Range extends ThemedComponent {
       testId,
       title,
       value
-    } = this.props
+    } = this.props;
 
-    const { focused, bgWidth } = this.state
-    const { theme } = this
+    const { focused, bgWidth } = this.state;
+    const { theme } = this;
 
     return (
-      <View className={classNames(theme.range, {
-        [theme.focused]: focused
-      })}>
-        { this.renderLabel() }
+      <View
+        className={classNames(theme.range, {
+          [theme.focused]: focused
+        })}
+      >
+        {this.renderLabel()}
         <input
           className={theme.input}
           data-test-id={testId}
@@ -126,13 +123,15 @@ export default class Range extends ThemedComponent {
           step={step}
           style={{ backgroundSize: `${bgWidth}%` }}
           tabIndex={tabIndex}
-          type='range'
+          type="range"
           title={title}
           value={value}
-          ref={ref => { this.input = ref }}
+          ref={ref => {
+            this.input = ref;
+          }}
         />
         {hint && <small className={theme.hint}>{hint}</small>}
       </View>
-    )
+    );
   }
 }

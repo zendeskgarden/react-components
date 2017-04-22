@@ -1,14 +1,14 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-import ThemedComponent from '../utils/theming/ThemedComponent'
-import Core from './Core'
+import ThemedComponent from '../utils/theming/ThemedComponent';
+import Core from './Core';
 
-import styles from './styles.css'
+import styles from './styles.css';
 
 export default class Button extends ThemedComponent {
-  static Core = Core
+  static Core = Core;
 
   static propTypes = {
     autoFocus: PropTypes.bool,
@@ -27,36 +27,36 @@ export default class Button extends ThemedComponent {
     /** <a href="#View">See View</a> */
     tooltipPositioning: () => {},
     type: PropTypes.oneOf(['default', 'primary', 'basic'])
-  }
+  };
 
   static defaultProps = {
     tabIndex: 0,
     type: 'default',
     size: 'small'
-  }
+  };
 
-  constructor (props, context) {
+  constructor(props, context) {
     super(props, context, {
       namespace: 'Button',
       styles
-    })
+    });
     this.state = {
       focused: false
-    }
+    };
   }
 
-  onBlur = (e) => {
-    const { onBlur } = this.props
+  onBlur = e => {
+    const { onBlur } = this.props;
 
-    this.setState({ focused: false })
-    onBlur && onBlur(e)
-  }
+    this.setState({ focused: false });
+    onBlur && onBlur(e);
+  };
 
-  onKeyboardFocus = (e) => {
-    this.setState({ focused: true })
-  }
+  onKeyboardFocus = e => {
+    this.setState({ focused: true });
+  };
 
-  render () {
+  render() {
     const {
       className,
       children,
@@ -66,30 +66,32 @@ export default class Button extends ThemedComponent {
       size,
       type,
       ...other
-    } = this.props
-    const { focused } = this.state
+    } = this.props;
+    const { focused } = this.state;
 
-    const { theme } = this
+    const { theme } = this;
 
-    const typeStyle = theme[`type_${type}`]
+    const typeStyle = theme[`type_${type}`];
     return (
       <Core
         {...other}
         disabled={disabled}
         onBlur={this.onBlur}
         onKeyboardFocus={this.onKeyboardFocus}
-        className={
-          classNames(theme[`size_${size}`], {
+        className={classNames(
+          theme[`size_${size}`],
+          {
             [typeStyle]: typeStyle,
             [theme.focused]: focused,
             [theme.pill]: pill,
             [theme.stretched]: stretched,
             [theme.disabled]: disabled
-          }, className)
-        }
+          },
+          className
+        )}
       >
-        { children }
+        {children}
       </Core>
-    )
+    );
   }
 }

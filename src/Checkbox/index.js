@@ -1,12 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import uuid from 'uuid'
-import classNames from 'classnames'
+import React from 'react';
+import PropTypes from 'prop-types';
+import uuid from 'uuid';
+import classNames from 'classnames';
 
-import ThemedComponent from '../utils/theming/ThemedComponent'
-import View from '../core/View'
+import ThemedComponent from '../utils/theming/ThemedComponent';
+import View from '../core/View';
 
-import styles from './styles.css'
+import styles from './styles.css';
 
 export default class Checkbox extends ThemedComponent {
   static propTypes = {
@@ -23,32 +23,32 @@ export default class Checkbox extends ThemedComponent {
     title: PropTypes.string,
     /** <a href="#View">See View</a> */
     tooltipPositioning: () => {}
-  }
+  };
 
   static defaultProps = {
     dir: 'ltr',
     muted: false
-  }
+  };
 
-  constructor (props, context) {
+  constructor(props, context) {
     super(props, context, {
       namespace: 'Checkbox',
       styles
-    })
-    this.id = uuid.v4()
-    this.keyboard = true
+    });
+    this.id = uuid.v4();
+    this.keyboard = true;
     this.state = {
       focused: false
-    }
+    };
   }
 
-  onChange = (event) => {
-    const { onChange } = this.props
+  onChange = event => {
+    const { onChange } = this.props;
 
-    onChange && onChange(event.target.checked)
-  }
+    onChange && onChange(event.target.checked);
+  };
 
-  render () {
+  render() {
     const {
       checked,
       children,
@@ -61,10 +61,10 @@ export default class Checkbox extends ThemedComponent {
       testId,
       title,
       tooltipPositioning
-    } = this.props
+    } = this.props;
 
-    const { focused } = this.state
-    const { theme } = this
+    const { focused } = this.state;
+    const { theme } = this;
 
     return (
       <View
@@ -86,23 +86,27 @@ export default class Checkbox extends ThemedComponent {
           onBlur={() => this.setState({ focused: false })}
           onChange={this.onChange}
           onFocus={() => {
-            this.setState({ focused: this.keyboard })
-            this.keyboard = true
+            this.setState({ focused: this.keyboard });
+            this.keyboard = true;
           }}
-          ref={ref => { this.input = ref }}
+          ref={ref => {
+            this.input = ref;
+          }}
           tabIndex={tabIndex}
-          type='checkbox'
+          type="checkbox"
         />
         <label
           className={classNames(theme.label, { [theme.muted]: muted })}
           dir={dir}
           htmlFor={this.id}
-          onMouseUp={() => { this.keyboard = false }}
+          onMouseUp={() => {
+            this.keyboard = false;
+          }}
         >
-          { children }
+          {children}
         </label>
         {hint && <small className={theme.hint}>{hint}</small>}
       </View>
-    )
+    );
   }
 }

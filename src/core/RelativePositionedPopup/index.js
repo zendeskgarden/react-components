@@ -1,13 +1,14 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
-import { findDOMNode } from 'react-dom'
-import FocusJail from '../../utils/FocusJail'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { findDOMNode } from 'react-dom';
+import FocusJail from '../../utils/FocusJail';
 
-import View from '../View'
-import getBestRelativePlacement from '../../utils/positioning/getBestRelativePlacement'
-import toFixedOffset from '../../utils/positioning/toFixedOffset'
-import styles from './styles.css'
+import View from '../View';
+import getBestRelativePlacement
+  from '../../utils/positioning/getBestRelativePlacement';
+import toFixedOffset from '../../utils/positioning/toFixedOffset';
+import styles from './styles.css';
 
 const positions = [
   'bottom',
@@ -24,7 +25,7 @@ const positions = [
   'top_stretch',
   'top_left',
   'top_right'
-]
+];
 
 const rtlMapping = {
   bottom_right: 'bottom_left',
@@ -37,38 +38,35 @@ const rtlMapping = {
   right_bottom: 'left_bottom',
   top_left: 'top_right',
   top_right: 'top_left'
-}
+};
 
 const getCurrentOrigin = () => {
-  const location = window.location
-  const origin = location.origin || location.protocol + '//' + location.host
+  const location = window.location;
+  const origin = location.origin || location.protocol + '//' + location.host;
 
-  return origin
-}
+  return origin;
+};
 
-const isIFrameOfCurrentOrigin = (iframe) => {
-  const origin = getCurrentOrigin()
-  return !iframe.src || iframe.src.indexOf(origin) === 0
-}
+const isIFrameOfCurrentOrigin = iframe => {
+  const origin = getCurrentOrigin();
+  return !iframe.src || iframe.src.indexOf(origin) === 0;
+};
 
 const getDocuments = () => {
-  const iframes = document.querySelectorAll('iframe')
+  const iframes = document.querySelectorAll('iframe');
 
   const iframeDocuments = Array.from(iframes)
     .filter(isIFrameOfCurrentOrigin)
-    .map((iframe) => iframe.contentDocument)
+    .map(iframe => iframe.contentDocument);
 
-  return [document, ...iframeDocuments]
-}
+  return [document, ...iframeDocuments];
+};
 
 class RelativePositionedPopup extends Component {
   static propTypes = {
     anchor: PropTypes.node.isRequired,
-    dir: PropTypes.oneOf([ 'ltr', 'rtl' ]),
-    children: PropTypes.oneOfType([
-      PropTypes.node,
-      PropTypes.func
-    ]).isRequired,
+    dir: PropTypes.oneOf(['ltr', 'rtl']),
+    children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired,
     hidden: PropTypes.bool,
     marginBottom: PropTypes.number,
     marginLeft: PropTypes.number,
@@ -83,7 +81,7 @@ class RelativePositionedPopup extends Component {
     trapFocus: PropTypes.bool,
     stretched: PropTypes.bool,
     onClickOutside: PropTypes.func
-  }
+  };
 
   static defaultProps = {
     dir: 'ltr',
@@ -93,106 +91,105 @@ class RelativePositionedPopup extends Component {
     marginRight: 0,
     marginTop: 0,
     trapFocus: false
-  }
+  };
 
   updatePlacement = () => {
-    const { hidden } = this.props
+    const { hidden } = this.props;
 
     if (!hidden) {
-      this.anchorRect = this.anchorElement.firstChild.getBoundingClientRect()
-      this.popupRect = this.popupElement.firstChild.getBoundingClientRect()
-      const placement = toFixedOffset(this.getBestRelativePlacement(), this.popupElement)
+      this.anchorRect = this.anchorElement.firstChild.getBoundingClientRect();
+      this.popupRect = this.popupElement.firstChild.getBoundingClientRect();
+      const placement = toFixedOffset(
+        this.getBestRelativePlacement(),
+        this.popupElement
+      );
       this.setState({
         placement
-      })
+      });
     }
-  }
+  };
 
-  clickOutsideHandler = (e) => {
-    const { hidden, onClickOutside } = this.props
+  clickOutsideHandler = e => {
+    const { hidden, onClickOutside } = this.props;
 
-    const isLeftClick = e.which === 1
+    const isLeftClick = e.which === 1;
     if (onClickOutside && !hidden && isLeftClick) {
-      const target = e.target || document.elementFromPoint(e.pageX || e.clientX, e.pageY || e.clientY)
-      const inSidePopup = this.popupElement && this.popupElement.contains(target)
+      const target =
+        e.target ||
+        document.elementFromPoint(e.pageX || e.clientX, e.pageY || e.clientY);
+      const inSidePopup =
+        this.popupElement && this.popupElement.contains(target);
       if (!inSidePopup) {
         setTimeout(() => {
-          onClickOutside()
-        }, 0)
+          onClickOutside();
+        }, 0);
       }
     }
+  };
+
+  componentDidMount() {
+    window.addEventListener('resize', this.updatePlacement);
+    window.addEventListener('scroll', this.updatePlacement, true);
+
+    getDocuments().forEach(doc => {
+      doc.addEventListener('click', this.clickOutsideHandler, true);
+    });
   }
 
-  componentDidMount () {
-    window.addEventListener('resize', this.updatePlacement)
-    window.addEventListener('scroll', this.updatePlacement, true)
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updatePlacement);
+    window.removeEventListener('scroll', this.updatePlacement, true);
 
-    getDocuments().forEach((doc) => {
-      doc.addEventListener('click', this.clickOutsideHandler, true)
-    })
+    getDocuments().forEach(doc => {
+      doc.removeEventListener('click', this.clickOutsideHandler, true);
+    });
   }
 
-  componentWillUnmount () {
-    window.removeEventListener('resize', this.updatePlacement)
-    window.removeEventListener('scroll', this.updatePlacement, true)
-
-    getDocuments().forEach((doc) => {
-      doc.removeEventListener('click', this.clickOutsideHandler, true)
-    })
-  }
-
-  componentWillReceiveProps (nextProps) {
-    const { hidden, trapFocus } = this.props
+  componentWillReceiveProps(nextProps) {
+    const { hidden, trapFocus } = this.props;
 
     if (hidden && !nextProps.hidden) {
-      this.tabJail = trapFocus && new FocusJail(this.popupElement)
-      this.setState({ opening: true })
+      this.tabJail = trapFocus && new FocusJail(this.popupElement);
+      this.setState({ opening: true });
       setTimeout(() => {
-        this.setState({ opening: false })
-        this.updatePlacement()
-      }, 0)
+        this.setState({ opening: false });
+        this.updatePlacement();
+      }, 0);
     } else if (!hidden && nextProps.hidden) {
-      this.setState({ placement: null })
+      this.setState({ placement: null });
     } else {
       setTimeout(() => {
-        this.updatePlacement()
-      }, 0)
+        this.updatePlacement();
+      }, 0);
     }
   }
 
   getPositions = () => {
-    const { dir, positioning } = this.props
+    const { dir, positioning } = this.props;
 
-    const positions = Array.isArray(positioning)
-      ? positioning
-      : [positioning]
+    const positions = Array.isArray(positioning) ? positioning : [positioning];
 
-    return (dir === 'rtl')
+    return dir === 'rtl'
       ? positions.map(position => rtlMapping[position] || position)
-      : positions
-  }
+      : positions;
+  };
 
   getAnchorMargins = () => {
-    const {
-      marginBottom,
-      marginLeft,
-      marginRight,
-      marginTop
-    } = this.props
+    const { marginBottom, marginLeft, marginRight, marginTop } = this.props;
 
     return {
       bottom: marginBottom,
       left: marginLeft,
       right: marginRight,
       top: marginTop
-    }
-  }
+    };
+  };
 
   getBestRelativePlacement = () => {
     const viewport = {
       width: window.innerWidth,
       height: window.innerHeight
-    }
+    };
 
     const anchorRect = {
       top: this.anchorRect.top,
@@ -200,16 +197,16 @@ class RelativePositionedPopup extends Component {
       width: this.anchorRect.width,
       height: this.anchorRect.height,
       margins: this.getAnchorMargins()
-    }
+    };
 
-    const { centerPoint } = this.props
+    const { centerPoint } = this.props;
 
     const target = {
       top: this.popupRect.top,
       left: this.popupRect.left,
       width: this.popupRect.width,
       height: this.popupRect.height
-    }
+    };
 
     const bestPlacement = getBestRelativePlacement({
       positions: this.getPositions(),
@@ -217,32 +214,30 @@ class RelativePositionedPopup extends Component {
       centerPoint,
       target,
       viewport
-    })
+    });
 
-    return bestPlacement
-  }
+    return bestPlacement;
+  };
 
-  onTab = (e) => {
-    this.tabJail && this.tabJail.onTab(e)
-  }
+  onTab = e => {
+    this.tabJail && this.tabJail.onTab(e);
+  };
 
-  render () {
-    const { anchor, children, hidden, testId, stretched } = this.props
-    const { opening, placement } = this.state || {}
+  render() {
+    const { anchor, children, hidden, testId, stretched } = this.props;
+    const { opening, placement } = this.state || {};
 
-    let popupStyle = null
+    let popupStyle = null;
     if (placement) {
       popupStyle = {
         top: `${placement.rect.top}px`,
         left: `${placement.rect.left}px`,
         height: `${placement.rect.height}px`,
         width: `${placement.rect.width}px`
-      }
+      };
     }
 
-    const position = placement
-      ? placement.position
-      : this.getPositions()[0]
+    const position = placement ? placement.position : this.getPositions()[0];
 
     return (
       <View
@@ -255,11 +250,11 @@ class RelativePositionedPopup extends Component {
           className={classNames(styles.trigger, {
             [styles.stretched]: stretched
           })}
-          ref={(ref) => {
-            this.anchorElement = this.anchorElement || findDOMNode(ref)
+          ref={ref => {
+            this.anchorElement = this.anchorElement || findDOMNode(ref);
           }}
         >
-          { anchor }
+          {anchor}
         </View>
         <View
           className={classNames(styles.popup, {
@@ -268,19 +263,17 @@ class RelativePositionedPopup extends Component {
           hidden={hidden}
           onTab={this.onTab}
           style={popupStyle}
-          ref={(ref) => {
-            this.popupElement = this.popupElement || findDOMNode(ref)
+          ref={ref => {
+            this.popupElement = this.popupElement || findDOMNode(ref);
           }}
         >
-          {
-            hidden
-              ? null
-              : (typeof children === 'function' ? children(position) : children)
-          }
+          {hidden
+            ? null
+            : typeof children === 'function' ? children(position) : children}
         </View>
       </View>
-    )
+    );
   }
 }
 
-export default RelativePositionedPopup
+export default RelativePositionedPopup;

@@ -1,9 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
-import styles from './styles.css'
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import styles from './styles.css';
 
-import ThemedComponent from '../utils/theming/ThemedComponent'
+import ThemedComponent from '../utils/theming/ThemedComponent';
 
 export default class Tooltip extends ThemedComponent {
   static propTypes = {
@@ -14,7 +14,7 @@ export default class Tooltip extends ThemedComponent {
     position: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
     size: PropTypes.oneOf(['default', 'medium', 'large']),
     top: PropTypes.number
-  }
+  };
 
   static defaultProps = {
     top: 0,
@@ -22,17 +22,10 @@ export default class Tooltip extends ThemedComponent {
     position: 'top',
     inline: false,
     size: 'default'
-  }
+  };
 
-  render () {
-    const {
-      left,
-      top,
-      children,
-      position,
-      inline,
-      size
-    } = this.props
+  render() {
+    const { left, top, children, position, inline, size } = this.props;
 
     return (
       <div
@@ -46,6 +39,6 @@ export default class Tooltip extends ThemedComponent {
       >
         {children}
       </div>
-    )
+    );
   }
 }

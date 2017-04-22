@@ -1,11 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import uuid from 'uuid'
-import classNames from 'classnames'
+import React from 'react';
+import PropTypes from 'prop-types';
+import uuid from 'uuid';
+import classNames from 'classnames';
 
-import View from '../core/View'
-import ThemedComponent from '../utils/theming/ThemedComponent'
-import styles from './styles.css'
+import View from '../core/View';
+import ThemedComponent from '../utils/theming/ThemedComponent';
+import styles from './styles.css';
 
 export default class RadioButton extends ThemedComponent {
   static propTypes = {
@@ -24,31 +24,31 @@ export default class RadioButton extends ThemedComponent {
     /** <a href="#View">See View</a> */
     tooltipPositioning: () => {},
     value: PropTypes.any
-  }
+  };
 
   static defaultProps = {
     dir: 'ltr'
-  }
+  };
 
-  constructor (props, context) {
+  constructor(props, context) {
     super(props, context, {
       namespace: 'RadioButton',
       styles
-    })
-    this.id = uuid.v4()
-    this.keyboard = true
+    });
+    this.id = uuid.v4();
+    this.keyboard = true;
     this.state = {
       focused: false
-    }
+    };
   }
 
   onChange = () => {
-    const { value, onChange } = this.props
+    const { value, onChange } = this.props;
 
-    onChange && onChange(value)
-  }
+    onChange && onChange(value);
+  };
 
-  render () {
+  render() {
     const {
       checked,
       children,
@@ -62,10 +62,10 @@ export default class RadioButton extends ThemedComponent {
       testId,
       title,
       tooltipPositioning
-    } = this.props
+    } = this.props;
 
-    const { focused } = this.state
-    const { theme } = this
+    const { focused } = this.state;
+    const { theme } = this;
 
     return (
       <View
@@ -85,15 +85,17 @@ export default class RadioButton extends ThemedComponent {
           disabled={disabled}
           id={this.id}
           name={name}
-          ref={ref => { this.input = ref }}
+          ref={ref => {
+            this.input = ref;
+          }}
           onBlur={() => this.setState({ focused: false })}
           onChange={this.onChange}
           onFocus={() => {
-            this.setState({ focused: this.keyboard })
-            this.keyboard = true
+            this.setState({ focused: this.keyboard });
+            this.keyboard = true;
           }}
           tabIndex={tabIndex}
-          type='radio'
+          type="radio"
         />
         <label
           className={classNames(theme.label, {
@@ -101,12 +103,14 @@ export default class RadioButton extends ThemedComponent {
           })}
           dir={dir}
           htmlFor={this.id}
-          onMouseUp={() => { this.keyboard = false }}
+          onMouseUp={() => {
+            this.keyboard = false;
+          }}
         >
-          { children }
+          {children}
         </label>
-        { hint && <small className={styles.hint}>{hint}</small>}
+        {hint && <small className={styles.hint}>{hint}</small>}
       </View>
-    )
+    );
   }
 }

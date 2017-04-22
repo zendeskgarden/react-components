@@ -1,20 +1,19 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import classNames from 'classnames'
+import classNames from 'classnames';
 
-import styles from './styles.css'
+import styles from './styles.css';
 
-const hasAnyHandlers = (handlers) => (
-  Object.keys(handlers).some((key) => handlers[key])
-)
+const hasAnyHandlers = handlers =>
+  Object.keys(handlers).some(key => handlers[key]);
 
 export default class View extends Component {
   static propTypes = {
     autoFocus: PropTypes.bool,
     children: PropTypes.node,
     className: PropTypes.string,
-    dir: PropTypes.oneOf([ 'ltr', 'rtl' ]),
+    dir: PropTypes.oneOf(['ltr', 'rtl']),
     hidden: PropTypes.bool,
     onClick: PropTypes.func,
     onDragEnter: PropTypes.func,
@@ -30,6 +29,7 @@ export default class View extends Component {
     onDelete: PropTypes.func,
     onEnter: PropTypes.func,
     onEscape: PropTypes.func,
+    onMouseOver: PropTypes.func,
     onKeyDown: PropTypes.func,
     onScroll: PropTypes.func,
     onSpace: PropTypes.func,
@@ -38,29 +38,29 @@ export default class View extends Component {
     title: PropTypes.string,
     /** One of: 'top', 'right', 'bottom', 'left' or as array (prioritization) */
     tooltipPositioning: () => {}
-  }
+  };
 
   static contextTypes = {
     tooltips: PropTypes.object
-  }
+  };
 
-  componentDidMount () {
-    const { autoFocus } = this.props
+  componentDidMount() {
+    const { autoFocus } = this.props;
 
     if (autoFocus) {
-      this.element.focus()
+      this.element.focus();
     }
   }
 
-  componentWillUnmount () {
-    const { tooltips } = this.context
+  componentWillUnmount() {
+    const { tooltips } = this.context;
 
     if (tooltips && this.tooltipId != null) {
-      tooltips.hide(this.tooltipId)
+      tooltips.hide(this.tooltipId);
     }
   }
 
-  render () {
+  render() {
     const {
       children,
       className,
@@ -79,7 +79,7 @@ export default class View extends Component {
       tooltipPositioning,
       testId,
       ...other
-    } = this.props
+    } = this.props;
 
     const keyDownHandlers = {
       '8': onDelete,
@@ -91,59 +91,60 @@ export default class View extends Component {
       '38': onArrowUp,
       '39': onArrowRight,
       '40': onArrowDown
-    }
+    };
 
-    const eventHandlers = {}
+    const eventHandlers = {};
 
     if (onKeyDown || hasAnyHandlers(keyDownHandlers)) {
-      eventHandlers.onKeyDown = (e) => {
-        const handler = keyDownHandlers[e.keyCode]
-        handler && handler(e)
-        onKeyDown && onKeyDown(e)
-      }
+      eventHandlers.onKeyDown = e => {
+        const handler = keyDownHandlers[e.keyCode];
+        handler && handler(e);
+        onKeyDown && onKeyDown(e);
+      };
     }
 
     const props = {
       ...other,
       ...eventHandlers
-    }
+    };
 
-    const { tooltips } = this.context
+    const { tooltips } = this.context;
 
     if (tooltips && title) {
       props.onMouseOver = e => {
-        this.tooltipId = tooltips.show(this.element, title, tooltipPositioning)
-        this.props.onMouseOver && this.props.onMouseOver(e)
-      }
-
-      ;['onMouseOut', 'onBlur', 'onWheel', 'onClick'].forEach(handler => {
+        this.tooltipId = tooltips.show(this.element, title, tooltipPositioning);
+        this.props.onMouseOver && this.props.onMouseOver(e);
+      };
+      ['onMouseOut', 'onBlur', 'onWheel', 'onClick'].forEach(handler => {
         props[handler] = e => {
-          tooltips.hide()
-          this.props[handler] && this.props[handler](e)
-        }
-      })
+          tooltips.hide();
+          this.props[handler] && this.props[handler](e);
+        };
+      });
 
-      props['aria-label'] = title
+      props['aria-label'] = title;
     } else if (title) {
-      props.title = title
+      props.title = title;
     }
 
     if (testId) {
-      props['data-test-id'] = testId
+      props['data-test-id'] = testId;
     }
 
     if (hidden) {
-      props['aria-hidden'] = true
+      props['aria-hidden'] = true;
     }
 
     return (
       <div
         {...props}
         className={classNames(styles.view, className)}
-        ref={ref => { this.element = ref }}
+        ref={ref => {
+          this.element = ref;
+        }}
       >
-        { children }
+        {children}
       </div>
-    )
+    );
   }
 }

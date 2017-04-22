@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class Core extends Component {
   static propTypes = {
@@ -30,16 +30,16 @@ export default class Core extends Component {
     testId: PropTypes.string,
     type: PropTypes.string,
     value: PropTypes.string
-  }
+  };
 
   static defaultProps = {
     autoComplete: 'off',
     disabled: false,
     rows: 2,
     type: 'text'
-  }
+  };
 
-  render () {
+  render() {
     const {
       autoComplete,
       autoFocus,
@@ -68,7 +68,7 @@ export default class Core extends Component {
       testId,
       type,
       value
-    } = this.props
+    } = this.props;
 
     const handlers = {
       '8': onDelete,
@@ -78,7 +78,7 @@ export default class Core extends Component {
       '38': onArrowUp,
       '39': onArrowRight,
       '40': onArrowDown
-    }
+    };
 
     const props = {
       autoFocus,
@@ -92,28 +92,30 @@ export default class Core extends Component {
       name,
       maxLength,
       onBlur,
-      onChange (event) { onChangeText && onChangeText(event.target.value) },
+      onChange(event) {
+        onChangeText && onChangeText(event.target.value);
+      },
       onFocus,
-      onKeyDown (event) {
-        const handler = handlers[event.keyCode]
-        handler && handler(event)
-        onKeyDown && onKeyDown(event)
+      onKeyDown(event) {
+        const handler = handlers[event.keyCode];
+        handler && handler(event);
+        onKeyDown && onKeyDown(event);
       },
       placeholder,
       rows,
       tabIndex,
       type,
       value
-    }
+    };
 
     return (
       <textarea
         {...props}
-        ref={(input) => {
-          this.input = input
-          input && isFocused && input.focus()
+        ref={input => {
+          this.input = input;
+          input && isFocused && input.focus();
         }}
       />
-    )
+    );
   }
 }
