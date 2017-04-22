@@ -1,2 +1,6 @@
 #!/bin/sh
-[ -z "$(git status --untracked-files=no -z)" ]
+if [ -n "$(git status --untracked-files=no -z)" ]
+then
+  git diff
+  exit 1
+fi
