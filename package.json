@@ -19,7 +19,7 @@
     "gh-pages": "yarn build && gh-pages -d styleguide",
     "commit-lib": "git add lib && git commit -m 'Build lib'",
     "update-changelog": "yarn changelog && git add CHANGELOG.md && git commit -m 'Updated changelog'",
-    "prepare-release": "./bin/is_git_clean && yarn test && yarn lib && yarn commit-lib",
+    "prepare-release": "yarn prettier && ./bin/is_git_clean && yarn test && yarn lib && yarn commit-lib",
     "push-release": "git push --tags && yarn update-changelog && git push origin master:master",
     "patch": "yarn prepare-release && npm version patch && yarn push-release && yarn gh-pages",
     "minor": "yarn prepare-release && npm version minor && yarn push-release && yarn gh-pages",
