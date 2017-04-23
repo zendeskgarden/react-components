@@ -1,16 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
-import uuid from 'uuid'
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import uuid from 'uuid';
 
-import View from '../core/View'
-import ThemedComponent from '../utils/theming/ThemedComponent'
-import Core from './Core'
+import View from '../core/View';
+import ThemedComponent from '../utils/theming/ThemedComponent';
+import Core from './Core';
 
-import styles from './styles.css'
+import styles from './styles.css';
 
 export default class TextArea extends ThemedComponent {
-  static Core = Core
+  static Core = Core;
 
   static propTypes = {
     autoComplete: PropTypes.oneOf(['on', 'off']),
@@ -43,51 +43,44 @@ export default class TextArea extends ThemedComponent {
     title: PropTypes.string,
     /** <a href="#View">See View</a> */
     tooltipPositioning: () => {},
-    validation: PropTypes.oneOf([
-      'error', 'warning', 'success'
-    ]),
+    validation: PropTypes.oneOf(['error', 'warning', 'success']),
     value: PropTypes.string
-  }
+  };
 
   static defaultProps = {
     autoComplete: 'off',
     disabled: false,
     resizable: false,
     type: 'text'
-  }
+  };
 
-  constructor (props, context) {
+  constructor(props, context) {
     super(props, context, {
       namespace: 'TextArea',
       styles
-    })
+    });
 
-    this.generatedId = uuid.v4()
+    this.generatedId = uuid.v4();
   }
 
-  getId = () => (
-    this.props.id || this.generatedId
-  )
+  getId = () => this.props.id || this.generatedId;
 
   renderLabel = () => {
-    const { label } = this.props
-    const { theme } = this
+    const { label } = this.props;
+    const { theme } = this;
 
     if (!label) {
-      return null
+      return null;
     }
 
     return (
-      <label
-        className={theme.label}
-        htmlFor={this.getId()}
-      >
-        { label }
+      <label className={theme.label} htmlFor={this.getId()}>
+        {label}
       </label>
-    )
-  }
+    );
+  };
 
-  render () {
+  render() {
     const {
       className,
       disabled,
@@ -97,17 +90,15 @@ export default class TextArea extends ThemedComponent {
       tooltipPositioning,
       validation,
       ...other
-    } = this.props
+    } = this.props;
 
-    const { theme } = this
+    const { theme } = this;
 
     return (
       <View
-        className={classNames(
-          theme.txt,
-          theme[validation],
-          { [theme.disabled]: disabled }
-        )}
+        className={classNames(theme.txt, theme[validation], {
+          [theme.disabled]: disabled
+        })}
         title={title}
         tooltipPositioning={tooltipPositioning}
       >
@@ -115,18 +106,22 @@ export default class TextArea extends ThemedComponent {
         <Core
           {...other}
           disabled={disabled}
-          className={classNames(theme.input, {
-            [theme.resizable]: resizable
-          }, className)}
+          className={classNames(
+            theme.input,
+            {
+              [theme.resizable]: resizable
+            },
+            className
+          )}
           id={this.getId()}
           ref={ref => {
             if (ref && ref.input) {
-              this.input = ref.input
+              this.input = ref.input;
             }
           }}
         />
-        { hint && <small className={theme.hint}>{hint}</small> }
+        {hint && <small className={theme.hint}>{hint}</small>}
       </View>
-    )
+    );
   }
 }

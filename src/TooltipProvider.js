@@ -1,1 +1,1 @@
-export { default } from './utils/tooltips/TooltipProvider'
+export { default } from './utils/tooltips/TooltipProvider';

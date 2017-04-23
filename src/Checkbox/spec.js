@@ -1,232 +1,204 @@
-import React from 'react'
-import expect from 'test/expect'
-import sinon from 'sinon'
-import TestUtils from 'react-dom/test-utils'
+import React from 'react';
+import expect from 'test/expect';
+import sinon from 'sinon';
+import TestUtils from 'react-dom/test-utils';
 
-import Checkbox from '.'
-import View from '../core/View'
+import Checkbox from '.';
+import View from '../core/View';
 
 describe('Checkbox', () => {
   it('renders a checkbox that is not checked', () => {
     expect(
       <Checkbox checked={false}>Check me out!</Checkbox>,
       'to render as',
-      <View className='checkbox'>
-        <input
-          checked={false}
-          className='input'
-          type='checkbox'
-        />
-        <label className='label' dir='ltr'>Check me out!</label>
+      <View className="checkbox">
+        <input checked={false} className="input" type="checkbox" />
+        <label className="label" dir="ltr">Check me out!</label>
       </View>
-    )
-  })
+    );
+  });
 
   it('renders a checkbox that with a hint', () => {
     expect(
-      <Checkbox checked={false} hint='Watch out'>Check me out!</Checkbox>,
+      <Checkbox checked={false} hint="Watch out">Check me out!</Checkbox>,
       'to render as',
-      <View className='checkbox'>
-        <input
-          checked={false}
-          className='input'
-          type='checkbox'
-        />
-        <label className='label' dir='ltr'>Check me out!</label>
-        <small className='hint'>Watch out</small>
+      <View className="checkbox">
+        <input checked={false} className="input" type="checkbox" />
+        <label className="label" dir="ltr">Check me out!</label>
+        <small className="hint">Watch out</small>
       </View>
-    )
-  })
+    );
+  });
 
   describe('when checked', () => {
     it('renders a checkbox that is checked', () => {
       expect(
         <Checkbox checked>Check me out!</Checkbox>,
         'to render as',
-        <View className='checkbox'>
-          <input
-            checked
-            className='input'
-            type='checkbox'
-          />
-          <label className='label' dir='ltr'>Check me out!</label>
+        <View className="checkbox">
+          <input checked className="input" type="checkbox" />
+          <label className="label" dir="ltr">Check me out!</label>
         </View>
-      )
-    })
+      );
+    });
 
     describe('and toggled', () => {
       it('calls the onChange handle with the new state of the checkbox', () => {
-        const onChange = sinon.spy()
+        const onChange = sinon.spy();
 
         return expect(
-          <Checkbox
-            onChange={onChange}
-            checked
-          >
+          <Checkbox onChange={onChange} checked>
             Check me out!
           </Checkbox>,
           'when deeply rendered',
-          'with event change', { target: { checked: false } }, 'on', <input />,
+          'with event change',
+          { target: { checked: false } },
+          'on',
+          <input />
         ).then(() => {
           expect(onChange, 'to have calls satisfying', () => {
-            onChange(false)
-          })
-        })
-      })
-    })
-  })
+            onChange(false);
+          });
+        });
+      });
+    });
+  });
 
   describe('when toggled', () => {
     it('calls the onChange handle with the new state of the checkbox', () => {
-      const onChange = sinon.spy()
+      const onChange = sinon.spy();
 
       return expect(
         <Checkbox checked={false} onChange={onChange}>Check me out!</Checkbox>,
         'when deeply rendered',
-        'with event change', { target: { checked: true } }, 'on', <input />,
+        'with event change',
+        { target: { checked: true } },
+        'on',
+        <input />
       ).then(() => {
         expect(onChange, 'to have calls satisfying', () => {
-          onChange(true)
-        })
-      })
-    })
-  })
+          onChange(true);
+        });
+      });
+    });
+  });
 
   describe('when muted', () => {
     it('renders a checkbox that is muted', () => {
       expect(
         <Checkbox checked={false} muted>Check me out!</Checkbox>,
         'to render as',
-        <View className='checkbox'>
-          <input
-            checked={false}
-            className='input'
-            type='checkbox'
-          />
-          <label className='label muted' dir='ltr'>Check me out!</label>
+        <View className="checkbox">
+          <input checked={false} className="input" type="checkbox" />
+          <label className="label muted" dir="ltr">Check me out!</label>
         </View>
-      )
-    })
-  })
+      );
+    });
+  });
 
   describe('when disabled', () => {
     it('renders a checkbox that is disabled', () => {
       expect(
         <Checkbox checked={false} disabled>Check me out!</Checkbox>,
         'to render as',
-        <View className='checkbox disabled'>
-          <input
-            checked={false}
-            className='input'
-            disabled
-            type='checkbox'
-          />
-          <label className='label' dir='ltr'>Check me out!</label>
+        <View className="checkbox disabled">
+          <input checked={false} className="input" disabled type="checkbox" />
+          <label className="label" dir="ltr">Check me out!</label>
         </View>
-      )
-    })
+      );
+    });
 
     describe('and checked', () => {
       it('renders a checkbox that is disabled and checked', () => {
         expect(
           <Checkbox checked disabled>Check me out!</Checkbox>,
           'to render as',
-          <View className='checkbox disabled'>
-            <input
-              checked
-              className='input'
-              disabled
-              type='checkbox'
-            />
-            <label className='label' dir='ltr'>Check me out!</label>
+          <View className="checkbox disabled">
+            <input checked className="input" disabled type="checkbox" />
+            <label className="label" dir="ltr">Check me out!</label>
           </View>
-        )
-      })
-    })
-  })
+        );
+      });
+    });
+  });
 
   describe('when using it as an uncontrolled input', () => {
     describe('when using defaultChecked', () => {
       it('it is checked on the DOM node', () => {
-        let node
+        let node;
 
         TestUtils.renderIntoDocument(
-          <Checkbox
-            defaultChecked
-            ref={(ref) => ref && (node = ref.input)}
-          />
-        )
+          <Checkbox defaultChecked ref={ref => ref && (node = ref.input)} />
+        );
 
-        expect(node.checked, 'to equal', true)
-      })
+        expect(node.checked, 'to equal', true);
+      });
 
       it('it is not checked on the DOM node', () => {
-        let node
+        let node;
 
         TestUtils.renderIntoDocument(
           <Checkbox
             defaultChecked={false}
-            ref={(ref) => ref && (node = ref.input)}
+            ref={ref => ref && (node = ref.input)}
           />
-        )
+        );
 
-        expect(node.checked, 'to be false')
-      })
-    })
+        expect(node.checked, 'to be false');
+      });
+    });
 
     describe('when toggled', () => {
       it('calls the onChange handle with the new state of the checkbox', () => {
-        let node
-        const onChange = sinon.spy()
+        let node;
+        const onChange = sinon.spy();
 
         TestUtils.renderIntoDocument(
           <Checkbox
             defaultChecked={false}
             onChange={onChange}
-            ref={(ref) => ref && (node = ref.input)}
+            ref={ref => ref && (node = ref.input)}
           />
-        )
+        );
 
-        TestUtils.Simulate.change(node, { target: { checked: true } })
+        TestUtils.Simulate.change(node, { target: { checked: true } });
 
         expect(onChange, 'to have calls satisfying', () => {
-          onChange(true)
-        })
-      })
+          onChange(true);
+        });
+      });
 
       it('calls the onChange handle with the new state of the checkbox', () => {
-        const onChange = sinon.spy()
-        let node
+        const onChange = sinon.spy();
+        let node;
 
         TestUtils.renderIntoDocument(
           <Checkbox
             defaultChecked
             onChange={onChange}
-            ref={(ref) => ref && (node = ref.input)}
+            ref={ref => ref && (node = ref.input)}
           />
-        )
+        );
 
-        TestUtils.Simulate.change(node, { target: { checked: false } })
+        TestUtils.Simulate.change(node, { target: { checked: false } });
 
         expect(onChange, 'to have calls satisfying', () => {
-          onChange(false)
-        })
-      })
-    })
-  })
+          onChange(false);
+        });
+      });
+    });
+  });
 
   describe('with a test id', () => {
     it('renders a checkbox with the specified test id', () => {
       expect(
-        <Checkbox testId='testing'>Check me out!</Checkbox>,
+        <Checkbox testId="testing">Check me out!</Checkbox>,
         'when deeply rendered',
         'to contain',
-        <input
-          data-test-id='testing'
-        />
-      )
-    })
-  })
+        <input data-test-id="testing" />
+      );
+    });
+  });
 
   describe('with a tab index', () => {
     it('renders a checkbox with the specified tab index', () => {
@@ -234,10 +206,8 @@ describe('Checkbox', () => {
         <Checkbox tabIndex={42}>Check me out!</Checkbox>,
         'when deeply rendered',
         'to contain',
-        <input
-          tabIndex={42}
-        />
-      )
-    })
-  })
-})
+        <input tabIndex={42} />
+      );
+    });
+  });
+});

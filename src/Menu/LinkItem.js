@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-import Selectable from '../core/Selectable'
+import Selectable from '../core/Selectable';
 
-import styles from './styles.css'
+import styles from './styles.css';
 
 class LinkItem extends Component {
   static propTypes = {
@@ -17,16 +17,16 @@ class LinkItem extends Component {
     selected: PropTypes.bool,
     testId: PropTypes.string,
     href: PropTypes.string.isRequired,
-    target: PropTypes.oneOf([ '_self', '_blank', '_parent', '_top' ])
-  }
+    target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top'])
+  };
 
   static defaultProps = {
     disabled: false,
     role: 'menuitem',
     target: '_self'
-  }
+  };
 
-  render () {
+  render() {
     const {
       children,
       disabled,
@@ -38,18 +38,16 @@ class LinkItem extends Component {
       testId,
       href,
       target
-    } = this.props
+    } = this.props;
 
     return (
       <a
         aria-activedescendant={selected}
         aria-disabled={disabled}
-        className={
-          classNames(styles.item, {
-            [styles.disabled]: disabled,
-            [styles.selected]: selected
-          })
-        }
+        className={classNames(styles.item, {
+          [styles.disabled]: disabled,
+          [styles.selected]: selected
+        })}
         disabled={disabled}
         onMouseDown={onMouseDown}
         onMouseEnter={onMouseEnter}
@@ -61,17 +59,17 @@ class LinkItem extends Component {
       >
         {children}
       </a>
-    )
+    );
   }
 }
 
 export default Selectable(LinkItem, {
   action: (props, event) => {
-    const { href, target } = props
-    const openInNewWindow = event.ctrlKey || event.metaKey
+    const { href, target } = props;
+    const openInNewWindow = event.ctrlKey || event.metaKey;
 
-    const newWindow = window.open(href, openInNewWindow ? '_blank' : target)
-    newWindow.opener = null
+    const newWindow = window.open(href, openInNewWindow ? '_blank' : target);
+    newWindow.opener = null;
   },
   preventDefault: true
-})
+});

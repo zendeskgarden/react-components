@@ -1,16 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
-import uuid from 'uuid'
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import uuid from 'uuid';
 
-import View from '../core/View'
-import ThemedComponent from '../utils/theming/ThemedComponent'
-import Core from './Core'
+import View from '../core/View';
+import ThemedComponent from '../utils/theming/ThemedComponent';
+import Core from './Core';
 
-import styles from './styles.css'
+import styles from './styles.css';
 
 export default class TextInput extends ThemedComponent {
-  static Core = Core
+  static Core = Core;
 
   static propTypes = {
     autoComplete: PropTypes.oneOf(['on', 'off']),
@@ -45,12 +45,12 @@ export default class TextInput extends ThemedComponent {
     /** Use `valueType` instead */
     type: (props, propName, componentName) => {
       if (propName in props) {
-        return new Error('The TextInput does not accept a type prop use valueType instead')
+        return new Error(
+          'The TextInput does not accept a type prop use valueType instead'
+        );
       }
     },
-    validation: PropTypes.oneOf([
-      'error', 'warning', 'success'
-    ]),
+    validation: PropTypes.oneOf(['error', 'warning', 'success']),
     value: PropTypes.string,
     valueType: PropTypes.oneOf([
       'email',
@@ -60,46 +60,41 @@ export default class TextInput extends ThemedComponent {
       'tel',
       'text'
     ])
-  }
+  };
 
   static defaultProps = {
     autoComplete: 'off',
     disabled: false,
     valueType: 'text'
-  }
+  };
 
-  constructor (props, context) {
+  constructor(props, context) {
     super(props, context, {
       namespace: 'TextInput',
       styles
-    })
+    });
 
-    this.generatedId = uuid.v4()
+    this.generatedId = uuid.v4();
   }
 
-  getId = () => (
-    this.props.id || this.generatedId
-  )
+  getId = () => this.props.id || this.generatedId;
 
   renderLabel = () => {
-    const { label } = this.props
-    const { theme } = this
+    const { label } = this.props;
+    const { theme } = this;
 
     if (!label) {
-      return null
+      return null;
     }
 
     return (
-      <label
-        className={theme.label}
-        htmlFor={this.getId()}
-      >
-        { label }
+      <label className={theme.label} htmlFor={this.getId()}>
+        {label}
       </label>
-    )
-  }
+    );
+  };
 
-  render () {
+  render() {
     const {
       className,
       disabled,
@@ -109,17 +104,15 @@ export default class TextInput extends ThemedComponent {
       validation,
       valueType,
       ...other
-    } = this.props
+    } = this.props;
 
-    const { theme } = this
+    const { theme } = this;
 
     return (
       <View
-        className={classNames(
-          theme.txt,
-          theme[validation],
-          { [theme.disabled]: disabled }
-        )}
+        className={classNames(theme.txt, theme[validation], {
+          [theme.disabled]: disabled
+        })}
         title={title}
         tooltipPositioning={tooltipPositioning}
       >
@@ -132,12 +125,12 @@ export default class TextInput extends ThemedComponent {
           className={classNames(theme.input, className)}
           ref={ref => {
             if (ref && ref.input) {
-              this.input = ref.input
+              this.input = ref.input;
             }
           }}
         />
         {hint && <small className={theme.hint}>{hint}</small>}
       </View>
-    )
+    );
   }
 }

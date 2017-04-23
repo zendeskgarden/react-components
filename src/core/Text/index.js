@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-import View from '../View'
-import styles from './styles.css'
+import View from '../View';
+import styles from './styles.css';
 
 export default class Text extends Component {
   static propTypes = {
@@ -13,9 +13,9 @@ export default class Text extends Component {
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
     title: PropTypes.string
-  }
+  };
 
-  render () {
+  render() {
     const {
       children,
       className,
@@ -24,7 +24,7 @@ export default class Text extends Component {
       testId,
       title,
       ...others
-    } = this.props
+    } = this.props;
 
     return (
       <View
@@ -35,8 +35,8 @@ export default class Text extends Component {
         title={title}
         {...others}
       >
-        { children }
+        {children}
       </View>
-    )
+    );
   }
 }

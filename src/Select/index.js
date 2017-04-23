@@ -1,17 +1,17 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
-import uuid from 'uuid'
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import uuid from 'uuid';
 
-import Menu from '../Menu'
-import View from '../core/View'
-import ThemedComponent from '../utils/theming/ThemedComponent'
+import Menu from '../Menu';
+import View from '../core/View';
+import ThemedComponent from '../utils/theming/ThemedComponent';
 
-import styles from './styles.css'
+import styles from './styles.css';
 
 export default class Select extends ThemedComponent {
-  static Item = Menu.Item
-  static Separator = Menu.Separator
+  static Item = Menu.Item;
+  static Separator = Menu.Separator;
 
   static propTypes = {
     children: PropTypes.node.isRequired,
@@ -27,10 +27,7 @@ export default class Select extends ThemedComponent {
     hint: PropTypes.node,
     inputClassName: PropTypes.string,
     label: PropTypes.node,
-    maxHeight: PropTypes.oneOfType([
-      PropTypes.number,
-      PropTypes.string
-    ]),
+    maxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     onBlur: PropTypes.func,
     onClose: PropTypes.func,
     onFocus: PropTypes.func,
@@ -44,10 +41,8 @@ export default class Select extends ThemedComponent {
     title: PropTypes.string,
     /** <a href="#View">See View</a> */
     tooltipPositioning: () => {},
-    validation: PropTypes.oneOf([
-      'error', 'warning', 'success'
-    ])
-  }
+    validation: PropTypes.oneOf(['error', 'warning', 'success'])
+  };
 
   static defaultProps = {
     dir: 'ltr',
@@ -55,64 +50,59 @@ export default class Select extends ThemedComponent {
     positioning: ['bottom_stretch', 'top_stretch'],
     stretched: true,
     tabIndex: 0
-  }
+  };
 
-  constructor (props, context) {
+  constructor(props, context) {
     super(props, context, {
       namespace: 'Select',
       styles
-    })
+    });
 
-    this.generatedId = uuid.v4()
+    this.generatedId = uuid.v4();
     this.state = {
       open: false
-    }
+    };
   }
 
-  getId = () => (
-    this.props.id || this.generatedId
-  )
+  getId = () => this.props.id || this.generatedId;
 
   renderLabel = () => {
-    const { label } = this.props
-    const { theme } = this
+    const { label } = this.props;
+    const { theme } = this;
 
     if (!label) {
-      return null
+      return null;
     }
 
     return (
-      <label
-        className={theme.label}
-        htmlFor={this.getId()}
-      >
-        { label }
+      <label className={theme.label} htmlFor={this.getId()}>
+        {label}
       </label>
-    )
-  }
+    );
+  };
 
-  onClick = (e) => {
-    const { disabled } = this.props
+  onClick = e => {
+    const { disabled } = this.props;
 
     if (disabled) {
-      e.stopPropagation()
-      e.preventDefault()
+      e.stopPropagation();
+      e.preventDefault();
     }
-  }
+  };
 
   onOpen = () => {
-    const { onOpen } = this.props
-    this.setState({ open: true })
-    onOpen && onOpen()
-  }
+    const { onOpen } = this.props;
+    this.setState({ open: true });
+    onOpen && onOpen();
+  };
 
   onClose = () => {
-    const { onClose } = this.props
-    this.setState({ open: false })
-    onClose && onClose()
-  }
+    const { onClose } = this.props;
+    this.setState({ open: false });
+    onClose && onClose();
+  };
 
-  render () {
+  render() {
     const {
       children,
       className,
@@ -132,18 +122,23 @@ export default class Select extends ThemedComponent {
       title,
       tooltipPositioning,
       validation
-    } = this.props
+    } = this.props;
 
-    const { open } = this.state
-    const { theme } = this
+    const { open } = this.state;
+    const { theme } = this;
 
     return (
       <View
-        className={classNames(theme.txt, theme[validation], {
-          [theme.rtl]: dir === 'rtl',
-          [theme.stretched]: stretched,
-          [theme.disabled]: disabled
-        }, className)}
+        className={classNames(
+          theme.txt,
+          theme[validation],
+          {
+            [theme.rtl]: dir === 'rtl',
+            [theme.stretched]: stretched,
+            [theme.disabled]: disabled
+          },
+          className
+        )}
         testId={testId}
       >
         {this.renderLabel()}
@@ -156,28 +151,32 @@ export default class Select extends ThemedComponent {
           onClose={this.onClose}
           trigger={
             <View
-              className={classNames(theme.input, {
-                [theme.open]: open
-              }, inputClassName)}
+              className={classNames(
+                theme.input,
+                {
+                  [theme.open]: open
+                },
+                inputClassName
+              )}
               dir={dir}
               disabled={disabled}
               onBlur={onBlur}
               onClick={this.onClick}
               onFocus={onFocus}
-              role='button'
+              role="button"
               tabIndex={disabled ? null : tabIndex}
               title={title}
               tooltipPositioning={tooltipPositioning}
             >
-              { selected }
+              {selected}
             </View>
           }
           stretched={stretched}
         >
-          { children }
+          {children}
         </Menu>
         {hint && <small className={theme.hint}>{hint}</small>}
       </View>
-    )
+    );
   }
 }

@@ -4,7 +4,7 @@ const isInsideViewport = ({ target, viewport }) => {
     target.left >= 0 &&
     target.left + target.width <= viewport.width &&
     target.top + target.height <= viewport.height
-  )
-}
+  );
+};
 
-export default isInsideViewport
+export default isInsideViewport;

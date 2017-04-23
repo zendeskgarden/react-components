@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "pretty-standard"
+  ],
+  "globals": {
+    "jest": false
+  },
+  "parser": "babel-eslint"
+}

@@ -1,35 +1,33 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import View from '../core/View'
-import ThemedComponent from '../utils/theming/ThemedComponent'
+import View from '../core/View';
+import ThemedComponent from '../utils/theming/ThemedComponent';
 
-import styles from './styles.css'
+import styles from './styles.css';
 
 export default class Panel extends ThemedComponent {
   static propTypes = {
     children: PropTypes.node,
     id: PropTypes.string.isRequired
-  }
+  };
 
-  constructor (props, context) {
+  constructor(props, context) {
     super(props, context, {
       namespace: 'Tabs',
       styles
-    })
+    });
   }
 
-  render () {
-    const {
-      children
-    } = this.props
+  render() {
+    const { children } = this.props;
 
-    const { theme } = this
+    const { theme } = this;
 
     return (
-      <View className={theme.panel} role='tabpanel'>
-        { children }
+      <View className={theme.panel} role="tabpanel">
+        {children}
       </View>
-    )
+    );
   }
 }
