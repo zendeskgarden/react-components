@@ -1,5 +1,8 @@
 ## Change Log
 
+### v4.16.0 (2017/04/23 18:19 +00:00)
+- [#172](https://github.com/zendeskgarden/react-components/pull/172) Starting to use prettier (@sunesimonsen)
+
 ### v4.15.3 (2017/04/18 09:24 +00:00)
 - [#171](https://github.com/zendeskgarden/react-components/pull/171) Fixed: example theme styling of checkboxes, toggles and radio buttons. (@sunesimonsen)
 
