@@ -16,7 +16,6 @@
 }
 
 .stretched.container, .stretched.trigger, .stretched {
-  display: flex;
   width: 100%;
   height: 100%;
   flex-basis: auto;
