@@ -7720,9 +7720,9 @@ synesthesia@^1.0.1:
   dependencies:
     css-color-names "0.0.3"
 
-tabbable@1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/tabbable/-/tabbable-1.0.5.tgz#eeeb8abf6ea4b9ebe024189d64b5dcfdb30863ad"
+tabbable@1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/tabbable/-/tabbable-1.0.6.tgz#7c26a87ea6f4a25edf5edb619745a0ae740724fc"
 
 table@^3.7.8:
   version "3.8.3"

@@ -101,7 +101,7 @@
     "append-styles": "^1.0.0",
     "classnames": "^2.2.5",
     "prop-types": "15.5.8",
-    "tabbable": "1.0.5",
+    "tabbable": "1.0.6",
     "uuid": "^2.0.2 || ^3.0.0"
   },
   "peerDependencies": {
