@@ -317,7 +317,7 @@ async-each@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/async-each/-/async-each-1.0.1.tgz#19d386a1d9edc6e7c1c85d388aedbcc56d33602d"
 
-async@2.1.2:
+async@2.1.2, async@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/async/-/async-2.1.2.tgz#612a4ab45ef42a70cde806bad86ee6db047e8385"
   dependencies:
@@ -327,7 +327,7 @@ async@^1.4.0, async@^1.4.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
 
-async@^2.1.2, async@^2.1.4:
+async@^2.1.4:
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/async/-/async-2.1.4.tgz#2d2160c7788032e4dd6cbe2502f1f9a2c8f6cde4"
   dependencies:
@@ -3365,7 +3365,7 @@ glogg@^1.0.0:
   dependencies:
     sparkles "^1.0.0"
 
-graceful-fs@4.1.10, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
+graceful-fs@4.1.10, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
   version "4.1.10"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.10.tgz#f2d720c22092f743228775c75e3612632501f131"
 
@@ -3374,10 +3374,6 @@ graceful-fs@^3.0.0:
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-3.0.11.tgz#7613c778a1afea62f25c630a086d7f3acbbdd818"
   dependencies:
     natives "^1.1.0"
-
-graceful-fs@^4.1.2:
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.2.tgz#fe2239b7574972e67e41f808823f9bfa4a991e37"
 
 graceful-fs@~1.2.0:
   version "1.2.3"
@@ -6566,9 +6562,15 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.0, prop-types@^15.5.2, prop-types@~15.5.0:
+prop-types@^15.5.0:
   version "15.5.6"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.6.tgz#797a915b1714b645ebb7c5d6cc690346205bd2aa"
+  dependencies:
+    fbjs "^0.8.9"
+
+prop-types@^15.5.7, prop-types@~15.5.7:
+  version "15.5.8"
+  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.8.tgz#6b7b2e141083be38c8595aa51fc55775c7199394"
   dependencies:
     fbjs "^0.8.9"
 
@@ -6697,14 +6699,14 @@ react-docgen@2.12.1:
     nomnom "^1.8.1"
     recast "^0.11.5"
 
-react-dom@15.5.3:
-  version "15.5.3"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.5.3.tgz#2ee127ce942df55da53111ae303316e68072b5c5"
+react-dom@15.5.4:
+  version "15.5.4"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.5.4.tgz#ba0c28786fd52ed7e4f2135fe0288d462aef93da"
   dependencies:
     fbjs "^0.8.9"
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
-    prop-types "~15.5.0"
+    prop-types "~15.5.7"
 
 react-group@^1.0.0:
   version "1.0.1"
@@ -6768,14 +6770,14 @@ react-svg-loader@1.0.1:
     svgo "~0.6.3"
     yargs "~4.6.0"
 
-react@15.5.3:
-  version "15.5.3"
-  resolved "https://registry.yarnpkg.com/react/-/react-15.5.3.tgz#84055382c025dec4e3b902bb61a8697cc79c1258"
+react@15.5.4:
+  version "15.5.4"
+  resolved "https://registry.yarnpkg.com/react/-/react-15.5.4.tgz#fa83eb01506ab237cdc1c8c3b1cea8de012bf047"
   dependencies:
     fbjs "^0.8.9"
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
-    prop-types "^15.5.2"
+    prop-types "^15.5.7"
 
 read-cache@^1.0.0:
   version "1.0.0"
