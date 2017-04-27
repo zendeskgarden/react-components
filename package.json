@@ -72,7 +72,7 @@
     "querystring": "0.2.0",
     "react": "15.5.4",
     "react-dom": "15.5.4",
-    "react-styleguidist": "4.3.3",
+    "react-styleguidist": "5.1.6",
     "react-svg-loader": "1.1.1",
     "sinon": "2.1.0",
     "stylelint": "7.10.1",
