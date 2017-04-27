@@ -75,7 +75,7 @@
     "react-styleguidist": "4.3.3",
     "react-svg-loader": "1.1.1",
     "sinon": "2.1.0",
-    "stylelint": "7.9.0",
+    "stylelint": "7.10.1",
     "stylelint-config-zendesk": "git+ssh://git@github.com/zendeskgarden/stylelint-config.git#4.1.0",
     "stylelint-order": "0.3.0",
     "unexpected": "10.27.0",
