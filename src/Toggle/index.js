@@ -91,6 +91,7 @@ export default class Toggle extends ThemedComponent {
     return (
       <View
         className={classNames(theme.toggle, {
+          [theme.disabled]: disabled,
           [theme.focused]: focused,
           [theme.rtl]: dir === 'rtl'
         })}
