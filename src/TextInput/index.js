@@ -40,7 +40,7 @@ export default class TextInput extends ThemedComponent {
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
     title: PropTypes.string,
-    /** <a href="#View">See View</a> */
+    /** <a href="#view">See View</a> */
     tooltipPositioning: () => {},
     /** Use `valueType` instead */
     type: (props, propName, componentName) => {

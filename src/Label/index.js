@@ -19,7 +19,7 @@ export default class Label extends Component {
     stretched: PropTypes.bool,
     tabIndex: PropTypes.number,
     title: PropTypes.string,
-    /** <a href="#View">See View</a> */
+    /** <a href="#view">See View</a> */
     tooltipPositioning: () => {},
     type: PropTypes.oneOf([
       'default',

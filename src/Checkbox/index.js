@@ -21,7 +21,7 @@ export default class Checkbox extends ThemedComponent {
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
     title: PropTypes.string,
-    /** <a href="#View">See View</a> */
+    /** <a href="#view">See View</a> */
     tooltipPositioning: () => {}
   };
 

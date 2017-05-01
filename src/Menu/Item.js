@@ -18,7 +18,7 @@ class Item extends Component {
     selected: PropTypes.bool,
     testId: PropTypes.string,
     title: PropTypes.string,
-    /** <a href="#View">See View</a> */
+    /** <a href="#view">See View</a> */
     tooltipPositioning: () => {}
   };
 

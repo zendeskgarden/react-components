@@ -19,7 +19,7 @@ class Label extends ThemedComponent {
     selected: PropTypes.bool,
     selectedByMouse: PropTypes.bool,
     title: PropTypes.string,
-    /** <a href="#View">See View</a> */
+    /** <a href="#view">See View</a> */
     tooltipPositioning: () => {}
   };
 
