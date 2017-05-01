@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+usage() { echo "Usage: $0 -v <string>" 1>&2; exit 1; }
+
+while getopts ":v:" option
+do
+  case $option in
+    v)  version=${OPTARG}
+        ;;
+    *)
+        usage
+        ;;
+  esac
+done
+
+shift $((OPTIND-1))
+
+if [ -z "${version}" ]; then
+  usage
+fi
+
+mkdir -p vendor
+previous=$(readlink vendor/yarn)
+next=yarn-${version}.js
+
+echo "Vendoring $next"
+
+echo "Downloading.."
+curl -sL https://github.com/yarnpkg/yarn/releases/download/v${version}/$next >| vendor/$next
+
+if [ "$(cat vendor/$next)" == "Not Found" ] || [ "$(node vendor/$next --version)" != "${version}" ]; then
+  echo "Something went wrong"
+  rm vendor/$next
+  exit 1
+fi
+
+echo "Marking as executable.."
+chmod +x vendor/$next
+
+echo "Linking vendor/yarn.."
+cd vendor > /dev/null
+ln -sf $next yarn
+
+if [ "x" != "x$previous" ] && [ "$previous" != "$next" ]; then
+  echo "removing previous version $previous"
+  rm $previous
+fi
+
+echo "Done"
