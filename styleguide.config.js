@@ -102,5 +102,88 @@ module.exports = {
       }),
       new webpack.optimize.OccurrenceOrderPlugin()
     ]
+  },
+  theme: {
+    base: '#555',
+    link: '#30aabc',
+    linkHover: '#30aabc'
+  },
+  styles: {
+    StyleGuide: {
+      sidebar: {
+        left: '300px',
+        background: '#fff',
+        width: '220px'
+      },
+      footer: {
+        display: 'none'
+      },
+      logo: {
+        display: 'none'
+      }
+    },
+    ComponentsList: {
+      heading: {
+        fontWeight: '600 !important'
+      },
+      list: {
+        paddingLeft: '18px',
+        marginTop: '16px'
+      },
+      item: {
+        color: '#777',
+        fontWeight: '300'
+      }
+    },
+    TableOfContents: {
+      search: {
+        paddingBottom: '0'
+      }
+    },
+    Link: {
+      link: {
+        fontWeight: 'inherit !important',
+        fontSize: '14px !important',
+        color: 'inherit !important',
+        '&, &:link, &:visited': {
+          color: 'inherit'
+        },
+        '&:hover, &:active': {
+          color: 'inherit'
+        }
+      }
+    },
+    Heading: {
+      heading: {
+        color: '#30aabc',
+        letterSpacing: '1.9px',
+        fontSize: '35px',
+        fontWeight: '400'
+      }
+    },
+    ReactComponent: {
+      heading: {
+        margin: '0 0 12px',
+        color: '#555'
+      },
+      primaryHeading: {
+        lineHeight: '1.78571',
+        letterSpacing: '.04em',
+        fontSize: '25px',
+        color: '#555'
+      }
+    },
+    Props: {
+      cellHeading: {
+        color: '#555',
+        fontWeight: '400'
+      }
+    },
+    Markdown: {
+      para: {
+        color: '#555',
+        fontSize: '15px'
+      }
+    }
   }
 };
