@@ -8,7 +8,7 @@
     "watch": "gulp watch",
     "start": "styleguidist server",
     "build": "styleguidist build",
-    "prettier": "prettier --write --single-quote '{src,test}/**/*.js'",
+    "prettier": "prettier --write --single-quote '{src,test}/**/*.js' '*.js'",
     "css-lint": "stylelint `find src -name '*.css'`",
     "jest": "jest --watch",
     "js-lint": "eslint '{src,test}/**/*.js'",
