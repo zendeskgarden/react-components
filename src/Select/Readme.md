@@ -181,7 +181,7 @@ initialState = { value: 'Two' };
 </Select>
 ```
 
-Menu positioning same as the <a href="#Menu">menu</a>:
+Menu positioning same as the <a href="#menu">menu</a>:
 
 ```
 const items = [
