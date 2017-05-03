@@ -1,5 +1,8 @@
 ## Change Log
 
+### v4.18.0 (2017/05/03 12:29 +00:00)
+- [#174](https://github.com/zendeskgarden/react-components/pull/174) Upgrade dependencies (@sunesimonsen, @albertfdp)
+
 ### v4.17.0 (2017/04/27 10:42 +00:00)
 - [#167](https://github.com/zendeskgarden/react-components/pull/167) Remove the outer wrapping view of menus as it is not needed. (@sunesimonsen)
 - [#173](https://github.com/zendeskgarden/react-components/pull/173) Removed unnecessary display: flex (@sunesimonsen)
