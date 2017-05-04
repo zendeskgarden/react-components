@@ -81,6 +81,31 @@ describe('TextInput', () => {
         );
       });
     });
+
+    describe(`when given a ${validation} validation + a validation message`, () => {
+      it('renders a text input with the given validation and its validation text', () => {
+        expect(
+          <TextInput
+            validation={validation}
+            validationText="Some validation message"
+          />,
+          'to render as',
+          <View className={`txt ${validation}`}>
+            <small className="message">Some validation message</small>
+          </View>
+        );
+      });
+    });
+  });
+
+  describe('when given a validation without a validationText', () => {
+    it('shows no validation text fields', () => {
+      expect(
+        <TextInput validation="error" />,
+        'when rendered not to contain',
+        <small className="message" />
+      );
+    });
   });
 
   const types = ['email', 'number', 'password', 'search', 'tel', 'text'];
