@@ -5,6 +5,7 @@ export { default as Checkbox } from './Checkbox';
 export { default as createTooltipManager } from './createTooltipManager';
 export { default as electroidDarkTheme } from './electroidDarkTheme';
 export { default as Ellipsis } from './Ellipsis';
+export { default as FormHint } from './FormHint';
 export { default as FormLabel } from './FormLabel';
 export { default as Label } from './Label';
 export { default as Menu } from './Menu';
