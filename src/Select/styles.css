@@ -9,6 +9,10 @@
   composes: c-txt from 'zd-css-forms';
 }
 
+.message {
+  composes: c-txt__message from 'zd-css-forms';
+}
+
 .txt:focus {
   outline: none;
 }

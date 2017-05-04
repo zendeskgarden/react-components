@@ -41,7 +41,8 @@ export default class Select extends ThemedComponent {
     title: PropTypes.string,
     /** <a href="#view">See View</a> */
     tooltipPositioning: () => {},
-    validation: PropTypes.oneOf(['error', 'warning', 'success'])
+    validation: PropTypes.oneOf(['error', 'warning', 'success']),
+    validationText: PropTypes.string
   };
 
   static defaultProps = {
@@ -121,7 +122,8 @@ export default class Select extends ThemedComponent {
       testId,
       title,
       tooltipPositioning,
-      validation
+      validation,
+      validationText
     } = this.props;
 
     const { open } = this.state;
@@ -175,6 +177,9 @@ export default class Select extends ThemedComponent {
         >
           {children}
         </Menu>
+        {validation &&
+          validationText &&
+          <small className={theme.message}>{validationText}</small>}
         {hint && <small className={theme.hint}>{hint}</small>}
       </View>
     );
