@@ -1,0 +1,3 @@
+.label {
+  composes: c-input-label from 'zd-css-forms';
+}
