@@ -1,5 +1,11 @@
 ## Change Log
 
+### v4.19.0 (2017/05/04 13:54 +00:00)
+- [#184](https://github.com/zendeskgarden/react-components/pull/184) Added a standalone form hint (@sunesimonsen)
+- [#183](https://github.com/zendeskgarden/react-components/pull/183) Added a standalone for label component (@sunesimonsen)
+- [#177](https://github.com/zendeskgarden/react-components/pull/177) Support validation message on inputs (@Anifacted)
+- [#175](https://github.com/zendeskgarden/react-components/pull/175) Pretify gulpfile (@sunesimonsen)
+
 ### v4.18.0 (2017/05/03 12:29 +00:00)
 - [#174](https://github.com/zendeskgarden/react-components/pull/174) Upgrade dependencies (@sunesimonsen, @albertfdp)
 
