@@ -19,7 +19,9 @@ export default class Toggle extends ThemedComponent {
     muted: PropTypes.bool,
     onChange: PropTypes.func,
     tabIndex: PropTypes.number,
-    testId: PropTypes.string
+    testId: PropTypes.string,
+    validation: PropTypes.oneOf(['error', 'warning', 'success']),
+    validationText: PropTypes.string
   };
 
   static defaultProps = {
@@ -82,7 +84,9 @@ export default class Toggle extends ThemedComponent {
       hint,
       muted,
       tabIndex,
-      testId
+      testId,
+      validation,
+      validationText
     } = this.props;
 
     const { focused } = this.state;
@@ -90,7 +94,7 @@ export default class Toggle extends ThemedComponent {
 
     return (
       <View
-        className={classNames(theme.toggle, {
+        className={classNames(theme.toggle, theme[validation], {
           [theme.disabled]: disabled,
           [theme.focused]: focused,
           [theme.rtl]: dir === 'rtl'
@@ -132,6 +136,9 @@ export default class Toggle extends ThemedComponent {
           {children}
         </label>
         {hint && <small className={theme.hint}>{hint}</small>}
+        {validation &&
+          validationText &&
+          <small className={theme.message}>{validationText}</small>}
       </View>
     );
   }
