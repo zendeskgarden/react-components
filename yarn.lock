@@ -8511,13 +8511,13 @@ yargs@~4.8.0:
   version "0.2.0"
   resolved "git+ssh://git@github.com/zendeskgarden/css-fonts.git#48353a907f59779efeb259a7136f23d2a6234fb8"
 
-"zd-css-forms@git+ssh://git@github.com/zendeskgarden/css-forms.git#1.0.1":
-  version "1.0.1"
-  resolved "git+ssh://git@github.com/zendeskgarden/css-forms.git#18ef35d8badde8ee5f830ffc656664841b7f49e3"
+"zd-css-forms@git+ssh://git@github.com/zendeskgarden/css-forms.git#1.3.0":
+  version "1.3.0"
+  resolved "git+ssh://git@github.com/zendeskgarden/css-forms.git#8438c1f89c7b241fc7ce9bba8c13bc03daae22b2"
   dependencies:
     postcss-inline-svg "^2.3.0"
     postcss-input-range jonathantneal/postcss-input-range#ed1b254ba56316dbb4a939b86f39278bda53f4fa
-    zd-svg-icons "git+ssh://git@github.com/zendeskgarden/svg-icons.git#1.0.0"
+    zd-svg-icons "git+ssh://git@github.com/zendeskgarden/svg-icons.git#1.3.0"
 
 "zd-css-labels@git+ssh://git@github.com/zendeskgarden/css-labels.git#0.2.0":
   version "0.2.0"
@@ -8547,6 +8547,6 @@ yargs@~4.8.0:
   version "0.13.0"
   resolved "git+ssh://git@github.com/zendeskgarden/svg-icons.git#b82ee198ab17fb1c97d8fb44c9654c7db80dd606"
 
-"zd-svg-icons@git+ssh://git@github.com/zendeskgarden/svg-icons.git#1.0.0":
-  version "1.0.0"
-  resolved "git+ssh://git@github.com/zendeskgarden/svg-icons.git#f3d1b8cdfa037bd198f72099a244d80644b340fa"
+"zd-svg-icons@git+ssh://git@github.com/zendeskgarden/svg-icons.git#1.3.0":
+  version "1.3.0"
+  resolved "git+ssh://git@github.com/zendeskgarden/svg-icons.git#4c016020dd4842e2d81fd818d4d12b5db55e4e05"

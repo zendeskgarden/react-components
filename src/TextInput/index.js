@@ -51,6 +51,7 @@ export default class TextInput extends ThemedComponent {
       }
     },
     validation: PropTypes.oneOf(['error', 'warning', 'success']),
+    validationText: PropTypes.string,
     value: PropTypes.string,
     valueType: PropTypes.oneOf([
       'email',
@@ -102,6 +103,7 @@ export default class TextInput extends ThemedComponent {
       title,
       tooltipPositioning,
       validation,
+      validationText,
       valueType,
       ...other
     } = this.props;
@@ -129,6 +131,9 @@ export default class TextInput extends ThemedComponent {
             }
           }}
         />
+        {validation &&
+          validationText &&
+          <small className={theme.message}>{validationText}</small>}
         {hint && <small className={theme.hint}>{hint}</small>}
       </View>
     );

@@ -80,6 +80,28 @@ describe('TextArea', () => {
         );
       });
     });
+
+    describe(`when given a ${validation} validation + a validation message`, () => {
+      it('renders a text area with the given validation', () => {
+        expect(
+          <TextArea validation={validation} validationText="Some message" />,
+          'to render as',
+          <View className={`txt ${validation}`}>
+            <small className="message">Some message</small>
+          </View>
+        );
+      });
+    });
+  });
+
+  describe('when given a validation without a validationText', () => {
+    it('shows no validation text fields', () => {
+      expect(
+        <TextArea validation="error" />,
+        'when rendered not to contain',
+        <small className="message" />
+      );
+    });
   });
 
   describe('with an id', () => {

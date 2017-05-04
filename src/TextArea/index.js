@@ -44,6 +44,7 @@ export default class TextArea extends ThemedComponent {
     /** <a href="#view">See View</a> */
     tooltipPositioning: () => {},
     validation: PropTypes.oneOf(['error', 'warning', 'success']),
+    validationText: PropTypes.string,
     value: PropTypes.string
   };
 
@@ -89,6 +90,7 @@ export default class TextArea extends ThemedComponent {
       title,
       tooltipPositioning,
       validation,
+      validationText,
       ...other
     } = this.props;
 
@@ -120,6 +122,9 @@ export default class TextArea extends ThemedComponent {
             }
           }}
         />
+        {validation &&
+          validationText &&
+          <small className={theme.message}>{validationText}</small>}
         {hint && <small className={theme.hint}>{hint}</small>}
       </View>
     );

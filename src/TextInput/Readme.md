@@ -18,16 +18,19 @@ Validation:
     label='Error:'
     placeholder='Write something'
     validation='error'
+    validationText='We crashed!'
   />
   <TextInput
     label='Warning:'
     placeholder='Write something'
     validation='warning'
+    validationText='You may want to pull up now!'
   />
   <TextInput
     label='Success:'
     placeholder='Write something'
     validation='success'
+    validationText='We have landed safely.'
   />
 </Grid>
 ```

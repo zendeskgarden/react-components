@@ -2,6 +2,10 @@
   composes: c-txt from 'zd-css-forms';
 }
 
+.message {
+  composes: c-txt__message from 'zd-css-forms';
+}
+
 .input {
   composes: c-txt__input from 'zd-css-forms';
 }

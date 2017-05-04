@@ -65,6 +65,7 @@ initialState = {
     selected={ state.errorState }
     onSelect={ value => setState({ errorState: value }) }
     validation='error'
+    validationText='We crashed!'
   >
     <Select.Item value='foo'>foo</Select.Item>
     <Select.Item value='bar'>bar</Select.Item>
@@ -75,6 +76,7 @@ initialState = {
     selected={ state.warningState }
     onSelect={ value => setState({ warningState: value }) }
     validation='warning'
+    validationText='You may want to pull up now!'
   >
     <Select.Item value='foo'>foo</Select.Item>
     <Select.Item value='bar'>bar</Select.Item>
@@ -85,6 +87,7 @@ initialState = {
     selected={ state.successState }
     onSelect={ value => setState({ successState: value }) }
     validation='success'
+    validationText='We have landed safely.'
   >
     <Select.Item value='foo'>foo</Select.Item>
     <Select.Item value='bar'>bar</Select.Item>

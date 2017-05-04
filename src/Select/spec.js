@@ -101,6 +101,38 @@ describe('Select', () => {
         );
       });
     });
+
+    describe(`when given a ${validation} validation + a validation text`, () => {
+      it('renders a select component with the given validation and message', () => {
+        expect(
+          <Select
+            selected="bar"
+            validation={validation}
+            validationText="Some message"
+          >
+            <Select.Item value="foo">foo</Select.Item>
+            <Select.Item value="bar">bar</Select.Item>
+          </Select>,
+          'to render as',
+          <View className={`txt ${validation}`}>
+            <small className="message">Some message</small>
+          </View>
+        );
+      });
+    });
+  });
+
+  describe(`when given a validation without a validation text`, () => {
+    it('renders a select component with no validationText', () => {
+      expect(
+        <Select selected="bar" validation="error">
+          <Select.Item value="foo">foo</Select.Item>
+          <Select.Item value="bar">bar</Select.Item>
+        </Select>,
+        'when rendered not to contain',
+        <small className="message" />
+      );
+    });
   });
 
   describe('when disabled', () => {
