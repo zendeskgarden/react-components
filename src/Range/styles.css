@@ -2,10 +2,6 @@
   composes: c-range from 'zd-css-forms';
 }
 
-.input {
-  composes: c-range__input from 'zd-css-forms';
-}
-
 .focused {
   composes: is-focused from 'zd-css-forms';
 }
@@ -16,4 +12,24 @@
 
 .hint {
   composes: c-range__hint from 'zd-css-forms';
+}
+
+.message {
+  composes: c-range__message from 'zd-css-forms';
+}
+
+.success {
+  composes: has-success from 'zd-css-forms';
+}
+
+.warning {
+  composes: has-warning from 'zd-css-forms';
+}
+
+.error {
+  composes: has-error from 'zd-css-forms';
+}
+
+.input {
+  composes: c-range__input from 'zd-css-forms';
 }

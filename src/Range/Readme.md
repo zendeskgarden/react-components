@@ -65,6 +65,35 @@ initialState = { value: 21 };
 />
 ```
 
+Validation:
+```
+<Grid columns={1} stretched>
+  <Range
+    min={0}
+    max={100}
+    step={1}
+    validation='error'
+    validationText='We crashed!'
+  />
+
+  <Range
+    min={0}
+    max={100}
+    step={1}
+    validation='warning'
+    validationText='You may want to pull up now!'
+  />
+
+  <Range
+    min={0}
+    max={100}
+    step={1}
+    validation='success'
+    validationText='We have landed safely.'
+  />
+</Grid>
+```
+
 Uncontrolled:
 ```
 let node;
