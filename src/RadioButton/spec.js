@@ -122,6 +122,38 @@ describe('RadioButton', () => {
     });
   });
 
+  ['error', 'warning', 'success'].forEach(validation => {
+    describe(`when given validation ${validation} with no validation text`, () => {
+      it('sets the correct class name according to the validation', () => {
+        expect(
+          <RadioButton validation={validation} />,
+          'to render as',
+          <View className={`radio ${validation}`} />
+        );
+      });
+
+      it('shows no validation message', () => {
+        expect(
+          <RadioButton validation={validation} />,
+          'when deeply rendered not to contain',
+          <small className="message" />
+        );
+      });
+    });
+
+    describe(`when given validation ${validation} and a validation text`, () => {
+      it('shows the correct validation text', () => {
+        expect(
+          <RadioButton validation={validation} validationText="Some message" />,
+          'to render as',
+          <View className={`radio ${validation}`}>
+            <small className="message">Some message</small>
+          </View>
+        );
+      });
+    });
+  });
+
   describe('when using it as an uncontrolled input', () => {
     describe('when using defaultChecked', () => {
       it('it is checked on the DOM node', () => {

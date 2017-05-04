@@ -23,7 +23,9 @@ export default class RadioButton extends ThemedComponent {
     title: PropTypes.string,
     /** <a href="#view">See View</a> */
     tooltipPositioning: () => {},
-    value: PropTypes.any
+    value: PropTypes.any,
+    validation: PropTypes.oneOf(['error', 'warning', 'success']),
+    validationText: PropTypes.string
   };
 
   static defaultProps = {
@@ -61,7 +63,9 @@ export default class RadioButton extends ThemedComponent {
       tabIndex,
       testId,
       title,
-      tooltipPositioning
+      tooltipPositioning,
+      validation,
+      validationText
     } = this.props;
 
     const { focused } = this.state;
@@ -69,7 +73,7 @@ export default class RadioButton extends ThemedComponent {
 
     return (
       <View
-        className={classNames(theme.checkbox, theme.radio, {
+        className={classNames(theme.checkbox, theme.radio, theme[validation], {
           [theme.focused]: focused,
           [theme.rtl]: dir === 'rtl',
           [theme.disabled]: disabled
@@ -110,6 +114,9 @@ export default class RadioButton extends ThemedComponent {
           {children}
         </label>
         {hint && <small className={styles.hint}>{hint}</small>}
+        {validation &&
+          validationText &&
+          <small className={theme.message}>{validationText}</small>}
       </View>
     );
   }
