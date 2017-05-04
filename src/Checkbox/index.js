@@ -22,7 +22,9 @@ export default class Checkbox extends ThemedComponent {
     testId: PropTypes.string,
     title: PropTypes.string,
     /** <a href="#view">See View</a> */
-    tooltipPositioning: () => {}
+    tooltipPositioning: () => {},
+    validation: PropTypes.oneOf(['error', 'warning', 'success']),
+    validationText: PropTypes.string
   };
 
   static defaultProps = {
@@ -60,7 +62,9 @@ export default class Checkbox extends ThemedComponent {
       tabIndex,
       testId,
       title,
-      tooltipPositioning
+      tooltipPositioning,
+      validation,
+      validationText
     } = this.props;
 
     const { focused } = this.state;
@@ -68,7 +72,7 @@ export default class Checkbox extends ThemedComponent {
 
     return (
       <View
-        className={classNames(theme.checkbox, {
+        className={classNames(theme.checkbox, theme[validation], {
           [theme.focused]: focused,
           [theme.rtl]: dir === 'rtl',
           [theme.disabled]: disabled
@@ -106,6 +110,9 @@ export default class Checkbox extends ThemedComponent {
           {children}
         </label>
         {hint && <small className={theme.hint}>{hint}</small>}
+        {validation &&
+          validationText &&
+          <small className={theme.message}>{validationText}</small>}
       </View>
     );
   }
