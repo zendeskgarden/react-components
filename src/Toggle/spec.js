@@ -108,6 +108,38 @@ describe('Toggle', () => {
       );
     });
 
+    ['error', 'warning', 'success'].forEach(validation => {
+      describe(`when given validation ${validation} with no validation text`, () => {
+        it('sets the correct class name according to the validation', () => {
+          expect(
+            <Toggle validation={validation} />,
+            'to render as',
+            <View className={`toggle ${validation}`} />
+          );
+        });
+
+        it('shows no validation message', () => {
+          expect(
+            <Toggle validation={validation} />,
+            'when deeply rendered not to contain',
+            <small className="message" />
+          );
+        });
+      });
+
+      describe(`when given validation ${validation} and a validation text`, () => {
+        it('shows the correct validation text', () => {
+          expect(
+            <Toggle validation={validation} validationText="Some message" />,
+            'to render as',
+            <View className={`toggle ${validation}`}>
+              <small className="message">Some message</small>
+            </View>
+          );
+        });
+      });
+    });
+
     describe('and checked', () => {
       it('renders a toggle that is disabled and checked', () => {
         expect(

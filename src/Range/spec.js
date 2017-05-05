@@ -39,6 +39,38 @@ describe('Range', () => {
     });
   });
 
+  ['error', 'warning', 'success'].forEach(validation => {
+    describe(`when given a ${validation} validation without a validation text`, () => {
+      it('renders with the given validation class name', () => {
+        expect(
+          <Range validation={validation} />,
+          'to render as',
+          <View className={`range ${validation}`} />
+        );
+      });
+
+      it('does not render the validation text', () => {
+        expect(
+          <Range validation={validation} />,
+          'when deeply rendered not to contain',
+          <small className="message" />
+        );
+      });
+    });
+
+    describe(`when given a ${validation} validation and a validation text`, () => {
+      it('renders with the given validation class name and text', () => {
+        expect(
+          <Range validation={validation} validationText="Some message" />,
+          'to render as',
+          <View className={`range ${validation}`}>
+            <small className="message">Some message</small>
+          </View>
+        );
+      });
+    });
+  });
+
   describe('with a test id', () => {
     it('renders a range with the specified test id', () => {
       expect(

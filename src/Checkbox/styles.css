@@ -26,3 +26,20 @@
 .disabled {
   composes: is-disabled from 'zd-css-forms';
 }
+
+.message {
+  composes: c-chk__message from 'zd-css-forms';
+  display: block;
+}
+
+.success {
+  composes: has-success from 'zd-css-forms';
+}
+
+.warning {
+  composes: has-warning from 'zd-css-forms';
+}
+
+.error {
+  composes: has-error from 'zd-css-forms';
+}

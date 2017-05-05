@@ -64,3 +64,28 @@ initialState={ checked: false };
   </Grid>
 </Grid>
 ```
+
+Validation:
+
+```
+<Grid columns={ 1 } spacing='small'>
+  <Toggle
+    validation='error'
+    validationText='We crashed!'
+  >
+    Toggle me
+  </Toggle>
+  <Toggle
+    validation='warning'
+    validationText='You may want to pull up now!'
+  >
+    Toggle me
+  </Toggle>
+  <Toggle
+    validation='success'
+    validationText='We landed safely.'
+  >
+    Toggle me
+  </Toggle>
+</Grid>
+```

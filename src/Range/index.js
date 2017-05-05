@@ -21,7 +21,9 @@ export default class Range extends ThemedComponent {
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
     title: PropTypes.string,
-    value: PropTypes.number
+    value: PropTypes.number,
+    validation: PropTypes.oneOf(['error', 'warning', 'success']),
+    validationText: PropTypes.string
   };
 
   static defaultProps = {
@@ -95,7 +97,9 @@ export default class Range extends ThemedComponent {
       tabIndex,
       testId,
       title,
-      value
+      value,
+      validation,
+      validationText
     } = this.props;
 
     const { focused, bgWidth } = this.state;
@@ -103,7 +107,7 @@ export default class Range extends ThemedComponent {
 
     return (
       <View
-        className={classNames(theme.range, {
+        className={classNames(theme.range, theme[validation], {
           [theme.focused]: focused
         })}
       >
@@ -130,6 +134,9 @@ export default class Range extends ThemedComponent {
             this.input = ref;
           }}
         />
+        {validation &&
+          validationText &&
+          <small className={theme.message}>{validationText}</small>}
         {hint && <small className={theme.hint}>{hint}</small>}
       </View>
     );

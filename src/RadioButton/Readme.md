@@ -78,3 +78,22 @@ initialState={ value: 1 };
   </Grid>
 </Grid>
 ```
+
+Validation:
+
+```
+<Grid columns={ 1 }>
+  <RadioButton
+    validation='error'
+    validationText='We crashed!'
+  >Click me</RadioButton>
+  <RadioButton
+    validation='warning'
+    validationText='You may want to pull up!'
+  >Click me</RadioButton>
+  <RadioButton
+    validation='success'
+    validationText='We have landed safely.'
+  >Click me</RadioButton>
+</Grid>
+```

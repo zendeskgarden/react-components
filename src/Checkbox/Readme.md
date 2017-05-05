@@ -83,3 +83,19 @@ initialState={ checked: false };
   </Grid>
 </Grid>
 ```
+
+Validation:
+
+```
+<Grid columns={ 1 } spacing='small'>
+  <Checkbox validation='error' validationText='We crashed!'>
+    Click me
+  </Checkbox>
+  <Checkbox validation='warning' validationText='You may want to pull up now!'>
+    Click me
+  </Checkbox>
+  <Checkbox validation='success' validationText='We have landed safely!'>
+    Click me
+  </Checkbox>
+</Grid>
+```
