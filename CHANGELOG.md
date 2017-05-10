@@ -1,5 +1,8 @@
 ## Change Log
 
+### v4.20.1 (2017/05/10 21:34 +00:00)
+- [#189](https://github.com/zendeskgarden/react-components/pull/189) Fix buttton group styling (@sunesimonsen)
+
 ### v4.20.0 (2017/05/05 10:28 +00:00)
 - [#180](https://github.com/zendeskgarden/react-components/pull/180) Range, Toggle, Checkbox, RadioButton: Support validation message (@Anifacted)
 - [#185](https://github.com/zendeskgarden/react-components/pull/185) Tooltip: Add full coverage to untested component (@Anifacted)
