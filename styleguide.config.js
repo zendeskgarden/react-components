@@ -4,7 +4,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var cssnext = require('postcss-cssnext');
 var importer = require('postcss-import');
-var inputRange = require('postcss-input-range');
+var inputRange = require('sunesimonsen-postcss-input-range');
 
 var sourceDir = path.join(__dirname, 'src');
 
