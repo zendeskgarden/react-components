@@ -6401,7 +6401,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@15.5.8, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@~15.5.7:
+prop-types@^15.5.7, prop-types@^15.5.8, prop-types@~15.5.7:
   version "15.5.8"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.8.tgz#6b7b2e141083be38c8595aa51fc55775c7199394"
   dependencies:
@@ -7611,7 +7611,7 @@ synesthesia@^1.0.1:
   dependencies:
     css-color-names "0.0.3"
 
-tabbable@1.0.6:
+tabbable@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/tabbable/-/tabbable-1.0.6.tgz#7c26a87ea6f4a25edf5edb619745a0ae740724fc"
 
@@ -8506,6 +8506,10 @@ yargs@~4.8.0:
 "zd-css-buttons@git+ssh://git@github.com/zendeskgarden/css-buttons.git#2.1.2":
   version "2.1.2"
   resolved "git+ssh://git@github.com/zendeskgarden/css-buttons.git#cea875d7f41b70018f29885628c73a36d22fcf60"
+
+"zd-css-buttons@git+ssh://git@github.com/zendeskgarden/css-buttons.git#2.2.0":
+  version "2.2.0"
+  resolved "git+ssh://git@github.com/zendeskgarden/css-buttons.git#461f26b57383806c46d37c8c287e28893f18acc4"
 
 "zd-css-fonts@git+ssh://git@github.com/zendeskgarden/css-fonts.git#0.2.0":
   version "0.2.0"
