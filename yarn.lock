@@ -8507,6 +8507,10 @@ yargs@~4.8.0:
   version "2.1.2"
   resolved "git+ssh://git@github.com/zendeskgarden/css-buttons.git#cea875d7f41b70018f29885628c73a36d22fcf60"
 
+"zd-css-buttons@git+ssh://git@github.com/zendeskgarden/css-buttons.git#2.2.0":
+  version "2.2.0"
+  resolved "git+ssh://git@github.com/zendeskgarden/css-buttons.git#461f26b57383806c46d37c8c287e28893f18acc4"
+
 "zd-css-fonts@git+ssh://git@github.com/zendeskgarden/css-fonts.git#0.2.0":
   version "0.2.0"
   resolved "git+ssh://git@github.com/zendeskgarden/css-fonts.git#48353a907f59779efeb259a7136f23d2a6234fb8"

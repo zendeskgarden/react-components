@@ -1,5 +1,5 @@
 .active {
-  composes: is-active from 'zd-css-buttons';
+  composes: is-selected from 'zd-css-buttons';
 }
 
 .focused {
