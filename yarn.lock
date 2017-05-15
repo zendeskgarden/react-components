@@ -5369,9 +5369,9 @@ normalize-url@^1.4.0:
     query-string "^4.1.0"
     sort-keys "^1.0.0"
 
-normalize.css@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-5.0.0.tgz#7cec875ce8178a5333c4de80b68ea9c18b9d7c37"
+normalize.css@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-6.0.0.tgz#22188c2707c911fb3ad3c1aac0677ff68661bea8"
 
 npmlog@^4.0.2:
   version "4.0.2"
@@ -8496,24 +8496,15 @@ yargs@~4.8.0:
   version "0.2.0"
   resolved "git+ssh://git@github.com/zendeskgarden/css-avatars.git#7c1025a40a6d1ea92b8d89e22d5aaa3149ebf39e"
 
-"zd-css-bedrock@git+ssh://git@github.com/zendeskgarden/css-bedrock.git#1.0.1":
-  version "1.0.1"
-  resolved "git+ssh://git@github.com/zendeskgarden/css-bedrock.git#be9b1649702c945b431e61cad5723e78563d5f2e"
+"zd-css-bedrock@git+ssh://git@github.com/zendeskgarden/css-bedrock.git#2.0.0":
+  version "2.0.0"
+  resolved "git+ssh://git@github.com/zendeskgarden/css-bedrock.git#b03a087b9cdcd303aa2817bc4f8cffcb7ed59613"
   dependencies:
-    normalize.css "^5.0.0"
-    zd-css-fonts "git+ssh://git@github.com/zendeskgarden/css-fonts.git#0.2.0"
-
-"zd-css-buttons@git+ssh://git@github.com/zendeskgarden/css-buttons.git#2.1.2":
-  version "2.1.2"
-  resolved "git+ssh://git@github.com/zendeskgarden/css-buttons.git#cea875d7f41b70018f29885628c73a36d22fcf60"
+    normalize.css "^6.0.0"
 
 "zd-css-buttons@git+ssh://git@github.com/zendeskgarden/css-buttons.git#2.2.0":
   version "2.2.0"
   resolved "git+ssh://git@github.com/zendeskgarden/css-buttons.git#461f26b57383806c46d37c8c287e28893f18acc4"
-
-"zd-css-fonts@git+ssh://git@github.com/zendeskgarden/css-fonts.git#0.2.0":
-  version "0.2.0"
-  resolved "git+ssh://git@github.com/zendeskgarden/css-fonts.git#48353a907f59779efeb259a7136f23d2a6234fb8"
 
 "zd-css-forms@git+ssh://git@github.com/zendeskgarden/css-forms.git#1.3.0":
   version "1.3.0"

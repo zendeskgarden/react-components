@@ -86,7 +86,7 @@
     "webpack": "2.4.1",
     "zd-css-arrows": "git+ssh://git@github.com/zendeskgarden/css-arrows.git#0.3.0",
     "zd-css-avatars": "git+ssh://git@github.com/zendeskgarden/css-avatars.git#0.2.0",
-    "zd-css-bedrock": "git+ssh://git@github.com/zendeskgarden/css-bedrock.git#1.0.1",
+    "zd-css-bedrock": "git+ssh://git@github.com/zendeskgarden/css-bedrock.git#2.0.0",
     "zd-css-buttons": "git+ssh://git@github.com/zendeskgarden/css-buttons.git#2.2.0",
     "zd-css-forms": "git+ssh://git@github.com/zendeskgarden/css-forms.git#1.3.0",
     "zd-css-labels": "git+ssh://git@github.com/zendeskgarden/css-labels.git#0.2.0",
