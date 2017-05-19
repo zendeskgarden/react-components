@@ -8502,6 +8502,12 @@ yargs@~4.8.0:
   dependencies:
     normalize.css "^6.0.0"
 
+"zd-css-bedrock@git+ssh://git@github.com/zendeskgarden/css-bedrock.git#2.0.1":
+  version "2.0.1"
+  resolved "git+ssh://git@github.com/zendeskgarden/css-bedrock.git#4b9fa938f5843d63f2113ebf522999178502fa80"
+  dependencies:
+    normalize.css "^6.0.0"
+
 "zd-css-buttons@git+ssh://git@github.com/zendeskgarden/css-buttons.git#2.2.0":
   version "2.2.0"
   resolved "git+ssh://git@github.com/zendeskgarden/css-buttons.git#461f26b57383806c46d37c8c287e28893f18acc4"
