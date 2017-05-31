@@ -1,5 +1,9 @@
 ## Change Log
 
+### v4.21.0 (2017/05/31 08:20 +00:00)
+- [#195](https://github.com/zendeskgarden/react-components/pull/195) Checkbox: Make it possible to specify custom `id` prop (@Anifacted)
+- [#192](https://github.com/zendeskgarden/react-components/pull/192) Upgrade css-bedrock @2.0.1 (@Anifacted)
+
 ### v4.20.1 (2017/05/10 21:34 +00:00)
 - [#189](https://github.com/zendeskgarden/react-components/pull/189) Fix buttton group styling (@sunesimonsen)
 
@@ -131,7 +135,7 @@
 
 ### v3.4.0 (2017/01/26 09:58 +00:00)
 - [#117](https://github.com/zendeskgarden/react-components/pull/117) Default to optimized build (@sunesimonsen)
-- [#113](https://github.com/zendeskgarden/react-components/pull/113) Note required babel-polyfill in readme (@jsdnxx)
+- [#113](https://github.com/zendeskgarden/react-components/pull/113) Note required babel-polyfill in readme (@js-n)
 - [#110](https://github.com/zendeskgarden/react-components/pull/110) Upgrade standard to the newest version (@sunesimonsen)
 
 ### v3.3.0 (2017/01/03 15:18 +00:00)
@@ -164,7 +168,7 @@
 - [#90](https://github.com/zendeskgarden/react-components/pull/90) Upgraded css-forms to 0.3.1 to fix bug in IE (@sunesimonsen)
 
 ### v2.12.0 (2016/12/05 10:07 +00:00)
-- [#86](https://github.com/zendeskgarden/react-components/pull/86) Fix positioning offset for transform containing blocks (@sunesimonsen, @jsdnxx)
+- [#86](https://github.com/zendeskgarden/react-components/pull/86) Fix positioning offset for transform containing blocks (@sunesimonsen, @js-n)
 - [#89](https://github.com/zendeskgarden/react-components/pull/89) Upgraded unexpected and friends (@sunesimonsen)
 - [#88](https://github.com/zendeskgarden/react-components/pull/88) Removed comment that was committed by mistake. (@sunesimonsen)
 
