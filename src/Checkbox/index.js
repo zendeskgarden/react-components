@@ -16,6 +16,7 @@ export default class Checkbox extends ThemedComponent {
     dir: PropTypes.oneOf(['ltr', 'rtl']),
     disabled: PropTypes.bool,
     hint: PropTypes.node,
+    id: PropTypes.string,
     muted: PropTypes.bool,
     onChange: PropTypes.func,
     tabIndex: PropTypes.number,
@@ -37,7 +38,7 @@ export default class Checkbox extends ThemedComponent {
       namespace: 'Checkbox',
       styles
     });
-    this.id = uuid.v4();
+    this.generatedId = uuid.v4();
     this.keyboard = true;
     this.state = {
       focused: false
@@ -58,6 +59,7 @@ export default class Checkbox extends ThemedComponent {
       disabled,
       dir,
       hint,
+      id,
       muted,
       tabIndex,
       testId,
@@ -69,6 +71,8 @@ export default class Checkbox extends ThemedComponent {
 
     const { focused } = this.state;
     const { theme } = this;
+
+    const idAttribute = id || this.generatedId;
 
     return (
       <View
@@ -86,7 +90,7 @@ export default class Checkbox extends ThemedComponent {
           data-test-id={testId}
           defaultChecked={defaultChecked}
           disabled={disabled}
-          id={this.id}
+          id={idAttribute}
           onBlur={() => this.setState({ focused: false })}
           onChange={this.onChange}
           onFocus={() => {
@@ -102,7 +106,7 @@ export default class Checkbox extends ThemedComponent {
         <label
           className={classNames(theme.label, { [theme.muted]: muted })}
           dir={dir}
-          htmlFor={this.id}
+          htmlFor={idAttribute}
           onMouseUp={() => {
             this.keyboard = false;
           }}

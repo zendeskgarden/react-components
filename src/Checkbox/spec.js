@@ -232,6 +232,20 @@ describe('Checkbox', () => {
     });
   });
 
+  describe('with a custom id', () => {
+    it('renders a checkbox with the specified custom id', () => {
+      expect(
+        <Checkbox id="testing">Check me out!</Checkbox>,
+        'when deeply rendered',
+        'to contain',
+        <View>
+          <input id="testing" />
+          <label htmlFor="testing">Check me out!</label>
+        </View>
+      );
+    });
+  });
+
   describe('with a tab index', () => {
     it('renders a checkbox with the specified tab index', () => {
       expect(
