@@ -36,9 +36,9 @@ module.exports = {
   ],
   serverPort: 5000,
   template: './src/styleguide/index.html',
+  require: ['babel-polyfill'],
   webpackConfig: {
     entry: [
-      'babel-polyfill',
       '!!style-loader!css-loader!./node_modules/zd-css-bedrock/dist/index.css',
       '!!style-loader!css-loader!postcss-loader!./src/styleguide/index.css'
     ],
