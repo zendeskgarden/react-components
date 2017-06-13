@@ -24,6 +24,7 @@ export default class Core extends Component {
     onEscape: PropTypes.func,
     onFocus: PropTypes.func,
     onKeyDown: PropTypes.func,
+    onPaste: PropTypes.func,
     placeholder: PropTypes.string,
     rows: PropTypes.number,
     tabIndex: PropTypes.number,
@@ -62,6 +63,7 @@ export default class Core extends Component {
       onEscape,
       onFocus,
       onKeyDown,
+      onPaste,
       placeholder,
       rows,
       tabIndex,
@@ -101,6 +103,7 @@ export default class Core extends Component {
         handler && handler(event);
         onKeyDown && onKeyDown(event);
       },
+      onPaste,
       placeholder,
       rows,
       tabIndex,

@@ -35,6 +35,7 @@ export default class TextInput extends ThemedComponent {
     onEnter: PropTypes.func,
     onEscape: PropTypes.func,
     onFocus: PropTypes.func,
+    onPaste: PropTypes.func,
     onKeyDown: PropTypes.func,
     placeholder: PropTypes.string,
     tabIndex: PropTypes.number,

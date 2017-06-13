@@ -36,6 +36,7 @@ export default class TextArea extends ThemedComponent {
     onEscape: PropTypes.func,
     onFocus: PropTypes.func,
     onKeyDown: PropTypes.func,
+    onPaste: PropTypes.func,
     placeholder: PropTypes.string,
     resizable: PropTypes.bool,
     tabIndex: PropTypes.number,
