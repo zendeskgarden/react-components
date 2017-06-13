@@ -1,5 +1,9 @@
 ## Change Log
 
+### v4.22.0 (2017/06/13 18:31 +00:00)
+- [#198](https://github.com/zendeskgarden/react-components/pull/198) Add onPaste prop passthrough for TextArea and TextInput (@js-n)
+- [#197](https://github.com/zendeskgarden/react-components/pull/197) Moved the babel-polyfill to a component require (@sunesimonsen)
+
 ### v4.21.0 (2017/05/31 08:20 +00:00)
 - [#195](https://github.com/zendeskgarden/react-components/pull/195) Checkbox: Make it possible to specify custom `id` prop (@Anifacted)
 - [#192](https://github.com/zendeskgarden/react-components/pull/192) Upgrade css-bedrock @2.0.1 (@Anifacted)
