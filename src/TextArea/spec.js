@@ -257,7 +257,7 @@ describe('TextArea.Core', () => {
         <TextArea.Core onClick={onClick} />,
         'when deeply rendered',
         'with event',
-        'blur',
+        'click',
         'on',
         <textarea />
       ).then(() => {
