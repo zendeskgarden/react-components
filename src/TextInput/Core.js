@@ -13,6 +13,7 @@ export default class Core extends Component {
     id: PropTypes.string,
     name: PropTypes.string,
     maxLength: PropTypes.number,
+    onClick: PropTypes.func,
     onArrowDown: PropTypes.func,
     onArrowLeft: PropTypes.func,
     onArrowRight: PropTypes.func,
@@ -69,6 +70,7 @@ export default class Core extends Component {
       onArrowLeft,
       onArrowRight,
       onArrowUp,
+      onClick,
       onBlur,
       onChangeText,
       onDelete,
@@ -106,6 +108,7 @@ export default class Core extends Component {
       id,
       name,
       maxLength,
+      onClick,
       onBlur,
       onChange(event) {
         onChangeText && onChangeText(event.target.value);
