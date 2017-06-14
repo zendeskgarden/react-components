@@ -1,5 +1,8 @@
 ## Change Log
 
+### v4.23.0 (2017/06/14 19:34 +00:00)
+- [#199](https://github.com/zendeskgarden/react-components/pull/199) Luis/textinput and textarea onclick (@sunesimonsen, @luis-almeida)
+
 ### v4.22.0 (2017/06/13 18:31 +00:00)
 - [#198](https://github.com/zendeskgarden/react-components/pull/198) Add onPaste prop passthrough for TextArea and TextInput (@js-n)
 - [#197](https://github.com/zendeskgarden/react-components/pull/197) Moved the babel-polyfill to a component require (@sunesimonsen)
