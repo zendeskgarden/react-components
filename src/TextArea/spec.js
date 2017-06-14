@@ -249,6 +249,23 @@ describe('TextArea.Core', () => {
     });
   });
 
+  describe('when clicking the element', () => {
+    it('onClick is called', () => {
+      const onClick = sinon.spy();
+
+      return expect(
+        <TextArea.Core onClick={onClick} />,
+        'when deeply rendered',
+        'with event',
+        'blur',
+        'on',
+        <textarea />
+      ).then(() => {
+        expect(onClick, 'was called times', 1);
+      });
+    });
+  });
+
   describe('when pressing keys on the element', () => {
     it('onKeyDown is called', () => {
       const onKeyDown = sinon.spy();
