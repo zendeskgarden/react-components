@@ -29,6 +29,7 @@ export default class TextInput extends ThemedComponent {
     onArrowLeft: PropTypes.func,
     onArrowRight: PropTypes.func,
     onArrowUp: PropTypes.func,
+    onClick: PropTypes.func,
     onBlur: PropTypes.func,
     onChangeText: PropTypes.func,
     onDelete: PropTypes.func,

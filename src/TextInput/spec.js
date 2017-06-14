@@ -270,6 +270,23 @@ describe('TextInput.Core', () => {
     });
   });
 
+  describe('when clicking the element', () => {
+    it('onClick is called', () => {
+      const onClick = sinon.spy();
+
+      return expect(
+        <TextInput.Core onClick={onClick} />,
+        'when deeply rendered',
+        'with event',
+        'click',
+        'on',
+        <input type="text" />
+      ).then(() => {
+        expect(onClick, 'was called times', 1);
+      });
+    });
+  });
+
   describe('when pressing keys on the element', () => {
     it('onKeyDown is called', () => {
       const onKeyDown = sinon.spy();

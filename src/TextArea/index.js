@@ -30,6 +30,7 @@ export default class TextArea extends ThemedComponent {
     onArrowRight: PropTypes.func,
     onArrowUp: PropTypes.func,
     onBlur: PropTypes.func,
+    onClick: PropTypes.func,
     onChangeText: PropTypes.func,
     onDelete: PropTypes.func,
     onEnter: PropTypes.func,
