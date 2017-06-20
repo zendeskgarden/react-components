@@ -15,6 +15,7 @@ export default class RadioButton extends ThemedComponent {
     dir: PropTypes.oneOf(['ltr', 'rtl']),
     disabled: PropTypes.bool,
     hint: PropTypes.node,
+    id: PropTypes.string,
     muted: PropTypes.bool,
     name: PropTypes.string,
     onChange: PropTypes.func,
@@ -37,7 +38,7 @@ export default class RadioButton extends ThemedComponent {
       namespace: 'RadioButton',
       styles
     });
-    this.id = uuid.v4();
+    this.generatedId = uuid.v4();
     this.keyboard = true;
     this.state = {
       focused: false
@@ -58,6 +59,7 @@ export default class RadioButton extends ThemedComponent {
       dir,
       disabled,
       hint,
+      id,
       muted,
       name,
       tabIndex,
@@ -70,6 +72,8 @@ export default class RadioButton extends ThemedComponent {
 
     const { focused } = this.state;
     const { theme } = this;
+
+    const idAttribute = id || this.generatedId;
 
     return (
       <View
@@ -87,7 +91,7 @@ export default class RadioButton extends ThemedComponent {
           data-test-id={testId}
           defaultChecked={defaultChecked}
           disabled={disabled}
-          id={this.id}
+          id={idAttribute}
           name={name}
           ref={ref => {
             this.input = ref;
@@ -106,7 +110,7 @@ export default class RadioButton extends ThemedComponent {
             [theme.muted]: muted
           })}
           dir={dir}
-          htmlFor={this.id}
+          htmlFor={idAttribute}
           onMouseUp={() => {
             this.keyboard = false;
           }}
