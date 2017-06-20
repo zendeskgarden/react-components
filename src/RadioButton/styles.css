@@ -47,4 +47,7 @@
 .error {
   composes: has-error from '@zendesk/garden-css-forms';
 }
+
+.noLabel {
+  composes: c-chk--nolabel from '@zendesk/garden-css-forms';
 }

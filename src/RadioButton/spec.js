@@ -258,4 +258,18 @@ describe('RadioButton', () => {
       );
     });
   });
+
+  describe('when given no children', () => {
+    it('renders a radion button with the class nolabel', () => {
+      expect(
+        <RadioButton />,
+        'when deeply rendered',
+        'to contain',
+        <View className="noLabel">
+          <input />
+          <label />
+        </View>
+      );
+    });
+  });
 });

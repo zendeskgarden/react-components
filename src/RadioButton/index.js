@@ -80,7 +80,8 @@ export default class RadioButton extends ThemedComponent {
         className={classNames(theme.checkbox, theme.radio, theme[validation], {
           [theme.focused]: focused,
           [theme.rtl]: dir === 'rtl',
-          [theme.disabled]: disabled
+          [theme.disabled]: disabled,
+          [theme.noLabel]: !children
         })}
         title={title}
         tooltipPositioning={tooltipPositioning}
