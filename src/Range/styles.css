@@ -1,35 +1,35 @@
 .range {
-  composes: c-range from 'zd-css-forms';
+  composes: c-range from '@zendesk/garden-css-forms';
 }
 
 .focused {
-  composes: is-focused from 'zd-css-forms';
+  composes: is-focused from '@zendesk/garden-css-forms';
 }
 
 .label {
-  composes: c-range__label from 'zd-css-forms';
+  composes: c-range__label from '@zendesk/garden-css-forms';
 }
 
 .hint {
-  composes: c-range__hint from 'zd-css-forms';
+  composes: c-range__hint from '@zendesk/garden-css-forms';
 }
 
 .message {
-  composes: c-range__message from 'zd-css-forms';
+  composes: c-range__message from '@zendesk/garden-css-forms';
 }
 
 .success {
-  composes: has-success from 'zd-css-forms';
+  composes: has-success from '@zendesk/garden-css-forms';
 }
 
 .warning {
-  composes: has-warning from 'zd-css-forms';
+  composes: has-warning from '@zendesk/garden-css-forms';
 }
 
 .error {
-  composes: has-error from 'zd-css-forms';
+  composes: has-error from '@zendesk/garden-css-forms';
 }
 
 .input {
-  composes: c-range__input from 'zd-css-forms';
+  composes: c-range__input from '@zendesk/garden-css-forms';
 }
