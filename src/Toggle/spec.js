@@ -232,6 +232,20 @@ describe('Toggle', () => {
     });
   });
 
+  describe('with a custom id', () => {
+    it('renders a toggle with the specified custom id', () => {
+      expect(
+        <Toggle id="testing">Toggle me!</Toggle>,
+        'when deeply rendered',
+        'to contain',
+        <View>
+          <input id="testing" />
+          <label htmlFor="testing">Toggle me!</label>
+        </View>
+      );
+    });
+  });
+
   describe('with a tab index', () => {
     it('renders a toggle with the specified tab index', () => {
       expect(
