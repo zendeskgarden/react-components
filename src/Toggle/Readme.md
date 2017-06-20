@@ -32,6 +32,14 @@ Toggles support being muted in order to logically display under a label heading.
   </Toggle>
 </Grid>
 ```
+Without a label:
+
+```
+<Grid>
+  <FormLabel htmlFor='open-for-comments'>Open for comments</FormLabel>
+  <Toggle id='open-for-comments'/>
+</Grid>
+```
 
 Support for RTL:
 

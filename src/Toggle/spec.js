@@ -256,4 +256,18 @@ describe('Toggle', () => {
       );
     });
   });
+
+  describe('when given no children', () => {
+    it('renders a toggle with the class nolabel', () => {
+      expect(
+        <Toggle />,
+        'when deeply rendered',
+        'to contain',
+        <View className="noLabel">
+          <input />
+          <label />
+        </View>
+      );
+    });
+  });
 });

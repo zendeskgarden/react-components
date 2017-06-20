@@ -101,7 +101,8 @@ export default class Toggle extends ThemedComponent {
         className={classNames(theme.toggle, theme[validation], {
           [theme.disabled]: disabled,
           [theme.focused]: focused,
-          [theme.rtl]: dir === 'rtl'
+          [theme.rtl]: dir === 'rtl',
+          [theme.noLabel]: !children
         })}
       >
         <input
