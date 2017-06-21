@@ -1,5 +1,8 @@
 ## Change Log
 
+### v4.24.0 (2017/06/21 08:02 +00:00)
+- [#202](https://github.com/zendeskgarden/react-components/pull/202) Add support for checkboxes, toggles and radio buttons without labels (@sunesimonsen)
+
 ### v4.23.0 (2017/06/14 19:34 +00:00)
 - [#199](https://github.com/zendeskgarden/react-components/pull/199) Luis/textinput and textarea onclick (@sunesimonsen, @luis-almeida)
 
