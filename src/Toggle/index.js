@@ -16,6 +16,7 @@ export default class Toggle extends ThemedComponent {
     dir: PropTypes.oneOf(['ltr', 'rtl']),
     disabled: PropTypes.bool,
     hint: PropTypes.node,
+    id: PropTypes.string,
     muted: PropTypes.bool,
     onChange: PropTypes.func,
     tabIndex: PropTypes.number,
@@ -35,7 +36,7 @@ export default class Toggle extends ThemedComponent {
       styles
     });
 
-    this.id = uuid.v4();
+    this.generatedId = uuid.v4();
 
     this.handlers = {
       '13': this.toggle,
@@ -82,6 +83,7 @@ export default class Toggle extends ThemedComponent {
       dir,
       disabled,
       hint,
+      id,
       muted,
       tabIndex,
       testId,
@@ -92,12 +94,15 @@ export default class Toggle extends ThemedComponent {
     const { focused } = this.state;
     const { theme } = this;
 
+    const idAttribute = id || this.generatedId;
+
     return (
       <View
         className={classNames(theme.toggle, theme[validation], {
           [theme.disabled]: disabled,
           [theme.focused]: focused,
-          [theme.rtl]: dir === 'rtl'
+          [theme.rtl]: dir === 'rtl',
+          [theme.noLabel]: !children
         })}
       >
         <input
@@ -106,7 +111,7 @@ export default class Toggle extends ThemedComponent {
           data-test-id={testId}
           defaultChecked={defaultChecked}
           disabled={disabled}
-          id={this.id}
+          id={idAttribute}
           onBlur={() => this.setState({ focused: false })}
           onChange={this.onChange}
           onKeyDown={event => {
@@ -128,7 +133,7 @@ export default class Toggle extends ThemedComponent {
             [theme.muted]: muted
           })}
           dir={dir}
-          htmlFor={this.id}
+          htmlFor={idAttribute}
           onMouseUp={() => {
             this.keyboard = false;
           }}

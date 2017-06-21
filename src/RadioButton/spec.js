@@ -234,6 +234,20 @@ describe('RadioButton', () => {
     });
   });
 
+  describe('with a custom id', () => {
+    it('renders a radio button with the specified custom id', () => {
+      expect(
+        <RadioButton id="testing">Check me out!</RadioButton>,
+        'when deeply rendered',
+        'to contain',
+        <View>
+          <input id="testing" />
+          <label htmlFor="testing">Check me out!</label>
+        </View>
+      );
+    });
+  });
+
   describe('with a tab index', () => {
     it('renders a RadioButton with the specified tab index', () => {
       expect(
@@ -241,6 +255,20 @@ describe('RadioButton', () => {
         'when deeply rendered',
         'to contain',
         <input tabIndex={42} />
+      );
+    });
+  });
+
+  describe('when given no children', () => {
+    it('renders a radion button with the class nolabel', () => {
+      expect(
+        <RadioButton />,
+        'when deeply rendered',
+        'to contain',
+        <View className="noLabel">
+          <input />
+          <label />
+        </View>
       );
     });
   });

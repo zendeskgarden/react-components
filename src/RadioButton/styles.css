@@ -1,49 +1,53 @@
 .checkbox {
-  composes: c-chk from 'zd-css-forms';
+  composes: c-chk from '@zendesk/garden-css-forms';
 }
 
 .radio {
-  composes: c-chk--radio from 'zd-css-forms';
+  composes: c-chk--radio from '@zendesk/garden-css-forms';
 }
 
 .input {
-  composes: c-chk__input from 'zd-css-forms';
+  composes: c-chk__input from '@zendesk/garden-css-forms';
 }
 
 .label {
-  composes: c-chk__label from 'zd-css-forms';
+  composes: c-chk__label from '@zendesk/garden-css-forms';
 }
 
 .rtl {
-  composes: is-rtl from 'zd-css-forms';
+  composes: is-rtl from '@zendesk/garden-css-forms';
 }
 
 .focused {
-  composes: is-focused from 'zd-css-forms';
+  composes: is-focused from '@zendesk/garden-css-forms';
 }
 
 .hint,
 .muted {
-  composes: c-chk__hint from 'zd-css-forms';
+  composes: c-chk__hint from '@zendesk/garden-css-forms';
 }
 
 .disabled {
-  composes: is-disabled from 'zd-css-forms';
+  composes: is-disabled from '@zendesk/garden-css-forms';
 }
 
 .message {
-  composes: c-chk__message from 'zd-css-forms';
+  composes: c-chk__message from '@zendesk/garden-css-forms';
   display: block;
 }
 
 .success {
-  composes: has-success from 'zd-css-forms';
+  composes: has-success from '@zendesk/garden-css-forms';
 }
 
 .warning {
-  composes: has-warning from 'zd-css-forms';
+  composes: has-warning from '@zendesk/garden-css-forms';
 }
 
 .error {
-  composes: has-error from 'zd-css-forms';
+  composes: has-error from '@zendesk/garden-css-forms';
+}
+
+.noLabel {
+  composes: c-chk--nolabel from '@zendesk/garden-css-forms';
 }

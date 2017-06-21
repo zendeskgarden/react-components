@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@zendesk/garden-css-forms@git+ssh://git@github.com/zendeskgarden/css-forms.git#2.1.0":
+  version "2.1.0"
+  resolved "git+ssh://git@github.com/zendeskgarden/css-forms.git#4ddf2c483b2a09fa146e27f7b823211ce52d770e"
+
 JSONStream@^0.8.4:
   version "0.8.4"
   resolved "https://registry.yarnpkg.com/JSONStream/-/JSONStream-0.8.4.tgz#91657dfe6ff857483066132b4618b62e8f4887bd"
@@ -8495,12 +8499,6 @@ yargs@~4.8.0:
 "zd-css-avatars@git+ssh://git@github.com/zendeskgarden/css-avatars.git#0.2.0":
   version "0.2.0"
   resolved "git+ssh://git@github.com/zendeskgarden/css-avatars.git#7c1025a40a6d1ea92b8d89e22d5aaa3149ebf39e"
-
-"zd-css-bedrock@git+ssh://git@github.com/zendeskgarden/css-bedrock.git#2.0.0":
-  version "2.0.0"
-  resolved "git+ssh://git@github.com/zendeskgarden/css-bedrock.git#b03a087b9cdcd303aa2817bc4f8cffcb7ed59613"
-  dependencies:
-    normalize.css "^6.0.0"
 
 "zd-css-bedrock@git+ssh://git@github.com/zendeskgarden/css-bedrock.git#2.0.1":
   version "2.0.1"

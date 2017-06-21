@@ -3,7 +3,7 @@
 // transpiled to ES5. CSS files will be transpiled to JavaScript files that will
 // return a CSS-modules hash and insert the actual CSS in the head. When a CSS
 // file composes another CSS file from node_modules it will be transpiled in to
-// the folder lib/garden and a dependency will be added to the composed file.
+// the folder lib/deps and a dependency will be added to the composed file.
 // This ensured that composed CSS modules will be shared among the files
 // referencing them.
 
@@ -64,7 +64,7 @@ const cssToJS = (contents, file) => {
       .map(dependency => {
         const dependencyPath = path.join(
           relativePath,
-          'garden',
+          'deps',
           `${dependency}.js`
         );
         return `require('${dependencyPath}')`;
@@ -108,7 +108,7 @@ gulp.task('collect-composes', cb => {
 
 // When we have collected all the references to composed CSS files,
 // we can then transpile each of the them into JavaScript files that will be
-// stored in the lib/garden folder.
+// stored in the lib/deps folder.
 gulp.task('process-composed-files', ['collect-composes'], () => {
   const sources = Object.keys(composes).map(module => require.resolve(module));
 
@@ -128,8 +128,8 @@ gulp.task('process-composed-files', ['collect-composes'], () => {
     .pipe(transform(cssToJS, { encoding: 'utf8' }))
     .pipe(
       rename(path => {
-        path.basename = path.dirname.split('/')[0];
-        path.dirname = 'garden/';
+        path.basename = path.dirname.split('/').slice(0, -1).join('/');
+        path.dirname = 'deps/';
         path.extname = '.js';
       })
     )

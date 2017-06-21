@@ -1,39 +1,39 @@
 .txt {
-  composes: c-txt from 'zd-css-forms';
+  composes: c-txt from '@zendesk/garden-css-forms';
 }
 
 .message {
-  composes: c-txt__message from 'zd-css-forms';
+  composes: c-txt__message from '@zendesk/garden-css-forms';
 }
 
 .input {
-  composes: c-txt__input c-txt__input--area from 'zd-css-forms';
+  composes: c-txt__input c-txt__input--area from '@zendesk/garden-css-forms';
 }
 
 .resizable {
-  composes: is-resizable from 'zd-css-forms';
+  composes: is-resizable from '@zendesk/garden-css-forms';
 }
 
 .label {
-  composes: c-txt__label from 'zd-css-forms';
+  composes: c-txt__label from '@zendesk/garden-css-forms';
 }
 
 .hint {
-  composes: c-txt__hint from 'zd-css-forms';
+  composes: c-txt__hint from '@zendesk/garden-css-forms';
 }
 
 .success {
-  composes: has-success from 'zd-css-forms';
+  composes: has-success from '@zendesk/garden-css-forms';
 }
 
 .warning {
-  composes: has-warning from 'zd-css-forms';
+  composes: has-warning from '@zendesk/garden-css-forms';
 }
 
 .error {
-  composes: has-error from 'zd-css-forms';
+  composes: has-error from '@zendesk/garden-css-forms';
 }
 
 .disabled {
-  composes: is-disabled from 'zd-css-forms';
+  composes: is-disabled from '@zendesk/garden-css-forms';
 }

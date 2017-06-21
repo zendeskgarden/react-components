@@ -256,4 +256,18 @@ describe('Checkbox', () => {
       );
     });
   });
+
+  describe('when given no children', () => {
+    it('renders a toggle with the class nolabel', () => {
+      expect(
+        <Checkbox />,
+        'when deeply rendered',
+        'to contain',
+        <View className="noLabel">
+          <input />
+          <label />
+        </View>
+      );
+    });
+  });
 });

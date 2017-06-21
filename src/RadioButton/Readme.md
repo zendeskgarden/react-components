@@ -47,6 +47,23 @@ initialState = { value: 1 };
 </Grid>
 ```
 
+Without labels:
+
+```
+initialState = { value: 1 };
+
+<Grid columns={ 4 }>
+  <FormLabel htmlFor='nolabel-1'>1</FormLabel>
+  <FormLabel htmlFor='nolabel-2'>2</FormLabel>
+  <FormLabel htmlFor='nolabel-3'>3</FormLabel>
+  <FormLabel htmlFor='nolabel-4'>4</FormLabel>
+  <RadioButton id='nolabel-1' name="nolabel" checked={ state.value === 1 } value={ 1 } onChange={ (v) => setState({ value: v })}/>
+  <RadioButton id='nolabel-2' name="nolabel" checked={ state.value === 2 } value={ 2 } onChange={ (v) => setState({ value: v })}/>
+  <RadioButton id='nolabel-3' disabled name="nolabel" checked={ state.value === 3 } value={ 3 } onChange={ (v) => setState({ value: v })}/>
+  <RadioButton id='nolabel-4' name="nolabel" checked={ state.value === 4 } value={ 4 } onChange={ (v) => setState({ value: v })}/>
+</Grid>
+```
+
 Uncontrolled:
 
 ```

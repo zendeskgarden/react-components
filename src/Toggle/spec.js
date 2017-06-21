@@ -232,6 +232,20 @@ describe('Toggle', () => {
     });
   });
 
+  describe('with a custom id', () => {
+    it('renders a toggle with the specified custom id', () => {
+      expect(
+        <Toggle id="testing">Toggle me!</Toggle>,
+        'when deeply rendered',
+        'to contain',
+        <View>
+          <input id="testing" />
+          <label htmlFor="testing">Toggle me!</label>
+        </View>
+      );
+    });
+  });
+
   describe('with a tab index', () => {
     it('renders a toggle with the specified tab index', () => {
       expect(
@@ -239,6 +253,20 @@ describe('Toggle', () => {
         'when deeply rendered',
         'to contain',
         <input tabIndex={42} />
+      );
+    });
+  });
+
+  describe('when given no children', () => {
+    it('renders a toggle with the class nolabel', () => {
+      expect(
+        <Toggle />,
+        'when deeply rendered',
+        'to contain',
+        <View className="noLabel">
+          <input />
+          <label />
+        </View>
       );
     });
   });

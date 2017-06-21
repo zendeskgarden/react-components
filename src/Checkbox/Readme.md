@@ -46,6 +46,16 @@ Checkboxes support being muted in order to logically display under a label headi
 </Grid>
 ```
 
+Without a label:
+
+```
+<Grid>
+  Open for comments
+  <Checkbox />
+</Grid>
+```
+
+
 Support for RTL:
 
 ```
