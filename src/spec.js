@@ -1,7 +1,6 @@
 import expect from 'test/expect';
 import * as rootIndex from './';
 import fs from 'fs';
-import path from 'path';
 
 describe('index', () => {
   const rootIndexExports = Object.keys(rootIndex);
@@ -9,8 +8,8 @@ describe('index', () => {
   it('All components are listed in the root index', () => {
     fs
       .readdirSync(__dirname)
-      .filter(file => fs.lstatSync(path.resolve(__dirname, file)).isDirectory())
       .filter(dir => /^[A-Z]/.test(dir))
+      .map(entry => entry.replace(/\.js$/, ''))
       .forEach(dir => expect(rootIndexExports, 'to contain', dir));
   });
 
