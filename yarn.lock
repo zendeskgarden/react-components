@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@zendesk/garden-css-forms@git+ssh://git@github.com/zendeskgarden/css-forms.git#2.1.0":
+"@zendesk/garden-css-forms@git+ssh://git@github.com/zendeskgarden/css-forms.git#v2.1.0":
   version "2.1.0"
   resolved "git+ssh://git@github.com/zendeskgarden/css-forms.git#4ddf2c483b2a09fa146e27f7b823211ce52d770e"
 
@@ -1984,7 +1984,7 @@ css-rule-stream@^1.1.0:
     ldjson-stream "^1.2.1"
     through2 "^0.6.3"
 
-css-select@^1.1.0, css-select@^1.2.0:
+css-select@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/css-select/-/css-select-1.2.0.tgz#2b3a110539c5355f1cd8d314623e870b121ec858"
   dependencies:
@@ -2305,7 +2305,7 @@ dom-converter@~0.1:
   dependencies:
     utila "~0.3"
 
-dom-serializer@0, dom-serializer@^0.1.0:
+dom-serializer@0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/dom-serializer/-/dom-serializer-0.1.0.tgz#073c697546ce0780ce23be4a28e293e40bc30c82"
   dependencies:
@@ -2316,7 +2316,7 @@ domain-browser@^1.1.1:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.1.7.tgz#867aa4b093faa05f1de08c06f4d7b21fdf8698bc"
 
-domelementtype@1, domelementtype@^1.3.0:
+domelementtype@1:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/domelementtype/-/domelementtype-1.3.0.tgz#b17aed82e8ab59e52dd9c19b1756e0fc187204c2"
 
@@ -2330,19 +2330,13 @@ domhandler@2.1:
   dependencies:
     domelementtype "1"
 
-domhandler@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/domhandler/-/domhandler-2.3.0.tgz#2de59a0822d5027fabff6f032c2b25a2a8abe738"
-  dependencies:
-    domelementtype "1"
-
 domutils@1.1:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/domutils/-/domutils-1.1.6.tgz#bddc3de099b9a2efacc51c623f28f416ecc57485"
   dependencies:
     domelementtype "1"
 
-domutils@1.5.1, domutils@^1.5.1:
+domutils@1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/domutils/-/domutils-1.5.1.tgz#dcd8488a26f563d61079e48c9f7b7e32373682cf"
   dependencies:
@@ -2418,7 +2412,7 @@ enhanced-resolve@^3.0.0:
     object-assign "^4.0.1"
     tapable "^0.2.5"
 
-entities@^1.1.1, entities@~1.1.1:
+entities@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.1.tgz#6e5c2d0a5621b5dadaecef80b90edfb5cd7772f0"
 
@@ -3622,17 +3616,6 @@ html-webpack-plugin@^2.28.0:
     lodash "^4.17.3"
     pretty-error "^2.0.2"
     toposort "^1.0.0"
-
-htmlparser2@^3.9.0:
-  version "3.9.2"
-  resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-3.9.2.tgz#1bdf87acca0f3f9e53fa4fcceb0f4b4cbb00b338"
-  dependencies:
-    domelementtype "^1.3.0"
-    domhandler "^2.3.0"
-    domutils "^1.5.1"
-    entities "^1.1.1"
-    inherits "^2.0.1"
-    readable-stream "^2.0.2"
 
 htmlparser2@~3.3.0:
   version "3.3.0"
@@ -5986,23 +5969,6 @@ postcss-initial@^1.3.1:
   dependencies:
     lodash.template "^4.2.4"
     postcss "^5.0.19"
-
-postcss-inline-svg@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/postcss-inline-svg/-/postcss-inline-svg-2.3.0.tgz#e2f4f48b94a3ed726ee11004cad2a30b589127db"
-  dependencies:
-    css-select "^1.2.0"
-    dom-serializer "^0.1.0"
-    htmlparser2 "^3.9.0"
-    postcss "^5.0.14"
-    postcss-value-parser "^3.2.3"
-
-postcss-input-range@jonathantneal/postcss-input-range#ed1b254ba56316dbb4a939b86f39278bda53f4fa:
-  version "2.0.0"
-  resolved "https://codeload.github.com/jonathantneal/postcss-input-range/tar.gz/ed1b254ba56316dbb4a939b86f39278bda53f4fa"
-  dependencies:
-    postcss "^5.0.9"
-    postcss-selector-parser "^1.3.0"
 
 postcss-less@^0.14.0:
   version "0.14.0"
@@ -8510,14 +8476,6 @@ yargs@~4.8.0:
   version "2.2.0"
   resolved "git+ssh://git@github.com/zendeskgarden/css-buttons.git#461f26b57383806c46d37c8c287e28893f18acc4"
 
-"zd-css-forms@git+ssh://git@github.com/zendeskgarden/css-forms.git#1.3.0":
-  version "1.3.0"
-  resolved "git+ssh://git@github.com/zendeskgarden/css-forms.git#8438c1f89c7b241fc7ce9bba8c13bc03daae22b2"
-  dependencies:
-    postcss-inline-svg "^2.3.0"
-    postcss-input-range jonathantneal/postcss-input-range#ed1b254ba56316dbb4a939b86f39278bda53f4fa
-    zd-svg-icons "git+ssh://git@github.com/zendeskgarden/svg-icons.git#1.3.0"
-
 "zd-css-labels@git+ssh://git@github.com/zendeskgarden/css-labels.git#0.2.0":
   version "0.2.0"
   resolved "git+ssh://git@github.com/zendeskgarden/css-labels.git#f7b87232aa7e8008cb748d388a48d6cdb0f46a7b"
@@ -8545,7 +8503,3 @@ yargs@~4.8.0:
 "zd-svg-icons@git+ssh://git@github.com/zendeskgarden/svg-icons.git#0.13.0":
   version "0.13.0"
   resolved "git+ssh://git@github.com/zendeskgarden/svg-icons.git#b82ee198ab17fb1c97d8fb44c9654c7db80dd606"
-
-"zd-svg-icons@git+ssh://git@github.com/zendeskgarden/svg-icons.git#1.3.0":
-  version "1.3.0"
-  resolved "git+ssh://git@github.com/zendeskgarden/svg-icons.git#4c016020dd4842e2d81fd818d4d12b5db55e4e05"

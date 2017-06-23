@@ -31,7 +31,7 @@
     "components"
   ],
   "devDependencies": {
-    "@zendesk/garden-css-forms": "git+ssh://git@github.com/zendeskgarden/css-forms.git#2.1.0",
+    "@zendesk/garden-css-forms": "git+ssh://git@github.com/zendeskgarden/css-forms.git#v2.1.0",
     "array-uniq": "1.0.3",
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
