@@ -1,8 +1,12 @@
 {
-  "name": "zd-react-components",
+  "name": "@zendesk/garden-react-components",
   "version": "4.24.0",
   "description": "Shared React components",
-  "private": "true",
+  "repository": "zendeskgarden/react-components",
+  "license": "UNLICENSED",
+  "publishConfig": {
+    "registry": "https://zdrepo.jfrog.io/zdrepo/api/npm/npm"
+  },
   "main": "./lib",
   "scripts": {
     "watch": "gulp watch",
@@ -31,7 +35,19 @@
     "components"
   ],
   "devDependencies": {
-    "@zendesk/garden-css-forms": "git+ssh://git@github.com/zendeskgarden/css-forms.git#v2.1.0",
+    "@zendesk/garden-css-arrows": "^1.0.0",
+    "@zendesk/garden-css-avatars": "^1.0.1",
+    "@zendesk/garden-css-bedrock": "^3.0.0",
+    "@zendesk/garden-css-buttons": "^3.0.0",
+    "@zendesk/garden-css-forms": "^2.1.0",
+    "@zendesk/garden-css-labels": "^1.0.0",
+    "@zendesk/garden-css-menus": "^3.0.0",
+    "@zendesk/garden-css-modals": "^3.0.0",
+    "@zendesk/garden-css-tabs": "^3.0.0",
+    "@zendesk/garden-css-tooltips": "^2.0.0",
+    "@zendesk/garden-css-variables": "^2.0.0",
+    "@zendesk/garden-stylelint-config": "^5.0.0",
+    "@zendesk/garden-svg-icons": "^2.1.0",
     "array-uniq": "1.0.3",
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
@@ -76,26 +92,14 @@
     "react-svg-loader": "1.1.1",
     "sinon": "2.1.0",
     "stylelint": "7.10.1",
-    "stylelint-config-zendesk": "git+ssh://git@github.com/zendeskgarden/stylelint-config.git#4.1.0",
-    "stylelint-order": "0.3.0",
+    "stylelint-order": "0.4.4",
     "sunesimonsen-postcss-input-range": "2.1.0",
     "unexpected": "10.27.0",
     "unexpected-check": "1.12.0",
     "unexpected-react": "3.5.2",
     "unexpected-sinon": "10.7.1",
     "url-loader": "0.5.8",
-    "webpack": "2.4.1",
-    "zd-css-arrows": "git+ssh://git@github.com/zendeskgarden/css-arrows.git#0.3.0",
-    "zd-css-avatars": "git+ssh://git@github.com/zendeskgarden/css-avatars.git#0.2.0",
-    "zd-css-bedrock": "git+ssh://git@github.com/zendeskgarden/css-bedrock.git#2.0.1",
-    "zd-css-buttons": "git+ssh://git@github.com/zendeskgarden/css-buttons.git#2.2.0",
-    "zd-css-labels": "git+ssh://git@github.com/zendeskgarden/css-labels.git#0.2.0",
-    "zd-css-menus": "git+ssh://git@github.com/zendeskgarden/css-menus.git#2.3.1",
-    "zd-css-modals": "git+ssh://git@github.com/zendeskgarden/css-modals.git#2.1.0",
-    "zd-css-tabs": "git+ssh://git@github.com/zendeskgarden/css-tabs.git#2.0.1",
-    "zd-css-tooltips": "git+ssh://git@github.com/zendeskgarden/css-tooltips.git#1.1.1",
-    "zd-css-variables": "git+ssh://git@github.com/zendeskgarden/css-variables.git#0.10.0",
-    "zd-svg-icons": "git+ssh://git@github.com/zendeskgarden/svg-icons.git#0.13.0"
+    "webpack": "2.4.1"
   },
   "dependencies": {
     "append-styles": "^1.0.0",
@@ -108,6 +112,9 @@
     "react": "^0.14.0 || ^15.0.0",
     "react-dom": "^0.14.0 || ^15.0.0"
   },
+  "files": [
+    "lib"
+  ],
   "standard": {
     "globals": [
       "afterEach",

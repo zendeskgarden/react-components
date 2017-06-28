@@ -1,19 +1,27 @@
 language: node_js
+node_js:
+  - node
+
+cache: yarn
+
 before_install:
   - export PATH=$TRAVIS_BUILD_DIR/vendor:$PATH
+  - npm config set @zendesk:registry https://zdrepo.jfrog.io/zdrepo/api/npm/npm/
+  - npm config set //zdrepo.jfrog.io/zdrepo/api/npm/npm/:_password $ARTIFACTORY_PASSWORD
+  - npm config set //zdrepo.jfrog.io/zdrepo/api/npm/npm/:username $ARTIFACTORY_USERNAME
+  - npm config set //zdrepo.jfrog.io/zdrepo/api/npm/npm/:email $ARTIFACTORY_EMAIL
+  - npm config set //zdrepo.jfrog.io/zdrepo/api/npm/npm/:always-auth true
+
 install:
   - $TRAVIS_BUILD_DIR/vendor/yarn
+  - npm config set _auth $ARTIFACTORY_API_KEY
+  - npm config set email $ARTIFACTORY_EMAIL
+
 script: "yarn run travis"
-node_js:
-  - "6.9.1"
-branches:
-  only: master
-cache: yarn
-env:
-  - CXX=g++-4.8
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.8
+
+deploy:
+  provider: script
+  script: npm publish
+  on:
+    branch: master
+    tags: true
