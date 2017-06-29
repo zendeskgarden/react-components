@@ -1,37 +1,37 @@
 .default {
-  composes: c-label from 'zd-css-labels';
+  composes: c-label from '@zendesk/garden-css-labels';
 }
 
 .light {
-  composes: c-label c-label--light from 'zd-css-labels';
+  composes: c-label c-label--light from '@zendesk/garden-css-labels';
 }
 
 .dark {
-  composes: c-label c-label--dark from 'zd-css-labels';
+  composes: c-label c-label--dark from '@zendesk/garden-css-labels';
 }
 
 .success {
-  composes: c-label c-label--success from 'zd-css-labels';
+  composes: c-label c-label--success from '@zendesk/garden-css-labels';
 }
 
 .warning {
-  composes: c-label c-label--warning from 'zd-css-labels';
+  composes: c-label c-label--warning from '@zendesk/garden-css-labels';
 }
 
 .error {
-  composes: c-label c-label--error from 'zd-css-labels';
+  composes: c-label c-label--error from '@zendesk/garden-css-labels';
 }
 
 .small {
-  composes: c-label--sm from 'zd-css-labels';
+  composes: c-label--sm from '@zendesk/garden-css-labels';
 }
 
 .large {
-  composes: c-label--lg from 'zd-css-labels';
+  composes: c-label--lg from '@zendesk/garden-css-labels';
 }
 
 .pill {
-  composes: c-label--pill from 'zd-css-labels';
+  composes: c-label--pill from '@zendesk/garden-css-labels';
 }
 
 .stretched {
@@ -39,17 +39,17 @@
 }
 
 .avatar {
-  composes: c-label__avatar from 'zd-css-labels';
+  composes: c-label__avatar from '@zendesk/garden-css-labels';
 }
 
 .remove {
-  composes: c-label__remove from 'zd-css-labels';
+  composes: c-label__remove from '@zendesk/garden-css-labels';
 }
 
 .round {
-  composes: c-label--round from 'zd-css-labels';
+  composes: c-label--round from '@zendesk/garden-css-labels';
 }
 
 .rtl {
-  composes: is-rtl from 'zd-css-labels';
+  composes: is-rtl from '@zendesk/garden-css-labels';
 }

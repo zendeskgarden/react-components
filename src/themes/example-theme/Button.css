@@ -1,4 +1,4 @@
-@import 'zd-css-variables';
+@import '@zendesk/garden-css-variables';
 @import './variables.css';
 
 /* stylelint-disable declaration-no-important, max-line-length */

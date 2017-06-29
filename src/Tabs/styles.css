@@ -1,9 +1,9 @@
 .tabs {
-  composes: c-tab from 'zd-css-tabs';
+  composes: c-tab from '@zendesk/garden-css-tabs';
 }
 
 .list {
-  composes: c-tab__list from 'zd-css-tabs';
+  composes: c-tab__list from '@zendesk/garden-css-tabs';
 }
 
 .list:focus {
@@ -11,29 +11,29 @@
 }
 
 .label {
-  composes: c-tab__list__item from 'zd-css-tabs';
+  composes: c-tab__list__item from '@zendesk/garden-css-tabs';
 }
 
 .panel {
-  composes: c-tab__panel from 'zd-css-tabs';
+  composes: c-tab__panel from '@zendesk/garden-css-tabs';
 }
 
 .selected {
-  composes: is-selected from 'zd-css-tabs';
+  composes: is-selected from '@zendesk/garden-css-tabs';
 }
 
 .focused {
-  composes: is-focused from 'zd-css-tabs';
+  composes: is-focused from '@zendesk/garden-css-tabs';
 }
 
 .vertical {
-  composes: c-tab--block from 'zd-css-tabs';
+  composes: c-tab--block from '@zendesk/garden-css-tabs';
 }
 
 .disabled {
-  composes: is-disabled from 'zd-css-tabs';
+  composes: is-disabled from '@zendesk/garden-css-tabs';
 }
 
 .rtl {
-  composes: is-rtl from 'zd-css-tabs';
+  composes: is-rtl from '@zendesk/garden-css-tabs';
 }
