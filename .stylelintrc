@@ -1,5 +1,5 @@
 {
-  "extends": "stylelint-config-zendesk",
+  "extends": "@zendesk/garden-stylelint-config",
   "rules": {
     "property-no-unknown": [true, {
       "ignoreProperties": ["composes"]
