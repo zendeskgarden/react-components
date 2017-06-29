@@ -23,4 +23,5 @@ deploy:
   provider: script
   script: npm publish
   on:
-    all_branches: true
+    branch: master
+    tags: true
