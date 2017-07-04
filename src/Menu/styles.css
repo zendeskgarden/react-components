@@ -1,4 +1,4 @@
-@import 'zd-css-variables';
+@import '@zendesk/garden-css-variables';
 
 :root {
   --zd-menu-min-width: 140px;
@@ -16,11 +16,11 @@
 .menu {
   position: relative;
   padding: 10px initial;
-  composes: c-menu from 'zd-css-menus';
+  composes: c-menu from '@zendesk/garden-css-menus';
 }
 
 .size_large {
-  composes: c-menu--large from 'zd-css-menus';
+  composes: c-menu--large from '@zendesk/garden-css-menus';
 }
 
 .size_small.fixed_width {
@@ -32,7 +32,7 @@
 }
 
 .item {
-  composes: c-menu__item from 'zd-css-menus';
+  composes: c-menu__item from '@zendesk/garden-css-menus';
 }
 
 .item:hover:not(.selected) {
@@ -45,19 +45,19 @@
 }
 
 .disabled {
-  composes: is-disabled from 'zd-css-menus';
+  composes: is-disabled from '@zendesk/garden-css-menus';
 }
 
 .selected {
-  composes: is-selected from 'zd-css-menus';
+  composes: is-selected from '@zendesk/garden-css-menus';
 }
 
 .separator {
-  composes: c-menu__separator from 'zd-css-menus';
+  composes: c-menu__separator from '@zendesk/garden-css-menus';
 }
 
 .rtl {
-  composes: is-rtl from 'zd-css-menus';
+  composes: is-rtl from '@zendesk/garden-css-menus';
 }
 
 .position_bottom_stretch,
@@ -69,30 +69,30 @@
 .position_top_right,
 .position_top_left,
 .position_top {
-  composes: c-menu--up from 'zd-css-menus';
+  composes: c-menu--up from '@zendesk/garden-css-menus';
 }
 
 .position_bottom_stretch,
 .position_bottom_right,
 .position_bottom_left,
 .position_bottom {
-  composes: c-menu--down from 'zd-css-menus';
+  composes: c-menu--down from '@zendesk/garden-css-menus';
 }
 
 .position_left_top,
 .position_left_bottom,
 .position_left {
-  composes: c-menu--left from 'zd-css-menus';
+  composes: c-menu--left from '@zendesk/garden-css-menus';
 }
 
 .position_right_top,
 .position_right_bottom,
 .position_right {
-  composes: c-menu--right from 'zd-css-menus';
+  composes: c-menu--right from '@zendesk/garden-css-menus';
 }
 
 .animate {
-  composes: is-open from 'zd-css-menus';
+  composes: is-open from '@zendesk/garden-css-menus';
 }
 
 @keyframes zd-menu--up-open {
@@ -129,37 +129,37 @@
 }
 
 .arrow {
-  composes: c-arrow from 'zd-css-arrows';
+  composes: c-arrow from '@zendesk/garden-css-arrows';
 }
 
 .arrow_bottom {
-  composes: c-arrow--b from 'zd-css-arrows';
+  composes: c-arrow--b from '@zendesk/garden-css-arrows';
 }
 
 .arrow_bottom_left {
-  composes: c-arrow--bl from 'zd-css-arrows';
+  composes: c-arrow--bl from '@zendesk/garden-css-arrows';
 }
 
 .arrow_bottom_right {
-  composes: c-arrow--br from 'zd-css-arrows';
+  composes: c-arrow--br from '@zendesk/garden-css-arrows';
 }
 
 .arrow_left {
-  composes: c-arrow--l from 'zd-css-arrows';
+  composes: c-arrow--l from '@zendesk/garden-css-arrows';
 }
 
 .arrow_right {
-  composes: c-arrow--r from 'zd-css-arrows';
+  composes: c-arrow--r from '@zendesk/garden-css-arrows';
 }
 
 .arrow_top {
-  composes: c-arrow--t from 'zd-css-arrows';
+  composes: c-arrow--t from '@zendesk/garden-css-arrows';
 }
 
 .arrow_top_left {
-  composes: c-arrow--tl from 'zd-css-arrows';
+  composes: c-arrow--tl from '@zendesk/garden-css-arrows';
 }
 
 .arrow_top_right {
-  composes: c-arrow--tr from 'zd-css-arrows';
+  composes: c-arrow--tr from '@zendesk/garden-css-arrows';
 }

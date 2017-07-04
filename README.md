@@ -14,8 +14,14 @@ You can see the running component sheet [here](https://zendeskgarden.github.io/r
 Install the components:
 
 ```
-$ npm install --save-dev git+ssh://git@github.com/zendeskgarden/react-components.git#{version}
+$ npm install --save-dev @zendesk/garden-react-components
 ```
+
+See [package registry
+documentation](https://github.com/zendeskgarden/LANDSCAPE/wiki/Package-Registry)
+for the configuration needed to install `@zendesk`-scoped packages.
+
+## Usage
 
 Now you are ready to `import` or `require` the components:
 
@@ -27,7 +33,7 @@ In order to make the components look correctly, you need to include the
 [css-bedrock](https://github.com/zendeskgarden/css-bedrock) stylesheet.
 
 ```
-$ npm install --save git+ssh://git@github.com:zendeskgarden/css-bedrock.git
+$ npm install --save-dev @zendesk/garden-css-bedrock
 ```
 
 See the [example](https://github.com/zendeskgarden/react-components/tree/master/example)

@@ -1,50 +1,50 @@
 .active {
-  composes: is-selected from 'zd-css-buttons';
+  composes: is-selected from '@zendesk/garden-css-buttons';
 }
 
 .focused {
-  composes: is-focused from 'zd-css-buttons';
+  composes: is-focused from '@zendesk/garden-css-buttons';
 }
 
 .rtl {
-  composes: is-rtl from 'zd-css-buttons';
+  composes: is-rtl from '@zendesk/garden-css-buttons';
 }
 
 .type_default {
-  composes: c-btn from 'zd-css-buttons';
+  composes: c-btn from '@zendesk/garden-css-buttons';
 }
 
 .type_primary {
-  composes: c-btn c-btn--primary from 'zd-css-buttons';
+  composes: c-btn c-btn--primary from '@zendesk/garden-css-buttons';
 }
 
 .type_basic {
-  composes: c-btn c-btn--basic from 'zd-css-buttons';
+  composes: c-btn c-btn--basic from '@zendesk/garden-css-buttons';
 }
 
 .pill {
-  composes: c-btn--pill from 'zd-css-buttons';
+  composes: c-btn--pill from '@zendesk/garden-css-buttons';
 }
 
 .size_medium {
-  composes: c-btn--medium from 'zd-css-buttons';
+  composes: c-btn--medium from '@zendesk/garden-css-buttons';
 }
 
 .size_large {
-  composes: c-btn--large from 'zd-css-buttons';
+  composes: c-btn--large from '@zendesk/garden-css-buttons';
 }
 
 .stretched {
-  composes: c-btn--full from 'zd-css-buttons';
+  composes: c-btn--full from '@zendesk/garden-css-buttons';
   flex: 1;
 }
 
 .disabled {
-  composes: is-disabled from 'zd-css-buttons';
+  composes: is-disabled from '@zendesk/garden-css-buttons';
 }
 
 .group {
-  composes: l-btn-group from 'zd-css-buttons';
+  composes: l-btn-group from '@zendesk/garden-css-buttons';
 }
 
 .group:focus {
