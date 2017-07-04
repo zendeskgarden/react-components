@@ -114,6 +114,10 @@ acorn@^5.0.0, acorn@^5.0.1:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.0.3.tgz#c460df08491463f028ccb82eab3730bf01087b3d"
 
+adler32@0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/adler32/-/adler32-0.1.7.tgz#5052acb02c02650d7d58bb8c4ec057be77135690"
+
 ajv-keywords@^1.0.0, ajv-keywords@^1.1.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-1.5.1.tgz#314dd0a4b3368fad3dfcdc54ede6171b886daf3c"

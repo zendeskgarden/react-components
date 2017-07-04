@@ -48,6 +48,7 @@
     "@zendesk/garden-css-variables": "^2.0.0",
     "@zendesk/garden-stylelint-config": "^5.0.0",
     "@zendesk/garden-svg-icons": "^2.1.0",
+    "adler32": "0.1.7",
     "array-uniq": "1.0.3",
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
