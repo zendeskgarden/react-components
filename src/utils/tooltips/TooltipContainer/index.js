@@ -8,11 +8,6 @@ import Tooltip from '../../../Tooltip';
 import getBestRelativePlacement
   from '../../positioning/getBestRelativePlacement';
 
-const mediumTooltipLimit = 50;
-
-const calculateTooltipSize = content =>
-  (mediumTooltipLimit < content.length ? 'medium' : 'default');
-
 const rtlPositions = {
   top: 'top',
   bottom: 'bottom',
@@ -32,7 +27,7 @@ class TooltipContainer extends Component {
     document.body.appendChild(this.container);
   };
 
-  componentWillReceiveProps = ({ content }) => {
+  componentWillReceiveProps = ({ content, size }) => {
     if (!content) {
       this.setState({ tooltipBounds: null });
 
@@ -42,7 +37,7 @@ class TooltipContainer extends Component {
     // Render an invisible tooltip into the DOM in order to analyze its dimensions,
     // so we know exactly how to place it correctly when we render it.
     render(
-      <Tooltip size={calculateTooltipSize(content)}>
+      <Tooltip size={size}>
         {content}
       </Tooltip>,
       this.container,
@@ -65,6 +60,7 @@ class TooltipContainer extends Component {
       anchor,
       positions: rawPositions,
       dir,
+      size,
       zIndex
     } = this.props;
 
@@ -99,12 +95,7 @@ class TooltipContainer extends Component {
 
     return (
       <div className={styles.container} style={{ zIndex }}>
-        <Tooltip
-          left={left}
-          top={top}
-          position={position}
-          size={calculateTooltipSize(content)}
-        >
+        <Tooltip left={left} top={top} position={position} size={size}>
           {content}
         </Tooltip>
       </div>
@@ -114,12 +105,13 @@ class TooltipContainer extends Component {
 
 TooltipContainer.propTypes = {
   positions: PropTypes.oneOfType([
-    PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
-    PropTypes.arrayOf(PropTypes.oneOf(['top', 'right', 'bottom', 'left']))
+    Tooltip.propTypes.position,
+    PropTypes.arrayOf(Tooltip.propTypes.position)
   ]),
-  content: PropTypes.string,
+  content: Tooltip.propTypes.children,
   anchor: PropTypes.object,
   dir: PropTypes.oneOf(['rtl', 'ltr']),
+  size: Tooltip.propTypes.size,
   zIndex: PropTypes.number
 };
 

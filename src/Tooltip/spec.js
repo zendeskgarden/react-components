@@ -20,6 +20,19 @@ describe('Tooltip', () => {
         <div className="tooltip size_medium" />
       );
     });
+
+    it('does not set size automatically depending on content length', () => {
+      const mediumContent =
+        'Bacon ipsum dolor amet cupim meatball pork turducken ground round.';
+
+      expect(
+        <Tooltip size="default">
+          {mediumContent}
+        </Tooltip>,
+        'to deeply render as',
+        <div className="tooltip size_default">{mediumContent}</div>
+      );
+    });
   });
 
   describe('when given a specific position', () => {
@@ -32,12 +45,35 @@ describe('Tooltip', () => {
     });
   });
 
-  describe('when given content', () => {
+  describe('when given string content', () => {
     it('renders the content', () => {
       expect(
         <Tooltip>My content</Tooltip>,
         'to deeply render as',
         <div className="tooltip">My content</div>
+      );
+    });
+
+    it('sets the size automatically for depending on content length', () => {
+      const mediumContent =
+        'Bacon ipsum dolor amet cupim meatball pork turducken ground round.';
+
+      expect(
+        <Tooltip>
+          {mediumContent}
+        </Tooltip>,
+        'to deeply render as',
+        <div className="tooltip size_medium">{mediumContent}</div>
+      );
+    });
+  });
+
+  describe('when given node as content', () => {
+    it('renders the content', () => {
+      expect(
+        <Tooltip><button>Click me</button></Tooltip>,
+        'to deeply render as',
+        <div className="tooltip"><button>Click me</button></div>
       );
     });
   });
