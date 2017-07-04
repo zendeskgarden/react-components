@@ -1,5 +1,8 @@
 ## Change Log
 
+### v5.1.0 (2017/07/04 11:53 +00:00)
+- [#212](https://github.com/zendeskgarden/react-components/pull/212) Stop prefixing css classes with the version and use a content hash instead (@sunesimonsen)
+
 ### v5.0.0 (2017/07/04 09:04 +00:00)
 - [#203](https://github.com/zendeskgarden/react-components/pull/203) Configure for and publish to Artifactory (@jzempel)
 - [#205](https://github.com/zendeskgarden/react-components/pull/205) Check for both files and dirs in index test (@Anifacted)
