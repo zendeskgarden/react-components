@@ -20,8 +20,7 @@ const rename = require('gulp-rename');
 const path = require('path');
 const unique = require('array-unique');
 const clean = require('gulp-clean');
-
-const version = require('./package.json').version;
+const adler32 = require('adler32');
 
 const sourceDir = path.resolve(__dirname, 'src');
 const nodeModulesDir = path.resolve(__dirname, 'node_modules');
@@ -117,7 +116,10 @@ gulp.task('process-composed-files', ['collect-composes'], () => {
     .pipe(
       postcss([
         modules({
-          generateScopedName: `rc${version.replace(/\./g, '_')}-[local]-[hash:base64:5]`,
+          generateScopedName: (name, filename, css) => {
+            const hash = adler32.sum(new Buffer(css)).toString(16);
+            return `rc-${name}-${hash}`;
+          },
           getJSON: (cssFileName, json) => {
             styleMappings[cssFileName] = json;
           }
@@ -165,7 +167,10 @@ gulp.task('css', ['clean', 'process-composed-files'], () => {
         cssnext(),
         inputRange(),
         modules({
-          generateScopedName: `rc${version.replace(/\./g, '_')}-[local]-[hash:base64:5]`,
+          generateScopedName: (name, filename, css) => {
+            const hash = adler32.sum(new Buffer(css)).toString(16);
+            return `rc-${name}-${hash}`;
+          },
           getJSON: (cssFileName, json) => {
             styleMappings[cssFileName] = json;
           }
