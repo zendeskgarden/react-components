@@ -1,29 +1,24 @@
-var path = require('path')
-var CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin')
-var DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-var webpack = require('webpack')
+var path = require('path');
+var CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
+var DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin;
+var webpack = require('webpack');
 
-var sourceDir = path.join(__dirname, 'src')
+var sourceDir = path.join(__dirname, 'src');
 
 var config = {
   context: __dirname,
 
   entry: {
-    'bundle': './src/index.js',
+    bundle: './src/index.js',
 
     // This includes the bedrock CSS
-    'bedrock': 'zd-css-bedrock',
+    bedrock: '@zendesk/garden-css-bedrock',
 
-    'vendor': [
-      'babel-polyfill',
-      'react',
-      'react-dom',
-      'classnames',
-      'uuid'
-    ]
+    vendor: ['babel-polyfill', 'react', 'react-dom', 'classnames', 'uuid']
   },
 
   output: {
@@ -70,10 +65,10 @@ var config = {
     new webpack.optimize.OccurrenceOrderPlugin(),
     new DuplicatePackageCheckerPlugin()
   ]
-}
+};
 
 if (process.env.BUNDLE_ANALYZER === 'true') {
-  config.plugins.push(new BundleAnalyzerPlugin())
+  config.plugins.push(new BundleAnalyzerPlugin());
 }
 
-module.exports = config
+module.exports = config;

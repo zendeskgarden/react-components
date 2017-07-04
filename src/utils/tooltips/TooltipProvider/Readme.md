@@ -55,7 +55,7 @@ have created an element for you with an `id` that matches the `id` prop that was
 specified for the provider. I.e. you can reuse that container element.
 
 ```javascript
-import { createTooltipManager } from 'zd-react-components'
+import { createTooltipManager } from '@zendesk/garden-react-components'
 
 const tooltipManager = createTooltipManager(document.getElementById('my-tooltips'))
 ```
