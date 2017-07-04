@@ -1,5 +1,11 @@
 ## Change Log
 
+### v5.0.0 (2017/07/04 09:04 +00:00)
+- [#203](https://github.com/zendeskgarden/react-components/pull/203) Configure for and publish to Artifactory (@jzempel)
+- [#205](https://github.com/zendeskgarden/react-components/pull/205) Check for both files and dirs in index test (@Anifacted)
+- [#208](https://github.com/zendeskgarden/react-components/pull/208) Fix broken css-forms dependency (@sunesimonsen)
+- [#204](https://github.com/zendeskgarden/react-components/pull/204) Increase integrity of the root index export (@Anifacted)
+
 ### v4.24.0 (2017/06/21 08:02 +00:00)
 - [#202](https://github.com/zendeskgarden/react-components/pull/202) Add support for checkboxes, toggles and radio buttons without labels (@sunesimonsen)
 
