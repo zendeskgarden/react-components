@@ -1,16 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+import ThemedComponent from '../utils/theming/ThemedComponent';
+
 import styles from './styles.css';
 
-export default class CloseButton extends Component {
+export default class CloseButton extends ThemedComponent {
   static propTypes = {
     onClick: PropTypes.func.isRequired
   };
 
   constructor(props, context) {
-    super(props, context);
+    super(props, context, {
+      namespace: 'Modal',
+      styles
+    });
     this.state = { focused: false };
   }
 
