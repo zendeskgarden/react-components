@@ -1,6 +1,6 @@
 {
   "name": "@zendesk/garden-react-components",
-  "version": "4.24.0",
+  "version": "5.0.0",
   "description": "Shared React components",
   "repository": "zendeskgarden/react-components",
   "license": "UNLICENSED",
