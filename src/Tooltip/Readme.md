@@ -15,3 +15,22 @@ Long tooltips:
 ```
 <Button title='Bacon ipsum dolor amet pork belly pork chop short loin filet mignon, frankfurter tri-tip beef jerky. Pork loin corned beef pork chop filet mignon. Capicola salami rump, beef fatback tenderloin turkey. Ham hock prosciutto sausage fatback picanha. Sausage beef ribs shank capicola cupim pork belly kielbasa flank. Shank ground round swine meatball pastrami.'>Long tooltips</Button>
 ```
+
+Sizing:
+
+```
+<Grid style={{height: 55}}>
+  <Tooltip inline top={10} left={10}>Default size</Tooltip>
+  <Tooltip inline top={10} left={115} size='medium'>Medium size</Tooltip>
+  <Tooltip inline top={10} left={225} size='large'>Large size</Tooltip>
+</Grid>
+```
+
+Content:
+
+```
+<Grid style={{height: 45}}>
+  <Tooltip inline top={10} left={10} size='medium'>String content</Tooltip>
+  <Tooltip inline top={10} left={130} size='medium'><Button>Rich content</Button></Tooltip>
+</Grid>
+```
