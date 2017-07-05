@@ -80,7 +80,7 @@ module.exports = {
     plugins: [
       new CopyWebpackPlugin([
         {
-          from: 'src/styleguide/images/*.{png,jpeg}',
+          from: 'src/styleguide/images/*.{png,jpeg,svg}',
           to: 'images/[name].[ext]'
         }
       ]),
