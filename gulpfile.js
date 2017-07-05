@@ -117,7 +117,7 @@ gulp.task('process-composed-files', ['collect-composes'], () => {
       postcss([
         modules({
           generateScopedName: (name, filename, css) => {
-            const hash = adler32.sum(new Buffer(css)).toString(16);
+            const hash = adler32.sum(Buffer.from(css)).toString(16);
             return `rc-${name}-${hash}`;
           },
           getJSON: (cssFileName, json) => {
@@ -168,7 +168,7 @@ gulp.task('css', ['clean', 'process-composed-files'], () => {
         inputRange(),
         modules({
           generateScopedName: (name, filename, css) => {
-            const hash = adler32.sum(new Buffer(css)).toString(16);
+            const hash = adler32.sum(Buffer.from(css)).toString(16);
             return `rc-${name}-${hash}`;
           },
           getJSON: (cssFileName, json) => {
