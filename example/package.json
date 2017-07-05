@@ -9,6 +9,7 @@
     "start": "npm run build && serve public"
   },
   "devDependencies": {
+    "@zendesk/garden-css-bedrock": "^3.0.0",
     "babel-core": "^6.20.0",
     "babel-loader": "6.4.0",
     "babel-plugin-transform-imports": "1.1.0",
@@ -31,7 +32,6 @@
     "style-loader": "0.13.2",
     "url-loader": "^0.5.7",
     "webpack": "2.2.1",
-    "webpack-bundle-analyzer": "2.3.0",
-    "zd-css-bedrock": "git+ssh://git@github.com/zendeskgarden/css-bedrock.git"
+    "webpack-bundle-analyzer": "2.3.0"
   }
 }

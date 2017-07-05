@@ -26,7 +26,7 @@ for the configuration needed to install `@zendesk`-scoped packages.
 Now you are ready to `import` or `require` the components:
 
 ```js
-import { Button, Avatar } from 'zd-react-components'
+import { Button, Avatar } from '@zendesk/garden-react-components'
 ```
 
 In order to make the components look correctly, you need to include the
@@ -47,15 +47,15 @@ can transform imports to point to the individual components
 using [babel-plugin-transform-imports](https://www.npmjs.com/package/babel-plugin-transform-imports):
 
 ```js
-import {Button, Menu, Text} from 'zd-react-components'
+import {Button, Menu, Text} from '@zendesk/garden-react-components'
 ```
 
 will be transformed to:
 
 ```js
-import Button from 'zd-react-components/lib/Button'
-import Menu from 'zd-react-components/lib/Menu'
-import Text from 'zd-react-components/lib/Text'
+import Button from '@zendesk/garden-react-components/lib/Button'
+import Menu from '@zendesk/garden-react-components/lib/Menu'
+import Text from '@zendesk/garden-react-components/lib/Text'
 ```
 
 You setup the plugin by adding the plugin to your babel configuration:
@@ -64,8 +64,8 @@ You setup the plugin by adding the plugin to your babel configuration:
 {
   "plugins": [
     ["transform-imports", {
-      "zd-react-components": {
-        "transform": "zd-react-components/lib/${member}",
+      "@zendesk/garden-react-components": {
+        "transform": "@zendesk/garden-react-components/lib/${member}",
         "preventFullImport": true
       }
     }]

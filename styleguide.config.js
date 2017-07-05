@@ -39,7 +39,7 @@ module.exports = {
   require: ['babel-polyfill'],
   webpackConfig: {
     entry: [
-      '!!style-loader!css-loader!./node_modules/zd-css-bedrock/dist/index.css',
+      '!!style-loader!css-loader!./node_modules/@zendesk/garden-css-bedrock/dist/index.css',
       '!!style-loader!css-loader!postcss-loader!./src/styleguide/index.css'
     ],
     module: {
@@ -61,7 +61,13 @@ module.exports = {
           test: /\.(svg|png|jpg|gif|woff|woff2)$/,
           include: [
             sourceDir,
-            path.join(__dirname, 'node_modules', 'zd-svg-icons', 'src')
+            path.join(
+              __dirname,
+              'node_modules',
+              '@zendesk',
+              'garden-svg-icons',
+              'src'
+            )
           ],
           loaders: ['url-loader?limit=1000']
         },
