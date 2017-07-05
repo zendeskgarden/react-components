@@ -2,7 +2,7 @@
   position: fixed;
   /* stylelint-disable */
   composes: c-tooltip c-arrow from '@zendesk/garden-css-tooltips';
-  composes: c-arrow from '@zendesk/garden-css-tooltips';
+  composes: c-arrow from '@zendesk/garden-css-arrows';
   /* stylelint-enable */
 }
 
