@@ -1,6 +1,5 @@
 .tooltip {
   position: fixed;
-  pointer-events: none;
   /* stylelint-disable */
   composes: c-tooltip c-arrow from '@zendesk/garden-css-tooltips';
   composes: c-arrow from '@zendesk/garden-css-tooltips';
