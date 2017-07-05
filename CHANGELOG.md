@@ -1,5 +1,10 @@
 ## Change Log
 
+### v5.3.0 (2017/07/05 09:22 +00:00)
+- [#213](https://github.com/zendeskgarden/react-components/pull/213) Tooltip improvements (@Anifacted)
+- [#214](https://github.com/zendeskgarden/react-components/pull/214) Fix the last references to the old Garden packages (@sunesimonsen)
+- [#216](https://github.com/zendeskgarden/react-components/pull/216) Load the Zendesk logo on the styleguide from a local folder (@sunesimonsen)
+
 ### v5.2.0 (2017/07/05 07:42 +00:00)
 - [#215](https://github.com/zendeskgarden/react-components/pull/215) Make Modal CloseButton themed (@blakegong)
 
@@ -334,7 +339,5 @@
 
 ### v1.0.0 (2016/08/24 12:17 +00:00)
 - [#10](https://github.com/zendeskgarden/react-components/pull/10) Tabs component (Major) (@sunesimonsen)
-
-### v0.4.0 (2016/08/17 09:23 +00:00)
 - [#9](https://github.com/zendeskgarden/react-components/pull/9) Added visibility hooks for the menu (@sunesimonsen)
 - [#7](https://github.com/zendeskgarden/react-components/pull/7) Fixes menu positioning inside of a modal (@sunesimonsen)
