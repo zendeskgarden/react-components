@@ -1,5 +1,9 @@
 ## Change Log
 
+### v5.3.1 (2017/07/06 11:01 +00:00)
+- [#218](https://github.com/zendeskgarden/react-components/pull/218) Menu: Fix maxHeight & arrow issue (@Anifacted)
+- [#217](https://github.com/zendeskgarden/react-components/pull/217) Use Buffer.from(...) instead of new Buffer(...) (@sunesimonsen)
+
 ### v5.3.0 (2017/07/05 09:22 +00:00)
 - [#213](https://github.com/zendeskgarden/react-components/pull/213) Tooltip improvements (@Anifacted)
 - [#214](https://github.com/zendeskgarden/react-components/pull/214) Fix the last references to the old Garden packages (@sunesimonsen)
@@ -336,8 +340,6 @@
 
 ### v1.0.1 (2016/08/25 08:07 +00:00)
 - [#13](https://github.com/zendeskgarden/react-components/pull/13) Fixes flashing focus bug in the tabs component (@sunesimonsen)
-
-### v1.0.0 (2016/08/24 12:17 +00:00)
 - [#10](https://github.com/zendeskgarden/react-components/pull/10) Tabs component (Major) (@sunesimonsen)
 - [#9](https://github.com/zendeskgarden/react-components/pull/9) Added visibility hooks for the menu (@sunesimonsen)
 - [#7](https://github.com/zendeskgarden/react-components/pull/7) Fixes menu positioning inside of a modal (@sunesimonsen)
