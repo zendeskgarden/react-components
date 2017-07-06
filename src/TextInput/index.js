@@ -56,12 +56,17 @@ export default class TextInput extends ThemedComponent {
     validationText: PropTypes.string,
     value: PropTypes.string,
     valueType: PropTypes.oneOf([
+      'date',
+      'datetime-local',
       'email',
+      'month',
       'number',
       'password',
       'search',
       'tel',
-      'text'
+      'text',
+      'url',
+      'week'
     ])
   };
 
