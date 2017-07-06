@@ -1,5 +1,8 @@
 ## Change Log
 
+### v5.4.0 (2017/07/06 13:32 +00:00)
+- [#219](https://github.com/zendeskgarden/react-components/pull/219) Added some more TextInput valueTypes (@sunesimonsen)
+
 ### v5.3.1 (2017/07/06 11:01 +00:00)
 - [#218](https://github.com/zendeskgarden/react-components/pull/218) Menu: Fix maxHeight & arrow issue (@Anifacted)
 - [#217](https://github.com/zendeskgarden/react-components/pull/217) Use Buffer.from(...) instead of new Buffer(...) (@sunesimonsen)
@@ -337,8 +340,6 @@
 - [#17](https://github.com/zendeskgarden/react-components/pull/17) Make css class names shorter (@sunesimonsen)
 - [#14](https://github.com/zendeskgarden/react-components/pull/14) Make the Text and View Stateless components (@sunesimonsen)
 - [#16](https://github.com/zendeskgarden/react-components/pull/16) Added support for the Garden button group (@sunesimonsen)
-
-### v1.0.1 (2016/08/25 08:07 +00:00)
 - [#13](https://github.com/zendeskgarden/react-components/pull/13) Fixes flashing focus bug in the tabs component (@sunesimonsen)
 - [#10](https://github.com/zendeskgarden/react-components/pull/10) Tabs component (Major) (@sunesimonsen)
 - [#9](https://github.com/zendeskgarden/react-components/pull/9) Added visibility hooks for the menu (@sunesimonsen)
