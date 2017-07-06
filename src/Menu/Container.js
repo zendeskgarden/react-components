@@ -98,7 +98,7 @@ export default class Container extends ThemedComponent {
         role="menu"
         style={style}
       >
-        {children}
+        <View className={theme.inner}>{children}</View>
       </View>
     );
   }

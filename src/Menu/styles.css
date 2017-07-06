@@ -40,6 +40,12 @@
 }
 
 .scrollable {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.scrollable .inner {
   overflow-x: hidden;
   overflow-y: auto;
 }
