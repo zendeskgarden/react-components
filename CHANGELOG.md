@@ -1,5 +1,8 @@
 ## Change Log
 
+### v5.4.1 (2017/07/07 07:59 +00:00)
+- [#220](https://github.com/zendeskgarden/react-components/pull/220) Expose the src folder in the package (@sunesimonsen)
+
 ### v5.4.0 (2017/07/06 13:32 +00:00)
 - [#219](https://github.com/zendeskgarden/react-components/pull/219) Added some more TextInput valueTypes (@sunesimonsen)
 
@@ -335,8 +338,6 @@
 
 ### v1.1.1 (2016/08/30 13:10 +00:00)
 - [#18](https://github.com/zendeskgarden/react-components/pull/18) Revert "Make the Text and View Stateless components" (@sunesimonsen)
-
-### v1.1.0 (2016/08/30 09:07 +00:00)
 - [#17](https://github.com/zendeskgarden/react-components/pull/17) Make css class names shorter (@sunesimonsen)
 - [#14](https://github.com/zendeskgarden/react-components/pull/14) Make the Text and View Stateless components (@sunesimonsen)
 - [#16](https://github.com/zendeskgarden/react-components/pull/16) Added support for the Garden button group (@sunesimonsen)
