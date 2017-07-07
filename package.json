@@ -114,7 +114,8 @@
     "react-dom": "^0.14.0 || ^15.0.0"
   },
   "files": [
-    "lib"
+    "lib",
+    "src"
   ],
   "standard": {
     "globals": [
