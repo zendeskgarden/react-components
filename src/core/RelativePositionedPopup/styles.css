@@ -25,5 +25,5 @@
 
 .container,
 .trigger {
-  display: inline-block;
+  display: inline-flex;
 }
