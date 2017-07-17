@@ -36,10 +36,7 @@ module.exports = {
   ],
   serverPort: 5000,
   template: './src/styleguide/index.html',
-  require: [
-    'babel-polyfill',
-    '!!style-loader!css-loader!@zendesk/garden-css-bedrock'
-  ],
+  require: ['babel-polyfill'],
   webpackConfig: {
     module: {
       loaders: [

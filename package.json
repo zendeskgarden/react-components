@@ -37,7 +37,6 @@
   "devDependencies": {
     "@zendesk/garden-css-arrows": "^1.0.0",
     "@zendesk/garden-css-avatars": "^1.0.1",
-    "@zendesk/garden-css-bedrock": "^3.0.0",
     "@zendesk/garden-css-buttons": "^3.0.0",
     "@zendesk/garden-css-forms": "^3.0.0",
     "@zendesk/garden-css-labels": "^1.0.0",

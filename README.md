@@ -29,12 +29,20 @@ Now you are ready to `import` or `require` the components:
 import { Button, Avatar } from '@zendesk/garden-react-components'
 ```
 
-In order to make the components look correctly, you need to include the
-[css-bedrock](https://github.com/zendeskgarden/css-bedrock) stylesheet.
+### Global `font-family` setup
+
+If you're not depending on
+[Bedrock](https://github.com/zendeskgarden/css-bedrock) as your
+foundational CSS, install Garden
+[css-variables](https://github.com/zendeskgarden/css-variables) and
+apply the system font stack (available from any one of the `dist` file
+formats) to the `font-family` property for your `<html>` element.
 
 ```
-$ npm install --save-dev @zendesk/garden-css-bedrock
+$ npm install --save-dev @zendesk/garden-css-variables
 ```
+
+### Example
 
 See the [example](https://github.com/zendeskgarden/react-components/tree/master/example)
 for more information on the setup.

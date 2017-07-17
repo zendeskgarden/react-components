@@ -15,9 +15,6 @@ var config = {
   entry: {
     bundle: './src/index.js',
 
-    // This includes the bedrock CSS
-    bedrock: '@zendesk/garden-css-bedrock',
-
     vendor: ['babel-polyfill', 'react', 'react-dom', 'classnames', 'uuid']
   },
 
