@@ -70,12 +70,15 @@ export default class Container extends ThemedComponent {
     } = this.props;
 
     const style = {};
+    const innerStyle = {};
     const hasMaxHeight = typeof maxHeight !== 'undefined';
 
     if (hasMaxHeight) {
       style.maxHeight = typeof maxHeight === 'number'
         ? `${maxHeight}px`
         : maxHeight;
+
+      innerStyle.maxHeight = `calc(${style.maxHeight} - 2px)`;
     }
 
     const { theme } = this;
@@ -98,7 +101,7 @@ export default class Container extends ThemedComponent {
         role="menu"
         style={style}
       >
-        <View className={theme.inner}>{children}</View>
+        <View className={theme.inner} style={innerStyle}>{children}</View>
       </View>
     );
   }
