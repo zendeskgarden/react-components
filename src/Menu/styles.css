@@ -6,11 +6,11 @@
 }
 
 .stretched {
-  width: 100%;
-  height: 100%;
   flex-basis: auto;
   flex-grow: 1;
   flex-shrink: 1;
+  width: 100%;
+  height: 100%;
 }
 
 .menu {
