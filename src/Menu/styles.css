@@ -40,7 +40,7 @@
 }
 
 .inner {
-  padding: 10px initial;
+  padding: 10px 0;
 }
 
 .scrollable > .inner {
