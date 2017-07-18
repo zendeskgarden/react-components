@@ -1,5 +1,8 @@
 ## Change Log
 
+### v5.4.2 (2017/07/18 07:37 +00:00)
+- [#225](https://github.com/zendeskgarden/react-components/pull/225) Fixed missing overflow on menu container (@sunesimonsen)
+
 ### v5.4.1 (2017/07/07 07:59 +00:00)
 - [#220](https://github.com/zendeskgarden/react-components/pull/220) Expose the src folder in the package (@sunesimonsen)
 
@@ -335,8 +338,6 @@
 
 ### v1.1.2 (2016/08/31 07:35 +00:00)
 - [#21](https://github.com/zendeskgarden/react-components/pull/21) Added warning about potential API change in the button group component. (@sunesimonsen)
-
-### v1.1.1 (2016/08/30 13:10 +00:00)
 - [#18](https://github.com/zendeskgarden/react-components/pull/18) Revert "Make the Text and View Stateless components" (@sunesimonsen)
 - [#17](https://github.com/zendeskgarden/react-components/pull/17) Make css class names shorter (@sunesimonsen)
 - [#14](https://github.com/zendeskgarden/react-components/pull/14) Make the Text and View Stateless components (@sunesimonsen)
