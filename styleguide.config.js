@@ -36,12 +36,11 @@ module.exports = {
   ],
   serverPort: 5000,
   template: './src/styleguide/index.html',
-  require: ['babel-polyfill'],
+  require: [
+    'babel-polyfill',
+    '!!style-loader!css-loader!@zendesk/garden-css-bedrock'
+  ],
   webpackConfig: {
-    entry: [
-      '!!style-loader!css-loader!./node_modules/@zendesk/garden-css-bedrock/dist/index.css',
-      '!!style-loader!css-loader!postcss-loader!./src/styleguide/index.css'
-    ],
     module: {
       loaders: [
         {
