@@ -15,7 +15,7 @@
 
 .menu {
   position: relative;
-  padding: 10px initial;
+  padding: 0;
   composes: c-menu from '@zendesk/garden-css-menus';
 }
 
@@ -39,13 +39,11 @@
   background: transparent;
 }
 
-.scrollable {
-  display: flex;
-  flex-direction: column;
-  padding: 0;
+.inner {
+  padding: 10px initial;
 }
 
-.scrollable .inner {
+.scrollable > .inner {
   overflow-x: hidden;
   overflow-y: auto;
 }
