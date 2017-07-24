@@ -1,5 +1,8 @@
 ## Change Log
 
+### v5.4.4 (2017/07/24 08:57 +00:00)
+- [#223](https://github.com/zendeskgarden/react-components/pull/223) RelativePositionedPopup: Change trigger/container display type (@Anifacted)
+
 ### v5.4.2 (2017/07/18 07:37 +00:00)
 - [#225](https://github.com/zendeskgarden/react-components/pull/225) Fixed missing overflow on menu container (@sunesimonsen)
 
@@ -332,8 +335,6 @@
 
 ### v1.2.1 (2016/09/08 06:15 +00:00)
 - [#25](https://github.com/zendeskgarden/react-components/pull/25) Replace the button element with a <div role="button"> as button works differently in different browsers (@sunesimonsen)
-
-### v1.2.0 (2016/09/05 13:02 +00:00)
 - [#23](https://github.com/zendeskgarden/react-components/pull/23) Make the button group work like tabs without a content panel (@sunesimonsen)
 - [#21](https://github.com/zendeskgarden/react-components/pull/21) Added warning about potential API change in the button group component. (@sunesimonsen)
 - [#18](https://github.com/zendeskgarden/react-components/pull/18) Revert "Make the Text and View Stateless components" (@sunesimonsen)
