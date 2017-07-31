@@ -36,6 +36,7 @@ export default class Select extends ThemedComponent {
     positioning: Menu.propTypes.positioning,
     selected: PropTypes.node,
     stretched: PropTypes.bool,
+    size: PropTypes.oneOf(['small', 'medium']),
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
     title: PropTypes.string,
@@ -50,6 +51,7 @@ export default class Select extends ThemedComponent {
     disabled: false,
     positioning: ['bottom_stretch', 'top_stretch'],
     stretched: true,
+    size: 'medium',
     tabIndex: 0
   };
 
@@ -117,6 +119,7 @@ export default class Select extends ThemedComponent {
       onSelect,
       positioning,
       selected,
+      size,
       stretched,
       tabIndex,
       testId,
@@ -134,6 +137,7 @@ export default class Select extends ThemedComponent {
         className={classNames(
           theme.txt,
           theme[validation],
+          theme[`size_${size}`],
           {
             [theme.rtl]: dir === 'rtl',
             [theme.stretched]: stretched,
@@ -173,6 +177,7 @@ export default class Select extends ThemedComponent {
               {selected}
             </View>
           }
+          size={size}
           stretched={stretched}
         >
           {children}

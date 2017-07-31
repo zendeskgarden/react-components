@@ -135,6 +135,32 @@ describe('Select', () => {
     });
   });
 
+  describe('with a small size', () => {
+    it('renders a small select component', () => {
+      expect(
+        <Select size="small" selected="bar">
+          <Select.Item value="foo">foo</Select.Item>
+          <Select.Item value="bar">bar</Select.Item>
+          <Select.Item value="baz">baz</Select.Item>
+        </Select>,
+        'to render as',
+        <View className="txt size_small">
+          <Menu
+            dir="ltr"
+            positioning={['bottom_stretch', 'top_stretch']}
+            size="small"
+            stretched
+            trigger={<View className="input">bar</View>}
+          >
+            <Menu.Item value="foo">foo</Menu.Item>
+            <Menu.Item value="bar">bar</Menu.Item>
+            <Menu.Item value="baz">baz</Menu.Item>
+          </Menu>
+        </View>
+      );
+    });
+  });
+
   describe('when disabled', () => {
     it('renders a disabled select component', () => {
       expect(

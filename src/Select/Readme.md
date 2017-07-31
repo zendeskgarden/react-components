@@ -96,6 +96,33 @@ initialState = {
 </Grid>
 ```
 
+```
+initialState = { first: 'foo', second: 'foo' };
+
+<Grid columns={1} stretched>
+  <Select
+    label='Small'
+    onSelect={ value => setState({ first: value }) }
+    selected={ state.first }
+    size='small'
+  >
+    <Select.Item value='foo'>foo</Select.Item>
+    <Select.Item value='bar'>bar</Select.Item>
+    <Select.Item value='baz'>baz</Select.Item>
+  </Select>
+  <Select
+    label='Medium'
+    onSelect={ value => setState({ second: value }) }
+    selected={ state.second }
+    size='medium'
+  >
+    <Select.Item value='foo'>foo</Select.Item>
+    <Select.Item value='bar'>bar</Select.Item>
+    <Select.Item value='baz'>baz</Select.Item>
+  </Select>
+</Grid>
+```
+
 Disabled:
 
 ```
