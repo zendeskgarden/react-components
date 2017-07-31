@@ -68,6 +68,16 @@ describe('TextArea', () => {
     });
   });
 
+  describe('when given a small size', () => {
+    it('renders a small text area', () => {
+      expect(
+        <TextArea size="small" />,
+        'to deeply render as',
+        <View className="size_small" />
+      );
+    });
+  });
+
   const validations = ['error', 'warning', 'success'];
 
   validations.forEach(validation => {
