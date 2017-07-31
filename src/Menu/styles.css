@@ -19,15 +19,19 @@
   composes: c-menu from '@zendesk/garden-css-menus';
 }
 
-.size_large {
+.size_small {
+  composes: c-menu--sm from '@zendesk/garden-css-menus';
+}
+
+.wide {
   composes: c-menu--large from '@zendesk/garden-css-menus';
 }
 
-.size_small.fixed_width {
+.fixed_width {
   max-width: var(--zd-menu-min-width);
 }
 
-.size_large.fixed_width {
+.wide.fixed_width {
   max-width: var(--zd-menu--large-min-width);
 }
 
@@ -40,7 +44,7 @@
 }
 
 .inner {
-  padding: 10px 0;
+  padding: 8px 0;
 }
 
 .scrollable > .inner {

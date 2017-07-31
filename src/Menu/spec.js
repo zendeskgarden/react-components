@@ -187,6 +187,36 @@ describe('Menu', () => {
     });
   });
 
+  describe('with a small size', () => {
+    it('renders a small menu', () => {
+      expect(
+        <Menu size="small" trigger={<Button>trigger</Button>}>
+          <Menu.Item>One</Menu.Item>
+          <Menu.Item>Two</Menu.Item>
+          <Menu.Item>Three</Menu.Item>
+        </Menu>,
+        'when clicking on the trigger',
+        'to contain',
+        <View className="menu size_small" />
+      );
+    });
+  });
+
+  describe('with a wide flag', () => {
+    it('renders a wide menu', () => {
+      expect(
+        <Menu wide trigger={<Button>trigger</Button>}>
+          <Menu.Item>One</Menu.Item>
+          <Menu.Item>Two</Menu.Item>
+          <Menu.Item>Three</Menu.Item>
+        </Menu>,
+        'when clicking on the trigger',
+        'to contain',
+        <View className="menu wide" />
+      );
+    });
+  });
+
   describe('visibility hooks', () => {
     it('onOpen is called when the menu is shown', () => {
       const onOpen = sinon.spy();

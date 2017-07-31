@@ -30,10 +30,12 @@ export default class Menu extends Component {
     marginTop: PropTypes.number,
     maxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     positioning: RelativePositionedPopup.propTypes.positioning,
-    size: PropTypes.oneOf(['small', 'large']),
+    size: PropTypes.oneOf(['small', 'medium']),
     stretched: PropTypes.bool,
     testId: PropTypes.string,
-    trigger: PropTypes.oneOfType([PropTypes.element, PropTypes.func]).isRequired
+    trigger: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
+      .isRequired,
+    wide: PropTypes.bool
   };
 
   static defaultProps = {
@@ -46,7 +48,8 @@ export default class Menu extends Component {
     marginTop: 2,
     positioning: ['bottom_right', 'top_right'],
     stretched: false,
-    size: 'small'
+    size: 'medium',
+    wide: false
   };
 
   static Container = Container;
