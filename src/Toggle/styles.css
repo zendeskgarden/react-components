@@ -29,7 +29,6 @@
 
 .message {
   composes: c-chk__message from '@zendesk/garden-css-forms';
-  display: block;
 }
 
 .success {
