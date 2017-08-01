@@ -25,3 +25,7 @@
 .rtl {
   composes: is-rtl from '@zendesk/garden-css-callouts';
 }
+
+.paragraph {
+  composes: c-callout__paragraph from '@zendesk/garden-css-callouts';
+}

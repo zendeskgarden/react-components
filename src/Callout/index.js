@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-
+import Paragraph from './Paragraph';
 import View from '../core/View';
 
 import styles from './styles.css';
@@ -27,6 +27,8 @@ export default class Callout extends Component {
     type: 'default'
   };
 
+  static Paragraph = Paragraph;
+
   onKeyboardRemove = e => {
     const { onClose } = this.props;
 
@@ -46,7 +48,7 @@ export default class Callout extends Component {
       onClose,
       tabIndex,
       type,
-      title,
+      title
     } = this.props;
 
     return (

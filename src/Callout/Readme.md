@@ -1,5 +1,7 @@
 ```
-<Callout>This is a default callout</Callout>
+<Callout>
+  <Callout.Paragraph>This is a default callout</Callout.Paragraph>
+</Callout>
 ```
 
 Types:
@@ -7,16 +9,16 @@ Types:
 ```
 <Grid columns={1} stretched>
   <Callout title='Default' type='default'>
-    This is a default callout
+    <Callout.Paragraph>This is a default callout</Callout.Paragraph>
   </Callout>
   <Callout title='Success!' type='success'>
-    This is a success callout
+    <Callout.Paragraph>This is a success callout</Callout.Paragraph>
   </Callout>
   <Callout title='Warning!' type='warning'>
-    This is a warning callout
+    <Callout.Paragraph>This is a warning callout</Callout.Paragraph>
   </Callout>
   <Callout title='Error!' type='error'>
-    This is an error callout
+    <Callout.Paragraph>This is an error callout</Callout.Paragraph>
   </Callout>
 </Grid>
 ```
