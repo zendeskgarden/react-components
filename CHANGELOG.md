@@ -1,5 +1,8 @@
 ## Change Log
 
+### v7.0.0 (2017/08/01 09:38 +00:00)
+- [#232](https://github.com/zendeskgarden/react-components/pull/232) Added support for small form components (Major) (@sunesimonsen)
+
 ### v6.0.0 (2017/08/01 09:33 +00:00)
 - [#231](https://github.com/zendeskgarden/react-components/pull/231) Upgraded Garden dependencies (Major) (@sunesimonsen)
 
@@ -332,8 +335,6 @@
 
 ### v1.3.1 (2016/09/08 06:57 +00:00)
 - [#26](https://github.com/zendeskgarden/react-components/pull/26) Fixed: space and enter on buttons after quickfix :-( (@sunesimonsen)
-
-### v1.3.0 (2016/09/08 06:23 +00:00)
 - [#24](https://github.com/zendeskgarden/react-components/pull/24) Import Garden css with the css-loader (@sunesimonsen)
 - [#25](https://github.com/zendeskgarden/react-components/pull/25) Replace the button element with a <div role="button"> as button works differently in different browsers (@sunesimonsen)
 - [#23](https://github.com/zendeskgarden/react-components/pull/23) Make the button group work like tabs without a content panel (@sunesimonsen)
