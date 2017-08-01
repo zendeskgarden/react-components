@@ -1,5 +1,8 @@
 ## Change Log
 
+### v6.0.0 (2017/08/01 09:33 +00:00)
+- [#231](https://github.com/zendeskgarden/react-components/pull/231) Upgraded Garden dependencies (Major) (@sunesimonsen)
+
 ### v5.4.4 (2017/07/24 08:57 +00:00)
 - [#223](https://github.com/zendeskgarden/react-components/pull/223) RelativePositionedPopup: Change trigger/container display type (@Anifacted)
 
@@ -332,8 +335,6 @@
 
 ### v1.3.0 (2016/09/08 06:23 +00:00)
 - [#24](https://github.com/zendeskgarden/react-components/pull/24) Import Garden css with the css-loader (@sunesimonsen)
-
-### v1.2.1 (2016/09/08 06:15 +00:00)
 - [#25](https://github.com/zendeskgarden/react-components/pull/25) Replace the button element with a <div role="button"> as button works differently in different browsers (@sunesimonsen)
 - [#23](https://github.com/zendeskgarden/react-components/pull/23) Make the button group work like tabs without a content panel (@sunesimonsen)
 - [#21](https://github.com/zendeskgarden/react-components/pull/21) Added warning about potential API change in the button group component. (@sunesimonsen)
