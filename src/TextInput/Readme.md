@@ -10,6 +10,23 @@ initialState={ value: '' };
 />
 ```
 
+Sizes:
+
+```
+<Grid columns={1} stretched>
+  <TextInput
+    label='Small'
+    placeholder='Write something'
+    size='small'
+  />
+  <TextInput
+    label='Medium'
+    placeholder='Write something'
+    size='medium'
+  />
+</Grid>
+```
+
 Validation:
 
 ```

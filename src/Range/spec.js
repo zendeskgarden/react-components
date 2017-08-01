@@ -27,6 +27,16 @@ describe('Range', () => {
     );
   });
 
+  describe('when given a small size', () => {
+    it('renders a small range component', () => {
+      expect(
+        <Range size="small" />,
+        'to render as',
+        <View className="size_small" />
+      );
+    });
+  });
+
   describe('when disabled', () => {
     it('renders a disabled range', () => {
       expect(

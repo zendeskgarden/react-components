@@ -17,6 +17,7 @@ export default class Range extends ThemedComponent {
     max: PropTypes.number,
     min: PropTypes.number,
     onChange: PropTypes.func,
+    size: PropTypes.oneOf(['small', 'medium']),
     step: PropTypes.number,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
@@ -29,6 +30,7 @@ export default class Range extends ThemedComponent {
   static defaultProps = {
     min: 0,
     max: 100,
+    size: 'medium',
     step: 1
   };
 
@@ -93,6 +95,7 @@ export default class Range extends ThemedComponent {
       hint,
       max,
       min,
+      size,
       step,
       tabIndex,
       testId,
@@ -107,9 +110,14 @@ export default class Range extends ThemedComponent {
 
     return (
       <View
-        className={classNames(theme.range, theme[validation], {
-          [theme.focused]: focused
-        })}
+        className={classNames(
+          theme.range,
+          theme[`size_${size}`],
+          theme[validation],
+          {
+            [theme.focused]: focused
+          }
+        )}
       >
         {this.renderLabel()}
         <input

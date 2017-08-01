@@ -12,6 +12,23 @@ initialState={ value: '' };
 />
 ```
 
+Sizes:
+
+```
+<Grid columns={1} stretched>
+  <TextArea
+    label='Small'
+    placeholder='Write something'
+    size='small'
+  />
+  <TextArea
+    label='Medium'
+    placeholder='Write something'
+    size='medium'
+  />
+</Grid>
+```
+
 Resizable:
 
 ```

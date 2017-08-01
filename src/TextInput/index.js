@@ -39,6 +39,7 @@ export default class TextInput extends ThemedComponent {
     onPaste: PropTypes.func,
     onKeyDown: PropTypes.func,
     placeholder: PropTypes.string,
+    size: PropTypes.oneOf(['small', 'medium']),
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
     title: PropTypes.string,
@@ -73,7 +74,8 @@ export default class TextInput extends ThemedComponent {
   static defaultProps = {
     autoComplete: 'off',
     disabled: false,
-    valueType: 'text'
+    valueType: 'text',
+    size: 'medium'
   };
 
   constructor(props, context) {
@@ -107,6 +109,7 @@ export default class TextInput extends ThemedComponent {
       className,
       disabled,
       hint,
+      size,
       title,
       tooltipPositioning,
       validation,
@@ -119,9 +122,14 @@ export default class TextInput extends ThemedComponent {
 
     return (
       <View
-        className={classNames(theme.txt, theme[validation], {
-          [theme.disabled]: disabled
-        })}
+        className={classNames(
+          theme.txt,
+          theme[`size_${size}`],
+          theme[validation],
+          {
+            [theme.disabled]: disabled
+          }
+        )}
         title={title}
         tooltipPositioning={tooltipPositioning}
       >

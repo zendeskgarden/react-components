@@ -51,6 +51,14 @@ initialState = { value: 612.5 };
 />
 ```
 
+Sizes:
+```
+<Grid columns={1} stretched>
+  <Range label='Small' size='small' />
+  <Range label='Medium' size='medium' />
+</Grid>
+```
+
 Disabled:
 ```
 initialState = { value: 21 };

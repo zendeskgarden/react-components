@@ -40,6 +40,7 @@ export default class TextArea extends ThemedComponent {
     onPaste: PropTypes.func,
     placeholder: PropTypes.string,
     resizable: PropTypes.bool,
+    size: PropTypes.oneOf(['small', 'medium']),
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
     title: PropTypes.string,
@@ -54,6 +55,7 @@ export default class TextArea extends ThemedComponent {
     autoComplete: 'off',
     disabled: false,
     resizable: false,
+    size: 'medium',
     type: 'text'
   };
 
@@ -89,6 +91,7 @@ export default class TextArea extends ThemedComponent {
       disabled,
       hint,
       resizable,
+      size,
       title,
       tooltipPositioning,
       validation,
@@ -100,9 +103,14 @@ export default class TextArea extends ThemedComponent {
 
     return (
       <View
-        className={classNames(theme.txt, theme[validation], {
-          [theme.disabled]: disabled
-        })}
+        className={classNames(
+          theme.txt,
+          theme[`size_${size}`],
+          theme[validation],
+          {
+            [theme.disabled]: disabled
+          }
+        )}
         title={title}
         tooltipPositioning={tooltipPositioning}
       >

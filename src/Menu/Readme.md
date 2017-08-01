@@ -58,30 +58,6 @@ that you can use for styling.
 </Menu>
 ```
 
-You can specify the size of the menu:
-
-```
-<Grid>
-  <Menu
-    trigger={ <Button>Default</Button> }
-  >
-    <Menu.Item>First</Menu.Item>
-    <Menu.Item>Second</Menu.Item>
-    <Menu.Separator/>
-    <Menu.Item>Third</Menu.Item>
-  </Menu>
-  <Menu
-    size='large'
-    trigger={ <Button>Large</Button> }
-  >
-    <Menu.Item>First</Menu.Item>
-    <Menu.Item>Second</Menu.Item>
-    <Menu.Separator/>
-    <Menu.Item>Third</Menu.Item>
-  </Menu>
-</Grid>
-```
-
 Positioning and arrows:
 
 ```
@@ -211,6 +187,59 @@ Stretch positioning:
 </Menu>
 ```
 
+Sizes:
+
+```
+<Grid>
+  <Menu
+    size='small'
+    trigger={ <Button>Small</Button> }
+  >
+    <Menu.Item>Profile</Menu.Item>
+    <Menu.Item>Settings</Menu.Item>
+    <Menu.Item>Theme Editor</Menu.Item>
+    <Menu.Separator/>
+    <Menu.Item>Article Editor</Menu.Item>
+    <Menu.Item>Sign Out</Menu.Item>
+  </Menu>
+  <Menu
+    size='medium'
+    trigger={ <Button>Medium</Button> }
+  >
+    <Menu.Item>Profile</Menu.Item>
+    <Menu.Item>Settings</Menu.Item>
+    <Menu.Item>Theme Editor</Menu.Item>
+    <Menu.Separator/>
+    <Menu.Item>Article Editor</Menu.Item>
+    <Menu.Item>Sign Out</Menu.Item>
+  </Menu>
+</Grid>
+```
+
+You can set the menu to be wide:
+
+```
+<Grid>
+  <Menu
+    trigger={ <Button>Default</Button> }
+  >
+    <Menu.Item>First</Menu.Item>
+    <Menu.Item>Second</Menu.Item>
+    <Menu.Separator/>
+    <Menu.Item>Third</Menu.Item>
+  </Menu>
+  <Menu
+    trigger={ <Button>Wide</Button> }
+    wide
+  >
+    <Menu.Item>First</Menu.Item>
+    <Menu.Item>Second</Menu.Item>
+    <Menu.Separator/>
+    <Menu.Item>Third</Menu.Item>
+  </Menu>
+</Grid>
+```
+
 Fixing the width of the menu:
 
 ```
@@ -238,8 +267,8 @@ Fixing the width of the menu:
   </Menu>
   <Menu
     fixedWidth
-    size='large'
-    trigger={ <Button>Large</Button> }
+    trigger={ <Button>Wide</Button> }
+    wide
   >
     <Menu.Item>
       <Ellipsis>
@@ -264,14 +293,24 @@ Fixing the width of the menu:
 Using the menu styling in other components:
 
 ```
-<Menu.Container position='bottom'>
-  <Menu.Item>Profile</Menu.Item>
-  <Menu.Item>Settings</Menu.Item>
-  <Menu.Item>Theme Editor</Menu.Item>
-  <Menu.Separator/>
-  <Menu.Item>Article Editor</Menu.Item>
-  <Menu.Item>Sign Out</Menu.Item>
-</Menu.Container>
+<Grid>
+  <Menu.Container>
+    <Menu.Item>Profile</Menu.Item>
+    <Menu.Item>Settings</Menu.Item>
+    <Menu.Item>Theme Editor</Menu.Item>
+    <Menu.Separator/>
+    <Menu.Item>Article Editor</Menu.Item>
+    <Menu.Item>Sign Out</Menu.Item>
+  </Menu.Container>
+  <Menu.Container size='small' wide>
+    <Menu.Item>Profile</Menu.Item>
+    <Menu.Item>Settings</Menu.Item>
+    <Menu.Item>Theme Editor</Menu.Item>
+    <Menu.Separator/>
+    <Menu.Item>Article Editor</Menu.Item>
+    <Menu.Item>Sign Out</Menu.Item>
+  </Menu.Container>
+</Grid>
 ```
 
 Visibility hooks:

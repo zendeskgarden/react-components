@@ -39,7 +39,8 @@ export default class Container extends ThemedComponent {
       'top_right',
       'top_stretch'
     ]),
-    size: PropTypes.oneOf(['small', 'large'])
+    size: PropTypes.oneOf(['small', 'medium']),
+    wide: PropTypes.bool
   };
 
   static defaultProps = {
@@ -47,7 +48,8 @@ export default class Container extends ThemedComponent {
     arrow: false,
     dir: 'ltr',
     position: 'bottom_right',
-    size: 'small'
+    size: 'medium',
+    wide: false
   };
 
   constructor(props, context) {
@@ -66,7 +68,8 @@ export default class Container extends ThemedComponent {
       fixedWidth,
       maxHeight,
       position,
-      size
+      size,
+      wide
     } = this.props;
 
     const style = {};
@@ -95,7 +98,8 @@ export default class Container extends ThemedComponent {
             [theme.fixed_width]: fixedWidth,
             [theme.arrow]: arrow,
             [theme[`arrow_${arrowPositions[position]}`]]: arrow,
-            [theme.scrollable]: hasMaxHeight
+            [theme.scrollable]: hasMaxHeight,
+            [theme.wide]: wide
           }
         )}
         role="menu"
