@@ -2,7 +2,7 @@ import React from 'react';
 import sinon from 'sinon';
 import expect from 'test/expect';
 
-import { View } from '..';
+import View from '../View';
 import Label from '.';
 
 describe('Label', () => {

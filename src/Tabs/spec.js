@@ -2,7 +2,7 @@ import React from 'react';
 import expect from 'test/expect';
 import sinon from 'sinon';
 
-import { Tabs } from '..';
+import Tabs from '../Tabs';
 
 describe('Tabs', () => {
   it('renders a tab component showing the active panel', () => {

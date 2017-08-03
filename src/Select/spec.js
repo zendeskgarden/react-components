@@ -3,7 +3,8 @@ import expect from 'test/expect';
 import sinon from 'sinon';
 
 import Select from '.';
-import { Menu, View } from '../';
+import Menu from '../Menu';
+import View from '../View';
 
 describe('Select', () => {
   it('renders a select component', () => {
