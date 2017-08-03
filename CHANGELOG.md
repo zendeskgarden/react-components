@@ -1,5 +1,9 @@
 ## Change Log
 
+### v7.1.0 (2017/08/03 18:20 +00:00)
+- [#235](https://github.com/zendeskgarden/react-components/pull/235) Added an icon button (@sunesimonsen)
+- [#210](https://github.com/zendeskgarden/react-components/pull/210) Should be able to get rid of css-bedrock dependency (@jzempel)
+
 ### v7.0.0 (2017/08/01 09:38 +00:00)
 - [#232](https://github.com/zendeskgarden/react-components/pull/232) Added support for small form components (Major) (@sunesimonsen)
 
@@ -332,8 +336,6 @@
 
 ### v1.3.2 (2016/09/08 08:44 +00:00)
 - [#27](https://github.com/zendeskgarden/react-components/pull/27) I broke the arrows, this PR fixes it. (@sunesimonsen)
-
-### v1.3.1 (2016/09/08 06:57 +00:00)
 - [#26](https://github.com/zendeskgarden/react-components/pull/26) Fixed: space and enter on buttons after quickfix :-( (@sunesimonsen)
 - [#24](https://github.com/zendeskgarden/react-components/pull/24) Import Garden css with the css-loader (@sunesimonsen)
 - [#25](https://github.com/zendeskgarden/react-components/pull/25) Replace the button element with a <div role="button"> as button works differently in different browsers (@sunesimonsen)
