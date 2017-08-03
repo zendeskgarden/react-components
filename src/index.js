@@ -15,6 +15,7 @@ export { default as Range } from './Range';
 export { default as RelativePositionedPopup } from './RelativePositionedPopup';
 export { default as Select } from './Select';
 export { default as Selectable } from './Selectable';
+export { default as SplitButton } from './SplitButton';
 export { default as Tabs } from './Tabs';
 export { default as Text } from './Text';
 export { default as TextArea } from './TextArea';
