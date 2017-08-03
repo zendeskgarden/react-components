@@ -21,9 +21,6 @@ export default class Select extends ThemedComponent {
     className: PropTypes.string,
     dir: PropTypes.oneOf(['ltr', 'rtl']),
     disabled: PropTypes.bool,
-    /**
-     * This is for use in self-service-components only
-     */
     hint: PropTypes.node,
     inputClassName: PropTypes.string,
     label: PropTypes.node,
