@@ -14,12 +14,7 @@ export default class Callout extends Component {
     onClose: PropTypes.func,
     tabIndex: PropTypes.number,
     title: PropTypes.string,
-    type: PropTypes.oneOf([
-      'default',
-      'success',
-      'warning',
-      'error'
-    ])
+    type: PropTypes.oneOf(['default', 'success', 'warning', 'error'])
   };
 
   static defaultProps = {
