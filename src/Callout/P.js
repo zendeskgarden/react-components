@@ -3,15 +3,14 @@ import PropTypes from 'prop-types';
 
 import styles from './styles.css';
 
-export default class Paragraph extends PureComponent {
+export default class P extends PureComponent {
   static propTypes = {
     children: PropTypes.node.isRequired
   };
 
   constructor(props, context) {
     super(props, context, {
-      namespace: 'Callout',
-      styles
+      namespace: 'Callout'
     });
   }
 
