@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Paragraph from './Paragraph';
+import P from './P';
 import View from '../core/View';
 
 import styles from './styles.css';
@@ -19,32 +19,21 @@ export default class Callout extends Component {
 
   static defaultProps = {
     dir: 'ltr',
-    type: 'default'
+    type: 'default',
+    tabIndex: 0
   };
 
-  static Paragraph = Paragraph;
+  static P = P;
 
-  onKeyboardRemove = e => {
-    const { onClose } = this.props;
-
-    e.preventDefault();
-    onClose(e);
+  renderClose = onClose => {
+    const { tabIndex } = this.props;
+    return (
+      <button tabIndex={tabIndex} className={styles.remove} onClick={onClose} />
+    );
   };
-
-  renderClose = onClose => (
-    <button tabIndex={-1} className={styles.remove} onClick={onClose} />
-  );
 
   render() {
-    const {
-      children,
-      className,
-      dir,
-      onClose,
-      tabIndex,
-      type,
-      title
-    } = this.props;
+    const { children, className, dir, onClose, type, title } = this.props;
 
     return (
       <View
@@ -53,10 +42,8 @@ export default class Callout extends Component {
           { [styles.rtl]: dir === 'rtl' },
           className
         )}
-        onDelete={onClose && this.onKeyboardRemove}
-        tabIndex={tabIndex}
       >
-        <strong className={styles.title}>{title}</strong>
+        {title && <strong className={styles.title}>{title}</strong>}
         {children}
         {onClose && this.renderClose(onClose)}
       </View>

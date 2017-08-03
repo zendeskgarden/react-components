@@ -1,52 +1,56 @@
 ```
-<Callout>
-  <Callout.Paragraph>This is a default callout</Callout.Paragraph>
-</Callout>
+<Callout>This is a default callout</Callout>
 ```
 
 Types:
 
 ```
 <Grid columns={1} stretched>
-  <Callout title='Default' type='default'>
-    <Callout.Paragraph>This is a default callout</Callout.Paragraph>
-  </Callout>
-  <Callout title='Success!' type='success'>
-    <Callout.Paragraph>This is a success callout</Callout.Paragraph>
-  </Callout>
-  <Callout title='Warning!' type='warning'>
-    <Callout.Paragraph>This is a warning callout</Callout.Paragraph>
-  </Callout>
-  <Callout title='Error!' type='error'>
-    <Callout.Paragraph>This is an error callout</Callout.Paragraph>
-  </Callout>
+  <Callout title='Default' type='default'>This is a default callout</Callout>
+  <Callout title='Success!' type='success'>This is a success callout</Callout>
+  <Callout title='Warning!' type='warning'>This is a warning callout</Callout>
+  <Callout title='Error!' type='error'>This is an error callout</Callout>
 </Grid>
+```
+
+Paragraphs:
+```
+<Callout title='Default' type='default'>
+  <Callout.P>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </Callout.P>
+  <Callout.P>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </Callout.P>
+  <Callout.P>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </Callout.P>
+</Callout>
 ```
 
 Removable:
 
 ```
-const onClose = () => alert('Removed!');
+const onClose = () => alert('Dismissed!');
 
 <Grid columns={1} stretched>
-  <Callout onClose={onClose} tabIndex={0}>This is a default callout</Callout>
-  <Callout onClose={onClose} tabIndex={0} type='success'>This is a success callout</Callout>
-  <Callout onClose={onClose} tabIndex={0} type='warning'>This is a warning callout</Callout>
-  <Callout onClose={onClose} tabIndex={0} type='error'>This is an error callout</Callout>
+  <Callout onClose={onClose}>This is a default callout</Callout>
+  <Callout onClose={onClose} type='success'>This is a success callout</Callout>
+  <Callout onClose={onClose} type='warning'>This is a warning callout</Callout>
+  <Callout onClose={onClose} type='error'>This is an error callout</Callout>
 </Grid>
 ```
 
 Support for RTL:
 
 ```
-const onRemove = () => console.log('Removed!')
 
-const onClose = () => alert('Removed!');
+const onClose = () => alert('Dismissed!');
 
 <Grid columns={1} stretched>
-  <Callout dir='rtl' onClose={onClose} tabIndex={0}>This is a default callout</Callout>
-  <Callout dir='rtl' onClose={onClose} tabIndex={0} type='success'>This is a success callout</Callout>
-  <Callout dir='rtl' onClose={onClose} tabIndex={0} type='warning'>This is a warning callout</Callout>
-  <Callout dir='rtl' onClose={onClose} tabIndex={0} type='error'>This is an error callout</Callout>
+  <Callout dir='rtl' onClose={onClose}>This is a default callout</Callout>
+  <Callout dir='rtl' onClose={onClose} type='success'>This is a success callout</Callout>
+  <Callout dir='rtl' onClose={onClose} type='warning'>This is a warning callout</Callout>
+  <Callout dir='rtl' onClose={onClose} type='error'>This is an error callout</Callout>
 </Grid>
 ```

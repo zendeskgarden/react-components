@@ -4,6 +4,7 @@ import expect from 'test/expect';
 
 import { View } from '..';
 import Callout from '.';
+import P from './P';
 
 describe('Callout', () => {
   it('renders a callout with the given text', () =>
@@ -22,13 +23,18 @@ describe('Callout', () => {
     });
   });
 
-  describe('when given a tabIndex', () => {
-    it('renders a label with the given tab index', () =>
-      expect(
-        <Callout tabIndex={42}>Callout</Callout>,
+  describe('when given a paragraph', () => {
+    it('renders a P element', () => {
+      return expect(
+        <Callout>
+          <Callout.P>Callout</Callout.P>
+        </Callout>,
         'to render as',
-        <View tabIndex={42} />
-      ));
+        <View>
+          <P>Callout</P>
+        </View>
+      );
+    });
   });
 
   describe('when given a onClose handler', () => {
@@ -40,7 +46,20 @@ describe('Callout', () => {
         'to render as',
         <View>
           Callout
-          <button className="remove" tabIndex={-1} onClick={onClose} />
+          <button className="remove" tabIndex={0} onClick={onClose} />
+        </View>
+      );
+    });
+
+    it('renders a remove button with the given tab index', () => {
+      const onClose = () => {};
+
+      return expect(
+        <Callout onClose={onClose} tabIndex={42}>Callout</Callout>,
+        'to render as',
+        <View>
+          Callout
+          <button className="remove" tabIndex={42} onClick={onClose} />
         </View>
       );
     });
@@ -57,25 +76,6 @@ describe('Callout', () => {
         <button className="remove" />
       ).then(() => {
         expect(onClose, 'was called');
-      });
-    });
-
-    it('calls the onClose handler when pressing delete', () => {
-      const onClose = sinon.spy();
-      const preventDefaultSpy = sinon.spy();
-
-      return expect(
-        <Callout onClose={onClose}>Callout</Callout>,
-        'when deeply rendered',
-        'with event ',
-        'keyDown',
-        {
-          keyCode: 8,
-          preventDefault: preventDefaultSpy
-        }
-      ).then(() => {
-        expect(onClose, 'was called');
-        expect(preventDefaultSpy, 'was called');
       });
     });
   });
