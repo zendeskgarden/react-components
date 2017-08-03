@@ -17,6 +17,7 @@ export default class SplitButton extends ThemedComponent {
   static propTypes = {
     children: PropTypes.node,
     disabled: PropTypes.bool,
+    /** Node for main button label, defaults to first child */
     label: PropTypes.node,
     /** <a href="#menu">See Menu</a> */
     fixedWidth: PropTypes.bool,
@@ -36,6 +37,7 @@ export default class SplitButton extends ThemedComponent {
     size: PropTypes.oneOf(['small', 'medium', 'large']),
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
+    /** Enables tooltip */
     title: PropTypes.string,
     /** <a href="#view">See View</a> */
     tooltipPositioning: () => {},
