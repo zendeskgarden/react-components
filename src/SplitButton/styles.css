@@ -1,0 +1,11 @@
+.rtl {
+  composes: is-rtl from '@zendesk/garden-css-buttons';
+}
+
+.group {
+  composes: l-btn-group from '@zendesk/garden-css-buttons';
+}
+
+.group:focus {
+  outline: none;
+}
