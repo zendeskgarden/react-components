@@ -11,6 +11,8 @@ export default class Core extends Component {
     onBlur: PropTypes.func,
     onClick: PropTypes.func,
     onFocus: PropTypes.func,
+    onKeyDown: PropTypes.func,
+    onKeyUp: PropTypes.func,
     onKeyboardFocus: PropTypes.func,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
@@ -73,6 +75,8 @@ export default class Core extends Component {
       children,
       disabled,
       onBlur,
+      onKeyDown,
+      onKeyUp,
       tabIndex,
       testId,
       title,
@@ -90,6 +94,8 @@ export default class Core extends Component {
         onEnter={this.onKeyboardClick}
         onFocus={this.onFocus}
         onMouseDown={this.onMouseDown}
+        onKeyDown={onKeyDown}
+        onKeyUp={onKeyUp}
         onSpace={this.onKeyboardClick}
         tabIndex={disabled ? null : tabIndex}
         role="button"
