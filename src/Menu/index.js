@@ -29,6 +29,7 @@ export default class Menu extends Component {
     marginRight: PropTypes.number,
     marginTop: PropTypes.number,
     maxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    /** <a href="#relativepositionedpopup">See RelativePositionedPopup</a> */
     positioning: RelativePositionedPopup.propTypes.positioning,
     size: PropTypes.oneOf(['small', 'medium']),
     stretched: PropTypes.bool,
