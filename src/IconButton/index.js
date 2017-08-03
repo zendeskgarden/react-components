@@ -19,6 +19,8 @@ export default class IconButton extends ThemedComponent {
     onBlur: PropTypes.func,
     onClick: PropTypes.func,
     onFocus: PropTypes.func,
+    onKeyDown: PropTypes.func,
+    onKeyUp: PropTypes.func,
     pill: PropTypes.bool,
     size: PropTypes.oneOf(['small', 'medium', 'large']),
     tabIndex: PropTypes.number,
