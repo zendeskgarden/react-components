@@ -28,7 +28,7 @@
     "patch": "yarn prepare-release && npm version patch && yarn push-release && yarn gh-pages",
     "minor": "yarn prepare-release && npm version minor && yarn push-release && yarn gh-pages",
     "major": "yarn prepare-release && npm version major && yarn push-release && yarn gh-pages",
-    "travis": "yarn prettier && yarn test && ./bin/is_git_clean"
+    "travis": "yarn prettier && yarn lint && jest -i && ./bin/is_git_clean"
   },
   "keywords": [
     "react",
