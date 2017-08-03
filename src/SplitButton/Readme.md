@@ -1,14 +1,55 @@
 ```
 initialState = { lastAction: '' };
 
+
+const Action = ({ children, color }) => (
+  <View style={{
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  }}>
+    <Text>{children}</Text>
+    <View style={{
+      backgroundColor: color,
+      marginLeft: '12px',
+      height: '14px',
+      width: '14px'
+    }} />
+  </View>
+)
+
+const label = <span>Submit as <strong>Open</strong></span>;
+
 <Grid spacing='medium'>
-  <SplitButton onSelect={value => setState({ lastAction: value })}>
-    <SplitButton.Item value='one'>One</SplitButton.Item>
-    <SplitButton.Item value='two'>Two</SplitButton.Item>
-    <SplitButton.Item value='three'>Three</SplitButton.Item>
+  <SplitButton
+    type="primary"
+    label={label}
+    positioning="top_left"
+    onSelect={value => setState({ lastAction: value })}
+  >
+    <SplitButton.Item value='open'>
+      <Action color='#E82A2A'>Submit as <strong>Open</strong></Action>
+    </SplitButton.Item>
+    <SplitButton.Item value='pending'>
+      <Action color='#59BBE0'>
+        Submit as <strong>Pending</strong>
+      </Action>
+    </SplitButton.Item>
+    <SplitButton.Item value='onhold'>
+      <Action color='#000000'>
+        Submit as <strong>On-hold</strong>
+      </Action>
+    </SplitButton.Item>
+    <SplitButton.Item value='solved'>
+      <Action color='#828282'>
+        Submit as <strong>Solved</strong>
+      </Action>
+    </SplitButton.Item>
   </SplitButton>
   <Text>Last action: {state.lastAction}</Text>
 </Grid>
+
 ```
 
 Types:
