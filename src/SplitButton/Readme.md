@@ -113,3 +113,59 @@ RTL support:
   <SplitButton.Item value='three'>Three</SplitButton.Item>
 </SplitButton>
 ```
+
+Custom menu items:
+
+```
+const { Selectable } = require('../')
+
+class Item extends React.Component {
+  render () {
+    const {
+      children,
+      disabled,
+      onMouseDown,
+      onMouseEnter,
+      onMouseLeave,
+      selected
+    } = this.props
+
+    const style = { padding: '4px 16px' }
+
+    if (disabled) {
+      style.textDecoration = 'line-through'
+    } else if (selected) {
+      style.textDecoration = 'underline'
+      style.fontWeight = 'bold'
+    }
+
+    return (
+      <View
+        aria-activedescendant={ selected }
+        aria-disabled={ disabled }
+        onMouseDown={ onMouseDown }
+        onMouseEnter={ onMouseEnter }
+        onMouseLeave={ onMouseLeave }
+        style={ style }
+      >
+        { children }
+      </View>
+    )
+  }
+}
+
+const MyItem = Selectable(Item, {
+  preventDefault: true
+});
+
+<Grid spacing='medium'>
+  <SplitButton onSelect={value => setState({ lastAction: value })}>
+    <MyItem value='one'>One</MyItem>
+    <MyItem value='two'>Two</MyItem>
+    <MyItem value='three'>Three</MyItem>
+    <MyItem value='four' disabled>Four</MyItem>
+    <MyItem value='five'>Five</MyItem>
+  </SplitButton>
+  <Text>Last action: {state.lastAction}</Text>
+</Grid>
+```
