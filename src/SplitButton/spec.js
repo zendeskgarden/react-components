@@ -132,10 +132,11 @@ describe('SplitButton', () => {
         </SplitButton>,
         'to render as',
         <RelativePositionedPopup
+          testId="wat"
           anchor={
             <View>
-              <Button testId="wat">One</Button>
-              <IconButton />
+              <Button testId="wat-button">One</Button>
+              <IconButton testId="wat-menu-button" />
             </View>
           }
           marginBottom={2}

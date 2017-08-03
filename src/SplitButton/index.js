@@ -209,6 +209,7 @@ export default class SplitButton extends ThemedComponent {
         marginRight={marginRight}
         marginTop={marginTop}
         positioning={positioning}
+        testId={testId}
         anchor={
           <View
             className={classNames(theme.group, { [theme.rtl]: dir === 'rtl' })}
@@ -219,7 +220,7 @@ export default class SplitButton extends ThemedComponent {
               pill={pill}
               size={size}
               tabIndex={tabIndex}
-              testId={testId}
+              testId={testId && `${testId}-button`}
               title={title}
               type={type}
             >
@@ -232,6 +233,7 @@ export default class SplitButton extends ThemedComponent {
               onClick={this.onClick}
               pill={pill}
               size={size}
+              testId={testId && `${testId}-menu-button`}
               type={type}
             >
               <ChevronIcon />
