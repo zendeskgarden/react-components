@@ -52,6 +52,7 @@
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
     "babel-loader": "7.0.0",
+    "babel-plugin-inline-react-svg": "^0.4.0",
     "babel-plugin-react-transform": "2.0.2",
     "babel-plugin-transform-es2015-modules-commonjs": "6.24.1",
     "babel-plugin-transform-runtime": "6.23.0",
