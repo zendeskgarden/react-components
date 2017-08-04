@@ -1,5 +1,10 @@
 ## Change Log
 
+### v7.3.0 (2017/08/04 21:33 +00:00)
+- [#238](https://github.com/zendeskgarden/react-components/pull/238) Callout component (@aliciacatalina)
+- [#243](https://github.com/zendeskgarden/react-components/pull/243) Fixed squeezed label example (@sunesimonsen)
+- [#242](https://github.com/zendeskgarden/react-components/pull/242) Add more examples & documentation for the split button (@kristing400)
+
 ### v7.2.0 (2017/08/03 18:31 +00:00)
 - [#240](https://github.com/zendeskgarden/react-components/pull/240) Rotate the chevron when the split button menu is open (@sunesimonsen)
 
@@ -333,8 +338,6 @@
 
 ### v1.4.1 (2016/09/12 13:21 +00:00)
 - [#30](https://github.com/zendeskgarden/react-components/pull/30) Fixed: button was clickable when disabled (@sunesimonsen)
-
-### v1.4.0 (2016/09/08 12:55 +00:00)
 - [#28](https://github.com/zendeskgarden/react-components/pull/28) Add Range component (@csk157)
 - [#27](https://github.com/zendeskgarden/react-components/pull/27) I broke the arrows, this PR fixes it. (@sunesimonsen)
 - [#26](https://github.com/zendeskgarden/react-components/pull/26) Fixed: space and enter on buttons after quickfix :-( (@sunesimonsen)
