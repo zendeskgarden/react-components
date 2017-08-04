@@ -1,6 +1,7 @@
 export { default as Avatar } from './Avatar';
 export { default as Button } from './Button';
 export { default as ButtonGroup } from './ButtonGroup';
+export { default as Callout } from './Callout';
 export { default as Checkbox } from './Checkbox';
 export { default as Ellipsis } from './Ellipsis';
 export { default as FormHint } from './FormHint';

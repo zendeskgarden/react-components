@@ -38,6 +38,7 @@
     "@zendesk/garden-css-arrows": "^1.0.0",
     "@zendesk/garden-css-avatars": "^1.0.1",
     "@zendesk/garden-css-buttons": "^3.0.0",
+    "@zendesk/garden-css-callouts": "^1.1.1",
     "@zendesk/garden-css-forms": "^3.0.0",
     "@zendesk/garden-css-labels": "^1.0.0",
     "@zendesk/garden-css-menus": "^4.0.0",
