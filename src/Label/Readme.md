@@ -81,18 +81,18 @@ const onRemove = () => alert('Removed!')
 const avatar = <img src='http://placeskull.com/16/16/03363d'/>;
 
 <Grid columns={4} spacing='medium' style={{ textAlign: 'center' }}>
-  <Label onRemove={onRemove} tabIndex={0} size='small' avatar={avatar}>This is a small label</Label>
-  <Label onRemove={onRemove} tabIndex={0} size='small'>This is a small label</Label>
-  <Label onRemove={onRemove} tabIndex={0} size='small' pill avatar={avatar}>This is a small label</Label>
-  <Label onRemove={onRemove} tabIndex={0} size='small' pill>This is a small label</Label>
-  <Label onRemove={onRemove} tabIndex={0} size='medium' avatar={avatar}>This is a medium label</Label>
-  <Label onRemove={onRemove} tabIndex={0} size='medium'>This is a medium label</Label>
-  <Label onRemove={onRemove} tabIndex={0} size='medium' pill avatar={avatar}>This is a medium label</Label>
-  <Label onRemove={onRemove} tabIndex={0} size='medium' pill>This is a medium label</Label>
-  <Label onRemove={onRemove} tabIndex={0} size='large' avatar={avatar}>This is a large label</Label>
-  <Label onRemove={onRemove} tabIndex={0} size='large'>This is a large label</Label>
-  <Label onRemove={onRemove} tabIndex={0} size='large' pill avatar={avatar}>This is a large label</Label>
-  <Label onRemove={onRemove} tabIndex={0} size='large' pill>This is a large label</Label>
+  <Label onRemove={onRemove} tabIndex={0} size='small' avatar={avatar}>Remove me</Label>
+  <Label onRemove={onRemove} tabIndex={0} size='small'>Remove me</Label>
+  <Label onRemove={onRemove} tabIndex={0} size='small' pill avatar={avatar}>Remove me</Label>
+  <Label onRemove={onRemove} tabIndex={0} size='small' pill>Remove me</Label>
+  <Label onRemove={onRemove} tabIndex={0} size='medium' avatar={avatar}>Remove me</Label>
+  <Label onRemove={onRemove} tabIndex={0} size='medium'>Remove me</Label>
+  <Label onRemove={onRemove} tabIndex={0} size='medium' pill avatar={avatar}>Remove me</Label>
+  <Label onRemove={onRemove} tabIndex={0} size='medium' pill>Remove me</Label>
+  <Label onRemove={onRemove} tabIndex={0} size='large' avatar={avatar}>Remove me</Label>
+  <Label onRemove={onRemove} tabIndex={0} size='large'>Remove me</Label>
+  <Label onRemove={onRemove} tabIndex={0} size='large' pill avatar={avatar}>Remove me</Label>
+  <Label onRemove={onRemove} tabIndex={0} size='large' pill>Remove me</Label>
 </Grid>
 ```
 
@@ -103,18 +103,18 @@ const onRemove = () => console.log('Removed!')
 const avatar = <img src='http://placeskull.com/16/16/03363d'/>;
 
 <Grid columns={4} spacing='medium' style={{ textAlign: 'center' }}>
-  <Label dir='rtl' onRemove={onRemove} tabIndex={0} size='small' avatar={avatar}>This is a small label</Label>
-  <Label dir='rtl' onRemove={onRemove} tabIndex={0} size='small'>This is a small label</Label>
-  <Label dir='rtl' onRemove={onRemove} tabIndex={0} size='small' pill avatar={avatar}>This is a small label</Label>
-  <Label dir='rtl' onRemove={onRemove} tabIndex={0} size='small' pill>This is a small label</Label>
-  <Label dir='rtl' onRemove={onRemove} tabIndex={0} size='medium' avatar={avatar}>This is a medium label</Label>
-  <Label dir='rtl' onRemove={onRemove} tabIndex={0} size='medium'>This is a medium label</Label>
-  <Label dir='rtl' onRemove={onRemove} tabIndex={0} size='medium' pill avatar={avatar}>This is a medium label</Label>
-  <Label dir='rtl' onRemove={onRemove} tabIndex={0} size='medium' pill>This is a medium label</Label>
-  <Label dir='rtl' onRemove={onRemove} tabIndex={0} size='large' avatar={avatar}>This is a large label</Label>
-  <Label dir='rtl' onRemove={onRemove} tabIndex={0} size='large'>This is a large label</Label>
-  <Label dir='rtl' onRemove={onRemove} tabIndex={0} size='large' pill avatar={avatar}>This is a large label</Label>
-  <Label dir='rtl' onRemove={onRemove} tabIndex={0} size='large' pill>This is a large label</Label>
+  <Label dir='rtl' onRemove={onRemove} tabIndex={0} size='small' avatar={avatar}>This is a label</Label>
+  <Label dir='rtl' onRemove={onRemove} tabIndex={0} size='small'>This is a label</Label>
+  <Label dir='rtl' onRemove={onRemove} tabIndex={0} size='small' pill avatar={avatar}>This is a label</Label>
+  <Label dir='rtl' onRemove={onRemove} tabIndex={0} size='small' pill>This is a label</Label>
+  <Label dir='rtl' onRemove={onRemove} tabIndex={0} size='medium' avatar={avatar}>This is a label</Label>
+  <Label dir='rtl' onRemove={onRemove} tabIndex={0} size='medium'>This is a label</Label>
+  <Label dir='rtl' onRemove={onRemove} tabIndex={0} size='medium' pill avatar={avatar}>This is a label</Label>
+  <Label dir='rtl' onRemove={onRemove} tabIndex={0} size='medium' pill>This is a label</Label>
+  <Label dir='rtl' onRemove={onRemove} tabIndex={0} size='large' avatar={avatar}>This is a label</Label>
+  <Label dir='rtl' onRemove={onRemove} tabIndex={0} size='large'>This is a label</Label>
+  <Label dir='rtl' onRemove={onRemove} tabIndex={0} size='large' pill avatar={avatar}>This is a label</Label>
+  <Label dir='rtl' onRemove={onRemove} tabIndex={0} size='large' pill>This is a label</Label>
 </Grid>
 ```
 
