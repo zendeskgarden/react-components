@@ -6,6 +6,10 @@
   composes: l-btn-group from '@zendesk/garden-css-buttons';
 }
 
+.active {
+  composes: is-active from '@zendesk/garden-css-buttons';
+}
+
 .group:focus {
   outline: none;
 }

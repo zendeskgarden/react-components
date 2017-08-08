@@ -14,6 +14,7 @@ export default class IconButton extends ThemedComponent {
       PropTypes.element.isRequired,
       PropTypes.string
     ]),
+    className: PropTypes.string,
     disabled: PropTypes.bool,
     isRotated: PropTypes.bool,
     onBlur: PropTypes.func,
@@ -39,11 +40,11 @@ export default class IconButton extends ThemedComponent {
   }
 
   render() {
-    const { children, isRotated, ...other } = this.props;
+    const { children, className, isRotated, ...other } = this.props;
     const theme = this.theme;
 
     return (
-      <Button className={styles.button} {...other}>
+      <Button className={classNames(styles.button, className)} {...other}>
         {typeof children === 'string'
           ? children
           : React.cloneElement(Children.only(children), {

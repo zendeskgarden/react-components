@@ -230,6 +230,7 @@ export default class SplitButton extends ThemedComponent {
             </Button>
             <IconButton
               disabled={disabled}
+              className={classNames({ [theme.active]: !hidden })}
               isRotated={!hidden}
               onKeyDown={this.onKeyDown}
               onBlur={this.closeMenu}
