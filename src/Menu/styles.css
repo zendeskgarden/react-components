@@ -39,7 +39,7 @@
   composes: c-menu__item from '@zendesk/garden-css-menus';
 }
 
-.item:hover:not(.selected) {
+.item:hover:not(.focused) {
   background: transparent;
 }
 
@@ -56,8 +56,8 @@
   composes: is-disabled from '@zendesk/garden-css-menus';
 }
 
-.selected {
-  composes: is-selected from '@zendesk/garden-css-menus';
+.focused {
+  composes: is-focused from '@zendesk/garden-css-menus';
 }
 
 .separator {

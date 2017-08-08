@@ -47,7 +47,7 @@ class Item extends Component {
         aria-disabled={disabled}
         className={classNames(styles.item, {
           [styles.disabled]: disabled,
-          [styles.selected]: selected
+          [styles.focused]: selected
         })}
         disabled={disabled}
         onMouseDown={onMouseDown}
