@@ -39,10 +39,6 @@
   composes: c-menu__item from '@zendesk/garden-css-menus';
 }
 
-.item:hover:not(.focused) {
-  background: transparent;
-}
-
 .inner {
   padding: 8px 0;
 }
