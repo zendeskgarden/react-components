@@ -1,5 +1,9 @@
 ## Change Log
 
+### v7.4.0 (2017/08/08 19:03 +00:00)
+- [#245](https://github.com/zendeskgarden/react-components/pull/245) Using is-focused instead of is-selected for menu items (@sunesimonsen)
+- [#246](https://github.com/zendeskgarden/react-components/pull/246) Add the is-active to the split menu button when the menu is open (@sunesimonsen)
+
 ### v7.3.0 (2017/08/04 21:33 +00:00)
 - [#238](https://github.com/zendeskgarden/react-components/pull/238) Callout component (@aliciacatalina)
 - [#243](https://github.com/zendeskgarden/react-components/pull/243) Fixed squeezed label example (@sunesimonsen)
@@ -335,8 +339,6 @@
 
 ### v1.4.2 (2016/09/16 11:16 +00:00)
 - [#32](https://github.com/zendeskgarden/react-components/pull/32) Upgraded the css-arrows to v0.2 (@sunesimonsen)
-
-### v1.4.1 (2016/09/12 13:21 +00:00)
 - [#30](https://github.com/zendeskgarden/react-components/pull/30) Fixed: button was clickable when disabled (@sunesimonsen)
 - [#28](https://github.com/zendeskgarden/react-components/pull/28) Add Range component (@csk157)
 - [#27](https://github.com/zendeskgarden/react-components/pull/27) I broke the arrows, this PR fixes it. (@sunesimonsen)
