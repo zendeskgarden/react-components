@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import ThemedComponent from '../utils/theming/ThemedComponent';
+import ThemedComponent from "../utils/theming/ThemedComponent";
 
-import styles from './styles.css';
+import styles from "./styles.css";
 
 export default class Footer extends ThemedComponent {
   static propTypes = {
@@ -12,7 +12,7 @@ export default class Footer extends ThemedComponent {
 
   constructor(props, context) {
     super(props, context, {
-      namespace: 'Modal',
+      namespace: "Modal",
       styles
     });
   }

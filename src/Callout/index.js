@@ -1,25 +1,25 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import P from './P';
-import View from '../core/View';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import P from "./P";
+import View from "../core/View";
 
-import styles from './styles.css';
+import styles from "./styles.css";
 
 export default class Callout extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
-    dir: PropTypes.oneOf(['ltr', 'rtl']),
+    dir: PropTypes.oneOf(["ltr", "rtl"]),
     onClose: PropTypes.func,
     tabIndex: PropTypes.number,
     title: PropTypes.string,
-    type: PropTypes.oneOf(['default', 'success', 'warning', 'error'])
+    type: PropTypes.oneOf(["default", "success", "warning", "error"])
   };
 
   static defaultProps = {
-    dir: 'ltr',
-    type: 'default',
+    dir: "ltr",
+    type: "default",
     tabIndex: 0
   };
 
@@ -39,11 +39,14 @@ export default class Callout extends Component {
       <View
         className={classNames(
           styles[type],
-          { [styles.rtl]: dir === 'rtl' },
+          { [styles.rtl]: dir === "rtl" },
           className
         )}
       >
-        {title && <strong className={styles.title}>{title}</strong>}
+        {title &&
+          <strong className={styles.title}>
+            {title}
+          </strong>}
         {children}
         {onClose && this.renderClose(onClose)}
       </View>

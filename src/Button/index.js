@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
-import ThemedComponent from '../utils/theming/ThemedComponent';
-import Core from './Core';
+import ThemedComponent from "../utils/theming/ThemedComponent";
+import Core from "./Core";
 
-import styles from './styles.css';
+import styles from "./styles.css";
 
 export default class Button extends ThemedComponent {
   static Core = Core;
@@ -21,25 +21,25 @@ export default class Button extends ThemedComponent {
     onKeyDown: PropTypes.func,
     onKeyUp: PropTypes.func,
     pill: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
+    size: PropTypes.oneOf(["small", "medium", "large"]),
     stretched: PropTypes.bool,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
     title: PropTypes.string,
     /** <a href="#view">See View</a> */
     tooltipPositioning: () => {},
-    type: PropTypes.oneOf(['default', 'primary', 'basic'])
+    type: PropTypes.oneOf(["default", "primary", "basic"])
   };
 
   static defaultProps = {
     tabIndex: 0,
-    type: 'default',
-    size: 'small'
+    type: "default",
+    size: "small"
   };
 
   constructor(props, context) {
     super(props, context, {
-      namespace: 'Button',
+      namespace: "Button",
       styles
     });
     this.state = {

@@ -7,23 +7,23 @@
 // This ensured that composed CSS modules will be shared among the files
 // referencing them.
 
-const gulp = require('gulp');
-const postcss = require('gulp-postcss');
-const babel = require('gulp-babel');
-const modules = require('postcss-modules');
-const transform = require('gulp-transform');
-const cleanCSS = require('gulp-clean-css');
-const cssnext = require('postcss-cssnext');
-const importer = require('postcss-import');
-const inputRange = require('sunesimonsen-postcss-input-range');
-const rename = require('gulp-rename');
-const path = require('path');
-const unique = require('array-unique');
-const clean = require('gulp-clean');
-const adler32 = require('adler32');
+const gulp = require("gulp");
+const postcss = require("gulp-postcss");
+const babel = require("gulp-babel");
+const modules = require("postcss-modules");
+const transform = require("gulp-transform");
+const cleanCSS = require("gulp-clean-css");
+const cssnext = require("postcss-cssnext");
+const importer = require("postcss-import");
+const inputRange = require("sunesimonsen-postcss-input-range");
+const rename = require("gulp-rename");
+const path = require("path");
+const unique = require("array-unique");
+const clean = require("gulp-clean");
+const adler32 = require("adler32");
 
-const sourceDir = path.resolve(__dirname, 'src');
-const nodeModulesDir = path.resolve(__dirname, 'node_modules');
+const sourceDir = path.resolve(__dirname, "src");
+const nodeModulesDir = path.resolve(__dirname, "node_modules");
 
 const styleMappings = {};
 const composes = {};
@@ -36,15 +36,17 @@ const cssToJSTemplate = (css, styles, dependencies) =>
 
 exports.__esModule = true;
 
-${css ? "var appendStyles = require('append-styles')" : ''}
+${css ? "var appendStyles = require('append-styles')" : ""}
 ${dependencies}
-${css ? `
+${css
+    ? `
 appendStyles({
   css: ${JSON.stringify(css)},
   id: 'rc-styles',
   before: 'ssc-styles'
 })
-` : ''}
+`
+    : ""}
 exports.default = ${JSON.stringify(styles)}
 `;
 
@@ -53,7 +55,7 @@ exports.default = ${JSON.stringify(styles)}
 const cssToJS = (contents, file) => {
   const relativePath = path.relative(
     path.dirname(file.path),
-    path.join(__dirname, 'src')
+    path.join(__dirname, "src")
   );
 
   return cssToJSTemplate(
@@ -63,12 +65,12 @@ const cssToJS = (contents, file) => {
       .map(dependency => {
         const dependencyPath = path.join(
           relativePath,
-          'deps',
+          "deps",
           `${dependency}.js`
         );
         return `require('${dependencyPath}')`;
       })
-      .join('\n')
+      .join("\n")
   );
 };
 
@@ -82,7 +84,7 @@ const collectCompose = (contents, file) => {
 
   let match;
   while ((match = composeRegexp.exec(contents))) {
-    const classes = match[1].trim().split(' ');
+    const classes = match[1].trim().split(" ");
     const reference = match[2];
 
     composes[reference] = composes[reference] || {};
@@ -99,20 +101,20 @@ const collectCompose = (contents, file) => {
 };
 
 // Runs collect composes for all CSS files in the project.
-gulp.task('collect-composes', cb => {
+gulp.task("collect-composes", cb => {
   return gulp
-    .src('src/**/*.css')
-    .pipe(transform(collectCompose, { encoding: 'utf8' }));
+    .src("src/**/*.css")
+    .pipe(transform(collectCompose, { encoding: "utf8" }));
 });
 
 // When we have collected all the references to composed CSS files,
 // we can then transpile each of the them into JavaScript files that will be
 // stored in the lib/deps folder.
-gulp.task('process-composed-files', ['collect-composes'], () => {
+gulp.task("process-composed-files", ["collect-composes"], () => {
   const sources = Object.keys(composes).map(module => require.resolve(module));
 
   return gulp
-    .src(sources, { base: path.join(__dirname, 'node_modules') })
+    .src(sources, { base: path.join(__dirname, "node_modules") })
     .pipe(
       postcss([
         modules({
@@ -127,15 +129,15 @@ gulp.task('process-composed-files', ['collect-composes'], () => {
       ])
     )
     .pipe(cleanCSS())
-    .pipe(transform(cssToJS, { encoding: 'utf8' }))
+    .pipe(transform(cssToJS, { encoding: "utf8" }))
     .pipe(
       rename(path => {
-        path.basename = path.dirname.split('/').slice(0, -1).join('/');
-        path.dirname = 'deps/';
-        path.extname = '.js';
+        path.basename = path.dirname.split("/").slice(0, -1).join("/");
+        path.dirname = "deps/";
+        path.extname = ".js";
       })
     )
-    .pipe(gulp.dest('lib/'));
+    .pipe(gulp.dest("lib/"));
 });
 
 // This function will externalize all composes referencing CSS files
@@ -146,7 +148,7 @@ const externalizeComposes = (contents, file) =>
   contents.replace(/composes: (.*) from '([^/.].*)';/g, ($0, $1, module) => {
     const cssFileName = require.resolve(module);
     const styles = styleMappings[cssFileName];
-    const classes = $1.trim().split(' ').map(c => styles[c]).join(' ');
+    const classes = $1.trim().split(" ").map(c => styles[c]).join(" ");
 
     return `composes: ${classes} from global;`;
   });
@@ -155,10 +157,10 @@ const externalizeComposes = (contents, file) =>
 // CSS files in our project. We externalize the composes to point to the
 // composed CSS class names. Then we transpile the CSS-module and place the
 // resulting JavaScript file in the lib folder.
-gulp.task('css', ['clean', 'process-composed-files'], () => {
+gulp.task("css", ["clean", "process-composed-files"], () => {
   return gulp
-    .src('src/**/*.css')
-    .pipe(transform(externalizeComposes, { encoding: 'utf8' }))
+    .src("src/**/*.css")
+    .pipe(transform(externalizeComposes, { encoding: "utf8" }))
     .pipe(
       postcss([
         importer({
@@ -178,13 +180,13 @@ gulp.task('css', ['clean', 'process-composed-files'], () => {
       ])
     )
     .pipe(cleanCSS())
-    .pipe(transform(cssToJS, { encoding: 'utf8' }))
+    .pipe(transform(cssToJS, { encoding: "utf8" }))
     .pipe(
       rename(path => {
-        path.extname = '.js';
+        path.extname = ".js";
       })
     )
-    .pipe(gulp.dest('lib/'));
+    .pipe(gulp.dest("lib/"));
 });
 
 const cssImports = contents =>
@@ -192,35 +194,35 @@ const cssImports = contents =>
 
 // This task will transpile all JavaScript ES5 files in the lib folder and
 // replace imported CSS files to point to the transpiled CSS-module.
-gulp.task('js', ['clean'], () => {
+gulp.task("js", ["clean"], () => {
   return gulp
-    .src(['src/**/*.js', '!src/**/spec.js', '!src/**/*.spec.js'])
-    .pipe(transform(cssImports, { encoding: 'utf8' }))
+    .src(["src/**/*.js", "!src/**/spec.js", "!src/**/*.spec.js"])
+    .pipe(transform(cssImports, { encoding: "utf8" }))
     .pipe(
       babel({
         babelrc: false,
-        plugins: ['transform-runtime'],
+        plugins: ["transform-runtime"],
         presets: [
-          ['es2015', { loose: true, modules: 'commonjs' }],
-          'react',
-          'stage-0'
+          ["es2015", { loose: true, modules: "commonjs" }],
+          "react",
+          "stage-0"
         ]
       })
     )
-    .pipe(gulp.dest('lib/'));
+    .pipe(gulp.dest("lib/"));
 });
 
-gulp.task('watch', () => {
-  const watcher = gulp.watch('src/**/*.{css,js}', ['default']);
-  watcher.on('change', event => {
+gulp.task("watch", () => {
+  const watcher = gulp.watch("src/**/*.{css,js}", ["default"]);
+  watcher.on("change", event => {
     console.log(
-      'File ' + event.path + ' was ' + event.type + ', running tasks...'
+      "File " + event.path + " was " + event.type + ", running tasks..."
     );
   });
 });
 
-gulp.task('clean', () => {
-  return gulp.src('lib/', { read: false }).pipe(clean());
+gulp.task("clean", () => {
+  return gulp.src("lib/", { read: false }).pipe(clean());
 });
 
-gulp.task('default', ['css', 'js']);
+gulp.task("default", ["css", "js"]);

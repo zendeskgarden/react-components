@@ -1,37 +1,37 @@
-import React from 'react';
-import unexpected from 'test/expect';
-import sinon from 'sinon';
+import React from "react";
+import unexpected from "test/expect";
+import sinon from "sinon";
 
-import SplitButton from '.';
-import View from '../View';
-import Button from '../Button';
-import IconButton from '../IconButton';
-import RelativePositionedPopup from '../core/RelativePositionedPopup';
+import SplitButton from ".";
+import View from "../View";
+import Button from "../Button";
+import IconButton from "../IconButton";
+import RelativePositionedPopup from "../core/RelativePositionedPopup";
 
-describe('SplitButton', () => {
+describe("SplitButton", () => {
   const expect = unexpected
     .clone()
     .addAssertion(
-      '<ReactElement> when clicking on the menu button <assertion>',
+      "<ReactElement> when clicking on the menu button <assertion>",
       (expect, subject) =>
         expect(
           subject,
-          'when deeply rendered',
-          'with event',
-          'click',
-          'on',
+          "when deeply rendered",
+          "with event",
+          "click",
+          "on",
           <IconButton />
         ).then(subject => expect.shift(subject))
     );
 
-  it('renders the first child item as it label by default', () => {
+  it("renders the first child item as it label by default", () => {
     expect(
       <SplitButton>
         <SplitButton.Item>One</SplitButton.Item>
         <SplitButton.Item>Two</SplitButton.Item>
         <SplitButton.Item>Three</SplitButton.Item>
       </SplitButton>,
-      'to render as',
+      "to render as",
       <RelativePositionedPopup
         anchor={
           <View>
@@ -47,15 +47,15 @@ describe('SplitButton', () => {
     );
   });
 
-  describe('when given a size', () => {
-    it('renders the split button with that size', () => {
+  describe("when given a size", () => {
+    it("renders the split button with that size", () => {
       expect(
         <SplitButton size="large">
           <SplitButton.Item>One</SplitButton.Item>
           <SplitButton.Item>Two</SplitButton.Item>
           <SplitButton.Item>Three</SplitButton.Item>
         </SplitButton>,
-        'to render as',
+        "to render as",
         <RelativePositionedPopup
           anchor={
             <View>
@@ -72,15 +72,15 @@ describe('SplitButton', () => {
     });
   });
 
-  describe('when given a type', () => {
-    it('renders the split button with that type', () => {
+  describe("when given a type", () => {
+    it("renders the split button with that type", () => {
       expect(
         <SplitButton type="primary">
           <SplitButton.Item>One</SplitButton.Item>
           <SplitButton.Item>Two</SplitButton.Item>
           <SplitButton.Item>Three</SplitButton.Item>
         </SplitButton>,
-        'to render as',
+        "to render as",
         <RelativePositionedPopup
           anchor={
             <View>
@@ -97,15 +97,15 @@ describe('SplitButton', () => {
     });
   });
 
-  describe('when given a pill flag', () => {
-    it('renders the pill split button', () => {
+  describe("when given a pill flag", () => {
+    it("renders the pill split button", () => {
       expect(
         <SplitButton pill>
           <SplitButton.Item>One</SplitButton.Item>
           <SplitButton.Item>Two</SplitButton.Item>
           <SplitButton.Item>Three</SplitButton.Item>
         </SplitButton>,
-        'to render as',
+        "to render as",
         <RelativePositionedPopup
           anchor={
             <View>
@@ -122,15 +122,15 @@ describe('SplitButton', () => {
     });
   });
 
-  describe('when given a test id', () => {
-    it('renders a split button with that test id on the primary button', () => {
+  describe("when given a test id", () => {
+    it("renders a split button with that test id on the primary button", () => {
       expect(
         <SplitButton testId="wat">
           <SplitButton.Item>One</SplitButton.Item>
           <SplitButton.Item>Two</SplitButton.Item>
           <SplitButton.Item>Three</SplitButton.Item>
         </SplitButton>,
-        'to render as',
+        "to render as",
         <RelativePositionedPopup
           testId="wat"
           anchor={
@@ -148,15 +148,15 @@ describe('SplitButton', () => {
     });
   });
 
-  describe('when given a tab index', () => {
-    it('renders a split button with that tab index', () => {
+  describe("when given a tab index", () => {
+    it("renders a split button with that tab index", () => {
       expect(
         <SplitButton tabIndex={3}>
           <SplitButton.Item>One</SplitButton.Item>
           <SplitButton.Item>Two</SplitButton.Item>
           <SplitButton.Item>Three</SplitButton.Item>
         </SplitButton>,
-        'to render as',
+        "to render as",
         <RelativePositionedPopup
           anchor={
             <View>
@@ -173,15 +173,15 @@ describe('SplitButton', () => {
     });
   });
 
-  describe('when overriding the label', () => {
-    it('renders a split button with that label on the primary button', () => {
+  describe("when overriding the label", () => {
+    it("renders a split button with that label on the primary button", () => {
       expect(
         <SplitButton label="My label">
           <SplitButton.Item>One</SplitButton.Item>
           <SplitButton.Item>Two</SplitButton.Item>
           <SplitButton.Item>Three</SplitButton.Item>
         </SplitButton>,
-        'to render as',
+        "to render as",
         <RelativePositionedPopup
           anchor={
             <View>
@@ -198,8 +198,8 @@ describe('SplitButton', () => {
     });
   });
 
-  describe('when clicking on the primary button', () => {
-    it('calls onSelect with the value of the first item', () => {
+  describe("when clicking on the primary button", () => {
+    it("calls onSelect with the value of the first item", () => {
       const onSelect = sinon.spy();
 
       return expect(
@@ -208,20 +208,20 @@ describe('SplitButton', () => {
           <SplitButton.Item value="two">Two</SplitButton.Item>
           <SplitButton.Item value="three">Three</SplitButton.Item>
         </SplitButton>,
-        'when deeply rendered',
-        'with event',
-        'click',
-        'on',
+        "when deeply rendered",
+        "with event",
+        "click",
+        "on",
         <Button>One</Button>
       ).then(() => {
-        expect(onSelect, 'to have calls satisfying', () => {
-          onSelect('one');
+        expect(onSelect, "to have calls satisfying", () => {
+          onSelect("one");
         });
       });
     });
 
-    describe('when overriding the onClick handler', () => {
-      it('calls onClick', () => {
+    describe("when overriding the onClick handler", () => {
+      it("calls onClick", () => {
         const onClick = sinon.spy();
 
         return expect(
@@ -230,22 +230,22 @@ describe('SplitButton', () => {
             <SplitButton.Item value="two">Two</SplitButton.Item>
             <SplitButton.Item value="three">Three</SplitButton.Item>
           </SplitButton>,
-          'when deeply rendered',
-          'with event',
-          'click',
-          'on',
+          "when deeply rendered",
+          "with event",
+          "click",
+          "on",
           <Button>One</Button>
         ).then(() => {
-          expect(onClick, 'to have calls satisfying', () => {
-            onClick(expect.it('to be an object'));
+          expect(onClick, "to have calls satisfying", () => {
+            onClick(expect.it("to be an object"));
           });
         });
       });
     });
   });
 
-  describe('when clicking on one of the items', () => {
-    it('calls the onSelect handler with the value of that item', () => {
+  describe("when clicking on one of the items", () => {
+    it("calls the onSelect handler with the value of that item", () => {
       const onSelect = sinon.spy();
 
       return expect(
@@ -254,21 +254,21 @@ describe('SplitButton', () => {
           <SplitButton.Item value="two">Two</SplitButton.Item>
           <SplitButton.Item value="three">Three</SplitButton.Item>
         </SplitButton>,
-        'when clicking on the menu button',
-        'with event',
-        'mouseDown',
-        'on',
+        "when clicking on the menu button",
+        "with event",
+        "mouseDown",
+        "on",
         <SplitButton.Item>Two</SplitButton.Item>
       ).then(() => {
-        expect(onSelect, 'to have calls satisfying', () => {
-          onSelect('two');
+        expect(onSelect, "to have calls satisfying", () => {
+          onSelect("two");
         });
       });
     });
   });
 
-  describe('when selecting an item with the keyboard', () => {
-    it('calls the onSelect handler with the value of that item', () => {
+  describe("when selecting an item with the keyboard", () => {
+    it("calls the onSelect handler with the value of that item", () => {
       const onSelect = sinon.spy();
 
       return expect(
@@ -277,40 +277,40 @@ describe('SplitButton', () => {
           <SplitButton.Item value="two">Two</SplitButton.Item>
           <SplitButton.Item value="three">Three</SplitButton.Item>
         </SplitButton>,
-        'when deeply rendered',
-        'with event',
-        'keyDown',
+        "when deeply rendered",
+        "with event",
+        "keyDown",
         { keyCode: 40 },
-        'on',
+        "on",
         <IconButton />,
-        'with event',
-        'keyDown',
+        "with event",
+        "keyDown",
         { keyCode: 40 },
-        'on',
+        "on",
         <IconButton />,
-        'with event',
-        'keyDown',
+        "with event",
+        "keyDown",
         { keyCode: 13 },
-        'on',
+        "on",
         <IconButton />
       ).then(() => {
-        expect(onSelect, 'to have calls satisfying', () => {
-          onSelect('two');
+        expect(onSelect, "to have calls satisfying", () => {
+          onSelect("two");
         });
       });
     });
   });
 
-  describe('when clicking on the menu button', () => {
-    it('renders the menu', () =>
+  describe("when clicking on the menu button", () => {
+    it("renders the menu", () =>
       expect(
         <SplitButton>
           <SplitButton.Item>One</SplitButton.Item>
           <SplitButton.Item>Two</SplitButton.Item>
           <SplitButton.Item>Three</SplitButton.Item>
         </SplitButton>,
-        'when clicking on the menu button',
-        'to contain',
+        "when clicking on the menu button",
+        "to contain",
         <View className="popup" hidden={false} />
       ));
   });

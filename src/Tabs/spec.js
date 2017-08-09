@@ -1,11 +1,11 @@
-import React from 'react';
-import expect from 'test/expect';
-import sinon from 'sinon';
+import React from "react";
+import expect from "test/expect";
+import sinon from "sinon";
 
-import Tabs from '../Tabs';
+import Tabs from "../Tabs";
 
-describe('Tabs', () => {
-  it('renders a tab component showing the active panel', () => {
+describe("Tabs", () => {
+  it("renders a tab component showing the active panel", () => {
     expect(
       <Tabs active="two">
         <Tabs.Panel label="One" id="one">
@@ -18,12 +18,18 @@ describe('Tabs', () => {
           Panel three
         </Tabs.Panel>
       </Tabs>,
-      'to deeply render as',
+      "to deeply render as",
       <nav className="tabs">
         <ul className="list" role="tablist">
-          <li aria-selected={false} className="label" role="tab">One</li>
-          <li aria-selected className="label selected" role="tab">Two</li>
-          <li aria-selected={false} className="label" role="tab">Three</li>
+          <li aria-selected={false} className="label" role="tab">
+            One
+          </li>
+          <li aria-selected className="label selected" role="tab">
+            Two
+          </li>
+          <li aria-selected={false} className="label" role="tab">
+            Three
+          </li>
         </ul>
         <div className="panel" role="tabpanel">
           Panel two
@@ -32,8 +38,8 @@ describe('Tabs', () => {
     );
   });
 
-  describe('when configured to be vertical', () => {
-    it('renders a vertical tabs component', () => {
+  describe("when configured to be vertical", () => {
+    it("renders a vertical tabs component", () => {
       expect(
         <Tabs active="two" vertical>
           <Tabs.Panel label="One" id="one">
@@ -46,12 +52,18 @@ describe('Tabs', () => {
             Panel three
           </Tabs.Panel>
         </Tabs>,
-        'to deeply render as',
+        "to deeply render as",
         <nav className="tabs vertical">
           <ul className="list" role="tablist">
-            <li aria-selected={false} className="label" role="tab">One</li>
-            <li aria-selected className="label selected" role="tab">Two</li>
-            <li aria-selected={false} className="label" role="tab">Three</li>
+            <li aria-selected={false} className="label" role="tab">
+              One
+            </li>
+            <li aria-selected className="label selected" role="tab">
+              Two
+            </li>
+            <li aria-selected={false} className="label" role="tab">
+              Three
+            </li>
           </ul>
           <div className="panel" role="tabpanel">
             Panel two
@@ -61,7 +73,7 @@ describe('Tabs', () => {
     });
   });
 
-  it('renders disabled tabs as disabled', () => {
+  it("renders disabled tabs as disabled", () => {
     expect(
       <Tabs active="enabled">
         <Tabs.Panel label="Enabled" id="enabled">
@@ -71,21 +83,21 @@ describe('Tabs', () => {
           Panel two
         </Tabs.Panel>
       </Tabs>,
-      'to deeply render as',
+      "to deeply render as",
       <nav className="tabs">
         <ul className="list">
           <li className="label selected">Enabled</li>
-          <li aria-disabled className="label disabled">Disabled</li>
+          <li aria-disabled className="label disabled">
+            Disabled
+          </li>
         </ul>
-        <div className="panel">
-          Enabled
-        </div>
+        <div className="panel">Enabled</div>
       </nav>
     );
   });
 
-  describe('when clicking on an enabled tab', () => {
-    it('emits an onActivate event', () => {
+  describe("when clicking on an enabled tab", () => {
+    it("emits an onActivate event", () => {
       const onActivate = sinon.spy();
 
       return expect(
@@ -100,21 +112,21 @@ describe('Tabs', () => {
             Panel three
           </Tabs.Panel>
         </Tabs>,
-        'when deeply rendered',
-        'with event',
-        'click',
-        'on',
+        "when deeply rendered",
+        "with event",
+        "click",
+        "on",
         <li className="label">Two</li>
       ).then(() => {
-        expect(onActivate, 'to have calls satisfying', () => {
-          onActivate('two');
+        expect(onActivate, "to have calls satisfying", () => {
+          onActivate("two");
         });
       });
     });
   });
 
-  describe('when clicking on an disabled tab', () => {
-    it('does not emits an onActivate event', () => {
+  describe("when clicking on an disabled tab", () => {
+    it("does not emits an onActivate event", () => {
       const onActivate = sinon.spy();
 
       return expect(
@@ -129,19 +141,19 @@ describe('Tabs', () => {
             Panel three
           </Tabs.Panel>
         </Tabs>,
-        'when deeply rendered',
-        'with event',
-        'click',
-        'on',
+        "when deeply rendered",
+        "with event",
+        "click",
+        "on",
         <li className="label">Two</li>
       ).then(() => {
-        expect(onActivate, 'was not called');
+        expect(onActivate, "was not called");
       });
     });
   });
 
-  describe('when given a test id', () => {
-    it('renders a tab component with that test id', () => {
+  describe("when given a test id", () => {
+    it("renders a tab component with that test id", () => {
       expect(
         <Tabs active="two" testId="test-me">
           <Tabs.Panel label="One" id="one">
@@ -154,7 +166,7 @@ describe('Tabs', () => {
             Panel three
           </Tabs.Panel>
         </Tabs>,
-        'to deeply render as',
+        "to deeply render as",
         <nav className="tabs" data-test-id="test-me" />
       );
     });

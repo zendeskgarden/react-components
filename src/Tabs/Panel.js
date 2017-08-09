@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import View from '../core/View';
-import ThemedComponent from '../utils/theming/ThemedComponent';
+import View from "../core/View";
+import ThemedComponent from "../utils/theming/ThemedComponent";
 
-import styles from './styles.css';
+import styles from "./styles.css";
 
 export default class Panel extends ThemedComponent {
   static propTypes = {
@@ -14,7 +14,7 @@ export default class Panel extends ThemedComponent {
 
   constructor(props, context) {
     super(props, context, {
-      namespace: 'Tabs',
+      namespace: "Tabs",
       styles
     });
   }

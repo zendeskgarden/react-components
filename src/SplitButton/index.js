@@ -1,17 +1,16 @@
-import React, { Children } from 'react';
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
-import ThemedComponent from '../utils/theming/ThemedComponent';
-import ChevronIcon from '@zendesk/garden-svg-icons/src/14-chevron.svg';
+import React, { Children } from "react";
+import classNames from "classnames";
+import PropTypes from "prop-types";
+import ThemedComponent from "../utils/theming/ThemedComponent";
+import ChevronIcon from "@zendesk/garden-svg-icons/src/14-chevron.svg";
 
-import ReactSingleSelectionModel
-  from '../utils/selection/ReactSingleSelectionModel';
-import View from '../View';
-import Menu from '../Menu';
-import Button from '../Button';
-import RelativePositionedPopup from '../RelativePositionedPopup';
-import IconButton from '../IconButton';
-import styles from './styles.css';
+import ReactSingleSelectionModel from "../utils/selection/ReactSingleSelectionModel";
+import View from "../View";
+import Menu from "../Menu";
+import Button from "../Button";
+import RelativePositionedPopup from "../RelativePositionedPopup";
+import IconButton from "../IconButton";
+import styles from "./styles.css";
 
 export default class SplitButton extends ThemedComponent {
   static propTypes = {
@@ -34,25 +33,25 @@ export default class SplitButton extends ThemedComponent {
     /** <a href="#relativepositionedpopup">See RelativePositionedPopup</a> */
     positioning: RelativePositionedPopup.propTypes.positioning,
     pill: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
+    size: PropTypes.oneOf(["small", "medium", "large"]),
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
     /** Enables tooltip */
     title: PropTypes.string,
     /** <a href="#view">See View</a> */
     tooltipPositioning: () => {},
-    type: PropTypes.oneOf(['default', 'primary']),
+    type: PropTypes.oneOf(["default", "primary"]),
     /** <a href="#menu">See Menu</a> */
     wide: PropTypes.bool
   };
 
   static defaultProps = {
-    dir: 'ltr',
+    dir: "ltr",
     marginBottom: 2,
     marginLeft: 2,
     marginRight: 2,
     marginTop: 2,
-    positioning: ['bottom_left', 'top_left']
+    positioning: ["bottom_left", "top_left"]
   };
 
   static Item = Menu.Item;
@@ -60,7 +59,7 @@ export default class SplitButton extends ThemedComponent {
 
   constructor(props, context) {
     super(props, context, {
-      namespace: 'SplitButton',
+      namespace: "SplitButton",
       styles
     });
 
@@ -148,7 +147,7 @@ export default class SplitButton extends ThemedComponent {
   };
 
   onClick = e => {
-    if (e.type === 'click') {
+    if (e.type === "click") {
       if (this.state.hidden) {
         this.showMenu();
       } else {
@@ -161,9 +160,9 @@ export default class SplitButton extends ThemedComponent {
     const { hidden } = this.props;
 
     const keyDownHandlers = {
-      '13': this.keyboardToggleHidden,
-      '27': this.closeMenu,
-      '32': this.keyboardToggleHidden
+      "13": this.keyboardToggleHidden,
+      "27": this.closeMenu,
+      "32": this.keyboardToggleHidden
     };
 
     const handler = keyDownHandlers[e.keyCode];
@@ -214,7 +213,7 @@ export default class SplitButton extends ThemedComponent {
         testId={testId}
         anchor={
           <View
-            className={classNames(theme.group, { [theme.rtl]: dir === 'rtl' })}
+            className={classNames(theme.group, { [theme.rtl]: dir === "rtl" })}
           >
             <Button
               disabled={disabled}
@@ -245,7 +244,7 @@ export default class SplitButton extends ThemedComponent {
           </View>
         }
       >
-        {position => (
+        {position =>
           <Menu.Container
             animate={!hidden}
             dir={dir}
@@ -254,8 +253,7 @@ export default class SplitButton extends ThemedComponent {
             wide={wide}
           >
             {items}
-          </Menu.Container>
-        )}
+          </Menu.Container>}
       </RelativePositionedPopup>
     );
   }

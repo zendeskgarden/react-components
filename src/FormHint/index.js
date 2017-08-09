@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import ThemedComponent from '../utils/theming/ThemedComponent';
+import React from "react";
+import PropTypes from "prop-types";
+import ThemedComponent from "../utils/theming/ThemedComponent";
 
-import styles from './styles.css';
+import styles from "./styles.css";
 
 export default class FormHint extends ThemedComponent {
   static propTypes = {
@@ -11,7 +11,7 @@ export default class FormHint extends ThemedComponent {
 
   constructor(props, context) {
     super(props, context, {
-      namespace: 'FormHint',
+      namespace: "FormHint",
       styles
     });
   }

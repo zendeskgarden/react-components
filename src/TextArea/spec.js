@@ -1,28 +1,28 @@
-import React from 'react';
-import expect from 'test/expect';
-import sinon from 'sinon';
-import TestUtils from 'react-dom/test-utils';
-import { findDOMNode } from 'react-dom';
+import React from "react";
+import expect from "test/expect";
+import sinon from "sinon";
+import TestUtils from "react-dom/test-utils";
+import { findDOMNode } from "react-dom";
 
-import TextArea from './';
-import View from '../core/View';
+import TextArea from "./";
+import View from "../core/View";
 
-describe('TextArea', () => {
-  it('renders TextArea.Core input with styling', () => {
+describe("TextArea", () => {
+  it("renders TextArea.Core input with styling", () => {
     expect(
       <TextArea />,
-      'to render as',
+      "to render as",
       <View className="txt">
         <TextArea.Core />
       </View>
     );
   });
 
-  describe('with the resizable flag', () => {
-    it('renders a resizable text area', () => {
+  describe("with the resizable flag", () => {
+    it("renders a resizable text area", () => {
       expect(
         <TextArea resizable />,
-        'to render as',
+        "to render as",
         <View className="txt">
           <TextArea.Core className="input resizable" />
         </View>
@@ -30,11 +30,11 @@ describe('TextArea', () => {
     });
   });
 
-  describe('with a label', () => {
-    it('renders a label above the input', () => {
+  describe("with a label", () => {
+    it("renders a label above the input", () => {
       expect(
         <TextArea label="This is a label" value="" />,
-        'to deeply render as',
+        "to deeply render as",
         <View>
           <label>This is a label</label>
           <textarea value="" />
@@ -43,11 +43,11 @@ describe('TextArea', () => {
     });
   });
 
-  describe('with a hint', () => {
-    it('renders a hint below the input', () => {
+  describe("with a hint", () => {
+    it("renders a hint below the input", () => {
       expect(
         <TextArea hint="This is a hint" value="" />,
-        'to deeply render as',
+        "to deeply render as",
         <View>
           <textarea value="" />
           <small className="hint">This is a hint</small>
@@ -56,11 +56,11 @@ describe('TextArea', () => {
     });
   });
 
-  describe('when disabled', () => {
-    it('renders a disabled text area', () => {
+  describe("when disabled", () => {
+    it("renders a disabled text area", () => {
       expect(
         <TextArea disabled />,
-        'to deeply render as',
+        "to deeply render as",
         <View className="disabled">
           <textarea disabled />
         </View>
@@ -68,34 +68,34 @@ describe('TextArea', () => {
     });
   });
 
-  describe('when given a small size', () => {
-    it('renders a small text area', () => {
+  describe("when given a small size", () => {
+    it("renders a small text area", () => {
       expect(
         <TextArea size="small" />,
-        'to deeply render as',
+        "to deeply render as",
         <View className="size_small" />
       );
     });
   });
 
-  const validations = ['error', 'warning', 'success'];
+  const validations = ["error", "warning", "success"];
 
   validations.forEach(validation => {
     describe(`when given a ${validation} validation`, () => {
-      it('renders a text area with the given validation', () => {
+      it("renders a text area with the given validation", () => {
         expect(
           <TextArea validation={validation} />,
-          'to render as',
+          "to render as",
           <View className={`txt ${validation}`} />
         );
       });
     });
 
     describe(`when given a ${validation} validation + a validation message`, () => {
-      it('renders a text area with the given validation', () => {
+      it("renders a text area with the given validation", () => {
         expect(
           <TextArea validation={validation} validationText="Some message" />,
-          'to render as',
+          "to render as",
           <View className={`txt ${validation}`}>
             <small className="message">Some message</small>
           </View>
@@ -104,21 +104,21 @@ describe('TextArea', () => {
     });
   });
 
-  describe('when given a validation without a validationText', () => {
-    it('shows no validation text fields', () => {
+  describe("when given a validation without a validationText", () => {
+    it("shows no validation text fields", () => {
       expect(
         <TextArea validation="error" />,
-        'when rendered not to contain',
+        "when rendered not to contain",
         <small className="message" />
       );
     });
   });
 
-  describe('with an id', () => {
-    it('uses the id for the input and wires the label to it', () => {
+  describe("with an id", () => {
+    it("uses the id for the input and wires the label to it", () => {
       expect(
         <TextArea id="my-id" label="This is a label" value="" />,
-        'to deeply render as',
+        "to deeply render as",
         <View>
           <label htmlFor="my-id">This is a label</label>
           <textarea id="my-id" value="" />
@@ -128,299 +128,299 @@ describe('TextArea', () => {
   });
 });
 
-describe('TextArea.Core', () => {
-  it('renders text area without styling', () => {
-    expect(<TextArea.Core />, 'to render as', <textarea />);
+describe("TextArea.Core", () => {
+  it("renders text area without styling", () => {
+    expect(<TextArea.Core />, "to render as", <textarea />);
   });
 
-  it('renders text area with autoComplete value', () => {
+  it("renders text area with autoComplete value", () => {
     expect(
       <TextArea.Core autoComplete="on" />,
-      'to render as',
+      "to render as",
       <textarea autoComplete="on" />
     );
   });
 
-  it('renders text area with autoFocus value', () => {
-    expect(<TextArea.Core autoFocus />, 'to render as', <textarea autoFocus />);
+  it("renders text area with autoFocus value", () => {
+    expect(<TextArea.Core autoFocus />, "to render as", <textarea autoFocus />);
   });
 
-  it('renders text area with className value', () => {
+  it("renders text area with className value", () => {
     expect(
       <TextArea.Core className="foo" />,
-      'to render as',
+      "to render as",
       <textarea className="foo" />
     );
   });
 
-  it('renders text area with testId value', () => {
+  it("renders text area with testId value", () => {
     expect(
       <TextArea.Core testId="foo" />,
-      'to render as',
+      "to render as",
       <textarea data-test-id="foo" />
     );
   });
 
-  it('renders text area with dir value', () => {
-    expect(<TextArea.Core dir="rtl" />, 'to render as', <textarea dir="rtl" />);
+  it("renders text area with dir value", () => {
+    expect(<TextArea.Core dir="rtl" />, "to render as", <textarea dir="rtl" />);
   });
 
-  it('renders text area with name value', () => {
+  it("renders text area with name value", () => {
     expect(
       <TextArea.Core name="foo" />,
-      'to render as',
+      "to render as",
       <textarea name="foo" />
     );
   });
 
-  it('renders text area with maxLength value', () => {
+  it("renders text area with maxLength value", () => {
     expect(
       <TextArea.Core maxLength={10} />,
-      'to render as',
+      "to render as",
       <textarea maxLength={10} />
     );
   });
 
-  it('renders text area with placeholder value', () => {
+  it("renders text area with placeholder value", () => {
     expect(
       <TextArea.Core placeholder="foo" />,
-      'to render as',
+      "to render as",
       <textarea placeholder="foo" />
     );
   });
 
-  it('renders text area with tabIndex value', () => {
+  it("renders text area with tabIndex value", () => {
     expect(
       <TextArea.Core tabIndex="foo" />,
-      'to render as',
+      "to render as",
       <textarea tabIndex="foo" />
     );
   });
 
-  it('renders text area with value', () => {
+  it("renders text area with value", () => {
     expect(
       <TextArea.Core value="foo" />,
-      'to render as',
+      "to render as",
       <textarea value="foo" />
     );
   });
 
-  describe('when changing the text', () => {
-    it('onChangeText is called', () => {
+  describe("when changing the text", () => {
+    it("onChangeText is called", () => {
       const onChangeText = sinon.spy();
 
       return expect(
         <TextArea.Core onChangeText={onChangeText} />,
-        'when deeply rendered',
-        'with event',
-        'change',
-        { target: { value: 'hello' } },
-        'on',
+        "when deeply rendered",
+        "with event",
+        "change",
+        { target: { value: "hello" } },
+        "on",
         <textarea />
       ).then(() => {
-        expect(onChangeText, 'to have calls satisfying', () => {
-          onChangeText('hello');
+        expect(onChangeText, "to have calls satisfying", () => {
+          onChangeText("hello");
         });
       });
     });
   });
 
-  describe('when focusing on the element', () => {
-    it('onFocus is called', () => {
+  describe("when focusing on the element", () => {
+    it("onFocus is called", () => {
       const onFocus = sinon.spy();
 
       return expect(
         <TextArea.Core onFocus={onFocus} />,
-        'when deeply rendered',
-        'with event',
-        'focus',
-        'on',
+        "when deeply rendered",
+        "with event",
+        "focus",
+        "on",
         <textarea />
       ).then(() => {
-        expect(onFocus, 'was called times', 1);
+        expect(onFocus, "was called times", 1);
       });
     });
   });
 
-  describe('when un-focusing the element', () => {
-    it('onBlur is called', () => {
+  describe("when un-focusing the element", () => {
+    it("onBlur is called", () => {
       const onBlur = sinon.spy();
 
       return expect(
         <TextArea.Core onBlur={onBlur} />,
-        'when deeply rendered',
-        'with event',
-        'blur',
-        'on',
+        "when deeply rendered",
+        "with event",
+        "blur",
+        "on",
         <textarea />
       ).then(() => {
-        expect(onBlur, 'was called times', 1);
+        expect(onBlur, "was called times", 1);
       });
     });
   });
 
-  describe('when clicking the element', () => {
-    it('onClick is called', () => {
+  describe("when clicking the element", () => {
+    it("onClick is called", () => {
       const onClick = sinon.spy();
 
       return expect(
         <TextArea.Core onClick={onClick} />,
-        'when deeply rendered',
-        'with event',
-        'click',
-        'on',
+        "when deeply rendered",
+        "with event",
+        "click",
+        "on",
         <textarea />
       ).then(() => {
-        expect(onClick, 'was called times', 1);
+        expect(onClick, "was called times", 1);
       });
     });
   });
 
-  describe('when pressing keys on the element', () => {
-    it('onKeyDown is called', () => {
+  describe("when pressing keys on the element", () => {
+    it("onKeyDown is called", () => {
       const onKeyDown = sinon.spy();
 
       return expect(
         <TextArea.Core onKeyDown={onKeyDown} />,
-        'when deeply rendered',
-        'with event',
-        'keyDown',
-        'on',
+        "when deeply rendered",
+        "with event",
+        "keyDown",
+        "on",
         <textarea />
       ).then(() => {
-        expect(onKeyDown, 'was called times', 1);
+        expect(onKeyDown, "was called times", 1);
       });
     });
   });
 
-  describe('when arrow-up is pressed key on the element', () => {
-    it('onArrowUp is called', () => {
+  describe("when arrow-up is pressed key on the element", () => {
+    it("onArrowUp is called", () => {
       const onArrowUp = sinon.spy();
 
       return expect(
         <TextArea.Core onArrowUp={onArrowUp} />,
-        'when deeply rendered',
-        'with event',
-        'keyDown',
+        "when deeply rendered",
+        "with event",
+        "keyDown",
         { keyCode: 38 },
-        'on',
+        "on",
         <textarea />
       ).then(() => {
-        expect(onArrowUp, 'was called times', 1);
+        expect(onArrowUp, "was called times", 1);
       });
     });
   });
 
-  describe('when arrow-down is pressed key on the element', () => {
-    it('onArrowDown is called', () => {
+  describe("when arrow-down is pressed key on the element", () => {
+    it("onArrowDown is called", () => {
       const onArrowDown = sinon.spy();
 
       return expect(
         <TextArea.Core onArrowDown={onArrowDown} />,
-        'when deeply rendered',
-        'with event',
-        'keyDown',
+        "when deeply rendered",
+        "with event",
+        "keyDown",
         { keyCode: 40 },
-        'on',
+        "on",
         <textarea />
       ).then(() => {
-        expect(onArrowDown, 'was called times', 1);
+        expect(onArrowDown, "was called times", 1);
       });
     });
   });
 
-  describe('when arrow-left is pressed key on the element', () => {
-    it('onArrowLeft is called', () => {
+  describe("when arrow-left is pressed key on the element", () => {
+    it("onArrowLeft is called", () => {
       const onArrowLeft = sinon.spy();
 
       return expect(
         <TextArea.Core onArrowLeft={onArrowLeft} />,
-        'when deeply rendered',
-        'with event',
-        'keyDown',
+        "when deeply rendered",
+        "with event",
+        "keyDown",
         { keyCode: 37 },
-        'on',
+        "on",
         <textarea />
       ).then(() => {
-        expect(onArrowLeft, 'was called times', 1);
+        expect(onArrowLeft, "was called times", 1);
       });
     });
   });
 
-  describe('when arrow-right is pressed key on the element', () => {
-    it('onArrowRight is called', () => {
+  describe("when arrow-right is pressed key on the element", () => {
+    it("onArrowRight is called", () => {
       const onArrowRight = sinon.spy();
 
       return expect(
         <TextArea.Core onArrowRight={onArrowRight} />,
-        'when deeply rendered',
-        'with event',
-        'keyDown',
+        "when deeply rendered",
+        "with event",
+        "keyDown",
         { keyCode: 39 },
-        'on',
+        "on",
         <textarea />
       ).then(() => {
-        expect(onArrowRight, 'was called times', 1);
+        expect(onArrowRight, "was called times", 1);
       });
     });
   });
 
-  describe('when delete is pressed key on the element', () => {
-    it('onDelete is called', () => {
+  describe("when delete is pressed key on the element", () => {
+    it("onDelete is called", () => {
       const onDelete = sinon.spy();
 
       return expect(
         <TextArea.Core onDelete={onDelete} />,
-        'when deeply rendered',
-        'with event',
-        'keyDown',
+        "when deeply rendered",
+        "with event",
+        "keyDown",
         { keyCode: 8 },
-        'on',
+        "on",
         <textarea />
       ).then(() => {
-        expect(onDelete, 'was called times', 1);
+        expect(onDelete, "was called times", 1);
       });
     });
   });
 
-  describe('when enter is pressed key on the element', () => {
-    it('onEnter is called', () => {
+  describe("when enter is pressed key on the element", () => {
+    it("onEnter is called", () => {
       const onEnter = sinon.spy();
 
       return expect(
         <TextArea.Core onEnter={onEnter} />,
-        'when deeply rendered',
-        'with event',
-        'keyDown',
+        "when deeply rendered",
+        "with event",
+        "keyDown",
         { keyCode: 13 },
-        'on',
+        "on",
         <textarea />
       ).then(() => {
-        expect(onEnter, 'was called times', 1);
+        expect(onEnter, "was called times", 1);
       });
     });
   });
 
-  describe('when escape is pressed key on the element', () => {
-    it('onEscape is called', () => {
+  describe("when escape is pressed key on the element", () => {
+    it("onEscape is called", () => {
       const onEscape = sinon.spy();
 
       return expect(
         <TextArea.Core onEscape={onEscape} />,
-        'when deeply rendered',
-        'with event',
-        'keyDown',
+        "when deeply rendered",
+        "with event",
+        "keyDown",
         { keyCode: 27 },
-        'on',
+        "on",
         <textarea />
       ).then(() => {
-        expect(onEscape, 'was called times', 1);
+        expect(onEscape, "was called times", 1);
       });
     });
   });
 
-  describe('when using it as a controlled input', () => {
-    it('the defaultValue is ignored', () => {
+  describe("when using it as a controlled input", () => {
+    it("the defaultValue is ignored", () => {
       let node;
 
       return expect(
@@ -431,20 +431,20 @@ describe('TextArea.Core', () => {
           }}
           value="Hi"
         />,
-        'when deeply rendered',
-        'with event',
-        'focus',
-        'on',
+        "when deeply rendered",
+        "with event",
+        "focus",
+        "on",
         <textarea />
       ).then(() => {
-        expect(node.input.value, 'to equal', 'Hi');
+        expect(node.input.value, "to equal", "Hi");
       });
     });
   });
 
-  describe('when using it as an uncontrolled input', () => {
-    describe('when using defaultValue', () => {
-      it('it is set on the DOM node', () => {
+  describe("when using it as an uncontrolled input", () => {
+    describe("when using defaultValue", () => {
+      it("it is set on the DOM node", () => {
         let node;
 
         const component = TestUtils.renderIntoDocument(
@@ -457,14 +457,14 @@ describe('TextArea.Core', () => {
         );
         const input = findDOMNode(component);
 
-        expect(input.value, 'to equal', 'Hello');
-        expect(input.value, 'to equal', node.input.value);
+        expect(input.value, "to equal", "Hello");
+        expect(input.value, "to equal", node.input.value);
       });
     });
   });
 
-  describe('when changing the text', () => {
-    it('the value is set on the DOM node', () => {
+  describe("when changing the text", () => {
+    it("the value is set on the DOM node", () => {
       let node;
 
       const component = TestUtils.renderIntoDocument(
@@ -476,11 +476,11 @@ describe('TextArea.Core', () => {
         />
       );
       const input = findDOMNode(component);
-      input.value = 'Hello world';
+      input.value = "Hello world";
       TestUtils.Simulate.change(input);
 
-      expect(node.input.value, 'to equal', input.value);
-      expect(node.input.value, 'to equal', 'Hello world');
+      expect(node.input.value, "to equal", input.value);
+      expect(node.input.value, "to equal", "Hello world");
     });
   });
 });

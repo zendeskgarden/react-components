@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import ThemedComponent from '../utils/theming/ThemedComponent';
+import ThemedComponent from "../utils/theming/ThemedComponent";
 
-import styles from './styles.css';
-import View from '../core/View/';
+import styles from "./styles.css";
+import View from "../core/View/";
 
 export default class Header extends ThemedComponent {
   static propTypes = {
@@ -13,7 +13,7 @@ export default class Header extends ThemedComponent {
 
   constructor(props, context) {
     super(props, context, {
-      namespace: 'Modal',
+      namespace: "Modal",
       styles
     });
   }

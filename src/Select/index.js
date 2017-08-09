@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import uuid from 'uuid';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import uuid from "uuid";
 
-import Menu from '../Menu';
-import View from '../core/View';
-import ThemedComponent from '../utils/theming/ThemedComponent';
+import Menu from "../Menu";
+import View from "../core/View";
+import ThemedComponent from "../utils/theming/ThemedComponent";
 
-import styles from './styles.css';
+import styles from "./styles.css";
 
 export default class Select extends ThemedComponent {
   static Item = Menu.Item;
@@ -19,7 +19,7 @@ export default class Select extends ThemedComponent {
      * This is for use in self-service-components only
      */
     className: PropTypes.string,
-    dir: PropTypes.oneOf(['ltr', 'rtl']),
+    dir: PropTypes.oneOf(["ltr", "rtl"]),
     disabled: PropTypes.bool,
     hint: PropTypes.node,
     inputClassName: PropTypes.string,
@@ -33,28 +33,28 @@ export default class Select extends ThemedComponent {
     positioning: Menu.propTypes.positioning,
     selected: PropTypes.node,
     stretched: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'medium']),
+    size: PropTypes.oneOf(["small", "medium"]),
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
     title: PropTypes.string,
     /** <a href="#view">See View</a> */
     tooltipPositioning: () => {},
-    validation: PropTypes.oneOf(['error', 'warning', 'success']),
+    validation: PropTypes.oneOf(["error", "warning", "success"]),
     validationText: PropTypes.string
   };
 
   static defaultProps = {
-    dir: 'ltr',
+    dir: "ltr",
     disabled: false,
-    positioning: ['bottom_stretch', 'top_stretch'],
+    positioning: ["bottom_stretch", "top_stretch"],
     stretched: true,
-    size: 'medium',
+    size: "medium",
     tabIndex: 0
   };
 
   constructor(props, context) {
     super(props, context, {
-      namespace: 'Select',
+      namespace: "Select",
       styles
     });
 
@@ -136,7 +136,7 @@ export default class Select extends ThemedComponent {
           theme[validation],
           theme[`size_${size}`],
           {
-            [theme.rtl]: dir === 'rtl',
+            [theme.rtl]: dir === "rtl",
             [theme.stretched]: stretched,
             [theme.disabled]: disabled
           },
@@ -181,8 +181,13 @@ export default class Select extends ThemedComponent {
         </Menu>
         {validation &&
           validationText &&
-          <small className={theme.message}>{validationText}</small>}
-        {hint && <small className={theme.hint}>{hint}</small>}
+          <small className={theme.message}>
+            {validationText}
+          </small>}
+        {hint &&
+          <small className={theme.hint}>
+            {hint}
+          </small>}
       </View>
     );
   }

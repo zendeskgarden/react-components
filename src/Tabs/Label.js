@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
-import Selectable from '../core/Selectable';
-import ThemedComponent from '../utils/theming/ThemedComponent';
-import View from '../core/View';
+import Selectable from "../core/Selectable";
+import ThemedComponent from "../utils/theming/ThemedComponent";
+import View from "../core/View";
 
-import styles from './styles.css';
+import styles from "./styles.css";
 
 class Label extends ThemedComponent {
   static propTypes = {
@@ -25,7 +25,7 @@ class Label extends ThemedComponent {
 
   constructor(props, context) {
     super(props, context, {
-      namespace: 'Tabs',
+      namespace: "Tabs",
       styles
     });
   }
@@ -71,5 +71,5 @@ class Label extends ThemedComponent {
 
 export default Selectable(Label, {
   selectOnHover: false,
-  selectEvent: 'onClick'
+  selectEvent: "onClick"
 });

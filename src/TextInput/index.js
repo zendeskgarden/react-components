@@ -1,25 +1,25 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import uuid from 'uuid';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import uuid from "uuid";
 
-import View from '../core/View';
-import ThemedComponent from '../utils/theming/ThemedComponent';
-import Core from './Core';
+import View from "../core/View";
+import ThemedComponent from "../utils/theming/ThemedComponent";
+import Core from "./Core";
 
-import styles from './styles.css';
+import styles from "./styles.css";
 
 export default class TextInput extends ThemedComponent {
   static Core = Core;
 
   static propTypes = {
-    autoComplete: PropTypes.oneOf(['on', 'off']),
+    autoComplete: PropTypes.oneOf(["on", "off"]),
     autoFocus: PropTypes.bool,
     className: PropTypes.string,
     id: PropTypes.string,
     isFocused: PropTypes.bool,
     defaultValue: PropTypes.string,
-    dir: PropTypes.oneOf(['ltr', 'rtl']),
+    dir: PropTypes.oneOf(["ltr", "rtl"]),
     disabled: PropTypes.bool.isRequired,
     hint: PropTypes.node,
     label: PropTypes.node,
@@ -39,7 +39,7 @@ export default class TextInput extends ThemedComponent {
     onPaste: PropTypes.func,
     onKeyDown: PropTypes.func,
     placeholder: PropTypes.string,
-    size: PropTypes.oneOf(['small', 'medium']),
+    size: PropTypes.oneOf(["small", "medium"]),
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
     title: PropTypes.string,
@@ -49,38 +49,38 @@ export default class TextInput extends ThemedComponent {
     type: (props, propName, componentName) => {
       if (propName in props) {
         return new Error(
-          'The TextInput does not accept a type prop use valueType instead'
+          "The TextInput does not accept a type prop use valueType instead"
         );
       }
     },
-    validation: PropTypes.oneOf(['error', 'warning', 'success']),
+    validation: PropTypes.oneOf(["error", "warning", "success"]),
     validationText: PropTypes.string,
     value: PropTypes.string,
     valueType: PropTypes.oneOf([
-      'date',
-      'datetime-local',
-      'email',
-      'month',
-      'number',
-      'password',
-      'search',
-      'tel',
-      'text',
-      'url',
-      'week'
+      "date",
+      "datetime-local",
+      "email",
+      "month",
+      "number",
+      "password",
+      "search",
+      "tel",
+      "text",
+      "url",
+      "week"
     ])
   };
 
   static defaultProps = {
-    autoComplete: 'off',
+    autoComplete: "off",
     disabled: false,
-    valueType: 'text',
-    size: 'medium'
+    valueType: "text",
+    size: "medium"
   };
 
   constructor(props, context) {
     super(props, context, {
-      namespace: 'TextInput',
+      namespace: "TextInput",
       styles
     });
 
@@ -148,8 +148,13 @@ export default class TextInput extends ThemedComponent {
         />
         {validation &&
           validationText &&
-          <small className={theme.message}>{validationText}</small>}
-        {hint && <small className={theme.hint}>{hint}</small>}
+          <small className={theme.message}>
+            {validationText}
+          </small>}
+        {hint &&
+          <small className={theme.hint}>
+            {hint}
+          </small>}
       </View>
     );
   }

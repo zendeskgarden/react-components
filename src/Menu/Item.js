@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
-import View from '../core/View';
-import Selectable from '../core/Selectable';
+import View from "../core/View";
+import Selectable from "../core/Selectable";
 
-import styles from './styles.css';
+import styles from "./styles.css";
 
 class Item extends Component {
   static propTypes = {
@@ -24,7 +24,7 @@ class Item extends Component {
 
   static defaultProps = {
     disabled: false,
-    role: 'menuitem'
+    role: "menuitem"
   };
 
   render() {

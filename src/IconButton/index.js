@@ -1,11 +1,11 @@
-import React, { Children } from 'react';
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
-import ThemedComponent from '../utils/theming/ThemedComponent';
+import React, { Children } from "react";
+import classNames from "classnames";
+import PropTypes from "prop-types";
+import ThemedComponent from "../utils/theming/ThemedComponent";
 
-import Button from '../Button';
+import Button from "../Button";
 
-import styles from './styles.css';
+import styles from "./styles.css";
 
 export default class IconButton extends ThemedComponent {
   static propTypes = {
@@ -23,18 +23,18 @@ export default class IconButton extends ThemedComponent {
     onKeyDown: PropTypes.func,
     onKeyUp: PropTypes.func,
     pill: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
+    size: PropTypes.oneOf(["small", "medium", "large"]),
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
     title: PropTypes.string,
     /** <a href="#view">See View</a> */
     tooltipPositioning: () => {},
-    type: PropTypes.oneOf(['default', 'primary', 'basic'])
+    type: PropTypes.oneOf(["default", "primary", "basic"])
   };
 
   constructor(props, context) {
     super(props, context, {
-      namespace: 'IconButton',
+      namespace: "IconButton",
       styles
     });
   }
@@ -45,7 +45,7 @@ export default class IconButton extends ThemedComponent {
 
     return (
       <Button className={classNames(theme.button, className)} {...other}>
-        {typeof children === 'string'
+        {typeof children === "string"
           ? children
           : React.cloneElement(Children.only(children), {
               className: classNames(theme.icon, {

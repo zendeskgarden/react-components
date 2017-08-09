@@ -1,23 +1,22 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
-import ReactSingleSelectionModel
-  from '../utils/selection/ReactSingleSelectionModel';
-import View from '../core/View';
-import RelativePositionedPopup from '../core/RelativePositionedPopup';
+import ReactSingleSelectionModel from "../utils/selection/ReactSingleSelectionModel";
+import View from "../core/View";
+import RelativePositionedPopup from "../core/RelativePositionedPopup";
 
-import Container from './Container';
-import Item from './Item';
-import LinkItem from './LinkItem';
-import Separator from './Separator';
+import Container from "./Container";
+import Item from "./Item";
+import LinkItem from "./LinkItem";
+import Separator from "./Separator";
 
-import styles from './styles.css';
+import styles from "./styles.css";
 
 export default class Menu extends Component {
   static propTypes = {
     arrow: PropTypes.bool,
-    dir: PropTypes.oneOf(['ltr', 'rtl']),
+    dir: PropTypes.oneOf(["ltr", "rtl"]),
     centerArrow: PropTypes.bool.isRequired,
     children: PropTypes.node.isRequired,
     fixedWidth: PropTypes.bool,
@@ -31,7 +30,7 @@ export default class Menu extends Component {
     maxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     /** <a href="#relativepositionedpopup">See RelativePositionedPopup</a> */
     positioning: RelativePositionedPopup.propTypes.positioning,
-    size: PropTypes.oneOf(['small', 'medium']),
+    size: PropTypes.oneOf(["small", "medium"]),
     stretched: PropTypes.bool,
     testId: PropTypes.string,
     trigger: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
@@ -41,15 +40,15 @@ export default class Menu extends Component {
 
   static defaultProps = {
     arrow: false,
-    dir: 'ltr',
+    dir: "ltr",
     centerArrow: false,
     marginBottom: 2,
     marginLeft: 2,
     marginRight: 2,
     marginTop: 2,
-    positioning: ['bottom_right', 'top_right'],
+    positioning: ["bottom_right", "top_right"],
     stretched: false,
-    size: 'medium',
+    size: "medium",
     wide: false
   };
 
@@ -162,7 +161,7 @@ export default class Menu extends Component {
         onEscape={this.closeMenu}
         onSpace={this.keyboardToggleHidden}
       >
-        {typeof trigger === 'function' ? trigger({ open: !hidden }) : trigger}
+        {typeof trigger === "function" ? trigger({ open: !hidden }) : trigger}
       </View>
     );
 
@@ -184,7 +183,7 @@ export default class Menu extends Component {
         stretched={stretched}
         testId={testId}
       >
-        {position => (
+        {position =>
           <Container
             {...other}
             animate={!hidden}
@@ -193,8 +192,7 @@ export default class Menu extends Component {
             position={position}
           >
             {items}
-          </Container>
-        )}
+          </Container>}
       </RelativePositionedPopup>
     );
   }

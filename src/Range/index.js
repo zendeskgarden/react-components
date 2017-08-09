@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import uuid from 'uuid';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import uuid from "uuid";
 
-import View from '../core/View';
-import ThemedComponent from '../utils/theming/ThemedComponent';
-import styles from './styles.css';
+import View from "../core/View";
+import ThemedComponent from "../utils/theming/ThemedComponent";
+import styles from "./styles.css";
 
 export default class Range extends ThemedComponent {
   static propTypes = {
@@ -17,26 +17,26 @@ export default class Range extends ThemedComponent {
     max: PropTypes.number,
     min: PropTypes.number,
     onChange: PropTypes.func,
-    size: PropTypes.oneOf(['small', 'medium']),
+    size: PropTypes.oneOf(["small", "medium"]),
     step: PropTypes.number,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
     title: PropTypes.string,
     value: PropTypes.number,
-    validation: PropTypes.oneOf(['error', 'warning', 'success']),
+    validation: PropTypes.oneOf(["error", "warning", "success"]),
     validationText: PropTypes.string
   };
 
   static defaultProps = {
     min: 0,
     max: 100,
-    size: 'medium',
+    size: "medium",
     step: 1
   };
 
   constructor(props, context) {
     super(props, context, {
-      namespace: 'Range',
+      namespace: "Range",
       styles
     });
     this.generatedId = uuid.v4();
@@ -144,8 +144,13 @@ export default class Range extends ThemedComponent {
         />
         {validation &&
           validationText &&
-          <small className={theme.message}>{validationText}</small>}
-        {hint && <small className={theme.hint}>{hint}</small>}
+          <small className={theme.message}>
+            {validationText}
+          </small>}
+        {hint &&
+          <small className={theme.hint}>
+            {hint}
+          </small>}
       </View>
     );
   }

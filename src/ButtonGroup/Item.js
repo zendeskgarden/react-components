@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
-import Selectable from '../core/Selectable';
-import ThemedComponent from '../utils/theming/ThemedComponent';
+import Selectable from "../core/Selectable";
+import ThemedComponent from "../utils/theming/ThemedComponent";
 
-import styles from '../Button/styles.css';
+import styles from "../Button/styles.css";
 
 class Item extends ThemedComponent {
   static propTypes = {
@@ -17,16 +17,16 @@ class Item extends ThemedComponent {
     onMouseLeave: PropTypes.func,
     selected: PropTypes.bool,
     selectedByMouse: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'medium', 'large'])
+    size: PropTypes.oneOf(["small", "medium", "large"])
   };
 
   static defaultProps = {
-    size: 'small'
+    size: "small"
   };
 
   constructor(props, context) {
     super(props, context, {
-      namespace: 'Button',
+      namespace: "Button",
       styles
     });
   }
@@ -70,5 +70,5 @@ class Item extends ThemedComponent {
 
 export default Selectable(Item, {
   selectOnHover: false,
-  selectEvent: 'onClick'
+  selectEvent: "onClick"
 });

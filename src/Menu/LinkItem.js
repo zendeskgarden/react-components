@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
-import Selectable from '../core/Selectable';
+import Selectable from "../core/Selectable";
 
-import styles from './styles.css';
+import styles from "./styles.css";
 
 class LinkItem extends Component {
   static propTypes = {
@@ -17,13 +17,13 @@ class LinkItem extends Component {
     selected: PropTypes.bool,
     testId: PropTypes.string,
     href: PropTypes.string.isRequired,
-    target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top'])
+    target: PropTypes.oneOf(["_self", "_blank", "_parent", "_top"])
   };
 
   static defaultProps = {
     disabled: false,
-    role: 'menuitem',
-    target: '_self'
+    role: "menuitem",
+    target: "_self"
   };
 
   render() {
@@ -68,7 +68,7 @@ export default Selectable(LinkItem, {
     const { href, target } = props;
     const openInNewWindow = event.ctrlKey || event.metaKey;
 
-    const newWindow = window.open(href, openInNewWindow ? '_blank' : target);
+    const newWindow = window.open(href, openInNewWindow ? "_blank" : target);
     newWindow.opener = null;
   },
   preventDefault: true

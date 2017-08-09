@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import uuid from 'uuid';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import uuid from "uuid";
 
-import View from '../core/View';
+import View from "../core/View";
 
 export default class RadioButtonGroup extends Component {
   static propTypes = {
     children: PropTypes.node,
-    dir: PropTypes.oneOf(['ltr', 'rtl']),
+    dir: PropTypes.oneOf(["ltr", "rtl"]),
     disabled: PropTypes.bool,
     muted: PropTypes.bool,
     onSelect: PropTypes.func,
@@ -15,7 +15,7 @@ export default class RadioButtonGroup extends Component {
   };
 
   static defaultProps = {
-    dir: 'ltr'
+    dir: "ltr"
   };
 
   constructor(props, context) {
@@ -35,12 +35,12 @@ export default class RadioButtonGroup extends Component {
 
     const radios = React.Children.map(children, (item, index) =>
       React.cloneElement(item, {
-        disabled: 'disabled' in item.props ? item.props.disabled : disabled,
+        disabled: "disabled" in item.props ? item.props.disabled : disabled,
         checked: selected === item.props.value,
         dir: dir,
         key: `radio-${index}`,
         name: this.id,
-        muted: 'muted' in item.props ? item.props.muted : muted,
+        muted: "muted" in item.props ? item.props.muted : muted,
         onChange: this.onSelect
       })
     );

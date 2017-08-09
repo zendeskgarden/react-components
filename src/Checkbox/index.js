@@ -1,19 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import uuid from 'uuid';
-import classNames from 'classnames';
+import React from "react";
+import PropTypes from "prop-types";
+import uuid from "uuid";
+import classNames from "classnames";
 
-import ThemedComponent from '../utils/theming/ThemedComponent';
-import View from '../core/View';
+import ThemedComponent from "../utils/theming/ThemedComponent";
+import View from "../core/View";
 
-import styles from './styles.css';
+import styles from "./styles.css";
 
 export default class Checkbox extends ThemedComponent {
   static propTypes = {
     checked: PropTypes.bool,
     children: PropTypes.node,
     defaultChecked: PropTypes.bool,
-    dir: PropTypes.oneOf(['ltr', 'rtl']),
+    dir: PropTypes.oneOf(["ltr", "rtl"]),
     disabled: PropTypes.bool,
     hint: PropTypes.node,
     id: PropTypes.string,
@@ -24,18 +24,18 @@ export default class Checkbox extends ThemedComponent {
     title: PropTypes.string,
     /** <a href="#view">See View</a> */
     tooltipPositioning: () => {},
-    validation: PropTypes.oneOf(['error', 'warning', 'success']),
+    validation: PropTypes.oneOf(["error", "warning", "success"]),
     validationText: PropTypes.string
   };
 
   static defaultProps = {
-    dir: 'ltr',
+    dir: "ltr",
     muted: false
   };
 
   constructor(props, context) {
     super(props, context, {
-      namespace: 'Checkbox',
+      namespace: "Checkbox",
       styles
     });
     this.generatedId = uuid.v4();
@@ -78,7 +78,7 @@ export default class Checkbox extends ThemedComponent {
       <View
         className={classNames(theme.checkbox, theme[validation], {
           [theme.focused]: focused,
-          [theme.rtl]: dir === 'rtl',
+          [theme.rtl]: dir === "rtl",
           [theme.disabled]: disabled,
           [theme.noLabel]: !children
         })}
@@ -114,10 +114,15 @@ export default class Checkbox extends ThemedComponent {
         >
           {children}
         </label>
-        {hint && <small className={theme.hint}>{hint}</small>}
+        {hint &&
+          <small className={theme.hint}>
+            {hint}
+          </small>}
         {validation &&
           validationText &&
-          <small className={theme.message}>{validationText}</small>}
+          <small className={theme.message}>
+            {validationText}
+          </small>}
       </View>
     );
   }
