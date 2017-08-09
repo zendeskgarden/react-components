@@ -1,39 +1,45 @@
 {
   "name": "@zendesk/garden-react-components",
-  "version": "7.4.1",
   "description": "Shared React components",
-  "repository": "zendeskgarden/react-components",
   "license": "UNLICENSED",
-  "publishConfig": {
-    "registry": "https://zdrepo.jfrog.io/zdrepo/api/npm/npm"
-  },
+  "repository": "zendeskgarden/react-components",
+  "version": "7.4.1",
   "main": "./lib",
-  "scripts": {
-    "watch": "gulp watch",
-    "start": "styleguidist server",
-    "build": "styleguidist build",
-    "prettier": "prettier --write --single-quote '{src,test}/**/*.js' '*.js'",
-    "css-lint": "stylelint `find src -name '*.css'`",
-    "jest": "jest --watch",
-    "js-lint": "eslint '{src,test}/**/*.js'",
-    "lint": "yarn js-lint && yarn css-lint",
-    "test": "yarn lint && jest",
-    "lib": "gulp",
-    "changelog": "github-changes -o zendeskgarden -r react-components -a --only-pulls --use-commit-body",
-    "gh-pages": "yarn build && gh-pages -d styleguide",
-    "commit-lib": "git add lib && git commit -m 'Build lib'",
-    "update-changelog": "yarn changelog && git add CHANGELOG.md && git commit -m 'Updated changelog'",
-    "prepare-release": "yarn prettier && ./bin/is_git_clean && yarn test && yarn lib && yarn commit-lib",
-    "push-release": "git push --tags && yarn update-changelog && git push origin master:master",
-    "patch": "yarn prepare-release && npm version patch && yarn push-release && yarn gh-pages",
-    "minor": "yarn prepare-release && npm version minor && yarn push-release && yarn gh-pages",
-    "major": "yarn prepare-release && npm version major && yarn push-release && yarn gh-pages",
-    "travis": "yarn prettier && yarn lint && jest -i && ./bin/is_git_clean"
-  },
-  "keywords": [
-    "react",
-    "components"
+  "files": [
+    "lib",
+    "src"
   ],
+  "scripts": {
+    "build": "styleguidist build",
+    "changelog": "github-changes -o zendeskgarden -r react-components -a --only-pulls --use-commit-body",
+    "commit-lib": "git add lib && git commit -m 'Build lib'",
+    "css-lint": "stylelint `find src -name '*.css'`",
+    "gh-pages": "yarn build && gh-pages -d styleguide",
+    "jest": "jest --watch",
+    "lib": "gulp",
+    "lint-staged": "lint-staged",
+    "major": "yarn prepare-release && npm version major && yarn push-release && yarn gh-pages",
+    "minor": "yarn prepare-release && npm version minor && yarn push-release && yarn gh-pages",
+    "prepare-release": "./bin/is_git_clean && yarn test && yarn lib && yarn commit-lib",
+    "patch": "yarn prepare-release && npm version patch && yarn push-release && yarn gh-pages",
+    "push-release": "git push --tags && yarn update-changelog && git push origin master:master",
+    "start": "styleguidist server",
+    "test": "jest",
+    "travis": "jest -i",
+    "update-changelog": "yarn changelog && git add CHANGELOG.md && git commit -m 'Updated changelog'",
+    "watch": "gulp watch"
+  },
+  "dependencies": {
+    "append-styles": "^1.0.0",
+    "classnames": "^2.2.5",
+    "prop-types": "^15.5.8",
+    "tabbable": "^1.0.6",
+    "uuid": "^2.0.2 || ^3.0.0"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0"
+  },
   "devDependencies": {
     "@zendesk/garden-css-arrows": "^1.0.0",
     "@zendesk/garden-css-avatars": "^1.0.1",
@@ -106,31 +112,12 @@
     "url-loader": "0.5.8",
     "webpack": "2.4.1"
   },
-  "dependencies": {
-    "append-styles": "^1.0.0",
-    "classnames": "^2.2.5",
-    "prop-types": "^15.5.8",
-    "tabbable": "^1.0.6",
-    "uuid": "^2.0.2 || ^3.0.0"
-  },
-  "peerDependencies": {
-    "react": "^0.14.0 || ^15.0.0",
-    "react-dom": "^0.14.0 || ^15.0.0"
-  },
-  "files": [
-    "lib",
-    "src"
+  "keywords": [
+    "components",
+    "react"
   ],
-  "standard": {
-    "globals": [
-      "afterEach",
-      "beforeEach",
-      "describe",
-      "it",
-      "jest"
-    ],
-    "ignore": "/lib/",
-    "parser": "babel-eslint"
+  "publishConfig": {
+    "registry": "https://zdrepo.jfrog.io/zdrepo/api/npm/npm"
   },
   "jest": {
     "moduleNameMapper": {
@@ -147,5 +134,22 @@
       "<rootDir>/(build|node_modules|lib)/"
     ],
     "testRegex": "\\.*(spec\\.js)$"
-  }
+  },
+  "lint-staged": {
+    "linters": {
+      "*.js": [
+        "eslint",
+        "prettier --single-quote --write",
+        "git add"
+      ],
+      "package.json": [
+        "prettier-package-json --write",
+        "git add"
+      ],
+      "*.css": [
+        "stylelint"
+      ]
+    }
+  },
+  "pre-commit": "lint-staged"
 }
