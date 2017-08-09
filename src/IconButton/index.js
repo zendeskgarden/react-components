@@ -44,11 +44,11 @@ export default class IconButton extends ThemedComponent {
     const theme = this.theme;
 
     return (
-      <Button className={classNames(styles.button, className)} {...other}>
+      <Button className={classNames(theme.button, className)} {...other}>
         {typeof children === 'string'
           ? children
           : React.cloneElement(Children.only(children), {
-              className: classNames(styles.icon, {
+              className: classNames(theme.icon, {
                 [theme.rotated]: isRotated
               })
             })}
