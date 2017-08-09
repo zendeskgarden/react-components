@@ -139,7 +139,7 @@
     "linters": {
       "*.js": [
         "eslint",
-        "prettier --single-quote --write",
+        "prettier --write",
         "git add"
       ],
       "package.json": [
