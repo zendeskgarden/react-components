@@ -53,7 +53,7 @@ class Item extends ThemedComponent {
         aria-selected={active}
         className={classNames(theme.type_default, theme[`size_${size}`], {
           [theme.disabled]: disabled,
-          [theme.active]: active,
+          [theme.selected]: active,
           [theme.focused]: !selectedByMouse && selected
         })}
         onClick={onClick}

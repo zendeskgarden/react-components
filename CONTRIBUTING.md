@@ -32,12 +32,12 @@ $ npm start
 
 You can execute the entire test suite with `npm test`.
 
-You can run the tests in watch mode with `./bin/runtests --watch`.
+You can run the tests in watch mode with `npm run jest`.
 
 When that tests are running in test mode, you can run the tests of a single file the following way:
 
 ```
-./bin/runtests ./src/Button/spec.js
+npm run jest ./src/Button/spec.js
 ```
 
 ## Merging

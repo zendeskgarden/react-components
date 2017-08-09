@@ -13,15 +13,9 @@ describe("ButtonGroup", () => {
       </ButtonGroup>,
       "to deeply render as",
       <nav className="group" role="tablist">
-        <button aria-selected={false} role="tab">
-          One
-        </button>
-        <button aria-selected className="active" role="tab">
-          Two
-        </button>
-        <button aria-selected={false} role="tab">
-          Three
-        </button>
+        <button aria-selected={false} role="tab">One</button>
+        <button aria-selected className="selected" role="tab">Two</button>
+        <button aria-selected={false} role="tab">Three</button>
       </nav>
     );
   });
