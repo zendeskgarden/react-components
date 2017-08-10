@@ -104,7 +104,11 @@ Sizes:
 Disabled:
 
 ```
-<SplitButton disabled onSelect={value => console.log(value)}>
+<SplitButton
+  mainButtonDisabled={true}
+  dropdownDisabled={true}
+  onSelect={value => console.log(value)}
+>
   <SplitButton.Item value='one'>One</SplitButton.Item>
   <SplitButton.Item value='two'>Two</SplitButton.Item>
   <SplitButton.Item value='three'>Three</SplitButton.Item>
