@@ -14,6 +14,7 @@ export default class Core extends Component {
     onKeyDown: PropTypes.func,
     onKeyUp: PropTypes.func,
     onKeyboardFocus: PropTypes.func,
+    onSubmitKeyPressed: PropTypes.func,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
     title: PropTypes.string,
@@ -31,9 +32,10 @@ export default class Core extends Component {
     this.keyboard = true;
   }
 
-  onKeyboardClick = e => {
-    const { onClick } = this.props;
+  onSubmitKeyPressed = e => {
+    const { onClick, onSubmitKeyPressed } = this.props;
     onClick && onClick(e);
+    onSubmitKeyPressed && onSubmitKeyPressed(e);
     e.preventDefault();
   };
 
@@ -91,12 +93,12 @@ export default class Core extends Component {
         disabled={disabled}
         onBlur={onBlur}
         onClick={this.onClick}
-        onEnter={this.onKeyboardClick}
+        onEnter={this.onSubmitKeyPressed}
         onFocus={this.onFocus}
         onMouseDown={this.onMouseDown}
         onKeyDown={onKeyDown}
         onKeyUp={onKeyUp}
-        onSpace={this.onKeyboardClick}
+        onSpace={this.onSubmitKeyPressed}
         tabIndex={disabled ? null : tabIndex}
         role="button"
         title={title}

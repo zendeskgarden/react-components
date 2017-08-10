@@ -43,19 +43,34 @@ export default class Button extends ThemedComponent {
       styles
     });
     this.state = {
-      focused: false
+      focused: false,
+      active: false
     };
   }
 
   onBlur = e => {
     const { onBlur } = this.props;
 
-    this.setState({ focused: false });
+    this.setState({
+      focused: false,
+      active: false
+    });
     onBlur && onBlur(e);
   };
 
   onKeyboardFocus = e => {
     this.setState({ focused: true });
+  };
+
+  onSubmitKeyPressed = e => {
+    this.setState({ active: true });
+  };
+
+  onKeyUp = e => {
+    const { onKeyUp } = this.props;
+
+    this.setState({ active: false });
+    onKeyUp && onKeyUp(e);
   };
 
   render() {
@@ -69,7 +84,7 @@ export default class Button extends ThemedComponent {
       type,
       ...other
     } = this.props;
-    const { focused } = this.state;
+    const { focused, active } = this.state;
 
     const { theme } = this;
 
@@ -79,7 +94,9 @@ export default class Button extends ThemedComponent {
         {...other}
         disabled={disabled}
         onBlur={this.onBlur}
+        onKeyUp={this.onKeyUp}
         onKeyboardFocus={this.onKeyboardFocus}
+        onSubmitKeyPressed={this.onSubmitKeyPressed}
         className={classNames(
           theme[`size_${size}`],
           {
@@ -87,7 +104,8 @@ export default class Button extends ThemedComponent {
             [theme.focused]: focused,
             [theme.pill]: pill,
             [theme.stretched]: stretched,
-            [theme.disabled]: disabled
+            [theme.disabled]: disabled,
+            [theme.active]: active
           },
           className
         )}

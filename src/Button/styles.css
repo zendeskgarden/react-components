@@ -1,4 +1,8 @@
 .active {
+  composes: is-active from '@zendesk/garden-css-buttons';
+}
+
+.selected {
   composes: is-selected from '@zendesk/garden-css-buttons';
 }
 

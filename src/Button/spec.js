@@ -69,6 +69,59 @@ describe("Button", () => {
       });
     });
 
+    describe("it is able to recognize submit key press", () => {
+      const SPACE_KEY_CODE = 32;
+      const ENTER_KEY_CODE = 13;
+      const ARROW_LEFT_KEY_CODE = 37;
+      let onSubmitKeyPressed;
+
+      beforeEach(() => {
+        onSubmitKeyPressed = sinon.spy();
+      });
+
+      it("is called when enter key is pressed", () => {
+        return expect(
+          <Button.Core onSubmitKeyPressed={onSubmitKeyPressed}>
+            Example
+          </Button.Core>,
+          "when deeply rendered",
+          "with event",
+          "keyDown",
+          { keyCode: ENTER_KEY_CODE }
+        ).then(() => {
+          expect(onSubmitKeyPressed, "was called");
+        });
+      });
+
+      it("is called when space key is pressed", () => {
+        return expect(
+          <Button.Core onSubmitKeyPressed={onSubmitKeyPressed}>
+            Example
+          </Button.Core>,
+          "when deeply rendered",
+          "with event",
+          "keyDown",
+          { keyCode: SPACE_KEY_CODE }
+        ).then(() => {
+          expect(onSubmitKeyPressed, "was called");
+        });
+      });
+
+      it("is not called otherwise", () => {
+        return expect(
+          <Button.Core onSubmitKeyPressed={onSubmitKeyPressed}>
+            Example
+          </Button.Core>,
+          "when deeply rendered",
+          "with event",
+          "keyDown",
+          { keyCode: ARROW_LEFT_KEY_CODE }
+        ).then(() => {
+          expect(onSubmitKeyPressed, "was not called");
+        });
+      });
+    });
+
     describe("when disabled", () => {
       it("is not clickable", () => {
         const onClick = sinon.spy();
