@@ -1,5 +1,10 @@
 ## Change Log
 
+### v8.0.0 (2017/08/10 21:16 +00:00)
+- [#253](https://github.com/zendeskgarden/react-components/pull/253) Selectable will not selectOnHover by default (Major) (@austin94)
+- [#252](https://github.com/zendeskgarden/react-components/pull/252) Allow SplitButton to disable dropdown button separately (Major) (@kristing400)
+- [#254](https://github.com/zendeskgarden/react-components/pull/254) Remove internal links from documentation (@austin94)
+
 ### v7.4.2 (2017/08/10 05:10 +00:00)
 - [#248](https://github.com/zendeskgarden/react-components/pull/248) Button keyboard click action should show active state while pressed (@austin94)
 - [#251](https://github.com/zendeskgarden/react-components/pull/251) Use default settings for prettier (@sunesimonsen)
@@ -338,8 +343,6 @@
 
 ### v1.6.0 (2016/09/20 14:58 +00:00)
 - [#36](https://github.com/zendeskgarden/react-components/pull/36) Adds support for disabled TextInput & TextArea (@albertfdp)
-
-### v1.5.0 (2016/09/20 10:51 +00:00)
 - [#34](https://github.com/zendeskgarden/react-components/pull/34) Make the modal trap focus (@sunesimonsen)
 - [#33](https://github.com/zendeskgarden/react-components/pull/33) Fixed menu positioning when embedded into other components (@sunesimonsen)
 - [#32](https://github.com/zendeskgarden/react-components/pull/32) Upgraded the css-arrows to v0.2 (@sunesimonsen)
