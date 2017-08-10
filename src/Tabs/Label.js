@@ -70,6 +70,5 @@ class Label extends ThemedComponent {
 }
 
 export default Selectable(Label, {
-  selectOnHover: false,
   selectEvent: "onClick"
 });

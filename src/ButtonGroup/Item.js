@@ -69,6 +69,5 @@ class Item extends ThemedComponent {
 }
 
 export default Selectable(Item, {
-  selectOnHover: false,
   selectEvent: "onClick"
 });

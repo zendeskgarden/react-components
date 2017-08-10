@@ -70,6 +70,5 @@ export default Selectable(Item, {
 
     onSelect && onSelect(value);
   },
-  preventDefault: true,
-  selectOnHover: false
+  preventDefault: true
 });

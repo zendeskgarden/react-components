@@ -8,7 +8,7 @@ const Selectable = (
     action,
     preventDefault = false,
     stopPropagation = false,
-    selectOnHover = true,
+    selectOnHover = false,
     selectEvent = 'onMouseDown'
   } = {}
 ) => {
