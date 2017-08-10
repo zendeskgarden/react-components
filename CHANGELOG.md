@@ -1,5 +1,10 @@
 ## Change Log
 
+### v7.4.2 (2017/08/10 05:10 +00:00)
+- [#248](https://github.com/zendeskgarden/react-components/pull/248) Button keyboard click action should show active state while pressed (@austin94)
+- [#251](https://github.com/zendeskgarden/react-components/pull/251) Use default settings for prettier (@sunesimonsen)
+- [#250](https://github.com/zendeskgarden/react-components/pull/250) Moved formatting of files and linting to lint-staged (@sunesimonsen)
+
 ### v7.4.1 (2017/08/09 20:47 +00:00)
 - [#249](https://github.com/zendeskgarden/react-components/pull/249) Fixed bug that was preventing the icon button to be themed (@sunesimonsen)
 
@@ -336,8 +341,6 @@
 
 ### v1.5.0 (2016/09/20 10:51 +00:00)
 - [#34](https://github.com/zendeskgarden/react-components/pull/34) Make the modal trap focus (@sunesimonsen)
-
-### v1.4.3 (2016/09/16 11:31 +00:00)
 - [#33](https://github.com/zendeskgarden/react-components/pull/33) Fixed menu positioning when embedded into other components (@sunesimonsen)
 - [#32](https://github.com/zendeskgarden/react-components/pull/32) Upgraded the css-arrows to v0.2 (@sunesimonsen)
 - [#30](https://github.com/zendeskgarden/react-components/pull/30) Fixed: button was clickable when disabled (@sunesimonsen)
