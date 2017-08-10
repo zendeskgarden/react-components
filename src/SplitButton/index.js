@@ -15,9 +15,7 @@ import styles from "./styles.css";
 export default class SplitButton extends ThemedComponent {
   static propTypes = {
     children: PropTypes.node,
-    /** Disables main button */
-    disabled: PropTypes.bool,
-    /** Disables dropdown button */
+    mainButtonDisabled: PropTypes.bool,
     dropdownDisabled: PropTypes.bool,
     /** Node for main button label, defaults to first child */
     label: PropTypes.node,
@@ -183,7 +181,7 @@ export default class SplitButton extends ThemedComponent {
   render() {
     const {
       dir,
-      disabled,
+      mainButtonDisabled,
       dropdownDisabled,
       fixedWidth,
       label,
@@ -220,7 +218,7 @@ export default class SplitButton extends ThemedComponent {
             className={classNames(theme.group, { [theme.rtl]: dir === "rtl" })}
           >
             <Button
-              disabled={disabled}
+              disabled={mainButtonDisabled}
               onClick={onClick || this.selectDefault}
               pill={pill}
               size={size}
