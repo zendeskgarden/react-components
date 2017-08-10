@@ -1,19 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import uuid from 'uuid';
-import classNames from 'classnames';
+import React from "react";
+import PropTypes from "prop-types";
+import uuid from "uuid";
+import classNames from "classnames";
 
-import ThemedComponent from '../utils/theming/ThemedComponent';
-import View from '../core/View';
+import ThemedComponent from "../utils/theming/ThemedComponent";
+import View from "../core/View";
 
-import styles from './styles.css';
+import styles from "./styles.css";
 
 export default class Toggle extends ThemedComponent {
   static propTypes = {
     children: PropTypes.node,
     checked: PropTypes.bool,
     defaultChecked: PropTypes.bool,
-    dir: PropTypes.oneOf(['ltr', 'rtl']),
+    dir: PropTypes.oneOf(["ltr", "rtl"]),
     disabled: PropTypes.bool,
     hint: PropTypes.node,
     id: PropTypes.string,
@@ -21,27 +21,27 @@ export default class Toggle extends ThemedComponent {
     onChange: PropTypes.func,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
-    validation: PropTypes.oneOf(['error', 'warning', 'success']),
+    validation: PropTypes.oneOf(["error", "warning", "success"]),
     validationText: PropTypes.string
   };
 
   static defaultProps = {
-    dir: 'ltr',
+    dir: "ltr",
     muted: false
   };
 
   constructor(props, context) {
     super(props, context, {
-      namespace: 'Toggle',
+      namespace: "Toggle",
       styles
     });
 
     this.generatedId = uuid.v4();
 
     this.handlers = {
-      '13': this.toggle,
-      '37': this.onArrowLeft,
-      '39': this.onArrowRight
+      "13": this.toggle,
+      "37": this.onArrowLeft,
+      "39": this.onArrowRight
     };
 
     this.state = {
@@ -101,7 +101,7 @@ export default class Toggle extends ThemedComponent {
         className={classNames(theme.toggle, theme[validation], {
           [theme.disabled]: disabled,
           [theme.focused]: focused,
-          [theme.rtl]: dir === 'rtl',
+          [theme.rtl]: dir === "rtl",
           [theme.noLabel]: !children
         })}
       >
@@ -140,10 +140,15 @@ export default class Toggle extends ThemedComponent {
         >
           {children}
         </label>
-        {hint && <small className={theme.hint}>{hint}</small>}
+        {hint &&
+          <small className={theme.hint}>
+            {hint}
+          </small>}
         {validation &&
           validationText &&
-          <small className={theme.message}>{validationText}</small>}
+          <small className={theme.message}>
+            {validationText}
+          </small>}
       </View>
     );
   }

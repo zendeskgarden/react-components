@@ -1,15 +1,14 @@
-import React, { Children } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React, { Children } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
-import PanelConfig from './PanelConfig';
-import Label from './Label';
-import Panel from './Panel';
-import ReactSingleSelectionModel
-  from '../utils/selection/ReactSingleSelectionModel';
-import ThemedComponent from '../utils/theming/ThemedComponent';
+import PanelConfig from "./PanelConfig";
+import Label from "./Label";
+import Panel from "./Panel";
+import ReactSingleSelectionModel from "../utils/selection/ReactSingleSelectionModel";
+import ThemedComponent from "../utils/theming/ThemedComponent";
 
-import styles from './styles.css';
+import styles from "./styles.css";
 
 export default class Tabs extends ThemedComponent {
   static Panel = PanelConfig;
@@ -17,7 +16,7 @@ export default class Tabs extends ThemedComponent {
   static propTypes = {
     active: PropTypes.string,
     children: PropTypes.node.isRequired,
-    dir: PropTypes.oneOf(['ltr', 'rtl']),
+    dir: PropTypes.oneOf(["ltr", "rtl"]),
     onActivate: PropTypes.func,
     vertical: PropTypes.bool.isRequired,
     tabIndex: PropTypes.number,
@@ -25,18 +24,18 @@ export default class Tabs extends ThemedComponent {
   };
 
   static defaultProps = {
-    dir: 'ltr',
+    dir: "ltr",
     tabIndex: 0,
     vertical: false
   };
 
   constructor(props, context) {
     super(props, context, {
-      namespace: 'Tabs',
+      namespace: "Tabs",
       styles
     });
     this.selectionModel = new ReactSingleSelectionModel({
-      rtl: props.dir === 'rtl',
+      rtl: props.dir === "rtl",
       vertical: props.vertical
     });
     this.selectionModel.onSelectionChanged = this.onSelectionChanged;
@@ -94,7 +93,7 @@ export default class Tabs extends ThemedComponent {
 
     const panel = (
       <Panel id={activePanelConfig.id}>
-        {typeof activePanelContent === 'function'
+        {typeof activePanelContent === "function"
           ? activePanelContent(activePanelConfig.id)
           : activePanelContent}
       </Panel>
@@ -109,7 +108,7 @@ export default class Tabs extends ThemedComponent {
   }
 
   componentWillReceiveProps = nextProps => {
-    this.selectionModel.rtl = nextProps.dir === 'rtl';
+    this.selectionModel.rtl = nextProps.dir === "rtl";
     this.selectionModel.vertical = nextProps.vertical;
     this.setSelectableItems(nextProps);
     this.updatePanel(nextProps);
@@ -123,10 +122,10 @@ export default class Tabs extends ThemedComponent {
 
     const props = {};
     if (testId) {
-      props['data-test-id'] = testId;
+      props["data-test-id"] = testId;
     }
 
-    if (dir === 'rtl') {
+    if (dir === "rtl") {
       props.dir = dir;
     }
 
@@ -134,7 +133,7 @@ export default class Tabs extends ThemedComponent {
       <nav
         className={classNames(theme.tabs, {
           [theme.vertical]: vertical,
-          [theme.rtl]: dir === 'rtl'
+          [theme.rtl]: dir === "rtl"
         })}
         {...props}
       >

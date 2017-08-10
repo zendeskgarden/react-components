@@ -1,14 +1,13 @@
-import React, { Children } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React, { Children } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
-import ItemConfig from './ItemConfig';
-import Item from './Item';
-import ReactSingleSelectionModel
-  from '../utils/selection/ReactSingleSelectionModel';
-import ThemedComponent from '../utils/theming/ThemedComponent';
+import ItemConfig from "./ItemConfig";
+import Item from "./Item";
+import ReactSingleSelectionModel from "../utils/selection/ReactSingleSelectionModel";
+import ThemedComponent from "../utils/theming/ThemedComponent";
 
-import styles from '../Button/styles.css';
+import styles from "../Button/styles.css";
 
 export default class ButtonGroup extends ThemedComponent {
   static Item = ItemConfig;
@@ -16,26 +15,26 @@ export default class ButtonGroup extends ThemedComponent {
   static propTypes = {
     active: PropTypes.string,
     children: PropTypes.node.isRequired,
-    dir: PropTypes.oneOf(['ltr', 'rtl']),
+    dir: PropTypes.oneOf(["ltr", "rtl"]),
     onActivate: PropTypes.func,
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
+    size: PropTypes.oneOf(["small", "medium", "large"]),
     tabIndex: PropTypes.number,
     testId: PropTypes.string
   };
 
   static defaultProps = {
-    dir: 'ltr',
+    dir: "ltr",
     tabIndex: 0,
     vertical: false
   };
 
   constructor(props, context) {
     super(props, context, {
-      namespace: 'Button',
+      namespace: "Button",
       styles
     });
     this.selectionModel = new ReactSingleSelectionModel({
-      rtl: props.dir === 'rtl',
+      rtl: props.dir === "rtl",
       vertical: false
     });
     this.selectionModel.onSelectionChanged = this.onSelectionChanged;
@@ -81,7 +80,7 @@ export default class ButtonGroup extends ThemedComponent {
   }
 
   componentWillReceiveProps = nextProps => {
-    this.selectionModel.rtl = nextProps.dir === 'rtl';
+    this.selectionModel.rtl = nextProps.dir === "rtl";
     this.setSelectableItems(nextProps);
   };
 
@@ -93,17 +92,17 @@ export default class ButtonGroup extends ThemedComponent {
 
     const props = {};
     if (testId) {
-      props['data-test-id'] = testId;
+      props["data-test-id"] = testId;
     }
 
-    if (dir === 'rtl') {
+    if (dir === "rtl") {
       props.dir = dir;
     }
 
     return (
       <nav
         className={classNames(theme.group, {
-          [theme.rtl]: dir === 'rtl'
+          [theme.rtl]: dir === "rtl"
         })}
         tabIndex={tabIndex}
         onFocus={() => {

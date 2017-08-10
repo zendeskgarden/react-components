@@ -1,4 +1,4 @@
-import tabbable from 'tabbable';
+import tabbable from "tabbable";
 
 export default class FocusJail {
   constructor(container) {
@@ -15,7 +15,7 @@ export default class FocusJail {
     let elements = tabbable(this.container);
 
     const isFirstElementClose =
-      elements.length > 0 && elements[0].getAttribute('aria-label') === 'close';
+      elements.length > 0 && elements[0].getAttribute("aria-label") === "close";
 
     if (isFirstElementClose) {
       const [first, ...rest] = elements;

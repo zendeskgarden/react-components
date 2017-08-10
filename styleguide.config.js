@@ -1,56 +1,56 @@
-var path = require('path');
-var webpack = require('webpack');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
+var path = require("path");
+var webpack = require("webpack");
+var CopyWebpackPlugin = require("copy-webpack-plugin");
 
-var cssnext = require('postcss-cssnext');
-var importer = require('postcss-import');
-var inputRange = require('sunesimonsen-postcss-input-range');
+var cssnext = require("postcss-cssnext");
+var importer = require("postcss-import");
+var inputRange = require("sunesimonsen-postcss-input-range");
 
-var sourceDir = path.join(__dirname, 'src');
+var sourceDir = path.join(__dirname, "src");
 
 module.exports = {
-  title: 'Zendesk Garden / React Style Guide',
+  title: "Zendesk Garden / React Style Guide",
   skipComponentsWithoutExample: true,
   sections: [
     {
-      name: 'Components',
-      content: './src/index.md',
-      components: './src/*/index.js'
+      name: "Components",
+      content: "./src/index.md",
+      components: "./src/*/index.js"
     },
     {
-      name: 'Theming',
-      content: './src/utils/theming/index.md',
-      components: './src/utils/theming/*/index.js'
+      name: "Theming",
+      content: "./src/utils/theming/index.md",
+      components: "./src/utils/theming/*/index.js"
     },
-    { name: 'Tooltips', components: './src/utils/tooltips/*/index.js' },
+    { name: "Tooltips", components: "./src/utils/tooltips/*/index.js" },
     {
-      name: 'Core',
-      content: './src/core/index.md',
-      components: './src/core/*/index.js'
+      name: "Core",
+      content: "./src/core/index.md",
+      components: "./src/core/*/index.js"
     },
     {
-      name: 'Styleguide',
-      content: './src/styleguide/index.md',
-      components: './src/styleguide/*/index.js'
+      name: "Styleguide",
+      content: "./src/styleguide/index.md",
+      components: "./src/styleguide/*/index.js"
     }
   ],
   serverPort: 5000,
-  template: './src/styleguide/index.html',
-  require: ['babel-polyfill'],
+  template: "./src/styleguide/index.html",
+  require: ["babel-polyfill"],
   webpackConfig: {
     module: {
       loaders: [
         {
           test: /\.js$/,
           include: sourceDir,
-          loader: 'babel-loader'
+          loader: "babel-loader"
         },
         {
           test: /\.css$/,
           include: sourceDir,
           loaders: [
-            'style-loader',
-            'css-loader?module&importLoaders=1&localIdentName=rc-[local]-[hash:base64:5]!postcss-loader'
+            "style-loader",
+            "css-loader?module&importLoaders=1&localIdentName=rc-[local]-[hash:base64:5]!postcss-loader"
           ]
         },
         {
@@ -59,31 +59,31 @@ module.exports = {
             sourceDir,
             path.join(
               __dirname,
-              'node_modules',
-              '@zendesk',
-              'garden-svg-icons',
-              'src'
+              "node_modules",
+              "@zendesk",
+              "garden-svg-icons",
+              "src"
             )
           ],
-          loaders: ['url-loader?limit=1000']
+          loaders: ["url-loader?limit=1000"]
         },
         {
           test: /\.json$/,
           include: sourceDir,
-          loader: 'json-loader'
+          loader: "json-loader"
         }
       ]
     },
     resolve: {
       alias: {
-        'rsg-components/Wrapper': path.join(__dirname, 'src/styleguide/Wrapper')
+        "rsg-components/Wrapper": path.join(__dirname, "src/styleguide/Wrapper")
       }
     },
     plugins: [
       new CopyWebpackPlugin([
         {
-          from: 'src/styleguide/images/*.{png,jpeg,svg}',
-          to: 'images/[name].[ext]'
+          from: "src/styleguide/images/*.{png,jpeg,svg}",
+          to: "images/[name].[ext]"
         }
       ]),
       new webpack.LoaderOptionsPlugin({
@@ -93,8 +93,8 @@ module.exports = {
           postcss: [
             importer({
               path: [
-                path.resolve(__dirname, 'node_modules'),
-                path.resolve(__dirname, 'src')
+                path.resolve(__dirname, "node_modules"),
+                path.resolve(__dirname, "src")
               ]
             }),
             inputRange(),
@@ -106,85 +106,85 @@ module.exports = {
     ]
   },
   theme: {
-    base: '#555',
-    link: '#30aabc',
-    linkHover: '#30aabc'
+    base: "#555",
+    link: "#30aabc",
+    linkHover: "#30aabc"
   },
   styles: {
     StyleGuide: {
       sidebar: {
-        left: '300px',
-        background: '#fff',
-        width: '220px'
+        left: "300px",
+        background: "#fff",
+        width: "220px"
       },
       footer: {
-        display: 'none'
+        display: "none"
       },
       logo: {
-        display: 'none'
+        display: "none"
       }
     },
     ComponentsList: {
       heading: {
-        fontWeight: '600 !important'
+        fontWeight: "600 !important"
       },
       list: {
-        paddingLeft: '18px',
-        marginTop: '16px'
+        paddingLeft: "18px",
+        marginTop: "16px"
       },
       item: {
-        color: '#777',
-        fontWeight: '300'
+        color: "#777",
+        fontWeight: "300"
       }
     },
     TableOfContents: {
       search: {
-        paddingBottom: '0'
+        paddingBottom: "0"
       }
     },
     Link: {
       link: {
-        fontWeight: 'inherit !important',
-        fontSize: '14px !important',
-        color: 'inherit !important',
-        '&, &:link, &:visited': {
-          color: 'inherit'
+        fontWeight: "inherit !important",
+        fontSize: "14px !important",
+        color: "inherit !important",
+        "&, &:link, &:visited": {
+          color: "inherit"
         },
-        '&:hover, &:active': {
-          color: 'inherit'
+        "&:hover, &:active": {
+          color: "inherit"
         }
       }
     },
     Heading: {
       heading: {
-        color: '#30aabc',
-        letterSpacing: '1.9px',
-        fontSize: '35px',
-        fontWeight: '400'
+        color: "#30aabc",
+        letterSpacing: "1.9px",
+        fontSize: "35px",
+        fontWeight: "400"
       }
     },
     ReactComponent: {
       heading: {
-        margin: '0 0 12px',
-        color: '#555'
+        margin: "0 0 12px",
+        color: "#555"
       },
       primaryHeading: {
-        lineHeight: '1.78571',
-        letterSpacing: '.04em',
-        fontSize: '25px',
-        color: '#555'
+        lineHeight: "1.78571",
+        letterSpacing: ".04em",
+        fontSize: "25px",
+        color: "#555"
       }
     },
     Props: {
       cellHeading: {
-        color: '#555',
-        fontWeight: '400'
+        color: "#555",
+        fontWeight: "400"
       }
     },
     Markdown: {
       para: {
-        color: '#555',
-        fontSize: '15px'
+        color: "#555",
+        fontSize: "15px"
       }
     }
   }

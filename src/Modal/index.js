@@ -1,34 +1,34 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { findDOMNode } from 'react-dom';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import { findDOMNode } from "react-dom";
 
-import ThemedComponent from '../utils/theming/ThemedComponent';
-import styles from './styles.css';
-import View from '../core/View/';
-import FocusJail from '../utils/FocusJail';
+import ThemedComponent from "../utils/theming/ThemedComponent";
+import styles from "./styles.css";
+import View from "../core/View/";
+import FocusJail from "../utils/FocusJail";
 
-import Body from './Body';
-import CloseButton from './CloseButton';
-import Footer from './Footer';
-import Header from './Header';
-import Title from './Title';
+import Body from "./Body";
+import CloseButton from "./CloseButton";
+import Footer from "./Footer";
+import Header from "./Header";
+import Title from "./Title";
 
 export default class Modal extends ThemedComponent {
   static propTypes = {
     children: PropTypes.node.isRequired,
-    dir: PropTypes.oneOf(['ltr', 'rtl']),
+    dir: PropTypes.oneOf(["ltr", "rtl"]),
     hidden: PropTypes.bool,
     onClose: PropTypes.func,
-    type: PropTypes.oneOf(['default', 'transparent', 'lightbox']),
+    type: PropTypes.oneOf(["default", "transparent", "lightbox"]),
     testId: PropTypes.string,
     width: PropTypes.string
   };
 
   static defaultProps = {
-    dir: 'ltr',
+    dir: "ltr",
     hidden: false,
-    type: 'default'
+    type: "default"
   };
 
   static Body = Body;
@@ -39,7 +39,7 @@ export default class Modal extends ThemedComponent {
 
   constructor(props, context) {
     super(props, context, {
-      namespace: 'Modal',
+      namespace: "Modal",
       styles
     });
   }
@@ -49,9 +49,9 @@ export default class Modal extends ThemedComponent {
     const { hidden: prevHidden } = prevProps;
 
     if (!hidden && prevHidden) {
-      document.querySelector('html').style.overflow = 'hidden';
+      document.querySelector("html").style.overflow = "hidden";
     } else if (hidden && !prevHidden) {
-      document.querySelector('html').style.overflow = '';
+      document.querySelector("html").style.overflow = "";
       this.tabJail = null;
     }
   }

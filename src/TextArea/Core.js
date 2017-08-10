@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 export default class Core extends Component {
   static propTypes = {
-    autoComplete: PropTypes.oneOf(['on', 'off']),
+    autoComplete: PropTypes.oneOf(["on", "off"]),
     autoFocus: PropTypes.bool,
     isFocused: PropTypes.bool,
     className: PropTypes.string,
     defaultValue: PropTypes.string,
-    dir: PropTypes.oneOf(['ltr', 'rtl']),
+    dir: PropTypes.oneOf(["ltr", "rtl"]),
     disabled: PropTypes.bool.isRequired,
     id: PropTypes.string,
     name: PropTypes.string,
@@ -35,10 +35,10 @@ export default class Core extends Component {
   };
 
   static defaultProps = {
-    autoComplete: 'off',
+    autoComplete: "off",
     disabled: false,
     rows: 2,
-    type: 'text'
+    type: "text"
   };
 
   render() {
@@ -75,20 +75,20 @@ export default class Core extends Component {
     } = this.props;
 
     const handlers = {
-      '8': onDelete,
-      '13': onEnter,
-      '27': onEscape,
-      '37': onArrowLeft,
-      '38': onArrowUp,
-      '39': onArrowRight,
-      '40': onArrowDown
+      "8": onDelete,
+      "13": onEnter,
+      "27": onEscape,
+      "37": onArrowLeft,
+      "38": onArrowUp,
+      "39": onArrowRight,
+      "40": onArrowDown
     };
 
     const props = {
       autoFocus,
       autoComplete,
       className,
-      'data-test-id': testId,
+      "data-test-id": testId,
       defaultValue,
       dir,
       disabled,

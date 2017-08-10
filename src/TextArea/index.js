@@ -1,24 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import uuid from 'uuid';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import uuid from "uuid";
 
-import View from '../core/View';
-import ThemedComponent from '../utils/theming/ThemedComponent';
-import Core from './Core';
+import View from "../core/View";
+import ThemedComponent from "../utils/theming/ThemedComponent";
+import Core from "./Core";
 
-import styles from './styles.css';
+import styles from "./styles.css";
 
 export default class TextArea extends ThemedComponent {
   static Core = Core;
 
   static propTypes = {
-    autoComplete: PropTypes.oneOf(['on', 'off']),
+    autoComplete: PropTypes.oneOf(["on", "off"]),
     autoFocus: PropTypes.bool,
     className: PropTypes.string,
     isFocused: PropTypes.bool,
     defaultValue: PropTypes.string,
-    dir: PropTypes.oneOf(['ltr', 'rtl']),
+    dir: PropTypes.oneOf(["ltr", "rtl"]),
     disabled: PropTypes.bool.isRequired,
     hint: PropTypes.node,
     id: PropTypes.string,
@@ -40,28 +40,28 @@ export default class TextArea extends ThemedComponent {
     onPaste: PropTypes.func,
     placeholder: PropTypes.string,
     resizable: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'medium']),
+    size: PropTypes.oneOf(["small", "medium"]),
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
     title: PropTypes.string,
     /** <a href="#view">See View</a> */
     tooltipPositioning: () => {},
-    validation: PropTypes.oneOf(['error', 'warning', 'success']),
+    validation: PropTypes.oneOf(["error", "warning", "success"]),
     validationText: PropTypes.string,
     value: PropTypes.string
   };
 
   static defaultProps = {
-    autoComplete: 'off',
+    autoComplete: "off",
     disabled: false,
     resizable: false,
-    size: 'medium',
-    type: 'text'
+    size: "medium",
+    type: "text"
   };
 
   constructor(props, context) {
     super(props, context, {
-      namespace: 'TextArea',
+      namespace: "TextArea",
       styles
     });
 
@@ -134,8 +134,13 @@ export default class TextArea extends ThemedComponent {
         />
         {validation &&
           validationText &&
-          <small className={theme.message}>{validationText}</small>}
-        {hint && <small className={theme.hint}>{hint}</small>}
+          <small className={theme.message}>
+            {validationText}
+          </small>}
+        {hint &&
+          <small className={theme.hint}>
+            {hint}
+          </small>}
       </View>
     );
   }

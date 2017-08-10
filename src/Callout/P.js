@@ -1,7 +1,7 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
 
-import styles from './styles.css';
+import styles from "./styles.css";
 
 export default class P extends PureComponent {
   static propTypes = {
@@ -10,7 +10,7 @@ export default class P extends PureComponent {
 
   constructor(props, context) {
     super(props, context, {
-      namespace: 'Callout'
+      namespace: "Callout"
     });
   }
 

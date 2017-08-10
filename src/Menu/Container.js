@@ -1,60 +1,60 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
-import ThemedComponent from '../utils/theming/ThemedComponent';
+import ThemedComponent from "../utils/theming/ThemedComponent";
 
-import styles from './styles.css';
+import styles from "./styles.css";
 
-import View from '../core/View';
+import View from "../core/View";
 
 const arrowPositions = {
-  bottom: 'top',
-  bottom_left: 'top_right',
-  bottom_right: 'top_left',
-  left: 'right',
-  right: 'left',
-  top: 'bottom',
-  top_left: 'bottom_right',
-  top_right: 'bottom_left'
+  bottom: "top",
+  bottom_left: "top_right",
+  bottom_right: "top_left",
+  left: "right",
+  right: "left",
+  top: "bottom",
+  top_left: "bottom_right",
+  top_right: "bottom_left"
 };
 
 export default class Container extends ThemedComponent {
   static propTypes = {
     animate: PropTypes.bool,
     arrow: PropTypes.bool,
-    dir: PropTypes.oneOf(['ltr', 'rtl']),
+    dir: PropTypes.oneOf(["ltr", "rtl"]),
     fixedWidth: PropTypes.bool,
     children: PropTypes.node.isRequired,
     maxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     position: PropTypes.oneOf([
-      'bottom',
-      'bottom_left',
-      'bottom_right',
-      'bottom_stretch',
-      'left',
-      'right',
-      'top',
-      'top_left',
-      'top_right',
-      'top_stretch'
+      "bottom",
+      "bottom_left",
+      "bottom_right",
+      "bottom_stretch",
+      "left",
+      "right",
+      "top",
+      "top_left",
+      "top_right",
+      "top_stretch"
     ]),
-    size: PropTypes.oneOf(['small', 'medium']),
+    size: PropTypes.oneOf(["small", "medium"]),
     wide: PropTypes.bool
   };
 
   static defaultProps = {
     animate: false,
     arrow: false,
-    dir: 'ltr',
-    position: 'bottom_right',
-    size: 'medium',
+    dir: "ltr",
+    position: "bottom_right",
+    size: "medium",
     wide: false
   };
 
   constructor(props, context) {
     super(props, context, {
-      namespace: 'Menu',
+      namespace: "Menu",
       styles
     });
   }
@@ -74,12 +74,11 @@ export default class Container extends ThemedComponent {
 
     const style = {};
     const innerStyle = {};
-    const hasMaxHeight = typeof maxHeight !== 'undefined';
+    const hasMaxHeight = typeof maxHeight !== "undefined";
 
     if (hasMaxHeight) {
-      style.maxHeight = typeof maxHeight === 'number'
-        ? `${maxHeight}px`
-        : maxHeight;
+      style.maxHeight =
+        typeof maxHeight === "number" ? `${maxHeight}px` : maxHeight;
 
       innerStyle.maxHeight = `calc(${style.maxHeight} - 2px)`;
     }
@@ -105,7 +104,9 @@ export default class Container extends ThemedComponent {
         role="menu"
         style={style}
       >
-        <View className={theme.inner} style={innerStyle}>{children}</View>
+        <View className={theme.inner} style={innerStyle}>
+          {children}
+        </View>
       </View>
     );
   }

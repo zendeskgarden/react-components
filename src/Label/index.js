@@ -1,41 +1,41 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
-import View from '../core/View';
+import View from "../core/View";
 
-import styles from './styles.css';
+import styles from "./styles.css";
 
 export default class Label extends Component {
   static propTypes = {
     avatar: PropTypes.node,
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
-    dir: PropTypes.oneOf(['ltr', 'rtl']),
+    dir: PropTypes.oneOf(["ltr", "rtl"]),
     onRemove: PropTypes.func,
     pill: PropTypes.bool,
     round: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
+    size: PropTypes.oneOf(["small", "medium", "large"]),
     stretched: PropTypes.bool,
     tabIndex: PropTypes.number,
     title: PropTypes.string,
     /** <a href="#view">See View</a> */
     tooltipPositioning: () => {},
     type: PropTypes.oneOf([
-      'default',
-      'dark',
-      'light',
-      'success',
-      'warning',
-      'error'
+      "default",
+      "dark",
+      "light",
+      "success",
+      "warning",
+      "error"
     ])
   };
 
   static defaultProps = {
-    dir: 'ltr',
-    size: 'medium',
+    dir: "ltr",
+    size: "medium",
     stretched: false,
-    type: 'default'
+    type: "default"
   };
 
   renderAvatar = avatar =>
@@ -50,9 +50,8 @@ export default class Label extends Component {
     onRemove(e);
   };
 
-  renderRemove = onRemove => (
-    <button tabIndex={-1} className={styles.remove} onClick={onRemove} />
-  );
+  renderRemove = onRemove =>
+    <button tabIndex={-1} className={styles.remove} onClick={onRemove} />;
 
   render() {
     const {
@@ -79,7 +78,7 @@ export default class Label extends Component {
           {
             [styles.pill]: pill,
             [styles.round]: round,
-            [styles.rtl]: dir === 'rtl',
+            [styles.rtl]: dir === "rtl",
             [styles.stretched]: stretched
           },
           className

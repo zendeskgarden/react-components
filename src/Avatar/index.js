@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
-import View from '../core/View';
+import View from "../core/View";
 
-import styles from './styles.css';
+import styles from "./styles.css";
 
-const sizes = ['small', 'medium', 'large'];
+const sizes = ["small", "medium", "large"];
 
 export default class Avatar extends Component {
   static propTypes = {
@@ -19,21 +19,21 @@ export default class Avatar extends Component {
       PropTypes.number,
       PropTypes.string
     ]).isRequired,
-    status: PropTypes.oneOf(['default', 'present', 'away', 'active'])
+    status: PropTypes.oneOf(["default", "present", "away", "active"])
       .isRequired,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
     title: PropTypes.string,
     /** <a href="#view">See View</a> */
     tooltipPositioning: () => {},
-    type: PropTypes.oneOf(['human', 'system']).isRequired
+    type: PropTypes.oneOf(["human", "system"]).isRequired
   };
 
   static defaultProps = {
-    alt: '',
-    size: 'medium',
-    status: 'default',
-    type: 'human'
+    alt: "",
+    size: "medium",
+    status: "default",
+    type: "human"
   };
 
   render() {
