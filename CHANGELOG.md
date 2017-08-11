@@ -1,5 +1,8 @@
 ## Change Log
 
+### v8.0.1 (2017/08/11 05:29 +00:00)
+- [#255](https://github.com/zendeskgarden/react-components/pull/255) Handle double qoutes when building (@sunesimonsen)
+
 ### v8.0.0 (2017/08/10 21:16 +00:00)
 - [#253](https://github.com/zendeskgarden/react-components/pull/253) Selectable will not selectOnHover by default (Major) (@austin94)
 - [#252](https://github.com/zendeskgarden/react-components/pull/252) Allow SplitButton to disable dropdown button separately (Major) (@kristing400)
@@ -340,8 +343,6 @@
 ### v1.7.0 (2016/09/21 11:56 +00:00)
 - [#37](https://github.com/zendeskgarden/react-components/pull/37) Add RadioButton and RadioButtonGroup (@csk157)
 - [#38](https://github.com/zendeskgarden/react-components/pull/38) Added a test id to the modal frame (@sunesimonsen)
-
-### v1.6.0 (2016/09/20 14:58 +00:00)
 - [#36](https://github.com/zendeskgarden/react-components/pull/36) Adds support for disabled TextInput & TextArea (@albertfdp)
 - [#34](https://github.com/zendeskgarden/react-components/pull/34) Make the modal trap focus (@sunesimonsen)
 - [#33](https://github.com/zendeskgarden/react-components/pull/33) Fixed menu positioning when embedded into other components (@sunesimonsen)
