@@ -79,7 +79,7 @@ const cssToJS = (contents, file) => {
 // dependency between this CSS file and the CSS files it is composing - this
 // information is kept in the fileDependencies variable.
 const collectCompose = (contents, file) => {
-  const composeRegexp = /composes: (.*) from '([^/.].*)';/g;
+  const composeRegexp = /composes: (.*) from ['"]([^/.].*)['"];/g;
   const dependencies = [];
 
   let match;
@@ -145,13 +145,16 @@ gulp.task("process-composed-files", ["collect-composes"], () => {
 // referenced CSS files. So now we just replaced all composed class names with
 // their hashed CSS-module name from the global scope.
 const externalizeComposes = (contents, file) =>
-  contents.replace(/composes: (.*) from '([^/.].*)';/g, ($0, $1, module) => {
-    const cssFileName = require.resolve(module);
-    const styles = styleMappings[cssFileName];
-    const classes = $1.trim().split(" ").map(c => styles[c]).join(" ");
+  contents.replace(
+    /composes: (.*) from ['"]([^/.].*)['"];/g,
+    ($0, $1, module) => {
+      const cssFileName = require.resolve(module);
+      const styles = styleMappings[cssFileName];
+      const classes = $1.trim().split(" ").map(c => styles[c]).join(" ");
 
-    return `composes: ${classes} from global;`;
-  });
+      return `composes: ${classes} from global;`;
+    }
+  );
 
 // When we have processed all external composes we are ready to transpile the
 // CSS files in our project. We externalize the composes to point to the
@@ -190,7 +193,7 @@ gulp.task("css", ["clean", "process-composed-files"], () => {
 });
 
 const cssImports = contents =>
-  contents.replace(/(import.*from '.*)\.css'/g, "$1'");
+  contents.replace(/(import.*from (['"]).*)\.css['"]/g, "$1$2");
 
 // This task will transpile all JavaScript ES5 files in the lib folder and
 // replace imported CSS files to point to the transpiled CSS-module.
