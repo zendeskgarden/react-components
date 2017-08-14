@@ -37,8 +37,8 @@ describe("TextInput", () => {
         <TextInput hint="This is a hint" value="" />,
         "to deeply render as",
         <View>
-          <input value="" />
           <small className="hint">This is a hint</small>
+          <input value="" />
         </View>
       );
     });
