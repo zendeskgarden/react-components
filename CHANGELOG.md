@@ -1,5 +1,9 @@
 ## Change Log
 
+### v8.1.0 (2017/08/14 17:49 +00:00)
+- [#256](https://github.com/zendeskgarden/react-components/pull/256) Move hints above input fields (@Anifacted)
+- [#234](https://github.com/zendeskgarden/react-components/pull/234) createTooltipManager: Move event listening logic to show()/hide() (@Anifacted)
+
 ### v8.0.1 (2017/08/11 05:29 +00:00)
 - [#255](https://github.com/zendeskgarden/react-components/pull/255) Handle double qoutes when building (@sunesimonsen)
 
@@ -339,8 +343,6 @@
 ### v1.7.1 (2016/09/22 14:19 +00:00)
 - [#40](https://github.com/zendeskgarden/react-components/pull/40) Fixed proptype warning (@sunesimonsen)
 - [#39](https://github.com/zendeskgarden/react-components/pull/39) Add tests for TextInput (@csk157)
-
-### v1.7.0 (2016/09/21 11:56 +00:00)
 - [#37](https://github.com/zendeskgarden/react-components/pull/37) Add RadioButton and RadioButtonGroup (@csk157)
 - [#38](https://github.com/zendeskgarden/react-components/pull/38) Added a test id to the modal frame (@sunesimonsen)
 - [#36](https://github.com/zendeskgarden/react-components/pull/36) Adds support for disabled TextInput & TextArea (@albertfdp)
