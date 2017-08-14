@@ -115,6 +115,10 @@ export default class TextArea extends ThemedComponent {
         tooltipPositioning={tooltipPositioning}
       >
         {this.renderLabel()}
+        {hint &&
+          <small className={theme.hint}>
+            {hint}
+          </small>}
         <Core
           {...other}
           disabled={disabled}
@@ -136,10 +140,6 @@ export default class TextArea extends ThemedComponent {
           validationText &&
           <small className={theme.message}>
             {validationText}
-          </small>}
-        {hint &&
-          <small className={theme.hint}>
-            {hint}
           </small>}
       </View>
     );

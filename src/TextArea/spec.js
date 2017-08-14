@@ -49,8 +49,8 @@ describe("TextArea", () => {
         <TextArea hint="This is a hint" value="" />,
         "to deeply render as",
         <View>
-          <textarea value="" />
           <small className="hint">This is a hint</small>
+          <textarea value="" />
         </View>
       );
     });
