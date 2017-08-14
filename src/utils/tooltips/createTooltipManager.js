@@ -7,6 +7,9 @@ const createTooltipManager = (renderNode, options = {}) => {
   let currentTooltipId = 0;
 
   const show = (anchor, content, positions) => {
+    document.body.addEventListener('scroll', hide);
+    window.addEventListener('resize', hide);
+
     render(
       <TooltipContainer
         anchor={anchor}
@@ -24,15 +27,14 @@ const createTooltipManager = (renderNode, options = {}) => {
   const hide = tooltipId => {
     if (typeof tooltipId !== 'number' || tooltipId === currentTooltipId) {
       render(<TooltipContainer />, renderNode);
+
+      document.body.removeEventListener('scroll', hide);
+      window.removeEventListener('resize', hide);
     }
   };
 
   // Initial empty render that creates the container element
   render(<TooltipContainer />, renderNode);
-
-  // Event handlers
-  document.body.addEventListener('scroll', hide);
-  window.addEventListener('resize', hide);
 
   return { show, hide };
 };
