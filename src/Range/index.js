@@ -120,6 +120,10 @@ export default class Range extends ThemedComponent {
         )}
       >
         {this.renderLabel()}
+        {hint &&
+          <small className={theme.hint}>
+            {hint}
+          </small>}
         <input
           className={theme.input}
           data-test-id={testId}
@@ -146,10 +150,6 @@ export default class Range extends ThemedComponent {
           validationText &&
           <small className={theme.message}>
             {validationText}
-          </small>}
-        {hint &&
-          <small className={theme.hint}>
-            {hint}
           </small>}
       </View>
     );

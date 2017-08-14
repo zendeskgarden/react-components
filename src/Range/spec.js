@@ -140,8 +140,8 @@ describe("Range", () => {
         <Range hint="This is a hint" />,
         "to render as",
         <View>
-          <input type="range" />
           <small className="hint">This is a hint</small>
+          <input type="range" />
         </View>
       );
     });
