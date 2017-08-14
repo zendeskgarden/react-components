@@ -145,6 +145,10 @@ export default class Select extends ThemedComponent {
         testId={testId}
       >
         {this.renderLabel()}
+        {hint &&
+          <small className={theme.hint}>
+            {hint}
+          </small>}
         <Menu
           dir={dir}
           maxHeight={maxHeight}
@@ -183,10 +187,6 @@ export default class Select extends ThemedComponent {
           validationText &&
           <small className={theme.message}>
             {validationText}
-          </small>}
-        {hint &&
-          <small className={theme.hint}>
-            {hint}
           </small>}
       </View>
     );
