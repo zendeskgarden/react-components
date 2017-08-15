@@ -89,7 +89,9 @@ export default class Label extends Component {
         tooltipPositioning={tooltipPositioning}
       >
         {avatar && this.renderAvatar(avatar)}
-        {children}
+        <span>
+          {children}
+        </span>
         {onRemove && this.renderRemove(onRemove)}
       </View>
     );
