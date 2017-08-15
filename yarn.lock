@@ -22,9 +22,9 @@
   version "3.0.0"
   resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-forms/-/@zendesk/garden-css-forms-3.0.0.tgz#23ce1343d5913685b59fa0342d242eb8d02df6bf"
 
-"@zendesk/garden-css-labels@^1.0.0":
-  version "1.0.0"
-  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-labels/-/@zendesk/garden-css-labels-1.0.0.tgz#88d800308638d67c32268b5c00e53cf84de10e3e"
+"@zendesk/garden-css-labels@^1.0.1":
+  version "1.0.1"
+  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-labels/-/@zendesk/garden-css-labels-1.0.1.tgz#afd40da7a258cdf2962b924ba1f8dcc7b0b1b046"
 
 "@zendesk/garden-css-menus@^4.0.0":
   version "4.0.0"
