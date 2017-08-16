@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { findDOMNode } from 'react-dom';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { findDOMNode } from "react-dom";
 
 const Selectable = (
   ChildComponent,
@@ -9,7 +9,7 @@ const Selectable = (
     preventDefault = false,
     stopPropagation = false,
     selectOnHover = false,
-    selectEvent = 'onMouseDown'
+    selectEvent = "onMouseDown"
   } = {}
 ) => {
   class Selectable extends Component {

@@ -1,7 +1,7 @@
-import positionRelative from './positionRelative';
-import isInsideViewport from './isInsideViewport';
-import distance from './distance';
-import keepInViewport from './keepInViewport';
+import positionRelative from "./positionRelative";
+import isInsideViewport from "./isInsideViewport";
+import distance from "./distance";
+import keepInViewport from "./keepInViewport";
 
 const getBestRelativePlacement = ({
   anchor,

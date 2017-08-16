@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
-import View from '../View';
-import styles from './styles.css';
+import View from "../View";
+import styles from "./styles.css";
 
 export default class Text extends Component {
   static propTypes = {

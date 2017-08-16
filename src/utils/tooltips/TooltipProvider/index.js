@@ -1,19 +1,19 @@
-import { Component } from 'react';
-import PropTypes from 'prop-types';
-import createTooltipManager from '../createTooltipManager';
-import uuid from 'uuid';
+import { Component } from "react";
+import PropTypes from "prop-types";
+import createTooltipManager from "../createTooltipManager";
+import uuid from "uuid";
 
 export default class TooltipProvider extends Component {
   static propTypes = {
     children: PropTypes.node,
     /** Used to identify the provider and the element that will contain the tooltips. Defaults to a generated UUID */
     id: PropTypes.string,
-    dir: PropTypes.oneOf(['rtl', 'ltr']),
+    dir: PropTypes.oneOf(["rtl", "ltr"]),
     zIndex: PropTypes.number
   };
 
   static defaultProps = {
-    dir: 'ltr',
+    dir: "ltr",
     zIndex: 600
   };
 
@@ -30,7 +30,7 @@ export default class TooltipProvider extends Component {
     let container = document.getElementById(this.id);
 
     if (!container) {
-      container = document.createElement('div');
+      container = document.createElement("div");
       container.id = this.id;
       document.body.appendChild(container);
     }

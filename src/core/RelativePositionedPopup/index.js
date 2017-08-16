@@ -1,48 +1,47 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { findDOMNode } from 'react-dom';
-import FocusJail from '../../utils/FocusJail';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import { findDOMNode } from "react-dom";
+import FocusJail from "../../utils/FocusJail";
 
-import View from '../View';
-import getBestRelativePlacement
-  from '../../utils/positioning/getBestRelativePlacement';
-import toFixedOffset from '../../utils/positioning/toFixedOffset';
-import styles from './styles.css';
+import View from "../View";
+import getBestRelativePlacement from "../../utils/positioning/getBestRelativePlacement";
+import toFixedOffset from "../../utils/positioning/toFixedOffset";
+import styles from "./styles.css";
 
 const positions = [
-  'bottom',
-  'bottom_stretch',
-  'bottom_left',
-  'bottom_right',
-  'left',
-  'left_top',
-  'left_bottom',
-  'right',
-  'right_top',
-  'right_bottom',
-  'top',
-  'top_stretch',
-  'top_left',
-  'top_right'
+  "bottom",
+  "bottom_stretch",
+  "bottom_left",
+  "bottom_right",
+  "left",
+  "left_top",
+  "left_bottom",
+  "right",
+  "right_top",
+  "right_bottom",
+  "top",
+  "top_stretch",
+  "top_left",
+  "top_right"
 ];
 
 const rtlMapping = {
-  bottom_right: 'bottom_left',
-  bottom_left: 'bottom_right',
-  left: 'right',
-  left_top: 'right_top',
-  left_bottom: 'right_bottom',
-  right: 'left',
-  right_top: 'left_top',
-  right_bottom: 'left_bottom',
-  top_left: 'top_right',
-  top_right: 'top_left'
+  bottom_right: "bottom_left",
+  bottom_left: "bottom_right",
+  left: "right",
+  left_top: "right_top",
+  left_bottom: "right_bottom",
+  right: "left",
+  right_top: "left_top",
+  right_bottom: "left_bottom",
+  top_left: "top_right",
+  top_right: "top_left"
 };
 
 const getCurrentOrigin = () => {
   const location = window.location;
-  const origin = location.origin || location.protocol + '//' + location.host;
+  const origin = location.origin || location.protocol + "//" + location.host;
 
   return origin;
 };
@@ -53,7 +52,7 @@ const isIFrameOfCurrentOrigin = iframe => {
 };
 
 const getDocuments = () => {
-  const iframes = document.querySelectorAll('iframe');
+  const iframes = document.querySelectorAll("iframe");
 
   const iframeDocuments = Array.from(iframes)
     .filter(isIFrameOfCurrentOrigin)
@@ -65,7 +64,7 @@ const getDocuments = () => {
 class RelativePositionedPopup extends Component {
   static propTypes = {
     anchor: PropTypes.node.isRequired,
-    dir: PropTypes.oneOf(['ltr', 'rtl']),
+    dir: PropTypes.oneOf(["ltr", "rtl"]),
     children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired,
     hidden: PropTypes.bool,
     marginBottom: PropTypes.number,
@@ -84,7 +83,7 @@ class RelativePositionedPopup extends Component {
   };
 
   static defaultProps = {
-    dir: 'ltr',
+    dir: "ltr",
     hidden: true,
     marginBottom: 0,
     marginLeft: 0,
@@ -128,20 +127,20 @@ class RelativePositionedPopup extends Component {
   };
 
   componentDidMount() {
-    window.addEventListener('resize', this.updatePlacement);
-    window.addEventListener('scroll', this.updatePlacement, true);
+    window.addEventListener("resize", this.updatePlacement);
+    window.addEventListener("scroll", this.updatePlacement, true);
 
     getDocuments().forEach(doc => {
-      doc.addEventListener('click', this.clickOutsideHandler, true);
+      doc.addEventListener("click", this.clickOutsideHandler, true);
     });
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.updatePlacement);
-    window.removeEventListener('scroll', this.updatePlacement, true);
+    window.removeEventListener("resize", this.updatePlacement);
+    window.removeEventListener("scroll", this.updatePlacement, true);
 
     getDocuments().forEach(doc => {
-      doc.removeEventListener('click', this.clickOutsideHandler, true);
+      doc.removeEventListener("click", this.clickOutsideHandler, true);
     });
   }
 
@@ -169,7 +168,7 @@ class RelativePositionedPopup extends Component {
 
     const positions = Array.isArray(positioning) ? positioning : [positioning];
 
-    return dir === 'rtl'
+    return dir === "rtl"
       ? positions.map(position => rtlMapping[position] || position)
       : positions;
   };
@@ -269,7 +268,7 @@ class RelativePositionedPopup extends Component {
         >
           {hidden
             ? null
-            : typeof children === 'function' ? children(position) : children}
+            : typeof children === "function" ? children(position) : children}
         </View>
       </View>
     );

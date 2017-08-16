@@ -1,1 +1,1 @@
-export { default } from './themes/electroid-dark-theme';
+export { default } from "./themes/electroid-dark-theme";

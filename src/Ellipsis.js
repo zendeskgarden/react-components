@@ -1,1 +1,1 @@
-export { default } from './core/Ellipsis';
+export { default } from "./core/Ellipsis";

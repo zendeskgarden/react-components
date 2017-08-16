@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-import View from '../View';
-import styles from './styles.css';
+import View from "../View";
+import styles from "./styles.css";
 
 export default class Ellipsis extends Component {
   static propTypes = {
@@ -39,11 +39,11 @@ export default class Ellipsis extends Component {
   componentDidMount() {
     this.analyzeOverflow();
 
-    window.addEventListener('resize', this.onWindowResize);
+    window.addEventListener("resize", this.onWindowResize);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.onWindowResize);
+    window.removeEventListener("resize", this.onWindowResize);
   }
 
   componentDidUpdate() {
@@ -55,9 +55,9 @@ export default class Ellipsis extends Component {
 
     const props = { className: styles.ellipsis };
 
-    if ('title' in this.props) {
+    if ("title" in this.props) {
       props.title = title;
-    } else if (typeof children === 'string' && this.state.isOverflowing) {
+    } else if (typeof children === "string" && this.state.isOverflowing) {
       props.title = children;
     }
 

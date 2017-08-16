@@ -1,5 +1,5 @@
-import { Component } from 'react';
-import PropTypes from 'prop-types';
+import { Component } from "react";
+import PropTypes from "prop-types";
 
 const extendStyles = (styles, theme, namespace) => {
   const { [namespace]: themeStyles } = theme || {};
@@ -14,15 +14,14 @@ const extendStyles = (styles, theme, namespace) => {
         console.warn(
           `Trying to override an undefined style: ${namespace}.${key}\n` +
             `Styles defined for ${namespace}:\n` +
-            Object.keys(styles).join('\n')
+            Object.keys(styles).join("\n")
         );
       }
     });
 
     Object.keys(styles).forEach(key => {
-      extendStyles[key] = key in themeStyles
-        ? `${styles[key]} ${themeStyles[key]}`
-        : styles[key];
+      extendStyles[key] =
+        key in themeStyles ? `${styles[key]} ${themeStyles[key]}` : styles[key];
     });
 
     return extendStyles;

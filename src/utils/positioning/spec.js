@@ -1,31 +1,31 @@
-import unexpected from 'test/expect';
-import Generator from 'chance-generators';
-import positionRelative from './positionRelative';
-import getBestRelativePlacement from './getBestRelativePlacement';
-import isInsideViewport from './isInsideViewport';
-import keepInViewport from './keepInViewport';
-import toFixedOffset, { getFixedContainer } from './toFixedOffset';
+import unexpected from "test/expect";
+import Generator from "chance-generators";
+import positionRelative from "./positionRelative";
+import getBestRelativePlacement from "./getBestRelativePlacement";
+import isInsideViewport from "./isInsideViewport";
+import keepInViewport from "./keepInViewport";
+import toFixedOffset, { getFixedContainer } from "./toFixedOffset";
 
 const expect = unexpected.clone();
 
 expect.addAssertion(
-  '<object> to be margin away from one side of <object>',
+  "<object> to be margin away from one side of <object>",
   (expect, subject, anchor) => {
     expect(
       subject.left + subject.width === anchor.left - anchor.margins.left ||
         subject.left === anchor.left + anchor.width + anchor.margins.right ||
         subject.top + subject.height === anchor.top - anchor.margins.top ||
         subject.top === anchor.top + anchor.height + anchor.margins.bottom,
-      'to be true'
+      "to be true"
     );
   }
 );
 
 expect.addAssertion(
-  '<object> to have the same size as <object>',
+  "<object> to have the same size as <object>",
   (expect, subject, value) => {
-    expect.errorMode = 'nested';
-    expect(subject, 'to satisfy', {
+    expect.errorMode = "nested";
+    expect(subject, "to satisfy", {
       height: value.height,
       width: value.width
     });
@@ -33,27 +33,27 @@ expect.addAssertion(
 );
 
 expect.addAssertion(
-  '<object> to be inside viewport <object>',
+  "<object> to be inside viewport <object>",
   (expect, subject, viewport) => {
     expect(
       isInsideViewport({
         target: subject,
         viewport
       }),
-      'to be true'
+      "to be true"
     );
   }
 );
 
 expect.addAssertion(
-  '<object> to have been moved inside of viewport <object>',
+  "<object> to have been moved inside of viewport <object>",
   (expect, subject, viewport) => {
     expect(
       subject.top === 0 ||
         subject.left === 0 ||
         subject.top + subject.height === viewport.height ||
         subject.left + subject.width === viewport.width,
-      'to be true'
+      "to be true"
     );
   }
 );
@@ -61,20 +61,20 @@ expect.addAssertion(
 const { integer, natural, pickset, shape, shuffle, unique } = new Generator(42);
 
 const possiblePositions = [
-  'bottom',
-  'bottom_stretch',
-  'bottom_left',
-  'bottom_right',
-  'left',
-  'left_top',
-  'left_bottom',
-  'right',
-  'right_top',
-  'right_bottom',
-  'top',
-  'top_stretch',
-  'top_left',
-  'top_right'
+  "bottom",
+  "bottom_stretch",
+  "bottom_left",
+  "bottom_right",
+  "left",
+  "left_top",
+  "left_bottom",
+  "right",
+  "right_top",
+  "right_bottom",
+  "top",
+  "top_stretch",
+  "top_left",
+  "top_right"
 ];
 
 const positions = pickset(possiblePositions);
@@ -115,9 +115,9 @@ const placements = shape({
   rect: squares()
 });
 
-describe('positioning', () => {
-  describe('positionRelative', () => {
-    it('produces a target that always has a one side honoring the margins of the anchor', () => {
+describe("positioning", () => {
+  describe("positionRelative", () => {
+    it("produces a target that always has a one side honoring the margins of the anchor", () => {
       expect(
         (position, anchor, target) => {
           const positionedTarget = positionRelative({
@@ -128,19 +128,19 @@ describe('positioning', () => {
 
           expect(
             positionedTarget,
-            'to be margin away from one side of',
+            "to be margin away from one side of",
             anchor
           );
         },
-        'to be valid for all',
+        "to be valid for all",
         positions,
         squares,
         squares
       );
     });
 
-    describe('when the target is not positioned with stretching', () => {
-      it('does not change the size of the target', () => {
+    describe("when the target is not positioned with stretching", () => {
+      it("does not change the size of the target", () => {
         expect(
           (position, anchor, target) => {
             const positionedTarget = positionRelative({
@@ -149,9 +149,9 @@ describe('positioning', () => {
               target
             });
 
-            expect(positionedTarget, 'to have the same size as', target);
+            expect(positionedTarget, "to have the same size as", target);
           },
-          'to be valid for all',
+          "to be valid for all",
           positionsWithoutStretching,
           squares,
           squares
@@ -174,240 +174,240 @@ describe('positioning', () => {
       width: 200
     };
 
-    describe('bottom', () => {
-      it('places the target centered below the anchor', () => {
+    describe("bottom", () => {
+      it("places the target centered below the anchor", () => {
         expect(
-          positionRelative({ position: 'bottom', anchor, target }),
-          'to satisfy',
+          positionRelative({ position: "bottom", anchor, target }),
+          "to satisfy",
           { top: 390, left: 350 }
         );
       });
     });
 
-    describe('bottom_left', () => {
-      it('places the target below the anchor aligned with the right edge', () => {
+    describe("bottom_left", () => {
+      it("places the target below the anchor aligned with the right edge", () => {
         expect(
-          positionRelative({ position: 'bottom_left', anchor, target }),
-          'to satisfy',
+          positionRelative({ position: "bottom_left", anchor, target }),
+          "to satisfy",
           { top: 390, left: 300 }
         );
       });
 
-      describe('with a center point', () => {
-        it('centers the point according to the anchor', () => {
+      describe("with a center point", () => {
+        it("centers the point according to the anchor", () => {
           expect(
             positionRelative({
-              position: 'bottom_left',
+              position: "bottom_left",
               anchor,
               centerPoint: 20,
               target
             }),
-            'to satisfy',
+            "to satisfy",
             { top: 390, left: 270 }
           );
         });
       });
     });
 
-    describe('bottom_right', () => {
-      it('places the target below the anchor aligned with the left edge', () => {
+    describe("bottom_right", () => {
+      it("places the target below the anchor aligned with the left edge", () => {
         expect(
-          positionRelative({ position: 'bottom_right', anchor, target }),
-          'to satisfy',
+          positionRelative({ position: "bottom_right", anchor, target }),
+          "to satisfy",
           { top: 390, left: 400 }
         );
       });
 
-      describe('with a center point', () => {
-        it('centers the point according to the anchor', () => {
+      describe("with a center point", () => {
+        it("centers the point according to the anchor", () => {
           expect(
             positionRelative({
-              position: 'bottom_right',
+              position: "bottom_right",
               anchor,
               centerPoint: 20,
               target
             }),
-            'to satisfy',
+            "to satisfy",
             { top: 390, left: 430 }
           );
         });
       });
     });
 
-    describe('left', () => {
-      it('places the target centered top the left of the anchor', () => {
+    describe("left", () => {
+      it("places the target centered top the left of the anchor", () => {
         expect(
-          positionRelative({ position: 'left', anchor, target }),
-          'to satisfy',
+          positionRelative({ position: "left", anchor, target }),
+          "to satisfy",
           { top: 170, left: 200 }
         );
       });
     });
 
-    describe('left_top', () => {
-      it('places the target left of the anchor aligned with the top', () => {
+    describe("left_top", () => {
+      it("places the target left of the anchor aligned with the top", () => {
         expect(
-          positionRelative({ position: 'left_top', anchor, target }),
-          'to satisfy',
+          positionRelative({ position: "left_top", anchor, target }),
+          "to satisfy",
           { top: 350, left: 200 }
         );
       });
 
-      describe('with a center point', () => {
-        it('centers the point according to the anchor', () => {
+      describe("with a center point", () => {
+        it("centers the point according to the anchor", () => {
           expect(
             positionRelative({
-              position: 'left_top',
+              position: "left_top",
               anchor,
               centerPoint: 20,
               target
             }),
-            'to satisfy',
+            "to satisfy",
             { top: 350, left: 200 }
           );
         });
       });
     });
 
-    describe('left_bottom', () => {
-      it('places the target left of the anchor aligned with the bottom', () => {
+    describe("left_bottom", () => {
+      it("places the target left of the anchor aligned with the bottom", () => {
         expect(
-          positionRelative({ position: 'left_bottom', anchor, target }),
-          'to satisfy',
+          positionRelative({ position: "left_bottom", anchor, target }),
+          "to satisfy",
           { top: -10, left: 200 }
         );
       });
 
-      describe('with a center point', () => {
-        it('centers the point according to the anchor', () => {
+      describe("with a center point", () => {
+        it("centers the point according to the anchor", () => {
           expect(
             positionRelative({
-              position: 'left_bottom',
+              position: "left_bottom",
               anchor,
               centerPoint: 20,
               target
             }),
-            'to satisfy',
+            "to satisfy",
             { top: -10, left: 200 }
           );
         });
       });
     });
 
-    describe('right', () => {
-      it('places the target centered top the right of the anchor', () => {
+    describe("right", () => {
+      it("places the target centered top the right of the anchor", () => {
         expect(
-          positionRelative({ position: 'right', anchor, target }),
-          'to satisfy',
+          positionRelative({ position: "right", anchor, target }),
+          "to satisfy",
           { top: 170, left: 500 }
         );
       });
     });
 
-    describe('right_top', () => {
-      it('places the target right of the anchor aligned with the top', () => {
+    describe("right_top", () => {
+      it("places the target right of the anchor aligned with the top", () => {
         expect(
-          positionRelative({ position: 'right_top', anchor, target }),
-          'to satisfy',
+          positionRelative({ position: "right_top", anchor, target }),
+          "to satisfy",
           { top: 350, left: 500 }
         );
       });
 
-      describe('with a center point', () => {
-        it('centers the point according to the anchor', () => {
+      describe("with a center point", () => {
+        it("centers the point according to the anchor", () => {
           expect(
             positionRelative({
-              position: 'right_top',
+              position: "right_top",
               anchor,
               centerPoint: 20,
               target
             }),
-            'to satisfy',
+            "to satisfy",
             { top: 350, left: 500 }
           );
         });
       });
     });
 
-    describe('right_bottom', () => {
-      it('places the target right of the anchor aligned with the bottom', () => {
+    describe("right_bottom", () => {
+      it("places the target right of the anchor aligned with the bottom", () => {
         expect(
-          positionRelative({ position: 'right_bottom', anchor, target }),
-          'to satisfy',
+          positionRelative({ position: "right_bottom", anchor, target }),
+          "to satisfy",
           { top: -10, left: 500 }
         );
       });
 
-      describe('with a center point', () => {
-        it('centers the point according to the anchor', () => {
+      describe("with a center point", () => {
+        it("centers the point according to the anchor", () => {
           expect(
             positionRelative({
-              position: 'right_bottom',
+              position: "right_bottom",
               anchor,
               centerPoint: 20,
               target
             }),
-            'to satisfy',
+            "to satisfy",
             { top: -10, left: 500 }
           );
         });
       });
     });
 
-    describe('top', () => {
-      it('places the target centered above the anchor', () => {
+    describe("top", () => {
+      it("places the target centered above the anchor", () => {
         expect(
-          positionRelative({ position: 'top', anchor, target }),
-          'to satisfy',
+          positionRelative({ position: "top", anchor, target }),
+          "to satisfy",
           { top: -50, left: 350 }
         );
       });
     });
 
-    describe('top_left', () => {
-      it('places the target above the anchor aligned with the right edge', () => {
+    describe("top_left", () => {
+      it("places the target above the anchor aligned with the right edge", () => {
         expect(
-          positionRelative({ position: 'top_left', anchor, target }),
-          'to satisfy',
+          positionRelative({ position: "top_left", anchor, target }),
+          "to satisfy",
           { top: -50, left: 300 }
         );
       });
 
-      describe('with a center point', () => {
-        it('centers the point according to the anchor', () => {
+      describe("with a center point", () => {
+        it("centers the point according to the anchor", () => {
           expect(
             positionRelative({
-              position: 'top_left',
+              position: "top_left",
               anchor,
               centerPoint: 20,
               target
             }),
-            'to satisfy',
+            "to satisfy",
             { top: -50, left: 270 }
           );
         });
       });
     });
 
-    describe('top_right', () => {
-      it('places the target above the anchor aligned with the left edge', () => {
+    describe("top_right", () => {
+      it("places the target above the anchor aligned with the left edge", () => {
         expect(
-          positionRelative({ position: 'top_right', anchor, target }),
-          'to satisfy',
+          positionRelative({ position: "top_right", anchor, target }),
+          "to satisfy",
           { top: -50, left: 400 }
         );
       });
 
-      describe('with a center point', () => {
-        it('centers the point according to the anchor', () => {
+      describe("with a center point", () => {
+        it("centers the point according to the anchor", () => {
           expect(
             positionRelative({
-              position: 'top_right',
+              position: "top_right",
               anchor,
               centerPoint: 20,
               target
             }),
-            'to satisfy',
+            "to satisfy",
             { top: -50, left: 430 }
           );
         });
@@ -415,13 +415,13 @@ describe('positioning', () => {
     });
   });
 
-  describe('getBestRelativePlacement', () => {
+  describe("getBestRelativePlacement", () => {
     const positionList = unique(
       positions,
       natural({ min: 1, max: possiblePositions.length })
     );
 
-    it('produces a target that always has one side honoring the margins of the anchor', () => {
+    it("produces a target that always has one side honoring the margins of the anchor", () => {
       expect(
         (positions, anchor, target, viewport) => {
           const positionedTarget = getBestRelativePlacement({
@@ -431,13 +431,13 @@ describe('positioning', () => {
             viewport
           });
 
-          expect(positionedTarget, 'to satisfy', {
+          expect(positionedTarget, "to satisfy", {
             rect: expect
-              .it('to be margin away from one side of', anchor)
-              .or('to have been moved inside of viewport', viewport)
+              .it("to be margin away from one side of", anchor)
+              .or("to have been moved inside of viewport", viewport)
           });
         },
-        'to be valid for all',
+        "to be valid for all",
         positionList,
         squares,
         squares,
@@ -445,7 +445,7 @@ describe('positioning', () => {
       );
     });
 
-    it('process a target with a position from the allowed list', () => {
+    it("process a target with a position from the allowed list", () => {
       expect(
         (positions, anchor, target, viewport) => {
           const positionedTarget = getBestRelativePlacement({
@@ -455,9 +455,9 @@ describe('positioning', () => {
             viewport
           });
 
-          expect(positions, 'to contain', positionedTarget.position);
+          expect(positions, "to contain", positionedTarget.position);
         },
-        'to be valid for all',
+        "to be valid for all",
         positionList,
         squares,
         squares,
@@ -465,7 +465,7 @@ describe('positioning', () => {
       );
     });
 
-    describe('when the target is not positioned with stretching', () => {
+    describe("when the target is not positioned with stretching", () => {
       const positionList = unique(
         positionsWithoutStretching,
         natural({
@@ -474,7 +474,7 @@ describe('positioning', () => {
         })
       );
 
-      it('does not change the size of the target', () => {
+      it("does not change the size of the target", () => {
         expect(
           (positions, anchor, target, viewport) => {
             const positionedTarget = getBestRelativePlacement({
@@ -484,9 +484,9 @@ describe('positioning', () => {
               viewport
             });
 
-            expect(positionedTarget.rect, 'to have the same size as', target);
+            expect(positionedTarget.rect, "to have the same size as", target);
           },
-          'to be valid for all',
+          "to be valid for all",
           positionList,
           squares,
           squares,
@@ -495,7 +495,7 @@ describe('positioning', () => {
       });
     });
 
-    describe('on an anchor that is inside the viewport and has no margins', () => {
+    describe("on an anchor that is inside the viewport and has no margins", () => {
       const viewports = shape({
         height: natural({ min: 2, max: 5000 }),
         width: natural({ min: 2, max: 5000 })
@@ -546,8 +546,8 @@ describe('positioning', () => {
           viewport
         }));
 
-      describe('and can chose from all available positions', () => {
-        it('the target is always positioned inside the viewport', () => {
+      describe("and can chose from all available positions", () => {
+        it("the target is always positioned inside the viewport", () => {
           expect(
             (positions, { anchor, target, viewport }) => {
               const positionedTarget = getBestRelativePlacement({
@@ -557,11 +557,11 @@ describe('positioning', () => {
                 viewport
               });
 
-              expect(positionedTarget, 'to satisfy', {
-                rect: expect.it('to be inside viewport', viewport)
+              expect(positionedTarget, "to satisfy", {
+                rect: expect.it("to be inside viewport", viewport)
               });
             },
-            'to be valid for all',
+            "to be valid for all",
             shuffle(possiblePositions),
             shapes
           );
@@ -570,59 +570,59 @@ describe('positioning', () => {
     });
   });
 
-  describe('fixed offsets', () => {
+  describe("fixed offsets", () => {
     let element, parent, grandparent;
 
     beforeEach(() => {
-      parent = document.createElement('div');
-      parent.id = 'parent';
-      grandparent = document.createElement('div');
-      grandparent.id = 'grandparent';
-      element = document.createElement('div');
-      element.id = 'element';
+      parent = document.createElement("div");
+      parent.id = "parent";
+      grandparent = document.createElement("div");
+      grandparent.id = "grandparent";
+      element = document.createElement("div");
+      element.id = "element";
 
       document.body.appendChild(grandparent);
       grandparent.appendChild(parent);
       parent.appendChild(element);
     });
 
-    describe('getFixedContainer(element)', () => {
-      describe('when no transformed parents', () => {
-        it('returns root parent', () => {
+    describe("getFixedContainer(element)", () => {
+      describe("when no transformed parents", () => {
+        it("returns root parent", () => {
           expect(
             getFixedContainer(element),
-            'to equal',
+            "to equal",
             document.firstElementChild
           );
         });
       });
 
-      describe('with transformed parents', () => {
+      describe("with transformed parents", () => {
         let getComputedStyle;
         beforeEach(() => {
           getComputedStyle = window.getComputedStyle;
           window.getComputedStyle = element =>
-            (element === grandparent
-              ? { transform: 'matrix(1, 0, 0, 1, 0, 0)' }
-              : getComputedStyle(element));
+            element === grandparent
+              ? { transform: "matrix(1, 0, 0, 1, 0, 0)" }
+              : getComputedStyle(element);
         });
 
         afterEach(() => {
           window.getComputedStyle = getComputedStyle;
         });
 
-        it('returns the closest transformed parent', () => {
-          expect(getFixedContainer(element), 'to equal', grandparent);
+        it("returns the closest transformed parent", () => {
+          expect(getFixedContainer(element), "to equal", grandparent);
         });
       });
     });
 
-    describe('toFixedOffset(rect, element)', () => {
+    describe("toFixedOffset(rect, element)", () => {
       let position;
 
       beforeEach(() => {
         position = {
-          position: 'bottom',
+          position: "bottom",
           rect: {
             top: 100,
             left: 100
@@ -630,60 +630,62 @@ describe('positioning', () => {
         };
       });
 
-      describe('when no transformed parents', () => {
-        it('returns equivalent rect', () => {
+      describe("when no transformed parents", () => {
+        it("returns equivalent rect", () => {
           expect(
             documentRect => {
               document.firstElementChild.getBoundingClientRect = () =>
                 documentRect;
               expect(
                 toFixedOffset(position, element, { detect: false }),
-                'to equal',
+                "to equal",
                 position
               );
             },
-            'to be valid for all',
+            "to be valid for all",
             squares
           );
         });
       });
 
-      describe('with transformed parents', () => {
+      describe("with transformed parents", () => {
         let getComputedStyle;
 
         beforeEach(() => {
           getComputedStyle = window.getComputedStyle;
           window.getComputedStyle = element =>
-            (element === grandparent
-              ? { transform: 'matrix(1, 0, 0, 1, 0, 0)' }
-              : getComputedStyle(element));
+            element === grandparent
+              ? { transform: "matrix(1, 0, 0, 1, 0, 0)" }
+              : getComputedStyle(element);
         });
 
         afterEach(() => {
           window.getComputedStyle = getComputedStyle;
         });
 
-        it('returns rect relative to fixed container', () => {
+        it("returns rect relative to fixed container", () => {
           expect(
             (boundingClientRect, placement) => {
               grandparent.getBoundingClientRect = () => boundingClientRect;
 
               expect(
                 toFixedOffset(placement, element, { detect: false }),
-                'to equal',
+                "to equal",
                 {
                   position: placement.position,
                   rect: {
                     ...placement.rect,
-                    top: placement.rect.top -
+                    top:
+                      placement.rect.top -
                       grandparent.getBoundingClientRect().top,
-                    left: placement.rect.left -
+                    left:
+                      placement.rect.left -
                       grandparent.getBoundingClientRect().left
                   }
                 }
               );
             },
-            'to be valid for all',
+            "to be valid for all",
             squares,
             placements
           );
