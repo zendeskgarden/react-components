@@ -1,5 +1,12 @@
 ## Change Log
 
+### v8.2.0 (2017/08/16 14:17 +00:00)
+- [#265](https://github.com/zendeskgarden/react-components/pull/265) Ellipsis: Add support for rich content in title/tooltips (@Anifacted)
+- [#262](https://github.com/zendeskgarden/react-components/pull/262) Reformat the rest of the files (@sunesimonsen)
+
+### v8.1.1 (2017/08/15 20:43 +00:00)
+- [#260](https://github.com/zendeskgarden/react-components/pull/260) Bump version of css-labels to allow for ellipsis overflows (@austin94)
+
 ### v8.1.0 (2017/08/14 17:49 +00:00)
 - [#256](https://github.com/zendeskgarden/react-components/pull/256) Move hints above input fields (@Anifacted)
 - [#234](https://github.com/zendeskgarden/react-components/pull/234) createTooltipManager: Move event listening logic to show()/hide() (@Anifacted)
@@ -336,11 +343,7 @@
 
 ### v1.8.1 (2016/09/26 14:54 +00:00)
 - [#43](https://github.com/zendeskgarden/react-components/pull/43) Make .stretched override .container and .trigger (@csk157)
-
-### v1.8.0 (2016/09/23 09:21 +00:00)
 - [#41](https://github.com/zendeskgarden/react-components/pull/41) Support components in tab labels (@sunesimonsen)
-
-### v1.7.1 (2016/09/22 14:19 +00:00)
 - [#40](https://github.com/zendeskgarden/react-components/pull/40) Fixed proptype warning (@sunesimonsen)
 - [#39](https://github.com/zendeskgarden/react-components/pull/39) Add tests for TextInput (@csk157)
 - [#37](https://github.com/zendeskgarden/react-components/pull/37) Add RadioButton and RadioButtonGroup (@csk157)
