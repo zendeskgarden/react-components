@@ -1,14 +1,14 @@
-import React from 'react';
-import { render } from 'react-dom';
+import React from "react";
+import { render } from "react-dom";
 
-import TooltipContainer from './TooltipContainer';
+import TooltipContainer from "./TooltipContainer";
 
 const createTooltipManager = (renderNode, options = {}) => {
   let currentTooltipId = 0;
 
   const show = (anchor, content, positions) => {
-    document.body.addEventListener('scroll', hide);
-    window.addEventListener('resize', hide);
+    document.body.addEventListener("scroll", hide);
+    window.addEventListener("resize", hide);
 
     render(
       <TooltipContainer
@@ -25,11 +25,11 @@ const createTooltipManager = (renderNode, options = {}) => {
   };
 
   const hide = tooltipId => {
-    if (typeof tooltipId !== 'number' || tooltipId === currentTooltipId) {
+    if (typeof tooltipId !== "number" || tooltipId === currentTooltipId) {
       render(<TooltipContainer />, renderNode);
 
-      document.body.removeEventListener('scroll', hide);
-      window.removeEventListener('resize', hide);
+      document.body.removeEventListener("scroll", hide);
+      window.removeEventListener("resize", hide);
     }
   };
 

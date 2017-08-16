@@ -1,5 +1,5 @@
 export default class SingleSelectionModel {
-  constructor({ wrapping = 'items' } = {}) {
+  constructor({ wrapping = "items" } = {}) {
     this.selection = null;
     this.items = [];
     this.wrapping = wrapping;
@@ -11,11 +11,11 @@ export default class SingleSelectionModel {
 
   fireSelectionChanged(newSelection, previousSelection) {
     if (this.onSelectionChanged) {
-      if (typeof newSelection === 'undefined') {
+      if (typeof newSelection === "undefined") {
         newSelection = null;
       }
 
-      if (typeof previousSelection === 'undefined') {
+      if (typeof previousSelection === "undefined") {
         previousSelection = null;
       }
 
@@ -38,13 +38,13 @@ export default class SingleSelectionModel {
       let newIndex = this.selectedIndex + 1;
       if (this.items.length <= newIndex) {
         switch (this.wrapping) {
-          case 'clear':
+          case "clear":
             newIndex = -1;
             break;
-          case 'items':
+          case "items":
             newIndex = newIndex % this.items.length;
             break;
-          case 'off':
+          case "off":
             newIndex = this.items.length - 1;
             break;
         }
@@ -66,13 +66,13 @@ export default class SingleSelectionModel {
         newIndex = this.selectedIndex - 1;
         if (newIndex < 0) {
           switch (this.wrapping) {
-            case 'clear':
+            case "clear":
               newIndex = -1;
               break;
-            case 'items':
+            case "items":
               newIndex = this.items.length - 1;
               break;
-            case 'off':
+            case "off":
               newIndex = 0;
               break;
           }

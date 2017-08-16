@@ -1,11 +1,11 @@
-import Button from './Button.css';
-import Checkbox from './Checkbox.css';
-import RadioButton from './RadioButton.css';
-import Range from './Range.css';
-import Select from './Select.css';
-import Tabs from './Tabs.css';
-import TextInput from './TextInput.css';
-import Toggle from './Toggle.css';
+import Button from "./Button.css";
+import Checkbox from "./Checkbox.css";
+import RadioButton from "./RadioButton.css";
+import Range from "./Range.css";
+import Select from "./Select.css";
+import Tabs from "./Tabs.css";
+import TextInput from "./TextInput.css";
+import Toggle from "./Toggle.css";
 
 const theme = {
   Button,

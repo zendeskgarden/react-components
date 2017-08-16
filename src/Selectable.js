@@ -1,1 +1,1 @@
-export { default } from './core/Selectable';
+export { default } from "./core/Selectable";

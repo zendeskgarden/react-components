@@ -1,14 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import View from '../../core/View';
-import styles from './styles.css';
+import View from "../../core/View";
+import styles from "./styles.css";
 
-const Row = ({ children }) => (
+const Row = ({ children }) =>
   <View className={styles.row}>
     {children}
-  </View>
-);
+  </View>;
 
 Row.propTypes = {
   children: PropTypes.node.isRequired

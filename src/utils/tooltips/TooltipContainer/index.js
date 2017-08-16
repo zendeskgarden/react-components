@@ -1,29 +1,28 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { render } from 'react-dom';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { render } from "react-dom";
 
-import styles from './styles.css';
+import styles from "./styles.css";
 
-import Tooltip from '../../../Tooltip';
-import getBestRelativePlacement
-  from '../../positioning/getBestRelativePlacement';
+import Tooltip from "../../../Tooltip";
+import getBestRelativePlacement from "../../positioning/getBestRelativePlacement";
 
 const rtlPositions = {
-  top: 'top',
-  bottom: 'bottom',
-  left: 'right',
-  right: 'left'
+  top: "top",
+  bottom: "bottom",
+  left: "right",
+  right: "left"
 };
 
 class TooltipContainer extends Component {
   componentWillMount = () => {
-    this.container = document.createElement('div');
-    this.container.style.transform = 'matrix(1, 0, 0, 1, 0, 0)';
-    this.container.style.position = 'absolute';
-    this.container.style.visibility = 'hidden';
-    this.container.style.top = '0px';
-    this.container.style.left = '0px';
-    this.container.style.width = '100%';
+    this.container = document.createElement("div");
+    this.container.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
+    this.container.style.position = "absolute";
+    this.container.style.visibility = "hidden";
+    this.container.style.top = "0px";
+    this.container.style.left = "0px";
+    this.container.style.width = "100%";
     document.body.appendChild(this.container);
   };
 
@@ -65,8 +64,8 @@ class TooltipContainer extends Component {
     } = this.props;
 
     const positions = (() =>
-      (typeof rawPositions === 'string' ? [rawPositions] : rawPositions))().map(
-      position => (dir === 'rtl' ? rtlPositions[position] : position)
+      typeof rawPositions === "string" ? [rawPositions] : rawPositions)().map(
+      position => (dir === "rtl" ? rtlPositions[position] : position)
     );
 
     const aBounds = anchor.getBoundingClientRect();
@@ -110,14 +109,14 @@ TooltipContainer.propTypes = {
   ]),
   content: Tooltip.propTypes.children,
   anchor: PropTypes.object,
-  dir: PropTypes.oneOf(['rtl', 'ltr']),
+  dir: PropTypes.oneOf(["rtl", "ltr"]),
   size: Tooltip.propTypes.size,
   zIndex: PropTypes.number
 };
 
 TooltipContainer.defaultProps = {
-  positions: ['top', 'bottom', 'left', 'right'],
-  dir: 'ltr',
+  positions: ["top", "bottom", "left", "right"],
+  dir: "ltr",
   zIndex: 600
 };
 

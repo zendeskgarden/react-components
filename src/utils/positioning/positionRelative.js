@@ -7,17 +7,19 @@ const calculateTargetBasedOnPosition = {
   }),
   bottom_left: ({ anchor, centerPoint, target }) => ({
     top: anchor.top + anchor.margins.bottom + anchor.height,
-    left: typeof centerPoint === 'number'
-      ? anchor.left + anchor.width / 2 - target.width + centerPoint
-      : anchor.left + anchor.width - target.width,
+    left:
+      typeof centerPoint === "number"
+        ? anchor.left + anchor.width / 2 - target.width + centerPoint
+        : anchor.left + anchor.width - target.width,
     height: target.height,
     width: target.width
   }),
   bottom_right: ({ anchor, centerPoint, target }) => ({
     top: anchor.top + anchor.margins.bottom + anchor.height,
-    left: typeof centerPoint === 'number'
-      ? anchor.left + anchor.width / 2 - centerPoint
-      : anchor.left,
+    left:
+      typeof centerPoint === "number"
+        ? anchor.left + anchor.width / 2 - centerPoint
+        : anchor.left,
     height: target.height,
     width: target.width
   }),
@@ -71,17 +73,19 @@ const calculateTargetBasedOnPosition = {
   }),
   top_left: ({ anchor, centerPoint, target }) => ({
     top: anchor.top - anchor.margins.top - target.height,
-    left: typeof centerPoint === 'number'
-      ? anchor.left + anchor.width / 2 - target.width + centerPoint
-      : anchor.left + anchor.width - target.width,
+    left:
+      typeof centerPoint === "number"
+        ? anchor.left + anchor.width / 2 - target.width + centerPoint
+        : anchor.left + anchor.width - target.width,
     height: target.height,
     width: target.width
   }),
   top_right: ({ anchor, centerPoint, target }) => ({
     top: anchor.top - anchor.margins.top - target.height,
-    left: typeof centerPoint === 'number'
-      ? anchor.left + anchor.width / 2 - centerPoint
-      : anchor.left,
+    left:
+      typeof centerPoint === "number"
+        ? anchor.left + anchor.width / 2 - centerPoint
+        : anchor.left,
     height: target.height,
     width: target.width
   }),

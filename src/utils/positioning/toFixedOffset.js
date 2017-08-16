@@ -6,15 +6,15 @@ const fixedContainers = new WeakMap();
 // IE11 doesn't follow the CSS spec and doesn't need the
 // adjustments we implement here
 const FIXED_OFFSET = (() => {
-  const container = document.createElement('div');
-  container.style.transform = 'matrix(1, 0, 0, 1, 0, 0)';
-  container.style.position = 'absolute';
-  container.style.top = '1px';
-  container.style.left = '1px';
-  const fixed = document.createElement('div');
-  fixed.style.position = 'fixed';
-  fixed.style.top = '1px';
-  fixed.style.left = '1px';
+  const container = document.createElement("div");
+  container.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
+  container.style.position = "absolute";
+  container.style.top = "1px";
+  container.style.left = "1px";
+  const fixed = document.createElement("div");
+  fixed.style.position = "fixed";
+  fixed.style.top = "1px";
+  fixed.style.left = "1px";
   document.body.appendChild(container);
   container.appendChild(fixed);
   const position = fixed.getBoundingClientRect();
@@ -33,8 +33,8 @@ function parents(element) {
 const ROOT_ELEMENT = document.body.parentElement;
 
 function hasTransform(element) {
-  const transform = window.getComputedStyle(element).transform || 'none';
-  return transform !== 'none';
+  const transform = window.getComputedStyle(element).transform || "none";
+  return transform !== "none";
 }
 
 // position: fixed top and left are calculated from

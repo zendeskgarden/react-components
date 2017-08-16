@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-import classNames from 'classnames';
+import classNames from "classnames";
 
-import styles from './styles.css';
+import styles from "./styles.css";
 
 const hasAnyHandlers = handlers =>
   Object.keys(handlers).some(key => handlers[key]);
@@ -13,7 +13,7 @@ export default class View extends Component {
     autoFocus: PropTypes.bool,
     children: PropTypes.node,
     className: PropTypes.string,
-    dir: PropTypes.oneOf(['ltr', 'rtl']),
+    dir: PropTypes.oneOf(["ltr", "rtl"]),
     hidden: PropTypes.bool,
     onClick: PropTypes.func,
     onDragEnter: PropTypes.func,
@@ -82,15 +82,15 @@ export default class View extends Component {
     } = this.props;
 
     const keyDownHandlers = {
-      '8': onDelete,
-      '9': onTab,
-      '13': onEnter,
-      '27': onEscape,
-      '32': onSpace,
-      '37': onArrowLeft,
-      '38': onArrowUp,
-      '39': onArrowRight,
-      '40': onArrowDown
+      "8": onDelete,
+      "9": onTab,
+      "13": onEnter,
+      "27": onEscape,
+      "32": onSpace,
+      "37": onArrowLeft,
+      "38": onArrowUp,
+      "39": onArrowRight,
+      "40": onArrowDown
     };
 
     const eventHandlers = {};
@@ -115,24 +115,24 @@ export default class View extends Component {
         this.tooltipId = tooltips.show(this.element, title, tooltipPositioning);
         this.props.onMouseOver && this.props.onMouseOver(e);
       };
-      ['onMouseOut', 'onBlur', 'onWheel', 'onClick'].forEach(handler => {
+      ["onMouseOut", "onBlur", "onWheel", "onClick"].forEach(handler => {
         props[handler] = e => {
           tooltips.hide();
           this.props[handler] && this.props[handler](e);
         };
       });
 
-      props['aria-label'] = title;
+      props["aria-label"] = title;
     } else if (title) {
       props.title = title;
     }
 
     if (testId) {
-      props['data-test-id'] = testId;
+      props["data-test-id"] = testId;
     }
 
     if (hidden) {
-      props['aria-hidden'] = true;
+      props["aria-hidden"] = true;
     }
 
     return (

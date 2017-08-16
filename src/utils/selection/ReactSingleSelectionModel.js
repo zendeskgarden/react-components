@@ -1,11 +1,11 @@
-import React from 'react';
-import SingleSelectionModel from './SingleSelectionModel';
+import React from "react";
+import SingleSelectionModel from "./SingleSelectionModel";
 
 export default class ReactSingleSelectionModel {
   constructor(
     {
       rtl = false,
-      wrapping = 'items',
+      wrapping = "items",
       selectOnSpace = true,
       vertical = true
     } = {}
@@ -77,20 +77,20 @@ export default class ReactSingleSelectionModel {
   handleKeyDown = event => {
     const keyDownHandlers = this.vertical
       ? {
-          '13': this.onEnter,
-          '32': this.onSpace,
-          '38': this.onArrowUp,
-          '40': this.onArrowDown
+          "13": this.onEnter,
+          "32": this.onSpace,
+          "38": this.onArrowUp,
+          "40": this.onArrowDown
         }
       : {
-          '13': this.onEnter,
-          '32': this.onSpace,
-          '37': this.onArrowLeft,
-          '39': this.onArrowRight
+          "13": this.onEnter,
+          "32": this.onSpace,
+          "37": this.onArrowLeft,
+          "39": this.onArrowRight
         };
 
-    keyDownHandlers['35'] = this.onEnd;
-    keyDownHandlers['36'] = this.onHome;
+    keyDownHandlers["35"] = this.onEnd;
+    keyDownHandlers["36"] = this.onHome;
 
     const handler = keyDownHandlers[event.keyCode];
     if (handler) {
