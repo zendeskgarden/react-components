@@ -57,8 +57,8 @@ export default class Ellipsis extends Component {
 
     if ("title" in this.props) {
       props.title = title;
-    } else if (typeof children === "string" && this.state.isOverflowing) {
-      props.title = children;
+    } else if (this.state.isOverflowing) {
+      props.title = this.refs.main.element.textContent;
     }
 
     /*
