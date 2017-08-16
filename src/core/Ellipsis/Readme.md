@@ -30,3 +30,13 @@ Adaptable: Only shows title/tooltip when clipped (resize window to demonstrate)
   </Ellipsis>
 </View>
 ```
+
+Rich content: Will show the simplified text version of the content in the title/tooltip
+
+```
+<View>
+  <Ellipsis>
+    <strong>Bacon ipsum dolor</strong> amet short ribs salami pancetta porchetta biltong boudin prosciutto rump andouille tail leberkas turducken.
+  </Ellipsis>
+</View>
+```
