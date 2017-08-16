@@ -10,6 +10,10 @@
   composes: c-txt__input from '@zendesk/garden-css-forms';
 }
 
+.style_bare {
+  composes: c-txt__input--bare from '@zendesk/garden-css-forms';
+}
+
 .input::-ms-clear {
   display: none;
 }

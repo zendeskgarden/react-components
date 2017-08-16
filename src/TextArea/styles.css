@@ -10,6 +10,10 @@
   composes: c-txt__input c-txt__input--area from '@zendesk/garden-css-forms';
 }
 
+.style_bare {
+  composes: c-txt__input--bare from '@zendesk/garden-css-forms';
+}
+
 .resizable {
   composes: is-resizable from '@zendesk/garden-css-forms';
 }

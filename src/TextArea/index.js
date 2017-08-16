@@ -46,6 +46,7 @@ export default class TextArea extends ThemedComponent {
     title: PropTypes.string,
     /** <a href="#view">See View</a> */
     tooltipPositioning: () => {},
+    type: PropTypes.oneOf(["default", "bare"]),
     validation: PropTypes.oneOf(["error", "warning", "success"]),
     validationText: PropTypes.string,
     value: PropTypes.string
@@ -56,7 +57,7 @@ export default class TextArea extends ThemedComponent {
     disabled: false,
     resizable: false,
     size: "medium",
-    type: "text"
+    type: "default"
   };
 
   constructor(props, context) {
@@ -90,6 +91,7 @@ export default class TextArea extends ThemedComponent {
       className,
       disabled,
       hint,
+      type,
       resizable,
       size,
       title,
@@ -125,7 +127,8 @@ export default class TextArea extends ThemedComponent {
           className={classNames(
             theme.input,
             {
-              [theme.resizable]: resizable
+              [theme.resizable]: resizable,
+              [theme.style_bare]: type === "bare"
             },
             className
           )}

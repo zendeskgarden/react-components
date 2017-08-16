@@ -27,6 +27,24 @@ Sizes:
 </Grid>
 ```
 
+Input Type Style:
+
+```
+<Grid columns={1} stretched>
+  <TextInput
+    label='Normal Style'
+    placeholder='Default styling'
+    size='small'
+  />
+  <TextInput
+    label='Bare Style'
+    type='bare'
+    placeholder='Bare styling'
+    size='medium'
+  />
+</Grid>
+```
+
 Validation:
 
 ```
