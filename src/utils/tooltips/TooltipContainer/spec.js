@@ -55,7 +55,9 @@ describe("TooltipContainer", () => {
       tooltipBounds: { top: 0, bottom: 0, right: 0, left: 0 }
     };
 
-    const renderedContainer = instance.render();
+    const renderedThemeProvider = instance.render();
+
+    const { props: { children: renderedContainer } } = renderedThemeProvider;
 
     expect(renderedContainer.props, "to satisfy", { style: { zIndex: 42 } });
   });

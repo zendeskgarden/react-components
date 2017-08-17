@@ -85,8 +85,8 @@ tooltip again:
 tooltipManager.hide(tooltipId)
 ```
 
-If you just want to hide all the tooltips, you can call the method without any
-parameters:
+If you just want to hide all visible tooltips, you can call the method without any
+arguments:
 
 ```javascript
 tooltipManager.hide()
@@ -100,8 +100,9 @@ Currently the following properties are available (default values shown):
 
 ```javascript
 const options = {
-  dir: 'ltr' // Controls the direction of the tooltip. One of 'rtl' or 'ltr'.
-  zIndex: 600 // Controls the z-index style rule applied to the tooltip container.
+  dir: 'ltr', // Controls the direction of the tooltip. One of 'rtl' or 'ltr'.
+  zIndex: 600, // Controls the z-index style rule applied to the tooltip container.
+  theme: undefined // A custom CSS theme (automatically set when using <ThemeProvider>).
 }
 
 const tooltipManager = createTooltipManager(myNode, options)

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { render } from "react-dom";
 
 import styles from "./styles.css";
-
+import ThemeProvider from "../../theming/ThemeProvider";
 import Tooltip from "../../../Tooltip";
 import getBestRelativePlacement from "../../positioning/getBestRelativePlacement";
 
@@ -26,7 +26,7 @@ class TooltipContainer extends Component {
     document.body.appendChild(this.container);
   };
 
-  componentWillReceiveProps = ({ content, size }) => {
+  componentWillReceiveProps = ({ content, size, theme }) => {
     if (!content) {
       this.setState({ tooltipBounds: null });
 
@@ -36,9 +36,11 @@ class TooltipContainer extends Component {
     // Render an invisible tooltip into the DOM in order to analyze its dimensions,
     // so we know exactly how to place it correctly when we render it.
     render(
-      <Tooltip size={size}>
-        {content}
-      </Tooltip>,
+      <ThemeProvider theme={theme}>
+        <Tooltip size={size}>
+          {content}
+        </Tooltip>
+      </ThemeProvider>,
       this.container,
       () => {
         const tooltipBounds = this.container.firstElementChild.getBoundingClientRect();
@@ -60,7 +62,8 @@ class TooltipContainer extends Component {
       positions: rawPositions,
       dir,
       size,
-      zIndex
+      zIndex,
+      theme
     } = this.props;
 
     const positions = (() =>
@@ -93,11 +96,13 @@ class TooltipContainer extends Component {
     });
 
     return (
-      <div className={styles.container} style={{ zIndex }}>
-        <Tooltip left={left} top={top} position={position} size={size}>
-          {content}
-        </Tooltip>
-      </div>
+      <ThemeProvider theme={theme}>
+        <div className={styles.container} style={{ zIndex }}>
+          <Tooltip left={left} top={top} position={position} size={size}>
+            {content}
+          </Tooltip>
+        </div>
+      </ThemeProvider>
     );
   };
 }
@@ -111,7 +116,8 @@ TooltipContainer.propTypes = {
   anchor: PropTypes.object,
   dir: PropTypes.oneOf(["rtl", "ltr"]),
   size: Tooltip.propTypes.size,
-  zIndex: PropTypes.number
+  zIndex: PropTypes.number,
+  theme: PropTypes.object
 };
 
 TooltipContainer.defaultProps = {

@@ -1,9 +1,9 @@
-import { Component } from "react";
 import PropTypes from "prop-types";
+import ThemedComponent from "../../theming/ThemedComponent";
 import createTooltipManager from "../createTooltipManager";
 import uuid from "uuid";
 
-export default class TooltipProvider extends Component {
+export default class TooltipProvider extends ThemedComponent {
   static propTypes = {
     children: PropTypes.node,
     /** Used to identify the provider and the element that will contain the tooltips. Defaults to a generated UUID */
@@ -21,8 +21,8 @@ export default class TooltipProvider extends Component {
     tooltips: PropTypes.object
   };
 
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context, { namespace: "TooltipProvider" });
     this.id = props.id || `tooltips-${uuid.v4()}`;
   }
 
@@ -36,8 +36,13 @@ export default class TooltipProvider extends Component {
     }
 
     const { dir, zIndex } = this.props;
+    const { rcTheme: theme } = this.context;
 
-    this.tooltipManager = createTooltipManager(container, { dir, zIndex });
+    this.tooltipManager = createTooltipManager(container, {
+      dir,
+      zIndex,
+      theme
+    });
   }
 
   getChildContext() {

@@ -17,6 +17,7 @@ const createTooltipManager = (renderNode, options = {}) => {
         dir={options.dir}
         positions={positions}
         zIndex={options.zIndex}
+        theme={options.theme}
       />,
       renderNode
     );
