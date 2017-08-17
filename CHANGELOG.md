@@ -1,5 +1,8 @@
 ## Change Log
 
+### v8.2.1 (2017/08/17 18:03 +00:00)
+- [#271](https://github.com/zendeskgarden/react-components/pull/271) Remember to inline svg imports when we build the lib (@sunesimonsen)
+
 ### v8.2.0 (2017/08/16 14:17 +00:00)
 - [#265](https://github.com/zendeskgarden/react-components/pull/265) Ellipsis: Add support for rich content in title/tooltips (@Anifacted)
 - [#262](https://github.com/zendeskgarden/react-components/pull/262) Reformat the rest of the files (@sunesimonsen)
@@ -340,8 +343,6 @@
 
 ### v1.9.0 (2016/09/26 19:27 +00:00)
 - [#42](https://github.com/zendeskgarden/react-components/pull/42) Support accent theming (@sunesimonsen)
-
-### v1.8.1 (2016/09/26 14:54 +00:00)
 - [#43](https://github.com/zendeskgarden/react-components/pull/43) Make .stretched override .container and .trigger (@csk157)
 - [#41](https://github.com/zendeskgarden/react-components/pull/41) Support components in tab labels (@sunesimonsen)
 - [#40](https://github.com/zendeskgarden/react-components/pull/40) Fixed proptype warning (@sunesimonsen)
