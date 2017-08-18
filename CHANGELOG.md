@@ -1,5 +1,8 @@
 ## Change Log
 
+### v8.2.2 (2017/08/18 07:17 +00:00)
+- [#264](https://github.com/zendeskgarden/react-components/pull/264) RelativePositionedPopup: Fix positioning issue: (@Anifacted)
+
 ### v8.2.1 (2017/08/17 18:03 +00:00)
 - [#271](https://github.com/zendeskgarden/react-components/pull/271) Remember to inline svg imports when we build the lib (@sunesimonsen)
 
@@ -340,8 +343,6 @@
 
 ### v1.9.1 (2016/09/28 19:08 +00:00)
 - [#44](https://github.com/zendeskgarden/react-components/pull/44) Fixed bug where changing the children of a tab panel would not rerender (@sunesimonsen)
-
-### v1.9.0 (2016/09/26 19:27 +00:00)
 - [#42](https://github.com/zendeskgarden/react-components/pull/42) Support accent theming (@sunesimonsen)
 - [#43](https://github.com/zendeskgarden/react-components/pull/43) Make .stretched override .container and .trigger (@csk157)
 - [#41](https://github.com/zendeskgarden/react-components/pull/41) Support components in tab labels (@sunesimonsen)
