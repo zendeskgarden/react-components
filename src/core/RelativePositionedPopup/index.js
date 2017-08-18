@@ -126,6 +126,10 @@ class RelativePositionedPopup extends Component {
     }
   };
 
+  componentWillMount() {
+    setTimeout(this.updatePlacement, 0);
+  }
+
   componentDidMount() {
     window.addEventListener("resize", this.updatePlacement);
     window.addEventListener("scroll", this.updatePlacement, true);
@@ -226,15 +230,15 @@ class RelativePositionedPopup extends Component {
     const { anchor, children, hidden, testId, stretched } = this.props;
     const { opening, placement } = this.state || {};
 
-    let popupStyle = null;
-    if (placement) {
-      popupStyle = {
-        top: `${placement.rect.top}px`,
-        left: `${placement.rect.left}px`,
-        height: `${placement.rect.height}px`,
-        width: `${placement.rect.width}px`
-      };
-    }
+    const popupStyle = placement
+      ? {
+          visibility: "visible",
+          top: `${placement.rect.top}px`,
+          left: `${placement.rect.left}px`,
+          height: `${placement.rect.height}px`,
+          width: `${placement.rect.width}px`
+        }
+      : { visibility: "hidden" };
 
     const position = placement ? placement.position : this.getPositions()[0];
 
