@@ -199,11 +199,11 @@ describe("SplitButton", () => {
   });
 
   describe("when clicking on the primary button", () => {
-    it("calls onSelect with the value of the first item", () => {
-      const onSelect = sinon.spy();
+    it("calls onChange with the value of the first item", () => {
+      const onChange = sinon.spy();
 
       return expect(
-        <SplitButton onSelect={onSelect}>
+        <SplitButton onChange={onChange}>
           <SplitButton.Item value="one">One</SplitButton.Item>
           <SplitButton.Item value="two">Two</SplitButton.Item>
           <SplitButton.Item value="three">Three</SplitButton.Item>
@@ -214,8 +214,8 @@ describe("SplitButton", () => {
         "on",
         <Button>One</Button>
       ).then(() => {
-        expect(onSelect, "to have calls satisfying", () => {
-          onSelect("one");
+        expect(onChange, "to have calls satisfying", () => {
+          onChange("one");
         });
       });
     });
@@ -245,11 +245,11 @@ describe("SplitButton", () => {
   });
 
   describe("when clicking on one of the items", () => {
-    it("calls the onSelect handler with the value of that item", () => {
-      const onSelect = sinon.spy();
+    it("calls the onChange handler with the value of that item", () => {
+      const onChange = sinon.spy();
 
       return expect(
-        <SplitButton onSelect={onSelect}>
+        <SplitButton onChange={onChange}>
           <SplitButton.Item value="one">One</SplitButton.Item>
           <SplitButton.Item value="two">Two</SplitButton.Item>
           <SplitButton.Item value="three">Three</SplitButton.Item>
@@ -260,19 +260,19 @@ describe("SplitButton", () => {
         "on",
         <SplitButton.Item>Two</SplitButton.Item>
       ).then(() => {
-        expect(onSelect, "to have calls satisfying", () => {
-          onSelect("two");
+        expect(onChange, "to have calls satisfying", () => {
+          onChange("two");
         });
       });
     });
   });
 
   describe("when selecting an item with the keyboard", () => {
-    it("calls the onSelect handler with the value of that item", () => {
-      const onSelect = sinon.spy();
+    it("calls the onChange handler with the value of that item", () => {
+      const onChange = sinon.spy();
 
       return expect(
-        <SplitButton onSelect={onSelect}>
+        <SplitButton onChange={onChange}>
           <SplitButton.Item value="one">One</SplitButton.Item>
           <SplitButton.Item value="two">Two</SplitButton.Item>
           <SplitButton.Item value="three">Three</SplitButton.Item>
@@ -294,8 +294,8 @@ describe("SplitButton", () => {
         "on",
         <IconButton />
       ).then(() => {
-        expect(onSelect, "to have calls satisfying", () => {
-          onSelect("two");
+        expect(onChange, "to have calls satisfying", () => {
+          onChange("two");
         });
       });
     });
