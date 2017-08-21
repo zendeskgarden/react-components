@@ -1,5 +1,9 @@
 ## Change Log
 
+### v8.3.0 (2017/08/21 16:24 +00:00)
+- [#261](https://github.com/zendeskgarden/react-components/pull/261) Created Pagination component (@austin94)
+- [#268](https://github.com/zendeskgarden/react-components/pull/268) Tooltip: Make it theme-able (@Anifacted)
+
 ### v8.2.2 (2017/08/18 07:17 +00:00)
 - [#264](https://github.com/zendeskgarden/react-components/pull/264) RelativePositionedPopup: Fix positioning issue: (@Anifacted)
 
@@ -340,8 +344,6 @@
 ### v1.9.2 (2016/10/14 11:17 +00:00)
 - [#47](https://github.com/zendeskgarden/react-components/pull/47) Inputs: Only use the box-shadow focus styling when using keyboard navigation (@sunesimonsen)
 - [#48](https://github.com/zendeskgarden/react-components/pull/48) Removed incorrect accent color around disabled buttons (@sunesimonsen)
-
-### v1.9.1 (2016/09/28 19:08 +00:00)
 - [#44](https://github.com/zendeskgarden/react-components/pull/44) Fixed bug where changing the children of a tab panel would not rerender (@sunesimonsen)
 - [#42](https://github.com/zendeskgarden/react-components/pull/42) Support accent theming (@sunesimonsen)
 - [#43](https://github.com/zendeskgarden/react-components/pull/43) Make .stretched override .container and .trigger (@csk157)
