@@ -6,6 +6,7 @@ import Select from "./Select.css";
 import Tabs from "./Tabs.css";
 import TextInput from "./TextInput.css";
 import Toggle from "./Toggle.css";
+import Tooltip from "./Tooltip.css";
 
 const theme = {
   Button,
@@ -16,7 +17,8 @@ const theme = {
   Tabs,
   TextArea: TextInput,
   TextInput,
-  Toggle
+  Toggle,
+  Tooltip
 };
 
 export default theme;

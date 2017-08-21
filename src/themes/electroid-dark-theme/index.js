@@ -9,6 +9,7 @@ import Tabs from "./Tabs.css";
 import TextArea from "./TextArea.css";
 import TextInput from "./TextInput.css";
 import Toggle from "./Toggle.css";
+import Tooltip from "./Tooltip.css";
 
 const theme = {
   Button,
@@ -21,7 +22,8 @@ const theme = {
   Tabs,
   TextArea,
   TextInput,
-  Toggle
+  Toggle,
+  Tooltip
 };
 
 export default theme;

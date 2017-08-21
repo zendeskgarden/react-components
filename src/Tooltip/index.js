@@ -28,8 +28,16 @@ export default class Tooltip extends ThemedComponent {
     inline: false
   };
 
+  constructor(props, context) {
+    super(props, context, {
+      namespace: "Tooltip",
+      styles
+    });
+  }
+
   render() {
     const { left, top, children, position, inline, size } = this.props;
+    const { theme } = this;
 
     const resolvedSize =
       size ||
@@ -39,10 +47,10 @@ export default class Tooltip extends ThemedComponent {
     return (
       <div
         className={classNames(
-          styles.tooltip,
-          styles[position],
-          styles[`size_${resolvedSize}`],
-          { [styles.inline]: inline }
+          theme.tooltip,
+          theme[position],
+          theme[`size_${resolvedSize}`],
+          { [theme.inline]: inline }
         )}
         style={{ left, top }}
       >
