@@ -259,12 +259,12 @@ describe("Menu", () => {
     });
   });
 
-  describe("with an onSelect on the menu", () => {
-    it("calls the onSelect handler when an item is clicked", () => {
-      const onSelect = sinon.spy();
+  describe("with an onChange on the menu", () => {
+    it("calls the onChange handler when an item is clicked", () => {
+      const onChange = sinon.spy();
 
       return expect(
-        <Menu onSelect={onSelect} trigger={<Button>trigger</Button>}>
+        <Menu onChange={onChange} trigger={<Button>trigger</Button>}>
           <Menu.Item value="one">One</Menu.Item>
           <Menu.Item value="two">Two</Menu.Item>
           <Menu.Item value="three">Three</Menu.Item>
@@ -279,8 +279,8 @@ describe("Menu", () => {
         "on",
         <Menu.Item>Two</Menu.Item>
       ).then(() => {
-        expect(onSelect, "to have calls satisfying", () => {
-          onSelect("two");
+        expect(onChange, "to have calls satisfying", () => {
+          onChange("two");
         });
       });
     });

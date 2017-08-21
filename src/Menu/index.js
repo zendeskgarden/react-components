@@ -22,7 +22,7 @@ export default class Menu extends Component {
     fixedWidth: PropTypes.bool,
     onClose: PropTypes.func,
     onOpen: PropTypes.func,
-    onSelect: PropTypes.func,
+    onChange: PropTypes.func,
     marginBottom: PropTypes.number,
     marginLeft: PropTypes.number,
     marginRight: PropTypes.number,
@@ -90,9 +90,9 @@ export default class Menu extends Component {
   };
 
   onValueChosen = value => {
-    const { onSelect } = this.props;
+    const { onChange } = this.props;
     this.closeMenu();
-    onSelect && onSelect(value);
+    onChange && onChange(value);
   };
 
   showMenu = () => {
