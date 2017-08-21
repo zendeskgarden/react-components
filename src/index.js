@@ -10,6 +10,7 @@ export { default as IconButton } from "./IconButton";
 export { default as Label } from "./Label";
 export { default as Menu } from "./Menu";
 export { default as Modal } from "./Modal";
+export { default as Pagination } from "./Pagination";
 export { default as RadioButton } from "./RadioButton";
 export { default as RadioButtonGroup } from "./RadioButtonGroup";
 export { default as Range } from "./Range";

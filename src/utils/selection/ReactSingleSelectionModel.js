@@ -178,8 +178,8 @@ export default class ReactSingleSelectionModel {
     }
   };
 
-  reactivate = () => {
-    this.model.reactivate();
+  reactivate = defaultSelection => {
+    this.model.reactivate(defaultSelection);
   };
 
   clear = () => {

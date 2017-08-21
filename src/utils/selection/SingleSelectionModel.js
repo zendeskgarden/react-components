@@ -109,7 +109,13 @@ export default class SingleSelectionModel {
     this.select(null);
   }
 
-  reactivate() {
+  reactivate(defaultSelection) {
+    if (typeof defaultSelection !== "undefined") {
+      this.select(defaultSelection);
+      this.clearedSelection = null;
+      return true;
+    }
+
     if (this.items.indexOf(this.clearedSelection) === -1) {
       return this.selectFirst();
     }
