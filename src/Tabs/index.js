@@ -17,7 +17,7 @@ export default class Tabs extends ThemedComponent {
     active: PropTypes.string,
     children: PropTypes.node.isRequired,
     dir: PropTypes.oneOf(["ltr", "rtl"]),
-    onActivate: PropTypes.func,
+    onChange: PropTypes.func,
     vertical: PropTypes.bool.isRequired,
     tabIndex: PropTypes.number,
     testId: PropTypes.string
@@ -39,7 +39,7 @@ export default class Tabs extends ThemedComponent {
       vertical: props.vertical
     });
     this.selectionModel.onSelectionChanged = this.onSelectionChanged;
-    this.selectionModel.onValueChosen = props.onActivate;
+    this.selectionModel.onValueChosen = props.onChange;
     this.keyboard = true;
     this.state = {};
   }
