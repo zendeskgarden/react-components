@@ -19,7 +19,7 @@ export default class Core extends Component {
     onArrowRight: PropTypes.func,
     onArrowUp: PropTypes.func,
     onBlur: PropTypes.func,
-    onChangeText: PropTypes.func,
+    onChange: PropTypes.func,
     onDelete: PropTypes.func,
     onEnter: PropTypes.func,
     onEscape: PropTypes.func,
@@ -72,7 +72,7 @@ export default class Core extends Component {
       onArrowUp,
       onClick,
       onBlur,
-      onChangeText,
+      onChange,
       onDelete,
       onEnter,
       onEscape,
@@ -111,7 +111,7 @@ export default class Core extends Component {
       onClick,
       onBlur,
       onChange(event) {
-        onChangeText && onChangeText(event.target.value);
+        onChange && onChange(event.target.value);
       },
       onFocus,
       onKeyDown(event) {
