@@ -286,19 +286,19 @@ describe("Menu", () => {
     });
   });
 
-  describe("with an onSelect handle on the individual items", () => {
-    it("calls the onSelect handler when the item is clicked", () => {
-      const onSelect = sinon.spy();
+  describe("with an onClick handle on the individual items", () => {
+    it("calls the onClick handler when the item is clicked", () => {
+      const onClick = sinon.spy();
 
       return expect(
         <Menu trigger={<Button>trigger</Button>}>
-          <Menu.Item onSelect={onSelect} value="one">
+          <Menu.Item onClick={onClick} value="one">
             One
           </Menu.Item>
-          <Menu.Item onSelect={onSelect} value="two">
+          <Menu.Item onClick={onClick} value="two">
             Two
           </Menu.Item>
-          <Menu.Item onSelect={onSelect} value="three">
+          <Menu.Item onClick={onClick} value="three">
             Three
           </Menu.Item>
         </Menu>,
@@ -312,24 +312,24 @@ describe("Menu", () => {
         "on",
         <Menu.Item>One</Menu.Item>
       ).then(() => {
-        expect(onSelect, "to have calls satisfying", () => {
-          onSelect("one");
+        expect(onClick, "to have calls satisfying", () => {
+          onClick("one");
         });
       });
     });
 
-    it("calls the onSelect handler when the item is selected with the keyboard", () => {
-      const onSelect = sinon.spy();
+    it("calls the onClick handler when the item is selected with the keyboard", () => {
+      const onClick = sinon.spy();
 
       return expect(
         <Menu trigger={<Button>trigger</Button>}>
-          <Menu.Item onSelect={onSelect} value="one">
+          <Menu.Item onClick={onClick} value="one">
             One
           </Menu.Item>
-          <Menu.Item onSelect={onSelect} value="two">
+          <Menu.Item onClick={onClick} value="two">
             Two
           </Menu.Item>
-          <Menu.Item onSelect={onSelect} value="three">
+          <Menu.Item onClick={onClick} value="three">
             Three
           </Menu.Item>
         </Menu>,
@@ -354,8 +354,8 @@ describe("Menu", () => {
         "on",
         <Button>trigger</Button>
       ).then(() => {
-        expect(onSelect, "to have calls satisfying", () => {
-          onSelect("two");
+        expect(onClick, "to have calls satisfying", () => {
+          onClick("two");
         });
       });
     });
