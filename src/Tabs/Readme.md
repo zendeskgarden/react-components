@@ -3,7 +3,7 @@
 ```
 initialState = { active: 'pancetta' };
 
-<Tabs active={ state.active } onActivate={ (id) => setState({ active: id }) }>
+<Tabs active={ state.active } onChange={ (id) => setState({ active: id }) }>
   <Tabs.Panel label='Slab bacon' id='slab'>
     A single piece of large bacon with the rind left on, slab bacon is sometimes
     roasted over corncobs for additional flavor.
@@ -41,7 +41,7 @@ Support for RTL:
 ```
 initialState = { active: 'pancetta' };
 
-<Tabs active={ state.active } dir='rtl' onActivate={ (id) => setState({ active: id }) }>
+<Tabs active={ state.active } dir='rtl' onChange={ (id) => setState({ active: id }) }>
   <Tabs.Panel label='Slab bacon' id='slab'>
     A single piece of large bacon with the rind left on, slab bacon is sometimes
     roasted over corncobs for additional flavor.
@@ -79,7 +79,7 @@ initialState = { active: 'pancetta' };
 ```
 initialState = { active: 'pancetta' };
 
-<Tabs active={ state.active } onActivate={ (id) => setState({ active: id }) } vertical>
+<Tabs active={ state.active } onChange={ (id) => setState({ active: id }) } vertical>
   <Tabs.Panel label='Slab bacon' id='slab'>
     A single piece of large bacon with the rind left on, slab bacon is sometimes
     roasted over corncobs for additional flavor.
@@ -120,7 +120,7 @@ initialState = { active: 'pancetta' };
 <Tabs
   active={ state.active }
   dir='rtl'
-  onActivate={ (id) => setState({ active: id })}
+  onChange={ (id) => setState({ active: id })}
   vertical
 >
   <Tabs.Panel label='Slab bacon' id='slab'>
@@ -199,7 +199,7 @@ const renderTab = (tabId) => (
 
 initialState = { active: 'pancetta' };
 
-<Tabs active={ state.active } onActivate={ (active) => setState({ active }) }>
+<Tabs active={ state.active } onChange={ (active) => setState({ active }) }>
   <Tabs.Panel label='Slab bacon' id='slab'>
     { renderTab }
   </Tabs.Panel>
@@ -220,7 +220,7 @@ initialState = { active: 'pancetta' };
 ```
 initialState = { active: 'human' };
 
-<Tabs active={ state.active } onActivate={ (active) => setState({ active }) }>
+<Tabs active={ state.active } onChange={ (active) => setState({ active }) }>
   <Tabs.Panel
     label={
       <Grid>

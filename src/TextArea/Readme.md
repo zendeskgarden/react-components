@@ -4,7 +4,7 @@ Interactive:
 initialState={ value: '' };
 
 <TextArea
-  onChangeText={ (value) => setState({ value }) }
+  onChange={ (value) => setState({ value }) }
   hint="Don't be scared"
   label='Dump your brain here:'
   placeholder='Write something'
@@ -36,7 +36,7 @@ initialState={ value: '' };
 
 <Grid columns={1} stretched>
   <TextArea
-    onChangeText={ (value) => setState({ value }) }
+    onChange={ (value) => setState({ value }) }
     placeholder='Write something'
     value={ state.value }
     resizable
@@ -77,7 +77,7 @@ initialState={ value: '' };
 <Grid columns={1} stretched>
   <TextArea
     disabled
-    onChangeText={ (value) => setState({ value }) }
+    onChange={ (value) => setState({ value }) }
     placeholder='Write something'
     value={ state.value }
   />
@@ -96,7 +96,7 @@ initialState={ value: 'Bob', uncontrolled: '' };
 <Grid columns={ 3 }>
   <Text>Controlled</Text>
   <TextArea
-    onChangeText={ (value) => setState({ value }) }
+    onChange={ (value) => setState({ value }) }
     value={ state.value }
   />
   <Text>Value: { state.value }</Text>

@@ -30,7 +30,7 @@ export default class SplitButton extends ThemedComponent {
     /** <a href="#menu">See Menu</a> */
     marginTop: PropTypes.number,
     onClick: PropTypes.func,
-    onSelect: PropTypes.func,
+    onChange: PropTypes.func,
     /** <a href="#relativepositionedpopup">See RelativePositionedPopup</a> */
     positioning: RelativePositionedPopup.propTypes.positioning,
     pill: PropTypes.bool,
@@ -95,9 +95,9 @@ export default class SplitButton extends ThemedComponent {
   };
 
   onValueChosen = value => {
-    const { onSelect } = this.props;
+    const { onChange } = this.props;
     this.closeMenu();
-    onSelect && onSelect(value);
+    onChange && onChange(value);
   };
 
   showMenu = () => {
@@ -142,9 +142,9 @@ export default class SplitButton extends ThemedComponent {
   }
 
   selectDefault = () => {
-    const { onSelect } = this.props;
+    const { onChange } = this.props;
 
-    onSelect && onSelect(this.defaultItem.props.value);
+    onChange && onChange(this.defaultItem.props.value);
   };
 
   onClick = e => {

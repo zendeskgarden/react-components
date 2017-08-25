@@ -206,11 +206,11 @@ describe("TextArea.Core", () => {
   });
 
   describe("when changing the text", () => {
-    it("onChangeText is called", () => {
-      const onChangeText = sinon.spy();
+    it("onChange is called", () => {
+      const onChange = sinon.spy();
 
       return expect(
-        <TextArea.Core onChangeText={onChangeText} />,
+        <TextArea.Core onChange={onChange} />,
         "when deeply rendered",
         "with event",
         "change",
@@ -218,8 +218,8 @@ describe("TextArea.Core", () => {
         "on",
         <textarea />
       ).then(() => {
-        expect(onChangeText, "to have calls satisfying", () => {
-          onChangeText("hello");
+        expect(onChange, "to have calls satisfying", () => {
+          onChange("hello");
         });
       });
     });

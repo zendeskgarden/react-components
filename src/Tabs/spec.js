@@ -97,11 +97,11 @@ describe("Tabs", () => {
   });
 
   describe("when clicking on an enabled tab", () => {
-    it("emits an onActivate event", () => {
-      const onActivate = sinon.spy();
+    it("emits an onChange event", () => {
+      const onChange = sinon.spy();
 
       return expect(
-        <Tabs active="three" onActivate={onActivate}>
+        <Tabs active="three" onChange={onChange}>
           <Tabs.Panel label="One" id="one">
             Panel one
           </Tabs.Panel>
@@ -118,19 +118,19 @@ describe("Tabs", () => {
         "on",
         <li className="label">Two</li>
       ).then(() => {
-        expect(onActivate, "to have calls satisfying", () => {
-          onActivate("two");
+        expect(onChange, "to have calls satisfying", () => {
+          onChange("two");
         });
       });
     });
   });
 
   describe("when clicking on an disabled tab", () => {
-    it("does not emits an onActivate event", () => {
-      const onActivate = sinon.spy();
+    it("does not emits an onChange event", () => {
+      const onChange = sinon.spy();
 
       return expect(
-        <Tabs active="three" onActivate={onActivate}>
+        <Tabs active="three" onChange={onChange}>
           <Tabs.Panel label="One" id="one">
             Panel one
           </Tabs.Panel>
@@ -147,7 +147,7 @@ describe("Tabs", () => {
         "on",
         <li className="label">Two</li>
       ).then(() => {
-        expect(onActivate, "was not called");
+        expect(onChange, "was not called");
       });
     });
   });

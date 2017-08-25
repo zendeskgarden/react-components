@@ -3,7 +3,7 @@ You can build a menu the following way:
 ```
 <Menu
   trigger={ <Button>Click me</Button> }
-  onSelect={ (value) => console.log(value) }
+  onChange={ (value) => console.log(value) }
 >
   <Menu.Item value='profile'>Profile</Menu.Item>
   <Menu.Item value='settings'>Settings</Menu.Item>
@@ -14,16 +14,16 @@ You can build a menu the following way:
 </Menu>
 ```
 
-You can add an `onSelect` handler directly to the items the follwing way:
+You can add an `onClick` handler directly to the items as well:
 
 ```
 <Menu
   trigger={ <Button>Menu</Button> }
 >
-  <Menu.Item onSelect={ () => window.alert('First') }>First</Menu.Item>
-  <Menu.Item onSelect={ () => window.alert('Second') }>Second</Menu.Item>
+  <Menu.Item onClick={ () => window.alert('First') }>First</Menu.Item>
+  <Menu.Item onClick={ () => window.alert('Second') }>Second</Menu.Item>
   <Menu.Separator/>
-  <Menu.Item onSelect={ () => window.alert('Third') }>Third</Menu.Item>
+  <Menu.Item onClick={ () => window.alert('Third') }>Third</Menu.Item>
 </Menu>
 ```
 
@@ -51,10 +51,10 @@ that you can use for styling.
     </Button>
   )}
 >
-  <Menu.Item onSelect={ () => window.alert('First') }>First</Menu.Item>
-  <Menu.Item onSelect={ () => window.alert('Second') }>Second</Menu.Item>
+  <Menu.Item onClick={ () => window.alert('First') }>First</Menu.Item>
+  <Menu.Item onClick={ () => window.alert('Second') }>Second</Menu.Item>
   <Menu.Separator/>
-  <Menu.Item onSelect={ () => window.alert('Third') }>Third</Menu.Item>
+  <Menu.Item onClick={ () => window.alert('Third') }>Third</Menu.Item>
 </Menu>
 ```
 

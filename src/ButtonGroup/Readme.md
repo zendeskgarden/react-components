@@ -6,7 +6,7 @@ initialState = { active: 'two' };
 
 <ButtonGroup
   active={ state.active }
-  onActivate={ (active) => setState({ active })}
+  onChange={ (active) => setState({ active })}
 >
   <ButtonGroup.Item id='one'>One</ButtonGroup.Item>
   <ButtonGroup.Item id='two'>Two</ButtonGroup.Item>
@@ -26,7 +26,7 @@ initialState = {
 <Grid columns={1}>
   <ButtonGroup
     active={ state.activeSmall }
-    onActivate={ (activeSmall) => setState({ activeSmall })}
+    onChange={ (activeSmall) => setState({ activeSmall })}
     size='small'
   >
     <ButtonGroup.Item id='one'>One</ButtonGroup.Item>
@@ -35,7 +35,7 @@ initialState = {
   </ButtonGroup>
   <ButtonGroup
     active={ state.activeMedium }
-    onActivate={ (activeMedium) => setState({ activeMedium })}
+    onChange={ (activeMedium) => setState({ activeMedium })}
     size='medium'
   >
     <ButtonGroup.Item id='one'>One</ButtonGroup.Item>
@@ -44,7 +44,7 @@ initialState = {
   </ButtonGroup>
   <ButtonGroup
     active={ state.activeLarge }
-    onActivate={ (activeLarge) => setState({ activeLarge })}
+    onChange={ (activeLarge) => setState({ activeLarge })}
     size='large'
   >
     <ButtonGroup.Item id='one'>One</ButtonGroup.Item>
@@ -62,7 +62,7 @@ initialState = { active: 'one' };
 <ButtonGroup
   dir='rtl'
   active={ state.active }
-  onActivate={ (active) => setState({ active })}
+  onChange={ (active) => setState({ active })}
 >
   <ButtonGroup.Item id='one'>One</ButtonGroup.Item>
   <ButtonGroup.Item id='two'>Two</ButtonGroup.Item>

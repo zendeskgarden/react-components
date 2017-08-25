@@ -42,10 +42,10 @@ describe("RadioButtonGroup", () => {
   });
 
   it("calls the onChange handle with the new value of the radio button group", () => {
-    const onSelect = sinon.spy();
+    const onChange = sinon.spy();
 
     return expect(
-      <RadioButtonGroup onSelect={onSelect}>
+      <RadioButtonGroup onChange={onChange}>
         <RadioButton value={1}>1</RadioButton>
         <RadioButton value={2}>2</RadioButton>
         <RadioButton value={3}>3</RadioButton>
@@ -55,8 +55,8 @@ describe("RadioButtonGroup", () => {
       "on",
       <input />
     ).then(() => {
-      expect(onSelect, "to have calls satisfying", () => {
-        onSelect(1);
+      expect(onChange, "to have calls satisfying", () => {
+        onChange(1);
       });
     });
   });

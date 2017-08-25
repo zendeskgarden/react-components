@@ -26,7 +26,7 @@ const label = <span>Submit as <strong>Open</strong></span>;
     type="primary"
     label={label}
     positioning="top_left"
-    onSelect={value => setState({ lastAction: value })}
+    onChange={value => setState({ lastAction: value })}
   >
     <SplitButton.Item value='open'>
       <Action color='#E82A2A'>Submit as <strong>Open</strong></Action>
@@ -107,7 +107,7 @@ Disabled:
 <SplitButton
   mainButtonDisabled={true}
   dropdownDisabled={true}
-  onSelect={value => console.log(value)}
+  onChange={value => console.log(value)}
 >
   <SplitButton.Item value='one'>One</SplitButton.Item>
   <SplitButton.Item value='two'>Two</SplitButton.Item>
@@ -141,7 +141,7 @@ Overriding the primary click handler:
 ```
 <SplitButton
   onClick={() => console.log('Primary click handler')}
-  onSelect={value => console.log(value)}
+  onChange={value => console.log(value)}
 >
   <SplitButton.Item value='one'>One</SplitButton.Item>
   <SplitButton.Item value='two'>Two</SplitButton.Item>
@@ -204,7 +204,7 @@ const MyItem = Selectable(Item, {
 });
 
 <Grid spacing='medium'>
-  <SplitButton onSelect={value => setState({ lastAction: value })}>
+  <SplitButton onChange={value => setState({ lastAction: value })}>
     <MyItem value='one'>One</MyItem>
     <MyItem value='two'>Two</MyItem>
     <MyItem value='three'>Three</MyItem>

@@ -2,7 +2,7 @@
 initialState={ value: '' };
 
 <TextInput
-  onChangeText={ (value) => setState({ value }) }
+  onChange={ (value) => setState({ value }) }
   hint="Don't be scared"
   label='Dump your brain here:'
   placeholder='Write something'
@@ -68,7 +68,7 @@ Disabled
 initialState={ value: '' };
 
 <TextInput
-  onChangeText={ (value) => setState({ value }) }
+  onChange={ (value) => setState({ value }) }
   placeholder='Write something'
   disabled
   value={ state.value }
@@ -87,7 +87,7 @@ initialState={ value: 'Bob', uncontrolled: '' };
 <Grid columns={ 3 }>
   <Text>Controlled</Text>
   <TextInput
-    onChangeText={ (value) => setState({ value }) }
+    onChange={ (value) => setState({ value }) }
     value={ state.value }
   />
   <Text>Value: { state.value }</Text>

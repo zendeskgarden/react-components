@@ -29,7 +29,7 @@ export default class Select extends ThemedComponent {
     onClose: PropTypes.func,
     onFocus: PropTypes.func,
     onOpen: PropTypes.func,
-    onSelect: PropTypes.func,
+    onChange: PropTypes.func,
     positioning: Menu.propTypes.positioning,
     selected: PropTypes.node,
     stretched: PropTypes.bool,
@@ -113,7 +113,7 @@ export default class Select extends ThemedComponent {
       maxHeight,
       onBlur,
       onFocus,
-      onSelect,
+      onChange,
       positioning,
       selected,
       size,
@@ -152,7 +152,7 @@ export default class Select extends ThemedComponent {
         <Menu
           dir={dir}
           maxHeight={maxHeight}
-          onSelect={onSelect}
+          onChange={onChange}
           positioning={positioning}
           onOpen={this.onOpen}
           onClose={this.onClose}

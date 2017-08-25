@@ -66,9 +66,9 @@ class Item extends Component {
 
 export default Selectable(Item, {
   action: (props, event) => {
-    const { onSelect, value } = props;
+    const { onClick, value } = props;
 
-    onSelect && onSelect(value);
+    onClick && onClick(value);
   },
   preventDefault: true
 });

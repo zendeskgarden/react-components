@@ -38,7 +38,7 @@ initialState = { value: colors[0] };
   label='Select your favorite color:'
   hint='It better be Pelorous'
   selected={<Color color={state.value} />}
-  onSelect={ value => setState({ value }) }
+  onChange={ value => setState({ value }) }
 >
   {
     colors.map(color => (
@@ -63,7 +63,7 @@ initialState = {
   <Select
     label='Error:'
     selected={ state.errorState }
-    onSelect={ value => setState({ errorState: value }) }
+    onChange={ value => setState({ errorState: value }) }
     validation='error'
     validationText='We crashed!'
   >
@@ -74,7 +74,7 @@ initialState = {
   <Select
     label='Warning:'
     selected={ state.warningState }
-    onSelect={ value => setState({ warningState: value }) }
+    onChange={ value => setState({ warningState: value }) }
     validation='warning'
     validationText='You may want to pull up now!'
   >
@@ -85,7 +85,7 @@ initialState = {
   <Select
     label='Success:'
     selected={ state.successState }
-    onSelect={ value => setState({ successState: value }) }
+    onChange={ value => setState({ successState: value }) }
     validation='success'
     validationText='We have landed safely.'
   >
@@ -102,7 +102,7 @@ initialState = { first: 'foo', second: 'foo' };
 <Grid columns={1} stretched>
   <Select
     label='Small'
-    onSelect={ value => setState({ first: value }) }
+    onChange={ value => setState({ first: value }) }
     selected={ state.first }
     size='small'
   >
@@ -112,7 +112,7 @@ initialState = { first: 'foo', second: 'foo' };
   </Select>
   <Select
     label='Medium'
-    onSelect={ value => setState({ second: value }) }
+    onChange={ value => setState({ second: value }) }
     selected={ state.second }
     size='medium'
   >
@@ -131,7 +131,7 @@ initialState = { value: 'foo' };
 <Select
   disabled
   selected={ state.value }
-  onSelect={ value => setState({ value }) }
+  onChange={ value => setState({ value }) }
 >
   <Select.Item value='foo'>foo</Select.Item>
   <Select.Item value='bar'>bar</Select.Item>
@@ -146,7 +146,7 @@ initialState = { value: 'Two' };
 
 <Select
   selected={ state.value }
-  onSelect={ value => setState({ value }) }
+  onChange={ value => setState({ value }) }
 >
   <Select.Item value='One'>One</Select.Item>
   <Select.Item value='Two'>Two</Select.Item>
@@ -179,7 +179,7 @@ const selected = state.selected;
 
 <Select
   selected={ <User name={ selected.name } avatar={ selected.avatar } /> }
-  onSelect={ value => setState({ selected: value }) }
+  onChange={ value => setState({ selected: value }) }
 >
   {
     users.map(user => (
@@ -199,7 +199,7 @@ initialState = { value: 'Two' };
 <Select
   maxHeight={150}
   selected={ state.value }
-  onSelect={ value => setState({ value }) }
+  onChange={ value => setState({ value }) }
 >
   <Select.Item value='One'>One</Select.Item>
   <Select.Item value='Two'>Two</Select.Item>
@@ -228,7 +228,7 @@ initialState = { value: items[0] };
   <Select
     selected={ <Ellipsis>{state.value}</Ellipsis> }
     positioning={['bottom_right', 'top_right']}
-    onSelect={ value => setState({ value }) }
+    onChange={ value => setState({ value }) }
   >
     { items.map(item => (
         <Select.Item value={item} key={item}>

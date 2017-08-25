@@ -10,7 +10,7 @@ export default class RadioButtonGroup extends Component {
     dir: PropTypes.oneOf(["ltr", "rtl"]),
     disabled: PropTypes.bool,
     muted: PropTypes.bool,
-    onSelect: PropTypes.func,
+    onChange: PropTypes.func,
     selected: PropTypes.any
   };
 
@@ -24,10 +24,10 @@ export default class RadioButtonGroup extends Component {
     this.id = uuid.v4();
   }
 
-  onSelect = value => {
-    const { onSelect } = this.props;
+  onChange = value => {
+    const { onChange } = this.props;
 
-    onSelect && onSelect(value);
+    onChange && onChange(value);
   };
 
   render() {
@@ -41,7 +41,7 @@ export default class RadioButtonGroup extends Component {
         key: `radio-${index}`,
         name: this.id,
         muted: "muted" in item.props ? item.props.muted : muted,
-        onChange: this.onSelect
+        onChange: this.onChange
       })
     );
 

@@ -47,11 +47,11 @@ describe("ButtonGroup", () => {
   });
 
   describe("when clicking on an enabled tab", () => {
-    it("emits an onActivate event", () => {
-      const onActivate = sinon.spy();
+    it("emits an onChange event", () => {
+      const onChange = sinon.spy();
 
       return expect(
-        <ButtonGroup active="three" onActivate={onActivate}>
+        <ButtonGroup active="three" onChange={onChange}>
           <ButtonGroup.Item id="one" disabled>
             One
           </ButtonGroup.Item>
@@ -64,19 +64,19 @@ describe("ButtonGroup", () => {
         "on",
         <button>Two</button>
       ).then(() => {
-        expect(onActivate, "to have calls satisfying", () => {
-          onActivate("two");
+        expect(onChange, "to have calls satisfying", () => {
+          onChange("two");
         });
       });
     });
   });
 
   describe("when clicking on an disabled tab", () => {
-    it("does not emits an onActivate event", () => {
-      const onActivate = sinon.spy();
+    it("does not emits an onChange event", () => {
+      const onChange = sinon.spy();
 
       return expect(
-        <ButtonGroup active="three" onActivate={onActivate}>
+        <ButtonGroup active="three" onChange={onChange}>
           <ButtonGroup.Item id="one">One</ButtonGroup.Item>
           <ButtonGroup.Item id="two" disabled>
             Two
@@ -89,7 +89,7 @@ describe("ButtonGroup", () => {
         "on",
         <button>Two</button>
       ).then(() => {
-        expect(onActivate, "was not called");
+        expect(onChange, "was not called");
       });
     });
   });

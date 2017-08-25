@@ -16,7 +16,7 @@ export default class ButtonGroup extends ThemedComponent {
     active: PropTypes.string,
     children: PropTypes.node.isRequired,
     dir: PropTypes.oneOf(["ltr", "rtl"]),
-    onActivate: PropTypes.func,
+    onChange: PropTypes.func,
     size: PropTypes.oneOf(["small", "medium", "large"]),
     tabIndex: PropTypes.number,
     testId: PropTypes.string
@@ -38,7 +38,7 @@ export default class ButtonGroup extends ThemedComponent {
       vertical: false
     });
     this.selectionModel.onSelectionChanged = this.onSelectionChanged;
-    this.selectionModel.onValueChosen = props.onActivate;
+    this.selectionModel.onValueChosen = props.onChange;
     this.keyboard = true;
     this.state = {};
   }
