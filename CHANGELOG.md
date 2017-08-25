@@ -1,5 +1,8 @@
 ## Change Log
 
+### v9.0.0 (2017/08/25 09:54 +00:00)
+- [#274](https://github.com/zendeskgarden/react-components/pull/274) Rename onChange/onSelect props for relevant components (Major) (@Anifacted)
+
 ### v8.3.0 (2017/08/21 16:24 +00:00)
 - [#261](https://github.com/zendeskgarden/react-components/pull/261) Created Pagination component (@austin94)
 - [#268](https://github.com/zendeskgarden/react-components/pull/268) Tooltip: Make it theme-able (@Anifacted)
@@ -340,8 +343,6 @@
 
 ### v1.9.3 (2016/10/14 14:15 +00:00)
 - [#49](https://github.com/zendeskgarden/react-components/pull/49) Revert "Inputs: Only use the box-shadow focus styling when using keyboard navigation" (@sunesimonsen)
-
-### v1.9.2 (2016/10/14 11:17 +00:00)
 - [#47](https://github.com/zendeskgarden/react-components/pull/47) Inputs: Only use the box-shadow focus styling when using keyboard navigation (@sunesimonsen)
 - [#48](https://github.com/zendeskgarden/react-components/pull/48) Removed incorrect accent color around disabled buttons (@sunesimonsen)
 - [#44](https://github.com/zendeskgarden/react-components/pull/44) Fixed bug where changing the children of a tab panel would not rerender (@sunesimonsen)
