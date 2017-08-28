@@ -1,5 +1,8 @@
 ## Change Log
 
+### v9.1.0 (2017/08/28 17:15 +00:00)
+- [#267](https://github.com/zendeskgarden/react-components/pull/267) Add Bare styling option to TextInput and TextArea (@austin94)
+
 ### v9.0.0 (2017/08/25 09:54 +00:00)
 - [#274](https://github.com/zendeskgarden/react-components/pull/274) Rename onChange/onSelect props for relevant components (Major) (@Anifacted)
 
@@ -340,8 +343,6 @@
 ### v1.10.0 (2016/10/19 12:52 +00:00)
 - [#52](https://github.com/zendeskgarden/react-components/pull/52) Updating RelativePositionedPopup so it can also accept a node as children (@luis-almeida)
 - [#53](https://github.com/zendeskgarden/react-components/pull/53) Luis/button onfocus prop (@luis-almeida)
-
-### v1.9.3 (2016/10/14 14:15 +00:00)
 - [#49](https://github.com/zendeskgarden/react-components/pull/49) Revert "Inputs: Only use the box-shadow focus styling when using keyboard navigation" (@sunesimonsen)
 - [#47](https://github.com/zendeskgarden/react-components/pull/47) Inputs: Only use the box-shadow focus styling when using keyboard navigation (@sunesimonsen)
 - [#48](https://github.com/zendeskgarden/react-components/pull/48) Removed incorrect accent color around disabled buttons (@sunesimonsen)
