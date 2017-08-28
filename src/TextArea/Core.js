@@ -30,15 +30,13 @@ export default class Core extends Component {
     rows: PropTypes.number,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
-    type: PropTypes.string,
     value: PropTypes.string
   };
 
   static defaultProps = {
     autoComplete: "off",
     disabled: false,
-    rows: 2,
-    type: "text"
+    rows: 2
   };
 
   render() {
@@ -70,7 +68,6 @@ export default class Core extends Component {
       rows,
       tabIndex,
       testId,
-      type,
       value
     } = this.props;
 
@@ -110,7 +107,6 @@ export default class Core extends Component {
       placeholder,
       rows,
       tabIndex,
-      type,
       value
     };
 

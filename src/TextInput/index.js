@@ -45,14 +45,7 @@ export default class TextInput extends ThemedComponent {
     title: PropTypes.string,
     /** <a href="#view">See View</a> */
     tooltipPositioning: () => {},
-    /** Use `valueType` instead */
-    type: (props, propName, componentName) => {
-      if (propName in props) {
-        return new Error(
-          "The TextInput does not accept a type prop use valueType instead"
-        );
-      }
-    },
+    type: PropTypes.oneOf(["default", "bare"]),
     validation: PropTypes.oneOf(["error", "warning", "success"]),
     validationText: PropTypes.string,
     value: PropTypes.string,
@@ -74,6 +67,7 @@ export default class TextInput extends ThemedComponent {
   static defaultProps = {
     autoComplete: "off",
     disabled: false,
+    type: "default",
     valueType: "text",
     size: "medium"
   };
@@ -112,6 +106,7 @@ export default class TextInput extends ThemedComponent {
       size,
       title,
       tooltipPositioning,
+      type,
       validation,
       validationText,
       valueType,
@@ -143,7 +138,9 @@ export default class TextInput extends ThemedComponent {
           disabled={disabled}
           valueType={valueType}
           id={this.getId()}
-          className={classNames(theme.input, className)}
+          className={classNames(theme.input, className, {
+            [theme.style_bare]: type === "bare"
+          })}
           ref={ref => {
             if (ref && ref.input) {
               this.input = ref.input;

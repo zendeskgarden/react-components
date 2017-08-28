@@ -18,6 +18,26 @@ describe("TextInput", () => {
     );
   });
 
+  it("renders TextInput.Core input with normal styling by default", () => {
+    expect(
+      <TextInput />,
+      "to render as",
+      <View className="txt">
+        <TextInput.Core className="input" />
+      </View>
+    );
+  });
+
+  it("renders TextInput.Core input with bare styling when provided", () => {
+    expect(
+      <TextInput type="bare" />,
+      "to deeply render as",
+      <View className="txt">
+        <TextInput.Core className="input style_bare" />
+      </View>
+    );
+  });
+
   describe("with a label", () => {
     it("renders a label above the input", () => {
       expect(

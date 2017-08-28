@@ -18,6 +18,26 @@ describe("TextArea", () => {
     );
   });
 
+  it("renders TextArea.Core input with normal styling by default", () => {
+    expect(
+      <TextArea />,
+      "to render as",
+      <View className="txt">
+        <TextArea.Core className="input" />
+      </View>
+    );
+  });
+
+  it("renders TextArea.Core input with bare styling when provided", () => {
+    expect(
+      <TextArea type="bare" />,
+      "to deeply render as",
+      <View className="txt">
+        <TextArea.Core className="input style_bare" />
+      </View>
+    );
+  });
+
   describe("with the resizable flag", () => {
     it("renders a resizable text area", () => {
       expect(

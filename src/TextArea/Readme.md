@@ -29,6 +29,24 @@ Sizes:
 </Grid>
 ```
 
+Styles:
+
+```
+<Grid columns={1} stretched>
+  <TextArea
+    label='Normal Style'
+    placeholder='Default styling'
+    size='small'
+  />
+  <TextArea
+    label='Bare Styling'
+    placeholder='Non-default styling'
+    type='bare'
+    size='medium'
+  />
+</Grid>
+```
+
 Resizable:
 
 ```
