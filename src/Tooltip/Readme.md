@@ -31,6 +31,6 @@ Content:
 ```
 <Grid style={{height: 45}}>
   <Tooltip inline top={10} left={10} size='medium'>String content</Tooltip>
-  <Tooltip inline top={10} left={130} size='medium'><Button>Rich content</Button></Tooltip>
+  <Tooltip inline top={10} left={130} size='medium'>This tooltip has <strong>rich content</strong></Tooltip>
 </Grid>
 ```
