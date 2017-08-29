@@ -69,7 +69,8 @@ export default class TextInput extends ThemedComponent {
     disabled: false,
     type: "default",
     valueType: "text",
-    size: "medium"
+    size: "medium",
+    dir: "ltr"
   };
 
   constructor(props, context) {
@@ -101,6 +102,7 @@ export default class TextInput extends ThemedComponent {
   render() {
     const {
       className,
+      dir,
       disabled,
       hint,
       size,
@@ -122,7 +124,8 @@ export default class TextInput extends ThemedComponent {
           theme[`size_${size}`],
           theme[validation],
           {
-            [theme.disabled]: disabled
+            [theme.disabled]: disabled,
+            [theme.rtl]: dir === "rtl"
           }
         )}
         title={title}
@@ -135,6 +138,7 @@ export default class TextInput extends ThemedComponent {
           </small>}
         <Core
           {...other}
+          dir={dir}
           disabled={disabled}
           valueType={valueType}
           id={this.getId()}

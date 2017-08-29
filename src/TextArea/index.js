@@ -54,6 +54,7 @@ export default class TextArea extends ThemedComponent {
 
   static defaultProps = {
     autoComplete: "off",
+    dir: "ltr",
     disabled: false,
     resizable: false,
     size: "medium",
@@ -89,6 +90,7 @@ export default class TextArea extends ThemedComponent {
   render() {
     const {
       className,
+      dir,
       disabled,
       hint,
       type,
@@ -110,7 +112,8 @@ export default class TextArea extends ThemedComponent {
           theme[`size_${size}`],
           theme[validation],
           {
-            [theme.disabled]: disabled
+            [theme.disabled]: disabled,
+            [theme.rtl]: dir === "rtl"
           }
         )}
         title={title}
@@ -124,6 +127,7 @@ export default class TextArea extends ThemedComponent {
         <Core
           {...other}
           disabled={disabled}
+          dir={dir}
           className={classNames(
             theme.input,
             {

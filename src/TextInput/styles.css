@@ -45,3 +45,7 @@
 .disabled {
   composes: is-disabled from '@zendesk/garden-css-forms';
 }
+
+.rtl {
+  composes: is-rtl from '@zendesk/garden-css-forms';
+}
