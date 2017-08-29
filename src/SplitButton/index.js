@@ -94,10 +94,10 @@ export default class SplitButton extends ThemedComponent {
     this.showMenu();
   };
 
-  onValueChosen = value => {
+  onValueChosen = (value, event) => {
     const { onChange } = this.props;
     this.closeMenu();
-    onChange && onChange(value);
+    onChange && onChange(value, event);
   };
 
   showMenu = () => {
@@ -141,10 +141,10 @@ export default class SplitButton extends ThemedComponent {
     return Children.toArray(children).find(c => c.type && c.type.selectable);
   }
 
-  selectDefault = () => {
+  selectDefault = event => {
     const { onChange } = this.props;
 
-    onChange && onChange(this.defaultItem.props.value);
+    onChange && onChange(this.defaultItem.props.value, event);
   };
 
   onClick = e => {

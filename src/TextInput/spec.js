@@ -259,7 +259,7 @@ describe("TextInput.Core", () => {
         <input type="text" />
       ).then(() => {
         expect(onChange, "to have calls satisfying", () => {
-          onChange("hello");
+          onChange("hello", { type: "change", target: { value: "hello" } });
         });
       });
     });

@@ -115,7 +115,7 @@ describe("Range", () => {
         <input />
       ).then(() => {
         expect(onChange, "to have calls satisfying", () => {
-          onChange(10);
+          onChange(10, { type: "change" });
         });
       });
     });
@@ -204,7 +204,7 @@ describe("Range", () => {
           <input />
         ).then(() => {
           expect(onChange, "to have calls satisfying", () => {
-            onChange(10);
+            onChange(10, { type: "change" });
           });
         });
       });

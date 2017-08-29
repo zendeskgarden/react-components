@@ -24,10 +24,10 @@ export default class RadioButtonGroup extends Component {
     this.id = uuid.v4();
   }
 
-  onChange = value => {
+  onChange = (value, event) => {
     const { onChange } = this.props;
 
-    onChange && onChange(value);
+    onChange && onChange(value, event);
   };
 
   render() {
