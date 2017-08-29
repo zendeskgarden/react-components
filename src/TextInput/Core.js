@@ -111,7 +111,7 @@ export default class Core extends Component {
       onClick,
       onBlur,
       onChange(event) {
-        onChange && onChange(event.target.value);
+        onChange && onChange(event.target.value, event);
       },
       onFocus,
       onKeyDown(event) {

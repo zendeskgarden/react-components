@@ -65,7 +65,7 @@ describe("ButtonGroup", () => {
         <button>Two</button>
       ).then(() => {
         expect(onChange, "to have calls satisfying", () => {
-          onChange("two");
+          onChange("two", { type: "click" });
         });
       });
     });
