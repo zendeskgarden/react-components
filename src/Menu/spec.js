@@ -280,7 +280,7 @@ describe("Menu", () => {
         <Menu.Item>Two</Menu.Item>
       ).then(() => {
         expect(onChange, "to have calls satisfying", () => {
-          onChange("two");
+          onChange("two", { type: "mousedown" });
         });
       });
     });
@@ -313,7 +313,7 @@ describe("Menu", () => {
         <Menu.Item>One</Menu.Item>
       ).then(() => {
         expect(onClick, "to have calls satisfying", () => {
-          onClick("one");
+          onClick("one", { type: "mousedown" });
         });
       });
     });
@@ -355,7 +355,7 @@ describe("Menu", () => {
         <Button>trigger</Button>
       ).then(() => {
         expect(onClick, "to have calls satisfying", () => {
-          onClick("two");
+          onClick("two", { type: "keydown" });
         });
       });
     });

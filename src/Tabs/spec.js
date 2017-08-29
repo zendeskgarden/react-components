@@ -119,7 +119,7 @@ describe("Tabs", () => {
         <li className="label">Two</li>
       ).then(() => {
         expect(onChange, "to have calls satisfying", () => {
-          onChange("two");
+          onChange("two", { type: "click" });
         });
       });
     });

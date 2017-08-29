@@ -89,10 +89,10 @@ export default class Menu extends Component {
     this.showMenu();
   };
 
-  onValueChosen = value => {
+  onValueChosen = (value, event) => {
     const { onChange } = this.props;
     this.closeMenu();
-    onChange && onChange(value);
+    onChange && onChange(value, event);
   };
 
   showMenu = () => {
