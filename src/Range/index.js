@@ -54,10 +54,10 @@ export default class Range extends ThemedComponent {
 
   getId = () => this.props.id || this.generatedId;
 
-  onChange = event => {
+  onChange = e => {
     const { onChange } = this.props;
 
-    onChange && onChange(parseFloat(event.target.value), event);
+    onChange && onChange(parseFloat(e.target.value));
 
     this.setState({ bgWidth: this.getBgWidth() });
   };

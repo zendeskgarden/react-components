@@ -48,7 +48,7 @@ export default class Checkbox extends ThemedComponent {
   onChange = event => {
     const { onChange } = this.props;
 
-    onChange && onChange(event.target.checked, event);
+    onChange && onChange(event.target.checked);
   };
 
   render() {

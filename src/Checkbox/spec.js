@@ -65,7 +65,7 @@ describe("Checkbox", () => {
           <input />
         ).then(() => {
           expect(onChange, "to have calls satisfying", () => {
-            onChange(false, { type: "change", target: { checked: false } });
+            onChange(false);
           });
         });
       });
@@ -87,7 +87,7 @@ describe("Checkbox", () => {
         <input />
       ).then(() => {
         expect(onChange, "to have calls satisfying", () => {
-          onChange(true, { type: "change", target: { checked: true } });
+          onChange(true);
         });
       });
     });
@@ -218,7 +218,7 @@ describe("Checkbox", () => {
         TestUtils.Simulate.change(node, { target: { checked: true } });
 
         expect(onChange, "to have calls satisfying", () => {
-          onChange(true, { type: "change", target: { checked: true } });
+          onChange(true);
         });
       });
 
@@ -237,7 +237,7 @@ describe("Checkbox", () => {
         TestUtils.Simulate.change(node, { target: { checked: false } });
 
         expect(onChange, "to have calls satisfying", () => {
-          onChange(false, { type: "change", target: { checked: false } });
+          onChange(false);
         });
       });
     });

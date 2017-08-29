@@ -107,7 +107,7 @@ export default class ReactSingleSelectionModel {
         selection.props.action &&
           selection.props.action(selection.props, event);
       }
-      this.onValueChosen && this.onValueChosen(value, event);
+      this.onValueChosen && this.onValueChosen(value);
       return true;
     }
   };

@@ -215,7 +215,7 @@ describe("SplitButton", () => {
         <Button>One</Button>
       ).then(() => {
         expect(onChange, "to have calls satisfying", () => {
-          onChange("one", { type: "click" });
+          onChange("one");
         });
       });
     });
@@ -237,7 +237,7 @@ describe("SplitButton", () => {
           <Button>One</Button>
         ).then(() => {
           expect(onClick, "to have calls satisfying", () => {
-            onClick({ type: "click" });
+            onClick(expect.it("to be an object"));
           });
         });
       });
@@ -261,7 +261,7 @@ describe("SplitButton", () => {
         <SplitButton.Item>Two</SplitButton.Item>
       ).then(() => {
         expect(onChange, "to have calls satisfying", () => {
-          onChange("two", { type: "mousedown" });
+          onChange("two");
         });
       });
     });
@@ -295,7 +295,7 @@ describe("SplitButton", () => {
         <IconButton />
       ).then(() => {
         expect(onChange, "to have calls satisfying", () => {
-          onChange("two", { type: "keydown" });
+          onChange("two");
         });
       });
     });

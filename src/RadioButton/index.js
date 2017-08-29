@@ -45,10 +45,10 @@ export default class RadioButton extends ThemedComponent {
     };
   }
 
-  onChange = event => {
+  onChange = () => {
     const { value, onChange } = this.props;
 
-    onChange && onChange(value, event);
+    onChange && onChange(value);
   };
 
   render() {

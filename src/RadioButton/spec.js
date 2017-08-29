@@ -109,7 +109,7 @@ describe("RadioButton", () => {
       <input />
     ).then(() => {
       expect(onChange, "to have calls satisfying", () => {
-        onChange(123, { type: "change" });
+        onChange(123);
       });
     });
   });
@@ -223,7 +223,7 @@ describe("RadioButton", () => {
         TestUtils.Simulate.change(node, { target: { checked: true } });
 
         expect(onChange, "to have calls satisfying", () => {
-          onChange(123, { type: "change" });
+          onChange(123);
         });
       });
 
@@ -243,7 +243,7 @@ describe("RadioButton", () => {
         TestUtils.Simulate.change(node, { target: { checked: false } });
 
         expect(onChange, "to have calls satisfying", () => {
-          onChange(123, { type: "change" });
+          onChange(123);
         });
       });
     });

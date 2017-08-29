@@ -56,7 +56,7 @@ describe("RadioButtonGroup", () => {
       <input />
     ).then(() => {
       expect(onChange, "to have calls satisfying", () => {
-        onChange(1, { type: "change" });
+        onChange(1);
       });
     });
   });

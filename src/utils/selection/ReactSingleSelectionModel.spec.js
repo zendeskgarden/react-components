@@ -111,26 +111,22 @@ describe("ReactSingleSelectionModel", () => {
       });
 
       it("with an enter event chooses the selected item", () => {
-        const enterEvent = createFakeEvent({ keyCode: 13 });
-
         model.onValueChosen = sinon.spy();
         model.handleKeyDown(createFakeEvent({ keyCode: 40 }));
-        model.handleKeyDown(enterEvent);
+        model.handleKeyDown(createFakeEvent({ keyCode: 13 }));
 
         expect(model.onValueChosen, "to have calls satisfying", () => {
-          model.onValueChosen("foo", enterEvent);
+          model.onValueChosen("foo");
         });
       });
 
       it("with an space event chooses the selected item", () => {
-        const enterEvent = createFakeEvent({ keyCode: 13 });
-
         model.onValueChosen = sinon.spy();
         model.handleKeyDown(createFakeEvent({ keyCode: 38 }));
-        model.handleKeyDown(enterEvent);
+        model.handleKeyDown(createFakeEvent({ keyCode: 13 }));
 
         expect(model.onValueChosen, "to have calls satisfying", () => {
-          model.onValueChosen("qux", enterEvent);
+          model.onValueChosen("qux");
         });
       });
 

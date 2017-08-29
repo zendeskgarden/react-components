@@ -68,7 +68,7 @@ export default Selectable(Item, {
   action: (props, event) => {
     const { onClick, value } = props;
 
-    onClick && onClick(value, event);
+    onClick && onClick(value);
   },
   preventDefault: true
 });
