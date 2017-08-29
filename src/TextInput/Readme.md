@@ -27,6 +27,17 @@ Sizes:
 </Grid>
 ```
 
+RTL:
+
+```
+<TextInput
+  dir='rtl'
+  label='RTL Support'
+  placeholder='Write something'
+  size='small' 
+/>
+```
+
 Input Type Style:
 
 ```

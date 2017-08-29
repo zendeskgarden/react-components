@@ -29,6 +29,17 @@ Sizes:
 </Grid>
 ```
 
+RTL:
+
+```
+<TextArea
+  dir='rtl'
+  label='Small'
+  placeholder='Write something'
+  size='small'
+/>
+```
+
 Styles:
 
 ```

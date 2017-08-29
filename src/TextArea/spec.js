@@ -50,6 +50,20 @@ describe("TextArea", () => {
     });
   });
 
+  describe("with RTL support", () => {
+    it("renders with RTL styling when direction is RTL", () => {
+      expect(
+        <TextArea dir="rtl" />,
+        "to deeply render as",
+        <View className="txt rtl" />
+      );
+    });
+
+    it("renders with LTR styling by default", () => {
+      expect(<TextArea />, "to deeply render as", <View className="txt" />);
+    });
+  });
+
   describe("with a label", () => {
     it("renders a label above the input", () => {
       expect(

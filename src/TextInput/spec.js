@@ -38,6 +38,20 @@ describe("TextInput", () => {
     );
   });
 
+  describe("with RTL support", () => {
+    it("renders with RTL styling when direction is RTL", () => {
+      expect(
+        <TextInput dir="rtl" />,
+        "to deeply render as",
+        <View className="txt rtl" />
+      );
+    });
+
+    it("renders with LTR styling by default", () => {
+      expect(<TextInput />, "to deeply render as", <View className="txt" />);
+    });
+  });
+
   describe("with a label", () => {
     it("renders a label above the input", () => {
       expect(
