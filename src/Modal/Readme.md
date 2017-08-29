@@ -27,7 +27,7 @@ class ModalExample extends Component {
 
                   <Menu
                     trigger={ <Button>Click me</Button> }
-                    onSelect={ (value) => console.log(value) }
+                    onChange={ (value) => console.log(value) }
                   >
                     <Menu.Item value='profile'>Profile</Menu.Item>
                     <Menu.Item value='settings'>Settings</Menu.Item>
