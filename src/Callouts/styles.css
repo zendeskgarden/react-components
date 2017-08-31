@@ -1,0 +1,16 @@
+.floating {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  overflow-y: auto;
+  width: 360px;
+}
+
+.rtl.callouts {
+  right: 0;
+  left: 10px;
+}
+
+.callouts > * {
+  margin-bottom: 10px;
+}
