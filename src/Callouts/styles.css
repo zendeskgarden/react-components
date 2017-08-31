@@ -2,7 +2,6 @@
   position: fixed;
   top: 10px;
   right: 10px;
-  overflow-y: auto;
   z-index: 700;
   width: 360px;
 }
