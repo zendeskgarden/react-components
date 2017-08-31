@@ -1,5 +1,10 @@
 ## Change Log
 
+### v9.2.2 (2017/08/31 22:58 +00:00)
+- [#276](https://github.com/zendeskgarden/react-components/pull/276) Label: Add aria-label for remove icon (@austin94)
+- [#280](https://github.com/zendeskgarden/react-components/pull/280) Modal: Update prop after renaming in Readme (@Anifacted)
+- [#278](https://github.com/zendeskgarden/react-components/pull/278) Use non-interactive rich tooltip content demo (@alanhogan)
+
 ### v9.2.1 (2017/08/29 21:43 +00:00)
 - [#282](https://github.com/zendeskgarden/react-components/pull/282) TextInput TextArea: Corrected RTL styling of text inputs (@austin94)
 
@@ -338,8 +343,6 @@
 
 ### v2.0.1 (2016/10/24 16:17 +00:00)
 - [#56](https://github.com/zendeskgarden/react-components/pull/56) Stop propagating Menu clicks (@sunesimonsen)
-
-### v2.0.0 (2016/10/24 15:26 +00:00)
 - [#51](https://github.com/zendeskgarden/react-components/pull/51) Improve Range component performance (@jzempel)
 - [#50](https://github.com/zendeskgarden/react-components/pull/50) Update CSS package dependencies for Electroid styling (@sunesimonsen, @albertfdp, @jzempel)
 - [#54](https://github.com/zendeskgarden/react-components/pull/54) Set the range defaults to min:0, max:100, step:1 (@sunesimonsen)
