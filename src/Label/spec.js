@@ -100,6 +100,30 @@ describe("Label", () => {
         "to render as",
         <View>
           Label
+          <span className="u-visibility-screenreader">
+            Press delete to remove this label.
+          </span>
+          <button className="remove" tabIndex={-1} onClick={onRemove} />
+        </View>
+      );
+    });
+
+    it("renders a remove button with a customized accessibility message when provided", () => {
+      const onRemove = () => {};
+
+      return expect(
+        <Label
+          onRemove={onRemove}
+          deleteAccessibilityMessage="Sample remove message"
+        >
+          Label
+        </Label>,
+        "to render as",
+        <View>
+          Label
+          <span className="u-visibility-screenreader">
+            Sample remove message
+          </span>
           <button className="remove" tabIndex={-1} onClick={onRemove} />
         </View>
       );

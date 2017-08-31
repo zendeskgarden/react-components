@@ -5,6 +5,7 @@ import classNames from "classnames";
 import View from "../core/View";
 
 import styles from "./styles.css";
+import accessibilityStyles from "../utils/styling/accessibility.css";
 
 export default class Label extends Component {
   static propTypes = {
@@ -28,14 +29,16 @@ export default class Label extends Component {
       "success",
       "warning",
       "error"
-    ])
+    ]),
+    deleteAccessibilityMessage: PropTypes.string
   };
 
   static defaultProps = {
     dir: "ltr",
     size: "medium",
     stretched: false,
-    type: "default"
+    type: "default",
+    deleteAccessibilityMessage: "Press delete to remove this label."
   };
 
   renderAvatar = avatar =>
@@ -58,6 +61,7 @@ export default class Label extends Component {
       avatar,
       children,
       className,
+      deleteAccessibilityMessage,
       dir,
       onRemove,
       pill,
@@ -92,6 +96,10 @@ export default class Label extends Component {
         <span>
           {children}
         </span>
+        {onRemove &&
+          <span className={accessibilityStyles["u-visibility-screenreader"]}>
+            {deleteAccessibilityMessage}
+          </span>}
         {onRemove && this.renderRemove(onRemove)}
       </View>
     );
