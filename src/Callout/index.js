@@ -14,13 +14,15 @@ export default class Callout extends Component {
     onClose: PropTypes.func,
     tabIndex: PropTypes.number,
     title: PropTypes.string,
+    floating: PropTypes.bool,
     type: PropTypes.oneOf(["default", "success", "warning", "error"])
   };
 
   static defaultProps = {
     dir: "ltr",
     type: "default",
-    tabIndex: 0
+    tabIndex: 0,
+    floating: false
   };
 
   static P = P;
@@ -33,13 +35,21 @@ export default class Callout extends Component {
   };
 
   render() {
-    const { children, className, dir, onClose, type, title } = this.props;
+    const {
+      children,
+      className,
+      dir,
+      onClose,
+      type,
+      title,
+      floating
+    } = this.props;
 
     return (
       <View
         className={classNames(
           styles[type],
-          { [styles.rtl]: dir === "rtl" },
+          { [styles.rtl]: dir === "rtl", [styles.floating]: floating },
           className
         )}
       >

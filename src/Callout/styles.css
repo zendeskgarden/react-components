@@ -29,3 +29,7 @@
 .paragraph {
   composes: c-callout__paragraph from '@zendesk/garden-css-callouts';
 }
+
+.floating {
+  composes: c-callout--dialog from '@zendesk/garden-css-callouts';
+}
