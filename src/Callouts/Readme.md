@@ -1,75 +1,80 @@
 Floating callouts:
+
 ```
-initialState = { callouts: [], selectedType: 'default' };
-<Grid columns={1} stretched>
-  <Select
-    label='Type of callout'
-    onChange={ value => setState({ selectedType: value })}
-    selected={state.selectedType}
-  >
-    <Select.Item value='default'>Default</Select.Item>
-    <Select.Item value='success'>Success</Select.Item>
-    <Select.Item value='warning'>Warning</Select.Item>
-    <Select.Item value='error'>Error</Select.Item>
-  </Select>
+initialState = { callouts: [], nextId: 0 }
 
-  <Button
-    onClick={() => {
-      setState({ callouts: state.callouts.concat(
-        <Callout title='Title!' type={state.selectedType} key={`${state.callouts.length + 1}`}>
-          This is a floating callout
-          </Callout>
-        )}
-      )}
-    }
+const createCallout = (type) => {
+  const removeCallout = (callout) => {
+    setState(state => ({ callouts: state.callouts.filter(c => c !== callout ) }))
+  }
+
+  const callout = (
+    <Callout
+      key={`callout-${state.nextId}`}
+      onClose={() => removeCallout(callout)}
+      title='Title!'
+      type={type}
     >
-      Show notification
-    </Button>
+      This is a floating callout
+    </Callout>
+  )
 
-    <Button onClick={() => { setState({ callouts: [] })}}>
-        Dismiss all notifications
-    </Button>
+  setTimeout(() => removeCallout(callout), 5000)
 
-    <Callouts floating>
-      {state.callouts}
-    </Callouts>
+  setState(state => ({
+    callouts: state.callouts.concat(callout),
+    nextId: state.nextId + 1
+  }))
+};
+
+<Grid>
+  <Button onClick={() => createCallout('default')}>Default</Button>
+  <Button onClick={() => createCallout('success')}>Success</Button>
+  <Button onClick={() => createCallout('warning')}>Warning</Button>
+  <Button onClick={() => createCallout('error')}>Error</Button>
+  <Callouts floating>
+    {state.callouts}
+  </Callouts>
 </Grid>
 ```
 
 Floating callouts RTL:
+
+
 ```
-initialState = { callouts: [], selectedType: 'default' };
-<Grid columns={1} stretched>
-  <Select
-    label='Type of callout'
-    onChange={ value => setState({ selectedType: value })}
-    selected={state.selectedType}
-  >
-    <Select.Item value='default'>Default</Select.Item>
-    <Select.Item value='success'>Success</Select.Item>
-    <Select.Item value='warning'>Warning</Select.Item>
-    <Select.Item value='error'>Error</Select.Item>
-  </Select>
+initialState = { callouts: [], nextId: 0 }
 
-  <Button
-    onClick={() => {
-      setState({ callouts: state.callouts.concat(
-        <Callout title='Title!' type={state.selectedType} key={`${state.callouts.length + 1}`}>
-          This is a floating callout
-          </Callout>
-        )}
-      )}
-    }
+const createCallout = (type) => {
+  const removeCallout = (callout) => {
+    setState(state => ({ callouts: state.callouts.filter(c => c !== callout ) }))
+  }
+
+  const callout = (
+    <Callout
+      key={`callout-${state.nextId}`}
+      onClose={() => removeCallout(callout)}
+      title='Title!'
+      type={type}
     >
-      Show notification
-    </Button>
+      This is a floating callout
+    </Callout>
+  )
 
-    <Button onClick={() => { setState({ callouts: [] })}}>
-        Dismiss all notifications
-    </Button>
+  setTimeout(() => removeCallout(callout), 5000)
 
-    <Callouts floating dir='rtl'>
-      {state.callouts}
-    </Callouts>
+  setState(state => ({
+    callouts: state.callouts.concat(callout),
+    nextId: state.nextId + 1
+  }))
+};
+
+<Grid>
+  <Button onClick={() => createCallout('default')}>Default</Button>
+  <Button onClick={() => createCallout('success')}>Success</Button>
+  <Button onClick={() => createCallout('warning')}>Warning</Button>
+  <Button onClick={() => createCallout('error')}>Error</Button>
+  <Callouts dir='rtl' floating>
+    {state.callouts}
+  </Callouts>
 </Grid>
 ```
