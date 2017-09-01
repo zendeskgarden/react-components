@@ -117,7 +117,7 @@ export default class View extends Component {
       };
       ["onMouseOut", "onBlur", "onWheel", "onClick"].forEach(handler => {
         props[handler] = e => {
-          tooltips.hide();
+          tooltips.hide(this.tooltipId);
           this.props[handler] && this.props[handler](e);
         };
       });
