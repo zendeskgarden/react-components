@@ -12,12 +12,14 @@ export default class Callouts extends Component {
     dir: PropTypes.oneOf(["ltr", "rtl"]),
     testId: PropTypes.string,
     floating: PropTypes.bool,
-    className: PropTypes.string
+    className: PropTypes.string,
+    zIndex: PropTypes.number
   };
 
   static defaultProps = {
     dir: "ltr",
-    floating: false
+    floating: false,
+    zIndex: 700
   };
 
   constructor(props, context) {
@@ -28,7 +30,7 @@ export default class Callouts extends Component {
   }
 
   render() {
-    const { testId, floating, dir, children, className } = this.props;
+    const { testId, floating, dir, children, className, zIndex } = this.props;
 
     const props = {};
     if (testId) {
@@ -45,24 +47,14 @@ export default class Callouts extends Component {
           },
           className
         )}
+        style={{ zIndex }}
         {...props}
       >
         {Children.map(children, (child, index) => {
           if (child && child.type === Callout) {
-            const { children, type, title, onClose } = child.props;
-
-            return (
-              <Callout
-                type={type}
-                floating={floating}
-                key={child.key}
-                title={title}
-                onClose={onClose}
-                dir={dir}
-              >
-                {children}
-              </Callout>
-            );
+            return React.cloneElement(child, {
+              floating: floating
+            });
           } else {
             return child;
           }
