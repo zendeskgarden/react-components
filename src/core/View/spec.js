@@ -4,30 +4,75 @@ import { render } from "react-dom";
 import View from ".";
 import sinon from "sinon";
 
+const getInstance = element => render(element, document.createElement("div"));
+
 describe("View", () => {
-  describe("tooltips", () => {
-    it("Hides its own tooltip when unmounting", () => {
-      const instance = render(
-        <View title="Some tooltip" />,
-        document.createElement("div")
+  describe("when given test-id", () => {
+    it("sets correct data-test-id attribute", () => {
+      expect(
+        <View testId="my-test-id" />,
+        "when rendered",
+        "to satisfy",
+        <div data-test-id="my-test-id" />
       );
+    });
+  });
 
-      const spy = sinon.spy();
+  describe("when hidden", () => {
+    it("sets aria-hidden", () => {
+      expect(
+        <View hidden />,
+        "when rendered",
+        "to satisfy",
+        <div aria-hidden />
+      );
+    });
+  });
 
-      const tooltipManagerStub = {
-        show: () => 42,
-        hide: spy
-      };
+  describe("when has title", () => {
+    describe("when unmounting", () => {
+      it("hides its own tooltip", () => {
+        const instance = getInstance(<View title="Some tooltip" />);
 
-      instance.context = {
-        tooltips: tooltipManagerStub
-      };
+        const spy = sinon.spy();
 
-      instance.render().props.onMouseOver();
+        const tooltipManagerStub = {
+          show: () => 42,
+          hide: spy
+        };
 
-      instance.componentWillUnmount();
+        instance.context = {
+          tooltips: tooltipManagerStub
+        };
 
-      expect(spy, "was called with exactly", 42);
+        instance.render().props.onMouseOver();
+
+        instance.componentWillUnmount();
+
+        expect(spy, "was called with exactly", 42);
+      });
+    });
+
+    describe("when moused out", () => {
+      it("hides its tooltip", () => {
+        const instance = getInstance(<View title="Some tooltip" />);
+
+        const spy = sinon.spy();
+
+        const tooltipManagerStub = {
+          show: () => 42,
+          hide: spy
+        };
+
+        instance.context = {
+          tooltips: tooltipManagerStub
+        };
+
+        instance.render().props.onMouseOver();
+        instance.render().props.onMouseOut();
+
+        expect(spy, "was called with exactly", 42);
+      });
     });
   });
 });
