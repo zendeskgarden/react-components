@@ -175,6 +175,54 @@ describe("Toggle", () => {
       });
     });
   });
+  describe("when focused", () => {
+    it("loses focused when onBlur is called on input", () => {
+      return expect(
+        <Toggle checked>Toggle me!</Toggle>,
+        "when deeply rendered",
+        "with event",
+        "blur",
+        "on",
+        <input />
+      ).then(({ state }) => expect(state, "to satisfy", { focused: false }));
+    });
+
+    describe("and checked", () => {
+      it("toggles off via left arrow key", () => {
+        const onChange = sinon.spy();
+
+        return expect(
+          <Toggle checked onChange={onChange}>
+            Toggle me!
+          </Toggle>,
+          "when deeply rendered",
+          "with event",
+          "keyDown",
+          { keyCode: 37 },
+          "on",
+          <input />
+        ).then(() => expect(onChange, "was called with", false));
+      });
+    });
+
+    describe("and unchecked", () => {
+      it("toggles on via right arrow key", () => {
+        const onChange = sinon.spy();
+
+        return expect(
+          <Toggle checked={false} onChange={onChange}>
+            Toggle me!
+          </Toggle>,
+          "when deeply rendered",
+          "with event",
+          "keyDown",
+          { keyCode: 39 },
+          "on",
+          <input />
+        ).then(() => expect(onChange, "was called with", true));
+      });
+    });
+  });
 
   describe("when using it as an uncontrolled input", () => {
     describe("when using defaultChecked", () => {
