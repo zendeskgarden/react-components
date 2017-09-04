@@ -1,5 +1,8 @@
 ## Change Log
 
+### v9.3.0 (2017/09/04 05:28 +00:00)
+- [#283](https://github.com/zendeskgarden/react-components/pull/283) Callouts component (@aliciacatalina, @sunesimonsen)
+
 ### v9.2.2 (2017/08/31 22:58 +00:00)
 - [#276](https://github.com/zendeskgarden/react-components/pull/276) Label: Add aria-label for remove icon (@austin94)
 - [#280](https://github.com/zendeskgarden/react-components/pull/280) Modal: Update prop after renaming in Readme (@Anifacted)
@@ -340,8 +343,6 @@
 
 ### v2.0.2 (2016/10/26 10:56 +00:00)
 - [#58](https://github.com/zendeskgarden/react-components/pull/58) Fixed: Incorrect scrollbar positioning in menus (@sunesimonsen)
-
-### v2.0.1 (2016/10/24 16:17 +00:00)
 - [#56](https://github.com/zendeskgarden/react-components/pull/56) Stop propagating Menu clicks (@sunesimonsen)
 - [#51](https://github.com/zendeskgarden/react-components/pull/51) Improve Range component performance (@jzempel)
 - [#50](https://github.com/zendeskgarden/react-components/pull/50) Update CSS package dependencies for Electroid styling (@sunesimonsen, @albertfdp, @jzempel)
