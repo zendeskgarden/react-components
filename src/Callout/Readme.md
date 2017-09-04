@@ -44,7 +44,6 @@ const onClose = () => alert('Dismissed!');
 Support for RTL:
 
 ```
-
 const onClose = () => alert('Dismissed!');
 
 <Grid columns={1} stretched>
@@ -52,5 +51,18 @@ const onClose = () => alert('Dismissed!');
   <Callout dir='rtl' onClose={onClose} type='success'>This is a success callout</Callout>
   <Callout dir='rtl' onClose={onClose} type='warning'>This is a warning callout</Callout>
   <Callout dir='rtl' onClose={onClose} type='error'>This is an error callout</Callout>
+</Grid>
+```
+
+Floating callouts:
+
+```
+const onClose = () => alert('Dismissed!');
+
+<Grid columns={1} stretched>
+  <Callout title='Default' floating onClose={onClose}>This is a default callout</Callout>
+  <Callout title='Success!' floating onClose={onClose} type='success'>This is a success callout</Callout>
+  <Callout title='Warning!' floating onClose={onClose} type='warning'>This is a warning callout</Callout>
+  <Callout title='Error!' floating onClose={onClose} type='error'>This is an error callout</Callout>
 </Grid>
 ```
