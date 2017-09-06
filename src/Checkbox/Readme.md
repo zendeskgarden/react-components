@@ -4,20 +4,31 @@
   <Checkbox disabled>Unchecked</Checkbox>
   <Checkbox checked>Checked</Checkbox>
   <Checkbox disabled checked>Checked</Checkbox>
+  <Checkbox indeterminate>Indeterminate</Checkbox>
+  <Checkbox disabled indeterminate>Indeterminate</Checkbox>
 </Grid>
 ```
 
 Add a change handler:
 
 ```
-initialState = { checked: false };
+initialState = { checked: false, indeterminateChecked: true };
 
-<Checkbox
-  checked={ state.checked }
-  onChange={ (checked) => setState({ checked }) }
->
-  Click me!
-</Checkbox>
+<Grid columns={2} stretched>
+  <Checkbox
+    checked={ state.checked }
+    onChange={ (checked) => setState({ checked }) }
+  >
+    Click me!
+  </Checkbox>
+  <Checkbox
+    checked={ state.indeterminateChecked }
+    indeterminate
+    onChange={checked => alert(checked)}>
+    Indeterminate will always return "checked" as true
+  </Checkbox>
+</Grid>
+
 ```
 
 With a hint:

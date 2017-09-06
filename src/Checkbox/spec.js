@@ -292,4 +292,39 @@ describe("Checkbox", () => {
       );
     });
   });
+
+  describe("when indeterminate", () => {
+    it("renders a checkbox that is indeterminate", () => {
+      expect(
+        <Checkbox indeterminate>Check me out!</Checkbox>,
+        "to render as",
+        <View className="checkbox indeterminate">
+          <input className="input" type="checkbox" />
+          <label className="label" dir="ltr">
+            Check me out!
+          </label>
+        </View>
+      );
+    });
+
+    it("calls the onChange handle with true regardless of checkbox state", () => {
+      let node;
+      const onChange = sinon.spy();
+
+      TestUtils.renderIntoDocument(
+        <Checkbox
+          checked
+          indeterminate
+          onChange={onChange}
+          ref={ref => ref && (node = ref.input)}
+        />
+      );
+
+      TestUtils.Simulate.change(node, { target: { checked: false } });
+
+      expect(onChange, "to have calls satisfying", () => {
+        onChange(true, { type: "change", target: { checked: false } });
+      });
+    });
+  });
 });
