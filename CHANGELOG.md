@@ -1,5 +1,10 @@
 ## Change Log
 
+### v9.4.0 (2017/09/08 21:41 +00:00)
+- [#288](https://github.com/zendeskgarden/react-components/pull/288) Checkbox: Add indeterminate state styling (@austin94)
+- [#291](https://github.com/zendeskgarden/react-components/pull/291) Anchor: Create Anchor component (@austin94)
+- [#286](https://github.com/zendeskgarden/react-components/pull/286) Improve overall test coverage (@Anifacted)
+
 ### v9.3.0 (2017/09/04 05:28 +00:00)
 - [#283](https://github.com/zendeskgarden/react-components/pull/283) Callouts component (@aliciacatalina, @sunesimonsen)
 
@@ -340,8 +345,6 @@
 
 ### v2.1.0 (2016/10/31 09:21 +00:00)
 - [#59](https://github.com/zendeskgarden/react-components/pull/59) Upgraded to the latest Garden styling (@sunesimonsen)
-
-### v2.0.2 (2016/10/26 10:56 +00:00)
 - [#58](https://github.com/zendeskgarden/react-components/pull/58) Fixed: Incorrect scrollbar positioning in menus (@sunesimonsen)
 - [#56](https://github.com/zendeskgarden/react-components/pull/56) Stop propagating Menu clicks (@sunesimonsen)
 - [#51](https://github.com/zendeskgarden/react-components/pull/51) Improve Range component performance (@jzempel)
