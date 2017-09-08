@@ -6,6 +6,10 @@
   composes: is-rtl from '@zendesk/garden-css-forms';
 }
 
+.indeterminate {
+  composes: is-indeterminate from '@zendesk/garden-css-forms';
+}
+
 .focused {
   composes: is-focused from '@zendesk/garden-css-forms';
 }

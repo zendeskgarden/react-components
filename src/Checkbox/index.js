@@ -17,6 +17,7 @@ export default class Checkbox extends ThemedComponent {
     disabled: PropTypes.bool,
     hint: PropTypes.node,
     id: PropTypes.string,
+    indeterminate: PropTypes.bool,
     muted: PropTypes.bool,
     onChange: PropTypes.func,
     tabIndex: PropTypes.number,
@@ -45,11 +46,41 @@ export default class Checkbox extends ThemedComponent {
     };
   }
 
+  /**
+   * When an indeterminate checkbox is toggled, it should match native checkbox 
+   * functionality and always return true as the new state.
+   */
   onChange = event => {
-    const { onChange } = this.props;
+    const { onChange, indeterminate } = this.props;
 
-    onChange && onChange(event.target.checked, event);
+    onChange && onChange(indeterminate ? true : event.target.checked, event);
   };
+
+  /**
+   * Since indeterminate is not a valid INPUT prop, we must dynamically add 
+   * this attribute when the component is rendered.
+   */
+  componentDidMount() {
+    const { indeterminate } = this.props;
+
+    if (indeterminate) {
+      this.input.setAttribute("indeterminate", true);
+    } else {
+      this.input.removeAttribute("indeterminate");
+    }
+  }
+
+  /**
+   * Since indeterminate is not a valid INPUT prop, we must dynamically add 
+   * this attribute when the component is updated.
+   */
+  componentWillUpdate({ indeterminate }) {
+    if (indeterminate) {
+      this.input.setAttribute("indeterminate", true);
+    } else {
+      this.input.removeAttribute("indeterminate");
+    }
+  }
 
   render() {
     const {
@@ -60,6 +91,7 @@ export default class Checkbox extends ThemedComponent {
       dir,
       hint,
       id,
+      indeterminate,
       muted,
       tabIndex,
       testId,
@@ -80,7 +112,8 @@ export default class Checkbox extends ThemedComponent {
           [theme.focused]: focused,
           [theme.rtl]: dir === "rtl",
           [theme.disabled]: disabled,
-          [theme.noLabel]: !children
+          [theme.noLabel]: !children,
+          [theme.indeterminate]: indeterminate
         })}
         title={title}
         tooltipPositioning={tooltipPositioning}
