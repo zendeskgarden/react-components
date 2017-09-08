@@ -1,0 +1,36 @@
+@import '@zendesk/garden-css-variables';
+
+.anchor {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--zd-color-pelorous);
+}
+
+.anchor:focus {
+  outline: none;
+  text-decoration: none;
+}
+
+.anchor:active {
+  text-decoration: none;
+}
+
+.anchor.focused {
+  text-decoration: underline;
+}
+
+.anchor.disabled {
+  cursor: default;
+  color: var(--zd-color-monsoon);
+}
+
+.container {
+  display: inline;
+}
+
+.container:focus {
+  outline: none;
+  text-decoration: none;
+}
