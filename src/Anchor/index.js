@@ -10,18 +10,7 @@ export default class Anchor extends Component {
   static propTypes = {
     autoFocus: PropTypes.bool,
     className: PropTypes.string,
-    /**
-     * Whether to disable the Anchor. Only valid if onClick is provided.
-     */
-    disabled: ({ disabled, onClick }) => {
-      if (disabled && typeof onClick === "undefined") {
-        throw new Error(
-          "onClick must be provided for a disabled state to be used."
-        );
-      }
-    },
     tabIndex: PropTypes.number,
-    onClick: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
     children: PropTypes.node.isRequired,
@@ -83,22 +72,11 @@ export default class Anchor extends Component {
     });
   };
 
-  onClick = event => {
-    const { onClick } = this.props;
-    onClick && onClick(event);
-
-    this.setState({
-      isFocused: false
-    });
-  };
-
   render() {
     const {
       className,
-      disabled,
       tabIndex,
       children,
-      onClick,
       testId,
       ...anchorProps
     } = this.props;
@@ -112,34 +90,18 @@ export default class Anchor extends Component {
         testId={testId}
         onMouseDown={this.onMouseDown}
       >
-        {onClick
-          ? <button
-              className={classNames(className, styles.anchor, {
-                [styles.focused]: isFocused,
-                [styles.disabled]: disabled
-              })}
-              ref={ref => {
-                this.anchorElement = ref;
-              }}
-              onClick={onClick}
-              tabIndex={tabIndex}
-              disabled={disabled}
-              {...anchorProps}
-            >
-              {children}
-            </button>
-          : <a
-              className={classNames(className, styles.anchor, {
-                [styles.focused]: isFocused
-              })}
-              ref={ref => {
-                this.anchorElement = ref;
-              }}
-              tabIndex={tabIndex}
-              {...anchorProps}
-            >
-              {children}
-            </a>}
+        <a
+          className={classNames(className, styles.anchor, {
+            [styles.focused]: isFocused
+          })}
+          ref={ref => {
+            this.anchorElement = ref;
+          }}
+          tabIndex={tabIndex}
+          {...anchorProps}
+        >
+          {children}
+        </a>
       </View>
     );
   }
