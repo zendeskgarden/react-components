@@ -75,21 +75,6 @@ describe("Anchor", () => {
     });
   });
 
-  it("should trigger onClick when selected", () => {
-    const onClick = sinon.spy();
-
-    return expect(
-      <Anchor onClick={onClick}>Hello</Anchor>,
-      "when deeply rendered",
-      "with event",
-      "click",
-      "on",
-      <button />
-    ).then(() => {
-      expect(onClick, "was called times", 1);
-    });
-  });
-
   it("should remove focused state when selected", () => {
     return expect(
       <Anchor>Hello</Anchor>,
@@ -113,33 +98,6 @@ describe("Anchor", () => {
       "to render as",
       <View className="container">
         <a className="anchor custom-class">Hello</a>
-      </View>
-    );
-  });
-
-  it("should throw error if disabled is provided without onClick", () => {
-    return expect(
-      <Anchor disabled>Hello</Anchor>,
-      "when deeply rendered"
-    ).then(() => {
-      expect(
-        console.error.lastCall.args[0],
-        "to contain",
-        "onClick must be provided for a disabled state to be used."
-      );
-    });
-  });
-
-  it("should disable Anchor if disabled is provided", () => {
-    expect(
-      <Anchor onClick={() => {}} disabled>
-        Hello
-      </Anchor>,
-      "to render as",
-      <View className="container">
-        <button className="anchor disabled" disabled>
-          Hello
-        </button>
       </View>
     );
   });

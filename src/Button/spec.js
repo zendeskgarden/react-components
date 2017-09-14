@@ -176,6 +176,18 @@ describe("Button", () => {
     });
   });
 
+  describe("with the type anchor", () => {
+    it("renders an anchor button", () => {
+      expect(
+        <Button type="anchor">Anchor</Button>,
+        "to deeply render as",
+        <View role="button" className="type_anchor">
+          Anchor
+        </View>
+      );
+    });
+  });
+
   describe("when is stretched", () => {
     it("renders a stretched button", () => {
       expect(
