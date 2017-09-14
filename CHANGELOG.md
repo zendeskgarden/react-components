@@ -1,5 +1,8 @@
 ## Change Log
 
+### v10.0.0 (2017/09/14 21:00 +00:00)
+- [#296](https://github.com/zendeskgarden/react-components/pull/296) Anchor for links only and add a anchor type for the button (Major) (@austin94)
+
 ### v9.4.0 (2017/09/08 21:41 +00:00)
 - [#288](https://github.com/zendeskgarden/react-components/pull/288) Checkbox: Add indeterminate state styling (@austin94)
 - [#291](https://github.com/zendeskgarden/react-components/pull/291) Anchor: Create Anchor component (@austin94)
@@ -342,8 +345,6 @@
 
 ### v2.2.0 (2016/11/08 09:00 +00:00)
 - [#61](https://github.com/zendeskgarden/react-components/pull/61) Upgrade to the latest version of css-buttons (@sunesimonsen)
-
-### v2.1.0 (2016/10/31 09:21 +00:00)
 - [#59](https://github.com/zendeskgarden/react-components/pull/59) Upgraded to the latest Garden styling (@sunesimonsen)
 - [#58](https://github.com/zendeskgarden/react-components/pull/58) Fixed: Incorrect scrollbar positioning in menus (@sunesimonsen)
 - [#56](https://github.com/zendeskgarden/react-components/pull/56) Stop propagating Menu clicks (@sunesimonsen)
