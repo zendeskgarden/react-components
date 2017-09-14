@@ -8,6 +8,7 @@ Types:
   <Button pill>Default</Button>
   <Button pill type='primary'>Primary</Button>
   <Button pill type='basic'>Basic</Button>
+  <Button type='anchor'>Anchor Button</Button>
 </Grid>
 ```
 
@@ -43,15 +44,25 @@ const onClick = () => alert('Clicked!');
   <Button onClick={ onClick } type='primary' disabled>Disabled</Button>
   <Button onClick={ onClick } type='basic'>Basic</Button>
   <Button onClick={ onClick } type='basic' disabled>Disabled</Button>
+  <Button onClick={ onClick } type='anchor'>Anchor</Button>
+  <Button onClick={ onClick } type='anchor' disabled>Disabled</Button>
 </Grid>
 ```
 
 Adding a click handler:
 
 ```
-<Button onClick={() => window.alert('You clicked me!')}>
-  Default
-</Button>
+const alertMe = () => window.alert('You clicked me!');
+
+<Grid columns={2} stretched>
+  <Button onClick={alertMe}>
+    Default
+  </Button>
+  <Button onClick={alertMe} type='anchor'>
+    Anchor styling
+  </Button>
+</Grid>
+
 ```
 
 Tab order:

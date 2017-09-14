@@ -28,7 +28,7 @@ export default class Button extends ThemedComponent {
     title: PropTypes.string,
     /** <a href="#view">See View</a> */
     tooltipPositioning: () => {},
-    type: PropTypes.oneOf(["default", "primary", "basic"])
+    type: PropTypes.oneOf(["default", "primary", "basic", "anchor"])
   };
 
   static defaultProps = {

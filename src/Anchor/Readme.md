@@ -4,7 +4,6 @@ Standard Anchor attributes:
 ```
 <Grid columns={2} stretched>
     <Anchor href='https://www.zendesk.com/' target='_blank'>That's no moon!</Anchor>
-    <Anchor onClick={() => {}} disabled>Disabled state</Anchor>
 </Grid>
 ```
 
@@ -23,26 +22,4 @@ Custom color:
 Custom tabIndex:
 ```
 <div><Anchor tabIndex={-1}>Train</Anchor> yourself to <Anchor href='#'>let go</Anchor> of everything you <Anchor tabIndex={-1}>fear to lose.</Anchor></div>
-```
-
-onClick and Anchor events:
-```
-initialState = { numClicks: 0, isHovering: false, isDisabled: false };
-
-<Grid columns={2} stretched>
-    <div>Is hovering: { state.isHovering ? 'TRUE' : 'FALSE' }</div>
-    <Anchor 
-        disabled={state.isDisabled}
-        onClick={() => setState({ numClicks: state.numClicks + 1 })}
-        onMouseEnter={() => setState({ isHovering: true })}
-        onMouseLeave={() => setState({ isHovering: false })}>
-        Click me: { state.numClicks }
-    </Anchor>
-    <Checkbox
-        checked={ state.isDisabled }
-        onChange={(isDisabled) => setState({ isDisabled }) }
-        >
-        Disable Anchor
-    </Checkbox>
-</Grid>
 ```
