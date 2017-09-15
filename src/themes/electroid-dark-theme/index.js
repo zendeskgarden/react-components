@@ -7,6 +7,7 @@ import Pagination from "./Pagination.css";
 import RadioButton from "./RadioButton.css";
 import Range from "./Range.css";
 import Select from "./Select.css";
+import Table from "./Table.css";
 import Tabs from "./Tabs.css";
 import TextArea from "./TextArea.css";
 import TextInput from "./TextInput.css";
@@ -23,6 +24,7 @@ const theme = {
   RadioButton,
   Range,
   Select,
+  Table,
   Tabs,
   TextArea,
   TextInput,

@@ -1,0 +1,103 @@
+.table {
+  composes: c-table from '@zendesk/garden-css-tables';
+  /**
+   * This is necessary due to react-virtualized flexbox
+   * implementation with RTL styling
+   */
+  table-layout: auto;
+}
+
+.table--sm {
+  composes: c-table--sm from '@zendesk/garden-css-tables';
+}
+
+.table--lg {
+  composes: c-table--lg from '@zendesk/garden-css-tables';
+}
+
+.is-rtl {
+  composes: is-rtl from '@zendesk/garden-css-tables';
+}
+
+.grid:focus {
+  outline: none;
+}
+
+.table_row {
+  composes: c-table__row from '@zendesk/garden-css-tables';
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.table_row--group {
+  composes: c-table__row--group from '@zendesk/garden-css-tables';
+}
+
+.table_row--zebra {
+  composes: c-table__row--stripe from '@zendesk/garden-css-tables';
+}
+
+.table_row--focused {
+  composes: c-table__row is-focused from '@zendesk/garden-css-tables';
+}
+
+.table_row--selected {
+  composes: c-table__row is-selected from '@zendesk/garden-css-tables';
+}
+
+.cell {
+  composes: c-table__row__cell from '@zendesk/garden-css-tables';
+}
+
+.cell--sortable {
+  composes: c-table__row__cell__sortable from '@zendesk/garden-css-tables';
+}
+
+.is-ascending {
+  composes: is-ascending from '@zendesk/garden-css-tables';
+}
+
+.is-descending {
+  composes: is-descending from '@zendesk/garden-css-tables';
+}
+
+.cell--truncate {
+  composes: c-table__row__cell--truncate from '@zendesk/garden-css-tables';
+}
+
+.cell--min {
+  composes: c-table__row__cell--min from '@zendesk/garden-css-tables';
+  box-sizing: inherit;
+}
+
+.table_row_header {
+  composes: c-table__row c-table__row--header from '@zendesk/garden-css-tables';
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.cell_overflow {
+  composes: c-table__row__cell__overflow from '@zendesk/garden-css-tables';
+}
+
+.cell--overflow {
+  /* stylelint-disable-next-line max-line-length */
+  composes: c-table__row__cell c-table__row__cell--overflow from '@zendesk/garden-css-tables';
+}
+
+.menu-container {
+  display: inline;
+}
+
+/* TODO use variables */
+.cell--description {
+  margin-left: 5px;
+  color: #555;
+  font-weight: 600;
+}
+
+.table_row:not(.table_row--focused) .cell:first-of-type {
+  box-shadow: inherit;
+}

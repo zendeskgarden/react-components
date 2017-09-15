@@ -34,6 +34,7 @@
     "classnames": "^2.2.5",
     "prop-types": "^15.5.8",
     "react-is-deprecated": "^0.1.2",
+    "react-virtualized": "9.9.0",
     "tabbable": "^1.0.6",
     "uuid": "^2.0.2 || ^3.0.0"
   },
@@ -51,6 +52,7 @@
     "@zendesk/garden-css-menus": "^4.0.0",
     "@zendesk/garden-css-modals": "^4.0.0",
     "@zendesk/garden-css-pagination": "^1.0.0",
+    "@zendesk/garden-css-tables": "0.1.0",
     "@zendesk/garden-css-tabs": "^3.0.0",
     "@zendesk/garden-css-tooltips": "^2.0.2",
     "@zendesk/garden-css-variables": "^2.1.0",

@@ -31,6 +31,7 @@ export default class View extends Component {
     onEscape: PropTypes.func,
     onMouseOver: PropTypes.func,
     onKeyDown: PropTypes.func,
+    onKeyUp: PropTypes.func,
     onScroll: PropTypes.func,
     onSpace: PropTypes.func,
     onTab: PropTypes.func,
@@ -73,6 +74,7 @@ export default class View extends Component {
       onEnter,
       onEscape,
       onKeyDown,
+      onKeyUp,
       onSpace,
       onTab,
       title,
@@ -101,6 +103,10 @@ export default class View extends Component {
         handler && handler(e);
         onKeyDown && onKeyDown(e);
       };
+    }
+
+    if (onKeyUp) {
+      eventHandlers.onKeyUp = e => onKeyUp(e);
     }
 
     const props = {

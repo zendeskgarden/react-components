@@ -1,0 +1,18 @@
+@import './variables.css';
+
+/* stylelint-disable declaration-no-important, max-line-length */
+.table_row--focused .cell:first-of-type {
+  box-shadow: inset 3px 0 0 0 var(--zd-accent-color) !important;
+}
+
+.table_row:focus .cell:first-of-type {
+  box-shadow: inset 3px 0 0 0 var(--zd-accent-color) !important;
+}
+
+.cell--sortable:hover, .cell--sortable:active, .cell-sortable:focus {
+  color: var(--zd-accent-color) !important;
+}
+
+.cell--sortable.is-descending, .cell--sortable.is-ascending {
+  color: var(--zd-accent-color) !important;
+}
