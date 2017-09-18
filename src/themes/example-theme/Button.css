@@ -12,6 +12,10 @@
 }
 /* stylelint-enable declaration-block-no-duplicate-properties */
 
+.type_anchor {
+  composes: c-btn--custom c-btn--anchor;
+}
+
 .type_basic {
   composes: c-btn--custom c-btn--basic;
 }

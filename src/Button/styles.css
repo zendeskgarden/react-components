@@ -29,31 +29,7 @@
 }
 
 .type_anchor {
-  display: inline;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  text-decoration: none;
-  user-select: none;
-  color: var(--zd-color-pelorous);
-}
-
-.type_anchor:focus {
-  outline: none;
-  text-decoration: none;
-}
-
-.type_anchor:active {
-  text-decoration: none;
-}
-
-.type_anchor.focused {
-  text-decoration: underline;
-}
-
-.type_anchor.disabled {
-  cursor: default;
-  color: var(--zd-color-monsoon);
+  composes: c-btn c-btn--anchor from '@zendesk/garden-css-buttons';
 }
 
 .pill {
