@@ -28,7 +28,7 @@ const selectTheme = (theme) => {
     <Button onClick={ () => selectTheme('default') }>Default theme</Button>
   </ThemeProvider>
   <ThemeProvider theme={ electroidDarkTheme }>
-    <Button onClick={ () => selectTheme('electroid-dark') }>Electroid Dark theme</Button>
+    <Button onClick={ () => selectTheme('electroid-dark') } type='primary'>Dark theme</Button>
   </ThemeProvider>
   <ThemeProvider theme={ exampleTheme }>
     <Button onClick={ () => selectTheme('example') }>Example theme</Button>
