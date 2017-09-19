@@ -1,12 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
 import View from "../core/View";
+import ThemedComponent from "../utils/theming/ThemedComponent";
 
 import styles from "./styles.css";
 
-export default class Anchor extends Component {
+export default class Anchor extends ThemedComponent {
   static propTypes = {
     autoFocus: PropTypes.bool,
     className: PropTypes.string,
@@ -21,8 +22,11 @@ export default class Anchor extends Component {
     tabIndex: 0
   };
 
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context, {
+      namespace: "Anchor",
+      styles
+    });
 
     this.state = {
       isFocused: false
@@ -73,6 +77,7 @@ export default class Anchor extends Component {
   };
 
   render() {
+    const { theme } = this;
     const {
       className,
       tabIndex,
@@ -84,15 +89,15 @@ export default class Anchor extends Component {
 
     return (
       <View
-        className={styles.container}
+        className={theme.container}
         onFocus={this.onFocus}
         onBlur={this.onBlur}
         testId={testId}
         onMouseDown={this.onMouseDown}
       >
         <a
-          className={classNames(className, styles.anchor, {
-            [styles.focused]: isFocused
+          className={classNames(className, theme.anchor, {
+            [theme.focused]: isFocused
           })}
           ref={ref => {
             this.anchorElement = ref;

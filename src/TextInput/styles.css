@@ -14,10 +14,6 @@
   composes: c-txt__input--bare from '@zendesk/garden-css-forms';
 }
 
-.input::-ms-clear {
-  display: none;
-}
-
 .label {
   composes: c-txt__label from '@zendesk/garden-css-forms';
 }

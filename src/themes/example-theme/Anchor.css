@@ -1,0 +1,10 @@
+@import '@zendesk/garden-css-buttons/src/custom';
+@import './variables';
+
+:root {
+  --zd-btn--custom-color: var(--zd-accent-color);
+}
+
+.anchor {
+  composes: c-btn--custom c-btn--anchor;
+}
