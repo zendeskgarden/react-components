@@ -1,3 +1,4 @@
+import Anchor from "./Anchor.css";
 import Button from "./Button.css";
 import Checkbox from "./Checkbox.css";
 import RadioButton from "./RadioButton.css";
@@ -9,6 +10,7 @@ import Toggle from "./Toggle.css";
 import Tooltip from "./Tooltip.css";
 
 const theme = {
+  Anchor,
   Button,
   Checkbox,
   RadioButton,

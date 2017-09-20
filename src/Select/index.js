@@ -175,7 +175,7 @@ export default class Select extends ThemedComponent {
               title={title}
               tooltipPositioning={tooltipPositioning}
             >
-              {selected}
+              {selected || <span>&nbsp;</span>}
             </View>
           }
           size={size}
