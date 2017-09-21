@@ -1,0 +1,3 @@
+.pagination {
+  composes: c-pagination--dark from '@zendesk/garden-css-pagination';
+}

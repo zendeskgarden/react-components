@@ -1,12 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+
 import P from "./P";
 import View from "../core/View";
-
+import ThemedComponent from "../utils/theming/ThemedComponent";
 import styles from "./styles.css";
 
-export default class Callout extends Component {
+export default class Callout extends ThemedComponent {
   static propTypes = {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
@@ -25,16 +26,26 @@ export default class Callout extends Component {
     floating: false
   };
 
+  constructor(props, context) {
+    super(props, context, {
+      namespace: "Callout",
+      styles
+    });
+  }
+
   static P = P;
 
   renderClose = onClose => {
+    const { theme } = this;
     const { tabIndex } = this.props;
+
     return (
-      <button tabIndex={tabIndex} className={styles.remove} onClick={onClose} />
+      <button tabIndex={tabIndex} className={theme.remove} onClick={onClose} />
     );
   };
 
   render() {
+    const { theme } = this;
     const {
       children,
       className,
@@ -48,13 +59,13 @@ export default class Callout extends Component {
     return (
       <View
         className={classNames(
-          styles[type],
-          { [styles.rtl]: dir === "rtl", [styles.floating]: floating },
+          theme[type],
+          { [theme.rtl]: dir === "rtl", [theme.floating]: floating },
           className
         )}
       >
         {title &&
-          <strong className={styles.title}>
+          <strong className={theme.title}>
             {title}
           </strong>}
         {children}
