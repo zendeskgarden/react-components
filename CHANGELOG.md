@@ -1,5 +1,11 @@
 ## Change Log
 
+### upcoming (2017/09/21 19:05 +00:00)
+- [#307](https://github.com/zendeskgarden/react-components/pull/307) Merge build process commits (@austin94)
+
+### v10.1.0 (2017/09/20 17:23 +00:00)
+- [#300](https://github.com/zendeskgarden/react-components/pull/300) Assorted styling fixes and theming additions (@austin94)
+
 ### v10.0.0 (2017/09/14 21:00 +00:00)
 - [#296](https://github.com/zendeskgarden/react-components/pull/296) Anchor for links only and add a anchor type for the button (Major) (@austin94)
 
@@ -342,8 +348,6 @@
 
 ### v2.2.1 (2016/11/13 20:43 +00:00)
 - [#64](https://github.com/zendeskgarden/react-components/pull/64) Upgraded css-forms to fix positioning bug (@sunesimonsen)
-
-### v2.2.0 (2016/11/08 09:00 +00:00)
 - [#61](https://github.com/zendeskgarden/react-components/pull/61) Upgrade to the latest version of css-buttons (@sunesimonsen)
 - [#59](https://github.com/zendeskgarden/react-components/pull/59) Upgraded to the latest Garden styling (@sunesimonsen)
 - [#58](https://github.com/zendeskgarden/react-components/pull/58) Fixed: Incorrect scrollbar positioning in menus (@sunesimonsen)
