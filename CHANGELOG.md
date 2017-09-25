@@ -1,6 +1,7 @@
 ## Change Log
 
-### upcoming (2017/09/21 19:05 +00:00)
+### v10.1.1 (2017/09/25 08:04 +00:00)
+- [#308](https://github.com/zendeskgarden/react-components/pull/308) Pagination/Callout: Added dark mode theming (@austin94)
 - [#307](https://github.com/zendeskgarden/react-components/pull/307) Merge build process commits (@austin94)
 
 ### v10.1.0 (2017/09/20 17:23 +00:00)
@@ -345,8 +346,6 @@
 - [#68](https://github.com/zendeskgarden/react-components/pull/68) Removed the theme provider wrapper element (@sunesimonsen)
 - [#66](https://github.com/zendeskgarden/react-components/pull/66) Changing the Slack channel to #react (@sunesimonsen)
 - [#65](https://github.com/zendeskgarden/react-components/pull/65) Updated the Slack channel in the readme (@sunesimonsen)
-
-### v2.2.1 (2016/11/13 20:43 +00:00)
 - [#64](https://github.com/zendeskgarden/react-components/pull/64) Upgraded css-forms to fix positioning bug (@sunesimonsen)
 - [#61](https://github.com/zendeskgarden/react-components/pull/61) Upgrade to the latest version of css-buttons (@sunesimonsen)
 - [#59](https://github.com/zendeskgarden/react-components/pull/59) Upgraded to the latest Garden styling (@sunesimonsen)
