@@ -1,7 +1,9 @@
 import Button from "./Button.css";
+import Callout from "./Callout.css";
 import Checkbox from "./Checkbox.css";
 import Menu from "./Menu.css";
 import Modal from "./Modal.css";
+import Pagination from "./Pagination.css";
 import RadioButton from "./RadioButton.css";
 import Range from "./Range.css";
 import Select from "./Select.css";
@@ -13,9 +15,11 @@ import Tooltip from "./Tooltip.css";
 
 const theme = {
   Button,
+  Callout,
   Checkbox,
   Menu,
   Modal,
+  Pagination,
   RadioButton,
   Range,
   Select,

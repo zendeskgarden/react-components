@@ -1,24 +1,27 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
+import ThemedComponent from "../utils/theming/ThemedComponent";
 import styles from "./styles.css";
 
-export default class P extends PureComponent {
+export default class P extends ThemedComponent {
   static propTypes = {
     children: PropTypes.node.isRequired
   };
 
   constructor(props, context) {
     super(props, context, {
-      namespace: "Callout"
+      namespace: "Callout",
+      styles
     });
   }
 
   render() {
+    const { theme } = this;
     const { children } = this.props;
 
     return (
-      <p className={styles.paragraph}>
+      <p className={theme.paragraph}>
         {children}
       </p>
     );
