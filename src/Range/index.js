@@ -9,6 +9,7 @@ import styles from "./styles.css";
 
 export default class Range extends ThemedComponent {
   static propTypes = {
+    className: PropTypes.string,
     defaultValue: PropTypes.number,
     disabled: PropTypes.bool,
     hint: PropTypes.node,
@@ -90,6 +91,7 @@ export default class Range extends ThemedComponent {
 
   render() {
     const {
+      className,
       defaultValue,
       disabled,
       hint,
@@ -116,7 +118,8 @@ export default class Range extends ThemedComponent {
           theme[validation],
           {
             [theme.focused]: focused
-          }
+          },
+          className
         )}
       >
         {this.renderLabel()}

@@ -15,6 +15,7 @@ export default class ButtonGroup extends ThemedComponent {
   static propTypes = {
     active: PropTypes.string,
     children: PropTypes.node.isRequired,
+    className: PropTypes.string,
     dir: PropTypes.oneOf(["ltr", "rtl"]),
     onChange: PropTypes.func,
     size: PropTypes.oneOf(["small", "medium", "large"]),
@@ -85,7 +86,7 @@ export default class ButtonGroup extends ThemedComponent {
   };
 
   render() {
-    const { dir, tabIndex, testId } = this.props;
+    const { dir, tabIndex, testId, className } = this.props;
 
     const { buttons } = this.state;
     const { theme } = this;
@@ -101,9 +102,13 @@ export default class ButtonGroup extends ThemedComponent {
 
     return (
       <nav
-        className={classNames(theme.group, {
-          [theme.rtl]: dir === "rtl"
-        })}
+        className={classNames(
+          theme.group,
+          {
+            [theme.rtl]: dir === "rtl"
+          },
+          className
+        )}
         tabIndex={tabIndex}
         onFocus={() => {
           if (!this.selectionModel.hasSelection() && this.keyboard) {

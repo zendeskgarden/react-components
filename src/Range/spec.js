@@ -210,4 +210,14 @@ describe("Range", () => {
       });
     });
   });
+
+  describe("when given a className", () => {
+    it("renders a Range with the className applied", () => {
+      expect(
+        <Range className="test-class" />,
+        "to render as",
+        <View className="range test-class" />
+      );
+    });
+  });
 });

@@ -302,4 +302,14 @@ describe("RadioButton", () => {
       );
     });
   });
+
+  describe("when given a className", () => {
+    it("renders a RadioButton with the className applied", () => {
+      expect(
+        <RadioButton className="test-class" />,
+        "to render as",
+        <View className="checkbox test-class" />
+      );
+    });
+  });
 });

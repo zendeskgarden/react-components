@@ -2,6 +2,7 @@ import React from "react";
 import expect from "test/expect";
 import sinon from "sinon";
 
+import View from "../core/View";
 import Pagination from "../Pagination";
 
 describe("Pagination", () => {
@@ -439,6 +440,16 @@ describe("Pagination", () => {
           onPageSelected(47)
         );
       });
+    });
+  });
+
+  describe("when given a className", () => {
+    it("renders Pagination with the className applied", () => {
+      expect(
+        <Pagination currentPage={2} total={8} className="test-class" />,
+        "to render as",
+        <View className="pagination test-class" />
+      );
     });
   });
 });

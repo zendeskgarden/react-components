@@ -174,4 +174,14 @@ describe("RadioButtonGroup", () => {
       );
     });
   });
+
+  describe("when given a className", () => {
+    it("renders a RadioButtonGroup with the className applied", () => {
+      expect(
+        <RadioButtonGroup className="test-class" />,
+        "to render as",
+        <View className="test-class" />
+      );
+    });
+  });
 });

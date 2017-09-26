@@ -171,4 +171,18 @@ describe("Tabs", () => {
       );
     });
   });
+
+  describe("when given a className", () => {
+    it("renders Tabs with the className applied", () => {
+      expect(
+        <Tabs className="test-class">
+          <Tabs.Panel label="One" id="one">
+            Panel one
+          </Tabs.Panel>
+        </Tabs>,
+        "to render as",
+        <nav className="tabs test-class" />
+      );
+    });
+  });
 });

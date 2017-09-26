@@ -340,4 +340,14 @@ describe("Toggle", () => {
       );
     });
   });
+
+  describe("when given a className", () => {
+    it("renders a Toggle with the className applied", () => {
+      expect(
+        <Toggle className="test-class" />,
+        "to render as",
+        <View className="toggle test-class" />
+      );
+    });
+  });
 });

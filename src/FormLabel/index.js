@@ -1,12 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ThemedComponent from "../utils/theming/ThemedComponent";
+import classNames from "classnames";
 
+import ThemedComponent from "../utils/theming/ThemedComponent";
 import styles from "./styles.css";
 
 export default class FormLabel extends ThemedComponent {
   static propTypes = {
     children: PropTypes.node,
+    className: PropTypes.string,
     htmlFor: PropTypes.string
   };
 
@@ -18,11 +20,11 @@ export default class FormLabel extends ThemedComponent {
   }
 
   render() {
-    const { children, htmlFor } = this.props;
+    const { children, htmlFor, className } = this.props;
     const { theme } = this;
 
     return (
-      <label htmlFor={htmlFor} className={theme.label}>
+      <label htmlFor={htmlFor} className={classNames(theme.label, className)}>
         {children}
       </label>
     );
