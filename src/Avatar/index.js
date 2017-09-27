@@ -24,8 +24,9 @@ export default class Avatar extends Component {
       .isRequired,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
+    /** Must be wrapped by a <a href="#tooltipprovider">TooltipProvider</a> */
     title: PropTypes.string,
-    /** <a href="#view">See View</a> */
+    /** <a href="#view">See View</a> for positioning options */
     tooltipPositioning: () => {},
     type: PropTypes.oneOf(["human", "system"]).isRequired
   };

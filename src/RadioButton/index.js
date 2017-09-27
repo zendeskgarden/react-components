@@ -22,8 +22,9 @@ export default class RadioButton extends ThemedComponent {
     onChange: PropTypes.func,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
+    /** Must be wrapped by a <a href="#tooltipprovider">TooltipProvider</a> */
     title: PropTypes.string,
-    /** <a href="#view">See View</a> */
+    /** <a href="#view">See View</a> for positioning options */
     tooltipPositioning: () => {},
     value: PropTypes.any,
     validation: PropTypes.oneOf(["error", "warning", "success"]),
