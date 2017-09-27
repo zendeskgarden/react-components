@@ -1,5 +1,8 @@
 ## Change Log
 
+### v10.2.0 (2017/09/27 09:18 +00:00)
+- [#312](https://github.com/zendeskgarden/react-components/pull/312) Added className prop to all components (@austin94)
+
 ### v10.1.1 (2017/09/25 08:04 +00:00)
 - [#308](https://github.com/zendeskgarden/react-components/pull/308) Pagination/Callout: Added dark mode theming (@austin94)
 - [#307](https://github.com/zendeskgarden/react-components/pull/307) Merge build process commits (@austin94)
@@ -341,8 +344,6 @@
 
 ### v2.4.0 (2016/11/17 21:10 +00:00)
 - [#69](https://github.com/zendeskgarden/react-components/pull/69) Use yarn (@albertfdp)
-
-### v2.3.0 (2016/11/17 09:31 +00:00)
 - [#68](https://github.com/zendeskgarden/react-components/pull/68) Removed the theme provider wrapper element (@sunesimonsen)
 - [#66](https://github.com/zendeskgarden/react-components/pull/66) Changing the Slack channel to #react (@sunesimonsen)
 - [#65](https://github.com/zendeskgarden/react-components/pull/65) Updated the Slack channel in the readme (@sunesimonsen)
