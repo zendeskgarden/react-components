@@ -38,9 +38,9 @@ export default class SplitButton extends ThemedComponent {
     size: PropTypes.oneOf(["small", "medium", "large"]),
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
-    /** Enables tooltip */
+    /** Must be wrapped by a <a href="#tooltipprovider">TooltipProvider</a> */
     title: PropTypes.string,
-    /** <a href="#view">See View</a> */
+    /** <a href="#view">See View</a> for positioning options */
     tooltipPositioning: () => {},
     type: PropTypes.oneOf(["default", "primary"]),
     /** <a href="#menu">See Menu</a> */

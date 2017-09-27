@@ -1,3 +1,5 @@
+Tooltips require a parent [TooltipProvider](#tooltipprovider) to become visible.
+
 Positioning:
 ```
 <Grid>

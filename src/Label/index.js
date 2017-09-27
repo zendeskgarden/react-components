@@ -19,8 +19,9 @@ export default class Label extends Component {
     size: PropTypes.oneOf(["small", "medium", "large"]),
     stretched: PropTypes.bool,
     tabIndex: PropTypes.number,
+    /** Must be wrapped by a <a href="#tooltipprovider">TooltipProvider</a> */
     title: PropTypes.string,
-    /** <a href="#view">See View</a> */
+    /** <a href="#view">See View</a> for positioning options */
     tooltipPositioning: () => {},
     type: PropTypes.oneOf([
       "default",

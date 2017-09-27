@@ -26,8 +26,9 @@ export default class IconButton extends ThemedComponent {
     size: PropTypes.oneOf(["small", "medium", "large"]),
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
+    /** Must be wrapped by a <a href="#tooltipprovider">TooltipProvider</a> */
     title: PropTypes.string,
-    /** <a href="#view">See View</a> */
+    /** <a href="#view">See View</a> for positioning options */
     tooltipPositioning: () => {},
     type: PropTypes.oneOf(["default", "primary", "basic"])
   };
