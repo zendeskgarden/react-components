@@ -11,6 +11,7 @@ const sizes = ["small", "medium", "large"];
 export default class Avatar extends Component {
   static propTypes = {
     alt: PropTypes.string,
+    className: PropTypes.string,
     onError: PropTypes.func,
     onLoad: PropTypes.func,
     src: PropTypes.string.isRequired,
@@ -39,6 +40,7 @@ export default class Avatar extends Component {
   render() {
     const {
       alt,
+      className,
       onError,
       onLoad,
       src,
@@ -68,7 +70,7 @@ export default class Avatar extends Component {
 
     return (
       <View
-        className={classNames(classes)}
+        className={classNames(classes, className)}
         style={avatarStyles}
         tabIndex={tabIndex}
         testId={testId}

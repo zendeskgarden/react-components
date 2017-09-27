@@ -1,11 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ThemedComponent from "../utils/theming/ThemedComponent";
+import classNames from "classnames";
 
+import ThemedComponent from "../utils/theming/ThemedComponent";
 import styles from "./styles.css";
 
 export default class FormHint extends ThemedComponent {
   static propTypes = {
+    className: PropTypes.string,
     children: PropTypes.node
   };
 
@@ -17,11 +19,11 @@ export default class FormHint extends ThemedComponent {
   }
 
   render() {
-    const { children } = this.props;
+    const { children, className } = this.props;
     const { theme } = this;
 
     return (
-      <small className={theme.hint}>
+      <small className={classNames(theme.hint, className)}>
         {children}
       </small>
     );

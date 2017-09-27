@@ -12,6 +12,7 @@ export default class Checkbox extends ThemedComponent {
   static propTypes = {
     checked: PropTypes.bool,
     children: PropTypes.node,
+    className: PropTypes.string,
     defaultChecked: PropTypes.bool,
     dir: PropTypes.oneOf(["ltr", "rtl"]),
     disabled: PropTypes.bool,
@@ -47,7 +48,7 @@ export default class Checkbox extends ThemedComponent {
   }
 
   /**
-   * When an indeterminate checkbox is toggled, it should match native checkbox 
+   * When an indeterminate checkbox is toggled, it should match native checkbox
    * functionality and always return true as the new state.
    */
   onChange = event => {
@@ -57,7 +58,7 @@ export default class Checkbox extends ThemedComponent {
   };
 
   /**
-   * Since indeterminate is not a valid INPUT prop, we must dynamically add 
+   * Since indeterminate is not a valid INPUT prop, we must dynamically add
    * this attribute when the component is rendered.
    */
   componentDidMount() {
@@ -71,7 +72,7 @@ export default class Checkbox extends ThemedComponent {
   }
 
   /**
-   * Since indeterminate is not a valid INPUT prop, we must dynamically add 
+   * Since indeterminate is not a valid INPUT prop, we must dynamically add
    * this attribute when the component is updated.
    */
   componentWillUpdate({ indeterminate }) {
@@ -85,6 +86,7 @@ export default class Checkbox extends ThemedComponent {
   render() {
     const {
       checked,
+      className,
       children,
       defaultChecked,
       disabled,
@@ -108,13 +110,18 @@ export default class Checkbox extends ThemedComponent {
 
     return (
       <View
-        className={classNames(theme.checkbox, theme[validation], {
-          [theme.focused]: focused,
-          [theme.rtl]: dir === "rtl",
-          [theme.disabled]: disabled,
-          [theme.noLabel]: !children,
-          [theme.indeterminate]: indeterminate
-        })}
+        className={classNames(
+          theme.checkbox,
+          theme[validation],
+          {
+            [theme.focused]: focused,
+            [theme.rtl]: dir === "rtl",
+            [theme.disabled]: disabled,
+            [theme.noLabel]: !children,
+            [theme.indeterminate]: indeterminate
+          },
+          className
+        )}
         title={title}
         tooltipPositioning={tooltipPositioning}
       >

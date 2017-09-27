@@ -16,6 +16,7 @@ export default class Tabs extends ThemedComponent {
   static propTypes = {
     active: PropTypes.string,
     children: PropTypes.node.isRequired,
+    className: PropTypes.string,
     dir: PropTypes.oneOf(["ltr", "rtl"]),
     onChange: PropTypes.func,
     vertical: PropTypes.bool.isRequired,
@@ -115,7 +116,7 @@ export default class Tabs extends ThemedComponent {
   };
 
   render() {
-    const { dir, tabIndex, testId, vertical } = this.props;
+    const { dir, tabIndex, testId, vertical, className } = this.props;
 
     const { labels, panel } = this.state;
     const { theme } = this;
@@ -131,10 +132,14 @@ export default class Tabs extends ThemedComponent {
 
     return (
       <nav
-        className={classNames(theme.tabs, {
-          [theme.vertical]: vertical,
-          [theme.rtl]: dir === "rtl"
-        })}
+        className={classNames(
+          theme.tabs,
+          {
+            [theme.vertical]: vertical,
+            [theme.rtl]: dir === "rtl"
+          },
+          className
+        )}
         {...props}
       >
         <ul

@@ -327,4 +327,14 @@ describe("Checkbox", () => {
       });
     });
   });
+
+  describe("when given a className", () => {
+    it("renders a Checkbox with the className applied", () => {
+      expect(
+        <Checkbox className="test-class">Test</Checkbox>,
+        "to render as",
+        <View className="checkbox test-class" />
+      );
+    });
+  });
 });

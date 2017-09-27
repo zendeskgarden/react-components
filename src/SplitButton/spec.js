@@ -314,4 +314,19 @@ describe("SplitButton", () => {
         <View className="popup" hidden={false} />
       ));
   });
+
+  describe("when given a className", () => {
+    it("renders a SplitButton with the className applied", () => {
+      expect(
+        <SplitButton className="test-class">
+          <SplitButton.Item>One</SplitButton.Item>
+          <SplitButton.Item>Two</SplitButton.Item>
+          <SplitButton.Item>Three</SplitButton.Item>
+        </SplitButton>,
+        "when deeply rendered",
+        "to contain",
+        <View className="group test-class" />
+      );
+    });
+  });
 });

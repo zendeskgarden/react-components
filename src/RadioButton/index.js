@@ -11,6 +11,7 @@ export default class RadioButton extends ThemedComponent {
   static propTypes = {
     checked: PropTypes.bool,
     children: PropTypes.node,
+    className: PropTypes.string,
     defaultChecked: PropTypes.bool,
     dir: PropTypes.oneOf(["ltr", "rtl"]),
     disabled: PropTypes.bool,
@@ -55,6 +56,7 @@ export default class RadioButton extends ThemedComponent {
     const {
       checked,
       children,
+      className,
       defaultChecked,
       dir,
       disabled,
@@ -77,12 +79,18 @@ export default class RadioButton extends ThemedComponent {
 
     return (
       <View
-        className={classNames(theme.checkbox, theme.radio, theme[validation], {
-          [theme.focused]: focused,
-          [theme.rtl]: dir === "rtl",
-          [theme.disabled]: disabled,
-          [theme.noLabel]: !children
-        })}
+        className={classNames(
+          theme.checkbox,
+          theme.radio,
+          theme[validation],
+          {
+            [theme.focused]: focused,
+            [theme.rtl]: dir === "rtl",
+            [theme.disabled]: disabled,
+            [theme.noLabel]: !children
+          },
+          className
+        )}
         title={title}
         tooltipPositioning={tooltipPositioning}
       >

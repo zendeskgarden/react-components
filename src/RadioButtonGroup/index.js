@@ -7,6 +7,7 @@ import View from "../core/View";
 export default class RadioButtonGroup extends Component {
   static propTypes = {
     children: PropTypes.node,
+    className: PropTypes.string,
     dir: PropTypes.oneOf(["ltr", "rtl"]),
     disabled: PropTypes.bool,
     muted: PropTypes.bool,
@@ -31,7 +32,7 @@ export default class RadioButtonGroup extends Component {
   };
 
   render() {
-    const { children, dir, disabled, muted, selected } = this.props;
+    const { children, dir, disabled, muted, selected, className } = this.props;
 
     const radios = React.Children.map(children, (item, index) =>
       React.cloneElement(item, {
@@ -46,7 +47,7 @@ export default class RadioButtonGroup extends Component {
     );
 
     return (
-      <View>
+      <View className={className}>
         {radios}
       </View>
     );

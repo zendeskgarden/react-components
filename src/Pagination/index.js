@@ -57,7 +57,8 @@ export default class Pagination extends ThemedComponent {
     pageLabelFormatter: PropTypes.func,
     dir: PropTypes.oneOf(["ltr", "rtl"]),
     tabIndex: PropTypes.number,
-    testId: PropTypes.string
+    testId: PropTypes.string,
+    className: PropTypes.string
   };
 
   static defaultProps = {
@@ -276,14 +277,18 @@ export default class Pagination extends ThemedComponent {
 
   render() {
     const { theme } = this;
-    const { dir, tabIndex, testId } = this.props;
+    const { dir, tabIndex, testId, className } = this.props;
     const { pages, currentSelectedPage } = this.state;
 
     return (
       <View
-        className={classNames(theme.pagination, {
-          [theme.is_rtl]: dir === "rtl"
-        })}
+        className={classNames(
+          theme.pagination,
+          {
+            [theme.is_rtl]: dir === "rtl"
+          },
+          className
+        )}
         role="navigation"
         aria-label="Pagination"
         testId={testId}

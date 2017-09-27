@@ -109,4 +109,14 @@ describe("ButtonGroup", () => {
       );
     });
   });
+
+  describe("when given a className", () => {
+    it("renders a ButtonGroup with the className applied", () => {
+      expect(
+        <ButtonGroup className="test-class" />,
+        "to render as",
+        <nav className="group test-class" />
+      );
+    });
+  });
 });

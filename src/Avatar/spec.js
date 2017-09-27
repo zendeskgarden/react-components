@@ -103,4 +103,14 @@ describe("Avatar", () => {
       );
     });
   });
+
+  describe("when given a className", () => {
+    it("renders an Avatar with the className applied", () => {
+      expect(
+        <Avatar src="zendesk.png" className="test-class" />,
+        "to render as",
+        <View className="avatar test-class" />
+      );
+    });
+  });
 });

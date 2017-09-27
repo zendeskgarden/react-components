@@ -11,6 +11,7 @@ import styles from "./styles.css";
 export default class Toggle extends ThemedComponent {
   static propTypes = {
     children: PropTypes.node,
+    className: PropTypes.string,
     checked: PropTypes.bool,
     defaultChecked: PropTypes.bool,
     dir: PropTypes.oneOf(["ltr", "rtl"]),
@@ -79,6 +80,7 @@ export default class Toggle extends ThemedComponent {
     const {
       children,
       checked,
+      className,
       defaultChecked,
       dir,
       disabled,
@@ -98,12 +100,17 @@ export default class Toggle extends ThemedComponent {
 
     return (
       <View
-        className={classNames(theme.toggle, theme[validation], {
-          [theme.disabled]: disabled,
-          [theme.focused]: focused,
-          [theme.rtl]: dir === "rtl",
-          [theme.noLabel]: !children
-        })}
+        className={classNames(
+          theme.toggle,
+          theme[validation],
+          {
+            [theme.disabled]: disabled,
+            [theme.focused]: focused,
+            [theme.rtl]: dir === "rtl",
+            [theme.noLabel]: !children
+          },
+          className
+        )}
       >
         <input
           checked={checked}
