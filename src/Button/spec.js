@@ -164,6 +164,18 @@ describe("Button", () => {
     });
   });
 
+  describe("with the color danger", () => {
+    it("renders a danger button", () => {
+      expect(
+        <Button color="danger">Danger</Button>,
+        "to deeply render as",
+        <View role="button" className="danger">
+          Danger
+        </View>
+      );
+    });
+  });
+
   describe("with the type basic", () => {
     it("renders a basic button", () => {
       expect(

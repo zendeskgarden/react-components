@@ -329,4 +329,22 @@ describe("SplitButton", () => {
       );
     });
   });
+
+  describe("when given a color", () => {
+    it("renders a SplitButton with the correct styling applied", () => {
+      expect(
+        <SplitButton color="danger">
+          <SplitButton.Item>One</SplitButton.Item>
+          <SplitButton.Item>Two</SplitButton.Item>
+          <SplitButton.Item>Three</SplitButton.Item>
+        </SplitButton>,
+        "when deeply rendered",
+        "to contain",
+        <View>
+          <Button color="danger">One</Button>
+          <IconButton color="danger" />
+        </View>
+      );
+    });
+  });
 });

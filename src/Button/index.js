@@ -14,6 +14,7 @@ export default class Button extends ThemedComponent {
     autoFocus: PropTypes.bool,
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
+    color: PropTypes.oneOf(["danger"]),
     disabled: PropTypes.bool,
     onBlur: PropTypes.func,
     onClick: PropTypes.func,
@@ -78,6 +79,7 @@ export default class Button extends ThemedComponent {
     const {
       className,
       children,
+      color,
       disabled,
       stretched,
       pill,
@@ -106,7 +108,8 @@ export default class Button extends ThemedComponent {
             [theme.pill]: pill,
             [theme.stretched]: stretched,
             [theme.disabled]: disabled,
-            [theme.active]: active
+            [theme.active]: active,
+            [theme.danger]: color === "danger"
           },
           className
         )}

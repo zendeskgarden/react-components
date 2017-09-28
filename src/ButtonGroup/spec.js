@@ -46,6 +46,22 @@ describe("ButtonGroup", () => {
     );
   });
 
+  it("renders buttons with danger styling if provided", () => {
+    expect(
+      <ButtonGroup color="danger">
+        <ButtonGroup.Item id="one">One</ButtonGroup.Item>
+        <ButtonGroup.Item id="two">Two</ButtonGroup.Item>
+        <ButtonGroup.Item id="three">Three</ButtonGroup.Item>
+      </ButtonGroup>,
+      "to deeply render as",
+      <nav className="group" role="tablist">
+        <button className="danger">One</button>
+        <button className="danger">Two</button>
+        <button className="danger">Three</button>
+      </nav>
+    );
+  });
+
   describe("when clicking on an enabled tab", () => {
     it("emits an onChange event", () => {
       const onChange = sinon.spy();
