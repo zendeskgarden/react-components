@@ -10,6 +10,7 @@ export { default as FormHint } from "./FormHint";
 export { default as FormLabel } from "./FormLabel";
 export { default as IconButton } from "./IconButton";
 export { default as Label } from "./Label";
+export { default as Loader } from "./Loader";
 export { default as Menu } from "./Menu";
 export { default as Modal } from "./Modal";
 export { default as Pagination } from "./Pagination";

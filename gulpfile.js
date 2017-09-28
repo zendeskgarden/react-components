@@ -215,6 +215,15 @@ gulp.task("js", ["clean"], () => {
     .pipe(gulp.dest("lib/"));
 });
 
+/**
+ * Used to include static assets that are required by the Components
+ */
+gulp.task("assets", ["clean"], () => {
+  return gulp
+    .src(["src/**/*.gif"])
+    .pipe(gulp.dest("lib/"));
+});
+
 gulp.task("watch", () => {
   const watcher = gulp.watch("src/**/*.{css,js}", ["default"]);
   watcher.on("change", event => {
@@ -228,4 +237,4 @@ gulp.task("clean", () => {
   return gulp.src("lib/", { read: false }).pipe(clean());
 });
 
-gulp.task("default", ["css", "js"]);
+gulp.task("default", ["css", "js", "assets"]);
