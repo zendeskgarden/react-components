@@ -32,6 +32,10 @@
   composes: c-btn--custom is-focused;
 }
 
+.active {
+  composes: c-btn--custom is-active;
+}
+
 .disabled {
   composes: c-btn--custom is-disabled;
 }
