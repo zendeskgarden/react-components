@@ -6,7 +6,7 @@ The Table component is a basic abstraction over [react-virtualized](https://bvau
 - Dynamic Resizing
 - Render customization
 
-We provide three abstractions to enforce styling, user experience, navigation, and accessibility.
+We provide abstractions to enforce styling, user experience, navigation, and accessibility.
 
 ### Table
 The main component acts as an abstraction of [react-virtualized Table component and accepts all valid Table props](https://github.com/bvaughn/react-virtualized/blob/master/docs/Table.md) as well those listed above.
@@ -33,7 +33,7 @@ The CheckboxColumn is used to display/manage the selected state of your data.  I
 
 You are able to disable "Select All" functionality with the `allowSelectAll` prop.
 
-### Virtual Scrolling
+### Infinite/Virtual Scrolling
 Our abstraction fully supports the [react-virtualized InfiniteLoader component.](https://github.com/bvaughn/react-virtualized/blob/master/docs/InfiniteLoader.md)
 
 #### Support Example
@@ -59,60 +59,71 @@ for (let x = 0; x < 15; x++) {
                 }
             })()
         });
-        continue;
+    } else {
+        data.push({
+            id: `unique-id-${x}`,
+            displayId: `#${x + 1}`,
+            about: 'Sample about message that is long Sample about message that is long.',
+            group: 'Dev (Lotus)',
+            subject: '[React] is cool',
+            requester: 'John Doe'
+        });
     }
 
-    data.push({
-        id: `unique-id-${x}`,
-        displayId: `#${x + 1}`,
-        about: 'Sample about message that is long Sample about message that is long.',
-        group: 'Dev (Lotus)',
-        subject: '[React] is cool',
-        requester: 'John Doe'
-    });
+
 }
 
-<Table
-    data={data}
-    selectedData={state.selectedData}
-    height={300}
-    isGroupRow={(index) => data[index].isGroup}
-    groupRowRenderer={({rowData}) => {
-        return {
-            label: rowData.label,
-            value: rowData.value
-        };
-    }}>
-    <Table.CheckboxColumn
-        dataKey="id"
-        onSelection={selectedData => setState({ selectedData })} />
-    <Table.Column
-        label='ID'
-        dataKey='displayId'
-        width={50} />
-    <Table.Column
-        label='About'
-        dataKey='about'
-        width={200}
-        flexGrow={1} />
-    <Table.Column
-        label='Group'
-        dataKey='group'
-        width={120} />
-    <Table.Column
-        label='Subject'
-        dataKey='subject'
-        width={150} />
-    <Table.Column
-        label='Requester'
-        dataKey='requester'
-        width={150} />
-</Table>
+<div style={{ height: 400 }}>
+    <Table
+        data={data}
+        selectedData={state.selectedData}
+        isGroupRow={(index) => data[index].isGroup}
+        groupRowRenderer={({rowData}) => {
+            return {
+                label: rowData.label,
+                value: rowData.value
+            };
+        }}>
+        <Table.CheckboxColumn
+            dataKey="id"
+            onSelection={selectedData => setState({ selectedData })} />
+        <Table.Column
+            label='ID'
+            dataKey='displayId'
+            width={50} />
+        <Table.Column
+            label='About'
+            dataKey='about'
+            width={200}
+            flexGrow={1} />
+        <Table.Column
+            label='Group'
+            dataKey='group'
+            width={120} />
+        <Table.Column
+            label='Subject'
+            dataKey='subject'
+            width={150} />
+        <Table.Column
+            label='Requester'
+            dataKey='requester'
+            width={150} />
+    </Table>
+</div>
 ```
 
 #### Custom Renderers
 
+You are able to fully customize the rendering logic at the Row and Column level.
+
+For loading and empty states it is suggested to use the [noRowsRenderer react-virtualized option](https://github.com/bvaughn/react-virtualized/blob/master/docs/Table.md).
+
 ```
+initialState = {
+    isLoading: false,
+    isEmpty: false
+}
+
 const data = [];
 for (let x = 0; x < 100; x++) {
     data.push({
@@ -123,25 +134,40 @@ for (let x = 0; x < 100; x++) {
     });
 }
 
-
-<Table
-    data={data}
-    height={300}
-    scrollToIndex={45}>
-    <Table.Column
-        dataKey="avatar"
-        width={45}
-        cellRenderer={({rowData}) => <Avatar alt={rowData.name} src={rowData.avatar} />} />
-    <Table.Column
-        label="Name"
-        dataKey="name"
-        width={100} />
-    <Table.Column
-        width={125}
-        label="Description"
-        dataKey="description"
-        flexGrow={1} />
-</Table>
+<div>
+    <Checkbox
+        checked={state.isLoading}
+        onChange={isLoading => setState({ isLoading })}>
+        Is Loading
+    </Checkbox>
+    <Checkbox
+        checked={state.isEmpty}
+        onChange={isEmpty => setState({ isEmpty })}>
+        Is Empty Data
+    </Checkbox>
+    <div style={{ height: 300 }}>
+        <Table
+            data={state.isLoading || state.isEmpty ? [] : data}
+            scrollToIndex={45}
+            noRowsRenderer={() =>
+                <div className="u-giga u-light u-ta-center u-mt-xl">{state.isLoading ? <Loader /> : "No results found"}</div>
+            }>
+            <Table.Column
+                dataKey="avatar"
+                width={45}
+                cellRenderer={({rowData}) => <Avatar alt={rowData.name} src={rowData.avatar} />} />
+            <Table.Column
+                label="Name"
+                dataKey="name"
+                width={100} />
+            <Table.Column
+                width={125}
+                label="Description"
+                dataKey="description"
+                flexGrow={1} />
+        </Table>
+    </div>
+</div>
 ```
 
 #### Pagination
@@ -178,23 +204,23 @@ const getPagedData = (data, currentPage, pageSize) => {
     <div className="u-epsilon u-fg-aluminum">
         {(state.currentPage * state.pageSize) + 1}-{(state.currentPage + 1) * state.pageSize} of {data.length}
     </div>
-    <Table
-        data={getPagedData(data, state.currentPage, state.pageSize)}
-        height={275}>
-        <Table.Column
-            dataKey="avatar"
-            width={45}
-            cellRenderer={({rowData}) => <Avatar alt={rowData.name} src={rowData.avatar} />} />
-        <Table.Column
-            label="Name"
-            dataKey="name"
-            width={100} />
-        <Table.Column
-            width={125}
-            label="Description"
-            dataKey="description"
-            flexGrow={1} />
-    </Table>
+    <div style={{height: 275}}>
+        <Table data={getPagedData(data, state.currentPage, state.pageSize)}>
+            <Table.Column
+                dataKey="avatar"
+                width={45}
+                cellRenderer={({rowData}) => <Avatar alt={rowData.name} src={rowData.avatar} />} />
+            <Table.Column
+                label="Name"
+                dataKey="name"
+                width={100} />
+            <Table.Column
+                width={125}
+                label="Description"
+                dataKey="description"
+                flexGrow={1} />
+        </Table>
+    </div>
     <Pagination
         total={Math.floor(data.length / state.pageSize)}
         currentPage={state.currentPage}
@@ -284,12 +310,11 @@ const onSort = ({sortBy, sortDirection}) => {
             <p>SortDirection: { state.sortDirection || 'Unknown' }</p>
         </div>
         <div style={{ marginTop: 20 }}>
-            <p>Clicked Row: { state.rowClicked || 'Unknown' }</p>
+            <p>Clicked Row: { state.rowClicked === undefined ? 'Unknown' : state.rowClicked }</p>
         </div>
     </Grid>
-    <div style={{ marginTop: 25 }}>
+    <div style={{ marginTop: 25, height: 500 }}>
         <Table
-            height={500}
             striped={state.striped}
             density={state.density}
             data={state.data}
