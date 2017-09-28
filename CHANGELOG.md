@@ -1,5 +1,9 @@
 ## Change Log
 
+### v11.0.0 (2017/09/28 19:41 +00:00)
+- [#323](https://github.com/zendeskgarden/react-components/pull/323) Update Icon/SplitButton to use the "Button" namespace [close #316] (Major) (@sunesimonsen)
+- [#315](https://github.com/zendeskgarden/react-components/pull/315) Documentation: Increase transparency of Tooltip requirements (@austin94)
+
 ### v10.2.0 (2017/09/27 09:18 +00:00)
 - [#312](https://github.com/zendeskgarden/react-components/pull/312) Added className prop to all components (@austin94)
 
@@ -341,8 +345,6 @@
 
 ### v2.5.0 (2016/11/18 09:56 +00:00)
 - [#70](https://github.com/zendeskgarden/react-components/pull/70) Upgrade to styleguidist 4.3.3 (@albertfdp, @sunesimonsen)
-
-### v2.4.0 (2016/11/17 21:10 +00:00)
 - [#69](https://github.com/zendeskgarden/react-components/pull/69) Use yarn (@albertfdp)
 - [#68](https://github.com/zendeskgarden/react-components/pull/68) Removed the theme provider wrapper element (@sunesimonsen)
 - [#66](https://github.com/zendeskgarden/react-components/pull/66) Changing the Slack channel to #react (@sunesimonsen)
