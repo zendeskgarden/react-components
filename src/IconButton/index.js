@@ -35,7 +35,7 @@ export default class IconButton extends ThemedComponent {
 
   constructor(props, context) {
     super(props, context, {
-      namespace: "IconButton",
+      namespace: "Button",
       styles
     });
   }
