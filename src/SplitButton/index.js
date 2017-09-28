@@ -61,7 +61,7 @@ export default class SplitButton extends ThemedComponent {
 
   constructor(props, context) {
     super(props, context, {
-      namespace: "Button",
+      namespace: "SplitButton",
       styles
     });
 
