@@ -1,12 +1,15 @@
 .backdrop {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  composes: l-backdrop from '@zendesk/garden-css-modals';
+  /* stylelint-disable max-line-length */
+  composes: l-backdrop l-backdrop--center is-visible from '@zendesk/garden-css-modals';
+  /* stylelint-enable max-line-length */
 }
 
 .dialog {
   composes: c-dialog from '@zendesk/garden-css-modals';
+}
+
+.size_large {
+  composes: c-dialog--large from '@zendesk/garden-css-modals';
 }
 
 .open {
@@ -15,14 +18,6 @@
 
 .rtl {
   composes: is-rtl from '@zendesk/garden-css-modals';
-}
-
-.type_transparent {
-  composes: l-backdrop--transparent from '@zendesk/garden-css-modals';
-}
-
-.type_lightbox {
-  composes: l-backdrop--lightbox from '@zendesk/garden-css-modals';
 }
 
 .header {

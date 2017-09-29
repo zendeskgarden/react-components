@@ -1,58 +1,44 @@
-Types:
+Sizes:
 
 ```
 const { Component } = require('react')
 
 class ModalExample extends Component {
   render () {
-    const { type } = this.props
+    const { size } = this.props
     const { hidden } = this.state || { hidden: true }
 
     return (
       <View>
         <Button onClick={ () => this.setState({ hidden: false })}>
-          { `Show ${type} modal` }
+          { `Show ${size} modal` }
         </Button>
 
         <Modal
           hidden={ hidden }
           onClose={ () => this.setState({ hidden: true }) }
-          type={ type }
+          size={ size }
         >
-          <State initialState={{ value: '' }}>
-            {
-              (state, setState) => (
-                <Grid columns={1} spacing='medium'>
-                  <Text>You can place anything inside a modal.</Text>
-
-                  <Menu
-                    trigger={ <Button>Click me</Button> }
-                    onChange={ (value) => console.log(value) }
-                  >
-                    <Menu.Item value='profile'>Profile</Menu.Item>
-                    <Menu.Item value='settings'>Settings</Menu.Item>
-                    <Menu.Item value='theme editor' disabled>Theme Editor</Menu.Item>
-                    <Menu.Separator/>
-                    <Menu.Item value='article editor'>Article Editor</Menu.Item>
-                    <Menu.Item value='sign out'>Sign Out</Menu.Item>
-                  </Menu>
-
-                  <Checkbox
-                    checked={ state.checked }
-                    onChange={ checked => setState({ checked }) }
-                  >
-                    are you happy?
-                  </Checkbox>
-
-                  <TextInput
-                    onChangeText={ (value) => setState({ value }) }
-                    placeholder='Write something here'
-                    value={ state.value }
-                  />
-                </Grid>
-              )
-            }
-          </State>
+          <Modal.Header>
+            <Modal.Title>A { size } size modal</Modal.Title>
+            <Modal.CloseButton
+              onClick={ () => this.setState({ hidden: true }) }
+            />
+          </Modal.Header>
+          <Modal.Body>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+            Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+            unknown printer took a galley of type and scrambled it to make a type specimen
+            book. It has survived not only five centuries, but also the leap into electronic
+            typesetting, remaining essentially unchanged. It was popularised in the 1960s
+            with the release of Letraset sheets containing Lorem Ipsum passages, and more
+            recently with desktop publishing software like Aldus PageMaker including
+            versions of Lorem Ipsum.
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={ () => this.setState({ hidden: true }) } size='medium' type='basic'>Cancel</Button>
+            <Button autoFocus size='medium' type='primary'>Ok</Button>
+          </Modal.Footer>
         </Modal>
       </View>
     )
@@ -60,13 +46,12 @@ class ModalExample extends Component {
 };
 
 <Grid>
-  <ModalExample type='default'/>
-  <ModalExample type='transparent'/>
-  <ModalExample type='lightbox'/>
+  <ModalExample size='default'/>
+  <ModalExample size='large'/>
 </Grid>
 ```
 
-Sizes:
+Widths:
 
 ```
 const { Component } = require('react')
@@ -115,8 +100,7 @@ class ModalExample extends Component {
   <ModalExample width='900px'/>
 </Grid>
 ```
-
-Content:
+Any content may be placed within a modal container:
 
 ```
 initialState = { hidden: true }
@@ -132,41 +116,40 @@ const onOpen = () => setState({ hidden: false });
     hidden={ state.hidden }
     onClose={ onClose }
   >
-    <Modal.Header>
-      <Modal.Title>Dialog Title</Modal.Title>
-      <Modal.CloseButton
-        onClick={ onClose }
-      />
-    </Modal.Header>
-    <Modal.Body>
-      <State initialState={{ value: '' }}>
-        {
-          (state, setState) => (
-            <Grid columns={1} spacing='medium'>
-              <Text>You can place anything inside a modal.</Text>
+    <State initialState={{ value: '' }}>
+      {
+        (state, setState) => (
+          <Grid columns={1} spacing='medium'>
+            <Text>You can place anything inside a modal.</Text>
 
-              <Checkbox
-                checked={ state.checked }
-                onChange={ checked => setState({ checked }) }
-              >
-                are you happy?
-              </Checkbox>
+            <Menu
+              trigger={ <Button>Click me</Button> }
+              onChange={ (value) => console.log(value) }
+            >
+              <Menu.Item value='profile'>Profile</Menu.Item>
+              <Menu.Item value='settings'>Settings</Menu.Item>
+              <Menu.Item value='theme editor' disabled>Theme Editor</Menu.Item>
+              <Menu.Separator/>
+              <Menu.Item value='article editor'>Article Editor</Menu.Item>
+              <Menu.Item value='sign out'>Sign Out</Menu.Item>
+            </Menu>
 
-              <TextInput
-                onChangeText={ (value) => setState({ value }) }
-                placeholder='Write something here'
-                value={ state.value }
-              />
-            </Grid>
-          )
-        }
-      </State>
-    </Modal.Body>
-    <Modal.Footer>
-      <Button autoFocus onClick={ onClose }>
-        Ok
-      </Button>
-    </Modal.Footer>
+            <Checkbox
+              checked={ state.checked }
+              onChange={ checked => setState({ checked }) }
+            >
+              are you happy?
+            </Checkbox>
+
+            <TextInput
+              onChange={ (value) => setState({ value }) }
+              placeholder='Write something here'
+              value={ state.value }
+            />
+          </Grid>
+        )
+      }
+    </State>
   </Modal>
 </View>
 ```
@@ -205,8 +188,8 @@ const onOpen = () => setState({ hidden: false });
       versions of Lorem Ipsum.
     </Modal.Body>
     <Modal.Footer>
-      <Button className='u-ml' onClick={ onClose } type='basic'>Cancel</Button>
-      <Button autoFocus>Ok</Button>
+      <Button onClick={ onClose } size='medium' type='basic'>Cancel</Button>
+      <Button size='medium' type='primary' autoFocus>Ok</Button>
     </Modal.Footer>
   </Modal>
 </View>
