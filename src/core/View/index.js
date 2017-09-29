@@ -111,11 +111,11 @@ export default class View extends Component {
     const { tooltips } = this.context;
 
     if (tooltips && title) {
-      props.onMouseOver = e => {
+      props.onMouseEnter = e => {
         this.tooltipId = tooltips.show(this.element, title, tooltipPositioning);
         this.props.onMouseOver && this.props.onMouseOver(e);
       };
-      ["onMouseOut", "onBlur", "onWheel", "onClick"].forEach(handler => {
+      ["onMouseLeave", "onBlur", "onWheel", "onClick"].forEach(handler => {
         props[handler] = e => {
           tooltips.hide(this.tooltipId);
           this.props[handler] && this.props[handler](e);

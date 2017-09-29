@@ -45,7 +45,7 @@ describe("View", () => {
           tooltips: tooltipManagerStub
         };
 
-        instance.render().props.onMouseOver();
+        instance.render().props.onMouseEnter();
 
         instance.componentWillUnmount();
 
@@ -68,8 +68,8 @@ describe("View", () => {
           tooltips: tooltipManagerStub
         };
 
-        instance.render().props.onMouseOver();
-        instance.render().props.onMouseOut();
+        instance.render().props.onMouseEnter();
+        instance.render().props.onMouseLeave();
 
         expect(spy, "was called with exactly", 42);
       });
