@@ -330,10 +330,10 @@ describe("SplitButton", () => {
     });
   });
 
-  describe("when given a color", () => {
+  describe("when provided danger", () => {
     it("renders a SplitButton with the correct styling applied", () => {
       expect(
-        <SplitButton color="danger">
+        <SplitButton danger>
           <SplitButton.Item>One</SplitButton.Item>
           <SplitButton.Item>Two</SplitButton.Item>
           <SplitButton.Item>Three</SplitButton.Item>
@@ -341,8 +341,8 @@ describe("SplitButton", () => {
         "when deeply rendered",
         "to contain",
         <View>
-          <Button color="danger">One</Button>
-          <IconButton color="danger" />
+          <Button danger>One</Button>
+          <IconButton danger />
         </View>
       );
     });

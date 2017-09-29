@@ -61,7 +61,7 @@ initialState = { active: 'one' };
 
 <ButtonGroup
   active={ state.active }
-  color="danger"
+  danger
   onChange={ (active) => setState({ active })}
 >
   <ButtonGroup.Item id='one'>One</ButtonGroup.Item>

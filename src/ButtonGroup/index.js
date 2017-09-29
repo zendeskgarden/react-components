@@ -16,7 +16,7 @@ export default class ButtonGroup extends ThemedComponent {
     active: PropTypes.string,
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
-    color: PropTypes.oneOf(["danger"]),
+    danger: PropTypes.bool,
     dir: PropTypes.oneOf(["ltr", "rtl"]),
     onChange: PropTypes.func,
     size: PropTypes.oneOf(["small", "medium", "large"]),
@@ -45,7 +45,7 @@ export default class ButtonGroup extends ThemedComponent {
     this.state = {};
   }
 
-  setSelectableItems({ active, children, dir, size, vertical, color }) {
+  setSelectableItems({ active, children, dir, size, vertical, danger }) {
     const buttons = [];
 
     Children.forEach(children, child => {
@@ -59,7 +59,7 @@ export default class ButtonGroup extends ThemedComponent {
             key={id}
             value={id}
             size={size}
-            color={color}
+            danger={danger}
           >
             {children}
           </Item>

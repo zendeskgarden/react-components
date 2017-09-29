@@ -48,7 +48,7 @@ describe("ButtonGroup", () => {
 
   it("renders buttons with danger styling if provided", () => {
     expect(
-      <ButtonGroup color="danger">
+      <ButtonGroup danger>
         <ButtonGroup.Item id="one">One</ButtonGroup.Item>
         <ButtonGroup.Item id="two">Two</ButtonGroup.Item>
         <ButtonGroup.Item id="three">Three</ButtonGroup.Item>

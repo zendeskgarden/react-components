@@ -16,7 +16,7 @@ export default class SplitButton extends ThemedComponent {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-    color: PropTypes.oneOf(["danger"]),
+    danger: PropTypes.bool,
     mainButtonDisabled: PropTypes.bool,
     dropdownDisabled: PropTypes.bool,
     /** Node for main button label, defaults to first child */
@@ -183,7 +183,7 @@ export default class SplitButton extends ThemedComponent {
   render() {
     const {
       className,
-      color,
+      danger,
       dir,
       mainButtonDisabled,
       dropdownDisabled,
@@ -231,7 +231,7 @@ export default class SplitButton extends ThemedComponent {
               pill={pill}
               size={size}
               tabIndex={tabIndex}
-              color={color}
+              danger={danger}
               testId={testId && `${testId}-button`}
               title={title}
               type={type}
@@ -240,7 +240,7 @@ export default class SplitButton extends ThemedComponent {
             </Button>
             <IconButton
               disabled={dropdownDisabled}
-              color={color}
+              danger={danger}
               className={classNames({ [theme.active]: !hidden })}
               isRotated={!hidden}
               onKeyDown={this.onKeyDown}

@@ -164,10 +164,10 @@ describe("Button", () => {
     });
   });
 
-  describe("with the color danger", () => {
+  describe("with danger provided", () => {
     it("renders a danger button", () => {
       expect(
-        <Button color="danger">Danger</Button>,
+        <Button danger>Danger</Button>,
         "to deeply render as",
         <View role="button" className="danger">
           Danger

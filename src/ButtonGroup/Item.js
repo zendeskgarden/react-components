@@ -11,7 +11,7 @@ class Item extends ThemedComponent {
   static propTypes = {
     active: PropTypes.bool,
     children: PropTypes.node,
-    color: PropTypes.oneOf(["danger"]),
+    danger: PropTypes.bool,
     disabled: PropTypes.bool,
     onClick: PropTypes.func,
     onMouseEnter: PropTypes.func,
@@ -36,7 +36,7 @@ class Item extends ThemedComponent {
     const {
       active,
       children,
-      color,
+      danger,
       disabled,
       onClick,
       onMouseEnter,
@@ -57,7 +57,7 @@ class Item extends ThemedComponent {
           [theme.disabled]: disabled,
           [theme.selected]: active,
           [theme.focused]: !selectedByMouse && selected,
-          [theme.danger]: color === "danger"
+          [theme.danger]: danger
         })}
         onClick={onClick}
         onMouseEnter={onMouseEnter}

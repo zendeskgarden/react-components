@@ -19,11 +19,11 @@ describe("IconButton", () => {
 
   it("renders a button with danger styling if provided", () => {
     expect(
-      <IconButton color="danger">
+      <IconButton danger>
         <img src="http://placeskull.com/18/18/03363d" />
       </IconButton>,
       "to render as",
-      <Button color="danger">
+      <Button danger>
         <img className="icon" src="http://placeskull.com/18/18/03363d" />
       </Button>
     );
