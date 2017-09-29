@@ -105,13 +105,14 @@ export default class Menu extends Component {
     }
   };
 
-  closeMenu = () => {
+  closeMenu = e => {
     const { onClose } = this.props;
 
     this.selectionModel.clear();
     this.setState({ hidden: true }, () => {
       onClose && onClose();
     });
+    e && e.stopPropagation();
   };
 
   toggleHidden = e => {
