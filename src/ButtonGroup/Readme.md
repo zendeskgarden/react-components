@@ -54,6 +54,22 @@ initialState = {
 </Grid>
 ```
 
+Danger styling
+
+```
+initialState = { active: 'one' };
+
+<ButtonGroup
+  active={ state.active }
+  danger
+  onChange={ (active) => setState({ active })}
+>
+  <ButtonGroup.Item id='one'>One</ButtonGroup.Item>
+  <ButtonGroup.Item id='two'>Two</ButtonGroup.Item>
+  <ButtonGroup.Item id='three'>Three</ButtonGroup.Item>
+</ButtonGroup>
+```
+
 Support for RTL:
 
 ```

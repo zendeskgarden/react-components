@@ -15,6 +15,7 @@ export default class IconButton extends ThemedComponent {
       PropTypes.string
     ]),
     className: PropTypes.string,
+    danger: PropTypes.bool,
     disabled: PropTypes.bool,
     isRotated: PropTypes.bool,
     onBlur: PropTypes.func,

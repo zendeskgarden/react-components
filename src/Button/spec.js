@@ -164,6 +164,18 @@ describe("Button", () => {
     });
   });
 
+  describe("with danger provided", () => {
+    it("renders a danger button", () => {
+      expect(
+        <Button danger>Danger</Button>,
+        "to deeply render as",
+        <View role="button" className="danger">
+          Danger
+        </View>
+      );
+    });
+  });
+
   describe("with the type basic", () => {
     it("renders a basic button", () => {
       expect(

@@ -3,13 +3,17 @@ Types:
 ```
 const avatar = <img src='http://placeskull.com/18/18/03363d'/>;
 
-<Grid columns={3}>
+<Grid columns={5}>
   <IconButton>{avatar}</IconButton>
   <IconButton type='primary'>{avatar}</IconButton>
   <IconButton type='basic'>{avatar}</IconButton>
+  <IconButton danger>{avatar}</IconButton>
+  <IconButton danger type='primary'>{avatar}</IconButton>
   <IconButton pill>{avatar}</IconButton>
   <IconButton pill type='primary'>{avatar}</IconButton>
   <IconButton pill type='basic'>{avatar}</IconButton>
+  <IconButton pill danger>{avatar}</IconButton>
+  <IconButton pill danger type='primary'>{avatar}</IconButton>
 </Grid>
 ```
 

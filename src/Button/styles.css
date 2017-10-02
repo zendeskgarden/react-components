@@ -12,6 +12,10 @@
   composes: is-focused from '@zendesk/garden-css-buttons';
 }
 
+.danger {
+  composes: c-btn--danger from '@zendesk/garden-css-buttons';
+}
+
 .rtl {
   composes: is-rtl from '@zendesk/garden-css-buttons';
 }

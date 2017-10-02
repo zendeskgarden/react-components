@@ -82,8 +82,13 @@ Types:
 Sizes:
 
 ```
-<Grid columns={1}>
+<Grid columns={2}>
   <SplitButton label='Small' size='small'>
+    <SplitButton.Item value='one'>One</SplitButton.Item>
+    <SplitButton.Item value='two'>Two</SplitButton.Item>
+    <SplitButton.Item value='three'>Three</SplitButton.Item>
+  </SplitButton>
+  <SplitButton label='Small' size='small' danger>
     <SplitButton.Item value='one'>One</SplitButton.Item>
     <SplitButton.Item value='two'>Two</SplitButton.Item>
     <SplitButton.Item value='three'>Three</SplitButton.Item>
@@ -93,7 +98,17 @@ Sizes:
     <SplitButton.Item value='two'>Two</SplitButton.Item>
     <SplitButton.Item value='three'>Three</SplitButton.Item>
   </SplitButton>
+  <SplitButton label='Medium' size='medium' danger>
+    <SplitButton.Item value='one'>One</SplitButton.Item>
+    <SplitButton.Item value='two'>Two</SplitButton.Item>
+    <SplitButton.Item value='three'>Three</SplitButton.Item>
+  </SplitButton>
   <SplitButton label='Large' size='large'>
+    <SplitButton.Item value='one'>One</SplitButton.Item>
+    <SplitButton.Item value='two'>Two</SplitButton.Item>
+    <SplitButton.Item value='three'>Three</SplitButton.Item>
+  </SplitButton>
+  <SplitButton label='Large' size='large' danger>
     <SplitButton.Item value='one'>One</SplitButton.Item>
     <SplitButton.Item value='two'>Two</SplitButton.Item>
     <SplitButton.Item value='three'>Three</SplitButton.Item>

@@ -329,4 +329,22 @@ describe("SplitButton", () => {
       );
     });
   });
+
+  describe("when provided danger", () => {
+    it("renders a SplitButton with the correct styling applied", () => {
+      expect(
+        <SplitButton danger>
+          <SplitButton.Item>One</SplitButton.Item>
+          <SplitButton.Item>Two</SplitButton.Item>
+          <SplitButton.Item>Three</SplitButton.Item>
+        </SplitButton>,
+        "when deeply rendered",
+        "to contain",
+        <View>
+          <Button danger>One</Button>
+          <IconButton danger />
+        </View>
+      );
+    });
+  });
 });
