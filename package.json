@@ -122,6 +122,7 @@
   },
   "jest": {
     "moduleNameMapper": {
+      "\\.(gif)$": "<rootDir>/test/fileMock.js",
       "\\.(css)$": "<rootDir>/test/styleMock.js",
       "test/expect": "<rootDir>/test/unexpected-with-plugins.js",
       "react-addons-test-utils": "react-dom/test-utils.js"
