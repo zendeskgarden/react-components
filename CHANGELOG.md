@@ -1,5 +1,10 @@
 ## Change Log
 
+### v11.1.0 (2017/10/02 16:05 +00:00)
+- [#326](https://github.com/zendeskgarden/react-components/pull/326) View: Fix tooltip flickering when children are hovered (@austin94)
+- [#322](https://github.com/zendeskgarden/react-components/pull/322) Button: Add danger color styling (@austin94)
+- [#319](https://github.com/zendeskgarden/react-components/pull/319) Loaders: Initial loader implementation (@austin94)
+
 ### v11.0.0 (2017/09/28 19:41 +00:00)
 - [#323](https://github.com/zendeskgarden/react-components/pull/323) Update Icon/SplitButton to use the "Button" namespace [close #316] (Major) (@sunesimonsen)
 - [#315](https://github.com/zendeskgarden/react-components/pull/315) Documentation: Increase transparency of Tooltip requirements (@austin94)
@@ -342,8 +347,6 @@
 
 ### v2.6.0 (2016/11/18 12:29 +00:00)
 - [#71](https://github.com/zendeskgarden/react-components/pull/71) Allow menu positioning to be centered around the arrow (@sunesimonsen)
-
-### v2.5.0 (2016/11/18 09:56 +00:00)
 - [#70](https://github.com/zendeskgarden/react-components/pull/70) Upgrade to styleguidist 4.3.3 (@albertfdp, @sunesimonsen)
 - [#69](https://github.com/zendeskgarden/react-components/pull/69) Use yarn (@albertfdp)
 - [#68](https://github.com/zendeskgarden/react-components/pull/68) Removed the theme provider wrapper element (@sunesimonsen)
