@@ -89,4 +89,23 @@ describe("Modal", () => {
       );
     });
   });
+
+  describe("when size is large", () => {
+    it("renders a large modal", () => {
+      expect(
+        <Modal hidden={false} size="large">
+          Large
+        </Modal>,
+        "to deeply render as",
+        <View className="backdrop">
+          <View
+            aria-labelledby="dialog-title"
+            className="size_large"
+            role="dialog"
+            tabIndex={-1}
+          />
+        </View>
+      );
+    });
+  });
 });

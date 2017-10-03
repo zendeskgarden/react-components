@@ -33,6 +33,7 @@
     "append-styles": "^1.0.0",
     "classnames": "^2.2.5",
     "prop-types": "^15.5.8",
+    "react-is-deprecated": "^0.1.2",
     "tabbable": "^1.0.6",
     "uuid": "^2.0.2 || ^3.0.0"
   },
@@ -48,7 +49,7 @@
     "@zendesk/garden-css-forms": "^3.2.2",
     "@zendesk/garden-css-labels": "^1.0.2",
     "@zendesk/garden-css-menus": "^4.0.0",
-    "@zendesk/garden-css-modals": "^3.0.1",
+    "@zendesk/garden-css-modals": "^4.0.0",
     "@zendesk/garden-css-pagination": "^1.0.0",
     "@zendesk/garden-css-tabs": "^3.0.0",
     "@zendesk/garden-css-tooltips": "^2.0.1",

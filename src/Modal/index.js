@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { findDOMNode } from "react-dom";
+import { deprecate } from "react-is-deprecated";
 
 import ThemedComponent from "../utils/theming/ThemedComponent";
 import styles from "./styles.css";
@@ -20,7 +21,11 @@ export default class Modal extends ThemedComponent {
     dir: PropTypes.oneOf(["ltr", "rtl"]),
     hidden: PropTypes.bool,
     onClose: PropTypes.func,
-    type: PropTypes.oneOf(["default", "transparent", "lightbox"]),
+    size: PropTypes.oneOf(["medium", "large"]),
+    type: deprecate(
+      PropTypes.oneOf(["default", "transparent", "lightbox"]),
+      "The Modal component 'type' prop is deprecated and will be removed in a future version."
+    ),
     testId: PropTypes.string,
     width: PropTypes.string
   };
@@ -28,7 +33,7 @@ export default class Modal extends ThemedComponent {
   static defaultProps = {
     dir: "ltr",
     hidden: false,
-    type: "default"
+    size: "medium"
   };
 
   static Body = Body;
@@ -61,7 +66,7 @@ export default class Modal extends ThemedComponent {
   };
 
   render() {
-    const { children, dir, hidden, onClose, type, testId, width } = this.props;
+    const { children, dir, hidden, onClose, size, testId, width } = this.props;
 
     if (hidden) {
       return null;
@@ -71,7 +76,7 @@ export default class Modal extends ThemedComponent {
 
     return (
       <View
-        className={classNames(theme.backdrop, theme[`type_${type}`])}
+        className={classNames(theme.backdrop, theme[dir])}
         onClick={onClose}
         onEscape={onClose}
         onTab={this.onTab}
@@ -83,9 +88,14 @@ export default class Modal extends ThemedComponent {
       >
         <View
           aria-labelledby="dialog-title"
-          className={classNames(theme.dialog, theme[dir], {
-            [theme.open]: !hidden
-          })}
+          className={classNames(
+            theme.dialog,
+            theme[`size_${size}`],
+            theme[dir],
+            {
+              [theme.open]: !hidden
+            }
+          )}
           onClick={e => e.stopPropagation()}
           role="dialog"
           style={{ width }}
