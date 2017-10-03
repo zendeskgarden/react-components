@@ -1,5 +1,8 @@
 ## Change Log
 
+### v11.2.0 (2017/10/03 19:53 +00:00)
+- [#325](https://github.com/zendeskgarden/react-components/pull/325) Update to modals 4.0.0 (@jzempel)
+
 ### v11.1.0 (2017/10/02 16:05 +00:00)
 - [#326](https://github.com/zendeskgarden/react-components/pull/326) View: Fix tooltip flickering when children are hovered (@austin94)
 - [#322](https://github.com/zendeskgarden/react-components/pull/322) Button: Add danger color styling (@austin94)
