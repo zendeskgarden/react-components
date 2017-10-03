@@ -6878,6 +6878,10 @@ react-group@^1.0.4:
   dependencies:
     prop-types "^15.5.10"
 
+react-is-deprecated@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/react-is-deprecated/-/react-is-deprecated-0.1.2.tgz#301148f86ea428fe8e673eca7a372160b7579dbd"
+
 react-render-hook@^0.1.3:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/react-render-hook/-/react-render-hook-0.1.4.tgz#481ebf680919c03e71142ddce409f4e101f9bec4"

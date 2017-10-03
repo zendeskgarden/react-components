@@ -46,7 +46,7 @@ class ModalExample extends Component {
 };
 
 <Grid>
-  <ModalExample size='default'/>
+  <ModalExample size='medium'/>
   <ModalExample size='large'/>
 </Grid>
 ```
