@@ -1,5 +1,8 @@
 ## Change Log
 
+### v11.3.0 (2017/10/04 08:16 +00:00)
+- [#327](https://github.com/zendeskgarden/react-components/pull/327) Added test id's to the Label component (@sunesimonsen)
+
 ### v11.2.0 (2017/10/03 19:53 +00:00)
 - [#325](https://github.com/zendeskgarden/react-components/pull/325) Update to modals 4.0.0 (@jzempel)
 
@@ -344,8 +347,6 @@
 ### v2.7.0 (2016/11/23 10:55 +00:00)
 - [#76](https://github.com/zendeskgarden/react-components/pull/76) Expose an onError hook in the Avatar (@albertfdp)
 - [#75](https://github.com/zendeskgarden/react-components/pull/75) Allow to specify a custom size for the avatar (@sunesimonsen)
-
-### v2.6.1 (2016/11/22 22:11 +00:00)
 - [#73](https://github.com/zendeskgarden/react-components/pull/73) Move focus outline reset into components (@sunesimonsen)
 - [#71](https://github.com/zendeskgarden/react-components/pull/71) Allow menu positioning to be centered around the arrow (@sunesimonsen)
 - [#70](https://github.com/zendeskgarden/react-components/pull/70) Upgrade to styleguidist 4.3.3 (@albertfdp, @sunesimonsen)
