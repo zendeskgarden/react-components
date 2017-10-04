@@ -77,9 +77,9 @@ export const rowRenderer = (
 export const retrieveHeaderHeight = tableProps => {
   const { density } = tableProps;
 
-  if (density === "small") {
+  if (density === "cozy") {
     return 40;
-  } else if (density === "large") {
+  } else if (density === "airy") {
     return 72;
   } else {
     return 48;
@@ -91,9 +91,9 @@ export const retrieveRowHeight = (rowProps, tableProps) => {
   const { density, isGroupRow } = tableProps;
 
   // Group rows are always the small sizing
-  if (density === "small" || (isGroupRow && isGroupRow(index))) {
+  if (density === "cozy" || (isGroupRow && isGroupRow(index))) {
     return 32;
-  } else if (density === "large") {
+  } else if (density === "airy") {
     return 64;
   } else {
     return 40;

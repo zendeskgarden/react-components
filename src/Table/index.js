@@ -40,7 +40,7 @@ export default class Table extends ThemedComponent {
      * Array of selected data ID's
      */
     selectedData: PropTypes.array,
-    density: PropTypes.oneOf(["default", "small", "large"]),
+    density: PropTypes.oneOf(["default", "cozy", "airy"]),
     dir: PropTypes.oneOf(["ltr", "rtl"]),
     height: PropTypes.number,
     onSort: PropTypes.func,
@@ -62,6 +62,7 @@ export default class Table extends ThemedComponent {
       }
     },
     onRowClick: PropTypes.func,
+    onRowFocus: PropTypes.func,
     children: PropTypes.node.isRequired,
     /**
      * The reference of the react-virtualized Table component
@@ -83,7 +84,7 @@ export default class Table extends ThemedComponent {
     });
 
     this.state = {
-      focusedRow: -1,
+      focusedRow: 0,
       isFocused: false
     };
   }
@@ -91,19 +92,17 @@ export default class Table extends ThemedComponent {
   onRowClick = ({ index }) => {
     const { onRowClick } = this.props;
 
-    /**
-     * Necessary to continue Grid focus after DOM element is "virtualized"
-     * https://github.com/bvaughn/react-virtualized/issues/776
-     */
-    if (this.tableRef) {
-      const gridElement = findDOMNode(this.tableRef.Grid);
-      gridElement.focus();
-    }
-
     onRowClick && onRowClick(index);
+    this.onRowFocus(index, true);
+  };
+
+  onRowFocus = (focusedRow, isFocused) => {
+    const { onRowFocus } = this.props;
+    onRowFocus && onRowFocus(focusedRow);
 
     this.setState({
-      focusedRow: index
+      focusedRow,
+      isFocused
     });
   };
 
@@ -111,9 +110,7 @@ export default class Table extends ThemedComponent {
     const { onSort } = this.props;
     onSort && onSort(sortState);
 
-    this.setState({
-      focusedRow: -1
-    });
+    this.onRowFocus(0, false);
   };
 
   retrieveSelectedMapping = selectedData => {
@@ -146,7 +143,7 @@ export default class Table extends ThemedComponent {
           index,
           theme,
           this.selectedMapping,
-          () => this.setState({ focusedRow: -1 })
+          () => this.onRowFocus(0, false)
         );
         tableColumns.push(checkboxColumn);
       }
@@ -187,28 +184,25 @@ export default class Table extends ThemedComponent {
       this.tableRef = tableReference;
       const gridElement = findDOMNode(this.tableRef.Grid);
 
-      gridElement.addEventListener("mouseUp", event => {
-        this.blurredByMouse = true;
+      gridElement.addEventListener("mousedown", event => {
+        this.focusedByMouse = true;
 
         setTimeout(() => {
-          this.blurredByMouse = false;
+          this.focusedByMouse = false;
         }, 0);
       });
 
-      gridElement.addEventListener("focus", event => {
+      gridElement.addEventListener("focusin", event => {
         const { focusedRow } = this.state;
-        const newlyFocusedRow = this.retrieveNextValidFocusIndex(focusedRow);
 
-        this.setState({
-          isFocused: true,
-          focusedRow: newlyFocusedRow
-        });
+        if (!this.focusedByMouse) {
+          const newlyFocusedRow = this.retrieveNextValidFocusIndex(focusedRow);
+          this.onRowFocus(newlyFocusedRow, true);
+        }
       });
 
-      gridElement.addEventListener("blur", event => {
-        if (!this.blurredByMouse) {
-          this.setState({ isFocused: false });
-        }
+      gridElement.addEventListener("focusout", event => {
+        this.setState({ isFocused: false });
       });
 
       gridElement.addEventListener("keydown", event => {
@@ -251,15 +245,14 @@ export default class Table extends ThemedComponent {
           },
           [KEY_CODES.HOME]: event => {
             event.preventDefault();
-            this.setState({
-              focusedRow: this.retrieveNextValidFocusIndex(0)
-            });
+            this.onRowFocus(this.retrieveNextValidFocusIndex(0), true);
           },
           [KEY_CODES.END]: event => {
             event.preventDefault();
-            this.setState({
-              focusedRow: this.retrieveNextValidFocusIndex(data.length - 1)
-            });
+            this.onRowFocus(
+              this.retrieveNextValidFocusIndex(data.length - 1),
+              true
+            );
           }
         };
 
@@ -297,7 +290,12 @@ export default class Table extends ThemedComponent {
                 const focusedRow = this.retrieveNextValidFocusIndex(
                   scrollToRow
                 );
-                this.setState({ focusedRow });
+
+                // Necessary to remove focus from nested element on key navigation
+                const gridElement = findDOMNode(this.tableRef.Grid);
+                gridElement.focus();
+
+                this.onRowFocus(focusedRow, true);
               }}
               mode="cells"
               rowCount={data.length}
@@ -314,8 +312,8 @@ export default class Table extends ThemedComponent {
                   ref={this.applyKeyboardActions}
                   rowGetter={({ index }) => data[index]}
                   className={classNames(theme.table, {
-                    [theme.table_sm]: density === "small",
-                    [theme.table_lg]: density === "large",
+                    [theme.table_sm]: density === "cozy",
+                    [theme.table_lg]: density === "airy",
                     [theme.rtl]: dir === "rtl"
                   })}
                   tabIndex={0}

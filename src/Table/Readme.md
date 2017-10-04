@@ -253,7 +253,8 @@ initialState = {
     selectedData: [],
     sortBy: undefined,
     sortDirection: undefined,
-    rowClicked: undefined
+    rowClicked: undefined,
+    focusedIndex: undefined
 };
 
 const onSort = ({sortBy, sortDirection}) => {
@@ -312,6 +313,9 @@ const onSort = ({sortBy, sortDirection}) => {
         <div style={{ marginTop: 20 }}>
             <p>Clicked Row: { state.rowClicked === undefined ? 'Unknown' : state.rowClicked }</p>
         </div>
+        <div style={{ marginTop: 20 }}>
+            <p>Focused Row: { state.focusedIndex === undefined ? 'Unknown' : state.focusedIndex }</p>
+        </div>
     </Grid>
     <div style={{ marginTop: 25, height: 500 }}>
         <Table
@@ -323,7 +327,10 @@ const onSort = ({sortBy, sortDirection}) => {
             sortDirection={state.sortDirection}
             selectedData={state.selectedData}
             onSort={onSort}
-            onRowClick={rowClicked => setState({ rowClicked })}>
+            onRowClick={rowClicked => setState({ rowClicked })}
+            onRowFocus={focusedIndex => {
+                setState({ focusedIndex });
+            }}>
             <Table.CheckboxColumn
                 dataKey="id"
                 allowSelectAll={state.allowSelectAll}
@@ -336,6 +343,74 @@ const onSort = ({sortBy, sortDirection}) => {
                 width={125}
                 label="Description"
                 dataKey="description" />
+            <Table.Column
+                width={250}
+                label="Long Description"
+                dataKey="longText"
+                flexGrow={1}
+                disableSort />
+            <Table.Column
+                width={145}
+                label="Date"
+                dataKey="timestamp"
+                cellRenderer={({rowData, dataKey}) => rowData[dataKey].toLocaleDateString()}
+                disableSort />
+        </Table>
+    </div>
+</div>
+```
+
+#### Tabbable Cell Content
+
+Due to the complexity of determining the focusability of custom renderers, we require the consumer to apply `tabIndex={0}` to all tabbable components when the current row index is equal to the currently focused row. Otherwise, `tabIndex={-1}` should be applied.  This focusedIndex is avaiable through the `onRowFocus` prop and is demonstrated below.
+
+The goal of this separation is to allow the user to tab to the focused row, tab through all focusable elements within that row, and then exit the table.
+
+```
+const data = [];
+for (let x = 0; x < 1000; x++) {
+    data.push({
+        id: `unique-id-${x}`,
+        name: x % 2 === 0 ? 'Luke Skywalker' : 'Han Solo',
+        description: x % 2 === 0 ? 'Jedi' : 'Smuggler',
+        longText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        timestamp: new Date(),
+        isDisabled: x % 7 === 0 && x !== 0
+    });
+}
+
+initialState = {
+    focusedIndex: undefined,
+    selectedData: []
+};
+
+<div>
+    <div style={{ marginTop: 25, height: 500 }}>
+        <Table
+            data={data}
+            selectedData={state.selectedData}
+            onRowFocus={focusedIndex => setState({ focusedIndex })}>
+            <Table.CheckboxColumn
+                dataKey="id"
+                onSelection={selectedData => setState({ selectedData })} />
+            <Table.Column
+                label="Name"
+                dataKey="name"
+                width={150} />
+            <Table.Column
+                width={125}
+                label="Description"
+                dataKey="description"
+                cellRenderer={({ rowIndex }) => {
+                    const isSelectedRow = rowIndex === state.focusedIndex;
+                    return <Button
+                            tabIndex={isSelectedRow ? 0 : -1}
+                            onClick={event => {
+                                alert('Button selected');
+                            }}>
+                            Testing
+                        </Button>;
+                }} />
             <Table.Column
                 width={250}
                 label="Long Description"

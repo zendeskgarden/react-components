@@ -91,7 +91,8 @@
 }
 
 .table_row:not(.table_row_focused) .cell:first-of-type {
-  box-shadow: inherit;
+  /* stylelint-disable-next-line declaration-no-important */
+  box-shadow: inherit !important;
 }
 
 .ascending {
