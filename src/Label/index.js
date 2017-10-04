@@ -19,6 +19,7 @@ export default class Label extends Component {
     size: PropTypes.oneOf(["small", "medium", "large"]),
     stretched: PropTypes.bool,
     tabIndex: PropTypes.number,
+    testId: PropTypes.string,
     /** Must be wrapped by a <a href="#tooltipprovider">TooltipProvider</a> */
     title: PropTypes.string,
     /** <a href="#view">See View</a> for positioning options */
@@ -54,8 +55,17 @@ export default class Label extends Component {
     onRemove(e);
   };
 
-  renderRemove = onRemove =>
-    <button tabIndex={-1} className={styles.remove} onClick={onRemove} />;
+  renderRemove = onRemove => {
+    const { testId } = this.props;
+    return (
+      <button
+        tabIndex={-1}
+        data-test-id={testId && `${testId}-remove`}
+        className={styles.remove}
+        onClick={onRemove}
+      />
+    );
+  };
 
   render() {
     const {
@@ -70,6 +80,7 @@ export default class Label extends Component {
       size,
       stretched,
       tabIndex,
+      testId,
       type,
       title,
       tooltipPositioning
@@ -90,6 +101,7 @@ export default class Label extends Component {
         )}
         onDelete={onRemove && this.onKeyboardRemove}
         tabIndex={tabIndex}
+        testId={testId}
         title={title}
         tooltipPositioning={tooltipPositioning}
       >
