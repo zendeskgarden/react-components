@@ -42,9 +42,9 @@
   version "3.0.0"
   resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-tabs/-/@zendesk/garden-css-tabs-3.0.0.tgz#a4662f0abc80e2b892ad1e5d78697bb0e19a5cc5"
 
-"@zendesk/garden-css-tooltips@^2.0.1":
-  version "2.0.1"
-  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-tooltips/-/@zendesk/garden-css-tooltips-2.0.1.tgz#9f25616040062326bd1cf1528145bd64842b8fe9"
+"@zendesk/garden-css-tooltips@^2.0.2":
+  version "2.0.2"
+  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-tooltips/-/@zendesk/garden-css-tooltips-2.0.2.tgz#a2f4e75274d3ae049cc3290ff58b11d65ff93227"
 
 "@zendesk/garden-css-variables@^2.1.0":
   version "2.1.0"
