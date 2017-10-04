@@ -343,8 +343,6 @@
 ### v2.8.0 (2016/11/23 19:27 +00:00)
 - [#78](https://github.com/zendeskgarden/react-components/pull/78) Expose onload (@zillding)
 - [#77](https://github.com/zendeskgarden/react-components/pull/77) Expose an onLoad hook in the Avatar (@zillding)
-
-### v2.7.0 (2016/11/23 10:55 +00:00)
 - [#76](https://github.com/zendeskgarden/react-components/pull/76) Expose an onError hook in the Avatar (@albertfdp)
 - [#75](https://github.com/zendeskgarden/react-components/pull/75) Allow to specify a custom size for the avatar (@sunesimonsen)
 - [#73](https://github.com/zendeskgarden/react-components/pull/73) Move focus outline reset into components (@sunesimonsen)
