@@ -91,6 +91,29 @@ describe("Label", () => {
     });
   });
 
+  describe("when given a test id", () => {
+    it("applies the test id to the label", () => {
+      return expect(
+        <Label testId="my-test-id">Label</Label>,
+        "to render as",
+        <View testId="my-test-id">Label</View>
+      );
+    });
+
+    it("applies a test id to the remove button", () => {
+      return expect(
+        <Label testId="my-test-id" onRemove={() => {}}>
+          Label
+        </Label>,
+        "to render as",
+        <View testId="my-test-id">
+          <span>Label</span>
+          <button data-test-id="my-test-id-remove" />
+        </View>
+      );
+    });
+  });
+
   describe("when given a onRemove handler", () => {
     it("renders a remove button with the given handler", () => {
       const onRemove = () => {};
