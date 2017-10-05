@@ -332,6 +332,7 @@ export default class Table extends ThemedComponent {
                       theme,
                       this.selectedMapping
                     )}
+                  onHeaderClick={({ event }) => event.preventDefault()}
                   headerRowRenderer={rowProps =>
                     headerRowRenderer(rowProps, this.props, theme)}
                   {...otherTableProps}
