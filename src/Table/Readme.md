@@ -359,7 +359,7 @@ const onSort = ({sortBy, sortDirection}) => {
 
 #### Tabbable Cell Content
 
-Due to the complexity of determining the focusability of custom renderers, we require the consumer to apply `tabIndex={0}` to all tabbable components when the current row index is equal to the currently focused row. Otherwise, `tabIndex={-1}` should be applied.  This focusedIndex is avaiable through the `onRowFocus` prop and is demonstrated below.
+Due to the complexity of determining the focusability of custom renderers, we require the consumer to apply `tabIndex={0}` to all tabbable components when the current row index is equal to the currently focused row. Otherwise, `tabIndex={-1}` should be applied.  This focusedIndex is available through the `onRowFocus` prop and is demonstrated below.
 
 The goal of this separation is to allow the user to tab to the focused row, tab through all focusable elements within that row, and then exit the table.
 
