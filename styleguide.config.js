@@ -4,6 +4,7 @@ var CopyWebpackPlugin = require("copy-webpack-plugin");
 
 var cssnext = require("postcss-cssnext");
 var importer = require("postcss-import");
+var inlineSvg = require("postcss-inline-svg");
 var inputRange = require("sunesimonsen-postcss-input-range");
 
 var sourceDir = path.join(__dirname, "src");
@@ -98,7 +99,16 @@ module.exports = {
               ]
             }),
             inputRange(),
-            cssnext()
+            cssnext(),
+            inlineSvg({
+              path: path.join(
+                __dirname,
+                "node_modules",
+                "@zendesk",
+                "garden-svg-icons",
+                "src"
+              )
+            })
           ]
         }
       }),

@@ -1,5 +1,5 @@
 @import '@zendesk/garden-css-tables/src/custom';
-@import './variables.css';
+@import './variables';
 
 :root {
   --zd-table--custom-color: var(--zd-accent-color);
@@ -26,4 +26,16 @@
 
 .cell_sortable {
   composes: c-table__row__cell__sortable;
+}
+
+.ascending {
+  composes: is-ascending;
+}
+
+.descending {
+  composes: is-descending;
+}
+
+.rtl {
+  composes: is-rtl;
 }
