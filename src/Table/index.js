@@ -42,15 +42,18 @@ export default class Table extends ThemedComponent {
     selectedData: PropTypes.array,
     density: PropTypes.oneOf(["default", "cozy", "airy"]),
     dir: PropTypes.oneOf(["ltr", "rtl"]),
-    height: PropTypes.number,
     onSort: PropTypes.func,
     sortBy: PropTypes.string,
     sortDirection: PropTypes.oneOf(["ASC", "DESC"]),
     isRowDisabled: PropTypes.func,
-    isGroupRow: ({ isGroupRow, groupRowRenderer }) => {
+    isGroupRow: ({ isGroupRow, groupRowRenderer, striped }) => {
       if (isGroupRow && !groupRowRenderer) {
         throw new Error(
           "groupRowRenderer is required if isGroupRow is provided."
+        );
+      } else if (striped) {
+        console.warn(
+          "Striped table styling should not be used with grouped rows."
         );
       }
     },
@@ -67,7 +70,9 @@ export default class Table extends ThemedComponent {
     /**
      * The reference of the react-virtualized Table component
      */
-    ref: PropTypes.func
+    ref: PropTypes.func,
+    height: PropTypes.number,
+    width: PropTypes.number
   };
 
   static defaultProps = {

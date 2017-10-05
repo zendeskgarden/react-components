@@ -1,6 +1,3 @@
-# DO NOT USE
-This component is currently a work-in-progress and is not available for use at this time.
-
 The Table component is a basic abstraction over [react-virtualized](https://bvaughn.github.io/react-virtualized/#/components/Table).  This library has many powerful features including:
 - Virtual Scrolling
 - Dynamic Resizing
