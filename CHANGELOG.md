@@ -1,3 +1,7 @@
+### v11.4.0 (2017-10-06)
+
+- [#330](https://github.com/zendeskgarden/react-components/pull/330)  Replace github-changes with offline-github-changelog ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
 ### v11.3.1 (2017-10-04)
 
 - [#328](https://github.com/zendeskgarden/react-components/pull/328) Update to css-tooltips 2.0.2 ([Jonathan Zempel](mailto:jzempel@gmail.com))
