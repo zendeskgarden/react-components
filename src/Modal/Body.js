@@ -6,7 +6,7 @@ import ThemedComponent from "../utils/theming/ThemedComponent";
 import styles from "./styles.css";
 import View from "../core/View/";
 
-export default class Header extends ThemedComponent {
+export default class Body extends ThemedComponent {
   static propTypes = {
     children: PropTypes.node.isRequired
   };
