@@ -62,9 +62,8 @@ export const rowRenderer = (
     rowProps.columns = [
       <div key={`Row${rowProps.rowIndex}-Col0`} className={theme.cell}>
         {label}
-        <span className={theme.cell_description}>
-          {value}
-        </span>
+        &nbsp;
+        <span className={theme.cell_description}>{value}</span>
       </div>
     ];
   }

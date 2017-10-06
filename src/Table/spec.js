@@ -150,7 +150,7 @@ describe("Table", () => {
           <div className="table_row">Name 0</div>
           <div className="table_row_group">
             <div className="cell">
-              Test Label
+              Test Label&nbsp;
               <span className="cell_description">Test Value</span>
             </div>
           </div>

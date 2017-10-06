@@ -1,17 +1,19 @@
+/* eslint-disable react/prop-types */
+
 import React from "react";
 import classNames from "classnames";
-import { Column } from "react-virtualized";
+import { Column as RVColumn } from "react-virtualized";
 
 import Checkbox from "../Checkbox";
 
-export default function(
+const CheckboxColumn = ({
   childProps,
   tableProps,
   key,
   theme,
   selectedMapping,
   onHeaderSelection
-) {
+}) => {
   const { data, isRowDisabled, isGroupRow } = tableProps;
   const {
     onSelection,
@@ -22,7 +24,7 @@ export default function(
   } = childProps;
 
   if (!onSelection) {
-    return;
+    throw new Error("onSelection is required for CheckboxColumns.");
   }
 
   const numSelectedRows = Object.keys(selectedMapping).length;
@@ -92,7 +94,7 @@ export default function(
   };
 
   return (
-    <Column
+    <RVColumn
       key={key}
       width={30}
       headerClassName={classNames(theme.cell, theme.cell_min, headerClassName)}
@@ -103,4 +105,6 @@ export default function(
       {...otherProps}
     />
   );
-}
+};
+
+export default CheckboxColumn;

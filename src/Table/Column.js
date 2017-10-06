@@ -1,8 +1,10 @@
+/* eslint-disable react/prop-types */
+
 import React from "react";
 import classNames from "classnames";
-import { Column } from "react-virtualized";
+import { Column as RVColumn } from "react-virtualized";
 
-export default function(columnProps, tableProps, key, theme) {
+const Column = ({ columnProps, tableProps, key, theme }) => {
   const { onSort, sortBy, sortDirection } = tableProps;
   const {
     headerClassName,
@@ -14,7 +16,7 @@ export default function(columnProps, tableProps, key, theme) {
   } = columnProps;
 
   return (
-    <Column
+    <RVColumn
       key={key}
       headerClassName={classNames(theme.cell, headerClassName, key)}
       className={classNames(
@@ -44,4 +46,6 @@ export default function(columnProps, tableProps, key, theme) {
       {...otherColumnProps}
     />
   );
-}
+};
+
+export default Column;

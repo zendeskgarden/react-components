@@ -8,7 +8,7 @@ We provide abstractions to enforce styling, user experience, navigation, and acc
 ### Table
 The main component acts as an abstraction of [react-virtualized Table component and accepts all valid Table props](https://github.com/bvaughn/react-virtualized/blob/master/docs/Table.md) as well those listed above.
 
-For a simple table the only required property is an array of data.
+For a simple table the only required property is an array of data. A more complete example of all options can be seen with the Kitchen Sink example below.
 
 ### Table.Column
 This is a general purpose component to apply default cell and header styling. [All react-virtualized Column props are supported.](https://github.com/bvaughn/react-virtualized/blob/master/docs/Column.md) By default all cells are truncated if space is limited.  You can disable this by applying a `truncated` prop.
@@ -26,7 +26,7 @@ const data = [{name: 'Austin'}];
 Column sorting is disabled by applying a `disableSort` prop.
 
 ### Table.CheckboxColumn
-The CheckboxColumn is used to display/manage the selected state of your data.  It uses it's `dataKey` prop to map a unique identifier from each row of data.  Along with the `onSelect` event and the Tables `selectedData` prop it is able to display the tables selection state regardless of sort order.
+The CheckboxColumn is used to display/manage the selected state of your data.  It uses it's `dataKey` prop to map a unique identifier from each row of data.  Along with the `onSelect` event and the tables `selectedData` prop it is able to display the table's selection state regardless of sort order.
 
 You are able to disable "Select All" functionality with the `allowSelectAll` prop.
 
@@ -56,18 +56,17 @@ for (let x = 0; x < 15; x++) {
                 }
             })()
         });
-    } else {
-        data.push({
-            id: `unique-id-${x}`,
-            displayId: `#${x + 1}`,
-            about: 'Sample about message that is long Sample about message that is long.',
-            group: 'Dev (Lotus)',
-            subject: '[React] is cool',
-            requester: 'John Doe'
-        });
+        continue;
     }
 
-
+    data.push({
+        id: `unique-id-${x}`,
+        displayId: `#${x + 1}`,
+        about: 'Sample about message that is long Sample about message that is long.',
+        group: 'Dev (Lotus)',
+        subject: '[React] is cool',
+        requester: 'John Doe'
+    });
 }
 
 <div style={{ height: 400 }}>
@@ -286,9 +285,9 @@ const onSort = ({sortBy, sortDirection}) => {
             onChange={ density => setState({ density }) }
             selected={ state.density }
             size='small'>
-            <Select.Item value='small'>small</Select.Item>
+            <Select.Item value='cozy'>cozy</Select.Item>
             <Select.Item value='default'>default</Select.Item>
-            <Select.Item value='large'>large</Select.Item>
+            <Select.Item value='airy'>airy</Select.Item>
         </Select>
         <p>Selected Data [{ state.selectedData.length }/{ state.data.length }]</p>
         <Checkbox

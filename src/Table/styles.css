@@ -85,14 +85,7 @@
 }
 
 .cell_description {
-  margin-left: 5px;
-  color: var(--zd-color-dark-gray);
   font-weight: var(--zd-font-weight-semibold);
-}
-
-.table_row:not(.table_row_focused) .cell:first-of-type {
-  /* stylelint-disable-next-line declaration-no-important */
-  box-shadow: inherit !important;
 }
 
 .ascending {

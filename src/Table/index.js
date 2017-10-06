@@ -16,7 +16,7 @@ import retrieveStandardColumn from "./Column.js";
 import retrieveCheckboxColumn from "./CheckboxColumn.js";
 import {
   headerRowRenderer,
-  rowRenderer,
+  rowRenderer as defaultRowRenderer,
   retrieveHeaderHeight,
   retrieveRowHeight
 } from "./Rows.js";
@@ -51,7 +51,7 @@ export default class Table extends ThemedComponent {
         throw new Error(
           "groupRowRenderer is required if isGroupRow is provided."
         );
-      } else if (striped) {
+      } else if (isGroupRow && striped) {
         console.warn(
           "Striped table styling should not be used with grouped rows."
         );
@@ -136,21 +136,28 @@ export default class Table extends ThemedComponent {
     React.Children.forEach(children, (child, index) => {
       if (child.type === GardenColumn) {
         tableColumns.push(
-          retrieveStandardColumn(child.props, this.props, index, theme)
+          retrieveStandardColumn({
+            columnProps: child.props,
+            tableProps: this.props,
+            key: index,
+            theme
+          })
         );
       } else if (child.type === GardenCheckboxColumn) {
         this.checkboxDataKey = child.props.dataKey;
         this.onSelection = child.props.onSelection;
 
-        const checkboxColumn = retrieveCheckboxColumn(
-          child.props,
-          this.props,
-          index,
+        const checkboxColumn = retrieveCheckboxColumn({
+          childProps: child.props,
+          tableProps: this.props,
+          key: index,
           theme,
-          this.selectedMapping,
-          () => this.onRowFocus(0, false)
-        );
+          selectedMapping: this.selectedMapping,
+          onHeaderSelection: () => this.onRowFocus(0, false)
+        });
         tableColumns.push(checkboxColumn);
+      } else {
+        tableColumns.push(child);
       }
     });
 
@@ -250,10 +257,20 @@ export default class Table extends ThemedComponent {
           },
           [KEY_CODES.HOME]: event => {
             event.preventDefault();
+
+            // Necessary to remove focus from nested element on key navigation
+            const gridElement = findDOMNode(this.tableRef.Grid);
+            gridElement.focus();
+
             this.onRowFocus(this.retrieveNextValidFocusIndex(0), true);
           },
           [KEY_CODES.END]: event => {
             event.preventDefault();
+
+            // Necessary to remove focus from nested element on key navigation
+            const gridElement = findDOMNode(this.tableRef.Grid);
+            gridElement.focus();
+
             this.onRowFocus(
               this.retrieveNextValidFocusIndex(data.length - 1),
               true
@@ -281,7 +298,14 @@ export default class Table extends ThemedComponent {
 
   render() {
     const { theme } = this;
-    const { className, data, density, dir, ...otherTableProps } = this.props;
+    const {
+      className,
+      data,
+      density,
+      dir,
+      rowRenderer,
+      ...otherTableProps
+    } = this.props;
     const { focusedRow } = this.state;
 
     return (
@@ -324,21 +348,40 @@ export default class Table extends ThemedComponent {
                   tabIndex={0}
                   gridClassName={theme.grid}
                   gridStyle={{ direction: dir }}
-                  rowRenderer={rowProps =>
-                    rowRenderer(
-                      rowProps,
-                      this.props,
-                      this.state,
-                      theme,
-                      this.selectedMapping
-                    )}
-                  onHeaderClick={({ event }) => event.preventDefault()}
+                  onHeaderClick={({ event }) => {
+                    // Necessary to allow Select All to function
+                    const nodeName = event.target.nodeName;
+                    if (nodeName !== "INPUT" && nodeName !== "LABEL") {
+                      event.preventDefault();
+                    }
+                  }}
                   headerRowRenderer={rowProps =>
                     headerRowRenderer(rowProps, this.props, theme)}
                   {...otherTableProps}
                   sort={this.onSort}
                   onRowClick={this.onRowClick}
                   scrollToIndex={scrollToRow}
+                  rowRenderer={rowProps => {
+                    if (rowRenderer) {
+                      return rowRenderer(rowProps, updateRowProps =>
+                        defaultRowRenderer(
+                          updateRowProps,
+                          this.props,
+                          this.state,
+                          theme,
+                          this.selectedMapping
+                        )
+                      );
+                    }
+
+                    return defaultRowRenderer(
+                      rowProps,
+                      this.props,
+                      this.state,
+                      theme,
+                      this.selectedMapping
+                    );
+                  }}
                 >
                   {this.retrieveColumns()}
                 </VirtualTable>}
