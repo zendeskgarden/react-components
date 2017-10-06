@@ -38,6 +38,14 @@ describe("TextArea", () => {
     );
   });
 
+  it("renders with className if provided", () => {
+    expect(
+      <TextArea className="test-class" />,
+      "to render as",
+      <View className="txt test-class" />
+    );
+  });
+
   describe("with the resizable flag", () => {
     it("renders a resizable text area", () => {
       expect(

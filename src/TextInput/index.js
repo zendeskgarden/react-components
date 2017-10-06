@@ -127,7 +127,8 @@ export default class TextInput extends ThemedComponent {
           {
             [theme.disabled]: disabled,
             [theme.rtl]: dir === "rtl"
-          }
+          },
+          className
         )}
         title={title}
         tooltipPositioning={tooltipPositioning}
@@ -143,7 +144,7 @@ export default class TextInput extends ThemedComponent {
           disabled={disabled}
           valueType={valueType}
           id={this.getId()}
-          className={classNames(theme.input, className, {
+          className={classNames(theme.input, {
             [theme.style_bare]: type === "bare"
           })}
           ref={ref => {
