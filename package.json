@@ -12,7 +12,7 @@
   "scripts": {
     "build": "styleguidist build",
     "changelog": "offline-github-changelog > CHANGELOG.md",
-    "commit-lib": "git add lib && git commit -m 'Build lib'",
+    "commit-lib": "git add lib && git commit --allow-empty -m 'Build lib'",
     "css-lint": "stylelint `find src -name '*.css'`",
     "gh-pages": "yarn build && gh-pages -d styleguide",
     "jest": "jest --watch",
@@ -26,7 +26,7 @@
     "start": "styleguidist server",
     "test": "jest",
     "travis": "jest -i",
-    "update-changelog": "yarn changelog && git add CHANGELOG.md && git commit -m 'Updated changelog'",
+    "update-changelog": "yarn changelog && git add CHANGELOG.md && git commit --allow-empty -m 'Updated changelog'",
     "watch": "gulp watch"
   },
   "dependencies": {
