@@ -1,26 +1,26 @@
-var path = require('path');
-var CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
-var DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+var path = require("path");
+var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
+var DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
+var HtmlWebpackPlugin = require("html-webpack-plugin");
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
-var webpack = require('webpack');
+var webpack = require("webpack");
 
-var sourceDir = path.join(__dirname, 'src');
+var sourceDir = path.join(__dirname, "src");
 
 var config = {
   context: __dirname,
 
   entry: {
-    bundle: './src/index.js',
+    bundle: "./src/index.js",
 
-    vendor: ['babel-polyfill', 'react', 'react-dom', 'classnames', 'uuid']
+    vendor: ["babel-polyfill", "react", "react-dom", "classnames", "uuid"]
   },
 
   output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, 'public')
+    filename: "[name].js",
+    path: path.resolve(__dirname, "public")
   },
 
   module: {
@@ -28,34 +28,39 @@ var config = {
       {
         test: /\.js$/,
         include: path.resolve(sourceDir),
-        use: 'babel-loader'
+        use: "babel-loader"
       },
       {
         test: /\.css$/,
-        include: path.resolve(__dirname, 'node_modules'),
+        include: path.resolve(__dirname, "node_modules"),
         use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader'
+          fallback: "style-loader",
+          use: "css-loader"
         })
       },
       {
         test: /\.css$/,
         include: path.resolve(sourceDir),
         use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader'
+          fallback: "style-loader",
+          use: "css-loader"
         })
+      },
+      {
+        test: /\.(svg|png|jpg|gif|woff|woff2)$/,
+        include: [path.join(__dirname, "..", "lib")],
+        loaders: ["url-loader?limit=1000"]
       }
     ]
   },
 
   plugins: [
     new ExtractTextPlugin({
-      filename: '[name].css',
+      filename: "[name].css",
       allChunks: true
     }),
     new CommonsChunkPlugin({
-      names: ['vendor'],
+      names: ["vendor"],
       minChunks: Infinity
     }),
     new HtmlWebpackPlugin(),
@@ -64,7 +69,7 @@ var config = {
   ]
 };
 
-if (process.env.BUNDLE_ANALYZER === 'true') {
+if (process.env.BUNDLE_ANALYZER === "true") {
   config.plugins.push(new BundleAnalyzerPlugin());
 }
 
