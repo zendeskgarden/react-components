@@ -15,6 +15,7 @@ const transform = require("gulp-transform");
 const cleanCSS = require("gulp-clean-css");
 const cssnext = require("postcss-cssnext");
 const importer = require("postcss-import");
+const inlineSvg = require("postcss-inline-svg");
 const inputRange = require("sunesimonsen-postcss-input-range");
 const rename = require("gulp-rename");
 const path = require("path");
@@ -24,6 +25,13 @@ const adler32 = require("adler32");
 
 const sourceDir = path.resolve(__dirname, "src");
 const nodeModulesDir = path.resolve(__dirname, "node_modules");
+const svgDir = path.join(
+  __dirname,
+  "node_modules",
+  "@zendesk",
+  "garden-svg-icons",
+  "src"
+);
 
 const styleMappings = {};
 const composes = {};
@@ -171,6 +179,9 @@ gulp.task("css", ["clean", "process-composed-files"], () => {
         }),
         cssnext(),
         inputRange(),
+        inlineSvg({
+          path: svgDir
+        }),
         modules({
           generateScopedName: (name, filename, css) => {
             const hash = adler32.sum(Buffer.from(css)).toString(16);
