@@ -1,3 +1,14 @@
+### v11.5.1 (2017-10-09)
+
+- [#341](https://github.com/zendeskgarden/react-components/pull/341) Fix inline-svg missing from compiled example theme ([Austin Green](mailto:austingreenkansas@gmail.com))
+
+### v11.5.0 (2017-10-09)
+
+- [#340](https://github.com/zendeskgarden/react-components/pull/340) Fix prepare-release script to run travis testing profile ([Austin Green](mailto:austingreenkansas@gmail.com))
+- [#314](https://github.com/zendeskgarden/react-components/pull/314) Tables: Initial Table implementation ([Austin Green](mailto:austingreenkansas@gmail.com))
+- [#338](https://github.com/zendeskgarden/react-components/pull/338) Fix our example after the requirement of supporting gif loaders ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+- [#333](https://github.com/zendeskgarden/react-components/pull/333) Fix component name of Modal.Body. ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
 ### v11.4.0 (2017-10-06)
 
 - [#330](https://github.com/zendeskgarden/react-components/pull/330)  Replace github-changes with offline-github-changelog ([Sune Simonsen](mailto:sune@we-knowhow.dk))
@@ -91,6 +102,9 @@
 
 - [#265](https://github.com/zendeskgarden/react-components/pull/265) Ellipsis: Add support for rich content in title/tooltips ([Marc Høegh](mailto:Anifacted@users.noreply.github.com))
 - [#262](https://github.com/zendeskgarden/react-components/pull/262) Reformat the rest of the files ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
+### v8.1.1 (2017-08-15)
+
 - [#260](https://github.com/zendeskgarden/react-components/pull/260) Bump version of css-labels to allow for ellipsis overflows ([Austin Green](mailto:austingreenkansas@gmail.com))
 
 ### v8.1.0 (2017-08-14)
