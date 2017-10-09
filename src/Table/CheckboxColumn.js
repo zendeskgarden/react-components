@@ -50,14 +50,16 @@ const CheckboxColumn = ({
         checked={allRowsSelected}
         indeterminate={numSelectedRows > 0 && !allRowsSelected}
         onChange={checked => {
-          const newlySelectedRows = [];
+          let newlySelectedRows = [];
 
           if (checked) {
-            for (let x = 0; x < data.length; x++) {
+            newlySelectedRows = data.reduce((acc, item, x) => {
               if (!(isGroupRow && isGroupRow(x))) {
-                newlySelectedRows.push(data[x][dataKey]);
+                acc.push(data[x][dataKey]);
               }
-            }
+
+              return acc;
+            }, []);
           }
 
           onSelection(newlySelectedRows);
