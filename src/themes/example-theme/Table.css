@@ -1,0 +1,41 @@
+@import '@zendesk/garden-css-tables/src/custom';
+@import './variables';
+
+:root {
+  --zd-table--custom-color: var(--zd-accent-color);
+}
+
+/* stylelint-disable declaration-block-no-duplicate-properties */
+.table {
+  composes: c-table from '@zendesk/garden-css-tables';
+  composes: c-table--custom;
+}
+/* stylelint-enable declaration-block-no-duplicate-properties */
+
+.table_row {
+  composes: c-table__row;
+}
+
+.table_row_focused {
+  composes: is-focused;
+}
+
+.cell {
+  composes: c-table__row__cell;
+}
+
+.cell_sortable {
+  composes: c-table__row__cell__sortable;
+}
+
+.ascending {
+  composes: is-ascending;
+}
+
+.descending {
+  composes: is-descending;
+}
+
+.rtl {
+  composes: is-rtl;
+}

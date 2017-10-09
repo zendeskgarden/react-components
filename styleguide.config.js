@@ -4,9 +4,17 @@ var CopyWebpackPlugin = require("copy-webpack-plugin");
 
 var cssnext = require("postcss-cssnext");
 var importer = require("postcss-import");
+var inlineSvg = require("postcss-inline-svg");
 var inputRange = require("sunesimonsen-postcss-input-range");
 
 var sourceDir = path.join(__dirname, "src");
+var svgPath = path.join(
+  __dirname,
+  "node_modules",
+  "@zendesk",
+  "garden-svg-icons",
+  "src"
+);
 
 module.exports = {
   title: "Zendesk Garden / React Style Guide",
@@ -57,13 +65,7 @@ module.exports = {
           test: /\.(svg|png|jpg|gif|woff|woff2)$/,
           include: [
             sourceDir,
-            path.join(
-              __dirname,
-              "node_modules",
-              "@zendesk",
-              "garden-svg-icons",
-              "src"
-            )
+            svgPath
           ],
           loaders: ["url-loader?limit=1000"]
         },
@@ -98,7 +100,10 @@ module.exports = {
               ]
             }),
             inputRange(),
-            cssnext()
+            cssnext(),
+            inlineSvg({
+              path: svgPath
+            })
           ]
         }
       }),
