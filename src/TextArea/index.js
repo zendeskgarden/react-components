@@ -115,7 +115,8 @@ export default class TextArea extends ThemedComponent {
           {
             [theme.disabled]: disabled,
             [theme.rtl]: dir === "rtl"
-          }
+          },
+          className
         )}
         title={title}
         tooltipPositioning={tooltipPositioning}
@@ -129,14 +130,10 @@ export default class TextArea extends ThemedComponent {
           {...other}
           disabled={disabled}
           dir={dir}
-          className={classNames(
-            theme.input,
-            {
-              [theme.resizable]: resizable,
-              [theme.style_bare]: type === "bare"
-            },
-            className
-          )}
+          className={classNames(theme.input, {
+            [theme.resizable]: resizable,
+            [theme.style_bare]: type === "bare"
+          })}
           id={this.getId()}
           ref={ref => {
             if (ref && ref.input) {

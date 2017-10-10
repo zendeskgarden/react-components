@@ -38,6 +38,14 @@ describe("TextInput", () => {
     );
   });
 
+  it("renders with className if provided", () => {
+    expect(
+      <TextInput className="test-class" />,
+      "to render as",
+      <View className="txt test-class" />
+    );
+  });
+
   describe("with RTL support", () => {
     it("renders with RTL styling when direction is RTL", () => {
       expect(
