@@ -1,3 +1,8 @@
+### v12.0.0 (2017-10-10)
+
+- [#335](https://github.com/zendeskgarden/react-components/pull/335) TextInput/TextArea: Move className to root element (Major) ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+- [#336](https://github.com/zendeskgarden/react-components/pull/336) Output ES6 modules in the compiled lib folder (Major) ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
 ### v11.5.1 (2017-10-09)
 
 - [#341](https://github.com/zendeskgarden/react-components/pull/341) Fix inline-svg missing from compiled example theme ([Austin Green](mailto:austingreenkansas@gmail.com))
@@ -102,9 +107,6 @@
 
 - [#265](https://github.com/zendeskgarden/react-components/pull/265) Ellipsis: Add support for rich content in title/tooltips ([Marc Høegh](mailto:Anifacted@users.noreply.github.com))
 - [#262](https://github.com/zendeskgarden/react-components/pull/262) Reformat the rest of the files ([Sune Simonsen](mailto:sune@we-knowhow.dk))
-
-### v8.1.1 (2017-08-15)
-
 - [#260](https://github.com/zendeskgarden/react-components/pull/260) Bump version of css-labels to allow for ellipsis overflows ([Austin Green](mailto:austingreenkansas@gmail.com))
 
 ### v8.1.0 (2017-08-14)
