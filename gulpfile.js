@@ -217,7 +217,7 @@ gulp.task("js", ["clean"], () => {
         babelrc: false,
         plugins: ["inline-react-svg", "transform-runtime"],
         presets: [
-          ["es2015", { loose: true, modules: "commonjs" }],
+          ["es2015", { loose: true, modules: false }],
           "react",
           "stage-0"
         ]
@@ -230,9 +230,7 @@ gulp.task("js", ["clean"], () => {
  * Used to include static assets that are required by the Components
  */
 gulp.task("assets", ["clean"], () => {
-  return gulp
-    .src(["src/**/*.gif"])
-    .pipe(gulp.dest("lib/"));
+  return gulp.src(["src/**/*.gif"]).pipe(gulp.dest("lib/"));
 });
 
 gulp.task("watch", () => {
