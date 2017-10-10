@@ -169,6 +169,7 @@ for (let x = 0; x < 100; x++) {
 ```
 
 #### Pagination
+
 ```
 initialState={
     currentPage: 0,
@@ -224,6 +225,72 @@ const getPagedData = (data, currentPage, pageSize) => {
         currentPage={state.currentPage}
         onPageSelected={currentPage => { setState({currentPage})}} />
 </div>
+```
+
+#### Overflow Menu
+
+```
+
+initialState={
+    selection: '',
+    showRowOverflow: true
+};
+
+const data = [];
+for (let x = 0; x < 70; x++) {
+    data.push({
+        id: `unique-id-${x}`,
+        name: x % 2 === 0 ? 'John Doe' : 'Jane Doe',
+        avatar: x % 2 === 0 ? './images/jason.png' : './images/amir.png',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    });
+}
+
+const headerMenuItems = (rowProps) => {
+    return [
+        <Menu.Item key="add" onClick={() => setState({selection: "HEADER ADD"})}>Add</Menu.Item>,
+        <Menu.Item key="settings" onClick={() => setState({selection: "HEADER SETTINGS"})}>Settings</Menu.Item>
+    ];
+};
+
+const rowMenuItems = ({rowData}) => {
+    return [
+        <Menu.Item key="copy" onClick={() => setState({selection: `COPY ${rowData.id}`})}>Copy</Menu.Item>,
+        <Menu.Item key="delete" onClick={() => setState({selection: `DELETE ${rowData.id}`})} className="u-fg-flamingo">Delete</Menu.Item>
+    ];
+};
+
+<div>
+    <Grid columns={2} stretched>
+        <div>Current Selection: { state.selection || "Unknown" }</div>
+        <Checkbox
+            checked={state.showRowOverflow}
+            onChange={showRowOverflow => setState({ showRowOverflow })}>
+            Show Row Overflow Menus
+        </Checkbox>
+    </Grid>
+    <div style={{height: 300}}>
+        <Table data={data}>
+            <Table.Column
+                dataKey="avatar"
+                width={45}
+                cellRenderer={({rowData}) => <Avatar alt={rowData.name} src={rowData.avatar} />} />
+            <Table.Column
+                label="Name"
+                dataKey="name"
+                width={100} />
+            <Table.Column
+                width={125}
+                label="Description"
+                dataKey="description"
+                flexGrow={1} />
+            <Table.MenuColumn
+                headerMenuItems={headerMenuItems}
+                rowMenuItems={state.showRowOverflow && rowMenuItems} />
+        </Table>
+    </div>
+</div>
+
 ```
 
 #### Kitchen-Sink

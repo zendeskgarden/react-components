@@ -9,6 +9,7 @@ import styles from "./styles.css";
 
 class Item extends Component {
   static propTypes = {
+    className: PropTypes.string,
     children: PropTypes.node.isRequired,
     disabled: PropTypes.bool,
     onMouseDown: PropTypes.func,
@@ -30,6 +31,7 @@ class Item extends Component {
   render() {
     const {
       children,
+      className,
       disabled,
       onMouseDown,
       onMouseEnter,
@@ -45,10 +47,14 @@ class Item extends Component {
       <View
         aria-activedescendant={selected}
         aria-disabled={disabled}
-        className={classNames(styles.item, {
-          [styles.disabled]: disabled,
-          [styles.focused]: selected
-        })}
+        className={classNames(
+          styles.item,
+          {
+            [styles.disabled]: disabled,
+            [styles.focused]: selected
+          },
+          className
+        )}
         disabled={disabled}
         onMouseDown={onMouseDown}
         onMouseEnter={onMouseEnter}

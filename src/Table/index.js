@@ -14,6 +14,7 @@ import KEY_CODES from "../utils/keyCodes.js";
 
 import retrieveStandardColumn from "./Column.js";
 import retrieveCheckboxColumn from "./CheckboxColumn.js";
+import retrieveMenuColumn from "./MenuColumn.js";
 import {
   headerRowRenderer,
   rowRenderer as defaultRowRenderer,
@@ -24,10 +25,12 @@ import styles from "./styles.css";
 
 class GardenColumn {}
 class GardenCheckboxColumn {}
+class GardenMenuColumn {}
 
 export default class Table extends ThemedComponent {
   static Column = GardenColumn;
   static CheckboxColumn = GardenCheckboxColumn;
+  static MenuColumn = GardenMenuColumn;
 
   static propTypes = {
     striped: PropTypes.bool,
@@ -156,6 +159,15 @@ export default class Table extends ThemedComponent {
           onHeaderSelection: () => this.onRowFocus(0, false)
         });
         tableColumns.push(checkboxColumn);
+      } else if (child.type === GardenMenuColumn) {
+        tableColumns.push(
+          retrieveMenuColumn({
+            columnProps: child.props,
+            tableState: this.state,
+            key: index,
+            theme
+          })
+        );
       } else {
         tableColumns.push(child);
       }

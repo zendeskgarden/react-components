@@ -35,7 +35,9 @@ export default class Menu extends Component {
     testId: PropTypes.string,
     trigger: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
       .isRequired,
-    wide: PropTypes.bool
+    wide: PropTypes.bool,
+    className: PropTypes.string,
+    triggerClassName: PropTypes.string
   };
 
   static defaultProps = {
@@ -145,6 +147,8 @@ export default class Menu extends Component {
       trigger,
       testId,
       stretched,
+      className,
+      triggerClassName,
       ...other
     } = this.props;
 
@@ -172,6 +176,8 @@ export default class Menu extends Component {
 
     return (
       <RelativePositionedPopup
+        className={className}
+        triggerClassName={triggerClassName}
         anchor={anchor}
         centerPoint={centerPoint}
         dir={dir}
