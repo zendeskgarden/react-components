@@ -4,7 +4,7 @@
 
 ## Description
 
-This project provides React components that use the
+This project provides React components that use
 [Zendesk Garden](http://zendeskgarden.github.io/) for styling.
 
 You can see the running component sheet [here](https://zendeskgarden.github.io/react-components).
