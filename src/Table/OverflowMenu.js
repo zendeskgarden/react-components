@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
+import Button from "../Button";
 import Menu from "../Menu";
 
 export default class MenuOverflow extends Component {
@@ -28,9 +29,7 @@ export default class MenuOverflow extends Component {
     const { isFocused } = this.state;
 
     const trigger = ({ open }) =>
-      <div
-        aria-haspopup="true"
-        role="button"
+      <Button.Core
         className={classNames(theme.overflow_menu, {
           [theme.is_focused]: isFocused && !open
         })}
@@ -38,16 +37,15 @@ export default class MenuOverflow extends Component {
         onBlur={() => this.setState({ isFocused: false })}
         tabIndex={isFocusable ? 0 : -1}
       >
-        <span>&nbsp;</span>
-      </div>;
+        &nbsp;
+      </Button.Core>;
 
     return (
       <Menu
         className={theme.popup}
         triggerClassName={theme.popup}
         positioning={["bottom_left", "top_left"]}
-        marginBottom={20}
-        marginTop={-8}
+        stretched
         trigger={trigger}
       >
         {children}
