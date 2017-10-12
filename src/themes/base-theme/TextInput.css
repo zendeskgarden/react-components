@@ -1,10 +1,10 @@
-/* stylelint-disable declaration-no-important */
-.input:focus {
-  border-color: var(--zd-accent-color) !important;
-  box-shadow: 0 0 0 3px var(--zd-focus-color) !important;
+/* stylelint-disable declaration-no-important, max-line-length, no-descending-specificity */
+
+.txt:not(.disabled):not(.success):not(.warning):not(.error):not(.style_bare) .input:not(.style_bare):focus {
+  border-color: var(--zd-text-input-color) !important;
+  box-shadow: 0 0 0 3px var(--zd-text-input-focus-color) !important;
 }
 
-.txt:not(.disabled) .input:hover {
-  border-color: var(--zd-accent-color) !important;
+.txt:not(.disabled):not(.success):not(.warning):not(.error) .input:not(.style_bare):hover {
+  border-color: var(--zd-text-input-color) !important;
 }
-/* stylelint-enable */

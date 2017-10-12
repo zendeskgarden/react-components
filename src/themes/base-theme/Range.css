@@ -1,23 +1,23 @@
 /* stylelint-disable declaration-no-important, max-line-length, selector-pseudo-element-no-unknown */
+
 .input:not(:disabled)::range-track {
-  background-image: linear-gradient(var(--zd-accent-color), var(--zd-accent-color));
+  background-image: linear-gradient(var(--zd-range-color), var(--zd-range-color));
 }
 
 .input:not(:disabled)::range-thumb {
-  border-color: var(--zd-accent-color) !important;
-  background-color: var(--zd-accent-color) !important;
-  color: var(--zd-accent-color) !important;
+  border-color: var(--zd-range-color) !important;
+  background-color: var(--zd-range-color) !important;
+  color: var(--zd-range-color) !important;
 }
 
 .input:not(:disabled)::range-lower {
-  background-color: var(--zd-accent-color) !important;
+  background-color: var(--zd-range-color) !important;
 }
 
 .focused > .input::range-thumb {
-  box-shadow: 0 0 0 2px var(--zd-focus-color) !important;
+  box-shadow: 0 0 0 2px var(--zd-range-focus-color) !important;
 }
 
 .input:not(:disabled):active::range-thumb {
-  background-color: var(--zd-active-color) !important;
+  background-color: var(--zd-range-active-color) !important;
 }
-/* stylelint-enable, selector-pseudo-element-no-unknown */

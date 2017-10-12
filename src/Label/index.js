@@ -1,13 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
 import View from "../core/View";
 
+import ThemedComponent from "../utils/theming/ThemedComponent";
 import styles from "./styles.css";
 import accessibilityStyles from "../utils/styling/accessibility.css";
 
-export default class Label extends Component {
+export default class Label extends ThemedComponent {
   static propTypes = {
     avatar: PropTypes.node,
     children: PropTypes.node.isRequired,
@@ -43,9 +44,16 @@ export default class Label extends Component {
     deleteAccessibilityMessage: "Press delete to remove this label."
   };
 
+  constructor(props, context) {
+    super(props, context, {
+      namespace: "Label",
+      styles
+    });
+  }
+
   renderAvatar = avatar =>
     React.cloneElement(avatar, {
-      className: classNames(styles.avatar, avatar.props.className)
+      className: classNames(this.theme.avatar, avatar.props.className)
     });
 
   onKeyboardRemove = e => {
@@ -56,18 +64,20 @@ export default class Label extends Component {
   };
 
   renderRemove = onRemove => {
+    const { theme } = this;
     const { testId } = this.props;
     return (
       <button
         tabIndex={-1}
         data-test-id={testId && `${testId}-remove`}
-        className={styles.remove}
+        className={theme.remove}
         onClick={onRemove}
       />
     );
   };
 
   render() {
+    const { theme } = this;
     const {
       avatar,
       children,
@@ -89,13 +99,13 @@ export default class Label extends Component {
     return (
       <View
         className={classNames(
-          styles[type],
-          styles[size],
+          theme[type],
+          theme[size],
           {
-            [styles.pill]: pill,
-            [styles.round]: round,
-            [styles.rtl]: dir === "rtl",
-            [styles.stretched]: stretched
+            [theme.pill]: pill,
+            [theme.round]: round,
+            [theme.rtl]: dir === "rtl",
+            [theme.stretched]: stretched
           },
           className
         )}

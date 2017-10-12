@@ -1,7 +1,7 @@
 @import '@zendesk/garden-css-buttons/src/custom';
 
 :root {
-  --zd-btn--custom-color: var(--zd-accent-color);
+  --zd-btn--custom-color: var(--zd-button-color);
 }
 
 /* stylelint-disable declaration-block-no-duplicate-properties */

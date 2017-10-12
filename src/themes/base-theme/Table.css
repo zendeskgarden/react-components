@@ -1,7 +1,7 @@
 @import '@zendesk/garden-css-tables/src/custom';
 
 :root {
-  --zd-table--custom-color: var(--zd-accent-color);
+  --zd-table--custom-color: var(--zd-table-focus-color);
 }
 
 /* stylelint-disable declaration-block-no-duplicate-properties */

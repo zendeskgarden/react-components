@@ -1,23 +1,23 @@
 /* stylelint-disable declaration-no-important */
+
 .checkbox.focused > .label::before {
-  border-color: var(--zd-accent-color) !important;
-  box-shadow: 0 0 0 3px var(--zd-focus-color) !important;
+  border-color: var(--zd-radio-button-color) !important;
+  box-shadow: 0 0 0 3px var(--zd-radio-button-focus-color) !important;
 }
 
 .checkbox:not(.disabled) .label:active:before {
-  border-color: var(--zd-accent-color) !important;
+  border-color: var(--zd-radio-button-color) !important;
 }
 
 .checkbox .input:checked ~ .label:before {
   border-color: transparent !important;
-  background-color: var(--zd-accent-color) !important;
+  background-color: var(--zd-radio-button-color) !important;
 }
 
 .checkbox:not(.disabled) .input ~ .label:hover:before {
-  border-color: var(--zd-accent-color) !important;
+  border-color: var(--zd-radio-button-color) !important;
 }
 
 .checkbox:not(.disabled) .input:checked ~ .label:active:before {
-  background-color: var(--zd-accent-color) !important;
+  background-color: var(--zd-radio-button-color) !important;
 }
-/* stylelint-enable declaration-no-important */

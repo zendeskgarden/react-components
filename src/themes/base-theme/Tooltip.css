@@ -1,4 +1,5 @@
 /* stylelint-disable declaration-no-important */
+
 .tooltip {
   box-shadow: var(--zd-tooltip-box-shadow) !important;
   background: var(--zd-tooltip-background) !important;
