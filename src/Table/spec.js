@@ -179,7 +179,7 @@ describe("Table", () => {
         <div>
           <div className="cell">Name</div>
           <div className="cell">
-            <span className="cell_sortable ascending">Sortable Name</span>
+            <button className="cell_sortable ascending">Sortable Name</button>
           </div>
         </div>
       );

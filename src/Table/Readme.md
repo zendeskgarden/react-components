@@ -146,7 +146,9 @@ for (let x = 0; x < 100; x++) {
             data={state.isLoading || state.isEmpty ? [] : data}
             scrollToIndex={45}
             noRowsRenderer={() =>
-                <div className="u-giga u-light u-ta-center u-mt-xl">{state.isLoading ? <Loader /> : "No results found"}</div>
+                <div className="u-alpha u-light u-ta-center u-mt-xl u-fg-aluminum">
+                    {state.isLoading ? <Loader /> : "No results found"}
+                </div>
             }>
             <Table.Column
                 dataKey="avatar"
@@ -254,6 +256,15 @@ initialState = {
 };
 
 const onSort = ({sortBy, sortDirection}) => {
+    /**
+     * Used to mimic tri-state sorting style.
+     * For bi-state, just remove this conditional.
+     */
+    if (sortBy === state.sortBy && sortDirection === 'ASC') {
+        setState({ sortBy: undefined, sortDirection: undefined, data });
+        return;
+    }
+
     const newData = state.data.sort((a, b) => {
         const aValue = a[sortBy], bValue = b[sortBy];
         if (aValue > bValue) {
