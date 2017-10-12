@@ -10,9 +10,9 @@
   version "1.0.1"
   resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-avatars/-/@zendesk/garden-css-avatars-1.0.1.tgz#e66c6f24ced28a131990e82b935f92c0ed01b425"
 
-"@zendesk/garden-css-buttons@^3.3.1":
-  version "3.3.1"
-  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-buttons/-/@zendesk/garden-css-buttons-3.3.1.tgz#f3d19018adbfdfe129849619765bf8a681b248c2"
+"@zendesk/garden-css-buttons@^3.4.0":
+  version "3.4.0"
+  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-buttons/-/@zendesk/garden-css-buttons-3.4.0.tgz#8807ed0bc7ee2844c0f06fa654711a071aee85ac"
 
 "@zendesk/garden-css-callouts@^1.1.1":
   version "1.1.1"
