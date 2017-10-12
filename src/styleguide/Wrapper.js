@@ -4,6 +4,7 @@ import ThemeProvider from "../utils/theming/ThemeProvider";
 import TooltipProvider from "../utils/tooltips/TooltipProvider";
 import exampleTheme from "../themes/example-theme";
 import electroidDarkTheme from "../themes/electroid-dark-theme";
+import neutralTheme from "../themes/neutral-theme";
 import querystring from "querystring";
 
 export default class Wrapper extends Component {
@@ -41,6 +42,14 @@ export default class Wrapper extends Component {
               >
                 {children}
               </div>
+            </TooltipProvider>
+          </ThemeProvider>
+        );
+      case "neutral-theme":
+        return (
+          <ThemeProvider theme={neutralTheme}>
+            <TooltipProvider id="styleguide-tooltips">
+              {children}
             </TooltipProvider>
           </ThemeProvider>
         );

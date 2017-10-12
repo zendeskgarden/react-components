@@ -1,0 +1,20 @@
+/*
+stylelint-disable
+declaration-no-important,
+string-quotes,
+function-url-quotes
+*/
+
+.focused .input {
+  border-color: var(--zd-accent-color) !important;
+  box-shadow: 0 0 0 3px var(--zd-focus-color) !important;
+}
+
+.txt .input.open:before {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' color='%23e64e65'%3E%3Cpath fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M4 6l3 3 3-3'/%3E%3C/svg%3E") !important;
+}
+
+.txt:not(.disabled) .input:hover {
+  border-color: var(--zd-accent-color) !important;
+}
+/* stylelint-enable */

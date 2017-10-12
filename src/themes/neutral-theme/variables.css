@@ -1,12 +1,9 @@
 /* stylelint-disable max-line-length */
 :root {
-  --zd-accent-color: #e64e65;
+  --zd-accent-color: #333;
   --zd-focus-color: color(var(--zd-accent-color) alpha(40%));
   --zd-active-color: color(var(--zd-accent-color) blackness(+10%));
   --zd-hover-color: color(var(--zd-accent-color) lightness(+10%) saturation(+10%));
-  --zd-anchor-color: var(--zd-accent-color);
-  --zd-tooltip-color: #fff;
-  --zd-tooltip-background: var(--zd-accent-color);
-  --zd-tooltip-box-shadow: 0 1px 0 0 rgba(36, 83, 107, .05);
+  --zd-anchor-color: #07c;
 }
 /* stylelint-enable */

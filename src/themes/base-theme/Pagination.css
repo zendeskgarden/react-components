@@ -1,0 +1,4 @@
+/* stylelint-disable declaration-no-important */
+.is_focused {
+  box-shadow: 0 0 0 3px var(--zd-focus-color) !important;
+}

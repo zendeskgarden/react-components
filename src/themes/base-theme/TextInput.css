@@ -1,0 +1,10 @@
+/* stylelint-disable declaration-no-important */
+.input:focus {
+  border-color: var(--zd-accent-color) !important;
+  box-shadow: 0 0 0 3px var(--zd-focus-color) !important;
+}
+
+.txt:not(.disabled) .input:hover {
+  border-color: var(--zd-accent-color) !important;
+}
+/* stylelint-enable */

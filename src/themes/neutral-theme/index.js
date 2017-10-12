@@ -9,7 +9,6 @@ import Tabs from "./Tabs.css";
 import Table from "./Table.css";
 import TextInput from "./TextInput.css";
 import Toggle from "./Toggle.css";
-import Tooltip from "./Tooltip.css";
 
 const theme = {
   Anchor,
@@ -23,8 +22,7 @@ const theme = {
   Tabs,
   TextArea: TextInput,
   TextInput,
-  Toggle,
-  Tooltip
+  Toggle
 };
 
 export default theme;
