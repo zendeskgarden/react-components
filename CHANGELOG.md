@@ -1,3 +1,8 @@
+### v12.0.1 (2017-10-12)
+
+- [#347](https://github.com/zendeskgarden/react-components/pull/347) Tables: Updated css-tables dependency and correct examples ([Austin Green](mailto:austingreenkansas@gmail.com))
+- [#344](https://github.com/zendeskgarden/react-components/pull/344) Documentation: Add link to Garden Design dropbox paper ([Austin Green](mailto:austingreenkansas@gmail.com))
+
 ### v12.0.0 (2017-10-10)
 
 - [#335](https://github.com/zendeskgarden/react-components/pull/335) TextInput/TextArea: Move className to root element (Major) ([Sune Simonsen](mailto:sune@we-knowhow.dk))
@@ -107,6 +112,9 @@
 
 - [#265](https://github.com/zendeskgarden/react-components/pull/265) Ellipsis: Add support for rich content in title/tooltips ([Marc Høegh](mailto:Anifacted@users.noreply.github.com))
 - [#262](https://github.com/zendeskgarden/react-components/pull/262) Reformat the rest of the files ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
+### v8.1.1 (2017-08-15)
+
 - [#260](https://github.com/zendeskgarden/react-components/pull/260) Bump version of css-labels to allow for ellipsis overflows ([Austin Green](mailto:austingreenkansas@gmail.com))
 
 ### v8.1.0 (2017-08-14)
