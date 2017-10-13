@@ -29,16 +29,25 @@ const Column = ({ columnProps, tableProps, key, theme }) => {
       headerRenderer={// eslint-disable-next-line react/prop-types
       ({ label, dataKey, disableSort }) => {
         const isSortable = onSort && !disableSort;
+        const isAscending = dataKey === sortBy && sortDirection === "ASC";
+        const isDescending = dataKey === sortBy && sortDirection === "DESC";
+
+        if (isSortable) {
+          return (
+            <button
+              tabIndex={0}
+              className={classNames(theme.cell_sortable, {
+                [theme.ascending]: isAscending,
+                [theme.descending]: isDescending
+              })}
+            >
+              {label}
+            </button>
+          );
+        }
 
         return (
-          <span
-            tabIndex={isSortable ? 0 : -1}
-            className={classNames({
-              [theme.cell_sortable]: isSortable,
-              [theme.ascending]: dataKey === sortBy && sortDirection === "ASC",
-              [theme.descending]: dataKey === sortBy && sortDirection === "DESC"
-            })}
-          >
+          <span>
             {label}
           </span>
         );
