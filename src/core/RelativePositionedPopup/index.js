@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import { findDOMNode } from "react-dom";
-import FocusJail from "../../utils/FocusJail";
+import { findDOMNode, render } from "react-dom";
 
+import FocusJail from "../../utils/FocusJail";
 import View from "../View";
 import getBestRelativePlacement from "../../utils/positioning/getBestRelativePlacement";
-import toFixedOffset from "../../utils/positioning/toFixedOffset";
 import styles from "./styles.css";
 
 const positions = [
@@ -98,10 +97,7 @@ class RelativePositionedPopup extends Component {
     if (!hidden) {
       this.anchorRect = this.anchorElement.firstChild.getBoundingClientRect();
       this.popupRect = this.popupElement.firstChild.getBoundingClientRect();
-      const placement = toFixedOffset(
-        this.getBestRelativePlacement(),
-        this.popupElement
-      );
+      const placement = this.getBestRelativePlacement();
       this.setState({
         placement
       });
@@ -137,6 +133,16 @@ class RelativePositionedPopup extends Component {
     getDocuments().forEach(doc => {
       doc.addEventListener("click", this.clickOutsideHandler, true);
     });
+
+    /**
+     * Append RelativePositionGroup element to body to allow visibility
+     * within overflow:hidden parents
+     */
+    const positionedGroup = document.createElement("div");
+    document.body.appendChild(positionedGroup);
+
+    this.relativelyPositionedGroup = positionedGroup;
+    this.componentDidUpdate();
   }
 
   componentWillUnmount() {
@@ -146,6 +152,8 @@ class RelativePositionedPopup extends Component {
     getDocuments().forEach(doc => {
       doc.removeEventListener("click", this.clickOutsideHandler, true);
     });
+
+    document.body.removeChild(this.relativelyPositionedGroup);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -165,6 +173,44 @@ class RelativePositionedPopup extends Component {
         this.updatePlacement();
       }, 0);
     }
+  }
+
+  componentDidUpdate() {
+    const { children, hidden, stretched } = this.props;
+    const { opening, placement } = this.state || {};
+
+    const popupStyle = placement
+      ? {
+          visibility: "visible",
+          top: `${placement.rect.top}px`,
+          left: `${placement.rect.left}px`,
+          height: `${placement.rect.height}px`,
+          width: `${placement.rect.width}px`
+        }
+      : { visibility: "hidden" };
+
+    const position = placement ? placement.position : this.getPositions()[0];
+
+    const popup = (
+      <View
+        className={classNames(styles.popup, {
+          [styles.opening]: opening,
+          [styles.stretched]: stretched
+        })}
+        hidden={hidden}
+        onTab={this.onTab}
+        style={popupStyle}
+        ref={ref => {
+          this.popupElement = this.popupElement || findDOMNode(ref);
+        }}
+      >
+        {hidden
+          ? null
+          : typeof children === "function" ? children(position) : children}
+      </View>
+    );
+
+    render(popup, this.relativelyPositionedGroup);
   }
 
   getPositions = () => {
@@ -227,20 +273,7 @@ class RelativePositionedPopup extends Component {
   };
 
   render() {
-    const { anchor, children, hidden, testId, stretched } = this.props;
-    const { opening, placement } = this.state || {};
-
-    const popupStyle = placement
-      ? {
-          visibility: "visible",
-          top: `${placement.rect.top}px`,
-          left: `${placement.rect.left}px`,
-          height: `${placement.rect.height}px`,
-          width: `${placement.rect.width}px`
-        }
-      : { visibility: "hidden" };
-
-    const position = placement ? placement.position : this.getPositions()[0];
+    const { anchor, testId, stretched } = this.props;
 
     return (
       <View
@@ -258,21 +291,6 @@ class RelativePositionedPopup extends Component {
           }}
         >
           {anchor}
-        </View>
-        <View
-          className={classNames(styles.popup, {
-            [styles.opening]: opening
-          })}
-          hidden={hidden}
-          onTab={this.onTab}
-          style={popupStyle}
-          ref={ref => {
-            this.popupElement = this.popupElement || findDOMNode(ref);
-          }}
-        >
-          {hidden
-            ? null
-            : typeof children === "function" ? children(position) : children}
         </View>
       </View>
     );
