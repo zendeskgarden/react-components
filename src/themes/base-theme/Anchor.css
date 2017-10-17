@@ -1,0 +1,15 @@
+/* stylelint-disable declaration-no-important */
+
+@import '@zendesk/garden-css-buttons/src/custom';
+
+:root {
+  --zd-btn--custom-color: var(--zd-anchor-color);
+}
+
+.anchor {
+  composes: c-btn--custom c-btn--anchor;
+}
+
+.anchor:hover {
+  color: var(--zd-btn--custom-color) !important;
+}

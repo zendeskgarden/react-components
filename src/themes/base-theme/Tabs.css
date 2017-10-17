@@ -1,0 +1,23 @@
+/* stylelint-disable declaration-no-important */
+
+.label:not(.disabled).selected {
+  border-color: var(--zd-accent-color) !important;
+  color: var(--zd-accent-color) !important;
+}
+
+.label:not(.disabled):hover {
+  color: var(--zd-accent-color) !important;
+}
+
+.label:not(.disabled):active {
+  border-color: var(--zd-focus-color) !important;
+  color: var(--zd-accent-color) !important;
+}
+
+.label:not(.disabled).focused {
+  color: var(--zd-accent-color) !important;
+}
+
+.label:not(.disabled).focused:before {
+  box-shadow: inset 0 0 0 2px var(--zd-focus-color) !important;
+}

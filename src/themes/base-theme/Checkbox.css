@@ -1,0 +1,28 @@
+/* stylelint-disable declaration-no-important */
+
+.checkbox:not(.disabled) .label:active:after {
+  border-color: var(--zd-checkbox-color) !important;
+}
+
+.checkbox.focused > .label::before {
+  border-color: var(--zd-checkbox-color) !important;
+  box-shadow: 0 0 0 3px var(--zd-checkbox-focus-color) !important;
+}
+
+.checkbox:not(.disabled).indeterminate > .label::before {
+  border-color: var(--zd-checkbox-color) !important;
+  background-color: var(--zd-checkbox-color) !important;
+}
+
+.checkbox:not(.disabled) .input:checked ~ .label:before {
+  border-color: transparent !important;
+  background-color: var(--zd-checkbox-color) !important;
+}
+
+.checkbox:not(.disabled) .input ~ .label:hover:before {
+  border-color: var(--zd-checkbox-color) !important;
+}
+
+.checkbox:not(.disabled) .input:checked ~ .label:active:before {
+  background-color: var(--zd-checkbox-color) !important;
+}

@@ -1,7 +1,6 @@
 import Anchor from "./Anchor.css";
 import Button from "./Button.css";
 import Checkbox from "./Checkbox.css";
-import Label from "./Label.css";
 import RadioButton from "./RadioButton.css";
 import Range from "./Range.css";
 import Select from "./Select.css";
@@ -15,7 +14,6 @@ const theme = {
   Anchor,
   Button,
   Checkbox,
-  Label,
   Pagination,
   RadioButton,
   Range,

@@ -1,0 +1,10 @@
+/* stylelint-disable declaration-no-important */
+
+.default {
+  background-color: var(--zd-label-color) !important;
+}
+
+.default:focus {
+  border-color: var(--zd-label-color) !important;
+  box-shadow: 0 0 0 2px var(--zd-label-focus-color) !important;
+}
