@@ -1,3 +1,8 @@
+### v12.1.0 (2017-10-17)
+
+- [#353](https://github.com/zendeskgarden/react-components/pull/353) Build: Updated gulp to ignore base-theme css files ([Austin Green](mailto:austingreenkansas@gmail.com))
+- [#345](https://github.com/zendeskgarden/react-components/pull/345) Theming: Create neutral theme ([Austin Green](mailto:austingreenkansas@gmail.com))
+
 ### v12.0.1 (2017-10-12)
 
 - [#347](https://github.com/zendeskgarden/react-components/pull/347) Tables: Updated css-tables dependency and correct examples ([Austin Green](mailto:austingreenkansas@gmail.com))
