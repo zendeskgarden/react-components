@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { findDOMNode, render } from "react-dom";
+import uuid from "uuid";
 
 import FocusJail from "../../utils/FocusJail";
 import View from "../View";
@@ -91,6 +92,12 @@ class RelativePositionedPopup extends Component {
     trapFocus: false
   };
 
+  constructor(props, context) {
+    super(props, context);
+
+    this.popupId = uuid.v4();
+  }
+
   updatePlacement = () => {
     const { hidden } = this.props;
 
@@ -176,7 +183,7 @@ class RelativePositionedPopup extends Component {
   }
 
   componentDidUpdate() {
-    const { children, hidden, stretched } = this.props;
+    const { children, hidden, stretched, testId } = this.props;
     const { opening, placement } = this.state || {};
 
     const popupStyle = placement
@@ -198,11 +205,13 @@ class RelativePositionedPopup extends Component {
           [styles.stretched]: stretched
         })}
         hidden={hidden}
+        id={this.popupId}
         onTab={this.onTab}
         style={popupStyle}
         ref={ref => {
           this.popupElement = this.popupElement || findDOMNode(ref);
         }}
+        testId={testId && `${testId}-popup`}
       >
         {hidden
           ? null
@@ -273,7 +282,7 @@ class RelativePositionedPopup extends Component {
   };
 
   render() {
-    const { anchor, testId, stretched } = this.props;
+    const { anchor, hidden, testId, stretched } = this.props;
 
     return (
       <View
@@ -283,6 +292,8 @@ class RelativePositionedPopup extends Component {
         testId={testId}
       >
         <View
+          aria-haspopup={!hidden}
+          aria-owns={this.popupId}
           className={classNames(styles.trigger, {
             [styles.stretched]: stretched
           })}
