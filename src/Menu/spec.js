@@ -1,5 +1,6 @@
 import React from "react";
 import unexpected from "test/expect";
+import unexpectedDom from "unexpected-dom";
 import sinon from "sinon";
 import Menu from "./";
 import View from "../core/View";
@@ -9,8 +10,9 @@ import RelativePositionedPopup from "../core/RelativePositionedPopup";
 describe("Menu", () => {
   const expect = unexpected
     .clone()
+    .use(unexpectedDom)
     .addAssertion(
-      "<ReactElement> when clicking on the trigger <assertion>",
+      "<ReactElement> when clicking on the trigger <assertion?>",
       (expect, subject) =>
         expect(
           subject,
@@ -20,24 +22,55 @@ describe("Menu", () => {
           "on",
           <Button>trigger</Button>
         ).then(subject => expect.shift(subject))
+    )
+    .addAssertion(
+      "<DOMNode> to have html <string>",
+      (expect, subject, value) => {
+        expect(
+          subject,
+          "to satisfy",
+          value.replace(/^\s+/gm, "").replace(/\s*\n/gm, "")
+        );
+      }
+    )
+    .addAssertion(
+      "<RenderedReactElement> to have rendered menu <string>",
+      (expect, subject, value) => {
+        expect.errorMode = "bubble";
+        expect(subject.props, "to satisfy", {
+          testId: expect.it("to be defined")
+        });
+        expect(
+          document.body,
+          "queried for first",
+          `[data-test-id=${subject.props.testId}-popup]`,
+          "to have html",
+          value
+        );
+      }
     );
 
   describe("with menu items", () => {
-    it("renders a menu containing the items", () =>
+    it.only("renders a menu containing the items", () =>
       expect(
-        <Menu trigger={<Button>trigger</Button>}>
+        <Menu trigger={<Button>trigger</Button>} testId="my-menu">
           <Menu.Item>One</Menu.Item>
           <Menu.Item>Two</Menu.Item>
           <Menu.Item>Three</Menu.Item>
         </Menu>,
         "when clicking on the trigger",
-        "to contain",
-        <View>
-          <View className="item">One</View>
-          <View className="item">Two</View>
-          <View className="item">Three</View>
-        </View>
-      ));
+        "to have rendered menu",
+        `<div>
+           <div role="menu">
+             <div>
+               <div role="menuitem">One</div>
+               <div role="menuitem">Two</div>
+               <div role="menuitem">Three</div>
+             </div>
+           </div>
+         </div>`
+      )
+    );
   });
 
   describe("when clicking on the trigger the menu becomes visible", () => {
