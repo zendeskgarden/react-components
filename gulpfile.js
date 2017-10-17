@@ -170,7 +170,7 @@ const externalizeComposes = (contents, file) =>
 // resulting JavaScript file in the lib folder.
 gulp.task("css", ["clean", "process-composed-files"], () => {
   return gulp
-    .src("src/**/*.css")
+    .src(["src/**/*.css", "!src/themes/base-theme/*.css"])
     .pipe(transform(externalizeComposes, { encoding: "utf8" }))
     .pipe(
       postcss([
