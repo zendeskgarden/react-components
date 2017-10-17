@@ -21,7 +21,12 @@ describe("Menu", () => {
           "click",
           "on",
           <Button>trigger</Button>
-        ).then(subject => expect.shift(subject))
+        )
+          .delay(0)
+          .then(subject => {
+            expect.errorMode = "bubble";
+            expect.shift(subject);
+          })
     )
     .addAssertion(
       "<DOMNode> to have html <string>",
@@ -37,9 +42,10 @@ describe("Menu", () => {
       "<RenderedReactElement> to have rendered menu <string>",
       (expect, subject, value) => {
         expect.errorMode = "bubble";
-        expect(subject.props, "to satisfy", {
-          testId: expect.it("to be defined")
-        });
+        if (!subject.props.testId) {
+          expect.fail("Please specify a testId on the menu");
+        }
+
         expect(
           document.body,
           "queried for first",
@@ -51,7 +57,7 @@ describe("Menu", () => {
     );
 
   describe("with menu items", () => {
-    it.only("renders a menu containing the items", () =>
+    it("renders a menu containing the items", () =>
       expect(
         <Menu trigger={<Button>trigger</Button>} testId="my-menu">
           <Menu.Item>One</Menu.Item>
@@ -69,21 +75,29 @@ describe("Menu", () => {
              </div>
            </div>
          </div>`
-      )
-    );
+      ));
   });
 
   describe("when clicking on the trigger the menu becomes visible", () => {
     it("renders a menu that is not hidden", () =>
       expect(
-        <Menu trigger={<Button>trigger</Button>}>
+        <Menu trigger={<Button>trigger</Button>} testId="my-menu">
           <Menu.Item>One</Menu.Item>
           <Menu.Item>Two</Menu.Item>
           <Menu.Item>Three</Menu.Item>
         </Menu>,
         "when clicking on the trigger",
-        "to contain",
-        <View className="popup" hidden={false} />
+        "to have rendered menu",
+        `<div style="visibility: visible">
+           <div role="menu">
+             <div>
+               <div role="menuitem">One</div>
+               <div role="menuitem">Two</div>
+               <div role="menuitem">Three</div>
+             </div>
+           </div>
+         </div>
+        `
       ));
   });
 
@@ -118,35 +132,55 @@ describe("Menu", () => {
   describe("a separator", () => {
     it("renders a menu containing a separator", () =>
       expect(
-        <Menu trigger={<Button>trigger</Button>}>
+        <Menu trigger={<Button>trigger</Button>} testId="my-menu">
           <Menu.Item>One</Menu.Item>
           <Menu.Item>Two</Menu.Item>
           <Menu.Separator />
           <Menu.Item>Three</Menu.Item>
         </Menu>,
         "when clicking on the trigger",
-        "to contain",
-        <View>
-          <View className="item">One</View>
-          <View className="item">Two</View>
-          <View className="separator" />
-          <View className="item">Three</View>
-        </View>
+        "to have rendered menu",
+        `<div>
+           <div role="menu">
+             <div>
+               <div role="menuitem">One</div>
+               <div role="menuitem">Two</div>
+               <div role="separator" class="separator"></div>
+               <div role="menuitem">Three</div>
+             </div>
+           </div>
+         </div>
+        `
       ));
   });
 
   describe("with arrows enabled", () => {
     it("renders an menu with an arrow", () =>
       expect(
-        <Menu arrow positioning="bottom" trigger={<Button>trigger</Button>}>
+        <Menu
+          arrow
+          positioning="bottom"
+          trigger={<Button>trigger</Button>}
+          testId="my-menu"
+        >
           <Menu.Item>One</Menu.Item>
           <Menu.Item>Two</Menu.Item>
           <Menu.Separator />
           <Menu.Item>Three</Menu.Item>
         </Menu>,
         "when clicking on the trigger",
-        "to contain",
-        <View className="menu arrow_top" role="menu" />
+        "to have rendered menu",
+        `<div>
+           <div class="menu arrow_top" role="menu">
+             <div>
+               <div role="menuitem">One</div>
+               <div role="menuitem">Two</div>
+               <div role="separator" class="separator"></div>
+               <div role="menuitem">Three</div>
+             </div>
+           </div>
+         </div>
+        `
       ));
   });
 
