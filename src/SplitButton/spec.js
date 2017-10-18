@@ -1,4 +1,5 @@
 import React from "react";
+import TestUtils from "react-dom/test-utils";
 import unexpected from "test/expect";
 import sinon from "sinon";
 
@@ -12,7 +13,7 @@ describe("SplitButton", () => {
   const expect = unexpected
     .clone()
     .addAssertion(
-      "<ReactElement> when clicking on the menu button <assertion>",
+      "<ReactElement> when clicking on the menu button <assertion?>",
       (expect, subject) =>
         expect(
           subject,
@@ -251,15 +252,16 @@ describe("SplitButton", () => {
       return expect(
         <SplitButton onChange={onChange}>
           <SplitButton.Item value="one">One</SplitButton.Item>
-          <SplitButton.Item value="two">Two</SplitButton.Item>
+          <SplitButton.Item value="two" testId="two">
+            Two
+          </SplitButton.Item>
           <SplitButton.Item value="three">Three</SplitButton.Item>
         </SplitButton>,
-        "when clicking on the menu button",
-        "with event",
-        "mouseDown",
-        "on",
-        <SplitButton.Item>Two</SplitButton.Item>
+        "when clicking on the menu button"
       ).then(() => {
+        const menuItem = document.querySelector("[data-test-id=two]");
+        TestUtils.Simulate.mouseDown(menuItem);
+
         expect(onChange, "to have calls satisfying", () => {
           onChange("two", { type: "mousedown" });
         });
@@ -304,14 +306,22 @@ describe("SplitButton", () => {
   describe("when clicking on the menu button", () => {
     it("renders the menu", () =>
       expect(
-        <SplitButton>
+        <SplitButton testId="my-split-button">
           <SplitButton.Item>One</SplitButton.Item>
           <SplitButton.Item>Two</SplitButton.Item>
           <SplitButton.Item>Three</SplitButton.Item>
         </SplitButton>,
         "when clicking on the menu button",
-        "to contain",
-        <View className="popup" hidden={false} />
+        "to have rendered menu",
+        `<div>
+           <div role="menu">
+             <div>
+               <div role="menuitem">One</div>
+               <div role="menuitem">Two</div>
+               <div role="menuitem">Three</div>
+             </div>
+           </div>
+         </div>`
       ));
   });
 

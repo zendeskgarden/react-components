@@ -2,15 +2,15 @@ import React from "react";
 import unexpected from "test/expect";
 import sinon from "sinon";
 import Menu from "./";
-import View from "../core/View";
 import Button from "../Button";
 import RelativePositionedPopup from "../core/RelativePositionedPopup";
+import TestUtils from "react-dom/test-utils";
 
 describe("Menu", () => {
   const expect = unexpected
     .clone()
     .addAssertion(
-      "<ReactElement> when clicking on the trigger <assertion>",
+      "<ReactElement> when clicking on the trigger <assertion?>",
       (expect, subject) =>
         expect(
           subject,
@@ -19,38 +19,72 @@ describe("Menu", () => {
           "click",
           "on",
           <Button>trigger</Button>
-        ).then(subject => expect.shift(subject))
+        )
+          .delay(0)
+          .then(subject => {
+            expect.errorMode = "bubble";
+            expect.shift(subject);
+          })
     );
+
+  const mouseDown = (selector, options) => {
+    const element = document.querySelector(selector);
+    if (!element) {
+      expect.fail("Could not find element {0}", selector);
+    }
+    TestUtils.Simulate.mouseDown(element, options);
+  };
+
+  /**
+   * Must remove stale menus that are appended to body during testing.
+   * These are removed correctly in non-testing environments.
+   */
+  beforeEach(() => {
+    document.body.innerHTML = "";
+  });
 
   describe("with menu items", () => {
     it("renders a menu containing the items", () =>
       expect(
-        <Menu trigger={<Button>trigger</Button>}>
+        <Menu trigger={<Button>trigger</Button>} testId="my-menu">
           <Menu.Item>One</Menu.Item>
           <Menu.Item>Two</Menu.Item>
           <Menu.Item>Three</Menu.Item>
         </Menu>,
         "when clicking on the trigger",
-        "to contain",
-        <View>
-          <View className="item">One</View>
-          <View className="item">Two</View>
-          <View className="item">Three</View>
-        </View>
+        "to have rendered menu",
+        `<div>
+           <div role="menu">
+             <div>
+               <div role="menuitem">One</div>
+               <div role="menuitem">Two</div>
+               <div role="menuitem">Three</div>
+             </div>
+           </div>
+         </div>`
       ));
   });
 
   describe("when clicking on the trigger the menu becomes visible", () => {
     it("renders a menu that is not hidden", () =>
       expect(
-        <Menu trigger={<Button>trigger</Button>}>
+        <Menu trigger={<Button>trigger</Button>} testId="my-menu">
           <Menu.Item>One</Menu.Item>
           <Menu.Item>Two</Menu.Item>
           <Menu.Item>Three</Menu.Item>
         </Menu>,
         "when clicking on the trigger",
-        "to contain",
-        <View className="popup" hidden={false} />
+        "to have rendered menu",
+        `<div style="visibility: visible">
+           <div role="menu">
+             <div>
+               <div role="menuitem">One</div>
+               <div role="menuitem">Two</div>
+               <div role="menuitem">Three</div>
+             </div>
+           </div>
+         </div>
+        `
       ));
   });
 
@@ -85,136 +119,205 @@ describe("Menu", () => {
   describe("a separator", () => {
     it("renders a menu containing a separator", () =>
       expect(
-        <Menu trigger={<Button>trigger</Button>}>
+        <Menu trigger={<Button>trigger</Button>} testId="my-menu">
           <Menu.Item>One</Menu.Item>
           <Menu.Item>Two</Menu.Item>
           <Menu.Separator />
           <Menu.Item>Three</Menu.Item>
         </Menu>,
         "when clicking on the trigger",
-        "to contain",
-        <View>
-          <View className="item">One</View>
-          <View className="item">Two</View>
-          <View className="separator" />
-          <View className="item">Three</View>
-        </View>
+        "to have rendered menu",
+        `<div>
+           <div role="menu">
+             <div>
+               <div role="menuitem">One</div>
+               <div role="menuitem">Two</div>
+               <div role="separator" class="separator"></div>
+               <div role="menuitem">Three</div>
+             </div>
+           </div>
+         </div>`
       ));
   });
 
   describe("with arrows enabled", () => {
     it("renders an menu with an arrow", () =>
       expect(
-        <Menu arrow positioning="bottom" trigger={<Button>trigger</Button>}>
+        <Menu
+          arrow
+          positioning="bottom"
+          trigger={<Button>trigger</Button>}
+          testId="my-menu"
+        >
           <Menu.Item>One</Menu.Item>
           <Menu.Item>Two</Menu.Item>
           <Menu.Separator />
           <Menu.Item>Three</Menu.Item>
         </Menu>,
         "when clicking on the trigger",
-        "to contain",
-        <View className="menu arrow_top" role="menu" />
+        "to have rendered menu",
+        `<div>
+           <div class="menu arrow_top" role="menu">
+             <div>
+               <div role="menuitem">One</div>
+               <div role="menuitem">Two</div>
+               <div role="separator" class="separator"></div>
+               <div role="menuitem">Three</div>
+             </div>
+           </div>
+         </div>
+        `
       ));
   });
 
   describe("given a size", () => {
     it("renders a menu with that size", () =>
       expect(
-        <Menu size="large" trigger={<Button>trigger</Button>}>
+        <Menu size="large" trigger={<Button>trigger</Button>} testId="my-menu">
           <Menu.Item>One</Menu.Item>
           <Menu.Item>Two</Menu.Item>
           <Menu.Separator />
           <Menu.Item>Three</Menu.Item>
         </Menu>,
         "when clicking on the trigger",
-        "to contain",
-        <View className="menu size_large" role="menu" />
+        "to have rendered menu",
+        `<div>
+          <div class="menu size_large" role="menu">
+            <div>
+              <div role="menuitem">One</div>
+              <div role="menuitem">Two</div>
+              <div role="separator" class="separator"></div>
+              <div role="menuitem">Three</div>
+            </div>
+          </div>
+        </div>
+        `
       ));
   });
 
   describe("with a max height", () => {
     describe("that is a number", () => {
-      it("makes the item list scrollable and set a max height", () => {
+      it("makes the item list scrollable and set a max height", () =>
         expect(
-          <Menu trigger={<Button>trigger</Button>} maxHeight={150}>
+          <Menu
+            trigger={<Button>trigger</Button>}
+            maxHeight={150}
+            testId="my-menu"
+          >
             <Menu.Item>One</Menu.Item>
             <Menu.Item>Two</Menu.Item>
             <Menu.Item>Three</Menu.Item>
           </Menu>,
           "when clicking on the trigger",
-          "to contain",
-          <View className="scrollable" style={{ maxHeight: "150px" }}>
-            <View className="item">One</View>
-            <View className="item">Two</View>
-            <View className="item">Three</View>
-          </View>
-        );
-      });
+          "to have rendered menu",
+          `<div>
+            <div class="menu" role="menu" style="max-height: 150px">
+              <div>
+                <div role="menuitem">One</div>
+                <div role="menuitem">Two</div>
+                <div role="menuitem">Three</div>
+              </div>
+            </div>
+          </div>
+          `
+        ));
     });
 
     describe("that is a string", () => {
-      it("makes the item list scrollable and set a max height", () => {
+      it("makes the item list scrollable and set a max height", () =>
         expect(
-          <Menu trigger={<Button>trigger</Button>} maxHeight={"80vh"}>
+          <Menu
+            trigger={<Button>trigger</Button>}
+            maxHeight={"80vh"}
+            testId="my-menu"
+          >
             <Menu.Item>One</Menu.Item>
             <Menu.Item>Two</Menu.Item>
             <Menu.Item>Three</Menu.Item>
           </Menu>,
           "when clicking on the trigger",
-          "to contain",
-          <View className="scrollable" style={{ maxHeight: "80vh" }}>
-            <View className="item">One</View>
-            <View className="item">Two</View>
-            <View className="item">Three</View>
-          </View>
-        );
-      });
+          "to have rendered menu",
+          `<div>
+            <div class="menu" role="menu" style="max-height: 80vh">
+              <div>
+                <div role="menuitem">One</div>
+                <div role="menuitem">Two</div>
+                <div role="menuitem">Three</div>
+              </div>
+            </div>
+          </div>
+          `
+        ));
     });
   });
 
   describe("with fixedWidth", () => {
-    it("renders a menu with fixed width", () => {
+    it("renders a menu with fixed width", () =>
       expect(
-        <Menu fixedWidth trigger={<Button>trigger</Button>}>
+        <Menu fixedWidth trigger={<Button>trigger</Button>} testId="my-menu">
           <Menu.Item>One</Menu.Item>
           <Menu.Item>Two</Menu.Item>
           <Menu.Item>Three</Menu.Item>
         </Menu>,
         "when clicking on the trigger",
-        "to contain",
-        <View className="menu fixed_width" />
-      );
-    });
+        "to have rendered menu",
+        `<div>
+          <div class="menu fixed_width" role="menu">
+            <div>
+              <div role="menuitem">One</div>
+              <div role="menuitem">Two</div>
+              <div role="menuitem">Three</div>
+            </div>
+          </div>
+        </div>
+        `
+      ));
   });
 
   describe("with a small size", () => {
-    it("renders a small menu", () => {
+    it("renders a small menu", () =>
       expect(
-        <Menu size="small" trigger={<Button>trigger</Button>}>
+        <Menu size="small" trigger={<Button>trigger</Button>} testId="my-menu">
           <Menu.Item>One</Menu.Item>
           <Menu.Item>Two</Menu.Item>
           <Menu.Item>Three</Menu.Item>
         </Menu>,
         "when clicking on the trigger",
-        "to contain",
-        <View className="menu size_small" />
-      );
-    });
+        "to have rendered menu",
+        `<div>
+          <div class="menu size_small" role="menu">
+            <div>
+              <div role="menuitem">One</div>
+              <div role="menuitem">Two</div>
+              <div role="menuitem">Three</div>
+            </div>
+          </div>
+        </div>
+        `
+      ));
   });
 
   describe("with a wide flag", () => {
-    it("renders a wide menu", () => {
+    it("renders a wide menu", () =>
       expect(
-        <Menu wide trigger={<Button>trigger</Button>}>
+        <Menu wide trigger={<Button>trigger</Button>} testId="my-menu">
           <Menu.Item>One</Menu.Item>
           <Menu.Item>Two</Menu.Item>
           <Menu.Item>Three</Menu.Item>
         </Menu>,
         "when clicking on the trigger",
-        "to contain",
-        <View className="menu wide" />
-      );
-    });
+        "to have rendered menu",
+        `<div>
+          <div class="menu wide" role="menu">
+            <div>
+              <div role="menuitem">One</div>
+              <div role="menuitem">Two</div>
+              <div role="menuitem">Three</div>
+            </div>
+          </div>
+        </div>
+        `
+      ));
   });
 
   describe("visibility hooks", () => {
@@ -229,9 +332,7 @@ describe("Menu", () => {
         </Menu>,
         "when clicking on the trigger",
         "to satisfy",
-        () => {
-          expect(onOpen, "was called once");
-        }
+        () => expect(onOpen, "was called once")
       );
     });
 
@@ -253,9 +354,7 @@ describe("Menu", () => {
         "click",
         "on",
         <Button>trigger</Button>
-      ).then(() => {
-        expect(onClose, "was called once");
-      });
+      ).then(() => expect(onClose, "was called once"));
     });
   });
 
@@ -266,22 +365,18 @@ describe("Menu", () => {
       return expect(
         <Menu onChange={onChange} trigger={<Button>trigger</Button>}>
           <Menu.Item value="one">One</Menu.Item>
-          <Menu.Item value="two">Two</Menu.Item>
+          <Menu.Item value="two" testId="my-menu-item">
+            Two
+          </Menu.Item>
           <Menu.Item value="three">Three</Menu.Item>
         </Menu>,
-        "when deeply rendered",
-        "with event",
-        "click",
-        "on",
-        <Button>trigger</Button>,
-        "with event",
-        "mouseDown",
-        "on",
-        <Menu.Item>Two</Menu.Item>
+        "when clicking on the trigger"
       ).then(() => {
-        expect(onChange, "to have calls satisfying", () => {
-          onChange("two", { type: "mousedown" });
-        });
+        mouseDown("[data-test-id=my-menu-item]");
+
+        return expect(onChange, "to have calls satisfying", () =>
+          onChange("two", { type: "mousedown" })
+        );
       });
     });
   });
@@ -292,7 +387,7 @@ describe("Menu", () => {
 
       return expect(
         <Menu trigger={<Button>trigger</Button>}>
-          <Menu.Item onClick={onClick} value="one">
+          <Menu.Item onClick={onClick} value="one" testId="my-menu-item">
             One
           </Menu.Item>
           <Menu.Item onClick={onClick} value="two">
@@ -306,12 +401,9 @@ describe("Menu", () => {
         "with event",
         "click",
         "on",
-        <Button>trigger</Button>,
-        "with event",
-        "mouseDown",
-        "on",
-        <Menu.Item>One</Menu.Item>
+        <Button>trigger</Button>
       ).then(() => {
+        mouseDown("[data-test-id=my-menu-item]");
         expect(onClick, "to have calls satisfying", () => {
           onClick("one", { type: "mousedown" });
         });
@@ -353,25 +445,32 @@ describe("Menu", () => {
         { keyCode: 13 },
         "on",
         <Button>trigger</Button>
-      ).then(() => {
-        expect(onClick, "to have calls satisfying", () => {
-          onClick("two", { type: "keydown" });
-        });
-      });
+      ).then(() =>
+        expect(onClick, "to have calls satisfying", () =>
+          onClick("two", { type: "keydown" })
+        )
+      );
     });
   });
 
   describe("containing link items", () => {
     const menu = (
       <Menu trigger={<Button>trigger</Button>}>
-        <Menu.LinkItem href="https://www.zendesk.com">Link</Menu.LinkItem>
+        <Menu.LinkItem href="https://www.zendesk.com" testId="link">
+          Link
+        </Menu.LinkItem>
         <Menu.LinkItem
           href="https://www.zendesk.com/help-center"
           target="_blank"
+          testId="blank"
         >
           Blank
         </Menu.LinkItem>
-        <Menu.LinkItem href="https://www.zendesk.com/support" disabled>
+        <Menu.LinkItem
+          href="https://www.zendesk.com/support"
+          disabled
+          testId="disabled"
+        >
           Disabled
         </Menu.LinkItem>
       </Menu>
@@ -387,83 +486,69 @@ describe("Menu", () => {
       window.open.restore();
     });
 
-    it("opens the link when you click on a link item", () => {
-      return expect(
+    it("opens the link when you click on a link item", () =>
+      expect(
         menu,
         "when deeply rendered",
         "with event",
         "click",
         "on",
-        <Button>trigger</Button>,
-        "with event",
-        "mouseDown",
-        "on",
-        <Menu.LinkItem>Link</Menu.LinkItem>
+        <Button>trigger</Button>
       ).then(() => {
-        expect(window.open, "to have calls satisfying", () => {
-          window.open("https://www.zendesk.com", "_self");
-        });
-      });
-    });
+        mouseDown("[data-test-id=link]");
 
-    it("ctrl clicking a link item sets the target to blank", () => {
-      return expect(
-        menu,
-        "when deeply rendered",
-        "with event",
-        "click",
-        "on",
-        <Button>trigger</Button>,
-        "with event",
-        "mouseDown",
-        { ctrlKey: true },
-        "on",
-        <Menu.LinkItem>Link</Menu.LinkItem>
-      ).then(() => {
-        expect(window.open, "to have calls satisfying", () => {
-          window.open("https://www.zendesk.com", "_blank");
-        });
-      });
-    });
+        expect(window.open, "to have calls satisfying", () =>
+          window.open("https://www.zendesk.com", "_self")
+        );
+      }));
 
-    it("respects the link target", () => {
-      return expect(
+    it("ctrl clicking a link item sets the target to blank", () =>
+      expect(
         menu,
         "when deeply rendered",
         "with event",
         "click",
         "on",
-        <Button>trigger</Button>,
-        "with event",
-        "mouseDown",
-        "on",
-        <Menu.LinkItem target="_blank">Blank</Menu.LinkItem>
+        <Button>trigger</Button>
       ).then(() => {
-        expect(window.open, "to have calls satisfying", () => {
-          window.open("https://www.zendesk.com/help-center", "_blank");
-        });
-      });
-    });
+        mouseDown("[data-test-id=link]", { ctrlKey: true });
 
-    it("respects the disabled flag", () => {
-      return expect(
+        expect(window.open, "to have calls satisfying", () =>
+          window.open("https://www.zendesk.com", "_blank")
+        );
+      }));
+
+    it("respects the link target", () =>
+      expect(
         menu,
         "when deeply rendered",
         "with event",
         "click",
         "on",
-        <Button>trigger</Button>,
-        "with event",
-        "mouseDown",
-        "on",
-        <Menu.LinkItem disabled>Disabled</Menu.LinkItem>
+        <Button>trigger</Button>
       ).then(() => {
+        mouseDown("[data-test-id=blank]");
+
+        expect(window.open, "to have calls satisfying", () =>
+          window.open("https://www.zendesk.com/help-center", "_blank")
+        );
+      }));
+
+    it("respects the disabled flag", () =>
+      expect(
+        menu,
+        "when deeply rendered",
+        "with event",
+        "click",
+        "on",
+        <Button>trigger</Button>
+      ).then(() => {
+        mouseDown("[data-test-id=disabled]");
         expect(window.open, "was not called");
-      });
-    });
+      }));
 
-    it("opens the link when selected with the keyboard", () => {
-      return expect(
+    it("opens the link when selected with the keyboard", () =>
+      expect(
         menu,
         "when deeply rendered",
         "with event",
@@ -485,15 +570,14 @@ describe("Menu", () => {
         { keyCode: 13 },
         "on",
         <Button>trigger</Button>
-      ).then(() => {
-        expect(window.open, "to have calls satisfying", () => {
-          window.open("https://www.zendesk.com/help-center", "_blank");
-        });
-      });
-    });
+      ).then(() =>
+        expect(window.open, "to have calls satisfying", () =>
+          window.open("https://www.zendesk.com/help-center", "_blank")
+        )
+      ));
 
-    it("opens the link in a new window when a link is selected by ctrl-enter", () => {
-      return expect(
+    it("opens the link in a new window when a link is selected by ctrl-enter", () =>
+      expect(
         menu,
         "when deeply rendered",
         "with event",
@@ -510,11 +594,10 @@ describe("Menu", () => {
         { keyCode: 13, ctrlKey: true },
         "on",
         <Button>trigger</Button>
-      ).then(() => {
-        expect(window.open, "to have calls satisfying", () => {
-          window.open("https://www.zendesk.com", "_blank");
-        });
-      });
-    });
+      ).then(() =>
+        expect(window.open, "to have calls satisfying", () =>
+          window.open("https://www.zendesk.com", "_blank")
+        )
+      ));
   });
 });

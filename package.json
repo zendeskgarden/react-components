@@ -112,6 +112,7 @@
     "sunesimonsen-postcss-input-range": "2.1.0",
     "unexpected": "10.27.0",
     "unexpected-check": "1.12.0",
+    "unexpected-dom": "^4.0.0",
     "unexpected-react": "3.5.2",
     "unexpected-sinon": "10.7.1",
     "url-loader": "0.5.8",

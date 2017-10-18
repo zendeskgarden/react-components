@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { findDOMNode } from "react-dom";
-import FocusJail from "../../utils/FocusJail";
+import uuid from "uuid";
+import Portal from "./Portal";
 
+import FocusJail from "../../utils/FocusJail";
 import View from "../View";
 import getBestRelativePlacement from "../../utils/positioning/getBestRelativePlacement";
-import toFixedOffset from "../../utils/positioning/toFixedOffset";
 import styles from "./styles.css";
 
 const positions = [
@@ -92,16 +93,19 @@ class RelativePositionedPopup extends Component {
     trapFocus: false
   };
 
+  constructor(props, context) {
+    super(props, context);
+
+    this.popupId = uuid.v4();
+  }
+
   updatePlacement = () => {
     const { hidden } = this.props;
 
     if (!hidden) {
       this.anchorRect = this.anchorElement.firstChild.getBoundingClientRect();
       this.popupRect = this.popupElement.firstChild.getBoundingClientRect();
-      const placement = toFixedOffset(
-        this.getBestRelativePlacement(),
-        this.popupElement
-      );
+      const placement = this.getBestRelativePlacement();
       this.setState({
         placement
       });
@@ -250,6 +254,8 @@ class RelativePositionedPopup extends Component {
         testId={testId}
       >
         <View
+          aria-haspopup={!hidden}
+          aria-owns={this.popupId}
           className={classNames(styles.trigger, {
             [styles.stretched]: stretched
           })}
@@ -259,21 +265,26 @@ class RelativePositionedPopup extends Component {
         >
           {anchor}
         </View>
-        <View
-          className={classNames(styles.popup, {
-            [styles.opening]: opening
-          })}
-          hidden={hidden}
-          onTab={this.onTab}
-          style={popupStyle}
-          ref={ref => {
-            this.popupElement = this.popupElement || findDOMNode(ref);
-          }}
-        >
-          {hidden
-            ? null
-            : typeof children === "function" ? children(position) : children}
-        </View>
+        <Portal>
+          <View
+            className={classNames(styles.popup, {
+              [styles.opening]: opening,
+              [styles.stretched]: stretched
+            })}
+            hidden={hidden}
+            id={this.popupId}
+            onTab={this.onTab}
+            style={popupStyle}
+            ref={ref => {
+              this.popupElement = this.popupElement || findDOMNode(ref);
+            }}
+            testId={testId && `${testId}-popup`}
+          >
+            {hidden
+              ? null
+              : typeof children === "function" ? children(position) : children}
+          </View>
+        </Portal>
       </View>
     );
   }
