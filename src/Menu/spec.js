@@ -1,6 +1,5 @@
 import React from "react";
 import unexpected from "test/expect";
-import unexpectedDom from "unexpected-dom";
 import sinon from "sinon";
 import Menu from "./";
 import Button from "../Button";
@@ -10,7 +9,6 @@ import TestUtils from "react-dom/test-utils";
 describe("Menu", () => {
   const expect = unexpected
     .clone()
-    .use(unexpectedDom)
     .addAssertion(
       "<ReactElement> when clicking on the trigger <assertion?>",
       (expect, subject) =>
@@ -27,33 +25,6 @@ describe("Menu", () => {
             expect.errorMode = "bubble";
             expect.shift(subject);
           })
-    )
-    .addAssertion(
-      "<DOMNode> to have html <string>",
-      (expect, subject, value) => {
-        expect(
-          subject,
-          "to satisfy",
-          value.replace(/^\s+/gm, "").replace(/\s*\n/gm, "")
-        );
-      }
-    )
-    .addAssertion(
-      "<RenderedReactElement> to have rendered menu <string>",
-      (expect, subject, value) => {
-        expect.errorMode = "bubble";
-        if (!subject.props.testId) {
-          expect.fail("Please specify a testId on the menu");
-        }
-
-        expect(
-          document.body,
-          "queried for first",
-          `[data-test-id=${subject.props.testId}-popup]`,
-          "to have html",
-          value
-        );
-      }
     );
 
   const mouseDown = (selector, options) => {

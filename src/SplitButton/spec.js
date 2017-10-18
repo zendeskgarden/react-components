@@ -1,4 +1,5 @@
 import React from "react";
+import TestUtils from "react-dom/test-utils";
 import unexpected from "test/expect";
 import sinon from "sinon";
 
@@ -12,7 +13,7 @@ describe("SplitButton", () => {
   const expect = unexpected
     .clone()
     .addAssertion(
-      "<ReactElement> when clicking on the menu button <assertion>",
+      "<ReactElement> when clicking on the menu button <assertion?>",
       (expect, subject) =>
         expect(
           subject,
@@ -244,76 +245,85 @@ describe("SplitButton", () => {
     });
   });
 
-  // describe("when clicking on one of the items", () => {
-  //   it("calls the onChange handler with the value of that item", () => {
-  //     const onChange = sinon.spy();
+  describe("when clicking on one of the items", () => {
+    it("calls the onChange handler with the value of that item", () => {
+      const onChange = sinon.spy();
 
-  //     return expect(
-  //       <SplitButton onChange={onChange}>
-  //         <SplitButton.Item value="one">One</SplitButton.Item>
-  //         <SplitButton.Item value="two">Two</SplitButton.Item>
-  //         <SplitButton.Item value="three">Three</SplitButton.Item>
-  //       </SplitButton>,
-  //       "when clicking on the menu button",
-  //       "with event",
-  //       "mouseDown",
-  //       "on",
-  //       <SplitButton.Item>Two</SplitButton.Item>
-  //     ).then(() => {
-  //       expect(onChange, "to have calls satisfying", () => {
-  //         onChange("two", { type: "mousedown" });
-  //       });
-  //     });
-  //   });
-  // });
+      return expect(
+        <SplitButton onChange={onChange}>
+          <SplitButton.Item value="one">One</SplitButton.Item>
+          <SplitButton.Item value="two" testId="two">
+            Two
+          </SplitButton.Item>
+          <SplitButton.Item value="three">Three</SplitButton.Item>
+        </SplitButton>,
+        "when clicking on the menu button"
+      ).then(() => {
+        const menuItem = document.querySelector("[data-test-id=two]");
+        TestUtils.Simulate.mouseDown(menuItem);
 
-  // describe("when selecting an item with the keyboard", () => {
-  //   it("calls the onChange handler with the value of that item", () => {
-  //     const onChange = sinon.spy();
+        expect(onChange, "to have calls satisfying", () => {
+          onChange("two", { type: "mousedown" });
+        });
+      });
+    });
+  });
 
-  //     return expect(
-  //       <SplitButton onChange={onChange}>
-  //         <SplitButton.Item value="one">One</SplitButton.Item>
-  //         <SplitButton.Item value="two">Two</SplitButton.Item>
-  //         <SplitButton.Item value="three">Three</SplitButton.Item>
-  //       </SplitButton>,
-  //       "when deeply rendered",
-  //       "with event",
-  //       "keyDown",
-  //       { keyCode: 40 },
-  //       "on",
-  //       <IconButton />,
-  //       "with event",
-  //       "keyDown",
-  //       { keyCode: 40 },
-  //       "on",
-  //       <IconButton />,
-  //       "with event",
-  //       "keyDown",
-  //       { keyCode: 13 },
-  //       "on",
-  //       <IconButton />
-  //     ).then(() => {
-  //       expect(onChange, "to have calls satisfying", () => {
-  //         onChange("two", { type: "keydown" });
-  //       });
-  //     });
-  //   });
-  // });
+  describe("when selecting an item with the keyboard", () => {
+    it("calls the onChange handler with the value of that item", () => {
+      const onChange = sinon.spy();
 
-  // describe("when clicking on the menu button", () => {
-  //   it("renders the menu", () =>
-  //     expect(
-  //       <SplitButton>
-  //         <SplitButton.Item>One</SplitButton.Item>
-  //         <SplitButton.Item>Two</SplitButton.Item>
-  //         <SplitButton.Item>Three</SplitButton.Item>
-  //       </SplitButton>,
-  //       "when clicking on the menu button",
-  //       "to contain",
-  //       <View className="popup" hidden={false} />
-  //     ));
-  // });
+      return expect(
+        <SplitButton onChange={onChange}>
+          <SplitButton.Item value="one">One</SplitButton.Item>
+          <SplitButton.Item value="two">Two</SplitButton.Item>
+          <SplitButton.Item value="three">Three</SplitButton.Item>
+        </SplitButton>,
+        "when deeply rendered",
+        "with event",
+        "keyDown",
+        { keyCode: 40 },
+        "on",
+        <IconButton />,
+        "with event",
+        "keyDown",
+        { keyCode: 40 },
+        "on",
+        <IconButton />,
+        "with event",
+        "keyDown",
+        { keyCode: 13 },
+        "on",
+        <IconButton />
+      ).then(() => {
+        expect(onChange, "to have calls satisfying", () => {
+          onChange("two", { type: "keydown" });
+        });
+      });
+    });
+  });
+
+  describe("when clicking on the menu button", () => {
+    it("renders the menu", () =>
+      expect(
+        <SplitButton testId="my-split-button">
+          <SplitButton.Item>One</SplitButton.Item>
+          <SplitButton.Item>Two</SplitButton.Item>
+          <SplitButton.Item>Three</SplitButton.Item>
+        </SplitButton>,
+        "when clicking on the menu button",
+        "to have rendered menu",
+        `<div>
+           <div role="menu">
+             <div>
+               <div role="menuitem">One</div>
+               <div role="menuitem">Two</div>
+               <div role="menuitem">Three</div>
+             </div>
+           </div>
+         </div>`
+      ));
+  });
 
   describe("when given a className", () => {
     it("renders a SplitButton with the className applied", () => {
