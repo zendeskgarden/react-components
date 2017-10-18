@@ -1,3 +1,7 @@
+### v12.3.0 (2017-10-18)
+
+- [#352](https://github.com/zendeskgarden/react-components/pull/352) Move the rendering of the relative positioned popup to a child of body ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
 ### v12.2.0 (2017-10-18)
 
 - [#354](https://github.com/zendeskgarden/react-components/pull/354) Compile to commonjs modules instead of ES6 modules again ([Sune Simonsen](mailto:sune@we-knowhow.dk))
