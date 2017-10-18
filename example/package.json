@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "analyze": "BUNDLE_ANALYZER=true NODE_ENV=production npm run build",
+    "analyze": "BUNDLE_ANALYZER=true NODE_ENV=production yarn build",
     "build": "webpack",
-    "start": "npm run build && serve public"
+    "start": "linklocal && yarn build && serve public"
   },
   "dependencies": {
     "@zendesk/garden-react-components": "file:.."
