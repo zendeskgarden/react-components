@@ -1,5 +1,3 @@
-/* stylelint-disable max-line-length */
-
 @import '@zendesk/garden-css-variables';
 
 :root {
@@ -42,6 +40,9 @@
   /* Select Variables */
   --zd-select-color: var(--zd-light-accent-color);
   --zd-select-focus-color: var(--zd-light-focus-color);
+
+  /* Tab Variables */
+  --zd-tab-color: var(--zd-accent-color);
 
   /* Table Variables */
   --zd-table-focus-color: var(--zd-accent-color);
