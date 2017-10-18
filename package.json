@@ -53,7 +53,7 @@
     "@zendesk/garden-css-modals": "^4.0.0",
     "@zendesk/garden-css-pagination": "^1.0.0",
     "@zendesk/garden-css-tables": "^1.0.2",
-    "@zendesk/garden-css-tabs": "^3.1.0",
+    "@zendesk/garden-css-tabs": "^3.1.1",
     "@zendesk/garden-css-tooltips": "^2.0.2",
     "@zendesk/garden-css-variables": "^2.1.0",
     "@zendesk/garden-stylelint-config": "^5.1.0",
