@@ -42,8 +42,6 @@ export default class MenuOverflow extends Component {
 
     return (
       <Menu
-        className={theme.popup}
-        triggerClassName={theme.popup}
         positioning={["bottom_left", "top_left"]}
         stretched
         trigger={trigger}

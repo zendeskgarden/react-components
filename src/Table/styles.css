@@ -109,7 +109,3 @@
 .descending {
   composes: is-descending from '@zendesk/garden-css-tables';
 }
-
-.popup {
-  display: block;
-}
