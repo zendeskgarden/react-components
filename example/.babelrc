@@ -1,11 +1,6 @@
 {
   "plugins": [
-    ["transform-imports", {
-      "zd-react-components": {
-        "transform": "zd-react-components/lib/${member}",
-        "preventFullImport": true
-      }
-    }]
+    "@zendesk/babel-plugin-transform-component-imports"
   ],
   "presets": [
     ['es2015', { loose: true, modules: false }],

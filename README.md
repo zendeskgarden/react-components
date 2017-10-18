@@ -49,13 +49,14 @@ for more information on the setup.
 
 ## Optimizing your build
 
-Webpack 2 currently does not tree-shake index files containing re-exports
-because of a bug. This will be fixed at some point. To help Webpack a bit, you
-can transform imports to point to the individual components
-using [babel-plugin-transform-imports](https://www.npmjs.com/package/babel-plugin-transform-imports):
+Webpack 2 and 3 currently does not tree-shake index files containing re-exports,
+there is some debate around if it is by specification or it is a bug. To help
+Webpack a bit, you can transform imports to point to the individual components
+using
+[@zendesk/babel-plugin-transform-component-imports](https://github.com/zendesk/babel-plugin-transform-component-imports):
 
 ```js
-import {Button, Menu, Text} from '@zendesk/garden-react-components'
+import { Button, Menu, Text } from '@zendesk/garden-react-components'
 ```
 
 will be transformed to:
@@ -71,12 +72,7 @@ You setup the plugin by adding the plugin to your babel configuration:
 ```json
 {
   "plugins": [
-    ["transform-imports", {
-      "@zendesk/garden-react-components": {
-        "transform": "@zendesk/garden-react-components/lib/${member}",
-        "preventFullImport": true
-      }
-    }]
+    "@zendesk/babel-plugin-transform-component-imports"
   ],
   ...
 }

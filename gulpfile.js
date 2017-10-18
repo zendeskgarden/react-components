@@ -217,7 +217,7 @@ gulp.task("js", ["clean"], () => {
         babelrc: false,
         plugins: ["inline-react-svg", "transform-runtime"],
         presets: [
-          ["es2015", { loose: true, modules: false }],
+          ["es2015", { loose: true, modules: "commonjs" }],
           "react",
           "stage-0"
         ]

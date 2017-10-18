@@ -1,5 +1,4 @@
 var path = require("path");
-var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 var DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -13,9 +12,7 @@ var config = {
   context: __dirname,
 
   entry: {
-    bundle: "./src/index.js",
-
-    vendor: ["babel-polyfill", "react", "react-dom", "classnames", "uuid"]
+    bundle: "./src/index.js"
   },
 
   output: {
@@ -58,10 +55,6 @@ var config = {
     new ExtractTextPlugin({
       filename: "[name].css",
       allChunks: true
-    }),
-    new CommonsChunkPlugin({
-      names: ["vendor"],
-      minChunks: Infinity
     }),
     new HtmlWebpackPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
