@@ -30,6 +30,11 @@ The CheckboxColumn is used to display/manage the selected state of your data.  I
 
 You are able to disable "Select All" functionality with the `allowSelectAll` prop.
 
+### Table.MenuColumn
+The MenuColumn is used to display overflow menus in the Header and Body rows of your Table using the `headerMenuItems` and `rowMenuItems` props respectively.  These props are render functions that are passed the full `rowProps` object and must return a collection of `Menu.Item`'s (or compatible component).
+
+By using a scoped callback with the `onClick` prop, as shown below, allows you to handle menu selection.  Both props are optional.
+
 ### Infinite/Virtual Scrolling
 Our abstraction fully supports the [react-virtualized InfiniteLoader component.](https://github.com/bvaughn/react-virtualized/blob/master/docs/InfiniteLoader.md)
 
