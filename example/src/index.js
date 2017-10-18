@@ -1,16 +1,15 @@
-import 'babel-polyfill';
+import "babel-polyfill";
 
-import React from 'react';
-import { render } from 'react-dom';
+import React from "react";
+import { render } from "react-dom";
 
-// Will not treeshake yet :-(
-// But you can use babel-plugin-transform-imports
-// to transform these imports to individual import.
-import { Button, Menu, Text } from '../../lib';
+// Will not treeshake unless you use the @zendesk/babel-plugin-transform-component-imports babel plugin.
+// See https://github.com/zendesk/babel-plugin-transform-component-imports
+import { Button, Menu, Text } from "@zendesk/garden-react-components";
 
-import './styles.css';
+import "./styles.css";
 
-var root = document.createElement('div');
+var root = document.createElement("div");
 document.body.appendChild(root);
 
 render(
@@ -24,7 +23,9 @@ render(
     >
       <Menu.Item value="profile">Profile</Menu.Item>
       <Menu.Item value="settings">Settings</Menu.Item>
-      <Menu.Item value="theme editor" disabled>Theme Editor</Menu.Item>
+      <Menu.Item value="theme editor" disabled>
+        Theme Editor
+      </Menu.Item>
       <Menu.Separator />
       <Menu.Item value="article editor">Article Editor</Menu.Item>
       <Menu.Item value="sign out">Sign Out</Menu.Item>
