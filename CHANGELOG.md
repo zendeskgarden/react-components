@@ -1,3 +1,7 @@
+### v12.4.0 (2017-10-19)
+
+- [#358](https://github.com/zendeskgarden/react-components/pull/358) SplitButton: Make it stretchable ([Marc Høegh](mailto:Anifacted@users.noreply.github.com))
+
 ### v12.3.2 (2017-10-19)
 
 - [#357](https://github.com/zendeskgarden/react-components/pull/357) Forward the context to the menus ([Marc Høegh](mailto:Anifacted@users.noreply.github.com))
