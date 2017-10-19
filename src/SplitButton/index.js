@@ -37,6 +37,7 @@ export default class SplitButton extends ThemedComponent {
     positioning: RelativePositionedPopup.propTypes.positioning,
     pill: PropTypes.bool,
     size: PropTypes.oneOf(["small", "medium", "large"]),
+    stretched: PropTypes.bool,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
     /** Must be wrapped by a <a href="#tooltipprovider">TooltipProvider</a> */
@@ -185,10 +186,10 @@ export default class SplitButton extends ThemedComponent {
       className,
       danger,
       dir,
-      mainButtonDisabled,
       dropdownDisabled,
       fixedWidth,
       label,
+      mainButtonDisabled,
       marginBottom,
       marginLeft,
       marginRight,
@@ -197,10 +198,11 @@ export default class SplitButton extends ThemedComponent {
       pill,
       positioning,
       size,
-      type,
+      stretched,
       tabIndex,
       testId,
       title,
+      type,
       wide
     } = this.props;
 
@@ -217,11 +219,12 @@ export default class SplitButton extends ThemedComponent {
         marginTop={marginTop}
         positioning={positioning}
         testId={testId}
+        stretched={stretched}
         anchor={
           <View
             className={classNames(
               theme.group,
-              { [theme.rtl]: dir === "rtl" },
+              { [theme.rtl]: dir === "rtl", [theme.stretched]: stretched },
               className
             )}
           >
@@ -235,6 +238,7 @@ export default class SplitButton extends ThemedComponent {
               testId={testId && `${testId}-button`}
               title={title}
               type={type}
+              stretched={stretched}
             >
               {label || this.defaultItem.props.children}
             </Button>

@@ -116,6 +116,16 @@ Sizes:
 </Grid>
 ```
 
+Stretched:
+
+```
+<SplitButton label='Stretched' size='large' stretched positioning={['bottom_stretch']}>
+  <SplitButton.Item value='one'>One</SplitButton.Item>
+  <SplitButton.Item value='two'>Two</SplitButton.Item>
+  <SplitButton.Item value='three'>Three</SplitButton.Item>
+</SplitButton>
+```
+
 Disabled:
 
 ```
