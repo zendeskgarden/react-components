@@ -1,3 +1,7 @@
+### v12.3.1 (2017-10-18)
+
+- [#356](https://github.com/zendeskgarden/react-components/pull/356) Update garden-css-tabs* improved padding* leverage custom CSS ([Jonathan Zempel](mailto:jzempel@gmail.com))
+
 ### v12.3.0 (2017-10-18)
 
 - [#352](https://github.com/zendeskgarden/react-components/pull/352) Move the rendering of the relative positioned popup to a child of body ([Sune Simonsen](mailto:sune@we-knowhow.dk))
