@@ -1,11 +1,35 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import { render } from "react-dom";
 import PropTypes from "prop-types";
+
+const contextTypes = {
+  rcTheme: PropTypes.object,
+  tooltips: PropTypes.object
+};
+
+class ForwardContext extends Component {
+  static propTypes = {
+    children: PropTypes.node,
+    context: PropTypes.object.isRequired
+  };
+
+  static childContextTypes = contextTypes;
+
+  getChildContext() {
+    return this.props.context;
+  }
+
+  render() {
+    return this.props.children;
+  }
+}
 
 export default class Portal extends Component {
   static propTypes = {
     children: PropTypes.node
   };
+
+  static contextTypes = contextTypes;
 
   componentDidMount() {
     /**
@@ -24,7 +48,13 @@ export default class Portal extends Component {
 
   componentDidUpdate() {
     const { children } = this.props;
-    render(children, this.relativelyPositionedGroup);
+
+    render(
+      <ForwardContext context={this.context}>
+        {children}
+      </ForwardContext>,
+      this.relativelyPositionedGroup
+    );
   }
 
   render() {
