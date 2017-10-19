@@ -1,3 +1,7 @@
+### v12.4.1 (2017-10-19)
+
+- [#359](https://github.com/zendeskgarden/react-components/pull/359) Real portals for menus ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
 ### v12.4.0 (2017-10-19)
 
 - [#358](https://github.com/zendeskgarden/react-components/pull/358) SplitButton: Make it stretchable ([Marc Høegh](mailto:Anifacted@users.noreply.github.com))
