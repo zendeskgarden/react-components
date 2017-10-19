@@ -5,15 +5,17 @@ import classNames from "classnames";
 import Button from "../Button";
 import Menu from "../Menu";
 
-export default class MenuOverflow extends Component {
+export default class OverflowMenu extends Component {
   static propTypes = {
     isFocusable: PropTypes.bool,
     theme: PropTypes.object.isRequired,
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
+    dir: PropTypes.oneOf(["ltr", "rtl"])
   };
 
   static defaultProps = {
-    isFocusable: false
+    isFocusable: false,
+    dir: "ltr"
   };
 
   constructor(props, context) {
@@ -25,7 +27,7 @@ export default class MenuOverflow extends Component {
   }
 
   render() {
-    const { isFocusable, theme, children } = this.props;
+    const { isFocusable, theme, children, dir } = this.props;
     const { isFocused } = this.state;
 
     const trigger = ({ open }) =>
@@ -45,6 +47,7 @@ export default class MenuOverflow extends Component {
         positioning={["bottom_left", "top_left"]}
         stretched
         trigger={trigger}
+        dir={dir}
       >
         {children}
       </Menu>

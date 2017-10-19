@@ -6,7 +6,8 @@ import { Column as RVColumn } from "react-virtualized";
 
 import OverflowMenu from "./OverflowMenu";
 
-const MenuColumn = ({ columnProps, tableState, key, theme }) => {
+const MenuColumn = ({ columnProps, tableState, tableProps, key, theme }) => {
+  const { dir } = tableProps;
   const {
     headerClassName,
     className,
@@ -18,7 +19,7 @@ const MenuColumn = ({ columnProps, tableState, key, theme }) => {
   const headerRenderer = rowProps => {
     return (
       headerMenuItems &&
-      <OverflowMenu isFocusable theme={theme}>
+      <OverflowMenu isFocusable theme={theme} dir={dir}>
         {headerMenuItems(rowProps)}
       </OverflowMenu>
     );
@@ -30,7 +31,11 @@ const MenuColumn = ({ columnProps, tableState, key, theme }) => {
 
     return (
       rowMenuItems &&
-      <OverflowMenu isFocusable={rowIndex === focusedRow} theme={theme}>
+      <OverflowMenu
+        isFocusable={rowIndex === focusedRow}
+        theme={theme}
+        dir={dir}
+      >
         {rowMenuItems(rowProps)}
       </OverflowMenu>
     );

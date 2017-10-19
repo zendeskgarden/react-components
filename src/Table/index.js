@@ -164,6 +164,7 @@ export default class Table extends ThemedComponent {
           retrieveMenuColumn({
             columnProps: child.props,
             tableState: this.state,
+            tableProps: this.props,
             key: index,
             theme
           })
