@@ -1,63 +1,44 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
+import { Component } from "react";
+import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 
-const contextTypes = {
-  rcTheme: PropTypes.object,
-  tooltips: PropTypes.object
-};
+// Heavily inspired by https://github.com/reactjs/react-modal/blob/master/src/components/Modal.js
 
-class ForwardContext extends Component {
-  static propTypes = {
-    children: PropTypes.node,
-    context: PropTypes.object.isRequired
-  };
-
-  static childContextTypes = contextTypes;
-
-  getChildContext() {
-    return this.props.context;
-  }
-
-  render() {
-    return this.props.children;
-  }
-}
+const isReact16 = ReactDOM.createPortal !== undefined;
+const createPortal = isReact16
+  ? ReactDOM.createPortal
+  : ReactDOM.unstable_renderSubtreeIntoContainer;
 
 export default class Portal extends Component {
   static propTypes = {
     children: PropTypes.node
   };
 
-  static contextTypes = contextTypes;
+  componentWillMount() {
+    this.node = document.createElement("div");
+    document.body.appendChild(this.node);
+  }
 
   componentDidMount() {
-    /**
-     * Append RelativePositionGroup element to body to allow visibility
-     * within overflow:hidden parents
-     */
-    const positionedGroup = document.createElement("div");
-    document.body.appendChild(positionedGroup);
+    !isReact16 && createPortal(this, this.props.children, this.node);
+  }
 
-    this.relativelyPositionedGroup = positionedGroup;
+  componentWillReceiveProps(newProps) {
+    !isReact16 && createPortal(this, newProps.children, this.node);
   }
 
   componentWillUnmount() {
-    document.body.removeChild(this.relativelyPositionedGroup);
-  }
+    if (!this.node) return;
 
-  componentDidUpdate() {
-    const { children } = this.props;
-
-    render(
-      <ForwardContext context={this.context}>
-        {children}
-      </ForwardContext>,
-      this.relativelyPositionedGroup
-    );
+    !isReact16 && ReactDOM.unmountComponentAtNode(this.node);
+    document.body.removeChild(this.node);
   }
 
   render() {
-    return null;
+    if (isReact16) {
+      return createPortal(this.props.children, this.node);
+    } else {
+      return null;
+    }
   }
 }
