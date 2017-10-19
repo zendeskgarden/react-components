@@ -98,6 +98,14 @@
   composes: c-table__row__cell__overflow from '@zendesk/garden-css-tables';
 }
 
+/**
+ * Necessary to remove overflow menu transitions in RTL mode.
+ * Leads to position flickering in Google Chrome otherwise.
+ */
+.rtl .overflow_menu, .rtl .overflow_menu::before, .rtl .overflow_menu::after {
+  transition: none;
+}
+
 .is_focused {
   composes: is-focused from '@zendesk/garden-css-tables';
 }
