@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import { findDOMNode } from "react-dom";
 import uuid from "uuid";
-import Portal from "./Portal";
+import Portal from "../../utils/Portal";
 
 import FocusJail from "../../utils/FocusJail";
 import View from "../View";
