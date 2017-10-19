@@ -3,6 +3,7 @@ import expect from "test/expect";
 
 import Table from ".";
 import View from "../core/View";
+import Menu from "../Menu";
 import Checkbox from "../Checkbox";
 
 /**
@@ -284,6 +285,62 @@ describe("Table", () => {
               <Checkbox />
             </div>
             <div className="cell">Name 2</div>
+          </div>
+        </div>
+      );
+    });
+  });
+
+  describe("Menu Column", () => {
+    it("displays menu in header row if MenuColumn is provided with headerMenuItems", () => {
+      expect(
+        <Table data={data} width={500} height={500}>
+          <Table.Column label="Name" dataKey="name" width={50} />
+          <Table.MenuColumn
+            headerMenuItems={() => [
+              <Menu.Item key="example">Example</Menu.Item>
+            ]}
+          />
+        </Table>,
+        "when deeply rendered",
+        "to contain",
+        <div>
+          <div className="table_row_header">
+            <div className="cell">Name</div>
+            <div className="cell">
+              <div className="overflow_menu" />
+            </div>
+          </div>
+          <div className="ReactVirtualized__Grid">
+            <div className="table_row">
+              <div className="cell">Name 0</div>
+            </div>
+          </div>
+        </div>
+      );
+    });
+
+    it("displays menu in body row if MenuColumn is provided with rowMenuItems", () => {
+      expect(
+        <Table data={data} width={500} height={500}>
+          <Table.Column label="Name" dataKey="name" width={50} />
+          <Table.MenuColumn
+            rowMenuItems={() => [<Menu.Item key="example">Example</Menu.Item>]}
+          />
+        </Table>,
+        "when deeply rendered",
+        "to contain",
+        <div>
+          <div className="table_row_header">
+            <div className="cell">Name</div>
+          </div>
+          <div className="ReactVirtualized__Grid">
+            <div className="table_row">
+              <div className="cell">Name 0</div>
+              <div className="cell">
+                <div className="overflow_menu" />
+              </div>
+            </div>
           </div>
         </div>
       );
