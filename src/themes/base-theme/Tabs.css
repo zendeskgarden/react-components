@@ -1,23 +1,28 @@
-/* stylelint-disable declaration-no-important */
+@import '@zendesk/garden-css-tabs/src/custom';
 
-.label:not(.disabled).selected {
-  border-color: var(--zd-accent-color) !important;
-  color: var(--zd-accent-color) !important;
+:root {
+  --zd-tab--custom-accent-color: var(--zd-tab-color);
 }
 
-.label:not(.disabled):hover {
-  color: var(--zd-accent-color) !important;
+/* stylelint-disable declaration-block-no-duplicate-properties */
+.tabs {
+  composes: c-tab from '@zendesk/garden-css-tabs';
+  composes: c-tab--custom;
+}
+/* stylelint-enable declaration-block-no-duplicate-properties */
+
+.label {
+  composes: c-tab__list__item;
 }
 
-.label:not(.disabled):active {
-  border-color: var(--zd-focus-color) !important;
-  color: var(--zd-accent-color) !important;
+.selected {
+  composes: is-selected;
 }
 
-.label:not(.disabled).focused {
-  color: var(--zd-accent-color) !important;
+.focused {
+  composes: is-focused;
 }
 
-.label:not(.disabled).focused:before {
-  box-shadow: inset 0 0 0 2px var(--zd-focus-color) !important;
+.disabled {
+  composes: is-disabled;
 }

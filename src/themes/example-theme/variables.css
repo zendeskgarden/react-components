@@ -1,8 +1,8 @@
-/* stylelint-disable max-line-length */
+@import '@zendesk/garden-css-variables';
 
 :root {
   /* Theme specific calculations */
-  --zd-accent-color: #e64e65;
+  --zd-accent-color: var(--zd-color-mandy);
   --zd-focus-color: color(var(--zd-accent-color) alpha(40%));
   --zd-active-color: color(var(--zd-accent-color) blackness(+10%));
   --zd-hover-color: color(var(--zd-accent-color) lightness(+10%) saturation(+10%));
@@ -36,6 +36,9 @@
   /* Select Variables */
   --zd-select-color: var(--zd-accent-color);
   --zd-select-focus-color: var(--zd-focus-color);
+
+  /* Tab Variables */
+  --zd-tab-color: var(--zd-accent-color);
 
   /* Table Variables */
   --zd-table-focus-color: var(--zd-accent-color);
