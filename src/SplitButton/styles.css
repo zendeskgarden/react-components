@@ -13,3 +13,8 @@
 .group:focus {
   outline: none;
 }
+
+.stretched {
+  display: flex;
+  flex: 1;
+}

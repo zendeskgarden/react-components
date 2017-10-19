@@ -73,6 +73,32 @@ describe("SplitButton", () => {
     });
   });
 
+  describe("when stretched", () => {
+    it("stretches the main button and popup", () => {
+      expect(
+        <SplitButton stretched>
+          <SplitButton.Item>One</SplitButton.Item>
+          <SplitButton.Item>Two</SplitButton.Item>
+          <SplitButton.Item>Three</SplitButton.Item>
+        </SplitButton>,
+        "to render as",
+        <RelativePositionedPopup
+          anchor={
+            <View className="group stretched">
+              <Button stretched>One</Button>
+              <IconButton />
+            </View>
+          }
+          marginBottom={2}
+          marginLeft={2}
+          marginRight={2}
+          marginTop={2}
+          stretched
+        />
+      );
+    });
+  });
+
   describe("when given a type", () => {
     it("renders the split button with that type", () => {
       expect(
