@@ -6,8 +6,15 @@ import { Column as RVColumn } from "react-virtualized";
 
 import OverflowMenu from "./OverflowMenu";
 
-const MenuColumn = ({ columnProps, tableState, tableProps, key, theme }) => {
-  const { dir } = tableProps;
+const MenuColumn = ({
+  columnProps,
+  tableState,
+  tableProps,
+  key,
+  theme,
+  onRowFocus
+}) => {
+  const { dir, density } = tableProps;
   const {
     headerClassName,
     className,
@@ -16,10 +23,28 @@ const MenuColumn = ({ columnProps, tableState, tableProps, key, theme }) => {
     ...otherColumnProps
   } = columnProps;
 
+  // Default density menu margins
+  let headerMenuMargin = -8;
+  let bodyMenuMargin = -4;
+
+  if (density === "airy") {
+    headerMenuMargin = -20;
+    bodyMenuMargin = -16;
+  } else if (density === "cozy") {
+    headerMenuMargin = -4;
+    bodyMenuMargin = -2;
+  }
+
   const headerRenderer = rowProps => {
     return (
       headerMenuItems &&
-      <OverflowMenu isFocusable theme={theme} dir={dir}>
+      <OverflowMenu
+        isFocusable
+        theme={theme}
+        dir={dir}
+        marginTop={headerMenuMargin}
+        marginBottom={headerMenuMargin}
+      >
         {headerMenuItems(rowProps)}
       </OverflowMenu>
     );
@@ -35,6 +60,10 @@ const MenuColumn = ({ columnProps, tableState, tableProps, key, theme }) => {
         isFocusable={rowIndex === focusedRow}
         theme={theme}
         dir={dir}
+        onOpen={() => onRowFocus(rowIndex, true)}
+        onClose={() => onRowFocus(rowIndex, true)}
+        marginTop={bodyMenuMargin}
+        marginBottom={bodyMenuMargin}
       >
         {rowMenuItems(rowProps)}
       </OverflowMenu>
