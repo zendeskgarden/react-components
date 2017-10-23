@@ -46,7 +46,8 @@ export default class OverflowMenu extends Component {
     const trigger = ({ open }) =>
       <Button.Core
         className={classNames(theme.overflow_menu, {
-          [theme.is_focused]: isFocused && !open
+          [theme.is_focused]: isFocused && !open,
+          [theme.is_active]: open
         })}
         onFocus={() => this.setState({ isFocused: true })}
         onBlur={() => this.setState({ isFocused: false })}

@@ -110,6 +110,10 @@
   composes: is-focused from '@zendesk/garden-css-tables';
 }
 
+.is_active {
+  composes: is-active from '@zendesk/garden-css-tables';
+}
+
 .ascending {
   composes: is-ascending from '@zendesk/garden-css-tables';
 }
