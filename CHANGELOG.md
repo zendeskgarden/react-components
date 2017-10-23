@@ -1,3 +1,7 @@
+### v12.5.1 (2017-10-23)
+
+- [#361](https://github.com/zendeskgarden/react-components/pull/361) Tables: Correct selection state and margin of overflow menus ([Austin Green](mailto:austingreenkansas@gmail.com))
+
 ### v12.5.0 (2017-10-23)
 
 - [#343](https://github.com/zendeskgarden/react-components/pull/343) Table: Menu Column type creation ([Austin Green](mailto:austingreenkansas@gmail.com))
