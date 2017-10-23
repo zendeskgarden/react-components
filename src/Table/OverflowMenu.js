@@ -10,7 +10,11 @@ export default class OverflowMenu extends Component {
     isFocusable: PropTypes.bool,
     theme: PropTypes.object.isRequired,
     children: PropTypes.node.isRequired,
-    dir: PropTypes.oneOf(["ltr", "rtl"])
+    dir: PropTypes.oneOf(["ltr", "rtl"]),
+    onOpen: PropTypes.func,
+    onClose: PropTypes.func,
+    marginBottom: PropTypes.number,
+    marginTop: PropTypes.number
   };
 
   static defaultProps = {
@@ -27,13 +31,23 @@ export default class OverflowMenu extends Component {
   }
 
   render() {
-    const { isFocusable, theme, children, dir } = this.props;
+    const {
+      isFocusable,
+      theme,
+      children,
+      dir,
+      onOpen,
+      onClose,
+      marginBottom,
+      marginTop
+    } = this.props;
     const { isFocused } = this.state;
 
     const trigger = ({ open }) =>
       <Button.Core
         className={classNames(theme.overflow_menu, {
-          [theme.is_focused]: isFocused && !open
+          [theme.is_focused]: isFocused && !open,
+          [theme.is_active]: open
         })}
         onFocus={() => this.setState({ isFocused: true })}
         onBlur={() => this.setState({ isFocused: false })}
@@ -48,6 +62,10 @@ export default class OverflowMenu extends Component {
         stretched
         trigger={trigger}
         dir={dir}
+        onOpen={onOpen}
+        onClose={onClose}
+        marginBottom={marginBottom}
+        marginTop={marginTop}
       >
         {children}
       </Menu>

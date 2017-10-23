@@ -73,7 +73,7 @@ export default class Table extends ThemedComponent {
     /**
      * The reference of the react-virtualized Table component
      */
-    ref: PropTypes.func,
+    innerRef: PropTypes.func,
     height: PropTypes.number,
     width: PropTypes.number
   };
@@ -166,7 +166,8 @@ export default class Table extends ThemedComponent {
             tableState: this.state,
             tableProps: this.props,
             key: index,
-            theme
+            theme,
+            onRowFocus: this.onRowFocus
           })
         );
       } else {
@@ -202,8 +203,8 @@ export default class Table extends ThemedComponent {
   };
 
   applyKeyboardActions = tableReference => {
-    const { ref } = this.props;
-    ref && ref(tableReference);
+    const { innerRef } = this.props;
+    innerRef && innerRef(tableReference);
 
     if (!this.tableRef && tableReference) {
       this.tableRef = tableReference;
