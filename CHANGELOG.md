@@ -1,3 +1,7 @@
+### v12.6.0 (2017-10-25)
+
+- [#363](https://github.com/zendeskgarden/react-components/pull/363) Move tooltip positioning to a container element to avoid CSS overrides ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
 ### v12.5.1 (2017-10-23)
 
 - [#361](https://github.com/zendeskgarden/react-components/pull/361) Tables: Correct selection state and margin of overflow menus ([Austin Green](mailto:austingreenkansas@gmail.com))
@@ -149,9 +153,6 @@
 
 - [#265](https://github.com/zendeskgarden/react-components/pull/265) Ellipsis: Add support for rich content in title/tooltips ([Marc Høegh](mailto:Anifacted@users.noreply.github.com))
 - [#262](https://github.com/zendeskgarden/react-components/pull/262) Reformat the rest of the files ([Sune Simonsen](mailto:sune@we-knowhow.dk))
-
-### v8.1.1 (2017-08-15)
-
 - [#260](https://github.com/zendeskgarden/react-components/pull/260) Bump version of css-labels to allow for ellipsis overflows ([Austin Green](mailto:austingreenkansas@gmail.com))
 
 ### v8.1.0 (2017-08-14)
