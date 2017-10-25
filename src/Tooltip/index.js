@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import styles from "./styles.css";
 
+import View from "../core/View";
+
 import ThemedComponent from "../utils/theming/ThemedComponent";
 
 const mediumTooltipLimit = 50;
@@ -45,17 +47,20 @@ export default class Tooltip extends ThemedComponent {
       "default";
 
     return (
-      <div
-        className={classNames(
-          theme.tooltip,
-          theme[position],
-          theme[`size_${resolvedSize}`],
-          { [theme.inline]: inline }
-        )}
+      <View
+        className={classNames(theme.container, { [theme.inline]: inline })}
         style={{ left, top }}
       >
-        {children}
-      </div>
+        <View
+          className={classNames(
+            theme.tooltip,
+            theme[position],
+            theme[`size_${resolvedSize}`]
+          )}
+        >
+          {children}
+        </View>
+      </View>
     );
   }
 }

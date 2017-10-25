@@ -7,7 +7,9 @@ describe("Tooltip", () => {
       expect(
         <Tooltip />,
         "to deeply render as",
-        <div className="tooltip size_default top" style={{ top: 0, left: 0 }} />
+        <div style={{ top: 0, left: 0 }}>
+          <div className="tooltip size_default top" />
+        </div>
       );
     });
   });
@@ -42,7 +44,9 @@ describe("Tooltip", () => {
       expect(
         <Tooltip position="left" left={15} top={50} />,
         "to deeply render as",
-        <div className="tooltip left" style={{ top: 50, left: 15 }} />
+        <div style={{ top: 50, left: 15 }}>
+          <div className="tooltip left" />
+        </div>
       );
     });
   });
