@@ -1,3 +1,5 @@
+@import '@zendesk/garden-css-variables';
+
 .toggle {
   composes: c-chk c-chk--toggle from '@zendesk/garden-css-forms';
 }
@@ -18,8 +20,11 @@
   composes: c-chk__label from '@zendesk/garden-css-forms';
 }
 
-.hint,
 .muted {
+  font-weight: var(--zd-font-weight-regular);
+}
+
+.hint {
   composes: c-chk__hint from '@zendesk/garden-css-forms';
 }
 
