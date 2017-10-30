@@ -112,6 +112,8 @@ export default class Table extends ThemedComponent {
       focusedRow,
       isFocused
     });
+
+    this.tableRef.scrollToRow(focusedRow);
   };
 
   onSort = sortState => {
@@ -318,6 +320,7 @@ export default class Table extends ThemedComponent {
       density,
       dir,
       rowRenderer,
+      onRowsRendered,
       ...otherTableProps
     } = this.props;
     const { focusedRow } = this.state;
@@ -344,7 +347,7 @@ export default class Table extends ThemedComponent {
               rowCount={data.length}
               scrollToRow={focusedRow}
             >
-              {({ onSectionRendered, scrollToRow }) =>
+              {({ onSectionRendered }) =>
                 <VirtualTable
                   width={width}
                   height={height}
@@ -374,7 +377,6 @@ export default class Table extends ThemedComponent {
                   {...otherTableProps}
                   sort={this.onSort}
                   onRowClick={this.onRowClick}
-                  scrollToIndex={scrollToRow}
                   rowRenderer={rowProps => {
                     if (rowRenderer) {
                       return rowRenderer(rowProps, updateRowProps =>
@@ -395,6 +397,14 @@ export default class Table extends ThemedComponent {
                       theme,
                       this.selectedMapping
                     );
+                  }}
+                  onRowsRendered={options => {
+                    onSectionRendered({
+                      rowStartIndex: options.startIndex,
+                      rowStopIndex: options.stopIndex
+                    });
+
+                    onRowsRendered && onRowsRendered(options);
                   }}
                 >
                   {this.retrieveColumns()}
