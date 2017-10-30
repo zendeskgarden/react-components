@@ -1,3 +1,7 @@
+### v12.7.0 (2017-10-30)
+
+- [#367](https://github.com/zendeskgarden/react-components/pull/367) Make RadioButtonGroup only set props on RadioButtons ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
 ### v12.6.1 (2017-10-30)
 
 - [#366](https://github.com/zendeskgarden/react-components/pull/366) Fixed the muted styles for Checkbox, Toggle and RadioButton's ([Sune Simonsen](mailto:sune@we-knowhow.dk))
