@@ -1,3 +1,7 @@
+### v12.6.1 (2017-10-30)
+
+- [#366](https://github.com/zendeskgarden/react-components/pull/366) Fixed the muted styles for Checkbox, Toggle and RadioButton's ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
 ### v12.6.0 (2017-10-25)
 
 - [#363](https://github.com/zendeskgarden/react-components/pull/363) Move tooltip positioning to a container element to avoid CSS overrides ([Sune Simonsen](mailto:sune@we-knowhow.dk))
