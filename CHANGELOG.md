@@ -1,3 +1,7 @@
+### v12.7.1 (2017-10-30)
+
+- [#369](https://github.com/zendeskgarden/react-components/pull/369) Raise the z-index to be higher than the modals. ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
 ### v12.7.0 (2017-10-30)
 
 - [#367](https://github.com/zendeskgarden/react-components/pull/367) Make RadioButtonGroup only set props on RadioButtons ([Sune Simonsen](mailto:sune@we-knowhow.dk))
