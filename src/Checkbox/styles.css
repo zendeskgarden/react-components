@@ -1,3 +1,5 @@
+@import '@zendesk/garden-css-variables';
+
 .checkbox {
   composes: c-chk from '@zendesk/garden-css-forms';
 }
@@ -22,7 +24,10 @@
   composes: c-chk__label from '@zendesk/garden-css-forms';
 }
 
-.muted,
+.muted {
+  font-weight: var(--zd-font-weight-regular);
+}
+
 .hint {
   composes: c-chk__hint from '@zendesk/garden-css-forms';
 }
