@@ -80,7 +80,8 @@ class RelativePositionedPopup extends Component {
     testId: PropTypes.string,
     trapFocus: PropTypes.bool,
     stretched: PropTypes.bool,
-    onClickOutside: PropTypes.func
+    onClickOutside: PropTypes.func,
+    zIndex: PropTypes.number
   };
 
   static defaultProps = {
@@ -90,7 +91,8 @@ class RelativePositionedPopup extends Component {
     marginLeft: 0,
     marginRight: 0,
     marginTop: 0,
-    trapFocus: false
+    trapFocus: false,
+    zIndex: 500
   };
 
   constructor(props, context) {
@@ -231,7 +233,7 @@ class RelativePositionedPopup extends Component {
   };
 
   render() {
-    const { anchor, children, hidden, testId, stretched } = this.props;
+    const { anchor, children, hidden, testId, stretched, zIndex } = this.props;
     const { opening, placement } = this.state || {};
 
     const popupStyle = placement
@@ -240,7 +242,8 @@ class RelativePositionedPopup extends Component {
           top: `${placement.rect.top}px`,
           left: `${placement.rect.left}px`,
           height: `${placement.rect.height}px`,
-          width: `${placement.rect.width}px`
+          width: `${placement.rect.width}px`,
+          zIndex
         }
       : { visibility: "hidden" };
 
