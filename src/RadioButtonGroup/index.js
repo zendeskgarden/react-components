@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import uuid from "uuid";
 
 import View from "../core/View";
+import RadioButton from "../RadioButton";
 
 export default class RadioButtonGroup extends Component {
   static propTypes = {
@@ -34,21 +35,25 @@ export default class RadioButtonGroup extends Component {
   render() {
     const { children, dir, disabled, muted, selected, className } = this.props;
 
-    const radios = React.Children.map(children, (item, index) =>
-      React.cloneElement(item, {
-        disabled: "disabled" in item.props ? item.props.disabled : disabled,
-        checked: selected === item.props.value,
-        dir: dir,
-        key: `radio-${index}`,
-        name: this.id,
-        muted: "muted" in item.props ? item.props.muted : muted,
-        onChange: this.onChange
-      })
-    );
+    const items = React.Children.map(children, (item, index) => {
+      if (item && item.type === RadioButton) {
+        return React.cloneElement(item, {
+          disabled: "disabled" in item.props ? item.props.disabled : disabled,
+          checked: selected === item.props.value,
+          dir: dir,
+          key: `radio-${index}`,
+          name: this.id,
+          muted: "muted" in item.props ? item.props.muted : muted,
+          onChange: this.onChange
+        });
+      } else {
+        return item;
+      }
+    });
 
     return (
       <View className={className}>
-        {radios}
+        {items}
       </View>
     );
   }

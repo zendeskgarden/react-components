@@ -3,6 +3,7 @@ import expect from "test/expect";
 import sinon from "sinon";
 
 import RadioButton from "../RadioButton";
+import TextArea from "../TextArea";
 import RadioButtonGroup from ".";
 import View from "../core/View";
 
@@ -59,6 +60,25 @@ describe("RadioButtonGroup", () => {
         onChange(1, { type: "change" });
       });
     });
+  });
+
+  it("doesn't set onChange on non RadioButton components", () => {
+    const onChange = sinon.spy();
+    const textAreaOnChange = sinon.spy();
+
+    return expect(
+      <RadioButtonGroup onChange={onChange}>
+        <RadioButton value={1}>1</RadioButton>
+        <TextArea onChange={textAreaOnChange} />
+        <RadioButton value={2}>2</RadioButton>
+      </RadioButtonGroup>,
+      "to render as",
+      <View>
+        <RadioButton value={1}>1</RadioButton>
+        <TextArea onChange={textAreaOnChange} />
+        <RadioButton value={2}>2</RadioButton>
+      </View>
+    );
   });
 
   describe("with value matching one of the radio buttons", () => {
