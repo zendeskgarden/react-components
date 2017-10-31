@@ -173,6 +173,96 @@ for (let x = 0; x < 100; x++) {
 </div>
 ```
 
+#### Infinite Scrolling
+
+This example mocks an API call that responds after 3 seconds.
+
+```
+const { InfiniteLoader } = require("react-virtualized");
+
+const data = [];
+for (let x = 0; x < 30; x++) {
+    data.push({
+        id: `unique-id-${x}`,
+        name: x % 2 === 0 ? 'John Doe' : 'Jane Doe',
+        avatar: x % 2 === 0 ? './images/jason.png' : './images/amir.png',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    });
+}
+
+initialState = {
+    data
+};
+
+const isRowLoaded = ({ index }) => {
+    return index < state.data.length;
+};
+
+/**
+ * This is used to mock an API call.
+ */
+const loadMoreRows = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            const newData = state.data.slice();
+
+            for (let x = 0; x < 30; x++) {
+                newData.push({
+                    id: `unique-id-${x}`,
+                    name: x % 2 === 0 ? 'John Doe' : 'Jane Doe',
+                    avatar: x % 2 === 0 ? './images/jason.png' : './images/amir.png',
+                    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                });
+            }
+
+            setState({ data: newData });
+            resolve();
+        }, 3000);
+    });
+};
+
+<div style={{ height: 300 }}>
+    <InfiniteLoader
+        isRowLoaded={isRowLoaded}
+        loadMoreRows={loadMoreRows}
+        rowCount={state.data.length + 1}>
+        {({ onRowsRendered, registerChild }) => (
+            <Table
+                innerRef={registerChild}
+                data={state.data}
+                onRowsRendered={onRowsRendered}
+                rowRenderer={(rowProps, defaultRowRenderer) => {
+                    if (rowProps.index === state.data.length - 1) {
+                        return <div
+                            className="u-ta-center u-mt-sm"
+                            key={`{rowProps.key}-loader`}
+                            style={rowProps.style}>
+                            <Loader size={32} />
+                        </div>;
+                    }
+
+                    return defaultRowRenderer(rowProps);
+                }}
+                isLoading={state.isLoading}>
+                <Table.Column
+                    dataKey="avatar"
+                    width={45}
+                    cellRenderer={({rowData}) => <Avatar alt={rowData.name} src={rowData.avatar} />} />
+                <Table.Column
+                    label="Name"
+                    dataKey="name"
+                    width={100} />
+                <Table.Column
+                    width={125}
+                    label="Description"
+                    dataKey="description"
+                    flexGrow={1} />
+            </Table>
+        )}
+    </InfiniteLoader>
+</div>
+```
+
 #### Pagination
 
 ```
