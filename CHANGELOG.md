@@ -1,3 +1,7 @@
+### v12.7.2 (2017-10-31)
+
+- [#370](https://github.com/zendeskgarden/react-components/pull/370) Table: Fix scroll position for InfiniteLoader usage ([Austin Green](mailto:austingreenkansas@gmail.com))
+
 ### v12.7.1 (2017-10-30)
 
 - [#369](https://github.com/zendeskgarden/react-components/pull/369) Raise the z-index to be higher than the modals. ([Sune Simonsen](mailto:sune@we-knowhow.dk))
@@ -165,6 +169,9 @@
 
 - [#265](https://github.com/zendeskgarden/react-components/pull/265) Ellipsis: Add support for rich content in title/tooltips ([Marc Høegh](mailto:Anifacted@users.noreply.github.com))
 - [#262](https://github.com/zendeskgarden/react-components/pull/262) Reformat the rest of the files ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
+### v8.1.1 (2017-08-15)
+
 - [#260](https://github.com/zendeskgarden/react-components/pull/260) Bump version of css-labels to allow for ellipsis overflows ([Austin Green](mailto:austingreenkansas@gmail.com))
 
 ### v8.1.0 (2017-08-14)
