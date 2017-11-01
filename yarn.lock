@@ -3,8 +3,8 @@
 
 
 "@zendesk/garden-css-arrows@^1.0.0":
-  version "1.0.0"
-  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-arrows/-/@zendesk/garden-css-arrows-1.0.0.tgz#fe2665a99f3a0420a2c873bea0dd4c633aadc1fb"
+  version "1.0.1"
+  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-arrows/-/@zendesk/garden-css-arrows-1.0.1.tgz#e1951ac1658867a6f8c9de658b65886e7f1d3dc2"
 
 "@zendesk/garden-css-avatars@^1.0.1":
   version "1.0.1"
@@ -31,8 +31,8 @@
   resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-menus/-/@zendesk/garden-css-menus-4.0.0.tgz#4a9478d17046a358d6b7a5bbfd53fe7bc2495003"
 
 "@zendesk/garden-css-modals@^4.0.0":
-  version "4.0.0"
-  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-modals/-/@zendesk/garden-css-modals-4.0.0.tgz#f7bddc26c73a6bfdc8cb9deabf78467ab0b745f6"
+  version "4.0.1"
+  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-modals/-/@zendesk/garden-css-modals-4.0.1.tgz#8db90a465fc606090dbac25956757146831fb032"
 
 "@zendesk/garden-css-pagination@^1.0.0":
   version "1.0.0"
