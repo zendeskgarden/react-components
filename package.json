@@ -43,14 +43,14 @@
     "react-dom": "^0.14.0 || ^15.0.0"
   },
   "devDependencies": {
-    "@zendesk/garden-css-arrows": "^1.0.0",
+    "@zendesk/garden-css-arrows": "^1.0.1",
     "@zendesk/garden-css-avatars": "^1.0.1",
     "@zendesk/garden-css-buttons": "^3.4.0",
     "@zendesk/garden-css-callouts": "^1.1.1",
     "@zendesk/garden-css-forms": "^3.3.1",
     "@zendesk/garden-css-labels": "^1.0.2",
     "@zendesk/garden-css-menus": "^4.0.0",
-    "@zendesk/garden-css-modals": "^4.0.0",
+    "@zendesk/garden-css-modals": "^4.0.1",
     "@zendesk/garden-css-pagination": "^1.0.0",
     "@zendesk/garden-css-tables": "^1.0.2",
     "@zendesk/garden-css-tabs": "^3.1.1",
