@@ -20,8 +20,6 @@
 .input {
   /* stylelint-disable-next-line max-line-length */
   composes: c-txt__input c-txt__input--select c-txt__input--label from '@zendesk/garden-css-forms';
-  display: flex;
-  flex-wrap: wrap;
   min-height: inherit;
 }
 

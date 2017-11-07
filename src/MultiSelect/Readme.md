@@ -8,59 +8,58 @@ The MultiSelect component acts as a simple abstraction around the keyboard navig
 The `selectedItems` prop can be anything wrapped in the `Selectable` higher-order component.  With the `Selectable` HOC it respects the `disabled, value, and onRemove` props.  The most common use-case would be the `Label` component and is made available through `MultiSelect.Label` component.
 
 ### Menu items
-The `menuItems` prop can also be anything wrapped in the `Selectable` higher-order component. `Menu.Item` is the most common use-case.
+The `menuItems` prop can also be anything wrapped in the `Selectable` higher-order component. `MultiSelect.Item` is the most common use-case.
 
 #### Common Usage
 
 ```
 const avatar = <img src='http://placeskull.com/16/16/03363d'/>;
 
-const menuItems = (textValue) => {
+const menuItems = (textValue, state, setState) => {
   if (textValue.length === 0) {
     return [];
   }
 
   return [
-    <Menu.Item onClick={() => onMenuSelect(`${textValue} - ${textValue}`)}>{textValue} - {textValue}</Menu.Item>,
-    <Menu.Item disabled>Disabled menu item</Menu.Item>,
-    <Menu.Item onClick={() => onMenuSelect(`${textValue} - ${textValue} - ${textValue}`)}>{textValue} - {textValue} - {textValue}</Menu.Item>
+    <MultiSelect.Item onClick={() => onMenuSelect(`${textValue} - ${textValue}`, state, setState)} key="0">{textValue} - {textValue}</MultiSelect.Item>,
+    <MultiSelect.Item disabled  key="1">Disabled menu item</MultiSelect.Item>,
+    <MultiSelect.Item onClick={() => onMenuSelect(`${textValue} - ${textValue} - ${textValue}`, state, setState)} key="2">{textValue} - {textValue} - {textValue}</MultiSelect.Item>
   ]
 };
 
-const onMenuSelect = (textValue) => {
+const onMenuSelect = (textValue, state, setState) => {
   const newItems = state.selectedItems.slice();
-  newItems.push(<MultiSelect.Label onRemove={() => onRemove(newItems.length)} size='medium' pill avatar={avatar} className="u-m-xxs" type='light' value={textValue}>{textValue}</MultiSelect.Label>);
+  newItems.push(<MultiSelect.Label onRemove={() => onRemove(newItems.length - 1, state, setState)} size='medium' pill avatar={avatar} className="u-m-xxs" type='light' value={textValue}>{textValue}</MultiSelect.Label>);
   setState({ selectedItems: newItems, textValue: '' });
 };
 
-const onRemove = (index) => {
+const onRemove = (index, state, setState) => {
+  debugger;
   const newItems = state.selectedItems.slice();
   newItems.splice(index, 1);
   setState({ selectedItems: newItems });
 };
 
-initialState = { textValue: '', selectedItems: [] };
+<State initialState={{ textValue: '', selectedItems: [] }}>
+  {(state, setState) => <MultiSelect
+        label='Common Example'
+        hint='Try keyboard navigation and removing labels'
+        onTextChange={textValue => setState({ textValue })}
+        textValue={state.textValue}
+        selectedItems={state.selectedItems}
+        onKeyDown={(event, selectedItem) => {
+          const isEnterKey = event.keyCode === 13;
 
-<Grid columns={1} stretched>
-  <MultiSelect
-    label='Common Example'
-    hint='Try keyboard navigation and removing labels'
-    onTextChange={textValue => setState({ textValue })}
-    textValue={state.textValue}
-    selectedItems={state.selectedItems}
-    onKeyDown={(event, selectedItem) => {
-      const isEnterKey = event.keyCode === 13;
-
-      if (isEnterKey && state.textValue) {
-        const newItems = state.selectedItems.slice();
-        newItems.push(<MultiSelect.Label onRemove={() => onRemove(newItems.length)} size='medium' pill avatar={avatar} className="u-m-xxs" type='light' value={state.textValue}>{state.textValue}</MultiSelect.Label>);
-        setState({ selectedItems: newItems, textValue: '' });
-      }
-    }}
-    menuItems={menuItems(state.textValue)}
-  >
-  </MultiSelect>
-</Grid>
+          if (isEnterKey && state.textValue) {
+            const newItems = state.selectedItems.slice();
+            newItems.push(<MultiSelect.Label onRemove={() => onRemove(newItems.length - 1, state, setState)} size='medium' pill avatar={avatar} className="u-m-xxs" type='light' value={state.textValue}>{state.textValue}</MultiSelect.Label>);
+            setState({ selectedItems: newItems, textValue: '' });
+          }
+        }}
+      >
+        {menuItems(state.textValue, state, setState)}
+      </MultiSelect>}
+</State>
 ```
 
 #### Custom Keyboard Events
@@ -127,9 +126,9 @@ const menuItems = (textValue) => {
   }
 
   return [
-    <Menu.Item onClick={() => onMenuSelect(`${textValue}@gmail.com`)}>{textValue}@gmail.com</Menu.Item>,
-    <Menu.Item onClick={() => onMenuSelect(`${textValue}@yahoo.com`)}>{textValue}@yahoo.com</Menu.Item>,
-    <Menu.Item onClick={() => onMenuSelect(`${textValue}@outlook.com`)}>{textValue}@outlook.com</Menu.Item>
+    <MultiSelect.Item onClick={() => onMenuSelect(`${textValue}@gmail.com`)}>{textValue}@gmail.com</MultiSelect.Item>,
+    <MultiSelect.Item onClick={() => onMenuSelect(`${textValue}@yahoo.com`)}>{textValue}@yahoo.com</MultiSelect.Item>,
+    <MultiSelect.Item onClick={() => onMenuSelect(`${textValue}@outlook.com`)}>{textValue}@outlook.com</MultiSelect.Item>
   ]
 };
 
@@ -150,7 +149,6 @@ initialState = { textValue: '', selectedItems: [], validation: undefined, valida
     onTextChange={textValue => setState({ textValue })}
     textValue={state.textValue}
     selectedItems={state.selectedItems}
-    menuItems={menuItems(state.textValue)}
     onKeyDown={(event, selectedItem) => {
       const isEnterKey = event.keyCode === 13;
 
@@ -165,6 +163,8 @@ initialState = { textValue: '', selectedItems: [], validation: undefined, valida
       }
     }}
   >
+
+    { menuItems(state.textValue) }
   </MultiSelect>
 </Grid>
 ```

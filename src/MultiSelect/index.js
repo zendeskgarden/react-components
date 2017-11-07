@@ -26,12 +26,15 @@ export default class MultiSelect extends ThemedComponent {
     disabled: PropTypes.bool,
     hint: PropTypes.node,
     label: PropTypes.node,
-    menuMaxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    maxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     onBlur: PropTypes.func,
     onClose: PropTypes.func,
     onFocus: PropTypes.func,
     onOpen: PropTypes.func,
     positioning: Menu.propTypes.positioning,
+    /**
+     * Whether form element fills the space provided.
+     */
     stretched: PropTypes.bool,
     size: PropTypes.oneOf(["small", "medium"]),
     tabIndex: PropTypes.number,
@@ -45,10 +48,12 @@ export default class MultiSelect extends ThemedComponent {
     /**
      * Menu items that are displayed within the MultiSelect.
      */
-    menuItems: PropTypes.arrayOf(PropTypes.element),
+    children: PropTypes.node,
     onTextChange: PropTypes.func,
     textValue: PropTypes.string,
-    placeholderText: PropTypes.string
+    placeholderText: PropTypes.string,
+    wide: PropTypes.bool,
+    fixedWidth: PropTypes.bool
   };
 
   static defaultProps = {
@@ -58,8 +63,7 @@ export default class MultiSelect extends ThemedComponent {
     stretched: true,
     size: "medium",
     tabIndex: 0,
-    selectedItems: [],
-    menuItems: []
+    selectedItems: []
   };
 
   constructor(props, context) {
@@ -104,7 +108,7 @@ export default class MultiSelect extends ThemedComponent {
     this.setState({ selectedItems, menuItems });
   };
 
-  setSelectableItems = ({ selectedItems, menuItems }) => {
+  setSelectableItems = ({ selectedItems, children }) => {
     const { dir } = this.props;
 
     this.selectedItemModel.items = selectedItems.map((item, index) => {
@@ -114,7 +118,7 @@ export default class MultiSelect extends ThemedComponent {
       });
     });
 
-    this.menuItemsModel.items = menuItems;
+    this.menuItemsModel.items = children;
 
     this.setState({
       selectedItems: this.selectedItemModel.items,
@@ -187,7 +191,7 @@ export default class MultiSelect extends ThemedComponent {
     return (
       <View
         className={classNames(theme.input, {
-          [theme.open]: open && menuItems.length > 0
+          [theme.open]: open && menuItems && menuItems.length > 0
         })}
         dir={dir}
         disabled={disabled}
@@ -331,10 +335,12 @@ export default class MultiSelect extends ThemedComponent {
       testId,
       validation,
       onKeyDown,
-      menuMaxHeight,
+      maxHeight,
       onBlur,
       onFocus,
-      positioning
+      positioning,
+      wide,
+      fixedWidth
     } = this.props;
 
     const { open, focused, menuItems } = this.state;
@@ -371,17 +377,20 @@ export default class MultiSelect extends ThemedComponent {
         {this.renderHint()}
         <RelativePositionedPopup
           anchor={this.renderAnchorElement()}
-          hidden={!open || menuItems.length === 0}
+          hidden={!open || !menuItems || menuItems.length === 0}
           positioning={positioning}
           marginBottom={4}
           marginTop={4}
-          stretched
+          stretched={stretched}
         >
           {position =>
             <Menu.Container
               dir={dir}
               position={position}
-              maxHeight={menuMaxHeight}
+              maxHeight={maxHeight}
+              size={size}
+              wide={wide}
+              fixedWidth={fixedWidth}
               animate
             >
               {menuItems}
