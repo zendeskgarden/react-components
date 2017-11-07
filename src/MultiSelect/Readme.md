@@ -34,7 +34,6 @@ const onMenuSelect = (textValue, state, setState) => {
 };
 
 const onRemove = (index, state, setState) => {
-  debugger;
   const newItems = state.selectedItems.slice();
   newItems.splice(index, 1);
   setState({ selectedItems: newItems });

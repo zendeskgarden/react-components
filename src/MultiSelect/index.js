@@ -26,6 +26,9 @@ export default class MultiSelect extends ThemedComponent {
     disabled: PropTypes.bool,
     hint: PropTypes.node,
     label: PropTypes.node,
+    /**
+     * Maximum height of the menu container.
+     */
     maxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     onBlur: PropTypes.func,
     onClose: PropTypes.func,
@@ -53,7 +56,12 @@ export default class MultiSelect extends ThemedComponent {
     textValue: PropTypes.string,
     placeholderText: PropTypes.string,
     wide: PropTypes.bool,
-    fixedWidth: PropTypes.bool
+    fixedWidth: PropTypes.bool,
+    showChevron: PropTypes.bool,
+    /**
+     * Maximum height of the input.
+     */
+    inputMaxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   };
 
   static defaultProps = {
@@ -63,7 +71,8 @@ export default class MultiSelect extends ThemedComponent {
     stretched: true,
     size: "medium",
     tabIndex: 0,
-    selectedItems: []
+    selectedItems: [],
+    showChevron: false
   };
 
   constructor(props, context) {
@@ -183,7 +192,9 @@ export default class MultiSelect extends ThemedComponent {
       tabIndex,
       textValue,
       onTextChange,
-      placeholderText
+      placeholderText,
+      showChevron,
+      inputMaxHeight
     } = this.props;
     const { open, focused, selectedItems, menuItems } = this.state;
     const { theme } = this;
@@ -191,8 +202,10 @@ export default class MultiSelect extends ThemedComponent {
     return (
       <View
         className={classNames(theme.input, {
-          [theme.open]: open && menuItems && menuItems.length > 0
+          [theme.open]: open && menuItems && menuItems.length > 0,
+          [theme.no_chevron]: !showChevron
         })}
+        style={{ maxHeight: inputMaxHeight }}
         dir={dir}
         disabled={disabled}
         onClick={this.onClick}

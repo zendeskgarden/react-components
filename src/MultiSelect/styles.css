@@ -21,6 +21,7 @@
   /* stylelint-disable-next-line max-line-length */
   composes: c-txt__input c-txt__input--select c-txt__input--label from '@zendesk/garden-css-forms';
   min-height: inherit;
+  overflow-y: auto;
 }
 
 .label {
@@ -75,6 +76,13 @@
   width: 60px;
   min-height: 25px;
 }
+
+/* stylelint-disable declaration-no-important */
+.no_chevron::before {
+  transform: none !important;
+  background-image: none !important;
+}
+/* stylelint-enable declaration-no-important */
 
 .selected_items_container {
   display: flex;
