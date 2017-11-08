@@ -1,37 +1,27 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-import ThemedComponent from "../ThemedComponent";
 import Item from "./Item";
 import styles from "./styles.css";
 
-class HeaderItem extends ThemedComponent {
+class HeaderItem extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
     icon: PropTypes.element
   };
 
-  constructor(props, context) {
-    super(props, context, {
-      namespace: "Menu",
-      styles
-    });
-  }
-
   render() {
     const { children, className, icon, ...otherProps } = this.props;
-    const { theme } = this;
 
     return (
       <Item
-        className={classNames(theme.header_item, className)}
-        isCheckable={false}
+        className={classNames(className, styles.header_item)}
         {...otherProps}
       >
         {icon &&
-          <div className={theme.header_icon}>
+          <div className={styles.header_icon}>
             {icon}
           </div>}
         {children}

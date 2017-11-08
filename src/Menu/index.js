@@ -77,12 +77,15 @@ export default class Menu extends ThemedComponent {
   static HeaderItem = HeaderItem;
   static AddItem = AddItem;
   static MediaItem = MediaItem;
+<<<<<<< HEAD
 
   constructor(props, context) {
     super(props, context, {
       namespace: "Menu",
       styles
     });
+=======
+>>>>>>> Menu: Add new selectable menu types
 
     this.selectionModel = new ReactSingleSelectionModel();
     this.selectionModel.onSelectionChanged = this.onSelectionChanged;
