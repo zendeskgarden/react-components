@@ -7,7 +7,7 @@ import Selectable from "../core/Selectable";
 
 import styles from "./styles.css";
 
-class Item extends Component {
+export class Item extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
@@ -20,12 +20,15 @@ class Item extends Component {
     testId: PropTypes.string,
     title: PropTypes.string,
     /** <a href="#view">See View</a> */
-    tooltipPositioning: () => {}
+    tooltipPositioning: () => {},
+    checked: PropTypes.bool,
+    metaInformation: PropTypes.node
   };
 
   static defaultProps = {
     disabled: false,
-    role: "menuitem"
+    role: "menuitem",
+    checked: false
   };
 
   render() {
@@ -40,7 +43,9 @@ class Item extends Component {
       selected,
       testId,
       title,
-      tooltipPositioning
+      tooltipPositioning,
+      checked,
+      metaInformation
     } = this.props;
 
     return (
@@ -49,7 +54,8 @@ class Item extends Component {
         aria-disabled={disabled}
         className={classNames(styles.item, className, {
           [styles.disabled]: disabled,
-          [styles.focused]: selected
+          [styles.focused]: selected,
+          [styles.checked]: checked
         })}
         disabled={disabled}
         onMouseDown={onMouseDown}
@@ -61,6 +67,10 @@ class Item extends Component {
         tooltipPositioning={tooltipPositioning}
       >
         {children}
+        {metaInformation &&
+          <div className={styles.meta}>
+            {metaInformation}
+          </div>}
       </View>
     );
   }

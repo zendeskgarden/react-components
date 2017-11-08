@@ -10,6 +10,11 @@ import Container from "./Container";
 import Item from "./Item";
 import LinkItem from "./LinkItem";
 import Separator from "./Separator";
+import PreviousItem from "./PreviousItem";
+import NextItem from "./NextItem";
+import HeaderItem from "./HeaderItem";
+import AddItem from "./AddItem";
+import MediaItem from "./MediaItem";
 
 import styles from "./styles.css";
 
@@ -56,6 +61,11 @@ export default class Menu extends Component {
   static Item = Item;
   static LinkItem = LinkItem;
   static Separator = Separator;
+  static PreviousItem = PreviousItem;
+  static NextItem = NextItem;
+  static HeaderItem = HeaderItem;
+  static AddItem = AddItem;
+  static MediaItem = MediaItem;
 
   constructor(props) {
     super(props);

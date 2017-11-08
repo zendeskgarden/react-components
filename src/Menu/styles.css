@@ -37,6 +37,42 @@
   composes: c-menu__item from '@zendesk/garden-css-menus';
 }
 
+.previous_item {
+  composes: c-menu__item--previous from '@zendesk/garden-css-menus';
+}
+
+.next_item {
+  composes: c-menu__item--next from '@zendesk/garden-css-menus';
+}
+
+.header_item {
+  composes: c-menu__item--header from '@zendesk/garden-css-menus';
+}
+
+.header_icon {
+  composes: c-menu__item--header__icon from '@zendesk/garden-css-menus';
+}
+
+.add_item {
+  composes: c-menu__item--add from '@zendesk/garden-css-menus';
+}
+
+.media_item {
+  composes: c-menu__item--media from '@zendesk/garden-css-menus';
+}
+
+.media_figure {
+  composes: c-menu__item--media__figure from '@zendesk/garden-css-menus';
+}
+
+.media_body {
+  composes: c-menu__item--media__body from '@zendesk/garden-css-menus';
+}
+
+.meta {
+  composes: c-menu__item__meta from '@zendesk/garden-css-menus';
+}
+
 .inner {
   padding: 8px 0;
 }
@@ -52,6 +88,10 @@
 
 .focused {
   composes: is-focused from '@zendesk/garden-css-menus';
+}
+
+.checked {
+  composes: is-checked from '@zendesk/garden-css-menus';
 }
 
 .separator {

@@ -35,6 +35,8 @@ The MenuColumn is used to display overflow menus in the Header and Body rows of 
 
 By using a scoped callback with the `onClick` prop, as shown below, allows you to handle menu selection.  Both props are optional.
 
+You can enforce Menu scrolling with the `headerMenuMaxHeight` and `rowMenuMaxHeight` props.
+
 ### Infinite/Virtual Scrolling
 Our abstraction fully supports the [react-virtualized InfiniteLoader component.](https://github.com/bvaughn/react-virtualized/blob/master/docs/InfiniteLoader.md)
 

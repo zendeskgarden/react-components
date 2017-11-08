@@ -14,7 +14,8 @@ export default class OverflowMenu extends Component {
     onOpen: PropTypes.func,
     onClose: PropTypes.func,
     marginBottom: PropTypes.number,
-    marginTop: PropTypes.number
+    marginTop: PropTypes.number,
+    maxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
   };
 
   static defaultProps = {
@@ -39,7 +40,8 @@ export default class OverflowMenu extends Component {
       onOpen,
       onClose,
       marginBottom,
-      marginTop
+      marginTop,
+      maxHeight
     } = this.props;
     const { isFocused } = this.state;
 
@@ -66,6 +68,7 @@ export default class OverflowMenu extends Component {
         onClose={onClose}
         marginBottom={marginBottom}
         marginTop={marginTop}
+        maxHeight={maxHeight}
       >
         {children}
       </Menu>
