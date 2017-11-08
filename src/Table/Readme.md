@@ -548,25 +548,16 @@ for (let x = 0; x < 1000; x++) {
     });
 }
 
-const { WindowScroller } = require('react-virtualized');
-
 initialState = {
     focusedIndex: undefined,
     selectedData: []
 };
 
 <div>
-    <div style={{ marginTop: 25, height: "100%" }}>
-        <WindowScroller>
-              {({ height, isScrolling, scrollTop }) =>
+    <div style={{ marginTop: 25, height: 500 }}>
         <Table
             data={data}
-            width={750}
-            autoHeight
-            height={height}
-            isScrolling={isScrolling}
             selectedData={state.selectedData}
-            scrollTop={scrollTop}
             onRowFocus={focusedIndex => setState({ focusedIndex })}>
             <Table.CheckboxColumn
                 dataKey="id"
@@ -601,8 +592,7 @@ initialState = {
                 dataKey="timestamp"
                 cellRenderer={({rowData, dataKey}) => rowData[dataKey].toLocaleDateString()}
                 disableSort />
-        </Table>}
-        </WindowScroller>
+        </Table>
     </div>
 </div>
 ```
