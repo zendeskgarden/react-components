@@ -21,10 +21,6 @@
   composes: c-menu--sm from '@zendesk/garden-css-menus';
 }
 
-.wide {
-  composes: c-menu--large from '@zendesk/garden-css-menus';
-}
-
 .fixed_width {
   max-width: var(--zd-menu-min-width);
 }
