@@ -4,8 +4,6 @@
   /* Theme specific calculations */
   --zd-accent-color: var(--zd-color-mandy);
   --zd-focus-color: color(var(--zd-accent-color) alpha(40%));
-  --zd-active-color: color(var(--zd-accent-color) blackness(+10%));
-  --zd-hover-color: color(var(--zd-accent-color) lightness(+10%) saturation(+10%));
 
   /* Anchor Variables */
   --zd-anchor-color: var(--zd-accent-color);
@@ -15,7 +13,6 @@
 
   /* Checkbox Variables */
   --zd-checkbox-color: var(--zd-accent-color);
-  --zd-checkbox-focus-color: var(--zd-focus-color);
 
   /* Label Variables */
   --zd-label-color: var(--zd-accent-color);
@@ -26,16 +23,12 @@
 
   /* Radio Button Variables */
   --zd-radio-button-color: var(--zd-accent-color);
-  --zd-radio-button-focus-color: var(--zd-focus-color);
 
   /* Range Variables */
   --zd-range-color: var(--zd-accent-color);
-  --zd-range-focus-color: var(--zd-focus-color);
-  --zd-range-active-color: var(--zd-hover-color);
 
   /* Select Variables */
   --zd-select-color: var(--zd-accent-color);
-  --zd-select-focus-color: var(--zd-focus-color);
 
   /* Tab Variables */
   --zd-tab-color: var(--zd-accent-color);
@@ -45,9 +38,7 @@
 
   /* TextInput Variables */
   --zd-text-input-color: var(--zd-accent-color);
-  --zd-text-input-focus-color: var(--zd-focus-color);
 
   /* Toggle Variables */
   --zd-toggle-color: var(--zd-accent-color);
-  --zd-toggle-focus-color: var(--zd-focus-color);
 }
