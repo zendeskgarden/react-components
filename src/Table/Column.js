@@ -18,7 +18,12 @@ const Column = ({ columnProps, tableProps, key, theme }) => {
   return (
     <RVColumn
       key={key}
-      headerClassName={classNames(theme.cell, headerClassName, key)}
+      headerClassName={classNames(
+        theme.cell,
+        theme.cell_truncate,
+        headerClassName,
+        key
+      )}
       className={classNames(
         theme.cell,
         {
@@ -47,7 +52,7 @@ const Column = ({ columnProps, tableProps, key, theme }) => {
         }
 
         return (
-          <span>
+          <span title={label}>
             {label}
           </span>
         );
