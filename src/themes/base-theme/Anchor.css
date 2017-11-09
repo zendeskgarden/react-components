@@ -1,5 +1,3 @@
-/* stylelint-disable declaration-no-important */
-
 @import '@zendesk/garden-css-buttons/src/custom';
 
 :root {
@@ -9,6 +7,8 @@
 .anchor {
   composes: c-btn--custom c-btn--anchor;
 }
+
+/* stylelint-disable declaration-no-important */
 
 .anchor:hover {
   color: var(--zd-btn--custom-color) !important;

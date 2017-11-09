@@ -13,10 +13,6 @@
   composes: c-txt__message from '@zendesk/garden-css-forms';
 }
 
-.txt:focus {
-  outline: none;
-}
-
 .input {
   composes: c-txt__input c-txt__input--select from '@zendesk/garden-css-forms';
 }
@@ -52,10 +48,6 @@
 
 .open {
   composes: is-open from '@zendesk/garden-css-forms';
-}
-
-.focused {
-  composes: is-focused from '@zendesk/garden-css-forms';
 }
 
 .disabled {

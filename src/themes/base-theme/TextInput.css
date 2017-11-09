@@ -1,10 +1,29 @@
-/* stylelint-disable declaration-no-important, max-line-length, no-descending-specificity */
+@import '@zendesk/garden-css-forms/src/custom';
 
-.txt:not(.disabled):not(.success):not(.warning):not(.error):not(.style_bare) .input:not(.style_bare):focus {
-  border-color: var(--zd-text-input-color) !important;
-  box-shadow: 0 0 0 3px var(--zd-text-input-focus-color) !important;
+:root {
+  --zd-forms--custom-accent-color: var(--zd-text-input-color);
 }
 
-.txt:not(.disabled):not(.success):not(.warning):not(.error) .input:not(.style_bare):hover {
-  border-color: var(--zd-text-input-color) !important;
+.txt {
+  composes: c-txt c-txt--custom;
+}
+
+.input {
+  composes: c-txt__input;
+}
+
+.style_bare {
+  composes: c-txt__input--bare;
+}
+
+.error {
+  composes: has-error;
+}
+
+.warning {
+  composes: has-warning;
+}
+
+.success {
+  composes: has-success;
 }
