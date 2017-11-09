@@ -116,9 +116,9 @@ Sometimes you don't want to allow removal of a selected item.  This example incl
       ]
     };
 
-    const onMenuSelect = (textValue) => {
+    const onMenuSelect = (value) => {
       const newItems = state.selectedItems.slice();
-      newItems.push(textValue);
+      newItems.push({ value });
       setState({ selectedItems: newItems, textValue: '' });
     };
 
@@ -136,6 +136,7 @@ Sometimes you don't want to allow removal of a selected item.  This example incl
         selectedItems={state.selectedItems.map((item, index) =>
           <MultiSelect.Label
             onRemove={!item.permanent ? () => onRemove(index) : undefined}
+            disabled={item.permanent}
             size='medium'
             className="u-m-xxs"
             type='light'

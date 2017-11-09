@@ -118,12 +118,13 @@ export default class MultiSelect extends ThemedComponent {
   };
 
   setSelectableItems = ({ selectedItems, children }) => {
-    const { dir } = this.props;
+    const { dir, disabled } = this.props;
 
     this.selectedItemModel.items = selectedItems.map((item, index) => {
       return React.cloneElement(item, {
         key: index,
-        dir
+        dir,
+        disabled: item.props.disabled || disabled
       });
     });
 
@@ -227,7 +228,7 @@ export default class MultiSelect extends ThemedComponent {
             this.mouseInitiated = false;
           }, 0);
         }}
-        tabIndex={-1}
+        tabIndex={!disabled && -1}
         ref={ref => {
           this.inputContainerNode = this.inputContainerNode || findDOMNode(ref);
         }}
@@ -302,6 +303,7 @@ export default class MultiSelect extends ThemedComponent {
             [theme.is_hidden]:
               selectedItems.length > 0 && !focused && !textValue
           })}
+          disabled={disabled}
           onChange={event => {
             this.menuItemsModel.clear();
             onTextChange && onTextChange(event);
