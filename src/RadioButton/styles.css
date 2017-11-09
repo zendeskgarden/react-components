@@ -1,7 +1,11 @@
 @import '@zendesk/garden-css-variables';
 
+.checkbox {
+  composes: c-chk from '@zendesk/garden-css-forms';
+}
+
 .radio {
-  composes: c-chk c-chk--radio from '@zendesk/garden-css-forms';
+  composes: c-chk--radio from '@zendesk/garden-css-forms';
 }
 
 .input {
