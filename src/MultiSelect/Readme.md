@@ -52,6 +52,7 @@ The `menuItems` prop can also be anything wrapped in the `Selectable` higher-ord
     };
 
     return <MultiSelect
+        size="small"
         label='Common Example'
         hint='Try keyboard navigation and removing labels'
         onTextChange={textValue => setState({ textValue })}
@@ -137,7 +138,7 @@ Sometimes you don't want to allow removal of a selected item.  This example incl
           <MultiSelect.Label
             onRemove={!item.permanent ? () => onRemove(index) : undefined}
             disabled={item.permanent}
-            size='medium'
+            size='large'
             className="u-m-xxs"
             type='light'
             value={item.value}>
@@ -178,6 +179,7 @@ This is a customer keyboard event for the `Copy` operation.  The `onKeyDown` cal
     return <Grid columns={1} stretched>
       {state.selected && <p><strong>{state.selected}</strong> was copied</p>}
         <MultiSelect
+          size="small"
           label='Custom Keyboard Events'
           hint='Try to copy a selected label'
           onTextChange={textValue => setState({ textValue })}
@@ -250,6 +252,7 @@ This example only allows the addition of valid email addresses.  Additionally, i
     };
 
     return <MultiSelect
+        size="small"
         label='Custom Validation'
         hint='Only valid emails can be added (@zendesk is special)'
         validation={state.validation}
@@ -321,6 +324,7 @@ const SelectableAvatar = Selectable(CustomAvatar, {
     };
 
     return <MultiSelect
+        showChevron={false}
         label='Avatar Selectables'
         hint='Just hit [ENTER] to add items'
         onTextChange={textValue => setState({ textValue })}

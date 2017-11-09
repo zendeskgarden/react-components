@@ -20,9 +20,27 @@
 .input {
   /* stylelint-disable-next-line max-line-length */
   composes: c-txt__input c-txt__input--select c-txt__input--label from '@zendesk/garden-css-forms';
-  min-height: inherit;
-  overflow-y: auto;
 }
+
+.input_overflow {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* stylelint-disable declaration-no-important */
+/**
+ * These overrides are necessary due to the transform animation causing
+ * parent size changes when used with the inputMaxHeight (.input_overflow)
+ * prop.
+ */
+.size_small .input_overflow::before {
+  height: 30px !important;
+}
+
+.size_medium .input_overflow::before {
+  height: 38px !important;
+}
+/* stylelint-enable declaration-no-important */
 
 .label {
   composes: c-txt__label from '@zendesk/garden-css-forms';

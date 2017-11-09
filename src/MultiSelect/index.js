@@ -72,7 +72,7 @@ export default class MultiSelect extends ThemedComponent {
     size: "medium",
     tabIndex: 0,
     selectedItems: [],
-    showChevron: false
+    showChevron: true
   };
 
   constructor(props, context) {
@@ -204,7 +204,8 @@ export default class MultiSelect extends ThemedComponent {
       <View
         className={classNames(theme.input, {
           [theme.open]: open && menuItems && menuItems.length > 0,
-          [theme.no_chevron]: !showChevron
+          [theme.no_chevron]: !showChevron || inputMaxHeight,
+          [theme.input_overflow]: inputMaxHeight
         })}
         style={{ maxHeight: inputMaxHeight }}
         dir={dir}
