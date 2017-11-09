@@ -30,9 +30,13 @@ export default class MultiSelect extends ThemedComponent {
      * Maximum height of the menu container.
      */
     maxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    /**
+     * Maximum height of the input.
+     */
+    inputMaxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     onBlur: PropTypes.func,
-    onClose: PropTypes.func,
     onFocus: PropTypes.func,
+    onClose: PropTypes.func,
     onOpen: PropTypes.func,
     positioning: Menu.propTypes.positioning,
     /**
@@ -57,11 +61,7 @@ export default class MultiSelect extends ThemedComponent {
     placeholderText: PropTypes.string,
     wide: PropTypes.bool,
     fixedWidth: PropTypes.bool,
-    showChevron: PropTypes.bool,
-    /**
-     * Maximum height of the input.
-     */
-    inputMaxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    showChevron: PropTypes.bool
   };
 
   static defaultProps = {

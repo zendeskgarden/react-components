@@ -2,168 +2,345 @@
 
 This component is not released and is for demo purposes only.
 
-The MultiSelect component acts as a simple abstraction around the keyboard navigation and interactability of a Token Select.
-
 ### Selected Items
 The `selectedItems` prop can be anything wrapped in the `Selectable` higher-order component.  With the `Selectable` HOC it respects the `disabled, value, and onRemove` props.  The most common use-case would be the `Label` component and is made available through `MultiSelect.Label` component.
 
 ### Menu items
-The `menuItems` prop can also be anything wrapped in the `Selectable` higher-order component. `MultiSelect.Item` is the most common use-case.
+The `menuItems` prop can also be anything wrapped in the `Selectable` higher-order component. `MultiSelect.Item` is the most common use-case. All `Menu.Item` types are available through `MultiSelect` as well: Header, Media, Previous, Next, etc.
 
 #### Common Usage
 
 ```
-const avatar = <img src='http://placeskull.com/16/16/03363d'/>;
+<State initialState={{ textValue: '', selectedItems: ['Hello world!', 'These are removable', 'And selectable'] }}>
+  {(state, setState) => {
+    const avatar = <img src='http://placeskull.com/16/16/03363d'/>;
 
-const menuItems = (textValue, state, setState) => {
-  if (textValue.length === 0) {
-    return [];
-  }
+    const menuItems = (textValue) => {
+      if (textValue.length === 0) {
+        return [];
+      }
 
-  return [
-    <MultiSelect.Item onClick={() => onMenuSelect(`${textValue} - ${textValue}`, state, setState)} key="0">{textValue} - {textValue}</MultiSelect.Item>,
-    <MultiSelect.Item disabled  key="1">Disabled menu item</MultiSelect.Item>,
-    <MultiSelect.Item onClick={() => onMenuSelect(`${textValue} - ${textValue} - ${textValue}`, state, setState)} key="2">{textValue} - {textValue} - {textValue}</MultiSelect.Item>
-  ]
-};
+      return [
+        <MultiSelect.Item
+          onClick={() => onMenuSelect(`${textValue} - ${textValue}`)}
+          key="0">
+          {textValue} - {textValue}
+        </MultiSelect.Item>,
+        <MultiSelect.Item
+          disabled
+          key="1">
+          Disabled menu item
+        </MultiSelect.Item>,
+        <MultiSelect.Item
+          onClick={() => onMenuSelect(`${textValue} - ${textValue} - ${textValue}`)}
+          key="2">
+          {textValue} - {textValue} - {textValue}
+        </MultiSelect.Item>
+      ]
+    };
 
-const onMenuSelect = (textValue, state, setState) => {
-  const newItems = state.selectedItems.slice();
-  newItems.push(<MultiSelect.Label onRemove={() => onRemove(newItems.length - 1, state, setState)} size='medium' pill avatar={avatar} className="u-m-xxs" type='light' value={textValue}>{textValue}</MultiSelect.Label>);
-  setState({ selectedItems: newItems, textValue: '' });
-};
+    const onMenuSelect = (textValue) => {
+      const newItems = state.selectedItems.slice();
+      newItems.push(textValue);
+      setState({ selectedItems: newItems, textValue: '' });
+    };
 
-const onRemove = (index, state, setState) => {
-  const newItems = state.selectedItems.slice();
-  newItems.splice(index, 1);
-  setState({ selectedItems: newItems });
-};
+    const onRemove = (index) => {
+      const newItems = state.selectedItems.slice();
+      newItems.splice(index, 1);
+      setState({ selectedItems: newItems });
+    };
 
-<State initialState={{ textValue: '', selectedItems: [] }}>
-  {(state, setState) => <MultiSelect
+    return <MultiSelect
         label='Common Example'
         hint='Try keyboard navigation and removing labels'
         onTextChange={textValue => setState({ textValue })}
         textValue={state.textValue}
-        selectedItems={state.selectedItems}
+        selectedItems={state.selectedItems.map((itemValue, index) =>
+          <MultiSelect.Label
+            onRemove={() => onRemove(index)}
+            size='medium'
+            pill
+            avatar={avatar}
+            className="u-m-xxs"
+            type='light'
+            value={itemValue}>
+            {itemValue}
+          </MultiSelect.Label>)
+        }
         onKeyDown={(event, selectedItem) => {
           const isEnterKey = event.keyCode === 13;
 
           if (isEnterKey && state.textValue) {
             const newItems = state.selectedItems.slice();
-            newItems.push(<MultiSelect.Label onRemove={() => onRemove(newItems.length - 1, state, setState)} size='medium' pill avatar={avatar} className="u-m-xxs" type='light' value={state.textValue}>{state.textValue}</MultiSelect.Label>);
+            newItems.push(state.textValue);
             setState({ selectedItems: newItems, textValue: '' });
           }
         }}
       >
-        {menuItems(state.textValue, state, setState)}
-      </MultiSelect>}
+        {menuItems(state.textValue)}
+      </MultiSelect>;
+    }}
+</State>
+```
+
+#### Permanent Selected Items
+
+Sometimes you don't want to allow removal of a selected item.  This example includes 3 default labels which cannot be removed.
+
+```
+<State initialState={{ textValue: '',
+  selectedItems: [{ value: 'Default 1', permanent: true }, { value: 'Default 2', permanent: true }, { value: 'Default 3', permanent: true }] }}>
+  {(state, setState) => {
+    const menuItems = (textValue) => {
+      if (textValue.length === 0) {
+        return [];
+      }
+
+      return [
+        <MultiSelect.Item
+          onClick={() => onMenuSelect(`${textValue} - ${textValue}`)}
+          key="0">
+          {textValue} - {textValue}
+        </MultiSelect.Item>,
+        <MultiSelect.Item
+          disabled
+          key="1">
+          Disabled menu item
+        </MultiSelect.Item>,
+        <MultiSelect.Item
+          onClick={() => onMenuSelect(`${textValue} - ${textValue} - ${textValue}`)}
+          key="2">
+          {textValue} - {textValue} - {textValue}
+        </MultiSelect.Item>
+      ]
+    };
+
+    const onMenuSelect = (textValue) => {
+      const newItems = state.selectedItems.slice();
+      newItems.push(textValue);
+      setState({ selectedItems: newItems, textValue: '' });
+    };
+
+    const onRemove = (index) => {
+      const newItems = state.selectedItems.slice();
+      newItems.splice(index, 1);
+      setState({ selectedItems: newItems });
+    };
+
+    return <MultiSelect
+        label='Common Example'
+        hint='Try keyboard navigation and removing labels'
+        onTextChange={textValue => setState({ textValue })}
+        textValue={state.textValue}
+        selectedItems={state.selectedItems.map((item, index) =>
+          <MultiSelect.Label
+            onRemove={!item.permanent ? () => onRemove(index) : undefined}
+            size='medium'
+            className="u-m-xxs"
+            type='light'
+            value={item.value}>
+            {item.value}
+          </MultiSelect.Label>)
+        }
+        onKeyDown={(event, selectedItem) => {
+          const isEnterKey = event.keyCode === 13;
+
+          if (isEnterKey && state.textValue) {
+            const newItems = state.selectedItems.slice();
+            newItems.push({ value: state.textValue, permanent: false });
+            setState({ selectedItems: newItems, textValue: '' });
+          }
+        }}
+      >
+        {menuItems(state.textValue)}
+      </MultiSelect>;
+    }}
 </State>
 ```
 
 #### Custom Keyboard Events
 
+This is a customer keyboard event for the `Copy` operation.  The `onKeyDown` callback receives the currently selected Value from the `Selectable` Label.  This can be undefined if nothing is currently selected.
+
 ```
-const onCopy = () => console.log('Copied!');
+<State initialState={{ textValue: '', selectedItems: ['Try to copy me', 'Or me!'], selected: '' }}>
+  {(state, setState) => {
+    const avatar = <img src='http://placeskull.com/16/16/03363d'/>;
 
-const onRemove = (index) => {
-  const newItems = state.selectedItems.slice();
-  newItems.splice(index, 1);
-  setState({ selectedItems: newItems });
-};
+    const onRemove = (index) => {
+      const newItems = state.selectedItems.slice();
+      newItems.splice(index, 1);
+      setState({ selectedItems: newItems });
+    };
 
-initialState = { textValue: '', selectedItems: [], selected: '' };
+    return <Grid columns={1} stretched>
+      {state.selected && <p><strong>{state.selected}</strong> was copied</p>}
+        <MultiSelect
+          label='Custom Keyboard Events'
+          hint='Try to copy a selected label'
+          onTextChange={textValue => setState({ textValue })}
+          textValue={state.textValue}
+          selectedItems={state.selectedItems.map((itemValue, index) =>
+            <MultiSelect.Label
+              onRemove={() => onRemove(index)}
+              size='medium'
+              pill
+              avatar={avatar}
+              className="u-m-xxs"
+              type='light'
+              value={itemValue}>
+              {itemValue}
+            </MultiSelect.Label>)
+          }
+          onKeyDown={(event, selectedItem) => {
+            const isEnterKey = event.keyCode === 13;
+            const isCopyKey = event.keyCode === 67 && event.metaKey;
 
-<Grid columns={1} stretched>
-  {state.selected && <p>{state.selected} was copied</p>}
-  <MultiSelect
-    label='Custom Keyboard Events'
-    hint='Try to copy a selected label'
-    onTextChange={textValue => setState({ textValue })}
-    textValue={state.textValue}
-    selectedItems={state.selectedItems}
-    onKeyDown={(event, selectedItem) => {
-      const isEnterKey = event.keyCode === 13;
-      const isCopyKey = event.keyCode === 67 && event.metaKey;
+            if (isCopyKey && selectedItem) {
+              setState({ selected: selectedItem });
+            }
 
-      if (isCopyKey) {
-        setState({ selected: selectedItem });
-      }
-
-      if (isEnterKey && state.textValue) {
-        const newItems = state.selectedItems.slice();
-        newItems.push(<MultiSelect.Label onRemove={() => onRemove(newItems.length)} size='medium' pill className="u-m-xxs" type='light' value={state.textValue}>{state.textValue}</MultiSelect.Label>);
-        setState({ selectedItems: newItems, textValue: '' });
-      }
+            if (isEnterKey && state.textValue) {
+              const newItems = state.selectedItems.slice();
+              newItems.push(state.textValue);
+              setState({ selectedItems: newItems, textValue: '' });
+            }
+          }}/>
+        </Grid>;
     }}
-  >
-  </MultiSelect>
-</Grid>
+</State>
 ```
 
 #### Custom Validation
 
+This example only allows the addition of valid email addresses.  Additionally, it applies special styling to Labels that contain a zendesk address.
+
 ```
-const onRemove = (index) => {
-  const newItems = state.selectedItems.slice();
-  newItems.splice(index, 1);
-  setState({ selectedItems: newItems });
-};
+<State initialState={{ textValue: '', selectedItems: ['hello@example.com', 'agreen@zendesk.com', 'example@outlook.com'], validation: undefined, validationText: '', shouldHideMenu: false }}>
+  {(state, setState) => {
+    const isValidEmail = email => {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    };
 
-const isValidEmail = email => {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
-};
-
-const menuItems = (textValue) => {
-  if (textValue.length === 0) {
-    return [];
-  }
-
-  if (textValue.indexOf('@') !== -1) {
-    return [];
-  }
-
-  return [
-    <MultiSelect.Item onClick={() => onMenuSelect(`${textValue}@gmail.com`)}>{textValue}@gmail.com</MultiSelect.Item>,
-    <MultiSelect.Item onClick={() => onMenuSelect(`${textValue}@yahoo.com`)}>{textValue}@yahoo.com</MultiSelect.Item>,
-    <MultiSelect.Item onClick={() => onMenuSelect(`${textValue}@outlook.com`)}>{textValue}@outlook.com</MultiSelect.Item>
-  ]
-};
-
-const onMenuSelect = (textValue) => {
-  const newItems = state.selectedItems.slice();
-  newItems.push(<MultiSelect.Label onRemove={() => onRemove(newItems.length)} size='medium' pill className="u-m-xxs" type='light'>{textValue}</MultiSelect.Label>);
-  setState({ selectedItems: newItems, textValue: '', validation: undefined, validationText: '' });
-};
-
-initialState = { textValue: '', selectedItems: [], validation: undefined, validationText: '' };
-
-<Grid columns={1} stretched>
-  <MultiSelect
-    label='Custom Validation'
-    hint='Only valid emails can be added'
-    validation={state.validation}
-    validationText={state.validationText}
-    onTextChange={textValue => setState({ textValue })}
-    textValue={state.textValue}
-    selectedItems={state.selectedItems}
-    onKeyDown={(event, selectedItem) => {
-      const isEnterKey = event.keyCode === 13;
-
-      if (isEnterKey && state.textValue) {
-        if (isValidEmail(state.textValue)) {
-          const newItems = state.selectedItems.slice();
-          newItems.push(<MultiSelect.Label onRemove={() => onRemove(newItems.length)} size='medium' pill className="u-m-xxs" type='light' value={state.textValue}>{state.textValue}</MultiSelect.Label>);
-          setState({ selectedItems: newItems, textValue: '', validation: undefined, validationText: '' });
-        } else {
-          setState({ validation: 'error', validationText: 'Only valid emails can be added' })
-        }
+    const menuItems = (textValue) => {
+      if (textValue.length === 0 || textValue.indexOf('@') !== -1 || state.shouldHideMenu) {
+        return [];
       }
-    }}
-  >
 
-    { menuItems(state.textValue) }
-  </MultiSelect>
-</Grid>
+      return [
+        <MultiSelect.Item onClick={() => onMenuSelect(`${textValue}@gmail.com`)}>{textValue}@gmail.com</MultiSelect.Item>,
+        <MultiSelect.Item onClick={() => onMenuSelect(`${textValue}@yahoo.com`)}>{textValue}@yahoo.com</MultiSelect.Item>,
+        <MultiSelect.Item onClick={() => onMenuSelect(`${textValue}@outlook.com`)}>{textValue}@outlook.com</MultiSelect.Item>
+      ]
+    };
+
+    const onMenuSelect = (textValue) => {
+      const newItems = state.selectedItems.slice();
+      newItems.push(textValue);
+      setState({ selectedItems: newItems, textValue: '', validation: undefined, validationText: '' });
+    };
+
+    const onRemove = (index) => {
+      const newItems = state.selectedItems.slice();
+      newItems.splice(index, 1);
+      setState({ selectedItems: newItems });
+    };
+
+    return <MultiSelect
+        label='Custom Validation'
+        hint='Only valid emails can be added (@zendesk is special)'
+        validation={state.validation}
+        validationText={state.validationText}
+        onTextChange={textValue => setState({ textValue })}
+        textValue={state.textValue}
+        selectedItems={state.selectedItems.map((itemValue, index) =>
+          <MultiSelect.Label
+            onRemove={() => onRemove(index)}
+            size='medium'
+            className="u-m-xxs"
+            type={itemValue.indexOf('@zendesk') === -1 ? 'light' : 'default'}
+            value={itemValue}>
+            {itemValue}
+          </MultiSelect.Label>)
+        }
+        onKeyDown={(event, selectedItem) => {
+          const isEnterKey = event.keyCode === 13;
+
+          if (isEnterKey && state.textValue) {
+            if (isValidEmail(state.textValue)) {
+              const newItems = state.selectedItems.slice();
+              newItems.push(state.textValue);
+              setState({ selectedItems: newItems, textValue: '', validation: undefined, validationText: '' });
+            } else {
+              setState({ validation: 'error', validationText: 'Only valid emails can be added', shouldHideMenu: true })
+            }
+          } else if (state.shouldHideMenu) {
+            setState({ shouldHideMenu: false });
+          }
+        }}
+      >
+        {menuItems(state.textValue)}
+      </MultiSelect>;
+    }}
+</State>
+```
+
+#### Anything can be a Selectable
+
+This makes the `Avatar` component a selectable item with the `Selectable` HOC.
+
+```
+class CustomAvatar extends React.Component {
+  render() {
+    const { disabled, selected, className, onClick } = this.props;
+    return <Avatar
+      className={className}
+      status={disabled ? 'away' : selected ? 'active' : 'default'}
+      src='./images/jason.png'
+      onClick={onClick} />;
+  }
+}
+
+const { Selectable } = require('../');
+
+const SelectableAvatar = Selectable(CustomAvatar, {
+  selectEvent: "onClick"
+});
+
+<State initialState={{ textValue: '', selectedItems: [{ value: 'http://placeskull.com/16/16/03363d' }, { value: 'http://placeskull.com/16/16/03363d', disabled: true }, { value: 'http://placeskull.com/16/16/03363d' }] }}>
+  {(state, setState) => {
+    const avatar = <img src='http://placeskull.com/16/16/03363d'/>;
+
+    const onRemove = (index) => {
+      const newItems = state.selectedItems.slice();
+      newItems.splice(index, 1);
+      setState({ selectedItems: newItems });
+    };
+
+    return <MultiSelect
+        label='Avatar Selectables'
+        hint='Just hit [ENTER] to add items'
+        onTextChange={textValue => setState({ textValue })}
+        textValue={state.textValue}
+        selectedItems={state.selectedItems.map((item, index) =>
+          <SelectableAvatar
+            onRemove={() => onRemove(index)}
+            value={item.value}
+            className="u-m-xxs"
+            disabled={item.disabled} />
+        )}
+        onKeyDown={(event, selectedItem) => {
+          const isEnterKey = event.keyCode === 13;
+
+          if (isEnterKey) {
+            const newItems = state.selectedItems.slice();
+            newItems.push({ value: 'http://placeskull.com/16/16/03363d' });
+            setState({ selectedItems: newItems, textValue: '' });
+          }
+        }}>
+      </MultiSelect>;
+    }}
+</State>
 ```
