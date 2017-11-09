@@ -116,7 +116,48 @@ describe("Menu", () => {
       ));
   });
 
-  describe("a separator", () => {
+  describe("an Item", () => {
+    it("renders a menu containing a checked item", () =>
+      expect(
+        <Menu trigger={<Button>trigger</Button>} testId="my-menu">
+          <Menu.Item checked>Checked</Menu.Item>
+        </Menu>,
+        "when clicking on the trigger",
+        "to have rendered menu",
+        `<div>
+          <div role="menu">
+            <div>
+              <div role="menuitem" class="checked">Checked</div>
+            </div>
+          </div>
+        </div>`
+      ));
+
+    it("renders a menu containing a item containing meta information", () =>
+      expect(
+        <Menu trigger={<Button>trigger</Button>} testId="my-menu">
+          <Menu.Item metaInformation={<span>Meta info</span>}>
+            Body text
+          </Menu.Item>
+        </Menu>,
+        "when clicking on the trigger",
+        "to have rendered menu",
+        `<div>
+            <div role="menu">
+              <div>
+                <div role="menuitem">
+                  Body text
+                  <div class="meta">
+                    <span>Meta info</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>`
+      ));
+  });
+
+  describe("a Separator", () => {
     it("renders a menu containing a separator", () =>
       expect(
         <Menu trigger={<Button>trigger</Button>} testId="my-menu">
@@ -134,6 +175,122 @@ describe("Menu", () => {
                <div role="menuitem">Two</div>
                <div role="separator" class="separator"></div>
                <div role="menuitem">Three</div>
+             </div>
+           </div>
+         </div>`
+      ));
+  });
+
+  describe("a HeaderItem", () => {
+    it("renders a menu containing a header item", () =>
+      expect(
+        <Menu trigger={<Button>trigger</Button>} testId="my-menu">
+          <Menu.HeaderItem>Header</Menu.HeaderItem>
+        </Menu>,
+        "when clicking on the trigger",
+        "to have rendered menu",
+        `<div>
+           <div role="menu">
+             <div>
+               <div role="menuitem" class="header_item">Header</div>
+             </div>
+           </div>
+         </div>`
+      ));
+
+    it("renders a menu containing a header item with an icon", () =>
+      expect(
+        <Menu trigger={<Button>trigger</Button>} testId="my-menu">
+          <Menu.HeaderItem icon={<span>Icon</span>}>Header</Menu.HeaderItem>
+        </Menu>,
+        "when clicking on the trigger",
+        "to have rendered menu",
+        `<div>
+           <div role="menu">
+             <div>
+               <div role="menuitem" class="header_item">
+                <div class="header_icon"><span>Icon</span></div>
+                Header
+               </div>
+             </div>
+           </div>
+         </div>`
+      ));
+  });
+
+  describe("a NextItem", () => {
+    it("renders a menu containing a next item", () =>
+      expect(
+        <Menu trigger={<Button>trigger</Button>} testId="my-menu">
+          <Menu.NextItem>Next</Menu.NextItem>
+        </Menu>,
+        "when clicking on the trigger",
+        "to have rendered menu",
+        `<div>
+           <div role="menu">
+             <div>
+               <div role="menuitem" class="next_item">Next</div>
+             </div>
+           </div>
+         </div>`
+      ));
+  });
+
+  describe("a PreviousItem", () => {
+    it("renders a menu containing a previous item", () =>
+      expect(
+        <Menu trigger={<Button>trigger</Button>} testId="my-menu">
+          <Menu.PreviousItem>Previous</Menu.PreviousItem>
+        </Menu>,
+        "when clicking on the trigger",
+        "to have rendered menu",
+        `<div>
+           <div role="menu">
+             <div>
+               <div role="menuitem" class="previous_item">Previous</div>
+             </div>
+           </div>
+         </div>`
+      ));
+  });
+
+  describe("an AddItem", () => {
+    it("renders a menu containing an add item", () =>
+      expect(
+        <Menu trigger={<Button>trigger</Button>} testId="my-menu">
+          <Menu.AddItem>Add</Menu.AddItem>
+        </Menu>,
+        "when clicking on the trigger",
+        "to have rendered menu",
+        `<div>
+           <div role="menu">
+             <div>
+               <div role="menuitem" class="add_item">Add</div>
+             </div>
+           </div>
+         </div>`
+      ));
+  });
+
+  describe("a MediaItem", () => {
+    it("renders a menu containing a media item", () =>
+      expect(
+        <Menu trigger={<Button>trigger</Button>} testId="my-menu">
+          <Menu.MediaItem media={<span>Media</span>}>Body Text</Menu.MediaItem>
+        </Menu>,
+        "when clicking on the trigger",
+        "to have rendered menu",
+        `<div>
+           <div role="menu">
+             <div>
+               <div role="menuitem" class="media_item">
+                <div class="media_figure">
+                  <span>Media</span>
+                </div>
+                <div class="media_body">
+                  Body Text
+                </div>
+               </div>
              </div>
            </div>
          </div>`
