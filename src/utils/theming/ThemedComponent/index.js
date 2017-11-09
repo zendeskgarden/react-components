@@ -6,27 +6,21 @@ const extendStyles = (styles, theme, resetTheme, namespace) => {
 
   if (themeStyles) {
     // If resetTheme is provided we don't want to override the default styling
-    if (!resetTheme) {
-      const extendStyles = {};
-
-      Object.keys(styles).forEach(key => {
-        extendStyles[key] =
-          key in themeStyles
-            ? `${styles[key]} ${themeStyles[key]}`
-            : styles[key];
-      });
-
-      return extendStyles;
+    if (resetTheme) {
+      return themeStyles;
     }
 
-    return themeStyles;
-  }
+    const extendStyles = {};
 
-  if (!resetTheme) {
+    Object.keys(styles).forEach(key => {
+      extendStyles[key] =
+        key in themeStyles ? `${styles[key]} ${themeStyles[key]}` : styles[key];
+    });
+
+    return extendStyles;
+  } else {
     return styles;
   }
-
-  return {};
 };
 
 export default class ThemedComponent extends Component {
