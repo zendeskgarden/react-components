@@ -16,10 +16,15 @@ const neutralTheme = require('../../../themes/neutral-theme').default;
         <ButtonGroup.Item id='group'>Group</ButtonGroup.Item>
       </ButtonGroup>
       <Checkbox checked>Checkbox</Checkbox>
-      <IconButton>
-        <img src='http://placeskull.com/14/14/04444D/16/0' />
-      </IconButton>
+      <FormLabel>
+        <IconButton>
+          <img src='http://placeskull.com/14/14/04444D/16/0' />
+        </IconButton>
+        <span className='u-ml-sm'>Icon Button</span>
+      </FormLabel>
       <Label>Label</Label>
+      <FormLabel>Pagination</FormLabel>
+      <Pagination id='pagination' total={1} />
       <RadioButton checked>Radio Button</RadioButton>
       <Range label='Range' />
       <Select label='Select' selected='Select'>
@@ -48,10 +53,17 @@ const neutralTheme = require('../../../themes/neutral-theme').default;
           <ButtonGroup.Item id='group'>Group</ButtonGroup.Item>
         </ButtonGroup>
         <Checkbox checked>Checkbox</Checkbox>
-        <IconButton>
-          <img src='http://placeskull.com/14/14/04444D/16/0' />
-        </IconButton>
+        <FormLabel>
+          <IconButton>
+            <img src='http://placeskull.com/14/14/04444D/16/0' />
+          </IconButton>
+          <span className='u-fg-white u-ml-sm'>Icon Button</span>
+        </FormLabel>
         <Label>Label</Label>
+        <FormLabel>
+          <span className='u-fg-white'>Pagination</span>
+        </FormLabel>
+        <Pagination id='pagination' total={1} />
         <RadioButton checked>Radio Button</RadioButton>
         <Range label='Range' />
         <Select label='Select' selected='Select'>
@@ -80,10 +92,15 @@ const neutralTheme = require('../../../themes/neutral-theme').default;
         <ButtonGroup.Item id='group'>Group</ButtonGroup.Item>
       </ButtonGroup>
       <Checkbox checked>Checkbox</Checkbox>
-      <IconButton>
-        <img src='http://placeskull.com/14/14/04444D/16/0' />
-      </IconButton>
+      <FormLabel>
+        <IconButton>
+          <img src='http://placeskull.com/14/14/04444D/16/0' />
+        </IconButton>
+        <span className='u-ml-sm'>Icon Button</span>
+      </FormLabel>
       <Label>Label</Label>
+      <FormLabel>Pagination</FormLabel>
+      <Pagination id='pagination' total={1} />
       <RadioButton checked>Radio Button</RadioButton>
       <Range label='Range' />
       <Select label='Select' selected='Select'>
