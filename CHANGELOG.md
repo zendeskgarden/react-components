@@ -1,3 +1,7 @@
+### v12.8.1 (2017-11-09)
+
+- [#381](https://github.com/zendeskgarden/react-components/pull/381) Tables: Header columns should text overflow as ellipsis ([Austin Green](mailto:austingreenkansas@gmail.com))
+
 ### v12.8.0 (2017-11-08)
 
 - [#377](https://github.com/zendeskgarden/react-components/pull/377) Table: Added useAutoSizer prop to make AutoSizer HOC rendering optional ([Austin Green](mailto:austingreenkansas@gmail.com))
