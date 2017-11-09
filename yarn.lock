@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@zendesk/garden-css-arrows@^1.0.0":
+"@zendesk/garden-css-arrows@^1.0.1":
   version "1.0.1"
   resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-arrows/-/@zendesk/garden-css-arrows-1.0.1.tgz#e1951ac1658867a6f8c9de658b65886e7f1d3dc2"
 
@@ -18,9 +18,9 @@
   version "1.1.1"
   resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-callouts/-/@zendesk/garden-css-callouts-1.1.1.tgz#4b1a748f40a77cf79400ae2a4af729922570ecf6"
 
-"@zendesk/garden-css-forms@^3.3.1":
-  version "3.3.1"
-  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-forms/-/@zendesk/garden-css-forms-3.3.1.tgz#4fd6f37cceda794c766c9fe729ae12ed9f5e817c"
+"@zendesk/garden-css-forms@^3.4.0":
+  version "3.4.0"
+  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-forms/-/@zendesk/garden-css-forms-3.4.0.tgz#c12a60a619f24ef4dbbbbd764aa1584bbb229f1b"
 
 "@zendesk/garden-css-labels@^1.0.2":
   version "1.0.2"
@@ -30,7 +30,7 @@
   version "4.0.0"
   resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-menus/-/@zendesk/garden-css-menus-4.0.0.tgz#4a9478d17046a358d6b7a5bbfd53fe7bc2495003"
 
-"@zendesk/garden-css-modals@^4.0.0":
+"@zendesk/garden-css-modals@^4.0.1":
   version "4.0.1"
   resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-modals/-/@zendesk/garden-css-modals-4.0.1.tgz#8db90a465fc606090dbac25956757146831fb032"
 
