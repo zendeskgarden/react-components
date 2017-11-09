@@ -1,18 +1,21 @@
-/* stylelint-disable declaration-no-important */
+@import '@zendesk/garden-css-forms/src/custom';
 
-.toggle:not(.disabled) .label:active:before {
-  border-color: var(--zd-toggle-color) !important;
+:root {
+  --zd-forms--custom-accent-color: var(--zd-toggle-color);
 }
 
-.toggle.focused > .label::before {
-  border-color: var(--zd-toggle-color) !important;
-  box-shadow: 0 0 0 3px var(--zd-toggle-focus-color) !important;
+.toggle {
+  composes: c-chk c-chk--toggle c-chk--custom;
 }
 
-.toggle:not(.disabled) .input:checked ~ .label:before {
-  background-color: var(--zd-toggle-color) !important;
+.input {
+  composes: c-chk__input;
 }
 
-.toggle:not(.disabled) .input:checked ~ .label:active:before {
-  background-color: var(--zd-toggle-color) !important;
+.label {
+  composes: c-chk__label;
+}
+
+.focused {
+  composes: is-focused;
 }

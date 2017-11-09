@@ -1,24 +1,29 @@
-/*
-stylelint-disable
-declaration-no-important,
-string-quotes,
-function-url-quotes
-*/
+@import '@zendesk/garden-css-forms/src/custom';
 
-.focused .input {
-  border-color: var(--zd-select-color) !important;
-  box-shadow: 0 0 0 3px var(--zd-select-focus-color) !important;
+:root {
+  --zd-forms--custom-accent-color: var(--zd-select-color);
 }
 
-.txt .input.open:before {
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' color='#777'%3E%3Cpath fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M4 6l3 3 3-3'/%3E%3C/svg%3E") !important;
+.txt {
+  composes: c-txt c-txt--custom;
 }
 
-.txt:not(.disabled):not(.success):not(.warning):not(.error) .input:focus {
-  border-color: var(--zd-select-color) !important;
-  box-shadow: 0 0 0 3px var(--zd-select-focus-color) !important;
+.input {
+  composes: c-txt__input c-txt__input--select;
 }
 
-.txt:not(.disabled):not(.success):not(.warning):not(.error) .input:hover {
-  border-color: var(--zd-select-color) !important;
+.error {
+  composes: has-error;
+}
+
+.warning {
+  composes: has-warning;
+}
+
+.success {
+  composes: has-success;
+}
+
+.open {
+  composes: is-open;
 }
