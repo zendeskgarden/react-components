@@ -263,30 +263,6 @@ Sizes:
 </Grid>
 ```
 
-You can set the menu to be wide:
-
-```
-<Grid>
-  <Menu
-    trigger={ <Button>Default</Button> }
-  >
-    <Menu.Item>First</Menu.Item>
-    <Menu.Item>Second</Menu.Item>
-    <Menu.Separator/>
-    <Menu.Item>Third</Menu.Item>
-  </Menu>
-  <Menu
-    trigger={ <Button>Wide</Button> }
-    wide
-  >
-    <Menu.Item>First</Menu.Item>
-    <Menu.Item>Second</Menu.Item>
-    <Menu.Separator/>
-    <Menu.Item>Third</Menu.Item>
-  </Menu>
-</Grid>
-```
-
 Fixing the width of the menu:
 
 ```
@@ -314,8 +290,7 @@ Fixing the width of the menu:
   </Menu>
   <Menu
     fixedWidth
-    trigger={ <Button>Wide</Button> }
-    wide
+    trigger={ <Button>This is a wide menu</Button> }
   >
     <Menu.Item>
       <Ellipsis>
@@ -352,7 +327,7 @@ const CustomIcon = <img src={customizeIconSrc} />;
     <Menu.Item>Article Editor</Menu.Item>
     <Menu.Item>Sign Out</Menu.Item>
   </Menu.Container>
-  <Menu.Container size='small' wide>
+  <Menu.Container size='small'>
     <Menu.Item>Profile</Menu.Item>
     <Menu.Item>Settings</Menu.Item>
     <Menu.Item>Theme Editor</Menu.Item>

@@ -2,7 +2,6 @@
 
 :root {
   --zd-menu-min-width: 140px;
-  --zd-menu--large-min-width: 270px;
 }
 
 .stretched {
@@ -23,10 +22,6 @@
 
 .fixed_width {
   max-width: var(--zd-menu-min-width);
-}
-
-.wide.fixed_width {
-  max-width: var(--zd-menu--large-min-width);
 }
 
 .item {

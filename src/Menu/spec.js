@@ -297,29 +297,6 @@ describe("Menu", () => {
       ));
   });
 
-  describe("with a wide flag", () => {
-    it("renders a wide menu", () =>
-      expect(
-        <Menu wide trigger={<Button>trigger</Button>} testId="my-menu">
-          <Menu.Item>One</Menu.Item>
-          <Menu.Item>Two</Menu.Item>
-          <Menu.Item>Three</Menu.Item>
-        </Menu>,
-        "when clicking on the trigger",
-        "to have rendered menu",
-        `<div>
-          <div class="menu wide" role="menu">
-            <div>
-              <div role="menuitem">One</div>
-              <div role="menuitem">Two</div>
-              <div role="menuitem">Three</div>
-            </div>
-          </div>
-        </div>
-        `
-      ));
-  });
-
   describe("visibility hooks", () => {
     it("onOpen is called when the menu is shown", () => {
       const onOpen = sinon.spy();

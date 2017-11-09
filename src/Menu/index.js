@@ -38,9 +38,7 @@ export default class Menu extends Component {
     size: PropTypes.oneOf(["small", "medium"]),
     stretched: PropTypes.bool,
     testId: PropTypes.string,
-    trigger: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
-      .isRequired,
-    wide: PropTypes.bool
+    trigger: PropTypes.oneOfType([PropTypes.element, PropTypes.func]).isRequired
   };
 
   static defaultProps = {
@@ -53,8 +51,7 @@ export default class Menu extends Component {
     marginTop: 2,
     positioning: ["bottom_right", "top_right"],
     stretched: false,
-    size: "medium",
-    wide: false
+    size: "medium"
   };
 
   static Container = Container;

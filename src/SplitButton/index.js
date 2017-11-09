@@ -44,9 +44,7 @@ export default class SplitButton extends ThemedComponent {
     title: PropTypes.string,
     /** <a href="#view">See View</a> for positioning options */
     tooltipPositioning: () => {},
-    type: PropTypes.oneOf(["default", "primary"]),
-    /** <a href="#menu">See Menu</a> */
-    wide: PropTypes.bool
+    type: PropTypes.oneOf(["default", "primary"])
   };
 
   static defaultProps = {
@@ -202,8 +200,7 @@ export default class SplitButton extends ThemedComponent {
       tabIndex,
       testId,
       title,
-      type,
-      wide
+      type
     } = this.props;
 
     const { hidden, items } = this.state;
@@ -266,7 +263,6 @@ export default class SplitButton extends ThemedComponent {
             dir={dir}
             fixedWidth={fixedWidth}
             position={position}
-            wide={wide}
           >
             {items}
           </Menu.Container>}
