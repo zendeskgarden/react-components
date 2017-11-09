@@ -75,14 +75,16 @@ export default class Table extends ThemedComponent {
      */
     innerRef: PropTypes.func,
     height: PropTypes.number,
-    width: PropTypes.number
+    width: PropTypes.number,
+    useAutoSizer: PropTypes.bool
   };
 
   static defaultProps = {
     selectedData: [],
     striped: false,
     density: "default",
-    dir: "ltr"
+    dir: "ltr",
+    useAutoSizer: true
   };
 
   constructor(props, context) {
@@ -321,96 +323,98 @@ export default class Table extends ThemedComponent {
       dir,
       rowRenderer,
       onRowsRendered,
+      useAutoSizer,
       ...otherTableProps
     } = this.props;
     const { focusedRow } = this.state;
 
+    const tableElement = (width, height) =>
+      <ArrowKeyStepper
+        columnCount={1}
+        isControlled
+        onScrollToChange={({ scrollToRow }) => {
+          const focusedRow = this.retrieveNextValidFocusIndex(scrollToRow);
+
+          // Necessary to remove focus from nested element on key navigation
+          const gridElement = findDOMNode(this.tableRef.Grid);
+          gridElement.focus();
+
+          this.onRowFocus(focusedRow, true);
+        }}
+        mode="cells"
+        rowCount={data.length}
+        scrollToRow={focusedRow}
+      >
+        {({ onSectionRendered }) =>
+          <VirtualTable
+            width={width}
+            height={height}
+            headerHeight={retrieveHeaderHeight(this.props)}
+            rowHeight={rowProps => retrieveRowHeight(rowProps, this.props)}
+            rowCount={data.length}
+            ref={this.applyKeyboardActions}
+            rowGetter={({ index }) => data[index]}
+            className={classNames(theme.table, {
+              [theme.table_sm]: density === "cozy",
+              [theme.table_lg]: density === "airy",
+              [theme.rtl]: dir === "rtl"
+            })}
+            tabIndex={0}
+            gridClassName={theme.grid}
+            gridStyle={{ direction: dir }}
+            onHeaderClick={({ event }) => {
+              // Necessary to allow Select All to function
+              const nodeName = event.target.nodeName;
+              if (nodeName !== "INPUT" && nodeName !== "LABEL") {
+                event.preventDefault();
+              }
+            }}
+            headerRowRenderer={rowProps =>
+              headerRowRenderer(rowProps, this.props, theme)}
+            {...otherTableProps}
+            sort={this.onSort}
+            onRowClick={this.onRowClick}
+            rowRenderer={rowProps => {
+              if (rowRenderer) {
+                return rowRenderer(rowProps, updateRowProps =>
+                  defaultRowRenderer(
+                    updateRowProps,
+                    this.props,
+                    this.state,
+                    theme,
+                    this.selectedMapping
+                  )
+                );
+              }
+
+              return defaultRowRenderer(
+                rowProps,
+                this.props,
+                this.state,
+                theme,
+                this.selectedMapping
+              );
+            }}
+            onRowsRendered={options => {
+              onSectionRendered({
+                rowStartIndex: options.startIndex,
+                rowStopIndex: options.stopIndex
+              });
+
+              onRowsRendered && onRowsRendered(options);
+            }}
+          >
+            {this.retrieveColumns()}
+          </VirtualTable>}
+      </ArrowKeyStepper>;
+
     return (
       <View className={classNames(theme.table_container, className)}>
-        <AutoSizer>
-          {({ width, height }) =>
-            <ArrowKeyStepper
-              columnCount={1}
-              isControlled
-              onScrollToChange={({ scrollToRow }) => {
-                const focusedRow = this.retrieveNextValidFocusIndex(
-                  scrollToRow
-                );
-
-                // Necessary to remove focus from nested element on key navigation
-                const gridElement = findDOMNode(this.tableRef.Grid);
-                gridElement.focus();
-
-                this.onRowFocus(focusedRow, true);
-              }}
-              mode="cells"
-              rowCount={data.length}
-              scrollToRow={focusedRow}
-            >
-              {({ onSectionRendered }) =>
-                <VirtualTable
-                  width={width}
-                  height={height}
-                  headerHeight={retrieveHeaderHeight(this.props)}
-                  rowHeight={rowProps =>
-                    retrieveRowHeight(rowProps, this.props)}
-                  rowCount={data.length}
-                  ref={this.applyKeyboardActions}
-                  rowGetter={({ index }) => data[index]}
-                  className={classNames(theme.table, {
-                    [theme.table_sm]: density === "cozy",
-                    [theme.table_lg]: density === "airy",
-                    [theme.rtl]: dir === "rtl"
-                  })}
-                  tabIndex={0}
-                  gridClassName={theme.grid}
-                  gridStyle={{ direction: dir }}
-                  onHeaderClick={({ event }) => {
-                    // Necessary to allow Select All to function
-                    const nodeName = event.target.nodeName;
-                    if (nodeName !== "INPUT" && nodeName !== "LABEL") {
-                      event.preventDefault();
-                    }
-                  }}
-                  headerRowRenderer={rowProps =>
-                    headerRowRenderer(rowProps, this.props, theme)}
-                  {...otherTableProps}
-                  sort={this.onSort}
-                  onRowClick={this.onRowClick}
-                  rowRenderer={rowProps => {
-                    if (rowRenderer) {
-                      return rowRenderer(rowProps, updateRowProps =>
-                        defaultRowRenderer(
-                          updateRowProps,
-                          this.props,
-                          this.state,
-                          theme,
-                          this.selectedMapping
-                        )
-                      );
-                    }
-
-                    return defaultRowRenderer(
-                      rowProps,
-                      this.props,
-                      this.state,
-                      theme,
-                      this.selectedMapping
-                    );
-                  }}
-                  onRowsRendered={options => {
-                    onSectionRendered({
-                      rowStartIndex: options.startIndex,
-                      rowStopIndex: options.stopIndex
-                    });
-
-                    onRowsRendered && onRowsRendered(options);
-                  }}
-                >
-                  {this.retrieveColumns()}
-                </VirtualTable>}
-            </ArrowKeyStepper>}
-        </AutoSizer>
+        {useAutoSizer &&
+          <AutoSizer>
+            {({ width, height }) => tableElement(width, height)}
+          </AutoSizer>}
+        {!useAutoSizer && tableElement(this.props.width, this.props.height)}
       </View>
     );
   }
