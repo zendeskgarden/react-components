@@ -45,7 +45,8 @@ export default class Core extends Component {
       "tel",
       "text"
     ]),
-    value: PropTypes.string
+    value: PropTypes.string,
+    innerRef: PropTypes.func
   };
 
   static defaultProps = {
@@ -84,7 +85,8 @@ export default class Core extends Component {
       testId,
       type,
       value,
-      valueType
+      valueType,
+      innerRef
     } = this.props;
 
     const handlers = {
@@ -132,6 +134,7 @@ export default class Core extends Component {
         ref={input => {
           this.input = input;
           input && isFocused && input.focus();
+          innerRef && innerRef(input);
         }}
       />
     );

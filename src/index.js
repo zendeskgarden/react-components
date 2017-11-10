@@ -13,6 +13,7 @@ export { default as Label } from "./Label";
 export { default as Loader } from "./Loader";
 export { default as Menu } from "./Menu";
 export { default as Modal } from "./Modal";
+export { default as MultiSelect } from "./MultiSelect";
 export { default as Pagination } from "./Pagination";
 export { default as RadioButton } from "./RadioButton";
 export { default as RadioButtonGroup } from "./RadioButtonGroup";

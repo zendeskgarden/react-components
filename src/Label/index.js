@@ -33,7 +33,9 @@ export default class Label extends ThemedComponent {
       "warning",
       "error"
     ]),
-    deleteAccessibilityMessage: PropTypes.string
+    deleteAccessibilityMessage: PropTypes.string,
+    selected: PropTypes.bool,
+    onClick: PropTypes.func
   };
 
   static defaultProps = {
@@ -84,12 +86,14 @@ export default class Label extends ThemedComponent {
       className,
       deleteAccessibilityMessage,
       dir,
+      selected,
       onRemove,
       pill,
       round,
       size,
       stretched,
       tabIndex,
+      onClick,
       testId,
       type,
       title,
@@ -105,7 +109,8 @@ export default class Label extends ThemedComponent {
             [theme.pill]: pill,
             [theme.round]: round,
             [theme.rtl]: dir === "rtl",
-            [theme.stretched]: stretched
+            [theme.stretched]: stretched,
+            [theme.is_focused]: selected
           },
           className
         )}
@@ -114,6 +119,7 @@ export default class Label extends ThemedComponent {
         testId={testId}
         title={title}
         tooltipPositioning={tooltipPositioning}
+        onClick={onClick}
       >
         {avatar && this.renderAvatar(avatar)}
         <span>

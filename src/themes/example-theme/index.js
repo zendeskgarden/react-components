@@ -5,6 +5,7 @@ import Label from "./Label.css";
 import RadioButton from "./RadioButton.css";
 import Range from "./Range.css";
 import Select from "./Select.css";
+import MultiSelect from "./MultiSelect.css";
 import Pagination from "./Pagination.css";
 import Tabs from "./Tabs.css";
 import Table from "./Table.css";
@@ -20,6 +21,7 @@ const theme = {
   RadioButton,
   Range,
   Select,
+  MultiSelect,
   Table,
   Tabs,
   TextArea: TextInput,
