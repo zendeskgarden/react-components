@@ -63,7 +63,6 @@ The `menuItems` prop can also be anything wrapped in the `Selectable` higher-ord
         selectedItems={state.selectedItems.map((itemValue, index) =>
           <MultiSelect.Label
             onRemove={() => onRemove(index)}
-            size='medium'
             pill
             avatar={avatar}
             type='light'
@@ -147,7 +146,6 @@ Sometimes you don't want to allow removal of a selected item.  This example incl
           <MultiSelect.Label
             onRemove={!item.permanent ? () => onRemove(index) : undefined}
             disabled={item.permanent}
-            size='large'
             type='light'
             value={item.value}>
             {item.value}
@@ -229,7 +227,6 @@ Sometimes you don't want to allow removal of a selected item.  This example incl
         selectedItems={state.selectedItems.map((itemValue, index) =>
           <MultiSelect.Label
             onRemove={() => onRemove(index)}
-            size='medium'
             pill
             avatar={avatar}
             type='light'
@@ -286,7 +283,6 @@ This is a customer keyboard event for the `Copy` operation.  The `onKeyDown` cal
           selectedItems={state.selectedItems.map((itemValue, index) =>
             <MultiSelect.Label
               onRemove={() => onRemove(index)}
-              size='medium'
               pill
               avatar={avatar}
               type='light'
@@ -373,7 +369,6 @@ This example only allows the addition of valid email addresses.  Additionally, i
         selectedItems={state.selectedItems.map((itemValue, index) =>
           <MultiSelect.Label
             onRemove={() => onRemove(index)}
-            size='medium'
             type={itemValue.indexOf('@zendesk') === -1 ? 'light' : 'default'}
             value={itemValue}>
             {itemValue}

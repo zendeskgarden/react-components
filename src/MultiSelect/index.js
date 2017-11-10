@@ -138,13 +138,17 @@ export default class MultiSelect extends ThemedComponent {
   };
 
   setSelectableItems = ({ selectedItems, children }) => {
-    const { dir, disabled } = this.props;
+    const { dir, disabled, size } = this.props;
+
+    // The naming between Labels and Inputs differ by one size
+    const defaultLabelSize = size === "medium" ? "large" : "medium";
 
     this.selectedItemModel.items = selectedItems.map((item, index) => {
       return React.cloneElement(item, {
         key: index,
         dir,
-        disabled: item.props.disabled || disabled
+        disabled: item.props.disabled || disabled,
+        size: item.props.size || defaultLabelSize
       });
     });
 
@@ -211,6 +215,10 @@ export default class MultiSelect extends ThemedComponent {
     );
   };
 
+  focusInput() {
+    this.textInputNode.focus();
+  }
+
   renderAnchorElement = () => {
     const {
       dir,
@@ -249,7 +257,11 @@ export default class MultiSelect extends ThemedComponent {
 
           setTimeout(() => {
             if (wasContainerClicked) {
-              this.textInputNode.focus();
+              this.focusInput();
+
+              if (open) {
+                this.onClose();
+              }
             }
 
             this.mouseInitiated = false;
@@ -291,7 +303,7 @@ export default class MultiSelect extends ThemedComponent {
               (event.keyCode === KEY_CODES.LEFT && isLastItemSelected && isRtl)
             ) {
               this.selectedItemModel.clear();
-              this.textInputNode.focus();
+              this.focusInput();
               event.preventDefault();
             } else if (
               event.keyCode === KEY_CODES.DELETE ||
@@ -301,7 +313,7 @@ export default class MultiSelect extends ThemedComponent {
               onRemove && onRemove(event);
 
               this.selectedItemModel.clear();
-              this.textInputNode.focus();
+              this.focusInput();
             } else if (
               !(
                 event.keyCode === KEY_CODES.LEFT &&
@@ -354,6 +366,10 @@ export default class MultiSelect extends ThemedComponent {
             this.menuItemsModel.clear();
             this.onOpen();
             onTextChange && onTextChange(event);
+
+            if (!open) {
+              this.onOpen();
+            }
           }}
           onFocus={() => {
             this.onOpen();
