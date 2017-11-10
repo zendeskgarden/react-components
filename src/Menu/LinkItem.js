@@ -1,14 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
+import ThemedComponent from "../ThemedComponent";
 import Selectable from "../core/Selectable";
 
 import styles from "./styles.css";
 
-class LinkItem extends Component {
+class LinkItem extends ThemedComponent {
   static propTypes = {
     children: PropTypes.node.isRequired,
+    className: PropTypes.string,
     disabled: PropTypes.bool,
     onMouseDown: PropTypes.func,
     onMouseEnter: PropTypes.func,
@@ -26,6 +28,13 @@ class LinkItem extends Component {
     target: "_self"
   };
 
+  constructor(props, context) {
+    super(props, context, {
+      namespace: "Menu",
+      styles
+    });
+  }
+
   render() {
     const {
       children,
@@ -37,16 +46,18 @@ class LinkItem extends Component {
       selected,
       testId,
       href,
-      target
+      target,
+      className
     } = this.props;
+    const { theme } = this;
 
     return (
       <a
         aria-activedescendant={selected}
         aria-disabled={disabled}
-        className={classNames(styles.item, {
-          [styles.disabled]: disabled,
-          [styles.selected]: selected
+        className={classNames(theme.item, className, {
+          [theme.disabled]: disabled,
+          [theme.selected]: selected
         })}
         disabled={disabled}
         onMouseDown={onMouseDown}

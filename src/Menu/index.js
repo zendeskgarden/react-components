@@ -1,7 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
+import ThemedComponent from "../ThemedComponent";
 import ReactSingleSelectionModel from "../utils/selection/ReactSingleSelectionModel";
 import View from "../core/View";
 import RelativePositionedPopup from "../core/RelativePositionedPopup";
@@ -18,7 +19,7 @@ import MediaItem from "./MediaItem";
 
 import styles from "./styles.css";
 
-export default class Menu extends Component {
+export default class Menu extends ThemedComponent {
   static propTypes = {
     arrow: PropTypes.bool,
     dir: PropTypes.oneOf(["ltr", "rtl"]),
@@ -64,8 +65,12 @@ export default class Menu extends Component {
   static AddItem = AddItem;
   static MediaItem = MediaItem;
 
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context, {
+      namespace: "Menu",
+      styles
+    });
+
     this.selectionModel = new ReactSingleSelectionModel();
     this.selectionModel.onSelectionChanged = this.onSelectionChanged;
     this.selectionModel.onValueChosen = this.onValueChosen;
@@ -154,13 +159,13 @@ export default class Menu extends Component {
       stretched,
       ...other
     } = this.props;
-
+    const { theme } = this;
     const { hidden, items } = this.state;
 
     const anchor = (
       <View
         className={classNames({
-          [styles.stretched]: stretched
+          [theme.stretched]: stretched
         })}
         onKeyDown={this.selectionModel.handleKeyDown}
         onBlur={this.closeMenu}

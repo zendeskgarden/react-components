@@ -3,10 +3,9 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 
 import ThemedComponent from "../utils/theming/ThemedComponent";
+import View from "../core/View";
 
 import styles from "./styles.css";
-
-import View from "../core/View";
 
 const arrowPositions = {
   bottom: "top",

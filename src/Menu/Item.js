@@ -1,13 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
+import ThemedComponent from "../ThemedComponent";
 import View from "../core/View";
 import Selectable from "../core/Selectable";
 
 import styles from "./styles.css";
 
-export class Item extends Component {
+export class Item extends ThemedComponent {
   static propTypes = {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
@@ -31,6 +32,13 @@ export class Item extends Component {
     checked: false
   };
 
+  constructor(props, context) {
+    super(props, context, {
+      namespace: "Menu",
+      styles
+    });
+  }
+
   render() {
     const {
       children,
@@ -47,15 +55,16 @@ export class Item extends Component {
       checked,
       metaInformation
     } = this.props;
+    const { theme } = this;
 
     return (
       <View
         aria-activedescendant={selected}
         aria-disabled={disabled}
-        className={classNames(styles.item, className, {
-          [styles.disabled]: disabled,
-          [styles.focused]: selected,
-          [styles.checked]: checked
+        className={classNames(theme.item, className, {
+          [theme.disabled]: disabled,
+          [theme.focused]: selected,
+          [theme.checked]: checked
         })}
         disabled={disabled}
         onMouseDown={onMouseDown}
@@ -68,7 +77,7 @@ export class Item extends Component {
       >
         {children}
         {metaInformation &&
-          <div className={styles.meta}>
+          <div className={theme.meta}>
             {metaInformation}
           </div>}
       </View>
