@@ -53,3 +53,7 @@
 .rtl {
   composes: is-rtl from '@zendesk/garden-css-labels';
 }
+
+.is_focused {
+  composes: is-focused from '@zendesk/garden-css-labels';
+}

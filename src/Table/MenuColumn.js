@@ -74,6 +74,7 @@ const MenuColumn = ({
     <RVColumn
       key={key}
       width={30}
+      minWidth={30}
       dataKey=""
       headerClassName={classNames(
         theme.cell,

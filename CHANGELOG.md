@@ -1,3 +1,15 @@
+### v12.10.0 (2017-11-10)
+
+- [#372](https://github.com/zendeskgarden/react-components/pull/372) MultiSelect: Initial component creation ([Austin Green](mailto:austingreenkansas@gmail.com))
+
+### v12.9.0 (2017-11-09)
+
+- [#350](https://github.com/zendeskgarden/react-components/pull/350) Theming: resetTheme addition to ThemeProvider ([Austin Green](mailto:austingreenkansas@gmail.com))
+
+### v12.8.1 (2017-11-09)
+
+- [#381](https://github.com/zendeskgarden/react-components/pull/381) Tables: Header columns should text overflow as ellipsis ([Austin Green](mailto:austingreenkansas@gmail.com))
+
 ### v12.8.0 (2017-11-08)
 
 - [#377](https://github.com/zendeskgarden/react-components/pull/377) Table: Added useAutoSizer prop to make AutoSizer HOC rendering optional ([Austin Green](mailto:austingreenkansas@gmail.com))

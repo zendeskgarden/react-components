@@ -4,7 +4,7 @@
   background-color: var(--zd-label-color) !important;
 }
 
-.default:focus {
+.default:focus, .default.is_focused {
   border-color: var(--zd-label-color) !important;
   box-shadow: 0 0 0 2px var(--zd-label-focus-color) !important;
 }

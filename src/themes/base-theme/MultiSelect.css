@@ -1,0 +1,24 @@
+/*
+stylelint-disable
+declaration-no-important,
+string-quotes,
+function-url-quotes
+*/
+
+.focused .input {
+  border-color: var(--zd-multi-select-color) !important;
+  box-shadow: 0 0 0 3px var(--zd-multi-select-focus-color) !important;
+}
+
+.txt .input.open:before {
+  background-image: svg-load('14-chevron.svg', color=var(--zd-multi-select-color)) !important;
+}
+
+.txt:not(.disabled):not(.success):not(.warning):not(.error) .input:focus {
+  border-color: var(--zd-multi-select-color) !important;
+  box-shadow: 0 0 0 3px var(--zd-multi-select-focus-color) !important;
+}
+
+.txt:not(.disabled):not(.success):not(.warning):not(.error) .input:hover {
+  border-color: var(--zd-multi-select-color) !important;
+}

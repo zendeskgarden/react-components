@@ -51,7 +51,8 @@ export default class Avatar extends Component {
       testId,
       type,
       title,
-      tooltipPositioning
+      tooltipPositioning,
+      ...otherProps
     } = this.props;
 
     const classes = [
@@ -77,6 +78,7 @@ export default class Avatar extends Component {
         testId={testId}
         title={title}
         tooltipPositioning={tooltipPositioning}
+        {...otherProps}
       >
         <img alt={alt} src={src} onError={onError} onLoad={onLoad} />
       </View>
