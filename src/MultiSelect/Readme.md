@@ -1,7 +1,3 @@
-## WIP MultiSelect
-
-This component is not released and is for demo purposes only.
-
 ### Selected Items
 The `selectedItems` prop can be anything wrapped in the `Selectable` higher-order component.  With the `Selectable` HOC it respects the `disabled, value, and onRemove` props.  The most common use-case would be the `Label` component and is made available through `MultiSelect.Label` component.
 
@@ -71,8 +67,15 @@ The `menuItems` prop can also be anything wrapped in the `Selectable` higher-ord
         }
         onKeyDown={(event, selectedItem) => {
           const isEnterKey = event.keyCode === 13;
+          const isTabKey = event.keyCode === 9;
 
-          if (isEnterKey && state.textValue) {
+          if ((isEnterKey || isTabKey) && state.textValue) {
+            // Don't want to blur input if adding a new label
+            if (isTabKey) {
+              event.stopPropagation();
+              event.preventDefault();
+            }
+
             const newItems = state.selectedItems.slice();
             newItems.push(state.textValue);
             setState({ selectedItems: newItems, textValue: '' });
@@ -147,10 +150,102 @@ Sometimes you don't want to allow removal of a selected item.  This example incl
         }
         onKeyDown={(event, selectedItem) => {
           const isEnterKey = event.keyCode === 13;
+          const isTabKey = event.keyCode === 9;
 
-          if (isEnterKey && state.textValue) {
+          if ((isEnterKey || isTabKey) && state.textValue) {
+            // Don't want to blur input if adding a new label
+            if (isTabKey) {
+              event.stopPropagation();
+              event.preventDefault();
+            }
+
             const newItems = state.selectedItems.slice();
             newItems.push({ value: state.textValue, permanent: false });
+            setState({ selectedItems: newItems, textValue: '' });
+          }
+        }}
+      >
+        {menuItems(state.textValue)}
+      </MultiSelect>;
+    }}
+</State>
+```
+
+#### RTL Compatible
+
+```
+<State initialState={{ textValue: '', selectedItems: ['Hello world!', 'These are removable', 'And selectable'] }}>
+  {(state, setState) => {
+    const avatar = <img src='http://placeskull.com/16/16/03363d'/>;
+
+    const menuItems = (textValue) => {
+      if (textValue.length === 0) {
+        return [];
+      }
+
+      return [
+        <MultiSelect.Item
+          onClick={() => onMenuSelect(`${textValue} - ${textValue}`)}
+          key="0">
+          {textValue} - {textValue}
+        </MultiSelect.Item>,
+        <MultiSelect.Item
+          disabled
+          key="1">
+          Disabled menu item
+        </MultiSelect.Item>,
+        <MultiSelect.Item
+          onClick={() => onMenuSelect(`${textValue} - ${textValue} - ${textValue}`)}
+          key="2">
+          {textValue} - {textValue} - {textValue}
+        </MultiSelect.Item>
+      ]
+    };
+
+    const onMenuSelect = (textValue) => {
+      const newItems = state.selectedItems.slice();
+      newItems.push(textValue);
+      setState({ selectedItems: newItems, textValue: '' });
+    };
+
+    const onRemove = (index) => {
+      const newItems = state.selectedItems.slice();
+      newItems.splice(index, 1);
+      setState({ selectedItems: newItems });
+    };
+
+    return <MultiSelect
+        dir="rtl"
+        size="small"
+        label='RTL Example'
+        hint='Try keyboard navigation and removing labels'
+        onTextChange={textValue => setState({ textValue })}
+        textValue={state.textValue}
+        selectedItems={state.selectedItems.map((itemValue, index) =>
+          <MultiSelect.Label
+            onRemove={() => onRemove(index)}
+            size='medium'
+            pill
+            avatar={avatar}
+            className="u-m-xxs"
+            type='light'
+            value={itemValue}>
+            {itemValue}
+          </MultiSelect.Label>)
+        }
+        onKeyDown={(event, selectedItem) => {
+          const isEnterKey = event.keyCode === 13;
+          const isTabKey = event.keyCode === 9;
+
+          if ((isEnterKey || isTabKey) && state.textValue) {
+            // Don't want to blur input if adding a new label
+            if (isTabKey) {
+              event.stopPropagation();
+              event.preventDefault();
+            }
+
+            const newItems = state.selectedItems.slice();
+            newItems.push(state.textValue);
             setState({ selectedItems: newItems, textValue: '' });
           }
         }}
@@ -198,13 +293,20 @@ This is a customer keyboard event for the `Copy` operation.  The `onKeyDown` cal
           }
           onKeyDown={(event, selectedItem) => {
             const isEnterKey = event.keyCode === 13;
+            const isTabKey = event.keyCode === 9;
             const isCopyKey = event.keyCode === 67 && event.metaKey;
 
             if (isCopyKey && selectedItem) {
               setState({ selected: selectedItem });
             }
 
-            if (isEnterKey && state.textValue) {
+            if ((isEnterKey || isTabKey) && state.textValue) {
+              // Don't want to blur input if adding a new label
+              if (isTabKey) {
+                event.stopPropagation();
+                event.preventDefault();
+              }
+
               const newItems = state.selectedItems.slice();
               newItems.push(state.textValue);
               setState({ selectedItems: newItems, textValue: '' });
@@ -233,9 +335,9 @@ This example only allows the addition of valid email addresses.  Additionally, i
       }
 
       return [
-        <MultiSelect.Item onClick={() => onMenuSelect(`${textValue}@gmail.com`)}>{textValue}@gmail.com</MultiSelect.Item>,
-        <MultiSelect.Item onClick={() => onMenuSelect(`${textValue}@yahoo.com`)}>{textValue}@yahoo.com</MultiSelect.Item>,
-        <MultiSelect.Item onClick={() => onMenuSelect(`${textValue}@outlook.com`)}>{textValue}@outlook.com</MultiSelect.Item>
+        <MultiSelect.Item onClick={() => onMenuSelect(`${textValue}@gmail.com`)} key="gmail">{textValue}@gmail.com</MultiSelect.Item>,
+        <MultiSelect.Item onClick={() => onMenuSelect(`${textValue}@yahoo.com`)}  key="yahoo">{textValue}@yahoo.com</MultiSelect.Item>,
+        <MultiSelect.Item onClick={() => onMenuSelect(`${textValue}@outlook.com`)}  key="outlook">{textValue}@outlook.com</MultiSelect.Item>
       ]
     };
 
@@ -257,7 +359,13 @@ This example only allows the addition of valid email addresses.  Additionally, i
         hint='Only valid emails can be added (@zendesk is special)'
         validation={state.validation}
         validationText={state.validationText}
-        onTextChange={textValue => setState({ textValue })}
+        onTextChange={textValue => {
+          setState({ textValue });
+
+          if (!textValue) {
+            setState({ validation: undefined, validationText: '' });
+          }
+        }}
         textValue={state.textValue}
         selectedItems={state.selectedItems.map((itemValue, index) =>
           <MultiSelect.Label
@@ -271,8 +379,15 @@ This example only allows the addition of valid email addresses.  Additionally, i
         }
         onKeyDown={(event, selectedItem) => {
           const isEnterKey = event.keyCode === 13;
+          const isTabKey = event.keyCode === 9;
 
-          if (isEnterKey && state.textValue) {
+          if ((isEnterKey || isTabKey) && state.textValue) {
+            // Don't want to blur input if adding a new label
+            if (isTabKey && !state.validationText) {
+              event.stopPropagation();
+              event.preventDefault();
+            }
+
             if (isValidEmail(state.textValue)) {
               const newItems = state.selectedItems.slice();
               newItems.push(state.textValue);

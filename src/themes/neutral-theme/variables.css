@@ -42,8 +42,8 @@
   --zd-select-focus-color: var(--zd-light-focus-color);
 
   /* MultiSelect Variables */
-  --zd-multiselect-color: var(--zd-light-accent-color);
-  --zd-multiselect-focus-color: var(--zd-light-focus-color);
+  --zd-multi-select-color: var(--zd-light-accent-color);
+  --zd-multi-select-focus-color: var(--zd-light-focus-color);
 
   /* Tab Variables */
   --zd-tab-color: var(--zd-accent-color);

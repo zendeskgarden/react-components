@@ -11,10 +11,8 @@
 
 .message {
   composes: c-txt__message from '@zendesk/garden-css-forms';
-}
-
-.txt:focus {
-  outline: none;
+  /* Necessary due to DOM strucuture created by the RelativePositionedPopup */
+  margin-top: 8px;
 }
 
 .input {
@@ -92,7 +90,11 @@
   border: none;
   background-color: transparent;
   width: 60px;
-  min-height: 25px;
+}
+
+.rtl .text_input {
+  margin-right: 2px;
+  margin-left: 0;
 }
 
 /* stylelint-disable declaration-no-important */

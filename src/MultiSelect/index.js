@@ -197,6 +197,7 @@ export default class MultiSelect extends ThemedComponent {
       showChevron,
       inputMaxHeight
     } = this.props;
+    const isRtl = dir === "rtl";
     const { open, focused, selectedItems, menuItems } = this.state;
     const { theme } = this;
 
@@ -255,7 +256,10 @@ export default class MultiSelect extends ThemedComponent {
               this.selectedItemModel.clear();
             } else if (
               event.keyCode === KEY_CODES.END ||
-              (event.keyCode === KEY_CODES.RIGHT && isLastItemSelected)
+              (event.keyCode === KEY_CODES.RIGHT &&
+                isLastItemSelected &&
+                !isRtl) ||
+              (event.keyCode === KEY_CODES.LEFT && isLastItemSelected && isRtl)
             ) {
               this.selectedItemModel.clear();
               this.textInputNode.focus();
@@ -270,7 +274,16 @@ export default class MultiSelect extends ThemedComponent {
               this.selectedItemModel.clear();
               this.textInputNode.focus();
             } else if (
-              !(event.keyCode === KEY_CODES.LEFT && isFirstItemSelected)
+              !(
+                event.keyCode === KEY_CODES.LEFT &&
+                isFirstItemSelected &&
+                !isRtl
+              ) &&
+              !(
+                event.keyCode === KEY_CODES.RIGHT &&
+                isFirstItemSelected &&
+                isRtl
+              )
             ) {
               // Don't want to loop past first selection
               this.selectedItemModel.handleKeyDown(event);
@@ -279,7 +292,10 @@ export default class MultiSelect extends ThemedComponent {
             const items = this.selectedItemModel.model.items;
 
             if (items.length > 0) {
-              if (event.keyCode === KEY_CODES.LEFT) {
+              if (
+                (event.keyCode === KEY_CODES.LEFT && !isRtl) ||
+                (event.keyCode === KEY_CODES.RIGHT && isRtl)
+              ) {
                 this.selectedItemModel.reactivate(items[items.length - 1]);
                 this.inputContainerNode.focus();
               } else if (event.keyCode === KEY_CODES.BACKSPACE) {
