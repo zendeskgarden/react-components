@@ -13,7 +13,13 @@ The `menuItems` prop can also be anything wrapped in the `Selectable` higher-ord
 
     const menuItems = (textValue) => {
       if (textValue.length === 0) {
-        return [];
+        return [
+          <MultiSelect.Item
+            disabled
+            key="0">
+            Add some text to have completion options
+          </MultiSelect.Item>
+        ];
       }
 
       return [
@@ -59,7 +65,6 @@ The `menuItems` prop can also be anything wrapped in the `Selectable` higher-ord
             size='medium'
             pill
             avatar={avatar}
-            className="u-m-xxs"
             type='light'
             value={itemValue}>
             {itemValue}
@@ -142,7 +147,6 @@ Sometimes you don't want to allow removal of a selected item.  This example incl
             onRemove={!item.permanent ? () => onRemove(index) : undefined}
             disabled={item.permanent}
             size='large'
-            className="u-m-xxs"
             type='light'
             value={item.value}>
             {item.value}
@@ -227,7 +231,6 @@ Sometimes you don't want to allow removal of a selected item.  This example incl
             size='medium'
             pill
             avatar={avatar}
-            className="u-m-xxs"
             type='light'
             value={itemValue}>
             {itemValue}
@@ -285,7 +288,6 @@ This is a customer keyboard event for the `Copy` operation.  The `onKeyDown` cal
               size='medium'
               pill
               avatar={avatar}
-              className="u-m-xxs"
               type='light'
               value={itemValue}>
               {itemValue}
@@ -371,7 +373,6 @@ This example only allows the addition of valid email addresses.  Additionally, i
           <MultiSelect.Label
             onRemove={() => onRemove(index)}
             size='medium'
-            className="u-m-xxs"
             type={itemValue.indexOf('@zendesk') === -1 ? 'light' : 'default'}
             value={itemValue}>
             {itemValue}
