@@ -280,6 +280,7 @@ This is a customer keyboard event for the `Copy` operation.  The `onKeyDown` cal
           hint='Try to copy a selected label'
           onTextChange={textValue => setState({ textValue })}
           textValue={state.textValue}
+          useChevron={false}
           selectedItems={state.selectedItems.map((itemValue, index) =>
             <MultiSelect.Label
               onRemove={() => onRemove(index)}

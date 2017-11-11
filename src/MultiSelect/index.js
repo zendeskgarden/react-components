@@ -259,7 +259,7 @@ export default class MultiSelect extends ThemedComponent {
             if (wasContainerClicked) {
               this.focusInput();
 
-              if (open) {
+              if (open && showChevron) {
                 this.onClose();
               }
             }
