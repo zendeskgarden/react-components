@@ -23,15 +23,22 @@ const neutralTheme = require('../../../themes/neutral-theme').default;
         <span className='u-ml-sm'>Icon Button</span>
       </FormLabel>
       <Label>Label</Label>
+      <MultiSelect selectedItems={[
+          <MultiSelect.Label size='large'>Multi</MultiSelect.Label>,
+          <MultiSelect.Label size='large'>Select</MultiSelect.Label>
+        ]}>
+        <MultiSelect.Item>Multi</MultiSelect.Item>
+        <MultiSelect.Item>Select</MultiSelect.Item>
+      </MultiSelect>
       <FormLabel>Pagination</FormLabel>
-      <Pagination id='pagination' total={1} />
+      <Pagination currentPage={1} id='pagination' total={3} />
       <RadioButton checked>Radio Button</RadioButton>
       <Range label='Range' />
       <Select label='Select' selected='Select'>
         <Select.Item>Select</Select.Item>
       </Select>
       <Tabs>
-        <Tabs.Panel label='Tabs' />
+        <Tabs.Panel label='Tabs' id='tab' />
       </Tabs>
       <TextArea
         label='TextArea'
@@ -60,17 +67,24 @@ const neutralTheme = require('../../../themes/neutral-theme').default;
           <span className='u-fg-white u-ml-sm'>Icon Button</span>
         </FormLabel>
         <Label>Label</Label>
+        <MultiSelect selectedItems={[
+            <MultiSelect.Label size='large'>Multi</MultiSelect.Label>,
+            <MultiSelect.Label size='large'>Select</MultiSelect.Label>
+          ]}>
+          <MultiSelect.Item>Multi</MultiSelect.Item>
+          <MultiSelect.Item>Select</MultiSelect.Item>
+        </MultiSelect>
         <FormLabel>
           <span className='u-fg-white'>Pagination</span>
         </FormLabel>
-        <Pagination id='pagination' total={1} />
+        <Pagination currentPage={1} id='pagination' total={3} />
         <RadioButton checked>Radio Button</RadioButton>
         <Range label='Range' />
         <Select label='Select' selected='Select'>
           <Select.Item>Select</Select.Item>
         </Select>
         <Tabs>
-          <Tabs.Panel label='Tabs' />
+          <Tabs.Panel label='Tabs' id='tab' />
         </Tabs>
         <TextArea
           label='TextArea'
@@ -99,15 +113,22 @@ const neutralTheme = require('../../../themes/neutral-theme').default;
         <span className='u-ml-sm'>Icon Button</span>
       </FormLabel>
       <Label>Label</Label>
+      <MultiSelect selectedItems={[
+          <MultiSelect.Label size='large' type='light'>Multi</MultiSelect.Label>,
+          <MultiSelect.Label size='large' type='light'>Select</MultiSelect.Label>
+        ]}>
+        <MultiSelect.Item>Multi</MultiSelect.Item>
+        <MultiSelect.Item>Select</MultiSelect.Item>
+      </MultiSelect>
       <FormLabel>Pagination</FormLabel>
-      <Pagination id='pagination' total={1} />
+      <Pagination currentPage={1} id='pagination' total={3} />
       <RadioButton checked>Radio Button</RadioButton>
       <Range label='Range' />
       <Select label='Select' selected='Select'>
         <Select.Item>Select</Select.Item>
       </Select>
       <Tabs>
-        <Tabs.Panel label='Tabs' />
+        <Tabs.Panel label='Tabs' id='tab' />
       </Tabs>
       <TextArea
         label='TextArea'
