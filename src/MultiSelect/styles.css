@@ -118,3 +118,7 @@
   height: 0;
   min-height: 0;
 }
+
+.selectable_label {
+  margin: 2px;
+}

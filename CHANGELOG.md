@@ -1,3 +1,7 @@
+### v12.10.1 (2017-11-10)
+
+- [#385](https://github.com/zendeskgarden/react-components/pull/385) MultiSelect: Add default spacing for MultiSelect.Label component ([Austin Green](mailto:austingreenkansas@gmail.com))
+
 ### v12.10.0 (2017-11-10)
 
 - [#372](https://github.com/zendeskgarden/react-components/pull/372) MultiSelect: Initial component creation ([Austin Green](mailto:austingreenkansas@gmail.com))
