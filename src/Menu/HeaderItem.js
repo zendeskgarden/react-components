@@ -27,6 +27,7 @@ class HeaderItem extends ThemedComponent {
     return (
       <Item
         className={classNames(theme.header_item, className)}
+        isCheckable={false}
         {...otherProps}
       >
         {icon &&

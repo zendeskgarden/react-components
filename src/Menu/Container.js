@@ -38,7 +38,11 @@ export default class Container extends ThemedComponent {
       "top_right",
       "top_stretch"
     ]),
-    size: PropTypes.oneOf(["small", "medium"])
+    size: PropTypes.oneOf(["small", "medium"]),
+    onMouseDown: PropTypes.func,
+    onKeyDown: PropTypes.func,
+    onEscape: PropTypes.func,
+    onBlur: PropTypes.func
   };
 
   static defaultProps = {
@@ -65,7 +69,11 @@ export default class Container extends ThemedComponent {
       fixedWidth,
       maxHeight,
       position,
-      size
+      size,
+      onMouseDown,
+      onBlur,
+      onKeyDown,
+      onEscape
     } = this.props;
 
     const style = {};
@@ -98,6 +106,11 @@ export default class Container extends ThemedComponent {
         )}
         role="menu"
         style={style}
+        tabIndex={-1}
+        onMouseDown={onMouseDown}
+        onBlur={onBlur}
+        onKeyDown={onKeyDown}
+        onEscape={onEscape}
       >
         <View className={theme.inner} style={innerStyle}>
           {children}

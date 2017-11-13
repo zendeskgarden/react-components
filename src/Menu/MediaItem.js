@@ -44,5 +44,6 @@ export default Selectable(MediaItem, {
     const { onClick, value } = props;
     onClick && onClick(value, event);
   },
+  selectEvent: "onClick",
   preventDefault: true
 });

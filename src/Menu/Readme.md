@@ -42,6 +42,7 @@ initialState = { selected: 'paul' };
     media={<img className="u-br-50%" src="http://placeskull.com/32/32/37B8AF" />}
     metaInformation={<span>john@beatles.com</span>}
     checked={state.selected === 'john'}
+    value='john'
     onClick={() => setState({ selected: 'john' })}>
     John
   </Menu.MediaItem>
@@ -49,6 +50,7 @@ initialState = { selected: 'paul' };
     media={<img className="u-br-50%" src="http://placeskull.com/32/32/EB6651" />}
     metaInformation={<span>paul@beatles.com</span>}
     checked={state.selected === 'paul'}
+    value='paul'
     onClick={() => setState({ selected: 'paul' })}>
     Paul
   </Menu.MediaItem>
@@ -56,6 +58,7 @@ initialState = { selected: 'paul' };
     media={<img className="u-br-50%" src="http://placeskull.com/32/32/30AABC" />}
     metaInformation={<span>george@beatles.com</span>}
     checked={state.selected === 'george'}
+    value='george'
     onClick={() => setState({ selected: 'george' })}>
     George
   </Menu.MediaItem>
@@ -63,6 +66,7 @@ initialState = { selected: 'paul' };
     media={<img className="u-br-50%" src="http://placeskull.com/32/32/F79A3E" />}
     metaInformation={<span>ringo@beatles.com</span>}
     checked={state.selected === 'ringo'}
+    value='ringo'
     onClick={() => setState({ selected: 'ringo' })}>
     Ringo
   </Menu.MediaItem>

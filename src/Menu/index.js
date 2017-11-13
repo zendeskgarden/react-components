@@ -103,8 +103,11 @@ export default class Menu extends ThemedComponent {
 
   onValueChosen = (value, event) => {
     const { onChange } = this.props;
-    this.closeMenu();
     onChange && onChange(value, event);
+
+    setTimeout(() => {
+      this.closeMenu();
+    }, 200);
   };
 
   showMenu = () => {
@@ -167,8 +170,16 @@ export default class Menu extends ThemedComponent {
         className={classNames({
           [theme.stretched]: stretched
         })}
-        onKeyDown={this.selectionModel.handleKeyDown}
-        onBlur={this.closeMenu}
+        onKeyDown={event => {
+          if (!hidden) {
+            this.selectionModel.handleKeyDown(event);
+          }
+        }}
+        onBlur={event => {
+          if (!this.containerMousedDown) {
+            this.closeMenu(event);
+          }
+        }}
         onClick={this.toggleHidden}
         onEnter={this.keyboardToggleHidden}
         onEscape={this.closeMenu}
@@ -203,6 +214,16 @@ export default class Menu extends ThemedComponent {
             dir={dir}
             arrow={arrow}
             position={position}
+            onMouseDown={event => {
+              this.containerMousedDown = true;
+
+              setTimeout(() => {
+                this.containerMousedDown = false;
+              }, 0);
+            }}
+            onBlur={() => this.closeMenu()}
+            onKeyDown={this.selectionModel.handleKeyDown}
+            onEscape={this.closeMenu}
           >
             {items}
           </Container>}

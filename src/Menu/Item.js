@@ -23,13 +23,16 @@ export class Item extends ThemedComponent {
     /** <a href="#view">See View</a> */
     tooltipPositioning: () => {},
     checked: PropTypes.bool,
-    metaInformation: PropTypes.node
+    metaInformation: PropTypes.node,
+    onClick: PropTypes.func,
+    isCheckable: PropTypes.bool
   };
 
   static defaultProps = {
     disabled: false,
     role: "menuitem",
-    checked: false
+    checked: false,
+    isCheckable: true
   };
 
   constructor(props, context) {
@@ -37,6 +40,10 @@ export class Item extends ThemedComponent {
       namespace: "Menu",
       styles
     });
+
+    this.state = {
+      temporarilyChecked: false
+    };
   }
 
   render() {
@@ -47,15 +54,18 @@ export class Item extends ThemedComponent {
       onMouseDown,
       onMouseEnter,
       onMouseLeave,
+      onClick,
       role,
       selected,
       testId,
       title,
       tooltipPositioning,
       checked,
-      metaInformation
+      metaInformation,
+      isCheckable
     } = this.props;
     const { theme } = this;
+    const { temporarilyChecked } = this.state;
 
     return (
       <View
@@ -64,12 +74,22 @@ export class Item extends ThemedComponent {
         className={classNames(theme.item, className, {
           [theme.disabled]: disabled,
           [theme.focused]: selected,
-          [theme.checked]: checked
+          [theme.checked]:
+            checked || (isCheckable && !disabled && temporarilyChecked)
         })}
         disabled={disabled}
-        onMouseDown={onMouseDown}
+        onMouseDown={event => {
+          this.setState({ temporarilyChecked: true }, () => {
+            onMouseDown && onMouseDown(event);
+          });
+        }}
         onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
+        onMouseLeave={event => {
+          this.setState({ temporarilyChecked: false }, () => {
+            onMouseLeave && onMouseLeave(event);
+          });
+        }}
+        onClick={onClick}
         role={role}
         testId={testId}
         title={title}
@@ -88,8 +108,8 @@ export class Item extends ThemedComponent {
 export default Selectable(Item, {
   action: (props, event) => {
     const { onClick, value } = props;
-
     onClick && onClick(value, event);
   },
-  preventDefault: true
+  preventDefault: true,
+  selectEvent: "onClick"
 });

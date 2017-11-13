@@ -15,6 +15,7 @@ class LinkItem extends ThemedComponent {
     onMouseDown: PropTypes.func,
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
+    onClick: PropTypes.func,
     role: PropTypes.string,
     selected: PropTypes.bool,
     testId: PropTypes.string,
@@ -42,6 +43,7 @@ class LinkItem extends ThemedComponent {
       onMouseDown,
       onMouseEnter,
       onMouseLeave,
+      onClick,
       role,
       selected,
       testId,
@@ -63,6 +65,7 @@ class LinkItem extends ThemedComponent {
         onMouseDown={onMouseDown}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
+        onClick={onClick}
         role={role}
         data-test-id={testId}
         href={href}
@@ -82,5 +85,6 @@ export default Selectable(LinkItem, {
     const newWindow = window.open(href, openInNewWindow ? "_blank" : target);
     newWindow.opener = null;
   },
+  selectEvent: "onClick",
   preventDefault: true
 });

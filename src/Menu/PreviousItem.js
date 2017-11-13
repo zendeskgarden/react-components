@@ -41,5 +41,6 @@ export default Selectable(PreviousItem, {
 
     onClick && onClick(value, event);
   },
+  selectEvent: "onClick",
   preventDefault: true
 });

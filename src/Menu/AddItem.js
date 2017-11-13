@@ -37,5 +37,6 @@ export default Selectable(AddItem, {
     const { onClick, value } = props;
     onClick && onClick(value, event);
   },
+  selectEvent: "onClick",
   preventDefault: true
 });

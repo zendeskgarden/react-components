@@ -37,5 +37,6 @@ export default Selectable(NextItem, {
     const { onClick, value } = props;
     onClick && onClick(value, event);
   },
+  selectEvent: "onClick",
   preventDefault: true
 });
