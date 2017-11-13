@@ -18,9 +18,9 @@
   version "1.1.1"
   resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-callouts/-/@zendesk/garden-css-callouts-1.1.1.tgz#4b1a748f40a77cf79400ae2a4af729922570ecf6"
 
-"@zendesk/garden-css-forms@^3.4.0":
-  version "3.4.0"
-  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-forms/-/@zendesk/garden-css-forms-3.4.0.tgz#c12a60a619f24ef4dbbbbd764aa1584bbb229f1b"
+"@zendesk/garden-css-forms@^3.4.1":
+  version "3.4.1"
+  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-forms/-/@zendesk/garden-css-forms-3.4.1.tgz#768351a9250462d3da3bb95b0d003884b67248a1"
 
 "@zendesk/garden-css-labels@^1.0.2":
   version "1.0.2"

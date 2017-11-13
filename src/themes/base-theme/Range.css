@@ -1,23 +1,17 @@
-/* stylelint-disable declaration-no-important, max-line-length, selector-pseudo-element-no-unknown */
+@import '@zendesk/garden-css-forms/src/custom';
 
-.input:not(:disabled)::range-track {
-  background-image: linear-gradient(var(--zd-range-color), var(--zd-range-color));
+:root {
+  --zd-forms--custom-accent-color: var(--zd-range-color);
 }
 
-.input:not(:disabled)::range-thumb {
-  border-color: var(--zd-range-color) !important;
-  background-color: var(--zd-range-color) !important;
-  color: var(--zd-range-color) !important;
+.range {
+  composes: c-range c-range--custom;
 }
 
-.input:not(:disabled)::range-lower {
-  background-color: var(--zd-range-color) !important;
+.input {
+  composes: c-range__input;
 }
 
-.focused > .input::range-thumb {
-  box-shadow: 0 0 0 2px var(--zd-range-focus-color) !important;
-}
-
-.input:not(:disabled):active::range-thumb {
-  background-color: var(--zd-range-active-color) !important;
+.focused {
+  composes: is-focused;
 }
