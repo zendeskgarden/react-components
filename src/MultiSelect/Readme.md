@@ -24,7 +24,7 @@ The `menuItems` prop can also be anything wrapped in the `Selectable` higher-ord
 
       return [
         <MultiSelect.Item
-          onClick={() => onMenuSelect(`${textValue} - ${textValue}`)}
+          value={`${textValue} - ${textValue}`}
           key="0">
           {textValue} - {textValue}
         </MultiSelect.Item>,
@@ -34,7 +34,7 @@ The `menuItems` prop can also be anything wrapped in the `Selectable` higher-ord
           Disabled menu item
         </MultiSelect.Item>,
         <MultiSelect.Item
-          onClick={() => onMenuSelect(`${textValue} - ${textValue} - ${textValue}`)}
+          value={`${textValue} - ${textValue} - ${textValue}`}
           key="2">
           {textValue} - {textValue} - {textValue}
         </MultiSelect.Item>
@@ -59,6 +59,7 @@ The `menuItems` prop can also be anything wrapped in the `Selectable` higher-ord
         hint='Try keyboard navigation and removing labels'
         onTextChange={textValue => setState({ textValue })}
         textValue={state.textValue}
+        onMenuValueSelected={onMenuSelect}
         selectedItems={state.selectedItems.map((itemValue, index) =>
           <MultiSelect.Label
             onRemove={() => onRemove(index)}
