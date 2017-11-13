@@ -27,12 +27,12 @@ describe("Menu", () => {
           })
     );
 
-  const mouseDown = (selector, options) => {
+  const click = (selector, options) => {
     const element = document.querySelector(selector);
     if (!element) {
       expect.fail("Could not find element {0}", selector);
     }
-    TestUtils.Simulate.mouseDown(element, options);
+    TestUtils.Simulate.click(element, options);
   };
 
   /**
@@ -506,10 +506,10 @@ describe("Menu", () => {
         </Menu>,
         "when clicking on the trigger"
       ).then(() => {
-        mouseDown("[data-test-id=my-menu-item]");
+        click("[data-test-id=my-menu-item]");
 
         return expect(onChange, "to have calls satisfying", () =>
-          onChange("two", { type: "mousedown" })
+          onChange("two", { type: "click" })
         );
       });
     });
@@ -537,9 +537,9 @@ describe("Menu", () => {
         "on",
         <Button>trigger</Button>
       ).then(() => {
-        mouseDown("[data-test-id=my-menu-item]");
+        click("[data-test-id=my-menu-item]");
         expect(onClick, "to have calls satisfying", () => {
-          onClick("one", { type: "mousedown" });
+          onClick("one", { type: "click" });
         });
       });
     });
@@ -629,7 +629,7 @@ describe("Menu", () => {
         "on",
         <Button>trigger</Button>
       ).then(() => {
-        mouseDown("[data-test-id=link]");
+        click("[data-test-id=link]");
 
         expect(window.open, "to have calls satisfying", () =>
           window.open("https://www.zendesk.com", "_self")
@@ -645,7 +645,7 @@ describe("Menu", () => {
         "on",
         <Button>trigger</Button>
       ).then(() => {
-        mouseDown("[data-test-id=link]", { ctrlKey: true });
+        click("[data-test-id=link]", { ctrlKey: true });
 
         expect(window.open, "to have calls satisfying", () =>
           window.open("https://www.zendesk.com", "_blank")
@@ -661,7 +661,7 @@ describe("Menu", () => {
         "on",
         <Button>trigger</Button>
       ).then(() => {
-        mouseDown("[data-test-id=blank]");
+        click("[data-test-id=blank]");
 
         expect(window.open, "to have calls satisfying", () =>
           window.open("https://www.zendesk.com/help-center", "_blank")
@@ -677,7 +677,7 @@ describe("Menu", () => {
         "on",
         <Button>trigger</Button>
       ).then(() => {
-        mouseDown("[data-test-id=disabled]");
+        click("[data-test-id=disabled]");
         expect(window.open, "was not called");
       }));
 
