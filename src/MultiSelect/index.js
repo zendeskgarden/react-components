@@ -137,18 +137,18 @@ export default class MultiSelect extends ThemedComponent {
     setTimeout(closingAction, onMenuValueSelected ? 200 : 0);
   };
 
-  setSelectableItems = ({ selectedItems, children }) => {
-    const { dir, disabled, size } = this.props;
-
+  setSelectableItems = ({ selectedItems, children, dir, disabled, size }) => {
     // The naming between Labels and Inputs differ by one size
     const defaultLabelSize = size === "medium" ? "large" : "medium";
 
     this.selectedItemModel.items = selectedItems.map((item, index) => {
+      const isMultiSelectLabel = item.type && item.type.MultiSelectLabel;
+
       return React.cloneElement(item, {
         key: index,
         dir,
         disabled: item.props.disabled || disabled,
-        size: item.props.size || defaultLabelSize
+        size: isMultiSelectLabel ? defaultLabelSize : item.props.size
       });
     });
 
@@ -348,9 +348,20 @@ export default class MultiSelect extends ThemedComponent {
                 this.selectedItemModel.reactivate(items[0]);
                 this.inputContainerNode.focus();
                 event.preventDefault();
+              } else {
+                this.menuItemsModel.handleKeyDown(event);
               }
             }
           } else {
+            // We should preserve default TextInput keyboard navigation if menu is not selected
+            if (
+              !this.menuItemsModel.hasSelection() &&
+              (event.keyCode === KEY_CODES.HOME ||
+                event.keyCode === KEY_CODES.END)
+            ) {
+              return;
+            }
+
             this.menuItemsModel.handleKeyDown(event);
           }
         }}
