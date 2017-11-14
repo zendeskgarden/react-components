@@ -37,8 +37,9 @@ const neutralTheme = require('../../../themes/neutral-theme').default;
       <Select label='Select' selected='Select'>
         <Select.Item>Select</Select.Item>
       </Select>
-      <Tabs>
+      <Tabs active='tab'>
         <Tabs.Panel label='Tabs' id='tab' />
+        <Tabs.Panel label='Tabs' id='' />
       </Tabs>
       <TextArea
         label='TextArea'
@@ -83,8 +84,9 @@ const neutralTheme = require('../../../themes/neutral-theme').default;
         <Select label='Select' selected='Select'>
           <Select.Item>Select</Select.Item>
         </Select>
-        <Tabs>
+        <Tabs active='tab'>
           <Tabs.Panel label='Tabs' id='tab' />
+          <Tabs.Panel label='Tabs' id='' />
         </Tabs>
         <TextArea
           label='TextArea'
@@ -127,8 +129,9 @@ const neutralTheme = require('../../../themes/neutral-theme').default;
       <Select label='Select' selected='Select'>
         <Select.Item>Select</Select.Item>
       </Select>
-      <Tabs>
+      <Tabs active='tab'>
         <Tabs.Panel label='Tabs' id='tab' />
+        <Tabs.Panel label='Tabs' id='' />
       </Tabs>
       <TextArea
         label='TextArea'
