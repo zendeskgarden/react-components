@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { findDOMNode } from "react-dom";
 import classNames from "classnames";
 
 import Button from "../Button";
@@ -54,6 +55,9 @@ export default class OverflowMenu extends Component {
         onFocus={() => this.setState({ isFocused: true })}
         onBlur={() => this.setState({ isFocused: false })}
         tabIndex={isFocusable ? 0 : -1}
+        ref={ref => {
+          this.triggerNode = this.triggerNode || findDOMNode(ref);
+        }}
       >
         &nbsp;
       </Button.Core>;
@@ -66,6 +70,7 @@ export default class OverflowMenu extends Component {
         dir={dir}
         onOpen={onOpen}
         onClose={onClose}
+        onChange={() => this.triggerNode.focus()}
         marginBottom={marginBottom}
         marginTop={marginTop}
         maxHeight={maxHeight}

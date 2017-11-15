@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { findDOMNode } from "react-dom";
 import classNames from "classnames";
 import uuid from "uuid";
 
@@ -139,7 +140,8 @@ export default class Select extends ThemedComponent {
           {
             [theme.rtl]: dir === "rtl",
             [theme.stretched]: stretched,
-            [theme.disabled]: disabled
+            [theme.disabled]: disabled,
+            [theme.is_focused]: open
           },
           className
         )}
@@ -153,7 +155,12 @@ export default class Select extends ThemedComponent {
         <Menu
           dir={dir}
           maxHeight={maxHeight}
-          onChange={onChange}
+          onChange={(value, event) => {
+            onChange && onChange(value, event);
+
+            // Bring focus back to Select after menu item is selected
+            this.triggerNode.focus();
+          }}
           positioning={positioning}
           onOpen={this.onOpen}
           onClose={this.onClose}
@@ -175,6 +182,9 @@ export default class Select extends ThemedComponent {
               tabIndex={disabled ? null : tabIndex}
               title={title}
               tooltipPositioning={tooltipPositioning}
+              ref={ref => {
+                this.triggerNode = this.triggerNode || findDOMNode(ref);
+              }}
             >
               {selected || <span>&nbsp;</span>}
             </View>

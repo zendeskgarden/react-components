@@ -17,6 +17,10 @@
   composes: c-txt__input c-txt__input--select from '@zendesk/garden-css-forms';
 }
 
+.is_focused {
+  composes: is-focused from '@zendesk/garden-css-forms';
+}
+
 .label {
   composes: c-txt__label from '@zendesk/garden-css-forms';
 }

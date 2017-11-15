@@ -1,7 +1,7 @@
 @import '@zendesk/garden-css-variables';
 
 :root {
-  --zd-menu-min-width: 140px;
+  --zd-menu-min-width: 180px;
 }
 
 .stretched {
