@@ -1,3 +1,7 @@
+### v12.12.0 (2017-11-15)
+
+- [#389](https://github.com/zendeskgarden/react-components/pull/389) * Remove over-saturation on neutral theme button hover.* Update `Anchor` and `Button type='anchor'` to underline on hover. ([Jonathan Zempel](mailto:jzempel@gmail.com))
+
 ### v12.11.0 (2017-11-13)
 
 - [#384](https://github.com/zendeskgarden/react-components/pull/384) Compose css-forms custom CSS ([Jonathan Zempel](mailto:jzempel@gmail.com))
