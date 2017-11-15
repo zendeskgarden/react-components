@@ -66,8 +66,8 @@ export default class MultiSelect extends ThemedComponent {
     textValue: PropTypes.string,
     placeholderText: PropTypes.string,
     fixedWidth: PropTypes.bool,
-    showChevron: PropTypes.bool,
     onMenuValueSelected: PropTypes.func
+    showIcon: PropTypes.bool
   };
 
   static defaultProps = {
@@ -78,7 +78,7 @@ export default class MultiSelect extends ThemedComponent {
     size: "medium",
     tabIndex: 0,
     selectedItems: [],
-    showChevron: true
+    showIcon: true
   };
 
   constructor(props, context) {
@@ -227,7 +227,7 @@ export default class MultiSelect extends ThemedComponent {
       textValue,
       onTextChange,
       placeholderText,
-      showChevron,
+      showIcon,
       inputMaxHeight
     } = this.props;
     const isRtl = dir === "rtl";
@@ -238,7 +238,7 @@ export default class MultiSelect extends ThemedComponent {
       <View
         className={classNames(theme.input, {
           [theme.open]: open && menuItems && menuItems.length > 0,
-          [theme.no_chevron]: !showChevron || inputMaxHeight,
+          [theme.no_chevron]: !showIcon || inputMaxHeight,
           [theme.input_overflow]: inputMaxHeight
         })}
         style={{ maxHeight: inputMaxHeight }}
@@ -259,7 +259,7 @@ export default class MultiSelect extends ThemedComponent {
             if (wasContainerClicked) {
               this.focusInput();
 
-              if (open && showChevron) {
+              if (open && showIcon) {
                 this.onClose();
               }
             }

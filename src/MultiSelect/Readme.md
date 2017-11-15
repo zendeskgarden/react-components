@@ -437,7 +437,7 @@ const SelectableAvatar = Selectable(CustomAvatar, {
     };
 
     return <MultiSelect
-        showChevron={false}
+        showIcon={false}
         label='Avatar Selectables'
         hint='Just hit [ENTER] to add items'
         onTextChange={textValue => setState({ textValue })}
