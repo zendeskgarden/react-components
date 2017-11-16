@@ -27,8 +27,7 @@ deploy:
     local_dir: demo
     skip_cleanup: true
     on:
-      branch: master
-      tags: true
+      all_branches: true
 
   - provider: script
     script: npm publish
