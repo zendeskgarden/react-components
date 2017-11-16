@@ -667,3 +667,27 @@ const SelectableAvatar = Selectable(CustomAvatar, {
     }}
 </State>
 ```
+
+#### Disabled State
+
+```
+<State initialState={{
+  textValue: '',
+  selectedItems: ['Han Solo', 'Greedo', 'Darth Vader'] }}>
+    {(state, setState) => {
+      return <MultiSelect
+          size="medium"
+          disabled
+          textValue={state.textValue}
+          selectedItems={state.selectedItems.map((itemValue, index) =>
+            <MultiSelect.Label
+              onRemove={() => {}}
+              pill
+              type='light'
+              value={itemValue}>
+              {itemValue}
+            </MultiSelect.Label>)
+          } />;
+    }}
+</State>
+```

@@ -24,8 +24,8 @@ const neutralTheme = require('../../../themes/neutral-theme').default;
       </FormLabel>
       <Label>Label</Label>
       <MultiSelect selectedItems={[
-          <MultiSelect.Label size='large'>Multi</MultiSelect.Label>,
-          <MultiSelect.Label size='large'>Select</MultiSelect.Label>
+          <MultiSelect.Label>Multi</MultiSelect.Label>,
+          <MultiSelect.Label>Select</MultiSelect.Label>
         ]}>
         <MultiSelect.Item>Multi</MultiSelect.Item>
         <MultiSelect.Item>Select</MultiSelect.Item>
@@ -69,8 +69,8 @@ const neutralTheme = require('../../../themes/neutral-theme').default;
         </FormLabel>
         <Label>Label</Label>
         <MultiSelect selectedItems={[
-            <MultiSelect.Label size='large'>Multi</MultiSelect.Label>,
-            <MultiSelect.Label size='large'>Select</MultiSelect.Label>
+            <MultiSelect.Label>Multi</MultiSelect.Label>,
+            <MultiSelect.Label>Select</MultiSelect.Label>
           ]}>
           <MultiSelect.Item>Multi</MultiSelect.Item>
           <MultiSelect.Item>Select</MultiSelect.Item>
@@ -116,8 +116,8 @@ const neutralTheme = require('../../../themes/neutral-theme').default;
       </FormLabel>
       <Label>Label</Label>
       <MultiSelect selectedItems={[
-          <MultiSelect.Label size='large' type='light'>Multi</MultiSelect.Label>,
-          <MultiSelect.Label size='large' type='light'>Select</MultiSelect.Label>
+          <MultiSelect.Label type='light'>Multi</MultiSelect.Label>,
+          <MultiSelect.Label type='light'>Select</MultiSelect.Label>
         ]}>
         <MultiSelect.Item>Multi</MultiSelect.Item>
         <MultiSelect.Item>Select</MultiSelect.Item>

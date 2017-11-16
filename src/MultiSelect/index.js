@@ -147,7 +147,9 @@ export default class MultiSelect extends ThemedComponent {
         key: index,
         dir,
         disabled: item.props.disabled || disabled,
-        size: isMultiSelectLabel ? defaultLabelSize : item.props.size
+        size: isMultiSelectLabel ? defaultLabelSize : item.props.size,
+        onRemove:
+          isMultiSelectLabel && !disabled ? item.props.onRemove : undefined
       });
     });
 
