@@ -27,7 +27,8 @@ deploy:
     local_dir: styleguide
     skip_cleanup: true
     on:
-      all_branches: true
+      branch: master
+      tags: true
 
   - provider: script
     script: npm publish
