@@ -66,7 +66,7 @@ export default class MultiSelect extends ThemedComponent {
     textValue: PropTypes.string,
     placeholderText: PropTypes.string,
     fixedWidth: PropTypes.bool,
-    onMenuValueSelected: PropTypes.func
+    onMenuValueSelected: PropTypes.func,
     showIcon: PropTypes.bool
   };
 
@@ -129,8 +129,7 @@ export default class MultiSelect extends ThemedComponent {
 
     const closingAction = () => {
       onMenuValueSelected && onMenuValueSelected(value, event);
-      // this.onClose();
-      this.textInputNode.focus();
+      this.focusInput();
     };
 
     // Only delay menu closing if menu selection callback is provided
@@ -271,6 +270,14 @@ export default class MultiSelect extends ThemedComponent {
         ref={ref => {
           this.inputContainerNode = this.inputContainerNode || findDOMNode(ref);
         }}
+        onFocus={() => {
+          // Scroll to bottom of input container if needed
+          setTimeout(() => {
+            if (inputMaxHeight) {
+              this.inputContainerNode.scrollTop = this.inputContainerNode.scrollHeight;
+            }
+          }, 0);
+        }}
         onBlur={event => {
           if (this.mouseInitiated) {
             event.preventDefault();
@@ -342,7 +349,7 @@ export default class MultiSelect extends ThemedComponent {
               } else if (event.keyCode === KEY_CODES.BACKSPACE) {
                 const { onRemove } = items[items.length - 1].props;
                 onRemove && onRemove(event);
-                this.textInputNode.focus();
+                this.focusInput();
               } else if (event.keyCode === KEY_CODES.HOME) {
                 // We should focus the current page on initial focus.
                 this.selectedItemModel.reactivate(items[0]);
@@ -491,11 +498,11 @@ export default class MultiSelect extends ThemedComponent {
               }}
               onBlur={() => {
                 this.onClose();
-                this.textInputNode.focus();
+                this.focusInput();
               }}
               onEscape={() => {
                 this.onClose();
-                this.textInputNode.focus();
+                this.focusInput();
               }}
               animate
             >
