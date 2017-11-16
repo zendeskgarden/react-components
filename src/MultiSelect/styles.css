@@ -1,7 +1,7 @@
 @import '@zendesk/garden-css-variables';
 
 .stretched {
-  flex: 1;
+  flex-grow: 1;
   width: 100%;
 }
 
@@ -82,9 +82,7 @@
 }
 
 .text_input {
-  flex-basis: auto;
   flex-grow: 1;
-  flex-shrink: 1;
   margin-left: 2px;
   outline: none;
   border: none;

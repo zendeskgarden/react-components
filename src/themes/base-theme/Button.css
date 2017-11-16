@@ -4,12 +4,10 @@
   --zd-btn--custom-color: var(--zd-button-color);
 }
 
-/* stylelint-disable declaration-block-no-duplicate-properties */
 .type_default {
   composes: c-btn from '@zendesk/garden-css-buttons';
   composes: c-btn--custom;
 }
-/* stylelint-enable declaration-block-no-duplicate-properties */
 
 .type_anchor {
   composes: c-btn--custom c-btn--anchor;

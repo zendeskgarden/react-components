@@ -4,12 +4,10 @@
   --zd-table--custom-color: var(--zd-table-focus-color);
 }
 
-/* stylelint-disable declaration-block-no-duplicate-properties */
 .table {
   composes: c-table from '@zendesk/garden-css-tables';
   composes: c-table--custom;
 }
-/* stylelint-enable declaration-block-no-duplicate-properties */
 
 .table_row {
   composes: c-table__row;
