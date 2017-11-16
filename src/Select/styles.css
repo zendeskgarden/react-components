@@ -11,6 +11,8 @@
 
 .message {
   composes: c-txt__message from '@zendesk/garden-css-forms';
+  /* Necessary due to DOM strucuture created by the RelativePositionedPopup */
+  margin-top: 8px;
 }
 
 .input {

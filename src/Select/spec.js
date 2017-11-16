@@ -20,6 +20,7 @@ describe("Select", () => {
           dir="ltr"
           positioning={["bottom_stretch", "top_stretch"]}
           stretched
+          enableArrowKeyExpansion
           trigger={
             <View className="input" tabIndex={0}>
               bar
@@ -72,6 +73,7 @@ describe("Select", () => {
           <Menu
             positioning={["bottom_right", "top_right"]}
             stretched
+            enableArrowKeyExpansion
             trigger={
               <View className="input" tabIndex={0}>
                 bar
@@ -151,6 +153,7 @@ describe("Select", () => {
             positioning={["bottom_stretch", "top_stretch"]}
             size="small"
             stretched
+            enableArrowKeyExpansion
             trigger={<View className="input">bar</View>}
           >
             <Menu.Item value="foo">foo</Menu.Item>
@@ -177,6 +180,7 @@ describe("Select", () => {
             dir="ltr"
             positioning={["bottom_stretch", "top_stretch"]}
             stretched
+            enableArrowKeyExpansion
             trigger={
               <View disabled className="input" tabIndex={null}>
                 bar

@@ -6,6 +6,7 @@ import ThemedComponent from "../ThemedComponent";
 import ReactSingleSelectionModel from "../utils/selection/ReactSingleSelectionModel";
 import View from "../core/View";
 import RelativePositionedPopup from "../core/RelativePositionedPopup";
+import KEY_CODES from "../utils/keyCodes";
 
 import Container from "./Container";
 import Item from "./Item";
@@ -39,7 +40,12 @@ export default class Menu extends ThemedComponent {
     size: PropTypes.oneOf(["small", "medium"]),
     stretched: PropTypes.bool,
     testId: PropTypes.string,
-    trigger: PropTypes.oneOfType([PropTypes.element, PropTypes.func]).isRequired
+    trigger: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
+      .isRequired,
+    /**
+     * Allows arrow keys to expand Menu. Used by the Select component.
+     */
+    enableArrowKeyExpansion: PropTypes.bool
   };
 
   static defaultProps = {
@@ -52,7 +58,8 @@ export default class Menu extends ThemedComponent {
     marginTop: 2,
     positioning: ["bottom_right", "top_right"],
     stretched: false,
-    size: "medium"
+    size: "medium",
+    enableArrowKeyExpansion: false
   };
 
   static Container = Container;
@@ -160,6 +167,7 @@ export default class Menu extends ThemedComponent {
       trigger,
       testId,
       stretched,
+      enableArrowKeyExpansion,
       ...other
     } = this.props;
     const { theme } = this;
@@ -173,6 +181,13 @@ export default class Menu extends ThemedComponent {
         onKeyDown={event => {
           if (!hidden) {
             this.selectionModel.handleKeyDown(event);
+          } else if (
+            enableArrowKeyExpansion &&
+            (event.keyCode === KEY_CODES.UP || event.keyCode === KEY_CODES.DOWN)
+          ) {
+            this.showMenu();
+            event.preventDefault();
+            event.stopPropagation();
           }
         }}
         onBlur={event => {
