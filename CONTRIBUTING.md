@@ -25,19 +25,19 @@ This is a list of things you should consider when creating a pull request:
 To see all the components and how they are used, boot up the [styleguide](https://zendeskgarden.github.io/react-components):
 
 ```
-$ yarn start
+$ npm start
 ```
 
 ### Testing
 
-You can execute the entire test suite with `yarn test`.
+You can execute the entire test suite with `npm test`.
 
-You can run the tests in watch mode with `yarn watch:jest`.
+You can run the tests in watch mode with `npm run watch:jest`.
 
 When that tests are running in test mode, you can run the tests of a single file the following way:
 
 ```
-yarn test:jest ./src/Button/spec.js
+npm run test:jest ./src/Button/spec.js
 ```
 
 ## Merging
@@ -52,7 +52,7 @@ yarn test:jest ./src/Button/spec.js
 After merging to master, you should run the following script to create a new release:
 
 ```
-yarn version <major | minor | patch>
+npm version <major | minor | patch>
 ```
 
 This script will take care of everything for you.
