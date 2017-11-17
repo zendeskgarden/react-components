@@ -23,6 +23,8 @@ const unique = require("array-unique");
 const clean = require("gulp-clean");
 const adler32 = require("adler32");
 
+const version = require("./package.json").version;
+
 const sourceDir = path.resolve(__dirname, "src");
 const nodeModulesDir = path.resolve(__dirname, "node_modules");
 const svgDir = path.join(
@@ -127,7 +129,7 @@ gulp.task("process-composed-files", ["collect-composes"], () => {
       postcss([
         modules({
           generateScopedName: (name, filename, css) => {
-            const hash = adler32.sum(Buffer.from(css)).toString(16);
+            const hash = adler32.sum(Buffer.from(version + css)).toString(16);
             return `rc-${name}-${hash}`;
           },
           getJSON: (cssFileName, json) => {
@@ -184,7 +186,7 @@ gulp.task("css", ["clean", "process-composed-files"], () => {
         }),
         modules({
           generateScopedName: (name, filename, css) => {
-            const hash = adler32.sum(Buffer.from(css)).toString(16);
+            const hash = adler32.sum(Buffer.from(version + css)).toString(16);
             return `rc-${name}-${hash}`;
           },
           getJSON: (cssFileName, json) => {
