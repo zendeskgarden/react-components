@@ -30,7 +30,7 @@
     "watch": "gulp watch"
   },
   "dependencies": {
-    "append-styles": "^1.0.0",
+    "append-styles": "^1.1.0",
     "classnames": "^2.2.5",
     "prop-types": "^15.5.8",
     "react-is-deprecated": "^0.1.2",

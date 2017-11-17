@@ -200,9 +200,9 @@ app-root-path@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/app-root-path/-/app-root-path-2.0.1.tgz#cd62dcf8e4fd5a417efc664d2e5b10653c651b46"
 
-append-styles@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/append-styles/-/append-styles-1.0.0.tgz#068a4ecfa0bebe055bacb27ba3183aa381fb0467"
+append-styles@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/append-styles/-/append-styles-1.1.0.tgz#214a27c33dbd3ee5ddc7d044bdea3685652f170a"
 
 append-transform@^0.4.0:
   version "0.4.0"
