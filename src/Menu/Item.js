@@ -71,6 +71,7 @@ export class Item extends ThemedComponent {
       <View
         aria-activedescendant={selected}
         aria-disabled={disabled}
+        aria-checked={checked}
         className={classNames(theme.item, className, {
           [theme.disabled]: disabled,
           [theme.focused]: selected,
