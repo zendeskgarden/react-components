@@ -1,3 +1,7 @@
+### v12.12.1 (2017-11-17)
+
+- [#392](https://github.com/zendeskgarden/react-components/pull/392) Fix css cascade with multiple versions of the library ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
 ### v12.12.0 (2017-11-15)
 
 - [#389](https://github.com/zendeskgarden/react-components/pull/389) * Remove over-saturation on neutral theme button hover.* Update `Anchor` and `Button type='anchor'` to underline on hover. ([Jonathan Zempel](mailto:jzempel@gmail.com))
