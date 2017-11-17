@@ -11,7 +11,6 @@
   ],
   "scripts": {
     "build": "gulp",
-    "changelog": "offline-github-changelog > CHANGELOG.md",
     "gh-pages": "styleguidist build && gh-pages -d styleguide",
     "lint-staged": "lint-staged",
     "start": "styleguidist server",
@@ -19,8 +18,9 @@
     "test:jest": "jest -i",
     "test:stylelint": "stylelint `find src -name '*.css'`",
     "preversion": "npm run test && npm run build && npm run preversion:lib",
-    "version": "npm run changelog && git add CHANGELOG.md && git commit --allow-empty -m 'Update changelog'",
+    "version": "npm run version:changelog && git add CHANGELOG.md && git commit --allow-empty -m 'Update changelog'",
     "postversion": "git push --tags && git push origin master:master",
+    "version:changelog": "offline-github-changelog > CHANGELOG.md",
     "preversion:lib": "git add lib && git commit --allow-empty -m 'Build lib'",
     "watch": "npm run watch:gulp & npm run watch:jest",
     "watch:gulp": "gulp watch",
