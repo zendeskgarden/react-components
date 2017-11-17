@@ -7629,7 +7629,7 @@ style-search@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/style-search/-/style-search-0.1.0.tgz#7958c793e47e32e07d2b5cafe5c0bf8e12e77902"
 
-stylelint-order@^0.7.x:
+stylelint-order@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/stylelint-order/-/stylelint-order-0.7.0.tgz#ceab5cbe24aa33fa63590024995395f6edfc9ab7"
   dependencies:
@@ -7637,7 +7637,7 @@ stylelint-order@^0.7.x:
     postcss "^6.0.11"
     postcss-sorting "^3.0.2"
 
-stylelint@^8.2.x:
+stylelint@^8.2.0:
   version "8.2.0"
   resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-8.2.0.tgz#6a15044553fb5c3143b16d62013a370314495b0d"
   dependencies:
