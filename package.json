@@ -19,10 +19,9 @@
     "test:jest": "jest -i",
     "test:stylelint": "stylelint `find src -name '*.css'`",
     "preversion": "./bin/is_git_clean && yarn test && yarn build && yarn preversion:lib",
-    "postversion": "yarn postversion:changelog && yarn postversion:push",
-    "postversion:changelog": "yarn changelog && git add CHANGELOG.md && git commit --allow-empty -m 'Updated changelog'",
+    "version": "yarn changelog && git add CHANGELOG.md && git commit --allow-empty -m 'Update changelog'",
+    "postversion": "git push --tags && git push origin master:master",
     "preversion:lib": "git add lib && git commit --allow-empty -m 'Build lib'",
-    "postversion:push": "git push --tags && git push origin master:master",
     "watch": "yarn watch:gulp & yarn watch:jest",
     "watch:gulp": "gulp watch",
     "watch:jest": "jest --watch"
