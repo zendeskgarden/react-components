@@ -20,6 +20,10 @@
   composes: c-txt__input c-txt__input--select c-txt__input--label from '@zendesk/garden-css-forms';
 }
 
+.style_bare {
+  composes: c-txt__input--bare from '@zendesk/garden-css-forms';
+}
+
 .input_overflow {
   overflow-y: auto;
   overflow-x: hidden;

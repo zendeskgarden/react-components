@@ -99,4 +99,24 @@ describe("MultiSelect", () => {
       );
     });
   });
+
+  describe("when given bare type", () => {
+    it("renders a bare MultiSelect component", () => {
+      expect(
+        <MultiSelect type="bare" />,
+        "to render as",
+        <View className="txt">
+          <RelativePositionedPopup
+            marginBottom={4}
+            marginTop={4}
+            anchor={
+              <View className="input style_bare">
+                <TextInput.Core />
+              </View>
+            }
+          />
+        </View>
+      );
+    });
+  });
 });

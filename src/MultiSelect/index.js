@@ -67,7 +67,8 @@ export default class MultiSelect extends ThemedComponent {
     placeholderText: PropTypes.string,
     fixedWidth: PropTypes.bool,
     onMenuValueSelected: PropTypes.func,
-    showIcon: PropTypes.bool
+    showIcon: PropTypes.bool,
+    type: PropTypes.oneOf(["default", "bare"])
   };
 
   static defaultProps = {
@@ -229,7 +230,8 @@ export default class MultiSelect extends ThemedComponent {
       onTextChange,
       placeholderText,
       showIcon,
-      inputMaxHeight
+      inputMaxHeight,
+      type
     } = this.props;
     const isRtl = dir === "rtl";
     const { open, focused, selectedItems, menuItems } = this.state;
@@ -240,7 +242,8 @@ export default class MultiSelect extends ThemedComponent {
         className={classNames(theme.input, {
           [theme.open]: open && menuItems && menuItems.length > 0,
           [theme.no_chevron]: !showIcon || inputMaxHeight,
-          [theme.input_overflow]: inputMaxHeight
+          [theme.input_overflow]: inputMaxHeight,
+          [theme.style_bare]: type === "bare"
         })}
         style={{ maxHeight: inputMaxHeight }}
         dir={dir}
