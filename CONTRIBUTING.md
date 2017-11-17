@@ -30,14 +30,12 @@ $ yarn start
 
 ### Testing
 
-You can execute the entire test suite with `yarn jest`.
-
 You can run the tests in watch mode with `yarn test`.
 
-When that tests are running in test mode, you can run the tests of a single file the following way:
+You can run the tests of a single file the following way:
 
 ```
-yarn jest ./src/Button/spec.js
+yarn test ./src/Button/
 ```
 
 ## Merging
