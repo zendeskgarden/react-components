@@ -19,8 +19,10 @@ install:
   - npm config set _auth $ARTIFACTORY_API_KEY
   - npm config set email $ARTIFACTORY_EMAIL
 
+script: npm run travis:script
+
 before_deploy:
-  - yarn styleguidist build
+  - npm run travis:before_deploy
 
 deploy:
 

@@ -10,22 +10,22 @@
     "src"
   ],
   "scripts": {
+    "pre-commit": "lint-staged",
     "build": "gulp",
     "changelog": "offline-github-changelog > CHANGELOG.md",
+    "eslint": "eslint --ignore-pattern '/lib/' --ignore-pattern '/styleguide/build/' .",
     "gh-pages": "styleguidist build && gh-pages -d styleguide",
-    "lint-staged": "lint-staged",
+    "jest": "jest -i",
     "start": "styleguidist server",
-    "test": "npm run test:stylelint && npm run test:jest",
-    "test:jest": "jest -i",
-    "test:stylelint": "stylelint `find src -name '*.css'`",
-    "preversion": "npm run test && npm run build && npm run preversion:lib",
+    "stylelint": "stylelint `find src -name '*.css'`",
+    "test": "jest --watch",
+    "travis:before_deploy": "styleguidist build",
+    "travis:script": "npm run stylelint && npm run eslint && npm run jest",
+    "preversion": "npm run travis:script",
+    "version": "npm run build && git add -A lib",
     "postversion": "npm run postversion:changelog && npm run postversion:push",
     "postversion:changelog": "npm run changelog && git add CHANGELOG.md && git commit --allow-empty -m 'Update changelog'",
-    "preversion:lib": "git add lib && git commit --allow-empty -m 'Build lib'",
-    "postversion:push": "git push --tags && git push origin master:master",
-    "watch": "npm run watch:gulp & npm run watch:jest",
-    "watch:gulp": "gulp watch",
-    "watch:jest": "jest --watch"
+    "postversion:push": "git push --tags && git push origin master:master"
   },
   "dependencies": {
     "append-styles": "^1.0.0",
@@ -160,5 +160,5 @@
       "nonegate": true
     }
   },
-  "pre-commit": "lint-staged"
+  "pre-commit": "pre-commit"
 }
