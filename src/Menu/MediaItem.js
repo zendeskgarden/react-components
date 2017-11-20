@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 
 import ThemedComponent from "../ThemedComponent";
-
 import Selectable from "../core/Selectable";
 import { Item } from "./Item";
 import styles from "./styles.css";

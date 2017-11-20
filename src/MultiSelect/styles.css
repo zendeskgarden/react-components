@@ -42,6 +42,14 @@
 .size_medium .input_overflow::before {
   height: 38px !important;
 }
+
+.size_small .style_bare {
+  min-height: 30px !important;
+}
+
+.size_medium .style_bare {
+  min-height: 38px !important;
+}
 /* stylelint-enable declaration-no-important */
 
 .label {

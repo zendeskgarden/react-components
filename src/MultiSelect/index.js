@@ -66,8 +66,8 @@ export default class MultiSelect extends ThemedComponent {
     textValue: PropTypes.string,
     placeholderText: PropTypes.string,
     fixedWidth: PropTypes.bool,
-    onMenuValueSelected: PropTypes.func,
     showIcon: PropTypes.bool,
+    onMenuValueSelected: PropTypes.func,
     type: PropTypes.oneOf(["default", "bare"])
   };
 
