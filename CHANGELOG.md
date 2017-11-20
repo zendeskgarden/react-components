@@ -1,3 +1,7 @@
+### v12.12.2 (2017-11-20)
+
+- [#393](https://github.com/zendeskgarden/react-components/pull/393) Fix crash where removeAttribute is called on null ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
 ### v12.12.1 (2017-11-17)
 
 - [#392](https://github.com/zendeskgarden/react-components/pull/392) Fix css cascade with multiple versions of the library ([Sune Simonsen](mailto:sune@we-knowhow.dk))
