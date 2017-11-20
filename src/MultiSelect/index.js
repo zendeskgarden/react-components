@@ -144,14 +144,18 @@ export default class MultiSelect extends ThemedComponent {
     this.selectedItemModel.items = selectedItems.map((item, index) => {
       const isMultiSelectLabel = item.type && item.type.MultiSelectLabel;
 
-      return React.cloneElement(item, {
+      const defaultProps = {
         key: index,
         dir,
-        disabled: item.props.disabled || disabled,
-        size: isMultiSelectLabel ? defaultLabelSize : item.props.size,
-        onRemove:
-          isMultiSelectLabel && !disabled ? item.props.onRemove : undefined
-      });
+        disabled: item.props.disabled || disabled
+      };
+
+      if (isMultiSelectLabel) {
+        defaultProps.size = defaultLabelSize;
+        defaultProps.onRemove = !disabled ? item.props.onRemove : undefined;
+      }
+
+      return React.cloneElement(item, defaultProps);
     });
 
     this.menuItemsModel.items = children;
