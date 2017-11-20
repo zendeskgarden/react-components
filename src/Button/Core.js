@@ -20,7 +20,7 @@ export default class Core extends Component {
     title: PropTypes.string,
     /** <a href="#view">See View</a> */
     tooltipPositioning: () => {},
-    children: PropTypes.node.isRequired
+    children: PropTypes.node
   };
 
   static defaultProps = {
