@@ -65,7 +65,6 @@ export default class MultiSelect extends ThemedComponent {
     onTextChange: PropTypes.func,
     textValue: PropTypes.string,
     placeholderText: PropTypes.string,
-    wide: PropTypes.bool,
     fixedWidth: PropTypes.bool,
     showChevron: PropTypes.bool,
     onMenuValueSelected: PropTypes.func
@@ -404,7 +403,6 @@ export default class MultiSelect extends ThemedComponent {
       onBlur,
       onFocus,
       positioning,
-      wide,
       fixedWidth
     } = this.props;
 
@@ -456,7 +454,6 @@ export default class MultiSelect extends ThemedComponent {
               position={position}
               maxHeight={maxHeight}
               size={size}
-              wide={wide}
               fixedWidth={fixedWidth}
               onMouseDown={event => {
                 this.menuContainerMousedDown = true;

@@ -67,11 +67,18 @@ export class Item extends ThemedComponent {
     const { theme } = this;
     const { temporarilyChecked } = this.state;
 
+    const accessibilityProps = {
+      "aria-activedescendant": selected,
+      "aria-disabled": disabled
+    };
+
+    if (isCheckable) {
+      accessibilityProps["aria-checked"] = checked;
+    }
+
     return (
       <View
-        aria-activedescendant={selected}
-        aria-disabled={disabled}
-        aria-checked={checked}
+        {...accessibilityProps}
         className={classNames(theme.item, className, {
           [theme.disabled]: disabled,
           [theme.focused]: selected,

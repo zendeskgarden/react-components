@@ -4,14 +4,10 @@
   --zd-menu--custom-accent-color: var(--zd-menu-color);
 }
 
-/* stylelint-disable declaration-block-no-duplicate-properties */
 .menu {
   composes: c-menu from '@zendesk/garden-css-menus';
   composes: c-menu--custom;
-  position: relative;
-  padding: 0;
 }
-/* stylelint-enable declaration-block-no-duplicate-properties */
 
 .item {
   composes: c-menu__item;
