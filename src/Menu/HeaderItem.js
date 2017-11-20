@@ -18,6 +18,7 @@ class HeaderItem extends Component {
     return (
       <Item
         className={classNames(className, styles.header_item)}
+        isCheckable={false}
         {...otherProps}
       >
         {icon &&
