@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { findDOMNode } from "react-dom";
 import classNames from "classnames";
 
 import ThemedComponent from "../ThemedComponent";
@@ -45,7 +46,11 @@ export default class Menu extends ThemedComponent {
     /**
      * Allows arrow keys to expand Menu. Used by the Select component.
      */
-    enableArrowKeyExpansion: PropTypes.bool
+    enableArrowKeyExpansion: PropTypes.bool,
+    /**
+     * Focus the trigger DOM node when a menu item is selected
+     */
+    focusOnClose: PropTypes.bool
   };
 
   static defaultProps = {
@@ -59,7 +64,8 @@ export default class Menu extends ThemedComponent {
     positioning: ["bottom_right", "top_right"],
     stretched: false,
     size: "medium",
-    enableArrowKeyExpansion: false
+    enableArrowKeyExpansion: false,
+    focusOnClose: true
   };
 
   static Container = Container;
@@ -109,11 +115,16 @@ export default class Menu extends ThemedComponent {
   };
 
   onValueChosen = (value, event) => {
-    const { onChange } = this.props;
+    const { onChange, focusOnClose } = this.props;
     onChange && onChange(value, event);
 
     setTimeout(() => {
       this.closeMenu();
+
+      if (focusOnClose) {
+        const triggerDOMNode = findDOMNode(this.refs.triggerElement);
+        triggerDOMNode.focus();
+      }
     }, 200);
   };
 
@@ -173,6 +184,11 @@ export default class Menu extends ThemedComponent {
     const { theme } = this;
     const { hidden, items } = this.state;
 
+    const triggerElement = React.cloneElement(
+      typeof trigger === "function" ? trigger({ open: !hidden }) : trigger,
+      { ref: "triggerElement" }
+    );
+
     const anchor = (
       <View
         className={classNames({
@@ -200,7 +216,7 @@ export default class Menu extends ThemedComponent {
         onEscape={this.closeMenu}
         onSpace={this.keyboardToggleHidden}
       >
-        {typeof trigger === "function" ? trigger({ open: !hidden }) : trigger}
+        {triggerElement}
       </View>
     );
 
