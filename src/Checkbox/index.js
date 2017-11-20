@@ -76,10 +76,12 @@ export default class Checkbox extends ThemedComponent {
    * this attribute when the component is updated.
    */
   componentWillUpdate({ indeterminate }) {
-    if (indeterminate) {
-      this.input.setAttribute("indeterminate", true);
-    } else {
-      this.input.removeAttribute("indeterminate");
+    if (this.input) {
+      if (indeterminate) {
+        this.input.setAttribute("indeterminate", true);
+      } else {
+        this.input.removeAttribute("indeterminate");
+      }
     }
   }
 
