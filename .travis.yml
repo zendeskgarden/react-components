@@ -2,10 +2,12 @@ language: node_js
 node_js:
   - node
 
-cache: yarn
+cache:
+  yarn: true
+  directories:
+    - node-modules
 
 before_install:
-  - export PATH=$TRAVIS_BUILD_DIR/vendor:$PATH
   - npm config set @zendesk:registry https://zdrepo.jfrog.io/zdrepo/api/npm/npm/
   - npm config set //zdrepo.jfrog.io/zdrepo/api/npm/npm/:_password $ARTIFACTORY_PASSWORD
   - npm config set //zdrepo.jfrog.io/zdrepo/api/npm/npm/:username $ARTIFACTORY_USERNAME
@@ -13,15 +15,28 @@ before_install:
   - npm config set //zdrepo.jfrog.io/zdrepo/api/npm/npm/:always-auth true
 
 install:
-  - $TRAVIS_BUILD_DIR/vendor/yarn
+  - yarn
   - npm config set _auth $ARTIFACTORY_API_KEY
   - npm config set email $ARTIFACTORY_EMAIL
 
-script: "yarn run travis"
+script: npm run travis:script
+
+before_deploy:
+  - npm run travis:before_deploy
 
 deploy:
-  provider: script
-  script: npm publish
-  on:
-    branch: master
-    tags: true
+
+  - provider: pages
+    github_token: $GITHUB_TOKEN
+    local_dir: styleguide
+    skip_cleanup: true
+    on:
+      branch: master
+      tags: true
+
+  - provider: script
+    script: npm publish
+    skip_cleanup: true
+    on:
+      branch: master
+      tags: true

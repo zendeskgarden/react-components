@@ -4,12 +4,10 @@
   --zd-tab--custom-accent-color: var(--zd-tab-color);
 }
 
-/* stylelint-disable declaration-block-no-duplicate-properties */
 .tabs {
   composes: c-tab from '@zendesk/garden-css-tabs';
   composes: c-tab--custom;
 }
-/* stylelint-enable declaration-block-no-duplicate-properties */
 
 .label {
   composes: c-tab__list__item;

@@ -10,24 +10,22 @@
     "src"
   ],
   "scripts": {
-    "build": "styleguidist build",
+    "pre-commit": "lint-staged",
+    "build": "gulp",
     "changelog": "offline-github-changelog > CHANGELOG.md",
-    "commit-lib": "git add lib && git commit --allow-empty -m 'Build lib'",
-    "css-lint": "stylelint `find src -name '*.css'`",
-    "gh-pages": "yarn build && gh-pages -d styleguide",
-    "jest": "jest --watch",
-    "lib": "gulp",
-    "lint-staged": "lint-staged",
-    "major": "yarn prepare-release && npm version major && yarn update-changelog && yarn push-release && yarn gh-pages",
-    "minor": "yarn prepare-release && npm version minor && yarn update-changelog && yarn push-release && yarn gh-pages",
-    "prepare-release": "./bin/is_git_clean && yarn travis && yarn lib && yarn commit-lib",
-    "patch": "yarn prepare-release && npm version patch && yarn update-changelog && yarn push-release && yarn gh-pages",
-    "push-release": "git push --tags && git push origin master:master",
+    "eslint": "eslint --ignore-pattern '/lib/' --ignore-pattern '/styleguide/build/' .",
+    "gh-pages": "styleguidist build && gh-pages -d styleguide",
+    "jest": "jest -i",
     "start": "styleguidist server",
+    "stylelint": "stylelint `find src -name '*.css'`",
     "test": "jest --watch",
-    "travis": "jest -i",
-    "update-changelog": "yarn changelog && git add CHANGELOG.md && git commit --allow-empty -m 'Updated changelog'",
-    "watch": "gulp watch"
+    "travis:before_deploy": "styleguidist build",
+    "travis:script": "npm run stylelint && npm run eslint && npm run jest",
+    "preversion": "npm run travis:script",
+    "version": "npm run build && git add -A lib",
+    "postversion": "npm run postversion:changelog && npm run postversion:push",
+    "postversion:changelog": "npm run changelog && git add CHANGELOG.md && git commit --allow-empty -m 'Update changelog'",
+    "postversion:push": "git push --tags && git push origin master:master"
   },
   "dependencies": {
     "append-styles": "^1.1.0",
@@ -56,7 +54,7 @@
     "@zendesk/garden-css-tabs": "^3.1.1",
     "@zendesk/garden-css-tooltips": "^2.0.2",
     "@zendesk/garden-css-variables": "^2.1.0",
-    "@zendesk/garden-stylelint-config": "^5.1.0",
+    "@zendesk/garden-stylelint-config": "^6.0.0",
     "@zendesk/garden-svg-icons": "^2.3.0",
     "adler32": "0.1.7",
     "array-uniq": "1.0.3",
@@ -107,8 +105,8 @@
     "react-styleguidist": "5.1.6",
     "react-svg-loader": "1.1.1",
     "sinon": "2.1.0",
-    "stylelint": "7.13.0",
-    "stylelint-order": "0.5.0",
+    "stylelint": "^8.2.0",
+    "stylelint-order": "^0.7.0",
     "sunesimonsen-postcss-input-range": "2.1.0",
     "unexpected": "10.27.0",
     "unexpected-check": "1.12.0",
@@ -162,5 +160,5 @@
       "nonegate": true
     }
   },
-  "pre-commit": "lint-staged"
+  "pre-commit": "pre-commit"
 }
