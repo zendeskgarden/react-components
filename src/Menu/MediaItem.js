@@ -22,7 +22,13 @@ class MediaItem extends ThemedComponent {
   }
 
   render() {
-    const { children, className, media, ...otherProps } = this.props;
+    const {
+      children,
+      className,
+      media,
+      metaInformation,
+      ...otherProps
+    } = this.props;
     const { theme } = this;
 
     return (
@@ -33,6 +39,10 @@ class MediaItem extends ThemedComponent {
           </div>}
         <div className={theme.media_body}>
           {children}
+          {metaInformation &&
+            <div className={theme.meta}>
+              {metaInformation}
+            </div>}
         </div>
       </Item>
     );
