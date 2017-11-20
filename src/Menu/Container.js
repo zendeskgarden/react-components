@@ -3,10 +3,9 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 
 import ThemedComponent from "../utils/theming/ThemedComponent";
+import View from "../core/View";
 
 import styles from "./styles.css";
-
-import View from "../core/View";
 
 const arrowPositions = {
   bottom: "top",
@@ -40,7 +39,10 @@ export default class Container extends ThemedComponent {
       "top_stretch"
     ]),
     size: PropTypes.oneOf(["small", "medium"]),
-    wide: PropTypes.bool
+    onMouseDown: PropTypes.func,
+    onKeyDown: PropTypes.func,
+    onEscape: PropTypes.func,
+    onBlur: PropTypes.func
   };
 
   static defaultProps = {
@@ -48,8 +50,7 @@ export default class Container extends ThemedComponent {
     arrow: false,
     dir: "ltr",
     position: "bottom_right",
-    size: "medium",
-    wide: false
+    size: "medium"
   };
 
   constructor(props, context) {
@@ -69,7 +70,10 @@ export default class Container extends ThemedComponent {
       maxHeight,
       position,
       size,
-      wide
+      onMouseDown,
+      onBlur,
+      onKeyDown,
+      onEscape
     } = this.props;
 
     const style = {};
@@ -97,12 +101,16 @@ export default class Container extends ThemedComponent {
             [theme.fixed_width]: fixedWidth,
             [theme.arrow]: arrow,
             [theme[`arrow_${arrowPositions[position]}`]]: arrow,
-            [theme.scrollable]: hasMaxHeight,
-            [theme.wide]: wide
+            [theme.scrollable]: hasMaxHeight
           }
         )}
         role="menu"
         style={style}
+        tabIndex={-1}
+        onMouseDown={onMouseDown}
+        onBlur={onBlur}
+        onKeyDown={onKeyDown}
+        onEscape={onEscape}
       >
         <View className={theme.inner} style={innerStyle}>
           {children}

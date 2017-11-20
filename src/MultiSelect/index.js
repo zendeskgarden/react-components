@@ -17,6 +17,12 @@ import styles from "./styles.css";
 
 export default class MultiSelect extends ThemedComponent {
   static Item = Menu.Item;
+  static AddItem = Menu.AddItem;
+  static HeaderItem = Menu.HeaderItem;
+  static LinkItem = Menu.LinkItem;
+  static MediaItem = Menu.MediaItem;
+  static NextItem = Menu.NextItem;
+  static PreviousItem = Menu.PreviousItem;
   static Separator = Menu.Separator;
   static Label = Label;
 
@@ -59,9 +65,9 @@ export default class MultiSelect extends ThemedComponent {
     onTextChange: PropTypes.func,
     textValue: PropTypes.string,
     placeholderText: PropTypes.string,
-    wide: PropTypes.bool,
     fixedWidth: PropTypes.bool,
-    showChevron: PropTypes.bool
+    showChevron: PropTypes.bool,
+    onMenuValueSelected: PropTypes.func
   };
 
   static defaultProps = {
@@ -99,6 +105,7 @@ export default class MultiSelect extends ThemedComponent {
       vertical: true
     });
     this.menuItemsModel.onSelectionChanged = this.onSelectionChanged;
+    this.menuItemsModel.onValueChosen = this.onMenuValueChosen;
   }
 
   componentWillMount() {
@@ -115,6 +122,19 @@ export default class MultiSelect extends ThemedComponent {
     const selectedItems = this.selectedItemModel.items;
     const menuItems = this.menuItemsModel.items;
     this.setState({ selectedItems, menuItems });
+  };
+
+  onMenuValueChosen = (value, event) => {
+    const { onMenuValueSelected } = this.props;
+
+    const closingAction = () => {
+      onMenuValueSelected && onMenuValueSelected(value, event);
+      // this.onClose();
+      this.textInputNode.focus();
+    };
+
+    // Only delay menu closing if menu selection callback is provided
+    setTimeout(closingAction, onMenuValueSelected ? 200 : 0);
   };
 
   setSelectableItems = ({ selectedItems, children }) => {
@@ -164,14 +184,19 @@ export default class MultiSelect extends ThemedComponent {
 
   onOpen = event => {
     const { onOpen } = this.props;
-    onOpen && onOpen(event);
-    this.setState({ open: true });
+    const { open } = this.state;
+
+    if (!open) {
+      onOpen && onOpen(event);
+      this.setState({ open: true });
+    }
   };
 
   onClose = event => {
     const { onClose } = this.props;
-    this.setState({ open: false });
-    onClose && onClose(event);
+    this.setState({ open: false }, () => {
+      onClose && onClose(event);
+    });
   };
 
   renderHint = () => {
@@ -244,6 +269,10 @@ export default class MultiSelect extends ThemedComponent {
         }}
         onKeyDown={event => {
           const hasSelection = this.selectedItemModel.hasSelection();
+
+          if (event.keyCode === KEY_CODES.ESCAPE) {
+            this.onClose();
+          }
 
           if (hasSelection) {
             const isLastItemSelected =
@@ -323,6 +352,7 @@ export default class MultiSelect extends ThemedComponent {
           disabled={disabled}
           onChange={event => {
             this.menuItemsModel.clear();
+            this.onOpen();
             onTextChange && onTextChange(event);
           }}
           onFocus={() => {
@@ -330,8 +360,10 @@ export default class MultiSelect extends ThemedComponent {
             this.selectedItemModel.clear();
           }}
           onBlur={() => {
-            this.onClose();
-            this.menuItemsModel.clear();
+            if (!this.menuContainerMousedDown) {
+              this.onClose();
+              this.menuItemsModel.clear();
+            }
           }}
           value={textValue}
           placeholderText={placeholderText}
@@ -371,7 +403,6 @@ export default class MultiSelect extends ThemedComponent {
       onBlur,
       onFocus,
       positioning,
-      wide,
       fixedWidth
     } = this.props;
 
@@ -397,8 +428,10 @@ export default class MultiSelect extends ThemedComponent {
           onFocus && onFocus(event);
         }}
         onBlur={event => {
-          this.setState({ focused: false });
-          onBlur && onBlur(event);
+          if (!this.menuContainerMousedDown) {
+            this.setState({ focused: false });
+            onBlur && onBlur(event);
+          }
         }}
         onKeyDown={event => {
           onKeyDown && onKeyDown(event, this.selectedItemModel.selection);
@@ -421,8 +454,22 @@ export default class MultiSelect extends ThemedComponent {
               position={position}
               maxHeight={maxHeight}
               size={size}
-              wide={wide}
               fixedWidth={fixedWidth}
+              onMouseDown={event => {
+                this.menuContainerMousedDown = true;
+
+                setTimeout(() => {
+                  this.menuContainerMousedDown = false;
+                }, 0);
+              }}
+              onBlur={() => {
+                this.onClose();
+                this.textInputNode.focus();
+              }}
+              onEscape={() => {
+                this.onClose();
+                this.textInputNode.focus();
+              }}
               animate
             >
               {menuItems}

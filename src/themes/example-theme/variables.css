@@ -18,6 +18,9 @@
   --zd-label-color: var(--zd-accent-color);
   --zd-label-focus-color: var(--zd-focus-color);
 
+  /* Menu Variables */
+  --zd-menu-color: var(--zd-accent-color);
+
   /* Pagination Variables */
   --zd-pagination-focus-color: var(--zd-focus-color);
 

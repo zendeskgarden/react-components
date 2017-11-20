@@ -27,6 +27,57 @@ You can add an `onClick` handler directly to the items as well:
 </Menu>
 ```
 
+We provide several pre-built Menu types.
+
+```
+initialState = { selected: 'paul' };
+
+<Menu
+  trigger={ <Button>Many different Menu Types</Button> }
+  positioning={ ['bottom_stretch', 'top_stretch'] }
+>
+  <Menu.HeaderItem>The Beatles</Menu.HeaderItem>
+  <Menu.Separator />
+  <Menu.MediaItem
+    media={<img className="u-br-50%" src="http://placeskull.com/32/32/37B8AF" />}
+    metaInformation={<span>john@beatles.com</span>}
+    checked={state.selected === 'john'}
+    value='john'
+    onClick={() => setState({ selected: 'john' })}>
+    John
+  </Menu.MediaItem>
+  <Menu.MediaItem
+    media={<img className="u-br-50%" src="http://placeskull.com/32/32/EB6651" />}
+    metaInformation={<span>paul@beatles.com</span>}
+    checked={state.selected === 'paul'}
+    value='paul'
+    onClick={() => setState({ selected: 'paul' })}>
+    Paul
+  </Menu.MediaItem>
+  <Menu.MediaItem
+    media={<img className="u-br-50%" src="http://placeskull.com/32/32/30AABC" />}
+    metaInformation={<span>george@beatles.com</span>}
+    checked={state.selected === 'george'}
+    value='george'
+    onClick={() => setState({ selected: 'george' })}>
+    George
+  </Menu.MediaItem>
+  <Menu.MediaItem
+    media={<img className="u-br-50%" src="http://placeskull.com/32/32/F79A3E" />}
+    metaInformation={<span>ringo@beatles.com</span>}
+    checked={state.selected === 'ringo'}
+    value='ringo'
+    onClick={() => setState({ selected: 'ringo' })}>
+    Ringo
+  </Menu.MediaItem>
+  <Menu.Separator/>
+  <Menu.AddItem onClick={() => {
+    setState({ selected: '' });
+    alert('Creating new beatle');
+  }}>Add New Beatle</Menu.AddItem>
+</Menu>
+```
+
 Links:
 
 ```
@@ -216,30 +267,6 @@ Sizes:
 </Grid>
 ```
 
-You can set the menu to be wide:
-
-```
-<Grid>
-  <Menu
-    trigger={ <Button>Default</Button> }
-  >
-    <Menu.Item>First</Menu.Item>
-    <Menu.Item>Second</Menu.Item>
-    <Menu.Separator/>
-    <Menu.Item>Third</Menu.Item>
-  </Menu>
-  <Menu
-    trigger={ <Button>Wide</Button> }
-    wide
-  >
-    <Menu.Item>First</Menu.Item>
-    <Menu.Item>Second</Menu.Item>
-    <Menu.Separator/>
-    <Menu.Item>Third</Menu.Item>
-  </Menu>
-</Grid>
-```
-
 Fixing the width of the menu:
 
 ```
@@ -267,8 +294,7 @@ Fixing the width of the menu:
   </Menu>
   <Menu
     fixedWidth
-    trigger={ <Button>Wide</Button> }
-    wide
+    trigger={ <Button>This is a wide menu</Button> }
   >
     <Menu.Item>
       <Ellipsis>
@@ -293,6 +319,9 @@ Fixing the width of the menu:
 Using the menu styling in other components:
 
 ```
+const customizeIconSrc = require('@zendesk/garden-svg-icons/src/14-customize.svg');
+const CustomIcon = <img src={customizeIconSrc} />;
+
 <Grid>
   <Menu.Container>
     <Menu.Item>Profile</Menu.Item>
@@ -302,13 +331,31 @@ Using the menu styling in other components:
     <Menu.Item>Article Editor</Menu.Item>
     <Menu.Item>Sign Out</Menu.Item>
   </Menu.Container>
-  <Menu.Container size='small' wide>
+  <Menu.Container size='small'>
     <Menu.Item>Profile</Menu.Item>
     <Menu.Item>Settings</Menu.Item>
     <Menu.Item>Theme Editor</Menu.Item>
     <Menu.Separator/>
     <Menu.Item>Article Editor</Menu.Item>
     <Menu.Item>Sign Out</Menu.Item>
+  </Menu.Container>
+  <Menu.Container>
+    <Menu.PreviousItem>PreviousItem</Menu.PreviousItem>
+    <Menu.NextItem>NextItem</Menu.NextItem>
+    <Menu.HeaderItem>Header</Menu.HeaderItem>
+    <Menu.HeaderItem icon={CustomIcon}>Icon Header</Menu.HeaderItem>
+    <Menu.Separator/>
+    <Menu.Item metaInformation={<span>Meta Information!</span>}>Theme Editor</Menu.Item>
+    <Menu.Separator/>
+    <Menu.MediaItem media={<img src="./images/amir.png" />} metaInformation={<span>Meta <strong>Info</strong></span>}>Media Item</Menu.MediaItem>
+  </Menu.Container>
+  <Menu.Container>
+    <Menu.Item checked>Checked Item</Menu.Item>
+    <Menu.Item selected>Selected Item</Menu.Item>
+    <Menu.Item disabled checked>Disabled Item</Menu.Item>
+    <Menu.Separator/>
+    <Menu.AddItem>Add Item</Menu.AddItem>
+    <Menu.AddItem disabled>Disabled Add Item</Menu.AddItem>
   </Menu.Container>
 </Grid>
 ```

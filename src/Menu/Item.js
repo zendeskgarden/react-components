@@ -1,13 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
+import ThemedComponent from "../ThemedComponent";
 import View from "../core/View";
 import Selectable from "../core/Selectable";
 
 import styles from "./styles.css";
 
-class Item extends Component {
+export class Item extends ThemedComponent {
   static propTypes = {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
@@ -20,13 +21,30 @@ class Item extends Component {
     testId: PropTypes.string,
     title: PropTypes.string,
     /** <a href="#view">See View</a> */
-    tooltipPositioning: () => {}
+    tooltipPositioning: () => {},
+    checked: PropTypes.bool,
+    metaInformation: PropTypes.node,
+    onClick: PropTypes.func,
+    isCheckable: PropTypes.bool
   };
 
   static defaultProps = {
     disabled: false,
-    role: "menuitem"
+    role: "menuitem",
+    checked: false,
+    isCheckable: true
   };
+
+  constructor(props, context) {
+    super(props, context, {
+      namespace: "Menu",
+      styles
+    });
+
+    this.state = {
+      temporarilyChecked: false
+    };
+  }
 
   render() {
     const {
@@ -36,31 +54,60 @@ class Item extends Component {
       onMouseDown,
       onMouseEnter,
       onMouseLeave,
+      onClick,
       role,
       selected,
       testId,
       title,
-      tooltipPositioning
+      tooltipPositioning,
+      checked,
+      metaInformation,
+      isCheckable
     } = this.props;
+    const { theme } = this;
+    const { temporarilyChecked } = this.state;
+
+    const accessibilityProps = {
+      "aria-activedescendant": selected,
+      "aria-disabled": disabled
+    };
+
+    if (isCheckable) {
+      accessibilityProps["aria-checked"] = checked;
+    }
 
     return (
       <View
-        aria-activedescendant={selected}
-        aria-disabled={disabled}
-        className={classNames(styles.item, className, {
-          [styles.disabled]: disabled,
-          [styles.focused]: selected
+        {...accessibilityProps}
+        className={classNames(theme.item, className, {
+          [theme.disabled]: disabled,
+          [theme.focused]: selected,
+          [theme.checked]:
+            checked || (isCheckable && !disabled && temporarilyChecked)
         })}
         disabled={disabled}
-        onMouseDown={onMouseDown}
+        onMouseDown={event => {
+          this.setState({ temporarilyChecked: true }, () => {
+            onMouseDown && onMouseDown(event);
+          });
+        }}
         onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
+        onMouseLeave={event => {
+          this.setState({ temporarilyChecked: false }, () => {
+            onMouseLeave && onMouseLeave(event);
+          });
+        }}
+        onClick={onClick}
         role={role}
         testId={testId}
         title={title}
         tooltipPositioning={tooltipPositioning}
       >
         {children}
+        {metaInformation &&
+          <div className={theme.meta}>
+            {metaInformation}
+          </div>}
       </View>
     );
   }
@@ -69,8 +116,8 @@ class Item extends Component {
 export default Selectable(Item, {
   action: (props, event) => {
     const { onClick, value } = props;
-
     onClick && onClick(value, event);
   },
-  preventDefault: true
+  preventDefault: true,
+  selectEvent: "onClick"
 });

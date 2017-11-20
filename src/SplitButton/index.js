@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import ThemedComponent from "../utils/theming/ThemedComponent";
 import ChevronIcon from "@zendesk/garden-svg-icons/src/14-chevron.svg";
 
+import KEY_CODES from "../utils/keyCodes.js";
 import ReactSingleSelectionModel from "../utils/selection/ReactSingleSelectionModel";
 import View from "../View";
 import Menu from "../Menu";
@@ -44,9 +45,7 @@ export default class SplitButton extends ThemedComponent {
     title: PropTypes.string,
     /** <a href="#view">See View</a> for positioning options */
     tooltipPositioning: () => {},
-    type: PropTypes.oneOf(["default", "primary"]),
-    /** <a href="#menu">See Menu</a> */
-    wide: PropTypes.bool
+    type: PropTypes.oneOf(["default", "primary"])
   };
 
   static defaultProps = {
@@ -99,8 +98,11 @@ export default class SplitButton extends ThemedComponent {
 
   onValueChosen = (value, event) => {
     const { onChange } = this.props;
-    this.closeMenu();
     onChange && onChange(value, event);
+
+    setTimeout(() => {
+      this.closeMenu();
+    }, 200);
   };
 
   showMenu = () => {
@@ -164,9 +166,9 @@ export default class SplitButton extends ThemedComponent {
     const { hidden } = this.props;
 
     const keyDownHandlers = {
-      "13": this.keyboardToggleHidden,
-      "27": this.closeMenu,
-      "32": this.keyboardToggleHidden
+      [KEY_CODES.ENTER]: this.keyboardToggleHidden,
+      [KEY_CODES.ESCAPE]: this.closeMenu,
+      [KEY_CODES.SPACE]: this.keyboardToggleHidden
     };
 
     const handler = keyDownHandlers[e.keyCode];
@@ -202,8 +204,7 @@ export default class SplitButton extends ThemedComponent {
       tabIndex,
       testId,
       title,
-      type,
-      wide
+      type
     } = this.props;
 
     const { hidden, items } = this.state;
@@ -248,7 +249,11 @@ export default class SplitButton extends ThemedComponent {
               className={classNames({ [theme.active]: !hidden })}
               isRotated={!hidden}
               onKeyDown={this.onKeyDown}
-              onBlur={this.closeMenu}
+              onBlur={event => {
+                if (!this.containerMousedDown) {
+                  this.closeMenu(event);
+                }
+              }}
               onClick={this.onClick}
               pill={pill}
               size={size}
@@ -266,7 +271,15 @@ export default class SplitButton extends ThemedComponent {
             dir={dir}
             fixedWidth={fixedWidth}
             position={position}
-            wide={wide}
+            onMouseDown={event => {
+              this.containerMousedDown = true;
+
+              setTimeout(() => {
+                this.containerMousedDown = false;
+              }, 0);
+            }}
+            onBlur={() => this.closeMenu()}
+            onKeyDown={this.selectionModel.handleKeyDown}
           >
             {items}
           </Menu.Container>}

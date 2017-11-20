@@ -32,6 +32,9 @@
   --zd-select-color: var(--zd-light-accent-color);
 
   /* MultiSelect Variables */
+  --zd-menu-color: var(--zd-light-accent-color);
+
+  /* MultiSelect Variables */
   --zd-multi-select-color: var(--zd-light-accent-color);
 
   /* Tab Variables */

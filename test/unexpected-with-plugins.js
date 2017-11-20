@@ -12,6 +12,9 @@ module.exports = unexpected
   .use(unexpectedReact)
   .use(unexpectedCheck)
   .addAssertion("<DOMNode> to have html <string>", (expect, subject, value) => {
+    // Strip comments from HTML
+    subject.innerHTML = subject.innerHTML.replace(/<!--[\s\S]*?-->/g, "");
+
     expect(
       subject,
       "to satisfy",

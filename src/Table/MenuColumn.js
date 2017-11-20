@@ -20,6 +20,8 @@ const MenuColumn = ({
     className,
     headerMenuItems,
     rowMenuItems,
+    headerMenuMaxHeight,
+    rowMenuMaxHeight,
     ...otherColumnProps
   } = columnProps;
 
@@ -44,6 +46,7 @@ const MenuColumn = ({
         dir={dir}
         marginTop={headerMenuMargin}
         marginBottom={headerMenuMargin}
+        maxHeight={headerMenuMaxHeight}
       >
         {headerMenuItems(rowProps)}
       </OverflowMenu>
@@ -64,6 +67,7 @@ const MenuColumn = ({
         onClose={() => onRowFocus(rowIndex, true)}
         marginTop={bodyMenuMargin}
         marginBottom={bodyMenuMargin}
+        maxHeight={rowMenuMaxHeight}
       >
         {rowMenuItems(rowProps)}
       </OverflowMenu>

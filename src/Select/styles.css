@@ -11,10 +11,16 @@
 
 .message {
   composes: c-txt__message from '@zendesk/garden-css-forms';
+  /* Necessary due to DOM strucuture created by the RelativePositionedPopup */
+  margin-top: 8px;
 }
 
 .input {
   composes: c-txt__input c-txt__input--select from '@zendesk/garden-css-forms';
+}
+
+.is_focused {
+  composes: is-focused from '@zendesk/garden-css-forms';
 }
 
 .label {

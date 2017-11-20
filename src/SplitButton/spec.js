@@ -286,10 +286,10 @@ describe("SplitButton", () => {
         "when clicking on the menu button"
       ).then(() => {
         const menuItem = document.querySelector("[data-test-id=two]");
-        TestUtils.Simulate.mouseDown(menuItem);
+        TestUtils.Simulate.click(menuItem);
 
         expect(onChange, "to have calls satisfying", () => {
-          onChange("two", { type: "mousedown" });
+          onChange("two", { type: "click" });
         });
       });
     });

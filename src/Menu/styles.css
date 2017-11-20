@@ -1,8 +1,7 @@
 @import '@zendesk/garden-css-variables';
 
 :root {
-  --zd-menu-min-width: 140px;
-  --zd-menu--large-min-width: 270px;
+  --zd-menu-min-width: 180px;
 }
 
 .stretched {
@@ -21,20 +20,48 @@
   composes: c-menu--sm from '@zendesk/garden-css-menus';
 }
 
-.wide {
-  composes: c-menu--large from '@zendesk/garden-css-menus';
-}
-
 .fixed_width {
   max-width: var(--zd-menu-min-width);
 }
 
-.wide.fixed_width {
-  max-width: var(--zd-menu--large-min-width);
-}
-
 .item {
   composes: c-menu__item from '@zendesk/garden-css-menus';
+}
+
+.previous_item {
+  composes: c-menu__item--previous from '@zendesk/garden-css-menus';
+}
+
+.next_item {
+  composes: c-menu__item--next from '@zendesk/garden-css-menus';
+}
+
+.header_item {
+  composes: c-menu__item--header from '@zendesk/garden-css-menus';
+}
+
+.header_icon {
+  composes: c-menu__item--header__icon from '@zendesk/garden-css-menus';
+}
+
+.add_item {
+  composes: c-menu__item--add from '@zendesk/garden-css-menus';
+}
+
+.media_item {
+  composes: c-menu__item--media from '@zendesk/garden-css-menus';
+}
+
+.media_figure {
+  composes: c-menu__item--media__figure from '@zendesk/garden-css-menus';
+}
+
+.media_body {
+  composes: c-menu__item--media__body from '@zendesk/garden-css-menus';
+}
+
+.meta {
+  composes: c-menu__item__meta from '@zendesk/garden-css-menus';
 }
 
 .inner {
@@ -52,6 +79,10 @@
 
 .focused {
   composes: is-focused from '@zendesk/garden-css-menus';
+}
+
+.checked {
+  composes: is-checked from '@zendesk/garden-css-menus';
 }
 
 .separator {

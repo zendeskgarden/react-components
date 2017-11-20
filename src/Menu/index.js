@@ -1,19 +1,27 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
+import { findDOMNode } from "react-dom";
 import classNames from "classnames";
 
+import ThemedComponent from "../ThemedComponent";
 import ReactSingleSelectionModel from "../utils/selection/ReactSingleSelectionModel";
 import View from "../core/View";
 import RelativePositionedPopup from "../core/RelativePositionedPopup";
+import KEY_CODES from "../utils/keyCodes";
 
 import Container from "./Container";
 import Item from "./Item";
 import LinkItem from "./LinkItem";
 import Separator from "./Separator";
+import PreviousItem from "./PreviousItem";
+import NextItem from "./NextItem";
+import HeaderItem from "./HeaderItem";
+import AddItem from "./AddItem";
+import MediaItem from "./MediaItem";
 
 import styles from "./styles.css";
 
-export default class Menu extends Component {
+export default class Menu extends ThemedComponent {
   static propTypes = {
     arrow: PropTypes.bool,
     dir: PropTypes.oneOf(["ltr", "rtl"]),
@@ -35,7 +43,14 @@ export default class Menu extends Component {
     testId: PropTypes.string,
     trigger: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
       .isRequired,
-    wide: PropTypes.bool
+    /**
+     * Allows arrow keys to expand Menu. Used by the Select component.
+     */
+    enableArrowKeyExpansion: PropTypes.bool,
+    /**
+     * Focus the trigger DOM node when a menu item is selected
+     */
+    focusOnClose: PropTypes.bool
   };
 
   static defaultProps = {
@@ -49,16 +64,26 @@ export default class Menu extends Component {
     positioning: ["bottom_right", "top_right"],
     stretched: false,
     size: "medium",
-    wide: false
+    enableArrowKeyExpansion: false,
+    focusOnClose: true
   };
 
   static Container = Container;
   static Item = Item;
   static LinkItem = LinkItem;
   static Separator = Separator;
+  static PreviousItem = PreviousItem;
+  static NextItem = NextItem;
+  static HeaderItem = HeaderItem;
+  static AddItem = AddItem;
+  static MediaItem = MediaItem;
 
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context, {
+      namespace: "Menu",
+      styles
+    });
+
     this.selectionModel = new ReactSingleSelectionModel();
     this.selectionModel.onSelectionChanged = this.onSelectionChanged;
     this.selectionModel.onValueChosen = this.onValueChosen;
@@ -90,9 +115,17 @@ export default class Menu extends Component {
   };
 
   onValueChosen = (value, event) => {
-    const { onChange } = this.props;
-    this.closeMenu();
+    const { onChange, focusOnClose } = this.props;
     onChange && onChange(value, event);
+
+    setTimeout(() => {
+      this.closeMenu();
+
+      if (focusOnClose) {
+        const triggerDOMNode = findDOMNode(this.refs.triggerElement);
+        triggerDOMNode.focus();
+      }
+    }, 200);
   };
 
   showMenu = () => {
@@ -145,24 +178,45 @@ export default class Menu extends Component {
       trigger,
       testId,
       stretched,
+      enableArrowKeyExpansion,
       ...other
     } = this.props;
-
+    const { theme } = this;
     const { hidden, items } = this.state;
+
+    const triggerElement = React.cloneElement(
+      typeof trigger === "function" ? trigger({ open: !hidden }) : trigger,
+      { ref: "triggerElement" }
+    );
 
     const anchor = (
       <View
         className={classNames({
-          [styles.stretched]: stretched
+          [theme.stretched]: stretched
         })}
-        onKeyDown={this.selectionModel.handleKeyDown}
-        onBlur={this.closeMenu}
+        onKeyDown={event => {
+          if (!hidden) {
+            this.selectionModel.handleKeyDown(event);
+          } else if (
+            enableArrowKeyExpansion &&
+            (event.keyCode === KEY_CODES.UP || event.keyCode === KEY_CODES.DOWN)
+          ) {
+            this.showMenu();
+            event.preventDefault();
+            event.stopPropagation();
+          }
+        }}
+        onBlur={event => {
+          if (!this.containerMousedDown) {
+            this.closeMenu(event);
+          }
+        }}
         onClick={this.toggleHidden}
         onEnter={this.keyboardToggleHidden}
         onEscape={this.closeMenu}
         onSpace={this.keyboardToggleHidden}
       >
-        {typeof trigger === "function" ? trigger({ open: !hidden }) : trigger}
+        {triggerElement}
       </View>
     );
 
@@ -191,6 +245,16 @@ export default class Menu extends Component {
             dir={dir}
             arrow={arrow}
             position={position}
+            onMouseDown={event => {
+              this.containerMousedDown = true;
+
+              setTimeout(() => {
+                this.containerMousedDown = false;
+              }, 0);
+            }}
+            onBlur={() => this.closeMenu()}
+            onKeyDown={this.selectionModel.handleKeyDown}
+            onEscape={this.closeMenu}
           >
             {items}
           </Container>}
