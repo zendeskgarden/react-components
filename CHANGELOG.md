@@ -1,3 +1,7 @@
+### v12.13.0 (2017-11-20)
+
+- [#394](https://github.com/zendeskgarden/react-components/pull/394) Allow Button.Core to have no children. ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
 ### v12.12.2 (2017-11-20)
 
 - [#393](https://github.com/zendeskgarden/react-components/pull/393) Fix crash where removeAttribute is called on null ([Sune Simonsen](mailto:sune@we-knowhow.dk))
