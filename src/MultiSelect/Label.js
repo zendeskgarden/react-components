@@ -35,6 +35,11 @@ class MultiSelectLabel extends ThemedComponent {
   }
 }
 
-export default Selectable(MultiSelectLabel, {
+const SelectableMultiSelectLabel = Selectable(MultiSelectLabel, {
   selectEvent: "onClick"
 });
+
+// Static identifier for use within MultiSelect
+SelectableMultiSelectLabel.MultiSelectLabel = true;
+
+export default SelectableMultiSelectLabel;

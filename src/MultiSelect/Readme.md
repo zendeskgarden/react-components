@@ -7,89 +7,325 @@ The `menuItems` prop can also be anything wrapped in the `Selectable` higher-ord
 #### Common Usage
 
 ```
-<State initialState={{ textValue: '', selectedItems: ['Hello world!', 'These are removable', 'And selectable'] }}>
-  {(state, setState) => {
-    const avatar = <img src='http://placeskull.com/16/16/03363d'/>;
+<State initialState={{
+  textValue: '',
+  availableItems:['Han Solo', 'Moradmin Bast', 'Commander Bly', 'Greedo', 'Darth Vader', 'C-3PO'],
+  selectedItems: ['Han Solo', 'Greedo', 'Darth Vader'] }}>
+    {(state, setState) => {
+      const menuItems = (textValue) => {
+        if (textValue.length === 0) {
+          return state.availableItems.map((name, index) => {
+            return <MultiSelect.Item
+              key={`${name}-${index}`}
+              checked={state.selectedItems.includes(name)}
+              value={name}>
+              {name}
+            </MultiSelect.Item>;
+          });
+        }
 
-    const menuItems = (textValue) => {
-      if (textValue.length === 0) {
-        return [
-          <MultiSelect.Item
-            disabled
-            key="0">
-            Add some text to have completion options
-          </MultiSelect.Item>
-        ];
+        const matchingItems = state.availableItems.filter(availableName => availableName.toLowerCase().indexOf(textValue.toLowerCase()) !== -1);
+
+        if (matchingItems.length === 0) {
+          return <MultiSelect.AddItem
+            value={textValue}
+            onClick={addCharacter}>
+            Add character
+          </MultiSelect.AddItem>
+        }
+
+        return matchingItems.map((name, index) => {
+          return <MultiSelect.Item
+            key={`${name}-${index}`}
+            checked={state.selectedItems.includes(name)}
+            value={name}>
+            {name}
+          </MultiSelect.Item>;
+        });
+      };
+
+      const addCharacter = () => {
+        const newAvailable = state.availableItems.slice();
+        const newSelected = state.selectedItems.slice();
+        newAvailable.push(state.textValue);
+        newSelected.push(state.textValue);
+        setState({ selectedItems: newSelected, availableItems: newAvailable, textValue: '' });
       }
 
-      return [
-        <MultiSelect.Item
-          value={`${textValue} - ${textValue}`}
-          key="0">
-          {textValue} - {textValue}
-        </MultiSelect.Item>,
-        <MultiSelect.Item
-          disabled
-          key="1">
-          Disabled menu item
-        </MultiSelect.Item>,
-        <MultiSelect.Item
-          value={`${textValue} - ${textValue} - ${textValue}`}
-          key="2">
-          {textValue} - {textValue} - {textValue}
-        </MultiSelect.Item>
-      ]
-    };
+      const onMenuSelect = (value, allowDeletion) => {
+        if (value) {
+          const existingIndex = state.selectedItems.findIndex(selectedValue => selectedValue === value);
+          const newItems = state.selectedItems.slice();
 
-    const onMenuSelect = (textValue) => {
-      const newItems = state.selectedItems.slice();
-      newItems.push(textValue);
-      setState({ selectedItems: newItems, textValue: '' });
-    };
-
-    const onRemove = (index) => {
-      const newItems = state.selectedItems.slice();
-      newItems.splice(index, 1);
-      setState({ selectedItems: newItems });
-    };
-
-    return <MultiSelect
-        size="small"
-        label='Common Example'
-        hint='Try keyboard navigation and removing labels'
-        onTextChange={textValue => setState({ textValue })}
-        textValue={state.textValue}
-        onMenuValueSelected={onMenuSelect}
-        selectedItems={state.selectedItems.map((itemValue, index) =>
-          <MultiSelect.Label
-            onRemove={() => onRemove(index)}
-            size='medium'
-            pill
-            avatar={avatar}
-            type='light'
-            value={itemValue}>
-            {itemValue}
-          </MultiSelect.Label>)
-        }
-        onKeyDown={(event, selectedItem) => {
-          const isEnterKey = event.keyCode === 13;
-          const isTabKey = event.keyCode === 9;
-
-          if ((isEnterKey || isTabKey) && state.textValue) {
-            // Don't want to blur input if adding a new label
-            if (isTabKey) {
-              event.stopPropagation();
-              event.preventDefault();
-            }
-
-            const newItems = state.selectedItems.slice();
-            newItems.push(state.textValue);
-            setState({ selectedItems: newItems, textValue: '' });
+          if (existingIndex === -1) {
+            newItems.push(value);
           }
-        }}
-      >
-        {menuItems(state.textValue)}
-      </MultiSelect>;
+          /*else if (allowDeletion) {
+            newItems.splice(existingIndex, 1);
+          }*/
+
+          setState({ selectedItems: newItems, textValue: '' });
+        }
+      };
+
+      const onRemove = (index) => {
+        const newItems = state.selectedItems.slice();
+        newItems.splice(index, 1);
+        setState({ selectedItems: newItems });
+      };
+
+      return <MultiSelect
+          size="medium"
+          label='Common Example'
+          hint='Try keyboard navigation and removing characters'
+          onTextChange={textValue => setState({ textValue })}
+          textValue={state.textValue}
+          onMenuValueSelected={value => onMenuSelect(value, true)}
+          selectedItems={state.selectedItems.map((itemValue, index) =>
+            <MultiSelect.Label
+              onRemove={() => onRemove(index)}
+              pill
+              type='light'
+              value={itemValue}>
+              {itemValue}
+            </MultiSelect.Label>)
+          }
+          onKeyDown={(event, selectedItem) => {
+            const isEnterKey = event.keyCode === 13;
+            const isTabKey = event.keyCode === 9;
+
+            if ((isEnterKey || isTabKey) && state.textValue) {
+              // Don't want to blur input if adding a new label
+              if (isTabKey) {
+                event.stopPropagation();
+                event.preventDefault();
+              }
+
+              const currentMenuItems = menuItems(state.textValue);
+
+              if (currentMenuItems.length > 0) {
+                const firstCharacter = currentMenuItems[0].props.value;
+                onMenuSelect(firstCharacter);
+              } else {
+                addCharacter();
+              }
+            }
+          }}
+        >
+          {menuItems(state.textValue)}
+        </MultiSelect>;
+    }}
+</State>
+```
+
+#### Show More
+
+```
+<State initialState={{
+  textValue: '',
+  isFocused: false,
+  selectedItems: ['Ashton Wolfe', 'Yadira Barnes', 'Jasmine Conner', 'Hamza Shaffer', 'Taliyah Valdez',
+    'Carla Melendez', 'Lesly Knight', 'Jayden Gregory', 'Nathalia Bruce', 'Draven Gardner', 'Juan Santana',
+    'Carla Melendez', 'Lesly Knight', 'Jayden Gregory', 'Nathalia Bruce', 'Draven Gardner', 'Juan Santana',
+    'Carla Melendez', 'Lesly Knight', 'Jayden Gregory', 'Nathalia Bruce', 'Draven Gardner', 'Juan Santana',
+    'Carla Melendez', 'Lesly Knight', 'Jayden Gregory', 'Nathalia Bruce', 'Draven Gardner', 'Juan Santana',
+    'Kadyn Sullivan'] }}>
+    {(state, setState) => {
+      const onRemove = (index) => {
+        const newItems = state.selectedItems.slice();
+        newItems.splice(index, 1);
+        setState({ selectedItems: newItems });
+      };
+
+      const currentItems = () => {
+        if (state.isFocused) {
+          return state.selectedItems.map((itemValue, index) =>
+            <MultiSelect.Label
+              onRemove={() => onRemove(index)}
+              pill
+              type='light'
+              value={itemValue}>
+              {itemValue}
+            </MultiSelect.Label>)
+        }
+
+        const labels = [];
+        for (let x = 0; x < 4 && x < state.selectedItems.length; x++) {
+          labels.push(
+            <MultiSelect.Label
+              onRemove={() => onRemove(x)}
+              pill
+              type='light'
+              value={state.selectedItems[x]}>
+              {state.selectedItems[x]}
+            </MultiSelect.Label>
+          );
+        }
+
+        if (state.selectedItems.length > 4) {
+          labels.push(
+            <span className="u-m-xxs u-fg-pelorous">+ {state.selectedItems.length - 1} more</span>
+          );
+        }
+
+        return labels;
+      };
+
+      return <MultiSelect
+          size="small"
+          label='Show More'
+          onTextChange={textValue => setState({ textValue })}
+          textValue={state.textValue}
+          selectedItems={currentItems()}
+          onFocus={() => setState({ isFocused: true })}
+          onBlur={() => setState({ isFocused: false })}
+          showIcon={false}
+          inputMaxHeight={104}
+          onKeyDown={(event, selectedItem) => {
+            const isEnterKey = event.keyCode === 13;
+            const isTabKey = event.keyCode === 9;
+
+            if ((isEnterKey || isTabKey) && state.textValue) {
+              // Don't want to blur input if adding a new label
+              if (isTabKey) {
+                event.stopPropagation();
+                event.preventDefault();
+              }
+
+              const newItems = state.selectedItems.slice();
+              newItems.push(state.textValue);
+              setState({ selectedItems: newItems, textValue: '' });
+            }
+          }}
+        >
+        </MultiSelect>;
+    }}
+</State>
+```
+
+#### Async Example
+
+```
+let timer;
+
+<State initialState={{
+  textValue: '',
+  isLoading: false,
+  availableItems:['Han Solo', 'Moradmin Bast', 'Commander Bly', 'Greedo', 'Darth Vader', 'C-3PO'],
+  selectedItems: ['Han Solo', 'Greedo', 'Darth Vader'] }}>
+    {(state, setState) => {
+      const menuItems = (textValue) => {
+        if (state.isLoading) {
+          return <div className="u-ta-center u-mt-sm"><Loader size={32} /></div>;
+        }
+
+        if (textValue.length === 0) {
+          return state.availableItems.map((name, index) => {
+            return <MultiSelect.Item
+              key={`${name}-${index}`}
+              checked={state.selectedItems.includes(name)}
+              value={name}>
+              {name}
+            </MultiSelect.Item>;
+          });
+        }
+
+        const matchingItems = state.availableItems.filter(availableName => availableName.toLowerCase().indexOf(textValue.toLowerCase()) !== -1);
+
+        if (matchingItems.length === 0) {
+          return <MultiSelect.AddItem
+            value={textValue}
+            onClick={addCharacter}>
+            Add character
+          </MultiSelect.AddItem>
+        }
+
+        return matchingItems.map((name, index) => {
+          return <MultiSelect.Item
+            key={`${name}-${index}`}
+            checked={state.selectedItems.includes(name)}
+            value={name}>
+            {name}
+          </MultiSelect.Item>;
+        });
+      };
+
+      const addCharacter = () => {
+        const newAvailable = state.availableItems.slice();
+        const newSelected = state.selectedItems.slice();
+        newAvailable.push(state.textValue);
+        newSelected.push(state.textValue);
+        setState({ selectedItems: newSelected, availableItems: newAvailable, textValue: '' });
+      }
+
+      const onMenuSelect = (value, allowDeletion) => {
+        if (value) {
+          const existingIndex = state.selectedItems.findIndex(selectedValue => selectedValue === value);
+          const newItems = state.selectedItems.slice();
+
+          if (existingIndex === -1) {
+            newItems.push(value);
+          }
+          /*else if (allowDeletion) {
+            newItems.splice(existingIndex, 1);
+          }*/
+
+          setState({ selectedItems: newItems, textValue: '' });
+        }
+      };
+
+      const onRemove = (index) => {
+        const newItems = state.selectedItems.slice();
+        newItems.splice(index, 1);
+        setState({ selectedItems: newItems });
+      };
+
+      return <MultiSelect
+          size="medium"
+          label='Async Example'
+          hint='Menu results become available after 1 second'
+          onTextChange={textValue => {
+            setState({ textValue, isLoading: true });
+
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+              setState({ isLoading: false });
+            }, 750);
+          }}
+          textValue={state.textValue}
+          onMenuValueSelected={value => onMenuSelect(value, true)}
+          selectedItems={state.selectedItems.map((itemValue, index) =>
+            <MultiSelect.Label
+              onRemove={() => onRemove(index)}
+              type='light'
+              value={itemValue}>
+              {itemValue}
+            </MultiSelect.Label>)
+          }
+          onKeyDown={(event, selectedItem) => {
+            const isEnterKey = event.keyCode === 13;
+            const isTabKey = event.keyCode === 9;
+
+            if ((isEnterKey || isTabKey) && state.textValue) {
+              // Don't want to blur input if adding a new label
+              if (isTabKey) {
+                event.stopPropagation();
+                event.preventDefault();
+              }
+
+              const currentMenuItems = menuItems(state.textValue);
+
+              if (currentMenuItems.length > 0) {
+                const firstCharacter = currentMenuItems[0].props.value;
+                onMenuSelect(firstCharacter);
+              } else {
+                addCharacter();
+              }
+            }
+          }}
+        >
+          {menuItems(state.textValue)}
+        </MultiSelect>;
     }}
 </State>
 ```
@@ -102,36 +338,6 @@ Sometimes you don't want to allow removal of a selected item.  This example incl
 <State initialState={{ textValue: '',
   selectedItems: [{ value: 'Default 1', permanent: true }, { value: 'Default 2', permanent: true }, { value: 'Default 3', permanent: true }] }}>
   {(state, setState) => {
-    const menuItems = (textValue) => {
-      if (textValue.length === 0) {
-        return [];
-      }
-
-      return [
-        <MultiSelect.Item
-          onClick={() => onMenuSelect(`${textValue} - ${textValue}`)}
-          key="0">
-          {textValue} - {textValue}
-        </MultiSelect.Item>,
-        <MultiSelect.Item
-          disabled
-          key="1">
-          Disabled menu item
-        </MultiSelect.Item>,
-        <MultiSelect.Item
-          onClick={() => onMenuSelect(`${textValue} - ${textValue} - ${textValue}`)}
-          key="2">
-          {textValue} - {textValue} - {textValue}
-        </MultiSelect.Item>
-      ]
-    };
-
-    const onMenuSelect = (value) => {
-      const newItems = state.selectedItems.slice();
-      newItems.push({ value });
-      setState({ selectedItems: newItems, textValue: '' });
-    };
-
     const onRemove = (index) => {
       const newItems = state.selectedItems.slice();
       newItems.splice(index, 1);
@@ -139,15 +345,13 @@ Sometimes you don't want to allow removal of a selected item.  This example incl
     };
 
     return <MultiSelect
-        label='Common Example'
-        hint='Try keyboard navigation and removing labels'
         onTextChange={textValue => setState({ textValue })}
         textValue={state.textValue}
+        showIcon={false}
         selectedItems={state.selectedItems.map((item, index) =>
           <MultiSelect.Label
             onRemove={!item.permanent ? () => onRemove(index) : undefined}
             disabled={item.permanent}
-            size='large'
             type='light'
             value={item.value}>
             {item.value}
@@ -170,7 +374,6 @@ Sometimes you don't want to allow removal of a selected item.  This example incl
           }
         }}
       >
-        {menuItems(state.textValue)}
       </MultiSelect>;
     }}
 </State>
@@ -189,10 +392,14 @@ Sometimes you don't want to allow removal of a selected item.  This example incl
       }
 
       return [
+        <MultiSelect.HeaderItem key="header">
+          Example Header
+        </MultiSelect.HeaderItem>,
+        <MultiSelect.Separator key="separator" />,
         <MultiSelect.Item
-          onClick={() => onMenuSelect(`${textValue} - ${textValue}`)}
+          onClick={() => onMenuSelect(`${textValue} ${textValue}`)}
           key="0">
-          {textValue} - {textValue}
+          {textValue} {textValue}
         </MultiSelect.Item>,
         <MultiSelect.Item
           disabled
@@ -200,9 +407,9 @@ Sometimes you don't want to allow removal of a selected item.  This example incl
           Disabled menu item
         </MultiSelect.Item>,
         <MultiSelect.Item
-          onClick={() => onMenuSelect(`${textValue} - ${textValue} - ${textValue}`)}
+          onClick={() => onMenuSelect(`${textValue} ${textValue} ${textValue}`)}
           key="2">
-          {textValue} - {textValue} - {textValue}
+          {textValue} {textValue} {textValue}
         </MultiSelect.Item>
       ]
     };
@@ -229,7 +436,6 @@ Sometimes you don't want to allow removal of a selected item.  This example incl
         selectedItems={state.selectedItems.map((itemValue, index) =>
           <MultiSelect.Label
             onRemove={() => onRemove(index)}
-            size='medium'
             pill
             avatar={avatar}
             type='light'
@@ -267,8 +473,6 @@ This is a customer keyboard event for the `Copy` operation.  The `onKeyDown` cal
 ```
 <State initialState={{ textValue: '', selectedItems: ['Try to copy me', 'Or me!'], selected: '' }}>
   {(state, setState) => {
-    const avatar = <img src='http://placeskull.com/16/16/03363d'/>;
-
     const onRemove = (index) => {
       const newItems = state.selectedItems.slice();
       newItems.splice(index, 1);
@@ -283,12 +487,10 @@ This is a customer keyboard event for the `Copy` operation.  The `onKeyDown` cal
           hint='Try to copy a selected label'
           onTextChange={textValue => setState({ textValue })}
           textValue={state.textValue}
+          useChevron={false}
           selectedItems={state.selectedItems.map((itemValue, index) =>
             <MultiSelect.Label
               onRemove={() => onRemove(index)}
-              size='medium'
-              pill
-              avatar={avatar}
               type='light'
               value={itemValue}>
               {itemValue}
@@ -373,7 +575,6 @@ This example only allows the addition of valid email addresses.  Additionally, i
         selectedItems={state.selectedItems.map((itemValue, index) =>
           <MultiSelect.Label
             onRemove={() => onRemove(index)}
-            size='medium'
             type={itemValue.indexOf('@zendesk') === -1 ? 'light' : 'default'}
             value={itemValue}>
             {itemValue}
@@ -441,7 +642,7 @@ const SelectableAvatar = Selectable(CustomAvatar, {
     };
 
     return <MultiSelect
-        showChevron={false}
+        showIcon={false}
         label='Avatar Selectables'
         hint='Just hit [ENTER] to add items'
         onTextChange={textValue => setState({ textValue })}
@@ -463,6 +664,30 @@ const SelectableAvatar = Selectable(CustomAvatar, {
           }
         }}>
       </MultiSelect>;
+    }}
+</State>
+```
+
+#### Disabled State
+
+```
+<State initialState={{
+  textValue: '',
+  selectedItems: ['Han Solo', 'Greedo', 'Darth Vader'] }}>
+    {(state, setState) => {
+      return <MultiSelect
+          size="medium"
+          disabled
+          textValue={state.textValue}
+          selectedItems={state.selectedItems.map((itemValue, index) =>
+            <MultiSelect.Label
+              onRemove={() => {}}
+              pill
+              type='light'
+              value={itemValue}>
+              {itemValue}
+            </MultiSelect.Label>)
+          } />;
     }}
 </State>
 ```

@@ -66,8 +66,9 @@ export default class MultiSelect extends ThemedComponent {
     textValue: PropTypes.string,
     placeholderText: PropTypes.string,
     fixedWidth: PropTypes.bool,
-    showChevron: PropTypes.bool,
-    onMenuValueSelected: PropTypes.func
+    showIcon: PropTypes.bool,
+    onMenuValueSelected: PropTypes.func,
+    type: PropTypes.oneOf(["default", "bare"])
   };
 
   static defaultProps = {
@@ -78,7 +79,7 @@ export default class MultiSelect extends ThemedComponent {
     size: "medium",
     tabIndex: 0,
     selectedItems: [],
-    showChevron: true
+    showIcon: true
   };
 
   constructor(props, context) {
@@ -129,23 +130,32 @@ export default class MultiSelect extends ThemedComponent {
 
     const closingAction = () => {
       onMenuValueSelected && onMenuValueSelected(value, event);
-      // this.onClose();
-      this.textInputNode.focus();
+      this.focusInput();
     };
 
     // Only delay menu closing if menu selection callback is provided
     setTimeout(closingAction, onMenuValueSelected ? 200 : 0);
   };
 
-  setSelectableItems = ({ selectedItems, children }) => {
-    const { dir, disabled } = this.props;
+  setSelectableItems = ({ selectedItems, children, dir, disabled, size }) => {
+    // The naming between Labels and Inputs differ by one size
+    const defaultLabelSize = size === "medium" ? "large" : "medium";
 
     this.selectedItemModel.items = selectedItems.map((item, index) => {
-      return React.cloneElement(item, {
+      const isMultiSelectLabel = item.type && item.type.MultiSelectLabel;
+
+      const defaultProps = {
         key: index,
         dir,
         disabled: item.props.disabled || disabled
-      });
+      };
+
+      if (isMultiSelectLabel) {
+        defaultProps.size = defaultLabelSize;
+        defaultProps.onRemove = !disabled ? item.props.onRemove : undefined;
+      }
+
+      return React.cloneElement(item, defaultProps);
     });
 
     this.menuItemsModel.items = children;
@@ -211,6 +221,10 @@ export default class MultiSelect extends ThemedComponent {
     );
   };
 
+  focusInput() {
+    this.textInputNode.focus();
+  }
+
   renderAnchorElement = () => {
     const {
       dir,
@@ -219,8 +233,9 @@ export default class MultiSelect extends ThemedComponent {
       textValue,
       onTextChange,
       placeholderText,
-      showChevron,
-      inputMaxHeight
+      showIcon,
+      inputMaxHeight,
+      type
     } = this.props;
     const isRtl = dir === "rtl";
     const { open, focused, selectedItems, menuItems } = this.state;
@@ -230,8 +245,9 @@ export default class MultiSelect extends ThemedComponent {
       <View
         className={classNames(theme.input, {
           [theme.open]: open && menuItems && menuItems.length > 0,
-          [theme.no_chevron]: !showChevron || inputMaxHeight,
-          [theme.input_overflow]: inputMaxHeight
+          [theme.no_chevron]: !showIcon || inputMaxHeight,
+          [theme.input_overflow]: inputMaxHeight,
+          [theme.style_bare]: type === "bare"
         })}
         style={{ maxHeight: inputMaxHeight }}
         dir={dir}
@@ -249,7 +265,11 @@ export default class MultiSelect extends ThemedComponent {
 
           setTimeout(() => {
             if (wasContainerClicked) {
-              this.textInputNode.focus();
+              this.focusInput();
+
+              if (open && showIcon) {
+                this.onClose();
+              }
             }
 
             this.mouseInitiated = false;
@@ -258,6 +278,14 @@ export default class MultiSelect extends ThemedComponent {
         tabIndex={!disabled && -1}
         ref={ref => {
           this.inputContainerNode = this.inputContainerNode || findDOMNode(ref);
+        }}
+        onFocus={() => {
+          // Scroll to bottom of input container if needed
+          setTimeout(() => {
+            if (inputMaxHeight) {
+              this.inputContainerNode.scrollTop = this.inputContainerNode.scrollHeight;
+            }
+          }, 0);
         }}
         onBlur={event => {
           if (this.mouseInitiated) {
@@ -291,7 +319,7 @@ export default class MultiSelect extends ThemedComponent {
               (event.keyCode === KEY_CODES.LEFT && isLastItemSelected && isRtl)
             ) {
               this.selectedItemModel.clear();
-              this.textInputNode.focus();
+              this.focusInput();
               event.preventDefault();
             } else if (
               event.keyCode === KEY_CODES.DELETE ||
@@ -301,7 +329,7 @@ export default class MultiSelect extends ThemedComponent {
               onRemove && onRemove(event);
 
               this.selectedItemModel.clear();
-              this.textInputNode.focus();
+              this.focusInput();
             } else if (
               !(
                 event.keyCode === KEY_CODES.LEFT &&
@@ -330,15 +358,26 @@ export default class MultiSelect extends ThemedComponent {
               } else if (event.keyCode === KEY_CODES.BACKSPACE) {
                 const { onRemove } = items[items.length - 1].props;
                 onRemove && onRemove(event);
-                this.textInputNode.focus();
+                this.focusInput();
               } else if (event.keyCode === KEY_CODES.HOME) {
                 // We should focus the current page on initial focus.
                 this.selectedItemModel.reactivate(items[0]);
                 this.inputContainerNode.focus();
                 event.preventDefault();
+              } else {
+                this.menuItemsModel.handleKeyDown(event);
               }
             }
           } else {
+            // We should preserve default TextInput keyboard navigation if menu is not selected
+            if (
+              !this.menuItemsModel.hasSelection() &&
+              (event.keyCode === KEY_CODES.HOME ||
+                event.keyCode === KEY_CODES.END)
+            ) {
+              return;
+            }
+
             this.menuItemsModel.handleKeyDown(event);
           }
         }}
@@ -354,6 +393,10 @@ export default class MultiSelect extends ThemedComponent {
             this.menuItemsModel.clear();
             this.onOpen();
             onTextChange && onTextChange(event);
+
+            if (!open) {
+              this.onOpen();
+            }
           }}
           onFocus={() => {
             this.onOpen();
@@ -464,11 +507,11 @@ export default class MultiSelect extends ThemedComponent {
               }}
               onBlur={() => {
                 this.onClose();
-                this.textInputNode.focus();
+                this.focusInput();
               }}
               onEscape={() => {
                 this.onClose();
-                this.textInputNode.focus();
+                this.focusInput();
               }}
               animate
             >
