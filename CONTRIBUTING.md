@@ -50,7 +50,7 @@ yarn test ./src/Button/
 After merging to master, you should run the following script to create a new release:
 
 ```
-yarn version <major | minor | patch>
+npm version <major | minor | patch>
 ```
 
 This script will take care of everything for you.
