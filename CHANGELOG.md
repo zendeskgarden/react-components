@@ -1,3 +1,7 @@
+### v13.0.1 (2017-11-20)
+
+- [#395](https://github.com/zendeskgarden/react-components/pull/395) MultiSelect: Re-open MultiSelect PR due to build issue ([Austin Green](mailto:austingreenkansas@gmail.com))
+
 ### v13.0.0 (2017-11-20)
 
 - [#379](https://github.com/zendeskgarden/react-components/pull/379) Menu: Add new selectable menu types ([Austin Green](mailto:austingreenkansas@gmail.com))
