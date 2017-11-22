@@ -6085,6 +6085,13 @@ postcss-inline-svg@^3.0.0:
     postcss "^6.0.1"
     postcss-value-parser "^3.2.3"
 
+postcss-input-range@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/postcss-input-range/-/postcss-input-range-4.0.0.tgz#829c2fa9c53fb9bebe53c7533e1638e91e64e173"
+  dependencies:
+    postcss "^6.0.3"
+    postcss-selector-parser "^2.2.3"
+
 postcss-less@^1.1.0:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/postcss-less/-/postcss-less-1.1.3.tgz#6930525271bfe38d5793d33ac09c1a546b87bb51"
@@ -6343,7 +6350,7 @@ postcss-selector-not@^2.0.0:
     balanced-match "^0.2.0"
     postcss "^5.0.0"
 
-postcss-selector-parser@^1.1.4, postcss-selector-parser@^1.3.0:
+postcss-selector-parser@^1.1.4:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-1.3.3.tgz#d2ee19df7a64f8ef21c1a71c86f7d4835c88c281"
   dependencies:
@@ -6395,7 +6402,7 @@ postcss-zindex@^2.0.1:
     postcss "^5.0.4"
     uniqs "^2.0.0"
 
-postcss@5.2.17, postcss@^5.0.0, postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0.14, postcss@^5.0.16, postcss@^5.0.19, postcss@^5.0.2, postcss@^5.0.21, postcss@^5.0.3, postcss@^5.0.4, postcss@^5.0.5, postcss@^5.0.6, postcss@^5.0.8, postcss@^5.0.9, postcss@^5.1.1, postcss@^5.2.0, postcss@^5.2.12, postcss@^5.2.15, postcss@^5.2.16, postcss@^5.2.8:
+postcss@5.2.17, postcss@^5.0.0, postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0.14, postcss@^5.0.16, postcss@^5.0.19, postcss@^5.0.2, postcss@^5.0.21, postcss@^5.0.3, postcss@^5.0.4, postcss@^5.0.5, postcss@^5.0.6, postcss@^5.0.8, postcss@^5.1.1, postcss@^5.2.0, postcss@^5.2.12, postcss@^5.2.15, postcss@^5.2.16, postcss@^5.2.8:
   version "5.2.17"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-5.2.17.tgz#cf4f597b864d65c8a492b2eabe9d706c879c388b"
   dependencies:
@@ -7684,13 +7691,6 @@ sugarss@^1.0.0:
   resolved "https://registry.yarnpkg.com/sugarss/-/sugarss-1.0.1.tgz#be826d9003e0f247735f92365dc3fd7f1bae9e44"
   dependencies:
     postcss "^6.0.14"
-
-sunesimonsen-postcss-input-range@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/sunesimonsen-postcss-input-range/-/sunesimonsen-postcss-input-range-2.1.0.tgz#c95a350a2555782a116ae21aa2ef898f2441cc02"
-  dependencies:
-    postcss "^5.0.9"
-    postcss-selector-parser "^1.3.0"
 
 supports-color@1.2.0:
   version "1.2.0"
