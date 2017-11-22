@@ -36,7 +36,7 @@ class ModalExample extends Component {
             versions of Lorem Ipsum.
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={ () => this.setState({ hidden: true }) } size='medium' type='basic'>Cancel</Button>
+            <Button onClick={ () => this.setState({ hidden: true }) } size='medium' type='basic' className="u-m-sm">Cancel</Button>
             <Button autoFocus size='medium' type='primary'>Ok</Button>
           </Modal.Footer>
         </Modal>
@@ -188,7 +188,7 @@ const onOpen = () => setState({ hidden: false });
       versions of Lorem Ipsum.
     </Modal.Body>
     <Modal.Footer>
-      <Button onClick={ onClose } size='medium' type='basic'>Cancel</Button>
+      <Button onClick={ onClose } size='medium' type='basic' className="u-m-sm">Cancel</Button>
       <Button size='medium' type='primary' autoFocus>Ok</Button>
     </Modal.Footer>
   </Modal>
