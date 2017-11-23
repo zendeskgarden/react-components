@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { findDOMNode } from "react-dom";
-import { deprecate } from "react-is-deprecated";
 
 import ThemedComponent from "../utils/theming/ThemedComponent";
 import styles from "./styles.css";
@@ -22,10 +21,6 @@ export default class Modal extends ThemedComponent {
     hidden: PropTypes.bool,
     onClose: PropTypes.func,
     size: PropTypes.oneOf(["medium", "large"]),
-    type: deprecate(
-      PropTypes.oneOf(["default", "transparent", "lightbox"]),
-      "The Modal component 'type' prop is deprecated and will be removed in a future version."
-    ),
     testId: PropTypes.string,
     width: PropTypes.string
   };
