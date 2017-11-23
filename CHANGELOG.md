@@ -1,6 +1,11 @@
+### v13.0.2 (2017-11-22)
+
+- [#365](https://github.com/zendeskgarden/react-components/pull/365) Loose the dependency version of react-virtualized ([Austin Green](mailto:austingreenkansas@gmail.com))
+- [#396](https://github.com/zendeskgarden/react-components/pull/396) Stabilize npm-version script ([Jonathan Zempel](mailto:jzempel@gmail.com))
+
 ### v13.0.1 (2017-11-20)
 
-- [#395](https://github.com/zendeskgarden/react-components/pull/395) MultiSelect: Re-open MultiSelect PR due to build issue. [Original PR #379](https://github.com/zendeskgarden/react-components/pull/379) ([Austin Green](mailto:austingreenkansas@gmail.com))
+- [#395](https://github.com/zendeskgarden/react-components/pull/395) MultiSelect: Re-open MultiSelect PR due to build issue ([Austin Green](mailto:austingreenkansas@gmail.com))
 
 ### v13.0.0 (2017-11-20)
 
@@ -21,8 +26,7 @@
 
 ### v12.12.0 (2017-11-15)
 
-- [#389](https://github.com/zendeskgarden/react-components/pull/389) * Remove over-saturation on neutral theme button hover.
-* Update `Anchor` and `Button type='anchor'` to underline on hover. ([Jonathan Zempel](mailto:jzempel@gmail.com))
+- [#389](https://github.com/zendeskgarden/react-components/pull/389) * Remove over-saturation on neutral theme button hover.* Update `Anchor` and `Button type='anchor'` to underline on hover. ([Jonathan Zempel](mailto:jzempel@gmail.com))
 
 ### v12.11.0 (2017-11-13)
 
@@ -95,10 +99,7 @@
 
 ### v12.3.1 (2017-10-18)
 
-- [#356](https://github.com/zendeskgarden/react-components/pull/356) Update garden-css-tabs
-
-* improved padding
-* leverage custom CSS ([Jonathan Zempel](mailto:jzempel@gmail.com))
+- [#356](https://github.com/zendeskgarden/react-components/pull/356) Update garden-css-tabs* improved padding* leverage custom CSS ([Jonathan Zempel](mailto:jzempel@gmail.com))
 
 ### v12.3.0 (2017-10-18)
 
