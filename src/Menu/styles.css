@@ -66,6 +66,7 @@
 
 .inner {
   padding: 8px 0;
+  box-sizing: inherit;
 }
 
 .scrollable > .inner {
