@@ -1,3 +1,10 @@
+### v13.0.3 (2017-11-23)
+
+- [#397](https://github.com/zendeskgarden/react-components/pull/397) Modal: remove deprecated type field ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+- [#401](https://github.com/zendeskgarden/react-components/pull/401) Menu: Correct implicit boxSizing when maxHeight is provided ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+- [#399](https://github.com/zendeskgarden/react-components/pull/399) Unregister event listeners when the table component unmounts ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+- [#402](https://github.com/zendeskgarden/react-components/pull/402) Table: Fixed Overflow Menu focus errors ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
 ### v13.0.2 (2017-11-22)
 
 - [#365](https://github.com/zendeskgarden/react-components/pull/365) Loose the dependency version of react-virtualized ([Austin Green](mailto:austingreenkansas@gmail.com))
@@ -228,9 +235,6 @@
 
 - [#265](https://github.com/zendeskgarden/react-components/pull/265) Ellipsis: Add support for rich content in title/tooltips ([Marc Høegh](mailto:Anifacted@users.noreply.github.com))
 - [#262](https://github.com/zendeskgarden/react-components/pull/262) Reformat the rest of the files ([Sune Simonsen](mailto:sune@we-knowhow.dk))
-
-### v8.1.1 (2017-08-15)
-
 - [#260](https://github.com/zendeskgarden/react-components/pull/260) Bump version of css-labels to allow for ellipsis overflows ([Austin Green](mailto:austingreenkansas@gmail.com))
 
 ### v8.1.0 (2017-08-14)
