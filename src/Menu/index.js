@@ -115,11 +115,11 @@ export default class Menu extends ThemedComponent {
   };
 
   onValueChosen = (value, event) => {
-    const { onChange, focusOnClose } = this.props;
-    onChange && onChange(value, event);
-
     setTimeout(() => {
+      const { onChange, focusOnClose } = this.props;
+
       this.closeMenu();
+      onChange && onChange(value, event);
 
       if (focusOnClose) {
         const triggerDOMNode = findDOMNode(this.refs.triggerElement);

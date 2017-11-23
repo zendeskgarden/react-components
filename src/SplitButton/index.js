@@ -98,10 +98,10 @@ export default class SplitButton extends ThemedComponent {
 
   onValueChosen = (value, event) => {
     const { onChange } = this.props;
-    onChange && onChange(value, event);
 
     setTimeout(() => {
       this.closeMenu();
+      onChange && onChange(value, event);
     }, 200);
   };
 
