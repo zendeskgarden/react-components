@@ -155,15 +155,7 @@ export default class Select extends ThemedComponent {
         <Menu
           dir={dir}
           maxHeight={maxHeight}
-          onChange={(value, event) => {
-            onChange && onChange(value, event);
-
-            // Allow time for the menu to animate closed
-            setTimeout(() => {
-              // Bring focus back to Select after menu item is selected
-              this.triggerNode.focus();
-            }, 200);
-          }}
+          onChange={onChange}
           positioning={positioning}
           enableArrowKeyExpansion
           onOpen={this.onOpen}
