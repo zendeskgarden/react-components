@@ -210,95 +210,103 @@ export default class Table extends ThemedComponent {
     const { innerRef } = this.props;
     innerRef && innerRef(tableReference);
 
+    const mouseDown = event => {
+      this.focusedByMouse = true;
+
+      setTimeout(() => {
+        this.focusedByMouse = false;
+      }, 0);
+    };
+
+    const focusIn = event => {
+      const { focusedRow } = this.state;
+
+      if (!this.focusedByMouse) {
+        const newlyFocusedRow = this.retrieveNextValidFocusIndex(focusedRow);
+        this.onRowFocus(newlyFocusedRow, true);
+      }
+    };
+
+    const focusOut = event => {
+      this.setState({ isFocused: false });
+    };
+
+    const keyDown = event => {
+      const { data, onRowClick, isRowDisabled } = this.props;
+      const { focusedRow } = this.state;
+      const { keyCode } = event;
+
+      const handlers = {
+        [KEY_CODES.SPACE]: event => {
+          event.preventDefault();
+
+          if (isRowDisabled && isRowDisabled(focusedRow)) {
+            return;
+          }
+
+          const isRowSelected = this.selectedMapping[
+            data[focusedRow][this.checkboxDataKey]
+          ];
+
+          if (!isRowSelected) {
+            this.selectedMapping[data[focusedRow][this.checkboxDataKey]] = true;
+          } else {
+            delete this.selectedMapping[data[focusedRow][this.checkboxDataKey]];
+          }
+
+          const selectedData = [];
+          for (const key in this.selectedMapping) {
+            selectedData.push(key);
+          }
+
+          this.onSelection && this.onSelection(selectedData);
+        },
+        [KEY_CODES.ENTER]: event => {
+          event.preventDefault();
+          onRowClick && onRowClick(focusedRow);
+        },
+        [KEY_CODES.HOME]: event => {
+          event.preventDefault();
+
+          // Necessary to remove focus from nested element on key navigation
+          const gridElement = findDOMNode(this.tableRef.Grid);
+          gridElement.focus();
+
+          this.onRowFocus(this.retrieveNextValidFocusIndex(0), true);
+        },
+        [KEY_CODES.END]: event => {
+          event.preventDefault();
+
+          // Necessary to remove focus from nested element on key navigation
+          const gridElement = findDOMNode(this.tableRef.Grid);
+          gridElement.focus();
+
+          this.onRowFocus(
+            this.retrieveNextValidFocusIndex(data.length - 1),
+            true
+          );
+        }
+      };
+
+      const handler = handlers[keyCode];
+      handler && handler(event);
+    };
+
     if (!this.tableRef && tableReference) {
       this.tableRef = tableReference;
       const gridElement = findDOMNode(this.tableRef.Grid);
 
-      gridElement.addEventListener("mousedown", event => {
-        this.focusedByMouse = true;
+      gridElement.addEventListener("mousedown", mouseDown);
+      gridElement.addEventListener("focusin", focusIn);
+      gridElement.addEventListener("focusout", focusOut);
+      gridElement.addEventListener("keydown", keyDown);
+    } else if (this.tableRef && !tableReference) {
+      const gridElement = findDOMNode(this.tableRef.Grid);
 
-        setTimeout(() => {
-          this.focusedByMouse = false;
-        }, 0);
-      });
-
-      gridElement.addEventListener("focusin", event => {
-        const { focusedRow } = this.state;
-
-        if (!this.focusedByMouse) {
-          const newlyFocusedRow = this.retrieveNextValidFocusIndex(focusedRow);
-          this.onRowFocus(newlyFocusedRow, true);
-        }
-      });
-
-      gridElement.addEventListener("focusout", event => {
-        this.setState({ isFocused: false });
-      });
-
-      gridElement.addEventListener("keydown", event => {
-        const { data, onRowClick, isRowDisabled } = this.props;
-        const { focusedRow } = this.state;
-        const { keyCode } = event;
-
-        const handlers = {
-          [KEY_CODES.SPACE]: event => {
-            event.preventDefault();
-
-            if (isRowDisabled && isRowDisabled(focusedRow)) {
-              return;
-            }
-
-            const isRowSelected = this.selectedMapping[
-              data[focusedRow][this.checkboxDataKey]
-            ];
-
-            if (!isRowSelected) {
-              this.selectedMapping[
-                data[focusedRow][this.checkboxDataKey]
-              ] = true;
-            } else {
-              delete this.selectedMapping[
-                data[focusedRow][this.checkboxDataKey]
-              ];
-            }
-
-            const selectedData = [];
-            for (const key in this.selectedMapping) {
-              selectedData.push(key);
-            }
-
-            this.onSelection && this.onSelection(selectedData);
-          },
-          [KEY_CODES.ENTER]: event => {
-            event.preventDefault();
-            onRowClick && onRowClick(focusedRow);
-          },
-          [KEY_CODES.HOME]: event => {
-            event.preventDefault();
-
-            // Necessary to remove focus from nested element on key navigation
-            const gridElement = findDOMNode(this.tableRef.Grid);
-            gridElement.focus();
-
-            this.onRowFocus(this.retrieveNextValidFocusIndex(0), true);
-          },
-          [KEY_CODES.END]: event => {
-            event.preventDefault();
-
-            // Necessary to remove focus from nested element on key navigation
-            const gridElement = findDOMNode(this.tableRef.Grid);
-            gridElement.focus();
-
-            this.onRowFocus(
-              this.retrieveNextValidFocusIndex(data.length - 1),
-              true
-            );
-          }
-        };
-
-        const handler = handlers[keyCode];
-        handler && handler(event);
-      });
+      gridElement.removeEventListener("mousedown", mouseDown);
+      gridElement.removeEventListener("focusin", focusIn);
+      gridElement.removeEventListener("focusout", focusOut);
+      gridElement.removeEventListener("keydown", keyDown);
     }
   };
 
