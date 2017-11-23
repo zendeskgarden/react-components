@@ -1,3 +1,7 @@
+### v13.0.4 (2017-11-23)
+
+- [#403](https://github.com/zendeskgarden/react-components/pull/403) Fixing crash in the select when trying to focus an unmounted node ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
 ### v13.0.3 (2017-11-23)
 
 - [#397](https://github.com/zendeskgarden/react-components/pull/397) Modal: remove deprecated type field ([Sune Simonsen](mailto:sune@we-knowhow.dk))
