@@ -505,13 +505,14 @@ describe("Menu", () => {
           <Menu.Item value="three">Three</Menu.Item>
         </Menu>,
         "when clicking on the trigger"
-      ).then(() => {
-        click("[data-test-id=my-menu-item]");
-
-        return expect(onChange, "to have calls satisfying", () =>
-          onChange("two", { type: "click" })
+      )
+        .then(() => click("[data-test-id=my-menu-item]"))
+        .delay(200)
+        .then(() =>
+          expect(onChange, "to have calls satisfying", () =>
+            onChange("two", { type: "click" })
+          )
         );
-      });
     });
   });
 

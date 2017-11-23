@@ -284,14 +284,17 @@ describe("SplitButton", () => {
           <SplitButton.Item value="three">Three</SplitButton.Item>
         </SplitButton>,
         "when clicking on the menu button"
-      ).then(() => {
-        const menuItem = document.querySelector("[data-test-id=two]");
-        TestUtils.Simulate.click(menuItem);
-
-        expect(onChange, "to have calls satisfying", () => {
-          onChange("two", { type: "click" });
-        });
-      });
+      )
+        .then(() => {
+          const menuItem = document.querySelector("[data-test-id=two]");
+          TestUtils.Simulate.click(menuItem);
+        })
+        .delay(200)
+        .then(() =>
+          expect(onChange, "to have calls satisfying", () => {
+            onChange("two", { type: "click" });
+          })
+        );
     });
   });
 
@@ -321,11 +324,13 @@ describe("SplitButton", () => {
         { keyCode: 13 },
         "on",
         <IconButton />
-      ).then(() => {
-        expect(onChange, "to have calls satisfying", () => {
-          onChange("two", { type: "keydown" });
+      )
+        .delay(200)
+        .then(() => {
+          expect(onChange, "to have calls satisfying", () => {
+            onChange("two", { type: "keydown" });
+          });
         });
-      });
     });
   });
 
