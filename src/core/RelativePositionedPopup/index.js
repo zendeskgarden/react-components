@@ -233,7 +233,16 @@ class RelativePositionedPopup extends Component {
   };
 
   render() {
-    const { anchor, children, hidden, testId, stretched, zIndex } = this.props;
+    const {
+      anchor,
+      children,
+      dir,
+      hidden,
+      testId,
+      stretched,
+      zIndex
+    } = this.props;
+
     const { opening, placement } = this.state || {};
 
     const popupStyle = placement
@@ -254,6 +263,7 @@ class RelativePositionedPopup extends Component {
         className={classNames(styles.container, {
           [styles.stretched]: stretched
         })}
+        dir={dir}
         testId={testId}
       >
         <View
@@ -274,6 +284,7 @@ class RelativePositionedPopup extends Component {
               [styles.opening]: opening,
               [styles.stretched]: stretched
             })}
+            dir={dir}
             hidden={hidden}
             id={this.popupId}
             onTab={this.onTab}
