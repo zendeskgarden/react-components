@@ -1,3 +1,7 @@
+### v13.0.6 (2017-11-23)
+
+- [#405](https://github.com/zendeskgarden/react-components/pull/405) Don't call action before delayed menu close ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
 ### v13.0.5 (2017-11-23)
 
 - [#404](https://github.com/zendeskgarden/react-components/pull/404) Make sure to forward dir to the portal ([Sune Simonsen](mailto:sune@we-knowhow.dk))
