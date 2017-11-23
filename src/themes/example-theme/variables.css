@@ -22,7 +22,7 @@
   --zd-menu-color: var(--zd-accent-color);
 
   /* Pagination Variables */
-  --zd-pagination-focus-color: var(--zd-focus-color);
+  --zd-pagination-color: var(--zd-accent-color);
 
   /* Radio Button Variables */
   --zd-radio-button-color: var(--zd-accent-color);
