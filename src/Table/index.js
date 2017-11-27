@@ -99,10 +99,10 @@ export default class Table extends ThemedComponent {
     };
   }
 
-  onRowClick = ({ index }) => {
+  onRowClick = ({ event, index }) => {
     const { onRowClick } = this.props;
 
-    onRowClick && onRowClick(index);
+    onRowClick && onRowClick(index, event);
     this.onRowFocus(index, true);
   };
 
@@ -263,7 +263,7 @@ export default class Table extends ThemedComponent {
         },
         [KEY_CODES.ENTER]: event => {
           event.preventDefault();
-          onRowClick && onRowClick(focusedRow);
+          onRowClick && onRowClick(focusedRow, event);
         },
         [KEY_CODES.HOME]: event => {
           event.preventDefault();
