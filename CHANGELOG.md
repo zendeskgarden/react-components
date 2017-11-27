@@ -1,3 +1,7 @@
+### v13.1.0 (2017-11-27)
+
+- [#407](https://github.com/zendeskgarden/react-components/pull/407) Provide the event for the onRowClick method as the second argument ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
 ### v13.0.7 (2017-11-27)
 
 - [#406](https://github.com/zendeskgarden/react-components/pull/406) Use blur instead of focusout in the table to manage focus. ([Sune Simonsen](mailto:sune@we-knowhow.dk))
