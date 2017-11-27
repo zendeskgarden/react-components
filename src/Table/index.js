@@ -227,7 +227,7 @@ export default class Table extends ThemedComponent {
       }
     };
 
-    const focusOut = event => {
+    const blur = event => {
       this.setState({ isFocused: false });
     };
 
@@ -298,14 +298,14 @@ export default class Table extends ThemedComponent {
 
       gridElement.addEventListener("mousedown", mouseDown);
       gridElement.addEventListener("focusin", focusIn);
-      gridElement.addEventListener("focusout", focusOut);
+      gridElement.addEventListener("blur", blur);
       gridElement.addEventListener("keydown", keyDown);
     } else if (this.tableRef && !tableReference) {
       const gridElement = findDOMNode(this.tableRef.Grid);
 
       gridElement.removeEventListener("mousedown", mouseDown);
       gridElement.removeEventListener("focusin", focusIn);
-      gridElement.removeEventListener("focusout", focusOut);
+      gridElement.removeEventListener("blur", blur);
       gridElement.removeEventListener("keydown", keyDown);
     }
   };
