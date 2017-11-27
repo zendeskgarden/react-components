@@ -1,3 +1,7 @@
+### v13.0.7 (2017-11-27)
+
+- [#406](https://github.com/zendeskgarden/react-components/pull/406) Use blur instead of focusout in the table to manage focus. ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
 ### v13.0.6 (2017-11-23)
 
 - [#405](https://github.com/zendeskgarden/react-components/pull/405) Don't call action before delayed menu close ([Sune Simonsen](mailto:sune@we-knowhow.dk))
