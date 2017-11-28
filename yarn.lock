@@ -22,9 +22,9 @@
   version "3.4.1"
   resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-forms/-/@zendesk/garden-css-forms-3.4.1.tgz#768351a9250462d3da3bb95b0d003884b67248a1"
 
-"@zendesk/garden-css-labels@^1.0.2":
-  version "1.0.2"
-  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-labels/-/@zendesk/garden-css-labels-1.0.2.tgz#fea4deaeca9c8cec554b96a9e334ece52002297a"
+"@zendesk/garden-css-labels@^1.1.0":
+  version "1.1.0"
+  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-labels/-/@zendesk/garden-css-labels-1.1.0.tgz#4b7a694911a1743a072633099f014fbf957a668a"
 
 "@zendesk/garden-css-menus@^5.0.1":
   version "5.0.1"
@@ -34,9 +34,9 @@
   version "4.0.1"
   resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-modals/-/@zendesk/garden-css-modals-4.0.1.tgz#8db90a465fc606090dbac25956757146831fb032"
 
-"@zendesk/garden-css-pagination@^1.0.0":
-  version "1.0.0"
-  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-pagination/-/@zendesk/garden-css-pagination-1.0.0.tgz#48c3082f72e68f044fd872d6ad146c39b7ae9f19"
+"@zendesk/garden-css-pagination@^1.1.0":
+  version "1.1.0"
+  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-pagination/-/@zendesk/garden-css-pagination-1.1.0.tgz#d025f00b6b64fc841fed9ae36873583295b72ef2"
 
 "@zendesk/garden-css-tables@^1.0.2":
   version "1.0.2"

@@ -3,7 +3,6 @@
 :root {
   /* Theme specific accents */
   --zd-accent-color: var(--zd-color-oil);
-  --zd-focus-color: color(var(--zd-accent-color) alpha(40%));
   --zd-light-accent-color: var(--zd-color-aluminum);
 
   /* Anchor Variables */
@@ -17,10 +16,9 @@
 
   /* Label Variables */
   --zd-label-color: var(--zd-accent-color);
-  --zd-label-focus-color: var(--zd-focus-color);
 
   /* Pagination Variables */
-  --zd-pagination-focus-color: var(--zd-focus-color);
+  --zd-pagination-color: var(--zd-accent-color);
 
   /* Radio Button Variables */
   --zd-radio-button-color: var(--zd-light-accent-color);

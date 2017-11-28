@@ -3,7 +3,6 @@
 :root {
   /* Theme specific accents */
   --zd-accent-color: var(--zd-color-mandy);
-  --zd-focus-color: color(var(--zd-accent-color) alpha(40%));
 
   /* Anchor Variables */
   --zd-anchor-color: var(--zd-accent-color);
@@ -16,13 +15,12 @@
 
   /* Label Variables */
   --zd-label-color: var(--zd-accent-color);
-  --zd-label-focus-color: var(--zd-focus-color);
 
   /* Menu Variables */
   --zd-menu-color: var(--zd-accent-color);
 
   /* Pagination Variables */
-  --zd-pagination-focus-color: var(--zd-focus-color);
+  --zd-pagination-color: var(--zd-accent-color);
 
   /* Radio Button Variables */
   --zd-radio-button-color: var(--zd-accent-color);
