@@ -46,7 +46,7 @@
     "@zendesk/garden-css-buttons": "^3.5.0",
     "@zendesk/garden-css-callouts": "^1.1.1",
     "@zendesk/garden-css-forms": "^3.4.1",
-    "@zendesk/garden-css-labels": "^1.0.2",
+    "@zendesk/garden-css-labels": "^1.1.0",
     "@zendesk/garden-css-menus": "^5.0.1",
     "@zendesk/garden-css-modals": "^4.0.1",
     "@zendesk/garden-css-pagination": "^1.1.0",
