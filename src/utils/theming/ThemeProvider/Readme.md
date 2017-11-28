@@ -4,6 +4,7 @@ Use the theme provider to provide a theme for the children of the component.
 const darkTheme = require('../../../themes/electroid-dark-theme').default;
 const exampleTheme = require('../../../themes/example-theme').default;
 const neutralTheme = require('../../../themes/neutral-theme').default;
+const onRemove = () => alert('Removed');
 
 <Grid spacing='large'>
   <ThemeProvider theme={ exampleTheme }>
@@ -22,7 +23,7 @@ const neutralTheme = require('../../../themes/neutral-theme').default;
         </IconButton>
         <span className='u-ml-sm'>Icon Button</span>
       </FormLabel>
-      <Label>Label</Label>
+      <Label tabIndex={0} onRemove={onRemove}>Label</Label>
       <MultiSelect selectedItems={[
           <MultiSelect.Label>Multi</MultiSelect.Label>,
           <MultiSelect.Label>Select</MultiSelect.Label>
@@ -67,7 +68,7 @@ const neutralTheme = require('../../../themes/neutral-theme').default;
           </IconButton>
           <span className='u-fg-white u-ml-sm'>Icon Button</span>
         </FormLabel>
-        <Label>Label</Label>
+        <Label tabIndex={0} onRemove={onRemove}>Label</Label>
         <MultiSelect selectedItems={[
             <MultiSelect.Label>Multi</MultiSelect.Label>,
             <MultiSelect.Label>Select</MultiSelect.Label>
@@ -114,7 +115,7 @@ const neutralTheme = require('../../../themes/neutral-theme').default;
         </IconButton>
         <span className='u-ml-sm'>Icon Button</span>
       </FormLabel>
-      <Label>Label</Label>
+      <Label tabIndex={0} onRemove={onRemove}>Label</Label>
       <MultiSelect selectedItems={[
           <MultiSelect.Label type='light'>Multi</MultiSelect.Label>,
           <MultiSelect.Label type='light'>Select</MultiSelect.Label>

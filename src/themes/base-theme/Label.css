@@ -1,10 +1,14 @@
-/* stylelint-disable declaration-no-important */
+@import '@zendesk/garden-css-labels/src/custom';
 
-.default {
-  background-color: var(--zd-label-color) !important;
+:root {
+  --zd-label--custom-accent-color: var(--zd-label-color);
 }
 
-.default:focus, .default.is_focused {
-  border-color: var(--zd-label-color) !important;
-  box-shadow: 0 0 0 2px var(--zd-label-focus-color) !important;
+.default {
+  composes: c-label from '@zendesk/garden-css-labels';
+  composes: c-label--custom;
+}
+
+.is_focused {
+  composes: is-focused;
 }

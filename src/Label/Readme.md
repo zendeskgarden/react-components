@@ -124,7 +124,7 @@ Custom colors:
 <Grid>
   <Label className='u-bg-verdigris'>u-bg-verdigris</Label>
   <Label className='u-bg-submarine'>u-bg-submarine</Label>
-  <Label className='u-bg-mandy'>u-bg-mandy</Label>
+  <Label className='u-bg-sea-buckthorn'>u-bg-sea-buckthorn</Label>
 </Grid>
 ```
 
