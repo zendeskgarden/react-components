@@ -4,6 +4,10 @@
   composes: c-btn c-btn--anchor from '@zendesk/garden-css-buttons';
 }
 
+.focused {
+  composes: is-focused from '@zendesk/garden-css-buttons';
+}
+
 .container {
   display: inline;
 }
