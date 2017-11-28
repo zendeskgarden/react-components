@@ -1,3 +1,8 @@
+### v13.1.1 (2017-11-28)
+
+- [#408](https://github.com/zendeskgarden/react-components/pull/408) Fix Anchor focus treatment (underline on focus) ([Jonathan Zempel](mailto:jzempel@gmail.com))
+- [#409](https://github.com/zendeskgarden/react-components/pull/409) Update to depend on custom CSS from label and pagination components ([Jonathan Zempel](mailto:jzempel@gmail.com))
+
 ### v13.1.0 (2017-11-27)
 
 - [#407](https://github.com/zendeskgarden/react-components/pull/407) Provide the event for the onRowClick method as the second argument ([Sune Simonsen](mailto:sune@we-knowhow.dk))
