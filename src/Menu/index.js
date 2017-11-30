@@ -103,6 +103,10 @@ export default class Menu extends ThemedComponent {
     this.setSelectableItems(children);
   }
 
+  componentWillUnmount() {
+    clearTimeout(this.closeTimer);
+  }
+
   componentWillReceiveProps = nextProps => {
     const { children } = nextProps;
     this.setSelectableItems(children);
@@ -115,7 +119,7 @@ export default class Menu extends ThemedComponent {
   };
 
   onValueChosen = (value, event) => {
-    setTimeout(() => {
+    this.closeTimer = setTimeout(() => {
       const { onChange, focusOnClose } = this.props;
 
       this.closeMenu();
