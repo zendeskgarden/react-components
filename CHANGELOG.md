@@ -1,3 +1,7 @@
+### v13.2.0 (2017-11-30)
+
+- [#412](https://github.com/zendeskgarden/react-components/pull/412) Table: Add testId support ([Austin Green](mailto:austingreenkansas@gmail.com))
+
 ### v13.1.1 (2017-11-28)
 
 - [#408](https://github.com/zendeskgarden/react-components/pull/408) Fix Anchor focus treatment (underline on focus) ([Jonathan Zempel](mailto:jzempel@gmail.com))
@@ -260,6 +264,9 @@
 
 - [#265](https://github.com/zendeskgarden/react-components/pull/265) Ellipsis: Add support for rich content in title/tooltips ([Marc Høegh](mailto:Anifacted@users.noreply.github.com))
 - [#262](https://github.com/zendeskgarden/react-components/pull/262) Reformat the rest of the files ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
+### v8.1.1 (2017-08-15)
+
 - [#260](https://github.com/zendeskgarden/react-components/pull/260) Bump version of css-labels to allow for ellipsis overflows ([Austin Green](mailto:austingreenkansas@gmail.com))
 
 ### v8.1.0 (2017-08-14)
