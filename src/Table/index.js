@@ -76,7 +76,8 @@ export default class Table extends ThemedComponent {
     innerRef: PropTypes.func,
     height: PropTypes.number,
     width: PropTypes.number,
-    useAutoSizer: PropTypes.bool
+    useAutoSizer: PropTypes.bool,
+    testId: PropTypes.string
   };
 
   static defaultProps = {
@@ -332,6 +333,7 @@ export default class Table extends ThemedComponent {
       rowRenderer,
       onRowsRendered,
       useAutoSizer,
+      testId,
       ...otherTableProps
     } = this.props;
     const { focusedRow } = this.state;
@@ -417,7 +419,10 @@ export default class Table extends ThemedComponent {
       </ArrowKeyStepper>;
 
     return (
-      <View className={classNames(theme.table_container, className)}>
+      <View
+        className={classNames(theme.table_container, className)}
+        testId={testId}
+      >
         {useAutoSizer &&
           <AutoSizer>
             {({ width, height }) => tableElement(width, height)}
