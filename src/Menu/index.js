@@ -50,7 +50,13 @@ export default class Menu extends ThemedComponent {
     /**
      * Focus the trigger DOM node when a menu item is selected
      */
-    focusOnClose: PropTypes.bool
+    focusOnClose: PropTypes.bool,
+    /**
+     * Callback that determines whether the menu should be closed
+     * when a value is selected. Useful for nested menus.
+     * Passed (selectedValue, selectionEvent)
+     */
+    shouldClose: PropTypes.func
   };
 
   static defaultProps = {
@@ -115,14 +121,17 @@ export default class Menu extends ThemedComponent {
   };
 
   onValueChosen = (value, event) => {
-    const { onChange, focusOnClose } = this.props;
+    const { onChange, focusOnClose, shouldClose } = this.props;
 
-    this.closeMenu();
     onChange && onChange(value, event);
 
-    if (focusOnClose) {
-      const triggerDOMNode = findDOMNode(this.refs.triggerElement);
-      triggerDOMNode.focus();
+    if (!shouldClose || shouldClose(value, event)) {
+      this.closeMenu();
+
+      if (focusOnClose) {
+        const triggerDOMNode = findDOMNode(this.refs.triggerElement);
+        triggerDOMNode.focus();
+      }
     }
   };
 

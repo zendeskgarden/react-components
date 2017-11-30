@@ -109,6 +109,50 @@ that you can use for styling.
 </Menu>
 ```
 
+Tree-based menus are supported with the `shouldClose` prop.
+
+```
+const initialMenus = [
+  <Menu.Item key="0" value='profile'>Profile</Menu.Item>,
+  <Menu.Item key="1" value='settings'>Settings</Menu.Item>,
+  <Menu.Item key="2" value='theme editor' disabled>Theme Editor</Menu.Item>,
+  <Menu.Separator key="3" />,
+  <Menu.NextItem key="4" value='nested-item'>Nested Items</Menu.NextItem>,
+  <Menu.Item key="5" value='sign out'>Sign Out</Menu.Item>
+];
+
+<State initialState={{
+    menuItems: initialMenus
+  }}>
+  {(state, setState) => (
+    <Menu
+      trigger={ <Button>Tree menu</Button> }
+      shouldClose={(value) => value !== 'nested-item' && value !== 'nested-previous'}
+      onChange={(value) => {
+        console.log(value);
+
+        if (value === 'nested-item') {
+          const newMenuItems = [
+            <Menu.PreviousItem key="nested-previous" value="nested-previous">Previous Items</Menu.PreviousItem>,
+            <Menu.Item key="nested-0" value='nested-item-1'>Nested Item 1</Menu.Item>,
+            <Menu.Item key="nested-1" value='nested-item-2'>Nested Item 2</Menu.Item>,
+            <Menu.Item key="nested-2" value='nested-item-3'>Nested Item 3</Menu.Item>
+          ];
+          setState({
+            menuItems: newMenuItems
+          })
+        } else if (value === 'nested-previous') {
+          setState({ menuItems: initialMenus });
+        }
+      }}
+      onClose={() => setState({ menuItems: initialMenus })}
+    >
+      {state.menuItems}
+    </Menu>
+  ) }
+</State>
+```
+
 Positioning and arrows:
 
 ```
