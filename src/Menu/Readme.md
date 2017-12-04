@@ -27,13 +27,13 @@ You can add an `onClick` handler directly to the items as well:
 </Menu>
 ```
 
-We provide several pre-built Menu types.
+We provide several pre-built menu types including: `checkable, header, add, next, previous, disabled, and meta information`.
 
 ```
 initialState = { selected: 'paul' };
 
 <Menu
-  trigger={ <Button>Many different Menu Types</Button> }
+  trigger={ <Button>Many different menu types</Button> }
   positioning={ ['bottom_stretch', 'top_stretch'] }
 >
   <Menu.HeaderItem>The Beatles</Menu.HeaderItem>
