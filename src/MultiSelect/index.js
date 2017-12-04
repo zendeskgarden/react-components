@@ -128,13 +128,8 @@ export default class MultiSelect extends ThemedComponent {
   onMenuValueChosen = (value, event) => {
     const { onMenuValueSelected } = this.props;
 
-    const closingAction = () => {
-      onMenuValueSelected && onMenuValueSelected(value, event);
-      this.focusInput();
-    };
-
-    // Only delay menu closing if menu selection callback is provided
-    setTimeout(closingAction, onMenuValueSelected ? 200 : 0);
+    onMenuValueSelected && onMenuValueSelected(value, event);
+    this.focusInput();
   };
 
   setSelectableItems = ({ selectedItems, children, dir, disabled, size }) => {

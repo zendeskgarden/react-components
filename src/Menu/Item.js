@@ -40,10 +40,6 @@ export class Item extends ThemedComponent {
       namespace: "Menu",
       styles
     });
-
-    this.state = {
-      temporarilyChecked: false
-    };
   }
 
   render() {
@@ -62,10 +58,10 @@ export class Item extends ThemedComponent {
       tooltipPositioning,
       checked,
       metaInformation,
-      isCheckable
+      isCheckable,
+      selectedByMouse
     } = this.props;
     const { theme } = this;
-    const { temporarilyChecked } = this.state;
 
     const accessibilityProps = {
       "aria-activedescendant": selected,
@@ -81,22 +77,13 @@ export class Item extends ThemedComponent {
         {...accessibilityProps}
         className={classNames(theme.item, className, {
           [theme.disabled]: disabled,
-          [theme.focused]: selected,
-          [theme.checked]:
-            checked || (isCheckable && !disabled && temporarilyChecked)
+          [theme.focused]: selected && !selectedByMouse,
+          [theme.checked]: checked
         })}
         disabled={disabled}
-        onMouseDown={event => {
-          this.setState({ temporarilyChecked: true }, () => {
-            onMouseDown && onMouseDown(event);
-          });
-        }}
+        onMouseDown={onMouseDown}
         onMouseEnter={onMouseEnter}
-        onMouseLeave={event => {
-          this.setState({ temporarilyChecked: false }, () => {
-            onMouseLeave && onMouseLeave(event);
-          });
-        }}
+        onMouseLeave={onMouseLeave}
         onClick={onClick}
         role={role}
         testId={testId}

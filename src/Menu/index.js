@@ -57,10 +57,10 @@ export default class Menu extends ThemedComponent {
     arrow: false,
     dir: "ltr",
     centerArrow: false,
-    marginBottom: 2,
-    marginLeft: 2,
-    marginRight: 2,
-    marginTop: 2,
+    marginBottom: 4,
+    marginLeft: 4,
+    marginRight: 4,
+    marginTop: 4,
     positioning: ["bottom_right", "top_right"],
     stretched: false,
     size: "medium",
@@ -115,17 +115,15 @@ export default class Menu extends ThemedComponent {
   };
 
   onValueChosen = (value, event) => {
-    setTimeout(() => {
-      const { onChange, focusOnClose } = this.props;
+    const { onChange, focusOnClose } = this.props;
 
-      this.closeMenu();
-      onChange && onChange(value, event);
+    this.closeMenu();
+    onChange && onChange(value, event);
 
-      if (focusOnClose) {
-        const triggerDOMNode = findDOMNode(this.refs.triggerElement);
-        triggerDOMNode.focus();
-      }
-    }, 200);
+    if (focusOnClose) {
+      const triggerDOMNode = findDOMNode(this.refs.triggerElement);
+      triggerDOMNode.focus();
+    }
   };
 
   showMenu = () => {
