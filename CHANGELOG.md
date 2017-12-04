@@ -1,3 +1,7 @@
+### v13.2.1 (2017-12-04)
+
+- [#417](https://github.com/zendeskgarden/react-components/pull/417) Menu: Fix missplaced focus styling and menuClose race conditions ([Austin Green](mailto:austingreenkansas@gmail.com))
+
 ### v13.2.0 (2017-11-30)
 
 - [#412](https://github.com/zendeskgarden/react-components/pull/412) Table: Add testId support ([Austin Green](mailto:austingreenkansas@gmail.com))
