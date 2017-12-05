@@ -3,7 +3,6 @@ import expect from "test/expect";
 import sinon from "sinon";
 
 import Anchor from "./";
-import View from "../core/View";
 
 describe("Anchor", () => {
   it("should display children with anchor styling", () => {
@@ -12,11 +11,9 @@ describe("Anchor", () => {
         Hello <span>World</span>
       </Anchor>,
       "to render as",
-      <View className="container">
-        <a className="anchor" tabIndex={0}>
-          Hello <span>World</span>
-        </a>
-      </View>
+      <a className="anchor" tabIndex={0}>
+        Hello <span>World</span>
+      </a>
     );
   });
 
@@ -24,11 +21,9 @@ describe("Anchor", () => {
     expect(
       <Anchor tabIndex={-1}>Hello</Anchor>,
       "to render as",
-      <View className="container">
-        <a className="anchor" tabIndex={-1}>
-          Hello
-        </a>
-      </View>
+      <a className="anchor" tabIndex={-1}>
+        Hello
+      </a>
     );
   });
 
@@ -75,6 +70,19 @@ describe("Anchor", () => {
     });
   });
 
+  it("should trigger onMouseDown when moused", () => {
+    const onMouseDown = sinon.spy();
+
+    return expect(
+      <Anchor onMouseDown={onMouseDown}>Hello</Anchor>,
+      "when deeply rendered",
+      "with event",
+      "mouseDown"
+    ).then(() => {
+      expect(onMouseDown, "was called times", 1);
+    });
+  });
+
   it("should remove focused state when selected", () => {
     return expect(
       <Anchor>Hello</Anchor>,
@@ -96,9 +104,7 @@ describe("Anchor", () => {
     expect(
       <Anchor className="custom-class">Hello</Anchor>,
       "to render as",
-      <View className="container">
-        <a className="anchor custom-class">Hello</a>
-      </View>
+      <a className="anchor custom-class">Hello</a>
     );
   });
 });

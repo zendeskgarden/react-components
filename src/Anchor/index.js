@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-import View from "../core/View";
 import ThemedComponent from "../utils/theming/ThemedComponent";
 
 import styles from "./styles.css";
@@ -14,6 +13,7 @@ export default class Anchor extends ThemedComponent {
     tabIndex: PropTypes.number,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
+    onMouseDown: PropTypes.func,
     children: PropTypes.node.isRequired,
     testId: PropTypes.string
   };
@@ -46,7 +46,10 @@ export default class Anchor extends ThemedComponent {
   /**
    * Necessary to not show focus styling when focused by mouse
    */
-  onMouseDown = () => {
+  onMouseDown = event => {
+    const { onMouseDown } = this.props;
+    onMouseDown && onMouseDown(event);
+
     this.mouseInitiated = true;
 
     setTimeout(() => {
@@ -87,27 +90,28 @@ export default class Anchor extends ThemedComponent {
     } = this.props;
     const { isFocused } = this.state;
 
+    const customProps = {};
+    if (testId) {
+      customProps["data-test-id"] = testId;
+    }
+
     return (
-      <View
-        className={theme.container}
+      <a
+        className={classNames(className, theme.anchor, {
+          [theme.focused]: isFocused
+        })}
+        ref={ref => {
+          this.anchorElement = ref;
+        }}
+        {...customProps}
+        {...anchorProps}
+        tabIndex={tabIndex}
         onFocus={this.onFocus}
         onBlur={this.onBlur}
-        testId={testId}
         onMouseDown={this.onMouseDown}
       >
-        <a
-          className={classNames(className, theme.anchor, {
-            [theme.focused]: isFocused
-          })}
-          ref={ref => {
-            this.anchorElement = ref;
-          }}
-          tabIndex={tabIndex}
-          {...anchorProps}
-        >
-          {children}
-        </a>
-      </View>
+        {children}
+      </a>
     );
   }
 }
