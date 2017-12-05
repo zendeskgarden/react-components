@@ -1,3 +1,7 @@
+### v13.3.0 (2017-12-05)
+
+- [#419](https://github.com/zendeskgarden/react-components/pull/419) Anchor: apply className to correct element ([Austin Green](mailto:austingreenkansas@gmail.com))
+
 ### v13.2.1 (2017-12-04)
 
 - [#417](https://github.com/zendeskgarden/react-components/pull/417) Menu: Fix missplaced focus styling and menuClose race conditions ([Austin Green](mailto:austingreenkansas@gmail.com))
