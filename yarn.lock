@@ -10,17 +10,17 @@
   version "1.0.1"
   resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-avatars/-/@zendesk/garden-css-avatars-1.0.1.tgz#e66c6f24ced28a131990e82b935f92c0ed01b425"
 
-"@zendesk/garden-css-buttons@^3.5.0":
-  version "3.5.0"
-  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-buttons/-/@zendesk/garden-css-buttons-3.5.0.tgz#083cfb0133e38a24f4d45207ba430282e9086f59"
+"@zendesk/garden-css-buttons@^3.6.1":
+  version "3.6.1"
+  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-buttons/-/@zendesk/garden-css-buttons-3.6.1.tgz#38f2eb082ea1ca7d6b1c32b1a34177993d960427"
 
 "@zendesk/garden-css-callouts@^1.1.1":
   version "1.1.1"
   resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-callouts/-/@zendesk/garden-css-callouts-1.1.1.tgz#4b1a748f40a77cf79400ae2a4af729922570ecf6"
 
-"@zendesk/garden-css-forms@^3.4.1":
-  version "3.4.1"
-  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-forms/-/@zendesk/garden-css-forms-3.4.1.tgz#768351a9250462d3da3bb95b0d003884b67248a1"
+"@zendesk/garden-css-forms@^3.4.2":
+  version "3.4.2"
+  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-forms/-/@zendesk/garden-css-forms-3.4.2.tgz#cf21d225c6f78daede7499d17f4974b692104677"
 
 "@zendesk/garden-css-labels@^1.1.0":
   version "1.1.0"
@@ -42,9 +42,9 @@
   version "1.0.2"
   resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-tables/-/@zendesk/garden-css-tables-1.0.2.tgz#da91ec918ad419015fc24065e8815555faf6b0d7"
 
-"@zendesk/garden-css-tabs@^3.1.1":
-  version "3.1.1"
-  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-tabs/-/@zendesk/garden-css-tabs-3.1.1.tgz#bf48267fe5cd0bdb773cd788b736b6a158bc3a79"
+"@zendesk/garden-css-tabs@^3.2.0":
+  version "3.2.0"
+  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-tabs/-/@zendesk/garden-css-tabs-3.2.0.tgz#aa501f3e4bbc649a4a5fde42de44083795951024"
 
 "@zendesk/garden-css-tooltips@^2.0.2":
   version "2.0.2"
@@ -58,9 +58,9 @@
   version "6.0.0"
   resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-stylelint-config/-/@zendesk/garden-stylelint-config-6.0.0.tgz#96dd1f0fdf04661de9fd1f5d4fc530713ebc50e8"
 
-"@zendesk/garden-svg-icons@^2.3.0":
-  version "2.3.0"
-  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-svg-icons/-/@zendesk/garden-svg-icons-2.3.0.tgz#f075dfe64b723300307358155fdcabfa46262807"
+"@zendesk/garden-svg-icons@^2.4.0":
+  version "2.4.0"
+  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-svg-icons/-/@zendesk/garden-svg-icons-2.4.0.tgz#99d3c4d9a9e64f9e8770503c15b4da291f4eccac"
 
 abab@^1.0.3:
   version "1.0.3"
