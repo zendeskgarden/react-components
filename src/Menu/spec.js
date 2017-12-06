@@ -408,6 +408,33 @@ describe("Menu", () => {
     });
   });
 
+  describe("with a container classname", () => {
+    it("applies the custom classname", () =>
+      expect(
+        <Menu
+          trigger={<Button>trigger</Button>}
+          menuClassName="custom-class"
+          testId="my-menu"
+        >
+          <Menu.Item>One</Menu.Item>
+          <Menu.Item>Two</Menu.Item>
+          <Menu.Item>Three</Menu.Item>
+        </Menu>,
+        "when clicking on the trigger",
+        "to have rendered menu",
+        `<div>
+          <div class="menu custom-class" role="menu">
+            <div>
+              <div role="menuitem">One</div>
+              <div role="menuitem">Two</div>
+              <div role="menuitem">Three</div>
+            </div>
+          </div>
+        </div>
+        `
+      ));
+  });
+
   describe("with fixedWidth", () => {
     it("renders a menu with fixed width", () =>
       expect(

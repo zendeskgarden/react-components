@@ -42,7 +42,8 @@ export default class Container extends ThemedComponent {
     onMouseDown: PropTypes.func,
     onKeyDown: PropTypes.func,
     onEscape: PropTypes.func,
-    onBlur: PropTypes.func
+    onBlur: PropTypes.func,
+    className: PropTypes.string
   };
 
   static defaultProps = {
@@ -73,7 +74,8 @@ export default class Container extends ThemedComponent {
       onMouseDown,
       onBlur,
       onKeyDown,
-      onEscape
+      onEscape,
+      className
     } = this.props;
 
     const style = {};
@@ -102,7 +104,8 @@ export default class Container extends ThemedComponent {
             [theme.arrow]: arrow,
             [theme[`arrow_${arrowPositions[position]}`]]: arrow,
             [theme.scrollable]: hasMaxHeight
-          }
+          },
+          className
         )}
         role="menu"
         style={style}
