@@ -57,7 +57,7 @@ export default class Menu extends ThemedComponent {
      * Passed (selectedValue, selectionEvent)
      */
     shouldClose: PropTypes.func,
-    menuClassName: PropTypes.string
+    className: PropTypes.string
   };
 
   static defaultProps = {
@@ -187,7 +187,6 @@ export default class Menu extends ThemedComponent {
       testId,
       stretched,
       enableArrowKeyExpansion,
-      menuClassName,
       ...other
     } = this.props;
     const { theme } = this;
@@ -264,7 +263,6 @@ export default class Menu extends ThemedComponent {
             onBlur={() => this.closeMenu()}
             onKeyDown={this.selectionModel.handleKeyDown}
             onEscape={this.closeMenu}
-            className={menuClassName}
           >
             {items}
           </Container>}

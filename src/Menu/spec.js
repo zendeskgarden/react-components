@@ -413,7 +413,7 @@ describe("Menu", () => {
       expect(
         <Menu
           trigger={<Button>trigger</Button>}
-          menuClassName="custom-class"
+          className="custom-class"
           testId="my-menu"
         >
           <Menu.Item>One</Menu.Item>
