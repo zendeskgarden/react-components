@@ -122,9 +122,19 @@ class RelativePositionedPopup extends Component {
       const target =
         e.target ||
         document.elementFromPoint(e.pageX || e.clientX, e.pageY || e.clientY);
-      const inSidePopup =
-        this.popupElement && this.popupElement.contains(target);
-      if (!inSidePopup) {
+
+      const elementIds = Array.from(
+        this.popupElement.querySelectorAll("[aria-owns]")
+      ).map(element => element.getAttribute("aria-owns"));
+
+      const insidePopup =
+        (this.popupElement && this.popupElement.contains(target)) ||
+        elementIds.some(id => {
+          const element = document.getElementById(id);
+          return element && element.contains(target);
+        });
+
+      if (!insidePopup) {
         setTimeout(() => {
           onClickOutside();
         }, 0);
