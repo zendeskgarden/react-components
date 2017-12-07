@@ -22,6 +22,8 @@ const MenuColumn = ({
     rowMenuItems,
     headerMenuMaxHeight,
     rowMenuMaxHeight,
+    shouldHeaderMenuClose,
+    shouldBodyMenuClose,
     ...otherColumnProps
   } = columnProps;
 
@@ -47,6 +49,7 @@ const MenuColumn = ({
         marginTop={headerMenuMargin}
         marginBottom={headerMenuMargin}
         maxHeight={headerMenuMaxHeight}
+        shouldClose={shouldHeaderMenuClose}
       >
         {headerMenuItems(rowProps)}
       </OverflowMenu>
@@ -68,6 +71,7 @@ const MenuColumn = ({
         marginTop={bodyMenuMargin}
         marginBottom={bodyMenuMargin}
         maxHeight={rowMenuMaxHeight}
+        shouldClose={shouldBodyMenuClose}
       >
         {rowMenuItems(rowProps)}
       </OverflowMenu>
