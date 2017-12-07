@@ -100,6 +100,7 @@
   border: none;
   background-color: transparent;
   width: 60px;
+  color: inherit;
 }
 
 .rtl .text_input {
