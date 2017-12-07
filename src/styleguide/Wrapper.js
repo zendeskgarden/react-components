@@ -18,10 +18,8 @@ export default class Wrapper extends Component {
     const theme = window.localStorage.getItem("rc-theme") || "default";
 
     const query = querystring.parse(window.location.search.slice(1));
-    document.body.classList.toggle(
-      "u-font-family-system",
-      query.font === "system"
-    );
+    document.querySelector('link[href$="css-bedrock/index.css"]').disabled =
+      query.bedrock === "false";
 
     switch (theme) {
       case "example":
