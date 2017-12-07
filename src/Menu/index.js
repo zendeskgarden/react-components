@@ -56,7 +56,8 @@ export default class Menu extends ThemedComponent {
      * when a value is selected. Useful for nested menus.
      * Passed (selectedValue, selectionEvent)
      */
-    shouldClose: PropTypes.func
+    shouldClose: PropTypes.func,
+    className: PropTypes.string
   };
 
   static defaultProps = {
