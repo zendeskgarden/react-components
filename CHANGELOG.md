@@ -1,3 +1,7 @@
+### v13.7.0 (2017-12-07)
+
+- [#422](https://github.com/zendeskgarden/react-components/pull/422) Table: Allow optional closing of header and body overflow menus ([Austin Green](mailto:austingreenkansas@gmail.com))
+
 ### v13.6.0 (2017-12-07)
 
 - [#420](https://github.com/zendeskgarden/react-components/pull/420) Menu: Add className support to Menu and Menu.Container ([Austin Green](mailto:austingreenkansas@gmail.com))
