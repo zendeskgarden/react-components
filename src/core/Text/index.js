@@ -12,7 +12,9 @@ export default class Text extends Component {
     onClick: PropTypes.func,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
-    title: PropTypes.string
+    title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+    /** One of: 'top', 'right', 'bottom', 'left' or as array (prioritization) */
+    tooltipPositioning: () => {}
   };
 
   render() {
@@ -23,6 +25,7 @@ export default class Text extends Component {
       tabIndex,
       testId,
       title,
+      tooltipPositioning,
       ...others
     } = this.props;
 
@@ -33,6 +36,7 @@ export default class Text extends Component {
         onClick={onClick}
         tabIndex={tabIndex}
         title={title}
+        tooltipPositioning={tooltipPositioning}
         {...others}
       >
         {children}

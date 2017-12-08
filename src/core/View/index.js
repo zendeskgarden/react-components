@@ -35,7 +35,7 @@ export default class View extends Component {
     onSpace: PropTypes.func,
     onTab: PropTypes.func,
     testId: PropTypes.string,
-    title: PropTypes.string,
+    title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     /** One of: 'top', 'right', 'bottom', 'left' or as array (prioritization) */
     tooltipPositioning: () => {}
   };
