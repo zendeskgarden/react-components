@@ -1,3 +1,8 @@
+### v13.7.1 (2017-12-08)
+
+- [#432](https://github.com/zendeskgarden/react-components/pull/432) Support the ability to remove bedrock CSS from styleguidist ([Jonathan Zempel](mailto:jzempel@gmail.com))
+- [#426](https://github.com/zendeskgarden/react-components/pull/426) Allow nested RelativePositionedPopovers ([Marc Høegh](mailto:Anifacted@users.noreply.github.com))
+
 ### v13.7.0 (2017-12-07)
 
 - [#422](https://github.com/zendeskgarden/react-components/pull/422) Table: Allow optional closing of header and body overflow menus ([Austin Green](mailto:austingreenkansas@gmail.com))
@@ -280,9 +285,6 @@
 
 - [#265](https://github.com/zendeskgarden/react-components/pull/265) Ellipsis: Add support for rich content in title/tooltips ([Marc Høegh](mailto:Anifacted@users.noreply.github.com))
 - [#262](https://github.com/zendeskgarden/react-components/pull/262) Reformat the rest of the files ([Sune Simonsen](mailto:sune@we-knowhow.dk))
-
-### v8.1.1 (2017-08-15)
-
 - [#260](https://github.com/zendeskgarden/react-components/pull/260) Bump version of css-labels to allow for ellipsis overflows ([Austin Green](mailto:austingreenkansas@gmail.com))
 
 ### v8.1.0 (2017-08-14)
