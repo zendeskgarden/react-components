@@ -60,15 +60,13 @@
 .cell {
   composes: c-table__row__cell from '@zendesk/garden-css-tables';
   display: inline-block;
-}
-
-/* Necessary for IE11 flexbox layout bug */
-.cell_checkbox {
-  display: table-cell;
+  box-sizing: border-box;
 }
 
 .cell_sortable {
   composes: c-table__row__cell__sortable from '@zendesk/garden-css-tables';
+  /* Necessary to override default <button> padding */
+  padding-left: 0;
 }
 
 .cell_truncate {
@@ -77,7 +75,6 @@
 
 .cell_min {
   composes: c-table__row__cell--min from '@zendesk/garden-css-tables';
-  box-sizing: inherit;
 }
 
 .cell_overflow {
