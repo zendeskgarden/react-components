@@ -1,3 +1,7 @@
+### v13.8.1 (2017-12-08)
+
+- [#431](https://github.com/zendeskgarden/react-components/pull/431) Fix text color for multiselect input ([Jonathan Zempel](mailto:jzempel@gmail.com))
+
 ### v13.8.0 (2017-12-08)
 
 - [#434](https://github.com/zendeskgarden/react-components/pull/434) Make all the CSS dependencies that are shared with SSC exact ([Sune Simonsen](mailto:sune@we-knowhow.dk))
