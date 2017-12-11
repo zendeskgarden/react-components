@@ -74,6 +74,7 @@ export default class Label extends ThemedComponent {
         data-test-id={testId && `${testId}-remove`}
         className={theme.remove}
         onClick={onRemove}
+        type="button"
       />
     );
   };
