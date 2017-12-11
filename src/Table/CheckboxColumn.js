@@ -100,7 +100,7 @@ const CheckboxColumn = ({
       key={key}
       width={30}
       headerClassName={classNames(theme.cell, theme.cell_min, headerClassName)}
-      className={classNames(theme.cell, className, theme.cell_checkbox)}
+      className={classNames(theme.cell, theme.cell_min, className)}
       headerRenderer={allowSelectAll ? headerRenderer : () => ""}
       cellRenderer={cellRenderer}
       disableSort

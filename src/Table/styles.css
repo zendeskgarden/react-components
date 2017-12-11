@@ -62,11 +62,6 @@
   display: inline-block;
 }
 
-/* Necessary for IE11 flexbox layout bug */
-.cell_checkbox {
-  display: table-cell;
-}
-
 .cell_sortable {
   composes: c-table__row__cell__sortable from '@zendesk/garden-css-tables';
 }
