@@ -12,6 +12,7 @@ export default class Text extends Component {
     onClick: PropTypes.func,
     tabIndex: PropTypes.number,
     testId: PropTypes.string,
+    /** Hiding advanced content within tooltips may have accessibility impacts */
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     /** One of: 'top', 'right', 'bottom', 'left' or as array (prioritization) */
     tooltipPositioning: () => {}
