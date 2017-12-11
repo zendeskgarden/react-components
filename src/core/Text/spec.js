@@ -61,4 +61,18 @@ describe("Text", () => {
       );
     });
   });
+
+  describe("when given a title", () => {
+    it("renders a text with that title as a tooltip", () => {
+      expect(
+        <Text title="testing" tooltipPositioning="right">
+          Custom
+        </Text>,
+        "to render as",
+        <View className="container" title="testing" tooltipPositioning="right">
+          Custom
+        </View>
+      );
+    });
+  });
 });

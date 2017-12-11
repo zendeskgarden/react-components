@@ -35,7 +35,8 @@ export default class View extends Component {
     onSpace: PropTypes.func,
     onTab: PropTypes.func,
     testId: PropTypes.string,
-    title: PropTypes.string,
+    /** Hiding advanced content within tooltips may have accessibility impacts */
+    title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     /** One of: 'top', 'right', 'bottom', 'left' or as array (prioritization) */
     tooltipPositioning: () => {}
   };
