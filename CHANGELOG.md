@@ -1,3 +1,7 @@
+### v13.8.3 (2017-12-11)
+
+- [#439](https://github.com/zendeskgarden/react-components/pull/439) Table: Upgade css-tables to fix rendering when not using bedrock resets ([Austin Green](mailto:austingreenkansas@gmail.com))
+
 ### v13.8.2 (2017-12-11)
 
 - [#435](https://github.com/zendeskgarden/react-components/pull/435) Text: Add tooltipPositioning prop and allow dynamic content ([Austin Green](mailto:austingreenkansas@gmail.com))
