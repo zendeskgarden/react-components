@@ -13,6 +13,12 @@ import styles from "./styles.css";
 export default class Select extends ThemedComponent {
   static Item = Menu.Item;
   static Separator = Menu.Separator;
+  static LinkItem = Menu.LinkItem;
+  static PreviousItem = Menu.PreviousItem;
+  static NextItem = Menu.NextItem;
+  static HeaderItem = Menu.HeaderItem;
+  static AddItem = Menu.AddItem;
+  static MediaItem = Menu.MediaItem;
 
   static propTypes = {
     children: PropTypes.node.isRequired,
@@ -42,7 +48,8 @@ export default class Select extends ThemedComponent {
     /** <a href="#view">See View</a> for positioning options */
     tooltipPositioning: () => {},
     validation: PropTypes.oneOf(["error", "warning", "success"]),
-    validationText: PropTypes.string
+    validationText: PropTypes.string,
+    shouldClose: PropTypes.func
   };
 
   static defaultProps = {
@@ -125,7 +132,8 @@ export default class Select extends ThemedComponent {
       title,
       tooltipPositioning,
       validation,
-      validationText
+      validationText,
+      shouldClose
     } = this.props;
 
     const { open } = this.state;
@@ -187,6 +195,7 @@ export default class Select extends ThemedComponent {
           }
           size={size}
           stretched={stretched}
+          shouldClose={shouldClose}
         >
           {children}
         </Menu>
