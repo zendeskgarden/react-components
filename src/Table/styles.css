@@ -35,7 +35,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  box-sizing: border-box;
 }
 
 .table_row_header {
@@ -61,7 +60,6 @@
 .cell {
   composes: c-table__row__cell from '@zendesk/garden-css-tables';
   display: inline-block;
-  box-sizing: border-box;
 }
 
 .cell_sortable {
@@ -74,6 +72,7 @@
 
 .cell_min {
   composes: c-table__row__cell--min from '@zendesk/garden-css-tables';
+  box-sizing: inherit;
 }
 
 .cell_overflow {

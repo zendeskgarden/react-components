@@ -38,9 +38,9 @@
   version "1.1.0"
   resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-pagination/-/@zendesk/garden-css-pagination-1.1.0.tgz#d025f00b6b64fc841fed9ae36873583295b72ef2"
 
-"@zendesk/garden-css-tables@1.0.3":
-  version "1.0.3"
-  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-tables/-/@zendesk/garden-css-tables-1.0.3.tgz#52f15ad68c12da9e2676c1bef96d47a708feb6a4"
+"@zendesk/garden-css-tables@1.0.4":
+  version "1.0.4"
+  resolved "https://zdrepo.jfrog.io/zdrepo/api/npm/npm/@zendesk/garden-css-tables/-/@zendesk/garden-css-tables-1.0.4.tgz#7774882ab60f16ae5314f0b4908a9fb109753f9a"
 
 "@zendesk/garden-css-tabs@3.2.0":
   version "3.2.0"
