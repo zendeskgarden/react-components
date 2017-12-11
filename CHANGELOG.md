@@ -1,3 +1,7 @@
+### v13.8.2 (2017-12-11)
+
+- [#435](https://github.com/zendeskgarden/react-components/pull/435) Text: Add tooltipPositioning prop and allow dynamic content ([Austin Green](mailto:austingreenkansas@gmail.com))
+
 ### v13.8.1 (2017-12-08)
 
 - [#431](https://github.com/zendeskgarden/react-components/pull/431) Fix text color for multiselect input ([Jonathan Zempel](mailto:jzempel@gmail.com))
@@ -293,6 +297,9 @@
 
 - [#265](https://github.com/zendeskgarden/react-components/pull/265) Ellipsis: Add support for rich content in title/tooltips ([Marc Høegh](mailto:Anifacted@users.noreply.github.com))
 - [#262](https://github.com/zendeskgarden/react-components/pull/262) Reformat the rest of the files ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
+### v8.1.1 (2017-08-15)
+
 - [#260](https://github.com/zendeskgarden/react-components/pull/260) Bump version of css-labels to allow for ellipsis overflows ([Austin Green](mailto:austingreenkansas@gmail.com))
 
 ### v8.1.0 (2017-08-14)
