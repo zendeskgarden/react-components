@@ -7,6 +7,7 @@
    * implementation with RTL styling
    */
   table-layout: auto;
+  box-sizing: border-box;
 }
 
 .table_sm {
@@ -35,10 +36,12 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .table_row_header {
   composes: c-table__row--header from '@zendesk/garden-css-tables';
+  box-sizing: border-box;
 }
 
 .table_row_group {
@@ -65,8 +68,6 @@
 
 .cell_sortable {
   composes: c-table__row__cell__sortable from '@zendesk/garden-css-tables';
-  /* Necessary to override default <button> padding */
-  padding-left: 0;
 }
 
 .cell_truncate {

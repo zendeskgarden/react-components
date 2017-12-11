@@ -50,7 +50,7 @@
     "@zendesk/garden-css-menus": "5.0.1",
     "@zendesk/garden-css-modals": "4.0.1",
     "@zendesk/garden-css-pagination": "1.1.0",
-    "@zendesk/garden-css-tables": "1.0.2",
+    "@zendesk/garden-css-tables": "1.0.3",
     "@zendesk/garden-css-tabs": "3.2.0",
     "@zendesk/garden-css-tooltips": "2.0.2",
     "@zendesk/garden-css-variables": "2.1.0",
