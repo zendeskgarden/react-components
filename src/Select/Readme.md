@@ -158,6 +158,49 @@ initialState = { value: 'Two' };
 </Select>
 ```
 
+Tree based Select menu:
+
+```
+initialState = { value: 'Two' };
+
+const menuItems = () => {
+  if (state.treeValue !== 'tree-items') {
+    return [
+      <Select.Item key='one' value='One'>One</Select.Item>,
+      <Select.Item key='two' value='Two'>Two</Select.Item>,
+      <Select.Item key='three' value='Three' disabled>Three</Select.Item>,
+      <Select.Separator key='separator-top' />,
+      <Select.NextItem key='tree-items' value='tree-items'>Nested Items</Select.NextItem>,
+      <Select.Separator key='separator-bottom' />,
+      <Select.Item key='a' value='A'>A</Select.Item>,
+      <Select.Item key='b' value='B'>B</Select.Item>,
+      <Select.Item key='c' value='C'>C</Select.Item>
+    ];
+  }
+
+  return [
+    <Select.PreviousItem key='tree-previous' value='tree-previous'>Previous Items</Select.PreviousItem>,
+    <Select.Separator key='separator' />,
+    <Select.Item key='nested-1' value="Nested Item">Nested Item</Select.Item>,
+    <Select.Item key='nested-2' value="Nested Item 1">Nested Item 1</Select.Item>
+  ];
+};
+
+<Select
+  selected={ state.value }
+  onChange={value => {
+    if (value.indexOf('tree') === -1) {
+      setState({ value, treeValue: '' });
+    } else {
+      setState({ treeValue: value });
+    }
+  }}
+  shouldClose={value => value.indexOf('tree') === -1}
+>
+  {menuItems()}
+</Select>
+```
+
 You can put anything in the selected value:
 
 ```

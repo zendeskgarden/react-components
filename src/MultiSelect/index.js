@@ -68,6 +68,7 @@ export default class MultiSelect extends ThemedComponent {
     fixedWidth: PropTypes.bool,
     showIcon: PropTypes.bool,
     onMenuValueSelected: PropTypes.func,
+    menuShouldClose: PropTypes.func,
     type: PropTypes.oneOf(["default", "bare"])
   };
 
@@ -126,10 +127,13 @@ export default class MultiSelect extends ThemedComponent {
   };
 
   onMenuValueChosen = (value, event) => {
-    const { onMenuValueSelected } = this.props;
+    const { onMenuValueSelected, menuShouldClose } = this.props;
 
     onMenuValueSelected && onMenuValueSelected(value, event);
-    this.focusInput();
+
+    if (!menuShouldClose || menuShouldClose(value, event)) {
+      this.focusInput();
+    }
   };
 
   setSelectableItems = ({ selectedItems, children, dir, disabled, size }) => {
