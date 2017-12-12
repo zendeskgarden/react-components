@@ -1,3 +1,7 @@
+### v13.9.0 (2017-12-12)
+
+- [#440](https://github.com/zendeskgarden/react-components/pull/440) Select/MultiSelect: Add support for the Menu shouldClose prop ([Austin Green](mailto:austingreenkansas@gmail.com))
+
 ### v13.8.4 (2017-12-11)
 
 - [#438](https://github.com/zendeskgarden/react-components/pull/438) Label: Stop default form submission when label is removed ([Austin Green](mailto:austingreenkansas@gmail.com))
