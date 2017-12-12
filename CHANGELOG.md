@@ -1,3 +1,7 @@
+### v13.9.1 (2017-12-12)
+
+- [#441](https://github.com/zendeskgarden/react-components/pull/441) Select: Disallow user selection within input ([Austin Green](mailto:austingreenkansas@gmail.com))
+
 ### v13.9.0 (2017-12-12)
 
 - [#440](https://github.com/zendeskgarden/react-components/pull/440) Select/MultiSelect: Add support for the Menu shouldClose prop ([Austin Green](mailto:austingreenkansas@gmail.com))
