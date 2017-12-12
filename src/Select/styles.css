@@ -17,6 +17,7 @@
 
 .input {
   composes: c-txt__input c-txt__input--select from '@zendesk/garden-css-forms';
+  user-select: none;
 }
 
 .is_focused {
