@@ -105,8 +105,15 @@ class RelativePositionedPopup extends Component {
     const { hidden } = this.props;
 
     if (!hidden) {
+      // Necessary to allow resize of content on change
+      const originalWidth = this.popupElement.style.width;
+      this.popupElement.style.width = "auto";
+
       this.anchorRect = this.anchorElement.firstChild.getBoundingClientRect();
       this.popupRect = this.popupElement.firstChild.getBoundingClientRect();
+
+      this.popupElement.style.width = originalWidth;
+
       const placement = this.getBestRelativePlacement();
       this.setState({
         placement
