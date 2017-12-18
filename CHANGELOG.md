@@ -1,3 +1,7 @@
+### v13.9.2 (2017-12-18)
+
+- [#445](https://github.com/zendeskgarden/react-components/pull/445) Add React v16 as a valid peer dependency ([Austin Green](mailto:austingreenkansas@gmail.com))
+
 ### v13.9.1 (2017-12-12)
 
 - [#441](https://github.com/zendeskgarden/react-components/pull/441) Select: Disallow user selection within input ([Austin Green](mailto:austingreenkansas@gmail.com))
