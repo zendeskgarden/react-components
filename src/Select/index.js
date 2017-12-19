@@ -49,7 +49,8 @@ export default class Select extends ThemedComponent {
     tooltipPositioning: () => {},
     validation: PropTypes.oneOf(["error", "warning", "success"]),
     validationText: PropTypes.string,
-    shouldClose: PropTypes.func
+    shouldClose: PropTypes.func,
+    menuClassName: PropTypes.func
   };
 
   static defaultProps = {
@@ -133,7 +134,8 @@ export default class Select extends ThemedComponent {
       tooltipPositioning,
       validation,
       validationText,
-      shouldClose
+      shouldClose,
+      menuClassName
     } = this.props;
 
     const { open } = this.state;
@@ -196,6 +198,7 @@ export default class Select extends ThemedComponent {
           size={size}
           stretched={stretched}
           shouldClose={shouldClose}
+          className={menuClassName}
         >
           {children}
         </Menu>
