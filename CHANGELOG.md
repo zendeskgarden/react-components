@@ -1,3 +1,7 @@
+### v13.10.1 (2017-12-20)
+
+- [#447](https://github.com/zendeskgarden/react-components/pull/447) Revert: Add React v16 as a valid peer dependency ([Austin Green](mailto:austingreenkansas@gmail.com))
+
 ### v13.10.0 (2017-12-19)
 
 - [#442](https://github.com/zendeskgarden/react-components/pull/442) Menu: Allow resizing of menu contents ([Austin Green](mailto:austingreenkansas@gmail.com))
