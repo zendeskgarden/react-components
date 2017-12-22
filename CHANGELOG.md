@@ -1,3 +1,7 @@
+### v13.10.2 (2017-12-22)
+
+- [#449](https://github.com/zendeskgarden/react-components/pull/449) TextInput: Allow all valid input types ([Austin Green](mailto:austingreenkansas@gmail.com))
+
 ### v13.10.1 (2017-12-20)
 
 - [#447](https://github.com/zendeskgarden/react-components/pull/447) Revert: Add React v16 as a valid peer dependency ([Austin Green](mailto:austingreenkansas@gmail.com))
