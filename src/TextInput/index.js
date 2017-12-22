@@ -50,19 +50,8 @@ export default class TextInput extends ThemedComponent {
     validation: PropTypes.oneOf(["error", "warning", "success"]),
     validationText: PropTypes.string,
     value: PropTypes.string,
-    valueType: PropTypes.oneOf([
-      "date",
-      "datetime-local",
-      "email",
-      "month",
-      "number",
-      "password",
-      "search",
-      "tel",
-      "text",
-      "url",
-      "week"
-    ])
+    /** Supports all valid [Input types](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) */
+    valueType: PropTypes.string
   };
 
   static defaultProps = {
