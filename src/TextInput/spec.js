@@ -159,7 +159,15 @@ describe("TextInput", () => {
     });
   });
 
-  const types = ["email", "number", "password", "search", "tel", "text"];
+  const types = [
+    "email",
+    "number",
+    "password",
+    "search",
+    "tel",
+    "text",
+    "date"
+  ];
   types.forEach(type => {
     describe(`with a value type of ${type}`, () => {
       it(`renders an ${type} input`, () => {

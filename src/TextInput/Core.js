@@ -37,14 +37,8 @@ export default class Core extends Component {
         );
       }
     },
-    valueType: PropTypes.oneOf([
-      "email",
-      "number",
-      "password",
-      "search",
-      "tel",
-      "text"
-    ]),
+    /** Supports all valid [Input types](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) */
+    valueType: PropTypes.string,
     value: PropTypes.string,
     innerRef: PropTypes.func
   };

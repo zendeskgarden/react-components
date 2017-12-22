@@ -143,7 +143,7 @@
   "lint-staged": {
     "linters": {
       "!(lib)/**/*.js": [
-        "eslint",
+        "eslint ./src",
         "prettier --write",
         "git add"
       ],
