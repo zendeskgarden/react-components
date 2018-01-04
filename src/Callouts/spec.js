@@ -12,7 +12,7 @@ describe("Callouts", () => {
       </Callouts>,
       "to render as",
       <div className="callouts floating">
-        <Callout dir="ltr" type="default" tabIndex={0} floating>
+        <Callout dir="ltr" type="default" tabIndex={0}>
           Callout
         </Callout>
       </div>
@@ -25,7 +25,7 @@ describe("Callouts", () => {
       </Callouts>,
       "to render as",
       <div className="callouts floating">
-        <Callout dir="ltr" type="default" tabIndex={0} floating>
+        <Callout dir="ltr" type="default" tabIndex={0}>
           Callout
         </Callout>
       </div>
@@ -40,7 +40,7 @@ describe("Callouts", () => {
       </Callouts>,
       "to render as",
       <div className="callouts floating">
-        <Callout dir="ltr" type="success" title="Title" tabIndex={0} floating>
+        <Callout dir="ltr" type="success" title="Title" tabIndex={0}>
           Callout
         </Callout>
       </div>

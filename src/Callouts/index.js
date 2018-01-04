@@ -1,8 +1,6 @@
-import React, { Component, Children } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-
-import Callout from "../Callout";
 
 import styles from "./styles.css";
 
@@ -22,11 +20,19 @@ export default class Callouts extends Component {
     zIndex: 700
   };
 
+  static childContextTypes = {
+    floating: PropTypes.bool
+  };
+
   constructor(props, context) {
     super(props, context, {
       namespace: "Callout"
     });
     this.state = {};
+  }
+
+  getChildContext() {
+    return { floating: this.props.floating };
   }
 
   render() {
@@ -50,15 +56,7 @@ export default class Callouts extends Component {
         style={{ zIndex }}
         {...props}
       >
-        {Children.map(children, (child, index) => {
-          if (child && child.type === Callout) {
-            return React.cloneElement(child, {
-              floating: floating
-            });
-          } else {
-            return child;
-          }
-        })}
+        {children}
       </div>
     );
   }
