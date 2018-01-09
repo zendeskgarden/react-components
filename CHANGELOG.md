@@ -1,3 +1,7 @@
+### v13.10.3 (2018-01-09)
+
+- [#455](https://github.com/zendeskgarden/react-components/pull/455) Utilise context to pass down the floating prop to the child Callout ([Ryan Seddon](mailto:seddon.ryan@gmail.com))
+
 ### v13.10.2 (2017-12-22)
 
 - [#449](https://github.com/zendeskgarden/react-components/pull/449) TextInput: Allow all valid input types ([Austin Green](mailto:austingreenkansas@gmail.com))
@@ -329,9 +333,6 @@
 
 - [#265](https://github.com/zendeskgarden/react-components/pull/265) Ellipsis: Add support for rich content in title/tooltips ([Marc Høegh](mailto:Anifacted@users.noreply.github.com))
 - [#262](https://github.com/zendeskgarden/react-components/pull/262) Reformat the rest of the files ([Sune Simonsen](mailto:sune@we-knowhow.dk))
-
-### v8.1.1 (2017-08-15)
-
 - [#260](https://github.com/zendeskgarden/react-components/pull/260) Bump version of css-labels to allow for ellipsis overflows ([Austin Green](mailto:austingreenkansas@gmail.com))
 
 ### v8.1.0 (2017-08-14)
