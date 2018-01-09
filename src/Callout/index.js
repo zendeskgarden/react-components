@@ -15,15 +15,17 @@ export default class Callout extends ThemedComponent {
     onClose: PropTypes.func,
     tabIndex: PropTypes.number,
     title: PropTypes.string,
-    floating: PropTypes.bool,
     type: PropTypes.oneOf(["default", "success", "warning", "error"])
   };
 
   static defaultProps = {
     dir: "ltr",
     type: "default",
-    tabIndex: 0,
-    floating: false
+    tabIndex: 0
+  };
+
+  static contextTypes = {
+    floating: PropTypes.bool
   };
 
   constructor(props, context) {
@@ -46,15 +48,8 @@ export default class Callout extends ThemedComponent {
 
   render() {
     const { theme } = this;
-    const {
-      children,
-      className,
-      dir,
-      onClose,
-      type,
-      title,
-      floating
-    } = this.props;
+    const { floating } = this.context;
+    const { children, className, dir, onClose, type, title } = this.props;
 
     return (
       <View
