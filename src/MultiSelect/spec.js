@@ -9,11 +9,14 @@ import RelativePositionedPopup from "../core/RelativePositionedPopup";
 
 describe("MultiSelect", () => {
   it("renders a MultiSelect component", () => {
+    const placeholder = "Placeholder text";
+
     expect(
       <MultiSelect
         label="Label text"
         hint="Hint text"
         textValue="text value"
+        placeholderText={placeholder}
         selectedItems={[<MultiSelect.Label>Label 1</MultiSelect.Label>]}
       />,
       "to render as",
@@ -26,7 +29,7 @@ describe("MultiSelect", () => {
           anchor={
             <View className="input">
               <MultiSelect.Label>Label 1</MultiSelect.Label>
-              <TextInput.Core />
+              <TextInput.Core placeholder={placeholder} />
             </View>
           }
         />
