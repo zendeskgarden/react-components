@@ -1,3 +1,7 @@
+### v13.10.4 (2018-01-22)
+
+- [#460](https://github.com/zendeskgarden/react-components/pull/460) Fix typo in passing placeholderText from <MultiSelect /> to <TextInput.Core /> ([Sune Simonsen](mailto:sune@we-knowhow.dk))
+
 ### v13.10.3 (2018-01-09)
 
 - [#455](https://github.com/zendeskgarden/react-components/pull/455) Utilise context to pass down the floating prop to the child Callout ([Ryan Seddon](mailto:seddon.ryan@gmail.com))
