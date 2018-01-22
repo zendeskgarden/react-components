@@ -408,7 +408,7 @@ export default class MultiSelect extends ThemedComponent {
             }
           }}
           value={textValue}
-          placeholderText={placeholderText}
+          placeholder={placeholderText}
           innerRef={ref => {
             this.textInputNode = this.textInputNode || findDOMNode(ref);
           }}
