@@ -1,6 +1,0 @@
-@import './variables';
-@import '../base-theme/Button.css';
-
-:root {
-  --zd-btn-hovered-background-color-saturation: 0%;
-}

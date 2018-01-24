@@ -1,3 +1,0 @@
-.hint {
-  composes: c-input-hint from '@zendesk/garden-css-forms';
-}

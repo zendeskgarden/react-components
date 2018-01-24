@@ -1,9 +1,11 @@
 {
-  "extends": "@zendesk/garden-stylelint-config",
+  "processors": ["stylelint-processor-styled-components"],
+  "extends": [
+    "@zendesk/garden-stylelint-config",
+    "stylelint-config-styled-components"
+  ],
   "rules": {
-    "property-no-unknown": [true, {
-      "ignoreProperties": ["composes"]
-    }],
-    "selector-max-specificity": "0,4,2"
+    "declaration-empty-line-before": null,
+    "value-keyword-case": ["lower", { ignoreKeywords: ['$dummyValue'] }]
   }
 }

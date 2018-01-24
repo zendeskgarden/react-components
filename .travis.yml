@@ -25,18 +25,14 @@ before_deploy:
   - npm run travis:before_deploy
 
 deploy:
-
-  - provider: pages
-    github_token: $GITHUB_TOKEN
-    local_dir: styleguide
+  - provider: script
+    script: npm run travis:github_pages
     skip_cleanup: true
     on:
-      branch: master
-      tags: true
+      branch: next
 
   - provider: script
-    script: npm publish
+    script: npm run travis:publish
     skip_cleanup: true
     on:
-      branch: master
-      tags: true
+      branch: next

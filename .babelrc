@@ -1,7 +1,8 @@
 {
   "plugins": [
     "inline-react-svg",
-    "transform-runtime"
+    "transform-object-assign",
+    "babel-plugin-styled-components"
   ],
   "presets": [
     "es2015",

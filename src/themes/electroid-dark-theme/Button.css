@@ -1,5 +1,0 @@
-.type_default,
-.type_primary,
-.type_basic {
-  composes: c-btn--dark from '@zendesk/garden-css-buttons';
-}

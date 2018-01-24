@@ -1,4 +1,10 @@
+# General ignores
 node_modules
-coverage
-/styleguide
-example/public
+*.log
+
+# Package specific
+packages/**/dist
+packages/**/yarn.lock
+
+# Demo specific
+demo/components

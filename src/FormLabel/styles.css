@@ -1,3 +1,0 @@
-.label {
-  composes: c-input-label from '@zendesk/garden-css-forms';
-}

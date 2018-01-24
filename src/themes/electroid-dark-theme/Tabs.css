@@ -1,3 +1,0 @@
-.tabs {
-  composes: c-tab--dark from '@zendesk/garden-css-tabs';
-}
