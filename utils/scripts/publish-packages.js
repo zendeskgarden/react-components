@@ -9,7 +9,7 @@ const LERNA_PUBLISH_MESSAGE = lernaConfig.commands.publish.message;
 /**
  * Only perform publish if commit message is Lerna created
  */
-if (process.env.TRAVIS_COMMIT === LERNA_PUBLISH_MESSAGE) {
+if (process.env.TRAVIS_COMMIT_MESSAGE.indexOf(LERNA_PUBLISH_MESSAGE) > -1) {
   const lernaExecPublish = childProcess.spawn(lernaPath, [
     'exec',
     '"npm publish dist"',
@@ -24,4 +24,6 @@ if (process.env.TRAVIS_COMMIT === LERNA_PUBLISH_MESSAGE) {
   lernaExecPublish.stderr.on('data', data => {
     process.stderr.write(data);
   });
+} else {
+  throw Error(`$TRAVIS_COMMIT_MESSAGE of "${process.env.TRAVIS_COMMIT_MESSAGE}" is not valid`);
 }
