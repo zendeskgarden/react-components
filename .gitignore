@@ -7,4 +7,6 @@ packages/**/dist
 packages/**/yarn.lock
 
 # Demo specific
-demo/components
+demo/**/*
+!demo/index.html
+!demo/index.svg

@@ -6,6 +6,6 @@
   ],
   "rules": {
     "declaration-empty-line-before": null,
-    "value-keyword-case": ["lower", { ignoreKeywords: ['$dummyValue'] }]
+    "value-keyword-case": ["lower", { ignoreKeywords: ['dummyValue'] }]
   }
 }

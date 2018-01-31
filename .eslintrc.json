@@ -29,6 +29,8 @@
   },
   "rules": {
     "prettier/prettier": "error",
-    "indent": ["error", 2]
+    "indent": ["error", 2],
+    "sort-imports": "off",
+    "valid-jsdoc": "off"
   }
 }

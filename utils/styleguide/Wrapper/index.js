@@ -8,9 +8,7 @@ const Wrapper = ({ children }) => {
   const query = url.parse(window.location.href).query;
   const isRtl = query && query.indexOf('isRtl') !== -1;
 
-  return <ThemeProvider rtl={isRtl}>
-    {children}
-  </ThemeProvider>;
+  return <ThemeProvider rtl={isRtl}>{children}</ThemeProvider>;
 };
 
 Wrapper.propTypes = {

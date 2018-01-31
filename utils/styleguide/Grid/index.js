@@ -1,23 +1,23 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-import styles from "./styles.css";
+import styles from './styles.css';
 
-import Row from "./Row";
-import Cell from "./Cell";
+import Row from './Row';
+import Cell from './Cell';
 
 class Grid extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
-    spacing: PropTypes.oneOf(["none", "small", "medium", "large"]),
+    spacing: PropTypes.oneOf(['none', 'small', 'medium', 'large']),
     stretched: PropTypes.bool,
     columns: PropTypes.number.isRequired
   };
 
   static defaultProps = {
     columns: Infinity,
-    spacing: "small",
+    spacing: 'small',
     stretched: false
   };
 
@@ -43,15 +43,9 @@ class Grid extends Component {
           [styles.stretched]: stretched
         })}
       >
-        {rows.map((row, i) =>
-          <Row key={i}>
-            {row.map((cell, i) =>
-              <Cell key={i}>
-                {cell}
-              </Cell>
-            )}
-          </Row>
-        )}
+        {rows.map((row, i) => (
+          <Row key={i}>{row.map((cell, i) => <Cell key={i}>{cell}</Cell>)}</Row>
+        ))}
       </div>
     );
   }
