@@ -11,10 +11,11 @@ const LERNA_PUBLISH_MESSAGE = lernaConfig.commands.publish.message;
  */
 if (process.env.TRAVIS_COMMIT_MESSAGE.indexOf(LERNA_PUBLISH_MESSAGE) > -1) {
   const lernaExecPublish = childProcess.spawn(lernaPath, [
-    'exec',
-    '"npm publish dist"',
     '--since=HEAD~1',
-    '--bail=false'
+    '--bail=false',
+    'exec',
+    '--',
+    'npm publish dist'
   ]);
 
   lernaExecPublish.stdout.on('data', data => {
