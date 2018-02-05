@@ -57,3 +57,14 @@ yarn build:single
 ## Deployment Instruction
 
 ToDo once we get the first few components out...
+
+## Creating New Packages
+
+To create a new package run
+
+```bash
+yarn new
+```
+
+This will prompt you for a package name. Once the script is finished you may run
+the package locally with `yarn start --scope @zendesk/garden-react-{{package}}`.
