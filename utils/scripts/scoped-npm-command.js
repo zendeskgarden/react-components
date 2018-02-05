@@ -50,7 +50,7 @@ const PromptUserForPackages = packages => {
     {
       type: 'list',
       name: 'package',
-      message: 'Which package would you like to run locally?',
+      message: 'Which package would you like to run against?',
       choices: packageList
     }
   ]);

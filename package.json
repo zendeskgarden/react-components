@@ -24,6 +24,7 @@
     "travis:script": "yarn lint && yarn test:all"
   },
   "devDependencies": {
+    "@types/react": "^16.0.36",
     "@zendesk/eslint-config-garden": "^4.0.0",
     "@zendesk/garden-css-variables": "^3.1.0",
     "@zendesk/garden-stylelint-config": "^6.0.0",

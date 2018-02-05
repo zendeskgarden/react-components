@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Well renders default well styling 1`] = `
+<div
+  className="Well-kOxQyt c-callout kjJIgs"
+/>
+`;
+
+exports[`Well renders floating styling correctly 1`] = `
+<div
+  className="Well-kOxQyt c-callout c-callout--dialog kjJIgs"
+/>
+`;
+
+exports[`Well renders recessed styling correctly 1`] = `
+<div
+  className="Well-kOxQyt c-callout c-callout--recessed kjJIgs"
+/>
+`;
+
+exports[`Well renders with RTL styling if applied 1`] = `
+<div
+  className="Well-kOxQyt c-callout is-rtl kjJIgs"
+/>
+`;

@@ -53,6 +53,18 @@ const defaultStyleguideConfig = {
           loader: 'raw-loader'
         }
       ]
+    },
+    resolve: {
+      alias: {
+        'styled-components': path.resolve(
+          __dirname,
+          '..',
+          '..',
+          'node_modules',
+          'styled-components'
+        ),
+        'package.json': path.resolve('package.json')
+      }
     }
   }
 };

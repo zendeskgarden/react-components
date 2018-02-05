@@ -47,7 +47,11 @@ gulp.task('js', () => {
  * Copy package.json and other NPM related assets to enable "flat-pack" module imports
  */
 gulp.task('copy', () => {
-  return gulp.src(['package.json', 'README.md', 'CHANGELOG.md']).pipe(gulp.dest('./dist'));
+  return gulp
+    .src(['package.json', 'README.md', 'CHANGELOG.md', 'index.d.ts'], {
+      allowEmpty: true
+    })
+    .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('default', gulp.series('clean', 'js', 'copy'));

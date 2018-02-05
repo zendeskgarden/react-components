@@ -2,13 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import url from 'url';
 import styled from 'styled-components';
+import { zdColorAlgae } from '@zendesk/garden-css-variables';
 import TableOfContentsRenderer from 'react-styleguidist/lib/rsg-components/TableOfContents/TableOfContentsRenderer';
+
+import packageJson from 'package.json';
 
 const RTLContainer = styled.div`
   margin-top: 16px;
   margin-bottom: 16px;
   padding-right: 16px;
   padding-left: 16px;
+
+  button {
+    width: 100%;
+  }
+`;
+
+const Version = styled.div`
+  text-align: center;
+  color: ${zdColorAlgae};
 `;
 
 const TableOfContents = ({ children, ...other }) => {
@@ -28,9 +40,10 @@ const TableOfContents = ({ children, ...other }) => {
             }
           }}
         >
-          {!isRtl ? 'Enable RTL Locale' : 'Disable RTL Locale'}
+          {isRtl ? 'Disable RTL Locale' : 'Enable RTL Locale'}
         </button>
       </RTLContainer>
+      <Version title="Current version">v{packageJson.version}</Version>
     </TableOfContentsRenderer>
   );
 };

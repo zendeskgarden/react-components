@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Title renders with title styling 1`] = `
+<div
+  className="Title-kEkEAm c-callout__title kqpoIR"
+/>
+`;
