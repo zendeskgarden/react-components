@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+/* eslint-disable no-console */
+
 const path = require('path');
 const childProcess = require('child_process');
 const lernaPath = path.resolve(__dirname, '..', '..', 'node_modules', '.bin', 'lerna');
@@ -26,5 +28,5 @@ if (process.env.TRAVIS_COMMIT_MESSAGE.indexOf(LERNA_PUBLISH_MESSAGE) > -1) {
     process.stderr.write(data);
   });
 } else {
-  throw Error(`$TRAVIS_COMMIT_MESSAGE of "${process.env.TRAVIS_COMMIT_MESSAGE}" is not valid`);
+  console.log(`$TRAVIS_COMMIT_MESSAGE of "${process.env.TRAVIS_COMMIT_MESSAGE}" is not valid`);
 }
