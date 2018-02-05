@@ -7,7 +7,7 @@
     </Paragraph>
     <Close onClick={() => alert('closing notification')} />
   </Notification>
-  <Notification validation="success">
+  <Notification type="success">
     <Title>Success Notification</Title>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     <Close onClick={() => alert('closing notification')} />

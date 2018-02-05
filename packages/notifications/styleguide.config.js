@@ -15,7 +15,7 @@ module.exports = {
     },
     {
       name: 'Content',
-      components: '../../packages/notifications/src/Content/[A-Z]*.js'
+      components: '../../packages/notifications/src/content/[A-Z]*.js'
     }
   ]
 };
