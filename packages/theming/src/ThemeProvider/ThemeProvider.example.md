@@ -1,6 +1,8 @@
 #### WARNING
 
-Theming of styles affects all usages of a component within the `ThemeProvider`. Try extending one of our Presentation components and see if that fits your specific usage.
+Theming of styles affects all usages of a component within the `ThemeProvider`.
+Try extending one of our Presentation components and see if that fits your
+specific usage.
 
 All UI components are themable by an unique component ID. These themes can be nested.
 
@@ -12,7 +14,7 @@ const ThemableButton = styled.div`
     color: yellow;
   }
 
-  ${props => retrieveTheme('button', props)}
+  ${props => retrieveTheme('button', props)};
 `;
 
 const Container = styled.div`
@@ -21,11 +23,11 @@ const Container = styled.div`
 `;
 
 const theme = {
-  'button': `color: red;`
+  button: `color: red;`
 };
 
 const nestedTheme = {
-  'button': `
+  button: `
     color: green;
     :hover {
       color: blue;
@@ -34,13 +36,13 @@ const nestedTheme = {
 };
 
 <ThemeProvider theme={theme}>
+  <Container>
+    <ThemableButton>Simple Theme</ThemableButton>
     <Container>
-        <ThemableButton>Simple Theme</ThemableButton>
-        <Container>
-            <ThemeProvider theme={nestedTheme}>
-                <ThemableButton>Nested Theme</ThemableButton>
-            </ThemeProvider>
-        </Container>
+      <ThemeProvider theme={nestedTheme}>
+        <ThemableButton>Nested Theme</ThemableButton>
+      </ThemeProvider>
     </Container>
-</ThemeProvider>
+  </Container>
+</ThemeProvider>;
 ```

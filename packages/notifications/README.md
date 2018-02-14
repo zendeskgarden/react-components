@@ -1,6 +1,7 @@
 # @zendesk/garden-react-notifications
 
-This package includes several variaties of notifications and wells within the Zendesk Garden Design System.
+This package includes several varieties of notifications and wells within
+the [Garden Design System](http://zendeskgarden.github.io/).
 
 ## Installation
 

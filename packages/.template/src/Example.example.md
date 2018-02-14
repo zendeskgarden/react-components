@@ -12,5 +12,5 @@ initialState = {
   </Example>
   <button onClick={() => setState({ counter: state.counter + 1 })}>Increment Count</button>
   <button onClick={() => setState({ counter: state.counter - 1 })}>Decrement Count</button>
-</Grid>
+</Grid>;
 ```

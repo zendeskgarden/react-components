@@ -1,6 +1,7 @@
 # @zendesk/garden-react-theming
 
-The Theming package includes several utility components relating to theming and RTL capabilities in the [Zendesk Garden Design System](http://garden.zendesk.com/).
+The Theming package includes several utility components relating to theming
+and RTL capabilities in the [Garden Design System](http://zendeskgarden.github.io/).
 
 ## Installation
 
@@ -10,7 +11,8 @@ yarn add @zendesk/garden-react-theming
 
 ## Usage
 
-The `ThemeProvider` component can be used to apply granular theming to Garden (and custom) components as well as providing a RTL context.
+The `ThemeProvider` component can be used to apply granular theming to
+Garden (and custom) components as well as providing a RTL context.
 
 ### Theming
 
@@ -50,7 +52,8 @@ import Notification from '@zendesk/garden-react-notifications/Notification';
 </ThemeProvider>
 ```
 
-The `withTheme` [HOC](https://reactjs.org/docs/higher-order-components.html) utility allows any component to interact with its `ThemeProvider`.
+The `withTheme` [HOC](https://reactjs.org/docs/higher-order-components.html) utility
+allows any component to interact with its `ThemeProvider`.
 
 ```jsx static
 import withTheme from '@zendesk/garden-react-theming/withTheme';
@@ -68,6 +71,9 @@ const LocalizedComponent = withTheme(StyledDiv);
 
 ### WARNING
 
-Theming is meant to be used for small, global changes to a component (i.e accent color, padding changes, etc.)
+Theming is meant to be used for small, global changes to a component
+(i.e accent color, padding changes, etc.)
 
-If you find yourself "skinning" a component, it may be much easier (and maintainable) if you were to create these presentation assets as standalone components and use them with our advanced `Container` abstractions.
+If you find yourself "skinning" a component, it may be much easier (and maintainable)
+if you were to create these presentation assets as standalone components and use
+them with our advanced `Container` abstractions.

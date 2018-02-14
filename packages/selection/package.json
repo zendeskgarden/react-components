@@ -1,13 +1,13 @@
 {
-  "name": "@zendesk/garden-react-notifications",
-  "description": "Notification and Well components within the Garden Design System",
+  "name": "@zendesk/garden-react-selection",
+  "description": "Utilities and render prop containers relating to selection within the Garden Design System.",
   "author": "Zendesk Garden <garden@zendesk.com>",
   "license": "UNLISCENSED",
   "repository": "https://github.com/zendeskgarden/react-components",
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "0.1.2",
+  "version": "0.0.0",
   "main": "./index.js",
   "scripts": {
     "build": "../../utils/scripts/build.sh",
@@ -15,11 +15,9 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendesk/garden-css-callouts": "^1.1.1",
     "@zendesk/garden-react-theming": "^0.1.1",
     "classnames": "^2.2.5",
-    "prop-types": "^15.6.0",
-    "styled-components": "^3.1.3"
+    "prop-types": "^15.6.0"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
@@ -33,6 +31,5 @@
   ],
   "publishConfig": {
     "registry": "https://zdrepo.jfrog.io/zdrepo/api/npm/npm"
-  },
-  "typings": "./index.d.ts"
+  }
 }
