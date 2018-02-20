@@ -8,7 +8,7 @@
     "build:styleguide": "lerna run build:styleguide --stream",
     "format": "yarn format:package_json && yarn format:js && yarn format:markdown",
     "format:js": "prettier --write \"packages/**/!(node_modules|dist|demo)/*.js\" && prettier --write utils/**/*.js",
-    "format:markdown": "prettier --write \"packages/**/!(node_modules|dist|demo)/*.md\"",
+    "format:markdown": "prettier --write \"packages/**/!(node_modules|dist|demo)/!(CHANGELOG)*.md\"",
     "format:package_json": "prettier-package-json --write && lerna exec -- prettier-package-json --write",
     "postinstall": "lerna clean --yes --stream && lerna bootstrap --stream",
     "lint": "yarn lint:css && yarn lint:js && yarn lint:markdown",

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabsView renders RTL styling 1`] = `
+<div
+  className="TabsView-bLaZmR c-tab is-rtl gHcmoi"
+/>
+`;
+
+exports[`TabsView renders default styling 1`] = `
+<div
+  className="TabsView-bLaZmR c-tab gHcmoi"
+/>
+`;
+
+exports[`TabsView renders vertical styling 1`] = `
+<div
+  className="TabsView-bLaZmR c-tab c-tab--block gHcmoi"
+/>
+`;
