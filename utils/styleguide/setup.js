@@ -16,14 +16,14 @@ global.styled = styled;
 // Garden components
 import * as Notifications from '../../packages/notifications';
 import * as Selection from '../../packages/selection';
-// import * as Tabs from '../../packages/tabs';
+import * as Tabs from '../../packages/tabs';
 import * as Theming from '../../packages/theming';
 import * as Tooltips from '../../packages/tooltips';
 
 global.Garden = {
   Notifications,
   Selection,
-  // Tabs,
+  Tabs,
   Theming,
   Tooltips
 };
