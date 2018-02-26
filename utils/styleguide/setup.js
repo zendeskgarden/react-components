@@ -13,14 +13,17 @@ global.State = State;
 import styled from 'styled-components';
 global.styled = styled;
 
-// TODO: umcomment as components are added
 // Garden components
-// import * as Button from '../../packages/button';
-// import * as Selection from '../../packages/selection';
-// import * as Theming from '../../packages/theming';
+import * as Notifications from '../../packages/notifications';
+import * as Selection from '../../packages/selection';
+// import * as Tabs from '../../packages/tabs';
+import * as Theming from '../../packages/theming';
+import * as Tooltips from '../../packages/tooltips';
 
-// global.Garden = {
-//   Button,
-//   Selection,
-//   Theming
-// };
+global.Garden = {
+  Notifications,
+  Selection,
+  // Tabs,
+  Theming,
+  Tooltips
+};

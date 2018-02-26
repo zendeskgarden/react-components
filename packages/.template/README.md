@@ -1,6 +1,6 @@
 # @zendesk/garden-react-{{component}}
 
-Description of the package
+Collection of components and render prop containers relating to the Garden Design System
 
 ## Installation
 

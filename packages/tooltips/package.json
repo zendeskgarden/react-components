@@ -1,18 +1,12 @@
 {
-  "name": "@zendesk/garden-react-{{component}}",
-  "description": "Description of your package",
+  "name": "@zendesk/garden-react-tooltips",
+  "description": "Collection of components and render prop containers relating to Tooltips in the Garden Design System",
   "author": "Zendesk Garden <garden@zendesk.com>",
   "license": "UNLISCENSED",
   "repository": "https://github.com/zendeskgarden/react-components",
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "keywords": [
-    "components",
-    "react",
-    "garden",
-    "zendesk"
-  ],
   "version": "0.0.0",
   "main": "./index.js",
   "scripts": {
@@ -21,15 +15,27 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
+    "@zendesk/garden-css-arrows": "^1.1.0",
+    "@zendesk/garden-css-tooltips": "^2.1.0",
+    "@zendesk/garden-css-variables": "^3.1.0",
+    "@zendesk/garden-react-selection": "^0.1.0",
+    "@zendesk/garden-react-theming": "^0.1.1",
     "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
-    "@zendesk/garden-react-theming": "*",
+    "react-popper": "^0.8.2",
+    "react-portal": "^4.1.2",
     "styled-components": "^3.1.6"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
     "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0"
   },
+  "keywords": [
+    "components",
+    "garden",
+    "react",
+    "zendesk"
+  ],
   "publishConfig": {
     "registry": "https://zdrepo.jfrog.io/zdrepo/api/npm/npm"
   }
