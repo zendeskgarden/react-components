@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.1.1"></a>
+## [0.1.1](https://github.com/zendeskgarden/react-components/compare/@zendesk/garden-react-tabs@0.1.0...@zendesk/garden-react-tabs@0.1.1) (2018-02-26)
+
+
+### Bug Fixes
+
+* Correct invalid paths in Tabs root export ([#494](https://github.com/zendeskgarden/react-components/issues/494)) ([fcfec8f](https://github.com/zendeskgarden/react-components/commit/fcfec8f))
+
+
+
+
 <a name="0.1.0"></a>
 # 0.1.0 (2018-02-20)
 
