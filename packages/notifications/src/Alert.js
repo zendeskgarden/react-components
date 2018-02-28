@@ -4,7 +4,9 @@ import classNames from 'classnames';
 import CalloutStyles from '@zendesk/garden-css-callouts';
 import { retrieveTheme } from '@zendesk/garden-react-theming';
 
+import { version } from '../package.json';
 import Well from './Well';
+const COMPONENT_ID = 'notifications.alert';
 
 const VALIDATION = {
   SUCCESS: 'success',
@@ -16,6 +18,8 @@ const VALIDATION = {
  * Supports all `<div>` props
  */
 const Alert = styled(Well).attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': version,
   className: props =>
     classNames({
       // Validation types
@@ -24,7 +28,7 @@ const Alert = styled(Well).attrs({
       [CalloutStyles['c-callout--error']]: props.type === VALIDATION.ERROR
     })
 })`
-  ${props => retrieveTheme('notifications.alert', props)};
+  ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
 Alert.propTypes = {

@@ -4,10 +4,15 @@ import classNames from 'classnames';
 import CalloutStyles from '@zendesk/garden-css-callouts';
 import { retrieveTheme, isRtl } from '@zendesk/garden-react-theming';
 
+import { version } from '../package.json';
+const COMPONENT_ID = 'notifications.well';
+
 /**
  * Supports all `<div>` props
  */
 const Well = styled.div.attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': version,
   className: props =>
     classNames(CalloutStyles['c-callout'], {
       // RTL
@@ -18,7 +23,7 @@ const Well = styled.div.attrs({
       [CalloutStyles['c-callout--dialog']]: props.floating
     })
 })`
-  ${props => retrieveTheme('notifications.well', props)};
+  ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
 Well.propTypes = {

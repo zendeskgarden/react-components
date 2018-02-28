@@ -3,23 +3,31 @@
 exports[`Well renders default well styling 1`] = `
 <div
   className="Well-kOxQyt c-callout kjJIgs"
+  data-garden-id="notifications.well"
+  data-garden-version="version"
 />
 `;
 
 exports[`Well renders floating styling correctly 1`] = `
 <div
   className="Well-kOxQyt c-callout c-callout--dialog kjJIgs"
+  data-garden-id="notifications.well"
+  data-garden-version="version"
 />
 `;
 
 exports[`Well renders recessed styling correctly 1`] = `
 <div
   className="Well-kOxQyt c-callout c-callout--recessed kjJIgs"
+  data-garden-id="notifications.well"
+  data-garden-version="version"
 />
 `;
 
 exports[`Well renders with RTL styling if applied 1`] = `
 <div
   className="Well-kOxQyt c-callout is-rtl kjJIgs"
+  data-garden-id="notifications.well"
+  data-garden-version="version"
 />
 `;
