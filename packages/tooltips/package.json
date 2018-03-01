@@ -7,7 +7,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "./index.js",
   "scripts": {
     "build": "../../utils/scripts/build.sh",
@@ -18,8 +18,8 @@
     "@zendesk/garden-css-arrows": "^1.1.0",
     "@zendesk/garden-css-tooltips": "^2.1.0",
     "@zendesk/garden-css-variables": "^3.1.0",
-    "@zendesk/garden-react-selection": "^0.1.0",
-    "@zendesk/garden-react-theming": "^0.1.1",
+    "@zendesk/garden-react-selection": "^0.1.1",
+    "@zendesk/garden-react-theming": "^0.2.0",
     "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
     "react-popper": "^0.8.2",
