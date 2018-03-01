@@ -9,9 +9,11 @@ const LogoWrapper = styled.div`
 `;
 
 const LogoRenderer = () => (
-  <LogoWrapper>
-    <ZendeskLogo />
-  </LogoWrapper>
+  <a href="/react-components/next">
+    <LogoWrapper>
+      <ZendeskLogo />
+    </LogoWrapper>
+  </a>
 );
 
 export default LogoRenderer;

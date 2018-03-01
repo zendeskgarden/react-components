@@ -14,6 +14,12 @@ yarn add @zendesk/garden-react-theming
 The `ThemeProvider` component can be used to apply granular theming to
 Garden (and custom) components as well as providing a RTL context.
 
+It is intended to be used at the root of an application to provide a global
+context for RTL.
+
+`ThemeProvider` components can be nested within each other for areas that require
+additional, custom theming.
+
 ### Theming
 
 All themes are auto-prefixed and has access to the `props` provided to the component.
