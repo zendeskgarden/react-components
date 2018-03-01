@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonGroupView renders correct styling 1`] = `
+<div
+  className="ButtonGroupView-koMLKD l-btn-group hFhURU"
+  data-garden-id="buttons.button_group_view"
+  data-garden-version="version"
+/>
+`;
+
+exports[`ButtonGroupView renders correctly styling when RTL 1`] = `
+<div
+  className="ButtonGroupView-koMLKD l-btn-group is-rtl hFhURU"
+  data-garden-id="buttons.button_group_view"
+  data-garden-version="version"
+/>
+`;

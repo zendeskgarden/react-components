@@ -14,6 +14,7 @@ import styled from 'styled-components';
 global.styled = styled;
 
 // Garden components
+import * as Buttons from '../../packages/buttons';
 import * as Notifications from '../../packages/notifications';
 import * as Selection from '../../packages/selection';
 import * as Tabs from '../../packages/tabs';
@@ -21,6 +22,7 @@ import * as Theming from '../../packages/theming';
 import * as Tooltips from '../../packages/tooltips';
 
 global.Garden = {
+  Buttons,
   Notifications,
   Selection,
   Tabs,

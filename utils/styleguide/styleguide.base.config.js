@@ -40,7 +40,7 @@ const defaultStyleguideConfig = {
       rules: [
         {
           test: /\.jsx?$/,
-          exclude: /node_modules\/(?!buble)/,
+          exclude: /node_modules/,
           loader: 'babel-loader'
         },
         {
@@ -50,7 +50,8 @@ const defaultStyleguideConfig = {
         },
         {
           test: /\.svg$/,
-          loader: 'raw-loader'
+          exclude: /node_modules/,
+          loader: 'svg-react-loader'
         }
       ]
     },
