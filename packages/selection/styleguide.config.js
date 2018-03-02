@@ -18,7 +18,7 @@ module.exports = {
       components: '../../packages/selection/src/utils/*.js'
     },
     {
-      name: 'Contants',
+      name: 'Constants',
       components: '../../packages/selection/src/constants/*.js'
     }
   ]

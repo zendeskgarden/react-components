@@ -2,7 +2,7 @@
   "name": "@zendesk/garden-react-tabs",
   "description": "Components and render prop containers relating to the Garden Design System.",
   "author": "Zendesk Garden <garden@zendesk.com>",
-  "license": "UNLISCENSED",
+  "license": "UNLICENSED",
   "repository": "https://github.com/zendeskgarden/react-components",
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"

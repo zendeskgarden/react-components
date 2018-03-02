@@ -1,4 +1,5 @@
-The `<Paragraph>` component should be used to wrap multi-line content within a `<Well>`. Otherwise, no wrapper is necessary.
+The `<Paragraph>` component should be used to wrap multi-line content within a `<Well>`. Otherwise,
+no wrapper is necessary.
 
 Default wells
 

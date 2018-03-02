@@ -11,9 +11,9 @@ const handlebars = require('handlebars');
 const childProcess = require('child_process');
 
 const welcomeSplashScreen = () => {
-  console.log(pelorous('#########################################'));
-  console.log(pelorous(`#### ${chalk.white('Zendesk Garden - Create Package')} ####`));
-  console.log(pelorous('#########################################'));
+  console.log(pelorous('#################################'));
+  console.log(pelorous(`#### ${chalk.white('Garden - Create Package')} ####`));
+  console.log(pelorous('#################################'));
 };
 
 const retrievePrompts = () => {

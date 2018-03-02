@@ -1,31 +1,20 @@
-<!-- Provide an issue summary in the Title above -->
-
-## Expected Behavior
+## Expectations
 
 <!--
-  For bugs, describe what should have happened.
-  For features, explain the value and describe how it should work.
+  I showed up, expecting to have my mind blown.
 -->
 
-## Current Behavior
+## Reality
 
 <!--
-  Describe the bug or feature modification. Include applicable
-  screenshots. If possible provide a link to a live example.
+  But all I got was this lousy {insert screenshot}.
 -->
 
 ## Steps to Reproduce
 
-  1.
-  2.
-  3.
+1.  1.  1.
 
-## Specifications
+###### Fine Print
 
-  - React Component: <!-- buttons@2.2.0 -->
-  - Browser:
-    - [ ] Chrome
-    - [ ] Firefox
-    - [ ] Edge
-    - [ ] Safari
-    - [ ] IE 11
+* Component: <!-- buttons -->
+* Browsers: all

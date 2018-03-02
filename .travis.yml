@@ -18,25 +18,25 @@ before_install:
   - npm config set //zdrepo.jfrog.io/zdrepo/api/npm/npm/:email $ARTIFACTORY_EMAIL
   - npm config set //zdrepo.jfrog.io/zdrepo/api/npm/npm/:always-auth true
 
-install:
-  - yarn
+install: yarn --frozen-lockfile
+
+script:
+  - yarn lint
+  - yarn test:all
+
+before_deploy:
   - npm config set _auth $ARTIFACTORY_API_KEY
   - npm config set email $ARTIFACTORY_EMAIL
 
-script: npm run travis:script
-
-before_deploy:
-  - npm run travis:before_deploy
-
 deploy:
   - provider: script
-    script: npm run travis:github_pages
+    script: utils/travis/publish-gh-pages.sh
     skip_cleanup: true
     on:
       branch: next
 
   - provider: script
-    script: npm run travis:publish
+    script: utils/travis/publish-packages.js
     skip_cleanup: true
     on:
       branch: next

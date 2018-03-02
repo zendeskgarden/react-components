@@ -12,9 +12,9 @@ const pelorous = chalk.hex('#30AABC');
 const lernaPath = path.resolve(__dirname, '..', '..', 'node_modules', '.bin', 'lerna');
 
 const gardenSplashScreen = () => {
-  console.log(pelorous('#########################################'));
-  console.log(pelorous('##  Zendesk Garden - React Components  ##'));
-  console.log(pelorous('#########################################'));
+  console.log(pelorous('###############################'));
+  console.log(pelorous('##  Garden React Components  ##'));
+  console.log(pelorous('###############################'));
 };
 
 const RetrievePackages = new Promise((resolve, reject) => {

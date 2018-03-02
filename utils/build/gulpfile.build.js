@@ -48,7 +48,7 @@ gulp.task('js', () => {
  */
 gulp.task('copy', () => {
   return gulp
-    .src(['package.json', 'README.md', 'CHANGELOG.md', 'index.d.ts'], {
+    .src(['package.json', 'README.md', 'CHANGELOG.md', 'index.d.ts', '../../LICENSE.md'], {
       allowEmpty: true
     })
     .pipe(gulp.dest('./dist'));
