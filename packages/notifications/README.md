@@ -12,7 +12,7 @@ npm install --save-dev @zendesk/garden-react-notifications
 ## Usage
 
 ```jsx static
-import Notification from '@zendesk/garden-react-notifications/Notifications';
+import Notification from '@zendesk/garden-react-notifications/Notification';
 import Title from '@zendesk/garden-react-notifications/Title';
 
 <Notification>
