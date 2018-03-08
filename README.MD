@@ -17,6 +17,7 @@ to install.
 | --------------------------------------------------------------- |
 | [`@zendesk/garden-react-buttons`](packages/buttons)             |
 | [`@zendesk/garden-react-notifications`](packages/notifications) |
+| [`@zendesk/garden-react-pagination`](packages/pagination)       |
 | [`@zendesk/garden-react-selection`](packages/selection)         |
 | [`@zendesk/garden-react-tabs`](packages/tabs)                   |
 | [`@zendesk/garden-react-theming`](packages/theming)             |

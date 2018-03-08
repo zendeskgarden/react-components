@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NextPage renders default styling 1`] = `
+<Page
+  className="NextPage-gYDgRM c-pagination__page--next rLemj"
+  data-garden-id="pagination.next_page"
+  data-garden-version="version"
+/>
+`;

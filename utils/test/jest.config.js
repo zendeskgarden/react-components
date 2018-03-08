@@ -5,7 +5,8 @@ module.exports = {
   moduleNameMapper: {
     '\\.(css|json)$': 'identity-obj-proxy',
     '@zendesk/garden-css': 'identity-obj-proxy',
-    '^utils': '<rootDir>/utils/test/jest.utils.js'
+    '^utils': '<rootDir>/utils/test/jest.utils.js',
+    'styled-components': '<rootDir>/node_modules/styled-components'
   },
   modulePathIgnorePatterns: ['packages/.[a-z]*/dist'],
   transform: {

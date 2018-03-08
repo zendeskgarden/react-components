@@ -27,3 +27,4 @@
 * [ ] :arrow_left: renders as expected with reversed (RTL) direction
 * [ ] :guardsman: includes new unit and snapshot tests
 * [ ] :ledger: any new files are included in the packages `src/index.js` export
+* [ ] :memo: tested in Chrome, Firefox, Safari, Edge, and IE11

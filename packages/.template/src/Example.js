@@ -3,7 +3,12 @@ import styled from 'styled-components';
 import classNames from 'classnames';
 import { retrieveTheme, isRtl } from '@zendesk/garden-react-theming';
 
+const COMPONENT_ID = 'example.component_id';
+import { version } from '../package.json';
+
 const Example = styled.div.attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': version,
   className: props =>
     classNames('example-class', {
       // RTL
@@ -21,7 +26,7 @@ const Example = styled.div.attrs({
 
   direction: ${props => (isRtl(props) ? 'rtl' : 'ltr')};
 
-  ${props => retrieveTheme('example.namespace', props)};
+  ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
 Example.propTypes = {
