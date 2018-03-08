@@ -15,7 +15,7 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendesk/garden-css-buttons": "^4.1.0",
+    "@zendesk/garden-css-buttons": "^4.1.1",
     "@zendesk/garden-react-selection": "^0.1.1",
     "@zendesk/garden-react-theming": "^0.2.0",
     "classnames": "^2.2.5",
