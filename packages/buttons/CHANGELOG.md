@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.1.2"></a>
+## [0.1.2](https://github.com/zendeskgarden/react-components/compare/@zendesk/garden-react-buttons@0.1.1...@zendesk/garden-react-buttons@0.1.2) (2018-03-08)
+
+
+### Bug Fixes
+
+* **buttons:** update buttons CSS with fix for basic hover state on IE11 ([#511](https://github.com/zendeskgarden/react-components/issues/511)) ([f0189e4](https://github.com/zendeskgarden/react-components/commit/f0189e4))
+
+
+
+
 <a name="0.1.1"></a>
 ## [0.1.1](https://github.com/zendeskgarden/react-components/compare/@zendesk/garden-react-buttons@0.1.0...@zendesk/garden-react-buttons@0.1.1) (2018-03-01)
 
