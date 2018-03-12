@@ -19,7 +19,7 @@ All `@zendesk/garden-react-*` packages provide 3 types of React components: `ele
 
 ### Elements
 
-An `Element` is a high-abstraction API around a common pattern of interaction (container) and it's associated visual elements (views).
+An `Element` is a high-abstraction API around a common pattern of interaction (container) and its associated visual elements (views).
 
 An example of this would be a `Tabs` component with the following API:
 
@@ -40,19 +40,19 @@ This relatively simple API abstracts
 * **Accessibility**
   * The `Element` implements the applicable [W3C WAI-ARIA Design Pattern](https://www.w3.org/TR/wai-aria-practices/#aria_ex) for users that require screen-assistive technologies
 * **Localization**
-  * The `Element` is [locale aware](#theming) and changes it's visualization for RTL if needed
+  * The `Element` is [locale aware](#theming) and changes its visualization for RTL if needed
 * **State Management**
   * All `Element` components allow [uncontrolled](https://reactjs.org/docs/uncontrolled-components.html) and [controlled](https://reactjs.org/docs/forms.html#controlled-components) state management using the `onStateChanged` prop
 
 This high-abstraction API allows 90% of UIs to be created with as little code as possible. To help the remaining 10%, all `Element` components are implemented with the [Container](#containers) and [View](#views) components listed below.
 
-If the `Element` component you are attempting to use isn't flexible enough for your needs you can use the `Container` and/or `View` components.
+If the `Element` component you're attempting to use isn't flexible enough for your needs you can use the `Container` and/or `View` components.
 
 ### Containers
 
 A `Container` component is an abstraction of the state and accessibility logic of a composite component. Think of it as the "common pattern of interaction" within our `Element` components.
 
-These Containers are implemented with the [render prop pattern](https://reactjs.org/docs/render-props.html) and **do not provide any UI**. They simply provide attributes, events, and internal state to a function which applies the information to any elements of it's choosing.
+These Containers are implemented with the [render prop pattern](https://reactjs.org/docs/render-props.html) and **do not provide any UI**. They simply provide attributes, events, and internal state to a function which applies the information to any elements of its choosing.
 
 For the `Tabs` example above, it would have a corresponding `TabsContainer`
 
