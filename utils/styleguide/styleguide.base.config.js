@@ -6,6 +6,7 @@ const basePathName = path.basename(path.resolve('./'));
 
 const defaultStyleguideConfig = {
   title: 'Zendesk Garden',
+  assetsDir: path.resolve(__dirname, 'public'),
   skipComponentsWithoutExample: false,
   serverPort: 5000,
   styleguideDir: `../../demo/${basePathName}`,

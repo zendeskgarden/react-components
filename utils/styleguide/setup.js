@@ -14,6 +14,7 @@ import styled from 'styled-components';
 global.styled = styled;
 
 // Garden components
+import * as Avatars from '../../packages/avatars';
 import * as Buttons from '../../packages/buttons';
 import * as Notifications from '../../packages/notifications';
 import * as Pagination from '../../packages/pagination';
@@ -23,6 +24,7 @@ import * as Theming from '../../packages/theming';
 import * as Tooltips from '../../packages/tooltips';
 
 global.Garden = {
+  Avatars,
   Buttons,
   Notifications,
   Pagination,

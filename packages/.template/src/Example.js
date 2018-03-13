@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import classNames from 'classnames';
 import { retrieveTheme, isRtl } from '@zendesk/garden-react-theming';
 
-const COMPONENT_ID = 'example.component_id';
 import { version } from '../package.json';
+const COMPONENT_ID = 'example.component_id';
 
 const Example = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
