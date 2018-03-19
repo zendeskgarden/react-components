@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.1.1"></a>
+## [0.1.1](https://github.com/zendeskgarden/react-components/compare/@zendesk/garden-react-avatars@0.1.0...@zendesk/garden-react-avatars@0.1.1) (2018-03-19)
+
+
+### Bug Fixes
+
+* **avatars:** upgrade css-avatars dependency to remove default figure margin ([#521](https://github.com/zendeskgarden/react-components/issues/521)) ([1da3698](https://github.com/zendeskgarden/react-components/commit/1da3698))
+
+
+
+
 <a name="0.1.0"></a>
 # 0.1.0 (2018-03-13)
 
