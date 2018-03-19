@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.1.2"></a>
+## [0.1.2](https://github.com/zendeskgarden/react-components/compare/@zendesk/garden-react-selection@0.1.1...@zendesk/garden-react-selection@0.1.2) (2018-03-19)
+
+
+### Bug Fixes
+
+* **selection:** add KEY_CODES constant to root export ([#517](https://github.com/zendeskgarden/react-components/issues/517)) ([ebcbf22](https://github.com/zendeskgarden/react-components/commit/ebcbf22))
+
+
+
+
 <a name="0.1.1"></a>
 ## [0.1.1](https://github.com/zendeskgarden/react-components/compare/@zendesk/garden-react-selection@0.1.0...@zendesk/garden-react-selection@0.1.1) (2018-03-01)
 
