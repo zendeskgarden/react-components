@@ -1,6 +1,7 @@
 import React from 'react';
 import TooltipContainer from './TooltipContainer';
 import { mount } from 'enzyme';
+import { Portal } from 'react-portal';
 
 /**
  * Mocks popper.js calls within react-popper due to virtual testing environment
@@ -47,6 +48,10 @@ describe('TooltipContainer', () => {
   const findTrigger = wrapper => {
     return wrapper.find('[data-test-id="trigger"]');
   };
+
+  beforeEach(() => {
+    clearTimeout.mockClear();
+  });
 
   describe('getTriggerProps', () => {
     it('should have tabIndex of 0', () => {
@@ -115,6 +120,15 @@ describe('TooltipContainer', () => {
         wrapper.update();
         expect(findTooltip(wrapper).parent()).toHaveProp('aria-hidden', false);
       });
+
+      it('should clear open timeout if unmounted during interval', () => {
+        const wrapper = mount(basicExample);
+
+        findTrigger(wrapper).simulate('mouseenter');
+        wrapper.unmount();
+        // 3 total clearTimeouts occur during this action
+        expect(clearTimeout).toHaveBeenCalledTimes(3);
+      });
     });
 
     describe('onMouseLeave()', () => {
@@ -178,6 +192,28 @@ describe('TooltipContainer', () => {
       jest.runOnlyPendingTimers();
       wrapper.update();
       expect(findTooltip(wrapper).parent()).toHaveProp('aria-hidden', true);
+    });
+
+    it('should render tooltip within portal if appendToBody is provided', () => {
+      const wrapper = mount(
+        <TooltipContainer
+          appendToBody
+          id="custom-test-id"
+          trigger={({ getTriggerProps }) => (
+            <div {...getTriggerProps({ 'data-test-id': 'trigger' })}>trigger</div>
+          )}
+        >
+          {({ getTooltipProps }) => (
+            <div {...getTooltipProps({ 'data-test-id': 'tooltip' })}>tooltip</div>
+          )}
+        </TooltipContainer>
+      );
+
+      findTrigger(wrapper).simulate('focus');
+
+      jest.runOnlyPendingTimers();
+      wrapper.update();
+      expect(wrapper.contains(Portal)).toBe(true);
     });
   });
 });

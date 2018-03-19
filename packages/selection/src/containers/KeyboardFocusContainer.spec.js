@@ -1,7 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
-
 import KeyboardFocusContainer from './KeyboardFocusContainer';
+
+jest.useFakeTimers();
 
 describe('KeyboardFocusContainer', () => {
   const basicExample = (
@@ -22,6 +23,8 @@ describe('KeyboardFocusContainer', () => {
         const wrapper = mount(basicExample);
 
         findTrigger(wrapper).simulate('mousedown');
+        jest.runOnlyPendingTimers();
+        wrapper.update();
         expect(findTrigger(wrapper)).toHaveProp('data-focused', false);
       });
 
@@ -38,6 +41,8 @@ describe('KeyboardFocusContainer', () => {
         const wrapper = mount(basicExample);
 
         findTrigger(wrapper).simulate('mousedown');
+        jest.runOnlyPendingTimers();
+        wrapper.update();
         expect(findTrigger(wrapper)).toHaveProp('data-focused', false);
       });
     });

@@ -1,29 +1,33 @@
-import React from 'react';
-import { mountWithTheme } from 'utils';
 import retrieveTheme from './retrieveTheme';
-import { shallow } from 'enzyme';
-import styled from 'styled-components';
 
 describe('retrieveTheme', () => {
-  const Example = styled.div`
-    ${props => retrieveTheme('example', props)};
-  `;
+  const COMPONENT_ID = 'component-id';
+  const EXAMPLE_STYLE = 'test-style';
 
-  it('should not apply theme if no ThemeProvider is found', () => {
-    const wrapper = shallow(<Example />);
+  it('returns undefined if no matching styles is found', () => {
+    const styles = retrieveTheme(COMPONENT_ID, { theme: {} });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(styles).toBe(undefined);
   });
 
-  it('should not apply theme if no matching ID is found', () => {
-    const wrapper = mountWithTheme(<Example />, false, { 'test-id': 'color: red;' });
+  it('calls style as method if provided as a function', () => {
+    const componentStyles = jest.fn().mockReturnValue(EXAMPLE_STYLE);
 
-    expect(wrapper).toMatchSnapshot();
+    const componentStyle = retrieveTheme(COMPONENT_ID, {
+      theme: { styles: { [COMPONENT_ID]: componentStyles } },
+      mockData: true
+    });
+
+    expect(componentStyles).toHaveBeenCalled();
+    expect(componentStyle).toBe(EXAMPLE_STYLE);
   });
 
-  it('should apply theme if ID is found', () => {
-    const wrapper = mountWithTheme(<Example />, false, { example: 'color: red;' });
+  it('returns style directly if found', () => {
+    const componentStyle = retrieveTheme(COMPONENT_ID, {
+      theme: { styles: { [COMPONENT_ID]: EXAMPLE_STYLE } },
+      mockData: true
+    });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(componentStyle).toBe(EXAMPLE_STYLE);
   });
 });

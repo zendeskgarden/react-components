@@ -12,5 +12,11 @@ module.exports = {
   transform: {
     '^.+\\.js$': 'babel-jest'
   },
-  transformIgnorePatterns: ['node_modules/(?!(garden-react)/)']
+  transformIgnorePatterns: ['node_modules/(?!(garden-react)/)'],
+  collectCoverageFrom: [
+    '<rootDir>/packages/*/src/**/*.{js,jsx}',
+    '!**/node_modules/**',
+    '!**/vendor/**'
+  ],
+  coverageDirectory: '<rootDir>/demo/coverage'
 };

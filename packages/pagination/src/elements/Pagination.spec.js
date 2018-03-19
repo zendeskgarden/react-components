@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { KEY_CODES } from '@zendesk/garden-react-selection';
 
 import Pagination from './Pagination';
 import PaginationView from '../views/PaginationView';
@@ -39,6 +40,18 @@ describe('Pagination', () => {
       wrapper.find(PreviousPage).simulate('click');
       expect(onStateChange).toHaveBeenCalledWith({ currentPage: 2 });
     });
+
+    it('focuses first page when visibility is lost', () => {
+      const wrapper = mount(<Pagination totalPages={5} currentPage={2} />);
+      const paginationWrapper = wrapper.find(PaginationView);
+
+      wrapper.simulate('focus');
+      paginationWrapper.simulate('keydown', { keyCode: KEY_CODES.LEFT });
+      paginationWrapper.simulate('keydown', { keyCode: KEY_CODES.LEFT });
+      paginationWrapper.simulate('keydown', { keyCode: KEY_CODES.ENTER });
+
+      expect(wrapper.state()).toMatchObject({ currentPage: 1, focusedKey: 1 });
+    });
   });
 
   describe('Next Page', () => {
@@ -59,6 +72,18 @@ describe('Pagination', () => {
 
       wrapper.find(NextPage).simulate('click');
       expect(onStateChange).toHaveBeenCalledWith({ currentPage: 4 });
+    });
+
+    it('focuses last page when visibility is lost', () => {
+      const wrapper = mount(<Pagination totalPages={5} currentPage={4} />);
+      const paginationWrapper = wrapper.find(PaginationView);
+
+      wrapper.simulate('focus');
+      paginationWrapper.simulate('keydown', { keyCode: KEY_CODES.RIGHT });
+      paginationWrapper.simulate('keydown', { keyCode: KEY_CODES.RIGHT });
+      paginationWrapper.simulate('keydown', { keyCode: KEY_CODES.ENTER });
+
+      expect(wrapper.state()).toMatchObject({ currentPage: 5, focusedKey: 5 });
     });
   });
 

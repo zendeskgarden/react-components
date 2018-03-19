@@ -18,6 +18,18 @@ describe('ButtonGroup', () => {
     console.warn = jest.fn(); // eslint-disable-line no-console
   });
 
+  it('throws if key is not provided to button', () => {
+    console.error = jest.fn(); // eslint-disable-line no-console
+
+    expect(() => {
+      mount(
+        <ButtonGroup>
+          <Button>Invalid Button</Button>
+        </ButtonGroup>
+      );
+    }).toThrow('"key" prop must be provided to Button');
+  });
+
   it('applies selected styling to currently selected tab', () => {
     const wrapper = mount(basicExample);
 
@@ -51,5 +63,17 @@ describe('ButtonGroup', () => {
     const wrapper = mount(basicExample);
 
     expect(wrapper.find(Button).at(0)).toHaveProp('selected', true);
+  });
+
+  it('does not apply props to any component other than Button', () => {
+    const wrapper = mount(
+      <ButtonGroup>
+        <span>Non button test</span>
+        <Button key="button-1">Button 1</Button>
+      </ButtonGroup>
+    );
+
+    wrapper.find(ButtonGroupView).simulate('focus');
+    expect(wrapper.children().at(0)).not.toHaveProp('focused');
   });
 });

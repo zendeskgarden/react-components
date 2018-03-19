@@ -14,6 +14,7 @@
 function findParent(finder, node, rootNode) {
   if (node !== null && node !== rootNode.parentNode) {
     if (finder(node)) {
+      /* istanbul ignore next */
       if (node === document.body && node.scrollTop === 0) {
         // in chrome body.scrollTop always return 0
         return document.documentElement;

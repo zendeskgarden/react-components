@@ -56,13 +56,26 @@ describe('Tabs', () => {
 
       wrapper.find(TabList).simulate('focus');
 
-      expect(wrapper.find(Tab).at(0)).toHaveProp('focused', true);
+      expect(wrapper.find(Tab).first()).toHaveProp('focused', true);
+    });
+
+    it('applies disabled styling if provided', () => {
+      const wrapper = mount(
+        <Tabs>
+          <TabPanel label="Tab 1" key="tab-1">
+            Tab 1 content
+          </TabPanel>
+          <TabPanel disabled>Disabled tab</TabPanel>
+        </Tabs>
+      );
+
+      expect(wrapper.find(Tab).last()).toHaveProp('disabled', true);
     });
 
     it('selected first tab if in uncontrolled state', () => {
       const wrapper = mount(basicExample);
 
-      expect(wrapper.find(Tab).at(0)).toHaveProp('selected', true);
+      expect(wrapper.find(Tab).first()).toHaveProp('selected', true);
     });
   });
 

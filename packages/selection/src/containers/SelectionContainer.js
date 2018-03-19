@@ -88,6 +88,7 @@ export class SelectionContainer extends ControlledComponent {
       const itemNode = document.getElementById(this.getItemId(current.focusedKey));
       const containerNode = document.getElementById(this.getContainerId());
 
+      /* istanbul ignore if */
       if (itemNode && containerNode) {
         scrollIntoView(itemNode, containerNode);
       }

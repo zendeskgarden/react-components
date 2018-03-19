@@ -3,6 +3,8 @@ import KEY_CODES from '../constants/KEY_CODES';
 import SelectionContainer from './SelectionContainer';
 import { mountWithTheme } from 'utils';
 
+jest.useFakeTimers();
+
 describe('SelectionContainer', () => {
   const itemValues = ['Item-1', 'Item-2', 'Item-3'];
   let wrapper;
@@ -48,13 +50,23 @@ describe('SelectionContainer', () => {
       expect(findContainer(wrapper)).toHaveProp('aria-activedescendant', 'test-id--item-Item-1');
     });
 
+    describe('onMouseDown', () => {
+      it('does not focus item if container is moused down', () => {
+        findContainer(wrapper).simulate('mousedown');
+        jest.runOnlyPendingTimers();
+        wrapper.update();
+
+        expect(findItems(wrapper).first()).toHaveProp('data-focused', false);
+      });
+    });
+
     describe('onFocus', () => {
-      it('does not focus item if moused down', () => {
+      it('does not focus item if item is moused down', () => {
         findItems(wrapper)
-          .at(0)
+          .first()
           .simulate('click');
 
-        expect(findItems(wrapper).at(0)).toHaveProp('data-focused', false);
+        expect(findItems(wrapper).first()).toHaveProp('data-focused', false);
       });
 
       it('focuses first item if no item is currently selected', () => {
@@ -67,7 +79,6 @@ describe('SelectionContainer', () => {
         findItems(wrapper)
           .last()
           .simulate('click');
-
         const container = findContainer(wrapper);
 
         container.simulate('blur');
@@ -373,7 +384,7 @@ describe('SelectionContainer', () => {
     });
 
     it('applies accessibility role attribute', () => {
-      expect(findItems(wrapper).at(0)).toHaveProp('role', 'option');
+      expect(findItems(wrapper).first()).toHaveProp('role', 'option');
     });
 
     describe('onClick', () => {
