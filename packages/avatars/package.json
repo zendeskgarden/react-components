@@ -15,7 +15,7 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendesk/garden-css-avatars": "^1.1.0",
+    "@zendesk/garden-css-avatars": "^1.1.1",
     "@zendesk/garden-react-theming": "^0.2.0",
     "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
