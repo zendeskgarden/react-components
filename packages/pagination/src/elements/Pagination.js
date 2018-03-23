@@ -13,6 +13,13 @@ import PreviousPage from '../views/PreviousPage';
 const PREVIOUS_KEY = 'previous';
 const NEXT_KEY = 'next';
 
+export const PAGE_TYPE = {
+  NEXT_PAGE: 'next',
+  PAGE: 'page',
+  GAP: 'gap',
+  PREVIOUS_PAGE: 'previous'
+};
+
 export default class Pagination extends ControlledComponent {
   static propTypes = {
     /**
@@ -36,7 +43,13 @@ export default class Pagination extends ControlledComponent {
     /**
      * The root ID to use for descendants. A unique ID is created if none is provided.
      **/
-    id: PropTypes.string
+    id: PropTypes.string,
+    /**
+     * Allows custom props to be applied to each page element. Useful for QA attributes and localization.
+     * @param {String} pageType - Unique type for each page type: "previous", "page", "gap", and "next"
+     * @param {Object} pageProps - The props to be transformed for the page object
+     */
+    transformPageProps: PropTypes.func
   };
 
   static defaultProps = {
@@ -53,18 +66,33 @@ export default class Pagination extends ControlledComponent {
     };
   }
 
+  getTransformedProps = (pageType, props = {}) => {
+    const { transformPageProps } = this.props;
+
+    if (transformPageProps) {
+      return transformPageProps(pageType, props);
+    }
+
+    return props;
+  };
+
   renderPreviousPage = getPreviousPageProps => {
     const { focusedKey, currentPage } = this.getControlledState();
     const isFirstPageSelected = currentPage === 1;
 
     // The PreviousPage element should be hidden when first page is selected
     if (isFirstPageSelected) {
-      return <PreviousPage hidden />;
+      return (
+        <PreviousPage {...this.getTransformedProps(PAGE_TYPE.PREVIOUS_PAGE, { hidden: true })} />
+      );
     }
 
     return (
       <PreviousPage
-        {...getPreviousPageProps({ key: PREVIOUS_KEY, focused: focusedKey === PREVIOUS_KEY })}
+        {...this.getTransformedProps(
+          PAGE_TYPE.PREVIOUS_PAGE,
+          getPreviousPageProps({ key: PREVIOUS_KEY, focused: focusedKey === PREVIOUS_KEY })
+        )}
       />
     );
   };
@@ -79,7 +107,14 @@ export default class Pagination extends ControlledComponent {
       return <NextPage hidden />;
     }
 
-    return <NextPage {...getNextPageProps({ key: NEXT_KEY, focused: focusedKey === NEXT_KEY })} />;
+    return (
+      <NextPage
+        {...this.getTransformedProps(
+          PAGE_TYPE.NEXT_PAGE,
+          getNextPageProps({ key: NEXT_KEY, focused: focusedKey === NEXT_KEY })
+        )}
+      />
+    );
   };
 
   createPage = (pageIndex, getPageProps) => {
@@ -87,11 +122,14 @@ export default class Pagination extends ControlledComponent {
 
     return (
       <Page
-        {...getPageProps({
-          current: currentPage === pageIndex,
-          focused: focusedKey === pageIndex,
-          key: pageIndex
-        })}
+        {...this.getTransformedProps(
+          PAGE_TYPE.PAGE,
+          getPageProps({
+            current: currentPage === pageIndex,
+            focused: focusedKey === pageIndex,
+            key: pageIndex
+          })
+        )}
       >
         {pageIndex}
       </Page>
@@ -143,7 +181,9 @@ export default class Pagination extends ControlledComponent {
 
       // Render Gap and determine next starting pageIndex
       if (pageIndex < currentPage) {
-        pages.push(<Gap key={`gap-${pageIndex}`} />);
+        pages.push(
+          <Gap {...this.getTransformedProps(PAGE_TYPE.GAP, { key: `gap-${pageIndex}` })} />
+        );
 
         if (currentPage >= totalPages - pagePadding - 2) {
           pageIndex = totalPages - pagePadding * 2 - 3;
@@ -151,7 +191,9 @@ export default class Pagination extends ControlledComponent {
           pageIndex = currentPage - pagePadding - 1;
         }
       } else {
-        pages.push(<Gap key={`gap-${pageIndex}`} />);
+        pages.push(
+          <Gap {...this.getTransformedProps(PAGE_TYPE.GAP, { key: `gap-${pageIndex}` })} />
+        );
         pageIndex = totalPages - 1;
       }
     }

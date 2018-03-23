@@ -11,14 +11,67 @@ import Page from '../views/Page';
 describe('Pagination', () => {
   let onStateChange;
 
-  const BasicExample = ({ currentPage = 1, totalPages = 5 } = {}) => (
-    <Pagination totalPages={totalPages} currentPage={currentPage} onStateChange={onStateChange} />
+  const BasicExample = ({ currentPage = 1, totalPages = 5, ...other } = {}) => (
+    <Pagination
+      totalPages={totalPages}
+      currentPage={currentPage}
+      onStateChange={onStateChange}
+      {...other}
+    />
   );
 
   beforeEach(() => {
     // Disabled due to styled-components theming
     console.warn = jest.fn(); // eslint-disable-line no-console
     onStateChange = jest.fn();
+  });
+
+  describe('transformPageProps', () => {
+    let transformPageProps;
+
+    beforeEach(() => {
+      transformPageProps = jest.fn((pageType, props) => props);
+
+      mount(
+        <BasicExample currentPage={1} totalPages={10} transformPageProps={transformPageProps} />
+      );
+    });
+
+    it('calls provided transform function with correct page type', () => {
+      expect(transformPageProps).toHaveBeenCalledTimes(11);
+      expect(transformPageProps.mock.calls[0][0]).toBe('previous');
+      expect(transformPageProps.mock.calls[1][0]).toBe('page');
+      expect(transformPageProps.mock.calls[2][0]).toBe('page');
+      expect(transformPageProps.mock.calls[3][0]).toBe('page');
+      expect(transformPageProps.mock.calls[4][0]).toBe('page');
+      expect(transformPageProps.mock.calls[5][0]).toBe('page');
+      expect(transformPageProps.mock.calls[6][0]).toBe('page');
+      expect(transformPageProps.mock.calls[7][0]).toBe('page');
+      expect(transformPageProps.mock.calls[8][0]).toBe('gap');
+      expect(transformPageProps.mock.calls[9][0]).toBe('page');
+      expect(transformPageProps.mock.calls[10][0]).toBe('next');
+    });
+
+    it('applies transformed props if transform is supplied', () => {
+      const CUSTOM_PROP_VALUE = 'custom-prop';
+
+      transformPageProps = (type, props) => {
+        props['data-test-id'] = CUSTOM_PROP_VALUE;
+
+        return props;
+      };
+
+      const wrapper = mount(
+        <BasicExample currentPage={1} totalPages={10} transformPageProps={transformPageProps} />
+      );
+
+      wrapper
+        .find('ul')
+        .children()
+        .forEach(child => {
+          expect(child).toHaveProp('data-test-id', CUSTOM_PROP_VALUE);
+        });
+    });
   });
 
   describe('Previous Page', () => {
