@@ -20,6 +20,7 @@ import * as Notifications from '../../packages/notifications';
 import * as Pagination from '../../packages/pagination';
 import * as Selection from '../../packages/selection';
 import * as Tabs from '../../packages/tabs';
+import * as Textfields from '../../packages/textfields';
 import * as Theming from '../../packages/theming';
 import * as Tooltips from '../../packages/tooltips';
 
@@ -30,6 +31,7 @@ global.Garden = {
   Pagination,
   Selection,
   Tabs,
+  Textfields,
   Theming,
   Tooltips
 };

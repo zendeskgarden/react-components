@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hint renders RTL styling 1`] = `
+<div
+  className="Hint-gklniA c-txt__hint is-rtl nhFXS"
+  data-garden-id="textfields.hint"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Hint renders default styling 1`] = `
+<div
+  className="Hint-gklniA c-txt__hint nhFXS"
+  data-garden-id="textfields.hint"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Hint renders small styling if provided 1`] = `
+<div
+  className="Hint-gklniA c-txt__hint c-txt__hint--sm nhFXS"
+  data-garden-id="textfields.hint"
+  data-garden-version="version"
+/>
+`;

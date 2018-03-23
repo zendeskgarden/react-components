@@ -20,6 +20,7 @@ to install.
 | [`@zendesk/garden-react-pagination`](packages/pagination)       |
 | [`@zendesk/garden-react-selection`](packages/selection)         |
 | [`@zendesk/garden-react-tabs`](packages/tabs)                   |
+| [`@zendesk/garden-react-textfields`](packages/textfields)       |
 | [`@zendesk/garden-react-theming`](packages/theming)             |
 | [`@zendesk/garden-react-tooltips`](packages/tooltips)           |
 

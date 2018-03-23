@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextGroup renders RTL styling 1`] = `
+<div
+  className="TextGroup-gCyNMQ c-txt is-rtl hnXsJt"
+  data-garden-id="textfields.text_group"
+  data-garden-version="version"
+/>
+`;
+
+exports[`TextGroup renders default styling 1`] = `
+<div
+  className="TextGroup-gCyNMQ c-txt hnXsJt"
+  data-garden-id="textfields.text_group"
+  data-garden-version="version"
+/>
+`;
+
+exports[`TextGroup renders inline styling if provided 1`] = `
+<div
+  className="TextGroup-gCyNMQ c-txt c-txt--inline hnXsJt"
+  data-garden-id="textfields.text_group"
+  data-garden-version="version"
+/>
+`;
