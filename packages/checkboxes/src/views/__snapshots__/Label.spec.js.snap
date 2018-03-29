@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Label renders RTL styling 1`] = `
+<label
+  className="Label-bxMjsr c-chk__label is-rtl jVZUdW"
+  data-garden-id="checkboxes.label"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Label renders checked styling if provided 1`] = `
+<label
+  checked={true}
+  className="Label-bxMjsr c-chk__label is-checked jVZUdW"
+  data-garden-id="checkboxes.label"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Label renders default styling 1`] = `
+<label
+  className="Label-bxMjsr c-chk__label jVZUdW"
+  data-garden-id="checkboxes.label"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Label renders disabled styling if provided 1`] = `
+<label
+  className="Label-bxMjsr c-chk__label is-disabled jVZUdW"
+  data-garden-id="checkboxes.label"
+  data-garden-version="version"
+  disabled={true}
+/>
+`;
+
+exports[`Label renders focused styling if provided 1`] = `
+<label
+  className="Label-bxMjsr c-chk__label is-focused jVZUdW"
+  data-garden-id="checkboxes.label"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Label renders hovered styling if provided 1`] = `
+<label
+  className="Label-bxMjsr c-chk__label is-hovered jVZUdW"
+  data-garden-id="checkboxes.label"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Label renders indeterminate styling if provided 1`] = `
+<label
+  className="Label-bxMjsr c-chk__label is-indeterminate jVZUdW"
+  data-garden-id="checkboxes.label"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Label renders regular styling if provided 1`] = `
+<label
+  className="Label-bxMjsr c-chk__label c-chk__label--regular jVZUdW"
+  data-garden-id="checkboxes.label"
+  data-garden-version="version"
+/>
+`;

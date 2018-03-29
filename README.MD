@@ -16,6 +16,7 @@ to install.
 | Package                                                         |
 | --------------------------------------------------------------- |
 | [`@zendesk/garden-react-buttons`](packages/buttons)             |
+| [`@zendesk/garden-react-checkboxes`](packages/checkboxes)       |
 | [`@zendesk/garden-react-notifications`](packages/notifications) |
 | [`@zendesk/garden-react-pagination`](packages/pagination)       |
 | [`@zendesk/garden-react-selection`](packages/selection)         |

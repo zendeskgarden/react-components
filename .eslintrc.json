@@ -34,6 +34,7 @@
     "valid-jsdoc": "off",
     "no-invalid-this": "off",
     "no-unused-expressions": ["error", { "allowShortCircuit": true }],
-    "react/jsx-key": "off"
+    "react/jsx-key": "off",
+    "react/display-name": "off"
   }
 }

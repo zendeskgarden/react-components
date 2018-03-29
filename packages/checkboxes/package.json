@@ -1,0 +1,38 @@
+{
+  "name": "@zendesk/garden-react-checkboxes",
+  "description": "Components relating to checkboxes in the Garden Design System",
+  "author": "Zendesk Garden <garden@zendesk.com>",
+  "license": "UNLICENSED",
+  "repository": "https://github.com/zendeskgarden/react-components",
+  "bugs": {
+    "url": "https://github.com/zendeskgarden/react-components/issues"
+  },
+  "version": "0.0.0",
+  "main": "./index.js",
+  "scripts": {
+    "build": "../../utils/scripts/build.sh",
+    "build:styleguide": "../../utils/scripts/build-styleguide.sh",
+    "start": "../../utils/scripts/start.sh"
+  },
+  "dependencies": {
+    "@zendesk/garden-css-forms": "^4.0.1",
+    "@zendesk/garden-react-selection": "^0.2.0",
+    "@zendesk/garden-react-theming": "^0.2.0",
+    "classnames": "^2.2.5",
+    "prop-types": "^15.6.0",
+    "styled-components": "^3.1.6"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0"
+  },
+  "keywords": [
+    "components",
+    "garden",
+    "react",
+    "zendesk"
+  ],
+  "publishConfig": {
+    "registry": "https://zdrepo.jfrog.io/zdrepo/api/npm/npm"
+  }
+}
