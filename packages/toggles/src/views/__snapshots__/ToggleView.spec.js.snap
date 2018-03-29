@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToggleView renders RTL styling 1`] = `
+<div
+  className="ToggleView-iQplvQ c-chk is-rtl jVSeyt"
+  data-garden-id="toggles.toggle_view"
+  data-garden-version="version"
+/>
+`;
+
+exports[`ToggleView renders default styling 1`] = `
+<div
+  className="ToggleView-iQplvQ c-chk jVSeyt"
+  data-garden-id="toggles.toggle_view"
+  data-garden-version="version"
+/>
+`;

@@ -23,6 +23,7 @@ import * as Selection from '../../packages/selection';
 import * as Tabs from '../../packages/tabs';
 import * as Textfields from '../../packages/textfields';
 import * as Theming from '../../packages/theming';
+import * as Toggles from '../../packages/toggles';
 import * as Tooltips from '../../packages/tooltips';
 
 global.Garden = {
@@ -35,5 +36,6 @@ global.Garden = {
   Tabs,
   Textfields,
   Theming,
+  Toggles,
   Tooltips
 };

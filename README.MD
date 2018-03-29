@@ -23,6 +23,7 @@ to install.
 | [`@zendesk/garden-react-tabs`](packages/tabs)                   |
 | [`@zendesk/garden-react-textfields`](packages/textfields)       |
 | [`@zendesk/garden-react-theming`](packages/theming)             |
+| [`@zendesk/garden-react-toggles`](packages/toggles)             |
 | [`@zendesk/garden-react-tooltips`](packages/tooltips)           |
 
 See [package registry
