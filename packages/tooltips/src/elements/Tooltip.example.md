@@ -5,7 +5,9 @@ All props passed to the root element are proxied into the visible tooltip.
 ### Default Usage
 
 ```jsx
-<Tooltip trigger={<button>Trigger top placement</button>}>This an small tooltip</Tooltip>
+const { Button } = require('@zendesk/garden-react-buttons');
+
+<Tooltip trigger={<Button>Trigger top placement</Button>}>This an small tooltip</Tooltip>;
 ```
 
 ### Multiple Types and Sizes
@@ -13,11 +15,13 @@ All props passed to the root element are proxied into the visible tooltip.
 You are able to customize the type, size, and placement of the tooltip.
 
 ```jsx
+const { Button } = require('@zendesk/garden-react-buttons');
+
 <Tooltip
   placement="right"
   type="light"
   size="extra-large"
-  trigger={<button>Trigger right placement</button>}
+  trigger={<Button>Trigger right placement</Button>}
 >
   <Title>Example Title</Title>
   <p>
@@ -28,7 +32,7 @@ You are able to customize the type, size, and placement of the tooltip.
     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
     pariatur. Excepteur sint occaecat cupidatat non proident...
   </p>
-</Tooltip>
+</Tooltip>;
 ```
 
 ### Custom Events and Props
@@ -36,22 +40,26 @@ You are able to customize the type, size, and placement of the tooltip.
 Example of proxying props to the Tooltip. Applied `onClick` event to the tooltip.
 
 ```jsx
+const { Button } = require('@zendesk/garden-react-buttons');
+
 <Tooltip
   placement="right"
   type="light"
   size="extra-large"
-  trigger={<button>Custom Proxy Events</button>}
+  trigger={<Button>Custom Proxy Events</Button>}
   onClick={() => alert('Tooltip clicked')}
   style={{ color: 'red' }}
 >
   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
   labore et dolore magna aliqua.
-</Tooltip>
+</Tooltip>;
 ```
 
 ### Boundary Detection
 
 ```jsx
+const { Button } = require('@zendesk/garden-react-buttons');
+
 const Container = styled.div`
   height: 450px;
   overflow: auto;
@@ -69,7 +77,7 @@ const ScrollBox = styled.div`
     <Tooltip
       type="light"
       placement="auto"
-      trigger={<button>Scroll to view trigger changes</button>}
+      trigger={<Button>Scroll to view trigger changes</Button>}
     >
       Boundary recognition tooltip
     </Tooltip>

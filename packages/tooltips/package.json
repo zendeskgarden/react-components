@@ -30,6 +30,10 @@
     "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
     "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0"
   },
+  "devDependencies": {
+    "@zendesk/garden-react-buttons": "^0.1.3",
+    "@zendesk/garden-react-textfields": "^0.1.0"
+  },
   "keywords": [
     "components",
     "garden",

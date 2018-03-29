@@ -11,9 +11,11 @@ Follows the [W3C Tooltip accessibility pattern](https://www.w3.org/TR/wai-aria-p
 All state is handled internally in the component.
 
 ```jsx
+const { Button } = require('@zendesk/garden-react-buttons');
+
 <TooltipContainer
   trigger={({ getTriggerProps }) => (
-    <button {...getTriggerProps()}>Hover or Focus to trigger tooltip</button>
+    <Button {...getTriggerProps()}>Hover or Focus to trigger tooltip</Button>
   )}
 >
   {({ getTooltipProps, placement }) => (
@@ -21,7 +23,7 @@ All state is handled internally in the component.
       Example tooltip content
     </TooltipView>
   )}
-</TooltipContainer>
+</TooltipContainer>;
 ```
 
 ### Controlled Usage
@@ -32,6 +34,8 @@ control the tooltip visibility with the `isVisible` and `onStateChange` props.
 This example defaults the tooltip to the `visible` state.
 
 ```jsx
+const { Button } = require('@zendesk/garden-react-buttons');
+
 initialState = {
   isVisible: true
 };
@@ -41,7 +45,7 @@ initialState = {
   placement="right"
   onStateChange={newState => setState(newState)}
   trigger={({ getTriggerProps }) => (
-    <button {...getTriggerProps()}>Hover to trigger tooltip</button>
+    <Button {...getTriggerProps()}>Hover to trigger tooltip</Button>
   )}
 >
   {({ getTooltipProps, placement }) => (
@@ -98,19 +102,30 @@ const CustomTooltip = styled.div`
 This example uses a native input, which doesn't open it's tooltip `onMouseEnter`.
 
 ```jsx
+const { Input } = require('@zendesk/garden-react-textfields');
+
 <TooltipContainer
+  placement="right"
   trigger={({ getTriggerProps }) => (
-    <input
+    <Input
       {...getTriggerProps({
         onMouseEnter: event => event.preventDefault(), // stop our default logic
+        onMouseLeave: event => event.preventDefault(), // stop our default logic
         placeholder: 'Hover does not trigger me, but focus does',
-        style: { width: 250 }
+        style: { width: 500 }
       })}
     />
   )}
 >
   {({ getTooltipProps, placement }) => (
-    <TooltipView {...getTooltipProps({ placement })}>Example tooltip</TooltipView>
+    <TooltipView
+      {...getTooltipProps({
+        onMouseLeave: event => event.preventDefault(), // stop our default logic
+        placement
+      })}
+    >
+      Example tooltip
+    </TooltipView>
   )}
-</TooltipContainer>
+</TooltipContainer>;
 ```
