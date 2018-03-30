@@ -73,7 +73,7 @@
     "prettier-package-json": "^1.4.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-styleguidist": "^6.2.5",
+    "react-styleguidist": "^6.5.3",
     "react-svg-inline": "^2.1.0",
     "regenerator-runtime": "^0.11.1",
     "rimraf": "^2.6.2",

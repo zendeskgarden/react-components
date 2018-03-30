@@ -19,6 +19,7 @@ to install.
 | [`@zendesk/garden-react-checkboxes`](packages/checkboxes)       |
 | [`@zendesk/garden-react-notifications`](packages/notifications) |
 | [`@zendesk/garden-react-pagination`](packages/pagination)       |
+| [`@zendesk/garden-react-radios`](packages/radios)               |
 | [`@zendesk/garden-react-selection`](packages/selection)         |
 | [`@zendesk/garden-react-tabs`](packages/tabs)                   |
 | [`@zendesk/garden-react-textfields`](packages/textfields)       |
