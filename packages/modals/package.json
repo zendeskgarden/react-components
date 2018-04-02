@@ -7,7 +7,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "./index.js",
   "scripts": {
     "build": "../../utils/scripts/build.sh",
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@zendesk/garden-css-modals": "^4.1.2",
-    "@zendesk/garden-react-selection": "^0.2.0",
+    "@zendesk/garden-react-selection": "^1.0.0",
     "@zendesk/garden-react-textfields": "^0.1.0",
     "@zendesk/garden-react-theming": "^0.2.0",
     "classnames": "^2.2.5",
