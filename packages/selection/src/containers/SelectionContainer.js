@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
+import scrollTo from 'dom-helpers/util/scrollTo';
 import { isRtl, withTheme } from '@zendesk/garden-react-theming';
 
 import ControlledComponent from '../utils/ControlledComponent';
 import composeEventHandlers from '../utils/composeEventHandlers';
-import scrollIntoView from '../utils/scrollIntoView';
 import IdManager from '../utils/IdManager';
 import KEY_CODES from '../constants/KEY_CODES';
 import SingleSelectionModel from '../utils/SingleSelectionModel';
@@ -90,7 +90,7 @@ export class SelectionContainer extends ControlledComponent {
 
       /* istanbul ignore if */
       if (itemNode && containerNode) {
-        scrollIntoView(itemNode, containerNode);
+        scrollTo(itemNode, containerNode);
       }
     }
   }

@@ -17,6 +17,7 @@
   "dependencies": {
     "@zendesk/garden-react-theming": "^0.2.0",
     "classnames": "^2.2.5",
+    "dom-helpers": "^3.3.1",
     "prop-types": "^15.6.0"
   },
   "peerDependencies": {
