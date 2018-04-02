@@ -11,6 +11,7 @@ const defaultStyleguideConfig = {
   serverPort: 5000,
   styleguideDir: `../../demo/${basePathName}`,
   showUsage: true,
+  template: path.resolve(__dirname, 'styleguide.template.html'),
   compilerConfig: {
     transforms: {
       dangerousTaggedTemplateString: true

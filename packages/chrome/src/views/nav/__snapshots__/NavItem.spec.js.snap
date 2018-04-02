@@ -1,0 +1,321 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubNavItem Products renders chat styling if provided 1`] = `
+<NavItem
+  product="chat"
+>
+  <KeyboardFocusContainer>
+    <NavItem__StyledNavItem
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      product="chat"
+      tabIndex={0}
+    >
+      <button
+        className="NavItem__StyledNavItem-jsIZhO c-chrome__nav__item c-chrome__nav__item--logo--chat heHDol"
+        data-garden-id="chrome.nav_item"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+      />
+    </NavItem__StyledNavItem>
+  </KeyboardFocusContainer>
+</NavItem>
+`;
+
+exports[`SubNavItem Products renders connect styling if provided 1`] = `
+<NavItem
+  product="connect"
+>
+  <KeyboardFocusContainer>
+    <NavItem__StyledNavItem
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      product="connect"
+      tabIndex={0}
+    >
+      <button
+        className="NavItem__StyledNavItem-jsIZhO c-chrome__nav__item c-chrome__nav__item--logo--connect heHDol"
+        data-garden-id="chrome.nav_item"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+      />
+    </NavItem__StyledNavItem>
+  </KeyboardFocusContainer>
+</NavItem>
+`;
+
+exports[`SubNavItem Products renders explore styling if provided 1`] = `
+<NavItem
+  product="explore"
+>
+  <KeyboardFocusContainer>
+    <NavItem__StyledNavItem
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      product="explore"
+      tabIndex={0}
+    >
+      <button
+        className="NavItem__StyledNavItem-jsIZhO c-chrome__nav__item c-chrome__nav__item--logo--explore heHDol"
+        data-garden-id="chrome.nav_item"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+      />
+    </NavItem__StyledNavItem>
+  </KeyboardFocusContainer>
+</NavItem>
+`;
+
+exports[`SubNavItem Products renders guide styling if provided 1`] = `
+<NavItem
+  product="guide"
+>
+  <KeyboardFocusContainer>
+    <NavItem__StyledNavItem
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      product="guide"
+      tabIndex={0}
+    >
+      <button
+        className="NavItem__StyledNavItem-jsIZhO c-chrome__nav__item c-chrome__nav__item--logo--guide heHDol"
+        data-garden-id="chrome.nav_item"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+      />
+    </NavItem__StyledNavItem>
+  </KeyboardFocusContainer>
+</NavItem>
+`;
+
+exports[`SubNavItem Products renders message styling if provided 1`] = `
+<NavItem
+  product="message"
+>
+  <KeyboardFocusContainer>
+    <NavItem__StyledNavItem
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      product="message"
+      tabIndex={0}
+    >
+      <button
+        className="NavItem__StyledNavItem-jsIZhO c-chrome__nav__item c-chrome__nav__item--logo--message heHDol"
+        data-garden-id="chrome.nav_item"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+      />
+    </NavItem__StyledNavItem>
+  </KeyboardFocusContainer>
+</NavItem>
+`;
+
+exports[`SubNavItem Products renders support styling if provided 1`] = `
+<NavItem
+  product="support"
+>
+  <KeyboardFocusContainer>
+    <NavItem__StyledNavItem
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      product="support"
+      tabIndex={0}
+    >
+      <button
+        className="NavItem__StyledNavItem-jsIZhO c-chrome__nav__item c-chrome__nav__item--logo--support heHDol"
+        data-garden-id="chrome.nav_item"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+      />
+    </NavItem__StyledNavItem>
+  </KeyboardFocusContainer>
+</NavItem>
+`;
+
+exports[`SubNavItem Products renders talk styling if provided 1`] = `
+<NavItem
+  product="talk"
+>
+  <KeyboardFocusContainer>
+    <NavItem__StyledNavItem
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      product="talk"
+      tabIndex={0}
+    >
+      <button
+        className="NavItem__StyledNavItem-jsIZhO c-chrome__nav__item c-chrome__nav__item--logo--talk heHDol"
+        data-garden-id="chrome.nav_item"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+      />
+    </NavItem__StyledNavItem>
+  </KeyboardFocusContainer>
+</NavItem>
+`;
+
+exports[`SubNavItem States renders current styling if provided 1`] = `
+<NavItem
+  current={true}
+>
+  <KeyboardFocusContainer>
+    <NavItem__StyledNavItem
+      current={true}
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      tabIndex={0}
+    >
+      <button
+        className="NavItem__StyledNavItem-jsIZhO c-chrome__nav__item is-current heHDol"
+        data-garden-id="chrome.nav_item"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+      />
+    </NavItem__StyledNavItem>
+  </KeyboardFocusContainer>
+</NavItem>
+`;
+
+exports[`SubNavItem States renders focused styling if provided 1`] = `
+<NavItem
+  focused={true}
+>
+  <KeyboardFocusContainer>
+    <NavItem__StyledNavItem
+      focused={true}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      tabIndex={0}
+    >
+      <button
+        className="NavItem__StyledNavItem-jsIZhO c-chrome__nav__item is-focused heHDol"
+        data-garden-id="chrome.nav_item"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+      />
+    </NavItem__StyledNavItem>
+  </KeyboardFocusContainer>
+</NavItem>
+`;
+
+exports[`SubNavItem States renders hovered styling if provided 1`] = `
+<NavItem
+  hovered={true}
+>
+  <KeyboardFocusContainer>
+    <NavItem__StyledNavItem
+      focused={false}
+      hovered={true}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      tabIndex={0}
+    >
+      <button
+        className="NavItem__StyledNavItem-jsIZhO c-chrome__nav__item is-hovered heHDol"
+        data-garden-id="chrome.nav_item"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+      />
+    </NavItem__StyledNavItem>
+  </KeyboardFocusContainer>
+</NavItem>
+`;
+
+exports[`SubNavItem renders default styling 1`] = `
+<NavItem>
+  <KeyboardFocusContainer>
+    <NavItem__StyledNavItem
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      tabIndex={0}
+    >
+      <button
+        className="NavItem__StyledNavItem-jsIZhO c-chrome__nav__item heHDol"
+        data-garden-id="chrome.nav_item"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+      />
+    </NavItem__StyledNavItem>
+  </KeyboardFocusContainer>
+</NavItem>
+`;
+
+exports[`SubNavItem renders logo styling if provided 1`] = `
+<NavItem
+  logo={true}
+>
+  <KeyboardFocusContainer>
+    <NavItem__StyledNavItem
+      focused={false}
+      logo={true}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      tabIndex={-1}
+    >
+      <button
+        className="NavItem__StyledNavItem-jsIZhO c-chrome__nav__item c-chrome__nav__item--logo heHDol"
+        data-garden-id="chrome.nav_item"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={-1}
+      />
+    </NavItem__StyledNavItem>
+  </KeyboardFocusContainer>
+</NavItem>
+`;

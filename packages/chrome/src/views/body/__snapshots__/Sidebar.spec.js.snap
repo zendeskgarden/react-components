@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sidebar renders default styling 1`] = `
+<aside
+  className="Sidebar-jDTuEZ c-chrome__body__content__sidebar jYQqMh"
+  data-garden-id="chrome.sidebar"
+  data-garden-version="version"
+/>
+`;

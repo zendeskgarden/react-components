@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav renders default styling 1`] = `
+<nav
+  className="Nav-iPNUCz c-chrome__nav kBnAed"
+  data-garden-id="chrome.nav"
+  data-garden-version="version"
+/>
+`;

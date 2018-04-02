@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Body renders default styling 1`] = `
+<div
+  className="Body-blECEm c-chrome__body jWgMty"
+  data-garden-id="chrome.body"
+  data-garden-version="version"
+/>
+`;

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chrome renders RTL styling 1`] = `
+<div
+  className="Chrome-hClciK c-chrome is-rtl gWTDmM"
+  data-garden-id="chrome.chrome"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Chrome renders default styling 1`] = `
+<div
+  className="Chrome-hClciK c-chrome gWTDmM"
+  data-garden-id="chrome.chrome"
+  data-garden-version="version"
+/>
+`;
