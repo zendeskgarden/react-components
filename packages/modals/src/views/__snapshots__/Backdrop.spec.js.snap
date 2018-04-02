@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Backdrop renders RTL styling 1`] = `
+<div
+  className="Backdrop-epcaqy l-backdrop is-rtl tgvoZ"
+  data-garden-id="modals.backdrop"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Backdrop renders animation styling if provided 1`] = `
+<div
+  className="Backdrop-epcaqy l-backdrop is-visible tgvoZ"
+  data-garden-id="modals.backdrop"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Backdrop renders center styling if provided 1`] = `
+<div
+  className="Backdrop-epcaqy l-backdrop l-backdrop--center tgvoZ"
+  data-garden-id="modals.backdrop"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Backdrop renders default styling 1`] = `
+<div
+  className="Backdrop-epcaqy l-backdrop tgvoZ"
+  data-garden-id="modals.backdrop"
+  data-garden-version="version"
+/>
+`;

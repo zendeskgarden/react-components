@@ -17,6 +17,7 @@ to install.
 | --------------------------------------------------------------- |
 | [`@zendesk/garden-react-buttons`](packages/buttons)             |
 | [`@zendesk/garden-react-checkboxes`](packages/checkboxes)       |
+| [`@zendesk/garden-react-modals`](packages/modals)               |
 | [`@zendesk/garden-react-notifications`](packages/notifications) |
 | [`@zendesk/garden-react-pagination`](packages/pagination)       |
 | [`@zendesk/garden-react-radios`](packages/radios)               |
