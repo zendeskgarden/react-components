@@ -6,7 +6,7 @@ export { default as Sidebar } from './views/body/Sidebar';
 export { default as Header } from './views/header/Header';
 export { default as HeaderItem } from './views/header/HeaderItem';
 export { default as HeaderItemIcon } from './views/header/HeaderItemIcon';
-export { default as headerItemText } from './views/header/headerItemText';
+export { default as HeaderItemText } from './views/header/HeaderItemText';
 export { default as HeaderItemWrapper } from './views/header/HeaderItemWrapper';
 export { default as Nav } from './views/nav/Nav';
 export { default as NavItem } from './views/nav/NavItem';
