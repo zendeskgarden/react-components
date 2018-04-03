@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/zendeskgarden/react-components/compare/@zendesk/garden-react-chrome@0.1.0...@zendesk/garden-react-chrome@1.0.0) (2018-04-03)
+
+
+### Bug Fixes
+
+* **chrome:** correct HeaderItemText default export ([#535](https://github.com/zendeskgarden/react-components/issues/535)) ([34f5318](https://github.com/zendeskgarden/react-components/commit/34f5318))
+
+
+### BREAKING CHANGES
+
+* **chrome:** the `headerItemText` default export is now `HeaderItemText`
+
+
+
+
 <a name="0.1.0"></a>
 # 0.1.0 (2018-04-02)
 
