@@ -85,7 +85,6 @@
     "stylelint-order": "^0.8.1",
     "stylelint-processor-styled-components": "^1.2.2",
     "svg-react-loader": "^0.4.5",
-    "url": "^0.11.0",
     "webpack": "^3.11.0",
     "webpack-bundle-analyzer": "^2.11.0"
   },

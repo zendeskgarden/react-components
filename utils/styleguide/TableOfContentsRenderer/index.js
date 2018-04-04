@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import url from 'url';
 import styled from 'styled-components';
 import { zdColorAlgae } from '@zendesk/garden-css-variables';
 import TableOfContentsRenderer from 'react-styleguidist/lib/rsg-components/TableOfContents/TableOfContentsRenderer';
@@ -26,8 +25,7 @@ const Version = styled.div`
 `;
 
 const TableOfContents = ({ children, ...other }) => {
-  const query = url.parse(window.location.href).query;
-  const isRtl = query && query.indexOf('isRtl') !== -1;
+  const isRtl = location.search.indexOf('isRtl') !== -1;
 
   return (
     <TableOfContentsRenderer {...other}>
@@ -50,9 +48,9 @@ const TableOfContents = ({ children, ...other }) => {
               size="small"
               onClick={() => {
                 if (isRtl) {
-                  window.location.href = window.location.href.split('?')[0];
+                  location.search = '';
                 } else {
-                  window.location.href = `${window.location.href}?isRtl`;
+                  location.search = '?isRtl';
                 }
               }}
             >
