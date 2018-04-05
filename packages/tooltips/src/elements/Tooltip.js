@@ -8,6 +8,8 @@ import LightTooltip from '../views/LightTooltip';
 const PLACEMENT = {
   AUTO: 'auto',
   TOP: 'top',
+  TOP_START: 'top-start',
+  TOP_END: 'top-end',
   RIGHT: 'right',
   RIGHT_START: 'right-start',
   RIGHT_END: 'right-end',
@@ -47,6 +49,8 @@ export default class Tooltip extends Component {
     placement: PropTypes.oneOf([
       PLACEMENT.AUTO,
       PLACEMENT.TOP,
+      PLACEMENT.TOP_START,
+      PLACEMENT.TOP_END,
       PLACEMENT.RIGHT,
       PLACEMENT.RIGHT_START,
       PLACEMENT.RIGHT_END,
@@ -61,6 +65,13 @@ export default class Tooltip extends Component {
     popperModifiers: PropTypes.object,
     size: PropTypes.oneOf([SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE, SIZE.EXTRA_LARGE]),
     type: PropTypes.oneOf([TYPE.LIGHT, TYPE.DARK])
+  };
+
+  static defaultProps = {
+    arrow: true,
+    eventsEnabled: true,
+    size: SIZE.SMALL,
+    type: TYPE.DARK
   };
 
   render() {

@@ -12,17 +12,20 @@ class Grid extends Component {
     children: PropTypes.node.isRequired,
     spacing: PropTypes.oneOf(['none', 'small', 'medium', 'large']),
     stretched: PropTypes.bool,
+    centered: PropTypes.bool,
+    className: PropTypes.string,
     columns: PropTypes.number.isRequired
   };
 
   static defaultProps = {
     columns: Infinity,
     spacing: 'small',
-    stretched: false
+    stretched: false,
+    centered: false
   };
 
   render() {
-    const { children, columns, spacing, stretched, ...other } = this.props;
+    const { children, columns, spacing, stretched, centered, className, ...other } = this.props;
 
     const rows = [];
     let currentRow;
@@ -39,9 +42,15 @@ class Grid extends Component {
     return (
       <div
         {...other}
-        className={classNames(styles.grid, styles[`spacing_${spacing}`], {
-          [styles.stretched]: stretched
-        })}
+        className={classNames(
+          styles.grid,
+          styles[`spacing_${spacing}`],
+          {
+            [styles.stretched]: stretched,
+            [styles.centered]: centered
+          },
+          className
+        )}
       >
         {rows.map((row, i) => (
           <Row key={i}>{row.map((cell, i) => <Cell key={i}>{cell}</Cell>)}</Row>

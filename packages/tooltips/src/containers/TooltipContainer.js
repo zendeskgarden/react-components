@@ -8,10 +8,13 @@ import {
   composeEventHandlers,
   IdManager
 } from '@zendesk/garden-react-selection';
+import { withTheme, isRtl } from '@zendesk/garden-react-theming';
 
 const PLACEMENT = {
   AUTO: 'auto',
   TOP: 'top',
+  TOP_START: 'top-start',
+  TOP_END: 'top-end',
   RIGHT: 'right',
   RIGHT_START: 'right-start',
   RIGHT_END: 'right-end',
@@ -43,7 +46,7 @@ const TriggerWrapper = styled.div`
   display: inline-block;
 `;
 
-export default class TooltipContainer extends ControlledComponent {
+class TooltipContainer extends ControlledComponent {
   static propTypes = {
     /** Appends the tooltip to the body element */
     appendToBody: PropTypes.bool,
@@ -70,6 +73,8 @@ export default class TooltipContainer extends ControlledComponent {
     placement: PropTypes.oneOf([
       PLACEMENT.AUTO,
       PLACEMENT.TOP,
+      PLACEMENT.TOP_START,
+      PLACEMENT.TOP_END,
       PLACEMENT.RIGHT,
       PLACEMENT.RIGHT_START,
       PLACEMENT.RIGHT_END,
@@ -168,12 +173,34 @@ export default class TooltipContainer extends ControlledComponent {
     };
   };
 
+  retrieveRtlAwarePlacement = () => {
+    if (!isRtl(this.props)) {
+      return this.props.placement;
+    }
+
+    const RTL_PLACEMENT_MAPPINGS = {
+      [PLACEMENT.LEFT]: PLACEMENT.RIGHT,
+      [PLACEMENT.LEFT_START]: PLACEMENT.RIGHT_START,
+      [PLACEMENT.LEFT_END]: PLACEMENT.RIGHT_END,
+      [PLACEMENT.RIGHT]: PLACEMENT.LEFT,
+      [PLACEMENT.RIGHT_START]: PLACEMENT.LEFT_START,
+      [PLACEMENT.RIGHT_END]: PLACEMENT.LEFT_END,
+      [PLACEMENT.TOP_START]: PLACEMENT.TOP_END,
+      [PLACEMENT.TOP_END]: PLACEMENT.TOP_START,
+      [PLACEMENT.BOTTOM_START]: PLACEMENT.BOTTOM_END,
+      [PLACEMENT.BOTTOM_END]: PLACEMENT.BOTTOM_START
+    };
+
+    const rtlMapping = RTL_PLACEMENT_MAPPINGS[this.props.placement];
+
+    return rtlMapping || this.props.placement;
+  };
+
   render() {
     const {
       children,
       render = children,
       trigger,
-      placement,
       eventsEnabled,
       popperModifiers,
       appendToBody
@@ -195,7 +222,11 @@ export default class TooltipContainer extends ControlledComponent {
             );
           }}
         </Target>
-        <Popper placement={placement} eventsEnabled={eventsEnabled} modifiers={popperModifiers}>
+        <Popper
+          placement={this.retrieveRtlAwarePlacement()}
+          eventsEnabled={eventsEnabled}
+          modifiers={popperModifiers}
+        >
           {({ popperProps, scheduleUpdate }) => {
             const popperPlacement = popperProps['data-placement'];
             const outOfBoundaries = popperProps['data-x-out-of-boundaries'];
@@ -227,3 +258,5 @@ export default class TooltipContainer extends ControlledComponent {
     );
   }
 }
+
+export default withTheme(TooltipContainer);

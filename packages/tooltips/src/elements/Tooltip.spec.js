@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mountWithTheme } from 'utils';
 
 import Tooltip from './Tooltip';
 import TooltipView from '../views/TooltipView';
@@ -36,24 +36,42 @@ describe('Tooltip', () => {
     </Tooltip>
   );
 
+  beforeEach(() => {
+    // Disabled due to styled-components theming
+    console.warn = jest.fn(); // eslint-disable-line no-console
+  });
+
   describe('Types', () => {
     it('renders light tooltip if provided', () => {
-      const wrapper = mount(basicExample({ type: 'light' }));
+      const wrapper = mountWithTheme(basicExample({ type: 'light' }));
 
       expect(wrapper.find(LightTooltip)).toHaveLength(1);
     });
 
     it('renders dark tooltip if provided', () => {
-      const wrapper = mount(basicExample({ type: 'dark' }));
+      const wrapper = mountWithTheme(basicExample({ type: 'dark' }));
 
       expect(wrapper.find(TooltipView)).toHaveLength(1);
     });
   });
 
   describe('Placements', () => {
-    ['top', 'right', 'bottom', 'left'].forEach(placement => {
+    [
+      'top',
+      'top-start',
+      'top-end',
+      'right',
+      'right-start',
+      'right-end',
+      'bottom',
+      'bottom-start',
+      'bottom-end',
+      'left',
+      'left-start',
+      'left-end'
+    ].forEach(placement => {
       it(`renders tooltip with ${placement} placement if provided`, () => {
-        const wrapper = mount(basicExample({ placement }));
+        const wrapper = mountWithTheme(basicExample({ placement }));
 
         expect(wrapper.find(TooltipContainer)).toHaveProp('placement', placement);
       });

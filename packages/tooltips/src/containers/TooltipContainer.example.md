@@ -129,3 +129,107 @@ const { Input } = require('@zendesk/garden-react-textfields');
   )}
 </TooltipContainer>;
 ```
+
+### Placements
+
+```jsx
+const { ThemeProvider } = require('@zendesk/garden-react-theming');
+const { Toggle, Label } = require('@zendesk/garden-react-toggles');
+
+const MarginGrid = styled(Grid)`
+  margin: 20px;
+`;
+
+const TriggerDiv = styled.div`
+  background-color: grey;
+  width: 80px;
+  height: 40px;
+`;
+
+initialState = {
+  isRtl: false
+};
+
+<div>
+  <Toggle checked={state.isRtl} onChange={event => setState({ isRtl: event.target.checked })}>
+    <Label style={{ marginBottom: 16 }}>RTL Locale Placement</Label>
+  </Toggle>
+  <ThemeProvider rtl={state.isRtl}>
+    <MarginGrid columns={3} stretched centered>
+      <TooltipContainer
+        isVisible
+        placement="top-start"
+        trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+      >
+        {({ getTooltipProps, placement }) => (
+          <TooltipView {...getTooltipProps({ placement })}>top-start</TooltipView>
+        )}
+      </TooltipContainer>
+      <TooltipContainer
+        isVisible
+        placement="top"
+        trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+      >
+        {({ getTooltipProps, placement }) => (
+          <TooltipView {...getTooltipProps({ placement })}>top</TooltipView>
+        )}
+      </TooltipContainer>
+      <TooltipContainer
+        isVisible
+        placement="top-end"
+        trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+      >
+        {({ getTooltipProps, placement }) => (
+          <TooltipView {...getTooltipProps({ placement })}>top-end</TooltipView>
+        )}
+      </TooltipContainer>
+      <TooltipContainer
+        isVisible
+        placement="left"
+        trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+      >
+        {({ getTooltipProps, placement }) => (
+          <TooltipView {...getTooltipProps({ placement })}>left</TooltipView>
+        )}
+      </TooltipContainer>
+      <div />
+      <TooltipContainer
+        isVisible
+        placement="right"
+        trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+      >
+        {({ getTooltipProps, placement }) => (
+          <TooltipView {...getTooltipProps({ placement })}>right</TooltipView>
+        )}
+      </TooltipContainer>
+      <TooltipContainer
+        isVisible
+        placement="bottom-start"
+        trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+      >
+        {({ getTooltipProps, placement }) => (
+          <TooltipView {...getTooltipProps({ placement })}>bottom-start</TooltipView>
+        )}
+      </TooltipContainer>
+      <TooltipContainer
+        isVisible
+        placement="bottom"
+        trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+      >
+        {({ getTooltipProps, placement }) => (
+          <TooltipView {...getTooltipProps({ placement })}>bottom</TooltipView>
+        )}
+      </TooltipContainer>
+      <TooltipContainer
+        isVisible
+        placement="bottom-end"
+        trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+      >
+        {({ getTooltipProps, placement }) => (
+          <TooltipView {...getTooltipProps({ placement })}>bottom-end</TooltipView>
+        )}
+      </TooltipContainer>
+    </MarginGrid>
+  </ThemeProvider>
+</div>;
+```

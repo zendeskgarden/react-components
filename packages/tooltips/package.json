@@ -32,7 +32,8 @@
   },
   "devDependencies": {
     "@zendesk/garden-react-buttons": "^0.1.4",
-    "@zendesk/garden-react-textfields": "^0.1.1"
+    "@zendesk/garden-react-textfields": "^0.1.1",
+    "@zendesk/garden-react-toggles": "^0.1.1"
   },
   "keywords": [
     "components",

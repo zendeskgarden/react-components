@@ -27,7 +27,20 @@ describe('TooltipView', () => {
   });
 
   describe('Placement', () => {
-    ['top', 'right', 'bottom', 'left'].forEach(placement => {
+    [
+      'top',
+      'top-start',
+      'top-end',
+      'right',
+      'right-start',
+      'right-end',
+      'bottom',
+      'bottom-start',
+      'bottom-end',
+      'left',
+      'left-start',
+      'left-end'
+    ].forEach(placement => {
       it(`renders ${placement} placement correctly`, () => {
         const wrapper = shallow(<TooltipView placement={placement} />);
 

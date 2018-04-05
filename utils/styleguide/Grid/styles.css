@@ -16,6 +16,10 @@
   width: 100%;
 }
 
+.centered {
+  text-align: center;
+}
+
 .spacing_small > .row > .cell {
   padding-right: 8px;
   padding-bottom: 8px;

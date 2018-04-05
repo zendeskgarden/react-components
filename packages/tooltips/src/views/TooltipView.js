@@ -17,18 +17,30 @@ const SIZE = {
 
 const PLACEMENT = {
   TOP: 'top',
+  TOP_START: 'top-start',
+  TOP_END: 'top-end',
+  RIGHT: 'right',
+  RIGHT_START: 'right-start',
+  RIGHT_END: 'right-end',
   BOTTOM: 'bottom',
+  BOTTOM_START: 'bottom-start',
+  BOTTOM_END: 'bottom-end',
   LEFT: 'left',
-  RIGHT: 'right'
+  LEFT_START: 'left-start',
+  LEFT_END: 'left-end'
 };
 
 const shouldShowArrow = ({ arrow, placement }) => {
   return (
     arrow &&
     (placement === PLACEMENT.LEFT ||
-      placement === PLACEMENT.BOTTOM ||
       placement === PLACEMENT.RIGHT ||
-      placement === PLACEMENT.TOP)
+      placement === PLACEMENT.BOTTOM ||
+      placement === PLACEMENT.BOTTOM_START ||
+      placement === PLACEMENT.BOTTOM_END ||
+      placement === PLACEMENT.TOP ||
+      placement === PLACEMENT.TOP_START ||
+      placement === PLACEMENT.TOP_END)
   );
 };
 
@@ -60,8 +72,12 @@ const TooltipView = styled.div.attrs({
       [ArrowStyles['c-arrow']]: shouldShowArrow(props),
       [ArrowStyles['c-arrow--r']]: props.placement === PLACEMENT.LEFT,
       [ArrowStyles['c-arrow--b']]: props.placement === PLACEMENT.TOP,
+      [ArrowStyles['c-arrow--bl']]: props.placement === PLACEMENT.TOP_START,
+      [ArrowStyles['c-arrow--br']]: props.placement === PLACEMENT.TOP_END,
       [ArrowStyles['c-arrow--l']]: props.placement === PLACEMENT.RIGHT,
-      [ArrowStyles['c-arrow--t']]: props.placement === PLACEMENT.BOTTOM
+      [ArrowStyles['c-arrow--t']]: props.placement === PLACEMENT.BOTTOM,
+      [ArrowStyles['c-arrow--tl']]: props.placement === PLACEMENT.BOTTOM_START,
+      [ArrowStyles['c-arrow--tr']]: props.placement === PLACEMENT.BOTTOM_END
     })
 })`
   ${/* sc-selector */ Title} & {
@@ -77,7 +93,21 @@ const TooltipView = styled.div.attrs({
 TooltipView.propTypes = {
   arrow: PropTypes.bool,
   size: PropTypes.oneOf([SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE, SIZE.EXTRA_LARGE]),
-  placement: PropTypes.oneOf([PLACEMENT.RIGHT, PLACEMENT.LEFT, PLACEMENT.TOP, PLACEMENT.BOTTOM])
+  /** All valid [Popper.JS Placements](https://popper.js.org/popper-documentation.html#Popper.placements) */
+  placement: PropTypes.oneOf([
+    PLACEMENT.TOP,
+    PLACEMENT.TOP_START,
+    PLACEMENT.TOP_END,
+    PLACEMENT.RIGHT,
+    PLACEMENT.RIGHT_START,
+    PLACEMENT.RIGHT_END,
+    PLACEMENT.BOTTOM,
+    PLACEMENT.BOTTOM_START,
+    PLACEMENT.BOTTOM_END,
+    PLACEMENT.LEFT,
+    PLACEMENT.LEFT_START,
+    PLACEMENT.LEFT_END
+  ])
 };
 
 TooltipView.defaultProps = {
