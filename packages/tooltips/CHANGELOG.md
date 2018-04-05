@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/zendeskgarden/react-components/compare/@zendesk/garden-react-tooltips@0.2.0...@zendesk/garden-react-tooltips@0.3.0) (2018-04-05)
+
+
+### Features
+
+* **tooltips:** add start and end positioning for all placements with RTL alignment ([#538](https://github.com/zendeskgarden/react-components/issues/538)) ([fbfe473](https://github.com/zendeskgarden/react-components/commit/fbfe473))
+
+
+
+
 <a name="0.2.0"></a>
 # [0.2.0](https://github.com/zendeskgarden/react-components/compare/@zendesk/garden-react-tooltips@0.1.1...@zendesk/garden-react-tooltips@0.2.0) (2018-04-02)
 
