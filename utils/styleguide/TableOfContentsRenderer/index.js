@@ -5,6 +5,7 @@ import { zdColorAlgae } from '@zendesk/garden-css-variables';
 import TableOfContentsRenderer from 'react-styleguidist/lib/rsg-components/TableOfContents/TableOfContentsRenderer';
 
 import { Button, Anchor } from '../../../packages/buttons';
+import { ThemeProvider } from '../../../packages/theming';
 import packageJson from 'package.json';
 import { Tooltip, Title } from '../../../packages/tooltips';
 
@@ -31,42 +32,44 @@ const TableOfContents = ({ children, ...other }) => {
     <TableOfContentsRenderer {...other}>
       {children}
       <RTLContainer>
-        <Tooltip
-          placement="right"
-          popperModifiers={{
-            preventOverflow: {
-              boundariesElement: 'viewport'
-            },
-            hide: { enabled: false }
-          }}
-          appendToBody
-          type="light"
-          size="extra-large"
-          trigger={
-            <Button
-              stretched
-              size="small"
-              onClick={() => {
-                if (isRtl) {
-                  location.search = '';
-                } else {
-                  location.search = '?isRtl';
-                }
-              }}
-            >
-              {isRtl ? 'Disable RTL' : 'Enable RTL'}
-            </Button>
-          }
-        >
-          <Title>RTL in Garden</Title>
-          <p>
-            All Garden components are RTL locale aware when used with the {'<ThemeProvider />'}{' '}
-            component.
-          </p>
-          <p>
-            <Anchor href="/react-components/next/theming">View Garden Theming Package</Anchor>
-          </p>
-        </Tooltip>
+        <ThemeProvider>
+          <Tooltip
+            placement="right"
+            popperModifiers={{
+              preventOverflow: {
+                boundariesElement: 'viewport'
+              },
+              hide: { enabled: false }
+            }}
+            appendToBody
+            type="light"
+            size="extra-large"
+            trigger={
+              <Button
+                stretched
+                size="small"
+                onClick={() => {
+                  if (isRtl) {
+                    location.search = '';
+                  } else {
+                    location.search = '?isRtl';
+                  }
+                }}
+              >
+                {isRtl ? 'Disable RTL' : 'Enable RTL'}
+              </Button>
+            }
+          >
+            <Title>RTL in Garden</Title>
+            <p>
+              All Garden components are RTL locale aware when used with the {'<ThemeProvider />'}{' '}
+              component.
+            </p>
+            <p>
+              <Anchor href="/react-components/next/theming">View Garden Theming Package</Anchor>
+            </p>
+          </Tooltip>
+        </ThemeProvider>
       </RTLContainer>
       <Version title="Current version">v{packageJson.version}</Version>
     </TableOfContentsRenderer>
