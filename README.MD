@@ -49,6 +49,7 @@ Use this configuration to enable CSS-modules globally.
 {
   test: /\.css$/,
   use: [
+    'style-loader',
     {
       loader: 'css-loader',
       options: {
@@ -70,6 +71,7 @@ This configuration limits CSS-modules to the Garden React packages. Useful if yo
   test: /\.css$/,
   include: /node_modules\/@zendesk\/garden-css/, // limits imports affected by loader
   use: [
+    'style-loader',
     {
       loader: 'css-loader',
       options: {
