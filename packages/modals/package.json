@@ -23,7 +23,7 @@
     "dom-helpers": "^3.3.1",
     "prop-types": "^15.6.0",
     "react-portal": "^4.1.2",
-    "styled-components": "^3.1.6",
+    "styled-components": "^3.2.5",
     "tabbable": "^1.1.2"
   },
   "peerDependencies": {

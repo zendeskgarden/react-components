@@ -79,7 +79,7 @@
     "rimraf": "^2.6.2",
     "serve": "^6.5.0",
     "simple-git": "^1.19.0",
-    "styled-components": "^3.1.6",
+    "styled-components": "^3.2.5",
     "stylelint": "^9.1.1",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-order": "^0.8.1",

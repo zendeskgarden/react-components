@@ -10,6 +10,7 @@ import { ThemeProvider } from '../../packages/theming';
 export const shallowWithTheme = (tree, { rtl, theme } = {}) => {
   const context = mount(<ThemeProvider theme={theme} rtl={rtl} />)
     .childAt(0)
+    .childAt(0)
     .instance()
     .getChildContext();
 
@@ -23,6 +24,7 @@ export const shallowWithTheme = (tree, { rtl, theme } = {}) => {
  */
 export const mountWithTheme = (tree, { rtl, theme } = {}) => {
   const context = mount(<ThemeProvider theme={theme} rtl={rtl} />)
+    .childAt(0)
     .childAt(0)
     .instance()
     .getChildContext();
