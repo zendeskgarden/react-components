@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/zendeskgarden/react-components/compare/@zendesk/garden-react-theming@0.2.0...@zendesk/garden-react-theming@0.3.0) (2018-04-12)
+
+
+### Bug Fixes
+
+* **selection:** add KEY_CODES constant to root export ([#517](https://github.com/zendeskgarden/react-components/issues/517)) ([ebcbf22](https://github.com/zendeskgarden/react-components/commit/ebcbf22))
+
+
+### Features
+
+* **theming:** add support to change target of styled-components CSS ([#542](https://github.com/zendeskgarden/react-components/issues/542)) ([f0bf138](https://github.com/zendeskgarden/react-components/commit/f0bf138))
+
+
+
+
 <a name="0.2.0"></a>
 # [0.2.0](https://github.com/zendeskgarden/react-components/compare/@zendesk/garden-react-theming@0.1.1...@zendesk/garden-react-theming@0.2.0) (2018-03-01)
 
