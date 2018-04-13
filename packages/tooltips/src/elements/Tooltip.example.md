@@ -18,10 +18,10 @@ You are able to customize the type, size, and placement of the tooltip.
 const { Button } = require('@zendesk/garden-react-buttons');
 
 <Tooltip
-  placement="right"
+  placement="end"
   type="light"
   size="extra-large"
-  trigger={<Button>Trigger right placement</Button>}
+  trigger={<Button>Trigger end placement</Button>}
 >
   <Title>Example Title</Title>
   <p>
@@ -43,7 +43,7 @@ Example of proxying props to the Tooltip. Applied `onClick` event to the tooltip
 const { Button } = require('@zendesk/garden-react-buttons');
 
 <Tooltip
-  placement="right"
+  placement="end"
   type="light"
   size="extra-large"
   trigger={<Button>Custom Proxy Events</Button>}
@@ -74,11 +74,7 @@ const ScrollBox = styled.div`
 
 <Container>
   <ScrollBox>
-    <Tooltip
-      type="light"
-      placement="auto"
-      trigger={<Button>Scroll to view trigger changes</Button>}
-    >
+    <Tooltip type="light" trigger={<Button>Scroll to view trigger changes</Button>}>
       Boundary recognition tooltip
     </Tooltip>
   </ScrollBox>

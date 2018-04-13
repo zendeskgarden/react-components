@@ -9,22 +9,7 @@ import {
   IdManager
 } from '@zendesk/garden-react-selection';
 import { withTheme, isRtl } from '@zendesk/garden-react-theming';
-
-const PLACEMENT = {
-  AUTO: 'auto',
-  TOP: 'top',
-  TOP_START: 'top-start',
-  TOP_END: 'top-end',
-  RIGHT: 'right',
-  RIGHT_START: 'right-start',
-  RIGHT_END: 'right-end',
-  BOTTOM: 'bottom',
-  BOTTOM_START: 'bottom-start',
-  BOTTOM_END: 'bottom-end',
-  LEFT: 'left',
-  LEFT_START: 'left-start',
-  LEFT_END: 'left-end'
-};
+import { getPopperPlacement, getRtlPopperPlacement } from '../utils/gardenPlacements';
 
 /**
  * This container must provide a wrapper for the provided tooltip
@@ -69,21 +54,24 @@ class TooltipContainer extends ControlledComponent {
     isVisible: PropTypes.bool,
     /** Returns all changed state. Used for controlling usage. */
     onStateChange: PropTypes.func,
-    /** All valid [Popper.JS Placements](https://popper.js.org/popper-documentation.html#Popper.placements) */
+    /**
+     * These placements differ from the default naming of Popper.JS placements to help
+     * assist with RTL layouts.
+     **/
     placement: PropTypes.oneOf([
-      PLACEMENT.AUTO,
-      PLACEMENT.TOP,
-      PLACEMENT.TOP_START,
-      PLACEMENT.TOP_END,
-      PLACEMENT.RIGHT,
-      PLACEMENT.RIGHT_START,
-      PLACEMENT.RIGHT_END,
-      PLACEMENT.BOTTOM,
-      PLACEMENT.BOTTOM_START,
-      PLACEMENT.BOTTOM_END,
-      PLACEMENT.LEFT,
-      PLACEMENT.LEFT_START,
-      PLACEMENT.LEFT_END
+      'auto',
+      'top',
+      'top-start',
+      'top-end',
+      'end',
+      'end-top',
+      'end-bottom',
+      'bottom',
+      'bottom-start',
+      'bottom-end',
+      'start',
+      'start-top',
+      'start-bottom'
     ]),
     /** Passes options to [Popper.JS Instance](https://github.com/FezVrasta/popper.js/blob/master/docs/_includes/popper-documentation.md#new-popperreference-popper-options) */
     popperModifiers: PropTypes.object,
@@ -98,7 +86,7 @@ class TooltipContainer extends ControlledComponent {
   };
 
   static defaultProps = {
-    placement: PLACEMENT.TOP,
+    placement: 'top',
     eventsEnabled: true,
     delayMilliseconds: 500
   };
@@ -173,27 +161,14 @@ class TooltipContainer extends ControlledComponent {
     };
   };
 
-  retrieveRtlAwarePlacement = () => {
-    if (!isRtl(this.props)) {
-      return this.props.placement;
+  convertGardenToPopperPlacement = () => {
+    const { placement } = this.props;
+
+    if (isRtl(this.props)) {
+      return getRtlPopperPlacement(placement);
     }
 
-    const RTL_PLACEMENT_MAPPINGS = {
-      [PLACEMENT.LEFT]: PLACEMENT.RIGHT,
-      [PLACEMENT.LEFT_START]: PLACEMENT.RIGHT_START,
-      [PLACEMENT.LEFT_END]: PLACEMENT.RIGHT_END,
-      [PLACEMENT.RIGHT]: PLACEMENT.LEFT,
-      [PLACEMENT.RIGHT_START]: PLACEMENT.LEFT_START,
-      [PLACEMENT.RIGHT_END]: PLACEMENT.LEFT_END,
-      [PLACEMENT.TOP_START]: PLACEMENT.TOP_END,
-      [PLACEMENT.TOP_END]: PLACEMENT.TOP_START,
-      [PLACEMENT.BOTTOM_START]: PLACEMENT.BOTTOM_END,
-      [PLACEMENT.BOTTOM_END]: PLACEMENT.BOTTOM_START
-    };
-
-    const rtlMapping = RTL_PLACEMENT_MAPPINGS[this.props.placement];
-
-    return rtlMapping || this.props.placement;
+    return getPopperPlacement(placement);
   };
 
   render() {
@@ -223,7 +198,7 @@ class TooltipContainer extends ControlledComponent {
           }}
         </Target>
         <Popper
-          placement={this.retrieveRtlAwarePlacement()}
+          placement={this.convertGardenToPopperPlacement()}
           eventsEnabled={eventsEnabled}
           modifiers={popperModifiers}
         >

@@ -5,22 +5,6 @@ import TooltipContainer from '../containers/TooltipContainer';
 import TooltipView from '../views/TooltipView';
 import LightTooltip from '../views/LightTooltip';
 
-const PLACEMENT = {
-  AUTO: 'auto',
-  TOP: 'top',
-  TOP_START: 'top-start',
-  TOP_END: 'top-end',
-  RIGHT: 'right',
-  RIGHT_START: 'right-start',
-  RIGHT_END: 'right-end',
-  BOTTOM: 'bottom',
-  BOTTOM_START: 'bottom-start',
-  BOTTOM_END: 'bottom-end',
-  LEFT: 'left',
-  LEFT_START: 'left-start',
-  LEFT_END: 'left-end'
-};
-
 const SIZE = {
   SMALL: 'small',
   MEDIUM: 'medium',
@@ -45,21 +29,24 @@ export default class Tooltip extends Component {
     eventsEnabled: PropTypes.bool,
     id: PropTypes.string,
     trigger: PropTypes.node,
-    /** All valid [Popper.JS Placements](https://popper.js.org/popper-documentation.html#Popper.placements) */
+    /**
+     * These placements differ from the default naming of Popper.JS placements to help
+     * assist with RTL layouts.
+     **/
     placement: PropTypes.oneOf([
-      PLACEMENT.AUTO,
-      PLACEMENT.TOP,
-      PLACEMENT.TOP_START,
-      PLACEMENT.TOP_END,
-      PLACEMENT.RIGHT,
-      PLACEMENT.RIGHT_START,
-      PLACEMENT.RIGHT_END,
-      PLACEMENT.BOTTOM,
-      PLACEMENT.BOTTOM_START,
-      PLACEMENT.BOTTOM_END,
-      PLACEMENT.LEFT,
-      PLACEMENT.LEFT_START,
-      PLACEMENT.LEFT_END
+      'auto',
+      'top',
+      'top-start',
+      'top-end',
+      'end',
+      'end-top',
+      'end-bottom',
+      'bottom',
+      'bottom-start',
+      'bottom-end',
+      'start',
+      'start-top',
+      'start-bottom'
     ]),
     /** Passes options to [Popper.JS Instance](https://github.com/FezVrasta/popper.js/blob/master/docs/_includes/popper-documentation.md#new-popperreference-popper-options) */
     popperModifiers: PropTypes.object,
@@ -70,7 +57,6 @@ export default class Tooltip extends Component {
   static defaultProps = {
     arrow: true,
     eventsEnabled: true,
-    size: SIZE.SMALL,
     type: TYPE.DARK
   };
 

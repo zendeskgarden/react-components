@@ -34,7 +34,7 @@ const TableOfContents = ({ children, ...other }) => {
       <RTLContainer>
         <ThemeProvider>
           <Tooltip
-            placement="right"
+            placement="end"
             popperModifiers={{
               preventOverflow: {
                 boundariesElement: 'viewport'

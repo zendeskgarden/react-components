@@ -36,3 +36,36 @@ Advanced tooltip usages.
   )}
 </TooltipContainer>
 ```
+
+### RTL Locale Layouts
+
+The `Tooltip` and `TooltipContainer` components automatically handle RTL layouts based on
+their parent [ThemeProvider](https://garden.zendesk.com/react-components/next/theming/#themeprovider).
+
+#### English (LTR) Placements
+
+```bash static
+                  TOP_START     TOP        TOP_END
+       START_TOP  +------------------------------+  END_TOP
+                  |   ---inline direction --->   |
+                  |  |                           |
+           START  |  | block      * horizontal * |  END
+                  |  | direction  *writing mode* |
+                  |  V                           |
+    START_BOTTOM  +------------------------------+  END_BOTTOM
+                  BOTTOM_START BOTTOM   BOTTOM_END
+```
+
+#### Arabic/Hebrew (RTL) Placements
+
+```bash static
+                  TOP_END     TOP        TOP_START
+         END_TOP  +------------------------------+  START_TOP
+                  |  <--- inline direction---    |
+                  |  |                           |
+             END  |  | block      * horizontal * |  START
+                  |  | direction  *writing mode* |
+                  |  V                           |
+      END_BOTTOM  +------------------------------+  START_BOTTOM
+                  BOTTOM_END   BOTTOM BOTTOM_START
+```

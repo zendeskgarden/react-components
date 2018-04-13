@@ -1,7 +1,12 @@
 import React from 'react';
-import TooltipContainer from './TooltipContainer';
 import { mountWithTheme } from 'utils';
 import { Portal } from 'react-portal';
+import TooltipContainer from './TooltipContainer';
+import {
+  GARDEN_PLACEMENTS,
+  getPopperPlacement,
+  getRtlPopperPlacement
+} from '../utils/gardenPlacements';
 
 /**
  * Mocks popper.js calls within react-popper due to virtual testing environment
@@ -200,16 +205,7 @@ describe('TooltipContainer', () => {
   describe('placement', () => {
     describe('with LTR locale', () => {
       it('applies placements as provided', () => {
-        [
-          'top',
-          'top-start',
-          'top-end',
-          'right',
-          'bottom',
-          'bottom-start',
-          'bottom-end',
-          'left'
-        ].forEach(providedPlacement => {
+        Object.values(GARDEN_PLACEMENTS).forEach(providedPlacement => {
           wrapper = mountWithTheme(
             <TooltipContainer
               placement={providedPlacement}
@@ -228,27 +224,17 @@ describe('TooltipContainer', () => {
             </TooltipContainer>
           );
 
-          expect(wrapper.find('Popper')).toHaveProp('placement', providedPlacement);
+          expect(wrapper.find('Popper')).toHaveProp(
+            'placement',
+            getPopperPlacement(providedPlacement)
+          );
         });
       });
     });
 
     describe('with RTL locale', () => {
-      it('applies placements as provided', () => {
-        [
-          'top',
-          'top-start',
-          'top-end',
-          'right',
-          'right-start',
-          'right-end',
-          'bottom',
-          'bottom-start',
-          'bottom-end',
-          'left',
-          'left-start',
-          'left-end'
-        ].forEach(providedPlacement => {
+      it('applies translated placements', () => {
+        Object.values(GARDEN_PLACEMENTS).forEach(providedPlacement => {
           wrapper = mountWithTheme(
             <TooltipContainer
               placement={providedPlacement}
@@ -268,22 +254,10 @@ describe('TooltipContainer', () => {
             { rtl: true }
           );
 
-          const VALID_RTL_MAPPINGS = {
-            'top-start': 'top-end',
-            'top-end': 'top-start',
-            right: 'left',
-            'right-start': 'left-start',
-            'right-end': 'left-end',
-            'bottom-start': 'bottom-end',
-            'bottom-end': 'bottom-start',
-            left: 'right',
-            'left-start': 'right-start',
-            'left-end': 'right-end'
-          };
-
-          const validMapping = VALID_RTL_MAPPINGS[providedPlacement] || providedPlacement;
-
-          expect(wrapper.find('Popper')).toHaveProp('placement', validMapping);
+          expect(wrapper.find('Popper')).toHaveProp(
+            'placement',
+            getRtlPopperPlacement(providedPlacement)
+          );
         });
       });
     });
