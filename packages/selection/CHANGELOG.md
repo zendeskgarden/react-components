@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/zendeskgarden/react-components/compare/@zendesk/garden-react-selection@1.0.1...@zendesk/garden-react-selection@1.1.0) (2018-04-17)
+
+
+### Features
+
+* **selection:** add ability to focus last item in SelectionContainer by default([#546](https://github.com/zendeskgarden/react-components/issues/546)) ([4edb1f5](https://github.com/zendeskgarden/react-components/commit/4edb1f5))
+
+
+
+
 <a name="1.0.1"></a>
 ## [1.0.1](https://github.com/zendeskgarden/react-components/compare/@zendesk/garden-react-selection@1.0.0...@zendesk/garden-react-selection@1.0.1) (2018-04-12)
 
