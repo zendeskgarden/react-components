@@ -104,10 +104,17 @@ export default class Modal extends ControlledComponent {
 
     return (
       <ModalContainer onClose={onClose} id={id}>
-        {({ getBackdropProps, getModalProps, getTitleProps, getContentProps, getCloseProps }) => (
+        {({
+          getBackdropProps,
+          getModalProps,
+          getTitleProps,
+          getContentProps,
+          getCloseProps,
+          modalRef
+        }) => (
           <Portal>
             <Backdrop {...getBackdropProps({ center, animate, ...backdropProps })}>
-              <ModalView {...getModalProps({ animate, ...modalProps })}>
+              <ModalView {...getModalProps({ animate, ...modalProps })} innerRef={modalRef}>
                 {Children.map(children, child => {
                   if (child.type === Header) {
                     return cloneElement(child, getTitleProps(child.props));

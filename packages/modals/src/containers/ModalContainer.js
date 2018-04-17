@@ -16,6 +16,7 @@ export default class ModalContainer extends ControlledComponent {
      * @param {Function} renderProps.getTitleProps - Props to be spread onto the modal title element
      * @param {Function} renderProps.getContentProps - Props to be spread onto the modal content element
      * @param {Function} renderProps.getCloseProps - Props to be spread onto the close button/icon
+     * @param {Function} renderProps.modalRef - Callback for the ref of the containing modal
      * @param {Function} renderProps.closeModal - Callback to trigger the root `onClock` prop
      */
     children: PropTypes.func,
@@ -45,6 +46,7 @@ export default class ModalContainer extends ControlledComponent {
 
   closeModal = event => {
     const { onClose } = this.props;
+
     onClose && onClose(event);
   };
 
@@ -109,13 +111,14 @@ export default class ModalContainer extends ControlledComponent {
 
     return (
       <FocusJailContainer>
-        {({ getContainerProps }) =>
+        {({ getContainerProps, containerRef }) =>
           render({
             getBackdropProps: this.getBackdropProps,
             getModalProps: props => getContainerProps(this.getModalProps(props)),
             getTitleProps: this.getTitleProps,
             getContentProps: this.getContentProps,
             getCloseProps: this.getCloseProps,
+            modalRef: containerRef,
             closeModal: this.closeModal
           })
         }

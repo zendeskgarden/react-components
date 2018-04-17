@@ -11,7 +11,7 @@ export default class FocusJailContainer extends ControlledComponent {
     /**
      * @param {Object} renderProps
      * @param {Function} renderProps.getContainerProps - Props to be spread onto the element you want to jail
-     * @param {String} renderProps.getContainerProps.refKey - Modify key used to retrieve the `ref` of the element
+     * @param {Function} renderProps.containerRef - Callback for the ref of the containing element
      */
     children: PropTypes.func,
     /**
@@ -21,6 +21,7 @@ export default class FocusJailContainer extends ControlledComponent {
   };
 
   componentDidMount() {
+    this.validateContainerRef();
     this.focusElement(this.container);
   }
 
@@ -31,16 +32,22 @@ export default class FocusJailContainer extends ControlledComponent {
   }
   /* eslint-enable class-methods-use-this */
 
-  getContainerProps = ({ onKeyDown, refKey = 'innerRef', ...other } = {}) => {
+  validateContainerRef = () => {
+    if (!this.container) {
+      throw new Error(
+        'Accessibility Error: You must apply the ref prop to your containing element.'
+      );
+    }
+  };
+
+  getContainerProps = ({ onKeyDown, ...other } = {}) => {
     return {
-      [refKey]: ref => {
-        this.container = ref;
-      },
       onKeyDown: composeEventHandlers(onKeyDown, event => {
         if (event.keyCode !== KEY_CODES.TAB) {
           return;
         }
 
+        this.validateContainerRef();
         const elements = tabbable(this.container);
 
         const index = elements.indexOf(event.target);
@@ -76,11 +83,16 @@ export default class FocusJailContainer extends ControlledComponent {
     };
   };
 
+  containerRef = reference => {
+    this.container = reference;
+  };
+
   render() {
     const { children, render = children } = this.props;
 
     return render({
-      getContainerProps: this.getContainerProps
+      getContainerProps: this.getContainerProps,
+      containerRef: this.containerRef
     });
   }
 }

@@ -17,10 +17,11 @@ const onModalClose = () => setState({ isModalVisible: false });
         getTitleProps,
         getContentProps,
         getCloseProps,
+        modalRef,
         closeModal
       }) => (
         <Backdrop {...getBackdropProps({ animate: true, center: true })}>
-          <ModalView {...getModalProps({ animate: true })}>
+          <ModalView {...getModalProps({ animate: true })} innerRef={modalRef}>
             <Header {...getTitleProps()}>Example Header</Header>
             <Body {...getContentProps()}>
               <p>

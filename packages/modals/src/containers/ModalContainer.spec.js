@@ -16,10 +16,11 @@ describe('FocusJailContainer', () => {
         getTitleProps,
         getContentProps,
         getCloseProps,
+        modalRef,
         closeModal
       }) => (
         <div {...getBackdropProps({ 'data-test-id': 'backdrop' })}>
-          <div {...getModalProps({ 'data-test-id': 'modal', refKey: 'ref' })}>
+          <div {...getModalProps({ 'data-test-id': 'modal' })} ref={modalRef}>
             <div {...getTitleProps({ 'data-test-id': 'title' })}>Title</div>
             <div {...getContentProps({ 'data-test-id': 'content' })}>Modal content</div>
             <button {...getCloseProps({ 'data-test-id': 'close' })} />

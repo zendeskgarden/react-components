@@ -11,8 +11,8 @@ describe('FocusJailContainer', () => {
 
   const basicExample = () => (
     <FocusJailContainer>
-      {({ getContainerProps }) => (
-        <div {...getContainerProps({ 'data-test-id': 'container', refKey: 'ref' })}>
+      {({ getContainerProps, containerRef }) => (
+        <div {...getContainerProps({ 'data-test-id': 'container' })} ref={containerRef}>
           <p>non-focusable test</p>
           <button data-test-id="button">focusable button</button>
           <input data-test-id="input" />
@@ -42,6 +42,22 @@ describe('FocusJailContainer', () => {
     });
   });
 
+  describe('containerRef', () => {
+    it('throws error if containerRef is not provided', () => {
+      console.error = jest.fn(); // eslint-disable-line no-console
+
+      expect(() => {
+        mount(
+          <FocusJailContainer>
+            {({ getContainerProps }) => (
+              <div {...getContainerProps({ 'data-test-id': 'container' })}>Test</div>
+            )}
+          </FocusJailContainer>
+        );
+      }).toThrow('Accessibility Error: You must apply the ref prop to your containing element.');
+    });
+  });
+
   describe('getContainerProps()', () => {
     it('retrieves references by refKey', () => {
       expect(wrapper.instance().container).toBe(findContainer(wrapper).getDOMNode());
@@ -59,8 +75,8 @@ describe('FocusJailContainer', () => {
         focusElementSpy.mockClear();
         wrapper = mount(
           <FocusJailContainer>
-            {({ getContainerProps }) => (
-              <div {...getContainerProps({ 'data-test-id': 'container', refKey: 'ref' })}>
+            {({ getContainerProps, containerRef }) => (
+              <div {...getContainerProps({ 'data-test-id': 'container' })} ref={containerRef}>
                 <p>non-focusable test</p>
               </div>
             )}
