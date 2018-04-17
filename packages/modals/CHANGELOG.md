@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/zendeskgarden/react-components/compare/@zendesk/garden-react-modals@0.2.1...@zendesk/garden-react-modals@1.0.0) (2018-04-17)
+
+
+### Features
+
+* **modals:** move FocusJailContainer ref to separate prop ([#545](https://github.com/zendeskgarden/react-components/issues/545)) ([0343f8b](https://github.com/zendeskgarden/react-components/commit/0343f8b))
+
+
+### BREAKING CHANGES
+
+* **modals:** Moves ref allocation within the `FocusJailContainer` and `ModalContainer` components to it's own property rather than using the `refKey` pattern. 
+
+If you do not use this new property rendering will be blocked by an an accessibility error being thrown.
+
+
+
+
 <a name="0.2.1"></a>
 ## [0.2.1](https://github.com/zendeskgarden/react-components/compare/@zendesk/garden-react-modals@0.2.0...@zendesk/garden-react-modals@0.2.1) (2018-04-17)
 
