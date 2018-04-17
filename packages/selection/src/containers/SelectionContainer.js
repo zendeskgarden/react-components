@@ -33,7 +33,7 @@ export class SelectionContainer extends ControlledComponent {
       KEYBOARD_DIRECTION.BOTH
     ]),
     /**
-     * Default item to assign as focused if container is focused
+     * Default item to assign as focused if container is focused (-1 is equivalent to last item)
      */
     defaultFocusedIndex: PropTypes.number,
     /**
@@ -86,11 +86,10 @@ export class SelectionContainer extends ControlledComponent {
      */
     if (typeof current.focusedKey !== 'undefined' && current.focusedKey !== prev.focusedKey) {
       const itemNode = document.getElementById(this.getItemId(current.focusedKey));
-      const containerNode = document.getElementById(this.getContainerId());
 
       /* istanbul ignore if */
-      if (itemNode && containerNode) {
-        scrollTo(itemNode, containerNode);
+      if (itemNode) {
+        scrollTo(itemNode);
       }
     }
   }
@@ -201,8 +200,12 @@ export class SelectionContainer extends ControlledComponent {
             let selectedIndex = this.keyIndexMap[this.getControlledState().selectedKey];
 
             if (typeof selectedIndex === 'undefined') {
-              selectedIndex = defaultFocusedIndex;
+              selectedIndex =
+                defaultFocusedIndex === -1
+                  ? (selectedIndex = Object.keys(this.keyIndexMap).length - 1)
+                  : defaultFocusedIndex;
             }
+
             this.focusSelectionModel.select(selectedIndex);
           }
         }

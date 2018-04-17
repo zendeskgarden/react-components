@@ -9,8 +9,12 @@ describe('SelectionContainer', () => {
   const itemValues = ['Item-1', 'Item-2', 'Item-3'];
   let wrapper;
 
-  const basicExample = direction => (
-    <SelectionContainer id="test-id" direction={direction}>
+  const basicExample = (direction, defaultFocusedIndex) => (
+    <SelectionContainer
+      id="test-id"
+      direction={direction}
+      defaultFocusedIndex={defaultFocusedIndex}
+    >
       {({ getContainerProps, getItemProps, focusedKey, selectedKey }) => (
         <div {...getContainerProps({ 'data-test-id': 'container' })}>
           {itemValues.map(item => (
@@ -73,6 +77,14 @@ describe('SelectionContainer', () => {
         findContainer(wrapper).simulate('focus');
 
         expect(findItems(wrapper).first()).toHaveProp('data-focused', true);
+      });
+
+      it('focuses last item if no item is currently selected and defaultFocusedIndex is provided', () => {
+        wrapper = mountWithTheme(basicExample(undefined, -1));
+
+        findContainer(wrapper).simulate('focus');
+
+        expect(findItems(wrapper).last()).toHaveProp('data-focused', true);
       });
 
       it('focuses currently selected item if available', () => {
