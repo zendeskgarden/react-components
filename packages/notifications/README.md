@@ -18,5 +18,5 @@ import Title from '@zendesk/garden-react-notifications/Title';
 <Notification>
   <Title>Example Title</Title>
   Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-</Notification>
+</Notification>;
 ```

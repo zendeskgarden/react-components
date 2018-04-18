@@ -23,7 +23,9 @@ getValidation = value => (value.length === 0 ? 'error' : value.length < 10 ? 'wa
 getValidationMessage = value =>
   value.length === 0
     ? 'Text must be greater than 0 characters'
-    : value.length < 10 ? 'Text must be greater than 10 characters' : 'You have enough characters';
+    : value.length < 10
+      ? 'Text must be greater than 10 characters'
+      : 'You have enough characters';
 
 <TextField>
   <Label>Dynamic Validation Example</Label>

@@ -1,8 +1,8 @@
 {
   "name": "@zendesk/garden-react-theming",
   "description": "Theming utilities and components within the Garden Design System",
-  "author": "Zendesk Gardeners <garden@zendesk.com>",
   "license": "UNLICENSED",
+  "author": "Zendesk Gardeners <garden@zendesk.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/zendeskgarden/react-components"

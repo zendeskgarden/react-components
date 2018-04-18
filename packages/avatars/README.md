@@ -16,5 +16,5 @@ import Avatar from '@zendesk/garden-react-avatars/Avatar';
 
 <Avatar>
   <img src="images/amir.png" alt="Example Avatar" />
-</Avatar>
+</Avatar>;
 ```

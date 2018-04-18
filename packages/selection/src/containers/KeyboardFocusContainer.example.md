@@ -36,7 +36,9 @@ initialState = { isFocused: false };
       })}
     >
       {state.isFocused
-        ? keyboardFocused ? 'Keyboard focused!' : 'Non-Keyboard focused!'
+        ? keyboardFocused
+          ? 'Keyboard focused!'
+          : 'Non-Keyboard focused!'
         : 'Not focused'}
     </div>
   )}
@@ -62,7 +64,9 @@ initialState = { isFocused: false };
       })}
     >
       {state.isFocused
-        ? keyboardFocused ? 'Keyboard focused!' : 'Non-Keyboard focused!'
+        ? keyboardFocused
+          ? 'Keyboard focused!'
+          : 'Non-Keyboard focused!'
         : 'Not focused'}
     </div>
   )}

@@ -19,7 +19,10 @@ initialState = {
   isChecked: false
 };
 
-<Checkbox checked={state.isChecked} onChange={event => setState({ isChecked: event.target.checked })}>
+<Checkbox
+  checked={state.isChecked}
+  onChange={event => setState({ isChecked: event.target.checked })}
+>
   <Label>Example Checkbox</Label>
-</Checkbox>
+</Checkbox>;
 ```

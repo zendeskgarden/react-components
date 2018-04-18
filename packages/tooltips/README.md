@@ -16,9 +16,7 @@ npm install --save-dev @zendesk/garden-react-tooltips
 Standard tooltip usages.
 
 ```jsx static
-<Tooltip trigger={<button>Trigger top placement</button>}>
-  This an small tooltip
-</Tooltip>
+<Tooltip trigger={<button>Trigger top placement</button>}>This an small tooltip</Tooltip>
 ```
 
 ### TooltipContainer

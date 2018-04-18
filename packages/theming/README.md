@@ -52,10 +52,8 @@ import ThemeProvider from '@zendesk/garden-react-theming/ThemeProvider';
 import Notification from '@zendesk/garden-react-notifications/Notification';
 
 <ThemeProvider rtl>
-  <Notification>
-    This notification content will have custom styling.
-  </Notification>
-</ThemeProvider>
+  <Notification>This notification content will have custom styling.</Notification>
+</ThemeProvider>;
 ```
 
 The `withTheme` [HOC](https://reactjs.org/docs/higher-order-components.html) utility
@@ -72,7 +70,7 @@ const LocalizedComponent = withTheme(StyledDiv);
 
 <ThemeProvider rtl>
   <LocalizedComponent>RTL localizable</LocalizedComponent>
-</ThemeProvider>
+</ThemeProvider>;
 ```
 
 ### Target
@@ -85,10 +83,8 @@ import ThemeProvider from '@zendesk/garden-react-theming/ThemeProvider';
 import Notification from '@zendesk/garden-react-notifications/Notification';
 
 <ThemeProvider target={document.querySelector('.some-element')}>
-  <Notification>
-    This notification content will have custom styling.
-  </Notification>
-</ThemeProvider>
+  <Notification>This notification content will have custom styling.</Notification>
+</ThemeProvider>;
 ```
 
 ### WARNING

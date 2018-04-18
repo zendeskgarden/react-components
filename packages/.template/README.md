@@ -14,7 +14,5 @@ npm install --save-dev @zendesk/garden-react-{{component}}
 ```jsx static
 import Example from '@zendesk/garden-react-{{component}}/Example';
 
-<Example>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-</Example>
+<Example>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</Example>;
 ```

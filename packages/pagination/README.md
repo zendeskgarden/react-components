@@ -18,9 +18,5 @@ initialState = {
   currentPage: 1
 };
 
-<Pagination
-  totalPages={25}
-  currentPage={state.currentPage}
-  onStateChange={setState}
-/>
+<Pagination totalPages={25} currentPage={state.currentPage} onStateChange={setState} />;
 ```

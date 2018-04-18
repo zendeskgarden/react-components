@@ -23,5 +23,5 @@ import Message from '@zendesk/garden-react-textfields/Message';
   <Hint>Hinty hint</Hint>
   <Input placeholder="Accepts all native input props" />
   <Message>Default message styling</Message>
-</TextField>
+</TextField>;
 ```

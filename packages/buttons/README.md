@@ -22,12 +22,12 @@ npm install --save-dev @zendesk/garden-react-buttons
 
 ```jsx static
 initialState = {
-  selectedKey: "item-1"
+  selectedKey: 'item-1'
 };
 
 <ButtonGroup selectedKey={state.selectedKey} onStateChange={setState}>
   <Button key="item-1">Item 1</Button>
   <Button key="item-2">Item 2</Button>
   <Button key="item-3">Item 3</Button>
-</ButtonGroup>
+</ButtonGroup>;
 ```

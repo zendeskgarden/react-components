@@ -21,5 +21,5 @@ initialState = {
 
 <Toggle checked={state.isEnabled} onChange={event => setState({ isEnabled: event.target.checked })}>
   <Label>Example Toggle</Label>
-</Toggle>
+</Toggle>;
 ```

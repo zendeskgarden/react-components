@@ -31,11 +31,9 @@ import KeyboardFocusContainer from '@zendesk/garden-react-components/KeyboardFoc
 
 <KeyboardFocusContainer>
   {({ getFocusProps, focused }) => (
-      <button {...getFocusProps()}>
-          {focused ? 'Keyboard focused!' : 'Not keyboard focused' }
-      </button>
+    <button {...getFocusProps()}>{focused ? 'Keyboard focused!' : 'Not keyboard focused'}</button>
   )}
-</KeyboardFocusContainer>
+</KeyboardFocusContainer>;
 ```
 
 ## Render Props in Garden
@@ -88,23 +86,17 @@ All render prop components within Garden follow this structure:
 ```jsx static
 // Uncontrolled Usage
 <Container>
-    {({ getTriggerProps, numClicks }) => (
-        <button {...getTriggerProps()}>Clicks {numClicks}</button>
-    )}
-</Container>
+  {({ getTriggerProps, numClicks }) => <button {...getTriggerProps()}>Clicks {numClicks}</button>}
+</Container>;
 
 // Controlled Usage
 initialState = {
-    numClicks: 5
+  numClicks: 5
 };
 
-<Container
-    numClicks={state.numClicks}
-    onStateChange={newState => setState(newState)}>
-    {({ getTriggerProps, numClicks }) => (
-        <button {...getTriggerProps()}>Clicks {numClicks}</button>
-    )}
-</Container>
+<Container numClicks={state.numClicks} onStateChange={newState => setState(newState)}>
+  {({ getTriggerProps, numClicks }) => <button {...getTriggerProps()}>Clicks {numClicks}</button>}
+</Container>;
 ```
 
 ### All render props will respect Event Composition
@@ -118,22 +110,26 @@ initialState = {
 
 ```jsx static
 <Container>
-    {({ getTriggerProps, numClicks }) => (
-        <button {...getTriggerProps({
-            onClick: event => {
-                /**
-                 * This onClick event will be called before being passed to
-                 * the onClick defined within the example container
-                 */
-                alert('clicked');
+  {({ getTriggerProps, numClicks }) => (
+    <button
+      {...getTriggerProps({
+        onClick: event => {
+          /**
+           * This onClick event will be called before being passed to
+           * the onClick defined within the example container
+           */
+          alert('clicked');
 
-                /**
-                 * Possible to not allow the event to continue
-                 */
-                // event.preventDefault();
-            },
-            autofocus // We want to use HTML5 autofocus
-        })}>Clicks {numClicks}</button>
-    )}
+          /**
+           * Possible to not allow the event to continue
+           */
+          // event.preventDefault();
+        },
+        autofocus // We want to use HTML5 autofocus
+      })}
+    >
+      Clicks {numClicks}
+    </button>
+  )}
 </Container>
 ```

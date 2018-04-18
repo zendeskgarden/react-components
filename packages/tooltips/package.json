@@ -1,8 +1,8 @@
 {
   "name": "@zendesk/garden-react-tooltips",
   "description": "Collection of components and render prop containers relating to Tooltips in the Garden Design System",
-  "author": "Zendesk Garden <garden@zendesk.com>",
   "license": "UNLICENSED",
+  "author": "Zendesk Garden <garden@zendesk.com>",
   "repository": "https://github.com/zendeskgarden/react-components",
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"

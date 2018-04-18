@@ -1,8 +1,8 @@
 {
   "name": "@zendesk/garden-react-chrome",
   "description": "Components relating to Chrome within the Garden Design System.",
-  "author": "Zendesk Garden <garden@zendesk.com>",
   "license": "UNLISCENSED",
+  "author": "Zendesk Garden <garden@zendesk.com>",
   "repository": "https://github.com/zendeskgarden/react-components",
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
