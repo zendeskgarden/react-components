@@ -94,6 +94,12 @@ describe('SingleSelectionModel', () => {
         expect(model.selectedIndex).toBe(2);
       });
 
+      it('selects first item when nothing is currently selected', () => {
+        model.selectedIndex = undefined;
+        model.selectNext();
+        expect(model.selectedIndex).toBe(0);
+      });
+
       describe('when equal to total length', () => {
         it('wraps when in "items" wrapping mode', () => {
           model.selectedIndex = 2;

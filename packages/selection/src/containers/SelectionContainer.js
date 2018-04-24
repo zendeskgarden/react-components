@@ -22,6 +22,7 @@ export class SelectionContainer extends ControlledComponent {
      * @param {Function} renderProps.getItemProps - Props to be spread onto each selectable element. `({item})` is required.
      * @param {Any} renderProps.focusedKey - Unique key of currently focused item
      * @param {Any} renderProps.selectedKey - Unique key of currently selected item
+     * @param {Function} renderProps.focusSelectionModel - The SingleSelectionModel that controls the focus state
      */
     children: PropTypes.func,
     /**
@@ -278,7 +279,8 @@ export class SelectionContainer extends ControlledComponent {
       getContainerProps: this.getContainerProps,
       getItemProps: this.getItemProps,
       focusedKey,
-      selectedKey
+      selectedKey,
+      focusSelectionModel: this.focusSelectionModel
     });
   }
 }

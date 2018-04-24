@@ -20,6 +20,7 @@ export default class State extends Component {
 
   render() {
     const { children, initialState } = this.props;
+
     return children(this.state || initialState, this.setState.bind(this));
   }
 }

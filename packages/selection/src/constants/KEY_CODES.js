@@ -5,6 +5,7 @@
  * @component
  */
 export default {
+  ALT: 18,
   BACKSPACE: 8,
   COMMA: 188,
   DELETE: 46,

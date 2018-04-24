@@ -5,3 +5,4 @@ export { default as FieldContainer } from './containers/FieldContainer';
 export { default as composeEventHandlers } from './utils/composeEventHandlers';
 export { default as ControlledComponent } from './utils/ControlledComponent';
 export { default as IdManager } from './utils/IdManager';
+export { default as SingleSelectionModel } from './utils/SingleSelectionModel';

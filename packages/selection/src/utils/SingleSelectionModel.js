@@ -10,10 +10,11 @@ export default class SingleSelectionModel {
   }
 
   fireSelectionChanged(newSelection, previousSelection) {
-    this.onSelectionChanged({
-      newSelection,
-      previousSelection
-    });
+    this.onSelectionChanged &&
+      this.onSelectionChanged({
+        newSelection,
+        previousSelection
+      });
   }
 
   select(index) {
@@ -30,6 +31,10 @@ export default class SingleSelectionModel {
 
   selectNext() {
     if (this.numItems > 0) {
+      if (!this.hasSelection()) {
+        return this.selectFirst();
+      }
+
       let newIndex = this.selectedIndex + 1;
 
       if (this.numItems <= newIndex) {
@@ -52,20 +57,19 @@ export default class SingleSelectionModel {
 
   selectPrevious() {
     if (this.numItems > 0) {
-      let newIndex;
+      if (!this.hasSelection()) {
+        return this.selectLast();
+      }
 
-      if (typeof this.selectedIndex === 'undefined') {
-        newIndex = this.numItems - 1;
-      } else {
-        newIndex = this.selectedIndex - 1;
-        if (newIndex < 0) {
-          if (this.wrapping === 'clear') {
-            newIndex = -1;
-          } else if (this.wrapping === 'items') {
-            newIndex = this.numItems - 1;
-          } else if (this.wrapping === 'off') {
-            newIndex = 0;
-          }
+      let newIndex = this.selectedIndex - 1;
+
+      if (newIndex < 0) {
+        if (this.wrapping === 'clear') {
+          newIndex = -1;
+        } else if (this.wrapping === 'items') {
+          newIndex = this.numItems - 1;
+        } else if (this.wrapping === 'off') {
+          newIndex = 0;
         }
       }
 

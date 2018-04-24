@@ -7,7 +7,7 @@ The `SelectionContainer` component helps ensure that any
   * Click selection
   * Custom focused state for Keyboard-Focus vs. MouseDown-Focus
 * RTL navigation support
-  * Comptabible with element shifting when `direction: rtl` is enabled
+  * Compatible with element shifting when `direction: rtl` is enabled
 * Accessibility for vision-impaired users
 * Uses the W3 "aria-activedescendant" focus management strategy
   * [https://www.w3.org/TR/wai-aria-practices/#kbd_focus_activedescendant](https://www.w3.org/TR/wai-aria-practices/#kbd_focus_activedescendant)
@@ -188,6 +188,49 @@ const items = ['Button 1', 'Button 2', 'Button 3', '4', '5', '6', '7', '8'];
           {item}
         </ExampleItem>
       ))}
+    </div>
+  )}
+</SelectionContainer>;
+```
+
+### Custom Focus Movement
+
+The render prop provides access to the `SingleSelectionModel` that is tied to the focus state.
+
+```jsx
+const ExampleItem = styled.div`
+  display: inline-block;
+  padding: 15px;
+  outline: ${({ focused }) => (focused ? 'red auto 5px' : '')};
+  background-color: ${({ selected }) => (selected ? 'grey' : '')};
+`;
+
+const items = ['Controlled 1', 'Controlled 2', 'Controlled 3'];
+
+initialState = {
+  selectedKey: items[1]
+};
+
+<SelectionContainer
+  focusedKey={state.focusedKey}
+  selectedKey={state.selectedKey}
+  onStateChange={newState => setState(newState)}
+>
+  {({ getContainerProps, getItemProps, focusedKey, selectedKey, focusSelectionModel }) => (
+    <div {...getContainerProps()}>
+      {items.map(item => (
+        <ExampleItem
+          {...getItemProps({
+            key: item,
+            selected: selectedKey === item,
+            focused: focusedKey === item
+          })}
+        >
+          {item}
+        </ExampleItem>
+      ))}
+      <button onClick={() => focusSelectionModel.selectFirst()}>First</button>
+      <button onClick={() => focusSelectionModel.selectLast()}>Last</button>
     </div>
   )}
 </SelectionContainer>;
