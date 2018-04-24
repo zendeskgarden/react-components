@@ -7,7 +7,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "./index.js",
   "scripts": {
     "build": "../../utils/scripts/build.sh",
@@ -31,9 +31,9 @@
     "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0"
   },
   "devDependencies": {
-    "@zendesk/garden-react-buttons": "^0.2.2",
-    "@zendesk/garden-react-textfields": "^0.2.2",
-    "@zendesk/garden-react-toggles": "^0.2.2"
+    "@zendesk/garden-react-buttons": "^0.2.3",
+    "@zendesk/garden-react-textfields": "^0.2.3",
+    "@zendesk/garden-react-toggles": "^0.2.3"
   },
   "keywords": [
     "components",

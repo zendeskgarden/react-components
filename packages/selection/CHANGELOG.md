@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/zendeskgarden/react-components/compare/@zendesk/garden-react-selection@1.1.1...@zendesk/garden-react-selection@1.2.0) (2018-04-24)
+
+
+### Features
+
+* **selection:** add focusSelectionModel customization to SelectionContainer and add ALT to KEY_CODES ([#548](https://github.com/zendeskgarden/react-components/issues/548)) ([5c84b93](https://github.com/zendeskgarden/react-components/commit/5c84b93))
+
+
+
+
 <a name="1.1.1"></a>
 ## [1.1.1](https://github.com/zendeskgarden/react-components/compare/@zendesk/garden-react-selection@1.1.0...@zendesk/garden-react-selection@1.1.1) (2018-04-18)
 
