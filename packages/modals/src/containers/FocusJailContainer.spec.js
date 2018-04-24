@@ -9,8 +9,8 @@ describe('FocusJailContainer', () => {
   let wrapper;
   let focusElementSpy;
 
-  const basicExample = () => (
-    <FocusJailContainer>
+  const basicExample = ({ focusOnMount } = {}) => (
+    <FocusJailContainer focusOnMount={focusOnMount}>
       {({ getContainerProps, containerRef }) => (
         <div {...getContainerProps({ 'data-test-id': 'container' })} ref={containerRef}>
           <p>non-focusable test</p>
@@ -37,8 +37,16 @@ describe('FocusJailContainer', () => {
   });
 
   describe('componentDidMount()', () => {
-    it('focuses container element', () => {
+    it('focuses container element by default', () => {
+      focusElementSpy.mockReset();
+      wrapper = mount(basicExample());
       expect(focusElementSpy).toHaveBeenCalledWith(findContainer(wrapper).getDOMNode());
+    });
+
+    it('does not focus container element if focusOnMount is false', () => {
+      focusElementSpy.mockReset();
+      wrapper = mount(basicExample({ focusOnMount: false }));
+      expect(focusElementSpy).not.toHaveBeenCalled();
     });
   });
 

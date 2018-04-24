@@ -15,14 +15,27 @@ export default class FocusJailContainer extends ControlledComponent {
      */
     children: PropTypes.func,
     /**
+     * Whether to focus the jailed container immediately on mount
+     */
+    focusOnMount: PropTypes.bool,
+    /**
      * Identical to children
      */
     render: PropTypes.func
   };
 
+  static defaultProps = {
+    focusOnMount: true
+  };
+
   componentDidMount() {
+    const { focusOnMount } = this.props;
+
     this.validateContainerRef();
-    this.focusElement(this.container);
+
+    if (focusOnMount) {
+      this.focusElement(this.container);
+    }
   }
 
   /** This method is added to the prototype of FocusJailContainer to allow for easier test mocking */
