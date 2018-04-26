@@ -1,0 +1,49 @@
+{
+  "name": "@zendesk/garden-react-menus",
+  "description": "Components relating to menus in the Garden Design System",
+  "license": "UNLICENSED",
+  "author": "Zendesk Garden <garden@zendesk.com>",
+  "repository": "https://github.com/zendeskgarden/react-components",
+  "bugs": {
+    "url": "https://github.com/zendeskgarden/react-components/issues"
+  },
+  "version": "0.0.0",
+  "main": "./index.js",
+  "scripts": {
+    "build": "../../utils/scripts/build.sh",
+    "build:styleguide": "../../utils/scripts/build-styleguide.sh",
+    "start": "../../utils/scripts/start.sh"
+  },
+  "dependencies": {
+    "@zendesk/garden-css-arrows": "^1.1.0",
+    "@zendesk/garden-css-menus": "^5.1.1",
+    "@zendesk/garden-css-variables": "^3.1.0",
+    "@zendesk/garden-react-modals": "^1.1.1",
+    "@zendesk/garden-react-selection": "^1.2.0",
+    "@zendesk/garden-react-theming": "^0.3.1",
+    "@zendesk/garden-react-tooltips": "^1.0.3",
+    "classnames": "^2.2.5",
+    "prop-types": "^15.6.0",
+    "react-popper": "^0.9.5",
+    "react-portal": "^4.1.4",
+    "styled-components": "^3.1.6"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0"
+  },
+  "devDependencies": {
+    "@zendesk/garden-react-buttons": "^0.1.3",
+    "@zendesk/garden-react-textfields": "^0.2.1",
+    "@zendesk/garden-svg-icons": "^2.5.0"
+  },
+  "keywords": [
+    "components",
+    "garden",
+    "react",
+    "zendesk"
+  ],
+  "publishConfig": {
+    "registry": "https://zdrepo.jfrog.io/zdrepo/api/npm/npm"
+  }
+}

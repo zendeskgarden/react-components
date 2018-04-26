@@ -18,6 +18,7 @@ to install.
 | [`@zendesk/garden-react-buttons`](packages/buttons)             |
 | [`@zendesk/garden-react-checkboxes`](packages/checkboxes)       |
 | [`@zendesk/garden-react-chrome`](packages/chrome)               |
+| [`@zendesk/garden-react-menus`](packages/menus)                 |
 | [`@zendesk/garden-react-modals`](packages/modals)               |
 | [`@zendesk/garden-react-notifications`](packages/notifications) |
 | [`@zendesk/garden-react-pagination`](packages/pagination)       |

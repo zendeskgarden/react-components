@@ -7,14 +7,14 @@ import { ThemeProvider } from '../../packages/theming';
  * @param {EnzymeWrapper} tree
  * @param {Object} ThemeProperties { rtl: boolean, theme: object }
  */
-export const shallowWithTheme = (tree, { rtl, theme } = {}) => {
+export const shallowWithTheme = (tree, { rtl, theme, enzymeOptions } = {}) => {
   const context = mount(<ThemeProvider theme={theme} rtl={rtl} />)
     .childAt(0)
     .childAt(0)
     .instance()
     .getChildContext();
 
-  return shallow(tree, { context });
+  return shallow(tree, { context }, enzymeOptions);
 };
 
 /**
@@ -22,12 +22,12 @@ export const shallowWithTheme = (tree, { rtl, theme } = {}) => {
  * @param {EnzymeWrapper} tree
  * @param {Object} ThemeProperties { rtl: boolean, theme: object }
  */
-export const mountWithTheme = (tree, { rtl, theme } = {}) => {
+export const mountWithTheme = (tree, { rtl, theme, enzymeOptions } = {}) => {
   const context = mount(<ThemeProvider theme={theme} rtl={rtl} />)
     .childAt(0)
     .childAt(0)
     .instance()
     .getChildContext();
 
-  return mount(tree, { context });
+  return mount(tree, { context }, enzymeOptions);
 };
