@@ -1,0 +1,48 @@
+.grid {
+  display: table;
+  table-layout: fixed;
+}
+
+.row {
+  display: table-row;
+}
+
+.cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.stretched {
+  width: 100%;
+}
+
+.centered {
+  text-align: center;
+}
+
+.spacing_small > .row > .cell {
+  padding-right: 8px;
+  padding-bottom: 8px;
+}
+
+.spacing_medium > .row > .cell {
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+.spacing_large > .row > .cell {
+  padding-right: 40px;
+  padding-bottom: 40px;
+}
+
+.spacing_small > .row > .cell:last-child,
+.spacing_medium > .row > .cell:last-child,
+.spacing_large > .row > .cell:last-child {
+  padding-right: 0;
+}
+
+.spacing_small > .row:last-child > .cell,
+.spacing_medium > .row:last-child > .cell,
+.spacing_large > .row:last-child > .cell {
+  padding-bottom: 0;
+}

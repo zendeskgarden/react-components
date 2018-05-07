@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown renders default styling 1`] = `
+<Dropdown>
+  <Dropdown__StyledMenuView>
+    <MenuView
+      className="Dropdown__StyledMenuView-glrDnp picRJ"
+      data-garden-id="select.dropdown"
+      data-garden-version="version"
+    >
+      <MenuView__MenuWrapper>
+        <div
+          className="MenuView__MenuWrapper-gKLuJf iQPnQE"
+        >
+          <MenuView__StyledMenuView
+            className="Dropdown__StyledMenuView-glrDnp picRJ"
+            data-garden-id="select.dropdown"
+            data-garden-version="version"
+          >
+            <ul
+              className="Dropdown__StyledMenuView-glrDnp picRJ MenuView__StyledMenuView-kxrVPe c-menu fDjDUm"
+              data-garden-id="select.dropdown"
+              data-garden-version="version"
+            />
+          </MenuView__StyledMenuView>
+        </div>
+      </MenuView__MenuWrapper>
+    </MenuView>
+  </Dropdown__StyledMenuView>
+</Dropdown>
+`;

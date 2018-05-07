@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input renders default styling 1`] = `
+<input
+  className="Input-hxTtdt c-chk__input eyZowq"
+  data-garden-id="toggles.input"
+  data-garden-version="version"
+  tabIndex={0}
+  type="checkbox"
+/>
+`;

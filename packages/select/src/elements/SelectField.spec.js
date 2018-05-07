@@ -1,0 +1,67 @@
+import React from 'react';
+import { mount } from 'enzyme';
+
+import SelectField from './SelectField';
+import Select from './Select';
+import Item from '../views/items/Item';
+import Label from '../views/fields/Label';
+import Hint from '../views/fields/Hint';
+import Message from '../views/fields/Message';
+
+describe('SelectField', () => {
+  let wrapper;
+
+  const basicExample = () => (
+    <SelectField>
+      <Label>Label</Label>
+      <Hint>Hint</Hint>
+      <Select options={[<Item key="1-item">Item 1</Item>, <Item key="2-item">Item 2</Item>]}>
+        preview
+      </Select>
+      <Message>Message</Message>
+      <div data-test-id="extra">extra information</div>
+    </SelectField>
+  );
+
+  const findSelect = enzymeWrapper => enzymeWrapper.find(Select);
+  const findLabel = enzymeWrapper => enzymeWrapper.find(Label);
+
+  beforeEach(() => {
+    // Disabled due to styled-components theming
+    console.warn = jest.fn(); // eslint-disable-line no-console
+    wrapper = mount(basicExample());
+  });
+
+  describe('Label', () => {
+    it('applies hover styling to Select if mouse in', () => {
+      findLabel(wrapper).simulate('mouseenter');
+      expect(findSelect(wrapper)).toHaveProp('hovered', true);
+    });
+
+    it('removes hover styling of Select if mouse out', () => {
+      findLabel(wrapper).simulate('mouseenter');
+      findLabel(wrapper).simulate('mouseleave');
+      expect(findSelect(wrapper)).toHaveProp('hovered', false);
+    });
+
+    it('focuses select if clicked', () => {
+      findLabel(wrapper).simulate('click');
+      expect(wrapper.find('SelectView').contains(document.activeElement)).toBe(true);
+    });
+  });
+
+  it('does not throw if invalid element is provided as child', () => {
+    expect(() => {
+      mount(
+        <SelectField>
+          <Label>Label</Label>
+          <Select options={[<Item key="1-item">Item 1</Item>, <Item key="2-item">Item 2</Item>]}>
+            preview
+          </Select>
+          <Message>Message</Message>
+          extra information
+        </SelectField>
+      );
+    }).not.toThrow();
+  });
+});

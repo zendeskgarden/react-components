@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LightTooltip renders default styling correctly 1`] = `
+<TooltipView
+  arrow={true}
+  className="LightTooltip-gauCee c-tooltip--light eNtGnI"
+  size="large"
+/>
+`;

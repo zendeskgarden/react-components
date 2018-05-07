@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert validation should render error styling correctly 1`] = `
+<Well
+  className="Alert-hSMbxE c-callout--error daVApm"
+  data-garden-id="notifications.alert"
+  data-garden-version="version"
+  type="error"
+/>
+`;
+
+exports[`Alert validation should render success styling correctly 1`] = `
+<Well
+  className="Alert-hSMbxE c-callout--success daVApm"
+  data-garden-id="notifications.alert"
+  data-garden-version="version"
+  type="success"
+/>
+`;
+
+exports[`Alert validation should render warning styling correctly 1`] = `
+<Well
+  className="Alert-hSMbxE c-callout--warning daVApm"
+  data-garden-id="notifications.alert"
+  data-garden-version="version"
+  type="warning"
+/>
+`;

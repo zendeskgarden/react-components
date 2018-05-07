@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main renders default styling 1`] = `
+<main
+  className="Main-iYOhIg c-chrome__body__content__main cykWXo"
+  data-garden-id="chrome.main"
+  data-garden-version="version"
+/>
+`;

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderItemIcon renders default styling 1`] = `
+<svg
+  className="c-chrome__body__header__item__icon"
+  data-garden-id="chrome.header_item_icon"
+  data-garden-version="version"
+>
+  test
+</svg>
+`;

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderItemText renders default styling 1`] = `
+<span
+  className="HeaderItemText-kGLUtX c-chrome__body__header__item__text gtbdlf"
+  data-garden-id="chrome.header_item_text"
+  data-garden-version="version"
+/>
+`;

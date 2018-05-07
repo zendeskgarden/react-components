@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    "inline-react-svg",
+    "transform-object-assign",
+    "babel-plugin-styled-components"
+  ],
+  "presets": [
+    "es2015",
+    "react",
+    "stage-0"
+  ]
+}

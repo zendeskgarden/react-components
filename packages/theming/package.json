@@ -1,0 +1,28 @@
+{
+  "name": "@zendesk/garden-react-theming",
+  "description": "Theming utilities and components within the Garden Design System",
+  "license": "UNLICENSED",
+  "author": "Zendesk Gardeners <garden@zendesk.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zendeskgarden/react-components"
+  },
+  "version": "0.3.1",
+  "main": "./index.js",
+  "scripts": {
+    "build": "../../utils/scripts/build.sh",
+    "build:styleguide": "../../utils/scripts/build-styleguide.sh",
+    "start": "../../utils/scripts/start.sh"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.0",
+    "styled-components": "^3.2.5"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0"
+  },
+  "publishConfig": {
+    "registry": "http://localhost:4873"
+  }
+}

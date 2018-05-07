@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MediaBody renders default styling 1`] = `
+<div
+  className="MediaBody-gGrIhN c-menu__item--media__body gBCSWe"
+  data-garden-id="select.media_body"
+  data-garden-version="version"
+/>
+`;

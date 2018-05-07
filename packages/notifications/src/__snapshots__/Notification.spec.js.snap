@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notification validation should render error styling correctly 1`] = `
+<Well
+  className="Notification-giUlLC c-callout--error eWJnxP"
+  data-garden-id="notifications.notification"
+  data-garden-version="version"
+  floating={true}
+  type="error"
+/>
+`;
+
+exports[`Notification validation should render success styling correctly 1`] = `
+<Well
+  className="Notification-giUlLC c-callout--success eWJnxP"
+  data-garden-id="notifications.notification"
+  data-garden-version="version"
+  floating={true}
+  type="success"
+/>
+`;
+
+exports[`Notification validation should render warning styling correctly 1`] = `
+<Well
+  className="Notification-giUlLC c-callout--warning eWJnxP"
+  data-garden-id="notifications.notification"
+  data-garden-version="version"
+  floating={true}
+  type="warning"
+/>
+`;

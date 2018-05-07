@@ -1,0 +1,422 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Sizes renders large styling if provided 1`] = `
+<Button
+  size="large"
+>
+  <KeyboardFocusContainer>
+    <Button__StyledButton
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      size="large"
+      tabIndex={0}
+    >
+      <button
+        className="Button__StyledButton-jJDkJK c-btn c-btn--lg kaVWyI"
+        data-garden-id="buttons.button"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        size="large"
+        tabIndex={0}
+        type="button"
+      />
+    </Button__StyledButton>
+  </KeyboardFocusContainer>
+</Button>
+`;
+
+exports[`Button Sizes renders small styling if provided 1`] = `
+<Button
+  size="small"
+>
+  <KeyboardFocusContainer>
+    <Button__StyledButton
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      size="small"
+      tabIndex={0}
+    >
+      <button
+        className="Button__StyledButton-jJDkJK c-btn c-btn--sm kaVWyI"
+        data-garden-id="buttons.button"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        size="small"
+        tabIndex={0}
+        type="button"
+      />
+    </Button__StyledButton>
+  </KeyboardFocusContainer>
+</Button>
+`;
+
+exports[`Button States renders active styling if provided 1`] = `
+<Button
+  active={true}
+>
+  <KeyboardFocusContainer>
+    <Button__StyledButton
+      active={true}
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      tabIndex={0}
+    >
+      <button
+        className="Button__StyledButton-jJDkJK c-btn is-active kaVWyI"
+        data-garden-id="buttons.button"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+        type="button"
+      />
+    </Button__StyledButton>
+  </KeyboardFocusContainer>
+</Button>
+`;
+
+exports[`Button States renders disabled styling if provided 1`] = `
+<Button
+  disabled={true}
+>
+  <KeyboardFocusContainer>
+    <Button__StyledButton
+      disabled={true}
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      tabIndex={0}
+    >
+      <button
+        className="Button__StyledButton-jJDkJK c-btn is-disabled kaVWyI"
+        data-garden-id="buttons.button"
+        data-garden-version="version"
+        disabled={true}
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+        type="button"
+      />
+    </Button__StyledButton>
+  </KeyboardFocusContainer>
+</Button>
+`;
+
+exports[`Button States renders focused styling if provided 1`] = `
+<Button
+  focused={true}
+>
+  <KeyboardFocusContainer>
+    <Button__StyledButton
+      focused={true}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      tabIndex={0}
+    >
+      <button
+        className="Button__StyledButton-jJDkJK c-btn is-focused kaVWyI"
+        data-garden-id="buttons.button"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+        type="button"
+      />
+    </Button__StyledButton>
+  </KeyboardFocusContainer>
+</Button>
+`;
+
+exports[`Button States renders hovered styling if provided 1`] = `
+<Button
+  hovered={true}
+>
+  <KeyboardFocusContainer>
+    <Button__StyledButton
+      focused={false}
+      hovered={true}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      tabIndex={0}
+    >
+      <button
+        className="Button__StyledButton-jJDkJK c-btn is-hovered kaVWyI"
+        data-garden-id="buttons.button"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+        type="button"
+      />
+    </Button__StyledButton>
+  </KeyboardFocusContainer>
+</Button>
+`;
+
+exports[`Button States renders selected styling if provided 1`] = `
+<Button
+  selected={true}
+>
+  <KeyboardFocusContainer>
+    <Button__StyledButton
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      selected={true}
+      tabIndex={0}
+    >
+      <button
+        className="Button__StyledButton-jJDkJK c-btn is-selected kaVWyI"
+        data-garden-id="buttons.button"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        selected={true}
+        tabIndex={0}
+        type="button"
+      />
+    </Button__StyledButton>
+  </KeyboardFocusContainer>
+</Button>
+`;
+
+exports[`Button Types renders basic styling if provided 1`] = `
+<Button
+  basic={true}
+>
+  <KeyboardFocusContainer>
+    <Button__StyledButton
+      basic={true}
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      tabIndex={0}
+    >
+      <button
+        className="Button__StyledButton-jJDkJK c-btn c-btn--basic kaVWyI"
+        data-garden-id="buttons.button"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+        type="button"
+      />
+    </Button__StyledButton>
+  </KeyboardFocusContainer>
+</Button>
+`;
+
+exports[`Button Types renders link styling if provided 1`] = `
+<Button
+  link={true}
+>
+  <KeyboardFocusContainer>
+    <Button__StyledButton
+      focused={false}
+      link={true}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      tabIndex={0}
+    >
+      <button
+        className="Button__StyledButton-jJDkJK c-btn c-btn--anchor kaVWyI"
+        data-garden-id="buttons.button"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+        type="button"
+      />
+    </Button__StyledButton>
+  </KeyboardFocusContainer>
+</Button>
+`;
+
+exports[`Button Types renders muted styling if provided 1`] = `
+<Button
+  muted={true}
+>
+  <KeyboardFocusContainer>
+    <Button__StyledButton
+      focused={false}
+      muted={true}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      tabIndex={0}
+    >
+      <button
+        className="Button__StyledButton-jJDkJK c-btn c-btn--muted kaVWyI"
+        data-garden-id="buttons.button"
+        data-garden-version="version"
+        muted={true}
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+        type="button"
+      />
+    </Button__StyledButton>
+  </KeyboardFocusContainer>
+</Button>
+`;
+
+exports[`Button Types renders pill styling if provided 1`] = `
+<Button
+  pill={true}
+>
+  <KeyboardFocusContainer>
+    <Button__StyledButton
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      pill={true}
+      tabIndex={0}
+    >
+      <button
+        className="Button__StyledButton-jJDkJK c-btn c-btn--pill kaVWyI"
+        data-garden-id="buttons.button"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+        type="button"
+      />
+    </Button__StyledButton>
+  </KeyboardFocusContainer>
+</Button>
+`;
+
+exports[`Button Types renders primary styling if provided 1`] = `
+<Button
+  primary={true}
+>
+  <KeyboardFocusContainer>
+    <Button__StyledButton
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      primary={true}
+      tabIndex={0}
+    >
+      <button
+        className="Button__StyledButton-jJDkJK c-btn c-btn--primary kaVWyI"
+        data-garden-id="buttons.button"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+        type="button"
+      />
+    </Button__StyledButton>
+  </KeyboardFocusContainer>
+</Button>
+`;
+
+exports[`Button renders danger styling if provided 1`] = `
+<Button
+  danger={true}
+>
+  <KeyboardFocusContainer>
+    <Button__StyledButton
+      danger={true}
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      tabIndex={0}
+    >
+      <button
+        className="Button__StyledButton-jJDkJK c-btn c-btn--danger kaVWyI"
+        data-garden-id="buttons.button"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+        type="button"
+      />
+    </Button__StyledButton>
+  </KeyboardFocusContainer>
+</Button>
+`;
+
+exports[`Button renders default styling 1`] = `
+<Button>
+  <KeyboardFocusContainer>
+    <Button__StyledButton
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      tabIndex={0}
+    >
+      <button
+        className="Button__StyledButton-jJDkJK c-btn kaVWyI"
+        data-garden-id="buttons.button"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+        type="button"
+      />
+    </Button__StyledButton>
+  </KeyboardFocusContainer>
+</Button>
+`;
+
+exports[`Button renders stretched styling if provided 1`] = `
+<Button
+  stretched={true}
+>
+  <KeyboardFocusContainer>
+    <Button__StyledButton
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      stretched={true}
+      tabIndex={0}
+    >
+      <button
+        className="Button__StyledButton-jJDkJK c-btn c-btn--full kaVWyI"
+        data-garden-id="buttons.button"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+        type="button"
+      />
+    </Button__StyledButton>
+  </KeyboardFocusContainer>
+</Button>
+`;

@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Item renders active styling 1`] = `
+<li
+  className="Item-kPuYOm c-menu__item is-active jbRGYo"
+  data-garden-id="menus.item"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Item renders checked styling 1`] = `
+<li
+  checked={true}
+  className="Item-kPuYOm c-menu__item is-checked jbRGYo"
+  data-garden-id="menus.item"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Item renders default styling 1`] = `
+<li
+  className="Item-kPuYOm c-menu__item jbRGYo"
+  data-garden-id="menus.item"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Item renders disabled styling 1`] = `
+<li
+  className="Item-kPuYOm c-menu__item is-disabled jbRGYo"
+  data-garden-id="menus.item"
+  data-garden-version="version"
+  disabled={true}
+/>
+`;
+
+exports[`Item renders focused styling 1`] = `
+<li
+  className="Item-kPuYOm c-menu__item is-focused jbRGYo"
+  data-garden-id="menus.item"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Item renders hovered styling 1`] = `
+<li
+  className="Item-kPuYOm c-menu__item is-hovered jbRGYo"
+  data-garden-id="menus.item"
+  data-garden-version="version"
+/>
+`;

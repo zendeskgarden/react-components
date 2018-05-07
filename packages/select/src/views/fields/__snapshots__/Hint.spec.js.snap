@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hint renders default styling 1`] = `
+<div
+  className="Hint-gklniA c-txt__hint loLhxx"
+  data-garden-id="select.hint"
+  data-garden-version="version"
+/>
+`;

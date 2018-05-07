@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderIcon renders default styling 1`] = `
+<svg
+  className="c-menu__item--header__icon"
+  data-garden-id="menus.header_icon"
+  data-garden-version="version"
+/>
+`;
