@@ -5,7 +5,7 @@
   "commands": {
     "publish": {
       "skipNpm": "true",
-      "allowBranch": "next",
+      "allowBranch": "master",
       "message": "chore(release): publish"
     }
   }

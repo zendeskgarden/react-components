@@ -38,7 +38,7 @@ Advanced tooltip usages.
 ### RTL Locale Layouts
 
 The `Tooltip` and `TooltipContainer` components automatically handle RTL layouts based on
-their parent [ThemeProvider](https://garden.zendesk.com/react-components/next/theming/#themeprovider).
+their parent [ThemeProvider](https://garden.zendesk.com/react-components/theming/#themeprovider).
 
 #### English (LTR) Placements
 

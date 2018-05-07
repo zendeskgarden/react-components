@@ -1,4 +1,4 @@
-# Garden React Components [![Build Status](https://travis-ci.com/zendeskgarden/react-components.svg?token=dDt9s6smCMgz269xNbpz&branch=next)](https://travis-ci.com/zendeskgarden/react-components)
+# Garden React Components [![Build Status](https://travis-ci.com/zendeskgarden/react-components.svg?token=dDt9s6smCMgz269xNbpz&branch=master)](https://travis-ci.com/zendeskgarden/react-components)
 
 > :seedling: Garden is a design system for Zendesk
 

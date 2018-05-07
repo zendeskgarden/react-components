@@ -11,7 +11,6 @@ ghPages.publish(
   'demo',
   {
     repo: `https://${process.env.GITHUB_TOKEN}@github.com/zendeskgarden/react-components.git`,
-    dest: 'next',
     silent: true,
     add: true
   },

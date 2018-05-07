@@ -2,7 +2,7 @@ language: node_js
 
 branches:
   only:
-    - next
+    - master
 
 cache:
   yarn: true
@@ -31,10 +31,10 @@ deploy:
     script: utils/travis/publish-gh-pages.sh
     skip_cleanup: true
     on:
-      branch: next
+      branch: master
 
   - provider: script
     script: utils/travis/publish-packages.js
     skip_cleanup: true
     on:
-      branch: next
+      branch: master
