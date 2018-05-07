@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderItemWrapper renders default styling 1`] = `
+<div
+  className="HeaderItem__StyledHeaderItem-rjTJP c-chrome__body__header__item lfgydm"
+  data-garden-id="chrome.header_item_wrapper"
+  data-garden-version="version"
+/>
+`;

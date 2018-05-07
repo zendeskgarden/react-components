@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Separator renders default styling 1`] = `
+<li
+  className="Separator-hGIbXj c-menu__separator jCpmtE"
+  data-garden-id="select.separator"
+  data-garden-version="version"
+  role="separator"
+/>
+`;

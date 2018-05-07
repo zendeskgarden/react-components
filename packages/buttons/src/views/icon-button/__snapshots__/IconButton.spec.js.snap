@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconButton renders pill and muted styling by default 1`] = `
+<IconButton
+  basic={true}
+  muted={true}
+  pill={true}
+>
+  <Button
+    basic={true}
+    className="IconButton-hhQYmO c-btn--icon iIVfrT"
+    data-garden-id="buttons.icon_button"
+    data-garden-version="version"
+    muted={true}
+    pill={true}
+  >
+    <KeyboardFocusContainer>
+      <Button__StyledButton
+        basic={true}
+        className="IconButton-hhQYmO c-btn--icon iIVfrT"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="version"
+        focused={false}
+        muted={true}
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        pill={true}
+        tabIndex={0}
+      >
+        <button
+          className="IconButton-hhQYmO c-btn--icon iIVfrT Button__StyledButton-jJDkJK c-btn c-btn--basic c-btn--muted c-btn--pill kaVWyI"
+          data-garden-id="buttons.icon_button"
+          data-garden-version="version"
+          muted={true}
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onMouseDown={[Function]}
+          tabIndex={0}
+          type="button"
+        />
+      </Button__StyledButton>
+    </KeyboardFocusContainer>
+  </Button>
+</IconButton>
+`;

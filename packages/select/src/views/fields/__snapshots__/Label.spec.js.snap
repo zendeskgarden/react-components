@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Label renders default styling 1`] = `
+<label
+  className="Label-bxMjsr c-txt__label kkReTM"
+  data-garden-id="select.label"
+  data-garden-version="version"
+/>
+`;

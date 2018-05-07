@@ -1,0 +1,112 @@
+import React, { Children, cloneElement } from 'react';
+import PropTypes from 'prop-types';
+import { ControlledComponent } from '@zendesk/garden-react-selection';
+
+import TabsContainer from '../containers/TabsContainer';
+import TabsView from '../views/TabsView';
+import TabList from '../views/TabList';
+import Tab from '../views/Tab';
+
+/**
+ * High-level abstraction for basic Tabs implementations.
+ */
+export default class Tabs extends ControlledComponent {
+  static propTypes = {
+    children: PropTypes.any,
+    /**
+     * Toggles vertical selection mode of Tabs
+     */
+    vertical: PropTypes.bool,
+    /**
+     * Currently selected tab to display
+     */
+    selectedKey: PropTypes.any,
+    /**
+     * @param {Object} newState
+     * @param {Any} newState.selectedKey - The newly selected key
+     */
+    onStateChange: PropTypes.func
+  };
+
+  static defaultProps = {
+    vertical: false
+  };
+
+  constructor(...args) {
+    super(...args);
+
+    this.state = {
+      selectedKey: undefined,
+      focusedKey: undefined
+    };
+
+    this.firstKey = undefined;
+  }
+
+  componentDidMount() {
+    /**
+     * In an uncontrolled state we want to always display the first tab
+     */
+    if (!this.isControlledProp('selectedKey') && typeof this.firstKey !== 'undefined') {
+      this.setControlledState({ selectedKey: this.firstKey });
+    }
+  }
+
+  render() {
+    const { vertical, children } = this.props;
+    const { focusedKey, selectedKey } = this.getControlledState();
+
+    return (
+      <TabsContainer
+        vertical={vertical}
+        selectedKey={selectedKey}
+        focusedKey={focusedKey}
+        onStateChange={this.setControlledState}
+      >
+        {({ getTabListProps, getTabPanelProps, getTabProps }) => (
+          <TabsView vertical={vertical}>
+            <TabList {...getTabListProps()}>
+              {Children.map(children, child => {
+                const { label, disabled } = child.props;
+                const key = child.key;
+
+                if (disabled) {
+                  return <Tab disabled>{label}</Tab>;
+                }
+
+                if (typeof this.firstKey === 'undefined') {
+                  this.firstKey = key;
+                }
+
+                return (
+                  <Tab
+                    {...getTabProps({
+                      key,
+                      selected: key === selectedKey,
+                      focused: key === focusedKey
+                    })}
+                  >
+                    {label}
+                  </Tab>
+                );
+              })}
+            </TabList>
+            {Children.map(children, child => {
+              if (child.props.disabled) {
+                return null;
+              }
+
+              return cloneElement(
+                child,
+                getTabPanelProps({
+                  key: child.key,
+                  ...child.props
+                })
+              );
+            })}
+          </TabsView>
+        )}
+      </TabsContainer>
+    );
+  }
+}

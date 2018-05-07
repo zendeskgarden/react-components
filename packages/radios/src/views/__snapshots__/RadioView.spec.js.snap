@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioView renders RTL styling 1`] = `
+<div
+  className="RadioView-cqVVRk c-chk is-rtl dZGaCa"
+  data-garden-id="radios.radio_view"
+  data-garden-version="version"
+/>
+`;
+
+exports[`RadioView renders default styling 1`] = `
+<div
+  className="RadioView-cqVVRk c-chk dZGaCa"
+  data-garden-id="radios.radio_view"
+  data-garden-version="version"
+/>
+`;

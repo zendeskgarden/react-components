@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaginationView renders RTL styling 1`] = `
+<ul
+  className="PaginationView-cBZOFZ c-pagination is-rtl cPXrZO"
+  data-garden-id="pagination.pagination_view"
+  data-garden-version="version"
+/>
+`;
+
+exports[`PaginationView renders default styling 1`] = `
+<ul
+  className="PaginationView-cBZOFZ c-pagination cPXrZO"
+  data-garden-id="pagination.pagination_view"
+  data-garden-version="version"
+/>
+`;

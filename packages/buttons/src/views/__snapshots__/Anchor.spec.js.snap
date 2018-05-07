@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Anchor States renders active styling if provided 1`] = `
+<Anchor
+  active={true}
+>
+  <KeyboardFocusContainer>
+    <Anchor__StyledAnchor
+      active={true}
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      tabIndex={0}
+    >
+      <a
+        className="Anchor__StyledAnchor-Wspam c-btn c-btn--anchor is-active dTIzcQ"
+        data-garden-id="buttons.anchor"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+      />
+    </Anchor__StyledAnchor>
+  </KeyboardFocusContainer>
+</Anchor>
+`;
+
+exports[`Anchor States renders disabled styling if provided 1`] = `
+<Anchor
+  disabled={true}
+>
+  <KeyboardFocusContainer>
+    <Anchor__StyledAnchor
+      disabled={true}
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      tabIndex={0}
+    >
+      <a
+        className="Anchor__StyledAnchor-Wspam c-btn c-btn--anchor is-disabled dTIzcQ"
+        data-garden-id="buttons.anchor"
+        data-garden-version="version"
+        disabled={true}
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+      />
+    </Anchor__StyledAnchor>
+  </KeyboardFocusContainer>
+</Anchor>
+`;
+
+exports[`Anchor States renders focused styling if provided 1`] = `
+<Anchor
+  focused={true}
+>
+  <KeyboardFocusContainer>
+    <Anchor__StyledAnchor
+      focused={true}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      tabIndex={0}
+    >
+      <a
+        className="Anchor__StyledAnchor-Wspam c-btn c-btn--anchor is-focused dTIzcQ"
+        data-garden-id="buttons.anchor"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+      />
+    </Anchor__StyledAnchor>
+  </KeyboardFocusContainer>
+</Anchor>
+`;
+
+exports[`Anchor States renders hovered styling if provided 1`] = `
+<Anchor
+  hovered={true}
+>
+  <KeyboardFocusContainer>
+    <Anchor__StyledAnchor
+      focused={false}
+      hovered={true}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      tabIndex={0}
+    >
+      <a
+        className="Anchor__StyledAnchor-Wspam c-btn c-btn--anchor is-hovered dTIzcQ"
+        data-garden-id="buttons.anchor"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+      />
+    </Anchor__StyledAnchor>
+  </KeyboardFocusContainer>
+</Anchor>
+`;
+
+exports[`Anchor renders danger styling if provided 1`] = `
+<Anchor
+  danger={true}
+>
+  <KeyboardFocusContainer>
+    <Anchor__StyledAnchor
+      danger={true}
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      tabIndex={0}
+    >
+      <a
+        className="Anchor__StyledAnchor-Wspam c-btn c-btn--anchor c-btn--danger dTIzcQ"
+        data-garden-id="buttons.anchor"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+      />
+    </Anchor__StyledAnchor>
+  </KeyboardFocusContainer>
+</Anchor>
+`;

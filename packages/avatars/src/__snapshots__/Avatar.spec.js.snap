@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar Sizes applies large correctly if provided 1`] = `
+<figure
+  className="Avatar-cDOgfv c-avatar c-avatar--large fgoDyb"
+  data-garden-id="avatars.avatar"
+  data-garden-version="version"
+  size="large"
+>
+  <img
+    src="test"
+  />
+</figure>
+`;
+
+exports[`Avatar Sizes applies small correctly if provided 1`] = `
+<figure
+  className="Avatar-cDOgfv c-avatar c-avatar--small fgoDyb"
+  data-garden-id="avatars.avatar"
+  data-garden-version="version"
+  size="small"
+>
+  <img
+    src="test"
+  />
+</figure>
+`;
+
+exports[`Avatar States applies active styling if provided 1`] = `
+<figure
+  className="Avatar-cDOgfv c-avatar is-active fgoDyb"
+  data-garden-id="avatars.avatar"
+  data-garden-version="version"
+>
+  <img
+    src="test"
+  />
+</figure>
+`;
+
+exports[`Avatar States applies borderless styling if provided 1`] = `
+<figure
+  className="Avatar-cDOgfv c-avatar c-avatar--borderless fgoDyb"
+  data-garden-id="avatars.avatar"
+  data-garden-version="version"
+>
+  <img
+    src="test"
+  />
+</figure>
+`;
+
+exports[`Avatar States applies in styling if provided 1`] = `
+<figure
+  className="Avatar-cDOgfv c-avatar is-in fgoDyb"
+  data-garden-id="avatars.avatar"
+  data-garden-version="version"
+>
+  <img
+    src="test"
+  />
+</figure>
+`;
+
+exports[`Avatar States applies out styling if provided 1`] = `
+<figure
+  className="Avatar-cDOgfv c-avatar is-out fgoDyb"
+  data-garden-id="avatars.avatar"
+  data-garden-version="version"
+>
+  <img
+    src="test"
+  />
+</figure>
+`;
+
+exports[`Avatar applies default styling correctly 1`] = `
+<figure
+  className="Avatar-cDOgfv c-avatar fgoDyb"
+  data-garden-id="avatars.avatar"
+  data-garden-version="version"
+>
+  <img
+    src="test"
+  />
+</figure>
+`;
+
+exports[`Avatar applies system styling correclty if provided 1`] = `
+<figure
+  className="Avatar-cDOgfv c-avatar c-avatar--system fgoDyb"
+  data-garden-id="avatars.avatar"
+  data-garden-version="version"
+>
+  <img
+    src="test"
+  />
+</figure>
+`;

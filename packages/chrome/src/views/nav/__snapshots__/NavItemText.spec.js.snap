@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavItemText renders default styling 1`] = `
+<span
+  className="NavItemText-jBpMEU c-chrome__nav__item__text eLbTVt"
+  data-garden-id="chrome.nav_item_text"
+  data-garden-version="version"
+/>
+`;

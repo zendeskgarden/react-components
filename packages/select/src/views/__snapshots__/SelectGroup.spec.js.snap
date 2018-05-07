@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectGroup renders default styling 1`] = `
+<div
+  className="TextGroup-gCyNMQ c-txt frptIz"
+  data-garden-id="select.select_group"
+  data-garden-version="version"
+/>
+`;

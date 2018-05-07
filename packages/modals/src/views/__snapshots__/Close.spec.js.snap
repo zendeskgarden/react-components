@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Close renders default close styling 1`] = `
+<Close>
+  <Close__StyledClose
+    focused={false}
+    onBlur={[Function]}
+    onFocus={[Function]}
+  >
+    <button
+      className="Close__StyledClose-jWcUAA c-dialog__close frzWdr"
+      data-garden-id="modals.close"
+      data-garden-version="version"
+      onBlur={[Function]}
+      onFocus={[Function]}
+    />
+  </Close__StyledClose>
+</Close>
+`;
+
+exports[`Close state removes focused styling if blurred 1`] = `
+<Close>
+  <Close__StyledClose
+    focused={false}
+    onBlur={[Function]}
+    onFocus={[Function]}
+  >
+    <button
+      className="Close__StyledClose-jWcUAA c-dialog__close frzWdr"
+      data-garden-id="modals.close"
+      data-garden-version="version"
+      onBlur={[Function]}
+      onFocus={[Function]}
+    />
+  </Close__StyledClose>
+</Close>
+`;
+
+exports[`Close state renders focused styling correctly if provided 1`] = `
+<Close
+  focused={true}
+>
+  <Close__StyledClose
+    focused={true}
+    onBlur={[Function]}
+    onFocus={[Function]}
+  >
+    <button
+      className="Close__StyledClose-jWcUAA c-dialog__close is-focused frzWdr"
+      data-garden-id="modals.close"
+      data-garden-version="version"
+      onBlur={[Function]}
+      onFocus={[Function]}
+    />
+  </Close__StyledClose>
+</Close>
+`;
+
+exports[`Close state renders focused styling if focused 1`] = `
+<Close>
+  <Close__StyledClose
+    focused={true}
+    onBlur={[Function]}
+    onFocus={[Function]}
+  >
+    <button
+      className="Close__StyledClose-jWcUAA c-dialog__close is-focused frzWdr"
+      data-garden-id="modals.close"
+      data-garden-version="version"
+      onBlur={[Function]}
+      onFocus={[Function]}
+    />
+  </Close__StyledClose>
+</Close>
+`;
+
+exports[`Close state renders hovered styling correctly if provided 1`] = `
+<Close
+  hovered={true}
+>
+  <Close__StyledClose
+    focused={false}
+    hovered={true}
+    onBlur={[Function]}
+    onFocus={[Function]}
+  >
+    <button
+      className="Close__StyledClose-jWcUAA c-dialog__close is-hovered frzWdr"
+      data-garden-id="modals.close"
+      data-garden-version="version"
+      onBlur={[Function]}
+      onFocus={[Function]}
+    />
+  </Close__StyledClose>
+</Close>
+`;

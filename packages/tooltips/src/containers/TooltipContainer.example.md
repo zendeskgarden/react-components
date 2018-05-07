@@ -1,0 +1,243 @@
+The `TooltipContainer` component uses the render prop pattern to apply events and
+accessibility props to any element.
+
+Follows the [W3C Tooltip accessibility pattern](https://www.w3.org/TR/wai-aria-practices/#tooltip):
+
+* Applies the necessary `wai-aria` attributes
+* Content within the tooltip is screen-readable using `aria-describedby`
+
+### Uncontrolled Usage
+
+All state is handled internally in the component.
+
+```jsx
+const { Button } = require('@zendesk/garden-react-buttons');
+
+<TooltipContainer
+  trigger={({ getTriggerProps }) => (
+    <Button {...getTriggerProps()}>Hover or Focus to trigger tooltip</Button>
+  )}
+>
+  {({ getTooltipProps, placement }) => (
+    <TooltipView {...getTooltipProps({ placement, size: 'small' })}>
+      Example tooltip content
+    </TooltipView>
+  )}
+</TooltipContainer>;
+```
+
+### Controlled Usage
+
+If you need to fully control the state of the container (i.e. if used in another component) you can
+control the tooltip visibility with the `isVisible` and `onStateChange` props.
+
+This example defaults the tooltip to the `visible` state.
+
+```jsx
+const { Button } = require('@zendesk/garden-react-buttons');
+
+initialState = {
+  isVisible: true
+};
+
+<TooltipContainer
+  isVisible={state.isVisible}
+  placement="end"
+  onStateChange={newState => setState(newState)}
+  trigger={({ getTriggerProps }) => (
+    <Button {...getTriggerProps()}>Hover to trigger tooltip</Button>
+  )}
+>
+  {({ getTooltipProps, placement }) => (
+    <TooltipView {...getTooltipProps({ placement })}>Example content</TooltipView>
+  )}
+</TooltipContainer>;
+```
+
+### Custom Elements
+
+You can apply this container to _any_ UI element.
+
+```jsx
+const CustomElement = styled.div`
+  padding: 25px;
+  color: white;
+  background-color: blue;
+  display: inline-block;
+`;
+
+const CustomTooltip = styled.div`
+  padding: 2em;
+  background-color: grey;
+  color: white;
+  max-width: 150px;
+  margin: 8px;
+`;
+
+<TooltipContainer
+  placement="end"
+  trigger={({ getTriggerProps }) => (
+    <CustomElement {...getTriggerProps({ refKey: 'innerRef' })}>
+      Custom content and placement
+    </CustomElement>
+  )}
+>
+  {({ getTooltipProps, placement }) => (
+    <CustomTooltip {...getTooltipProps({ placement })}>
+      <p>
+        This is an example of of a long form tooltip. Users are able to interact with this tooltip
+        by hovering, selecting, or focusing it's content.
+      </p>
+      <p>
+        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+        voluptatum...
+      </p>
+    </CustomTooltip>
+  )}
+</TooltipContainer>;
+```
+
+### Disabling Opening on Hover
+
+This example uses a native input, which doesn't open it's tooltip `onMouseEnter`.
+
+```jsx
+const { Input } = require('@zendesk/garden-react-textfields');
+
+<TooltipContainer
+  placement="end"
+  trigger={({ getTriggerProps }) => (
+    <Input
+      {...getTriggerProps({
+        onMouseEnter: event => event.preventDefault(), // stop our default logic
+        onMouseLeave: event => event.preventDefault(), // stop our default logic
+        placeholder: 'Hover does not trigger me, but focus does',
+        style: { width: 500 }
+      })}
+    />
+  )}
+>
+  {({ getTooltipProps, placement }) => (
+    <TooltipView
+      {...getTooltipProps({
+        onMouseLeave: event => event.preventDefault(), // stop our default logic
+        placement
+      })}
+    >
+      Example tooltip
+    </TooltipView>
+  )}
+</TooltipContainer>;
+```
+
+### Placements
+
+```jsx
+const { ThemeProvider } = require('@zendesk/garden-react-theming');
+const { Toggle, Label } = require('@zendesk/garden-react-toggles');
+
+const MarginGrid = styled(Grid)`
+  margin: 20px;
+`;
+
+const TriggerDiv = styled.div`
+  background-color: grey;
+  width: 80px;
+  height: 40px;
+`;
+
+initialState = {
+  isRtl: false
+};
+
+<div>
+  <Toggle checked={state.isRtl} onChange={event => setState({ isRtl: event.target.checked })}>
+    <Label style={{ marginBottom: 16 }}>RTL Locale Placement</Label>
+  </Toggle>
+  <ThemeProvider rtl={state.isRtl}>
+    <MarginGrid columns={3} stretched centered>
+      <TooltipContainer
+        isVisible
+        appendToBody
+        placement="top-start"
+        trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+      >
+        {({ getTooltipProps, placement }) => (
+          <TooltipView {...getTooltipProps({ placement })}>top-start</TooltipView>
+        )}
+      </TooltipContainer>
+      <TooltipContainer
+        isVisible
+        appendToBody
+        placement="top"
+        trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+      >
+        {({ getTooltipProps, placement }) => (
+          <TooltipView {...getTooltipProps({ placement })}>top</TooltipView>
+        )}
+      </TooltipContainer>
+      <TooltipContainer
+        isVisible
+        appendToBody
+        placement="top-end"
+        trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+      >
+        {({ getTooltipProps, placement }) => (
+          <TooltipView {...getTooltipProps({ placement })}>top-end</TooltipView>
+        )}
+      </TooltipContainer>
+      <TooltipContainer
+        isVisible
+        appendToBody
+        placement="start"
+        trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+      >
+        {({ getTooltipProps, placement }) => (
+          <TooltipView {...getTooltipProps({ placement })}>start</TooltipView>
+        )}
+      </TooltipContainer>
+      <div />
+      <TooltipContainer
+        isVisible
+        appendToBody
+        placement="end"
+        trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+      >
+        {({ getTooltipProps, placement }) => (
+          <TooltipView {...getTooltipProps({ placement })}>end</TooltipView>
+        )}
+      </TooltipContainer>
+      <TooltipContainer
+        isVisible
+        appendToBody
+        placement="bottom-start"
+        trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+      >
+        {({ getTooltipProps, placement }) => (
+          <TooltipView {...getTooltipProps({ placement })}>bottom-start</TooltipView>
+        )}
+      </TooltipContainer>
+      <TooltipContainer
+        isVisible
+        appendToBody
+        placement="bottom"
+        trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+      >
+        {({ getTooltipProps, placement }) => (
+          <TooltipView {...getTooltipProps({ placement })}>bottom</TooltipView>
+        )}
+      </TooltipContainer>
+      <TooltipContainer
+        isVisible
+        appendToBody
+        placement="bottom-end"
+        trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+      >
+        {({ getTooltipProps, placement }) => (
+          <TooltipView {...getTooltipProps({ placement })}>bottom-end</TooltipView>
+        )}
+      </TooltipContainer>
+    </MarginGrid>
+  </ThemeProvider>
+</div>;
+```

@@ -1,0 +1,40 @@
+language: node_js
+
+branches:
+  only:
+    - next
+
+cache:
+  yarn: true
+  directories:
+    - node-modules
+
+before_install:
+  - npm config set @zendesk:registry https://zdrepo.jfrog.io/zdrepo/api/npm/npm/
+  - npm config set //zdrepo.jfrog.io/zdrepo/api/npm/npm/:_password $ARTIFACTORY_PASSWORD
+  - npm config set //zdrepo.jfrog.io/zdrepo/api/npm/npm/:username $ARTIFACTORY_USERNAME
+  - npm config set //zdrepo.jfrog.io/zdrepo/api/npm/npm/:email $ARTIFACTORY_EMAIL
+  - npm config set //zdrepo.jfrog.io/zdrepo/api/npm/npm/:always-auth true
+
+install: yarn --frozen-lockfile
+
+script:
+  - yarn lint
+  - yarn test:all
+
+before_deploy:
+  - npm config set _auth $ARTIFACTORY_API_KEY
+  - npm config set email $ARTIFACTORY_EMAIL
+
+deploy:
+  - provider: script
+    script: utils/travis/publish-gh-pages.sh
+    skip_cleanup: true
+    on:
+      branch: next
+
+  - provider: script
+    script: utils/travis/publish-packages.js
+    skip_cleanup: true
+    on:
+      branch: next

@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubNavItem States renders current styling if provided 1`] = `
+<SubNavItem
+  current={true}
+>
+  <KeyboardFocusContainer>
+    <SubNavItem__StyledSubNavItem
+      current={true}
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      tabIndex={0}
+    >
+      <button
+        className="SubNavItem__StyledSubNavItem-jGpLjW c-chrome__subnav__item is-current kHDcXg"
+        data-garden-id="chrome.subnav_item"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+      />
+    </SubNavItem__StyledSubNavItem>
+  </KeyboardFocusContainer>
+</SubNavItem>
+`;
+
+exports[`SubNavItem States renders focused styling if provided 1`] = `
+<SubNavItem
+  focused={true}
+>
+  <KeyboardFocusContainer>
+    <SubNavItem__StyledSubNavItem
+      focused={true}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      tabIndex={0}
+    >
+      <button
+        className="SubNavItem__StyledSubNavItem-jGpLjW c-chrome__subnav__item is-focused kHDcXg"
+        data-garden-id="chrome.subnav_item"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+      />
+    </SubNavItem__StyledSubNavItem>
+  </KeyboardFocusContainer>
+</SubNavItem>
+`;
+
+exports[`SubNavItem States renders hovered styling if provided 1`] = `
+<SubNavItem
+  hovered={true}
+>
+  <KeyboardFocusContainer>
+    <SubNavItem__StyledSubNavItem
+      focused={false}
+      hovered={true}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      tabIndex={0}
+    >
+      <button
+        className="SubNavItem__StyledSubNavItem-jGpLjW c-chrome__subnav__item is-hovered kHDcXg"
+        data-garden-id="chrome.subnav_item"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+      />
+    </SubNavItem__StyledSubNavItem>
+  </KeyboardFocusContainer>
+</SubNavItem>
+`;
+
+exports[`SubNavItem renders default styling 1`] = `
+<SubNavItem>
+  <KeyboardFocusContainer>
+    <SubNavItem__StyledSubNavItem
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      tabIndex={0}
+    >
+      <button
+        className="SubNavItem__StyledSubNavItem-jGpLjW c-chrome__subnav__item kHDcXg"
+        data-garden-id="chrome.subnav_item"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+      />
+    </SubNavItem__StyledSubNavItem>
+  </KeyboardFocusContainer>
+</SubNavItem>
+`;

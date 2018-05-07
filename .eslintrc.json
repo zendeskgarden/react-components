@@ -1,0 +1,40 @@
+{
+  "extends": [
+    "@zendesk/garden",
+    "plugin:react/recommended",
+    "plugin:jest/recommended",
+    "prettier"
+  ],
+  "globals": {
+    "jest": true
+  },
+  "plugins": [
+    "prettier",
+    "react",
+    "jest"
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "indent": ["error", 2],
+    "sort-imports": "off",
+    "valid-jsdoc": "off",
+    "no-invalid-this": "off",
+    "no-unused-expressions": ["error", { "allowShortCircuit": true }],
+    "react/jsx-key": "off",
+    "react/display-name": "off"
+  }
+}

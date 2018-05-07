@@ -1,0 +1,205 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Textarea renders RTL styling 1`] = `
+<Textarea>
+  <Input
+    className="Textarea-kJhswX c-txt__input--area is-rtl dVNGmF"
+    data-garden-id="textfields.textarea"
+    data-garden-version="version"
+  >
+    <textarea
+      className="Textarea-kJhswX c-txt__input--area is-rtl dVNGmF Input-hxTtdt c-txt__input is-rtl eyZowq"
+      data-garden-id="textfields.textarea"
+      data-garden-version="version"
+    />
+  </Input>
+</Textarea>
+`;
+
+exports[`Textarea renders bare styling if provided 1`] = `
+<Textarea
+  bare={true}
+>
+  <Input
+    bare={true}
+    className="Textarea-kJhswX c-txt__input--area dVNGmF"
+    data-garden-id="textfields.textarea"
+    data-garden-version="version"
+  >
+    <textarea
+      className="Textarea-kJhswX c-txt__input--area dVNGmF Input-hxTtdt c-txt__input c-txt__input--bare eyZowq"
+      data-garden-id="textfields.textarea"
+      data-garden-version="version"
+    />
+  </Input>
+</Textarea>
+`;
+
+exports[`Textarea renders default styling 1`] = `
+<Textarea>
+  <Input
+    className="Textarea-kJhswX c-txt__input--area dVNGmF"
+    data-garden-id="textfields.textarea"
+    data-garden-version="version"
+  >
+    <textarea
+      className="Textarea-kJhswX c-txt__input--area dVNGmF Input-hxTtdt c-txt__input eyZowq"
+      data-garden-id="textfields.textarea"
+      data-garden-version="version"
+    />
+  </Input>
+</Textarea>
+`;
+
+exports[`Textarea renders disabled styling if provided 1`] = `
+<Textarea
+  disabled={true}
+>
+  <Input
+    className="Textarea-kJhswX c-txt__input--area dVNGmF"
+    data-garden-id="textfields.textarea"
+    data-garden-version="version"
+    disabled={true}
+  >
+    <textarea
+      className="Textarea-kJhswX c-txt__input--area dVNGmF Input-hxTtdt c-txt__input is-disabled eyZowq"
+      data-garden-id="textfields.textarea"
+      data-garden-version="version"
+      disabled={true}
+    />
+  </Input>
+</Textarea>
+`;
+
+exports[`Textarea renders focused styling if provided 1`] = `
+<Textarea
+  focused={true}
+>
+  <Input
+    className="Textarea-kJhswX c-txt__input--area dVNGmF"
+    data-garden-id="textfields.textarea"
+    data-garden-version="version"
+    focused={true}
+  >
+    <textarea
+      className="Textarea-kJhswX c-txt__input--area dVNGmF Input-hxTtdt c-txt__input is-focused eyZowq"
+      data-garden-id="textfields.textarea"
+      data-garden-version="version"
+    />
+  </Input>
+</Textarea>
+`;
+
+exports[`Textarea renders hovered styling if provided 1`] = `
+<Textarea
+  hovered={true}
+>
+  <Input
+    className="Textarea-kJhswX c-txt__input--area dVNGmF"
+    data-garden-id="textfields.textarea"
+    data-garden-version="version"
+    hovered={true}
+  >
+    <textarea
+      className="Textarea-kJhswX c-txt__input--area dVNGmF Input-hxTtdt c-txt__input is-hovered eyZowq"
+      data-garden-id="textfields.textarea"
+      data-garden-version="version"
+    />
+  </Input>
+</Textarea>
+`;
+
+exports[`Textarea renders resizable styling if provided 1`] = `
+<Textarea
+  resizable={true}
+>
+  <Input
+    className="Textarea-kJhswX c-txt__input--area is-resizable dVNGmF"
+    data-garden-id="textfields.textarea"
+    data-garden-version="version"
+    resizable={true}
+  >
+    <textarea
+      className="Textarea-kJhswX c-txt__input--area is-resizable dVNGmF Input-hxTtdt c-txt__input eyZowq"
+      data-garden-id="textfields.textarea"
+      data-garden-version="version"
+    />
+  </Input>
+</Textarea>
+`;
+
+exports[`Textarea renders small styling if provided 1`] = `
+<Textarea
+  small={true}
+>
+  <Input
+    className="Textarea-kJhswX c-txt__input--area dVNGmF"
+    data-garden-id="textfields.textarea"
+    data-garden-version="version"
+    small={true}
+  >
+    <textarea
+      className="Textarea-kJhswX c-txt__input--area dVNGmF Input-hxTtdt c-txt__input c-txt__input--sm eyZowq"
+      data-garden-id="textfields.textarea"
+      data-garden-version="version"
+    />
+  </Input>
+</Textarea>
+`;
+
+exports[`Textarea validation renders error styling if provided 1`] = `
+<Textarea
+  validation="error"
+>
+  <Input
+    className="Textarea-kJhswX c-txt__input--area dVNGmF"
+    data-garden-id="textfields.textarea"
+    data-garden-version="version"
+    validation="error"
+  >
+    <textarea
+      className="Textarea-kJhswX c-txt__input--area dVNGmF Input-hxTtdt c-txt__input c-txt__input--error eyZowq"
+      data-garden-id="textfields.textarea"
+      data-garden-version="version"
+    />
+  </Input>
+</Textarea>
+`;
+
+exports[`Textarea validation renders success styling if provided 1`] = `
+<Textarea
+  validation="success"
+>
+  <Input
+    className="Textarea-kJhswX c-txt__input--area dVNGmF"
+    data-garden-id="textfields.textarea"
+    data-garden-version="version"
+    validation="success"
+  >
+    <textarea
+      className="Textarea-kJhswX c-txt__input--area dVNGmF Input-hxTtdt c-txt__input c-txt__input--success eyZowq"
+      data-garden-id="textfields.textarea"
+      data-garden-version="version"
+    />
+  </Input>
+</Textarea>
+`;
+
+exports[`Textarea validation renders warning styling if provided 1`] = `
+<Textarea
+  validation="warning"
+>
+  <Input
+    className="Textarea-kJhswX c-txt__input--area dVNGmF"
+    data-garden-id="textfields.textarea"
+    data-garden-version="version"
+    validation="warning"
+  >
+    <textarea
+      className="Textarea-kJhswX c-txt__input--area dVNGmF Input-hxTtdt c-txt__input c-txt__input--warning eyZowq"
+      data-garden-id="textfields.textarea"
+      data-garden-version="version"
+    />
+  </Input>
+</Textarea>
+`;

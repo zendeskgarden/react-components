@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TooltipView Placement does not render arrow styling if disabled 1`] = `
+<div
+  className="TooltipView-lkkmzw c-tooltip c-arrow--b gszAbg"
+  size="small"
+/>
+`;
+
+exports[`TooltipView Placement renders bottom placement correctly 1`] = `
+<div
+  className="TooltipView-lkkmzw c-tooltip c-arrow c-arrow--t gszAbg"
+  size="small"
+/>
+`;
+
+exports[`TooltipView Placement renders bottom-end placement correctly 1`] = `
+<div
+  className="TooltipView-lkkmzw c-tooltip c-arrow c-arrow--tr gszAbg"
+  size="small"
+/>
+`;
+
+exports[`TooltipView Placement renders bottom-start placement correctly 1`] = `
+<div
+  className="TooltipView-lkkmzw c-tooltip c-arrow c-arrow--tl gszAbg"
+  size="small"
+/>
+`;
+
+exports[`TooltipView Placement renders left placement correctly 1`] = `
+<div
+  className="TooltipView-lkkmzw c-tooltip c-arrow c-arrow--r gszAbg"
+  size="small"
+/>
+`;
+
+exports[`TooltipView Placement renders left-end placement correctly 1`] = `
+<div
+  className="TooltipView-lkkmzw c-tooltip gszAbg"
+  size="small"
+/>
+`;
+
+exports[`TooltipView Placement renders left-start placement correctly 1`] = `
+<div
+  className="TooltipView-lkkmzw c-tooltip gszAbg"
+  size="small"
+/>
+`;
+
+exports[`TooltipView Placement renders right placement correctly 1`] = `
+<div
+  className="TooltipView-lkkmzw c-tooltip c-arrow c-arrow--l gszAbg"
+  size="small"
+/>
+`;
+
+exports[`TooltipView Placement renders right-end placement correctly 1`] = `
+<div
+  className="TooltipView-lkkmzw c-tooltip gszAbg"
+  size="small"
+/>
+`;
+
+exports[`TooltipView Placement renders right-start placement correctly 1`] = `
+<div
+  className="TooltipView-lkkmzw c-tooltip gszAbg"
+  size="small"
+/>
+`;
+
+exports[`TooltipView Placement renders top placement correctly 1`] = `
+<div
+  className="TooltipView-lkkmzw c-tooltip c-arrow c-arrow--b gszAbg"
+  size="small"
+/>
+`;
+
+exports[`TooltipView Placement renders top-end placement correctly 1`] = `
+<div
+  className="TooltipView-lkkmzw c-tooltip c-arrow c-arrow--br gszAbg"
+  size="small"
+/>
+`;
+
+exports[`TooltipView Placement renders top-start placement correctly 1`] = `
+<div
+  className="TooltipView-lkkmzw c-tooltip c-arrow c-arrow--bl gszAbg"
+  size="small"
+/>
+`;
+
+exports[`TooltipView Sizing renders extra-large size correctly 1`] = `
+<div
+  className="TooltipView-lkkmzw c-tooltip c-tooltip--extra-large eQomLj"
+  size="extra-large"
+/>
+`;
+
+exports[`TooltipView Sizing renders large size correctly 1`] = `
+<div
+  className="TooltipView-lkkmzw c-tooltip c-tooltip--large bAvoNG"
+  size="large"
+/>
+`;
+
+exports[`TooltipView Sizing renders medium size correctly 1`] = `
+<div
+  className="TooltipView-lkkmzw c-tooltip c-tooltip--medium gszAbg"
+  size="medium"
+/>
+`;
+
+exports[`TooltipView renders RTL styling correctly 1`] = `
+<div
+  className="TooltipView-lkkmzw c-tooltip dLwdpc"
+  size="small"
+/>
+`;
+
+exports[`TooltipView renders default styling correctly 1`] = `
+<div
+  className="TooltipView-lkkmzw c-tooltip gszAbg"
+  size="small"
+/>
+`;
