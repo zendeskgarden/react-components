@@ -1,4 +1,4 @@
-# @zendesk/garden-react-tags
+# @zendeskgarden/react-tags
 
 This package includes components relating to tags in the
 [Garden Design System](http://zendeskgarden.github.io/).
@@ -6,15 +6,15 @@ This package includes components relating to tags in the
 ## Installation
 
 ```sh
-npm install @zendesk/garden-react-tags
+npm install @zendeskgarden/react-tags
 ```
 
 ## Usage
 
 ```jsx static
-import Tag from '@zendesk/garden-react-tags/Tag';
-import Avatar from '@zendesk/garden-react-tags/Avatar';
-import Close from '@zendesk/garden-react-tags/Close';
+import Tag from '@zendeskgarden/react-tags/Tag';
+import Avatar from '@zendeskgarden/react-tags/Avatar';
+import Close from '@zendeskgarden/react-tags/Close';
 
 <Tag pill>
   <Avatar>

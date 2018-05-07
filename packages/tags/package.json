@@ -1,5 +1,5 @@
 {
-  "name": "@zendesk/garden-react-tags",
+  "name": "@zendeskgarden/react-tags",
   "description": "Components relating to tags in the Garden Design System",
   "author": "Zendesk Garden <garden@zendesk.com>",
   "license": "UNLICENSED",
@@ -34,8 +34,5 @@
     "garden",
     "react",
     "zendesk"
-  ],
-  "publishConfig": {
-    "registry": "https://zdrepo.jfrog.io/zdrepo/api/npm/npm"
-  }
+  ]
 }
