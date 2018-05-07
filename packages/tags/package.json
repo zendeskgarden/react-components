@@ -1,9 +1,8 @@
 {
-  "name": "@zendeskgarden/react-{{component}}",
-  "description": "Components relating to {{component}} in the Garden Design System",
-  "license": "Apache-2.0",
+  "name": "@zendesk/garden-react-tags",
+  "description": "Components relating to tags in the Garden Design System",
   "author": "Zendesk Garden <garden@zendesk.com>",
-  "homepage": "https://garden.zendesk.com/",
+  "license": "UNLICENSED",
   "repository": "https://github.com/zendeskgarden/react-components",
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
@@ -12,13 +11,19 @@
   "main": "./index.js",
   "scripts": {
     "build": "../../utils/scripts/build.sh",
-    "build:demo": "../../utils/scripts/build-demo.sh",
+    "build:styleguide": "../../utils/scripts/build-styleguide.sh",
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
+    "@zendesk/garden-react-theming": "^0.3.1",
+    "@zendeskgarden/css-tags": "^4.0.0",
     "classnames": "^2.2.5",
-    "prop-types": "^15.6.1",
-    "styled-components": "^3.2.6"
+    "prop-types": "^15.6.0",
+    "styled-components": "^3.2.5"
+  },
+  "devDependencies": {
+    "@zendesk/garden-react-selection": "^2.0.0",
+    "@zendesk/garden-react-textfields": "^0.3.0"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
@@ -31,6 +36,6 @@
     "zendesk"
   ],
   "publishConfig": {
-    "access": "public"
+    "registry": "https://zdrepo.jfrog.io/zdrepo/api/npm/npm"
   }
 }
