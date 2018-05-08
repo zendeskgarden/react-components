@@ -1,7 +1,7 @@
 import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import ButtonStyles from '@zendesk/garden-css-buttons';
+import ButtonStyles from '@zendeskgarden/css-buttons';
 
 import { version } from '../../../package.json';
 const COMPONENT_ID = 'buttons.icon';

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { retrieveTheme } from '@zendesk/garden-react-theming';
-import ModalStyles from '@zendesk/garden-css-modals';
+import ModalStyles from '@zendeskgarden/css-modals';
 
 import { version } from '../../package.json';
 const COMPONENT_ID = 'modals.header';

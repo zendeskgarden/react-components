@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import classNames from 'classnames';
 import { retrieveTheme } from '@zendesk/garden-react-theming';
 import { KeyboardFocusContainer } from '@zendesk/garden-react-selection';
-import ChromeStyles from '@zendesk/garden-css-chrome';
+import ChromeStyles from '@zendeskgarden/css-chrome';
 
 import { version } from '../../../package.json';
 const COMPONENT_ID = 'chrome.nav_item';

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import { retrieveTheme, isRtl } from '@zendesk/garden-react-theming';
-import ModalStyles from '@zendesk/garden-css-modals';
+import ModalStyles from '@zendeskgarden/css-modals';
 
 import { version } from '../../package.json';
 const COMPONENT_ID = 'modals.backdrop';

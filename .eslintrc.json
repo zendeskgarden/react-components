@@ -1,6 +1,6 @@
 {
   "extends": [
-    "@zendesk/garden",
+    "@zendeskgarden",
     "plugin:react/recommended",
     "plugin:jest/recommended",
     "prettier"

@@ -29,7 +29,7 @@ const InlineMenuView = styled(MenuView)`
 ### Types
 
 ```jsx
-const GroupIcon = require('svg-react-loader?name=Settings!@zendesk/garden-svg-icons/src/14-group.svg');
+const GroupIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/14/group.svg');
 
 /**
  * Only necessary to position within documentation

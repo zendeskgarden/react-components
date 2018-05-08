@@ -15,11 +15,11 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendesk/garden-css-arrows": "^1.1.0",
-    "@zendesk/garden-css-tooltips": "^2.1.0",
-    "@zendesk/garden-css-variables": "^3.1.0",
     "@zendesk/garden-react-selection": "^0.1.1",
     "@zendesk/garden-react-theming": "^0.3.1",
+    "@zendeskgarden/css-arrows": "^2.0.2",
+    "@zendeskgarden/css-tooltips": "^3.0.3",
+    "@zendeskgarden/css-variables": "^4.1.3",
     "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
     "react-popper": "0.8.2",
@@ -42,6 +42,6 @@
     "zendesk"
   ],
   "publishConfig": {
-    "registry": "https://zdrepo.jfrog.io/zdrepo/api/npm/npm"
+    "access": "public"
   }
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import ModalStyles from '@zendesk/garden-css-modals';
+import ModalStyles from '@zendeskgarden/css-modals';
 import { composeEventHandlers } from '@zendesk/garden-react-selection';
 import { retrieveTheme } from '@zendesk/garden-react-theming';
 

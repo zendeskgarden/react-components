@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import TabStyles from '@zendesk/garden-css-tabs';
+import TabStyles from '@zendeskgarden/css-tabs';
 import { retrieveTheme } from '@zendesk/garden-react-theming';
 
 /**

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import { retrieveTheme, isRtl } from '@zendesk/garden-react-theming';
-import TextStyles from '@zendesk/garden-css-forms/dist/text.css';
+import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 
 import { version } from '../../package.json';
 const COMPONENT_ID = 'textfields.message';

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import ButtonStyles from '@zendesk/garden-css-buttons';
+import ButtonStyles from '@zendeskgarden/css-buttons';
 import { retrieveTheme } from '@zendesk/garden-react-theming';
 
 import { version } from '../../../package.json';

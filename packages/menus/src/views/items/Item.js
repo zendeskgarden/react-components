@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import { retrieveTheme } from '@zendesk/garden-react-theming';
-import MenuStyles from '@zendesk/garden-css-menus';
+import MenuStyles from '@zendeskgarden/css-menus';
 
 import { version } from '../../../package.json';
 const COMPONENT_ID = 'menus.item';

@@ -15,10 +15,10 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendesk/garden-css-modals": "^4.1.2",
     "@zendesk/garden-react-selection": "^2.0.0",
     "@zendesk/garden-react-textfields": "^0.3.0",
     "@zendesk/garden-react-theming": "^0.3.1",
+    "@zendeskgarden/css-modals": "^5.0.3",
     "classnames": "^2.2.5",
     "dom-helpers": "^3.3.1",
     "prop-types": "^15.6.0",
@@ -40,6 +40,6 @@
     "zendesk"
   ],
   "publishConfig": {
-    "registry": "https://zdrepo.jfrog.io/zdrepo/api/npm/npm"
+    "access": "public"
   }
 }

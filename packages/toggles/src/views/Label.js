@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import { retrieveTheme, isRtl } from '@zendesk/garden-react-theming';
-import CheckboxStyles from '@zendesk/garden-css-forms/dist/checkbox.css';
+import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
 
 import { version } from '../../package.json';
 const COMPONENT_ID = 'toggles.label';

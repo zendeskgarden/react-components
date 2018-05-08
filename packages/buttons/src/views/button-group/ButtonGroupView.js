@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import classNames from 'classnames';
-import ButtonStyles from '@zendesk/garden-css-buttons';
+import ButtonStyles from '@zendeskgarden/css-buttons';
 import { retrieveTheme, isRtl } from '@zendesk/garden-react-theming';
 
 import { version } from '../../../package.json';

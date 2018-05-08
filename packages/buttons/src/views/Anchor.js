@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import ButtonStyles from '@zendesk/garden-css-buttons';
+import ButtonStyles from '@zendeskgarden/css-buttons';
 import { KeyboardFocusContainer } from '@zendesk/garden-react-selection';
 import { retrieveTheme } from '@zendesk/garden-react-theming';
 

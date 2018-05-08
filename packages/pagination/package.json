@@ -15,9 +15,9 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendesk/garden-css-pagination": "^1.2.0",
     "@zendesk/garden-react-selection": "^2.0.0",
     "@zendesk/garden-react-theming": "^0.3.1",
+    "@zendeskgarden/css-pagination": "^2.0.3",
     "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
     "styled-components": "^3.2.5"
@@ -33,6 +33,6 @@
     "zendesk"
   ],
   "publishConfig": {
-    "registry": "https://zdrepo.jfrog.io/zdrepo/api/npm/npm"
+    "access": "public"
   }
 }

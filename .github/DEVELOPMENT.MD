@@ -17,7 +17,7 @@ All dependencies required by a package must be kept in it's specific `package.js
 
 ```sh
 # Adds the css-buttons package to the local react-buttons package
-yarn lerna add @zendesk/garden-css-buttons --scope @zendesk/garden-react-buttons
+yarn lerna add @zendeskgarden/css-buttons --scope @zendesk/garden-react-buttons
 ```
 
 ### Documentation

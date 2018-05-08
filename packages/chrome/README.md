@@ -13,7 +13,7 @@ npm install --save-dev @zendesk/garden-react-chrome
 
 ```jsx static
 import { Chrome, Nav, NavItem, ... } from '@zendesk/garden-react-chrome';
-import ConnectIcon from '@zendesk/garden-svg-icons/src/26-relationshape-connect.svg';
+import ConnectIcon from '@zendeskgarden/svg-icons/src/26/relationshape-connect.svg';
 
 <Chrome>
   <Nav expanded>

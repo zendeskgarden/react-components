@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { zdFontWeightRegular } from '@zendesk/garden-css-variables';
+import { zdFontWeightRegular } from '@zendeskgarden/css-variables';
 import { retrieveTheme } from '@zendesk/garden-react-theming';
 
 /**

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
 import classNames from 'classnames';
 import { retrieveTheme, isRtl } from '@zendesk/garden-react-theming';
-import MenuStyles from '@zendesk/garden-css-menus';
-import ArrowStyles from '@zendesk/garden-css-arrows';
-import { zdSpacing } from '@zendesk/garden-css-variables';
+import MenuStyles from '@zendeskgarden/css-menus';
+import ArrowStyles from '@zendeskgarden/css-arrows';
+import { zdSpacing } from '@zendeskgarden/css-variables';
 
 import { version } from '../../package.json';
 const COMPONENT_ID = 'menus.menu_view';

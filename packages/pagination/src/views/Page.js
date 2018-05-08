@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import PaginationStyles from '@zendesk/garden-css-pagination';
+import PaginationStyles from '@zendeskgarden/css-pagination';
 import { retrieveTheme } from '@zendesk/garden-react-theming';
 
 import { version } from '../../package.json';

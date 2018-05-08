@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import TooltipStyles from '@zendesk/garden-css-tooltips';
+import TooltipStyles from '@zendeskgarden/css-tooltips';
 import { retrieveTheme } from '@zendesk/garden-react-theming';
-import { zdColorOil } from '@zendesk/garden-css-variables';
+import { zdColorOil } from '@zendeskgarden/css-variables';
 
 import TooltipView from './TooltipView';
 import Title from './content/Title';
