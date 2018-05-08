@@ -9,13 +9,6 @@ cache:
   directories:
     - node-modules
 
-before_install:
-  - npm config set @zendesk:registry https://zdrepo.jfrog.io/zdrepo/api/npm/npm/
-  - npm config set //zdrepo.jfrog.io/zdrepo/api/npm/npm/:_password $ARTIFACTORY_PASSWORD
-  - npm config set //zdrepo.jfrog.io/zdrepo/api/npm/npm/:username $ARTIFACTORY_USERNAME
-  - npm config set //zdrepo.jfrog.io/zdrepo/api/npm/npm/:email $ARTIFACTORY_EMAIL
-  - npm config set //zdrepo.jfrog.io/zdrepo/api/npm/npm/:always-auth true
-
 install: yarn --frozen-lockfile
 
 script:
@@ -23,8 +16,8 @@ script:
   - yarn test:all
 
 before_deploy:
-  - npm config set _auth $ARTIFACTORY_API_KEY
-  - npm config set email $ARTIFACTORY_EMAIL
+  - export NODE_DEBUG=gh-pages
+  - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 
 deploy:
   - provider: script
