@@ -1,4 +1,5 @@
 # @zendeskgarden/react-{{component}} [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-{{component}}.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-{{component}}) [![Dependency Status](https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/{{component}}&style=flat-square)](https://david-dm.org/zendeskgarden/react-components?path=packages/{{component}}) <!-- markdownlint-disable -->
+
 <!-- markdownlint-enable -->
 
 This package includes components relating to {{component}} in the
