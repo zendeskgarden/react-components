@@ -1,4 +1,5 @@
-# @zendesk/garden-react-radios
+# @zendeskgarden/react-radios [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-radios.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-radios) [![Dependency Status](https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/radios&style=flat-square)](https://david-dm.org/zendeskgarden/react-components?path=packages/radios) <!-- markdownlint-disable -->
+<!-- markdownlint-enable -->
 
 This package includes components relating to radio buttons in the
 [Garden Design System](http://zendeskgarden.github.io/).
@@ -6,7 +7,7 @@ This package includes components relating to radio buttons in the
 ## Installation
 
 ```sh
-npm install --save-dev @zendesk/garden-react-radios
+npm install @zendeskgarden/react-radios
 ```
 
 ## Usage

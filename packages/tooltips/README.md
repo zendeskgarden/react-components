@@ -1,4 +1,5 @@
-# @zendesk/garden-react-tooltips
+# @zendeskgarden/react-tooltips [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-tooltips.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-tooltips) [![Dependency Status](https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/tooltips&style=flat-square)](https://david-dm.org/zendeskgarden/react-components?path=packages/tooltips) <!-- markdownlint-disable -->
+<!-- markdownlint-enable -->
 
 This package includes presentation components and render prop containers relating to Tooltips
 in the Garden Design System.
@@ -6,7 +7,7 @@ in the Garden Design System.
 ## Installation
 
 ```sh
-npm install --save-dev @zendesk/garden-react-tooltips
+npm install @zendeskgarden/react-tooltips
 ```
 
 ## Usages
@@ -38,7 +39,7 @@ Advanced tooltip usages.
 ### RTL Locale Layouts
 
 The `Tooltip` and `TooltipContainer` components automatically handle RTL layouts based on
-their parent [ThemeProvider](https://garden.zendesk.com/react-components/theming/#themeprovider).
+their parent [ThemeProvider](https://zendeskgarden.github.io/react-components/theming/#themeprovider).
 
 #### English (LTR) Placements
 

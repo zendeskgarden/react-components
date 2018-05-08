@@ -1,4 +1,5 @@
-# @zendesk/garden-react-checkboxes
+# @zendeskgarden/react-checkboxes [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-checkboxes.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-checkboxes) [![Dependency Status](https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/checkboxes&style=flat-square)](https://david-dm.org/zendeskgarden/react-components?path=packages/checkboxes) <!-- markdownlint-disable -->
+<!-- markdownlint-enable -->
 
 This package includes components relating to checkboxes in the
 [Garden Design System](http://zendeskgarden.github.io/).
@@ -6,14 +7,14 @@ This package includes components relating to checkboxes in the
 ## Installation
 
 ```sh
-npm install --save-dev @zendesk/garden-react-checkboxes
+npm install @zendeskgarden/react-checkboxes
 ```
 
 ## Usage
 
 ```jsx static
-import Checkbox from '@zendesk/garden-react-checkboxes/Checkbox';
-import Label from '@zendesk/garden-react-checkboxes/Label';
+import Checkbox from '@zendeskgarden/react-checkboxes/Checkbox';
+import Label from '@zendeskgarden/react-checkboxes/Label';
 
 initialState = {
   isChecked: false

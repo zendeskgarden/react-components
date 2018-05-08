@@ -2,5 +2,8 @@
   "default": true,
   "first-line-h1": false,
   "first-header-h1": false,
-  "MD013": { "line_length": 100 }
+  "MD013": {
+    "line_length": 100,
+    "tables": false
+  }
 }
