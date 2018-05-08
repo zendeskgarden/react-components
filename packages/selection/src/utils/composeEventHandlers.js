@@ -1,4 +1,11 @@
 /**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+/**
  * Borrowed from the Paypal/Downshift libraries utility.
  * Original License - MIT License
  * https://github.com/paypal/downshift/blob/master/src/utils.js

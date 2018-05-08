@@ -1,3 +1,10 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 export { default as Chrome } from './views/Chrome';
 export { default as Body } from './views/body/Body';
 export { default as Content } from './views/body/Content';
