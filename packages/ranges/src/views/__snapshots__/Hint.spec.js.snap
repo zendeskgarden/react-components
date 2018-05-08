@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hint renders RTL styling 1`] = `
+<div
+  className="Hint-gklniA c-range__hint is-rtl nhFXS"
+  data-garden-id="ranges.hint"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Hint renders default styling 1`] = `
+<div
+  className="Hint-gklniA c-range__hint nhFXS"
+  data-garden-id="ranges.hint"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Hint renders small styling if provided 1`] = `
+<div
+  className="Hint-gklniA c-range__hint c-range__hint--sm nhFXS"
+  data-garden-id="ranges.hint"
+  data-garden-version="version"
+/>
+`;

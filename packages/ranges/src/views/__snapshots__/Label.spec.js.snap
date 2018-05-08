@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Label renders RTL styling 1`] = `
+<label
+  className="Label-bxMjsr c-range__label is-rtl jVZUdW"
+  data-garden-id="ranges.label"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Label renders default styling 1`] = `
+<label
+  className="Label-bxMjsr c-range__label jVZUdW"
+  data-garden-id="ranges.label"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Label renders regular styling if provided 1`] = `
+<label
+  className="Label-bxMjsr c-range__label c-range__label--regular jVZUdW"
+  data-garden-id="ranges.label"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Label renders small styling if provided 1`] = `
+<label
+  className="Label-bxMjsr c-range__label c-range__label--sm jVZUdW"
+  data-garden-id="ranges.label"
+  data-garden-version="version"
+/>
+`;

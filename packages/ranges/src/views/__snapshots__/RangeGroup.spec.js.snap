@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RangeGroup renders RTL styling 1`] = `
+<div
+  className="RangeGroup-jpqdrA c-range is-rtl jIeJBB"
+  data-garden-id="ranges.range_group"
+  data-garden-version="version"
+/>
+`;
+
+exports[`RangeGroup renders default styling 1`] = `
+<div
+  className="RangeGroup-jpqdrA c-range jIeJBB"
+  data-garden-id="ranges.range_group"
+  data-garden-version="version"
+/>
+`;
+
+exports[`RangeGroup renders inline styling if provided 1`] = `
+<div
+  className="RangeGroup-jpqdrA c-range c-range--inline jIeJBB"
+  data-garden-id="ranges.range_group"
+  data-garden-version="version"
+/>
+`;
