@@ -1,5 +1,4 @@
 # @zendeskgarden/react-theming [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-theming.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-theming) [![Dependency Status](https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/theming&style=flat-square)](https://david-dm.org/zendeskgarden/react-components?path=packages/theming) <!-- markdownlint-disable -->
-
 <!-- markdownlint-enable -->
 
 The Theming package includes several utility components relating to theming
