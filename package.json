@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "scripts": {
     "build": "lerna run build --stream",
-    "build:single": "utils/scripts/scoped-npm-command.js --script build",
     "build:demo": "lerna run build:demo --stream",
+    "build:single": "utils/scripts/scoped-npm-command.js --script build",
     "format": "yarn format:package_json && yarn format:js && yarn format:markdown",
     "format:js": "prettier --write 'packages/**/!(dist)/*.js' && prettier --write utils/**/*.js",
     "format:markdown": "prettier --write 'packages/**/!(dist)/!(CHANGELOG)*.md'",
