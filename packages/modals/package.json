@@ -1,8 +1,9 @@
 {
-  "name": "@zendesk/garden-react-modals",
+  "name": "@zendeskgarden/react-modals",
   "description": "Components relating to modals in the Garden Design System",
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
+  "homepage": "https://garden.zendesk.com/",
   "repository": "https://github.com/zendeskgarden/react-components",
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
@@ -11,19 +12,19 @@
   "main": "./index.js",
   "scripts": {
     "build": "../../utils/scripts/build.sh",
-    "build:styleguide": "../../utils/scripts/build-styleguide.sh",
+    "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendesk/garden-react-selection": "^2.0.0",
-    "@zendesk/garden-react-textfields": "^0.3.0",
-    "@zendesk/garden-react-theming": "^0.3.1",
     "@zendeskgarden/css-modals": "^5.0.3",
+    "@zendeskgarden/react-selection": ">=2.0.0 <4.0.0",
+    "@zendeskgarden/react-textfields": ">=0.3.0 <2.0.0",
+    "@zendeskgarden/react-theming": ">=0.3.1 <2.0.0",
     "classnames": "^2.2.5",
     "dom-helpers": "^3.3.1",
-    "prop-types": "^15.6.0",
+    "prop-types": "^15.6.1",
     "react-portal": "^4.1.2",
-    "styled-components": "^3.2.5",
+    "styled-components": "^3.2.6",
     "tabbable": "^1.1.2"
   },
   "peerDependencies": {
@@ -31,7 +32,7 @@
     "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0"
   },
   "devDependencies": {
-    "@zendesk/garden-react-buttons": "^0.2.4"
+    "@zendeskgarden/react-buttons": ">=0.2.4 <2.0.0"
   },
   "keywords": [
     "components",

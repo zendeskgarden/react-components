@@ -1,8 +1,9 @@
 {
-  "name": "@zendesk/garden-react-selection",
+  "name": "@zendeskgarden/react-selection",
   "description": "Utilities and render prop containers relating to selection within the Garden Design System.",
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
+  "homepage": "https://garden.zendesk.com/",
   "repository": "https://github.com/zendeskgarden/react-components",
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
@@ -11,14 +12,14 @@
   "main": "./index.js",
   "scripts": {
     "build": "../../utils/scripts/build.sh",
-    "build:styleguide": "../../utils/scripts/build-styleguide.sh",
+    "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendesk/garden-react-theming": "^0.3.1",
+    "@zendeskgarden/react-theming": ">=0.3.1 <2.0.0",
     "classnames": "^2.2.5",
     "dom-helpers": "^3.3.1",
-    "prop-types": "^15.6.0"
+    "prop-types": "^15.6.1"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
@@ -31,6 +32,6 @@
     "zendesk"
   ],
   "publishConfig": {
-    "registry": "https://zdrepo.jfrog.io/zdrepo/api/npm/npm"
+    "access": "public"
   }
 }

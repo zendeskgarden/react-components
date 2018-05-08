@@ -2,5 +2,5 @@
 set -x
 set -e
 
-yarn build:styleguide
+yarn build:demo
 $(dirname $0)/publish-gh-pages.js
