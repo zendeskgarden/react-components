@@ -13,7 +13,7 @@ install: yarn --frozen-lockfile
 
 script:
   - yarn lint
-  - yarn test:all
+  - yarn test:all --runInBand
 
 before_deploy:
   - export NODE_DEBUG=gh-pages
