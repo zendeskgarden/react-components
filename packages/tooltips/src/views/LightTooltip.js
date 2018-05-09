@@ -10,10 +10,10 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import TooltipStyles from '@zendeskgarden/css-tooltips';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
-import { zdColorOil } from '@zendeskgarden/css-variables';
 
 import TooltipView from './TooltipView';
-import Title from './content/Title';
+import { version } from '../../package.json';
+const COMPONENT_ID = 'tooltip.light_tooltip';
 
 const SIZE = {
   SMALL: 'small',
@@ -33,13 +33,11 @@ const PLACEMENT = {
  * Accepts all `<div>` props
  */
 const LightTooltip = styled(TooltipView).attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': version,
   className: classNames(TooltipStyles['c-tooltip--light'])
 })`
-  ${/* sc-selector */ Title} {
-    color: ${zdColorOil};
-  }
-
-  ${props => retrieveTheme('tooltip.light_tooltip', props)};
+  ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
 LightTooltip.propTypes = {

@@ -10,18 +10,18 @@ import TooltipStyles from '@zendeskgarden/css-tooltips';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 
 import { version } from '../../../package.json';
-const COMPONENT_ID = 'tooltip.title';
+const COMPONENT_ID = 'tooltip.paragraph';
 
 /**
  * Accepts all `<div>` props
  */
-const Title = styled.div.attrs({
+const Paragraph = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': version,
-  className: TooltipStyles['c-tooltip__title']
+  className: TooltipStyles['c-tooltip__paragraph']
 })`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
 /** @component */
-export default Title;
+export default Paragraph;

@@ -2,21 +2,22 @@
 <Grid columns={2} stretched>
   <LightTooltip data-placement="left">
     <Title>Default Usage</Title>
-    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta
-    sunt explicabo.
+    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
   </LightTooltip>
   <LightTooltip data-placement="right" size="extra-large">
     <Title>Large Content</Title>
-    <p>
-      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-      laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
-      beatae vitae dicta sunt explicabo.
-    </p>
-    <p>
-      Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-      consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-    </p>
+    <Paragraph>
+      <p>
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+        laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+        architecto beatae vitae dicta sunt explicabo.
+      </p>
+
+      <p>
+        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+        consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+      </p>
+    </Paragraph>
   </LightTooltip>
 </Grid>
 ```

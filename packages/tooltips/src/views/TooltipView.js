@@ -9,11 +9,11 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
-import { zdColorWhite } from '@zendeskgarden/css-variables';
 import ArrowStyles from '@zendeskgarden/css-arrows';
 import TooltipStyles from '@zendeskgarden/css-tooltips';
 
-import Title from './content/Title';
+import { version } from '../../package.json';
+const COMPONENT_ID = 'tooltip.tooltip';
 
 const SIZE = {
   SMALL: 'small',
@@ -67,6 +67,8 @@ const retrieveTooltipMargin = ({ arrow, size }) => {
  * Accepts all `<div>` props
  */
 const TooltipView = styled.div.attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': version,
   className: props =>
     classNames(TooltipStyles['c-tooltip'], {
       // Size
@@ -84,17 +86,14 @@ const TooltipView = styled.div.attrs({
       [ArrowStyles['c-arrow--l']]: props.placement === PLACEMENT.RIGHT,
       [ArrowStyles['c-arrow--t']]: props.placement === PLACEMENT.BOTTOM,
       [ArrowStyles['c-arrow--tl']]: props.placement === PLACEMENT.BOTTOM_START,
-      [ArrowStyles['c-arrow--tr']]: props.placement === PLACEMENT.BOTTOM_END
+      [ArrowStyles['c-arrow--tr']]: props.placement === PLACEMENT.BOTTOM_END,
+
+      // RTL
+      [TooltipStyles['is-rtl']]: isRtl(props)
     })
 })`
-  ${/* sc-selector */ Title} & {
-    color: ${zdColorWhite};
-  }
-
-  direction: ${props => (isRtl(props) ? 'rtl' : 'ltr')};
-
   ${props => retrieveTooltipMargin(props)};
-  ${props => retrieveTheme('tooltip.tooltip', props)};
+  ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
 TooltipView.propTypes = {
