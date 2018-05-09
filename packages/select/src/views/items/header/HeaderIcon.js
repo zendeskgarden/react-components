@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HeaderIcon } from '@zendesk/garden-react-menus';
+import { HeaderIcon } from '@zendeskgarden/react-menus';
 
 /** @component */
 export default HeaderIcon;

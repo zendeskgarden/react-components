@@ -7,8 +7,8 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ControlledComponent, IdManager } from '@zendesk/garden-react-selection';
-import { MenuContainer } from '@zendesk/garden-react-menus';
+import { ControlledComponent, IdManager } from '@zendeskgarden/react-selection';
+import { MenuContainer } from '@zendeskgarden/react-menus';
 
 export default class SelectContainer extends ControlledComponent {
   static propTypes = {

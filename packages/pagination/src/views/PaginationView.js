@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import classNames from 'classnames';
 import PaginationStyles from '@zendeskgarden/css-pagination';
-import { retrieveTheme, isRtl } from '@zendesk/garden-react-theming';
+import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 
 import { version } from '../../package.json';
 const COMPONENT_ID = 'pagination.pagination_view';

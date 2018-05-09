@@ -11,7 +11,7 @@ import {
   SelectionContainer,
   ControlledComponent,
   IdManager
-} from '@zendesk/garden-react-selection';
+} from '@zendeskgarden/react-selection';
 
 export default class PaginationContainer extends ControlledComponent {
   static propTypes = {

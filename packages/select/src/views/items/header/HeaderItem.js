@@ -6,8 +6,8 @@
  */
 
 import PropTypes from 'prop-types';
-import { retrieveTheme } from '@zendesk/garden-react-theming';
-import { HeaderItem as MenuHeaderItem } from '@zendesk/garden-react-menus';
+import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { HeaderItem as MenuHeaderItem } from '@zendeskgarden/react-menus';
 
 import { version } from '../../../../package.json';
 const COMPONENT_ID = 'select.header_item';

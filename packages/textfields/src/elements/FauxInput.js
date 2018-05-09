@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { composeEventHandlers, ControlledComponent } from '@zendesk/garden-react-selection';
+import { composeEventHandlers, ControlledComponent } from '@zendeskgarden/react-selection';
 import PropTypes from 'prop-types';
 
 import Input from '../views/Input';

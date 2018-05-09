@@ -8,7 +8,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ButtonStyles from '@zendeskgarden/css-buttons';
-import { retrieveTheme } from '@zendesk/garden-react-theming';
+import { retrieveTheme } from '@zendeskgarden/react-theming';
 
 import { version } from '../../../package.json';
 const COMPONENT_ID = 'buttons.icon_button';

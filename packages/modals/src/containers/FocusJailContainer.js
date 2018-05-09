@@ -11,7 +11,7 @@ import {
   ControlledComponent,
   composeEventHandlers,
   KEY_CODES
-} from '@zendesk/garden-react-selection';
+} from '@zendeskgarden/react-selection';
 
 export default class FocusJailContainer extends ControlledComponent {
   static propTypes = {

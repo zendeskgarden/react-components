@@ -6,8 +6,8 @@
  */
 
 import PropTypes from 'prop-types';
-import { retrieveTheme } from '@zendesk/garden-react-theming';
-import { Hint as TextfieldHint } from '@zendesk/garden-react-textfields';
+import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { Hint as TextfieldHint } from '@zendeskgarden/react-textfields';
 
 import { version } from '../../../package.json';
 const COMPONENT_ID = 'select.hint';

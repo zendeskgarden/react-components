@@ -17,10 +17,10 @@ import {
   SingleSelectionModel,
   IdManager,
   KEY_CODES
-} from '@zendesk/garden-react-selection';
-import { getPopperPlacement, getRtlPopperPlacement } from '@zendesk/garden-react-tooltips';
-import { withTheme, isRtl } from '@zendesk/garden-react-theming';
-import { FocusJailContainer } from '@zendesk/garden-react-modals';
+} from '@zendeskgarden/react-selection';
+import { getPopperPlacement, getRtlPopperPlacement } from '@zendeskgarden/react-tooltips';
+import { withTheme, isRtl } from '@zendeskgarden/react-theming';
+import { FocusJailContainer } from '@zendeskgarden/react-modals';
 
 /**
  * This container must provide a wrapper for the provided menu
@@ -76,7 +76,7 @@ class MenuContainer extends ControlledComponent {
      * The currently selected item.
      *
      * **IMPORTANT:** If you think you should be using this prop,
-     * ensure that the @zendesk/garden-react-select package doesn't
+     * ensure that the @zendeskgarden/react-select package doesn't
      * cover your use case since there may be other accessibility
      * implications.
      */

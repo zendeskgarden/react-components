@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { mount } from 'enzyme';
-import { SelectionContainer } from '@zendesk/garden-react-selection';
+import { SelectionContainer } from '@zendeskgarden/react-selection';
 
 import TabsContainer from './TabsContainer';
 

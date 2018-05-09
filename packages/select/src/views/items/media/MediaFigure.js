@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { MediaFigure } from '@zendesk/garden-react-menus';
+import { MediaFigure } from '@zendeskgarden/react-menus';
 
 /** @component */
 export default MediaFigure;

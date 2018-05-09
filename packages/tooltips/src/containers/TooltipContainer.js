@@ -14,8 +14,8 @@ import {
   ControlledComponent,
   composeEventHandlers,
   IdManager
-} from '@zendesk/garden-react-selection';
-import { withTheme, isRtl } from '@zendesk/garden-react-theming';
+} from '@zendeskgarden/react-selection';
+import { withTheme, isRtl } from '@zendeskgarden/react-theming';
 import { getPopperPlacement, getRtlPopperPlacement } from '../utils/gardenPlacements';
 
 /**

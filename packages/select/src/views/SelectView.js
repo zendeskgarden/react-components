@@ -7,8 +7,8 @@
 
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { retrieveTheme } from '@zendesk/garden-react-theming';
-import { FauxInput } from '@zendesk/garden-react-textfields';
+import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { FauxInput } from '@zendeskgarden/react-textfields';
 
 import { version } from '../../package.json';
 const COMPONENT_ID = 'select.select_view';

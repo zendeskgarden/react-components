@@ -7,7 +7,7 @@
 
 import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
-import { ControlledComponent } from '@zendesk/garden-react-selection';
+import { ControlledComponent } from '@zendeskgarden/react-selection';
 
 import TabsContainer from '../containers/TabsContainer';
 import TabsView from '../views/TabsView';

@@ -10,7 +10,7 @@ import {
   ControlledComponent,
   FieldContainer,
   composeEventHandlers
-} from '@zendesk/garden-react-selection';
+} from '@zendeskgarden/react-selection';
 
 import Select from './Select';
 import SelectGroup from '../views/SelectGroup';

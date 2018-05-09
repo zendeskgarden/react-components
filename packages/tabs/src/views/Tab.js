@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import TabStyles from '@zendeskgarden/css-tabs';
-import { retrieveTheme } from '@zendesk/garden-react-theming';
+import { retrieveTheme } from '@zendeskgarden/react-theming';
 
 /**
  * Accepts all `<div>` props

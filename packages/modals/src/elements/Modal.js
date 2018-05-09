@@ -8,7 +8,7 @@
 import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { Portal } from 'react-portal';
-import { ControlledComponent, IdManager } from '@zendesk/garden-react-selection';
+import { ControlledComponent, IdManager } from '@zendeskgarden/react-selection';
 import isWindow from 'dom-helpers/query/isWindow';
 import ownerDocument from 'dom-helpers/ownerDocument';
 import ownerWindow from 'dom-helpers/ownerWindow';

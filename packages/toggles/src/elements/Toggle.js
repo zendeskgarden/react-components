@@ -13,7 +13,7 @@ import {
   KeyboardFocusContainer,
   composeEventHandlers,
   FieldContainer
-} from '@zendesk/garden-react-selection';
+} from '@zendeskgarden/react-selection';
 
 import ToggleView from '../views/ToggleView';
 import Input from '../views/Input';

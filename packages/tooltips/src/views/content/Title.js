@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import { zdFontWeightRegular } from '@zendeskgarden/css-variables';
-import { retrieveTheme } from '@zendesk/garden-react-theming';
+import { retrieveTheme } from '@zendeskgarden/react-theming';
 
 /**
  * Accepts all `<div>` props

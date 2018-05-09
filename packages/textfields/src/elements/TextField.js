@@ -7,7 +7,7 @@
 
 import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
-import { IdManager, ControlledComponent, FieldContainer } from '@zendesk/garden-react-selection';
+import { IdManager, ControlledComponent, FieldContainer } from '@zendeskgarden/react-selection';
 
 import TextGroup from '../views/TextGroup';
 import Label from '../views/Label';

@@ -10,8 +10,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import ModalStyles from '@zendeskgarden/css-modals';
-import { composeEventHandlers } from '@zendesk/garden-react-selection';
-import { retrieveTheme } from '@zendesk/garden-react-theming';
+import { composeEventHandlers } from '@zendeskgarden/react-selection';
+import { retrieveTheme } from '@zendeskgarden/react-theming';
 
 import { version } from '../../package.json';
 const COMPONENT_ID = 'modals.close';

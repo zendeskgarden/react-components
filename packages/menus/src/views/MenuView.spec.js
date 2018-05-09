@@ -8,7 +8,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { mountWithTheme } from 'utils';
-import { POPPER_PLACEMENTS } from '@zendesk/garden-react-tooltips';
+import { POPPER_PLACEMENTS } from '@zendeskgarden/react-tooltips';
 import MenuView from './MenuView';
 
 describe('MenuView', () => {

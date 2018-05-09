@@ -12,7 +12,7 @@ import {
   IdManager,
   composeEventHandlers,
   KEY_CODES
-} from '@zendesk/garden-react-selection';
+} from '@zendeskgarden/react-selection';
 import FocusJailContainer from './FocusJailContainer';
 
 export default class ModalContainer extends ControlledComponent {

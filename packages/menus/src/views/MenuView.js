@@ -9,7 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
 import classNames from 'classnames';
-import { retrieveTheme, isRtl } from '@zendesk/garden-react-theming';
+import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import MenuStyles from '@zendeskgarden/css-menus';
 import ArrowStyles from '@zendeskgarden/css-arrows';
 import { zdSpacing } from '@zendeskgarden/css-variables';

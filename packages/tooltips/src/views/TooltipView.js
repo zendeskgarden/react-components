@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { retrieveTheme, isRtl } from '@zendesk/garden-react-theming';
+import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import { zdColorWhite } from '@zendeskgarden/css-variables';
 import ArrowStyles from '@zendeskgarden/css-arrows';
 import TooltipStyles from '@zendeskgarden/css-tooltips';

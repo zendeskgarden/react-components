@@ -7,7 +7,7 @@
 
 import React, { cloneElement, Children } from 'react';
 import PropTypes from 'prop-types';
-import { ControlledComponent, IdManager } from '@zendesk/garden-react-selection';
+import { ControlledComponent, IdManager } from '@zendeskgarden/react-selection';
 
 import MenuContainer from '../containers/MenuContainer';
 import MenuView from '../views/MenuView';

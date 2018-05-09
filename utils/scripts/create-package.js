@@ -119,7 +119,7 @@ retrievePrompts()
     ]).then(() => {
       console.log(
         chalk.green(
-          `Successfully created package "@zendesk/garden-react-${packageName}" at "packages/${packageName}"`
+          `Successfully created package "@zendeskgarden/react-${packageName}" at "packages/${packageName}"`
         )
       );
 
@@ -131,7 +131,7 @@ retrievePrompts()
     console.log(
       pelorous(
         `Start local development with: "${chalk.white(
-          `yarn start --scope @zendesk/garden-react-${packageName}`
+          `yarn start --scope @zendeskgarden/react-${packageName}`
         )}"`
       )
     );

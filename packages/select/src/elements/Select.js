@@ -13,7 +13,7 @@ import {
   SingleSelectionModel,
   composeEventHandlers,
   KEY_CODES
-} from '@zendesk/garden-react-selection';
+} from '@zendeskgarden/react-selection';
 
 import SelectContainer from '../containers/SelectContainer';
 import SelectView from '../views/SelectView';

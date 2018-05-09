@@ -15,7 +15,7 @@ Our packages follow a consistent [architecture](#architecture) allowing consumer
 
 ## Architecture
 
-All `@zendesk/garden-react-*` packages provide 3 types of React components: `elements`, `containers`, and `views`.
+All `@zendeskgarden/react-*` packages provide 3 types of React components: `elements`, `containers`, and `views`.
 
 ### Elements
 
@@ -127,12 +127,12 @@ The `View` components are the visual primitives of the design system. These comp
 
 ### Selection
 
-All keyboard navigation is provided by the `<SelectionContainer />` component within the [@zendesk/garden-react-selection](../packages/selection) package.
+All keyboard navigation is provided by the `<SelectionContainer />` component within the [@zendeskgarden/react-selection](../packages/selection) package.
 
 This abstraction provides a base level of accessible keyboard navigation that is consumed within the other packages, but can also be used for custom components that require keyboard integration.
 
 ### Theming
 
-All `Views` and `Containers` can be themed using the `<ThemeProvider />` component within the [@zendesk/garden-react-theming](../packages/theming) package.
+All `Views` and `Containers` can be themed using the `<ThemeProvider />` component within the [@zendeskgarden/react-theming](../packages/theming) package.
 
 `ThemeProvider` components can be nested for custom visual treatment, but it is suggested to provide a single provider at the root of your application for RTL management.

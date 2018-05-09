@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { KEY_CODES } from '@zendesk/garden-react-selection';
+import { KEY_CODES } from '@zendeskgarden/react-selection';
 import { mountWithTheme } from 'utils';
 import MenuContainer from './MenuContainer';
 

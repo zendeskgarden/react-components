@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { mount } from 'enzyme';
-import { KEY_CODES } from '@zendesk/garden-react-selection';
+import { KEY_CODES } from '@zendeskgarden/react-selection';
 
 import Modal from './Modal';
 import ModalView from '../views/ModalView';
