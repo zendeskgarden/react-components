@@ -97,13 +97,30 @@ const performLernaBootstrap = ({ packageName }) => {
   return new Promise((resolve, reject) => {
     childProcess.exec('yarn postinstall', (err, stdout, stderr) => {
       if (err) {
-        return;
+        reject(stderr);
       }
 
       console.log(chalk.blue('Lerna Bootstrapping complete'));
       resolve({ packageName });
-      reject(stderr);
     });
+  });
+};
+
+const addThemingPackage = ({ packageName }) => {
+  console.log(chalk.blue('Adding theming to new package...'));
+
+  return new Promise((resolve, reject) => {
+    childProcess.exec(
+      `yarn lerna add @zendeskgarden/react-theming --scope @zendeskgarden/react-${packageName}`,
+      (err, stdout, stderr) => {
+        if (err) {
+          reject(stderr);
+        }
+
+        console.log(chalk.blue('Theming packaged added'));
+        resolve({ packageName });
+      }
+    );
   });
 };
 
@@ -127,6 +144,7 @@ retrievePrompts()
     });
   })
   .then(performLernaBootstrap)
+  .then(addThemingPackage)
   .then(({ packageName }) => {
     console.log(
       pelorous(

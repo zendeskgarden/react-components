@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag renders RTL styling if provided 1`] = `
+<div
+  className="Tag-kSvqzu c-tag is-rtl MirJy"
+  data-garden-id="tags.tag_view"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Tag renders default styling 1`] = `
+<div
+  className="Tag-kSvqzu c-tag MirJy"
+  data-garden-id="tags.tag_view"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Tag renders pill styling if provided 1`] = `
+<div
+  className="Tag-kSvqzu c-tag c-tag--pill MirJy"
+  data-garden-id="tags.tag_view"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Tag size renders large styling if provided 1`] = `
+<div
+  className="Tag-kSvqzu c-tag c-tag--lg MirJy"
+  data-garden-id="tags.tag_view"
+  data-garden-version="version"
+  size="large"
+/>
+`;
+
+exports[`Tag size renders small styling if provided 1`] = `
+<div
+  className="Tag-kSvqzu c-tag c-tag--sm MirJy"
+  data-garden-id="tags.tag_view"
+  data-garden-version="version"
+  size="small"
+/>
+`;
+
+exports[`Tag state renders focused styling if provided 1`] = `
+<div
+  className="Tag-kSvqzu c-tag is-focused MirJy"
+  data-garden-id="tags.tag_view"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Tag state renders hovered styling if provided 1`] = `
+<div
+  className="Tag-kSvqzu c-tag is-hovered MirJy"
+  data-garden-id="tags.tag_view"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Tag visual types renders blue styling if provided 1`] = `
+<div
+  className="Tag-kSvqzu c-tag c-tag--blue MirJy"
+  data-garden-id="tags.tag_view"
+  data-garden-version="version"
+  type="blue"
+/>
+`;
+
+exports[`Tag visual types renders green styling if provided 1`] = `
+<div
+  className="Tag-kSvqzu c-tag c-tag--green MirJy"
+  data-garden-id="tags.tag_view"
+  data-garden-version="version"
+  type="green"
+/>
+`;
+
+exports[`Tag visual types renders grey styling if provided 1`] = `
+<div
+  className="Tag-kSvqzu c-tag c-tag--grey MirJy"
+  data-garden-id="tags.tag_view"
+  data-garden-version="version"
+  type="grey"
+/>
+`;
+
+exports[`Tag visual types renders kale styling if provided 1`] = `
+<div
+  className="Tag-kSvqzu c-tag c-tag--kale MirJy"
+  data-garden-id="tags.tag_view"
+  data-garden-version="version"
+  type="kale"
+/>
+`;
+
+exports[`Tag visual types renders red styling if provided 1`] = `
+<div
+  className="Tag-kSvqzu c-tag c-tag--red MirJy"
+  data-garden-id="tags.tag_view"
+  data-garden-version="version"
+  type="red"
+/>
+`;
+
+exports[`Tag visual types renders yellow styling if provided 1`] = `
+<div
+  className="Tag-kSvqzu c-tag c-tag--yellow MirJy"
+  data-garden-id="tags.tag_view"
+  data-garden-version="version"
+  type="yellow"
+/>
+`;
