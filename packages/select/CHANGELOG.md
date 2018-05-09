@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-select@1.0.0...@zendeskgarden/react-select@1.1.0) (2018-05-09)
+
+
+### Features
+
+* **select:** add zIndex option to Select component ([#6](https://github.com/zendeskgarden/react-components/issues/6)) ([dcf6b74](https://github.com/zendeskgarden/react-components/commit/dcf6b74))
+
+
+
+
 <a name="1.0.0"></a>
 # 1.0.0 (2018-05-09)
 
