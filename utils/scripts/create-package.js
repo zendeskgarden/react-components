@@ -111,7 +111,7 @@ const addThemingPackage = ({ packageName }) => {
 
   return new Promise((resolve, reject) => {
     childProcess.exec(
-      `yarn lerna add @zendesk/garden-react-theming --scope @zendesk/garden-react-${packageName}`,
+      `yarn lerna add @zendeskgarden/react-theming --scope @zendeskgarden/react-${packageName}`,
       (err, stdout, stderr) => {
         if (err) {
           reject(stderr);
