@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.0.0"></a>
+# 2.0.0 (2018-05-09)
+
+
+### Features
+
+* prepare for [@zendeskgarden](https://github.com/zendeskgarden) npm publish ([#4](https://github.com/zendeskgarden/react-components/issues/4)) ([61b05a3](https://github.com/zendeskgarden/react-components/commit/61b05a3))
+
+
+### BREAKING CHANGES
+
+* package location has moved to the npm registry under the `@zendeskgarden` scope. See the README for installation/upgrade details.
+
+
+
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/zendeskgarden/react-components/compare/@zendesk/garden-react-pagination@0.3.3...@zendesk/garden-react-pagination@1.0.0) (2018-05-07)
 
