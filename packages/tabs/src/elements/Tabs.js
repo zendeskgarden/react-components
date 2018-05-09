@@ -1,6 +1,13 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
-import { ControlledComponent } from '@zendesk/garden-react-selection';
+import { ControlledComponent } from '@zendeskgarden/react-selection';
 
 import TabsContainer from '../containers/TabsContainer';
 import TabsView from '../views/TabsView';

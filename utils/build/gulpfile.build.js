@@ -1,3 +1,10 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 const gulp = require('gulp');
 const babel = require('gulp-babel');
 const flatten = require('gulp-flatten');
@@ -23,7 +30,24 @@ gulp.task('js', () => {
     .pipe(
       babel({
         babelrc: false,
-        plugins: ['inline-react-svg', 'transform-object-assign', 'babel-plugin-styled-components'],
+        plugins: [
+          'inline-react-svg',
+          'transform-object-assign',
+          'styled-components',
+          [
+            'add-header-comment',
+            {
+              header: [
+                ' Copyright Zendesk, Inc.',
+                '',
+                ' Use of this source code is governed under the Apache License, Version 2.0',
+                ' found at http://www.apache.org/licenses/LICENSE-2.0.'
+              ],
+              commentLineStart: ' *',
+              commentEnd: '\n '
+            }
+          ]
+        ],
         presets: ['es2015', 'react', 'stage-0'],
         resolveModuleSource: source => {
           const isRelativeImport = source.charAt(0) === '.';

@@ -1,5 +1,12 @@
 #!/usr/bin/env node
 
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 /* eslint-disable no-console */
 
 const inquirer = require('inquirer');
@@ -112,7 +119,7 @@ retrievePrompts()
     ]).then(() => {
       console.log(
         chalk.green(
-          `Successfully created package "@zendesk/garden-react-${packageName}" at "packages/${packageName}"`
+          `Successfully created package "@zendeskgarden/react-${packageName}" at "packages/${packageName}"`
         )
       );
 
@@ -124,7 +131,7 @@ retrievePrompts()
     console.log(
       pelorous(
         `Start local development with: "${chalk.white(
-          `yarn start --scope @zendesk/garden-react-${packageName}`
+          `yarn start --scope @zendeskgarden/react-${packageName}`
         )}"`
       )
     );

@@ -1,9 +1,16 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import TooltipStyles from '@zendesk/garden-css-tooltips';
-import { retrieveTheme } from '@zendesk/garden-react-theming';
-import { zdColorOil } from '@zendesk/garden-css-variables';
+import TooltipStyles from '@zendeskgarden/css-tooltips';
+import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { zdColorOil } from '@zendeskgarden/css-variables';
 
 import TooltipView from './TooltipView';
 import Title from './content/Title';

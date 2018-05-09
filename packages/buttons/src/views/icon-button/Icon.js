@@ -1,7 +1,14 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import ButtonStyles from '@zendesk/garden-css-buttons';
+import ButtonStyles from '@zendeskgarden/css-buttons';
 
 import { version } from '../../../package.json';
 const COMPONENT_ID = 'buttons.icon';

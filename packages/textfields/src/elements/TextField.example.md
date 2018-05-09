@@ -1,6 +1,6 @@
 `TextField` is a high-abstraction component that applies
-the accessibility properties found in [@zendesk/garden-react-selection/FieldContainer](https://garden.zendesk.com/react-components/selection/)
-to the textfield related view components it's provided.
+the accessibility properties found in [@zendeskgarden/react-selection/FieldContainer](https://zendeskgarden.github.io/react-components/selection/)
+to the textfield-related view components its provided.
 
 ```jsx
 <TextField>

@@ -1,8 +1,9 @@
 {
-  "name": "@zendesk/garden-react-radios",
+  "name": "@zendeskgarden/react-radios",
   "description": "Components relating to radio buttons in the Garden Design System",
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
+  "homepage": "https://garden.zendesk.com/",
   "repository": "https://github.com/zendeskgarden/react-components",
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
@@ -11,16 +12,16 @@
   "main": "./index.js",
   "scripts": {
     "build": "../../utils/scripts/build.sh",
-    "build:styleguide": "../../utils/scripts/build-styleguide.sh",
+    "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendesk/garden-css-forms": "^4.0.2",
-    "@zendesk/garden-react-selection": "^2.0.0",
-    "@zendesk/garden-react-theming": "^0.3.1",
+    "@zendeskgarden/css-forms": "^5.0.4",
+    "@zendeskgarden/react-selection": ">=2.0.0 <4.0.0",
+    "@zendeskgarden/react-theming": ">=0.3.1 <2.0.0",
     "classnames": "^2.2.5",
-    "prop-types": "^15.6.0",
-    "styled-components": "^3.2.5"
+    "prop-types": "^15.6.1",
+    "styled-components": "^3.2.6"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
@@ -33,6 +34,6 @@
     "zendesk"
   ],
   "publishConfig": {
-    "registry": "https://zdrepo.jfrog.io/zdrepo/api/npm/npm"
+    "access": "public"
   }
 }

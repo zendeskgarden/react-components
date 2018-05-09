@@ -1,10 +1,17 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { retrieveTheme, isRtl } from '@zendesk/garden-react-theming';
-import { zdColorWhite } from '@zendesk/garden-css-variables';
-import ArrowStyles from '@zendesk/garden-css-arrows';
-import TooltipStyles from '@zendesk/garden-css-tooltips';
+import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
+import { zdColorWhite } from '@zendeskgarden/css-variables';
+import ArrowStyles from '@zendeskgarden/css-arrows';
+import TooltipStyles from '@zendeskgarden/css-tooltips';
 
 import Title from './content/Title';
 

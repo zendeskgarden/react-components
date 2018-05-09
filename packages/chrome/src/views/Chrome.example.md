@@ -8,15 +8,15 @@ If you are using a routing library like [react-router](https://github.com/ReactT
 you can programmaticaly trigger navigation with the `onClick` events.
 
 ```jsx
-const { Toggle, Label } = require('@zendesk/garden-react-toggles');
-const ConnectIcon = require('svg-react-loader?name=Settings!@zendesk/garden-svg-icons/src/26-relationshape-connect.svg');
-const HomeIcon = require('svg-react-loader?name=Settings!@zendesk/garden-svg-icons/src/26-home-fill.svg');
-const ListsIcon = require('svg-react-loader?name=Settings!@zendesk/garden-svg-icons/src/26-customer-lists-fill.svg');
-const EmailIcon = require('svg-react-loader?name=Settings!@zendesk/garden-svg-icons/src/26-email-fill.svg');
-const SettingsIcon = require('svg-react-loader?name=Settings!@zendesk/garden-svg-icons/src/26-settings-fill.svg');
-const PlusIcon = require('svg-react-loader?name=Settings!@zendesk/garden-svg-icons/src/14-plus.svg');
-const MenuTrayIcon = require('svg-react-loader?name=Settings!@zendesk/garden-svg-icons/src/14-menu-tray.svg');
-const PersonIcon = require('svg-react-loader?name=Settings!@zendesk/garden-svg-icons/src/14-person.svg');
+const { Toggle, Label } = require('@zendeskgarden/react-toggles');
+const ConnectIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/26/relationshape-connect.svg');
+const HomeIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/26/home-fill.svg');
+const ListsIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/26/customer-lists-fill.svg');
+const EmailIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/26/email-fill.svg');
+const SettingsIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/26/settings-fill.svg');
+const PlusIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/14/plus.svg');
+const MenuTrayIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/14/menu-tray.svg');
+const PersonIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/14/person.svg');
 
 initialState = {
   currentNavItem: 'home',

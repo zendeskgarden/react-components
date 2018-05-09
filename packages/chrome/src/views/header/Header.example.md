@@ -1,9 +1,9 @@
 ```jsx
-const { Toggle, Label } = require('@zendesk/garden-react-toggles');
-const SupportIcon = require('svg-react-loader?name=Settings!@zendesk/garden-svg-icons/src/26-relationshape-support.svg');
-const HelpIcon = require('svg-react-loader?name=Settings!@zendesk/garden-svg-icons/src/14-support.svg');
-const MenuTrayIcon = require('svg-react-loader?name=Settings!@zendesk/garden-svg-icons/src/14-menu-tray.svg');
-const PersonIcon = require('svg-react-loader?name=Settings!@zendesk/garden-svg-icons/src/14-person.svg');
+const { Toggle, Label } = require('@zendeskgarden/react-toggles');
+const SupportIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/26/relationshape-support.svg');
+const HelpIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/14/support.svg');
+const MenuTrayIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/14/menu-tray.svg');
+const PersonIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/14/person.svg');
 
 initialState = {
   standalone: true

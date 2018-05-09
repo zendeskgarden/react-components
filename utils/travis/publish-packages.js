@@ -1,5 +1,12 @@
 #!/usr/bin/env node
 
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 /* eslint-disable no-console */
 
 const path = require('path');
@@ -13,10 +20,8 @@ const LERNA_PUBLISH_MESSAGE = lernaConfig.commands.publish.message;
  */
 if (process.env.TRAVIS_COMMIT_MESSAGE.indexOf(LERNA_PUBLISH_MESSAGE) > -1) {
   const lernaExecPublish = childProcess.spawn(lernaPath, [
-    '--since=HEAD~1',
-    '--bail=false',
+    '--since=HEAD^',
     'exec',
-    '--',
     'npm publish dist'
   ]);
 

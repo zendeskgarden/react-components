@@ -9,7 +9,7 @@ All packages must be implemented following the requirements listed below.
 
 ## Creating New Packages
 
-We have abstracted the creation of packages into the `yarn new` command. When prompted, provide a base name for your package (i.e. if provided "example" the command will create the `@zendesk/garden-react-example` package in the `packages/example` path).
+We have abstracted the creation of packages into the `yarn new` command. When prompted, provide a base name for your package (i.e. if provided "example" the command will create the `@zendeskgarden/react-example` package in the `packages/example` path).
 
 ### Dependencies
 
@@ -17,7 +17,7 @@ All dependencies required by a package must be kept in it's specific `package.js
 
 ```sh
 # Adds the css-buttons package to the local react-buttons package
-yarn lerna add @zendesk/garden-css-buttons --scope @zendesk/garden-react-buttons
+yarn lerna add @zendeskgarden/css-buttons --scope @zendeskgarden/react-buttons
 ```
 
 ### Documentation
@@ -37,7 +37,7 @@ To start the documentation in development mode use the `yarn start` command.
 yarn start
 
 # Starts the individual package immediately
-yarn start --scope @zendesk/garden-react-buttons
+yarn start --scope @zendeskgarden/react-buttons
 ```
 
 ## Component Requirements
@@ -80,9 +80,9 @@ In addition all views must
 The packages are built using a slightly customized babel implementation that allows "flat-pack" import structures.
 
 ```jsx
-import Button from '@zendesk/garden-react-buttons/Button';
-import Anchor from '@zendesk/garden-react-buttons/Anchor';
-import ButtonGroupContainer from '@zendesk/garden-react-buttons/ButtonGroupContainer';
+import Button from '@zendeskgarden/react-buttons/Button';
+import Anchor from '@zendeskgarden/react-buttons/Anchor';
+import ButtonGroupContainer from '@zendeskgarden/react-buttons/ButtonGroupContainer';
 ```
 
 This helps ensure that consumers are not requiring the full package and negatively affecting their bundle size.

@@ -1,10 +1,13 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  SelectionContainer,
-  ControlledComponent,
-  IdManager
-} from '@zendesk/garden-react-selection';
+import { SelectionContainer, ControlledComponent, IdManager } from '@zendeskgarden/react-selection';
 
 export default class ButtonGroupContainer extends ControlledComponent {
   static propTypes = {

@@ -1,12 +1,14 @@
-# @zendesk/garden-react-theming
+# @zendeskgarden/react-theming [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-theming.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-theming) [![Dependency Status](https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/theming&style=flat-square)](https://david-dm.org/zendeskgarden/react-components?path=packages/theming) <!-- markdownlint-disable -->
+
+<!-- markdownlint-enable -->
 
 The Theming package includes several utility components relating to theming
-and RTL capabilities in the [Garden Design System](http://zendeskgarden.github.io/).
+and RTL capabilities in the [Garden Design System](https://zendeskgarden.github.io/).
 
 ## Installation
 
 ```sh
-yarn add @zendesk/garden-react-theming
+npm install @zendeskgarden/react-theming
 ```
 
 ## Usage
@@ -25,8 +27,8 @@ additional, custom theming.
 All themes are auto-prefixed and has access to the `props` provided to the component.
 
 ```jsx static
-import ThemeProvider from '@zendesk/garden-react-theming/ThemeProvider';
-import Notification from '@zendesk/garden-react-notifications/Notification';
+import ThemeProvider from '@zendeskgarden/react-theming/ThemeProvider';
+import Notification from '@zendeskgarden/react-notifications/Notification';
 
 const theme = {
   'notification': `
@@ -48,8 +50,8 @@ const theme = {
 ### RTL
 
 ```jsx static
-import ThemeProvider from '@zendesk/garden-react-theming/ThemeProvider';
-import Notification from '@zendesk/garden-react-notifications/Notification';
+import ThemeProvider from '@zendeskgarden/react-theming/ThemeProvider';
+import Notification from '@zendeskgarden/react-notifications/Notification';
 
 <ThemeProvider rtl>
   <Notification>This notification content will have custom styling.</Notification>
@@ -60,7 +62,7 @@ The `withTheme` [HOC](https://reactjs.org/docs/higher-order-components.html) uti
 allows any component to interact with its `ThemeProvider`.
 
 ```jsx static
-import withTheme from '@zendesk/garden-react-theming/withTheme';
+import withTheme from '@zendeskgarden/react-theming/withTheme';
 
 const StyledDiv = ({ theme, children }) => (
   <div style={{ direction: theme.rtl ? 'rtl' : 'ltr' }}>{children}</div>
@@ -79,8 +81,8 @@ You can change the target location that style-components injects its CSS into e.
 if you're using an iframe or shadow DOM.
 
 ```jsx static
-import ThemeProvider from '@zendesk/garden-react-theming/ThemeProvider';
-import Notification from '@zendesk/garden-react-notifications/Notification';
+import ThemeProvider from '@zendeskgarden/react-theming/ThemeProvider';
+import Notification from '@zendeskgarden/react-notifications/Notification';
 
 <ThemeProvider target={document.querySelector('.some-element')}>
   <Notification>This notification content will have custom styling.</Notification>

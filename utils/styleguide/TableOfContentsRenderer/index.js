@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { zdColorAlgae } from '@zendesk/garden-css-variables';
+import { zdColorAlgae } from '@zendeskgarden/css-variables';
 import TableOfContentsRenderer from 'react-styleguidist/lib/rsg-components/TableOfContents/TableOfContentsRenderer';
 
 import { Button, Anchor } from '../../../packages/buttons';

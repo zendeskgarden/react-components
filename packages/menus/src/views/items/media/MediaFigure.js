@@ -1,5 +1,12 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React, { Children } from 'react';
-import MenuStyles from '@zendesk/garden-css-menus';
+import MenuStyles from '@zendeskgarden/css-menus';
 
 import { version } from '../../../../package.json';
 const COMPONENT_ID = 'menus.media_figure';

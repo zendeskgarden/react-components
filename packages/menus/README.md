@@ -1,19 +1,21 @@
-# @zendesk/garden-react-menus
+# @zendeskgarden/react-menus [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-menus.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-menus) [![Dependency Status](https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/menus&style=flat-square)](https://david-dm.org/zendeskgarden/react-components?path=packages/menus) <!-- markdownlint-disable -->
+
+<!-- markdownlint-enable -->
 
 This package includes components relating to menus in the
-[Garden Design System](http://zendeskgarden.github.io/).
+[Garden Design System](https://zendeskgarden.github.io/).
 
 ## Installation
 
 ```sh
-npm install --save-dev @zendesk/garden-react-menus
+npm install @zendeskgarden/react-menus
 ```
 
 ## Usage
 
 ```jsx static
-import Menu from '@zendesk/garden-react-menus/Menu';
-import Item from '@zendesk/garden-react-menus/Item';
+import Menu from '@zendeskgarden/react-menus/Menu';
+import Item from '@zendeskgarden/react-menus/Item';
 
 <Menu
   onChange={selectedKey => console.log(`Item selected: "${selectedKey}"`)}

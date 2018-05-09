@@ -1,3 +1,10 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React, { cloneElement, Children } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -6,7 +13,7 @@ import {
   SingleSelectionModel,
   composeEventHandlers,
   KEY_CODES
-} from '@zendesk/garden-react-selection';
+} from '@zendeskgarden/react-selection';
 
 import SelectContainer from '../containers/SelectContainer';
 import SelectView from '../views/SelectView';

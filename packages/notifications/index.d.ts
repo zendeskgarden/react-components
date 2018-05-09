@@ -1,6 +1,6 @@
 /// <reference types="react" />
 
-declare module '@zendesk/garden-react-notifications' {
+declare module '@zendeskgarden/react-notifications' {
   export import Alert = __GARDEN.Alert;
   export import Notification = __GARDEN.Notification;
   export import Well = __GARDEN.Well;
@@ -9,32 +9,32 @@ declare module '@zendesk/garden-react-notifications' {
   export import Title = __GARDEN.Title;
 }
 
-declare module '@zendesk/garden-react-notifications/Alert' {
+declare module '@zendeskgarden/react-notifications/Alert' {
   import Alert = __GARDEN.Alert;
   export default Alert;
 }
 
-declare module '@zendesk/garden-react-notifications/Notification' {
+declare module '@zendeskgarden/react-notifications/Notification' {
   import Notification = __GARDEN.Notification;
   export default Notification;
 }
 
-declare module '@zendesk/garden-react-notifications/Well' {
+declare module '@zendeskgarden/react-notifications/Well' {
   import Well = __GARDEN.Well;
   export default Well;
 }
 
-declare module '@zendesk/garden-react-notifications/Close' {
+declare module '@zendeskgarden/react-notifications/Close' {
   import Close = __GARDEN.Close;
   export default Close;
 }
 
-declare module '@zendesk/garden-react-notifications/Paragraph' {
+declare module '@zendeskgarden/react-notifications/Paragraph' {
   import Paragraph = __GARDEN.Paragraph;
   export default Paragraph;
 }
 
-declare module '@zendesk/garden-react-notifications/Title' {
+declare module '@zendeskgarden/react-notifications/Title' {
   import Title = __GARDEN.Title;
   export default Title;
 }

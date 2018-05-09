@@ -1,7 +1,14 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { retrieveTheme } from '@zendesk/garden-react-theming';
-import MenuStyles from '@zendesk/garden-css-menus';
+import { retrieveTheme } from '@zendeskgarden/react-theming';
+import MenuStyles from '@zendeskgarden/css-menus';
 
 import Item from './Item';
 import { version } from '../../../package.json';

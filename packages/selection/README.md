@@ -1,12 +1,14 @@
-# @zendesk/garden-react-selection
+# @zendeskgarden/react-selection [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-selection.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-selection) [![Dependency Status](https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/selection&style=flat-square)](https://david-dm.org/zendeskgarden/react-components?path=packages/selection) <!-- markdownlint-disable -->
+
+<!-- markdownlint-enable -->
 
 This package contains utilities and components related to
-selection in the [Garden Design System](http://zendeskgarden.github.io/).
+selection in the [Garden Design System](https://zendeskgarden.github.io/).
 
 ## Installation
 
 ```bash
-npm install --save-dev @zendesk/garden-react-selection
+npm install @zendeskgarden/react-selection
 ```
 
 ## Basic Usage
@@ -27,7 +29,7 @@ View the [React render prop documentation](https://reactjs.org/docs/render-props
 for a more in-depth example of usage.
 
 ```jsx static
-import KeyboardFocusContainer from '@zendesk/garden-react-components/KeyboardFocusContainer';
+import KeyboardFocusContainer from '@zendeskgarden/react-components/KeyboardFocusContainer';
 
 <KeyboardFocusContainer>
   {({ getFocusProps, focused }) => (
