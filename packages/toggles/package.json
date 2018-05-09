@@ -16,7 +16,7 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendeskgarden/css-forms": "^5.0.4",
+    "@zendeskgarden/css-forms": "^6.0.2",
     "@zendeskgarden/react-selection": "^3.0.0",
     "@zendeskgarden/react-theming": "^1.0.0",
     "classnames": "^2.2.5",

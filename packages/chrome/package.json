@@ -16,7 +16,7 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendeskgarden/css-chrome": "^2.0.3",
+    "@zendeskgarden/css-chrome": "^3.0.0",
     "@zendeskgarden/css-variables": "^4.1.3",
     "@zendeskgarden/react-selection": "^3.0.0",
     "@zendeskgarden/react-theming": "^1.0.0",
