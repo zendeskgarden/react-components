@@ -5,9 +5,6 @@
 This package includes components relating to tags in the
 [Garden Design System](https://zendeskgarden.github.io/).
 
-This package includes components relating to tags in the
-[Garden Design System](https://zendeskgarden.github.io/).
-
 ## Installation
 
 ```sh
