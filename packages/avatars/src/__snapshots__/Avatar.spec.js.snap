@@ -38,7 +38,7 @@ exports[`Avatar States applies borderless styling if provided 1`] = `
 </figure>
 `;
 
-exports[`Avatar States applies out disabled if provided 1`] = `
+exports[`Avatar States applies disabled styling if provided 1`] = `
 <figure
   className="Avatar-cDOgfv c-avatar is-disabled fgoDyb"
   data-garden-id="avatars.avatar"

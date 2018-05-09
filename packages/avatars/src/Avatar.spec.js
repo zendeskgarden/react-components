@@ -35,7 +35,7 @@ describe('Avatar', () => {
   });
 
   describe('States', () => {
-    it('applies out disabled if provided', () => {
+    it('applies disabled styling if provided', () => {
       const wrapper = shallow(<Avatar disabled>{defaultImage}</Avatar>);
 
       expect(wrapper).toMatchSnapshot();
