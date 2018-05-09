@@ -132,7 +132,7 @@ class MenuContainer extends ControlledComponent {
   static defaultProps = {
     placement: 'bottom-start',
     eventsEnabled: true,
-    zIndex: 1
+    zIndex: 1000
   };
 
   constructor(...args) {
