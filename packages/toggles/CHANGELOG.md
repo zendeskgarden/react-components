@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-toggles@1.0.0...@zendeskgarden/react-toggles@2.0.0) (2018-05-09)
+
+
+### Features
+
+* **accessibility:** add WCAG 2.0 AA compliant color palette  ([#5](https://github.com/zendeskgarden/react-components/issues/5)) ([29f30d1](https://github.com/zendeskgarden/react-components/commit/29f30d1))
+
+
+### BREAKING CHANGES
+
+* **accessibility:** This accessible palette update is a breaking visual change. You should validate that any usages are correct in relation to other areas of your application. 
+
+There are also API changes for `Avatar` and `Tooltip`:
+* Avatar - we have removed the `isActive`, `isIn`, and `isOut` props and standardized on a single `disabled` prop.
+* Tooltip - we have added a new `Paragraph` component and updated the styling of `Title`
+
+
+
+
 <a name="1.0.0"></a>
 # 1.0.0 (2018-05-09)
 
