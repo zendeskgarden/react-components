@@ -13,7 +13,7 @@
     "postinstall": "lerna bootstrap --stream",
     "lint": "yarn lint:css && yarn lint:js && yarn lint:markdown",
     "lint:css": "stylelint packages/*/src/**/*.js && stylelint utils/**/*.js",
-    "lint:js": "eslint \"packages/*/src/\" \"utils/\" --max-warnings 0",
+    "lint:js": "eslint \"packages/*/src/**/*.js\" \"utils/**/*.js\" --max-warnings 0",
     "lint:markdown": "markdownlint README.md packages/*/src/**/*.md packages/*/src/*.md packages/*/README.md",
     "new": "utils/scripts/create-package.js",
     "prepare": "yarn build",
