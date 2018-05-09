@@ -35,20 +35,8 @@ describe('Avatar', () => {
   });
 
   describe('States', () => {
-    it('applies active styling if provided', () => {
-      const wrapper = shallow(<Avatar isActive>{defaultImage}</Avatar>);
-
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('applies in styling if provided', () => {
-      const wrapper = shallow(<Avatar isIn>{defaultImage}</Avatar>);
-
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('applies out styling if provided', () => {
-      const wrapper = shallow(<Avatar isOut>{defaultImage}</Avatar>);
+    it('applies disabled styling if provided', () => {
+      const wrapper = shallow(<Avatar disabled>{defaultImage}</Avatar>);
 
       expect(wrapper).toMatchSnapshot();
     });

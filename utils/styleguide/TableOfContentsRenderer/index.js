@@ -1,7 +1,14 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { zdColorAlgae } from '@zendeskgarden/css-variables';
+import { zdColorKale700 } from '@zendeskgarden/css-variables';
 import TableOfContentsRenderer from 'react-styleguidist/lib/rsg-components/TableOfContents/TableOfContentsRenderer';
 
 import { Button, Anchor } from '../../../packages/buttons';
@@ -22,7 +29,7 @@ const RTLContainer = styled.div`
 
 const Version = styled.div`
   text-align: center;
-  color: ${zdColorAlgae};
+  color: ${zdColorKale700};
 `;
 
 const TableOfContents = ({ children, ...other }) => {

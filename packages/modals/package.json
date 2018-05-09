@@ -16,7 +16,7 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendeskgarden/css-modals": "^5.0.3",
+    "@zendeskgarden/css-modals": "^6.0.0",
     "@zendeskgarden/react-selection": "^3.0.0",
     "@zendeskgarden/react-textfields": "^1.0.0",
     "@zendeskgarden/react-theming": "^1.0.0",
