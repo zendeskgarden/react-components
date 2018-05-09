@@ -3,7 +3,9 @@
 exports[`LightTooltip renders default styling correctly 1`] = `
 <TooltipView
   arrow={true}
-  className="LightTooltip-gauCee c-tooltip--light eNtGnI"
+  className="LightTooltip-gauCee c-tooltip--light bTKeVB"
+  data-garden-id="tooltip.light_tooltip"
+  data-garden-version="version"
   size="large"
 />
 `;

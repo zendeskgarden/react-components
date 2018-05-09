@@ -26,18 +26,6 @@ exports[`Avatar Sizes applies small correctly if provided 1`] = `
 </figure>
 `;
 
-exports[`Avatar States applies active styling if provided 1`] = `
-<figure
-  className="Avatar-cDOgfv c-avatar is-active fgoDyb"
-  data-garden-id="avatars.avatar"
-  data-garden-version="version"
->
-  <img
-    src="test"
-  />
-</figure>
-`;
-
 exports[`Avatar States applies borderless styling if provided 1`] = `
 <figure
   className="Avatar-cDOgfv c-avatar c-avatar--borderless fgoDyb"
@@ -50,23 +38,12 @@ exports[`Avatar States applies borderless styling if provided 1`] = `
 </figure>
 `;
 
-exports[`Avatar States applies in styling if provided 1`] = `
+exports[`Avatar States applies out disabled if provided 1`] = `
 <figure
-  className="Avatar-cDOgfv c-avatar is-in fgoDyb"
+  className="Avatar-cDOgfv c-avatar is-disabled fgoDyb"
   data-garden-id="avatars.avatar"
   data-garden-version="version"
->
-  <img
-    src="test"
-  />
-</figure>
-`;
-
-exports[`Avatar States applies out styling if provided 1`] = `
-<figure
-  className="Avatar-cDOgfv c-avatar is-out fgoDyb"
-  data-garden-id="avatars.avatar"
-  data-garden-version="version"
+  disabled={true}
 >
   <img
     src="test"
