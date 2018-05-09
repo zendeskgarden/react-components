@@ -7,11 +7,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  SelectionContainer,
-  ControlledComponent,
-  IdManager
-} from '@zendeskgarden/react-selection';
+import { SelectionContainer, ControlledComponent, IdManager } from '@zendeskgarden/react-selection';
 
 export default class TabsContainer extends ControlledComponent {
   static propTypes = {
