@@ -3,7 +3,7 @@
 <!-- markdownlint-enable -->
 
 This package includes several varieties of Tabs relating to
-the [Garden Design System](http://zendeskgarden.github.io/).
+the [Garden Design System](https://zendeskgarden.github.io/).
 
 ## Installation
 

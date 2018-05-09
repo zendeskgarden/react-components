@@ -3,7 +3,7 @@
 <!-- markdownlint-enable -->
 
 This package includes components relating to toggles in the
-[Garden Design System](http://zendeskgarden.github.io/).
+[Garden Design System](https://zendeskgarden.github.io/).
 
 ## Installation
 

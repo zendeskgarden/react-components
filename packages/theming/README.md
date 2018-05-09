@@ -3,7 +3,7 @@
 <!-- markdownlint-enable -->
 
 The Theming package includes several utility components relating to theming
-and RTL capabilities in the [Garden Design System](http://zendeskgarden.github.io/).
+and RTL capabilities in the [Garden Design System](https://zendeskgarden.github.io/).
 
 ## Installation
 

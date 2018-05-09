@@ -3,7 +3,7 @@
 <!-- markdownlint-enable -->
 
 This package contains utilities and components related to
-selection in the [Garden Design System](http://zendeskgarden.github.io/).
+selection in the [Garden Design System](https://zendeskgarden.github.io/).
 
 ## Installation
 
