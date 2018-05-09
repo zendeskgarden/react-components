@@ -48,12 +48,24 @@ number of characters.
   <Tag type="green">Green</Tag>
   <Tag type="yellow">Yellow</Tag>
   <Tag pill>Default</Tag>
-  <Tag type="grey" pill>Grey</Tag>
-  <Tag type="blue" pill>Blue</Tag>
-  <Tag type="kale" pill>Kale</Tag>
-  <Tag type="red" pill>Red</Tag>
-  <Tag type="green" pill>Green</Tag>
-  <Tag type="yellow" pill>Yellow</Tag>
+  <Tag type="grey" pill>
+    Grey
+  </Tag>
+  <Tag type="blue" pill>
+    Blue
+  </Tag>
+  <Tag type="kale" pill>
+    Kale
+  </Tag>
+  <Tag type="red" pill>
+    Red
+  </Tag>
+  <Tag type="green" pill>
+    Green
+  </Tag>
+  <Tag type="yellow" pill>
+    Yellow
+  </Tag>
 </Grid>
 ```
 
