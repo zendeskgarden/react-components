@@ -32,26 +32,20 @@ For accessibility ensure that all children include an `alt` description.
 ### States
 
 ```jsx
-<Grid columns={4} stretched>
-  <Avatar isActive size="small">
+<Grid columns={3} stretched>
+  <Avatar size="small">
     <img src="images/jason.png" alt="Example Avatar" />
   </Avatar>
-  <Avatar isIn size="small">
-    <img src="images/amir.png" alt="Example Avatar" />
-  </Avatar>
-  <Avatar isOut size="small">
+  <Avatar disabled size="small">
     <img src="images/jason.png" alt="Example Avatar" />
   </Avatar>
   <Avatar isBorderless size="small">
     <img src="images/amir.png" alt="Example Avatar" />
   </Avatar>
-  <Avatar isActive size="large">
+  <Avatar size="large">
     <img src="images/jason.png" alt="Example Avatar" />
   </Avatar>
-  <Avatar isIn size="large">
-    <img src="images/amir.png" alt="Example Avatar" />
-  </Avatar>
-  <Avatar isOut size="large">
+  <Avatar disabled size="large">
     <img src="images/jason.png" alt="Example Avatar" />
   </Avatar>
   <Avatar isBorderless size="large">

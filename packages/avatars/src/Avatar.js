@@ -34,9 +34,7 @@ const Avatar = styled.figure.attrs({
       [AvatarStyles['c-avatar--large']]: props.size === SIZE.LARGE,
 
       // State
-      [AvatarStyles['is-active']]: props.isActive,
-      [AvatarStyles['is-in']]: props.isIn,
-      [AvatarStyles['is-out']]: props.isOut,
+      [AvatarStyles['is-disabled']]: props.disabled,
       [AvatarStyles['c-avatar--borderless']]: props.isBorderless
     })
 })`
@@ -47,9 +45,7 @@ Avatar.propTypes = {
   /** Applies system styling */
   system: PropTypes.bool,
   size: PropTypes.oneOf([SIZE.SMALL, SIZE.LARGE]),
-  isActive: PropTypes.bool,
-  isIn: PropTypes.bool,
-  isOut: PropTypes.bool,
+  disabled: PropTypes.bool,
   /** Removes border for improved display on a dark background */
   isBorderless: PropTypes.bool
 };
