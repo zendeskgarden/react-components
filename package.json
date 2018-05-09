@@ -21,7 +21,7 @@
     "start:demo": "yarn build:demo && serve demo",
     "tag": "lerna publish --conventional-commits",
     "test": "jest --watch --config=utils/test/jest.config.js",
-    "test:all": "jest --runInBand --config=utils/test/jest.config.js"
+    "test:all": "jest --config=utils/test/jest.config.js"
   },
   "devDependencies": {
     "@types/react": "^16.3.11",
