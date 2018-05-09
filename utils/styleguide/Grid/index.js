@@ -1,3 +1,10 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -53,7 +60,7 @@ class Grid extends Component {
         )}
       >
         {rows.map((row, i) => (
-          <Row key={i}>{row.map((cell, i) => <Cell key={i}>{cell}</Cell>)}</Row>
+          <Row key={i}>{row.map((cell, cellIndex) => <Cell key={cellIndex}>{cell}</Cell>)}</Row>
         ))}
       </div>
     );
