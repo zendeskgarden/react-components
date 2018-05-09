@@ -3,8 +3,8 @@ enforce that the global tab element is what should receive focus.
 
 ### ACCESSIBILITY WARNING
 
-The `Close` component includes a default `aria-label` in english. If you are localizing your application you must
-overwrite this property with your own translation.
+The `Close` component includes a default `aria-label` in english. If you are
+localizing your application you must overwrite this property with your own translation.
 
 More complex examples can be implemented with the
 [SelectionContainer component](https://garden.zendesk.com/react-components/next/selection/#selectioncontainer)
