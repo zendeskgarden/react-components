@@ -91,7 +91,11 @@ export default class Select extends ControlledComponent {
     /**
      * Props to be spread onto the Dropdown element
      */
-    dropdownProps: PropTypes.object
+    dropdownProps: PropTypes.object,
+    /**
+     * The z-index of the popper.js placement container
+     */
+    zIndex: PropTypes.number
   };
 
   static defaultProps = {
@@ -192,6 +196,7 @@ export default class Select extends ControlledComponent {
       disabled: selectDisabled,
       dropdownProps = {},
       onKeyDown: selectOnKeyDown,
+      zIndex,
       ...otherSelectProps
     } = this.props;
     const { id, isOpen, focusedKey, selectedKey } = this.getControlledState();
@@ -210,6 +215,7 @@ export default class Select extends ControlledComponent {
         popperModifiers={popperModifiers}
         onChange={this.triggerOnChange}
         onStateChange={this.setControlledState}
+        zIndex={zIndex}
         trigger={({ getTriggerProps, triggerRef }) => (
           <SelectView
             {...getTriggerProps({
