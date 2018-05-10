@@ -12,7 +12,7 @@
   "main": "./index.js",
   "scripts": {
     "build": "../../utils/scripts/build.sh",
-    "build:styleguide": "../../utils/scripts/build-styleguide.sh",
+    "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
