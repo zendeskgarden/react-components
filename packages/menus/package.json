@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "./index.js",
   "scripts": {
     "build": "../../utils/scripts/build.sh",
@@ -22,7 +22,7 @@
     "@zendeskgarden/react-modals": "^3.0.0",
     "@zendeskgarden/react-selection": "^3.0.0",
     "@zendeskgarden/react-theming": "^1.0.0",
-    "@zendeskgarden/react-tooltips": "^3.0.0",
+    "@zendeskgarden/react-tooltips": "^3.1.0",
     "classnames": "^2.2.5",
     "prop-types": "^15.6.1",
     "react-popper": "^0.9.5",

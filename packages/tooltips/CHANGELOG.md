@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.1.0"></a>
+# [3.1.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@3.0.0...@zendeskgarden/react-tooltips@3.1.0) (2018-05-10)
+
+
+### Features
+
+* **tags:** introduce [@zendesk](https://github.com/zendesk)/garden-react-tags package ([#2](https://github.com/zendeskgarden/react-components/issues/2)) ([d0f0777](https://github.com/zendeskgarden/react-components/commit/d0f0777))
+
+
+
+
 <a name="3.0.0"></a>
 # [3.0.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@2.0.0...@zendeskgarden/react-tooltips@3.0.0) (2018-05-09)
 
