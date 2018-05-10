@@ -25,6 +25,7 @@ Package | Version | Dependencies
 [`@zendeskgarden/react-notifications`](packages/notifications) | [![npm version][notifications npm version]][notifications npm link] | [![Dependency Status][notifications dependency status]][notifications dependency link]
 [`@zendeskgarden/react-pagination`](packages/pagination) | [![npm version][pagination npm version]][pagination npm link] | [![Dependency Status][pagination dependency status]][pagination dependency link]
 [`@zendeskgarden/react-radios`](packages/radios) | [![npm version][radios npm version]][radios npm link] | [![Dependency Status][radios dependency status]][radios dependency link]
+[`@zendeskgarden/react-ranges`](packages/ranges) | [![npm version][ranges npm version]][ranges npm link] | [![Dependency Status][ranges dependency status]][ranges dependency link]
 [`@zendeskgarden/react-select`](packages/select) | [![npm version][select npm version]][select npm link] | [![Dependency Status][select dependency status]][select dependency link]
 [`@zendeskgarden/react-selection`](packages/selection) | [![npm version][selection npm version]][selection npm link] | [![Dependency Status][selection dependency status]][selection dependency link]
 [`@zendeskgarden/react-tabs`](packages/tabs) | [![npm version][tabs npm version]][tabs npm link] | [![Dependency Status][tabs dependency status]][tabs dependency link]
@@ -70,6 +71,10 @@ Package | Version | Dependencies
 [radios npm link]: https://www.npmjs.com/package/@zendeskgarden/react-radios
 [radios dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/radios&style=flat-square
 [radios dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/radios
+[ranges npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-ranges.svg?style=flat-square
+[ranges npm link]: https://www.npmjs.com/package/@zendeskgarden/react-ranges
+[ranges dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/ranges&style=flat-square
+[ranges dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/ranges
 [select npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-select.svg?style=flat-square
 [select npm link]: https://www.npmjs.com/package/@zendeskgarden/react-select
 [select dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/select&style=flat-square

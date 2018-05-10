@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message renders RTL styling 1`] = `
+<div
+  className="Message-klYsfs c-range__message is-rtl gdSoob"
+  data-garden-id="ranges.message"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Message renders default styling 1`] = `
+<div
+  className="Message-klYsfs c-range__message gdSoob"
+  data-garden-id="ranges.message"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Message validation renders error styling if provided 1`] = `
+<div
+  className="Message-klYsfs c-range__message c-range__message--error gdSoob"
+  data-garden-id="ranges.message"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Message validation renders success styling if provided 1`] = `
+<div
+  className="Message-klYsfs c-range__message c-range__message--success gdSoob"
+  data-garden-id="ranges.message"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Message validation renders warning styling if provided 1`] = `
+<div
+  className="Message-klYsfs c-range__message c-range__message--warning gdSoob"
+  data-garden-id="ranges.message"
+  data-garden-version="version"
+/>
+`;

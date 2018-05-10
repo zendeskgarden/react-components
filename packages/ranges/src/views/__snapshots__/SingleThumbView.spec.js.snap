@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SingleThumbView renders RTL styling 1`] = `
+<input
+  className="SingleThumbView-hilQxb c-range__input is-rtl dLMZLr"
+  data-garden-id="ranges.single_thumb_view"
+  data-garden-version="version"
+  type="range"
+/>
+`;
+
+exports[`SingleThumbView renders background-size correctly 1`] = `
+<input
+  className="SingleThumbView-hilQxb c-range__input fKqhvd"
+  data-garden-id="ranges.single_thumb_view"
+  data-garden-version="version"
+  type="range"
+/>
+`;
+
+exports[`SingleThumbView renders default styling 1`] = `
+<input
+  className="SingleThumbView-hilQxb c-range__input dLMZLr"
+  data-garden-id="ranges.single_thumb_view"
+  data-garden-version="version"
+  type="range"
+/>
+`;
+
+exports[`SingleThumbView renders disabled styling if provided 1`] = `
+<input
+  className="SingleThumbView-hilQxb c-range__input is-disabled dLMZLr"
+  data-garden-id="ranges.single_thumb_view"
+  data-garden-version="version"
+  disabled={true}
+  type="range"
+/>
+`;
+
+exports[`SingleThumbView renders focused styling if provided 1`] = `
+<input
+  className="SingleThumbView-hilQxb c-range__input is-focused dLMZLr"
+  data-garden-id="ranges.single_thumb_view"
+  data-garden-version="version"
+  type="range"
+/>
+`;
+
+exports[`SingleThumbView renders hovered styling if provided 1`] = `
+<input
+  className="SingleThumbView-hilQxb c-range__input dLMZLr"
+  data-garden-id="ranges.single_thumb_view"
+  data-garden-version="version"
+  type="range"
+/>
+`;
