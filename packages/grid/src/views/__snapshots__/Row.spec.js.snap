@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Row Align Items renders center alignment if provided 1`] = `
+<div
+  className="Row-ciskzD row align-items-center iGzQJd"
+  data-garden-id="grid.row"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Row Align Items renders end alignment if provided 1`] = `
+<div
+  className="Row-ciskzD row align-items-end iGzQJd"
+  data-garden-id="grid.row"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Row Align Items renders start alignment if provided 1`] = `
+<div
+  className="Row-ciskzD row align-items-start iGzQJd"
+  data-garden-id="grid.row"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Row Justify Content renders around justify content if provided 1`] = `
+<div
+  className="Row-ciskzD row justify-content-around iGzQJd"
+  data-garden-id="grid.row"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Row Justify Content renders between justify content if provided 1`] = `
+<div
+  className="Row-ciskzD row justify-content-between iGzQJd"
+  data-garden-id="grid.row"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Row Justify Content renders center justify content if provided 1`] = `
+<div
+  className="Row-ciskzD row justify-content-center iGzQJd"
+  data-garden-id="grid.row"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Row Justify Content renders end justify content if provided 1`] = `
+<div
+  className="Row-ciskzD row justify-content-end iGzQJd"
+  data-garden-id="grid.row"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Row Justify Content renders start justify content if provided 1`] = `
+<div
+  className="Row-ciskzD row justify-content-start iGzQJd"
+  data-garden-id="grid.row"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Row renders default styling 1`] = `
+<div
+  className="Row-ciskzD row iGzQJd"
+  data-garden-id="grid.row"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Row renders without gutters if provided 1`] = `
+<div
+  className="Row-ciskzD row no-gutters iGzQJd"
+  data-garden-id="grid.row"
+  data-garden-version="version"
+/>
+`;
