@@ -92,58 +92,64 @@ const secondaryMenuItems = [
   }
 ];
 
-<Grid columns={2} stretched>
-  <MenuContainer
-    onChange={key => setState({ selectedKey: key })}
-    trigger={({ getTriggerProps, triggerRef }) => (
-      <Button {...getTriggerProps()} innerRef={triggerRef}>
-        Open Menu
-      </Button>
-    )}
-  >
-    {({ getMenuProps, menuRef, placement, getItemProps, focusedKey }) => (
-      <MenuView {...getMenuProps({ placement, animate: true, arrow: true, menuRef })}>
-        <HeaderItem>Simple Example</HeaderItem>
-        <Separator />
-        {mainMenuItems.map(item => {
-          if (item.disabled) {
-            return (
-              <Item key={item.id} disabled>
+<Grid>
+  <Row>
+    <Col md>
+      <MenuContainer
+        onChange={key => setState({ selectedKey: key })}
+        trigger={({ getTriggerProps, triggerRef }) => (
+          <Button {...getTriggerProps()} innerRef={triggerRef}>
+            Open Menu
+          </Button>
+        )}
+      >
+        {({ getMenuProps, menuRef, placement, getItemProps, focusedKey }) => (
+          <MenuView {...getMenuProps({ placement, animate: true, arrow: true, menuRef })}>
+            <HeaderItem>Simple Example</HeaderItem>
+            <Separator />
+            {mainMenuItems.map(item => {
+              if (item.disabled) {
+                return (
+                  <Item key={item.id} disabled>
+                    {item.text}
+                  </Item>
+                );
+              }
+
+              return (
+                <Item
+                  {...getItemProps({
+                    key: item.id,
+                    textValue: item.text,
+                    focused: focusedKey === item.id
+                  })}
+                >
+                  {item.text}
+                </Item>
+              );
+            })}
+            <Separator />
+            {secondaryMenuItems.map(item => (
+              <Item
+                {...getItemProps({
+                  key: item.id,
+                  textValue: item.text,
+                  focused: focusedKey === item.id
+                })}
+              >
                 {item.text}
               </Item>
-            );
-          }
-
-          return (
-            <Item
-              {...getItemProps({
-                key: item.id,
-                textValue: item.text,
-                focused: focusedKey === item.id
-              })}
-            >
-              {item.text}
-            </Item>
-          );
-        })}
-        <Separator />
-        {secondaryMenuItems.map(item => (
-          <Item
-            {...getItemProps({
-              key: item.id,
-              textValue: item.text,
-              focused: focusedKey === item.id
-            })}
-          >
-            {item.text}
-          </Item>
-        ))}
-      </MenuView>
-    )}
-  </MenuContainer>
-  <p>
-    Previously selected item: <strong>{state.selectedKey}</strong>
-  </p>
+            ))}
+          </MenuView>
+        )}
+      </MenuContainer>
+    </Col>
+    <Col md>
+      <p>
+        Previously selected item: <strong>{state.selectedKey}</strong>
+      </p>
+    </Col>
+  </Row>
 </Grid>;
 ```
 
@@ -227,33 +233,39 @@ initialState = {
   selectedKey: 'Unknown'
 };
 
-<Grid columns={2} stretched>
-  <MenuContainer
-    placement="end"
-    onChange={selectedKey => setState({ selectedKey })}
-    trigger={({ getTriggerProps, triggerRef }) => (
-      <button {...getTriggerProps({ ref: triggerRef })}>Heavily customized menu</button>
-    )}
-  >
-    {({ getMenuProps, menuRef, placement, getItemProps, focusedKey }) => (
-      <CustomMenuContainer {...getMenuProps({ innerRef: menuRef })}>
-        {menuItems.map(item => (
-          <CustomMenuItem
-            {...getItemProps({
-              key: item.id,
-              textValue: item.text,
-              focused: focusedKey === item.id
-            })}
-          >
-            {item.text}
-          </CustomMenuItem>
-        ))}
-      </CustomMenuContainer>
-    )}
-  </MenuContainer>
-  <p>
-    Previously selected item: <strong>{state.selectedKey}</strong>
-  </p>
+<Grid>
+  <Row>
+    <Col md>
+      <MenuContainer
+        placement="end"
+        onChange={selectedKey => setState({ selectedKey })}
+        trigger={({ getTriggerProps, triggerRef }) => (
+          <button {...getTriggerProps({ ref: triggerRef })}>Heavily customized menu</button>
+        )}
+      >
+        {({ getMenuProps, menuRef, placement, getItemProps, focusedKey }) => (
+          <CustomMenuContainer {...getMenuProps({ innerRef: menuRef })}>
+            {menuItems.map(item => (
+              <CustomMenuItem
+                {...getItemProps({
+                  key: item.id,
+                  textValue: item.text,
+                  focused: focusedKey === item.id
+                })}
+              >
+                {item.text}
+              </CustomMenuItem>
+            ))}
+          </CustomMenuContainer>
+        )}
+      </MenuContainer>
+    </Col>
+    <Col md>
+      <p>
+        Previously selected item: <strong>{state.selectedKey}</strong>
+      </p>
+    </Col>
+  </Row>
 </Grid>;
 ```
 

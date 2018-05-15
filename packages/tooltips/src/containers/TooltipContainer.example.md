@@ -138,6 +138,7 @@ const { Toggle, Label } = require('@zendeskgarden/react-toggles');
 
 const MarginGrid = styled(Grid)`
   margin: 20px;
+  text-align: center;
 `;
 
 const TriggerDiv = styled.div`
@@ -155,88 +156,108 @@ initialState = {
     <Label style={{ marginBottom: 16 }}>RTL Locale Placement</Label>
   </Toggle>
   <ThemeProvider rtl={state.isRtl}>
-    <MarginGrid columns={3} stretched centered>
-      <TooltipContainer
-        isVisible
-        appendToBody
-        placement="top-start"
-        trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
-      >
-        {({ getTooltipProps, placement }) => (
-          <TooltipView {...getTooltipProps({ placement })}>top-start</TooltipView>
-        )}
-      </TooltipContainer>
-      <TooltipContainer
-        isVisible
-        appendToBody
-        placement="top"
-        trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
-      >
-        {({ getTooltipProps, placement }) => (
-          <TooltipView {...getTooltipProps({ placement })}>top</TooltipView>
-        )}
-      </TooltipContainer>
-      <TooltipContainer
-        isVisible
-        appendToBody
-        placement="top-end"
-        trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
-      >
-        {({ getTooltipProps, placement }) => (
-          <TooltipView {...getTooltipProps({ placement })}>top-end</TooltipView>
-        )}
-      </TooltipContainer>
-      <TooltipContainer
-        isVisible
-        appendToBody
-        placement="start"
-        trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
-      >
-        {({ getTooltipProps, placement }) => (
-          <TooltipView {...getTooltipProps({ placement })}>start</TooltipView>
-        )}
-      </TooltipContainer>
-      <div />
-      <TooltipContainer
-        isVisible
-        appendToBody
-        placement="end"
-        trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
-      >
-        {({ getTooltipProps, placement }) => (
-          <TooltipView {...getTooltipProps({ placement })}>end</TooltipView>
-        )}
-      </TooltipContainer>
-      <TooltipContainer
-        isVisible
-        appendToBody
-        placement="bottom-start"
-        trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
-      >
-        {({ getTooltipProps, placement }) => (
-          <TooltipView {...getTooltipProps({ placement })}>bottom-start</TooltipView>
-        )}
-      </TooltipContainer>
-      <TooltipContainer
-        isVisible
-        appendToBody
-        placement="bottom"
-        trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
-      >
-        {({ getTooltipProps, placement }) => (
-          <TooltipView {...getTooltipProps({ placement })}>bottom</TooltipView>
-        )}
-      </TooltipContainer>
-      <TooltipContainer
-        isVisible
-        appendToBody
-        placement="bottom-end"
-        trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
-      >
-        {({ getTooltipProps, placement }) => (
-          <TooltipView {...getTooltipProps({ placement })}>bottom-end</TooltipView>
-        )}
-      </TooltipContainer>
+    <MarginGrid>
+      <Row>
+        <Col md={4}>
+          <TooltipContainer
+            isVisible
+            appendToBody
+            placement="top-start"
+            trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+          >
+            {({ getTooltipProps, placement }) => (
+              <TooltipView {...getTooltipProps({ placement })}>top-start</TooltipView>
+            )}
+          </TooltipContainer>
+        </Col>
+        <Col md={4}>
+          <TooltipContainer
+            isVisible
+            appendToBody
+            placement="top"
+            trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+          >
+            {({ getTooltipProps, placement }) => (
+              <TooltipView {...getTooltipProps({ placement })}>top</TooltipView>
+            )}
+          </TooltipContainer>
+        </Col>
+        <Col md={4}>
+          <TooltipContainer
+            isVisible
+            appendToBody
+            placement="top-end"
+            trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+          >
+            {({ getTooltipProps, placement }) => (
+              <TooltipView {...getTooltipProps({ placement })}>top-end</TooltipView>
+            )}
+          </TooltipContainer>
+        </Col>
+        <Col md={4}>
+          <TooltipContainer
+            isVisible
+            appendToBody
+            placement="start"
+            trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+          >
+            {({ getTooltipProps, placement }) => (
+              <TooltipView {...getTooltipProps({ placement })}>start</TooltipView>
+            )}
+          </TooltipContainer>
+        </Col>
+        <Col md={4}>
+          <div />
+        </Col>
+        <Col md={4}>
+          <TooltipContainer
+            isVisible
+            appendToBody
+            placement="end"
+            trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+          >
+            {({ getTooltipProps, placement }) => (
+              <TooltipView {...getTooltipProps({ placement })}>end</TooltipView>
+            )}
+          </TooltipContainer>
+        </Col>
+        <Col md={4}>
+          <TooltipContainer
+            isVisible
+            appendToBody
+            placement="bottom-start"
+            trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+          >
+            {({ getTooltipProps, placement }) => (
+              <TooltipView {...getTooltipProps({ placement })}>bottom-start</TooltipView>
+            )}
+          </TooltipContainer>
+        </Col>
+        <Col md={4}>
+          <TooltipContainer
+            isVisible
+            appendToBody
+            placement="bottom"
+            trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+          >
+            {({ getTooltipProps, placement }) => (
+              <TooltipView {...getTooltipProps({ placement })}>bottom</TooltipView>
+            )}
+          </TooltipContainer>
+        </Col>
+        <Col md={4}>
+          <TooltipContainer
+            isVisible
+            appendToBody
+            placement="bottom-end"
+            trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+          >
+            {({ getTooltipProps, placement }) => (
+              <TooltipView {...getTooltipProps({ placement })}>bottom-end</TooltipView>
+            )}
+          </TooltipContainer>
+        </Col>
+      </Row>
     </MarginGrid>
   </ThemeProvider>
 </div>;

@@ -32,36 +32,42 @@ const CenteredText = styled.div`
   text-align: center;
 `;
 
-<Grid columns={2} stretched>
-  <div>
-    <Radio
-      name="controlled-options"
-      value="option-1"
-      checked={state.selectedValue === 'option-1'}
-      onChange={event => setState({ selectedValue: event.target.value })}
-    >
-      <Label>Option 1</Label>
-      <Hint>Hinty Hint</Hint>
-    </Radio>
-    <Radio
-      name="controlled-options"
-      value="option-2"
-      checked={state.selectedValue === 'option-2'}
-      onChange={event => setState({ selectedValue: event.target.value })}
-    >
-      <Label>Option 2</Label>
-      <Hint>Hinty hint</Hint>
-    </Radio>
-    <Radio
-      name="controlled-options"
-      value="option-3"
-      checked={state.selectedValue === 'option-3'}
-      onChange={event => setState({ selectedValue: event.target.value })}
-    >
-      <Label>Option 3</Label>
-      <Hint>Hinty Hint</Hint>
-    </Radio>
-  </div>
-  <CenteredText>Selected value: {state.selectedValue}</CenteredText>
+<Grid>
+  <Row>
+    <Col md>
+      <div>
+        <Radio
+          name="controlled-options"
+          value="option-1"
+          checked={state.selectedValue === 'option-1'}
+          onChange={event => setState({ selectedValue: event.target.value })}
+        >
+          <Label>Option 1</Label>
+          <Hint>Hinty Hint</Hint>
+        </Radio>
+        <Radio
+          name="controlled-options"
+          value="option-2"
+          checked={state.selectedValue === 'option-2'}
+          onChange={event => setState({ selectedValue: event.target.value })}
+        >
+          <Label>Option 2</Label>
+          <Hint>Hinty hint</Hint>
+        </Radio>
+        <Radio
+          name="controlled-options"
+          value="option-3"
+          checked={state.selectedValue === 'option-3'}
+          onChange={event => setState({ selectedValue: event.target.value })}
+        >
+          <Label>Option 3</Label>
+          <Hint>Hinty Hint</Hint>
+        </Radio>
+      </div>
+    </Col>
+    <Col md>
+      <CenteredText>Selected value: {state.selectedValue}</CenteredText>
+    </Col>
+  </Row>
 </Grid>;
 ```

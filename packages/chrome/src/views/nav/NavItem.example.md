@@ -50,13 +50,27 @@ const ProductNav = ({ title, icon, ...other }) => (
   </Nav>
 );
 
-<Grid columns={6} stretched>
-  <ProductNav title="Zendesk Support" icon={<SupportIcon />} product="support" />
-  <ProductNav title="Zendesk Chat" icon={<ChatIcon />} product="chat" />
-  <ProductNav title="Zendesk Connect" icon={<ConnectIcon />} product="connect" />
-  <ProductNav title="Zendesk Guide" icon={<GuideIcon />} product="guide" />
-  <ProductNav title="Zendesk Talk" icon={<TalkIcon />} product="talk" />
-  <ProductNav title="Zendesk Explore" icon={<ExploreIcon />} product="explore" />
+<Grid>
+  <Row>
+    <Col>
+      <ProductNav title="Zendesk Support" icon={<SupportIcon />} product="support" />
+    </Col>
+    <Col>
+      <ProductNav title="Zendesk Chat" icon={<ChatIcon />} product="chat" />
+    </Col>
+    <Col>
+      <ProductNav title="Zendesk Connect" icon={<ConnectIcon />} product="connect" />
+    </Col>
+    <Col>
+      <ProductNav title="Zendesk Guide" icon={<GuideIcon />} product="guide" />
+    </Col>
+    <Col>
+      <ProductNav title="Zendesk Talk" icon={<TalkIcon />} product="talk" />
+    </Col>
+    <Col>
+      <ProductNav title="Zendesk Explore" icon={<ExploreIcon />} product="explore" />
+    </Col>
+  </Row>
 </Grid>;
 ```
 

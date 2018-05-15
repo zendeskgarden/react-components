@@ -10,12 +10,19 @@
  * without displaying in the sidebar
  */
 
-// Styleguide components
-import Grid from './Grid';
-import State from './State';
-global.Grid = Grid;
-global.State = State;
-
 // Common Libraries
 import styled from 'styled-components';
 global.styled = styled;
+
+// Styleguide components
+import State from './State';
+import { Grid, Row, Col } from '../../packages/grid';
+
+global.State = State;
+global.Grid = Grid;
+global.Row = styled(Row).attrs({
+  alignItems: 'center'
+})``;
+global.Col = styled(Col)`
+  margin-bottom: 8px;
+`;

@@ -5,30 +5,56 @@
 ### Validation Types
 
 ```jsx
-<Grid columns={4} stretched>
-  <Textarea placeholder="Default" />
-  <Textarea validation="success" placeholder="Success" />
-  <Textarea validation="warning" placeholder="Warning" />
-  <Textarea validation="error" placeholder="Error" />
+<Grid>
+  <Row>
+    <Col lg>
+      <Textarea placeholder="Default" />
+    </Col>
+    <Col lg>
+      <Textarea validation="success" placeholder="Success" />
+    </Col>
+    <Col lg>
+      <Textarea validation="warning" placeholder="Warning" />
+    </Col>
+    <Col lg>
+      <Textarea validation="error" placeholder="Error" />
+    </Col>
+  </Row>
 </Grid>
 ```
 
 ### Sizes
 
 ```jsx
-<Grid columns={2} stretched>
-  <Textarea placeholder="Default" />
-  <Textarea placeholder="Small" small />
+<Grid>
+  <Row>
+    <Col lg>
+      <Textarea placeholder="Default" />
+    </Col>
+    <Col lg>
+      <Textarea placeholder="Small" small />
+    </Col>
+  </Row>
 </Grid>
 ```
 
 ### States
 
 ```jsx
-<Grid columns={4} stretched>
-  <Textarea placeholder="Resizable" resizable />
-  <Textarea placeholder="Disabled" disabled />
-  <Textarea placeholder="Focused" focused />
-  <Textarea placeholder="Hovered" hovered />
+<Grid>
+  <Row>
+    <Col lg>
+      <Textarea placeholder="Resizable" resizable />
+    </Col>
+    <Col lg>
+      <Textarea placeholder="Disabled" disabled />
+    </Col>
+    <Col lg>
+      <Textarea placeholder="Focused" focused />
+    </Col>
+    <Col lg>
+      <Textarea placeholder="Hovered" hovered />
+    </Col>
+  </Row>
 </Grid>
 ```

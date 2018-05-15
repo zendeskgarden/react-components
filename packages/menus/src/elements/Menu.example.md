@@ -13,28 +13,34 @@ with a keyboard.
 ```jsx
 const { Button } = require('@zendeskgarden/react-buttons');
 
-<Grid columns={2} stretched>
-  <Menu
-    onChange={selectedKey => alert(selectedKey)}
-    trigger={({ ref }) => <Button innerRef={ref}>Default Menu</Button>}
-  >
-    <Item key="item-1">1 - Item</Item>
-    <Item key="item-2">2 - Item</Item>
-    <Item key="item-3">3 - Item</Item>
-  </Menu>
-  <Menu
-    small
-    onChange={selectedKey => alert(selectedKey)}
-    trigger={({ ref }) => (
-      <Button innerRef={ref} size="small">
-        Small Menu
-      </Button>
-    )}
-  >
-    <Item key="item-1">1 - Item</Item>
-    <Item key="item-2">2 - Item</Item>
-    <Item key="item-3">3 - Item</Item>
-  </Menu>
+<Grid>
+  <Row>
+    <Col md>
+      <Menu
+        onChange={selectedKey => alert(selectedKey)}
+        trigger={({ ref }) => <Button innerRef={ref}>Default Menu</Button>}
+      >
+        <Item key="item-1">1 - Item</Item>
+        <Item key="item-2">2 - Item</Item>
+        <Item key="item-3">3 - Item</Item>
+      </Menu>
+    </Col>
+    <Col md>
+      <Menu
+        small
+        onChange={selectedKey => alert(selectedKey)}
+        trigger={({ ref }) => (
+          <Button innerRef={ref} size="small">
+            Small Menu
+          </Button>
+        )}
+      >
+        <Item key="item-1">1 - Item</Item>
+        <Item key="item-2">2 - Item</Item>
+        <Item key="item-3">3 - Item</Item>
+      </Menu>
+    </Col>
+  </Row>
 </Grid>;
 ```
 

@@ -33,5 +33,5 @@ import Col from '@zendeskgarden/react-grid/Col';
     <Col md={6}>1 of 2</Col>
     <Col md={6}>2 of 2</Col>
   </Row>
-</Grid>
+</Grid>;
 ```

@@ -73,11 +73,21 @@ const ColorSamplePreview = styled.div`
   cursor: default;
 `;
 
+const InlineItem = styled.div`
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+`;
+
 const Color = ({ name, color, includeSample }) =>
   includeSample ? (
-    <Grid>
-      <ColorSampleSquare color={color} /> {name} <span>({color})</span>
-    </Grid>
+    <div>
+      <InlineItem>
+        <ColorSampleSquare color={color} />
+      </InlineItem>
+      <InlineItem>{name}</InlineItem>
+      <InlineItem>({color})</InlineItem>
+    </div>
   ) : (
     <ColorSamplePreview>
       {name} (<span style={{ color }}>{color}</span>)

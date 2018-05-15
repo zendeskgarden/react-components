@@ -16,16 +16,24 @@ initialState = {
 const onModalClose = () => setState({ isModalVisible: false });
 
 <div>
-  <Grid columns={3} stretched>
-    <Button onClick={() => setState({ isModalVisible: true, large: false, animate: true })}>
-      Open default Modal
-    </Button>
-    <Button onClick={() => setState({ isModalVisible: true, large: true, animate: true })}>
-      Open large Modal
-    </Button>
-    <Button onClick={() => setState({ isModalVisible: true, large: false, animate: false })}>
-      Open Modal with no animation
-    </Button>
+  <Grid>
+    <Row>
+      <Col md>
+        <Button onClick={() => setState({ isModalVisible: true, large: false, animate: true })}>
+          Open default Modal
+        </Button>
+      </Col>
+      <Col md>
+        <Button onClick={() => setState({ isModalVisible: true, large: true, animate: true })}>
+          Open large Modal
+        </Button>
+      </Col>
+      <Col md>
+        <Button onClick={() => setState({ isModalVisible: true, large: false, animate: false })}>
+          Open Modal with no animation
+        </Button>
+      </Col>
+    </Row>
   </Grid>
   {state.isModalVisible && (
     <Modal onClose={onModalClose} large={state.large} animate={state.animate}>
@@ -109,14 +117,24 @@ initialState = {
 const onModalClose = () => setState({ isModalVisible: false });
 
 <div>
-  <Grid columns={3} stretched>
-    <Button onClick={() => setState({ isModalVisible: true, width: '50%' })}>Show 50% modal</Button>
-    <Button onClick={() => setState({ isModalVisible: true, width: '480px' })}>
-      Show 480px modal
-    </Button>
-    <Button onClick={() => setState({ isModalVisible: true, width: '900px' })}>
-      Show 900px modal
-    </Button>
+  <Grid>
+    <Row>
+      <Col md>
+        <Button onClick={() => setState({ isModalVisible: true, width: '50%' })}>
+          Show 50% modal
+        </Button>
+      </Col>
+      <Col md>
+        <Button onClick={() => setState({ isModalVisible: true, width: '480px' })}>
+          Show 480px modal
+        </Button>
+      </Col>
+      <Col md>
+        <Button onClick={() => setState({ isModalVisible: true, width: '900px' })}>
+          Show 900px modal
+        </Button>
+      </Col>
+    </Row>
   </Grid>
   {state.isModalVisible && (
     <Modal onClose={onModalClose} style={{ width: state.width }}>
