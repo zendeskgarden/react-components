@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Grid disables fluid styling if provided 1`] = `
+<div
+  className="Grid-iUdnzb container jAUTij"
+  data-garden-id="grid.grid"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Grid renders RTL styling if provided 1`] = `
+<div
+  className="Grid-iUdnzb container-fluid is-rtl jAUTij"
+  data-garden-id="grid.grid"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Grid renders debug styling if provided 1`] = `
+<div
+  className="Grid-iUdnzb container-fluid is-debug jAUTij"
+  data-garden-id="grid.grid"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Grid renders default styling 1`] = `
+<div
+  className="Grid-iUdnzb container-fluid jAUTij"
+  data-garden-id="grid.grid"
+  data-garden-version="version"
+/>
+`;

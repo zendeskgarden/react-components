@@ -20,6 +20,7 @@ Package | Version | Dependencies
 [`@zendeskgarden/react-buttons`](packages/buttons) | [![npm version][buttons npm version]][buttons npm link] | [![Dependency Status][buttons dependency status]][buttons dependency link]
 [`@zendeskgarden/react-checkboxes`](packages/checkboxes) | [![npm version][checkboxes npm version]][checkboxes npm link] | [![Dependency Status][checkboxes dependency status]][checkboxes dependency link]
 [`@zendeskgarden/react-chrome`](packages/chrome) | [![npm version][chrome npm version]][chrome npm link] | [![Dependency Status][chrome dependency status]][chrome dependency link]
+[`@zendeskgarden/react-grid`](packages/grid) | [![npm version][grid npm version]][grid npm link] | [![Dependency Status][grid dependency status]][grid dependency link]
 [`@zendeskgarden/react-menus`](packages/menus) | [![npm version][menus npm version]][menus npm link] | [![Dependency Status][menus dependency status]][menus dependency link]
 [`@zendeskgarden/react-modals`](packages/modals) | [![npm version][modals npm version]][modals npm link] | [![Dependency Status][modals dependency status]][modals dependency link]
 [`@zendeskgarden/react-notifications`](packages/notifications) | [![npm version][notifications npm version]][notifications npm link] | [![Dependency Status][notifications dependency status]][notifications dependency link]
@@ -51,6 +52,10 @@ Package | Version | Dependencies
 [chrome npm link]: https://www.npmjs.com/package/@zendeskgarden/react-chrome
 [chrome dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/chrome&style=flat-square
 [chrome dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/chrome
+[grid npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-grid.svg?style=flat-square
+[grid npm link]: https://www.npmjs.com/package/@zendeskgarden/react-grid
+[grid dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/grid&style=flat-square
+[grid dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/grid
 [menus npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-menus.svg?style=flat-square
 [menus npm link]: https://www.npmjs.com/package/@zendeskgarden/react-menus
 [menus dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/menus&style=flat-square
