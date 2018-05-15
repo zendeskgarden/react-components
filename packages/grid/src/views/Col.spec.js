@@ -17,78 +17,52 @@ describe('Col', () => {
   });
 
   describe('Sizing', () => {
-    it('renders number size if provided', () => {
-      const wrapper = shallow(<Col size={4} />);
+    const sizes = [
+      {
+        size: 4
+      },
+      {
+        sm: true
+      },
+      {
+        xs: 6
+      },
+      {
+        sm: 6
+      },
+      {
+        md: 6
+      },
+      {
+        lg: 6
+      },
+      {
+        xl: 6
+      }
+    ];
 
-      expect(wrapper).toMatchSnapshot();
-    });
+    sizes.forEach(props => {
+      const key = Object.keys(props)[0];
 
-    it('renders boolean size if provided', () => {
-      const wrapper = shallow(<Col sm />);
+      it(`renders ${key} if provided`, () => {
+        const wrapper = shallow(<Col {...props} />);
 
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('renders xs size if provided', () => {
-      const wrapper = shallow(<Col xs={6} />);
-
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('renders sm size if provided', () => {
-      const wrapper = shallow(<Col sm={6} />);
-
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('renders md size if provided', () => {
-      const wrapper = shallow(<Col md={6} />);
-
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('renders lg size if provided', () => {
-      const wrapper = shallow(<Col lg={6} />);
-
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('renders xl size if provided', () => {
-      const wrapper = shallow(<Col xl={6} />);
-
-      expect(wrapper).toMatchSnapshot();
+        expect(wrapper).toMatchSnapshot();
+      });
     });
   });
 
   describe('Offsets', () => {
-    it('renders xs offset if provided', () => {
-      const wrapper = shallow(<Col offsetXs={6} />);
+    ['offsetXs', 'offsetSm', 'offsetMd', 'offsetLg', 'offsetXl'].forEach(offset => {
+      const props = {
+        [offset]: 6
+      };
 
-      expect(wrapper).toMatchSnapshot();
-    });
+      it(`renders ${offset} if provided`, () => {
+        const wrapper = shallow(<Col {...props} />);
 
-    it('renders sm offset if provided', () => {
-      const wrapper = shallow(<Col offsetSm={6} />);
-
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('renders md offset if provided', () => {
-      const wrapper = shallow(<Col offsetMd={6} />);
-
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('renders lg offset if provided', () => {
-      const wrapper = shallow(<Col offsetLg={6} />);
-
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('renders xl offset if provided', () => {
-      const wrapper = shallow(<Col offsetXl={6} />);
-
-      expect(wrapper).toMatchSnapshot();
+        expect(wrapper).toMatchSnapshot();
+      });
     });
   });
 

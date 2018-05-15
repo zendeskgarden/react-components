@@ -64,7 +64,7 @@ exports[`Col Justify Content renders start justify content if provided 1`] = `
 />
 `;
 
-exports[`Col Offsets renders lg offset if provided 1`] = `
+exports[`Col Offsets renders offsetLg if provided 1`] = `
 <div
   className="Col-jCOnJH offset-lg-6 ObzyD"
   data-garden-id="grid.col"
@@ -72,7 +72,7 @@ exports[`Col Offsets renders lg offset if provided 1`] = `
 />
 `;
 
-exports[`Col Offsets renders md offset if provided 1`] = `
+exports[`Col Offsets renders offsetMd if provided 1`] = `
 <div
   className="Col-jCOnJH offset-md-6 ObzyD"
   data-garden-id="grid.col"
@@ -80,7 +80,7 @@ exports[`Col Offsets renders md offset if provided 1`] = `
 />
 `;
 
-exports[`Col Offsets renders sm offset if provided 1`] = `
+exports[`Col Offsets renders offsetSm if provided 1`] = `
 <div
   className="Col-jCOnJH offset-sm-6 ObzyD"
   data-garden-id="grid.col"
@@ -88,7 +88,7 @@ exports[`Col Offsets renders sm offset if provided 1`] = `
 />
 `;
 
-exports[`Col Offsets renders xl offset if provided 1`] = `
+exports[`Col Offsets renders offsetXl if provided 1`] = `
 <div
   className="Col-jCOnJH offset-xl-6 ObzyD"
   data-garden-id="grid.col"
@@ -96,7 +96,7 @@ exports[`Col Offsets renders xl offset if provided 1`] = `
 />
 `;
 
-exports[`Col Offsets renders xs offset if provided 1`] = `
+exports[`Col Offsets renders offsetXs if provided 1`] = `
 <div
   className="Col-jCOnJH offset-xs-6 ObzyD"
   data-garden-id="grid.col"
@@ -122,15 +122,7 @@ exports[`Col Order renders string based order if provided 1`] = `
 />
 `;
 
-exports[`Col Sizing renders boolean size if provided 1`] = `
-<div
-  className="Col-jCOnJH col-sm ObzyD"
-  data-garden-id="grid.col"
-  data-garden-version="version"
-/>
-`;
-
-exports[`Col Sizing renders lg size if provided 1`] = `
+exports[`Col Sizing renders lg if provided 1`] = `
 <div
   className="Col-jCOnJH col-lg-6 ObzyD"
   data-garden-id="grid.col"
@@ -138,7 +130,7 @@ exports[`Col Sizing renders lg size if provided 1`] = `
 />
 `;
 
-exports[`Col Sizing renders md size if provided 1`] = `
+exports[`Col Sizing renders md if provided 1`] = `
 <div
   className="Col-jCOnJH col-md-6 ObzyD"
   data-garden-id="grid.col"
@@ -146,7 +138,7 @@ exports[`Col Sizing renders md size if provided 1`] = `
 />
 `;
 
-exports[`Col Sizing renders number size if provided 1`] = `
+exports[`Col Sizing renders size if provided 1`] = `
 <div
   className="Col-jCOnJH col-4 ObzyD"
   data-garden-id="grid.col"
@@ -155,7 +147,15 @@ exports[`Col Sizing renders number size if provided 1`] = `
 />
 `;
 
-exports[`Col Sizing renders sm size if provided 1`] = `
+exports[`Col Sizing renders sm if provided 1`] = `
+<div
+  className="Col-jCOnJH col-sm ObzyD"
+  data-garden-id="grid.col"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Col Sizing renders sm if provided 2`] = `
 <div
   className="Col-jCOnJH col-sm-6 ObzyD"
   data-garden-id="grid.col"
@@ -163,7 +163,7 @@ exports[`Col Sizing renders sm size if provided 1`] = `
 />
 `;
 
-exports[`Col Sizing renders xl size if provided 1`] = `
+exports[`Col Sizing renders xl if provided 1`] = `
 <div
   className="Col-jCOnJH col-xl-6 ObzyD"
   data-garden-id="grid.col"
@@ -171,7 +171,7 @@ exports[`Col Sizing renders xl size if provided 1`] = `
 />
 `;
 
-exports[`Col Sizing renders xs size if provided 1`] = `
+exports[`Col Sizing renders xs if provided 1`] = `
 <div
   className="Col-jCOnJH col-xs-6 ObzyD"
   data-garden-id="grid.col"
