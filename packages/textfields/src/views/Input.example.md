@@ -5,29 +5,53 @@
 ### Validation Types
 
 ```jsx
-<Grid columns={4} stretched>
-  <Input placeholder="Default" />
-  <Input validation="success" placeholder="Success" />
-  <Input validation="warning" placeholder="Warning" />
-  <Input validation="error" placeholder="Error" />
+<Grid>
+  <Row>
+    <Col lg>
+      <Input placeholder="Default" />
+    </Col>
+    <Col lg>
+      <Input validation="success" placeholder="Success" />
+    </Col>
+    <Col lg>
+      <Input validation="warning" placeholder="Warning" />
+    </Col>
+    <Col lg>
+      <Input validation="error" placeholder="Error" />
+    </Col>
+  </Row>
 </Grid>
 ```
 
 ### Sizes
 
 ```jsx
-<Grid columns={2} stretched>
-  <Input placeholder="Default" />
-  <Input placeholder="Small" small />
+<Grid>
+  <Row>
+    <Col lg>
+      <Input placeholder="Default" />
+    </Col>
+    <Col lg>
+      <Input placeholder="Small" small />
+    </Col>
+  </Row>
 </Grid>
 ```
 
 ### States
 
 ```jsx
-<Grid columns={3} stretched>
-  <Input placeholder="Disabled" disabled />
-  <Input placeholder="Focused" focused />
-  <Input placeholder="Hovered" hovered />
+<Grid>
+  <Row>
+    <Col lg>
+      <Input placeholder="Disabled" disabled />
+    </Col>
+    <Col lg>
+      <Input placeholder="Focused" focused />
+    </Col>
+    <Col lg>
+      <Input placeholder="Hovered" hovered />
+    </Col>
+  </Row>
 </Grid>
 ```

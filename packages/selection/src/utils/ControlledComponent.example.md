@@ -51,27 +51,33 @@ class ExampleContainer extends ControlledComponent {
 // <State> wrapper component is needed due to react-styleguidist
 
 <div>
-  <Grid columns={2} stretched>
-    <ExampleContainer>
-      {({ count, getButtonProps }) => (
-        <div>
-          <p>Count: {count && count.toString()}</p>
-          <button {...getButtonProps()}>Uncontrolled increment</button>
-        </div>
-      )}
-    </ExampleContainer>
-    <State initialState={{ count: 4 }}>
-      {(state, setState) => (
-        <ExampleContainer count={state.count} onStateChange={newState => setState(newState)}>
+  <Grid>
+    <Row>
+      <Col md>
+        <ExampleContainer>
           {({ count, getButtonProps }) => (
             <div>
               <p>Count: {count && count.toString()}</p>
-              <button {...getButtonProps()}>Controlled increment</button>
+              <button {...getButtonProps()}>Uncontrolled increment</button>
             </div>
           )}
         </ExampleContainer>
-      )}
-    </State>
+      </Col>
+      <Col md>
+        <State initialState={{ count: 4 }}>
+          {(state, setState) => (
+            <ExampleContainer count={state.count} onStateChange={newState => setState(newState)}>
+              {({ count, getButtonProps }) => (
+                <div>
+                  <p>Count: {count && count.toString()}</p>
+                  <button {...getButtonProps()}>Controlled increment</button>
+                </div>
+              )}
+            </ExampleContainer>
+          )}
+        </State>
+      </Col>
+    </Row>
   </Grid>
 </div>;
 ```

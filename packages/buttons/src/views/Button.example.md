@@ -3,58 +3,104 @@ wrapper that applies focused styling _ONLY_ on keyboard focus. This can always
 be overriden by providing the `focus` prop.
 
 ```jsx
-<Grid columns={4} stretched>
-  <Button onClick={() => alert('clicked')}>Default Example</Button>
-  <Button danger onClick={() => alert('clicked')}>
-    Danger Example
-  </Button>
-  <Button pill onClick={() => alert('clicked')}>
-    Pill Example
-  </Button>
-  <Button danger pill onClick={() => alert('clicked')}>
-    Danger Pill Example
-  </Button>
+<Grid>
+  <Row>
+    <Col md>
+      <Button onClick={() => alert('clicked')}>Default Example</Button>
+    </Col>
+    <Col md>
+      <Button danger onClick={() => alert('clicked')}>
+        Danger Example
+      </Button>
+    </Col>
+    <Col md>
+      <Button pill onClick={() => alert('clicked')}>
+        Pill Example
+      </Button>
+    </Col>
+    <Col md>
+      <Button danger pill onClick={() => alert('clicked')}>
+        Danger Pill Example
+      </Button>
+    </Col>
+  </Row>
 </Grid>
 ```
 
 ### Types
 
 ```jsx
-<Grid columns={6} stretched>
-  <Button>Default</Button>
-  <Button primary>Primary</Button>
-  <Button pill>Pill</Button>
-  <Button basic>Basic</Button>
-  <Button muted>Muted</Button>
-  <Button link>Link</Button>
+<Grid>
+  <Row>
+    <Col md>
+      <Button>Default</Button>
+    </Col>
+    <Col md>
+      <Button primary>Primary</Button>
+    </Col>
+    <Col md>
+      <Button pill>Pill</Button>
+    </Col>
+    <Col md>
+      <Button basic>Basic</Button>
+    </Col>
+    <Col md>
+      <Button muted>Muted</Button>
+    </Col>
+    <Col md>
+      <Button link>Link</Button>
+    </Col>
+  </Row>
 </Grid>
 ```
 
 ### Sizes
 
 ```jsx
-<div>
-  <Grid columns={3} stretched>
-    <Button size="small">Small</Button>
-    <Button>Default</Button>
-    <Button size="large">Large</Button>
-  </Grid>
+<Grid>
+  <Row>
+    <Col md>
+      <Button size="small">Small</Button>
+    </Col>
+    <Col md>
+      <Button>Default</Button>
+    </Col>
+    <Col md>
+      <Button size="large">Large</Button>
+    </Col>
+  </Row>
   <br />
-  <Grid columns={2} stretched>
-    <Button stretched>Stretched</Button>
-    <Button stretched>Stretched</Button>
-  </Grid>
-</div>
+  <Row>
+    <Col md>
+      <Button stretched>Stretched</Button>
+    </Col>
+    <Col md>
+      <Button stretched>Stretched</Button>
+    </Col>
+  </Row>
+</Grid>
 ```
 
 ### States
 
 ```jsx
-<Grid columns={5} stretched>
-  <Button>Default</Button>
-  <Button disabled>Disabled</Button>
-  <Button hovered>Hovered</Button>
-  <Button focused>Focused</Button>
-  <Button active>Active</Button>
+<Grid>
+  <Row>
+    <Col md>
+      <Button>Default</Button>
+    </Col>
+    <Col md>
+      <Button disabled>Disabled</Button>
+    </Col>
+    <Col md>
+      <Button hovered>Hovered</Button>
+    </Col>
+    <Col md>
+      <Button focused>Focused</Button>
+    </Col>
+    <Col md>
+      <Button active>Active</Button>
+    </Col>
+  </Row>
 </Grid>
 ```
