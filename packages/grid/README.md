@@ -6,9 +6,9 @@ This package includes components relating to layout grids in the
 [Garden Design System](https://zendeskgarden.github.io/).
 
 The `Grid` component is an implementation over the
-[Bootstrap v4 Flexbox Grid](http://getbootstrap.com/docs/4.0/layout/overview/)
-and their documentation is a great resource to explore all of the unique customizations
-available.
+[Bootstrap v4 Flexbox Grid](http://getbootstrap.com/docs/4.0/layout/overview/).
+Their documentation is a great resource to explore all of the unique customizations
+available within this package.
 
 ## Installation
 
