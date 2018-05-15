@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "3.0.0",
+  "version": "3.0.1",
   "main": "./index.js",
   "scripts": {
     "build": "../../utils/scripts/build.sh",
@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@zendeskgarden/css-pagination": "^3.0.0",
-    "@zendeskgarden/react-selection": "^3.0.0",
+    "@zendeskgarden/react-selection": "^3.0.1",
     "@zendeskgarden/react-theming": "^1.0.0",
     "classnames": "^2.2.5",
     "prop-types": "^15.6.1",
