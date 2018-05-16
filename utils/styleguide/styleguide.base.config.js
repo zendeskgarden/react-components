@@ -10,6 +10,7 @@ const _ = require('lodash');
 const packageManifest = require(path.resolve('package.json'));
 const customStyleguideConfig = require(path.resolve('styleguide.config.js'));
 const basePathName = path.basename(path.resolve('./'));
+const googleTrackingId = 'UA-970836-25';
 
 const defaultStyleguideConfig = {
   title: 'Zendesk Garden',
@@ -25,7 +26,19 @@ const defaultStyleguideConfig = {
           name: 'google',
           content: 'notranslate'
         }
-      ]
+      ],
+      scripts: [
+        {
+          async: '',
+          src: `//www.googletagmanager.com/gtag/js?id=${googleTrackingId}`
+        }
+      ],
+      raw: `<script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${googleTrackingId}');
+      </script>`
     }
   },
   compilerConfig: {
