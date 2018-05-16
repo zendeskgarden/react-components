@@ -13,7 +13,7 @@ const basePathName = path.basename(path.resolve('./'));
 const googleTrackingId = 'UA-970836-25';
 
 const defaultStyleguideConfig = {
-  title: 'Zendesk Garden',
+  title: `${packageManifest.name} - Zendesk Garden`,
   assetsDir: path.resolve(__dirname, 'public'),
   skipComponentsWithoutExample: false,
   serverPort: 5000,
@@ -25,6 +25,14 @@ const defaultStyleguideConfig = {
         {
           name: 'google',
           content: 'notranslate'
+        },
+        {
+          name: 'application-name',
+          content: 'Zendesk Garden'
+        },
+        {
+          name: 'description',
+          content: packageManifest.description || ''
         }
       ],
       scripts: [
