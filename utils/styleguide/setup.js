@@ -24,5 +24,6 @@ global.Row = styled(Row).attrs({
   alignItems: 'center'
 })``;
 global.Col = styled(Col)`
-  margin-bottom: 8px;
+  margin-bottom: 4px;
+  margin-top: 4px;
 `;
