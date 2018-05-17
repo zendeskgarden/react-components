@@ -11,9 +11,10 @@ const packageManifest = require(path.resolve('package.json'));
 const customStyleguideConfig = require(path.resolve('styleguide.config.js'));
 const basePathName = path.basename(path.resolve('./'));
 const googleTrackingId = 'UA-970836-25';
+const capitalizePackageName = basePathName.charAt(0).toUpperCase() + basePathName.slice(1);
 
 const defaultStyleguideConfig = {
-  title: `${packageManifest.name} - Zendesk Garden`,
+  title: `${capitalizePackageName} / React Components / Zendesk Garden`,
   assetsDir: path.resolve(__dirname, 'public'),
   skipComponentsWithoutExample: false,
   serverPort: 5000,
