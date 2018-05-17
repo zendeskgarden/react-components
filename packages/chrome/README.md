@@ -9,44 +9,50 @@ relating to the Chrome component within the Garden Design System
 
 ```sh
 npm install @zendeskgarden/react-chrome
+
+# Peer Dependencies - Also Required
+npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
 ```
 
 ## Usages
 
 ```jsx static
+import ThemeProvider from '@zendeskgarden/react-theming/ThemeProvider';
 import { Chrome, Nav, NavItem, ... } from '@zendeskgarden/react-chrome';
 import ConnectIcon from '@zendeskgarden/icons/src/26/relationshape-connect.svg';
 
-<Chrome>
-  <Nav expanded>
-    <NavItem logo product="connect" title="Zendesk Connect">
-      <NavItemIcon>
-        <ConnectIcon />
-      </NavItemIcon>
-      <NavItemText>Zendesk Connect</NavItemText>
-    </NavItem>
-    <NavItem current>
-      <NavItemIcon>
-        <HomeIcon />
-      </NavItemIcon>
-      <NavItemText>Home</NavItemText>
-    </NavItem>
-  </Nav>
-  <SubNav>
-    <SubNavItem current>
-      <SubNavItemText>Subnav 1</SubNavItemText>
-    </SubNavItem>
-    ...
-  </SubNav>
-  <Body>
-    <Header>
+<ThemeProvider>
+  <Chrome>
+    <Nav expanded>
+      <NavItem logo product="connect" title="Zendesk Connect">
+        <NavItemIcon>
+          <ConnectIcon />
+        </NavItemIcon>
+        <NavItemText>Zendesk Connect</NavItemText>
+      </NavItem>
+      <NavItem current>
+        <NavItemIcon>
+          <HomeIcon />
+        </NavItemIcon>
+        <NavItemText>Home</NavItemText>
+      </NavItem>
+    </Nav>
+    <SubNav>
+      <SubNavItem current>
+        <SubNavItemText>Subnav 1</SubNavItemText>
+      </SubNavItem>
       ...
-    </Header>
-    <Content>
-      <Main>
-        Lorem ipsum...
-      </Main>
-    </Content>
-  </Body>
-</Chrome>
+    </SubNav>
+    <Body>
+      <Header>
+        ...
+      </Header>
+      <Content>
+        <Main>
+          Lorem ipsum...
+        </Main>
+      </Content>
+    </Body>
+  </Chrome>
+</ThemeProvider>
 ```

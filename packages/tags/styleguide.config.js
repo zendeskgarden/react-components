@@ -3,7 +3,12 @@
  * https://github.com/styleguidist/react-styleguidist/blob/master/docs/Configuration.md
  */
 
+const path = require('path');
+
 module.exports = {
+  require: [
+    path.resolve('node_modules', '@zendeskgarden', 'react-textfields', 'dist', 'styles.css')
+  ],
   sections: [
     {
       name: '',

@@ -2,4 +2,4 @@
 set -x
 set -e
 
-gulp --gulpfile ../../utils/build/gulpfile.build.js --cwd ./
+webpack --config ../../utils/build/webpack.config.js

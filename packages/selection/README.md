@@ -9,6 +9,9 @@ selection in the [Garden Design System](https://zendeskgarden.github.io/).
 
 ```bash
 npm install @zendeskgarden/react-selection
+
+# Peer Dependencies - Also Required
+npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
 ```
 
 ## Basic Usage

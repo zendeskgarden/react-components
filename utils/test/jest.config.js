@@ -15,7 +15,6 @@ module.exports = {
     '^utils': '<rootDir>/utils/test/jest.utils.js',
     'styled-components': '<rootDir>/node_modules/styled-components'
   },
-  modulePathIgnorePatterns: ['packages/.[a-z]*/dist'],
   transform: {
     '^.+\\.js$': 'babel-jest'
   },
@@ -25,5 +24,8 @@ module.exports = {
     '!**/node_modules/**',
     '!**/vendor/**'
   ],
-  coverageDirectory: '<rootDir>/demo/coverage'
+  coverageDirectory: '<rootDir>/demo/coverage',
+  globals: {
+    PACKAGE_VERSION: 'version'
+  }
 };

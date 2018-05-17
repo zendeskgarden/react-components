@@ -9,11 +9,15 @@ This package includes components relating to select fields in the
 
 ```sh
 npm install @zendeskgarden/react-select
+
+# Peer Dependencies - Also Required
+npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
 ```
 
 ## Usage
 
 ```jsx static
+import ThemeProvider from '@zendeskgarden/react-theming/ThemeProvider';
 import SelectField from '@zendeskgarden/react-select/SelectField';
 import Label from '@zendeskgarden/react-select/Label';
 import Hint from '@zendeskgarden/react-select/Hint';
@@ -24,15 +28,20 @@ initialState = {
   selectedKey: 'item-1'
 };
 
-<SelectField>
-  <Label>Example Select</Label>
-  <Hint>Hinty hint</Hint>
-  <Select
-    selectedKey={state.selectedKey}
-    onChange={selectedKey => setState({ selectedKey })}
-    options={[<Item key="item-1">Item 1</Item>, <Item key="item-2">Item 2</Item>]}
-  >
-    {state.selectedKey}
-  </Select>
-</SelectField>;
+/**
+ * Place a `ThemeProvider` at the root of your React application
+ */
+<ThemeProvider>
+  <SelectField>
+    <Label>Example Select</Label>
+    <Hint>Hinty hint</Hint>
+    <Select
+      selectedKey={state.selectedKey}
+      onChange={selectedKey => setState({ selectedKey })}
+      options={[<Item key="item-1">Item 1</Item>, <Item key="item-2">Item 2</Item>]}
+    >
+      {state.selectedKey}
+    </Select>
+  </SelectField>
+</ThemeProvider>;
 ```

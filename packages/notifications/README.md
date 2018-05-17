@@ -9,16 +9,25 @@ the [Garden Design System](https://zendeskgarden.github.io/).
 
 ```sh
 npm install @zendeskgarden/react-notifications
+
+# Peer Dependencies - Also Required
+npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
 ```
 
 ## Usage
 
 ```jsx static
+import ThemeProvider from '@zendeskgarden/react-theming/ThemeProvider';
 import Notification from '@zendeskgarden/react-notifications/Notification';
 import Title from '@zendeskgarden/react-notifications/Title';
 
-<Notification>
-  <Title>Example Title</Title>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-</Notification>;
+/**
+ * Place a `ThemeProvider` at the root of your React application
+ */
+<ThemeProvider>
+  <Notification>
+    <Title>Example Title</Title>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+  </Notification>
+</ThemeProvider>;
 ```
