@@ -14,7 +14,6 @@ import MenuStyles from '@zendeskgarden/css-menus';
 import ArrowStyles from '@zendeskgarden/css-arrows';
 import { zdSpacing } from '@zendeskgarden/css-variables';
 
-import { version } from '../../package.json';
 const COMPONENT_ID = 'menus.menu_view';
 
 const PLACEMENT = {
@@ -138,7 +137,7 @@ const retrieveAnimation = ({ animate, placement }) => {
  */
 const StyledMenuView = styled.ul.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(MenuStyles['c-menu'], {
       // Size

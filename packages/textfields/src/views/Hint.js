@@ -11,7 +11,6 @@ import classNames from 'classnames';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 
-import { version } from '../../package.json';
 const COMPONENT_ID = 'textfields.hint';
 
 /**
@@ -19,7 +18,7 @@ const COMPONENT_ID = 'textfields.hint';
  */
 const Hint = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(TextStyles['c-txt__hint'], {
       [TextStyles['c-txt__hint--sm']]: props.small,

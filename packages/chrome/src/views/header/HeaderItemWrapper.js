@@ -8,7 +8,6 @@
 import PropTypes from 'prop-types';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 
-import { version } from '../../../package.json';
 const COMPONENT_ID = 'chrome.header_item_wrapper';
 
 import { StyledHeaderItem } from './HeaderItem';
@@ -26,7 +25,7 @@ const PRODUCT = {
 /** Accepts all `<div>` props */
 const HeaderItemWrapper = StyledHeaderItem.withComponent('div').extend.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version
+  'data-garden-version': PACKAGE_VERSION
 })`
   ${props => retrieveTheme('chrome.header_item_wrapper', props)};
 `;

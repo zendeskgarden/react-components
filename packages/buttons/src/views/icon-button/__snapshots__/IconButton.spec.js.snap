@@ -14,7 +14,7 @@ exports[`IconButton renders pill and muted styling by default 1`] = `
     muted={true}
     pill={true}
   >
-    <KeyboardFocusContainer>
+    <t>
       <Button__StyledButton
         basic={true}
         className="IconButton-hhQYmO c-btn--icon iIVfrT"
@@ -40,7 +40,7 @@ exports[`IconButton renders pill and muted styling by default 1`] = `
           type="button"
         />
       </Button__StyledButton>
-    </KeyboardFocusContainer>
+    </t>
   </Button>
 </IconButton>
 `;

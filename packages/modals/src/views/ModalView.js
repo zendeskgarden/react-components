@@ -11,7 +11,6 @@ import classNames from 'classnames';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import ModalStyles from '@zendeskgarden/css-modals';
 
-import { version } from '../../package.json';
 const COMPONENT_ID = 'modals.modal_view';
 
 /**
@@ -19,7 +18,7 @@ const COMPONENT_ID = 'modals.modal_view';
  */
 const ModalView = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(ModalStyles['c-dialog'], {
       // Sizing

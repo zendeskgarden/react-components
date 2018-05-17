@@ -4,7 +4,7 @@ exports[`HeaderItem Products renders chat styling if provided 1`] = `
 <HeaderItem
   product="chat"
 >
-  <KeyboardFocusContainer>
+  <t>
     <HeaderItem__StyledHeaderItem
       focused={false}
       onBlur={[Function]}
@@ -23,7 +23,7 @@ exports[`HeaderItem Products renders chat styling if provided 1`] = `
         tabIndex={0}
       />
     </HeaderItem__StyledHeaderItem>
-  </KeyboardFocusContainer>
+  </t>
 </HeaderItem>
 `;
 
@@ -31,7 +31,7 @@ exports[`HeaderItem Products renders connect styling if provided 1`] = `
 <HeaderItem
   product="connect"
 >
-  <KeyboardFocusContainer>
+  <t>
     <HeaderItem__StyledHeaderItem
       focused={false}
       onBlur={[Function]}
@@ -50,7 +50,7 @@ exports[`HeaderItem Products renders connect styling if provided 1`] = `
         tabIndex={0}
       />
     </HeaderItem__StyledHeaderItem>
-  </KeyboardFocusContainer>
+  </t>
 </HeaderItem>
 `;
 
@@ -58,7 +58,7 @@ exports[`HeaderItem Products renders explore styling if provided 1`] = `
 <HeaderItem
   product="explore"
 >
-  <KeyboardFocusContainer>
+  <t>
     <HeaderItem__StyledHeaderItem
       focused={false}
       onBlur={[Function]}
@@ -77,7 +77,7 @@ exports[`HeaderItem Products renders explore styling if provided 1`] = `
         tabIndex={0}
       />
     </HeaderItem__StyledHeaderItem>
-  </KeyboardFocusContainer>
+  </t>
 </HeaderItem>
 `;
 
@@ -85,7 +85,7 @@ exports[`HeaderItem Products renders guide styling if provided 1`] = `
 <HeaderItem
   product="guide"
 >
-  <KeyboardFocusContainer>
+  <t>
     <HeaderItem__StyledHeaderItem
       focused={false}
       onBlur={[Function]}
@@ -104,7 +104,7 @@ exports[`HeaderItem Products renders guide styling if provided 1`] = `
         tabIndex={0}
       />
     </HeaderItem__StyledHeaderItem>
-  </KeyboardFocusContainer>
+  </t>
 </HeaderItem>
 `;
 
@@ -112,7 +112,7 @@ exports[`HeaderItem Products renders message styling if provided 1`] = `
 <HeaderItem
   product="message"
 >
-  <KeyboardFocusContainer>
+  <t>
     <HeaderItem__StyledHeaderItem
       focused={false}
       onBlur={[Function]}
@@ -131,7 +131,7 @@ exports[`HeaderItem Products renders message styling if provided 1`] = `
         tabIndex={0}
       />
     </HeaderItem__StyledHeaderItem>
-  </KeyboardFocusContainer>
+  </t>
 </HeaderItem>
 `;
 
@@ -139,7 +139,7 @@ exports[`HeaderItem Products renders support styling if provided 1`] = `
 <HeaderItem
   product="support"
 >
-  <KeyboardFocusContainer>
+  <t>
     <HeaderItem__StyledHeaderItem
       focused={false}
       onBlur={[Function]}
@@ -158,7 +158,7 @@ exports[`HeaderItem Products renders support styling if provided 1`] = `
         tabIndex={0}
       />
     </HeaderItem__StyledHeaderItem>
-  </KeyboardFocusContainer>
+  </t>
 </HeaderItem>
 `;
 
@@ -166,7 +166,7 @@ exports[`HeaderItem Products renders talk styling if provided 1`] = `
 <HeaderItem
   product="talk"
 >
-  <KeyboardFocusContainer>
+  <t>
     <HeaderItem__StyledHeaderItem
       focused={false}
       onBlur={[Function]}
@@ -185,7 +185,7 @@ exports[`HeaderItem Products renders talk styling if provided 1`] = `
         tabIndex={0}
       />
     </HeaderItem__StyledHeaderItem>
-  </KeyboardFocusContainer>
+  </t>
 </HeaderItem>
 `;
 
@@ -193,7 +193,7 @@ exports[`HeaderItem States renders current styling if provided 1`] = `
 <HeaderItem
   current={true}
 >
-  <KeyboardFocusContainer>
+  <t>
     <HeaderItem__StyledHeaderItem
       current={true}
       focused={false}
@@ -212,7 +212,7 @@ exports[`HeaderItem States renders current styling if provided 1`] = `
         tabIndex={0}
       />
     </HeaderItem__StyledHeaderItem>
-  </KeyboardFocusContainer>
+  </t>
 </HeaderItem>
 `;
 
@@ -220,7 +220,7 @@ exports[`HeaderItem States renders focused styling if provided 1`] = `
 <HeaderItem
   focused={true}
 >
-  <KeyboardFocusContainer>
+  <t>
     <HeaderItem__StyledHeaderItem
       focused={true}
       onBlur={[Function]}
@@ -238,7 +238,7 @@ exports[`HeaderItem States renders focused styling if provided 1`] = `
         tabIndex={0}
       />
     </HeaderItem__StyledHeaderItem>
-  </KeyboardFocusContainer>
+  </t>
 </HeaderItem>
 `;
 
@@ -246,7 +246,7 @@ exports[`HeaderItem States renders hovered styling if provided 1`] = `
 <HeaderItem
   hovered={true}
 >
-  <KeyboardFocusContainer>
+  <t>
     <HeaderItem__StyledHeaderItem
       focused={false}
       hovered={true}
@@ -265,13 +265,13 @@ exports[`HeaderItem States renders hovered styling if provided 1`] = `
         tabIndex={0}
       />
     </HeaderItem__StyledHeaderItem>
-  </KeyboardFocusContainer>
+  </t>
 </HeaderItem>
 `;
 
 exports[`HeaderItem renders default styling 1`] = `
 <HeaderItem>
-  <KeyboardFocusContainer>
+  <t>
     <HeaderItem__StyledHeaderItem
       focused={false}
       onBlur={[Function]}
@@ -289,7 +289,7 @@ exports[`HeaderItem renders default styling 1`] = `
         tabIndex={0}
       />
     </HeaderItem__StyledHeaderItem>
-  </KeyboardFocusContainer>
+  </t>
 </HeaderItem>
 `;
 
@@ -297,7 +297,7 @@ exports[`HeaderItem renders logo styling if provided 1`] = `
 <HeaderItem
   logo={true}
 >
-  <KeyboardFocusContainer>
+  <t>
     <HeaderItem__StyledHeaderItem
       focused={false}
       logo={true}
@@ -316,7 +316,7 @@ exports[`HeaderItem renders logo styling if provided 1`] = `
         tabIndex={0}
       />
     </HeaderItem__StyledHeaderItem>
-  </KeyboardFocusContainer>
+  </t>
 </HeaderItem>
 `;
 
@@ -324,7 +324,7 @@ exports[`HeaderItem renders maxX styling if provided 1`] = `
 <HeaderItem
   maxX={true}
 >
-  <KeyboardFocusContainer>
+  <t>
     <HeaderItem__StyledHeaderItem
       focused={false}
       maxX={true}
@@ -343,7 +343,7 @@ exports[`HeaderItem renders maxX styling if provided 1`] = `
         tabIndex={0}
       />
     </HeaderItem__StyledHeaderItem>
-  </KeyboardFocusContainer>
+  </t>
 </HeaderItem>
 `;
 
@@ -351,7 +351,7 @@ exports[`HeaderItem renders maxY styling if provided 1`] = `
 <HeaderItem
   maxY={true}
 >
-  <KeyboardFocusContainer>
+  <t>
     <HeaderItem__StyledHeaderItem
       focused={false}
       maxY={true}
@@ -370,7 +370,7 @@ exports[`HeaderItem renders maxY styling if provided 1`] = `
         tabIndex={0}
       />
     </HeaderItem__StyledHeaderItem>
-  </KeyboardFocusContainer>
+  </t>
 </HeaderItem>
 `;
 
@@ -378,7 +378,7 @@ exports[`HeaderItem renders round styling if provided 1`] = `
 <HeaderItem
   round={true}
 >
-  <KeyboardFocusContainer>
+  <t>
     <HeaderItem__StyledHeaderItem
       focused={false}
       onBlur={[Function]}
@@ -397,6 +397,6 @@ exports[`HeaderItem renders round styling if provided 1`] = `
         tabIndex={0}
       />
     </HeaderItem__StyledHeaderItem>
-  </KeyboardFocusContainer>
+  </t>
 </HeaderItem>
 `;

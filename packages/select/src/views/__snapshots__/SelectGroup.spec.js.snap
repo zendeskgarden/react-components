@@ -2,7 +2,7 @@
 
 exports[`SelectGroup renders default styling 1`] = `
 <div
-  className="TextGroup-gCyNMQ c-txt frptIz"
+  className="TextGroup-gCyNMQ _14ptu2k3e4AM7KUn-rDViX frptIz"
   data-garden-id="select.select_group"
   data-garden-version="version"
 />

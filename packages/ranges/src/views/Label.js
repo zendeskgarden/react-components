@@ -11,7 +11,6 @@ import classNames from 'classnames';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import RangeStyles from '@zendeskgarden/css-forms/dist/range.css';
 
-import { version } from '../../package.json';
 const COMPONENT_ID = 'ranges.label';
 
 /**
@@ -19,7 +18,7 @@ const COMPONENT_ID = 'ranges.label';
  */
 const Label = styled.label.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(RangeStyles['c-range__label'], {
       [RangeStyles['c-range__label--regular']]: props.regular,

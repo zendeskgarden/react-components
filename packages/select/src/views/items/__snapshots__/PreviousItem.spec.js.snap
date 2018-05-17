@@ -2,7 +2,7 @@
 
 exports[`PreviousItem renders default styling 1`] = `
 <Item
-  className="PreviousItem-jKODZo c-menu__item--previous ctvbye"
+  className="PreviousItem-jKODZo _3synrisj13tA6oebWsu8C_ ctvbye"
   data-garden-id="select.previous_item"
   data-garden-version="version"
 />

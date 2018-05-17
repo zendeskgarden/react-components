@@ -2,7 +2,7 @@
 
 exports[`MediaBody renders default styling 1`] = `
 <div
-  className="MediaBody-gGrIhN c-menu__item--media__body gBCSWe"
+  className="MediaBody-gGrIhN _2GZE7UPyG01Qggy4DxuE7H gBCSWe"
   data-garden-id="select.media_body"
   data-garden-version="version"
 />

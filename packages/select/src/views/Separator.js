@@ -8,7 +8,6 @@
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import { Separator as MenuSeparator } from '@zendeskgarden/react-menus';
 
-import { version } from '../../package.json';
 const COMPONENT_ID = 'select.separator';
 
 /**
@@ -16,7 +15,7 @@ const COMPONENT_ID = 'select.separator';
  */
 const Separator = MenuSeparator.extend.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version
+  'data-garden-version': PACKAGE_VERSION
 })`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;

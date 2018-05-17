@@ -11,7 +11,6 @@ import classNames from 'classnames';
 import CalloutStyles from '@zendeskgarden/css-callouts';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 
-import { version } from '../package.json';
 import Well from './Well';
 const COMPONENT_ID = 'notifications.notification';
 
@@ -26,7 +25,7 @@ const VALIDATION = {
  */
 const Notification = styled(Well).attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   floating: true,
   className: props =>
     classNames({

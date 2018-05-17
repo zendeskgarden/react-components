@@ -2,7 +2,7 @@
 
 exports[`Hint renders default styling 1`] = `
 <div
-  className="Hint-gklniA c-txt__hint loLhxx"
+  className="Hint-gklniA _2Tn9VzibsXtpubaHZacxVn loLhxx"
   data-garden-id="select.hint"
   data-garden-version="version"
 />

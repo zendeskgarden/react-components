@@ -2,8 +2,8 @@
 
 exports[`MediaFigure renders default styling 1`] = `
 <svg
-  className="c-menu__item--media__figure"
+  className="_1a6W9WeVI-VVu74CTLxKdl"
   data-garden-id="menus.media_figure"
-  data-garden-version="version"
+  data-garden-version="2.0.2"
 />
 `;

@@ -2,7 +2,7 @@
 
 exports[`MediaItem renders default styling 1`] = `
 <Item
-  className="MediaItem-cNdayT c-menu__item--media hGiPLW"
+  className="MediaItem-cNdayT _2UFHld6MGJ898bpNVlocwi hGiPLW"
   data-garden-id="select.media_item"
   data-garden-version="version"
 />

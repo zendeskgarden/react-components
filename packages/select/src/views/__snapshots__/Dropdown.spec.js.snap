@@ -3,7 +3,7 @@
 exports[`Dropdown renders default styling 1`] = `
 <Dropdown>
   <Dropdown__StyledMenuView>
-    <MenuView
+    <k
       className="Dropdown__StyledMenuView-glrDnp picRJ"
       data-garden-id="select.dropdown"
       data-garden-version="version"
@@ -18,14 +18,14 @@ exports[`Dropdown renders default styling 1`] = `
             data-garden-version="version"
           >
             <ul
-              className="Dropdown__StyledMenuView-glrDnp picRJ MenuView__StyledMenuView-kxrVPe c-menu fDjDUm"
+              className="Dropdown__StyledMenuView-glrDnp picRJ MenuView__StyledMenuView-kxrVPe _4Vp4sCe1ncefqflQxpKBi fDjDUm"
               data-garden-id="select.dropdown"
               data-garden-version="version"
             />
           </MenuView__StyledMenuView>
         </div>
       </MenuView__MenuWrapper>
-    </MenuView>
+    </k>
   </Dropdown__StyledMenuView>
 </Dropdown>
 `;

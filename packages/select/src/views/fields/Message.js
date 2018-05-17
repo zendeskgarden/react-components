@@ -9,7 +9,6 @@ import PropTypes from 'prop-types';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import { Message as TextfieldMessage } from '@zendeskgarden/react-textfields';
 
-import { version } from '../../../package.json';
 const COMPONENT_ID = 'select.message';
 const VALIDATION = {
   SUCCESS: 'success',
@@ -22,7 +21,7 @@ const VALIDATION = {
  */
 const Message = TextfieldMessage.extend.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version
+  'data-garden-version': PACKAGE_VERSION
 })`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
