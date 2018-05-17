@@ -6,7 +6,6 @@
 const path = require('path');
 
 module.exports = {
-  require: [path.resolve('node_modules', '@zendeskgarden', 'react-buttons', 'dist', 'styles.css')],
   sections: [
     {
       name: '',

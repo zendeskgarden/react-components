@@ -111,8 +111,5 @@ const defaultStyleguideConfig = {
 };
 
 defaultStyleguideConfig.sections = customStyleguideConfig.sections;
-defaultStyleguideConfig.require = defaultStyleguideConfig.require.concat(
-  customStyleguideConfig.require || []
-);
 
 module.exports = defaultStyleguideConfig;

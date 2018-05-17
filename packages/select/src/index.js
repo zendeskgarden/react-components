@@ -5,9 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import '@zendeskgarden/react-menus/dist/styles.css';
-import '@zendeskgarden/react-textfields/dist/styles.css';
-
 export { default as SelectContainer } from './containers/SelectContainer';
 export { default as Select } from './elements/Select';
 export { default as SelectField } from './elements/SelectField';

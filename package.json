@@ -73,7 +73,6 @@
     "jest-styled-components": "^5.0.1",
     "lerna": "^2.11.0",
     "markdownlint-cli": "^0.8.2",
-    "mini-css-extract-plugin": "^0.4.0",
     "optimize-css-assets-webpack-plugin": "^4.0.1",
     "prettier": "^1.12.1",
     "prettier-package-json": "^1.6.0",

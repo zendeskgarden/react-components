@@ -7,11 +7,10 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const nodeExternals = require('webpack-node-externals');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const nodeExternals = require('webpack-node-externals');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const packageManifest = require(path.resolve('package.json'));
@@ -29,7 +28,7 @@ const options = {
   externals: [
     nodeExternals({
       modulesFromFile: true,
-      whitelist: [/^@zendeskgarden\/css-/, /dist\/styles.css/]
+      whitelist: [/^@zendeskgarden\/css-/]
     })
   ],
   optimization: {
@@ -46,9 +45,10 @@ const options = {
     new CleanWebpackPlugin(['dist'], {
       root: path.resolve()
     }),
-    new MiniCssExtractPlugin({
-      filename: 'styles.css'
-    }),
+    /**
+     * Allows the `data-garden-version` attribute to be applied to all
+     * views without importing entire package.json into the bundle
+     */
     new webpack.DefinePlugin({
       PACKAGE_VERSION: JSON.stringify(packageManifest.version)
     }),
@@ -75,20 +75,32 @@ found at http://www.apache.org/licenses/LICENSE-2.0`)
       },
       {
         test: /\.css?$/,
-        exclude: /@zendeskgarden\/css/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
-      },
-      {
-        test: /\.css?$/,
         include: /@zendeskgarden\/css/,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: 'style-loader',
+            options: {
+              /**
+               * Allows consumers to customize the default injection
+               * point of the Garden styling
+               */
+              /* eslint-disable object-shorthand, func-names */
+              insertInto: function() {
+                if (typeof window.__GARDEN_STYLE_INJECTOR__ === 'function') {
+                  return window.__GARDEN_STYLE_INJECTOR__();
+                }
+
+                return document.head;
+              }
+              /* eslint-enable object-shorthand, func-names */
+            }
+          },
           {
             loader: 'css-loader',
             options: {
               modules: true,
-              importLoaders: 1,
-              localIndentName: '[name]__[local]___[hash:base64:5]'
+              minimize: true,
+              localIdentName: '[name]__[local]___[hash:base64:5]'
             }
           }
         ]
