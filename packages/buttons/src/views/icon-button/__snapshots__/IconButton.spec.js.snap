@@ -8,16 +8,16 @@ exports[`IconButton renders pill and muted styling by default 1`] = `
 >
   <Button
     basic={true}
-    className="IconButton-hhQYmO c-btn--icon iIVfrT"
+    className="c-btn--icon "
     data-garden-id="buttons.icon_button"
     data-garden-version="version"
     muted={true}
     pill={true}
   >
-    <t>
+    <KeyboardFocusContainer>
       <Button__StyledButton
         basic={true}
-        className="IconButton-hhQYmO c-btn--icon iIVfrT"
+        className="c-btn--icon "
         data-garden-id="buttons.icon_button"
         data-garden-version="version"
         focused={false}
@@ -29,7 +29,7 @@ exports[`IconButton renders pill and muted styling by default 1`] = `
         tabIndex={0}
       >
         <button
-          className="IconButton-hhQYmO c-btn--icon iIVfrT Button__StyledButton-jJDkJK c-btn c-btn--basic c-btn--muted c-btn--pill kaVWyI"
+          className="c-btn--icon c-btn c-btn--basic c-btn--muted c-btn--pill "
           data-garden-id="buttons.icon_button"
           data-garden-version="version"
           muted={true}
@@ -40,7 +40,7 @@ exports[`IconButton renders pill and muted styling by default 1`] = `
           type="button"
         />
       </Button__StyledButton>
-    </t>
+    </KeyboardFocusContainer>
   </Button>
 </IconButton>
 `;

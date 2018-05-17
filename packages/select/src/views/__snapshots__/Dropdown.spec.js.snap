@@ -1,31 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Dropdown renders default styling 1`] = `
+.c0.c0 {
+  position: relative;
+}
+
+.c0:focus {
+  outline: none;
+}
+
 <Dropdown>
   <Dropdown__StyledMenuView>
-    <k
-      className="Dropdown__StyledMenuView-glrDnp picRJ"
+    <MenuView
+      className=""
       data-garden-id="select.dropdown"
       data-garden-version="version"
     >
       <MenuView__MenuWrapper>
         <div
-          className="MenuView__MenuWrapper-gKLuJf iQPnQE"
+          className=""
         >
           <MenuView__StyledMenuView
-            className="Dropdown__StyledMenuView-glrDnp picRJ"
+            className=""
             data-garden-id="select.dropdown"
             data-garden-version="version"
           >
             <ul
-              className="Dropdown__StyledMenuView-glrDnp picRJ MenuView__StyledMenuView-kxrVPe _4Vp4sCe1ncefqflQxpKBi fDjDUm"
+              className="index__c-menu___4Vp4s c0"
               data-garden-id="select.dropdown"
               data-garden-version="version"
             />
           </MenuView__StyledMenuView>
         </div>
       </MenuView__MenuWrapper>
-    </k>
+    </MenuView>
   </Dropdown__StyledMenuView>
 </Dropdown>
 `;

@@ -2,7 +2,7 @@
 
 exports[`Nav renders default styling 1`] = `
 <nav
-  className="Nav-iPNUCz c-chrome__nav kBnAed"
+  className="c-chrome__nav "
   data-garden-id="chrome.nav"
   data-garden-version="version"
 />

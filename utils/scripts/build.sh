@@ -2,4 +2,5 @@
 set -x
 set -e
 
+rimraf dist
 webpack --config ../../utils/build/webpack.config.js

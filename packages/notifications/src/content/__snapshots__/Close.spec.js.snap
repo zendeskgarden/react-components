@@ -2,7 +2,7 @@
 
 exports[`Close renders default close styling 1`] = `
 <button
-  className="Close-hpSOeC c-callout__close eUlaem"
+  className="c-callout__close "
   data-garden-id="notifications.close"
   data-garden-version="version"
 />
@@ -10,7 +10,7 @@ exports[`Close renders default close styling 1`] = `
 
 exports[`Close state renders focused styling correctly 1`] = `
 <button
-  className="Close-hpSOeC c-callout__close is-focused eUlaem"
+  className="c-callout__close is-focused "
   data-garden-id="notifications.close"
   data-garden-version="version"
 />
@@ -18,7 +18,7 @@ exports[`Close state renders focused styling correctly 1`] = `
 
 exports[`Close state renders hovered styling correctly 1`] = `
 <button
-  className="Close-hpSOeC c-callout__close is-hovered eUlaem"
+  className="c-callout__close is-hovered "
   data-garden-id="notifications.close"
   data-garden-version="version"
 />

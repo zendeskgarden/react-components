@@ -2,7 +2,7 @@
 
 exports[`Input renders default styling 1`] = `
 <input
-  className="Input-hxTtdt c-chk__input eyZowq"
+  className="c-chk__input "
   data-garden-id="checkboxes.input"
   data-garden-version="version"
   tabIndex={0}

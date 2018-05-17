@@ -2,7 +2,7 @@
 
 exports[`Tag renders RTL styling if provided 1`] = `
 <div
-  className="Tag-kSvqzu c-tag is-rtl MirJy"
+  className="c-tag is-rtl "
   data-garden-id="tags.tag_view"
   data-garden-version="version"
 />
@@ -10,7 +10,7 @@ exports[`Tag renders RTL styling if provided 1`] = `
 
 exports[`Tag renders default styling 1`] = `
 <div
-  className="Tag-kSvqzu c-tag MirJy"
+  className="c-tag "
   data-garden-id="tags.tag_view"
   data-garden-version="version"
 />
@@ -18,7 +18,7 @@ exports[`Tag renders default styling 1`] = `
 
 exports[`Tag renders pill styling if provided 1`] = `
 <div
-  className="Tag-kSvqzu c-tag c-tag--pill MirJy"
+  className="c-tag c-tag--pill "
   data-garden-id="tags.tag_view"
   data-garden-version="version"
 />
@@ -26,7 +26,7 @@ exports[`Tag renders pill styling if provided 1`] = `
 
 exports[`Tag size renders large styling if provided 1`] = `
 <div
-  className="Tag-kSvqzu c-tag c-tag--lg MirJy"
+  className="c-tag c-tag--lg "
   data-garden-id="tags.tag_view"
   data-garden-version="version"
   size="large"
@@ -35,7 +35,7 @@ exports[`Tag size renders large styling if provided 1`] = `
 
 exports[`Tag size renders small styling if provided 1`] = `
 <div
-  className="Tag-kSvqzu c-tag c-tag--sm MirJy"
+  className="c-tag c-tag--sm "
   data-garden-id="tags.tag_view"
   data-garden-version="version"
   size="small"
@@ -44,7 +44,7 @@ exports[`Tag size renders small styling if provided 1`] = `
 
 exports[`Tag state renders focused styling if provided 1`] = `
 <div
-  className="Tag-kSvqzu c-tag is-focused MirJy"
+  className="c-tag is-focused "
   data-garden-id="tags.tag_view"
   data-garden-version="version"
 />
@@ -52,7 +52,7 @@ exports[`Tag state renders focused styling if provided 1`] = `
 
 exports[`Tag state renders hovered styling if provided 1`] = `
 <div
-  className="Tag-kSvqzu c-tag is-hovered MirJy"
+  className="c-tag is-hovered "
   data-garden-id="tags.tag_view"
   data-garden-version="version"
 />
@@ -60,7 +60,7 @@ exports[`Tag state renders hovered styling if provided 1`] = `
 
 exports[`Tag visual types renders blue styling if provided 1`] = `
 <div
-  className="Tag-kSvqzu c-tag c-tag--blue MirJy"
+  className="c-tag c-tag--blue "
   data-garden-id="tags.tag_view"
   data-garden-version="version"
   type="blue"
@@ -69,7 +69,7 @@ exports[`Tag visual types renders blue styling if provided 1`] = `
 
 exports[`Tag visual types renders green styling if provided 1`] = `
 <div
-  className="Tag-kSvqzu c-tag c-tag--green MirJy"
+  className="c-tag c-tag--green "
   data-garden-id="tags.tag_view"
   data-garden-version="version"
   type="green"
@@ -78,7 +78,7 @@ exports[`Tag visual types renders green styling if provided 1`] = `
 
 exports[`Tag visual types renders grey styling if provided 1`] = `
 <div
-  className="Tag-kSvqzu c-tag c-tag--grey MirJy"
+  className="c-tag c-tag--grey "
   data-garden-id="tags.tag_view"
   data-garden-version="version"
   type="grey"
@@ -87,7 +87,7 @@ exports[`Tag visual types renders grey styling if provided 1`] = `
 
 exports[`Tag visual types renders kale styling if provided 1`] = `
 <div
-  className="Tag-kSvqzu c-tag c-tag--kale MirJy"
+  className="c-tag c-tag--kale "
   data-garden-id="tags.tag_view"
   data-garden-version="version"
   type="kale"
@@ -96,7 +96,7 @@ exports[`Tag visual types renders kale styling if provided 1`] = `
 
 exports[`Tag visual types renders red styling if provided 1`] = `
 <div
-  className="Tag-kSvqzu c-tag c-tag--red MirJy"
+  className="c-tag c-tag--red "
   data-garden-id="tags.tag_view"
   data-garden-version="version"
   type="red"
@@ -105,7 +105,7 @@ exports[`Tag visual types renders red styling if provided 1`] = `
 
 exports[`Tag visual types renders yellow styling if provided 1`] = `
 <div
-  className="Tag-kSvqzu c-tag c-tag--yellow MirJy"
+  className="c-tag c-tag--yellow "
   data-garden-id="tags.tag_view"
   data-garden-version="version"
   type="yellow"

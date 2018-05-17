@@ -11,8 +11,6 @@ const nodeExternals = require('webpack-node-externals');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-
 const packageManifest = require(path.resolve('package.json'));
 
 const options = {
@@ -36,15 +34,12 @@ const options = {
       new UglifyJsPlugin({
         cache: true,
         parallel: true,
-        sourceMap: true // set to true if you want JS source maps
+        sourceMap: true
       }),
       new OptimizeCSSAssetsPlugin({})
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(['dist'], {
-      root: path.resolve()
-    }),
     /**
      * Allows the `data-garden-version` attribute to be applied to all
      * views without importing entire package.json into the bundle

@@ -2,7 +2,7 @@
 
 exports[`HeaderIcon renders default styling 1`] = `
 <svg
-  className="_2H0uXtzXvjAhywng3Y87Fh"
+  className="index__c-menu__item--header__icon___2H0uX"
   data-garden-id="menus.header_icon"
   data-garden-version="2.0.2"
 />

@@ -1,8 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SelectView renders default styling 1`] = `
-<t
-  className="SelectView-gFycVX iqSPlb"
+.c0 {
+  cursor: default;
+}
+
+<FauxInput
+  className="c0"
   data-garden-id="select.select_view"
   data-garden-version="version"
   select={true}

@@ -12,8 +12,7 @@ module.exports = {
   moduleNameMapper: {
     '\\.(css|json)$': 'identity-obj-proxy',
     '@zendeskgarden/css': 'identity-obj-proxy',
-    '^utils': '<rootDir>/utils/test/jest.utils.js',
-    'styled-components': '<rootDir>/node_modules/styled-components'
+    '^utils': '<rootDir>/utils/test/jest.utils.js'
   },
   transform: {
     '^.+\\.js$': 'babel-jest'

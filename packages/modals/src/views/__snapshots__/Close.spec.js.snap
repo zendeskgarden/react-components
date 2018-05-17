@@ -1,6 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Close renders default close styling 1`] = `
+.c0::-moz-focus-inner {
+  border: 0;
+}
+
+.c0:focus {
+  outline: none;
+}
+
 <Close>
   <Close__StyledClose
     focused={false}
@@ -8,7 +16,7 @@ exports[`Close renders default close styling 1`] = `
     onFocus={[Function]}
   >
     <button
-      className="Close__StyledClose-jWcUAA c-dialog__close frzWdr"
+      className="c-dialog__close c0"
       data-garden-id="modals.close"
       data-garden-version="version"
       onBlur={[Function]}
@@ -19,6 +27,14 @@ exports[`Close renders default close styling 1`] = `
 `;
 
 exports[`Close state removes focused styling if blurred 1`] = `
+.c0::-moz-focus-inner {
+  border: 0;
+}
+
+.c0:focus {
+  outline: none;
+}
+
 <Close>
   <Close__StyledClose
     focused={false}
@@ -26,7 +42,7 @@ exports[`Close state removes focused styling if blurred 1`] = `
     onFocus={[Function]}
   >
     <button
-      className="Close__StyledClose-jWcUAA c-dialog__close frzWdr"
+      className="c-dialog__close c0"
       data-garden-id="modals.close"
       data-garden-version="version"
       onBlur={[Function]}
@@ -37,6 +53,14 @@ exports[`Close state removes focused styling if blurred 1`] = `
 `;
 
 exports[`Close state renders focused styling correctly if provided 1`] = `
+.c0::-moz-focus-inner {
+  border: 0;
+}
+
+.c0:focus {
+  outline: none;
+}
+
 <Close
   focused={true}
 >
@@ -46,7 +70,7 @@ exports[`Close state renders focused styling correctly if provided 1`] = `
     onFocus={[Function]}
   >
     <button
-      className="Close__StyledClose-jWcUAA c-dialog__close is-focused frzWdr"
+      className="c-dialog__close is-focused c0"
       data-garden-id="modals.close"
       data-garden-version="version"
       onBlur={[Function]}
@@ -57,6 +81,14 @@ exports[`Close state renders focused styling correctly if provided 1`] = `
 `;
 
 exports[`Close state renders focused styling if focused 1`] = `
+.c0::-moz-focus-inner {
+  border: 0;
+}
+
+.c0:focus {
+  outline: none;
+}
+
 <Close>
   <Close__StyledClose
     focused={true}
@@ -64,7 +96,7 @@ exports[`Close state renders focused styling if focused 1`] = `
     onFocus={[Function]}
   >
     <button
-      className="Close__StyledClose-jWcUAA c-dialog__close is-focused frzWdr"
+      className="c-dialog__close is-focused c0"
       data-garden-id="modals.close"
       data-garden-version="version"
       onBlur={[Function]}
@@ -75,6 +107,14 @@ exports[`Close state renders focused styling if focused 1`] = `
 `;
 
 exports[`Close state renders hovered styling correctly if provided 1`] = `
+.c0::-moz-focus-inner {
+  border: 0;
+}
+
+.c0:focus {
+  outline: none;
+}
+
 <Close
   hovered={true}
 >
@@ -85,7 +125,7 @@ exports[`Close state renders hovered styling correctly if provided 1`] = `
     onFocus={[Function]}
   >
     <button
-      className="Close__StyledClose-jWcUAA c-dialog__close is-hovered frzWdr"
+      className="c-dialog__close is-hovered c0"
       data-garden-id="modals.close"
       data-garden-version="version"
       onBlur={[Function]}

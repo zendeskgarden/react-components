@@ -2,7 +2,7 @@
 
 exports[`Body renders default styling 1`] = `
 <div
-  className="Body-blECEm c-chrome__body jWgMty"
+  className="c-chrome__body "
   data-garden-id="chrome.body"
   data-garden-version="version"
 />

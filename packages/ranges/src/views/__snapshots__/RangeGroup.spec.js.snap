@@ -2,7 +2,7 @@
 
 exports[`RangeGroup renders RTL styling 1`] = `
 <div
-  className="RangeGroup-jpqdrA c-range is-rtl jIeJBB"
+  className="c-range is-rtl "
   data-garden-id="ranges.range_group"
   data-garden-version="version"
 />
@@ -10,7 +10,7 @@ exports[`RangeGroup renders RTL styling 1`] = `
 
 exports[`RangeGroup renders default styling 1`] = `
 <div
-  className="RangeGroup-jpqdrA c-range jIeJBB"
+  className="c-range "
   data-garden-id="ranges.range_group"
   data-garden-version="version"
 />
@@ -18,7 +18,7 @@ exports[`RangeGroup renders default styling 1`] = `
 
 exports[`RangeGroup renders inline styling if provided 1`] = `
 <div
-  className="RangeGroup-jpqdrA c-range c-range--inline jIeJBB"
+  className="c-range c-range--inline "
   data-garden-id="ranges.range_group"
   data-garden-version="version"
 />
