@@ -3,4 +3,4 @@ set -x
 set -e
 
 rimraf dist
-webpack --config ../../utils/build/webpack.config.js
+webpack --config ../../utils/build/webpack.config.js --hide-modules
