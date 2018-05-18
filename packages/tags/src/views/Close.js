@@ -11,7 +11,6 @@ import classNames from 'classnames';
 import TagStyles from '@zendeskgarden/css-tags';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 
-import { version } from '../../package.json';
 const COMPONENT_ID = 'tags.close';
 
 /**
@@ -19,7 +18,7 @@ const COMPONENT_ID = 'tags.close';
  */
 const Close = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   'aria-label': 'Press delete to remove',
   className: props =>
     classNames(TagStyles['c-tag__remove'], {

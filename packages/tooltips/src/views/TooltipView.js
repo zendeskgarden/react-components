@@ -12,7 +12,6 @@ import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import ArrowStyles from '@zendeskgarden/css-arrows';
 import TooltipStyles from '@zendeskgarden/css-tooltips';
 
-import { version } from '../../package.json';
 const COMPONENT_ID = 'tooltip.tooltip';
 
 const SIZE = {
@@ -68,7 +67,7 @@ const retrieveTooltipMargin = ({ arrow, size }) => {
  */
 const TooltipView = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(TooltipStyles['c-tooltip'], {
       // Size

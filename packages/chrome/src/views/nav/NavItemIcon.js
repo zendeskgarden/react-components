@@ -8,14 +8,13 @@
 import React, { Children } from 'react';
 import ChromeStyles from '@zendeskgarden/css-chrome';
 
-import { version } from '../../../package.json';
 const COMPONENT_ID = 'chrome.nav_item_icon';
 
 /** Applies styling directly to child component */
 const NavItemIcon = ({ children }) => {
   return React.cloneElement(Children.only(children), {
     'data-garden-id': COMPONENT_ID,
-    'data-garden-version': version,
+    'data-garden-version': PACKAGE_VERSION,
     className: ChromeStyles['c-chrome__nav__item__icon']
   });
 };

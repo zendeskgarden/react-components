@@ -11,7 +11,6 @@ import classNames from 'classnames';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
 
-import { version } from '../../package.json';
 const COMPONENT_ID = 'checkboxes.label';
 
 /**
@@ -19,7 +18,7 @@ const COMPONENT_ID = 'checkboxes.label';
  */
 const Label = styled.label.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(CheckboxStyles['c-chk__label'], {
       // Styles

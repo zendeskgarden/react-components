@@ -2,7 +2,7 @@
 
 exports[`ToggleView renders RTL styling 1`] = `
 <div
-  className="ToggleView-iQplvQ c-chk is-rtl jVSeyt"
+  className="c-chk is-rtl "
   data-garden-id="toggles.toggle_view"
   data-garden-version="version"
 />
@@ -10,7 +10,7 @@ exports[`ToggleView renders RTL styling 1`] = `
 
 exports[`ToggleView renders default styling 1`] = `
 <div
-  className="ToggleView-iQplvQ c-chk jVSeyt"
+  className="c-chk "
   data-garden-id="toggles.toggle_view"
   data-garden-version="version"
 />

@@ -9,20 +9,29 @@ This package includes components relating to tags in the
 
 ```sh
 npm install @zendeskgarden/react-tags
+
+# Peer Dependencies - Also Required
+npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
 ```
 
 ## Usage
 
 ```jsx static
+import ThemeProvider from '@zendeskgarden/react-theming/ThemeProvider';
 import Tag from '@zendeskgarden/react-tags/Tag';
 import Avatar from '@zendeskgarden/react-tags/Avatar';
 import Close from '@zendeskgarden/react-tags/Close';
 
-<Tag pill>
-  <Avatar>
-    <img src="images/amir.png" alt="Example Avatar" />
-  </Avatar>
-  Default tag with avatar
-  <Close onClick={() => alert('remove tag')} />
-</Tag>;
+/**
+ * Place a `ThemeProvider` at the root of your React application
+ */
+<ThemeProvider>
+  <Tag pill>
+    <Avatar>
+      <img src="images/amir.png" alt="Example Avatar" />
+    </Avatar>
+    Default tag with avatar
+    <Close onClick={() => alert('remove tag')} />
+  </Tag>
+</ThemeProvider>;
 ```

@@ -8,7 +8,6 @@
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import { ItemMeta as MenuItemMeta } from '@zendeskgarden/react-menus';
 
-import { version } from '../../../package.json';
 const COMPONENT_ID = 'select.item_meta';
 
 /**
@@ -16,7 +15,7 @@ const COMPONENT_ID = 'select.item_meta';
  */
 const ItemMeta = MenuItemMeta.extend.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version
+  'data-garden-version': PACKAGE_VERSION
 })`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;

@@ -9,11 +9,15 @@ This package includes components relating to modals in the
 
 ```sh
 npm install @zendeskgarden/react-modals
+
+# Peer Dependencies - Also Required
+npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
 ```
 
 ## Usage
 
 ```jsx static
+import ThemeProvider from '@zendeskgarden/react-theming/ThemeProvider';
 import Modal from '@zendeskgarden/react-modals/Modal';
 import Header from '@zendeskgarden/react-modals/Header';
 import Body from '@zendeskgarden/react-modals/Body';
@@ -21,17 +25,22 @@ import Footer from '@zendeskgarden/react-modals/Footer';
 import Modal from '@zendeskgarden/react-modals/Close';
 import Close from '@zendeskgarden/react-buttons/Button';
 
-<Modal onClose={() => alert('modal closing'))}>
-  <Header>Example Header</Header>
-  <Body>
-    Some content
-  </Body>
-  <Footer>
-    <Button>Cancel</Button>
-    <Button primary>
-      Confirm
-    </Button>
-  </Footer>
-  <Close />
-</Modal>
+/**
+ * Place a `ThemeProvider` at the root of your React application
+ */
+<ThemeProvider>
+  <Modal onClose={() => alert('modal closing'))}>
+    <Header>Example Header</Header>
+    <Body>
+      Some content
+    </Body>
+    <Footer>
+      <Button>Cancel</Button>
+      <Button primary>
+        Confirm
+      </Button>
+    </Footer>
+    <Close />
+  </Modal>
+</ThemeProvider>
 ```

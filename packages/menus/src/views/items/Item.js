@@ -11,7 +11,6 @@ import classNames from 'classnames';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import MenuStyles from '@zendeskgarden/css-menus';
 
-import { version } from '../../../package.json';
 const COMPONENT_ID = 'menus.item';
 
 /**
@@ -19,7 +18,7 @@ const COMPONENT_ID = 'menus.item';
  */
 const Item = styled.li.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(MenuStyles['c-menu__item'], {
       // State

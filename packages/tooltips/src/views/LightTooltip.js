@@ -12,7 +12,7 @@ import TooltipStyles from '@zendeskgarden/css-tooltips';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 
 import TooltipView from './TooltipView';
-import { version } from '../../package.json';
+
 const COMPONENT_ID = 'tooltip.light_tooltip';
 
 const SIZE = {
@@ -34,7 +34,7 @@ const PLACEMENT = {
  */
 const LightTooltip = styled(TooltipView).attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: classNames(TooltipStyles['c-tooltip--light'])
 })`
   ${props => retrieveTheme(COMPONENT_ID, props)};

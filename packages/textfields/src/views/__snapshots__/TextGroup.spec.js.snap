@@ -2,7 +2,7 @@
 
 exports[`TextGroup renders RTL styling 1`] = `
 <div
-  className="TextGroup-gCyNMQ c-txt is-rtl hnXsJt"
+  className="c-txt is-rtl "
   data-garden-id="textfields.text_group"
   data-garden-version="version"
 />
@@ -10,7 +10,7 @@ exports[`TextGroup renders RTL styling 1`] = `
 
 exports[`TextGroup renders default styling 1`] = `
 <div
-  className="TextGroup-gCyNMQ c-txt hnXsJt"
+  className="c-txt "
   data-garden-id="textfields.text_group"
   data-garden-version="version"
 />
@@ -18,7 +18,7 @@ exports[`TextGroup renders default styling 1`] = `
 
 exports[`TextGroup renders inline styling if provided 1`] = `
 <div
-  className="TextGroup-gCyNMQ c-txt c-txt--inline hnXsJt"
+  className="c-txt c-txt--inline "
   data-garden-id="textfields.text_group"
   data-garden-version="version"
 />

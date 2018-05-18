@@ -11,7 +11,6 @@ import classNames from 'classnames';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import AvatarStyles from '@zendeskgarden/css-avatars';
 
-import { version } from '../package.json';
 const COMPONENT_ID = 'avatars.avatar';
 const SIZE = {
   SMALL: 'small',
@@ -23,7 +22,7 @@ const SIZE = {
  */
 const Avatar = styled.figure.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(AvatarStyles['c-avatar'], {
       // Types

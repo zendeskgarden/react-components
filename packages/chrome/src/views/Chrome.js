@@ -10,7 +10,6 @@ import classNames from 'classnames';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import ChromeStyles from '@zendeskgarden/css-chrome';
 
-import { version } from '../../package.json';
 const COMPONENT_ID = 'chrome.chrome';
 
 /**
@@ -18,7 +17,7 @@ const COMPONENT_ID = 'chrome.chrome';
  */
 const Chrome = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(ChromeStyles['c-chrome'], {
       // RTL

@@ -3,6 +3,8 @@
  * https://github.com/styleguidist/react-styleguidist/blob/master/docs/Configuration.md
  */
 
+const path = require('path');
+
 module.exports = {
   sections: [
     {

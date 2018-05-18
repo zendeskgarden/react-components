@@ -9,14 +9,23 @@ This package includes components relating to {{component}} in the
 
 ```sh
 npm install @zendeskgarden/react-{{component}}
+
+# Peer Dependencies - Also Required
+npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
 ```
 
 ## Usage
 
 ```jsx static
+import ThemeProvider from '@zendeskgarden/react-theming/ThemeProvider';
 import Example from '@zendeskgarden/react-{{component}}/Example';
 
-<Example>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</Example>;
+/**
+ * Place a `ThemeProvider` at the root of your React application
+ */
+<ThemeProvider>
+  <Example>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</Example>;
+</ThemeProvider>;
 ```
 
 <!--

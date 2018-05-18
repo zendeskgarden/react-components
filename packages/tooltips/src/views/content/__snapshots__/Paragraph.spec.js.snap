@@ -2,7 +2,7 @@
 
 exports[`Paragraph renders default styling correctly 1`] = `
 <div
-  className="Paragraph-hHEPzZ c-tooltip__paragraph dGmfhx"
+  className="c-tooltip__paragraph "
   data-garden-id="tooltip.paragraph"
   data-garden-version="version"
 />

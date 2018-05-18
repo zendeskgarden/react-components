@@ -11,7 +11,6 @@ import classNames from 'classnames';
 import CalloutStyles from '@zendeskgarden/css-callouts';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 
-import { version } from '../../package.json';
 const COMPONENT_ID = 'notifications.close';
 
 /**
@@ -19,7 +18,7 @@ const COMPONENT_ID = 'notifications.close';
  */
 const Close = styled.button.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(CalloutStyles['c-callout__close'], {
       // State

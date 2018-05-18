@@ -2,7 +2,7 @@
 
 exports[`PreviousPage renders default styling 1`] = `
 <Page
-  className="PreviousPage-djUAqQ c-pagination__page--previous haTfKO"
+  className="c-pagination__page--previous "
   data-garden-id="pagination.previous_page"
   data-garden-version="version"
 />

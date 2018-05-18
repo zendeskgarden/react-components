@@ -9,11 +9,15 @@ This package includes components relating to checkboxes in the
 
 ```sh
 npm install @zendeskgarden/react-checkboxes
+
+# Peer Dependencies - Also Required
+npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
 ```
 
 ## Usage
 
 ```jsx static
+import ThemeProvider from '@zendeskgarden/react-theming/ThemeProvider';
 import Checkbox from '@zendeskgarden/react-checkboxes/Checkbox';
 import Label from '@zendeskgarden/react-checkboxes/Label';
 
@@ -21,10 +25,15 @@ initialState = {
   isChecked: false
 };
 
-<Checkbox
-  checked={state.isChecked}
-  onChange={event => setState({ isChecked: event.target.checked })}
->
-  <Label>Example Checkbox</Label>
-</Checkbox>;
+/**
+ * Place a `ThemeProvider` at the root of your React application
+ */
+<ThemeProvider>
+  <Checkbox
+    checked={state.isChecked}
+    onChange={event => setState({ isChecked: event.target.checked })}
+  >
+    <Label>Example Checkbox</Label>
+  </Checkbox>
+</ThemeProvider>;
 ```

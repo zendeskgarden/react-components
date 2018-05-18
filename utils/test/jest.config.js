@@ -7,19 +7,23 @@
 
 module.exports = {
   rootDir: '../../',
-  setupTestFrameworkScriptFile: '<rootDir>/utils/test/jest.setup.js',
-  snapshotSerializers: ['enzyme-to-json/serializer'],
-  moduleNameMapper: {
-    '\\.(css|json)$': 'identity-obj-proxy',
-    '@zendeskgarden/css': 'identity-obj-proxy',
-    '^utils': '<rootDir>/utils/test/jest.utils.js',
-    'styled-components': '<rootDir>/node_modules/styled-components'
-  },
-  modulePathIgnorePatterns: ['packages/.[a-z]*/dist'],
+  modulePathIgnorePatterns: ['./node_modules'],
+  transformIgnorePatterns: ['\\/node_modules\\/(?!@zendeskgarden)'],
+  resolver: `${__dirname}/jest.resolver.js`,
   transform: {
     '^.+\\.js$': 'babel-jest'
   },
-  transformIgnorePatterns: ['node_modules/(?!(garden-react)/)'],
+  globals: {
+    PACKAGE_VERSION: 'version'
+  },
+  moduleFileExtensions: ['js', 'ts', 'tsx'],
+  snapshotSerializers: ['enzyme-to-json/serializer'],
+  setupTestFrameworkScriptFile: '<rootDir>/utils/test/jest.setup.js',
+  moduleNameMapper: {
+    '\\.(css|json)$': 'identity-obj-proxy',
+    '@zendeskgarden/css': 'identity-obj-proxy',
+    '^utils': '<rootDir>/utils/test/jest.utils.js'
+  },
   collectCoverageFrom: [
     '<rootDir>/packages/*/src/**/*.{js,jsx}',
     '!**/node_modules/**',

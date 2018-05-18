@@ -9,9 +9,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import TagStyles from '@zendeskgarden/css-tags';
+
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 
-import { version } from '../../package.json';
 const COMPONENT_ID = 'tags.tag_view';
 
 const TYPE = {
@@ -33,7 +33,7 @@ const SIZE = {
  */
 const Tag = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(TagStyles['c-tag'], {
       // Sizes

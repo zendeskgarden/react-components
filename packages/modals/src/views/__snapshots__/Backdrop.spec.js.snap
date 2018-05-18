@@ -2,7 +2,7 @@
 
 exports[`Backdrop renders RTL styling 1`] = `
 <div
-  className="Backdrop-epcaqy l-backdrop is-rtl tgvoZ"
+  className="l-backdrop is-rtl "
   data-garden-id="modals.backdrop"
   data-garden-version="version"
 />
@@ -10,7 +10,7 @@ exports[`Backdrop renders RTL styling 1`] = `
 
 exports[`Backdrop renders animation styling if provided 1`] = `
 <div
-  className="Backdrop-epcaqy l-backdrop is-visible tgvoZ"
+  className="l-backdrop is-visible "
   data-garden-id="modals.backdrop"
   data-garden-version="version"
 />
@@ -18,7 +18,7 @@ exports[`Backdrop renders animation styling if provided 1`] = `
 
 exports[`Backdrop renders center styling if provided 1`] = `
 <div
-  className="Backdrop-epcaqy l-backdrop l-backdrop--center tgvoZ"
+  className="l-backdrop l-backdrop--center "
   data-garden-id="modals.backdrop"
   data-garden-version="version"
 />
@@ -26,7 +26,7 @@ exports[`Backdrop renders center styling if provided 1`] = `
 
 exports[`Backdrop renders default styling 1`] = `
 <div
-  className="Backdrop-epcaqy l-backdrop tgvoZ"
+  className="l-backdrop "
   data-garden-id="modals.backdrop"
   data-garden-version="version"
 />

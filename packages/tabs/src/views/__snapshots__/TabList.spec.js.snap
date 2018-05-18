@@ -1,7 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TabList renders default styling 1`] = `
+.c0:focus {
+  outline: none;
+}
+
 <div
-  className="TabList-gUcbNH c-tab__list hFfbzd"
+  className="c-tab__list c0"
 />
 `;

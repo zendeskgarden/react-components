@@ -9,11 +9,15 @@ This package includes components relating to toggles in the
 
 ```sh
 npm install @zendeskgarden/react-toggles
+
+# Peer Dependencies - Also Required
+npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
 ```
 
 ## Usage
 
 ```jsx static
+import ThemeProvider from '@zendeskgarden/react-theming/ThemeProvider';
 import Toggle from '@zendeskgarden/react-toggles/Toggle';
 import Label from '@zendeskgarden/react-toggles/Label';
 
@@ -21,7 +25,15 @@ initialState = {
   isEnabled: false
 };
 
-<Toggle checked={state.isEnabled} onChange={event => setState({ isEnabled: event.target.checked })}>
-  <Label>Example Toggle</Label>
-</Toggle>;
+/**
+ * Place a `ThemeProvider` at the root of your React application
+ */
+<ThemeProvider>
+  <Toggle
+    checked={state.isEnabled}
+    onChange={event => setState({ isEnabled: event.target.checked })}
+  >
+    <Label>Example Toggle</Label>
+  </Toggle>
+</ThemeProvider>;
 ```

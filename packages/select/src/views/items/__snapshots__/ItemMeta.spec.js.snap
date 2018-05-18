@@ -2,7 +2,7 @@
 
 exports[`ItemMeta renders default styling 1`] = `
 <span
-  className="ItemMeta-jmIeJN c-menu__item__meta bTnHVY"
+  className="c-menu__item__meta "
   data-garden-id="select.item_meta"
   data-garden-version="version"
 />
