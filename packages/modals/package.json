@@ -9,6 +9,7 @@
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
   "version": "3.0.1",
+  "zendeskgarden:src": "src/index.js",
   "main": "./dist/index.js",
   "files": [
     "dist"

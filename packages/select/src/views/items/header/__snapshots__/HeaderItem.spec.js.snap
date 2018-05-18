@@ -2,7 +2,7 @@
 
 exports[`HeaderItem renders default styling 1`] = `
 <Item
-  className="index__c-menu__item--header___2OHN9 "
+  className="c-menu__item--header "
   data-garden-id="select.header_item"
   data-garden-version="version"
 />

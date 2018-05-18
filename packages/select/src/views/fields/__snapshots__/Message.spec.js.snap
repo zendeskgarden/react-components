@@ -2,7 +2,7 @@
 
 exports[`Message renders default styling 1`] = `
 <div
-  className="text__c-txt__message___J_8FM "
+  className="c-txt__message "
   data-garden-id="select.message"
   data-garden-version="version"
 />

@@ -2,7 +2,7 @@
 
 exports[`Hint renders default styling 1`] = `
 <div
-  className="text__c-txt__hint___2Tn9V "
+  className="c-txt__hint "
   data-garden-id="select.hint"
   data-garden-version="version"
 />

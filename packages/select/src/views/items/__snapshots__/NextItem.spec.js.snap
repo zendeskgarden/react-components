@@ -2,7 +2,7 @@
 
 exports[`NextItem renders default styling 1`] = `
 <Item
-  className="index__c-menu__item--next___1je1H "
+  className="c-menu__item--next "
   data-garden-id="select.next_item"
   data-garden-version="version"
 />

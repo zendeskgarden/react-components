@@ -2,7 +2,7 @@
 
 exports[`Item renders default styling 1`] = `
 <li
-  className="index__c-menu__item___1VmSc "
+  className="c-menu__item "
   data-garden-id="select.item"
   data-garden-version="version"
 />
