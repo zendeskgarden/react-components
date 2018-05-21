@@ -11,10 +11,9 @@ import styled from 'styled-components';
 import { zdColorKale700 } from '@zendeskgarden/css-variables';
 import TableOfContentsRenderer from 'react-styleguidist/lib/rsg-components/TableOfContents/TableOfContentsRenderer';
 
-import { Button, Anchor } from '../../../packages/buttons';
-import { ThemeProvider } from '../../../packages/theming';
-import packageJson from 'package.json';
-import { Tooltip, Title } from '../../../packages/tooltips';
+import { Button, Anchor } from '../../../packages/buttons/src';
+import { ThemeProvider } from '../../../packages/theming/src';
+import { Tooltip, Title } from '../../../packages/tooltips/src';
 
 const RTLContainer = styled.div`
   margin-top: 16px;
@@ -78,7 +77,7 @@ const TableOfContents = ({ children, ...other }) => {
           </Tooltip>
         </ThemeProvider>
       </RTLContainer>
-      <Version title="Current version">v{packageJson.version}</Version>
+      <Version title="Current version">v{PACKAGE_VERSION}</Version>
     </TableOfContentsRenderer>
   );
 };

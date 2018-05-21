@@ -19,11 +19,7 @@ const LERNA_PUBLISH_MESSAGE = lernaConfig.commands.publish.message;
  * Only perform publish if commit message is Lerna created
  */
 if (process.env.TRAVIS_COMMIT_MESSAGE.indexOf(LERNA_PUBLISH_MESSAGE) > -1) {
-  const lernaExecPublish = childProcess.spawn(lernaPath, [
-    '--since=HEAD^',
-    'exec',
-    'npm publish dist'
-  ]);
+  const lernaExecPublish = childProcess.spawn(lernaPath, ['--since=HEAD^', 'exec', 'npm publish']);
 
   lernaExecPublish.stdout.on('data', data => {
     process.stdout.write(data);

@@ -2,4 +2,6 @@
 set -x
 set -e
 
-gulp --gulpfile ../../utils/build/gulpfile.build.js --cwd ./
+rimraf dist
+webpack --config ../../utils/build/webpack.commonjs.js --hide-modules
+webpack --config ../../utils/build/webpack.umd.js --hide-modules
