@@ -2,7 +2,7 @@
 
 exports[`AddItem renders default styling 1`] = `
 <Item
-  className="AddItem-PIOLk c-menu__item--add jdpBIP"
+  className="c-menu__item--add "
   data-garden-id="menus.add_item"
   data-garden-version="version"
 />

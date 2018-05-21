@@ -9,7 +9,6 @@ import styled from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import MenuStyles from '@zendeskgarden/css-menus';
 
-import { version } from '../../../../package.json';
 const COMPONENT_ID = 'menus.media_body';
 
 /**
@@ -17,7 +16,7 @@ const COMPONENT_ID = 'menus.media_body';
  */
 const MediaBody = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: MenuStyles['c-menu__item--media__body']
 })`
   ${props => retrieveTheme(COMPONENT_ID, props)};

@@ -2,7 +2,7 @@
 
 exports[`RadioView renders RTL styling 1`] = `
 <div
-  className="RadioView-cqVVRk c-chk is-rtl dZGaCa"
+  className="c-chk is-rtl "
   data-garden-id="radios.radio_view"
   data-garden-version="version"
 />
@@ -10,7 +10,7 @@ exports[`RadioView renders RTL styling 1`] = `
 
 exports[`RadioView renders default styling 1`] = `
 <div
-  className="RadioView-cqVVRk c-chk dZGaCa"
+  className="c-chk "
   data-garden-id="radios.radio_view"
   data-garden-version="version"
 />

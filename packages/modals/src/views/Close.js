@@ -13,12 +13,11 @@ import ModalStyles from '@zendeskgarden/css-modals';
 import { composeEventHandlers } from '@zendeskgarden/react-selection';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 
-import { version } from '../../package.json';
 const COMPONENT_ID = 'modals.close';
 
 const StyledClose = styled.button.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(ModalStyles['c-dialog__close'], {
       // State

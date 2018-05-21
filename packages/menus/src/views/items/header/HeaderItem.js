@@ -11,7 +11,7 @@ import { retrieveTheme } from '@zendeskgarden/react-theming';
 import MenuStyles from '@zendeskgarden/css-menus';
 
 import Item from '../Item';
-import { version } from '../../../../package.json';
+
 const COMPONENT_ID = 'menus.header_item';
 
 /**
@@ -19,7 +19,7 @@ const COMPONENT_ID = 'menus.header_item';
  */
 const HeaderItem = styled(Item).attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: MenuStyles['c-menu__item--header']
 })`
   ${props => retrieveTheme(COMPONENT_ID, props)};

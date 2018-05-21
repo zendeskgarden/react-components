@@ -2,7 +2,7 @@
 
 exports[`Hint renders RTL styling 1`] = `
 <div
-  className="Hint-gklniA c-chk__hint is-rtl nhFXS"
+  className="c-chk__hint is-rtl "
   data-garden-id="checkboxes.hint"
   data-garden-version="version"
 />
@@ -10,7 +10,7 @@ exports[`Hint renders RTL styling 1`] = `
 
 exports[`Hint renders default styling 1`] = `
 <div
-  className="Hint-gklniA c-chk__hint nhFXS"
+  className="c-chk__hint "
   data-garden-id="checkboxes.hint"
   data-garden-version="version"
 />

@@ -2,7 +2,7 @@
 
 exports[`Chrome renders RTL styling 1`] = `
 <div
-  className="Chrome-hClciK c-chrome is-rtl gWTDmM"
+  className="c-chrome is-rtl "
   data-garden-id="chrome.chrome"
   data-garden-version="version"
 />
@@ -10,7 +10,7 @@ exports[`Chrome renders RTL styling 1`] = `
 
 exports[`Chrome renders default styling 1`] = `
 <div
-  className="Chrome-hClciK c-chrome gWTDmM"
+  className="c-chrome "
   data-garden-id="chrome.chrome"
   data-garden-version="version"
 />

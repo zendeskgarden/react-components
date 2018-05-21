@@ -14,7 +14,7 @@ exports[`HeaderItem Products renders chat styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="HeaderItem__StyledHeaderItem-rjTJP c-chrome__body__header__item c-chrome__body__header__item--logo--chat dnTyCP"
+        className="c-chrome__body__header__item c-chrome__body__header__item--logo--chat "
         data-garden-id="chrome.header_item"
         data-garden-version="version"
         onBlur={[Function]}
@@ -41,7 +41,7 @@ exports[`HeaderItem Products renders connect styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="HeaderItem__StyledHeaderItem-rjTJP c-chrome__body__header__item c-chrome__body__header__item--logo--connect dnTyCP"
+        className="c-chrome__body__header__item c-chrome__body__header__item--logo--connect "
         data-garden-id="chrome.header_item"
         data-garden-version="version"
         onBlur={[Function]}
@@ -68,7 +68,7 @@ exports[`HeaderItem Products renders explore styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="HeaderItem__StyledHeaderItem-rjTJP c-chrome__body__header__item c-chrome__body__header__item--logo--explore dnTyCP"
+        className="c-chrome__body__header__item c-chrome__body__header__item--logo--explore "
         data-garden-id="chrome.header_item"
         data-garden-version="version"
         onBlur={[Function]}
@@ -95,7 +95,7 @@ exports[`HeaderItem Products renders guide styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="HeaderItem__StyledHeaderItem-rjTJP c-chrome__body__header__item c-chrome__body__header__item--logo--guide dnTyCP"
+        className="c-chrome__body__header__item c-chrome__body__header__item--logo--guide "
         data-garden-id="chrome.header_item"
         data-garden-version="version"
         onBlur={[Function]}
@@ -122,7 +122,7 @@ exports[`HeaderItem Products renders message styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="HeaderItem__StyledHeaderItem-rjTJP c-chrome__body__header__item c-chrome__body__header__item--logo--message dnTyCP"
+        className="c-chrome__body__header__item c-chrome__body__header__item--logo--message "
         data-garden-id="chrome.header_item"
         data-garden-version="version"
         onBlur={[Function]}
@@ -149,7 +149,7 @@ exports[`HeaderItem Products renders support styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="HeaderItem__StyledHeaderItem-rjTJP c-chrome__body__header__item c-chrome__body__header__item--logo--support dnTyCP"
+        className="c-chrome__body__header__item c-chrome__body__header__item--logo--support "
         data-garden-id="chrome.header_item"
         data-garden-version="version"
         onBlur={[Function]}
@@ -176,7 +176,7 @@ exports[`HeaderItem Products renders talk styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="HeaderItem__StyledHeaderItem-rjTJP c-chrome__body__header__item c-chrome__body__header__item--logo--talk dnTyCP"
+        className="c-chrome__body__header__item c-chrome__body__header__item--logo--talk "
         data-garden-id="chrome.header_item"
         data-garden-version="version"
         onBlur={[Function]}
@@ -203,7 +203,7 @@ exports[`HeaderItem States renders current styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="HeaderItem__StyledHeaderItem-rjTJP c-chrome__body__header__item dnTyCP"
+        className="c-chrome__body__header__item "
         data-garden-id="chrome.header_item"
         data-garden-version="version"
         onBlur={[Function]}
@@ -229,7 +229,7 @@ exports[`HeaderItem States renders focused styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="HeaderItem__StyledHeaderItem-rjTJP c-chrome__body__header__item is-focused dnTyCP"
+        className="c-chrome__body__header__item is-focused "
         data-garden-id="chrome.header_item"
         data-garden-version="version"
         onBlur={[Function]}
@@ -256,7 +256,7 @@ exports[`HeaderItem States renders hovered styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="HeaderItem__StyledHeaderItem-rjTJP c-chrome__body__header__item is-hovered dnTyCP"
+        className="c-chrome__body__header__item is-hovered "
         data-garden-id="chrome.header_item"
         data-garden-version="version"
         onBlur={[Function]}
@@ -280,7 +280,7 @@ exports[`HeaderItem renders default styling 1`] = `
       tabIndex={0}
     >
       <button
-        className="HeaderItem__StyledHeaderItem-rjTJP c-chrome__body__header__item dnTyCP"
+        className="c-chrome__body__header__item "
         data-garden-id="chrome.header_item"
         data-garden-version="version"
         onBlur={[Function]}
@@ -307,7 +307,7 @@ exports[`HeaderItem renders logo styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="HeaderItem__StyledHeaderItem-rjTJP c-chrome__body__header__item c-chrome__body__header__item--logo dnTyCP"
+        className="c-chrome__body__header__item c-chrome__body__header__item--logo "
         data-garden-id="chrome.header_item"
         data-garden-version="version"
         onBlur={[Function]}
@@ -334,7 +334,7 @@ exports[`HeaderItem renders maxX styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="HeaderItem__StyledHeaderItem-rjTJP c-chrome__body__header__item c-chrome__body__header__item--max-x dnTyCP"
+        className="c-chrome__body__header__item c-chrome__body__header__item--max-x "
         data-garden-id="chrome.header_item"
         data-garden-version="version"
         onBlur={[Function]}
@@ -361,7 +361,7 @@ exports[`HeaderItem renders maxY styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="HeaderItem__StyledHeaderItem-rjTJP c-chrome__body__header__item c-chrome__body__header__item--max-y dnTyCP"
+        className="c-chrome__body__header__item c-chrome__body__header__item--max-y "
         data-garden-id="chrome.header_item"
         data-garden-version="version"
         onBlur={[Function]}
@@ -388,7 +388,7 @@ exports[`HeaderItem renders round styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="HeaderItem__StyledHeaderItem-rjTJP c-chrome__body__header__item c-chrome__body__header__item--round dnTyCP"
+        className="c-chrome__body__header__item c-chrome__body__header__item--round "
         data-garden-id="chrome.header_item"
         data-garden-version="version"
         onBlur={[Function]}

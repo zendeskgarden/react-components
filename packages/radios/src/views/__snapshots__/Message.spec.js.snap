@@ -2,7 +2,7 @@
 
 exports[`Message renders RTL styling 1`] = `
 <div
-  className="Message-klYsfs c-chk__message c-chk__message--radio is-rtl gdSoob"
+  className="c-chk__message c-chk__message--radio is-rtl "
   data-garden-id="radios.message"
   data-garden-version="version"
 />
@@ -10,7 +10,7 @@ exports[`Message renders RTL styling 1`] = `
 
 exports[`Message renders default styling 1`] = `
 <div
-  className="Message-klYsfs c-chk__message c-chk__message--radio gdSoob"
+  className="c-chk__message c-chk__message--radio "
   data-garden-id="radios.message"
   data-garden-version="version"
 />
@@ -18,7 +18,7 @@ exports[`Message renders default styling 1`] = `
 
 exports[`Message validation renders error styling if provided 1`] = `
 <div
-  className="Message-klYsfs c-chk__message c-chk__message--radio c-chk__message--error gdSoob"
+  className="c-chk__message c-chk__message--radio c-chk__message--error "
   data-garden-id="radios.message"
   data-garden-version="version"
 />
@@ -26,7 +26,7 @@ exports[`Message validation renders error styling if provided 1`] = `
 
 exports[`Message validation renders success styling if provided 1`] = `
 <div
-  className="Message-klYsfs c-chk__message c-chk__message--radio c-chk__message--success gdSoob"
+  className="c-chk__message c-chk__message--radio c-chk__message--success "
   data-garden-id="radios.message"
   data-garden-version="version"
 />
@@ -34,7 +34,7 @@ exports[`Message validation renders success styling if provided 1`] = `
 
 exports[`Message validation renders warning styling if provided 1`] = `
 <div
-  className="Message-klYsfs c-chk__message c-chk__message--radio c-chk__message--warning gdSoob"
+  className="c-chk__message c-chk__message--radio c-chk__message--warning "
   data-garden-id="radios.message"
   data-garden-version="version"
 />

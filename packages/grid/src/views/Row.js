@@ -11,7 +11,6 @@ import classNames from 'classnames';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import GridStyles from '@zendeskgarden/css-grid';
 
-import { version } from '../../package.json';
 const COMPONENT_ID = 'grid.row';
 
 /**
@@ -19,7 +18,7 @@ const COMPONENT_ID = 'grid.row';
  */
 const Row = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(GridStyles.row, {
       [GridStyles['no-gutters']]: !props.gutters,

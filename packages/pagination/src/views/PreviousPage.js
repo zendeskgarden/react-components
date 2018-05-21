@@ -10,7 +10,6 @@ import styled from 'styled-components';
 import PaginationStyles from '@zendeskgarden/css-pagination';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 
-import { version } from '../../package.json';
 import Page from './Page';
 const COMPONENT_ID = 'pagination.previous_page';
 
@@ -19,7 +18,7 @@ const COMPONENT_ID = 'pagination.previous_page';
  */
 const PreviousPage = styled(Page).attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: PaginationStyles['c-pagination__page--previous']
 })`
   ${props => retrieveTheme(COMPONENT_ID, props)};

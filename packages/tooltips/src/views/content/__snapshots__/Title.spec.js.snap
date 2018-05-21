@@ -2,7 +2,7 @@
 
 exports[`Title renders default styling correctly 1`] = `
 <div
-  className="Title-kEkEAm c-tooltip__title kqpoIR"
+  className="c-tooltip__title "
   data-garden-id="tooltip.title"
   data-garden-version="version"
 />

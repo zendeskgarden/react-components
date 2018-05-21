@@ -10,7 +10,6 @@ import styled from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import { FauxInput } from '@zendeskgarden/react-textfields';
 
-import { version } from '../../package.json';
 const COMPONENT_ID = 'select.select_view';
 const VALIDATION = {
   SUCCESS: 'success',
@@ -20,7 +19,7 @@ const VALIDATION = {
 
 const SelectView = styled(FauxInput).attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   select: true
 })`
   cursor: default;

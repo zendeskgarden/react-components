@@ -11,7 +11,6 @@ import classNames from 'classnames';
 import PaginationStyles from '@zendeskgarden/css-pagination';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 
-import { version } from '../../package.json';
 const COMPONENT_ID = 'pagination.page';
 
 /**
@@ -19,7 +18,7 @@ const COMPONENT_ID = 'pagination.page';
  */
 const Page = styled.li.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(PaginationStyles['c-pagination__page'], {
       // States

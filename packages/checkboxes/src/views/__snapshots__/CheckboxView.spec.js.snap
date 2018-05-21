@@ -2,7 +2,7 @@
 
 exports[`CheckboxView renders RTL styling 1`] = `
 <div
-  className="CheckboxView-jJyWlI c-chk is-rtl ennyHB"
+  className="c-chk is-rtl "
   data-garden-id="checkboxes.checkbox_view"
   data-garden-version="version"
 />
@@ -10,7 +10,7 @@ exports[`CheckboxView renders RTL styling 1`] = `
 
 exports[`CheckboxView renders default styling 1`] = `
 <div
-  className="CheckboxView-jJyWlI c-chk ennyHB"
+  className="c-chk "
   data-garden-id="checkboxes.checkbox_view"
   data-garden-version="version"
 />

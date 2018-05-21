@@ -13,7 +13,6 @@ import { retrieveTheme } from '@zendeskgarden/react-theming';
 import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
 import ChromeStyles from '@zendeskgarden/css-chrome';
 
-import { version } from '../../../package.json';
 const COMPONENT_ID = 'chrome.header_item';
 
 const PRODUCT = {
@@ -28,7 +27,7 @@ const PRODUCT = {
 
 export const StyledHeaderItem = styled.button.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(ChromeStyles['c-chrome__body__header__item'], {
       // Styling

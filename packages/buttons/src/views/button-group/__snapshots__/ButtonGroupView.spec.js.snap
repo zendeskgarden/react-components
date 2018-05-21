@@ -1,16 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ButtonGroupView renders correct styling 1`] = `
+.c0:focus {
+  outline: none;
+}
+
 <div
-  className="ButtonGroupView-koMLKD l-btn-group hFhURU"
+  className="l-btn-group c0"
   data-garden-id="buttons.button_group_view"
   data-garden-version="version"
 />
 `;
 
 exports[`ButtonGroupView renders correctly styling when RTL 1`] = `
+.c0:focus {
+  outline: none;
+}
+
 <div
-  className="ButtonGroupView-koMLKD l-btn-group is-rtl hFhURU"
+  className="l-btn-group is-rtl c0"
   data-garden-id="buttons.button_group_view"
   data-garden-version="version"
 />

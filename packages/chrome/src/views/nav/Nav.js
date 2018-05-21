@@ -11,7 +11,6 @@ import classNames from 'classnames';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import ChromeStyles from '@zendeskgarden/css-chrome';
 
-import { version } from '../../../package.json';
 const COMPONENT_ID = 'chrome.nav';
 
 /**
@@ -19,7 +18,7 @@ const COMPONENT_ID = 'chrome.nav';
  */
 const Nav = styled.nav.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(ChromeStyles['c-chrome__nav'], {
       // State

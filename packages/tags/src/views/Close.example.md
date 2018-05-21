@@ -10,8 +10,8 @@ More complex examples can be implemented with the
 [SelectionContainer component](https://garden.zendesk.com/react-components/next/selection/#selectioncontainer)
 
 ```jsx
-const { KEY_CODES } = require('@zendeskgarden/react-selection');
-const { FauxInput } = require('@zendeskgarden/react-textfields');
+const { KEY_CODES } = require('@zendeskgarden/react-selection/src');
+const { FauxInput } = require('@zendeskgarden/react-textfields/src');
 const tags = [];
 
 for (let x = 1; x < 10; x++) {

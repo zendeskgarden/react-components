@@ -13,12 +13,11 @@ import ButtonStyles from '@zendeskgarden/css-buttons';
 import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 
-import { version } from '../../package.json';
 const COMPONENT_ID = 'buttons.anchor';
 
 const StyledAnchor = styled.a.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: ({ danger, disabled, focused, hovered, active, selected }) =>
     classNames(ButtonStyles['c-btn'], ButtonStyles['c-btn--anchor'], {
       // Danger styling

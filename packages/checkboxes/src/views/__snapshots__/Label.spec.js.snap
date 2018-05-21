@@ -2,7 +2,7 @@
 
 exports[`Label renders RTL styling 1`] = `
 <label
-  className="Label-bxMjsr c-chk__label is-rtl jVZUdW"
+  className="c-chk__label is-rtl "
   data-garden-id="checkboxes.label"
   data-garden-version="version"
 />
@@ -11,7 +11,7 @@ exports[`Label renders RTL styling 1`] = `
 exports[`Label renders checked styling if provided 1`] = `
 <label
   checked={true}
-  className="Label-bxMjsr c-chk__label is-checked jVZUdW"
+  className="c-chk__label is-checked "
   data-garden-id="checkboxes.label"
   data-garden-version="version"
 />
@@ -19,7 +19,7 @@ exports[`Label renders checked styling if provided 1`] = `
 
 exports[`Label renders default styling 1`] = `
 <label
-  className="Label-bxMjsr c-chk__label jVZUdW"
+  className="c-chk__label "
   data-garden-id="checkboxes.label"
   data-garden-version="version"
 />
@@ -27,7 +27,7 @@ exports[`Label renders default styling 1`] = `
 
 exports[`Label renders disabled styling if provided 1`] = `
 <label
-  className="Label-bxMjsr c-chk__label is-disabled jVZUdW"
+  className="c-chk__label is-disabled "
   data-garden-id="checkboxes.label"
   data-garden-version="version"
   disabled={true}
@@ -36,7 +36,7 @@ exports[`Label renders disabled styling if provided 1`] = `
 
 exports[`Label renders focused styling if provided 1`] = `
 <label
-  className="Label-bxMjsr c-chk__label is-focused jVZUdW"
+  className="c-chk__label is-focused "
   data-garden-id="checkboxes.label"
   data-garden-version="version"
 />
@@ -44,7 +44,7 @@ exports[`Label renders focused styling if provided 1`] = `
 
 exports[`Label renders hovered styling if provided 1`] = `
 <label
-  className="Label-bxMjsr c-chk__label is-hovered jVZUdW"
+  className="c-chk__label is-hovered "
   data-garden-id="checkboxes.label"
   data-garden-version="version"
 />
@@ -52,7 +52,7 @@ exports[`Label renders hovered styling if provided 1`] = `
 
 exports[`Label renders indeterminate styling if provided 1`] = `
 <label
-  className="Label-bxMjsr c-chk__label is-indeterminate jVZUdW"
+  className="c-chk__label is-indeterminate "
   data-garden-id="checkboxes.label"
   data-garden-version="version"
 />
@@ -60,7 +60,7 @@ exports[`Label renders indeterminate styling if provided 1`] = `
 
 exports[`Label renders regular styling if provided 1`] = `
 <label
-  className="Label-bxMjsr c-chk__label c-chk__label--regular jVZUdW"
+  className="c-chk__label c-chk__label--regular "
   data-garden-id="checkboxes.label"
   data-garden-version="version"
 />

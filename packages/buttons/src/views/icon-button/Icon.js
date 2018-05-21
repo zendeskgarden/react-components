@@ -10,13 +10,12 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ButtonStyles from '@zendeskgarden/css-buttons';
 
-import { version } from '../../../package.json';
 const COMPONENT_ID = 'buttons.icon';
 
 const Icon = ({ children, rotated }) => {
   return React.cloneElement(Children.only(children), {
     'data-garden-id': COMPONENT_ID,
-    'data-garden-version': version,
+    'data-garden-version': PACKAGE_VERSION,
     className: classNames(ButtonStyles['c-btn__icon'], {
       [ButtonStyles['is-rotated']]: rotated
     })
