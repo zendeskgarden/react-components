@@ -31,31 +31,31 @@ module.exports = merge(baseConfig, {
     react: {
       commonjs: 'react',
       commonjs2: 'react',
-      amd: 'React',
+      amd: 'react',
       root: 'React'
     },
     'react-dom': {
       commonjs: 'react-dom',
       commonjs2: 'react-dom',
-      amd: 'styled',
-      root: 'styled'
+      amd: 'react-dom',
+      root: 'ReactDOM'
     },
     'prop-types': {
       commonjs: 'rop-types',
       commonjs2: 'rop-types',
-      amd: 'PropTypes',
+      amd: 'prop-types',
       root: 'PropTypes'
     },
     'styled-components': {
       commonjs: 'styled-components',
       commonjs2: 'styled-components',
-      amd: 'styled',
+      amd: 'styled-components',
       root: 'styled'
     },
     '@zendeskgarden/react-theming': {
       commonjs: '@zendeskgarden/react-theming',
       commonjs2: '@zendeskgarden/react-theming',
-      amd: 'GardenTheming',
+      amd: '@zendeskgarden/react-theming',
       root: 'GardenTheming'
     }
   }
