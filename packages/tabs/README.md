@@ -16,7 +16,7 @@ npm install @zendeskgarden/react-tabs
 ```jsx static
 initialState = { selectedKey: 'Tab 1' };
 
-<Tabs selectedKey={state.selected} onChange={setState}>
+<Tabs selectedKey={state.selected} onChange={selectedKey => setState({ selectedKey })}>
   <TabPanel label="Tab 1" key="tab-1">
     Tab 1 content
   </TabPanel>

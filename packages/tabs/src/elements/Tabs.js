@@ -32,7 +32,12 @@ export default class Tabs extends ControlledComponent {
      * @param {Object} newState
      * @param {Any} newState.selectedKey - The newly selected key
      */
-    onStateChange: PropTypes.func
+    onStateChange: PropTypes.func,
+    /**
+     * Callback for when a tab has been selected by keyboard or mouse
+     * @param {String} selectedKey - The key of the selected tab
+     */
+    onChange: PropTypes.func
   };
 
   static defaultProps = {
@@ -60,7 +65,7 @@ export default class Tabs extends ControlledComponent {
   }
 
   render() {
-    const { vertical, children } = this.props;
+    const { vertical, children, onChange } = this.props;
     const { focusedKey, selectedKey } = this.getControlledState();
 
     return (
@@ -68,6 +73,7 @@ export default class Tabs extends ControlledComponent {
         vertical={vertical}
         selectedKey={selectedKey}
         focusedKey={focusedKey}
+        onChange={onChange}
         onStateChange={this.setControlledState}
       >
         {({ getTabListProps, getTabPanelProps, getTabProps }) => (

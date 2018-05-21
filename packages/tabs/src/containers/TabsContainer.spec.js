@@ -13,10 +13,11 @@ import TabsContainer from './TabsContainer';
 
 describe('TabsContainer', () => {
   let wrapper;
+  let onChangeSpy;
   const tabs = ['tab-1', 'tab-2', 'tab-3'];
 
-  const basicExample = vertical => (
-    <TabsContainer vertical={vertical}>
+  const basicExample = ({ vertical, onChange } = {}) => (
+    <TabsContainer vertical={vertical} onChange={onChange}>
       {({ getTabListProps, getTabProps, getTabPanelProps, selectedKey, focusedKey }) => (
         <div>
           <div {...getTabListProps({ 'data-test-id': 'tab-list' })}>
@@ -46,7 +47,8 @@ describe('TabsContainer', () => {
   beforeEach(() => {
     // Disabled due to styled-components theming
     console.warn = jest.fn(); // eslint-disable-line no-console
-    wrapper = mount(basicExample());
+    onChangeSpy = jest.fn();
+    wrapper = mount(basicExample({ onChange: onChangeSpy }));
   });
 
   const findTabList = enzymeWrapper => enzymeWrapper.find('[data-test-id="tab-list"]');
@@ -58,9 +60,17 @@ describe('TabsContainer', () => {
   });
 
   it('applies vertical direction to SelectionContainer if provided', () => {
-    wrapper = mount(basicExample(true));
+    wrapper = mount(basicExample({ vertical: true }));
 
     expect(wrapper.find(SelectionContainer)).toHaveProp('direction', 'vertical');
+  });
+
+  it('calls onChange with selectedKey when Tab is selected', () => {
+    findTabs(wrapper)
+      .first()
+      .simulate('click');
+
+    expect(onChangeSpy).toHaveBeenCalledWith('tab-1');
   });
 
   describe('TabList', () => {
