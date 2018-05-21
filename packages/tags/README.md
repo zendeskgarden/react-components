@@ -17,6 +17,11 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 ## Usage
 
 ```jsx static
+/**
+ * Include tag styling at the root of your application
+ */
+import '@zendeskgarden/react-tags/dist/styles.css';
+
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Tag, Avatar, Close } from '@zendeskgarden/react-tags';
 

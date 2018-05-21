@@ -17,6 +17,11 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 ## Usage
 
 ```jsx static
+/**
+ * Include range styling at the root of your application
+ */
+import '@zendeskgarden/react-ranges/dist/styles.css';
+
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { RangeField, Label, Hint, Range, Message } from '@zendeskgarden/react-ranges';
 

@@ -22,6 +22,11 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 ## Usage
 
 ```jsx static
+/**
+ * Include grid styling at the root of your application
+ */
+import '@zendeskgarden/react-grid/dist/styles.css';
+
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 

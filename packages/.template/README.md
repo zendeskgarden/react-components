@@ -17,6 +17,11 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 ## Usage
 
 ```jsx static
+/**
+ * Include {{component}} styling at the root of your application
+ */
+import '@zendeskgarden/react-{{component}}/dist/styles.css';
+
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Example } from '@zendeskgarden/react-{{component}}';
 

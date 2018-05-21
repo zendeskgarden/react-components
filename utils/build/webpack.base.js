@@ -27,10 +27,14 @@ const options = {
     new webpack.DefinePlugin({
       PACKAGE_VERSION: JSON.stringify(packageManifest.version)
     }),
-    new webpack.BannerPlugin(`Copyright Zendesk, Inc.
+    new webpack.BannerPlugin(
+      `
+Copyright Zendesk, Inc.
 
 Use of this source code is governed under the Apache License, Version 2.0
-found at http://www.apache.org/licenses/LICENSE-2.0`),
+found at http://www.apache.org/licenses/LICENSE-2.0
+    `.trim()
+    ),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional

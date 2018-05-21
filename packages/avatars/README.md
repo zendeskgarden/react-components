@@ -17,6 +17,11 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 ## Usage
 
 ```jsx static
+/**
+ * Include avatar styling at the root of your application
+ */
+import '@zendeskgarden/react-avatars/dist/styles.css';
+
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Avatar } from '@zendeskgarden/react-avatars';
 

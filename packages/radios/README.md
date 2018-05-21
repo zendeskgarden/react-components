@@ -20,6 +20,11 @@ Our `Radio` component is a simple abstraction around the
 native `<input type="radio" />` element.
 
 ```jsx static
+/**
+ * Include radio styling at the root of your application
+ */
+import '@zendeskgarden/react-radios/dist/styles.css';
+
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Radio, Label } from '@zendeskgarden/react-radios';
 

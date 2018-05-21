@@ -17,6 +17,11 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 ## Usage
 
 ```jsx static
+/**
+ * Include tabs styling at the root of your application
+ */
+import '@zendeskgarden/react-tabs/dist/styles.css';
+
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Tabs, TabPanel } from '@zendeskgarden/react-tabs';
 

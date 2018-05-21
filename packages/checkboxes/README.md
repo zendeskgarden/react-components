@@ -17,6 +17,11 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 ## Usage
 
 ```jsx static
+/**
+ * Include checkbox styling at the root of your application
+ */
+import '@zendeskgarden/react-checkboxes/dist/styles.css';
+
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Checkbox, Label } from '@zendeskgarden/react-checkboxes';
 

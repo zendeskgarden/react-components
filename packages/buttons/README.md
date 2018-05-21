@@ -19,6 +19,11 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 ### General Buttons
 
 ```jsx static
+/**
+ * Include button styling at the root of your application
+ */
+import '@zendeskgarden/react-buttons/dist/styles.css';
+
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Button } from '@zendeskgarden/react-buttons';
 
