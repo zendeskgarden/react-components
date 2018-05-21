@@ -9,14 +9,23 @@ This package includes components relating to avatars in the
 
 ```sh
 npm install @zendeskgarden/react-avatars
+
+# Peer Dependencies - Also Required
+npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
 ```
 
 ## Usage
 
 ```jsx static
-import Avatar from '@zendeskgarden/react-avatars/Avatar';
+import { ThemeProvider } from '@zendeskgarden/react-theming';
+import { Avatar } from '@zendeskgarden/react-avatars';
 
-<Avatar>
-  <img src="images/amir.png" alt="Example Avatar" />
-</Avatar>;
+/**
+ * Place a `ThemeProvider` at the root of your React application
+ */
+<ThemeProvider>
+  <Avatar>
+    <img src="images/amir.png" alt="Example Avatar" />
+  </Avatar>
+</ThemeProvider>;
 ```

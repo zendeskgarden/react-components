@@ -9,25 +9,36 @@ the [Garden Design System](https://zendeskgarden.github.io/).
 
 ```sh
 npm install @zendeskgarden/react-tabs
+
+# Peer Dependencies - Also Required
+npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
 ```
 
 ## Usage
 
 ```jsx static
+import { ThemeProvider } from '@zendeskgarden/react-theming';
+import { Tabs, TabPanel } from '@zendeskgarden/react-tabs';
+
 initialState = { selectedKey: 'Tab 1' };
 
-<Tabs selectedKey={state.selected} onChange={setState}>
-  <TabPanel label="Tab 1" key="tab-1">
-    Tab 1 content
-  </TabPanel>
-  <TabPanel label="Tab 2" key="tab-2">
-    Tab 2 content
-  </TabPanel>
-  <TabPanel label="Disabled Tab" disabled>
-    Disabled content
-  </TabPanel>
-  <TabPanel label="Tab 3" key="tab-3">
-    Tab 3 content
-  </TabPanel>
-</Tabs>;
+/**
+ * Place a `ThemeProvider` at the root of your React application
+ */
+<ThemeProvider>
+  <Tabs selectedKey={state.selected} onChange={setState}>
+    <TabPanel label="Tab 1" key="tab-1">
+      Tab 1 content
+    </TabPanel>
+    <TabPanel label="Tab 2" key="tab-2">
+      Tab 2 content
+    </TabPanel>
+    <TabPanel label="Disabled Tab" disabled>
+      Disabled content
+    </TabPanel>
+    <TabPanel label="Tab 3" key="tab-3">
+      Tab 3 content
+    </TabPanel>
+  </Tabs>
+</ThemeProvider>;
 ```

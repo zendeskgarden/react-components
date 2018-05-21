@@ -9,21 +9,26 @@ This package includes components relating to textfields in the
 
 ```sh
 npm install @zendeskgarden/react-textfields
+
+# Peer Dependencies - Also Required
+npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
 ```
 
 ## Usage
 
 ```jsx static
-import TextField from '@zendeskgarden/react-textfields/TextField';
-import Label from '@zendeskgarden/react-textfields/Label';
-import Hint from '@zendeskgarden/react-textfields/Hint';
-import Input from '@zendeskgarden/react-textfields/Input';
-import Message from '@zendeskgarden/react-textfields/Message';
+import { ThemeProvider } from '@zendeskgarden/react-theming';
+import { TextField, Label, Hint, Input, Message } from '@zendeskgarden/react-textfields';
 
-<TextField>
-  <Label>Example Garden Input</Label>
-  <Hint>Hinty hint</Hint>
-  <Input placeholder="Accepts all native input props" />
-  <Message>Default message styling</Message>
-</TextField>;
+/**
+ * Place a `ThemeProvider` at the root of your React application
+ */
+<ThemeProvider>
+  <TextField>
+    <Label>Example Garden Input</Label>
+    <Hint>Hinty hint</Hint>
+    <Input placeholder="Accepts all native input props" />
+    <Message>Default message styling</Message>
+  </TextField>
+</ThemeProvider>;
 ```

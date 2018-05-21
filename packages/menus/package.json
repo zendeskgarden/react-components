@@ -9,33 +9,37 @@
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
   "version": "2.0.2",
-  "main": "./index.js",
+  "main": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "../../utils/scripts/build.sh",
     "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
+    "@zendeskgarden/react-modals": "^3.0.1",
+    "@zendeskgarden/react-selection": "^3.0.1",
+    "@zendeskgarden/react-tooltips": "^3.1.1",
+    "classnames": "^2.2.5",
+    "react-popper": "^0.9.5",
+    "react-portal": "^4.1.4"
+  },
+  "peerDependencies": {
+    "@zendeskgarden/react-theming": "^1.0.0",
+    "prop-types": "^15.6.1",
+    "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0",
+    "styled-components": "^3.2.6"
+  },
+  "devDependencies": {
     "@zendeskgarden/css-arrows": "^3.1.0",
     "@zendeskgarden/css-menus": "^7.0.0",
     "@zendeskgarden/css-variables": "^4.1.3",
-    "@zendeskgarden/react-modals": "^3.0.1",
-    "@zendeskgarden/react-selection": "^3.0.1",
-    "@zendeskgarden/react-theming": "^1.0.0",
-    "@zendeskgarden/react-tooltips": "^3.1.1",
-    "classnames": "^2.2.5",
-    "prop-types": "^15.6.1",
-    "react-popper": "^0.9.5",
-    "react-portal": "^4.1.4",
-    "styled-components": "^3.2.6"
-  },
-  "peerDependencies": {
-    "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
-    "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0"
-  },
-  "devDependencies": {
     "@zendeskgarden/react-buttons": "^2.0.1",
     "@zendeskgarden/react-textfields": "^2.0.1",
+    "@zendeskgarden/react-theming": "^1.0.0",
     "@zendeskgarden/svg-icons": "^4.0.1"
   },
   "keywords": [
@@ -46,5 +50,7 @@
   ],
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "zendeskgarden:library": "GardenMenus",
+  "zendeskgarden:src": "src/index.js"
 }
