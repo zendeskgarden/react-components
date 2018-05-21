@@ -17,7 +17,11 @@ const options = {
   entry: path.resolve('src', 'index.js'),
   devtool: 'source-map',
   optimization: {
-    minimizer: [new OptimizeCSSAssetsPlugin({})]
+    minimizer: [
+      new OptimizeCSSAssetsPlugin({
+        cssProcessorOptions: { discardComments: { removeAllButFirst: true } }
+      })
+    ]
   },
   plugins: [
     /**
