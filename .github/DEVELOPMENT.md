@@ -28,7 +28,7 @@ A shared, global config (including webpack modifications) can be found at [utils
 
 Each package can override the global config with its local `styleguide.config.js` file. The most common use case for this is creating a sidebar layout custom to the packages directory structure.
 
-To include examples with your code include a markdown file. `FooComponent.js` would be documentented with `FooComponent.example.md`.
+To include examples with your code include a markdown file. `FooComponent.js` would be documented with `FooComponent.example.md`.
 
 To start the documentation in development mode use the `yarn start` command.
 
@@ -77,15 +77,16 @@ In addition all views must
 
 ## Building Components
 
-The packages are built using a slightly customized babel implementation that allows "flat-pack" import structures.
+The packages are built using webpack which creates several artifacts:
 
-```jsx
-import Button from '@zendeskgarden/react-buttons/Button';
-import Anchor from '@zendeskgarden/react-buttons/Anchor';
-import ButtonGroupContainer from '@zendeskgarden/react-buttons/ButtonGroupContainer';
-```
-
-This helps ensure that consumers are not requiring the full package and negatively affecting their bundle size.
+* `styles.css`
+  * Each package has a single, minified, and scoped (css-modules) stylesheet that includes all CSS consumed in the package
+* `commonjs` bundle
+  * Used by the majority of consumers
+  * All dependencies are `external` and not included in the bundle
+* `umd` bundle
+  * Can be consumed in browser with a standard `<script>` tag
+  * All dependencies are bundled to allow easy consumption
 
 ## Testing Components
 
