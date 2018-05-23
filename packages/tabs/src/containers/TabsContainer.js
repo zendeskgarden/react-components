@@ -30,6 +30,11 @@ export default class TabsContainer extends ControlledComponent {
      */
     onStateChange: PropTypes.func,
     /**
+     * Callback for when a tab has been selected by keyboard or mouse
+     * @param {String} selectedKey - The key of the selected tab
+     */
+    onChange: PropTypes.func,
+    /**
      * @param {Object} renderProps
      * @param {Function} renderProps.getTabListProps - Props to be spread onto tab list element
      * @param {Function} renderProps.getTabProps - Props to be spread onto each tab element. `({key})` is required.
@@ -61,6 +66,12 @@ export default class TabsContainer extends ControlledComponent {
       id: IdManager.generateId()
     };
   }
+
+  onTabSelected = selectedKey => {
+    const { onChange } = this.props;
+
+    onChange && onChange(selectedKey);
+  };
 
   getTabListProps = ({ role = 'tablist', ...other } = {}) => {
     return {
@@ -111,7 +122,16 @@ export default class TabsContainer extends ControlledComponent {
         direction={vertical ? 'vertical' : 'horizontal'}
         focusedKey={focusedKey}
         selectedKey={selectedKey}
-        onStateChange={this.setControlledState}
+        onStateChange={newState => {
+          /**
+           * A new tab has been selected
+           */
+          if (Object.prototype.hasOwnProperty.call(newState, 'selectedKey')) {
+            this.onTabSelected(newState.selectedKey);
+          }
+
+          this.setControlledState(newState);
+        }}
       >
         {({ getContainerProps, getItemProps }) =>
           render({

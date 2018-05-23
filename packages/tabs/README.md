@@ -31,7 +31,7 @@ initialState = { selectedKey: 'Tab 1' };
  * Place a `ThemeProvider` at the root of your React application
  */
 <ThemeProvider>
-  <Tabs selectedKey={state.selected} onChange={setState}>
+  <Tabs selectedKey={state.selected} onChange={selectedKey => setState({ selectedKey })}>
     <TabPanel label="Tab 1" key="tab-1">
       Tab 1 content
     </TabPanel>

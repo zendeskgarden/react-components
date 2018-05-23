@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tabs@2.0.1...@zendeskgarden/react-tabs@2.1.0) (2018-05-23)
+
+
+### Features
+
+* **tabs:** add onChange callback for selection event ([#22](https://github.com/zendeskgarden/react-components/issues/22)) ([fd5eb4c](https://github.com/zendeskgarden/react-components/commit/fd5eb4c))
+
+
+
+
 <a name="2.0.1"></a>
 ## [2.0.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tabs@2.0.0...@zendeskgarden/react-tabs@2.0.1) (2018-05-15)
 
