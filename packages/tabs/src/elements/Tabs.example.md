@@ -58,7 +58,7 @@ tabs = ['Tab 1', 'Tab 2', 'Tab 3'];
 ```jsx
 initialState = { selectedKey: 'tab-2' };
 
-<Tabs selectedKey={state.selectedKey} onStateChange={setState}>
+<Tabs selectedKey={state.selectedKey} onChange={selectedKey => setState({ selectedKey })}>
   <TabPanel label="Tab 1" key="tab-1">
     Tab 1 content
   </TabPanel>
