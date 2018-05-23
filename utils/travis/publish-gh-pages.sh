@@ -2,5 +2,5 @@
 set -x
 set -e
 
-yarn build:demo_changed
+yarn build:demo --since
 $(dirname $0)/publish-gh-pages.js

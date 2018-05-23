@@ -5,7 +5,6 @@
   "scripts": {
     "build": "lerna run build --stream",
     "build:demo": "lerna run build:demo --stream",
-    "build:demo_changed": "yarn build:demo --since HEAD^",
     "build:single": "utils/scripts/scoped-npm-command.js --script build",
     "format": "yarn format:package_json && yarn format:js && yarn format:markdown",
     "format:js": "prettier --write 'packages/**/!(dist)/*.js' && prettier --write utils/**/*.js",
