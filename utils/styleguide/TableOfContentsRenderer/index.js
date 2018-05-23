@@ -8,7 +8,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { zdColorKale700 } from '@zendeskgarden/css-variables';
 import TableOfContentsRenderer from 'react-styleguidist/lib/rsg-components/TableOfContents/TableOfContentsRenderer';
 
 import { Button, Anchor } from '../../../packages/buttons/src';
@@ -24,11 +23,6 @@ const RTLContainer = styled.div`
   & > div {
     width: 100%;
   }
-`;
-
-const Version = styled.div`
-  text-align: center;
-  color: ${zdColorKale700};
 `;
 
 const TableOfContents = ({ children, ...other }) => {
@@ -77,7 +71,6 @@ const TableOfContents = ({ children, ...other }) => {
           </Tooltip>
         </ThemeProvider>
       </RTLContainer>
-      <Version title="Current version">v{PACKAGE_VERSION}</Version>
     </TableOfContentsRenderer>
   );
 };
