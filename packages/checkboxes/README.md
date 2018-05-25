@@ -1,6 +1,4 @@
-# @zendeskgarden/react-checkboxes [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-checkboxes.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-checkboxes) [![Dependency Status](https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/checkboxes&style=flat-square)](https://david-dm.org/zendeskgarden/react-components?path=packages/checkboxes) <!-- markdownlint-disable -->
-
-<!-- markdownlint-enable -->
+# @zendeskgarden/react-checkboxes [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-checkboxes.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-checkboxes)
 
 This package includes components relating to checkboxes in the
 [Garden Design System](https://zendeskgarden.github.io/).

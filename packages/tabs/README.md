@@ -1,6 +1,4 @@
-# @zendeskgarden/react-tabs [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-tabs.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-tabs) [![Dependency Status](https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/tabs&style=flat-square)](https://david-dm.org/zendeskgarden/react-components?path=packages/tabs) <!-- markdownlint-disable -->
-
-<!-- markdownlint-enable -->
+# @zendeskgarden/react-tabs [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-tabs.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-tabs)
 
 This package includes several varieties of Tabs relating to
 the [Garden Design System](https://zendeskgarden.github.io/).

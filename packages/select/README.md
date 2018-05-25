@@ -1,6 +1,4 @@
-# @zendeskgarden/react-select [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-select.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-select) [![Dependency Status](https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/select&style=flat-square)](https://david-dm.org/zendeskgarden/react-components?path=packages/select) <!-- markdownlint-disable -->
-
-<!-- markdownlint-enable -->
+# @zendeskgarden/react-select [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-select.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-select)
 
 This package includes components relating to select fields in the
 [Garden Design System](https://zendeskgarden.github.io/).
