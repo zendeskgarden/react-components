@@ -4,6 +4,7 @@
     "@zendeskgarden/eslint-config/plugins/notice.js",
     "plugin:react/recommended",
     "plugin:jest/recommended",
+    "plugin:jsx-a11y/recommended",
     "prettier"
   ],
   "globals": {
@@ -12,7 +13,8 @@
   "plugins": [
     "prettier",
     "react",
-    "jest"
+    "jest",
+    "jsx-a11y"
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -32,6 +34,7 @@
     "no-invalid-this": "off",
     "no-unused-expressions": ["error", { "allowShortCircuit": true }],
     "react/jsx-key": "off",
-    "react/display-name": "off"
+    "react/display-name": "off",
+    "jsx-a11y/label-has-for": "off"
   }
 }
