@@ -20,6 +20,7 @@ import Input from '../views/Input';
 import Label from '../views/Label';
 import Hint from '../views/Hint';
 import Message from '../views/Message';
+import typeCheck from '../utils/typeCheck';
 
 /**
  * Accepts all `<input type="radio" />` props
@@ -68,7 +69,7 @@ export default class Radio extends ControlledComponent {
       <RadioView {...wrapperProps}>
         <Input {...getInputProps(checkboxProps)} />
         {Children.map(children, child => {
-          if (child.type === Label) {
+          if (typeCheck(child, Label)) {
             const { onMouseUp, ...otherChildProps } = child.props;
 
             return cloneElement(

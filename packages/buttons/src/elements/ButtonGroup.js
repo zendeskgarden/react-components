@@ -12,6 +12,7 @@ import { ControlledComponent, IdManager } from '@zendeskgarden/react-selection';
 import ButtonGroupContainer from '../containers/ButtonGroupContainer';
 import ButtonGroupView from '../views/button-group/ButtonGroupView';
 import Button from '../views/Button';
+import typeCheck from '../utils/typeCheck';
 
 /**
  * High-level abstraction for basic ButtonGroup implementations.
@@ -57,7 +58,7 @@ export default class ButtonGroup extends ControlledComponent {
     const { selectedKey, focusedKey } = this.getControlledState();
 
     return Children.map(children, child => {
-      if (child && child.type === Button) {
+      if (typeCheck(child, Button)) {
         if (child.props.disabled) {
           return child;
         }

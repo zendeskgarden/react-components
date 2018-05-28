@@ -15,6 +15,7 @@ import Input from '../views/Input';
 import Textarea from '../views/Textarea';
 import Hint from '../views/Hint';
 import Message from '../views/Message';
+import typeCheck from '../utils/typeCheck';
 
 /** Accepts all `<div>` props */
 export default class TextField extends ControlledComponent {
@@ -47,19 +48,19 @@ export default class TextField extends ControlledComponent {
         {({ getLabelProps, getInputProps, getHintProps, getMessageProps }) => (
           <TextGroup {...otherProps}>
             {Children.map(children, child => {
-              if (child.type === Label) {
+              if (typeCheck(child, Label)) {
                 return cloneElement(child, getLabelProps(child.props));
               }
 
-              if (child.type === Input || child.type === Textarea) {
+              if (typeCheck(child, Input) || typeCheck(child, Textarea)) {
                 return cloneElement(child, getInputProps(child.props));
               }
 
-              if (child.type === Hint) {
+              if (typeCheck(child, Hint)) {
                 return cloneElement(child, getHintProps(child.props));
               }
 
-              if (child.type === Message) {
+              if (typeCheck(child, Message)) {
                 return cloneElement(child, getMessageProps(child.props));
               }
 

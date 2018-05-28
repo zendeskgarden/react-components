@@ -20,6 +20,7 @@ import Input from '../views/Input';
 import Label from '../views/Label';
 import Hint from '../views/Hint';
 import Message from '../views/Message';
+import typeCheck from '../utils/typeCheck';
 
 /**
  * Accepts all `<input type="checkbox" />` props
@@ -68,7 +69,7 @@ export default class Toggle extends ControlledComponent {
       <ToggleView {...wrapperProps}>
         <Input {...getInputProps(checkboxProps)} />
         {Children.map(children, child => {
-          if (child.type === Label) {
+          if (typeCheck(child, Label)) {
             const { onMouseUp, ...otherChildProps } = child.props;
 
             return cloneElement(
@@ -82,11 +83,11 @@ export default class Toggle extends ControlledComponent {
             );
           }
 
-          if (child.type === Hint) {
+          if (typeCheck(child, Hint)) {
             return cloneElement(child, getHintProps(child.props));
           }
 
-          if (child.type === Message) {
+          if (typeCheck(child, Message)) {
             return cloneElement(child, getMessageProps(child.props));
           }
 

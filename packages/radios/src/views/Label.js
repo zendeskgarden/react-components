@@ -49,5 +49,7 @@ Label.propTypes = {
   disabled: PropTypes.bool
 };
 
+Label.typeCheck = () => Label;
+
 /** @component */
 export default Label;
