@@ -16,9 +16,9 @@ describe('FauxInput', () => {
 
   const basicExample = () => (
     <FauxInput id={TEXT_FIELD_ID}>
-      <div tabIndex={0} data-test-id="inner-content">
+      <button tabIndex={0} data-test-id="inner-content">
         focusable content
-      </div>
+      </button>
     </FauxInput>
   );
 
