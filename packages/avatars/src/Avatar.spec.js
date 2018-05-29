@@ -10,7 +10,7 @@ import { shallow } from 'enzyme';
 import Avatar from './Avatar';
 
 describe('Avatar', () => {
-  const defaultImage = <img src="test" />;
+  const defaultImage = <img src="test" alt="test" />;
 
   it('applies default styling correctly', () => {
     const wrapper = shallow(<Avatar>{defaultImage}</Avatar>);
