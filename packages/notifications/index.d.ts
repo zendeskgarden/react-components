@@ -9,36 +9,6 @@ declare module '@zendeskgarden/react-notifications' {
   export import Title = __GARDEN.Title;
 }
 
-declare module '@zendeskgarden/react-notifications/Alert' {
-  import Alert = __GARDEN.Alert;
-  export default Alert;
-}
-
-declare module '@zendeskgarden/react-notifications/Notification' {
-  import Notification = __GARDEN.Notification;
-  export default Notification;
-}
-
-declare module '@zendeskgarden/react-notifications/Well' {
-  import Well = __GARDEN.Well;
-  export default Well;
-}
-
-declare module '@zendeskgarden/react-notifications/Close' {
-  import Close = __GARDEN.Close;
-  export default Close;
-}
-
-declare module '@zendeskgarden/react-notifications/Paragraph' {
-  import Paragraph = __GARDEN.Paragraph;
-  export default Paragraph;
-}
-
-declare module '@zendeskgarden/react-notifications/Title' {
-  import Title = __GARDEN.Title;
-  export default Title;
-}
-
 declare namespace __GARDEN {
   export enum ValidationTypes {
     SUCCESS = "success",
