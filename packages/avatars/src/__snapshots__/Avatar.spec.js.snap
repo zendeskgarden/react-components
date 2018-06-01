@@ -8,6 +8,7 @@ exports[`Avatar Sizes applies large correctly if provided 1`] = `
   size="large"
 >
   <img
+    alt="test"
     src="test"
   />
 </figure>
@@ -21,6 +22,7 @@ exports[`Avatar Sizes applies small correctly if provided 1`] = `
   size="small"
 >
   <img
+    alt="test"
     src="test"
   />
 </figure>
@@ -33,6 +35,7 @@ exports[`Avatar States applies borderless styling if provided 1`] = `
   data-garden-version="version"
 >
   <img
+    alt="test"
     src="test"
   />
 </figure>
@@ -46,6 +49,7 @@ exports[`Avatar States applies disabled styling if provided 1`] = `
   disabled={true}
 >
   <img
+    alt="test"
     src="test"
   />
 </figure>
@@ -58,6 +62,7 @@ exports[`Avatar applies default styling correctly 1`] = `
   data-garden-version="version"
 >
   <img
+    alt="test"
     src="test"
   />
 </figure>
@@ -70,6 +75,7 @@ exports[`Avatar applies system styling correclty if provided 1`] = `
   data-garden-version="version"
 >
   <img
+    alt="test"
     src="test"
   />
 </figure>
