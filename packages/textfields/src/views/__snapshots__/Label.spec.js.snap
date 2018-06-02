@@ -2,7 +2,7 @@
 
 exports[`Label renders RTL styling 1`] = `
 <label
-  className="Label-bxMjsr c-txt__label is-rtl jVZUdW"
+  className="c-txt__label is-rtl "
   data-garden-id="textfields.label"
   data-garden-version="version"
 />
@@ -10,7 +10,7 @@ exports[`Label renders RTL styling 1`] = `
 
 exports[`Label renders default styling 1`] = `
 <label
-  className="Label-bxMjsr c-txt__label jVZUdW"
+  className="c-txt__label "
   data-garden-id="textfields.label"
   data-garden-version="version"
 />
@@ -18,7 +18,7 @@ exports[`Label renders default styling 1`] = `
 
 exports[`Label renders regular styling if provided 1`] = `
 <label
-  className="Label-bxMjsr c-txt__label c-txt__label--regular jVZUdW"
+  className="c-txt__label c-txt__label--regular "
   data-garden-id="textfields.label"
   data-garden-version="version"
 />
@@ -26,7 +26,7 @@ exports[`Label renders regular styling if provided 1`] = `
 
 exports[`Label renders small styling if provided 1`] = `
 <label
-  className="Label-bxMjsr c-txt__label c-txt__label--sm jVZUdW"
+  className="c-txt__label c-txt__label--sm "
   data-garden-id="textfields.label"
   data-garden-version="version"
 />

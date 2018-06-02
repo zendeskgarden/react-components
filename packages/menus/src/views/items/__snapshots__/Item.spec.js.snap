@@ -2,7 +2,7 @@
 
 exports[`Item renders active styling 1`] = `
 <li
-  className="Item-kPuYOm c-menu__item is-active jbRGYo"
+  className="c-menu__item is-active "
   data-garden-id="menus.item"
   data-garden-version="version"
 />
@@ -11,7 +11,7 @@ exports[`Item renders active styling 1`] = `
 exports[`Item renders checked styling 1`] = `
 <li
   checked={true}
-  className="Item-kPuYOm c-menu__item is-checked jbRGYo"
+  className="c-menu__item is-checked "
   data-garden-id="menus.item"
   data-garden-version="version"
 />
@@ -19,7 +19,7 @@ exports[`Item renders checked styling 1`] = `
 
 exports[`Item renders default styling 1`] = `
 <li
-  className="Item-kPuYOm c-menu__item jbRGYo"
+  className="c-menu__item "
   data-garden-id="menus.item"
   data-garden-version="version"
 />
@@ -27,7 +27,7 @@ exports[`Item renders default styling 1`] = `
 
 exports[`Item renders disabled styling 1`] = `
 <li
-  className="Item-kPuYOm c-menu__item is-disabled jbRGYo"
+  className="c-menu__item is-disabled "
   data-garden-id="menus.item"
   data-garden-version="version"
   disabled={true}
@@ -36,7 +36,7 @@ exports[`Item renders disabled styling 1`] = `
 
 exports[`Item renders focused styling 1`] = `
 <li
-  className="Item-kPuYOm c-menu__item is-focused jbRGYo"
+  className="c-menu__item is-focused "
   data-garden-id="menus.item"
   data-garden-version="version"
 />
@@ -44,7 +44,7 @@ exports[`Item renders focused styling 1`] = `
 
 exports[`Item renders hovered styling 1`] = `
 <li
-  className="Item-kPuYOm c-menu__item is-hovered jbRGYo"
+  className="c-menu__item is-hovered "
   data-garden-id="menus.item"
   data-garden-version="version"
 />

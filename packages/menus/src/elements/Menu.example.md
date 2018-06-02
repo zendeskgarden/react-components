@@ -11,7 +11,7 @@ This helps ensure an accessible experience for users that are navigating
 with a keyboard.
 
 ```jsx
-const { Button } = require('@zendeskgarden/react-buttons');
+const { Button } = require('@zendeskgarden/react-buttons/src');
 
 <Grid>
   <Row>
@@ -49,7 +49,7 @@ const { Button } = require('@zendeskgarden/react-buttons');
 Any child menu item with the `disabled` prop will not be selectable.
 
 ```jsx
-const { Button } = require('@zendeskgarden/react-buttons');
+const { Button } = require('@zendeskgarden/react-buttons/src');
 
 <Menu
   onChange={selectedKey => alert(selectedKey)}
@@ -71,7 +71,7 @@ This can be useful if you need to show a visualization of your trigger based on 
 state of the Menu.
 
 ```jsx
-const { Button } = require('@zendeskgarden/react-buttons');
+const { Button } = require('@zendeskgarden/react-buttons/src');
 
 initialState = {
   isOpen: false,
@@ -101,7 +101,7 @@ const getButtonText = isOpen => {
 Example with disabled items, headers, and separators.
 
 ```jsx
-const { Button } = require('@zendeskgarden/react-buttons');
+const { Button } = require('@zendeskgarden/react-buttons/src');
 
 <Menu
   arrow
@@ -123,7 +123,7 @@ const { Button } = require('@zendeskgarden/react-buttons');
 ### Tree Layout with Async Loading
 
 ```jsx
-const { Button } = require('@zendeskgarden/react-buttons');
+const { Button } = require('@zendeskgarden/react-buttons/src');
 
 const Loader = styled.div`
   text-align: center;

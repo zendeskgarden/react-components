@@ -2,7 +2,7 @@
 
 exports[`Hint renders RTL styling 1`] = `
 <div
-  className="Hint-gklniA c-txt__hint is-rtl nhFXS"
+  className="c-txt__hint is-rtl "
   data-garden-id="textfields.hint"
   data-garden-version="version"
 />
@@ -10,7 +10,7 @@ exports[`Hint renders RTL styling 1`] = `
 
 exports[`Hint renders default styling 1`] = `
 <div
-  className="Hint-gklniA c-txt__hint nhFXS"
+  className="c-txt__hint "
   data-garden-id="textfields.hint"
   data-garden-version="version"
 />
@@ -18,7 +18,7 @@ exports[`Hint renders default styling 1`] = `
 
 exports[`Hint renders small styling if provided 1`] = `
 <div
-  className="Hint-gklniA c-txt__hint c-txt__hint--sm nhFXS"
+  className="c-txt__hint c-txt__hint--sm "
   data-garden-id="textfields.hint"
   data-garden-version="version"
 />

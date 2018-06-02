@@ -10,9 +10,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import TableOfContentsRenderer from 'react-styleguidist/lib/rsg-components/TableOfContents/TableOfContentsRenderer';
 
-import { Button, Anchor } from '../../../packages/buttons';
-import { ThemeProvider } from '../../../packages/theming';
-import { Tooltip, Title } from '../../../packages/tooltips';
+import { Button, Anchor } from '../../../packages/buttons/src';
+import { ThemeProvider } from '../../../packages/theming/src';
+import { Tooltip, Title } from '../../../packages/tooltips/src';
 
 const RTLContainer = styled.div`
   margin-top: 16px;

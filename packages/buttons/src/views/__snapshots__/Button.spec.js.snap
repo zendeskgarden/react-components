@@ -14,7 +14,7 @@ exports[`Button Sizes renders large styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="Button__StyledButton-jJDkJK c-btn c-btn--lg kaVWyI"
+        className="c-btn c-btn--lg "
         data-garden-id="buttons.button"
         data-garden-version="version"
         onBlur={[Function]}
@@ -43,7 +43,7 @@ exports[`Button Sizes renders small styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="Button__StyledButton-jJDkJK c-btn c-btn--sm kaVWyI"
+        className="c-btn c-btn--sm "
         data-garden-id="buttons.button"
         data-garden-version="version"
         onBlur={[Function]}
@@ -72,7 +72,7 @@ exports[`Button States renders active styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="Button__StyledButton-jJDkJK c-btn is-active kaVWyI"
+        className="c-btn is-active "
         data-garden-id="buttons.button"
         data-garden-version="version"
         onBlur={[Function]}
@@ -100,7 +100,7 @@ exports[`Button States renders disabled styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="Button__StyledButton-jJDkJK c-btn is-disabled kaVWyI"
+        className="c-btn is-disabled "
         data-garden-id="buttons.button"
         data-garden-version="version"
         disabled={true}
@@ -128,7 +128,7 @@ exports[`Button States renders focused styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="Button__StyledButton-jJDkJK c-btn is-focused kaVWyI"
+        className="c-btn is-focused "
         data-garden-id="buttons.button"
         data-garden-version="version"
         onBlur={[Function]}
@@ -156,7 +156,7 @@ exports[`Button States renders hovered styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="Button__StyledButton-jJDkJK c-btn is-hovered kaVWyI"
+        className="c-btn is-hovered "
         data-garden-id="buttons.button"
         data-garden-version="version"
         onBlur={[Function]}
@@ -184,7 +184,7 @@ exports[`Button States renders selected styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="Button__StyledButton-jJDkJK c-btn is-selected kaVWyI"
+        className="c-btn is-selected "
         data-garden-id="buttons.button"
         data-garden-version="version"
         onBlur={[Function]}
@@ -213,7 +213,7 @@ exports[`Button Types renders basic styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="Button__StyledButton-jJDkJK c-btn c-btn--basic kaVWyI"
+        className="c-btn c-btn--basic "
         data-garden-id="buttons.button"
         data-garden-version="version"
         onBlur={[Function]}
@@ -241,7 +241,7 @@ exports[`Button Types renders link styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="Button__StyledButton-jJDkJK c-btn c-btn--anchor kaVWyI"
+        className="c-btn c-btn--anchor "
         data-garden-id="buttons.button"
         data-garden-version="version"
         onBlur={[Function]}
@@ -269,7 +269,7 @@ exports[`Button Types renders muted styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="Button__StyledButton-jJDkJK c-btn c-btn--muted kaVWyI"
+        className="c-btn c-btn--muted "
         data-garden-id="buttons.button"
         data-garden-version="version"
         muted={true}
@@ -298,7 +298,7 @@ exports[`Button Types renders pill styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="Button__StyledButton-jJDkJK c-btn c-btn--pill kaVWyI"
+        className="c-btn c-btn--pill "
         data-garden-id="buttons.button"
         data-garden-version="version"
         onBlur={[Function]}
@@ -326,7 +326,7 @@ exports[`Button Types renders primary styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="Button__StyledButton-jJDkJK c-btn c-btn--primary kaVWyI"
+        className="c-btn c-btn--primary "
         data-garden-id="buttons.button"
         data-garden-version="version"
         onBlur={[Function]}
@@ -354,7 +354,7 @@ exports[`Button renders danger styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="Button__StyledButton-jJDkJK c-btn c-btn--danger kaVWyI"
+        className="c-btn c-btn--danger "
         data-garden-id="buttons.button"
         data-garden-version="version"
         onBlur={[Function]}
@@ -379,7 +379,7 @@ exports[`Button renders default styling 1`] = `
       tabIndex={0}
     >
       <button
-        className="Button__StyledButton-jJDkJK c-btn kaVWyI"
+        className="c-btn "
         data-garden-id="buttons.button"
         data-garden-version="version"
         onBlur={[Function]}
@@ -407,7 +407,7 @@ exports[`Button renders stretched styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="Button__StyledButton-jJDkJK c-btn c-btn--full kaVWyI"
+        className="c-btn c-btn--full "
         data-garden-id="buttons.button"
         data-garden-version="version"
         onBlur={[Function]}

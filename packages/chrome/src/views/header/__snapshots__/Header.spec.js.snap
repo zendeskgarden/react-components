@@ -2,7 +2,7 @@
 
 exports[`Header renders default styling 1`] = `
 <header
-  className="Header-bKPLEa c-chrome__body__header kVTeee"
+  className="c-chrome__body__header "
   data-garden-id="chrome.header"
   data-garden-version="version"
 />
@@ -10,7 +10,7 @@ exports[`Header renders default styling 1`] = `
 
 exports[`Header renders standalone styling if provided 1`] = `
 <header
-  className="Header-bKPLEa c-chrome__body__header c-chrome__body__header--standalone kVTeee"
+  className="c-chrome__body__header c-chrome__body__header--standalone "
   data-garden-id="chrome.header"
   data-garden-version="version"
 />

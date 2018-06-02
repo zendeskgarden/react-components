@@ -2,38 +2,38 @@
 
 exports[`Tab renders active styling 1`] = `
 <div
-  className="Tab-gVjHxL c-tab__list__item is-active fpsgVm"
+  className="c-tab__list__item is-active "
 />
 `;
 
 exports[`Tab renders default styling 1`] = `
 <div
-  className="Tab-gVjHxL c-tab__list__item fpsgVm"
+  className="c-tab__list__item "
 />
 `;
 
 exports[`Tab renders disabled styling 1`] = `
 <div
-  className="Tab-gVjHxL c-tab__list__item is-disabled fpsgVm"
+  className="c-tab__list__item is-disabled "
   disabled={true}
 />
 `;
 
 exports[`Tab renders focused styling 1`] = `
 <div
-  className="Tab-gVjHxL c-tab__list__item is-focused fpsgVm"
+  className="c-tab__list__item is-focused "
 />
 `;
 
 exports[`Tab renders hovered styling 1`] = `
 <div
-  className="Tab-gVjHxL c-tab__list__item is-hovered fpsgVm"
+  className="c-tab__list__item is-hovered "
 />
 `;
 
 exports[`Tab renders selected styling 1`] = `
 <div
-  className="Tab-gVjHxL c-tab__list__item is-selected fpsgVm"
+  className="c-tab__list__item is-selected "
   selected={true}
 />
 `;

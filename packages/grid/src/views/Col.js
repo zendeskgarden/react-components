@@ -11,7 +11,6 @@ import classNames from 'classnames';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import GridStyles from '@zendeskgarden/css-grid';
 
-import { version } from '../../package.json';
 const COMPONENT_ID = 'grid.col';
 
 const retrieveNumberedClass = (className, number, classes) => {
@@ -61,7 +60,7 @@ const retrieveColClassNames = ({
  */
 const Col = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(...retrieveColClassNames(props), {
       [GridStyles[`align-self-${props.alignSelf}`]]: props.alignSelf,

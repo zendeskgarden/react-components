@@ -2,7 +2,7 @@
 
 exports[`Avatar Sizes applies large correctly if provided 1`] = `
 <figure
-  className="Avatar-cDOgfv c-avatar c-avatar--large fgoDyb"
+  className="c-avatar c-avatar--large "
   data-garden-id="avatars.avatar"
   data-garden-version="version"
   size="large"
@@ -16,7 +16,7 @@ exports[`Avatar Sizes applies large correctly if provided 1`] = `
 
 exports[`Avatar Sizes applies small correctly if provided 1`] = `
 <figure
-  className="Avatar-cDOgfv c-avatar c-avatar--small fgoDyb"
+  className="c-avatar c-avatar--small "
   data-garden-id="avatars.avatar"
   data-garden-version="version"
   size="small"
@@ -30,7 +30,7 @@ exports[`Avatar Sizes applies small correctly if provided 1`] = `
 
 exports[`Avatar States applies borderless styling if provided 1`] = `
 <figure
-  className="Avatar-cDOgfv c-avatar c-avatar--borderless fgoDyb"
+  className="c-avatar c-avatar--borderless "
   data-garden-id="avatars.avatar"
   data-garden-version="version"
 >
@@ -43,7 +43,7 @@ exports[`Avatar States applies borderless styling if provided 1`] = `
 
 exports[`Avatar States applies disabled styling if provided 1`] = `
 <figure
-  className="Avatar-cDOgfv c-avatar is-disabled fgoDyb"
+  className="c-avatar is-disabled "
   data-garden-id="avatars.avatar"
   data-garden-version="version"
   disabled={true}
@@ -57,7 +57,7 @@ exports[`Avatar States applies disabled styling if provided 1`] = `
 
 exports[`Avatar applies default styling correctly 1`] = `
 <figure
-  className="Avatar-cDOgfv c-avatar fgoDyb"
+  className="c-avatar "
   data-garden-id="avatars.avatar"
   data-garden-version="version"
 >
@@ -70,7 +70,7 @@ exports[`Avatar applies default styling correctly 1`] = `
 
 exports[`Avatar applies system styling correclty if provided 1`] = `
 <figure
-  className="Avatar-cDOgfv c-avatar c-avatar--system fgoDyb"
+  className="c-avatar c-avatar--system "
   data-garden-id="avatars.avatar"
   data-garden-version="version"
 >

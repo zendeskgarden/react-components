@@ -9,7 +9,6 @@ import styled from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
 
-import { version } from '../../package.json';
 const COMPONENT_ID = 'radios.input';
 
 /**
@@ -17,7 +16,7 @@ const COMPONENT_ID = 'radios.input';
  */
 const Input = styled.input.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: CheckboxStyles['c-chk__input'],
   type: 'radio',
   tabIndex: 0

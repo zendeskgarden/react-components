@@ -2,7 +2,7 @@
 
 exports[`Gap renders default styling 1`] = `
 <Page
-  className="Gap-goQjCW c-pagination__page--gap bYaeBF"
+  className="c-pagination__page--gap "
   data-garden-id="pagination.gap"
   data-garden-version="version"
 />

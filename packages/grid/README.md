@@ -14,24 +14,36 @@ available within this package.
 
 ```sh
 npm install @zendeskgarden/react-grid
+
+# Peer Dependencies - Also Required
+npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
 ```
 
 ## Usage
 
 ```jsx static
-import Grid from '@zendeskgarden/react-grid/Grid';
-import Row from '@zendeskgarden/react-grid/Row';
-import Col from '@zendeskgarden/react-grid/Col';
+/**
+ * Include grid styling at the root of your application
+ */
+import '@zendeskgarden/react-grid/dist/styles.css';
 
-<Grid>
-  <Row>
-    <Col md={4}>1 of 3</Col>
-    <Col md={4}>2 of 3</Col>
-    <Col md={4}>3 of 3</Col>
-  </Row>
-  <Row>
-    <Col md={6}>1 of 2</Col>
-    <Col md={6}>2 of 2</Col>
-  </Row>
-</Grid>;
+import { ThemeProvider } from '@zendeskgarden/react-theming';
+import { Grid, Row, Col } from '@zendeskgarden/react-grid';
+
+/**
+ * Place a `ThemeProvider` at the root of your React application
+ */
+<ThemeProvider>
+  <Grid>
+    <Row>
+      <Col md={4}>1 of 3</Col>
+      <Col md={4}>2 of 3</Col>
+      <Col md={4}>3 of 3</Col>
+    </Row>
+    <Row>
+      <Col md={6}>1 of 2</Col>
+      <Col md={6}>2 of 2</Col>
+    </Row>
+  </Grid>
+</ThemeProvider>;
 ```

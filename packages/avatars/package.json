@@ -9,22 +9,28 @@
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
   "version": "2.0.2",
-  "main": "./index.js",
+  "main": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "../../utils/scripts/build.sh",
     "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendeskgarden/css-avatars": "^3.0.0",
-    "@zendeskgarden/react-theming": "^1.0.0",
-    "classnames": "^2.2.5",
-    "prop-types": "^15.6.1",
-    "styled-components": "^3.2.6"
+    "classnames": "^2.2.5"
   },
   "peerDependencies": {
+    "@zendeskgarden/react-theming": "^1.0.0",
+    "prop-types": "^15.6.1",
     "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
-    "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0"
+    "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0",
+    "styled-components": "^3.2.6"
+  },
+  "devDependencies": {
+    "@zendeskgarden/css-avatars": "^3.0.0",
+    "@zendeskgarden/react-theming": "^1.0.0"
   },
   "keywords": [
     "components",
@@ -34,5 +40,7 @@
   ],
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "zendeskgarden:library": "GardenAvatars",
+  "zendeskgarden:src": "src/index.js"
 }

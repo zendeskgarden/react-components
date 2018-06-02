@@ -1,8 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SingleThumbView renders RTL styling 1`] = `
+.c0 {
+  background-size: 0%;
+}
+
 <input
-  className="SingleThumbView-hilQxb c-range__input is-rtl dLMZLr"
+  className="c-range__input is-rtl c0"
   data-garden-id="ranges.single_thumb_view"
   data-garden-version="version"
   type="range"
@@ -10,8 +14,12 @@ exports[`SingleThumbView renders RTL styling 1`] = `
 `;
 
 exports[`SingleThumbView renders background-size correctly 1`] = `
+.c0 {
+  background-size: 95%;
+}
+
 <input
-  className="SingleThumbView-hilQxb c-range__input fKqhvd"
+  className="c-range__input c0"
   data-garden-id="ranges.single_thumb_view"
   data-garden-version="version"
   type="range"
@@ -19,8 +27,12 @@ exports[`SingleThumbView renders background-size correctly 1`] = `
 `;
 
 exports[`SingleThumbView renders default styling 1`] = `
+.c0 {
+  background-size: 0%;
+}
+
 <input
-  className="SingleThumbView-hilQxb c-range__input dLMZLr"
+  className="c-range__input c0"
   data-garden-id="ranges.single_thumb_view"
   data-garden-version="version"
   type="range"
@@ -28,8 +40,12 @@ exports[`SingleThumbView renders default styling 1`] = `
 `;
 
 exports[`SingleThumbView renders disabled styling if provided 1`] = `
+.c0 {
+  background-size: 0%;
+}
+
 <input
-  className="SingleThumbView-hilQxb c-range__input is-disabled dLMZLr"
+  className="c-range__input is-disabled c0"
   data-garden-id="ranges.single_thumb_view"
   data-garden-version="version"
   disabled={true}
@@ -38,8 +54,12 @@ exports[`SingleThumbView renders disabled styling if provided 1`] = `
 `;
 
 exports[`SingleThumbView renders focused styling if provided 1`] = `
+.c0 {
+  background-size: 0%;
+}
+
 <input
-  className="SingleThumbView-hilQxb c-range__input is-focused dLMZLr"
+  className="c-range__input is-focused c0"
   data-garden-id="ranges.single_thumb_view"
   data-garden-version="version"
   type="range"
@@ -47,8 +67,12 @@ exports[`SingleThumbView renders focused styling if provided 1`] = `
 `;
 
 exports[`SingleThumbView renders hovered styling if provided 1`] = `
+.c0 {
+  background-size: 0%;
+}
+
 <input
-  className="SingleThumbView-hilQxb c-range__input dLMZLr"
+  className="c-range__input c0"
   data-garden-id="ranges.single_thumb_view"
   data-garden-version="version"
   type="range"

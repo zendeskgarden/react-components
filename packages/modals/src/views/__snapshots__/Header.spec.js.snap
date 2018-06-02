@@ -2,7 +2,7 @@
 
 exports[`Header renders default styling 1`] = `
 <div
-  className="Header-bKPLEa c-dialog__header kVTeee"
+  className="c-dialog__header "
   data-garden-id="modals.header"
   data-garden-version="version"
 />

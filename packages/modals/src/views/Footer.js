@@ -9,7 +9,6 @@ import styled from 'styled-components';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import ModalStyles from '@zendeskgarden/css-modals';
 
-import { version } from '../../package.json';
 const COMPONENT_ID = 'modals.footer';
 
 /**
@@ -17,7 +16,7 @@ const COMPONENT_ID = 'modals.footer';
  */
 const Footer = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: ModalStyles['c-dialog__footer']
 })`
   && > * {

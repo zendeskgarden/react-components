@@ -2,7 +2,7 @@
 
 exports[`Paragraph renders paragraph styling 1`] = `
 <div
-  className="Paragraph-hHEPzZ c-callout__paragraph dGmfhx"
+  className="c-callout__paragraph "
   data-garden-id="notifications.paragraph"
   data-garden-version="version"
 />

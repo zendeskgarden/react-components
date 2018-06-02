@@ -9,20 +9,33 @@ This package includes components relating to menus in the
 
 ```sh
 npm install @zendeskgarden/react-menus
+
+# Peer Dependencies - Also Required
+npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
 ```
 
 ## Usage
 
 ```jsx static
-import Menu from '@zendeskgarden/react-menus/Menu';
-import Item from '@zendeskgarden/react-menus/Item';
+/**
+ * Include menu styling at the root of your application
+ */
+import '@zendeskgarden/react-menus/dist/styles.css';
 
-<Menu
-  onChange={selectedKey => console.log(`Item selected: "${selectedKey}"`)}
-  trigger={({ ref }) => <button ref={ref}>Simple Example</button>}
->
-  <Item key="item-1">Item 1</Item>
-  <Item key="item-2">Item 2</Item>
-  <Item key="item-3">Item 3</Item>
-</Menu>;
+import { ThemeProvider } from '@zendeskgarden/react-theming';
+import { Menu, Item } from '@zendeskgarden/react-menus';
+
+/**
+ * Place a `ThemeProvider` at the root of your React application
+ */
+<ThemeProvider>
+  <Menu
+    onChange={selectedKey => console.log(`Item selected: "${selectedKey}"`)}
+    trigger={({ ref }) => <button ref={ref}>Simple Example</button>}
+  >
+    <Item key="item-1">Item 1</Item>
+    <Item key="item-2">Item 2</Item>
+    <Item key="item-3">Item 3</Item>
+  </Menu>
+</ThemeProvider>;
 ```

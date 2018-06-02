@@ -2,6 +2,6 @@
 
 exports[`TabPanel renders default styling 1`] = `
 <div
-  className="TabPanel-ieArBB c-tab__panel gaknIR"
+  className="c-tab__panel "
 />
 `;

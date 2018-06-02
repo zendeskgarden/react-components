@@ -3,12 +3,12 @@
 exports[`Textarea renders RTL styling 1`] = `
 <Textarea>
   <Input
-    className="Textarea-kJhswX c-txt__input--area is-rtl dVNGmF"
+    className="c-txt__input--area is-rtl "
     data-garden-id="textfields.textarea"
     data-garden-version="version"
   >
     <textarea
-      className="Textarea-kJhswX c-txt__input--area is-rtl dVNGmF Input-hxTtdt c-txt__input is-rtl eyZowq"
+      className="c-txt__input--area is-rtl c-txt__input is-rtl "
       data-garden-id="textfields.textarea"
       data-garden-version="version"
     />
@@ -22,12 +22,12 @@ exports[`Textarea renders bare styling if provided 1`] = `
 >
   <Input
     bare={true}
-    className="Textarea-kJhswX c-txt__input--area dVNGmF"
+    className="c-txt__input--area "
     data-garden-id="textfields.textarea"
     data-garden-version="version"
   >
     <textarea
-      className="Textarea-kJhswX c-txt__input--area dVNGmF Input-hxTtdt c-txt__input c-txt__input--bare eyZowq"
+      className="c-txt__input--area c-txt__input c-txt__input--bare "
       data-garden-id="textfields.textarea"
       data-garden-version="version"
     />
@@ -38,12 +38,12 @@ exports[`Textarea renders bare styling if provided 1`] = `
 exports[`Textarea renders default styling 1`] = `
 <Textarea>
   <Input
-    className="Textarea-kJhswX c-txt__input--area dVNGmF"
+    className="c-txt__input--area "
     data-garden-id="textfields.textarea"
     data-garden-version="version"
   >
     <textarea
-      className="Textarea-kJhswX c-txt__input--area dVNGmF Input-hxTtdt c-txt__input eyZowq"
+      className="c-txt__input--area c-txt__input "
       data-garden-id="textfields.textarea"
       data-garden-version="version"
     />
@@ -56,13 +56,13 @@ exports[`Textarea renders disabled styling if provided 1`] = `
   disabled={true}
 >
   <Input
-    className="Textarea-kJhswX c-txt__input--area dVNGmF"
+    className="c-txt__input--area "
     data-garden-id="textfields.textarea"
     data-garden-version="version"
     disabled={true}
   >
     <textarea
-      className="Textarea-kJhswX c-txt__input--area dVNGmF Input-hxTtdt c-txt__input is-disabled eyZowq"
+      className="c-txt__input--area c-txt__input is-disabled "
       data-garden-id="textfields.textarea"
       data-garden-version="version"
       disabled={true}
@@ -76,13 +76,13 @@ exports[`Textarea renders focused styling if provided 1`] = `
   focused={true}
 >
   <Input
-    className="Textarea-kJhswX c-txt__input--area dVNGmF"
+    className="c-txt__input--area "
     data-garden-id="textfields.textarea"
     data-garden-version="version"
     focused={true}
   >
     <textarea
-      className="Textarea-kJhswX c-txt__input--area dVNGmF Input-hxTtdt c-txt__input is-focused eyZowq"
+      className="c-txt__input--area c-txt__input is-focused "
       data-garden-id="textfields.textarea"
       data-garden-version="version"
     />
@@ -95,13 +95,13 @@ exports[`Textarea renders hovered styling if provided 1`] = `
   hovered={true}
 >
   <Input
-    className="Textarea-kJhswX c-txt__input--area dVNGmF"
+    className="c-txt__input--area "
     data-garden-id="textfields.textarea"
     data-garden-version="version"
     hovered={true}
   >
     <textarea
-      className="Textarea-kJhswX c-txt__input--area dVNGmF Input-hxTtdt c-txt__input is-hovered eyZowq"
+      className="c-txt__input--area c-txt__input is-hovered "
       data-garden-id="textfields.textarea"
       data-garden-version="version"
     />
@@ -114,13 +114,13 @@ exports[`Textarea renders resizable styling if provided 1`] = `
   resizable={true}
 >
   <Input
-    className="Textarea-kJhswX c-txt__input--area is-resizable dVNGmF"
+    className="c-txt__input--area is-resizable "
     data-garden-id="textfields.textarea"
     data-garden-version="version"
     resizable={true}
   >
     <textarea
-      className="Textarea-kJhswX c-txt__input--area is-resizable dVNGmF Input-hxTtdt c-txt__input eyZowq"
+      className="c-txt__input--area is-resizable c-txt__input "
       data-garden-id="textfields.textarea"
       data-garden-version="version"
     />
@@ -133,13 +133,13 @@ exports[`Textarea renders small styling if provided 1`] = `
   small={true}
 >
   <Input
-    className="Textarea-kJhswX c-txt__input--area dVNGmF"
+    className="c-txt__input--area "
     data-garden-id="textfields.textarea"
     data-garden-version="version"
     small={true}
   >
     <textarea
-      className="Textarea-kJhswX c-txt__input--area dVNGmF Input-hxTtdt c-txt__input c-txt__input--sm eyZowq"
+      className="c-txt__input--area c-txt__input c-txt__input--sm "
       data-garden-id="textfields.textarea"
       data-garden-version="version"
     />
@@ -152,13 +152,13 @@ exports[`Textarea validation renders error styling if provided 1`] = `
   validation="error"
 >
   <Input
-    className="Textarea-kJhswX c-txt__input--area dVNGmF"
+    className="c-txt__input--area "
     data-garden-id="textfields.textarea"
     data-garden-version="version"
     validation="error"
   >
     <textarea
-      className="Textarea-kJhswX c-txt__input--area dVNGmF Input-hxTtdt c-txt__input c-txt__input--error eyZowq"
+      className="c-txt__input--area c-txt__input c-txt__input--error "
       data-garden-id="textfields.textarea"
       data-garden-version="version"
     />
@@ -171,13 +171,13 @@ exports[`Textarea validation renders success styling if provided 1`] = `
   validation="success"
 >
   <Input
-    className="Textarea-kJhswX c-txt__input--area dVNGmF"
+    className="c-txt__input--area "
     data-garden-id="textfields.textarea"
     data-garden-version="version"
     validation="success"
   >
     <textarea
-      className="Textarea-kJhswX c-txt__input--area dVNGmF Input-hxTtdt c-txt__input c-txt__input--success eyZowq"
+      className="c-txt__input--area c-txt__input c-txt__input--success "
       data-garden-id="textfields.textarea"
       data-garden-version="version"
     />
@@ -190,13 +190,13 @@ exports[`Textarea validation renders warning styling if provided 1`] = `
   validation="warning"
 >
   <Input
-    className="Textarea-kJhswX c-txt__input--area dVNGmF"
+    className="c-txt__input--area "
     data-garden-id="textfields.textarea"
     data-garden-version="version"
     validation="warning"
   >
     <textarea
-      className="Textarea-kJhswX c-txt__input--area dVNGmF Input-hxTtdt c-txt__input c-txt__input--warning eyZowq"
+      className="c-txt__input--area c-txt__input c-txt__input--warning "
       data-garden-id="textfields.textarea"
       data-garden-version="version"
     />

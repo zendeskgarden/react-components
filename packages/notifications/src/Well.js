@@ -11,7 +11,6 @@ import classNames from 'classnames';
 import CalloutStyles from '@zendeskgarden/css-callouts';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 
-import { version } from '../package.json';
 const COMPONENT_ID = 'notifications.well';
 
 /**
@@ -19,7 +18,7 @@ const COMPONENT_ID = 'notifications.well';
  */
 const Well = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(CalloutStyles['c-callout'], {
       // RTL

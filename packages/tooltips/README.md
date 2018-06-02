@@ -9,6 +9,9 @@ in the Garden Design System.
 
 ```sh
 npm install @zendeskgarden/react-tooltips
+
+# Peer Dependencies - Also Required
+npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
 ```
 
 ## Usages
@@ -18,7 +21,20 @@ npm install @zendeskgarden/react-tooltips
 Standard tooltip usages.
 
 ```jsx static
-<Tooltip trigger={<button>Trigger top placement</button>}>This an small tooltip</Tooltip>
+/**
+ * Include tooltip styling at the root of your application
+ */
+import '@zendeskgarden/react-tooltips/dist/styles.css';
+
+import { ThemingProvider } from '@zendeskgarden/react-theming';
+import { Tooltip } from '@zendeskgarden/react-tooltips';
+
+/**
+ * Place a `ThemeProvider` at the root of your React application
+ */
+<ThemeProvider>
+  <Tooltip trigger={<button>Trigger top placement</button>}>This an small tooltip</Tooltip>
+</ThemeProvider>;
 ```
 
 ### TooltipContainer

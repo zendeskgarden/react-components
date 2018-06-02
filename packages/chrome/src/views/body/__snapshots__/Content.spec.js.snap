@@ -2,7 +2,7 @@
 
 exports[`Content renders default styling 1`] = `
 <div
-  className="Content-zwkXZ c-chrome__body__content iQnoCr"
+  className="c-chrome__body__content "
   data-garden-id="chrome.content"
   data-garden-version="version"
 />

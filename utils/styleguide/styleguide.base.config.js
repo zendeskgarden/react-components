@@ -6,7 +6,7 @@
  */
 
 const path = require('path');
-const _ = require('lodash');
+const webpack = require('webpack');
 const packageManifest = require(path.resolve('package.json'));
 const customStyleguideConfig = require(path.resolve('styleguide.config.js'));
 const basePathName = path.basename(path.resolve('./'));
@@ -67,7 +67,7 @@ const defaultStyleguideConfig = {
   getComponentPathLine(componentPath) {
     const name = path.basename(componentPath, '.js');
 
-    return `import ${name} from '${packageManifest.name}/${name}'`;
+    return `import { ${name} } from '${packageManifest.name}'`;
   },
   styleguideComponents: {
     Wrapper: path.resolve(__dirname, 'Wrapper'),
@@ -85,6 +85,12 @@ const defaultStyleguideConfig = {
         },
         {
           test: /\.css$/,
+          exclude: /@zendeskgarden\/css-/,
+          loader: 'style-loader!css-loader'
+        },
+        {
+          test: /\.css$/,
+          include: /@zendeskgarden\/css-/,
           loader:
             'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
         },
@@ -95,19 +101,17 @@ const defaultStyleguideConfig = {
         }
       ]
     },
-    resolve: {
-      alias: {
-        'styled-components': path.resolve(
-          __dirname,
-          '..',
-          '..',
-          'node_modules',
-          'styled-components'
-        ),
-        'package.json': path.resolve('package.json')
-      }
-    }
+    plugins: [
+      new webpack.DefinePlugin({
+        PACKAGE_VERSION: JSON.stringify(packageManifest.version)
+      })
+    ]
   }
 };
 
-module.exports = _.extend(defaultStyleguideConfig, customStyleguideConfig);
+defaultStyleguideConfig.sections = customStyleguideConfig.sections;
+defaultStyleguideConfig.require = defaultStyleguideConfig.require.concat(
+  customStyleguideConfig.require || []
+);
+
+module.exports = defaultStyleguideConfig;

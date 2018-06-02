@@ -2,7 +2,7 @@ This is a visual only example. For an accessible, complete implementation
 [use the ModalContainer](#modalcontainer) component.
 
 ```jsx
-const { Button } = require('@zendeskgarden/react-buttons');
+const { Button } = require('@zendeskgarden/react-buttons/src');
 
 const ExampleModalContainer = styled.div`
   position: relative;

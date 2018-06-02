@@ -11,7 +11,6 @@ import styled from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import { MenuView } from '@zendeskgarden/react-menus';
 
-import { version } from '../../package.json';
 const COMPONENT_ID = 'select.dropdown';
 
 const PLACEMENT = {
@@ -32,7 +31,7 @@ const PLACEMENT = {
 
 const StyledMenuView = styled(MenuView).attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version
+  'data-garden-version': PACKAGE_VERSION
 })`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
