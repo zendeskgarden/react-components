@@ -5,13 +5,9 @@ mapped to that `input` element.
 ### Uncontrolled Usage
 
 ```jsx
-const StyledLabel = styled(Label)`
-  background: red;
-`;
-
 <form>
   <Radio name="options" value="option-1">
-    <StyledLabel>Option 1</StyledLabel>
+    <Label>Option 1</Label>
     <Hint>Hinty Hint</Hint>
   </Radio>
   <Radio name="options" value="option-2" disabled>

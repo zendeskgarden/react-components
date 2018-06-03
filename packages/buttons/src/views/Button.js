@@ -106,5 +106,7 @@ Button.propTypes = {
   selected: PropTypes.bool
 };
 
+Button.hasType = () => Button;
+
 /** @component */
 export default Button;

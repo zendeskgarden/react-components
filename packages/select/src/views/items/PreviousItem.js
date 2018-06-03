@@ -29,5 +29,7 @@ PreviousItem.propTypes = {
   disabled: PropTypes.bool
 };
 
+PreviousItem.hasType = () => PreviousItem;
+
 /** @component */
 export default PreviousItem;

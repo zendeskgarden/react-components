@@ -21,7 +21,7 @@ import Backdrop from '../views/Backdrop';
 import Body from '../views/Body';
 import Close from '../views/Close';
 import Header from '../views/Header';
-import typeCheck from '../utils/typeCheck';
+import hasType from '../utils/hasType';
 
 /**
  * High-level abstraction for basic Modal implementations. Accepts all `<div>` props.
@@ -124,15 +124,15 @@ export default class Modal extends ControlledComponent {
             <Backdrop {...getBackdropProps({ center, animate, ...backdropProps })}>
               <ModalView {...getModalProps({ animate, ...modalProps })} innerRef={modalRef}>
                 {Children.map(children, child => {
-                  if (typeCheck(child, Header)) {
+                  if (hasType(child, Header)) {
                     return cloneElement(child, getTitleProps(child.props));
                   }
 
-                  if (typeCheck(child, Body)) {
+                  if (hasType(child, Body)) {
                     return cloneElement(child, getContentProps(child.props));
                   }
 
-                  if (typeCheck(child, Close)) {
+                  if (hasType(child, Close)) {
                     return cloneElement(child, getCloseProps(child.props));
                   }
 

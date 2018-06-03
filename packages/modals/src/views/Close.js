@@ -46,6 +46,8 @@ export default class Close extends Component {
     hovered: PropTypes.bool
   };
 
+  static hasType = () => Close;
+
   state = {
     isFocused: false
   };

@@ -47,5 +47,7 @@ Textarea.propTypes = {
   validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
 };
 
+Textarea.hasType = () => Textarea;
+
 /** @component */
 export default Textarea;

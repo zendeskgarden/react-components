@@ -11,6 +11,17 @@
  * @param {Function} component to match
  * @return {Boolean} if they match or not
  */
-export default function typeCheck(a, b) {
-  return a.type === b || a.type.prototype instanceof b;
+export default function(a, b) {
+  const { type: component } = a;
+  const { target, hasType } = component;
+
+  let result;
+
+  if (hasType) {
+    result = hasType() === b;
+  } else if (target && target.hasType) {
+    result = target.hasType() === b;
+  }
+
+  return result;
 }

@@ -16,7 +16,7 @@ import Item from '../views/items/Item';
 import MediaItem from '../views/items/media/MediaItem';
 import NextItem from '../views/items/NextItem';
 import PreviousItem from '../views/items/PreviousItem';
-import typeCheck from '../utils/typeCheck';
+import hasType from '../utils/hasType';
 
 export default class Menu extends ControlledComponent {
   static propTypes = {
@@ -159,11 +159,11 @@ export default class Menu extends ControlledComponent {
               }
 
               if (
-                typeCheck(child, AddItem) ||
-                typeCheck(child, Item) ||
-                typeCheck(child, MediaItem) ||
-                typeCheck(child, NextItem) ||
-                typeCheck(child, PreviousItem)
+                hasType(child, AddItem) ||
+                hasType(child, Item) ||
+                hasType(child, MediaItem) ||
+                hasType(child, NextItem) ||
+                hasType(child, PreviousItem)
               ) {
                 /**
                  * Automatically apply `textValue` if children is a string
@@ -173,9 +173,9 @@ export default class Menu extends ControlledComponent {
 
                 let itemPropMapper = getItemProps;
 
-                if (typeCheck(child, NextItem)) {
+                if (hasType(child, NextItem)) {
                   itemPropMapper = getNextItemProps;
-                } else if (typeCheck(child, PreviousItem)) {
+                } else if (hasType(child, PreviousItem)) {
                   itemPropMapper = getPreviousItemProps;
                 }
 

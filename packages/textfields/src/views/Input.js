@@ -70,5 +70,7 @@ Input.propTypes = {
   validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
 };
 
+Input.hasType = () => Input;
+
 /** @component */
 export default Input;

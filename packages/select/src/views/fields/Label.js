@@ -27,5 +27,7 @@ Label.propTypes = {
   small: PropTypes.bool
 };
 
+Label.hasType = () => Label;
+
 /** @component */
 export default Label;

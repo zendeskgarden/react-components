@@ -35,5 +35,7 @@ Hint.propTypes = {
   small: PropTypes.bool
 };
 
+Hint.hasType = () => Hint;
+
 /** @component */
 export default Hint;

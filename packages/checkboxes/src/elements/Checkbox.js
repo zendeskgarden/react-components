@@ -20,7 +20,7 @@ import Input from '../views/Input';
 import Label from '../views/Label';
 import Hint from '../views/Hint';
 import Message from '../views/Message';
-import typeCheck from '../utils/typeCheck';
+import hasType from '../utils/hasType';
 
 /**
  * Accepts all `<input type="checkbox" />` props
@@ -69,7 +69,7 @@ export default class Checkbox extends ControlledComponent {
       <CheckboxView {...wrapperProps}>
         <Input {...getInputProps(checkboxProps)} />
         {Children.map(children, child => {
-          if (typeCheck(child, Label)) {
+          if (hasType(child, Label)) {
             const { onMouseUp, ...otherChildProps } = child.props;
 
             return cloneElement(
@@ -83,11 +83,11 @@ export default class Checkbox extends ControlledComponent {
             );
           }
 
-          if (typeCheck(child, Hint)) {
+          if (hasType(child, Hint)) {
             return cloneElement(child, getHintProps(child.props));
           }
 
-          if (typeCheck(child, Message)) {
+          if (hasType(child, Message)) {
             return cloneElement(child, getMessageProps(child.props));
           }
 
