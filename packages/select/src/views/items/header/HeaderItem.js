@@ -9,7 +9,6 @@ import PropTypes from 'prop-types';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import { HeaderItem as MenuHeaderItem } from '@zendeskgarden/react-menus';
 
-import { version } from '../../../../package.json';
 const COMPONENT_ID = 'select.header_item';
 
 /**
@@ -17,7 +16,7 @@ const COMPONENT_ID = 'select.header_item';
  */
 const HeaderItem = MenuHeaderItem.extend.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version
+  'data-garden-version': PACKAGE_VERSION
 })`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;

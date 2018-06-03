@@ -13,12 +13,11 @@ import { retrieveTheme } from '@zendeskgarden/react-theming';
 import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
 import ChromeStyles from '@zendeskgarden/css-chrome';
 
-import { version } from '../../../package.json';
 const COMPONENT_ID = 'chrome.subnav_item';
 
 const StyledSubNavItem = styled.button.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(ChromeStyles['c-chrome__subnav__item'], {
       // State

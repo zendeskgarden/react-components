@@ -2,7 +2,7 @@
 
 exports[`Title renders with title styling 1`] = `
 <div
-  className="Title-kEkEAm c-callout__title kqpoIR"
+  className="c-callout__title "
   data-garden-id="notifications.title"
   data-garden-version="version"
 />

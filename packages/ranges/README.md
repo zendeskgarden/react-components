@@ -7,31 +7,41 @@ This package includes components relating to ranges in the
 
 ```sh
 npm install @zendeskgarden/react-ranges
+
+# Peer Dependencies - Also Required
+npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
 ```
 
 ## Usage
 
 ```jsx static
-import RangeField from '@zendeskgarden/react-ranges/RangeField';
-import Label from '@zendeskgarden/react-ranges/Label';
-import Hint from '@zendeskgarden/react-ranges/Hint';
-import Range from '@zendeskgarden/react-ranges/Range';
-import Message from '@zendeskgarden/react-ranges/Message';
+/**
+ * Include range styling at the root of your application
+ */
+import '@zendeskgarden/react-ranges/dist/styles.css';
+
+import { ThemeProvider } from '@zendeskgarden/react-theming';
+import { RangeField, Label, Hint, Range, Message } from '@zendeskgarden/react-ranges';
 
 initialState = {
   value: 25
 };
 
-<RangeField>
-  <Label>Labely</Label>
-  <Hint>Hint</Hint>
-  <Range
-    step={5}
-    min={0}
-    max={100}
-    value={state.value}
-    onChange={event => setState({ value: event.target.value })}
-  />
-  <Message>Example Messaging</Message>
-</RangeField>;
+/**
+ * Place a `ThemeProvider` at the root of your React application
+ */
+<ThemeProvider>
+  <RangeField>
+    <Label>Labely</Label>
+    <Hint>Hint</Hint>
+    <Range
+      step={5}
+      min={0}
+      max={100}
+      value={state.value}
+      onChange={event => setState({ value: event.target.value })}
+    />
+    <Message>Example Messaging</Message>
+  </RangeField>
+</ThemeProvider>;
 ```

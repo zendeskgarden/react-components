@@ -9,7 +9,6 @@ import styled from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import ChromeStyles from '@zendeskgarden/css-chrome';
 
-import { version } from '../../../package.json';
 const COMPONENT_ID = 'chrome.sidebar';
 
 /**
@@ -17,7 +16,7 @@ const COMPONENT_ID = 'chrome.sidebar';
  */
 const Sidebar = styled.aside.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: ChromeStyles['c-chrome__body__content__sidebar']
 })`
   ${props => retrieveTheme(COMPONENT_ID, props)};

@@ -7,6 +7,9 @@ This package includes components relating to radio buttons in the
 
 ```sh
 npm install @zendeskgarden/react-radios
+
+# Peer Dependencies - Also Required
+npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
 ```
 
 ## Usage
@@ -15,15 +18,28 @@ Our `Radio` component is a simple abstraction around the
 native `<input type="radio" />` element.
 
 ```jsx static
-<form>
-  <Radio name="options" value="option-1">
-    <RadioLabel>Option 1</RadioLabel>
-  </Radio>
-  <Radio name="options" value="option-2" disabled>
-    <RadioLabel>Disabled Option</RadioLabel>
-  </Radio>
-  <Radio name="options" value="option-3">
-    <RadioLabel>Option 3</RadioLabel>
-  </Radio>
-</form>
+/**
+ * Include radio styling at the root of your application
+ */
+import '@zendeskgarden/react-radios/dist/styles.css';
+
+import { ThemeProvider } from '@zendeskgarden/react-theming';
+import { Radio, Label } from '@zendeskgarden/react-radios';
+
+/**
+ * Place a `ThemeProvider` at the root of your React application
+ */
+<ThemeProvider>
+  <form>
+    <Radio name="options" value="option-1">
+      <Label>Option 1</Label>
+    </Radio>
+    <Radio name="options" value="option-2" disabled>
+      <Label>Disabled Option</Label>
+    </Radio>
+    <Radio name="options" value="option-3">
+      <Label>Option 3</Label>
+    </Radio>
+  </form>
+</ThemeProvider>;
 ```

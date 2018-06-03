@@ -16,7 +16,7 @@ global.styled = styled;
 
 // Styleguide components
 import State from './State';
-import { Grid, Row, Col } from '../../packages/grid';
+import { Grid, Row, Col } from '../../packages/grid/src';
 
 global.State = State;
 global.Grid = Grid;

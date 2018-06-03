@@ -14,7 +14,7 @@ exports[`Anchor States renders active styling if provided 1`] = `
       tabIndex={0}
     >
       <a
-        className="Anchor__StyledAnchor-Wspam c-btn c-btn--anchor is-active dTIzcQ"
+        className="c-btn c-btn--anchor is-active "
         data-garden-id="buttons.anchor"
         data-garden-version="version"
         onBlur={[Function]}
@@ -41,7 +41,7 @@ exports[`Anchor States renders disabled styling if provided 1`] = `
       tabIndex={0}
     >
       <a
-        className="Anchor__StyledAnchor-Wspam c-btn c-btn--anchor is-disabled dTIzcQ"
+        className="c-btn c-btn--anchor is-disabled "
         data-garden-id="buttons.anchor"
         data-garden-version="version"
         disabled={true}
@@ -68,7 +68,7 @@ exports[`Anchor States renders focused styling if provided 1`] = `
       tabIndex={0}
     >
       <a
-        className="Anchor__StyledAnchor-Wspam c-btn c-btn--anchor is-focused dTIzcQ"
+        className="c-btn c-btn--anchor is-focused "
         data-garden-id="buttons.anchor"
         data-garden-version="version"
         onBlur={[Function]}
@@ -95,7 +95,7 @@ exports[`Anchor States renders hovered styling if provided 1`] = `
       tabIndex={0}
     >
       <a
-        className="Anchor__StyledAnchor-Wspam c-btn c-btn--anchor is-hovered dTIzcQ"
+        className="c-btn c-btn--anchor is-hovered "
         data-garden-id="buttons.anchor"
         data-garden-version="version"
         onBlur={[Function]}
@@ -122,7 +122,7 @@ exports[`Anchor renders danger styling if provided 1`] = `
       tabIndex={0}
     >
       <a
-        className="Anchor__StyledAnchor-Wspam c-btn c-btn--anchor c-btn--danger dTIzcQ"
+        className="c-btn c-btn--anchor c-btn--danger "
         data-garden-id="buttons.anchor"
         data-garden-version="version"
         onBlur={[Function]}

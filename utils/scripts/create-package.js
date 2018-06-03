@@ -14,8 +14,15 @@ const chalk = require('chalk');
 const pelorous = chalk.hex('#30AABC');
 const path = require('path');
 const fs = require('fs-extra');
-const handlebars = require('handlebars');
 const childProcess = require('child_process');
+const handlebars = require('handlebars');
+
+/**
+ * Register handlebars template helper utilities
+ */
+require('handlebars-helpers')({
+  handlebars
+});
 
 const welcomeSplashScreen = () => {
   console.log(pelorous('#################################'));

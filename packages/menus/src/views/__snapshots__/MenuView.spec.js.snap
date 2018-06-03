@@ -1,14 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MenuView Arrow does not render if arrow prop is not provided 1`] = `
+.c0.c0 {
+  position: relative;
+}
+
+.c0:focus {
+  outline: none;
+}
+
 <MenuView>
   <MenuView__MenuWrapper>
     <div
-      className="MenuView__MenuWrapper-gKLuJf iQPnQE"
+      className=""
     >
       <MenuView__StyledMenuView>
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu fDjDUm"
+          className="c-menu c0"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -19,6 +27,18 @@ exports[`MenuView Arrow does not render if arrow prop is not provided 1`] = `
 `;
 
 exports[`MenuView Arrow does not render if placement is not supported 1`] = `
+.c1.c1 {
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-left: 4px;
+}
+
 <MenuView
   arrow={true}
   placement="right-start"
@@ -28,14 +48,14 @@ exports[`MenuView Arrow does not render if placement is not supported 1`] = `
     placement="right-start"
   >
     <div
-      className="MenuView__MenuWrapper-gKLuJf bWtXTI"
+      className="c0"
     >
       <MenuView__StyledMenuView
         arrow={true}
         placement="right-start"
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu c-menu--right fDjDUm"
+          className="c-menu c-menu--right c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -46,6 +66,18 @@ exports[`MenuView Arrow does not render if placement is not supported 1`] = `
 `;
 
 exports[`MenuView Arrow placement renders correct arrow placement if provided 1`] = `
+.c1.c1 {
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-right: 8px;
+}
+
 <MenuView
   arrow={true}
   placement="left"
@@ -55,14 +87,14 @@ exports[`MenuView Arrow placement renders correct arrow placement if provided 1`
     placement="left"
   >
     <div
-      className="MenuView__MenuWrapper-gKLuJf fSYTsS"
+      className="c0"
     >
       <MenuView__StyledMenuView
         arrow={true}
         placement="left"
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu c-menu--left c-arrow c-arrow--r fDjDUm"
+          className="c-menu c-menu--left c-arrow c-arrow--r c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -73,6 +105,18 @@ exports[`MenuView Arrow placement renders correct arrow placement if provided 1`
 `;
 
 exports[`MenuView Arrow placement renders correct arrow placement if provided 2`] = `
+.c1.c1 {
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-bottom: 8px;
+}
+
 <MenuView
   arrow={true}
   placement="top"
@@ -82,14 +126,14 @@ exports[`MenuView Arrow placement renders correct arrow placement if provided 2`
     placement="top"
   >
     <div
-      className="MenuView__MenuWrapper-gKLuJf eRuDOe"
+      className="c0"
     >
       <MenuView__StyledMenuView
         arrow={true}
         placement="top"
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu c-menu--up c-arrow c-arrow--b fDjDUm"
+          className="c-menu c-menu--up c-arrow c-arrow--b c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -100,6 +144,18 @@ exports[`MenuView Arrow placement renders correct arrow placement if provided 2`
 `;
 
 exports[`MenuView Arrow placement renders correct arrow placement if provided 3`] = `
+.c1.c1 {
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-bottom: 8px;
+}
+
 <MenuView
   arrow={true}
   placement="top-start"
@@ -109,14 +165,14 @@ exports[`MenuView Arrow placement renders correct arrow placement if provided 3`
     placement="top-start"
   >
     <div
-      className="MenuView__MenuWrapper-gKLuJf eRuDOe"
+      className="c0"
     >
       <MenuView__StyledMenuView
         arrow={true}
         placement="top-start"
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu c-menu--up c-arrow c-arrow--bl fDjDUm"
+          className="c-menu c-menu--up c-arrow c-arrow--bl c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -127,6 +183,18 @@ exports[`MenuView Arrow placement renders correct arrow placement if provided 3`
 `;
 
 exports[`MenuView Arrow placement renders correct arrow placement if provided 4`] = `
+.c1.c1 {
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-bottom: 8px;
+}
+
 <MenuView
   arrow={true}
   placement="top-end"
@@ -136,14 +204,14 @@ exports[`MenuView Arrow placement renders correct arrow placement if provided 4`
     placement="top-end"
   >
     <div
-      className="MenuView__MenuWrapper-gKLuJf eRuDOe"
+      className="c0"
     >
       <MenuView__StyledMenuView
         arrow={true}
         placement="top-end"
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu c-menu--up c-arrow c-arrow--br fDjDUm"
+          className="c-menu c-menu--up c-arrow c-arrow--br c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -154,6 +222,18 @@ exports[`MenuView Arrow placement renders correct arrow placement if provided 4`
 `;
 
 exports[`MenuView Arrow placement renders correct arrow placement if provided 5`] = `
+.c1.c1 {
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-left: 8px;
+}
+
 <MenuView
   arrow={true}
   placement="right"
@@ -163,14 +243,14 @@ exports[`MenuView Arrow placement renders correct arrow placement if provided 5`
     placement="right"
   >
     <div
-      className="MenuView__MenuWrapper-gKLuJf cmAXZG"
+      className="c0"
     >
       <MenuView__StyledMenuView
         arrow={true}
         placement="right"
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu c-menu--right c-arrow c-arrow--l fDjDUm"
+          className="c-menu c-menu--right c-arrow c-arrow--l c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -181,6 +261,18 @@ exports[`MenuView Arrow placement renders correct arrow placement if provided 5`
 `;
 
 exports[`MenuView Arrow placement renders correct arrow placement if provided 6`] = `
+.c1.c1 {
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-top: 8px;
+}
+
 <MenuView
   arrow={true}
   placement="bottom"
@@ -190,14 +282,14 @@ exports[`MenuView Arrow placement renders correct arrow placement if provided 6`
     placement="bottom"
   >
     <div
-      className="MenuView__MenuWrapper-gKLuJf ctOreY"
+      className="c0"
     >
       <MenuView__StyledMenuView
         arrow={true}
         placement="bottom"
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu c-menu--down c-arrow c-arrow--t fDjDUm"
+          className="c-menu c-menu--down c-arrow c-arrow--t c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -208,6 +300,18 @@ exports[`MenuView Arrow placement renders correct arrow placement if provided 6`
 `;
 
 exports[`MenuView Arrow placement renders correct arrow placement if provided 7`] = `
+.c1.c1 {
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-top: 8px;
+}
+
 <MenuView
   arrow={true}
   placement="bottom-start"
@@ -217,14 +321,14 @@ exports[`MenuView Arrow placement renders correct arrow placement if provided 7`
     placement="bottom-start"
   >
     <div
-      className="MenuView__MenuWrapper-gKLuJf ctOreY"
+      className="c0"
     >
       <MenuView__StyledMenuView
         arrow={true}
         placement="bottom-start"
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu c-menu--down c-arrow c-arrow--tl fDjDUm"
+          className="c-menu c-menu--down c-arrow c-arrow--tl c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -235,6 +339,18 @@ exports[`MenuView Arrow placement renders correct arrow placement if provided 7`
 `;
 
 exports[`MenuView Arrow placement renders correct arrow placement if provided 8`] = `
+.c1.c1 {
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-top: 8px;
+}
+
 <MenuView
   arrow={true}
   placement="bottom-end"
@@ -244,14 +360,14 @@ exports[`MenuView Arrow placement renders correct arrow placement if provided 8`
     placement="bottom-end"
   >
     <div
-      className="MenuView__MenuWrapper-gKLuJf ctOreY"
+      className="c0"
     >
       <MenuView__StyledMenuView
         arrow={true}
         placement="bottom-end"
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu c-menu--down c-arrow c-arrow--tr fDjDUm"
+          className="c-menu c-menu--down c-arrow c-arrow--tr c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -262,6 +378,18 @@ exports[`MenuView Arrow placement renders correct arrow placement if provided 8`
 `;
 
 exports[`MenuView Arrow renders otherwise 1`] = `
+.c1.c1 {
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-left: 8px;
+}
+
 <MenuView
   arrow={true}
   placement="right"
@@ -271,14 +399,14 @@ exports[`MenuView Arrow renders otherwise 1`] = `
     placement="right"
   >
     <div
-      className="MenuView__MenuWrapper-gKLuJf cmAXZG"
+      className="c0"
     >
       <MenuView__StyledMenuView
         arrow={true}
         placement="right"
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu c-menu--right c-arrow c-arrow--l fDjDUm"
+          className="c-menu c-menu--right c-arrow c-arrow--l c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -289,6 +417,18 @@ exports[`MenuView Arrow renders otherwise 1`] = `
 `;
 
 exports[`MenuView Directional styling renders down styling if placement is provided 1`] = `
+.c1.c1 {
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-top: 4px;
+}
+
 <MenuView
   placement="bottom"
 >
@@ -296,13 +436,13 @@ exports[`MenuView Directional styling renders down styling if placement is provi
     placement="bottom"
   >
     <div
-      className="MenuView__MenuWrapper-gKLuJf hZHudz"
+      className="c0"
     >
       <MenuView__StyledMenuView
         placement="bottom"
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu c-menu--down c-arrow--t fDjDUm"
+          className="c-menu c-menu--down c-arrow--t c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -313,6 +453,18 @@ exports[`MenuView Directional styling renders down styling if placement is provi
 `;
 
 exports[`MenuView Directional styling renders down styling if placement is provided 2`] = `
+.c1.c1 {
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-top: 4px;
+}
+
 <MenuView
   placement="bottom-start"
 >
@@ -320,13 +472,13 @@ exports[`MenuView Directional styling renders down styling if placement is provi
     placement="bottom-start"
   >
     <div
-      className="MenuView__MenuWrapper-gKLuJf hZHudz"
+      className="c0"
     >
       <MenuView__StyledMenuView
         placement="bottom-start"
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu c-menu--down c-arrow--tl fDjDUm"
+          className="c-menu c-menu--down c-arrow--tl c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -337,6 +489,18 @@ exports[`MenuView Directional styling renders down styling if placement is provi
 `;
 
 exports[`MenuView Directional styling renders down styling if placement is provided 3`] = `
+.c1.c1 {
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-top: 4px;
+}
+
 <MenuView
   placement="bottom-end"
 >
@@ -344,13 +508,13 @@ exports[`MenuView Directional styling renders down styling if placement is provi
     placement="bottom-end"
   >
     <div
-      className="MenuView__MenuWrapper-gKLuJf hZHudz"
+      className="c0"
     >
       <MenuView__StyledMenuView
         placement="bottom-end"
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu c-menu--down c-arrow--tr fDjDUm"
+          className="c-menu c-menu--down c-arrow--tr c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -361,6 +525,18 @@ exports[`MenuView Directional styling renders down styling if placement is provi
 `;
 
 exports[`MenuView Directional styling renders left styling if placement is provided 1`] = `
+.c1.c1 {
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-right: 4px;
+}
+
 <MenuView
   placement="left"
 >
@@ -368,13 +544,13 @@ exports[`MenuView Directional styling renders left styling if placement is provi
     placement="left"
   >
     <div
-      className="MenuView__MenuWrapper-gKLuJf idxOfc"
+      className="c0"
     >
       <MenuView__StyledMenuView
         placement="left"
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu c-menu--left c-arrow--r fDjDUm"
+          className="c-menu c-menu--left c-arrow--r c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -385,6 +561,18 @@ exports[`MenuView Directional styling renders left styling if placement is provi
 `;
 
 exports[`MenuView Directional styling renders left styling if placement is provided 2`] = `
+.c1.c1 {
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-right: 4px;
+}
+
 <MenuView
   placement="left-start"
 >
@@ -392,13 +580,13 @@ exports[`MenuView Directional styling renders left styling if placement is provi
     placement="left-start"
   >
     <div
-      className="MenuView__MenuWrapper-gKLuJf idxOfc"
+      className="c0"
     >
       <MenuView__StyledMenuView
         placement="left-start"
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu c-menu--left fDjDUm"
+          className="c-menu c-menu--left c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -409,6 +597,18 @@ exports[`MenuView Directional styling renders left styling if placement is provi
 `;
 
 exports[`MenuView Directional styling renders left styling if placement is provided 3`] = `
+.c1.c1 {
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-right: 4px;
+}
+
 <MenuView
   placement="left-end"
 >
@@ -416,13 +616,13 @@ exports[`MenuView Directional styling renders left styling if placement is provi
     placement="left-end"
   >
     <div
-      className="MenuView__MenuWrapper-gKLuJf idxOfc"
+      className="c0"
     >
       <MenuView__StyledMenuView
         placement="left-end"
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu c-menu--left fDjDUm"
+          className="c-menu c-menu--left c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -433,6 +633,18 @@ exports[`MenuView Directional styling renders left styling if placement is provi
 `;
 
 exports[`MenuView Directional styling renders right styling if placement is provided 1`] = `
+.c1.c1 {
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-left: 4px;
+}
+
 <MenuView
   placement="right"
 >
@@ -440,13 +652,13 @@ exports[`MenuView Directional styling renders right styling if placement is prov
     placement="right"
   >
     <div
-      className="MenuView__MenuWrapper-gKLuJf bWtXTI"
+      className="c0"
     >
       <MenuView__StyledMenuView
         placement="right"
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu c-menu--right c-arrow--l fDjDUm"
+          className="c-menu c-menu--right c-arrow--l c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -457,6 +669,18 @@ exports[`MenuView Directional styling renders right styling if placement is prov
 `;
 
 exports[`MenuView Directional styling renders right styling if placement is provided 2`] = `
+.c1.c1 {
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-left: 4px;
+}
+
 <MenuView
   placement="right-start"
 >
@@ -464,13 +688,13 @@ exports[`MenuView Directional styling renders right styling if placement is prov
     placement="right-start"
   >
     <div
-      className="MenuView__MenuWrapper-gKLuJf bWtXTI"
+      className="c0"
     >
       <MenuView__StyledMenuView
         placement="right-start"
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu c-menu--right fDjDUm"
+          className="c-menu c-menu--right c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -481,6 +705,18 @@ exports[`MenuView Directional styling renders right styling if placement is prov
 `;
 
 exports[`MenuView Directional styling renders right styling if placement is provided 3`] = `
+.c1.c1 {
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-left: 4px;
+}
+
 <MenuView
   placement="right-end"
 >
@@ -488,13 +724,13 @@ exports[`MenuView Directional styling renders right styling if placement is prov
     placement="right-end"
   >
     <div
-      className="MenuView__MenuWrapper-gKLuJf bWtXTI"
+      className="c0"
     >
       <MenuView__StyledMenuView
         placement="right-end"
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu c-menu--right fDjDUm"
+          className="c-menu c-menu--right c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -505,6 +741,18 @@ exports[`MenuView Directional styling renders right styling if placement is prov
 `;
 
 exports[`MenuView Directional styling renders up styling if placement is provided 1`] = `
+.c1.c1 {
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-bottom: 4px;
+}
+
 <MenuView
   placement="top"
 >
@@ -512,13 +760,13 @@ exports[`MenuView Directional styling renders up styling if placement is provide
     placement="top"
   >
     <div
-      className="MenuView__MenuWrapper-gKLuJf kOanVq"
+      className="c0"
     >
       <MenuView__StyledMenuView
         placement="top"
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu c-menu--up c-arrow--b fDjDUm"
+          className="c-menu c-menu--up c-arrow--b c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -529,6 +777,18 @@ exports[`MenuView Directional styling renders up styling if placement is provide
 `;
 
 exports[`MenuView Directional styling renders up styling if placement is provided 2`] = `
+.c1.c1 {
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-bottom: 4px;
+}
+
 <MenuView
   placement="top-start"
 >
@@ -536,13 +796,13 @@ exports[`MenuView Directional styling renders up styling if placement is provide
     placement="top-start"
   >
     <div
-      className="MenuView__MenuWrapper-gKLuJf kOanVq"
+      className="c0"
     >
       <MenuView__StyledMenuView
         placement="top-start"
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu c-menu--up c-arrow--bl fDjDUm"
+          className="c-menu c-menu--up c-arrow--bl c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -553,6 +813,18 @@ exports[`MenuView Directional styling renders up styling if placement is provide
 `;
 
 exports[`MenuView Directional styling renders up styling if placement is provided 3`] = `
+.c1.c1 {
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-bottom: 4px;
+}
+
 <MenuView
   placement="top-end"
 >
@@ -560,13 +832,13 @@ exports[`MenuView Directional styling renders up styling if placement is provide
     placement="top-end"
   >
     <div
-      className="MenuView__MenuWrapper-gKLuJf kOanVq"
+      className="c0"
     >
       <MenuView__StyledMenuView
         placement="top-end"
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu c-menu--up c-arrow--br fDjDUm"
+          className="c-menu c-menu--up c-arrow--br c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -577,18 +849,26 @@ exports[`MenuView Directional styling renders up styling if placement is provide
 `;
 
 exports[`MenuView Renders renders animation styling correctly 1`] = `
+.c0.c0 {
+  position: relative;
+}
+
+.c0:focus {
+  outline: none;
+}
+
 <MenuView
   animate={true}
 >
   <MenuView__MenuWrapper>
     <div
-      className="MenuView__MenuWrapper-gKLuJf iQPnQE"
+      className=""
     >
       <MenuView__StyledMenuView
         animate={true}
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu is-open fDjDUm"
+          className="c-menu is-open c0"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -599,6 +879,20 @@ exports[`MenuView Renders renders animation styling correctly 1`] = `
 `;
 
 exports[`MenuView Renders renders custom left animation correctly 1`] = `
+.c1.c1 {
+  -webkit-animation: DWTzU;
+  animation: DWTzU;
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-right: 4px;
+}
+
 <MenuView
   animate={true}
   placement="left"
@@ -607,14 +901,14 @@ exports[`MenuView Renders renders custom left animation correctly 1`] = `
     placement="left"
   >
     <div
-      className="MenuView__MenuWrapper-gKLuJf idxOfc"
+      className="c0"
     >
       <MenuView__StyledMenuView
         animate={true}
         placement="left"
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu c-menu--left is-open c-arrow--r emxQFi"
+          className="c-menu c-menu--left is-open c-arrow--r c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -625,6 +919,20 @@ exports[`MenuView Renders renders custom left animation correctly 1`] = `
 `;
 
 exports[`MenuView Renders renders custom top animation correctly 1`] = `
+.c1.c1 {
+  -webkit-animation: dtfwqU;
+  animation: dtfwqU;
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-bottom: 4px;
+}
+
 <MenuView
   animate={true}
   placement="top"
@@ -633,14 +941,14 @@ exports[`MenuView Renders renders custom top animation correctly 1`] = `
     placement="top"
   >
     <div
-      className="MenuView__MenuWrapper-gKLuJf kOanVq"
+      className="c0"
     >
       <MenuView__StyledMenuView
         animate={true}
         placement="top"
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu c-menu--up is-open c-arrow--b beaczg"
+          className="c-menu c-menu--up is-open c-arrow--b c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -651,14 +959,22 @@ exports[`MenuView Renders renders custom top animation correctly 1`] = `
 `;
 
 exports[`MenuView renders RTL styling correctly 1`] = `
+.c0.c0 {
+  position: relative;
+}
+
+.c0:focus {
+  outline: none;
+}
+
 <MenuView>
   <MenuView__MenuWrapper>
     <div
-      className="MenuView__MenuWrapper-gKLuJf iQPnQE"
+      className=""
     >
       <MenuView__StyledMenuView>
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu fDjDUm"
+          className="c-menu c0"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -669,14 +985,22 @@ exports[`MenuView renders RTL styling correctly 1`] = `
 `;
 
 exports[`MenuView renders default styling correctly 1`] = `
+.c0.c0 {
+  position: relative;
+}
+
+.c0:focus {
+  outline: none;
+}
+
 <MenuView>
   <MenuView__MenuWrapper>
     <div
-      className="MenuView__MenuWrapper-gKLuJf iQPnQE"
+      className=""
     >
       <MenuView__StyledMenuView>
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu fDjDUm"
+          className="c-menu c0"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -687,18 +1011,26 @@ exports[`MenuView renders default styling correctly 1`] = `
 `;
 
 exports[`MenuView renders hidden styling if provided 1`] = `
+.c0.c0 {
+  position: relative;
+}
+
+.c0:focus {
+  outline: none;
+}
+
 <MenuView
   hidden={true}
 >
   <MenuView__MenuWrapper>
     <div
-      className="MenuView__MenuWrapper-gKLuJf iQPnQE"
+      className=""
     >
       <MenuView__StyledMenuView
         hidden={true}
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu is-hidden fDjDUm"
+          className="c-menu is-hidden c0"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
           hidden={true}
@@ -710,18 +1042,26 @@ exports[`MenuView renders hidden styling if provided 1`] = `
 `;
 
 exports[`MenuView renders small styling correctly 1`] = `
+.c0.c0 {
+  position: relative;
+}
+
+.c0:focus {
+  outline: none;
+}
+
 <MenuView
   small={true}
 >
   <MenuView__MenuWrapper>
     <div
-      className="MenuView__MenuWrapper-gKLuJf iQPnQE"
+      className=""
     >
       <MenuView__StyledMenuView
         small={true}
       >
         <ul
-          className="MenuView__StyledMenuView-kxrVPe c-menu c-menu--sm fDjDUm"
+          className="c-menu c-menu--sm c0"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />

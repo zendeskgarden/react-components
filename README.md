@@ -115,58 +115,49 @@ Package | Version | Dependencies
 
 ## Usage
 
-To consume our packages we require
-[CSS-modules](https://github.com/css-modules/css-modules) be enabled
-within your webpack config. This allows us to leverage the styling that
-currently exists within our [CSS
-packages](https://github.com/zendeskgarden/css-components).
+Our packages are easily consumable with [create-react-app](https://github.com/facebook/create-react-app)
+and standard webpack configs.
 
-By not bundling the CSS with each package it ensures that tree-shaking
-is handled correctly with products that depend on the CSS for other,
-custom areas.
+All packages follow a similar installation process. Below is an example of
+consuming our [react-buttons](https://www.npmjs.com/package/@zendeskgarden/react-buttons)
+package.
 
-### Webpack configuration
+### (1) Install dependencies
 
-Use this configuration to enable CSS-modules globally.
+```sh
+# Install garden package
+npm install @zendeskgarden/react-buttons
 
-```js
-// webpack >= 2.2.1
-{
-  test: /\.css$/,
-  use: [
-    'style-loader',
-    {
-      loader: 'css-loader',
-      options: {
-        modules: true,
-        localIdentName: '[path][name]__[local]--[hash:base64:5]'
-      }
-    }
-  ]
-}
+# Install peer dependencies
+npm install styled-components @zendeskgarden/react-theming
 ```
 
-### Limited Webpack Configuration
+### (2) Include global styling and `ThemeProvider`
 
-This configuration limits CSS-modules to the Garden React packages.
-Useful if you are already using global CSS within your application.
+```jsx
+import React, { Component } from 'react';
+import { render } from 'react-dom';
 
-```js
-// webpack >= 2.2.1
-{
-  test: /\.css$/,
-  include: /node_modules\/@zendeskgarden\/css/, // limits imports affected by loader
-  use: [
-    'style-loader',
-    {
-      loader: 'css-loader',
-      options: {
-        modules: true,
-        localIdentName: '[path][name]__[local]--[hash:base64:5]'
-      }
-    }
-  ]
+/** Globally include scoped button styling */
+import '@zendeskgarden/react-buttons/dist/styles.css';
+
+/** Include a ThemeProvider at the root of your app */
+import { ThemeProvider } from '@zendeskgarden/react-theming';
+
+/** Consume throughout app */
+import { Button } from '@zendeskgarden/react-buttons';
+
+class App extends Component {
+  render() {
+    return (
+      <ThemeProvider>
+        <Button>Example Garden Button</Button>
+      </ThemeProvider>
+    );
+  }
 }
+
+render(<App />, document.getElementById('root'));
 ```
 
 ## Contribution

@@ -21,7 +21,7 @@ and includes the following keyboard navigation:
 ### Simple Example
 
 ```jsx
-const { Button } = require('@zendeskgarden/react-buttons');
+const { Button } = require('@zendeskgarden/react-buttons/src');
 
 const menuItems = [];
 for (let x = 1; x <= 5; x++) {
@@ -58,7 +58,7 @@ for (let x = 1; x <= 5; x++) {
 ### Disabled Menu Items
 
 ```jsx
-const { Button, Icon } = require('@zendeskgarden/react-buttons');
+const { Button, Icon } = require('@zendeskgarden/react-buttons/src');
 const SettingsIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/14/settings.svg');
 
 initialState = {
@@ -156,7 +156,7 @@ const secondaryMenuItems = [
 ### Scrollable Menu Areas
 
 ```jsx
-const { Button } = require('@zendeskgarden/react-buttons');
+const { Button } = require('@zendeskgarden/react-buttons/src');
 
 const menuItems = [];
 
@@ -207,7 +207,7 @@ This render prop container can be used with any DOM elements
 it is provided.
 
 ```jsx
-const { Button } = require('@zendeskgarden/react-buttons');
+const { Button } = require('@zendeskgarden/react-buttons/src');
 
 const menuItems = [];
 for (let x = 0; x < 5; x++) {
@@ -270,9 +270,9 @@ initialState = {
 ```
 
 ```jsx
-const { KEY_CODES } = require('@zendeskgarden/react-selection');
-const { Button } = require('@zendeskgarden/react-buttons');
-const { Input, FauxInput, MediaFigure } = require('@zendeskgarden/react-textfields');
+const { KEY_CODES } = require('@zendeskgarden/react-selection/src');
+const { Button } = require('@zendeskgarden/react-buttons/src');
+const { Input, FauxInput, MediaFigure } = require('@zendeskgarden/react-textfields/src');
 const SearchIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/14/search.svg');
 
 const natoPhonetics = [
@@ -410,7 +410,7 @@ const getMatchingMenuItems = (searchValue, getItemProps, focusedKey) => {
 ### Tree Menu
 
 ```jsx
-const { Button } = require('@zendeskgarden/react-buttons');
+const { Button } = require('@zendeskgarden/react-buttons/src');
 
 const TREE_DATA = {
   root: {

@@ -7,6 +7,9 @@ and RTL capabilities in the [Garden Design System](https://zendeskgarden.github.
 
 ```sh
 npm install @zendeskgarden/react-theming
+
+# Peer Dependencies - Also Required
+npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
 ```
 
 ## Usage
@@ -25,8 +28,8 @@ additional, custom theming.
 All themes are auto-prefixed and has access to the `props` provided to the component.
 
 ```jsx static
-import ThemeProvider from '@zendeskgarden/react-theming/ThemeProvider';
-import Notification from '@zendeskgarden/react-notifications/Notification';
+import { ThemeProvider } from '@zendeskgarden/react-theming';
+import { Notification } from '@zendeskgarden/react-notifications';
 
 const theme = {
   'notification': `
@@ -48,8 +51,8 @@ const theme = {
 ### RTL
 
 ```jsx static
-import ThemeProvider from '@zendeskgarden/react-theming/ThemeProvider';
-import Notification from '@zendeskgarden/react-notifications/Notification';
+import { ThemeProvider } from '@zendeskgarden/react-theming';
+import { Notification } from '@zendeskgarden/react-notifications';
 
 <ThemeProvider rtl>
   <Notification>This notification content will have custom styling.</Notification>
@@ -60,7 +63,7 @@ The `withTheme` [HOC](https://reactjs.org/docs/higher-order-components.html) uti
 allows any component to interact with its `ThemeProvider`.
 
 ```jsx static
-import withTheme from '@zendeskgarden/react-theming/withTheme';
+import { withTheme } from '@zendeskgarden/react-theming';
 
 const StyledDiv = ({ theme, children }) => (
   <div style={{ direction: theme.rtl ? 'rtl' : 'ltr' }}>{children}</div>
@@ -79,8 +82,8 @@ You can change the target location that style-components injects its CSS into e.
 if you're using an iframe or shadow DOM.
 
 ```jsx static
-import ThemeProvider from '@zendeskgarden/react-theming/ThemeProvider';
-import Notification from '@zendeskgarden/react-notifications/Notification';
+import { ThemeProvider } from '@zendeskgarden/react-theming';
+import { Notification } from '@zendeskgarden/react-notifications';
 
 <ThemeProvider target={document.querySelector('.some-element')}>
   <Notification>This notification content will have custom styling.</Notification>

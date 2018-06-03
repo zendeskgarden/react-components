@@ -8,7 +8,7 @@ If you are using a routing library like [react-router](https://github.com/ReactT
 you can programmaticaly trigger navigation with the `onClick` events.
 
 ```jsx
-const { Toggle, Label } = require('@zendeskgarden/react-toggles');
+const { Toggle, Label } = require('@zendeskgarden/react-toggles/src');
 const ConnectIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/26/relationshape-connect.svg');
 const HomeIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/26/home-fill.svg');
 const ListsIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/26/customer-lists-fill.svg');

@@ -2,7 +2,7 @@
 
 exports[`SubNavItemText renders default styling 1`] = `
 <span
-  className="SubNavItemText-iFJPui c-chrome__subnav__item__text eLnGfD"
+  className="c-chrome__subnav__item__text "
   data-garden-id="chrome.subnav_item_text"
   data-garden-version="version"
 />

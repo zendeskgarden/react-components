@@ -1,32 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Page renders current styling if provided 1`] = `
+.c0.c0 {
+  -webkit-transition: none;
+  transition: none;
+}
+
 <li
-  className="Page-jouGdw c-pagination__page is-current fyxZdj"
+  className="c-pagination__page is-current c0"
   data-garden-id="pagination.page"
   data-garden-version="version"
 />
 `;
 
 exports[`Page renders default styling 1`] = `
+.c0.c0 {
+  -webkit-transition: none;
+  transition: none;
+}
+
 <li
-  className="Page-jouGdw c-pagination__page fyxZdj"
+  className="c-pagination__page c0"
   data-garden-id="pagination.page"
   data-garden-version="version"
 />
 `;
 
 exports[`Page renders focused styling if provided 1`] = `
+.c0.c0 {
+  -webkit-transition: none;
+  transition: none;
+}
+
 <li
-  className="Page-jouGdw c-pagination__page is-focused fyxZdj"
+  className="c-pagination__page is-focused c0"
   data-garden-id="pagination.page"
   data-garden-version="version"
 />
 `;
 
 exports[`Page renders hidden styling if provided 1`] = `
+.c0.c0 {
+  -webkit-transition: none;
+  transition: none;
+}
+
 <li
-  className="Page-jouGdw c-pagination__page is-hidden fyxZdj"
+  className="c-pagination__page is-hidden c0"
   data-garden-id="pagination.page"
   data-garden-version="version"
   hidden={true}
@@ -34,8 +54,13 @@ exports[`Page renders hidden styling if provided 1`] = `
 `;
 
 exports[`Page renders hovered styling if provided 1`] = `
+.c0.c0 {
+  -webkit-transition: none;
+  transition: none;
+}
+
 <li
-  className="Page-jouGdw c-pagination__page is-hovered fyxZdj"
+  className="c-pagination__page is-hovered c0"
   data-garden-id="pagination.page"
   data-garden-version="version"
 />

@@ -11,7 +11,7 @@ Follows the [W3C Tooltip accessibility pattern](https://www.w3.org/TR/wai-aria-p
 All state is handled internally in the component.
 
 ```jsx
-const { Button } = require('@zendeskgarden/react-buttons');
+const { Button } = require('@zendeskgarden/react-buttons/src');
 
 <TooltipContainer
   trigger={({ getTriggerProps }) => (
@@ -34,7 +34,7 @@ control the tooltip visibility with the `isVisible` and `onStateChange` props.
 This example defaults the tooltip to the `visible` state.
 
 ```jsx
-const { Button } = require('@zendeskgarden/react-buttons');
+const { Button } = require('@zendeskgarden/react-buttons/src');
 
 initialState = {
   isVisible: true
@@ -102,7 +102,7 @@ const CustomTooltip = styled.div`
 This example uses a native input, which doesn't open it's tooltip `onMouseEnter`.
 
 ```jsx
-const { Input } = require('@zendeskgarden/react-textfields');
+const { Input } = require('@zendeskgarden/react-textfields/src');
 
 <TooltipContainer
   placement="end"
@@ -133,8 +133,8 @@ const { Input } = require('@zendeskgarden/react-textfields');
 ### Placements
 
 ```jsx
-const { ThemeProvider } = require('@zendeskgarden/react-theming');
-const { Toggle, Label } = require('@zendeskgarden/react-toggles');
+const { ThemeProvider } = require('@zendeskgarden/react-theming/src');
+const { Toggle, Label } = require('@zendeskgarden/react-toggles/src');
 
 const MarginGrid = styled(Grid)`
   margin: 20px;

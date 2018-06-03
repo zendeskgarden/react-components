@@ -2,7 +2,7 @@
 
 exports[`ModalView renders RTL styling if provided 1`] = `
 <div
-  className="ModalView-epyFwY c-dialog is-rtl elEhXM"
+  className="c-dialog is-rtl "
   data-garden-id="modals.modal_view"
   data-garden-version="version"
 />
@@ -10,7 +10,7 @@ exports[`ModalView renders RTL styling if provided 1`] = `
 
 exports[`ModalView renders animate styling if provided 1`] = `
 <div
-  className="ModalView-epyFwY c-dialog is-open elEhXM"
+  className="c-dialog is-open "
   data-garden-id="modals.modal_view"
   data-garden-version="version"
 />
@@ -18,7 +18,7 @@ exports[`ModalView renders animate styling if provided 1`] = `
 
 exports[`ModalView renders default styling 1`] = `
 <div
-  className="ModalView-epyFwY c-dialog elEhXM"
+  className="c-dialog "
   data-garden-id="modals.modal_view"
   data-garden-version="version"
 />
@@ -26,7 +26,7 @@ exports[`ModalView renders default styling 1`] = `
 
 exports[`ModalView renders large styling if provided 1`] = `
 <div
-  className="ModalView-epyFwY c-dialog c-dialog--large elEhXM"
+  className="c-dialog c-dialog--large "
   data-garden-id="modals.modal_view"
   data-garden-version="version"
 />

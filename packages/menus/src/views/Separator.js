@@ -9,7 +9,6 @@ import styled from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import MenuStyles from '@zendeskgarden/css-menus';
 
-import { version } from '../../package.json';
 const COMPONENT_ID = 'menus.separator';
 
 /**
@@ -17,7 +16,7 @@ const COMPONENT_ID = 'menus.separator';
  */
 const Separator = styled.li.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   role: 'separator',
   className: MenuStyles['c-menu__separator']
 })`

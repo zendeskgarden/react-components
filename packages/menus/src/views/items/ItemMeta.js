@@ -9,7 +9,6 @@ import styled from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import MenuStyles from '@zendeskgarden/css-menus';
 
-import { version } from '../../../package.json';
 const COMPONENT_ID = 'menus.item_meta';
 
 /**
@@ -17,7 +16,7 @@ const COMPONENT_ID = 'menus.item_meta';
  */
 const ItemMeta = styled.span.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: MenuStyles['c-menu__item__meta']
 })`
   ${props => retrieveTheme(COMPONENT_ID, props)};

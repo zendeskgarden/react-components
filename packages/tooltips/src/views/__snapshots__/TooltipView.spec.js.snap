@@ -1,8 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TooltipView Placement does not render arrow styling if disabled 1`] = `
+.c0 {
+  margin: 6px;
+}
+
 <div
-  className="TooltipView-lkkmzw c-tooltip c-arrow--b cJPKuF"
+  className="c-tooltip c-arrow--b c0"
   data-garden-id="tooltip.tooltip"
   data-garden-version="version"
   size="small"
@@ -10,8 +14,12 @@ exports[`TooltipView Placement does not render arrow styling if disabled 1`] = `
 `;
 
 exports[`TooltipView Placement renders bottom placement correctly 1`] = `
+.c0 {
+  margin: 6px;
+}
+
 <div
-  className="TooltipView-lkkmzw c-tooltip c-arrow c-arrow--t cJPKuF"
+  className="c-tooltip c-arrow c-arrow--t c0"
   data-garden-id="tooltip.tooltip"
   data-garden-version="version"
   size="small"
@@ -19,8 +27,12 @@ exports[`TooltipView Placement renders bottom placement correctly 1`] = `
 `;
 
 exports[`TooltipView Placement renders bottom-end placement correctly 1`] = `
+.c0 {
+  margin: 6px;
+}
+
 <div
-  className="TooltipView-lkkmzw c-tooltip c-arrow c-arrow--tr cJPKuF"
+  className="c-tooltip c-arrow c-arrow--tr c0"
   data-garden-id="tooltip.tooltip"
   data-garden-version="version"
   size="small"
@@ -28,8 +40,12 @@ exports[`TooltipView Placement renders bottom-end placement correctly 1`] = `
 `;
 
 exports[`TooltipView Placement renders bottom-start placement correctly 1`] = `
+.c0 {
+  margin: 6px;
+}
+
 <div
-  className="TooltipView-lkkmzw c-tooltip c-arrow c-arrow--tl cJPKuF"
+  className="c-tooltip c-arrow c-arrow--tl c0"
   data-garden-id="tooltip.tooltip"
   data-garden-version="version"
   size="small"
@@ -37,8 +53,12 @@ exports[`TooltipView Placement renders bottom-start placement correctly 1`] = `
 `;
 
 exports[`TooltipView Placement renders left placement correctly 1`] = `
+.c0 {
+  margin: 6px;
+}
+
 <div
-  className="TooltipView-lkkmzw c-tooltip c-arrow c-arrow--r cJPKuF"
+  className="c-tooltip c-arrow c-arrow--r c0"
   data-garden-id="tooltip.tooltip"
   data-garden-version="version"
   size="small"
@@ -46,8 +66,12 @@ exports[`TooltipView Placement renders left placement correctly 1`] = `
 `;
 
 exports[`TooltipView Placement renders left-end placement correctly 1`] = `
+.c0 {
+  margin: 6px;
+}
+
 <div
-  className="TooltipView-lkkmzw c-tooltip cJPKuF"
+  className="c-tooltip c0"
   data-garden-id="tooltip.tooltip"
   data-garden-version="version"
   size="small"
@@ -55,8 +79,12 @@ exports[`TooltipView Placement renders left-end placement correctly 1`] = `
 `;
 
 exports[`TooltipView Placement renders left-start placement correctly 1`] = `
+.c0 {
+  margin: 6px;
+}
+
 <div
-  className="TooltipView-lkkmzw c-tooltip cJPKuF"
+  className="c-tooltip c0"
   data-garden-id="tooltip.tooltip"
   data-garden-version="version"
   size="small"
@@ -64,8 +92,12 @@ exports[`TooltipView Placement renders left-start placement correctly 1`] = `
 `;
 
 exports[`TooltipView Placement renders right placement correctly 1`] = `
+.c0 {
+  margin: 6px;
+}
+
 <div
-  className="TooltipView-lkkmzw c-tooltip c-arrow c-arrow--l cJPKuF"
+  className="c-tooltip c-arrow c-arrow--l c0"
   data-garden-id="tooltip.tooltip"
   data-garden-version="version"
   size="small"
@@ -73,8 +105,12 @@ exports[`TooltipView Placement renders right placement correctly 1`] = `
 `;
 
 exports[`TooltipView Placement renders right-end placement correctly 1`] = `
+.c0 {
+  margin: 6px;
+}
+
 <div
-  className="TooltipView-lkkmzw c-tooltip cJPKuF"
+  className="c-tooltip c0"
   data-garden-id="tooltip.tooltip"
   data-garden-version="version"
   size="small"
@@ -82,8 +118,12 @@ exports[`TooltipView Placement renders right-end placement correctly 1`] = `
 `;
 
 exports[`TooltipView Placement renders right-start placement correctly 1`] = `
+.c0 {
+  margin: 6px;
+}
+
 <div
-  className="TooltipView-lkkmzw c-tooltip cJPKuF"
+  className="c-tooltip c0"
   data-garden-id="tooltip.tooltip"
   data-garden-version="version"
   size="small"
@@ -91,8 +131,12 @@ exports[`TooltipView Placement renders right-start placement correctly 1`] = `
 `;
 
 exports[`TooltipView Placement renders top placement correctly 1`] = `
+.c0 {
+  margin: 6px;
+}
+
 <div
-  className="TooltipView-lkkmzw c-tooltip c-arrow c-arrow--b cJPKuF"
+  className="c-tooltip c-arrow c-arrow--b c0"
   data-garden-id="tooltip.tooltip"
   data-garden-version="version"
   size="small"
@@ -100,8 +144,12 @@ exports[`TooltipView Placement renders top placement correctly 1`] = `
 `;
 
 exports[`TooltipView Placement renders top-end placement correctly 1`] = `
+.c0 {
+  margin: 6px;
+}
+
 <div
-  className="TooltipView-lkkmzw c-tooltip c-arrow c-arrow--br cJPKuF"
+  className="c-tooltip c-arrow c-arrow--br c0"
   data-garden-id="tooltip.tooltip"
   data-garden-version="version"
   size="small"
@@ -109,8 +157,12 @@ exports[`TooltipView Placement renders top-end placement correctly 1`] = `
 `;
 
 exports[`TooltipView Placement renders top-start placement correctly 1`] = `
+.c0 {
+  margin: 6px;
+}
+
 <div
-  className="TooltipView-lkkmzw c-tooltip c-arrow c-arrow--bl cJPKuF"
+  className="c-tooltip c-arrow c-arrow--bl c0"
   data-garden-id="tooltip.tooltip"
   data-garden-version="version"
   size="small"
@@ -118,8 +170,12 @@ exports[`TooltipView Placement renders top-start placement correctly 1`] = `
 `;
 
 exports[`TooltipView Sizing renders extra-large size correctly 1`] = `
+.c0 {
+  margin: 12px;
+}
+
 <div
-  className="TooltipView-lkkmzw c-tooltip c-tooltip--extra-large wQlvi"
+  className="c-tooltip c-tooltip--extra-large c0"
   data-garden-id="tooltip.tooltip"
   data-garden-version="version"
   size="extra-large"
@@ -127,8 +183,12 @@ exports[`TooltipView Sizing renders extra-large size correctly 1`] = `
 `;
 
 exports[`TooltipView Sizing renders large size correctly 1`] = `
+.c0 {
+  margin: 8px;
+}
+
 <div
-  className="TooltipView-lkkmzw c-tooltip c-tooltip--large icJLYF"
+  className="c-tooltip c-tooltip--large c0"
   data-garden-id="tooltip.tooltip"
   data-garden-version="version"
   size="large"
@@ -136,8 +196,12 @@ exports[`TooltipView Sizing renders large size correctly 1`] = `
 `;
 
 exports[`TooltipView Sizing renders medium size correctly 1`] = `
+.c0 {
+  margin: 6px;
+}
+
 <div
-  className="TooltipView-lkkmzw c-tooltip c-tooltip--medium cJPKuF"
+  className="c-tooltip c-tooltip--medium c0"
   data-garden-id="tooltip.tooltip"
   data-garden-version="version"
   size="medium"
@@ -145,8 +209,12 @@ exports[`TooltipView Sizing renders medium size correctly 1`] = `
 `;
 
 exports[`TooltipView renders RTL styling correctly 1`] = `
+.c0 {
+  margin: 6px;
+}
+
 <div
-  className="TooltipView-lkkmzw c-tooltip is-rtl cJPKuF"
+  className="c-tooltip is-rtl c0"
   data-garden-id="tooltip.tooltip"
   data-garden-version="version"
   size="small"
@@ -154,8 +222,12 @@ exports[`TooltipView renders RTL styling correctly 1`] = `
 `;
 
 exports[`TooltipView renders default styling correctly 1`] = `
+.c0 {
+  margin: 6px;
+}
+
 <div
-  className="TooltipView-lkkmzw c-tooltip cJPKuF"
+  className="c-tooltip c0"
   data-garden-id="tooltip.tooltip"
   data-garden-version="version"
   size="small"

@@ -3,7 +3,7 @@
 exports[`Close renders default close styling 1`] = `
 <div
   aria-label="Press delete to remove"
-  className="Close-hpSOeC c-tag__remove eUlaem"
+  className="c-tag__remove "
   data-garden-id="tags.close"
   data-garden-version="version"
 />
@@ -12,7 +12,7 @@ exports[`Close renders default close styling 1`] = `
 exports[`Close renders hovered styling correctly 1`] = `
 <div
   aria-label="Press delete to remove"
-  className="Close-hpSOeC c-tag__remove is-hovered eUlaem"
+  className="c-tag__remove is-hovered "
   data-garden-id="tags.close"
   data-garden-version="version"
 />

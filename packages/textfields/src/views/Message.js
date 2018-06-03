@@ -11,7 +11,6 @@ import classNames from 'classnames';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 
-import { version } from '../../package.json';
 const COMPONENT_ID = 'textfields.message';
 const VALIDATION = {
   SUCCESS: 'success',
@@ -24,7 +23,7 @@ const VALIDATION = {
  */
 const Message = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(TextStyles['c-txt__message'], {
       [TextStyles['c-txt__message--success']]: props.validation === VALIDATION.SUCCESS,

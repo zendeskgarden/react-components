@@ -9,7 +9,6 @@ import styled from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import ChromeStyles from '@zendeskgarden/css-chrome';
 
-import { version } from '../../../package.json';
 const COMPONENT_ID = 'chrome.subnav';
 
 /**
@@ -17,7 +16,7 @@ const COMPONENT_ID = 'chrome.subnav';
  */
 const SubNav = styled.nav.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: ChromeStyles['c-chrome__subnav']
 })`
   ${props => retrieveTheme('chrome.subnav', props)};

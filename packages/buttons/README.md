@@ -7,6 +7,9 @@ buttons within the Garden Design System.
 
 ```sh
 npm install @zendeskgarden/react-buttons
+
+# Peer Dependencies - Also Required
+npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
 ```
 
 ## Usage
@@ -14,8 +17,23 @@ npm install @zendeskgarden/react-buttons
 ### General Buttons
 
 ```jsx static
-<Button onClick={() => alert('clicked')}>Default</Button>
-<Button primary disabled>Disabled Primary button</Button>
+/**
+ * Include button styling at the root of your application
+ */
+import '@zendeskgarden/react-buttons/dist/styles.css';
+
+import { ThemeProvider } from '@zendeskgarden/react-theming';
+import { Button } from '@zendeskgarden/react-buttons';
+
+/**
+ * Place a `ThemeProvider` at the root of your React application
+ */
+<ThemeProvider>
+  <Button onClick={() => alert('clicked')}>Default</Button>
+  <Button primary disabled>
+    Disabled Primary button
+  </Button>
+</ThemeProvider>;
 ```
 
 ### Button Group

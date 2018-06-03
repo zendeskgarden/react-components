@@ -31,9 +31,9 @@ describe('FocusJailContainer', () => {
             <div {...getTitleProps({ 'data-test-id': 'title' })}>Title</div>
             <div {...getContentProps({ 'data-test-id': 'content' })}>Modal content</div>
             <button {...getCloseProps({ 'data-test-id': 'close' })} />
-            <p onClick={closeModal} data-test-id="additional-close">
+            <button onClick={closeModal} data-test-id="additional-close">
               Additional close option
-            </p>
+            </button>
           </div>
         </div>
       )}

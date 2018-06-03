@@ -12,7 +12,7 @@ import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 
 import Input from './Input';
-import { version } from '../../package.json';
+
 const COMPONENT_ID = 'textfields.textarea';
 const VALIDATION = {
   SUCCESS: 'success',
@@ -25,7 +25,7 @@ const VALIDATION = {
  */
 const Textarea = styled(Input.withComponent('textarea')).attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(TextStyles['c-txt__input--area'], {
       [TextStyles['is-resizable']]: props.resizable,

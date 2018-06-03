@@ -11,7 +11,6 @@ import styled from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import ChromeStyles from '@zendeskgarden/css-chrome';
 
-import { version } from '../../../package.json';
 const COMPONENT_ID = 'chrome.header_item_text';
 
 /**
@@ -19,7 +18,7 @@ const COMPONENT_ID = 'chrome.header_item_text';
  */
 const HeaderItemText = styled.span.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': version,
+  'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(ChromeStyles['c-chrome__body__header__item__text'], {
       [ChromeStyles['is-clipped']]: props.clipped

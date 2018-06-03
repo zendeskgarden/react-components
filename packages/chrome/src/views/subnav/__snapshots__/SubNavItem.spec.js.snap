@@ -14,7 +14,7 @@ exports[`SubNavItem States renders current styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="SubNavItem__StyledSubNavItem-jGpLjW c-chrome__subnav__item is-current kHDcXg"
+        className="c-chrome__subnav__item is-current "
         data-garden-id="chrome.subnav_item"
         data-garden-version="version"
         onBlur={[Function]}
@@ -40,7 +40,7 @@ exports[`SubNavItem States renders focused styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="SubNavItem__StyledSubNavItem-jGpLjW c-chrome__subnav__item is-focused kHDcXg"
+        className="c-chrome__subnav__item is-focused "
         data-garden-id="chrome.subnav_item"
         data-garden-version="version"
         onBlur={[Function]}
@@ -67,7 +67,7 @@ exports[`SubNavItem States renders hovered styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="SubNavItem__StyledSubNavItem-jGpLjW c-chrome__subnav__item is-hovered kHDcXg"
+        className="c-chrome__subnav__item is-hovered "
         data-garden-id="chrome.subnav_item"
         data-garden-version="version"
         onBlur={[Function]}
@@ -91,7 +91,7 @@ exports[`SubNavItem renders default styling 1`] = `
       tabIndex={0}
     >
       <button
-        className="SubNavItem__StyledSubNavItem-jGpLjW c-chrome__subnav__item kHDcXg"
+        className="c-chrome__subnav__item "
         data-garden-id="chrome.subnav_item"
         data-garden-version="version"
         onBlur={[Function]}
