@@ -25,8 +25,13 @@ const RTLContainer = styled.div`
   }
 `;
 
+const BadgeContainer = styled.div`
+  text-align: center;
+`;
+
 const TableOfContents = ({ children, ...other }) => {
   const isRtl = location.search.indexOf('isRtl') !== -1;
+  const githubPackageUrl = `https://github.com/zendeskgarden/react-components/tree/master/packages/${BASE_PATH_NAME}`;
 
   return (
     <TableOfContentsRenderer {...other}>
@@ -71,6 +76,11 @@ const TableOfContents = ({ children, ...other }) => {
           </Tooltip>
         </ThemeProvider>
       </RTLContainer>
+      <BadgeContainer>
+        <a href={githubPackageUrl}>
+          <img alt="View package on GitHub" src="images/github.svg" />
+        </a>
+      </BadgeContainer>
     </TableOfContentsRenderer>
   );
 };

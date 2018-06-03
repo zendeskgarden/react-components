@@ -9,6 +9,7 @@
   ],
   "globals": {
     "jest": true,
+    "BASE_PATH_NAME": true,
     "PACKAGE_VERSION": true
   },
   "plugins": [
