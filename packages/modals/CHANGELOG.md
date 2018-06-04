@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.0.1"></a>
+## [4.0.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@4.0.0...@zendeskgarden/react-modals@4.0.1) (2018-06-04)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-modals
+
 <a name="4.0.0"></a>
 # [4.0.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@3.0.2...@zendeskgarden/react-modals@4.0.0) (2018-06-02)
 
