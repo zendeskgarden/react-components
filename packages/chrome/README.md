@@ -1,6 +1,4 @@
-# @zendeskgarden/react-chrome [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-chrome.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-chrome) [![Dependency Status](https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/chrome&style=flat-square)](https://david-dm.org/zendeskgarden/react-components?path=packages/chrome) <!-- markdownlint-disable -->
-
-<!-- markdownlint-enable -->
+# @zendeskgarden/react-chrome [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-chrome.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-chrome)
 
 Collection of elements, render prop containers, and presentation components
 relating to the Chrome component within the Garden Design System

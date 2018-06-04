@@ -1,6 +1,4 @@
-# @zendeskgarden/react-toggles [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-toggles.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-toggles) [![Dependency Status](https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/toggles&style=flat-square)](https://david-dm.org/zendeskgarden/react-components?path=packages/toggles) <!-- markdownlint-disable -->
-
-<!-- markdownlint-enable -->
+# @zendeskgarden/react-toggles [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-toggles.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-toggles)
 
 This package includes components relating to toggles in the
 [Garden Design System](https://zendeskgarden.github.io/).

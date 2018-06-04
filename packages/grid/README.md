@@ -1,6 +1,4 @@
-# @zendeskgarden/react-grid [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-grid.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-grid) [![Dependency Status](https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/grid&style=flat-square)](https://david-dm.org/zendeskgarden/react-components?path=packages/grid) <!-- markdownlint-disable -->
-
-<!-- markdownlint-enable -->
+# @zendeskgarden/react-grid [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-grid.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-grid)
 
 This package includes components relating to layout grids in the
 [Garden Design System](https://zendeskgarden.github.io/).

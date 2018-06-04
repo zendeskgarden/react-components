@@ -1,6 +1,4 @@
-# @zendeskgarden/react-ranges [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-ranges.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-ranges) [![Dependency Status](https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/ranges&style=flat-square)](https://david-dm.org/zendeskgarden/react-components?path=packages/ranges) <!-- markdownlint-disable -->
-
-<!-- markdownlint-enable -->
+# @zendeskgarden/react-ranges [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-ranges.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-ranges)
 
 This package includes components relating to ranges in the
 [Garden Design System](https://zendeskgarden.github.io/).

@@ -103,6 +103,7 @@ const defaultStyleguideConfig = {
     },
     plugins: [
       new webpack.DefinePlugin({
+        BASE_PATH_NAME: JSON.stringify(basePathName),
         PACKAGE_VERSION: JSON.stringify(packageManifest.version)
       })
     ]

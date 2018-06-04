@@ -1,6 +1,4 @@
-# @zendeskgarden/react-menus [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-menus.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-menus) [![Dependency Status](https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/menus&style=flat-square)](https://david-dm.org/zendeskgarden/react-components?path=packages/menus) <!-- markdownlint-disable -->
-
-<!-- markdownlint-enable -->
+# @zendeskgarden/react-menus [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-menus.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-menus)
 
 This package includes components relating to menus in the
 [Garden Design System](https://zendeskgarden.github.io/).

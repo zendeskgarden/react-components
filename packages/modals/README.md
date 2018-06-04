@@ -1,6 +1,4 @@
-# @zendeskgarden/react-modals [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-modals.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-modals) [![Dependency Status](https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/modals&style=flat-square)](https://david-dm.org/zendeskgarden/react-components?path=packages/modals) <!-- markdownlint-disable -->
-
-<!-- markdownlint-enable -->
+# @zendeskgarden/react-modals [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-modals.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-modals)
 
 This package includes components relating to modals in the
 [Garden Design System](https://zendeskgarden.github.io/).

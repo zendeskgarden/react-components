@@ -1,6 +1,4 @@
-# @zendeskgarden/react-tooltips [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-tooltips.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-tooltips) [![Dependency Status](https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/tooltips&style=flat-square)](https://david-dm.org/zendeskgarden/react-components?path=packages/tooltips) <!-- markdownlint-disable -->
-
-<!-- markdownlint-enable -->
+# @zendeskgarden/react-tooltips [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-tooltips.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-tooltips)
 
 This package includes presentation components and render prop containers relating to Tooltips
 in the Garden Design System.
