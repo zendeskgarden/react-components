@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.0.2"></a>
+## [1.0.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-grid@1.0.1...@zendeskgarden/react-grid@1.0.2) (2018-06-05)
+
+
+### Bug Fixes
+
+* **dependencies:** add new allowed peerDependency for [@zendeskgarden](https://github.com/zendeskgarden)/react-theming ([#29](https://github.com/zendeskgarden/react-components/issues/29)) ([c5af0ce](https://github.com/zendeskgarden/react-components/commit/c5af0ce))
+
+
+
+
 <a name="1.0.1"></a>
 ## [1.0.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-grid@1.0.0...@zendeskgarden/react-grid@1.0.1) (2018-06-04)
 
