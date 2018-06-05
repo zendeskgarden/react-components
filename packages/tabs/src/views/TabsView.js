@@ -11,10 +11,14 @@ import classNames from 'classnames';
 import TabStyles from '@zendeskgarden/css-tabs';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 
+const COMPONENT_ID = 'tabs.tabs_view';
+
 /**
  * Accepts all `<div>` props
  */
 const TabsView = styled.div.attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(TabStyles['c-tab'], {
       // Vertical layout

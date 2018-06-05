@@ -3,5 +3,7 @@
 exports[`TabPanel renders default styling 1`] = `
 <div
   className="c-tab__panel "
+  data-garden-id="tabs.tabpanel"
+  data-garden-version="version"
 />
 `;

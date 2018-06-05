@@ -3,18 +3,24 @@
 exports[`Tab renders active styling 1`] = `
 <div
   className="c-tab__list__item is-active "
+  data-garden-id="tabs.tab"
+  data-garden-version="version"
 />
 `;
 
 exports[`Tab renders default styling 1`] = `
 <div
   className="c-tab__list__item "
+  data-garden-id="tabs.tab"
+  data-garden-version="version"
 />
 `;
 
 exports[`Tab renders disabled styling 1`] = `
 <div
   className="c-tab__list__item is-disabled "
+  data-garden-id="tabs.tab"
+  data-garden-version="version"
   disabled={true}
 />
 `;
@@ -22,18 +28,24 @@ exports[`Tab renders disabled styling 1`] = `
 exports[`Tab renders focused styling 1`] = `
 <div
   className="c-tab__list__item is-focused "
+  data-garden-id="tabs.tab"
+  data-garden-version="version"
 />
 `;
 
 exports[`Tab renders hovered styling 1`] = `
 <div
   className="c-tab__list__item is-hovered "
+  data-garden-id="tabs.tab"
+  data-garden-version="version"
 />
 `;
 
 exports[`Tab renders selected styling 1`] = `
 <div
   className="c-tab__list__item is-selected "
+  data-garden-id="tabs.tab"
+  data-garden-version="version"
   selected={true}
 />
 `;
