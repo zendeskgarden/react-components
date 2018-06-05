@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.0.3"></a>
+## [3.0.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tabs@3.0.2...@zendeskgarden/react-tabs@3.0.3) (2018-06-05)
+
+
+### Bug Fixes
+
+* **tabs:** add missing `data-garden-*` attributes ([#30](https://github.com/zendeskgarden/react-components/issues/30)) ([caaaba7](https://github.com/zendeskgarden/react-components/commit/caaaba7))
+
+
+
+
 <a name="3.0.2"></a>
 ## [3.0.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tabs@3.0.1...@zendeskgarden/react-tabs@3.0.2) (2018-06-05)
 
