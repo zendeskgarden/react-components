@@ -41,7 +41,7 @@ const theme = {
   `
 }
 
-<ThemeProvider styles={theme}>
+<ThemeProvider theme={theme}>
   <Notification>
     This notification content will have custom styling.
   </Notification>
