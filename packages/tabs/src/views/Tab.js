@@ -11,10 +11,14 @@ import classNames from 'classnames';
 import TabStyles from '@zendeskgarden/css-tabs';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 
+const COMPONENT_ID = 'tabs.tab';
+
 /**
  * Accepts all `<div>` props
  */
 const Tab = styled.div.attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(TabStyles['c-tab__list__item'], {
       // Visual states

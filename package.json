@@ -8,8 +8,8 @@
     "build:demo": "yarn build && lerna run build:demo --stream",
     "build:single": "utils/scripts/scoped-npm-command.js --script build",
     "format": "yarn format:package_json && yarn format:js && yarn format:markdown",
-    "format:js": "prettier --write 'packages/**/!(dist)/*.js' && prettier --write utils/**/*.js",
-    "format:markdown": "prettier --write 'packages/**/!(dist)/!(CHANGELOG)*.md'",
+    "format:js": "prettier --loglevel warn --write 'packages/**/!(dist|umd)/*.js' && prettier --loglevel warn --write utils/**/*.js",
+    "format:markdown": "prettier --loglevel warn --write 'packages/**/!(dist)/!(CHANGELOG)*.md'",
     "format:package_json": "prettier-package-json --write && lerna exec -- prettier-package-json --write",
     "postinstall": "lerna bootstrap --stream",
     "lint": "yarn lint:css && yarn lint:js && yarn lint:markdown",
@@ -21,7 +21,7 @@
     "start": "utils/scripts/scoped-npm-command.js --script start",
     "start:demo": "yarn build:demo && serve demo",
     "tag": "lerna publish --conventional-commits",
-    "test": "jest --watch --config=utils/test/jest.config.js",
+    "test": "yarn test:all --watch",
     "test:all": "jest --config=utils/test/jest.config.js"
   },
   "devDependencies": {
