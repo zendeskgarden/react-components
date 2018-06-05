@@ -11,8 +11,8 @@
  * @param {Function} component to match
  * @return {Boolean} if they match or not
  */
-export default function(a, b) {
-  const { type: component } = a;
+export default function(a = {}, b) {
+  const { type: component = {} } = a;
   const { target, hasType } = component;
 
   let result;
