@@ -35,10 +35,14 @@ const onModalClose = () => setState({ isModalVisible: false });
               </p>
             </Body>
             <Footer>
-              <Button onClick={closeModal}>Cancel</Button>
-              <Button onClick={closeModal} primary>
-                Confirm
-              </Button>
+              <FooterItem>
+                <Button onClick={closeModal}>Cancel</Button>
+              </FooterItem>
+              <FooterItem>
+                <Button onClick={closeModal} primary>
+                  Confirm
+                </Button>
+              </FooterItem>
             </Footer>
             <Close {...getCloseProps()} />
           </ModalView>

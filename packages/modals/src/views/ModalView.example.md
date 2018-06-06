@@ -20,8 +20,12 @@ const ExampleModalContainer = styled.div`
       <Header>Example Header</Header>
       <Body>Example content goes here</Body>
       <Footer>
-        <Button>Cancel</Button>
-        <Button primary>Submit</Button>
+        <FooterItem>
+          <Button>Cancel</Button>
+        </FooterItem>
+        <FooterItem>
+          <Button primary>Submit</Button>
+        </FooterItem>
       </Footer>
       <Close />
     </ModalView>
