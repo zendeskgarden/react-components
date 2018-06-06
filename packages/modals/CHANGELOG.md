@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="5.0.0"></a>
+# [5.0.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@4.0.3...@zendeskgarden/react-modals@5.0.0) (2018-06-06)
+
+
+### Features
+
+* **modals:** add `<FooterItem>` used to layout elements in a modal footer ([#31](https://github.com/zendeskgarden/react-components/issues/31)) ([4ede02a](https://github.com/zendeskgarden/react-components/commit/4ede02a))
+
+
+### BREAKING CHANGES
+
+* **modals:** removes wildcard margining which applied to all `<Footer>` child elements. Surround elements (i.e. `<Button>`) with `<FooterItem>` for correct spacing and LTR/RTL layout.
+
+
+
+
 <a name="4.0.3"></a>
 ## [4.0.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@4.0.2...@zendeskgarden/react-modals@4.0.3) (2018-06-06)
 
