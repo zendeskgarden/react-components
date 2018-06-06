@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveTheme } from '@zendeskgarden/react-theming';
 import ModalStyles from '@zendeskgarden/css-modals';
 
 const COMPONENT_ID = 'modals.footer';
@@ -19,10 +19,6 @@ const Footer = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION,
   className: ModalStyles['c-dialog__footer']
 })`
-  && > * {
-    ${props => (isRtl(props) ? 'margin-right: 8px' : 'margin-left: 8px')};
-  }
-
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
