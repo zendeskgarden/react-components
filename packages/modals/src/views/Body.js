@@ -22,5 +22,7 @@ const Body = styled.div.attrs({
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
+Body.hasType = () => Body;
+
 /** @component */
 export default Body;

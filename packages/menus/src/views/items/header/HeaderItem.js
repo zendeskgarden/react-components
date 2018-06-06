@@ -33,5 +33,7 @@ HeaderItem.propTypes = {
   checked: PropTypes.bool
 };
 
+HeaderItem.hasType = () => HeaderItem;
+
 /** @component */
 export default HeaderItem;

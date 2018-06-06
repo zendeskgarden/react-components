@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "4.0.2",
+  "version": "4.0.3",
   "main": "./dist/index.js",
   "files": [
     "dist"
@@ -34,8 +34,8 @@
   },
   "devDependencies": {
     "@zendeskgarden/css-modals": "^6.1.0",
-    "@zendeskgarden/react-buttons": "^3.0.2",
-    "@zendeskgarden/react-textfields": "^3.0.2",
+    "@zendeskgarden/react-buttons": "^3.0.3",
+    "@zendeskgarden/react-textfields": "^3.0.3",
     "@zendeskgarden/react-theming": "^2.0.2"
   },
   "keywords": [
