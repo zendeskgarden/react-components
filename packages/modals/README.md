@@ -34,10 +34,14 @@ import { Button } from '@zendeskgarden/react-buttons';
       Some content
     </Body>
     <Footer>
-      <Button>Cancel</Button>
-      <Button primary>
-        Confirm
-      </Button>
+      <FooterItem>
+        <Button>Cancel</Button>
+      </FooterItem>
+      <FooterItem>
+        <Button primary>
+          Confirm
+        </Button>
+      </FooterItem>
     </Footer>
     <Close />
   </Modal>

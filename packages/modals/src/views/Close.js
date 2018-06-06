@@ -25,14 +25,6 @@ const StyledClose = styled.button.attrs({
       [ModalStyles['is-hovered']]: props.hovered
     })
 })`
-  ::-moz-focus-inner {
-    border: 0;
-  }
-
-  :focus {
-    outline: none;
-  }
-
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

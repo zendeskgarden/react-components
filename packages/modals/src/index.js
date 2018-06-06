@@ -12,5 +12,6 @@ export { default as Backdrop } from './views/Backdrop';
 export { default as Body } from './views/Body';
 export { default as Close } from './views/Close';
 export { default as Footer } from './views/Footer';
+export { default as FooterItem } from './views/FooterItem';
 export { default as Header } from './views/Header';
 export { default as ModalView } from './views/ModalView';

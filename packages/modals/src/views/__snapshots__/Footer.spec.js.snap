@@ -1,12 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Footer renders default styling 1`] = `
-.c0.c0 > * {
-  margin-left: 8px;
-}
-
 <div
-  className="c-dialog__footer c0"
+  className="c-dialog__footer "
   data-garden-id="modals.footer"
   data-garden-version="version"
 />

@@ -44,10 +44,14 @@ const onModalClose = () => setState({ isModalVisible: false });
         laboris nisi ut aliquip ex ea commodo consequat.
       </Body>
       <Footer>
-        <Button onClick={onModalClose}>Cancel</Button>
-        <Button onClick={onModalClose} primary>
-          Confirm
-        </Button>
+        <FooterItem>
+          <Button onClick={onModalClose}>Cancel</Button>
+        </FooterItem>
+        <FooterItem>
+          <Button onClick={onModalClose} primary>
+            Confirm
+          </Button>
+        </FooterItem>
       </Footer>
       <Close />
     </Modal>
@@ -93,10 +97,14 @@ const onModalClose = () => setState({ isModalVisible: false });
         </TextField>
       </Body>
       <Footer>
-        <Button onClick={onModalClose}>Cancel</Button>
-        <Button primary onClick={onModalClose}>
-          Confirm
-        </Button>
+        <FooterItem>
+          <Button onClick={onModalClose}>Cancel</Button>
+        </FooterItem>
+        <FooterItem>
+          <Button primary onClick={onModalClose}>
+            Confirm
+          </Button>
+        </FooterItem>
       </Footer>
       <Close />
     </Modal>
