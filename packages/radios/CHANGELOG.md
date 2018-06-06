@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.0.3"></a>
+## [3.0.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-radios@3.0.2...@zendeskgarden/react-radios@3.0.3) (2018-06-06)
+
+
+### Bug Fixes
+
+* Add hasType util to safely check children of component ([#27](https://github.com/zendeskgarden/react-components/issues/27)) ([5436bbd](https://github.com/zendeskgarden/react-components/commit/5436bbd))
+
+
+
+
 <a name="3.0.2"></a>
 ## [3.0.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-radios@3.0.1...@zendeskgarden/react-radios@3.0.2) (2018-06-05)
 

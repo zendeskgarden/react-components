@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "2.0.2",
+  "version": "2.0.3",
   "main": "./dist/index.js",
   "files": [
     "dist"
@@ -19,9 +19,9 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendeskgarden/react-menus": "^3.0.2",
+    "@zendeskgarden/react-menus": "^3.0.3",
     "@zendeskgarden/react-selection": "^4.0.2",
-    "@zendeskgarden/react-textfields": "^3.0.2",
+    "@zendeskgarden/react-textfields": "^3.0.3",
     "classnames": "^2.2.5"
   },
   "peerDependencies": {
