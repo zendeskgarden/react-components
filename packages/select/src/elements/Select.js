@@ -23,6 +23,7 @@ import Item from '../views/items/Item';
 import MediaItem from '../views/items/media/MediaItem';
 import NextItem from '../views/items/NextItem';
 import PreviousItem from '../views/items/PreviousItem';
+import hasType from '../utils/hasType';
 
 /**
  * Also accepts all `<div>` props
@@ -103,6 +104,8 @@ export default class Select extends ControlledComponent {
     eventsEnabled: true
   };
 
+  static hasType = () => Select;
+
   state = {
     focusedKey: undefined,
     selectedKey: undefined,
@@ -133,11 +136,11 @@ export default class Select extends ControlledComponent {
       }
 
       if (
-        option.type === AddItem ||
-        option.type === Item ||
-        option.type === MediaItem ||
-        option.type === NextItem ||
-        option.type === PreviousItem
+        hasType(option, AddItem) ||
+        hasType(option, Item) ||
+        hasType(option, MediaItem) ||
+        hasType(option, NextItem) ||
+        hasType(option, PreviousItem)
       ) {
         /**
          * Use children as textValue if none is provided
@@ -286,11 +289,11 @@ export default class Select extends ControlledComponent {
               }
 
               if (
-                option.type === AddItem ||
-                option.type === Item ||
-                option.type === MediaItem ||
-                option.type === NextItem ||
-                option.type === PreviousItem
+                hasType(option, AddItem) ||
+                hasType(option, Item) ||
+                hasType(option, MediaItem) ||
+                hasType(option, NextItem) ||
+                hasType(option, PreviousItem)
               ) {
                 /**
                  * Automatically apply `textValue` if children is a string
@@ -300,9 +303,9 @@ export default class Select extends ControlledComponent {
 
                 let itemPropMapper = getItemProps;
 
-                if (option.type === NextItem) {
+                if (hasType(option, NextItem)) {
                   itemPropMapper = getNextItemProps;
-                } else if (option.type === PreviousItem) {
+                } else if (hasType(option, PreviousItem)) {
                   itemPropMapper = getPreviousItemProps;
                 }
 

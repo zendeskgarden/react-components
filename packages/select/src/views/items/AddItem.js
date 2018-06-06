@@ -28,5 +28,7 @@ AddItem.propTypes = {
   disabled: PropTypes.bool
 };
 
+AddItem.hasType = () => AddItem;
+
 /** @component */
 export default AddItem;

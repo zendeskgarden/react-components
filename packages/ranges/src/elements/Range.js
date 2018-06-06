@@ -34,6 +34,8 @@ export default class Range extends ControlledComponent {
     step: 1
   };
 
+  static hasType = () => Range;
+
   state = {
     focused: false,
     backgroundSize: 0

@@ -17,6 +17,7 @@ import SelectGroup from '../views/SelectGroup';
 import Label from '../views/fields/Label';
 import Hint from '../views/fields/Hint';
 import Message from '../views/fields/Message';
+import hasType from '../utils/hasType';
 
 export default class SelectField extends ControlledComponent {
   state = {
@@ -70,19 +71,19 @@ export default class SelectField extends ControlledComponent {
                 return child;
               }
 
-              if (child.type === Label) {
+              if (hasType(child, Label)) {
                 return cloneElement(child, getFieldLabelProps(this.getLabelProps(child.props)));
               }
 
-              if (child.type === Hint) {
+              if (hasType(child, Hint)) {
                 return cloneElement(child, getHintProps(child.props));
               }
 
-              if (child.type === Message) {
+              if (hasType(child, Message)) {
                 return cloneElement(child, getMessageProps(child.props));
               }
 
-              if (child.type === Select) {
+              if (hasType(child, Select)) {
                 return cloneElement(child, getFieldInputProps(this.getInputProps(child.props)));
               }
 

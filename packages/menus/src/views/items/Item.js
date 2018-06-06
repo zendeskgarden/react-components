@@ -40,5 +40,7 @@ Item.propTypes = {
   checked: PropTypes.bool
 };
 
+Item.hasType = () => Item;
+
 /** @component */
 export default Item;

@@ -27,5 +27,7 @@ const Hint = styled.div.attrs({
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
+Hint.hasType = () => Hint;
+
 /** @component */
 export default Hint;

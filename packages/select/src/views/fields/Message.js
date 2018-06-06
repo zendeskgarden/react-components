@@ -30,5 +30,7 @@ Message.propTypes = {
   validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
 };
 
+Message.hasType = () => Message;
+
 /** @component */
 export default Message;

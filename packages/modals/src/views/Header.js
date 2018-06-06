@@ -22,5 +22,7 @@ const Header = styled.div.attrs({
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
+Header.hasType = () => Header;
+
 /** @component */
 export default Header;
