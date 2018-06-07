@@ -1,0 +1,32 @@
+{
+  "name": "@zendeskgarden/react-utilities",
+  "description": "Components relating to utilities in the Garden Design System",
+  "license": "Apache-2.0",
+  "author": "Zendesk Garden <garden@zendesk.com>",
+  "homepage": "https://garden.zendesk.com/",
+  "repository": "https://github.com/zendeskgarden/react-components",
+  "bugs": {
+    "url": "https://github.com/zendeskgarden/react-components/issues"
+  },
+  "version": "0.0.0",
+  "zendeskgarden:src": "src/index.js",
+  "zendeskgarden:library": "GardenUtilities",
+  "main": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "../../utils/scripts/build.sh",
+    "build:demo": "../../utils/scripts/build-demo.sh",
+    "start": "../../utils/scripts/start.sh"
+  },
+  "keywords": [
+    "components",
+    "garden",
+    "react",
+    "zendesk"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
