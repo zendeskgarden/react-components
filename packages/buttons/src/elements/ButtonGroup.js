@@ -8,11 +8,11 @@
 import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { ControlledComponent, IdManager } from '@zendeskgarden/react-selection';
+import { hasType } from '@zendeskgarden/react-utilities';
 
 import ButtonGroupContainer from '../containers/ButtonGroupContainer';
 import ButtonGroupView from '../views/button-group/ButtonGroupView';
 import Button from '../views/Button';
-import hasType from '../utils/hasType';
 
 /**
  * High-level abstraction for basic ButtonGroup implementations.

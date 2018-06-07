@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@zendeskgarden/react-selection": "^4.0.2",
+    "@zendeskgarden/react-utilities": "^0.0.0",
     "classnames": "^2.2.5",
     "dom-helpers": "^3.3.1",
     "react-portal": "^4.1.2",

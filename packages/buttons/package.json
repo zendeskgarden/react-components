@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@zendeskgarden/react-selection": "^4.0.2",
+    "@zendeskgarden/react-utilities": "^0.0.0",
     "classnames": "^2.2.5"
   },
   "peerDependencies": {

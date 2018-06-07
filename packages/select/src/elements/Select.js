@@ -14,6 +14,7 @@ import {
   composeEventHandlers,
   KEY_CODES
 } from '@zendeskgarden/react-selection';
+import { hasType } from '@zendeskgarden/react-utilities';
 
 import SelectContainer from '../containers/SelectContainer';
 import SelectView from '../views/SelectView';
@@ -23,7 +24,6 @@ import Item from '../views/items/Item';
 import MediaItem from '../views/items/media/MediaItem';
 import NextItem from '../views/items/NextItem';
 import PreviousItem from '../views/items/PreviousItem';
-import hasType from '../utils/hasType';
 
 /**
  * Also accepts all `<div>` props

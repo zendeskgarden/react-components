@@ -9,6 +9,7 @@ import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { Portal } from 'react-portal';
 import { ControlledComponent, IdManager } from '@zendeskgarden/react-selection';
+import { hasType } from '@zendeskgarden/react-utilities';
 import isWindow from 'dom-helpers/query/isWindow';
 import ownerDocument from 'dom-helpers/ownerDocument';
 import ownerWindow from 'dom-helpers/ownerWindow';
@@ -21,7 +22,6 @@ import Backdrop from '../views/Backdrop';
 import Body from '../views/Body';
 import Close from '../views/Close';
 import Header from '../views/Header';
-import hasType from '../utils/hasType';
 
 /**
  * High-level abstraction for basic Modal implementations. Accepts all `<div>` props.

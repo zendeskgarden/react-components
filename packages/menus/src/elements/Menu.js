@@ -8,6 +8,7 @@
 import React, { cloneElement, Children } from 'react';
 import PropTypes from 'prop-types';
 import { ControlledComponent, IdManager } from '@zendeskgarden/react-selection';
+import { hasType } from '@zendeskgarden/react-utilities';
 
 import MenuContainer from '../containers/MenuContainer';
 import MenuView from '../views/MenuView';
@@ -16,7 +17,6 @@ import Item from '../views/items/Item';
 import MediaItem from '../views/items/media/MediaItem';
 import NextItem from '../views/items/NextItem';
 import PreviousItem from '../views/items/PreviousItem';
-import hasType from '../utils/hasType';
 
 export default class Menu extends ControlledComponent {
   static propTypes = {

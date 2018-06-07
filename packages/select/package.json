@@ -22,6 +22,7 @@
     "@zendeskgarden/react-menus": "^3.0.4",
     "@zendeskgarden/react-selection": "^4.0.2",
     "@zendeskgarden/react-textfields": "^3.0.3",
+    "@zendeskgarden/react-utilities": "^0.0.0",
     "classnames": "^2.2.5"
   },
   "peerDependencies": {

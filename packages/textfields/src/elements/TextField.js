@@ -8,6 +8,7 @@
 import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { IdManager, ControlledComponent, FieldContainer } from '@zendeskgarden/react-selection';
+import { hasType } from '@zendeskgarden/react-utilities';
 
 import TextGroup from '../views/TextGroup';
 import Label from '../views/Label';
@@ -15,7 +16,6 @@ import Input from '../views/Input';
 import Textarea from '../views/Textarea';
 import Hint from '../views/Hint';
 import Message from '../views/Message';
-import hasType from '../utils/hasType';
 
 /** Accepts all `<div>` props */
 export default class TextField extends ControlledComponent {

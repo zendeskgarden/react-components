@@ -8,13 +8,13 @@
 import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { IdManager, ControlledComponent, FieldContainer } from '@zendeskgarden/react-selection';
+import { hasType } from '@zendeskgarden/react-utilities';
 
 import Range from './Range';
 import RangeGroup from '../views/RangeGroup';
 import Label from '../views/Label';
 import Hint from '../views/Hint';
 import Message from '../views/Message';
-import hasType from '../utils/hasType';
 
 /** Accepts all `<div>` props */
 export default class RangeField extends ControlledComponent {

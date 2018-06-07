@@ -14,13 +14,13 @@ import {
   composeEventHandlers,
   FieldContainer
 } from '@zendeskgarden/react-selection';
+import { hasType } from '@zendeskgarden/react-utilities';
 
 import ToggleView from '../views/ToggleView';
 import Input from '../views/Input';
 import Label from '../views/Label';
 import Hint from '../views/Hint';
 import Message from '../views/Message';
-import hasType from '../utils/hasType';
 
 /**
  * Accepts all `<input type="checkbox" />` props
