@@ -1,6 +1,8 @@
-The `hasType` method is a utility to easily determine whether a given React component is implemented with a
-specific type. This utility is also able to compare Garden View components that are wrapped in an HOC
-include styled-components, emotion, or fela.
+The `hasType` method is a utility to easily determine whether a given React
+component is implemented with a specific type. This utility is also able to
+compare Garden View components that are wrapped in an styling-HOC
+including [styled-components](https://www.npmjs.com/package/styled-components)
+and [react-fela](https://www.npmjs.com/package/react-fela).
 
 ```jsx static
 /**
