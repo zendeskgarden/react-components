@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { shallowWithTheme } from 'utils';
+import { shallowWithTheme } from '@zendeskgarden/react-testing';
 import withTheme from './withTheme';
 
 describe('withTheme', () => {
