@@ -1,22 +1,27 @@
 <!doctype html>
 <html>
+
 <head>
   <script async src="//www.googletagmanager.com/gtag/js?id=UA-970836-25"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-970836-25');
   </script>
   <title>React Components / Zendesk Garden</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="application-name" content="Zendesk Garden">
   <meta name="description" content="Garden is a design system for Zendesk where we grow beautifully simple and accessible UI components.">
   <link href="//zendeskgarden.github.io/css-components/bedrock/index.css" rel="stylesheet">
   <link href="//zendeskgarden.github.io/css-components/tabs/index.css" rel="stylesheet">
+  <link href="//zendeskgarden.github.io/css-components/menus/index.css" rel="stylesheet">
   <link href="//zendeskgarden.github.io/css-components/forms/index.css" rel="stylesheet">
-  <link href="//zendeskgarden.github.io/index.css" rel="stylesheet">
+  <link href="//zendeskgarden.github.io/css-components/grid/index.css" rel="stylesheet">
+  <link href="//zendeskgarden.github.io/mobile.css" rel="stylesheet">
   <link href="//zendeskgarden.github.io/css-components/utilities/index.css" rel="stylesheet">
 </head>
+
 <body class="u-bg-relationshapes">
   <nav class="c-nav">
     <figure class="c-nav__logo">
@@ -41,97 +46,107 @@
       </ul>
     </div>
   </nav>
+  <header class="c-header c-main__header">
+    <figure class="c-header__logo">
+      <a class="u-fg-inherit" href="/">
+        <svg class="c-header__logo__svg svg-square">
+          <use xlink:href="index.svg#zd-svg-icon-26-zendesk">
+        </svg>
+      </a>
+    </figure>
+    <ul class="c-ctl c-ctl--header">
+      <li class="c-ctl__item u-position-relative">
+        <a class="c-menu-ctl c-header__menu js-menu" href="#settings">
+          &nbsp;
+          <svg>
+            <use xlink:href="index.svg#zd-svg-icon-16-menu-stroke">
+          </svg>
+        </a>
+        <ul aria-hidden="true" class="c-menu c-menu--down c-menu--sm" role="menu">
+          <a href="//zendeskgarden.github.io/assets/" class="c-menu__item" role="menuitem">
+            Assets
+          </a>
+          <a href="//zendeskgarden.github.io/css-components/" class="c-menu__item" role="menuitem">
+            CSS Components
+          </a>
+          <a href="/react-components" class="c-menu__item" role="menuitem">
+            React Components
+          </a>
+        </ul>
+      </li>
+    </ul>
+  </header>
   <main class="c-main">
-    <h1 class="c-main__title">React Components</h1>
-    <p class="c-main__subtitle u-delta u-mt-lg" style="white-space: normal;">
-      This documentation includes React components and utilities that provide visuals, keyboard-navigation, localization,
-      and accessibility defined within the Garden Design System.
-    </p>
-    <div class="c-main__body" style="margin-top: 0; width: 720px">
-      <div class="l-grid l-grid--xxl u-beta">
-        <div class="l-grid__item u-1/4">
-          <div class="u-mb">
-            <a class="u-fg-inherit" href="avatars">Avatars</a>
-            <p class="u-zeta">@zendeskgarden/react-avatars</p>
+    <div class="container-fluid">
+      <h1 class="c-main__title">React Components</h1>
+      <p class="c-main__subtitle u-delta u-mt-lg" style="white-space: normal;">
+        This documentation includes React components and utilities that provide visuals, keyboard-navigation, localization, and accessibility
+        defined within the Garden Design System.
+      </p>
+      <div class="c-main__body l-wrapper-720">
+        <div class="row">
+          <div class="col-xl-4 col-sm-6">
+            <div class="u-mb-sm">
+              <a class="u-fg-inherit" href="avatars">Avatars</a>
+            </div>
+            <div class="u-mb-sm">
+              <a class="u-fg-inherit" href="buttons">Buttons</a>
+            </div>
+            <div class="u-mb-sm">
+              <a class="u-fg-inherit" href="checkboxes">Checkboxes</a>
+            </div>
+            <div class="u-mb-sm">
+              <a class="u-fg-inherit" href="chrome">Chrome</a>
+            </div>
+            <div class="u-mb-sm">
+              <a class="u-fg-inherit" href="grid">Grid</a>
+            </div>
+            <div class="u-mb-sm">
+              <a class="u-fg-inherit" href="menus">Menus</a>
+            </div>
+            <div class="u-mb-sm">
+              <a class="u-fg-inherit" href="modals">Modals</a>
+            </div>
           </div>
-          <div class="u-mb">
-            <a class="u-fg-inherit" href="buttons">Buttons</a>
-            <p class="u-zeta">@zendeskgarden/react-buttons</p>
+          <div class="col-xl-4 col-sm-6">
+            <div class="u-mb-sm">
+              <a class="u-fg-inherit" href="notifications">Notifications</a>
+            </div>
+            <div class="u-mb-sm">
+              <a class="u-fg-inherit" href="pagination">Pagination</a>
+            </div>
+            <div class="u-mb-sm">
+              <a class="u-fg-inherit" href="radios">Radios</a>
+            </div>
+            <div class="u-mb-sm">
+              <a class="u-fg-inherit" href="ranges">Ranges</a>
+            </div>
+            <div class="u-mb-sm">
+              <a class="u-fg-inherit" href="select">Select</a>
+            </div>
+            <div class="u-mb-sm">
+              <a class="u-fg-inherit" href="selection">Selection</a>
+            </div>
           </div>
-          <div class="u-mb">
-            <a class="u-fg-inherit" href="checkboxes">Checkboxes</a>
-            <p class="u-zeta">@zendeskgarden/react-checkboxes</p>
-          </div>
-          <div class="u-mb">
-            <a class="u-fg-inherit" href="chrome">Chrome</a>
-            <p class="u-zeta">@zendeskgarden/react-chrome</p>
-          </div>
-          <div class="u-mb">
-            <a class="u-fg-inherit" href="grid">Grid</a>
-            <p class="u-zeta">@zendeskgarden/react-grid</p>
-          </div>
-        </div><div class="l-grid__item u-1/4">
-          <div class="u-mb">
-            <a class="u-fg-inherit" href="menus">Menus</a>
-            <p class="u-zeta">@zendeskgarden/react-menus</p>
-          </div>
-          <div class="u-mb">
-            <a class="u-fg-inherit" href="modals">Modals</a>
-            <p class="u-zeta">@zendeskgarden/react-modals</p>
-          </div>
-          <div class="u-mb">
-            <a class="u-fg-inherit" href="notifications">Notifications</a>
-            <p class="u-zeta">@zendeskgarden/react-notifications</p>
-          </div>
-          <div class="u-mb">
-            <a class="u-fg-inherit" href="pagination">Pagination</a>
-            <p class="u-zeta">@zendeskgarden/react-pagination</p>
-          </div>
-          <div class="u-mb">
-            <a class="u-fg-inherit" href="radios">Radios</a>
-            <p class="u-zeta">@zendeskgarden/react-radios</p>
-          </div>
-        </div><div class="l-grid__item u-1/4">
-          <div class="u-mb">
-            <a class="u-fg-inherit" href="ranges">Ranges</a>
-            <p class="u-zeta">@zendeskgarden/react-ranges</p>
-          </div>
-          <div class="u-mb">
-            <a class="u-fg-inherit" href="select">Select</a>
-            <p class="u-zeta">@zendeskgarden/react-select</p>
-          </div>
-          <div class="u-mb">
-            <a class="u-fg-inherit" href="selection">Selection</a>
-            <p class="u-zeta">@zendeskgarden/react-selection</p>
-          </div>
-          <div class="u-mb">
-            <a class="u-fg-inherit" href="tabs">Tabs</a>
-            <p class="u-zeta">@zendeskgarden/react-tabs</p>
-          </div>
-          <div class="u-mb">
-            <a class="u-fg-inherit" href="tags">Tags</a>
-            <p class="u-zeta">@zendeskgarden/react-tags</p>
-          </div>
-        </div><div class="l-grid__item u-1/4">
-          <div class="u-mb">
-            <a class="u-fg-inherit" href="textfields">Textfields</a>
-            <p class="u-zeta">@zendeskgarden/react-textfields</p>
-          </div>
-          <div class="u-mb">
-            <a class="u-fg-inherit" href="theming">Theming</a>
-            <p class="u-zeta">@zendeskgarden/react-theming</p>
-          </div>
-          <div class="u-mb">
-            <a class="u-fg-inherit" href="toggles">Toggles</a>
-            <p class="u-zeta">@zendeskgarden/react-toggles</p>
-          </div>
-          <div class="u-mb">
-            <a class="u-fg-inherit" href="tooltips">Tooltips</a>
-            <p class="u-zeta">@zendeskgarden/react-tooltips</p>
-          </div>
-          <div class="u-mb">
-            <a class="u-fg-inherit" href="utilities">Utilities</a>
-            <p class="u-zeta">@zendeskgarden/react-utilities</p>
+          <div class="col-xl-4 col-sm-6">
+            <div class="u-mb-sm">
+              <a class="u-fg-inherit" href="tabs">Tabs</a>
+            </div>
+            <div class="u-mb-sm">
+              <a class="u-fg-inherit" href="tags">Tags</a>
+            </div>
+            <div class="u-mb-sm">
+              <a class="u-fg-inherit" href="textfields">Textfields</a>
+            </div>
+            <div class="u-mb-sm">
+              <a class="u-fg-inherit" href="theming">Theming</a>
+            </div>
+            <div class="u-mb-sm">
+              <a class="u-fg-inherit" href="toggles">Toggles</a>
+            </div>
+            <div class="u-mb-sm">
+              <a class="u-fg-inherit" href="tooltips">Tooltips</a>
+            </div>
           </div>
         </div>
       </div>
@@ -139,6 +154,8 @@
   </main>
   <script src="//zendeskgarden.github.io/index.js"></script>
   <script src="//zendeskgarden.github.io/css-components/tabs/index.js"></script>
+  <script src="//zendeskgarden.github.io/css-components/menus/index.js"></script>
   <script src="//zendeskgarden.github.io/css-components/forms/checkbox/index.js"></script>
 </body>
+
 </html>
