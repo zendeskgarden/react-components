@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { mountWithTheme } from 'utils';
+import { mountWithTheme } from '@zendeskgarden/react-testing';
 import { Portal } from 'react-portal';
 import TooltipContainer from './TooltipContainer';
 import {
