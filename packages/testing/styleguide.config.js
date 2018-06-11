@@ -13,11 +13,11 @@ module.exports = {
   sections: [
     {
       name: '',
-      content: '../../packages/{{component}}/README.md'
+      content: '../../packages/testing/README.md'
     },
     {
-      name: 'Components',
-      components: '../../packages/{{component}}/src/[A-Z]*.js'
+      name: 'Utils',
+      components: '../../packages/testing/src/utils/*.js'
     }
   ]
 };
