@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { mountWithTheme } from 'utils';
+import { mountWithTheme } from '@zendeskgarden/react-testing';
 import { KEY_CODES } from '@zendeskgarden/react-selection';
 import Select from './Select';
 import Item from '../views/items/Item';

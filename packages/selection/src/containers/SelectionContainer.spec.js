@@ -8,7 +8,7 @@
 import React from 'react';
 import KEY_CODES from '../constants/KEY_CODES';
 import SelectionContainer from './SelectionContainer';
-import { mountWithTheme } from 'utils';
+import { mountWithTheme } from '@zendeskgarden/react-testing';
 
 jest.useFakeTimers();
 
