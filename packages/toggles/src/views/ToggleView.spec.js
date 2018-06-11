@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import { shallowWithTheme } from '@zendeskgarden/react-testing';
+import { shallowWithTheme } from 'utils';
 
 import ToggleView from './ToggleView';
 

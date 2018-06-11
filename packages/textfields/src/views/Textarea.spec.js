@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { mount } from 'enzyme';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
+import { mountWithTheme } from 'utils';
 
 import Textarea from './Textarea';
 
