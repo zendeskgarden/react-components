@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.1.0"></a>
+# [3.1.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.0.3...@zendeskgarden/react-buttons@3.1.0) (2018-06-11)
+
+
+### Features
+
+* **utilities:** introduce new [@zendeskgarden](https://github.com/zendeskgarden)/react-utilities package ([#33](https://github.com/zendeskgarden/react-components/issues/33)) ([6ee0ce7](https://github.com/zendeskgarden/react-components/commit/6ee0ce7))
+
+
+
+
 <a name="3.0.3"></a>
 ## [3.0.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.0.2...@zendeskgarden/react-buttons@3.0.3) (2018-06-06)
 

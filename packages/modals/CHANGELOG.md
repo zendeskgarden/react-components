@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="5.1.0"></a>
+# [5.1.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.0.0...@zendeskgarden/react-modals@5.1.0) (2018-06-11)
+
+
+### Features
+
+* **utilities:** introduce new [@zendeskgarden](https://github.com/zendeskgarden)/react-utilities package ([#33](https://github.com/zendeskgarden/react-components/issues/33)) ([6ee0ce7](https://github.com/zendeskgarden/react-components/commit/6ee0ce7))
+
+
+
+
 <a name="5.0.0"></a>
 # [5.0.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@4.0.3...@zendeskgarden/react-modals@5.0.0) (2018-06-06)
 
