@@ -1,6 +1,6 @@
 # @zendeskgarden/react-testing [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-testing.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-testing)
 
-This package includes components relating to test-utilities in the
+This package includes utilities relating to testing in the
 [Garden Design System](https://zendeskgarden.github.io/).
 
 ## Installation
