@@ -1,6 +1,6 @@
 {
-  "name": "@zendeskgarden/react-{{component}}",
-  "description": "Components relating to {{component}} in the Garden Design System",
+  "name": "@zendeskgarden/react-utilities",
+  "description": "Components relating to utilities in the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
   "homepage": "https://garden.zendesk.com/",
@@ -18,16 +18,6 @@
     "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
-  "dependencies": {
-    "classnames": "^2.2.5"
-  },
-  "peerDependencies": {
-    "@zendeskgarden/react-theming": "^1.0.0 || ^2.0.0",
-    "prop-types": "^15.6.1",
-    "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
-    "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0",
-    "styled-components": "^3.2.6"
-  },
   "keywords": [
     "components",
     "garden",
@@ -37,6 +27,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "zendeskgarden:src": "src/index.js",
-  "zendeskgarden:library": "Garden{{capitalize component}}"
+  "zendeskgarden:library": "GardenUtilities",
+  "zendeskgarden:src": "src/index.js"
 }

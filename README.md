@@ -35,6 +35,7 @@ Package | Version | Dependencies
 [`@zendeskgarden/react-theming`](packages/theming) | [![npm version][theming npm version]][theming npm link] | [![Dependency Status][theming dependency status]][theming dependency link]
 [`@zendeskgarden/react-toggles`](packages/toggles) | [![npm version][toggles npm version]][toggles npm link] | [![Dependency Status][toggles dependency status]][toggles dependency link]
 [`@zendeskgarden/react-tooltips`](packages/tooltips) | [![npm version][tooltips npm version]][tooltips npm link] | [![Dependency Status][tooltips dependency status]][tooltips dependency link]
+[`@zendeskgarden/react-utilities`](packages/utilities) | [![npm version][utilities npm version]][utilities npm link] | [![Dependency Status][utilities dependency status]][utilities dependency link]
 
 [avatars npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-avatars.svg?style=flat-square
 [avatars npm link]: https://www.npmjs.com/package/@zendeskgarden/react-avatars
@@ -112,6 +113,10 @@ Package | Version | Dependencies
 [tooltips npm link]: https://www.npmjs.com/package/@zendeskgarden/react-tooltips
 [tooltips dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/tooltips&style=flat-square
 [tooltips dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/tooltips
+[utilities npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-utilities.svg?style=flat-square
+[utilities npm link]: https://www.npmjs.com/package/@zendeskgarden/react-utilities
+[utilities dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/utilities&style=flat-square
+[utilities dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/utilities
 
 ## Usage
 

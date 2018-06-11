@@ -22,6 +22,7 @@
     "@zendeskgarden/react-modals": "^5.0.0",
     "@zendeskgarden/react-selection": "^4.0.2",
     "@zendeskgarden/react-tooltips": "^4.0.3",
+    "@zendeskgarden/react-utilities": "^0.0.0",
     "classnames": "^2.2.5",
     "react-popper": "^0.9.5",
     "react-portal": "^4.1.4"

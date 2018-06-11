@@ -11,13 +11,13 @@ import {
   FieldContainer,
   composeEventHandlers
 } from '@zendeskgarden/react-selection';
+import { hasType } from '@zendeskgarden/react-utilities';
 
 import Select from './Select';
 import SelectGroup from '../views/SelectGroup';
 import Label from '../views/fields/Label';
 import Hint from '../views/fields/Hint';
 import Message from '../views/fields/Message';
-import hasType from '../utils/hasType';
 
 export default class SelectField extends ControlledComponent {
   state = {
