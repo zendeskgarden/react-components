@@ -9,8 +9,6 @@
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
   "version": "0.0.0",
-  "zendeskgarden:src": "src/index.js",
-  "zendeskgarden:library": "Garden{{capitalize component}}",
   "main": "./dist/index.js",
   "files": [
     "dist"
@@ -38,5 +36,7 @@
   ],
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "zendeskgarden:src": "src/index.js",
+  "zendeskgarden:library": "Garden{{capitalize component}}"
 }
