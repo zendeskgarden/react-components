@@ -19,7 +19,10 @@ const options = {
   optimization: {
     minimizer: [
       new OptimizeCSSAssetsPlugin({
-        cssProcessorOptions: { discardComments: { removeAllButFirst: true } }
+        cssProcessorOptions: {
+          discardComments: { removeAllButFirst: true },
+          reduceIdents: false
+        }
       })
     ]
   },
@@ -75,7 +78,7 @@ found at http://www.apache.org/licenses/LICENSE-2.0
             loader: 'css-loader',
             options: {
               modules: true,
-              minimize: true,
+              reduceIdents: false,
               localIdentName: '[name]__[local]___[hash:base64:5]'
             }
           }
