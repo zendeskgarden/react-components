@@ -1,6 +1,14 @@
 The `SelectField` component adds accessibility and mouse interactions
 between the `Label`, `Hint`, and `Message` components with the `Select`.
 
+#### WARNING
+
+The `Select` component leverages [React Fragments](https://reactjs.org/docs/fragments.html)
+to allow dropdown placement. If you are using `React v15.X`, an additional `<div>` is placed
+around the `Select`. This can cause some styling quirks when used with `Hint` and `Message`
+as siblings. If you are on `React v15.X`, you may need to apply some custom styling depending
+on your needs.
+
 ```jsx
 initialState = {
   selectedKey: 'item-1'
