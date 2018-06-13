@@ -68,7 +68,7 @@ export default class Range extends ControlledComponent {
       max = 100;
     }
 
-    const percentage = 100 * (value - min) / (max - min);
+    const percentage = (100 * (value - min)) / (max - min);
 
     return `${percentage}%`;
   };
