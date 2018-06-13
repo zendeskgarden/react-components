@@ -22,8 +22,8 @@ global.State = State;
 global.Grid = Grid;
 global.Row = styled(Row).attrs({
   alignItems: 'center'
-})``;
+});
 global.Col = styled(Col)`
-  margin-bottom: 4px;
   margin-top: 4px;
+  margin-bottom: 4px;
 `;
