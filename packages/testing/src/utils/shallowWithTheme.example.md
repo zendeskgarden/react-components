@@ -1,6 +1,6 @@
 Signature:
 
-* `shallowWithTheme(reactNode, { rtl: boolean, theme: object, enzymeOptions: object })`
+- `shallowWithTheme(reactNode, { rtl: boolean, theme: object, enzymeOptions: object })`
 
 ```jsx static
 import { Tabs, TabPanel } from '@zendeskgarden/react-tabs';

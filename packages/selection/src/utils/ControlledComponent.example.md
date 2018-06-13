@@ -4,14 +4,14 @@ that can be found in both _uncontrolled_ and _controlled_ usages.
 
 These utility methods include:
 
-* `isControlledProp(key: string)`
-  * whether the provided key is a controlled prop
-* `getControlledState()`
-  * returns the current state including any prop keys that override
+- `isControlledProp(key: string)`
+  - whether the provided key is a controlled prop
+- `getControlledState()`
+  - returns the current state including any prop keys that override
     it (useful for if a consumer only controls a subset of the
     available controlled props).
-* `setControlledState(newState: object)`
-  * calls `onStateChange` if with any props that are controlled
+- `setControlledState(newState: object)`
+  - calls `onStateChange` if with any props that are controlled
     and sets local state for any that aren't controlled.
 
 ```jsx

@@ -1,6 +1,6 @@
 Signature:
 
-* `mountWithTheme(reactNode, { rtl: boolean, theme: object, enzymeOptions: object })`
+- `mountWithTheme(reactNode, { rtl: boolean, theme: object, enzymeOptions: object })`
 
 ```jsx static
 import { Tabs, TabPanel } from '@zendeskgarden/react-tabs';

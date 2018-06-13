@@ -1,16 +1,16 @@
 The `SelectionContainer` component helps ensure that any
 "single-selection scenario" has the required:
 
-* Keyboard Navigation support
-  * Left/Right (Up/Down in RTL) arrow movement
-  * Home/End key shortcuts
-  * Click selection
-  * Custom focused state for Keyboard-Focus vs. MouseDown-Focus
-* RTL navigation support
-  * Compatible with element shifting when `direction: rtl` is enabled
-* Accessibility for vision-impaired users
-* Uses the W3 "aria-activedescendant" focus management strategy
-  * [https://www.w3.org/TR/wai-aria-practices/#kbd_focus_activedescendant](https://www.w3.org/TR/wai-aria-practices/#kbd_focus_activedescendant)
+- Keyboard Navigation support
+  - Left/Right (Up/Down in RTL) arrow movement
+  - Home/End key shortcuts
+  - Click selection
+  - Custom focused state for Keyboard-Focus vs. MouseDown-Focus
+- RTL navigation support
+  - Compatible with element shifting when `direction: rtl` is enabled
+- Accessibility for vision-impaired users
+- Uses the W3 "aria-activedescendant" focus management strategy
+  - [https://www.w3.org/TR/wai-aria-practices/#kbd_focus_activedescendant](https://www.w3.org/TR/wai-aria-practices/#kbd_focus_activedescendant)
 
 ## Basic Usage
 
@@ -20,23 +20,23 @@ navigation and accessibility props to your UI components.
 
 It can be used in an _uncontrolled_ or _controlled_ state (similar to an `input`).
 
-* _uncontrolled_ - The component manages the focused and selected state internally
-* _controlled_ - You manage the state of the container using the
+- _uncontrolled_ - The component manages the focused and selected state internally
+- _controlled_ - You manage the state of the container using the
   provided props to give you full control of what's being visualized.
 
 This render container supplies 2 render methods:
 
-* `getContainerProps()`
-  * Must be applied to a parent element for accessibility.
-* `getItemProps({ key: required })`
-  * Apply to any selectable item. A unique key must
+- `getContainerProps()`
+  - Must be applied to a parent element for accessibility.
+- `getItemProps({ key: required })`
+  - Apply to any selectable item. A unique key must
     be provided for each selectable item, regardless
     of whether it is an iteration.
 
 and 2 state attributes:
 
-* `focusedKey`
-* `selectedKey`
+- `focusedKey`
+- `selectedKey`
 
 Any attributes passed to `getContainerProps` or `getItemProps` will
 be applied to the element. This usage allows you to apply events
