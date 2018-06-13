@@ -19,7 +19,7 @@
     "new": "utils/scripts/create-package.js",
     "prepare": "yarn build",
     "start": "utils/scripts/scoped-npm-command.js --script start",
-    "start:demo": "yarn build:demo && serve demo",
+    "start:demo": "yarn build:demo && serve demo --open",
     "tag": "lerna publish --conventional-commits",
     "test": "yarn test:all --watch",
     "test:all": "jest --config=utils/test/jest.config.js"
