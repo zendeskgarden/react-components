@@ -22,7 +22,9 @@ global.State = State;
 global.Grid = Grid;
 global.Row = styled(Row).attrs({
   alignItems: 'center'
-});
+})`
+  /* stylelint-disable-line block-no-empty */
+`;
 global.Col = styled(Col)`
   margin-top: 4px;
   margin-bottom: 4px;
