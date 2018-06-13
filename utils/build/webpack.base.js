@@ -21,7 +21,8 @@ const options = {
       new OptimizeCSSAssetsPlugin({
         cssProcessorOptions: {
           discardComments: { removeAllButFirst: true },
-          reduceIdents: false
+          reduceIdents: false,
+          zindex: false
         }
       })
     ]
@@ -79,6 +80,7 @@ found at http://www.apache.org/licenses/LICENSE-2.0
             options: {
               modules: true,
               reduceIdents: false,
+              zindex: false,
               localIdentName: '[name]__[local]___[hash:base64:5]'
             }
           }
