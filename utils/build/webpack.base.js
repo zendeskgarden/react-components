@@ -79,8 +79,6 @@ found at http://www.apache.org/licenses/LICENSE-2.0
             loader: 'css-loader',
             options: {
               modules: true,
-              reduceIdents: false,
-              zindex: false,
               localIdentName: '[name]__[local]___[hash:base64:5]'
             }
           }
