@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Manager, Popper, Target } from 'react-popper';
 import { Portal } from 'react-portal';
+import Fragment from 'render-fragment';
 import {
   ControlledComponent,
   composeEventHandlers,
@@ -191,51 +192,53 @@ class TooltipContainer extends ControlledComponent {
 
     return (
       <Manager tag={false}>
-        <Target>
-          {({ targetProps }) => {
-            return (
-              <TriggerWrapper innerRef={targetProps.ref}>
-                {trigger &&
-                  trigger({
-                    getTriggerProps: props => this.getTriggerProps({ ...props }),
-                    isVisible
+        <Fragment>
+          <Target>
+            {({ targetProps }) => {
+              return (
+                <TriggerWrapper innerRef={targetProps.ref}>
+                  {trigger &&
+                    trigger({
+                      getTriggerProps: props => this.getTriggerProps({ ...props }),
+                      isVisible
+                    })}
+                </TriggerWrapper>
+              );
+            }}
+          </Target>
+          <Popper
+            placement={this.convertGardenToPopperPlacement()}
+            eventsEnabled={eventsEnabled}
+            modifiers={popperModifiers}
+          >
+            {({ popperProps, scheduleUpdate }) => {
+              const popperPlacement = popperProps['data-placement'];
+              const outOfBoundaries = popperProps['data-x-out-of-boundaries'];
+
+              const tooltip = (
+                <TooltipWrapper
+                  innerRef={popperProps.ref}
+                  style={popperProps.style}
+                  aria-hidden={!isVisible}
+                >
+                  {render({
+                    getTooltipProps: props => this.getTooltipProps(props),
+                    isVisible,
+                    placement: popperPlacement,
+                    outOfBoundaries,
+                    scheduleUpdate
                   })}
-              </TriggerWrapper>
-            );
-          }}
-        </Target>
-        <Popper
-          placement={this.convertGardenToPopperPlacement()}
-          eventsEnabled={eventsEnabled}
-          modifiers={popperModifiers}
-        >
-          {({ popperProps, scheduleUpdate }) => {
-            const popperPlacement = popperProps['data-placement'];
-            const outOfBoundaries = popperProps['data-x-out-of-boundaries'];
+                </TooltipWrapper>
+              );
 
-            const tooltip = (
-              <TooltipWrapper
-                innerRef={popperProps.ref}
-                style={popperProps.style}
-                aria-hidden={!isVisible}
-              >
-                {render({
-                  getTooltipProps: props => this.getTooltipProps(props),
-                  isVisible,
-                  placement: popperPlacement,
-                  outOfBoundaries,
-                  scheduleUpdate
-                })}
-              </TooltipWrapper>
-            );
+              if (appendToBody) {
+                return <Portal>{tooltip}</Portal>;
+              }
 
-            if (appendToBody) {
-              return <Portal>{tooltip}</Portal>;
-            }
-
-            return tooltip;
-          }}
-        </Popper>
+              return tooltip;
+            }}
+          </Popper>
+        </Fragment>
       </Manager>
     );
   }
