@@ -38,6 +38,10 @@ const ChangelogButton = styled(Button)`
   /* stylelint-enable */
 `;
 
+const ChangelogModal = styled(Modal)`
+  max-width: calc(100% - 48px);
+`;
+
 const ChangelogBody = styled(Body)`
   max-height: 500px;
   overflow: auto;
@@ -63,15 +67,15 @@ class TableOfContents extends Component {
 
   renderChangelogModal = () => {
     return (
-      <Modal
-        onClose={this.closeChangelogModal}
+      <ChangelogModal
         large
+        onClose={this.closeChangelogModal}
         backdropProps={{ style: { overflow: 'hidden' } }}
       >
         <Header>{PACKAGE_JSON.name}</Header>
         <ChangelogBody dangerouslySetInnerHTML={{ __html: CHANGELOG }} className="markdown-body" />
         <Close onClick={this.closeChangelogModal} />
-      </Modal>
+      </ChangelogModal>
     );
   };
 
