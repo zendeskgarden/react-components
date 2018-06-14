@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.0.4"></a>
+## [3.0.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-avatars@3.0.3...@zendeskgarden/react-avatars@3.0.4) (2018-06-14)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-avatars
+
 <a name="3.0.3"></a>
 ## [3.0.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-avatars@3.0.2...@zendeskgarden/react-avatars@3.0.3) (2018-06-11)
 
