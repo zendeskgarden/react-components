@@ -94,8 +94,7 @@ export default class Menu extends ControlledComponent {
 
   static defaultProps = {
     animate: true,
-    eventsEnabled: true,
-    appendToNode: document.body
+    eventsEnabled: true
   };
 
   state = {
