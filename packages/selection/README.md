@@ -45,11 +45,11 @@ All render prop components within Garden follow this structure:
 
 ### Their name will end with `Container`
 
-* `SelectionContainer`, `MenuContainer`, etc.
+- `SelectionContainer`, `MenuContainer`, etc.
 
 ### They will render no UI
 
-* The purpose of the render prop container is
+- The purpose of the render prop container is
   to manage state and apply props to any DOM elements given to it.
 
 <!-- markdownlint-disable -->
@@ -76,15 +76,15 @@ All render prop components within Garden follow this structure:
 
 ### All containers will support both `Uncontrolled` and `Controlled` state management
 
-* `Uncontrolled`
-  * State is managed entirely within the component. "it just works" mode
-* `Controlled`
-  * All stateful properties available within a render prop
+- `Uncontrolled`
+  - State is managed entirely within the component. "it just works" mode
+- `Controlled`
+  - All stateful properties available within a render prop
     can be controlled with a prop on the container.
-  * All state changes are provided to the `onStateChange`
+  - All state changes are provided to the `onStateChange`
     callback to allow the consumer to fully controll the state.
-    * This is useful for components that leverage other containers internally.
-    * Also useful if you need to control state in Redux or another store.
+    - This is useful for components that leverage other containers internally.
+    - Also useful if you need to control state in Redux or another store.
 
 ```jsx static
 // Uncontrolled Usage
@@ -104,11 +104,11 @@ initialState = {
 
 ### All render props will respect Event Composition
 
-* During development it is common to have to apply events and props to the same
+- During development it is common to have to apply events and props to the same
   elements that the render prop is interacting with.
-* To help prevent conflicts between the render prop and your own logic, pass
+- To help prevent conflicts between the render prop and your own logic, pass
   all events and attributes through the render prop function.
-* All render props will be able to respect any `event.preventDefault()` calls
+- All render props will be able to respect any `event.preventDefault()` calls
   and overrides you provide.
 
 ```jsx static

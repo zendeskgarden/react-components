@@ -1,7 +1,7 @@
 The `Tabs` component requires the following structure.
 
-* All `children` require a unique `key` and a `label` to display
-* Each `child` can have an optional `disabled` prop to disable selection
+- All `children` require a unique `key` and a `label` to display
+- Each `child` can have an optional `disabled` prop to disable selection
 
 All elements proxy the props of their native DOM representations.
 

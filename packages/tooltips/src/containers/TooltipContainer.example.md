@@ -3,8 +3,8 @@ accessibility props to any element.
 
 Follows the [W3C Tooltip accessibility pattern](https://www.w3.org/TR/wai-aria-practices/#tooltip):
 
-* Applies the necessary `wai-aria` attributes
-* Content within the tooltip is screen-readable using `aria-describedby`
+- Applies the necessary `wai-aria` attributes
+- Content within the tooltip is screen-readable using `aria-describedby`
 
 ### Uncontrolled Usage
 

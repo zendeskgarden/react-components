@@ -4,19 +4,19 @@ and includes the following keyboard navigation:
 
 #### Trigger element
 
-* `Enter`/`Space`/`DOWN` opens menu and focuses first item
-* `UP` opens menu and focuses last item
+- `Enter`/`Space`/`DOWN` opens menu and focuses first item
+- `UP` opens menu and focuses last item
 
 #### Menu element
 
-* `DOWN`/`UP` cycle through items and wrap on boundaries
-* `HOME` focus first item
-* `END` focus last item
-* `[A-Z,1-9]` focuses items with matching `textValue` prop
-* `ESC` closes menu and focuses trigger
-* `TAB`/`SHIFT+TAB` moves focus within the menu if focusable elements are available
-  * Otherwise cycles focus between items
-* `ENTER`/`SPACE` selects item, closes menu, and focuses trigger element
+- `DOWN`/`UP` cycle through items and wrap on boundaries
+- `HOME` focus first item
+- `END` focus last item
+- `[A-Z,1-9]` focuses items with matching `textValue` prop
+- `ESC` closes menu and focuses trigger
+- `TAB`/`SHIFT+TAB` moves focus within the menu if focusable elements are available
+  - Otherwise cycles focus between items
+- `ENTER`/`SPACE` selects item, closes menu, and focuses trigger element
 
 ### Simple Example
 

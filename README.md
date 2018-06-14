@@ -132,7 +132,7 @@ All packages follow a similar installation process. Below is an example of
 consuming our [react-buttons](https://www.npmjs.com/package/@zendeskgarden/react-buttons)
 package.
 
-### (1) Install dependencies
+### Install dependencies
 
 ```sh
 # Install garden package
@@ -142,7 +142,7 @@ npm install @zendeskgarden/react-buttons
 npm install styled-components @zendeskgarden/react-theming
 ```
 
-### (2) Include global styling and `ThemeProvider`
+### Include global styling and `ThemeProvider`
 
 ```jsx
 import React, { Component } from 'react';
