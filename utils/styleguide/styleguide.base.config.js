@@ -59,7 +59,8 @@ const defaultStyleguideConfig = {
   require: [
     'babel-polyfill',
     path.resolve(__dirname, 'setup.js'),
-    path.resolve(__dirname, 'styles.css')
+    path.resolve(__dirname, 'styles.css'),
+    'github-markdown-css'
   ],
   getExampleFilename(componentPath) {
     return componentPath.replace(/\.jsx?$/, '.example.md');
@@ -98,6 +99,17 @@ const defaultStyleguideConfig = {
           test: /\.svg$/,
           exclude: /node_modules/,
           loader: 'svg-react-loader'
+        },
+        {
+          test: /\.md$/,
+          use: [
+            {
+              loader: 'html-loader'
+            },
+            {
+              loader: 'markdown-loader'
+            }
+          ]
         }
       ]
     },
@@ -106,7 +118,13 @@ const defaultStyleguideConfig = {
         BASE_PATH_NAME: JSON.stringify(basePathName),
         PACKAGE_VERSION: JSON.stringify(packageManifest.version)
       })
-    ]
+    ],
+    resolve: {
+      alias: {
+        'package.json': path.resolve('package.json'),
+        'CHANGELOG.md': path.resolve('CHANGELOG.md')
+      }
+    }
   }
 };
 
