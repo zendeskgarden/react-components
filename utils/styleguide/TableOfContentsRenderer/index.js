@@ -13,38 +13,27 @@ import TableOfContentsRenderer from 'react-styleguidist/lib/rsg-components/Table
 import { Button, Anchor } from '../../../packages/buttons/src';
 import { ThemeProvider } from '../../../packages/theming/src';
 import { Tooltip, Title } from '../../../packages/tooltips/src';
-import { Modal, Header, Body, Close } from '../../../packages/modals/src';
+import { Toggle, Label } from '../../../packages/toggles/src';
+import ChangelogModal from './Changelog';
+import Spacer from './Spacer';
 import PACKAGE_JSON from 'package.json';
 import CHANGELOG from 'CHANGELOG.md';
 
 const RTLContainer = styled.div`
   margin-top: 16px;
-  margin-bottom: 16px;
   padding-right: 16px;
   padding-left: 16px;
-
-  & > div {
-    width: 100%;
-  }
 `;
 
 const BadgeContainer = styled.div`
-  text-align: center;
+  margin-top: 8px;
 `;
 
 const ChangelogButton = styled(Button)`
   /* stylelint-disable */
   margin-top: 8px !important;
+  font-size: 15px;
   /* stylelint-enable */
-`;
-
-const ChangelogModal = styled(Modal)`
-  max-width: calc(100% - 48px);
-`;
-
-const ChangelogBody = styled(Body)`
-  max-height: 500px;
-  overflow: auto;
 `;
 
 class TableOfContents extends Component {
@@ -61,24 +50,6 @@ class TableOfContents extends Component {
     isChangelogModalOpen: false
   };
 
-  closeChangelogModal = () => {
-    this.setState({ isChangelogModalOpen: false });
-  };
-
-  renderChangelogModal = () => {
-    return (
-      <ChangelogModal
-        large
-        onClose={this.closeChangelogModal}
-        backdropProps={{ style: { overflow: 'hidden' } }}
-      >
-        <Header>{PACKAGE_JSON.name}</Header>
-        <ChangelogBody dangerouslySetInnerHTML={{ __html: CHANGELOG }} className="markdown-body" />
-        <Close onClick={this.closeChangelogModal} />
-      </ChangelogModal>
-    );
-  };
-
   render() {
     const isRtl = location.search.indexOf('isRtl') !== -1;
     const githubPackageUrl = `https://github.com/zendeskgarden/react-components/tree/master/packages/${BASE_PATH_NAME}`;
@@ -88,8 +59,28 @@ class TableOfContents extends Component {
     return (
       <TableOfContentsRenderer {...other}>
         {children}
-        <RTLContainer>
-          <ThemeProvider>
+        <ThemeProvider>
+          <RTLContainer>
+            <ChangelogButton
+              link
+              size="small"
+              onClick={() => this.setState({ isChangelogModalOpen: true })}
+            >
+              View Changelog
+            </ChangelogButton>
+            {isChangelogModalOpen && (
+              <ChangelogModal
+                onClose={() => this.setState({ isChangelogModalOpen: false })}
+                name={PACKAGE_JSON.name}
+                htmlContent={CHANGELOG}
+              />
+            )}
+            <BadgeContainer>
+              <a href={githubPackageUrl}>
+                <img alt="View package on GitHub" src="images/github.svg" />
+              </a>
+            </BadgeContainer>
+            <Spacer height="20px" />
             <Tooltip
               placement="end"
               popperModifiers={{
@@ -102,19 +93,20 @@ class TableOfContents extends Component {
               type="light"
               size="extra-large"
               trigger={
-                <Button
-                  stretched
-                  size="small"
-                  onClick={() => {
-                    if (isRtl) {
-                      location.search = '';
-                    } else {
-                      location.search = '?isRtl';
-                    }
-                  }}
-                >
-                  {isRtl ? 'Disable RTL' : 'Enable RTL'}
-                </Button>
+                <div>
+                  <Toggle
+                    checked={isRtl}
+                    onChange={() => {
+                      if (isRtl) {
+                        location.search = '';
+                      } else {
+                        location.search = '?isRtl';
+                      }
+                    }}
+                  >
+                    <Label>RTL Locale</Label>
+                  </Toggle>
+                </div>
               }
             >
               <Title>RTL in Garden</Title>
@@ -126,21 +118,8 @@ class TableOfContents extends Component {
                 <Anchor href="../theming">View Garden Theming Package</Anchor>
               </p>
             </Tooltip>
-          </ThemeProvider>
-          <ChangelogButton
-            stretched
-            size="small"
-            onClick={() => this.setState({ isChangelogModalOpen: true })}
-          >
-            View Changelog
-          </ChangelogButton>
-        </RTLContainer>
-        {isChangelogModalOpen && this.renderChangelogModal()}
-        <BadgeContainer>
-          <a href={githubPackageUrl}>
-            <img alt="View package on GitHub" src="images/github.svg" />
-          </a>
-        </BadgeContainer>
+          </RTLContainer>
+        </ThemeProvider>
       </TableOfContentsRenderer>
     );
   }
