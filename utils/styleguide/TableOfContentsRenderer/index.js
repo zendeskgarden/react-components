@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import TableOfContentsRenderer from 'react-styleguidist/lib/rsg-components/TableOfContents/TableOfContentsRenderer';
@@ -13,85 +13,116 @@ import TableOfContentsRenderer from 'react-styleguidist/lib/rsg-components/Table
 import { Button, Anchor } from '../../../packages/buttons/src';
 import { ThemeProvider } from '../../../packages/theming/src';
 import { Tooltip, Title } from '../../../packages/tooltips/src';
+import { Toggle, Label } from '../../../packages/toggles/src';
+import ChangelogModal from './Changelog';
+import Spacer from './Spacer';
+import PACKAGE_JSON from 'package.json';
+import CHANGELOG from 'CHANGELOG.md';
 
 const RTLContainer = styled.div`
   margin-top: 16px;
-  margin-bottom: 16px;
   padding-right: 16px;
   padding-left: 16px;
-
-  & > div {
-    width: 100%;
-  }
 `;
 
 const BadgeContainer = styled.div`
-  text-align: center;
+  margin-top: 8px;
 `;
 
-const TableOfContents = ({ children, ...other }) => {
-  const isRtl = location.search.indexOf('isRtl') !== -1;
-  const githubPackageUrl = `https://github.com/zendeskgarden/react-components/tree/master/packages/${BASE_PATH_NAME}`;
+const ChangelogButton = styled(Button)`
+  /* stylelint-disable */
+  margin-top: 8px !important;
+  font-size: 15px;
+  /* stylelint-enable */
+`;
 
-  return (
-    <TableOfContentsRenderer {...other}>
-      {children}
-      <RTLContainer>
+class TableOfContents extends Component {
+  static propTypes = {
+    children: PropTypes.any
+  };
+
+  static contextTypes = {
+    isRtl: PropTypes.bool,
+    setRtl: PropTypes.func
+  };
+
+  state = {
+    isChangelogModalOpen: false
+  };
+
+  render() {
+    const isRtl = location.search.indexOf('isRtl') !== -1;
+    const githubPackageUrl = `https://github.com/zendeskgarden/react-components/tree/master/packages/${BASE_PATH_NAME}`;
+    const { children, ...other } = this.props;
+    const { isChangelogModalOpen } = this.state;
+
+    return (
+      <TableOfContentsRenderer {...other}>
+        {children}
         <ThemeProvider>
-          <Tooltip
-            placement="end"
-            popperModifiers={{
-              preventOverflow: {
-                boundariesElement: 'viewport'
-              },
-              hide: { enabled: false }
-            }}
-            appendToBody
-            type="light"
-            size="extra-large"
-            trigger={
-              <Button
-                stretched
-                size="small"
-                onClick={() => {
-                  if (isRtl) {
-                    location.search = '';
-                  } else {
-                    location.search = '?isRtl';
-                  }
-                }}
-              >
-                {isRtl ? 'Disable RTL' : 'Enable RTL'}
-              </Button>
-            }
-          >
-            <Title>RTL in Garden</Title>
-            <p>
-              All Garden components are RTL locale aware when used with the {'<ThemeProvider />'}{' '}
-              component.
-            </p>
-            <p>
-              <Anchor href="../theming">View Garden Theming Package</Anchor>
-            </p>
-          </Tooltip>
+          <RTLContainer>
+            <ChangelogButton
+              link
+              size="small"
+              onClick={() => this.setState({ isChangelogModalOpen: true })}
+            >
+              View Changelog
+            </ChangelogButton>
+            {isChangelogModalOpen && (
+              <ChangelogModal
+                onClose={() => this.setState({ isChangelogModalOpen: false })}
+                name={PACKAGE_JSON.name}
+                htmlContent={CHANGELOG}
+              />
+            )}
+            <BadgeContainer>
+              <a href={githubPackageUrl}>
+                <img alt="View package on GitHub" src="images/github.svg" />
+              </a>
+            </BadgeContainer>
+            <Spacer height="20px" />
+            <Tooltip
+              placement="end"
+              popperModifiers={{
+                preventOverflow: {
+                  boundariesElement: 'viewport'
+                },
+                hide: { enabled: false }
+              }}
+              appendToBody
+              type="light"
+              size="extra-large"
+              trigger={
+                <div>
+                  <Toggle
+                    checked={isRtl}
+                    onChange={() => {
+                      if (isRtl) {
+                        location.search = '';
+                      } else {
+                        location.search = '?isRtl';
+                      }
+                    }}
+                  >
+                    <Label>RTL Locale</Label>
+                  </Toggle>
+                </div>
+              }
+            >
+              <Title>RTL in Garden</Title>
+              <p>
+                All Garden components are RTL locale aware when used with the {'<ThemeProvider />'}{' '}
+                component.
+              </p>
+              <p>
+                <Anchor href="../theming">View Garden Theming Package</Anchor>
+              </p>
+            </Tooltip>
+          </RTLContainer>
         </ThemeProvider>
-      </RTLContainer>
-      <BadgeContainer>
-        <a href={githubPackageUrl}>
-          <img alt="View package on GitHub" src="images/github.svg" />
-        </a>
-      </BadgeContainer>
-    </TableOfContentsRenderer>
-  );
-};
-
-TableOfContents.propTypes = {
-  children: PropTypes.any
-};
-
-TableOfContents.contextTypes = {
-  isRtl: PropTypes.bool,
-  setRtl: PropTypes.func
-};
+      </TableOfContentsRenderer>
+    );
+  }
+}
 
 export default TableOfContents;
