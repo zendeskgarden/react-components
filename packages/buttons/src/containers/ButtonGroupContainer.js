@@ -7,7 +7,12 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { SelectionContainer, ControlledComponent, IdManager } from '@zendeskgarden/react-selection';
+import {
+  SelectionContainer,
+  ControlledComponent,
+  IdManager,
+  composeEventHandlers
+} from '@zendeskgarden/react-selection';
 
 export default class ButtonGroupContainer extends ControlledComponent {
   static propTypes = {
@@ -58,7 +63,7 @@ export default class ButtonGroupContainer extends ControlledComponent {
     };
   };
 
-  getButtonProps = ({ role = 'button', key, tabIndex = -1, ...other } = {}) => {
+  getButtonProps = ({ role = 'button', key, tabIndex = -1, onFocus, ...other } = {}) => {
     if (typeof key === 'undefined' || key === null) {
       throw new Error(
         '"key" must be defined within getButtonProps regardless of being used within a .map()'
@@ -69,6 +74,12 @@ export default class ButtonGroupContainer extends ControlledComponent {
       role,
       key,
       tabIndex,
+      onFocus: composeEventHandlers(onFocus, ({ target }) => {
+        // Chrome puts focus on a button and returns it upon window focus
+        // this just makes sure the focus is on the ButtonGroupView instead
+        // to avoid a double focus bug
+        target.parentNode.focus();
+      }),
       ...other
     };
   };
