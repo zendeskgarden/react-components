@@ -17,7 +17,6 @@ import { ThemeProvider } from '@zendeskgarden/react-theming';
 const mountWithTheme = (tree, { rtl, theme, enzymeOptions } = {}) => {
   const context = mount(<ThemeProvider theme={theme} rtl={rtl} />)
     .childAt(0)
-    .childAt(0)
     .instance()
     .getChildContext();
 
