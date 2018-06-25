@@ -76,5 +76,15 @@ describe('ButtonGroupContainer', () => {
         expect(button).toHaveProp('tabIndex', -1);
       });
     });
+
+    it('moves focus to the ButtonGroupView if a button receives focus', () => {
+      const btn = findButtons(wrapper)
+        .at(0)
+        .simulate('focus');
+
+      expect(btn.getDOMNode().dataset.focused).toBeTruthy();
+      expect(btn.getDOMNode()).not.toEqual(document.activeElement);
+      expect(findButtonGroup(wrapper).getDOMNode()).toEqual(document.activeElement);
+    });
   });
 });
