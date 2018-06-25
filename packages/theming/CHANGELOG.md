@@ -3,7 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-<a name="2.1.1"></a>
+      <a name="3.0.0"></a>
+# [3.0.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-theming@2.1.1...@zendeskgarden/react-theming@3.0.0) (2018-06-25)
+
+
+### Bug Fixes
+
+* **theming:** Remove StyleSheetManager from ThemeProvider ([#45](https://github.com/zendeskgarden/react-components/issues/45)) ([1433883](https://github.com/zendeskgarden/react-components/commit/1433883)), closes [#24](https://github.com/zendeskgarden/react-components/issues/24)
+
+
+### BREAKING CHANGES
+
+* **theming:** The `target` prop on `ThemeProvider` has been removed. In order to do do the same thing that the `target` prop offered you'll need to do the following change:
+
+```
+// Old use of `target` prop
+<ThemeProvider target={document.body} />
+```
+
+The new way is to import the `StyleSheetManager` directly from `styled-components` and wrap that around the `ThemeProvider`
+
+```
+// New way to change the location of where styled component css is injected
+import { StyleSheetManager } from 'styled-components';
+
+<StyleSheetManager target={document.body}>	
+<ThemeProvider />
+</StyleSheetManager>
+```
+
+This change will also help with SSR and specifically use in next.js.
+
+
+
+
+      <a name="2.1.1"></a>
 ## [2.1.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-theming@2.1.0...@zendeskgarden/react-theming@2.1.1) (2018-06-14)
 
 

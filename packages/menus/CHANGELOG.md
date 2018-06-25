@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.2.4"></a>
+## [3.2.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.2.3...@zendeskgarden/react-menus@3.2.4) (2018-06-25)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-menus
+
 <a name="3.2.3"></a>
 ## [3.2.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.2.2...@zendeskgarden/react-menus@3.2.3) (2018-06-14)
 
