@@ -76,20 +76,6 @@ const LocalizedComponent = withTheme(StyledDiv);
 </ThemeProvider>;
 ```
 
-### Target
-
-You can change the target location that style-components injects its CSS into e.g.
-if you're using an iframe or shadow DOM.
-
-```jsx static
-import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Notification } from '@zendeskgarden/react-notifications';
-
-<ThemeProvider target={document.querySelector('.some-element')}>
-  <Notification>This notification content will have custom styling.</Notification>
-</ThemeProvider>;
-```
-
 ### WARNING
 
 Theming is meant to be used for small, global changes to a component
