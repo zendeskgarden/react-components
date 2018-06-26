@@ -7,8 +7,12 @@
 
 import React from 'react';
 import { mount } from 'enzyme';
+import closest from 'dom-helpers/query/closest';
 
 import ButtonGroupContainer from './ButtonGroupContainer';
+
+jest.mock('dom-helpers/query/closest');
+closest.mockImplementation(() => ({ focus: jest.fn() }));
 
 describe('ButtonGroupContainer', () => {
   let wrapper;
@@ -75,6 +79,14 @@ describe('ButtonGroupContainer', () => {
       findButtons(wrapper).forEach(button => {
         expect(button).toHaveProp('tabIndex', -1);
       });
+    });
+
+    it('moves focus to the ButtonGroupView if a button receives focus', () => {
+      findButtons(wrapper)
+        .at(0)
+        .simulate('focus');
+
+      expect(closest).toHaveBeenCalled();
     });
   });
 });
