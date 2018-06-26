@@ -19,7 +19,7 @@
     "start": "../../utils/scripts/start.sh"
   },
   "peerDependencies": {
-    "@zendeskgarden/react-theming": "^1.0.0 || ^2.0.0",
+    "@zendeskgarden/react-theming": "^1.0.0 || ^2.0.0 || ^3.0.0",
     "enzyme": "^3.0.0",
     "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
     "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0"
