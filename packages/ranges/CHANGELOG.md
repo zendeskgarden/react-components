@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.2.4"></a>
+## [2.2.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-ranges@2.2.3...@zendeskgarden/react-ranges@2.2.4) (2018-06-26)
+
+
+### Bug Fixes
+
+* **dependencies:** update react-theming peerDependency for all packages ([#46](https://github.com/zendeskgarden/react-components/issues/46)) ([1d0a43b](https://github.com/zendeskgarden/react-components/commit/1d0a43b))
+
+
+
+
 <a name="2.2.3"></a>
 ## [2.2.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-ranges@2.2.2...@zendeskgarden/react-ranges@2.2.3) (2018-06-25)
 
