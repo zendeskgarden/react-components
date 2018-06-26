@@ -13,6 +13,7 @@ import {
   IdManager,
   composeEventHandlers
 } from '@zendeskgarden/react-selection';
+import closest from 'dom-helpers/query/closest';
 
 export default class ButtonGroupContainer extends ControlledComponent {
   static propTypes = {
@@ -78,7 +79,9 @@ export default class ButtonGroupContainer extends ControlledComponent {
         // Chrome puts focus on a button and returns it upon window focus
         // this just makes sure the focus is on the ButtonGroupView instead
         // to avoid a double focus bug
-        target.parentNode.focus();
+        const { role: roleProp } = this.getGroupProps();
+
+        closest(target, `[role="${roleProp}"]`).focus();
       }),
       ...other
     };

@@ -21,7 +21,8 @@
   "dependencies": {
     "@zendeskgarden/react-selection": "^4.1.2",
     "@zendeskgarden/react-utilities": "^0.1.1",
-    "classnames": "^2.2.5"
+    "classnames": "^2.2.5",
+    "dom-helpers": "^3.3.1"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^1.0.0 || ^2.0.0",
