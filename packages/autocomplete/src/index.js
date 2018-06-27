@@ -5,5 +5,4 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { default as hasType } from './utils/hasType';
-export { default as requiredParam } from './utils/requiredParam';
+export { default as AutocompleteContainer } from './containers/AutocompleteContainer';
