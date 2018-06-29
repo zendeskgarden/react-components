@@ -38,7 +38,7 @@ class AutocompleteContainer extends ControlledComponent {
     /**
      * Appends the menu to the provided element
      */
-    appendToNode: PropTypes.instanceOf(Element),
+    appendToNode: PropTypes.node,
     /**
      * @param {Object} renderProps
      * @param {Function} renderProps.getMenuProps - Props to be spread onto the containing menu element
@@ -325,12 +325,23 @@ class AutocompleteContainer extends ControlledComponent {
 
   getMenuId = () => `${this.getControlledState().id}--menu`;
 
-  getInputProps = ({ tabIndex = 0, onChange, onKeyDown, onBlur, ...other } = {}) => {
+  getInputProps = ({
+    tabIndex = 0,
+    role = 'combobox',
+    onChange,
+    onKeyDown,
+    onBlur,
+    ...other
+  } = {}) => {
     const { focusedKey, tagFocusedKey, isOpen } = this.getControlledState();
 
     return {
       tabIndex,
+      role,
       'aria-autocomplete': 'list',
+      'aria-haspopup': 'true',
+      'aria-owns': this.getMenuId(),
+      'aria-expanded': isOpen,
       'aria-activedescendant': isOpen ? this.getItemId(focusedKey) : this.getTagId(tagFocusedKey),
       autoComplete: 'off',
       onBlur: composeEventHandlers(onBlur, () => {
@@ -366,8 +377,16 @@ class AutocompleteContainer extends ControlledComponent {
     };
   };
 
-  getMenuProps = ({ onMouseDown, onMouseUp, ...other } = {}) => {
+  getMenuProps = ({
+    id = this.getMenuId(),
+    role = 'listbox',
+    onMouseDown,
+    onMouseUp,
+    ...other
+  } = {}) => {
     return {
+      id,
+      role,
       onMouseDown: composeEventHandlers(onMouseDown, () => {
         this.menuMousedDown = true;
       }),
