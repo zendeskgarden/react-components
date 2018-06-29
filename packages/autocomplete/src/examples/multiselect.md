@@ -41,7 +41,7 @@ const MoreAnchor = styled(Anchor)`
       November: true,
       Sierra: true,
       Yankee: true,
-      Zulu: true,
+      Zulu: true
     },
     isFocused: false,
     isOpen: false,
@@ -152,7 +152,11 @@ const MoreAnchor = styled(Anchor)`
       }
 
       if (keys.length > 4) {
-        labels.push(<MoreAnchor tabIndex={-1} key="more-anchor">+ {keys.length - 4} more</MoreAnchor>);
+        labels.push(
+          <MoreAnchor tabIndex={-1} key="more-anchor">
+            + {keys.length - 4} more
+          </MoreAnchor>
+        );
       }
 
       return labels;

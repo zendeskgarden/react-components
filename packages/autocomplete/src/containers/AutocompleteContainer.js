@@ -196,6 +196,10 @@ class AutocompleteContainer extends ControlledComponent {
     this.setControlledState({ isOpen: false });
   };
 
+  focusInput = () => {
+    this.inputRef && this.inputRef.focus();
+  };
+
   INPUT_KEYDOWN_HANDLERS = {
     [KEY_CODES.BACKSPACE]: e => {
       if (e.target.value === '' && !this.tagSelectionModel.hasSelection()) {
@@ -371,7 +375,7 @@ class AutocompleteContainer extends ControlledComponent {
       }),
       onClick: composeEventHandlers(onClick, () => {
         this.openDropdown();
-        this.inputRef.focus();
+        this.focusInput();
       }),
       ...other
     };
@@ -392,7 +396,7 @@ class AutocompleteContainer extends ControlledComponent {
       }),
       onMouseUp: composeEventHandlers(onMouseUp, () => {
         this.menuMousedDown = false;
-        this.inputRef.focus();
+        this.focusInput();
       }),
       ...other
     };
@@ -459,7 +463,7 @@ class AutocompleteContainer extends ControlledComponent {
       }),
       onClick: composeEventHandlers(onClick, e => {
         this.tagSelectionModel.select(currentIndex);
-        this.inputRef.focus();
+        this.focusInput();
         e.preventDefault();
       }),
       ...other

@@ -140,7 +140,12 @@ initialState = {
         }}
       >
         {({ getMenuProps, getItemProps, placement, focusedKey }) => {
-          const menuItems = getMatchingMenuItems(state.inputValue, state.value, getItemProps, focusedKey);
+          const menuItems = getMatchingMenuItems(
+            state.inputValue,
+            state.value,
+            getItemProps,
+            focusedKey
+          );
 
           const addItemProps =
             state.inputValue.length === 0
@@ -157,9 +162,7 @@ initialState = {
                 }
               })}
             >
-              <div style={{ height: '200px', overflowY: 'auto' }}>
-                {menuItems}
-              </div>
+              <div style={{ height: '200px', overflowY: 'auto' }}>{menuItems}</div>
               <Separator />
               <AddItem {...addItemProps}>Add item</AddItem>
             </MenuView>
