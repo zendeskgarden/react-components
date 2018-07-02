@@ -32,7 +32,9 @@ const increment = (num = 0) => setState({ count: state.count + num });
             }
           }}
           onStateChange={newState => setState(newState)}
-          trigger={({ ref }) => <ChevronButton buttonRef={ref} rotated={state.isOpen} />}
+          trigger={({ ref }) => (
+            <ChevronButton buttonRef={ref} rotated={state.isOpen} active={state.isOpen} />
+          )}
         >
           <Item key="add-5">Add 5</Item>
           <Item key="add-10">Add 10</Item>
