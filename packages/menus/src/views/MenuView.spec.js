@@ -138,4 +138,28 @@ describe('MenuView', () => {
       });
     });
   });
+
+  describe('Animation', () => {
+    it('should be enabled if animation is provided', () => {
+      const wrapper = mount(<MenuView animate />);
+
+      expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should be disabled in animation is disabled', () => {
+      const wrapper = mount(<MenuView animate={false} />);
+
+      expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should be disabled if any top placement is provided', () => {
+      [POPPER_PLACEMENTS.TOP, POPPER_PLACEMENTS.TOP_START, POPPER_PLACEMENTS.TOP_END].forEach(
+        placement => {
+          const wrapper = mount(<MenuView placement={placement} />);
+
+          expect(wrapper).toMatchSnapshot();
+        }
+      );
+    });
+  });
 });
