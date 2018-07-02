@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1530306966195" clover="3.2.0">
-  <project timestamp="1530306966195" name="All files">
-    <metrics statements="1606" coveredstatements="1604" conditionals="729" coveredconditionals="664" methods="547" coveredmethods="545" elements="2882" coveredelements="2813" complexity="0" loc="1606" ncloc="1606" packages="60" files="152" classes="152">
+<coverage generated="1530555408222" clover="3.2.0">
+  <project timestamp="1530555408222" name="All files">
+    <metrics statements="1610" coveredstatements="1608" conditionals="731" coveredconditionals="666" methods="548" coveredmethods="546" elements="2889" coveredelements="2820" complexity="0" loc="1610" ncloc="1610" packages="60" files="152" classes="152">
       <package name="autocomplete.src.containers">
-        <metrics statements="150" coveredstatements="150" conditionals="98" coveredconditionals="84" methods="44" coveredmethods="44"/>
+        <metrics statements="154" coveredstatements="154" conditionals="100" coveredconditionals="86" methods="45" coveredmethods="45"/>
         <file name="AutocompleteContainer.js" path="/Users/agreen/Repos/react-components/packages/autocomplete/src/containers/AutocompleteContainer.js">
-          <metrics statements="150" coveredstatements="150" conditionals="98" coveredconditionals="84" methods="44" coveredmethods="44"/>
+          <metrics statements="154" coveredstatements="154" conditionals="100" coveredconditionals="86" methods="45" coveredmethods="45"/>
           <line num="32" count="1" type="stmt"/>
-          <line num="33" count="20" type="stmt"/>
-          <line num="132" count="52" type="stmt"/>
-          <line num="134" count="52" type="stmt"/>
-          <line num="141" count="52" type="stmt"/>
-          <line num="142" count="52" type="stmt"/>
-          <line num="144" count="52" type="stmt"/>
-          <line num="145" count="52" type="stmt"/>
-          <line num="149" count="34" type="stmt"/>
-          <line num="150" count="34" type="cond" truecount="1" falsecount="1"/>
-          <line num="158" count="34" type="cond" truecount="4" falsecount="0"/>
+          <line num="33" count="22" type="stmt"/>
+          <line num="132" count="54" type="stmt"/>
+          <line num="134" count="54" type="stmt"/>
+          <line num="141" count="54" type="stmt"/>
+          <line num="142" count="54" type="stmt"/>
+          <line num="144" count="54" type="stmt"/>
+          <line num="145" count="54" type="stmt"/>
+          <line num="149" count="36" type="stmt"/>
+          <line num="150" count="36" type="cond" truecount="1" falsecount="1"/>
+          <line num="158" count="36" type="cond" truecount="4" falsecount="0"/>
           <line num="159" count="1" type="stmt"/>
           <line num="162" count="1" type="cond" truecount="0" falsecount="1"/>
           <line num="171" count="4" type="stmt"/>
@@ -27,10 +27,10 @@
           <line num="184" count="3" type="cond" truecount="2" falsecount="0"/>
           <line num="186" count="3" type="stmt"/>
           <line num="187" count="3" type="stmt"/>
-          <line num="191" count="1" type="stmt"/>
+          <line num="191" count="2" type="stmt"/>
           <line num="195" count="1" type="stmt"/>
           <line num="196" count="1" type="stmt"/>
-          <line num="200" count="1" type="cond" truecount="2" falsecount="0"/>
+          <line num="200" count="2" type="cond" truecount="2" falsecount="0"/>
           <line num="205" count="3" type="cond" truecount="4" falsecount="0"/>
           <line num="206" count="1" type="stmt"/>
           <line num="207" count="1" type="stmt"/>
@@ -95,67 +95,71 @@
           <line num="317" count="2" type="cond" truecount="2" falsecount="0"/>
           <line num="318" count="1" type="stmt"/>
           <line num="319" count="1" type="stmt"/>
-          <line num="325" count="279" type="cond" truecount="2" falsecount="0"/>
-          <line num="328" count="324" type="cond" truecount="2" falsecount="0"/>
-          <line num="330" count="172" type="stmt"/>
-          <line num="340" count="86" type="stmt"/>
-          <line num="342" count="86" type="stmt"/>
-          <line num="352" count="3" type="cond" truecount="4" falsecount="0"/>
-          <line num="353" count="1" type="stmt"/>
-          <line num="357" count="1" type="stmt"/>
-          <line num="360" count="26" type="stmt"/>
-          <line num="362" count="26" type="cond" truecount="2" falsecount="0"/>
-          <line num="369" count="86" type="stmt"/>
-          <line num="371" count="2" type="stmt"/>
-          <line num="374" count="2" type="stmt"/>
-          <line num="377" count="2" type="stmt"/>
+          <line num="325" count="293" type="cond" truecount="2" falsecount="0"/>
+          <line num="328" count="338" type="cond" truecount="2" falsecount="0"/>
+          <line num="330" count="180" type="stmt"/>
+          <line num="341" count="90" type="stmt"/>
+          <line num="343" count="90" type="stmt"/>
+          <line num="353" count="3" type="cond" truecount="4" falsecount="0"/>
+          <line num="354" count="1" type="stmt"/>
+          <line num="358" count="1" type="stmt"/>
+          <line num="361" count="26" type="stmt"/>
+          <line num="363" count="26" type="cond" truecount="2" falsecount="0"/>
+          <line num="366" count="1" type="stmt"/>
+          <line num="373" count="90" type="stmt"/>
+          <line num="375" count="2" type="stmt"/>
           <line num="378" count="2" type="stmt"/>
-          <line num="391" count="86" type="stmt"/>
-          <line num="395" count="1" type="stmt"/>
-          <line num="398" count="2" type="stmt"/>
-          <line num="399" count="2" type="stmt"/>
-          <line num="412" count="258" type="stmt"/>
-          <line num="413" count="258" type="stmt"/>
-          <line num="414" count="258" type="stmt"/>
-          <line num="416" count="258" type="stmt"/>
-          <line num="418" count="258" type="cond" truecount="2" falsecount="0"/>
-          <line num="419" count="1" type="stmt"/>
-          <line num="422" count="258" type="stmt"/>
-          <line num="424" count="258" type="stmt"/>
-          <line num="429" count="1" type="stmt"/>
-          <line num="443" count="258" type="stmt"/>
-          <line num="444" count="258" type="stmt"/>
-          <line num="445" count="258" type="stmt"/>
-          <line num="447" count="258" type="stmt"/>
-          <line num="449" count="258" type="cond" truecount="2" falsecount="0"/>
-          <line num="450" count="2" type="stmt"/>
-          <line num="453" count="258" type="stmt"/>
-          <line num="455" count="258" type="stmt"/>
-          <line num="459" count="1" type="stmt"/>
-          <line num="462" count="1" type="stmt"/>
-          <line num="465" count="2" type="stmt"/>
-          <line num="466" count="2" type="stmt"/>
-          <line num="467" count="2" type="stmt"/>
-          <line num="477" count="86" type="stmt"/>
-          <line num="479" count="86" type="cond" truecount="2" falsecount="0"/>
-          <line num="480" count="4" type="stmt"/>
-          <line num="483" count="82" type="stmt"/>
-          <line num="495" count="86" type="stmt"/>
-          <line num="496" count="86" type="stmt"/>
-          <line num="498" count="86" type="stmt"/>
-          <line num="499" count="86" type="stmt"/>
-          <line num="500" count="86" type="stmt"/>
-          <line num="501" count="86" type="stmt"/>
-          <line num="503" count="86" type="stmt"/>
-          <line num="508" count="86" type="stmt"/>
-          <line num="510" count="86" type="stmt"/>
-          <line num="518" count="120" type="stmt"/>
-          <line num="533" count="86" type="stmt"/>
-          <line num="534" count="86" type="stmt"/>
-          <line num="536" count="86" type="stmt"/>
-          <line num="545" count="86" type="cond" truecount="2" falsecount="0"/>
-          <line num="546" count="66" type="stmt"/>
-          <line num="549" count="20" type="stmt"/>
+          <line num="381" count="4" type="stmt"/>
+          <line num="383" count="4" type="cond" truecount="2" falsecount="0"/>
+          <line num="384" count="1" type="stmt"/>
+          <line num="386" count="3" type="stmt"/>
+          <line num="389" count="4" type="stmt"/>
+          <line num="402" count="90" type="stmt"/>
+          <line num="406" count="1" type="stmt"/>
+          <line num="409" count="2" type="stmt"/>
+          <line num="410" count="2" type="stmt"/>
+          <line num="423" count="270" type="stmt"/>
+          <line num="424" count="270" type="stmt"/>
+          <line num="425" count="270" type="stmt"/>
+          <line num="427" count="270" type="stmt"/>
+          <line num="429" count="270" type="cond" truecount="2" falsecount="0"/>
+          <line num="430" count="1" type="stmt"/>
+          <line num="433" count="270" type="stmt"/>
+          <line num="435" count="270" type="stmt"/>
+          <line num="440" count="1" type="stmt"/>
+          <line num="454" count="270" type="stmt"/>
+          <line num="455" count="270" type="stmt"/>
+          <line num="456" count="270" type="stmt"/>
+          <line num="458" count="270" type="stmt"/>
+          <line num="460" count="270" type="cond" truecount="2" falsecount="0"/>
+          <line num="461" count="2" type="stmt"/>
+          <line num="464" count="270" type="stmt"/>
+          <line num="466" count="270" type="stmt"/>
+          <line num="470" count="1" type="stmt"/>
+          <line num="473" count="1" type="stmt"/>
+          <line num="476" count="2" type="stmt"/>
+          <line num="477" count="2" type="stmt"/>
+          <line num="478" count="2" type="stmt"/>
+          <line num="488" count="90" type="stmt"/>
+          <line num="490" count="90" type="cond" truecount="2" falsecount="0"/>
+          <line num="491" count="4" type="stmt"/>
+          <line num="494" count="86" type="stmt"/>
+          <line num="506" count="90" type="stmt"/>
+          <line num="507" count="90" type="stmt"/>
+          <line num="509" count="90" type="stmt"/>
+          <line num="510" count="90" type="stmt"/>
+          <line num="511" count="90" type="stmt"/>
+          <line num="512" count="90" type="stmt"/>
+          <line num="514" count="90" type="stmt"/>
+          <line num="519" count="90" type="stmt"/>
+          <line num="521" count="90" type="stmt"/>
+          <line num="529" count="126" type="stmt"/>
+          <line num="544" count="90" type="stmt"/>
+          <line num="545" count="90" type="stmt"/>
+          <line num="547" count="90" type="stmt"/>
+          <line num="556" count="90" type="cond" truecount="2" falsecount="0"/>
+          <line num="557" count="68" type="stmt"/>
+          <line num="560" count="22" type="stmt"/>
         </file>
       </package>
       <package name="avatars.src">
@@ -1698,12 +1702,12 @@
         <metrics statements="71" coveredstatements="71" conditionals="49" coveredconditionals="46" methods="19" coveredmethods="19"/>
         <file name="ControlledComponent.js" path="/Users/agreen/Repos/react-components/packages/selection/src/utils/ControlledComponent.js">
           <metrics statements="15" coveredstatements="15" conditionals="8" coveredconditionals="7" methods="4" coveredmethods="4"/>
-          <line num="18" count="29064" type="stmt"/>
-          <line num="25" count="7497" type="stmt"/>
-          <line num="26" count="28454" type="cond" truecount="2" falsecount="0"/>
-          <line num="28" count="28454" type="stmt"/>
-          <line num="36" count="380" type="stmt"/>
-          <line num="38" count="380" type="cond" truecount="2" falsecount="0"/>
+          <line num="18" count="29346" type="stmt"/>
+          <line num="25" count="7567" type="stmt"/>
+          <line num="26" count="28734" type="cond" truecount="2" falsecount="0"/>
+          <line num="28" count="28734" type="stmt"/>
+          <line num="36" count="381" type="stmt"/>
+          <line num="38" count="381" type="cond" truecount="2" falsecount="0"/>
           <line num="39" count="148" type="stmt"/>
           <line num="40" count="148" type="stmt"/>
           <line num="42" count="148" type="stmt"/>
@@ -1712,19 +1716,19 @@
           <line num="46" count="51" type="stmt"/>
           <line num="50" count="148" type="stmt"/>
           <line num="51" count="148" type="stmt"/>
-          <line num="53" count="232" type="stmt"/>
+          <line num="53" count="233" type="stmt"/>
         </file>
         <file name="IdManager.js" path="/Users/agreen/Repos/react-components/packages/selection/src/utils/IdManager.js">
           <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
           <line num="8" count="54" type="stmt"/>
-          <line num="16" count="548" type="stmt"/>
+          <line num="16" count="550" type="stmt"/>
           <line num="24" count="4" type="stmt"/>
         </file>
         <file name="SingleSelectionModel.js" path="/Users/agreen/Repos/react-components/packages/selection/src/utils/SingleSelectionModel.js">
           <metrics statements="49" coveredstatements="49" conditionals="36" coveredconditionals="34" methods="10" coveredmethods="10"/>
-          <line num="14" count="667" type="stmt"/>
-          <line num="15" count="667" type="stmt"/>
-          <line num="16" count="667" type="stmt"/>
+          <line num="14" count="671" type="stmt"/>
+          <line num="15" count="671" type="stmt"/>
+          <line num="16" count="671" type="stmt"/>
           <line num="20" count="158" type="cond" truecount="2" falsecount="0"/>
           <line num="28" count="158" type="stmt"/>
           <line num="30" count="158" type="stmt"/>
@@ -1768,16 +1772,16 @@
           <line num="105" count="5" type="stmt"/>
           <line num="108" count="1" type="stmt"/>
           <line num="112" count="30" type="stmt"/>
-          <line num="116" count="467" type="stmt"/>
-          <line num="117" count="467" type="stmt"/>
+          <line num="116" count="475" type="stmt"/>
+          <line num="117" count="475" type="stmt"/>
           <line num="121" count="60" type="stmt"/>
         </file>
         <file name="composeEventHandlers.js" path="/Users/agreen/Repos/react-components/packages/selection/src/utils/composeEventHandlers.js">
           <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
-          <line num="25" count="5715" type="stmt"/>
-          <line num="26" count="457" type="stmt"/>
-          <line num="27" count="837" type="cond" truecount="2" falsecount="0"/>
-          <line num="29" count="837" type="cond" truecount="2" falsecount="0"/>
+          <line num="25" count="5885" type="stmt"/>
+          <line num="26" count="460" type="stmt"/>
+          <line num="27" count="843" type="cond" truecount="2" falsecount="0"/>
+          <line num="29" count="843" type="cond" truecount="2" falsecount="0"/>
         </file>
       </package>
       <package name="tabs.src.containers">
@@ -1896,8 +1900,8 @@
         <file name="mountWithTheme.js" path="/Users/agreen/Repos/react-components/packages/testing/src/utils/mountWithTheme.js">
           <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
           <line num="17" count="42" type="cond" truecount="1" falsecount="0"/>
-          <line num="18" count="202" type="stmt"/>
-          <line num="23" count="202" type="stmt"/>
+          <line num="18" count="204" type="stmt"/>
+          <line num="23" count="204" type="stmt"/>
         </file>
         <file name="shallowWithTheme.js" path="/Users/agreen/Repos/react-components/packages/testing/src/utils/shallowWithTheme.js">
           <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -2009,8 +2013,8 @@
         <file name="ThemeProvider.js" path="/Users/agreen/Repos/react-components/packages/theming/src/ThemeProvider/ThemeProvider.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="132" type="stmt"/>
-          <line num="13" count="235" type="stmt"/>
-          <line num="18" count="235" type="stmt"/>
+          <line num="13" count="237" type="stmt"/>
+          <line num="18" count="237" type="stmt"/>
           <line num="21" count="132" type="stmt"/>
         </file>
       </package>
@@ -2018,7 +2022,7 @@
         <metrics statements="9" coveredstatements="9" conditionals="7" coveredconditionals="7" methods="3" coveredmethods="3"/>
         <file name="isRtl.js" path="/Users/agreen/Repos/react-components/packages/theming/src/utils/isRtl.js">
           <metrics statements="1" coveredstatements="1" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
-          <line num="10" count="921" type="cond" truecount="2" falsecount="0"/>
+          <line num="10" count="925" type="cond" truecount="2" falsecount="0"/>
         </file>
         <file name="retrieveTheme.js" path="/Users/agreen/Repos/react-components/packages/theming/src/utils/retrieveTheme.js">
           <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
@@ -2166,11 +2170,11 @@
           <line num="8" count="22" type="stmt"/>
           <line num="18" count="22" type="stmt"/>
           <line num="28" count="22" type="stmt"/>
-          <line num="43" count="377" type="stmt"/>
-          <line num="44" count="2639" type="stmt"/>
-          <line num="46" count="2639" type="stmt"/>
-          <line num="49" count="377" type="stmt"/>
-          <line num="59" count="377" type="stmt"/>
+          <line num="43" count="381" type="stmt"/>
+          <line num="44" count="2667" type="stmt"/>
+          <line num="46" count="2667" type="stmt"/>
+          <line num="49" count="381" type="stmt"/>
+          <line num="59" count="381" type="stmt"/>
           <line num="67" count="57" type="stmt"/>
           <line num="80" count="57" type="stmt"/>
           <line num="82" count="57" type="cond" truecount="2" falsecount="0"/>
