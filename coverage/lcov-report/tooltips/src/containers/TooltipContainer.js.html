@@ -290,7 +290,10 @@
 <a name='L242'></a><a href='#L242'>242</a>
 <a name='L243'></a><a href='#L243'>243</a>
 <a name='L244'></a><a href='#L244'>244</a>
-<a name='L245'></a><a href='#L245'>245</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L245'></a><a href='#L245'>245</a>
+<a name='L246'></a><a href='#L246'>246</a>
+<a name='L247'></a><a href='#L247'>247</a>
+<a name='L248'></a><a href='#L248'>248</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -316,7 +319,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -326,7 +330,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">21x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -485,6 +489,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">57x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -534,6 +539,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
  * Copyright Zendesk, Inc.
  *
@@ -546,6 +552,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Manager, Popper, Target } from 'react-popper';
 import { Portal } from 'react-portal';
+import Fragment from 'render-fragment';
 import {
   ControlledComponent,
   composeEventHandlers,
@@ -727,51 +734,53 @@ class TooltipContainer extends ControlledComponent {
 &nbsp;
     return (
       &lt;Manager tag={false}&gt;
-        &lt;Target&gt;
-          {({ targetProps }) =&gt; {
-            return (
-              &lt;TriggerWrapper innerRef={targetProps.ref}&gt;
-                {trigger &amp;&amp;
-                  trigger({
-                    getTriggerProps: props =&gt; this.getTriggerProps({ ...props }),
-                    isVisible
+        &lt;Fragment&gt;
+          &lt;Target&gt;
+            {({ targetProps }) =&gt; {
+              return (
+                &lt;TriggerWrapper innerRef={targetProps.ref}&gt;
+                  {trigger &amp;&amp;
+                    trigger({
+                      getTriggerProps: props =&gt; this.getTriggerProps({ ...props }),
+                      isVisible
+                    })}
+                &lt;/TriggerWrapper&gt;
+              );
+            }}
+          &lt;/Target&gt;
+          &lt;Popper
+            placement={this.convertGardenToPopperPlacement()}
+            eventsEnabled={eventsEnabled}
+            modifiers={popperModifiers}
+          &gt;
+            {({ popperProps, scheduleUpdate }) =&gt; {
+              const popperPlacement = popperProps['data-placement'];
+              const outOfBoundaries = popperProps['data-x-out-of-boundaries'];
+&nbsp;
+              const tooltip = (
+                &lt;TooltipWrapper
+                  innerRef={popperProps.ref}
+                  style={popperProps.style}
+                  aria-hidden={!isVisible}
+                &gt;
+                  {render({
+                    getTooltipProps: props =&gt; this.getTooltipProps(props),
+                    isVisible,
+                    placement: popperPlacement,
+                    outOfBoundaries,
+                    scheduleUpdate
                   })}
-              &lt;/TriggerWrapper&gt;
-            );
-          }}
-        &lt;/Target&gt;
-        &lt;Popper
-          placement={this.convertGardenToPopperPlacement()}
-          eventsEnabled={eventsEnabled}
-          modifiers={popperModifiers}
-        &gt;
-          {({ popperProps, scheduleUpdate }) =&gt; {
-            const popperPlacement = popperProps['data-placement'];
-            const outOfBoundaries = popperProps['data-x-out-of-boundaries'];
+                &lt;/TooltipWrapper&gt;
+              );
 &nbsp;
-            const tooltip = (
-              &lt;TooltipWrapper
-                innerRef={popperProps.ref}
-                style={popperProps.style}
-                aria-hidden={!isVisible}
-              &gt;
-                {render({
-                  getTooltipProps: props =&gt; this.getTooltipProps(props),
-                  isVisible,
-                  placement: popperPlacement,
-                  outOfBoundaries,
-                  scheduleUpdate
-                })}
-              &lt;/TooltipWrapper&gt;
-            );
+              if (appendToBody) {
+                return &lt;Portal&gt;{tooltip}&lt;/Portal&gt;;
+              }
 &nbsp;
-            if (appendToBody) {
-              return &lt;Portal&gt;{tooltip}&lt;/Portal&gt;;
-            }
-&nbsp;
-            return tooltip;
-          }}
-        &lt;/Popper&gt;
+              return tooltip;
+            }}
+          &lt;/Popper&gt;
+        &lt;/Fragment&gt;
       &lt;/Manager&gt;
     );
   }
@@ -784,7 +793,7 @@ export default withTheme(TooltipContainer);
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Jun 07 2018 16:16:19 GMT-0700 (PDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jun 29 2018 14:16:05 GMT-0700 (PDT)
 </div>
 </div>
 <script src="../../../prettify.js"></script>
