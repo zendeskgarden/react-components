@@ -143,15 +143,23 @@ describe('AutocompleteContainer', () => {
       beforeEach(() => {
         instance = getAutocompleteInstance(wrapper);
         instance.openDropdown = jest.fn();
+        instance.closeDropdown = jest.fn();
         instance.focusInput = jest.fn();
-        findTrigger(wrapper).simulate('click');
       });
 
-      it('opens the dropdown', () => {
+      it('opens the dropdown if currently closes', () => {
+        findTrigger(wrapper).simulate('click');
         expect(instance.openDropdown).toHaveBeenCalled();
       });
 
+      it('closes the dropdown if currently open', () => {
+        wrapper.setProps({ isOpen: true });
+        findTrigger(wrapper).simulate('click');
+        expect(instance.closeDropdown).toHaveBeenCalled();
+      });
+
       it('focuses the input', () => {
+        findTrigger(wrapper).simulate('click');
         expect(instance.focusInput).toHaveBeenCalled();
       });
     });
@@ -211,6 +219,16 @@ describe('AutocompleteContainer', () => {
       expect(input).toHaveProp('aria-haspopup', 'true');
       expect(input).toHaveProp('aria-owns', 'test--menu');
       expect(input).toHaveProp('autoComplete', 'off');
+    });
+
+    describe('onClick', () => {
+      it('prevents default event', () => {
+        const input = findInput(wrapper);
+        const preventDefault = jest.fn();
+
+        input.simulate('click', { preventDefault });
+        expect(preventDefault).toHaveBeenCalled();
+      });
     });
 
     describe('onBlur', () => {

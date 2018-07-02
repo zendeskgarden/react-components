@@ -335,6 +335,7 @@ class AutocompleteContainer extends ControlledComponent {
     onChange,
     onKeyDown,
     onBlur,
+    onClick,
     ...other
   } = {}) => {
     const { focusedKey, tagFocusedKey, isOpen } = this.getControlledState();
@@ -361,6 +362,9 @@ class AutocompleteContainer extends ControlledComponent {
 
         keydownHandler && keydownHandler(e);
       }),
+      onClick: composeEventHandlers(onClick, e => {
+        e.preventDefault();
+      }),
       ...other
     };
   };
@@ -374,7 +378,14 @@ class AutocompleteContainer extends ControlledComponent {
         this.triggerMousedDown = false;
       }),
       onClick: composeEventHandlers(onClick, () => {
-        this.openDropdown();
+        const { isOpen } = this.getControlledState();
+
+        if (isOpen) {
+          this.closeDropdown();
+        } else {
+          this.openDropdown();
+        }
+
         this.focusInput();
       }),
       ...other

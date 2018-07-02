@@ -1,7 +1,9 @@
-The `MultiSelect` layout operates similarly to the `Autocomplete`, but must
-manage the interaction between the Input and it's collection of Tags.
+The `MultiSelect` layout operates similarly to the `Autocomplete`.
+One main difference is that it must manage the interaction between
+the `input` and it's collection of tags.
 
-This examples includes an example of "copy-to-clipboard" functionality for tags.
+This example also includes an example of "copy-to-clipboard" functionality when
+a tag is selected.
 
 ```jsx
 const { MenuView, Item, AddItem, Separator } = require('@zendeskgarden/react-menus');
@@ -17,11 +19,6 @@ const NoItemsMessage = styled.div`
 
 const SpacedTag = styled(Tag)`
   margin: 2px;
-`;
-
-const InlineInput = styled(Input)`
-  flex-grow: 1;
-  margin-left: 2px;
 `;
 
 const MoreAnchor = styled(Anchor)`
@@ -258,9 +255,9 @@ const MoreAnchor = styled(Anchor)`
                             setState({ isFocused: false });
                           },
                           style: Object.assign(
-                            { marginLeft: '2px', flexGrow: 1, width: 60 },
+                            { margin: '0 2px', flexGrow: 1, width: 60 },
                             Object.keys(state.selectedKeys).length !== 0 &&
-                            (!state.isFocused || tagFocusedKey !== undefined)
+                            (!state.isFocused || tagFocusedKey !== undefined) && !isOpen
                               ? { opacity: 0, height: 0, minHeight: 0 }
                               : {}
                           )
