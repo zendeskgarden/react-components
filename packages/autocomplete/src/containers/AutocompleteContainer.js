@@ -201,12 +201,6 @@ class AutocompleteContainer extends ControlledComponent {
   };
 
   INPUT_KEYDOWN_HANDLERS = {
-    [KEY_CODES.BACKSPACE]: e => {
-      if (e.target.value === '' && !this.tagSelectionModel.hasSelection()) {
-        this.tagSelectionModel.selectPrevious();
-        e.preventDefault();
-      }
-    },
     [KEY_CODES.LEFT]: e => {
       if (isRtl(this.props)) {
         if (

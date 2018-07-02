@@ -5,6 +5,12 @@ the `input` and it's collection of tags.
 This example also includes an example of "copy-to-clipboard" functionality when
 a tag is selected.
 
+#### Accessibility Warning
+
+When implementing a MultiSelect with the ability to delete Tags, be aware of
+users that navigate primarily with a keyboard and how your features may affect
+them and their productivity.
+
 ```jsx
 const { MenuView, Item, AddItem, Separator } = require('@zendeskgarden/react-menus');
 const { FauxInput, Input, TextGroup, Label } = require('@zendeskgarden/react-textfields');
@@ -230,14 +236,21 @@ const MoreAnchor = styled(Anchor)`
                             setState({ inputValue: e.target.value });
                           },
                           onKeyDown: e => {
-                            if (tagFocusedKey !== undefined) {
-                              if (
-                                e.keyCode === KEY_CODES.DELETE ||
-                                e.keyCode === KEY_CODES.BACKSPACE
-                              ) {
+                            if (
+                              e.keyCode === KEY_CODES.DELETE ||
+                              e.keyCode === KEY_CODES.BACKSPACE
+                            ) {
+                              if (tagFocusedKey !== undefined) {
                                 deleteTag(tagFocusedKey);
                               }
 
+                              if (e.target.value === '') {
+                                const tags = Object.keys(state.selectedKeys);
+                                deleteTag(tags[tags.length - 1]);
+                              }
+                            }
+
+                            if (tagFocusedKey !== undefined) {
                               // copy-to-clipboard functionality
                               if (e.keyCode === 67 && e.metaKey) {
                                 alert(`"${tagFocusedKey}" copied`);

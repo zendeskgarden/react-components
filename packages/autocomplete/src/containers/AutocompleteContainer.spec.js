@@ -416,25 +416,6 @@ describe('AutocompleteContainer', () => {
         });
       });
 
-      describe('backspace', () => {
-        it('does not select previous tag if target value is non-empty', () => {
-          input.simulate('keydown', { keyCode: KEY_CODES.BACKSPACE, target: { value: 'test' } });
-          expect(instance.tagSelectionModel.selectPrevious).not.toHaveBeenCalled();
-        });
-
-        it('does not select previous tag if any tags are currently focused', () => {
-          instance.tagSelectionModel.hasSelection = jest.fn().mockReturnValue(true);
-          input.simulate('keydown', { keyCode: KEY_CODES.BACKSPACE, target: { value: '' } });
-          expect(instance.tagSelectionModel.selectPrevious).not.toHaveBeenCalled();
-        });
-
-        it('selects previous tag otherwise', () => {
-          instance.tagSelectionModel.hasSelection = jest.fn().mockReturnValue(false);
-          input.simulate('keydown', { keyCode: KEY_CODES.BACKSPACE, target: { value: '' } });
-          expect(instance.tagSelectionModel.selectPrevious).toHaveBeenCalled();
-        });
-      });
-
       describe('right', () => {
         describe('when in LTR locale', () => {
           it('opens dropdown if target value is empty and last tag is focused', () => {
