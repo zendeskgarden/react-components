@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.3.0"></a>
+# [3.3.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.2.5...@zendeskgarden/react-buttons@3.3.0) (2018-07-03)
+
+
+### Features
+
+* **splitbutton:** add ChevronButton view and SplitButton example ([#48](https://github.com/zendeskgarden/react-components/issues/48)) ([6a0b84c](https://github.com/zendeskgarden/react-components/commit/6a0b84c))
+
+
+
+
 <a name="3.2.5"></a>
 ## [3.2.5](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.2.4...@zendeskgarden/react-buttons@3.2.5) (2018-06-26)
 
