@@ -12,7 +12,8 @@ import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 const ThemeProvider = props => {
   const theme = {
     rtl: props.rtl,
-    styles: props.theme
+    styles: props.theme,
+    document: props.document
   };
 
   return <StyledThemeProvider theme={theme}>{props.children}</StyledThemeProvider>;
@@ -21,7 +22,8 @@ const ThemeProvider = props => {
 ThemeProvider.propTypes = {
   children: PropTypes.node,
   rtl: PropTypes.bool,
-  theme: PropTypes.object
+  theme: PropTypes.object,
+  document: PropTypes.object
 };
 
 /** @component */
