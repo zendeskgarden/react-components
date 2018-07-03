@@ -132,6 +132,15 @@ const retrieveAnimation = ({ animate, placement }) => {
   return '';
 };
 
+const shouldAnimate = ({ animate, placement }) => {
+  return (
+    animate &&
+    placement !== PLACEMENT.TOP &&
+    placement !== PLACEMENT.TOP_START &&
+    placement !== PLACEMENT.TOP_END
+  );
+};
+
 /**
  * Accepts all `<ul>` props
  */
@@ -162,7 +171,7 @@ const StyledMenuView = styled.ul.attrs({
         props.placement === PLACEMENT.BOTTOM_END,
 
       // State
-      [MenuStyles['is-open']]: props.animate,
+      [MenuStyles['is-open']]: shouldAnimate(props),
       [MenuStyles['is-hidden']]: props.hidden,
 
       // Arrows

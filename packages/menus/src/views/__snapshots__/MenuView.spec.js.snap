@@ -1,5 +1,173 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`MenuView Animation should be disabled if any top placement is provided 1`] = `
+.c1.c1 {
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-bottom: 4px;
+}
+
+<MenuView
+  placement="top"
+>
+  <MenuView__MenuWrapper
+    placement="top"
+  >
+    <div
+      className="c0"
+    >
+      <MenuView__StyledMenuView
+        placement="top"
+      >
+        <ul
+          className="c-menu c-menu--up c-arrow--b c1"
+          data-garden-id="menus.menu_view"
+          data-garden-version="version"
+        />
+      </MenuView__StyledMenuView>
+    </div>
+  </MenuView__MenuWrapper>
+</MenuView>
+`;
+
+exports[`MenuView Animation should be disabled if any top placement is provided 2`] = `
+.c1.c1 {
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-bottom: 4px;
+}
+
+<MenuView
+  placement="top-start"
+>
+  <MenuView__MenuWrapper
+    placement="top-start"
+  >
+    <div
+      className="c0"
+    >
+      <MenuView__StyledMenuView
+        placement="top-start"
+      >
+        <ul
+          className="c-menu c-menu--up c-arrow--bl c1"
+          data-garden-id="menus.menu_view"
+          data-garden-version="version"
+        />
+      </MenuView__StyledMenuView>
+    </div>
+  </MenuView__MenuWrapper>
+</MenuView>
+`;
+
+exports[`MenuView Animation should be disabled if any top placement is provided 3`] = `
+.c1.c1 {
+  position: relative;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0 {
+  margin-bottom: 4px;
+}
+
+<MenuView
+  placement="top-end"
+>
+  <MenuView__MenuWrapper
+    placement="top-end"
+  >
+    <div
+      className="c0"
+    >
+      <MenuView__StyledMenuView
+        placement="top-end"
+      >
+        <ul
+          className="c-menu c-menu--up c-arrow--br c1"
+          data-garden-id="menus.menu_view"
+          data-garden-version="version"
+        />
+      </MenuView__StyledMenuView>
+    </div>
+  </MenuView__MenuWrapper>
+</MenuView>
+`;
+
+exports[`MenuView Animation should be disabled in animation is disabled 1`] = `
+.c0.c0 {
+  position: relative;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+<MenuView
+  animate={false}
+>
+  <MenuView__MenuWrapper>
+    <div
+      className=""
+    >
+      <MenuView__StyledMenuView
+        animate={false}
+      >
+        <ul
+          className="c-menu c0"
+          data-garden-id="menus.menu_view"
+          data-garden-version="version"
+        />
+      </MenuView__StyledMenuView>
+    </div>
+  </MenuView__MenuWrapper>
+</MenuView>
+`;
+
+exports[`MenuView Animation should be enabled if animation is provided 1`] = `
+.c0.c0 {
+  position: relative;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+<MenuView
+  animate={true}
+>
+  <MenuView__MenuWrapper>
+    <div
+      className=""
+    >
+      <MenuView__StyledMenuView
+        animate={true}
+      >
+        <ul
+          className="c-menu is-open c0"
+          data-garden-id="menus.menu_view"
+          data-garden-version="version"
+        />
+      </MenuView__StyledMenuView>
+    </div>
+  </MenuView__MenuWrapper>
+</MenuView>
+`;
+
 exports[`MenuView Arrow does not render if arrow prop is not provided 1`] = `
 .c0.c0 {
   position: relative;
@@ -948,7 +1116,7 @@ exports[`MenuView Renders renders custom top animation correctly 1`] = `
         placement="top"
       >
         <ul
-          className="c-menu c-menu--up is-open c-arrow--b c1"
+          className="c-menu c-menu--up c-arrow--b c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />

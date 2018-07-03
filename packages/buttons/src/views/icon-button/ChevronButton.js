@@ -5,29 +5,29 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import ButtonStyles from '@zendeskgarden/css-buttons';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
-
-const COMPONENT_ID = 'buttons.icon_button';
-
-import Button from '../Button';
+import IconButton from './IconButton';
+import Icon from './Icon';
+import ChevronDownIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 
 const SIZE = {
   SMALL: 'small',
   LARGE: 'large'
 };
 
-const IconButton = styled(Button).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: ButtonStyles['c-btn--icon']
-})`
-  ${props => retrieveTheme('buttons.icon_button', props)};
-`;
+/**
+ * IconButton with an embedded chevron icon
+ */
+const ChevronButton = ({ rotated, ...buttonProps }) => (
+  <IconButton pill={false} muted={false} basic={false} {...buttonProps}>
+    <Icon rotated={rotated}>
+      <ChevronDownIcon />
+    </Icon>
+  </IconButton>
+);
 
-IconButton.propTypes = {
+ChevronButton.propTypes = {
   /** Apply danger styling */
   danger: PropTypes.bool,
   size: PropTypes.oneOf([SIZE.SMALL, SIZE.LARGE]),
@@ -44,14 +44,9 @@ IconButton.propTypes = {
   hovered: PropTypes.bool,
   active: PropTypes.bool,
   /** Callback for reference of the native button element */
-  buttonRef: PropTypes.func
+  buttonRef: PropTypes.func,
+  /** Rotates icon 180 degrees */
+  rotated: PropTypes.bool
 };
 
-IconButton.defaultProps = {
-  pill: true,
-  muted: true,
-  basic: true
-};
-
-/** @component */
-export default IconButton;
+export default ChevronButton;

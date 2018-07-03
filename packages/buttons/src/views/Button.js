@@ -69,11 +69,12 @@ const StyledButton = styled.button.attrs({
 /**
  * Accepts all `<button>` props
  */
-const Button = ({ focused, ...other }) => (
+const Button = ({ focused, buttonRef, ...other }) => (
   <KeyboardFocusContainer>
     {({ getFocusProps, keyboardFocused }) => (
       <StyledButton
         {...getFocusProps({
+          innerRef: buttonRef,
           ...other,
           focused: focused || keyboardFocused
         })}
@@ -102,7 +103,9 @@ Button.propTypes = {
   focused: PropTypes.bool,
   hovered: PropTypes.bool,
   active: PropTypes.bool,
-  selected: PropTypes.bool
+  selected: PropTypes.bool,
+  /** Callback for reference of the native button element */
+  buttonRef: PropTypes.func
 };
 
 Button.hasType = () => Button;
