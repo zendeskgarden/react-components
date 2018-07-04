@@ -7,7 +7,7 @@
 
 import PropTypes from 'prop-types';
 import scrollTo from 'dom-helpers/util/scrollTo';
-import { isRtl, withTheme } from '@zendeskgarden/react-theming';
+import { isRtl, withTheme, getDocument } from '@zendeskgarden/react-theming';
 
 import ControlledComponent from '../utils/ControlledComponent';
 import composeEventHandlers from '../utils/composeEventHandlers';
@@ -87,13 +87,14 @@ export class SelectionContainer extends ControlledComponent {
   componentDidUpdate(prevProps, prevState) {
     const current = this.props.focusedKey === undefined ? this.state : this.props;
     const prev = prevProps.focusedKey === undefined ? prevState : prevProps;
+    const doc = getDocument(this.props) || document;
 
     /**
      * We must programatically scroll the newly focused element into view.
      * Side-effect of the `aria-activedescendant` accessibility strategy.
      */
     if (typeof current.focusedKey !== 'undefined' && current.focusedKey !== prev.focusedKey) {
-      const itemNode = document.getElementById(this.getItemId(current.focusedKey));
+      const itemNode = doc.getElementById(this.getItemId(current.focusedKey));
 
       /* istanbul ignore if */
       if (itemNode) {
