@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.2.0"></a>
+# [4.2.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-selection@4.1.4...@zendeskgarden/react-selection@4.2.0) (2018-07-04)
+
+
+### Features
+
+* **theming:** Add a document prop and getDocument util to help with iframes ([#49](https://github.com/zendeskgarden/react-components/issues/49)) ([1a67f43](https://github.com/zendeskgarden/react-components/commit/1a67f43))
+
+
+
+
 <a name="4.1.4"></a>
 ## [4.1.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-selection@4.1.3...@zendeskgarden/react-selection@4.1.4) (2018-06-26)
 

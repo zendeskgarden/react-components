@@ -3,7 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-      <a name="3.0.0"></a>
+  <a name="3.1.0"></a>
+# [3.1.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-theming@3.0.0...@zendeskgarden/react-theming@3.1.0) (2018-07-04)
+
+
+### Features
+
+* **theming:** Add a document prop and getDocument util to help with iframes ([#49](https://github.com/zendeskgarden/react-components/issues/49)) ([1a67f43](https://github.com/zendeskgarden/react-components/commit/1a67f43))
+
+
+
+
+  <a name="3.0.0"></a>
 # [3.0.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-theming@2.1.1...@zendeskgarden/react-theming@3.0.0) (2018-06-25)
 
 
@@ -37,7 +48,7 @@ This change will also help with SSR and specifically use in next.js.
 
 
 
-      <a name="2.1.1"></a>
+<a name="2.1.1"></a>
 ## [2.1.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-theming@2.1.0...@zendeskgarden/react-theming@2.1.1) (2018-06-14)
 
 
