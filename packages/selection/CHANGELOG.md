@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.3.0"></a>
+# [4.3.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-selection@4.2.0...@zendeskgarden/react-selection@4.3.0) (2018-07-05)
+
+
+### Features
+
+* **autocomplete|selection|utilities:** introduce AutocompleteContainer and requiredParam utility ([0576a2e](https://github.com/zendeskgarden/react-components/commit/0576a2e))
+
+
+
+
 <a name="4.2.0"></a>
 # [4.2.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-selection@4.1.4...@zendeskgarden/react-selection@4.2.0) (2018-07-04)
 
