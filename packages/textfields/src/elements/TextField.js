@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children, cloneElement } from 'react';
+import React, { Children, cloneElement, isValidElement } from 'react';
 import PropTypes from 'prop-types';
 import { IdManager, ControlledComponent, FieldContainer } from '@zendeskgarden/react-selection';
 import { hasType } from '@zendeskgarden/react-utilities';
@@ -48,6 +48,10 @@ export default class TextField extends ControlledComponent {
         {({ getLabelProps, getInputProps, getHintProps, getMessageProps }) => (
           <TextGroup {...otherProps}>
             {Children.map(children, child => {
+              if (!isValidElement(child)) {
+                return child;
+              }
+
               if (hasType(child, Label)) {
                 return cloneElement(child, getLabelProps(child.props));
               }

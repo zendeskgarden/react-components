@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children, cloneElement } from 'react';
+import React, { Children, cloneElement, isValidElement } from 'react';
 import PropTypes from 'prop-types';
 import {
   IdManager,
@@ -69,6 +69,10 @@ export default class Checkbox extends ControlledComponent {
       <CheckboxView {...wrapperProps}>
         <Input {...getInputProps(checkboxProps)} />
         {Children.map(children, child => {
+          if (!isValidElement(child)) {
+            return child;
+          }
+
           if (hasType(child, Label)) {
             const { onMouseUp, ...otherChildProps } = child.props;
 
