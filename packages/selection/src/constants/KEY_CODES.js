@@ -32,6 +32,7 @@ export default {
   PAGE_UP: 33,
   PERIOD: 190,
   RIGHT: 39,
+  SHIFT: 16,
   SPACE: 32,
   TAB: 9,
   UP: 38
