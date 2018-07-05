@@ -270,7 +270,8 @@ const MoreAnchor = styled(Anchor)`
                           style: Object.assign(
                             { margin: '0 2px', flexGrow: 1, width: 60 },
                             Object.keys(state.selectedKeys).length !== 0 &&
-                            (!state.isFocused || tagFocusedKey !== undefined) && !isOpen
+                            (!state.isFocused || tagFocusedKey !== undefined) &&
+                            !isOpen
                               ? { opacity: 0, height: 0, minHeight: 0 }
                               : {}
                           )

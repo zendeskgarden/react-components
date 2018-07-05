@@ -21,7 +21,7 @@ import {
 } from '@zendeskgarden/react-selection';
 import { requiredParam } from '@zendeskgarden/react-utilities';
 import { getPopperPlacement, getRtlPopperPlacement } from '@zendeskgarden/react-tooltips';
-import { withTheme, isRtl } from '@zendeskgarden/react-theming';
+import { withTheme, isRtl, getDocument } from '@zendeskgarden/react-theming';
 
 /**
  * This container must provide a wrapper for the provided menu
@@ -156,7 +156,8 @@ class AutocompleteContainer extends ControlledComponent {
      * Side-effect of the `aria-activedescendant` accessibility strategy.
      */
     if (typeof focusedKey !== 'undefined' && focusedKey !== previousFocusedKey) {
-      const itemNode = document.getElementById(this.getItemId(focusedKey));
+      const doc = getDocument(this.props) || document;
+      const itemNode = doc.getElementById(this.getItemId(focusedKey));
 
       /* istanbul ignore if */
       if (itemNode) {
