@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { cloneElement, Children } from 'react';
+import React, { Children, cloneElement, isValidElement } from 'react';
 import PropTypes from 'prop-types';
 import { ControlledComponent, IdManager } from '@zendeskgarden/react-selection';
 import { hasType } from '@zendeskgarden/react-utilities';
@@ -147,6 +147,10 @@ export default class Menu extends ControlledComponent {
         }) => (
           <MenuView {...getMenuProps({ placement, arrow, menuRef, ...menuProps })}>
             {Children.map(children, child => {
+              if (!isValidElement(child)) {
+                return child;
+              }
+
               const { textValue, disabled, children: childChildren } = child.props;
               const key = child.key;
 

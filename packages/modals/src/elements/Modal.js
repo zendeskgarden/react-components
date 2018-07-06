@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children, cloneElement } from 'react';
+import React, { Children, cloneElement, isValidElement } from 'react';
 import PropTypes from 'prop-types';
 import { Portal } from 'react-portal';
 import { ControlledComponent, IdManager } from '@zendeskgarden/react-selection';
@@ -124,6 +124,10 @@ export default class Modal extends ControlledComponent {
             <Backdrop {...getBackdropProps({ center, animate, ...backdropProps })}>
               <ModalView {...getModalProps({ animate, ...modalProps })} innerRef={modalRef}>
                 {Children.map(children, child => {
+                  if (!isValidElement(child)) {
+                    return child;
+                  }
+
                   if (hasType(child, Header)) {
                     return cloneElement(child, getTitleProps(child.props));
                   }

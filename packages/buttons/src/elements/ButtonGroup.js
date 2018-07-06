@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children, cloneElement } from 'react';
+import React, { Children, cloneElement, isValidElement } from 'react';
 import PropTypes from 'prop-types';
 import { ControlledComponent, IdManager } from '@zendeskgarden/react-selection';
 import { hasType } from '@zendeskgarden/react-utilities';
@@ -58,6 +58,10 @@ export default class ButtonGroup extends ControlledComponent {
     const { selectedKey, focusedKey } = this.getControlledState();
 
     return Children.map(children, child => {
+      if (!isValidElement(child)) {
+        return child;
+      }
+
       if (hasType(child, Button)) {
         if (child.props.disabled) {
           return child;

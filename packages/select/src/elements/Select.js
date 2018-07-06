@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { cloneElement, Children } from 'react';
+import React, { Children, cloneElement, isValidElement } from 'react';
 import PropTypes from 'prop-types';
 import {
   ControlledComponent,
@@ -278,6 +278,10 @@ export default class Select extends ControlledComponent {
             })}
           >
             {Children.map(options, option => {
+              if (!isValidElement(option)) {
+                return option;
+              }
+
               const { textValue, disabled, children: childChildren } = option.props;
               const key = option.key;
 

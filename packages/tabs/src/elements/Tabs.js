@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children, cloneElement } from 'react';
+import React, { Children, cloneElement, isValidElement } from 'react';
 import PropTypes from 'prop-types';
 import { ControlledComponent } from '@zendeskgarden/react-selection';
 
@@ -80,6 +80,10 @@ export default class Tabs extends ControlledComponent {
           <TabsView vertical={vertical}>
             <TabList {...getTabListProps()}>
               {Children.map(children, child => {
+                if (!isValidElement(child)) {
+                  return child;
+                }
+
                 const { label, disabled } = child.props;
                 const key = child.key;
 
@@ -105,6 +109,10 @@ export default class Tabs extends ControlledComponent {
               })}
             </TabList>
             {Children.map(children, child => {
+              if (!isValidElement(child)) {
+                return child;
+              }
+
               if (child.props.disabled) {
                 return null;
               }
