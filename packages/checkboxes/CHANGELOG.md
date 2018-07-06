@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.2.7"></a>
+## [3.2.7](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-checkboxes@3.2.6...@zendeskgarden/react-checkboxes@3.2.7) (2018-07-06)
+
+
+### Bug Fixes
+
+* add isValidElement check for all children mapping within elements ([#52](https://github.com/zendeskgarden/react-components/issues/52)) ([895b873](https://github.com/zendeskgarden/react-components/commit/895b873))
+
+
+
+
 <a name="3.2.6"></a>
 ## [3.2.6](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-checkboxes@3.2.5...@zendeskgarden/react-checkboxes@3.2.6) (2018-07-05)
 
