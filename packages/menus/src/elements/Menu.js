@@ -27,7 +27,7 @@ export default class Menu extends ControlledComponent {
     /**
      * Appends the menu to the provided element
      */
-    appendToNode: PropTypes.instanceOf(Element),
+    appendToNode: PropTypes.any,
     /**
      * Whether to include an arrow on the visible arrow
      */
@@ -132,7 +132,7 @@ export default class Menu extends ControlledComponent {
         zIndex={zIndex}
         onChange={onChange}
         trigger={({ getTriggerProps, triggerRef }) => {
-          const referencedTrigger = trigger({ ref: triggerRef });
+          const referencedTrigger = trigger({ ref: triggerRef, isOpen });
 
           return cloneElement(referencedTrigger, getTriggerProps(referencedTrigger.props));
         }}
