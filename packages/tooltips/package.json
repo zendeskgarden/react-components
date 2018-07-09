@@ -33,8 +33,8 @@
     "styled-components": "^3.2.6"
   },
   "devDependencies": {
-    "@zendeskgarden/css-arrows": "^3.1.0",
-    "@zendeskgarden/css-tooltips": "^4.0.0",
+    "@zendeskgarden/css-arrows": "^3.1.1",
+    "@zendeskgarden/css-tooltips": "^4.0.3",
     "@zendeskgarden/react-buttons": "^3.3.3",
     "@zendeskgarden/react-textfields": "^3.2.7",
     "@zendeskgarden/react-theming": "^3.1.0",
