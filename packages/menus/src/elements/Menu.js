@@ -132,7 +132,7 @@ export default class Menu extends ControlledComponent {
         zIndex={zIndex}
         onChange={onChange}
         trigger={({ getTriggerProps, triggerRef }) => {
-          const referencedTrigger = trigger({ ref: triggerRef });
+          const referencedTrigger = trigger({ ref: triggerRef, isOpen });
 
           return cloneElement(referencedTrigger, getTriggerProps(referencedTrigger.props));
         }}

@@ -1,6 +1,6 @@
 {
-  "name": "@zendeskgarden/react-{{component}}",
-  "description": "Components relating to {{component}} in the Garden Design System",
+  "name": "@zendeskgarden/react-tables",
+  "description": "Components relating to tables in the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
   "homepage": "https://garden.zendesk.com/",
@@ -19,6 +19,7 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
+    "@zendeskgarden/react-selection": "^4.1.4",
     "classnames": "^2.2.5"
   },
   "peerDependencies": {
@@ -27,6 +28,16 @@
     "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
     "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0",
     "styled-components": "^3.2.6"
+  },
+  "devDependencies": {
+    "@zendeskgarden/css-tables": "^3.0.2",
+    "@zendeskgarden/css-variables": "^5.0.0",
+    "@zendeskgarden/react-avatars": "^3.0.7",
+    "@zendeskgarden/react-checkboxes": "^3.2.6",
+    "@zendeskgarden/react-menus": "^3.3.3",
+    "@zendeskgarden/react-pagination": "^4.1.6",
+    "@zendeskgarden/react-select": "^2.2.10",
+    "@zendeskgarden/react-theming": "^3.0.0"
   },
   "keywords": [
     "components",
@@ -37,6 +48,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "zendeskgarden:src": "src/index.js",
-  "zendeskgarden:library": "Garden{{capitalize component}}"
+  "zendeskgarden:library": "GardenTables",
+  "zendeskgarden:src": "src/index.js"
 }
