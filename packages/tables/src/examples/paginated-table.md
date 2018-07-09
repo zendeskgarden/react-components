@@ -22,7 +22,8 @@ for (let x = 0; x < 70; x++) {
     name: x % 2 === 0 ? 'John Doe' : 'Jane Doe',
     avatar: x % 2 === 0 ? 'images/jason.png' : 'images/amir.png',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, ' +
+      'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   });
 }
 
