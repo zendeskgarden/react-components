@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OverflowButton applies active styling if provided 1`] = `
+<OverflowButton
+  active={true}
+>
+  <OverflowButton__StyledOverflowButton
+    active={true}
+    focused={false}
+    onBlur={[Function]}
+    onFocus={[Function]}
+  >
+    <button
+      className="c-table__row__cell__overflow is-active "
+      data-garden-id="tables.overflow_button"
+      data-garden-version="version"
+      onBlur={[Function]}
+      onFocus={[Function]}
+    >
+       
+    </button>
+  </OverflowButton__StyledOverflowButton>
+</OverflowButton>
+`;
+
+exports[`OverflowButton applies default styling by default 1`] = `
+<OverflowButton>
+  <OverflowButton__StyledOverflowButton
+    focused={false}
+    onBlur={[Function]}
+    onFocus={[Function]}
+  >
+    <button
+      className="c-table__row__cell__overflow "
+      data-garden-id="tables.overflow_button"
+      data-garden-version="version"
+      onBlur={[Function]}
+      onFocus={[Function]}
+    >
+       
+    </button>
+  </OverflowButton__StyledOverflowButton>
+</OverflowButton>
+`;
+
+exports[`OverflowButton applies focused styling if provided 1`] = `
+<OverflowButton
+  focused={true}
+>
+  <OverflowButton__StyledOverflowButton
+    focused={true}
+    onBlur={[Function]}
+    onFocus={[Function]}
+  >
+    <button
+      className="c-table__row__cell__overflow is-focused "
+      data-garden-id="tables.overflow_button"
+      data-garden-version="version"
+      onBlur={[Function]}
+      onFocus={[Function]}
+    >
+       
+    </button>
+  </OverflowButton__StyledOverflowButton>
+</OverflowButton>
+`;
+
+exports[`OverflowButton applies hovered styling if provided 1`] = `
+<OverflowButton
+  hovered={true}
+>
+  <OverflowButton__StyledOverflowButton
+    focused={false}
+    hovered={true}
+    onBlur={[Function]}
+    onFocus={[Function]}
+  >
+    <button
+      className="c-table__row__cell__overflow is-hovered "
+      data-garden-id="tables.overflow_button"
+      data-garden-version="version"
+      onBlur={[Function]}
+      onFocus={[Function]}
+    >
+       
+    </button>
+  </OverflowButton__StyledOverflowButton>
+</OverflowButton>
+`;

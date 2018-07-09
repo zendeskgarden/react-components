@@ -32,14 +32,18 @@ const StyledOverflowButton = styled.button.attrs({
 `;
 
 export default class OverflowButton extends Component {
-  static propTypes = {};
+  static propTypes = {
+    hovered: PropTypes.bool,
+    active: PropTypes.bool,
+    focused: PropTypes.bool
+  };
 
   state = {
     focused: false
   };
 
   render() {
-    const { onFocus, onBlur, ...other } = this.props;
+    const { onFocus, onBlur, ...other } = this.props; // eslint-disable-line react/prop-types
     const { focused } = this.state;
 
     return (

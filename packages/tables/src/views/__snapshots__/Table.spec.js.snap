@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table renders RTL styling if provided 1`] = `
+<table
+  className="c-table is-rtl "
+  data-garden-id="tables.table"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Table renders default styling 1`] = `
+<table
+  className="c-table "
+  data-garden-id="tables.table"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Table renders sizing correctly if provided 1`] = `
+<table
+  className="c-table c-table--sm "
+  data-garden-id="tables.table"
+  data-garden-version="version"
+  size="small"
+/>
+`;
+
+exports[`Table renders sizing correctly if provided 2`] = `
+<table
+  className="c-table c-table--lg "
+  data-garden-id="tables.table"
+  data-garden-version="version"
+  size="large"
+/>
+`;
