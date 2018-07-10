@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@zeit/next-css": "^0.2.0",
     "@zendeskgarden/css-bedrock": "^7.0.2",
     "@zendeskgarden/css-variables": "^5.0.0",
     "@zendeskgarden/react-buttons": "../../packages/buttons",
@@ -16,15 +17,12 @@
     "@zendeskgarden/react-selection": "../../packages/selection",
     "@zendeskgarden/react-theming": "../../packages/theming",
     "@zendeskgarden/svg-icons": "^4.4.0",
-    "babel-plugin-inline-import": "^3.0.0",
     "babel-plugin-inline-react-svg": "^0.5.3",
+    "babel-plugin-styled-components": "^1.5.1",
     "next": "^6.1.1",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "styled-components": "^3.3.3"
-  },
-  "devDependencies": {
-    "babel-plugin-styled-components": "^1.1.5"
   }
 }

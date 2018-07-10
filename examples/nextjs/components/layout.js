@@ -64,6 +64,7 @@ const Layout = ({ children, title = 'This is the default title' }) => (
       <Header>
         <Menu
           arrow
+          placement="bottom-end"
           trigger={({ ref, isOpen }) => (
             <HeaderItem innerRef={ref} active={isOpen}>
               <HeaderItemIcon>

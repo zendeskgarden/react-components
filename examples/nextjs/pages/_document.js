@@ -10,10 +10,11 @@ import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 import { IdManager } from '@zendeskgarden/react-selection';
 
-import BedrockStyles from '@zendeskgarden/css-bedrock/dist/index.css';
-import ChromeStyles from '@zendeskgarden/react-chrome/dist/styles.css';
-import ButtonStyles from '@zendeskgarden/react-buttons/dist/styles.css';
-import MenuStyles from '@zendeskgarden/react-menus/dist/styles.css';
+/** Import Garden styles globally with next-css */
+import '@zendeskgarden/css-bedrock/dist/index.css';
+import '@zendeskgarden/react-chrome/dist/styles.css';
+import '@zendeskgarden/react-buttons/dist/styles.css';
+import '@zendeskgarden/react-menus/dist/styles.css';
 
 export default class GardenDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -33,10 +34,7 @@ export default class GardenDocument extends Document {
         <Head>
           <title>My page</title>
           {this.props.styleTags}
-          <style>{BedrockStyles}</style>
-          <style>{ChromeStyles}</style>
-          <style>{ButtonStyles}</style>
-          <style>{MenuStyles}</style>
+          <link rel="stylesheet" href="/_next/static/style.css" />
         </Head>
         <body>
           <Main />

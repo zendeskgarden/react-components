@@ -11,12 +11,6 @@
         "displayName": true,
         "preprocess": false
       }
-    ],
-    [
-      "inline-import",
-      {
-        "extensions": [".css"]
-      }
     ]
   ]
 }
