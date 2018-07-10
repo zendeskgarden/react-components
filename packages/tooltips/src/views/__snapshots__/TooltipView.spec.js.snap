@@ -71,7 +71,7 @@ exports[`TooltipView Placement renders left-end placement correctly 1`] = `
 }
 
 <div
-  className="c-tooltip c0"
+  className="c-tooltip c-arrow c-arrow--rb c0"
   data-garden-id="tooltip.tooltip"
   data-garden-version="version"
   size="small"
@@ -84,7 +84,7 @@ exports[`TooltipView Placement renders left-start placement correctly 1`] = `
 }
 
 <div
-  className="c-tooltip c0"
+  className="c-tooltip c-arrow c-arrow--rt c0"
   data-garden-id="tooltip.tooltip"
   data-garden-version="version"
   size="small"
@@ -110,7 +110,7 @@ exports[`TooltipView Placement renders right-end placement correctly 1`] = `
 }
 
 <div
-  className="c-tooltip c0"
+  className="c-tooltip c-arrow c-arrow--lb c0"
   data-garden-id="tooltip.tooltip"
   data-garden-version="version"
   size="small"
@@ -123,7 +123,7 @@ exports[`TooltipView Placement renders right-start placement correctly 1`] = `
 }
 
 <div
-  className="c-tooltip c0"
+  className="c-tooltip c-arrow c-arrow--lt c0"
   data-garden-id="tooltip.tooltip"
   data-garden-version="version"
   size="small"

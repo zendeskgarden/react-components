@@ -37,17 +37,7 @@ const PLACEMENT = {
 };
 
 const shouldShowArrow = ({ arrow, placement }) => {
-  return (
-    arrow &&
-    (placement === PLACEMENT.LEFT ||
-      placement === PLACEMENT.RIGHT ||
-      placement === PLACEMENT.BOTTOM ||
-      placement === PLACEMENT.BOTTOM_START ||
-      placement === PLACEMENT.BOTTOM_END ||
-      placement === PLACEMENT.TOP ||
-      placement === PLACEMENT.TOP_START ||
-      placement === PLACEMENT.TOP_END)
-  );
+  return arrow && placement;
 };
 
 const retrieveTooltipMargin = ({ arrow, size }) => {
@@ -79,10 +69,14 @@ const TooltipView = styled.div.attrs({
       [TooltipStyles['c-arrow']]: shouldShowArrow(props),
       [ArrowStyles['c-arrow']]: shouldShowArrow(props),
       [ArrowStyles['c-arrow--r']]: props.placement === PLACEMENT.LEFT,
+      [ArrowStyles['c-arrow--rt']]: props.placement === PLACEMENT.LEFT_START,
+      [ArrowStyles['c-arrow--rb']]: props.placement === PLACEMENT.LEFT_END,
       [ArrowStyles['c-arrow--b']]: props.placement === PLACEMENT.TOP,
       [ArrowStyles['c-arrow--bl']]: props.placement === PLACEMENT.TOP_START,
       [ArrowStyles['c-arrow--br']]: props.placement === PLACEMENT.TOP_END,
       [ArrowStyles['c-arrow--l']]: props.placement === PLACEMENT.RIGHT,
+      [ArrowStyles['c-arrow--lt']]: props.placement === PLACEMENT.RIGHT_START,
+      [ArrowStyles['c-arrow--lb']]: props.placement === PLACEMENT.RIGHT_END,
       [ArrowStyles['c-arrow--t']]: props.placement === PLACEMENT.BOTTOM,
       [ArrowStyles['c-arrow--tl']]: props.placement === PLACEMENT.BOTTOM_START,
       [ArrowStyles['c-arrow--tr']]: props.placement === PLACEMENT.BOTTOM_END,
