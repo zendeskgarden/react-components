@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.2.0"></a>
+# [4.2.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.1.10...@zendeskgarden/react-tooltips@4.2.0) (2018-07-10)
+
+
+### Features
+
+* **tooltips:** add left-top, left-bottom, right-top, and right-bottom arrow placements ([#54](https://github.com/zendeskgarden/react-components/issues/54)) ([09b07af](https://github.com/zendeskgarden/react-components/commit/09b07af))
+
+
+
+
 <a name="4.1.10"></a>
 ## [4.1.10](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.1.9...@zendeskgarden/react-tooltips@4.1.10) (2018-07-06)
 

@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "3.3.3",
+  "version": "3.3.4",
   "main": "./dist/index.js",
   "files": [
     "dist"
@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@zendeskgarden/css-buttons": "^6.0.0",
-    "@zendeskgarden/react-menus": "^3.3.3",
+    "@zendeskgarden/react-menus": "^3.3.4",
     "@zendeskgarden/react-theming": "^3.1.0",
     "@zendeskgarden/svg-icons": "^4.4.0"
   },
