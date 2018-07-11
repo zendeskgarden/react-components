@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.3.5"></a>
+## [3.3.5](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.3.4...@zendeskgarden/react-menus@3.3.5) (2018-07-11)
+
+
+### Bug Fixes
+
+* **ssr:** remove browser related usages to enable ssr and include next.js example ([#53](https://github.com/zendeskgarden/react-components/issues/53)) ([b90c5e4](https://github.com/zendeskgarden/react-components/commit/b90c5e4))
+
+
+
+
+<a name="3.3.4"></a>
+## [3.3.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.3.3...@zendeskgarden/react-menus@3.3.4) (2018-07-10)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-menus
+
 <a name="3.3.3"></a>
 ## [3.3.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.3.2...@zendeskgarden/react-menus@3.3.3) (2018-07-06)
 

@@ -27,7 +27,7 @@ export default class Menu extends ControlledComponent {
     /**
      * Appends the menu to the provided element
      */
-    appendToNode: PropTypes.instanceOf(Element),
+    appendToNode: PropTypes.any,
     /**
      * Whether to include an arrow on the visible arrow
      */
