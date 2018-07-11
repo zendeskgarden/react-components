@@ -1,3 +1,6 @@
+When creating a sortable table, use the `SortableCell` component
+to ensure that the header is interactable and all accessibility attributes are applied.
+
 ```jsx
 const {
   zdFontSizeBeta,
@@ -61,8 +64,9 @@ const sortData = (data, requesterSort, typeSort) => {
   <StyledCaption>Sortable Ticket View</StyledCaption>
   <Head>
     <Row header>
-      <HeaderCell>Subject</HeaderCell>
+      <HeaderCell scope="col">Subject</HeaderCell>
       <SortableCell
+        scope="col"
         onClick={() => {
           const { requesterSort } = state;
 
@@ -79,6 +83,7 @@ const sortData = (data, requesterSort, typeSort) => {
         Requester
       </SortableCell>
       <SortableCell
+        scope="col"
         onClick={() => {
           const { typeSort } = state;
 

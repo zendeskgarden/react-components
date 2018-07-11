@@ -62,8 +62,8 @@ const getPagedData = (data, currentPage, pageSize) => {
     </Caption>
     <Head>
       <Row header>
-        <HeaderCell style={{ width: 45 }} />
-        <HeaderCell style={{ width: 100 }}>Name</HeaderCell>
+        <HeaderCell scope="col" style={{ width: 45 }} />
+        <HeaderCell scope="col" style={{ width: 100 }}>Name</HeaderCell>
         <HeaderCell>Description</HeaderCell>
       </Row>
     </Head>

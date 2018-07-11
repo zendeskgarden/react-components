@@ -31,10 +31,10 @@ import { Table, Caption, Head, Body, Row, HeaderCell, Cell } from '@zendeskgarde
     <Caption>Your Unsolved Tickets</Caption>
     <Head>
       <Row header>
-        <HeaderCell>Subject</HeaderCell>
-        <HeaderCell>Requester</HeaderCell>
-        <HeaderCell>Requested</HeaderCell>
-        <HeaderCell>Type</HeaderCell>
+        <HeaderCell scope="col">Subject</HeaderCell>
+        <HeaderCell scope="col">Requester</HeaderCell>
+        <HeaderCell scope="col">Requested</HeaderCell>
+        <HeaderCell scope="col">Type</HeaderCell>
       </Row>
     </Head>
     <Body>

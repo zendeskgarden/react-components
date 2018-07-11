@@ -24,7 +24,7 @@ initialState = {
       type: 'Ticket'
     },
     {
-      subject: 'Wash chared twice',
+      subject: 'Was charged twice',
       requester: 'Jane Doe',
       requested: '25 minutes ago',
       type: 'Call'
@@ -86,10 +86,10 @@ const StyledRow = styled(SudoGrid.Row)`
         <StyledCaption>Your Unsolved Tickets</StyledCaption>
         <Head>
           <Row header>
-            <HeaderCell>Subject</HeaderCell>
-            <HeaderCell>Requester</HeaderCell>
-            <HeaderCell>Requested</HeaderCell>
-            <HeaderCell>Type</HeaderCell>
+            <HeaderCell scope="col">Subject</HeaderCell>
+            <HeaderCell scope="col">Requester</HeaderCell>
+            <HeaderCell scope="col">Requested</HeaderCell>
+            <HeaderCell scope="col">Type</HeaderCell>
           </Row>
         </Head>
         <Body>

@@ -62,7 +62,7 @@ const isSelectAllChecked = (selectedRows, rows) => {
           </Label>
         </Checkbox>
       </Cell>
-      <Cell>Long Truncated Title</Cell>
+      <Cell scope="col">Long Truncated Title</Cell>
     </Row>
   </Head>
   <Body>

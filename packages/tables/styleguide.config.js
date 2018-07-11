@@ -24,6 +24,7 @@ module.exports = {
     },
     {
       name: 'Tables',
+      content: '../../packages/tables/src/examples/tables.md',
       sections: [
         {
           name: 'Standard Styling',
