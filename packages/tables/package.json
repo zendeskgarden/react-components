@@ -37,7 +37,9 @@
     "@zendeskgarden/react-menus": "^3.3.3",
     "@zendeskgarden/react-pagination": "^4.1.6",
     "@zendeskgarden/react-select": "^2.2.10",
-    "@zendeskgarden/react-theming": "^3.0.0"
+    "@zendeskgarden/react-theming": "^3.0.0",
+    "@zendeskgarden/svg-icons": "^4.4.0",
+    "react-beautiful-dnd": "^8.0.3"
   },
   "keywords": [
     "components",

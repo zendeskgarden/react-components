@@ -49,7 +49,8 @@ export default class Row extends Component {
     /** Applies hovered styling */
     hovered: PropTypes.bool,
     /** Applies selected styling */
-    selected: PropTypes.bool
+    selected: PropTypes.bool,
+    rowRef: PropTypes.func
   };
 
   state = {
@@ -58,7 +59,7 @@ export default class Row extends Component {
 
   render() {
     // eslint-disable-next-line react/prop-types
-    const { onFocus, onBlur, ...otherProps } = this.props;
+    const { onFocus, onBlur, rowRef, focused: propFocused, ...otherProps } = this.props;
     const { focused } = this.state;
 
     return (
@@ -69,7 +70,8 @@ export default class Row extends Component {
         onBlur={composeEventHandlers(onBlur, () => {
           this.setState({ focused: false });
         })}
-        focused={focused}
+        focused={typeof propFocused === 'undefined' ? focused : propFocused}
+        innerRef={rowRef}
         {...otherProps}
       />
     );
