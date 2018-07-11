@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.2.12"></a>
+## [2.2.12](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-select@2.2.11...@zendeskgarden/react-select@2.2.12) (2018-07-11)
+
+
+### Bug Fixes
+
+* **ssr:** remove browser related usages to enable ssr and include next.js example ([#53](https://github.com/zendeskgarden/react-components/issues/53)) ([b90c5e4](https://github.com/zendeskgarden/react-components/commit/b90c5e4))
+
+
+
+
 <a name="2.2.11"></a>
 ## [2.2.11](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-select@2.2.10...@zendeskgarden/react-select@2.2.11) (2018-07-10)
 
