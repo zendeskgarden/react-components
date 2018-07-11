@@ -38,7 +38,7 @@ class MenuContainer extends ControlledComponent {
     /**
      * Appends the menu to the provided element
      */
-    appendToNode: PropTypes.instanceOf(Element),
+    appendToNode: PropTypes.any,
     /**
      * @param {Object} renderProps
      * @param {Function} renderProps.getMenuProps - Props to be spread onto the containing menu element
