@@ -13,6 +13,36 @@ import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tables.table';
 
+const retrieveSrollableStyling = ({ scrollable }) => {
+  if (!scrollable) {
+    return '';
+  }
+
+  return `
+    thead, tbody, tr, td, th { display: block; }
+
+    tr:after {
+      content: ' ';
+      display: block;
+      visibility: hidden;
+      clear: both;
+    }
+
+    thead {
+      padding-right: 15px;
+    }
+
+    tbody {
+        height: ${scrollable};
+        overflow-y: scroll;
+    }
+
+    tbody td, thead th {
+        float: left;
+    }
+  `;
+};
+
 /**
  * Accepts all `<table>` props
  */
@@ -29,11 +59,14 @@ const Table = styled.table.attrs({
       [TableStyles['is-rtl']]: isRtl(props)
     })
 })`
+  ${props => retrieveSrollableStyling(props)};
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
 Table.propTypes = {
-  size: PropTypes.oneOf(['small', 'large'])
+  size: PropTypes.oneOf(['small', 'large']),
+  /** Height of the table body. Enables scrolling. */
+  scrollable: PropTypes.string
 };
 
 /** @component */

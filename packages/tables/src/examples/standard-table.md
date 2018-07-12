@@ -94,7 +94,7 @@ const StyledRow = styled(SudoGrid.Row)`
         </Head>
         <Body>
           {state.data.map((row, index) => (
-            <Row striped={state.striped && index % 2 === 0}>
+            <Row key={index} striped={state.striped && index % 2 === 0}>
               <Cell>{row.subject}</Cell>
               <Cell>{row.requester}</Cell>
               <Cell>{row.requested}</Cell>

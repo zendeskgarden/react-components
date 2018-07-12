@@ -47,6 +47,10 @@ module.exports = {
           content: '../../packages/tables/src/examples/draggable-table.md'
         },
         {
+          name: 'Scrollable',
+          content: '../../packages/tables/src/examples/scrollable-table.md'
+        },
+        {
           name: 'Paginated',
           content: '../../packages/tables/src/examples/paginated-table.md'
         },

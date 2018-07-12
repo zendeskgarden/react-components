@@ -24,6 +24,12 @@ describe('Table', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('applies scrollabe styling if provided', () => {
+    const wrapper = shallow(<Table scrollable="200px" />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('renders sizing correctly if provided', () => {
     ['small', 'large'].forEach(size => {
       const wrapper = shallow(<Table size={size} />);
