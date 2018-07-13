@@ -156,7 +156,7 @@ class AutocompleteContainer extends ControlledComponent {
      * Side-effect of the `aria-activedescendant` accessibility strategy.
      */
     if (typeof focusedKey !== 'undefined' && focusedKey !== previousFocusedKey) {
-      const doc = getDocument(this.props) || document;
+      const doc = getDocument ? getDocument(this.props) : document;
       const itemNode = doc.getElementById(this.getItemId(focusedKey));
 
       /* istanbul ignore if */
