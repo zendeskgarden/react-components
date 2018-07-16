@@ -1,4 +1,5 @@
-Scrollable tables can be enabled with the `scrollable` prop. This defines the height of the `<Body>` element.
+Scrollable tables can be enabled with the `scrollable` prop. This defines the
+height of the `<Body>` element.
 
 Similar to native, HTML tables there are some quirks with scrollable rows:
 
