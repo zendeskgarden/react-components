@@ -19,6 +19,7 @@ const COMPONENT_ID = 'notifications.close';
 const Close = styled.button.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
+  type: 'button',
   className: props =>
     classNames(CalloutStyles['c-callout__close'], {
       // State

@@ -5,6 +5,7 @@ exports[`Close renders default close styling 1`] = `
   className="c-callout__close "
   data-garden-id="notifications.close"
   data-garden-version="version"
+  type="button"
 />
 `;
 
@@ -13,6 +14,7 @@ exports[`Close state renders focused styling correctly 1`] = `
   className="c-callout__close is-focused "
   data-garden-id="notifications.close"
   data-garden-version="version"
+  type="button"
 />
 `;
 
@@ -21,5 +23,6 @@ exports[`Close state renders hovered styling correctly 1`] = `
   className="c-callout__close is-hovered "
   data-garden-id="notifications.close"
   data-garden-version="version"
+  type="button"
 />
 `;
