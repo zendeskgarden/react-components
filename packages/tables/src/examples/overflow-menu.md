@@ -1,3 +1,10 @@
+Overflow menus are achieved by using the `Menu` component available in
+the [@zendeskgarden/react-menus](https://garden.zendesk.com/react-components/menus/)
+package.
+
+Based on `Table` positioning and other implementation specific details you may need
+to apply manual positioning against the `Menu` to ensure a standard look and feel.
+
 ```jsx
 const {
   zdFontSizeBeta,

@@ -39,6 +39,16 @@ const DraggableRow = styled(Row)`
       : ''};
 `;
 
+const DraggableCell = styled(Cell)`
+  ${props =>
+    props.isDragging
+      ? `
+    display: inline-block !important;
+    width: 25%;
+  `
+      : ''};
+`;
+
 const DraggableContainer = styled.div`
   :focus {
     outline: none;
@@ -120,15 +130,19 @@ class DraggableExample extends React.Component {
                           {...provided.draggableProps.style}
                           {...provided.draggableProps}
                         >
-                          <Cell minimum>
+                          <DraggableCell minimum>
                             <DraggableContainer id={item.id} {...provided.dragHandleProps}>
                               <GripIcon />
                             </DraggableContainer>
-                          </Cell>
-                          <Cell>{item.content}</Cell>
-                          <Cell>John Smith</Cell>
-                          <Cell>15 minutes ago</Cell>
-                          <Cell>Ticket</Cell>
+                          </DraggableCell>
+                          <DraggableCell isDragging={snapshot.isDragging}>
+                            {item.content}
+                          </DraggableCell>
+                          <DraggableCell isDragging={snapshot.isDragging}>John Smith</DraggableCell>
+                          <DraggableCell isDragging={snapshot.isDragging}>
+                            15 minutes ago
+                          </DraggableCell>
+                          <DraggableCell isDragging={snapshot.isDragging}>Ticket</DraggableCell>
                         </DraggableRow>
                       )}
                     </Draggable>
