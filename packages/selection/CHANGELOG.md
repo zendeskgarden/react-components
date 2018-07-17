@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.3.1"></a>
+## [4.3.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-selection@4.3.0...@zendeskgarden/react-selection@4.3.1) (2018-07-17)
+
+
+### Bug Fixes
+
+* **autocomplete|menus|selection|theming:** guard against `getDocument` being undefined. ([#56](https://github.com/zendeskgarden/react-components/issues/56)) ([160fc06](https://github.com/zendeskgarden/react-components/commit/160fc06))
+
+
+
+
 <a name="4.3.0"></a>
 # [4.3.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-selection@4.2.0...@zendeskgarden/react-selection@4.3.0) (2018-07-05)
 
