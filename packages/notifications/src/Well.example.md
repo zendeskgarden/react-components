@@ -37,7 +37,7 @@ Default wells
 </Grid>
 ```
 
-You can also use a floating `Well` to emphasis content
+You can also use a floating `Well` to emphasize content
 
 ```jsx
 <Grid>
