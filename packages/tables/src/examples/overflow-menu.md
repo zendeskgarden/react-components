@@ -16,18 +16,31 @@ const OverflowMenu = () => (
   <Menu
     onChange={selectedKey => alert(selectedKey)}
     placement="bottom-end"
-    trigger={({ ref, isOpen }) => (
-      <OverflowButton
-        innerRef={ref}
-        active={isOpen}
-        onBlur={e => {
-          /** Used to keep visual focus within row once menu is exanded */
-          if (isOpen) {
-            e.preventDefault();
-          }
-        }}
-      />
-    )}
+    popperModifiers={{
+      preventOverflow: {
+        boundariesElement: 'viewport'
+      }
+    }}
+    style={{ marginTop: -4 }}
+    trigger={({ ref, isOpen }) => {
+      const buttonProps = { innerRef: ref, active: isOpen };
+
+      if (isOpen) {
+        buttonProps.focused = false;
+      }
+
+      return (
+        <OverflowButton
+          {...buttonProps}
+          onBlur={e => {
+            /** Used to keep visual focus within row once menu is exanded */
+            if (isOpen) {
+              e.preventDefault();
+            }
+          }}
+        />
+      );
+    }}
   >
     <Item key="item-1">Option 1</Item>
     <Item key="item-2">Option 2</Item>

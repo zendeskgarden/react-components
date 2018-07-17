@@ -31,10 +31,18 @@ const CustomWidthHeaderCell = styled(HeaderCell)`
   <StyledCaption>Your Scrollable Tickets</StyledCaption>
   <Head>
     <Row header>
-      <CustomWidthHeaderCell scope="col" truncate>Subject</CustomWidthHeaderCell>
-      <CustomWidthHeaderCell scope="col" truncate>Requester</CustomWidthHeaderCell>
-      <CustomWidthHeaderCell scope="col" truncate>Requested</CustomWidthHeaderCell>
-      <CustomWidthHeaderCell scope="col" truncate>Type</CustomWidthHeaderCell>
+      <CustomWidthHeaderCell scope="col" truncate>
+        Subject
+      </CustomWidthHeaderCell>
+      <CustomWidthHeaderCell scope="col" truncate>
+        Requester
+      </CustomWidthHeaderCell>
+      <CustomWidthHeaderCell scope="col" truncate>
+        Requested
+      </CustomWidthHeaderCell>
+      <CustomWidthHeaderCell scope="col" truncate>
+        Type
+      </CustomWidthHeaderCell>
     </Row>
   </Head>
   <Body>

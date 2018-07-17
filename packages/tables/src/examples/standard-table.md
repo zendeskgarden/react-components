@@ -50,19 +50,19 @@ initialState = {
   ]
 };
 
-const StyledRow = styled(SudoGrid.Row)`
+const StyledRow = styled(Layout.Row)`
   margin-bottom: 20px;
 `;
 
-<SudoGrid.Grid>
+<Layout.Grid>
   <StyledRow>
-    <SudoGrid.Col md>
+    <Layout.Col md>
       <Checkbox checked={state.striped} onChange={e => setState({ striped: e.target.checked })}>
         <CheckboxLabel>Striped Styling</CheckboxLabel>
         <Hint>Applied to every other Row</Hint>
       </Checkbox>
-    </SudoGrid.Col>
-    <SudoGrid.Col md>
+    </Layout.Col>
+    <Layout.Col md>
       <SelectField>
         <Label>Row Size</Label>
         <Select
@@ -78,10 +78,10 @@ const StyledRow = styled(SudoGrid.Row)`
           {state.rowSize}
         </Select>
       </SelectField>
-    </SudoGrid.Col>
+    </Layout.Col>
   </StyledRow>
-  <SudoGrid.Row>
-    <SudoGrid.Col>
+  <Layout.Row>
+    <Layout.Col>
       <Table size={state.rowSize === 'default' ? undefined : state.rowSize}>
         <StyledCaption>Your Unsolved Tickets</StyledCaption>
         <Head>
@@ -103,7 +103,7 @@ const StyledRow = styled(SudoGrid.Row)`
           ))}
         </Body>
       </Table>
-    </SudoGrid.Col>
-  </SudoGrid.Row>
-</SudoGrid.Grid>;
+    </Layout.Col>
+  </Layout.Row>
+</Layout.Grid>;
 ```

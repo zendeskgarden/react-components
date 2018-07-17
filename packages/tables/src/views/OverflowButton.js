@@ -16,11 +16,12 @@ import { composeEventHandlers } from '@zendeskgarden/react-selection';
 const COMPONENT_ID = 'tables.overflow_button';
 
 /**
- * Accepts all `<button>` props
+ * Accepts all `<div>` props
  */
-const StyledOverflowButton = styled.button.attrs({
+const StyledOverflowButton = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
+  type: 'button',
   className: props =>
     classNames(TableStyles['c-table__row__cell__overflow'], {
       [TableStyles['is-hovered']]: props.hovered,

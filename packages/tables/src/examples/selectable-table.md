@@ -40,7 +40,7 @@ const isSelectAllChecked = (selectedRows, rows) => {
   <StyledCaption>Selectable Ticket View</StyledCaption>
   <Head>
     <Row header>
-      <Cell minimum>
+      <HeaderCell minimum>
         <Checkbox checked={isSelectAllChecked(state.selectedRows, state.rows)}
           onChange={e => {
             if (e.target.checked) {
@@ -61,8 +61,8 @@ const isSelectAllChecked = (selectedRows, rows) => {
             Select all tickets
           </Label>
         </Checkbox>
-      </Cell>
-      <Cell scope="col">Long Truncated Title</Cell>
+      </HeaderCell>
+      <HeaderCell scope="col">Long Truncated Title</HeaderCell>
     </Row>
   </Head>
   <Body>

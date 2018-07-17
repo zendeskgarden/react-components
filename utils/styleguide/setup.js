@@ -31,7 +31,7 @@ global.Col = styled(Col)`
 `;
 
 /** Add aditional global for packages that override these components (Table) */
-global.SudoGrid = {
+global.Layout = {
   Grid: global.Grid,
   Row: global.Row,
   Col: global.Col

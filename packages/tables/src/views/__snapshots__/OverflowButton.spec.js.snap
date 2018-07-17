@@ -10,15 +10,16 @@ exports[`OverflowButton applies active styling if provided 1`] = `
     onBlur={[Function]}
     onFocus={[Function]}
   >
-    <button
+    <div
       className="c-table__row__cell__overflow is-active "
       data-garden-id="tables.overflow_button"
       data-garden-version="version"
       onBlur={[Function]}
       onFocus={[Function]}
+      type="button"
     >
        
-    </button>
+    </div>
   </OverflowButton__StyledOverflowButton>
 </OverflowButton>
 `;
@@ -30,15 +31,16 @@ exports[`OverflowButton applies default styling by default 1`] = `
     onBlur={[Function]}
     onFocus={[Function]}
   >
-    <button
+    <div
       className="c-table__row__cell__overflow "
       data-garden-id="tables.overflow_button"
       data-garden-version="version"
       onBlur={[Function]}
       onFocus={[Function]}
+      type="button"
     >
        
-    </button>
+    </div>
   </OverflowButton__StyledOverflowButton>
 </OverflowButton>
 `;
@@ -52,15 +54,16 @@ exports[`OverflowButton applies focused styling if provided 1`] = `
     onBlur={[Function]}
     onFocus={[Function]}
   >
-    <button
+    <div
       className="c-table__row__cell__overflow is-focused "
       data-garden-id="tables.overflow_button"
       data-garden-version="version"
       onBlur={[Function]}
       onFocus={[Function]}
+      type="button"
     >
        
-    </button>
+    </div>
   </OverflowButton__StyledOverflowButton>
 </OverflowButton>
 `;
@@ -75,15 +78,16 @@ exports[`OverflowButton applies hovered styling if provided 1`] = `
     onBlur={[Function]}
     onFocus={[Function]}
   >
-    <button
+    <div
       className="c-table__row__cell__overflow is-hovered "
       data-garden-id="tables.overflow_button"
       data-garden-version="version"
       onBlur={[Function]}
       onFocus={[Function]}
+      type="button"
     >
        
-    </button>
+    </div>
   </OverflowButton__StyledOverflowButton>
 </OverflowButton>
 `;
