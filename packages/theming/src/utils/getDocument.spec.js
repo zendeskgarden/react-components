@@ -20,19 +20,19 @@ describe('getDocument', () => {
     ).toBe(doc);
   });
 
-  it('returns undefined if theme has no document prop passed', () => {
+  it('returns `document` if theme has no document prop passed', () => {
     expect(
       getDocument({
         theme: {}
       })
-    ).toBeUndefined();
+    ).toBe(global.document);
   });
 
-  it('returns undefined if no theme is provided', () => {
-    expect(getDocument({})).toBeUndefined();
+  it('returns `document` if no theme is provided', () => {
+    expect(getDocument({})).toBe(global.document);
   });
 
-  it('returns undefined if no props are provided', () => {
-    expect(getDocument()).toBeUndefined();
+  it('returns `document` if no props are provided', () => {
+    expect(getDocument()).toBe(global.document);
   });
 });

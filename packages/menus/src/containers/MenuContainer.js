@@ -20,7 +20,7 @@ import {
   KEY_CODES
 } from '@zendeskgarden/react-selection';
 import { getPopperPlacement, getRtlPopperPlacement } from '@zendeskgarden/react-tooltips';
-import { withTheme, isRtl } from '@zendeskgarden/react-theming';
+import { withTheme, isRtl, getDocument } from '@zendeskgarden/react-theming';
 import { FocusJailContainer } from '@zendeskgarden/react-modals';
 
 /**
@@ -151,11 +151,15 @@ class MenuContainer extends ControlledComponent {
   }
 
   componentDidMount() {
-    document.addEventListener('mousedown', this.handleOutsideMouseDown);
+    const doc = getDocument ? getDocument(this.props) : document;
+
+    doc.addEventListener('mousedown', this.handleOutsideMouseDown);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleOutsideMouseDown);
+    const doc = getDocument ? getDocument(this.props) : document;
+
+    doc.addEventListener('mousedown', this.handleOutsideMouseDown);
   }
 
   componentDidUpdate(prevProps, prevState) {
