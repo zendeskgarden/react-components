@@ -7,5 +7,5 @@
 
 /** @component */
 export default function getDocument({ theme } = {}) {
-  return theme && theme.document;
+  return (theme && theme.document) || document;
 }

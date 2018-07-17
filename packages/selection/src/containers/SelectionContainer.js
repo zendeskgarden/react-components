@@ -87,7 +87,7 @@ export class SelectionContainer extends ControlledComponent {
   componentDidUpdate(prevProps, prevState) {
     const current = this.props.focusedKey === undefined ? this.state : this.props;
     const prev = prevProps.focusedKey === undefined ? prevState : prevProps;
-    const doc = getDocument(this.props) || document;
+    const doc = getDocument ? getDocument(this.props) : document;
 
     /**
      * We must programatically scroll the newly focused element into view.
