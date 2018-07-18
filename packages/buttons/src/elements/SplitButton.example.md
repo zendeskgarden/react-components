@@ -7,7 +7,11 @@ The `SplitButton` pattern is accomplished with:
   package for the secondary actions menu
 
 ```jsx
-const { Menu, Item } = require('@zendeskgarden/react-menus');
+/**
+ * Must use relative link to avoid circular dependency
+ * between `react-menus` and `react-buttons` in lerna bootstrap
+ **/
+const { Menu, Item } = require('../../../menus/src');
 
 initialState = {
   count: 0,
