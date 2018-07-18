@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.3.7"></a>
+## [3.3.7](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.3.6...@zendeskgarden/react-buttons@3.3.7) (2018-07-18)
+
+
+### Bug Fixes
+
+* **buttons:** remove cycle dependency between react-button and react-menus ([#60](https://github.com/zendeskgarden/react-components/issues/60)) ([5c492b8](https://github.com/zendeskgarden/react-components/commit/5c492b8))
+
+
+
+
 <a name="3.3.6"></a>
 ## [3.3.6](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.3.5...@zendeskgarden/react-buttons@3.3.6) (2018-07-17)
 
