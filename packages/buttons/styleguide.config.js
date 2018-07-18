@@ -10,7 +10,6 @@
  * https://github.com/styleguidist/react-styleguidist/blob/master/docs/Configuration.md
  */
 module.exports = {
-  require: ['../../packages/menus/dist/styles.css'],
   sections: [
     {
       name: '',
