@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Caption renders default styling 1`] = `
+<caption
+  className="c-table__caption "
+  data-garden-id="tables.caption"
+  data-garden-version="version"
+/>
+`;

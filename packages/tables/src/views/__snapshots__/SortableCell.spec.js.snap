@@ -1,0 +1,247 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SortableCell applies active styling if provided 1`] = `
+<ExampleWrapper>
+  <table>
+    <thead>
+      <tr>
+        <SortableCell
+          active={true}
+        >
+          <Cell
+            aria-sort="none"
+          >
+            <th
+              aria-sort="none"
+              className="c-table__row__cell "
+              data-garden-id="tables.header_cell"
+              data-garden-version="version"
+            >
+              <SortableCell__Sortable
+                active={true}
+              >
+                <button
+                  className="c-table__row__cell__sortable is-active "
+                  data-garden-id="tables.sortable"
+                  data-garden-version="version"
+                  type="button"
+                />
+              </SortableCell__Sortable>
+            </th>
+          </Cell>
+        </SortableCell>
+      </tr>
+    </thead>
+  </table>
+</ExampleWrapper>
+`;
+
+exports[`SortableCell applies default styling 1`] = `
+<ExampleWrapper>
+  <table>
+    <thead>
+      <tr>
+        <SortableCell>
+          <Cell
+            aria-sort="none"
+          >
+            <th
+              aria-sort="none"
+              className="c-table__row__cell "
+              data-garden-id="tables.header_cell"
+              data-garden-version="version"
+            >
+              <SortableCell__Sortable>
+                <button
+                  className="c-table__row__cell__sortable "
+                  data-garden-id="tables.sortable"
+                  data-garden-version="version"
+                  type="button"
+                />
+              </SortableCell__Sortable>
+            </th>
+          </Cell>
+        </SortableCell>
+      </tr>
+    </thead>
+  </table>
+</ExampleWrapper>
+`;
+
+exports[`SortableCell applies focused styling if provided 1`] = `
+<ExampleWrapper>
+  <table>
+    <thead>
+      <tr>
+        <SortableCell
+          focused={true}
+        >
+          <Cell
+            aria-sort="none"
+          >
+            <th
+              aria-sort="none"
+              className="c-table__row__cell "
+              data-garden-id="tables.header_cell"
+              data-garden-version="version"
+            >
+              <SortableCell__Sortable
+                focused={true}
+              >
+                <button
+                  className="c-table__row__cell__sortable is-focused "
+                  data-garden-id="tables.sortable"
+                  data-garden-version="version"
+                  type="button"
+                />
+              </SortableCell__Sortable>
+            </th>
+          </Cell>
+        </SortableCell>
+      </tr>
+    </thead>
+  </table>
+</ExampleWrapper>
+`;
+
+exports[`SortableCell applies minimum styling if provided 1`] = `
+<ExampleWrapper>
+  <table>
+    <thead>
+      <tr>
+        <SortableCell
+          minimum={true}
+        >
+          <Cell
+            aria-sort="none"
+            minimum={true}
+          >
+            <th
+              aria-sort="none"
+              className="c-table__row__cell c-table__row__cell--min "
+              data-garden-id="tables.header_cell"
+              data-garden-version="version"
+            >
+              <SortableCell__Sortable>
+                <button
+                  className="c-table__row__cell__sortable "
+                  data-garden-id="tables.sortable"
+                  data-garden-version="version"
+                  type="button"
+                />
+              </SortableCell__Sortable>
+            </th>
+          </Cell>
+        </SortableCell>
+      </tr>
+    </thead>
+  </table>
+</ExampleWrapper>
+`;
+
+exports[`SortableCell applies truncated styling if provided 1`] = `
+<ExampleWrapper>
+  <table>
+    <thead>
+      <tr>
+        <SortableCell
+          truncate={true}
+        >
+          <Cell
+            aria-sort="none"
+            truncate={true}
+          >
+            <th
+              aria-sort="none"
+              className="c-table__row__cell c-table__row__cell--truncate "
+              data-garden-id="tables.header_cell"
+              data-garden-version="version"
+            >
+              <SortableCell__Sortable>
+                <button
+                  className="c-table__row__cell__sortable "
+                  data-garden-id="tables.sortable"
+                  data-garden-version="version"
+                  type="button"
+                />
+              </SortableCell__Sortable>
+            </th>
+          </Cell>
+        </SortableCell>
+      </tr>
+    </thead>
+  </table>
+</ExampleWrapper>
+`;
+
+exports[`SortableCell sorting applies ascending props when applied 1`] = `
+<ExampleWrapper>
+  <table>
+    <thead>
+      <tr>
+        <SortableCell
+          sort="asc"
+        >
+          <Cell
+            aria-sort="ascending"
+          >
+            <th
+              aria-sort="ascending"
+              className="c-table__row__cell "
+              data-garden-id="tables.header_cell"
+              data-garden-version="version"
+            >
+              <SortableCell__Sortable
+                sort="asc"
+              >
+                <button
+                  className="c-table__row__cell__sortable is-ascending "
+                  data-garden-id="tables.sortable"
+                  data-garden-version="version"
+                  type="button"
+                />
+              </SortableCell__Sortable>
+            </th>
+          </Cell>
+        </SortableCell>
+      </tr>
+    </thead>
+  </table>
+</ExampleWrapper>
+`;
+
+exports[`SortableCell sorting applies descending props when applied 1`] = `
+<ExampleWrapper>
+  <table>
+    <thead>
+      <tr>
+        <SortableCell
+          sort="desc"
+        >
+          <Cell
+            aria-sort="descending"
+          >
+            <th
+              aria-sort="descending"
+              className="c-table__row__cell "
+              data-garden-id="tables.header_cell"
+              data-garden-version="version"
+            >
+              <SortableCell__Sortable
+                sort="desc"
+              >
+                <button
+                  className="c-table__row__cell__sortable is-descending "
+                  data-garden-id="tables.sortable"
+                  data-garden-version="version"
+                  type="button"
+                />
+              </SortableCell__Sortable>
+            </th>
+          </Cell>
+        </SortableCell>
+      </tr>
+    </thead>
+  </table>
+</ExampleWrapper>
+`;

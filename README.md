@@ -31,6 +31,7 @@ Package | Version | Dependencies
 [`@zendeskgarden/react-select`](packages/select) | [![npm version][select npm version]][select npm link] | [![Dependency Status][select dependency status]][select dependency link]
 [`@zendeskgarden/react-selection`](packages/selection) | [![npm version][selection npm version]][selection npm link] | [![Dependency Status][selection dependency status]][selection dependency link]
 [`@zendeskgarden/react-tabs`](packages/tabs) | [![npm version][tabs npm version]][tabs npm link] | [![Dependency Status][tabs dependency status]][tabs dependency link]
+[`@zendeskgarden/react-tables`](packages/tables) | [![npm version][tables npm version]][tables npm link] | [![Dependency Status][tables dependency status]][tables dependency link]
 [`@zendeskgarden/react-tags`](packages/tags) | [![npm version][tags npm version]][tags npm link] | [![Dependency Status][tags dependency status]][tags dependency link]
 [`@zendeskgarden/react-testing`](packages/testing) | [![npm version][testing npm version]][testing npm link] | [![Dependency Status][testing dependency status]][testing dependency link]
 [`@zendeskgarden/react-textfields`](packages/textfields) | [![npm version][textfields npm version]][textfields npm link] | [![Dependency Status][textfields dependency status]][textfields dependency link]
@@ -99,6 +100,10 @@ Package | Version | Dependencies
 [tabs npm link]: https://www.npmjs.com/package/@zendeskgarden/react-tabs
 [tabs dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/tabs&style=flat-square
 [tabs dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/tabs
+[tables npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-tables.svg?style=flat-square
+[tables npm link]: https://www.npmjs.com/package/@zendeskgarden/react-tables
+[tables dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/tables&style=flat-square
+[tables dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/tables
 [tags npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-tags.svg?style=flat-square
 [tags npm link]: https://www.npmjs.com/package/@zendeskgarden/react-tags
 [tags dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/tags&style=flat-square

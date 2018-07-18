@@ -29,3 +29,10 @@ global.Col = styled(Col)`
   margin-top: 4px;
   margin-bottom: 4px;
 `;
+
+/** Add aditional global for packages that override these components (Table) */
+global.Layout = {
+  Grid: global.Grid,
+  Row: global.Row,
+  Col: global.Col
+};

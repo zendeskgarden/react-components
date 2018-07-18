@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table applies scrollabe styling if provided 1`] = `
+.c0 thead,
+.c0 tbody,
+.c0 tr,
+.c0 td,
+.c0 th {
+  display: block;
+}
+
+.c0 tr:after {
+  content: ' ';
+  display: block;
+  visibility: hidden;
+  clear: both;
+}
+
+.c0 thead {
+  padding-right: 15px;
+}
+
+.c0 tbody {
+  height: 200px;
+  overflow-y: scroll;
+}
+
+.c0 tbody td,
+.c0 thead th {
+  float: left;
+}
+
+<table
+  className="c-table c0"
+  data-garden-id="tables.table"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Table renders RTL styling if provided 1`] = `
+<table
+  className="c-table is-rtl "
+  data-garden-id="tables.table"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Table renders default styling 1`] = `
+<table
+  className="c-table "
+  data-garden-id="tables.table"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Table renders sizing correctly if provided 1`] = `
+<table
+  className="c-table c-table--sm "
+  data-garden-id="tables.table"
+  data-garden-version="version"
+  size="small"
+/>
+`;
+
+exports[`Table renders sizing correctly if provided 2`] = `
+<table
+  className="c-table c-table--lg "
+  data-garden-id="tables.table"
+  data-garden-version="version"
+  size="large"
+/>
+`;

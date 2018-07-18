@@ -1,0 +1,194 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Row applies default styling by default 1`] = `
+<ExampleWrapper>
+  <table>
+    <tbody>
+      <Row>
+        <Row__StyledRow
+          focused={false}
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          <tr
+            className="c-table__row "
+            data-garden-id="tables.row"
+            data-garden-version="version"
+            onBlur={[Function]}
+            onFocus={[Function]}
+            tabIndex={-1}
+          />
+        </Row__StyledRow>
+      </Row>
+    </tbody>
+  </table>
+</ExampleWrapper>
+`;
+
+exports[`Row applies focused styling if provided 1`] = `
+<ExampleWrapper>
+  <table>
+    <tbody>
+      <Row
+        focused={true}
+      >
+        <Row__StyledRow
+          focused={true}
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          <tr
+            className="c-table__row is-focused "
+            data-garden-id="tables.row"
+            data-garden-version="version"
+            onBlur={[Function]}
+            onFocus={[Function]}
+            tabIndex={-1}
+          />
+        </Row__StyledRow>
+      </Row>
+    </tbody>
+  </table>
+</ExampleWrapper>
+`;
+
+exports[`Row applies group styling if provided 1`] = `
+<ExampleWrapper>
+  <table>
+    <tbody>
+      <Row
+        group={true}
+      >
+        <Row__StyledRow
+          focused={false}
+          group={true}
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          <tr
+            className="c-table__row c-table__row--group "
+            data-garden-id="tables.row"
+            data-garden-version="version"
+            onBlur={[Function]}
+            onFocus={[Function]}
+            tabIndex={-1}
+          />
+        </Row__StyledRow>
+      </Row>
+    </tbody>
+  </table>
+</ExampleWrapper>
+`;
+
+exports[`Row applies header styling if provided 1`] = `
+<ExampleWrapper>
+  <table>
+    <tbody>
+      <Row
+        header={true}
+      >
+        <Row__StyledRow
+          focused={false}
+          header={true}
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          <tr
+            className="c-table__row c-table__row--header "
+            data-garden-id="tables.row"
+            data-garden-version="version"
+            onBlur={[Function]}
+            onFocus={[Function]}
+            tabIndex={-1}
+          />
+        </Row__StyledRow>
+      </Row>
+    </tbody>
+  </table>
+</ExampleWrapper>
+`;
+
+exports[`Row applies hovered styling if provided 1`] = `
+<ExampleWrapper>
+  <table>
+    <tbody>
+      <Row
+        hovered={true}
+      >
+        <Row__StyledRow
+          focused={false}
+          hovered={true}
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          <tr
+            className="c-table__row is-hovered "
+            data-garden-id="tables.row"
+            data-garden-version="version"
+            onBlur={[Function]}
+            onFocus={[Function]}
+            tabIndex={-1}
+          />
+        </Row__StyledRow>
+      </Row>
+    </tbody>
+  </table>
+</ExampleWrapper>
+`;
+
+exports[`Row applies selected styling if provided 1`] = `
+<ExampleWrapper>
+  <table>
+    <tbody>
+      <Row
+        selected={true}
+      >
+        <Row__StyledRow
+          focused={false}
+          onBlur={[Function]}
+          onFocus={[Function]}
+          selected={true}
+        >
+          <tr
+            className="c-table__row is-selected "
+            data-garden-id="tables.row"
+            data-garden-version="version"
+            onBlur={[Function]}
+            onFocus={[Function]}
+            selected={true}
+            tabIndex={-1}
+          />
+        </Row__StyledRow>
+      </Row>
+    </tbody>
+  </table>
+</ExampleWrapper>
+`;
+
+exports[`Row applies striped styling if provided 1`] = `
+<ExampleWrapper>
+  <table>
+    <tbody>
+      <Row
+        striped={true}
+      >
+        <Row__StyledRow
+          focused={false}
+          onBlur={[Function]}
+          onFocus={[Function]}
+          striped={true}
+        >
+          <tr
+            className="c-table__row c-table__row--stripe "
+            data-garden-id="tables.row"
+            data-garden-version="version"
+            onBlur={[Function]}
+            onFocus={[Function]}
+            tabIndex={-1}
+          />
+        </Row__StyledRow>
+      </Row>
+    </tbody>
+  </table>
+</ExampleWrapper>
+`;
