@@ -29,12 +29,6 @@ const StyledOverflowButton = styled.button.attrs({
       [TableStyles['is-focused']]: props.focused
     })
 })`
-  /**
-   * Must provide a width that is equivalent to the :before pseudo
-   * element to ensure correct Popper.js positioning
-   **/
-  min-width: 28px;
-
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

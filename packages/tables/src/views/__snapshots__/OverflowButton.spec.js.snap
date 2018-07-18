@@ -1,10 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`OverflowButton applies active styling if provided 1`] = `
-.c0 {
-  min-width: 28px;
-}
-
 <OverflowButton
   active={true}
 >
@@ -15,7 +11,7 @@ exports[`OverflowButton applies active styling if provided 1`] = `
     onFocus={[Function]}
   >
     <button
-      className="c-table__row__cell__overflow is-active c0"
+      className="c-table__row__cell__overflow is-active "
       data-garden-id="tables.overflow_button"
       data-garden-version="version"
       onBlur={[Function]}
@@ -29,10 +25,6 @@ exports[`OverflowButton applies active styling if provided 1`] = `
 `;
 
 exports[`OverflowButton applies default styling by default 1`] = `
-.c0 {
-  min-width: 28px;
-}
-
 <OverflowButton>
   <OverflowButton__StyledOverflowButton
     focused={false}
@@ -40,7 +32,7 @@ exports[`OverflowButton applies default styling by default 1`] = `
     onFocus={[Function]}
   >
     <button
-      className="c-table__row__cell__overflow c0"
+      className="c-table__row__cell__overflow "
       data-garden-id="tables.overflow_button"
       data-garden-version="version"
       onBlur={[Function]}
@@ -54,10 +46,6 @@ exports[`OverflowButton applies default styling by default 1`] = `
 `;
 
 exports[`OverflowButton applies focused styling if provided 1`] = `
-.c0 {
-  min-width: 28px;
-}
-
 <OverflowButton
   focused={true}
 >
@@ -67,7 +55,7 @@ exports[`OverflowButton applies focused styling if provided 1`] = `
     onFocus={[Function]}
   >
     <button
-      className="c-table__row__cell__overflow is-focused c0"
+      className="c-table__row__cell__overflow is-focused "
       data-garden-id="tables.overflow_button"
       data-garden-version="version"
       onBlur={[Function]}
@@ -81,10 +69,6 @@ exports[`OverflowButton applies focused styling if provided 1`] = `
 `;
 
 exports[`OverflowButton applies hovered styling if provided 1`] = `
-.c0 {
-  min-width: 28px;
-}
-
 <OverflowButton
   hovered={true}
 >
@@ -95,7 +79,7 @@ exports[`OverflowButton applies hovered styling if provided 1`] = `
     onFocus={[Function]}
   >
     <button
-      className="c-table__row__cell__overflow is-hovered c0"
+      className="c-table__row__cell__overflow is-hovered "
       data-garden-id="tables.overflow_button"
       data-garden-version="version"
       onBlur={[Function]}
