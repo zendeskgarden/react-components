@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.1.9"></a>
+## [4.1.9](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.1.8...@zendeskgarden/react-chrome@4.1.9) (2018-07-18)
+
+
+### Bug Fixes
+
+* **chrome:** update css-chrome to include navigation minHeight fix ([#58](https://github.com/zendeskgarden/react-components/issues/58)) ([ea9c768](https://github.com/zendeskgarden/react-components/commit/ea9c768))
+
+
+
+
 <a name="4.1.8"></a>
 ## [4.1.8](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.1.7...@zendeskgarden/react-chrome@4.1.8) (2018-07-17)
 
