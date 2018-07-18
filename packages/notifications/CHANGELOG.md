@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.1.7"></a>
+## [3.1.7](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-notifications@3.1.6...@zendeskgarden/react-notifications@3.1.7) (2018-07-18)
+
+
+### Bug Fixes
+
+* **notifications:** update typo in documentation ([#59](https://github.com/zendeskgarden/react-components/issues/59)) ([a4e38e7](https://github.com/zendeskgarden/react-components/commit/a4e38e7))
+
+
+
+
 <a name="3.1.6"></a>
 ## [3.1.6](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-notifications@3.1.5...@zendeskgarden/react-notifications@3.1.6) (2018-07-17)
 
