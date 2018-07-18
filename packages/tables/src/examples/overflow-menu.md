@@ -19,16 +19,28 @@ const StyledCaption = styled(Caption)`
   margin-bottom: ${zdSpacingSm};
 `;
 
-const OverflowMenu = () => (
+const OverflowMenu = ({ isHeader = false }) => (
   <Menu
     onChange={selectedKey => alert(selectedKey)}
     placement="bottom-end"
     popperModifiers={{
       preventOverflow: {
         boundariesElement: 'viewport'
+      },
+      flip: {
+        enabled: false
+      },
+      offset: {
+        fn: (data) => {
+          /**
+           * Have to ensure that popper is placed relative
+           * to the trigger
+           **/
+          data.offsets.popper.top -= isHeader ? 12 : 8;
+          return data;
+        }
       }
     }}
-    style={{ marginTop: -4 }}
     trigger={({ ref, isOpen }) => {
       const buttonProps = { innerRef: ref, active: isOpen };
 
@@ -63,7 +75,7 @@ const OverflowMenu = () => (
       <HeaderCell scope="col">Requested</HeaderCell>
       <HeaderCell scope="col">Type</HeaderCell>
       <HeaderCell menu>
-        <OverflowMenu />
+        <OverflowMenu isHeader />
       </HeaderCell>
     </Row>
   </Head>

@@ -16,9 +16,9 @@ import { composeEventHandlers } from '@zendeskgarden/react-selection';
 const COMPONENT_ID = 'tables.overflow_button';
 
 /**
- * Accepts all `<div>` props
+ * Accepts all `<button>` props
  */
-const StyledOverflowButton = styled.div.attrs({
+const StyledOverflowButton = styled.button.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   type: 'button',
@@ -29,6 +29,12 @@ const StyledOverflowButton = styled.div.attrs({
       [TableStyles['is-focused']]: props.focused
     })
 })`
+  /**
+   * Must provide a width that is equivalent to the :before pseudo
+   * element to ensure correct Popper.js positioning
+   **/
+  min-width: 28px;
+
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
