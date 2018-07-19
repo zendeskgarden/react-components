@@ -14,8 +14,8 @@ All state is handled internally in the component.
 const { Button } = require('@zendeskgarden/react-buttons/src');
 
 <TooltipContainer
-  trigger={({ getTriggerProps }) => (
-    <Button {...getTriggerProps()}>Hover or Focus to trigger tooltip</Button>
+  trigger={({ getTriggerProps, ref }) => (
+    <Button {...getTriggerProps({ buttonRef: ref })}>Hover or Focus to trigger tooltip</Button>
   )}
 >
   {({ getTooltipProps, placement }) => (
@@ -44,8 +44,8 @@ initialState = {
   isVisible={state.isVisible}
   placement="end"
   onStateChange={newState => setState(newState)}
-  trigger={({ getTriggerProps }) => (
-    <Button {...getTriggerProps()}>Hover to trigger tooltip</Button>
+  trigger={({ getTriggerProps, ref }) => (
+    <Button {...getTriggerProps({ buttonRef: ref })}>Hover to trigger tooltip</Button>
   )}
 >
   {({ getTooltipProps, placement }) => (
@@ -76,8 +76,8 @@ const CustomTooltip = styled.div`
 
 <TooltipContainer
   placement="end"
-  trigger={({ getTriggerProps }) => (
-    <CustomElement {...getTriggerProps({ refKey: 'innerRef' })}>
+  trigger={({ getTriggerProps, ref }) => (
+    <CustomElement {...getTriggerProps({ refKey: 'innerRef', innerRef: ref })}>
       Custom content and placement
     </CustomElement>
   )}
@@ -106,13 +106,14 @@ const { Input } = require('@zendeskgarden/react-textfields/src');
 
 <TooltipContainer
   placement="end"
-  trigger={({ getTriggerProps }) => (
+  trigger={({ getTriggerProps, ref }) => (
     <Input
       {...getTriggerProps({
         onMouseEnter: event => event.preventDefault(), // stop our default logic
         onMouseLeave: event => event.preventDefault(), // stop our default logic
         'aria-label': 'Example hover only input',
         placeholder: 'Hover does not trigger me, but focus does',
+        innerRef: ref,
         style: { width: 500 }
       })}
     />
@@ -146,6 +147,7 @@ const TriggerDiv = styled.div`
   background-color: grey;
   width: 80px;
   height: 40px;
+  margin: auto;
 `;
 
 initialState = {
@@ -164,7 +166,7 @@ initialState = {
             isVisible
             appendToBody
             placement="top-start"
-            trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+            trigger={({ getTriggerProps, ref }) => <TriggerDiv {...getTriggerProps({ innerRef: ref })} />}
           >
             {({ getTooltipProps, placement }) => (
               <TooltipView {...getTooltipProps({ placement })}>top-start</TooltipView>
@@ -176,7 +178,7 @@ initialState = {
             isVisible
             appendToBody
             placement="top"
-            trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+            trigger={({ getTriggerProps, ref }) => <TriggerDiv {...getTriggerProps({ innerRef: ref })} />}
           >
             {({ getTooltipProps, placement }) => (
               <TooltipView {...getTooltipProps({ placement })}>top</TooltipView>
@@ -188,7 +190,7 @@ initialState = {
             isVisible
             appendToBody
             placement="top-end"
-            trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+            trigger={({ getTriggerProps, ref }) => <TriggerDiv {...getTriggerProps({ innerRef: ref })} />}
           >
             {({ getTooltipProps, placement }) => (
               <TooltipView {...getTooltipProps({ placement })}>top-end</TooltipView>
@@ -200,7 +202,7 @@ initialState = {
             isVisible
             appendToBody
             placement="start"
-            trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+            trigger={({ getTriggerProps, ref }) => <TriggerDiv {...getTriggerProps({ innerRef: ref })} />}
           >
             {({ getTooltipProps, placement }) => (
               <TooltipView {...getTooltipProps({ placement })}>start</TooltipView>
@@ -215,7 +217,7 @@ initialState = {
             isVisible
             appendToBody
             placement="end"
-            trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+            trigger={({ getTriggerProps, ref }) => <TriggerDiv {...getTriggerProps({ innerRef: ref })} />}
           >
             {({ getTooltipProps, placement }) => (
               <TooltipView {...getTooltipProps({ placement })}>end</TooltipView>
@@ -227,7 +229,7 @@ initialState = {
             isVisible
             appendToBody
             placement="bottom-start"
-            trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+            trigger={({ getTriggerProps, ref }) => <TriggerDiv {...getTriggerProps({ innerRef: ref })} />}
           >
             {({ getTooltipProps, placement }) => (
               <TooltipView {...getTooltipProps({ placement })}>bottom-start</TooltipView>
@@ -239,7 +241,7 @@ initialState = {
             isVisible
             appendToBody
             placement="bottom"
-            trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+            trigger={({ getTriggerProps, ref }) => <TriggerDiv {...getTriggerProps({ innerRef: ref })} />}
           >
             {({ getTooltipProps, placement }) => (
               <TooltipView {...getTooltipProps({ placement })}>bottom</TooltipView>
@@ -251,7 +253,7 @@ initialState = {
             isVisible
             appendToBody
             placement="bottom-end"
-            trigger={({ getTriggerProps }) => <TriggerDiv {...getTriggerProps()} />}
+            trigger={({ getTriggerProps, ref }) => <TriggerDiv {...getTriggerProps({ innerRef: ref })} />}
           >
             {({ getTooltipProps, placement }) => (
               <TooltipView {...getTooltipProps({ placement })}>bottom-end</TooltipView>

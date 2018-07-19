@@ -103,8 +103,10 @@ export default class Tooltip extends ControlledComponent {
         popperModifiers={popperModifiers}
         zIndex={zIndex}
         delayMilliseconds={delayMilliseconds}
-        trigger={({ getTriggerProps }) => {
-          return cloneElement(trigger, getTriggerProps(trigger.props));
+        trigger={({ getTriggerProps, ref }) => {
+          const triggerElement = cloneElement(trigger, getTriggerProps(trigger.props));
+
+          return <TriggerWrapper innerRef={ref}>{triggerElement}</TriggerWrapper>;
         }}
       >
         {({ getTooltipProps, placement }) => {
