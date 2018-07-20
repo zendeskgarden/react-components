@@ -18,7 +18,11 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
     <Col md>
       <Menu
         onChange={selectedKey => alert(selectedKey)}
-        trigger={({ ref }) => <Button innerRef={ref}>Default Menu</Button>}
+        trigger={({ ref, isOpen }) => (
+          <Button innerRef={ref} active={isOpen}>
+            Default Menu
+          </Button>
+        )}
       >
         <Item key="item-1">1 - Item</Item>
         <Item key="item-2">2 - Item</Item>
@@ -29,8 +33,8 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
       <Menu
         small
         onChange={selectedKey => alert(selectedKey)}
-        trigger={({ ref }) => (
-          <Button innerRef={ref} size="small">
+        trigger={({ ref, isOpen }) => (
+          <Button innerRef={ref} size="small" active={isOpen}>
             Small Menu
           </Button>
         )}
@@ -53,7 +57,11 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
 
 <Menu
   onChange={selectedKey => alert(selectedKey)}
-  trigger={({ ref }) => <Button innerRef={ref}>Disabled items</Button>}
+  trigger={({ ref, isOpen }) => (
+    <Button innerRef={ref} active={isOpen}>
+      Disabled items
+    </Button>
+  )}
 >
   <Item key="item-1">Item 1</Item>
   <Item key="item-2">Item 2</Item>
@@ -87,7 +95,11 @@ const getButtonText = isOpen => {
   focusedKey={state.focusedKey}
   onStateChange={setState}
   onChange={selectedKey => alert(selectedKey)}
-  trigger={({ ref }) => <Button innerRef={ref}>{getButtonText(state.isOpen)}</Button>}
+  trigger={({ ref, isOpen }) => (
+    <Button innerRef={ref} active={isOpen}>
+      {getButtonText(state.isOpen)}
+    </Button>
+  )}
 >
   <Item key="item-1">Item 1</Item>
   <Item key="item-2">Item 2</Item>
@@ -107,7 +119,11 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
   arrow
   placement="end"
   onChange={selectedKey => alert(`Item selected "${selectedKey}"`)}
-  trigger={({ ref }) => <Button innerRef={ref}>Advanced Layout</Button>}
+  trigger={({ ref, isOpen }) => (
+    <Button innerRef={ref} active={isOpen}>
+      Advanced Layout
+    </Button>
+  )}
 >
   <HeaderItem>Header Item Text</HeaderItem>
   <Separator />
@@ -193,7 +209,7 @@ retrieveMenuItems = (selectedKey, isLoading) => {
 
     setState({ selectedKey, focusedKey, isLoading });
   }}
-  trigger={({ ref }) => <Button innerRef={ref}>Tree Layout</Button>}
+  trigger={({ ref, isOpen }) => <Button innerRef={ref} active={isOpen}>Tree Layout</Button>}
   style={{ width: 350, height: 260 }}
 >
   {retrieveMenuItems(state.selectedKey, state.isLoading)}
