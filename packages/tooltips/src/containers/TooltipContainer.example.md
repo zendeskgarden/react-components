@@ -166,7 +166,9 @@ initialState = {
             isVisible
             appendToBody
             placement="top-start"
-            trigger={({ getTriggerProps, ref }) => <TriggerDiv {...getTriggerProps({ innerRef: ref })} />}
+            trigger={({ getTriggerProps, ref }) => (
+              <TriggerDiv {...getTriggerProps({ innerRef: ref })} />
+            )}
           >
             {({ getTooltipProps, placement }) => (
               <TooltipView {...getTooltipProps({ placement })}>top-start</TooltipView>
@@ -178,7 +180,9 @@ initialState = {
             isVisible
             appendToBody
             placement="top"
-            trigger={({ getTriggerProps, ref }) => <TriggerDiv {...getTriggerProps({ innerRef: ref })} />}
+            trigger={({ getTriggerProps, ref }) => (
+              <TriggerDiv {...getTriggerProps({ innerRef: ref })} />
+            )}
           >
             {({ getTooltipProps, placement }) => (
               <TooltipView {...getTooltipProps({ placement })}>top</TooltipView>
@@ -190,7 +194,9 @@ initialState = {
             isVisible
             appendToBody
             placement="top-end"
-            trigger={({ getTriggerProps, ref }) => <TriggerDiv {...getTriggerProps({ innerRef: ref })} />}
+            trigger={({ getTriggerProps, ref }) => (
+              <TriggerDiv {...getTriggerProps({ innerRef: ref })} />
+            )}
           >
             {({ getTooltipProps, placement }) => (
               <TooltipView {...getTooltipProps({ placement })}>top-end</TooltipView>
@@ -202,7 +208,9 @@ initialState = {
             isVisible
             appendToBody
             placement="start"
-            trigger={({ getTriggerProps, ref }) => <TriggerDiv {...getTriggerProps({ innerRef: ref })} />}
+            trigger={({ getTriggerProps, ref }) => (
+              <TriggerDiv {...getTriggerProps({ innerRef: ref })} />
+            )}
           >
             {({ getTooltipProps, placement }) => (
               <TooltipView {...getTooltipProps({ placement })}>start</TooltipView>
@@ -217,7 +225,9 @@ initialState = {
             isVisible
             appendToBody
             placement="end"
-            trigger={({ getTriggerProps, ref }) => <TriggerDiv {...getTriggerProps({ innerRef: ref })} />}
+            trigger={({ getTriggerProps, ref }) => (
+              <TriggerDiv {...getTriggerProps({ innerRef: ref })} />
+            )}
           >
             {({ getTooltipProps, placement }) => (
               <TooltipView {...getTooltipProps({ placement })}>end</TooltipView>
@@ -229,7 +239,9 @@ initialState = {
             isVisible
             appendToBody
             placement="bottom-start"
-            trigger={({ getTriggerProps, ref }) => <TriggerDiv {...getTriggerProps({ innerRef: ref })} />}
+            trigger={({ getTriggerProps, ref }) => (
+              <TriggerDiv {...getTriggerProps({ innerRef: ref })} />
+            )}
           >
             {({ getTooltipProps, placement }) => (
               <TooltipView {...getTooltipProps({ placement })}>bottom-start</TooltipView>
@@ -241,7 +253,9 @@ initialState = {
             isVisible
             appendToBody
             placement="bottom"
-            trigger={({ getTriggerProps, ref }) => <TriggerDiv {...getTriggerProps({ innerRef: ref })} />}
+            trigger={({ getTriggerProps, ref }) => (
+              <TriggerDiv {...getTriggerProps({ innerRef: ref })} />
+            )}
           >
             {({ getTooltipProps, placement }) => (
               <TooltipView {...getTooltipProps({ placement })}>bottom</TooltipView>
@@ -253,7 +267,9 @@ initialState = {
             isVisible
             appendToBody
             placement="bottom-end"
-            trigger={({ getTriggerProps, ref }) => <TriggerDiv {...getTriggerProps({ innerRef: ref })} />}
+            trigger={({ getTriggerProps, ref }) => (
+              <TriggerDiv {...getTriggerProps({ innerRef: ref })} />
+            )}
           >
             {({ getTooltipProps, placement }) => (
               <TooltipView {...getTooltipProps({ placement })}>bottom-end</TooltipView>
