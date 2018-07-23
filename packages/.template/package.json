@@ -37,6 +37,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "zendeskgarden:src": "src/index.js",
-  "zendeskgarden:library": "Garden{{capitalize component}}"
+  "zendeskgarden:library": "Garden{{capitalize component}}",
+  "zendeskgarden:src": "src/index.js"
 }
