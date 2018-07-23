@@ -31,7 +31,7 @@ const OverflowMenu = ({ isHeader = false }) => (
         enabled: false
       },
       offset: {
-        fn: (data) => {
+        fn: data => {
           /**
            * Have to ensure that popper is placed relative
            * to the trigger
