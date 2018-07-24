@@ -43,7 +43,7 @@ import { Button } from '@zendeskgarden/react-buttons';
         </Button>
       </FooterItem>
     </Footer>
-    <Close />
+    <Close aria-label="Close modal" />
   </Modal>
 </ThemeProvider>
 ```

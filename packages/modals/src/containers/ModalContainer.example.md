@@ -44,7 +44,7 @@ const onModalClose = () => setState({ isModalVisible: false });
                 </Button>
               </FooterItem>
             </Footer>
-            <Close {...getCloseProps()} />
+            <Close {...getCloseProps({ 'aria-label': 'Close modal' })} />
           </ModalView>
         </Backdrop>
       )}

@@ -111,6 +111,7 @@ const { Input } = require('@zendeskgarden/react-textfields/src');
       {...getTriggerProps({
         onMouseEnter: event => event.preventDefault(), // stop our default logic
         onMouseLeave: event => event.preventDefault(), // stop our default logic
+        'aria-label': 'Example hover only input',
         placeholder: 'Hover does not trigger me, but focus does',
         style: { width: 500 }
       })}
