@@ -51,15 +51,26 @@ describe('FieldContainer', () => {
   });
 
   describe('getInputProps', () => {
-    it('applies correct accessibility role', () => {
+    it('applies correct accessibility attributes', () => {
       const input = findInput(wrapper);
 
       expect(input).toHaveProp('id', `${CONTAINER_ID}--input`);
       expect(input).toHaveProp('aria-labelledby', `${CONTAINER_ID}--label`);
-      expect(input).toHaveProp(
-        'aria-describedby',
-        `${CONTAINER_ID}--hint ${CONTAINER_ID}--message`
+      expect(input).toHaveProp('aria-describedby', `${CONTAINER_ID}--hint`);
+    });
+
+    it('excludes aria-describedby if option is provided', () => {
+      wrapper = mount(
+        <FieldContainer id={CONTAINER_ID}>
+          {({ getInputProps }) => (
+            <div>
+              <input {...getInputProps({ 'data-test-id': 'input' }, { isDescribed: false })} />
+            </div>
+          )}
+        </FieldContainer>
       );
+
+      expect(findInput(wrapper)).toHaveProp('aria-describedby', null);
     });
   });
 
@@ -71,7 +82,7 @@ describe('FieldContainer', () => {
 
   describe('getMessageProps', () => {
     it('applies correct accessibility role', () => {
-      expect(findMessage(wrapper)).toHaveProp('id', `${CONTAINER_ID}--message`);
+      expect(findMessage(wrapper)).toHaveProp('role', 'alert');
     });
   });
 });

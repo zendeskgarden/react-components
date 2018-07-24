@@ -57,6 +57,14 @@ export default class SelectField extends ControlledComponent {
 
     this.selectRef = undefined;
 
+    let isDescribed = false;
+
+    Children.forEach(children, child => {
+      if (hasType(child, Hint)) {
+        isDescribed = true;
+      }
+    });
+
     return (
       <SelectGroup {...otherProps}>
         <FieldContainer>
@@ -84,7 +92,10 @@ export default class SelectField extends ControlledComponent {
               }
 
               if (hasType(child, Select)) {
-                return cloneElement(child, getFieldInputProps(this.getInputProps(child.props)));
+                return cloneElement(
+                  child,
+                  getFieldInputProps(this.getInputProps(child.props), { isDescribed })
+                );
               }
 
               return child;

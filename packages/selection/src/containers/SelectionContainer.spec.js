@@ -16,7 +16,7 @@ describe('SelectionContainer', () => {
   const itemValues = ['Item-1', 'Item-2', 'Item-3'];
   let wrapper;
 
-  const basicExample = (direction, defaultFocusedIndex) => (
+  const basicExample = ({ direction, defaultFocusedIndex, selectedAriaKey } = {}) => (
     <SelectionContainer
       id="test-id"
       direction={direction}
@@ -26,12 +26,17 @@ describe('SelectionContainer', () => {
         <div {...getContainerProps({ 'data-test-id': 'container' })}>
           {itemValues.map(item => (
             <div
-              {...getItemProps({
-                key: item,
-                'data-test-id': 'item',
-                'data-focused': focusedKey === item,
-                'data-selected': selectedKey === item
-              })}
+              {...getItemProps(
+                {
+                  key: item,
+                  'data-test-id': 'item',
+                  'data-focused': focusedKey === item,
+                  'data-selected': selectedKey === item
+                },
+                {
+                  selectedAriaKey
+                }
+              )}
             >
               {item}
             </div>
@@ -87,7 +92,7 @@ describe('SelectionContainer', () => {
       });
 
       it('focuses last item if no item is currently selected and defaultFocusedIndex is provided', () => {
-        wrapper = mountWithTheme(basicExample(undefined, -1));
+        wrapper = mountWithTheme(basicExample({ defaultFocusedIndex: -1 }));
 
         findContainer(wrapper).simulate('focus');
 
@@ -295,7 +300,7 @@ describe('SelectionContainer', () => {
 
       describe('while using vertical direction', () => {
         beforeEach(() => {
-          wrapper = mountWithTheme(basicExample('vertical'));
+          wrapper = mountWithTheme(basicExample({ direction: 'vertical' }));
         });
 
         describe('UP keyCode', () => {
@@ -404,6 +409,15 @@ describe('SelectionContainer', () => {
 
     it('applies accessibility role attribute', () => {
       expect(findItems(wrapper).first()).toHaveProp('role', 'option');
+    });
+
+    it('applies default selected aria value if none provided', () => {
+      expect(findItems(wrapper).first()).toHaveProp('aria-selected');
+    });
+
+    it('applies custom selected aria value if provided', () => {
+      wrapper = mountWithTheme(basicExample({ selectedAriaKey: 'aria-pressed' }));
+      expect(findItems(wrapper).first()).toHaveProp('aria-pressed');
     });
 
     describe('onClick', () => {
