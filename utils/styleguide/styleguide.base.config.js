@@ -7,6 +7,12 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const {
+  zdColorBlue600,
+  zdColorGrey100,
+  zdColorKale400,
+  zdColorRed600
+} = require('@zendeskgarden/css-variables');
 const packageManifest = require(path.resolve('package.json'));
 const customStyleguideConfig = require(path.resolve('styleguide.config.js'));
 const basePathName = path.basename(path.resolve('./'));
@@ -20,7 +26,18 @@ const defaultStyleguideConfig = {
   serverPort: 5000,
   styleguideDir: `../../demo/${basePathName}`,
   usageMode: 'expand',
+  theme: {
+    color: {
+      link: zdColorBlue600,
+      linkHover: zdColorBlue600,
+      codeBackground: zdColorGrey100,
+      sidebarBackground: zdColorGrey100,
+      name: zdColorKale400,
+      type: zdColorRed600
+    }
+  },
   template: {
+    lang: 'en',
     head: {
       meta: [
         {
@@ -60,7 +77,8 @@ const defaultStyleguideConfig = {
     'babel-polyfill',
     path.resolve(__dirname, 'setup.js'),
     path.resolve(__dirname, 'styles.css'),
-    'github-markdown-css'
+    'github-markdown-css',
+    path.resolve(__dirname, 'github-hljs-theme.css')
   ],
   getExampleFilename(componentPath) {
     return componentPath.replace(/\.jsx?$/, '.example.md');
@@ -73,7 +91,9 @@ const defaultStyleguideConfig = {
   styleguideComponents: {
     Wrapper: path.resolve(__dirname, 'Wrapper'),
     TableOfContentsRenderer: path.resolve(__dirname, 'TableOfContentsRenderer'),
-    LogoRenderer: path.resolve(__dirname, 'LogoRenderer')
+    LogoRenderer: path.resolve(__dirname, 'LogoRenderer'),
+    TableRenderer: path.resolve(__dirname, 'TableRenderer'),
+    ArgumentsRenderer: path.resolve(__dirname, 'ArgumentsRenderer')
   },
   webpackConfig: {
     devtool: 'eval-source-map',
