@@ -2,7 +2,6 @@
   "extends": [
     "config:base"
   ],
-  "schedule": "before 3am every 2 weeks",
   "rebaseStalePrs": true,
   "packageRules": [
     {
