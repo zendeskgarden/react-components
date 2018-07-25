@@ -59,7 +59,7 @@ describe('FieldContainer', () => {
       expect(input).toHaveProp('aria-describedby', `${CONTAINER_ID}--hint`);
     });
 
-    it('excludes aria-describedby if option is provided', () => {
+    it('excludes aria-describedby if option is not provided', () => {
       wrapper = mount(
         <FieldContainer id={CONTAINER_ID}>
           {({ getInputProps }) => (
