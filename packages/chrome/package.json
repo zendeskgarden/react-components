@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@zendeskgarden/css-chrome": "3.0.3",
-    "@zendeskgarden/css-variables": "4.1.4",
+    "@zendeskgarden/css-variables": "5.0.0",
     "@zendeskgarden/react-theming": "^3.1.1",
     "@zendeskgarden/react-toggles": "^3.2.10"
   },
