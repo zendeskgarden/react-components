@@ -26,6 +26,8 @@ import { getPopperPlacement, getRtlPopperPlacement } from '../utils/gardenPlacem
  * container Popper would apply absolute positioning.
  */
 const TooltipWrapper = styled.div`
+  z-index: ${props => props.zIndex};
+
   &[aria-hidden='true'] {
     display: none;
   }
@@ -90,13 +92,18 @@ class TooltipContainer extends ControlledComponent {
      * @param {Function} renderProps.getTriggerProps - Props to be spread onto the trigger element
      * @param {Function} renderProps.isVisible - Whether the Tooltip is currently visible
      */
-    trigger: PropTypes.func
+    trigger: PropTypes.func,
+    /**
+     * The z-index of the popper.js placement container
+     */
+    zIndex: PropTypes.number
   };
 
   static defaultProps = {
     placement: 'top',
     eventsEnabled: true,
-    delayMilliseconds: 500
+    delayMilliseconds: 500,
+    zIndex: 1000
   };
 
   constructor(...args) {
@@ -186,7 +193,8 @@ class TooltipContainer extends ControlledComponent {
       trigger,
       eventsEnabled,
       popperModifiers,
-      appendToBody
+      appendToBody,
+      zIndex
     } = this.props;
     const { isVisible } = this.getControlledState();
 
@@ -220,6 +228,7 @@ class TooltipContainer extends ControlledComponent {
                   innerRef={popperProps.ref}
                   style={popperProps.style}
                   aria-hidden={!isVisible}
+                  zIndex={zIndex}
                 >
                   {render({
                     getTooltipProps: props => this.getTooltipProps(props),
