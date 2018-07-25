@@ -19,7 +19,7 @@ const defaultStyleguideConfig = {
   skipComponentsWithoutExample: false,
   serverPort: 5000,
   styleguideDir: `../../demo/${basePathName}`,
-  showUsage: true,
+  usageMode: 'expand',
   template: {
     head: {
       meta: [

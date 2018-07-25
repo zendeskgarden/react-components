@@ -2,4 +2,4 @@
 set -x
 set -e
 
-styleguidist server --config ../../utils/styleguide/styleguide.base.config.js
+styleguidist server --config ../../utils/styleguide/styleguide.base.config.js --open
