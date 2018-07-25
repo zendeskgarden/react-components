@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "4.1.9",
+  "version": "4.1.10",
   "main": "./dist/index.js",
   "files": [
     "dist"
@@ -34,7 +34,7 @@
     "@zendeskgarden/css-chrome": "3.0.3",
     "@zendeskgarden/css-variables": "4.1.4",
     "@zendeskgarden/react-theming": "^3.1.1",
-    "@zendeskgarden/react-toggles": "^3.2.8"
+    "@zendeskgarden/react-toggles": "^3.2.9"
   },
   "keywords": [
     "components",
