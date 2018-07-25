@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.1.4"></a>
+## [0.1.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tables@0.1.3...@zendeskgarden/react-tables@0.1.4) (2018-07-25)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-tables
+
 <a name="0.1.3"></a>
 ## [0.1.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tables@0.1.2...@zendeskgarden/react-tables@0.1.3) (2018-07-25)
 

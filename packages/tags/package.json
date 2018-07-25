@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "1.1.9",
+  "version": "1.1.10",
   "main": "./dist/index.js",
   "files": [
     "dist"
@@ -30,8 +30,8 @@
   },
   "devDependencies": {
     "@zendeskgarden/css-tags": "4.0.3",
-    "@zendeskgarden/react-selection": "^4.3.1",
-    "@zendeskgarden/react-textfields": "^3.2.9",
+    "@zendeskgarden/react-selection": "^4.3.2",
+    "@zendeskgarden/react-textfields": "^3.2.10",
     "@zendeskgarden/react-theming": "^3.1.1"
   },
   "keywords": [
