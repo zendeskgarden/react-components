@@ -30,16 +30,16 @@
     "styled-components": "^3.2.6"
   },
   "devDependencies": {
-    "@zendeskgarden/css-tables": "^3.0.4",
-    "@zendeskgarden/css-variables": "^5.0.0",
+    "@zendeskgarden/css-tables": "3.0.4",
+    "@zendeskgarden/css-variables": "5.0.0",
     "@zendeskgarden/react-avatars": "^3.0.7",
     "@zendeskgarden/react-checkboxes": "^3.2.6",
     "@zendeskgarden/react-menus": "^3.4.0",
     "@zendeskgarden/react-pagination": "^4.1.6",
     "@zendeskgarden/react-select": "^2.2.15",
     "@zendeskgarden/react-theming": "^3.0.0",
-    "@zendeskgarden/svg-icons": "^4.4.0",
-    "react-beautiful-dnd": "^8.0.3"
+    "@zendeskgarden/svg-icons": "4.4.0",
+    "react-beautiful-dnd": "8.0.5"
   },
   "keywords": [
     "components",
