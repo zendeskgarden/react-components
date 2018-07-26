@@ -1,6 +1,6 @@
 By default, the `<Button>` component contains an internal `KeyboardFocusContainer`
 wrapper that applies focused styling _ONLY_ on keyboard focus. This can always
-be overriden by providing the `focus` prop.
+be overridden by providing the `focus` prop.
 
 ```jsx
 <Grid>
