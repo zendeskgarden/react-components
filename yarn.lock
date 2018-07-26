@@ -8450,9 +8450,9 @@ react-reconciler@^0.7.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
-react-styleguidist@7.1.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/react-styleguidist/-/react-styleguidist-7.1.0.tgz#266c5ff21fc14b3a52567582500ff613583e72c8"
+react-styleguidist@7.1.1:
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/react-styleguidist/-/react-styleguidist-7.1.1.tgz#ed1dc2969418884fbb853c4c8303e79ae7ae375d"
   dependencies:
     "@vxna/mini-html-webpack-template" "^0.1.7"
     acorn "^5.7.1"
@@ -8504,6 +8504,7 @@ react-styleguidist@7.1.0:
     react-group "^1.0.6"
     react-icons "^2.2.7"
     react-lifecycles-compat "^3.0.4"
+    recast "^0.13.0"
     remark "^9.0.0"
     style-loader "^0.21.0"
     to-ast "^1.0.0"
