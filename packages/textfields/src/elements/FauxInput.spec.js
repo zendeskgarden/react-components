@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { mountWithTheme } from '@zendeskgarden/react-testing';
 
 import FauxInput from './FauxInput';
 
@@ -30,9 +30,7 @@ describe('FauxInput', () => {
   const findInnerContent = enzymeWrapper => enzymeWrapper.find('[data-test-id="inner-content"]');
 
   beforeEach(() => {
-    // Disabled due to styled-components theming
-    console.warn = jest.fn(); // eslint-disable-line no-console
-    wrapper = mount(basicExample());
+    wrapper = mountWithTheme(basicExample());
   });
 
   it('does not apply focused styling by default', () => {

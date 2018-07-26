@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { mountWithTheme } from '@zendeskgarden/react-testing';
 import { KEY_CODES } from '@zendeskgarden/react-selection';
 import FocusJailContainer from './FocusJailContainer';
 
@@ -33,10 +33,8 @@ describe('FocusJailContainer', () => {
   const findInput = enzymeWrapper => enzymeWrapper.find('[data-test-id="input"]');
 
   beforeEach(() => {
-    // Disabled due to styled-components theming
-    console.warn = jest.fn(); // eslint-disable-line no-console
     focusElementSpy = jest.spyOn(FocusJailContainer.prototype, 'focusElement');
-    wrapper = mount(basicExample());
+    wrapper = mountWithTheme(basicExample());
   });
 
   afterEach(() => {
@@ -46,13 +44,13 @@ describe('FocusJailContainer', () => {
   describe('componentDidMount()', () => {
     it('focuses container element by default', () => {
       focusElementSpy.mockReset();
-      wrapper = mount(basicExample());
+      wrapper = mountWithTheme(basicExample());
       expect(focusElementSpy).toHaveBeenCalledWith(findContainer(wrapper).getDOMNode());
     });
 
     it('does not focus container element if focusOnMount is false', () => {
       focusElementSpy.mockReset();
-      wrapper = mount(basicExample({ focusOnMount: false }));
+      wrapper = mountWithTheme(basicExample({ focusOnMount: false }));
       expect(focusElementSpy).not.toHaveBeenCalled();
     });
   });
@@ -62,7 +60,7 @@ describe('FocusJailContainer', () => {
       console.error = jest.fn(); // eslint-disable-line no-console
 
       expect(() => {
-        mount(
+        mountWithTheme(
           <FocusJailContainer>
             {({ getContainerProps }) => (
               <div {...getContainerProps({ 'data-test-id': 'container' })}>Test</div>
@@ -88,7 +86,7 @@ describe('FocusJailContainer', () => {
 
       it('focuses container if no tabbable elements found', () => {
         focusElementSpy.mockClear();
-        wrapper = mount(
+        wrapper = mountWithTheme(
           <FocusJailContainer>
             {({ getContainerProps, containerRef }) => (
               <div {...getContainerProps({ 'data-test-id': 'container' })} ref={containerRef}>

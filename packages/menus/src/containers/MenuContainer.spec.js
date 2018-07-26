@@ -124,8 +124,6 @@ describe('MenuContainer', () => {
   const findPreviousMenuItems = enzymeWrapper => enzymeWrapper.find('[data-previous-item=true]');
 
   beforeEach(() => {
-    // Disabled due to styled-components theming
-    console.warn = jest.fn(); // eslint-disable-line no-console
     onChangeSpy = jest.fn();
   });
 
