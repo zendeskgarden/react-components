@@ -31,8 +31,8 @@
     "styled-components": "^3.2.6"
   },
   "devDependencies": {
-    "@zendeskgarden/css-chrome": "3.0.3",
-    "@zendeskgarden/css-variables": "5.0.0",
+    "@zendeskgarden/css-chrome": "3.0.4",
+    "@zendeskgarden/css-variables": "5.0.1",
     "@zendeskgarden/react-theming": "^3.1.1",
     "@zendeskgarden/react-toggles": "^3.2.10"
   },
