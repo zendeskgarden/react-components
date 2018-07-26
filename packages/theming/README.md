@@ -29,23 +29,27 @@ All themes are auto-prefixed and has access to the `props` provided to the compo
 
 ```jsx static
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Notification } from '@zendeskgarden/react-notifications';
+import { Notification, Title, Paragraph } from '@zendeskgarden/react-notifications';
 
 const theme = {
-  'notification': `
-    color: red;
+  'notifications.title': `
+    && {
+      color: red;
 
-    :hover {
-      color: blue;
+      :hover {
+        color: blue;
+      }
     }
-  `
-}
+  `,
+  'notifications.paragraph': props => (props.purple ? 'color: purple' : '')
+};
 
 <ThemeProvider theme={theme}>
   <Notification>
-    This notification content will have custom styling.
+    <Title>Themed Title (hover as well)</Title>
+    <Paragraph purple>Custom theme triggered by prop</Paragraph>
   </Notification>
-</ThemeProvider>
+</ThemeProvider>;
 ```
 
 ### RTL
