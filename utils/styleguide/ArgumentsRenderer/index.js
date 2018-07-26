@@ -9,15 +9,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Argument from 'react-styleguidist/lib/rsg-components/Argument/ArgumentRenderer';
-import { zdFontSizeEpsilon, zdFontWeightSemibold } from '@zendeskgarden/css-variables';
+import {
+  zdFontSizeEpsilon,
+  zdFontWeightSemibold,
+  zdSpacingXs,
+  zdSpacingXxs
+} from '@zendeskgarden/css-variables';
 
 const ArgumentsContainer = styled.div`
-  margin-bottom: 8px;
+  margin-bottom: ${zdSpacingXs};
   font-size: inherit;
 `;
 
 const Heading = styled.div`
-  margin-bottom: 4px;
+  margin-bottom: ${zdSpacingXxs};
   font-size: ${zdFontSizeEpsilon};
   font-weight: ${zdFontWeightSemibold};
 `;
