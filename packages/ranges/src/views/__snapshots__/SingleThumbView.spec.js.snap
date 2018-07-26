@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SingleThumbView renders RTL styling 1`] = `
-.c0 {
+.c0.c0 {
   background-size: 0%;
 }
 
@@ -14,7 +14,7 @@ exports[`SingleThumbView renders RTL styling 1`] = `
 `;
 
 exports[`SingleThumbView renders background-size correctly 1`] = `
-.c0 {
+.c0.c0 {
   background-size: 95%;
 }
 
@@ -27,7 +27,7 @@ exports[`SingleThumbView renders background-size correctly 1`] = `
 `;
 
 exports[`SingleThumbView renders default styling 1`] = `
-.c0 {
+.c0.c0 {
   background-size: 0%;
 }
 
@@ -40,7 +40,7 @@ exports[`SingleThumbView renders default styling 1`] = `
 `;
 
 exports[`SingleThumbView renders disabled styling if provided 1`] = `
-.c0 {
+.c0.c0 {
   background-size: 0%;
 }
 
@@ -54,7 +54,7 @@ exports[`SingleThumbView renders disabled styling if provided 1`] = `
 `;
 
 exports[`SingleThumbView renders focused styling if provided 1`] = `
-.c0 {
+.c0.c0 {
   background-size: 0%;
 }
 
@@ -67,7 +67,7 @@ exports[`SingleThumbView renders focused styling if provided 1`] = `
 `;
 
 exports[`SingleThumbView renders hovered styling if provided 1`] = `
-.c0 {
+.c0.c0 {
   background-size: 0%;
 }
 

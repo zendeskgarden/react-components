@@ -56,6 +56,7 @@ export default class Menu extends ControlledComponent {
     /**
      * @param {Object} renderProps
      * @param {Function} renderProps.ref - Callback to retrieve the trigger elements ref
+     * @param {Boolean} renderProps.isOpen - Whether the Menu is currently visible
      */
     trigger: PropTypes.func,
     /**
@@ -132,7 +133,10 @@ export default class Menu extends ControlledComponent {
         zIndex={zIndex}
         onChange={onChange}
         trigger={({ getTriggerProps, triggerRef }) => {
-          const referencedTrigger = trigger({ ref: triggerRef, isOpen });
+          const referencedTrigger = trigger({
+            ref: triggerRef,
+            isOpen: typeof isOpen === 'undefined' ? false : isOpen
+          });
 
           return cloneElement(referencedTrigger, getTriggerProps(referencedTrigger.props));
         }}

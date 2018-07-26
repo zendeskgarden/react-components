@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.4.3"></a>
+## [3.4.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.4.2...@zendeskgarden/react-menus@3.4.3) (2018-07-25)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-menus
+
+<a name="3.4.2"></a>
+## [3.4.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.4.1...@zendeskgarden/react-menus@3.4.2) (2018-07-25)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-menus
+
+<a name="3.4.1"></a>
+## [3.4.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.4.0...@zendeskgarden/react-menus@3.4.1) (2018-07-25)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-menus
+
+<a name="3.4.0"></a>
+# [3.4.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.3.7...@zendeskgarden/react-menus@3.4.0) (2018-07-25)
+
+
+### Features
+
+* **menus:** add left-top, left-bottom, right-top, and right-bottom arrow placements to `MenuView` ([#61](https://github.com/zendeskgarden/react-components/issues/61)) ([2767a6a](https://github.com/zendeskgarden/react-components/commit/2767a6a))
+
+
+
+
 <a name="3.3.7"></a>
 ## [3.3.7](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.3.6...@zendeskgarden/react-menus@3.3.7) (2018-07-18)
 

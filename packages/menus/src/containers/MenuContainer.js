@@ -493,7 +493,8 @@ class MenuContainer extends ControlledComponent {
                   triggerRef: ref => {
                     targetRef(ref);
                     this.triggerRef(ref);
-                  }
+                  },
+                  isOpen: typeof isOpen === 'undefined' ? false : isOpen
                 })
               );
             }}

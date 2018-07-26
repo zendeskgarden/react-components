@@ -30,7 +30,9 @@ const SingleThumbView = styled.input.attrs({
       [RangeStyles['is-rtl']]: isRtl(props)
     })
 })`
-  ${({ backgroundSize }) => `background-size: ${backgroundSize};`};
+  && {
+    ${({ backgroundSize }) => `background-size: ${backgroundSize};`};
+  }
 
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;

@@ -33,8 +33,10 @@ for (let x = 1; x <= 5; x++) {
 
 <MenuContainer
   onChange={itemKey => alert(`Selected menu item: "${itemKey}"`)}
-  trigger={({ getTriggerProps, triggerRef }) => (
-    <Button {...getTriggerProps({ innerRef: triggerRef })}>Simple Menu Example</Button>
+  trigger={({ getTriggerProps, triggerRef, isOpen }) => (
+    <Button {...getTriggerProps({ innerRef: triggerRef, active: isOpen })}>
+      Simple Menu Example
+    </Button>
   )}
 >
   {({ getMenuProps, menuRef, placement, getItemProps, focusedKey }) => (
@@ -97,10 +99,8 @@ const secondaryMenuItems = [
     <Col md>
       <MenuContainer
         onChange={key => setState({ selectedKey: key })}
-        trigger={({ getTriggerProps, triggerRef }) => (
-          <Button {...getTriggerProps()} innerRef={triggerRef}>
-            Open Menu
-          </Button>
+        trigger={({ getTriggerProps, triggerRef, isOpen }) => (
+          <Button {...getTriggerProps({ innerRef: triggerRef, active: isOpen })}>Open Menu</Button>
         )}
       >
         {({ getMenuProps, menuRef, placement, getItemProps, focusedKey }) => (
@@ -173,8 +173,8 @@ const ScrollableArea = styled.div`
 `;
 
 <MenuContainer
-  trigger={({ getTriggerProps, triggerRef }) => (
-    <Button {...getTriggerProps()} innerRef={triggerRef}>
+  trigger={({ getTriggerProps, triggerRef, isOpen }) => (
+    <Button {...getTriggerProps({ innerRef: triggerRef, active: isOpen })}>
       Scrolling Menu Example
     </Button>
   )}
@@ -239,8 +239,10 @@ initialState = {
       <MenuContainer
         placement="end"
         onChange={selectedKey => setState({ selectedKey })}
-        trigger={({ getTriggerProps, triggerRef }) => (
-          <button {...getTriggerProps({ ref: triggerRef })}>Heavily customized menu</button>
+        trigger={({ getTriggerProps, triggerRef, isOpen }) => (
+          <button {...getTriggerProps({ ref: triggerRef, active: isOpen })}>
+            Heavily customized menu
+          </button>
         )}
       >
         {({ getMenuProps, menuRef, placement, getItemProps, focusedKey }) => (
@@ -357,8 +359,10 @@ const getMatchingMenuItems = (searchValue, getItemProps, focusedKey) => {
         setState(newState);
       }}
       onChange={itemKey => alert(`Selected menu item: "${itemKey}"`)}
-      trigger={({ getTriggerProps, triggerRef }) => (
-        <Button {...getTriggerProps({ innerRef: triggerRef })}>Inline search example</Button>
+      trigger={({ getTriggerProps, triggerRef, isOpen }) => (
+        <Button {...getTriggerProps({ innerRef: triggerRef, active: isOpen })}>
+          Inline search example
+        </Button>
       )}
     >
       {({ getMenuProps, menuRef, placement, getItemProps, focusedKey }) => (
@@ -557,7 +561,7 @@ retrieveMenuItems = (node, getItemProps, getNextItemProps, getPreviousItemProps,
     }
   }}
   onStateChange={newState => {
-    if (newState.hasOwnProperty('isOpen')) {
+    if (newState.hasOwnProperty('isOpen') && !newState.isOpen) {
       newState.node = TREE_DATA['root'];
     }
 
@@ -569,8 +573,10 @@ retrieveMenuItems = (node, getItemProps, getNextItemProps, getPreviousItemProps,
   }}
   focusedKey={state.focusedKey}
   isOpen={state.isOpen}
-  trigger={({ getTriggerProps, triggerRef }) => (
-    <Button {...getTriggerProps({ innerRef: triggerRef })}>Simple Menu Example</Button>
+  trigger={({ getTriggerProps, triggerRef, isOpen }) => (
+    <Button {...getTriggerProps({ innerRef: triggerRef, active: isOpen })}>
+      Simple Menu Example
+    </Button>
   )}
 >
   {({
@@ -582,7 +588,9 @@ retrieveMenuItems = (node, getItemProps, getNextItemProps, getPreviousItemProps,
     getPreviousItemProps,
     focusedKey
   }) => (
-    <MenuView {...getMenuProps({ placement, animate: true, arrow: true, menuRef })}>
+    <MenuView
+      {...getMenuProps({ placement, animate: true, arrow: true, menuRef, style: { height: 225 } })}
+    >
       {this.retrieveMenuItems(
         state.node,
         getItemProps,

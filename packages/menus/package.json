@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "3.3.7",
+  "version": "3.4.3",
   "main": "./dist/index.js",
   "files": [
     "dist"
@@ -19,9 +19,9 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendeskgarden/react-modals": "^5.2.14",
-    "@zendeskgarden/react-selection": "^4.3.1",
-    "@zendeskgarden/react-tooltips": "^4.2.3",
+    "@zendeskgarden/react-modals": "^5.2.16",
+    "@zendeskgarden/react-selection": "^4.3.2",
+    "@zendeskgarden/react-tooltips": "^4.2.5",
     "@zendeskgarden/react-utilities": "^0.2.0",
     "classnames": "^2.2.5",
     "react-popper": "^0.9.5",
@@ -36,13 +36,13 @@
     "styled-components": "^3.2.6"
   },
   "devDependencies": {
-    "@zendeskgarden/css-arrows": "^3.1.0",
-    "@zendeskgarden/css-menus": "^7.0.0",
-    "@zendeskgarden/css-variables": "^4.1.3",
-    "@zendeskgarden/react-buttons": "^3.3.7",
-    "@zendeskgarden/react-textfields": "^3.2.8",
+    "@zendeskgarden/css-arrows": "3.1.1",
+    "@zendeskgarden/css-menus": "7.0.3",
+    "@zendeskgarden/css-variables": "5.0.0",
+    "@zendeskgarden/react-buttons": "^3.3.9",
+    "@zendeskgarden/react-textfields": "^3.2.10",
     "@zendeskgarden/react-theming": "^3.1.1",
-    "@zendeskgarden/svg-icons": "^4.0.1"
+    "@zendeskgarden/svg-icons": "4.4.0"
   },
   "keywords": [
     "components",
