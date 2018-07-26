@@ -338,9 +338,9 @@
     text-table "^0.2.0"
     webpack-log "^1.1.2"
 
-"@zendeskgarden/css-variables@4.1.4":
-  version "4.1.4"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/css-variables/-/css-variables-4.1.4.tgz#feef9efd6820a426050a0edad7ffe474a8e4772a"
+"@zendeskgarden/css-variables@5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/css-variables/-/css-variables-5.0.0.tgz#694c19d4fb032672c232ca51a364d6851c8bed94"
 
 "@zendeskgarden/eslint-config@6.0.0":
   version "6.0.0"

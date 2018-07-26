@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@types/react": "16.4.7",
-    "@zendeskgarden/css-variables": "4.1.4",
+    "@zendeskgarden/css-variables": "5.0.0",
     "@zendeskgarden/eslint-config": "6.0.0",
     "@zendeskgarden/stylelint-config": "8.1.1",
     "@zendeskgarden/svg-icons": "4.4.0",
