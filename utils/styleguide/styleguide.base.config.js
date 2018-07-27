@@ -39,11 +39,12 @@ const defaultStyleguideConfig = {
       scripts: [
         {
           async: '',
-          src: `//www.googletagmanager.com/gtag/js?id=${googleTrackingId}`
+          src: `https://www.googletagmanager.com/gtag/js?id=${googleTrackingId}`
         },
         {
           async: '',
-          src: '//static-staging.zdassets.com/customer_analytics_integration/garden_dev/cai.min.js'
+          src:
+            'https://static-staging.zdassets.com/customer_analytics_integration/garden_dev/cai.min.js'
         }
       ],
       raw: [
