@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.3.10"></a>
+## [3.3.10](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.3.9...@zendeskgarden/react-buttons@3.3.10) (2018-07-27)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-buttons
+
 <a name="3.3.9"></a>
 ## [3.3.9](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.3.8...@zendeskgarden/react-buttons@3.3.9) (2018-07-25)
 
