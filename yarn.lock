@@ -338,9 +338,9 @@
     text-table "^0.2.0"
     webpack-log "^1.1.2"
 
-"@zendeskgarden/css-variables@5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/css-variables/-/css-variables-5.0.0.tgz#694c19d4fb032672c232ca51a364d6851c8bed94"
+"@zendeskgarden/css-variables@5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/css-variables/-/css-variables-5.0.1.tgz#fb42ecb4529e8d33282b4bef8e63ab7738c344e5"
 
 "@zendeskgarden/eslint-config@6.0.0":
   version "6.0.0"
@@ -10625,9 +10625,9 @@ webpack-sources@^1.0.1, webpack-sources@^1.1.0:
     source-list-map "^2.0.0"
     source-map "~0.6.1"
 
-webpack@4.16.2:
-  version "4.16.2"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.16.2.tgz#c3e0e771adc94582e0543dd18d7436066051e885"
+webpack@4.16.3:
+  version "4.16.3"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.16.3.tgz#861be3176d81e7e3d71c66c8acc9bba35588b525"
   dependencies:
     "@webassemblyjs/ast" "1.5.13"
     "@webassemblyjs/helper-module-context" "1.5.13"

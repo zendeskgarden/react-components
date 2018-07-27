@@ -30,8 +30,8 @@
     "styled-components": "^3.2.6"
   },
   "devDependencies": {
-    "@zendeskgarden/css-tables": "3.0.4",
-    "@zendeskgarden/css-variables": "5.0.0",
+    "@zendeskgarden/css-tables": "3.0.5",
+    "@zendeskgarden/css-variables": "5.0.1",
     "@zendeskgarden/react-avatars": "^3.0.9",
     "@zendeskgarden/react-checkboxes": "^3.2.10",
     "@zendeskgarden/react-menus": "^3.4.3",
