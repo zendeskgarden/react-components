@@ -17,15 +17,7 @@ const options = {
   entry: path.resolve('src', 'index.js'),
   devtool: 'source-map',
   optimization: {
-    minimizer: [
-      new OptimizeCSSAssetsPlugin({
-        cssProcessorOptions: {
-          discardComments: { removeAllButFirst: true },
-          reduceIdents: false,
-          zindex: false
-        }
-      })
-    ]
+    minimizer: [new OptimizeCSSAssetsPlugin()]
   },
   plugins: [
     /**
