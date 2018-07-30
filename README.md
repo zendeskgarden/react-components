@@ -1,4 +1,4 @@
-# Garden React Components [![Build Status](https://img.shields.io/travis/zendeskgarden/react-components/master.svg?style=flat-square)](https://travis-ci.org/zendeskgarden/react-components) [![Dependency Status](https://img.shields.io/david/dev/zendeskgarden/react-components.svg?style=flat-square)](https://david-dm.org/zendeskgarden/react-components?type=dev) <!-- markdownlint-disable -->
+# Garden React Components [![Build Status](https://img.shields.io/travis/zendeskgarden/react-components/master.svg?style=flat-square)](https://travis-ci.org/zendeskgarden/react-components) [![Dependency Status](https://img.shields.io/david/dev/zendeskgarden/react-components.svg?style=flat-square)](https://david-dm.org/zendeskgarden/react-components?type=dev) [![Coverage Status](https://img.shields.io/coveralls/github/zendeskgarden/react-components/master.svg?style=flat-square)](https://coveralls.io/github/zendeskgarden/react-components) <!-- markdownlint-disable -->
 <!-- markdownlint-enable -->
 
 > :seedling: Garden is a design system for Zendesk

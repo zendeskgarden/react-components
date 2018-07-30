@@ -13,7 +13,9 @@ install: yarn --frozen-lockfile
 
 script:
   - yarn lint
-  - yarn test:all --runInBand
+  - yarn test:all --coverage --runInBand
+
+after_success: yarn coveralls < demo/coverage/lcov.info
 
 before_deploy:
   - export NODE_DEBUG=gh-pages
