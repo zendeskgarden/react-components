@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "5.2.17",
+  "version": "5.2.18",
   "main": "./dist/index.js",
   "files": [
     "dist"
@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@zendeskgarden/css-modals": "6.1.2",
-    "@zendeskgarden/react-buttons": "^3.3.10",
+    "@zendeskgarden/react-buttons": "^3.4.0",
     "@zendeskgarden/react-textfields": "^3.2.11",
     "@zendeskgarden/react-theming": "^3.1.1"
   },
