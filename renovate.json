@@ -1,0 +1,40 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "rebaseStalePrs": true,
+  "packageRules": [
+    {
+      "depTypeList": [
+        "peerDependencies",
+        "dependencies"
+      ],
+      "enabled": false
+    },
+    {
+      "packagePatterns": ["^@zendeskgarden/react"],
+      "groupName": "lerna-internal",
+      "enabled": false
+    },
+    {
+      "paths": ["packages/**"],
+      "groupName": "react-packages",
+      "minor": {
+        "groupName": "all package non-major dependencies",
+        "groupSlug": "lerna-packages-minor-patch"
+      }
+    },
+    {
+      "paths": ["package.json"],
+      "minor": {
+        "groupName": "all development non-major dependencies",
+        "groupSlug": "dev-minor-patch"
+      }
+    }
+  ],
+  "reviewers": [
+    "austin94",
+    "ryanseddon",
+    "jzempel"
+  ]
+}

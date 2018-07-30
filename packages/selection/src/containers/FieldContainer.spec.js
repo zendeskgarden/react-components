@@ -14,6 +14,8 @@ describe('FieldContainer', () => {
   const CONTAINER_ID = 'test';
   let wrapper;
 
+  // The necessary accessibility attributes are provided by the `<FieldContainer />`
+  /* eslint-disable jsx-a11y/label-has-associated-control */
   const basicExample = () => (
     <FieldContainer id={CONTAINER_ID}>
       {({ getLabelProps, getInputProps, getHintProps, getMessageProps }) => (
@@ -26,6 +28,7 @@ describe('FieldContainer', () => {
       )}
     </FieldContainer>
   );
+  /* eslint-enable jsx-a11y/label-has-associated-control */
 
   beforeEach(() => {
     // Disabled due to styled-components theming

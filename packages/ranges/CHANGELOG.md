@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.2.11"></a>
+## [2.2.11](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-ranges@2.2.10...@zendeskgarden/react-ranges@2.2.11) (2018-07-27)
+
+
+### Bug Fixes
+
+* **ranges:** increase specificity to show selection fill color ([#69](https://github.com/zendeskgarden/react-components/issues/69)) ([8914ce3](https://github.com/zendeskgarden/react-components/commit/8914ce3))
+
+
+
+
+<a name="2.2.10"></a>
+## [2.2.10](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-ranges@2.2.9...@zendeskgarden/react-ranges@2.2.10) (2018-07-25)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-ranges
+
+<a name="2.2.9"></a>
+## [2.2.9](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-ranges@2.2.8...@zendeskgarden/react-ranges@2.2.9) (2018-07-25)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-ranges
+
 <a name="2.2.8"></a>
 ## [2.2.8](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-ranges@2.2.7...@zendeskgarden/react-ranges@2.2.8) (2018-07-17)
 

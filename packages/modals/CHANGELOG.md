@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="5.2.18"></a>
+## [5.2.18](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.2.17...@zendeskgarden/react-modals@5.2.18) (2018-07-30)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-modals
+
+<a name="5.2.17"></a>
+## [5.2.17](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.2.16...@zendeskgarden/react-modals@5.2.17) (2018-07-27)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-modals
+
+<a name="5.2.16"></a>
+## [5.2.16](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.2.15...@zendeskgarden/react-modals@5.2.16) (2018-07-25)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-modals
+
+<a name="5.2.15"></a>
+## [5.2.15](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.2.14...@zendeskgarden/react-modals@5.2.15) (2018-07-25)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-modals
+
 <a name="5.2.14"></a>
 ## [5.2.14](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.2.13...@zendeskgarden/react-modals@5.2.14) (2018-07-18)
 

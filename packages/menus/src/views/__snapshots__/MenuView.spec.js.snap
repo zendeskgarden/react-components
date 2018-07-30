@@ -204,7 +204,7 @@ exports[`MenuView Arrow does not render if placement is not supported 1`] = `
 }
 
 .c0 {
-  margin-left: 4px;
+  margin-left: 8px;
 }
 
 <MenuView
@@ -223,7 +223,7 @@ exports[`MenuView Arrow does not render if placement is not supported 1`] = `
         placement="right-start"
       >
         <ul
-          className="c-menu c-menu--right c1"
+          className="c-menu c-menu--right c-arrow c-arrow--lt c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -754,7 +754,7 @@ exports[`MenuView Directional styling renders left styling if placement is provi
         placement="left-start"
       >
         <ul
-          className="c-menu c-menu--left c1"
+          className="c-menu c-menu--left c-arrow--rt c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -790,7 +790,7 @@ exports[`MenuView Directional styling renders left styling if placement is provi
         placement="left-end"
       >
         <ul
-          className="c-menu c-menu--left c1"
+          className="c-menu c-menu--left c-arrow--rb c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -862,7 +862,7 @@ exports[`MenuView Directional styling renders right styling if placement is prov
         placement="right-start"
       >
         <ul
-          className="c-menu c-menu--right c1"
+          className="c-menu c-menu--right c-arrow--lt c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -898,7 +898,7 @@ exports[`MenuView Directional styling renders right styling if placement is prov
         placement="right-end"
       >
         <ul
-          className="c-menu c-menu--right c1"
+          className="c-menu c-menu--right c-arrow--lb c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />
@@ -1076,7 +1076,7 @@ exports[`MenuView Renders renders custom left animation correctly 1`] = `
         placement="left"
       >
         <ul
-          className="c-menu c-menu--left is-open c-arrow--r c1"
+          className="c-menu c-menu--left c-arrow--r c1"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />

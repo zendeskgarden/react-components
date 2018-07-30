@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.2.7"></a>
+## [4.2.7](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.2.6...@zendeskgarden/react-tooltips@4.2.7) (2018-07-30)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-tooltips
+
+<a name="4.2.6"></a>
+## [4.2.6](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.2.5...@zendeskgarden/react-tooltips@4.2.6) (2018-07-27)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-tooltips
+
+<a name="4.2.5"></a>
+## [4.2.5](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.2.4...@zendeskgarden/react-tooltips@4.2.5) (2018-07-25)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-tooltips
+
+<a name="4.2.4"></a>
+## [4.2.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.2.3...@zendeskgarden/react-tooltips@4.2.4) (2018-07-25)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-tooltips
+
 <a name="4.2.3"></a>
 ## [4.2.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.2.2...@zendeskgarden/react-tooltips@4.2.3) (2018-07-18)
 
