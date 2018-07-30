@@ -62,7 +62,7 @@ export default class Tooltip extends Component {
     /**
      * The z-index of the popper.js placement container
      */
-    zIndex: PropTypes.number
+    zIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf(['auto', 'inherit', 'unset'])])
   };
 
   static defaultProps = {
