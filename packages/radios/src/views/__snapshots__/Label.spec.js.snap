@@ -3,7 +3,7 @@
 exports[`Label renders RTL styling 1`] = `
 <label
   className="c-chk__label c-chk__label--radio is-rtl "
-  data-garden-id="checkboxes.label"
+  data-garden-id="radios.label"
   data-garden-version="version"
 />
 `;
@@ -12,7 +12,7 @@ exports[`Label renders checked styling if provided 1`] = `
 <label
   checked={true}
   className="c-chk__label c-chk__label--radio is-checked "
-  data-garden-id="checkboxes.label"
+  data-garden-id="radios.label"
   data-garden-version="version"
 />
 `;
@@ -20,7 +20,7 @@ exports[`Label renders checked styling if provided 1`] = `
 exports[`Label renders default styling 1`] = `
 <label
   className="c-chk__label c-chk__label--radio "
-  data-garden-id="checkboxes.label"
+  data-garden-id="radios.label"
   data-garden-version="version"
 />
 `;
@@ -28,7 +28,7 @@ exports[`Label renders default styling 1`] = `
 exports[`Label renders disabled styling if provided 1`] = `
 <label
   className="c-chk__label c-chk__label--radio is-disabled "
-  data-garden-id="checkboxes.label"
+  data-garden-id="radios.label"
   data-garden-version="version"
   disabled={true}
 />
@@ -37,7 +37,7 @@ exports[`Label renders disabled styling if provided 1`] = `
 exports[`Label renders focused styling if provided 1`] = `
 <label
   className="c-chk__label c-chk__label--radio is-focused "
-  data-garden-id="checkboxes.label"
+  data-garden-id="radios.label"
   data-garden-version="version"
 />
 `;
@@ -45,7 +45,7 @@ exports[`Label renders focused styling if provided 1`] = `
 exports[`Label renders hovered styling if provided 1`] = `
 <label
   className="c-chk__label c-chk__label--radio is-hovered "
-  data-garden-id="checkboxes.label"
+  data-garden-id="radios.label"
   data-garden-version="version"
 />
 `;
@@ -53,7 +53,7 @@ exports[`Label renders hovered styling if provided 1`] = `
 exports[`Label renders regular styling if provided 1`] = `
 <label
   className="c-chk__label c-chk__label--radio c-chk__label--regular "
-  data-garden-id="checkboxes.label"
+  data-garden-id="radios.label"
   data-garden-version="version"
 />
 `;
