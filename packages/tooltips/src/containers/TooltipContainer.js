@@ -96,14 +96,13 @@ class TooltipContainer extends ControlledComponent {
     /**
      * The z-index of the popper.js placement container
      */
-    zIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf(['auto', 'inherit', 'unset'])])
+    zIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
   };
 
   static defaultProps = {
     placement: 'top',
     eventsEnabled: true,
-    delayMilliseconds: 500,
-    zIndex: 'auto'
+    delayMilliseconds: 500
   };
 
   constructor(...args) {
