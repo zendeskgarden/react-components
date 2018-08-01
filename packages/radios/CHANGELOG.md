@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.2.12"></a>
+## [3.2.12](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-radios@3.2.11...@zendeskgarden/react-radios@3.2.12) (2018-08-01)
+
+
+### Bug Fixes
+
+* **radios:** update label component ID to prevent checkbox component collision ([#87](https://github.com/zendeskgarden/react-components/issues/87)) ([c25b901](https://github.com/zendeskgarden/react-components/commit/c25b901))
+
+
+
+
 <a name="3.2.11"></a>
 ## [3.2.11](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-radios@3.2.10...@zendeskgarden/react-radios@3.2.11) (2018-07-27)
 
