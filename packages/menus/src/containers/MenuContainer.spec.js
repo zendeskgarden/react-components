@@ -136,6 +136,12 @@ describe('MenuContainer', () => {
     expect(wrapper.find('Portal')).toExist();
   });
 
+  it("doesn't render Popper element if menu is not open", () => {
+    wrapper = mountWithTheme(basicExample({ onChange: onChangeSpy, appendToNode: document.body }));
+
+    expect(wrapper.find('Popper')).not.toExist();
+  });
+
   describe('componentDidUpdate()', () => {
     describe('Trigger', () => {
       it('throws popper error if no trigger ref is found', () => {
