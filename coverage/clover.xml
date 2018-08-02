@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1533146889994" clover="3.2.0">
-  <project timestamp="1533146889995" name="All files">
-    <metrics statements="1699" coveredstatements="1685" conditionals="766" coveredconditionals="685" methods="573" coveredmethods="571" elements="3038" coveredelements="2941" complexity="0" loc="1699" ncloc="1699" packages="61" files="163" classes="163">
+<coverage generated="1533250176881" clover="3.2.0">
+  <project timestamp="1533250176881" name="All files">
+    <metrics statements="1697" coveredstatements="1683" conditionals="766" coveredconditionals="685" methods="573" coveredmethods="571" elements="3036" coveredelements="2939" complexity="0" loc="1697" ncloc="1697" packages="61" files="163" classes="163">
       <package name="autocomplete.src.containers">
         <metrics statements="152" coveredstatements="152" conditionals="98" coveredconditionals="83" methods="44" coveredmethods="44"/>
         <file name="AutocompleteContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/autocomplete/src/containers/AutocompleteContainer.js">
@@ -547,15 +547,15 @@
         </file>
       </package>
       <package name="menus.src.containers">
-        <metrics statements="136" coveredstatements="134" conditionals="108" coveredconditionals="97" methods="35" coveredmethods="35"/>
+        <metrics statements="134" coveredstatements="132" conditionals="108" coveredconditionals="97" methods="35" coveredmethods="35"/>
         <file name="MenuContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/menus/src/containers/MenuContainer.js">
-          <metrics statements="136" coveredstatements="134" conditionals="108" coveredconditionals="97" methods="35" coveredmethods="35"/>
+          <metrics statements="134" coveredstatements="132" conditionals="108" coveredconditionals="97" methods="35" coveredmethods="35"/>
           <line num="32" count="17" type="stmt"/>
           <line num="33" count="102" type="stmt"/>
-          <line num="140" count="65" type="stmt"/>
-          <line num="142" count="65" type="stmt"/>
-          <line num="154" count="65" type="cond" truecount="1" falsecount="1"/>
-          <line num="156" count="65" type="stmt"/>
+          <line num="140" count="66" type="stmt"/>
+          <line num="142" count="66" type="stmt"/>
+          <line num="154" count="66" type="cond" truecount="1" falsecount="1"/>
+          <line num="156" count="66" type="stmt"/>
           <line num="160" count="2" type="cond" truecount="1" falsecount="1"/>
           <line num="162" count="2" type="stmt"/>
           <line num="166" count="117" type="stmt"/>
@@ -568,25 +568,25 @@
           <line num="183" count="1" type="stmt"/>
           <line num="192" count="43" type="stmt"/>
           <line num="193" count="35" type="cond" truecount="2" falsecount="0"/>
-          <line num="202" count="6" type="stmt"/>
-          <line num="204" count="6" type="cond" truecount="2" falsecount="0"/>
-          <line num="205" count="2" type="stmt"/>
+          <line num="202" count="7" type="stmt"/>
+          <line num="204" count="7" type="cond" truecount="2" falsecount="0"/>
+          <line num="205" count="3" type="stmt"/>
           <line num="208" count="4" type="cond" truecount="4" falsecount="0"/>
           <line num="209" count="3" type="cond" truecount="4" falsecount="0"/>
           <line num="210" count="2" type="stmt"/>
-          <line num="215" count="284" type="stmt"/>
+          <line num="215" count="285" type="stmt"/>
           <line num="218" count="48" type="stmt"/>
           <line num="220" count="48" type="stmt"/>
-          <line num="233" count="182" type="stmt"/>
-          <line num="235" count="182" type="stmt"/>
+          <line num="233" count="183" type="stmt"/>
+          <line num="235" count="183" type="stmt"/>
           <line num="240" count="40" type="stmt"/>
           <line num="242" count="7" type="stmt"/>
           <line num="249" count="7" type="cond" truecount="2" falsecount="0"/>
           <line num="250" count="4" type="stmt"/>
           <line num="255" count="4" type="stmt"/>
           <line num="256" count="4" type="stmt"/>
-          <line num="264" count="297" type="cond" truecount="2" falsecount="0"/>
-          <line num="265" count="180" type="stmt"/>
+          <line num="264" count="298" type="cond" truecount="2" falsecount="0"/>
+          <line num="265" count="181" type="stmt"/>
           <line num="270" count="172" type="cond" truecount="2" falsecount="0"/>
           <line num="271" count="101" type="stmt"/>
           <line num="279" count="19" type="stmt"/>
@@ -645,47 +645,45 @@
           <line num="422" count="98" type="stmt"/>
           <line num="433" count="98" type="stmt"/>
           <line num="435" count="98" type="stmt"/>
-          <line num="446" count="182" type="stmt"/>
-          <line num="448" count="182" type="cond" truecount="2" falsecount="0"/>
-          <line num="449" count="14" type="stmt"/>
-          <line num="452" count="168" type="stmt"/>
-          <line num="464" count="182" type="stmt"/>
-          <line num="471" count="182" type="stmt"/>
-          <line num="473" count="182" type="stmt"/>
-          <line num="474" count="182" type="stmt"/>
-          <line num="475" count="182" type="stmt"/>
-          <line num="480" count="182" type="cond" truecount="2" falsecount="0"/>
-          <line num="482" count="182" type="stmt"/>
-          <line num="487" count="182" type="stmt"/>
-          <line num="489" count="182" type="stmt"/>
-          <line num="492" count="182" type="stmt"/>
-          <line num="494" count="297" type="stmt"/>
-          <line num="495" count="297" type="stmt"/>
-          <line num="508" count="182" type="stmt"/>
-          <line num="509" count="182" type="stmt"/>
-          <line num="511" count="182" type="cond" truecount="2" falsecount="0"/>
-          <line num="512" count="80" type="stmt"/>
+          <line num="446" count="102" type="stmt"/>
+          <line num="448" count="102" type="cond" truecount="2" falsecount="0"/>
+          <line num="449" count="11" type="stmt"/>
+          <line num="452" count="91" type="stmt"/>
+          <line num="464" count="183" type="stmt"/>
+          <line num="471" count="183" type="stmt"/>
+          <line num="473" count="183" type="stmt"/>
+          <line num="474" count="183" type="stmt"/>
+          <line num="475" count="183" type="stmt"/>
+          <line num="480" count="183" type="cond" truecount="2" falsecount="0"/>
+          <line num="482" count="183" type="stmt"/>
+          <line num="487" count="183" type="stmt"/>
+          <line num="489" count="183" type="stmt"/>
+          <line num="492" count="183" type="stmt"/>
+          <line num="494" count="298" type="stmt"/>
+          <line num="495" count="298" type="stmt"/>
+          <line num="509" count="102" type="stmt"/>
+          <line num="510" count="102" type="stmt"/>
+          <line num="513" count="102" type="stmt"/>
           <line num="516" count="102" type="stmt"/>
-          <line num="519" count="102" type="stmt"/>
-          <line num="529" count="58" type="cond" truecount="2" falsecount="0"/>
-          <line num="530" count="11" type="stmt"/>
-          <line num="532" count="11" type="cond" truecount="1" falsecount="1"/>
-          <line num="533" count="0" type="stmt"/>
-          <line num="536" count="11" type="stmt"/>
-          <line num="538" count="11" type="cond" truecount="1" falsecount="1"/>
-          <line num="539" count="0" type="stmt"/>
-          <line num="541" count="11" type="stmt"/>
-          <line num="547" count="58" type="stmt"/>
-          <line num="556" count="102" type="stmt"/>
-          <line num="558" count="102" type="stmt"/>
-          <line num="561" count="259" type="stmt"/>
-          <line num="563" count="98" type="stmt"/>
-          <line num="567" count="98" type="stmt"/>
-          <line num="571" count="172" type="stmt"/>
-          <line num="572" count="172" type="stmt"/>
-          <line num="586" count="102" type="cond" truecount="2" falsecount="0"/>
-          <line num="587" count="2" type="stmt"/>
-          <line num="590" count="100" type="stmt"/>
+          <line num="526" count="58" type="cond" truecount="2" falsecount="0"/>
+          <line num="527" count="11" type="stmt"/>
+          <line num="529" count="11" type="cond" truecount="1" falsecount="1"/>
+          <line num="530" count="0" type="stmt"/>
+          <line num="533" count="11" type="stmt"/>
+          <line num="535" count="11" type="cond" truecount="1" falsecount="1"/>
+          <line num="536" count="0" type="stmt"/>
+          <line num="538" count="11" type="stmt"/>
+          <line num="544" count="58" type="stmt"/>
+          <line num="553" count="102" type="stmt"/>
+          <line num="555" count="102" type="stmt"/>
+          <line num="559" count="259" type="stmt"/>
+          <line num="561" count="98" type="stmt"/>
+          <line num="565" count="98" type="stmt"/>
+          <line num="569" count="172" type="stmt"/>
+          <line num="570" count="172" type="stmt"/>
+          <line num="584" count="102" type="cond" truecount="2" falsecount="0"/>
+          <line num="585" count="2" type="stmt"/>
+          <line num="588" count="100" type="stmt"/>
         </file>
       </package>
       <package name="menus.src.elements">
@@ -1726,10 +1724,10 @@
         <metrics statements="71" coveredstatements="71" conditionals="49" coveredconditionals="46" methods="19" coveredmethods="19"/>
         <file name="ControlledComponent.js" path="/home/travis/build/zendeskgarden/react-components/packages/selection/src/utils/ControlledComponent.js">
           <metrics statements="15" coveredstatements="15" conditionals="8" coveredconditionals="7" methods="4" coveredmethods="4"/>
-          <line num="18" count="29168" type="stmt"/>
-          <line num="25" count="7521" type="stmt"/>
-          <line num="26" count="28556" type="cond" truecount="2" falsecount="0"/>
-          <line num="28" count="28556" type="stmt"/>
+          <line num="18" count="29197" type="stmt"/>
+          <line num="25" count="7525" type="stmt"/>
+          <line num="26" count="28584" type="cond" truecount="2" falsecount="0"/>
+          <line num="28" count="28584" type="stmt"/>
           <line num="36" count="381" type="stmt"/>
           <line num="38" count="381" type="cond" truecount="2" falsecount="0"/>
           <line num="39" count="148" type="stmt"/>
@@ -1745,7 +1743,7 @@
         <file name="IdManager.js" path="/home/travis/build/zendeskgarden/react-components/packages/selection/src/utils/IdManager.js">
           <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
           <line num="8" count="57" type="stmt"/>
-          <line num="16" count="547" type="stmt"/>
+          <line num="16" count="548" type="stmt"/>
           <line num="24" count="4" type="stmt"/>
         </file>
         <file name="SingleSelectionModel.js" path="/home/travis/build/zendeskgarden/react-components/packages/selection/src/utils/SingleSelectionModel.js">
@@ -1802,7 +1800,7 @@
         </file>
         <file name="composeEventHandlers.js" path="/home/travis/build/zendeskgarden/react-components/packages/selection/src/utils/composeEventHandlers.js">
           <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
-          <line num="25" count="5864" type="stmt"/>
+          <line num="25" count="5866" type="stmt"/>
           <line num="26" count="463" type="stmt"/>
           <line num="27" count="849" type="cond" truecount="2" falsecount="0"/>
           <line num="29" count="849" type="cond" truecount="2" falsecount="0"/>
@@ -2017,8 +2015,8 @@
         <file name="mountWithTheme.js" path="/home/travis/build/zendeskgarden/react-components/packages/testing/src/utils/mountWithTheme.js">
           <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
           <line num="17" count="43" type="cond" truecount="1" falsecount="0"/>
-          <line num="18" count="201" type="stmt"/>
-          <line num="23" count="201" type="stmt"/>
+          <line num="18" count="202" type="stmt"/>
+          <line num="23" count="202" type="stmt"/>
         </file>
         <file name="shallowWithTheme.js" path="/home/travis/build/zendeskgarden/react-components/packages/testing/src/utils/shallowWithTheme.js">
           <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -2132,8 +2130,8 @@
         <file name="ThemeProvider.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/ThemeProvider/ThemeProvider.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="142" type="stmt"/>
-          <line num="13" count="235" type="stmt"/>
-          <line num="19" count="235" type="stmt"/>
+          <line num="13" count="236" type="stmt"/>
+          <line num="19" count="236" type="stmt"/>
           <line num="22" count="142" type="stmt"/>
         </file>
       </package>
@@ -2141,11 +2139,11 @@
         <metrics statements="10" coveredstatements="10" conditionals="11" coveredconditionals="11" methods="4" coveredmethods="4"/>
         <file name="getDocument.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/utils/getDocument.js">
           <metrics statements="1" coveredstatements="1" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
-          <line num="10" count="208" type="cond" truecount="3" falsecount="0"/>
+          <line num="10" count="209" type="cond" truecount="3" falsecount="0"/>
         </file>
         <file name="isRtl.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/utils/isRtl.js">
           <metrics statements="1" coveredstatements="1" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
-          <line num="10" count="932" type="cond" truecount="2" falsecount="0"/>
+          <line num="10" count="852" type="cond" truecount="2" falsecount="0"/>
         </file>
         <file name="retrieveTheme.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/utils/retrieveTheme.js">
           <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
@@ -2295,14 +2293,14 @@
           <line num="8" count="22" type="stmt"/>
           <line num="18" count="22" type="stmt"/>
           <line num="28" count="22" type="stmt"/>
-          <line num="43" count="378" type="stmt"/>
-          <line num="44" count="2646" type="stmt"/>
-          <line num="46" count="2646" type="stmt"/>
-          <line num="49" count="378" type="stmt"/>
-          <line num="59" count="378" type="stmt"/>
-          <line num="67" count="57" type="stmt"/>
-          <line num="80" count="57" type="stmt"/>
-          <line num="82" count="57" type="cond" truecount="2" falsecount="0"/>
+          <line num="43" count="298" type="stmt"/>
+          <line num="44" count="2086" type="stmt"/>
+          <line num="46" count="2086" type="stmt"/>
+          <line num="49" count="298" type="stmt"/>
+          <line num="59" count="298" type="stmt"/>
+          <line num="67" count="54" type="stmt"/>
+          <line num="80" count="54" type="stmt"/>
+          <line num="82" count="54" type="cond" truecount="2" falsecount="0"/>
         </file>
       </package>
       <package name="tooltips.src.views">
