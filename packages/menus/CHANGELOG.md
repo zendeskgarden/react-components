@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.4.6"></a>
+## [3.4.6](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.4.5...@zendeskgarden/react-menus@3.4.6) (2018-08-02)
+
+
+### Bug Fixes
+
+* **menu:** Don't render Menu when it's closed ([#89](https://github.com/zendeskgarden/react-components/issues/89)) ([f79518b](https://github.com/zendeskgarden/react-components/commit/f79518b))
+
+
+
+
 <a name="3.4.5"></a>
 ## [3.4.5](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.4.4...@zendeskgarden/react-menus@3.4.5) (2018-07-30)
 
