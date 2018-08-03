@@ -39,7 +39,7 @@
     "@zendeskgarden/react-select": "^2.2.21",
     "@zendeskgarden/react-theming": "^3.0.0",
     "@zendeskgarden/svg-icons": "4.4.0",
-    "react-beautiful-dnd": "8.0.5"
+    "react-beautiful-dnd": "8.0.7"
   },
   "keywords": [
     "components",
