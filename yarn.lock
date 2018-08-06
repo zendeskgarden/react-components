@@ -345,9 +345,9 @@
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/eslint-config/-/eslint-config-7.0.1.tgz#5573d2aa492c52e7dbdf9561a8c69210b1abfb22"
 
-"@zendeskgarden/stylelint-config@8.1.1":
-  version "8.1.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/stylelint-config/-/stylelint-config-8.1.1.tgz#0498b9368e48d8acc27601184228a4180288cc00"
+"@zendeskgarden/stylelint-config@9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/stylelint-config/-/stylelint-config-9.0.1.tgz#dbb339225d949f1394512d253646d9e2a64b44ab"
 
 "@zendeskgarden/svg-icons@4.4.0":
   version "4.4.0"
