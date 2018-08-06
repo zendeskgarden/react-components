@@ -341,9 +341,9 @@
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/css-variables/-/css-variables-5.0.1.tgz#fb42ecb4529e8d33282b4bef8e63ab7738c344e5"
 
-"@zendeskgarden/eslint-config@6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/eslint-config/-/eslint-config-6.0.0.tgz#66ef35c4cbabf2bc581d4d7096999e4e9199fd5f"
+"@zendeskgarden/eslint-config@7.0.1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/eslint-config/-/eslint-config-7.0.1.tgz#5573d2aa492c52e7dbdf9561a8c69210b1abfb22"
 
 "@zendeskgarden/stylelint-config@8.1.1":
   version "8.1.1"
