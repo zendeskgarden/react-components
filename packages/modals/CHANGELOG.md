@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="5.3.0"></a>
+# [5.3.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.2.18...@zendeskgarden/react-modals@5.3.0) (2018-08-06)
+
+
+### Features
+
+* **modals:** increase flexibility of footer alignment ([#91](https://github.com/zendeskgarden/react-components/issues/91)) ([4eaad8e](https://github.com/zendeskgarden/react-components/commit/4eaad8e))
+
+
+
+
 <a name="5.2.18"></a>
 ## [5.2.18](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.2.17...@zendeskgarden/react-modals@5.2.18) (2018-07-30)
 
