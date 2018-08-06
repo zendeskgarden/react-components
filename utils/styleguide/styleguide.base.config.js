@@ -96,7 +96,7 @@ const defaultStyleguideConfig = {
     'github-markdown-css'
   ],
   getExampleFilename(componentPath) {
-    return componentPath.replace(/\.jsx?$/, '.example.md');
+    return componentPath.replace(/\.jsx?$/u, '.example.md');
   },
   getComponentPathLine(componentPath) {
     const name = path.basename(componentPath, '.js');
@@ -113,28 +113,28 @@ const defaultStyleguideConfig = {
     module: {
       rules: [
         {
-          test: /\.jsx?$/,
-          exclude: /node_modules/,
+          test: /\.jsx?$/u,
+          exclude: /node_modules/u,
           loader: 'babel-loader'
         },
         {
-          test: /\.css$/,
-          exclude: /@zendeskgarden\/css-/,
+          test: /\.css$/u,
+          exclude: /@zendeskgarden\/css-/u,
           loader: 'style-loader!css-loader'
         },
         {
-          test: /\.css$/,
-          include: /@zendeskgarden\/css-/,
+          test: /\.css$/u,
+          include: /@zendeskgarden\/css-/u,
           loader:
             'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
         },
         {
-          test: /\.svg$/,
-          exclude: /node_modules/,
+          test: /\.svg$/u,
+          exclude: /node_modules/u,
           loader: 'svg-react-loader'
         },
         {
-          test: /\.md$/,
+          test: /\.md$/u,
           use: [
             {
               loader: 'html-loader'
