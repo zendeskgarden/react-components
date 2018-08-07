@@ -42,12 +42,13 @@ jest.useFakeTimers();
 describe('TooltipContainer', () => {
   let wrapper;
 
-  const basicExample = (
+  const BasicExample = props => (
     <TooltipContainer
       id="custom-test-id"
       trigger={({ getTriggerProps }) => (
         <div {...getTriggerProps({ 'data-test-id': 'trigger' })}>trigger</div>
       )}
+      {...props}
     >
       {({ getTooltipProps, placement }) => (
         <div {...getTooltipProps({ 'data-test-id': 'tooltip', 'data-placement': placement })}>
@@ -68,7 +69,7 @@ describe('TooltipContainer', () => {
   beforeEach(() => {
     clearTimeout.mockClear();
 
-    wrapper = mountWithTheme(basicExample);
+    wrapper = mountWithTheme(<BasicExample />);
   });
 
   describe('getTriggerProps', () => {
@@ -206,6 +207,22 @@ describe('TooltipContainer', () => {
       jest.runOnlyPendingTimers();
       wrapper.update();
       expect(wrapper.contains(Portal)).toBe(true);
+    });
+  });
+
+  describe('zIndex', () => {
+    it('should not apply zIndex if none is provided', () => {
+      wrapper = mountWithTheme(<BasicExample isVisible />);
+      const tooltipWrapper = findTooltip(wrapper).parent();
+
+      expect(tooltipWrapper).not.toHaveStyle('z-index');
+    });
+
+    it('should apply zIndex if provided', () => {
+      wrapper = mountWithTheme(<BasicExample zIndex={3000} isVisible />);
+      const tooltipWrapper = findTooltip(wrapper).parent();
+
+      expect(tooltipWrapper).toHaveStyleRule('z-index', '3000');
     });
   });
 
