@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "0.1.10",
+  "version": "0.1.11",
   "main": "./dist/index.js",
   "files": [
     "dist"
@@ -19,7 +19,7 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendeskgarden/react-selection": "^4.3.2",
+    "@zendeskgarden/react-selection": "^4.3.3",
     "classnames": "^2.2.5"
   },
   "peerDependencies": {
@@ -32,12 +32,12 @@
   "devDependencies": {
     "@zendeskgarden/css-tables": "3.0.5",
     "@zendeskgarden/css-variables": "5.0.1",
-    "@zendeskgarden/react-avatars": "^3.0.10",
-    "@zendeskgarden/react-checkboxes": "^3.2.11",
-    "@zendeskgarden/react-menus": "^3.4.7",
-    "@zendeskgarden/react-pagination": "^4.1.10",
-    "@zendeskgarden/react-select": "^2.2.22",
-    "@zendeskgarden/react-theming": "^3.0.0",
+    "@zendeskgarden/react-avatars": "^3.0.11",
+    "@zendeskgarden/react-checkboxes": "^3.2.12",
+    "@zendeskgarden/react-menus": "^3.4.8",
+    "@zendeskgarden/react-pagination": "^4.1.11",
+    "@zendeskgarden/react-select": "^2.2.23",
+    "@zendeskgarden/react-theming": "^3.1.2",
     "@zendeskgarden/svg-icons": "4.4.0",
     "react-beautiful-dnd": "8.0.7"
   },

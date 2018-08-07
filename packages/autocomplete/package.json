@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "0.1.13",
+  "version": "0.1.14",
   "main": "./dist/index.js",
   "files": [
     "dist"
@@ -19,8 +19,8 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendeskgarden/react-selection": "^4.3.2",
-    "@zendeskgarden/react-tooltips": "^4.2.7",
+    "@zendeskgarden/react-selection": "^4.3.3",
+    "@zendeskgarden/react-tooltips": "^4.2.8",
     "@zendeskgarden/react-utilities": "^0.2.0",
     "classnames": "^2.2.5",
     "dom-helpers": "^3.3.1",
@@ -36,11 +36,11 @@
     "styled-components": "^3.2.6"
   },
   "devDependencies": {
-    "@zendeskgarden/react-buttons": "^3.4.0",
-    "@zendeskgarden/react-menus": "^3.4.7",
-    "@zendeskgarden/react-tags": "^1.1.11",
-    "@zendeskgarden/react-textfields": "^3.2.11",
-    "@zendeskgarden/react-theming": "^3.1.1"
+    "@zendeskgarden/react-buttons": "^3.4.1",
+    "@zendeskgarden/react-menus": "^3.4.8",
+    "@zendeskgarden/react-tags": "^1.1.12",
+    "@zendeskgarden/react-textfields": "^3.2.12",
+    "@zendeskgarden/react-theming": "^3.1.2"
   },
   "keywords": [
     "components",
