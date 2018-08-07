@@ -6,14 +6,13 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
 import { mountWithTheme } from '@zendeskgarden/react-testing';
 import { POPPER_PLACEMENTS } from '@zendeskgarden/react-tooltips';
 import MenuView from './MenuView';
 
 describe('MenuView', () => {
   it('renders default styling correctly', () => {
-    const wrapper = mount(<MenuView />);
+    const wrapper = mountWithTheme(<MenuView />);
 
     expect(wrapper).toMatchSnapshot();
   });
@@ -25,26 +24,26 @@ describe('MenuView', () => {
   });
 
   it('renders small styling correctly', () => {
-    const wrapper = mount(<MenuView small />);
+    const wrapper = mountWithTheme(<MenuView small />);
 
     expect(wrapper).toMatchSnapshot();
   });
 
   describe('Renders', () => {
     it('renders animation styling correctly', () => {
-      const wrapper = mount(<MenuView animate />);
+      const wrapper = mountWithTheme(<MenuView animate />);
 
       expect(wrapper).toMatchSnapshot();
     });
 
     it('renders custom top animation correctly', () => {
-      const wrapper = mount(<MenuView animate placement="top" />);
+      const wrapper = mountWithTheme(<MenuView animate placement="top" />);
 
       expect(wrapper).toMatchSnapshot();
     });
 
     it('renders custom left animation correctly', () => {
-      const wrapper = mount(<MenuView animate placement="left" />);
+      const wrapper = mountWithTheme(<MenuView animate placement="left" />);
 
       expect(wrapper).toMatchSnapshot();
     });
@@ -54,7 +53,7 @@ describe('MenuView', () => {
     it('renders up styling if placement is provided', () => {
       [POPPER_PLACEMENTS.TOP, POPPER_PLACEMENTS.TOP_START, POPPER_PLACEMENTS.TOP_END].forEach(
         placement => {
-          const wrapper = mount(<MenuView placement={placement} />);
+          const wrapper = mountWithTheme(<MenuView placement={placement} />);
 
           expect(wrapper).toMatchSnapshot();
         }
@@ -67,7 +66,7 @@ describe('MenuView', () => {
         POPPER_PLACEMENTS.BOTTOM_START,
         POPPER_PLACEMENTS.BOTTOM_END
       ].forEach(placement => {
-        const wrapper = mount(<MenuView placement={placement} />);
+        const wrapper = mountWithTheme(<MenuView placement={placement} />);
 
         expect(wrapper).toMatchSnapshot();
       });
@@ -76,7 +75,7 @@ describe('MenuView', () => {
     it('renders left styling if placement is provided', () => {
       [POPPER_PLACEMENTS.LEFT, POPPER_PLACEMENTS.LEFT_START, POPPER_PLACEMENTS.LEFT_END].forEach(
         placement => {
-          const wrapper = mount(<MenuView placement={placement} />);
+          const wrapper = mountWithTheme(<MenuView placement={placement} />);
 
           expect(wrapper).toMatchSnapshot();
         }
@@ -86,7 +85,7 @@ describe('MenuView', () => {
     it('renders right styling if placement is provided', () => {
       [POPPER_PLACEMENTS.RIGHT, POPPER_PLACEMENTS.RIGHT_START, POPPER_PLACEMENTS.RIGHT_END].forEach(
         placement => {
-          const wrapper = mount(<MenuView placement={placement} />);
+          const wrapper = mountWithTheme(<MenuView placement={placement} />);
 
           expect(wrapper).toMatchSnapshot();
         }
@@ -95,26 +94,26 @@ describe('MenuView', () => {
   });
 
   it('renders hidden styling if provided', () => {
-    const wrapper = mount(<MenuView hidden />);
+    const wrapper = mountWithTheme(<MenuView hidden />);
 
     expect(wrapper).toMatchSnapshot();
   });
 
   describe('Arrow', () => {
     it('does not render if arrow prop is not provided', () => {
-      const wrapper = mount(<MenuView />);
+      const wrapper = mountWithTheme(<MenuView />);
 
       expect(wrapper).toMatchSnapshot();
     });
 
     it('does not render if placement is not supported', () => {
-      const wrapper = mount(<MenuView arrow placement={POPPER_PLACEMENTS.RIGHT_START} />);
+      const wrapper = mountWithTheme(<MenuView arrow placement={POPPER_PLACEMENTS.RIGHT_START} />);
 
       expect(wrapper).toMatchSnapshot();
     });
 
     it('renders otherwise', () => {
-      const wrapper = mount(<MenuView arrow placement={POPPER_PLACEMENTS.RIGHT} />);
+      const wrapper = mountWithTheme(<MenuView arrow placement={POPPER_PLACEMENTS.RIGHT} />);
 
       expect(wrapper).toMatchSnapshot();
     });
@@ -132,7 +131,7 @@ describe('MenuView', () => {
         POPPER_PLACEMENTS.BOTTOM_START,
         POPPER_PLACEMENTS.BOTTOM_END
       ].forEach(placement => {
-        const wrapper = mount(<MenuView arrow placement={placement} />);
+        const wrapper = mountWithTheme(<MenuView arrow placement={placement} />);
 
         expect(wrapper).toMatchSnapshot();
       });
@@ -141,13 +140,13 @@ describe('MenuView', () => {
 
   describe('Animation', () => {
     it('should be enabled if animation is provided', () => {
-      const wrapper = mount(<MenuView animate />);
+      const wrapper = mountWithTheme(<MenuView animate />);
 
       expect(wrapper).toMatchSnapshot();
     });
 
     it('should be disabled in animation is disabled', () => {
-      const wrapper = mount(<MenuView animate={false} />);
+      const wrapper = mountWithTheme(<MenuView animate={false} />);
 
       expect(wrapper).toMatchSnapshot();
     });
@@ -155,7 +154,7 @@ describe('MenuView', () => {
     it('should be disabled if any top placement is provided', () => {
       [POPPER_PLACEMENTS.TOP, POPPER_PLACEMENTS.TOP_START, POPPER_PLACEMENTS.TOP_END].forEach(
         placement => {
-          const wrapper = mount(<MenuView placement={placement} />);
+          const wrapper = mountWithTheme(<MenuView placement={placement} />);
 
           expect(wrapper).toMatchSnapshot();
         }

@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { mountWithTheme } from '@zendeskgarden/react-testing';
 import { KEY_CODES } from '@zendeskgarden/react-selection';
 
 import Modal from './Modal';
@@ -34,10 +34,8 @@ describe('Modal', () => {
   );
 
   beforeEach(() => {
-    // Disabled due to styled-components theming
-    console.warn = jest.fn(); // eslint-disable-line no-console
     onCloseSpy = jest.fn();
-    wrapper = mount(basicExample(onCloseSpy));
+    wrapper = mountWithTheme(basicExample(onCloseSpy));
   });
 
   describe('componentDidMount()', () => {
@@ -49,7 +47,7 @@ describe('Modal', () => {
   describe('componentWillUnmount()', () => {
     it('should apply previous body overflow style', () => {
       document.body.style.overflow = 'auto';
-      wrapper = mount(basicExample(onCloseSpy));
+      wrapper = mountWithTheme(basicExample(onCloseSpy));
       expect(document.body.style.overflow).toBe('hidden');
 
       wrapper.unmount();

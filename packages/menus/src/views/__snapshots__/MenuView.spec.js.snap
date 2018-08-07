@@ -1142,7 +1142,7 @@ exports[`MenuView renders RTL styling correctly 1`] = `
     >
       <MenuView__StyledMenuView>
         <ul
-          className="c-menu c0"
+          className="c-menu is-rtl c0"
           data-garden-id="menus.menu_view"
           data-garden-version="version"
         />

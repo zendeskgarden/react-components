@@ -42,11 +42,6 @@ describe('Tooltip', () => {
     </Tooltip>
   );
 
-  beforeEach(() => {
-    // Disabled due to styled-components theming
-    console.warn = jest.fn(); // eslint-disable-line no-console
-  });
-
   describe('Types', () => {
     it('renders light tooltip if provided', () => {
       const wrapper = mountWithTheme(basicExample({ type: 'light' }));
