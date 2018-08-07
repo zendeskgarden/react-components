@@ -4,6 +4,8 @@ only be used for navigating to a resource.
 If you need a `<button>` that has anchor styling, use the
 `<Button link>Anchor styled button</Button>` component.
 
+<!-- markdownlint-disable -->
+<!-- prettier-ignore -->
 ```jsx
 <div>
   Apparently we had reached a great height in the
@@ -25,3 +27,5 @@ If you need a `<button>` that has anchor styling, use the
   through a rift in the clouds.
 </div>
 ```
+
+<!-- markdownlint-enable -->
