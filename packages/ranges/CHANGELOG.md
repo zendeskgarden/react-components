@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.2.13"></a>
+## [2.2.13](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-ranges@2.2.12...@zendeskgarden/react-ranges@2.2.13) (2018-08-07)
+
+
+### Bug Fixes
+
+* **buttons|ranges:** prettier formatting errors ([#94](https://github.com/zendeskgarden/react-components/issues/94)) ([69f17a1](https://github.com/zendeskgarden/react-components/commit/69f17a1))
+
+
+
+
 <a name="2.2.12"></a>
 ## [2.2.12](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-ranges@2.2.10...@zendeskgarden/react-ranges@2.2.12) (2018-08-07)
 

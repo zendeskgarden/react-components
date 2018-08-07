@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.4.2"></a>
+## [3.4.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.4.1...@zendeskgarden/react-buttons@3.4.2) (2018-08-07)
+
+
+### Bug Fixes
+
+* **buttons|ranges:** prettier formatting errors ([#94](https://github.com/zendeskgarden/react-components/issues/94)) ([69f17a1](https://github.com/zendeskgarden/react-components/commit/69f17a1))
+
+
+
+
 <a name="3.4.1"></a>
 ## [3.4.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.4.0...@zendeskgarden/react-buttons@3.4.1) (2018-08-07)
 
