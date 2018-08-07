@@ -29,7 +29,11 @@ getValidationMessage = value =>
 
 <RangeField>
   <Label>Dynamic Validation Example</Label>
-  <Hint>Move range to view changes. [value="{state.value}"]</Hint>
+  <Hint>
+    Move range to view changes. [value="
+    {state.value}
+    "]
+  </Hint>
   <Range
     value={state.textValue}
     onChange={event => setState({ value: event.target.value })}
