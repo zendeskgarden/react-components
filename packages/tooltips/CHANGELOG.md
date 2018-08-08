@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.3.0"></a>
+# [4.3.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.2.10...@zendeskgarden/react-tooltips@4.3.0) (2018-08-08)
+
+
+### Features
+
+* **tooltips:** add zIndex prop to TooltipContainer ([#76](https://github.com/zendeskgarden/react-components/issues/76)) ([67022a8](https://github.com/zendeskgarden/react-components/commit/67022a8))
+
+
+
+
 <a name="4.2.10"></a>
 ## [4.2.10](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.2.9...@zendeskgarden/react-tooltips@4.2.10) (2018-08-08)
 
