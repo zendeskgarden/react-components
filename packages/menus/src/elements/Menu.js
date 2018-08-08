@@ -7,6 +7,7 @@
 
 import React, { Children, cloneElement, isValidElement } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { ControlledComponent, IdManager } from '@zendeskgarden/react-selection';
 import { hasType } from '@zendeskgarden/react-utilities';
 
@@ -17,6 +18,18 @@ import Item from '../views/items/Item';
 import MediaItem from '../views/items/media/MediaItem';
 import NextItem from '../views/items/NextItem';
 import PreviousItem from '../views/items/PreviousItem';
+
+const ScrollableMenuView = styled(MenuView)`
+  /* stylelint-disable */
+  ${({ maxHeight }) =>
+    maxHeight
+      ? `
+    max-height: ${maxHeight};
+    overflow-y: scroll;
+  `
+      : ''};
+  /* stylelint-enable */
+`;
 
 export default class Menu extends ControlledComponent {
   static propTypes = {
@@ -90,7 +103,11 @@ export default class Menu extends ControlledComponent {
     /**
      * The z-index of the popper.js placement container
      */
-    zIndex: PropTypes.number
+    zIndex: PropTypes.number,
+    /**
+     * The max-height of the MenuView. Used to create scrollable menus.
+     */
+    maxHeight: PropTypes.string
   };
 
   static defaultProps = {
@@ -115,6 +132,7 @@ export default class Menu extends ControlledComponent {
       children,
       onChange,
       zIndex,
+      maxHeight,
       ...menuProps
     } = this.props;
 
@@ -149,7 +167,9 @@ export default class Menu extends ControlledComponent {
           menuRef,
           placement
         }) => (
-          <MenuView {...getMenuProps({ placement, arrow, menuRef, ...menuProps })}>
+          <ScrollableMenuView
+            {...getMenuProps({ placement, arrow, menuRef, maxHeight, ...menuProps })}
+          >
             {Children.map(children, child => {
               if (!isValidElement(child)) {
                 return child;
@@ -200,7 +220,7 @@ export default class Menu extends ControlledComponent {
 
               return child;
             })}
-          </MenuView>
+          </ScrollableMenuView>
         )}
       </MenuContainer>
     );

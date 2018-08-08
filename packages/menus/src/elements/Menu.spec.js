@@ -42,10 +42,11 @@ describe('Menu', () => {
   let wrapper;
   let onChangeSpy;
 
-  const basicExample = ({ onChange } = {}) => (
+  const basicExample = ({ onChange, maxHeight } = {}) => (
     <Menu
       data-test-id="menu"
       onChange={onChange}
+      maxHeight={maxHeight}
       trigger={({ ref }) => (
         <button ref={ref} data-test-id="trigger">
           trigger
@@ -107,7 +108,7 @@ describe('Menu', () => {
       findTrigger(wrapper).simulate('click');
       jest.runOnlyPendingTimers();
       wrapper.update();
-      const menuElement = findMenu(wrapper).at(2);
+      const menuElement = findMenu(wrapper).at(3);
 
       menuElement.simulate('keydown', { keyCode: P_KEY_CODE, key: 'p' });
       menuElement.simulate('keydown', { keyCode: KEY_CODES.ENTER, key: 'enter' });
@@ -120,7 +121,7 @@ describe('Menu', () => {
       findTrigger(wrapper).simulate('click');
       jest.runOnlyPendingTimers();
       wrapper.update();
-      const menuElement = findMenu(wrapper).at(2);
+      const menuElement = findMenu(wrapper).at(3);
 
       menuElement.simulate('keydown', { keyCode: O_KEY_CODE, key: 'o' });
       menuElement.simulate('keydown', { keyCode: KEY_CODES.ENTER, key: 'enter' });
@@ -133,7 +134,7 @@ describe('Menu', () => {
       findTrigger(wrapper).simulate('click');
       jest.runOnlyPendingTimers();
       wrapper.update();
-      const menuElement = findMenu(wrapper).at(2);
+      const menuElement = findMenu(wrapper).at(3);
 
       menuElement.simulate('keydown', { keyCode: KEY_CODES.DOWN, key: 'down' });
       menuElement.simulate('keydown', { keyCode: KEY_CODES.DOWN, key: 'down' });
@@ -148,7 +149,7 @@ describe('Menu', () => {
       findTrigger(wrapper).simulate('click');
       jest.runOnlyPendingTimers();
       wrapper.update();
-      const menuElement = findMenu(wrapper).at(2);
+      const menuElement = findMenu(wrapper).at(3);
 
       menuElement.simulate('keydown', { keyCode: KEY_CODES.LEFT, key: 'left' });
       expect(onChangeSpy).toHaveBeenCalledWith('previous-item');
