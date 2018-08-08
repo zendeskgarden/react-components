@@ -178,10 +178,17 @@
   version "10.5.3"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.5.3.tgz#5bcfaf088ad17894232012877669634c06b20cc5"
 
-"@types/react@16.4.7":
-  version "16.4.7"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.4.7.tgz#f33f6d759a7e1833befa15224d68942d178a5a3f"
+"@types/prop-types@*":
+  version "15.5.4"
+  resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.5.4.tgz#9e6199bad131786e24c2baa2a82705a02139fbf8"
   dependencies:
+    "@types/react" "*"
+
+"@types/react@*", "@types/react@16.4.8":
+  version "16.4.8"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.4.8.tgz#ff0440429783df0927bdcd430fa1225f7c08cf36"
+  dependencies:
+    "@types/prop-types" "*"
     csstype "^2.2.0"
 
 "@vxna/mini-html-webpack-template@^0.1.7":
@@ -337,9 +344,9 @@
     text-table "^0.2.0"
     webpack-log "^1.1.2"
 
-"@zendeskgarden/css-variables@5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/css-variables/-/css-variables-5.0.1.tgz#fb42ecb4529e8d33282b4bef8e63ab7738c344e5"
+"@zendeskgarden/css-variables@5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/css-variables/-/css-variables-5.0.3.tgz#78f57d59463dadc5b15ea58dd6bf954fc737ecb1"
 
 "@zendeskgarden/eslint-config@7.0.1":
   version "7.0.1"
@@ -349,9 +356,9 @@
   version "9.0.1"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/stylelint-config/-/stylelint-config-9.0.1.tgz#dbb339225d949f1394512d253646d9e2a64b44ab"
 
-"@zendeskgarden/svg-icons@4.4.0":
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-4.4.0.tgz#6d1b953f2680f98cf356794fe3e41364e3e51819"
+"@zendeskgarden/svg-icons@4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-4.4.1.tgz#7f44ada724e8308a6707123b7cdc1aac5d5290cb"
 
 JSONStream@^1.0.4:
   version "1.3.3"
@@ -808,6 +815,14 @@ array-unique@^0.2.1:
 array-unique@^0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/array-unique/-/array-unique-0.3.2.tgz#a894b75d4bc4f6cd679ef3244a9fd8f46ae2d428"
+
+array.prototype.flat@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/array.prototype.flat/-/array.prototype.flat-1.2.1.tgz#812db8f02cad24d3fab65dd67eabe3b8903494a4"
+  dependencies:
+    define-properties "^1.1.2"
+    es-abstract "^1.10.0"
+    function-bind "^1.1.1"
 
 arrify@^1.0.0, arrify@^1.0.1:
   version "1.0.1"
@@ -2451,9 +2466,9 @@ commander@2.16.x, commander@^2.11.0, commander@^2.13.0, commander@^2.9.0, comman
   version "2.16.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.16.0.tgz#f16390593996ceb4f3eeb020b31d78528f7f8a50"
 
-commander@2.17.0:
-  version "2.17.0"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-2.17.0.tgz#9d07b25e2a6f198b76d8b756a0e8a9604a6a1a60"
+commander@2.17.1:
+  version "2.17.1"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.17.1.tgz#bd77ab7de6de94205ceacc72f1716d29f20a77bf"
 
 commander@~2.1.0:
   version "2.1.0"
@@ -3471,28 +3486,30 @@ entities@^1.1.1, entities@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.1.tgz#6e5c2d0a5621b5dadaecef80b90edfb5cd7772f0"
 
-enzyme-adapter-react-16@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/enzyme-adapter-react-16/-/enzyme-adapter-react-16-1.1.1.tgz#a8f4278b47e082fbca14f5bfb1ee50ee650717b4"
+enzyme-adapter-react-16@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/enzyme-adapter-react-16/-/enzyme-adapter-react-16-1.2.0.tgz#c6e80f334e0a817873262d7d01ee9e4747e3c97e"
   dependencies:
-    enzyme-adapter-utils "^1.3.0"
-    lodash "^4.17.4"
-    object.assign "^4.0.4"
+    enzyme-adapter-utils "^1.5.0"
+    function.prototype.name "^1.1.0"
+    object.assign "^4.1.0"
     object.values "^1.0.4"
-    prop-types "^15.6.0"
+    prop-types "^15.6.2"
+    react-is "^16.4.2"
     react-reconciler "^0.7.0"
     react-test-renderer "^16.0.0-0"
 
-enzyme-adapter-utils@^1.3.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/enzyme-adapter-utils/-/enzyme-adapter-utils-1.4.0.tgz#c403b81e8eb9953658569e539780964bdc98de62"
+enzyme-adapter-utils@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/enzyme-adapter-utils/-/enzyme-adapter-utils-1.5.0.tgz#a020ab3ae79bb1c85e1d51f48f35e995e0eed810"
   dependencies:
+    function.prototype.name "^1.1.0"
     object.assign "^4.1.0"
-    prop-types "^15.6.0"
+    prop-types "^15.6.2"
 
-enzyme-matchers@^6.0.2:
-  version "6.0.2"
-  resolved "https://registry.yarnpkg.com/enzyme-matchers/-/enzyme-matchers-6.0.2.tgz#794d4e43254daaa0fffd3a591e5869fc861deeb2"
+enzyme-matchers@^6.0.3:
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/enzyme-matchers/-/enzyme-matchers-6.0.3.tgz#187fb322ed70d38e6160251bc398a53aec1cfc7e"
   dependencies:
     circular-json-es6 "^2.0.1"
     deep-equal-ident "^1.1.1"
@@ -3503,20 +3520,21 @@ enzyme-to-json@3.3.4, enzyme-to-json@^3.3.0:
   dependencies:
     lodash "^4.17.4"
 
-enzyme@3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/enzyme/-/enzyme-3.3.0.tgz#0971abd167f2d4bf3f5bd508229e1c4b6dc50479"
+enzyme@3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/enzyme/-/enzyme-3.4.0.tgz#085c66fe647d8c9c4becd1fee3042c040cda88a6"
   dependencies:
+    array.prototype.flat "^1.2.1"
     cheerio "^1.0.0-rc.2"
-    function.prototype.name "^1.0.3"
-    has "^1.0.1"
+    function.prototype.name "^1.1.0"
+    has "^1.0.3"
     is-boolean-object "^1.0.0"
-    is-callable "^1.1.3"
+    is-callable "^1.1.4"
     is-number-object "^1.0.3"
     is-string "^1.0.4"
     is-subset "^0.1.1"
     lodash "^4.17.4"
-    object-inspect "^1.5.0"
+    object-inspect "^1.6.0"
     object-is "^1.0.1"
     object.assign "^4.1.0"
     object.entries "^1.0.4"
@@ -4350,7 +4368,7 @@ function.name-polyfill@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/function.name-polyfill/-/function.name-polyfill-1.0.6.tgz#c54e37cae0a77dfcb49d47982815b0826b5c60d9"
 
-function.prototype.name@^1.0.3:
+function.prototype.name@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/function.prototype.name/-/function.prototype.name-1.1.0.tgz#8bd763cc0af860a859cc5d49384d74b932cd2327"
   dependencies:
@@ -5177,9 +5195,9 @@ inquirer@3.3.0, inquirer@^3.2.2:
     strip-ansi "^4.0.0"
     through "^2.3.6"
 
-inquirer@6.0.0, inquirer@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/inquirer/-/inquirer-6.0.0.tgz#e8c20303ddc15bbfc2c12a6213710ccd9e1413d8"
+inquirer@6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/inquirer/-/inquirer-6.1.0.tgz#8f65c7b31c498285f4ddf3b742ad8c487892040b"
   dependencies:
     ansi-escapes "^3.0.0"
     chalk "^2.0.0"
@@ -5209,6 +5227,24 @@ inquirer@^5.2.0:
     mute-stream "0.0.7"
     run-async "^2.2.0"
     rxjs "^5.5.2"
+    string-width "^2.1.0"
+    strip-ansi "^4.0.0"
+    through "^2.3.6"
+
+inquirer@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/inquirer/-/inquirer-6.0.0.tgz#e8c20303ddc15bbfc2c12a6213710ccd9e1413d8"
+  dependencies:
+    ansi-escapes "^3.0.0"
+    chalk "^2.0.0"
+    cli-cursor "^2.1.0"
+    cli-width "^2.0.0"
+    external-editor "^3.0.0"
+    figures "^2.0.0"
+    lodash "^4.3.0"
+    mute-stream "0.0.7"
+    run-async "^2.2.0"
+    rxjs "^6.1.0"
     string-width "^2.1.0"
     strip-ansi "^4.0.0"
     through "^2.3.6"
@@ -5296,7 +5332,7 @@ is-builtin-module@^1.0.0:
   dependencies:
     builtin-modules "^1.0.0"
 
-is-callable@^1.1.1, is-callable@^1.1.3:
+is-callable@^1.1.1, is-callable@^1.1.3, is-callable@^1.1.4:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/is-callable/-/is-callable-1.1.4.tgz#1e1adf219e1eeb684d691f9d6a05ff0d30a24d75"
 
@@ -5778,9 +5814,9 @@ jest-each@^23.4.0:
     chalk "^2.0.1"
     pretty-format "^23.2.0"
 
-jest-environment-enzyme@^6.0.2:
-  version "6.0.2"
-  resolved "https://registry.yarnpkg.com/jest-environment-enzyme/-/jest-environment-enzyme-6.0.2.tgz#890526622d5de8a820a1849d2684f03bc006e0ef"
+jest-environment-enzyme@^6.0.3:
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/jest-environment-enzyme/-/jest-environment-enzyme-6.0.3.tgz#5c9172b709aadf21674ef2504bccea230a921e98"
   dependencies:
     jest-environment-jsdom "^22.4.1"
 
@@ -5807,13 +5843,13 @@ jest-environment-node@^23.4.0:
     jest-mock "^23.2.0"
     jest-util "^23.4.0"
 
-jest-enzyme@6.0.2:
-  version "6.0.2"
-  resolved "https://registry.yarnpkg.com/jest-enzyme/-/jest-enzyme-6.0.2.tgz#bc464169de6c2d50602e02bbc9464460507fb295"
+jest-enzyme@6.0.3:
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/jest-enzyme/-/jest-enzyme-6.0.3.tgz#c2121bb66d16cacba4721a5ae670a74c3be0e51e"
   dependencies:
-    enzyme-matchers "^6.0.2"
+    enzyme-matchers "^6.0.3"
     enzyme-to-json "^3.3.0"
-    jest-environment-enzyme "^6.0.2"
+    jest-environment-enzyme "^6.0.3"
 
 jest-get-type@^22.1.0:
   version "22.4.3"
@@ -6247,6 +6283,10 @@ kind-of@^6.0.0, kind-of@^6.0.2:
 kleur@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-1.0.2.tgz#637f126d3cda40a423b1297da88cf753bd04ebdd"
+
+kleur@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/kleur/-/kleur-2.0.1.tgz#7cc64b0d188d0dcbc98bdcdfdda2cc10619ddce8"
 
 known-css-properties@^0.6.0:
   version "0.6.1"
@@ -7308,7 +7348,7 @@ object-copy@^0.1.0:
     define-property "^0.2.5"
     kind-of "^3.0.3"
 
-object-inspect@^1.5.0:
+object-inspect@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/object-inspect/-/object-inspect-1.6.0.tgz#c70b6cbf72f274aab4c34c0c82f5167bf82cf15b"
 
@@ -7326,7 +7366,7 @@ object-visit@^1.0.0:
   dependencies:
     isobject "^3.0.0"
 
-object.assign@^4.0.4, object.assign@^4.1.0:
+object.assign@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/object.assign/-/object.assign-4.1.0.tgz#968bf1100d7956bb3ca086f006f846b3bc4008da"
   dependencies:
@@ -8137,9 +8177,9 @@ prettier-package-json@1.6.0:
     sort-object-keys "^1.1.2"
     sort-order "^1.0.1"
 
-prettier@1.14.0:
-  version "1.14.0"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.14.0.tgz#847c235522035fd988100f1f43cf20a7d24f9372"
+prettier@1.14.1:
+  version "1.14.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.14.1.tgz#4ead68e66b5ec9e771de311570c90da822f5a17a"
 
 pretty-error@^2.0.2:
   version "2.1.1"
@@ -8442,6 +8482,10 @@ react-is@^16.3.1, react-is@^16.4.1:
   version "16.4.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.4.1.tgz#d624c4650d2c65dbd52c72622bbf389435d9776e"
 
+react-is@^16.4.2:
+  version "16.4.2"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.4.2.tgz#84891b56c2b6d9efdee577cc83501dfc5ecead88"
+
 react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
@@ -8455,15 +8499,14 @@ react-reconciler@^0.7.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
-react-styleguidist@7.1.3:
-  version "7.1.3"
-  resolved "https://registry.yarnpkg.com/react-styleguidist/-/react-styleguidist-7.1.3.tgz#15f85136606dd9fb9449cff062cc4f581ab7b079"
+react-styleguidist@7.2.1:
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/react-styleguidist/-/react-styleguidist-7.2.1.tgz#2399b0451a37444931f0550a5a0c2990770bcdd5"
   dependencies:
     "@vxna/mini-html-webpack-template" "^0.1.7"
     acorn "^5.7.1"
     ast-types "^0.11.5"
     buble "^0.19.3"
-    chalk "^2.4.1"
     classnames "^2.2.6"
     clean-webpack-plugin "^0.1.19"
     clipboard-copy "^2.0.0"
@@ -8490,6 +8533,7 @@ react-styleguidist@7.1.3:
     jss-global "^3.0.0"
     jss-isolate "^5.1.0"
     jss-nested "^6.0.1"
+    kleur "^2.0.1"
     leven "^2.1.0"
     listify "^1.0.0"
     loader-utils "^1.1.0"
@@ -9698,9 +9742,9 @@ style-search@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/style-search/-/style-search-0.1.0.tgz#7958c793e47e32e07d2b5cafe5c0bf8e12e77902"
 
-styled-components@3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-3.4.1.tgz#a550783bba3a5bb9a41bf10d0e993c47d19a9125"
+styled-components@3.4.2:
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-3.4.2.tgz#8f518419932327e47fe9144824e3184b3e2da95d"
   dependencies:
     buffer "^5.0.3"
     css-to-react-native "^2.0.3"

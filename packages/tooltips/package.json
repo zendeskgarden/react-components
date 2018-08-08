@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@zendeskgarden/css-arrows": "3.1.1",
-    "@zendeskgarden/css-tooltips": "4.0.4",
+    "@zendeskgarden/css-tooltips": "4.0.5",
     "@zendeskgarden/react-buttons": "^3.4.2",
     "@zendeskgarden/react-textfields": "^3.2.12",
     "@zendeskgarden/react-theming": "^3.1.2",
