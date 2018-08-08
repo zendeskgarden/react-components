@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="5.3.3"></a>
+## [5.3.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.3.2...@zendeskgarden/react-modals@5.3.3) (2018-08-08)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-modals
+
 <a name="5.3.2"></a>
 ## [5.3.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.3.1...@zendeskgarden/react-modals@5.3.2) (2018-08-07)
 
