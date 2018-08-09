@@ -25,7 +25,7 @@ const ScrollableMenuView = styled(MenuView)`
     maxHeight
       ? `
     max-height: ${maxHeight};
-    overflow-y: scroll;
+    overflow: auto;
   `
       : ''};
   /* stylelint-enable */

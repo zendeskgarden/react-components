@@ -42,7 +42,7 @@ describe('Menu', () => {
   let wrapper;
   let onChangeSpy;
 
-  const basicExample = ({ onChange, maxHeight } = {}) => (
+  const BasicExample = ({ onChange, maxHeight } = {}) => (
     <Menu
       data-test-id="menu"
       onChange={onChange}
@@ -76,7 +76,7 @@ describe('Menu', () => {
 
   beforeEach(() => {
     onChangeSpy = jest.fn();
-    wrapper = mountWithTheme(basicExample({ onChange: onChangeSpy }));
+    wrapper = mountWithTheme(<BasicExample onChange={onChangeSpy} />);
   });
 
   describe('Standard Items', () => {
@@ -153,6 +153,29 @@ describe('Menu', () => {
 
       menuElement.simulate('keydown', { keyCode: KEY_CODES.LEFT, key: 'left' });
       expect(onChangeSpy).toHaveBeenCalledWith('previous-item');
+    });
+  });
+
+  describe('maxHeight', () => {
+    it('does not apply styling if maxHeight is not provided', () => {
+      findTrigger(wrapper).simulate('click');
+      jest.runOnlyPendingTimers();
+      wrapper.update();
+
+      expect(findMenu(wrapper).at(3)).not.toHaveStyle('max-height');
+      expect(findMenu(wrapper).at(3)).not.toHaveStyle('overflow');
+    });
+
+    it('applies correct styling if maxHeight is provided', () => {
+      const maxHeight = '300px';
+
+      wrapper = mountWithTheme(<BasicExample onChange={onChangeSpy} maxHeight={maxHeight} />);
+      findTrigger(wrapper).simulate('click');
+      jest.runOnlyPendingTimers();
+      wrapper.update();
+
+      expect(findMenu(wrapper).at(3)).toHaveStyleRule('max-height', maxHeight);
+      expect(findMenu(wrapper).at(3)).toHaveStyleRule('overflow', 'auto');
     });
   });
 });
