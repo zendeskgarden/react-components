@@ -61,7 +61,7 @@ describe('Textarea', () => {
   });
 
   describe('validation', () => {
-    ['success', 'warning', 'error'].forEach(validation => {
+    ['success', 'warning', 'error', 'none'].forEach(validation => {
       it(`renders ${validation} styling if provided`, () => {
         const wrapper = mount(<Textarea validation={validation} />);
 

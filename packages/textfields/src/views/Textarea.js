@@ -17,7 +17,8 @@ const COMPONENT_ID = 'textfields.textarea';
 const VALIDATION = {
   SUCCESS: 'success',
   WARNING: 'warning',
-  ERROR: 'error'
+  ERROR: 'error',
+  NONE: 'none'
 };
 
 /**
@@ -44,7 +45,12 @@ Textarea.propTypes = {
   focused: PropTypes.bool,
   hovered: PropTypes.bool,
   resizable: PropTypes.bool,
-  validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
+  validation: PropTypes.oneOf([
+    VALIDATION.SUCCESS,
+    VALIDATION.WARNING,
+    VALIDATION.ERROR,
+    VALIDATION.NONE
+  ])
 };
 
 Textarea.hasType = () => Textarea;

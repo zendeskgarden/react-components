@@ -13,7 +13,8 @@ const COMPONENT_ID = 'select.message';
 const VALIDATION = {
   SUCCESS: 'success',
   WARNING: 'warning',
-  ERROR: 'error'
+  ERROR: 'error',
+  NONE: 'none'
 };
 
 /**
@@ -27,7 +28,12 @@ const Message = TextfieldMessage.extend.attrs({
 `;
 
 Message.propTypes = {
-  validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
+  validation: PropTypes.oneOf([
+    VALIDATION.SUCCESS,
+    VALIDATION.WARNING,
+    VALIDATION.ERROR,
+    VALIDATION.NONE
+  ])
 };
 
 Message.hasType = () => Message;

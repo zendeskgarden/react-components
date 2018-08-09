@@ -14,7 +14,8 @@ const DIVInput = Input.withComponent('div');
 const VALIDATION = {
   SUCCESS: 'success',
   WARNING: 'warning',
-  ERROR: 'error'
+  ERROR: 'error',
+  NONE: 'none'
 };
 
 /**
@@ -37,7 +38,12 @@ export default class FauxInput extends ControlledComponent {
     hovered: PropTypes.bool,
     /** Displays select open state */
     open: PropTypes.bool,
-    validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
+    validation: PropTypes.oneOf([
+      VALIDATION.SUCCESS,
+      VALIDATION.WARNING,
+      VALIDATION.ERROR,
+      VALIDATION.NONE
+    ])
   };
 
   constructor(...args) {
