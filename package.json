@@ -71,7 +71,7 @@
     "jest": "23.5.0",
     "jest-enzyme": "6.0.3",
     "jest-styled-components": "5.0.1",
-    "lerna": "2.11.0",
+    "lerna": "3.0.1",
     "live-server": "1.2.0",
     "markdown-loader": "3.0.0",
     "markdownlint-cli": "0.12.0",
