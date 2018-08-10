@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "0.1.15",
+  "version": "0.1.16",
   "main": "./dist/index.js",
   "files": [
     "dist"
@@ -33,10 +33,10 @@
     "@zendeskgarden/css-tables": "3.0.7",
     "@zendeskgarden/css-variables": "5.0.3",
     "@zendeskgarden/react-avatars": "^3.0.12",
-    "@zendeskgarden/react-checkboxes": "^3.2.13",
-    "@zendeskgarden/react-menus": "^3.4.11",
+    "@zendeskgarden/react-checkboxes": "^3.3.0",
+    "@zendeskgarden/react-menus": "^3.4.12",
     "@zendeskgarden/react-pagination": "^4.1.12",
-    "@zendeskgarden/react-select": "^2.2.26",
+    "@zendeskgarden/react-select": "^2.3.0",
     "@zendeskgarden/react-theming": "^3.1.2",
     "@zendeskgarden/svg-icons": "4.4.1",
     "react-beautiful-dnd": "9.0.0"
