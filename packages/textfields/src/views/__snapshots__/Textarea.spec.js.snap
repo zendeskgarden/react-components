@@ -166,6 +166,25 @@ exports[`Textarea validation renders error styling if provided 1`] = `
 </Textarea>
 `;
 
+exports[`Textarea validation renders none styling if provided 1`] = `
+<Textarea
+  validation="none"
+>
+  <Input
+    className="c-txt__input--area "
+    data-garden-id="textfields.textarea"
+    data-garden-version="version"
+    validation="none"
+  >
+    <textarea
+      className="c-txt__input--area c-txt__input "
+      data-garden-id="textfields.textarea"
+      data-garden-version="version"
+    />
+  </Input>
+</Textarea>
+`;
+
 exports[`Textarea validation renders success styling if provided 1`] = `
 <Textarea
   validation="success"
