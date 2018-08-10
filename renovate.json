@@ -1,7 +1,7 @@
 {
   "extends": [
     "config:base",
-    "schedule:weekly"
+    "schedule:weekends"
   ],
   "rebaseStalePrs": true,
   "packageRules": [
