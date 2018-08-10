@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.5.0"></a>
+# [3.5.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.4.12...@zendeskgarden/react-menus@3.5.0) (2018-08-10)
+
+
+### Features
+
+* **menus:** add maxHeight prop for scrollable menus ([#97](https://github.com/zendeskgarden/react-components/issues/97)) ([647aaf1](https://github.com/zendeskgarden/react-components/commit/647aaf1))
+
+
+
+
 <a name="3.4.12"></a>
 ## [3.4.12](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.4.11...@zendeskgarden/react-menus@3.4.12) (2018-08-10)
 
