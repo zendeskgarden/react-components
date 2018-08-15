@@ -13,7 +13,7 @@ const path = require('path');
 const childProcess = require('child_process');
 const lernaPath = path.resolve(__dirname, '..', '..', 'node_modules', '.bin', 'lerna');
 const lernaConfig = require(path.resolve(__dirname, '..', '..', 'lerna.json'));
-const LERNA_PUBLISH_MESSAGE = lernaConfig.commands.publish.message;
+const LERNA_PUBLISH_MESSAGE = lernaConfig.command.version.message;
 
 /**
  * Only perform publish if commit message is Lerna created
