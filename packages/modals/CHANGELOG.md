@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="5.3.5"></a>
+## [5.3.5](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.3.4...@zendeskgarden/react-modals@5.3.5) (2018-08-15)
+
+
+### Bug Fixes
+
+* **modal:** update example cancel buttons to use `basic` styling ([#112](https://github.com/zendeskgarden/react-components/issues/112)) ([b554789](https://github.com/zendeskgarden/react-components/commit/b554789))
+
+
+
+
+
 <a name="5.3.4"></a>
 ## [5.3.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.3.3...@zendeskgarden/react-modals@5.3.4) (2018-08-10)
 
