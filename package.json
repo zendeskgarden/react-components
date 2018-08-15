@@ -78,7 +78,7 @@
     "mini-css-extract-plugin": "0.4.1",
     "optimize-css-assets-webpack-plugin": "4.0.3",
     "prettier": "1.14.2",
-    "prettier-package-json": "1.6.0",
+    "prettier-package-json": "2.0.0",
     "react": "16.4.2",
     "react-dom": "16.4.2",
     "react-styleguidist": "7.2.1",
