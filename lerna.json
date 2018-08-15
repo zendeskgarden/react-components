@@ -1,9 +1,9 @@
 {
   "npmClient": "yarn",
   "version": "independent",
-  "commands": {
-    "publish": {
-      "skipNpm": "true",
+  "command": {
+    "version": {
+      "push": false,
       "allowBranch": "master",
       "message": "chore(release): publish"
     }

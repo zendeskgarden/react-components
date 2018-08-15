@@ -36,7 +36,9 @@ const onModalClose = () => setState({ isModalVisible: false });
             </Body>
             <Footer>
               <FooterItem>
-                <Button onClick={closeModal}>Cancel</Button>
+                <Button onClick={closeModal} basic>
+                  Cancel
+                </Button>
               </FooterItem>
               <FooterItem>
                 <Button onClick={closeModal} primary>
