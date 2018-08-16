@@ -2,6 +2,9 @@
   "npmClient": "yarn",
   "version": "independent",
   "command": {
+    "publish": {
+      "ignoreChanges": ["*.md", "*.spec.js", "*.snap", "styleguide.config.js"]
+    },
     "version": {
       "push": false,
       "allowBranch": "master",
