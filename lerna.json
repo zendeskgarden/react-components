@@ -3,7 +3,7 @@
   "version": "independent",
   "command": {
     "publish": {
-      "ignoreChanges": ["*.md", "*.spec.js", "*.snap", "styleguide.config.js"]
+      "ignoreChanges": ["*.md", "*.spec.js", "**/__snapshots__/**", "styleguide.config.js"]
     },
     "version": {
       "push": false,
