@@ -30,7 +30,8 @@
     "styled-components": "^3.2.6"
   },
   "devDependencies": {
-    "@zendeskgarden/css-pagination": "3.0.5"
+    "@zendeskgarden/css-pagination": "3.0.5",
+    "@zendeskgarden/react-theming": "^3.1.2"
   },
   "keywords": [
     "components",
