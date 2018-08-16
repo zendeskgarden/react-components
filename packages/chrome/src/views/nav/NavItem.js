@@ -35,6 +35,7 @@ const StyledNavItem = styled.button.attrs({
     classNames(ChromeStyles['c-chrome__nav__item'], {
       // Styling
       [ChromeStyles['c-chrome__nav__item--logo']]: props.logo,
+      [ChromeStyles['c-chrome__nav__item--brandmark']]: props.brandmark,
 
       // Products
       [ChromeStyles['c-chrome__nav__item--logo--chat']]: props.product === PRODUCT.CHAT,
@@ -58,14 +59,15 @@ const StyledNavItem = styled.button.attrs({
 /**
  * Accepts all `<button>` props
  */
-const NavItem = ({ logo, ...other }) => (
+const NavItem = ({ logo, brandmark, ...other }) => (
   <KeyboardFocusContainer>
     {({ getFocusProps, keyboardFocused }) => (
       <StyledNavItem
         {...getFocusProps({
-          tabIndex: logo ? -1 : 0,
+          tabIndex: logo || brandmark ? -1 : 0,
           focused: keyboardFocused,
-          logo,
+          logo: logo || brandmark,
+          brandmark,
           ...other
         })}
       />
@@ -86,6 +88,8 @@ NavItem.propTypes = {
   ]),
   /** Style the product logo shown as the top item in the nav */
   logo: PropTypes.bool,
+  /** Style a brandmark shown as a bottom item in the nav */
+  brandmark: PropTypes.bool,
   /** Indicate which item is current in the nav */
   current: PropTypes.bool,
   hovered: PropTypes.bool,
