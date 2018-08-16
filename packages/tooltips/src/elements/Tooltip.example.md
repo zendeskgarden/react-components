@@ -5,7 +5,7 @@ All props passed to the root element are proxied into the visible tooltip.
 ### Default Usage
 
 ```jsx
-const { Button } = require('@zendeskgarden/react-buttons/src');
+const { Button } = require('@zendeskgarden/react-buttons');
 
 <Tooltip trigger={<Button>Trigger top placement</Button>}>This an small tooltip</Tooltip>;
 ```
@@ -15,7 +15,7 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
 You are able to customize the type, size, and placement of the tooltip.
 
 ```jsx
-const { Button } = require('@zendeskgarden/react-buttons/src');
+const { Button } = require('@zendeskgarden/react-buttons');
 
 <Tooltip
   placement="end"
@@ -40,7 +40,7 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
 Example of proxying props to the Tooltip. Applied `onClick` event to the tooltip.
 
 ```jsx
-const { Button } = require('@zendeskgarden/react-buttons/src');
+const { Button } = require('@zendeskgarden/react-buttons');
 
 <Tooltip
   placement="end"
@@ -58,7 +58,7 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
 ### Boundary Detection
 
 ```jsx
-const { Button } = require('@zendeskgarden/react-buttons/src');
+const { Button } = require('@zendeskgarden/react-buttons');
 
 const Container = styled.div`
   height: 450px;

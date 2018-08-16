@@ -6,7 +6,6 @@
  */
 
 module.exports = {
-  require: ['../../packages/menus/dist/styles.css', '../../packages/textfields/dist/styles.css'],
   sections: [
     {
       name: '',

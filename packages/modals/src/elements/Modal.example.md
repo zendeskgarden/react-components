@@ -5,7 +5,7 @@ and applies the correct accessibility attributes to the views listed below.
 ### Default Usages
 
 ```jsx
-const { Button } = require('@zendeskgarden/react-buttons/src');
+const { Button } = require('@zendeskgarden/react-buttons');
 
 initialState = {
   isModalVisible: false,
@@ -67,8 +67,8 @@ The `Modal` component uses the `FocusJailContainer` internally to limit focus
 and keyboard navigation to the Modal content.
 
 ```jsx
-const { Button } = require('@zendeskgarden/react-buttons/src');
-const { TextField, Label, Input } = require('@zendeskgarden/react-textfields/src');
+const { Button } = require('@zendeskgarden/react-buttons');
+const { TextField, Label, Input } = require('@zendeskgarden/react-textfields');
 
 initialState = {
   isModalVisible: false
@@ -119,7 +119,7 @@ const onModalClose = () => setState({ isModalVisible: false });
 ### Widths
 
 ```jsx
-const { Button } = require('@zendeskgarden/react-buttons/src');
+const { Button } = require('@zendeskgarden/react-buttons');
 
 initialState = {
   isModalVisible: false,

@@ -174,7 +174,31 @@ const defaultStyleguideConfig = {
     resolve: {
       alias: {
         'package.json': path.resolve('package.json'),
-        'CHANGELOG.md': path.resolve('CHANGELOG.md')
+        'CHANGELOG.md': path.resolve('CHANGELOG.md'),
+        '@zendeskgarden/react-autocomplete': path.resolve('..', 'autocomplete', 'src'),
+        '@zendeskgarden/react-avatars': path.resolve('..', 'avatars', 'src'),
+        '@zendeskgarden/react-buttons': path.resolve('..', 'buttons', 'src'),
+        '@zendeskgarden/react-checkboxes': path.resolve('..', 'checkboxes', 'src'),
+        '@zendeskgarden/react-chrome': path.resolve('..', 'chrome', 'src'),
+        '@zendeskgarden/react-grid': path.resolve('..', 'grid', 'src'),
+        '@zendeskgarden/react-loaders': path.resolve('..', 'loaders', 'src'),
+        '@zendeskgarden/react-menus': path.resolve('..', 'menus', 'src'),
+        '@zendeskgarden/react-modals': path.resolve('..', 'modals', 'src'),
+        '@zendeskgarden/react-notifications': path.resolve('..', 'notifications', 'src'),
+        '@zendeskgarden/react-pagination': path.resolve('..', 'pagination', 'src'),
+        '@zendeskgarden/react-radios': path.resolve('..', 'radios', 'src'),
+        '@zendeskgarden/react-ranges': path.resolve('..', 'ranges', 'src'),
+        '@zendeskgarden/react-select': path.resolve('..', 'select', 'src'),
+        '@zendeskgarden/react-selection': path.resolve('..', 'selection', 'src'),
+        '@zendeskgarden/react-tables': path.resolve('..', 'tables', 'src'),
+        '@zendeskgarden/react-tabs': path.resolve('..', 'tabs', 'src'),
+        '@zendeskgarden/react-tags': path.resolve('..', 'tags', 'src'),
+        '@zendeskgarden/react-testing': path.resolve('..', 'testing', 'src'),
+        '@zendeskgarden/react-textfields': path.resolve('..', 'textfields', 'src'),
+        '@zendeskgarden/react-theming': path.resolve('..', 'theming', 'src'),
+        '@zendeskgarden/react-toggles': path.resolve('..', 'toggles', 'src'),
+        '@zendeskgarden/react-tooltips': path.resolve('..', 'tooltips', 'src'),
+        '@zendeskgarden/react-utilities': path.resolve('..', 'utilities', 'src')
       }
     }
   }
