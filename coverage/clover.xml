@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1534400836287" clover="3.2.0">
-  <project timestamp="1534400836288" name="All files">
-    <metrics statements="1700" coveredstatements="1686" conditionals="769" coveredconditionals="688" methods="575" coveredmethods="573" elements="3044" coveredelements="2947" complexity="0" loc="1700" ncloc="1700" packages="61" files="163" classes="163">
+<coverage generated="1534463609501" clover="3.2.0">
+  <project timestamp="1534463609502" name="All files">
+    <metrics statements="1704" coveredstatements="1690" conditionals="773" coveredconditionals="692" methods="577" coveredmethods="575" elements="3054" coveredelements="2957" complexity="0" loc="1704" ncloc="1704" packages="61" files="163" classes="163">
       <package name="autocomplete.src.containers">
         <metrics statements="152" coveredstatements="152" conditionals="98" coveredconditionals="83" methods="44" coveredmethods="44"/>
         <file name="AutocompleteContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/autocomplete/src/containers/AutocompleteContainer.js">
@@ -436,7 +436,7 @@
         </file>
       </package>
       <package name="chrome.src.views.nav">
-        <metrics statements="20" coveredstatements="20" conditionals="2" coveredconditionals="2" methods="8" coveredmethods="8"/>
+        <metrics statements="22" coveredstatements="22" conditionals="6" coveredconditionals="6" methods="9" coveredmethods="9"/>
         <file name="Nav.js" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/views/nav/Nav.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="14" count="1" type="stmt"/>
@@ -446,16 +446,16 @@
           <line num="35" count="1" type="stmt"/>
         </file>
         <file name="NavItem.js" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/views/nav/NavItem.js">
-          <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
+          <metrics statements="9" coveredstatements="9" conditionals="6" coveredconditionals="6" methods="4" coveredmethods="4"/>
           <line num="16" count="1" type="stmt"/>
           <line num="18" count="1" type="stmt"/>
           <line num="31" count="1" type="stmt"/>
           <line num="35" count="12" type="stmt"/>
-          <line num="55" count="12" type="stmt"/>
-          <line num="61" count="1" type="stmt"/>
-          <line num="62" count="12" type="stmt"/>
-          <line num="64" count="12" type="stmt"/>
-          <line num="76" count="1" type="stmt"/>
+          <line num="56" count="12" type="stmt"/>
+          <line num="62" count="1" type="stmt"/>
+          <line num="63" count="12" type="stmt"/>
+          <line num="65" count="12" type="stmt"/>
+          <line num="78" count="1" type="stmt"/>
         </file>
         <file name="NavItemIcon.js" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/views/nav/NavItemIcon.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -464,14 +464,16 @@
           <line num="15" count="1" type="stmt"/>
         </file>
         <file name="NavItemText.js" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/views/nav/NavItemText.js">
-          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="12" count="1" type="stmt"/>
-          <line num="17" count="1" type="stmt"/>
-          <line num="22" count="1" type="stmt"/>
+          <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="19" count="1" type="stmt"/>
+          <line num="23" count="1" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="30" count="1" type="stmt"/>
         </file>
       </package>
       <package name="chrome.src.views.subnav">
-        <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
+        <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7"/>
         <file name="SubNav.js" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/views/subnav/SubNav.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="1" type="stmt"/>
@@ -490,10 +492,12 @@
           <line num="48" count="1" type="stmt"/>
         </file>
         <file name="SubNavItemText.js" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/views/subnav/SubNavItemText.js">
-          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="12" count="1" type="stmt"/>
-          <line num="17" count="1" type="stmt"/>
-          <line num="22" count="1" type="stmt"/>
+          <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="19" count="1" type="stmt"/>
+          <line num="23" count="1" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="30" count="1" type="stmt"/>
         </file>
       </package>
       <package name="grid.src.views">
