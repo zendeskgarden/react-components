@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.2.0"></a>
+# [4.2.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.1.17...@zendeskgarden/react-chrome@4.2.0) (2018-08-16)
+
+
+### Features
+
+* **chrome:** add support for nav text wrapping and nav item brandmark ([#114](https://github.com/zendeskgarden/react-components/issues/114)) ([4c54a7c](https://github.com/zendeskgarden/react-components/commit/4c54a7c))
+
+
+
+
+
 <a name="4.1.17"></a>
 ## [4.1.17](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.1.16...@zendeskgarden/react-chrome@4.1.17) (2018-08-10)
 
