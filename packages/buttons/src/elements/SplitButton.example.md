@@ -11,7 +11,7 @@ The `SplitButton` pattern is accomplished with:
  * Must use relative link to avoid circular dependency
  * between `react-menus` and `react-buttons` in lerna bootstrap
  **/
-const { Menu, Item } = require('../../../menus');
+const { Menu, Item } = require('../../../menus/src');
 
 initialState = {
   count: 0,

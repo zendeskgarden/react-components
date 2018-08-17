@@ -12,11 +12,11 @@ users that navigate primarily with a keyboard and how your features may affect
 them and their productivity.
 
 ```jsx
-const { MenuView, Item, AddItem, Separator } = require('@zendeskgarden/react-menus');
-const { FauxInput, Input, TextGroup, Label } = require('@zendeskgarden/react-textfields');
-const { Tag, Close } = require('@zendeskgarden/react-tags');
-const { Anchor } = require('@zendeskgarden/react-buttons');
-const { KEY_CODES, FieldContainer } = require('@zendeskgarden/react-selection');
+const { MenuView, Item, AddItem, Separator } = require('@zendeskgarden/react-menus/src');
+const { FauxInput, Input, TextGroup, Label } = require('@zendeskgarden/react-textfields/src');
+const { Tag, Close } = require('@zendeskgarden/react-tags/src');
+const { Anchor } = require('@zendeskgarden/react-buttons/src');
+const { KEY_CODES, FieldContainer } = require('@zendeskgarden/react-selection/src');
 
 const NoItemsMessage = styled.div`
   margin: 16px;
