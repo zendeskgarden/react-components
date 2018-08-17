@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "5.3.6",
+  "version": "5.3.7",
   "main": "./dist/index.js",
   "files": [
     "dist"
@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@zendeskgarden/react-selection": "^4.3.3",
-    "@zendeskgarden/react-utilities": "^0.2.0",
+    "@zendeskgarden/react-utilities": "^0.2.1",
     "classnames": "^2.2.5",
     "dom-helpers": "^3.3.1",
     "react-portal": "^4.1.2",
