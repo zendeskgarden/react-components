@@ -1,6 +1,6 @@
 ```jsx
-const { Pagination } = require('@zendeskgarden/react-pagination');
-const { Avatar } = require('@zendeskgarden/react-avatars');
+const { Pagination } = require('@zendeskgarden/react-pagination/src');
+const { Avatar } = require('@zendeskgarden/react-avatars/src');
 const {
   zdFontSizeBeta,
   zdFontSizeEpsilon,

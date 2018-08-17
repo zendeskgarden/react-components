@@ -1,5 +1,5 @@
 ```jsx
-const { Button } = require('@zendeskgarden/react-buttons');
+const { Button } = require('@zendeskgarden/react-buttons/src');
 
 initialState = {
   isModalVisible: false

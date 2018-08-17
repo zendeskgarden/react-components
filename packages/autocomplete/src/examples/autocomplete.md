@@ -2,9 +2,9 @@ The `Autocomplete` layout operates as a "filterable select" and can
 optionally allow users to add content with the "Add" Menu Item.
 
 ```jsx
-const { MenuView, Item, AddItem, Separator } = require('@zendeskgarden/react-menus');
-const { TextGroup, Label, FauxInput, Input } = require('@zendeskgarden/react-textfields');
-const { FieldContainer } = require('@zendeskgarden/react-selection');
+const { MenuView, Item, AddItem, Separator } = require('@zendeskgarden/react-menus/src');
+const { TextGroup, Label, FauxInput, Input } = require('@zendeskgarden/react-textfields/src');
+const { FieldContainer } = require('@zendeskgarden/react-selection/src');
 
 const NoItemsMessage = styled.div`
   margin: 16px;

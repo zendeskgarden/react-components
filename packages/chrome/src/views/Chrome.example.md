@@ -5,10 +5,10 @@ provide any opinionated navigation solutions.
 
 All `NavItem` and `SubNavItem` components are `button` elements that accept all native props.
 If you are using a routing library like [react-router](https://github.com/ReactTraining/react-router),
-you can programmaticaly trigger navigation with the `onClick` events.
+you can programmatically trigger navigation with the `onClick` events.
 
 ```jsx
-const { Toggle, Label } = require('@zendeskgarden/react-toggles');
+const { Toggle, Label } = require('@zendeskgarden/react-toggles/src');
 const ConnectIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/26/relationshape-connect.svg');
 const HomeIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/26/home-fill.svg');
 const ListsIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/26/customer-lists-fill.svg');
