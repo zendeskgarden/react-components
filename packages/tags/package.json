@@ -30,8 +30,6 @@
   },
   "devDependencies": {
     "@zendeskgarden/css-tags": "4.0.5",
-    "@zendeskgarden/react-selection": "^4.3.3",
-    "@zendeskgarden/react-textfields": "^3.3.1",
     "@zendeskgarden/react-theming": "^3.1.2"
   },
   "keywords": [

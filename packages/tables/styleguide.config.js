@@ -10,13 +10,6 @@
  * https://github.com/styleguidist/react-styleguidist/blob/master/docs/Configuration.md
  */
 module.exports = {
-  require: [
-    '../../packages/checkboxes/dist/styles.css',
-    '../../packages/pagination/dist/styles.css',
-    '../../packages/avatars/dist/styles.css',
-    '../../packages/menus/dist/styles.css',
-    '../../packages/select/dist/styles.css'
-  ],
   sections: [
     {
       name: '',

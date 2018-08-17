@@ -1,6 +1,7 @@
 {
   "npmClient": "yarn",
   "version": "independent",
+  "ignoreChanges": ["*.md", "*.spec.js", "**/__snapshots__/**", "styleguide.config.js"],
   "command": {
     "version": {
       "push": false,

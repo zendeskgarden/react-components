@@ -5,6 +5,8 @@ It is meant for inputs that must contain non-editable content (`MediaFigure` and
 
 ```jsx
 <FauxInput>
-  <div tabIndex={0} style={{ outline: 'none' }}>This element isn't an input! (but it is focusable)</div>
+  <div tabIndex={0} style={{ outline: 'none' }}>
+    This element isn't an input! (but it is focusable)
+  </div>
 </FauxInput>
 ```
