@@ -23,16 +23,17 @@ const EASE = {
   }
 };
 
-const KEYFRAME_1 = 0.03;
-const KEYFRAME_2 = 0.31;
-const KEYFRAME_3 = 0.66;
-const KEYFRAME_4 = 0.75;
-const KEYFRAME_5 = 0.87;
-const KEYFRAME_MAX = 1;
+const KEYFRAME_1 = 0.166666667;
+const KEYFRAME_2 = 0.55;
+const KEYFRAME_3 = 1.166666667;
+const KEYFRAME_4 = 1.333333333;
+const KEYFRAME_5 = 1.533333333;
+const KEYFRAME_MAX = 1.766666667;
 
 const WIDTH = 80;
 const HEIGHT = 72;
 const CIRCLE_RADIUS = 9;
+const SPEED_FACTOR = .05; // between -1 and 1
 
 const MID_X = WIDTH / 2 - CIRCLE_RADIUS;
 const MID_Y = HEIGHT / 2 - CIRCLE_RADIUS;
@@ -42,7 +43,9 @@ const x = frame => {
   let retVal;
   const _frame = frame % KEYFRAME_MAX;
 
-  if (_frame < KEYFRAME_2) {
+  if (_frame < KEYFRAME_1) {
+    return MID_X;
+  } else if (_frame < KEYFRAME_2) {
     const frameValue = _frame - KEYFRAME_1;
     const frameMaximum = KEYFRAME_2 - KEYFRAME_1;
     const easeValue = EASE.easeInOutCubic(frameValue / frameMaximum);
@@ -144,8 +147,9 @@ export default class Dots extends React.Component {
     const milliseconds = new Date();
 
     this.setState(prevState => {
-      const elapsed = (milliseconds - prevState.milliseconds) / 1000; // seconds
-      const frame = prevState.frame + ((elapsed * 0.5) % 1);
+      const factor = 1000 + (1000 * SPEED_FACTOR);
+      const elapsed = (milliseconds - prevState.milliseconds) / factor;
+      const frame = prevState.frame + (elapsed % KEYFRAME_MAX);
 
       return { frame, milliseconds };
     });
@@ -156,9 +160,9 @@ export default class Dots extends React.Component {
   }
 
   frame(offset) {
-    const cycle = KEYFRAME_MAX * 2;
+    const loop = KEYFRAME_MAX * 2;
 
-    return (this.state.frame + offset * cycle) % cycle;
+    return (this.state.frame + offset * loop) % loop;
   }
 
   render() {
