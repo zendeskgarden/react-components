@@ -137,8 +137,6 @@ class TooltipContainer extends ControlledComponent {
     }, delayMilliseconds);
   };
 
-  getTooltipId = () => `${this.getControlledState().id}--tooltip`;
-
   getTriggerProps = ({
     tabIndex = 0,
     onMouseEnter,
@@ -149,7 +147,6 @@ class TooltipContainer extends ControlledComponent {
   } = {}) => {
     return {
       tabIndex,
-      'aria-describedby': this.getTooltipId(),
       onMouseEnter: composeEventHandlers(onMouseEnter, () => this.openTooltip()),
       onMouseLeave: composeEventHandlers(onMouseLeave, () => this.closeTooltip()),
       onFocus: composeEventHandlers(onFocus, () => this.openTooltip()),
@@ -159,15 +156,8 @@ class TooltipContainer extends ControlledComponent {
     };
   };
 
-  getTooltipProps = ({
-    id = this.getTooltipId(),
-    role = 'tooltip',
-    onMouseEnter,
-    onMouseLeave,
-    ...other
-  } = {}) => {
+  getTooltipProps = ({ role = 'tooltip', onMouseEnter, onMouseLeave, ...other } = {}) => {
     return {
-      id,
       role,
       onMouseEnter: composeEventHandlers(onMouseEnter, () => this.openTooltip()),
       onMouseLeave: composeEventHandlers(onMouseLeave, () => this.closeTooltip()),
@@ -222,11 +212,14 @@ class TooltipContainer extends ControlledComponent {
               const popperPlacement = popperProps['data-placement'];
               const outOfBoundaries = popperProps['data-x-out-of-boundaries'];
 
+              if (!isVisible) {
+                return null;
+              }
+
               const tooltip = (
                 <TooltipWrapper
                   innerRef={popperProps.ref}
                   style={popperProps.style}
-                  aria-hidden={!isVisible}
                   zIndex={zIndex}
                 >
                   {render({

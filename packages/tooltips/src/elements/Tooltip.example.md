@@ -7,7 +7,7 @@ All props passed to the root element are proxied into the visible tooltip.
 ```jsx
 const { Button } = require('@zendeskgarden/react-buttons/src');
 
-<Tooltip trigger={<Button>Trigger top placement</Button>}>This an small tooltip</Tooltip>;
+<Tooltip trigger={<Button>Trigger top placement</Button>}>This is a small tooltip</Tooltip>;
 ```
 
 ### Multiple Types and Sizes
