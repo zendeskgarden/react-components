@@ -33,7 +33,7 @@ const KEYFRAME_MAX = 1.766666667;
 const WIDTH = 80;
 const HEIGHT = 72;
 const CIRCLE_RADIUS = 9;
-const SPEED_FACTOR = .05; // between -1 and 1
+const VELOCITY = .05; // between -1 and 1
 
 const MID_X = WIDTH / 2 - CIRCLE_RADIUS;
 const MID_Y = HEIGHT / 2 - CIRCLE_RADIUS;
@@ -147,7 +147,7 @@ export default class Dots extends React.Component {
     const milliseconds = new Date();
 
     this.setState(prevState => {
-      const factor = 1000 + (1000 * SPEED_FACTOR);
+      const factor = 1000 + (1000 * VELOCITY);
       const elapsed = (milliseconds - prevState.milliseconds) / factor;
       const frame = prevState.frame + (elapsed % KEYFRAME_MAX);
 
