@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>6/6</span>
+        <span class='fraction'>0/10</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,21 +30,21 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>0/3</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>5/5</span>
+        <span class='fraction'>0/9</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -86,29 +86,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -119,29 +119,29 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 &nbsp;
-import styled from 'styled-components';
-import classNames from 'classnames';
-import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
-import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
+<span class="cstat-no" title="statement not covered" >import styled from 'styled-components';</span>
+<span class="cstat-no" title="statement not covered" >import classNames from 'classnames';</span>
+<span class="cstat-no" title="statement not covered" >import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';</span>
+<span class="cstat-no" title="statement not covered" >import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';</span>
 &nbsp;
-const COMPONENT_ID = 'toggles.hint';
+const COMPONENT_ID = <span class="cstat-no" title="statement not covered" >'toggles.hint';</span>
 &nbsp;
 /**
  * Accepts all `&lt;div&gt;` props
  */
-const Hint = styled.div.attrs({
+const Hint = <span class="cstat-no" title="statement not covered" >styled.div.attrs({</span>
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =&gt;
+  className: <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >props =&gt;</span></span>
     classNames(CheckboxStyles['c-chk__hint'], CheckboxStyles['c-chk__hint--toggle'], {
       // RTL
       [CheckboxStyles['is-rtl']]: isRtl(props)
     })
 })`
-  ${props =&gt; retrieveTheme(COMPONENT_ID, props)};
+  ${<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >props =&gt; retrieveTheme(COMPONENT_ID, props)};</span></span>
 `;
 &nbsp;
-Hint.hasType = () =&gt; Hint;
+<span class="cstat-no" title="statement not covered" >Hint.hasType = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; Hint;</span></span></span>
 &nbsp;
 /** @component */
 export default Hint;
@@ -151,7 +151,7 @@ export default Hint;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Aug 20 2018 17:20:24 GMT+0000 (UTC)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Aug 21 2018 11:04:02 GMT-0700 (Pacific Daylight Time)
 </div>
 </div>
 <script src="../../../prettify.js"></script>
