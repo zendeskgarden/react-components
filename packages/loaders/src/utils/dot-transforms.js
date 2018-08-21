@@ -22,7 +22,7 @@ const MID_Y = HEIGHT / 2 - CIRCLE_RADIUS;
 const BOTTOM = MID_Y + 5;
 
 /**
- * Retrieve the X transform value
+ * Retrieve the X coordinate value
  * @param {Number} frame The current frame
  */
 export function retrieveXTransform(frame) {
@@ -55,7 +55,7 @@ export function retrieveXTransform(frame) {
 }
 
 /**
- * Retrieve the Y transform value
+ * Retrieve the Y coordinate value
  * @param {Number} frame The current frame
  */
 export function retrieveYTransform(frame) {

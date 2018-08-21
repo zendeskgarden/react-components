@@ -60,6 +60,7 @@ class ButtonExample extends React.Component {
 ### Advanced Usage
 
 ```jsx
+const { zdColorBlue500, zdColorGrey500 } = require('@zendeskgarden/css-variables');
 const { RangeField, Label, Range } = require('@zendeskgarden/react-ranges/src');
 const {
   SelectField,
@@ -69,8 +70,8 @@ const {
 } = require('@zendeskgarden/react-select/src');
 
 const colors = {
-  'BLUE-500': '#337FBD',
-  'GREY-500': '#87929D',
+  'BLUE-500': zdColorBlue500,
+  'GREY-500': zdColorGrey500,
   INHERIT: 'inherit'
 };
 
@@ -109,10 +110,6 @@ const Color = ({ name, color, includeSample }) =>
     </ColorSamplePreview>
   );
 
-initialState = {
-  selectedKey: 'Apple Green'
-};
-
 <State
   initialState={{
     size: 50,
@@ -130,7 +127,7 @@ initialState = {
               px
             </Label>
             <Range
-              value={state.width}
+              value={state.size}
               onChange={event => setState({ size: event.target.value })}
               min={30}
               max={250}

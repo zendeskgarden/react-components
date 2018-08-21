@@ -12,11 +12,18 @@ import { LoadingPlaceholder, StyledCircle, StyledSVG } from './styled-elements';
 
 export default class Dots extends React.Component {
   static propTypes = {
-    /** Size of the loader. Can inherit from `font-size` styling. */
+    /**
+     * Size of the loader. Can inherit from `font-size` styling.
+     **/
     size: PropTypes.any,
-    /** Velocity (speed) of the animation. Between -1 and 1. */
+    /**
+     * Velocity (speed) of the animation. Between -1 and 1.
+     * This should only be maniuplated at extreme sizes.
+     **/
     velocity: PropTypes.number,
-    /** Color of the loader. Can inherit from `color` styling. */
+    /**
+     * Color of the loader. Can inherit from `color` styling.
+     **/
     color: PropTypes.string,
     /**
      * Delay in MS to begin loader rendering. This helps prevent
@@ -28,7 +35,7 @@ export default class Dots extends React.Component {
   static defaultProps = {
     size: 'inherit',
     color: 'inherit',
-    velocity: 0,
+    velocity: 0.5,
     delayMS: 750
   };
 

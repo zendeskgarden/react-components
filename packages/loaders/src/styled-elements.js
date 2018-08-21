@@ -36,7 +36,7 @@ const StyledSvg = styled.svg.attrs({
   role: 'progressbar'
 })`
   width: 1em;
-  height: 0.9em; /* stylelint-disable-line */
+  height: 0.9em;
   color: ${props => props.color || 'inherit'};
   font-size: ${props => props.fontSize || 'inherit'};
 
@@ -66,7 +66,7 @@ export const LoadingPlaceholder = styled.div.attrs({
 })`
   display: inline;
   width: 1em;
-  height: 0.9em; /* stylelint-disable-line */
+  height: 0.9em;
   font-size: ${props => props.fontSize};
 `;
 

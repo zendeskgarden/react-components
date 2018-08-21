@@ -6,7 +6,7 @@
  */
 
 /**
- * accelerating from zero velocity
+ * Accelerating from zero velocity
  * @param {Number} time Time
  */
 export function easeInCubic(time) {
@@ -14,7 +14,7 @@ export function easeInCubic(time) {
 }
 
 /**
- * decelerating to zero velocity
+ * Decelerating to zero velocity
  * @param {Number} time Time
  */
 export function easeOutCubic(time) {
@@ -24,7 +24,7 @@ export function easeOutCubic(time) {
 }
 
 /**
- * acceleration until halfway, then deceleration
+ * Acceleration until halfway, then deceleration
  * @param {Number} time Time
  */
 export function easeInOutCubic(time) {
