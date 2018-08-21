@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/9</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,21 +30,21 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/1</span>
+        <span class='fraction'>1/1</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/9</span>
+        <span class='fraction'>4/4</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -88,26 +88,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -123,26 +123,26 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 &nbsp;
-<span class="cstat-no" title="statement not covered" >import PropTypes from 'prop-types';</span>
-<span class="cstat-no" title="statement not covered" >import styled from 'styled-components';</span>
-<span class="cstat-no" title="statement not covered" >import PaginationStyles from '@zendeskgarden/css-pagination';</span>
-<span class="cstat-no" title="statement not covered" >import { retrieveTheme } from '@zendeskgarden/react-theming';</span>
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import PaginationStyles from '@zendeskgarden/css-pagination';
+import { retrieveTheme } from '@zendeskgarden/react-theming';
 &nbsp;
-<span class="cstat-no" title="statement not covered" >import Page from './Page';</span>
-const COMPONENT_ID = <span class="cstat-no" title="statement not covered" >'pagination.next_page';</span>
+import Page from './Page';
+const COMPONENT_ID = 'pagination.next_page';
 &nbsp;
 /**
  * Accepts all `&lt;li&gt;` props
  */
-const NextPage = <span class="cstat-no" title="statement not covered" >styled(Page).attrs({</span>
+const NextPage = styled(Page).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: PaginationStyles['c-pagination__page--next']
 })`
-  ${<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >props =&gt; retrieveTheme(COMPONENT_ID, props)};</span></span>
+  ${props =&gt; retrieveTheme(COMPONENT_ID, props)};
 `;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >NextPage.propTypes = {</span>
+NextPage.propTypes = {
   current: PropTypes.bool,
   focused: PropTypes.bool,
   hovered: PropTypes.bool,
@@ -157,7 +157,7 @@ export default NextPage;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Aug 21 2018 11:04:02 GMT-0700 (Pacific Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Aug 21 2018 19:36:20 GMT+0000 (UTC)
 </div>
 </div>
 <script src="../../../prettify.js"></script>
