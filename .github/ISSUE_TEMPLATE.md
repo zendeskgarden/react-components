@@ -12,7 +12,14 @@
 
 ## Steps to Reproduce
 
-1.  1.  1.
+  1.
+  1.
+  1.
+
+<!--
+  BONUS POINTS: spin up and share an example via
+  https://codesandbox.io/s/new or https://stackblitz.com/fork/react.
+-->
 
 ###### Fine Print
 
