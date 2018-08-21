@@ -5,169 +5,177 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { getDotTransforms, KEYFRAME_MAX } from './utils/transforms';
 
-const EASE = {
-  // accelerating from zero velocity
-  easeInCubic: function(t) {
-    return t * t * t;
-  },
-  // decelerating to zero velocity
-  easeOutCubic: function(t) {
-    return --t * t * t + 1;
-  },
-  // acceleration until halfway, then deceleration
-  easeInOutCubic: function(t) {
-    return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
-  }
+const COMPONENT_ID = 'loaders.dots';
+
+const StyledCircle = styled.circle.attrs({
+  cx: 9,
+  cy: 9,
+  r: 9,
+  transform: props => props.transform
+})`
+  will-change: transform;
+`;
+
+StyledCircle.propTypes = {
+  transform: PropTypes.string
 };
 
-const KEYFRAME_1 = 0.03;
-const KEYFRAME_2 = 0.31;
-const KEYFRAME_3 = 0.66;
-const KEYFRAME_4 = 0.75;
-const KEYFRAME_5 = 0.87;
-const KEYFRAME_MAX = 1;
+const StyledSvg = styled.svg.attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION,
+  xmlns: 'http://www.w3.org/2000/svg',
+  width: 80,
+  height: 72,
+  focusable: 'false',
+  viewBox: '0 0 80 72',
+  role: 'progressbar'
+})`
+  width: 1em;
+  height: 0.9em; /* stylelint-disable-line */
+  color: ${props => props.color};
+  font-size: ${props => props.fontSize};
 
-const WIDTH = 80;
-const HEIGHT = 72;
-const CIRCLE_RADIUS = 9;
+  ${props => retrieveTheme(COMPONENT_ID, props)};
+`;
 
-const MID_X = WIDTH / 2 - CIRCLE_RADIUS;
-const MID_Y = HEIGHT / 2 - CIRCLE_RADIUS;
-const BOTTOM = MID_Y + 5;
-
-const x = frame => {
-  let retVal;
-  const _frame = frame % KEYFRAME_MAX;
-
-  if (_frame < KEYFRAME_2) {
-    const frameValue = _frame - KEYFRAME_1;
-    const frameMaximum = KEYFRAME_2 - KEYFRAME_1;
-    const easeValue = EASE.easeInOutCubic(frameValue / frameMaximum);
-
-    retVal = MID_X - easeValue * MID_X;
-  } else if (_frame < KEYFRAME_4) {
-    retVal = 0;
-  } else {
-    const frameValue = _frame - KEYFRAME_4;
-    const frameMaximum = KEYFRAME_MAX - KEYFRAME_4;
-
-    retVal = MID_X * (frameValue / frameMaximum);
-  }
-
-  if (frame >= KEYFRAME_MAX) {
-    retVal = MID_X * 2 - retVal;
-  }
-
-  return retVal;
+StyledSvg.propTypes = {
+  color: PropTypes.string,
+  fontSize: PropTypes.any
 };
 
-const y = frame => {
-  const _frame = frame % KEYFRAME_MAX;
-
-  if (_frame < KEYFRAME_1) {
-    return (_frame / KEYFRAME_1) * -1 * (BOTTOM - MID_Y) + BOTTOM;
-  } else if (_frame < KEYFRAME_3) {
-    return MID_Y;
-  } else if (_frame < KEYFRAME_4) {
-    const frameValue = _frame - KEYFRAME_3;
-    const frameMaximum = KEYFRAME_4 - KEYFRAME_3;
-
-    return (frameValue / frameMaximum) * (BOTTOM - MID_Y) + MID_Y;
-  } else if (_frame < KEYFRAME_5) {
-    const frameValue = _frame - KEYFRAME_4;
-    const frameMaximum = KEYFRAME_5 - KEYFRAME_4;
-    const easeValue = EASE.easeOutCubic(frameValue / frameMaximum);
-
-    return BOTTOM - easeValue * BOTTOM;
-  } else {
-    const frameValue = _frame - KEYFRAME_5;
-    const frameMaximum = KEYFRAME_MAX - KEYFRAME_5;
-    const easeValue = EASE.easeInCubic(frameValue / frameMaximum);
-
-    return easeValue * BOTTOM;
-  }
+const StyledSVG = ({ children, fontSize, ...other }) => {
+  return (
+    <StyledSvg fontSize={fontSize} {...other}>
+      <g fill="currentColor">{children}</g>
+    </StyledSvg>
+  );
 };
 
-const Circle = ({ frame }) => (
-  <circle
-    cx={CIRCLE_RADIUS}
-    cy={CIRCLE_RADIUS}
-    r={CIRCLE_RADIUS}
-    transform={`translate(${x(frame)} ${y(frame)})`}
-    style={{ willChange: "transform" }}
-  />
-);
-
-Circle.propTypes = {
-  frame: PropTypes.number
+StyledSVG.propTypes = {
+  children: PropTypes.node,
+  fontSize: PropTypes.any
 };
 
-const SVG = ({ children }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={WIDTH}
-    height={HEIGHT}
-    focusable="false"
-    viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-    style={{ width: "1em", height: `${HEIGHT / WIDTH}em`, fontSize: 80 }}
-  >
-    <g fill="currentColor">{children}</g>
-  </svg>
-);
+const LoadingPlaceholder = styled.div.attrs({
+  role: 'progressbar'
+})`
+  display: inline;
+  width: 1em;
+  height: 0.9em; /* stylelint-disable-line */
+  font-size: ${props => props.fontSize};
+`;
 
-SVG.propTypes = {
-  children: PropTypes.node
+LoadingPlaceholder.propTypes = {
+  fontSize: PropTypes.any
 };
 
 export default class Dots extends React.Component {
-  constructor(props) {
-    super(props);
+  static propTypes = {
+    /** Size of the loader. Can inherit from `font-size` styling */
+    size: PropTypes.any,
+    /** Velocity (speed) of the animation */
+    velocity: PropTypes.number, // between -1 and 1
+    /** Color of the loader. Can inherit from `color` styling */
+    color: PropTypes.string,
+    /**
+     * Delay in MS to begin loader rendering. This helps prevent
+     * quick flashes of the loader during normal loading times.
+     **/
+    delayMS: PropTypes.number
+  };
+
+  static defaultProps = {
+    size: 'inherit',
+    color: 'inherit',
+    velocity: 0,
+    delayMS: 750
+  };
+
+  constructor(...args) {
+    super(...args);
 
     this.state = {
       frame: 0,
-      milliseconds: new Date()
+      delayComplete: false,
+      timestamp: 0
     };
   }
 
   componentDidMount() {
-    this.tick();
+    const { delayMS } = this.props;
+
+    this.renderingDelayTimeout = setTimeout(() => {
+      this.setState({ delayComplete: true }, () => {
+        this.performAnimationFrame();
+      });
+    }, delayMS);
   }
 
   componentWillUnmount() {
+    clearTimeout(this.renderingDelayTimeout);
     cancelAnimationFrame(this.animationFrame);
   }
 
-  tick() {
-    const milliseconds = new Date();
+  performAnimationFrame = (timestamp = 0) => {
+    const { velocity } = this.props;
 
-    this.setState(prevState => {
-      const elapsed = (milliseconds - prevState.milliseconds) / 1000; // seconds
-      const frame = prevState.frame + ((elapsed * 0.5) % 1);
+    this.setState(
+      prevState => {
+        const factor = 1000 + 1000 * velocity;
+        const elapsed = (timestamp - prevState.timestamp) / factor;
+        const frame = prevState.frame + (elapsed % KEYFRAME_MAX);
 
-      return { frame, milliseconds };
-    });
+        return { frame, timestamp };
+      },
+      () => {
+        this.animationFrame = requestAnimationFrame(this.performAnimationFrame);
+      }
+    );
+  };
 
-    this.animationFrame = requestAnimationFrame(() => {
-      this.tick();
-    });
-  }
+  retrieveFrame = offset => {
+    const loop = KEYFRAME_MAX * 2;
 
-  frame(offset) {
-    const cycle = KEYFRAME_MAX * 2;
-
-    return (this.state.frame + offset * cycle) % cycle;
-  }
+    return (this.state.frame + offset * loop) % loop;
+  };
 
   render() {
+    const { size, delayMS, ...other } = this.props;
+    const { delayComplete } = this.state;
+
+    if (!delayComplete && delayMS !== 0) {
+      return <LoadingPlaceholder fontSize={size}>&nbsp;</LoadingPlaceholder>;
+    }
+
+    const dotTransforms = getDotTransforms();
+    const dotOneFrame = this.retrieveFrame(0);
+    const dotTwoFrame = this.retrieveFrame(1 / 3);
+    const dotThreeFrame = this.retrieveFrame(2 / 3);
+
     return (
-      <SVG>
-        <Circle frame={this.frame(0)} />
-        <Circle frame={this.frame(1 / 3)} />
-        <Circle frame={this.frame(2 / 3)} />
-      </SVG>
+      <StyledSVG fontSize={size} {...other}>
+        <StyledCircle
+          transform={`translate(${dotTransforms.retrieveX(dotOneFrame)} ${dotTransforms.retrieveY(
+            dotOneFrame
+          )})`}
+        />
+        <StyledCircle
+          transform={`translate(${dotTransforms.retrieveX(dotTwoFrame)} ${dotTransforms.retrieveY(
+            dotTwoFrame
+          )})`}
+        />
+        <StyledCircle
+          transform={`translate(${dotTransforms.retrieveX(dotThreeFrame)} ${dotTransforms.retrieveY(
+            dotThreeFrame
+          )})`}
+        />
+      </StyledSVG>
     );
   }
 }

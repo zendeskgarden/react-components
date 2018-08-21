@@ -16,12 +16,12 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 
 ```jsx static
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Loader } from '@zendeskgarden/react-loaders';
+import { Dots } from '@zendeskgarden/react-loaders';
 
 /**
  * Place a `ThemeProvider` at the root of your React application
  */
 <ThemeProvider>
-  <Loader />;
+  <Dots />;
 </ThemeProvider>;
 ```
