@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Component, cloneElement } from 'react';
+import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
+import { ControlledComponent, IdManager } from '@zendeskgarden/react-selection';
 
 import TooltipContainer from '../containers/TooltipContainer';
 import TooltipView from '../views/TooltipView';
@@ -24,7 +25,7 @@ const TYPE = {
   DARK: 'dark'
 };
 
-export default class Tooltip extends Component {
+export default class Tooltip extends ControlledComponent {
   static propTypes = {
     /** Appends the tooltip to the body element */
     appendToBody: PropTypes.bool,
@@ -71,10 +72,13 @@ export default class Tooltip extends Component {
     type: TYPE.DARK
   };
 
+  state = {
+    id: IdManager.generateId()
+  };
+
   render() {
     const {
       appendToBody,
-      id,
       trigger,
       placement: defaultPlacement,
       eventsEnabled,
@@ -87,6 +91,8 @@ export default class Tooltip extends Component {
       zIndex,
       ...otherProps
     } = this.props;
+
+    const { id } = this.getControlledState();
 
     return (
       <TooltipContainer

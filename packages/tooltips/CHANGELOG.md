@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.3.5"></a>
+## [4.3.5](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.3.4...@zendeskgarden/react-tooltips@4.3.5) (2018-08-20)
+
+
+### Bug Fixes
+
+* **tooltips:** fix rendering stutter in Safari ([#119](https://github.com/zendeskgarden/react-components/issues/119)) ([6203ec8](https://github.com/zendeskgarden/react-components/commit/6203ec8))
+
+
+
+
+
 <a name="4.3.4"></a>
 ## [4.3.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.3.2...@zendeskgarden/react-tooltips@4.3.4) (2018-08-17)
 
