@@ -63,9 +63,17 @@ export default class Dots extends React.Component {
   performAnimationFrame = (timestamp = 0) => {
     const { velocity } = this.props;
 
+    let pinnedVelocity = velocity;
+
+    if (velocity < -1) {
+      pinnedVelocity = -0.9;
+    } else if (velocity > 1) {
+      pinnedVelocity = 1;
+    }
+
     this.setState(
       prevState => {
-        const factor = 1000 + 1000 * velocity;
+        const factor = 1000 + 1000 * pinnedVelocity;
         const elapsed = (timestamp - prevState.timestamp) / factor;
         const frame = prevState.frame + (elapsed % KEYFRAME_MAX);
 

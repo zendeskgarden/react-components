@@ -113,7 +113,7 @@ const Color = ({ name, color, includeSample }) =>
 <State
   initialState={{
     size: 50,
-    velocity: 0,
+    velocity: 0.5,
     color: 'BLUE-500'
   }}
 >
