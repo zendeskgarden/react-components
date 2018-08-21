@@ -7,26 +7,26 @@
 
 /**
  * accelerating from zero velocity
- * @param {*} t
+ * @param {Number} time Time
  */
-export function easeInCubic(t) {
-  return t * t * t;
+export function easeInCubic(time) {
+  return time * time * time;
 }
 
 /**
  * decelerating to zero velocity
- * @param {*} t
+ * @param {Number} time Time
  */
-export function easeOutCubic(t) {
-  const value = t - 1;
+export function easeOutCubic(time) {
+  const value = time - 1;
 
   return value * value * value + 1;
 }
 
 /**
  * acceleration until halfway, then deceleration
- * @param {*} t
+ * @param {Number} time Time
  */
-export function easeInOutCubic(t) {
-  return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+export function easeInOutCubic(time) {
+  return time < 0.5 ? 4 * time * time * time : (time - 1) * (2 * time - 2) * (2 * time - 2) + 1;
 }

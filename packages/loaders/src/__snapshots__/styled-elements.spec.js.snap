@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`styled-elements LoadingPlaceholder renders correctly by default 1`] = `
+.c0 {
+  display: inline;
+  width: 1em;
+  height: 0.9em;
+}
+
+<div
+  className="c0"
+  role="progressbar"
+/>
+`;
+
+exports[`styled-elements LoadingPlaceholder renders font-size correctly if provided 1`] = `
+.c0 {
+  display: inline;
+  width: 1em;
+  height: 0.9em;
+  font-size: 15px;
+}
+
+<div
+  className="c0"
+  fontSize="15px"
+  role="progressbar"
+/>
+`;
+
+exports[`styled-elements StyledCircle renders correctly by default 1`] = `
+.c0 {
+  will-change: transform;
+}
+
+<circle
+  className="c0"
+  cx={9}
+  cy={9}
+  r={9}
+  transform="transform(2 3)"
+/>
+`;
+
+exports[`styled-elements StyledSVG renders color correctly if provided 1`] = `
+.c0 {
+  width: 1em;
+  height: 0.9em;
+  color: red;
+  font-size: inherit;
+}
+
+<StyledSVG
+  color="red"
+>
+  <styled-elements__StyledSvg
+    color="red"
+  >
+    <svg
+      className="c0"
+      color="red"
+      data-garden-id="loaders.dots"
+      data-garden-version="version"
+      focusable="false"
+      height={72}
+      role="progressbar"
+      viewBox="0 0 80 72"
+      width={80}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        fill="currentColor"
+      />
+    </svg>
+  </styled-elements__StyledSvg>
+</StyledSVG>
+`;
+
+exports[`styled-elements StyledSVG renders correctly by default 1`] = `
+.c0 {
+  width: 1em;
+  height: 0.9em;
+  color: inherit;
+  font-size: inherit;
+}
+
+<StyledSVG>
+  <styled-elements__StyledSvg>
+    <svg
+      className="c0"
+      data-garden-id="loaders.dots"
+      data-garden-version="version"
+      focusable="false"
+      height={72}
+      role="progressbar"
+      viewBox="0 0 80 72"
+      width={80}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        fill="currentColor"
+      />
+    </svg>
+  </styled-elements__StyledSvg>
+</StyledSVG>
+`;
+
+exports[`styled-elements StyledSVG renders font-size correctly if provided 1`] = `
+.c0 {
+  width: 1em;
+  height: 0.9em;
+  color: inherit;
+  font-size: 15px;
+}
+
+<StyledSVG
+  fontSize="15px"
+>
+  <styled-elements__StyledSvg
+    fontSize="15px"
+  >
+    <svg
+      className="c0"
+      data-garden-id="loaders.dots"
+      data-garden-version="version"
+      focusable="false"
+      fontSize="15px"
+      height={72}
+      role="progressbar"
+      viewBox="0 0 80 72"
+      width={80}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g
+        fill="currentColor"
+      />
+    </svg>
+  </styled-elements__StyledSvg>
+</StyledSVG>
+`;

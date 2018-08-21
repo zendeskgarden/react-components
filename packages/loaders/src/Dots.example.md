@@ -12,7 +12,7 @@ and usability features:
 ```jsx
 const { zdColorBlue500 } = require('@zendeskgarden/css-variables');
 
-<Dots color={zdColorBlue500} size={50} />;
+<Dots color={zdColorBlue500} size="50px" />;
 ```
 
 ### Loading Button
