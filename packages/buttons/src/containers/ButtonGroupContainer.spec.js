@@ -79,6 +79,17 @@ describe('ButtonGroupContainer', () => {
       });
     });
 
+    it('applies the correct accessibility selected value when not selected', () => {
+      expect(findButtons(wrapper).first()).toHaveProp('aria-pressed', false);
+    });
+
+    it('applies the correct accessibility selected value when selected', () => {
+      findButtons(wrapper)
+        .first()
+        .simulate('click');
+      expect(findButtons(wrapper).first()).toHaveProp('aria-pressed', true);
+    });
+
     it('moves focus to the ButtonGroupView if a button receives focus', () => {
       findButtons(wrapper)
         .at(0)

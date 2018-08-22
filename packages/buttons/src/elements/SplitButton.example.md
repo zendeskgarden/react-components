@@ -37,7 +37,12 @@ const increment = (num = 0) => setState({ count: state.count + num });
           }}
           onStateChange={newState => setState(newState)}
           trigger={({ ref }) => (
-            <ChevronButton buttonRef={ref} rotated={state.isOpen} active={state.isOpen} />
+            <ChevronButton
+              buttonRef={ref}
+              rotated={state.isOpen}
+              active={state.isOpen}
+              aria-label="Other Options"
+            />
           )}
         >
           <Item key="add-5">Add 5</Item>
