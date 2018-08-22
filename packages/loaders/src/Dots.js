@@ -7,7 +7,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { retrieveXTransform, retrieveYTransform, KEYFRAME_MAX } from './utils/dot-transforms';
+import { retrieveXCoordinate, retrieveYCoordinate, KEYFRAME_MAX } from './utils/dot-coordinates';
 import { LoadingPlaceholder, StyledCircle, StyledSVG } from './styled-elements';
 
 export default class Dots extends React.Component {
@@ -106,17 +106,17 @@ export default class Dots extends React.Component {
     return (
       <StyledSVG fontSize={size} color={color} {...other}>
         <StyledCircle
-          transform={`translate(${retrieveXTransform(dotOneFrame)} ${retrieveYTransform(
+          transform={`translate(${retrieveXCoordinate(dotOneFrame)} ${retrieveYCoordinate(
             dotOneFrame
           )})`}
         />
         <StyledCircle
-          transform={`translate(${retrieveXTransform(dotTwoFrame)} ${retrieveYTransform(
+          transform={`translate(${retrieveXCoordinate(dotTwoFrame)} ${retrieveYCoordinate(
             dotTwoFrame
           )})`}
         />
         <StyledCircle
-          transform={`translate(${retrieveXTransform(dotThreeFrame)} ${retrieveYTransform(
+          transform={`translate(${retrieveXCoordinate(dotThreeFrame)} ${retrieveYCoordinate(
             dotThreeFrame
           )})`}
         />

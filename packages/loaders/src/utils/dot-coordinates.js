@@ -25,7 +25,7 @@ const BOTTOM = MID_Y + 5;
  * Retrieve the X coordinate value
  * @param {Number} frame The current frame
  */
-export function retrieveXTransform(frame) {
+export function retrieveXCoordinate(frame) {
   let retVal;
 
   const _frame = frame % KEYFRAME_MAX;
@@ -58,7 +58,7 @@ export function retrieveXTransform(frame) {
  * Retrieve the Y coordinate value
  * @param {Number} frame The current frame
  */
-export function retrieveYTransform(frame) {
+export function retrieveYCoordinate(frame) {
   const _frame = frame % KEYFRAME_MAX;
 
   if (_frame < KEYFRAME_1) {
