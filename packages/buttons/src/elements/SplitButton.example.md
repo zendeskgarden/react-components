@@ -8,7 +8,8 @@ The `SplitButton` pattern is accomplished with:
 
 ### React `16+`
 
-The `react-menus` package uses the `Fragments` API internally. For React <=15 support, use the example below.
+The `react-menus` package uses the [React.Fragments](https://reactjs.org/docs/fragments.html)
+API internally. For React <=15 support, use the example below.
 
 ```jsx
 /**
