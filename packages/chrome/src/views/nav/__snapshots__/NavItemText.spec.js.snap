@@ -7,3 +7,12 @@ exports[`NavItemText renders default styling 1`] = `
   data-garden-version="version"
 />
 `;
+
+exports[`NavItemText renders wrap styling if provided 1`] = `
+<span
+  className="c-chrome__nav__item__text c-chrome__nav__item__text--wrap "
+  data-garden-id="chrome.nav_item_text"
+  data-garden-version="version"
+  wrap={true}
+/>
+`;
