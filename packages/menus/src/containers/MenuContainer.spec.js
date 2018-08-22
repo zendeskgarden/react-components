@@ -254,6 +254,20 @@ describe('MenuContainer', () => {
     });
   });
 
+  describe('componentWillUnmount', () => {
+    it('removes mousedown event listener', () => {
+      const removeEventListenerSpy = jest.fn();
+
+      document.removeEventListener = removeEventListenerSpy;
+      wrapper = mountWithTheme(basicExample({ onChange: onChangeSpy }), {
+        enzymeOptions: { attachTo: document.body }
+      });
+      wrapper.unmount();
+
+      expect(removeEventListenerSpy).toHaveBeenCalled();
+    });
+  });
+
   describe('getTriggerProps()', () => {
     beforeEach(() => {
       wrapper = mountWithTheme(basicExample({ onChange: onChangeSpy }));
