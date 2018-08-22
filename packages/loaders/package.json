@@ -1,6 +1,6 @@
 {
-  "name": "@zendeskgarden/react-{{component}}",
-  "description": "Components relating to {{component}} in the Garden Design System",
+  "name": "@zendeskgarden/react-loaders",
+  "description": "Components relating to loaders in the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
   "homepage": "https://garden.zendesk.com/",
@@ -28,6 +28,10 @@
     "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0",
     "styled-components": "^3.2.6"
   },
+  "devDependencies": {
+    "@zendeskgarden/css-variables": "^5.0.4",
+    "@zendeskgarden/react-theming": "^3.1.1"
+  },
   "keywords": [
     "components",
     "garden",
@@ -37,6 +41,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "zendeskgarden:library": "Garden{{capitalize component}}",
+  "zendeskgarden:library": "GardenLoaders",
   "zendeskgarden:src": "src/index.js"
 }
