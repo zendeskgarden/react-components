@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "0.1.24",
+  "version": "0.1.25",
   "main": "./dist/index.js",
   "files": [
     "dist"
@@ -19,8 +19,8 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendeskgarden/react-selection": "^4.3.4",
-    "@zendeskgarden/react-tooltips": "^4.3.5",
+    "@zendeskgarden/react-selection": "^4.4.0",
+    "@zendeskgarden/react-tooltips": "^4.3.6",
     "@zendeskgarden/react-utilities": "^0.2.2",
     "classnames": "^2.2.5",
     "dom-helpers": "^3.3.1",

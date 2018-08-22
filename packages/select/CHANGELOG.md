@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.3.7"></a>
+## [2.3.7](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-select@2.3.6...@zendeskgarden/react-select@2.3.7) (2018-08-22)
+
+**Note:** Version bump only for package @zendeskgarden/react-select
+
+
+
+
+
 <a name="2.3.6"></a>
 ## [2.3.6](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-select@2.3.5...@zendeskgarden/react-select@2.3.6) (2018-08-20)
 
