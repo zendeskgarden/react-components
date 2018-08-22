@@ -35,7 +35,7 @@ export default class Dots extends React.Component {
   static defaultProps = {
     size: 'inherit',
     color: 'inherit',
-    velocity: 0.5,
+    velocity: 0.05,
     delayMS: 750
   };
 

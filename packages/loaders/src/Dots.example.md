@@ -15,48 +15,6 @@ const { zdColorBlue500 } = require('@zendeskgarden/css-variables');
 <Dots color={zdColorBlue500} size="50px" />;
 ```
 
-### Loading Button
-
-The `Dots` loader inherits it's size and color from it's parent element by default.
-
-For usages where a rendering delay is not necessary, pass `[delayMS={0}]`
-
-```jsx
-const { Button } = require('@zendeskgarden/react-buttons/src');
-
-class ButtonExample extends React.Component {
-  constructor(...args) {
-    super(...args);
-
-    this.state = {
-      isLoading: false
-    };
-  }
-
-  componentDidMount() {
-    this.interval = setInterval(() => {
-      this.setState(prevState => ({
-        isLoading: !prevState.isLoading
-      }));
-    }, 2000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
-
-  render() {
-    return (
-      <Button primary>
-        {!this.state.isLoading && 'This button has a delayed loading state'}
-        {this.state.isLoading && <Dots delayMS={0} />}
-      </Button>
-    );
-  }
-}
-<ButtonExample />;
-```
-
 ### Advanced Usage
 
 ```jsx
@@ -113,7 +71,7 @@ const Color = ({ name, color, includeSample }) =>
 <State
   initialState={{
     size: 50,
-    velocity: 0.5,
+    velocity: 0.05,
     color: 'BLUE-500'
   }}
 >
