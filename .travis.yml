@@ -29,7 +29,7 @@ deploy:
       branch: master
 
   - provider: script
-    script: utils/travis/publish-packages.js
+    script: yarn lerna publish from-git --no-verify-access --yes
     skip_cleanup: true
     on:
       branch: master
