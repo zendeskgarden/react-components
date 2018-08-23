@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1535059149574" clover="3.2.0">
-  <project timestamp="1535059149574" name="All files">
-    <metrics statements="1799" coveredstatements="1783" conditionals="806" coveredconditionals="721" methods="596" coveredmethods="594" elements="3201" coveredelements="3098" complexity="0" loc="1799" ncloc="1799" packages="63" files="167" classes="167">
+<coverage generated="1535062777194" clover="3.2.0">
+  <project timestamp="1535062777194" name="All files">
+    <metrics statements="1801" coveredstatements="1785" conditionals="808" coveredconditionals="722" methods="595" coveredmethods="593" elements="3204" coveredelements="3100" complexity="0" loc="1801" ncloc="1801" packages="63" files="167" classes="167">
       <package name="autocomplete.src.containers">
         <metrics statements="152" coveredstatements="152" conditionals="98" coveredconditionals="83" methods="44" coveredmethods="44"/>
         <file name="AutocompleteContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/autocomplete/src/containers/AutocompleteContainer.js">
@@ -2407,20 +2407,22 @@
         </file>
       </package>
       <package name="tooltips.src.utils">
-        <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2"/>
         <file name="gardenPlacements.js" path="/home/travis/build/zendeskgarden/react-components/packages/tooltips/src/utils/gardenPlacements.js">
-          <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+          <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2"/>
           <line num="8" count="22" type="stmt"/>
           <line num="18" count="22" type="stmt"/>
           <line num="28" count="22" type="stmt"/>
           <line num="43" count="310" type="stmt"/>
-          <line num="44" count="2170" type="stmt"/>
-          <line num="46" count="2170" type="stmt"/>
-          <line num="49" count="310" type="stmt"/>
-          <line num="59" count="310" type="stmt"/>
-          <line num="67" count="54" type="stmt"/>
-          <line num="80" count="54" type="stmt"/>
-          <line num="82" count="54" type="cond" truecount="2" falsecount="0"/>
+          <line num="45" count="310" type="stmt"/>
+          <line num="46" count="2170" type="cond" truecount="1" falsecount="1"/>
+          <line num="47" count="2170" type="stmt"/>
+          <line num="49" count="2170" type="stmt"/>
+          <line num="53" count="310" type="stmt"/>
+          <line num="63" count="310" type="stmt"/>
+          <line num="71" count="54" type="stmt"/>
+          <line num="84" count="54" type="stmt"/>
+          <line num="86" count="54" type="cond" truecount="2" falsecount="0"/>
         </file>
       </package>
       <package name="tooltips.src.views">
