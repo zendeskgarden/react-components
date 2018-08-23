@@ -27,7 +27,7 @@ const ExampleModalContainer = styled.div`
           <Button primary>Submit</Button>
         </FooterItem>
       </Footer>
-      <Close />
+      <Close aria-label="Close modal" />
     </ModalView>
   </Backdrop>
 </ExampleModalContainer>;

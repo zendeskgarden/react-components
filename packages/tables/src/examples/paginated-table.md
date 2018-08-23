@@ -4,7 +4,7 @@ const { Avatar } = require('@zendeskgarden/react-avatars/src');
 const {
   zdFontSizeBeta,
   zdFontSizeEpsilon,
-  zdColorGrey500,
+  zdColorGrey600,
   zdFontWeightSemibold,
   zdSpacingSm
 } = require('@zendeskgarden/css-variables');
@@ -33,7 +33,7 @@ initialState = {
 };
 
 const CurrentPages = styled.div`
-  color: ${zdColorGrey500};
+  color: ${zdColorGrey600};
   font-size: ${zdFontSizeEpsilon};
 `;
 
