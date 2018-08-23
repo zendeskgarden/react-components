@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.1.16"></a>
+## [4.1.16](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-pagination@4.1.15...@zendeskgarden/react-pagination@4.1.16) (2018-08-23)
+
+
+### Bug Fixes
+
+* **pagination:** remove invalid aria role ([#127](https://github.com/zendeskgarden/react-components/issues/127)) ([ba4bcb5](https://github.com/zendeskgarden/react-components/commit/ba4bcb5))
+
+
+
+
+
 <a name="4.1.15"></a>
 ## [4.1.15](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-pagination@4.1.14...@zendeskgarden/react-pagination@4.1.15) (2018-08-23)
 
