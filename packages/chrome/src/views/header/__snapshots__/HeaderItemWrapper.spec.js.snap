@@ -81,11 +81,19 @@ exports[`HeaderItemWrapper States renders hovered styling if provided 1`] = `
 `;
 
 exports[`HeaderItemWrapper renders default styling 1`] = `
-<div
-  className="c-chrome__body__header__item "
-  data-garden-id="chrome.header_item_wrapper"
-  data-garden-version="version"
-/>
+<HeaderItemWrapper>
+  <HeaderItem__StyledHeaderItem
+    className=""
+    data-garden-id="chrome.header_item_wrapper"
+    data-garden-version="version"
+  >
+    <div
+      className="c-chrome__body__header__item "
+      data-garden-id="chrome.header_item_wrapper"
+      data-garden-version="version"
+    />
+  </HeaderItem__StyledHeaderItem>
+</HeaderItemWrapper>
 `;
 
 exports[`HeaderItemWrapper renders maxX styling if provided 1`] = `

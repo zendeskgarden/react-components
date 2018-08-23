@@ -5,6 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import styled from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import { ItemMeta as MenuItemMeta } from '@zendeskgarden/react-menus';
 
@@ -13,7 +14,7 @@ const COMPONENT_ID = 'select.item_meta';
 /**
  * Accepts all `<span>` props
  */
-const ItemMeta = MenuItemMeta.extend.attrs({
+const ItemMeta = styled(MenuItemMeta).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

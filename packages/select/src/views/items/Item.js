@@ -6,6 +6,7 @@
  */
 
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import { Item as MenuItem } from '@zendeskgarden/react-menus';
 
@@ -14,7 +15,7 @@ const COMPONENT_ID = 'select.item';
 /**
  * Accepts all `<li>` props
  */
-const Item = MenuItem.extend.attrs({
+const Item = styled(MenuItem).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

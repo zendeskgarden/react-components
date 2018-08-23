@@ -6,6 +6,7 @@
  */
 
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import { PreviousItem as MenuPreviousItem } from '@zendeskgarden/react-menus';
 
@@ -14,7 +15,7 @@ const COMPONENT_ID = 'select.previous_item';
 /**
  * Accepts all `<li>` props
  */
-const PreviousItem = MenuPreviousItem.extend.attrs({
+const PreviousItem = styled(MenuPreviousItem).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

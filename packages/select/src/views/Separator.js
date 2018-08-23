@@ -5,6 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import styled from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import { Separator as MenuSeparator } from '@zendeskgarden/react-menus';
 
@@ -13,7 +14,7 @@ const COMPONENT_ID = 'select.separator';
 /**
  * Accepts all `<li>` props
  */
-const Separator = MenuSeparator.extend.attrs({
+const Separator = styled(MenuSeparator).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
