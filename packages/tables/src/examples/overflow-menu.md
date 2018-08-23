@@ -14,7 +14,7 @@ const {
   zdFontWeightSemibold,
   zdSpacingSm
 } = require('@zendeskgarden/css-variables');
-const { Menu, Item } = require('@zendeskgarden/react-menus');
+const { Menu, Item } = require('@zendeskgarden/react-menus/src');
 
 const StyledCaption = styled(Caption)`
   font-size: ${zdFontSizeBeta};

@@ -4,8 +4,8 @@ const {
   zdFontWeightSemibold,
   zdSpacingSm
 } = require('@zendeskgarden/css-variables');
-const { SelectField, Select, Label, Item } = require('@zendeskgarden/react-select');
-const { Checkbox, Label: CheckboxLabel, Hint } = require('@zendeskgarden/react-checkboxes');
+const { SelectField, Select, Label, Item } = require('@zendeskgarden/react-select/src');
+const { Checkbox, Label: CheckboxLabel, Hint } = require('@zendeskgarden/react-checkboxes/src');
 
 const StyledCaption = styled(Caption)`
   font-size: ${zdFontSizeBeta};

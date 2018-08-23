@@ -124,8 +124,6 @@ describe('MenuContainer', () => {
   const findPreviousMenuItems = enzymeWrapper => enzymeWrapper.find('[data-previous-item=true]');
 
   beforeEach(() => {
-    // Disabled due to styled-components theming
-    console.warn = jest.fn(); // eslint-disable-line no-console
     onChangeSpy = jest.fn();
   });
 
@@ -134,6 +132,12 @@ describe('MenuContainer', () => {
     findTrigger(wrapper).simulate('click');
 
     expect(wrapper.find('Portal')).toExist();
+  });
+
+  it("doesn't render Popper element if menu is not open", () => {
+    wrapper = mountWithTheme(basicExample({ onChange: onChangeSpy, appendToNode: document.body }));
+
+    expect(wrapper.find('Popper')).not.toExist();
   });
 
   describe('componentDidUpdate()', () => {
@@ -247,6 +251,20 @@ describe('MenuContainer', () => {
       wrapper.update();
 
       expect(findMenu(wrapper)).not.toExist();
+    });
+  });
+
+  describe('componentWillUnmount', () => {
+    it('removes mousedown event listener', () => {
+      const removeEventListenerSpy = jest.fn();
+
+      document.removeEventListener = removeEventListenerSpy;
+      wrapper = mountWithTheme(basicExample({ onChange: onChangeSpy }), {
+        enzymeOptions: { attachTo: document.body }
+      });
+      wrapper.unmount();
+
+      expect(removeEventListenerSpy).toHaveBeenCalled();
     });
   });
 

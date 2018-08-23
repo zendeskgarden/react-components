@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { mountWithTheme } from '@zendeskgarden/react-testing';
 import closest from 'dom-helpers/query/closest';
 
 import ButtonGroupContainer from './ButtonGroupContainer';
@@ -40,9 +40,7 @@ describe('ButtonGroupContainer', () => {
   );
 
   beforeEach(() => {
-    // Disabled due to styled-components theming
-    console.warn = jest.fn(); // eslint-disable-line no-console
-    wrapper = mount(basicExample());
+    wrapper = mountWithTheme(basicExample());
   });
 
   const findButtonGroup = enzymeWrapper => enzymeWrapper.find('[data-test-id="group"]');
@@ -59,7 +57,7 @@ describe('ButtonGroupContainer', () => {
       console.error = jest.fn(); // eslint-disable-line no-console
 
       expect(() => {
-        mount(
+        mountWithTheme(
           <ButtonGroupContainer>
             {({ getButtonProps }) => <div {...getButtonProps()}>Test button</div>}
           </ButtonGroupContainer>

@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { mountWithTheme } from '@zendeskgarden/react-testing';
 
 import SelectField from './SelectField';
 import Select from './Select';
@@ -34,9 +34,7 @@ describe('SelectField', () => {
   const findLabel = enzymeWrapper => enzymeWrapper.find(Label);
 
   beforeEach(() => {
-    // Disabled due to styled-components theming
-    console.warn = jest.fn(); // eslint-disable-line no-console
-    wrapper = mount(basicExample());
+    wrapper = mountWithTheme(basicExample());
   });
 
   describe('Label', () => {
@@ -59,7 +57,7 @@ describe('SelectField', () => {
 
   it('does not throw if invalid element is provided as child', () => {
     expect(() => {
-      mount(
+      mountWithTheme(
         <SelectField>
           <Label>Label</Label>
           <Select options={[<Item key="1-item">Item 1</Item>, <Item key="2-item">Item 2</Item>]}>

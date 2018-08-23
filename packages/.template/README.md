@@ -36,5 +36,6 @@ import { Example } from '@zendeskgarden/react-{{component}}';
 
   * [ ] Add {{component}} to root README table.
   * [ ] Add {{component}} to demo `index.html`.
+  * [ ] Add {{component}} to `styleguide.base.config.js` webpack globals.
   * [ ] Delete this comment block.
 -->

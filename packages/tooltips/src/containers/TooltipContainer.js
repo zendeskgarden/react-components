@@ -26,6 +26,8 @@ import { getPopperPlacement, getRtlPopperPlacement } from '../utils/gardenPlacem
  * container Popper would apply absolute positioning.
  */
 const TooltipWrapper = styled.div`
+  z-index: ${props => props.zIndex};
+
   &[aria-hidden='true'] {
     display: none;
   }
@@ -90,7 +92,11 @@ class TooltipContainer extends ControlledComponent {
      * @param {Function} renderProps.getTriggerProps - Props to be spread onto the trigger element
      * @param {Function} renderProps.isVisible - Whether the Tooltip is currently visible
      */
-    trigger: PropTypes.func
+    trigger: PropTypes.func,
+    /**
+     * The z-index of the popper.js placement container
+     */
+    zIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
   };
 
   static defaultProps = {
@@ -131,8 +137,6 @@ class TooltipContainer extends ControlledComponent {
     }, delayMilliseconds);
   };
 
-  getTooltipId = () => `${this.getControlledState().id}--tooltip`;
-
   getTriggerProps = ({
     tabIndex = 0,
     onMouseEnter,
@@ -143,7 +147,6 @@ class TooltipContainer extends ControlledComponent {
   } = {}) => {
     return {
       tabIndex,
-      'aria-describedby': this.getTooltipId(),
       onMouseEnter: composeEventHandlers(onMouseEnter, () => this.openTooltip()),
       onMouseLeave: composeEventHandlers(onMouseLeave, () => this.closeTooltip()),
       onFocus: composeEventHandlers(onFocus, () => this.openTooltip()),
@@ -153,15 +156,8 @@ class TooltipContainer extends ControlledComponent {
     };
   };
 
-  getTooltipProps = ({
-    id = this.getTooltipId(),
-    role = 'tooltip',
-    onMouseEnter,
-    onMouseLeave,
-    ...other
-  } = {}) => {
+  getTooltipProps = ({ role = 'tooltip', onMouseEnter, onMouseLeave, ...other } = {}) => {
     return {
-      id,
       role,
       onMouseEnter: composeEventHandlers(onMouseEnter, () => this.openTooltip()),
       onMouseLeave: composeEventHandlers(onMouseLeave, () => this.closeTooltip()),
@@ -186,7 +182,8 @@ class TooltipContainer extends ControlledComponent {
       trigger,
       eventsEnabled,
       popperModifiers,
-      appendToBody
+      appendToBody,
+      zIndex
     } = this.props;
     const { isVisible } = this.getControlledState();
 
@@ -215,11 +212,15 @@ class TooltipContainer extends ControlledComponent {
               const popperPlacement = popperProps['data-placement'];
               const outOfBoundaries = popperProps['data-x-out-of-boundaries'];
 
+              if (!isVisible) {
+                return null;
+              }
+
               const tooltip = (
                 <TooltipWrapper
                   innerRef={popperProps.ref}
                   style={popperProps.style}
-                  aria-hidden={!isVisible}
+                  zIndex={zIndex}
                 >
                   {render({
                     getTooltipProps: props => this.getTooltipProps(props),

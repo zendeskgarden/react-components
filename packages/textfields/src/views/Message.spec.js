@@ -25,7 +25,7 @@ describe('Message', () => {
   });
 
   describe('validation', () => {
-    ['success', 'warning', 'error'].forEach(validation => {
+    ['success', 'warning', 'error', 'none'].forEach(validation => {
       it(`renders ${validation} styling if provided`, () => {
         const wrapper = shallow(<Message validation={validation} />);
 

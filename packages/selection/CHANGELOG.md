@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.4.0"></a>
+# [4.4.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-selection@4.3.4...@zendeskgarden/react-selection@4.4.0) (2018-08-22)
+
+
+### Features
+
+* **buttons|selection:** allow customization of selected accessibility value ([#109](https://github.com/zendeskgarden/react-components/issues/109)) ([570aa6e](https://github.com/zendeskgarden/react-components/commit/570aa6e))
+
+
+
+
+
+<a name="4.3.4"></a>
+## [4.3.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-selection@4.3.3...@zendeskgarden/react-selection@4.3.4) (2018-08-17)
+
+**Note:** Version bump only for package @zendeskgarden/react-selection
+
+
+
+
+
+<a name="4.3.3"></a>
+## [4.3.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-selection@4.3.2...@zendeskgarden/react-selection@4.3.3) (2018-08-07)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-selection
+
 <a name="4.3.2"></a>
 ## [4.3.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-selection@4.3.1...@zendeskgarden/react-selection@4.3.2) (2018-07-25)
 

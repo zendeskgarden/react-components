@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { mountWithTheme } from '@zendeskgarden/react-testing';
 
 import Radio from './Radio';
 import Label from '../views/Label';
@@ -28,9 +28,7 @@ describe('Radio', () => {
   );
 
   beforeEach(() => {
-    // Disabled due to styled-components theming
-    console.warn = jest.fn(); // eslint-disable-line no-console
-    wrapper = mount(basicExample());
+    wrapper = mountWithTheme(basicExample());
   });
 
   it('applies container props to Label', () => {

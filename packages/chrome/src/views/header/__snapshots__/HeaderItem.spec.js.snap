@@ -189,13 +189,13 @@ exports[`HeaderItem Products renders talk styling if provided 1`] = `
 </HeaderItem>
 `;
 
-exports[`HeaderItem States renders current styling if provided 1`] = `
+exports[`HeaderItem States renders active styling if provided 1`] = `
 <HeaderItem
-  current={true}
+  active={true}
 >
   <KeyboardFocusContainer>
     <HeaderItem__StyledHeaderItem
-      current={true}
+      active={true}
       focused={false}
       onBlur={[Function]}
       onFocus={[Function]}
@@ -203,7 +203,7 @@ exports[`HeaderItem States renders current styling if provided 1`] = `
       tabIndex={0}
     >
       <button
-        className="c-chrome__body__header__item "
+        className="c-chrome__body__header__item is-active "
         data-garden-id="chrome.header_item"
         data-garden-version="version"
         onBlur={[Function]}

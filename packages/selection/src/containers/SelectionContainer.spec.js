@@ -16,7 +16,7 @@ describe('SelectionContainer', () => {
   const itemValues = ['Item-1', 'Item-2', 'Item-3'];
   let wrapper;
 
-  const basicExample = ({ direction, defaultFocusedIndex, selectedAriaKey } = {}) => (
+  const BasicExample = ({ direction, defaultFocusedIndex, selectedAriaKey } = {}) => (
     <SelectionContainer
       id="test-id"
       direction={direction}
@@ -50,7 +50,7 @@ describe('SelectionContainer', () => {
   const findContainer = enzymeWrapper => enzymeWrapper.find('[data-test-id="container"]');
 
   beforeEach(() => {
-    wrapper = mountWithTheme(basicExample());
+    wrapper = mountWithTheme(<BasicExample />);
   });
 
   describe('getContainerProps', () => {
@@ -92,7 +92,7 @@ describe('SelectionContainer', () => {
       });
 
       it('focuses last item if no item is currently selected and defaultFocusedIndex is provided', () => {
-        wrapper = mountWithTheme(basicExample({ defaultFocusedIndex: -1 }));
+        wrapper = mountWithTheme(<BasicExample defaultFocusedIndex={-1} />);
 
         findContainer(wrapper).simulate('focus');
 
@@ -190,7 +190,7 @@ describe('SelectionContainer', () => {
 
           describe('when dir is RTL', () => {
             beforeEach(() => {
-              wrapper = mountWithTheme(basicExample(), { rtl: true });
+              wrapper = mountWithTheme(<BasicExample />, { rtl: true });
             });
 
             it('increments focusedIndex if currently less than items length', () => {
@@ -240,7 +240,7 @@ describe('SelectionContainer', () => {
 
           describe('when dir is RTL', () => {
             beforeEach(() => {
-              wrapper = mountWithTheme(basicExample(), { rtl: true });
+              wrapper = mountWithTheme(<BasicExample />, { rtl: true });
             });
 
             it('decrements focusedIndex if currently greater than 0', () => {
@@ -300,7 +300,7 @@ describe('SelectionContainer', () => {
 
       describe('while using vertical direction', () => {
         beforeEach(() => {
-          wrapper = mountWithTheme(basicExample({ direction: 'vertical' }));
+          wrapper = mountWithTheme(<BasicExample direction="vertical" />);
         });
 
         describe('UP keyCode', () => {
@@ -403,7 +403,7 @@ describe('SelectionContainer', () => {
 
     it('does not throw if item is applied', () => {
       expect(() => {
-        mountWithTheme(basicExample());
+        mountWithTheme(<BasicExample />);
       }).not.toThrow();
     });
 
@@ -416,7 +416,7 @@ describe('SelectionContainer', () => {
     });
 
     it('applies custom selected aria value if provided', () => {
-      wrapper = mountWithTheme(basicExample({ selectedAriaKey: 'aria-pressed' }));
+      wrapper = mountWithTheme(<BasicExample selectedAriaKey="aria-pressed" />);
       expect(findItems(wrapper).first()).toHaveProp('aria-pressed');
     });
 

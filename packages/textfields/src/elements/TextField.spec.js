@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { mountWithTheme } from '@zendeskgarden/react-testing';
 
 import TextField from './TextField';
 import Label from '../views/Label';
@@ -30,9 +30,7 @@ describe('TextField', () => {
   );
 
   beforeEach(() => {
-    // Disabled due to styled-components theming
-    console.warn = jest.fn(); // eslint-disable-line no-console
-    wrapper = mount(basicExample());
+    wrapper = mountWithTheme(basicExample());
   });
 
   it('applies container props to Label', () => {
@@ -59,7 +57,7 @@ describe('TextField', () => {
 
   describe('with Textarea', () => {
     it('applies input props correctly', () => {
-      wrapper = mount(basicExample(<Textarea />));
+      wrapper = mountWithTheme(basicExample(<Textarea />));
       expect(wrapper.find(Textarea)).toHaveProp('id', `${TEXT_FIELD_ID}--input`);
     });
   });

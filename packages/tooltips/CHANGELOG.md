@@ -3,6 +3,122 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.3.7"></a>
+## [4.3.7](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.3.6...@zendeskgarden/react-tooltips@4.3.7) (2018-08-23)
+
+**Note:** Version bump only for package @zendeskgarden/react-tooltips
+
+
+
+
+
+<a name="4.3.6"></a>
+## [4.3.6](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.3.5...@zendeskgarden/react-tooltips@4.3.6) (2018-08-22)
+
+**Note:** Version bump only for package @zendeskgarden/react-tooltips
+
+
+
+
+
+<a name="4.3.5"></a>
+## [4.3.5](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.3.4...@zendeskgarden/react-tooltips@4.3.5) (2018-08-20)
+
+
+### Bug Fixes
+
+* **tooltips:** fix rendering stutter in Safari ([#119](https://github.com/zendeskgarden/react-components/issues/119)) ([6203ec8](https://github.com/zendeskgarden/react-components/commit/6203ec8))
+
+
+
+
+
+<a name="4.3.4"></a>
+## [4.3.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.3.2...@zendeskgarden/react-tooltips@4.3.4) (2018-08-17)
+
+**Note:** Version bump only for package @zendeskgarden/react-tooltips
+
+
+
+
+
+<a name="4.3.3"></a>
+## [4.3.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.3.2...@zendeskgarden/react-tooltips@4.3.3) (2018-08-17)
+
+**Note:** Version bump only for package @zendeskgarden/react-tooltips
+
+
+
+
+
+<a name="4.3.2"></a>
+## [4.3.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.3.1...@zendeskgarden/react-tooltips@4.3.2) (2018-08-16)
+
+**Note:** Version bump only for package @zendeskgarden/react-tooltips
+
+
+
+
+
+<a name="4.3.1"></a>
+## [4.3.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.3.0...@zendeskgarden/react-tooltips@4.3.1) (2018-08-10)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-tooltips
+
+<a name="4.3.0"></a>
+# [4.3.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.2.10...@zendeskgarden/react-tooltips@4.3.0) (2018-08-08)
+
+
+### Features
+
+* **tooltips:** add zIndex prop to TooltipContainer ([#76](https://github.com/zendeskgarden/react-components/issues/76)) ([67022a8](https://github.com/zendeskgarden/react-components/commit/67022a8))
+
+
+
+
+<a name="4.2.10"></a>
+## [4.2.10](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.2.9...@zendeskgarden/react-tooltips@4.2.10) (2018-08-08)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-tooltips
+
+<a name="4.2.9"></a>
+## [4.2.9](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.2.8...@zendeskgarden/react-tooltips@4.2.9) (2018-08-07)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-tooltips
+
+<a name="4.2.8"></a>
+## [4.2.8](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.2.7...@zendeskgarden/react-tooltips@4.2.8) (2018-08-07)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-tooltips
+
+<a name="4.2.7"></a>
+## [4.2.7](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.2.6...@zendeskgarden/react-tooltips@4.2.7) (2018-07-30)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-tooltips
+
+<a name="4.2.6"></a>
+## [4.2.6](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.2.5...@zendeskgarden/react-tooltips@4.2.6) (2018-07-27)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-tooltips
+
 <a name="4.2.5"></a>
 ## [4.2.5](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.2.4...@zendeskgarden/react-tooltips@4.2.5) (2018-07-25)
 

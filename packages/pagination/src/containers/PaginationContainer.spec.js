@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { mountWithTheme } from '@zendeskgarden/react-testing';
 
 import PaginationContainer from './PaginationContainer';
 
@@ -59,9 +59,7 @@ describe('PaginationContainer', () => {
   );
 
   beforeEach(() => {
-    // Disabled due to styled-components theming
-    console.warn = jest.fn(); // eslint-disable-line no-console
-    wrapper = mount(basicExample());
+    wrapper = mountWithTheme(basicExample());
   });
 
   const findContainer = enzymeWrapper => enzymeWrapper.find('[data-test-id="container"]');
@@ -83,7 +81,7 @@ describe('PaginationContainer', () => {
       console.error = jest.fn(); // eslint-disable-line no-console
 
       expect(() => {
-        mount(
+        mountWithTheme(
           <PaginationContainer>
             {({ getPreviousPageProps }) => <div {...getPreviousPageProps()} />}
           </PaginationContainer>
@@ -103,7 +101,7 @@ describe('PaginationContainer', () => {
       console.error = jest.fn(); // eslint-disable-line no-console
 
       expect(() => {
-        mount(
+        mountWithTheme(
           <PaginationContainer>
             {({ getNextPageProps }) => <div {...getNextPageProps()} />}
           </PaginationContainer>
@@ -123,7 +121,7 @@ describe('PaginationContainer', () => {
       console.error = jest.fn(); // eslint-disable-line no-console
 
       expect(() => {
-        mount(
+        mountWithTheme(
           <PaginationContainer>
             {({ getPageProps }) => <div {...getPageProps()} />}
           </PaginationContainer>

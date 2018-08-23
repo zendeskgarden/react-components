@@ -30,7 +30,9 @@ const Heading = styled.div`
 const ArgumentsRenderer = ({ args, heading }) => (
   <ArgumentsContainer>
     {heading && <Heading>Arguments</Heading>}
-    {args.map(arg => <Argument key={arg.name} {...arg} />)}
+    {args.map(arg => (
+      <Argument key={arg.name} {...arg} />
+    ))}
   </ArgumentsContainer>
 );
 

@@ -14,7 +14,8 @@ const COMPONENT_ID = 'select.select_view';
 const VALIDATION = {
   SUCCESS: 'success',
   WARNING: 'warning',
-  ERROR: 'error'
+  ERROR: 'error',
+  NONE: 'none'
 };
 
 const SelectView = styled(FauxInput).attrs({
@@ -41,7 +42,12 @@ SelectView.propTypes = {
   hovered: PropTypes.bool,
   /** Displays select open state */
   open: PropTypes.bool,
-  validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
+  validation: PropTypes.oneOf([
+    VALIDATION.SUCCESS,
+    VALIDATION.WARNING,
+    VALIDATION.ERROR,
+    VALIDATION.NONE
+  ])
 };
 
 /** @component */

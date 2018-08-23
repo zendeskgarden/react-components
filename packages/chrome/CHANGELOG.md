@@ -3,6 +3,97 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.2.4"></a>
+## [4.2.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.2.3...@zendeskgarden/react-chrome@4.2.4) (2018-08-23)
+
+**Note:** Version bump only for package @zendeskgarden/react-chrome
+
+
+
+
+
+<a name="4.2.3"></a>
+## [4.2.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.2.2...@zendeskgarden/react-chrome@4.2.3) (2018-08-22)
+
+**Note:** Version bump only for package @zendeskgarden/react-chrome
+
+
+
+
+
+<a name="4.2.2"></a>
+## [4.2.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.2.0...@zendeskgarden/react-chrome@4.2.2) (2018-08-17)
+
+**Note:** Version bump only for package @zendeskgarden/react-chrome
+
+
+
+
+
+<a name="4.2.1"></a>
+## [4.2.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.2.0...@zendeskgarden/react-chrome@4.2.1) (2018-08-17)
+
+**Note:** Version bump only for package @zendeskgarden/react-chrome
+
+
+
+
+
+<a name="4.2.0"></a>
+# [4.2.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.1.17...@zendeskgarden/react-chrome@4.2.0) (2018-08-16)
+
+
+### Features
+
+* **chrome:** add support for nav text wrapping and nav item brandmark ([#114](https://github.com/zendeskgarden/react-components/issues/114)) ([4c54a7c](https://github.com/zendeskgarden/react-components/commit/4c54a7c))
+
+
+
+
+
+<a name="4.1.17"></a>
+## [4.1.17](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.1.16...@zendeskgarden/react-chrome@4.1.17) (2018-08-10)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-chrome
+
+<a name="4.1.16"></a>
+## [4.1.16](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.1.15...@zendeskgarden/react-chrome@4.1.16) (2018-08-08)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-chrome
+
+<a name="4.1.15"></a>
+## [4.1.15](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.1.14...@zendeskgarden/react-chrome@4.1.15) (2018-08-07)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-chrome
+
+<a name="4.1.14"></a>
+## [4.1.14](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.1.13...@zendeskgarden/react-chrome@4.1.14) (2018-08-03)
+
+
+### Bug Fixes
+
+* **chrome:** update CSS dependency to fix subnav active cursor ([#90](https://github.com/zendeskgarden/react-components/issues/90)) ([ffea2c7](https://github.com/zendeskgarden/react-components/commit/ffea2c7))
+
+
+
+
+<a name="4.1.13"></a>
+## [4.1.13](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.1.12...@zendeskgarden/react-chrome@4.1.13) (2018-07-27)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-chrome
+
 <a name="4.1.12"></a>
 ## [4.1.12](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.1.11...@zendeskgarden/react-chrome@4.1.12) (2018-07-25)
 

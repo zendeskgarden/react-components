@@ -159,7 +159,7 @@ class MenuContainer extends ControlledComponent {
   componentWillUnmount() {
     const doc = getDocument ? getDocument(this.props) : document;
 
-    doc.addEventListener('mousedown', this.handleOutsideMouseDown);
+    doc.removeEventListener('mousedown', this.handleOutsideMouseDown);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -496,100 +496,98 @@ class MenuContainer extends ControlledComponent {
               );
             }}
           </Target>
-          <Popper
-            placement={this.convertGardenToPopperPlacement()}
-            eventsEnabled={eventsEnabled}
-            modifiers={popperModifiers}
-          >
-            {({ popperProps, scheduleUpdate }) => {
-              const popperPlacement = popperProps['data-placement'];
-              const outOfBoundaries = popperProps['data-x-out-of-boundaries'];
+          {isOpen && (
+            <Popper
+              placement={this.convertGardenToPopperPlacement()}
+              eventsEnabled={eventsEnabled}
+              modifiers={popperModifiers}
+            >
+              {({ popperProps, scheduleUpdate }) => {
+                const popperPlacement = popperProps['data-placement'];
+                const outOfBoundaries = popperProps['data-x-out-of-boundaries'];
 
-              if (!isOpen) {
-                return false;
-              }
+                const menu = (
+                  <MenuWrapper innerRef={popperProps.ref} style={popperProps.style} zIndex={zIndex}>
+                    <FocusJailContainer focusOnMount={false}>
+                      {({ getContainerProps: getFocusJailContainerProps, containerRef }) => (
+                        <SelectionContainer
+                          id={id}
+                          direction="vertical"
+                          focusedKey={controlledFocusedKey}
+                          selectedKey={selectedKey}
+                          defaultFocusedIndex={defaultFocusedIndex}
+                          onStateChange={newState => {
+                            /**
+                             * We only care if `selectedKey` is involved with the state change
+                             */
+                            if (Object.prototype.hasOwnProperty.call(newState, 'selectedKey')) {
+                              let newSelectedKey = newState.selectedKey;
 
-              const menu = (
-                <MenuWrapper innerRef={popperProps.ref} style={popperProps.style} zIndex={zIndex}>
-                  <FocusJailContainer focusOnMount={false}>
-                    {({ getContainerProps: getFocusJailContainerProps, containerRef }) => (
-                      <SelectionContainer
-                        id={id}
-                        direction="vertical"
-                        focusedKey={controlledFocusedKey}
-                        selectedKey={selectedKey}
-                        defaultFocusedIndex={defaultFocusedIndex}
-                        onStateChange={newState => {
-                          /**
-                           * We only care if `selectedKey` is involved with the state change
-                           */
-                          if (Object.prototype.hasOwnProperty.call(newState, 'selectedKey')) {
-                            let newSelectedKey = newState.selectedKey;
+                              if (newSelectedKey === undefined) {
+                                newSelectedKey = selectedKey;
+                              }
 
-                            if (newSelectedKey === undefined) {
-                              newSelectedKey = selectedKey;
+                              this.onItemSelected(newSelectedKey);
+
+                              if (newState.selectedKey === undefined) {
+                                newState.isOpen = false;
+                              } else {
+                                newState.isOpen =
+                                  this.nextKeys[newState.selectedKey] ||
+                                  this.previousKey === newState.selectedKey;
+                              }
                             }
 
-                            this.onItemSelected(newSelectedKey);
-
-                            if (newState.selectedKey === undefined) {
-                              newState.isOpen = false;
-                            } else {
-                              newState.isOpen =
-                                this.nextKeys[newState.selectedKey] ||
-                                this.previousKey === newState.selectedKey;
-                            }
+                            this.setControlledState(newState);
+                          }}
+                        >
+                          {({
+                            getContainerProps,
+                            getItemProps: getSelectionItemProps,
+                            focusedKey,
+                            focusSelectionModel
+                          }) =>
+                            render({
+                              getMenuProps: props =>
+                                getFocusJailContainerProps(
+                                  getContainerProps(this.getMenuProps(props, focusSelectionModel))
+                                ),
+                              getItemProps: props =>
+                                getSelectionItemProps(this.getItemProps(props), {
+                                  selectedAriaKey: 'aria-checked'
+                                }),
+                              getNextItemProps: props =>
+                                getSelectionItemProps(
+                                  this.getItemProps(this.getNextItemProps(props))
+                                ),
+                              getPreviousItemProps: props =>
+                                getSelectionItemProps(
+                                  this.getItemProps(this.getPreviousItemProps(props))
+                                ),
+                              menuRef: ref => {
+                                containerRef(ref);
+                                this.menuRef(ref);
+                              },
+                              placement: popperPlacement,
+                              outOfBoundaries,
+                              scheduleUpdate,
+                              focusedKey
+                            })
                           }
+                        </SelectionContainer>
+                      )}
+                    </FocusJailContainer>
+                  </MenuWrapper>
+                );
 
-                          this.setControlledState(newState);
-                        }}
-                      >
-                        {({
-                          getContainerProps,
-                          getItemProps: getSelectionItemProps,
-                          focusedKey,
-                          focusSelectionModel
-                        }) =>
-                          render({
-                            getMenuProps: props =>
-                              getFocusJailContainerProps(
-                                getContainerProps(this.getMenuProps(props, focusSelectionModel))
-                              ),
-                            getItemProps: props =>
-                              getSelectionItemProps(this.getItemProps(props), {
-                                selectedAriaKey: 'aria-checked'
-                              }),
-                            getNextItemProps: props =>
-                              getSelectionItemProps(
-                                this.getItemProps(this.getNextItemProps(props))
-                              ),
-                            getPreviousItemProps: props =>
-                              getSelectionItemProps(
-                                this.getItemProps(this.getPreviousItemProps(props))
-                              ),
-                            menuRef: ref => {
-                              containerRef(ref);
-                              this.menuRef(ref);
-                            },
-                            placement: popperPlacement,
-                            outOfBoundaries,
-                            scheduleUpdate,
-                            focusedKey
-                          })
-                        }
-                      </SelectionContainer>
-                    )}
-                  </FocusJailContainer>
-                </MenuWrapper>
-              );
+                if (appendToNode) {
+                  return <Portal node={appendToNode}>{menu}</Portal>;
+                }
 
-              if (appendToNode) {
-                return <Portal node={appendToNode}>{menu}</Portal>;
-              }
-
-              return <Portal>{menu}</Portal>;
-            }}
-          </Popper>
+                return <Portal>{menu}</Portal>;
+              }}
+            </Popper>
+          )}
         </Fragment>
       </Manager>
     );

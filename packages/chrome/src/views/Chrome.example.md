@@ -5,7 +5,7 @@ provide any opinionated navigation solutions.
 
 All `NavItem` and `SubNavItem` components are `button` elements that accept all native props.
 If you are using a routing library like [react-router](https://github.com/ReactTraining/react-router),
-you can programmaticaly trigger navigation with the `onClick` events.
+you can programmatically trigger navigation with the `onClick` events.
 
 ```jsx
 const { Toggle, Label } = require('@zendeskgarden/react-toggles/src');
@@ -14,6 +14,7 @@ const HomeIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icon
 const ListsIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/26/customer-lists-fill.svg');
 const EmailIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/26/email-fill.svg');
 const SettingsIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/26/settings-fill.svg');
+const ZendeskIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/26/zendesk.svg');
 const PlusIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/14/plus.svg');
 const MenuTrayIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/14/menu-tray.svg');
 const PersonIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/14/person.svg');
@@ -75,6 +76,12 @@ initialState = {
           <SettingsIcon />
         </NavItemIcon>
         <NavItemText>Settings</NavItemText>
+      </NavItem>
+      <NavItem brandmark title="Zendesk">
+        <NavItemIcon>
+          <ZendeskIcon />
+        </NavItemIcon>
+        <NavItemText>&copy;Zendesk</NavItemText>
       </NavItem>
     </Nav>
     <SubNav>

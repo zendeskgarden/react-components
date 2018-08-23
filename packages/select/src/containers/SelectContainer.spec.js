@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { mountWithTheme } from '@zendeskgarden/react-testing';
 
 import SelectContainer from './SelectContainer';
 
@@ -54,10 +54,8 @@ describe('SelectContainer', () => {
   );
 
   beforeEach(() => {
-    // Disabled due to styled-components theming
-    console.warn = jest.fn(); // eslint-disable-line no-console
     onChangeSpy = jest.fn();
-    wrapper = mount(basicExample(onChangeSpy));
+    wrapper = mountWithTheme(basicExample(onChangeSpy));
   });
 
   const findTrigger = enzymeWrapper => enzymeWrapper.find('[data-test-id="trigger"]');

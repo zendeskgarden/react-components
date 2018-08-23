@@ -9,7 +9,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import NavItem from './NavItem';
 
-describe('SubNavItem', () => {
+describe('NavItem', () => {
   it('renders default styling', () => {
     const wrapper = mount(<NavItem />);
 
@@ -18,6 +18,12 @@ describe('SubNavItem', () => {
 
   it('renders logo styling if provided', () => {
     const wrapper = mount(<NavItem logo />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('renders brandmark styling if provided', () => {
+    const wrapper = mount(<NavItem brandmark />);
 
     expect(wrapper).toMatchSnapshot();
   });

@@ -116,8 +116,6 @@ describe('AutocompleteContainer', () => {
   const getAutocompleteInstance = enzymeWrapper => enzymeWrapper.childAt(0).instance();
 
   beforeEach(() => {
-    // Disabled due to styled-components theming
-    console.warn = jest.fn(); // eslint-disable-line no-console
     onSelectSpy = jest.fn();
     wrapper = mountWithTheme(mutliSelectExample(onSelectSpy));
   });

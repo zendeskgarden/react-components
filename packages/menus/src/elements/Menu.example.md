@@ -215,3 +215,32 @@ retrieveMenuItems = (selectedKey, isLoading) => {
   {retrieveMenuItems(state.selectedKey, state.isLoading)}
 </Menu>;
 ```
+
+### Scrollable Menu
+
+```jsx
+const { Button } = require('@zendeskgarden/react-buttons/src');
+
+const menuItems = [];
+
+for (let x = 0; x < 150; x++) {
+  menuItems.push({
+    id: x,
+    text: `${x + 1} - Item`
+  });
+}
+
+<Menu
+  maxHeight="250px"
+  onChange={selectedKey => alert(selectedKey)}
+  trigger={({ ref, isOpen }) => (
+    <Button innerRef={ref} active={isOpen}>
+      Scrollable Menu
+    </Button>
+  )}
+>
+  {menuItems.map(item => (
+    <Item key={item.id}>{item.text}</Item>
+  ))}
+</Menu>;
+```

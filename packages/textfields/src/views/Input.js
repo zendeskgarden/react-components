@@ -15,7 +15,8 @@ const COMPONENT_ID = 'textfields.input';
 const VALIDATION = {
   SUCCESS: 'success',
   WARNING: 'warning',
-  ERROR: 'error'
+  ERROR: 'error',
+  NONE: 'none'
 };
 
 const isInvalid = validation => {
@@ -71,7 +72,12 @@ Input.propTypes = {
   hovered: PropTypes.bool,
   /** Displays select open state */
   open: PropTypes.bool,
-  validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
+  validation: PropTypes.oneOf([
+    VALIDATION.SUCCESS,
+    VALIDATION.WARNING,
+    VALIDATION.ERROR,
+    VALIDATION.NONE
+  ])
 };
 
 Input.hasType = () => Input;

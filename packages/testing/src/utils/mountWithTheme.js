@@ -7,6 +7,7 @@
 
 import React from 'react';
 import { mount } from 'enzyme';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 
 /**
@@ -14,13 +15,17 @@ import { ThemeProvider } from '@zendeskgarden/react-theming';
  * @param {EnzymeWrapper} tree
  * @param {Object} ThemeProperties { rtl: boolean, theme: object, enzymeOptions: object }
  */
-const mountWithTheme = (tree, { rtl, theme, enzymeOptions } = {}) => {
+const mountWithTheme = (tree, { rtl, theme = {}, enzymeOptions } = {}) => {
   const context = mount(<ThemeProvider theme={theme} rtl={rtl} />)
     .childAt(0)
     .instance()
     .getChildContext();
 
-  return mount(tree, { context }, enzymeOptions);
+  return mount(
+    tree,
+    { context, childContextTypes: StyledThemeProvider.childContextTypes },
+    enzymeOptions
+  );
 };
 
 export default mountWithTheme;

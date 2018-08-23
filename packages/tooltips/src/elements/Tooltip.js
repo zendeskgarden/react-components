@@ -59,7 +59,11 @@ export default class Tooltip extends ControlledComponent {
     /** Passes options to [Popper.JS Instance](https://github.com/FezVrasta/popper.js/blob/master/docs/_includes/popper-documentation.md#new-popperreference-popper-options) */
     popperModifiers: PropTypes.object,
     size: PropTypes.oneOf([SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE, SIZE.EXTRA_LARGE]),
-    type: PropTypes.oneOf([TYPE.LIGHT, TYPE.DARK])
+    type: PropTypes.oneOf([TYPE.LIGHT, TYPE.DARK]),
+    /**
+     * The z-index of the popper.js placement container
+     */
+    zIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
   };
 
   static defaultProps = {
@@ -84,6 +88,7 @@ export default class Tooltip extends ControlledComponent {
       arrow,
       children,
       size,
+      zIndex,
       ...otherProps
     } = this.props;
 
@@ -96,6 +101,7 @@ export default class Tooltip extends ControlledComponent {
         placement={defaultPlacement}
         eventsEnabled={eventsEnabled}
         popperModifiers={popperModifiers}
+        zIndex={zIndex}
         delayMilliseconds={delayMilliseconds}
         trigger={({ getTriggerProps }) => {
           return cloneElement(trigger, getTriggerProps(trigger.props));

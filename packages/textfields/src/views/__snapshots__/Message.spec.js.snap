@@ -24,6 +24,14 @@ exports[`Message validation renders error styling if provided 1`] = `
 />
 `;
 
+exports[`Message validation renders none styling if provided 1`] = `
+<div
+  className="c-txt__message "
+  data-garden-id="textfields.message"
+  data-garden-version="version"
+/>
+`;
+
 exports[`Message validation renders success styling if provided 1`] = `
 <div
   className="c-txt__message c-txt__message--success "

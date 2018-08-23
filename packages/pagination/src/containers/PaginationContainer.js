@@ -51,10 +51,10 @@ export default class PaginationContainer extends ControlledComponent {
     };
   }
 
-  getContainerProps = ({ ...otherProps } = {}) => {
+  getContainerProps = (props = {}) => {
     return {
       'aria-label': 'Pagination navigation',
-      ...otherProps
+      ...props
     };
   };
 

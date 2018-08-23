@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { mountWithTheme } from '@zendeskgarden/react-testing';
 
 import FieldContainer from './FieldContainer';
 
@@ -31,9 +31,7 @@ describe('FieldContainer', () => {
   /* eslint-enable jsx-a11y/label-has-associated-control */
 
   beforeEach(() => {
-    // Disabled due to styled-components theming
-    console.warn = jest.fn(); // eslint-disable-line no-console
-    wrapper = mount(basicExample());
+    wrapper = mountWithTheme(basicExample());
   });
 
   const findLabel = enzymeWrapper => enzymeWrapper.find('[data-test-id="label"]');
@@ -60,7 +58,7 @@ describe('FieldContainer', () => {
     });
 
     it('excludes aria-describedby if option is not provided', () => {
-      wrapper = mount(
+      wrapper = mountWithTheme(
         <FieldContainer id={CONTAINER_ID}>
           {({ getInputProps }) => (
             <div>

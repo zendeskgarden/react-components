@@ -15,7 +15,8 @@ const COMPONENT_ID = 'textfields.message';
 const VALIDATION = {
   SUCCESS: 'success',
   WARNING: 'warning',
-  ERROR: 'error'
+  ERROR: 'error',
+  NONE: 'none'
 };
 
 /**
@@ -38,7 +39,12 @@ const Message = styled.div.attrs({
 `;
 
 Message.propTypes = {
-  validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
+  validation: PropTypes.oneOf([
+    VALIDATION.SUCCESS,
+    VALIDATION.WARNING,
+    VALIDATION.ERROR,
+    VALIDATION.NONE
+  ])
 };
 
 Message.hasType = () => Message;
