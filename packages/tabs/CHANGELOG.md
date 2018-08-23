@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.1.16"></a>
+## [3.1.16](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tabs@3.1.15...@zendeskgarden/react-tabs@3.1.16) (2018-08-23)
+
+**Note:** Version bump only for package @zendeskgarden/react-tabs
+
+
+
+
+
 <a name="3.1.15"></a>
 ## [3.1.15](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tabs@3.1.14...@zendeskgarden/react-tabs@3.1.15) (2018-08-22)
 
