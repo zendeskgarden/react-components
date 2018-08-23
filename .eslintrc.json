@@ -7,17 +7,17 @@
     "plugin:jsx-a11y/recommended",
     "prettier"
   ],
+  "settings": {
+    "react": {
+      "version": "16.4.2"
+    }
+  },
   "globals": {
     "jest": true,
     "BASE_PATH_NAME": true,
     "PACKAGE_VERSION": true
   },
-  "plugins": [
-    "prettier",
-    "react",
-    "jest",
-    "jsx-a11y"
-  ],
+  "plugins": ["prettier", "react", "jest", "jsx-a11y"],
   "env": {
     "es6": true,
     "browser": true,
