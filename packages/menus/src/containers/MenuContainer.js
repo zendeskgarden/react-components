@@ -159,7 +159,7 @@ class MenuContainer extends ControlledComponent {
   componentWillUnmount() {
     const doc = getDocument ? getDocument(this.props) : document;
 
-    doc.addEventListener('mousedown', this.handleOutsideMouseDown);
+    doc.removeEventListener('mousedown', this.handleOutsideMouseDown);
   }
 
   componentDidUpdate(prevProps, prevState) {
