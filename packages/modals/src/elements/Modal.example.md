@@ -55,7 +55,7 @@ const onModalClose = () => setState({ isModalVisible: false });
           </Button>
         </FooterItem>
       </Footer>
-      <Close />
+      <Close aria-label="Close modal" />
     </Modal>
   )}
 </div>;
@@ -110,7 +110,7 @@ const onModalClose = () => setState({ isModalVisible: false });
           </Button>
         </FooterItem>
       </Footer>
-      <Close />
+      <Close aria-label="Close modal" />
     </Modal>
   )}
 </div>;
@@ -160,7 +160,7 @@ const onModalClose = () => setState({ isModalVisible: false });
         passages, and more recently with desktop publishing software like Aldus PageMaker including
         versions of Lorem Ipsum.
       </Body>
-      <Close />
+      <Close aria-label="Close modal" />
     </Modal>
   )}
 </div>;

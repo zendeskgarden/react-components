@@ -1,3 +1,6 @@
+**Accessibility Warning:** All usages of `<Close />` must contain an `aria-label`
+or other assistive technique to have discernible text.
+
 ```jsx
 <Grid>
   <Row>
@@ -6,7 +9,7 @@
         <Title>Success Alert</Title>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore magna aliqua.
-        <Close onClick={() => alert('closing alert')} />
+        <Close onClick={() => alert('closing alert')} aria-label="Close Alert" />
       </Alert>
     </Col>
     <Col size={12}>
@@ -14,7 +17,7 @@
         <Title>Warning Alert</Title>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore magna aliqua.
-        <Close onClick={() => alert('closing alert')} />
+        <Close onClick={() => alert('closing alert')} aria-label="Close Alert" />
       </Alert>
     </Col>
     <Col size={12}>
@@ -22,7 +25,7 @@
         <Title>Error Alert</Title>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore magna aliqua.
-        <Close onClick={() => alert('closing alert')} />
+        <Close onClick={() => alert('closing alert')} aria-label="Close Alert" />
       </Alert>
     </Col>
   </Row>
