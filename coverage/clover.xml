@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1535056223287" clover="3.2.0">
-  <project timestamp="1535056223287" name="All files">
-    <metrics statements="1799" coveredstatements="1783" conditionals="807" coveredconditionals="722" methods="596" coveredmethods="594" elements="3202" coveredelements="3099" complexity="0" loc="1799" ncloc="1799" packages="63" files="167" classes="167">
+<coverage generated="1535058496698" clover="3.2.0">
+  <project timestamp="1535058496698" name="All files">
+    <metrics statements="1799" coveredstatements="1783" conditionals="806" coveredconditionals="721" methods="596" coveredmethods="594" elements="3201" coveredelements="3098" complexity="0" loc="1799" ncloc="1799" packages="63" files="167" classes="167">
       <package name="autocomplete.src.containers">
         <metrics statements="152" coveredstatements="152" conditionals="98" coveredconditionals="83" methods="44" coveredmethods="44"/>
         <file name="AutocompleteContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/autocomplete/src/containers/AutocompleteContainer.js">
@@ -1166,34 +1166,34 @@
         </file>
       </package>
       <package name="pagination.src.containers">
-        <metrics statements="25" coveredstatements="25" conditionals="20" coveredconditionals="20" methods="11" coveredmethods="11"/>
+        <metrics statements="25" coveredstatements="25" conditionals="19" coveredconditionals="19" methods="11" coveredmethods="11"/>
         <file name="PaginationContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/pagination/src/containers/PaginationContainer.js">
-          <metrics statements="25" coveredstatements="25" conditionals="20" coveredconditionals="20" methods="11" coveredmethods="11"/>
+          <metrics statements="25" coveredstatements="25" conditionals="19" coveredconditionals="19" methods="11" coveredmethods="11"/>
           <line num="45" count="27" type="stmt"/>
           <line num="47" count="27" type="stmt"/>
           <line num="55" count="36" type="stmt"/>
-          <line num="63" count="30" type="cond" truecount="4" falsecount="0"/>
-          <line num="64" count="2" type="stmt"/>
-          <line num="69" count="28" type="stmt"/>
-          <line num="77" count="36" type="cond" truecount="4" falsecount="0"/>
-          <line num="78" count="2" type="stmt"/>
-          <line num="83" count="34" type="stmt"/>
-          <line num="91" count="199" type="cond" truecount="4" falsecount="0"/>
-          <line num="92" count="2" type="stmt"/>
+          <line num="62" count="30" type="cond" truecount="4" falsecount="0"/>
+          <line num="63" count="2" type="stmt"/>
+          <line num="68" count="28" type="stmt"/>
+          <line num="76" count="36" type="cond" truecount="4" falsecount="0"/>
+          <line num="77" count="2" type="stmt"/>
+          <line num="82" count="34" type="stmt"/>
+          <line num="90" count="199" type="cond" truecount="4" falsecount="0"/>
+          <line num="91" count="2" type="stmt"/>
+          <line num="96" count="197" type="stmt"/>
           <line num="97" count="197" type="stmt"/>
           <line num="98" count="197" type="stmt"/>
-          <line num="99" count="197" type="stmt"/>
-          <line num="101" count="197" type="cond" truecount="2" falsecount="0"/>
-          <line num="102" count="28" type="stmt"/>
-          <line num="105" count="197" type="stmt"/>
-          <line num="113" count="39" type="cond" truecount="1" falsecount="0"/>
-          <line num="114" count="39" type="stmt"/>
-          <line num="116" count="39" type="stmt"/>
-          <line num="124" count="42" type="stmt"/>
-          <line num="125" count="36" type="stmt"/>
-          <line num="126" count="199" type="stmt"/>
-          <line num="127" count="30" type="stmt"/>
-          <line num="128" count="36" type="stmt"/>
+          <line num="100" count="197" type="cond" truecount="2" falsecount="0"/>
+          <line num="101" count="28" type="stmt"/>
+          <line num="104" count="197" type="stmt"/>
+          <line num="112" count="39" type="cond" truecount="1" falsecount="0"/>
+          <line num="113" count="39" type="stmt"/>
+          <line num="115" count="39" type="stmt"/>
+          <line num="123" count="42" type="stmt"/>
+          <line num="124" count="36" type="stmt"/>
+          <line num="125" count="199" type="stmt"/>
+          <line num="126" count="30" type="stmt"/>
+          <line num="127" count="36" type="stmt"/>
         </file>
       </package>
       <package name="pagination.src.elements">
