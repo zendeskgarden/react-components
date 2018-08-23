@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.5.7"></a>
+## [3.5.7](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.5.6...@zendeskgarden/react-menus@3.5.7) (2018-08-23)
+
+
+### Bug Fixes
+
+* **menus:** Remove event on unmount ([#120](https://github.com/zendeskgarden/react-components/issues/120)) ([d8e5bb1](https://github.com/zendeskgarden/react-components/commit/d8e5bb1))
+
+
+
+
+
 <a name="3.5.6"></a>
 ## [3.5.6](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.5.5...@zendeskgarden/react-menus@3.5.6) (2018-08-22)
 
