@@ -16,4 +16,10 @@ describe('NavItemText', () => {
 
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('renders wrap styling if provided', () => {
+    const wrapper = shallow(<NavItemText wrap />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });

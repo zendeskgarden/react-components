@@ -42,8 +42,8 @@ describe('HeaderItem', () => {
   });
 
   describe('States', () => {
-    it('renders current styling if provided', () => {
-      const wrapper = mount(<HeaderItem current />);
+    it('renders active styling if provided', () => {
+      const wrapper = mount(<HeaderItem active />);
 
       expect(wrapper).toMatchSnapshot();
     });
