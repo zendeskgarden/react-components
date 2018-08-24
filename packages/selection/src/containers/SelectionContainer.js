@@ -26,7 +26,7 @@ export class SelectionContainer extends ControlledComponent {
     /**
      * @param {Object} renderProps
      * @param {Function} renderProps.getContainerProps - Props to be spread onto container element
-     * @param {Function} renderProps.getItemProps - Props to be spread onto each selectable element. `({item})` is required.
+     * @param {Function} renderProps.getItemProps - Props to be spread onto each selectable element. `({item})` is required. Use `index` attribute for custom ordering.
      * @param {Any} renderProps.focusedKey - Unique key of currently focused item
      * @param {Any} renderProps.selectedKey - Unique key of currently selected item
      * @param {Function} renderProps.focusSelectionModel - The SingleSelectionModel that controls the focus state
@@ -241,7 +241,7 @@ export class SelectionContainer extends ControlledComponent {
     typeof key === 'undefined' ? null : `${this.getControlledState().id}--item-${key}`;
 
   getItemProps = (
-    { key, id = this.getItemId(key), role = 'option', onClick, ...props } = {},
+    { key, id = this.getItemId(key), role = 'option', onClick, index, ...props } = {},
     { selectedAriaKey = 'aria-selected' } = {}
   ) => {
     if (typeof key === 'undefined') {
@@ -254,7 +254,7 @@ export class SelectionContainer extends ControlledComponent {
     const isSelectedItem = key === selectedKey;
     const isFocusedItem = key === focusedKey;
 
-    const currentIndex = this.focusSelectionModel.numItems;
+    const currentIndex = index === undefined ? this.focusSelectionModel.numItems : index;
 
     this.indexKeyMap[currentIndex] = key;
     this.keyIndexMap[key] = currentIndex;
