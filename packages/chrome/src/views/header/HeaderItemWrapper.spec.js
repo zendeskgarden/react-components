@@ -6,13 +6,13 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import HeaderItemWrapper from './HeaderItemWrapper';
 
 describe('HeaderItemWrapper', () => {
   it('renders default styling', () => {
-    const wrapper = mount(<HeaderItemWrapper />);
+    const wrapper = shallow(<HeaderItemWrapper />);
 
     expect(wrapper).toMatchSnapshot();
   });
