@@ -36,7 +36,7 @@ export default class ButtonGroupContainer extends ControlledComponent {
     /**
      * @param {Object} renderProps
      * @param {Function} renderProps.getGroupProps - Props to be spread onto group element
-     * @param {Function} renderProps.getButtonProps - Props to be spread onto each selectable button. `({key})` is required.
+     * @param {Function} renderProps.getButtonProps - Props to be spread onto each selectable button. `({key})` is required. Use `index` attribute for custom ordering.
      * @param {Any} renderProps.focusedKey - Unique key of currently focused item
      * @param {Any} renderProps.selectedKey - Unique key of currently selected item
      */

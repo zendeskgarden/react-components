@@ -37,7 +37,7 @@ export default class TabsContainer extends ControlledComponent {
     /**
      * @param {Object} renderProps
      * @param {Function} renderProps.getTabListProps - Props to be spread onto tab list element
-     * @param {Function} renderProps.getTabProps - Props to be spread onto each tab element. `({key})` is required.
+     * @param {Function} renderProps.getTabProps - Props to be spread onto each tab element. `({key})` is required. Use `index` attribute for custom ordering.
      * @param {Function} renderProps.getTabPanelProps - Props to be spread onto each tab panel element. `({key})` is required.
      * @param {Any} renderProps.focusedKey - Unique key of currently focused tab
      * @param {Any} renderProps.selectedKey - Unique key of currently selected tab
