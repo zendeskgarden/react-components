@@ -19,9 +19,9 @@ export default class SelectContainer extends ControlledComponent {
     /**
      * @param {Object} renderProps
      * @param {Function} renderProps.getMenuProps - Props to be spread onto the containing menu element
-     * @param {Function} renderProps.getItemProps - Props to be spread each selectable menu item. `({ key })` is required
-     * @param {Function} renderProps.getNextItemProps - Props to be spread each next menu item. `({ key })` is required
-     * @param {Function} renderProps.getPreviousItemProps - Props to be spread each previous menu item. `({ key })` is required
+     * @param {Function} renderProps.getItemProps - Props to be spread each selectable menu item. `({ key })` is required. Use `index` attribute for custom ordering.
+     * @param {Function} renderProps.getNextItemProps - Props to be spread each next menu item. `({ key })` is required. Use `index` attribute for custom ordering.
+     * @param {Function} renderProps.getPreviousItemProps - Props to be spread each previous menu item. `({ key })` is required. Use `index` attribute for custom ordering.
      * @param {Any} renderProps.dropdownRef - Callback for the ref of the element containing the select options
      * @param {Any} renderProps.placement - The current Popper.JS placement of the Menu. Will update based on boundary conflicts.
      * @param {Any} renderProps.outOfBoundaries - Whether the current menu has escaped its boundary.
