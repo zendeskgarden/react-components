@@ -131,7 +131,7 @@ describe('MenuContainer', () => {
     wrapper = mountWithTheme(basicExample({ onChange: onChangeSpy, appendToNode: document.body }));
     findTrigger(wrapper).simulate('click');
 
-    expect(wrapper.find('Portal')).toExist();
+    expect(wrapper.find('Portal').length).toBeGreaterThan(0);
   });
 
   it("doesn't render Popper element if menu is not open", () => {
