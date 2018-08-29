@@ -16,11 +16,13 @@ const LogoWrapper = styled.div`
 `;
 
 const LogoRenderer = () => (
-  <a href="/">
-    <LogoWrapper>
-      <ZendeskLogo />
-    </LogoWrapper>
-  </a>
+  <div role="navigation">
+    <a href="/" aria-label="Garden Homepage">
+      <LogoWrapper>
+        <ZendeskLogo />
+      </LogoWrapper>
+    </a>
+  </div>
 );
 
 export default LogoRenderer;

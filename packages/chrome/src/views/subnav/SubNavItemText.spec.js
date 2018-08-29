@@ -16,4 +16,10 @@ describe('SubNavItemText', () => {
 
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('renders wrap styling if provided', () => {
+    const wrapper = shallow(<SubNavItemText wrap />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });

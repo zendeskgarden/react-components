@@ -5,13 +5,16 @@ package.
 Based on `Table` positioning and other implementation specific details you may need
 to apply manual positioning against the `Menu` to ensure a standard look and feel.
 
+**Accessibility Warning:** All usages of `<OverflowButton />` must contain an `aria-label`
+or other assistive technique to have discernible text.
+
 ```jsx
 const {
   zdFontSizeBeta,
   zdFontWeightSemibold,
   zdSpacingSm
 } = require('@zendeskgarden/css-variables');
-const { Menu, Item } = require('@zendeskgarden/react-menus');
+const { Menu, Item } = require('@zendeskgarden/react-menus/src');
 
 const StyledCaption = styled(Caption)`
   font-size: ${zdFontSizeBeta};
@@ -42,7 +45,7 @@ const OverflowMenu = ({ isHeader = false }) => (
       }
     }}
     trigger={({ ref, isOpen }) => {
-      const buttonProps = { innerRef: ref, active: isOpen };
+      const buttonProps = { innerRef: ref, active: isOpen, 'aria-label': 'Row Actions' };
 
       if (isOpen) {
         buttonProps.focused = false;

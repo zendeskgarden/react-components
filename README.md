@@ -1,4 +1,4 @@
-# Garden React Components [![Build Status](https://img.shields.io/travis/zendeskgarden/react-components/master.svg?style=flat-square)](https://travis-ci.org/zendeskgarden/react-components) [![Dependency Status](https://img.shields.io/david/dev/zendeskgarden/react-components.svg?style=flat-square)](https://david-dm.org/zendeskgarden/react-components?type=dev) <!-- markdownlint-disable -->
+# Garden React Components [![Build Status](https://img.shields.io/travis/zendeskgarden/react-components/master.svg?style=flat-square)](https://travis-ci.org/zendeskgarden/react-components) [![Dependency Status](https://img.shields.io/david/dev/zendeskgarden/react-components.svg?style=flat-square)](https://david-dm.org/zendeskgarden/react-components?type=dev) [![Coverage Status](https://img.shields.io/coveralls/github/zendeskgarden/react-components/master.svg?style=flat-square)](https://coveralls.io/github/zendeskgarden/react-components) <!-- markdownlint-disable -->
 <!-- markdownlint-enable -->
 
 > :seedling: Garden is a design system for Zendesk
@@ -22,6 +22,7 @@ Package | Version | Dependencies
 [`@zendeskgarden/react-checkboxes`](packages/checkboxes) | [![npm version][checkboxes npm version]][checkboxes npm link] | [![Dependency Status][checkboxes dependency status]][checkboxes dependency link]
 [`@zendeskgarden/react-chrome`](packages/chrome) | [![npm version][chrome npm version]][chrome npm link] | [![Dependency Status][chrome dependency status]][chrome dependency link]
 [`@zendeskgarden/react-grid`](packages/grid) | [![npm version][grid npm version]][grid npm link] | [![Dependency Status][grid dependency status]][grid dependency link]
+[`@zendeskgarden/react-loaders`](packages/loaders) | [![npm version][loaders npm version]][loaders npm link] | [![Dependency Status][loaders dependency status]][loaders dependency link]
 [`@zendeskgarden/react-menus`](packages/menus) | [![npm version][menus npm version]][menus npm link] | [![Dependency Status][menus dependency status]][menus dependency link]
 [`@zendeskgarden/react-modals`](packages/modals) | [![npm version][modals npm version]][modals npm link] | [![Dependency Status][modals dependency status]][modals dependency link]
 [`@zendeskgarden/react-notifications`](packages/notifications) | [![npm version][notifications npm version]][notifications npm link] | [![Dependency Status][notifications dependency status]][notifications dependency link]
@@ -64,6 +65,10 @@ Package | Version | Dependencies
 [grid npm link]: https://www.npmjs.com/package/@zendeskgarden/react-grid
 [grid dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/grid&style=flat-square
 [grid dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/grid
+[loaders npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-loaders.svg?style=flat-square
+[loaders npm link]: https://www.npmjs.com/package/@zendeskgarden/react-loaders
+[loaders dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/loaders&style=flat-square
+[loaders dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/loaders
 [menus npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-menus.svg?style=flat-square
 [menus npm link]: https://www.npmjs.com/package/@zendeskgarden/react-menus
 [menus dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/menus&style=flat-square

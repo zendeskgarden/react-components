@@ -44,8 +44,8 @@ found at http://www.apache.org/licenses/LICENSE-2.0
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
+        test: /\.jsx?$/u,
+        exclude: /node_modules/u,
         use: [
           {
             loader: 'babel-loader',
@@ -58,13 +58,13 @@ found at http://www.apache.org/licenses/LICENSE-2.0
         ]
       },
       {
-        test: /\.css?$/,
-        exclude: /@zendeskgarden\/css/,
+        test: /\.css?$/u,
+        exclude: /@zendeskgarden\/css/u,
         use: [MiniCssExtractPlugin.loader, 'css-loader']
       },
       {
-        test: /\.css?$/,
-        include: /@zendeskgarden\/css/,
+        test: /\.css?$/u,
+        include: /@zendeskgarden\/css/u,
         use: [
           MiniCssExtractPlugin.loader,
           {

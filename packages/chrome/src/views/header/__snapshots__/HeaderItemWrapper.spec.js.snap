@@ -1,8 +1,112 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`HeaderItemWrapper Products renders chat styling if provided 1`] = `
+<div
+  className="c-chrome__body__header__item c-chrome__body__header__item--logo--chat "
+  data-garden-id="chrome.header_item_wrapper"
+  data-garden-version="version"
+/>
+`;
+
+exports[`HeaderItemWrapper Products renders connect styling if provided 1`] = `
+<div
+  className="c-chrome__body__header__item c-chrome__body__header__item--logo--connect "
+  data-garden-id="chrome.header_item_wrapper"
+  data-garden-version="version"
+/>
+`;
+
+exports[`HeaderItemWrapper Products renders explore styling if provided 1`] = `
+<div
+  className="c-chrome__body__header__item c-chrome__body__header__item--logo--explore "
+  data-garden-id="chrome.header_item_wrapper"
+  data-garden-version="version"
+/>
+`;
+
+exports[`HeaderItemWrapper Products renders guide styling if provided 1`] = `
+<div
+  className="c-chrome__body__header__item c-chrome__body__header__item--logo--guide "
+  data-garden-id="chrome.header_item_wrapper"
+  data-garden-version="version"
+/>
+`;
+
+exports[`HeaderItemWrapper Products renders message styling if provided 1`] = `
+<div
+  className="c-chrome__body__header__item c-chrome__body__header__item--logo--message "
+  data-garden-id="chrome.header_item_wrapper"
+  data-garden-version="version"
+/>
+`;
+
+exports[`HeaderItemWrapper Products renders support styling if provided 1`] = `
+<div
+  className="c-chrome__body__header__item c-chrome__body__header__item--logo--support "
+  data-garden-id="chrome.header_item_wrapper"
+  data-garden-version="version"
+/>
+`;
+
+exports[`HeaderItemWrapper Products renders talk styling if provided 1`] = `
+<div
+  className="c-chrome__body__header__item c-chrome__body__header__item--logo--talk "
+  data-garden-id="chrome.header_item_wrapper"
+  data-garden-version="version"
+/>
+`;
+
+exports[`HeaderItemWrapper States renders active styling if provided 1`] = `
+<div
+  className="c-chrome__body__header__item is-active "
+  data-garden-id="chrome.header_item_wrapper"
+  data-garden-version="version"
+/>
+`;
+
+exports[`HeaderItemWrapper States renders focused styling if provided 1`] = `
+<div
+  className="c-chrome__body__header__item is-focused "
+  data-garden-id="chrome.header_item_wrapper"
+  data-garden-version="version"
+/>
+`;
+
+exports[`HeaderItemWrapper States renders hovered styling if provided 1`] = `
+<div
+  className="c-chrome__body__header__item is-hovered "
+  data-garden-id="chrome.header_item_wrapper"
+  data-garden-version="version"
+/>
+`;
+
 exports[`HeaderItemWrapper renders default styling 1`] = `
 <div
   className="c-chrome__body__header__item "
+  data-garden-id="chrome.header_item_wrapper"
+  data-garden-version="version"
+/>
+`;
+
+exports[`HeaderItemWrapper renders maxX styling if provided 1`] = `
+<div
+  className="c-chrome__body__header__item c-chrome__body__header__item--max-x "
+  data-garden-id="chrome.header_item_wrapper"
+  data-garden-version="version"
+/>
+`;
+
+exports[`HeaderItemWrapper renders maxY styling if provided 1`] = `
+<div
+  className="c-chrome__body__header__item c-chrome__body__header__item--max-y "
+  data-garden-id="chrome.header_item_wrapper"
+  data-garden-version="version"
+/>
+`;
+
+exports[`HeaderItemWrapper renders round styling if provided 1`] = `
+<div
+  className="c-chrome__body__header__item c-chrome__body__header__item--round "
   data-garden-id="chrome.header_item_wrapper"
   data-garden-version="version"
 />

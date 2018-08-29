@@ -3,6 +3,122 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="5.3.10"></a>
+## [5.3.10](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.3.9...@zendeskgarden/react-modals@5.3.10) (2018-08-23)
+
+**Note:** Version bump only for package @zendeskgarden/react-modals
+
+
+
+
+
+<a name="5.3.9"></a>
+## [5.3.9](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.3.8...@zendeskgarden/react-modals@5.3.9) (2018-08-22)
+
+**Note:** Version bump only for package @zendeskgarden/react-modals
+
+
+
+
+
+<a name="5.3.8"></a>
+## [5.3.8](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.3.6...@zendeskgarden/react-modals@5.3.8) (2018-08-17)
+
+**Note:** Version bump only for package @zendeskgarden/react-modals
+
+
+
+
+
+<a name="5.3.7"></a>
+## [5.3.7](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.3.6...@zendeskgarden/react-modals@5.3.7) (2018-08-17)
+
+**Note:** Version bump only for package @zendeskgarden/react-modals
+
+
+
+
+
+<a name="5.3.6"></a>
+## [5.3.6](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.3.5...@zendeskgarden/react-modals@5.3.6) (2018-08-16)
+
+**Note:** Version bump only for package @zendeskgarden/react-modals
+
+
+
+
+
+<a name="5.3.5"></a>
+## [5.3.5](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.3.4...@zendeskgarden/react-modals@5.3.5) (2018-08-15)
+
+
+### Bug Fixes
+
+* **modal:** update example cancel buttons to use `basic` styling ([#112](https://github.com/zendeskgarden/react-components/issues/112)) ([b554789](https://github.com/zendeskgarden/react-components/commit/b554789))
+
+
+
+
+
+<a name="5.3.4"></a>
+## [5.3.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.3.3...@zendeskgarden/react-modals@5.3.4) (2018-08-10)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-modals
+
+<a name="5.3.3"></a>
+## [5.3.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.3.2...@zendeskgarden/react-modals@5.3.3) (2018-08-08)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-modals
+
+<a name="5.3.2"></a>
+## [5.3.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.3.1...@zendeskgarden/react-modals@5.3.2) (2018-08-07)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-modals
+
+<a name="5.3.1"></a>
+## [5.3.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.3.0...@zendeskgarden/react-modals@5.3.1) (2018-08-07)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-modals
+
+<a name="5.3.0"></a>
+# [5.3.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.2.18...@zendeskgarden/react-modals@5.3.0) (2018-08-06)
+
+
+### Features
+
+* **modals:** increase flexibility of footer alignment ([#91](https://github.com/zendeskgarden/react-components/issues/91)) ([4eaad8e](https://github.com/zendeskgarden/react-components/commit/4eaad8e))
+
+
+
+
+<a name="5.2.18"></a>
+## [5.2.18](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.2.17...@zendeskgarden/react-modals@5.2.18) (2018-07-30)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-modals
+
+<a name="5.2.17"></a>
+## [5.2.17](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.2.16...@zendeskgarden/react-modals@5.2.17) (2018-07-27)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-modals
+
 <a name="5.2.16"></a>
 ## [5.2.16](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.2.15...@zendeskgarden/react-modals@5.2.16) (2018-07-25)
 

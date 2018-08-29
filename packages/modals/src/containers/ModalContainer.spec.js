@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { mountWithTheme } from '@zendeskgarden/react-testing';
 import { KEY_CODES } from '@zendeskgarden/react-selection';
 import ModalContainer from './ModalContainer';
 
@@ -49,10 +49,8 @@ describe('FocusJailContainer', () => {
     enzymeWrapper.find('[data-test-id="additional-close"]');
 
   beforeEach(() => {
-    // Disabled due to styled-components theming
-    console.warn = jest.fn(); // eslint-disable-line no-console
     onCloseSpy = jest.fn();
-    wrapper = mount(basicExample(onCloseSpy));
+    wrapper = mountWithTheme(basicExample(onCloseSpy));
   });
 
   describe('getBackdropProps()', () => {

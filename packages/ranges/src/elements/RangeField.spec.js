@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { mountWithTheme } from '@zendeskgarden/react-testing';
 
 import RangeField from './RangeField';
 import Range from './Range';
@@ -29,9 +29,7 @@ describe('RangeField', () => {
   );
 
   beforeEach(() => {
-    // Disabled due to styled-components theming
-    console.warn = jest.fn(); // eslint-disable-line no-console
-    wrapper = mount(basicExample());
+    wrapper = mountWithTheme(basicExample());
   });
 
   it('applies container props to Label', () => {

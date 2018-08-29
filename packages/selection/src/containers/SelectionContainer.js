@@ -238,9 +238,12 @@ export class SelectionContainer extends ControlledComponent {
   };
 
   getItemId = key =>
-    typeof key === 'undefined' ? '' : `${this.getControlledState().id}--item-${key}`;
+    typeof key === 'undefined' ? null : `${this.getControlledState().id}--item-${key}`;
 
-  getItemProps = ({ key, id = this.getItemId(key), role = 'option', onClick, ...props } = {}) => {
+  getItemProps = (
+    { key, id = this.getItemId(key), role = 'option', onClick, ...props } = {},
+    { selectedAriaKey = 'aria-selected' } = {}
+  ) => {
     if (typeof key === 'undefined') {
       throw new Error(
         '"key" must be defined within getItemProps regardless of being used within a .map()'
@@ -266,7 +269,7 @@ export class SelectionContainer extends ControlledComponent {
       id,
       key,
       role,
-      'aria-selected': isSelectedItem,
+      [selectedAriaKey]: isSelectedItem,
       onClick: composeEventHandlers(onClick, () => {
         this.selectItem(key, undefined);
       }),

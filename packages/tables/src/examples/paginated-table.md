@@ -1,10 +1,10 @@
 ```jsx
-const { Pagination } = require('@zendeskgarden/react-pagination');
-const { Avatar } = require('@zendeskgarden/react-avatars');
+const { Pagination } = require('@zendeskgarden/react-pagination/src');
+const { Avatar } = require('@zendeskgarden/react-avatars/src');
 const {
   zdFontSizeBeta,
   zdFontSizeEpsilon,
-  zdColorGrey500,
+  zdColorGrey600,
   zdFontWeightSemibold,
   zdSpacingSm
 } = require('@zendeskgarden/css-variables');
@@ -33,7 +33,7 @@ initialState = {
 };
 
 const CurrentPages = styled.div`
-  color: ${zdColorGrey500};
+  color: ${zdColorGrey600};
   font-size: ${zdFontSizeEpsilon};
 `;
 

@@ -15,4 +15,22 @@ describe('Nav', () => {
 
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('renders expanded styling if provided', () => {
+    const wrapper = shallow(<Nav expanded />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('renders dark styling if provided', () => {
+    const wrapper = shallow(<Nav dark />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('renders light styling if provided', () => {
+    const wrapper = shallow(<Nav light />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });

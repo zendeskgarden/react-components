@@ -35,7 +35,7 @@ import { Button } from '@zendeskgarden/react-buttons';
     </Body>
     <Footer>
       <FooterItem>
-        <Button>Cancel</Button>
+        <Button basic>Cancel</Button>
       </FooterItem>
       <FooterItem>
         <Button primary>
@@ -43,7 +43,7 @@ import { Button } from '@zendeskgarden/react-buttons';
         </Button>
       </FooterItem>
     </Footer>
-    <Close />
+    <Close aria-label="Close modal" />
   </Modal>
 </ThemeProvider>
 ```

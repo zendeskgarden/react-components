@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { mountWithTheme } from '@zendeskgarden/react-testing';
 import { KEY_CODES } from '@zendeskgarden/react-selection';
 
 import Pagination from './Pagination';
@@ -28,8 +28,6 @@ describe('Pagination', () => {
   );
 
   beforeEach(() => {
-    // Disabled due to styled-components theming
-    console.warn = jest.fn(); // eslint-disable-line no-console
     onStateChange = jest.fn();
   });
 
@@ -39,7 +37,7 @@ describe('Pagination', () => {
     beforeEach(() => {
       transformPageProps = jest.fn((pageType, props) => props);
 
-      mount(
+      mountWithTheme(
         <BasicExample currentPage={1} totalPages={10} transformPageProps={transformPageProps} />
       );
     });
@@ -68,7 +66,7 @@ describe('Pagination', () => {
         return props;
       };
 
-      const wrapper = mount(
+      const wrapper = mountWithTheme(
         <BasicExample currentPage={1} totalPages={10} transformPageProps={transformPageProps} />
       );
 
@@ -83,26 +81,26 @@ describe('Pagination', () => {
 
   describe('Previous Page', () => {
     it('is visible if currentPage is first page', () => {
-      const wrapper = mount(<BasicExample currentPage={1} />);
+      const wrapper = mountWithTheme(<BasicExample currentPage={1} />);
 
       expect(wrapper.find(PreviousPage)).toHaveProp('hidden');
     });
 
     it('is visible otherwise', () => {
-      const wrapper = mount(<BasicExample currentPage={2} />);
+      const wrapper = mountWithTheme(<BasicExample currentPage={2} />);
 
       expect(wrapper.find(PreviousPage)).not.toHaveProp('hidden');
     });
 
     it('decrements currentPage when selected', () => {
-      const wrapper = mount(<BasicExample currentPage={3} />);
+      const wrapper = mountWithTheme(<BasicExample currentPage={3} />);
 
       wrapper.find(PreviousPage).simulate('click');
       expect(onStateChange).toHaveBeenCalledWith({ currentPage: 2 });
     });
 
     it('focuses first page when visibility is lost', () => {
-      const wrapper = mount(<Pagination totalPages={5} currentPage={2} />);
+      const wrapper = mountWithTheme(<Pagination totalPages={5} currentPage={2} />);
       const paginationWrapper = wrapper.find(PaginationView);
 
       wrapper.simulate('focus');
@@ -116,26 +114,26 @@ describe('Pagination', () => {
 
   describe('Next Page', () => {
     it('is visible if currentPage is final page', () => {
-      const wrapper = mount(<BasicExample currentPage={5} totalPages={5} />);
+      const wrapper = mountWithTheme(<BasicExample currentPage={5} totalPages={5} />);
 
       expect(wrapper.find(NextPage)).toHaveProp('hidden');
     });
 
     it('is visible otherwise', () => {
-      const wrapper = mount(<BasicExample currentPage={2} totalPages={5} />);
+      const wrapper = mountWithTheme(<BasicExample currentPage={2} totalPages={5} />);
 
       expect(wrapper.find(NextPage)).not.toHaveProp('hidden');
     });
 
     it('decrements currentPage when selected', () => {
-      const wrapper = mount(<BasicExample currentPage={3} totalPages={5} />);
+      const wrapper = mountWithTheme(<BasicExample currentPage={3} totalPages={5} />);
 
       wrapper.find(NextPage).simulate('click');
       expect(onStateChange).toHaveBeenCalledWith({ currentPage: 4 });
     });
 
     it('focuses last page when visibility is lost', () => {
-      const wrapper = mount(<Pagination totalPages={5} currentPage={4} />);
+      const wrapper = mountWithTheme(<Pagination totalPages={5} currentPage={4} />);
       const paginationWrapper = wrapper.find(PaginationView);
 
       wrapper.simulate('focus');
@@ -149,7 +147,7 @@ describe('Pagination', () => {
 
   describe('Pages', () => {
     it('updates currentPage when selected', () => {
-      const wrapper = mount(<BasicExample currentPage={1} totalPages={5} />);
+      const wrapper = mountWithTheme(<BasicExample currentPage={1} totalPages={5} />);
 
       wrapper
         .find(Page)
@@ -159,7 +157,7 @@ describe('Pagination', () => {
     });
 
     it('hides front gap when currentPage is within padding range', () => {
-      const wrapper = mount(<BasicExample currentPage={1} totalPages={25} />);
+      const wrapper = mountWithTheme(<BasicExample currentPage={1} totalPages={25} />);
       const children = wrapper
         .find(PaginationView)
         .children()
@@ -180,7 +178,7 @@ describe('Pagination', () => {
     });
 
     it('hides back gap when currentPage is within padding range', () => {
-      const wrapper = mount(<BasicExample currentPage={25} totalPages={25} />);
+      const wrapper = mountWithTheme(<BasicExample currentPage={25} totalPages={25} />);
       const children = wrapper
         .find(PaginationView)
         .children()
@@ -201,7 +199,7 @@ describe('Pagination', () => {
     });
 
     it('displays both gaps if not within padding range and totalPages is greater than padding limit', () => {
-      const wrapper = mount(<BasicExample currentPage={15} totalPages={25} />);
+      const wrapper = mountWithTheme(<BasicExample currentPage={15} totalPages={25} />);
       const children = wrapper
         .find(PaginationView)
         .children()
@@ -222,7 +220,7 @@ describe('Pagination', () => {
     });
 
     it('displays no gaps if less than padding limit', () => {
-      const wrapper = mount(<BasicExample currentPage={1} totalPages={5} />);
+      const wrapper = mountWithTheme(<BasicExample currentPage={1} totalPages={5} />);
       const children = wrapper
         .find(PaginationView)
         .children()

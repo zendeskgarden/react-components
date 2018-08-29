@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SubNavItem Products renders chat styling if provided 1`] = `
+exports[`NavItem Products renders chat styling if provided 1`] = `
 <NavItem
   product="chat"
 >
@@ -27,7 +27,7 @@ exports[`SubNavItem Products renders chat styling if provided 1`] = `
 </NavItem>
 `;
 
-exports[`SubNavItem Products renders connect styling if provided 1`] = `
+exports[`NavItem Products renders connect styling if provided 1`] = `
 <NavItem
   product="connect"
 >
@@ -54,7 +54,7 @@ exports[`SubNavItem Products renders connect styling if provided 1`] = `
 </NavItem>
 `;
 
-exports[`SubNavItem Products renders explore styling if provided 1`] = `
+exports[`NavItem Products renders explore styling if provided 1`] = `
 <NavItem
   product="explore"
 >
@@ -81,7 +81,7 @@ exports[`SubNavItem Products renders explore styling if provided 1`] = `
 </NavItem>
 `;
 
-exports[`SubNavItem Products renders guide styling if provided 1`] = `
+exports[`NavItem Products renders guide styling if provided 1`] = `
 <NavItem
   product="guide"
 >
@@ -108,7 +108,7 @@ exports[`SubNavItem Products renders guide styling if provided 1`] = `
 </NavItem>
 `;
 
-exports[`SubNavItem Products renders message styling if provided 1`] = `
+exports[`NavItem Products renders message styling if provided 1`] = `
 <NavItem
   product="message"
 >
@@ -135,7 +135,7 @@ exports[`SubNavItem Products renders message styling if provided 1`] = `
 </NavItem>
 `;
 
-exports[`SubNavItem Products renders support styling if provided 1`] = `
+exports[`NavItem Products renders support styling if provided 1`] = `
 <NavItem
   product="support"
 >
@@ -162,7 +162,7 @@ exports[`SubNavItem Products renders support styling if provided 1`] = `
 </NavItem>
 `;
 
-exports[`SubNavItem Products renders talk styling if provided 1`] = `
+exports[`NavItem Products renders talk styling if provided 1`] = `
 <NavItem
   product="talk"
 >
@@ -189,7 +189,7 @@ exports[`SubNavItem Products renders talk styling if provided 1`] = `
 </NavItem>
 `;
 
-exports[`SubNavItem States renders current styling if provided 1`] = `
+exports[`NavItem States renders current styling if provided 1`] = `
 <NavItem
   current={true}
 >
@@ -216,7 +216,7 @@ exports[`SubNavItem States renders current styling if provided 1`] = `
 </NavItem>
 `;
 
-exports[`SubNavItem States renders focused styling if provided 1`] = `
+exports[`NavItem States renders focused styling if provided 1`] = `
 <NavItem
   focused={true}
 >
@@ -242,7 +242,7 @@ exports[`SubNavItem States renders focused styling if provided 1`] = `
 </NavItem>
 `;
 
-exports[`SubNavItem States renders hovered styling if provided 1`] = `
+exports[`NavItem States renders hovered styling if provided 1`] = `
 <NavItem
   hovered={true}
 >
@@ -269,7 +269,35 @@ exports[`SubNavItem States renders hovered styling if provided 1`] = `
 </NavItem>
 `;
 
-exports[`SubNavItem renders default styling 1`] = `
+exports[`NavItem renders brandmark styling if provided 1`] = `
+<NavItem
+  brandmark={true}
+>
+  <KeyboardFocusContainer>
+    <NavItem__StyledNavItem
+      brandmark={true}
+      focused={false}
+      logo={true}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      tabIndex={-1}
+    >
+      <button
+        className="c-chrome__nav__item c-chrome__nav__item--logo c-chrome__nav__item--brandmark "
+        data-garden-id="chrome.nav_item"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={-1}
+      />
+    </NavItem__StyledNavItem>
+  </KeyboardFocusContainer>
+</NavItem>
+`;
+
+exports[`NavItem renders default styling 1`] = `
 <NavItem>
   <KeyboardFocusContainer>
     <NavItem__StyledNavItem
@@ -293,7 +321,7 @@ exports[`SubNavItem renders default styling 1`] = `
 </NavItem>
 `;
 
-exports[`SubNavItem renders logo styling if provided 1`] = `
+exports[`NavItem renders logo styling if provided 1`] = `
 <NavItem
   logo={true}
 >

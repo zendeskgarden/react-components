@@ -40,11 +40,15 @@ export const POPPER_PLACEMENTS = {
  * @param {String} gardenPlacement
  */
 export function getPopperPlacement(gardenPlacement) {
-  const sharedPlacements = Object.values(SHARED_PLACEMENTS).reduce((acc, item) => {
-    acc[item] = item;
+  const sharedPlacements = {};
 
-    return acc;
-  }, {});
+  for (const KEY in SHARED_PLACEMENTS) {
+    if (Object.prototype.hasOwnProperty.call(SHARED_PLACEMENTS, KEY)) {
+      const value = SHARED_PLACEMENTS[KEY];
+
+      sharedPlacements[value] = value;
+    }
+  }
 
   const GARDEN_POPPER_MAPPINGS = {
     ...sharedPlacements,

@@ -16,4 +16,10 @@ describe('HeaderItemText', () => {
 
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('renders clipped styling if provided', () => {
+    const wrapper = shallow(<HeaderItemText clipped />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });

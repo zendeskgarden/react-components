@@ -1,6 +1,6 @@
 ```jsx
 const { zdFontSizeBeta, zdFontWeightSemibold, zdSpacingSm } = require('@zendeskgarden/css-variables');
-const { Checkbox, Label } = require('@zendeskgarden/react-checkboxes');
+const { Checkbox, Label } = require('@zendeskgarden/react-checkboxes/src');
 
 const StyledCaption = styled(Caption)`
   font-size: ${zdFontSizeBeta};

@@ -34,29 +34,41 @@ jest.mock('popper.js', () => {
   };
 });
 
+jest.useFakeTimers();
+
 describe('Tooltip', () => {
   const basicExample = ({ placement, size, type } = {}) => (
-    <Tooltip placement={placement} size={size} type={type} trigger={<button>Trigger</button>}>
+    <Tooltip
+      placement={placement}
+      size={size}
+      type={type}
+      trigger={<button data-test-id="trigger">Trigger</button>}
+    >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
       labore et dolore magna aliqua.
     </Tooltip>
   );
 
-  beforeEach(() => {
-    // Disabled due to styled-components theming
-    console.warn = jest.fn(); // eslint-disable-line no-console
-  });
+  const findTrigger = providedWrapper => {
+    return providedWrapper.find('[data-test-id="trigger"]');
+  };
 
   describe('Types', () => {
     it('renders light tooltip if provided', () => {
       const wrapper = mountWithTheme(basicExample({ type: 'light' }));
 
+      findTrigger(wrapper).simulate('focus');
+      jest.runOnlyPendingTimers();
+      wrapper.update();
       expect(wrapper.find(LightTooltip)).toHaveLength(1);
     });
 
     it('renders dark tooltip if provided', () => {
       const wrapper = mountWithTheme(basicExample({ type: 'dark' }));
 
+      findTrigger(wrapper).simulate('focus');
+      jest.runOnlyPendingTimers();
+      wrapper.update();
       expect(wrapper.find(TooltipView)).toHaveLength(1);
     });
   });

@@ -3,6 +3,176 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.5.9"></a>
+## [3.5.9](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.5.8...@zendeskgarden/react-menus@3.5.9) (2018-08-23)
+
+**Note:** Version bump only for package @zendeskgarden/react-menus
+
+
+
+
+
+<a name="3.5.8"></a>
+## [3.5.8](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.5.7...@zendeskgarden/react-menus@3.5.8) (2018-08-23)
+
+**Note:** Version bump only for package @zendeskgarden/react-menus
+
+
+
+
+
+<a name="3.5.7"></a>
+## [3.5.7](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.5.6...@zendeskgarden/react-menus@3.5.7) (2018-08-23)
+
+
+### Bug Fixes
+
+* **menus:** Remove event on unmount ([#120](https://github.com/zendeskgarden/react-components/issues/120)) ([d8e5bb1](https://github.com/zendeskgarden/react-components/commit/d8e5bb1))
+
+
+
+
+
+<a name="3.5.6"></a>
+## [3.5.6](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.5.5...@zendeskgarden/react-menus@3.5.6) (2018-08-22)
+
+**Note:** Version bump only for package @zendeskgarden/react-menus
+
+
+
+
+
+<a name="3.5.5"></a>
+## [3.5.5](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.5.4...@zendeskgarden/react-menus@3.5.5) (2018-08-20)
+
+**Note:** Version bump only for package @zendeskgarden/react-menus
+
+
+
+
+
+<a name="3.5.4"></a>
+## [3.5.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.5.2...@zendeskgarden/react-menus@3.5.4) (2018-08-17)
+
+**Note:** Version bump only for package @zendeskgarden/react-menus
+
+
+
+
+
+<a name="3.5.3"></a>
+## [3.5.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.5.2...@zendeskgarden/react-menus@3.5.3) (2018-08-17)
+
+**Note:** Version bump only for package @zendeskgarden/react-menus
+
+
+
+
+
+<a name="3.5.2"></a>
+## [3.5.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.5.1...@zendeskgarden/react-menus@3.5.2) (2018-08-16)
+
+**Note:** Version bump only for package @zendeskgarden/react-menus
+
+
+
+
+
+<a name="3.5.1"></a>
+## [3.5.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.5.0...@zendeskgarden/react-menus@3.5.1) (2018-08-15)
+
+**Note:** Version bump only for package @zendeskgarden/react-menus
+
+
+
+
+
+<a name="3.5.0"></a>
+# [3.5.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.4.12...@zendeskgarden/react-menus@3.5.0) (2018-08-10)
+
+
+### Features
+
+* **menus:** add maxHeight prop for scrollable menus ([#97](https://github.com/zendeskgarden/react-components/issues/97)) ([647aaf1](https://github.com/zendeskgarden/react-components/commit/647aaf1))
+
+
+
+
+<a name="3.4.12"></a>
+## [3.4.12](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.4.11...@zendeskgarden/react-menus@3.4.12) (2018-08-10)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-menus
+
+<a name="3.4.11"></a>
+## [3.4.11](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.4.10...@zendeskgarden/react-menus@3.4.11) (2018-08-08)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-menus
+
+<a name="3.4.10"></a>
+## [3.4.10](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.4.9...@zendeskgarden/react-menus@3.4.10) (2018-08-08)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-menus
+
+<a name="3.4.9"></a>
+## [3.4.9](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.4.8...@zendeskgarden/react-menus@3.4.9) (2018-08-07)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-menus
+
+<a name="3.4.8"></a>
+## [3.4.8](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.4.7...@zendeskgarden/react-menus@3.4.8) (2018-08-07)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-menus
+
+<a name="3.4.7"></a>
+## [3.4.7](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.4.6...@zendeskgarden/react-menus@3.4.7) (2018-08-06)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-menus
+
+<a name="3.4.6"></a>
+## [3.4.6](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.4.5...@zendeskgarden/react-menus@3.4.6) (2018-08-02)
+
+
+### Bug Fixes
+
+* **menu:** Don't render Menu when it's closed ([#89](https://github.com/zendeskgarden/react-components/issues/89)) ([f79518b](https://github.com/zendeskgarden/react-components/commit/f79518b))
+
+
+
+
+<a name="3.4.5"></a>
+## [3.4.5](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.4.4...@zendeskgarden/react-menus@3.4.5) (2018-07-30)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-menus
+
+<a name="3.4.4"></a>
+## [3.4.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.4.3...@zendeskgarden/react-menus@3.4.4) (2018-07-27)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-menus
+
 <a name="3.4.3"></a>
 ## [3.4.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.4.2...@zendeskgarden/react-menus@3.4.3) (2018-07-25)
 

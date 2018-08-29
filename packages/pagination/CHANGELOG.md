@@ -3,6 +3,69 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.1.16"></a>
+## [4.1.16](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-pagination@4.1.15...@zendeskgarden/react-pagination@4.1.16) (2018-08-23)
+
+
+### Bug Fixes
+
+* **pagination:** remove invalid aria role ([#127](https://github.com/zendeskgarden/react-components/issues/127)) ([ba4bcb5](https://github.com/zendeskgarden/react-components/commit/ba4bcb5))
+
+
+
+
+
+<a name="4.1.15"></a>
+## [4.1.15](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-pagination@4.1.14...@zendeskgarden/react-pagination@4.1.15) (2018-08-23)
+
+**Note:** Version bump only for package @zendeskgarden/react-pagination
+
+
+
+
+
+<a name="4.1.14"></a>
+## [4.1.14](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-pagination@4.1.13...@zendeskgarden/react-pagination@4.1.14) (2018-08-22)
+
+**Note:** Version bump only for package @zendeskgarden/react-pagination
+
+
+
+
+
+<a name="4.1.13"></a>
+## [4.1.13](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-pagination@4.1.12...@zendeskgarden/react-pagination@4.1.13) (2018-08-17)
+
+**Note:** Version bump only for package @zendeskgarden/react-pagination
+
+
+
+
+
+<a name="4.1.12"></a>
+## [4.1.12](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-pagination@4.1.11...@zendeskgarden/react-pagination@4.1.12) (2018-08-08)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-pagination
+
+<a name="4.1.11"></a>
+## [4.1.11](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-pagination@4.1.10...@zendeskgarden/react-pagination@4.1.11) (2018-08-07)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-pagination
+
+<a name="4.1.10"></a>
+## [4.1.10](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-pagination@4.1.9...@zendeskgarden/react-pagination@4.1.10) (2018-07-27)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-pagination
+
 <a name="4.1.9"></a>
 ## [4.1.9](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-pagination@4.1.8...@zendeskgarden/react-pagination@4.1.9) (2018-07-25)
 

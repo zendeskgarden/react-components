@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { mountWithTheme } from '@zendeskgarden/react-testing';
 
 import Tabs from './Tabs';
 import TabsContainer from '../containers/TabsContainer';
@@ -27,20 +27,15 @@ describe('Tabs', () => {
     </Tabs>
   );
 
-  beforeEach(() => {
-    // Disabled due to styled-components theming
-    console.warn = jest.fn(); // eslint-disable-line no-console
-  });
-
   it('renders horizontal mode by default', () => {
-    const wrapper = mount(<Tabs />);
+    const wrapper = mountWithTheme(<Tabs />);
 
     expect(wrapper.find(TabsContainer)).toHaveProp('vertical', false);
     expect(wrapper.find(Tabs)).toHaveProp('vertical', false);
   });
 
   it('renders vertical mode if provided', () => {
-    const wrapper = mount(<Tabs vertical />);
+    const wrapper = mountWithTheme(<Tabs vertical />);
 
     expect(wrapper.find(TabsContainer)).toHaveProp('vertical', true);
     expect(wrapper.find(TabsView)).toHaveProp('vertical', true);
@@ -48,7 +43,7 @@ describe('Tabs', () => {
 
   describe('Tab', () => {
     it('applies selected styling to currently selected tab', () => {
-      const wrapper = mount(basicExample);
+      const wrapper = mountWithTheme(basicExample);
 
       wrapper
         .find(Tab)
@@ -59,7 +54,7 @@ describe('Tabs', () => {
     });
 
     it('applies focused styling to currently focused tab', () => {
-      const wrapper = mount(basicExample);
+      const wrapper = mountWithTheme(basicExample);
 
       wrapper.find(TabList).simulate('focus');
 
@@ -67,7 +62,7 @@ describe('Tabs', () => {
     });
 
     it('applies disabled styling if provided', () => {
-      const wrapper = mount(
+      const wrapper = mountWithTheme(
         <Tabs>
           <TabPanel label="Tab 1" key="tab-1">
             Tab 1 content
@@ -80,7 +75,7 @@ describe('Tabs', () => {
     });
 
     it('selected first tab if in uncontrolled state', () => {
-      const wrapper = mount(basicExample);
+      const wrapper = mountWithTheme(basicExample);
 
       expect(wrapper.find(Tab).first()).toHaveProp('selected', true);
     });
@@ -91,7 +86,7 @@ describe('Tabs', () => {
       console.error = jest.fn(); // eslint-disable-line no-console
 
       expect(() => {
-        mount(
+        mountWithTheme(
           <Tabs>
             <TabPanel>Invalid panel</TabPanel>
           </Tabs>
@@ -103,7 +98,7 @@ describe('Tabs', () => {
 
     it('does not throw if a key is provided to TabPanel', () => {
       expect(() => {
-        mount(
+        mountWithTheme(
           <Tabs>
             <TabPanel key="valid-panel">Valid panel</TabPanel>
           </Tabs>

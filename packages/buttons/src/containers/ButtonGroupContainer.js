@@ -101,7 +101,8 @@ export default class ButtonGroupContainer extends ControlledComponent {
         {({ getContainerProps, getItemProps }) =>
           render({
             getGroupProps: props => getContainerProps(this.getGroupProps(props)),
-            getButtonProps: props => getItemProps(this.getButtonProps(props)),
+            getButtonProps: props =>
+              getItemProps(this.getButtonProps(props), { selectedAriaKey: 'aria-pressed' }),
             focusedKey,
             selectedKey
           })

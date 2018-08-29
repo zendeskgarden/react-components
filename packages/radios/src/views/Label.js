@@ -11,7 +11,7 @@ import classNames from 'classnames';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
 
-const COMPONENT_ID = 'checkboxes.label';
+const COMPONENT_ID = 'radios.label';
 
 /**
  * Accepts all `<label>` props

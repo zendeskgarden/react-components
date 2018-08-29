@@ -36,7 +36,9 @@ const onModalClose = () => setState({ isModalVisible: false });
             </Body>
             <Footer>
               <FooterItem>
-                <Button onClick={closeModal}>Cancel</Button>
+                <Button onClick={closeModal} basic>
+                  Cancel
+                </Button>
               </FooterItem>
               <FooterItem>
                 <Button onClick={closeModal} primary>
@@ -44,7 +46,7 @@ const onModalClose = () => setState({ isModalVisible: false });
                 </Button>
               </FooterItem>
             </Footer>
-            <Close {...getCloseProps()} />
+            <Close {...getCloseProps({ 'aria-label': 'Close modal' })} />
           </ModalView>
         </Backdrop>
       )}

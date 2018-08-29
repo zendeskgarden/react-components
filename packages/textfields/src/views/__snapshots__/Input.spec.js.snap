@@ -98,6 +98,14 @@ exports[`Input validation renders error styling if provided 1`] = `
 />
 `;
 
+exports[`Input validation renders none styling if provided 1`] = `
+<input
+  className="c-txt__input "
+  data-garden-id="textfields.input"
+  data-garden-version="version"
+/>
+`;
+
 exports[`Input validation renders success styling if provided 1`] = `
 <input
   className="c-txt__input c-txt__input--success "

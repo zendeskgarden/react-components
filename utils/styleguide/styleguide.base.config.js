@@ -7,6 +7,12 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const {
+  zdColorBlue600,
+  zdColorGrey100,
+  zdColorKale400,
+  zdColorRed600
+} = require('@zendeskgarden/css-variables');
 const packageManifest = require(path.resolve('package.json'));
 const customStyleguideConfig = require(path.resolve('styleguide.config.js'));
 const basePathName = path.basename(path.resolve('./'));
@@ -20,7 +26,18 @@ const defaultStyleguideConfig = {
   serverPort: 5000,
   styleguideDir: `../../demo/${basePathName}`,
   usageMode: 'expand',
+  theme: {
+    color: {
+      link: zdColorBlue600,
+      linkHover: zdColorBlue600,
+      codeBackground: zdColorGrey100,
+      sidebarBackground: zdColorGrey100,
+      name: zdColorKale400,
+      type: zdColorRed600
+    }
+  },
   template: {
+    lang: 'en',
     head: {
       meta: [
         {
@@ -39,15 +56,48 @@ const defaultStyleguideConfig = {
       scripts: [
         {
           async: '',
-          src: `//www.googletagmanager.com/gtag/js?id=${googleTrackingId}`
+          src: `https://www.googletagmanager.com/gtag/js?id=${googleTrackingId}`
+        },
+        {
+          async: '',
+          src:
+            'https://static-staging.zdassets.com/customer_analytics_integration/garden_dev/cai.min.js'
         }
       ],
-      raw: `<script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '${googleTrackingId}');
-      </script>`
+      raw: [
+        `<script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${googleTrackingId}');
+        </script>`,
+        `<script>
+          (function() {
+            window.analytics = window.analytics || [];
+            window.deferredAnalytics = window.deferredAnalytics || [];
+            if (!analytics.initialized && !analytics.invoked) {
+              analytics.invoked = true;
+              analytics.methods = ['trackSubmit', 'trackClick', 'trackLink', 'trackForm', 'pageview', 'identify', 'reset', 'group', 'track', 'ready', 'alias', 'debug', 'page', 'once', 'off', 'on'];
+              analytics.factory = function(method) {
+                return function() {
+                  var args = Array.prototype.slice.call(arguments);
+                  args.unshift(method);
+                  deferredAnalytics.push(args);
+                  return analytics;
+                };
+              };
+              for (var i = 0; i < analytics.methods.length; i++) {
+                var method = analytics.methods[i];
+                analytics[method] = analytics.factory(method);
+              }
+              analytics.SNIPPET_VERSION = '4.1.0';
+              analytics.page();
+              analytics.identify();
+              analytics.group();
+            }
+          })();
+        </script>`
+      ]
     }
   },
   compilerConfig: {
@@ -63,7 +113,7 @@ const defaultStyleguideConfig = {
     'github-markdown-css'
   ],
   getExampleFilename(componentPath) {
-    return componentPath.replace(/\.jsx?$/, '.example.md');
+    return componentPath.replace(/\.jsx?$/u, '.example.md');
   },
   getComponentPathLine(componentPath) {
     const name = path.basename(componentPath, '.js');
@@ -73,35 +123,37 @@ const defaultStyleguideConfig = {
   styleguideComponents: {
     Wrapper: path.resolve(__dirname, 'Wrapper'),
     TableOfContentsRenderer: path.resolve(__dirname, 'TableOfContentsRenderer'),
-    LogoRenderer: path.resolve(__dirname, 'LogoRenderer')
+    LogoRenderer: path.resolve(__dirname, 'LogoRenderer'),
+    TableRenderer: path.resolve(__dirname, 'TableRenderer'),
+    ArgumentsRenderer: path.resolve(__dirname, 'ArgumentsRenderer')
   },
   webpackConfig: {
     devtool: 'eval-source-map',
     module: {
       rules: [
         {
-          test: /\.jsx?$/,
-          exclude: /node_modules/,
+          test: /\.jsx?$/u,
+          exclude: /node_modules/u,
           loader: 'babel-loader'
         },
         {
-          test: /\.css$/,
-          exclude: /@zendeskgarden\/css-/,
+          test: /\.css$/u,
+          exclude: /@zendeskgarden\/css-/u,
           loader: 'style-loader!css-loader'
         },
         {
-          test: /\.css$/,
-          include: /@zendeskgarden\/css-/,
+          test: /\.css$/u,
+          include: /@zendeskgarden\/css-/u,
           loader:
             'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
         },
         {
-          test: /\.svg$/,
-          exclude: /node_modules/,
+          test: /\.svg$/u,
+          exclude: /node_modules/u,
           loader: 'svg-react-loader'
         },
         {
-          test: /\.md$/,
+          test: /\.md$/u,
           use: [
             {
               loader: 'html-loader'
@@ -122,7 +174,31 @@ const defaultStyleguideConfig = {
     resolve: {
       alias: {
         'package.json': path.resolve('package.json'),
-        'CHANGELOG.md': path.resolve('CHANGELOG.md')
+        'CHANGELOG.md': path.resolve('CHANGELOG.md'),
+        '@zendeskgarden/react-autocomplete': path.resolve('..', 'autocomplete'),
+        '@zendeskgarden/react-avatars': path.resolve('..', 'avatars'),
+        '@zendeskgarden/react-buttons': path.resolve('..', 'buttons'),
+        '@zendeskgarden/react-checkboxes': path.resolve('..', 'checkboxes'),
+        '@zendeskgarden/react-chrome': path.resolve('..', 'chrome'),
+        '@zendeskgarden/react-grid': path.resolve('..', 'grid'),
+        '@zendeskgarden/react-loaders': path.resolve('..', 'loaders'),
+        '@zendeskgarden/react-menus': path.resolve('..', 'menus'),
+        '@zendeskgarden/react-modals': path.resolve('..', 'modals'),
+        '@zendeskgarden/react-notifications': path.resolve('..', 'notifications'),
+        '@zendeskgarden/react-pagination': path.resolve('..', 'pagination'),
+        '@zendeskgarden/react-radios': path.resolve('..', 'radios'),
+        '@zendeskgarden/react-ranges': path.resolve('..', 'ranges'),
+        '@zendeskgarden/react-select': path.resolve('..', 'select'),
+        '@zendeskgarden/react-selection': path.resolve('..', 'selection'),
+        '@zendeskgarden/react-tables': path.resolve('..', 'tables'),
+        '@zendeskgarden/react-tabs': path.resolve('..', 'tabs'),
+        '@zendeskgarden/react-tags': path.resolve('..', 'tags'),
+        '@zendeskgarden/react-testing': path.resolve('..', 'testing'),
+        '@zendeskgarden/react-textfields': path.resolve('..', 'textfields'),
+        '@zendeskgarden/react-theming': path.resolve('..', 'theming'),
+        '@zendeskgarden/react-toggles': path.resolve('..', 'toggles'),
+        '@zendeskgarden/react-tooltips': path.resolve('..', 'tooltips'),
+        '@zendeskgarden/react-utilities': path.resolve('..', 'utilities')
       }
     }
   }

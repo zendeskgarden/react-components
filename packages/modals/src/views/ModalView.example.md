@@ -21,13 +21,13 @@ const ExampleModalContainer = styled.div`
       <Body>Example content goes here</Body>
       <Footer>
         <FooterItem>
-          <Button>Cancel</Button>
+          <Button basic>Cancel</Button>
         </FooterItem>
         <FooterItem>
           <Button primary>Submit</Button>
         </FooterItem>
       </Footer>
-      <Close />
+      <Close aria-label="Close modal" />
     </ModalView>
   </Backdrop>
 </ExampleModalContainer>;

@@ -42,10 +42,11 @@ describe('Menu', () => {
   let wrapper;
   let onChangeSpy;
 
-  const basicExample = ({ onChange } = {}) => (
+  const BasicExample = ({ onChange, maxHeight } = {}) => (
     <Menu
       data-test-id="menu"
       onChange={onChange}
+      maxHeight={maxHeight}
       trigger={({ ref }) => (
         <button ref={ref} data-test-id="trigger">
           trigger
@@ -74,10 +75,8 @@ describe('Menu', () => {
   const findDisabledItems = enzymeWrapper => enzymeWrapper.find('[data-test-id="disabled"]');
 
   beforeEach(() => {
-    // Disabled due to styled-components theming
-    console.warn = jest.fn(); // eslint-disable-line no-console
     onChangeSpy = jest.fn();
-    wrapper = mountWithTheme(basicExample({ onChange: onChangeSpy }));
+    wrapper = mountWithTheme(<BasicExample onChange={onChangeSpy} />);
   });
 
   describe('Standard Items', () => {
@@ -109,7 +108,7 @@ describe('Menu', () => {
       findTrigger(wrapper).simulate('click');
       jest.runOnlyPendingTimers();
       wrapper.update();
-      const menuElement = findMenu(wrapper).at(2);
+      const menuElement = findMenu(wrapper).at(3);
 
       menuElement.simulate('keydown', { keyCode: P_KEY_CODE, key: 'p' });
       menuElement.simulate('keydown', { keyCode: KEY_CODES.ENTER, key: 'enter' });
@@ -122,7 +121,7 @@ describe('Menu', () => {
       findTrigger(wrapper).simulate('click');
       jest.runOnlyPendingTimers();
       wrapper.update();
-      const menuElement = findMenu(wrapper).at(2);
+      const menuElement = findMenu(wrapper).at(3);
 
       menuElement.simulate('keydown', { keyCode: O_KEY_CODE, key: 'o' });
       menuElement.simulate('keydown', { keyCode: KEY_CODES.ENTER, key: 'enter' });
@@ -135,7 +134,7 @@ describe('Menu', () => {
       findTrigger(wrapper).simulate('click');
       jest.runOnlyPendingTimers();
       wrapper.update();
-      const menuElement = findMenu(wrapper).at(2);
+      const menuElement = findMenu(wrapper).at(3);
 
       menuElement.simulate('keydown', { keyCode: KEY_CODES.DOWN, key: 'down' });
       menuElement.simulate('keydown', { keyCode: KEY_CODES.DOWN, key: 'down' });
@@ -150,10 +149,33 @@ describe('Menu', () => {
       findTrigger(wrapper).simulate('click');
       jest.runOnlyPendingTimers();
       wrapper.update();
-      const menuElement = findMenu(wrapper).at(2);
+      const menuElement = findMenu(wrapper).at(3);
 
       menuElement.simulate('keydown', { keyCode: KEY_CODES.LEFT, key: 'left' });
       expect(onChangeSpy).toHaveBeenCalledWith('previous-item');
+    });
+  });
+
+  describe('maxHeight', () => {
+    it('does not apply styling if maxHeight is not provided', () => {
+      findTrigger(wrapper).simulate('click');
+      jest.runOnlyPendingTimers();
+      wrapper.update();
+
+      expect(findMenu(wrapper).at(3)).not.toHaveStyle('max-height');
+      expect(findMenu(wrapper).at(3)).not.toHaveStyle('overflow');
+    });
+
+    it('applies correct styling if maxHeight is provided', () => {
+      const maxHeight = '300px';
+
+      wrapper = mountWithTheme(<BasicExample onChange={onChangeSpy} maxHeight={maxHeight} />);
+      findTrigger(wrapper).simulate('click');
+      jest.runOnlyPendingTimers();
+      wrapper.update();
+
+      expect(findMenu(wrapper).at(3)).toHaveStyleRule('max-height', maxHeight);
+      expect(findMenu(wrapper).at(3)).toHaveStyleRule('overflow', 'auto');
     });
   });
 });

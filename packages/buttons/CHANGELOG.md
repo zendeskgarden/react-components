@@ -3,6 +3,91 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.5.1"></a>
+## [3.5.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.5.0...@zendeskgarden/react-buttons@3.5.1) (2018-08-23)
+
+**Note:** Version bump only for package @zendeskgarden/react-buttons
+
+
+
+
+
+<a name="3.5.0"></a>
+# [3.5.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.4.5...@zendeskgarden/react-buttons@3.5.0) (2018-08-22)
+
+
+### Features
+
+* **buttons|selection:** allow customization of selected accessibility value ([#109](https://github.com/zendeskgarden/react-components/issues/109)) ([570aa6e](https://github.com/zendeskgarden/react-components/commit/570aa6e))
+
+
+
+
+
+<a name="3.4.5"></a>
+## [3.4.5](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.4.3...@zendeskgarden/react-buttons@3.4.5) (2018-08-17)
+
+**Note:** Version bump only for package @zendeskgarden/react-buttons
+
+
+
+
+
+<a name="3.4.4"></a>
+## [3.4.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.4.3...@zendeskgarden/react-buttons@3.4.4) (2018-08-17)
+
+**Note:** Version bump only for package @zendeskgarden/react-buttons
+
+
+
+
+
+<a name="3.4.3"></a>
+## [3.4.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.4.2...@zendeskgarden/react-buttons@3.4.3) (2018-08-08)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-buttons
+
+<a name="3.4.2"></a>
+## [3.4.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.4.1...@zendeskgarden/react-buttons@3.4.2) (2018-08-07)
+
+
+### Bug Fixes
+
+* **buttons|ranges:** prettier formatting errors ([#94](https://github.com/zendeskgarden/react-components/issues/94)) ([69f17a1](https://github.com/zendeskgarden/react-components/commit/69f17a1))
+
+
+
+
+<a name="3.4.1"></a>
+## [3.4.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.4.0...@zendeskgarden/react-buttons@3.4.1) (2018-08-07)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-buttons
+
+<a name="3.4.0"></a>
+# [3.4.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.3.10...@zendeskgarden/react-buttons@3.4.0) (2018-07-30)
+
+
+### Features
+
+* **buttons:** add `ChevronButton` export ([#86](https://github.com/zendeskgarden/react-components/issues/86)) ([4bae854](https://github.com/zendeskgarden/react-components/commit/4bae854))
+
+
+
+
+<a name="3.3.10"></a>
+## [3.3.10](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.3.9...@zendeskgarden/react-buttons@3.3.10) (2018-07-27)
+
+
+
+
+**Note:** Version bump only for package @zendeskgarden/react-buttons
+
 <a name="3.3.9"></a>
 ## [3.3.9](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.3.8...@zendeskgarden/react-buttons@3.3.9) (2018-07-25)
 

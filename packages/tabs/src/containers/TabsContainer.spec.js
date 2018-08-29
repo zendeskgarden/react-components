@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { mountWithTheme } from '@zendeskgarden/react-testing';
 import { SelectionContainer } from '@zendeskgarden/react-selection';
 
 import TabsContainer from './TabsContainer';
@@ -45,10 +45,8 @@ describe('TabsContainer', () => {
   );
 
   beforeEach(() => {
-    // Disabled due to styled-components theming
-    console.warn = jest.fn(); // eslint-disable-line no-console
     onChangeSpy = jest.fn();
-    wrapper = mount(basicExample({ onChange: onChangeSpy }));
+    wrapper = mountWithTheme(basicExample({ onChange: onChangeSpy }));
   });
 
   const findTabList = enzymeWrapper => enzymeWrapper.find('[data-test-id="tab-list"]');
@@ -60,7 +58,7 @@ describe('TabsContainer', () => {
   });
 
   it('applies vertical direction to SelectionContainer if provided', () => {
-    wrapper = mount(basicExample({ vertical: true }));
+    wrapper = mountWithTheme(basicExample({ vertical: true }));
 
     expect(wrapper.find(SelectionContainer)).toHaveProp('direction', 'vertical');
   });
@@ -83,7 +81,7 @@ describe('TabsContainer', () => {
         console.error = jest.fn(); // eslint-disable-line no-console
 
         expect(() => {
-          mount(
+          mountWithTheme(
             <TabsContainer>
               {({ getTabProps }) => <div {...getTabProps()}>Test tab</div>}
             </TabsContainer>
@@ -106,7 +104,7 @@ describe('TabsContainer', () => {
       console.error = jest.fn(); // eslint-disable-line no-console
 
       expect(() => {
-        mount(
+        mountWithTheme(
           <TabsContainer>
             {({ getTabPanelProps }) => <div {...getTabPanelProps()}>Test tab</div>}
           </TabsContainer>

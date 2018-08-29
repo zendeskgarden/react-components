@@ -13,6 +13,8 @@ to the textfield related view components it's provided.
 
 ### Controlled
 
+<!-- markdownlint-disable -->
+<!-- prettier-ignore -->
 ```jsx
 initialState = {
   value: 25
@@ -29,7 +31,11 @@ getValidationMessage = value =>
 
 <RangeField>
   <Label>Dynamic Validation Example</Label>
-  <Hint>Move range to view changes. [value="{state.value}"]</Hint>
+  <Hint>
+    Move range to view changes. [value="
+    {state.value}
+    "]
+  </Hint>
   <Range
     value={state.textValue}
     onChange={event => setState({ value: event.target.value })}
@@ -38,3 +44,5 @@ getValidationMessage = value =>
   <Message validation={getValidation(state.value)}>{getValidationMessage(state.value)}</Message>
 </RangeField>;
 ```
+
+<!-- markdownlint-enable -->
