@@ -100,17 +100,6 @@
     "webpack-merge": "4.1.4",
     "webpack-node-externals": "1.7.2"
   },
-  "cssnano": {
-    "preset": [
-      "default",
-      {
-        "cssDeclarationSorter": false,
-        "discardComments": {
-          "removeAllButFirst": true
-        }
-      }
-    ]
-  },
   "husky": {
     "hooks": {
       "pre-commit": "yarn lint && yarn format"
