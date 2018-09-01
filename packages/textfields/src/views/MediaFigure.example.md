@@ -9,7 +9,7 @@ const SettingsIcon = require('svg-react-loader?name=Attachment!@zendeskgarden/sv
   <MediaFigure>
     <SearchIcon />
   </MediaFigure>
-  <Input bare placeholder="Example media input" />
+  <Input aria-label="Media Input Example" placeholder="Example media input" bare />
   <MediaFigure>
     <SettingsIcon />
   </MediaFigure>

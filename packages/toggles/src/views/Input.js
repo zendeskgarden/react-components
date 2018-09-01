@@ -12,7 +12,7 @@ import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
 const COMPONENT_ID = 'toggles.input';
 
 /**
- * Hidden <input> used to show custom toggle visualization. Accepts all `<input>` props
+ * Hidden `<input>` used to show custom toggle visualization. Accepts all `<input>` props
  */
 const Input = styled.input.attrs({
   'data-garden-id': COMPONENT_ID,

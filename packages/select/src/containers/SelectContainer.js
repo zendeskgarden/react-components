@@ -119,20 +119,6 @@ export default class SelectContainer extends ControlledComponent {
     };
   }
 
-  getTriggerProps = ({ role = 'combobox', ...other } = {}) => {
-    return {
-      role,
-      ...other
-    };
-  };
-
-  getSelectProps = ({ role = 'listbox', ...other } = {}) => {
-    return {
-      role,
-      ...other
-    };
-  };
-
   render() {
     const {
       children,
@@ -163,7 +149,7 @@ export default class SelectContainer extends ControlledComponent {
         trigger={({ getTriggerProps: getMenuTriggerProps, triggerRef }) =>
           trigger &&
           trigger({
-            getTriggerProps: props => getMenuTriggerProps(this.getTriggerProps(props)),
+            getTriggerProps: getMenuTriggerProps,
             triggerRef,
             selectedKey,
             isOpen
@@ -183,7 +169,7 @@ export default class SelectContainer extends ControlledComponent {
           scheduleUpdate
         }) =>
           render({
-            getSelectProps: props => getMenuProps(this.getSelectProps(props)),
+            getSelectProps: getMenuProps,
             getItemProps,
             getNextItemProps,
             getPreviousItemProps,

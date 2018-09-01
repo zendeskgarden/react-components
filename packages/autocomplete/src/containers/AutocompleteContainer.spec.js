@@ -215,7 +215,6 @@ describe('AutocompleteContainer', () => {
       expect(input).toHaveProp('role', 'combobox');
       expect(input).toHaveProp('aria-autocomplete', 'list');
       expect(input).toHaveProp('aria-haspopup', 'true');
-      expect(input).toHaveProp('aria-owns', 'test--menu');
       expect(input).toHaveProp('autoComplete', 'off');
     });
 
@@ -492,7 +491,6 @@ describe('AutocompleteContainer', () => {
     it('applies accessibility attributes correctly', () => {
       const menu = findMenu(wrapper);
 
-      expect(menu).toHaveProp('id', 'test--menu');
       expect(menu).toHaveProp('role', 'listbox');
     });
 

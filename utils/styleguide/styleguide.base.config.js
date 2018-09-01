@@ -110,7 +110,8 @@ const defaultStyleguideConfig = {
     'babel-polyfill',
     path.resolve(__dirname, 'setup.js'),
     path.resolve(__dirname, 'styles.css'),
-    'github-markdown-css'
+    'github-markdown-css',
+    path.resolve(__dirname, 'github-hljs-theme.css')
   ],
   getExampleFilename(componentPath) {
     return componentPath.replace(/\.jsx?$/u, '.example.md');

@@ -212,8 +212,6 @@ class MenuContainer extends ControlledComponent {
     }
   };
 
-  getMenuId = () => `${this.getControlledState().id}--container`;
-
   toggleMenuVisibility = ({ defaultFocusedIndex, focusOnOpen, closedByBlur } = {}) => {
     const { isOpen } = this.getControlledState();
 
@@ -235,7 +233,6 @@ class MenuContainer extends ControlledComponent {
     return {
       tabIndex,
       'aria-haspopup': true,
-      'aria-controls': this.getMenuId(),
       'aria-expanded': isOpen,
       onClick: composeEventHandlers(onClick, () => this.toggleMenuVisibility()),
       onKeyDown: composeEventHandlers(onKeyDown, event => {
@@ -285,13 +282,12 @@ class MenuContainer extends ControlledComponent {
    * Props to be applied to the menu container
    */
   getMenuProps = (
-    { id = this.getMenuId(), tabIndex = -1, role = 'menu', onKeyDown, onFocus, ...other } = {},
+    { tabIndex = -1, role = 'menu', onKeyDown, onFocus, ...other } = {},
     focusSelectionModel
   ) => {
     const { focusOnOpen } = this.getControlledState();
 
     return {
-      id,
       role,
       tabIndex,
       onFocus: composeEventHandlers(onFocus, event => {
@@ -382,7 +378,7 @@ class MenuContainer extends ControlledComponent {
   /**
    * Props to be applied to each selectable menu item
    **/
-  getItemProps = ({ key, textValue, ...other }) => {
+  getItemProps = ({ key, role = 'menuitemcheckbox', textValue, ...other }) => {
     const { focusedKey } = this.getControlledState();
 
     if (typeof textValue === 'string' && textValue.length > 0) {
@@ -409,6 +405,7 @@ class MenuContainer extends ControlledComponent {
 
     return {
       key,
+      role,
       ...other
     };
   };
@@ -556,7 +553,9 @@ class MenuContainer extends ControlledComponent {
                                   getContainerProps(this.getMenuProps(props, focusSelectionModel))
                                 ),
                               getItemProps: props =>
-                                getSelectionItemProps(this.getItemProps(props)),
+                                getSelectionItemProps(this.getItemProps(props), {
+                                  selectedAriaKey: 'aria-checked'
+                                }),
                               getNextItemProps: props =>
                                 getSelectionItemProps(
                                   this.getItemProps(this.getNextItemProps(props))

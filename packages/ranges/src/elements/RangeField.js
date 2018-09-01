@@ -42,6 +42,14 @@ export default class RangeField extends ControlledComponent {
     const { id } = this.getControlledState();
     const { children, ...otherProps } = this.props;
 
+    let isDescribed = false;
+
+    Children.forEach(children, child => {
+      if (hasType(child, Hint)) {
+        isDescribed = true;
+      }
+    });
+
     return (
       <FieldContainer id={id}>
         {({ getLabelProps, getInputProps, getHintProps, getMessageProps }) => (
@@ -56,7 +64,7 @@ export default class RangeField extends ControlledComponent {
               }
 
               if (hasType(child, Range)) {
-                return cloneElement(child, getInputProps(child.props));
+                return cloneElement(child, getInputProps(child.props, { isDescribed }));
               }
 
               if (hasType(child, Hint)) {

@@ -59,22 +59,7 @@ describe('SelectContainer', () => {
   });
 
   const findTrigger = enzymeWrapper => enzymeWrapper.find('[data-test-id="trigger"]');
-  const findDropdown = enzymeWrapper => enzymeWrapper.find('[data-test-id="dropdown"]');
   const findItems = enzymeWrapper => enzymeWrapper.find('[data-test-id="item"]');
-
-  describe('getTriggerProps()', () => {
-    it('applies correct accessibility attributes', () => {
-      expect(findTrigger(wrapper)).toHaveProp('role', 'combobox');
-    });
-  });
-
-  describe('getSelectProps()', () => {
-    it('applies correct accessibility attributes', () => {
-      findTrigger(wrapper).simulate('click');
-      wrapper.update();
-      expect(findDropdown(wrapper)).toHaveProp('role', 'listbox');
-    });
-  });
 
   describe('onChange', () => {
     it('receives selected item key on select', () => {

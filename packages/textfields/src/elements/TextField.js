@@ -43,6 +43,14 @@ export default class TextField extends ControlledComponent {
     const { id } = this.getControlledState();
     const { children, ...otherProps } = this.props;
 
+    let isDescribed = false;
+
+    Children.forEach(children, child => {
+      if (hasType(child, Hint)) {
+        isDescribed = true;
+      }
+    });
+
     return (
       <FieldContainer id={id}>
         {({ getLabelProps, getInputProps, getHintProps, getMessageProps }) => (
@@ -57,7 +65,7 @@ export default class TextField extends ControlledComponent {
               }
 
               if (hasType(child, Input) || hasType(child, Textarea)) {
-                return cloneElement(child, getInputProps(child.props));
+                return cloneElement(child, getInputProps(child.props, { isDescribed }));
               }
 
               if (hasType(child, Hint)) {

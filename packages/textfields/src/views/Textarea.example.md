@@ -1,5 +1,5 @@
 ```jsx
-<Textarea placeholder="Default Textarea" resizable />
+<Textarea aria-label="Default Example" placeholder="Default Textarea" resizable />
 ```
 
 ### Validation Types
@@ -8,16 +8,16 @@
 <Grid>
   <Row>
     <Col lg>
-      <Textarea placeholder="Default" />
+      <Textarea aria-label="Default Example" placeholder="Default" />
     </Col>
     <Col lg>
-      <Textarea validation="success" placeholder="Success" />
+      <Textarea aria-label="Success Example" validation="success" placeholder="Success" />
     </Col>
     <Col lg>
-      <Textarea validation="warning" placeholder="Warning" />
+      <Textarea aria-label="Warning Example" validation="warning" placeholder="Warning" />
     </Col>
     <Col lg>
-      <Textarea validation="error" placeholder="Error" />
+      <Textarea aria-label="Error Example" validation="error" placeholder="Error" />
     </Col>
   </Row>
 </Grid>
@@ -29,10 +29,10 @@
 <Grid>
   <Row>
     <Col lg>
-      <Textarea placeholder="Default" />
+      <Textarea aria-label="Default Example" placeholder="Default" />
     </Col>
     <Col lg>
-      <Textarea placeholder="Small" small />
+      <Textarea aria-label="Small Example" placeholder="Small" small />
     </Col>
   </Row>
 </Grid>
@@ -44,16 +44,16 @@
 <Grid>
   <Row>
     <Col lg>
-      <Textarea placeholder="Resizable" resizable />
+      <Textarea aria-label="Resizable Example" placeholder="Resizable" resizable />
     </Col>
     <Col lg>
-      <Textarea placeholder="Disabled" disabled />
+      <Textarea aria-label="Disabled Example" placeholder="Disabled" disabled />
     </Col>
     <Col lg>
-      <Textarea placeholder="Focused" focused />
+      <Textarea aria-label="Focused Example" placeholder="Focused" focused />
     </Col>
     <Col lg>
-      <Textarea placeholder="Hovered" hovered />
+      <Textarea aria-label="Hovered Example" placeholder="Hovered" hovered />
     </Col>
   </Row>
 </Grid>

@@ -115,24 +115,27 @@ initialState = {
               {!isOpen && <span>{state.value}</span>}
               <Input
                 {...getInputProps(
-                  getFieldInputProps({
-                    bare: true,
-                    innerRef: inputRef,
-                    value: state.inputValue,
-                    onChange: e => {
-                      setState({ inputValue: e.target.value });
+                  getFieldInputProps(
+                    {
+                      bare: true,
+                      innerRef: inputRef,
+                      value: state.inputValue,
+                      onChange: e => {
+                        setState({ inputValue: e.target.value });
+                      },
+                      placeholder: state.value,
+                      onFocus: () => {
+                        setState({ isFocused: true });
+                      },
+                      onBlur: () => {
+                        setState({ isFocused: false });
+                      },
+                      style: !isOpen
+                        ? { opacity: 0, height: 0, minHeight: 0, width: 0, minWidth: 0 }
+                        : {}
                     },
-                    placeholder: state.value,
-                    onFocus: () => {
-                      setState({ isFocused: true });
-                    },
-                    onBlur: () => {
-                      setState({ isFocused: false });
-                    },
-                    style: !isOpen
-                      ? { opacity: 0, height: 0, minHeight: 0, width: 0, minWidth: 0 }
-                      : {}
-                  })
+                    { isDescribed: false }
+                  )
                 )}
               />
             </FauxInput>

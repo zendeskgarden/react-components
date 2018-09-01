@@ -42,7 +42,7 @@ describe('TextField', () => {
   });
 
   it('applies container props to Message', () => {
-    expect(wrapper.find(Message)).toHaveProp('id', `${TEXT_FIELD_ID}--message`);
+    expect(wrapper.find(Message)).toHaveProp('role', 'alert');
   });
 
   it('applies no props to any other element', () => {

@@ -1,7 +1,7 @@
 ### States
 
 ```jsx
-<Grid>
+<Grid role="group" aria-label="State Usage Example">
   <Row>
     <Col md={4}>
       <Radio>
