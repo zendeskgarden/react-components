@@ -19,10 +19,16 @@ const options = {
   optimization: {
     minimizer: [
       new OptimizeCSSAssetsPlugin({
-        cssProcessorOptions: {
-          discardComments: { removeAllButFirst: true },
-          reduceIdents: false,
-          zindex: false
+        cssProcessorPluginOptions: {
+          preset: [
+            'default',
+            {
+              cssDeclarationSorter: false,
+              discardComments: {
+                removeAllButFirst: true
+              }
+            }
+          ]
         }
       })
     ]
