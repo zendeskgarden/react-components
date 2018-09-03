@@ -20,7 +20,7 @@ import {
   KEY_CODES
 } from '@zendeskgarden/react-selection';
 import { getPopperPlacement, getRtlPopperPlacement } from '@zendeskgarden/react-tooltips';
-import { withTheme, isRtl, getDocument } from '@zendeskgarden/react-theming';
+import { withTheme, isRtl } from '@zendeskgarden/react-theming';
 import { FocusJailContainer } from '@zendeskgarden/react-modals';
 
 /**
@@ -150,18 +150,6 @@ class MenuContainer extends ControlledComponent {
     };
   }
 
-  componentDidMount() {
-    const doc = getDocument ? getDocument(this.props) : document;
-
-    doc.addEventListener('mousedown', this.handleOutsideMouseDown);
-  }
-
-  componentWillUnmount() {
-    const doc = getDocument ? getDocument(this.props) : document;
-
-    doc.removeEventListener('mousedown', this.handleOutsideMouseDown);
-  }
-
   componentDidUpdate(prevProps, prevState) {
     const { isOpen, closedByBlur } = this.getControlledState();
     const previousisOpen = this.isControlledProp('isOpen') ? prevProps.isOpen : prevState.isOpen;
@@ -194,23 +182,6 @@ class MenuContainer extends ControlledComponent {
       }, 0);
     }
   }
-
-  /**
-   * Used to know when a Menu is blured by mouse
-   */
-  handleOutsideMouseDown = event => {
-    const { isOpen } = this.getControlledState();
-
-    if (!isOpen) {
-      return;
-    }
-
-    if (this.menuReference && !this.menuReference.contains(event.target)) {
-      if (this.triggerReference && !this.triggerReference.contains(event.target)) {
-        this.toggleMenuVisibility({ closedByBlur: true });
-      }
-    }
-  };
 
   getMenuId = () => `${this.getControlledState().id}--container`;
 
@@ -285,7 +256,15 @@ class MenuContainer extends ControlledComponent {
    * Props to be applied to the menu container
    */
   getMenuProps = (
-    { id = this.getMenuId(), tabIndex = -1, role = 'menu', onKeyDown, onFocus, ...other } = {},
+    {
+      id = this.getMenuId(),
+      tabIndex = -1,
+      role = 'menu',
+      onKeyDown,
+      onFocus,
+      onBlur,
+      ...other
+    } = {},
     focusSelectionModel
   ) => {
     const { focusOnOpen } = this.getControlledState();
@@ -302,6 +281,15 @@ class MenuContainer extends ControlledComponent {
         if (!focusOnOpen) {
           event.preventDefault();
         }
+      }),
+      onBlur: composeEventHandlers(onBlur, () => {
+        const { isOpen } = this.getControlledState();
+
+        if (!isOpen) {
+          return;
+        }
+
+        this.toggleMenuVisibility({ closedByBlur: true });
       }),
       onKeyDown: composeEventHandlers(onKeyDown, event => {
         const { focusedKey } = this.getControlledState();
