@@ -8,7 +8,7 @@
 import React from 'react';
 import { mountWithTheme } from '@zendeskgarden/react-testing';
 import { KEY_CODES } from '@zendeskgarden/react-selection';
-import FocusJailContainer from './FocusJailContainer';
+import { FocusJailContainer } from './FocusJailContainer';
 
 jest.useFakeTimers();
 
@@ -29,7 +29,6 @@ describe('FocusJailContainer', () => {
   );
 
   const findContainer = enzymeWrapper => enzymeWrapper.find('[data-test-id="container"]');
-  const findButton = enzymeWrapper => enzymeWrapper.find('[data-test-id="button"]');
   const findInput = enzymeWrapper => enzymeWrapper.find('[data-test-id="input"]');
 
   beforeEach(() => {
@@ -96,7 +95,6 @@ describe('FocusJailContainer', () => {
           </FocusJailContainer>
         );
         wrapper.simulate('keydown', { keyCode: KEY_CODES.TAB });
-        jest.runOnlyPendingTimers();
 
         expect(focusElementSpy).toHaveBeenCalledTimes(2);
         expect(focusElementSpy).toHaveBeenLastCalledWith(findContainer(wrapper).getDOMNode());
@@ -104,18 +102,36 @@ describe('FocusJailContainer', () => {
 
       it('focuses first element if tab key is pressed', () => {
         wrapper.simulate('keydown', { keyCode: KEY_CODES.TAB });
-        jest.runOnlyPendingTimers();
 
-        expect(focusElementSpy).toHaveBeenCalledTimes(2);
-        expect(focusElementSpy).toHaveBeenLastCalledWith(findButton(wrapper).getDOMNode());
+        expect(focusElementSpy).toHaveBeenCalledTimes(1);
+        expect(focusElementSpy).toHaveBeenLastCalledWith(findContainer(wrapper).getDOMNode());
       });
 
       it('focuses last element if tab and shift key is pressed', () => {
         wrapper.simulate('keydown', { keyCode: KEY_CODES.TAB, shiftKey: true });
-        jest.runOnlyPendingTimers();
 
         expect(focusElementSpy).toHaveBeenCalledTimes(2);
         expect(focusElementSpy).toHaveBeenLastCalledWith(findInput(wrapper).getDOMNode());
+      });
+
+      it("doesn't intercept tab key if not the first or last tabbable item", () => {
+        wrapper = mountWithTheme(
+          <FocusJailContainer>
+            {({ getContainerProps, containerRef }) => (
+              <div {...getContainerProps({ 'data-test-id': 'container' })} ref={containerRef}>
+                <p>non-focusable test</p>
+                <button>Focusable button</button>
+                <input ref={ref => setTimeout(() => ref && ref.focus())} />
+                <button>Another button</button>
+              </div>
+            )}
+          </FocusJailContainer>,
+          { enzymeOptions: { attachTo: document.body } }
+        );
+        focusElementSpy.mockClear();
+        wrapper.simulate('keydown', { keyCode: KEY_CODES.TAB });
+
+        expect(focusElementSpy).toHaveBeenCalledTimes(0);
       });
     });
   });
