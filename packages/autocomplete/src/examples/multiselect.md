@@ -173,19 +173,22 @@ const MoreAnchor = styled(Anchor)`
             <AutocompleteContainer
               isOpen={state.isOpen}
               tagFocusedKey={state.tagFocusedKey}
+              focusedKey={state.focusedKey}
               onSelect={selectedKey => {
-                let natoPhonetics = state.natoPhonetics;
-                const selectedKeys = Object.assign({}, state.selectedKeys);
+                if (state.focusedKey || state.inputValue) {
+                  let natoPhonetics = state.natoPhonetics;
+                  const selectedKeys = Object.assign({}, state.selectedKeys);
 
-                if (selectedKeys[selectedKey]) {
-                  delete selectedKeys[selectedKey];
-                } else {
-                  selectedKeys[selectedKey] = true;
+                  if (selectedKeys[selectedKey]) {
+                    delete selectedKeys[selectedKey];
+                  } else {
+                    selectedKeys[selectedKey] = true;
+                  }
+
+                  setState({ selectedKeys, natoPhonetics, inputValue: '' });
+
+                  return true;
                 }
-
-                setState({ selectedKeys, natoPhonetics, inputValue: '' });
-
-                return true;
               }}
               onStateChange={newState => {
                 let inputValue = state.inputValue;
@@ -236,6 +239,16 @@ const MoreAnchor = styled(Anchor)`
                             setState({ inputValue: e.target.value });
                           },
                           onKeyDown: e => {
+                            if (
+                              e.keyCode === KEY_CODES.ENTER &&
+                              (!e.target.value || e.target.value.trim().length === 0) &&
+                              !state.focusedKey &&
+                              state.isOpen
+                            ) {
+                              e.preventDefault();
+                              return;
+                            }
+
                             if (
                               e.keyCode === KEY_CODES.DELETE ||
                               e.keyCode === KEY_CODES.BACKSPACE

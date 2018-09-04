@@ -4,7 +4,7 @@ optionally allow users to add content with the "Add" Menu Item.
 ```jsx
 const { MenuView, Item, AddItem, Separator } = require('@zendeskgarden/react-menus/src');
 const { TextGroup, Label, FauxInput, Input } = require('@zendeskgarden/react-textfields/src');
-const { FieldContainer } = require('@zendeskgarden/react-selection/src');
+const { FieldContainer, KEY_CODES } = require('@zendeskgarden/react-selection/src');
 
 const NoItemsMessage = styled.div`
   margin: 16px;
@@ -43,6 +43,7 @@ initialState = {
   selectedKeys: {},
   isFocused: false,
   isOpen: false,
+  focusedKey: undefined,
   natoPhonetics: [
     'Alfa',
     'Bravo',
@@ -79,6 +80,7 @@ initialState = {
       <Label {...getLabelProps()}>Basic Autocomplete</Label>
       <AutocompleteContainer
         isOpen={state.isOpen}
+        focusedKey={state.focusedKey}
         onSelect={selectedKey => {
           let natoPhonetics = state.natoPhonetics;
 
@@ -128,6 +130,16 @@ initialState = {
                     },
                     onBlur: () => {
                       setState({ isFocused: false });
+                    },
+                    onKeyDown: e => {
+                      if (
+                        e.keyCode === KEY_CODES.ENTER &&
+                        (!e.target.value || e.target.value.trim().length === 0) &&
+                        !state.focusedKey &&
+                        state.isOpen
+                      ) {
+                        e.preventDefault();
+                      }
                     },
                     style: !isOpen
                       ? { opacity: 0, height: 0, minHeight: 0, width: 0, minWidth: 0 }
