@@ -198,6 +198,20 @@ describe('MenuContainer', () => {
 
         expect(document.activeElement.getAttribute('data-test-id')).toBe('trigger');
       });
+
+      it('toggles visibility of menu correctly when clicked twice', () => {
+        wrapper = mountWithTheme(basicExample({ onChange: onChangeSpy }), {
+          enzymeOptions: { attachTo: document.body }
+        });
+
+        findTrigger(wrapper).simulate('click');
+        expect(findMenu(wrapper)).toExist();
+
+        findTrigger(wrapper).simulate('mousedown');
+        findMenu(wrapper).simulate('blur');
+        findTrigger(wrapper).simulate('click');
+        expect(findMenu(wrapper)).not.toExist();
+      });
     });
 
     describe('Menu', () => {
