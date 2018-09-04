@@ -42,7 +42,7 @@ class AutocompleteContainer extends ControlledComponent {
     /**
      * @param {Object} renderProps
      * @param {Function} renderProps.getMenuProps - Props to be spread onto the containing menu element
-     * @param {Function} renderProps.getItemProps - Props to be spread each selectable menu item. `({ key })` is required
+     * @param {Function} renderProps.getItemProps - Props to be spread each selectable menu item. `({ key })` is required. Use `index` attribute for custom ordering.
      * @param {Any} renderProps.placement - The current Popper.JS placement of the Menu. Will update based on boundary conflicts.
      * @param {Any} renderProps.outOfBoundaries - Whether the current menu has escaped its boundary.
      * @param {Any} renderProps.scheduleUpdate - Method to force an update within Popper.js
@@ -413,11 +413,12 @@ class AutocompleteContainer extends ControlledComponent {
     id = this.getItemId(key),
     role = 'option',
     onClick,
+    index,
     ...other
   } = {}) => {
     const { focusedKey } = this.getControlledState();
     const isFocusedItem = key === focusedKey;
-    const currentIndex = this.focusSelectionModel.numItems;
+    const currentIndex = index === undefined ? this.focusSelectionModel.numItems : index;
 
     this.indexKeyMap[currentIndex] = key;
 

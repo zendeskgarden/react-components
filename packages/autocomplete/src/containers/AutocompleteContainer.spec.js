@@ -544,6 +544,67 @@ describe('AutocompleteContainer', () => {
         expect(onSelectSpy).toHaveBeenCalledWith('menu-item-1');
       });
     });
+
+    describe('custom index ordering', () => {
+      it('applies custom focus ordering if index is provided', () => {
+        const customItems = [
+          { text: 'Item 1', index: 0 },
+          { text: 'Item 2', index: 2 },
+          { text: 'Item 3', index: 1 }
+        ];
+
+        wrapper = mountWithTheme(
+          <AutocompleteContainer
+            id="test"
+            trigger={({ getTriggerProps, getInputProps, triggerRef, inputRef }) => {
+              return (
+                <div {...getTriggerProps({ ref: triggerRef })}>
+                  <input
+                    {...getInputProps({
+                      ref: inputRef,
+                      'data-test-id': 'input'
+                    })}
+                  />
+                </div>
+              );
+            }}
+          >
+            {({ getMenuProps, getItemProps, focusedKey }) => {
+              return (
+                <div {...getMenuProps()}>
+                  {customItems.map(item => {
+                    const key = `menu-item-${item.index}`;
+
+                    return (
+                      <div
+                        {...getItemProps({
+                          key,
+                          index: item.index,
+                          'data-test-id': 'item',
+                          'data-focused': focusedKey === key
+                        })}
+                      >
+                        {item.text}
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            }}
+          </AutocompleteContainer>
+        );
+        wrapper.setProps({ isOpen: true });
+
+        findInput(wrapper).simulate('keydown', { keyCode: KEY_CODES.DOWN });
+        expect(findMenuItems(wrapper).first()).toHaveProp('data-focused', true);
+
+        findInput(wrapper).simulate('keydown', { keyCode: KEY_CODES.DOWN });
+        expect(findMenuItems(wrapper).last()).toHaveProp('data-focused', true);
+
+        findInput(wrapper).simulate('keydown', { keyCode: KEY_CODES.DOWN });
+        expect(findMenuItems(wrapper).at(1)).toHaveProp('data-focused', true);
+      });
+    });
   });
 
   describe('openDropdown()', () => {

@@ -24,7 +24,7 @@ export default class PaginationContainer extends ControlledComponent {
     /**
      * @param {Object} renderProps
      * @param {Function} renderProps.getContainerProps - Props to be spread onto the containing element
-     * @param {Function} renderProps.getPageProps - Props to be spread onto each page element. `({key})` is required.
+     * @param {Function} renderProps.getPageProps - Props to be spread onto each page element. `({key})` is required. Use `index` attribute for custom ordering.
      * @param {Function} renderProps.getPreviousPageProps - Props to be spread onto the previous page element. `({key})` is required.
      * @param {Function} renderProps.getNextPageProps - Props to be spread onto the next page element. `({key})` is required.
      * @param {Any} renderProps.focusedKey - Unique key of currently focused page
