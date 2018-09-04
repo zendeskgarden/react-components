@@ -140,6 +140,8 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
 
 ```jsx
 const { Button } = require('@zendeskgarden/react-buttons/src');
+const { Dots } = require('@zendeskgarden/react-loaders/src');
+const { zdColorBlue600 } = require('@zendeskgarden/css-variables');
 
 const Loader = styled.div`
   text-align: center;
@@ -155,7 +157,7 @@ initialState = {
 
 retrieveMenuItems = (selectedKey, isLoading) => {
   if (isLoading) {
-    return <Loader>Simulate loading for 1 second...</Loader>;
+    return <Loader><Dots color={zdColorBlue600} size="50px" delayMS={100} /></Loader>;
   }
 
   if (selectedKey === 'specific-settings') {
@@ -201,7 +203,7 @@ retrieveMenuItems = (selectedKey, isLoading) => {
 
       setTimeout(() => {
         setState({ isLoading: false });
-      }, 1000);
+      }, 2000);
 
     } else if (selectedKey === 'root') {
       focusedKey = 'specific-settings';
