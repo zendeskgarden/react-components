@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.5.0"></a>
+# [4.5.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-selection@4.4.0...@zendeskgarden/react-selection@4.5.0) (2018-09-04)
+
+
+### Features
+
+* **selection|autocomplete:** include index attribute to getItemProps to allow custom ordering ([#131](https://github.com/zendeskgarden/react-components/issues/131)) ([cab38f8](https://github.com/zendeskgarden/react-components/commit/cab38f8))
+
+
+
+
+
 <a name="4.4.0"></a>
 # [4.4.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-selection@4.3.4...@zendeskgarden/react-selection@4.4.0) (2018-08-22)
 

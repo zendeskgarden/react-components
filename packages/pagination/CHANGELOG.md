@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.2.0"></a>
+# [4.2.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-pagination@4.1.16...@zendeskgarden/react-pagination@4.2.0) (2018-09-04)
+
+
+### Features
+
+* **selection|autocomplete:** include index attribute to getItemProps to allow custom ordering ([#131](https://github.com/zendeskgarden/react-components/issues/131)) ([cab38f8](https://github.com/zendeskgarden/react-components/commit/cab38f8))
+
+
+
+
+
 <a name="4.1.16"></a>
 ## [4.1.16](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-pagination@4.1.15...@zendeskgarden/react-pagination@4.1.16) (2018-08-23)
 

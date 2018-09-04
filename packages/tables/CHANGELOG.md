@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.1.24"></a>
+## [0.1.24](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tables@0.1.23...@zendeskgarden/react-tables@0.1.24) (2018-09-04)
+
+
+### Bug Fixes
+
+* **pagination:** remove invalid aria role ([#127](https://github.com/zendeskgarden/react-components/issues/127)) ([ba4bcb5](https://github.com/zendeskgarden/react-components/commit/ba4bcb5))
+
+
+
+
+
 <a name="0.1.23"></a>
 ## [0.1.23](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tables@0.1.22...@zendeskgarden/react-tables@0.1.23) (2018-08-23)
 
