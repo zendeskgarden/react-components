@@ -17,18 +17,21 @@ import Page from '../views/Page';
 
 describe('Pagination', () => {
   let onStateChange;
+  let onChange;
 
   const BasicExample = ({ currentPage = 1, totalPages = 5, ...other } = {}) => (
     <Pagination
       totalPages={totalPages}
       currentPage={currentPage}
       onStateChange={onStateChange}
+      onChange={onChange}
       {...other}
     />
   );
 
   beforeEach(() => {
     onStateChange = jest.fn();
+    onChange = jest.fn();
   });
 
   describe('transformPageProps', () => {
@@ -146,7 +149,7 @@ describe('Pagination', () => {
   });
 
   describe('Pages', () => {
-    it('updates currentPage when selected', () => {
+    it('updates onStateChange with currentPage when selected', () => {
       const wrapper = mountWithTheme(<BasicExample currentPage={1} totalPages={5} />);
 
       wrapper
@@ -154,6 +157,16 @@ describe('Pagination', () => {
         .at(2)
         .simulate('click');
       expect(onStateChange).toHaveBeenCalledWith({ currentPage: 2 });
+    });
+
+    it('updates onChange with currentPage when selected', () => {
+      const wrapper = mountWithTheme(<BasicExample currentPage={1} totalPages={5} />);
+
+      wrapper
+        .find(Page)
+        .at(2)
+        .simulate('click');
+      expect(onChange).toHaveBeenCalledWith(2);
     });
 
     it('hides front gap when currentPage is within padding range', () => {

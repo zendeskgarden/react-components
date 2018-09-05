@@ -33,6 +33,10 @@ export default class Pagination extends ControlledComponent {
      */
     currentPage: PropTypes.number.isRequired,
     /**
+     * The currently focused key
+     */
+    focusedKey: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    /**
      * The total number of pages available
      */
     totalPages: PropTypes.number.isRequired,
@@ -43,6 +47,7 @@ export default class Pagination extends ControlledComponent {
     pagePadding: PropTypes.number,
     /**
      * @param {Object} newState
+     * @param {Any} newState.focusedKey - The newly focused page key
      * @param {Any} newState.currentPage - The newly selected page
      */
     onStateChange: PropTypes.func,
