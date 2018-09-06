@@ -198,6 +198,7 @@ const defaultStyleguideConfig = {
         '@zendeskgarden/react-theming': path.resolve('..', 'theming'),
         '@zendeskgarden/react-toggles': path.resolve('..', 'toggles'),
         '@zendeskgarden/react-tooltips': path.resolve('..', 'tooltips'),
+        '@zendeskgarden/react-typography': path.resolve('..', 'typography'),
         '@zendeskgarden/react-utilities': path.resolve('..', 'utilities')
       }
     }

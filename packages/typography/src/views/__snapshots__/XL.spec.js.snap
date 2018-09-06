@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`XL applies correct styling by default 1`] = `
+.c0 {
+  line-height: zdLineHeightXl;
+  font-size: zdFontSizeXl;
+  direction: ltr;
+}
+
+<Example>
+  <XL
+    tag="div"
+  >
+    <XL__StyledXL>
+      <div
+        className="c0"
+        data-garden-id="typography.xl"
+        data-garden-version="version"
+      >
+        Hello world
+      </div>
+    </XL__StyledXL>
+  </XL>
+</Example>
+`;
+
+exports[`XL applies correct styling with RTL locale 1`] = `
+.c0 {
+  line-height: zdLineHeightXl;
+  font-size: zdFontSizeXl;
+  direction: rtl;
+}
+
+<Example>
+  <XL
+    tag="div"
+  >
+    <XL__StyledXL>
+      <div
+        className="c0"
+        data-garden-id="typography.xl"
+        data-garden-version="version"
+      >
+        Hello world
+      </div>
+    </XL__StyledXL>
+  </XL>
+</Example>
+`;
