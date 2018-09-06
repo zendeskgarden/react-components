@@ -33,6 +33,10 @@ export default class Pagination extends ControlledComponent {
      */
     currentPage: PropTypes.number.isRequired,
     /**
+     * The currently focused key
+     */
+    focusedKey: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    /**
      * The total number of pages available
      */
     totalPages: PropTypes.number.isRequired,
@@ -43,9 +47,14 @@ export default class Pagination extends ControlledComponent {
     pagePadding: PropTypes.number,
     /**
      * @param {Object} newState
+     * @param {Any} newState.focusedKey - The newly focused page key
      * @param {Any} newState.currentPage - The newly selected page
      */
     onStateChange: PropTypes.func,
+    /**
+     * @param {Any} currentPage - The newly selected page
+     */
+    onChange: PropTypes.func,
     /**
      * The root ID to use for descendants. A unique ID is created if none is provided.
      **/
@@ -212,7 +221,7 @@ export default class Pagination extends ControlledComponent {
    * we must mutate the data to compute currentPage
    */
   onPaginationStateChange = newProps => {
-    const { totalPages } = this.props;
+    const { totalPages, onChange } = this.props;
     const { currentPage } = this.getControlledState();
 
     if (newProps.selectedKey === PREVIOUS_KEY && currentPage > 1) {
@@ -231,6 +240,10 @@ export default class Pagination extends ControlledComponent {
       }
     } else if (typeof newProps.selectedKey === 'number') {
       newProps.currentPage = newProps.selectedKey;
+    }
+
+    if (newProps.currentPage !== undefined) {
+      onChange && onChange(newProps.currentPage);
     }
 
     this.setControlledState(newProps);
