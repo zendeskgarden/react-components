@@ -20,7 +20,7 @@ import {
   KEY_CODES
 } from '@zendeskgarden/react-selection';
 import { getPopperPlacement, getRtlPopperPlacement } from '@zendeskgarden/react-tooltips';
-import { withTheme, isRtl, getDocument } from '@zendeskgarden/react-theming';
+import { withTheme, isRtl } from '@zendeskgarden/react-theming';
 import { FocusJailContainer } from '@zendeskgarden/react-modals';
 
 /**
@@ -146,20 +146,9 @@ class MenuContainer extends ControlledComponent {
       selectedKey: undefined,
       focusOnOpen: undefined,
       closedByBlur: undefined,
+      closingWithClick: undefined,
       defaultFocusedIndex: 0
     };
-  }
-
-  componentDidMount() {
-    const doc = getDocument ? getDocument(this.props) : document;
-
-    doc.addEventListener('mousedown', this.handleOutsideMouseDown);
-  }
-
-  componentWillUnmount() {
-    const doc = getDocument ? getDocument(this.props) : document;
-
-    doc.removeEventListener('mousedown', this.handleOutsideMouseDown);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -195,26 +184,14 @@ class MenuContainer extends ControlledComponent {
     }
   }
 
-  /**
-   * Used to know when a Menu is blured by mouse
-   */
-  handleOutsideMouseDown = event => {
-    const { isOpen } = this.getControlledState();
-
-    if (!isOpen) {
-      return;
-    }
-
-    if (this.menuReference && !this.menuReference.contains(event.target)) {
-      if (this.triggerReference && !this.triggerReference.contains(event.target)) {
-        this.toggleMenuVisibility({ closedByBlur: true });
-      }
-    }
-  };
-
   getMenuId = () => `${this.getControlledState().id}--container`;
 
-  toggleMenuVisibility = ({ defaultFocusedIndex, focusOnOpen, closedByBlur } = {}) => {
+  toggleMenuVisibility = ({
+    defaultFocusedIndex,
+    focusOnOpen,
+    closedByBlur,
+    closingWithClick
+  } = {}) => {
     const { isOpen } = this.getControlledState();
 
     this.setControlledState({
@@ -222,14 +199,15 @@ class MenuContainer extends ControlledComponent {
       focusedKey: undefined,
       defaultFocusedIndex,
       focusOnOpen,
-      closedByBlur
+      closedByBlur,
+      closingWithClick
     });
   };
 
   /**
    * Props to be applied to the trigger element
    */
-  getTriggerProps = ({ tabIndex = 0, onClick, onKeyDown, ...other } = {}) => {
+  getTriggerProps = ({ tabIndex = 0, onClick, onKeyDown, onMouseDown, ...other } = {}) => {
     const { isOpen } = this.getControlledState();
 
     return {
@@ -237,7 +215,16 @@ class MenuContainer extends ControlledComponent {
       'aria-haspopup': true,
       'aria-controls': this.getMenuId(),
       'aria-expanded': isOpen,
-      onClick: composeEventHandlers(onClick, () => this.toggleMenuVisibility()),
+      // closingWithClick is tracked in onMouseDown to help the menu blur
+      // event from hiding the menu and then the click from showing it again
+      onClick: composeEventHandlers(onClick, () =>
+        this.toggleMenuVisibility({ closingWithClick: false })
+      ),
+      onMouseDown: composeEventHandlers(onMouseDown, () => {
+        if (isOpen) {
+          this.setControlledState({ closingWithClick: true });
+        }
+      }),
       onKeyDown: composeEventHandlers(onKeyDown, event => {
         const VALID_OPEN_KEYS = {
           [KEY_CODES.ENTER]: true,
@@ -285,7 +272,15 @@ class MenuContainer extends ControlledComponent {
    * Props to be applied to the menu container
    */
   getMenuProps = (
-    { id = this.getMenuId(), tabIndex = -1, role = 'menu', onKeyDown, onFocus, ...other } = {},
+    {
+      id = this.getMenuId(),
+      tabIndex = -1,
+      role = 'menu',
+      onKeyDown,
+      onFocus,
+      onBlur,
+      ...other
+    } = {},
     focusSelectionModel
   ) => {
     const { focusOnOpen } = this.getControlledState();
@@ -301,6 +296,13 @@ class MenuContainer extends ControlledComponent {
          */
         if (!focusOnOpen) {
           event.preventDefault();
+        }
+      }),
+      onBlur: composeEventHandlers(onBlur, () => {
+        const { closingWithClick } = this.getControlledState();
+
+        if (!closingWithClick) {
+          this.toggleMenuVisibility({ closedByBlur: true });
         }
       }),
       onKeyDown: composeEventHandlers(onKeyDown, event => {

@@ -198,6 +198,20 @@ describe('MenuContainer', () => {
 
         expect(document.activeElement.getAttribute('data-test-id')).toBe('trigger');
       });
+
+      it('toggles visibility of menu correctly when clicked twice', () => {
+        wrapper = mountWithTheme(basicExample({ onChange: onChangeSpy }), {
+          enzymeOptions: { attachTo: document.body }
+        });
+
+        findTrigger(wrapper).simulate('click');
+        expect(findMenu(wrapper)).toExist();
+
+        findTrigger(wrapper).simulate('mousedown');
+        findMenu(wrapper).simulate('blur');
+        findTrigger(wrapper).simulate('click');
+        expect(findMenu(wrapper)).not.toExist();
+      });
     });
 
     describe('Menu', () => {
@@ -237,7 +251,7 @@ describe('MenuContainer', () => {
       });
     });
 
-    it('closes menu if blured by click', () => {
+    it('closes menu if blurred', () => {
       /**
        * Enzyme doesn't attach mount/shallow wrapper to the document by default.
        * This allows us to test the blur events correctly.
@@ -247,24 +261,10 @@ describe('MenuContainer', () => {
       });
       findTrigger(wrapper).simulate('click');
       jest.runOnlyPendingTimers();
-      document.dispatchEvent(new Event('mousedown'));
+      findMenu(wrapper).simulate('blur');
       wrapper.update();
 
       expect(findMenu(wrapper)).not.toExist();
-    });
-  });
-
-  describe('componentWillUnmount', () => {
-    it('removes mousedown event listener', () => {
-      const removeEventListenerSpy = jest.fn();
-
-      document.removeEventListener = removeEventListenerSpy;
-      wrapper = mountWithTheme(basicExample({ onChange: onChangeSpy }), {
-        enzymeOptions: { attachTo: document.body }
-      });
-      wrapper.unmount();
-
-      expect(removeEventListenerSpy).toHaveBeenCalled();
     });
   });
 
