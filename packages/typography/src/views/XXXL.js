@@ -29,9 +29,9 @@ const StyledXXXL = styled.div.attrs({
  * Accepts all standard props relating to provided `tag`
  */
 const XXXL = ({ tag, ...other }) => {
-  const CustomTagS = StyledXXXL.withComponent(tag);
+  const CustomTagXXXL = StyledXXXL.withComponent(tag);
 
-  return <CustomTagS {...other} />;
+  return <CustomTagXXXL {...other} />;
 };
 
 XXXL.propTypes = {

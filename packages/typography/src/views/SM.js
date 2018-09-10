@@ -29,9 +29,9 @@ const StyledSM = styled.div.attrs({
  * Accepts all standard props relating to provided `tag`
  */
 const SM = ({ tag, ...other }) => {
-  const CustomTagS = StyledSM.withComponent(tag);
+  const CustomTagSM = StyledSM.withComponent(tag);
 
-  return <CustomTagS {...other} />;
+  return <CustomTagSM {...other} />;
 };
 
 SM.propTypes = {

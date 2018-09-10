@@ -29,9 +29,9 @@ const StyledLG = styled.div.attrs({
  * Accepts all standard props relating to provided `tag`
  */
 const LG = ({ tag, ...other }) => {
-  const CustomTagS = StyledLG.withComponent(tag);
+  const CustomTagLG = StyledLG.withComponent(tag);
 
-  return <CustomTagS {...other} />;
+  return <CustomTagLG {...other} />;
 };
 
 LG.propTypes = {

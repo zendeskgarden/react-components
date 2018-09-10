@@ -29,9 +29,9 @@ const StyledXL = styled.div.attrs({
  * Accepts all standard props relating to provided `tag`
  */
 const XL = ({ tag, ...other }) => {
-  const CustomTagS = StyledXL.withComponent(tag);
+  const CustomTagXL = StyledXL.withComponent(tag);
 
-  return <CustomTagS {...other} />;
+  return <CustomTagXL {...other} />;
 };
 
 XL.propTypes = {
