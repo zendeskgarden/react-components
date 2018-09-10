@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MD applies correct styling by default 1`] = `
+.c0 {
+  line-height: zdLineHeightMd;
+  font-size: zdFontSizeMd;
+  direction: ltr;
+}
+
+<Example>
+  <MD
+    tag="div"
+  >
+    <MD__StyledMD>
+      <div
+        className="c0"
+        data-garden-id="typography.md"
+        data-garden-version="version"
+      >
+        Hello world
+      </div>
+    </MD__StyledMD>
+  </MD>
+</Example>
+`;
+
+exports[`MD applies correct styling with RTL locale 1`] = `
+.c0 {
+  line-height: zdLineHeightMd;
+  font-size: zdFontSizeMd;
+  direction: rtl;
+}
+
+<Example>
+  <MD
+    tag="div"
+  >
+    <MD__StyledMD>
+      <div
+        className="c0"
+        data-garden-id="typography.md"
+        data-garden-version="version"
+      >
+        Hello world
+      </div>
+    </MD__StyledMD>
+  </MD>
+</Example>
+`;
