@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1536170596388" clover="3.2.0">
-  <project timestamp="1536170596388" name="All files">
-    <metrics statements="1803" coveredstatements="1787" conditionals="816" coveredconditionals="731" methods="595" coveredmethods="593" elements="3214" coveredelements="3111" complexity="0" loc="1803" ncloc="1803" packages="63" files="167" classes="167">
+<coverage generated="1536603915054" clover="3.2.0">
+  <project timestamp="1536603915054" name="All files">
+    <metrics statements="1857" coveredstatements="1841" conditionals="828" coveredconditionals="743" methods="613" coveredmethods="611" elements="3298" coveredelements="3195" complexity="0" loc="1857" ncloc="1857" packages="64" files="173" classes="173">
       <package name="autocomplete.src.containers">
         <metrics statements="152" coveredstatements="152" conditionals="100" coveredconditionals="86" methods="44" coveredmethods="44"/>
-        <file name="AutocompleteContainer.js" path="/Users/agreen/Repos/react-components/packages/autocomplete/src/containers/AutocompleteContainer.js">
+        <file name="AutocompleteContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/autocomplete/src/containers/AutocompleteContainer.js">
           <metrics statements="152" coveredstatements="152" conditionals="100" coveredconditionals="86" methods="44" coveredmethods="44"/>
           <line num="32" count="1" type="stmt"/>
           <line num="33" count="27" type="stmt"/>
@@ -162,7 +162,7 @@
       </package>
       <package name="avatars.src">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <file name="Avatar.js" path="/Users/agreen/Repos/react-components/packages/avatars/src/Avatar.js">
+        <file name="Avatar.js" path="/home/travis/build/zendeskgarden/react-components/packages/avatars/src/Avatar.js">
           <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="14" count="1" type="stmt"/>
           <line num="15" count="1" type="stmt"/>
@@ -174,7 +174,7 @@
       </package>
       <package name="buttons.src.containers">
         <metrics statements="14" coveredstatements="14" conditionals="10" coveredconditionals="10" methods="8" coveredmethods="8"/>
-        <file name="ButtonGroupContainer.js" path="/Users/agreen/Repos/react-components/packages/buttons/src/containers/ButtonGroupContainer.js">
+        <file name="ButtonGroupContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/buttons/src/containers/ButtonGroupContainer.js">
           <metrics statements="14" coveredstatements="14" conditionals="10" coveredconditionals="10" methods="8" coveredmethods="8"/>
           <line num="51" count="14" type="stmt"/>
           <line num="53" count="14" type="stmt"/>
@@ -194,7 +194,7 @@
       </package>
       <package name="buttons.src.elements">
         <metrics statements="24" coveredstatements="23" conditionals="14" coveredconditionals="12" methods="6" coveredmethods="6"/>
-        <file name="ButtonGroup.js" path="/Users/agreen/Repos/react-components/packages/buttons/src/elements/ButtonGroup.js">
+        <file name="ButtonGroup.js" path="/home/travis/build/zendeskgarden/react-components/packages/buttons/src/elements/ButtonGroup.js">
           <metrics statements="24" coveredstatements="23" conditionals="14" coveredconditionals="12" methods="6" coveredmethods="6"/>
           <line num="36" count="6" type="stmt"/>
           <line num="38" count="6" type="stmt"/>
@@ -224,7 +224,7 @@
       </package>
       <package name="buttons.src.views">
         <metrics statements="18" coveredstatements="18" conditionals="4" coveredconditionals="4" methods="9" coveredmethods="9"/>
-        <file name="Anchor.js" path="/Users/agreen/Repos/react-components/packages/buttons/src/views/Anchor.js">
+        <file name="Anchor.js" path="/home/travis/build/zendeskgarden/react-components/packages/buttons/src/views/Anchor.js">
           <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
           <line num="16" count="1" type="stmt"/>
           <line num="18" count="1" type="stmt"/>
@@ -235,7 +235,7 @@
           <line num="43" count="8" type="stmt"/>
           <line num="53" count="1" type="stmt"/>
         </file>
-        <file name="Button.js" path="/Users/agreen/Repos/react-components/packages/buttons/src/views/Button.js">
+        <file name="Button.js" path="/home/travis/build/zendeskgarden/react-components/packages/buttons/src/views/Button.js">
           <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="5"/>
           <line num="16" count="5" type="stmt"/>
           <line num="18" count="5" type="stmt"/>
@@ -251,7 +251,7 @@
       </package>
       <package name="buttons.src.views.button-group">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <file name="ButtonGroupView.js" path="/Users/agreen/Repos/react-components/packages/buttons/src/views/button-group/ButtonGroupView.js">
+        <file name="ButtonGroupView.js" path="/home/travis/build/zendeskgarden/react-components/packages/buttons/src/views/button-group/ButtonGroupView.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="13" count="2" type="stmt"/>
           <line num="18" count="2" type="stmt"/>
@@ -261,21 +261,21 @@
       </package>
       <package name="buttons.src.views.icon-button">
         <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <file name="ChevronButton.js" path="/Users/agreen/Repos/react-components/packages/buttons/src/views/icon-button/ChevronButton.js">
+        <file name="ChevronButton.js" path="/home/travis/build/zendeskgarden/react-components/packages/buttons/src/views/icon-button/ChevronButton.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="14" count="1" type="stmt"/>
           <line num="22" count="1" type="stmt"/>
           <line num="23" count="2" type="stmt"/>
           <line num="30" count="1" type="stmt"/>
         </file>
-        <file name="Icon.js" path="/Users/agreen/Repos/react-components/packages/buttons/src/views/icon-button/Icon.js">
+        <file name="Icon.js" path="/home/travis/build/zendeskgarden/react-components/packages/buttons/src/views/icon-button/Icon.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="13" count="2" type="stmt"/>
           <line num="15" count="2" type="stmt"/>
           <line num="16" count="2" type="stmt"/>
           <line num="25" count="2" type="stmt"/>
         </file>
-        <file name="IconButton.js" path="/Users/agreen/Repos/react-components/packages/buttons/src/views/icon-button/IconButton.js">
+        <file name="IconButton.js" path="/home/travis/build/zendeskgarden/react-components/packages/buttons/src/views/icon-button/IconButton.js">
           <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="13" count="2" type="stmt"/>
           <line num="17" count="2" type="stmt"/>
@@ -287,7 +287,7 @@
       </package>
       <package name="checkboxes.src.elements">
         <metrics statements="19" coveredstatements="18" conditionals="9" coveredconditionals="7" methods="6" coveredmethods="6"/>
-        <file name="Checkbox.js" path="/Users/agreen/Repos/react-components/packages/checkboxes/src/elements/Checkbox.js">
+        <file name="Checkbox.js" path="/home/travis/build/zendeskgarden/react-components/packages/checkboxes/src/elements/Checkbox.js">
           <metrics statements="19" coveredstatements="18" conditionals="9" coveredconditionals="7" methods="6" coveredmethods="6"/>
           <line num="42" count="7" type="stmt"/>
           <line num="44" count="7" type="stmt"/>
@@ -312,14 +312,14 @@
       </package>
       <package name="checkboxes.src.views">
         <metrics statements="25" coveredstatements="25" conditionals="0" coveredconditionals="0" methods="12" coveredmethods="12"/>
-        <file name="CheckboxView.js" path="/Users/agreen/Repos/react-components/packages/checkboxes/src/views/CheckboxView.js">
+        <file name="CheckboxView.js" path="/home/travis/build/zendeskgarden/react-components/packages/checkboxes/src/views/CheckboxView.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="13" count="2" type="stmt"/>
           <line num="18" count="2" type="stmt"/>
           <line num="22" count="10" type="stmt"/>
           <line num="27" count="10" type="stmt"/>
         </file>
-        <file name="Hint.js" path="/Users/agreen/Repos/react-components/packages/checkboxes/src/views/Hint.js">
+        <file name="Hint.js" path="/home/travis/build/zendeskgarden/react-components/packages/checkboxes/src/views/Hint.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="13" count="3" type="stmt"/>
           <line num="18" count="3" type="stmt"/>
@@ -327,13 +327,13 @@
           <line num="27" count="10" type="stmt"/>
           <line num="30" count="18" type="stmt"/>
         </file>
-        <file name="Input.js" path="/Users/agreen/Repos/react-components/packages/checkboxes/src/views/Input.js">
+        <file name="Input.js" path="/home/travis/build/zendeskgarden/react-components/packages/checkboxes/src/views/Input.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="2" type="stmt"/>
           <line num="17" count="2" type="stmt"/>
           <line num="24" count="9" type="stmt"/>
         </file>
-        <file name="Label.js" path="/Users/agreen/Repos/react-components/packages/checkboxes/src/views/Label.js">
+        <file name="Label.js" path="/home/travis/build/zendeskgarden/react-components/packages/checkboxes/src/views/Label.js">
           <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="14" count="2" type="stmt"/>
           <line num="19" count="2" type="stmt"/>
@@ -342,7 +342,7 @@
           <line num="42" count="2" type="stmt"/>
           <line num="52" count="8" type="stmt"/>
         </file>
-        <file name="Message.js" path="/Users/agreen/Repos/react-components/packages/checkboxes/src/views/Message.js">
+        <file name="Message.js" path="/home/travis/build/zendeskgarden/react-components/packages/checkboxes/src/views/Message.js">
           <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="14" count="2" type="stmt"/>
           <line num="15" count="2" type="stmt"/>
@@ -355,7 +355,7 @@
       </package>
       <package name="chrome.src.views">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <file name="Chrome.js" path="/Users/agreen/Repos/react-components/packages/chrome/src/views/Chrome.js">
+        <file name="Chrome.js" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/views/Chrome.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="13" count="1" type="stmt"/>
           <line num="18" count="1" type="stmt"/>
@@ -365,25 +365,25 @@
       </package>
       <package name="chrome.src.views.body">
         <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
-        <file name="Body.js" path="/Users/agreen/Repos/react-components/packages/chrome/src/views/body/Body.js">
+        <file name="Body.js" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/views/body/Body.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="1" type="stmt"/>
           <line num="17" count="1" type="stmt"/>
           <line num="22" count="1" type="stmt"/>
         </file>
-        <file name="Content.js" path="/Users/agreen/Repos/react-components/packages/chrome/src/views/body/Content.js">
+        <file name="Content.js" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/views/body/Content.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="1" type="stmt"/>
           <line num="17" count="1" type="stmt"/>
           <line num="22" count="1" type="stmt"/>
         </file>
-        <file name="Main.js" path="/Users/agreen/Repos/react-components/packages/chrome/src/views/body/Main.js">
+        <file name="Main.js" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/views/body/Main.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="1" type="stmt"/>
           <line num="17" count="1" type="stmt"/>
           <line num="22" count="1" type="stmt"/>
         </file>
-        <file name="Sidebar.js" path="/Users/agreen/Repos/react-components/packages/chrome/src/views/body/Sidebar.js">
+        <file name="Sidebar.js" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/views/body/Sidebar.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="1" type="stmt"/>
           <line num="17" count="1" type="stmt"/>
@@ -392,7 +392,7 @@
       </package>
       <package name="chrome.src.views.header">
         <metrics statements="27" coveredstatements="27" conditionals="2" coveredconditionals="2" methods="10" coveredmethods="10"/>
-        <file name="Header.js" path="/Users/agreen/Repos/react-components/packages/chrome/src/views/header/Header.js">
+        <file name="Header.js" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/views/header/Header.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="14" count="1" type="stmt"/>
           <line num="19" count="1" type="stmt"/>
@@ -400,7 +400,7 @@
           <line num="27" count="2" type="stmt"/>
           <line num="30" count="1" type="stmt"/>
         </file>
-        <file name="HeaderItem.js" path="/Users/agreen/Repos/react-components/packages/chrome/src/views/header/HeaderItem.js">
+        <file name="HeaderItem.js" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/views/header/HeaderItem.js">
           <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
           <line num="16" count="2" type="stmt"/>
           <line num="18" count="2" type="stmt"/>
@@ -412,13 +412,13 @@
           <line num="67" count="15" type="stmt"/>
           <line num="77" count="2" type="stmt"/>
         </file>
-        <file name="HeaderItemIcon.js" path="/Users/agreen/Repos/react-components/packages/chrome/src/views/header/HeaderItemIcon.js">
+        <file name="HeaderItemIcon.js" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/views/header/HeaderItemIcon.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="11" count="1" type="stmt"/>
           <line num="14" count="1" type="stmt"/>
           <line num="15" count="1" type="stmt"/>
         </file>
-        <file name="HeaderItemText.js" path="/Users/agreen/Repos/react-components/packages/chrome/src/views/header/HeaderItemText.js">
+        <file name="HeaderItemText.js" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/views/header/HeaderItemText.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="14" count="1" type="stmt"/>
           <line num="19" count="1" type="stmt"/>
@@ -426,7 +426,7 @@
           <line num="27" count="2" type="stmt"/>
           <line num="30" count="1" type="stmt"/>
         </file>
-        <file name="HeaderItemWrapper.js" path="/Users/agreen/Repos/react-components/packages/chrome/src/views/header/HeaderItemWrapper.js">
+        <file name="HeaderItemWrapper.js" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/views/header/HeaderItemWrapper.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="11" count="1" type="stmt"/>
           <line num="15" count="1" type="stmt"/>
@@ -437,7 +437,7 @@
       </package>
       <package name="chrome.src.views.nav">
         <metrics statements="22" coveredstatements="22" conditionals="6" coveredconditionals="6" methods="9" coveredmethods="9"/>
-        <file name="Nav.js" path="/Users/agreen/Repos/react-components/packages/chrome/src/views/nav/Nav.js">
+        <file name="Nav.js" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/views/nav/Nav.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="14" count="1" type="stmt"/>
           <line num="19" count="1" type="stmt"/>
@@ -445,7 +445,7 @@
           <line num="32" count="4" type="stmt"/>
           <line num="35" count="1" type="stmt"/>
         </file>
-        <file name="NavItem.js" path="/Users/agreen/Repos/react-components/packages/chrome/src/views/nav/NavItem.js">
+        <file name="NavItem.js" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/views/nav/NavItem.js">
           <metrics statements="9" coveredstatements="9" conditionals="6" coveredconditionals="6" methods="4" coveredmethods="4"/>
           <line num="16" count="1" type="stmt"/>
           <line num="18" count="1" type="stmt"/>
@@ -457,13 +457,13 @@
           <line num="65" count="13" type="stmt"/>
           <line num="78" count="1" type="stmt"/>
         </file>
-        <file name="NavItemIcon.js" path="/Users/agreen/Repos/react-components/packages/chrome/src/views/nav/NavItemIcon.js">
+        <file name="NavItemIcon.js" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/views/nav/NavItemIcon.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="11" count="1" type="stmt"/>
           <line num="14" count="1" type="stmt"/>
           <line num="15" count="1" type="stmt"/>
         </file>
-        <file name="NavItemText.js" path="/Users/agreen/Repos/react-components/packages/chrome/src/views/nav/NavItemText.js">
+        <file name="NavItemText.js" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/views/nav/NavItemText.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="14" count="1" type="stmt"/>
           <line num="19" count="1" type="stmt"/>
@@ -474,13 +474,13 @@
       </package>
       <package name="chrome.src.views.subnav">
         <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7"/>
-        <file name="SubNav.js" path="/Users/agreen/Repos/react-components/packages/chrome/src/views/subnav/SubNav.js">
+        <file name="SubNav.js" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/views/subnav/SubNav.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="1" type="stmt"/>
           <line num="17" count="1" type="stmt"/>
           <line num="22" count="1" type="stmt"/>
         </file>
-        <file name="SubNavItem.js" path="/Users/agreen/Repos/react-components/packages/chrome/src/views/subnav/SubNavItem.js">
+        <file name="SubNavItem.js" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/views/subnav/SubNavItem.js">
           <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
           <line num="16" count="1" type="stmt"/>
           <line num="18" count="1" type="stmt"/>
@@ -491,7 +491,7 @@
           <line num="38" count="4" type="stmt"/>
           <line num="48" count="1" type="stmt"/>
         </file>
-        <file name="SubNavItemText.js" path="/Users/agreen/Repos/react-components/packages/chrome/src/views/subnav/SubNavItemText.js">
+        <file name="SubNavItemText.js" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/views/subnav/SubNavItemText.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="14" count="1" type="stmt"/>
           <line num="19" count="1" type="stmt"/>
@@ -502,7 +502,7 @@
       </package>
       <package name="grid.src.views">
         <metrics statements="38" coveredstatements="38" conditionals="7" coveredconditionals="6" methods="8" coveredmethods="8"/>
-        <file name="Col.js" path="/Users/agreen/Repos/react-components/packages/grid/src/views/Col.js">
+        <file name="Col.js" path="/home/travis/build/zendeskgarden/react-components/packages/grid/src/views/Col.js">
           <metrics statements="26" coveredstatements="26" conditionals="7" coveredconditionals="6" methods="4" coveredmethods="4"/>
           <line num="14" count="1" type="stmt"/>
           <line num="16" count="1" type="stmt"/>
@@ -531,7 +531,7 @@
           <line num="71" count="23" type="stmt"/>
           <line num="74" count="1" type="stmt"/>
         </file>
-        <file name="Grid.js" path="/Users/agreen/Repos/react-components/packages/grid/src/views/Grid.js">
+        <file name="Grid.js" path="/home/travis/build/zendeskgarden/react-components/packages/grid/src/views/Grid.js">
           <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="14" count="1" type="stmt"/>
           <line num="20" count="1" type="stmt"/>
@@ -540,7 +540,7 @@
           <line num="39" count="1" type="stmt"/>
           <line num="46" count="1" type="stmt"/>
         </file>
-        <file name="Row.js" path="/Users/agreen/Repos/react-components/packages/grid/src/views/Row.js">
+        <file name="Row.js" path="/home/travis/build/zendeskgarden/react-components/packages/grid/src/views/Row.js">
           <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="14" count="1" type="stmt"/>
           <line num="19" count="1" type="stmt"/>
@@ -552,7 +552,7 @@
       </package>
       <package name="loaders.src">
         <metrics statements="43" coveredstatements="41" conditionals="13" coveredconditionals="11" methods="15" coveredmethods="15"/>
-        <file name="Dots.js" path="/Users/agreen/Repos/react-components/packages/loaders/src/Dots.js">
+        <file name="Dots.js" path="/home/travis/build/zendeskgarden/react-components/packages/loaders/src/Dots.js">
           <metrics statements="28" coveredstatements="26" conditionals="9" coveredconditionals="7" methods="9" coveredmethods="9"/>
           <line num="49" count="4" type="stmt"/>
           <line num="51" count="4" type="stmt"/>
@@ -583,7 +583,7 @@
           <line num="104" count="5" type="stmt"/>
           <line num="106" count="5" type="stmt"/>
         </file>
-        <file name="styled-elements.js" path="/Users/agreen/Repos/react-components/packages/loaders/src/styled-elements.js">
+        <file name="styled-elements.js" path="/home/travis/build/zendeskgarden/react-components/packages/loaders/src/styled-elements.js">
           <metrics statements="15" coveredstatements="15" conditionals="4" coveredconditionals="4" methods="6" coveredmethods="6"/>
           <line num="13" count="2" type="stmt"/>
           <line num="17" count="1" type="stmt"/>
@@ -604,14 +604,14 @@
       </package>
       <package name="loaders.src.utils">
         <metrics statements="50" coveredstatements="50" conditionals="18" coveredconditionals="18" methods="5" coveredmethods="5"/>
-        <file name="animations.js" path="/Users/agreen/Repos/react-components/packages/loaders/src/utils/animations.js">
+        <file name="animations.js" path="/home/travis/build/zendeskgarden/react-components/packages/loaders/src/utils/animations.js">
           <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
           <line num="13" count="2" type="stmt"/>
           <line num="21" count="2" type="stmt"/>
           <line num="23" count="2" type="stmt"/>
           <line num="31" count="3" type="cond" truecount="2" falsecount="0"/>
         </file>
-        <file name="dot-coordinates.js" path="/Users/agreen/Repos/react-components/packages/loaders/src/utils/dot-coordinates.js">
+        <file name="dot-coordinates.js" path="/home/travis/build/zendeskgarden/react-components/packages/loaders/src/utils/dot-coordinates.js">
           <metrics statements="46" coveredstatements="46" conditionals="16" coveredconditionals="16" methods="2" coveredmethods="2"/>
           <line num="10" count="2" type="stmt"/>
           <line num="11" count="2" type="stmt"/>
@@ -663,7 +663,7 @@
       </package>
       <package name="menus.src.containers">
         <metrics statements="134" coveredstatements="132" conditionals="108" coveredconditionals="95" methods="35" coveredmethods="35"/>
-        <file name="MenuContainer.js" path="/Users/agreen/Repos/react-components/packages/menus/src/containers/MenuContainer.js">
+        <file name="MenuContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/menus/src/containers/MenuContainer.js">
           <metrics statements="134" coveredstatements="132" conditionals="108" coveredconditionals="95" methods="35" coveredmethods="35"/>
           <line num="32" count="17" type="stmt"/>
           <line num="33" count="109" type="stmt"/>
@@ -803,7 +803,7 @@
       </package>
       <package name="menus.src.elements">
         <metrics statements="23" coveredstatements="22" conditionals="23" coveredconditionals="20" methods="5" coveredmethods="5"/>
-        <file name="Menu.js" path="/Users/agreen/Repos/react-components/packages/menus/src/elements/Menu.js">
+        <file name="Menu.js" path="/home/travis/build/zendeskgarden/react-components/packages/menus/src/elements/Menu.js">
           <metrics statements="23" coveredstatements="22" conditionals="23" coveredconditionals="20" methods="5" coveredmethods="5"/>
           <line num="22" count="16" type="stmt"/>
           <line num="25" count="19" type="cond" truecount="2" falsecount="0"/>
@@ -832,7 +832,7 @@
       </package>
       <package name="menus.src.views">
         <metrics statements="39" coveredstatements="39" conditionals="55" coveredconditionals="55" methods="8" coveredmethods="8"/>
-        <file name="MenuView.js" path="/Users/agreen/Repos/react-components/packages/menus/src/views/MenuView.js">
+        <file name="MenuView.js" path="/home/travis/build/zendeskgarden/react-components/packages/menus/src/views/MenuView.js">
           <metrics statements="36" coveredstatements="36" conditionals="55" coveredconditionals="55" methods="7" coveredmethods="7"/>
           <line num="17" count="17" type="stmt"/>
           <line num="19" count="17" type="stmt"/>
@@ -871,7 +871,7 @@
           <line num="209" count="71" type="stmt"/>
           <line num="216" count="17" type="stmt"/>
         </file>
-        <file name="Separator.js" path="/Users/agreen/Repos/react-components/packages/menus/src/views/Separator.js">
+        <file name="Separator.js" path="/home/travis/build/zendeskgarden/react-components/packages/menus/src/views/Separator.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="16" type="stmt"/>
           <line num="17" count="16" type="stmt"/>
@@ -880,7 +880,7 @@
       </package>
       <package name="menus.src.views.items">
         <metrics statements="24" coveredstatements="24" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="9"/>
-        <file name="AddItem.js" path="/Users/agreen/Repos/react-components/packages/menus/src/views/items/AddItem.js">
+        <file name="AddItem.js" path="/home/travis/build/zendeskgarden/react-components/packages/menus/src/views/items/AddItem.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
           <line num="15" count="17" type="stmt"/>
           <line num="20" count="17" type="stmt"/>
@@ -888,7 +888,7 @@
           <line num="28" count="17" type="stmt"/>
           <line num="35" count="17" type="stmt"/>
         </file>
-        <file name="Item.js" path="/Users/agreen/Repos/react-components/packages/menus/src/views/items/Item.js">
+        <file name="Item.js" path="/home/travis/build/zendeskgarden/react-components/packages/menus/src/views/items/Item.js">
           <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="14" count="22" type="stmt"/>
           <line num="19" count="22" type="stmt"/>
@@ -897,13 +897,13 @@
           <line num="35" count="22" type="stmt"/>
           <line num="43" count="286" type="stmt"/>
         </file>
-        <file name="ItemMeta.js" path="/Users/agreen/Repos/react-components/packages/menus/src/views/items/ItemMeta.js">
+        <file name="ItemMeta.js" path="/home/travis/build/zendeskgarden/react-components/packages/menus/src/views/items/ItemMeta.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="16" type="stmt"/>
           <line num="17" count="16" type="stmt"/>
           <line num="22" count="2" type="stmt"/>
         </file>
-        <file name="NextItem.js" path="/Users/agreen/Repos/react-components/packages/menus/src/views/items/NextItem.js">
+        <file name="NextItem.js" path="/home/travis/build/zendeskgarden/react-components/packages/menus/src/views/items/NextItem.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="15" count="17" type="stmt"/>
           <line num="20" count="17" type="stmt"/>
@@ -911,7 +911,7 @@
           <line num="28" count="17" type="stmt"/>
           <line num="35" count="95" type="stmt"/>
         </file>
-        <file name="PreviousItem.js" path="/Users/agreen/Repos/react-components/packages/menus/src/views/items/PreviousItem.js">
+        <file name="PreviousItem.js" path="/home/travis/build/zendeskgarden/react-components/packages/menus/src/views/items/PreviousItem.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="15" count="17" type="stmt"/>
           <line num="20" count="17" type="stmt"/>
@@ -922,13 +922,13 @@
       </package>
       <package name="menus.src.views.items.header">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <file name="HeaderIcon.js" path="/Users/agreen/Repos/react-components/packages/menus/src/views/items/header/HeaderIcon.js">
+        <file name="HeaderIcon.js" path="/home/travis/build/zendeskgarden/react-components/packages/menus/src/views/items/header/HeaderIcon.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="11" count="16" type="stmt"/>
           <line num="13" count="16" type="stmt"/>
           <line num="14" count="2" type="stmt"/>
         </file>
-        <file name="HeaderItem.js" path="/Users/agreen/Repos/react-components/packages/menus/src/views/items/header/HeaderItem.js">
+        <file name="HeaderItem.js" path="/home/travis/build/zendeskgarden/react-components/packages/menus/src/views/items/header/HeaderItem.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="15" count="17" type="stmt"/>
           <line num="20" count="17" type="stmt"/>
@@ -939,19 +939,19 @@
       </package>
       <package name="menus.src.views.items.media">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <file name="MediaBody.js" path="/Users/agreen/Repos/react-components/packages/menus/src/views/items/media/MediaBody.js">
+        <file name="MediaBody.js" path="/home/travis/build/zendeskgarden/react-components/packages/menus/src/views/items/media/MediaBody.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="16" type="stmt"/>
           <line num="17" count="16" type="stmt"/>
           <line num="22" count="2" type="stmt"/>
         </file>
-        <file name="MediaFigure.js" path="/Users/agreen/Repos/react-components/packages/menus/src/views/items/media/MediaFigure.js">
+        <file name="MediaFigure.js" path="/home/travis/build/zendeskgarden/react-components/packages/menus/src/views/items/media/MediaFigure.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="11" count="16" type="stmt"/>
           <line num="13" count="16" type="stmt"/>
           <line num="14" count="2" type="stmt"/>
         </file>
-        <file name="MediaItem.js" path="/Users/agreen/Repos/react-components/packages/menus/src/views/items/media/MediaItem.js">
+        <file name="MediaItem.js" path="/home/travis/build/zendeskgarden/react-components/packages/menus/src/views/items/media/MediaItem.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="15" count="17" type="stmt"/>
           <line num="20" count="17" type="stmt"/>
@@ -961,7 +961,7 @@
       </package>
       <package name="modals.src.containers">
         <metrics statements="50" coveredstatements="50" conditionals="29" coveredconditionals="22" methods="25" coveredmethods="25"/>
-        <file name="FocusJailContainer.js" path="/Users/agreen/Repos/react-components/packages/modals/src/containers/FocusJailContainer.js">
+        <file name="FocusJailContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/modals/src/containers/FocusJailContainer.js">
           <metrics statements="32" coveredstatements="32" conditionals="16" coveredconditionals="14" methods="10" coveredmethods="10"/>
           <line num="39" count="79" type="stmt"/>
           <line num="41" count="79" type="stmt"/>
@@ -996,7 +996,7 @@
           <line num="111" count="142" type="cond" truecount="1" falsecount="0"/>
           <line num="113" count="142" type="stmt"/>
         </file>
-        <file name="ModalContainer.js" path="/Users/agreen/Repos/react-components/packages/modals/src/containers/ModalContainer.js">
+        <file name="ModalContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/modals/src/containers/ModalContainer.js">
           <metrics statements="18" coveredstatements="18" conditionals="13" coveredconditionals="8" methods="15" coveredmethods="15"/>
           <line num="50" count="42" type="stmt"/>
           <line num="52" count="42" type="stmt"/>
@@ -1020,7 +1020,7 @@
       </package>
       <package name="modals.src.elements">
         <metrics statements="31" coveredstatements="30" conditionals="14" coveredconditionals="12" methods="6" coveredmethods="6"/>
-        <file name="Modal.js" path="/Users/agreen/Repos/react-components/packages/modals/src/elements/Modal.js">
+        <file name="Modal.js" path="/home/travis/build/zendeskgarden/react-components/packages/modals/src/elements/Modal.js">
           <metrics statements="31" coveredstatements="30" conditionals="14" coveredconditionals="12" methods="6" coveredmethods="6"/>
           <line num="70" count="11" type="stmt"/>
           <line num="72" count="11" type="cond" truecount="1" falsecount="1"/>
@@ -1057,7 +1057,7 @@
       </package>
       <package name="modals.src.views">
         <metrics statements="34" coveredstatements="34" conditionals="0" coveredconditionals="0" methods="16" coveredmethods="16"/>
-        <file name="Backdrop.js" path="/Users/agreen/Repos/react-components/packages/modals/src/views/Backdrop.js">
+        <file name="Backdrop.js" path="/home/travis/build/zendeskgarden/react-components/packages/modals/src/views/Backdrop.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="14" count="19" type="stmt"/>
           <line num="19" count="19" type="stmt"/>
@@ -1065,14 +1065,14 @@
           <line num="31" count="15" type="stmt"/>
           <line num="34" count="19" type="stmt"/>
         </file>
-        <file name="Body.js" path="/Users/agreen/Repos/react-components/packages/modals/src/views/Body.js">
+        <file name="Body.js" path="/home/travis/build/zendeskgarden/react-components/packages/modals/src/views/Body.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="12" count="19" type="stmt"/>
           <line num="17" count="19" type="stmt"/>
           <line num="22" count="12" type="stmt"/>
           <line num="25" count="22" type="stmt"/>
         </file>
-        <file name="Close.js" path="/Users/agreen/Repos/react-components/packages/modals/src/views/Close.js">
+        <file name="Close.js" path="/home/travis/build/zendeskgarden/react-components/packages/modals/src/views/Close.js">
           <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
           <line num="16" count="19" type="stmt"/>
           <line num="18" count="19" type="stmt"/>
@@ -1085,26 +1085,26 @@
           <line num="53" count="2" type="stmt"/>
           <line num="54" count="1" type="stmt"/>
         </file>
-        <file name="Footer.js" path="/Users/agreen/Repos/react-components/packages/modals/src/views/Footer.js">
+        <file name="Footer.js" path="/home/travis/build/zendeskgarden/react-components/packages/modals/src/views/Footer.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="19" type="stmt"/>
           <line num="17" count="19" type="stmt"/>
           <line num="22" count="12" type="stmt"/>
         </file>
-        <file name="FooterItem.js" path="/Users/agreen/Repos/react-components/packages/modals/src/views/FooterItem.js">
+        <file name="FooterItem.js" path="/home/travis/build/zendeskgarden/react-components/packages/modals/src/views/FooterItem.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="18" type="stmt"/>
           <line num="17" count="18" type="stmt"/>
           <line num="22" count="1" type="stmt"/>
         </file>
-        <file name="Header.js" path="/Users/agreen/Repos/react-components/packages/modals/src/views/Header.js">
+        <file name="Header.js" path="/home/travis/build/zendeskgarden/react-components/packages/modals/src/views/Header.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="12" count="19" type="stmt"/>
           <line num="17" count="19" type="stmt"/>
           <line num="22" count="12" type="stmt"/>
           <line num="25" count="19" type="stmt"/>
         </file>
-        <file name="ModalView.js" path="/Users/agreen/Repos/react-components/packages/modals/src/views/ModalView.js">
+        <file name="ModalView.js" path="/home/travis/build/zendeskgarden/react-components/packages/modals/src/views/ModalView.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="14" count="19" type="stmt"/>
           <line num="19" count="19" type="stmt"/>
@@ -1115,7 +1115,7 @@
       </package>
       <package name="notifications.src">
         <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
-        <file name="Alert.js" path="/Users/agreen/Repos/react-components/packages/notifications/src/Alert.js">
+        <file name="Alert.js" path="/home/travis/build/zendeskgarden/react-components/packages/notifications/src/Alert.js">
           <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="15" count="1" type="stmt"/>
           <line num="17" count="1" type="stmt"/>
@@ -1124,7 +1124,7 @@
           <line num="37" count="3" type="stmt"/>
           <line num="40" count="1" type="stmt"/>
         </file>
-        <file name="Notification.js" path="/Users/agreen/Repos/react-components/packages/notifications/src/Notification.js">
+        <file name="Notification.js" path="/home/travis/build/zendeskgarden/react-components/packages/notifications/src/Notification.js">
           <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="15" count="1" type="stmt"/>
           <line num="17" count="1" type="stmt"/>
@@ -1133,7 +1133,7 @@
           <line num="38" count="3" type="stmt"/>
           <line num="41" count="1" type="stmt"/>
         </file>
-        <file name="Well.js" path="/Users/agreen/Repos/react-components/packages/notifications/src/Well.js">
+        <file name="Well.js" path="/home/travis/build/zendeskgarden/react-components/packages/notifications/src/Well.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="14" count="3" type="stmt"/>
           <line num="19" count="3" type="stmt"/>
@@ -1144,7 +1144,7 @@
       </package>
       <package name="notifications.src.content">
         <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
-        <file name="Close.js" path="/Users/agreen/Repos/react-components/packages/notifications/src/content/Close.js">
+        <file name="Close.js" path="/home/travis/build/zendeskgarden/react-components/packages/notifications/src/content/Close.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="14" count="1" type="stmt"/>
           <line num="19" count="1" type="stmt"/>
@@ -1152,13 +1152,13 @@
           <line num="30" count="3" type="stmt"/>
           <line num="33" count="1" type="stmt"/>
         </file>
-        <file name="Paragraph.js" path="/Users/agreen/Repos/react-components/packages/notifications/src/content/Paragraph.js">
+        <file name="Paragraph.js" path="/home/travis/build/zendeskgarden/react-components/packages/notifications/src/content/Paragraph.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="13" count="1" type="stmt"/>
           <line num="18" count="1" type="stmt"/>
           <line num="23" count="1" type="stmt"/>
         </file>
-        <file name="Title.js" path="/Users/agreen/Repos/react-components/packages/notifications/src/content/Title.js">
+        <file name="Title.js" path="/home/travis/build/zendeskgarden/react-components/packages/notifications/src/content/Title.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="13" count="1" type="stmt"/>
           <line num="18" count="1" type="stmt"/>
@@ -1167,7 +1167,7 @@
       </package>
       <package name="pagination.src.containers">
         <metrics statements="25" coveredstatements="25" conditionals="19" coveredconditionals="19" methods="11" coveredmethods="11"/>
-        <file name="PaginationContainer.js" path="/Users/agreen/Repos/react-components/packages/pagination/src/containers/PaginationContainer.js">
+        <file name="PaginationContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/pagination/src/containers/PaginationContainer.js">
           <metrics statements="25" coveredstatements="25" conditionals="19" coveredconditionals="19" methods="11" coveredmethods="11"/>
           <line num="45" count="28" type="stmt"/>
           <line num="47" count="28" type="stmt"/>
@@ -1198,7 +1198,7 @@
       </package>
       <package name="pagination.src.elements">
         <metrics statements="67" coveredstatements="67" conditionals="51" coveredconditionals="50" methods="9" coveredmethods="9"/>
-        <file name="Pagination.js" path="/Users/agreen/Repos/react-components/packages/pagination/src/elements/Pagination.js">
+        <file name="Pagination.js" path="/home/travis/build/zendeskgarden/react-components/packages/pagination/src/elements/Pagination.js">
           <metrics statements="67" coveredstatements="67" conditionals="51" coveredconditionals="50" methods="9" coveredmethods="9"/>
           <line num="19" count="1" type="stmt"/>
           <line num="20" count="1" type="stmt"/>
@@ -1271,21 +1271,21 @@
       </package>
       <package name="pagination.src.views">
         <metrics statements="21" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7"/>
-        <file name="Gap.js" path="/Users/agreen/Repos/react-components/packages/pagination/src/views/Gap.js">
+        <file name="Gap.js" path="/home/travis/build/zendeskgarden/react-components/packages/pagination/src/views/Gap.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="14" count="2" type="stmt"/>
           <line num="19" count="2" type="stmt"/>
           <line num="24" count="8" type="stmt"/>
           <line num="27" count="2" type="stmt"/>
         </file>
-        <file name="NextPage.js" path="/Users/agreen/Repos/react-components/packages/pagination/src/views/NextPage.js">
+        <file name="NextPage.js" path="/home/travis/build/zendeskgarden/react-components/packages/pagination/src/views/NextPage.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="14" count="2" type="stmt"/>
           <line num="19" count="2" type="stmt"/>
           <line num="24" count="30" type="stmt"/>
           <line num="27" count="2" type="stmt"/>
         </file>
-        <file name="Page.js" path="/Users/agreen/Repos/react-components/packages/pagination/src/views/Page.js">
+        <file name="Page.js" path="/home/travis/build/zendeskgarden/react-components/packages/pagination/src/views/Page.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="14" count="5" type="stmt"/>
           <line num="19" count="5" type="stmt"/>
@@ -1293,14 +1293,14 @@
           <line num="40" count="232" type="stmt"/>
           <line num="43" count="5" type="stmt"/>
         </file>
-        <file name="PaginationView.js" path="/Users/agreen/Repos/react-components/packages/pagination/src/views/PaginationView.js">
+        <file name="PaginationView.js" path="/home/travis/build/zendeskgarden/react-components/packages/pagination/src/views/PaginationView.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="13" count="2" type="stmt"/>
           <line num="18" count="2" type="stmt"/>
           <line num="22" count="31" type="stmt"/>
           <line num="37" count="31" type="stmt"/>
         </file>
-        <file name="PreviousPage.js" path="/Users/agreen/Repos/react-components/packages/pagination/src/views/PreviousPage.js">
+        <file name="PreviousPage.js" path="/home/travis/build/zendeskgarden/react-components/packages/pagination/src/views/PreviousPage.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="14" count="2" type="stmt"/>
           <line num="19" count="2" type="stmt"/>
@@ -1310,7 +1310,7 @@
       </package>
       <package name="radios.src.elements">
         <metrics statements="19" coveredstatements="18" conditionals="9" coveredconditionals="7" methods="6" coveredmethods="6"/>
-        <file name="Radio.js" path="/Users/agreen/Repos/react-components/packages/radios/src/elements/Radio.js">
+        <file name="Radio.js" path="/home/travis/build/zendeskgarden/react-components/packages/radios/src/elements/Radio.js">
           <metrics statements="19" coveredstatements="18" conditionals="9" coveredconditionals="7" methods="6" coveredmethods="6"/>
           <line num="42" count="7" type="stmt"/>
           <line num="44" count="7" type="stmt"/>
@@ -1335,7 +1335,7 @@
       </package>
       <package name="radios.src.views">
         <metrics statements="25" coveredstatements="25" conditionals="0" coveredconditionals="0" methods="12" coveredmethods="12"/>
-        <file name="Hint.js" path="/Users/agreen/Repos/react-components/packages/radios/src/views/Hint.js">
+        <file name="Hint.js" path="/home/travis/build/zendeskgarden/react-components/packages/radios/src/views/Hint.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="13" count="2" type="stmt"/>
           <line num="18" count="2" type="stmt"/>
@@ -1343,13 +1343,13 @@
           <line num="27" count="10" type="stmt"/>
           <line num="30" count="8" type="stmt"/>
         </file>
-        <file name="Input.js" path="/Users/agreen/Repos/react-components/packages/radios/src/views/Input.js">
+        <file name="Input.js" path="/home/travis/build/zendeskgarden/react-components/packages/radios/src/views/Input.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="2" type="stmt"/>
           <line num="17" count="2" type="stmt"/>
           <line num="24" count="9" type="stmt"/>
         </file>
-        <file name="Label.js" path="/Users/agreen/Repos/react-components/packages/radios/src/views/Label.js">
+        <file name="Label.js" path="/home/travis/build/zendeskgarden/react-components/packages/radios/src/views/Label.js">
           <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="14" count="2" type="stmt"/>
           <line num="19" count="2" type="stmt"/>
@@ -1358,7 +1358,7 @@
           <line num="42" count="2" type="stmt"/>
           <line num="51" count="8" type="stmt"/>
         </file>
-        <file name="Message.js" path="/Users/agreen/Repos/react-components/packages/radios/src/views/Message.js">
+        <file name="Message.js" path="/home/travis/build/zendeskgarden/react-components/packages/radios/src/views/Message.js">
           <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="14" count="2" type="stmt"/>
           <line num="15" count="2" type="stmt"/>
@@ -1368,7 +1368,7 @@
           <line num="41" count="2" type="stmt"/>
           <line num="50" count="8" type="stmt"/>
         </file>
-        <file name="RadioView.js" path="/Users/agreen/Repos/react-components/packages/radios/src/views/RadioView.js">
+        <file name="RadioView.js" path="/home/travis/build/zendeskgarden/react-components/packages/radios/src/views/RadioView.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="13" count="2" type="stmt"/>
           <line num="18" count="2" type="stmt"/>
@@ -1378,7 +1378,7 @@
       </package>
       <package name="ranges.src.elements">
         <metrics statements="35" coveredstatements="34" conditionals="14" coveredconditionals="12" methods="13" coveredmethods="13"/>
-        <file name="Range.js" path="/Users/agreen/Repos/react-components/packages/ranges/src/elements/Range.js">
+        <file name="Range.js" path="/home/travis/build/zendeskgarden/react-components/packages/ranges/src/elements/Range.js">
           <metrics statements="18" coveredstatements="18" conditionals="4" coveredconditionals="3" methods="9" coveredmethods="9"/>
           <line num="37" count="10" type="stmt"/>
           <line num="49" count="11" type="stmt"/>
@@ -1399,7 +1399,7 @@
           <line num="97" count="41" type="stmt"/>
           <line num="98" count="41" type="cond" truecount="1" falsecount="1"/>
         </file>
-        <file name="RangeField.js" path="/Users/agreen/Repos/react-components/packages/ranges/src/elements/RangeField.js">
+        <file name="RangeField.js" path="/home/travis/build/zendeskgarden/react-components/packages/ranges/src/elements/RangeField.js">
           <metrics statements="17" coveredstatements="16" conditionals="10" coveredconditionals="9" methods="4" coveredmethods="4"/>
           <line num="34" count="5" type="stmt"/>
           <line num="36" count="5" type="stmt"/>
@@ -1422,7 +1422,7 @@
       </package>
       <package name="ranges.src.views">
         <metrics statements="31" coveredstatements="31" conditionals="0" coveredconditionals="0" methods="14" coveredmethods="14"/>
-        <file name="Hint.js" path="/Users/agreen/Repos/react-components/packages/ranges/src/views/Hint.js">
+        <file name="Hint.js" path="/home/travis/build/zendeskgarden/react-components/packages/ranges/src/views/Hint.js">
           <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="14" count="2" type="stmt"/>
           <line num="19" count="2" type="stmt"/>
@@ -1431,7 +1431,7 @@
           <line num="33" count="2" type="stmt"/>
           <line num="37" count="15" type="stmt"/>
         </file>
-        <file name="Label.js" path="/Users/agreen/Repos/react-components/packages/ranges/src/views/Label.js">
+        <file name="Label.js" path="/home/travis/build/zendeskgarden/react-components/packages/ranges/src/views/Label.js">
           <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="14" count="2" type="stmt"/>
           <line num="19" count="2" type="stmt"/>
@@ -1440,7 +1440,7 @@
           <line num="34" count="2" type="stmt"/>
           <line num="39" count="5" type="stmt"/>
         </file>
-        <file name="Message.js" path="/Users/agreen/Repos/react-components/packages/ranges/src/views/Message.js">
+        <file name="Message.js" path="/home/travis/build/zendeskgarden/react-components/packages/ranges/src/views/Message.js">
           <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="14" count="2" type="stmt"/>
           <line num="15" count="2" type="stmt"/>
@@ -1450,7 +1450,7 @@
           <line num="41" count="2" type="stmt"/>
           <line num="50" count="20" type="stmt"/>
         </file>
-        <file name="RangeGroup.js" path="/Users/agreen/Repos/react-components/packages/ranges/src/views/RangeGroup.js">
+        <file name="RangeGroup.js" path="/home/travis/build/zendeskgarden/react-components/packages/ranges/src/views/RangeGroup.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="14" count="2" type="stmt"/>
           <line num="19" count="2" type="stmt"/>
@@ -1458,7 +1458,7 @@
           <line num="30" count="8" type="stmt"/>
           <line num="33" count="2" type="stmt"/>
         </file>
-        <file name="SingleThumbView.js" path="/Users/agreen/Repos/react-components/packages/ranges/src/views/SingleThumbView.js">
+        <file name="SingleThumbView.js" path="/home/travis/build/zendeskgarden/react-components/packages/ranges/src/views/SingleThumbView.js">
           <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="14" count="3" type="stmt"/>
           <line num="19" count="3" type="stmt"/>
@@ -1471,7 +1471,7 @@
       </package>
       <package name="select.src.containers">
         <metrics statements="13" coveredstatements="13" conditionals="9" coveredconditionals="7" methods="10" coveredmethods="10"/>
-        <file name="SelectContainer.js" path="/Users/agreen/Repos/react-components/packages/select/src/containers/SelectContainer.js">
+        <file name="SelectContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/containers/SelectContainer.js">
           <metrics statements="13" coveredstatements="13" conditionals="9" coveredconditionals="7" methods="10" coveredmethods="10"/>
           <line num="111" count="16" type="stmt"/>
           <line num="113" count="16" type="stmt"/>
@@ -1490,7 +1490,7 @@
       </package>
       <package name="select.src.elements">
         <metrics statements="82" coveredstatements="81" conditionals="67" coveredconditionals="59" methods="21" coveredmethods="21"/>
-        <file name="Select.js" path="/Users/agreen/Repos/react-components/packages/select/src/elements/Select.js">
+        <file name="Select.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/elements/Select.js">
           <metrics statements="59" coveredstatements="58" conditionals="53" coveredconditionals="46" methods="12" coveredmethods="12"/>
           <line num="107" count="32" type="stmt"/>
           <line num="117" count="13" type="stmt"/>
@@ -1552,7 +1552,7 @@
           <line num="316" count="64" type="stmt"/>
           <line num="329" count="16" type="stmt"/>
         </file>
-        <file name="SelectField.js" path="/Users/agreen/Repos/react-components/packages/select/src/elements/SelectField.js">
+        <file name="SelectField.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/elements/SelectField.js">
           <metrics statements="23" coveredstatements="23" conditionals="14" coveredconditionals="13" methods="9" coveredmethods="9"/>
           <line num="28" count="8" type="stmt"/>
           <line num="30" count="2" type="stmt"/>
@@ -1581,7 +1581,7 @@
       </package>
       <package name="select.src.views">
         <metrics statements="20" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
-        <file name="Dropdown.js" path="/Users/agreen/Repos/react-components/packages/select/src/views/Dropdown.js">
+        <file name="Dropdown.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/Dropdown.js">
           <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="14" count="3" type="stmt"/>
           <line num="16" count="3" type="stmt"/>
@@ -1592,14 +1592,14 @@
           <line num="42" count="17" type="stmt"/>
           <line num="45" count="3" type="stmt"/>
         </file>
-        <file name="SelectGroup.js" path="/Users/agreen/Repos/react-components/packages/select/src/views/SelectGroup.js">
+        <file name="SelectGroup.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/SelectGroup.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="2" type="stmt"/>
           <line num="17" count="2" type="stmt"/>
           <line num="21" count="9" type="stmt"/>
           <line num="24" count="2" type="stmt"/>
         </file>
-        <file name="SelectView.js" path="/Users/agreen/Repos/react-components/packages/select/src/views/SelectView.js">
+        <file name="SelectView.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/SelectView.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="13" count="3" type="stmt"/>
           <line num="14" count="3" type="stmt"/>
@@ -1607,7 +1607,7 @@
           <line num="28" count="35" type="stmt"/>
           <line num="31" count="3" type="stmt"/>
         </file>
-        <file name="Separator.js" path="/Users/agreen/Repos/react-components/packages/select/src/views/Separator.js">
+        <file name="Separator.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/Separator.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="11" count="1" type="stmt"/>
           <line num="16" count="1" type="stmt"/>
@@ -1616,7 +1616,7 @@
       </package>
       <package name="select.src.views.fields">
         <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
-        <file name="Hint.js" path="/Users/agreen/Repos/react-components/packages/select/src/views/fields/Hint.js">
+        <file name="Hint.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/fields/Hint.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="12" count="2" type="stmt"/>
           <line num="17" count="2" type="stmt"/>
@@ -1624,7 +1624,7 @@
           <line num="24" count="2" type="stmt"/>
           <line num="28" count="14" type="stmt"/>
         </file>
-        <file name="Label.js" path="/Users/agreen/Repos/react-components/packages/select/src/views/fields/Label.js">
+        <file name="Label.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/fields/Label.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="12" count="2" type="stmt"/>
           <line num="17" count="2" type="stmt"/>
@@ -1632,7 +1632,7 @@
           <line num="24" count="2" type="stmt"/>
           <line num="29" count="8" type="stmt"/>
         </file>
-        <file name="Message.js" path="/Users/agreen/Repos/react-components/packages/select/src/views/fields/Message.js">
+        <file name="Message.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/fields/Message.js">
           <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="12" count="2" type="stmt"/>
           <line num="13" count="2" type="stmt"/>
@@ -1644,7 +1644,7 @@
       </package>
       <package name="select.src.views.items">
         <metrics statements="23" coveredstatements="23" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="8"/>
-        <file name="AddItem.js" path="/Users/agreen/Repos/react-components/packages/select/src/views/items/AddItem.js">
+        <file name="AddItem.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/items/AddItem.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
           <line num="12" count="3" type="stmt"/>
           <line num="17" count="3" type="stmt"/>
@@ -1652,7 +1652,7 @@
           <line num="24" count="3" type="stmt"/>
           <line num="31" count="3" type="stmt"/>
         </file>
-        <file name="Item.js" path="/Users/agreen/Repos/react-components/packages/select/src/views/items/Item.js">
+        <file name="Item.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/items/Item.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="12" count="3" type="stmt"/>
           <line num="17" count="3" type="stmt"/>
@@ -1660,13 +1660,13 @@
           <line num="24" count="3" type="stmt"/>
           <line num="32" count="264" type="stmt"/>
         </file>
-        <file name="ItemMeta.js" path="/Users/agreen/Repos/react-components/packages/select/src/views/items/ItemMeta.js">
+        <file name="ItemMeta.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/items/ItemMeta.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="11" count="1" type="stmt"/>
           <line num="16" count="1" type="stmt"/>
           <line num="20" count="1" type="stmt"/>
         </file>
-        <file name="NextItem.js" path="/Users/agreen/Repos/react-components/packages/select/src/views/items/NextItem.js">
+        <file name="NextItem.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/items/NextItem.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="12" count="3" type="stmt"/>
           <line num="17" count="3" type="stmt"/>
@@ -1674,7 +1674,7 @@
           <line num="24" count="3" type="stmt"/>
           <line num="31" count="184" type="stmt"/>
         </file>
-        <file name="PreviousItem.js" path="/Users/agreen/Repos/react-components/packages/select/src/views/items/PreviousItem.js">
+        <file name="PreviousItem.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/items/PreviousItem.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="12" count="3" type="stmt"/>
           <line num="17" count="3" type="stmt"/>
@@ -1685,10 +1685,10 @@
       </package>
       <package name="select.src.views.items.header">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <file name="HeaderIcon.js" path="/Users/agreen/Repos/react-components/packages/select/src/views/items/header/HeaderIcon.js">
+        <file name="HeaderIcon.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/items/header/HeaderIcon.js">
           <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         </file>
-        <file name="HeaderItem.js" path="/Users/agreen/Repos/react-components/packages/select/src/views/items/header/HeaderItem.js">
+        <file name="HeaderItem.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/items/header/HeaderItem.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="2" type="stmt"/>
           <line num="17" count="2" type="stmt"/>
@@ -1698,16 +1698,16 @@
       </package>
       <package name="select.src.views.items.media">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <file name="MediaBody.js" path="/Users/agreen/Repos/react-components/packages/select/src/views/items/media/MediaBody.js">
+        <file name="MediaBody.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/items/media/MediaBody.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="11" count="1" type="stmt"/>
           <line num="16" count="1" type="stmt"/>
           <line num="20" count="1" type="stmt"/>
         </file>
-        <file name="MediaFigure.js" path="/Users/agreen/Repos/react-components/packages/select/src/views/items/media/MediaFigure.js">
+        <file name="MediaFigure.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/items/media/MediaFigure.js">
           <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         </file>
-        <file name="MediaItem.js" path="/Users/agreen/Repos/react-components/packages/select/src/views/items/media/MediaItem.js">
+        <file name="MediaItem.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/items/media/MediaItem.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="3" type="stmt"/>
           <line num="17" count="3" type="stmt"/>
@@ -1717,13 +1717,13 @@
       </package>
       <package name="selection.src.constants">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <file name="KEY_CODES.js" path="/Users/agreen/Repos/react-components/packages/selection/src/constants/KEY_CODES.js">
+        <file name="KEY_CODES.js" path="/home/travis/build/zendeskgarden/react-components/packages/selection/src/constants/KEY_CODES.js">
           <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         </file>
       </package>
       <package name="selection.src.containers">
         <metrics statements="106" coveredstatements="106" conditionals="69" coveredconditionals="60" methods="40" coveredmethods="40"/>
-        <file name="FieldContainer.js" path="/Users/agreen/Repos/react-components/packages/selection/src/containers/FieldContainer.js">
+        <file name="FieldContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/selection/src/containers/FieldContainer.js">
           <metrics statements="12" coveredstatements="12" conditionals="10" coveredconditionals="6" methods="10" coveredmethods="10"/>
           <line num="33" count="42" type="stmt"/>
           <line num="35" count="42" type="stmt"/>
@@ -1738,7 +1738,7 @@
           <line num="84" count="45" type="cond" truecount="1" falsecount="0"/>
           <line num="86" count="45" type="stmt"/>
         </file>
-        <file name="KeyboardFocusContainer.js" path="/Users/agreen/Repos/react-components/packages/selection/src/containers/KeyboardFocusContainer.js">
+        <file name="KeyboardFocusContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/selection/src/containers/KeyboardFocusContainer.js">
           <metrics statements="13" coveredstatements="13" conditionals="5" coveredconditionals="3" methods="7" coveredmethods="7"/>
           <line num="26" count="91" type="stmt"/>
           <line num="28" count="91" type="stmt"/>
@@ -1754,7 +1754,7 @@
           <line num="69" count="112" type="stmt"/>
           <line num="71" count="112" type="stmt"/>
         </file>
-        <file name="SelectionContainer.js" path="/Users/agreen/Repos/react-components/packages/selection/src/containers/SelectionContainer.js">
+        <file name="SelectionContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/selection/src/containers/SelectionContainer.js">
           <metrics statements="81" coveredstatements="81" conditionals="54" coveredconditionals="51" methods="23" coveredmethods="23"/>
           <line num="18" count="55" type="stmt"/>
           <line num="75" count="169" type="stmt"/>
@@ -1841,7 +1841,7 @@
       </package>
       <package name="selection.src.utils">
         <metrics statements="71" coveredstatements="71" conditionals="49" coveredconditionals="46" methods="19" coveredmethods="19"/>
-        <file name="ControlledComponent.js" path="/Users/agreen/Repos/react-components/packages/selection/src/utils/ControlledComponent.js">
+        <file name="ControlledComponent.js" path="/home/travis/build/zendeskgarden/react-components/packages/selection/src/utils/ControlledComponent.js">
           <metrics statements="15" coveredstatements="15" conditionals="8" coveredconditionals="7" methods="4" coveredmethods="4"/>
           <line num="18" count="30731" type="stmt"/>
           <line num="25" count="7842" type="stmt"/>
@@ -1859,13 +1859,13 @@
           <line num="51" count="167" type="stmt"/>
           <line num="53" count="250" type="stmt"/>
         </file>
-        <file name="IdManager.js" path="/Users/agreen/Repos/react-components/packages/selection/src/utils/IdManager.js">
+        <file name="IdManager.js" path="/home/travis/build/zendeskgarden/react-components/packages/selection/src/utils/IdManager.js">
           <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
           <line num="8" count="57" type="stmt"/>
           <line num="16" count="575" type="stmt"/>
           <line num="24" count="4" type="stmt"/>
         </file>
-        <file name="SingleSelectionModel.js" path="/Users/agreen/Repos/react-components/packages/selection/src/utils/SingleSelectionModel.js">
+        <file name="SingleSelectionModel.js" path="/home/travis/build/zendeskgarden/react-components/packages/selection/src/utils/SingleSelectionModel.js">
           <metrics statements="49" coveredstatements="49" conditionals="36" coveredconditionals="34" methods="10" coveredmethods="10"/>
           <line num="14" count="709" type="stmt"/>
           <line num="15" count="709" type="stmt"/>
@@ -1917,7 +1917,7 @@
           <line num="117" count="503" type="stmt"/>
           <line num="121" count="66" type="stmt"/>
         </file>
-        <file name="composeEventHandlers.js" path="/Users/agreen/Repos/react-components/packages/selection/src/utils/composeEventHandlers.js">
+        <file name="composeEventHandlers.js" path="/home/travis/build/zendeskgarden/react-components/packages/selection/src/utils/composeEventHandlers.js">
           <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
           <line num="25" count="6113" type="stmt"/>
           <line num="26" count="494" type="stmt"/>
@@ -1927,19 +1927,19 @@
       </package>
       <package name="tables.src.views">
         <metrics statements="59" coveredstatements="59" conditionals="8" coveredconditionals="8" methods="23" coveredmethods="23"/>
-        <file name="Body.js" path="/Users/agreen/Repos/react-components/packages/tables/src/views/Body.js">
+        <file name="Body.js" path="/home/travis/build/zendeskgarden/react-components/packages/tables/src/views/Body.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="11" count="1" type="stmt"/>
           <line num="16" count="1" type="stmt"/>
           <line num="20" count="1" type="stmt"/>
         </file>
-        <file name="Caption.js" path="/Users/agreen/Repos/react-components/packages/tables/src/views/Caption.js">
+        <file name="Caption.js" path="/home/travis/build/zendeskgarden/react-components/packages/tables/src/views/Caption.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="1" type="stmt"/>
           <line num="17" count="1" type="stmt"/>
           <line num="22" count="1" type="stmt"/>
         </file>
-        <file name="Cell.js" path="/Users/agreen/Repos/react-components/packages/tables/src/views/Cell.js">
+        <file name="Cell.js" path="/home/travis/build/zendeskgarden/react-components/packages/tables/src/views/Cell.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="14" count="3" type="stmt"/>
           <line num="19" count="3" type="stmt"/>
@@ -1947,20 +1947,20 @@
           <line num="29" count="15" type="stmt"/>
           <line num="32" count="3" type="stmt"/>
         </file>
-        <file name="Head.js" path="/Users/agreen/Repos/react-components/packages/tables/src/views/Head.js">
+        <file name="Head.js" path="/home/travis/build/zendeskgarden/react-components/packages/tables/src/views/Head.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="11" count="1" type="stmt"/>
           <line num="16" count="1" type="stmt"/>
           <line num="20" count="1" type="stmt"/>
         </file>
-        <file name="HeaderCell.js" path="/Users/agreen/Repos/react-components/packages/tables/src/views/HeaderCell.js">
+        <file name="HeaderCell.js" path="/home/travis/build/zendeskgarden/react-components/packages/tables/src/views/HeaderCell.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="2" type="stmt"/>
           <line num="15" count="2" type="stmt"/>
           <line num="19" count="11" type="stmt"/>
           <line num="22" count="2" type="stmt"/>
         </file>
-        <file name="OverflowButton.js" path="/Users/agreen/Repos/react-components/packages/tables/src/views/OverflowButton.js">
+        <file name="OverflowButton.js" path="/home/travis/build/zendeskgarden/react-components/packages/tables/src/views/OverflowButton.js">
           <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
           <line num="16" count="1" type="stmt"/>
           <line num="21" count="1" type="stmt"/>
@@ -1972,7 +1972,7 @@
           <line num="53" count="2" type="stmt"/>
           <line num="56" count="1" type="stmt"/>
         </file>
-        <file name="Row.js" path="/Users/agreen/Repos/react-components/packages/tables/src/views/Row.js">
+        <file name="Row.js" path="/home/travis/build/zendeskgarden/react-components/packages/tables/src/views/Row.js">
           <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="5"/>
           <line num="16" count="1" type="stmt"/>
           <line num="18" count="1" type="stmt"/>
@@ -1984,7 +1984,7 @@
           <line num="68" count="2" type="stmt"/>
           <line num="71" count="1" type="stmt"/>
         </file>
-        <file name="SortableCell.js" path="/Users/agreen/Repos/react-components/packages/tables/src/views/SortableCell.js">
+        <file name="SortableCell.js" path="/home/travis/build/zendeskgarden/react-components/packages/tables/src/views/SortableCell.js">
           <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
           <line num="17" count="1" type="stmt"/>
           <line num="18" count="1" type="stmt"/>
@@ -2000,7 +2000,7 @@
           <line num="53" count="7" type="stmt"/>
           <line num="60" count="1" type="stmt"/>
         </file>
-        <file name="Table.js" path="/Users/agreen/Repos/react-components/packages/tables/src/views/Table.js">
+        <file name="Table.js" path="/home/travis/build/zendeskgarden/react-components/packages/tables/src/views/Table.js">
           <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
           <line num="14" count="1" type="stmt"/>
           <line num="16" count="1" type="stmt"/>
@@ -2016,7 +2016,7 @@
       </package>
       <package name="tabs.src.containers">
         <metrics statements="22" coveredstatements="22" conditionals="21" coveredconditionals="21" methods="10" coveredmethods="10"/>
-        <file name="TabsContainer.js" path="/Users/agreen/Repos/react-components/packages/tabs/src/containers/TabsContainer.js">
+        <file name="TabsContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/tabs/src/containers/TabsContainer.js">
           <metrics statements="22" coveredstatements="22" conditionals="21" coveredconditionals="21" methods="10" coveredmethods="10"/>
           <line num="61" count="21" type="stmt"/>
           <line num="63" count="21" type="stmt"/>
@@ -2044,7 +2044,7 @@
       </package>
       <package name="tabs.src.elements">
         <metrics statements="23" coveredstatements="21" conditionals="14" coveredconditionals="12" methods="6" coveredmethods="6"/>
-        <file name="Tabs.js" path="/Users/agreen/Repos/react-components/packages/tabs/src/elements/Tabs.js">
+        <file name="Tabs.js" path="/home/travis/build/zendeskgarden/react-components/packages/tabs/src/elements/Tabs.js">
           <metrics statements="23" coveredstatements="21" conditionals="14" coveredconditionals="12" methods="6" coveredmethods="6"/>
           <line num="48" count="8" type="stmt"/>
           <line num="50" count="8" type="stmt"/>
@@ -2073,7 +2073,7 @@
       </package>
       <package name="tabs.src.views">
         <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
-        <file name="Tab.js" path="/Users/agreen/Repos/react-components/packages/tabs/src/views/Tab.js">
+        <file name="Tab.js" path="/home/travis/build/zendeskgarden/react-components/packages/tabs/src/views/Tab.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="14" count="2" type="stmt"/>
           <line num="19" count="2" type="stmt"/>
@@ -2081,19 +2081,19 @@
           <line num="32" count="28" type="stmt"/>
           <line num="35" count="2" type="stmt"/>
         </file>
-        <file name="TabList.js" path="/Users/agreen/Repos/react-components/packages/tabs/src/views/TabList.js">
+        <file name="TabList.js" path="/home/travis/build/zendeskgarden/react-components/packages/tabs/src/views/TabList.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="2" type="stmt"/>
           <line num="17" count="2" type="stmt"/>
           <line num="26" count="15" type="stmt"/>
         </file>
-        <file name="TabPanel.js" path="/Users/agreen/Repos/react-components/packages/tabs/src/views/TabPanel.js">
+        <file name="TabPanel.js" path="/home/travis/build/zendeskgarden/react-components/packages/tabs/src/views/TabPanel.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="2" type="stmt"/>
           <line num="17" count="2" type="stmt"/>
           <line num="22" count="21" type="stmt"/>
         </file>
-        <file name="TabsView.js" path="/Users/agreen/Repos/react-components/packages/tabs/src/views/TabsView.js">
+        <file name="TabsView.js" path="/home/travis/build/zendeskgarden/react-components/packages/tabs/src/views/TabsView.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="14" count="2" type="stmt"/>
           <line num="19" count="2" type="stmt"/>
@@ -2104,13 +2104,13 @@
       </package>
       <package name="tags.src.views">
         <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
-        <file name="Avatar.js" path="/Users/agreen/Repos/react-components/packages/tags/src/views/Avatar.js">
+        <file name="Avatar.js" path="/home/travis/build/zendeskgarden/react-components/packages/tags/src/views/Avatar.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="1" type="stmt"/>
           <line num="14" count="1" type="stmt"/>
           <line num="15" count="1" type="stmt"/>
         </file>
-        <file name="Close.js" path="/Users/agreen/Repos/react-components/packages/tags/src/views/Close.js">
+        <file name="Close.js" path="/home/travis/build/zendeskgarden/react-components/packages/tags/src/views/Close.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="14" count="1" type="stmt"/>
           <line num="19" count="1" type="stmt"/>
@@ -2118,7 +2118,7 @@
           <line num="28" count="2" type="stmt"/>
           <line num="31" count="1" type="stmt"/>
         </file>
-        <file name="Tag.js" path="/Users/agreen/Repos/react-components/packages/tags/src/views/Tag.js">
+        <file name="Tag.js" path="/home/travis/build/zendeskgarden/react-components/packages/tags/src/views/Tag.js">
           <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="15" count="1" type="stmt"/>
           <line num="17" count="1" type="stmt"/>
@@ -2131,22 +2131,22 @@
       </package>
       <package name="testing.src.utils">
         <metrics statements="6" coveredstatements="6" conditionals="3" coveredconditionals="2" methods="2" coveredmethods="2"/>
-        <file name="mountWithTheme.js" path="/Users/agreen/Repos/react-components/packages/testing/src/utils/mountWithTheme.js">
+        <file name="mountWithTheme.js" path="/home/travis/build/zendeskgarden/react-components/packages/testing/src/utils/mountWithTheme.js">
           <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-          <line num="18" count="61" type="cond" truecount="2" falsecount="0"/>
-          <line num="19" count="393" type="stmt"/>
-          <line num="24" count="393" type="stmt"/>
+          <line num="18" count="67" type="cond" truecount="2" falsecount="0"/>
+          <line num="19" count="405" type="stmt"/>
+          <line num="24" count="405" type="stmt"/>
         </file>
-        <file name="shallowWithTheme.js" path="/Users/agreen/Repos/react-components/packages/testing/src/utils/shallowWithTheme.js">
+        <file name="shallowWithTheme.js" path="/home/travis/build/zendeskgarden/react-components/packages/testing/src/utils/shallowWithTheme.js">
           <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="17" count="61" type="cond" truecount="0" falsecount="1"/>
+          <line num="17" count="67" type="cond" truecount="0" falsecount="1"/>
           <line num="18" count="34" type="stmt"/>
           <line num="23" count="34" type="stmt"/>
         </file>
       </package>
       <package name="textfields.src.elements">
         <metrics statements="26" coveredstatements="25" conditionals="12" coveredconditionals="11" methods="8" coveredmethods="8"/>
-        <file name="FauxInput.js" path="/Users/agreen/Repos/react-components/packages/textfields/src/elements/FauxInput.js">
+        <file name="FauxInput.js" path="/home/travis/build/zendeskgarden/react-components/packages/textfields/src/elements/FauxInput.js">
           <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
           <line num="13" count="8" type="stmt"/>
           <line num="14" count="8" type="stmt"/>
@@ -2158,7 +2158,7 @@
           <line num="66" count="2" type="stmt"/>
           <line num="69" count="1" type="stmt"/>
         </file>
-        <file name="TextField.js" path="/Users/agreen/Repos/react-components/packages/textfields/src/elements/TextField.js">
+        <file name="TextField.js" path="/home/travis/build/zendeskgarden/react-components/packages/textfields/src/elements/TextField.js">
           <metrics statements="17" coveredstatements="16" conditionals="12" coveredconditionals="11" methods="4" coveredmethods="4"/>
           <line num="35" count="7" type="stmt"/>
           <line num="37" count="7" type="stmt"/>
@@ -2181,7 +2181,7 @@
       </package>
       <package name="textfields.src.views">
         <metrics statements="41" coveredstatements="41" conditionals="0" coveredconditionals="0" methods="18" coveredmethods="18"/>
-        <file name="Hint.js" path="/Users/agreen/Repos/react-components/packages/textfields/src/views/Hint.js">
+        <file name="Hint.js" path="/home/travis/build/zendeskgarden/react-components/packages/textfields/src/views/Hint.js">
           <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="14" count="9" type="stmt"/>
           <line num="19" count="9" type="stmt"/>
@@ -2190,7 +2190,7 @@
           <line num="33" count="9" type="stmt"/>
           <line num="37" count="28" type="stmt"/>
         </file>
-        <file name="Input.js" path="/Users/agreen/Repos/react-components/packages/textfields/src/views/Input.js">
+        <file name="Input.js" path="/home/travis/build/zendeskgarden/react-components/packages/textfields/src/views/Input.js">
           <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="14" count="11" type="stmt"/>
           <line num="15" count="11" type="stmt"/>
@@ -2200,7 +2200,7 @@
           <line num="55" count="11" type="stmt"/>
           <line num="78" count="12" type="stmt"/>
         </file>
-        <file name="Label.js" path="/Users/agreen/Repos/react-components/packages/textfields/src/views/Label.js">
+        <file name="Label.js" path="/home/travis/build/zendeskgarden/react-components/packages/textfields/src/views/Label.js">
           <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="14" count="9" type="stmt"/>
           <line num="19" count="9" type="stmt"/>
@@ -2209,13 +2209,13 @@
           <line num="34" count="9" type="stmt"/>
           <line num="39" count="9" type="stmt"/>
         </file>
-        <file name="MediaFigure.js" path="/Users/agreen/Repos/react-components/packages/textfields/src/views/MediaFigure.js">
+        <file name="MediaFigure.js" path="/home/travis/build/zendeskgarden/react-components/packages/textfields/src/views/MediaFigure.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="8" type="stmt"/>
           <line num="17" count="8" type="stmt"/>
           <line num="22" count="1" type="stmt"/>
         </file>
-        <file name="Message.js" path="/Users/agreen/Repos/react-components/packages/textfields/src/views/Message.js">
+        <file name="Message.js" path="/home/travis/build/zendeskgarden/react-components/packages/textfields/src/views/Message.js">
           <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="14" count="9" type="stmt"/>
           <line num="15" count="9" type="stmt"/>
@@ -2225,7 +2225,7 @@
           <line num="41" count="9" type="stmt"/>
           <line num="50" count="35" type="stmt"/>
         </file>
-        <file name="TextGroup.js" path="/Users/agreen/Repos/react-components/packages/textfields/src/views/TextGroup.js">
+        <file name="TextGroup.js" path="/home/travis/build/zendeskgarden/react-components/packages/textfields/src/views/TextGroup.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="14" count="9" type="stmt"/>
           <line num="19" count="9" type="stmt"/>
@@ -2233,7 +2233,7 @@
           <line num="30" count="19" type="stmt"/>
           <line num="33" count="9" type="stmt"/>
         </file>
-        <file name="Textarea.js" path="/Users/agreen/Repos/react-components/packages/textfields/src/views/Textarea.js">
+        <file name="Textarea.js" path="/home/travis/build/zendeskgarden/react-components/packages/textfields/src/views/Textarea.js">
           <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="16" count="9" type="stmt"/>
           <line num="17" count="9" type="stmt"/>
@@ -2246,42 +2246,42 @@
       </package>
       <package name="theming.src.ThemeProvider">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <file name="ThemeProvider.js" path="/Users/agreen/Repos/react-components/packages/theming/src/ThemeProvider/ThemeProvider.js">
+        <file name="ThemeProvider.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/ThemeProvider/ThemeProvider.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="12" count="145" type="stmt"/>
-          <line num="13" count="427" type="stmt"/>
-          <line num="19" count="427" type="stmt"/>
-          <line num="22" count="145" type="stmt"/>
+          <line num="12" count="151" type="stmt"/>
+          <line num="13" count="439" type="stmt"/>
+          <line num="19" count="439" type="stmt"/>
+          <line num="22" count="151" type="stmt"/>
         </file>
       </package>
       <package name="theming.src.utils">
         <metrics statements="10" coveredstatements="10" conditionals="11" coveredconditionals="11" methods="4" coveredmethods="4"/>
-        <file name="getDocument.js" path="/Users/agreen/Repos/react-components/packages/theming/src/utils/getDocument.js">
+        <file name="getDocument.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/utils/getDocument.js">
           <metrics statements="1" coveredstatements="1" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
           <line num="10" count="227" type="cond" truecount="3" falsecount="0"/>
         </file>
-        <file name="isRtl.js" path="/Users/agreen/Repos/react-components/packages/theming/src/utils/isRtl.js">
+        <file name="isRtl.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/utils/isRtl.js">
           <metrics statements="1" coveredstatements="1" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
-          <line num="10" count="894" type="cond" truecount="2" falsecount="0"/>
+          <line num="10" count="906" type="cond" truecount="2" falsecount="0"/>
         </file>
-        <file name="retrieveTheme.js" path="/Users/agreen/Repos/react-components/packages/theming/src/utils/retrieveTheme.js">
+        <file name="retrieveTheme.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/utils/retrieveTheme.js">
           <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
-          <line num="10" count="1794" type="stmt"/>
-          <line num="12" count="1794" type="cond" truecount="2" falsecount="0"/>
+          <line num="10" count="1806" type="stmt"/>
+          <line num="12" count="1806" type="cond" truecount="2" falsecount="0"/>
           <line num="13" count="495" type="stmt"/>
-          <line num="16" count="1299" type="stmt"/>
-          <line num="18" count="1299" type="cond" truecount="2" falsecount="0"/>
+          <line num="16" count="1311" type="stmt"/>
+          <line num="18" count="1311" type="cond" truecount="2" falsecount="0"/>
           <line num="19" count="1" type="stmt"/>
-          <line num="22" count="1298" type="stmt"/>
+          <line num="22" count="1310" type="stmt"/>
         </file>
-        <file name="withTheme.js" path="/Users/agreen/Repos/react-components/packages/theming/src/utils/withTheme.js">
+        <file name="withTheme.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/utils/withTheme.js">
           <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="95" type="stmt"/>
         </file>
       </package>
       <package name="toggles.src.elements">
         <metrics statements="19" coveredstatements="18" conditionals="9" coveredconditionals="7" methods="6" coveredmethods="6"/>
-        <file name="Toggle.js" path="/Users/agreen/Repos/react-components/packages/toggles/src/elements/Toggle.js">
+        <file name="Toggle.js" path="/home/travis/build/zendeskgarden/react-components/packages/toggles/src/elements/Toggle.js">
           <metrics statements="19" coveredstatements="18" conditionals="9" coveredconditionals="7" methods="6" coveredmethods="6"/>
           <line num="42" count="7" type="stmt"/>
           <line num="44" count="7" type="stmt"/>
@@ -2306,7 +2306,7 @@
       </package>
       <package name="toggles.src.views">
         <metrics statements="25" coveredstatements="25" conditionals="0" coveredconditionals="0" methods="12" coveredmethods="12"/>
-        <file name="Hint.js" path="/Users/agreen/Repos/react-components/packages/toggles/src/views/Hint.js">
+        <file name="Hint.js" path="/home/travis/build/zendeskgarden/react-components/packages/toggles/src/views/Hint.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="13" count="2" type="stmt"/>
           <line num="18" count="2" type="stmt"/>
@@ -2314,13 +2314,13 @@
           <line num="27" count="10" type="stmt"/>
           <line num="30" count="16" type="stmt"/>
         </file>
-        <file name="Input.js" path="/Users/agreen/Repos/react-components/packages/toggles/src/views/Input.js">
+        <file name="Input.js" path="/home/travis/build/zendeskgarden/react-components/packages/toggles/src/views/Input.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="2" type="stmt"/>
           <line num="17" count="2" type="stmt"/>
           <line num="24" count="9" type="stmt"/>
         </file>
-        <file name="Label.js" path="/Users/agreen/Repos/react-components/packages/toggles/src/views/Label.js">
+        <file name="Label.js" path="/home/travis/build/zendeskgarden/react-components/packages/toggles/src/views/Label.js">
           <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="14" count="2" type="stmt"/>
           <line num="19" count="2" type="stmt"/>
@@ -2329,7 +2329,7 @@
           <line num="42" count="2" type="stmt"/>
           <line num="51" count="8" type="stmt"/>
         </file>
-        <file name="Message.js" path="/Users/agreen/Repos/react-components/packages/toggles/src/views/Message.js">
+        <file name="Message.js" path="/home/travis/build/zendeskgarden/react-components/packages/toggles/src/views/Message.js">
           <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="14" count="2" type="stmt"/>
           <line num="15" count="2" type="stmt"/>
@@ -2339,7 +2339,7 @@
           <line num="41" count="2" type="stmt"/>
           <line num="50" count="24" type="stmt"/>
         </file>
-        <file name="ToggleView.js" path="/Users/agreen/Repos/react-components/packages/toggles/src/views/ToggleView.js">
+        <file name="ToggleView.js" path="/home/travis/build/zendeskgarden/react-components/packages/toggles/src/views/ToggleView.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="13" count="2" type="stmt"/>
           <line num="18" count="2" type="stmt"/>
@@ -2349,7 +2349,7 @@
       </package>
       <package name="tooltips.src.containers">
         <metrics statements="40" coveredstatements="40" conditionals="15" coveredconditionals="13" methods="21" coveredmethods="21"/>
-        <file name="TooltipContainer.js" path="/Users/agreen/Repos/react-components/packages/tooltips/src/containers/TooltipContainer.js">
+        <file name="TooltipContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/tooltips/src/containers/TooltipContainer.js">
           <metrics statements="40" coveredstatements="40" conditionals="15" coveredconditionals="13" methods="21" coveredmethods="21"/>
           <line num="28" count="21" type="stmt"/>
           <line num="29" count="13" type="stmt"/>
@@ -2395,7 +2395,7 @@
       </package>
       <package name="tooltips.src.elements">
         <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
-        <file name="Tooltip.js" path="/Users/agreen/Repos/react-components/packages/tooltips/src/elements/Tooltip.js">
+        <file name="Tooltip.js" path="/home/travis/build/zendeskgarden/react-components/packages/tooltips/src/elements/Tooltip.js">
           <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
           <line num="16" count="20" type="stmt"/>
           <line num="23" count="20" type="stmt"/>
@@ -2410,7 +2410,7 @@
       </package>
       <package name="tooltips.src.utils">
         <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2"/>
-        <file name="gardenPlacements.js" path="/Users/agreen/Repos/react-components/packages/tooltips/src/utils/gardenPlacements.js">
+        <file name="gardenPlacements.js" path="/home/travis/build/zendeskgarden/react-components/packages/tooltips/src/utils/gardenPlacements.js">
           <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2"/>
           <line num="8" count="22" type="stmt"/>
           <line num="18" count="22" type="stmt"/>
@@ -2429,7 +2429,7 @@
       </package>
       <package name="tooltips.src.views">
         <metrics statements="25" coveredstatements="25" conditionals="8" coveredconditionals="8" methods="6" coveredmethods="6"/>
-        <file name="LightTooltip.js" path="/Users/agreen/Repos/react-components/packages/tooltips/src/views/LightTooltip.js">
+        <file name="LightTooltip.js" path="/home/travis/build/zendeskgarden/react-components/packages/tooltips/src/views/LightTooltip.js">
           <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="16" count="21" type="stmt"/>
           <line num="18" count="21" type="stmt"/>
@@ -2439,7 +2439,7 @@
           <line num="51" count="21" type="stmt"/>
           <line num="71" count="21" type="stmt"/>
         </file>
-        <file name="TooltipView.js" path="/Users/agreen/Repos/react-components/packages/tooltips/src/views/TooltipView.js">
+        <file name="TooltipView.js" path="/home/travis/build/zendeskgarden/react-components/packages/tooltips/src/views/TooltipView.js">
           <metrics statements="18" coveredstatements="18" conditionals="8" coveredconditionals="8" methods="5" coveredmethods="5"/>
           <line num="15" count="22" type="stmt"/>
           <line num="17" count="22" type="stmt"/>
@@ -2463,22 +2463,97 @@
       </package>
       <package name="tooltips.src.views.content">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <file name="Paragraph.js" path="/Users/agreen/Repos/react-components/packages/tooltips/src/views/content/Paragraph.js">
+        <file name="Paragraph.js" path="/home/travis/build/zendeskgarden/react-components/packages/tooltips/src/views/content/Paragraph.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="20" type="stmt"/>
           <line num="17" count="20" type="stmt"/>
           <line num="22" count="1" type="stmt"/>
         </file>
-        <file name="Title.js" path="/Users/agreen/Repos/react-components/packages/tooltips/src/views/content/Title.js">
+        <file name="Title.js" path="/home/travis/build/zendeskgarden/react-components/packages/tooltips/src/views/content/Title.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="20" type="stmt"/>
           <line num="17" count="20" type="stmt"/>
           <line num="22" count="1" type="stmt"/>
         </file>
       </package>
+      <package name="typography.src.views">
+        <metrics statements="54" coveredstatements="54" conditionals="12" coveredconditionals="12" methods="18" coveredmethods="18"/>
+        <file name="LG.js" path="/home/travis/build/zendeskgarden/react-components/packages/typography/src/views/LG.js">
+          <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="23" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="25" count="2" type="stmt"/>
+          <line num="31" count="1" type="stmt"/>
+          <line num="32" count="2" type="stmt"/>
+          <line num="34" count="2" type="stmt"/>
+          <line num="37" count="1" type="stmt"/>
+          <line num="42" count="1" type="stmt"/>
+        </file>
+        <file name="MD.js" path="/home/travis/build/zendeskgarden/react-components/packages/typography/src/views/MD.js">
+          <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="23" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="25" count="2" type="stmt"/>
+          <line num="31" count="1" type="stmt"/>
+          <line num="32" count="2" type="stmt"/>
+          <line num="34" count="2" type="stmt"/>
+          <line num="37" count="1" type="stmt"/>
+          <line num="42" count="1" type="stmt"/>
+        </file>
+        <file name="SM.js" path="/home/travis/build/zendeskgarden/react-components/packages/typography/src/views/SM.js">
+          <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="23" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="25" count="2" type="stmt"/>
+          <line num="31" count="1" type="stmt"/>
+          <line num="32" count="2" type="stmt"/>
+          <line num="34" count="2" type="stmt"/>
+          <line num="37" count="1" type="stmt"/>
+          <line num="42" count="1" type="stmt"/>
+        </file>
+        <file name="XL.js" path="/home/travis/build/zendeskgarden/react-components/packages/typography/src/views/XL.js">
+          <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="23" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="25" count="2" type="stmt"/>
+          <line num="31" count="1" type="stmt"/>
+          <line num="32" count="2" type="stmt"/>
+          <line num="34" count="2" type="stmt"/>
+          <line num="37" count="1" type="stmt"/>
+          <line num="42" count="1" type="stmt"/>
+        </file>
+        <file name="XXL.js" path="/home/travis/build/zendeskgarden/react-components/packages/typography/src/views/XXL.js">
+          <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="23" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="25" count="2" type="stmt"/>
+          <line num="31" count="1" type="stmt"/>
+          <line num="32" count="2" type="stmt"/>
+          <line num="34" count="2" type="stmt"/>
+          <line num="37" count="1" type="stmt"/>
+          <line num="42" count="1" type="stmt"/>
+        </file>
+        <file name="XXXL.js" path="/home/travis/build/zendeskgarden/react-components/packages/typography/src/views/XXXL.js">
+          <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="23" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="25" count="2" type="stmt"/>
+          <line num="31" count="1" type="stmt"/>
+          <line num="32" count="2" type="stmt"/>
+          <line num="34" count="2" type="stmt"/>
+          <line num="37" count="1" type="stmt"/>
+          <line num="42" count="1" type="stmt"/>
+        </file>
+      </package>
       <package name="utilities.src.utils">
         <metrics statements="10" coveredstatements="9" conditionals="10" coveredconditionals="7" methods="2" coveredmethods="2"/>
-        <file name="hasType.js" path="/Users/agreen/Repos/react-components/packages/utilities/src/utils/hasType.js">
+        <file name="hasType.js" path="/home/travis/build/zendeskgarden/react-components/packages/utilities/src/utils/hasType.js">
           <metrics statements="7" coveredstatements="6" conditionals="8" coveredconditionals="5" methods="1" coveredmethods="1"/>
           <line num="15" count="1902" type="cond" truecount="0" falsecount="1"/>
           <line num="16" count="1902" type="stmt"/>
@@ -2488,7 +2563,7 @@
           <line num="23" count="0" type="stmt"/>
           <line num="26" count="1902" type="stmt"/>
         </file>
-        <file name="requiredParam.js" path="/Users/agreen/Repos/react-components/packages/utilities/src/utils/requiredParam.js">
+        <file name="requiredParam.js" path="/home/travis/build/zendeskgarden/react-components/packages/utilities/src/utils/requiredParam.js">
           <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
           <line num="15" count="2" type="cond" truecount="2" falsecount="0"/>
           <line num="16" count="1" type="stmt"/>
