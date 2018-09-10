@@ -6,13 +6,14 @@
  */
 
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import Cell from './Cell';
 
 const COMPONENT_ID = 'tables.header_cell';
 
 /** Accepts all `<th>` props */
-const HeaderCell = Cell.withComponent('th').extend.attrs({
+const HeaderCell = styled(Cell.withComponent('th')).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

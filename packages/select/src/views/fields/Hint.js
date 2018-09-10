@@ -6,6 +6,7 @@
  */
 
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import { Hint as TextfieldHint } from '@zendeskgarden/react-textfields';
 
@@ -14,7 +15,7 @@ const COMPONENT_ID = 'select.hint';
 /**
  * Accepts all `<div>` props
  */
-const Hint = TextfieldHint.extend.attrs({
+const Hint = styled(TextfieldHint).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

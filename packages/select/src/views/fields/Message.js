@@ -6,6 +6,7 @@
  */
 
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import { Message as TextfieldMessage } from '@zendeskgarden/react-textfields';
 
@@ -20,7 +21,7 @@ const VALIDATION = {
 /**
  * Accepts all `<div>` props
  */
-const Message = TextfieldMessage.extend.attrs({
+const Message = styled(TextfieldMessage).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

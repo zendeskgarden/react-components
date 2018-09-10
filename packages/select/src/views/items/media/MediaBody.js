@@ -5,6 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import styled from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import { MediaBody as MenuMediaBody } from '@zendeskgarden/react-menus';
 
@@ -13,7 +14,7 @@ const COMPONENT_ID = 'select.media_body';
 /**
  * Accepts all `<div>` props
  */
-const MediaBody = MenuMediaBody.extend.attrs({
+const MediaBody = styled(MenuMediaBody).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

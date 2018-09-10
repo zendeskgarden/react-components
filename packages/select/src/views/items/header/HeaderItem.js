@@ -6,6 +6,7 @@
  */
 
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import { HeaderItem as MenuHeaderItem } from '@zendeskgarden/react-menus';
 
@@ -14,7 +15,7 @@ const COMPONENT_ID = 'select.header_item';
 /**
  * Accepts all `<li>` props
  */
-const HeaderItem = MenuHeaderItem.extend.attrs({
+const HeaderItem = styled(MenuHeaderItem).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
