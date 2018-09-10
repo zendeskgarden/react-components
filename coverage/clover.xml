@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1536604794092" clover="3.2.0">
-  <project timestamp="1536604794092" name="All files">
+<coverage generated="1536615386257" clover="3.2.0">
+  <project timestamp="1536615386257" name="All files">
     <metrics statements="1857" coveredstatements="1841" conditionals="828" coveredconditionals="743" methods="613" coveredmethods="611" elements="3298" coveredelements="3195" complexity="0" loc="1857" ncloc="1857" packages="64" files="173" classes="173">
       <package name="autocomplete.src.containers">
         <metrics statements="152" coveredstatements="152" conditionals="100" coveredconditionals="86" methods="44" coveredmethods="44"/>
@@ -405,8 +405,8 @@
           <line num="16" count="2" type="stmt"/>
           <line num="18" count="2" type="stmt"/>
           <line num="28" count="2" type="stmt"/>
-          <line num="32" count="29" type="stmt"/>
-          <line num="58" count="29" type="stmt"/>
+          <line num="32" count="15" type="stmt"/>
+          <line num="58" count="15" type="stmt"/>
           <line num="64" count="2" type="stmt"/>
           <line num="65" count="15" type="stmt"/>
           <line num="67" count="15" type="stmt"/>
@@ -428,11 +428,11 @@
         </file>
         <file name="HeaderItemWrapper.js" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/views/header/HeaderItemWrapper.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="11" count="1" type="stmt"/>
-          <line num="15" count="1" type="stmt"/>
-          <line num="26" count="1" type="stmt"/>
-          <line num="30" count="14" type="stmt"/>
-          <line num="33" count="1" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="31" count="14" type="stmt"/>
+          <line num="34" count="1" type="stmt"/>
         </file>
       </package>
       <package name="chrome.src.views.nav">
@@ -875,7 +875,7 @@
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="16" type="stmt"/>
           <line num="17" count="16" type="stmt"/>
-          <line num="23" count="2" type="stmt"/>
+          <line num="23" count="1" type="stmt"/>
         </file>
       </package>
       <package name="menus.src.views.items">
@@ -884,7 +884,7 @@
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
           <line num="15" count="17" type="stmt"/>
           <line num="20" count="17" type="stmt"/>
-          <line num="25" count="2" type="stmt"/>
+          <line num="25" count="1" type="stmt"/>
           <line num="28" count="17" type="stmt"/>
           <line num="35" count="17" type="stmt"/>
         </file>
@@ -892,22 +892,22 @@
           <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="14" count="22" type="stmt"/>
           <line num="19" count="22" type="stmt"/>
-          <line num="23" count="198" type="stmt"/>
-          <line num="32" count="198" type="stmt"/>
+          <line num="23" count="197" type="stmt"/>
+          <line num="32" count="197" type="stmt"/>
           <line num="35" count="22" type="stmt"/>
-          <line num="43" count="286" type="stmt"/>
+          <line num="43" count="76" type="stmt"/>
         </file>
         <file name="ItemMeta.js" path="/home/travis/build/zendeskgarden/react-components/packages/menus/src/views/items/ItemMeta.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="16" type="stmt"/>
           <line num="17" count="16" type="stmt"/>
-          <line num="22" count="2" type="stmt"/>
+          <line num="22" count="1" type="stmt"/>
         </file>
         <file name="NextItem.js" path="/home/travis/build/zendeskgarden/react-components/packages/menus/src/views/items/NextItem.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="15" count="17" type="stmt"/>
           <line num="20" count="17" type="stmt"/>
-          <line num="25" count="37" type="stmt"/>
+          <line num="25" count="36" type="stmt"/>
           <line num="28" count="17" type="stmt"/>
           <line num="35" count="95" type="stmt"/>
         </file>
@@ -915,7 +915,7 @@
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="15" count="17" type="stmt"/>
           <line num="20" count="17" type="stmt"/>
-          <line num="25" count="37" type="stmt"/>
+          <line num="25" count="36" type="stmt"/>
           <line num="28" count="17" type="stmt"/>
           <line num="35" count="133" type="stmt"/>
         </file>
@@ -932,9 +932,9 @@
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="15" count="17" type="stmt"/>
           <line num="20" count="17" type="stmt"/>
-          <line num="25" count="37" type="stmt"/>
+          <line num="25" count="36" type="stmt"/>
           <line num="28" count="17" type="stmt"/>
-          <line num="36" count="95" type="stmt"/>
+          <line num="36" count="305" type="stmt"/>
         </file>
       </package>
       <package name="menus.src.views.items.media">
@@ -943,7 +943,7 @@
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="16" type="stmt"/>
           <line num="17" count="16" type="stmt"/>
-          <line num="22" count="2" type="stmt"/>
+          <line num="22" count="1" type="stmt"/>
         </file>
         <file name="MediaFigure.js" path="/home/travis/build/zendeskgarden/react-components/packages/menus/src/views/items/media/MediaFigure.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -955,7 +955,7 @@
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="15" count="17" type="stmt"/>
           <line num="20" count="17" type="stmt"/>
-          <line num="25" count="2" type="stmt"/>
+          <line num="25" count="1" type="stmt"/>
           <line num="28" count="17" type="stmt"/>
         </file>
       </package>
@@ -1594,10 +1594,10 @@
         </file>
         <file name="SelectGroup.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/SelectGroup.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="12" count="2" type="stmt"/>
-          <line num="17" count="2" type="stmt"/>
-          <line num="21" count="9" type="stmt"/>
-          <line num="24" count="2" type="stmt"/>
+          <line num="13" count="2" type="stmt"/>
+          <line num="18" count="2" type="stmt"/>
+          <line num="22" count="9" type="stmt"/>
+          <line num="25" count="2" type="stmt"/>
         </file>
         <file name="SelectView.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/SelectView.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -1609,78 +1609,78 @@
         </file>
         <file name="Separator.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/Separator.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="11" count="1" type="stmt"/>
-          <line num="16" count="1" type="stmt"/>
-          <line num="20" count="1" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="21" count="1" type="stmt"/>
         </file>
       </package>
       <package name="select.src.views.fields">
         <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
         <file name="Hint.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/fields/Hint.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-          <line num="12" count="2" type="stmt"/>
-          <line num="17" count="2" type="stmt"/>
-          <line num="21" count="8" type="stmt"/>
-          <line num="24" count="2" type="stmt"/>
-          <line num="28" count="14" type="stmt"/>
+          <line num="13" count="2" type="stmt"/>
+          <line num="18" count="2" type="stmt"/>
+          <line num="22" count="8" type="stmt"/>
+          <line num="25" count="2" type="stmt"/>
+          <line num="29" count="14" type="stmt"/>
         </file>
         <file name="Label.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/fields/Label.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-          <line num="12" count="2" type="stmt"/>
-          <line num="17" count="2" type="stmt"/>
-          <line num="21" count="9" type="stmt"/>
-          <line num="24" count="2" type="stmt"/>
-          <line num="29" count="8" type="stmt"/>
+          <line num="13" count="2" type="stmt"/>
+          <line num="18" count="2" type="stmt"/>
+          <line num="22" count="9" type="stmt"/>
+          <line num="25" count="2" type="stmt"/>
+          <line num="30" count="8" type="stmt"/>
         </file>
         <file name="Message.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/fields/Message.js">
           <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-          <line num="12" count="2" type="stmt"/>
           <line num="13" count="2" type="stmt"/>
-          <line num="23" count="2" type="stmt"/>
-          <line num="27" count="9" type="stmt"/>
-          <line num="30" count="2" type="stmt"/>
-          <line num="39" count="24" type="stmt"/>
+          <line num="14" count="2" type="stmt"/>
+          <line num="24" count="2" type="stmt"/>
+          <line num="28" count="9" type="stmt"/>
+          <line num="31" count="2" type="stmt"/>
+          <line num="40" count="24" type="stmt"/>
         </file>
       </package>
       <package name="select.src.views.items">
         <metrics statements="23" coveredstatements="23" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="8"/>
         <file name="AddItem.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/items/AddItem.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-          <line num="12" count="3" type="stmt"/>
-          <line num="17" count="3" type="stmt"/>
-          <line num="21" count="1" type="stmt"/>
-          <line num="24" count="3" type="stmt"/>
-          <line num="31" count="3" type="stmt"/>
+          <line num="13" count="3" type="stmt"/>
+          <line num="18" count="3" type="stmt"/>
+          <line num="22" count="1" type="stmt"/>
+          <line num="25" count="3" type="stmt"/>
+          <line num="32" count="3" type="stmt"/>
         </file>
         <file name="Item.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/items/Item.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-          <line num="12" count="3" type="stmt"/>
-          <line num="17" count="3" type="stmt"/>
-          <line num="21" count="49" type="stmt"/>
-          <line num="24" count="3" type="stmt"/>
-          <line num="32" count="264" type="stmt"/>
+          <line num="13" count="3" type="stmt"/>
+          <line num="18" count="3" type="stmt"/>
+          <line num="22" count="49" type="stmt"/>
+          <line num="25" count="3" type="stmt"/>
+          <line num="33" count="264" type="stmt"/>
         </file>
         <file name="ItemMeta.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/items/ItemMeta.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="11" count="1" type="stmt"/>
-          <line num="16" count="1" type="stmt"/>
-          <line num="20" count="1" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="21" count="1" type="stmt"/>
         </file>
         <file name="NextItem.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/items/NextItem.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-          <line num="12" count="3" type="stmt"/>
-          <line num="17" count="3" type="stmt"/>
-          <line num="21" count="17" type="stmt"/>
-          <line num="24" count="3" type="stmt"/>
-          <line num="31" count="184" type="stmt"/>
+          <line num="13" count="3" type="stmt"/>
+          <line num="18" count="3" type="stmt"/>
+          <line num="22" count="17" type="stmt"/>
+          <line num="25" count="3" type="stmt"/>
+          <line num="32" count="184" type="stmt"/>
         </file>
         <file name="PreviousItem.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/items/PreviousItem.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-          <line num="12" count="3" type="stmt"/>
-          <line num="17" count="3" type="stmt"/>
-          <line num="21" count="17" type="stmt"/>
-          <line num="24" count="3" type="stmt"/>
-          <line num="31" count="242" type="stmt"/>
+          <line num="13" count="3" type="stmt"/>
+          <line num="18" count="3" type="stmt"/>
+          <line num="22" count="17" type="stmt"/>
+          <line num="25" count="3" type="stmt"/>
+          <line num="32" count="242" type="stmt"/>
         </file>
       </package>
       <package name="select.src.views.items.header">
@@ -1690,29 +1690,29 @@
         </file>
         <file name="HeaderItem.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/items/header/HeaderItem.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="12" count="2" type="stmt"/>
-          <line num="17" count="2" type="stmt"/>
-          <line num="21" count="17" type="stmt"/>
-          <line num="24" count="2" type="stmt"/>
+          <line num="13" count="2" type="stmt"/>
+          <line num="18" count="2" type="stmt"/>
+          <line num="22" count="17" type="stmt"/>
+          <line num="25" count="2" type="stmt"/>
         </file>
       </package>
       <package name="select.src.views.items.media">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <file name="MediaBody.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/items/media/MediaBody.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="11" count="1" type="stmt"/>
-          <line num="16" count="1" type="stmt"/>
-          <line num="20" count="1" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="21" count="1" type="stmt"/>
         </file>
         <file name="MediaFigure.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/items/media/MediaFigure.js">
           <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         </file>
         <file name="MediaItem.js" path="/home/travis/build/zendeskgarden/react-components/packages/select/src/views/items/media/MediaItem.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="12" count="3" type="stmt"/>
-          <line num="17" count="3" type="stmt"/>
-          <line num="21" count="1" type="stmt"/>
-          <line num="24" count="3" type="stmt"/>
+          <line num="13" count="3" type="stmt"/>
+          <line num="18" count="3" type="stmt"/>
+          <line num="22" count="1" type="stmt"/>
+          <line num="25" count="3" type="stmt"/>
         </file>
       </package>
       <package name="selection.src.constants">
@@ -1943,8 +1943,8 @@
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="14" count="3" type="stmt"/>
           <line num="19" count="3" type="stmt"/>
-          <line num="23" count="15" type="stmt"/>
-          <line num="29" count="15" type="stmt"/>
+          <line num="23" count="11" type="stmt"/>
+          <line num="29" count="11" type="stmt"/>
           <line num="32" count="3" type="stmt"/>
         </file>
         <file name="Head.js" path="/home/travis/build/zendeskgarden/react-components/packages/tables/src/views/Head.js">
@@ -1955,10 +1955,10 @@
         </file>
         <file name="HeaderCell.js" path="/home/travis/build/zendeskgarden/react-components/packages/tables/src/views/HeaderCell.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="12" count="2" type="stmt"/>
-          <line num="15" count="2" type="stmt"/>
-          <line num="19" count="11" type="stmt"/>
-          <line num="22" count="2" type="stmt"/>
+          <line num="13" count="2" type="stmt"/>
+          <line num="16" count="2" type="stmt"/>
+          <line num="20" count="11" type="stmt"/>
+          <line num="23" count="2" type="stmt"/>
         </file>
         <file name="OverflowButton.js" path="/home/travis/build/zendeskgarden/react-components/packages/tables/src/views/OverflowButton.js">
           <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
@@ -2185,8 +2185,8 @@
           <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="14" count="9" type="stmt"/>
           <line num="19" count="9" type="stmt"/>
-          <line num="23" count="18" type="stmt"/>
-          <line num="30" count="18" type="stmt"/>
+          <line num="23" count="17" type="stmt"/>
+          <line num="30" count="17" type="stmt"/>
           <line num="33" count="9" type="stmt"/>
           <line num="37" count="28" type="stmt"/>
         </file>
@@ -2204,8 +2204,8 @@
           <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
           <line num="14" count="9" type="stmt"/>
           <line num="19" count="9" type="stmt"/>
-          <line num="23" count="20" type="stmt"/>
-          <line num="31" count="20" type="stmt"/>
+          <line num="23" count="19" type="stmt"/>
+          <line num="31" count="19" type="stmt"/>
           <line num="34" count="9" type="stmt"/>
           <line num="39" count="9" type="stmt"/>
         </file>
@@ -2220,8 +2220,8 @@
           <line num="14" count="9" type="stmt"/>
           <line num="15" count="9" type="stmt"/>
           <line num="25" count="9" type="stmt"/>
-          <line num="29" count="22" type="stmt"/>
-          <line num="38" count="22" type="stmt"/>
+          <line num="29" count="21" type="stmt"/>
+          <line num="38" count="21" type="stmt"/>
           <line num="41" count="9" type="stmt"/>
           <line num="50" count="35" type="stmt"/>
         </file>
@@ -2229,8 +2229,8 @@
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="14" count="9" type="stmt"/>
           <line num="19" count="9" type="stmt"/>
-          <line num="23" count="19" type="stmt"/>
-          <line num="30" count="19" type="stmt"/>
+          <line num="23" count="18" type="stmt"/>
+          <line num="30" count="18" type="stmt"/>
           <line num="33" count="9" type="stmt"/>
         </file>
         <file name="Textarea.js" path="/home/travis/build/zendeskgarden/react-components/packages/textfields/src/views/Textarea.js">
@@ -2262,13 +2262,13 @@
         </file>
         <file name="isRtl.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/utils/isRtl.js">
           <metrics statements="1" coveredstatements="1" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
-          <line num="10" count="906" type="cond" truecount="2" falsecount="0"/>
+          <line num="10" count="902" type="cond" truecount="2" falsecount="0"/>
         </file>
         <file name="retrieveTheme.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/utils/retrieveTheme.js">
           <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
-          <line num="10" count="1806" type="stmt"/>
-          <line num="12" count="1806" type="cond" truecount="2" falsecount="0"/>
-          <line num="13" count="495" type="stmt"/>
+          <line num="10" count="1775" type="stmt"/>
+          <line num="12" count="1775" type="cond" truecount="2" falsecount="0"/>
+          <line num="13" count="464" type="stmt"/>
           <line num="16" count="1311" type="stmt"/>
           <line num="18" count="1311" type="cond" truecount="2" falsecount="0"/>
           <line num="19" count="1" type="stmt"/>
