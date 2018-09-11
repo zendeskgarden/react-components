@@ -237,7 +237,7 @@ describe('MenuContainer', () => {
       });
     });
 
-    it('closes menu if blured by click', () => {
+    it('closes menu if blurred by click', () => {
       /**
        * Enzyme doesn't attach mount/shallow wrapper to the document by default.
        * This allows us to test the blur events correctly.
@@ -247,7 +247,7 @@ describe('MenuContainer', () => {
       });
       findTrigger(wrapper).simulate('click');
       jest.runOnlyPendingTimers();
-      document.dispatchEvent(new Event('mousedown'));
+      document.dispatchEvent(new MouseEvent('mousedown', { which: 1 }));
       wrapper.update();
 
       expect(findMenu(wrapper)).not.toExist();

@@ -151,15 +151,15 @@ class MenuContainer extends ControlledComponent {
   }
 
   componentDidMount() {
-    const doc = getDocument ? getDocument(this.props) : document;
-
-    doc.addEventListener('mousedown', this.handleOutsideMouseDown);
+    this.getDocuments().forEach(doc => {
+      doc.addEventListener('mousedown', this.handleOutsideMouseDown);
+    });
   }
 
   componentWillUnmount() {
-    const doc = getDocument ? getDocument(this.props) : document;
-
-    doc.removeEventListener('mousedown', this.handleOutsideMouseDown);
+    this.getDocuments().forEach(doc => {
+      doc.removeEventListener('mousedown', this.handleOutsideMouseDown);
+    });
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -195,18 +195,38 @@ class MenuContainer extends ControlledComponent {
     }
   }
 
+  getDocuments = () => {
+    const doc = getDocument ? getDocument(this.props) : document;
+    const iframes = doc.querySelectorAll('iframe');
+
+    return [...iframes].reduce(
+      (documents, iframe) => {
+        try {
+          if (iframe.contentDocument) {
+            return [...documents, iframe.contentDocument];
+          }
+        } catch (e) {} // eslint-disable-line no-empty
+
+        return documents;
+      },
+      [doc]
+    );
+  };
+
   /**
    * Used to know when a Menu is blured by mouse
    */
   handleOutsideMouseDown = event => {
     const { isOpen } = this.getControlledState();
+    const { target, which } = event;
+    const isLeftClick = which === 1;
 
-    if (!isOpen) {
+    if (!isOpen || !isLeftClick) {
       return;
     }
 
-    if (this.menuReference && !this.menuReference.contains(event.target)) {
-      if (this.triggerReference && !this.triggerReference.contains(event.target)) {
+    if (this.menuReference && !this.menuReference.contains(target)) {
+      if (this.triggerReference && !this.triggerReference.contains(target)) {
         this.toggleMenuVisibility({ closedByBlur: true });
       }
     }
