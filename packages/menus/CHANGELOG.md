@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.6.1"></a>
+## [3.6.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.6.0...@zendeskgarden/react-menus@3.6.1) (2018-09-11)
+
+
+### Bug Fixes
+
+* **menus:** Change handleOutsideMouseDown to handle when clicking on iframes ([#145](https://github.com/zendeskgarden/react-components/issues/145)) ([29d40aa](https://github.com/zendeskgarden/react-components/commit/29d40aa))
+
+
+
+
+
 <a name="3.6.0"></a>
 # [3.6.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.5.9...@zendeskgarden/react-menus@3.6.0) (2018-09-04)
 
