@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1536631004654" clover="3.2.0">
-  <project timestamp="1536631004654" name="All files">
-    <metrics statements="1866" coveredstatements="1846" conditionals="830" coveredconditionals="744" methods="617" coveredmethods="614" elements="3313" coveredelements="3204" complexity="0" loc="1866" ncloc="1866" packages="64" files="173" classes="173">
+<coverage generated="1536713242242" clover="3.2.0">
+  <project timestamp="1536713242242" name="All files">
+    <metrics statements="1860" coveredstatements="1840" conditionals="841" coveredconditionals="754" methods="616" coveredmethods="613" elements="3317" coveredelements="3207" complexity="0" loc="1860" ncloc="1860" packages="64" files="173" classes="173">
       <package name="autocomplete.src.containers">
         <metrics statements="152" coveredstatements="152" conditionals="100" coveredconditionals="86" methods="44" coveredmethods="44"/>
         <file name="AutocompleteContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/autocomplete/src/containers/AutocompleteContainer.js">
@@ -969,41 +969,35 @@
         </file>
       </package>
       <package name="modals.src.containers">
-        <metrics statements="50" coveredstatements="50" conditionals="29" coveredconditionals="22" methods="25" coveredmethods="25"/>
+        <metrics statements="44" coveredstatements="44" conditionals="40" coveredconditionals="32" methods="24" coveredmethods="24"/>
         <file name="FocusJailContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/modals/src/containers/FocusJailContainer.js">
-          <metrics statements="32" coveredstatements="32" conditionals="16" coveredconditionals="14" methods="10" coveredmethods="10"/>
-          <line num="39" count="79" type="stmt"/>
-          <line num="41" count="79" type="stmt"/>
-          <line num="43" count="77" type="cond" truecount="2" falsecount="0"/>
-          <line num="44" count="31" type="stmt"/>
-          <line num="51" count="22" type="cond" truecount="2" falsecount="0"/>
-          <line num="56" count="82" type="cond" truecount="2" falsecount="0"/>
-          <line num="57" count="2" type="stmt"/>
-          <line num="64" count="142" type="stmt"/>
-          <line num="66" count="16" type="cond" truecount="2" falsecount="0"/>
-          <line num="67" count="13" type="stmt"/>
-          <line num="70" count="3" type="stmt"/>
-          <line num="71" count="3" type="stmt"/>
-          <line num="73" count="3" type="stmt"/>
-          <line num="75" count="3" type="cond" truecount="2" falsecount="0"/>
-          <line num="76" count="1" type="stmt"/>
-          <line num="77" count="1" type="stmt"/>
+          <metrics statements="26" coveredstatements="26" conditionals="27" coveredconditionals="24" methods="9" coveredmethods="9"/>
+          <line num="41" count="81" type="stmt"/>
+          <line num="43" count="81" type="stmt"/>
+          <line num="45" count="79" type="cond" truecount="2" falsecount="0"/>
+          <line num="46" count="33" type="stmt"/>
+          <line num="53" count="22" type="cond" truecount="2" falsecount="0"/>
+          <line num="58" count="85" type="cond" truecount="2" falsecount="0"/>
+          <line num="59" count="2" type="stmt"/>
+          <line num="66" count="144" type="stmt"/>
+          <line num="68" count="17" type="cond" truecount="2" falsecount="0"/>
+          <line num="69" count="13" type="stmt"/>
+          <line num="72" count="4" type="stmt"/>
+          <line num="74" count="4" type="stmt"/>
+          <line num="76" count="4" type="cond" truecount="2" falsecount="0"/>
           <line num="80" count="1" type="stmt"/>
           <line num="81" count="1" type="stmt"/>
-          <line num="82" count="2" type="cond" truecount="2" falsecount="0"/>
-          <line num="83" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="84" count="4" type="cond" truecount="4" falsecount="0"/>
           <line num="85" count="1" type="stmt"/>
           <line num="86" count="1" type="stmt"/>
-          <line num="89" count="1" type="stmt"/>
-          <line num="90" count="1" type="stmt"/>
-          <line num="92" count="1" type="stmt"/>
-          <line num="94" count="1" type="stmt"/>
-          <line num="95" count="1" type="stmt"/>
-          <line num="98" count="1" type="stmt"/>
-          <line num="99" count="1" type="stmt"/>
-          <line num="107" count="217" type="stmt"/>
-          <line num="111" count="142" type="cond" truecount="1" falsecount="0"/>
-          <line num="113" count="142" type="stmt"/>
+          <line num="94" count="4" type="stmt"/>
+          <line num="96" count="4" type="stmt"/>
+          <line num="103" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="104" count="2" type="stmt"/>
+          <line num="106" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="110" count="219" type="stmt"/>
+          <line num="114" count="144" type="cond" truecount="1" falsecount="0"/>
+          <line num="116" count="144" type="stmt"/>
         </file>
         <file name="ModalContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/modals/src/containers/ModalContainer.js">
           <metrics statements="18" coveredstatements="18" conditionals="13" coveredconditionals="8" methods="15" coveredmethods="15"/>
@@ -1928,10 +1922,10 @@
         </file>
         <file name="composeEventHandlers.js" path="/home/travis/build/zendeskgarden/react-components/packages/selection/src/utils/composeEventHandlers.js">
           <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
-          <line num="25" count="6113" type="stmt"/>
-          <line num="26" count="494" type="stmt"/>
-          <line num="27" count="903" type="cond" truecount="2" falsecount="0"/>
-          <line num="29" count="903" type="cond" truecount="2" falsecount="0"/>
+          <line num="25" count="6115" type="stmt"/>
+          <line num="26" count="495" type="stmt"/>
+          <line num="27" count="905" type="cond" truecount="2" falsecount="0"/>
+          <line num="29" count="905" type="cond" truecount="2" falsecount="0"/>
         </file>
       </package>
       <package name="tables.src.views">
@@ -2143,8 +2137,8 @@
         <file name="mountWithTheme.js" path="/home/travis/build/zendeskgarden/react-components/packages/testing/src/utils/mountWithTheme.js">
           <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
           <line num="18" count="67" type="cond" truecount="2" falsecount="0"/>
-          <line num="19" count="405" type="stmt"/>
-          <line num="24" count="405" type="stmt"/>
+          <line num="19" count="407" type="stmt"/>
+          <line num="24" count="407" type="stmt"/>
         </file>
         <file name="shallowWithTheme.js" path="/home/travis/build/zendeskgarden/react-components/packages/testing/src/utils/shallowWithTheme.js">
           <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -2258,8 +2252,8 @@
         <file name="ThemeProvider.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/ThemeProvider/ThemeProvider.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="12" count="151" type="stmt"/>
-          <line num="13" count="439" type="stmt"/>
-          <line num="19" count="439" type="stmt"/>
+          <line num="13" count="441" type="stmt"/>
+          <line num="19" count="441" type="stmt"/>
           <line num="22" count="151" type="stmt"/>
         </file>
       </package>
@@ -2267,7 +2261,7 @@
         <metrics statements="10" coveredstatements="10" conditionals="11" coveredconditionals="11" methods="4" coveredmethods="4"/>
         <file name="getDocument.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/utils/getDocument.js">
           <metrics statements="1" coveredstatements="1" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
-          <line num="10" count="227" type="cond" truecount="3" falsecount="0"/>
+          <line num="10" count="229" type="cond" truecount="3" falsecount="0"/>
         </file>
         <file name="isRtl.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/utils/isRtl.js">
           <metrics statements="1" coveredstatements="1" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
@@ -2285,7 +2279,7 @@
         </file>
         <file name="withTheme.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/utils/withTheme.js">
           <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="12" count="95" type="stmt"/>
+          <line num="12" count="115" type="stmt"/>
         </file>
       </package>
       <package name="toggles.src.elements">
