@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="5.3.12"></a>
+## [5.3.12](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.3.11...@zendeskgarden/react-modals@5.3.12) (2018-09-12)
+
+
+### Bug Fixes
+
+* **modals:** FocusJailContainer correctly preserves logical tab order ([#144](https://github.com/zendeskgarden/react-components/issues/144)) ([8668f37](https://github.com/zendeskgarden/react-components/commit/8668f37))
+
+
+
+
+
 <a name="5.3.11"></a>
 ## [5.3.11](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.3.10...@zendeskgarden/react-modals@5.3.11) (2018-09-04)
 
