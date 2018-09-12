@@ -86,19 +86,19 @@ const StyledRow = styled(Layout.Row)`
         <StyledCaption>Your Unsolved Tickets</StyledCaption>
         <Head>
           <Row header>
-            <HeaderCell scope="col">Subject</HeaderCell>
-            <HeaderCell scope="col">Requester</HeaderCell>
-            <HeaderCell scope="col">Requested</HeaderCell>
-            <HeaderCell scope="col">Type</HeaderCell>
+            <HeaderCell width="25%">Subject</HeaderCell>
+            <HeaderCell width="25%">Requester</HeaderCell>
+            <HeaderCell width="25%">Requested</HeaderCell>
+            <HeaderCell width="25%">Type</HeaderCell>
           </Row>
         </Head>
         <Body>
           {state.data.map((row, index) => (
             <Row key={index} striped={state.striped && index % 2 === 0}>
-              <Cell>{row.subject}</Cell>
-              <Cell>{row.requester}</Cell>
-              <Cell>{row.requested}</Cell>
-              <Cell>{row.type}</Cell>
+              <Cell width="25%">{row.subject}</Cell>
+              <Cell width="25%">{row.requester}</Cell>
+              <Cell width="25%">{row.requested}</Cell>
+              <Cell width="25%">{row.type}</Cell>
             </Row>
           ))}
         </Body>

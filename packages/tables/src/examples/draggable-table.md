@@ -44,7 +44,6 @@ const DraggableCell = styled(Cell)`
     props.isDragging
       ? `
     display: inline-block !important;
-    width: 25%;
   `
       : ''};
 `;
@@ -103,10 +102,10 @@ class DraggableExample extends React.Component {
           <Head>
             <Row header>
               <HeaderCell minimum />
-              <HeaderCell scope="col">Subject</HeaderCell>
-              <HeaderCell scope="col">Requester</HeaderCell>
-              <HeaderCell scope="col">Requested</HeaderCell>
-              <HeaderCell scope="col">Type</HeaderCell>
+              <HeaderCell width="25%">Subject</HeaderCell>
+              <HeaderCell width="25%">Requester</HeaderCell>
+              <HeaderCell width="25%">Requested</HeaderCell>
+              <HeaderCell width="25%">Type</HeaderCell>
             </Row>
           </Head>
           <Droppable droppableId="droppable">
@@ -135,14 +134,18 @@ class DraggableExample extends React.Component {
                               <GripIcon />
                             </DraggableContainer>
                           </DraggableCell>
-                          <DraggableCell isDragging={snapshot.isDragging}>
+                          <DraggableCell isDragging={snapshot.isDragging} width="25%">
                             {item.content}
                           </DraggableCell>
-                          <DraggableCell isDragging={snapshot.isDragging}>John Smith</DraggableCell>
-                          <DraggableCell isDragging={snapshot.isDragging}>
+                          <DraggableCell isDragging={snapshot.isDragging} width="25%">
+                            John Smith
+                          </DraggableCell>
+                          <DraggableCell isDragging={snapshot.isDragging} width="25%">
                             15 minutes ago
                           </DraggableCell>
-                          <DraggableCell isDragging={snapshot.isDragging}>Ticket</DraggableCell>
+                          <DraggableCell isDragging={snapshot.isDragging} width="25%">
+                            Ticket
+                          </DraggableCell>
                         </DraggableRow>
                       )}
                     </Draggable>

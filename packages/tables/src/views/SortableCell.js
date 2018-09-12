@@ -41,7 +41,7 @@ const Sortable = styled.button.attrs({
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
-const SortableCell = ({ minimum, truncate, sort, cellProps, ...otherProps }) => {
+const SortableCell = ({ minimum, truncate, sort, cellProps, width, ...otherProps }) => {
   let ariaSortValue = 'none';
 
   if (sort === SORT.ASCENDING) {
@@ -51,7 +51,13 @@ const SortableCell = ({ minimum, truncate, sort, cellProps, ...otherProps }) => 
   }
 
   return (
-    <HeaderCell minimum={minimum} truncate={truncate} aria-sort={ariaSortValue} {...cellProps}>
+    <HeaderCell
+      minimum={minimum}
+      truncate={truncate}
+      aria-sort={ariaSortValue}
+      width={width}
+      {...cellProps}
+    >
       <Sortable sort={sort} {...otherProps} />
     </HeaderCell>
   );
@@ -67,7 +73,9 @@ SortableCell.propTypes = {
   /** Applies truncated text styling */
   truncate: PropTypes.bool,
   /** Props to be spread onto the contain `Cell` component */
-  cellProps: PropTypes.any
+  cellProps: PropTypes.any,
+  /** The width of the cell */
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 /** @component */

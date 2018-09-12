@@ -64,9 +64,10 @@ const sortData = (data, requesterSort, typeSort) => {
   <StyledCaption>Sortable Ticket View</StyledCaption>
   <Head>
     <Row header>
-      <HeaderCell scope="col">Subject</HeaderCell>
+      <HeaderCell width="33%">Subject</HeaderCell>
       <SortableCell
         scope="col"
+        width="33%"
         onClick={() => {
           const { requesterSort } = state;
 
@@ -83,7 +84,7 @@ const sortData = (data, requesterSort, typeSort) => {
         Requester
       </SortableCell>
       <SortableCell
-        scope="col"
+        width="33%"
         onClick={() => {
           const { typeSort } = state;
 
@@ -104,9 +105,9 @@ const sortData = (data, requesterSort, typeSort) => {
   <Body>
     {sortData(state.data.slice(), state.requesterSort, state.typeSort).map(row => (
       <Row key={row.id}>
-        <Cell>{row.subject}</Cell>
-        <Cell>{row.requester}</Cell>
-        <Cell>{row.type}</Cell>
+        <Cell width="33%">{row.subject}</Cell>
+        <Cell width="33%">{row.requester}</Cell>
+        <Cell width="33%">{row.type}</Cell>
       </Row>
     ))}
   </Body>

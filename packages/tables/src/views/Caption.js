@@ -12,9 +12,9 @@ import { retrieveTheme } from '@zendeskgarden/react-theming';
 const COMPONENT_ID = 'tables.caption';
 
 /**
- * Accepts all `<caption>` props
+ * Accepts all `<div>` props
  */
-const Caption = styled.caption.attrs({
+const Caption = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: TableStyles['c-table__caption']

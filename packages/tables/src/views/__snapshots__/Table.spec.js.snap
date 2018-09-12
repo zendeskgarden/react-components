@@ -1,72 +1,77 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Table applies scrollabe styling if provided 1`] = `
-.c0 thead,
-.c0 tbody,
-.c0 tr,
-.c0 td,
-.c0 th {
-  display: block;
+.c0 .c2 {
+  height: 200px !important;
+  overflow-y: scroll !important;
 }
 
-.c0 tr:after {
-  content: ' ';
-  display: block;
-  visibility: hidden;
-  clear: both;
+.c0 .c3 {
+  margin-right: 0px !important;
 }
 
-.c0 thead {
-  padding-right: 15px;
+.c0 .c1 {
+  min-height: 40px;
 }
 
-.c0 tbody {
-  height: 200px;
-  overflow-y: scroll;
-}
-
-.c0 tbody td,
-.c0 thead th {
-  float: left;
-}
-
-<table
+<div
   className="c-table c0"
   data-garden-id="tables.table"
   data-garden-version="version"
+  role="grid"
 />
 `;
 
 exports[`Table renders RTL styling if provided 1`] = `
-<table
-  className="c-table is-rtl "
+.c0 .c1 {
+  min-height: 40px;
+}
+
+<div
+  className="c-table is-rtl c0"
   data-garden-id="tables.table"
   data-garden-version="version"
+  role="grid"
 />
 `;
 
 exports[`Table renders default styling 1`] = `
-<table
-  className="c-table "
+.c0 .c1 {
+  min-height: 40px;
+}
+
+<div
+  className="c-table c0"
   data-garden-id="tables.table"
   data-garden-version="version"
+  role="grid"
 />
 `;
 
 exports[`Table renders sizing correctly if provided 1`] = `
-<table
-  className="c-table c-table--sm "
+.c0 .c1 {
+  min-height: 32px;
+}
+
+<div
+  className="c-table c-table--sm c0"
   data-garden-id="tables.table"
   data-garden-version="version"
+  role="grid"
   size="small"
 />
 `;
 
 exports[`Table renders sizing correctly if provided 2`] = `
-<table
-  className="c-table c-table--lg "
+.c0 .c1 {
+  min-height: 64px;
+}
+
+<div
+  className="c-table c-table--lg c0"
   data-garden-id="tables.table"
   data-garden-version="version"
+  role="grid"
   size="large"
 />
 `;

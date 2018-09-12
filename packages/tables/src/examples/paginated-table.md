@@ -62,22 +62,20 @@ const getPagedData = (data, currentPage, pageSize) => {
     </Caption>
     <Head>
       <Row header>
-        <HeaderCell scope="col" style={{ width: 45 }} />
-        <HeaderCell scope="col" style={{ width: 100 }}>
-          Name
-        </HeaderCell>
+        <HeaderCell width="45px" />
+        <HeaderCell width="100px">Name</HeaderCell>
         <HeaderCell>Description</HeaderCell>
       </Row>
     </Head>
     <Body>
       {getPagedData(data, state.currentPage, state.pageSize).map(row => (
         <Row key={row.id}>
-          <Cell style={{ width: 45 }}>
+          <Cell width="45px">
             <Avatar size="small">
               <img src={row.avatar} alt="Example Avatar" />
             </Avatar>
           </Cell>
-          <Cell truncate style={{ width: 100 }}>
+          <Cell truncate width="100px">
             {row.name}
           </Cell>
           <Cell truncate>{row.description}</Cell>

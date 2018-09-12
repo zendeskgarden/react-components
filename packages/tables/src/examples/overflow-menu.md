@@ -73,10 +73,10 @@ const OverflowMenu = ({ isHeader = false }) => (
   <StyledCaption>Overflow Menu</StyledCaption>
   <Head>
     <Row header>
-      <HeaderCell scope="col">Subject</HeaderCell>
-      <HeaderCell scope="col">Requester</HeaderCell>
-      <HeaderCell scope="col">Requested</HeaderCell>
-      <HeaderCell scope="col">Type</HeaderCell>
+      <HeaderCell width="25%">Subject</HeaderCell>
+      <HeaderCell width="25%">Requester</HeaderCell>
+      <HeaderCell width="25%">Requested</HeaderCell>
+      <HeaderCell width="25%">Type</HeaderCell>
       <HeaderCell menu>
         <OverflowMenu isHeader />
       </HeaderCell>
@@ -84,46 +84,46 @@ const OverflowMenu = ({ isHeader = false }) => (
   </Head>
   <Body>
     <Row>
-      <Cell>Where are my shoes?</Cell>
-      <Cell>John Smith</Cell>
-      <Cell>15 minutes ago</Cell>
-      <Cell>Ticket</Cell>
+      <Cell width="25%">Where are my shoes?</Cell>
+      <Cell width="25%">John Smith</Cell>
+      <Cell width="25%">15 minutes ago</Cell>
+      <Cell width="25%">Ticket</Cell>
       <Cell menu>
         <OverflowMenu />
       </Cell>
     </Row>
     <Row>
-      <Cell>Was charged twice</Cell>
-      <Cell>Jane Doe</Cell>
-      <Cell>25 minutes ago</Cell>
-      <Cell>Call</Cell>
+      <Cell width="25%">Was charged twice</Cell>
+      <Cell width="25%">Jane Doe</Cell>
+      <Cell width="25%">25 minutes ago</Cell>
+      <Cell width="25%">Call</Cell>
       <Cell menu>
         <OverflowMenu />
       </Cell>
     </Row>
     <Row>
-      <Cell>Ticket 1</Cell>
-      <Cell>Unknown</Cell>
-      <Cell>2 months ago</Cell>
-      <Cell>Ticket</Cell>
+      <Cell width="25%">Ticket 1</Cell>
+      <Cell width="25%">Unknown</Cell>
+      <Cell width="25%">2 months ago</Cell>
+      <Cell width="25%">Ticket</Cell>
       <Cell menu>
         <OverflowMenu />
       </Cell>
     </Row>
     <Row>
-      <Cell>Ticket 2</Cell>
-      <Cell>Unknown</Cell>
-      <Cell>2 months ago</Cell>
-      <Cell>Ticket</Cell>
+      <Cell width="25%">Ticket 2</Cell>
+      <Cell width="25%">Unknown</Cell>
+      <Cell width="25%">2 months ago</Cell>
+      <Cell width="25%">Ticket</Cell>
       <Cell menu>
         <OverflowMenu />
       </Cell>
     </Row>
     <Row>
-      <Cell>Ticket 3</Cell>
-      <Cell>Unknown</Cell>
-      <Cell>2 months ago</Cell>
-      <Cell>Ticket</Cell>
+      <Cell width="25%">Ticket 3</Cell>
+      <Cell width="25%">Unknown</Cell>
+      <Cell width="25%">2 months ago</Cell>
+      <Cell width="25%">Ticket</Cell>
       <Cell menu>
         <OverflowMenu />
       </Cell>

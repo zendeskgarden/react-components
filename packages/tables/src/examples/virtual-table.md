@@ -1,12 +1,11 @@
-Scrollable tables can be enabled with the `scrollable` prop. This defines the
-height of the `<Body>` element.
+Virtualized tables can help efficiently render large amounts of data.
 
-Similar to native, HTML tables there are some quirks with scrollable rows:
-
-- You must manually define the `width` of all `HeaderCell` and `Cell` components
-- You should use the `truncate` prop to ensure text is display correctly in all locales
+This implementation uses the [react-window](https://react-window.now.sh)
+library to implement it's virtualization.
 
 ```jsx
+const { FixedSizeList } = require('react-window');
+
 const {
   zdFontSizeBeta,
   zdFontWeightSemibold,
@@ -21,7 +20,7 @@ const StyledCaption = styled(Caption)`
 
 const rowData = [];
 
-for (let x = 0; x < 100; x++) {
+for (let x = 1; x <= 100000; x++) {
   rowData.push({
     id: x,
     subject: 'Example subject',
@@ -31,8 +30,8 @@ for (let x = 0; x < 100; x++) {
   });
 }
 
-<Table scrollable="200px">
-  <StyledCaption>Your Scrollable Tickets</StyledCaption>
+<Table scrollable="500px">
+  <StyledCaption>{rowData.length.toLocaleString()} Virtualized Tickets</StyledCaption>
   <Head>
     <Row header>
       <HeaderCell truncate width="25%">
@@ -49,23 +48,29 @@ for (let x = 0; x < 100; x++) {
       </HeaderCell>
     </Row>
   </Head>
-  <Body>
-    {rowData.map(data => (
-      <Row key={data.id}>
+  <FixedSizeList
+    height={500}
+    itemCount={rowData.length}
+    itemSize={35}
+    width="100%"
+    outerTagName={Body}
+  >
+    {({ index, style }) => (
+      <Row key={rowData[index].id} style={style}>
         <Cell truncate width="25%">
-          {data.subject}
+          [{rowData[index].id}] {rowData[index].subject}
         </Cell>
         <Cell truncate width="25%">
-          {data.requester}
+          {rowData[index].requester}
         </Cell>
         <Cell truncate width="25%">
-          {data.requested}
+          {rowData[index].requested}
         </Cell>
         <Cell truncate width="25%">
-          {data.type}
+          {rowData[index].type}
         </Cell>
       </Row>
-    ))}
-  </Body>
+    )}
+  </FixedSizeList>
 </Table>;
 ```

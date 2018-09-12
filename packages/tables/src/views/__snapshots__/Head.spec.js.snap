@@ -1,8 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Head renders default styling 1`] = `
-<thead
-  className=""
+.c0 {
+  display: block;
+}
+
+<div
+  className="c0"
   data-garden-id="tables.head"
   data-garden-version="version"
 />

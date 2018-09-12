@@ -1,33 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Cell renders default styling 1`] = `
-<td
+<div
   className="c-table__row__cell "
   data-garden-id="tables.cell"
   data-garden-version="version"
+  role="gridcell"
 />
 `;
 
 exports[`Cell renders menu styling if provided 1`] = `
-<td
+<div
   className="c-table__row__cell c-table__row__cell--overflow "
   data-garden-id="tables.cell"
   data-garden-version="version"
+  role="gridcell"
 />
 `;
 
 exports[`Cell renders minimum styling if provided 1`] = `
-<td
+<div
   className="c-table__row__cell c-table__row__cell--min "
   data-garden-id="tables.cell"
   data-garden-version="version"
+  role="gridcell"
 />
 `;
 
 exports[`Cell renders truncation styling if provided 1`] = `
-<td
+<div
   className="c-table__row__cell c-table__row__cell--truncate "
   data-garden-id="tables.cell"
   data-garden-version="version"
+  role="gridcell"
 />
 `;

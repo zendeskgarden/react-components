@@ -15,10 +15,11 @@ import { composeEventHandlers } from '@zendeskgarden/react-selection';
 
 const COMPONENT_ID = 'tables.row';
 
-const StyledRow = styled.tr.attrs({
+export const StyledRow = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   tabIndex: -1,
+  role: 'row',
   className: props =>
     classNames(TableStyles['c-table__row'], {
       [TableStyles['c-table__row--group']]: props.group,
@@ -30,6 +31,11 @@ const StyledRow = styled.tr.attrs({
       [TableStyles['is-selected']]: props.selected
     })
 })`
+  /* stylelint-disable */
+  display: flex;
+  height: auto !important;
+  /* stylelint-enable */
+
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

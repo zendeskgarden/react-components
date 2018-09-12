@@ -12,10 +12,11 @@ import Cell from './Cell';
 
 const COMPONENT_ID = 'tables.header_cell';
 
-/** Accepts all `<th>` props */
-const HeaderCell = styled(Cell.withComponent('th')).attrs({
+/** Accepts all `<div>` props */
+const HeaderCell = styled(Cell).attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
+  'data-garden-version': PACKAGE_VERSION,
+  role: 'columnheader'
 })`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
@@ -26,7 +27,9 @@ HeaderCell.propTypes = {
   /** Applies truncated text styling */
   truncate: PropTypes.bool,
   /** Applies overflow styling */
-  menu: PropTypes.bool
+  menu: PropTypes.bool,
+  /** The width of the cell */
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 /** @component */

@@ -11,12 +11,14 @@ import { retrieveTheme } from '@zendeskgarden/react-theming';
 const COMPONENT_ID = 'tables.body';
 
 /**
- * Accepts all `<tbody>` props
+ * Accepts all `<div>` props
  */
-const Body = styled.tbody.attrs({
+const Body = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
+  display: block;
+
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
