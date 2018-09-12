@@ -12,8 +12,10 @@ import {
   composeEventHandlers,
   KEY_CODES
 } from '@zendeskgarden/react-selection';
+import { getDocument, withTheme } from '@zendeskgarden/react-theming';
+import activeElement from 'dom-helpers/activeElement';
 
-export default class FocusJailContainer extends ControlledComponent {
+export class FocusJailContainer extends ControlledComponent {
   static propTypes = {
     /**
      * @param {Object} renderProps
@@ -68,39 +70,40 @@ export default class FocusJailContainer extends ControlledComponent {
         }
 
         this.validateContainerRef();
-        const elements = tabbable(this.container);
 
-        const index = elements.indexOf(event.target);
+        const tabbableNodes = this.tabbableNodes();
 
-        if (elements.length === 0) {
-          setTimeout(() => {
-            this.focusElement(this.container);
-          }, 0);
-
-          event.stopPropagation();
+        if (
+          event.shiftKey &&
+          (event.target === tabbableNodes.firstItem || event.target === this.container)
+        ) {
+          this.focusElement(tabbableNodes.lastItem);
           event.preventDefault();
-        } else if (event.shiftKey) {
-          const newIndex = index <= 0 ? elements.length - 1 : index - 1;
+        }
 
-          setTimeout(() => {
-            this.focusElement(elements[newIndex]);
-          }, 0);
-
-          event.stopPropagation();
-          event.preventDefault();
-        } else {
-          const newIndex = (index + 1) % elements.length;
-
-          setTimeout(() => {
-            this.focusElement(elements[newIndex]);
-          }, 0);
-
-          event.stopPropagation();
+        if (!event.shiftKey && event.target === tabbableNodes.lastItem) {
+          this.focusElement(tabbableNodes.firstItem);
           event.preventDefault();
         }
       }),
       ...other
     };
+  };
+
+  tabbableNodes = () => {
+    const elements = tabbable(this.container);
+
+    return {
+      firstItem: elements[0] || this.getInitialFocusNode(),
+      lastItem: elements[elements.length - 1] || this.getInitialFocusNode()
+    };
+  };
+
+  getInitialFocusNode = () => {
+    const doc = getDocument ? getDocument(this.props) : document;
+    const activeElem = activeElement(doc);
+
+    return this.container.contains(activeElem) ? activeElem : this.container;
   };
 
   containerRef = reference => {
@@ -116,3 +119,5 @@ export default class FocusJailContainer extends ControlledComponent {
     });
   }
 }
+
+export default withTheme(FocusJailContainer);
