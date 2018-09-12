@@ -30,13 +30,6 @@ const DraggableRow = styled(Row)`
     }
   `
       : ''};
-
-  ${props =>
-    props.isDragging
-      ? `
-    display: table !important;
-  `
-      : ''};
 `;
 
 const DraggableCell = styled(Cell)`
