@@ -1,8 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Cell renders default styling 1`] = `
+.c0.c0 {
+  display: block;
+}
+
 <div
-  className="c-table__row__cell "
+  className="c-table__row__cell c0"
   data-garden-id="tables.cell"
   data-garden-version="version"
   role="gridcell"
@@ -10,8 +14,12 @@ exports[`Cell renders default styling 1`] = `
 `;
 
 exports[`Cell renders menu styling if provided 1`] = `
+.c0.c0 {
+  display: block;
+}
+
 <div
-  className="c-table__row__cell c-table__row__cell--overflow "
+  className="c-table__row__cell c-table__row__cell--overflow c0"
   data-garden-id="tables.cell"
   data-garden-version="version"
   role="gridcell"
@@ -19,8 +27,12 @@ exports[`Cell renders menu styling if provided 1`] = `
 `;
 
 exports[`Cell renders minimum styling if provided 1`] = `
+.c0.c0 {
+  display: block;
+}
+
 <div
-  className="c-table__row__cell c-table__row__cell--min "
+  className="c-table__row__cell c-table__row__cell--min c0"
   data-garden-id="tables.cell"
   data-garden-version="version"
   role="gridcell"
@@ -28,8 +40,12 @@ exports[`Cell renders minimum styling if provided 1`] = `
 `;
 
 exports[`Cell renders truncation styling if provided 1`] = `
+.c0.c0 {
+  display: block;
+}
+
 <div
-  className="c-table__row__cell c-table__row__cell--truncate "
+  className="c-table__row__cell c-table__row__cell--truncate c0"
   data-garden-id="tables.cell"
   data-garden-version="version"
   role="gridcell"

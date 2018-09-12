@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SortableCell applies active styling if provided 1`] = `
+.c0.c0 {
+  display: block;
+}
+
 <SortableCell
   active={true}
 >
@@ -16,7 +20,7 @@ exports[`SortableCell applies active styling if provided 1`] = `
     >
       <div
         aria-sort="none"
-        className="c-table__row__cell "
+        className="c-table__row__cell c0"
         data-garden-id="tables.header_cell"
         data-garden-version="version"
         role="columnheader"
@@ -38,6 +42,10 @@ exports[`SortableCell applies active styling if provided 1`] = `
 `;
 
 exports[`SortableCell applies default styling 1`] = `
+.c0.c0 {
+  display: block;
+}
+
 <SortableCell>
   <HeaderCell
     aria-sort="none"
@@ -51,7 +59,7 @@ exports[`SortableCell applies default styling 1`] = `
     >
       <div
         aria-sort="none"
-        className="c-table__row__cell "
+        className="c-table__row__cell c0"
         data-garden-id="tables.header_cell"
         data-garden-version="version"
         role="columnheader"
@@ -71,6 +79,10 @@ exports[`SortableCell applies default styling 1`] = `
 `;
 
 exports[`SortableCell applies focused styling if provided 1`] = `
+.c0.c0 {
+  display: block;
+}
+
 <SortableCell
   focused={true}
 >
@@ -86,7 +98,7 @@ exports[`SortableCell applies focused styling if provided 1`] = `
     >
       <div
         aria-sort="none"
-        className="c-table__row__cell "
+        className="c-table__row__cell c0"
         data-garden-id="tables.header_cell"
         data-garden-version="version"
         role="columnheader"
@@ -108,6 +120,10 @@ exports[`SortableCell applies focused styling if provided 1`] = `
 `;
 
 exports[`SortableCell applies minimum styling if provided 1`] = `
+.c0.c0 {
+  display: block;
+}
+
 <SortableCell
   minimum={true}
 >
@@ -125,7 +141,7 @@ exports[`SortableCell applies minimum styling if provided 1`] = `
     >
       <div
         aria-sort="none"
-        className="c-table__row__cell c-table__row__cell--min "
+        className="c-table__row__cell c-table__row__cell--min c0"
         data-garden-id="tables.header_cell"
         data-garden-version="version"
         role="columnheader"
@@ -145,6 +161,10 @@ exports[`SortableCell applies minimum styling if provided 1`] = `
 `;
 
 exports[`SortableCell applies truncated styling if provided 1`] = `
+.c0.c0 {
+  display: block;
+}
+
 <SortableCell
   truncate={true}
 >
@@ -162,7 +182,7 @@ exports[`SortableCell applies truncated styling if provided 1`] = `
     >
       <div
         aria-sort="none"
-        className="c-table__row__cell c-table__row__cell--truncate "
+        className="c-table__row__cell c-table__row__cell--truncate c0"
         data-garden-id="tables.header_cell"
         data-garden-version="version"
         role="columnheader"
@@ -182,6 +202,10 @@ exports[`SortableCell applies truncated styling if provided 1`] = `
 `;
 
 exports[`SortableCell sorting applies ascending props when applied 1`] = `
+.c0.c0 {
+  display: block;
+}
+
 <SortableCell
   sort="asc"
 >
@@ -197,7 +221,7 @@ exports[`SortableCell sorting applies ascending props when applied 1`] = `
     >
       <div
         aria-sort="ascending"
-        className="c-table__row__cell "
+        className="c-table__row__cell c0"
         data-garden-id="tables.header_cell"
         data-garden-version="version"
         role="columnheader"
@@ -219,6 +243,10 @@ exports[`SortableCell sorting applies ascending props when applied 1`] = `
 `;
 
 exports[`SortableCell sorting applies descending props when applied 1`] = `
+.c0.c0 {
+  display: block;
+}
+
 <SortableCell
   sort="desc"
 >
@@ -234,7 +262,7 @@ exports[`SortableCell sorting applies descending props when applied 1`] = `
     >
       <div
         aria-sort="descending"
-        className="c-table__row__cell "
+        className="c-table__row__cell c0"
         data-garden-id="tables.header_cell"
         data-garden-version="version"
         role="columnheader"

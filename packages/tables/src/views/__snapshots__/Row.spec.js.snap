@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Row applies default styling by default 1`] = `
-.c0.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+.c0 {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
   height: auto !important;
 }
 
@@ -29,11 +29,11 @@ exports[`Row applies default styling by default 1`] = `
 `;
 
 exports[`Row applies focused styling if provided 1`] = `
-.c0.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+.c0 {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
   height: auto !important;
 }
 
@@ -59,11 +59,11 @@ exports[`Row applies focused styling if provided 1`] = `
 `;
 
 exports[`Row applies group styling if provided 1`] = `
-.c0.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+.c0 {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
   height: auto !important;
 }
 
@@ -90,11 +90,11 @@ exports[`Row applies group styling if provided 1`] = `
 `;
 
 exports[`Row applies header styling if provided 1`] = `
-.c0.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+.c0 {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
   height: auto !important;
 }
 
@@ -121,11 +121,11 @@ exports[`Row applies header styling if provided 1`] = `
 `;
 
 exports[`Row applies hovered styling if provided 1`] = `
-.c0.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+.c0 {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
   height: auto !important;
 }
 
@@ -152,11 +152,11 @@ exports[`Row applies hovered styling if provided 1`] = `
 `;
 
 exports[`Row applies selected styling if provided 1`] = `
-.c0.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+.c0 {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
   height: auto !important;
 }
 
@@ -184,11 +184,11 @@ exports[`Row applies selected styling if provided 1`] = `
 `;
 
 exports[`Row applies striped styling if provided 1`] = `
-.c0.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+.c0 {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
   height: auto !important;
 }
 

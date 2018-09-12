@@ -32,7 +32,7 @@ export const StyledRow = styled.div.attrs({
     })
 })`
   /* stylelint-disable */
-  display: flex;
+  display: flex !important;
   height: auto !important;
   /* stylelint-enable */
 
