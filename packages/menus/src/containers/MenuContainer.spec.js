@@ -256,11 +256,17 @@ describe('MenuContainer', () => {
 
   describe('when the menu is open', () => {
     beforeEach(() => {
+      jest.spyOn(document, 'removeEventListener');
+
       wrapper = mountWithTheme(basicExample({ onChange: onChangeSpy }), {
         enzymeOptions: { attachTo: document.body }
       });
 
       findTrigger(wrapper).simulate('click');
+    });
+
+    afterEach(() => {
+      document.removeEventListener.mockRestore();
     });
 
     describe('when clicking outside', () => {
@@ -271,23 +277,17 @@ describe('MenuContainer', () => {
       });
 
       it('removes click outside event listener', () => {
-        const removeEventListenerSpy = jest.fn();
-
-        document.removeEventListener = removeEventListenerSpy;
         wrapper.simulate('click');
 
-        expect(removeEventListenerSpy).toHaveBeenCalled();
+        expect(document.removeEventListener).toHaveBeenCalled();
       });
     });
 
     describe('componentWillUnmount()', () => {
       it('removes click outside event listener', () => {
-        const removeEventListenerSpy = jest.fn();
-
-        document.removeEventListener = removeEventListenerSpy;
         wrapper.unmount();
 
-        expect(removeEventListenerSpy).toHaveBeenCalled();
+        expect(document.removeEventListener).toHaveBeenCalled();
       });
     });
   });
