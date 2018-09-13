@@ -36,7 +36,7 @@ const XXXL = ({ tag, ...other }) => {
 
 XXXL.propTypes = {
   /** Any valid DOM element for the styled component */
-  tag: PropTypes.string
+  tag: PropTypes.any
 };
 
 XXXL.defaultProps = {

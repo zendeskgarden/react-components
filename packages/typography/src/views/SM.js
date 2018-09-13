@@ -36,7 +36,7 @@ const SM = ({ tag, ...other }) => {
 
 SM.propTypes = {
   /** Any valid DOM element for the styled component */
-  tag: PropTypes.string
+  tag: PropTypes.any
 };
 
 SM.defaultProps = {

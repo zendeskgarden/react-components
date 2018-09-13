@@ -36,7 +36,7 @@ const LG = ({ tag, ...other }) => {
 
 LG.propTypes = {
   /** Any valid DOM element for the styled component */
-  tag: PropTypes.string
+  tag: PropTypes.any
 };
 
 LG.defaultProps = {
