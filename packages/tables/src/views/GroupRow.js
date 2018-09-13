@@ -25,4 +25,5 @@ const GroupRow = styled.div.attrs({
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
+/** @component */
 export default GroupRow;

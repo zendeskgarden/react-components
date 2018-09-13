@@ -25,4 +25,5 @@ const HeaderRow = styled.div.attrs({
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
+/** @component */
 export default HeaderRow;
