@@ -152,13 +152,13 @@ class MenuContainer extends ControlledComponent {
 
   attachClickOutsideHandler() {
     this.getDocuments().forEach(doc => {
-      doc.addEventListener('mousedown', this.handleOutsideMouseDown, true);
+      doc.addEventListener('mousedown', this.handleOutsideMouseDown, true /* use capture */);
     });
   }
 
   detachClickOutsideHandler() {
     this.getDocuments().forEach(doc => {
-      doc.removeEventListener('mousedown', this.handleOutsideMouseDown, true);
+      doc.removeEventListener('mousedown', this.handleOutsideMouseDown, true /* use capture */);
     });
   }
 
