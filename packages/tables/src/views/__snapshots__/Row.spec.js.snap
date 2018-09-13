@@ -58,68 +58,6 @@ exports[`Row applies focused styling if provided 1`] = `
 </Row>
 `;
 
-exports[`Row applies group styling if provided 1`] = `
-.c0 {
-  display: -webkit-box !important;
-  display: -webkit-flex !important;
-  display: -ms-flexbox !important;
-  display: flex !important;
-  height: auto !important;
-}
-
-<Row
-  group={true}
->
-  <Row__StyledRow
-    focused={false}
-    group={true}
-    onBlur={[Function]}
-    onFocus={[Function]}
-  >
-    <div
-      className="c-table__row c0"
-      data-garden-id="tables.row"
-      data-garden-version="version"
-      onBlur={[Function]}
-      onFocus={[Function]}
-      role="row"
-      tabIndex={-1}
-    />
-  </Row__StyledRow>
-</Row>
-`;
-
-exports[`Row applies header styling if provided 1`] = `
-.c0 {
-  display: -webkit-box !important;
-  display: -webkit-flex !important;
-  display: -ms-flexbox !important;
-  display: flex !important;
-  height: auto !important;
-}
-
-<Row
-  header={true}
->
-  <Row__StyledRow
-    focused={false}
-    header={true}
-    onBlur={[Function]}
-    onFocus={[Function]}
-  >
-    <div
-      className="c-table__row c0"
-      data-garden-id="tables.row"
-      data-garden-version="version"
-      onBlur={[Function]}
-      onFocus={[Function]}
-      role="row"
-      tabIndex={-1}
-    />
-  </Row__StyledRow>
-</Row>
-`;
-
 exports[`Row applies hovered styling if provided 1`] = `
 .c0 {
   display: -webkit-box !important;
