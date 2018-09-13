@@ -150,16 +150,20 @@ class MenuContainer extends ControlledComponent {
     };
   }
 
-  componentDidMount() {
+  attachClickOutsideHandler() {
     this.getDocuments().forEach(doc => {
       doc.addEventListener('mousedown', this.handleOutsideMouseDown);
     });
   }
 
-  componentWillUnmount() {
+  detachClickOutsideHandler() {
     this.getDocuments().forEach(doc => {
       doc.removeEventListener('mousedown', this.handleOutsideMouseDown);
     });
+  }
+
+  componentWillUnmount() {
+    this.detachClickOutsideHandler();
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -173,6 +177,8 @@ class MenuContainer extends ControlledComponent {
       if (!closedByBlur) {
         this.triggerReference && this.triggerReference.focus();
       }
+
+      this.detachClickOutsideHandler();
     }
 
     /**
@@ -192,6 +198,8 @@ class MenuContainer extends ControlledComponent {
       setTimeout(() => {
         this.menuReference && this.menuReference.focus();
       }, 0);
+
+      this.attachClickOutsideHandler();
     }
   }
 
