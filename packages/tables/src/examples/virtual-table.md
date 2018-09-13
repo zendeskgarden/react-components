@@ -30,7 +30,7 @@ for (let x = 1; x <= 100000; x++) {
   });
 }
 
-<Table scrollable="500px">
+<Table scrollable="500px" aria-rowcount={rowData.length} aria-colcount={4}>
   <StyledCaption>{rowData.length.toLocaleString()} Virtualized Tickets</StyledCaption>
   <Head>
     <Row header>
@@ -56,7 +56,7 @@ for (let x = 1; x <= 100000; x++) {
     outerTagName={Body}
   >
     {({ index, style }) => (
-      <Row key={rowData[index].id} style={style}>
+      <Row key={rowData[index].id} style={style} aria-rowindex={index + 1}>
         <Cell truncate width="25%">
           [{rowData[index].id}] {rowData[index].subject}
         </Cell>
