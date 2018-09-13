@@ -6,25 +6,23 @@
  */
 
 import styled from 'styled-components';
+import classNames from 'classnames';
 import TableStyles from '@zendeskgarden/css-tables';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'tables.caption';
+const COMPONENT_ID = 'tables.header_row';
 
-/**
- * Accepts all `<div>` props
- */
-const Caption = styled.div.attrs({
+const HeaderRow = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: TableStyles['c-table__caption']
+  role: 'row',
+  className: classNames(TableStyles['c-table__row'], TableStyles['c-table__row--header'])
 })`
   && {
-    display: block;
+    display: flex;
   }
 
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
-/** @component */
-export default Caption;
+export default HeaderRow;

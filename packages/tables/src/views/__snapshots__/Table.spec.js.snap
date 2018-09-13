@@ -2,8 +2,8 @@
 
 exports[`Table applies scrollabe styling if provided 1`] = `
 .c0 .c2 {
-  height: 200px !important;
-  overflow-y: scroll !important;
+  height: 200px;
+  overflow-y: scroll;
 }
 
 .c0 .c3 {

@@ -22,8 +22,6 @@ export const StyledRow = styled.div.attrs({
   role: 'row',
   className: props =>
     classNames(TableStyles['c-table__row'], {
-      [TableStyles['c-table__row--group']]: props.group,
-      [TableStyles['c-table__row--header']]: props.header,
       [TableStyles['c-table__row--stripe']]: props.striped,
 
       [TableStyles['is-focused']]: props.focused,
@@ -44,10 +42,6 @@ export const StyledRow = styled.div.attrs({
  */
 export default class Row extends Component {
   static propTypes = {
-    /** Applies group styling */
-    group: PropTypes.bool,
-    /** Header group styling */
-    header: PropTypes.bool,
     /** Applies striped styling */
     striped: PropTypes.bool,
     /** Applies focused styling */

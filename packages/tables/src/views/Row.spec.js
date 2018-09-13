@@ -35,18 +35,6 @@ describe('Row', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('applies group styling if provided', () => {
-    const wrapper = mount(<Row group />);
-
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  it('applies header styling if provided', () => {
-    const wrapper = mount(<Row header />);
-
-    expect(wrapper).toMatchSnapshot();
-  });
-
   it('applies striped styling if provided', () => {
     const wrapper = mount(<Row striped />);
 

@@ -1,19 +1,8 @@
 ```jsx
 const { Pagination } = require('@zendeskgarden/react-pagination/src');
 const { Avatar } = require('@zendeskgarden/react-avatars/src');
-const {
-  zdFontSizeBeta,
-  zdFontSizeEpsilon,
-  zdColorGrey600,
-  zdFontWeightSemibold,
-  zdSpacingSm
-} = require('@zendeskgarden/css-variables');
-
-const StyledCaption = styled.div`
-  font-size: ${zdFontSizeBeta};
-  font-weight: ${zdFontWeightSemibold};
-  margin-bottom: ${zdSpacingSm};
-`;
+const { zdColorGrey600, zdSpacingSm } = require('@zendeskgarden/css-variables');
+const { XL, MD } = require('@zendeskgarden/react-typography/src');
 
 const data = [];
 for (let x = 0; x < 70; x++) {
@@ -32,11 +21,6 @@ initialState = {
   pageSize: 5
 };
 
-const CurrentPages = styled.div`
-  color: ${zdColorGrey600};
-  font-size: ${zdFontSizeEpsilon};
-`;
-
 const getPagedData = (data, currentPage, pageSize) => {
   const output = [];
 
@@ -54,18 +38,20 @@ const getPagedData = (data, currentPage, pageSize) => {
 <div>
   <Table size="small">
     <Caption>
-      <StyledCaption>Paginated Tickets</StyledCaption>
-      <CurrentPages>
+      <XL tag={Caption} style={{ marginBottom: zdSpacingSm }}>
+        Paginated Tickets
+      </XL>
+      <MD style={{ color: zdColorGrey600 }}>
         {(state.currentPage - 1) * state.pageSize + 1}-{state.currentPage * state.pageSize} of{' '}
         {data.length}
-      </CurrentPages>
+      </MD>
     </Caption>
     <Head>
-      <Row header>
+      <HeaderRow>
         <HeaderCell width="45px" />
         <HeaderCell width="100px">Name</HeaderCell>
         <HeaderCell>Description</HeaderCell>
-      </Row>
+      </HeaderRow>
     </Head>
     <Body>
       {getPagedData(data, state.currentPage, state.pageSize).map(row => (

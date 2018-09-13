@@ -77,7 +77,7 @@ exports[`Row applies group styling if provided 1`] = `
     onFocus={[Function]}
   >
     <div
-      className="c-table__row c-table__row--group c0"
+      className="c-table__row c0"
       data-garden-id="tables.row"
       data-garden-version="version"
       onBlur={[Function]}
@@ -108,7 +108,7 @@ exports[`Row applies header styling if provided 1`] = `
     onFocus={[Function]}
   >
     <div
-      className="c-table__row c-table__row--header c0"
+      className="c-table__row c0"
       data-garden-id="tables.row"
       data-garden-version="version"
       onBlur={[Function]}

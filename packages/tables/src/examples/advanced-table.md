@@ -1,36 +1,27 @@
 ```jsx
-const {
-  zdFontSizeBeta,
-  zdFontWeightSemibold,
-  zdSpacingSm
-} = require('@zendeskgarden/css-variables');
-
-const StyledCaption = styled(Caption)`
-  font-size: ${zdFontSizeBeta};
-  font-weight: ${zdFontWeightSemibold};
-  margin-bottom: ${zdSpacingSm};
-`;
+const { zdSpacingSm } = require('@zendeskgarden/css-variables');
+const { XL } = require('@zendeskgarden/react-typography/src');
 
 <Table>
-  <StyledCaption>Your Unsolved Tickets</StyledCaption>
+  <XL tag={Caption} style={{ marginBottom: zdSpacingSm }}>
+    Your Unsolved Tickets
+  </XL>
   <Head>
-    <Row header>
+    <HeaderRow>
       <HeaderCell width="25%">Subject</HeaderCell>
       <HeaderCell width="25%">Requester</HeaderCell>
       <HeaderCell width="25%">Requested</HeaderCell>
       <HeaderCell width="25%">Type</HeaderCell>
-    </Row>
+    </HeaderRow>
   </Head>
   <Body>
-    <Row group>
+    <GroupRow>
       <Cell width="100%">
         Status <strong>Open</strong>
       </Cell>
-    </Row>
+    </GroupRow>
     <Row>
-      <Cell width="25%">
-        Where are my shoes? this is some super long text to test the wrapping ability of everything
-      </Cell>
+      <Cell width="25%">Where are my shoes?</Cell>
       <Cell width="25%">John Smith</Cell>
       <Cell width="25%">15 minutes ago</Cell>
       <Cell width="25%">Ticket</Cell>
@@ -41,11 +32,11 @@ const StyledCaption = styled(Caption)`
       <Cell width="25%">25 minutes ago</Cell>
       <Cell width="25%">Call</Cell>
     </Row>
-    <Row group>
+    <GroupRow>
       <Cell width="100%">
         Status <strong>Closed</strong>
       </Cell>
-    </Row>
+    </GroupRow>
     <Row>
       <Cell width="25%">Ticket 1</Cell>
       <Cell width="25%">Unknown</Cell>

@@ -1,22 +1,12 @@
 Virtualized tables can help efficiently render large amounts of data.
 
 This implementation uses the [react-window](https://react-window.now.sh)
-library to implement it's virtualization.
+library to implement its virtualization.
 
 ```jsx
 const { FixedSizeList } = require('react-window');
-
-const {
-  zdFontSizeBeta,
-  zdFontWeightSemibold,
-  zdSpacingSm
-} = require('@zendeskgarden/css-variables');
-
-const StyledCaption = styled(Caption)`
-  font-size: ${zdFontSizeBeta};
-  font-weight: ${zdFontWeightSemibold};
-  margin-bottom: ${zdSpacingSm};
-`;
+const { zdSpacingSm } = require('@zendeskgarden/css-variables');
+const { XL } = require('@zendeskgarden/react-typography/src');
 
 const rowData = [];
 
@@ -31,9 +21,11 @@ for (let x = 1; x <= 100000; x++) {
 }
 
 <Table scrollable="500px" aria-rowcount={rowData.length} aria-colcount={4}>
-  <StyledCaption>{rowData.length.toLocaleString()} Virtualized Tickets</StyledCaption>
+  <XL tag={Caption} style={{ marginBottom: zdSpacingSm }}>
+    {rowData.length.toLocaleString()} Virtualized Tickets
+  </XL>
   <Head>
-    <Row header>
+    <HeaderRow>
       <HeaderCell truncate width="25%">
         Subject
       </HeaderCell>
@@ -46,7 +38,7 @@ for (let x = 1; x <= 100000; x++) {
       <HeaderCell truncate width="25%">
         Type
       </HeaderCell>
-    </Row>
+    </HeaderRow>
   </Head>
   <FixedSizeList
     height={500}

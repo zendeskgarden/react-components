@@ -18,6 +18,10 @@ import Head from './Head';
 
 const COMPONENT_ID = 'tables.table';
 const SCROLLBAR_SIZE = scrollbarSize();
+const SIZE = {
+  SMALL: 'small',
+  LARGE: 'large'
+};
 
 const retrieveSrollableStyling = props => {
   if (!props.scrollable) {
@@ -29,25 +33,23 @@ const retrieveSrollableStyling = props => {
     : `margin-right: ${SCROLLBAR_SIZE}px !important;`;
 
   return css`
-    /* stylelint-disable */
-    ${Body} {
-      height: ${props.scrollable} !important;
-      overflow-y: scroll !important;
+    ${/* sc-selector */ Body} {
+      height: ${props.scrollable};
+      overflow-y: scroll;
     }
 
-    ${Head} {
+    ${/* sc-custom */ Head} {
       ${headerStyling};
     }
-    /* stylelint-enable */
   `;
 };
 
 const retrieveRowMinHeight = size => {
-  if (size === 'small') {
+  if (size === SIZE.SMALL) {
     return '32px';
   }
 
-  if (size === 'large') {
+  if (size === SIZE.LARGE) {
     return '64px';
   }
 
@@ -64,8 +66,8 @@ const Table = styled.div.attrs({
   className: props =>
     classNames(TableStyles['c-table'], {
       // Sizing
-      [TableStyles['c-table--sm']]: props.size === 'small',
-      [TableStyles['c-table--lg']]: props.size === 'large',
+      [TableStyles['c-table--sm']]: props.size === SIZE.SMALL,
+      [TableStyles['c-table--lg']]: props.size === SIZE.LARGE,
 
       // RTL
       [TableStyles['is-rtl']]: isRtl(props)

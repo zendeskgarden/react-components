@@ -9,18 +9,9 @@ to apply manual positioning against the `Menu` to ensure a standard look and fee
 or other assistive technique to have discernible text.
 
 ```jsx
-const {
-  zdFontSizeBeta,
-  zdFontWeightSemibold,
-  zdSpacingSm
-} = require('@zendeskgarden/css-variables');
+const { zdSpacingSm } = require('@zendeskgarden/css-variables');
 const { Menu, Item } = require('@zendeskgarden/react-menus/src');
-
-const StyledCaption = styled(Caption)`
-  font-size: ${zdFontSizeBeta};
-  font-weight: ${zdFontWeightSemibold};
-  margin-bottom: ${zdSpacingSm};
-`;
+const { XL } = require('@zendeskgarden/react-typography/src');
 
 const OverflowMenu = ({ isHeader = false }) => (
   <Menu
@@ -70,9 +61,11 @@ const OverflowMenu = ({ isHeader = false }) => (
 );
 
 <Table>
-  <StyledCaption>Overflow Menu</StyledCaption>
+  <XL tag={Caption} style={{ marginBottom: zdSpacingSm }}>
+    Overflow Menus
+  </XL>
   <Head>
-    <Row header>
+    <HeaderRow>
       <HeaderCell width="25%">Subject</HeaderCell>
       <HeaderCell width="25%">Requester</HeaderCell>
       <HeaderCell width="25%">Requested</HeaderCell>
@@ -80,7 +73,7 @@ const OverflowMenu = ({ isHeader = false }) => (
       <HeaderCell menu>
         <OverflowMenu isHeader />
       </HeaderCell>
-    </Row>
+    </HeaderRow>
   </Head>
   <Body>
     <Row>

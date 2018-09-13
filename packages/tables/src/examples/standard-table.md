@@ -1,17 +1,8 @@
 ```jsx
-const {
-  zdFontSizeBeta,
-  zdFontWeightSemibold,
-  zdSpacingSm
-} = require('@zendeskgarden/css-variables');
+const { zdSpacingSm } = require('@zendeskgarden/css-variables');
 const { SelectField, Select, Label, Item } = require('@zendeskgarden/react-select/src');
 const { Checkbox, Label: CheckboxLabel, Hint } = require('@zendeskgarden/react-checkboxes/src');
-
-const StyledCaption = styled(Caption)`
-  font-size: ${zdFontSizeBeta};
-  font-weight: ${zdFontWeightSemibold};
-  margin-bottom: ${zdSpacingSm};
-`;
+const { XL } = require('@zendeskgarden/react-typography/src');
 
 initialState = {
   rowSize: 'default',
@@ -83,14 +74,16 @@ const StyledRow = styled(Layout.Row)`
   <Layout.Row>
     <Layout.Col>
       <Table size={state.rowSize === 'default' ? undefined : state.rowSize}>
-        <StyledCaption>Your Unsolved Tickets</StyledCaption>
+        <XL tag={Caption} style={{ marginBottom: zdSpacingSm }}>
+          Your Unsolved Tickets
+        </XL>
         <Head>
-          <Row header>
+          <HeaderRow>
             <HeaderCell width="25%">Subject</HeaderCell>
             <HeaderCell width="25%">Requester</HeaderCell>
             <HeaderCell width="25%">Requested</HeaderCell>
             <HeaderCell width="25%">Type</HeaderCell>
-          </Row>
+          </HeaderRow>
         </Head>
         <Body>
           {state.data.map((row, index) => (

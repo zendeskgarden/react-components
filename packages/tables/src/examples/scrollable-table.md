@@ -1,23 +1,9 @@
 Scrollable tables can be enabled with the `scrollable` prop. This defines the
 height of the `<Body>` element.
 
-Similar to native, HTML tables there are some quirks with scrollable rows:
-
-- You must manually define the `width` of all `HeaderCell` and `Cell` components
-- You should use the `truncate` prop to ensure text is display correctly in all locales
-
 ```jsx
-const {
-  zdFontSizeBeta,
-  zdFontWeightSemibold,
-  zdSpacingSm
-} = require('@zendeskgarden/css-variables');
-
-const StyledCaption = styled(Caption)`
-  font-size: ${zdFontSizeBeta};
-  font-weight: ${zdFontWeightSemibold};
-  margin-bottom: ${zdSpacingSm};
-`;
+const { zdSpacingSm } = require('@zendeskgarden/css-variables');
+const { XL } = require('@zendeskgarden/react-typography/src');
 
 const rowData = [];
 
@@ -32,9 +18,11 @@ for (let x = 0; x < 100; x++) {
 }
 
 <Table scrollable="200px">
-  <StyledCaption>Your Scrollable Tickets</StyledCaption>
+  <XL tag={Caption} style={{ marginBottom: zdSpacingSm }}>
+    Your Scrollable Tickets
+  </XL>
   <Head>
-    <Row header>
+    <HeaderRow>
       <HeaderCell truncate width="25%">
         Subject
       </HeaderCell>
@@ -47,7 +35,7 @@ for (let x = 0; x < 100; x++) {
       <HeaderCell truncate width="25%">
         Type
       </HeaderCell>
-    </Row>
+    </HeaderRow>
   </Head>
   <Body>
     {rowData.map(data => (
