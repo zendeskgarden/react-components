@@ -17,8 +17,6 @@ const Head = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  display: block;
-
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
