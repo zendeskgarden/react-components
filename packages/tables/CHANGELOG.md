@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tables@0.1.25...@zendeskgarden/react-tables@1.0.0) (2018-09-14)
+
+
+### Bug Fixes
+
+* **tables:** correct RTL layout and introduce flexbox styling ([#148](https://github.com/zendeskgarden/react-components/issues/148)) ([f7ee4fb](https://github.com/zendeskgarden/react-components/commit/f7ee4fb))
+
+
+### BREAKING CHANGES
+
+* **tables:** With our transition to a flex-box based Table implementation, there are some small API changes:
+
+* The `header` and `group` customizations of the `Row` component are now available as standalone components: `HeaderRow`, `GroupRow`
+* All `HeaderCell` and `Cell` components must now define their width
+* Any existing style customizations may need to be updated to apply against a flex-box display
+
+
+
+
+
 <a name="0.1.25"></a>
 ## [0.1.25](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tables@0.1.24...@zendeskgarden/react-tables@0.1.25) (2018-09-10)
 
