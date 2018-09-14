@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.6.3"></a>
+## [3.6.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.6.2...@zendeskgarden/react-menus@3.6.3) (2018-09-14)
+
+
+### Bug Fixes
+
+* **menus:** lazy attach auto close handlers ([#149](https://github.com/zendeskgarden/react-components/issues/149)) ([6206a2c](https://github.com/zendeskgarden/react-components/commit/6206a2c))
+
+
+
+
+
 <a name="3.6.2"></a>
 ## [3.6.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.6.1...@zendeskgarden/react-menus@3.6.2) (2018-09-12)
 
