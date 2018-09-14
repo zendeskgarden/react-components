@@ -36,7 +36,7 @@ const XXL = ({ tag, ...other }) => {
 
 XXL.propTypes = {
   /** Any valid DOM element for the styled component */
-  tag: PropTypes.string
+  tag: PropTypes.any
 };
 
 XXL.defaultProps = {
