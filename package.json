@@ -32,7 +32,7 @@
     "@zendeskgarden/svg-icons": "4.4.4",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.3",
-    "babel-eslint": "8.2.6",
+    "babel-eslint": "9.0.0",
     "babel-jest": "23.4.2",
     "babel-loader": "7.1.5",
     "babel-plugin-add-header-comment": "1.0.3",
