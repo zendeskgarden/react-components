@@ -254,17 +254,41 @@ describe('MenuContainer', () => {
     });
   });
 
-  describe('componentWillUnmount', () => {
-    it('removes mousedown event listener', () => {
-      const removeEventListenerSpy = jest.fn();
+  describe('when the menu is open', () => {
+    beforeEach(() => {
+      jest.spyOn(document, 'removeEventListener');
 
-      document.removeEventListener = removeEventListenerSpy;
       wrapper = mountWithTheme(basicExample({ onChange: onChangeSpy }), {
         enzymeOptions: { attachTo: document.body }
       });
-      wrapper.unmount();
 
-      expect(removeEventListenerSpy).toHaveBeenCalled();
+      findTrigger(wrapper).simulate('click');
+    });
+
+    afterEach(() => {
+      document.removeEventListener.mockRestore();
+    });
+
+    describe('when clicking outside', () => {
+      it('closes the menu', () => {
+        wrapper.simulate('click');
+
+        expect(findMenu(wrapper)).not.toExist();
+      });
+
+      it('removes click outside event listener', () => {
+        wrapper.simulate('click');
+
+        expect(document.removeEventListener).toHaveBeenCalled();
+      });
+    });
+
+    describe('componentWillUnmount()', () => {
+      it('removes click outside event listener', () => {
+        wrapper.unmount();
+
+        expect(document.removeEventListener).toHaveBeenCalled();
+      });
     });
   });
 
