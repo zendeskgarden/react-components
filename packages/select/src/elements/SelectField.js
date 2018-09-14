@@ -58,15 +58,15 @@ export default class SelectField extends ControlledComponent {
     this.selectRef = undefined;
 
     return (
-      <SelectGroup {...otherProps}>
-        <FieldContainer>
-          {({
-            getLabelProps: getFieldLabelProps,
-            getInputProps: getFieldInputProps,
-            getHintProps,
-            getMessageProps
-          }) =>
-            Children.map(children, child => {
+      <FieldContainer>
+        {({
+          getLabelProps: getFieldLabelProps,
+          getInputProps: getFieldInputProps,
+          getHintProps,
+          getMessageProps
+        }) => (
+          <SelectGroup {...otherProps}>
+            {Children.map(children, child => {
               if (!isValidElement(child)) {
                 return child;
               }
@@ -88,10 +88,10 @@ export default class SelectField extends ControlledComponent {
               }
 
               return child;
-            })
-          }
-        </FieldContainer>
-      </SelectGroup>
+            })}
+          </SelectGroup>
+        )}
+      </FieldContainer>
     );
   }
 }
