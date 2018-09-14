@@ -1,13 +1,16 @@
-Scrollable tables can be enabled with the `scrollable` prop. This defines the
-height of the `<Body>` element.
+Virtualized tables can help efficiently render large amounts of data.
+
+This implementation uses the [react-window](https://react-window.now.sh)
+library to implement its virtualization.
 
 ```jsx
+const { FixedSizeList } = require('react-window');
 const { zdSpacingSm } = require('@zendeskgarden/css-variables');
 const { XL } = require('@zendeskgarden/react-typography/src');
 
 const rowData = [];
 
-for (let x = 0; x < 100; x++) {
+for (let x = 1; x <= 100000; x++) {
   rowData.push({
     id: x,
     subject: 'Example subject',
@@ -17,9 +20,9 @@ for (let x = 0; x < 100; x++) {
   });
 }
 
-<Table scrollable="200px">
+<Table scrollable="500px" aria-rowcount={rowData.length} aria-colcount={4}>
   <XL tag={Caption} style={{ marginBottom: zdSpacingSm }}>
-    Your Scrollable Tickets
+    {rowData.length.toLocaleString()} Virtualized Tickets
   </XL>
   <Head>
     <HeaderRow>
@@ -37,23 +40,29 @@ for (let x = 0; x < 100; x++) {
       </HeaderCell>
     </HeaderRow>
   </Head>
-  <Body>
-    {rowData.map(data => (
-      <Row key={data.id}>
+  <FixedSizeList
+    height={500}
+    itemCount={rowData.length}
+    itemSize={35}
+    width="100%"
+    outerTagName={Body}
+  >
+    {({ index, style }) => (
+      <Row key={rowData[index].id} style={style} aria-rowindex={index + 1}>
         <Cell truncate width="25%">
-          {data.subject}
+          [{rowData[index].id}] {rowData[index].subject}
         </Cell>
         <Cell truncate width="25%">
-          {data.requester}
+          {rowData[index].requester}
         </Cell>
         <Cell truncate width="25%">
-          {data.requested}
+          {rowData[index].requested}
         </Cell>
         <Cell truncate width="25%">
-          {data.type}
+          {rowData[index].type}
         </Cell>
       </Row>
-    ))}
-  </Body>
+    )}
+  </FixedSizeList>
 </Table>;
 ```

@@ -7,19 +7,10 @@ This example includes:
 - Accessible ordering with the `Space/Up/Down` keys
 
 ```jsx
-const {
-  zdFontSizeBeta,
-  zdFontWeightSemibold,
-  zdSpacingSm
-} = require('@zendeskgarden/css-variables');
+const { zdSpacingSm } = require('@zendeskgarden/css-variables');
 const { DragDropContext, Droppable, Draggable } = require('react-beautiful-dnd');
 const GripIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/12/grip.svg');
-
-const StyledCaption = styled(Caption)`
-  font-size: ${zdFontSizeBeta};
-  font-weight: ${zdFontWeightSemibold};
-  margin-bottom: ${zdSpacingSm};
-`;
+const { XL } = require('@zendeskgarden/react-typography/src');
 
 const DraggableRow = styled(Row)`
   ${props =>
@@ -30,13 +21,6 @@ const DraggableRow = styled(Row)`
     }
   `
       : ''};
-
-  ${props =>
-    props.isDragging
-      ? `
-    display: table !important;
-  `
-      : ''};
 `;
 
 const DraggableCell = styled(Cell)`
@@ -44,7 +28,6 @@ const DraggableCell = styled(Cell)`
     props.isDragging
       ? `
     display: inline-block !important;
-    width: 25%;
   `
       : ''};
 `;
@@ -99,15 +82,17 @@ class DraggableExample extends React.Component {
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <Table>
-          <StyledCaption>Your Unsolved Tickets</StyledCaption>
+          <XL tag={Caption} style={{ marginBottom: zdSpacingSm }}>
+            Your Unsolved Tickets
+          </XL>
           <Head>
-            <Row header>
+            <HeaderRow>
               <HeaderCell minimum />
-              <HeaderCell scope="col">Subject</HeaderCell>
-              <HeaderCell scope="col">Requester</HeaderCell>
-              <HeaderCell scope="col">Requested</HeaderCell>
-              <HeaderCell scope="col">Type</HeaderCell>
-            </Row>
+              <HeaderCell width="25%">Subject</HeaderCell>
+              <HeaderCell width="25%">Requester</HeaderCell>
+              <HeaderCell width="25%">Requested</HeaderCell>
+              <HeaderCell width="25%">Type</HeaderCell>
+            </HeaderRow>
           </Head>
           <Droppable droppableId="droppable">
             {(provided, droppableSnapshot) => {
@@ -135,14 +120,18 @@ class DraggableExample extends React.Component {
                               <GripIcon />
                             </DraggableContainer>
                           </DraggableCell>
-                          <DraggableCell isDragging={snapshot.isDragging}>
+                          <DraggableCell isDragging={snapshot.isDragging} width="25%">
                             {item.content}
                           </DraggableCell>
-                          <DraggableCell isDragging={snapshot.isDragging}>John Smith</DraggableCell>
-                          <DraggableCell isDragging={snapshot.isDragging}>
+                          <DraggableCell isDragging={snapshot.isDragging} width="25%">
+                            John Smith
+                          </DraggableCell>
+                          <DraggableCell isDragging={snapshot.isDragging} width="25%">
                             15 minutes ago
                           </DraggableCell>
-                          <DraggableCell isDragging={snapshot.isDragging}>Ticket</DraggableCell>
+                          <DraggableCell isDragging={snapshot.isDragging} width="25%">
+                            Ticket
+                          </DraggableCell>
                         </DraggableRow>
                       )}
                     </Draggable>

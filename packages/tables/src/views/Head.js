@@ -11,9 +11,9 @@ import { retrieveTheme } from '@zendeskgarden/react-theming';
 const COMPONENT_ID = 'tables.head';
 
 /**
- * Accepts all `<thead>` props
+ * Accepts all `<div>` props
  */
-const Head = styled.thead.attrs({
+const Head = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

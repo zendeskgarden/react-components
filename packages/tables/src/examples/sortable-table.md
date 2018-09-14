@@ -2,17 +2,8 @@ When creating a sortable table, use the `SortableCell` component
 to ensure that the header is interactable and all accessibility attributes are applied.
 
 ```jsx
-const {
-  zdFontSizeBeta,
-  zdFontWeightSemibold,
-  zdSpacingSm
-} = require('@zendeskgarden/css-variables');
-
-const StyledCaption = styled(Caption)`
-  font-size: ${zdFontSizeBeta};
-  font-weight: ${zdFontWeightSemibold};
-  margin-bottom: ${zdSpacingSm};
-`;
+const { zdSpacingSm } = require('@zendeskgarden/css-variables');
+const { XL } = require('@zendeskgarden/react-typography/src');
 
 const data = [];
 
@@ -61,12 +52,15 @@ const sortData = (data, requesterSort, typeSort) => {
 };
 
 <Table>
-  <StyledCaption>Sortable Ticket View</StyledCaption>
+  <XL tag={Caption} style={{ marginBottom: zdSpacingSm }}>
+    Sortable Ticket View
+  </XL>
   <Head>
-    <Row header>
-      <HeaderCell scope="col">Subject</HeaderCell>
+    <HeaderRow>
+      <HeaderCell width="33%">Subject</HeaderCell>
       <SortableCell
         scope="col"
+        width="33%"
         onClick={() => {
           const { requesterSort } = state;
 
@@ -83,7 +77,7 @@ const sortData = (data, requesterSort, typeSort) => {
         Requester
       </SortableCell>
       <SortableCell
-        scope="col"
+        width="33%"
         onClick={() => {
           const { typeSort } = state;
 
@@ -99,14 +93,14 @@ const sortData = (data, requesterSort, typeSort) => {
       >
         Type
       </SortableCell>
-    </Row>
+    </HeaderRow>
   </Head>
   <Body>
     {sortData(state.data.slice(), state.requesterSort, state.typeSort).map(row => (
       <Row key={row.id}>
-        <Cell>{row.subject}</Cell>
-        <Cell>{row.requester}</Cell>
-        <Cell>{row.type}</Cell>
+        <Cell width="33%">{row.subject}</Cell>
+        <Cell width="33%">{row.requester}</Cell>
+        <Cell width="33%">{row.type}</Cell>
       </Row>
     ))}
   </Body>

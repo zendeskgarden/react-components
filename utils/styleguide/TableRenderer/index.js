@@ -13,11 +13,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Table, Head, Row, HeaderCell, Body, Cell } from '../../../packages/tables/src';
+import { Table, Head, Row, HeaderRow, HeaderCell, Body, Cell } from '../../../packages/tables/src';
 
 const AutoTable = styled(Table)`
   && {
-    table-layout: auto;
+    min-width: 500px;
   }
 `;
 
@@ -25,19 +25,21 @@ const TableRenderer = ({ columns, rows, getRowKey }) => {
   return (
     <AutoTable size="small">
       <Head>
-        <Row header>
+        <HeaderRow>
           {columns.map(({ caption }) => (
-            <HeaderCell key={caption} scope="col">
+            <HeaderCell key={caption} scope="col" width={caption === 'Description' ? '40%' : '20%'}>
               {caption}
             </HeaderCell>
           ))}
-        </Row>
+        </HeaderRow>
       </Head>
       <Body>
         {rows.map(row => (
           <Row key={getRowKey(row)}>
-            {columns.map(({ render }, index) => (
-              <Cell key={index}>{render(row) || <span>-</span>}</Cell>
+            {columns.map(({ caption, render }, index) => (
+              <Cell key={index} width={caption === 'Description' ? '40%' : '20%'}>
+                {render(row) || <span>-</span>}
+              </Cell>
             ))}
           </Row>
         ))}

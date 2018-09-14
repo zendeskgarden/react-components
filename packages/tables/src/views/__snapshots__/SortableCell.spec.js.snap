@@ -1,298 +1,284 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SortableCell applies active styling if provided 1`] = `
-<ExampleWrapper>
-  <table>
-    <thead>
-      <tr>
-        <SortableCell
+.c0.c0 {
+  display: block;
+}
+
+<SortableCell
+  active={true}
+>
+  <HeaderCell
+    aria-sort="none"
+  >
+    <Cell
+      aria-sort="none"
+      className=""
+      data-garden-id="tables.header_cell"
+      data-garden-version="version"
+      role="columnheader"
+    >
+      <div
+        aria-sort="none"
+        className="c-table__row__cell c0"
+        data-garden-id="tables.header_cell"
+        data-garden-version="version"
+        role="columnheader"
+      >
+        <SortableCell__Sortable
           active={true}
         >
-          <HeaderCell
-            aria-sort="none"
-          >
-            <Cell
-              aria-sort="none"
-              className=""
-              data-garden-id="tables.header_cell"
-              data-garden-version="version"
-            >
-              <th
-                aria-sort="none"
-                className="c-table__row__cell "
-                data-garden-id="tables.header_cell"
-                data-garden-version="version"
-              >
-                <SortableCell__Sortable
-                  active={true}
-                >
-                  <button
-                    className="c-table__row__cell__sortable is-active "
-                    data-garden-id="tables.sortable"
-                    data-garden-version="version"
-                    type="button"
-                  />
-                </SortableCell__Sortable>
-              </th>
-            </Cell>
-          </HeaderCell>
-        </SortableCell>
-      </tr>
-    </thead>
-  </table>
-</ExampleWrapper>
+          <button
+            className="c-table__row__cell__sortable is-active "
+            data-garden-id="tables.sortable"
+            data-garden-version="version"
+            type="button"
+          />
+        </SortableCell__Sortable>
+      </div>
+    </Cell>
+  </HeaderCell>
+</SortableCell>
 `;
 
 exports[`SortableCell applies default styling 1`] = `
-<ExampleWrapper>
-  <table>
-    <thead>
-      <tr>
-        <SortableCell>
-          <HeaderCell
-            aria-sort="none"
-          >
-            <Cell
-              aria-sort="none"
-              className=""
-              data-garden-id="tables.header_cell"
-              data-garden-version="version"
-            >
-              <th
-                aria-sort="none"
-                className="c-table__row__cell "
-                data-garden-id="tables.header_cell"
-                data-garden-version="version"
-              >
-                <SortableCell__Sortable>
-                  <button
-                    className="c-table__row__cell__sortable "
-                    data-garden-id="tables.sortable"
-                    data-garden-version="version"
-                    type="button"
-                  />
-                </SortableCell__Sortable>
-              </th>
-            </Cell>
-          </HeaderCell>
-        </SortableCell>
-      </tr>
-    </thead>
-  </table>
-</ExampleWrapper>
+.c0.c0 {
+  display: block;
+}
+
+<SortableCell>
+  <HeaderCell
+    aria-sort="none"
+  >
+    <Cell
+      aria-sort="none"
+      className=""
+      data-garden-id="tables.header_cell"
+      data-garden-version="version"
+      role="columnheader"
+    >
+      <div
+        aria-sort="none"
+        className="c-table__row__cell c0"
+        data-garden-id="tables.header_cell"
+        data-garden-version="version"
+        role="columnheader"
+      >
+        <SortableCell__Sortable>
+          <button
+            className="c-table__row__cell__sortable "
+            data-garden-id="tables.sortable"
+            data-garden-version="version"
+            type="button"
+          />
+        </SortableCell__Sortable>
+      </div>
+    </Cell>
+  </HeaderCell>
+</SortableCell>
 `;
 
 exports[`SortableCell applies focused styling if provided 1`] = `
-<ExampleWrapper>
-  <table>
-    <thead>
-      <tr>
-        <SortableCell
+.c0.c0 {
+  display: block;
+}
+
+<SortableCell
+  focused={true}
+>
+  <HeaderCell
+    aria-sort="none"
+  >
+    <Cell
+      aria-sort="none"
+      className=""
+      data-garden-id="tables.header_cell"
+      data-garden-version="version"
+      role="columnheader"
+    >
+      <div
+        aria-sort="none"
+        className="c-table__row__cell c0"
+        data-garden-id="tables.header_cell"
+        data-garden-version="version"
+        role="columnheader"
+      >
+        <SortableCell__Sortable
           focused={true}
         >
-          <HeaderCell
-            aria-sort="none"
-          >
-            <Cell
-              aria-sort="none"
-              className=""
-              data-garden-id="tables.header_cell"
-              data-garden-version="version"
-            >
-              <th
-                aria-sort="none"
-                className="c-table__row__cell "
-                data-garden-id="tables.header_cell"
-                data-garden-version="version"
-              >
-                <SortableCell__Sortable
-                  focused={true}
-                >
-                  <button
-                    className="c-table__row__cell__sortable is-focused "
-                    data-garden-id="tables.sortable"
-                    data-garden-version="version"
-                    type="button"
-                  />
-                </SortableCell__Sortable>
-              </th>
-            </Cell>
-          </HeaderCell>
-        </SortableCell>
-      </tr>
-    </thead>
-  </table>
-</ExampleWrapper>
+          <button
+            className="c-table__row__cell__sortable is-focused "
+            data-garden-id="tables.sortable"
+            data-garden-version="version"
+            type="button"
+          />
+        </SortableCell__Sortable>
+      </div>
+    </Cell>
+  </HeaderCell>
+</SortableCell>
 `;
 
 exports[`SortableCell applies minimum styling if provided 1`] = `
-<ExampleWrapper>
-  <table>
-    <thead>
-      <tr>
-        <SortableCell
-          minimum={true}
-        >
-          <HeaderCell
-            aria-sort="none"
-            minimum={true}
-          >
-            <Cell
-              aria-sort="none"
-              className=""
-              data-garden-id="tables.header_cell"
-              data-garden-version="version"
-              minimum={true}
-            >
-              <th
-                aria-sort="none"
-                className="c-table__row__cell c-table__row__cell--min "
-                data-garden-id="tables.header_cell"
-                data-garden-version="version"
-              >
-                <SortableCell__Sortable>
-                  <button
-                    className="c-table__row__cell__sortable "
-                    data-garden-id="tables.sortable"
-                    data-garden-version="version"
-                    type="button"
-                  />
-                </SortableCell__Sortable>
-              </th>
-            </Cell>
-          </HeaderCell>
-        </SortableCell>
-      </tr>
-    </thead>
-  </table>
-</ExampleWrapper>
+.c0.c0 {
+  display: block;
+}
+
+<SortableCell
+  minimum={true}
+>
+  <HeaderCell
+    aria-sort="none"
+    minimum={true}
+  >
+    <Cell
+      aria-sort="none"
+      className=""
+      data-garden-id="tables.header_cell"
+      data-garden-version="version"
+      minimum={true}
+      role="columnheader"
+    >
+      <div
+        aria-sort="none"
+        className="c-table__row__cell c-table__row__cell--min c0"
+        data-garden-id="tables.header_cell"
+        data-garden-version="version"
+        role="columnheader"
+      >
+        <SortableCell__Sortable>
+          <button
+            className="c-table__row__cell__sortable "
+            data-garden-id="tables.sortable"
+            data-garden-version="version"
+            type="button"
+          />
+        </SortableCell__Sortable>
+      </div>
+    </Cell>
+  </HeaderCell>
+</SortableCell>
 `;
 
 exports[`SortableCell applies truncated styling if provided 1`] = `
-<ExampleWrapper>
-  <table>
-    <thead>
-      <tr>
-        <SortableCell
-          truncate={true}
-        >
-          <HeaderCell
-            aria-sort="none"
-            truncate={true}
-          >
-            <Cell
-              aria-sort="none"
-              className=""
-              data-garden-id="tables.header_cell"
-              data-garden-version="version"
-              truncate={true}
-            >
-              <th
-                aria-sort="none"
-                className="c-table__row__cell c-table__row__cell--truncate "
-                data-garden-id="tables.header_cell"
-                data-garden-version="version"
-              >
-                <SortableCell__Sortable>
-                  <button
-                    className="c-table__row__cell__sortable "
-                    data-garden-id="tables.sortable"
-                    data-garden-version="version"
-                    type="button"
-                  />
-                </SortableCell__Sortable>
-              </th>
-            </Cell>
-          </HeaderCell>
-        </SortableCell>
-      </tr>
-    </thead>
-  </table>
-</ExampleWrapper>
+.c0.c0 {
+  display: block;
+}
+
+<SortableCell
+  truncate={true}
+>
+  <HeaderCell
+    aria-sort="none"
+    truncate={true}
+  >
+    <Cell
+      aria-sort="none"
+      className=""
+      data-garden-id="tables.header_cell"
+      data-garden-version="version"
+      role="columnheader"
+      truncate={true}
+    >
+      <div
+        aria-sort="none"
+        className="c-table__row__cell c-table__row__cell--truncate c0"
+        data-garden-id="tables.header_cell"
+        data-garden-version="version"
+        role="columnheader"
+      >
+        <SortableCell__Sortable>
+          <button
+            className="c-table__row__cell__sortable "
+            data-garden-id="tables.sortable"
+            data-garden-version="version"
+            type="button"
+          />
+        </SortableCell__Sortable>
+      </div>
+    </Cell>
+  </HeaderCell>
+</SortableCell>
 `;
 
 exports[`SortableCell sorting applies ascending props when applied 1`] = `
-<ExampleWrapper>
-  <table>
-    <thead>
-      <tr>
-        <SortableCell
+.c0.c0 {
+  display: block;
+}
+
+<SortableCell
+  sort="asc"
+>
+  <HeaderCell
+    aria-sort="ascending"
+  >
+    <Cell
+      aria-sort="ascending"
+      className=""
+      data-garden-id="tables.header_cell"
+      data-garden-version="version"
+      role="columnheader"
+    >
+      <div
+        aria-sort="ascending"
+        className="c-table__row__cell c0"
+        data-garden-id="tables.header_cell"
+        data-garden-version="version"
+        role="columnheader"
+      >
+        <SortableCell__Sortable
           sort="asc"
         >
-          <HeaderCell
-            aria-sort="ascending"
-          >
-            <Cell
-              aria-sort="ascending"
-              className=""
-              data-garden-id="tables.header_cell"
-              data-garden-version="version"
-            >
-              <th
-                aria-sort="ascending"
-                className="c-table__row__cell "
-                data-garden-id="tables.header_cell"
-                data-garden-version="version"
-              >
-                <SortableCell__Sortable
-                  sort="asc"
-                >
-                  <button
-                    className="c-table__row__cell__sortable is-ascending "
-                    data-garden-id="tables.sortable"
-                    data-garden-version="version"
-                    type="button"
-                  />
-                </SortableCell__Sortable>
-              </th>
-            </Cell>
-          </HeaderCell>
-        </SortableCell>
-      </tr>
-    </thead>
-  </table>
-</ExampleWrapper>
+          <button
+            className="c-table__row__cell__sortable is-ascending "
+            data-garden-id="tables.sortable"
+            data-garden-version="version"
+            type="button"
+          />
+        </SortableCell__Sortable>
+      </div>
+    </Cell>
+  </HeaderCell>
+</SortableCell>
 `;
 
 exports[`SortableCell sorting applies descending props when applied 1`] = `
-<ExampleWrapper>
-  <table>
-    <thead>
-      <tr>
-        <SortableCell
+.c0.c0 {
+  display: block;
+}
+
+<SortableCell
+  sort="desc"
+>
+  <HeaderCell
+    aria-sort="descending"
+  >
+    <Cell
+      aria-sort="descending"
+      className=""
+      data-garden-id="tables.header_cell"
+      data-garden-version="version"
+      role="columnheader"
+    >
+      <div
+        aria-sort="descending"
+        className="c-table__row__cell c0"
+        data-garden-id="tables.header_cell"
+        data-garden-version="version"
+        role="columnheader"
+      >
+        <SortableCell__Sortable
           sort="desc"
         >
-          <HeaderCell
-            aria-sort="descending"
-          >
-            <Cell
-              aria-sort="descending"
-              className=""
-              data-garden-id="tables.header_cell"
-              data-garden-version="version"
-            >
-              <th
-                aria-sort="descending"
-                className="c-table__row__cell "
-                data-garden-id="tables.header_cell"
-                data-garden-version="version"
-              >
-                <SortableCell__Sortable
-                  sort="desc"
-                >
-                  <button
-                    className="c-table__row__cell__sortable is-descending "
-                    data-garden-id="tables.sortable"
-                    data-garden-version="version"
-                    type="button"
-                  />
-                </SortableCell__Sortable>
-              </th>
-            </Cell>
-          </HeaderCell>
-        </SortableCell>
-      </tr>
-    </thead>
-  </table>
-</ExampleWrapper>
+          <button
+            className="c-table__row__cell__sortable is-descending "
+            data-garden-id="tables.sortable"
+            data-garden-version="version"
+            type="button"
+          />
+        </SortableCell__Sortable>
+      </div>
+    </Cell>
+  </HeaderCell>
+</SortableCell>
 `;

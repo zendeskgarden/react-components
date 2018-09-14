@@ -1,66 +1,59 @@
 ```jsx
-const {
-  zdFontSizeBeta,
-  zdFontWeightSemibold,
-  zdSpacingSm
-} = require('@zendeskgarden/css-variables');
-
-const StyledCaption = styled(Caption)`
-  font-size: ${zdFontSizeBeta};
-  font-weight: ${zdFontWeightSemibold};
-  margin-bottom: ${zdSpacingSm};
-`;
+const { zdSpacingSm } = require('@zendeskgarden/css-variables');
+const { XL } = require('@zendeskgarden/react-typography/src');
 
 <Table>
-  <StyledCaption>Your Unsolved Tickets</StyledCaption>
+  <XL tag={Caption} style={{ marginBottom: zdSpacingSm }}>
+    Your Unsolved Tickets
+  </XL>
   <Head>
-    <Row header>
-      <HeaderCell scope="col">Subject</HeaderCell>
-      <HeaderCell scope="col">Requester</HeaderCell>
-      <HeaderCell scope="col">Requested</HeaderCell>
-      <HeaderCell scope="col">Type</HeaderCell>
-    </Row>
+    <HeaderRow>
+      <HeaderCell width="25%">Subject</HeaderCell>
+      <HeaderCell width="25%">Requester</HeaderCell>
+      <HeaderCell width="25%">Requested</HeaderCell>
+      <HeaderCell width="25%">Type</HeaderCell>
+    </HeaderRow>
   </Head>
   <Body>
-    <Row group>
-      <Cell colSpan={4}>
+    <GroupRow>
+      <Cell width="100%">
         Status <strong>Open</strong>
       </Cell>
+    </GroupRow>
+    <Row>
+      <Cell width="25%">Where are my shoes?</Cell>
+      <Cell width="25%">John Smith</Cell>
+      <Cell width="25%">15 minutes ago</Cell>
+      <Cell width="25%">Ticket</Cell>
     </Row>
     <Row>
-      <Cell>Where are my shoes?</Cell>
-      <Cell>John Smith</Cell>
-      <Cell>15 minutes ago</Cell>
-      <Cell>Ticket</Cell>
+      <Cell width="25%">Was charged twice</Cell>
+      <Cell width="25%">Jane Doe</Cell>
+      <Cell width="25%">25 minutes ago</Cell>
+      <Cell width="25%">Call</Cell>
     </Row>
-    <Row>
-      <Cell>Was charged twice</Cell>
-      <Cell>Jane Doe</Cell>
-      <Cell>25 minutes ago</Cell>
-      <Cell>Call</Cell>
-    </Row>
-    <Row group>
-      <Cell colSpan={4}>
+    <GroupRow>
+      <Cell width="100%">
         Status <strong>Closed</strong>
       </Cell>
+    </GroupRow>
+    <Row>
+      <Cell width="25%">Ticket 1</Cell>
+      <Cell width="25%">Unknown</Cell>
+      <Cell width="25%">2 months ago</Cell>
+      <Cell width="25%">Ticket</Cell>
     </Row>
     <Row>
-      <Cell>Ticket 1</Cell>
-      <Cell>Unknown</Cell>
-      <Cell>2 months ago</Cell>
-      <Cell>Ticket</Cell>
+      <Cell width="25%">Ticket 2</Cell>
+      <Cell width="25%">Unknown</Cell>
+      <Cell width="25%">2 months ago</Cell>
+      <Cell width="25%">Ticket</Cell>
     </Row>
     <Row>
-      <Cell>Ticket 2</Cell>
-      <Cell>Unknown</Cell>
-      <Cell>2 months ago</Cell>
-      <Cell>Ticket</Cell>
-    </Row>
-    <Row>
-      <Cell>Ticket 3</Cell>
-      <Cell>Unknown</Cell>
-      <Cell>2 months ago</Cell>
-      <Cell>Ticket</Cell>
+      <Cell width="25%">Ticket 3</Cell>
+      <Cell width="25%">Unknown</Cell>
+      <Cell width="25%">2 months ago</Cell>
+      <Cell width="25%">Ticket</Cell>
     </Row>
   </Body>
 </Table>;

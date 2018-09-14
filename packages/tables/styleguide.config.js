@@ -50,6 +50,10 @@ module.exports = {
         {
           name: 'Overflow Menus',
           content: '../../packages/tables/src/examples/overflow-menu.md'
+        },
+        {
+          name: 'Virtual Scrolling',
+          content: '../../packages/tables/src/examples/virtual-table.md'
         }
       ]
     },

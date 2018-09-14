@@ -1,12 +1,7 @@
 ```jsx
-const { zdFontSizeBeta, zdFontWeightSemibold, zdSpacingSm } = require('@zendeskgarden/css-variables');
+const { zdSpacingSm } = require('@zendeskgarden/css-variables');
+const { XL } = require('@zendeskgarden/react-typography/src');
 const { Checkbox, Label } = require('@zendeskgarden/react-checkboxes/src');
-
-const StyledCaption = styled(Caption)`
-  font-size: ${zdFontSizeBeta};
-  font-weight: ${zdFontWeightSemibold};
-  margin-bottom: ${zdSpacingSm};
-`;
 
 const data = [];
 
@@ -37,9 +32,11 @@ const isSelectAllChecked = (selectedRows, rows) => {
 }
 
 <Table>
-  <StyledCaption>Selectable Ticket View</StyledCaption>
+  <XL tag={Caption} style={{ marginBottom: zdSpacingSm }}>
+    Selectable Ticket View
+  </XL>
   <Head>
-    <Row header>
+    <HeaderRow>
       <HeaderCell minimum>
         <Checkbox checked={isSelectAllChecked(state.selectedRows, state.rows)}
           onChange={e => {
@@ -63,7 +60,7 @@ const isSelectAllChecked = (selectedRows, rows) => {
         </Checkbox>
       </HeaderCell>
       <HeaderCell scope="col">Long Truncated Title</HeaderCell>
-    </Row>
+    </HeaderRow>
   </Head>
   <Body>
     {state.rows.map(row => (

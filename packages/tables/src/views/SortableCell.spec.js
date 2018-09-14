@@ -10,83 +10,46 @@ import { mount } from 'enzyme';
 
 import SortableCell from './SortableCell';
 
-// eslint-disable-next-line
-const ExampleWrapper = ({ children }) => (
-  <table>
-    <thead>
-      <tr>{children}</tr>
-    </thead>
-  </table>
-);
-
 describe('SortableCell', () => {
   it('applies default styling', () => {
-    const wrapper = mount(
-      <ExampleWrapper>
-        <SortableCell />
-      </ExampleWrapper>
-    );
+    const wrapper = mount(<SortableCell />);
 
     expect(wrapper).toMatchSnapshot();
   });
 
   it('applies focused styling if provided', () => {
-    const wrapper = mount(
-      <ExampleWrapper>
-        <SortableCell focused />
-      </ExampleWrapper>
-    );
+    const wrapper = mount(<SortableCell focused />);
 
     expect(wrapper).toMatchSnapshot();
   });
 
   it('applies active styling if provided', () => {
-    const wrapper = mount(
-      <ExampleWrapper>
-        <SortableCell active />
-      </ExampleWrapper>
-    );
+    const wrapper = mount(<SortableCell active />);
 
     expect(wrapper).toMatchSnapshot();
   });
 
   it('applies minimum styling if provided', () => {
-    const wrapper = mount(
-      <ExampleWrapper>
-        <SortableCell minimum />
-      </ExampleWrapper>
-    );
+    const wrapper = mount(<SortableCell minimum />);
 
     expect(wrapper).toMatchSnapshot();
   });
 
   it('applies truncated styling if provided', () => {
-    const wrapper = mount(
-      <ExampleWrapper>
-        <SortableCell truncate />
-      </ExampleWrapper>
-    );
+    const wrapper = mount(<SortableCell truncate />);
 
     expect(wrapper).toMatchSnapshot();
   });
 
   describe('sorting', () => {
     it('applies ascending props when applied', () => {
-      const wrapper = mount(
-        <ExampleWrapper>
-          <SortableCell sort="asc" />
-        </ExampleWrapper>
-      );
+      const wrapper = mount(<SortableCell sort="asc" />);
 
       expect(wrapper).toMatchSnapshot();
     });
 
     it('applies descending props when applied', () => {
-      const wrapper = mount(
-        <ExampleWrapper>
-          <SortableCell sort="desc" />
-        </ExampleWrapper>
-      );
+      const wrapper = mount(<SortableCell sort="desc" />);
 
       expect(wrapper).toMatchSnapshot();
     });

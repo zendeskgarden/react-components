@@ -5,6 +5,7 @@ exports[`HeaderCell renders default styling 1`] = `
   className=""
   data-garden-id="tables.header_cell"
   data-garden-version="version"
+  role="columnheader"
 />
 `;
 
@@ -14,6 +15,7 @@ exports[`HeaderCell renders menu styling if provided 1`] = `
   data-garden-id="tables.header_cell"
   data-garden-version="version"
   menu={true}
+  role="columnheader"
 />
 `;
 
@@ -23,6 +25,7 @@ exports[`HeaderCell renders minimum styling if provided 1`] = `
   data-garden-id="tables.header_cell"
   data-garden-version="version"
   minimum={true}
+  role="columnheader"
 />
 `;
 
@@ -31,6 +34,7 @@ exports[`HeaderCell renders truncation styling if provided 1`] = `
   className=""
   data-garden-id="tables.header_cell"
   data-garden-version="version"
+  role="columnheader"
   truncate={true}
 />
 `;

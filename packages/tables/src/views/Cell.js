@@ -14,11 +14,12 @@ import { retrieveTheme } from '@zendeskgarden/react-theming';
 const COMPONENT_ID = 'tables.cell';
 
 /**
- * Accepts all `<td>` props
+ * Accepts all `<div>` props
  */
-const Cell = styled.td.attrs({
+const Cell = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
+  role: 'gridcell',
   className: props =>
     classNames(TableStyles['c-table__row__cell'], {
       [TableStyles['c-table__row__cell--min']]: props.minimum,
@@ -26,6 +27,11 @@ const Cell = styled.td.attrs({
       [TableStyles['c-table__row__cell--overflow']]: props.menu
     })
 })`
+  && {
+    display: block;
+    width: ${({ width }) => width};
+  }
+
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
@@ -35,7 +41,9 @@ Cell.propTypes = {
   /** Applies truncated text styling */
   truncate: PropTypes.bool,
   /** Applies overflow styling */
-  menu: PropTypes.bool
+  menu: PropTypes.bool,
+  /** The width of the cell */
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 /** @component */

@@ -21,7 +21,16 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 import '@zendeskgarden/react-tables/dist/styles.css';
 
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Table, Caption, Head, Body, Row, HeaderCell, Cell } from '@zendeskgarden/react-tables';
+import {
+  Table,
+  Caption,
+  Head,
+  HeaderRow,
+  HeaderCell,
+  Body,
+  Row,
+  Cell
+} from '@zendeskgarden/react-tables';
 
 /**
  * Place a `ThemeProvider` at the root of your React application
@@ -30,25 +39,25 @@ import { Table, Caption, Head, Body, Row, HeaderCell, Cell } from '@zendeskgarde
   <Table>
     <Caption>Your Unsolved Tickets</Caption>
     <Head>
-      <Row header>
-        <HeaderCell scope="col">Subject</HeaderCell>
-        <HeaderCell scope="col">Requester</HeaderCell>
-        <HeaderCell scope="col">Requested</HeaderCell>
-        <HeaderCell scope="col">Type</HeaderCell>
-      </Row>
+      <HeaderRow>
+        <HeaderCell width="25%">Subject</HeaderCell>
+        <HeaderCell width="25%">Requester</HeaderCell>
+        <HeaderCell width="25%">Requested</HeaderCell>
+        <HeaderCell width="25%">Type</HeaderCell>
+      </HeaderRow>
     </Head>
     <Body>
       <Row>
-        <Cell>Where are my shoes?</Cell>
-        <Cell>John Smith</Cell>
-        <Cell>15 minutes ago</Cell>
-        <Cell>Ticket</Cell>
+        <Cell width="25%">Where are my shoes?</Cell>
+        <Cell width="25%">John Smith</Cell>
+        <Cell width="25%">15 minutes ago</Cell>
+        <Cell width="25%">Ticket</Cell>
       </Row>
       <Row>
-        <Cell>I was charged twice!</Cell>
-        <Cell>Jane Doe</Cell>
-        <Cell>25 minutes ago</Cell>
-        <Cell>Call</Cell>
+        <Cell width="25%">I was charged twice!</Cell>
+        <Cell width="25%">Jane Doe</Cell>
+        <Cell width="25%">25 minutes ago</Cell>
+        <Cell width="25%">Call</Cell>
       </Row>
     </Body>
   </Table>

@@ -8,8 +8,10 @@
 export { default as Body } from './views/Body';
 export { default as Caption } from './views/Caption';
 export { default as Cell } from './views/Cell';
+export { default as GroupRow } from './views/GroupRow';
 export { default as Head } from './views/Head';
 export { default as HeaderCell } from './views/HeaderCell';
+export { default as HeaderRow } from './views/HeaderRow';
 export { default as OverflowButton } from './views/OverflowButton';
 export { default as Row } from './views/Row';
 export { default as SortableCell } from './views/SortableCell';
