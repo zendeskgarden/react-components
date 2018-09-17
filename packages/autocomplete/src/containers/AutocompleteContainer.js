@@ -225,16 +225,14 @@ class AutocompleteContainer extends ControlledComponent {
           this.tagSelectionModel.selectPrevious();
           e.preventDefault();
         }
-      } else {
-        if (
-          e.target.value === '' &&
-          this.tagSelectionModel.selectedIndex === this.tagSelectionModel.numItems - 1
-        ) {
-          this.openDropdown();
-        } else if (!isOpen) {
-          this.tagSelectionModel.selectNext();
-        }
-
+      } else if (
+        e.target.value === '' &&
+        this.tagSelectionModel.selectedIndex === this.tagSelectionModel.numItems - 1
+      ) {
+        this.openDropdown();
+        e.preventDefault();
+      } else if (!isOpen) {
+        this.tagSelectionModel.selectNext();
         e.preventDefault();
       }
     },
