@@ -13,7 +13,7 @@ exports[`XXXL applies correct styling by default 1`] = `
   >
     <XXXL__StyledXXXL>
       <div
-        className="c0"
+        className="-div c0"
         data-garden-id="typography.xxxl"
         data-garden-version="version"
       >
@@ -37,7 +37,7 @@ exports[`XXXL applies correct styling with RTL locale 1`] = `
   >
     <XXXL__StyledXXXL>
       <div
-        className="c0"
+        className="-div c0"
         data-garden-id="typography.xxxl"
         data-garden-version="version"
       >

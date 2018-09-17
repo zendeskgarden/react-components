@@ -13,7 +13,7 @@ exports[`MD applies correct styling by default 1`] = `
   >
     <MD__StyledMD>
       <div
-        className="c0"
+        className="-div c0"
         data-garden-id="typography.md"
         data-garden-version="version"
       >
@@ -37,7 +37,7 @@ exports[`MD applies correct styling with RTL locale 1`] = `
   >
     <MD__StyledMD>
       <div
-        className="c0"
+        className="-div c0"
         data-garden-id="typography.md"
         data-garden-version="version"
       >

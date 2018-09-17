@@ -13,7 +13,7 @@ exports[`SM applies correct styling by default 1`] = `
   >
     <SM__StyledSM>
       <div
-        className="c0"
+        className="-div c0"
         data-garden-id="typography.sm"
         data-garden-version="version"
       >
@@ -37,7 +37,7 @@ exports[`SM applies correct styling with RTL locale 1`] = `
   >
     <SM__StyledSM>
       <div
-        className="c0"
+        className="-div c0"
         data-garden-id="typography.sm"
         data-garden-version="version"
       >

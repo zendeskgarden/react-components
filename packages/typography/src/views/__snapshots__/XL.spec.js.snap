@@ -13,7 +13,7 @@ exports[`XL applies correct styling by default 1`] = `
   >
     <XL__StyledXL>
       <div
-        className="c0"
+        className="-div c0"
         data-garden-id="typography.xl"
         data-garden-version="version"
       >
@@ -37,7 +37,7 @@ exports[`XL applies correct styling with RTL locale 1`] = `
   >
     <XL__StyledXL>
       <div
-        className="c0"
+        className="-div c0"
         data-garden-id="typography.xl"
         data-garden-version="version"
       >

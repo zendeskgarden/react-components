@@ -13,7 +13,7 @@ exports[`LG applies correct styling by default 1`] = `
   >
     <LG__StyledLG>
       <div
-        className="c0"
+        className="-div c0"
         data-garden-id="typography.lg"
         data-garden-version="version"
       >
@@ -37,7 +37,7 @@ exports[`LG applies correct styling with RTL locale 1`] = `
   >
     <LG__StyledLG>
       <div
-        className="c0"
+        className="-div c0"
         data-garden-id="typography.lg"
         data-garden-version="version"
       >
