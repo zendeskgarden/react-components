@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.4.6"></a>
+## [2.4.6](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-select@2.4.5...@zendeskgarden/react-select@2.4.6) (2018-09-17)
+
+
+### Bug Fixes
+
+* **select:** remove array render to support React <16 ([#152](https://github.com/zendeskgarden/react-components/issues/152)) ([294df68](https://github.com/zendeskgarden/react-components/commit/294df68))
+
+
+
+
+
 <a name="2.4.5"></a>
 ## [2.4.5](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-select@2.4.4...@zendeskgarden/react-select@2.4.5) (2018-09-17)
 
