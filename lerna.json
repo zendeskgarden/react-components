@@ -3,6 +3,9 @@
   "version": "independent",
   "ignoreChanges": ["*.md", "*.spec.js", "**/__snapshots__/**", "styleguide.config.js"],
   "command": {
+    "publish": {
+      "registry": "https://registry.npmjs.org/"
+    },
     "version": {
       "push": false,
       "allowBranch": "master",
