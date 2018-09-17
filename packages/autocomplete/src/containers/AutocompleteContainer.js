@@ -209,8 +209,10 @@ class AutocompleteContainer extends ControlledComponent {
           this.tagSelectionModel.selectedIndex === this.tagSelectionModel.numItems - 1
         ) {
           this.openDropdown();
+          e.preventDefault();
         } else {
           this.tagSelectionModel.selectNext();
+          e.preventDefault();
         }
       } else if (e.target.value === '' && this.tagSelectionModel.selectedIndex !== 0) {
         this.tagSelectionModel.selectPrevious();
