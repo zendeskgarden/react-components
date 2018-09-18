@@ -5,7 +5,7 @@ the `input` and it's collection of tags.
 This example also includes an example of "copy-to-clipboard" functionality when
 a tag is selected.
 
-#### Accessibility Warning
+### Accessibility Warning
 
 When implementing a MultiSelect with the ability to delete Tags, be aware of
 users that navigate primarily with a keyboard and how your features may affect
@@ -229,65 +229,68 @@ const MoreAnchor = styled(Anchor)`
 
                     <Input
                       {...getInputProps(
-                        getFieldInputProps({
-                          bare: true,
-                          innerRef: inputRef,
-                          value: state.inputValue,
-                          onChange: e => {
-                            setState({ inputValue: e.target.value });
-                          },
-                          onKeyDown: e => {
-                            if (
-                              e.keyCode === KEY_CODES.ENTER &&
-                              (!e.target.value || e.target.value.trim().length === 0) &&
-                              !state.focusedKey &&
-                              state.isOpen
-                            ) {
-                              e.preventDefault();
-                              return;
-                            }
-
-                            if (
-                              e.keyCode === KEY_CODES.DELETE ||
-                              e.keyCode === KEY_CODES.BACKSPACE
-                            ) {
-                              if (tagFocusedKey !== undefined) {
-                                deleteTag(tagFocusedKey);
+                        getFieldInputProps(
+                          {
+                            bare: true,
+                            innerRef: inputRef,
+                            value: state.inputValue,
+                            onChange: e => {
+                              setState({ inputValue: e.target.value });
+                            },
+                            onKeyDown: e => {
+                              if (
+                                e.keyCode === KEY_CODES.ENTER &&
+                                (!e.target.value || e.target.value.trim().length === 0) &&
+                                !state.focusedKey &&
+                                state.isOpen
+                              ) {
+                                e.preventDefault();
                                 return;
                               }
 
-                              if (e.target.value === '') {
-                                const tags = Object.keys(state.selectedKeys);
-                                deleteTag(tags[tags.length - 1]);
-                              }
-                            }
+                              if (
+                                e.keyCode === KEY_CODES.DELETE ||
+                                e.keyCode === KEY_CODES.BACKSPACE
+                              ) {
+                                if (tagFocusedKey !== undefined) {
+                                  deleteTag(tagFocusedKey);
+                                  return;
+                                }
 
-                            if (tagFocusedKey !== undefined) {
-                              // copy-to-clipboard functionality
-                              if (e.keyCode === 67 && e.metaKey) {
-                                alert(`"${tagFocusedKey}" copied`);
+                                if (e.target.value === '') {
+                                  const tags = Object.keys(state.selectedKeys);
+                                  deleteTag(tags[tags.length - 1]);
+                                }
                               }
-                            }
+
+                              if (tagFocusedKey !== undefined) {
+                                // copy-to-clipboard functionality
+                                if (e.keyCode === 67 && e.metaKey) {
+                                  alert(`"${tagFocusedKey}" copied`);
+                                }
+                              }
+                            },
+                            placeholder:
+                              Object.keys(state.selectedKeys).length === 0
+                                ? 'Enter some content'
+                                : undefined,
+                            onFocus: () => {
+                              setState({ isFocused: true });
+                            },
+                            onBlur: () => {
+                              setState({ isFocused: false });
+                            },
+                            style: Object.assign(
+                              { margin: '0 2px', flexGrow: 1, width: 60 },
+                              Object.keys(state.selectedKeys).length !== 0 &&
+                              (!state.isFocused || tagFocusedKey !== undefined) &&
+                              !isOpen
+                                ? { opacity: 0, height: 0, minHeight: 0 }
+                                : {}
+                            )
                           },
-                          placeholder:
-                            Object.keys(state.selectedKeys).length === 0
-                              ? 'Enter some content'
-                              : undefined,
-                          onFocus: () => {
-                            setState({ isFocused: true });
-                          },
-                          onBlur: () => {
-                            setState({ isFocused: false });
-                          },
-                          style: Object.assign(
-                            { margin: '0 2px', flexGrow: 1, width: 60 },
-                            Object.keys(state.selectedKeys).length !== 0 &&
-                            (!state.isFocused || tagFocusedKey !== undefined) &&
-                            !isOpen
-                              ? { opacity: 0, height: 0, minHeight: 0 }
-                              : {}
-                          )
-                        })
+                          { isDescribed: false }
+                        )
                       )}
                     />
                   </FauxInput>

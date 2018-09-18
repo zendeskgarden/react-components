@@ -1,7 +1,7 @@
 ### States
 
 ```jsx
-<Grid>
+<Grid role="group" aria-label="State Usage Example">
   <Row>
     <Col md={4}>
       <Radio>
@@ -9,7 +9,7 @@
       </Radio>
     </Col>
     <Col md={4}>
-      <Radio checked onChange={() => console.log('checked value changed')}>
+      <Radio checked>
         <Label>Checked Label</Label>
       </Radio>
     </Col>

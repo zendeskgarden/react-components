@@ -9,7 +9,7 @@
       </Checkbox>
     </Col>
     <Col md={3}>
-      <Checkbox checked onChange={() => console.log('checked value changed')}>
+      <Checkbox checked>
         <Label>Checked Label</Label>
       </Checkbox>
     </Col>

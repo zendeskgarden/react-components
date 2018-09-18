@@ -1,5 +1,5 @@
 ```jsx
-<Input placeholder="Default input" />
+<Input aria-label="Default Example" placeholder="Default input" />
 ```
 
 ### Validation Types
@@ -8,16 +8,16 @@
 <Grid>
   <Row>
     <Col lg>
-      <Input placeholder="Default" />
+      <Input aria-label="Default Example" placeholder="Default" />
     </Col>
     <Col lg>
-      <Input validation="success" placeholder="Success" />
+      <Input aria-label="Success Example" validation="success" placeholder="Success" />
     </Col>
     <Col lg>
-      <Input validation="warning" placeholder="Warning" />
+      <Input aria-label="Warning Example" validation="warning" placeholder="Warning" />
     </Col>
     <Col lg>
-      <Input validation="error" placeholder="Error" />
+      <Input aria-label="Error Example" validation="error" placeholder="Error" />
     </Col>
   </Row>
 </Grid>
@@ -29,10 +29,10 @@
 <Grid>
   <Row>
     <Col lg>
-      <Input placeholder="Default" />
+      <Input aria-label="Default Example" placeholder="Default" />
     </Col>
     <Col lg>
-      <Input placeholder="Small" small />
+      <Input aria-label="Small Example" placeholder="Small" small />
     </Col>
   </Row>
 </Grid>
@@ -44,13 +44,13 @@
 <Grid>
   <Row>
     <Col lg>
-      <Input placeholder="Disabled" disabled />
+      <Input aria-label="Disabled Example" placeholder="Disabled" disabled />
     </Col>
     <Col lg>
-      <Input placeholder="Focused" focused />
+      <Input aria-label="Focused Example" placeholder="Focused" focused />
     </Col>
     <Col lg>
-      <Input placeholder="Hovered" hovered />
+      <Input aria-label="Hovered Example" placeholder="Hovered" hovered />
     </Col>
   </Row>
 </Grid>
