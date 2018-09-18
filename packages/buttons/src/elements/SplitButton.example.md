@@ -106,7 +106,8 @@ const increment = (num = 0) => setState({ count: state.count + num });
               {...getTriggerProps({
                 buttonRef: triggerRef,
                 active: state.isOpen,
-                rotated: state.isOpen
+                rotated: state.isOpen,
+                ['aria-label']: 'Other Options'
               })}
             />
           </ButtonGroupView>
