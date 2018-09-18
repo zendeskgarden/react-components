@@ -77,7 +77,7 @@ export class SelectionContainer extends ControlledComponent {
     this.state = {
       focusedKey: undefined,
       selectedKey: undefined,
-      id: IdManager.generateId()
+      id: IdManager.generateId('garden-selection-container')
     };
 
     this.focusSelectionModel = new SingleSelectionModel();

@@ -36,7 +36,7 @@ export default class ButtonGroup extends ControlledComponent {
     super(...args);
 
     this.state = {
-      id: IdManager.generateId(),
+      id: IdManager.generateId('garden-button-group'),
       selectedKey: undefined,
       focusedKey: undefined
     };

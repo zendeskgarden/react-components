@@ -44,7 +44,7 @@ export default class ModalContainer extends ControlledComponent {
   };
 
   state = {
-    id: IdManager.generateId()
+    id: IdManager.generateId('garden-modal-container')
   };
 
   getTitleId = () => `${this.getControlledState().id}--title`;

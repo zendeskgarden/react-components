@@ -35,7 +35,7 @@ export default class TextField extends ControlledComponent {
     super(...args);
 
     this.state = {
-      id: IdManager.generateId()
+      id: IdManager.generateId('garden-text-field')
     };
   }
 

@@ -63,7 +63,7 @@ export default class Modal extends ControlledComponent {
   };
 
   state = {
-    id: IdManager.generateId()
+    id: IdManager.generateId('garden-modal')
   };
 
   componentDidMount() {

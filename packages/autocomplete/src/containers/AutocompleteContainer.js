@@ -133,7 +133,7 @@ class AutocompleteContainer extends ControlledComponent {
 
     this.state = {
       isOpen: false,
-      id: IdManager.generateId(),
+      id: IdManager.generateId('garden-autocomplete-container'),
       focusedKey: undefined,
       tagFocusedKey: undefined
     };

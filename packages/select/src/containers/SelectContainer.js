@@ -111,7 +111,7 @@ export default class SelectContainer extends ControlledComponent {
     super(...args);
 
     this.state = {
-      id: IdManager.generateId(),
+      id: IdManager.generateId('garden-select-container'),
       isOpen: false,
       focusedKey: undefined,
       selectedKey: undefined,

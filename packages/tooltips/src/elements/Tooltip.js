@@ -73,7 +73,7 @@ export default class Tooltip extends ControlledComponent {
   };
 
   state = {
-    id: IdManager.generateId()
+    id: IdManager.generateId('garden-tooltip')
   };
 
   render() {

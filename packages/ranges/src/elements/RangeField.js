@@ -34,7 +34,7 @@ export default class RangeField extends ControlledComponent {
     super(...args);
 
     this.state = {
-      id: IdManager.generateId()
+      id: IdManager.generateId('garden-range-field')
     };
   }
 

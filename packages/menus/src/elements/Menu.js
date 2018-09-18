@@ -118,7 +118,7 @@ export default class Menu extends ControlledComponent {
   state = {
     focusedKey: undefined,
     isOpen: false,
-    id: IdManager.generateId()
+    id: IdManager.generateId('garden-menu')
   };
 
   render() {
