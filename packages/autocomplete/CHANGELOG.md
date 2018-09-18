@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-autocomplete@0.2.0...@zendeskgarden/react-autocomplete@0.3.0) (2018-09-18)
+
+
+### Bug Fixes
+
+* **autocomplete:** remove event default prevention for all right arrow presses ([#159](https://github.com/zendeskgarden/react-components/issues/159)) ([2117cb3](https://github.com/zendeskgarden/react-components/commit/2117cb3))
+* **autocomplete:** update multiselect example to not remove invalid tags ([#153](https://github.com/zendeskgarden/react-components/issues/153)) ([0dcbf0c](https://github.com/zendeskgarden/react-components/commit/0dcbf0c))
+
+
+### Features
+
+* **autocomplete:** update doc examples to include invalid input states ([#136](https://github.com/zendeskgarden/react-components/issues/136)) ([f48568a](https://github.com/zendeskgarden/react-components/commit/f48568a))
+
+
+
+
+
 <a name="0.2.0"></a>
 # [0.2.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-autocomplete@0.1.27...@zendeskgarden/react-autocomplete@0.2.0) (2018-09-04)
 
