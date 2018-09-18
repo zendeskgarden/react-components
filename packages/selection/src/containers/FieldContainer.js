@@ -43,8 +43,6 @@ export default class FieldContainer extends ControlledComponent {
 
   retrieveHintId = () => `${this.getControlledState().id}--hint`;
 
-  retrieveMessageId = () => `${this.getControlledState().id}--message`;
-
   getLabelProps = ({
     id = this.retrieveLabelId(),
     htmlFor = this.retrieveInputId(),
@@ -57,11 +55,14 @@ export default class FieldContainer extends ControlledComponent {
     };
   };
 
-  getInputProps = ({ id = this.retrieveInputId(), ...other } = {}) => {
+  getInputProps = (
+    { id = this.retrieveInputId(), ...other } = {},
+    { isDescribed = false } = {}
+  ) => {
     return {
       id,
       'aria-labelledby': this.retrieveLabelId(),
-      'aria-describedby': `${this.retrieveHintId()} ${this.retrieveMessageId()}`,
+      'aria-describedby': isDescribed ? this.retrieveHintId() : null,
       ...other
     };
   };
@@ -73,9 +74,9 @@ export default class FieldContainer extends ControlledComponent {
     };
   };
 
-  getMessageProps = ({ id = this.retrieveMessageId(), ...other } = {}) => {
+  getMessageProps = ({ role = 'alert', ...other } = {}) => {
     return {
-      id,
+      role,
       ...other
     };
   };

@@ -65,9 +65,17 @@ export default class Checkbox extends ControlledComponent {
      */
     const { onMouseDown: onFocusMouseDown, ...checkboxProps } = getFocusProps(checkboxInputProps);
 
+    let isDescribed = false;
+
+    Children.forEach(children, child => {
+      if (hasType(child, Hint)) {
+        isDescribed = true;
+      }
+    });
+
     return (
       <CheckboxView {...wrapperProps}>
-        <Input {...getInputProps(checkboxProps)} />
+        <Input {...getInputProps(checkboxProps, { isDescribed })} />
         {Children.map(children, child => {
           if (!isValidElement(child)) {
             return child;

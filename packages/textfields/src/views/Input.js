@@ -19,12 +19,17 @@ const VALIDATION = {
   NONE: 'none'
 };
 
+const isInvalid = validation => {
+  return validation === VALIDATION.WARNING || validation === VALIDATION.ERROR;
+};
+
 /**
  * Accepts all `<input>` props
  */
 const Input = styled.input.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
+  'aria-invalid': props => isInvalid(props.validation),
   className: props =>
     classNames(TextStyles['c-txt__input'], {
       [TextStyles['c-txt__input--sm']]: props.small,
