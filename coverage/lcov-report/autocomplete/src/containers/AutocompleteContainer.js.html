@@ -22,22 +22,22 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>152/152</span>
+        <span class='fraction'>153/153</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">86% </span>
+        <span class="strong">83.7% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>86/100</span>
+        <span class='fraction'>77/92</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>44/44</span>
+        <span class='fraction'>46/46</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>152/152</span>
+        <span class='fraction'>153/153</span>
       </div>
     </div>
   </div>
@@ -613,7 +613,8 @@
 568
 569
 570
-571</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+571
+572</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -817,38 +818,39 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1386,41 +1388,42 @@ class AutocompleteContainer extends ControlledComponent {
     this.inputRef &amp;&amp; this.inputRef.focus();
   };
 &nbsp;
-  INPUT_KEYDOWN_HANDLERS = {
-    [KEY_CODES.LEFT]: e =&gt; {
-      if (isRtl(this.props)) {
-        if (
-          e.target.value === '' &amp;&amp;
-          this.tagSelectionModel.selectedIndex === this.tagSelectionModel.numItems - 1
-        ) {
-          this.openDropdown();
-        } else {
-          this.tagSelectionModel.selectNext();
-        }
-      } else <span class="missing-if-branch" title="else path not taken" >E</span>if (e.target.value === '' &amp;&amp; this.tagSelectionModel.selectedIndex !== 0) {
+  performPreviousKeyboardNavigation = e =&gt; {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (e.target.value === '') {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (this.tagSelectionModel.selectedIndex !== 0) {
         this.tagSelectionModel.selectPrevious();
         e.preventDefault();
       }
+    }
+  };
+&nbsp;
+  performNextKeyboardNavigation = e =&gt; {
+    const { isOpen } = this.getControlledState();
+&nbsp;
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (e.target.value === '') {
+      if (this.tagSelectionModel.selectedIndex === this.tagSelectionModel.numItems - 1) {
+        this.openDropdown();
+        e.preventDefault();
+      } else <span class="missing-if-branch" title="else path not taken" >E</span>if (!isOpen) {
+        this.tagSelectionModel.selectNext();
+        e.preventDefault();
+      }
+    }
+  };
+&nbsp;
+  INPUT_KEYDOWN_HANDLERS = {
+    [KEY_CODES.LEFT]: e =&gt; {
+      if (isRtl(this.props)) {
+        this.performNextKeyboardNavigation(e);
+      } else {
+        this.performPreviousKeyboardNavigation(e);
+      }
     },
     [KEY_CODES.RIGHT]: e =&gt; {
-      const { isOpen } = this.getControlledState();
-&nbsp;
       if (isRtl(this.props)) {
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (e.target.value === '' &amp;&amp; this.tagSelectionModel.selectedIndex !== 0) {
-          this.tagSelectionModel.selectPrevious();
-          e.preventDefault();
-        }
+        this.performPreviousKeyboardNavigation(e);
       } else {
-        if (
-          e.target.value === '' &amp;&amp;
-          this.tagSelectionModel.selectedIndex === this.tagSelectionModel.numItems - 1
-        ) {
-          this.openDropdown();
-        } else <span class="missing-if-branch" title="else path not taken" >E</span>if (!isOpen) {
-          this.tagSelectionModel.selectNext();
-        }
-&nbsp;
-        e.preventDefault();
+        this.performNextKeyboardNavigation(e);
       }
     },
     [KEY_CODES.HOME]: e =&gt; {
@@ -1759,7 +1762,7 @@ export default withTheme(AutocompleteContainer);
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 17 2018 20:45:54 GMT+0000 (UTC)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Sep 18 2018 16:55:21 GMT+0000 (UTC)
 </div>
 </div>
 <script src="../../../prettify.js"></script>
