@@ -201,41 +201,42 @@ class AutocompleteContainer extends ControlledComponent {
     this.inputRef && this.inputRef.focus();
   };
 
-  INPUT_KEYDOWN_HANDLERS = {
-    [KEY_CODES.LEFT]: e => {
-      if (isRtl(this.props)) {
-        if (
-          e.target.value === '' &&
-          this.tagSelectionModel.selectedIndex === this.tagSelectionModel.numItems - 1
-        ) {
-          this.openDropdown();
-          e.preventDefault();
-        } else {
-          this.tagSelectionModel.selectNext();
-          e.preventDefault();
-        }
-      } else if (e.target.value === '' && this.tagSelectionModel.selectedIndex !== 0) {
+  performPreviousKeyboardNavigation = e => {
+    if (e.target.value === '') {
+      if (this.tagSelectionModel.selectedIndex !== 0) {
         this.tagSelectionModel.selectPrevious();
         e.preventDefault();
       }
-    },
-    [KEY_CODES.RIGHT]: e => {
-      const { isOpen } = this.getControlledState();
+    }
+  };
 
-      if (isRtl(this.props)) {
-        if (e.target.value === '' && this.tagSelectionModel.selectedIndex !== 0) {
-          this.tagSelectionModel.selectPrevious();
-          e.preventDefault();
-        }
-      } else if (
-        e.target.value === '' &&
-        this.tagSelectionModel.selectedIndex === this.tagSelectionModel.numItems - 1
-      ) {
+  performNextKeyboardNavigation = e => {
+    const { isOpen } = this.getControlledState();
+
+    if (e.target.value === '') {
+      if (this.tagSelectionModel.selectedIndex === this.tagSelectionModel.numItems - 1) {
         this.openDropdown();
         e.preventDefault();
       } else if (!isOpen) {
         this.tagSelectionModel.selectNext();
         e.preventDefault();
+      }
+    }
+  };
+
+  INPUT_KEYDOWN_HANDLERS = {
+    [KEY_CODES.LEFT]: e => {
+      if (isRtl(this.props)) {
+        this.performNextKeyboardNavigation(e);
+      } else {
+        this.performPreviousKeyboardNavigation(e);
+      }
+    },
+    [KEY_CODES.RIGHT]: e => {
+      if (isRtl(this.props)) {
+        this.performPreviousKeyboardNavigation(e);
+      } else {
+        this.performNextKeyboardNavigation(e);
       }
     },
     [KEY_CODES.HOME]: e => {
