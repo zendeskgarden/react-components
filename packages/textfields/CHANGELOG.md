@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.3.7"></a>
+## [3.3.7](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-textfields@3.3.6...@zendeskgarden/react-textfields@3.3.7) (2018-09-19)
+
+
+### Bug Fixes
+
+* **IdManager:** apply custom prefix to all ID generation ([#161](https://github.com/zendeskgarden/react-components/issues/161)) ([3a3bf84](https://github.com/zendeskgarden/react-components/commit/3a3bf84))
+
+
+
+
+
 <a name="3.3.6"></a>
 ## [3.3.6](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-textfields@3.3.5...@zendeskgarden/react-textfields@3.3.6) (2018-09-04)
 

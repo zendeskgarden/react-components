@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.3.10"></a>
+## [4.3.10](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.3.9...@zendeskgarden/react-tooltips@4.3.10) (2018-09-19)
+
+
+### Bug Fixes
+
+* **IdManager:** apply custom prefix to all ID generation ([#161](https://github.com/zendeskgarden/react-components/issues/161)) ([3a3bf84](https://github.com/zendeskgarden/react-components/commit/3a3bf84))
+
+
+
+
+
 <a name="4.3.9"></a>
 ## [4.3.9](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.3.8...@zendeskgarden/react-tooltips@4.3.9) (2018-09-04)
 

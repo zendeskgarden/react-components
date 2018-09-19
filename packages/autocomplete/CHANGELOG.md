@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.3.1"></a>
+## [0.3.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-autocomplete@0.3.0...@zendeskgarden/react-autocomplete@0.3.1) (2018-09-19)
+
+
+### Bug Fixes
+
+* **IdManager:** apply custom prefix to all ID generation ([#161](https://github.com/zendeskgarden/react-components/issues/161)) ([3a3bf84](https://github.com/zendeskgarden/react-components/commit/3a3bf84))
+
+
+
+
+
 <a name="0.3.0"></a>
 # [0.3.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-autocomplete@0.2.0...@zendeskgarden/react-autocomplete@0.3.0) (2018-09-18)
 

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.6.5"></a>
+## [3.6.5](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.6.4...@zendeskgarden/react-menus@3.6.5) (2018-09-19)
+
+
+### Bug Fixes
+
+* **IdManager:** apply custom prefix to all ID generation ([#161](https://github.com/zendeskgarden/react-components/issues/161)) ([3a3bf84](https://github.com/zendeskgarden/react-components/commit/3a3bf84))
+
+
+
+
+
 <a name="3.6.4"></a>
 ## [3.6.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.6.3...@zendeskgarden/react-menus@3.6.4) (2018-09-17)
 
