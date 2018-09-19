@@ -188,6 +188,7 @@ const defaultStyleguideConfig = {
         '@zendeskgarden/react-pagination': path.resolve('..', 'pagination'),
         '@zendeskgarden/react-radios': path.resolve('..', 'radios'),
         '@zendeskgarden/react-ranges': path.resolve('..', 'ranges'),
+        '@zendeskgarden/react-scrollbars': path.resolve('..', 'scrollbars'),
         '@zendeskgarden/react-select': path.resolve('..', 'select'),
         '@zendeskgarden/react-selection': path.resolve('..', 'selection'),
         '@zendeskgarden/react-tables': path.resolve('..', 'tables'),
