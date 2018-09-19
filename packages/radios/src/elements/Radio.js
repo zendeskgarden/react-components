@@ -42,7 +42,7 @@ export default class Radio extends ControlledComponent {
     super(...args);
 
     this.state = {
-      id: IdManager.generateId()
+      id: IdManager.generateId('garden-radio')
     };
   }
 

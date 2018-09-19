@@ -110,7 +110,7 @@ export default class Select extends ControlledComponent {
     focusedKey: undefined,
     selectedKey: undefined,
     isOpen: false,
-    id: IdManager.generateId()
+    id: IdManager.generateId('garden-select')
   };
 
   componentDidMount() {

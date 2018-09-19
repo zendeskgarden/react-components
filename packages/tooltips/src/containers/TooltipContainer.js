@@ -110,7 +110,7 @@ class TooltipContainer extends ControlledComponent {
 
     this.state = {
       isVisible: false,
-      id: IdManager.generateId()
+      id: IdManager.generateId('garden-tooltip-container')
     };
 
     this.mouseEntered = true;

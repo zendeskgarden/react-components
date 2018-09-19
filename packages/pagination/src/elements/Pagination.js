@@ -77,7 +77,7 @@ export default class Pagination extends ControlledComponent {
     this.state = {
       currentPage: undefined,
       focusedKey: undefined,
-      id: IdManager.generateId()
+      id: IdManager.generateId('garden-pagination')
     };
   }
 

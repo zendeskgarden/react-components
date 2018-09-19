@@ -33,7 +33,7 @@ export default class FieldContainer extends ControlledComponent {
     super(...args);
 
     this.state = {
-      id: IdManager.generateId()
+      id: IdManager.generateId('garden-field-container')
     };
   }
 
