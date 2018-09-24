@@ -1,15 +1,18 @@
 ### Basic Scrollable Example
 
 Our custom scrollbar implementation is uses the
-[react-custom-scrollbars](https://github.com/malte-wessel/react-custom-scrollbars)
+[perfect-scrollbars](https://github.com/utatti/perfect-scrollbar)
 library internally.
 
-Take a look at their [API documentation](https://github.com/malte-wessel/react-custom-scrollbars/blob/master/docs/API.md)
-to view all of the available customization props and methods.
+Take a look at their [API documentation](https://github.com/utatti/perfect-scrollbar#options)
+to view all of the available customization options and events.
 
 ```jsx
-const StyledSection = styled.div`
-  margin-bottom: 16px;
+const { MD } = require('@zendeskgarden/react-typography');
+const { zdSpacing } = require('@zendeskgarden/css-variables');
+
+const StyledSection = styled(MD)`
+  margin-bottom: ${zdSpacing};
 `;
 
 const ExampleText = () => (
@@ -72,22 +75,29 @@ const ExampleText = () => (
 <Grid>
   <Row>
     <Col sm>
-      <Button stretched onClick={() => this.scrollbarRef.scrollToTop()}>
+      <Button
+        stretched
+        onClick={() => {
+          this.scrollbarRef.scrollTop = 0;
+        }}
+      >
         Scroll to top
       </Button>
     </Col>
     <Col sm>
-      <Button stretched onClick={() => this.scrollbarRef.scrollToBottom()}>
+      <Button
+        stretched
+        onClick={() => {
+          this.scrollbarRef.scrollTop = this.scrollbarRef.scrollHeight;
+        }}
+      >
         Scroll to bottom
       </Button>
     </Col>
   </Row>
   <Row>
     <Col>
-      <Scrollbar
-        style={{ height: 250, marginTop: 40 }}
-        scrollbarRef={ref => (this.scrollbarRef = ref)}
-      >
+      <Scrollbar style={{ height: 250, marginTop: 40 }} innerRef={ref => (this.scrollbarRef = ref)}>
         <ExampleText />
         <ExampleText />
         <ExampleText />

@@ -73,12 +73,12 @@ found at http://www.apache.org/licenses/LICENSE-2.0
       },
       {
         test: /\.css?$/u,
-        exclude: /@zendeskgarden\/css/u,
+        exclude: /@zendeskgarden\/css-(?!scrollbars)/u,
         use: [MiniCssExtractPlugin.loader, 'css-loader']
       },
       {
         test: /\.css?$/u,
-        include: /@zendeskgarden\/css/u,
+        include: /@zendeskgarden\/css-(?!scrollbars)/u,
         use: [
           MiniCssExtractPlugin.loader,
           {

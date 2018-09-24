@@ -138,12 +138,12 @@ const defaultStyleguideConfig = {
         },
         {
           test: /\.css$/u,
-          exclude: /@zendeskgarden\/css-/u,
+          exclude: /@zendeskgarden\/css-(?!scrollbars)/u,
           loader: 'style-loader!css-loader'
         },
         {
           test: /\.css$/u,
-          include: /@zendeskgarden\/css-/u,
+          include: /@zendeskgarden\/css-(?!scrollbars)/u,
           loader:
             'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
         },
