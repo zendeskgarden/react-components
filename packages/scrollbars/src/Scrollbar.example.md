@@ -44,7 +44,11 @@ const ExampleText = () => (
 
 ```jsx
 <Scrollbar style={{ width: '100%', height: 500 }} dark>
-  <img src="images/beach-dark.jpg" alt="Dark Beach Example" style={{ width: 2000 }} />
+  <img
+    src="images/beach-dark.jpg"
+    alt="Dark Beach Example"
+    style={{ width: 2000, display: 'block' }}
+  />
 </Scrollbar>
 ```
 
