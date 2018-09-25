@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.1.14"></a>
+## [3.1.14](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-notifications@3.1.13...@zendeskgarden/react-notifications@3.1.14) (2018-09-25)
+
+
+### Bug Fixes
+
+* **pagination:** remove invalid aria role ([#127](https://github.com/zendeskgarden/react-components/issues/127)) ([ba4bcb5](https://github.com/zendeskgarden/react-components/commit/ba4bcb5))
+
+
+
+
+
 <a name="3.1.13"></a>
 ## [3.1.13](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-notifications@3.1.12...@zendeskgarden/react-notifications@3.1.13) (2018-08-23)
 
