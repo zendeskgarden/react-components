@@ -20,7 +20,6 @@ import CheckboxView from '../views/CheckboxView';
 import Input from '../views/Input';
 import Label from '../views/Label';
 import Hint from '../views/Hint';
-import Message from '../views/Message';
 
 /**
  * Accepts all `<input type="checkbox" />` props
@@ -49,7 +48,6 @@ export default class Checkbox extends ControlledComponent {
   renderCheckbox = ({
     getLabelProps,
     getInputProps,
-    getMessageProps,
     getFocusProps,
     getHintProps,
     keyboardFocused
@@ -99,10 +97,6 @@ export default class Checkbox extends ControlledComponent {
             return cloneElement(child, getHintProps(child.props));
           }
 
-          if (hasType(child, Message)) {
-            return cloneElement(child, getMessageProps(child.props));
-          }
-
           return child;
         })}
       </CheckboxView>
@@ -114,13 +108,12 @@ export default class Checkbox extends ControlledComponent {
 
     return (
       <FieldContainer id={id}>
-        {({ getLabelProps, getInputProps, getMessageProps, getHintProps }) => (
+        {({ getLabelProps, getInputProps, getHintProps }) => (
           <KeyboardFocusContainer>
             {({ getFocusProps, keyboardFocused }) =>
               this.renderCheckbox({
                 getLabelProps,
                 getInputProps,
-                getMessageProps,
                 getFocusProps,
                 getHintProps,
                 keyboardFocused

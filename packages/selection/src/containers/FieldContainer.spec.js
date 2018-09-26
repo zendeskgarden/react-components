@@ -18,12 +18,11 @@ describe('FieldContainer', () => {
   /* eslint-disable jsx-a11y/label-has-associated-control */
   const basicExample = () => (
     <FieldContainer id={CONTAINER_ID}>
-      {({ getLabelProps, getInputProps, getHintProps, getMessageProps }) => (
+      {({ getLabelProps, getInputProps, getHintProps }) => (
         <div>
           <label {...getLabelProps({ 'data-test-id': 'label' })}>Label</label>
           <div {...getHintProps({ 'data-test-id': 'hint' })}>Hint</div>
           <input {...getInputProps({ 'data-test-id': 'input' })} />
-          <div {...getMessageProps({ 'data-test-id': 'message' })}>Message</div>
         </div>
       )}
     </FieldContainer>
@@ -37,7 +36,6 @@ describe('FieldContainer', () => {
   const findLabel = enzymeWrapper => enzymeWrapper.find('[data-test-id="label"]');
   const findInput = enzymeWrapper => enzymeWrapper.find('[data-test-id="input"]');
   const findHint = enzymeWrapper => enzymeWrapper.find('[data-test-id="hint"]');
-  const findMessage = enzymeWrapper => enzymeWrapper.find('[data-test-id="message"]');
 
   describe('getLabelProps', () => {
     it('applies correct accessibility role', () => {
@@ -79,8 +77,27 @@ describe('FieldContainer', () => {
   });
 
   describe('getMessageProps', () => {
-    it('applies correct accessibility role', () => {
-      expect(findMessage(wrapper)).toHaveProp('role', 'alert');
+    it('shows deprecation warning if called', () => {
+      console.warn = jest.fn(); // eslint-disable-line no-console
+
+      /* eslint-disable */
+      wrapper = mountWithTheme(
+        <FieldContainer id={CONTAINER_ID}>
+          {({ getLabelProps, getInputProps, getHintProps, getMessageProps }) => (
+            <div>
+              <label {...getLabelProps({ 'data-test-id': 'label' })}>Label</label>
+              <div {...getHintProps({ 'data-test-id': 'hint' })}>Hint</div>
+              <input {...getInputProps({ 'data-test-id': 'input' })} />
+              <div {...getMessageProps({ 'data-test-id': 'message' })}>Message</div>
+            </div>
+          )}
+        </FieldContainer>
+      );
+      /* eslint-disable */
+
+      expect(console.warn).toHaveBeenCalledWith(
+        'Warning: the `getMessageProps` render prop is deprecated. It will be removed in an upcoming major release.'
+      );
     });
   });
 });

@@ -14,7 +14,6 @@ import Range from './Range';
 import RangeGroup from '../views/RangeGroup';
 import Label from '../views/Label';
 import Hint from '../views/Hint';
-import Message from '../views/Message';
 
 /** Accepts all `<div>` props */
 export default class RangeField extends ControlledComponent {
@@ -52,7 +51,7 @@ export default class RangeField extends ControlledComponent {
 
     return (
       <FieldContainer id={id}>
-        {({ getLabelProps, getInputProps, getHintProps, getMessageProps }) => (
+        {({ getLabelProps, getInputProps, getHintProps }) => (
           <RangeGroup {...otherProps}>
             {Children.map(children, child => {
               if (!isValidElement(child)) {
@@ -69,10 +68,6 @@ export default class RangeField extends ControlledComponent {
 
               if (hasType(child, Hint)) {
                 return cloneElement(child, getHintProps(child.props));
-              }
-
-              if (hasType(child, Message)) {
-                return cloneElement(child, getMessageProps(child.props));
               }
 
               return child;

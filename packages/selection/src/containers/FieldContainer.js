@@ -16,7 +16,6 @@ export default class FieldContainer extends ControlledComponent {
      * @param {Function} renderProps.getLabelProps - Props to be spread onto the label element
      * @param {Function} renderProps.getInputProps - Props to be spread onto the input element
      * @param {Function} renderProps.getHintProps - Props to be spread onto the hint element
-     * @param {Function} renderProps.getMessageProps - Props to be spread onto the message element
      */
     children: PropTypes.func,
     /**
@@ -74,11 +73,16 @@ export default class FieldContainer extends ControlledComponent {
     };
   };
 
-  getMessageProps = ({ role = 'alert', ...other } = {}) => {
-    return {
-      role,
-      ...other
-    };
+  getMessageProps = props => {
+    if (process.env.NODE_ENV !== 'production') {
+      /* eslint-disable no-console */
+      console.warn(
+        'Warning: the `getMessageProps` render prop is deprecated. It will be removed in an upcoming major release.'
+      );
+      /* eslint-enable */
+    }
+
+    return props;
   };
 
   render() {

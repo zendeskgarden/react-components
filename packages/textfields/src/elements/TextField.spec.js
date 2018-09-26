@@ -41,10 +41,6 @@ describe('TextField', () => {
     expect(wrapper.find(Hint)).toHaveProp('id', `${TEXT_FIELD_ID}--hint`);
   });
 
-  it('applies container props to Message', () => {
-    expect(wrapper.find(Message)).toHaveProp('role', 'alert');
-  });
-
   it('applies no props to any other element', () => {
     expect(Object.keys(wrapper.find('[data-test-id="extra"]').props())).toHaveLength(2);
   });

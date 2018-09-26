@@ -20,7 +20,6 @@ import RadioView from '../views/RadioView';
 import Input from '../views/Input';
 import Label from '../views/Label';
 import Hint from '../views/Hint';
-import Message from '../views/Message';
 
 /**
  * Accepts all `<input type="radio" />` props
@@ -49,7 +48,6 @@ export default class Radio extends ControlledComponent {
   renderRadio = ({
     getLabelProps,
     getInputProps,
-    getMessageProps,
     getFocusProps,
     getHintProps,
     keyboardFocused
@@ -99,10 +97,6 @@ export default class Radio extends ControlledComponent {
             return cloneElement(child, getHintProps(child.props));
           }
 
-          if (child.type === Message) {
-            return cloneElement(child, getMessageProps(child.props));
-          }
-
           return child;
         })}
       </RadioView>
@@ -114,13 +108,12 @@ export default class Radio extends ControlledComponent {
 
     return (
       <FieldContainer id={id}>
-        {({ getLabelProps, getInputProps, getMessageProps, getHintProps }) => (
+        {({ getLabelProps, getInputProps, getHintProps }) => (
           <KeyboardFocusContainer>
             {({ getFocusProps, keyboardFocused }) =>
               this.renderRadio({
                 getLabelProps,
                 getInputProps,
-                getMessageProps,
                 getFocusProps,
                 getHintProps,
                 keyboardFocused
