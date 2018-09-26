@@ -7,12 +7,12 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { retrieveXCoordinate, retrieveYCoordinate, KEYFRAME_MAX } from './utils/dot-coordinates';
-import { LoadingPlaceholder, StyledCircle, StyledSVG } from './styled-elements';
+import { dPathFrames, strokeWidthFrames } from './utils/spinner-coordinates';
+import { LoadingPlaceholder, Path, StyledSVG } from './styled-elements';
 
-const COMPONENT_ID = 'loaders.dots';
+const COMPONENT_ID = 'loaders.spinner';
 
-export default class Dots extends React.Component {
+export default class Spinner extends React.Component {
   static propTypes = {
     /**
      * Size of the loader. Can inherit from `font-size` styling.
@@ -43,6 +43,9 @@ export default class Dots extends React.Component {
 
   state = {
     frame: 0,
+    rawFrame: 0,
+    totalFrames: dPathFrames.length - 1,
+    duration: 1250,
     delayComplete: false,
     timestamp: 0
   };
@@ -62,35 +65,24 @@ export default class Dots extends React.Component {
     cancelAnimationFrame(this.animationFrame);
   }
 
-  performAnimationFrame = (timestamp = 0) => {
-    const { velocity } = this.props;
-
-    let pinnedVelocity = velocity;
-
-    if (velocity < -1) {
-      pinnedVelocity = -0.9;
-    } else if (velocity > 1) {
-      pinnedVelocity = 1;
-    }
+  performAnimationFrame = (nowTime = 0) => {
+    const { totalFrames, duration, rawFrame, timestamp } = this.state;
 
     this.setState(
-      prevState => {
-        const factor = 1000 + 1000 * pinnedVelocity;
-        const elapsed = (timestamp - prevState.timestamp) / factor;
-        const frame = prevState.frame + (elapsed % KEYFRAME_MAX);
+      () => {
+        const frameMultiplier = (totalFrames + 1) / duration;
+        const elaspedTime = nowTime - timestamp;
+        const nextValue = rawFrame + elaspedTime * frameMultiplier;
+        const actualFrame = Math.floor(nextValue);
+        const frame = actualFrame % totalFrames;
+        const currentRawFrame = nextValue % totalFrames;
 
-        return { frame, timestamp };
+        return { frame, rawFrame: currentRawFrame, timestamp: nowTime };
       },
       () => {
         this.animationFrame = requestAnimationFrame(this.performAnimationFrame);
       }
     );
-  };
-
-  retrieveFrame = offset => {
-    const loop = KEYFRAME_MAX * 2;
-
-    return (this.state.frame + offset * loop) % loop;
   };
 
   render() {
@@ -101,34 +93,16 @@ export default class Dots extends React.Component {
       return <LoadingPlaceholder fontSize={size}>&nbsp;</LoadingPlaceholder>;
     }
 
-    const dotOneFrame = this.retrieveFrame(0);
-    const dotTwoFrame = this.retrieveFrame(1 / 3);
-    const dotThreeFrame = this.retrieveFrame(2 / 3);
-
     return (
       <StyledSVG
         fontSize={size}
         color={color}
         width="80"
-        height="72"
+        height="80"
         data-garden-id={COMPONENT_ID}
         {...other}
       >
-        <StyledCircle
-          transform={`translate(${retrieveXCoordinate(dotOneFrame)} ${retrieveYCoordinate(
-            dotOneFrame
-          )})`}
-        />
-        <StyledCircle
-          transform={`translate(${retrieveXCoordinate(dotTwoFrame)} ${retrieveYCoordinate(
-            dotTwoFrame
-          )})`}
-        />
-        <StyledCircle
-          transform={`translate(${retrieveXCoordinate(dotThreeFrame)} ${retrieveYCoordinate(
-            dotThreeFrame
-          )})`}
-        />
+        <Path d={dPathFrames[this.state.frame]} strokeWidth={strokeWidthFrames[this.state.frame]} />
       </StyledSVG>
     );
   }

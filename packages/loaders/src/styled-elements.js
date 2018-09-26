@@ -23,16 +23,33 @@ StyledCircle.propTypes = {
   transform: PropTypes.string
 };
 
-const COMPONENT_ID = 'loaders.dots';
+const StyledPath = styled.path.attrs({
+  strokeLinecap: 'round',
+  strokeLinejoin: 'miter',
+  fillOpacity: 0,
+  stroke: 'currentColor',
+  strokeWidth: ({ strokeWidth }) => strokeWidth,
+  d: ({ d }) => d
+})``;
+
+const StyledGroup = styled.g.attrs({
+  transform: 'matrix(0.14800000190734863,0,0,0.14800000190734863,40,40)'
+})``;
+
+export const Path = props => (
+  <StyledGroup>
+    <StyledPath {...props} />
+  </StyledGroup>
+);
 
 const StyledSvg = styled.svg.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': ({ dataGardenId }) => dataGardenId,
   'data-garden-version': PACKAGE_VERSION,
   xmlns: 'http://www.w3.org/2000/svg',
-  width: 80,
-  height: 72,
+  width: ({ width }) => width,
+  height: ({ height }) => height,
   focusable: 'false',
-  viewBox: '0 0 80 72',
+  viewBox: ({ width, height }) => `0 0 ${width} ${height}`,
   role: 'progressbar'
 })`
   width: 1em;
@@ -40,7 +57,7 @@ const StyledSvg = styled.svg.attrs({
   color: ${props => props.color || 'inherit'};
   font-size: ${props => props.fontSize || 'inherit'};
 
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveTheme(props.dataGardenId, props)};
 `;
 
 StyledSvg.propTypes = {
@@ -48,9 +65,9 @@ StyledSvg.propTypes = {
   fontSize: PropTypes.any
 };
 
-export const StyledSVG = ({ children, fontSize, ...other }) => {
+export const StyledSVG = ({ children, fontSize, width, height, ...other }) => {
   return (
-    <StyledSvg fontSize={fontSize} {...other}>
+    <StyledSvg fontSize={fontSize} width={width} height={height} {...other}>
       <g fill="currentColor">{children}</g>
     </StyledSvg>
   );
@@ -58,7 +75,9 @@ export const StyledSVG = ({ children, fontSize, ...other }) => {
 
 StyledSVG.propTypes = {
   children: PropTypes.node,
-  fontSize: PropTypes.any
+  fontSize: PropTypes.any,
+  height: PropTypes.string,
+  width: PropTypes.string
 };
 
 export const LoadingPlaceholder = styled.div.attrs({
