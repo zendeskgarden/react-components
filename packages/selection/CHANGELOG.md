@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.6.0"></a>
+# [4.6.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-selection@4.5.1...@zendeskgarden/react-selection@4.6.0) (2018-09-27)
+
+
+### Features
+
+* **accessibility:** add isDescribedBy flag to FormContainer and update global accessibility values ([#162](https://github.com/zendeskgarden/react-components/issues/162)) ([b60d56a](https://github.com/zendeskgarden/react-components/commit/b60d56a))
+
+
+
+
+
 <a name="4.5.1"></a>
 ## [4.5.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-selection@4.5.0...@zendeskgarden/react-selection@4.5.1) (2018-09-19)
 

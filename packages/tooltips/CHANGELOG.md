@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="4.3.12"></a>
+## [4.3.12](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.3.11...@zendeskgarden/react-tooltips@4.3.12) (2018-09-27)
+
+**Note:** Version bump only for package @zendeskgarden/react-tooltips
+
+
+
+
+
 <a name="4.3.11"></a>
 ## [4.3.11](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.3.10...@zendeskgarden/react-tooltips@4.3.11) (2018-09-25)
 

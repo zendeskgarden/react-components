@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.7.0"></a>
+# [3.7.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.6.6...@zendeskgarden/react-menus@3.7.0) (2018-09-27)
+
+
+### Features
+
+* **accessibility:** add isDescribedBy flag to FormContainer and update global accessibility values ([#162](https://github.com/zendeskgarden/react-components/issues/162)) ([b60d56a](https://github.com/zendeskgarden/react-components/commit/b60d56a))
+
+
+
+
+
 <a name="3.6.6"></a>
 ## [3.6.6](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.6.5...@zendeskgarden/react-menus@3.6.6) (2018-09-25)
 

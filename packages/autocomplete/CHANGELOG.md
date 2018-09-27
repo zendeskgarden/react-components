@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.4.0"></a>
+# [0.4.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-autocomplete@0.3.2...@zendeskgarden/react-autocomplete@0.4.0) (2018-09-27)
+
+
+### Features
+
+* **accessibility:** add isDescribedBy flag to FormContainer and update global accessibility values ([#162](https://github.com/zendeskgarden/react-components/issues/162)) ([b60d56a](https://github.com/zendeskgarden/react-components/commit/b60d56a))
+
+
+
+
+
 <a name="0.3.2"></a>
 ## [0.3.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-autocomplete@0.3.1...@zendeskgarden/react-autocomplete@0.3.2) (2018-09-25)
 
