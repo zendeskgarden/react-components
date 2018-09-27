@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">95.21% </span>
+        <span class="strong">95.17% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>139/146</span>
+        <span class='fraction'>138/145</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">86.36% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>95/110</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">97.5% </span>
+        <span class="strong">97.44% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>39/40</span>
+        <span class='fraction'>38/39</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">95.21% </span>
+        <span class="strong">95.17% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>139/146</span>
+        <span class='fraction'>138/145</span>
       </div>
     </div>
   </div>
@@ -668,8 +668,7 @@
 623
 624
 625
-626
-627</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+626</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -911,8 +910,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">313x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">55x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -932,7 +929,6 @@
 <span class="cline-any cline-yes">201x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">201x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -990,7 +986,6 @@
 <span class="cline-any cline-yes">112x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">112x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1107,6 +1102,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">494x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1256,6 +1252,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">278x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">108x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1537,8 +1535,6 @@ class MenuContainer extends ControlledComponent {
     }
   };
 &nbsp;
-  getMenuId = () =&gt; `${this.getControlledState().id}--container`;
-&nbsp;
   toggleMenuVisibility = ({ defaultFocusedIndex, focusOnOpen, closedByBlur } = {}) =&gt; {
     const { isOpen } = this.getControlledState();
 &nbsp;
@@ -1560,7 +1556,6 @@ class MenuContainer extends ControlledComponent {
     return {
       tabIndex,
       'aria-haspopup': true,
-      'aria-controls': this.getMenuId(),
       'aria-expanded': isOpen,
       onClick: composeEventHandlers(onClick, () =&gt; this.toggleMenuVisibility()),
       onKeyDown: composeEventHandlers(onKeyDown, event =&gt; {
@@ -1610,13 +1605,12 @@ class MenuContainer extends ControlledComponent {
    * Props to be applied to the menu container
    */
   getMenuProps = (
-    { id = this.getMenuId(), tabIndex = -1, role = 'menu', onKeyDown, onFocus, ...other } = <span class="branch-0 cbranch-no" title="branch not covered" >{},</span>
+    { tabIndex = -1, role = 'menu', onKeyDown, onFocus, ...other } = <span class="branch-0 cbranch-no" title="branch not covered" >{},</span>
     focusSelectionModel
   ) =&gt; {
     const { focusOnOpen } = this.getControlledState();
 &nbsp;
     return {
-      id,
       role,
       tabIndex,
       onFocus: composeEventHandlers(onFocus, event =&gt; {
@@ -1707,7 +1701,7 @@ class MenuContainer extends ControlledComponent {
   /**
    * Props to be applied to each selectable menu item
    **/
-  getItemProps = ({ key, textValue, ...other }) =&gt; {
+  getItemProps = ({ key, role = 'menuitemcheckbox', textValue, ...other }) =&gt; {
     const { focusedKey } = this.getControlledState();
 &nbsp;
     <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof textValue === 'string' &amp;&amp; textValue.length &gt; 0) {
@@ -1734,6 +1728,7 @@ class MenuContainer extends ControlledComponent {
 &nbsp;
     return {
       key,
+      role,
       ...other
     };
   };
@@ -1881,7 +1876,9 @@ class MenuContainer extends ControlledComponent {
                                   getContainerProps(this.getMenuProps(props, focusSelectionModel))
                                 ),
                               getItemProps: props =&gt;
-                                getSelectionItemProps(this.getItemProps(props)),
+                                getSelectionItemProps(this.getItemProps(props), {
+                                  selectedAriaKey: 'aria-checked'
+                                }),
                               getNextItemProps: props =&gt;
                                 getSelectionItemProps(
                                   this.getItemProps(this.getNextItemProps(props))
@@ -1927,7 +1924,7 @@ export default withTheme(MenuContainer);
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Sep 25 2018 17:24:19 GMT+0000 (UTC)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Sep 27 2018 17:32:29 GMT+0000 (UTC)
 </div>
 </div>
 <script src="../../../prettify.js"></script>
