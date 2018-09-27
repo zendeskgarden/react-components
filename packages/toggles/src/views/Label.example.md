@@ -9,7 +9,7 @@
       </Toggle>
     </Col>
     <Col lg={3}>
-      <Toggle checked onChange={() => console.log('checked value changed')}>
+      <Toggle checked>
         <Label>Checked Label</Label>
       </Toggle>
     </Col>

@@ -18,12 +18,11 @@ describe('FieldContainer', () => {
   /* eslint-disable jsx-a11y/label-has-associated-control */
   const basicExample = () => (
     <FieldContainer id={CONTAINER_ID}>
-      {({ getLabelProps, getInputProps, getHintProps, getMessageProps }) => (
+      {({ getLabelProps, getInputProps, getHintProps }) => (
         <div>
           <label {...getLabelProps({ 'data-test-id': 'label' })}>Label</label>
           <div {...getHintProps({ 'data-test-id': 'hint' })}>Hint</div>
           <input {...getInputProps({ 'data-test-id': 'input' })} />
-          <div {...getMessageProps({ 'data-test-id': 'message' })}>Message</div>
         </div>
       )}
     </FieldContainer>
@@ -37,7 +36,6 @@ describe('FieldContainer', () => {
   const findLabel = enzymeWrapper => enzymeWrapper.find('[data-test-id="label"]');
   const findInput = enzymeWrapper => enzymeWrapper.find('[data-test-id="input"]');
   const findHint = enzymeWrapper => enzymeWrapper.find('[data-test-id="hint"]');
-  const findMessage = enzymeWrapper => enzymeWrapper.find('[data-test-id="message"]');
 
   describe('getLabelProps', () => {
     it('applies correct accessibility role', () => {
@@ -49,15 +47,26 @@ describe('FieldContainer', () => {
   });
 
   describe('getInputProps', () => {
-    it('applies correct accessibility role', () => {
+    it('applies correct accessibility attributes', () => {
       const input = findInput(wrapper);
 
       expect(input).toHaveProp('id', `${CONTAINER_ID}--input`);
       expect(input).toHaveProp('aria-labelledby', `${CONTAINER_ID}--label`);
-      expect(input).toHaveProp(
-        'aria-describedby',
-        `${CONTAINER_ID}--hint ${CONTAINER_ID}--message`
+      expect(input).toHaveProp('aria-describedby', null);
+    });
+
+    it('includes aria-describedby if option is provided', () => {
+      wrapper = mountWithTheme(
+        <FieldContainer id={CONTAINER_ID}>
+          {({ getInputProps }) => (
+            <div>
+              <input {...getInputProps({ 'data-test-id': 'input' }, { isDescribed: true })} />
+            </div>
+          )}
+        </FieldContainer>
       );
+
+      expect(findInput(wrapper)).toHaveProp('aria-describedby', `${CONTAINER_ID}--hint`);
     });
   });
 
@@ -68,8 +77,27 @@ describe('FieldContainer', () => {
   });
 
   describe('getMessageProps', () => {
-    it('applies correct accessibility role', () => {
-      expect(findMessage(wrapper)).toHaveProp('id', `${CONTAINER_ID}--message`);
+    it('shows deprecation warning if called', () => {
+      console.warn = jest.fn(); // eslint-disable-line no-console
+
+      /* eslint-disable */
+      wrapper = mountWithTheme(
+        <FieldContainer id={CONTAINER_ID}>
+          {({ getLabelProps, getInputProps, getHintProps, getMessageProps }) => (
+            <div>
+              <label {...getLabelProps({ 'data-test-id': 'label' })}>Label</label>
+              <div {...getHintProps({ 'data-test-id': 'hint' })}>Hint</div>
+              <input {...getInputProps({ 'data-test-id': 'input' })} />
+              <div {...getMessageProps({ 'data-test-id': 'message' })}>Message</div>
+            </div>
+          )}
+        </FieldContainer>
+      );
+      /* eslint-disable */
+
+      expect(console.warn).toHaveBeenCalledWith(
+        'Warning: the `getMessageProps` render prop is deprecated. It will be removed in an upcoming major release.'
+      );
     });
   });
 });

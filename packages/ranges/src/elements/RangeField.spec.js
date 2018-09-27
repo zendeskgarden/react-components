@@ -40,10 +40,6 @@ describe('RangeField', () => {
     expect(wrapper.find(Hint)).toHaveProp('id', `${RANGE_FIELD_ID}--hint`);
   });
 
-  it('applies container props to Message', () => {
-    expect(wrapper.find(Message)).toHaveProp('id', `${RANGE_FIELD_ID}--message`);
-  });
-
   it('applies input props to Range', () => {
     expect(wrapper.find(Range)).toHaveProp('id', `${RANGE_FIELD_ID}--input`);
   });

@@ -318,12 +318,10 @@ class AutocompleteContainer extends ControlledComponent {
   };
 
   getItemId = key =>
-    typeof key === 'undefined' ? '' : `${this.getControlledState().id}--item-${key}`;
+    typeof key === 'undefined' ? null : `${this.getControlledState().id}--item-${key}`;
 
   getTagId = key =>
-    typeof key === 'undefined' ? '' : `${this.getControlledState().id}--tag-${key}`;
-
-  getMenuId = () => `${this.getControlledState().id}--menu`;
+    typeof key === 'undefined' ? null : `${this.getControlledState().id}--tag-${key}`;
 
   getInputProps = ({
     tabIndex = 0,
@@ -341,7 +339,6 @@ class AutocompleteContainer extends ControlledComponent {
       role,
       'aria-autocomplete': 'list',
       'aria-haspopup': 'true',
-      'aria-owns': this.getMenuId(),
       'aria-expanded': isOpen,
       'aria-activedescendant': isOpen ? this.getItemId(focusedKey) : this.getTagId(tagFocusedKey),
       autoComplete: 'off',
@@ -388,15 +385,8 @@ class AutocompleteContainer extends ControlledComponent {
     };
   };
 
-  getMenuProps = ({
-    id = this.getMenuId(),
-    role = 'listbox',
-    onMouseDown,
-    onMouseUp,
-    ...other
-  } = {}) => {
+  getMenuProps = ({ role = 'listbox', onMouseDown, onMouseUp, ...other } = {}) => {
     return {
-      id,
       role,
       onMouseDown: composeEventHandlers(onMouseDown, () => {
         this.menuMousedDown = true;

@@ -302,7 +302,6 @@ describe('MenuContainer', () => {
 
       expect(trigger).toHaveProp('tabIndex', 0);
       expect(trigger).toHaveProp('aria-haspopup', true);
-      expect(trigger).toHaveProp('aria-controls');
       expect(trigger).toHaveProp('aria-expanded', false);
     });
 
@@ -485,6 +484,12 @@ describe('MenuContainer', () => {
           });
         });
       });
+    });
+  });
+
+  describe('getItemProps', () => {
+    it('applies correct accessibility role', () => {
+      expect(findMenuItems(wrapper).first()).toHaveProp('role', 'menuitemcheckbox');
     });
   });
 
