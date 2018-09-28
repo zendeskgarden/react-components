@@ -6,6 +6,7 @@
  */
 
 import PropTypes from 'prop-types';
+import className from 'classnames';
 import styled from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import MenuStyles from '@zendeskgarden/css-menus';
@@ -20,7 +21,10 @@ const COMPONENT_ID = 'menus.header_item';
 const HeaderItem = styled(Item).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: MenuStyles['c-menu__item--header']
+  className: props =>
+    className(MenuStyles['c-menu__item--header'], {
+      [MenuStyles['c-menu__item--header--icon']]: props.containsIcon
+    })
 })`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
@@ -30,7 +34,9 @@ HeaderItem.propTypes = {
   focused: PropTypes.bool,
   hovered: PropTypes.bool,
   disabled: PropTypes.bool,
-  checked: PropTypes.bool
+  checked: PropTypes.bool,
+  /** Applies icon styling */
+  containsIcon: PropTypes.bool
 };
 
 HeaderItem.hasType = () => HeaderItem;

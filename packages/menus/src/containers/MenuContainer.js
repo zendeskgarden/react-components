@@ -406,7 +406,7 @@ class MenuContainer extends ControlledComponent {
   /**
    * Props to be applied to each selectable menu item
    **/
-  getItemProps = ({ key, role = 'menuitemcheckbox', textValue, ...other }) => {
+  getItemProps = ({ key, role = 'menuitemcheckbox', textValue, onMouseMove, ...other }) => {
     const { focusedKey } = this.getControlledState();
 
     if (typeof textValue === 'string' && textValue.length > 0) {
@@ -434,6 +434,16 @@ class MenuContainer extends ControlledComponent {
     return {
       key,
       role,
+      /**
+       * onMouseMove is used as it is only triggered by actual mouse movement
+       */
+      onMouseMove: composeEventHandlers(onMouseMove, () => {
+        if (key !== focusedKey) {
+          this.setControlledState({
+            focusedKey: key
+          });
+        }
+      }),
       ...other
     };
   };

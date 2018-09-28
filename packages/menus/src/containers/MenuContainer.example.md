@@ -240,9 +240,7 @@ initialState = {
         placement="end"
         onChange={selectedKey => setState({ selectedKey })}
         trigger={({ getTriggerProps, triggerRef, isOpen }) => (
-          <button {...getTriggerProps({ ref: triggerRef, active: isOpen })}>
-            Heavily customized menu
-          </button>
+          <button {...getTriggerProps({ ref: triggerRef })}>Heavily customized menu</button>
         )}
       >
         {({ getMenuProps, menuRef, placement, getItemProps, focusedKey }) => (

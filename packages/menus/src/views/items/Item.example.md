@@ -60,7 +60,7 @@ const InlineMenuView = styled(MenuView)`
     </Col>
     <Col md>
       <InlineMenuView>
-        <HeaderItem>
+        <HeaderItem containsIcon>
           <HeaderIcon>
             <GroupIcon />
           </HeaderIcon>

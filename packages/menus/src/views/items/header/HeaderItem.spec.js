@@ -15,4 +15,14 @@ describe('HeaderItem', () => {
 
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('renders icon styling if provided', () => {
+    const wrapper = shallow(
+      <HeaderItem containsIcon>
+        <svg />
+      </HeaderItem>
+    );
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });

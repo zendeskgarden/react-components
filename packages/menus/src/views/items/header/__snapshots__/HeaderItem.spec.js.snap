@@ -7,3 +7,14 @@ exports[`HeaderItem renders default styling 1`] = `
   data-garden-version="version"
 />
 `;
+
+exports[`HeaderItem renders icon styling if provided 1`] = `
+<Item
+  className="c-menu__item--header c-menu__item--header--icon "
+  containsIcon={true}
+  data-garden-id="menus.header_item"
+  data-garden-version="version"
+>
+  <svg />
+</Item>
+`;

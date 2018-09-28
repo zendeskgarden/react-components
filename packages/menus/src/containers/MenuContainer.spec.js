@@ -493,6 +493,16 @@ describe('MenuContainer', () => {
     it('applies correct accessibility role', () => {
       expect(findMenuItems(wrapper).first()).toHaveProp('role', 'menuitemcheckbox');
     });
+
+    it('focuses correct item if mouseMoved', () => {
+      findMenuItems(wrapper)
+        .first()
+        .simulate('mousemove');
+
+      wrapper.update();
+
+      expect(findMenuItems(wrapper).first()).toHaveProp('data-focused', true);
+    });
   });
 
   describe('getNextItemProps()', () => {
