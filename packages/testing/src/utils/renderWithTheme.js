@@ -7,6 +7,7 @@
 
 import React from 'react';
 import { mount, render } from 'enzyme';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 
 /**
@@ -20,7 +21,11 @@ const renderWithTheme = (tree, { rtl, theme, enzymeOptions } = {}) => {
     .instance()
     .getChildContext();
 
-  return render(tree, { context }, enzymeOptions);
+  return render(
+    tree,
+    { context, childContextTypes: StyledThemeProvider.childContextTypes },
+    enzymeOptions
+  );
 };
 
 export default renderWithTheme;
