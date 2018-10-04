@@ -74,6 +74,18 @@ describe('Tabs', () => {
       expect(wrapper.find(Tab).last()).toHaveProp('disabled', true);
     });
 
+    it('applies custom props if provided', () => {
+      const wrapper = mountWithTheme(
+        <Tabs>
+          <TabPanel key="custom" tabProps={{ 'data-test-id': 'custom-tab' }}>
+            Custom Tab
+          </TabPanel>
+        </Tabs>
+      );
+
+      expect(wrapper.find('[data-test-id="custom-tab"]')).toExist();
+    });
+
     it('selected first tab if in uncontrolled state', () => {
       const wrapper = mountWithTheme(basicExample);
 
