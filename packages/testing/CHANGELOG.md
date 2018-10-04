@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-testing@1.0.5...@zendeskgarden/react-testing@1.1.0) (2018-10-04)
+
+
+### Features
+
+* **testing:** add renderWithTheme ([#171](https://github.com/zendeskgarden/react-components/issues/171)) ([9e95c40](https://github.com/zendeskgarden/react-components/commit/9e95c40))
+
+
+
+
+
 <a name="1.0.5"></a>
 ## [1.0.5](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-testing@1.0.4...@zendeskgarden/react-testing@1.0.5) (2018-08-17)
 
