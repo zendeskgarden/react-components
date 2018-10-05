@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1538673612370" clover="3.2.0">
-  <project timestamp="1538673612371" name="All files">
-    <metrics statements="1891" coveredstatements="1870" conditionals="842" coveredconditionals="752" methods="628" coveredmethods="625" elements="3361" coveredelements="3247" complexity="0" loc="1891" ncloc="1891" packages="64" files="175" classes="175">
+<coverage generated="1538696916877" clover="3.2.0">
+  <project timestamp="1538696916877" name="All files">
+    <metrics statements="1894" coveredstatements="1871" conditionals="843" coveredconditionals="752" methods="629" coveredmethods="625" elements="3366" coveredelements="3248" complexity="0" loc="1894" ncloc="1894" packages="64" files="176" classes="176">
       <package name="autocomplete.src.containers">
         <metrics statements="152" coveredstatements="152" conditionals="91" coveredconditionals="76" methods="45" coveredmethods="45"/>
         <file name="AutocompleteContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/autocomplete/src/containers/AutocompleteContainer.js">
@@ -2163,12 +2163,18 @@
         </file>
       </package>
       <package name="testing.src.utils">
-        <metrics statements="6" coveredstatements="6" conditionals="3" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <metrics statements="9" coveredstatements="7" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="2"/>
         <file name="mountWithTheme.js" path="/home/travis/build/zendeskgarden/react-components/packages/testing/src/utils/mountWithTheme.js">
           <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
           <line num="18" count="67" type="cond" truecount="2" falsecount="0"/>
           <line num="19" count="407" type="stmt"/>
           <line num="24" count="407" type="stmt"/>
+        </file>
+        <file name="renderWithTheme.js" path="/home/travis/build/zendeskgarden/react-components/packages/testing/src/utils/renderWithTheme.js">
+          <metrics statements="3" coveredstatements="1" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="18" count="67" type="cond" truecount="0" falsecount="1"/>
+          <line num="19" count="0" type="stmt"/>
+          <line num="24" count="0" type="stmt"/>
         </file>
         <file name="shallowWithTheme.js" path="/home/travis/build/zendeskgarden/react-components/packages/testing/src/utils/shallowWithTheme.js">
           <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>

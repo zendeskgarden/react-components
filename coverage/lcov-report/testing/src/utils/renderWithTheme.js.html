@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for pagination/src/views/NextPage.js</title>
+    <title>Code coverage report for testing/src/utils/renderWithTheme.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -16,32 +16,32 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../../index.html">All files</a> / <a href="index.html">pagination/src/views</a> NextPage.js
+      <a href="../../../index.html">All files</a> / <a href="index.html">testing/src/utils</a> renderWithTheme.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>1/3</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>0/1</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>0/1</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>1/3</span>
       </div>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -74,11 +74,7 @@
 29
 30
 31
-32
-33
-34
-35
-36</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+32</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -91,21 +87,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">67x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">30x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -120,34 +112,30 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 &nbsp;
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import PaginationStyles from '@zendeskgarden/css-pagination';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
-&nbsp;
-import Page from './Page';
-const COMPONENT_ID = 'pagination.next_page';
+import React from 'react';
+import { mount, render } from 'enzyme';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
+import { ThemeProvider } from '@zendeskgarden/react-theming';
 &nbsp;
 /**
- * Accepts all `&lt;li&gt;` props
+ * Render a component with provided RTL and Theme
+ * @param {EnzymeWrapper} tree
+ * @param {Object} ThemeProperties { rtl: boolean, theme: object, enzymeOptions: object }
  */
-const NextPage = styled(Page).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: PaginationStyles['c-pagination__page--next']
-})`
-  ${props =&gt; retrieveTheme(COMPONENT_ID, props)};
-`;
+const renderWithTheme = <span class="fstat-no" title="function not covered" >(t</span>ree, { rtl, theme, enzymeOptions } = <span class="branch-0 cbranch-no" title="branch not covered" >{})</span> =&gt; {
+  const context = <span class="cstat-no" title="statement not covered" >mount(&lt;ThemeProvider theme={theme} rtl={rtl} /&gt;)</span>
+    .childAt(0)
+    .instance()
+    .getChildContext();
 &nbsp;
-NextPage.propTypes = {
-  current: PropTypes.bool,
-  focused: PropTypes.bool,
-  hovered: PropTypes.bool,
-  hidden: PropTypes.bool
+<span class="cstat-no" title="statement not covered" >  return render(</span>
+    tree,
+    { context, childContextTypes: StyledThemeProvider.childContextTypes },
+    enzymeOptions
+  );
 };
 &nbsp;
-/** @component */
-export default NextPage;
+export default renderWithTheme;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
