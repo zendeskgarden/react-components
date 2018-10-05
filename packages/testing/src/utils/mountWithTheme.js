@@ -21,11 +21,11 @@ const mountWithTheme = (tree, { rtl, theme = {}, enzymeOptions } = {}) => {
     .instance()
     .getChildContext();
 
-  return mount(
-    tree,
-    { context, childContextTypes: StyledThemeProvider.childContextTypes },
-    enzymeOptions
-  );
+  return mount(tree, {
+    ...enzymeOptions,
+    context,
+    childContextTypes: StyledThemeProvider.childContextTypes
+  });
 };
 
 export default mountWithTheme;

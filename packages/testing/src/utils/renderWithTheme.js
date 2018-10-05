@@ -21,11 +21,11 @@ const renderWithTheme = (tree, { rtl, theme, enzymeOptions } = {}) => {
     .instance()
     .getChildContext();
 
-  return render(
-    tree,
-    { context, childContextTypes: StyledThemeProvider.childContextTypes },
-    enzymeOptions
-  );
+  return render(tree, {
+    ...enzymeOptions,
+    context,
+    childContextTypes: StyledThemeProvider.childContextTypes
+  });
 };
 
 export default renderWithTheme;
