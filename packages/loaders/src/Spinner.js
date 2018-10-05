@@ -7,22 +7,29 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { dPathFrames, strokeWidthFrames } from './utils/spinner-coordinates';
-import { LoadingPlaceholder, Path, StyledSVG } from './styled-elements';
+import { strokeWidthFrames, dasharrayFrames, rotationFrames } from './utils/spinner-coordinates';
+import { LoadingPlaceholder, SpinnerCircle, StyledSVG } from './styled-elements';
 
 const COMPONENT_ID = 'loaders.spinner';
 
 export default class Spinner extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.strokeWidthValues = this.computeFrames(strokeWidthFrames);
+    this.rotationValues = this.computeFrames(rotationFrames);
+    this.dasharrayValues = this.computeFrames(dasharrayFrames);
+  }
+
   static propTypes = {
     /**
      * Size of the loader. Can inherit from `font-size` styling.
      **/
     size: PropTypes.any,
     /**
-     * Velocity (speed) of the animation. Between -1 and 1.
-     * This should only be maniuplated at extreme sizes.
+     * Duration (ms) of the animation. Default is 1250ms.
      **/
-    velocity: PropTypes.number,
+    duration: PropTypes.number,
     /**
      * Color of the loader. Can inherit from `color` styling.
      **/
@@ -37,17 +44,41 @@ export default class Spinner extends React.Component {
   static defaultProps = {
     size: 'inherit',
     color: 'inherit',
-    velocity: 0.05,
-    delayMS: 750
+    delayMS: 750,
+    duration: 1250
   };
 
   state = {
     frame: 0,
     rawFrame: 0,
-    totalFrames: dPathFrames.length - 1,
-    duration: 1250,
+    totalFrames: 99,
     delayComplete: false,
     timestamp: 0
+  };
+
+  computeFrames = frames => {
+    const { duration } = this.props;
+
+    return Object.entries(frames).reduce((acc, item, index, arr) => {
+      const [frame, value] = item;
+      const [nextFrame, nextValue] = arr[index + 1] || ['100', arr[0][1]];
+      const diff = nextFrame - frame - 1;
+      const frameHz = 1000 / 60;
+
+      let subDuration = (duration / 100) * diff;
+      let lastValue = value;
+
+      acc[frame] = value;
+      for (let idx = 0; idx < diff; idx++) {
+        lastValue = lastValue + (nextValue - lastValue) * (frameHz / subDuration);
+        subDuration = (duration / 100) * (diff - idx);
+
+        acc[parseInt(frame, 10) + idx + 1] = lastValue;
+      }
+      acc[nextFrame] = nextValue;
+
+      return acc;
+    }, {});
   };
 
   componentDidMount() {
@@ -66,13 +97,14 @@ export default class Spinner extends React.Component {
   }
 
   performAnimationFrame = (nowTime = 0) => {
-    const { totalFrames, duration, rawFrame, timestamp } = this.state;
+    const { totalFrames, rawFrame, timestamp } = this.state;
+    const { duration } = this.props;
+    const elapsedTime = nowTime - timestamp;
 
     this.setState(
       () => {
         const frameMultiplier = (totalFrames + 1) / duration;
-        const elaspedTime = nowTime - timestamp;
-        const nextValue = rawFrame + elaspedTime * frameMultiplier;
+        const nextValue = rawFrame + elapsedTime * frameMultiplier;
         const actualFrame = Math.floor(nextValue);
         const frame = actualFrame % totalFrames;
         const currentRawFrame = nextValue % totalFrames;
@@ -87,11 +119,15 @@ export default class Spinner extends React.Component {
 
   render() {
     const { size, color, delayMS, ...other } = this.props;
-    const { delayComplete } = this.state;
+    const { delayComplete, frame } = this.state;
 
     if (!delayComplete && delayMS !== 0) {
       return <LoadingPlaceholder fontSize={size}>&nbsp;</LoadingPlaceholder>;
     }
+
+    const strokeWidthValue = this.strokeWidthValues[frame];
+    const rotationValue = this.rotationValues[frame];
+    const dasharrayValue = this.dasharrayValues[frame];
 
     return (
       <StyledSVG
@@ -102,7 +138,11 @@ export default class Spinner extends React.Component {
         data-garden-id={COMPONENT_ID}
         {...other}
       >
-        <Path d={dPathFrames[this.state.frame]} strokeWidth={strokeWidthFrames[this.state.frame]} />
+        <SpinnerCircle
+          strokeDasharray={`${dasharrayValue} 250`}
+          strokeWidth={strokeWidthValue}
+          transform={`rotate(${rotationValue})`}
+        />
       </StyledSVG>
     );
   }

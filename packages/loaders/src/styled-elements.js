@@ -23,24 +23,25 @@ StyledCircle.propTypes = {
   transform: PropTypes.string
 };
 
-const StyledPath = styled.path.attrs({
-  strokeLinecap: 'round',
-  strokeLinejoin: 'miter',
-  fillOpacity: 0,
+export const SpinnerCircle = styled.circle.attrs({
+  cx: 40,
+  cy: 40,
+  r: 34,
+  fill: 'none',
   stroke: 'currentColor',
-  strokeWidth: ({ strokeWidth }) => strokeWidth,
-  d: ({ d }) => d
-})``;
+  strokeLinecap: 'round',
+  strokeWidth: ({ strokeWidthValue }) => strokeWidthValue,
+  strokeDasharray: ({ dasharrayValue }) => `${dasharrayValue} 250`,
+  transform: props => props.transform
+})`
+  transform-origin: center;
+`;
 
-const StyledGroup = styled.g.attrs({
-  transform: 'matrix(0.14800000190734863,0,0,0.14800000190734863,40,40)'
-})``;
-
-export const Path = props => (
-  <StyledGroup>
-    <StyledPath {...props} />
-  </StyledGroup>
-);
+SpinnerCircle.propTypes = {
+  dasharrayValue: PropTypes.string,
+  strokeWidthValue: PropTypes.string,
+  transform: PropTypes.string
+};
 
 const StyledSvg = styled.svg.attrs({
   'data-garden-id': ({ dataGardenId }) => dataGardenId,
