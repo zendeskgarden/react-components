@@ -2,6 +2,7 @@ The `Tabs` component requires the following structure.
 
 - All `children` require a unique `key` and a `label` to display
 - Each `child` can have an optional `disabled` prop to disable selection
+- Each `child` can have an optional `tabProps` prop to provide props to the Tab that is created
 
 All elements proxy the props of their native DOM representations.
 
@@ -13,7 +14,7 @@ If this abstraction is not able to handle your use-case use the
   <TabPanel label="Tab 1" key="unique-value-1">
     Tab 1 content
   </TabPanel>
-  <TabPanel label={<div>Tab 2</div>} key="unique-value-2">
+  <TabPanel label={<div>Tab 2</div>} key="unique-value-2" tabProps={{ 'data-test-id': 'custom' }}>
     Tab 2 content
   </TabPanel>
   ...

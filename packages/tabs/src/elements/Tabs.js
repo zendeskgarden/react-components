@@ -65,7 +65,7 @@ export default class Tabs extends ControlledComponent {
   }
 
   render() {
-    const { vertical, children, onChange } = this.props;
+    const { vertical, children, onChange, ...otherProps } = this.props;
     const { focusedKey, selectedKey } = this.getControlledState();
 
     return (
@@ -77,14 +77,14 @@ export default class Tabs extends ControlledComponent {
         onStateChange={this.setControlledState}
       >
         {({ getTabListProps, getTabPanelProps, getTabProps }) => (
-          <TabsView vertical={vertical}>
+          <TabsView vertical={vertical} {...otherProps}>
             <TabList {...getTabListProps()}>
               {Children.map(children, child => {
                 if (!isValidElement(child)) {
                   return child;
                 }
 
-                const { label, disabled } = child.props;
+                const { label, disabled, tabProps } = child.props;
                 const key = child.key;
 
                 if (disabled) {
@@ -100,7 +100,8 @@ export default class Tabs extends ControlledComponent {
                     {...getTabProps({
                       key,
                       selected: key === selectedKey,
-                      focused: key === focusedKey
+                      focused: key === focusedKey,
+                      ...tabProps
                     })}
                   >
                     {label}
@@ -117,11 +118,14 @@ export default class Tabs extends ControlledComponent {
                 return null;
               }
 
+              // Don't want to duplicate tabProps in the TabPanel
+              const { tabProps, ...other } = child.props; // eslint-disable-line no-unused-vars
+
               return cloneElement(
                 child,
                 getTabPanelProps({
                   key: child.key,
-                  ...child.props
+                  ...other
                 })
               );
             })}
