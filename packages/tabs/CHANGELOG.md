@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tabs@3.2.4...@zendeskgarden/react-tabs@3.3.0) (2018-10-08)
+
+
+### Features
+
+* **tabs:** spread props to Tab component ([#172](https://github.com/zendeskgarden/react-components/issues/172)) ([2c4f266](https://github.com/zendeskgarden/react-components/commit/2c4f266))
+
+
+
+
+
 ## [3.2.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tabs@3.2.3...@zendeskgarden/react-tabs@3.2.4) (2018-10-08)
 
 **Note:** Version bump only for package @zendeskgarden/react-tabs
