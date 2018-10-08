@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-checkboxes@3.4.0...@zendeskgarden/react-checkboxes@3.4.1) (2018-10-08)
+
+**Note:** Version bump only for package @zendeskgarden/react-checkboxes
+
+
+
+
+
 <a name="3.4.0"></a>
 # [3.4.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-checkboxes@3.3.7...@zendeskgarden/react-checkboxes@3.4.0) (2018-09-27)
 

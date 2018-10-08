@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-ranges@2.4.0...@zendeskgarden/react-ranges@2.4.1) (2018-10-08)
+
+**Note:** Version bump only for package @zendeskgarden/react-ranges
+
+
+
+
+
 <a name="2.4.0"></a>
 # [2.4.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-ranges@2.3.7...@zendeskgarden/react-ranges@2.4.0) (2018-09-27)
 

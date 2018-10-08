@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.7.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.7.0...@zendeskgarden/react-menus@3.7.1) (2018-10-08)
+
+
+### Bug Fixes
+
+* **testing:** fix enzyme options passing ([#175](https://github.com/zendeskgarden/react-components/issues/175)) ([6cb703c](https://github.com/zendeskgarden/react-components/commit/6cb703c))
+
+
+
+
+
 <a name="3.7.0"></a>
 # [3.7.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.6.6...@zendeskgarden/react-menus@3.7.0) (2018-09-27)
 
