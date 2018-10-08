@@ -23,26 +23,28 @@ const SIZE = {
   LARGE: 'large'
 };
 
+/* eslint-disable indent */
 const retrieveSrollableStyling = props => {
   if (!props.scrollable) {
     return '';
   }
 
-  const headerStyling = isRtl(props)
-    ? `margin-left: ${SCROLLBAR_SIZE}px !important;`
-    : `margin-right: ${SCROLLBAR_SIZE}px !important;`;
-
   return css`
-    ${/* sc-selector */ Body} {
+    /* stylelint-disable */
+    ${Body} {
       height: ${props.scrollable};
       overflow-y: scroll;
     }
 
-    ${/* sc-custom */ Head} {
-      ${headerStyling};
+    ${Head} {
+      ${isRtl(props)
+        ? `margin-left: ${SCROLLBAR_SIZE}px !important;`
+        : `margin-right: ${SCROLLBAR_SIZE}px !important;`};
     }
+    /* stylelint-enable */
   `;
 };
+/* eslint-enable indent */
 
 const retrieveRowMinHeight = size => {
   if (size === SIZE.SMALL) {
