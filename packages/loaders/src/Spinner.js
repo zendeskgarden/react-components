@@ -7,8 +7,10 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import { strokeWidthFrames, dasharrayFrames, rotationFrames } from './utils/spinner-coordinates';
-import { LoadingPlaceholder, SpinnerCircle, StyledSVG } from './styled-elements';
+import { SpinnerCircle, StyledSVG } from './styled-elements';
+import ScheduleContainer from './containers/ScheduleContainer';
 
 const COMPONENT_ID = 'loaders.spinner';
 
@@ -81,69 +83,49 @@ export default class Spinner extends React.Component {
     }, {});
   };
 
-  componentDidMount() {
-    const { delayMS } = this.props;
-
-    this.renderingDelayTimeout = setTimeout(() => {
-      this.setState({ delayComplete: true }, () => {
-        this.performAnimationFrame();
-      });
-    }, delayMS);
-  }
-
-  componentWillUnmount() {
-    clearTimeout(this.renderingDelayTimeout);
-    cancelAnimationFrame(this.animationFrame);
-  }
-
   performAnimationFrame = (nowTime = 0) => {
     const { totalFrames, rawFrame, timestamp } = this.state;
     const { duration } = this.props;
     const elapsedTime = nowTime - timestamp;
 
-    this.setState(
-      () => {
-        const frameMultiplier = (totalFrames + 1) / duration;
-        const nextValue = rawFrame + elapsedTime * frameMultiplier;
-        const actualFrame = Math.floor(nextValue);
-        const frame = actualFrame % totalFrames;
-        const currentRawFrame = nextValue % totalFrames;
+    this.setState(() => {
+      const frameMultiplier = (totalFrames + 1) / duration;
+      const nextValue = rawFrame + elapsedTime * frameMultiplier;
+      const actualFrame = Math.floor(nextValue);
+      const frame = actualFrame % totalFrames;
+      const currentRawFrame = nextValue % totalFrames;
 
-        return { frame, rawFrame: currentRawFrame, timestamp: nowTime };
-      },
-      () => {
-        this.animationFrame = requestAnimationFrame(this.performAnimationFrame);
-      }
-    );
+      return { frame, rawFrame: currentRawFrame, timestamp: nowTime };
+    });
   };
 
   render() {
     const { size, color, delayMS, ...other } = this.props;
-    const { delayComplete, frame } = this.state;
-
-    if (!delayComplete && delayMS !== 0) {
-      return <LoadingPlaceholder fontSize={size}>&nbsp;</LoadingPlaceholder>;
-    }
+    const { frame } = this.state;
 
     const strokeWidthValue = this.strokeWidthValues[frame];
     const rotationValue = this.rotationValues[frame];
     const dasharrayValue = this.dasharrayValues[frame];
 
     return (
-      <StyledSVG
-        fontSize={size}
-        color={color}
-        width="80"
-        height="80"
-        data-garden-id={COMPONENT_ID}
-        {...other}
-      >
-        <SpinnerCircle
-          strokeDasharray={`${dasharrayValue} 250`}
-          strokeWidth={strokeWidthValue}
-          transform={`rotate(${rotationValue})`}
-        />
-      </StyledSVG>
+      <ScheduleContainer tick={this.performAnimationFrame} size={size} delayMS={delayMS}>
+        {() => (
+          <StyledSVG
+            fontSize={size}
+            color={color}
+            width="80"
+            height="80"
+            data-garden-id={COMPONENT_ID}
+            {...other}
+          >
+            <SpinnerCircle
+              strokeDasharray={`${dasharrayValue} 250`}
+              strokeWidth={strokeWidthValue}
+              transform={`rotate(${rotationValue})`}
+            />
+          </StyledSVG>
+        )}
+      </ScheduleContainer>
     );
   }
 }
