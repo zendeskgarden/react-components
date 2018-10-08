@@ -132,6 +132,8 @@ describe('MenuContainer', () => {
     findTrigger(wrapper).simulate('click');
 
     expect(wrapper.find('Portal').length).toBeGreaterThan(0);
+
+    wrapper.unmount();
   });
 
   it("doesn't render Popper element if menu is not open", () => {

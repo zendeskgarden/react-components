@@ -20,7 +20,7 @@ const shallowWithTheme = (tree, { rtl, theme, enzymeOptions } = {}) => {
     .instance()
     .getChildContext();
 
-  return shallow(tree, { context }, enzymeOptions);
+  return shallow(tree, { ...enzymeOptions, context });
 };
 
 export default shallowWithTheme;
