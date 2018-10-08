@@ -9,6 +9,10 @@ components are packaged and published individually, but combined under
 this single repository. Components rely on [Garden
 CSS](https://github.com/zendeskgarden/css-components) for styling.
 
+Try out the Garden React Components in a mock product environment with CodeSandbox
+
+[![Edit Garden Create-React-App](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/1qw90o82pl)
+
 ## Installation
 
 See the individual package README for the React component you would like
