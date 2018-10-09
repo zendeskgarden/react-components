@@ -7,12 +7,22 @@
 
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { StyledCircle, StyledSVG, LoadingPlaceholder } from './styled-elements';
+import { StyledCircle, StyledSVG, LoadingPlaceholder, SpinnerCircle } from './styled-elements';
 
 describe('styled-elements', () => {
   describe('StyledCircle', () => {
     it('renders correctly by default', () => {
       const wrapper = shallow(<StyledCircle transform="transform(2 3)" />);
+
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
+
+  describe('SpinnerCircle', () => {
+    it('renders correctly by default', () => {
+      const wrapper = shallow(
+        <SpinnerCircle transform="transform(2 3)" dasharrayValue="90" strokeWidthValue="90" />
+      );
 
       expect(wrapper).toMatchSnapshot();
     });

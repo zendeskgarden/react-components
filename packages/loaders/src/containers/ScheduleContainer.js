@@ -63,9 +63,9 @@ export default class ScheduleContainer extends Component {
     cancelAnimationFrame(this.tick);
   }
 
-  performAnimationFrame = () => {
+  performAnimationFrame() {
     this.tick = requestAnimationFrame(this.props.tick);
-  };
+  }
 
   render() {
     const { delayMS, size, children, render = children } = this.props;

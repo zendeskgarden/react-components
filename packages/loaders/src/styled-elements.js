@@ -34,7 +34,7 @@ export const SpinnerCircle = styled.circle.attrs({
   strokeDasharray: ({ dasharrayValue }) => `${dasharrayValue} 250`,
   transform: props => props.transform
 })`
-  transform-origin: center;
+  transform-origin: center center;
 `;
 
 SpinnerCircle.propTypes = {
