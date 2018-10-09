@@ -8,7 +8,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { strokeWidthFrames, dasharrayFrames, rotationFrames } from './utils/spinner-coordinates';
+import {
+  STROKE_WIDTH_FRAMES,
+  DASHARRAY_FRAMES,
+  ROTATION_FRAMES
+} from './utils/spinner-coordinates';
 import { SpinnerCircle, StyledSVG } from './styled-elements';
 import ScheduleContainer from './containers/ScheduleContainer';
 
@@ -18,9 +22,9 @@ export default class Spinner extends React.Component {
   constructor(props) {
     super(props);
 
-    this.strokeWidthValues = this.computeFrames(strokeWidthFrames);
-    this.rotationValues = this.computeFrames(rotationFrames);
-    this.dasharrayValues = this.computeFrames(dasharrayFrames);
+    this.strokeWidthValues = this.computeFrames(STROKE_WIDTH_FRAMES);
+    this.rotationValues = this.computeFrames(ROTATION_FRAMES);
+    this.dasharrayValues = this.computeFrames(DASHARRAY_FRAMES);
   }
 
   static propTypes = {

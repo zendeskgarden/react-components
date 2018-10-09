@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export const strokeWidthFrames = {
+export const STROKE_WIDTH_FRAMES = {
   0: 6,
   28: 5,
   31: 4,
@@ -17,7 +17,7 @@ export const strokeWidthFrames = {
   91: 6
 };
 
-export const rotationFrames = {
+export const ROTATION_FRAMES = {
   0: 267,
   1: -90,
   28: -52,
@@ -63,7 +63,7 @@ export const rotationFrames = {
   98: 264
 };
 
-export const dasharrayFrames = {
+export const DASHARRAY_FRAMES = {
   0: 0,
   10: 1,
   25: 12,
