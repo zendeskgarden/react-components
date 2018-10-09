@@ -4,7 +4,7 @@ their styling to any element they are provided.
 `Avatars` are hidden for small `Tags`.
 
 ```jsx
-const PersonIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/14/person.svg');
+const PersonIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg');
 
 <Grid>
   <Row>

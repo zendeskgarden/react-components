@@ -34,8 +34,8 @@ import { Menu, Item } from '@zendeskgarden/react-menus';
  */
 import ZendeskIcon from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
 import HomeIcon from '@zendeskgarden/svg-icons/src/26/home-fill.svg';
-import MenuTrayIcon from '@zendeskgarden/svg-icons/src/14/menu-tray.svg';
-import PersonIcon from '@zendeskgarden/svg-icons/src/14/person.svg';
+import MenuTrayIcon from '@zendeskgarden/svg-icons/src/16/panels-stroke.svg';
+import PersonIcon from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
 
 const PaddedMain = styled(Main)`
   padding: 28px;

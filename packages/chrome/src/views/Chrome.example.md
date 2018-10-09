@@ -15,9 +15,8 @@ const ListsIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-ico
 const EmailIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/26/email-fill.svg');
 const SettingsIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/26/settings-fill.svg');
 const ZendeskIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/26/zendesk.svg');
-const PlusIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/14/plus.svg');
-const MenuTrayIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/14/menu-tray.svg');
-const PersonIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/14/person.svg');
+const MenuTrayIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/16/panels-stroke.svg');
+const PersonIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg');
 
 initialState = {
   currentNavItem: 'home',

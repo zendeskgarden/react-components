@@ -61,7 +61,6 @@ for (let x = 1; x <= 5; x++) {
 
 ```jsx
 const { Button, Icon } = require('@zendeskgarden/react-buttons/src');
-const SettingsIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/14/settings.svg');
 
 initialState = {
   selectedKey: 'Unknown'
@@ -240,9 +239,7 @@ initialState = {
         placement="end"
         onChange={selectedKey => setState({ selectedKey })}
         trigger={({ getTriggerProps, triggerRef, isOpen }) => (
-          <button {...getTriggerProps({ ref: triggerRef, active: isOpen })}>
-            Heavily customized menu
-          </button>
+          <button {...getTriggerProps({ ref: triggerRef })}>Heavily customized menu</button>
         )}
       >
         {({ getMenuProps, menuRef, placement, getItemProps, focusedKey }) => (
@@ -275,7 +272,7 @@ initialState = {
 const { KEY_CODES } = require('@zendeskgarden/react-selection/src');
 const { Button } = require('@zendeskgarden/react-buttons/src');
 const { Input, FauxInput, MediaFigure } = require('@zendeskgarden/react-textfields/src');
-const SearchIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/14/search.svg');
+const SearchIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/16/search-stroke.svg');
 
 const natoPhonetics = [
   'Alfa',
