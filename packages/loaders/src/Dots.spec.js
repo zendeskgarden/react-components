@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import Dots from './Dots';
 import { LoadingPlaceholder } from './styled-elements';
 
@@ -19,27 +19,28 @@ describe('Dots', () => {
 
   describe('Rendering delay', () => {
     it('renders LoadingPlacholder if delay has not been completed', () => {
-      const wrapper = shallow(<Dots />);
+      const wrapper = mount(<Dots />);
 
       expect(wrapper.find(LoadingPlaceholder)).toExist();
     });
 
     it('does not render LoadingPlacholder if delay has completed', () => {
-      const wrapper = shallow(<Dots />);
+      const wrapper = mount(<Dots />);
 
       jest.runOnlyPendingTimers();
+      wrapper.update();
       expect(wrapper.find(LoadingPlaceholder)).not.toExist();
     });
 
     it('clears delay timeout as component is unmounted', () => {
-      const wrapper = shallow(<Dots />);
+      const wrapper = mount(<Dots />);
 
       wrapper.unmount();
       expect(clearTimeout).toHaveBeenCalledTimes(1);
     });
 
     it('does not render LoadingPlaceholder if delayMS is 0', () => {
-      const wrapper = shallow(<Dots delayMS={0} />);
+      const wrapper = mount(<Dots delayMS={0} />);
 
       expect(wrapper.find(LoadingPlaceholder)).not.toExist();
     });

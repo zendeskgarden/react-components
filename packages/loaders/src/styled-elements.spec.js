@@ -19,20 +19,26 @@ describe('styled-elements', () => {
   });
 
   describe('StyledSVG', () => {
+    const COMPONENT_ID = 'loaders.foo';
+
     it('renders correctly by default', () => {
-      const wrapper = mount(<StyledSVG />);
+      const wrapper = mount(<StyledSVG dataGardenId={COMPONENT_ID} width="80" height="72" />);
 
       expect(wrapper).toMatchSnapshot();
     });
 
     it('renders color correctly if provided', () => {
-      const wrapper = mount(<StyledSVG color="red" />);
+      const wrapper = mount(
+        <StyledSVG dataGardenId={COMPONENT_ID} width="80" height="72" color="red" />
+      );
 
       expect(wrapper).toMatchSnapshot();
     });
 
     it('renders font-size correctly if provided', () => {
-      const wrapper = mount(<StyledSVG fontSize="15px" />);
+      const wrapper = mount(
+        <StyledSVG dataGardenId={COMPONENT_ID} width="80" height="72" fontSize="15px" />
+      );
 
       expect(wrapper).toMatchSnapshot();
     });
