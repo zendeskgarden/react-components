@@ -38,6 +38,13 @@ You can handle the validation of a field `validation` prop in
 the `Message` and `Select` components.
 
 ```jsx
+const DATA = {
+  'item-1': 'Item 1',
+  'item-2': 'Item 2',
+  'item-3': 'Item 3',
+  'invalid-item': 'Invalid Item'
+};
+
 initialState = {
   selectedKey: 'item-1'
 };
@@ -65,13 +72,13 @@ getMessage = selectedKey => {
     onChange={selectedKey => setState({ selectedKey })}
     validation={getValidation(state.selectedKey)}
     options={[
-      <Item key="item-1">Item 1</Item>,
-      <Item key="item-2">Item 2</Item>,
-      <Item key="item-3">Item 3</Item>,
-      <Item key="invalid-item">Invalid Item</Item>
+      <Item key="item-1">{DATA['item-1']}</Item>,
+      <Item key="item-2">{DATA['item-2']}</Item>,
+      <Item key="item-3">{DATA['item-3']}</Item>,
+      <Item key="invalid-item">{DATA['invalid-item']}</Item>
     ]}
   >
-    {state.selectedKey}
+    {DATA[state.selectedKey]}
   </Select>
   {getMessage(state.selectedKey)}
 </SelectField>;
