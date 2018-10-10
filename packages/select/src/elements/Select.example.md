@@ -5,6 +5,12 @@ For an accessible experience for all of our users, it is important to use the
 and/or provide a `Label`, `Hint`, and or `Message`.
 
 ```jsx
+const DATA = {
+  'item-1': 'Item 1',
+  'item-2': 'Item 2',
+  'item-3': 'Item 3'
+};
+
 initialState = {
   selectedKey: 'item-1'
 };
@@ -15,13 +21,13 @@ initialState = {
     selectedKey={state.selectedKey}
     onChange={selectedKey => setState({ selectedKey })}
     options={[
-      <Item key="item-1">Item 1</Item>,
-      <Item key="item-2">Item 2</Item>,
+      <Item key="item-1">{DATA['item-1']}</Item>,
+      <Item key="item-2">{DATA['item-2']}</Item>,
       <Item disabled>Disabled Item</Item>,
-      <Item key="item-3">Item 3</Item>
+      <Item key="item-3">{DATA['item-3']}</Item>
     ]}
   >
-    {state.selectedKey}
+    {DATA[state.selectedKey]}
   </Select>
 </SelectField>;
 ```
@@ -29,6 +35,12 @@ initialState = {
 ### Small Select
 
 ```jsx
+const DATA = {
+  'item-1': 'Item 1',
+  'item-2': 'Item 2',
+  'item-3': 'Item 3'
+};
+
 initialState = {
   selectedKey: 'item-1'
 };
@@ -40,13 +52,13 @@ initialState = {
     selectedKey={state.selectedKey}
     onChange={selectedKey => setState({ selectedKey })}
     options={[
-      <Item key="item-1">Item 1</Item>,
-      <Item key="item-2">Item 2</Item>,
+      <Item key="item-1">{DATA['item-1']}</Item>,
+      <Item key="item-2">{DATA['item-2']}</Item>,
       <Item disabled>Disabled Item</Item>,
-      <Item key="item-3">Item 3</Item>
+      <Item key="item-3">{DATA['item-3']}</Item>
     ]}
   >
-    {state.selectedKey}
+    {DATA[state.selectedKey]}
   </Select>
 </SelectField>;
 ```
