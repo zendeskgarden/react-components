@@ -29,7 +29,16 @@ const Item = styled.li.attrs({
       [MenuStyles['is-checked']]: props.checked
     })
 })`
+  /* stylelint-disable */
+  ${props =>
+    !props.focused &&
+    `&&&:hover {
+      background-color: inherit;
+    }
+  `};
+
   ${props => retrieveTheme(COMPONENT_ID, props)};
+  /* stylelint-enable */
 `;
 
 Item.propTypes = {

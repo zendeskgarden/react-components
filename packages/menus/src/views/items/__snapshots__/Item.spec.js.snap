@@ -1,33 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Item renders active styling 1`] = `
+.c0.c0.c0:hover {
+  background-color: inherit;
+}
+
 <li
-  className="c-menu__item is-active "
+  className="c-menu__item is-active c0"
   data-garden-id="menus.item"
   data-garden-version="version"
 />
 `;
 
 exports[`Item renders checked styling 1`] = `
+.c0.c0.c0:hover {
+  background-color: inherit;
+}
+
 <li
   checked={true}
-  className="c-menu__item is-checked "
+  className="c-menu__item is-checked c0"
   data-garden-id="menus.item"
   data-garden-version="version"
 />
 `;
 
 exports[`Item renders default styling 1`] = `
+.c0.c0.c0:hover {
+  background-color: inherit;
+}
+
 <li
-  className="c-menu__item "
+  className="c-menu__item c0"
   data-garden-id="menus.item"
   data-garden-version="version"
 />
 `;
 
 exports[`Item renders disabled styling 1`] = `
+.c0.c0.c0:hover {
+  background-color: inherit;
+}
+
 <li
-  className="c-menu__item is-disabled "
+  className="c-menu__item is-disabled c0"
   data-garden-id="menus.item"
   data-garden-version="version"
   disabled={true}
@@ -43,8 +59,12 @@ exports[`Item renders focused styling 1`] = `
 `;
 
 exports[`Item renders hovered styling 1`] = `
+.c0.c0.c0:hover {
+  background-color: inherit;
+}
+
 <li
-  className="c-menu__item is-hovered "
+  className="c-menu__item is-hovered c0"
   data-garden-id="menus.item"
   data-garden-version="version"
 />
