@@ -10,6 +10,8 @@ import classNames from 'classnames';
 import TableStyles from '@zendeskgarden/css-tables';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 
+import { StyledOverflowButton } from './OverflowButton';
+
 const COMPONENT_ID = 'tables.header_row';
 
 const HeaderRow = styled.div.attrs({
@@ -21,6 +23,12 @@ const HeaderRow = styled.div.attrs({
   && {
     display: flex;
   }
+
+  /* stylelint-disable */
+  ${StyledOverflowButton} {
+    margin-top: auto !important;
+  }
+  /* stylelint-enable */
 
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;

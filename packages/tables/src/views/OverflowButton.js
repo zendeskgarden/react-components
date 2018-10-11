@@ -18,7 +18,7 @@ const COMPONENT_ID = 'tables.overflow_button';
 /**
  * Accepts all `<button>` props
  */
-const StyledOverflowButton = styled.button.attrs({
+export const StyledOverflowButton = styled.button.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   type: 'button',
