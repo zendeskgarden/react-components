@@ -17,6 +17,7 @@ const OverflowMenu = () => (
   <Menu
     onChange={selectedKey => alert(selectedKey)}
     placement="bottom-end"
+    style={{ marginTop: 0 }}
     popperModifiers={{
       preventOverflow: {
         boundariesElement: 'viewport'
