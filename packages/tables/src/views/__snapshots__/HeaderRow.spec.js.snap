@@ -8,6 +8,10 @@ exports[`HeaderRow applies default styling by default 1`] = `
   display: flex;
 }
 
+.c0 .c1 {
+  margin-top: auto !important;
+}
+
 <HeaderRow>
   <div
     className="c-table__row c-table__row--header c0"
