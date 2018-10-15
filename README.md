@@ -11,7 +11,7 @@ CSS](https://github.com/zendeskgarden/css-components) for styling.
 
 Try out the Garden React Components in a mock product environment with CodeSandbox
 
-[![Edit Garden Create-React-App](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/jzzy85w2k3)
+[![Edit Garden Create-React-App](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/43nwpkn717)
 
 ## Installation
 
