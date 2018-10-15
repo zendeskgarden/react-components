@@ -24,6 +24,15 @@ const OverflowMenu = () => (
       },
       flip: {
         enabled: false
+      },
+      offset: {
+        fn: data => {
+          /**
+           * Ensure correct placement relative to trigger
+           **/
+          data.offsets.popper.top -= 2;
+          return data;
+        }
       }
     }}
     trigger={({ ref, isOpen }) => {
