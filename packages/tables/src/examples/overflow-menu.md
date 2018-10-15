@@ -13,10 +13,11 @@ const { zdSpacingSm } = require('@zendeskgarden/css-variables');
 const { Menu, Item } = require('@zendeskgarden/react-menus/src');
 const { XL } = require('@zendeskgarden/react-typography/src');
 
-const OverflowMenu = ({ isHeader = false }) => (
+const OverflowMenu = () => (
   <Menu
     onChange={selectedKey => alert(selectedKey)}
     placement="bottom-end"
+    style={{ marginTop: 0 }}
     popperModifiers={{
       preventOverflow: {
         boundariesElement: 'viewport'
@@ -27,10 +28,9 @@ const OverflowMenu = ({ isHeader = false }) => (
       offset: {
         fn: data => {
           /**
-           * Have to ensure that popper is placed relative
-           * to the trigger
+           * Ensure correct placement relative to trigger
            **/
-          data.offsets.popper.top -= isHeader ? 12 : 8;
+          data.offsets.popper.top -= 2;
           return data;
         }
       }
