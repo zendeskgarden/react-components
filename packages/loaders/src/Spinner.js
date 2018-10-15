@@ -57,13 +57,14 @@ export default class Spinner extends React.Component {
   state = {
     frame: 0,
     rawFrame: 0,
-    totalFrames: 99,
+    totalFrames: 100,
     delayComplete: false,
     timestamp: 0
   };
 
   computeFrames = frames => {
     const { duration } = this.props;
+    const { totalFrames } = this.state;
 
     return Object.entries(frames).reduce((acc, item, index, arr) => {
       const [frame, value] = item;
@@ -71,13 +72,13 @@ export default class Spinner extends React.Component {
       const diff = nextFrame - frame - 1;
       const frameHz = 1000 / 60;
 
-      let subDuration = (duration / 100) * diff;
+      let subDuration = (duration / (totalFrames - 1)) * diff;
       let lastValue = value;
 
       acc[frame] = value;
       for (let idx = 0; idx < diff; idx++) {
         lastValue = lastValue + (nextValue - lastValue) * (frameHz / subDuration);
-        subDuration = (duration / 100) * (diff - idx);
+        subDuration = (duration / (totalFrames - 1)) * (diff - idx);
 
         acc[parseInt(frame, 10) + idx + 1] = lastValue;
       }

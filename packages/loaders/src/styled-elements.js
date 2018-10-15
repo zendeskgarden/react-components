@@ -10,16 +10,14 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 
-export const StyledCircle = styled.circle.attrs({
+export const DotsCircle = styled.circle.attrs({
   cx: 9,
   cy: 9,
   r: 9,
   transform: props => props.transform
-})`
-  will-change: transform;
-`;
+})``;
 
-StyledCircle.propTypes = {
+DotsCircle.propTypes = {
   transform: PropTypes.string
 };
 
@@ -69,7 +67,7 @@ StyledSvg.propTypes = {
 export const StyledSVG = ({ children, fontSize, width, height, ...other }) => {
   return (
     <StyledSvg fontSize={fontSize} width={width} height={height} {...other}>
-      <g fill="currentColor">{children}</g>
+      {children}
     </StyledSvg>
   );
 };

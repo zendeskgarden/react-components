@@ -9,7 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { retrieveXCoordinate, retrieveYCoordinate, KEYFRAME_MAX } from './utils/dot-coordinates';
-import { StyledCircle, StyledSVG } from './styled-elements';
+import { DotsCircle, StyledSVG } from './styled-elements';
 import ScheduleContainer from './containers/ScheduleContainer';
 
 const COMPONENT_ID = 'loaders.dots';
@@ -91,21 +91,23 @@ export default class Dots extends React.Component {
             data-garden-id={COMPONENT_ID}
             {...other}
           >
-            <StyledCircle
-              transform={`translate(${retrieveXCoordinate(dotOneFrame)} ${retrieveYCoordinate(
-                dotOneFrame
-              )})`}
-            />
-            <StyledCircle
-              transform={`translate(${retrieveXCoordinate(dotTwoFrame)} ${retrieveYCoordinate(
-                dotTwoFrame
-              )})`}
-            />
-            <StyledCircle
-              transform={`translate(${retrieveXCoordinate(dotThreeFrame)} ${retrieveYCoordinate(
-                dotThreeFrame
-              )})`}
-            />
+            <g fill="currentColor">
+              <DotsCircle
+                transform={`translate(${retrieveXCoordinate(dotOneFrame)} ${retrieveYCoordinate(
+                  dotOneFrame
+                )})`}
+              />
+              <DotsCircle
+                transform={`translate(${retrieveXCoordinate(dotTwoFrame)} ${retrieveYCoordinate(
+                  dotTwoFrame
+                )})`}
+              />
+              <DotsCircle
+                transform={`translate(${retrieveXCoordinate(dotThreeFrame)} ${retrieveYCoordinate(
+                  dotThreeFrame
+                )})`}
+              />
+            </g>
           </StyledSVG>
         )}
       </ScheduleContainer>

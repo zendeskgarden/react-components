@@ -12,7 +12,7 @@ and usability features:
 ```jsx
 const { zdColorBlue500 } = require('@zendeskgarden/css-variables');
 
-<Spinner color={zdColorBlue500} size="50px" />;
+<Spinner color={zdColorBlue500} size="48px" />;
 ```
 
 ### Advanced Usage
@@ -70,7 +70,7 @@ const Color = ({ name, color, includeSample }) =>
 
 <State
   initialState={{
-    size: 50,
+    size: 48,
     duration: 1250,
     color: 'BLUE-500'
   }}
@@ -101,9 +101,9 @@ const Color = ({ name, color, includeSample }) =>
             <Range
               value={state.duration}
               onChange={event => setState({ duration: parseFloat(event.target.value) })}
-              min={1250}
-              max={12500}
-              step={100}
+              min={625}
+              max={2500}
+              step={625}
             />
           </RangeField>
         </Col>

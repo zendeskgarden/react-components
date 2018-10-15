@@ -12,7 +12,7 @@ and usability features:
 ```jsx
 const { zdColorBlue500 } = require('@zendeskgarden/css-variables');
 
-<Dots color={zdColorBlue500} size="50px" />;
+<Dots color={zdColorBlue500} size="48px" />;
 ```
 
 ### Advanced Usage
@@ -70,7 +70,7 @@ const Color = ({ name, color, includeSample }) =>
 
 <State
   initialState={{
-    size: 50,
+    size: 48,
     velocity: 0.05,
     color: 'BLUE-500'
   }}
