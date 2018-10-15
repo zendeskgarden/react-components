@@ -3803,7 +3803,7 @@ FNDA:1548,(anonymous_19)
 FNDA:1174,(anonymous_20)
 FNDA:36,(anonymous_21)
 FNDA:319,(anonymous_22)
-DA:18,56
+DA:18,57
 DA:75,173
 DA:77,173
 DA:83,173
@@ -3991,7 +3991,7 @@ FNF:2
 FNH:2
 FNDA:575,generateId
 FNDA:4,setIdCounter
-DA:8,58
+DA:8,59
 DA:16,575
 DA:24,4
 LF:3
@@ -4231,13 +4231,13 @@ BRH:0
 end_of_record
 TN:
 SF:/home/travis/build/zendeskgarden/react-components/packages/tables/src/views/HeaderRow.js
-FN:25,(anonymous_0)
+FN:33,(anonymous_0)
 FNF:1
 FNH:1
 FNDA:1,(anonymous_0)
-DA:13,1
 DA:15,1
-DA:25,1
+DA:17,1
+DA:33,1
 LF:3
 LH:3
 BRF:0
@@ -4257,8 +4257,8 @@ FNDA:4,(anonymous_1)
 FNDA:9,(anonymous_2)
 FNDA:2,(anonymous_3)
 FNDA:1,(anonymous_4)
-DA:16,1
-DA:21,1
+DA:16,2
+DA:21,2
 DA:26,4
 DA:32,4
 DA:47,9
@@ -4972,8 +4972,8 @@ SF:/home/travis/build/zendeskgarden/react-components/packages/theming/src/utils/
 FN:11,withTheme
 FNF:1
 FNH:1
-FNDA:116,withTheme
-DA:12,116
+FNDA:117,withTheme
+DA:12,117
 LF:1
 LH:1
 BRF:0
