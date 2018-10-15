@@ -22,7 +22,8 @@ const PersonIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-ic
 initialState = {
   currentNavItem: 'home',
   currentSubnavItem: 'item-1',
-  expanded: true
+  expanded: true,
+  showCollapsed: false
 };
 
 <div>
@@ -99,6 +100,33 @@ initialState = {
       >
         <SubNavItemText>Subnav 2</SubNavItemText>
       </SubNavItem>
+      <CollapsibleSubNavItem
+        header="Collapsable Item"
+        expanded={state.showCollapsed}
+        onClick={() => setState({ showCollapsed: !state.showCollapsed })}
+      >
+        <SubNavItem
+          current={state.currentSubnavItem === 'collapsed-item-1'}
+          onClick={() => setState({ currentSubnavItem: 'collapsed-item-1' })}
+          href="#/"
+        >
+          <SubNavItemText>Item 1</SubNavItemText>
+        </SubNavItem>
+        <SubNavItem
+          current={state.currentSubnavItem === 'collapsed-item-2'}
+          onClick={() => setState({ currentSubnavItem: 'collapsed-item-2' })}
+          href="#/"
+        >
+          <SubNavItemText>Item 2</SubNavItemText>
+        </SubNavItem>
+        <SubNavItem
+          current={state.currentSubnavItem === 'collapsed-item-3'}
+          onClick={() => setState({ currentSubnavItem: 'collapsed-item-3' })}
+          href="#/"
+        >
+          <SubNavItemText>Item 3</SubNavItemText>
+        </SubNavItem>
+      </CollapsibleSubNavItem>
       <SubNavItem
         current={state.currentSubnavItem === 'item-3'}
         onClick={() => setState({ currentSubnavItem: 'item-3' })}
