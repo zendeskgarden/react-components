@@ -22,3 +22,4 @@ export { default as NavItemText } from './views/nav/NavItemText';
 export { default as SubNav } from './views/subnav/SubNav';
 export { default as SubNavItem } from './views/subnav/SubNavItem';
 export { default as SubNavItemText } from './views/subnav/SubNavItemText';
+export { default as CollapsibleSubNavItem } from './views/subnav/CollapsibleSubNavItem';
