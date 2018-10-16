@@ -40,7 +40,7 @@ const StyledButton = styled.button.attrs({
   }) =>
     classNames(ButtonStyles['c-btn'], {
       // Danger styling
-      [ButtonStyles['c-btn--danger']]: danger,
+      [ButtonStyles['c-btn--danger']]: !disabled && danger,
 
       // Styles
       [ButtonStyles['c-btn--primary']]: primary,
