@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.6.6](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.6.5...@zendeskgarden/react-buttons@3.6.6) (2018-10-16)
+
+
+### Bug Fixes
+
+* **buttons|modals:** bump CSS dependencies ([#189](https://github.com/zendeskgarden/react-components/issues/189)) ([431ee3a](https://github.com/zendeskgarden/react-components/commit/431ee3a))
+
+
+
+
+
 ## [3.6.5](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.6.4...@zendeskgarden/react-buttons@3.6.5) (2018-10-08)
 
 **Note:** Version bump only for package @zendeskgarden/react-buttons
