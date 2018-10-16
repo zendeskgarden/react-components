@@ -6,3 +6,4 @@
  */
 
 export { default as Dots } from './Dots';
+export { default as Spinner } from './Spinner';

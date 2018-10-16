@@ -7,32 +7,48 @@
 
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { StyledCircle, StyledSVG, LoadingPlaceholder } from './styled-elements';
+import { DotsCircle, StyledSVG, LoadingPlaceholder, SpinnerCircle } from './styled-elements';
 
 describe('styled-elements', () => {
-  describe('StyledCircle', () => {
+  describe('DotsCircle', () => {
     it('renders correctly by default', () => {
-      const wrapper = shallow(<StyledCircle transform="transform(2 3)" />);
+      const wrapper = shallow(<DotsCircle transform="transform(2 3)" />);
+
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
+
+  describe('SpinnerCircle', () => {
+    it('renders correctly by default', () => {
+      const wrapper = shallow(
+        <SpinnerCircle transform="transform(2 3)" dasharrayValue="90" strokeWidthValue="90" />
+      );
 
       expect(wrapper).toMatchSnapshot();
     });
   });
 
   describe('StyledSVG', () => {
+    const COMPONENT_ID = 'loaders.foo';
+
     it('renders correctly by default', () => {
-      const wrapper = mount(<StyledSVG />);
+      const wrapper = mount(<StyledSVG dataGardenId={COMPONENT_ID} width="80" height="72" />);
 
       expect(wrapper).toMatchSnapshot();
     });
 
     it('renders color correctly if provided', () => {
-      const wrapper = mount(<StyledSVG color="red" />);
+      const wrapper = mount(
+        <StyledSVG dataGardenId={COMPONENT_ID} width="80" height="72" color="red" />
+      );
 
       expect(wrapper).toMatchSnapshot();
     });
 
     it('renders font-size correctly if provided', () => {
-      const wrapper = mount(<StyledSVG fontSize="15px" />);
+      const wrapper = mount(
+        <StyledSVG dataGardenId={COMPONENT_ID} width="80" height="72" fontSize="15px" />
+      );
 
       expect(wrapper).toMatchSnapshot();
     });

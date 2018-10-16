@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`styled-elements DotsCircle renders correctly by default 1`] = `
+<circle
+  className=""
+  cx={9}
+  cy={9}
+  r={9}
+  transform="transform(2 3)"
+/>
+`;
+
 exports[`styled-elements LoadingPlaceholder renders correctly by default 1`] = `
 .c0 {
   display: inline;
@@ -28,16 +38,17 @@ exports[`styled-elements LoadingPlaceholder renders font-size correctly if provi
 />
 `;
 
-exports[`styled-elements StyledCircle renders correctly by default 1`] = `
-.c0 {
-  will-change: transform;
-}
-
+exports[`styled-elements SpinnerCircle renders correctly by default 1`] = `
 <circle
-  className="c0"
-  cx={9}
-  cy={9}
-  r={9}
+  className=""
+  cx={40}
+  cy={40}
+  fill="none"
+  r={34}
+  stroke="currentColor"
+  strokeDasharray="90 250"
+  strokeLinecap="round"
+  strokeWidth="90"
   transform="transform(2 3)"
 />
 `;
@@ -52,26 +63,28 @@ exports[`styled-elements StyledSVG renders color correctly if provided 1`] = `
 
 <StyledSVG
   color="red"
+  dataGardenId="loaders.foo"
+  height="72"
+  width="80"
 >
   <styled-elements__StyledSvg
     color="red"
+    dataGardenId="loaders.foo"
+    height="72"
+    width="80"
   >
     <svg
       className="c0"
       color="red"
-      data-garden-id="loaders.dots"
+      data-garden-id="loaders.foo"
       data-garden-version="version"
       focusable="false"
-      height={72}
+      height="72"
       role="progressbar"
       viewBox="0 0 80 72"
-      width={80}
+      width="80"
       xmlns="http://www.w3.org/2000/svg"
-    >
-      <g
-        fill="currentColor"
-      />
-    </svg>
+    />
   </styled-elements__StyledSvg>
 </StyledSVG>
 `;
@@ -84,23 +97,27 @@ exports[`styled-elements StyledSVG renders correctly by default 1`] = `
   font-size: inherit;
 }
 
-<StyledSVG>
-  <styled-elements__StyledSvg>
+<StyledSVG
+  dataGardenId="loaders.foo"
+  height="72"
+  width="80"
+>
+  <styled-elements__StyledSvg
+    dataGardenId="loaders.foo"
+    height="72"
+    width="80"
+  >
     <svg
       className="c0"
-      data-garden-id="loaders.dots"
+      data-garden-id="loaders.foo"
       data-garden-version="version"
       focusable="false"
-      height={72}
+      height="72"
       role="progressbar"
       viewBox="0 0 80 72"
-      width={80}
+      width="80"
       xmlns="http://www.w3.org/2000/svg"
-    >
-      <g
-        fill="currentColor"
-      />
-    </svg>
+    />
   </styled-elements__StyledSvg>
 </StyledSVG>
 `;
@@ -114,27 +131,29 @@ exports[`styled-elements StyledSVG renders font-size correctly if provided 1`] =
 }
 
 <StyledSVG
+  dataGardenId="loaders.foo"
   fontSize="15px"
+  height="72"
+  width="80"
 >
   <styled-elements__StyledSvg
+    dataGardenId="loaders.foo"
     fontSize="15px"
+    height="72"
+    width="80"
   >
     <svg
       className="c0"
-      data-garden-id="loaders.dots"
+      data-garden-id="loaders.foo"
       data-garden-version="version"
       focusable="false"
       fontSize="15px"
-      height={72}
+      height="72"
       role="progressbar"
       viewBox="0 0 80 72"
-      width={80}
+      width="80"
       xmlns="http://www.w3.org/2000/svg"
-    >
-      <g
-        fill="currentColor"
-      />
-    </svg>
+    />
   </styled-elements__StyledSvg>
 </StyledSVG>
 `;
