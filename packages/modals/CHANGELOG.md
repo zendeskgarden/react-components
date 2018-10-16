@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.17](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.3.16...@zendeskgarden/react-modals@5.3.17) (2018-10-16)
+
+
+### Bug Fixes
+
+* **buttons|modals:** bump CSS dependencies ([#189](https://github.com/zendeskgarden/react-components/issues/189)) ([431ee3a](https://github.com/zendeskgarden/react-components/commit/431ee3a))
+
+
+
+
+
 ## [5.3.16](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.3.15...@zendeskgarden/react-modals@5.3.16) (2018-10-08)
 
 **Note:** Version bump only for package @zendeskgarden/react-modals
