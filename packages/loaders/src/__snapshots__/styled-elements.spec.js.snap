@@ -39,14 +39,8 @@ exports[`styled-elements LoadingPlaceholder renders font-size correctly if provi
 `;
 
 exports[`styled-elements SpinnerCircle renders correctly by default 1`] = `
-.c0 {
-  -webkit-transform-origin: center center;
-  -ms-transform-origin: center center;
-  transform-origin: center center;
-}
-
 <circle
-  className="c0"
+  className=""
   cx={40}
   cy={40}
   fill="none"

@@ -107,10 +107,11 @@ export default class Spinner extends React.Component {
   render() {
     const { size, color, delayMS, ...other } = this.props;
     const { frame } = this.state;
-
     const strokeWidthValue = this.strokeWidthValues[frame];
     const rotationValue = this.rotationValues[frame];
     const dasharrayValue = this.dasharrayValues[frame];
+    const WIDTH = 80;
+    const HEIGHT = 80;
 
     return (
       <ScheduleContainer tick={this.performAnimationFrame} size={size} delayMS={delayMS}>
@@ -118,15 +119,15 @@ export default class Spinner extends React.Component {
           <StyledSVG
             fontSize={size}
             color={color}
-            width="80"
-            height="80"
+            width={WIDTH}
+            height={HEIGHT}
             data-garden-id={COMPONENT_ID}
             {...other}
           >
             <SpinnerCircle
               strokeDasharray={`${dasharrayValue} 250`}
               strokeWidth={strokeWidthValue}
-              transform={`rotate(${rotationValue})`}
+              transform={`rotate(${rotationValue}, ${WIDTH / 2}, ${HEIGHT / 2})`}
             />
           </StyledSVG>
         )}

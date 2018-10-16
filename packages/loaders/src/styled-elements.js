@@ -31,9 +31,7 @@ export const SpinnerCircle = styled.circle.attrs({
   strokeWidth: ({ strokeWidthValue }) => strokeWidthValue,
   strokeDasharray: ({ dasharrayValue }) => `${dasharrayValue} 250`,
   transform: props => props.transform
-})`
-  transform-origin: center center;
-`;
+})``;
 
 SpinnerCircle.propTypes = {
   dasharrayValue: PropTypes.string,
@@ -75,8 +73,8 @@ export const StyledSVG = ({ children, fontSize, width, height, ...other }) => {
 StyledSVG.propTypes = {
   children: PropTypes.node,
   fontSize: PropTypes.any,
-  height: PropTypes.string,
-  width: PropTypes.string
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 export const LoadingPlaceholder = styled.div.attrs({
