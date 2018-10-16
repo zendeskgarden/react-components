@@ -125,7 +125,8 @@ const defaultStyleguideConfig = {
     TableOfContentsRenderer: path.resolve(__dirname, 'TableOfContentsRenderer'),
     LogoRenderer: path.resolve(__dirname, 'LogoRenderer'),
     TableRenderer: path.resolve(__dirname, 'TableRenderer'),
-    ArgumentsRenderer: path.resolve(__dirname, 'ArgumentsRenderer')
+    ArgumentsRenderer: path.resolve(__dirname, 'ArgumentsRenderer'),
+    'slots/CodeTabButton': path.resolve(__dirname, 'CodeTabButton')
   },
   webpackConfig: {
     devtool: 'eval-source-map',
