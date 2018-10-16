@@ -60,7 +60,7 @@ const InlineSelectView = styled(Dropdown)`
     </Col>
     <Col md>
       <InlineSelectView>
-        <HeaderItem>
+        <HeaderItem containsIcon>
           <HeaderIcon>
             <GroupIcon />
           </HeaderIcon>
