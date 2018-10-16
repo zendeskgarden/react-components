@@ -12,8 +12,8 @@ import classNames from 'classnames';
 import ChromeStyles from '@zendeskgarden/css-chrome';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'chrome.collapsable_sub_nav_item';
-const PANEL_COMPONENT_ID = 'chrome.collapsable_sub_nav_item_panel';
+const COMPONENT_ID = 'chrome.collapsible_sub_nav_item';
+const PANEL_COMPONENT_ID = 'chrome.collapsible_sub_nav_item_panel';
 const SUB_NAV_ITEM_HEIGHT_PX = 38;
 
 import SubNavItem from './SubNavItem';

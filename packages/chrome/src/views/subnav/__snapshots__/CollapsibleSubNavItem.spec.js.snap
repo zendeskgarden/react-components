@@ -13,7 +13,7 @@ exports[`CollapsibleSubNavItem States renders expanded styling if provided 1`] =
       <SubNavItem
         aria-expanded={true}
         className="c-chrome__subnav__item--header is-expanded "
-        data-garden-id="chrome.collapsable_sub_nav_item"
+        data-garden-id="chrome.collapsible_sub_nav_item"
         data-garden-version="version"
         expanded={true}
         label="Header"
@@ -22,7 +22,7 @@ exports[`CollapsibleSubNavItem States renders expanded styling if provided 1`] =
           <SubNavItem__StyledSubNavItem
             aria-expanded={true}
             className="c-chrome__subnav__item--header is-expanded "
-            data-garden-id="chrome.collapsable_sub_nav_item"
+            data-garden-id="chrome.collapsible_sub_nav_item"
             data-garden-version="version"
             expanded={true}
             focused={false}
@@ -35,7 +35,7 @@ exports[`CollapsibleSubNavItem States renders expanded styling if provided 1`] =
             <button
               aria-expanded={true}
               className="c-chrome__subnav__item--header is-expanded c-chrome__subnav__item "
-              data-garden-id="chrome.collapsable_sub_nav_item"
+              data-garden-id="chrome.collapsible_sub_nav_item"
               data-garden-version="version"
               label="Header"
               onBlur={[Function]}
@@ -58,7 +58,7 @@ exports[`CollapsibleSubNavItem States renders expanded styling if provided 1`] =
       <div
         aria-hidden={false}
         className="c-chrome__subnav__panel "
-        data-garden-id="chrome.collapsable_sub_nav_item_panel"
+        data-garden-id="chrome.collapsible_sub_nav_item_panel"
         data-garden-version="version"
         hidden={false}
         style={
@@ -88,7 +88,7 @@ exports[`CollapsibleSubNavItem States renders focused styling if provided 1`] = 
     >
       <SubNavItem
         className="c-chrome__subnav__item--header "
-        data-garden-id="chrome.collapsable_sub_nav_item"
+        data-garden-id="chrome.collapsible_sub_nav_item"
         data-garden-version="version"
         focused={true}
         label="Header"
@@ -96,7 +96,7 @@ exports[`CollapsibleSubNavItem States renders focused styling if provided 1`] = 
         <KeyboardFocusContainer>
           <SubNavItem__StyledSubNavItem
             className="c-chrome__subnav__item--header "
-            data-garden-id="chrome.collapsable_sub_nav_item"
+            data-garden-id="chrome.collapsible_sub_nav_item"
             data-garden-version="version"
             focused={true}
             label="Header"
@@ -107,7 +107,7 @@ exports[`CollapsibleSubNavItem States renders focused styling if provided 1`] = 
           >
             <button
               className="c-chrome__subnav__item--header c-chrome__subnav__item is-focused "
-              data-garden-id="chrome.collapsable_sub_nav_item"
+              data-garden-id="chrome.collapsible_sub_nav_item"
               data-garden-version="version"
               label="Header"
               onBlur={[Function]}
@@ -130,7 +130,7 @@ exports[`CollapsibleSubNavItem States renders focused styling if provided 1`] = 
       <div
         aria-hidden={true}
         className="c-chrome__subnav__panel is-hidden "
-        data-garden-id="chrome.collapsable_sub_nav_item_panel"
+        data-garden-id="chrome.collapsible_sub_nav_item_panel"
         data-garden-version="version"
         hidden={true}
         style={
@@ -160,7 +160,7 @@ exports[`CollapsibleSubNavItem States renders hovered styling if provided 1`] = 
     >
       <SubNavItem
         className="c-chrome__subnav__item--header "
-        data-garden-id="chrome.collapsable_sub_nav_item"
+        data-garden-id="chrome.collapsible_sub_nav_item"
         data-garden-version="version"
         hovered={true}
         label="Header"
@@ -168,7 +168,7 @@ exports[`CollapsibleSubNavItem States renders hovered styling if provided 1`] = 
         <KeyboardFocusContainer>
           <SubNavItem__StyledSubNavItem
             className="c-chrome__subnav__item--header "
-            data-garden-id="chrome.collapsable_sub_nav_item"
+            data-garden-id="chrome.collapsible_sub_nav_item"
             data-garden-version="version"
             focused={false}
             hovered={true}
@@ -180,7 +180,7 @@ exports[`CollapsibleSubNavItem States renders hovered styling if provided 1`] = 
           >
             <button
               className="c-chrome__subnav__item--header c-chrome__subnav__item is-hovered "
-              data-garden-id="chrome.collapsable_sub_nav_item"
+              data-garden-id="chrome.collapsible_sub_nav_item"
               data-garden-version="version"
               label="Header"
               onBlur={[Function]}
@@ -203,7 +203,7 @@ exports[`CollapsibleSubNavItem States renders hovered styling if provided 1`] = 
       <div
         aria-hidden={true}
         className="c-chrome__subnav__panel is-hidden "
-        data-garden-id="chrome.collapsable_sub_nav_item_panel"
+        data-garden-id="chrome.collapsible_sub_nav_item_panel"
         data-garden-version="version"
         hidden={true}
         style={
@@ -233,7 +233,7 @@ exports[`CollapsibleSubNavItem States renders hovered styling if provided 2`] = 
     >
       <SubNavItem
         className="c-chrome__subnav__item--header "
-        data-garden-id="chrome.collapsable_sub_nav_item"
+        data-garden-id="chrome.collapsible_sub_nav_item"
         data-garden-version="version"
         hovered={true}
         label="Header"
@@ -241,7 +241,7 @@ exports[`CollapsibleSubNavItem States renders hovered styling if provided 2`] = 
         <KeyboardFocusContainer>
           <SubNavItem__StyledSubNavItem
             className="c-chrome__subnav__item--header "
-            data-garden-id="chrome.collapsable_sub_nav_item"
+            data-garden-id="chrome.collapsible_sub_nav_item"
             data-garden-version="version"
             focused={false}
             hovered={true}
@@ -253,7 +253,7 @@ exports[`CollapsibleSubNavItem States renders hovered styling if provided 2`] = 
           >
             <button
               className="c-chrome__subnav__item--header c-chrome__subnav__item is-hovered "
-              data-garden-id="chrome.collapsable_sub_nav_item"
+              data-garden-id="chrome.collapsible_sub_nav_item"
               data-garden-version="version"
               label="Header"
               onBlur={[Function]}
@@ -276,7 +276,7 @@ exports[`CollapsibleSubNavItem States renders hovered styling if provided 2`] = 
       <div
         aria-hidden={true}
         className="c-chrome__subnav__panel is-hidden "
-        data-garden-id="chrome.collapsable_sub_nav_item_panel"
+        data-garden-id="chrome.collapsible_sub_nav_item_panel"
         data-garden-version="version"
         hidden={true}
         style={
@@ -304,14 +304,14 @@ exports[`CollapsibleSubNavItem renders default styling 1`] = `
     >
       <SubNavItem
         className="c-chrome__subnav__item--header "
-        data-garden-id="chrome.collapsable_sub_nav_item"
+        data-garden-id="chrome.collapsible_sub_nav_item"
         data-garden-version="version"
         label="Header"
       >
         <KeyboardFocusContainer>
           <SubNavItem__StyledSubNavItem
             className="c-chrome__subnav__item--header "
-            data-garden-id="chrome.collapsable_sub_nav_item"
+            data-garden-id="chrome.collapsible_sub_nav_item"
             data-garden-version="version"
             focused={false}
             label="Header"
@@ -322,7 +322,7 @@ exports[`CollapsibleSubNavItem renders default styling 1`] = `
           >
             <button
               className="c-chrome__subnav__item--header c-chrome__subnav__item "
-              data-garden-id="chrome.collapsable_sub_nav_item"
+              data-garden-id="chrome.collapsible_sub_nav_item"
               data-garden-version="version"
               label="Header"
               onBlur={[Function]}
@@ -345,7 +345,7 @@ exports[`CollapsibleSubNavItem renders default styling 1`] = `
       <div
         aria-hidden={true}
         className="c-chrome__subnav__panel is-hidden "
-        data-garden-id="chrome.collapsable_sub_nav_item_panel"
+        data-garden-id="chrome.collapsible_sub_nav_item_panel"
         data-garden-version="version"
         hidden={true}
         style={
