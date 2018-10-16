@@ -68,8 +68,8 @@ export default class Spinner extends React.Component {
 
     return Object.entries(frames).reduce((acc, item, index, arr) => {
       const [frame, value] = item;
-      const [nextFrame, nextValue] = arr[index + 1] || ['100', arr[0][1]];
-      const diff = nextFrame - frame - 1;
+      const [nextFrame, nextValue] = arr[index + 1] || [totalFrames, arr[0][1]];
+      const diff = nextFrame - frame;
       const frameHz = 1000 / 60;
 
       let subDuration = (duration / (totalFrames - 1)) * diff;

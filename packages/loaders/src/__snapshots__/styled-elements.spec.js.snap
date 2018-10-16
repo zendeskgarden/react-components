@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`styled-elements DotsCircle renders correctly by default 1`] = `
+<circle
+  className=""
+  cx={9}
+  cy={9}
+  r={9}
+  transform="transform(2 3)"
+/>
+`;
+
 exports[`styled-elements LoadingPlaceholder renders correctly by default 1`] = `
 .c0 {
   display: inline;
@@ -49,20 +59,6 @@ exports[`styled-elements SpinnerCircle renders correctly by default 1`] = `
 />
 `;
 
-exports[`styled-elements StyledCircle renders correctly by default 1`] = `
-.c0 {
-  will-change: transform;
-}
-
-<circle
-  className="c0"
-  cx={9}
-  cy={9}
-  r={9}
-  transform="transform(2 3)"
-/>
-`;
-
 exports[`styled-elements StyledSVG renders color correctly if provided 1`] = `
 .c0 {
   width: 1em;
@@ -94,11 +90,7 @@ exports[`styled-elements StyledSVG renders color correctly if provided 1`] = `
       viewBox="0 0 80 72"
       width="80"
       xmlns="http://www.w3.org/2000/svg"
-    >
-      <g
-        fill="currentColor"
-      />
-    </svg>
+    />
   </styled-elements__StyledSvg>
 </StyledSVG>
 `;
@@ -131,11 +123,7 @@ exports[`styled-elements StyledSVG renders correctly by default 1`] = `
       viewBox="0 0 80 72"
       width="80"
       xmlns="http://www.w3.org/2000/svg"
-    >
-      <g
-        fill="currentColor"
-      />
-    </svg>
+    />
   </styled-elements__StyledSvg>
 </StyledSVG>
 `;
@@ -171,11 +159,7 @@ exports[`styled-elements StyledSVG renders font-size correctly if provided 1`] =
       viewBox="0 0 80 72"
       width="80"
       xmlns="http://www.w3.org/2000/svg"
-    >
-      <g
-        fill="currentColor"
-      />
-    </svg>
+    />
   </styled-elements__StyledSvg>
 </StyledSVG>
 `;
