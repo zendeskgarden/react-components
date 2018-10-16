@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tables@1.0.6...@zendeskgarden/react-tables@1.0.7) (2018-10-15)
+
+
+### Bug Fixes
+
+* **tables:** correct placement of OverflowButton menus ([#182](https://github.com/zendeskgarden/react-components/issues/182)) ([9204a7d](https://github.com/zendeskgarden/react-components/commit/9204a7d))
+
+
+
+
+
 ## [1.0.6](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tables@1.0.5...@zendeskgarden/react-tables@1.0.6) (2018-10-08)
 
 **Note:** Version bump only for package @zendeskgarden/react-tables

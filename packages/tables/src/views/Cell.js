@@ -28,7 +28,7 @@ const Cell = styled.div.attrs({
     })
 })`
   && {
-    display: block;
+    display: flex;
     width: ${({ width }) => width};
   }
 

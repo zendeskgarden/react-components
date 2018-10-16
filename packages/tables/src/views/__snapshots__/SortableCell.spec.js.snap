@@ -2,7 +2,10 @@
 
 exports[`SortableCell applies active styling if provided 1`] = `
 .c0.c0 {
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 <SortableCell
@@ -43,7 +46,10 @@ exports[`SortableCell applies active styling if provided 1`] = `
 
 exports[`SortableCell applies default styling 1`] = `
 .c0.c0 {
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 <SortableCell>
@@ -80,7 +86,10 @@ exports[`SortableCell applies default styling 1`] = `
 
 exports[`SortableCell applies focused styling if provided 1`] = `
 .c0.c0 {
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 <SortableCell
@@ -121,7 +130,10 @@ exports[`SortableCell applies focused styling if provided 1`] = `
 
 exports[`SortableCell applies minimum styling if provided 1`] = `
 .c0.c0 {
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 <SortableCell
@@ -162,7 +174,10 @@ exports[`SortableCell applies minimum styling if provided 1`] = `
 
 exports[`SortableCell applies truncated styling if provided 1`] = `
 .c0.c0 {
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 <SortableCell
@@ -203,7 +218,10 @@ exports[`SortableCell applies truncated styling if provided 1`] = `
 
 exports[`SortableCell sorting applies ascending props when applied 1`] = `
 .c0.c0 {
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 <SortableCell
@@ -244,7 +262,10 @@ exports[`SortableCell sorting applies ascending props when applied 1`] = `
 
 exports[`SortableCell sorting applies descending props when applied 1`] = `
 .c0.c0 {
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 <SortableCell

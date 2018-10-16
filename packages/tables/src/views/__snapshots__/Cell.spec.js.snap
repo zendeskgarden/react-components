@@ -2,7 +2,10 @@
 
 exports[`Cell renders default styling 1`] = `
 .c0.c0 {
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 <div
@@ -15,7 +18,10 @@ exports[`Cell renders default styling 1`] = `
 
 exports[`Cell renders menu styling if provided 1`] = `
 .c0.c0 {
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 <div
@@ -28,7 +34,10 @@ exports[`Cell renders menu styling if provided 1`] = `
 
 exports[`Cell renders minimum styling if provided 1`] = `
 .c0.c0 {
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 <div
@@ -41,7 +50,10 @@ exports[`Cell renders minimum styling if provided 1`] = `
 
 exports[`Cell renders truncation styling if provided 1`] = `
 .c0.c0 {
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 <div
