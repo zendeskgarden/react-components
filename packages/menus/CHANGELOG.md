@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.7.2...@zendeskgarden/react-menus@4.0.0) (2018-10-16)
+
+
+### Features
+
+* **menus:** update Menu/Select Item indentation and focus based on item hover ([#168](https://github.com/zendeskgarden/react-components/issues/168)) ([2c8423f](https://github.com/zendeskgarden/react-components/commit/2c8423f))
+
+
+### BREAKING CHANGES
+
+* **menus:** There are two breaking changes relating to styling and interaction in the `react-menu` and `react-select` packages.
+
+* Users are now able to focus Menu/Select items by hovering over a menu item
+* For `HeaderItem` components that contain an icon, the `containsIcon` prop must now be provided for correct positioning
+
+
+
+
+
 ## [3.7.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@3.7.1...@zendeskgarden/react-menus@3.7.2) (2018-10-16)
 
 **Note:** Version bump only for package @zendeskgarden/react-menus
