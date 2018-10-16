@@ -49,12 +49,23 @@ exports[`CollapsibleSubNavItem States renders expanded styling if provided 1`] =
     </CollapsibleSubNavItem__StyledSubNavItemHeader>
     <CollapsibleSubNavItem__StyledSubNavPanel
       hidden={false}
+      style={
+        Object {
+          "maxHeight": 38,
+        }
+      }
     >
       <div
+        aria-hidden={false}
         className="c-chrome__subnav__panel "
         data-garden-id="chrome.collapsable_sub_nav_item_panel"
         data-garden-version="version"
         hidden={false}
+        style={
+          Object {
+            "maxHeight": 38,
+          }
+        }
       >
         <p>
           Content
@@ -110,12 +121,23 @@ exports[`CollapsibleSubNavItem States renders focused styling if provided 1`] = 
     </CollapsibleSubNavItem__StyledSubNavItemHeader>
     <CollapsibleSubNavItem__StyledSubNavPanel
       hidden={true}
+      style={
+        Object {
+          "maxHeight": 38,
+        }
+      }
     >
       <div
+        aria-hidden={true}
         className="c-chrome__subnav__panel is-hidden "
         data-garden-id="chrome.collapsable_sub_nav_item_panel"
         data-garden-version="version"
         hidden={true}
+        style={
+          Object {
+            "maxHeight": 38,
+          }
+        }
       >
         <p>
           Content
@@ -172,12 +194,23 @@ exports[`CollapsibleSubNavItem States renders hovered styling if provided 1`] = 
     </CollapsibleSubNavItem__StyledSubNavItemHeader>
     <CollapsibleSubNavItem__StyledSubNavPanel
       hidden={true}
+      style={
+        Object {
+          "maxHeight": 38,
+        }
+      }
     >
       <div
+        aria-hidden={true}
         className="c-chrome__subnav__panel is-hidden "
         data-garden-id="chrome.collapsable_sub_nav_item_panel"
         data-garden-version="version"
         hidden={true}
+        style={
+          Object {
+            "maxHeight": 38,
+          }
+        }
       >
         <p>
           Content
@@ -234,12 +267,23 @@ exports[`CollapsibleSubNavItem States renders hovered styling if provided 2`] = 
     </CollapsibleSubNavItem__StyledSubNavItemHeader>
     <CollapsibleSubNavItem__StyledSubNavPanel
       hidden={true}
+      style={
+        Object {
+          "maxHeight": 38,
+        }
+      }
     >
       <div
+        aria-hidden={true}
         className="c-chrome__subnav__panel is-hidden "
         data-garden-id="chrome.collapsable_sub_nav_item_panel"
         data-garden-version="version"
         hidden={true}
+        style={
+          Object {
+            "maxHeight": 38,
+          }
+        }
       >
         <p>
           Content
@@ -292,12 +336,23 @@ exports[`CollapsibleSubNavItem renders default styling 1`] = `
     </CollapsibleSubNavItem__StyledSubNavItemHeader>
     <CollapsibleSubNavItem__StyledSubNavPanel
       hidden={true}
+      style={
+        Object {
+          "maxHeight": 38,
+        }
+      }
     >
       <div
+        aria-hidden={true}
         className="c-chrome__subnav__panel is-hidden "
         data-garden-id="chrome.collapsable_sub_nav_item_panel"
         data-garden-version="version"
         hidden={true}
+        style={
+          Object {
+            "maxHeight": 38,
+          }
+        }
       >
         <p>
           Content

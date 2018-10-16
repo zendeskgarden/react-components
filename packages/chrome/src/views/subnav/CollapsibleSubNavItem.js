@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
@@ -14,6 +14,7 @@ import { retrieveTheme } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.collapsable_sub_nav_item';
 const PANEL_COMPONENT_ID = 'chrome.collapsable_sub_nav_item_panel';
+const SUB_NAV_ITEM_HEIGHT_PX = 38;
 
 import SubNavItem from './SubNavItem';
 
@@ -38,6 +39,7 @@ StyledSubNavItemHeader.propTypes = {
 const StyledSubNavPanel = styled.div.attrs({
   'data-garden-id': PANEL_COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
+  'aria-hidden': props => props.hidden,
   className: props =>
     classNames(ChromeStyles['c-chrome__subnav__panel'], {
       [ChromeStyles['is-hidden']]: props.hidden
@@ -54,12 +56,16 @@ StyledSubNavPanel.propTypes = {
  * Accepts all `<button>` props
  */
 const CollapsibleSubNavItem = ({ header, children, expanded, ...other }) => {
+  const panelMaxHeight = Children.count(children) * SUB_NAV_ITEM_HEIGHT_PX;
+
   return (
     <div>
       <StyledSubNavItemHeader expanded={expanded} {...other}>
         {header}
       </StyledSubNavItemHeader>
-      <StyledSubNavPanel hidden={!expanded}>{children}</StyledSubNavPanel>
+      <StyledSubNavPanel hidden={!expanded} style={{ maxHeight: panelMaxHeight }}>
+        {children}
+      </StyledSubNavPanel>
     </div>
   );
 };
