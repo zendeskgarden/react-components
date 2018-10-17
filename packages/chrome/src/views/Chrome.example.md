@@ -103,7 +103,7 @@ initialState = {
       <CollapsibleSubNavItem
         header="Collapsible Item"
         expanded={state.showCollapsed}
-        onClick={() => setState({ showCollapsed: !state.showCollapsed })}
+        onChange={showCollapsed => setState({ showCollapsed })}
       >
         <SubNavItem
           current={state.currentSubnavItem === 'collapsed-item-1'}

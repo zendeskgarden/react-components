@@ -5,74 +5,94 @@ exports[`CollapsibleSubNavItem States renders expanded styling if provided 1`] =
   expanded={true}
   label="Header"
 >
-  <div>
-    <CollapsibleSubNavItem__StyledSubNavItemHeader
-      expanded={true}
-      label="Header"
-    >
-      <SubNavItem
-        aria-expanded={true}
-        className="c-chrome__subnav__item--header is-expanded "
-        data-garden-id="chrome.collapsible_sub_nav_item"
-        data-garden-version="version"
-        expanded={true}
-        label="Header"
+  <TabsContainer
+    expanded={true}
+    onStateChange={[Function]}
+  >
+    <div>
+      <div
+        role="heading"
       >
-        <KeyboardFocusContainer>
-          <SubNavItem__StyledSubNavItem
+        <CollapsibleSubNavItem__StyledSubNavItemHeader
+          aria-controls="garden-accordion-container-1-panel"
+          aria-expanded={true}
+          expanded={true}
+          id="garden-accordion-container-1-header"
+          label="Header"
+          onClick={[Function]}
+        >
+          <SubNavItem
+            aria-controls="garden-accordion-container-1-panel"
             aria-expanded={true}
             className="c-chrome__subnav__item--header is-expanded "
             data-garden-id="chrome.collapsible_sub_nav_item"
             data-garden-version="version"
             expanded={true}
-            focused={false}
+            id="garden-accordion-container-1-header"
             label="Header"
-            onBlur={[Function]}
-            onFocus={[Function]}
-            onMouseDown={[Function]}
-            tabIndex={0}
+            onClick={[Function]}
           >
-            <button
-              aria-expanded={true}
-              className="c-chrome__subnav__item--header is-expanded c-chrome__subnav__item "
-              data-garden-id="chrome.collapsible_sub_nav_item"
-              data-garden-version="version"
-              label="Header"
-              onBlur={[Function]}
-              onFocus={[Function]}
-              onMouseDown={[Function]}
-              tabIndex={0}
-            />
-          </SubNavItem__StyledSubNavItem>
-        </KeyboardFocusContainer>
-      </SubNavItem>
-    </CollapsibleSubNavItem__StyledSubNavItemHeader>
-    <CollapsibleSubNavItem__StyledSubNavPanel
-      hidden={false}
-      style={
-        Object {
-          "maxHeight": 38,
-        }
-      }
-    >
-      <div
-        aria-hidden={false}
-        className="c-chrome__subnav__panel "
-        data-garden-id="chrome.collapsible_sub_nav_item_panel"
-        data-garden-version="version"
-        hidden={false}
-        style={
-          Object {
-            "maxHeight": 38,
-          }
-        }
-      >
-        <p>
-          Content
-        </p>
+            <KeyboardFocusContainer>
+              <SubNavItem__StyledSubNavItem
+                aria-controls="garden-accordion-container-1-panel"
+                aria-expanded={true}
+                className="c-chrome__subnav__item--header is-expanded "
+                data-garden-id="chrome.collapsible_sub_nav_item"
+                data-garden-version="version"
+                expanded={true}
+                focused={false}
+                id="garden-accordion-container-1-header"
+                label="Header"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onMouseDown={[Function]}
+                tabIndex={0}
+              >
+                <button
+                  aria-controls="garden-accordion-container-1-panel"
+                  aria-expanded={true}
+                  className="c-chrome__subnav__item--header is-expanded c-chrome__subnav__item "
+                  data-garden-id="chrome.collapsible_sub_nav_item"
+                  data-garden-version="version"
+                  id="garden-accordion-container-1-header"
+                  label="Header"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  tabIndex={0}
+                />
+              </SubNavItem__StyledSubNavItem>
+            </KeyboardFocusContainer>
+          </SubNavItem>
+        </CollapsibleSubNavItem__StyledSubNavItemHeader>
       </div>
-    </CollapsibleSubNavItem__StyledSubNavPanel>
-  </div>
+      <CollapsibleSubNavItem__StyledSubNavPanel
+        aria-hidden={false}
+        aria-labelledby="garden-accordion-container-1-header"
+        hidden={false}
+        id="garden-accordion-container-1-panel"
+        innerRef={[Function]}
+        role="region"
+      >
+        <div
+          aria-hidden={false}
+          aria-labelledby="garden-accordion-container-1-header"
+          className="c-chrome__subnav__panel "
+          data-garden-id="chrome.collapsible_sub_nav_item_panel"
+          data-garden-version="version"
+          hidden={false}
+          id="garden-accordion-container-1-panel"
+          role="region"
+        >
+          <p>
+            Content
+          </p>
+        </div>
+      </CollapsibleSubNavItem__StyledSubNavPanel>
+    </div>
+  </TabsContainer>
 </CollapsibleSubNavItem>
 `;
 
@@ -81,70 +101,88 @@ exports[`CollapsibleSubNavItem States renders focused styling if provided 1`] = 
   focused={true}
   label="Header"
 >
-  <div>
-    <CollapsibleSubNavItem__StyledSubNavItemHeader
-      focused={true}
-      label="Header"
-    >
-      <SubNavItem
-        className="c-chrome__subnav__item--header "
-        data-garden-id="chrome.collapsible_sub_nav_item"
-        data-garden-version="version"
-        focused={true}
-        label="Header"
+  <TabsContainer
+    onStateChange={[Function]}
+  >
+    <div>
+      <div
+        role="heading"
       >
-        <KeyboardFocusContainer>
-          <SubNavItem__StyledSubNavItem
+        <CollapsibleSubNavItem__StyledSubNavItemHeader
+          aria-controls="garden-accordion-container-2-panel"
+          focused={true}
+          id="garden-accordion-container-2-header"
+          label="Header"
+          onClick={[Function]}
+        >
+          <SubNavItem
+            aria-controls="garden-accordion-container-2-panel"
             className="c-chrome__subnav__item--header "
             data-garden-id="chrome.collapsible_sub_nav_item"
             data-garden-version="version"
             focused={true}
+            id="garden-accordion-container-2-header"
             label="Header"
-            onBlur={[Function]}
-            onFocus={[Function]}
-            onMouseDown={[Function]}
-            tabIndex={0}
+            onClick={[Function]}
           >
-            <button
-              className="c-chrome__subnav__item--header c-chrome__subnav__item is-focused "
-              data-garden-id="chrome.collapsible_sub_nav_item"
-              data-garden-version="version"
-              label="Header"
-              onBlur={[Function]}
-              onFocus={[Function]}
-              onMouseDown={[Function]}
-              tabIndex={0}
-            />
-          </SubNavItem__StyledSubNavItem>
-        </KeyboardFocusContainer>
-      </SubNavItem>
-    </CollapsibleSubNavItem__StyledSubNavItemHeader>
-    <CollapsibleSubNavItem__StyledSubNavPanel
-      hidden={true}
-      style={
-        Object {
-          "maxHeight": 38,
-        }
-      }
-    >
-      <div
-        aria-hidden={true}
-        className="c-chrome__subnav__panel is-hidden "
-        data-garden-id="chrome.collapsible_sub_nav_item_panel"
-        data-garden-version="version"
-        hidden={true}
-        style={
-          Object {
-            "maxHeight": 38,
-          }
-        }
-      >
-        <p>
-          Content
-        </p>
+            <KeyboardFocusContainer>
+              <SubNavItem__StyledSubNavItem
+                aria-controls="garden-accordion-container-2-panel"
+                className="c-chrome__subnav__item--header "
+                data-garden-id="chrome.collapsible_sub_nav_item"
+                data-garden-version="version"
+                focused={true}
+                id="garden-accordion-container-2-header"
+                label="Header"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onMouseDown={[Function]}
+                tabIndex={0}
+              >
+                <button
+                  aria-controls="garden-accordion-container-2-panel"
+                  className="c-chrome__subnav__item--header c-chrome__subnav__item is-focused "
+                  data-garden-id="chrome.collapsible_sub_nav_item"
+                  data-garden-version="version"
+                  id="garden-accordion-container-2-header"
+                  label="Header"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  tabIndex={0}
+                />
+              </SubNavItem__StyledSubNavItem>
+            </KeyboardFocusContainer>
+          </SubNavItem>
+        </CollapsibleSubNavItem__StyledSubNavItemHeader>
       </div>
-    </CollapsibleSubNavItem__StyledSubNavPanel>
-  </div>
+      <CollapsibleSubNavItem__StyledSubNavPanel
+        aria-hidden={true}
+        aria-labelledby="garden-accordion-container-2-header"
+        hidden={true}
+        id="garden-accordion-container-2-panel"
+        innerRef={[Function]}
+        role="region"
+      >
+        <div
+          aria-hidden={true}
+          aria-labelledby="garden-accordion-container-2-header"
+          className="c-chrome__subnav__panel is-hidden "
+          data-garden-id="chrome.collapsible_sub_nav_item_panel"
+          data-garden-version="version"
+          hidden={true}
+          id="garden-accordion-container-2-panel"
+          role="region"
+        >
+          <p>
+            Content
+          </p>
+        </div>
+      </CollapsibleSubNavItem__StyledSubNavPanel>
+    </div>
+  </TabsContainer>
 </CollapsibleSubNavItem>
 `;
 
@@ -153,71 +191,89 @@ exports[`CollapsibleSubNavItem States renders hovered styling if provided 1`] = 
   hovered={true}
   label="Header"
 >
-  <div>
-    <CollapsibleSubNavItem__StyledSubNavItemHeader
-      hovered={true}
-      label="Header"
-    >
-      <SubNavItem
-        className="c-chrome__subnav__item--header "
-        data-garden-id="chrome.collapsible_sub_nav_item"
-        data-garden-version="version"
-        hovered={true}
-        label="Header"
+  <TabsContainer
+    onStateChange={[Function]}
+  >
+    <div>
+      <div
+        role="heading"
       >
-        <KeyboardFocusContainer>
-          <SubNavItem__StyledSubNavItem
+        <CollapsibleSubNavItem__StyledSubNavItemHeader
+          aria-controls="garden-accordion-container-3-panel"
+          hovered={true}
+          id="garden-accordion-container-3-header"
+          label="Header"
+          onClick={[Function]}
+        >
+          <SubNavItem
+            aria-controls="garden-accordion-container-3-panel"
             className="c-chrome__subnav__item--header "
             data-garden-id="chrome.collapsible_sub_nav_item"
             data-garden-version="version"
-            focused={false}
             hovered={true}
+            id="garden-accordion-container-3-header"
             label="Header"
-            onBlur={[Function]}
-            onFocus={[Function]}
-            onMouseDown={[Function]}
-            tabIndex={0}
+            onClick={[Function]}
           >
-            <button
-              className="c-chrome__subnav__item--header c-chrome__subnav__item is-hovered "
-              data-garden-id="chrome.collapsible_sub_nav_item"
-              data-garden-version="version"
-              label="Header"
-              onBlur={[Function]}
-              onFocus={[Function]}
-              onMouseDown={[Function]}
-              tabIndex={0}
-            />
-          </SubNavItem__StyledSubNavItem>
-        </KeyboardFocusContainer>
-      </SubNavItem>
-    </CollapsibleSubNavItem__StyledSubNavItemHeader>
-    <CollapsibleSubNavItem__StyledSubNavPanel
-      hidden={true}
-      style={
-        Object {
-          "maxHeight": 38,
-        }
-      }
-    >
-      <div
-        aria-hidden={true}
-        className="c-chrome__subnav__panel is-hidden "
-        data-garden-id="chrome.collapsible_sub_nav_item_panel"
-        data-garden-version="version"
-        hidden={true}
-        style={
-          Object {
-            "maxHeight": 38,
-          }
-        }
-      >
-        <p>
-          Content
-        </p>
+            <KeyboardFocusContainer>
+              <SubNavItem__StyledSubNavItem
+                aria-controls="garden-accordion-container-3-panel"
+                className="c-chrome__subnav__item--header "
+                data-garden-id="chrome.collapsible_sub_nav_item"
+                data-garden-version="version"
+                focused={false}
+                hovered={true}
+                id="garden-accordion-container-3-header"
+                label="Header"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onMouseDown={[Function]}
+                tabIndex={0}
+              >
+                <button
+                  aria-controls="garden-accordion-container-3-panel"
+                  className="c-chrome__subnav__item--header c-chrome__subnav__item is-hovered "
+                  data-garden-id="chrome.collapsible_sub_nav_item"
+                  data-garden-version="version"
+                  id="garden-accordion-container-3-header"
+                  label="Header"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  tabIndex={0}
+                />
+              </SubNavItem__StyledSubNavItem>
+            </KeyboardFocusContainer>
+          </SubNavItem>
+        </CollapsibleSubNavItem__StyledSubNavItemHeader>
       </div>
-    </CollapsibleSubNavItem__StyledSubNavPanel>
-  </div>
+      <CollapsibleSubNavItem__StyledSubNavPanel
+        aria-hidden={true}
+        aria-labelledby="garden-accordion-container-3-header"
+        hidden={true}
+        id="garden-accordion-container-3-panel"
+        innerRef={[Function]}
+        role="region"
+      >
+        <div
+          aria-hidden={true}
+          aria-labelledby="garden-accordion-container-3-header"
+          className="c-chrome__subnav__panel is-hidden "
+          data-garden-id="chrome.collapsible_sub_nav_item_panel"
+          data-garden-version="version"
+          hidden={true}
+          id="garden-accordion-container-3-panel"
+          role="region"
+        >
+          <p>
+            Content
+          </p>
+        </div>
+      </CollapsibleSubNavItem__StyledSubNavPanel>
+    </div>
+  </TabsContainer>
 </CollapsibleSubNavItem>
 `;
 
@@ -226,71 +282,89 @@ exports[`CollapsibleSubNavItem States renders hovered styling if provided 2`] = 
   hovered={true}
   label="Header"
 >
-  <div>
-    <CollapsibleSubNavItem__StyledSubNavItemHeader
-      hovered={true}
-      label="Header"
-    >
-      <SubNavItem
-        className="c-chrome__subnav__item--header "
-        data-garden-id="chrome.collapsible_sub_nav_item"
-        data-garden-version="version"
-        hovered={true}
-        label="Header"
+  <TabsContainer
+    onStateChange={[Function]}
+  >
+    <div>
+      <div
+        role="heading"
       >
-        <KeyboardFocusContainer>
-          <SubNavItem__StyledSubNavItem
+        <CollapsibleSubNavItem__StyledSubNavItemHeader
+          aria-controls="garden-accordion-container-3-panel"
+          hovered={true}
+          id="garden-accordion-container-3-header"
+          label="Header"
+          onClick={[Function]}
+        >
+          <SubNavItem
+            aria-controls="garden-accordion-container-3-panel"
             className="c-chrome__subnav__item--header "
             data-garden-id="chrome.collapsible_sub_nav_item"
             data-garden-version="version"
-            focused={false}
             hovered={true}
+            id="garden-accordion-container-3-header"
             label="Header"
-            onBlur={[Function]}
-            onFocus={[Function]}
-            onMouseDown={[Function]}
-            tabIndex={0}
+            onClick={[Function]}
           >
-            <button
-              className="c-chrome__subnav__item--header c-chrome__subnav__item is-hovered "
-              data-garden-id="chrome.collapsible_sub_nav_item"
-              data-garden-version="version"
-              label="Header"
-              onBlur={[Function]}
-              onFocus={[Function]}
-              onMouseDown={[Function]}
-              tabIndex={0}
-            />
-          </SubNavItem__StyledSubNavItem>
-        </KeyboardFocusContainer>
-      </SubNavItem>
-    </CollapsibleSubNavItem__StyledSubNavItemHeader>
-    <CollapsibleSubNavItem__StyledSubNavPanel
-      hidden={true}
-      style={
-        Object {
-          "maxHeight": 38,
-        }
-      }
-    >
-      <div
-        aria-hidden={true}
-        className="c-chrome__subnav__panel is-hidden "
-        data-garden-id="chrome.collapsible_sub_nav_item_panel"
-        data-garden-version="version"
-        hidden={true}
-        style={
-          Object {
-            "maxHeight": 38,
-          }
-        }
-      >
-        <p>
-          Content
-        </p>
+            <KeyboardFocusContainer>
+              <SubNavItem__StyledSubNavItem
+                aria-controls="garden-accordion-container-3-panel"
+                className="c-chrome__subnav__item--header "
+                data-garden-id="chrome.collapsible_sub_nav_item"
+                data-garden-version="version"
+                focused={false}
+                hovered={true}
+                id="garden-accordion-container-3-header"
+                label="Header"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onMouseDown={[Function]}
+                tabIndex={0}
+              >
+                <button
+                  aria-controls="garden-accordion-container-3-panel"
+                  className="c-chrome__subnav__item--header c-chrome__subnav__item is-hovered "
+                  data-garden-id="chrome.collapsible_sub_nav_item"
+                  data-garden-version="version"
+                  id="garden-accordion-container-3-header"
+                  label="Header"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  tabIndex={0}
+                />
+              </SubNavItem__StyledSubNavItem>
+            </KeyboardFocusContainer>
+          </SubNavItem>
+        </CollapsibleSubNavItem__StyledSubNavItemHeader>
       </div>
-    </CollapsibleSubNavItem__StyledSubNavPanel>
-  </div>
+      <CollapsibleSubNavItem__StyledSubNavPanel
+        aria-hidden={true}
+        aria-labelledby="garden-accordion-container-3-header"
+        hidden={true}
+        id="garden-accordion-container-3-panel"
+        innerRef={[Function]}
+        role="region"
+      >
+        <div
+          aria-hidden={true}
+          aria-labelledby="garden-accordion-container-3-header"
+          className="c-chrome__subnav__panel is-hidden "
+          data-garden-id="chrome.collapsible_sub_nav_item_panel"
+          data-garden-version="version"
+          hidden={true}
+          id="garden-accordion-container-3-panel"
+          role="region"
+        >
+          <p>
+            Content
+          </p>
+        </div>
+      </CollapsibleSubNavItem__StyledSubNavPanel>
+    </div>
+  </TabsContainer>
 </CollapsibleSubNavItem>
 `;
 
@@ -298,67 +372,85 @@ exports[`CollapsibleSubNavItem renders default styling 1`] = `
 <CollapsibleSubNavItem
   label="Header"
 >
-  <div>
-    <CollapsibleSubNavItem__StyledSubNavItemHeader
-      label="Header"
-    >
-      <SubNavItem
-        className="c-chrome__subnav__item--header "
-        data-garden-id="chrome.collapsible_sub_nav_item"
-        data-garden-version="version"
-        label="Header"
+  <TabsContainer
+    onStateChange={[Function]}
+  >
+    <div>
+      <div
+        role="heading"
       >
-        <KeyboardFocusContainer>
-          <SubNavItem__StyledSubNavItem
+        <CollapsibleSubNavItem__StyledSubNavItemHeader
+          aria-controls="garden-accordion-container-0-panel"
+          id="garden-accordion-container-0-header"
+          label="Header"
+          onClick={[Function]}
+        >
+          <SubNavItem
+            aria-controls="garden-accordion-container-0-panel"
             className="c-chrome__subnav__item--header "
             data-garden-id="chrome.collapsible_sub_nav_item"
             data-garden-version="version"
-            focused={false}
+            id="garden-accordion-container-0-header"
             label="Header"
-            onBlur={[Function]}
-            onFocus={[Function]}
-            onMouseDown={[Function]}
-            tabIndex={0}
+            onClick={[Function]}
           >
-            <button
-              className="c-chrome__subnav__item--header c-chrome__subnav__item "
-              data-garden-id="chrome.collapsible_sub_nav_item"
-              data-garden-version="version"
-              label="Header"
-              onBlur={[Function]}
-              onFocus={[Function]}
-              onMouseDown={[Function]}
-              tabIndex={0}
-            />
-          </SubNavItem__StyledSubNavItem>
-        </KeyboardFocusContainer>
-      </SubNavItem>
-    </CollapsibleSubNavItem__StyledSubNavItemHeader>
-    <CollapsibleSubNavItem__StyledSubNavPanel
-      hidden={true}
-      style={
-        Object {
-          "maxHeight": 38,
-        }
-      }
-    >
-      <div
-        aria-hidden={true}
-        className="c-chrome__subnav__panel is-hidden "
-        data-garden-id="chrome.collapsible_sub_nav_item_panel"
-        data-garden-version="version"
-        hidden={true}
-        style={
-          Object {
-            "maxHeight": 38,
-          }
-        }
-      >
-        <p>
-          Content
-        </p>
+            <KeyboardFocusContainer>
+              <SubNavItem__StyledSubNavItem
+                aria-controls="garden-accordion-container-0-panel"
+                className="c-chrome__subnav__item--header "
+                data-garden-id="chrome.collapsible_sub_nav_item"
+                data-garden-version="version"
+                focused={false}
+                id="garden-accordion-container-0-header"
+                label="Header"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onMouseDown={[Function]}
+                tabIndex={0}
+              >
+                <button
+                  aria-controls="garden-accordion-container-0-panel"
+                  className="c-chrome__subnav__item--header c-chrome__subnav__item "
+                  data-garden-id="chrome.collapsible_sub_nav_item"
+                  data-garden-version="version"
+                  id="garden-accordion-container-0-header"
+                  label="Header"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  tabIndex={0}
+                />
+              </SubNavItem__StyledSubNavItem>
+            </KeyboardFocusContainer>
+          </SubNavItem>
+        </CollapsibleSubNavItem__StyledSubNavItemHeader>
       </div>
-    </CollapsibleSubNavItem__StyledSubNavPanel>
-  </div>
+      <CollapsibleSubNavItem__StyledSubNavPanel
+        aria-hidden={true}
+        aria-labelledby="garden-accordion-container-0-header"
+        hidden={true}
+        id="garden-accordion-container-0-panel"
+        innerRef={[Function]}
+        role="region"
+      >
+        <div
+          aria-hidden={true}
+          aria-labelledby="garden-accordion-container-0-header"
+          className="c-chrome__subnav__panel is-hidden "
+          data-garden-id="chrome.collapsible_sub_nav_item_panel"
+          data-garden-version="version"
+          hidden={true}
+          id="garden-accordion-container-0-panel"
+          role="region"
+        >
+          <p>
+            Content
+          </p>
+        </div>
+      </CollapsibleSubNavItem__StyledSubNavPanel>
+    </div>
+  </TabsContainer>
 </CollapsibleSubNavItem>
 `;
