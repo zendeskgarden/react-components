@@ -12,7 +12,7 @@ import {
   composeEventHandlers
 } from '@zendeskgarden/react-selection';
 
-export default class TabsContainer extends ControlledComponent {
+export default class AccordionContainer extends ControlledComponent {
   static propTypes = {
     /**
      * Whether the accordion is currently expanded
