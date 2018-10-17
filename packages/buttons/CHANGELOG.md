@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.6.7](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.6.6...@zendeskgarden/react-buttons@3.6.7) (2018-10-17)
+
+
+### Bug Fixes
+
+* **buttons:** remove danger styling if disabled ([#190](https://github.com/zendeskgarden/react-components/issues/190)) ([2ca8f2f](https://github.com/zendeskgarden/react-components/commit/2ca8f2f))
+
+
+
+
+
 ## [3.6.6](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.6.5...@zendeskgarden/react-buttons@3.6.6) (2018-10-16)
 
 

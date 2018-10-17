@@ -3,9 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.1.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-loaders@0.1.2...@zendeskgarden/react-loaders@0.1.3) (2018-10-08)
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-loaders@0.1.3...@zendeskgarden/react-loaders@0.2.0) (2018-10-17)
 
-**Note:** Version bump only for package @zendeskgarden/react-loaders
+
+### Features
+
+* **loaders:** introduce Spinner loader ([#167](https://github.com/zendeskgarden/react-components/issues/167)) ([9c78c91](https://github.com/zendeskgarden/react-components/commit/9c78c91))
 
 
 

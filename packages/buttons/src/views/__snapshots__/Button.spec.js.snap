@@ -340,6 +340,37 @@ exports[`Button Types renders primary styling if provided 1`] = `
 </Button>
 `;
 
+exports[`Button renders correct combination of danger and disabled styling if provided 1`] = `
+<Button
+  danger={true}
+  disabled={true}
+>
+  <KeyboardFocusContainer>
+    <Button__StyledButton
+      danger={true}
+      disabled={true}
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      tabIndex={0}
+    >
+      <button
+        className="c-btn is-disabled "
+        data-garden-id="buttons.button"
+        data-garden-version="version"
+        disabled={true}
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+        type="button"
+      />
+    </Button__StyledButton>
+  </KeyboardFocusContainer>
+</Button>
+`;
+
 exports[`Button renders danger styling if provided 1`] = `
 <Button
   danger={true}

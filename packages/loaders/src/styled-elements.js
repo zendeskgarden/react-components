@@ -10,29 +10,43 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 
-export const StyledCircle = styled.circle.attrs({
+export const DotsCircle = styled.circle.attrs({
   cx: 9,
   cy: 9,
   r: 9,
   transform: props => props.transform
-})`
-  will-change: transform;
-`;
+})``;
 
-StyledCircle.propTypes = {
+DotsCircle.propTypes = {
   transform: PropTypes.string
 };
 
-const COMPONENT_ID = 'loaders.dots';
+export const SpinnerCircle = styled.circle.attrs({
+  cx: 40,
+  cy: 40,
+  r: 34,
+  fill: 'none',
+  stroke: 'currentColor',
+  strokeLinecap: 'round',
+  strokeWidth: ({ strokeWidthValue }) => strokeWidthValue,
+  strokeDasharray: ({ dasharrayValue }) => `${dasharrayValue} 250`,
+  transform: props => props.transform
+})``;
+
+SpinnerCircle.propTypes = {
+  dasharrayValue: PropTypes.string,
+  strokeWidthValue: PropTypes.string,
+  transform: PropTypes.string
+};
 
 const StyledSvg = styled.svg.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': ({ dataGardenId }) => dataGardenId,
   'data-garden-version': PACKAGE_VERSION,
   xmlns: 'http://www.w3.org/2000/svg',
-  width: 80,
-  height: 72,
+  width: ({ width }) => width,
+  height: ({ height }) => height,
   focusable: 'false',
-  viewBox: '0 0 80 72',
+  viewBox: ({ width, height }) => `0 0 ${width} ${height}`,
   role: 'progressbar'
 })`
   width: 1em;
@@ -40,7 +54,7 @@ const StyledSvg = styled.svg.attrs({
   color: ${props => props.color || 'inherit'};
   font-size: ${props => props.fontSize || 'inherit'};
 
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveTheme(props.dataGardenId, props)};
 `;
 
 StyledSvg.propTypes = {
@@ -48,17 +62,19 @@ StyledSvg.propTypes = {
   fontSize: PropTypes.any
 };
 
-export const StyledSVG = ({ children, fontSize, ...other }) => {
+export const StyledSVG = ({ children, fontSize, width, height, ...other }) => {
   return (
-    <StyledSvg fontSize={fontSize} {...other}>
-      <g fill="currentColor">{children}</g>
+    <StyledSvg fontSize={fontSize} width={width} height={height} {...other}>
+      {children}
     </StyledSvg>
   );
 };
 
 StyledSVG.propTypes = {
   children: PropTypes.node,
-  fontSize: PropTypes.any
+  fontSize: PropTypes.any,
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 export const LoadingPlaceholder = styled.div.attrs({

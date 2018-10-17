@@ -1,4 +1,4 @@
-The `<Dots />` component includes several accessibility
+The `<Spinner />` component includes several accessibility
 and usability features:
 
 - Inherits the `font-size` and `color` properties
@@ -12,7 +12,7 @@ and usability features:
 ```jsx
 const { zdColorBlue500 } = require('@zendeskgarden/css-variables');
 
-<Dots color={zdColorBlue500} size="48px" />;
+<Spinner color={zdColorBlue500} size="48px" />;
 ```
 
 ### Advanced Usage
@@ -71,7 +71,7 @@ const Color = ({ name, color, includeSample }) =>
 <State
   initialState={{
     size: 48,
-    velocity: 0.05,
+    duration: 1250,
     color: 'BLUE-500'
   }}
 >
@@ -94,13 +94,16 @@ const Color = ({ name, color, includeSample }) =>
         </Col>
         <Col md={6}>
           <RangeField>
-            <Label>Velocity {state.velocity}</Label>
+            <Label>
+              Duration {state.duration}
+              ms
+            </Label>
             <Range
-              value={state.velocity}
-              onChange={event => setState({ velocity: parseFloat(event.target.value) })}
-              min={-0.5}
-              max={1}
-              step={0.05}
+              value={state.duration}
+              onChange={event => setState({ duration: parseFloat(event.target.value) })}
+              min={625}
+              max={2500}
+              step={625}
             />
           </RangeField>
         </Col>
@@ -125,7 +128,7 @@ const Color = ({ name, color, includeSample }) =>
       </SpacedRow>
       <SpacedRow>
         <Col style={{ textAlign: 'center' }}>
-          <Dots size={`${state.size}px`} velocity={state.velocity} color={colors[state.color]} />
+          <Spinner size={`${state.size}px`} color={colors[state.color]} duration={state.duration} />
         </Col>
       </SpacedRow>
     </Grid>
