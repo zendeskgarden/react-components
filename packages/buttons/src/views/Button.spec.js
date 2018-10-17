@@ -22,6 +22,12 @@ describe('Button', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('renders correct combination of danger and disabled styling if provided', () => {
+    const wrapper = mount(<Button danger disabled />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('renders stretched styling if provided', () => {
     const wrapper = mount(<Button stretched />);
 
