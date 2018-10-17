@@ -16,10 +16,6 @@ module.exports = {
       content: '../../packages/chrome/README.md'
     },
     {
-      name: 'Containers',
-      components: '../../packages/chrome/src/containers/[A-Z]*.js'
-    },
-    {
       name: 'Views',
       sections: [
         {
@@ -45,6 +41,10 @@ module.exports = {
           ]
         }
       ]
+    },
+    {
+      name: 'Containers',
+      components: '../../packages/chrome/src/containers/[A-Z]*.js'
     }
   ]
 };
