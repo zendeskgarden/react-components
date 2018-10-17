@@ -5,7 +5,7 @@ exports[`CollapsibleSubNavItem States renders expanded styling if provided 1`] =
   expanded={true}
   label="Header"
 >
-  <TabsContainer
+  <AccordionContainer
     expanded={true}
     onStateChange={[Function]}
   >
@@ -92,7 +92,7 @@ exports[`CollapsibleSubNavItem States renders expanded styling if provided 1`] =
         </div>
       </CollapsibleSubNavItem__StyledSubNavPanel>
     </div>
-  </TabsContainer>
+  </AccordionContainer>
 </CollapsibleSubNavItem>
 `;
 
@@ -101,7 +101,7 @@ exports[`CollapsibleSubNavItem States renders focused styling if provided 1`] = 
   focused={true}
   label="Header"
 >
-  <TabsContainer
+  <AccordionContainer
     onStateChange={[Function]}
   >
     <div>
@@ -182,7 +182,7 @@ exports[`CollapsibleSubNavItem States renders focused styling if provided 1`] = 
         </div>
       </CollapsibleSubNavItem__StyledSubNavPanel>
     </div>
-  </TabsContainer>
+  </AccordionContainer>
 </CollapsibleSubNavItem>
 `;
 
@@ -191,7 +191,7 @@ exports[`CollapsibleSubNavItem States renders hovered styling if provided 1`] = 
   hovered={true}
   label="Header"
 >
-  <TabsContainer
+  <AccordionContainer
     onStateChange={[Function]}
   >
     <div>
@@ -273,7 +273,7 @@ exports[`CollapsibleSubNavItem States renders hovered styling if provided 1`] = 
         </div>
       </CollapsibleSubNavItem__StyledSubNavPanel>
     </div>
-  </TabsContainer>
+  </AccordionContainer>
 </CollapsibleSubNavItem>
 `;
 
@@ -282,7 +282,7 @@ exports[`CollapsibleSubNavItem States renders hovered styling if provided 2`] = 
   hovered={true}
   label="Header"
 >
-  <TabsContainer
+  <AccordionContainer
     onStateChange={[Function]}
   >
     <div>
@@ -364,7 +364,7 @@ exports[`CollapsibleSubNavItem States renders hovered styling if provided 2`] = 
         </div>
       </CollapsibleSubNavItem__StyledSubNavPanel>
     </div>
-  </TabsContainer>
+  </AccordionContainer>
 </CollapsibleSubNavItem>
 `;
 
@@ -372,7 +372,7 @@ exports[`CollapsibleSubNavItem renders default styling 1`] = `
 <CollapsibleSubNavItem
   label="Header"
 >
-  <TabsContainer
+  <AccordionContainer
     onStateChange={[Function]}
   >
     <div>
@@ -451,6 +451,6 @@ exports[`CollapsibleSubNavItem renders default styling 1`] = `
         </div>
       </CollapsibleSubNavItem__StyledSubNavPanel>
     </div>
-  </TabsContainer>
+  </AccordionContainer>
 </CollapsibleSubNavItem>
 `;
