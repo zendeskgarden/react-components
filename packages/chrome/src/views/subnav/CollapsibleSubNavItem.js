@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
@@ -53,56 +53,43 @@ StyledSubNavPanel.propTypes = {
 /**
  * Accepts all `<button>` props
  */
-export default class CollapsibleSubNavItem extends Component {
-  static propTypes = {
-    header: PropTypes.any,
-    expanded: PropTypes.bool,
-    hovered: PropTypes.bool,
-    focused: PropTypes.bool,
-    onChange: PropTypes.func
-  };
+const CollapsibleSubNavItem = ({ header, children, expanded, onChange, ...other }) => (
+  <AccordionContainer
+    expanded={expanded}
+    onStateChange={newState => {
+      onChange && onChange(newState.expanded);
+    }}
+  >
+    {({ getHeadingProps, getHeadingButtonProps, getPanelProps }) => (
+      <div>
+        <div {...getHeadingProps()}>
+          <StyledSubNavItemHeader
+            {...getHeadingButtonProps({
+              expanded,
+              ...other
+            })}
+          >
+            {header}
+          </StyledSubNavItemHeader>
+        </div>
+        <StyledSubNavPanel
+          {...getPanelProps({
+            hidden: !expanded
+          })}
+        >
+          {children}
+        </StyledSubNavPanel>
+      </div>
+    )}
+  </AccordionContainer>
+);
 
-  componentDidUpdate() {
-    if (this.props.expanded && this.panelRef) {
-      this.panelRef.style.maxHeight = `${this.panelRef.offsetHeight}px`;
-    }
-  }
+CollapsibleSubNavItem.propTypes = {
+  header: PropTypes.any,
+  expanded: PropTypes.bool,
+  hovered: PropTypes.bool,
+  focused: PropTypes.bool,
+  onChange: PropTypes.func
+};
 
-  render() {
-    const { header, children, expanded, onChange, ...other } = this.props;
-
-    return (
-      <AccordionContainer
-        expanded={expanded}
-        onStateChange={newState => {
-          onChange && onChange(newState.expanded);
-        }}
-      >
-        {({ getHeadingProps, getHeadingButtonProps, getPanelProps }) => (
-          <div>
-            <div {...getHeadingProps()}>
-              <StyledSubNavItemHeader
-                {...getHeadingButtonProps({
-                  expanded,
-                  ...other
-                })}
-              >
-                {header}
-              </StyledSubNavItemHeader>
-            </div>
-            <StyledSubNavPanel
-              {...getPanelProps({
-                hidden: !expanded,
-                innerRef: ref => {
-                  this.panelRef = ref;
-                }
-              })}
-            >
-              {children}
-            </StyledSubNavPanel>
-          </div>
-        )}
-      </AccordionContainer>
-    );
-  }
-}
+export default CollapsibleSubNavItem;
