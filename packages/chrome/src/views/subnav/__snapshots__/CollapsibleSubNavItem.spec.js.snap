@@ -3,7 +3,6 @@
 exports[`CollapsibleSubNavItem States renders expanded styling if provided 1`] = `
 <CollapsibleSubNavItem
   expanded={true}
-  headingLevel={1}
   label="Header"
 >
   <AccordionContainer
@@ -12,7 +11,7 @@ exports[`CollapsibleSubNavItem States renders expanded styling if provided 1`] =
   >
     <div>
       <div
-        aria-level={1}
+        aria-level={2}
         role="heading"
       >
         <CollapsibleSubNavItem__StyledSubNavItemHeader
@@ -100,7 +99,6 @@ exports[`CollapsibleSubNavItem States renders expanded styling if provided 1`] =
 exports[`CollapsibleSubNavItem States renders focused styling if provided 1`] = `
 <CollapsibleSubNavItem
   focused={true}
-  headingLevel={1}
   label="Header"
 >
   <AccordionContainer
@@ -108,7 +106,7 @@ exports[`CollapsibleSubNavItem States renders focused styling if provided 1`] = 
   >
     <div>
       <div
-        aria-level={1}
+        aria-level={2}
         role="heading"
       >
         <CollapsibleSubNavItem__StyledSubNavItemHeader
@@ -190,7 +188,6 @@ exports[`CollapsibleSubNavItem States renders focused styling if provided 1`] = 
 
 exports[`CollapsibleSubNavItem States renders hovered styling if provided 1`] = `
 <CollapsibleSubNavItem
-  headingLevel={1}
   hovered={true}
   label="Header"
 >
@@ -199,7 +196,7 @@ exports[`CollapsibleSubNavItem States renders hovered styling if provided 1`] = 
   >
     <div>
       <div
-        aria-level={1}
+        aria-level={2}
         role="heading"
       >
         <CollapsibleSubNavItem__StyledSubNavItemHeader
@@ -282,7 +279,6 @@ exports[`CollapsibleSubNavItem States renders hovered styling if provided 1`] = 
 
 exports[`CollapsibleSubNavItem renders default styling 1`] = `
 <CollapsibleSubNavItem
-  headingLevel={1}
   label="Header"
 >
   <AccordionContainer
@@ -290,7 +286,7 @@ exports[`CollapsibleSubNavItem renders default styling 1`] = `
   >
     <div>
       <div
-        aria-level={1}
+        aria-level={2}
         role="heading"
       >
         <CollapsibleSubNavItem__StyledSubNavItemHeader

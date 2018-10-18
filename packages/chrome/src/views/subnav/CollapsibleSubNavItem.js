@@ -59,10 +59,6 @@ export default class CollapsibleSubNavItem extends Component {
     expanded: PropTypes.bool,
     hovered: PropTypes.bool,
     focused: PropTypes.bool,
-    /**
-     * Specifies heading level for the accordion header.
-     */
-    headingLevel: PropTypes.number.isRequired,
     onChange: PropTypes.func
   };
 
@@ -73,7 +69,7 @@ export default class CollapsibleSubNavItem extends Component {
   }
 
   render() {
-    const { header, children, expanded, onChange, headingLevel, ...other } = this.props;
+    const { header, children, expanded, onChange, ...other } = this.props;
 
     return (
       <AccordionContainer
@@ -84,7 +80,7 @@ export default class CollapsibleSubNavItem extends Component {
       >
         {({ getHeadingProps, getHeadingButtonProps, getPanelProps }) => (
           <div>
-            <div {...getHeadingProps({ headingLevel })}>
+            <div {...getHeadingProps({ headingLevel: 2 })}>
               <StyledSubNavItemHeader
                 {...getHeadingButtonProps({
                   expanded,

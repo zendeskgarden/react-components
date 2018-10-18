@@ -103,7 +103,6 @@ initialState = {
       <CollapsibleSubNavItem
         header="Collapsible Item"
         expanded={state.showCollapsed}
-        headingLevel={3}
         onChange={showCollapsed => setState({ showCollapsed })}
       >
         <SubNavItem
