@@ -40,14 +40,14 @@ const StyledSubNavPanel = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(ChromeStyles['c-chrome__subnav__panel'], {
-      [ChromeStyles['is-hidden']]: props.hidden
+      [ChromeStyles['is-hidden']]: props.isHidden
     })
 })`
   ${props => retrieveTheme(PANEL_COMPONENT_ID, props)};
 `;
 
 StyledSubNavPanel.propTypes = {
-  hidden: PropTypes.bool
+  isHidden: PropTypes.bool
 };
 
 /**
@@ -64,7 +64,7 @@ export default class CollapsibleSubNavItem extends Component {
 
   componentDidUpdate() {
     if (this.props.expanded && this.panelRef) {
-      this.panelRef.style.maxHeight = `${this.panelRef.offsetHeight}px`;
+      this.panelRef.style.maxHeight = `${this.panelRef.scrollHeight}px`;
     }
   }
 
@@ -92,7 +92,7 @@ export default class CollapsibleSubNavItem extends Component {
             </div>
             <StyledSubNavPanel
               {...getPanelProps({
-                hidden: !expanded,
+                isHidden: !expanded,
                 innerRef: ref => {
                   this.panelRef = ref;
                 }

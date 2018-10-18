@@ -71,9 +71,9 @@ exports[`CollapsibleSubNavItem States renders expanded styling if provided 1`] =
       <CollapsibleSubNavItem__StyledSubNavPanel
         aria-hidden={false}
         aria-labelledby="garden-accordion-container-1-header"
-        hidden={false}
         id="garden-accordion-container-1-panel"
         innerRef={[Function]}
+        isHidden={false}
         role="region"
       >
         <div
@@ -82,7 +82,6 @@ exports[`CollapsibleSubNavItem States renders expanded styling if provided 1`] =
           className="c-chrome__subnav__panel "
           data-garden-id="chrome.collapsible_sub_nav_item_panel"
           data-garden-version="version"
-          hidden={false}
           id="garden-accordion-container-1-panel"
           role="region"
         >
@@ -161,9 +160,9 @@ exports[`CollapsibleSubNavItem States renders focused styling if provided 1`] = 
       <CollapsibleSubNavItem__StyledSubNavPanel
         aria-hidden={true}
         aria-labelledby="garden-accordion-container-2-header"
-        hidden={true}
         id="garden-accordion-container-2-panel"
         innerRef={[Function]}
+        isHidden={true}
         role="region"
       >
         <div
@@ -172,7 +171,6 @@ exports[`CollapsibleSubNavItem States renders focused styling if provided 1`] = 
           className="c-chrome__subnav__panel is-hidden "
           data-garden-id="chrome.collapsible_sub_nav_item_panel"
           data-garden-version="version"
-          hidden={true}
           id="garden-accordion-container-2-panel"
           role="region"
         >
@@ -252,9 +250,9 @@ exports[`CollapsibleSubNavItem States renders hovered styling if provided 1`] = 
       <CollapsibleSubNavItem__StyledSubNavPanel
         aria-hidden={true}
         aria-labelledby="garden-accordion-container-3-header"
-        hidden={true}
         id="garden-accordion-container-3-panel"
         innerRef={[Function]}
+        isHidden={true}
         role="region"
       >
         <div
@@ -263,7 +261,6 @@ exports[`CollapsibleSubNavItem States renders hovered styling if provided 1`] = 
           className="c-chrome__subnav__panel is-hidden "
           data-garden-id="chrome.collapsible_sub_nav_item_panel"
           data-garden-version="version"
-          hidden={true}
           id="garden-accordion-container-3-panel"
           role="region"
         >
@@ -343,9 +340,9 @@ exports[`CollapsibleSubNavItem States renders hovered styling if provided 2`] = 
       <CollapsibleSubNavItem__StyledSubNavPanel
         aria-hidden={true}
         aria-labelledby="garden-accordion-container-3-header"
-        hidden={true}
         id="garden-accordion-container-3-panel"
         innerRef={[Function]}
+        isHidden={true}
         role="region"
       >
         <div
@@ -354,7 +351,6 @@ exports[`CollapsibleSubNavItem States renders hovered styling if provided 2`] = 
           className="c-chrome__subnav__panel is-hidden "
           data-garden-id="chrome.collapsible_sub_nav_item_panel"
           data-garden-version="version"
-          hidden={true}
           id="garden-accordion-container-3-panel"
           role="region"
         >
@@ -430,9 +426,9 @@ exports[`CollapsibleSubNavItem renders default styling 1`] = `
       <CollapsibleSubNavItem__StyledSubNavPanel
         aria-hidden={true}
         aria-labelledby="garden-accordion-container-0-header"
-        hidden={true}
         id="garden-accordion-container-0-panel"
         innerRef={[Function]}
+        isHidden={true}
         role="region"
       >
         <div
@@ -441,7 +437,6 @@ exports[`CollapsibleSubNavItem renders default styling 1`] = `
           className="c-chrome__subnav__panel is-hidden "
           data-garden-id="chrome.collapsible_sub_nav_item_panel"
           data-garden-version="version"
-          hidden={true}
           id="garden-accordion-container-0-panel"
           role="region"
         >
