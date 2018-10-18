@@ -25,7 +25,7 @@ export default class AccordionContainer extends ControlledComponent {
     onStateChange: PropTypes.func,
     /**
      * @param {Object} renderProps
-     * @param {Function} renderProps.getHeadingProps - Props to be spread onto each heading element.
+     * @param {Function} renderProps.getHeadingProps - Props to be spread onto each heading element. ({ headingLevel }) is required.
      * @param {Function} renderProps.getHeadingButtonProps - Props to be spread onto each heading button element.
      * @param {Function} renderProps.getPanelProps - Props to be spread onto each panel element.
      * @param {Any} renderProps.expanded - Whether the accordion is currently expanded
@@ -54,9 +54,16 @@ export default class AccordionContainer extends ControlledComponent {
 
   getPanelId = () => `${this.getControlledState().id}-panel`;
 
-  getHeadingProps = ({ role = 'heading', ...other } = {}) => {
+  getHeadingProps = ({ role = 'heading', headingLevel, ...other } = {}) => {
+    if (!headingLevel) {
+      throw new Error(
+        'Accessibility Error: You must apply the `headingLevel` prop to the element that contains your heading. Equivalent to `aria-level`.'
+      );
+    }
+
     return {
       role,
+      'aria-level': headingLevel,
       ...other
     };
   };

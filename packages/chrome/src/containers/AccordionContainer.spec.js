@@ -17,7 +17,7 @@ describe('AccordionContainer', () => {
     <AccordionContainer id="test" expanded={false} {...props}>
       {({ getHeadingProps, getHeadingButtonProps, getPanelProps }) => (
         <div>
-          <div {...getHeadingProps({ 'data-test-id': 'heading' })}>
+          <div {...getHeadingProps({ 'data-test-id': 'heading', headingLevel: 1 })}>
             <button {...getHeadingButtonProps({ 'data-test-id': 'heading-button' })}>
               Header Content
             </button>
@@ -38,6 +38,27 @@ describe('AccordionContainer', () => {
   const findPanel = enzymeWrapper => enzymeWrapper.find('[data-test-id="panel"]');
 
   describe('getHeadingProps()', () => {
+    it('throws accessibility error if no headingLevel is provided', () => {
+      console.error = jest.fn(); // eslint-disable-line no-console
+
+      expect(() => {
+        wrapper = mountWithTheme(
+          <AccordionContainer id="test" expanded={false}>
+            {({ getHeadingProps, getHeadingButtonProps, getPanelProps }) => (
+              <div>
+                <div {...getHeadingProps()}>
+                  <button {...getHeadingButtonProps()}>Header Content</button>
+                </div>
+                <div {...getPanelProps()}>Panel Content</div>
+              </div>
+            )}
+          </AccordionContainer>
+        );
+      }).toThrow(
+        'Accessibility Error: You must apply the `headingLevel` prop to the element that contains your heading. Equivalent to `aria-level`.'
+      );
+    });
+
     it('applies correct role attribute', () => {
       expect(findHeading(wrapper)).toHaveProp('role', 'heading');
     });

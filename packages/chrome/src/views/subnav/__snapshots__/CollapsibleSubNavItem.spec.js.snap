@@ -3,6 +3,7 @@
 exports[`CollapsibleSubNavItem States renders expanded styling if provided 1`] = `
 <CollapsibleSubNavItem
   expanded={true}
+  headingLevel={1}
   label="Header"
 >
   <AccordionContainer
@@ -11,6 +12,7 @@ exports[`CollapsibleSubNavItem States renders expanded styling if provided 1`] =
   >
     <div>
       <div
+        aria-level={1}
         role="heading"
       >
         <CollapsibleSubNavItem__StyledSubNavItemHeader
@@ -98,6 +100,7 @@ exports[`CollapsibleSubNavItem States renders expanded styling if provided 1`] =
 exports[`CollapsibleSubNavItem States renders focused styling if provided 1`] = `
 <CollapsibleSubNavItem
   focused={true}
+  headingLevel={1}
   label="Header"
 >
   <AccordionContainer
@@ -105,6 +108,7 @@ exports[`CollapsibleSubNavItem States renders focused styling if provided 1`] = 
   >
     <div>
       <div
+        aria-level={1}
         role="heading"
       >
         <CollapsibleSubNavItem__StyledSubNavItemHeader
@@ -186,6 +190,7 @@ exports[`CollapsibleSubNavItem States renders focused styling if provided 1`] = 
 
 exports[`CollapsibleSubNavItem States renders hovered styling if provided 1`] = `
 <CollapsibleSubNavItem
+  headingLevel={1}
   hovered={true}
   label="Header"
 >
@@ -194,96 +199,7 @@ exports[`CollapsibleSubNavItem States renders hovered styling if provided 1`] = 
   >
     <div>
       <div
-        role="heading"
-      >
-        <CollapsibleSubNavItem__StyledSubNavItemHeader
-          aria-controls="garden-accordion-container-3-panel"
-          hovered={true}
-          id="garden-accordion-container-3-header"
-          label="Header"
-          onClick={[Function]}
-        >
-          <SubNavItem
-            aria-controls="garden-accordion-container-3-panel"
-            className="c-chrome__subnav__item--header "
-            data-garden-id="chrome.collapsible_sub_nav_item"
-            data-garden-version="version"
-            hovered={true}
-            id="garden-accordion-container-3-header"
-            label="Header"
-            onClick={[Function]}
-          >
-            <KeyboardFocusContainer>
-              <SubNavItem__StyledSubNavItem
-                aria-controls="garden-accordion-container-3-panel"
-                className="c-chrome__subnav__item--header "
-                data-garden-id="chrome.collapsible_sub_nav_item"
-                data-garden-version="version"
-                focused={false}
-                hovered={true}
-                id="garden-accordion-container-3-header"
-                label="Header"
-                onBlur={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onMouseDown={[Function]}
-                tabIndex={0}
-              >
-                <button
-                  aria-controls="garden-accordion-container-3-panel"
-                  className="c-chrome__subnav__item--header c-chrome__subnav__item is-hovered "
-                  data-garden-id="chrome.collapsible_sub_nav_item"
-                  data-garden-version="version"
-                  id="garden-accordion-container-3-header"
-                  label="Header"
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onFocus={[Function]}
-                  onMouseDown={[Function]}
-                  tabIndex={0}
-                />
-              </SubNavItem__StyledSubNavItem>
-            </KeyboardFocusContainer>
-          </SubNavItem>
-        </CollapsibleSubNavItem__StyledSubNavItemHeader>
-      </div>
-      <CollapsibleSubNavItem__StyledSubNavPanel
-        aria-hidden={true}
-        aria-labelledby="garden-accordion-container-3-header"
-        id="garden-accordion-container-3-panel"
-        innerRef={[Function]}
-        isHidden={true}
-        role="region"
-      >
-        <div
-          aria-hidden={true}
-          aria-labelledby="garden-accordion-container-3-header"
-          className="c-chrome__subnav__panel is-hidden "
-          data-garden-id="chrome.collapsible_sub_nav_item_panel"
-          data-garden-version="version"
-          id="garden-accordion-container-3-panel"
-          role="region"
-        >
-          <p>
-            Content
-          </p>
-        </div>
-      </CollapsibleSubNavItem__StyledSubNavPanel>
-    </div>
-  </AccordionContainer>
-</CollapsibleSubNavItem>
-`;
-
-exports[`CollapsibleSubNavItem States renders hovered styling if provided 2`] = `
-<CollapsibleSubNavItem
-  hovered={true}
-  label="Header"
->
-  <AccordionContainer
-    onStateChange={[Function]}
-  >
-    <div>
-      <div
+        aria-level={1}
         role="heading"
       >
         <CollapsibleSubNavItem__StyledSubNavItemHeader
@@ -366,6 +282,7 @@ exports[`CollapsibleSubNavItem States renders hovered styling if provided 2`] = 
 
 exports[`CollapsibleSubNavItem renders default styling 1`] = `
 <CollapsibleSubNavItem
+  headingLevel={1}
   label="Header"
 >
   <AccordionContainer
@@ -373,6 +290,7 @@ exports[`CollapsibleSubNavItem renders default styling 1`] = `
   >
     <div>
       <div
+        aria-level={1}
         role="heading"
       >
         <CollapsibleSubNavItem__StyledSubNavItemHeader

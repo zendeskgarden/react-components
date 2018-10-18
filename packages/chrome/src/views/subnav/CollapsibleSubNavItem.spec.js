@@ -13,7 +13,7 @@ import CollapsibleSubNavItem from './CollapsibleSubNavItem';
 describe('CollapsibleSubNavItem', () => {
   it('renders default styling', () => {
     const wrapper = mount(
-      <CollapsibleSubNavItem label="Header">
+      <CollapsibleSubNavItem label="Header" headingLevel={1}>
         <p>Content</p>
       </CollapsibleSubNavItem>
     );
@@ -24,7 +24,7 @@ describe('CollapsibleSubNavItem', () => {
   describe('States', () => {
     it('renders expanded styling if provided', () => {
       const wrapper = mount(
-        <CollapsibleSubNavItem label="Header" expanded>
+        <CollapsibleSubNavItem label="Header" expanded headingLevel={1}>
           <p>Content</p>
         </CollapsibleSubNavItem>
       );
@@ -34,7 +34,7 @@ describe('CollapsibleSubNavItem', () => {
 
     it('renders focused styling if provided', () => {
       const wrapper = mount(
-        <CollapsibleSubNavItem label="Header" focused>
+        <CollapsibleSubNavItem label="Header" focused headingLevel={1}>
           <p>Content</p>
         </CollapsibleSubNavItem>
       );
@@ -44,12 +44,10 @@ describe('CollapsibleSubNavItem', () => {
 
     it('renders hovered styling if provided', () => {
       const wrapper = mount(
-        <CollapsibleSubNavItem label="Header" hovered>
+        <CollapsibleSubNavItem label="Header" hovered headingLevel={1}>
           <p>Content</p>
         </CollapsibleSubNavItem>
       );
-
-      expect(wrapper).toMatchSnapshot();
 
       expect(wrapper).toMatchSnapshot();
     });

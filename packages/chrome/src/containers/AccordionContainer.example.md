@@ -44,7 +44,7 @@ const StyledPanel = styled.div`
 <AccordionContainer>
   {({ getHeadingProps, getHeadingButtonProps, getPanelProps, expanded }) => (
     <StyledAccordion>
-      <div {...getHeadingProps()}>
+      <div {...getHeadingProps({ headingLevel: 2 })}>
         <StyledHeadingButton {...getHeadingButtonProps()}>
           Accordion Header With Custom Styling
           <StyledIconWrapper>{expanded ? <UpIcon /> : <DownIcon />}</StyledIconWrapper>
