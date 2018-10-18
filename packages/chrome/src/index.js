@@ -5,6 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+export { default as AccordionContainer } from './containers/AccordionContainer';
 export { default as Chrome } from './views/Chrome';
 export { default as Body } from './views/body/Body';
 export { default as Content } from './views/body/Content';
@@ -22,3 +23,4 @@ export { default as NavItemText } from './views/nav/NavItemText';
 export { default as SubNav } from './views/subnav/SubNav';
 export { default as SubNavItem } from './views/subnav/SubNavItem';
 export { default as SubNavItemText } from './views/subnav/SubNavItemText';
+export { default as CollapsibleSubNavItem } from './views/subnav/CollapsibleSubNavItem';
