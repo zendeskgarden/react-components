@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.3.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.2.10...@zendeskgarden/react-chrome@4.3.0) (2018-10-18)
+
+
+### Features
+
+* **chrome:** add new CollapsibleSubNavItem component ([#187](https://github.com/zendeskgarden/react-components/issues/187)) ([6b39fb5](https://github.com/zendeskgarden/react-components/commit/6b39fb5))
+
+
+
+
+
 ## [4.2.10](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.2.9...@zendeskgarden/react-chrome@4.2.10) (2018-10-08)
 
 **Note:** Version bump only for package @zendeskgarden/react-chrome
