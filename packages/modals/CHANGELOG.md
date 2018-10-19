@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.18](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.3.17...@zendeskgarden/react-modals@5.3.18) (2018-10-19)
+
+
+### Bug Fixes
+
+* **modals:** update styling for sticky header/footer elements ([#191](https://github.com/zendeskgarden/react-components/issues/191)) ([6c00b49](https://github.com/zendeskgarden/react-components/commit/6c00b49))
+
+
+
+
+
 ## [5.3.17](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.3.16...@zendeskgarden/react-modals@5.3.17) (2018-10-16)
 
 
