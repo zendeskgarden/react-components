@@ -119,6 +119,7 @@ const onModalClose = () => setState({ isModalVisible: false });
 ### Widths
 
 ```jsx
+const { zdSpacing } = require('@zendeskgarden/css-variables');
 const { Button } = require('@zendeskgarden/react-buttons/src');
 
 initialState = {
@@ -149,7 +150,7 @@ const onModalClose = () => setState({ isModalVisible: false });
     </Row>
   </Grid>
   {state.isModalVisible && (
-    <Modal onClose={onModalClose} style={{ width: state.width }}>
+    <Modal onClose={onModalClose} style={{ width: state.width, paddingBottom: zdSpacing }}>
       <Header>{state.width} Header</Header>
       <Body>
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
