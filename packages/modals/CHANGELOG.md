@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.19](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.3.18...@zendeskgarden/react-modals@5.3.19) (2018-10-22)
+
+
+### Bug Fixes
+
+* **modals:** update devDependency [@zendeskgarden](https://github.com/zendeskgarden)/css-modals to correct padding for various header/body/footer layouts ([#193](https://github.com/zendeskgarden/react-components/issues/193)) ([83a4cb9](https://github.com/zendeskgarden/react-components/commit/83a4cb9))
+
+
+
+
+
 ## [5.3.18](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.3.17...@zendeskgarden/react-modals@5.3.18) (2018-10-19)
 
 
