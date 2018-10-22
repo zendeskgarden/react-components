@@ -69,7 +69,7 @@
     "inline-svg-react": "0.1.8",
     "inquirer": "6.2.0",
     "jest": "23.6.0",
-    "jest-enzyme": "6.1.2",
+    "jest-enzyme": "7.0.0",
     "jest-styled-components": "6.2.1",
     "lerna": "3.4.1",
     "live-server": "1.2.0",
