@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-textfields@3.4.1...@zendeskgarden/react-textfields@3.5.0) (2018-10-23)
+
+
+### Features
+
+* **textfields:** add new `MediaInput` component ([#194](https://github.com/zendeskgarden/react-components/issues/194)) ([9021a1c](https://github.com/zendeskgarden/react-components/commit/9021a1c))
+
+
+
+
+
 ## [3.4.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-textfields@3.4.0...@zendeskgarden/react-textfields@3.4.1) (2018-10-08)
 
 **Note:** Version bump only for package @zendeskgarden/react-textfields
