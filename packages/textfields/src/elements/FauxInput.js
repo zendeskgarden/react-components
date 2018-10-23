@@ -69,6 +69,7 @@ export default class FauxInput extends ControlledComponent {
           this.setControlledState({ focused: false });
         })}
         focused={focused}
+        aria-invalid={null} // eslint-disable-line jsx-a11y/aria-proptypes
       >
         {children}
       </DIVInput>
