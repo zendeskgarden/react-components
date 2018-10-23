@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MediaInput renders default styling 1`] = `
+<Input
+  bare={true}
+  className="c-txt__input--media__body "
+  data-garden-id="textfields.media_input"
+  data-garden-version="version"
+/>
+`;
