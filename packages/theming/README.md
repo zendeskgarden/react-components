@@ -80,6 +80,47 @@ const LocalizedComponent = withTheme(StyledDiv);
 </ThemeProvider>;
 ```
 
+### Advanced usage
+
+If you need to compose from other theme overrides e.g. you find yourself overriding
+the same properties in serveral components or you're using props to alter your
+overrides then please see the below code example.
+
+```jsx static
+import { ThemeProvider } from '@zendeskgarden/react-theming';
+import { Notification, Title, Paragraph } from '@zendeskgarden/react-notifications';
+import { css } from 'styled-components';
+
+const commonOverrides = `
+  &&:hover {
+    color: blue;
+  }
+`;
+const theme = {
+  'notifications.title': css`
+    ${commonOverrides}
+    && {
+      color: red;
+    }
+  `,
+  'notifications.paragraph': css`
+    ${commonOverrides}
+    ${props => (props.purple ? 'color: purple' : '')}
+  `
+};
+
+<ThemeProvider theme={theme}>
+  <Notification>
+    <Title>Themed Title (hover as well)</Title>
+    <Paragraph purple>Custom theme triggered by prop</Paragraph>
+  </Notification>
+</ThemeProvider>;
+```
+
+The main difference here is the usage of the [`css` helper](https://www.styled-components.com/docs/api#css)
+from styled-components. This will correctly pass down the props from the component so you can conditionally
+apply styles based on props or compose from other template literals.
+
 ### Theme ids
 
 Each component has a `COMPONENT_ID` applied so you can target it in your own theme
