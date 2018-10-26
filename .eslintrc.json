@@ -15,7 +15,8 @@
   "globals": {
     "jest": true,
     "BASE_PATH_NAME": true,
-    "PACKAGE_VERSION": true
+    "PACKAGE_VERSION": true,
+    "COMPONENT_IDS": true
   },
   "plugins": ["prettier", "react", "jest", "jsx-a11y"],
   "env": {

@@ -15,6 +15,15 @@ const {
 } = require('@zendeskgarden/css-variables');
 const packageManifest = require(path.resolve('package.json'));
 const customStyleguideConfig = require(path.resolve('styleguide.config.js'));
+const exec = require('child_process').execSync;
+
+const COMPONENT_IDS = exec('"../../utils/scripts/markdown-table.sh"', (error, stdout) => {
+  if (error !== null) {
+    throw new Error(`exec error: ${error}`);
+  }
+
+  return stdout;
+});
 const basePathName = path.basename(path.resolve('./'));
 const googleTrackingId = 'UA-970836-25';
 const capitalizePackageName = basePathName.charAt(0).toUpperCase() + basePathName.slice(1);
@@ -169,7 +178,8 @@ const defaultStyleguideConfig = {
     plugins: [
       new webpack.DefinePlugin({
         BASE_PATH_NAME: JSON.stringify(basePathName),
-        PACKAGE_VERSION: JSON.stringify(packageManifest.version)
+        PACKAGE_VERSION: JSON.stringify(packageManifest.version),
+        COMPONENT_IDS: JSON.stringify(COMPONENT_IDS.toString('utf8'))
       })
     ],
     resolve: {

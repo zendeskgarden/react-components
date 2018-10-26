@@ -16,9 +16,11 @@ global.styled = styled;
 
 // Styleguide components
 import State from './State';
+import CIDTable from './CIDTable';
 import { Grid, Row, Col } from '../../packages/grid/src';
 
 global.State = State;
+global.CIDTable = CIDTable;
 global.Grid = Grid;
 global.Row = styled(Row).attrs({
   alignItems: 'center'
