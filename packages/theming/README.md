@@ -83,8 +83,8 @@ const LocalizedComponent = withTheme(StyledDiv);
 ### Advanced usage
 
 If you need to compose from other theme overrides e.g. you find yourself overriding
-the same properties in serveral components or you're using props to alter your
-overrides then please see the below code example.
+the same properties in several components or you're using props to alter your
+overrides then please see the following code example.
 
 ```jsx static
 import { ThemeProvider } from '@zendeskgarden/react-theming';
@@ -127,7 +127,7 @@ Each component has a `COMPONENT_ID` applied so you can target it in your own the
 file to override the default look and feel. This table contains all the ids and which
 package they apply to.
 
-```jsx
+```jsx noeditor
 <CIDTable />
 ```
 

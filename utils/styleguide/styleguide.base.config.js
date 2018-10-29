@@ -17,7 +17,7 @@ const packageManifest = require(path.resolve('package.json'));
 const customStyleguideConfig = require(path.resolve('styleguide.config.js'));
 const exec = require('child_process').execSync;
 
-const COMPONENT_IDS = exec('"../../utils/scripts/markdown-table.sh"', (error, stdout) => {
+const COMPONENT_IDS = exec('"../../utils/scripts/get-cids.sh"', (error, stdout) => {
   if (error !== null) {
     throw new Error(`exec error: ${error}`);
   }
