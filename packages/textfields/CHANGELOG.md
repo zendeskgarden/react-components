@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-textfields@3.5.0...@zendeskgarden/react-textfields@3.5.1) (2018-10-30)
+
+**Note:** Version bump only for package @zendeskgarden/react-textfields
+
+
+
+
+
 # [3.5.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-textfields@3.4.1...@zendeskgarden/react-textfields@3.5.0) (2018-10-23)
 
 
