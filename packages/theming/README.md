@@ -98,14 +98,12 @@ const commonOverrides = `
 `;
 const theme = {
   'notifications.title': css`
-    ${commonOverrides}
-    && {
+    ${commonOverrides} && {
       color: red;
     }
   `,
   'notifications.paragraph': css`
-    ${commonOverrides}
-    ${props => (props.purple ? 'color: purple' : '')}
+    ${commonOverrides} ${props => (props.purple ? 'color: purple' : '')};
   `
 };
 
