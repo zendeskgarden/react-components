@@ -81,7 +81,7 @@
     "prettier-package-json": "2.0.1",
     "react": "16.5.2",
     "react-dom": "16.5.2",
-    "react-styleguidist": "7.3.10",
+    "react-styleguidist": "8.0.2",
     "react-svg-inline": "2.1.1",
     "regenerator-runtime": "0.12.1",
     "resolve-from": "4.0.0",
