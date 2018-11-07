@@ -8,7 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { retrieveXCoordinate, retrieveYCoordinate, KEYFRAME_MAX } from './utils/dot-coordinates';
+import { DOT_ONE_FRAMES, DOT_TWO_FRAMES, DOT_THREE_FRAMES } from './utils/dot-coordinates';
 import { DotsCircle, StyledSVG } from './styled-elements';
 import ScheduleContainer from './containers/ScheduleContainer';
 
@@ -21,10 +21,9 @@ export default class Dots extends React.Component {
      **/
     size: PropTypes.any,
     /**
-     * Velocity (speed) of the animation. Between -1 and 1.
-     * This should only be maniuplated at extreme sizes.
+     * Duration (ms) of the animation. Default is 1250ms.
      **/
-    velocity: PropTypes.number,
+    duration: PropTypes.number,
     /**
      * Color of the loader. Can inherit from `color` styling.
      **/
@@ -39,46 +38,40 @@ export default class Dots extends React.Component {
   static defaultProps = {
     size: 'inherit',
     color: 'inherit',
-    velocity: 0.05,
-    delayMS: 750
+    delayMS: 750,
+    duration: 1250
   };
 
-  state = {
-    frame: 0,
-    timestamp: 0
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      frame: 0,
+      timestamp: 0,
+      rawFrame: 0,
+      totalFrames: 100
+    };
+  }
 
   performAnimationFrame = (timestamp = 0) => {
-    const { velocity } = this.props;
+    const { duration } = this.props;
+    const { totalFrames, rawFrame } = this.state;
+    const elapsedTime = timestamp - this.state.timestamp;
+    const frameMultiplier = (totalFrames + 1) / duration;
+    const nextValue = rawFrame + elapsedTime * frameMultiplier;
+    const actualFrame = Math.floor(nextValue);
+    const frame = actualFrame % totalFrames;
+    const currentRawFrame = nextValue % totalFrames;
 
-    let pinnedVelocity = velocity;
-
-    if (velocity < -1) {
-      pinnedVelocity = -0.9;
-    } else if (velocity > 1) {
-      pinnedVelocity = 1;
-    }
-
-    this.setState(prevState => {
-      const factor = 1000 + 1000 * pinnedVelocity;
-      const elapsed = (timestamp - prevState.timestamp) / factor;
-      const frame = prevState.frame + (elapsed % KEYFRAME_MAX);
-
-      return { frame, timestamp };
-    });
-  };
-
-  retrieveFrame = offset => {
-    const loop = KEYFRAME_MAX * 2;
-
-    return (this.state.frame + offset * loop) % loop;
+    this.setState({ timestamp, frame, rawFrame: currentRawFrame });
   };
 
   render() {
     const { size, color, delayMS, ...other } = this.props;
-    const dotOneFrame = this.retrieveFrame(0);
-    const dotTwoFrame = this.retrieveFrame(1 / 3);
-    const dotThreeFrame = this.retrieveFrame(2 / 3);
+    const { frame } = this.state;
+    const [dotOneX, dotOneY] = DOT_ONE_FRAMES[frame];
+    const [dotTwoX, dotTwoY] = DOT_TWO_FRAMES[frame];
+    const [dotThreeX, dotThreeY] = DOT_THREE_FRAMES[frame];
 
     return (
       <ScheduleContainer tick={this.performAnimationFrame} size={size} delayMS={delayMS}>
@@ -92,21 +85,9 @@ export default class Dots extends React.Component {
             {...other}
           >
             <g fill="currentColor">
-              <DotsCircle
-                transform={`translate(${retrieveXCoordinate(dotOneFrame)} ${retrieveYCoordinate(
-                  dotOneFrame
-                )})`}
-              />
-              <DotsCircle
-                transform={`translate(${retrieveXCoordinate(dotTwoFrame)} ${retrieveYCoordinate(
-                  dotTwoFrame
-                )})`}
-              />
-              <DotsCircle
-                transform={`translate(${retrieveXCoordinate(dotThreeFrame)} ${retrieveYCoordinate(
-                  dotThreeFrame
-                )})`}
-              />
+              <DotsCircle transform={`translate(${dotOneX} ${dotOneY})`} />
+              <DotsCircle transform={`translate(${dotTwoX} ${dotTwoY})`} />
+              <DotsCircle transform={`translate(${dotThreeX} ${dotThreeY})`} />
             </g>
           </StyledSVG>
         )}

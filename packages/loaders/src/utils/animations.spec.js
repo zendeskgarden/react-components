@@ -5,28 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { easeInCubic, easeOutCubic, easeInOutCubic } from './animations';
+import { computeFrames } from './animations';
 
 describe('animations', () => {
-  describe('easeInCubic()', () => {
-    it('returns correct value based on time', () => {
-      expect(easeInCubic(2)).toBe(8);
-    });
-  });
+  describe('computeFrames', () => {
+    it('linear interpolation between frames', () => {
+      const { 0: first, 50: middle, 100: last } = computeFrames(
+        { 0: 1, 99: 100 },
+        { duration: 1000, totalFrames: 100 }
+      );
 
-  describe('easeOutCubic()', () => {
-    it('returns correct value based on time', () => {
-      expect(easeOutCubic(2)).toBe(2);
-    });
-  });
-
-  describe('easeInOutCubic()', () => {
-    it('returns correct value when time is less than 0.5', () => {
-      expect(easeInOutCubic(0.45)).toBeCloseTo(0.3645);
-    });
-
-    it('returns correct value when time is greater than 0.5', () => {
-      expect(easeInOutCubic(3)).toBe(33);
+      expect(first).toBe(1);
+      expect(last).toBe(1);
+      expect(middle).toBe(68.99705398202416);
     });
   });
 });

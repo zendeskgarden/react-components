@@ -5,7 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export const STROKE_WIDTH_FRAMES = {
+import { computeFrames } from './animations';
+
+export const STROKE_WIDTH_FRAMES = computeFrames({
   0: 6,
   14: 5,
   26: 4,
@@ -15,9 +17,9 @@ export const STROKE_WIDTH_FRAMES = {
   70: 4,
   80: 5,
   91: 6
-};
+});
 
-export const ROTATION_FRAMES = {
+export const ROTATION_FRAMES = computeFrames({
   0: -90,
   8: -81,
   36: -30,
@@ -43,9 +45,9 @@ export const ROTATION_FRAMES = {
   88: 235,
   90: 243,
   99: 270
-};
+});
 
-export const DASHARRAY_FRAMES = {
+export const DASHARRAY_FRAMES = computeFrames({
   0: 0,
   13: 2,
   26: 13,
@@ -69,4 +71,4 @@ export const DASHARRAY_FRAMES = {
   89: 7,
   98: 1,
   99: 0
-};
+});

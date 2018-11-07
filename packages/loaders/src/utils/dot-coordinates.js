@@ -5,81 +5,102 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { easeInCubic, easeInOutCubic, easeOutCubic } from './animations';
+import { computeFrames } from './animations';
 
-export const KEYFRAME_1 = 0.166666667;
-export const KEYFRAME_2 = 0.55;
-export const KEYFRAME_3 = 1.166666667;
-export const KEYFRAME_4 = 1.333333333;
-export const KEYFRAME_5 = 1.533333333;
-export const KEYFRAME_MAX = 1.766666667;
+export const DOT_ONE_FRAMES = computeFrames({
+  0: [0, 5],
+  3: [1, -5],
+  6: [3, -15],
+  8: [5, -18],
+  9: [7, -21],
+  11: [8, -22],
+  13: [9, -23],
+  16: [12, -25],
+  18: [13, -26],
+  23: [18, -26],
+  24: [19, -25],
+  28: [22, -23],
+  31: [24, -21],
+  33: [26, -18],
+  34: [28, -14],
+  36: [29, -12],
+  38: [30, -5],
+  39: [31, 5],
+  54: [31, 3],
+  59: [33, 0],
+  61: [43, 0],
+  63: [48, 0],
+  64: [51, 0],
+  66: [53, 0],
+  68: [55, 0],
+  69: [57, 0],
+  76: [60, 0],
+  81: [61, 0],
+  83: [62, 0],
+  100: [62, 0]
+});
 
-const WIDTH = 80;
-const HEIGHT = WIDTH * 0.9;
-const CIRCLE_RADIUS = WIDTH * 0.1125;
-const MID_X = WIDTH / 2 - CIRCLE_RADIUS;
-const MID_Y = HEIGHT / 2 - CIRCLE_RADIUS;
-const BOTTOM = MID_Y + 5;
+export const DOT_TWO_FRAMES = computeFrames(
+  {
+    0: [0, 0],
+    4: [0, 0],
+    6: [-1, 0],
+    8: [-2, 0],
+    9: [-5, 0],
+    11: [-7, 0],
+    13: [-12, 0],
+    14: [-17, 0],
+    16: [-19, 0],
+    18: [-22, 0],
+    19: [-25, 0],
+    21: [-26, 0],
+    23: [-27, 0],
+    24: [-28, 0],
+    26: [-29, 0],
+    29: [-30, 0],
+    33: [-31, 0],
+    89: [-31, 0],
+    91: [-31, 1],
+    94: [-31, 2],
+    98: [-31, 3],
+    99: [-31, 4],
+    100: [-31, 5]
+  },
+  { factor: 1 }
+);
 
-/**
- * Retrieve the X coordinate value
- * @param {Number} frame The current frame
- */
-export function retrieveXCoordinate(frame) {
-  let retVal;
-
-  const _frame = frame % KEYFRAME_MAX;
-
-  if (_frame < KEYFRAME_1) {
-    return MID_X;
-  } else if (_frame < KEYFRAME_2) {
-    const frameValue = _frame - KEYFRAME_1;
-    const frameMaximum = KEYFRAME_2 - KEYFRAME_1;
-    const easeValue = easeInOutCubic(frameValue / frameMaximum);
-
-    retVal = MID_X - easeValue * MID_X;
-  } else if (_frame < KEYFRAME_4) {
-    retVal = 0;
-  } else {
-    const frameValue = _frame - KEYFRAME_4;
-    const frameMaximum = KEYFRAME_MAX - KEYFRAME_4;
-
-    retVal = MID_X * (frameValue / frameMaximum);
-  }
-
-  if (frame >= KEYFRAME_MAX) {
-    retVal = MID_X * 2 - retVal;
-  }
-
-  return retVal;
-}
-
-/**
- * Retrieve the Y coordinate value
- * @param {Number} frame The current frame
- */
-export function retrieveYCoordinate(frame) {
-  const _frame = frame % KEYFRAME_MAX;
-
-  if (_frame < KEYFRAME_1) {
-    return (_frame / KEYFRAME_1) * -1 * (BOTTOM - MID_Y) + BOTTOM;
-  } else if (_frame < KEYFRAME_3) {
-    return MID_Y;
-  } else if (_frame < KEYFRAME_4) {
-    const frameValue = _frame - KEYFRAME_3;
-    const frameMaximum = KEYFRAME_4 - KEYFRAME_3;
-
-    return (frameValue / frameMaximum) * (BOTTOM - MID_Y) + MID_Y;
-  } else if (_frame < KEYFRAME_5) {
-    const frameValue = _frame - KEYFRAME_4;
-    const frameMaximum = KEYFRAME_5 - KEYFRAME_4;
-    const easeValue = easeOutCubic(frameValue / frameMaximum);
-
-    return BOTTOM - easeValue * BOTTOM;
-  }
-  const frameValue = _frame - KEYFRAME_5;
-  const frameMaximum = KEYFRAME_MAX - KEYFRAME_5;
-  const easeValue = easeInCubic(frameValue / frameMaximum);
-
-  return easeValue * BOTTOM;
-}
+export const DOT_THREE_FRAMES = computeFrames(
+  {
+    0: [0, 0],
+    39: [0, 0],
+    44: [0, 1],
+    46: [0, 2],
+    48: [0, 3],
+    49: [0, 4],
+    51: [0, 5],
+    53: [-1, -6],
+    54: [-2, -13],
+    56: [-3, -15],
+    58: [-5, -19],
+    59: [-7, -21],
+    61: [-8, -22],
+    63: [-9, -24],
+    64: [-11, -25],
+    66: [-12, -26],
+    74: [-19, -26],
+    76: [-20, -25],
+    78: [-22, -24],
+    81: [-24, -21],
+    83: [-26, -19],
+    84: [-28, -15],
+    86: [-29, -13],
+    88: [-30, -6],
+    89: [-31, 5],
+    91: [-31, 4],
+    93: [-31, 3],
+    94: [-31, 2],
+    98: [-31, 1],
+    100: [-31, 0]
+  },
+  { factor: 2 }
+);
