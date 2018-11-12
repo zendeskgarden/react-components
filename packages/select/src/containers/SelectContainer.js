@@ -47,6 +47,10 @@ export default class SelectContainer extends ControlledComponent {
      */
     isOpen: PropTypes.bool,
     /**
+     * Whether the component is disabled
+     */
+    disabled: PropTypes.bool,
+    /**
      * The currently focused item
      */
     focusedKey: PropTypes.string,
@@ -142,7 +146,8 @@ export default class SelectContainer extends ControlledComponent {
       appendToNode,
       eventsEnabled,
       popperModifiers,
-      zIndex
+      zIndex,
+      disabled
     } = this.props;
     const { isOpen, focusedKey, selectedKey, id } = this.getControlledState();
 
@@ -152,6 +157,7 @@ export default class SelectContainer extends ControlledComponent {
         eventsEnabled={eventsEnabled}
         id={id}
         isOpen={isOpen}
+        disabled={disabled}
         focusedKey={focusedKey}
         selectedKey={selectedKey}
         onStateChange={newState => {

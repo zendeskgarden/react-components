@@ -70,6 +70,10 @@ class MenuContainer extends ControlledComponent {
      */
     isOpen: PropTypes.bool,
     /**
+     * Whether the component is disabled
+     */
+    disabled: PropTypes.bool,
+    /**
      * The currently focused item
      */
     focusedKey: PropTypes.string,
@@ -242,9 +246,10 @@ class MenuContainer extends ControlledComponent {
 
   toggleMenuVisibility = ({ defaultFocusedIndex, focusOnOpen, closedByBlur } = {}) => {
     const { isOpen } = this.getControlledState();
+    const { disabled } = this.props;
 
     this.setControlledState({
-      isOpen: !isOpen,
+      isOpen: disabled ? false : !isOpen,
       focusedKey: undefined,
       defaultFocusedIndex,
       focusOnOpen,
