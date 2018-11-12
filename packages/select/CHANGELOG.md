@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.5](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-select@3.0.4...@zendeskgarden/react-select@3.0.5) (2018-11-12)
+
+
+### Bug Fixes
+
+* **select:** Expanded state is triggered on disabled select click ([#205](https://github.com/zendeskgarden/react-components/issues/205)) ([bf80f8b](https://github.com/zendeskgarden/react-components/commit/bf80f8b))
+
+
+
+
+
 ## [3.0.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-select@3.0.3...@zendeskgarden/react-select@3.0.4) (2018-10-30)
 
 **Note:** Version bump only for package @zendeskgarden/react-select
