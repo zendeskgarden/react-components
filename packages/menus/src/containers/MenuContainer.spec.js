@@ -38,10 +38,11 @@ describe('MenuContainer', () => {
   let wrapper;
   let onChangeSpy;
 
-  const basicExample = ({ onChange, appendToNode } = {}) => (
+  const basicExample = ({ onChange, appendToNode, disabled } = {}) => (
     <MenuContainer
       appendToNode={appendToNode}
       onChange={onChange}
+      disabled={disabled}
       trigger={({ getTriggerProps, triggerRef }) => (
         <button {...getTriggerProps({ ref: triggerRef, 'data-test-id': 'trigger' })}>
           trigger
@@ -314,6 +315,13 @@ describe('MenuContainer', () => {
 
       it('opens menu if clicked and menu is currently closed', () => {
         expect(findMenu(wrapper)).toExist();
+      });
+
+      it("does not open menu if clicked and it's disabled", () => {
+        wrapper = mountWithTheme(basicExample({ disabled: true }));
+        findTrigger(wrapper).simulate('click');
+        wrapper.setProps({ disabled: false });
+        expect(findMenu(wrapper)).not.toExist();
       });
 
       it('does not focus first menu item by default', () => {

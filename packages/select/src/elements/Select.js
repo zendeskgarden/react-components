@@ -212,6 +212,7 @@ export default class Select extends ControlledComponent {
         id={id}
         appendToNode={appendToNode}
         isOpen={selectDisabled ? false : isOpen}
+        disabled={selectDisabled}
         selectedKey={selectedKey}
         focusedKey={focusedKey}
         eventsEnabled={eventsEnabled}
