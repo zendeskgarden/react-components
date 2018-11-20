@@ -52,7 +52,7 @@
     "enzyme-to-json": "3.3.4",
     "eslint": "5.9.0",
     "eslint-config-prettier": "3.3.0",
-    "eslint-plugin-jest": "21.27.2",
+    "eslint-plugin-jest": "22.0.0",
     "eslint-plugin-jsx-a11y": "6.1.2",
     "eslint-plugin-notice": "0.7.7",
     "eslint-plugin-prettier": "3.0.0",
