@@ -54,17 +54,16 @@ export default class ScheduleContainer extends Component {
     }, delayMS);
   }
 
-  componentDidUpdate() {
-    this.performAnimationFrame();
-  }
-
   componentWillUnmount() {
     clearTimeout(this.renderingDelayTimeout);
     cancelAnimationFrame(this.tick);
   }
 
   performAnimationFrame() {
-    this.tick = requestAnimationFrame(this.props.tick);
+    this.tick = requestAnimationFrame(timestamp => {
+      this.props.tick(timestamp);
+      this.performAnimationFrame();
+    });
   }
 
   render() {
