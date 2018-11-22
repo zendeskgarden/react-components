@@ -25,6 +25,11 @@ For accessibility ensure that all children include an `alt` description.
 <Grid>
   <Row alignItems="center" justifyContent="center">
     <Col md>
+      <Avatar size="extrasmall">
+        <img src="images/jason.png" alt="Example Avatar" />
+      </Avatar>
+    </Col>
+    <Col md>
       <Avatar size="small">
         <img src="images/jason.png" alt="Example Avatar" />
       </Avatar>
@@ -47,6 +52,23 @@ For accessibility ensure that all children include an `alt` description.
 
 ```jsx
 <Grid>
+  <Row>
+    <Col md={4}>
+      <Avatar size="extrasmall">
+        <img src="images/jason.png" alt="Example Avatar" />
+      </Avatar>
+    </Col>
+    <Col md={4}>
+      <Avatar disabled size="extrasmall">
+        <img src="images/jason.png" alt="Example Avatar" />
+      </Avatar>
+    </Col>
+    <Col md={4}>
+      <Avatar isBorderless size="extrasmall">
+        <img src="images/amir.png" alt="Example Avatar" />
+      </Avatar>
+    </Col>
+  </Row>
   <Row>
     <Col md={4}>
       <Avatar size="small">

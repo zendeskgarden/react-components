@@ -1,8 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Avatar Sizes applies extrasmall correctly if provided 1`] = `
+<figure
+  className="c-avatar c-avatar--xs "
+  data-garden-id="avatars.avatar"
+  data-garden-version="version"
+  size="extrasmall"
+>
+  <img
+    alt="test"
+    src="test"
+  />
+</figure>
+`;
+
 exports[`Avatar Sizes applies large correctly if provided 1`] = `
 <figure
-  className="c-avatar c-avatar--large "
+  className="c-avatar c-avatar--lg "
   data-garden-id="avatars.avatar"
   data-garden-version="version"
   size="large"
@@ -16,7 +30,7 @@ exports[`Avatar Sizes applies large correctly if provided 1`] = `
 
 exports[`Avatar Sizes applies small correctly if provided 1`] = `
 <figure
-  className="c-avatar c-avatar--small "
+  className="c-avatar c-avatar--sm "
   data-garden-id="avatars.avatar"
   data-garden-version="version"
   size="small"
