@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1542926323711" clover="3.2.0">
-  <project timestamp="1542926323711" name="All files">
+<coverage generated="1543282220689" clover="3.2.0">
+  <project timestamp="1543282220689" name="All files">
     <metrics statements="1996" coveredstatements="1949" conditionals="869" coveredconditionals="765" methods="668" coveredmethods="657" elements="3533" coveredelements="3371" complexity="0" loc="1996" ncloc="1996" packages="66" files="182" classes="182">
       <package name="autocomplete.src.containers">
         <metrics statements="152" coveredstatements="152" conditionals="91" coveredconditionals="76" methods="45" coveredmethods="45"/>
@@ -2378,12 +2378,12 @@
         </file>
         <file name="MediaInput.js" path="/home/travis/build/zendeskgarden/react-components/packages/textfields/src/views/MediaInput.js">
           <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="15" count="1" type="stmt"/>
-          <line num="16" count="1" type="stmt"/>
-          <line num="26" count="1" type="stmt"/>
+          <line num="15" count="8" type="stmt"/>
+          <line num="16" count="8" type="stmt"/>
+          <line num="26" count="8" type="stmt"/>
           <line num="31" count="1" type="stmt"/>
-          <line num="34" count="1" type="stmt"/>
-          <line num="48" count="1" type="stmt"/>
+          <line num="34" count="8" type="stmt"/>
+          <line num="48" count="8" type="stmt"/>
         </file>
         <file name="Message.js" path="/home/travis/build/zendeskgarden/react-components/packages/textfields/src/views/Message.js">
           <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
