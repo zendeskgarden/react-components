@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-textfields@3.5.2...@zendeskgarden/react-textfields@3.5.3) (2018-11-27)
+
+
+### Bug Fixes
+
+* **textfields:** add missing `MediaInput` export ([#212](https://github.com/zendeskgarden/react-components/issues/212)) ([6581928](https://github.com/zendeskgarden/react-components/commit/6581928))
+
+
+
+
+
 ## [3.5.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-textfields@3.5.1...@zendeskgarden/react-textfields@3.5.2) (2018-11-20)
 
 **Note:** Version bump only for package @zendeskgarden/react-textfields
