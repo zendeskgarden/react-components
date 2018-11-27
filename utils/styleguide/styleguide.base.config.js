@@ -188,6 +188,7 @@ const defaultStyleguideConfig = {
         'CHANGELOG.md': path.resolve('CHANGELOG.md'),
         '@zendeskgarden/react-autocomplete': path.resolve('..', 'autocomplete'),
         '@zendeskgarden/react-avatars': path.resolve('..', 'avatars'),
+        '@zendeskgarden/react-breadcrumbs': path.resolve('..', 'breadcrumbs'),
         '@zendeskgarden/react-buttons': path.resolve('..', 'buttons'),
         '@zendeskgarden/react-checkboxes': path.resolve('..', 'checkboxes'),
         '@zendeskgarden/react-chrome': path.resolve('..', 'chrome'),
