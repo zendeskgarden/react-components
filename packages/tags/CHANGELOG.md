@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.22](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tags@1.1.21...@zendeskgarden/react-tags@1.1.22) (2018-11-20)
+
+**Note:** Version bump only for package @zendeskgarden/react-tags
+
+
+
+
+
 ## [1.1.21](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tags@1.1.20...@zendeskgarden/react-tags@1.1.21) (2018-10-30)
 
 **Note:** Version bump only for package @zendeskgarden/react-tags
