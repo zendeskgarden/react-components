@@ -21,20 +21,17 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 import '@zendeskgarden/react-breadcrumbs/dist/styles.css';
 
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Example } from '@zendeskgarden/react-breadcrumbs';
+import { Breadcrumb, Item } from '@zendeskgarden/react-breadcrumbs';
+import { Anchor } from '@zendeskgarden/react-buttons';
 
 /**
  * Place a `ThemeProvider` at the root of your React application
  */
 <ThemeProvider>
-  <Example>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</Example>;
+  <Breadcrumb>
+    <Anchor href="/">Root</Anchor>
+    <Anchor href="..">Parent</Anchor>
+    <Item>Self</Item>
+  </Breadcrumb>
 </ThemeProvider>;
 ```
-
-<!--
-  TODO:
-
-  * [ ] Add breadcrumbs to root README table.
-  * [ ] Add breadcrumbs to demo `index.html`.
-  * [ ] Delete this comment block.
--->

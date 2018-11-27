@@ -12,6 +12,10 @@ import BreadcrumbContainer from '../containers/BreadcrumbContainer';
 import BreadcrumbView from '../views/BreadcrumbView';
 import Item from '../views/Item';
 
+/**
+ * High-level abstraction for basic Breadcrumb implementations. Accepts all
+ * `<div>` props.
+ */
 export default class Breadcrumb extends Component {
   static propTypes = {
     children: PropTypes.any

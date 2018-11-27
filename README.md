@@ -9,10 +9,6 @@ components are packaged and published individually, but combined under
 this single repository. Components rely on [Garden
 CSS](https://github.com/zendeskgarden/css-components) for styling.
 
-Try out the Garden React Components in a mock product environment with CodeSandbox
-
-[![Edit Garden Create-React-App](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/43nwpkn717)
-
 ## Installation
 
 See the individual package README for the React component you would like
@@ -22,6 +18,7 @@ Package | Version | Dependencies
 ------- | ------- | ------------
 [`@zendeskgarden/react-autocomplete`](packages/autocomplete) | [![npm version][autocomplete npm version]][autocomplete npm link] | [![Dependency Status][autocomplete dependency status]][autocomplete dependency link]
 [`@zendeskgarden/react-avatars`](packages/avatars) | [![npm version][avatars npm version]][avatars npm link] | [![Dependency Status][avatars dependency status]][avatars dependency link]
+[`@zendeskgarden/react-breadcrumbs`](packages/breadcrumbs) | [![npm version][breadcrumbs npm version]][breadcrumbs npm link] | [![Dependency Status][breadcrumbs dependency status]][breadcrumbs dependency link]
 [`@zendeskgarden/react-buttons`](packages/buttons) | [![npm version][buttons npm version]][buttons npm link] | [![Dependency Status][buttons dependency status]][buttons dependency link]
 [`@zendeskgarden/react-checkboxes`](packages/checkboxes) | [![npm version][checkboxes npm version]][checkboxes npm link] | [![Dependency Status][checkboxes dependency status]][checkboxes dependency link]
 [`@zendeskgarden/react-chrome`](packages/chrome) | [![npm version][chrome npm version]][chrome npm link] | [![Dependency Status][chrome dependency status]][chrome dependency link]
@@ -54,6 +51,10 @@ Package | Version | Dependencies
 [avatars npm link]: https://www.npmjs.com/package/@zendeskgarden/react-avatars
 [avatars dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/avatars&style=flat-square
 [avatars dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/avatars
+[breadcrumbs npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-breadcrumbs.svg?style=flat-square
+[breadcrumbs npm link]: https://www.npmjs.com/package/@zendeskgarden/react-breadcrumbs
+[breadcrumbs dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/breadcrumbs&style=flat-square
+[breadcrumbs dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/breadcrumbs
 [buttons npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-buttons.svg?style=flat-square
 [buttons npm link]: https://www.npmjs.com/package/@zendeskgarden/react-buttons
 [buttons dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/buttons&style=flat-square
@@ -150,9 +151,7 @@ Package | Version | Dependencies
 ## Usage
 
 Our packages are easily consumable with [create-react-app](https://github.com/facebook/create-react-app)
-and standard webpack configs.
-
-All packages follow a similar installation process. Below is an example of
+and standard webpack configs. All packages follow a similar installation process. Below is an example of
 consuming our [react-buttons](https://www.npmjs.com/package/@zendeskgarden/react-buttons)
 package.
 
@@ -193,6 +192,10 @@ class App extends Component {
 
 render(<App />, document.getElementById('root'));
 ```
+
+Try out Garden React components in a mock product environment.
+
+[![Edit Garden Create-React-App](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/43nwpkn717)
 
 ## Contribution
 
