@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Item renders current styling 1`] = `
+<li
+  className="c-breadcrumb__item is-current "
+  data-garden-id="breadcrumbs.item"
+  data-garden-version="version"
+/>
+`;
+
+exports[`Item renders default styling 1`] = `
+<li
+  className="c-breadcrumb__item "
+  data-garden-id="breadcrumbs.item"
+  data-garden-version="version"
+/>
+`;

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BreadcrumbView renders RTL styling correctly 1`] = `
+<ol
+  className="c-breadcrumb is-rtl "
+  data-garden-id="breadcrumbs.breadcrumb_view"
+  data-garden-version="version"
+/>
+`;
+
+exports[`BreadcrumbView renders default styling correctly 1`] = `
+<ol
+  className="c-breadcrumb "
+  data-garden-id="breadcrumbs.breadcrumb_view"
+  data-garden-version="version"
+/>
+`;

@@ -150,9 +150,11 @@ Package | Version | Dependencies
 
 ## Usage
 
-Our packages are easily consumable with [create-react-app](https://github.com/facebook/create-react-app)
-and standard webpack configs. All packages follow a similar installation process. Below is an example of
-consuming our [react-buttons](https://www.npmjs.com/package/@zendeskgarden/react-buttons)
+Our packages are easily consumable with
+[create-react-app](https://github.com/facebook/create-react-app)
+and standard webpack configs. All packages follow a similar installation process.
+Below is an example of consuming our
+[react-buttons](https://www.npmjs.com/package/@zendeskgarden/react-buttons)
 package.
 
 ### Install dependencies
