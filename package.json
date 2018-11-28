@@ -88,7 +88,7 @@
     "styled-components": "3.4.10",
     "stylelint": "9.8.0",
     "stylelint-config-styled-components": "0.1.1",
-    "stylelint-order": "1.0.0",
+    "stylelint-order": "2.0.0",
     "stylelint-processor-styled-components": "1.5.1",
     "svg-react-loader": "0.4.6",
     "uglifyjs-webpack-plugin": "2.0.1",
