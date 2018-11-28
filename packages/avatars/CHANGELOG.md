@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-avatars@3.0.18...@zendeskgarden/react-avatars@4.0.0) (2018-11-28)
+
+
+### Features
+
+* **avatars:** Add new 40px size and adjust other sizes to base-4 ([#213](https://github.com/zendeskgarden/react-components/issues/213)) ([c3c29a1](https://github.com/zendeskgarden/react-components/commit/c3c29a1))
+
+
+### BREAKING CHANGES
+
+* **avatars:** Default size is now 40px, names and sizes have changed to match new base-4 numbering.
+
+### New sizes
+| Size       | px   |
+|------------|------|
+| extramsall | 24px |
+| small      | 32px |
+| default    | 40px |
+| large      | 48px |
+
+
+
+
+
 ## [3.0.18](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-avatars@3.0.17...@zendeskgarden/react-avatars@3.0.18) (2018-11-20)
 
 **Note:** Version bump only for package @zendeskgarden/react-avatars
