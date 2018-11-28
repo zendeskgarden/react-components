@@ -25,7 +25,7 @@ describe('Avatar', () => {
   });
 
   describe('Sizes', () => {
-    ['small', 'large'].forEach(size => {
+    ['extrasmall', 'small', 'large'].forEach(size => {
       it(`applies ${size} correctly if provided`, () => {
         const wrapper = shallow(<Avatar size={size}>{defaultImage}</Avatar>);
 

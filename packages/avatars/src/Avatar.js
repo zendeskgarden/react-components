@@ -13,6 +13,7 @@ import AvatarStyles from '@zendeskgarden/css-avatars';
 
 const COMPONENT_ID = 'avatars.avatar';
 const SIZE = {
+  EXTRASMALL: 'extrasmall',
   SMALL: 'small',
   LARGE: 'large'
 };
@@ -29,8 +30,9 @@ const Avatar = styled.figure.attrs({
       [AvatarStyles['c-avatar--system']]: props.system,
 
       // Sizes
-      [AvatarStyles['c-avatar--small']]: props.size === SIZE.SMALL,
-      [AvatarStyles['c-avatar--large']]: props.size === SIZE.LARGE,
+      [AvatarStyles['c-avatar--xs']]: props.size === SIZE.EXTRASMALL,
+      [AvatarStyles['c-avatar--sm']]: props.size === SIZE.SMALL,
+      [AvatarStyles['c-avatar--lg']]: props.size === SIZE.LARGE,
 
       // State
       [AvatarStyles['is-disabled']]: props.disabled,
@@ -43,7 +45,7 @@ const Avatar = styled.figure.attrs({
 Avatar.propTypes = {
   /** Applies system styling */
   system: PropTypes.bool,
-  size: PropTypes.oneOf([SIZE.SMALL, SIZE.LARGE]),
+  size: PropTypes.oneOf([SIZE.EXTRASMALL, SIZE.SMALL, SIZE.LARGE]),
   disabled: PropTypes.bool,
   /** Removes border for improved display on a dark background */
   isBorderless: PropTypes.bool
