@@ -3,7 +3,7 @@ const { Anchor } = require('@zendeskgarden/react-buttons/src');
 
 <BreadcrumbContainer>
   {({ getContainerProps }) => (
-    <BreadcrumbView {...getContainerProps({role: null})}>
+    <BreadcrumbView {...getContainerProps({ role: null })}>
       <List>
         <Item>
           <Anchor>One</Anchor>
