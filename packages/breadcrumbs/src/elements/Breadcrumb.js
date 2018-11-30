@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 
 import BreadcrumbContainer from '../containers/BreadcrumbContainer';
 import BreadcrumbView from '../views/BreadcrumbView';
+import List from '../views/List';
 import Item from '../views/Item';
 
 /**
@@ -47,8 +48,9 @@ export default class Breadcrumb extends Component {
     return (
       <BreadcrumbContainer>
         {({ getContainerProps }) => (
-          <BreadcrumbView {...getContainerProps(breadcrumbProps)}>
-            {this.renderItems(children)}
+          /* role not needed as `BreadcrumbView` is a navigation landmark. */
+          <BreadcrumbView {...getContainerProps({ role: null })}>
+            <List {...breadcrumbProps}>{this.renderItems(children)}</List>
           </BreadcrumbView>
         )}
       </BreadcrumbContainer>

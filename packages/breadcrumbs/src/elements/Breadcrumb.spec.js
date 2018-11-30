@@ -10,6 +10,7 @@ import { mountWithTheme } from '@zendeskgarden/react-testing';
 
 import Breadcrumb from './Breadcrumb';
 import BreadcrumbView from '../views/BreadcrumbView';
+import List from '../views/List';
 import Item from '../views/Item';
 
 describe('Breadcrumb', () => {
@@ -18,8 +19,8 @@ describe('Breadcrumb', () => {
   beforeEach(() => {
     wrapper = mountWithTheme(
       <Breadcrumb data-test-breadcrumb={true}>
-        <a href>One</a>
-        <a data-test-anchor={true} href>
+        <a href="/#">One</a>
+        <a data-test-anchor={true} href="/#">
           Two
         </a>
         <Item data-test-item={true}>Three</Item>
@@ -29,11 +30,17 @@ describe('Breadcrumb', () => {
 
   describe('BreadcrumbView', () => {
     it('receives BreadcrumbContainer props', () => {
-      expect(wrapper.find(BreadcrumbView)).toHaveProp('role', 'navigation');
+      expect(wrapper.find(BreadcrumbView)).toHaveProp('aria-label', 'Breadcrumb navigation');
     });
 
+    it('does not receive BreadcrumbContainer `role` prop', () => {
+      expect(wrapper.find(BreadcrumbView)).not.toHaveProp('role', 'navigation');
+    });
+  });
+
+  describe('List', () => {
     it('receives Breadcrumb props', () => {
-      expect(wrapper.find(BreadcrumbView)).toHaveProp('data-test-breadcrumb', true);
+      expect(wrapper.find(List)).toHaveProp('data-test-breadcrumb', true);
     });
   });
 

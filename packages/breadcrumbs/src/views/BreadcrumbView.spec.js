@@ -7,18 +7,11 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import { shallowWithTheme } from '@zendeskgarden/react-testing';
 import BreadcrumbView from './BreadcrumbView';
 
 describe('BreadcrumbView', () => {
-  it('renders default styling correctly', () => {
+  it('renders default styling', () => {
     const wrapper = shallow(<BreadcrumbView />);
-
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  it('renders RTL styling correctly', () => {
-    const wrapper = shallowWithTheme(<BreadcrumbView />, { rtl: true });
 
     expect(wrapper).toMatchSnapshot();
   });

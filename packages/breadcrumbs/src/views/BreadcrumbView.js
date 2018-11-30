@@ -6,23 +6,16 @@
  */
 
 import styled from 'styled-components';
-import classNames from 'classnames';
-import BreadcrumbStyles from '@zendeskgarden/css-breadcrumbs';
-import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveTheme } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'breadcrumbs.breadcrumb_view';
 
 /**
- * Accepts all `<ol>` props
+ * Accepts all `<nav>` props
  */
-const BreadcrumbView = styled.ol.attrs({
+const BreadcrumbView = styled.nav.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(BreadcrumbStyles['c-breadcrumb'], {
-      // RTL
-      [BreadcrumbStyles['is-rtl']]: isRtl(props)
-    })
+  'data-garden-version': PACKAGE_VERSION
 })`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;

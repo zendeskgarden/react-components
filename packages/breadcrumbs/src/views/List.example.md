@@ -1,10 +1,10 @@
-The `BreadcrumbView` is a presentation component used to wrap breadcrumb
-`Item` components.
+The breadcrumb `List` is a presentation component used to wrap `Item`
+components.
 
 ```jsx
 const { Anchor } = require('@zendeskgarden/react-buttons/src');
 
-<BreadcrumbView>
+<List>
   <Item>
     <Anchor>Alpha</Anchor>
   </Item>
@@ -12,5 +12,5 @@ const { Anchor } = require('@zendeskgarden/react-buttons/src');
     <Anchor>Beta</Anchor>
   </Item>
   <Item current>Gamma</Item>
-</BreadcrumbView>;
+</List>;
 ```
