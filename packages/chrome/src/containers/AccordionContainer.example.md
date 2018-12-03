@@ -5,7 +5,7 @@ const {
   zdSpacingXs,
   zdColorGrey300
 } = require('@zendeskgarden/css-variables');
-const DownIcon = require('svg-react-loader?name=Down!@zendeskgarden/svg-icons/src/16/chevron-down-fill.svg');
+const DownIcon = require('@zendeskgarden/svg-icons/src/16/chevron-down-fill.svg').default;
 
 const UpIcon = styled(DownIcon)`
   transform: rotate(180deg);

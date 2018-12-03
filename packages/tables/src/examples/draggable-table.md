@@ -9,7 +9,7 @@ This example includes:
 ```jsx
 const { zdSpacingSm } = require('@zendeskgarden/css-variables');
 const { DragDropContext, Droppable, Draggable } = require('react-beautiful-dnd');
-const GripIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/12/grip.svg');
+const GripIcon = require('@zendeskgarden/svg-icons/src/12/grip.svg').default;
 const { XL } = require('@zendeskgarden/react-typography/src');
 
 const DraggableRow = styled(Row)`

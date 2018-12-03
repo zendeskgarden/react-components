@@ -1,5 +1,5 @@
 ```jsx
-const TalkIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/26/relationshape-talk.svg');
+const TalkIcon = require('@zendeskgarden/svg-icons/src/26/relationshape-talk.svg').default;
 
 <Chrome style={{ height: 500 }}>
   <Body>

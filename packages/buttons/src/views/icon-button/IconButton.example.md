@@ -1,6 +1,6 @@
 ```jsx
-const SettingsIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/14/settings.svg');
-const AttachmentIcon = require('svg-react-loader?name=Attachment!@zendeskgarden/svg-icons/src/14/attachment.svg');
+const SettingsIcon = require('@zendeskgarden/svg-icons/src/14/settings.svg').default;
+const AttachmentIcon = require('@zendeskgarden/svg-icons/src/14/attachment.svg').default;
 
 <Grid>
   <Row>
