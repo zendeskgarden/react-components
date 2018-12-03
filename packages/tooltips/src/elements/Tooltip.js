@@ -36,7 +36,7 @@ export default class Tooltip extends ControlledComponent {
     /** Whether Popper.js should update based on DOM resize events */
     eventsEnabled: PropTypes.bool,
     id: PropTypes.string,
-    trigger: PropTypes.node,
+    trigger: PropTypes.func,
     /**
      * These placements differ from the default naming of Popper.JS placements to help
      * assist with RTL layouts.
@@ -103,8 +103,10 @@ export default class Tooltip extends ControlledComponent {
         popperModifiers={popperModifiers}
         zIndex={zIndex}
         delayMilliseconds={delayMilliseconds}
-        trigger={({ getTriggerProps }) => {
-          return cloneElement(trigger, getTriggerProps(trigger.props));
+        trigger={({ getTriggerProps, triggerRef }) => {
+          const referencedTrigger = trigger({ ref: triggerRef });
+
+          return cloneElement(referencedTrigger, getTriggerProps(referencedTrigger.props));
         }}
       >
         {({ getTooltipProps, placement }) => {

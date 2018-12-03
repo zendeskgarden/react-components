@@ -47,6 +47,10 @@ const ChangelogButton = styled(Button)`
   /* stylelint-enable */
 `;
 
+const TooltipTrigger = styled.div`
+  display: inline-block;
+`;
+
 class TableOfContents extends Component {
   static propTypes = {
     children: PropTypes.any
@@ -104,8 +108,8 @@ class TableOfContents extends Component {
                 appendToBody
                 type="light"
                 size="extra-large"
-                trigger={
-                  <div>
+                trigger={({ ref }) => (
+                  <TooltipTrigger innerRef={ref}>
                     <Toggle
                       checked={isRtl}
                       onChange={() => {
@@ -118,8 +122,8 @@ class TableOfContents extends Component {
                     >
                       <Label>RTL Locale</Label>
                     </Toggle>
-                  </div>
-                }
+                  </TooltipTrigger>
+                )}
               >
                 <Title>RTL in Garden</Title>
                 <p>

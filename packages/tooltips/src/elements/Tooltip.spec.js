@@ -42,7 +42,11 @@ describe('Tooltip', () => {
       placement={placement}
       size={size}
       type={type}
-      trigger={<button data-test-id="trigger">Trigger</button>}
+      trigger={({ ref }) => (
+        <button ref={ref} data-test-id="trigger">
+          Trigger
+        </button>
+      )}
     >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
       labore et dolore magna aliqua.

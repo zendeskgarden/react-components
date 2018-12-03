@@ -7,7 +7,9 @@ All props passed to the root element are proxied into the visible tooltip.
 ```jsx
 const { Button } = require('@zendeskgarden/react-buttons/src');
 
-<Tooltip trigger={<Button>Trigger top placement</Button>}>This is a small tooltip</Tooltip>;
+<Tooltip trigger={({ ref }) => <Button innerRef={ref}>Trigger top placement</Button>}>
+  This is a small tooltip
+</Tooltip>;
 ```
 
 ### Multiple Types and Sizes
@@ -21,7 +23,7 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
   placement="end"
   type="light"
   size="extra-large"
-  trigger={<Button>Trigger end placement</Button>}
+  trigger={({ ref }) => <Button innerRef={ref}>Trigger end placement</Button>}
 >
   <Title>Example Title</Title>
   <p>
@@ -46,7 +48,7 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
   placement="end"
   type="light"
   size="extra-large"
-  trigger={<Button>Custom Proxy Events</Button>}
+  trigger={({ ref }) => <Button innerRef={ref}>Custom Proxy Events</Button>}
   onClick={() => alert('Tooltip clicked')}
   style={{ color: 'red' }}
 >
@@ -74,7 +76,10 @@ const ScrollBox = styled.div`
 
 <Container>
   <ScrollBox>
-    <Tooltip type="light" trigger={<Button>Scroll to view trigger changes</Button>}>
+    <Tooltip
+      type="light"
+      trigger={({ ref }) => <Button innerRef={ref}>Scroll to view trigger changes</Button>}
+    >
       Boundary recognition tooltip
     </Tooltip>
   </ScrollBox>
