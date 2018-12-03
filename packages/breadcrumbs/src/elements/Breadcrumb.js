@@ -7,6 +7,7 @@
 
 import React, { Component, Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
+import { hasType } from '@zendeskgarden/react-utilities';
 
 import BreadcrumbContainer from '../containers/BreadcrumbContainer';
 import BreadcrumbView from '../views/BreadcrumbView';
@@ -15,7 +16,7 @@ import Item from '../views/Item';
 
 /**
  * High-level abstraction for basic Breadcrumb implementations. Accepts all
- * `<div>` props.
+ * `<ol>` props.
  */
 export default class Breadcrumb extends Component {
   static propTypes = {
@@ -23,23 +24,23 @@ export default class Breadcrumb extends Component {
   };
 
   renderItems = items => {
-    const retVal = [];
     const total = Children.count(items);
 
-    Children.forEach(items, (item, index) => {
+    return Children.map(items, (item, index) => {
+      let retVal;
       const itemProps = {
         current: index === total - 1,
         key: index
       };
 
-      if (item.type === Item) {
-        retVal.push(cloneElement(item, itemProps));
+      if (hasType(item, Item)) {
+        retVal = cloneElement(item, itemProps);
       } else {
-        retVal.push(<Item {...itemProps}>{item}</Item>);
+        retVal = <Item {...itemProps}>{item}</Item>;
       }
-    });
 
-    return retVal;
+      return retVal;
+    });
   };
 
   render() {

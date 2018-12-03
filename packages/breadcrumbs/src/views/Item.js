@@ -30,5 +30,7 @@ const Item = styled.li.attrs({
 
 Item.propTypes = { current: PropTypes.bool };
 
+Item.hasType = () => Item;
+
 /** @component */
 export default Item;

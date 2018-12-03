@@ -46,7 +46,7 @@ describe('Breadcrumb', () => {
 
   describe('Item', () => {
     it('receives Item props', () => {
-      expect(wrapper.find(Item).at(2)).toHaveProp('data-test-item', true);
+      expect(wrapper.find(Item).last()).toHaveProp('data-test-item', true);
     });
 
     it('does not receive non-Item props', () => {
@@ -54,11 +54,11 @@ describe('Breadcrumb', () => {
     });
 
     it('receives current styling if last', () => {
-      expect(wrapper.find(Item).at(2)).toHaveProp('current', true);
+      expect(wrapper.find(Item).last()).toHaveProp('current', true);
     });
 
     it('does not receive current styling if not last', () => {
-      expect(wrapper.find(Item).at(0)).not.toHaveProp('current', true);
+      expect(wrapper.find(Item).first()).not.toHaveProp('current', true);
     });
   });
 });
