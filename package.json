@@ -34,7 +34,7 @@
     "babel-core": "6.26.3",
     "babel-eslint": "10.0.1",
     "babel-jest": "23.6.0",
-    "babel-loader": "7.1.5",
+    "babel-loader": "8.0.4",
     "babel-plugin-add-header-comment": "1.0.3",
     "babel-plugin-inline-react-svg": "0.5.4",
     "babel-plugin-styled-components": "1.9.2",
