@@ -46,7 +46,7 @@ yarn start --scope @zendeskgarden/react-buttons
 
 All elements must
 
-* Be implemented with associated `Conatiner` and `View` components
+* Be implemented with associated `Container` and `View` components
 * Provide `uncontrolled` and `controlled` state management if necessary
   * Be implemented with the `ControlledComponent` state abstractions if necessary
 * Create an abstraction to benefit a majority of use cases

@@ -151,7 +151,7 @@ initialState = {
   focusedKey: undefined,
   isLoading: false,
   isOpen: false
-}
+};
 
 retrieveMenuItems = (selectedKey, isLoading) => {
   if (isLoading) {
@@ -177,7 +177,7 @@ retrieveMenuItems = (selectedKey, isLoading) => {
     <NextItem key="specific-settings">Specific Settings</NextItem>,
     <Item key="theme-editor">Theme Editor</Item>
   ];
-}
+};
 
 <Menu
   arrow
@@ -202,14 +202,17 @@ retrieveMenuItems = (selectedKey, isLoading) => {
       setTimeout(() => {
         setState({ isLoading: false });
       }, 1000);
-
     } else if (selectedKey === 'root') {
       focusedKey = 'specific-settings';
     }
 
     setState({ selectedKey, focusedKey, isLoading });
   }}
-  trigger={({ ref, isOpen }) => <Button innerRef={ref} active={isOpen}>Tree Layout</Button>}
+  trigger={({ ref, isOpen }) => (
+    <Button innerRef={ref} active={isOpen}>
+      Tree Layout
+    </Button>
+  )}
   style={{ width: 350, height: 260 }}
 >
   {retrieveMenuItems(state.selectedKey, state.isLoading)}

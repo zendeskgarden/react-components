@@ -13,6 +13,7 @@ install: yarn --frozen-lockfile
 
 script:
   - yarn lint
+  - yarn format
   - yarn test:all --coverage --runInBand
 
 after_success: yarn coveralls < demo/coverage/lcov.info

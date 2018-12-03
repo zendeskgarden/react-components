@@ -150,15 +150,19 @@ initialState = {
   focusedKey: undefined,
   isLoading: false,
   isOpen: false
-}
+};
 
 retrieveMenuItems = (selectedKey, isLoading) => {
   if (isLoading) {
     return [<Loader>Simulate loading for 1 second...</Loader>];
   }
 
-  if (selectedKey === 'specific-settings' || selectedKey === 'cool-setting' ||
-  selectedKey === 'uncool-setting' || selectedKey === 'another-cool-setting') {
+  if (
+    selectedKey === 'specific-settings' ||
+    selectedKey === 'cool-setting' ||
+    selectedKey === 'uncool-setting' ||
+    selectedKey === 'another-cool-setting'
+  ) {
     return [
       <PreviousItem key="root">Specific Settings</PreviousItem>,
       <Separator key="separator" />,
@@ -175,7 +179,7 @@ retrieveMenuItems = (selectedKey, isLoading) => {
     <NextItem key="specific-settings">Specific Settings</NextItem>,
     <Item key="theme-editor">Theme Editor</Item>
   ];
-}
+};
 
 <SelectField>
   <Label>Tree Select</Label>
@@ -196,7 +200,6 @@ retrieveMenuItems = (selectedKey, isLoading) => {
         setTimeout(() => {
           setState({ isLoading: false });
         }, 1000);
-
       } else if (selectedKey === 'root') {
         focusedKey = 'specific-settings';
       }
@@ -204,9 +207,9 @@ retrieveMenuItems = (selectedKey, isLoading) => {
       setState({ selectedKey, focusedKey, isLoading });
     }}
     options={retrieveMenuItems(state.selectedKey, state.isLoading)}
-    dropdownProps={{ style: { height: 215 }}}
+    dropdownProps={{ style: { height: 215 } }}
   >
     {state.selectedKey || 'Nothing selected yet'}
   </Select>
-</SelectField>
+</SelectField>;
 ```
