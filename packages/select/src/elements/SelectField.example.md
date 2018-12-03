@@ -55,7 +55,7 @@ getValidation = selectedKey => {
   }
 
   return 'success';
-}
+};
 
 getMessage = selectedKey => {
   if (selectedKey === 'invalid-item') {
@@ -63,7 +63,7 @@ getMessage = selectedKey => {
   }
 
   return <Message validation="success">Good choice</Message>;
-}
+};
 
 <SelectField>
   <Label>Some Options are Invalid</Label>
