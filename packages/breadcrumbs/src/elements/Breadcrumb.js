@@ -27,19 +27,16 @@ export default class Breadcrumb extends Component {
     const total = Children.count(items);
 
     return Children.map(items, (item, index) => {
-      let retVal;
       const itemProps = {
         current: index === total - 1,
         key: index
       };
 
-      if (hasType(item, Item)) {
-        retVal = cloneElement(item, itemProps);
-      } else {
-        retVal = <Item {...itemProps}>{item}</Item>;
-      }
-
-      return retVal;
+      return hasType(item, Item) ? (
+        cloneElement(item, itemProps)
+      ) : (
+        <Item {...itemProps}>{item}</Item>
+      );
     });
   };
 
