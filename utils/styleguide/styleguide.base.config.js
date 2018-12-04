@@ -44,6 +44,10 @@ const defaultStyleguideConfig = {
       sidebarBackground: zdColorGrey100,
       name: zdColorKale400,
       type: zdColorRed600
+    },
+    fontSize: {
+      base: 14,
+      text: 14
     }
   },
   template: {
