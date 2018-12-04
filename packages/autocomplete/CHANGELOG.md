@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-autocomplete@0.4.4...@zendeskgarden/react-autocomplete@0.5.0) (2018-12-04)
+
+
+### Features
+
+* add new `breadcrumbs` component ([#215](https://github.com/zendeskgarden/react-components/issues/215)) ([7897bc9](https://github.com/zendeskgarden/react-components/commit/7897bc9))
+
+
+
+
+
 ## [0.4.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-autocomplete@0.4.3...@zendeskgarden/react-autocomplete@0.4.4) (2018-11-30)
 
 **Note:** Version bump only for package @zendeskgarden/react-autocomplete

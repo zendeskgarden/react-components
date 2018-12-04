@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-select@3.0.8...@zendeskgarden/react-select@3.1.0) (2018-12-04)
+
+
+### Features
+
+* add new `breadcrumbs` component ([#215](https://github.com/zendeskgarden/react-components/issues/215)) ([7897bc9](https://github.com/zendeskgarden/react-components/commit/7897bc9))
+
+
+
+
+
 ## [3.0.8](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-select@3.0.7...@zendeskgarden/react-select@3.0.8) (2018-11-30)
 
 **Note:** Version bump only for package @zendeskgarden/react-select

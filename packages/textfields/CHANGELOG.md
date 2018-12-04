@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.6.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-textfields@3.5.4...@zendeskgarden/react-textfields@3.6.0) (2018-12-04)
+
+
+### Features
+
+* add new `breadcrumbs` component ([#215](https://github.com/zendeskgarden/react-components/issues/215)) ([7897bc9](https://github.com/zendeskgarden/react-components/commit/7897bc9))
+
+
+
+
+
 ## [3.5.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-textfields@3.5.3...@zendeskgarden/react-textfields@3.5.4) (2018-11-30)
 
 **Note:** Version bump only for package @zendeskgarden/react-textfields
