@@ -309,7 +309,7 @@ const MoreAnchor = styled(Anchor)`
                       }
                     })}
                   >
-                    <div style={{ height: '150px', overflowY: 'auto' }}>
+                    <div style={{ maxHeight: '150px', overflowY: 'auto' }}>
                       {getMatchingMenuItems(
                         state.inputValue,
                         state.selectedKeys,
