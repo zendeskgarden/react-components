@@ -15,6 +15,7 @@ const {
 } = require('@zendeskgarden/css-variables');
 const packageManifest = require(path.resolve('package.json'));
 const customStyleguideConfig = require(path.resolve('styleguide.config.js'));
+const babelOptions = require(path.resolve('../../babel.config.js'));
 const exec = require('child_process').execSync;
 
 const COMPONENT_IDS = exec('"../../utils/scripts/get-cids.sh"', (error, stdout) => {
@@ -116,7 +117,7 @@ const defaultStyleguideConfig = {
     objectAssign: 'Object.assign'
   },
   require: [
-    'babel-polyfill',
+    'core-js/shim',
     path.resolve(__dirname, 'setup.js'),
     path.resolve(__dirname, 'styles.css'),
     'github-markdown-css'
@@ -144,7 +145,8 @@ const defaultStyleguideConfig = {
         {
           test: /\.jsx?$/u,
           exclude: /node_modules/u,
-          loader: 'babel-loader'
+          loader: 'babel-loader',
+          options: babelOptions
         },
         {
           test: /\.css$/u,

@@ -11,6 +11,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const packageManifest = require(path.resolve('package.json'));
+const babelOptions = require(path.resolve('../../babel.config.js'));
 
 const options = {
   mode: 'production',
@@ -63,11 +64,7 @@ found at http://www.apache.org/licenses/LICENSE-2.0
         use: [
           {
             loader: 'babel-loader',
-            options: {
-              babelrc: false,
-              presets: ['es2015', 'react', 'stage-0'],
-              plugins: ['inline-react-svg', 'transform-object-assign', 'styled-components']
-            }
+            options: babelOptions
           }
         ]
       },
