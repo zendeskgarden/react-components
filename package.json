@@ -36,7 +36,7 @@
     "babel-jest": "23.6.0",
     "babel-loader": "7.1.5",
     "babel-plugin-add-header-comment": "1.0.3",
-    "babel-plugin-inline-react-svg": "0.5.4",
+    "babel-plugin-inline-react-svg": "1.0.1",
     "babel-plugin-styled-components": "1.9.2",
     "babel-plugin-transform-es2015-modules-commonjs": "6.26.2",
     "babel-plugin-transform-object-assign": "6.22.0",
