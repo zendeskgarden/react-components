@@ -11,7 +11,8 @@ const {
   zdColorBlue600,
   zdColorGrey100,
   zdColorKale400,
-  zdColorRed600
+  zdColorRed600,
+  zdFontSizeMd
 } = require('@zendeskgarden/css-variables');
 const packageManifest = require(path.resolve('package.json'));
 const customStyleguideConfig = require(path.resolve('styleguide.config.js'));
@@ -44,10 +45,13 @@ const defaultStyleguideConfig = {
       sidebarBackground: zdColorGrey100,
       name: zdColorKale400,
       type: zdColorRed600
-    },
-    fontSize: {
-      base: 14,
-      text: 14
+    }
+  },
+  styles: {
+    StyleGuide: {
+      '@global body': {
+        fontSize: zdFontSizeMd
+      }
     }
   },
   template: {
