@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1543881953070" clover="3.2.0">
-  <project timestamp="1543881953070" name="All files">
-    <metrics statements="2019" coveredstatements="1972" conditionals="874" coveredconditionals="769" methods="680" coveredmethods="669" elements="3573" coveredelements="3410" complexity="0" loc="2019" ncloc="2019" packages="69" files="187" classes="187">
+<coverage generated="1543884879466" clover="3.2.0">
+  <project timestamp="1543884879466" name="All files">
+    <metrics statements="2020" coveredstatements="1973" conditionals="876" coveredconditionals="771" methods="680" coveredmethods="669" elements="3576" coveredelements="3413" complexity="0" loc="2020" ncloc="2020" packages="69" files="187" classes="187">
       <package name="autocomplete.src.containers">
         <metrics statements="152" coveredstatements="152" conditionals="91" coveredconditionals="76" methods="45" coveredmethods="45"/>
         <file name="AutocompleteContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/autocomplete/src/containers/AutocompleteContainer.js">
@@ -2771,16 +2771,17 @@
         </file>
       </package>
       <package name="utilities.src.utils">
-        <metrics statements="10" coveredstatements="9" conditionals="10" coveredconditionals="7" methods="2" coveredmethods="2"/>
+        <metrics statements="11" coveredstatements="10" conditionals="12" coveredconditionals="9" methods="2" coveredmethods="2"/>
         <file name="hasType.js" path="/home/travis/build/zendeskgarden/react-components/packages/utilities/src/utils/hasType.js">
-          <metrics statements="7" coveredstatements="6" conditionals="8" coveredconditionals="5" methods="1" coveredmethods="1"/>
-          <line num="15" count="1941" type="cond" truecount="0" falsecount="1"/>
-          <line num="16" count="1941" type="stmt"/>
-          <line num="20" count="1941" type="cond" truecount="2" falsecount="0"/>
-          <line num="21" count="1768" type="stmt"/>
-          <line num="22" count="173" type="cond" truecount="3" falsecount="1"/>
-          <line num="23" count="0" type="stmt"/>
-          <line num="26" count="1941" type="stmt"/>
+          <metrics statements="8" coveredstatements="7" conditionals="10" coveredconditionals="7" methods="1" coveredmethods="1"/>
+          <line num="15" count="1942" type="cond" truecount="2" falsecount="0"/>
+          <line num="16" count="1941" type="cond" truecount="0" falsecount="1"/>
+          <line num="17" count="1941" type="stmt"/>
+          <line num="21" count="1941" type="cond" truecount="2" falsecount="0"/>
+          <line num="22" count="1768" type="stmt"/>
+          <line num="23" count="173" type="cond" truecount="3" falsecount="1"/>
+          <line num="24" count="0" type="stmt"/>
+          <line num="27" count="1941" type="stmt"/>
         </file>
         <file name="requiredParam.js" path="/home/travis/build/zendeskgarden/react-components/packages/utilities/src/utils/requiredParam.js">
           <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
