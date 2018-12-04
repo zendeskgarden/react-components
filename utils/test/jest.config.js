@@ -22,7 +22,8 @@ module.exports = {
   moduleNameMapper: {
     '\\.(css|json)$': 'identity-obj-proxy',
     '@zendeskgarden/css': 'identity-obj-proxy',
-    '@zendeskgarden/react-testing': '<rootDir>/packages/testing/src/index.js'
+    '@zendeskgarden/react-testing': '<rootDir>/packages/testing/src/index.js',
+    '\\.(svg)$': '<rootDir>/utils/test/svg-mock.js'
   },
   collectCoverageFrom: [
     '<rootDir>/packages/*/src/**/*.{js,jsx}',
