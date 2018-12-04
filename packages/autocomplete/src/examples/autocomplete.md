@@ -177,7 +177,7 @@ initialState = {
                 }
               })}
             >
-              <div style={{ height: '200px', overflowY: 'auto' }}>{menuItems}</div>
+              <div style={{ maxHeight: '200px', overflowY: 'auto' }}>{menuItems}</div>
               <Separator />
               <AddItem {...addItemProps}>Add item</AddItem>
             </MenuView>
