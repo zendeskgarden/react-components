@@ -20,6 +20,10 @@ describe('hasType', () => {
     it('returns false otherwise', () => {
       expect(hasType(<Hint>hint</Hint>, Button)).toBe(false);
     });
+
+    it('returns false if provided a falsy value', () => {
+      expect(hasType(null, Button)).toBe(false);
+    });
   });
 
   describe('when wrapped with an HOC', () => {
