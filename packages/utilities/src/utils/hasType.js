@@ -12,6 +12,7 @@
  * @return {Boolean} if they match or not
  */
 export default function(a = {}, b) {
+  if (!a) return false;
   const { type: component = {} } = a;
   const { target, hasType } = component;
 
