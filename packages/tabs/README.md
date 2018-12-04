@@ -23,7 +23,7 @@ import '@zendeskgarden/react-tabs/dist/styles.css';
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Tabs, TabPanel } from '@zendeskgarden/react-tabs';
 
-initialState = { selectedKey: 'Tab 1' };
+initialState = { selectedKey: 'tab-1' };
 
 /**
  * Place a `ThemeProvider` at the root of your React application
