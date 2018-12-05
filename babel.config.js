@@ -18,7 +18,6 @@ module.exports = {
   plugins: [
     '@babel/plugin-transform-object-assign',
     '@babel/plugin-proposal-class-properties',
-    'babel-plugin-inline-react-svg',
     'babel-plugin-styled-components'
   ]
 };

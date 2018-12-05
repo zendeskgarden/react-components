@@ -9,15 +9,15 @@ you can programmatically trigger navigation with the `onClick` events.
 
 ```jsx
 const { Toggle, Label } = require('@zendeskgarden/react-toggles/src');
-const ConnectIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/26/relationshape-connect.svg');
-const HomeIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/26/home-fill.svg');
-const ListsIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/26/customer-lists-fill.svg');
-const EmailIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/26/email-fill.svg');
-const SettingsIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/26/settings-fill.svg');
-const ZendeskIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/26/zendesk.svg');
-const PlusIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/14/plus.svg');
-const MenuTrayIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/14/menu-tray.svg');
-const PersonIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/14/person.svg');
+const ConnectIcon = require('@zendeskgarden/svg-icons/src/26/relationshape-connect.svg').default;
+const HomeIcon = require('@zendeskgarden/svg-icons/src/26/home-fill.svg').default;
+const ListsIcon = require('@zendeskgarden/svg-icons/src/26/customer-lists-fill.svg').default;
+const EmailIcon = require('@zendeskgarden/svg-icons/src/26/email-fill.svg').default;
+const SettingsIcon = require('@zendeskgarden/svg-icons/src/26/settings-fill.svg').default;
+const ZendeskIcon = require('@zendeskgarden/svg-icons/src/26/zendesk.svg').default;
+const PlusIcon = require('@zendeskgarden/svg-icons/src/14/plus.svg').default;
+const MenuTrayIcon = require('@zendeskgarden/svg-icons/src/14/menu-tray.svg').default;
+const PersonIcon = require('@zendeskgarden/svg-icons/src/14/person.svg').default;
 
 initialState = {
   currentNavItem: 'home',

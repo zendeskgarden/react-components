@@ -169,8 +169,18 @@ const defaultStyleguideConfig = {
         },
         {
           test: /\.svg$/u,
-          exclude: /node_modules/u,
-          loader: 'svg-react-loader'
+          use: [
+            {
+              loader: '@svgr/webpack',
+              options: {
+                svgoConfig: {
+                  plugins: {
+                    removeViewBox: false
+                  }
+                }
+              }
+            }
+          ]
         },
         {
           test: /\.md$/u,

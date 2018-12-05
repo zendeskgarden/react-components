@@ -69,6 +69,21 @@ found at http://www.apache.org/licenses/LICENSE-2.0
         ]
       },
       {
+        test: /\.svg$/u,
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: {
+              svgoConfig: {
+                plugins: {
+                  removeViewBox: false
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
         test: /\.css?$/u,
         exclude: /@zendeskgarden\/css/u,
         use: [MiniCssExtractPlugin.loader, 'css-loader']

@@ -7,12 +7,7 @@ exports[`ChevronButton renders IconButton with correct default styling 1`] = `
   pill={false}
 >
   <Icon>
-    <ChevronDownIcon
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    />
+    <MockSVG />
   </Icon>
 </IconButton>
 `;
@@ -26,12 +21,7 @@ exports[`ChevronButton rotates icon if prop is provided 1`] = `
   <Icon
     rotated={true}
   >
-    <ChevronDownIcon
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    />
+    <MockSVG />
   </Icon>
 </IconButton>
 `;

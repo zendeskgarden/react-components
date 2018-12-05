@@ -2,8 +2,8 @@ The `FauxInput[mediaLayout=true]` can be used with the `MediaFigure` and `MediaI
 components to include icons within the input.
 
 ```jsx
-const SearchIcon = require('svg-react-loader?name=Settings!@zendeskgarden/svg-icons/src/14/search.svg');
-const SettingsIcon = require('svg-react-loader?name=Attachment!@zendeskgarden/svg-icons/src/14/settings.svg');
+const SearchIcon = require('@zendeskgarden/svg-icons/src/14/search.svg').default;
+const SettingsIcon = require('@zendeskgarden/svg-icons/src/14/settings.svg').default;
 
 <FauxInput mediaLayout>
   <MediaFigure>
