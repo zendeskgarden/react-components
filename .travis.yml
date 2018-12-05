@@ -1,5 +1,10 @@
 language: node_js
 
+env:
+  - TEST_GROUP="lint"
+  - TEST_GROUP="format"
+  - TEST_GROUP="test:all --coverage --runInBand"
+
 branches:
   only:
     - master
@@ -12,9 +17,7 @@ cache:
 install: yarn --frozen-lockfile
 
 script:
-  - yarn lint
-  - yarn format
-  - yarn test:all --coverage --runInBand
+  - yarn $TEST_GROUP
 
 after_success: yarn coveralls < demo/coverage/lcov.info
 
