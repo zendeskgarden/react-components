@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.4.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.3.4...@zendeskgarden/react-chrome@4.4.0) (2018-12-05)
+
+
+### Features
+
+* **chrome:** update `[@zendeskgarden](https://github.com/zendeskgarden)/css-chrome` dependency ([#223](https://github.com/zendeskgarden/react-components/issues/223)) ([5932b92](https://github.com/zendeskgarden/react-components/commit/5932b92))
+
+
+
+
+
 ## [4.3.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.3.3...@zendeskgarden/react-chrome@4.3.4) (2018-12-04)
 
 **Note:** Version bump only for package @zendeskgarden/react-chrome
