@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.25](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tags@1.1.24...@zendeskgarden/react-tags@1.1.25) (2018-12-05)
+
+
+### Features
+
+* migrate from babel-inline-svg to [@svgr](https://github.com/svgr)/webpack ([#221](https://github.com/zendeskgarden/react-components/issues/221)) ([310d1aa](https://github.com/zendeskgarden/react-components/commit/310d1aa))
+
+
+
+
+
 ## [1.1.24](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tags@1.1.23...@zendeskgarden/react-tags@1.1.24) (2018-12-04)
 
 **Note:** Version bump only for package @zendeskgarden/react-tags

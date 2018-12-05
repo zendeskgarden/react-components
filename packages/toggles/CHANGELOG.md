@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.7](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-toggles@3.4.6...@zendeskgarden/react-toggles@3.4.7) (2018-12-05)
+
+**Note:** Version bump only for package @zendeskgarden/react-toggles
+
+
+
+
+
 ## [3.4.6](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-toggles@3.4.5...@zendeskgarden/react-toggles@3.4.6) (2018-12-04)
 
 **Note:** Version bump only for package @zendeskgarden/react-toggles

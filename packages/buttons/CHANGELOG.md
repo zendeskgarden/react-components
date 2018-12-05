@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.6.13](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.6.12...@zendeskgarden/react-buttons@3.6.13) (2018-12-05)
+
+
+### Features
+
+* migrate from babel-inline-svg to [@svgr](https://github.com/svgr)/webpack ([#221](https://github.com/zendeskgarden/react-components/issues/221)) ([310d1aa](https://github.com/zendeskgarden/react-components/commit/310d1aa))
+
+
+
+
+
 ## [3.6.12](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.6.11...@zendeskgarden/react-buttons@3.6.12) (2018-12-04)
 
 **Note:** Version bump only for package @zendeskgarden/react-buttons

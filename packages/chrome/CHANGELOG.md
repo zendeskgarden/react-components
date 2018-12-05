@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.4.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.4.0...@zendeskgarden/react-chrome@4.4.1) (2018-12-05)
+
+
+### Features
+
+* migrate from babel-inline-svg to [@svgr](https://github.com/svgr)/webpack ([#221](https://github.com/zendeskgarden/react-components/issues/221)) ([310d1aa](https://github.com/zendeskgarden/react-components/commit/310d1aa))
+
+
+
+
+
 # [4.4.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.3.4...@zendeskgarden/react-chrome@4.4.0) (2018-12-05)
 
 
