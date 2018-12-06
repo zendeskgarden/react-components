@@ -1,13 +1,9 @@
 language: node_js
 
-env:
-  - TEST_GROUP="lint"
-  - TEST_GROUP="format"
-  - TEST_GROUP="test:all --coverage --runInBand"
-
-branches:
-  only:
-    - master
+stages:
+  - test
+  - name: deploy
+    if: branch = master
 
 cache:
   yarn: true
@@ -16,24 +12,22 @@ cache:
 
 install: yarn --frozen-lockfile
 
-script:
-  - yarn $TEST_GROUP
+jobs:
+  include:
+    - stage: test
+      script: yarn lint
+      script: yarn format
+      script: yarn test:all --coverage --runInBand
+    - stage: deploy
+      before_deploy:
+        - export NODE_DEBUG=gh-pages
+        - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+      deploy:
+        - provider: script
+          script: utils/travis/publish-gh-pages.sh
+          skip_cleanup: true
+        - provider: script
+          script: yarn lerna publish from-git --no-verify-access --yes
+          skip_cleanup: true
 
 after_success: yarn coveralls < demo/coverage/lcov.info
-
-before_deploy:
-  - export NODE_DEBUG=gh-pages
-  - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
-
-deploy:
-  - provider: script
-    script: utils/travis/publish-gh-pages.sh
-    skip_cleanup: true
-    on:
-      branch: master
-
-  - provider: script
-    script: yarn lerna publish from-git --no-verify-access --yes
-    skip_cleanup: true
-    on:
-      branch: master
