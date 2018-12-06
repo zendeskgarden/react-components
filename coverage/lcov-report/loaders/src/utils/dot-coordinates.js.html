@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for loaders/src/utils/dot-coordinates.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">loaders/src/utils</a> dot-coordinates.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>46/46</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>16/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>2/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>46/46</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+&nbsp;
+import { easeInCubic, easeInOutCubic, easeOutCubic } from './animations';
+&nbsp;
+export const KEYFRAME_1 = 0.166666667;
+export const KEYFRAME_2 = 0.55;
+export const KEYFRAME_3 = 1.166666667;
+export const KEYFRAME_4 = 1.333333333;
+export const KEYFRAME_5 = 1.533333333;
+export const KEYFRAME_MAX = 1.766666667;
+&nbsp;
+const WIDTH = 80;
+const HEIGHT = WIDTH * 0.9;
+const CIRCLE_RADIUS = WIDTH * 0.1125;
+const MID_X = WIDTH / 2 - CIRCLE_RADIUS;
+const MID_Y = HEIGHT / 2 - CIRCLE_RADIUS;
+const BOTTOM = MID_Y + 5;
+&nbsp;
+/**
+ * Retrieve the X coordinate value
+ * @param {Number} frame The current frame
+ */
+export function retrieveXCoordinate(frame) {
+  let retVal;
+&nbsp;
+  const _frame = frame % KEYFRAME_MAX;
+&nbsp;
+  if (_frame &lt; KEYFRAME_1) {
+    return MID_X;
+  } else if (_frame &lt; KEYFRAME_2) {
+    const frameValue = _frame - KEYFRAME_1;
+    const frameMaximum = KEYFRAME_2 - KEYFRAME_1;
+    const easeValue = easeInOutCubic(frameValue / frameMaximum);
+&nbsp;
+    retVal = MID_X - easeValue * MID_X;
+  } else if (_frame &lt; KEYFRAME_4) {
+    retVal = 0;
+  } else {
+    const frameValue = _frame - KEYFRAME_4;
+    const frameMaximum = KEYFRAME_MAX - KEYFRAME_4;
+&nbsp;
+    retVal = MID_X * (frameValue / frameMaximum);
+  }
+&nbsp;
+  if (frame &gt;= KEYFRAME_MAX) {
+    retVal = MID_X * 2 - retVal;
+  }
+&nbsp;
+  return retVal;
+}
+&nbsp;
+/**
+ * Retrieve the Y coordinate value
+ * @param {Number} frame The current frame
+ */
+export function retrieveYCoordinate(frame) {
+  const _frame = frame % KEYFRAME_MAX;
+&nbsp;
+  if (_frame &lt; KEYFRAME_1) {
+    return (_frame / KEYFRAME_1) * -1 * (BOTTOM - MID_Y) + BOTTOM;
+  } else if (_frame &lt; KEYFRAME_3) {
+    return MID_Y;
+  } else if (_frame &lt; KEYFRAME_4) {
+    const frameValue = _frame - KEYFRAME_3;
+    const frameMaximum = KEYFRAME_4 - KEYFRAME_3;
+&nbsp;
+    return (frameValue / frameMaximum) * (BOTTOM - MID_Y) + MID_Y;
+  } else if (_frame &lt; KEYFRAME_5) {
+    const frameValue = _frame - KEYFRAME_4;
+    const frameMaximum = KEYFRAME_5 - KEYFRAME_4;
+    const easeValue = easeOutCubic(frameValue / frameMaximum);
+&nbsp;
+    return BOTTOM - easeValue * BOTTOM;
+  }
+  const frameValue = _frame - KEYFRAME_5;
+  const frameMaximum = KEYFRAME_MAX - KEYFRAME_5;
+  const easeValue = easeInCubic(frameValue / frameMaximum);
+&nbsp;
+  return easeValue * BOTTOM;
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Dec 06 2018 05:43:06 GMT+0000 (Coordinated Universal Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>
