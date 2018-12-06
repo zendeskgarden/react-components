@@ -7,6 +7,7 @@
 
 import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { ControlledComponent, IdManager } from '@zendeskgarden/react-selection';
 
 import TooltipContainer from '../containers/TooltipContainer';
@@ -24,6 +25,14 @@ const TYPE = {
   LIGHT: 'light',
   DARK: 'dark'
 };
+
+/**
+ * Due to Popper.JS needing a reference to a component we provide a simple wrapper
+ * to ensure the correct reference is provided.
+ */
+const TriggerWrapper = styled.div`
+  display: inline-block;
+`;
 
 export default class Tooltip extends ControlledComponent {
   static propTypes = {
@@ -103,8 +112,10 @@ export default class Tooltip extends ControlledComponent {
         popperModifiers={popperModifiers}
         zIndex={zIndex}
         delayMilliseconds={delayMilliseconds}
-        trigger={({ getTriggerProps }) => {
-          return cloneElement(trigger, getTriggerProps(trigger.props));
+        trigger={({ getTriggerProps, ref }) => {
+          const triggerElement = cloneElement(trigger, getTriggerProps(trigger.props));
+
+          return <TriggerWrapper innerRef={ref}>{triggerElement}</TriggerWrapper>;
         }}
       >
         {({ getTooltipProps, placement }) => {
