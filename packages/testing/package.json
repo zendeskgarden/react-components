@@ -18,6 +18,9 @@
     "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
+  "dependencies": {
+    "glob": "7.1.3"
+  },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^1.0.0 || ^2.0.0 || ^3.0.0",
     "enzyme": "^3.0.0",
@@ -25,8 +28,7 @@
     "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0"
   },
   "devDependencies": {
-    "@zendeskgarden/react-theming": "^3.2.1",
-    "glob": "7.1.3"
+    "@zendeskgarden/react-theming": "^3.2.1"
   },
   "keywords": [
     "components",

@@ -17,6 +17,9 @@ const options = {
   mode: 'production',
   entry: path.resolve('src', 'index.js'),
   devtool: 'source-map',
+  node: {
+    fs: 'empty'
+  },
   optimization: {
     minimizer: [
       new OptimizeCSSAssetsPlugin({
