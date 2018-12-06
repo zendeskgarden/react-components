@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-autocomplete@0.5.2...@zendeskgarden/react-autocomplete@0.6.0) (2018-12-06)
+
+
+### Features
+
+* add matchExports testing utility ([#225](https://github.com/zendeskgarden/react-components/issues/225)) ([8666052](https://github.com/zendeskgarden/react-components/commit/8666052))
+
+
+
+
+
 ## [0.5.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-autocomplete@0.5.1...@zendeskgarden/react-autocomplete@0.5.2) (2018-12-05)
 
 **Note:** Version bump only for package @zendeskgarden/react-autocomplete

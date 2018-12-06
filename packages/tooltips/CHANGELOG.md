@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.3.18...@zendeskgarden/react-tooltips@5.0.0) (2018-12-06)
+
+
+### Features
+
+* **tooltips:** remove wrapping div from TooltipContainer ([#62](https://github.com/zendeskgarden/react-components/issues/62)) ([da5d67f](https://github.com/zendeskgarden/react-components/commit/da5d67f))
+* add matchExports testing utility ([#225](https://github.com/zendeskgarden/react-components/issues/225)) ([8666052](https://github.com/zendeskgarden/react-components/commit/8666052))
+
+
+### BREAKING CHANGES
+
+* **tooltips:** The `TooltipContainer` component no longer wraps the provided `trigger` with an additional element.  
+
+This change allows for more flexible implementations. The `Tooltip` component remains unchanged.
+
+The `trigger` render-prop within `TooltipContainer` now requires a `ref` callback to be placed on the trigger element.
+
+
+
+
+
 ## [4.3.18](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.3.17...@zendeskgarden/react-tooltips@4.3.18) (2018-12-05)
 
 **Note:** Version bump only for package @zendeskgarden/react-tooltips
