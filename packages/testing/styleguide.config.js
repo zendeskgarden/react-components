@@ -17,7 +17,20 @@ module.exports = {
     },
     {
       name: 'Utils',
-      components: '../../packages/testing/src/utils/*.js'
+      sections: [
+        {
+          name: 'matchExports',
+          content: '../../packages/testing/src/utils/matchExports.example.md'
+        },
+        {
+          name: 'mountWithTheme',
+          content: '../../packages/testing/src/utils/mountWithTheme.example.md'
+        },
+        {
+          name: 'shallowWithTheme',
+          content: '../../packages/testing/src/utils/shallowWithTheme.example.md'
+        }
+      ]
     }
   ]
 };
