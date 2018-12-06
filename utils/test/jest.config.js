@@ -26,10 +26,11 @@ module.exports = {
     '\\.(svg)$': '<rootDir>/utils/test/svg-mock.js'
   },
   collectCoverageFrom: [
-    '<rootDir>/packages/*/src/**/*.{js,jsx}',
+    '<rootDir>/packages/*!(.template)/src/**/*.{js,jsx}',
     '!<rootDir>/packages/*/src/index.js',
     '!**/node_modules/**',
     '!**/vendor/**'
   ],
-  coverageDirectory: '<rootDir>/demo/coverage'
+  coverageDirectory: '<rootDir>/demo/coverage',
+  testPathIgnorePatterns: ['/node_modules/', '<rootDir>/packages/.template']
 };
