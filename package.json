@@ -60,7 +60,6 @@
     "fs-extra": "7.0.1",
     "gh-pages": "2.0.1",
     "github-markdown-css": "2.10.0",
-    "glob": "7.1.3",
     "handlebars": "4.0.12",
     "handlebars-helpers": "0.10.0",
     "html-loader": "0.5.5",
