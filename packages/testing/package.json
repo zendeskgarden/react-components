@@ -14,7 +14,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "../../utils/scripts/build.sh",
+    "build": "../../utils/scripts/build-node.sh",
     "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
