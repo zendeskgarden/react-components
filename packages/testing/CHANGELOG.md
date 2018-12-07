@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-testing@1.2.1...@zendeskgarden/react-testing@2.0.0) (2018-12-07)
+
+
+### Features
+
+* refactor matchExports to getExports ([#228](https://github.com/zendeskgarden/react-components/issues/228)) ([7280879](https://github.com/zendeskgarden/react-components/commit/7280879))
+
+
+### BREAKING CHANGES
+
+* The `@zendeskgarden/react-testing` utility `matchExports` has been refactored to `getExports`.
+
+This utility no longer applies any assertions.
+
+
+
+
+
 ## [1.2.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-testing@1.2.0...@zendeskgarden/react-testing@1.2.1) (2018-12-06)
 
 
