@@ -26,8 +26,9 @@ module.exports = {
     '\\.(svg)$': '<rootDir>/utils/test/svg-mock.js'
   },
   collectCoverageFrom: [
-    '<rootDir>/packages/*!(.template)/src/**/*.{js,jsx}',
+    '<rootDir>/packages/*/src/**/*.{js,jsx}',
     '!<rootDir>/packages/*/src/index.js',
+    '!<rootDir>/packages/.template',
     '!**/node_modules/**',
     '!**/vendor/**'
   ],

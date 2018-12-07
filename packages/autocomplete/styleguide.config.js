@@ -10,10 +10,15 @@
  * https://github.com/styleguidist/react-styleguidist/blob/master/docs/Configuration.md
  */
 module.exports = {
+  require: ['../../packages/menus/dist/styles.css', '../../packages/textfields/dist/styles.css'],
   sections: [
     {
       name: '',
       content: '../../packages/autocomplete/README.md'
+    },
+    {
+      name: 'Elements',
+      components: '../../packages/autocomplete/src/elements/[A-Z]*.js'
     },
     {
       name: 'Containers',

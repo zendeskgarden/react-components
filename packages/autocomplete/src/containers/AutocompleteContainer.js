@@ -404,6 +404,7 @@ class AutocompleteContainer extends ControlledComponent {
     id = this.getItemId(key),
     role = 'option',
     onClick,
+    onMouseMove,
     index,
     ...other
   } = {}) => {
@@ -425,6 +426,16 @@ class AutocompleteContainer extends ControlledComponent {
       role,
       onClick: composeEventHandlers(onClick, () => {
         this.selectItem(key);
+      }),
+      /**
+       * onMouseMove is used as it is only triggered by actual mouse movement
+       */
+      onMouseMove: composeEventHandlers(onMouseMove, () => {
+        if (key !== focusedKey) {
+          this.setControlledState({
+            focusedKey: key
+          });
+        }
       }),
       ...other
     };
