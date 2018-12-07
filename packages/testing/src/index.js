@@ -8,3 +8,4 @@
 export { default as mountWithTheme } from './utils/mountWithTheme.js';
 export { default as renderWithTheme } from './utils/renderWithTheme.js';
 export { default as shallowWithTheme } from './utils/shallowWithTheme.js';
+export { default as matchExports } from './utils/matchExports.js';

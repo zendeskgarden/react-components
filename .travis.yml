@@ -13,6 +13,9 @@ cache:
 install:
   - yarn --frozen-lockfile --ignore-scripts
 
+# This stops the default yarn test running in the deploy stage
+script: 'true'
+
 jobs:
   include:
     - stage: test

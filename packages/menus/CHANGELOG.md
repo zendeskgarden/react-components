@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@4.1.2...@zendeskgarden/react-menus@4.2.0) (2018-12-06)
+
+
+### Features
+
+* add matchExports testing utility ([#225](https://github.com/zendeskgarden/react-components/issues/225)) ([8666052](https://github.com/zendeskgarden/react-components/commit/8666052))
+
+
+
+
+
 ## [4.1.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@4.1.1...@zendeskgarden/react-menus@4.1.2) (2018-12-05)
 
 

@@ -45,8 +45,8 @@ describe('TooltipContainer', () => {
   const BasicExample = props => (
     <TooltipContainer
       id="custom-test-id"
-      trigger={({ getTriggerProps }) => (
-        <div {...getTriggerProps({ 'data-test-id': 'trigger' })}>trigger</div>
+      trigger={({ getTriggerProps, ref }) => (
+        <div {...getTriggerProps({ 'data-test-id': 'trigger', ref })}>trigger</div>
       )}
       {...props}
     >
