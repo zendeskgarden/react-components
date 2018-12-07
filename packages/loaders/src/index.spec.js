@@ -5,15 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { matchExports } from '@zendeskgarden/react-testing';
+import { getExports } from '@zendeskgarden/react-testing';
 import * as rootIndex from './';
 
 describe('Index', () => {
-  it('exports all components and utilities', () => {
-    return matchExports({
-      globPath: '[A-Z]!(*.spec).js',
-      cwd: __dirname,
-      keys: Object.keys(rootIndex).sort()
-    });
+  it('exports all components and utilities', async () => {
+    const exports = await getExports({ cwd: __dirname, globPath: '[A-Z]!(*.spec).js' });
+
+    expect(Object.keys(rootIndex).sort()).toEqual(exports);
   });
 });

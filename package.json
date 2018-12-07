@@ -29,6 +29,7 @@
     "@babel/core": "7.2.0",
     "@babel/plugin-proposal-class-properties": "7.2.0",
     "@babel/plugin-transform-object-assign": "7.2.0",
+    "@babel/polyfill": "7.0.0",
     "@babel/preset-env": "7.2.0",
     "@babel/preset-react": "7.0.0",
     "@svgr/webpack": "4.1.0",

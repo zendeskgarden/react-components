@@ -5,16 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { matchExports } from '@zendeskgarden/react-testing';
+import { getExports } from '@zendeskgarden/react-testing';
 import * as rootIndex from './';
 import * as gardenPlacements from './utils/gardenPlacements';
 
 describe('Index', () => {
-  it('exports all components and utilities', () => {
-    return matchExports({
+  it('exports all components and utilities', async () => {
+    const exports = await getExports({
       globPath: '**/[A-Z]!(*.spec).js',
       cwd: __dirname,
-      keys: Object.keys(rootIndex).sort(),
       fileMapper: files => {
         return files
           .map(entry =>
@@ -27,5 +26,7 @@ describe('Index', () => {
           .sort();
       }
     });
+
+    expect(Object.keys(rootIndex).sort()).toEqual(exports);
   });
 });

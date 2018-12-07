@@ -15,3 +15,6 @@ import 'jest-styled-components';
 import Adapter from 'enzyme-adapter-react-16';
 import Enzyme from 'enzyme';
 Enzyme.configure({ adapter: new Adapter() });
+
+// Enable async/await
+import '@babel/polyfill';

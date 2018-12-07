@@ -1,10 +1,8 @@
-/**
- * Copyright Zendesk, Inc.
- *
- * Use of this source code is governed under the Apache License, Version 2.0
- * found at http://www.apache.org/licenses/LICENSE-2.0.
- */
+Signature:
 
+- `getExports({ globPath: string, cwd: string, fileMapper: function })`
+
+```jsx static
 import { getExports } from '@zendeskgarden/react-testing';
 import * as rootIndex from './';
 
@@ -15,3 +13,4 @@ describe('Index', () => {
     expect(Object.keys(rootIndex).sort()).toEqual(exports);
   });
 });
+```

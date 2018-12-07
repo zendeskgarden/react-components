@@ -23,13 +23,12 @@ function defaultFileMapper(files) {
 }
 
 /**
- * matchExports
+ * getExports
  * @param {*} options
  */
-function matchExports({
+function getExports({
   globPath = '**/!(index|*.spec).js',
   cwd,
-  keys,
   fileMapper = defaultFileMapper
 } = {}) {
   return new Promise((resolve, reject) => {
@@ -38,12 +37,9 @@ function matchExports({
         reject(error);
       }
 
-      const mappedFiles = fileMapper(files);
-
-      expect(keys).toEqual(mappedFiles);
-      resolve();
+      resolve(fileMapper(files));
     });
   });
 }
 
-export default matchExports;
+export default getExports;
