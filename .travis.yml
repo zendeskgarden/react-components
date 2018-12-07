@@ -15,9 +15,12 @@ install: yarn --frozen-lockfile
 jobs:
   include:
     - stage: test
+      name: "Linting"
       script: yarn lint
-      script: yarn format
-      script: yarn test:all --coverage --runInBand
+    - script: yarn format
+      name: "Formatting"
+    - script: yarn test:all --coverage --runInBand
+      name: "Unit Tests"
     - stage: deploy
       before_deploy:
         - export NODE_DEBUG=gh-pages
