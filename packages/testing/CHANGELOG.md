@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-testing@2.0.0...@zendeskgarden/react-testing@2.0.1) (2018-12-07)
+
+
+### Bug Fixes
+
+* update react-testing documentation paths ([#230](https://github.com/zendeskgarden/react-components/issues/230)) ([da84fbc](https://github.com/zendeskgarden/react-components/commit/da84fbc))
+
+
+
+
+
 # [2.0.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-testing@1.2.1...@zendeskgarden/react-testing@2.0.0) (2018-12-07)
 
 
