@@ -19,8 +19,8 @@ module.exports = {
       name: 'Utils',
       sections: [
         {
-          name: 'matchExports',
-          content: '../../packages/testing/src/utils/matchExports.example.md'
+          name: 'getExports',
+          content: '../../packages/testing/src/utils/getExports.example.md'
         },
         {
           name: 'mountWithTheme',
