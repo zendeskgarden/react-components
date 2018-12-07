@@ -10,16 +10,20 @@ cache:
   directories:
     - node-modules
 
-install: yarn --frozen-lockfile
+install:
+  - yarn --frozen-lockfile --ignore-scripts
 
 jobs:
   include:
     - stage: test
       name: "Linting"
-      script: yarn lint
-    - script: yarn format
+      env: TEST_GROUP=lint
+      script: ./utils/travis/test-ci.sh
+    - script: ./utils/travis/test-ci.sh
+      env: TEST_GROUP=format
       name: "Formatting"
-    - script: yarn test:all --coverage --runInBand
+    - script: ./utils/travis/test-ci.sh
+      env: TEST_GROUP=unit
       name: "Unit Tests"
     - stage: deploy
       before_deploy:
