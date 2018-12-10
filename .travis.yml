@@ -1,43 +1,37 @@
 language: node_js
 
-stages:
-  - test
-  - name: deploy
-    if: branch = master AND type = push
+branches:
+  only:
+    - master
 
 cache:
   yarn: true
   directories:
     - node-modules
 
-install:
-  - yarn --frozen-lockfile --ignore-scripts
+install: yarn --frozen-lockfile --ignore-scripts
 
-# This stops the default yarn test running in the deploy stage
-script: 'true'
-
-jobs:
-  include:
-    - stage: test
-      name: "Linting"
-      env: TEST_GROUP=lint
-      script: ./utils/travis/test-ci.sh
-    - script: ./utils/travis/test-ci.sh
-      env: TEST_GROUP=format
-      name: "Formatting"
-    - script: ./utils/travis/test-ci.sh
-      env: TEST_GROUP=unit
-      name: "Unit Tests"
-    - stage: deploy
-      before_deploy:
-        - export NODE_DEBUG=gh-pages
-        - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
-      deploy:
-        - provider: script
-          script: utils/travis/publish-gh-pages.sh
-          skip_cleanup: true
-        - provider: script
-          script: yarn lerna publish from-git --no-verify-access --yes
-          skip_cleanup: true
+script:
+  - yarn lint
+  - yarn format
+  - yarn lerna bootstrap --ignore-scripts
+  - yarn test:all --coverage --runInBand
 
 after_success: yarn coveralls < demo/coverage/lcov.info
+
+before_deploy:
+  - export NODE_DEBUG=gh-pages
+  - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+
+deploy:
+  - provider: script
+    script: utils/travis/publish-gh-pages.sh
+    skip_cleanup: true
+    on:
+      branch: master
+
+  - provider: script
+    script: yarn lerna publish from-git --no-verify-access --yes
+    skip_cleanup: true
+    on:
+      branch: master
