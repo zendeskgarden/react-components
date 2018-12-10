@@ -7,6 +7,7 @@
 
 import React, { Children, cloneElement, isValidElement } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import {
   ControlledComponent,
   IdManager,
@@ -24,6 +25,11 @@ import Item from '../views/items/Item';
 import MediaItem from '../views/items/media/MediaItem';
 import NextItem from '../views/items/NextItem';
 import PreviousItem from '../views/items/PreviousItem';
+
+const StyledOverflowWrapper = styled.div`
+  overflow-y: auto;
+  max-height: ${({ maxHeight }) => maxHeight || 'inherit'};
+`;
 
 /**
  * Also accepts all `<div>` props
@@ -96,7 +102,11 @@ export default class Select extends ControlledComponent {
     /**
      * The z-index of the popper.js placement container
      */
-    zIndex: PropTypes.number
+    zIndex: PropTypes.number,
+    /**
+     * The max-height of the dropdown element
+     */
+    maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   };
 
   static defaultProps = {
@@ -200,6 +210,7 @@ export default class Select extends ControlledComponent {
       dropdownProps = {},
       onKeyDown: selectOnKeyDown,
       zIndex,
+      maxHeight,
       ...otherSelectProps
     } = this.props;
     const { id, isOpen, focusedKey, selectedKey } = this.getControlledState();
@@ -278,57 +289,59 @@ export default class Select extends ControlledComponent {
               ...otherDropdownProps
             })}
           >
-            {Children.map(options, option => {
-              if (!isValidElement(option)) {
-                return option;
-              }
-
-              const { textValue, disabled, children: childChildren } = option.props;
-              const key = option.key;
-
-              /**
-               * Children with the `disabled` prop are not selectable
-               */
-              if (disabled) {
-                return option;
-              }
-
-              if (
-                hasType(option, AddItem) ||
-                hasType(option, Item) ||
-                hasType(option, MediaItem) ||
-                hasType(option, NextItem) ||
-                hasType(option, PreviousItem)
-              ) {
-                /**
-                 * Automatically apply `textValue` if children is a string
-                 */
-                const childrenTextValue =
-                  typeof childChildren === 'string' ? childChildren : undefined;
-
-                let itemPropMapper = getItemProps;
-
-                if (hasType(option, NextItem)) {
-                  itemPropMapper = getNextItemProps;
-                } else if (hasType(option, PreviousItem)) {
-                  itemPropMapper = getPreviousItemProps;
+            <StyledOverflowWrapper maxHeight={maxHeight}>
+              {Children.map(options, option => {
+                if (!isValidElement(option)) {
+                  return option;
                 }
 
-                return cloneElement(
-                  option,
-                  itemPropMapper({
-                    key,
-                    textValue: textValue || childrenTextValue,
-                    focused: focusedKey === key,
-                    checked: selectedKey === key,
-                    children: childChildren,
-                    ...option.props
-                  })
-                );
-              }
+                const { textValue, disabled, children: childChildren } = option.props;
+                const key = option.key;
 
-              return option;
-            })}
+                /**
+                 * Children with the `disabled` prop are not selectable
+                 */
+                if (disabled) {
+                  return option;
+                }
+
+                if (
+                  hasType(option, AddItem) ||
+                  hasType(option, Item) ||
+                  hasType(option, MediaItem) ||
+                  hasType(option, NextItem) ||
+                  hasType(option, PreviousItem)
+                ) {
+                  /**
+                   * Automatically apply `textValue` if children is a string
+                   */
+                  const childrenTextValue =
+                    typeof childChildren === 'string' ? childChildren : undefined;
+
+                  let itemPropMapper = getItemProps;
+
+                  if (hasType(option, NextItem)) {
+                    itemPropMapper = getNextItemProps;
+                  } else if (hasType(option, PreviousItem)) {
+                    itemPropMapper = getPreviousItemProps;
+                  }
+
+                  return cloneElement(
+                    option,
+                    itemPropMapper({
+                      key,
+                      textValue: textValue || childrenTextValue,
+                      focused: focusedKey === key,
+                      checked: selectedKey === key,
+                      children: childChildren,
+                      ...option.props
+                    })
+                  );
+                }
+
+                return option;
+              })}
+            </StyledOverflowWrapper>
           </Dropdown>
         )}
       </SelectContainer>
