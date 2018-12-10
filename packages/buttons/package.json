@@ -32,7 +32,7 @@
     "styled-components": "^3.2.6"
   },
   "devDependencies": {
-    "@zendeskgarden/css-buttons": "6.1.5",
+    "@zendeskgarden/css-buttons": "6.1.6",
     "@zendeskgarden/react-theming": "^3.2.1",
     "@zendeskgarden/svg-icons": "5.0.0"
   },
