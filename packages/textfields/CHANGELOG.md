@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.6.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-textfields@3.6.2...@zendeskgarden/react-textfields@3.6.3) (2018-12-10)
+
+
+### Features
+
+* add matchExports testing utility ([#225](https://github.com/zendeskgarden/react-components/issues/225)) ([8666052](https://github.com/zendeskgarden/react-components/commit/8666052))
+* refactor matchExports to getExports ([#228](https://github.com/zendeskgarden/react-components/issues/228)) ([7280879](https://github.com/zendeskgarden/react-components/commit/7280879))
+
+
+### BREAKING CHANGES
+
+* The `@zendeskgarden/react-testing` utility `matchExports` has been refactored to `getExports`.
+
+This utility no longer applies any assertions.
+
+
+
+
+
 ## [3.6.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-textfields@3.6.1...@zendeskgarden/react-textfields@3.6.2) (2018-12-05)
 
 

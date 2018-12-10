@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tables@1.1.1...@zendeskgarden/react-tables@1.1.2) (2018-12-10)
+
+
+### Features
+
+* add matchExports testing utility ([#225](https://github.com/zendeskgarden/react-components/issues/225)) ([8666052](https://github.com/zendeskgarden/react-components/commit/8666052))
+* refactor matchExports to getExports ([#228](https://github.com/zendeskgarden/react-components/issues/228)) ([7280879](https://github.com/zendeskgarden/react-components/commit/7280879))
+
+
+### BREAKING CHANGES
+
+* The `@zendeskgarden/react-testing` utility `matchExports` has been refactored to `getExports`.
+
+This utility no longer applies any assertions.
+
+
+
+
+
 ## [1.1.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tables@1.1.0...@zendeskgarden/react-tables@1.1.1) (2018-12-05)
 
 

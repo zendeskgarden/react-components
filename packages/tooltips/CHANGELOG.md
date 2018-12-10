@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@5.0.0...@zendeskgarden/react-tooltips@5.0.1) (2018-12-10)
+
+
+### Features
+
+* refactor matchExports to getExports ([#228](https://github.com/zendeskgarden/react-components/issues/228)) ([7280879](https://github.com/zendeskgarden/react-components/commit/7280879))
+
+
+### BREAKING CHANGES
+
+* The `@zendeskgarden/react-testing` utility `matchExports` has been refactored to `getExports`.
+
+This utility no longer applies any assertions.
+
+
+
+
+
 # [5.0.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@4.3.18...@zendeskgarden/react-tooltips@5.0.0) (2018-12-06)
 
 
