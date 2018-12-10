@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-select@3.2.0...@zendeskgarden/react-select@3.3.0) (2018-12-10)
+
+
+### Features
+
+* add maxHeight prop to Select component ([#231](https://github.com/zendeskgarden/react-components/issues/231)) ([b4b8f16](https://github.com/zendeskgarden/react-components/commit/b4b8f16))
+* refactor matchExports to getExports ([#228](https://github.com/zendeskgarden/react-components/issues/228)) ([7280879](https://github.com/zendeskgarden/react-components/commit/7280879))
+
+
+### BREAKING CHANGES
+
+* The `@zendeskgarden/react-testing` utility `matchExports` has been refactored to `getExports`.
+
+This utility no longer applies any assertions.
+
+
+
+
+
 # [3.2.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-select@3.1.2...@zendeskgarden/react-select@3.2.0) (2018-12-06)
 
 
