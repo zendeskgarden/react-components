@@ -3,7 +3,7 @@ language: node_js
 stages:
   - test
   - name: deploy
-    if: branch = master
+    if: branch = master AND type = push
 
 cache:
   yarn: true
