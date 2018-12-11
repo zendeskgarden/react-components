@@ -16,6 +16,8 @@ script:
   - yarn format
   - yarn lerna bootstrap --ignore-scripts
   - yarn test:all --coverage --runInBand
+  - echo "Testing concurrency changes will revert this"
+  - time yarn build:demo
 
 after_success: yarn coveralls < demo/coverage/lcov.info
 
