@@ -15,7 +15,7 @@ import {
   composeEventHandlers,
   IdManager
 } from '@zendeskgarden/react-selection';
-import { withTheme, isRtl } from '@zendeskgarden/react-theming';
+import { withTheme, isRtl, getDocument } from '@zendeskgarden/react-theming';
 import { getPopperPlacement, getRtlPopperPlacement } from '../utils/gardenPlacements';
 
 /**
@@ -220,7 +220,7 @@ class TooltipContainer extends ControlledComponent {
               );
 
               if (appendToBody) {
-                return createPortal(tooltip, document.body);
+                return createPortal(tooltip, getDocument(this.props).body);
               }
 
               return tooltip;

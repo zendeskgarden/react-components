@@ -9,6 +9,7 @@ import React, { Children, cloneElement, isValidElement } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import { ControlledComponent, IdManager } from '@zendeskgarden/react-selection';
+import { withTheme, getDocument } from '@zendeskgarden/react-theming';
 import { hasType } from '@zendeskgarden/react-utilities';
 import isWindow from 'dom-helpers/query/isWindow';
 import ownerDocument from 'dom-helpers/ownerDocument';
@@ -26,7 +27,7 @@ import Header from '../views/Header';
 /**
  * High-level abstraction for basic Modal implementations. Accepts all `<div>` props.
  */
-export default class Modal extends ControlledComponent {
+class Modal extends ControlledComponent {
   static propTypes = {
     children: PropTypes.any,
     /**
@@ -144,10 +145,12 @@ export default class Modal extends ControlledComponent {
                 })}
               </ModalView>
             </Backdrop>,
-            document.body
+            getDocument(this.props).body
           )
         }
       </ModalContainer>
     );
   }
 }
+
+export default withTheme(Modal);

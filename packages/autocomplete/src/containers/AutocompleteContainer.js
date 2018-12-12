@@ -124,8 +124,7 @@ class AutocompleteContainer extends ControlledComponent {
   static defaultProps = {
     placement: 'bottom-start',
     eventsEnabled: true,
-    zIndex: 1000,
-    appendToNode: document.body
+    zIndex: 1000
   };
 
   constructor(...args) {
@@ -492,6 +491,7 @@ class AutocompleteContainer extends ControlledComponent {
       zIndex
     } = this.props;
     const { isOpen, focusedKey, tagFocusedKey } = this.getControlledState();
+    const defaultNode = getDocument(this.props).body;
 
     this.focusSelectionModel.reset();
     this.tagSelectionModel.reset();
@@ -551,7 +551,7 @@ class AutocompleteContainer extends ControlledComponent {
                 );
               }}
             </Popper>,
-            appendToNode
+            appendToNode || defaultNode
           )}
         </Fragment>
       </Manager>

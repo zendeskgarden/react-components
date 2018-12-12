@@ -136,8 +136,7 @@ class MenuContainer extends ControlledComponent {
   static defaultProps = {
     placement: 'bottom-start',
     eventsEnabled: true,
-    zIndex: 1000,
-    appendToNode: document.body
+    zIndex: 1000
   };
 
   constructor(...args) {
@@ -509,6 +508,7 @@ class MenuContainer extends ControlledComponent {
       id,
       defaultFocusedIndex
     } = this.getControlledState();
+    const defaultNode = getDocument(this.props).body;
 
     this.textValueSelectionModels = {};
     this.nextKeys = {};
@@ -623,7 +623,7 @@ class MenuContainer extends ControlledComponent {
                   </MenuWrapper>
                 );
 
-                return createPortal(menu, appendToNode);
+                return createPortal(menu, appendToNode || defaultNode);
               }}
             </Popper>
           )}
