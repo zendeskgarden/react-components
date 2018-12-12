@@ -60,7 +60,7 @@ export default class FauxInput extends ControlledComponent {
 
     return (
       <DIVInput
-        innerRef={inputRef}
+        ref={inputRef}
         {...otherProps}
         onFocus={composeEventHandlers(onFocus, () => {
           this.setControlledState({ focused: true });

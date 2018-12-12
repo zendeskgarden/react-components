@@ -19,14 +19,13 @@ const COMPONENT_ID = 'chrome.collapsible_sub_nav_item';
 const PANEL_COMPONENT_ID = 'chrome.collapsible_sub_nav_item_panel';
 
 /** Accepts all `<div>` props */
-const StyledSubNavItemHeader = styled(SubNavItem).attrs({
+const StyledSubNavItemHeader = styled(SubNavItem).attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(ChromeStyles['c-chrome__subnav__item--header'], {
-      [ChromeStyles['is-expanded']]: props.expanded
-    })
-})`
+  className: classNames(props.className, ChromeStyles['c-chrome__subnav__item--header'], {
+    [ChromeStyles['is-expanded']]: props.expanded
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
@@ -35,14 +34,13 @@ StyledSubNavItemHeader.propTypes = {
 };
 
 /** Accepts all `<div>` props */
-const StyledSubNavPanel = styled.div.attrs({
+const StyledSubNavPanel = styled.div.attrs(props => ({
   'data-garden-id': PANEL_COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(ChromeStyles['c-chrome__subnav__panel'], {
-      [ChromeStyles['is-hidden']]: props.isHidden
-    })
-})`
+  className: classNames(ChromeStyles['c-chrome__subnav__panel'], {
+    [ChromeStyles['is-hidden']]: props.isHidden
+  })
+}))`
   ${props => retrieveTheme(PANEL_COMPONENT_ID, props)};
 `;
 
@@ -93,7 +91,7 @@ export default class CollapsibleSubNavItem extends Component {
             <StyledSubNavPanel
               {...getPanelProps({
                 isHidden: !expanded,
-                innerRef: ref => {
+                ref: ref => {
                   this.panelRef = ref;
                 }
               })}

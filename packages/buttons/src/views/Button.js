@@ -20,10 +20,8 @@ const SIZE = {
   LARGE: 'large'
 };
 
-const StyledButton = styled.button.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: ({
+const StyledButton = styled.button.attrs(
+  ({
     danger,
     size,
     stretched,
@@ -37,8 +35,10 @@ const StyledButton = styled.button.attrs({
     basic,
     muted,
     link
-  }) =>
-    classNames(ButtonStyles['c-btn'], {
+  }) => ({
+    'data-garden-id': COMPONENT_ID,
+    'data-garden-version': PACKAGE_VERSION,
+    className: classNames(ButtonStyles['c-btn'], {
       // Danger styling
       [ButtonStyles['c-btn--danger']]: !disabled && danger,
 
@@ -61,27 +61,28 @@ const StyledButton = styled.button.attrs({
       [ButtonStyles['is-hovered']]: hovered,
       [ButtonStyles['is-selected']]: selected
     }),
-  type: 'button'
-})`
+    type: 'button'
+  })
+)`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
 /**
  * Accepts all `<button>` props
  */
-const Button = ({ focused, buttonRef, ...other }) => (
+const Button = React.forwardRef(({ focused, ...other }, ref) => (
   <KeyboardFocusContainer>
     {({ getFocusProps, keyboardFocused }) => (
       <StyledButton
         {...getFocusProps({
-          innerRef: buttonRef,
+          ref,
           ...other,
           focused: focused || keyboardFocused
         })}
       />
     )}
   </KeyboardFocusContainer>
-);
+));
 
 Button.propTypes = {
   /** Apply danger styling */
@@ -103,9 +104,7 @@ Button.propTypes = {
   focused: PropTypes.bool,
   hovered: PropTypes.bool,
   active: PropTypes.bool,
-  selected: PropTypes.bool,
-  /** Callback for reference of the native button element */
-  buttonRef: PropTypes.func
+  selected: PropTypes.bool
 };
 
 Button.hasType = () => Button;

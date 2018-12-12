@@ -5,12 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { Fragment } from 'react';
+import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Manager, Popper, Target } from 'react-popper';
-import { Portal } from 'react-portal';
-import Fragment from 'render-fragment';
 import {
   SelectionContainer,
   ControlledComponent,
@@ -137,7 +136,8 @@ class MenuContainer extends ControlledComponent {
   static defaultProps = {
     placement: 'bottom-start',
     eventsEnabled: true,
-    zIndex: 1000
+    zIndex: 1000,
+    appendToNode: document.body
   };
 
   constructor(...args) {
@@ -550,7 +550,7 @@ class MenuContainer extends ControlledComponent {
                 const outOfBoundaries = popperProps['data-x-out-of-boundaries'];
 
                 const menu = (
-                  <MenuWrapper innerRef={popperProps.ref} style={popperProps.style} zIndex={zIndex}>
+                  <MenuWrapper ref={popperProps.ref} style={popperProps.style} zIndex={zIndex}>
                     <FocusJailContainer focusOnMount={false}>
                       {({ getContainerProps: getFocusJailContainerProps, containerRef }) => (
                         <SelectionContainer
@@ -623,11 +623,7 @@ class MenuContainer extends ControlledComponent {
                   </MenuWrapper>
                 );
 
-                if (appendToNode) {
-                  return <Portal node={appendToNode}>{menu}</Portal>;
-                }
-
-                return <Portal>{menu}</Portal>;
+                return createPortal(menu, appendToNode);
               }}
             </Popper>
           )}

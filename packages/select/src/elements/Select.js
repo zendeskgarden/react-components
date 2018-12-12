@@ -211,6 +211,7 @@ export default class Select extends ControlledComponent {
       onKeyDown: selectOnKeyDown,
       zIndex,
       maxHeight,
+      onStateChange, // eslint-disable-line no-unused-vars
       ...otherSelectProps
     } = this.props;
     const { id, isOpen, focusedKey, selectedKey } = this.getControlledState();

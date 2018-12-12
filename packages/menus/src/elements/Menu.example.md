@@ -19,7 +19,7 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
       <Menu
         onChange={selectedKey => alert(selectedKey)}
         trigger={({ ref, isOpen }) => (
-          <Button innerRef={ref} active={isOpen}>
+          <Button ref={ref} active={isOpen}>
             Default Menu
           </Button>
         )}
@@ -34,7 +34,7 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
         small
         onChange={selectedKey => alert(selectedKey)}
         trigger={({ ref, isOpen }) => (
-          <Button innerRef={ref} size="small" active={isOpen}>
+          <Button ref={ref} size="small" active={isOpen}>
             Small Menu
           </Button>
         )}
@@ -58,7 +58,7 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
 <Menu
   onChange={selectedKey => alert(selectedKey)}
   trigger={({ ref, isOpen }) => (
-    <Button innerRef={ref} active={isOpen}>
+    <Button ref={ref} active={isOpen}>
       Disabled items
     </Button>
   )}
@@ -96,7 +96,7 @@ const getButtonText = isOpen => {
   onStateChange={setState}
   onChange={selectedKey => alert(selectedKey)}
   trigger={({ ref, isOpen }) => (
-    <Button innerRef={ref} active={isOpen}>
+    <Button ref={ref} active={isOpen}>
       {getButtonText(state.isOpen)}
     </Button>
   )}
@@ -120,7 +120,7 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
   placement="end"
   onChange={selectedKey => alert(`Item selected "${selectedKey}"`)}
   trigger={({ ref, isOpen }) => (
-    <Button innerRef={ref} active={isOpen}>
+    <Button ref={ref} active={isOpen}>
       Advanced Layout
     </Button>
   )}
@@ -209,7 +209,7 @@ retrieveMenuItems = (selectedKey, isLoading) => {
     setState({ selectedKey, focusedKey, isLoading });
   }}
   trigger={({ ref, isOpen }) => (
-    <Button innerRef={ref} active={isOpen}>
+    <Button ref={ref} active={isOpen}>
       Tree Layout
     </Button>
   )}
@@ -237,7 +237,7 @@ for (let x = 0; x < 150; x++) {
   maxHeight="250px"
   onChange={selectedKey => alert(selectedKey)}
   trigger={({ ref, isOpen }) => (
-    <Button innerRef={ref} active={isOpen}>
+    <Button ref={ref} active={isOpen}>
       Scrollable Menu
     </Button>
   )}

@@ -15,15 +15,14 @@ const COMPONENT_ID = 'chrome.chrome';
 /**
  * Accepts all `<div>` props
  */
-const Chrome = styled.div.attrs({
+const Chrome = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(ChromeStyles['c-chrome'], {
-      // RTL
-      [ChromeStyles['is-rtl']]: isRtl(props)
-    })
-})`
+  className: classNames(ChromeStyles['c-chrome'], {
+    // RTL
+    [ChromeStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

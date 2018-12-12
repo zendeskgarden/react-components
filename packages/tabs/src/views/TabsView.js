@@ -16,18 +16,17 @@ const COMPONENT_ID = 'tabs.tabs_view';
 /**
  * Accepts all `<div>` props
  */
-const TabsView = styled.div.attrs({
+const TabsView = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(TabStyles['c-tab'], {
-      // Vertical layout
-      [TabStyles['c-tab--block']]: props.vertical,
+  className: classNames(TabStyles['c-tab'], {
+    // Vertical layout
+    [TabStyles['c-tab--block']]: props.vertical,
 
-      // RTL
-      [TabStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL
+    [TabStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTheme('tabs.tabs', props)};
 `;
 

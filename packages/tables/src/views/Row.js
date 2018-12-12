@@ -15,20 +15,19 @@ import { composeEventHandlers } from '@zendeskgarden/react-selection';
 
 const COMPONENT_ID = 'tables.row';
 
-export const StyledRow = styled.div.attrs({
+export const StyledRow = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   tabIndex: -1,
   role: 'row',
-  className: props =>
-    classNames(TableStyles['c-table__row'], {
-      [TableStyles['c-table__row--stripe']]: props.striped,
+  className: classNames(TableStyles['c-table__row'], {
+    [TableStyles['c-table__row--stripe']]: props.striped,
 
-      [TableStyles['is-focused']]: props.focused,
-      [TableStyles['is-hovered']]: props.hovered,
-      [TableStyles['is-selected']]: props.selected
-    })
-})`
+    [TableStyles['is-focused']]: props.focused,
+    [TableStyles['is-hovered']]: props.hovered,
+    [TableStyles['is-selected']]: props.selected
+  })
+}))`
   /* stylelint-disable */
   display: flex !important;
   height: auto !important;
@@ -71,7 +70,7 @@ export default class Row extends Component {
           this.setState({ focused: false });
         })}
         focused={typeof propFocused === 'undefined' ? focused : propFocused}
-        innerRef={rowRef}
+        ref={rowRef}
         {...otherProps}
       />
     );

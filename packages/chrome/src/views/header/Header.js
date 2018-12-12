@@ -16,14 +16,13 @@ const COMPONENT_ID = 'chrome.header';
 /**
  * Accepts all `<header>` props
  */
-const Header = styled.header.attrs({
+const Header = styled.header.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(ChromeStyles['c-chrome__body__header'], {
-      [ChromeStyles['c-chrome__body__header--standalone']]: props.standalone
-    })
-})`
+  className: classNames(ChromeStyles['c-chrome__body__header'], {
+    [ChromeStyles['c-chrome__body__header--standalone']]: props.standalone
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

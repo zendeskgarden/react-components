@@ -23,18 +23,17 @@ const VALIDATION = {
 /**
  * Supports all `<div>` props
  */
-const Notification = styled(Well).attrs({
+const Notification = styled(Well).attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   floating: true,
-  className: props =>
-    classNames({
-      // Validation types
-      [CalloutStyles['c-callout--success']]: props.type === VALIDATION.SUCCESS,
-      [CalloutStyles['c-callout--warning']]: props.type === VALIDATION.WARNING,
-      [CalloutStyles['c-callout--error']]: props.type === VALIDATION.ERROR
-    })
-})`
+  className: classNames(props.className, {
+    // Validation types
+    [CalloutStyles['c-callout--success']]: props.type === VALIDATION.SUCCESS,
+    [CalloutStyles['c-callout--warning']]: props.type === VALIDATION.WARNING,
+    [CalloutStyles['c-callout--error']]: props.type === VALIDATION.ERROR
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

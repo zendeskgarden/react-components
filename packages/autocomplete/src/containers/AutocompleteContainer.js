@@ -5,13 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { Fragment } from 'react';
+import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import scrollTo from 'dom-helpers/util/scrollTo';
 import styled from 'styled-components';
 import { Manager, Target, Popper } from 'react-popper';
-import { Portal } from 'react-portal';
-import Fragment from 'render-fragment';
 import {
   ControlledComponent,
   composeEventHandlers,
@@ -38,7 +37,7 @@ class AutocompleteContainer extends ControlledComponent {
     /**
      * Appends the menu to the provided element
      */
-    appendToNode: PropTypes.node,
+    appendToNode: PropTypes.any,
     /**
      * @param {Object} renderProps
      * @param {Function} renderProps.getMenuProps - Props to be spread onto the containing menu element
@@ -125,7 +124,8 @@ class AutocompleteContainer extends ControlledComponent {
   static defaultProps = {
     placement: 'bottom-start',
     eventsEnabled: true,
-    zIndex: 1000
+    zIndex: 1000,
+    appendToNode: document.body
   };
 
   constructor(...args) {
@@ -521,7 +521,7 @@ class AutocompleteContainer extends ControlledComponent {
               );
             }}
           </Target>
-          <Portal node={appendToNode}>
+          {createPortal(
             <Popper
               placement={this.convertGardenToPopperPlacement()}
               eventsEnabled={eventsEnabled}
@@ -545,13 +545,14 @@ class AutocompleteContainer extends ControlledComponent {
                 }
 
                 return (
-                  <MenuWrapper innerRef={popperProps.ref} style={popperProps.style} zIndex={zIndex}>
+                  <MenuWrapper ref={popperProps.ref} style={popperProps.style} zIndex={zIndex}>
                     {menu}
                   </MenuWrapper>
                 );
               }}
-            </Popper>
-          </Portal>
+            </Popper>,
+            appendToNode
+          )}
         </Fragment>
       </Manager>
     );

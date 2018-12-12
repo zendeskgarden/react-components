@@ -61,20 +61,19 @@ const retrieveRowMinHeight = size => {
 /**
  * Accepts all `<div>` props
  */
-const Table = styled.div.attrs({
+const Table = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   role: 'grid',
-  className: props =>
-    classNames(TableStyles['c-table'], {
-      // Sizing
-      [TableStyles['c-table--sm']]: props.size === SIZE.SMALL,
-      [TableStyles['c-table--lg']]: props.size === SIZE.LARGE,
+  className: classNames(TableStyles['c-table'], {
+    // Sizing
+    [TableStyles['c-table--sm']]: props.size === SIZE.SMALL,
+    [TableStyles['c-table--lg']]: props.size === SIZE.LARGE,
 
-      // RTL
-      [TableStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL
+    [TableStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveSrollableStyling(props)};
   ${props => retrieveTheme(COMPONENT_ID, props)};
 

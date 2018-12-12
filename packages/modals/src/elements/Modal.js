@@ -6,8 +6,8 @@
  */
 
 import React, { Children, cloneElement, isValidElement } from 'react';
+import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
-import { Portal } from 'react-portal';
 import { ControlledComponent, IdManager } from '@zendeskgarden/react-selection';
 import { hasType } from '@zendeskgarden/react-utilities';
 import isWindow from 'dom-helpers/query/isWindow';
@@ -119,10 +119,10 @@ export default class Modal extends ControlledComponent {
           getContentProps,
           getCloseProps,
           modalRef
-        }) => (
-          <Portal>
+        }) =>
+          createPortal(
             <Backdrop {...getBackdropProps({ center, animate, ...backdropProps })}>
-              <ModalView {...getModalProps({ animate, ...modalProps })} innerRef={modalRef}>
+              <ModalView {...getModalProps({ animate, ...modalProps })} ref={modalRef}>
                 {Children.map(children, child => {
                   if (!isValidElement(child)) {
                     return child;
@@ -143,9 +143,10 @@ export default class Modal extends ControlledComponent {
                   return child;
                 })}
               </ModalView>
-            </Backdrop>
-          </Portal>
-        )}
+            </Backdrop>,
+            document.body
+          )
+        }
       </ModalContainer>
     );
   }

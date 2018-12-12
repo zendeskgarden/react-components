@@ -24,7 +24,7 @@ const IndexPage = () => (
     <Title>Home Page</Title>
     <Menu
       onChange={selectedKey => alert(selectedKey)} // eslint-disable-line no-alert
-      trigger={({ ref }) => <Button innerRef={ref}>Example Menu</Button>}
+      trigger={({ ref }) => <Button ref={ref}>Example Menu</Button>}
     >
       <Item key="item-1">1 - Item</Item>
       <Item key="item-2">2 - Item</Item>

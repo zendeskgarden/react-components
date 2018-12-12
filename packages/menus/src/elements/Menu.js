@@ -133,6 +133,8 @@ export default class Menu extends ControlledComponent {
       onChange,
       zIndex,
       maxHeight,
+      // eslint-disable-next-line no-unused-vars
+      onStateChange,
       ...menuProps
     } = this.props;
 

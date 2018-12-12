@@ -36,7 +36,7 @@ const OverflowMenu = () => (
       }
     }}
     trigger={({ ref, isOpen }) => {
-      const buttonProps = { innerRef: ref, active: isOpen, 'aria-label': 'Row Actions' };
+      const buttonProps = { ref, active: isOpen, 'aria-label': 'Row Actions' };
 
       if (isOpen) {
         buttonProps.focused = false;

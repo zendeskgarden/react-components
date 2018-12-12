@@ -15,15 +15,14 @@ const COMPONENT_ID = 'checkboxes.checkbox_view';
 /**
  * Used as a layout wrapper for other Checkbox views. Accepts all `<div>` props.
  */
-const CheckboxView = styled.div.attrs({
+const CheckboxView = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(CheckboxStyles['c-chk'], {
-      // RTL
-      [CheckboxStyles['is-rtl']]: isRtl(props)
-    })
-})`
+  className: classNames(CheckboxStyles['c-chk'], {
+    // RTL
+    [CheckboxStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

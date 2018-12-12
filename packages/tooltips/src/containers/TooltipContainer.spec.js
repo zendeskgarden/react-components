@@ -7,7 +7,6 @@
 
 import React from 'react';
 import { mountWithTheme } from '@zendeskgarden/react-testing';
-import { Portal } from 'react-portal';
 import TooltipContainer from './TooltipContainer';
 import {
   GARDEN_PLACEMENTS,
@@ -173,28 +172,6 @@ describe('TooltipContainer', () => {
       wrapper.update();
 
       expect(findTooltip(wrapper)).toHaveLength(0);
-    });
-
-    it('should render tooltip within portal if appendToBody is provided', () => {
-      wrapper = mountWithTheme(
-        <TooltipContainer
-          appendToBody
-          id="custom-test-id"
-          trigger={({ getTriggerProps }) => (
-            <div {...getTriggerProps({ 'data-test-id': 'trigger' })}>trigger</div>
-          )}
-        >
-          {({ getTooltipProps }) => (
-            <div {...getTooltipProps({ 'data-test-id': 'tooltip' })}>tooltip</div>
-          )}
-        </TooltipContainer>
-      );
-
-      findTrigger(wrapper).simulate('focus');
-
-      jest.runOnlyPendingTimers();
-      wrapper.update();
-      expect(wrapper.contains(Portal)).toBe(true);
     });
   });
 

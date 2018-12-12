@@ -5,12 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { Fragment } from 'react';
+import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Manager, Popper, Target } from 'react-popper';
-import { Portal } from 'react-portal';
-import Fragment from 'render-fragment';
 import {
   ControlledComponent,
   composeEventHandlers,
@@ -209,11 +208,7 @@ class TooltipContainer extends ControlledComponent {
               }
 
               const tooltip = (
-                <TooltipWrapper
-                  innerRef={popperProps.ref}
-                  style={popperProps.style}
-                  zIndex={zIndex}
-                >
+                <TooltipWrapper ref={popperProps.ref} style={popperProps.style} zIndex={zIndex}>
                   {render({
                     getTooltipProps: props => this.getTooltipProps(props),
                     isVisible,
@@ -225,7 +220,7 @@ class TooltipContainer extends ControlledComponent {
               );
 
               if (appendToBody) {
-                return <Portal>{tooltip}</Portal>;
+                return createPortal(tooltip, document.body);
               }
 
               return tooltip;

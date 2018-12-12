@@ -15,17 +15,16 @@ import ChromeStyles from '@zendeskgarden/css-chrome';
 
 const COMPONENT_ID = 'chrome.subnav_item';
 
-const StyledSubNavItem = styled.button.attrs({
+const StyledSubNavItem = styled.button.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(ChromeStyles['c-chrome__subnav__item'], {
-      // State
-      [ChromeStyles['is-current']]: props.current,
-      [ChromeStyles['is-hovered']]: props.hovered,
-      [ChromeStyles['is-focused']]: props.focused
-    })
-})`
+  className: classNames(ChromeStyles['c-chrome__subnav__item'], {
+    // State
+    [ChromeStyles['is-current']]: props.current,
+    [ChromeStyles['is-hovered']]: props.hovered,
+    [ChromeStyles['is-focused']]: props.focused
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

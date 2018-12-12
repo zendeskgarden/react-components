@@ -15,22 +15,21 @@ import { retrieveTheme } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'buttons.anchor';
 
-const StyledAnchor = styled.a.attrs({
+const StyledAnchor = styled.a.attrs(({ danger, disabled, focused, hovered, active, selected }) => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: ({ danger, disabled, focused, hovered, active, selected }) =>
-    classNames(ButtonStyles['c-btn'], ButtonStyles['c-btn--anchor'], {
-      // Danger styling
-      [ButtonStyles['c-btn--danger']]: danger,
+  className: classNames(ButtonStyles['c-btn'], ButtonStyles['c-btn--anchor'], {
+    // Danger styling
+    [ButtonStyles['c-btn--danger']]: danger,
 
-      // States
-      [ButtonStyles['is-active']]: active,
-      [ButtonStyles['is-disabled']]: disabled,
-      [ButtonStyles['is-focused']]: focused,
-      [ButtonStyles['is-hovered']]: hovered,
-      [ButtonStyles['is-selected']]: selected
-    })
-})`
+    // States
+    [ButtonStyles['is-active']]: active,
+    [ButtonStyles['is-disabled']]: disabled,
+    [ButtonStyles['is-focused']]: focused,
+    [ButtonStyles['is-hovered']]: hovered,
+    [ButtonStyles['is-selected']]: selected
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

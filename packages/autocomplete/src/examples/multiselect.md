@@ -232,7 +232,7 @@ const MoreAnchor = styled(Anchor)`
                         getFieldInputProps(
                           {
                             bare: true,
-                            innerRef: inputRef,
+                            ref: inputRef,
                             value: state.inputValue,
                             onChange: e => {
                               setState({ inputValue: e.target.value });

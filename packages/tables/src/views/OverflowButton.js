@@ -18,21 +18,20 @@ const COMPONENT_ID = 'tables.overflow_button';
 /**
  * Accepts all `<button>` props
  */
-export const StyledOverflowButton = styled.button.attrs({
+export const StyledOverflowButton = styled.button.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   type: 'button',
-  className: props =>
-    classNames(TableStyles['c-table__row__cell__overflow'], {
-      [TableStyles['is-hovered']]: props.hovered,
-      [TableStyles['is-active']]: props.active,
-      [TableStyles['is-focused']]: props.focused
-    })
-})`
+  className: classNames(TableStyles['c-table__row__cell__overflow'], {
+    [TableStyles['is-hovered']]: props.hovered,
+    [TableStyles['is-active']]: props.active,
+    [TableStyles['is-focused']]: props.focused
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
-export default class OverflowButton extends Component {
+class StatefulOverflowButton extends Component {
   static propTypes = {
     hovered: PropTypes.bool,
     active: PropTypes.bool,
@@ -44,7 +43,7 @@ export default class OverflowButton extends Component {
   };
 
   render() {
-    const { onFocus, onBlur, ...other } = this.props; // eslint-disable-line react/prop-types
+    const { onFocus, onBlur, forwardedRef, ...other } = this.props; // eslint-disable-line react/prop-types
     const { focused } = this.state;
 
     return (
@@ -56,6 +55,7 @@ export default class OverflowButton extends Component {
           this.setState({ focused: false });
         })}
         focused={focused}
+        ref={forwardedRef}
         {...other}
       >
         &nbsp;
@@ -63,3 +63,7 @@ export default class OverflowButton extends Component {
     );
   }
 }
+
+export default React.forwardRef((props, ref) => (
+  <StatefulOverflowButton {...props} forwardedRef={ref} />
+));

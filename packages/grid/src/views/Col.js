@@ -58,16 +58,15 @@ const retrieveColClassNames = ({
 /**
  * Accepts all `<div>` props
  */
-const Col = styled.div.attrs({
+const Col = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(...retrieveColClassNames(props), {
-      [GridStyles[`align-self-${props.alignSelf}`]]: props.alignSelf,
-      [GridStyles[`justify-content-${props.justifyContent}`]]: props.justifyContent,
-      [GridStyles[`order-${props.order}`]]: props.order
-    })
-})`
+  className: classNames(...retrieveColClassNames(props), {
+    [GridStyles[`align-self-${props.alignSelf}`]]: props.alignSelf,
+    [GridStyles[`justify-content-${props.justifyContent}`]]: props.justifyContent,
+    [GridStyles[`order-${props.order}`]]: props.order
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

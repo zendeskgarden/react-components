@@ -43,7 +43,7 @@ const increment = (num = 0) => setState({ count: state.count + num });
           onStateChange={newState => setState(newState)}
           trigger={({ ref }) => (
             <ChevronButton
-              buttonRef={ref}
+              ref={ref}
               rotated={state.isOpen}
               active={state.isOpen}
               aria-label="Other Options"
@@ -104,7 +104,7 @@ const increment = (num = 0) => setState({ count: state.count + num });
             <Button onClick={() => increment(1)}>Add 1</Button>
             <ChevronButton
               {...getTriggerProps({
-                buttonRef: triggerRef,
+                ref: triggerRef,
                 active: state.isOpen,
                 rotated: state.isOpen,
                 ['aria-label']: 'Other Options'
