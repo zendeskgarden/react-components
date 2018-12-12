@@ -18,11 +18,11 @@
     "@zendeskgarden/react-theming": "../../packages/theming",
     "@zendeskgarden/svg-icons": "^4.4.0",
     "babel-plugin-inline-react-svg": "^0.5.3",
-    "babel-plugin-styled-components": "^1.5.1",
+    "babel-plugin-styled-components": "^1.9.4",
     "next": "^6.1.1",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "styled-components": "^3.3.3"
+    "styled-components": "^4.1.2"
   }
 }
