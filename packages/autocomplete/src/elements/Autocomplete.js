@@ -44,6 +44,10 @@ const StyledInput = styled(Input)`
   `}
 `;
 
+const StyledFauxInput = styled(FauxInput)`
+  cursor: text;
+`;
+
 export default class Autocomplete extends Component {
   static propTypes = {
     label: PropTypes.string,
@@ -78,6 +82,7 @@ export default class Autocomplete extends Component {
   state = {
     isOpen: false,
     isFocused: false,
+    isHovered: false,
     focusedKey: undefined,
     inputValue: '',
     value: undefined
@@ -143,7 +148,7 @@ export default class Autocomplete extends Component {
       small,
       validation
     } = this.props;
-    const { isOpen, focusedKey, isFocused, inputValue } = this.state;
+    const { isOpen, focusedKey, isFocused, isHovered, inputValue } = this.state;
 
     const optionDictionary = options.reduce((dictionary, option) => {
       dictionary[option.value] = option.label;
@@ -155,7 +160,24 @@ export default class Autocomplete extends Component {
       <FieldContainer>
         {({ getLabelProps, getInputProps: getFieldInputProps, getHintProps }) => (
           <TextGroup>
-            {label && <Label {...getLabelProps()}>{label}</Label>}
+            {label && (
+              <Label
+                {...getLabelProps({
+                  onClick: () => {
+                    this.inputRef && this.inputRef.focus();
+                    this.setState({ isOpen: true });
+                  },
+                  onMouseEnter: () => {
+                    this.setState({ isHovered: true });
+                  },
+                  onMouseLeave: () => {
+                    this.setState({ isHovered: false });
+                  }
+                })}
+              >
+                {label}
+              </Label>
+            )}
             {hint && <Hint {...getHintProps()}>{hint}</Hint>}
             <AutocompleteContainer
               isOpen={isOpen}
@@ -179,6 +201,7 @@ export default class Autocomplete extends Component {
                 let triggerProps = getTriggerProps({
                   open: isOpen,
                   focused: isFocused || isOpen,
+                  hovered: isHovered,
                   select: true,
                   small,
                   validation,
@@ -194,7 +217,7 @@ export default class Autocomplete extends Component {
                 }
 
                 return (
-                  <FauxInput {...triggerProps}>
+                  <StyledFauxInput {...triggerProps}>
                     {!isOpen && <span>{optionDictionary[selectedValue]}</span>}
                     <StyledInput
                       {...getInputProps(
@@ -202,6 +225,7 @@ export default class Autocomplete extends Component {
                           {
                             bare: true,
                             innerRef: ref => {
+                              this.inputRef = ref;
                               triggerInputRef(ref);
                               inputRef && inputRef(ref);
                             },
@@ -232,7 +256,7 @@ export default class Autocomplete extends Component {
                         )
                       )}
                     />
-                  </FauxInput>
+                  </StyledFauxInput>
                 );
               }}
             >
