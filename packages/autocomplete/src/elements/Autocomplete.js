@@ -31,21 +31,19 @@ const StyledMenuOverflow = styled.div`
 `;
 
 const StyledInput = styled(Input)`
-  ${props =>
-    !props.isOpen &&
-    `
-    && {
-      opacity: 0;
-      height: 0;
-      min-height: 0;
-      width: 0;
-      min-width: 0;
-    }
-  `}
+  && {
+    display: inline-block;
+    ${props => !props.isOpen && 'width: 1px;'}
+  }
 `;
 
 const StyledFauxInput = styled(FauxInput)`
   cursor: text;
+`;
+
+const StyledValueWrapper = styled.div`
+  display: inline-block;
+  vertical-align: middle;
 `;
 
 export default class Autocomplete extends Component {
@@ -164,8 +162,10 @@ export default class Autocomplete extends Component {
               <Label
                 {...getLabelProps({
                   onClick: () => {
-                    this.inputRef && this.inputRef.focus();
-                    this.setState({ isOpen: true });
+                    if (!disabled) {
+                      this.inputRef && this.inputRef.focus();
+                      this.setState({ isOpen: true });
+                    }
                   },
                   onMouseEnter: () => {
                     this.setState({ isHovered: true });
@@ -213,17 +213,25 @@ export default class Autocomplete extends Component {
                 });
 
                 if (disabled) {
-                  triggerProps = { disabled: true, small, validation };
+                  triggerProps = {
+                    disabled: true,
+                    small,
+                    validation,
+                    select: true,
+                    'aria-label': ariaLabel
+                  };
                 }
 
                 return (
                   <StyledFauxInput {...triggerProps}>
-                    {!isOpen && <span>{optionDictionary[selectedValue]}</span>}
                     <StyledInput
                       {...getInputProps(
                         getFieldInputProps(
                           {
                             bare: true,
+                            autocomplete: 'off',
+                            autocapitalize: 'off',
+                            autocorrect: 'off',
                             innerRef: ref => {
                               this.inputRef = ref;
                               triggerInputRef(ref);
@@ -231,7 +239,7 @@ export default class Autocomplete extends Component {
                             },
                             value: inputValue,
                             isOpen,
-                            placeholder,
+                            placeholder: isOpen ? placeholder : undefined,
                             onChange: e => {
                               this.setState({ inputValue: e.target.value });
                             },
@@ -256,6 +264,9 @@ export default class Autocomplete extends Component {
                         )
                       )}
                     />
+                    {!isOpen && (
+                      <StyledValueWrapper>{optionDictionary[selectedValue]}</StyledValueWrapper>
+                    )}
                   </StyledFauxInput>
                 );
               }}

@@ -1,29 +1,31 @@
 ### Basic Example
 
 ```jsx
+const items = ['Option 1', 'Option 2', 'Option 3'];
+const options = [];
+
+for (let x = 0; x < items.length; x++) {
+  options.push({
+    value: `value-${x}`,
+    label: items[x]
+  });
+}
+
+const optionsMap = options.reduce((dictionary, option) => {
+  dictionary[option.value] = option.label;
+  return dictionary;
+}, {});
+
 initialState = {
-  selectedValue: 'option-1'
+  selectedValue: options[0].value
 };
 
 <Autocomplete
   label="Basic Autocomplete"
-  placeholder="Filter values"
+  placeholder={optionsMap[state.selectedValue]}
   selectedValue={state.selectedValue}
   onChange={selectedValue => setState({ selectedValue })}
-  options={[
-    {
-      value: 'option-1',
-      label: 'Option 1'
-    },
-    {
-      value: 'option-2',
-      label: 'Option 2'
-    },
-    {
-      value: 'option-3',
-      label: 'Option 3'
-    }
-  ]}
+  options={options}
 />;
 ```
 
@@ -73,9 +75,7 @@ const optionsMap = options.reduce((dictionary, option) => {
 }, {});
 
 initialState = {
-  selectedValue: options[0].value,
-  inputValue: '',
-  placeholder: options[0].value
+  selectedValue: options[0].value
 };
 
 <Autocomplete
