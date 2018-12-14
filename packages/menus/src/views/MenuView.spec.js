@@ -35,18 +35,6 @@ describe('MenuView', () => {
 
       expect(wrapper).toMatchSnapshot();
     });
-
-    it('renders custom top animation correctly', () => {
-      const wrapper = mountWithTheme(<MenuView animate placement="top" />);
-
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('renders custom left animation correctly', () => {
-      const wrapper = mountWithTheme(<MenuView animate placement="left" />);
-
-      expect(wrapper).toMatchSnapshot();
-    });
   });
 
   describe('Directional styling', () => {
