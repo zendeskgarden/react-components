@@ -1,31 +1,28 @@
 ### Basic Example
 
 ```jsx
-const items = ['Option 1', 'Option 2', 'Option 3'];
-const options = [];
-
-for (let x = 0; x < items.length; x++) {
-  options.push({
-    value: `value-${x}`,
-    label: items[x]
-  });
-}
-
-const optionsMap = options.reduce((dictionary, option) => {
-  dictionary[option.value] = option.label;
-  return dictionary;
-}, {});
-
 initialState = {
-  selectedValue: options[0].value
+  selectedValue: 'option-1'
 };
 
 <Autocomplete
   label="Basic Autocomplete"
-  placeholder={optionsMap[state.selectedValue]}
   selectedValue={state.selectedValue}
   onChange={selectedValue => setState({ selectedValue })}
-  options={options}
+  options={[
+    {
+      value: 'option-1',
+      label: 'Option 1'
+    },
+    {
+      value: 'option-2',
+      label: 'Option 2'
+    },
+    {
+      value: 'option-3',
+      label: 'Option 3'
+    }
+  ]}
 />;
 ```
 
@@ -69,11 +66,6 @@ for (let x = 0; x < phonetics.length; x++) {
   });
 }
 
-const optionsMap = options.reduce((dictionary, option) => {
-  dictionary[option.value] = option.label;
-  return dictionary;
-}, {});
-
 initialState = {
   selectedValue: options[0].value
 };
@@ -81,7 +73,6 @@ initialState = {
 <Autocomplete
   label="Example Autocomplete"
   maxHeight="300px"
-  placeholder={optionsMap[state.selectedValue]}
   selectedValue={state.selectedValue}
   onChange={selectedValue => setState({ selectedValue })}
   options={options}

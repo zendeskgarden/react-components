@@ -28,10 +28,6 @@ module.exports = {
       name: 'Examples',
       sections: [
         {
-          name: 'Autocomplete',
-          content: '../../packages/autocomplete/src/examples/autocomplete.md'
-        },
-        {
           name: 'Multi-Select',
           content: '../../packages/autocomplete/src/examples/multiselect.md'
         }

@@ -31,10 +31,17 @@ const StyledMenuOverflow = styled.div`
 `;
 
 const StyledInput = styled(Input)`
-  && {
-    display: inline-block;
-    ${props => !props.isOpen && 'width: 1px;'}
-  }
+  ${props =>
+    !props.isOpen &&
+    `
+    && {
+      opacity: 0;
+      height: 0;
+      min-height: 0;
+      width: 0;
+      min-width: 0;
+    }
+  `}
 `;
 
 const StyledFauxInput = styled(FauxInput)`
@@ -224,6 +231,9 @@ export default class Autocomplete extends Component {
 
                 return (
                   <StyledFauxInput {...triggerProps}>
+                    {!isOpen && (
+                      <StyledValueWrapper>{optionDictionary[selectedValue]}</StyledValueWrapper>
+                    )}
                     <StyledInput
                       {...getInputProps(
                         getFieldInputProps(
@@ -239,7 +249,7 @@ export default class Autocomplete extends Component {
                             },
                             value: inputValue,
                             isOpen,
-                            placeholder: isOpen ? placeholder : undefined,
+                            placeholder,
                             onChange: e => {
                               this.setState({ inputValue: e.target.value });
                             },
@@ -264,9 +274,6 @@ export default class Autocomplete extends Component {
                         )
                       )}
                     />
-                    {!isOpen && (
-                      <StyledValueWrapper>{optionDictionary[selectedValue]}</StyledValueWrapper>
-                    )}
                   </StyledFauxInput>
                 );
               }}
