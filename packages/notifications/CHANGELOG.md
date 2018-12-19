@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-notifications@3.1.21...@zendeskgarden/react-notifications@3.2.0) (2018-12-19)
+
+
+### Features
+
+* update SVG icons ([#238](https://github.com/zendeskgarden/react-components/issues/238)) ([22bed76](https://github.com/zendeskgarden/react-components/commit/22bed76))
+
+
+
+
+
 ## [3.1.21](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-notifications@3.1.20...@zendeskgarden/react-notifications@3.1.21) (2018-12-10)
 
 

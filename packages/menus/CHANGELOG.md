@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.3.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@4.2.1...@zendeskgarden/react-menus@4.3.0) (2018-12-19)
+
+
+### Features
+
+* update SVG icons ([#238](https://github.com/zendeskgarden/react-components/issues/238)) ([22bed76](https://github.com/zendeskgarden/react-components/commit/22bed76))
+
+
+
+
+
 ## [4.2.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@4.2.0...@zendeskgarden/react-menus@4.2.1) (2018-12-10)
 
 
