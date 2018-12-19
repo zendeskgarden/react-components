@@ -35,7 +35,7 @@ const InlineMenuView = styled(MenuView)`
 ### Types
 
 ```jsx
-const GroupIcon = require('@zendeskgarden/svg-icons/src/14/group.svg').default;
+const GroupIcon = require('@zendeskgarden/svg-icons/src/16/user-group-stroke.svg').default;
 
 /**
  * Only necessary to position within documentation

@@ -1,9 +1,9 @@
 ```jsx
 const { Toggle, Label } = require('@zendeskgarden/react-toggles/src');
 const SupportIcon = require('@zendeskgarden/svg-icons/src/26/relationshape-support.svg').default;
-const HelpIcon = require('@zendeskgarden/svg-icons/src/14/support.svg').default;
-const MenuTrayIcon = require('@zendeskgarden/svg-icons/src/14/menu-tray.svg').default;
-const PersonIcon = require('@zendeskgarden/svg-icons/src/14/person.svg').default;
+const HelpIcon = require('@zendeskgarden/svg-icons/src/16/lifesaver-stroke.svg').default;
+const MenuTrayIcon = require('@zendeskgarden/svg-icons/src/16/grid-2x2-stroke.svg').default;
+const PersonIcon = require('@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg').default;
 
 initialState = {
   standalone: true
