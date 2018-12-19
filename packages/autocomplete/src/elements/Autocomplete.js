@@ -9,7 +9,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { MenuView, Item } from '@zendeskgarden/react-menus';
-import { TextGroup, Label, FauxInput, Input, Hint } from '@zendeskgarden/react-textfields';
+import { TextGroup, Label, FauxInput, Input, Hint, Message } from '@zendeskgarden/react-textfields';
 import { FieldContainer, KEY_CODES } from '@zendeskgarden/react-selection';
 import AutocompleteContainer from '../containers/AutocompleteContainer';
 
@@ -303,7 +303,7 @@ export default class Autocomplete extends Component {
                 );
               }}
             </AutocompleteContainer>
-            {message}
+            {message && <Message validation={validation}>{message}</Message>}
           </TextGroup>
         )}
       </FieldContainer>
