@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.20](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-grid@1.1.19...@zendeskgarden/react-grid@1.1.20) (2018-12-21)
+
+**Note:** Version bump only for package @zendeskgarden/react-grid
+
+
+
+
+
 ## [1.1.19](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-grid@1.1.18...@zendeskgarden/react-grid@1.1.19) (2018-12-10)
 
 

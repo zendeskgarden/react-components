@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.8](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-loaders@0.2.7...@zendeskgarden/react-loaders@0.2.8) (2018-12-21)
+
+**Note:** Version bump only for package @zendeskgarden/react-loaders
+
+
+
+
+
 ## [0.2.7](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-loaders@0.2.6...@zendeskgarden/react-loaders@0.2.7) (2018-12-10)
 
 
