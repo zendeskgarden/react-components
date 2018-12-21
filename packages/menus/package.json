@@ -38,7 +38,6 @@
   "devDependencies": {
     "@zendeskgarden/css-arrows": "3.1.1",
     "@zendeskgarden/css-menus": "8.1.1",
-    "@zendeskgarden/css-variables": "5.2.3",
     "@zendeskgarden/react-theming": "^3.2.1",
     "@zendeskgarden/svg-icons": "5.0.0"
   },
