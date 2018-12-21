@@ -7,12 +7,11 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import classNames from 'classnames';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import MenuStyles from '@zendeskgarden/css-menus';
 import ArrowStyles from '@zendeskgarden/css-arrows';
-import { zdSpacing } from '@zendeskgarden/css-variables';
 
 const COMPONENT_ID = 'menus.menu_view';
 
@@ -31,26 +30,6 @@ const PLACEMENT = {
   LEFT_START: 'left-start',
   LEFT_END: 'left-end'
 };
-
-const topAnimation = keyframes`
-  0% {
-    margin-top: ${zdSpacing};
-  }
-
-  100% {
-    margin-top: 8px;
-  }
-`;
-
-const leftAnimation = keyframes`
-  0% {
-    margin-left: ${zdSpacing};
-  }
-
-  100% {
-    margin-left: 8px;
-  }
-`;
 
 const shouldShowArrow = ({ arrow, placement }) => {
   return arrow && placement;
@@ -95,46 +74,6 @@ const retrieveMenuMargin = ({ arrow, placement }) => {
 };
 
 /**
- * We must provide our own top and left animation to allow
- * Popper.js to position correctly
- */
-const retrieveAnimation = ({ animate, placement }) => {
-  if (!animate) {
-    return '';
-  }
-
-  if (
-    placement === PLACEMENT.TOP ||
-    placement === PLACEMENT.TOP_START ||
-    placement === PLACEMENT.TOP_END
-  ) {
-    return `animation: ${topAnimation}`;
-  }
-
-  if (
-    placement === PLACEMENT.LEFT ||
-    placement === PLACEMENT.LEFT_START ||
-    placement === PLACEMENT.LEFT_END
-  ) {
-    return `animation: ${leftAnimation}`;
-  }
-
-  return '';
-};
-
-const shouldAnimate = ({ animate, placement }) => {
-  return (
-    animate &&
-    placement !== PLACEMENT.TOP &&
-    placement !== PLACEMENT.TOP_START &&
-    placement !== PLACEMENT.TOP_END &&
-    placement !== PLACEMENT.LEFT &&
-    placement !== PLACEMENT.LEFT_START &&
-    placement !== PLACEMENT.LEFT_END
-  );
-};
-
-/**
  * Accepts all `<ul>` props
  */
 const StyledMenuView = styled.ul.attrs({
@@ -164,7 +103,7 @@ const StyledMenuView = styled.ul.attrs({
         props.placement === PLACEMENT.BOTTOM_END,
 
       // State
-      [MenuStyles['is-open']]: shouldAnimate(props),
+      [MenuStyles['is-open']]: props.animate,
       [MenuStyles['is-hidden']]: props.hidden,
 
       // Arrows
@@ -187,7 +126,6 @@ const StyledMenuView = styled.ul.attrs({
     })
 })`
   && {
-    ${retrieveAnimation};
     position: relative;
   }
 
