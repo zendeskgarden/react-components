@@ -1,0 +1,962 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for selection/src/containers/SelectionContainer.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">selection/src/containers</a> SelectionContainer.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>81/81</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">94.44% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>51/54</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>23/23</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>81/81</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">76x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">174x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">174x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">174x</span>
+<span class="cline-any cline-yes">174x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-yes">68x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">68x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">90x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">90x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">310x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">310x</span>
+<span class="cline-any cline-yes">310x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">310x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">61x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">61x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">31x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1567x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1189x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1187x</span>
+<span class="cline-any cline-yes">1187x</span>
+<span class="cline-any cline-yes">1187x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1187x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1187x</span>
+<span class="cline-any cline-yes">1187x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1187x</span>
+<span class="cline-any cline-yes">136x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1187x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1187x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">36x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">322x</span>
+<span class="cline-any cline-yes">322x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">322x</span>
+<span class="cline-any cline-yes">322x</span>
+<span class="cline-any cline-yes">322x</span>
+<span class="cline-any cline-yes">322x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">322x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+&nbsp;
+import PropTypes from 'prop-types';
+import scrollTo from 'dom-helpers/util/scrollTo';
+import { isRtl, withTheme, getDocument } from '@zendeskgarden/react-theming';
+&nbsp;
+import ControlledComponent from '../utils/ControlledComponent';
+import composeEventHandlers from '../utils/composeEventHandlers';
+import IdManager from '../utils/IdManager';
+import KEY_CODES from '../constants/KEY_CODES';
+import SingleSelectionModel from '../utils/SingleSelectionModel';
+&nbsp;
+const KEYBOARD_DIRECTION = {
+  HORIZONTAL: 'horizontal',
+  VERTICAL: 'vertical',
+  BOTH: 'both'
+};
+&nbsp;
+export class SelectionContainer extends ControlledComponent {
+  static propTypes = {
+    /**
+     * @param {Object} renderProps
+     * @param {Function} renderProps.getContainerProps - Props to be spread onto container element
+     * @param {Function} renderProps.getItemProps - Props to be spread onto each selectable element. `({item})` is required. Use `index` attribute for custom ordering.
+     * @param {Any} renderProps.focusedKey - Unique key of currently focused item
+     * @param {Any} renderProps.selectedKey - Unique key of currently selected item
+     * @param {Function} renderProps.focusSelectionModel - The SingleSelectionModel that controls the focus state
+     */
+    children: PropTypes.func,
+    /**
+     * Whether the up/down or left/right arrow keys should be used for keyboard navigation
+     */
+    direction: PropTypes.oneOf([
+      KEYBOARD_DIRECTION.HORIZONTAL,
+      KEYBOARD_DIRECTION.VERTICAL,
+      KEYBOARD_DIRECTION.BOTH
+    ]),
+    /**
+     * Default item to assign as focused if container is focused (-1 is equivalent to last item)
+     */
+    defaultFocusedIndex: PropTypes.number,
+    /**
+     * Unique key of currently focused item
+     */
+    focusedKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    /**
+     * Unique key of currently selected item
+     */
+    selectedKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    /**
+     * Callback for all state objects. Used when in 'controlled' mode.
+     **/
+    onStateChange: PropTypes.func,
+    /**
+     * The root ID to use for descendants. A unique ID is created if none is provided.
+     **/
+    id: PropTypes.string,
+    /**
+     * Same as children
+     **/
+    render: PropTypes.func
+  };
+&nbsp;
+  static defaultProps = {
+    defaultFocusedIndex: 0,
+    direction: KEYBOARD_DIRECTION.HORIZONTAL
+  };
+&nbsp;
+  constructor(...args) {
+    super(...args);
+&nbsp;
+    this.state = {
+      focusedKey: undefined,
+      selectedKey: undefined,
+      id: IdManager.generateId('garden-selection-container')
+    };
+&nbsp;
+    this.focusSelectionModel = new SingleSelectionModel();
+    this.focusSelectionModel.onSelectionChanged = this.onFocusSelectionModelChange;
+  }
+&nbsp;
+  componentDidUpdate(prevProps, prevState) {
+    const current = this.props.focusedKey === undefined ? this.state : this.props;
+    const prev = prevProps.focusedKey === undefined ? prevState : prevProps;
+    const doc = getDocument ? getDocument(this.props) : <span class="branch-1 cbranch-no" title="branch not covered" >document;</span>
+&nbsp;
+    /**
+     * We must programatically scroll the newly focused element into view.
+     * Side-effect of the `aria-activedescendant` accessibility strategy.
+     */
+    if (typeof current.focusedKey !== 'undefined' &amp;&amp; current.focusedKey !== prev.focusedKey) {
+      const itemNode = doc.getElementById(this.getItemId(current.focusedKey));
+&nbsp;
+      /* istanbul ignore if */
+      if (itemNode) {
+        scrollTo(itemNode);
+      }
+    }
+  }
+&nbsp;
+  keyDownEventHandlers = {
+    [KEY_CODES.ENTER]: event =&gt; {
+      event.preventDefault();
+      const { focusedKey } = this.getControlledState();
+&nbsp;
+      this.selectItem(focusedKey, focusedKey);
+    },
+    [KEY_CODES.SPACE]: event =&gt; {
+      event.preventDefault();
+      const { focusedKey } = this.getControlledState();
+&nbsp;
+      this.selectItem(focusedKey, focusedKey);
+    },
+    [KEY_CODES.END]: event =&gt; {
+      event.preventDefault();
+      this.focusSelectionModel.selectLast();
+    },
+    [KEY_CODES.HOME]: event =&gt; {
+      event.preventDefault();
+      this.focusSelectionModel.selectFirst();
+    },
+    [KEY_CODES.LEFT]: event =&gt; {
+      const { direction } = this.props;
+&nbsp;
+      if (direction !== KEYBOARD_DIRECTION.VERTICAL) {
+        event.preventDefault();
+&nbsp;
+        if (isRtl(this.props)) {
+          this.focusSelectionModel.selectNext();
+        } else {
+          this.focusSelectionModel.selectPrevious();
+        }
+      }
+    },
+    [KEY_CODES.RIGHT]: event =&gt; {
+      const { direction } = this.props;
+&nbsp;
+      if (direction !== KEYBOARD_DIRECTION.VERTICAL) {
+        event.preventDefault();
+&nbsp;
+        if (isRtl(this.props)) {
+          this.focusSelectionModel.selectPrevious();
+        } else {
+          this.focusSelectionModel.selectNext();
+        }
+      }
+    },
+    [KEY_CODES.UP]: event =&gt; {
+      const { direction } = this.props;
+&nbsp;
+      if (direction !== KEYBOARD_DIRECTION.HORIZONTAL) {
+        event.preventDefault();
+        this.focusSelectionModel.selectPrevious();
+      }
+    },
+    [KEY_CODES.DOWN]: event =&gt; {
+      const { direction } = this.props;
+&nbsp;
+      if (direction !== KEYBOARD_DIRECTION.HORIZONTAL) {
+        event.preventDefault();
+        this.focusSelectionModel.selectNext();
+      }
+    }
+  };
+&nbsp;
+  onFocusSelectionModelChange = ({ newSelection }) =&gt; {
+    const focusedKey = this.indexKeyMap[newSelection];
+&nbsp;
+    this.setControlledState({ focusedKey });
+  };
+&nbsp;
+  selectItem = (selectedKey, focusedKey) =&gt; {
+    this.setControlledState({ selectedKey, focusedKey });
+  };
+&nbsp;
+  getContainerId = () =&gt; `${this.getControlledState().id}--container`;
+&nbsp;
+  getContainerProps = ({
+    id = this.getContainerId(),
+    role = 'listbox',
+    tabIndex = 0,
+    onKeyDown,
+    onFocus,
+    onBlur,
+    onMouseDown,
+    ...other
+  } = {}) =&gt; {
+    const { focusedKey } = this.getControlledState();
+    const { defaultFocusedIndex } = this.props;
+&nbsp;
+    return {
+      id,
+      role,
+      tabIndex,
+      'aria-activedescendant': this.getItemId(focusedKey),
+      onKeyDown: composeEventHandlers(onKeyDown, event =&gt; {
+        const keyHandler = this.keyDownEventHandlers[event.keyCode];
+&nbsp;
+        keyHandler &amp;&amp; keyHandler(event);
+      }),
+      onFocus: composeEventHandlers(onFocus, () =&gt; {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (!this.containerMouseDown) {
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof focusedKey === 'undefined') {
+            let selectedIndex = this.keyIndexMap[this.getControlledState().selectedKey];
+&nbsp;
+            if (typeof selectedIndex === 'undefined') {
+              selectedIndex =
+                defaultFocusedIndex === -1
+                  ? (selectedIndex = Object.keys(this.keyIndexMap).length - 1)
+                  : defaultFocusedIndex;
+            }
+&nbsp;
+            this.focusSelectionModel.select(selectedIndex);
+          }
+        }
+      }),
+      onMouseDown: composeEventHandlers(onMouseDown, () =&gt; {
+        this.containerMouseDown = true;
+&nbsp;
+        /**
+         * This is necessary to recognize focus events caused by keyboard vs mouseDown.
+         * Due to React event ordering this is always called before onFocus.
+         */
+        setTimeout(() =&gt; {
+          this.containerMouseDown = false;
+        }, 0);
+      }),
+      onBlur: composeEventHandlers(onBlur, () =&gt; {
+        this.focusSelectionModel.clearSelection();
+      }),
+      ...other
+    };
+  };
+&nbsp;
+  getItemId = key =&gt;
+    typeof key === 'undefined' ? null : `${this.getControlledState().id}--item-${key}`;
+&nbsp;
+  getItemProps = (
+    { key, id = this.getItemId(key), role = 'option', onClick, index, ...props } = {},
+    { selectedAriaKey = 'aria-selected' } = {}
+  ) =&gt; {
+    if (typeof key === 'undefined') {
+      throw new Error(
+        '"key" must be defined within getItemProps regardless of being used within a .map()'
+      );
+    }
+&nbsp;
+    const { selectedKey, focusedKey } = this.getControlledState();
+    const isSelectedItem = key === selectedKey;
+    const isFocusedItem = key === focusedKey;
+&nbsp;
+    const currentIndex = index === undefined ? this.focusSelectionModel.numItems : index;
+&nbsp;
+    this.indexKeyMap[currentIndex] = key;
+    this.keyIndexMap[key] = currentIndex;
+&nbsp;
+    if (isFocusedItem || (typeof focusedKey === 'undefined' &amp;&amp; isSelectedItem)) {
+      this.focusSelectionModel.selectedIndex = currentIndex;
+    }
+&nbsp;
+    this.focusSelectionModel.numItems++;
+&nbsp;
+    return {
+      id,
+      key,
+      role,
+      [selectedAriaKey]: isSelectedItem,
+      onClick: composeEventHandlers(onClick, () =&gt; {
+        this.selectItem(key, undefined);
+      }),
+      ...props
+    };
+  };
+&nbsp;
+  render() {
+    const { children, render = children } = this.props;
+    const { focusedKey, selectedKey } = this.getControlledState();
+&nbsp;
+    this.focusSelectionModel.reset();
+    this.indexKeyMap = {};
+    this.keyIndexMap = {};
+    this.items = [];
+&nbsp;
+    return render({
+      getContainerProps: this.getContainerProps,
+      getItemProps: this.getItemProps,
+      focusedKey,
+      selectedKey,
+      focusSelectionModel: this.focusSelectionModel
+    });
+  }
+}
+&nbsp;
+export default withTheme(SelectionContainer);
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Dec 21 2018 19:43:08 GMT+0000 (Coordinated Universal Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>
