@@ -13,9 +13,9 @@ const HomeIcon = require('@zendeskgarden/svg-icons/src/26/home-fill.svg').defaul
 const ListsIcon = require('@zendeskgarden/svg-icons/src/26/customer-lists-fill.svg').default;
 const EmailIcon = require('@zendeskgarden/svg-icons/src/26/email-fill.svg').default;
 const SettingsIcon = require('@zendeskgarden/svg-icons/src/26/settings-fill.svg').default;
-const PlusIcon = require('@zendeskgarden/svg-icons/src/14/plus.svg').default;
-const MenuTrayIcon = require('@zendeskgarden/svg-icons/src/14/menu-tray.svg').default;
-const PersonIcon = require('@zendeskgarden/svg-icons/src/14/person.svg').default;
+const PlusIcon = require('@zendeskgarden/svg-icons/src/16/plus-stroke.svg').default;
+const MenuTrayIcon = require('@zendeskgarden/svg-icons/src/16/grid-2x2-stroke.svg').default;
+const PersonIcon = require('@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg').default;
 
 const ProductNav = ({ title, icon, ...other }) => (
   <Nav>

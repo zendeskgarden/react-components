@@ -61,7 +61,7 @@ for (let x = 1; x <= 5; x++) {
 
 ```jsx
 const { Button, Icon } = require('@zendeskgarden/react-buttons/src');
-const SettingsIcon = require('@zendeskgarden/svg-icons/src/14/settings.svg').default;
+const SettingsIcon = require('@zendeskgarden/svg-icons/src/16/gear-stroke.svg').default;
 
 initialState = {
   selectedKey: 'Unknown'
@@ -273,7 +273,7 @@ initialState = {
 const { KEY_CODES } = require('@zendeskgarden/react-selection/src');
 const { Button } = require('@zendeskgarden/react-buttons/src');
 const { Input, FauxInput, MediaFigure } = require('@zendeskgarden/react-textfields/src');
-const SearchIcon = require('@zendeskgarden/svg-icons/src/14/search.svg').default;
+const SearchIcon = require('@zendeskgarden/svg-icons/src/16/search-stroke.svg').default;
 
 const natoPhonetics = [
   'Alfa',

@@ -65,14 +65,14 @@ initialState = {
 
 ```jsx
 const colors = {
-  'Apple Green': '#78A300',
-  Verdigris: '#37B8AF',
-  Pelorous: '#30AABC',
-  Mandy: '#EB4962',
-  Persimmon: '#FF6D5A',
-  Flamingo: '#EB6651',
-  'Sea Buckthorn': '#F79A3E',
-  'Golden Dream': '#EFC93D'
+  'Support Green': '#78A300',
+  'Message Green': '#37B8AF',
+  'Explore Blue': '#30AABC',
+  'Guide Pink': '#EB4962',
+  'Connect Red': '#EB6651',
+  'Chat Orange': '#F79A3E',
+  'Talk Yellow': '#EFC93D',
+  'Sell Gold': '#D4AE5E'
 };
 
 const ColorSampleSquare = styled.div`
@@ -107,7 +107,7 @@ const Color = ({ name, color, includeSample }) =>
   );
 
 initialState = {
-  selectedKey: 'Apple Green'
+  selectedKey: 'Support Green'
 };
 
 <SelectField>
