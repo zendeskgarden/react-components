@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@4.3.1...@zendeskgarden/react-menus@4.3.2) (2018-12-21)
+
+
+### Bug Fixes
+
+* **menus:** support top & left animations ([#236](https://github.com/zendeskgarden/react-components/issues/236)) ([7613f0c](https://github.com/zendeskgarden/react-components/commit/7613f0c))
+
+
+
+
+
 ## [4.3.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@4.3.0...@zendeskgarden/react-menus@4.3.1) (2018-12-21)
 
 **Note:** Version bump only for package @zendeskgarden/react-menus
