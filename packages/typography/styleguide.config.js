@@ -23,7 +23,8 @@ module.exports = {
         '../../packages/typography/src/views/LG.js',
         '../../packages/typography/src/views/XL.js',
         '../../packages/typography/src/views/XXL.js',
-        '../../packages/typography/src/views/XXXL.js'
+        '../../packages/typography/src/views/XXXL.js',
+        '../../packages/typography/src/views/Ellipsis.js'
       ]
     }
   ]

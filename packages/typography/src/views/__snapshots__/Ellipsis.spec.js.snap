@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Ellipsis applies correct styling by default 1`] = `
+.c0 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  direction: ltr;
+}
+
+<Example>
+  <Ellipsis
+    tag="div"
+  >
+    <Ellipsis__StyledEllipsis
+      title="Hello world"
+    >
+      <div
+        className="-div c0"
+        data-garden-id="typography.ellipsis"
+        data-garden-version="version"
+        title="Hello world"
+      >
+        Hello world
+      </div>
+    </Ellipsis__StyledEllipsis>
+  </Ellipsis>
+</Example>
+`;
+
+exports[`Ellipsis applies correct styling with RTL locale 1`] = `
+.c0 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  direction: rtl;
+}
+
+<Example>
+  <Ellipsis
+    tag="div"
+  >
+    <Ellipsis__StyledEllipsis
+      title="Hello world"
+    >
+      <div
+        className="-div c0"
+        data-garden-id="typography.ellipsis"
+        data-garden-version="version"
+        title="Hello world"
+      >
+        Hello world
+      </div>
+    </Ellipsis__StyledEllipsis>
+  </Ellipsis>
+</Example>
+`;
+
+exports[`Ellipsis overrides title attribute if provided 1`] = `
+.c0 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  direction: ltr;
+}
+
+<Example
+  title="Custom title"
+>
+  <Ellipsis
+    tag="div"
+    title="Custom title"
+  >
+    <Ellipsis__StyledEllipsis
+      title="Custom title"
+    >
+      <div
+        className="-div c0"
+        data-garden-id="typography.ellipsis"
+        data-garden-version="version"
+        title="Custom title"
+      >
+        Hello world
+      </div>
+    </Ellipsis__StyledEllipsis>
+  </Ellipsis>
+</Example>
+`;
