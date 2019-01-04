@@ -10,6 +10,9 @@
 /* eslint-disable no-console */
 
 const inquirer = require('inquirer');
+const inquirerAutoCompletePrompt = require('inquirer-autocomplete-prompt');
+const fuzzy = require('fuzzy');
+
 const program = require('commander');
 const chalk = require('chalk');
 const childProcess = require('child_process');
@@ -17,6 +20,8 @@ const path = require('path');
 
 const pelorous = chalk.hex('#30AABC');
 const lernaPath = path.resolve(__dirname, '..', '..', 'node_modules', '.bin', 'lerna');
+
+inquirer.registerPrompt('autocomplete', inquirerAutoCompletePrompt);
 
 const gardenSplashScreen = () => {
   console.log(pelorous('###############################'));
@@ -55,10 +60,22 @@ const PromptUserForPackages = packages => {
 
   return inquirer.prompt([
     {
-      type: 'list',
+      type: 'autocomplete',
       name: 'package',
       message: 'Which package would you like to run against?',
-      choices: packageList
+      source: (answers, input) => {
+        if (!input) {
+          return Promise.resolve(packageList);
+        }
+
+        return Promise.resolve(
+          fuzzy
+            .filter(input, packageList, {
+              extract: ({ value }) => value
+            })
+            .map(({ original }) => original)
+        );
+      }
     }
   ]);
 };
