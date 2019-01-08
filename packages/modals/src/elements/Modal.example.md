@@ -20,38 +20,59 @@ const onModalClose = () => setState({ isModalVisible: false });
   <Grid>
     <Row>
       <Col md>
-        <Button onClick={() => setState({
-            isModalVisible: true,
-            danger: false,
-            large: false,
-            animate: true })}>
+        <Button
+          onClick={() =>
+            setState({
+              isModalVisible: true,
+              danger: false,
+              large: false,
+              animate: true
+            })
+          }
+        >
           Open default Modal
         </Button>
       </Col>
       <Col md>
-        <Button danger onClick={() => setState({
-            isModalVisible: true,
-            danger: true,
-            large: false,
-            animate: true })}>
+        <Button
+          danger
+          onClick={() =>
+            setState({
+              isModalVisible: true,
+              danger: true,
+              large: false,
+              animate: true
+            })
+          }
+        >
           Open danger Modal
         </Button>
       </Col>
       <Col md>
-        <Button onClick={() => setState({
-            isModalVisible: true,
-            danger: false,
-            large: true,
-            animate: true })}>
+        <Button
+          onClick={() =>
+            setState({
+              isModalVisible: true,
+              danger: false,
+              large: true,
+              animate: true
+            })
+          }
+        >
           Open large Modal
         </Button>
       </Col>
       <Col md>
-        <Button onClick={() => setState({
-            isModalVisible: true,
-            danger: false,
-            large: false,
-            animate: false })}>
+        <Button
+          onClick={() =>
+            setState({
+              isModalVisible: true,
+              danger: false,
+              large: false,
+              animate: false
+            })
+          }
+        >
           Open Modal with no animation
         </Button>
       </Col>
