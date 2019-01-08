@@ -73,6 +73,7 @@
     "jest-enzyme": "7.0.1",
     "jest-styled-components": "6.3.1",
     "lerna": "3.8.0",
+    "lint-staged": "8.1.0",
     "live-server": "1.2.1",
     "markdown-loader": "4.0.0",
     "markdownlint-cli": "0.13.0",
@@ -101,7 +102,24 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint && yarn format"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.js": [
+      "stylelint",
+      "eslint",
+      "prettier --write",
+      "git add"
+    ],
+    "*.md": [
+      "markdownlint",
+      "prettier --write",
+      "git add"
+    ],
+    "**/package.json": [
+      "prettier-package-json --write",
+      "git add"
+    ]
   }
 }
