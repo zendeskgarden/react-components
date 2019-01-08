@@ -6,6 +6,7 @@
  */
 
 import styled from 'styled-components';
+import classNames from 'classnames';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import ModalStyles from '@zendeskgarden/css-modals';
 
@@ -17,7 +18,11 @@ const COMPONENT_ID = 'modals.header';
 const Header = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: ModalStyles['c-dialog__header']
+  className: ({ danger }) =>
+    classNames(ModalStyles['c-dialog__header'], {
+      // Danger styling
+      [ModalStyles['c-dialog__header--danger']]: danger
+    })
 })`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;

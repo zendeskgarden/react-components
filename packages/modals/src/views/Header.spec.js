@@ -15,4 +15,10 @@ describe('Header', () => {
 
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('renders danger styling if provided', () => {
+    const wrapper = shallow(<Header danger />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });
