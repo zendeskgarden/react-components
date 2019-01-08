@@ -9,6 +9,7 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
 
 initialState = {
   isModalVisible: false,
+  danger: false,
   large: false,
   animate: true
 };
@@ -19,17 +20,38 @@ const onModalClose = () => setState({ isModalVisible: false });
   <Grid>
     <Row>
       <Col md>
-        <Button onClick={() => setState({ isModalVisible: true, large: false, animate: true })}>
+        <Button onClick={() => setState({
+            isModalVisible: true,
+            danger: false,
+            large: false,
+            animate: true })}>
           Open default Modal
         </Button>
       </Col>
       <Col md>
-        <Button onClick={() => setState({ isModalVisible: true, large: true, animate: true })}>
+        <Button danger onClick={() => setState({
+            isModalVisible: true,
+            danger: true,
+            large: false,
+            animate: true })}>
+          Open danger Modal
+        </Button>
+      </Col>
+      <Col md>
+        <Button onClick={() => setState({
+            isModalVisible: true,
+            danger: false,
+            large: true,
+            animate: true })}>
           Open large Modal
         </Button>
       </Col>
       <Col md>
-        <Button onClick={() => setState({ isModalVisible: true, large: false, animate: false })}>
+        <Button onClick={() => setState({
+            isModalVisible: true,
+            danger: false,
+            large: false,
+            animate: false })}>
           Open Modal with no animation
         </Button>
       </Col>
@@ -37,7 +59,7 @@ const onModalClose = () => setState({ isModalVisible: false });
   </Grid>
   {state.isModalVisible && (
     <Modal onClose={onModalClose} large={state.large} animate={state.animate}>
-      <Header>Example Header</Header>
+      <Header danger={state.danger}>Example Header</Header>
       <Body>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -50,7 +72,7 @@ const onModalClose = () => setState({ isModalVisible: false });
           </Button>
         </FooterItem>
         <FooterItem>
-          <Button onClick={onModalClose} primary>
+          <Button onClick={onModalClose} primary danger={state.danger}>
             Confirm
           </Button>
         </FooterItem>
