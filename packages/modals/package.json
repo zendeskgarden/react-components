@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "5.4.0",
+  "version": "5.5.0",
   "main": "./dist/index.js",
   "files": [
     "dist"

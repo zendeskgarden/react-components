@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.5.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.4.0...@zendeskgarden/react-modals@5.5.0) (2019-01-08)
+
+
+### Features
+
+* **modals:** add "danger" header styling ([#244](https://github.com/zendeskgarden/react-components/issues/244)) ([d40e191](https://github.com/zendeskgarden/react-components/commit/d40e191))
+
+
+
+
+
 # [5.4.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.3.26...@zendeskgarden/react-modals@5.4.0) (2018-12-19)
 
 
