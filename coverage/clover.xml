@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1546632750313" clover="3.2.0">
-  <project timestamp="1546632750313" name="All files">
-    <metrics statements="2094" coveredstatements="2037" conditionals="915" coveredconditionals="796" methods="711" coveredmethods="696" elements="3720" coveredelements="3529" complexity="0" loc="2094" ncloc="2094" packages="70" files="190" classes="190">
+<coverage generated="1546968967436" clover="3.2.0">
+  <project timestamp="1546968967436" name="All files">
+    <metrics statements="2095" coveredstatements="2038" conditionals="915" coveredconditionals="796" methods="712" coveredmethods="697" elements="3722" coveredelements="3531" complexity="0" loc="2095" ncloc="2095" packages="70" files="190" classes="190">
       <package name="autocomplete.src.containers">
         <metrics statements="154" coveredstatements="152" conditionals="93" coveredconditionals="77" methods="46" coveredmethods="45"/>
         <file name="AutocompleteContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/autocomplete/src/containers/AutocompleteContainer.js">
@@ -1284,7 +1284,7 @@
         </file>
       </package>
       <package name="modals.src.views">
-        <metrics statements="34" coveredstatements="34" conditionals="0" coveredconditionals="0" methods="16" coveredmethods="16"/>
+        <metrics statements="35" coveredstatements="35" conditionals="0" coveredconditionals="0" methods="17" coveredmethods="17"/>
         <file name="Backdrop.js" path="/home/travis/build/zendeskgarden/react-components/packages/modals/src/views/Backdrop.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="14" count="24" type="stmt"/>
@@ -1326,11 +1326,12 @@
           <line num="22" count="1" type="stmt"/>
         </file>
         <file name="Header.js" path="/home/travis/build/zendeskgarden/react-components/packages/modals/src/views/Header.js">
-          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-          <line num="12" count="24" type="stmt"/>
-          <line num="17" count="24" type="stmt"/>
-          <line num="22" count="12" type="stmt"/>
-          <line num="25" count="24" type="stmt"/>
+          <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+          <line num="13" count="24" type="stmt"/>
+          <line num="18" count="24" type="stmt"/>
+          <line num="22" count="13" type="stmt"/>
+          <line num="27" count="13" type="stmt"/>
+          <line num="30" count="24" type="stmt"/>
         </file>
         <file name="ModalView.js" path="/home/travis/build/zendeskgarden/react-components/packages/modals/src/views/ModalView.js">
           <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -2552,9 +2553,9 @@
         </file>
         <file name="retrieveTheme.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/utils/retrieveTheme.js">
           <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
-          <line num="10" count="1899" type="stmt"/>
-          <line num="12" count="1899" type="cond" truecount="2" falsecount="0"/>
-          <line num="13" count="491" type="stmt"/>
+          <line num="10" count="1900" type="stmt"/>
+          <line num="12" count="1900" type="cond" truecount="2" falsecount="0"/>
+          <line num="13" count="492" type="stmt"/>
           <line num="16" count="1408" type="stmt"/>
           <line num="18" count="1408" type="cond" truecount="2" falsecount="0"/>
           <line num="19" count="1" type="stmt"/>
