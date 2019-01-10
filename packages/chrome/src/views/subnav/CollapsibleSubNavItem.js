@@ -59,12 +59,13 @@ export default class CollapsibleSubNavItem extends Component {
     expanded: PropTypes.bool,
     hovered: PropTypes.bool,
     focused: PropTypes.bool,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    children: PropTypes.node
   };
 
   componentDidUpdate() {
     if (this.props.expanded && this.panelRef) {
-      this.panelRef.style.maxHeight = `${this.panelRef.scrollHeight}px`;
+      this.panelRef.style.maxHeight = `${this.panelRef.scrollHeight}px`; // eslint-disable-line react/prop-types
     }
   }
 
