@@ -19,8 +19,10 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
+    "@zendeskgarden/react-buttons": "^3.7.0",
     "@zendeskgarden/react-menus": "^4.3.3",
     "@zendeskgarden/react-selection": "^4.6.2",
+    "@zendeskgarden/react-tags": "^1.2.0",
     "@zendeskgarden/react-textfields": "^3.7.0",
     "@zendeskgarden/react-tooltips": "^5.0.2",
     "@zendeskgarden/react-utilities": "^0.2.5",
