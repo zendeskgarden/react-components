@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-autocomplete@0.7.2...@zendeskgarden/react-autocomplete@0.7.3) (2019-01-10)
+
+
+### Bug Fixes
+
+* **autocomplete|select:** limit propTypes of maxHeight to string ([#248](https://github.com/zendeskgarden/react-components/issues/248)) ([32783bf](https://github.com/zendeskgarden/react-components/commit/32783bf))
+
+
+
+
+
 ## [0.7.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-autocomplete@0.7.1...@zendeskgarden/react-autocomplete@0.7.2) (2019-01-08)
 
 **Note:** Version bump only for package @zendeskgarden/react-autocomplete

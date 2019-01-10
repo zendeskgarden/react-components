@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-select@3.4.3...@zendeskgarden/react-select@3.4.4) (2019-01-10)
+
+
+### Bug Fixes
+
+* **autocomplete|select:** limit propTypes of maxHeight to string ([#248](https://github.com/zendeskgarden/react-components/issues/248)) ([32783bf](https://github.com/zendeskgarden/react-components/commit/32783bf))
+
+
+
+
+
 ## [3.4.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-select@3.4.2...@zendeskgarden/react-select@3.4.3) (2019-01-08)
 
 **Note:** Version bump only for package @zendeskgarden/react-select
