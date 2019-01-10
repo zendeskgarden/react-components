@@ -76,6 +76,14 @@ describe('Autocomplete', () => {
       expect(triggerElement).toHaveProp('focused');
     });
 
+    it('does not apply focused styling when focused while disabled', () => {
+      const wrapper = mountWithTheme(<Multiselect disabled options={[]} />);
+
+      wrapper.find(Input).simulate('focus');
+
+      expect(wrapper.find(FauxInput)).not.toHaveProp('focused');
+    });
+
     it('removes focused styling when blured', () => {
       const wrapper = mountWithTheme(<Multiselect options={[]} />);
       const triggerElement = wrapper.find(FauxInput);
@@ -133,6 +141,56 @@ describe('Autocomplete', () => {
         .find(Input)
         .simulate('keydown', { keyCode: KEY_CODES.ENTER, target: { value: '   ' } });
       expect(onChangeSpy).not.toHaveBeenCalled();
+    });
+
+    describe('Keyboard removal', () => {
+      let example;
+      let onChangeSpy;
+
+      beforeEach(() => {
+        onChangeSpy = jest.fn();
+
+        example = mountWithTheme(
+          <Multiselect
+            selectedValues={['option-1', 'option-2']}
+            onChange={onChangeSpy}
+            options={[
+              {
+                label: 'option-1',
+                value: 'option-1'
+              },
+              {
+                label: 'option-2',
+                value: 'option-2'
+              }
+            ]}
+          />
+        );
+      });
+
+      it('removes latest selected value if delete key is pressed', () => {
+        example.find(Input).simulate('focus');
+        example.find(Input).simulate('keydown', { keyCode: KEY_CODES.DELETE });
+
+        expect(onChangeSpy).toHaveBeenCalledWith(['option-1']);
+      });
+
+      it('removes latest selected value if backspace key is pressed', () => {
+        example.find(Input).simulate('focus');
+        example.find(Input).simulate('keydown', { keyCode: KEY_CODES.BACKSPACE });
+
+        expect(onChangeSpy).toHaveBeenCalledWith(['option-1']);
+      });
+
+      it('removes focused selected value if either key is pressed', () => {
+        example
+          .find(Tag)
+          .first()
+          .simulate('click');
+        example.find(Input).simulate('keydown', { keyCode: KEY_CODES.BACKSPACE });
+
+        expect(onChangeSpy).toHaveBeenCalledWith(['option-2']);
+      });
     });
   });
 
@@ -286,6 +344,20 @@ describe('Autocomplete', () => {
     it('removes selection if tag is removed by mouse', () => {
       tagsExample.setProps({ selectedValues: ['option-1', 'option-2'] });
       tagsExample.update();
+      tagsExample
+        .find(Tag)
+        .first()
+        .find('div')
+        .last()
+        .simulate('click');
+
+      expect(onChangeSpy).toHaveBeenCalledWith(['option-2']);
+    });
+
+    it('removes selection if tag is removed by mouse while expanded', () => {
+      tagsExample.setProps({ selectedValues: ['option-1', 'option-2'] });
+      tagsExample.update();
+      tagsExample.find(Input).simulate('focus');
       tagsExample
         .find(Tag)
         .first()
