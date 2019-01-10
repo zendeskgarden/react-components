@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1547074433500" clover="3.2.0">
-  <project timestamp="1547074433500" name="All files">
+<coverage generated="1547082748024" clover="3.2.0">
+  <project timestamp="1547082748025" name="All files">
     <metrics statements="2095" coveredstatements="2038" conditionals="915" coveredconditionals="796" methods="712" coveredmethods="697" elements="3722" coveredelements="3531" complexity="0" loc="2095" ncloc="2095" packages="70" files="190" classes="190">
       <package name="autocomplete.src.containers">
         <metrics statements="154" coveredstatements="152" conditionals="93" coveredconditionals="77" methods="46" coveredmethods="45"/>
@@ -625,13 +625,13 @@
           <line num="42" count="4" type="stmt"/>
           <line num="46" count="4" type="stmt"/>
           <line num="49" count="2" type="stmt"/>
-          <line num="66" count="0" type="cond" truecount="0" falsecount="4"/>
-          <line num="67" count="0" type="stmt"/>
-          <line num="72" count="4" type="stmt"/>
-          <line num="74" count="4" type="stmt"/>
-          <line num="78" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="82" count="4" type="stmt"/>
-          <line num="97" count="4" type="stmt"/>
+          <line num="67" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="68" count="0" type="stmt"/>
+          <line num="73" count="4" type="stmt"/>
+          <line num="75" count="4" type="stmt"/>
+          <line num="79" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="83" count="4" type="stmt"/>
+          <line num="98" count="4" type="stmt"/>
         </file>
         <file name="SubNav.js" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/views/subnav/SubNav.js">
           <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
