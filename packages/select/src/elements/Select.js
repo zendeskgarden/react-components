@@ -106,7 +106,7 @@ export default class Select extends ControlledComponent {
     /**
      * The max-height of the dropdown element
      */
-    maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    maxHeight: PropTypes.string
   };
 
   static defaultProps = {
