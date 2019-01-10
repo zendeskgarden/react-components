@@ -1,15 +1,9 @@
 {
-  "extends": [
-    "config:base",
-    "schedule:weekends"
-  ],
+  "extends": ["config:base", "schedule:weekends"],
   "rebaseStalePrs": true,
   "packageRules": [
     {
-      "depTypeList": [
-        "peerDependencies",
-        "dependencies"
-      ],
+      "depTypeList": ["peerDependencies", "dependencies"],
       "enabled": false
     },
     {
@@ -33,8 +27,5 @@
       }
     }
   ],
-  "reviewers": [
-    "ryanseddon",
-    "jzempel"
-  ]
+  "reviewers": ["ryanseddon", "jzempel", "austin94"]
 }

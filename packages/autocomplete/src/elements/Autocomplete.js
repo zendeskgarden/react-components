@@ -70,7 +70,7 @@ export default class Autocomplete extends Component {
     onChange: PropTypes.func,
     inputRef: PropTypes.func,
     placeholder: PropTypes.string,
-    maxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    maxHeight: PropTypes.string,
     disabled: PropTypes.bool,
     options: PropTypes.array.isRequired,
     noOptionsMessage: PropTypes.string,

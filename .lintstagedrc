@@ -1,0 +1,20 @@
+{
+  "linters": {
+    "*.js": [
+      "stylelint",
+      "eslint",
+      "prettier --write",
+      "git add"
+    ],
+    "*.md": [
+      "markdownlint",
+      "prettier --write",
+      "git add"
+    ],
+    "**/package.json": [
+      "prettier-package-json --write",
+      "git add"
+    ]
+  },
+  "ignore": ["**/CHANGELOG.md"]
+}
