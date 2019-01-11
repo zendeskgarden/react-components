@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>6/6</span>
+        <span class='fraction'>0/10</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,18 +30,18 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/2</span>
+        <span class='fraction'>0/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>5/5</span>
+        <span class='fraction'>0/9</span>
       </div>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -85,31 +85,31 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">17x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">184x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -120,31 +120,31 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 &nbsp;
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
-import { NextItem as MenuNextItem } from '@zendeskgarden/react-menus';
+<span class="cstat-no" title="statement not covered" >import PropTypes from 'prop-types';</span>
+<span class="cstat-no" title="statement not covered" >import styled from 'styled-components';</span>
+<span class="cstat-no" title="statement not covered" >import { retrieveTheme } from '@zendeskgarden/react-theming';</span>
+<span class="cstat-no" title="statement not covered" >import { NextItem as MenuNextItem } from '@zendeskgarden/react-menus';</span>
 &nbsp;
-const COMPONENT_ID = 'select.next_item';
+const COMPONENT_ID = <span class="cstat-no" title="statement not covered" >'select.next_item';</span>
 &nbsp;
 /**
  * Accepts all `&lt;li&gt;` props
  */
-const NextItem = styled(MenuNextItem).attrs({
+const NextItem = <span class="cstat-no" title="statement not covered" >styled(MenuNextItem).attrs({</span>
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  ${props =&gt; retrieveTheme(COMPONENT_ID, props)};
+  ${<span class="fstat-no" title="function not covered" >props<span class="cstat-no" title="statement not covered" > =&gt; retrieveTheme(COMPONENT_ID, props)};</span></span>
 `;
 &nbsp;
-NextItem.propTypes = {
+<span class="cstat-no" title="statement not covered" >NextItem.propTypes = {</span>
   active: PropTypes.bool,
   focused: PropTypes.bool,
   hovered: PropTypes.bool,
   disabled: PropTypes.bool
 };
 &nbsp;
-NextItem.hasType = () =&gt; NextItem;
+<span class="cstat-no" title="statement not covered" >NextItem.hasType = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; NextItem;</span></span></span>
 &nbsp;
 /** @component */
 export default NextItem;
@@ -154,7 +154,7 @@ export default NextItem;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Jan 10 2019 20:30:49 GMT+0000 (Coordinated Universal Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Jan 10 2019 15:54:06 GMT-0800 (Pacific Standard Time)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

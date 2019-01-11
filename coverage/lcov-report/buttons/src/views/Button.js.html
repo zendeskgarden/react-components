@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">54.55% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>11/11</span>
+        <span class='fraction'>6/11</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>0/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>5/5</span>
+        <span class='fraction'>0/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">60% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>10/10</span>
+        <span class='fraction'>6/10</span>
       </div>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -172,14 +172,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -197,7 +197,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -222,16 +222,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">41x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -242,7 +242,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -267,7 +267,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -296,7 +296,7 @@ const SIZE = {
 const StyledButton = styled.button.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: ({
+  className: <span class="fstat-no" title="function not covered" >({</span>
     danger,
     size,
     stretched,
@@ -311,7 +311,7 @@ const StyledButton = styled.button.attrs({
     muted,
     link
   }) =&gt;
-    classNames(ButtonStyles['c-btn'], {
+<span class="cstat-no" title="statement not covered" >    classNames(ButtonStyles['c-btn'], {</span>
       // Danger styling
       [ButtonStyles['c-btn--danger']]: !disabled &amp;&amp; danger,
 &nbsp;
@@ -336,16 +336,16 @@ const StyledButton = styled.button.attrs({
     }),
   type: 'button'
 })`
-  ${props =&gt; retrieveTheme(COMPONENT_ID, props)};
+  ${<span class="fstat-no" title="function not covered" >pr</span>ops =&gt; <span class="cstat-no" title="statement not covered" >retrieveTheme(COMPONENT_ID, props)}</span>;
 `;
 &nbsp;
 /**
  * Accepts all `&lt;button&gt;` props
  */
-const Button = ({ focused, buttonRef, ...other }) =&gt; (
-  &lt;KeyboardFocusContainer&gt;
-    {({ getFocusProps, keyboardFocused }) =&gt; (
-      &lt;StyledButton
+const Button = <span class="fstat-no" title="function not covered" >({</span> focused, buttonRef, ...other }) =&gt; (
+<span class="cstat-no" title="statement not covered" >  &lt;KeyboardFocusContainer&gt;</span>
+    {<span class="fstat-no" title="function not covered" >({</span> getFocusProps, keyboardFocused }) =&gt; (
+<span class="cstat-no" title="statement not covered" >      &lt;StyledButton</span>
         {...getFocusProps({
           innerRef: buttonRef,
           ...other,
@@ -381,7 +381,7 @@ Button.propTypes = {
   buttonRef: PropTypes.func
 };
 &nbsp;
-Button.hasType = () =&gt; Button;
+Button.hasType = <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >Button;</span>
 &nbsp;
 /** @component */
 export default Button;
@@ -391,7 +391,7 @@ export default Button;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Jan 10 2019 20:30:49 GMT+0000 (Coordinated Universal Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Jan 10 2019 15:54:06 GMT-0800 (Pacific Standard Time)
 </div>
 </div>
 <script src="../../../prettify.js"></script>
