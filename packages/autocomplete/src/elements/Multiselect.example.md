@@ -44,11 +44,13 @@ initialState = {
   ]
 };
 
-<Multiselect
-  label="Phonetics Multiselect"
-  maxHeight="300px"
-  selectedValues={state.selectedValues}
-  onChange={selectedValues => setState({ selectedValues })}
-  options={phonetics.map(option => ({ value: option, label: option }))}
-/>;
+<div style={{ maxWidth: 500, minHeight: 300 }}>
+  <Multiselect
+    label="Phonetics Multiselect"
+    maxHeight="300px"
+    selectedValues={state.selectedValues}
+    onChange={selectedValues => setState({ selectedValues })}
+    options={phonetics.map(option => ({ value: option, label: option }))}
+  />
+</div>;
 ```

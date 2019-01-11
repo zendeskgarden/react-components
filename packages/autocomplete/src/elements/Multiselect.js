@@ -70,11 +70,6 @@ const StyledMoreAnchor = styled(Anchor)`
   }
 `;
 
-const StyledTextGroup = styled(TextGroup)`
-  max-width: 500px;
-  min-height: 300px;
-`;
-
 export default class Multiselect extends Component {
   static propTypes = {
     label: PropTypes.string,
@@ -263,7 +258,7 @@ export default class Multiselect extends Component {
     return (
       <FieldContainer>
         {({ getLabelProps, getInputProps: getFieldInputProps, getHintProps }) => (
-          <StyledTextGroup>
+          <TextGroup>
             {label && (
               <Label
                 {...getLabelProps({
@@ -445,7 +440,7 @@ export default class Multiselect extends Component {
               }}
             </AutocompleteContainer>
             {message && <Message validation={validation}>{message}</Message>}
-          </StyledTextGroup>
+          </TextGroup>
         )}
       </FieldContainer>
     );
