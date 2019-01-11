@@ -34,22 +34,25 @@ const StyledMenuOverflow = styled.div`
 
 const StyledInput = styled(Input)`
   && {
+    flex-basis: 60px;
     flex-grow: 1;
     margin: 2px;
-    width: 60px;
+  }
 
-    ${props =>
-      props.selectedValues.length !== 0 && // eslint-disable-line
-      (!props.isFocused || props.tagFocusedKey !== undefined) &&
-      !props.isOpen &&
-      `
+  ${props =>
+    props.selectedValues.length !== 0 && // eslint-disable-line
+    (!props.isFocused || props.tagFocusedKey !== undefined) &&
+    !props.isOpen &&
+    `
+    &&& {
+      margin: 0;
       opacity: 0;
       height: 0;
       min-height: 0;
       width: 0;
       min-width: 0;
-    `}
-  }
+    }
+  `}
 `;
 
 const StyledFauxInput = styled(FauxInput)`
