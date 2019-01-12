@@ -23,7 +23,11 @@ export default class Breadcrumb extends Component {
     children: PropTypes.any
   };
 
-  renderItems = items => {
+  renderPage = (page, pageProps, itemProps) => {
+    return <Item {...itemProps}>{itemProps.current ? cloneElement(page, pageProps) : page}</Item>;
+  };
+
+  renderItems = (items, getCurrentPageProps) => {
     const total = Children.count(items);
 
     return Children.map(items, (item, index) => {
@@ -32,11 +36,9 @@ export default class Breadcrumb extends Component {
         key: index
       };
 
-      return hasType(item, Item) ? (
-        cloneElement(item, itemProps)
-      ) : (
-        <Item {...itemProps}>{item}</Item>
-      );
+      return hasType(item, Item)
+        ? cloneElement(item, itemProps)
+        : this.renderPage(item, getCurrentPageProps(), itemProps);
     });
   };
 
@@ -45,10 +47,10 @@ export default class Breadcrumb extends Component {
 
     return (
       <BreadcrumbContainer>
-        {({ getContainerProps }) => (
+        {({ getContainerProps, getCurrentPageProps }) => (
           /* role not needed as `BreadcrumbView` is a navigation landmark. */
           <BreadcrumbView {...getContainerProps({ role: null })}>
-            <List {...breadcrumbProps}>{this.renderItems(children)}</List>
+            <List {...breadcrumbProps}>{this.renderItems(children, getCurrentPageProps)}</List>
           </BreadcrumbView>
         )}
       </BreadcrumbContainer>
