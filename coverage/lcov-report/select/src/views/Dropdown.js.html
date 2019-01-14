@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/14</span>
+        <span class='fraction'>8/8</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,18 +30,18 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/13</span>
+        <span class='fraction'>8/8</span>
       </div>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -125,17 +125,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -149,20 +147,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">17x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">17x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">17x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -200,15 +200,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 &nbsp;
-<span class="cstat-no" title="statement not covered" >import React from 'react';</span>
-<span class="cstat-no" title="statement not covered" >import PropTypes from 'prop-types';</span>
-<span class="cstat-no" title="statement not covered" >import styled from 'styled-components';</span>
-<span class="cstat-no" title="statement not covered" >import { retrieveTheme } from '@zendeskgarden/react-theming';</span>
-<span class="cstat-no" title="statement not covered" >import { MenuView } from '@zendeskgarden/react-menus';</span>
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { MenuView } from '@zendeskgarden/react-menus';
 &nbsp;
-const COMPONENT_ID = <span class="cstat-no" title="statement not covered" >'select.dropdown';</span>
+const COMPONENT_ID = 'select.dropdown';
 &nbsp;
-const PLACEMENT = <span class="cstat-no" title="statement not covered" >{</span>
+const PLACEMENT = {
   AUTO: 'auto',
   TOP: 'top',
   TOP_START: 'top-start',
@@ -224,20 +224,20 @@ const PLACEMENT = <span class="cstat-no" title="statement not covered" >{</span>
   LEFT_END: 'left-end'
 };
 &nbsp;
-const StyledMenuView = <span class="cstat-no" title="statement not covered" >styled(MenuView).attrs({</span>
+const StyledMenuView = styled(MenuView).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  ${<span class="fstat-no" title="function not covered" >props<span class="cstat-no" title="statement not covered" > =&gt; retrieveTheme(COMPONENT_ID, props)};</span></span>
+  ${props =&gt; retrieveTheme(COMPONENT_ID, props)};
 `;
 &nbsp;
-const <span class="fstat-no" title="function not covered" >Dropdown = <span class="cstat-no" title="statement not covered" >p</span>rops =&gt; <span class="cstat-no" title="statement not covered" >{</span></span>
-  const { dropdownRef, ...otherProps } = <span class="cstat-no" title="statement not covered" >props;</span>
+const Dropdown = props =&gt; {
+  const { dropdownRef, ...otherProps } = props;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return &lt;StyledMenuView menuRef={dropdownRef} {...otherProps} /&gt;;</span>
+  return &lt;StyledMenuView menuRef={dropdownRef} {...otherProps} /&gt;;
 };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >Dropdown.propTypes = {</span>
+Dropdown.propTypes = {
   /**
    * All valid [Popper.JS Placements](https://popper.js.org/popper-documentation.html#Popper.placements)
    */
@@ -274,7 +274,7 @@ export default Dropdown;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Jan 10 2019 15:54:06 GMT-0800 (Pacific Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Jan 14 2019 16:57:20 GMT+0000 (Coordinated Universal Time)
 </div>
 </div>
 <script src="../../../prettify.js"></script>
