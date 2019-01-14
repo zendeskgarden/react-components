@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-breadcrumbs@0.2.0...@zendeskgarden/react-breadcrumbs@0.3.0) (2019-01-14)
+
+
+### Features
+
+* **breadcrumbs:** add support for `aria-current` ([#252](https://github.com/zendeskgarden/react-components/issues/252)) ([c5984a6](https://github.com/zendeskgarden/react-components/commit/c5984a6))
+
+
+
+
+
 # [0.2.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-breadcrumbs@0.1.4...@zendeskgarden/react-breadcrumbs@0.2.0) (2018-12-19)
 
 
