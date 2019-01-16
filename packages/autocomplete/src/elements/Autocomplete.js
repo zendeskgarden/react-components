@@ -66,6 +66,8 @@ export default class Autocomplete extends Component {
     message: PropTypes.node,
     hint: PropTypes.node,
     small: PropTypes.bool,
+    /** Applies inset `box-shadow` styling on focus */
+    focusInset: PropTypes.bool,
     selectedValue: PropTypes.string,
     onChange: PropTypes.func,
     inputRef: PropTypes.func,
@@ -151,6 +153,7 @@ export default class Autocomplete extends Component {
       inputRef,
       message,
       small,
+      focusInset,
       validation
     } = this.props;
     const { isOpen, focusedKey, isFocused, isHovered, inputValue } = this.state;
@@ -211,6 +214,7 @@ export default class Autocomplete extends Component {
                   hovered: isHovered,
                   select: true,
                   small,
+                  focusInset,
                   validation,
                   'aria-label': ariaLabel,
                   inputRef: ref => {
@@ -223,6 +227,7 @@ export default class Autocomplete extends Component {
                   triggerProps = {
                     disabled: true,
                     small,
+                    focusInset,
                     validation,
                     select: true,
                     'aria-label': ariaLabel

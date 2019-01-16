@@ -75,6 +75,26 @@ exports[`Textarea renders disabled styling if provided 1`] = `
 </Textarea>
 `;
 
+exports[`Textarea renders focus-inset styling if provided 1`] = `
+<Textarea
+  focusInset={true}
+>
+  <Input
+    className="c-txt__input--area "
+    data-garden-id="textfields.textarea"
+    data-garden-version="version"
+    focusInset={true}
+  >
+    <textarea
+      aria-invalid={false}
+      className="c-txt__input--area -textarea c-txt__input c-txt__input--focus-inset "
+      data-garden-id="textfields.textarea"
+      data-garden-version="version"
+    />
+  </Input>
+</Textarea>
+`;
+
 exports[`Textarea renders focused styling if provided 1`] = `
 <Textarea
   focused={true}

@@ -29,6 +29,7 @@ const StyledButton = styled.button.attrs({
     stretched,
     disabled,
     focused,
+    focusInset,
     hovered,
     active,
     selected,
@@ -48,6 +49,7 @@ const StyledButton = styled.button.attrs({
       [ButtonStyles['c-btn--muted']]: muted,
       [ButtonStyles['c-btn--pill']]: pill,
       [ButtonStyles['c-btn--anchor']]: link,
+      [ButtonStyles['c-btn--focus-inset']]: focusInset,
 
       // Sizes
       [ButtonStyles['c-btn--sm']]: size === SIZE.SMALL,
@@ -101,6 +103,8 @@ Button.propTypes = {
   pill: PropTypes.bool,
   disabled: PropTypes.bool,
   focused: PropTypes.bool,
+  /** Applies inset `box-shadow` styling on focus */
+  focusInset: PropTypes.bool,
   hovered: PropTypes.bool,
   active: PropTypes.bool,
   selected: PropTypes.bool,

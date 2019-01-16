@@ -54,6 +54,12 @@ describe('Input', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('renders focus-inset styling if provided', () => {
+    const wrapper = shallow(<Input focusInset />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('renders disabled styling if provided', () => {
     const wrapper = shallow(<Input disabled />);
 

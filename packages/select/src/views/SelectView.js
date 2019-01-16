@@ -39,6 +39,8 @@ SelectView.propTypes = {
   bare: PropTypes.bool,
   disabled: PropTypes.bool,
   focused: PropTypes.bool,
+  /** Applies inset `box-shadow` styling on focus */
+  focusInset: PropTypes.bool,
   hovered: PropTypes.bool,
   /** Displays select open state */
   open: PropTypes.bool,

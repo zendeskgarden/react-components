@@ -15,4 +15,10 @@ describe('SelectView', () => {
 
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('renders focus-inset styling if provided', () => {
+    const wrapper = shallow(<SelectView focusInset />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });
