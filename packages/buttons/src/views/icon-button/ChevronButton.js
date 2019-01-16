@@ -41,6 +41,8 @@ ChevronButton.propTypes = {
   pill: PropTypes.bool,
   disabled: PropTypes.bool,
   focused: PropTypes.bool,
+  /** Applies inset `box-shadow` styling on focus */
+  focusInset: PropTypes.bool,
   hovered: PropTypes.bool,
   active: PropTypes.bool,
   /** Callback for reference of the native button element */

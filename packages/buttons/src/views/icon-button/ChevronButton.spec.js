@@ -16,6 +16,12 @@ describe('ChevronButton', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('renders focus-inset styling if provided', () => {
+    const wrapper = shallow(<ChevronButton focusInset />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('rotates icon if prop is provided', () => {
     const wrapper = shallow(<ChevronButton rotated />);
 
