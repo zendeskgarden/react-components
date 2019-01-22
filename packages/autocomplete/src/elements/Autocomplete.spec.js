@@ -34,6 +34,12 @@ describe('Autocomplete', () => {
     expect(wrapper.find(FauxInput)).toHaveProp('validation', validation);
   });
 
+  it('renders focus-inset styling if provided', () => {
+    const wrapper = mountWithTheme(<Autocomplete focusInset options={[]} />);
+
+    expect(wrapper.find(FauxInput)).toHaveProp('focusInset');
+  });
+
   it('renders small styling if provided', () => {
     const wrapper = mountWithTheme(<Autocomplete small options={[]} />);
     const triggerElement = wrapper.find(FauxInput);

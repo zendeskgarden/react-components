@@ -36,6 +36,12 @@ describe('Textarea', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('renders focus-inset styling if provided', () => {
+    const wrapper = mount(<Textarea focusInset />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('renders disabled styling if provided', () => {
     const wrapper = mount(<Textarea disabled />);
 

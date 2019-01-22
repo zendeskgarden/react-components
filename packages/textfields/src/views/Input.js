@@ -40,6 +40,7 @@ const Input = styled.input.attrs({
       // Unable to use `media` prop due to it being a valid, non-boolean prop
       [TextStyles['c-txt__input--media']]: props.mediaLayout,
       [TextStyles['c-txt__input--bare']]: props.bare,
+      [TextStyles['c-txt__input--focus-inset']]: props.focusInset,
 
       [TextStyles['is-disabled']]: props.disabled,
       [TextStyles['is-focused']]: props.focused,
@@ -69,6 +70,8 @@ Input.propTypes = {
   bare: PropTypes.bool,
   disabled: PropTypes.bool,
   focused: PropTypes.bool,
+  /** Applies inset `box-shadow` styling on focus */
+  focusInset: PropTypes.bool,
   hovered: PropTypes.bool,
   /** Displays select open state */
   open: PropTypes.bool,
