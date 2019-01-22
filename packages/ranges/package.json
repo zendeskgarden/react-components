@@ -21,7 +21,8 @@
   "dependencies": {
     "@zendeskgarden/react-selection": "^4.6.2",
     "@zendeskgarden/react-utilities": "^0.2.5",
-    "classnames": "^2.2.5"
+    "classnames": "^2.2.5",
+    "lodash.debounce": "^4.0.8"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^1.0.0 || ^2.0.0 || ^3.0.0",
