@@ -64,7 +64,7 @@ const StyledSkeleton = styled.div.attrs({
     content: '';
     /* stylelint-disable */
     background-image: linear-gradient(
-      90deg,
+      45deg,
       ${transparentize(1, zdColorGrey800)},
       ${transparentize(0.4, zdColorGrey100)},
       ${transparentize(1, zdColorGrey800)}
