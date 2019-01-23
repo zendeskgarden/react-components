@@ -272,15 +272,49 @@ class MultiThumbRange extends Component {
     }
   };
 
+  calculateMinPosition = minDistancePx => {
+    const { min, max, minValue, maxValue } = this.props;
+    const { railWidthPx } = this.state;
+
+    let boundedMinValue = minValue;
+
+    if (boundedMinValue < min) {
+      boundedMinValue = min;
+    } else if (boundedMinValue > maxValue) {
+      boundedMinValue = maxValue;
+    } else if (boundedMinValue > max) {
+      boundedMinValue = max;
+    }
+
+    return ((boundedMinValue - min) / (max - min)) * (railWidthPx - minDistancePx);
+  };
+
+  calculateMaxPosition = minDistancePx => {
+    const { min, max, maxValue, minValue } = this.props;
+    const { railWidthPx } = this.state;
+
+    let boundedMaxValue = maxValue;
+
+    if (boundedMaxValue > max) {
+      boundedMaxValue = max;
+    } else if (boundedMaxValue < minValue) {
+      boundedMaxValue = minValue;
+    } else if (boundedMaxValue < min) {
+      boundedMaxValue = min;
+    }
+
+    return ((boundedMaxValue - min) / (max - min)) * (railWidthPx - minDistancePx) + minDistancePx;
+  };
+
   render() {
     const { min, max, minValue, maxValue, disabled } = this.props;
     const { isMinThumbFocused, isMaxThumbFocused, railWidthPx } = this.state;
+
     // This may be increased to enforce separation between thumbs
     const MIN_DISTANCE_PX = 0;
 
-    const minPositionPx = ((minValue - min) / (max - min)) * (railWidthPx - MIN_DISTANCE_PX);
-    const maxPositionPx =
-      ((maxValue - min) / (max - min)) * (railWidthPx - MIN_DISTANCE_PX) + MIN_DISTANCE_PX;
+    const minPositionPx = this.calculateMinPosition(MIN_DISTANCE_PX);
+    const maxPositionPx = this.calculateMaxPosition(MIN_DISTANCE_PX);
     const sliderBackgroundSizePx = Math.abs(maxPositionPx) - Math.abs(minPositionPx);
 
     const trackStyle = {
