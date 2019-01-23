@@ -7,13 +7,13 @@
 
 /* stylelint-disable block-no-empty */
 
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styled from 'styled-components';
 import debounce from 'lodash.debounce';
 import { KEY_CODES } from '@zendeskgarden/react-selection';
-import { withTheme, isRtl } from '@zendeskgarden/react-theming';
+import { withTheme, isRtl, getDocument } from '@zendeskgarden/react-theming';
 import RangeStyles from '@zendeskgarden/css-forms/dist/range.css';
 
 /**
@@ -53,7 +53,7 @@ const StyledThumb = styled.div.attrs({
     })
 })``;
 
-class MultiThumbRange extends PureComponent {
+class MultiThumbRange extends Component {
   static propTypes = {
     disabled: PropTypes.bool,
     min: PropTypes.number,
@@ -100,13 +100,17 @@ class MultiThumbRange extends PureComponent {
   };
 
   addDragEvents = () => {
-    document.addEventListener('mousemove', this.onDocumentMouseMove);
-    document.addEventListener('mouseup', this.removeDragEvents);
+    const themedDocument = getDocument(this.props);
+
+    themedDocument.addEventListener('mousemove', this.onDocumentMouseMove);
+    themedDocument.addEventListener('mouseup', this.removeDragEvents);
   };
 
   removeDragEvents = () => {
-    document.removeEventListener('mousemove', this.onDocumentMouseMove);
-    document.removeEventListener('mouseup', this.removeDragEvents);
+    const themedDocument = getDocument(this.props);
+
+    themedDocument.removeEventListener('mousemove', this.onDocumentMouseMove);
+    themedDocument.removeEventListener('mouseup', this.removeDragEvents);
   };
 
   /**
