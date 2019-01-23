@@ -26,7 +26,7 @@
   },
   "rules": {
     "prettier/prettier": "error",
-    "indent": ["error", 2],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
     "sort-imports": "off",
     "valid-jsdoc": "off",
     "no-invalid-this": "off",

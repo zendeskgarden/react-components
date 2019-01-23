@@ -5,6 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+export { default as MultiThumbRange } from './elements/MultiThumbRange';
 export { default as Range } from './elements/Range';
 export { default as RangeField } from './elements/RangeField';
 export { default as Hint } from './views/Hint';

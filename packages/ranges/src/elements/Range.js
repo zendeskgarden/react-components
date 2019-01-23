@@ -24,8 +24,7 @@ export default class Range extends ControlledComponent {
     onChange: PropTypes.func,
     focused: PropTypes.bool,
     hovered: PropTypes.bool,
-    rangeRef: PropTypes.func,
-    backgroundSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+    rangeRef: PropTypes.func
   };
 
   static defaultProps = {
