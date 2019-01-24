@@ -16,11 +16,15 @@ import { KEY_CODES } from '@zendeskgarden/react-selection';
 import { withTheme, isRtl, getDocument } from '@zendeskgarden/react-theming';
 import RangeStyles from '@zendeskgarden/css-forms/dist/range.css';
 
+const COMPONENT_ID = 'ranges.multi_thumb_range';
+
 /**
  * These Styled components are not exported with the other Views due to their logic
  * being more tightly coupled with this specific implemenation.
  */
 const StyledSlider = styled.div.attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION,
   'data-test-id': 'slider',
   className: props =>
     classNames(RangeStyles['c-range__slider'], {
