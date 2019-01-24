@@ -27,7 +27,7 @@ grep \
   --include=\*.js \
   --exclude=\*.spec.js \
   -rnw '../../packages' \
-  -e 'const COMPONENT_ID = ' | # Find all COMPONENT_IDs
+  -e 'const [A-Z_]*COMPONENT_ID = ' | # Find all COMPONENT_IDs
   sort | # Sort alphabetically
   awk "$AWKCMD" | # Run the above awk program
   tr '\n' ' ' # Collapse result to single line
