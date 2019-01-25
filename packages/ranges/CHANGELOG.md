@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-ranges@2.6.0...@zendeskgarden/react-ranges@2.6.1) (2019-01-25)
+
+
+### Bug Fixes
+
+* **ranges:** add analytics attributes to MultiThumbRange ([#255](https://github.com/zendeskgarden/react-components/issues/255)) ([53082e7](https://github.com/zendeskgarden/react-components/commit/53082e7))
+
+
+
+
+
 # [2.6.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-ranges@2.5.0...@zendeskgarden/react-ranges@2.6.0) (2019-01-23)
 
 
