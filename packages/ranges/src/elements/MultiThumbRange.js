@@ -13,14 +13,21 @@ import classNames from 'classnames';
 import styled from 'styled-components';
 import debounce from 'lodash.debounce';
 import { KEY_CODES } from '@zendeskgarden/react-selection';
-import { withTheme, isRtl, getDocument } from '@zendeskgarden/react-theming';
+import { retrieveTheme, withTheme, isRtl, getDocument } from '@zendeskgarden/react-theming';
 import RangeStyles from '@zendeskgarden/css-forms/dist/range.css';
+
+const SLIDER_COMPONENT_ID = 'ranges.multi_thumb_range.slider';
+const TRACK_COMPONENT_ID = 'ranges.multi_thumb_range.track';
+const RAIL_COMPONENT_ID = 'ranges.multi_thumb_range.rail';
+const THUMB_COMPONENT_ID = 'ranges.multi_thumb_range.thumb';
 
 /**
  * These Styled components are not exported with the other Views due to their logic
  * being more tightly coupled with this specific implemenation.
  */
 const StyledSlider = styled.div.attrs({
+  'data-garden-id': SLIDER_COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION,
   'data-test-id': 'slider',
   className: props =>
     classNames(RangeStyles['c-range__slider'], {
@@ -33,25 +40,39 @@ const StyledSlider = styled.div.attrs({
   *::after {
     box-sizing: border-box;
   }
+
+  ${props => retrieveTheme(SLIDER_COMPONENT_ID, props)};
 `;
 
 const StyledTrack = styled.div.attrs({
+  'data-garden-id': TRACK_COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION,
   'data-test-id': 'track',
   className: RangeStyles['c-range__slider__track']
-})``;
+})`
+  ${props => retrieveTheme(TRACK_COMPONENT_ID, props)};
+`;
 
 const StyledTrackRail = styled.div.attrs({
+  'data-garden-id': RAIL_COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION,
   'data-test-id': 'rail',
   className: RangeStyles['c-range__slider__track__rail']
-})``;
+})`
+  ${props => retrieveTheme(RAIL_COMPONENT_ID, props)};
+`;
 
 const StyledThumb = styled.div.attrs({
+  'data-garden-id': THUMB_COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION,
   'data-test-id': 'thumb',
   className: props =>
     classNames(RangeStyles['c-range__slider__track__rail__thumb'], {
       [RangeStyles['is-focused']]: props.isFocused
     })
-})``;
+})`
+  ${props => retrieveTheme(THUMB_COMPONENT_ID, props)};
+`;
 
 class MultiThumbRange extends Component {
   static propTypes = {
