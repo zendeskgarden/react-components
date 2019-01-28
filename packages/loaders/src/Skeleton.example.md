@@ -1,20 +1,31 @@
 ```jsx
 const { XXXL, XXL, MD } = require('@zendeskgarden/react-typography/src');
 const { Button } = require('@zendeskgarden/react-buttons/src');
+const { Checkbox, Label } = require('@zendeskgarden/react-checkboxes/src');
+const { zdColorKale800, zdColorWhite, zdColorBlack } = require('@zendeskgarden/css-variables');
 
 initialState = {
-  isLoading: true
+  isLoading: true,
+  isDarkMode: false
 };
+
+const StyledCol = styled(Col)`
+  background-color: ${props => (props.isDarkMode ? zdColorKale800 : zdColorWhite)};
+  color: ${props => (props.isDarkMode ? zdColorWhite : zdColorBlack)};
+  padding: 18px;
+`;
 
 <Grid>
   <Row alignItems="start">
-    <Col md={8}>
-      <XXXL>{state.isLoading ? <Skeleton /> : 'There. You see Lord Vader.'}</XXXL>
+    <StyledCol md={8} isDarkMode={state.isDarkMode}>
+      <XXXL>
+        {state.isLoading ? <Skeleton dark={state.isDarkMode} /> : 'There. You see Lord Vader.'}
+      </XXXL>
       {state.isLoading && (
         <MD>
-          <Skeleton />
-          <Skeleton />
-          <Skeleton />
+          <Skeleton dark={state.isDarkMode} />
+          <Skeleton dark={state.isDarkMode} />
+          <Skeleton dark={state.isDarkMode} />
         </MD>
       )}
       {!state.isLoading && (
@@ -24,12 +35,20 @@ initialState = {
           with your Rebel friends soon enough. No! Commence primary ignition.
         </MD>
       )}
-    </Col>
-    <Col md={4}>
+    </StyledCol>
+    <StyledCol md={4}>
       <Button stretched onClick={() => setState({ isLoading: !state.isLoading })}>
         Toggle Skeleton Loaders
       </Button>
-    </Col>
+      <br />
+      <br />
+      <Checkbox
+        checked={state.isDarkMode}
+        onChange={e => setState({ isDarkMode: e.target.checked })}
+      >
+        <Label>Enable Dark Styling</Label>
+      </Checkbox>
+    </StyledCol>
   </Row>
 </Grid>;
 ```
