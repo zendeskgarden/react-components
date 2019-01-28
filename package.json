@@ -34,7 +34,7 @@
     "@babel/preset-react": "7.0.0",
     "@svgr/webpack": "4.1.0",
     "@types/react": "16.7.18",
-    "@zendeskgarden/css-variables": "5.2.3",
+    "@zendeskgarden/css-variables": "6.1.0",
     "@zendeskgarden/eslint-config": "7.1.0",
     "@zendeskgarden/stylelint-config": "9.0.9",
     "@zendeskgarden/svg-icons": "5.0.0",
