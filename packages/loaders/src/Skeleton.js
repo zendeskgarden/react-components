@@ -20,7 +20,7 @@ import {
 
 const COMPONENT_ID = 'loaders.skeleton';
 
-const fadeInAnimation = keyframes`
+const fadeInAnimation = props => keyframes`
   0% {
     opacity: 0;
   }
@@ -30,7 +30,7 @@ const fadeInAnimation = keyframes`
   }
 
   100% {
-    opacity: 0.1; /* stylelint-disable-line */
+    opacity: ${props.dark ? '0.15' : '0.1'};
   }
 `;
 
@@ -52,7 +52,7 @@ const StyledSkeleton = styled.div.attrs({
   position: relative;
 
   animation: ${fadeInAnimation} 700ms linear; /* stylelint-disable-line */
-  opacity: 0.1; /* stylelint-disable-line */
+  opacity: ${props => (props.dark ? '0.15' : '0.1')};
 
   border-radius: ${zdSpacingXxs};
   background-color: ${props => (props.dark ? zdColorWhite : zdColorGrey800)};

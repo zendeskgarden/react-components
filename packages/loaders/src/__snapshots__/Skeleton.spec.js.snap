@@ -4,9 +4,9 @@ exports[`Skeleton Loader customizes dark styling when provided 1`] = `
 .c0 {
   display: inline-block;
   position: relative;
-  -webkit-animation: bqfpzQ 700ms linear;
-  animation: bqfpzQ 700ms linear;
-  opacity: 0.1;
+  -webkit-animation: dbGzgV 700ms linear;
+  animation: dbGzgV 700ms linear;
+  opacity: 0.15;
   border-radius: 4px;
   background-color: #fff;
   width: 100%;
@@ -54,8 +54,8 @@ exports[`Skeleton Loader customizes height when provided 1`] = `
 .c0 {
   display: inline-block;
   position: relative;
-  -webkit-animation: bqfpzQ 700ms linear;
-  animation: bqfpzQ 700ms linear;
+  -webkit-animation: eOgrwc 700ms linear;
+  animation: eOgrwc 700ms linear;
   opacity: 0.1;
   border-radius: 4px;
   background-color: #2f3941;
@@ -102,8 +102,8 @@ exports[`Skeleton Loader customizes style when provided 1`] = `
 .c0 {
   display: inline-block;
   position: relative;
-  -webkit-animation: bqfpzQ 700ms linear;
-  animation: bqfpzQ 700ms linear;
+  -webkit-animation: eOgrwc 700ms linear;
+  animation: eOgrwc 700ms linear;
   opacity: 0.1;
   border-radius: 4px;
   background-color: #2f3941;
@@ -165,8 +165,8 @@ exports[`Skeleton Loader customizes width when provided 1`] = `
 .c0 {
   display: inline-block;
   position: relative;
-  -webkit-animation: bqfpzQ 700ms linear;
-  animation: bqfpzQ 700ms linear;
+  -webkit-animation: eOgrwc 700ms linear;
+  animation: eOgrwc 700ms linear;
   opacity: 0.1;
   border-radius: 4px;
   background-color: #2f3941;
@@ -213,8 +213,8 @@ exports[`Skeleton Loader displays correct styling by default 1`] = `
 .c0 {
   display: inline-block;
   position: relative;
-  -webkit-animation: bqfpzQ 700ms linear;
-  animation: bqfpzQ 700ms linear;
+  -webkit-animation: eOgrwc 700ms linear;
+  animation: eOgrwc 700ms linear;
   opacity: 0.1;
   border-radius: 4px;
   background-color: #2f3941;
