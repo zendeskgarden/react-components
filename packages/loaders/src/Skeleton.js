@@ -8,7 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
-import { transparentize } from 'polished';
+import { rgba, transparentize } from 'polished';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import {
   zdColorGrey800,
@@ -20,25 +20,17 @@ import {
 
 const COMPONENT_ID = 'loaders.skeleton';
 
-const fadeInAnimation = props => keyframes`
-  0% {
-    opacity: 0;
-  }
-
-  60% {
+const fadeInAnimation = keyframes`
+  0%, 60% {
     opacity: 0;
   }
 
   100% {
-    opacity: ${props.dark ? '0.15' : '0.1'};
+    opacity: 1;
   }
 `;
 
 const skeletonAnimation = keyframes`
-  0% {
-    left: -1200px;
-  }
-
   100% {
     left: 100%;
   }
@@ -52,10 +44,9 @@ const StyledSkeleton = styled.div.attrs({
   position: relative;
 
   animation: ${fadeInAnimation} 700ms linear; /* stylelint-disable-line */
-  opacity: ${props => (props.dark ? '0.15' : '0.1')};
 
   border-radius: ${zdSpacingXxs};
-  background-color: ${props => (props.dark ? zdColorWhite : zdColorGrey800)};
+  background-color: ${props => (props.dark ? rgba(zdColorWhite, 0.1) : rgba(zdColorGrey800, 0.15))};
   width: ${props => props.width};
   height: ${props => props.height};
   overflow: hidden;

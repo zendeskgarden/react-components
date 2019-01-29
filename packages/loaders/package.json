@@ -19,7 +19,7 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendeskgarden/css-variables": "^5.2.4",
+    "@zendeskgarden/css-variables": "^6.1.0",
     "classnames": "^2.2.5",
     "polished": "^2.3.3"
   },

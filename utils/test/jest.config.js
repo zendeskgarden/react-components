@@ -18,7 +18,7 @@ module.exports = {
   },
   moduleFileExtensions: ['js', 'ts', 'tsx'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
-  setupTestFrameworkScriptFile: '<rootDir>/utils/test/jest.setup.js',
+  setupFilesAfterEnv: ['<rootDir>/utils/test/jest.setup.js'],
   moduleNameMapper: {
     '\\.(css|json)$': 'identity-obj-proxy',
     '@zendeskgarden/css(?!-variables)': 'identity-obj-proxy',
