@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.4.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-pagination@4.4.0...@zendeskgarden/react-pagination@4.4.1) (2019-01-29)
+
+**Note:** Version bump only for package @zendeskgarden/react-pagination
+
+
+
+
+
 # [4.4.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-pagination@4.3.10...@zendeskgarden/react-pagination@4.4.0) (2018-12-19)
 
 

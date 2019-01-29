@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.5.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.5.2...@zendeskgarden/react-chrome@4.5.3) (2019-01-29)
+
+**Note:** Version bump only for package @zendeskgarden/react-chrome
+
+
+
+
+
 ## [4.5.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.5.1...@zendeskgarden/react-chrome@4.5.2) (2019-01-10)
 
 **Note:** Version bump only for package @zendeskgarden/react-chrome
