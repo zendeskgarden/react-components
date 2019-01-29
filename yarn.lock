@@ -1885,10 +1885,10 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.1.tgz#5c85d662f76fa1d34575766c5dcd6615abcd30d8"
   integrity sha512-FZdkNBDqBRHKQ2MEbSC17xnPFOhZxeJ2YGSfr2BKf3sujG49Qe3bB+rGCwQfIaA7WHnGeGkSijX4FuBCdrzW/g==
 
-"@zendeskgarden/css-variables@5.2.3":
-  version "5.2.3"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/css-variables/-/css-variables-5.2.3.tgz#2a2edfd5db9801001622537b30b219429f1c07fd"
-  integrity sha512-/QJ3aAiuj0yMJxZrSQywgHRSMJ554NqiTAyX91ydEbpeRZP0hbfBmQRZ6EJTJ2mBJoVX5VKqMe09SJBBvsLsHQ==
+"@zendeskgarden/css-variables@6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/css-variables/-/css-variables-6.1.0.tgz#3bc2160ad17840d499acee3773ae62661a6bc3f5"
+  integrity sha512-9chVXcvI7/H+UQfWqdPjchnr2YzoR2c1ghO86ZBRBhXyudPS7+wBfNs7MhntMFkpTfMiXcSPF6Y7xSvsAbZz4Q==
 
 "@zendeskgarden/eslint-config@7.1.0":
   version "7.1.0"
