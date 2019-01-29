@@ -31,8 +31,8 @@
     "styled-components": "^3.2.6"
   },
   "devDependencies": {
-    "@zendeskgarden/css-tables": "3.2.0",
-    "@zendeskgarden/css-variables": "5.2.3",
+    "@zendeskgarden/css-tables": "4.0.1",
+    "@zendeskgarden/css-variables": "6.1.0",
     "@zendeskgarden/react-theming": "^3.2.1",
     "@zendeskgarden/svg-icons": "5.0.0",
     "react-beautiful-dnd": "10.0.3",
