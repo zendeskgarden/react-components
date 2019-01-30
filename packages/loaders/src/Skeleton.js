@@ -9,7 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
 import { rgba, transparentize } from 'polished';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import {
   zdColorGrey800,
   zdColorGrey100,
@@ -36,6 +36,13 @@ const skeletonAnimation = keyframes`
   }
 `;
 
+const skeletonRtlAnimation = keyframes`
+  100% {
+    right: 100%;
+  }
+`;
+
+/* eslint-disable */
 const StyledSkeleton = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
@@ -55,8 +62,18 @@ const StyledSkeleton = styled.div.attrs({
   &::before {
     position: absolute;
     top: 0;
+
+    ${props =>
+      isRtl(props)
+        ? `
+    right: -1800px;
+    animation: ${skeletonRtlAnimation} 1.5s ease-in-out 300ms infinite;
+  `
+        : `
     left: -1800px;
     animation: ${skeletonAnimation} 1.5s ease-in-out 300ms infinite;
+  `}
+
     width: 1600px;
     height: 100%;
     content: '';
@@ -67,11 +84,12 @@ const StyledSkeleton = styled.div.attrs({
       ${props => transparentize(0.4, props.dark ? zdColorKale800 : zdColorGrey100)},
       ${transparentize(1, zdColorWhite)}
     );
-    /* stylelint-enable */
   }
+  /* stylelint-enable */
 
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
+/* eslint-enable */
 
 /**
  * Loader used to create Skeleton objects

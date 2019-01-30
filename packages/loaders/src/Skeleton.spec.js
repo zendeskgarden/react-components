@@ -14,6 +14,10 @@ describe('Skeleton Loader', () => {
     expect(mountWithTheme(<Skeleton />)).toMatchSnapshot();
   });
 
+  it('displays correct styling in RTL mode', () => {
+    expect(mountWithTheme(<Skeleton />, { rtl: true })).toMatchSnapshot();
+  });
+
   it('customizes width when provided', () => {
     expect(mountWithTheme(<Skeleton width="25px" />)).toMatchSnapshot();
   });
