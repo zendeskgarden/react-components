@@ -11,7 +11,7 @@ exports[`Skeleton Loader customizes dark styling when provided 1`] = `
   width: 100%;
   height: 100%;
   overflow: hidden;
-  line-height: 1;
+  line-height: 0.6;
 }
 
 .c0::before {
@@ -60,7 +60,7 @@ exports[`Skeleton Loader customizes height when provided 1`] = `
   width: 100%;
   height: 25px;
   overflow: hidden;
-  line-height: 1;
+  line-height: 0.6;
 }
 
 .c0::before {
@@ -107,7 +107,7 @@ exports[`Skeleton Loader customizes style when provided 1`] = `
   width: 100%;
   height: 100%;
   overflow: hidden;
-  line-height: 1;
+  line-height: 0.6;
 }
 
 .c0::before {
@@ -169,7 +169,7 @@ exports[`Skeleton Loader customizes width when provided 1`] = `
   width: 25px;
   height: 100%;
   overflow: hidden;
-  line-height: 1;
+  line-height: 0.6;
 }
 
 .c0::before {
@@ -216,7 +216,7 @@ exports[`Skeleton Loader displays correct styling by default 1`] = `
   width: 100%;
   height: 100%;
   overflow: hidden;
-  line-height: 1;
+  line-height: 0.6;
 }
 
 .c0::before {

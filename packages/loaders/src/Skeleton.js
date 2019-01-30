@@ -50,7 +50,7 @@ const StyledSkeleton = styled.div.attrs({
   width: ${props => props.width};
   height: ${props => props.height};
   overflow: hidden;
-  line-height: 1;
+  line-height: 0.6; /* stylelint-disable-line */
 
   &::before {
     position: absolute;
