@@ -17,13 +17,13 @@ exports[`Skeleton Loader customizes dark styling when provided 1`] = `
 .c0::before {
   position: absolute;
   top: 0;
-  left: -1200px;
+  left: -1800px;
   -webkit-animation: juhHqy 1.5s ease-in-out 300ms infinite;
   animation: juhHqy 1.5s ease-in-out 300ms infinite;
-  width: 1000px;
+  width: 1600px;
   height: 100%;
   content: '';
-  background-image: linear-gradient( 45deg,rgba(255,255,255,0),rgba(1,43,48,0.6),rgba(255,255,255,0) );
+  background-image: linear-gradient( -45deg,rgba(255,255,255,0),rgba(1,43,48,0.6),rgba(255,255,255,0) );
 }
 
 <Skeleton
@@ -66,13 +66,13 @@ exports[`Skeleton Loader customizes height when provided 1`] = `
 .c0::before {
   position: absolute;
   top: 0;
-  left: -1200px;
+  left: -1800px;
   -webkit-animation: juhHqy 1.5s ease-in-out 300ms infinite;
   animation: juhHqy 1.5s ease-in-out 300ms infinite;
-  width: 1000px;
+  width: 1600px;
   height: 100%;
   content: '';
-  background-image: linear-gradient( 45deg,rgba(255,255,255,0),rgba(248,249,249,0.6),rgba(255,255,255,0) );
+  background-image: linear-gradient( -45deg,rgba(255,255,255,0),rgba(248,249,249,0.6),rgba(255,255,255,0) );
 }
 
 <Skeleton
@@ -113,13 +113,13 @@ exports[`Skeleton Loader customizes style when provided 1`] = `
 .c0::before {
   position: absolute;
   top: 0;
-  left: -1200px;
+  left: -1800px;
   -webkit-animation: juhHqy 1.5s ease-in-out 300ms infinite;
   animation: juhHqy 1.5s ease-in-out 300ms infinite;
-  width: 1000px;
+  width: 1600px;
   height: 100%;
   content: '';
-  background-image: linear-gradient( 45deg,rgba(255,255,255,0),rgba(248,249,249,0.6),rgba(255,255,255,0) );
+  background-image: linear-gradient( -45deg,rgba(255,255,255,0),rgba(248,249,249,0.6),rgba(255,255,255,0) );
 }
 
 <Skeleton
@@ -175,13 +175,13 @@ exports[`Skeleton Loader customizes width when provided 1`] = `
 .c0::before {
   position: absolute;
   top: 0;
-  left: -1200px;
+  left: -1800px;
   -webkit-animation: juhHqy 1.5s ease-in-out 300ms infinite;
   animation: juhHqy 1.5s ease-in-out 300ms infinite;
-  width: 1000px;
+  width: 1600px;
   height: 100%;
   content: '';
-  background-image: linear-gradient( 45deg,rgba(255,255,255,0),rgba(248,249,249,0.6),rgba(255,255,255,0) );
+  background-image: linear-gradient( -45deg,rgba(255,255,255,0),rgba(248,249,249,0.6),rgba(255,255,255,0) );
 }
 
 <Skeleton
@@ -222,13 +222,13 @@ exports[`Skeleton Loader displays correct styling by default 1`] = `
 .c0::before {
   position: absolute;
   top: 0;
-  left: -1200px;
+  left: -1800px;
   -webkit-animation: juhHqy 1.5s ease-in-out 300ms infinite;
   animation: juhHqy 1.5s ease-in-out 300ms infinite;
-  width: 1000px;
+  width: 1600px;
   height: 100%;
   content: '';
-  background-image: linear-gradient( 45deg,rgba(255,255,255,0),rgba(248,249,249,0.6),rgba(255,255,255,0) );
+  background-image: linear-gradient( -45deg,rgba(255,255,255,0),rgba(248,249,249,0.6),rgba(255,255,255,0) );
 }
 
 <Skeleton

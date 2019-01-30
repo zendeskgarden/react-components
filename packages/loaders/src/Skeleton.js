@@ -55,14 +55,14 @@ const StyledSkeleton = styled.div.attrs({
   &::before {
     position: absolute;
     top: 0;
-    left: -1200px;
+    left: -1800px;
     animation: ${skeletonAnimation} 1.5s ease-in-out 300ms infinite;
-    width: 1000px;
+    width: 1600px;
     height: 100%;
     content: '';
     /* stylelint-disable */
     background-image: linear-gradient(
-      45deg,
+      -45deg,
       ${transparentize(1, zdColorWhite)},
       ${props => transparentize(0.4, props.dark ? zdColorKale800 : zdColorGrey100)},
       ${transparentize(1, zdColorWhite)}
