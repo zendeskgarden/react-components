@@ -5,32 +5,22 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import classNames from 'classnames';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import ChromeStyles from '@zendeskgarden/css-chrome';
 
-const COMPONENT_ID = 'chrome.body';
+const COMPONENT_ID = 'chrome.footer';
 
 /**
- * Accepts all `<div>` props
+ * Accepts all `<footer>` props. _Remember to set the_ `hasFooter` _prop on the parent_ `<Body>`.
  */
-const Body = styled.div.attrs({
+const Footer = styled.footer.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(ChromeStyles['c-chrome__body'], {
-      [ChromeStyles['c-chrome__body--footer']]: props.hasFooter
-    })
+  className: ChromeStyles['c-chrome__body__footer']
 })`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
-Body.propTypes = {
-  /** Prepare the body content height to allow space for a footer component  */
-  hasFooter: PropTypes.bool
-};
-
 /** @component */
-export default Body;
+export default Footer;

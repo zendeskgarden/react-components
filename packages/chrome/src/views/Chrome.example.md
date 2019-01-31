@@ -8,6 +8,7 @@ If you are using a routing library like [react-router](https://github.com/ReactT
 you can programmatically trigger navigation with the `onClick` events.
 
 ```jsx
+const { Button } = require('@zendeskgarden/react-buttons/src');
 const { Toggle, Label } = require('@zendeskgarden/react-toggles/src');
 const ConnectIcon = require('@zendeskgarden/svg-icons/src/26/relationshape-connect.svg').default;
 const HomeIcon = require('@zendeskgarden/svg-icons/src/26/home-fill.svg').default;
@@ -135,7 +136,7 @@ initialState = {
         <SubNavItemText>Subnav 3</SubNavItemText>
       </SubNavItem>
     </SubNav>
-    <Body>
+    <Body hasFooter>
       <Header>
         <HeaderItem>
           <HeaderItemIcon>
@@ -188,6 +189,14 @@ initialState = {
           </p>
         </Main>
       </Content>
+      <Footer>
+        <FooterItem>
+          <Button basic>Cancel</Button>
+        </FooterItem>
+        <FooterItem>
+          <Button primary>Save</Button>
+        </FooterItem>
+      </Footer>
     </Body>
   </Chrome>
 </div>;
