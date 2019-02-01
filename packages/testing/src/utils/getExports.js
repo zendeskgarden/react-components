@@ -29,10 +29,11 @@ function defaultFileMapper(files) {
 function getExports({
   globPath = '**/!(index|*.spec).js',
   cwd,
+  options = {},
   fileMapper = defaultFileMapper
 } = {}) {
   return new Promise((resolve, reject) => {
-    glob(globPath, { cwd }, (error, files) => {
+    glob(globPath, { ...options, cwd }, (error, files) => {
       if (error) {
         reject(error);
       }
