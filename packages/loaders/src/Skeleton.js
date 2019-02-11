@@ -8,7 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
-import { rgba, transparentize } from 'polished';
+import { rgba } from 'polished';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import {
   zdColorGrey800,
@@ -49,11 +49,9 @@ const StyledSkeleton = styled.div.attrs({
 })`
   display: inline-block;
   position: relative;
-
-  animation: ${fadeInAnimation} 700ms linear; /* stylelint-disable-line */
-
+  animation: ${fadeInAnimation} 750ms linear; /* stylelint-disable-line */
   border-radius: ${zdSpacingXxs};
-  background-color: ${props => (props.dark ? rgba(zdColorWhite, 0.1) : rgba(zdColorGrey800, 0.15))};
+  background-color: ${props => (props.dark ? rgba(zdColorWhite, 0.2) : rgba(zdColorGrey800, 0.1))};
   width: ${props => props.width};
   height: ${props => props.height};
   overflow: hidden;
@@ -74,15 +72,15 @@ const StyledSkeleton = styled.div.attrs({
     animation: ${skeletonAnimation} 1.5s ease-in-out 300ms infinite;
   `}
 
-    width: 1600px;
+    width: 1000px;
     height: 100%;
     content: '';
     /* stylelint-disable */
     background-image: linear-gradient(
       -45deg,
-      ${transparentize(1, zdColorWhite)},
-      ${props => transparentize(0.4, props.dark ? zdColorKale800 : zdColorGrey100)},
-      ${transparentize(1, zdColorWhite)}
+      ${rgba(zdColorWhite, 0)},
+      ${props => rgba(props.dark ? zdColorKale800 : zdColorGrey100, 0.5)},
+      ${rgba(zdColorWhite, 0)}
     );
   }
   /* stylelint-enable */
