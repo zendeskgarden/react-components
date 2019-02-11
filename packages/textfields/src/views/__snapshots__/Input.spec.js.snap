@@ -37,6 +37,15 @@ exports[`Input renders disabled styling if provided 1`] = `
 />
 `;
 
+exports[`Input renders focus-inset styling if provided 1`] = `
+<input
+  aria-invalid={false}
+  className="c-txt__input c-txt__input--focus-inset "
+  data-garden-id="textfields.input"
+  data-garden-version="version"
+/>
+`;
+
 exports[`Input renders focused styling if provided 1`] = `
 <input
   aria-invalid={false}

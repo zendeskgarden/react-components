@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.6.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.6.0...@zendeskgarden/react-chrome@4.6.1) (2019-02-11)
+
+**Note:** Version bump only for package @zendeskgarden/react-chrome
+
+
+
+
+
+# [4.6.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.5.3...@zendeskgarden/react-chrome@4.6.0) (2019-01-31)
+
+
+### Features
+
+* **chrome:** add `Footer` component ([#263](https://github.com/zendeskgarden/react-components/issues/263)) ([b715ae9](https://github.com/zendeskgarden/react-components/commit/b715ae9))
+
+
+
+
+
+## [4.5.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.5.2...@zendeskgarden/react-chrome@4.5.3) (2019-01-29)
+
+**Note:** Version bump only for package @zendeskgarden/react-chrome
+
+
+
+
+
 ## [4.5.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-chrome@4.5.1...@zendeskgarden/react-chrome@4.5.2) (2019-01-10)
 
 **Note:** Version bump only for package @zendeskgarden/react-chrome

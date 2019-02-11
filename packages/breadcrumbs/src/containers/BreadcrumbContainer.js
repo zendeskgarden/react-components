@@ -13,6 +13,7 @@ export default class BreadcrumbContainer extends Component {
     /**
      * @param {Object} renderProps
      * @param {Function} renderProps.getContainerProps - Props to be spread onto containing element
+     * @param {Function} renderProps.getCurrentPageProps - Props to be spread onto current page element
      */
     children: PropTypes.func,
     /**
@@ -29,11 +30,19 @@ export default class BreadcrumbContainer extends Component {
     };
   };
 
+  getCurrentPageProps = props => {
+    return {
+      'aria-current': 'page',
+      ...props
+    };
+  };
+
   render() {
     const { children, render = children } = this.props;
 
     return render({
-      getContainerProps: this.getContainerProps
+      getContainerProps: this.getContainerProps,
+      getCurrentPageProps: this.getCurrentPageProps
     });
   }
 }

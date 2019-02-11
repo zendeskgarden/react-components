@@ -34,6 +34,12 @@ describe('Button', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('renders focus-inset styling if provided', () => {
+    const wrapper = mount(<Button focusInset />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
   describe('Types', () => {
     it('renders primary styling if provided', () => {
       const wrapper = mount(<Button primary />);

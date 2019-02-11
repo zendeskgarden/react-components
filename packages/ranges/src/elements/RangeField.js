@@ -11,6 +11,7 @@ import { IdManager, ControlledComponent, FieldContainer } from '@zendeskgarden/r
 import { hasType } from '@zendeskgarden/react-utilities';
 
 import Range from './Range';
+import MultiThumbRange from './MultiThumbRange';
 import RangeGroup from '../views/RangeGroup';
 import Label from '../views/Label';
 import Hint from '../views/Hint';
@@ -62,7 +63,7 @@ export default class RangeField extends ControlledComponent {
                 return cloneElement(child, getLabelProps(child.props));
               }
 
-              if (hasType(child, Range)) {
+              if (hasType(child, Range) || hasType(child, MultiThumbRange)) {
                 return cloneElement(child, getInputProps(child.props, { isDescribed }));
               }
 

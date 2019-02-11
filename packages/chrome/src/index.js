@@ -16,6 +16,8 @@ export { default as HeaderItem } from './views/header/HeaderItem';
 export { default as HeaderItemIcon } from './views/header/HeaderItemIcon';
 export { default as HeaderItemText } from './views/header/HeaderItemText';
 export { default as HeaderItemWrapper } from './views/header/HeaderItemWrapper';
+export { default as Footer } from './views/footer/Footer';
+export { default as FooterItem } from './views/footer/FooterItem';
 export { default as Nav } from './views/nav/Nav';
 export { default as NavItem } from './views/nav/NavItem';
 export { default as NavItemIcon } from './views/nav/NavItemIcon';

@@ -12,3 +12,17 @@ exports[`SelectView renders default styling 1`] = `
   select={true}
 />
 `;
+
+exports[`SelectView renders focus-inset styling if provided 1`] = `
+.c0 {
+  cursor: default;
+}
+
+<FauxInput
+  className="c0"
+  data-garden-id="select.select_view"
+  data-garden-version="version"
+  focusInset={true}
+  select={true}
+/>
+`;

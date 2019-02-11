@@ -16,12 +16,17 @@ describe('BreadcrumbContainer', () => {
   beforeEach(() => {
     wrapper = mountWithTheme(
       <BreadcrumbContainer>
-        {({ getContainerProps }) => <div {...getContainerProps({ 'data-test-id': 'container' })} />}
+        {({ getContainerProps, getCurrentPageProps }) => (
+          <div {...getContainerProps({ 'data-test-id': 'container' })}>
+            <a {...getCurrentPageProps({ 'data-test-id': 'anchor' })}>Test</a>
+          </div>
+        )}
       </BreadcrumbContainer>
     );
   });
 
   const findContainer = enzymeWrapper => enzymeWrapper.find('[data-test-id="container"]');
+  const findAnchor = enzymeWrapper => enzymeWrapper.find('[data-test-id="anchor"]');
 
   describe('getContainerProps()', () => {
     it('applies correct accessibility attributes', () => {
@@ -29,6 +34,14 @@ describe('BreadcrumbContainer', () => {
 
       expect(container).toHaveProp('role', 'navigation');
       expect(container).toHaveProp('aria-label', 'Breadcrumb navigation');
+    });
+  });
+
+  describe('getCurrentPageProps()', () => {
+    it('applies correct accessibility attributes', () => {
+      const anchor = findAnchor(wrapper);
+
+      expect(anchor).toHaveProp('aria-current', 'page');
     });
   });
 });

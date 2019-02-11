@@ -37,6 +37,10 @@ module.exports = {
             {
               name: 'Header',
               components: '../../packages/chrome/src/views/header/[A-Z]*.js'
+            },
+            {
+              name: 'Footer',
+              components: '../../packages/chrome/src/views/footer/[A-Z]*.js'
             }
           ]
         }

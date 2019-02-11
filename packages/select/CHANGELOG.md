@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-select@3.5.1...@zendeskgarden/react-select@3.5.2) (2019-02-11)
+
+**Note:** Version bump only for package @zendeskgarden/react-select
+
+
+
+
+
+## [3.5.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-select@3.5.0...@zendeskgarden/react-select@3.5.1) (2019-01-29)
+
+**Note:** Version bump only for package @zendeskgarden/react-select
+
+
+
+
+
+# [3.5.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-select@3.4.4...@zendeskgarden/react-select@3.5.0) (2019-01-16)
+
+
+### Features
+
+* **autocomplete|buttons|select|textfields:** provide `focusInset` styling for stacked element designs ([#253](https://github.com/zendeskgarden/react-components/issues/253)) ([67e3799](https://github.com/zendeskgarden/react-components/commit/67e3799))
+
+
+
+
+
 ## [3.4.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-select@3.4.3...@zendeskgarden/react-select@3.4.4) (2019-01-10)
 
 

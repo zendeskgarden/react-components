@@ -44,6 +44,28 @@ describe('Breadcrumb', () => {
     });
   });
 
+  describe('Anchor List', () => {
+    wrapper = mountWithTheme(
+      <Breadcrumb>
+        <a href="/#">First</a>
+        <a href="/#">Last</a>
+      </Breadcrumb>
+    );
+
+    expect(
+      wrapper
+        .find(Item)
+        .first()
+        .find('a')
+    ).not.toHaveProp('aria-current', 'page');
+    expect(
+      wrapper
+        .find(Item)
+        .last()
+        .find('a')
+    ).toHaveProp('aria-current', 'page');
+  });
+
   describe('Item', () => {
     it('receives Item props', () => {
       expect(wrapper.find(Item).last()).toHaveProp('data-test-item', true);

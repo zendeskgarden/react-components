@@ -424,6 +424,34 @@ exports[`Button renders default styling 1`] = `
 </Button>
 `;
 
+exports[`Button renders focus-inset styling if provided 1`] = `
+<Button
+  focusInset={true}
+>
+  <KeyboardFocusContainer>
+    <Button__StyledButton
+      focusInset={true}
+      focused={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      tabIndex={0}
+    >
+      <button
+        className="c-btn c-btn--focus-inset "
+        data-garden-id="buttons.button"
+        data-garden-version="version"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+        type="button"
+      />
+    </Button__StyledButton>
+  </KeyboardFocusContainer>
+</Button>
+`;
+
 exports[`Button renders stretched styling if provided 1`] = `
 <Button
   stretched={true}
