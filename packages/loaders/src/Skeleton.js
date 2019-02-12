@@ -49,13 +49,13 @@ const StyledSkeleton = styled.div.attrs({
 })`
   display: inline-block;
   position: relative;
-  animation: ${fadeInAnimation} 750ms linear; /* stylelint-disable-line */
+  animation: ${fadeInAnimation} 750ms linear;
   border-radius: ${zdSpacingXxs};
   background-color: ${props => (props.dark ? rgba(zdColorWhite, 0.2) : rgba(zdColorGrey800, 0.1))};
   width: ${props => props.width};
   height: ${props => props.height};
   overflow: hidden;
-  line-height: 0.6; /* stylelint-disable-line */
+  line-height: 0.6;
 
   &::before {
     position: absolute;
@@ -72,18 +72,17 @@ const StyledSkeleton = styled.div.attrs({
     animation: ${skeletonAnimation} 1.5s ease-in-out 300ms infinite;
   `}
 
+    background-image:
+      linear-gradient (
+        -45deg,
+        ${rgba(zdColorWhite, 0)},
+        ${props => rgba(props.dark ? zdColorKale800 : zdColorGrey100, 0.5)},
+        ${rgba(zdColorWhite, 0)}
+      );
     width: 1000px;
     height: 100%;
     content: '';
-    /* stylelint-disable */
-    background-image: linear-gradient(
-      -45deg,
-      ${rgba(zdColorWhite, 0)},
-      ${props => rgba(props.dark ? zdColorKale800 : zdColorGrey100, 0.5)},
-      ${rgba(zdColorWhite, 0)}
-    );
   }
-  /* stylelint-enable */
 
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
