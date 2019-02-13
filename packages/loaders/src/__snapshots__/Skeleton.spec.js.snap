@@ -1,0 +1,300 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Skeleton Loader customizes dark styling when provided 1`] = `
+.c0 {
+  display: inline-block;
+  position: relative;
+  -webkit-animation: drWeIq 750ms linear;
+  animation: drWeIq 750ms linear;
+  border-radius: 4px;
+  background-color: rgba(255,255,255,0.2);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0.6;
+}
+
+.c0::before {
+  position: absolute;
+  top: 0;
+  left: -1800px;
+  -webkit-animation: juhHqy 1.5s ease-in-out 300ms infinite;
+  animation: juhHqy 1.5s ease-in-out 300ms infinite;
+  background-image: linear-gradient( -45deg,rgba(255,255,255,0),rgba(1,43,48,0.5),rgba(255,255,255,0) );
+  width: 1000px;
+  height: 100%;
+  content: '';
+}
+
+<Skeleton
+  dark={true}
+  height="100%"
+  width="100%"
+>
+  <Skeleton__StyledSkeleton
+    dark={true}
+    height="100%"
+    width="100%"
+  >
+    <div
+      className="c0"
+      data-garden-id="loaders.skeleton"
+      data-garden-version="version"
+      height="100%"
+      width="100%"
+    >
+       
+    </div>
+  </Skeleton__StyledSkeleton>
+</Skeleton>
+`;
+
+exports[`Skeleton Loader customizes height when provided 1`] = `
+.c0 {
+  display: inline-block;
+  position: relative;
+  -webkit-animation: drWeIq 750ms linear;
+  animation: drWeIq 750ms linear;
+  border-radius: 4px;
+  background-color: rgba(47,57,65,0.1);
+  width: 100%;
+  height: 25px;
+  overflow: hidden;
+  line-height: 0.6;
+}
+
+.c0::before {
+  position: absolute;
+  top: 0;
+  left: -1800px;
+  -webkit-animation: juhHqy 1.5s ease-in-out 300ms infinite;
+  animation: juhHqy 1.5s ease-in-out 300ms infinite;
+  background-image: linear-gradient( -45deg,rgba(255,255,255,0),rgba(248,249,249,0.5),rgba(255,255,255,0) );
+  width: 1000px;
+  height: 100%;
+  content: '';
+}
+
+<Skeleton
+  height="25px"
+  width="100%"
+>
+  <Skeleton__StyledSkeleton
+    height="25px"
+    width="100%"
+  >
+    <div
+      className="c0"
+      data-garden-id="loaders.skeleton"
+      data-garden-version="version"
+      height="25px"
+      width="100%"
+    >
+       
+    </div>
+  </Skeleton__StyledSkeleton>
+</Skeleton>
+`;
+
+exports[`Skeleton Loader customizes style when provided 1`] = `
+.c0 {
+  display: inline-block;
+  position: relative;
+  -webkit-animation: drWeIq 750ms linear;
+  animation: drWeIq 750ms linear;
+  border-radius: 4px;
+  background-color: rgba(47,57,65,0.1);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0.6;
+}
+
+.c0::before {
+  position: absolute;
+  top: 0;
+  left: -1800px;
+  -webkit-animation: juhHqy 1.5s ease-in-out 300ms infinite;
+  animation: juhHqy 1.5s ease-in-out 300ms infinite;
+  background-image: linear-gradient( -45deg,rgba(255,255,255,0),rgba(248,249,249,0.5),rgba(255,255,255,0) );
+  width: 1000px;
+  height: 100%;
+  content: '';
+}
+
+<Skeleton
+  height="100%"
+  style={
+    Object {
+      "borderRadius": 25,
+    }
+  }
+  width="100%"
+>
+  <Skeleton__StyledSkeleton
+    height="100%"
+    style={
+      Object {
+        "borderRadius": 25,
+      }
+    }
+    width="100%"
+  >
+    <div
+      className="c0"
+      data-garden-id="loaders.skeleton"
+      data-garden-version="version"
+      height="100%"
+      style={
+        Object {
+          "borderRadius": 25,
+        }
+      }
+      width="100%"
+    >
+       
+    </div>
+  </Skeleton__StyledSkeleton>
+</Skeleton>
+`;
+
+exports[`Skeleton Loader customizes width when provided 1`] = `
+.c0 {
+  display: inline-block;
+  position: relative;
+  -webkit-animation: drWeIq 750ms linear;
+  animation: drWeIq 750ms linear;
+  border-radius: 4px;
+  background-color: rgba(47,57,65,0.1);
+  width: 25px;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0.6;
+}
+
+.c0::before {
+  position: absolute;
+  top: 0;
+  left: -1800px;
+  -webkit-animation: juhHqy 1.5s ease-in-out 300ms infinite;
+  animation: juhHqy 1.5s ease-in-out 300ms infinite;
+  background-image: linear-gradient( -45deg,rgba(255,255,255,0),rgba(248,249,249,0.5),rgba(255,255,255,0) );
+  width: 1000px;
+  height: 100%;
+  content: '';
+}
+
+<Skeleton
+  height="100%"
+  width="25px"
+>
+  <Skeleton__StyledSkeleton
+    height="100%"
+    width="25px"
+  >
+    <div
+      className="c0"
+      data-garden-id="loaders.skeleton"
+      data-garden-version="version"
+      height="100%"
+      width="25px"
+    >
+       
+    </div>
+  </Skeleton__StyledSkeleton>
+</Skeleton>
+`;
+
+exports[`Skeleton Loader displays correct styling by default 1`] = `
+.c0 {
+  display: inline-block;
+  position: relative;
+  -webkit-animation: drWeIq 750ms linear;
+  animation: drWeIq 750ms linear;
+  border-radius: 4px;
+  background-color: rgba(47,57,65,0.1);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0.6;
+}
+
+.c0::before {
+  position: absolute;
+  top: 0;
+  left: -1800px;
+  -webkit-animation: juhHqy 1.5s ease-in-out 300ms infinite;
+  animation: juhHqy 1.5s ease-in-out 300ms infinite;
+  background-image: linear-gradient( -45deg,rgba(255,255,255,0),rgba(248,249,249,0.5),rgba(255,255,255,0) );
+  width: 1000px;
+  height: 100%;
+  content: '';
+}
+
+<Skeleton
+  height="100%"
+  width="100%"
+>
+  <Skeleton__StyledSkeleton
+    height="100%"
+    width="100%"
+  >
+    <div
+      className="c0"
+      data-garden-id="loaders.skeleton"
+      data-garden-version="version"
+      height="100%"
+      width="100%"
+    >
+       
+    </div>
+  </Skeleton__StyledSkeleton>
+</Skeleton>
+`;
+
+exports[`Skeleton Loader displays correct styling in RTL mode 1`] = `
+.c0 {
+  display: inline-block;
+  position: relative;
+  -webkit-animation: drWeIq 750ms linear;
+  animation: drWeIq 750ms linear;
+  border-radius: 4px;
+  background-color: rgba(47,57,65,0.1);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0.6;
+}
+
+.c0::before {
+  position: absolute;
+  top: 0;
+  right: -1800px;
+  -webkit-animation: dOsdoN 1.5s ease-in-out 300ms infinite;
+  animation: dOsdoN 1.5s ease-in-out 300ms infinite;
+  background-image: linear-gradient( -45deg,rgba(255,255,255,0),rgba(248,249,249,0.5),rgba(255,255,255,0) );
+  width: 1000px;
+  height: 100%;
+  content: '';
+}
+
+<Skeleton
+  height="100%"
+  width="100%"
+>
+  <Skeleton__StyledSkeleton
+    height="100%"
+    width="100%"
+  >
+    <div
+      className="c0"
+      data-garden-id="loaders.skeleton"
+      data-garden-version="version"
+      height="100%"
+      width="100%"
+    >
+       
+    </div>
+  </Skeleton__StyledSkeleton>
+</Skeleton>
+`;
