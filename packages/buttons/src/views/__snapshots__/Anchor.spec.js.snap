@@ -1,136 +1,295 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Anchor States renders active styling if provided 1`] = `
-<Anchor
+<WithTheme(Anchor)
   active={true}
 >
-  <KeyboardFocusContainer>
-    <Anchor__StyledAnchor
-      active={true}
-      focused={false}
-      onBlur={[Function]}
-      onFocus={[Function]}
-      onMouseDown={[Function]}
-      tabIndex={0}
-    >
-      <a
-        className="c-btn c-btn--anchor is-active "
-        data-garden-id="buttons.anchor"
-        data-garden-version="version"
+  <Anchor
+    active={true}
+    theme={
+      Object {
+        "document": undefined,
+        "rtl": undefined,
+        "styles": Object {},
+      }
+    }
+  >
+    <KeyboardFocusContainer>
+      <Anchor__StyledAnchor
+        active={true}
+        focused={false}
         onBlur={[Function]}
         onFocus={[Function]}
         onMouseDown={[Function]}
         tabIndex={0}
-      />
-    </Anchor__StyledAnchor>
-  </KeyboardFocusContainer>
-</Anchor>
+      >
+        <a
+          className="c-btn c-btn--anchor is-active "
+          data-garden-id="buttons.anchor"
+          data-garden-version="version"
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onMouseDown={[Function]}
+          tabIndex={0}
+        />
+      </Anchor__StyledAnchor>
+    </KeyboardFocusContainer>
+  </Anchor>
+</WithTheme(Anchor)>
 `;
 
 exports[`Anchor States renders disabled styling if provided 1`] = `
-<Anchor
+<WithTheme(Anchor)
   disabled={true}
 >
-  <KeyboardFocusContainer>
-    <Anchor__StyledAnchor
-      disabled={true}
-      focused={false}
-      onBlur={[Function]}
-      onFocus={[Function]}
-      onMouseDown={[Function]}
-      tabIndex={0}
-    >
-      <a
-        className="c-btn c-btn--anchor is-disabled "
-        data-garden-id="buttons.anchor"
-        data-garden-version="version"
+  <Anchor
+    disabled={true}
+    theme={
+      Object {
+        "document": undefined,
+        "rtl": undefined,
+        "styles": Object {},
+      }
+    }
+  >
+    <KeyboardFocusContainer>
+      <Anchor__StyledAnchor
         disabled={true}
+        focused={false}
         onBlur={[Function]}
         onFocus={[Function]}
         onMouseDown={[Function]}
         tabIndex={0}
-      />
-    </Anchor__StyledAnchor>
-  </KeyboardFocusContainer>
-</Anchor>
+      >
+        <a
+          className="c-btn c-btn--anchor is-disabled "
+          data-garden-id="buttons.anchor"
+          data-garden-version="version"
+          disabled={true}
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onMouseDown={[Function]}
+          tabIndex={0}
+        />
+      </Anchor__StyledAnchor>
+    </KeyboardFocusContainer>
+  </Anchor>
+</WithTheme(Anchor)>
 `;
 
 exports[`Anchor States renders focused styling if provided 1`] = `
-<Anchor
+<WithTheme(Anchor)
   focused={true}
 >
-  <KeyboardFocusContainer>
-    <Anchor__StyledAnchor
-      focused={true}
-      onBlur={[Function]}
-      onFocus={[Function]}
-      onMouseDown={[Function]}
-      tabIndex={0}
-    >
-      <a
-        className="c-btn c-btn--anchor is-focused "
-        data-garden-id="buttons.anchor"
-        data-garden-version="version"
+  <Anchor
+    focused={true}
+    theme={
+      Object {
+        "document": undefined,
+        "rtl": undefined,
+        "styles": Object {},
+      }
+    }
+  >
+    <KeyboardFocusContainer>
+      <Anchor__StyledAnchor
+        focused={true}
         onBlur={[Function]}
         onFocus={[Function]}
         onMouseDown={[Function]}
         tabIndex={0}
-      />
-    </Anchor__StyledAnchor>
-  </KeyboardFocusContainer>
-</Anchor>
+      >
+        <a
+          className="c-btn c-btn--anchor is-focused "
+          data-garden-id="buttons.anchor"
+          data-garden-version="version"
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onMouseDown={[Function]}
+          tabIndex={0}
+        />
+      </Anchor__StyledAnchor>
+    </KeyboardFocusContainer>
+  </Anchor>
+</WithTheme(Anchor)>
 `;
 
 exports[`Anchor States renders hovered styling if provided 1`] = `
-<Anchor
+<WithTheme(Anchor)
   hovered={true}
 >
-  <KeyboardFocusContainer>
-    <Anchor__StyledAnchor
-      focused={false}
-      hovered={true}
-      onBlur={[Function]}
-      onFocus={[Function]}
-      onMouseDown={[Function]}
-      tabIndex={0}
-    >
-      <a
-        className="c-btn c-btn--anchor is-hovered "
-        data-garden-id="buttons.anchor"
-        data-garden-version="version"
+  <Anchor
+    hovered={true}
+    theme={
+      Object {
+        "document": undefined,
+        "rtl": undefined,
+        "styles": Object {},
+      }
+    }
+  >
+    <KeyboardFocusContainer>
+      <Anchor__StyledAnchor
+        focused={false}
+        hovered={true}
         onBlur={[Function]}
         onFocus={[Function]}
         onMouseDown={[Function]}
         tabIndex={0}
-      />
-    </Anchor__StyledAnchor>
-  </KeyboardFocusContainer>
-</Anchor>
+      >
+        <a
+          className="c-btn c-btn--anchor is-hovered "
+          data-garden-id="buttons.anchor"
+          data-garden-version="version"
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onMouseDown={[Function]}
+          tabIndex={0}
+        />
+      </Anchor__StyledAnchor>
+    </KeyboardFocusContainer>
+  </Anchor>
+</WithTheme(Anchor)>
 `;
 
 exports[`Anchor renders danger styling if provided 1`] = `
-<Anchor
+<WithTheme(Anchor)
   danger={true}
 >
-  <KeyboardFocusContainer>
-    <Anchor__StyledAnchor
-      danger={true}
-      focused={false}
-      onBlur={[Function]}
-      onFocus={[Function]}
-      onMouseDown={[Function]}
-      tabIndex={0}
-    >
-      <a
-        className="c-btn c-btn--anchor c-btn--danger "
-        data-garden-id="buttons.anchor"
-        data-garden-version="version"
+  <Anchor
+    danger={true}
+    theme={
+      Object {
+        "document": undefined,
+        "rtl": undefined,
+        "styles": Object {},
+      }
+    }
+  >
+    <KeyboardFocusContainer>
+      <Anchor__StyledAnchor
+        danger={true}
+        focused={false}
         onBlur={[Function]}
         onFocus={[Function]}
         onMouseDown={[Function]}
         tabIndex={0}
-      />
-    </Anchor__StyledAnchor>
-  </KeyboardFocusContainer>
-</Anchor>
+      >
+        <a
+          className="c-btn c-btn--anchor c-btn--danger "
+          data-garden-id="buttons.anchor"
+          data-garden-version="version"
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onMouseDown={[Function]}
+          tabIndex={0}
+        />
+      </Anchor__StyledAnchor>
+    </KeyboardFocusContainer>
+  </Anchor>
+</WithTheme(Anchor)>
+`;
+
+exports[`Anchor renders external styling correctly if provided 1`] = `
+.c0 {
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+<WithTheme(Anchor)
+  external={true}
+>
+  <Anchor
+    external={true}
+    theme={
+      Object {
+        "document": undefined,
+        "rtl": true,
+        "styles": Object {},
+      }
+    }
+  >
+    <KeyboardFocusContainer>
+      <Anchor__StyledAnchor
+        focused={false}
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+      >
+        <a
+          className="c-btn c-btn--anchor "
+          data-garden-id="buttons.anchor"
+          data-garden-version="version"
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onMouseDown={[Function]}
+          tabIndex={0}
+        >
+          <Anchor__StyledNewWindowIcon>
+            <MockSVG
+              className="c0"
+            >
+              <span>
+                SVG
+              </span>
+            </MockSVG>
+          </Anchor__StyledNewWindowIcon>
+        </a>
+      </Anchor__StyledAnchor>
+    </KeyboardFocusContainer>
+  </Anchor>
+</WithTheme(Anchor)>
+`;
+
+exports[`Anchor renders external styling correctly if provided in RTL mode 1`] = `
+.c0 {
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
+<WithTheme(Anchor)
+  external={true}
+>
+  <Anchor
+    external={true}
+    theme={
+      Object {
+        "document": undefined,
+        "rtl": undefined,
+        "styles": Object {},
+      }
+    }
+  >
+    <KeyboardFocusContainer>
+      <Anchor__StyledAnchor
+        focused={false}
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        tabIndex={0}
+      >
+        <a
+          className="c-btn c-btn--anchor "
+          data-garden-id="buttons.anchor"
+          data-garden-version="version"
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onMouseDown={[Function]}
+          tabIndex={0}
+        >
+          <Anchor__StyledNewWindowIcon>
+            <MockSVG
+              className="c0"
+            >
+              <span>
+                SVG
+              </span>
+            </MockSVG>
+          </Anchor__StyledNewWindowIcon>
+        </a>
+      </Anchor__StyledAnchor>
+    </KeyboardFocusContainer>
+  </Anchor>
+</WithTheme(Anchor)>
 `;
