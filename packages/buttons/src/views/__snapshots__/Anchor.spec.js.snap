@@ -192,6 +192,8 @@ exports[`Anchor renders danger styling if provided 1`] = `
 
 exports[`Anchor renders external styling correctly if provided 1`] = `
 .c0 {
+  width: 0.75em;
+  height: 0.75em;
   vertical-align: middle;
   margin-right: 4px;
 }
@@ -244,6 +246,8 @@ exports[`Anchor renders external styling correctly if provided 1`] = `
 
 exports[`Anchor renders external styling correctly if provided in RTL mode 1`] = `
 .c0 {
+  width: 0.75em;
+  height: 0.75em;
   vertical-align: middle;
   margin-left: 4px;
 }

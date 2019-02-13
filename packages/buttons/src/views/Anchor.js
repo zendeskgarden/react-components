@@ -37,6 +37,8 @@ const StyledAnchor = styled.a.attrs({
 `;
 
 const StyledNewWindowIcon = styled(NewWindowIcon)`
+  width: 0.75em;
+  height: 0.75em;
   vertical-align: middle;
 
   ${props => (isRtl(props) ? `margin-right: ${zdSpacingXxs};` : `margin-left: ${zdSpacingXxs};`)}
