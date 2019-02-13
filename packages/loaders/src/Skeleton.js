@@ -72,13 +72,16 @@ const StyledSkeleton = styled.div.attrs({
     animation: ${skeletonAnimation} 1.5s ease-in-out 300ms infinite;
   `}
 
+    /* stylelint-disable */
     background-image:
-      linear-gradient (
+      linear-gradient(
         -45deg,
         ${rgba(zdColorWhite, 0)},
         ${props => rgba(props.dark ? zdColorKale800 : zdColorGrey100, 0.5)},
         ${rgba(zdColorWhite, 0)}
       );
+    /* stylelint-enable */
+
     width: 1000px;
     height: 100%;
     content: '';

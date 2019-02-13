@@ -3,6 +3,7 @@
     "*.js": [
       "stylelint",
       "eslint",
+      "jest --config=utils/test/jest.config.js --findRelatedTests",
       "prettier --write",
       "git add"
     ],
@@ -14,10 +15,7 @@
     "**/package.json": [
       "prettier-package-json --write",
       "git add"
-    ],
-    "*.spec.js": [
-      "jest --config=utils/test/jest.config.js"
-    ],
+    ]
   },
   "ignore": ["**/CHANGELOG.md"]
 }
