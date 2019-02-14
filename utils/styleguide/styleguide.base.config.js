@@ -16,7 +16,6 @@ const {
 } = require('@zendeskgarden/css-variables');
 const packageManifest = require(path.resolve('package.json'));
 const customStyleguideConfig = require(path.resolve('styleguide.config.js'));
-const babelOptions = require(path.resolve('../../babel.config.js'));
 const exec = require('child_process').execSync;
 
 const COMPONENT_IDS = exec('"../../utils/scripts/get-cids.sh"', (error, stdout) => {
@@ -148,24 +147,40 @@ const defaultStyleguideConfig = {
   },
   webpackConfig: {
     devtool: 'eval-source-map',
+    target: 'web',
     module: {
       rules: [
         {
           test: /\.jsx?$/u,
           exclude: /node_modules/u,
           loader: 'babel-loader',
-          options: babelOptions
+          options: {
+            rootMode: 'upward'
+          }
+        },
+        {
+          test: /\.mjs$/u,
+          loader: 'babel-loader',
+          type: 'javascript/auto',
+          options: {
+            rootMode: 'upward'
+          }
         },
         {
           test: /\.css$/u,
-          exclude: /@zendeskgarden\/css-/u,
-          loader: 'style-loader!css-loader'
-        },
-        {
-          test: /\.css$/u,
-          include: /@zendeskgarden\/css-/u,
-          loader:
-            'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+          use: [
+            {
+              loader: 'style-loader'
+            },
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+                // https://github.com/webpack-contrib/css-loader#localidentname
+                localIdentName: '[local]'
+              }
+            }
+          ]
         },
         {
           test: /\.svg$/u,
@@ -203,6 +218,7 @@ const defaultStyleguideConfig = {
       })
     ],
     resolve: {
+      extensions: ['.mjs', '.js', 'css'],
       alias: {
         'package.json': path.resolve('package.json'),
         'CHANGELOG.md': path.resolve('CHANGELOG.md'),
