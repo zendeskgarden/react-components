@@ -3,4 +3,4 @@ set -x
 set -e
 
 rimraf dist
-webpack --config ../../utils/build/webpack.node.js --hide-modules
+rollup -c ../../utils/build/rollup.config.js  --environment TARGET:node
