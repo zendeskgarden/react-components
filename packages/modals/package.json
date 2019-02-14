@@ -10,6 +10,7 @@
   },
   "version": "5.5.1",
   "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "files": [
     "dist"
   ],
