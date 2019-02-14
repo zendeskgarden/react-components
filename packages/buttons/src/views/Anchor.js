@@ -12,7 +12,6 @@ import classNames from 'classnames';
 import ButtonStyles from '@zendeskgarden/css-buttons';
 import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
 import { retrieveTheme, withTheme, isRtl } from '@zendeskgarden/react-theming';
-import { zdSpacingXxs } from '@zendeskgarden/css-variables';
 import NewWindowIcon from '@zendeskgarden/svg-icons/src/12/new-window-stroke.svg';
 
 const COMPONENT_ID = 'buttons.anchor';
@@ -37,11 +36,12 @@ const StyledAnchor = styled.a.attrs({
 `;
 
 const StyledNewWindowIcon = styled(NewWindowIcon)`
+  margin-bottom: -0.075em;
   width: 0.75em;
   height: 0.75em;
-  vertical-align: middle;
+  vertical-align: baseline;
 
-  ${props => (isRtl(props) ? `margin-right: ${zdSpacingXxs};` : `margin-left: ${zdSpacingXxs};`)}
+  ${props => (isRtl(props) ? `padding-right: 0.25em;` : `padding-left: 0.25em;`)}
 `;
 
 /**

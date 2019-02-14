@@ -9,7 +9,7 @@ If you need a `<button>` that has anchor styling, use the
 ```jsx
 <div>
   Apparently we had reached a great height in the
-  <Anchor href="https://www.zendesk.com" target="_blank">
+  <Anchor href="#button">
     atmosphere
   </Anchor>, for the sky was a dead black, and the stars had ceased to twinkle. By the same
   <Anchor href="https://www.zendesk.com" target="_blank" external>
@@ -21,11 +21,45 @@ If you need a `<button>` that has anchor styling, use the
     immense dark sphere
   </Anchor>
   , whose upper half was strewn with silver. Looking down into the dark gulf below, I could see a
-  <Anchor href="https://www.zendesk.com" target="_blank">
+  <Anchor href="#chevronbutton">
     ruddy light streaming
   </Anchor>{' '}
   through a rift in the clouds.
 </div>
+```
+
+### External Anchor Sizing
+
+```jsx
+const { SM, MD, LG, XL, XXL } = require('@zendeskgarden/react-typography');
+
+<div>
+  <SM>
+    <Anchor href="https://www.zendesk.com" target="_blank" external>
+      External Anchor
+    </Anchor>
+  </SM>
+  <MD>
+    <Anchor href="https://www.zendesk.com" target="_blank" external>
+      External Anchor
+    </Anchor>
+  </MD>
+  <LG>
+    <Anchor href="https://www.zendesk.com" target="_blank" external>
+      External Anchor
+    </Anchor>
+  </LG>
+  <XL>
+    <Anchor href="https://www.zendesk.com" target="_blank" external>
+      External Anchor
+    </Anchor>
+  </XL>
+  <XXL>
+    <Anchor href="https://www.zendesk.com" target="_blank" external>
+      External Anchor
+    </Anchor>
+  </XXL>
+</div>;
 ```
 
 <!-- markdownlint-enable -->

@@ -173,11 +173,9 @@ const defaultStyleguideConfig = {
             {
               loader: '@svgr/webpack',
               options: {
-                svgoConfig: {
-                  plugins: {
-                    removeViewBox: false
-                  }
-                }
+                externalConfig: path.resolve(
+                  '../../node_modules/@zendeskgarden/svg-icons/.svgo.yml'
+                )
               }
             }
           ]
