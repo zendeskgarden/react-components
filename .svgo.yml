@@ -1,0 +1,5 @@
+plugins:
+  - removeViewBox: false
+  - addAttributesToSVGElement:
+    - attributes:
+      - focusable: false

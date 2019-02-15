@@ -39,7 +39,6 @@ const StyledNewWindowIcon = styled(NewWindowIcon)`
   margin-bottom: -0.075em;
   width: 0.75em;
   height: 0.75em;
-  vertical-align: baseline;
 
   ${props => (isRtl(props) ? `padding-right: 0.25em;` : `padding-left: 0.25em;`)}
 `;

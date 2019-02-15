@@ -173,9 +173,7 @@ const defaultStyleguideConfig = {
             {
               loader: '@svgr/webpack',
               options: {
-                externalConfig: path.resolve(
-                  '../../node_modules/@zendeskgarden/svg-icons/.svgo.yml'
-                )
+                externalConfig: path.resolve('../../.svgo.yml')
               }
             }
           ]
