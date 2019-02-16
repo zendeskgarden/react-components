@@ -2,8 +2,8 @@
 
 exports[`XXL applies correct styling by default 1`] = `
 .c0 {
-  line-height: zdLineHeightXxl;
-  font-size: zdFontSizeXxl;
+  line-height: 32px;
+  font-size: 26px;
   direction: ltr;
 }
 
@@ -26,8 +26,8 @@ exports[`XXL applies correct styling by default 1`] = `
 
 exports[`XXL applies correct styling with RTL locale 1`] = `
 .c0 {
-  line-height: zdLineHeightXxl;
-  font-size: zdFontSizeXxl;
+  line-height: 32px;
+  font-size: 26px;
   direction: rtl;
 }
 

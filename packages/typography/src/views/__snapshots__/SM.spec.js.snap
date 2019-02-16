@@ -2,8 +2,8 @@
 
 exports[`SM applies correct styling by default 1`] = `
 .c0 {
-  line-height: zdLineHeightSm;
-  font-size: zdFontSizeSm;
+  line-height: 16px;
+  font-size: 12px;
   direction: ltr;
 }
 
@@ -26,8 +26,8 @@ exports[`SM applies correct styling by default 1`] = `
 
 exports[`SM applies correct styling with RTL locale 1`] = `
 .c0 {
-  line-height: zdLineHeightSm;
-  font-size: zdFontSizeSm;
+  line-height: 16px;
+  font-size: 12px;
   direction: rtl;
 }
 

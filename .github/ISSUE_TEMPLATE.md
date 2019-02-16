@@ -18,10 +18,11 @@
 
 <!--
   BONUS POINTS: spin up and share an example via
-  https://codesandbox.io/s/new or https://stackblitz.com/fork/react.
+  https://codesandbox.io/s/43nwpkn717 or https://codesandbox.io/s/new or https://stackblitz.com/fork/react.
 -->
 
-###### Fine Print
+### Fine Print
 
 * Component: <!-- buttons -->
+* Version: <!-- your issue might already be fixed with the latest version -->
 * Browsers: all

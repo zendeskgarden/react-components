@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-loaders@0.2.10...@zendeskgarden/react-loaders@0.3.0) (2019-02-13)
+
+
+### Features
+
+* **loaders:** introduce Skeleton loader ([#261](https://github.com/zendeskgarden/react-components/issues/261)) ([f05ed56](https://github.com/zendeskgarden/react-components/commit/f05ed56))
+
+
+
+
+
 ## [0.2.10](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-loaders@0.2.9...@zendeskgarden/react-loaders@0.2.10) (2019-02-11)
 
 **Note:** Version bump only for package @zendeskgarden/react-loaders
