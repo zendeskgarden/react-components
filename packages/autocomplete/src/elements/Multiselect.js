@@ -15,6 +15,7 @@ import { Anchor } from '@zendeskgarden/react-buttons';
 import { FieldContainer, KEY_CODES } from '@zendeskgarden/react-selection';
 import AutocompleteContainer from '../containers/AutocompleteContainer';
 
+const DEFAULT_NUM_TAGS = 4;
 const VALIDATION = {
   SUCCESS: 'success',
   WARNING: 'warning',
@@ -182,7 +183,7 @@ export default class Multiselect extends Component {
 
     const labels = [];
 
-    for (let x = 0; x < 4 && x < keys.length; x++) {
+    for (let x = 0; x < DEFAULT_NUM_TAGS && x < keys.length; x++) {
       const key = keys[x];
 
       labels.push(
