@@ -12,7 +12,6 @@ import { rgba } from 'polished';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import {
   zdColorGrey800,
-  zdColorGrey100,
   zdColorKale800,
   zdColorWhite,
   zdSpacingXxs
@@ -75,9 +74,9 @@ const StyledSkeleton = styled.div.attrs({
     /* stylelint-disable */
     background-image:
       linear-gradient(
-        -45deg,
+        45deg,
         ${rgba(zdColorWhite, 0)},
-        ${props => rgba(props.dark ? zdColorKale800 : zdColorGrey100, 0.5)},
+        ${props => (props.dark ? rgba(zdColorKale800, 0.4) : rgba(zdColorWhite, 0.6))},
         ${rgba(zdColorWhite, 0)}
       );
     /* stylelint-enable */
