@@ -1,5 +1,5 @@
 plugins:
-  removeViewBox: false
-  addAttributesToSVGElement:
-    attributes:
-      focusable: false
+  - addAttributesToSVGElement:
+      attributes:
+        - focusable: false
+  - removeViewBox: false
