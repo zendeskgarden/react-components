@@ -36,11 +36,16 @@ const StyledAnchor = styled.a.attrs({
 `;
 
 const StyledNewWindowIcon = styled(NewWindowIcon)`
-  margin-bottom: -0.075em;
-  width: 0.75em;
-  height: 0.75em;
+  margin-bottom: -0.085em;
+  padding-left: 0.25em;
+  width: 0.85em;
+  height: 0.85em;
 
-  ${props => (isRtl(props) ? `padding-right: 0.25em;` : `padding-left: 0.25em;`)}
+  ${props =>
+    isRtl(props) &&
+    `
+    transform: scaleX(-1);
+  `}
 `;
 
 /**
