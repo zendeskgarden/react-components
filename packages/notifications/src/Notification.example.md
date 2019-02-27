@@ -40,6 +40,14 @@ or other assistive technique to have discernible text.
         <Close onClick={() => alert('closing notification')} aria-label="Close Notification" />
       </Notification>
     </Col>
+    <Col size={12}>
+      <Notification type="info">
+        <Title>Info Notification</Title>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua.
+        <Close onClick={() => alert('closing notification')} aria-label="Close Notification" />
+      </Notification>
+    </Col>
   </Row>
 </Grid>
 ```

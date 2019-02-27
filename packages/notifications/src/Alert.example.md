@@ -28,6 +28,14 @@ or other assistive technique to have discernible text.
         <Close onClick={() => alert('closing alert')} aria-label="Close Alert" />
       </Alert>
     </Col>
+    <Col size={12}>
+      <Alert type="info">
+        <Title>Info Alert</Title>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua.
+        <Close onClick={() => alert('closing alert')} aria-label="Close Alert" />
+      </Alert>
+    </Col>
   </Row>
 </Grid>
 ```
