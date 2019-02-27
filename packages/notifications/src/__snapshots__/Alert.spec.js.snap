@@ -9,6 +9,15 @@ exports[`Alert validation should render error styling correctly 1`] = `
 />
 `;
 
+exports[`Alert validation should render info styling correctly 1`] = `
+<Well
+  className="c-callout--info c-callout--recessed "
+  data-garden-id="notifications.alert"
+  data-garden-version="version"
+  type="info"
+/>
+`;
+
 exports[`Alert validation should render success styling correctly 1`] = `
 <Well
   className="c-callout--success "
