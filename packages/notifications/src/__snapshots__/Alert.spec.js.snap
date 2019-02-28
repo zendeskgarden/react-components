@@ -5,7 +5,18 @@ exports[`Alert validation should render error styling correctly 1`] = `
   className="c-callout--error "
   data-garden-id="notifications.alert"
   data-garden-version="version"
+  recessed={false}
   type="error"
+/>
+`;
+
+exports[`Alert validation should render info styling correctly 1`] = `
+<Well
+  className="c-callout--info "
+  data-garden-id="notifications.alert"
+  data-garden-version="version"
+  recessed={true}
+  type="info"
 />
 `;
 
@@ -14,6 +25,7 @@ exports[`Alert validation should render success styling correctly 1`] = `
   className="c-callout--success "
   data-garden-id="notifications.alert"
   data-garden-version="version"
+  recessed={false}
   type="success"
 />
 `;
@@ -23,6 +35,7 @@ exports[`Alert validation should render warning styling correctly 1`] = `
   className="c-callout--warning "
   data-garden-id="notifications.alert"
   data-garden-version="version"
+  recessed={false}
   type="warning"
 />
 `;

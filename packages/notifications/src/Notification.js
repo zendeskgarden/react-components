@@ -17,7 +17,8 @@ const COMPONENT_ID = 'notifications.notification';
 const VALIDATION = {
   SUCCESS: 'success',
   WARNING: 'warning',
-  ERROR: 'error'
+  ERROR: 'error',
+  INFO: 'info'
 };
 
 /**
@@ -32,15 +33,15 @@ const Notification = styled(Well).attrs({
       // Validation types
       [CalloutStyles['c-callout--success']]: props.type === VALIDATION.SUCCESS,
       [CalloutStyles['c-callout--warning']]: props.type === VALIDATION.WARNING,
-      [CalloutStyles['c-callout--error']]: props.type === VALIDATION.ERROR
+      [CalloutStyles['c-callout--error']]: props.type === VALIDATION.ERROR,
+      [CalloutStyles['c-callout--info']]: props.type === VALIDATION.INFO
     })
 })`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
 Notification.propTypes = {
-  recessed: PropTypes.bool,
-  type: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
+  type: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR, VALIDATION.INFO])
 };
 
 /** @component */

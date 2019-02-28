@@ -28,5 +28,11 @@ describe('Notification', () => {
 
       expect(wrapper).toMatchSnapshot();
     });
+
+    it('should render info styling correctly', () => {
+      const wrapper = shallow(<Notification type="info" />);
+
+      expect(wrapper).toMatchSnapshot();
+    });
   });
 });
