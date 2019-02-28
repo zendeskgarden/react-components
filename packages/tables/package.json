@@ -31,12 +31,12 @@
     "styled-components": "^3.2.6"
   },
   "devDependencies": {
-    "@zendeskgarden/css-tables": "4.0.2",
-    "@zendeskgarden/css-variables": "6.1.1",
+    "@zendeskgarden/css-tables": "4.0.4",
+    "@zendeskgarden/css-variables": "6.2.1",
     "@zendeskgarden/react-theming": "^3.2.1",
-    "@zendeskgarden/svg-icons": "5.2.0",
+    "@zendeskgarden/svg-icons": "5.3.0",
     "react-beautiful-dnd": "10.0.4",
-    "react-window": "1.5.1"
+    "react-window": "1.5.2"
   },
   "keywords": [
     "components",
