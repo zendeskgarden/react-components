@@ -27,14 +27,14 @@ const VALIDATION = {
 const Alert = styled(Well).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
+  recessed: props => props.type === VALIDATION.INFO,
   className: props =>
     classNames({
       // Validation types
       [CalloutStyles['c-callout--success']]: props.type === VALIDATION.SUCCESS,
       [CalloutStyles['c-callout--warning']]: props.type === VALIDATION.WARNING,
       [CalloutStyles['c-callout--error']]: props.type === VALIDATION.ERROR,
-      [CalloutStyles['c-callout--info']]: props.type === VALIDATION.INFO,
-      [CalloutStyles['c-callout--recessed']]: props.type === VALIDATION.INFO
+      [CalloutStyles['c-callout--info']]: props.type === VALIDATION.INFO
     })
 })`
   ${props => retrieveTheme(COMPONENT_ID, props)};
