@@ -20,7 +20,7 @@ or other assistive technique to have discernible text.
       <Notification type="success">
         <Title>Success Notification</Title>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua.
+        labore et dolore magna.
         <Close onClick={() => alert('closing notification')} aria-label="Close Notification" />
       </Notification>
     </Col>
@@ -28,7 +28,7 @@ or other assistive technique to have discernible text.
       <Notification type="warning">
         <Title>Warning Notification</Title>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua.
+        labore et dolore magna.
         <Close onClick={() => alert('closing notification')} aria-label="Close Notification" />
       </Notification>
     </Col>
@@ -36,7 +36,15 @@ or other assistive technique to have discernible text.
       <Notification type="error">
         <Title>Error Notification</Title>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua.
+        labore et dolore magna.
+        <Close onClick={() => alert('closing notification')} aria-label="Close Notification" />
+      </Notification>
+    </Col>
+    <Col size={12}>
+      <Notification type="info">
+        <Title>Info Notification</Title>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna.
         <Close onClick={() => alert('closing notification')} aria-label="Close Notification" />
       </Notification>
     </Col>

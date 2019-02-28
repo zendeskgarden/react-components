@@ -12,8 +12,7 @@ import { rgba } from 'polished';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import {
   zdColorGrey800,
-  zdColorGrey100,
-  zdColorKale800,
+  zdColorKale700,
   zdColorWhite,
   zdSpacingXxs
 } from '@zendeskgarden/css-variables';
@@ -72,15 +71,13 @@ const StyledSkeleton = styled.div.attrs({
     animation: ${skeletonAnimation} 1.5s ease-in-out 300ms infinite;
   `}
 
-    /* stylelint-disable */
+    /* stylelint-disable function-comma-space-after */
     background-image:
-      linear-gradient(
-        -45deg,
-        ${rgba(zdColorWhite, 0)},
-        ${props => rgba(props.dark ? zdColorKale800 : zdColorGrey100, 0.5)},
-        ${rgba(zdColorWhite, 0)}
-      );
-    /* stylelint-enable */
+      linear-gradient(${props => (isRtl(props) ? '-45deg' : '45deg')},
+      transparent,
+      ${props => (props.dark ? rgba(zdColorKale700, 0.4) : rgba(zdColorWhite, 0.6))},
+      transparent);
+    /* stylelint-enable function-comma-space-after */
 
     width: 1000px;
     height: 100%;
