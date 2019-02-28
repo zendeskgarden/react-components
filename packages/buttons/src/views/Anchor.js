@@ -32,6 +32,15 @@ const StyledAnchor = styled.a.attrs({
       [ButtonStyles['is-selected']]: selected
     })
 })`
+  ${props =>
+    props.external &&
+    `
+    &&& {
+      white-space: pre;
+      word-wrap: break-word;
+    }
+  `}
+
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
@@ -62,12 +71,13 @@ const Anchor = props => {
         <StyledAnchor
           {...getFocusProps({
             ...other,
+            external,
+            dir: rtl ? 'rtl' : undefined,
             focused: focused || keyboardFocused
           })}
         >
-          {rtl && external && <StyledNewWindowIcon />}
           {children}
-          {!rtl && external && <StyledNewWindowIcon />}
+          {external && <StyledNewWindowIcon />}
         </StyledAnchor>
       )}
     </KeyboardFocusContainer>
