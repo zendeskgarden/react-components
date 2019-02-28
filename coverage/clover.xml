@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1550886048139" clover="3.2.0">
-  <project timestamp="1550886048139" name="All files">
-    <metrics statements="2271" coveredstatements="2202" conditionals="992" coveredconditionals="861" methods="761" coveredmethods="743" elements="4024" coveredelements="3806" complexity="0" loc="2271" ncloc="2271" packages="71" files="194" classes="194"/>
+<coverage generated="1551362092682" clover="3.2.0">
+  <project timestamp="1551362092682" name="All files">
+    <metrics statements="2272" coveredstatements="2203" conditionals="992" coveredconditionals="861" methods="762" coveredmethods="744" elements="4026" coveredelements="3808" complexity="0" loc="2272" ncloc="2272" packages="71" files="194" classes="194"/>
     <package name="autocomplete.src.containers">
       <metrics statements="154" coveredstatements="152" conditionals="93" coveredconditionals="77" methods="46" coveredmethods="45"/>
       <file name="AutocompleteContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/autocomplete/src/containers/AutocompleteContainer.js">
@@ -1380,24 +1380,25 @@
       </file>
     </package>
     <package name="notifications.src">
-      <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
+      <metrics statements="18" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7"/>
       <file name="Alert.js" path="/home/travis/build/zendeskgarden/react-components/packages/notifications/src/Alert.js">
-        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="15" count="2" type="stmt"/>
         <line num="17" count="2" type="stmt"/>
-        <line num="26" count="2" type="stmt"/>
-        <line num="30" count="3" type="stmt"/>
-        <line num="37" count="3" type="stmt"/>
-        <line num="40" count="2" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="30" count="4" type="stmt"/>
+        <line num="32" count="4" type="stmt"/>
+        <line num="40" count="4" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
       </file>
       <file name="Notification.js" path="/home/travis/build/zendeskgarden/react-components/packages/notifications/src/Notification.js">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="15" count="2" type="stmt"/>
         <line num="17" count="2" type="stmt"/>
-        <line num="26" count="2" type="stmt"/>
-        <line num="31" count="3" type="stmt"/>
-        <line num="38" count="3" type="stmt"/>
-        <line num="41" count="2" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="32" count="4" type="stmt"/>
+        <line num="40" count="4" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
       </file>
       <file name="Well.js" path="/home/travis/build/zendeskgarden/react-components/packages/notifications/src/Well.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -2744,9 +2745,9 @@
       </file>
       <file name="retrieveTheme.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/utils/retrieveTheme.js">
         <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
-        <line num="10" count="2560" type="stmt"/>
-        <line num="12" count="2560" type="cond" truecount="2" falsecount="0"/>
-        <line num="13" count="499" type="stmt"/>
+        <line num="10" count="2562" type="stmt"/>
+        <line num="12" count="2562" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="501" type="stmt"/>
         <line num="16" count="2061" type="stmt"/>
         <line num="18" count="2061" type="cond" truecount="2" falsecount="0"/>
         <line num="19" count="1" type="stmt"/>
