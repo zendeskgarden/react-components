@@ -35,7 +35,7 @@ const StyledAnchor = styled.a.attrs({
   ${props =>
     props.external &&
     `
-    &&& {
+    && {
       white-space: pre;
       word-wrap: break-word;
     }

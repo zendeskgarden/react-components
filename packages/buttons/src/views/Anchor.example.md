@@ -35,10 +35,9 @@ const { SM, MD, LG, XL, XXL } = require('@zendeskgarden/react-typography');
 
 const AnchorExample = () => (
   <>
-    An
     <Anchor href="https://www.zendesk.com" target="_blank" external>
-      external anchor
-    </Anchor> looks like this
+      External Anchor
+    </Anchor>
   </>
 );
 

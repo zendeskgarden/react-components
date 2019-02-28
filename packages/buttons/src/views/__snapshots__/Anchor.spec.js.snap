@@ -191,7 +191,7 @@ exports[`Anchor renders danger styling if provided 1`] = `
 `;
 
 exports[`Anchor renders external styling correctly if provided 1`] = `
-.c0.c0.c0 {
+.c0.c0 {
   white-space: pre;
   word-wrap: break-word;
 }
@@ -256,7 +256,7 @@ exports[`Anchor renders external styling correctly if provided 1`] = `
 `;
 
 exports[`Anchor renders external styling correctly if provided in RTL mode 1`] = `
-.c0.c0.c0 {
+.c0.c0 {
   white-space: pre;
   word-wrap: break-word;
 }
