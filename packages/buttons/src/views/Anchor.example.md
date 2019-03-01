@@ -34,11 +34,9 @@ If you need a `<button>` that has anchor styling, use the
 const { SM, MD, LG, XL, XXL } = require('@zendeskgarden/react-typography');
 
 const AnchorExample = () => (
-  <>
-    <Anchor href="https://www.zendesk.com" target="_blank" external>
-      External Anchor
-    </Anchor>
-  </>
+  <Anchor href="https://www.zendesk.com" target="_blank" external>
+    External Anchor
+  </Anchor>
 );
 
 <div>
