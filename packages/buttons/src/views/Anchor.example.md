@@ -9,23 +9,53 @@ If you need a `<button>` that has anchor styling, use the
 ```jsx
 <div>
   Apparently we had reached a great height in the
-  <Anchor href="https://www.zendesk.com" target="_blank">
+  <Anchor href="#button">
     atmosphere
   </Anchor>, for the sky was a dead black, and the stars had ceased to twinkle. By the same
-  <Anchor href="https://www.zendesk.com" target="_blank">
+  <Anchor href="https://www.zendesk.com" target="_blank" external>
     illusion which lifts the horizon
   </Anchor>
-  of the sea to the level of the spectator on a hillside, the sable cloud beneath was dished out, and
+  {' '} of the sea to the level of the spectator on a hillside, the sable cloud beneath was dished out, and
   the car seemed to float in the middle of an
-  <Anchor href="https://www.zendesk.com" target="_blank">
+  <Anchor href="https://www.zendesk.com" target="_blank" external>
     immense dark sphere
   </Anchor>
   , whose upper half was strewn with silver. Looking down into the dark gulf below, I could see a
-  <Anchor href="https://www.zendesk.com" target="_blank">
+  <Anchor href="#chevronbutton">
     ruddy light streaming
   </Anchor>{' '}
   through a rift in the clouds.
 </div>
+```
+
+### External Anchor Sizing
+
+```jsx
+const { SM, MD, LG, XL, XXL } = require('@zendeskgarden/react-typography');
+
+const AnchorExample = () => (
+  <Anchor href="https://www.zendesk.com" target="_blank" external>
+    External Anchor
+  </Anchor>
+);
+
+<div>
+  <SM>
+    <AnchorExample />
+  </SM>
+  <MD>
+    <AnchorExample />
+  </MD>
+  <LG>
+    <AnchorExample />
+  </LG>
+  <XL>
+    <AnchorExample />
+  </XL>
+  <XXL>
+    <AnchorExample />
+  </XXL>
+</div>;
 ```
 
 <!-- markdownlint-enable -->
