@@ -19,7 +19,7 @@ module.exports = merge(baseConfig, {
   externals: [
     nodeExternals({
       modulesFromFile: true,
-      whitelist: [/@zendeskgarden\/css/u, /\.css?$/u]
+      whitelist: [/@zendeskgarden\/css/u, /\.css?$/u, /@zendeskgarden\/svg-icons/u]
     })
   ]
 });
