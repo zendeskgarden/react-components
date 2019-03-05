@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.7](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@4.3.6...@zendeskgarden/react-menus@4.3.7) (2019-03-05)
+
+
+### Bug Fixes
+
+* **menus:** use pixels to for `<Item>` line height styling ([#283](https://github.com/zendeskgarden/react-components/issues/283)) ([d5929bb](https://github.com/zendeskgarden/react-components/commit/d5929bb))
+
+
+
+
+
 ## [4.3.6](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-menus@4.3.5...@zendeskgarden/react-menus@4.3.6) (2019-02-28)
 
 **Note:** Version bump only for package @zendeskgarden/react-menus
