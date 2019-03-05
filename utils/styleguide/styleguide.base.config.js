@@ -173,11 +173,7 @@ const defaultStyleguideConfig = {
             {
               loader: '@svgr/webpack',
               options: {
-                svgoConfig: {
-                  plugins: {
-                    removeViewBox: false
-                  }
-                }
+                externalConfig: path.resolve('../../.svgo.yml')
               }
             }
           ]

@@ -74,11 +74,7 @@ found at http://www.apache.org/licenses/LICENSE-2.0
           {
             loader: '@svgr/webpack',
             options: {
-              svgoConfig: {
-                plugins: {
-                  removeViewBox: false
-                }
-              }
+              externalConfig: path.resolve('../../.svgo.yml')
             }
           }
         ]
