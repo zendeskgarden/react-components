@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.9.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.9.0...@zendeskgarden/react-buttons@3.9.1) (2019-03-04)
+
+**Note:** Version bump only for package @zendeskgarden/react-buttons
+
+
+
+
+
+# [3.9.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.8.3...@zendeskgarden/react-buttons@3.9.0) (2019-03-01)
+
+
+### Features
+
+* **buttons:** introduce external navigation option to Anchor component ([#268](https://github.com/zendeskgarden/react-components/issues/268)) ([ddcc5ea](https://github.com/zendeskgarden/react-components/commit/ddcc5ea))
+
+
+
+
+
+## [3.8.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.8.2...@zendeskgarden/react-buttons@3.8.3) (2019-02-28)
+
+**Note:** Version bump only for package @zendeskgarden/react-buttons
+
+
+
+
+
 ## [3.8.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.8.1...@zendeskgarden/react-buttons@3.8.2) (2019-02-11)
 
 **Note:** Version bump only for package @zendeskgarden/react-buttons

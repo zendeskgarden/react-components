@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-notifications@3.3.1...@zendeskgarden/react-notifications@3.3.2) (2019-03-05)
+
+
+### Bug Fixes
+
+* **menus:** use pixels to for `<Item>` line height styling ([#283](https://github.com/zendeskgarden/react-components/issues/283)) ([d5929bb](https://github.com/zendeskgarden/react-components/commit/d5929bb))
+
+
+
+
+
+## [3.3.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-notifications@3.3.0...@zendeskgarden/react-notifications@3.3.1) (2019-02-28)
+
+**Note:** Version bump only for package @zendeskgarden/react-notifications
+
+
+
+
+
+# [3.3.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-notifications@3.2.1...@zendeskgarden/react-notifications@3.3.0) (2019-02-28)
+
+
+### Features
+
+* **notifications:** add new "info" styled Alert and Notification ([#278](https://github.com/zendeskgarden/react-components/issues/278)) ([993d170](https://github.com/zendeskgarden/react-components/commit/993d170))
+
+
+
+
+
 ## [3.2.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-notifications@3.2.0...@zendeskgarden/react-notifications@3.2.1) (2019-02-11)
 
 **Note:** Version bump only for package @zendeskgarden/react-notifications

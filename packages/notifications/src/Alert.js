@@ -17,7 +17,8 @@ const COMPONENT_ID = 'notifications.alert';
 const VALIDATION = {
   SUCCESS: 'success',
   WARNING: 'warning',
-  ERROR: 'error'
+  ERROR: 'error',
+  INFO: 'info'
 };
 
 /**
@@ -26,21 +27,22 @@ const VALIDATION = {
 const Alert = styled(Well).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
+  recessed: props => props.type === VALIDATION.INFO,
   className: props =>
     classNames({
       // Validation types
       [CalloutStyles['c-callout--success']]: props.type === VALIDATION.SUCCESS,
       [CalloutStyles['c-callout--warning']]: props.type === VALIDATION.WARNING,
-      [CalloutStyles['c-callout--error']]: props.type === VALIDATION.ERROR
+      [CalloutStyles['c-callout--error']]: props.type === VALIDATION.ERROR,
+      [CalloutStyles['c-callout--info']]: props.type === VALIDATION.INFO
     })
 })`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
 Alert.propTypes = {
-  recessed: PropTypes.bool,
-  floating: PropTypes.bool,
-  type: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR]).isRequired
+  type: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR, VALIDATION.INFO])
+    .isRequired
 };
 
 /** @component */

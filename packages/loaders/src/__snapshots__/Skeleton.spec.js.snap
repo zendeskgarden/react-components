@@ -20,7 +20,7 @@ exports[`Skeleton Loader customizes dark styling when provided 1`] = `
   left: -1800px;
   -webkit-animation: juhHqy 1.5s ease-in-out 300ms infinite;
   animation: juhHqy 1.5s ease-in-out 300ms infinite;
-  background-image: linear-gradient( -45deg,rgba(255,255,255,0),rgba(1,43,48,0.5),rgba(255,255,255,0) );
+  background-image: linear-gradient(45deg,transparent,rgba(3,54,61,0.4),transparent);
   width: 1000px;
   height: 100%;
   content: '';
@@ -69,7 +69,7 @@ exports[`Skeleton Loader customizes height when provided 1`] = `
   left: -1800px;
   -webkit-animation: juhHqy 1.5s ease-in-out 300ms infinite;
   animation: juhHqy 1.5s ease-in-out 300ms infinite;
-  background-image: linear-gradient( -45deg,rgba(255,255,255,0),rgba(248,249,249,0.5),rgba(255,255,255,0) );
+  background-image: linear-gradient(45deg,transparent,rgba(255,255,255,0.6),transparent);
   width: 1000px;
   height: 100%;
   content: '';
@@ -116,7 +116,7 @@ exports[`Skeleton Loader customizes style when provided 1`] = `
   left: -1800px;
   -webkit-animation: juhHqy 1.5s ease-in-out 300ms infinite;
   animation: juhHqy 1.5s ease-in-out 300ms infinite;
-  background-image: linear-gradient( -45deg,rgba(255,255,255,0),rgba(248,249,249,0.5),rgba(255,255,255,0) );
+  background-image: linear-gradient(45deg,transparent,rgba(255,255,255,0.6),transparent);
   width: 1000px;
   height: 100%;
   content: '';
@@ -178,7 +178,7 @@ exports[`Skeleton Loader customizes width when provided 1`] = `
   left: -1800px;
   -webkit-animation: juhHqy 1.5s ease-in-out 300ms infinite;
   animation: juhHqy 1.5s ease-in-out 300ms infinite;
-  background-image: linear-gradient( -45deg,rgba(255,255,255,0),rgba(248,249,249,0.5),rgba(255,255,255,0) );
+  background-image: linear-gradient(45deg,transparent,rgba(255,255,255,0.6),transparent);
   width: 1000px;
   height: 100%;
   content: '';
@@ -225,7 +225,7 @@ exports[`Skeleton Loader displays correct styling by default 1`] = `
   left: -1800px;
   -webkit-animation: juhHqy 1.5s ease-in-out 300ms infinite;
   animation: juhHqy 1.5s ease-in-out 300ms infinite;
-  background-image: linear-gradient( -45deg,rgba(255,255,255,0),rgba(248,249,249,0.5),rgba(255,255,255,0) );
+  background-image: linear-gradient(45deg,transparent,rgba(255,255,255,0.6),transparent);
   width: 1000px;
   height: 100%;
   content: '';
@@ -272,7 +272,7 @@ exports[`Skeleton Loader displays correct styling in RTL mode 1`] = `
   right: -1800px;
   -webkit-animation: dOsdoN 1.5s ease-in-out 300ms infinite;
   animation: dOsdoN 1.5s ease-in-out 300ms infinite;
-  background-image: linear-gradient( -45deg,rgba(255,255,255,0),rgba(248,249,249,0.5),rgba(255,255,255,0) );
+  background-image: linear-gradient(-45deg,transparent,rgba(255,255,255,0.6),transparent);
   width: 1000px;
   height: 100%;
   content: '';

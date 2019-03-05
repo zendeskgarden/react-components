@@ -22,15 +22,13 @@ Default wells
     <Col md>
       <Well>
         <Title>Well: Standard (One-line)</Title>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua.
+        Lorem ipsum dolor sit amet, consectetur adipiscing.
       </Well>
     </Col>
     <Col md>
       <Well recessed>
         <Title>Recessed Well: Standard (One-line)</Title>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua.
+        Lorem ipsum dolor sit amet, consectetur adipiscing.
       </Well>
     </Col>
   </Row>
