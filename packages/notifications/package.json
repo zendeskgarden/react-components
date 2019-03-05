@@ -18,7 +18,6 @@
     "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
-  "typings": "./index.d.ts",
   "dependencies": {
     "classnames": "^2.2.5"
   },
@@ -42,6 +41,7 @@
   "publishConfig": {
     "access": "public"
   },
+  "typings": "./index.d.ts",
   "zendeskgarden:library": "GardenNotifications",
   "zendeskgarden:src": "src/index.js"
 }
