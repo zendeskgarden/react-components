@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-notifications@3.3.2...@zendeskgarden/react-notifications@3.3.3) (2019-03-06)
+
+
+### Bug Fixes
+
+* **notifications:** update package.json to pass build ([#284](https://github.com/zendeskgarden/react-components/issues/284)) ([c1df4c9](https://github.com/zendeskgarden/react-components/commit/c1df4c9))
+
+
+
+
+
 ## [3.3.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-notifications@3.3.1...@zendeskgarden/react-notifications@3.3.2) (2019-03-05)
 
 
