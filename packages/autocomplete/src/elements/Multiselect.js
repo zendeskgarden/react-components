@@ -111,7 +111,7 @@ export default class Multiselect extends Component {
     tagFocusedKey: undefined,
     inputValue: '',
     value: undefined,
-    closeOnSelect: true
+    closeOnSelect: false
   };
 
   defaultOptionFilter = (original, comparison) => {
@@ -296,7 +296,7 @@ export default class Multiselect extends Component {
                   onChange && onChange(Object.keys(selectedValuesDictionary));
                 });
 
-                return closeOnSelect;
+                return !closeOnSelect;
               }}
               onStateChange={newState => {
                 if (typeof newState.isOpen !== 'undefined' && !newState.isOpen) {
