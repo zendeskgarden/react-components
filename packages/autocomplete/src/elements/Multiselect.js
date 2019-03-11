@@ -106,7 +106,7 @@ export default class Multiselect extends Component {
   static defaultProps = {
     noOptionsMessage: 'No matches found',
     maxHeight: '400px',
-    small: true
+    small: false
   };
 
   state = {
