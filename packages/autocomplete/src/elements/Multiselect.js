@@ -35,9 +35,10 @@ const StyledMenuOverflow = styled.div`
 
 const StyledInput = styled(Input)`
   && {
-    flex-basis: 60px;
     flex-grow: 1;
     margin: 2px;
+    width: inherit;
+    min-width: 60px;
   }
 
   ${props =>
