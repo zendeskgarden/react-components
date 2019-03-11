@@ -67,7 +67,10 @@ const StyledSpacedTag = styled(Tag)`
 
 const StyledMoreAnchor = styled(Anchor)`
   && {
+    display: flex;
+    align-items: center;
     margin: 2px;
+    min-height: 1em;
   }
 `;
 
@@ -83,6 +86,8 @@ export default class Multiselect extends Component {
     ]),
     message: PropTypes.node,
     hint: PropTypes.node,
+    small: PropTypes.bool,
+    focusInset: PropTypes.bool,
     selectedValues: PropTypes.arrayOf(PropTypes.string),
     onChange: PropTypes.func,
     inputRef: PropTypes.func,
@@ -100,7 +105,8 @@ export default class Multiselect extends Component {
 
   static defaultProps = {
     noOptionsMessage: 'No matches found',
-    maxHeight: '400px'
+    maxHeight: '400px',
+    small: true
   };
 
   state = {
@@ -157,7 +163,7 @@ export default class Multiselect extends Component {
     return <StyledNoItemsMessage>{noOptionsMessage}</StyledNoItemsMessage>;
   };
 
-  renderTags = (isFocused, selectedKeys, tagFocusedKey, getTagProps) => {
+  renderTags = (isFocused, selectedKeys, isSmall, tagFocusedKey, getTagProps) => {
     const { renderShowMore, disabled } = this.props;
     const keys = Object.keys(selectedKeys);
 
@@ -166,6 +172,7 @@ export default class Multiselect extends Component {
         <StyledSpacedTag
           {...getTagProps({
             key,
+            size: isSmall ? undefined : 'large',
             focused: tagFocusedKey === key
           })}
         >
@@ -190,6 +197,7 @@ export default class Multiselect extends Component {
         <StyledSpacedTag
           {...getTagProps({
             key,
+            size: isSmall ? undefined : 'large',
             focused: tagFocusedKey === key && !disabled
           })}
         >
@@ -237,6 +245,8 @@ export default class Multiselect extends Component {
       label,
       'aria-label': ariaLabel,
       hint,
+      small,
+      focusInset,
       disabled,
       selectedValues = [],
       onChange,
@@ -314,12 +324,13 @@ export default class Multiselect extends Component {
               }) => {
                 let triggerProps = getTriggerProps({
                   open: isOpen,
+                  small,
                   focused: isFocused || isOpen || typeof tagFocusedKey !== 'undefined',
                   hovered: isHovered,
                   select: true,
                   tagLayout: true,
-                  small: true,
                   validation,
+                  focusInset,
                   'aria-label': ariaLabel,
                   inputRef: ref => {
                     this.wrapperRef = ref;
@@ -332,8 +343,9 @@ export default class Multiselect extends Component {
                     disabled: true,
                     select: true,
                     tagLayout: true,
-                    small: true,
+                    small,
                     validation,
+                    focusInset,
                     'aria-label': ariaLabel
                   };
                 }
@@ -343,6 +355,7 @@ export default class Multiselect extends Component {
                     {this.renderTags(
                       isOpen || typeof tagFocusedKey !== 'undefined' || isFocused,
                       selectedValuesDictionary,
+                      small,
                       tagFocusedKey,
                       getTagProps
                     )}
@@ -419,7 +432,7 @@ export default class Multiselect extends Component {
                 const props = getMenuProps({
                   placement,
                   animate: true,
-                  small: true,
+                  small,
                   style: {
                     width: this.wrapperRef ? this.wrapperRef.getBoundingClientRect().width : 0
                   }

@@ -36,15 +36,15 @@ describe('Autocomplete', () => {
     expect(wrapper.find(FauxInput)).toHaveProp('validation', validation);
   });
 
-  it('renders small styling if provided', () => {
-    const wrapper = mountWithTheme(<Multiselect small options={[]} />);
+  it('renders without small styling if provided', () => {
+    const wrapper = mountWithTheme(<Multiselect small={false} options={[]} />);
     const triggerElement = wrapper.find(FauxInput);
 
-    expect(triggerElement).toHaveProp('small');
+    expect(triggerElement).toHaveProp('small', false);
 
     triggerElement.simulate('click');
 
-    expect(wrapper.find(MenuView)).toHaveProp('small');
+    expect(wrapper.find(MenuView)).toHaveProp('small', false);
   });
 
   it('renders disabled styling if provided', () => {
