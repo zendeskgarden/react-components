@@ -10,7 +10,12 @@
  * https://github.com/styleguidist/react-styleguidist/blob/master/docs/Configuration.md
  */
 module.exports = {
-  require: ['../../packages/menus/dist/styles.css', '../../packages/textfields/dist/styles.css'],
+  require: [
+    '../../packages/menus/dist/styles.css',
+    '../../packages/textfields/dist/styles.css',
+    '../../packages/tags/dist/styles.css',
+    '../../packages/buttons/dist/styles.css'
+  ],
   sections: [
     {
       name: '',
@@ -23,15 +28,6 @@ module.exports = {
     {
       name: 'Containers',
       components: '../../packages/autocomplete/src/containers/[A-Z]*.js'
-    },
-    {
-      name: 'Examples',
-      sections: [
-        {
-          name: 'Multi-Select',
-          content: '../../packages/autocomplete/src/examples/multiselect.md'
-        }
-      ]
     }
   ]
 };

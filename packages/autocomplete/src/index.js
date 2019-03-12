@@ -7,6 +7,9 @@
 
 import '@zendeskgarden/react-menus/dist/styles.css';
 import '@zendeskgarden/react-textfields/dist/styles.css';
+import '@zendeskgarden/react-tags/dist/styles.css';
+import '@zendeskgarden/react-buttons/dist/styles.css';
 
 export { default as Autocomplete } from './elements/Autocomplete';
+export { default as Multiselect } from './elements/Multiselect';
 export { default as AutocompleteContainer } from './containers/AutocompleteContainer';
