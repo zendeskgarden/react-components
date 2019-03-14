@@ -1,0 +1,445 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TypingIndicator Loader customizes color when provided 1`] = `
+.c2 .c1 {
+  opacity: 0.2;
+}
+
+.c2 .c1:nth-child(1) {
+  -webkit-animation: hltXKT 1s infinite;
+  animation: hltXKT 1s infinite;
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.c2 .c1:nth-child(2) {
+  -webkit-animation: hltXKT 1s infinite;
+  animation: hltXKT 1s infinite;
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+.c2 .c1:nth-child(3) {
+  -webkit-animation: hltXKT 1s infinite;
+  animation: hltXKT 1s infinite;
+  -webkit-animation-delay: unset;
+  animation-delay: unset;
+}
+
+.c3 .c1 {
+  opacity: 0.2;
+}
+
+.c3 .c1:nth-child(1) {
+  -webkit-animation: hltXKT 1s infinite;
+  animation: hltXKT 1s infinite;
+  -webkit-animation-delay: unset;
+  animation-delay: unset;
+}
+
+.c3 .c1:nth-child(2) {
+  -webkit-animation: hltXKT 1s infinite;
+  animation: hltXKT 1s infinite;
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+.c3 .c1:nth-child(3) {
+  -webkit-animation: hltXKT 1s infinite;
+  animation: hltXKT 1s infinite;
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.c0 {
+  color: red;
+}
+
+.c0 .c1 {
+  opacity: 0.2;
+}
+
+.c0 .c1:nth-child(1) {
+  -webkit-animation: hltXKT 1s infinite;
+  animation: hltXKT 1s infinite;
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.c0 .c1:nth-child(2) {
+  -webkit-animation: hltXKT 1s infinite;
+  animation: hltXKT 1s infinite;
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+.c0 .c1:nth-child(3) {
+  -webkit-animation: hltXKT 1s infinite;
+  animation: hltXKT 1s infinite;
+  -webkit-animation-delay: unset;
+  animation-delay: unset;
+}
+
+<TypingIndicator
+  color="red"
+  size={16}
+>
+  <TypingIndicator__StyledTypingSvg
+    color="red"
+    size={16}
+  >
+    <svg
+      className="c0"
+      color="red"
+      data-garden-id="loaders.spinner"
+      data-garden-version="version"
+      height={4}
+      size={16}
+      viewBox="0 0 16 4"
+      width={16}
+    >
+      <TypingIndicator__StyledCircle
+        cx="14"
+      >
+        <circle
+          className="c1 "
+          cx="14"
+          cy={2}
+          fill="currentColor"
+          r={2}
+        />
+      </TypingIndicator__StyledCircle>
+      <TypingIndicator__StyledCircle
+        cx="8"
+      >
+        <circle
+          className="c1 "
+          cx="8"
+          cy={2}
+          fill="currentColor"
+          r={2}
+        />
+      </TypingIndicator__StyledCircle>
+      <TypingIndicator__StyledCircle
+        cx="2"
+      >
+        <circle
+          className="c1 "
+          cx="2"
+          cy={2}
+          fill="currentColor"
+          r={2}
+        />
+      </TypingIndicator__StyledCircle>
+    </svg>
+  </TypingIndicator__StyledTypingSvg>
+</TypingIndicator>
+`;
+
+exports[`TypingIndicator Loader customizes size when provided 1`] = `
+.c0 {
+  color: #68737d;
+}
+
+.c0 .c1 {
+  opacity: 0.2;
+}
+
+.c0 .c1:nth-child(1) {
+  -webkit-animation: hltXKT 1s infinite;
+  animation: hltXKT 1s infinite;
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.c0 .c1:nth-child(2) {
+  -webkit-animation: hltXKT 1s infinite;
+  animation: hltXKT 1s infinite;
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+.c0 .c1:nth-child(3) {
+  -webkit-animation: hltXKT 1s infinite;
+  animation: hltXKT 1s infinite;
+  -webkit-animation-delay: unset;
+  animation-delay: unset;
+}
+
+.c2 .c1 {
+  opacity: 0.2;
+}
+
+.c2 .c1:nth-child(1) {
+  -webkit-animation: hltXKT 1s infinite;
+  animation: hltXKT 1s infinite;
+  -webkit-animation-delay: unset;
+  animation-delay: unset;
+}
+
+.c2 .c1:nth-child(2) {
+  -webkit-animation: hltXKT 1s infinite;
+  animation: hltXKT 1s infinite;
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+.c2 .c1:nth-child(3) {
+  -webkit-animation: hltXKT 1s infinite;
+  animation: hltXKT 1s infinite;
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+<TypingIndicator
+  color="#68737d"
+  size={32}
+>
+  <TypingIndicator__StyledTypingSvg
+    color="#68737d"
+    size={32}
+  >
+    <svg
+      className="c0"
+      color="#68737d"
+      data-garden-id="loaders.spinner"
+      data-garden-version="version"
+      height={8}
+      size={32}
+      viewBox="0 0 16 4"
+      width={32}
+    >
+      <TypingIndicator__StyledCircle
+        cx="14"
+      >
+        <circle
+          className="c1 "
+          cx="14"
+          cy={2}
+          fill="currentColor"
+          r={2}
+        />
+      </TypingIndicator__StyledCircle>
+      <TypingIndicator__StyledCircle
+        cx="8"
+      >
+        <circle
+          className="c1 "
+          cx="8"
+          cy={2}
+          fill="currentColor"
+          r={2}
+        />
+      </TypingIndicator__StyledCircle>
+      <TypingIndicator__StyledCircle
+        cx="2"
+      >
+        <circle
+          className="c1 "
+          cx="2"
+          cy={2}
+          fill="currentColor"
+          r={2}
+        />
+      </TypingIndicator__StyledCircle>
+    </svg>
+  </TypingIndicator__StyledTypingSvg>
+</TypingIndicator>
+`;
+
+exports[`TypingIndicator Loader displays correct styling by default 1`] = `
+.c0 {
+  color: #68737d;
+}
+
+.c0 .c1 {
+  opacity: 0.2;
+}
+
+.c0 .c1:nth-child(1) {
+  -webkit-animation: hltXKT 1s infinite;
+  animation: hltXKT 1s infinite;
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.c0 .c1:nth-child(2) {
+  -webkit-animation: hltXKT 1s infinite;
+  animation: hltXKT 1s infinite;
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+.c0 .c1:nth-child(3) {
+  -webkit-animation: hltXKT 1s infinite;
+  animation: hltXKT 1s infinite;
+  -webkit-animation-delay: unset;
+  animation-delay: unset;
+}
+
+<TypingIndicator
+  color="#68737d"
+  size={16}
+>
+  <TypingIndicator__StyledTypingSvg
+    color="#68737d"
+    size={16}
+  >
+    <svg
+      className="c0"
+      color="#68737d"
+      data-garden-id="loaders.spinner"
+      data-garden-version="version"
+      height={4}
+      size={16}
+      viewBox="0 0 16 4"
+      width={16}
+    >
+      <TypingIndicator__StyledCircle
+        cx="14"
+      >
+        <circle
+          className="c1 "
+          cx="14"
+          cy={2}
+          fill="currentColor"
+          r={2}
+        />
+      </TypingIndicator__StyledCircle>
+      <TypingIndicator__StyledCircle
+        cx="8"
+      >
+        <circle
+          className="c1 "
+          cx="8"
+          cy={2}
+          fill="currentColor"
+          r={2}
+        />
+      </TypingIndicator__StyledCircle>
+      <TypingIndicator__StyledCircle
+        cx="2"
+      >
+        <circle
+          className="c1 "
+          cx="2"
+          cy={2}
+          fill="currentColor"
+          r={2}
+        />
+      </TypingIndicator__StyledCircle>
+    </svg>
+  </TypingIndicator__StyledTypingSvg>
+</TypingIndicator>
+`;
+
+exports[`TypingIndicator Loader displays correct styling in RTL mode 1`] = `
+.c2 .c1 {
+  opacity: 0.2;
+}
+
+.c2 .c1:nth-child(1) {
+  -webkit-animation: hltXKT 1s infinite;
+  animation: hltXKT 1s infinite;
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.c2 .c1:nth-child(2) {
+  -webkit-animation: hltXKT 1s infinite;
+  animation: hltXKT 1s infinite;
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+.c2 .c1:nth-child(3) {
+  -webkit-animation: hltXKT 1s infinite;
+  animation: hltXKT 1s infinite;
+  -webkit-animation-delay: unset;
+  animation-delay: unset;
+}
+
+.c0 {
+  color: #68737d;
+}
+
+.c0 .c1 {
+  opacity: 0.2;
+}
+
+.c0 .c1:nth-child(1) {
+  -webkit-animation: hltXKT 1s infinite;
+  animation: hltXKT 1s infinite;
+  -webkit-animation-delay: unset;
+  animation-delay: unset;
+}
+
+.c0 .c1:nth-child(2) {
+  -webkit-animation: hltXKT 1s infinite;
+  animation: hltXKT 1s infinite;
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+.c0 .c1:nth-child(3) {
+  -webkit-animation: hltXKT 1s infinite;
+  animation: hltXKT 1s infinite;
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+<TypingIndicator
+  color="#68737d"
+  size={16}
+>
+  <TypingIndicator__StyledTypingSvg
+    color="#68737d"
+    size={16}
+  >
+    <svg
+      className="c0"
+      color="#68737d"
+      data-garden-id="loaders.spinner"
+      data-garden-version="version"
+      height={4}
+      size={16}
+      viewBox="0 0 16 4"
+      width={16}
+    >
+      <TypingIndicator__StyledCircle
+        cx="14"
+      >
+        <circle
+          className="c1 "
+          cx="14"
+          cy={2}
+          fill="currentColor"
+          r={2}
+        />
+      </TypingIndicator__StyledCircle>
+      <TypingIndicator__StyledCircle
+        cx="8"
+      >
+        <circle
+          className="c1 "
+          cx="8"
+          cy={2}
+          fill="currentColor"
+          r={2}
+        />
+      </TypingIndicator__StyledCircle>
+      <TypingIndicator__StyledCircle
+        cx="2"
+      >
+        <circle
+          className="c1 "
+          cx="2"
+          cy={2}
+          fill="currentColor"
+          r={2}
+        />
+      </TypingIndicator__StyledCircle>
+    </svg>
+  </TypingIndicator__StyledTypingSvg>
+</TypingIndicator>
+`;
