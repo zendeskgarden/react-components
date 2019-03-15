@@ -35,6 +35,7 @@ const StyledMenuOverflow = styled.div`
 
 const StyledInput = styled(Input)`
   && {
+    flex-basis: 60px;
     flex-grow: 1;
     margin: 2px;
     width: inherit;
@@ -101,7 +102,11 @@ export default class Multiselect extends Component {
     renderDropdown: PropTypes.func,
     renderShowMore: PropTypes.func,
     optionFilter: PropTypes.func,
-    closeOnSelect: PropTypes.bool
+    closeOnSelect: PropTypes.bool,
+    /**
+     * Passes options to [Popper.JS Instance](https://github.com/FezVrasta/popper.js/blob/master/docs/_includes/popper-documentation.md#new-popperreference-popper-options)
+     */
+    popperModifiers: PropTypes.object
   };
 
   static defaultProps = {
@@ -257,7 +262,8 @@ export default class Multiselect extends Component {
       inputRef,
       message,
       validation,
-      closeOnSelect
+      closeOnSelect,
+      popperModifiers
     } = this.props;
     const { isOpen, focusedKey, tagFocusedKey, isFocused, isHovered, inputValue } = this.state;
 
@@ -296,6 +302,7 @@ export default class Multiselect extends Component {
               isOpen={isOpen}
               focusedKey={focusedKey}
               tagFocusedKey={tagFocusedKey}
+              popperModifiers={popperModifiers}
               onSelect={selectedKey => {
                 if (selectedValuesDictionary[selectedKey]) {
                   delete selectedValuesDictionary[selectedKey];
