@@ -6,23 +6,23 @@
  */
 
 import React from 'react';
-import TypingIndicator from './TypingIndicator';
+import Inline from './Inline';
 import { mountWithTheme } from '@zendeskgarden/react-testing';
 
-describe('TypingIndicator Loader', () => {
+describe('Inline Loader', () => {
   it('displays correct styling by default', () => {
-    expect(mountWithTheme(<TypingIndicator />)).toMatchSnapshot();
+    expect(mountWithTheme(<Inline />)).toMatchSnapshot();
   });
 
   it('displays correct styling in RTL mode', () => {
-    expect(mountWithTheme(<TypingIndicator />, { rtl: true })).toMatchSnapshot();
+    expect(mountWithTheme(<Inline />, { rtl: true })).toMatchSnapshot();
   });
 
   it('customizes size when provided', () => {
-    expect(mountWithTheme(<TypingIndicator size={32} />)).toMatchSnapshot();
+    expect(mountWithTheme(<Inline size={32} />)).toMatchSnapshot();
   });
 
   it('customizes color when provided', () => {
-    expect(mountWithTheme(<TypingIndicator color="red" />)).toMatchSnapshot();
+    expect(mountWithTheme(<Inline color="red" />)).toMatchSnapshot();
   });
 });

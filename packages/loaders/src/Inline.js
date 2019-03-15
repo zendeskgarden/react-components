@@ -11,7 +11,7 @@ import styled, { keyframes } from 'styled-components';
 import { isRtl } from '@zendeskgarden/react-theming';
 import { zdColorGrey600 } from '@zendeskgarden/css-variables';
 
-const COMPONENT_ID = 'loaders.spinner';
+const COMPONENT_ID = 'loaders.inline';
 
 const pulseAnimation = keyframes`
   0%, 100% {
@@ -61,7 +61,7 @@ const StyledTypingSvg = styled.svg.attrs({
 /**
  * All other props are spread onto the root `<svg>` element
  */
-const TypingIndicator = ({ size, color, ...other }) => {
+const Inline = ({ size, color, ...other }) => {
   return (
     <StyledTypingSvg size={size} color={color} {...other}>
       <StyledCircle cx="14" />
@@ -71,15 +71,15 @@ const TypingIndicator = ({ size, color, ...other }) => {
   );
 };
 
-TypingIndicator.propTypes = {
+Inline.propTypes = {
   /* Width of the loader in px */
   size: PropTypes.number,
   color: PropTypes.string
 };
 
-TypingIndicator.defaultProps = {
+Inline.defaultProps = {
   size: 16,
   color: zdColorGrey600
 };
 
-export default TypingIndicator;
+export default Inline;

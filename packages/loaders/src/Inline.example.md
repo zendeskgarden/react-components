@@ -15,24 +15,24 @@ const { zdColorGreen600, zdColorRed600, zdColorBlue600 } = require('@zendeskgard
   </Row>
   <Row>
     <Col md>
-      <TypingIndicator />
+      <Inline />
     </Col>
     <Col md>
-      <TypingIndicator size={32} />
+      <Inline size={32} />
     </Col>
     <Col md>
-      <TypingIndicator size={64} />
+      <Inline size={64} />
     </Col>
   </Row>
   <Row>
     <Col md>
-      <TypingIndicator color={zdColorGreen600} />
+      <Inline color={zdColorGreen600} />
     </Col>
     <Col md>
-      <TypingIndicator size={32} color={zdColorRed600} />
+      <Inline size={32} color={zdColorRed600} />
     </Col>
     <Col md>
-      <TypingIndicator size={64} color={zdColorBlue600} />
+      <Inline size={64} color={zdColorBlue600} />
     </Col>
   </Row>
 </Grid>;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TypingIndicator Loader customizes color when provided 1`] = `
+exports[`Inline Loader customizes color when provided 1`] = `
 .c2 .c1 {
   opacity: 0.2;
 }
@@ -80,25 +80,25 @@ exports[`TypingIndicator Loader customizes color when provided 1`] = `
   animation-delay: unset;
 }
 
-<TypingIndicator
+<Inline
   color="red"
   size={16}
 >
-  <TypingIndicator__StyledTypingSvg
+  <Inline__StyledTypingSvg
     color="red"
     size={16}
   >
     <svg
       className="c0"
       color="red"
-      data-garden-id="loaders.spinner"
+      data-garden-id="loaders.inline"
       data-garden-version="version"
       height={4}
       size={16}
       viewBox="0 0 16 4"
       width={16}
     >
-      <TypingIndicator__StyledCircle
+      <Inline__StyledCircle
         cx="14"
       >
         <circle
@@ -108,8 +108,8 @@ exports[`TypingIndicator Loader customizes color when provided 1`] = `
           fill="currentColor"
           r={2}
         />
-      </TypingIndicator__StyledCircle>
-      <TypingIndicator__StyledCircle
+      </Inline__StyledCircle>
+      <Inline__StyledCircle
         cx="8"
       >
         <circle
@@ -119,8 +119,8 @@ exports[`TypingIndicator Loader customizes color when provided 1`] = `
           fill="currentColor"
           r={2}
         />
-      </TypingIndicator__StyledCircle>
-      <TypingIndicator__StyledCircle
+      </Inline__StyledCircle>
+      <Inline__StyledCircle
         cx="2"
       >
         <circle
@@ -130,13 +130,13 @@ exports[`TypingIndicator Loader customizes color when provided 1`] = `
           fill="currentColor"
           r={2}
         />
-      </TypingIndicator__StyledCircle>
+      </Inline__StyledCircle>
     </svg>
-  </TypingIndicator__StyledTypingSvg>
-</TypingIndicator>
+  </Inline__StyledTypingSvg>
+</Inline>
 `;
 
-exports[`TypingIndicator Loader customizes size when provided 1`] = `
+exports[`Inline Loader customizes size when provided 1`] = `
 .c0 {
   color: #68737d;
 }
@@ -191,25 +191,25 @@ exports[`TypingIndicator Loader customizes size when provided 1`] = `
   animation-delay: 0.4s;
 }
 
-<TypingIndicator
+<Inline
   color="#68737d"
   size={32}
 >
-  <TypingIndicator__StyledTypingSvg
+  <Inline__StyledTypingSvg
     color="#68737d"
     size={32}
   >
     <svg
       className="c0"
       color="#68737d"
-      data-garden-id="loaders.spinner"
+      data-garden-id="loaders.inline"
       data-garden-version="version"
       height={8}
       size={32}
       viewBox="0 0 16 4"
       width={32}
     >
-      <TypingIndicator__StyledCircle
+      <Inline__StyledCircle
         cx="14"
       >
         <circle
@@ -219,8 +219,8 @@ exports[`TypingIndicator Loader customizes size when provided 1`] = `
           fill="currentColor"
           r={2}
         />
-      </TypingIndicator__StyledCircle>
-      <TypingIndicator__StyledCircle
+      </Inline__StyledCircle>
+      <Inline__StyledCircle
         cx="8"
       >
         <circle
@@ -230,8 +230,8 @@ exports[`TypingIndicator Loader customizes size when provided 1`] = `
           fill="currentColor"
           r={2}
         />
-      </TypingIndicator__StyledCircle>
-      <TypingIndicator__StyledCircle
+      </Inline__StyledCircle>
+      <Inline__StyledCircle
         cx="2"
       >
         <circle
@@ -241,13 +241,13 @@ exports[`TypingIndicator Loader customizes size when provided 1`] = `
           fill="currentColor"
           r={2}
         />
-      </TypingIndicator__StyledCircle>
+      </Inline__StyledCircle>
     </svg>
-  </TypingIndicator__StyledTypingSvg>
-</TypingIndicator>
+  </Inline__StyledTypingSvg>
+</Inline>
 `;
 
-exports[`TypingIndicator Loader displays correct styling by default 1`] = `
+exports[`Inline Loader displays correct styling by default 1`] = `
 .c0 {
   color: #68737d;
 }
@@ -277,25 +277,25 @@ exports[`TypingIndicator Loader displays correct styling by default 1`] = `
   animation-delay: unset;
 }
 
-<TypingIndicator
+<Inline
   color="#68737d"
   size={16}
 >
-  <TypingIndicator__StyledTypingSvg
+  <Inline__StyledTypingSvg
     color="#68737d"
     size={16}
   >
     <svg
       className="c0"
       color="#68737d"
-      data-garden-id="loaders.spinner"
+      data-garden-id="loaders.inline"
       data-garden-version="version"
       height={4}
       size={16}
       viewBox="0 0 16 4"
       width={16}
     >
-      <TypingIndicator__StyledCircle
+      <Inline__StyledCircle
         cx="14"
       >
         <circle
@@ -305,8 +305,8 @@ exports[`TypingIndicator Loader displays correct styling by default 1`] = `
           fill="currentColor"
           r={2}
         />
-      </TypingIndicator__StyledCircle>
-      <TypingIndicator__StyledCircle
+      </Inline__StyledCircle>
+      <Inline__StyledCircle
         cx="8"
       >
         <circle
@@ -316,8 +316,8 @@ exports[`TypingIndicator Loader displays correct styling by default 1`] = `
           fill="currentColor"
           r={2}
         />
-      </TypingIndicator__StyledCircle>
-      <TypingIndicator__StyledCircle
+      </Inline__StyledCircle>
+      <Inline__StyledCircle
         cx="2"
       >
         <circle
@@ -327,13 +327,13 @@ exports[`TypingIndicator Loader displays correct styling by default 1`] = `
           fill="currentColor"
           r={2}
         />
-      </TypingIndicator__StyledCircle>
+      </Inline__StyledCircle>
     </svg>
-  </TypingIndicator__StyledTypingSvg>
-</TypingIndicator>
+  </Inline__StyledTypingSvg>
+</Inline>
 `;
 
-exports[`TypingIndicator Loader displays correct styling in RTL mode 1`] = `
+exports[`Inline Loader displays correct styling in RTL mode 1`] = `
 .c2 .c1 {
   opacity: 0.2;
 }
@@ -388,25 +388,25 @@ exports[`TypingIndicator Loader displays correct styling in RTL mode 1`] = `
   animation-delay: 0.4s;
 }
 
-<TypingIndicator
+<Inline
   color="#68737d"
   size={16}
 >
-  <TypingIndicator__StyledTypingSvg
+  <Inline__StyledTypingSvg
     color="#68737d"
     size={16}
   >
     <svg
       className="c0"
       color="#68737d"
-      data-garden-id="loaders.spinner"
+      data-garden-id="loaders.inline"
       data-garden-version="version"
       height={4}
       size={16}
       viewBox="0 0 16 4"
       width={16}
     >
-      <TypingIndicator__StyledCircle
+      <Inline__StyledCircle
         cx="14"
       >
         <circle
@@ -416,8 +416,8 @@ exports[`TypingIndicator Loader displays correct styling in RTL mode 1`] = `
           fill="currentColor"
           r={2}
         />
-      </TypingIndicator__StyledCircle>
-      <TypingIndicator__StyledCircle
+      </Inline__StyledCircle>
+      <Inline__StyledCircle
         cx="8"
       >
         <circle
@@ -427,8 +427,8 @@ exports[`TypingIndicator Loader displays correct styling in RTL mode 1`] = `
           fill="currentColor"
           r={2}
         />
-      </TypingIndicator__StyledCircle>
-      <TypingIndicator__StyledCircle
+      </Inline__StyledCircle>
+      <Inline__StyledCircle
         cx="2"
       >
         <circle
@@ -438,8 +438,8 @@ exports[`TypingIndicator Loader displays correct styling in RTL mode 1`] = `
           fill="currentColor"
           r={2}
         />
-      </TypingIndicator__StyledCircle>
+      </Inline__StyledCircle>
     </svg>
-  </TypingIndicator__StyledTypingSvg>
-</TypingIndicator>
+  </Inline__StyledTypingSvg>
+</Inline>
 `;
