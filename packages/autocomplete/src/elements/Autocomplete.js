@@ -78,7 +78,11 @@ export default class Autocomplete extends Component {
     noOptionsMessage: PropTypes.string,
     renderOption: PropTypes.func,
     renderDropdown: PropTypes.func,
-    optionFilter: PropTypes.func
+    optionFilter: PropTypes.func,
+    /**
+     * Passes options to [Popper.JS Instance](https://github.com/FezVrasta/popper.js/blob/master/docs/_includes/popper-documentation.md#new-popperreference-popper-options)
+     */
+    popperModifiers: PropTypes.object
   };
 
   static defaultProps = {
@@ -154,7 +158,8 @@ export default class Autocomplete extends Component {
       message,
       small,
       focusInset,
-      validation
+      validation,
+      popperModifiers
     } = this.props;
     const { isOpen, focusedKey, isFocused, isHovered, inputValue } = this.state;
 
@@ -192,6 +197,7 @@ export default class Autocomplete extends Component {
             <AutocompleteContainer
               isOpen={isOpen}
               focusedKey={focusedKey}
+              popperModifiers={popperModifiers}
               onSelect={selectedKey => {
                 onChange && onChange(selectedKey);
               }}
