@@ -14,16 +14,12 @@ import { zdColorGrey600 } from '@zendeskgarden/css-variables';
 const COMPONENT_ID = 'loaders.spinner';
 
 const pulseAnimation = keyframes`
-  0% {
+  0%, 100% {
     opacity: .2;
   }
 
   50% {
     opacity: .8;
-  }
-
-  100% {
-    opacity: .2;
   }
 `;
 
