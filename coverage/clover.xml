@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1552758369596" clover="3.2.0">
-  <project timestamp="1552758369596" name="All files">
+<coverage generated="1553012647766" clover="3.2.0">
+  <project timestamp="1553012647766" name="All files">
     <metrics statements="2391" coveredstatements="2314" conditionals="1093" coveredconditionals="945" methods="801" coveredmethods="780" elements="4285" coveredelements="4039" complexity="0" loc="2391" ncloc="2391" packages="71" files="196" classes="196"/>
     <package name="autocomplete.src.containers">
       <metrics statements="154" coveredstatements="152" conditionals="93" coveredconditionals="77" methods="46" coveredmethods="45"/>
@@ -864,19 +864,19 @@
       </file>
       <file name="Inline.js" path="/home/travis/build/zendeskgarden/react-components/packages/loaders/src/Inline.js">
         <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="4" methods="6" coveredmethods="6"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="26" count="2" type="stmt"/>
-        <line num="32" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="35" count="4" type="stmt"/>
         <line num="36" count="4" type="stmt"/>
-        <line num="37" count="4" type="stmt"/>
-        <line num="39" count="4" type="stmt"/>
-        <line num="46" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="56" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="64" count="2" type="stmt"/>
-        <line num="65" count="4" type="stmt"/>
-        <line num="74" count="2" type="stmt"/>
-        <line num="80" count="2" type="stmt"/>
+        <line num="38" count="4" type="stmt"/>
+        <line num="45" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="55" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="63" count="2" type="stmt"/>
+        <line num="64" count="4" type="stmt"/>
+        <line num="73" count="2" type="stmt"/>
+        <line num="79" count="2" type="stmt"/>
       </file>
       <file name="Skeleton.js" path="/home/travis/build/zendeskgarden/react-components/packages/loaders/src/Skeleton.js">
         <metrics statements="15" coveredstatements="15" conditionals="8" coveredconditionals="8" methods="8" coveredmethods="8"/>
