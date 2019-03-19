@@ -9,7 +9,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
 import { isRtl } from '@zendeskgarden/react-theming';
-import { zdColorGrey600 } from '@zendeskgarden/css-variables';
 
 const COMPONENT_ID = 'loaders.inline';
 
@@ -79,7 +78,7 @@ Inline.propTypes = {
 
 Inline.defaultProps = {
   size: 16,
-  color: zdColorGrey600
+  color: 'inherit'
 };
 
 export default Inline;
