@@ -1,5 +1,10 @@
 ```jsx
-const { zdColorGreen600, zdColorRed600, zdColorBlue600 } = require('@zendeskgarden/css-variables');
+const {
+  zdColorGrey600,
+  zdColorGreen600,
+  zdColorRed600,
+  zdColorBlue600
+} = require('@zendeskgarden/css-variables');
 
 <Grid aria-busy="true" aria-live="polite">
   <Row>
@@ -15,13 +20,13 @@ const { zdColorGreen600, zdColorRed600, zdColorBlue600 } = require('@zendeskgard
   </Row>
   <Row>
     <Col md>
-      <Inline />
+      <Inline color={zdColorGrey600} />
     </Col>
     <Col md>
-      <Inline size={32} />
+      <Inline size={32} color={zdColorGrey600} />
     </Col>
     <Col md>
-      <Inline size={64} />
+      <Inline size={64} color={zdColorGrey600} />
     </Col>
   </Row>
   <Row>

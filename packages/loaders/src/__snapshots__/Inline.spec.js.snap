@@ -138,7 +138,7 @@ exports[`Inline Loader customizes color when provided 1`] = `
 
 exports[`Inline Loader customizes size when provided 1`] = `
 .c0 {
-  color: #68737d;
+  color: inherit;
 }
 
 .c0 .c1 {
@@ -192,16 +192,16 @@ exports[`Inline Loader customizes size when provided 1`] = `
 }
 
 <Inline
-  color="#68737d"
+  color="inherit"
   size={32}
 >
   <Inline__StyledTypingSvg
-    color="#68737d"
+    color="inherit"
     size={32}
   >
     <svg
       className="c0"
-      color="#68737d"
+      color="inherit"
       data-garden-id="loaders.inline"
       data-garden-version="version"
       height={8}
@@ -249,7 +249,7 @@ exports[`Inline Loader customizes size when provided 1`] = `
 
 exports[`Inline Loader displays correct styling by default 1`] = `
 .c0 {
-  color: #68737d;
+  color: inherit;
 }
 
 .c0 .c1 {
@@ -278,16 +278,16 @@ exports[`Inline Loader displays correct styling by default 1`] = `
 }
 
 <Inline
-  color="#68737d"
+  color="inherit"
   size={16}
 >
   <Inline__StyledTypingSvg
-    color="#68737d"
+    color="inherit"
     size={16}
   >
     <svg
       className="c0"
-      color="#68737d"
+      color="inherit"
       data-garden-id="loaders.inline"
       data-garden-version="version"
       height={4}
@@ -360,7 +360,7 @@ exports[`Inline Loader displays correct styling in RTL mode 1`] = `
 }
 
 .c0 {
-  color: #68737d;
+  color: inherit;
 }
 
 .c0 .c1 {
@@ -389,16 +389,16 @@ exports[`Inline Loader displays correct styling in RTL mode 1`] = `
 }
 
 <Inline
-  color="#68737d"
+  color="inherit"
   size={16}
 >
   <Inline__StyledTypingSvg
-    color="#68737d"
+    color="inherit"
     size={16}
   >
     <svg
       className="c0"
-      color="#68737d"
+      color="inherit"
       data-garden-id="loaders.inline"
       data-garden-version="version"
       height={4}
