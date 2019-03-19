@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-loaders@0.4.0...@zendeskgarden/react-loaders@0.4.1) (2019-03-19)
+
+
+### Bug Fixes
+
+* **loaders:** default Inline loader to use inherit color ([#293](https://github.com/zendeskgarden/react-components/issues/293)) ([4dc6a86](https://github.com/zendeskgarden/react-components/commit/4dc6a86))
+
+
+
+
+
 # [0.4.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-loaders@0.3.1...@zendeskgarden/react-loaders@0.4.0) (2019-03-16)
 
 
