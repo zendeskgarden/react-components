@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { MenuView, Item } from '@zendeskgarden/react-menus';
 import { TextGroup, Label, FauxInput, Input, Hint, Message } from '@zendeskgarden/react-textfields';
-import { FieldContainer, KEY_CODES } from '@zendeskgarden/react-selection';
+import { ControlledComponent, FieldContainer, KEY_CODES } from '@zendeskgarden/react-selection';
 import AutocompleteContainer from '../containers/AutocompleteContainer';
 
 const VALIDATION = {
@@ -53,7 +53,7 @@ const StyledValueWrapper = styled.div`
   vertical-align: middle;
 `;
 
-export default class Autocomplete extends Component {
+export default class Autocomplete extends ControlledComponent {
   static propTypes = {
     label: PropTypes.string,
     'aria-label': PropTypes.string,
@@ -82,7 +82,27 @@ export default class Autocomplete extends Component {
     /**
      * Passes options to [Popper.JS Instance](https://github.com/FezVrasta/popper.js/blob/master/docs/_includes/popper-documentation.md#new-popperreference-popper-options)
      */
-    popperModifiers: PropTypes.object
+    popperModifiers: PropTypes.object,
+    /**
+     * Controls visibility of menu
+     */
+    isOpen: PropTypes.bool,
+    /**
+     * Controls value of the input field
+     */
+    inputValue: PropTypes.string,
+    /**
+     * Returns all controlled state. Used for controlling usage.
+     */
+    onStateChange: PropTypes.func,
+    /**
+     * Controls whether the dropdown appears focused
+     */
+    isFocused: PropTypes.bool,
+    /**
+     * Controls whether the dropdown appears hovered
+     */
+    isHovered: PropTypes.bool
   };
 
   static defaultProps = {
@@ -161,7 +181,7 @@ export default class Autocomplete extends Component {
       validation,
       popperModifiers
     } = this.props;
-    const { isOpen, focusedKey, isFocused, isHovered, inputValue } = this.state;
+    const { isOpen, focusedKey, isFocused, isHovered, inputValue } = this.getControlledState();
 
     const optionDictionary = options.reduce((dictionary, option) => {
       dictionary[option.value] = option.label;
@@ -179,14 +199,14 @@ export default class Autocomplete extends Component {
                   onClick: () => {
                     if (!disabled) {
                       this.inputRef && this.inputRef.focus();
-                      this.setState({ isOpen: true });
+                      this.setControlledState({ isOpen: true });
                     }
                   },
                   onMouseEnter: () => {
-                    this.setState({ isHovered: true });
+                    this.setControlledState({ isHovered: true });
                   },
                   onMouseLeave: () => {
-                    this.setState({ isHovered: false });
+                    this.setControlledState({ isHovered: false });
                   }
                 })}
               >
@@ -202,11 +222,11 @@ export default class Autocomplete extends Component {
                 onChange && onChange(selectedKey);
               }}
               onStateChange={newState => {
-                if (!newState.isOpen) {
+                if (newState.isOpen === false) {
                   newState.inputValue = '';
                 }
 
-                this.setState(newState);
+                this.setControlledState(newState);
               }}
               trigger={({
                 getTriggerProps,
@@ -262,13 +282,13 @@ export default class Autocomplete extends Component {
                             isOpen,
                             placeholder,
                             onChange: e => {
-                              this.setState({ inputValue: e.target.value });
+                              this.setControlledState({ inputValue: e.target.value });
                             },
                             onFocus: () => {
-                              this.setState({ isFocused: true });
+                              this.setControlledState({ isFocused: true });
                             },
                             onBlur: () => {
-                              this.setState({ isFocused: false });
+                              this.setControlledState({ isFocused: false });
                             },
                             onKeyDown: e => {
                               if (
