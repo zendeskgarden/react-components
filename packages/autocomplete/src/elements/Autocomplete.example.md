@@ -26,6 +26,37 @@ initialState = {
 />;
 ```
 
+### Controlled Example
+
+```jsx
+initialState = {
+  selectedValue: 'option-1',
+  isOpen: false
+};
+
+<Autocomplete
+  label="Controlled Autocomplete"
+  selectedValue={state.selectedValue}
+  isOpen={state.isOpen}
+  onChange={selectedValue => setState({ selectedValue })}
+  onStateChange={setState}
+  options={[
+    {
+      value: 'option-1',
+      label: 'Option 1'
+    },
+    {
+      value: 'option-2',
+      label: 'Option 2'
+    },
+    {
+      value: 'option-3',
+      label: 'Option 3'
+    }
+  ]}
+/>;
+```
+
 ### Advanced Example
 
 ```jsx

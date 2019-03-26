@@ -13,6 +13,16 @@ import { KEY_CODES } from '@zendeskgarden/react-selection';
 import Autocomplete from './Autocomplete';
 
 describe('Autocomplete', () => {
+  it('renders children if provided', () => {
+    const wrapper = mountWithTheme(
+      <Autocomplete options={[]}>
+        <div id="autocomplete-child">Child content</div>
+      </Autocomplete>
+    );
+
+    expect(wrapper.find('#autocomplete-child')).toHaveText('Child content');
+  });
+
   it('renders label if provided', () => {
     const label = 'Test Label';
     const wrapper = mountWithTheme(<Autocomplete label={label} options={[]} />);
