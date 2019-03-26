@@ -102,7 +102,11 @@ export default class Autocomplete extends ControlledComponent {
     /**
      * Controls whether the dropdown appears hovered
      */
-    isHovered: PropTypes.bool
+    isHovered: PropTypes.bool,
+    /**
+     * Children to render inside the dropdown while it is closed
+     */
+    children: PropTypes.node
   };
 
   static defaultProps = {
@@ -167,6 +171,7 @@ export default class Autocomplete extends ControlledComponent {
       label,
       'aria-label': ariaLabel,
       hint,
+      children,
       disabled,
       options,
       selectedValue,
@@ -263,7 +268,9 @@ export default class Autocomplete extends ControlledComponent {
                 return (
                   <StyledFauxInput {...triggerProps}>
                     {!isOpen && (
-                      <StyledValueWrapper>{optionDictionary[selectedValue]}</StyledValueWrapper>
+                      <StyledValueWrapper>
+                        {children || optionDictionary[selectedValue]}
+                      </StyledValueWrapper>
                     )}
                     <StyledInput
                       {...getInputProps(
