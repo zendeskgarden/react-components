@@ -21,7 +21,7 @@ const TYPE = {
   RED: 'red',
   GREEN: 'green',
   YELLOW: 'yellow',
-  FUSCHIA: 'fuscia',
+  FUSCHIA: 'fuschia',
   PINK: 'pink',
   CRIMSON: 'crimson',
   ORANGE: 'orange',
