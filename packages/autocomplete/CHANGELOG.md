@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-autocomplete@0.9.1...@zendeskgarden/react-autocomplete@0.10.0) (2019-03-27)
+
+
+### Features
+
+* **autocomplete:** add controlled props to Autocomplete ([#294](https://github.com/zendeskgarden/react-components/issues/294)) ([b374b6e](https://github.com/zendeskgarden/react-components/commit/b374b6e))
+
+
+
+
+
 ## [0.9.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-autocomplete@0.9.0...@zendeskgarden/react-autocomplete@0.9.1) (2019-03-15)
 
 
