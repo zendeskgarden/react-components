@@ -37,7 +37,7 @@
     "@zendeskgarden/css-variables": "6.2.1",
     "@zendeskgarden/eslint-config": "7.1.2",
     "@zendeskgarden/stylelint-config": "9.1.0",
-    "@zendeskgarden/svg-icons": "5.3.0",
+    "@zendeskgarden/svg-icons": "6.1.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.1",
     "babel-jest": "24.1.0",

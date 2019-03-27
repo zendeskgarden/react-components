@@ -2088,10 +2088,10 @@
   resolved "https://registry.yarnpkg.com/@zendeskgarden/stylelint-config/-/stylelint-config-9.1.0.tgz#232872d2cb40397e3cee8d15690174c136262991"
   integrity sha512-adF3iilf0yGjaqcRzBnTmdNIU5HhfV2GAxcLV5uoquW62Rp7QwkROOuzNla/he4horE8i1tvKLQrk17lwxySSA==
 
-"@zendeskgarden/svg-icons@5.3.0":
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-5.3.0.tgz#7ee32a7e515c81a090db6b9f3b8be6dddf1af9bd"
-  integrity sha512-nlGecouQrHdCK8VNTl77C/vQi+xTp0omTXN1ROoe4+sF5r00g1SvI+ExFHNRKkIUJqTCVffnogMQ2+hmeu2khQ==
+"@zendeskgarden/svg-icons@6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-6.1.0.tgz#b6a657165cdb90740bb2fc6e8b990fd3b3e82590"
+  integrity sha512-Q+eS/V3DIzGAaG3jwBuf26jUriGlhXLUKQ19lc/JLYJ49ZkvxrgGzf2CSflWurUMKT8p0F06MUKLZmRVc9pGZA==
 
 JSONStream@^1.0.4, JSONStream@^1.3.4:
   version "1.3.4"
