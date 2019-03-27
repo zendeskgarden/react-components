@@ -58,12 +58,39 @@ exports[`Tag state renders hovered styling if provided 1`] = `
 />
 `;
 
+exports[`Tag visual types renders azure styling if provided 1`] = `
+<div
+  className="c-tag c-tag--azure "
+  data-garden-id="tags.tag_view"
+  data-garden-version="version"
+  type="azure"
+/>
+`;
+
 exports[`Tag visual types renders blue styling if provided 1`] = `
 <div
   className="c-tag c-tag--blue "
   data-garden-id="tags.tag_view"
   data-garden-version="version"
   type="blue"
+/>
+`;
+
+exports[`Tag visual types renders crimson styling if provided 1`] = `
+<div
+  className="c-tag c-tag--crimson "
+  data-garden-id="tags.tag_view"
+  data-garden-version="version"
+  type="crimson"
+/>
+`;
+
+exports[`Tag visual types renders fuschia styling if provided 1`] = `
+<div
+  className="c-tag c-tag--fuschia "
+  data-garden-id="tags.tag_view"
+  data-garden-version="version"
+  type="fuschia"
 />
 `;
 
@@ -94,12 +121,84 @@ exports[`Tag visual types renders kale styling if provided 1`] = `
 />
 `;
 
+exports[`Tag visual types renders lemon styling if provided 1`] = `
+<div
+  className="c-tag c-tag--lemon "
+  data-garden-id="tags.tag_view"
+  data-garden-version="version"
+  type="lemon"
+/>
+`;
+
+exports[`Tag visual types renders lime styling if provided 1`] = `
+<div
+  className="c-tag c-tag--lime "
+  data-garden-id="tags.tag_view"
+  data-garden-version="version"
+  type="lime"
+/>
+`;
+
+exports[`Tag visual types renders mint styling if provided 1`] = `
+<div
+  className="c-tag c-tag--mint "
+  data-garden-id="tags.tag_view"
+  data-garden-version="version"
+  type="mint"
+/>
+`;
+
+exports[`Tag visual types renders orange styling if provided 1`] = `
+<div
+  className="c-tag c-tag--orange "
+  data-garden-id="tags.tag_view"
+  data-garden-version="version"
+  type="orange"
+/>
+`;
+
+exports[`Tag visual types renders pink styling if provided 1`] = `
+<div
+  className="c-tag c-tag--pink "
+  data-garden-id="tags.tag_view"
+  data-garden-version="version"
+  type="pink"
+/>
+`;
+
+exports[`Tag visual types renders purple styling if provided 1`] = `
+<div
+  className="c-tag c-tag--purple "
+  data-garden-id="tags.tag_view"
+  data-garden-version="version"
+  type="purple"
+/>
+`;
+
 exports[`Tag visual types renders red styling if provided 1`] = `
 <div
   className="c-tag c-tag--red "
   data-garden-id="tags.tag_view"
   data-garden-version="version"
   type="red"
+/>
+`;
+
+exports[`Tag visual types renders royal styling if provided 1`] = `
+<div
+  className="c-tag c-tag--royal "
+  data-garden-id="tags.tag_view"
+  data-garden-version="version"
+  type="royal"
+/>
+`;
+
+exports[`Tag visual types renders teal styling if provided 1`] = `
+<div
+  className="c-tag c-tag--teal "
+  data-garden-id="tags.tag_view"
+  data-garden-version="version"
+  type="teal"
 />
 `;
 
