@@ -20,7 +20,18 @@ const TYPE = {
   KALE: 'kale',
   RED: 'red',
   GREEN: 'green',
-  YELLOW: 'yellow'
+  YELLOW: 'yellow',
+  FUSCHIA: 'fuscia',
+  PINK: 'pink',
+  CRIMSON: 'crimson',
+  ORANGE: 'orange',
+  LEMON: 'lemon',
+  LIME: 'lime',
+  MINT: 'mint',
+  TEAL: 'teal',
+  AZURE: 'azure',
+  ROYAL: 'royal',
+  PURPLE: 'purple'
 };
 
 const SIZE = {
@@ -54,6 +65,17 @@ const Tag = styled.div.attrs({
       [TagStyles['c-tag--red']]: props.type === TYPE.RED,
       [TagStyles['c-tag--green']]: props.type === TYPE.GREEN,
       [TagStyles['c-tag--yellow']]: props.type === TYPE.YELLOW,
+      [TagStyles['c-tag--fuschia']]: props.type === TYPE.FUSCHIA,
+      [TagStyles['c-tag--pink']]: props.type === TYPE.PINK,
+      [TagStyles['c-tag--crimson']]: props.type === TYPE.CRIMSON,
+      [TagStyles['c-tag--orange']]: props.type === TYPE.ORANGE,
+      [TagStyles['c-tag--lemon']]: props.type === TYPE.LEMON,
+      [TagStyles['c-tag--lime']]: props.type === TYPE.LIME,
+      [TagStyles['c-tag--mint']]: props.type === TYPE.MINT,
+      [TagStyles['c-tag--teal']]: props.type === TYPE.TEAL,
+      [TagStyles['c-tag--azure']]: props.type === TYPE.AZURE,
+      [TagStyles['c-tag--royal']]: props.type === TYPE.ROYAL,
+      [TagStyles['c-tag--purple']]: props.type === TYPE.PURPLE,
 
       // RTL
       [TagStyles['is-rtl']]: isRtl(props)
@@ -67,7 +89,25 @@ Tag.propTypes = {
   pill: PropTypes.bool,
   focused: PropTypes.bool,
   hovered: PropTypes.bool,
-  type: PropTypes.oneOf([TYPE.GREY, TYPE.BLUE, TYPE.KALE, TYPE.RED, TYPE.GREEN, TYPE.YELLOW])
+  type: PropTypes.oneOf([
+    TYPE.GREY,
+    TYPE.BLUE,
+    TYPE.KALE,
+    TYPE.RED,
+    TYPE.GREEN,
+    TYPE.YELLOW,
+    TYPE.FUSCHIA,
+    TYPE.PINK,
+    TYPE.CRIMSON,
+    TYPE.ORANGE,
+    TYPE.LEMON,
+    TYPE.LIME,
+    TYPE.MINT,
+    TYPE.TEAL,
+    TYPE.AZURE,
+    TYPE.ROYAL,
+    TYPE.PURPLE
+  ])
 };
 
 /** @component */
