@@ -170,8 +170,14 @@ export default class Multiselect extends Component {
   };
 
   renderTags = (isFocused, selectedKeys, isSmall, tagFocusedKey, getTagProps) => {
-    const { renderShowMore, disabled } = this.props;
+    const { renderShowMore, disabled, options } = this.props;
     const keys = Object.keys(selectedKeys);
+
+    const valueToLabelMap = options.reduce((mapping, option) => {
+      mapping[option.value] = option.label;
+
+      return mapping;
+    }, {});
 
     if (isFocused && !disabled) {
       return keys.map(key => (
@@ -182,7 +188,7 @@ export default class Multiselect extends Component {
             focused: tagFocusedKey === key
           })}
         >
-          {key}
+          {valueToLabelMap[key] || key}
           <Close
             onClick={() => {
               if (!disabled) {
@@ -207,7 +213,7 @@ export default class Multiselect extends Component {
             focused: tagFocusedKey === key && !disabled
           })}
         >
-          {key}
+          {valueToLabelMap[key] || key}
           <Close
             onClick={() => {
               if (!disabled) {
