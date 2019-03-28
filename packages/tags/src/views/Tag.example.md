@@ -65,64 +65,36 @@ number of characters.
 ### Colors
 
 ```jsx
+const types = [
+  'Red',
+  'Yellow',
+  'Green',
+  'Blue',
+  'Grey',
+  null,
+  'Crimson',
+  'Lemon',
+  'Mint',
+  'Azure',
+  'Purple',
+  'Kale',
+  'Pink',
+  'Orange',
+  'Lime',
+  'Royal',
+  'Fuschia',
+  'Teal'
+];
+
 <Grid>
   <Row>
-    <Col md={2}>
-      <Tag>Default</Tag>
-    </Col>
-    <Col md={2}>
-      <Tag type="grey">Grey</Tag>
-    </Col>
-    <Col md={2}>
-      <Tag type="blue">Blue</Tag>
-    </Col>
-    <Col md={2}>
-      <Tag type="kale">Kale</Tag>
-    </Col>
-    <Col md={2}>
-      <Tag type="red">Red</Tag>
-    </Col>
-    <Col md={2}>
-      <Tag type="green">Green</Tag>
-    </Col>
-    <Col md={2}>
-      <Tag type="yellow">Yellow</Tag>
-    </Col>
-    <Col md={2}>
-      <Tag pill>Default</Tag>
-    </Col>
-    <Col md={2}>
-      <Tag type="grey" pill>
-        Grey
-      </Tag>
-    </Col>
-    <Col md={2}>
-      <Tag type="blue" pill>
-        Blue
-      </Tag>
-    </Col>
-    <Col md={2}>
-      <Tag type="kale" pill>
-        Kale
-      </Tag>
-    </Col>
-    <Col md={2}>
-      <Tag type="red" pill>
-        Red
-      </Tag>
-    </Col>
-    <Col md={2}>
-      <Tag type="green" pill>
-        Green
-      </Tag>
-    </Col>
-    <Col md={2}>
-      <Tag type="yellow" pill>
-        Yellow
-      </Tag>
-    </Col>
+    {types.map(type => (
+      <Col md={2}>
+        <Tag type={type ? type.toLowerCase() : type}>{type || 'Default'}</Tag>
+      </Col>
+    ))}
   </Row>
-</Grid>
+</Grid>;
 ```
 
 ### States
