@@ -313,7 +313,7 @@ describe('Autocomplete', () => {
           selectedValues={values}
           onChange={onChangeSpy}
           options={values.map(val => ({
-            label: val,
+            label: `${val} - custom label`,
             value: val
           }))}
         />
@@ -339,6 +339,10 @@ describe('Autocomplete', () => {
       tagsExample.find(Input).simulate('focus');
 
       expect(tagsExample.find(Tag)).toHaveLength(25);
+    });
+
+    it('displays tags with label value if provided', () => {
+      expect(tagsExample.find(Tag).first()).toHaveText('option-0 - custom label');
     });
 
     it('removes selection if tag is removed by mouse', () => {
