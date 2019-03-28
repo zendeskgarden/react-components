@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tags@1.2.3...@zendeskgarden/react-tags@1.3.0) (2019-03-28)
+
+
+### Features
+
+* **tags:** add secondary color options to `type` prop ([#297](https://github.com/zendeskgarden/react-components/issues/297)) ([5afbc3c](https://github.com/zendeskgarden/react-components/commit/5afbc3c))
+
+
+
+
+
 ## [1.2.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tags@1.2.2...@zendeskgarden/react-tags@1.2.3) (2019-02-28)
 
 **Note:** Version bump only for package @zendeskgarden/react-tags

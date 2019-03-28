@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-autocomplete@0.10.0...@zendeskgarden/react-autocomplete@0.10.1) (2019-03-28)
+
+
+### Bug Fixes
+
+* **autocomplete:** allow tags to render with optional label value ([#296](https://github.com/zendeskgarden/react-components/issues/296)) ([78ff39e](https://github.com/zendeskgarden/react-components/commit/78ff39e))
+
+
+
+
+
 # [0.10.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-autocomplete@0.9.1...@zendeskgarden/react-autocomplete@0.10.0) (2019-03-27)
 
 
