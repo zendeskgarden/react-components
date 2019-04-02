@@ -40,6 +40,7 @@ const StyledInput = styled(Input)`
     margin: 2px;
     width: inherit;
     min-width: 60px;
+    line-height: ${props => (props.small ? 20 / 14 : 32 / 14)};
   }
 
   ${props =>
@@ -389,6 +390,7 @@ export default class Multiselect extends Component {
                             value: inputValue,
                             isOpen,
                             isFocused,
+                            small,
                             tagFocusedKey,
                             selectedValues,
                             placeholder,
