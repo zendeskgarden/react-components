@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.2](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-autocomplete@0.10.1...@zendeskgarden/react-autocomplete@0.10.2) (2019-04-03)
+
+
+### Bug Fixes
+
+* **autoselect:** prevent line-height shift on tag delete ([#300](https://github.com/zendeskgarden/react-components/issues/300)) ([70f4bc1](https://github.com/zendeskgarden/react-components/commit/70f4bc1))
+
+
+
+
+
 ## [0.10.1](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-autocomplete@0.10.0...@zendeskgarden/react-autocomplete@0.10.1) (2019-03-28)
 
 
