@@ -31,9 +31,7 @@ const PLACEMENT = {
   LEFT_END: 'left-end'
 };
 
-const shouldShowArrow = ({ arrow, placement }) => {
-  return arrow && placement;
-};
+const shouldShowArrow = ({ arrow, placement }) => arrow && placement;
 
 const retrieveMenuMargin = ({ arrow, placement }) => {
   const marginAmount = shouldShowArrow({ arrow, placement }) ? '8px' : '4px';

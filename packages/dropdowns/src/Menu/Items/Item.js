@@ -35,7 +35,8 @@ const Item = ({ value, disabled, component = StyledItem, ...props }) => {
     if (!disabled && isSelected && highlightedIndex === null) {
       setHighlightedIndex(currentIndex);
     }
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [disabled, isSelected, highlightedIndex]);
 
   if (disabled) {
     return React.createElement(component, {

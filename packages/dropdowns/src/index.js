@@ -7,6 +7,7 @@
 
 import * as styled from './styled';
 
+export { default as Dropdown } from './Dropdown';
 export { default as Autocomplete } from './Autocomplete/Autocomplete';
 export { default as Menu } from './Menu/Menu';
 export { default as HeaderItem } from './Menu/Items/HeaderItem';

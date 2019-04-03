@@ -10,13 +10,12 @@ import MenuStyles from '@zendeskgarden/css-menus';
 
 const COMPONENT_ID = 'dropdowns.header_icon';
 
-const StyledHeaderIcon = ({ children }) => {
-  return React.cloneElement(Children.only(children), {
+const StyledHeaderIcon = ({ children }) =>
+  React.cloneElement(Children.only(children), {
     'data-garden-id': COMPONENT_ID,
     'data-garden-version': PACKAGE_VERSION,
     className: MenuStyles['c-menu__item--header__icon']
   });
-};
 
 /** @component */
 export default StyledHeaderIcon;
