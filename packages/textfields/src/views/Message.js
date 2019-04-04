@@ -25,6 +25,7 @@ const VALIDATION = {
 const Message = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
+  role: 'alert',
   className: props =>
     classNames(TextStyles['c-txt__message'], {
       [TextStyles['c-txt__message--success']]: props.validation === VALIDATION.SUCCESS,
