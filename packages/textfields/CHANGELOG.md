@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.8.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-textfields@3.8.3...@zendeskgarden/react-textfields@3.8.4) (2019-04-04)
+
+
+### Bug Fixes
+
+* **textfields:** default `<Message/>` with `role="alert"` for improved accessibility ([#301](https://github.com/zendeskgarden/react-components/issues/301)) ([7ec9f8b](https://github.com/zendeskgarden/react-components/commit/7ec9f8b))
+
+
+
+
+
 ## [3.8.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-textfields@3.8.2...@zendeskgarden/react-textfields@3.8.3) (2019-02-28)
 
 **Note:** Version bump only for package @zendeskgarden/react-textfields
