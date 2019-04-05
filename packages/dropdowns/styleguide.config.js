@@ -28,6 +28,10 @@ module.exports = {
       components: '../../packages/dropdowns/src/Select/Select.js'
     },
     {
+      name: 'Multiselect',
+      components: '../../packages/dropdowns/src/Multiselect/[A-Z]*.js'
+    },
+    {
       name: 'Autocomplete',
       components: '../../packages/dropdowns/src/Autocomplete/Autocomplete.js'
     },

@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import Downshift from 'downshift';
 import { Manager } from 'react-popper';
 import { withTheme, isRtl } from '@zendeskgarden/react-theming';
-import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/react-selection';
+import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-selection';
 
 export const DropdownContext = React.createContext();
 
@@ -20,11 +20,11 @@ const Dropdown = props => {
     isOpen,
     onOpen,
     selectedItem,
+    selectedItems,
     onSelect,
     highlightedIndex,
     onHighlight,
-    dropdownProps,
-    itemToString
+    dropdownProps
   } = props;
   const itemIndexRef = useRef(0);
   const previousItemRef = useRef(undefined);
@@ -46,7 +46,11 @@ const Dropdown = props => {
             downshift.selectHighlightedItem();
           }
 
-          if (e.keyCode === PREVIOUS_KEY && previousIndexRef.current !== null) {
+          if (
+            e.keyCode === PREVIOUS_KEY &&
+            previousIndexRef.current !== null &&
+            !downshift.inputValue
+          ) {
             e.preventDefault();
             e.stopPropagation();
 
@@ -99,7 +103,29 @@ const Dropdown = props => {
           }
 
           if (Object.prototype.hasOwnProperty.call(changes, 'selectedItem')) {
-            onSelect && onSelect(changes.selectedItem, stateAndHelpers);
+            if (selectedItems) {
+              const { itemToString } = stateAndHelpers;
+
+              const existingItemIndex = selectedItems.findIndex(item => {
+                if (itemToString) {
+                  return itemToString(item) === itemToString(changes.selectedItem);
+                }
+
+                return item === changes.selectedItem;
+              });
+
+              const updatedSelectedItems = selectedItems.slice();
+
+              if (existingItemIndex === -1) {
+                updatedSelectedItems.splice(updatedSelectedItems.length, 0, changes.selectedItem);
+              } else {
+                updatedSelectedItems.splice(existingItemIndex, 1);
+              }
+
+              onSelect && onSelect(updatedSelectedItems, stateAndHelpers);
+            } else {
+              onSelect && onSelect(changes.selectedItem, stateAndHelpers);
+            }
           }
 
           if (Object.prototype.hasOwnProperty.call(changes, 'highlightedIndex')) {
@@ -112,11 +138,11 @@ const Dropdown = props => {
           <DropdownContext.Provider
             value={{
               itemIndexRef,
-              itemToString,
               previousItemRef,
               previousIndexRef,
               nextItemsHashRef,
               popperReferenceElementRef,
+              selectedItems,
               downshift: transformDownshift(downshift)
             }}
           >
@@ -133,6 +159,7 @@ Dropdown.propTypes = {
   isOpen: PropTypes.bool,
   onOpen: PropTypes.func,
   selectedItem: PropTypes.any,
+  selectedItems: PropTypes.arrayOf(PropTypes.any),
   onSelect: PropTypes.func,
   highlightedIndex: PropTypes.number,
   onHighlight: PropTypes.func,

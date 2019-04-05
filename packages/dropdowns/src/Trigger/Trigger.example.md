@@ -7,10 +7,8 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
   <Row>
     <Col md>
       <Dropdown onSelect={item => alert(item)}>
-        <Trigger>
-          {({ getTriggerProps, ref, isOpen }) => (
-            <Button {...getTriggerProps({ active: isOpen, innerRef: ref })}>Default Menu</Button>
-          )}
+        <Trigger refKey="innerRef">
+          <Button>Default Menu</Button>
         </Trigger>
         <Menu>
           <Item value="1 - Item">1 - Item</Item>
@@ -21,12 +19,8 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
     </Col>
     <Col md>
       <Dropdown onSelect={item => alert(item)}>
-        <Trigger>
-          {({ getTriggerProps, ref, isOpen }) => (
-            <Button {...getTriggerProps({ active: isOpen, size: 'small', innerRef: ref })}>
-              Small Menu
-            </Button>
-          )}
+        <Trigger refKey="innerRef">
+          <Button>Small Menu</Button>
         </Trigger>
         <Menu small>
           <Item value="1 - Item">1 - Item</Item>
@@ -45,10 +39,8 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
 const { Button } = require('@zendeskgarden/react-buttons/src');
 
 <Dropdown onSelect={item => alert(item)}>
-  <Trigger>
-    {({ getTriggerProps, ref, isOpen }) => (
-      <Button {...getTriggerProps({ active: isOpen, innerRef: ref })}>Disabled Menu Items</Button>
-    )}
+  <Trigger refKey="innerRef">
+    <Button>Disabled Menu Items</Button>
   </Trigger>
   <Menu>
     <Item value="item-1">Item 1</Item>
@@ -65,10 +57,8 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
 const { Button } = require('@zendeskgarden/react-buttons/src');
 
 <Dropdown onSelect={item => alert(item)}>
-  <Trigger>
-    {({ getTriggerProps, ref, isOpen }) => (
-      <Button {...getTriggerProps({ active: isOpen, innerRef: ref })}>Advanced Layout</Button>
-    )}
+  <Trigger refKey="innerRef">
+    <Button>Advanced Layout</Button>
   </Trigger>
   <Menu placement="end" arrow>
     <HeaderItem>Header Item Text</HeaderItem>
@@ -195,10 +185,8 @@ const renderItems = () => {
     });
   }}
 >
-  <Trigger>
-    {({ getTriggerProps, ref, isOpen }) => (
-      <Button {...getTriggerProps({ active: isOpen, innerRef: ref })}>Async Tree Layout</Button>
-    )}
+  <Trigger refKey="innerRef">
+    <Button>Async Tree Layout</Button>
   </Trigger>
   <Menu placement="end" arrow style={{ width: 200, height: 300 }}>
     <Container initialPose="exit" pose="enter" style={{ height: '100%' }}>

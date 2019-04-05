@@ -16,23 +16,40 @@ const StyledWrapper = styled.div`
   display: inline-block;
 `;
 
-const Trigger = ({ children, ...props }) => {
+const Trigger = ({ children, refKey, ...props }) => {
   const {
     downshift: { getRootProps, getToggleButtonProps, getInputProps, isOpen }
   } = useDropdownContext();
   const hiddenInputRef = useRef(null);
+  const triggerRef = useRef(null);
 
   useEffect(() => {
     if (isOpen) {
       hiddenInputRef.current && hiddenInputRef.current.focus();
+    } else {
+      triggerRef.current && triggerRef.current.focus();
     }
   }, [isOpen]);
+
+  const renderChildren = popperRef => {
+    if (typeof children === 'function') {
+      return children({ getTriggerProps: getToggleButtonProps, ref: popperRef, isOpen });
+    }
+
+    return React.cloneElement(React.Children.only(children), {
+      ...getToggleButtonProps(children.props),
+      [refKey]: childRef => {
+        popperRef(childRef);
+        triggerRef.current = childRef;
+      }
+    });
+  };
 
   return (
     <Reference>
       {({ ref }) => (
         <StyledWrapper {...getRootProps({ refKey: 'innerRef', ...props })}>
-          {children && children({ getTriggerProps: getToggleButtonProps, ref, isOpen })}
+          {renderChildren(ref)}
           <StyledBareInput
             {...getInputProps({
               readOnly: true,
@@ -49,7 +66,12 @@ const Trigger = ({ children, ...props }) => {
 };
 
 Trigger.propTypes = {
-  children: PropTypes.func
+  children: PropTypes.any,
+  refKey: PropTypes.string
+};
+
+Trigger.defaultProps = {
+  refKey: 'ref'
 };
 
 export default Trigger;

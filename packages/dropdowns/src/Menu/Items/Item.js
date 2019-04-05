@@ -15,6 +15,7 @@ import useMenuContext from '../../utils/useMenuContext';
 // eslint-disable-next-line react/prop-types
 const Item = ({ value, disabled, component = StyledItem, ...props }) => {
   const {
+    selectedItems,
     downshift: { selectedItem, highlightedIndex, getItemProps, setHighlightedIndex, itemToString }
   } = useDropdownContext();
   const { itemIndexRef } = useMenuContext();
@@ -25,14 +26,26 @@ const Item = ({ value, disabled, component = StyledItem, ...props }) => {
 
   const currentIndex = itemIndexRef.current;
   const isFocused = highlightedIndex === currentIndex;
-  let isSelected = selectedItem === value;
+  let isSelected;
 
-  if (itemToString) {
-    isSelected = itemToString(selectedItem) === itemToString(value);
+  if (selectedItems) {
+    isSelected = selectedItems.some(item => {
+      if (itemToString) {
+        return itemToString(item) === itemToString(value);
+      }
+
+      return item === value;
+    });
+  } else {
+    isSelected = selectedItem === value;
+
+    if (itemToString) {
+      isSelected = itemToString(selectedItem) === itemToString(value);
+    }
   }
 
   useEffect(() => {
-    if (!disabled && isSelected && highlightedIndex === null) {
+    if (!disabled && isSelected && !selectedItems && highlightedIndex === null) {
       setHighlightedIndex(currentIndex);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

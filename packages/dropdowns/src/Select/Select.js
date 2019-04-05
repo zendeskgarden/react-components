@@ -8,7 +8,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
-import { KEY_CODES } from '@zendeskgarden/react-selection';
+import { KEY_CODES } from '@zendeskgarden/container-selection';
 import { StyledBareInput } from '../styled';
 import StyledSelect from '../styled/StyledSelect';
 import useDropdownContext from '../utils/useDropdownContext';

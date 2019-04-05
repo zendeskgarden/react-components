@@ -8,18 +8,46 @@
 import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
-import { KEY_CODES } from '@zendeskgarden/container-selection';
+import { withTheme, isRtl } from '@zendeskgarden/react-theming';
+import { KEY_CODES, useSelection } from '@zendeskgarden/container-selection';
 import StyledBareInput from '../styled/StyledBareInput';
 import StyledSelect from '../styled/StyledSelect';
 import useDropdownContext from '../utils/useDropdownContext';
 
-const Autocomplete = ({ children, ...props }) => {
+export const MultiselectContext = React.createContext(null);
+
+const Multiselect = ({ children, ...props }) => {
   const {
     popperReferenceElementRef,
     downshift: { getRootProps, getToggleButtonProps, getInputProps, isOpen, openMenu }
   } = useDropdownContext();
   const [isFocused, setIsFocused] = useState(false);
+  const [focusedItem, setFocusedItem] = useState(undefined);
   const hiddenInputRef = useRef(null);
+  const firstTagRef = useRef(null);
+  const lastTagRef = useRef(null);
+
+  const selectionProps = useSelection({
+    rtl: isRtl(props),
+    defaultFocusedIndex: -1,
+    focusedItem,
+    onFocus: item => {
+      if (focusedItem === firstTagRef.current && item === lastTagRef.current) {
+        setFocusedItem(firstTagRef.current);
+
+        return;
+      }
+
+      if (focusedItem === lastTagRef.current && item === firstTagRef.current) {
+        setFocusedItem(lastTagRef.current);
+
+        return;
+      }
+
+      setFocusedItem(item);
+    },
+    selectedItem: undefined
+  });
 
   useEffect(() => {
     if (isOpen) {
@@ -59,12 +87,37 @@ const Autocomplete = ({ children, ...props }) => {
               ...props
             })}
           >
-            {!isOpen && children}
+            <div
+              {...selectionProps.getContainerProps({
+                onKeyDown: e => {
+                  if (
+                    e.keyCode === KEY_CODES.END ||
+                    (e.keyCode === KEY_CODES.RIGHT && lastTagRef.current === focusedItem)
+                  ) {
+                    hiddenInputRef.current && hiddenInputRef.current.focus();
+                  }
+                }
+              })}
+            >
+              <MultiselectContext.Provider value={{ selectionProps, firstTagRef, lastTagRef }}>
+                {children}
+              </MultiselectContext.Provider>
+            </div>
             <StyledBareInput
               {...getInputProps({
                 innerRef: hiddenInputRef,
-                tabIndex: 0,
-                isHidden: !isOpen
+                onKeyDown: e => {
+                  if (e.target.value === '') {
+                    if (e.keyCode === KEY_CODES.LEFT) {
+                      setFocusedItem(lastTagRef.current);
+                    }
+
+                    if (e.keyCode === KEY_CODES.HOME) {
+                      setFocusedItem(firstTagRef.current);
+                    }
+                  }
+                },
+                tabIndex: 0
               })}
             />
           </StyledSelect>
@@ -74,8 +127,8 @@ const Autocomplete = ({ children, ...props }) => {
   );
 };
 
-Autocomplete.propTypes = {
+Multiselect.propTypes = {
   children: PropTypes.node
 };
 
-export default Autocomplete;
+export default withTheme(Multiselect);
