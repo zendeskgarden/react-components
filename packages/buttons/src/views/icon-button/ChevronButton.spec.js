@@ -6,25 +6,14 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import ChevronButton from './ChevronButton';
+import Icon from './Icon';
 
 describe('ChevronButton', () => {
-  it('renders IconButton with correct default styling', () => {
-    const wrapper = shallow(<ChevronButton />);
-
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  it('renders focus-inset styling if provided', () => {
-    const wrapper = shallow(<ChevronButton focusInset />);
-
-    expect(wrapper).toMatchSnapshot();
-  });
-
   it('rotates icon if prop is provided', () => {
-    const wrapper = shallow(<ChevronButton rotated />);
+    const wrapper = mount(<ChevronButton rotated />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find(Icon).childAt(0)).toHaveClassName('is-rotated');
   });
 });

@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Item renders default styling 1`] = `
-<Item
-  className=""
-  data-garden-id="select.item"
-  data-garden-version="version"
-/>
-`;

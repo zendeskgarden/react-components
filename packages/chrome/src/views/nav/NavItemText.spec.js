@@ -14,12 +14,12 @@ describe('NavItemText', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<NavItemText />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__nav__item__text');
   });
 
   it('renders wrap styling if provided', () => {
     const wrapper = shallow(<NavItemText wrap />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__nav__item__text--wrap');
   });
 });

@@ -14,6 +14,6 @@ describe('Caption', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Caption />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-table__caption');
   });
 });

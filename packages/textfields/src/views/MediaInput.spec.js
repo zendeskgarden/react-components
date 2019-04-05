@@ -14,6 +14,6 @@ describe('MediaInput', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<MediaInput />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-txt__input--media__body');
   });
 });

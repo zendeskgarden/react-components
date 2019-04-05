@@ -6,52 +6,40 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
-import SortableCell from './SortableCell';
+import { Sortable } from './SortableCell';
 
 describe('SortableCell', () => {
   it('applies default styling', () => {
-    const wrapper = mount(<SortableCell />);
+    const wrapper = shallow(<Sortable />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-table__row__cell__sortable');
   });
 
   it('applies focused styling if provided', () => {
-    const wrapper = mount(<SortableCell focused />);
+    const wrapper = shallow(<Sortable focused />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-focused');
   });
 
   it('applies active styling if provided', () => {
-    const wrapper = mount(<SortableCell active />);
+    const wrapper = shallow(<Sortable active />);
 
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  it('applies minimum styling if provided', () => {
-    const wrapper = mount(<SortableCell minimum />);
-
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  it('applies truncated styling if provided', () => {
-    const wrapper = mount(<SortableCell truncate />);
-
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-active');
   });
 
   describe('sorting', () => {
     it('applies ascending props when applied', () => {
-      const wrapper = mount(<SortableCell sort="asc" />);
+      const wrapper = shallow(<Sortable sort="asc" />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('is-ascending');
     });
 
     it('applies descending props when applied', () => {
-      const wrapper = mount(<SortableCell sort="desc" />);
+      const wrapper = shallow(<Sortable sort="desc" />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('is-descending');
     });
   });
 });

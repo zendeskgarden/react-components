@@ -15,12 +15,12 @@ describe('CheckboxView', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<CheckboxView />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chk');
   });
 
   it('renders RTL styling', () => {
     const wrapper = shallowWithTheme(<CheckboxView />, { rtl: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-rtl');
   });
 });

@@ -15,12 +15,12 @@ describe('RadioView', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<RadioView />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chk');
   });
 
   it('renders RTL styling', () => {
     const wrapper = shallowWithTheme(<RadioView />, { rtl: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-rtl');
   });
 });

@@ -6,39 +6,39 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 
 import Row, { StyledRow } from './Row';
 
 describe('Row', () => {
   it('applies default styling by default', () => {
-    const wrapper = mount(<Row />);
+    const wrapper = shallow(<StyledRow />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-table__row');
   });
 
   it('applies hovered styling if provided', () => {
-    const wrapper = mount(<Row hovered />);
+    const wrapper = shallow(<StyledRow hovered />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-hovered');
   });
 
   it('applies selected styling if provided', () => {
-    const wrapper = mount(<Row selected />);
+    const wrapper = shallow(<StyledRow selected />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-selected');
   });
 
   it('applies focused styling if provided', () => {
-    const wrapper = mount(<Row focused />);
+    const wrapper = shallow(<StyledRow focused />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-focused');
   });
 
   it('applies striped styling if provided', () => {
-    const wrapper = mount(<Row striped />);
+    const wrapper = shallow(<StyledRow striped />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-table__row--stripe');
   });
 
   describe('onFocus', () => {

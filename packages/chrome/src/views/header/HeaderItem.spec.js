@@ -6,67 +6,67 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
-import HeaderItem from './HeaderItem';
+import { StyledHeaderItem } from './HeaderItem';
 
 describe('HeaderItem', () => {
   it('renders default styling', () => {
-    const wrapper = mount(<HeaderItem />);
+    const wrapper = shallow(<StyledHeaderItem />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__body__header__item');
   });
 
   it('renders maxX styling if provided', () => {
-    const wrapper = mount(<HeaderItem maxX />);
+    const wrapper = shallow(<StyledHeaderItem maxX />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__body__header__item--max-x');
   });
 
   it('renders maxY styling if provided', () => {
-    const wrapper = mount(<HeaderItem maxY />);
+    const wrapper = shallow(<StyledHeaderItem maxY />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__body__header__item--max-y');
   });
 
   it('renders logo styling if provided', () => {
-    const wrapper = mount(<HeaderItem logo />);
+    const wrapper = shallow(<StyledHeaderItem logo />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__body__header__item--logo');
   });
 
   it('renders round styling if provided', () => {
-    const wrapper = mount(<HeaderItem round />);
+    const wrapper = shallow(<StyledHeaderItem round />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__body__header__item--round');
   });
 
   describe('States', () => {
     it('renders active styling if provided', () => {
-      const wrapper = mount(<HeaderItem active />);
+      const wrapper = shallow(<StyledHeaderItem active />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('is-active');
     });
 
     it('renders focused styling if provided', () => {
-      const wrapper = mount(<HeaderItem focused />);
+      const wrapper = shallow(<StyledHeaderItem focused />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('is-focused');
     });
 
     it('renders hovered styling if provided', () => {
-      const wrapper = mount(<HeaderItem hovered />);
+      const wrapper = shallow(<StyledHeaderItem hovered />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('is-hovered');
     });
   });
 
   describe('Products', () => {
     ['chat', 'connect', 'explore', 'guide', 'message', 'support', 'talk'].forEach(product => {
       it(`renders ${product} styling if provided`, () => {
-        const wrapper = mount(<HeaderItem product={product} />);
+        const wrapper = shallow(<StyledHeaderItem product={product} />);
 
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper).toHaveClassName(`c-chrome__body__header__item--logo--${product}`);
       });
     });
   });

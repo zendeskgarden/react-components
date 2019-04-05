@@ -14,12 +14,12 @@ describe('List', () => {
   it('renders default styling correctly', () => {
     const wrapper = shallow(<List />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-breadcrumb');
   });
 
   it('renders RTL styling correctly', () => {
     const wrapper = shallowWithTheme(<List />, { rtl: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-rtl');
   });
 });

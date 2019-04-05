@@ -6,27 +6,27 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import Icon from './Icon';
 
 describe('Icon', () => {
   it('renders default styling correctly', () => {
-    const wrapper = mount(
+    const wrapper = shallow(
       <Icon>
         <svg />
       </Icon>
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-btn__icon');
   });
 
   it('renders rotated styling if provided', () => {
-    const wrapper = mount(
+    const wrapper = shallow(
       <Icon rotated>
         <svg />
       </Icon>
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-rotated');
   });
 });

@@ -17,6 +17,6 @@ describe('Avatar', () => {
       </Avatar>
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.childAt(0)).toHaveClassName('c-tag__avatar');
   });
 });

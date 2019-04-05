@@ -6,34 +6,34 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
-import SubNavItem from './SubNavItem';
+import { StyledSubNavItem } from './SubNavItem';
 
 describe('SubNavItem', () => {
   it('renders default styling', () => {
-    const wrapper = mount(<SubNavItem />);
+    const wrapper = shallow(<StyledSubNavItem />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__subnav__item');
   });
 
   describe('States', () => {
     it('renders current styling if provided', () => {
-      const wrapper = mount(<SubNavItem current />);
+      const wrapper = shallow(<StyledSubNavItem current />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('is-current');
     });
 
     it('renders focused styling if provided', () => {
-      const wrapper = mount(<SubNavItem focused />);
+      const wrapper = shallow(<StyledSubNavItem focused />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('is-focused');
     });
 
     it('renders hovered styling if provided', () => {
-      const wrapper = mount(<SubNavItem hovered />);
+      const wrapper = shallow(<StyledSubNavItem hovered />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('is-hovered');
     });
   });
 });

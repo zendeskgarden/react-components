@@ -14,12 +14,12 @@ describe('Header', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Header />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__body__header');
   });
 
   it('renders standalone styling if provided', () => {
     const wrapper = shallow(<Header standalone />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__body__header--standalone');
   });
 });

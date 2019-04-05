@@ -14,6 +14,6 @@ describe('NextPage', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<NextPage />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-pagination__page--next');
   });
 });

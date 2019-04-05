@@ -13,21 +13,21 @@ describe('Close', () => {
   it('renders default close styling', () => {
     const wrapper = mount(<Close />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.childAt(0).childAt(0)).toHaveClassName('c-dialog__close');
   });
 
   describe('state', () => {
     it('renders focused styling correctly if provided', () => {
       const wrapper = mount(<Close focused />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.childAt(0).childAt(0)).toHaveClassName('is-focused');
     });
 
     it('renders focused styling if focused', () => {
       const wrapper = mount(<Close />);
 
       wrapper.simulate('focus');
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.childAt(0).childAt(0)).toHaveClassName('is-focused');
     });
 
     it('removes focused styling if blurred', () => {
@@ -35,13 +35,13 @@ describe('Close', () => {
 
       wrapper.simulate('focus');
       wrapper.simulate('blur');
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.childAt(0).childAt(0)).not.toHaveClassName('is-focused');
     });
 
     it('renders hovered styling correctly if provided', () => {
       const wrapper = mount(<Close hovered />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.childAt(0).childAt(0)).toHaveClassName('is-hovered');
     });
   });
 });

@@ -14,6 +14,12 @@ describe('Body', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Body />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__body');
+  });
+
+  it('renders footer styling', () => {
+    const wrapper = shallow(<Body hasFooter />);
+
+    expect(wrapper).toHaveClassName('c-chrome__body--footer');
   });
 });

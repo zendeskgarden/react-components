@@ -13,6 +13,6 @@ describe('Body', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Body />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-dialog__body');
   });
 });

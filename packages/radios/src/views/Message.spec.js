@@ -15,21 +15,22 @@ describe('Message', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Message />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chk__message');
+    expect(wrapper).toHaveClassName('c-chk__message--radio');
   });
 
   it('renders RTL styling', () => {
     const wrapper = shallowWithTheme(<Message />, { rtl: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-rtl');
   });
 
   describe('validation', () => {
-    ['success', 'warning', 'error', 'none'].forEach(validation => {
+    ['success', 'warning', 'error'].forEach(validation => {
       it(`renders ${validation} styling if provided`, () => {
         const wrapper = shallow(<Message validation={validation} />);
 
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper).toHaveClassName(`c-chk__message--${validation}`);
       });
     });
   });

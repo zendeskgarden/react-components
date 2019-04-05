@@ -18,6 +18,6 @@ describe('NavItemIcon', () => {
       </NavItemIcon>
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__nav__item__icon');
   });
 });

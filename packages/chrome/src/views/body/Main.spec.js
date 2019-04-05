@@ -14,6 +14,6 @@ describe('Main', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Main />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__body__content__main');
   });
 });

@@ -12,15 +12,9 @@ import XL from './XL';
 describe('XL', () => {
   const Example = props => <XL {...props}>Hello world</XL>;
 
-  it('applies correct styling by default', () => {
-    const wrapper = mountWithTheme(<Example />);
-
-    expect(wrapper).toMatchSnapshot();
-  });
-
   it('applies correct styling with RTL locale', () => {
     const wrapper = mountWithTheme(<Example />, { rtl: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.childAt(0)).toHaveStyleRule('direction', 'rtl');
   });
 });

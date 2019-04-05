@@ -15,12 +15,12 @@ describe('ToggleView', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<ToggleView />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chk');
   });
 
   it('renders RTL styling', () => {
     const wrapper = shallowWithTheme(<ToggleView />, { rtl: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-rtl');
   });
 });

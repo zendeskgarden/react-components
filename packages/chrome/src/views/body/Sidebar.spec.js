@@ -14,6 +14,6 @@ describe('Sidebar', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Sidebar />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__body__content__sidebar');
   });
 });

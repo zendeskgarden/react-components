@@ -14,6 +14,6 @@ describe('SubNav', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<SubNav />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__subnav');
   });
 });

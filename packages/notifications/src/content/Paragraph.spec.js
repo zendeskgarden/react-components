@@ -13,6 +13,6 @@ describe('Paragraph', () => {
   it('renders paragraph styling', () => {
     const wrapper = shallow(<Paragraph />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-callout__paragraph');
   });
 });

@@ -28,7 +28,7 @@ const PRODUCT = {
 /**
  * Accepts all `<button>` props
  */
-const StyledNavItem = styled.button.attrs({
+export const StyledNavItem = styled.button.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: props =>

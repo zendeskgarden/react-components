@@ -8,7 +8,10 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import CollapsibleSubNavItem from './CollapsibleSubNavItem';
+import CollapsibleSubNavItem, {
+  StyledSubNavItemHeader,
+  StyledSubNavPanel
+} from './CollapsibleSubNavItem';
 
 describe('CollapsibleSubNavItem', () => {
   it('renders default styling', () => {
@@ -18,7 +21,10 @@ describe('CollapsibleSubNavItem', () => {
       </CollapsibleSubNavItem>
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find(StyledSubNavPanel).childAt(0)).toHaveClassName('c-chrome__subnav__panel');
+    expect(wrapper.find(StyledSubNavItemHeader).childAt(0)).toHaveClassName(
+      'c-chrome__subnav__item--header'
+    );
   });
 
   describe('States', () => {
@@ -29,27 +35,7 @@ describe('CollapsibleSubNavItem', () => {
         </CollapsibleSubNavItem>
       );
 
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('renders focused styling if provided', () => {
-      const wrapper = mount(
-        <CollapsibleSubNavItem label="Header" focused>
-          <p>Content</p>
-        </CollapsibleSubNavItem>
-      );
-
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('renders hovered styling if provided', () => {
-      const wrapper = mount(
-        <CollapsibleSubNavItem label="Header" hovered>
-          <p>Content</p>
-        </CollapsibleSubNavItem>
-      );
-
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.find(StyledSubNavItemHeader).childAt(0)).toHaveClassName('is-expanded');
     });
   });
 });

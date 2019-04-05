@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`PreviousItem renders default styling 1`] = `
-<Item
-  className="c-menu__item--previous "
-  data-garden-id="menus.previous_item"
-  data-garden-version="version"
-/>
-`;

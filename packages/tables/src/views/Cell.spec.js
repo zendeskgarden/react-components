@@ -14,24 +14,24 @@ describe('Cell', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Cell />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-table__row__cell');
   });
 
   it('renders minimum styling if provided', () => {
     const wrapper = shallow(<Cell minimum />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-table__row__cell--min');
   });
 
   it('renders truncation styling if provided', () => {
     const wrapper = shallow(<Cell truncate />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-table__row__cell--truncate');
   });
 
   it('renders menu styling if provided', () => {
     const wrapper = shallow(<Cell menu />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-table__row__cell--overflow');
   });
 });

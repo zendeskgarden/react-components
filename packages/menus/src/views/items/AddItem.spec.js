@@ -13,6 +13,6 @@ describe('AddItem', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<AddItem />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-menu__item--add');
   });
 });

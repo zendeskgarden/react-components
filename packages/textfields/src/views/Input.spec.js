@@ -15,81 +15,81 @@ describe('Input', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Input />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-txt__input');
   });
 
   it('renders RTL styling', () => {
     const wrapper = shallowWithTheme(<Input />, { rtl: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-rtl');
   });
 
   it('renders small styling if provided', () => {
     const wrapper = shallow(<Input small />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-txt__input--sm');
   });
 
   it('renders tag layout styling if provided', () => {
     const wrapper = shallow(<Input tagLayout />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-txt__input--tag');
   });
 
   it('renders select styling if provided', () => {
     const wrapper = shallow(<Input select />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-txt__input--select');
   });
 
   it('renders media layout styling if provided', () => {
     const wrapper = shallow(<Input mediaLayout />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-txt__input--media');
   });
 
   it('renders bare styling if provided', () => {
     const wrapper = shallow(<Input bare />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-txt__input--bare');
   });
 
   it('renders focus-inset styling if provided', () => {
     const wrapper = shallow(<Input focusInset />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-txt__input--focus-inset');
   });
 
   it('renders disabled styling if provided', () => {
     const wrapper = shallow(<Input disabled />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-disabled');
   });
 
   it('renders focused styling if provided', () => {
     const wrapper = shallow(<Input focused />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-focused');
   });
 
   it('renders hovered styling if provided', () => {
     const wrapper = shallow(<Input hovered />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-hovered');
   });
 
   it('renders open styling if provided', () => {
     const wrapper = shallow(<Input open />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-open');
   });
 
   describe('validation', () => {
-    ['success', 'warning', 'error', 'none'].forEach(validation => {
+    ['success', 'warning', 'error'].forEach(validation => {
       it(`renders ${validation} styling if provided`, () => {
         const wrapper = shallow(<Input validation={validation} />);
 
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper).toHaveClassName(`c-txt__input--${validation}`);
       });
     });
   });

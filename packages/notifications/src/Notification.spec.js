@@ -14,25 +14,25 @@ describe('Notification', () => {
     it('should render success styling correctly', () => {
       const wrapper = shallow(<Notification type="success" />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('c-callout--success');
     });
 
     it('should render warning styling correctly', () => {
       const wrapper = shallow(<Notification type="warning" />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('c-callout--warning');
     });
 
     it('should render error styling correctly', () => {
       const wrapper = shallow(<Notification type="error" />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('c-callout--error');
     });
 
     it('should render info styling correctly', () => {
       const wrapper = shallow(<Notification type="info" />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('c-callout--info');
     });
   });
 });

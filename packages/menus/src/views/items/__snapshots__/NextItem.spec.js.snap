@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`NextItem renders default styling 1`] = `
-<Item
-  className="c-menu__item--next "
-  data-garden-id="menus.next_item"
-  data-garden-version="version"
-/>
-`;

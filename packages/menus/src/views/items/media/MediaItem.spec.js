@@ -13,6 +13,6 @@ describe('MediaItem', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<MediaItem />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-menu__item--media');
   });
 });

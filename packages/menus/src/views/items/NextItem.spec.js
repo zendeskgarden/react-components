@@ -13,6 +13,6 @@ describe('NextItem', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<NextItem />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-menu__item--next');
   });
 });

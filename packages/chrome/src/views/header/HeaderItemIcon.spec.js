@@ -18,6 +18,6 @@ describe('HeaderItemIcon', () => {
       </HeaderItemIcon>
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__body__header__item__icon');
   });
 });

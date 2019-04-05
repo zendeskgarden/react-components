@@ -15,21 +15,26 @@ describe('Avatar', () => {
   it('applies default styling correctly', () => {
     const wrapper = shallow(<Avatar>{defaultImage}</Avatar>);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-avatar');
   });
 
-  it('applies system styling correclty if provided', () => {
+  it('applies system styling correctly if provided', () => {
     const wrapper = shallow(<Avatar system>{defaultImage}</Avatar>);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-avatar--system');
   });
 
   describe('Sizes', () => {
     ['extrasmall', 'small', 'large'].forEach(size => {
       it(`applies ${size} correctly if provided`, () => {
         const wrapper = shallow(<Avatar size={size}>{defaultImage}</Avatar>);
+        const classes = {
+          extrasmall: 'c-avatar--xs',
+          small: 'c-avatar--sm',
+          large: 'c-avatar--lg'
+        };
 
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper).toHaveClassName(classes[size]);
       });
     });
   });
@@ -38,13 +43,13 @@ describe('Avatar', () => {
     it('applies disabled styling if provided', () => {
       const wrapper = shallow(<Avatar disabled>{defaultImage}</Avatar>);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('is-disabled');
     });
 
     it('applies borderless styling if provided', () => {
       const wrapper = shallow(<Avatar isBorderless>{defaultImage}</Avatar>);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('c-avatar--borderless');
     });
   });
 });

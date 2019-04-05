@@ -14,12 +14,12 @@ describe('HeaderItemText', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<HeaderItemText />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__body__header__item__text');
   });
 
   it('renders clipped styling if provided', () => {
     const wrapper = shallow(<HeaderItemText clipped />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-clipped');
   });
 });

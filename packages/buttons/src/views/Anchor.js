@@ -16,7 +16,7 @@ import NewWindowIcon from '@zendeskgarden/svg-icons/src/12/new-window-stroke.svg
 
 const COMPONENT_ID = 'buttons.anchor';
 
-const StyledAnchor = styled.a.attrs({
+export const StyledAnchor = styled.a.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: ({ danger, disabled, focused, hovered, active, selected }) =>
@@ -44,7 +44,7 @@ const StyledAnchor = styled.a.attrs({
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
-const StyledNewWindowIcon = styled(NewWindowIcon)`
+export const StyledNewWindowIcon = styled(NewWindowIcon)`
   margin-bottom: -0.085em;
   padding-left: 0.25em;
   width: 0.85em;

@@ -14,12 +14,12 @@ describe('SubNavItemText', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<SubNavItemText />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__subnav__item__text');
   });
 
   it('renders wrap styling if provided', () => {
     const wrapper = shallow(<SubNavItemText wrap />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__subnav__item__text--wrap');
   });
 });

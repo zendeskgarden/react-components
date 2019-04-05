@@ -15,12 +15,12 @@ describe('PaginationView', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<PaginationView />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-pagination');
   });
 
   it('renders RTL styling', () => {
     const wrapper = shallowWithTheme(<PaginationView />, { rtl: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-rtl');
   });
 });

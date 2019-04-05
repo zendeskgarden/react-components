@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Label renders default styling 1`] = `
-<Label
-  className=""
-  data-garden-id="select.label"
-  data-garden-version="version"
-/>
-`;

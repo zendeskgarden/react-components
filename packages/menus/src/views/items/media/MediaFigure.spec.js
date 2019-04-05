@@ -17,6 +17,6 @@ describe('MediaFigure', () => {
       </MediaFigure>
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-menu__item--media__figure');
   });
 });

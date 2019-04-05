@@ -14,6 +14,6 @@ describe('TabList', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<TabList />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-tab__list');
   });
 });

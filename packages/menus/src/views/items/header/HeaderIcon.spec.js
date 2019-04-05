@@ -17,6 +17,6 @@ describe('HeaderIcon', () => {
       </HeaderIcon>
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-menu__item--header__icon');
   });
 });
