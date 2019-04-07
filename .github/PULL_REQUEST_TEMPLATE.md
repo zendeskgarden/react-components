@@ -26,5 +26,5 @@
 - [ ] :globe_with_meridians: Styleguidist demo is up-to-date (`yarn start`)
 - [ ] :arrow_left: renders as expected with reversed (RTL) direction
 - [ ] :wheelchair: analyzed via [axe](https://www.deque.com/axe/) and evaluated using VoiceOver
-- [ ] :guardsman: includes new unit and snapshot tests
+- [ ] :guardsman: includes new unit tests
 - [ ] :memo: tested in Chrome, Firefox, Safari, Edge, and IE11
