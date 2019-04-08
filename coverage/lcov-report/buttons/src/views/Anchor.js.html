@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">92.31% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>13/13</span>
+        <span class='fraction'>12/13</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>10/10</span>
+        <span class='fraction'>5/10</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">83.33% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>6/6</span>
+        <span class='fraction'>5/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">92.31% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>13/13</span>
+        <span class='fraction'>12/13</span>
       </div>
     </div>
     <p class="quiet">
@@ -168,7 +168,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -181,7 +181,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -189,7 +189,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
@@ -199,7 +199,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -210,13 +210,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">17x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -264,7 +264,7 @@ import NewWindowIcon from '@zendeskgarden/svg-icons/src/12/new-window-stroke.svg
 &nbsp;
 const COMPONENT_ID = 'buttons.anchor';
 &nbsp;
-const StyledAnchor = styled.a.attrs({
+export const StyledAnchor = styled.a.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: ({ danger, disabled, focused, hovered, active, selected }) =&gt;
@@ -282,7 +282,7 @@ const StyledAnchor = styled.a.attrs({
 })`
   ${props =&gt;
     props.external &amp;&amp;
-    `
+<span class="branch-1 cbranch-no" title="branch not covered" >    `</span>
     &amp;&amp; {
       white-space: pre;
       word-wrap: break-word;
@@ -292,14 +292,14 @@ const StyledAnchor = styled.a.attrs({
   ${props =&gt; retrieveTheme(COMPONENT_ID, props)};
 `;
 &nbsp;
-const StyledNewWindowIcon = styled(NewWindowIcon)`
+export const StyledNewWindowIcon = styled(NewWindowIcon)`
   margin-bottom: -0.085em;
   padding-left: 0.25em;
   width: 0.85em;
   height: 0.85em;
 &nbsp;
-  ${props =&gt;
-    isRtl(props) &amp;&amp;
+  ${<span class="fstat-no" title="function not covered" >pr</span>ops =&gt;
+<span class="cstat-no" title="statement not covered" >    isRtl(props) &amp;&amp;</span>
     `
     transform: scaleX(-1);
   `}
@@ -320,12 +320,12 @@ const Anchor = props =&gt; {
           {...getFocusProps({
             ...other,
             external,
-            dir: rtl ? 'rtl' : undefined,
+            dir: rtl ? <span class="branch-0 cbranch-no" title="branch not covered" >'rtl' </span>: undefined,
             focused: focused || keyboardFocused
           })}
         &gt;
           {children}
-          {external &amp;&amp; &lt;StyledNewWindowIcon /&gt;}
+          {external &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;StyledNewWindowIcon /&gt;}</span>
         &lt;/StyledAnchor&gt;
       )}
     &lt;/KeyboardFocusContainer&gt;
@@ -352,7 +352,7 @@ export default withTheme(Anchor);
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Apr 04 2019 07:53:43 GMT+0000 (Coordinated Universal Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Apr 08 2019 08:15:14 GMT+0000 (Coordinated Universal Time)
 </div>
 </div>
 <script src="../../../prettify.js"></script>
