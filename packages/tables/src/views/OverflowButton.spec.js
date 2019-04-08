@@ -6,33 +6,33 @@
  */
 
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
-import OverflowButton from './OverflowButton';
+import OverflowButton, { StyledOverflowButton } from './OverflowButton';
 
 describe('OverflowButton', () => {
   it('applies default styling by default', () => {
-    const wrapper = mount(<OverflowButton />);
+    const wrapper = shallow(<StyledOverflowButton />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-table__row__cell__overflow');
   });
 
   it('applies hovered styling if provided', () => {
-    const wrapper = mount(<OverflowButton hovered />);
+    const wrapper = shallow(<StyledOverflowButton hovered />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-hovered');
   });
 
   it('applies active styling if provided', () => {
-    const wrapper = mount(<OverflowButton active />);
+    const wrapper = shallow(<StyledOverflowButton active />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-active');
   });
 
   it('applies focused styling if provided', () => {
-    const wrapper = mount(<OverflowButton focused />);
+    const wrapper = shallow(<StyledOverflowButton focused />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-focused');
   });
 
   describe('onFocus', () => {

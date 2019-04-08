@@ -13,7 +13,7 @@ describe('HeaderItem', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<HeaderItem />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-menu__item--header');
   });
 
   it('renders icon styling if provided', () => {
@@ -23,6 +23,6 @@ describe('HeaderItem', () => {
       </HeaderItem>
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-menu__item--header--icon');
   });
 });

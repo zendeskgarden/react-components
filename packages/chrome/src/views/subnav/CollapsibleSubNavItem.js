@@ -19,7 +19,7 @@ const COMPONENT_ID = 'chrome.collapsible_sub_nav_item';
 const PANEL_COMPONENT_ID = 'chrome.collapsible_sub_nav_item_panel';
 
 /** Accepts all `<div>` props */
-const StyledSubNavItemHeader = styled(SubNavItem).attrs({
+export const StyledSubNavItemHeader = styled(SubNavItem).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: props =>
@@ -35,7 +35,7 @@ StyledSubNavItemHeader.propTypes = {
 };
 
 /** Accepts all `<div>` props */
-const StyledSubNavPanel = styled.div.attrs({
+export const StyledSubNavPanel = styled.div.attrs({
   'data-garden-id': PANEL_COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: props =>

@@ -15,42 +15,43 @@ describe('Label', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Label />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chk__label');
+    expect(wrapper).toHaveClassName('c-chk__label--radio');
   });
 
   it('renders RTL styling', () => {
     const wrapper = shallowWithTheme(<Label />, { rtl: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-rtl');
   });
 
   it('renders regular styling if provided', () => {
     const wrapper = shallow(<Label regular />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chk__label--regular');
   });
 
   it('renders checked styling if provided', () => {
     const wrapper = shallow(<Label checked />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-checked');
   });
 
   it('renders hovered styling if provided', () => {
     const wrapper = shallow(<Label hovered />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-hovered');
   });
 
   it('renders focused styling if provided', () => {
     const wrapper = shallow(<Label focused />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-focused');
   });
 
   it('renders disabled styling if provided', () => {
     const wrapper = shallow(<Label disabled />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-disabled');
   });
 });

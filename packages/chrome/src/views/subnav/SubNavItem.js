@@ -15,7 +15,7 @@ import ChromeStyles from '@zendeskgarden/css-chrome';
 
 const COMPONENT_ID = 'chrome.subnav_item';
 
-const StyledSubNavItem = styled.button.attrs({
+export const StyledSubNavItem = styled.button.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: props =>

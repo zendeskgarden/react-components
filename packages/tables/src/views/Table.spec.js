@@ -15,26 +15,25 @@ describe('Table', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Table />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-table');
   });
 
   it('renders RTL styling if provided', () => {
     const wrapper = shallowWithTheme(<Table />, { rtl: true });
 
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  it('applies scrollabe styling if provided', () => {
-    const wrapper = shallow(<Table scrollable="200px" />);
-
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-rtl');
   });
 
   it('renders sizing correctly if provided', () => {
+    const classes = {
+      small: 'sm',
+      large: 'lg'
+    };
+
     ['small', 'large'].forEach(size => {
       const wrapper = shallow(<Table size={size} />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName(`c-table--${classes[size]}`);
     });
   });
 });

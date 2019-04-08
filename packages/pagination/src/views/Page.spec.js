@@ -14,30 +14,30 @@ describe('Page', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Page />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-pagination__page');
   });
 
   it('renders current styling if provided', () => {
     const wrapper = shallow(<Page current />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-current');
   });
 
   it('renders focused styling if provided', () => {
     const wrapper = shallow(<Page focused />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-focused');
   });
 
   it('renders hovered styling if provided', () => {
     const wrapper = shallow(<Page hovered />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-hovered');
   });
 
   it('renders hidden styling if provided', () => {
     const wrapper = shallow(<Page hidden />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-hidden');
   });
 });

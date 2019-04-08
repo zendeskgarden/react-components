@@ -14,6 +14,6 @@ describe('Footer', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Footer />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__body__footer');
   });
 });

@@ -14,6 +14,6 @@ describe('MediaFigure', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<MediaFigure />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-txt__input--media__figure');
   });
 });

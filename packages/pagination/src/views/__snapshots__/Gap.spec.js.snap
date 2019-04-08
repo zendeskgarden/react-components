@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Gap renders default styling 1`] = `
-<Page
-  className="c-pagination__page--gap "
-  data-garden-id="pagination.gap"
-  data-garden-version="version"
-/>
-`;

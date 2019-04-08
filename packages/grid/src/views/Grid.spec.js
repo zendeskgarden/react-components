@@ -15,24 +15,24 @@ describe('Grid', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Grid />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('container-fluid');
   });
 
   it('renders RTL styling if provided', () => {
     const wrapper = shallowWithTheme(<Grid />, { rtl: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-rtl');
   });
 
   it('disables fluid styling if provided', () => {
     const wrapper = shallow(<Grid fluid={false} />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('container');
   });
 
   it('renders debug styling if provided', () => {
     const wrapper = shallow(<Grid debug />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-debug');
   });
 });

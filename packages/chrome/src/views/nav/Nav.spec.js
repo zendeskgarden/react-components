@@ -13,24 +13,24 @@ describe('Nav', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Nav />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__nav');
   });
 
   it('renders expanded styling if provided', () => {
     const wrapper = shallow(<Nav expanded />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__nav--expanded');
   });
 
   it('renders dark styling if provided', () => {
     const wrapper = shallow(<Nav dark />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__nav--dark');
   });
 
   it('renders light styling if provided', () => {
     const wrapper = shallow(<Nav light />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__nav--light');
   });
 });

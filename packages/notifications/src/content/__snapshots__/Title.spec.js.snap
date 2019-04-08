@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Title renders with title styling 1`] = `
-<div
-  className="c-callout__title "
-  data-garden-id="notifications.title"
-  data-garden-version="version"
-/>
-`;

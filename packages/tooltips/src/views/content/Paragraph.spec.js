@@ -13,6 +13,6 @@ describe('Paragraph', () => {
   it('renders default styling correctly', () => {
     const wrapper = shallow(<Paragraph />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-tooltip__paragraph');
   });
 });

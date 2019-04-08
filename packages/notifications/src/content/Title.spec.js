@@ -13,6 +13,6 @@ describe('Title', () => {
   it('renders with title styling', () => {
     const wrapper = shallow(<Title />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-callout__title');
   });
 });

@@ -15,18 +15,18 @@ describe('RangeGroup', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<RangeGroup />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-range');
   });
 
   it('renders RTL styling', () => {
     const wrapper = shallowWithTheme(<RangeGroup />, { rtl: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-rtl');
   });
 
   it('renders inline styling if provided', () => {
     const wrapper = shallow(<RangeGroup inline />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-range--inline');
   });
 });

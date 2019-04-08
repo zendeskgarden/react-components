@@ -14,6 +14,6 @@ describe('Input', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Input />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chk__input');
   });
 });

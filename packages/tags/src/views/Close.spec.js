@@ -13,12 +13,12 @@ describe('Close', () => {
   it('renders default close styling', () => {
     const wrapper = shallow(<Close />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-tag__remove');
   });
 
   it('renders hovered styling correctly', () => {
     const wrapper = shallow(<Close hovered />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-hovered');
   });
 });

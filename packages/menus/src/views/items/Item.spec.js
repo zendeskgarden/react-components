@@ -13,36 +13,36 @@ describe('Item', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Item />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-menu__item');
   });
 
   it('renders active styling', () => {
     const wrapper = shallow(<Item active />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-active');
   });
 
   it('renders focused styling', () => {
     const wrapper = shallow(<Item focused />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-focused');
   });
 
   it('renders hovered styling', () => {
     const wrapper = shallow(<Item hovered />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-hovered');
   });
 
   it('renders disabled styling', () => {
     const wrapper = shallow(<Item disabled />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-disabled');
   });
 
   it('renders checked styling', () => {
     const wrapper = shallow(<Item checked />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-checked');
   });
 });

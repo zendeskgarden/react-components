@@ -14,13 +14,13 @@ describe('TooltipView', () => {
   it('renders default styling correctly', () => {
     const wrapper = shallow(<TooltipView />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-tooltip');
   });
 
   it('renders RTL styling correctly', () => {
     const wrapper = shallowWithTheme(<TooltipView />, { rtl: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-rtl');
   });
 
   describe('Sizing', () => {
@@ -28,7 +28,7 @@ describe('TooltipView', () => {
       it(`renders ${size} size correctly`, () => {
         const wrapper = shallow(<TooltipView size={size} />);
 
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper).toHaveClassName(`c-tooltip--${size}`);
       });
     });
   });
@@ -48,17 +48,32 @@ describe('TooltipView', () => {
       'left-start',
       'left-end'
     ].forEach(placement => {
+      const classes = {
+        top: 'b',
+        'top-start': 'bl',
+        'top-end': 'br',
+        right: 'l',
+        'right-start': 'lt',
+        'right-end': 'lb',
+        bottom: 't',
+        'bottom-start': 'tl',
+        'bottom-end': 'tr',
+        left: 'r',
+        'left-start': 'rt',
+        'left-end': 'rb'
+      };
+
       it(`renders ${placement} placement correctly`, () => {
         const wrapper = shallow(<TooltipView placement={placement} />);
 
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper).toHaveClassName(`c-arrow--${classes[placement]}`);
       });
     });
 
     it('does not render arrow styling if disabled', () => {
       const wrapper = shallow(<TooltipView arrow={false} placement="top" />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).not.toHaveClassName('c-arrow');
     });
   });
 });

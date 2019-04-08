@@ -20,7 +20,7 @@ const SIZE = {
   LARGE: 'large'
 };
 
-const StyledButton = styled.button.attrs({
+export const StyledButton = styled.button.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: ({

@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Body renders default styling 1`] = `
-<div
-  className=""
-  data-garden-id="tables.body"
-  data-garden-version="version"
-/>
-`;

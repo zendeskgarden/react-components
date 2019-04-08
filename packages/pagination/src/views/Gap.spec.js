@@ -14,6 +14,6 @@ describe('Gap', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Gap />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-pagination__page--gap');
   });
 });

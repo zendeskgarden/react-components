@@ -14,12 +14,12 @@ describe('ButtonGroupView', () => {
   it('renders correct styling', () => {
     const wrapper = shallow(<ButtonGroupView />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('l-btn-group');
   });
 
   it('renders correctly styling when RTL', () => {
     const wrapper = shallowWithTheme(<ButtonGroupView />, { rtl: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-rtl');
   });
 });

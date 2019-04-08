@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`FooterItem renders default styling 1`] = `
-<span
-  className="c-dialog__footer__item "
-  data-garden-id="modals.footer_item"
-  data-garden-version="version"
-/>
-`;

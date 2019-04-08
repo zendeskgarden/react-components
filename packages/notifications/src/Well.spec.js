@@ -14,24 +14,24 @@ describe('Well', () => {
   it('renders default well styling', () => {
     const wrapper = shallow(<Well />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-callout');
   });
 
   it('renders with RTL styling if applied', () => {
     const wrapper = shallowWithTheme(<Well />, { rtl: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-rtl');
   });
 
   it('renders recessed styling correctly', () => {
     const wrapper = shallow(<Well recessed />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-callout--recessed');
   });
 
   it('renders floating styling correctly', () => {
     const wrapper = shallow(<Well floating />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-callout--dialog');
   });
 });

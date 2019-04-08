@@ -14,6 +14,6 @@ describe('Content', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Content />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__body__content');
   });
 });

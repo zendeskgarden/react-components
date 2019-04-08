@@ -12,15 +12,9 @@ import XXL from './XXL';
 describe('XXL', () => {
   const Example = props => <XXL {...props}>Hello world</XXL>;
 
-  it('applies correct styling by default', () => {
-    const wrapper = mountWithTheme(<Example />);
-
-    expect(wrapper).toMatchSnapshot();
-  });
-
   it('applies correct styling with RTL locale', () => {
     const wrapper = mountWithTheme(<Example />, { rtl: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.childAt(0)).toHaveStyleRule('direction', 'rtl');
   });
 });

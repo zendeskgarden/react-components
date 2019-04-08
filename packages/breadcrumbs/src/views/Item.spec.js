@@ -13,12 +13,12 @@ describe('Item', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Item />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-breadcrumb__item');
   });
 
   it('renders current styling', () => {
     const wrapper = shallow(<Item current />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-current');
   });
 });

@@ -14,6 +14,6 @@ describe('TabPanel', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<TabPanel />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-tab__panel');
   });
 });

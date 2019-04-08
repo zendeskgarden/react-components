@@ -13,6 +13,6 @@ describe('FooterItem', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<FooterItem />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-dialog__footer__item');
   });
 });

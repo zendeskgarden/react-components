@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`SubNav renders default styling 1`] = `
-<nav
-  className="c-chrome__subnav "
-  data-garden-id="chrome.subnav"
-  data-garden-version="version"
-/>
-`;

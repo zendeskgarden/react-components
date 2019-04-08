@@ -6,69 +6,70 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
-import Button from './Button';
+import { mount, shallow } from 'enzyme';
+import Button, { StyledButton } from './Button';
 
 describe('Button', () => {
   it('renders default styling', () => {
-    const wrapper = mount(<Button />);
+    const wrapper = shallow(<StyledButton />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-btn');
   });
 
   it('renders danger styling if provided', () => {
-    const wrapper = mount(<Button danger />);
+    const wrapper = shallow(<StyledButton danger />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-btn--danger');
   });
 
   it('renders correct combination of danger and disabled styling if provided', () => {
-    const wrapper = mount(<Button danger disabled />);
+    const wrapper = shallow(<StyledButton danger disabled />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-disabled');
+    expect(wrapper).not.toHaveClassName('c-btn--danger');
   });
 
   it('renders stretched styling if provided', () => {
-    const wrapper = mount(<Button stretched />);
+    const wrapper = shallow(<StyledButton stretched />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-btn--full');
   });
 
   it('renders focus-inset styling if provided', () => {
-    const wrapper = mount(<Button focusInset />);
+    const wrapper = shallow(<StyledButton focusInset />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-btn--focus-inset');
   });
 
   describe('Types', () => {
     it('renders primary styling if provided', () => {
-      const wrapper = mount(<Button primary />);
+      const wrapper = shallow(<StyledButton primary />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('c-btn--primary');
     });
 
     it('renders basic styling if provided', () => {
-      const wrapper = mount(<Button basic />);
+      const wrapper = shallow(<StyledButton basic />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('c-btn--basic');
     });
 
     it('renders muted styling if provided', () => {
-      const wrapper = mount(<Button muted />);
+      const wrapper = shallow(<StyledButton muted />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('c-btn--muted');
     });
 
     it('renders link styling if provided', () => {
-      const wrapper = mount(<Button link />);
+      const wrapper = shallow(<StyledButton link />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('c-btn--anchor');
     });
 
     it('renders pill styling if provided', () => {
-      const wrapper = mount(<Button pill />);
+      const wrapper = shallow(<StyledButton pill />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('c-btn--pill');
     });
   });
 
@@ -90,47 +91,47 @@ describe('Button', () => {
 
   describe('Sizes', () => {
     it('renders small styling if provided', () => {
-      const wrapper = mount(<Button size="small" />);
+      const wrapper = shallow(<StyledButton size="small" />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('c-btn--sm');
     });
 
     it('renders large styling if provided', () => {
-      const wrapper = mount(<Button size="large" />);
+      const wrapper = shallow(<StyledButton size="large" />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('c-btn--lg');
     });
   });
 
   describe('States', () => {
     it('renders active styling if provided', () => {
-      const wrapper = mount(<Button active />);
+      const wrapper = shallow(<StyledButton active />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('is-active');
     });
 
     it('renders disabled styling if provided', () => {
-      const wrapper = mount(<Button disabled />);
+      const wrapper = shallow(<StyledButton disabled />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('is-disabled');
     });
 
     it('renders focused styling if provided', () => {
-      const wrapper = mount(<Button focused />);
+      const wrapper = shallow(<StyledButton focused />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('is-focused');
     });
 
     it('renders hovered styling if provided', () => {
-      const wrapper = mount(<Button hovered />);
+      const wrapper = shallow(<StyledButton hovered />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('is-hovered');
     });
 
     it('renders selected styling if provided', () => {
-      const wrapper = mount(<Button selected />);
+      const wrapper = shallow(<StyledButton selected />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('is-selected');
     });
   });
 });

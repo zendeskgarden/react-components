@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Paragraph renders paragraph styling 1`] = `
-<div
-  className="c-callout__paragraph "
-  data-garden-id="notifications.paragraph"
-  data-garden-version="version"
-/>
-`;

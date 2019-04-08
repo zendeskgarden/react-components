@@ -15,18 +15,18 @@ describe('TextGroup', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<TextGroup />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-txt');
   });
 
   it('renders RTL styling', () => {
     const wrapper = shallowWithTheme(<TextGroup />, { rtl: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-rtl');
   });
 
   it('renders inline styling if provided', () => {
     const wrapper = shallow(<TextGroup inline />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-txt--inline');
   });
 });

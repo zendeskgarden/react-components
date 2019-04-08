@@ -15,18 +15,18 @@ describe('Hint', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Hint />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-txt__hint');
   });
 
   it('renders RTL styling', () => {
     const wrapper = shallowWithTheme(<Hint />, { rtl: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-rtl');
   });
 
   it('renders small styling if provided', () => {
     const wrapper = shallow(<Hint small />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-txt__hint--sm');
   });
 });

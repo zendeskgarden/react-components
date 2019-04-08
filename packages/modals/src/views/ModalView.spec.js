@@ -14,24 +14,24 @@ describe('ModalView', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<ModalView />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-dialog');
   });
 
   it('renders RTL styling if provided', () => {
     const wrapper = shallowWithTheme(<ModalView />, { rtl: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-rtl');
   });
 
   it('renders large styling if provided', () => {
     const wrapper = shallow(<ModalView large />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-dialog--large');
   });
 
   it('renders animate styling if provided', () => {
     const wrapper = shallow(<ModalView animate />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-open');
   });
 });

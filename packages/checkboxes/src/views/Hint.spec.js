@@ -15,12 +15,12 @@ describe('Hint', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Hint />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chk__hint');
   });
 
   it('renders RTL styling', () => {
     const wrapper = shallowWithTheme(<Hint />, { rtl: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-rtl');
   });
 });

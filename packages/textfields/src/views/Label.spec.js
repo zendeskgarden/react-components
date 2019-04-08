@@ -15,24 +15,24 @@ describe('Label', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Label />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-txt__label');
   });
 
   it('renders RTL styling', () => {
     const wrapper = shallowWithTheme(<Label />, { rtl: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-rtl');
   });
 
   it('renders small styling if provided', () => {
     const wrapper = shallow(<Label small />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-txt__label--sm');
   });
 
   it('renders regular styling if provided', () => {
     const wrapper = shallow(<Label regular />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-txt__label--regular');
   });
 });

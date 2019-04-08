@@ -15,18 +15,18 @@ describe('TabsView', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<TabsView />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-tab');
   });
 
   it('renders RTL styling', () => {
     const wrapper = shallowWithTheme(<TabsView />, { rtl: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-rtl');
   });
 
   it('renders vertical styling', () => {
     const wrapper = shallow(<TabsView vertical />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-tab--block');
   });
 });

@@ -6,54 +6,60 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
-import NavItem from './NavItem';
+import { shallow } from 'enzyme';
+import { StyledNavItem } from './NavItem';
 
 describe('NavItem', () => {
   it('renders default styling', () => {
-    const wrapper = mount(<NavItem />);
+    const wrapper = shallow(<StyledNavItem />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__nav__item');
   });
 
   it('renders logo styling if provided', () => {
-    const wrapper = mount(<NavItem logo />);
+    const wrapper = shallow(<StyledNavItem logo />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__nav__item--logo');
   });
 
   it('renders brandmark styling if provided', () => {
-    const wrapper = mount(<NavItem brandmark />);
+    const wrapper = shallow(<StyledNavItem brandmark />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__nav__item--brandmark');
   });
 
   describe('States', () => {
     it('renders current styling if provided', () => {
-      const wrapper = mount(<NavItem current />);
+      const wrapper = shallow(<StyledNavItem current />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('is-current');
     });
 
     it('renders focused styling if provided', () => {
-      const wrapper = mount(<NavItem focused />);
+      const wrapper = shallow(<StyledNavItem focused />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('is-focused');
     });
 
     it('renders hovered styling if provided', () => {
-      const wrapper = mount(<NavItem hovered />);
+      const wrapper = shallow(<StyledNavItem hovered />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('is-hovered');
+    });
+
+    it('renders active styling if provided', () => {
+      const wrapper = shallow(<StyledNavItem active />);
+
+      expect(wrapper).toHaveClassName('is-active');
     });
   });
 
   describe('Products', () => {
     ['chat', 'connect', 'explore', 'guide', 'message', 'support', 'talk'].forEach(product => {
       it(`renders ${product} styling if provided`, () => {
-        const wrapper = mount(<NavItem product={product} />);
+        const wrapper = shallow(<StyledNavItem product={product} />);
 
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper).toHaveClassName(`c-chrome__nav__item--logo--${product}`);
       });
     });
   });

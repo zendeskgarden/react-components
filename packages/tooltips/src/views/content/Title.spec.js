@@ -13,6 +13,6 @@ describe('Title', () => {
   it('renders default styling correctly', () => {
     const wrapper = shallow(<Title />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-tooltip__title');
   });
 });

@@ -13,7 +13,7 @@ describe('Col', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Col />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('col');
   });
 
   describe('Sizing', () => {
@@ -46,8 +46,17 @@ describe('Col', () => {
 
       it(`renders ${key} if provided`, () => {
         const wrapper = shallow(<Col {...props} />);
+        let className;
 
-        expect(wrapper).toMatchSnapshot();
+        if (key === 'size') {
+          className = `col-${props[key]}`;
+        } else if (typeof props[key] === 'number') {
+          className = `col-${key}-${props[key]}`;
+        } else {
+          className = `col-${key}`;
+        }
+
+        expect(wrapper).toHaveClassName(className);
       });
     });
   });
@@ -58,10 +67,18 @@ describe('Col', () => {
         [offset]: 6
       };
 
+      const classes = {
+        offsetXs: 'offset-xs',
+        offsetSm: 'offset-sm',
+        offsetMd: 'offset-md',
+        offsetLg: 'offset-lg',
+        offsetXl: 'offset-xl'
+      };
+
       it(`renders ${offset} if provided`, () => {
         const wrapper = shallow(<Col {...props} />);
 
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper).toHaveClassName(`${classes[offset]}-${props[offset]}`);
       });
     });
   });
@@ -71,7 +88,7 @@ describe('Col', () => {
       it(`renders ${alignment} self alignment if provided`, () => {
         const wrapper = shallow(<Col alignSelf={alignment} />);
 
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper).toHaveClassName(`align-self-${alignment}`);
       });
     });
   });
@@ -81,7 +98,7 @@ describe('Col', () => {
       it(`renders ${justifyContent} justify content if provided`, () => {
         const wrapper = shallow(<Col justifyContent={justifyContent} />);
 
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper).toHaveClassName(`justify-content-${justifyContent}`);
       });
     });
   });
@@ -90,13 +107,13 @@ describe('Col', () => {
     it('renders pseudo order if provided', () => {
       const wrapper = shallow(<Col order="first" />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('order-first');
     });
 
     it('renders string based order if provided', () => {
       const wrapper = shallow(<Col order="md-12" />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('order-md-12');
     });
   });
 });

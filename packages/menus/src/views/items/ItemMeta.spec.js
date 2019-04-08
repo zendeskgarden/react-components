@@ -13,6 +13,6 @@ describe('ItemMeta', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<ItemMeta />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-menu__item__meta');
   });
 });

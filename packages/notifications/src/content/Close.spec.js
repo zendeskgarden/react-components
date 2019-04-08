@@ -13,20 +13,20 @@ describe('Close', () => {
   it('renders default close styling', () => {
     const wrapper = shallow(<Close />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-callout__close');
   });
 
   describe('state', () => {
     it('renders focused styling correctly', () => {
       const wrapper = shallow(<Close focused />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('is-focused');
     });
 
     it('renders hovered styling correctly', () => {
       const wrapper = shallow(<Close hovered />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper).toHaveClassName('is-hovered');
     });
   });
 });

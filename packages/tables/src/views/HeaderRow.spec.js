@@ -6,14 +6,15 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import HeaderRow from './HeaderRow';
 
 describe('HeaderRow', () => {
   it('applies default styling by default', () => {
-    const wrapper = mount(<HeaderRow />);
+    const wrapper = shallow(<HeaderRow />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-table__row');
+    expect(wrapper).toHaveClassName('c-table__row--header');
   });
 });

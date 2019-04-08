@@ -13,6 +13,6 @@ describe('LightTooltip', () => {
   it('renders default styling correctly', () => {
     const wrapper = shallow(<LightTooltip />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-tooltip--light');
   });
 });

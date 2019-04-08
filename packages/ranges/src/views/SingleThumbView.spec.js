@@ -15,36 +15,38 @@ describe('SingleThumbView', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<SingleThumbView />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-range__input');
   });
 
   it('renders RTL styling', () => {
     const wrapper = shallowWithTheme(<SingleThumbView />, { rtl: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-rtl');
   });
 
   it('renders disabled styling if provided', () => {
     const wrapper = shallow(<SingleThumbView disabled />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-disabled');
   });
 
   it('renders focused styling if provided', () => {
     const wrapper = shallow(<SingleThumbView focused />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-focused');
   });
 
   it('renders hovered styling if provided', () => {
     const wrapper = shallow(<SingleThumbView hovered />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-hovered');
   });
 
   it('renders background-size correctly', () => {
     const wrapper = shallow(<SingleThumbView backgroundSize="95%" />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveStyleRule('background-size', '95%', {
+      modifier: '&&'
+    });
   });
 });

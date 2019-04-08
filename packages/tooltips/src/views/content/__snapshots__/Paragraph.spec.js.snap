@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Paragraph renders default styling correctly 1`] = `
-<div
-  className="c-tooltip__paragraph "
-  data-garden-id="tooltip.paragraph"
-  data-garden-version="version"
-/>
-`;

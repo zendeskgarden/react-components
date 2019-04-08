@@ -14,6 +14,6 @@ describe('FooterItem', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<FooterItem />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome__body__footer__item');
   });
 });

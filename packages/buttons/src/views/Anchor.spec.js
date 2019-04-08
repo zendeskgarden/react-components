@@ -7,25 +7,20 @@
 
 import React from 'react';
 import { mountWithTheme } from '@zendeskgarden/react-testing';
-import Anchor from './Anchor';
+import Anchor, { StyledAnchor } from './Anchor';
 
 describe('Anchor', () => {
+  it('renders default styling', () => {
+    const wrapper = mountWithTheme(<Anchor />);
+
+    expect(wrapper.find(StyledAnchor).childAt(0)).toHaveClassName('c-btn');
+    expect(wrapper.find(StyledAnchor).childAt(0)).toHaveClassName('c-btn--anchor');
+  });
+
   it('renders danger styling if provided', () => {
     const wrapper = mountWithTheme(<Anchor danger />);
 
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  it('renders external styling correctly if provided', () => {
-    const wrapper = mountWithTheme(<Anchor external />, { rtl: true });
-
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  it('renders external styling correctly if provided in RTL mode', () => {
-    const wrapper = mountWithTheme(<Anchor external />);
-
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find(StyledAnchor).childAt(0)).toHaveClassName('c-btn--danger');
   });
 
   describe('Selection', () => {
@@ -48,25 +43,25 @@ describe('Anchor', () => {
     it('renders active styling if provided', () => {
       const wrapper = mountWithTheme(<Anchor active />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.find(StyledAnchor).childAt(0)).toHaveClassName('is-active');
     });
 
     it('renders disabled styling if provided', () => {
       const wrapper = mountWithTheme(<Anchor disabled />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.find(StyledAnchor).childAt(0)).toHaveClassName('is-disabled');
     });
 
     it('renders focused styling if provided', () => {
       const wrapper = mountWithTheme(<Anchor focused />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.find(StyledAnchor).childAt(0)).toHaveClassName('is-focused');
     });
 
     it('renders hovered styling if provided', () => {
       const wrapper = mountWithTheme(<Anchor hovered />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.find(StyledAnchor).childAt(0)).toHaveClassName('is-hovered');
     });
   });
 });

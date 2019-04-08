@@ -23,7 +23,7 @@ const SORT = {
 /**
  * Accepts all `<button>` props
  */
-const Sortable = styled.button.attrs({
+export const Sortable = styled.button.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   type: 'button',

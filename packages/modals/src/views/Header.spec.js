@@ -13,12 +13,12 @@ describe('Header', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Header />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-dialog__header');
   });
 
   it('renders danger styling if provided', () => {
     const wrapper = shallow(<Header danger />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-dialog__header--danger');
   });
 });

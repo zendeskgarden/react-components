@@ -6,14 +6,15 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import GroupRow from './GroupRow';
 
 describe('GroupRow', () => {
   it('applies default styling by default', () => {
-    const wrapper = mount(<GroupRow />);
+    const wrapper = shallow(<GroupRow />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-table__row');
+    expect(wrapper).toHaveClassName('c-table__row--group');
   });
 });

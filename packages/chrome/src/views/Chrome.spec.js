@@ -15,12 +15,12 @@ describe('Chrome', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Chrome />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-chrome');
   });
 
   it('renders RTL styling', () => {
     const wrapper = shallowWithTheme(<Chrome />, { rtl: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('is-rtl');
   });
 });

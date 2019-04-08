@@ -13,6 +13,6 @@ describe('Separator', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Separator />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('c-menu__separator');
   });
 });

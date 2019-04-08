@@ -13,13 +13,13 @@ describe('Row', () => {
   it('renders default styling', () => {
     const wrapper = shallow(<Row />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('row');
   });
 
   it('renders without gutters if provided', () => {
     const wrapper = shallow(<Row gutters={false} />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toHaveClassName('no-gutters');
   });
 
   describe('Align Items', () => {
@@ -27,7 +27,7 @@ describe('Row', () => {
       it(`renders ${alignment} alignment if provided`, () => {
         const wrapper = shallow(<Row alignItems={alignment} />);
 
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper).toHaveClassName(`align-items-${alignment}`);
       });
     });
   });
@@ -37,7 +37,7 @@ describe('Row', () => {
       it(`renders ${justifyContent} justify content if provided`, () => {
         const wrapper = shallow(<Row justifyContent={justifyContent} />);
 
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper).toHaveClassName(`justify-content-${justifyContent}`);
       });
     });
   });

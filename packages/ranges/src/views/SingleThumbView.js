@@ -24,7 +24,7 @@ const SingleThumbView = styled.input.attrs({
     classNames(RangeStyles['c-range__input'], {
       [RangeStyles['is-disabled']]: props.disabled,
       [RangeStyles['is-focused']]: props.focused,
-      [RangeStyles['is-hovered']]: props.hoverer,
+      [RangeStyles['is-hovered']]: props.hovered,
 
       // RTL
       [RangeStyles['is-rtl']]: isRtl(props)

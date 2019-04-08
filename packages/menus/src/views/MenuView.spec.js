@@ -14,26 +14,26 @@ describe('MenuView', () => {
   it('renders default styling correctly', () => {
     const wrapper = mountWithTheme(<MenuView />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('ul')).toHaveClassName('c-menu');
   });
 
   it('renders RTL styling correctly', () => {
     const wrapper = mountWithTheme(<MenuView />, { rtl: true });
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('ul')).toHaveClassName('is-rtl');
   });
 
   it('renders small styling correctly', () => {
     const wrapper = mountWithTheme(<MenuView small />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('ul')).toHaveClassName('c-menu--sm');
   });
 
   describe('Renders', () => {
     it('renders animation styling correctly', () => {
       const wrapper = mountWithTheme(<MenuView animate />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.find('ul')).toHaveClassName('is-open');
     });
   });
 
@@ -43,7 +43,7 @@ describe('MenuView', () => {
         placement => {
           const wrapper = mountWithTheme(<MenuView placement={placement} />);
 
-          expect(wrapper).toMatchSnapshot();
+          expect(wrapper.find('ul')).toHaveClassName('c-menu--up');
         }
       );
     });
@@ -56,7 +56,7 @@ describe('MenuView', () => {
       ].forEach(placement => {
         const wrapper = mountWithTheme(<MenuView placement={placement} />);
 
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper.find('ul')).toHaveClassName('c-menu--down');
       });
     });
 
@@ -65,7 +65,7 @@ describe('MenuView', () => {
         placement => {
           const wrapper = mountWithTheme(<MenuView placement={placement} />);
 
-          expect(wrapper).toMatchSnapshot();
+          expect(wrapper.find('ul')).toHaveClassName('c-menu--left');
         }
       );
     });
@@ -75,7 +75,7 @@ describe('MenuView', () => {
         placement => {
           const wrapper = mountWithTheme(<MenuView placement={placement} />);
 
-          expect(wrapper).toMatchSnapshot();
+          expect(wrapper.find('ul')).toHaveClassName('c-menu--right');
         }
       );
     });
@@ -84,44 +84,44 @@ describe('MenuView', () => {
   it('renders hidden styling if provided', () => {
     const wrapper = mountWithTheme(<MenuView hidden />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('ul')).toHaveClassName('is-hidden');
   });
 
   describe('Arrow', () => {
     it('does not render if arrow prop is not provided', () => {
       const wrapper = mountWithTheme(<MenuView />);
 
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('does not render if placement is not supported', () => {
-      const wrapper = mountWithTheme(<MenuView arrow placement={POPPER_PLACEMENTS.RIGHT_START} />);
-
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.find('ul')).not.toHaveClassName('c-arrow');
     });
 
     it('renders otherwise', () => {
       const wrapper = mountWithTheme(<MenuView arrow placement={POPPER_PLACEMENTS.RIGHT} />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.find('ul')).toHaveClassName('c-arrow');
     });
   });
 
   describe('Arrow placement', () => {
+    const arrowClasses = {
+      [POPPER_PLACEMENTS.LEFT]: 'c-arrow--r',
+      [POPPER_PLACEMENTS.LEFT_START]: 'c-arrow--rt',
+      [POPPER_PLACEMENTS.LEFT_END]: 'c-arrow--rb',
+      [POPPER_PLACEMENTS.TOP]: 'c-arrow--b',
+      [POPPER_PLACEMENTS.TOP_START]: 'c-arrow--bl',
+      [POPPER_PLACEMENTS.TOP_END]: 'c-arrow--br',
+      [POPPER_PLACEMENTS.RIGHT]: 'c-arrow--l',
+      [POPPER_PLACEMENTS.RIGHT_START]: 'c-arrow--lt',
+      [POPPER_PLACEMENTS.RIGHT_END]: 'c-arrow--lb',
+      [POPPER_PLACEMENTS.BOTTOM]: 'c-arrow--t',
+      [POPPER_PLACEMENTS.BOTTOM_START]: 'c-arrow--tl',
+      [POPPER_PLACEMENTS.BOTTOM_END]: 'c-arrow--tr'
+    };
+
     it('renders correct arrow placement if provided', () => {
-      [
-        POPPER_PLACEMENTS.LEFT,
-        POPPER_PLACEMENTS.TOP,
-        POPPER_PLACEMENTS.TOP_START,
-        POPPER_PLACEMENTS.TOP_END,
-        POPPER_PLACEMENTS.RIGHT,
-        POPPER_PLACEMENTS.BOTTOM,
-        POPPER_PLACEMENTS.BOTTOM_START,
-        POPPER_PLACEMENTS.BOTTOM_END
-      ].forEach(placement => {
+      Object.keys(arrowClasses).forEach(placement => {
         const wrapper = mountWithTheme(<MenuView arrow placement={placement} />);
 
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper.find('ul')).toHaveClassName(arrowClasses[placement]);
       });
     });
   });
@@ -130,23 +130,13 @@ describe('MenuView', () => {
     it('should be enabled if animation is provided', () => {
       const wrapper = mountWithTheme(<MenuView animate />);
 
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.find('ul')).toHaveClassName('is-open');
     });
 
     it('should be disabled in animation is disabled', () => {
       const wrapper = mountWithTheme(<MenuView animate={false} />);
 
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it('should be disabled if any top placement is provided', () => {
-      [POPPER_PLACEMENTS.TOP, POPPER_PLACEMENTS.TOP_START, POPPER_PLACEMENTS.TOP_END].forEach(
-        placement => {
-          const wrapper = mountWithTheme(<MenuView placement={placement} />);
-
-          expect(wrapper).toMatchSnapshot();
-        }
-      );
+      expect(wrapper.find('ul')).not.toHaveClassName('is-open');
     });
   });
 });
