@@ -6,20 +6,19 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-
+import { render } from 'garden-test-utils';
 import Header from './Header';
 
 describe('Header', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Header />);
+    const { container } = render(<Header />);
 
-    expect(wrapper).toHaveClassName('c-chrome__body__header');
+    expect(container.firstChild).toHaveClass('c-chrome__body__header');
   });
 
   it('renders standalone styling if provided', () => {
-    const wrapper = shallow(<Header standalone />);
+    const { container } = render(<Header standalone />);
 
-    expect(wrapper).toHaveClassName('c-chrome__body__header--standalone');
+    expect(container.firstChild).toHaveClass('c-chrome__body__header--standalone');
   });
 });

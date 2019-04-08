@@ -6,18 +6,17 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-
+import { render } from 'garden-test-utils';
 import HeaderItemIcon from './HeaderItemIcon';
 
 describe('HeaderItemIcon', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(
+    const { container } = render(
       <HeaderItemIcon>
         <svg>test</svg>
       </HeaderItemIcon>
     );
 
-    expect(wrapper).toHaveClassName('c-chrome__body__header__item__icon');
+    expect(container.firstChild).toHaveClass('c-chrome__body__header__item__icon');
   });
 });

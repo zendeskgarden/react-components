@@ -21,7 +21,7 @@ const SubNavItemText = styled.span.attrs({
   'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(ChromeStyles['c-chrome__subnav__item__text'], {
-      [ChromeStyles['c-chrome__subnav__item__text--wrap']]: props.wrap
+      [ChromeStyles['c-chrome__subnav__item__text--wrap']]: props.isWrapped
     })
 })`
   ${props => retrieveTheme(COMPONENT_ID, props)};
@@ -30,7 +30,7 @@ const SubNavItemText = styled.span.attrs({
 SubNavItemText.propTypes = {
   /** Wrap overflow text instead of truncating long strings with an ellipsis
    (use in conjunction with max-width styling applied to the `SubNav` container) */
-  wrap: PropTypes.bool
+  isWrapped: PropTypes.bool
 };
 
 /** @component */

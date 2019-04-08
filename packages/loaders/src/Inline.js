@@ -22,7 +22,7 @@ const pulseAnimation = keyframes`
   }
 `;
 
-const StyledCircle = styled.circle.attrs({
+export const StyledCircle = styled.circle.attrs({
   fill: 'currentColor',
   cy: 2,
   r: 2

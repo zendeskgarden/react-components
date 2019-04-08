@@ -6,14 +6,13 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-
+import { render } from 'garden-test-utils';
 import Sidebar from './Sidebar';
 
 describe('Sidebar', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Sidebar />);
+    const { container } = render(<Sidebar />);
 
-    expect(wrapper).toHaveClassName('c-chrome__body__content__sidebar');
+    expect(container.firstChild).toHaveClass('c-chrome__body__content__sidebar');
   });
 });

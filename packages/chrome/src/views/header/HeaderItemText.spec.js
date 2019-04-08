@@ -6,20 +6,19 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-
+import { render } from 'garden-test-utils';
 import HeaderItemText from './HeaderItemText';
 
 describe('HeaderItemText', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<HeaderItemText />);
+    const { container } = render(<HeaderItemText />);
 
-    expect(wrapper).toHaveClassName('c-chrome__body__header__item__text');
+    expect(container.firstChild).toHaveClass('c-chrome__body__header__item__text');
   });
 
   it('renders clipped styling if provided', () => {
-    const wrapper = shallow(<HeaderItemText clipped />);
+    const { container } = render(<HeaderItemText clipped />);
 
-    expect(wrapper).toHaveClassName('is-clipped');
+    expect(container.firstChild).toHaveClass('is-clipped');
   });
 });

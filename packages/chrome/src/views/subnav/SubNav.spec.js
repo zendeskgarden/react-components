@@ -6,14 +6,13 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-
+import { render } from 'garden-test-utils';
 import SubNav from './SubNav';
 
 describe('SubNav', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<SubNav />);
+    const { container } = render(<SubNav />);
 
-    expect(wrapper).toHaveClassName('c-chrome__subnav');
+    expect(container.firstChild).toHaveClass('c-chrome__subnav');
   });
 });

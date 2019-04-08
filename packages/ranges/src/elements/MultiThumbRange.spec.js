@@ -51,7 +51,7 @@ describe('MultiThumbRange', () => {
 
       example.setState({ railWidthPx: 500 });
 
-      expect(example.find('[data-test-id="track"]')).toHaveStyle({
+      expect(example.find('[data-test-id="track"]')).toHaveProp('style', {
         backgroundSize: '60px',
         backgroundPosition: '15px'
       });
@@ -64,7 +64,7 @@ describe('MultiThumbRange', () => {
 
       example.setState({ railWidthPx: 500 });
 
-      expect(example.find('[data-test-id="track"]')).toHaveStyle({
+      expect(example.find('[data-test-id="track"]')).toHaveProp('style', {
         backgroundSize: '60px',
         backgroundPosition: '25px'
       });
@@ -97,7 +97,7 @@ describe('MultiThumbRange', () => {
       const example = mountWithTheme(<MultiThumbRange minValue={15} maxValue={75} />).first();
       const thumb = example.find('[data-test-id="thumb"]').first();
 
-      expect(thumb).toHaveStyle({ left: '15px' });
+      expect(thumb).toHaveProp('style', { left: '15px' });
     });
 
     it('applies correct style when in RTL mode', () => {
@@ -106,7 +106,7 @@ describe('MultiThumbRange', () => {
       }).first();
       const thumb = example.find('[data-test-id="thumb"]').first();
 
-      expect(thumb).toHaveStyle({ right: '15px' });
+      expect(thumb).toHaveProp('style', { right: '15px' });
     });
 
     describe('Key Handlers (LTR)', () => {
@@ -302,7 +302,7 @@ describe('MultiThumbRange', () => {
       const example = mountWithTheme(<MultiThumbRange minValue={15} maxValue={75} />).first();
       const thumb = example.find('[data-test-id="thumb"]').last();
 
-      expect(thumb).toHaveStyle({ left: '75px' });
+      expect(thumb).toHaveProp('style', { left: '75px' });
     });
 
     it('applies correct style when in RTL mode', () => {
@@ -311,7 +311,7 @@ describe('MultiThumbRange', () => {
       }).first();
       const thumb = example.find('[data-test-id="thumb"]').last();
 
-      expect(thumb).toHaveStyle({ right: '75px' });
+      expect(thumb).toHaveProp('style', { right: '75px' });
     });
 
     describe('Key Handlers (LTR)', () => {

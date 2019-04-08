@@ -6,21 +6,20 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-import { shallowWithTheme } from '@zendeskgarden/react-testing';
+import { render, renderRtl } from 'garden-test-utils';
 
 import Chrome from './Chrome';
 
 describe('Chrome', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Chrome />);
+    const { container } = render(<Chrome />);
 
-    expect(wrapper).toHaveClassName('c-chrome');
+    expect(container.firstChild).toHaveClass('c-chrome');
   });
 
   it('renders RTL styling', () => {
-    const wrapper = shallowWithTheme(<Chrome />, { rtl: true });
+    const { container } = renderRtl(<Chrome />);
 
-    expect(wrapper).toHaveClassName('is-rtl');
+    expect(container.firstChild).toHaveClass('is-rtl');
   });
 });

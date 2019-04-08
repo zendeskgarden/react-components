@@ -18,11 +18,15 @@ module.exports = {
   },
   moduleFileExtensions: ['js', 'ts', 'tsx'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
-  setupFilesAfterEnv: ['<rootDir>/utils/test/jest.setup.js'],
+  setupFilesAfterEnv: [
+    '<rootDir>/utils/test/jest.setup.js',
+    'react-testing-library/cleanup-after-each'
+  ],
   moduleNameMapper: {
     '\\.(css|json)$': 'identity-obj-proxy',
     '@zendeskgarden/css(?!-variables)': 'identity-obj-proxy',
     '@zendeskgarden/react-testing': '<rootDir>/packages/testing/src/index.js',
+    'garden-test-utils': '<rootDir>/utils/test/garden-test-utils.js',
     '\\.(svg)$': '<rootDir>/utils/test/svg-mock.js'
   },
   collectCoverageFrom: [

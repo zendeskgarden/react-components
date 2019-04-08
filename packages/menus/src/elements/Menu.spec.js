@@ -162,8 +162,8 @@ describe('Menu', () => {
       jest.runOnlyPendingTimers();
       wrapper.update();
 
-      expect(findMenu(wrapper).at(3)).not.toHaveStyle('max-height');
-      expect(findMenu(wrapper).at(3)).not.toHaveStyle('overflow');
+      expect(findMenu(wrapper).at(3)).not.toHaveStyleRule('max-height');
+      expect(findMenu(wrapper).at(3)).not.toHaveStyleRule('overflow');
     });
 
     it('applies correct styling if maxHeight is provided', () => {

@@ -203,7 +203,7 @@ describe('TooltipContainer', () => {
       wrapper = mountWithTheme(<BasicExample isVisible />);
       const tooltipWrapper = findTooltip(wrapper).parent();
 
-      expect(tooltipWrapper).not.toHaveStyle('z-index');
+      expect(tooltipWrapper).not.toHaveStyleRule('z-index');
     });
 
     it('should apply zIndex if provided', () => {
