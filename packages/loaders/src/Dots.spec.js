@@ -40,7 +40,7 @@ describe('Dots', () => {
 
       jest.runOnlyPendingTimers();
 
-      expect(container.firstChild.firstChild).toMatchInlineSnapshot(`
+      expect(container.querySelector('g')).toMatchInlineSnapshot(`
 <g
   fill="currentColor"
 >
@@ -71,7 +71,7 @@ describe('Dots', () => {
       // Requestion animation with 1000 MS delay
       requestAnimationFrame.mock.calls[0][0](1000);
 
-      expect(container.firstChild.firstChild).toMatchInlineSnapshot(`
+      expect(container.querySelector('g')).toMatchInlineSnapshot(`
 <g
   fill="currentColor"
 >
@@ -105,7 +105,7 @@ describe('Dots', () => {
 
       jest.runOnlyPendingTimers();
 
-      expect(container.firstChild.firstChild).toMatchInlineSnapshot(`
+      expect(container.querySelector('g')).toMatchInlineSnapshot(`
 <g
   fill="currentColor"
 >
@@ -136,7 +136,7 @@ describe('Dots', () => {
       // Requestion animation with 1000 MS delay
       requestAnimationFrame.mock.calls[0][0](1000);
 
-      expect(container.firstChild.firstChild).toMatchInlineSnapshot(`
+      expect(container.querySelector('g')).toMatchInlineSnapshot(`
 <g
   fill="currentColor"
 >
@@ -166,11 +166,11 @@ describe('Dots', () => {
     });
 
     it('updates animation after request animation frame with positive bound velocity', () => {
-      const { container } = render(<Dots velocity="1.1" />);
+      const { container } = render(<Dots velocity={1.1} />);
 
       jest.runOnlyPendingTimers();
 
-      expect(container.firstChild.firstChild).toMatchInlineSnapshot(`
+      expect(container.querySelector('g')).toMatchInlineSnapshot(`
 <g
   fill="currentColor"
 >
@@ -201,7 +201,7 @@ describe('Dots', () => {
       // Requestion animation with 1000 MS delay
       requestAnimationFrame.mock.calls[0][0](1000);
 
-      expect(container.firstChild.firstChild).toMatchInlineSnapshot(`
+      expect(container.querySelector('g')).toMatchInlineSnapshot(`
 <g
   fill="currentColor"
 >
