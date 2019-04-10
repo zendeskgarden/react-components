@@ -51,8 +51,8 @@ const StyledSkeleton = styled.div.attrs({
   animation: ${fadeInAnimation} 750ms linear;
   border-radius: ${zdSpacingXxs};
   background-color: ${props => (props.dark ? rgba(zdColorWhite, 0.2) : rgba(zdColorGrey800, 0.1))};
-  width: ${props => props.width};
-  height: ${props => props.height};
+  width: ${props => props.customWidth};
+  height: ${props => props.customHeight};
   overflow: hidden;
   line-height: 0.6;
 
@@ -91,9 +91,9 @@ const StyledSkeleton = styled.div.attrs({
 /**
  * Loader used to create Skeleton objects
  */
-function Skeleton({ width, height, style, dark }) {
+function Skeleton({ width, height, dark, ...other }) {
   return (
-    <StyledSkeleton dark={dark} width={width} height={height} style={style}>
+    <StyledSkeleton dark={dark} customWidth={width} customHeight={height} {...other}>
       &nbsp;
     </StyledSkeleton>
   );

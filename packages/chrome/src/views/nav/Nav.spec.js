@@ -6,31 +6,31 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 import Nav from './Nav';
 
 describe('Nav', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Nav />);
+    const { container } = render(<Nav />);
 
-    expect(wrapper).toHaveClassName('c-chrome__nav');
+    expect(container.firstChild).toHaveClass('c-chrome__nav');
   });
 
   it('renders expanded styling if provided', () => {
-    const wrapper = shallow(<Nav expanded />);
+    const { container } = render(<Nav expanded />);
 
-    expect(wrapper).toHaveClassName('c-chrome__nav--expanded');
+    expect(container.firstChild).toHaveClass('c-chrome__nav--expanded');
   });
 
   it('renders dark styling if provided', () => {
-    const wrapper = shallow(<Nav dark />);
+    const { container } = render(<Nav dark />);
 
-    expect(wrapper).toHaveClassName('c-chrome__nav--dark');
+    expect(container.firstChild).toHaveClass('c-chrome__nav--dark');
   });
 
   it('renders light styling if provided', () => {
-    const wrapper = shallow(<Nav light />);
+    const { container } = render(<Nav light />);
 
-    expect(wrapper).toHaveClassName('c-chrome__nav--light');
+    expect(container.firstChild).toHaveClass('c-chrome__nav--light');
   });
 });

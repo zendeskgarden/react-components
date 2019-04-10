@@ -6,34 +6,33 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-
+import { render } from 'garden-test-utils';
 import { StyledSubNavItem } from './SubNavItem';
 
 describe('SubNavItem', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<StyledSubNavItem />);
+    const { container } = render(<StyledSubNavItem />);
 
-    expect(wrapper).toHaveClassName('c-chrome__subnav__item');
+    expect(container.firstChild).toHaveClass('c-chrome__subnav__item');
   });
 
   describe('States', () => {
     it('renders current styling if provided', () => {
-      const wrapper = shallow(<StyledSubNavItem current />);
+      const { container } = render(<StyledSubNavItem current />);
 
-      expect(wrapper).toHaveClassName('is-current');
+      expect(container.firstChild).toHaveClass('is-current');
     });
 
     it('renders focused styling if provided', () => {
-      const wrapper = shallow(<StyledSubNavItem focused />);
+      const { container } = render(<StyledSubNavItem focused />);
 
-      expect(wrapper).toHaveClassName('is-focused');
+      expect(container.firstChild).toHaveClass('is-focused');
     });
 
     it('renders hovered styling if provided', () => {
-      const wrapper = shallow(<StyledSubNavItem hovered />);
+      const { container } = render(<StyledSubNavItem hovered />);
 
-      expect(wrapper).toHaveClassName('is-hovered');
+      expect(container.firstChild).toHaveClass('is-hovered');
     });
   });
 });

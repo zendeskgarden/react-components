@@ -6,20 +6,19 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-
+import { render } from 'garden-test-utils';
 import NavItemText from './NavItemText';
 
 describe('NavItemText', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<NavItemText />);
+    const { container } = render(<NavItemText />);
 
-    expect(wrapper).toHaveClassName('c-chrome__nav__item__text');
+    expect(container.firstChild).toHaveClass('c-chrome__nav__item__text');
   });
 
   it('renders wrap styling if provided', () => {
-    const wrapper = shallow(<NavItemText wrap />);
+    const { container } = render(<NavItemText isWrapped />);
 
-    expect(wrapper).toHaveClassName('c-chrome__nav__item__text--wrap');
+    expect(container.firstChild).toHaveClass('c-chrome__nav__item__text--wrap');
   });
 });

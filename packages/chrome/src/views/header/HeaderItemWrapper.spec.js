@@ -7,12 +7,12 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import Content from './Content';
+import HeaderItemWrapper from './HeaderItemWrapper';
 
-describe('Content', () => {
-  it('renders default styling', () => {
-    const { container } = render(<Content />);
+describe('HeaderItemWrapper', () => {
+  it('renders with correct base element', () => {
+    const { container } = render(<HeaderItemWrapper />);
 
-    expect(container.firstChild).toHaveClass('c-chrome__body__content');
+    expect(container.firstChild.tagName).toBe('DIV');
   });
 });

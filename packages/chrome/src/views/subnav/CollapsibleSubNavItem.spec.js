@@ -6,36 +6,60 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { render, fireEvent } from 'garden-test-utils';
 
-import CollapsibleSubNavItem, {
-  StyledSubNavItemHeader,
-  StyledSubNavPanel
-} from './CollapsibleSubNavItem';
+import CollapsibleSubNavItem from './CollapsibleSubNavItem';
 
 describe('CollapsibleSubNavItem', () => {
   it('renders default styling', () => {
-    const wrapper = mount(
+    const { queryByRole } = render(
       <CollapsibleSubNavItem label="Header">
         <p>Content</p>
       </CollapsibleSubNavItem>
     );
 
-    expect(wrapper.find(StyledSubNavPanel).childAt(0)).toHaveClassName('c-chrome__subnav__panel');
-    expect(wrapper.find(StyledSubNavItemHeader).childAt(0)).toHaveClassName(
-      'c-chrome__subnav__item--header'
+    expect(queryByRole('region')).toHaveClass('c-chrome__subnav__panel');
+    expect(queryByRole('heading').firstChild).toHaveClass('c-chrome__subnav__item--header');
+  });
+
+  it('calls onChange with expanded state if header is clicked', () => {
+    const onChangeSpy = jest.fn();
+    const { queryByRole } = render(
+      <CollapsibleSubNavItem label="Header" onChange={onChangeSpy}>
+        <p>Content</p>
+      </CollapsibleSubNavItem>
     );
+
+    fireEvent.click(queryByRole('heading').firstChild);
+
+    expect(onChangeSpy).toHaveBeenCalledWith(true);
   });
 
   describe('States', () => {
     it('renders expanded styling if provided', () => {
-      const wrapper = mount(
+      const { queryByRole } = render(
         <CollapsibleSubNavItem label="Header" expanded>
           <p>Content</p>
         </CollapsibleSubNavItem>
       );
 
-      expect(wrapper.find(StyledSubNavItemHeader).childAt(0)).toHaveClassName('is-expanded');
+      expect(queryByRole('heading').firstChild).toHaveClass('is-expanded');
     });
+  });
+
+  it('applies maxHeight on expanded state change', () => {
+    const { queryByRole, rerender } = render(
+      <CollapsibleSubNavItem label="Header">
+        <p>Content</p>
+      </CollapsibleSubNavItem>
+    );
+
+    rerender(
+      <CollapsibleSubNavItem label="Header" expanded>
+        <p>Content</p>
+      </CollapsibleSubNavItem>
+    );
+
+    expect(queryByRole('region')).toHaveStyle('max-height: 0px');
   });
 });

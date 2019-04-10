@@ -6,67 +6,66 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-
-import { StyledHeaderItem } from './HeaderItem';
+import { render } from 'garden-test-utils';
+import HeaderItem from './HeaderItem';
 
 describe('HeaderItem', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<StyledHeaderItem />);
+    const { container } = render(<HeaderItem />);
 
-    expect(wrapper).toHaveClassName('c-chrome__body__header__item');
+    expect(container.firstChild).toHaveClass('c-chrome__body__header__item');
   });
 
   it('renders maxX styling if provided', () => {
-    const wrapper = shallow(<StyledHeaderItem maxX />);
+    const { container } = render(<HeaderItem maxX />);
 
-    expect(wrapper).toHaveClassName('c-chrome__body__header__item--max-x');
+    expect(container.firstChild).toHaveClass('c-chrome__body__header__item--max-x');
   });
 
   it('renders maxY styling if provided', () => {
-    const wrapper = shallow(<StyledHeaderItem maxY />);
+    const { container } = render(<HeaderItem maxY />);
 
-    expect(wrapper).toHaveClassName('c-chrome__body__header__item--max-y');
+    expect(container.firstChild).toHaveClass('c-chrome__body__header__item--max-y');
   });
 
   it('renders logo styling if provided', () => {
-    const wrapper = shallow(<StyledHeaderItem logo />);
+    const { container } = render(<HeaderItem logo />);
 
-    expect(wrapper).toHaveClassName('c-chrome__body__header__item--logo');
+    expect(container.firstChild).toHaveClass('c-chrome__body__header__item--logo');
   });
 
   it('renders round styling if provided', () => {
-    const wrapper = shallow(<StyledHeaderItem round />);
+    const { container } = render(<HeaderItem round />);
 
-    expect(wrapper).toHaveClassName('c-chrome__body__header__item--round');
+    expect(container.firstChild).toHaveClass('c-chrome__body__header__item--round');
   });
 
   describe('States', () => {
     it('renders active styling if provided', () => {
-      const wrapper = shallow(<StyledHeaderItem active />);
+      const { container } = render(<HeaderItem active />);
 
-      expect(wrapper).toHaveClassName('is-active');
+      expect(container.firstChild).toHaveClass('is-active');
     });
 
     it('renders focused styling if provided', () => {
-      const wrapper = shallow(<StyledHeaderItem focused />);
+      const { container } = render(<HeaderItem focused />);
 
-      expect(wrapper).toHaveClassName('is-focused');
+      expect(container.firstChild).toHaveClass('is-focused');
     });
 
     it('renders hovered styling if provided', () => {
-      const wrapper = shallow(<StyledHeaderItem hovered />);
+      const { container } = render(<HeaderItem hovered />);
 
-      expect(wrapper).toHaveClassName('is-hovered');
+      expect(container.firstChild).toHaveClass('is-hovered');
     });
   });
 
   describe('Products', () => {
     ['chat', 'connect', 'explore', 'guide', 'message', 'support', 'talk'].forEach(product => {
       it(`renders ${product} styling if provided`, () => {
-        const wrapper = shallow(<StyledHeaderItem product={product} />);
+        const { container } = render(<HeaderItem product={product} />);
 
-        expect(wrapper).toHaveClassName(`c-chrome__body__header__item--logo--${product}`);
+        expect(container.firstChild).toHaveClass(`c-chrome__body__header__item--logo--${product}`);
       });
     });
   });

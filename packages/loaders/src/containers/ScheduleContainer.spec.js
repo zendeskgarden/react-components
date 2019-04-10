@@ -6,65 +6,63 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from 'garden-test-utils';
 import ScheduleContainer from './ScheduleContainer';
-import { LoadingPlaceholder } from '../styled-elements';
-
-jest.useFakeTimers();
 
 describe('ScheduleContainer', () => {
-  let wrapper;
-  let performAnimationFrameSpy;
-
-  const basicExample = ({ delayMS } = {}) => (
-    <ScheduleContainer delayMS={delayMS}>{() => <p>Hello</p>}</ScheduleContainer>
+  const Example = props => (
+    <ScheduleContainer {...props}>
+      {() => <p data-test-id="content">Example content</p>}
+    </ScheduleContainer>
   );
 
   beforeEach(() => {
-    performAnimationFrameSpy = jest.spyOn(ScheduleContainer.prototype, 'performAnimationFrame');
+    jest.useFakeTimers();
+    global.cancelAnimationFrame = jest.fn();
+    global.requestAnimationFrame = jest.fn();
   });
 
-  afterEach(() => {
-    performAnimationFrameSpy.mockClear();
+  it('hides content until default delay time has passed', () => {
+    const { queryByTestId } = render(<Example />);
+
+    expect(queryByTestId('content')).toBeNull();
+    jest.runOnlyPendingTimers();
+    expect(queryByTestId('content')).not.toBeNull();
   });
 
-  describe('componentDidMount()', () => {
-    it('sets up requestAnimationFrame', () => {
-      // performAnimationFrameSpy.mockReset();
-      wrapper = mount(basicExample());
-      jest.runOnlyPendingTimers();
-      expect(performAnimationFrameSpy).toHaveBeenCalled();
-    });
+  it('hides content until custom delay time has passed', () => {
+    const { queryByTestId } = render(<Example delayMS={50} />);
+
+    expect(queryByTestId('content')).toBeNull();
+    jest.runTimersToTime(50);
+    expect(queryByTestId('content')).not.toBeNull();
   });
 
-  describe('Rendering delay', () => {
-    it('renders LoadingPlacholder if delay has not been completed', () => {
-      wrapper = mount(basicExample());
+  it('shows content if delayMs is 0', () => {
+    const { queryByTestId } = render(<Example delayMS={0} />);
 
-      expect(wrapper.find(LoadingPlaceholder)).toExist();
-    });
+    expect(queryByTestId('content')).not.toBeNull();
+  });
 
-    it('does not render LoadingPlacholder if delay has completed', () => {
-      wrapper = mount(basicExample());
+  it('removes events when component is unmounted', () => {
+    const { unmount } = render(<Example delayMS={0} />);
 
-      jest.runOnlyPendingTimers();
-      wrapper.update();
-      expect(wrapper.find(LoadingPlaceholder)).not.toExist();
-    });
+    unmount();
+    expect(clearTimeout).toHaveBeenCalled();
+    expect(cancelAnimationFrame).toHaveBeenCalled();
+  });
 
-    it('clears delay timeout as component is unmounted', () => {
-      wrapper = mount(basicExample());
+  it('calls tick with timestamp when requestAnimationFrame is triggered', () => {
+    const tickSpy = jest.fn();
 
-      wrapper.unmount();
-      expect(clearTimeout).toHaveBeenCalledTimes(1);
-    });
+    render(<Example tick={tickSpy} />);
 
-    it('does not render LoadingPlaceholder if delayMS is 0', () => {
-      wrapper = mount(basicExample());
-      jest.runOnlyPendingTimers();
-      wrapper.update();
+    // Run timer to start requestAnimationFrame
+    jest.runOnlyPendingTimers();
 
-      expect(wrapper.find(LoadingPlaceholder)).not.toExist();
-    });
+    // Run first animation frame
+    requestAnimationFrame.mock.calls[0][0]();
+
+    expect(tickSpy).toHaveBeenCalled();
   });
 });

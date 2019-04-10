@@ -6,20 +6,19 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-
+import { render } from 'garden-test-utils';
 import SubNavItemText from './SubNavItemText';
 
 describe('SubNavItemText', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<SubNavItemText />);
+    const { container } = render(<SubNavItemText />);
 
-    expect(wrapper).toHaveClassName('c-chrome__subnav__item__text');
+    expect(container.firstChild).toHaveClass('c-chrome__subnav__item__text');
   });
 
   it('renders wrap styling if provided', () => {
-    const wrapper = shallow(<SubNavItemText wrap />);
+    const { container } = render(<SubNavItemText isWrapped />);
 
-    expect(wrapper).toHaveClassName('c-chrome__subnav__item__text--wrap');
+    expect(container.firstChild).toHaveClass('c-chrome__subnav__item__text--wrap');
   });
 });

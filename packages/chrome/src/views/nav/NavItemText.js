@@ -21,7 +21,7 @@ const NavItemText = styled.span.attrs({
   'data-garden-version': PACKAGE_VERSION,
   className: props =>
     classNames(ChromeStyles['c-chrome__nav__item__text'], {
-      [ChromeStyles['c-chrome__nav__item__text--wrap']]: props.wrap
+      [ChromeStyles['c-chrome__nav__item__text--wrap']]: props.isWrapped
     })
 })`
   ${props => retrieveTheme(COMPONENT_ID, props)};
@@ -29,7 +29,7 @@ const NavItemText = styled.span.attrs({
 
 NavItemText.propTypes = {
   /** Wrap overflow text instead of truncating long strings with an ellipsis */
-  wrap: PropTypes.bool
+  isWrapped: PropTypes.bool
 };
 
 /** @component */

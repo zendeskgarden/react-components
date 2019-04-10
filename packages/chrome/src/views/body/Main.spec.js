@@ -6,14 +6,13 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-
+import { render } from 'garden-test-utils';
 import Main from './Main';
 
 describe('Main', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Main />);
+    const { container } = render(<Main />);
 
-    expect(wrapper).toHaveClassName('c-chrome__body__content__main');
+    expect(container.firstChild).toHaveClass('c-chrome__body__content__main');
   });
 });

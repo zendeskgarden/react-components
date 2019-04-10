@@ -6,60 +6,60 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-import { StyledNavItem } from './NavItem';
+import { render } from 'garden-test-utils';
+import NavItem from './NavItem';
 
 describe('NavItem', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<StyledNavItem />);
+    const { container } = render(<NavItem />);
 
-    expect(wrapper).toHaveClassName('c-chrome__nav__item');
+    expect(container.firstChild).toHaveClass('c-chrome__nav__item');
   });
 
   it('renders logo styling if provided', () => {
-    const wrapper = shallow(<StyledNavItem logo />);
+    const { container } = render(<NavItem logo />);
 
-    expect(wrapper).toHaveClassName('c-chrome__nav__item--logo');
+    expect(container.firstChild).toHaveClass('c-chrome__nav__item--logo');
   });
 
   it('renders brandmark styling if provided', () => {
-    const wrapper = shallow(<StyledNavItem brandmark />);
+    const { container } = render(<NavItem brandmark />);
 
-    expect(wrapper).toHaveClassName('c-chrome__nav__item--brandmark');
+    expect(container.firstChild).toHaveClass('c-chrome__nav__item--brandmark');
   });
 
   describe('States', () => {
     it('renders current styling if provided', () => {
-      const wrapper = shallow(<StyledNavItem current />);
+      const { container } = render(<NavItem current />);
 
-      expect(wrapper).toHaveClassName('is-current');
+      expect(container.firstChild).toHaveClass('is-current');
     });
 
     it('renders focused styling if provided', () => {
-      const wrapper = shallow(<StyledNavItem focused />);
+      const { container } = render(<NavItem focused />);
 
-      expect(wrapper).toHaveClassName('is-focused');
+      expect(container.firstChild).toHaveClass('is-focused');
     });
 
     it('renders hovered styling if provided', () => {
-      const wrapper = shallow(<StyledNavItem hovered />);
+      const { container } = render(<NavItem hovered />);
 
-      expect(wrapper).toHaveClassName('is-hovered');
+      expect(container.firstChild).toHaveClass('is-hovered');
     });
 
     it('renders active styling if provided', () => {
-      const wrapper = shallow(<StyledNavItem active />);
+      const { container } = render(<NavItem active />);
 
-      expect(wrapper).toHaveClassName('is-active');
+      expect(container.firstChild).toHaveClass('is-active');
     });
   });
 
   describe('Products', () => {
     ['chat', 'connect', 'explore', 'guide', 'message', 'support', 'talk'].forEach(product => {
       it(`renders ${product} styling if provided`, () => {
-        const wrapper = shallow(<StyledNavItem product={product} />);
+        const { container } = render(<NavItem product={product} />);
 
-        expect(wrapper).toHaveClassName(`c-chrome__nav__item--logo--${product}`);
+        expect(container.firstChild).toHaveClass(`c-chrome__nav__item--logo--${product}`);
       });
     });
   });

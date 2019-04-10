@@ -6,20 +6,19 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-
+import { render } from 'garden-test-utils';
 import Body from './Body';
 
 describe('Body', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Body />);
+    const { container } = render(<Body />);
 
-    expect(wrapper).toHaveClassName('c-chrome__body');
+    expect(container.firstChild).toHaveClass('c-chrome__body');
   });
 
   it('renders footer styling', () => {
-    const wrapper = shallow(<Body hasFooter />);
+    const { container } = render(<Body hasFooter />);
 
-    expect(wrapper).toHaveClassName('c-chrome__body--footer');
+    expect(container.firstChild).toHaveClass('c-chrome__body--footer');
   });
 });

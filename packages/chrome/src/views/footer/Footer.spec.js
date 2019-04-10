@@ -6,14 +6,13 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-
+import { render } from 'garden-test-utils';
 import Footer from './Footer';
 
 describe('Footer', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Footer />);
+    const { container } = render(<Footer />);
 
-    expect(wrapper).toHaveClassName('c-chrome__body__footer');
+    expect(container.firstChild).toHaveClass('c-chrome__body__footer');
   });
 });
