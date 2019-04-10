@@ -9,9 +9,11 @@ const types = ['Red', 'Yellow', 'Green', 'Grey', null];
 
 <Grid>
   <Row>
-    {types.map(type => (
+    {types.map((type, index) => (
       <Col md={1}>
-        <CodeSM type={type ? type.toLowerCase() : type}>{type || 'Default'}</CodeSM>
+        <CodeSM key={index} type={type ? type.toLowerCase() : type}>
+          {type || 'Default'}
+        </CodeSM>
       </Col>
     ))}
   </Row>
