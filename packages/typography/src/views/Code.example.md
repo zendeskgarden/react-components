@@ -27,7 +27,7 @@ const types = [null, 'Red', 'Yellow', 'Green'];
 const sizes = ['Small', 'Medium', 'Large', null];
 
 <Grid>
-  {types.map((type, index) => (
+  {types.map(type => (
     <Row>
       {sizes.map((size, index) => (
         <Col md={2}>
