@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
   zdColorGreen200,
   zdColorGreen700,
@@ -18,9 +19,16 @@ import {
   zdColorYellow700
 } from '@zendeskgarden/css-variables';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
-import MonospaceSM from './MonospaceSM';
+import SM from './SM';
+import MD from './MD';
+import LG from './LG';
 
-const COMPONENT_ID = 'typography.code_sm';
+const COMPONENT_ID = 'typography.code';
+
+const SIZE = {
+  SMALL: 'small',
+  LARGE: 'large'
+};
 
 const TYPE = {
   GREY: 'grey',
@@ -57,13 +65,12 @@ const foregroundColor = type => {
   }
 };
 
-/**
- * Accepts all `code` props
- */
-const CodeSM = styled(MonospaceSM.withComponent('code')).attrs({
+const codeAttributes = {
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+};
+
+const codeCSS = css`
   border-radius: 2px;
   background-color: ${props => backgroundColor(props.type)};
   padding: 1.5px 2px;
@@ -72,9 +79,38 @@ const CodeSM = styled(MonospaceSM.withComponent('code')).attrs({
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
-CodeSM.propTypes = {
+const StyledSM = styled(SM).attrs(codeAttributes)`
+  ${codeCSS};
+`;
+
+const StyledMD = styled(MD).attrs(codeAttributes)`
+  ${codeCSS};
+`;
+
+const StyledLG = styled(LG).attrs(codeAttributes)`
+  ${codeCSS};
+`;
+
+/**
+ * Accepts all `code` props
+ */
+const Code = ({ size, ...other }) => {
+  const props = { monospace: true, tag: 'code', ...other };
+
+  switch (size) {
+    case SIZE.SMALL:
+      return <StyledSM {...props} />;
+    case SIZE.LARGE:
+      return <StyledLG {...props} />;
+    default:
+      return <StyledMD {...props} />;
+  }
+};
+
+Code.propTypes = {
+  size: PropTypes.oneOf([SIZE.SMALL, SIZE.LARGE]),
   type: PropTypes.oneOf([TYPE.GREY, TYPE.RED, TYPE.GREEN, TYPE.YELLOW])
 };
 
 /** @component */
-export default CodeSM;
+export default Code;
