@@ -11,4 +11,5 @@ export { default as LG } from './views/LG';
 export { default as XL } from './views/XL';
 export { default as XXL } from './views/XXL';
 export { default as XXXL } from './views/XXXL';
+export { default as Code } from './views/Code';
 export { default as Ellipsis } from './views/Ellipsis';

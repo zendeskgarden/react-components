@@ -27,6 +27,7 @@ const COMPONENT_ID = 'typography.code';
 
 const SIZE = {
   SMALL: 'small',
+  MEDIUM: 'medium',
   LARGE: 'large'
 };
 
@@ -102,13 +103,14 @@ const Code = ({ size, ...other }) => {
       return <StyledSM {...props} />;
     case SIZE.LARGE:
       return <StyledLG {...props} />;
+    case SIZE.MEDIUM:
     default:
       return <StyledMD {...props} />;
   }
 };
 
 Code.propTypes = {
-  size: PropTypes.oneOf([SIZE.SMALL, SIZE.LARGE]),
+  size: PropTypes.oneOf([SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]),
   type: PropTypes.oneOf([TYPE.GREY, TYPE.RED, TYPE.GREEN, TYPE.YELLOW])
 };
 
