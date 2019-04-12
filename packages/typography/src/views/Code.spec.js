@@ -11,7 +11,7 @@ import { mountWithTheme } from '@zendeskgarden/react-testing';
 import {
   zdColorGreen200,
   zdColorGrey200,
-  zdColorRed300,
+  zdColorRed200,
   zdColorYellow200,
   zdFontSizeSmMonospace,
   zdFontSizeMdMonospace,
@@ -68,7 +68,7 @@ describe('Code', () => {
     it('renders red styling if provided', () => {
       const wrapper = mount(<Code type="red" />);
 
-      expect(wrapper).toHaveStyleRule('background-color', zdColorRed300);
+      expect(wrapper).toHaveStyleRule('background-color', zdColorRed200);
     });
 
     it('renders yellow styling if provided', () => {

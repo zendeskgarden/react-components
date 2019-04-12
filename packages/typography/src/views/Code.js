@@ -13,7 +13,7 @@ import {
   zdColorGreen700,
   zdColorGrey200,
   zdColorGrey700,
-  zdColorRed300,
+  zdColorRed200,
   zdColorRed700,
   zdColorYellow200,
   zdColorYellow700
@@ -41,7 +41,7 @@ const TYPE = {
 const backgroundColor = type => {
   switch (type) {
     case TYPE.RED:
-      return zdColorRed300;
+      return zdColorRed200;
     case TYPE.GREEN:
       return zdColorGreen200;
     case TYPE.YELLOW:
