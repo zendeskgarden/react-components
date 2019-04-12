@@ -16,7 +16,7 @@ import {
   zdColorRed200,
   zdColorRed700,
   zdColorYellow200,
-  zdColorYellow700
+  zdColorYellow800
 } from '@zendeskgarden/css-variables';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import SM from './SM';
@@ -59,7 +59,7 @@ const foregroundColor = type => {
     case TYPE.GREEN:
       return zdColorGreen700;
     case TYPE.YELLOW:
-      return zdColorYellow700;
+      return zdColorYellow800;
     case TYPE.GREY:
     default:
       return zdColorGrey700;
@@ -74,7 +74,7 @@ const codeAttributes = {
 const codeCSS = css`
   border-radius: 2px;
   background-color: ${props => backgroundColor(props.type)};
-  padding: 1.5px 2px;
+  padding: 1px 1.5px;
   color: ${props => foregroundColor(props.type)};
 
   ${props => retrieveTheme(COMPONENT_ID, props)};
