@@ -19,7 +19,7 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendeskgarden/css-variables": "5.1.0"
+    "@zendeskgarden/css-variables": "6.3.0"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^1.0.0 || ^2.0.0 || ^3.0.0",

@@ -6,15 +6,20 @@
  */
 
 import React from 'react';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
+import { shallow } from 'enzyme';
+import { shallowWithTheme } from '@zendeskgarden/react-testing';
 import LG from './LG';
 
 describe('LG', () => {
-  const Example = props => <LG {...props}>Hello world</LG>;
+  it('applies monospace styling if provided', () => {
+    const wrapper = shallow(<LG monospace />);
+
+    expect(wrapper).toHaveStyleRule('font-family', expect.stringContaining('monospace'));
+  });
 
   it('applies correct styling with RTL locale', () => {
-    const wrapper = mountWithTheme(<Example />, { rtl: true });
+    const wrapper = shallowWithTheme(<LG />, { rtl: true });
 
-    expect(wrapper.childAt(0)).toHaveStyleRule('direction', 'rtl');
+    expect(wrapper).toHaveStyleRule('direction', 'rtl');
   });
 });

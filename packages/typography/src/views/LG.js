@@ -8,7 +8,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { zdFontSizeLg, zdLineHeightLg } from '@zendeskgarden/css-variables';
+import {
+  zdFontFamilyMonospace,
+  zdFontSizeLg,
+  zdFontSizeLgMonospace,
+  zdLineHeightLg
+} from '@zendeskgarden/css-variables';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'typography.lg';
@@ -18,7 +23,8 @@ const StyledLG = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   line-height: ${zdLineHeightLg};
-  font-size: ${zdFontSizeLg};
+  font-family: ${props => (props.monospace ? zdFontFamilyMonospace : null)};
+  font-size: ${props => (props.monospace ? zdFontSizeLgMonospace : zdFontSizeLg)};
 
   direction: ${props => (isRtl(props) ? 'rtl' : 'ltr')};
 
@@ -36,7 +42,9 @@ const LG = ({ tag, ...other }) => {
 
 LG.propTypes = {
   /** Any valid DOM element for the styled component */
-  tag: PropTypes.any
+  tag: PropTypes.any,
+  /** Render monospace font */
+  monospace: PropTypes.bool
 };
 
 LG.defaultProps = {
