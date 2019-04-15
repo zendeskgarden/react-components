@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-typography@0.3.0...@zendeskgarden/react-typography@0.4.0) (2019-04-15)
+
+
+### Features
+
+* **loaders:** introduce Skeleton loader ([#261](https://github.com/zendeskgarden/react-components/issues/261)) ([f05ed56](https://github.com/zendeskgarden/react-components/commit/f05ed56))
+* **typography:** add `monospace` styling and `Code` component ([#305](https://github.com/zendeskgarden/react-components/issues/305)) ([89a1b12](https://github.com/zendeskgarden/react-components/commit/89a1b12))
+
+
+
+
+
 # [0.3.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-typography@0.2.2...@zendeskgarden/react-typography@0.3.0) (2019-01-04)
 
 
