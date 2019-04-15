@@ -74,7 +74,7 @@ const codeAttributes = {
 const codeCSS = css`
   border-radius: 2px;
   background-color: ${props => backgroundColor(props.type)};
-  padding: 1px 1.5px;
+  padding: 1.5px;
   color: ${props => foregroundColor(props.type)};
 
   ${props => retrieveTheme(COMPONENT_ID, props)};
