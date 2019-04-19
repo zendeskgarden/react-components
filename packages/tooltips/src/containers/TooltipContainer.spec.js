@@ -188,7 +188,7 @@ describe('TooltipContainer', () => {
       expect(findTooltip(wrapper)).toHaveLength(1);
     });
 
-    it('should close tooltip open if blurred', () => {
+    it('should close tooltip if blurred', () => {
       findTrigger(wrapper).simulate('mouseenter');
       jest.runOnlyPendingTimers();
       wrapper.update();
