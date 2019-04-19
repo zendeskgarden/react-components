@@ -149,11 +149,21 @@ class TooltipContainer extends ControlledComponent {
     };
   };
 
-  getTooltipProps = ({ role = 'tooltip', onMouseEnter, onMouseLeave, ...other } = {}) => {
+  getTooltipProps = ({
+    role = 'tooltip',
+    onMouseEnter,
+    onMouseLeave,
+    onFocus,
+    onBlur,
+    ...other
+  } = {}) => {
     return {
       role,
       onMouseEnter: composeEventHandlers(onMouseEnter, () => this.openTooltip()),
       onMouseLeave: composeEventHandlers(onMouseLeave, () => this.closeTooltip()),
+      onFocus: composeEventHandlers(onFocus, () => this.openTooltip()),
+      // Close menu after delay to mimic mouse interaction
+      onBlur: composeEventHandlers(onBlur, () => this.closeTooltip()),
       ...other
     };
   };
