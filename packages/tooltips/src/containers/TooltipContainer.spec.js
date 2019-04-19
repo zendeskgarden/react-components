@@ -175,6 +175,36 @@ describe('TooltipContainer', () => {
       expect(findTooltip(wrapper)).toHaveLength(0);
     });
 
+    it('should leave tooltip open if focused', () => {
+      findTrigger(wrapper).simulate('mouseenter');
+      jest.runOnlyPendingTimers();
+      wrapper.update();
+
+      findTrigger(wrapper).simulate('blur');
+      findTooltip(wrapper).simulate('focus');
+      jest.runOnlyPendingTimers();
+      wrapper.update();
+
+      expect(findTooltip(wrapper)).toHaveLength(1);
+    });
+
+    it('should close tooltip open if blurred', () => {
+      findTrigger(wrapper).simulate('mouseenter');
+      jest.runOnlyPendingTimers();
+      wrapper.update();
+
+      findTrigger(wrapper).simulate('blur');
+      findTooltip(wrapper).simulate('focus');
+      jest.runOnlyPendingTimers();
+      wrapper.update();
+
+      findTooltip(wrapper).simulate('blur');
+      jest.runOnlyPendingTimers();
+      wrapper.update();
+
+      expect(findTooltip(wrapper)).toHaveLength(0);
+    });
+
     it('should render tooltip within portal if appendToBody is provided', () => {
       wrapper = mountWithTheme(
         <TooltipContainer
