@@ -84,7 +84,7 @@
     "prettier-package-json": "2.1.0",
     "react": "16.8.3",
     "react-dom": "16.8.3",
-    "react-styleguidist": "8.0.6",
+    "react-styleguidist": "9.0.8",
     "react-testing-library": "6.1.2",
     "regenerator-runtime": "0.13.1",
     "resolve-from": "4.0.0",
