@@ -125,7 +125,7 @@ const defaultStyleguideConfig = {
     objectAssign: 'Object.assign'
   },
   require: [
-    'core-js/shim',
+    'core-js',
     path.resolve(__dirname, 'setup.js'),
     path.resolve(__dirname, 'styles.css'),
     'github-markdown-css'
