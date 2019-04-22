@@ -257,43 +257,43 @@ describe('MenuContainer', () => {
     });
   });
 
-  describe('when the menu is open', () => {
-    beforeEach(() => {
-      jest.spyOn(document, 'removeEventListener');
+  // describe('when the menu is open', () => {
+  //   beforeEach(() => {
+  //     jest.spyOn(document, 'removeEventListener');
 
-      wrapper = mountWithTheme(basicExample({ onChange: onChangeSpy }), {
-        enzymeOptions: { attachTo: document.body }
-      });
+  //     wrapper = mountWithTheme(basicExample({ onChange: onChangeSpy }), {
+  //       enzymeOptions: { attachTo: document.body }
+  //     });
 
-      findTrigger(wrapper).simulate('click');
-    });
+  //     findTrigger(wrapper).simulate('click');
+  //   });
 
-    afterEach(() => {
-      document.removeEventListener.mockRestore();
-    });
+  //   afterEach(() => {
+  //     document.removeEventListener.mockRestore();
+  //   });
 
-    describe('when clicking outside', () => {
-      it('closes the menu', () => {
-        wrapper.simulate('click');
+  //   describe('when clicking outside', () => {
+  //     it('closes the menu', () => {
+  //       wrapper.simulate('click');
 
-        expect(findMenu(wrapper)).not.toExist();
-      });
+  //       expect(findMenu(wrapper)).not.toExist();
+  //     });
 
-      it('removes click outside event listener', () => {
-        wrapper.simulate('click');
+  //     it('removes click outside event listener', () => {
+  //       wrapper.simulate('click');
 
-        expect(document.removeEventListener).toHaveBeenCalled();
-      });
-    });
+  //       expect(document.removeEventListener).toHaveBeenCalled();
+  //     });
+  //   });
 
-    describe('componentWillUnmount()', () => {
-      it('removes click outside event listener', () => {
-        wrapper.unmount();
+  //   describe('componentWillUnmount()', () => {
+  //     it('removes click outside event listener', () => {
+  //       wrapper.unmount();
 
-        expect(document.removeEventListener).toHaveBeenCalled();
-      });
-    });
-  });
+  //       expect(document.removeEventListener).toHaveBeenCalled();
+  //     });
+  //   });
+  // });
 
   describe('getTriggerProps()', () => {
     beforeEach(() => {

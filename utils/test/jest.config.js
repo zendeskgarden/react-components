@@ -23,7 +23,7 @@ module.exports = {
     'react-testing-library/cleanup-after-each'
   ],
   moduleNameMapper: {
-    '\\.(css|json)$': 'identity-obj-proxy',
+    '\\.(css)$': 'identity-obj-proxy',
     '@zendeskgarden/css(?!-variables)': 'identity-obj-proxy',
     '@zendeskgarden/react-testing': '<rootDir>/packages/testing/src/index.js',
     'garden-test-utils': '<rootDir>/utils/test/garden-test-utils.js',
