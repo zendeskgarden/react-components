@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.5](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@5.0.4...@zendeskgarden/react-tooltips@5.0.5) (2019-04-22)
+
+
+### Bug Fixes
+
+* **tooltips:** allow focusable content within tooltips ([#308](https://github.com/zendeskgarden/react-components/issues/308)) ([f8023b8](https://github.com/zendeskgarden/react-components/commit/f8023b8))
+
+
+
+
+
 ## [5.0.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tooltips@5.0.3...@zendeskgarden/react-tooltips@5.0.4) (2019-02-28)
 
 **Note:** Version bump only for package @zendeskgarden/react-tooltips
