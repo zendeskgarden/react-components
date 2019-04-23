@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.8](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-autocomplete@0.10.7...@zendeskgarden/react-autocomplete@0.10.8) (2019-04-23)
+
+
+### Bug Fixes
+
+* **autocomplete:** do not always trigger dropdown closing on blur ([#312](https://github.com/zendeskgarden/react-components/issues/312)) ([8a7ba2f](https://github.com/zendeskgarden/react-components/commit/8a7ba2f))
+
+
+
+
+
 ## [0.10.7](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-autocomplete@0.10.6...@zendeskgarden/react-autocomplete@0.10.7) (2019-04-22)
 
 **Note:** Version bump only for package @zendeskgarden/react-autocomplete
