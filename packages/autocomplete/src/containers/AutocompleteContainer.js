@@ -343,7 +343,7 @@ class AutocompleteContainer extends ControlledComponent {
       'aria-activedescendant': isOpen ? this.getItemId(focusedKey) : this.getTagId(tagFocusedKey),
       autoComplete: 'off',
       onBlur: composeEventHandlers(onBlur, () => {
-        if (!this.menuMousedDown && !this.triggerMousedDown) {
+        if (isOpen && !this.menuMousedDown && !this.triggerMousedDown) {
           this.closeDropdown();
         }
       }),
