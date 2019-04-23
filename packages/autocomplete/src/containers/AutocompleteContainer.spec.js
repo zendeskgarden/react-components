@@ -248,7 +248,14 @@ describe('AutocompleteContainer', () => {
         expect(instance.closeDropdown).not.toHaveBeenCalled();
       });
 
+      it('does not close dropdown if already closed', () => {
+        wrapper.setProps({ isOpen: false });
+        findInput(wrapper).simulate('blur');
+        expect(instance.closeDropdown).not.toHaveBeenCalled();
+      });
+
       it('closes dropdown if neither trigger nor menu is moused down', () => {
+        wrapper.setProps({ isOpen: true });
         instance.menuMousedDown = false;
         instance.triggerMousedDown = false;
         findInput(wrapper).simulate('blur');
