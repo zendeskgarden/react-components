@@ -33,8 +33,10 @@ for a more in-depth example of usage.
 import { KeyboardFocusContainer } from '@zendeskgarden/react-components';
 
 <KeyboardFocusContainer>
-  {({ getFocusProps, focused }) => (
-    <button {...getFocusProps()}>{focused ? 'Keyboard focused!' : 'Not keyboard focused'}</button>
+  {({ getFocusProps, keyboardFocused }) => (
+    <button {...getFocusProps()}>
+      {keyboardFocused ? 'Keyboard focused!' : 'Not keyboard focused'}
+    </button>
   )}
 </KeyboardFocusContainer>;
 ```
