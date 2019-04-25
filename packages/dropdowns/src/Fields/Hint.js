@@ -19,4 +19,4 @@ Hint.propTypes = {
   small: PropTypes.bool
 };
 
-export default StyledHint;
+export default Hint;

@@ -15,4 +15,4 @@ const ItemMeta = StyledItemMeta;
 ItemMeta.displayName = 'ItemMeta';
 
 /** @component */
-export default StyledItemMeta;
+export default ItemMeta;

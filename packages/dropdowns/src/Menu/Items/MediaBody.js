@@ -15,4 +15,4 @@ const MediaBody = StyledMediaBody;
 MediaBody.displayName = 'MediaBody';
 
 /** @component */
-export default StyledMediaBody;
+export default MediaBody;

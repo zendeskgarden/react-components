@@ -15,4 +15,4 @@ const MediaFigure = StyledMediaFigure;
 MediaFigure.displayName = 'MediaFigure';
 
 /** @component */
-export default StyledMediaFigure;
+export default MediaFigure;
