@@ -18,7 +18,7 @@
     "PACKAGE_VERSION": true,
     "COMPONENT_IDS": true
   },
-  "plugins": ["prettier", "react", "jest", "jsx-a11y"],
+  "plugins": ["prettier", "react", "jest", "jsx-a11y", "react-hooks"],
   "env": {
     "es6": true,
     "browser": true,
@@ -26,7 +26,6 @@
   },
   "rules": {
     "prettier/prettier": "error",
-    "indent": ["error", 2, { "SwitchCase": 1 }],
     "sort-imports": "off",
     "valid-jsdoc": "off",
     "no-invalid-this": "off",
@@ -34,6 +33,8 @@
     "react/jsx-key": "off",
     "react/display-name": "off",
     "jsx-a11y/label-has-for": "off",
-    "jest/no-disabled-tests": "off"
+    "jest/no-disabled-tests": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   }
 }
