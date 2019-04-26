@@ -2024,9 +2024,10 @@
   version "7.2.1"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/eslint-config/-/eslint-config-7.2.1.tgz#d0e0bd461097e0f367ef1186f2c32a475e28f4cd"
 
-"@zendeskgarden/stylelint-config@9.2.0":
-  version "9.2.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/stylelint-config/-/stylelint-config-9.2.0.tgz#e454e9f5eb0569615f8548d748edc4e2b52a0096"
+"@zendeskgarden/stylelint-config@10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/stylelint-config/-/stylelint-config-10.0.0.tgz#e87636deb4bd16318e569515deec716060d31bb6"
+  integrity sha512-qQwbXp5ewzsTtzSdr1EaGjSfDybT/KDY/pN44PrFff1sJpybPn/I/h7L/2/kn9onQ866eOgeVBKROjz+Id6oiQ==
 
 "@zendeskgarden/svg-icons@5.3.1":
   version "5.3.1"
