@@ -11,7 +11,7 @@ import styled, { css } from 'styled-components';
 import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 
 const hiddenStyling = css`
-  position: relative;
+  position: absolute;
   left: -100px;
   transform: scale(0);
   opacity: 0;

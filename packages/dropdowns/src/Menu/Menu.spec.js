@@ -47,6 +47,17 @@ describe('Menu', () => {
   });
 
   it('applies custom width if full-width element is included in Dropdown', () => {
+    Element.prototype.getBoundingClientRect = jest.fn(() => {
+      return {
+        width: 100,
+        height: 100,
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0
+      };
+    });
+
     const { getByTestId } = render(
       <Dropdown>
         <Field>
@@ -62,7 +73,6 @@ describe('Menu', () => {
 
     fireEvent.click(getByTestId('select'));
 
-    // Width is 0px due to JSDom abstractions
-    expect(getByTestId('menu').style.width).toBe('0px');
+    expect(getByTestId('menu').style.width).toBe('100px');
   });
 });

@@ -222,7 +222,7 @@ const renderItems = () => {
   <Trigger refKey="innerRef">
     <Button>Tree Layout</Button>
   </Trigger>
-  <Menu placement="end" arrow width="200px" height="250px">
+  <Menu placement="end" arrow style={{ width: 200, height: 270 }}>
     {renderItems()}
   </Menu>
 </Dropdown>;

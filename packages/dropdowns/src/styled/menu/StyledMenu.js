@@ -148,24 +148,17 @@ const StyledMaxHeightWrapper = styled.div`
   overflow-y: auto;
   max-height: ${props.maxHeight};
 `}
-
-  ${props => props.height && `height: ${props.height};`}
-  ${props => props.width && `width: ${props.width};`}
 `;
 
-const StyledMenu = React.forwardRef(
-  ({ arrow, placement, maxHeight, height, width, children, ...other }, ref) => {
-    return (
-      <StyledMenuWrapper arrow={arrow} placement={placement}>
-        <StyledMenuView innerRef={ref} arrow={arrow} placement={placement} {...other}>
-          <StyledMaxHeightWrapper maxHeight={maxHeight} height={height} width={width}>
-            {children}
-          </StyledMaxHeightWrapper>
-        </StyledMenuView>
-      </StyledMenuWrapper>
-    );
-  }
-);
+const StyledMenu = React.forwardRef(({ arrow, placement, maxHeight, children, ...other }, ref) => {
+  return (
+    <StyledMenuWrapper arrow={arrow} placement={placement}>
+      <StyledMenuView innerRef={ref} arrow={arrow} placement={placement} {...other}>
+        <StyledMaxHeightWrapper maxHeight={maxHeight}>{children}</StyledMaxHeightWrapper>
+      </StyledMenuView>
+    </StyledMenuWrapper>
+  );
+});
 
 StyledMenu.propTypes = {
   /**
@@ -190,8 +183,6 @@ StyledMenu.propTypes = {
   small: PropTypes.bool,
   hidden: PropTypes.bool,
   arrow: PropTypes.bool,
-  height: PropTypes.string,
-  width: PropTypes.string,
   maxHeight: PropTypes.string,
   children: PropTypes.node
 };

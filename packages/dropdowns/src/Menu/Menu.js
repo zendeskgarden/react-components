@@ -101,15 +101,28 @@ Menu.propTypes = {
   zIndex: PropTypes.number,
   style: PropTypes.object,
   /**
-   * All valid [Popper.JS Placements](https://popper.js.org/popper-documentation.html#Popper.placements)
-   */
-  placement: PropTypes.string,
+   * These placements differ from the default naming of Popper.JS placements to help
+   * assist with RTL layouts.
+   **/
+  placement: PropTypes.oneOf([
+    'auto',
+    'top',
+    'top-start',
+    'top-end',
+    'end',
+    'end-top',
+    'end-bottom',
+    'bottom',
+    'bottom-start',
+    'bottom-end',
+    'start',
+    'start-top',
+    'start-bottom'
+  ]),
   animate: PropTypes.bool,
   small: PropTypes.bool,
   hidden: PropTypes.bool,
   arrow: PropTypes.bool,
-  height: PropTypes.string,
-  width: PropTypes.string,
   maxHeight: PropTypes.string,
   children: PropTypes.node
 };
