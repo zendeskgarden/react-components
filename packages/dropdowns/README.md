@@ -95,7 +95,7 @@ The following states can be controlled directly from the `<Dropdown>` component:
 
 - **isOpen** Whether the dropdown is currently open
 - **highlightedIndex** Which index is currently highlighted
-- **inputValue** The value of the input when in used as an `Autocomplete`
+- **inputValue** The value of the input when it's used as an `Autocomplete`
 - **selectedItem** The currently selected item
 - **selectedItems** The currently selected items
 

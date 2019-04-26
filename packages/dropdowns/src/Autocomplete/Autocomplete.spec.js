@@ -103,7 +103,7 @@ describe('Autocomplete', () => {
       expect(items[0]).toHaveAttribute('aria-selected', 'true');
     });
 
-    it('opens on down key and highlights last item', () => {
+    it('opens on up key and highlights last item', () => {
       const { getByTestId, getAllByTestId } = render(<ExampleAutocomplete />);
       const autocomplete = getByTestId('autocomplete');
 

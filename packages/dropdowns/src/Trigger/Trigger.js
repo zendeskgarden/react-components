@@ -12,7 +12,7 @@ import { StyledInput } from '../styled';
 import useDropdownContext from '../utils/useDropdownContext';
 
 /**
- * Applies state and a11y attributes to it's children. Must be nested within a `<Dropdown>` component.
+ * Applies state and a11y attributes to its children. Must be nested within a `<Dropdown>` component.
  */
 const Trigger = ({ children, refKey, ...triggerProps }) => {
   const {

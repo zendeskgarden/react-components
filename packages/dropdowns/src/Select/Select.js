@@ -19,7 +19,7 @@ const VALIDATION = {
 };
 
 /**
- * Applies state and a11y attributes to it's children. Must be nested within a `<Field>` component.
+ * Applies state and a11y attributes to its children. Must be nested within a `<Field>` component.
  */
 const Select = ({ children, ...props }) => {
   const {

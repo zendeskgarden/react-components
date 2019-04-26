@@ -56,7 +56,10 @@ const Menu = props => {
           let computedStyle = menuStyle;
 
           // Calculate custom width if ref is provided from Select or Autocomplete
-          if (popperReferenceElementRef.current) {
+          if (
+            popperReferenceElementRef.current &&
+            popperReferenceElementRef.current.getBoundingClientRect
+          ) {
             computedStyle = {
               ...menuStyle,
               width: popperReferenceElementRef.current.getBoundingClientRect().width

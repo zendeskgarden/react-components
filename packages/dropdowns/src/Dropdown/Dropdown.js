@@ -124,7 +124,7 @@ const Dropdown = props => {
               const existingItemIndex = selectedItems.findIndex(item => {
                 return itemToString(item) === itemToString(changes.selectedItem);
               });
-              const updatedSelectedItems = selectedItems.slice();
+              const updatedSelectedItems = Array.from(selectedItems);
 
               if (existingItemIndex === -1) {
                 updatedSelectedItems.splice(updatedSelectedItems.length, 0, changes.selectedItem);
