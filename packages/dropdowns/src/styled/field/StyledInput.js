@@ -23,13 +23,13 @@ const hiddenStyling = css`
   width: 1px;
   color: transparent;
   font-size: inherit;
-  border-image: initial;
 `;
 
 const StyledInput = styled.input.attrs({
   className: classNames(TextStyles['c-txt__input'], TextStyles['c-txt__input--bare'])
 })`
   && {
+    vertical-align: baseline;
     ${props => props.isHidden && hiddenStyling}
   }
 `;

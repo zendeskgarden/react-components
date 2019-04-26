@@ -36,7 +36,8 @@
     "@zendeskgarden/css-forms": "^7.0.5",
     "@zendeskgarden/css-menus": "^9.0.5",
     "@zendeskgarden/react-theming": "^3.2.1",
-    "@zendeskgarden/svg-icons": "^6.1.1"
+    "@zendeskgarden/svg-icons": "^6.1.1",
+    "lodash.debounce": "4.0.8"
   },
   "keywords": [
     "components",

@@ -15,7 +15,7 @@ npm install react react-dom prop-types styled-components@3.4.10 @zendeskgarden/r
 ## Requirements
 
 This package uses several modern React features like [Context](https://reactjs.org/docs/context.html)
-and [Hooks](https://reactjs.org/docs/hooks-intro.html) to provide a more consistent developer experience.
+and [Hooks](https://reactjs.org/docs/hooks-intro.html) to provide an enhanced component API.
 
 These features require the following minimum versions of the dependencies:
 
@@ -56,7 +56,7 @@ For all components within the `react-dropdowns` package, the menu layouts and
 implementations are interchangeable.
 
 Whether you're making a `Select`, `Autocomplete`, or a traditional `Menu` the `<Menu>` implementation
-will adapted to it's consumer.
+will adapted to its consumer.
 
 ## Usage
 

@@ -26,13 +26,11 @@ to install.
 | [`@zendeskgarden/react-dropdowns`](packages/dropdowns)         | [![npm version][dropdowns npm version]][dropdowns npm link]         | [![Dependency Status][dropdowns dependency status]][dropdowns dependency link]         |
 | [`@zendeskgarden/react-grid`](packages/grid)                   | [![npm version][grid npm version]][grid npm link]                   | [![Dependency Status][grid dependency status]][grid dependency link]                   |
 | [`@zendeskgarden/react-loaders`](packages/loaders)             | [![npm version][loaders npm version]][loaders npm link]             | [![Dependency Status][loaders dependency status]][loaders dependency link]             |
-| [`@zendeskgarden/react-menus`](packages/menus)                 | [![npm version][menus npm version]][menus npm link]                 | [![Dependency Status][menus dependency status]][menus dependency link]                 |
 | [`@zendeskgarden/react-modals`](packages/modals)               | [![npm version][modals npm version]][modals npm link]               | [![Dependency Status][modals dependency status]][modals dependency link]               |
 | [`@zendeskgarden/react-notifications`](packages/notifications) | [![npm version][notifications npm version]][notifications npm link] | [![Dependency Status][notifications dependency status]][notifications dependency link] |
 | [`@zendeskgarden/react-pagination`](packages/pagination)       | [![npm version][pagination npm version]][pagination npm link]       | [![Dependency Status][pagination dependency status]][pagination dependency link]       |
 | [`@zendeskgarden/react-radios`](packages/radios)               | [![npm version][radios npm version]][radios npm link]               | [![Dependency Status][radios dependency status]][radios dependency link]               |
 | [`@zendeskgarden/react-ranges`](packages/ranges)               | [![npm version][ranges npm version]][ranges npm link]               | [![Dependency Status][ranges dependency status]][ranges dependency link]               |
-| [`@zendeskgarden/react-select`](packages/select)               | [![npm version][select npm version]][select npm link]               | [![Dependency Status][select dependency status]][select dependency link]               |
 | [`@zendeskgarden/react-selection`](packages/selection)         | [![npm version][selection npm version]][selection npm link]         | [![Dependency Status][selection dependency status]][selection dependency link]         |
 | [`@zendeskgarden/react-tabs`](packages/tabs)                   | [![npm version][tabs npm version]][tabs npm link]                   | [![Dependency Status][tabs dependency status]][tabs dependency link]                   |
 | [`@zendeskgarden/react-tables`](packages/tables)               | [![npm version][tables npm version]][tables npm link]               | [![Dependency Status][tables dependency status]][tables dependency link]               |
@@ -81,10 +79,6 @@ to install.
 [loaders npm link]: https://www.npmjs.com/package/@zendeskgarden/react-loaders
 [loaders dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/loaders&style=flat-square
 [loaders dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/loaders
-[menus npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-menus.svg?style=flat-square
-[menus npm link]: https://www.npmjs.com/package/@zendeskgarden/react-menus
-[menus dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/menus&style=flat-square
-[menus dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/menus
 [modals npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-modals.svg?style=flat-square
 [modals npm link]: https://www.npmjs.com/package/@zendeskgarden/react-modals
 [modals dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/modals&style=flat-square
@@ -105,10 +99,6 @@ to install.
 [ranges npm link]: https://www.npmjs.com/package/@zendeskgarden/react-ranges
 [ranges dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/ranges&style=flat-square
 [ranges dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/ranges
-[select npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-select.svg?style=flat-square
-[select npm link]: https://www.npmjs.com/package/@zendeskgarden/react-select
-[select dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/select&style=flat-square
-[select dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/select
 [selection npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-selection.svg?style=flat-square
 [selection npm link]: https://www.npmjs.com/package/@zendeskgarden/react-selection
 [selection dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/selection&style=flat-square
