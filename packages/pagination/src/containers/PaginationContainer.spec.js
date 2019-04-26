@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /**
  * Copyright Zendesk, Inc.
  *
@@ -78,7 +79,9 @@ describe('PaginationContainer', () => {
 
   describe('getPreviousPageProps()', () => {
     it('throws if key is not provided', () => {
-      console.error = jest.fn(); // eslint-disable-line no-console
+      const originalError = console.error;
+
+      console.error = jest.fn();
 
       expect(() => {
         mountWithTheme(
@@ -89,6 +92,8 @@ describe('PaginationContainer', () => {
       }).toThrow(
         '"key" must be defined within getPreviousPageProps regardless of being used within a .map()'
       );
+
+      console.error = originalError;
     });
 
     it('applies correct accessibility attributes', () => {
@@ -98,7 +103,9 @@ describe('PaginationContainer', () => {
 
   describe('getNextPageProps()', () => {
     it('throws if key is not provided', () => {
-      console.error = jest.fn(); // eslint-disable-line no-console
+      const originalError = console.error;
+
+      console.error = jest.fn();
 
       expect(() => {
         mountWithTheme(
@@ -109,6 +116,8 @@ describe('PaginationContainer', () => {
       }).toThrow(
         '"key" must be defined within getNextPageProps regardless of being used within a .map()'
       );
+
+      console.error = originalError;
     });
 
     it('applies correct accessibility attributes', () => {
@@ -118,7 +127,9 @@ describe('PaginationContainer', () => {
 
   describe('getPageProps()', () => {
     it('throws if key is not provided', () => {
-      console.error = jest.fn(); // eslint-disable-line no-console
+      const originalError = console.error;
+
+      console.error = jest.fn();
 
       expect(() => {
         mountWithTheme(
@@ -129,6 +140,8 @@ describe('PaginationContainer', () => {
       }).toThrow(
         '"key" must be defined within getPageProps regardless of being used within a .map()'
       );
+
+      console.error = originalError;
     });
 
     it('applies correct accessibility attributes if not current page', () => {

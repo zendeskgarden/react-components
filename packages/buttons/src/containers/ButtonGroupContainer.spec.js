@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /**
  * Copyright Zendesk, Inc.
  *
@@ -54,7 +55,9 @@ describe('ButtonGroupContainer', () => {
 
   describe('getButtonProps', () => {
     it('throws if key is not provided', () => {
-      console.error = jest.fn(); // eslint-disable-line no-console
+      const originalError = console.error;
+
+      console.error = jest.fn();
 
       expect(() => {
         mountWithTheme(
@@ -65,6 +68,8 @@ describe('ButtonGroupContainer', () => {
       }).toThrow(
         '"key" must be defined within getButtonProps regardless of being used within a .map()'
       );
+
+      console.error = originalError;
     });
 
     it('applies the correct accessibility role', () => {

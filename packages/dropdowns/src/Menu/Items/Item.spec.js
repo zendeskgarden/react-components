@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /**
  * Copyright Zendesk, Inc.
  *
@@ -11,7 +12,10 @@ import { Dropdown, Trigger, Menu, Item } from '../../';
 
 describe('Item', () => {
   it('throws error if value is not provided', () => {
-    console.error = jest.fn(); // eslint-disable-line no-console
+    const originalError = console.error;
+
+    console.error = jest.fn();
+
     const Example = () => (
       <Dropdown>
         <Trigger>
@@ -26,10 +30,15 @@ describe('Item', () => {
     expect(() => {
       render(<Example />);
     }).toThrow('All Item components require a `value` prop');
+
+    console.error = originalError;
   });
 
   it('does not throw if value is not provided while item is disabled', () => {
-    console.error = jest.fn(); // eslint-disable-line no-console
+    const originalError = console.error;
+
+    console.error = jest.fn();
+
     const Example = () => (
       <Dropdown>
         <Trigger>
@@ -44,6 +53,8 @@ describe('Item', () => {
     expect(() => {
       render(<Example />);
     }).not.toThrow();
+
+    console.error = originalError;
   });
 
   it('highlights first selected index on open', () => {

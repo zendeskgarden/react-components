@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /**
  * Copyright Zendesk, Inc.
  *
@@ -19,12 +20,17 @@ describe('useMenuContext', () => {
   };
 
   it('throws if called outside of Menu component', () => {
-    console.error = jest.fn(); // eslint-disable-line no-console
+    const originalError = console.error;
+
+    console.error = jest.fn();
+
     const Example = () => <MenuContextConsumer />;
 
     expect(() => {
       render(<Example />);
     }).toThrow();
+
+    console.error = originalError;
   });
 
   it('does not throw if called within Dropdown component', () => {

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /**
  * Copyright Zendesk, Inc.
  *
@@ -56,7 +57,9 @@ describe('FocusJailContainer', () => {
 
   describe('containerRef', () => {
     it('throws error if containerRef is not provided', () => {
-      console.error = jest.fn(); // eslint-disable-line no-console
+      const originalError = console.error;
+
+      console.error = jest.fn();
 
       expect(() => {
         mountWithTheme(
@@ -67,6 +70,8 @@ describe('FocusJailContainer', () => {
           </FocusJailContainer>
         );
       }).toThrow('Accessibility Error: You must apply the ref prop to your containing element.');
+
+      console.error = originalError;
     });
   });
 

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /**
  * Copyright Zendesk, Inc.
  *
@@ -95,7 +96,9 @@ describe('Tabs', () => {
 
   describe('TabPanel', () => {
     it('throws if no key is provided to TabPanel', () => {
-      console.error = jest.fn(); // eslint-disable-line no-console
+      const originalError = console.error;
+
+      console.error = jest.fn();
 
       expect(() => {
         mountWithTheme(
@@ -106,6 +109,8 @@ describe('Tabs', () => {
       }).toThrow(
         '"key" must be defined within getTabProps regardless of being used within a .map()'
       );
+
+      console.error = originalError;
     });
 
     it('does not throw if a key is provided to TabPanel', () => {
