@@ -170,7 +170,6 @@ with the `isOpen` and `onOpen` props.
 ```jsx
 const { Button } = require('@zendeskgarden/react-buttons/src');
 const { zdColorBlue600 } = require('@zendeskgarden/css-variables');
-const { default: posed, PoseGroup } = require('react-pose');
 
 initialState = {
   isOpen: false,
