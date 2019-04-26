@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import Downshift from 'downshift';
 import { Manager } from 'react-popper';
 import { withTheme, isRtl } from '@zendeskgarden/react-theming';
-import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/react-selection';
+import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-selection';
 
 export const DropdownContext = React.createContext();
 

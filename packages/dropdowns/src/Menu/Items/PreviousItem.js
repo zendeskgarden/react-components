@@ -17,14 +17,13 @@ import useMenuContext from '../../utils/useMenuContext';
  * Accepts all `<li>` props
  */
 const PreviousItem = ({ value, disabled, ...props }) => {
-  const { previousItemRef, previousIndexRef } = useDropdownContext();
+  const { previousIndexRef } = useDropdownContext();
   const { itemIndexRef } = useMenuContext();
 
   if (disabled) {
     return <Item component={StyledPreviousItem} disabled {...props} />;
   }
 
-  previousItemRef.current = value;
   previousIndexRef.current = itemIndexRef.current;
 
   return <Item component={StyledPreviousItem} aria-expanded={true} value={value} {...props} />;

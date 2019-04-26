@@ -5,6 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import * as styledElements from './styled';
+
 export { default as Dropdown } from './Dropdown/Dropdown';
 export { default as Trigger } from './Trigger/Trigger';
 export { default as Autocomplete } from './Autocomplete/Autocomplete';
@@ -25,3 +27,23 @@ export { default as MediaFigure } from './Menu/Items/MediaFigure';
 export { default as MediaItem } from './Menu/Items/MediaItem';
 export { default as NextItem } from './Menu/Items/NextItem';
 export { default as PreviousItem } from './Menu/Items/PreviousItem';
+
+export const styled = {
+  StyledMenu: styledElements.StyledMenu,
+  StyledSeparator: styledElements.StyledSeparator,
+  StyledAddItem: styledElements.StyledAddItem,
+  StyledItem: styledElements.StyledItem,
+  StyledItemMeta: styledElements.StyledItemMeta,
+  StyledNextItem: styledElements.StyledNextItem,
+  StyledPreviousItem: styledElements.StyledPreviousItem,
+  StyledHeaderIcon: styledElements.StyledHeaderIcon,
+  StyledHeaderItem: styledElements.StyledHeaderItem,
+  StyledMediaBody: styledElements.StyledMediaBody,
+  StyledMediaFigure: styledElements.StyledMediaFigure,
+  StyledMediaItem: styledElements.StyledMediaItem,
+  StyledField: styledElements.StyledField,
+  StyledLabel: styledElements.StyledLabel,
+  StyledHint: styledElements.StyledHint,
+  StyledMessage: styledElements.StyledMessage,
+  StyledSelect: styledElements.StyledSelect
+};

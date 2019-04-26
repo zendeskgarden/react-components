@@ -32,7 +32,6 @@ const Menu = props => {
   } = props;
   const {
     itemIndexRef,
-    previousItemRef,
     previousIndexRef,
     nextItemsHashRef,
     popperReferenceElementRef,
@@ -42,7 +41,6 @@ const Menu = props => {
   // Reset Downshift refs on every render
   itemIndexRef.current = 0;
   nextItemsHashRef.current = {};
-  previousItemRef.current = undefined;
   previousIndexRef.current = undefined;
 
   const popperPlacement = isRtl(props)

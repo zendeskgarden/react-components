@@ -44,7 +44,7 @@ const Select = ({ children, ...props }) => {
     previousIsOpenRef.current = isOpen;
   }, [isOpen]);
 
-  const { ...selectProps } = getToggleButtonProps({
+  const selectProps = getToggleButtonProps({
     tabIndex: props.disabled ? -1 : 0,
     ...props
   });

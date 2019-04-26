@@ -19,7 +19,7 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendeskgarden/react-selection": "^4.6.2",
+    "@zendeskgarden/container-selection": "^0.2.3",
     "classnames": "^2.2.5",
     "downshift": "^3.2.7",
     "react-popper": "^1.3.3"
