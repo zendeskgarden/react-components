@@ -18,7 +18,7 @@ export const DropdownContext = React.createContext();
  * Component that provides state and a11y through the context API
  * to its consumers.
  */
-const Dropdown = props => {
+function Dropdown(props) {
   const {
     children,
     isOpen,
@@ -166,7 +166,7 @@ const Dropdown = props => {
       </Downshift>
     </Manager>
   );
-};
+}
 
 Dropdown.propTypes = {
   children: PropTypes.node,
