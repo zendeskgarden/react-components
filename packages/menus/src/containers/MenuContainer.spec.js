@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /**
  * Copyright Zendesk, Inc.
  *
@@ -146,7 +147,9 @@ describe('MenuContainer', () => {
   describe('componentDidUpdate()', () => {
     describe('Trigger', () => {
       it('throws popper error if no trigger ref is found', () => {
-        console.error = jest.fn(); // eslint-disable-line no-console
+        const originalError = console.error;
+
+        console.error = jest.fn();
 
         expect(() => {
           wrapper = mountWithTheme(
@@ -180,6 +183,8 @@ describe('MenuContainer', () => {
         }).toThrow(
           'Target missing. Popper must be given a target from the Popper Manager, or as a prop.'
         );
+
+        console.error = originalError;
       });
 
       it('focuses trigger if menu has been closed by selection', () => {
@@ -205,7 +210,9 @@ describe('MenuContainer', () => {
 
     describe('Menu', () => {
       it('throws accessibility error if no menu ref is found', () => {
-        console.error = jest.fn(); // eslint-disable-line no-console
+        const originalError = console.error;
+
+        console.error = jest.fn();
 
         expect(() => {
           wrapper = mountWithTheme(
@@ -237,6 +244,8 @@ describe('MenuContainer', () => {
 
           findTrigger(wrapper).simulate('click');
         }).toThrow('Accessibility Error: You must apply the ref prop to your containing element.');
+
+        console.error = originalError;
       });
     });
 

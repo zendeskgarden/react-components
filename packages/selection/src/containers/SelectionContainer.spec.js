@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /**
  * Copyright Zendesk, Inc.
  *
@@ -384,7 +385,9 @@ describe('SelectionContainer', () => {
 
   describe('getItemProps', () => {
     it('throws if no item is applied', () => {
-      console.error = jest.fn(); // eslint-disable-line no-console
+      const originalError = console.error;
+
+      console.error = jest.fn();
 
       expect(() => {
         mountWithTheme(
@@ -399,6 +402,8 @@ describe('SelectionContainer', () => {
       }).toThrow(
         '"key" must be defined within getItemProps regardless of being used within a .map()'
       );
+
+      console.error = originalError;
     });
 
     it('does not throw if item is applied', () => {

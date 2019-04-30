@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /**
  * Copyright Zendesk, Inc.
  *
@@ -39,7 +40,9 @@ describe('AccordionContainer', () => {
 
   describe('getHeadingProps()', () => {
     it('throws accessibility error if no headingLevel is provided', () => {
-      console.error = jest.fn(); // eslint-disable-line no-console
+      const originalError = console.error;
+
+      console.error = jest.fn();
 
       expect(() => {
         wrapper = mountWithTheme(
@@ -57,6 +60,8 @@ describe('AccordionContainer', () => {
       }).toThrow(
         'Accessibility Error: You must apply the `headingLevel` prop to the element that contains your heading. Equivalent to `aria-level`.'
       );
+
+      console.error = originalError;
     });
 
     it('applies correct role attribute', () => {

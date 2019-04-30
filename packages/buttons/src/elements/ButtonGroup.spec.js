@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /**
  * Copyright Zendesk, Inc.
  *
@@ -21,7 +22,9 @@ describe('ButtonGroup', () => {
   );
 
   it('throws if key is not provided to button', () => {
-    console.error = jest.fn(); // eslint-disable-line no-console
+    const originalError = console.error;
+
+    console.error = jest.fn();
 
     expect(() => {
       mountWithTheme(
@@ -30,6 +33,8 @@ describe('ButtonGroup', () => {
         </ButtonGroup>
       );
     }).toThrow('"key" prop must be provided to Button');
+
+    console.error = originalError;
   });
 
   it('applies selected styling to currently selected tab', () => {

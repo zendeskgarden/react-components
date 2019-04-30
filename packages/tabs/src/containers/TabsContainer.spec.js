@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /**
  * Copyright Zendesk, Inc.
  *
@@ -78,7 +79,9 @@ describe('TabsContainer', () => {
 
     describe('Tab', () => {
       it('throws if key is not provided', () => {
-        console.error = jest.fn(); // eslint-disable-line no-console
+        const originalError = console.error;
+
+        console.error = jest.fn();
 
         expect(() => {
           mountWithTheme(
@@ -89,6 +92,8 @@ describe('TabsContainer', () => {
         }).toThrow(
           '"key" must be defined within getTabProps regardless of being used within a .map()'
         );
+
+        console.error = originalError;
       });
 
       it('applies the correct accessibility role', () => {
@@ -101,7 +106,9 @@ describe('TabsContainer', () => {
 
   describe('TabPanel', () => {
     it('throws if key is not provided', () => {
-      console.error = jest.fn(); // eslint-disable-line no-console
+      const originalError = console.error;
+
+      console.error = jest.fn();
 
       expect(() => {
         mountWithTheme(
@@ -112,6 +119,8 @@ describe('TabsContainer', () => {
       }).toThrow(
         '"key" must be defined within getTabPanelProps regardless of being used within a .map()'
       );
+
+      console.error = originalError;
     });
 
     it('applies the correct accessibility role', () => {
