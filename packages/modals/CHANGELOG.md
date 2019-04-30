@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.5.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.5.3...@zendeskgarden/react-modals@5.5.4) (2019-04-30)
+
+
+### Features
+
+* **dropdowns:** introduce new Dropdowns package ([#315](https://github.com/zendeskgarden/react-components/issues/315)) ([8493b9d](https://github.com/zendeskgarden/react-components/commit/8493b9d))
+
+
+
+
+
 ## [5.5.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-modals@5.5.2...@zendeskgarden/react-modals@5.5.3) (2019-04-22)
 
 **Note:** Version bump only for package @zendeskgarden/react-modals

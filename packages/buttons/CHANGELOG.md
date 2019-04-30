@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.9.5](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.9.4...@zendeskgarden/react-buttons@3.9.5) (2019-04-30)
+
+
+### Features
+
+* **dropdowns:** introduce new Dropdowns package ([#315](https://github.com/zendeskgarden/react-components/issues/315)) ([8493b9d](https://github.com/zendeskgarden/react-components/commit/8493b9d))
+
+
+
+
+
 ## [3.9.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.9.3...@zendeskgarden/react-buttons@3.9.4) (2019-04-22)
 
 **Note:** Version bump only for package @zendeskgarden/react-buttons
