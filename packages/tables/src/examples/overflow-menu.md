@@ -10,54 +10,39 @@ or other assistive technique to have discernible text.
 
 ```jsx
 const { zdSpacingSm } = require('@zendeskgarden/css-variables');
-const { Menu, Item } = require('@zendeskgarden/react-menus/src');
+const { Dropdown, Trigger, Menu, Item } = require('@zendeskgarden/react-dropdowns/src');
 const { XL } = require('@zendeskgarden/react-typography/src');
 
 const OverflowMenu = () => (
-  <Menu
-    onChange={selectedKey => alert(selectedKey)}
-    placement="bottom-end"
-    style={{ marginTop: 0 }}
-    popperModifiers={{
-      preventOverflow: {
-        boundariesElement: 'viewport'
-      },
-      flip: {
-        enabled: false
-      },
-      offset: {
-        fn: data => {
-          /**
-           * Ensure correct placement relative to trigger
-           **/
-          data.offsets.popper.top -= 2;
-          return data;
+  <Dropdown onSelect={selectedKey => alert(selectedKey)}>
+    <Trigger refKey="innerRef">
+      <OverflowButton aria-label="Row actions" />
+    </Trigger>
+    <Menu
+      placement="bottom-end"
+      style={{ marginTop: 0 }}
+      popperModifiers={{
+        preventOverflow: {
+          boundariesElement: 'viewport'
+        },
+        flip: {
+          enabled: false
+        },
+        offset: {
+          fn: data => {
+            /**
+             * Ensure correct placement relative to trigger
+             **/
+            data.offsets.popper.top -= 2;
+            return data;
+          }
         }
-      }
-    }}
-    trigger={({ ref, isOpen }) => {
-      const buttonProps = { innerRef: ref, active: isOpen, 'aria-label': 'Row Actions' };
-
-      if (isOpen) {
-        buttonProps.focused = false;
-      }
-
-      return (
-        <OverflowButton
-          {...buttonProps}
-          onBlur={e => {
-            /** Used to keep visual focus within row once menu is exanded */
-            if (isOpen) {
-              e.preventDefault();
-            }
-          }}
-        />
-      );
-    }}
-  >
-    <Item key="item-1">Option 1</Item>
-    <Item key="item-2">Option 2</Item>
-  </Menu>
+      }}
+    >
+      <Item value="item-1">Option 1</Item>
+      <Item value="item-2">Option 2</Item>
+    </Menu>
+  </Dropdown>
 );
 
 <Table>

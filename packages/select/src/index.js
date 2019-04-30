@@ -8,6 +8,16 @@
 import '@zendeskgarden/react-menus/dist/styles.css';
 import '@zendeskgarden/react-textfields/dist/styles.css';
 
+if (process.env.NODE_ENV !== 'production') {
+  /* eslint-disable no-console */
+  console.warn(
+    'Deprecation Warning: The `@zendeskgarden/react-select` package has been deprecated. ' +
+      'It will be removed in an upcoming major release. Migrate to the ' +
+      '`@zendeskgarden/react-dropdowns` package to continue receiving updates.'
+  );
+  /* eslint-enable */
+}
+
 export { default as SelectContainer } from './containers/SelectContainer';
 export { default as Select } from './elements/Select';
 export { default as SelectField } from './elements/SelectField';
