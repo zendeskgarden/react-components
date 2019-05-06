@@ -22,22 +22,22 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>18/18</span>
+        <span class='fraction'>23/23</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>8/8</span>
+        <span class='fraction'>16/16</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/2</span>
+        <span class='fraction'>3/3</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>18/18</span>
+        <span class='fraction'>23/23</span>
       </div>
     </div>
     <p class="quiet">
@@ -182,7 +182,22 @@
 <a name='L134'></a><a href='#L134'>134</a>
 <a name='L135'></a><a href='#L135'>135</a>
 <a name='L136'></a><a href='#L136'>136</a>
-<a name='L137'></a><a href='#L137'>137</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a>
+<a name='L143'></a><a href='#L143'>143</a>
+<a name='L144'></a><a href='#L144'>144</a>
+<a name='L145'></a><a href='#L145'>145</a>
+<a name='L146'></a><a href='#L146'>146</a>
+<a name='L147'></a><a href='#L147'>147</a>
+<a name='L148'></a><a href='#L148'>148</a>
+<a name='L149'></a><a href='#L149'>149</a>
+<a name='L150'></a><a href='#L150'>150</a>
+<a name='L151'></a><a href='#L151'>151</a>
+<a name='L152'></a><a href='#L152'>152</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -221,6 +236,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">135x</span>
+<span class="cline-any cline-yes">135x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">135x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">134x</span>
+<span class="cline-any cline-yes">66x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">135x</span>
@@ -234,6 +261,13 @@
 <span class="cline-any cline-yes">135x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">185x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">185x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -249,13 +283,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">185x</span>
-<span class="cline-any cline-yes">66x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">185x</span>
 <span class="cline-any cline-yes">119x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">185x</span>
@@ -325,7 +355,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 &nbsp;
-import React, { createContext } from 'react';
+import React, { createContext, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Popper } from 'react-popper';
 import { withTheme, isRtl } from '@zendeskgarden/react-theming';
@@ -357,6 +387,18 @@ const Menu = props =&gt; {
     popperReferenceElementRef,
     downshift: { isOpen, getMenuProps }
   } = useDropdownContext();
+  const scheduleUpdateRef = useRef(undefined);
+&nbsp;
+  useEffect(() =&gt; {
+    /**
+     * Recalculate popper placement while open to allow animations to complete.
+     * This must be ran every render to allow for the number of items to change
+     * and still be placed correctly.
+     **/
+    if (isOpen) {
+      scheduleUpdateRef.current &amp;&amp; scheduleUpdateRef.current();
+    }
+  });
 &nbsp;
   // Reset Downshift refs on every render
   itemIndexRef.current = 0;
@@ -369,9 +411,16 @@ const Menu = props =&gt; {
 &nbsp;
   return (
     &lt;MenuContext.Provider value={{ itemIndexRef }}&gt;
-      &lt;Popper placement={popperPlacement} modifiers={popperModifiers} eventsEnabled={eventsEnabled}&gt;
+      &lt;Popper
+        placement={popperPlacement}
+        modifiers={popperModifiers}
+        // Disable position updating on scroll events while menu is closed
+        eventsEnabled={isOpen &amp;&amp; eventsEnabled}
+      &gt;
         {({ ref, style, scheduleUpdate, placement: currentPlacement }) =&gt; {
           let computedStyle = menuStyle;
+&nbsp;
+          scheduleUpdateRef.current = scheduleUpdate;
 &nbsp;
           // Calculate custom width if ref is provided from Select or Autocomplete
           if (
@@ -384,23 +433,19 @@ const Menu = props =&gt; {
             };
           }
 &nbsp;
-          if (isOpen) {
-            scheduleUpdate();
-          } else {
-            computedStyle = {
-              width: 0,
-              height: 0,
-              display: 'none'
-            };
+          let popperStyle = { ...style, zIndex };
+&nbsp;
+          if (!isOpen) {
+            popperStyle = { ...style, zIndex: -1, visibility: 'hidden' };
           }
 &nbsp;
           return (
-            &lt;div ref={ref} style={{ zIndex, ...style }}&gt;
+            &lt;div ref={ref} style={popperStyle}&gt;
               &lt;StyledMenu
                 {...getMenuProps({
                   maxHeight,
                   placement: currentPlacement,
-                  animate,
+                  animate: isOpen &amp;&amp; animate, // Triggers animation start when open
                   style: computedStyle,
                   ...otherProps
                 })}
@@ -460,7 +505,7 @@ export default withTheme(Menu);
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Apr 30 2019 20:47:49 GMT+0000 (Coordinated Universal Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 06 2019 18:25:10 GMT+0000 (Coordinated Universal Time)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

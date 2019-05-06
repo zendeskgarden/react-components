@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1556657270360" clover="3.2.0">
-  <project timestamp="1556657270360" name="All files">
-    <metrics statements="2771" coveredstatements="2704" conditionals="1306" coveredconditionals="1149" methods="893" coveredmethods="869" elements="4970" coveredelements="4722" complexity="0" loc="2771" ncloc="2771" packages="85" files="240" classes="240"/>
+<coverage generated="1557167111303" clover="3.2.0">
+  <project timestamp="1557167111303" name="All files">
+    <metrics statements="2776" coveredstatements="2709" conditionals="1314" coveredconditionals="1157" methods="894" coveredmethods="870" elements="4984" coveredelements="4736" complexity="0" loc="2776" ncloc="2776" packages="85" files="240" classes="240"/>
     <package name="autocomplete.src.containers">
       <metrics statements="154" coveredstatements="152" conditionals="94" coveredconditionals="78" methods="46" coveredmethods="45"/>
       <file name="AutocompleteContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/autocomplete/src/containers/AutocompleteContainer.js">
@@ -917,27 +917,32 @@
       </file>
     </package>
     <package name="dropdowns.src.Menu">
-      <metrics statements="20" coveredstatements="20" conditionals="8" coveredconditionals="8" methods="2" coveredmethods="2"/>
+      <metrics statements="25" coveredstatements="25" conditionals="16" coveredconditionals="16" methods="3" coveredmethods="3"/>
       <file name="Menu.js" path="/home/travis/build/zendeskgarden/react-components/packages/dropdowns/src/Menu/Menu.js">
-        <metrics statements="18" coveredstatements="18" conditionals="8" coveredconditionals="8" methods="2" coveredmethods="2"/>
+        <metrics statements="23" coveredstatements="23" conditionals="16" coveredconditionals="16" methods="3" coveredmethods="3"/>
         <line num="17" count="12" type="stmt"/>
         <line num="22" count="12" type="stmt"/>
         <line num="32" count="135" type="stmt"/>
         <line num="39" count="135" type="stmt"/>
+        <line num="40" count="135" type="stmt"/>
         <line num="42" count="135" type="stmt"/>
-        <line num="43" count="135" type="stmt"/>
-        <line num="44" count="135" type="stmt"/>
-        <line num="46" count="135" type="cond" truecount="2" falsecount="0"/>
-        <line num="50" count="135" type="stmt"/>
-        <line num="54" count="185" type="stmt"/>
-        <line num="57" count="185" type="cond" truecount="2" falsecount="0"/>
-        <line num="61" count="36" type="stmt"/>
-        <line num="67" count="185" type="cond" truecount="2" falsecount="0"/>
-        <line num="68" count="66" type="stmt"/>
-        <line num="70" count="119" type="stmt"/>
-        <line num="77" count="185" type="stmt"/>
-        <line num="96" count="12" type="stmt"/>
-        <line num="128" count="12" type="stmt"/>
+        <line num="48" count="134" type="cond" truecount="2" falsecount="0"/>
+        <line num="49" count="66" type="cond" truecount="2" falsecount="0"/>
+        <line num="54" count="135" type="stmt"/>
+        <line num="55" count="135" type="stmt"/>
+        <line num="56" count="135" type="stmt"/>
+        <line num="58" count="135" type="cond" truecount="2" falsecount="0"/>
+        <line num="62" count="135" type="stmt"/>
+        <line num="71" count="185" type="stmt"/>
+        <line num="73" count="185" type="stmt"/>
+        <line num="76" count="185" type="cond" truecount="2" falsecount="0"/>
+        <line num="80" count="36" type="stmt"/>
+        <line num="86" count="185" type="stmt"/>
+        <line num="88" count="185" type="cond" truecount="2" falsecount="0"/>
+        <line num="89" count="119" type="stmt"/>
+        <line num="92" count="185" type="stmt"/>
+        <line num="111" count="12" type="stmt"/>
+        <line num="143" count="12" type="stmt"/>
       </file>
       <file name="Separator.js" path="/home/travis/build/zendeskgarden/react-components/packages/dropdowns/src/Menu/Separator.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
