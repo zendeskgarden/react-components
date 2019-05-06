@@ -35,7 +35,7 @@ describe('Menu', () => {
   it('applies hidden styling if closed', () => {
     const { getByTestId } = render(<ExampleMenu />);
 
-    expect(getByTestId('menu').style.display).toBe('none');
+    expect(getByTestId('menu').parentElement.parentElement.style.visibility).toBe('hidden');
   });
 
   it('removes hidden styling if open', () => {
@@ -43,7 +43,7 @@ describe('Menu', () => {
 
     fireEvent.click(getByTestId('trigger'));
 
-    expect(getByTestId('menu').style.display).toBe('');
+    expect(getByTestId('menu').parentElement.parentElement.style.visibility).toBe('');
   });
 
   it('applies custom width if full-width element is included in Dropdown', () => {

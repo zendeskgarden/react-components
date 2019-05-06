@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { createContext } from 'react';
+import React, { createContext, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Popper } from 'react-popper';
 import { withTheme, isRtl } from '@zendeskgarden/react-theming';
@@ -37,6 +37,18 @@ const Menu = props => {
     popperReferenceElementRef,
     downshift: { isOpen, getMenuProps }
   } = useDropdownContext();
+  const scheduleUpdateRef = useRef(undefined);
+
+  useEffect(() => {
+    /**
+     * Recalculate popper placement while open to allow animations to complete.
+     * This must be ran every render to allow for the number of items to change
+     * and still be placed correctly.
+     **/
+    if (isOpen) {
+      scheduleUpdateRef.current && scheduleUpdateRef.current();
+    }
+  });
 
   // Reset Downshift refs on every render
   itemIndexRef.current = 0;
@@ -49,9 +61,16 @@ const Menu = props => {
 
   return (
     <MenuContext.Provider value={{ itemIndexRef }}>
-      <Popper placement={popperPlacement} modifiers={popperModifiers} eventsEnabled={eventsEnabled}>
+      <Popper
+        placement={popperPlacement}
+        modifiers={popperModifiers}
+        // Disable position updating on scroll events while menu is closed
+        eventsEnabled={isOpen && eventsEnabled}
+      >
         {({ ref, style, scheduleUpdate, placement: currentPlacement }) => {
           let computedStyle = menuStyle;
+
+          scheduleUpdateRef.current = scheduleUpdate;
 
           // Calculate custom width if ref is provided from Select or Autocomplete
           if (
@@ -64,23 +83,19 @@ const Menu = props => {
             };
           }
 
-          if (isOpen) {
-            scheduleUpdate();
-          } else {
-            computedStyle = {
-              width: 0,
-              height: 0,
-              display: 'none'
-            };
+          let popperStyle = { ...style, zIndex };
+
+          if (!isOpen) {
+            popperStyle = { ...style, zIndex: -1, visibility: 'hidden' };
           }
 
           return (
-            <div ref={ref} style={{ zIndex, ...style }}>
+            <div ref={ref} style={popperStyle}>
               <StyledMenu
                 {...getMenuProps({
                   maxHeight,
                   placement: currentPlacement,
-                  animate,
+                  animate: isOpen && animate, // Triggers animation start when open
                   style: computedStyle,
                   ...otherProps
                 })}

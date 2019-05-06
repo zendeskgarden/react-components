@@ -29,7 +29,11 @@ export default class {
       // eslint-disable-next-line no-empty-function
       destroy: () => {},
       // eslint-disable-next-line no-empty-function
-      scheduleUpdate: () => {}
+      scheduleUpdate: () => {},
+      // eslint-disable-next-line no-empty-function
+      enableEventListeners: () => {},
+      // eslint-disable-next-line no-empty-function
+      disableEventListeners: () => {}
     };
   }
 }
