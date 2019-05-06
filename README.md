@@ -24,6 +24,7 @@ to install.
 | [`@zendeskgarden/react-checkboxes`](packages/checkboxes)       | [![npm version][checkboxes npm version]][checkboxes npm link]       | [![Dependency Status][checkboxes dependency status]][checkboxes dependency link]       |
 | [`@zendeskgarden/react-chrome`](packages/chrome)               | [![npm version][chrome npm version]][chrome npm link]               | [![Dependency Status][chrome dependency status]][chrome dependency link]               |
 | [`@zendeskgarden/react-dropdowns`](packages/dropdowns)         | [![npm version][dropdowns npm version]][dropdowns npm link]         | [![Dependency Status][dropdowns dependency status]][dropdowns dependency link]         |
+| [`@zendeskgarden/react-forms`](packages/forms)                 | [![npm version][forms npm version]][forms npm link]                 | [![Dependency Status][forms dependency status]][forms dependency link]                 |
 | [`@zendeskgarden/react-grid`](packages/grid)                   | [![npm version][grid npm version]][grid npm link]                   | [![Dependency Status][grid dependency status]][grid dependency link]                   |
 | [`@zendeskgarden/react-loaders`](packages/loaders)             | [![npm version][loaders npm version]][loaders npm link]             | [![Dependency Status][loaders dependency status]][loaders dependency link]             |
 | [`@zendeskgarden/react-modals`](packages/modals)               | [![npm version][modals npm version]][modals npm link]               | [![Dependency Status][modals dependency status]][modals dependency link]               |
@@ -71,6 +72,10 @@ to install.
 [dropdowns npm link]: https://www.npmjs.com/package/@zendeskgarden/react-dropdowns
 [dropdowns dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/dropdowns&style=flat-square
 [dropdowns dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/dropdowns
+[forms npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-forms.svg?style=flat-square
+[forms npm link]: https://www.npmjs.com/package/@zendeskgarden/react-forms
+[forms dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/forms&style=flat-square
+[forms dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/forms
 [grid npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-grid.svg?style=flat-square
 [grid npm link]: https://www.npmjs.com/package/@zendeskgarden/react-grid
 [grid dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/grid&style=flat-square
