@@ -33,8 +33,8 @@
   },
   "devDependencies": {
     "@zendeskgarden/css-arrows": "3.1.1",
-    "@zendeskgarden/css-forms": "7.0.8",
-    "@zendeskgarden/css-menus": "9.0.8",
+    "@zendeskgarden/css-forms": "7.0.9",
+    "@zendeskgarden/css-menus": "9.0.9",
     "@zendeskgarden/react-theming": "^3.2.1",
     "@zendeskgarden/svg-icons": "6.1.1",
     "lodash.debounce": "4.0.8"
