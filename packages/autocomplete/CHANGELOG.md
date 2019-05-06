@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.10](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-autocomplete@0.10.9...@zendeskgarden/react-autocomplete@0.10.10) (2019-05-06)
+
+**Note:** Version bump only for package @zendeskgarden/react-autocomplete
+
+
+
+
+
 ## [0.10.9](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-autocomplete@0.10.8...@zendeskgarden/react-autocomplete@0.10.9) (2019-04-30)
 
 **Note:** Version bump only for package @zendeskgarden/react-autocomplete
