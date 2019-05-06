@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "4.3.12",
+  "version": "4.3.13",
   "main": "./dist/index.js",
   "files": [
     "dist"
@@ -19,9 +19,9 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendeskgarden/react-modals": "^5.5.4",
+    "@zendeskgarden/react-modals": "^5.5.5",
     "@zendeskgarden/react-selection": "^4.6.2",
-    "@zendeskgarden/react-tooltips": "^5.0.7",
+    "@zendeskgarden/react-tooltips": "^5.0.8",
     "@zendeskgarden/react-utilities": "^0.2.5",
     "classnames": "^2.2.5",
     "react-popper": "^0.9.5",
@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@zendeskgarden/css-arrows": "3.1.1",
-    "@zendeskgarden/css-menus": "9.0.8",
+    "@zendeskgarden/css-menus": "9.0.9",
     "@zendeskgarden/react-theming": "^3.2.1",
     "@zendeskgarden/svg-icons": "6.1.1"
   },

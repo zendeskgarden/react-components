@@ -36,5 +36,6 @@
     "jest/no-disabled-tests": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn"
-  }
+  },
+  "overrides": [{ "files": ["*.spec.js"], "rules": { "react/prop-types": "off" } }]
 }
