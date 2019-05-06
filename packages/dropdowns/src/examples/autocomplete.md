@@ -44,7 +44,12 @@ function ExampleAutocomplete() {
   const filterMatchingOptionsRef = React.useRef(
     debounce(value => {
       const matchingOptions = options.filter(option => {
-        return option.toLowerCase().indexOf(value.toLowerCase()) !== -1;
+        return (
+          option
+            .trim()
+            .toLowerCase()
+            .indexOf(value.trim().toLowerCase()) !== -1
+        );
       });
 
       setMatchingOptions(matchingOptions);
@@ -71,15 +76,21 @@ function ExampleAutocomplete() {
     <Dropdown
       inputValue={inputValue}
       selectedItem={selectedItem}
-      onInputValueChange={inputValue => setInputValue(inputValue)}
       onSelect={item => setSelectedItem(item)}
+      onStateChange={changes => {
+        if (Object.prototype.hasOwnProperty.call(changes, 'inputValue')) {
+          setInputValue(changes.inputValue);
+        }
+      }}
       downshiftProps={{ defaultHighlightedIndex: 0 }}
     >
       <Field>
         <Label>Autocomplete with debounce</Label>
         <Hint>This example includes basic debounce logic using Hooks</Hint>
         <Autocomplete>
-          <span aria-label="Garden emoji">🌱</span>
+          <span aria-label="Garden emoji" role="image">
+            🌱
+          </span>
           {selectedItem}
         </Autocomplete>
       </Field>

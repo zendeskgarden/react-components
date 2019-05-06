@@ -69,7 +69,11 @@ initialState = {
 
 <Dropdown
   isOpen={state.isOpen}
-  onOpen={isOpen => setState({ isOpen })}
+  onStateChange={changes => {
+    if (Object.prototype.hasOwnProperty.call(changes, 'isOpen')) {
+      setState({ isOpen: changes.isOpen });
+    }
+  }}
   onSelect={item => alert(item)}
 >
   <Trigger refKey="innerRef">
@@ -132,16 +136,19 @@ initialState = {
 <Dropdown
   onSelect={item => alert(item)}
   isOpen={state.isOpen}
-  onOpen={isOpen =>
-    setState({ isOpen }, () => {
-      if (isOpen) {
-        setState({ isLoading: true });
-        setTimeout(() => {
-          setState({ isLoading: false });
-        }, 2000);
-      }
-    })
-  }
+  onStateChange={changes => {
+    if (Object.prototype.hasOwnProperty.call(changes, 'isOpen')) {
+      setState({ isOpen: changes.isOpen }, () => {
+        if (changes.isOpen) {
+          setState({ isLoading: true }, () => {
+            setTimeout(() => {
+              setState({ isLoading: false });
+            }, 2000);
+          });
+        }
+      });
+    }
+  }}
 >
   <Trigger refKey="innerRef">
     <Button active={state.isOpen}>Async Loading</Button>
@@ -205,19 +212,27 @@ const renderItems = () => {
 
 <Dropdown
   isOpen={state.isOpen}
-  onOpen={isOpen => {
-    setState({ isOpen, tempSelectedItem: undefined });
-  }}
-  onSelect={(item, stateAndHelpers) => {
-    const isOpen = item === 'specific-settings' || item === 'general-settings';
+  onStateChange={(changes, stateAndHelpers) => {
+    const updatedState = {};
 
-    setState({ tempSelectedItem: item, isOpen }, () => {
-      if (item === 'specific-settings') {
+    if (Object.prototype.hasOwnProperty.call(changes, 'isOpen')) {
+      updatedState.isOpen =
+        changes.selectedItem === 'specific-settings' ||
+        changes.selectedItem === 'general-settings' ||
+        changes.isOpen;
+    }
+
+    if (Object.prototype.hasOwnProperty.call(changes, 'selectedItem')) {
+      updatedState.tempSelectedItem = changes.selectedItem;
+
+      if (updatedState.tempSelectedItem === 'specific-settings') {
         stateAndHelpers.setHighlightedIndex(1);
-      } else if (item === 'general-settings') {
+      } else if (updatedState.tempSelectedItem === 'general-settings') {
         stateAndHelpers.setHighlightedIndex(3);
       }
-    });
+    }
+
+    setState(updatedState);
   }}
 >
   <Trigger refKey="innerRef">
