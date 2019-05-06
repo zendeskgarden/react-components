@@ -7,23 +7,23 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import StyledTextArea from './StyledTextArea';
+import StyledTextarea from './StyledTextarea';
 
-describe('StyledTextArea', () => {
+describe('StyledTextarea', () => {
   it('renders default styling correctly', () => {
-    const { container } = render(<StyledTextArea />);
+    const { container } = render(<StyledTextarea />);
 
     expect(container.firstChild).toHaveClass('c-txt__input--area');
   });
 
   it('renders resizable styling correctly', () => {
-    const { container } = render(<StyledTextArea resizable />);
+    const { container } = render(<StyledTextarea resizable />);
 
     expect(container.firstChild).toHaveClass('is-resizable');
   });
 
   it('renders RTL styling correctly', () => {
-    const { container } = renderRtl(<StyledTextArea />);
+    const { container } = renderRtl(<StyledTextarea />);
 
     expect(container.firstChild).toHaveClass('is-rtl');
   });
