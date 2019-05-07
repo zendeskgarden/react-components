@@ -6,13 +6,13 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 import Paragraph from './Paragraph';
 
 describe('Paragraph', () => {
   it('renders default styling correctly', () => {
-    const wrapper = shallow(<Paragraph />);
+    const { container } = render(<Paragraph />);
 
-    expect(wrapper).toHaveClassName('c-tooltip__paragraph');
+    expect(container.firstChild).toHaveClass('c-tooltip__paragraph');
   });
 });

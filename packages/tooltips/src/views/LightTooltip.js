@@ -40,11 +40,11 @@ const PLACEMENT = {
 /**
  * Accepts all `<div>` props
  */
-const LightTooltip = styled(TooltipView).attrs({
+const LightTooltip = styled(TooltipView).attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: classNames(TooltipStyles['c-tooltip--light'])
-})`
+  className: classNames(props.className, TooltipStyles['c-tooltip--light'])
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
