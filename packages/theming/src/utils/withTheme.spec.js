@@ -6,21 +6,25 @@
  */
 
 import React from 'react';
-import { shallowWithTheme } from '@zendeskgarden/react-testing';
+import { render, renderRtl } from 'garden-test-utils';
 import withTheme from './withTheme';
 
+const Example = ({ theme: { rtl } }) => {
+  return <div data-rtl={rtl ? rtl : false}>test</div>;
+};
+
+const ThemedExample = withTheme(Example);
+
 describe('withTheme', () => {
-  it('should apply theme prop to component', () => {
-    const Example = props => <div {...props} />;
-    const ThemedExample = withTheme(Example);
-    const wrapper = shallowWithTheme(<ThemedExample />, {
-      rtl: true,
-      theme: { 'custom-id': 'color: red;' }
-    });
+  it('should apply theme prop to component with correct value in LTR mode', () => {
+    const { container } = render(<ThemedExample />);
 
-    const theme = wrapper.prop('theme');
+    expect(container.firstChild).toHaveAttribute('data-rtl', 'false');
+  });
 
-    expect(theme.rtl).toBe(true);
-    expect(theme.styles['custom-id']).toBe('color: red;');
+  it('should apply theme prop to component with correct value in RTL mode', () => {
+    const { container } = renderRtl(<ThemedExample />);
+
+    expect(container.firstChild).toHaveAttribute('data-rtl', 'true');
   });
 });
