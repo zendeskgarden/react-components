@@ -6,32 +6,32 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 
 import Cell from './Cell';
 
 describe('Cell', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Cell />);
+    const { container } = render(<Cell />);
 
-    expect(wrapper).toHaveClassName('c-table__row__cell');
+    expect(container.firstChild).toHaveClass('c-table__row__cell');
   });
 
   it('renders minimum styling if provided', () => {
-    const wrapper = shallow(<Cell minimum />);
+    const { container } = render(<Cell minimum />);
 
-    expect(wrapper).toHaveClassName('c-table__row__cell--min');
+    expect(container.firstChild).toHaveClass('c-table__row__cell--min');
   });
 
   it('renders truncation styling if provided', () => {
-    const wrapper = shallow(<Cell truncate />);
+    const { container } = render(<Cell truncate />);
 
-    expect(wrapper).toHaveClassName('c-table__row__cell--truncate');
+    expect(container.firstChild).toHaveClass('c-table__row__cell--truncate');
   });
 
   it('renders menu styling if provided', () => {
-    const wrapper = shallow(<Cell menu />);
+    const { container } = render(<Cell menu />);
 
-    expect(wrapper).toHaveClassName('c-table__row__cell--overflow');
+    expect(container.firstChild).toHaveClass('c-table__row__cell--overflow');
   });
 });

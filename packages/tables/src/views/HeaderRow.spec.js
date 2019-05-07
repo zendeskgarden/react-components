@@ -6,15 +6,15 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 
 import HeaderRow from './HeaderRow';
 
 describe('HeaderRow', () => {
   it('applies default styling by default', () => {
-    const wrapper = shallow(<HeaderRow />);
+    const { container } = render(<HeaderRow />);
 
-    expect(wrapper).toHaveClassName('c-table__row');
-    expect(wrapper).toHaveClassName('c-table__row--header');
+    expect(container.firstChild).toHaveClass('c-table__row');
+    expect(container.firstChild).toHaveClass('c-table__row--header');
   });
 });
