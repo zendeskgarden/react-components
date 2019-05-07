@@ -139,11 +139,13 @@ describe('Dropdown', () => {
 
   describe('Event handlers', () => {
     it('calls onOpen handler if controlled', () => {
-      const onOpenSpy = jest.fn();
-      const { getByTestId } = render(<ExampleDropdown isOpen={false} onOpen={onOpenSpy} />);
+      const onStateChangeSpy = jest.fn();
+      const { getByTestId } = render(
+        <ExampleDropdown isOpen={false} onStateChange={onStateChangeSpy} />
+      );
 
       fireEvent.click(getByTestId('trigger'));
-      expect(onOpenSpy.mock.calls[0][0]).toBe(true);
+      expect(onStateChangeSpy.mock.calls[0][0]).toMatchObject({ isOpen: true });
     });
 
     it('calls onSelect handler correctly if controlled with single value', () => {
@@ -183,25 +185,30 @@ describe('Dropdown', () => {
     });
 
     it('calls onHighlight handler if controlled', () => {
-      const onHighlightSpy = jest.fn();
-      const { getByTestId, getAllByTestId } = render(
-        <ExampleDropdown selectedItem="item-1" highlightedIndex={0} onHighlight={onHighlightSpy} />
+      const onStateChangeSpy = jest.fn();
+      const { container, getByTestId } = render(
+        <ExampleDropdown
+          selectedItem="item-1"
+          downshiftProps={{ defaultHighlightedIndex: 1 }}
+          onStateChange={onStateChangeSpy}
+        />
       );
 
       fireEvent.click(getByTestId('trigger'));
-      fireEvent.click(getAllByTestId('item')[0]);
-      expect(onHighlightSpy.mock.calls[0][0]).toBe(1);
+      fireEvent.keyDown(container.querySelector('input'), { key: 'ArrowDown', keyCode: 40 });
+
+      expect(onStateChangeSpy.mock.calls[1][0]).toMatchObject({ highlightedIndex: 2 });
     });
 
-    it('calls onInputValueChange handler if controlled', () => {
-      const onInputValueChangeSpy = jest.fn();
-      const { container, getAllByTestId } = render(
-        <ExampleDropdown inputValue="test" onInputValueChange={onInputValueChangeSpy} />
+    it('calls onStateChange with inputValue if controlled', () => {
+      const onStateChangeSpy = jest.fn();
+      const { container } = render(
+        <ExampleDropdown inputValue="test" onStateChange={onStateChangeSpy} />
       );
 
       fireEvent.change(container.querySelector('input'), { target: { value: 'test1' } });
-      fireEvent.click(getAllByTestId('item')[0]);
-      expect(onInputValueChangeSpy.mock.calls[0][0]).toBe('test1');
+
+      expect(onStateChangeSpy.mock.calls[0][0]).toMatchObject({ inputValue: 'test1' });
     });
   });
 });

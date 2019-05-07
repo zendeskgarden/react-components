@@ -26,10 +26,8 @@ function Dropdown(props) {
     selectedItems,
     highlightedIndex,
     inputValue,
-    onOpen,
     onSelect,
-    onHighlight,
-    onInputValueChange,
+    onStateChange,
     downshiftProps
   } = props;
   // Refs used to handle custom Garden keyboard nav
@@ -114,11 +112,10 @@ function Dropdown(props) {
         selectedItem={selectedItem || null} // Ensures that selectedItem never becomes controlled internally by Downshift
         inputValue={inputValue}
         onStateChange={(changes, stateAndHelpers) => {
-          if (Object.prototype.hasOwnProperty.call(changes, 'isOpen')) {
-            onOpen && onOpen(changes.isOpen, stateAndHelpers);
-          }
-
-          if (Object.prototype.hasOwnProperty.call(changes, 'selectedItem')) {
+          if (
+            Object.prototype.hasOwnProperty.call(changes, 'selectedItem') &&
+            changes.selectedItem !== null
+          ) {
             if (selectedItems) {
               const { itemToString } = stateAndHelpers;
               const existingItemIndex = selectedItems.findIndex(item => {
@@ -132,18 +129,39 @@ function Dropdown(props) {
                 updatedSelectedItems.splice(existingItemIndex, 1);
               }
 
+              /**
+               * Customize the changes returned from `onStateChange` as
+               * Downshift has no concept of a "multiselect".
+               **/
+              changes.selectedItems = updatedSelectedItems;
+              delete changes.selectedItem;
+
               onSelect && onSelect(updatedSelectedItems, stateAndHelpers);
             } else {
               onSelect && onSelect(changes.selectedItem, stateAndHelpers);
             }
           }
 
-          if (Object.prototype.hasOwnProperty.call(changes, 'highlightedIndex')) {
-            onHighlight && onHighlight(changes.highlightedIndex, stateAndHelpers);
-          }
-
-          if (Object.prototype.hasOwnProperty.call(changes, 'inputValue')) {
-            onInputValueChange && onInputValueChange(changes.inputValue, stateAndHelpers);
+          onStateChange && onStateChange(changes, stateAndHelpers);
+        }}
+        stateReducer={(_state, changes) => {
+          /**
+           * Set inputValue to an empty string during any event that updates the inputValue
+           */
+          switch (changes.type) {
+            case Downshift.stateChangeTypes.controlledPropUpdatedSelectedItem:
+            case Downshift.stateChangeTypes.mouseUp:
+            case Downshift.stateChangeTypes.keyDownEnter:
+            case Downshift.stateChangeTypes.clickItem:
+            case Downshift.stateChangeTypes.clickButton:
+            case Downshift.stateChangeTypes.keyDownSpaceButton:
+            case Downshift.stateChangeTypes.blurButton:
+              return {
+                ...changes,
+                inputValue: ''
+              };
+            default:
+              return changes;
           }
         }}
         {...downshiftProps}
@@ -175,10 +193,8 @@ Dropdown.propTypes = {
   selectedItems: PropTypes.arrayOf(PropTypes.any),
   highlightedIndex: PropTypes.number,
   inputValue: PropTypes.string,
-  onOpen: PropTypes.func,
   onSelect: PropTypes.func,
-  onHighlight: PropTypes.func,
-  onInputValueChange: PropTypes.func,
+  onStateChange: PropTypes.func,
   downshiftProps: PropTypes.object
 };
 
