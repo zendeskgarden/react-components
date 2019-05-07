@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-dropdowns@0.1.3...@zendeskgarden/react-dropdowns@0.2.0) (2019-05-07)
+
+
+### Features
+
+* **dropdowns:** migrate Dropdown to use an onStateChange handler ([#326](https://github.com/zendeskgarden/react-components/issues/326)) ([c7942ae](https://github.com/zendeskgarden/react-components/commit/c7942ae))
+
+
+
+
+
 ## [0.1.3](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-dropdowns@0.1.2...@zendeskgarden/react-dropdowns@0.1.3) (2019-05-06)
 
 **Note:** Version bump only for package @zendeskgarden/react-dropdowns
