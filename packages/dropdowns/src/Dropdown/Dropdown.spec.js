@@ -207,7 +207,7 @@ describe('Dropdown', () => {
       );
 
       fireEvent.change(container.querySelector('input'), { target: { value: 'test1' } });
-      // fireEvent.click(getAllByTestId('item')[0]);
+
       expect(onStateChangeSpy.mock.calls[0][0]).toMatchObject({ inputValue: 'test1' });
     });
   });
