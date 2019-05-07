@@ -8,7 +8,7 @@
 import React, { createContext } from 'react';
 import PropTypes from 'prop-types';
 import { useKeyboardFocus } from '@zendeskgarden/container-keyboardfocus';
-import { composeEventHandlers } from '@zendeskgarden/container-selection';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { FieldContext } from './common/FieldProvider';
 import useFieldContext from '../utils/useFieldContext';
 import { StyledCheck, StyledCheckInput } from '../styled';

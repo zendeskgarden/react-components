@@ -7,7 +7,7 @@
 
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import { composeEventHandlers } from '@zendeskgarden/container-selection';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import useFieldContext from '../../utils/useFieldContext';
 import { StyledTextMediaInput, StyledTextMediaFigure } from '../../styled';
 import FauxInput from './FauxInput';

@@ -8,7 +8,7 @@
 
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { composeEventHandlers } from '@zendeskgarden/container-selection';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { StyledTextFauxInput } from '../../styled';
 
 const VALIDATION = {
