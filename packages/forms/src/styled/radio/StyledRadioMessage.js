@@ -8,14 +8,9 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
+import VALIDATION from '../../utils/validation';
 import StyledCheckMessage from '../checkboxes/StyledCheckMessage';
 import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
-
-const VALIDATION = {
-  SUCCESS: 'success',
-  WARNING: 'warning',
-  ERROR: 'error'
-};
 
 /**
  * Accepts all `<div>` props

@@ -21,7 +21,6 @@ to install.
 | [`@zendeskgarden/react-avatars`](packages/avatars)             | [![npm version][avatars npm version]][avatars npm link]             | [![Dependency Status][avatars dependency status]][avatars dependency link]             |
 | [`@zendeskgarden/react-breadcrumbs`](packages/breadcrumbs)     | [![npm version][breadcrumbs npm version]][breadcrumbs npm link]     | [![Dependency Status][breadcrumbs dependency status]][breadcrumbs dependency link]     |
 | [`@zendeskgarden/react-buttons`](packages/buttons)             | [![npm version][buttons npm version]][buttons npm link]             | [![Dependency Status][buttons dependency status]][buttons dependency link]             |
-| [`@zendeskgarden/react-checkboxes`](packages/checkboxes)       | [![npm version][checkboxes npm version]][checkboxes npm link]       | [![Dependency Status][checkboxes dependency status]][checkboxes dependency link]       |
 | [`@zendeskgarden/react-chrome`](packages/chrome)               | [![npm version][chrome npm version]][chrome npm link]               | [![Dependency Status][chrome dependency status]][chrome dependency link]               |
 | [`@zendeskgarden/react-dropdowns`](packages/dropdowns)         | [![npm version][dropdowns npm version]][dropdowns npm link]         | [![Dependency Status][dropdowns dependency status]][dropdowns dependency link]         |
 | [`@zendeskgarden/react-forms`](packages/forms)                 | [![npm version][forms npm version]][forms npm link]                 | [![Dependency Status][forms dependency status]][forms dependency link]                 |
@@ -30,16 +29,13 @@ to install.
 | [`@zendeskgarden/react-modals`](packages/modals)               | [![npm version][modals npm version]][modals npm link]               | [![Dependency Status][modals dependency status]][modals dependency link]               |
 | [`@zendeskgarden/react-notifications`](packages/notifications) | [![npm version][notifications npm version]][notifications npm link] | [![Dependency Status][notifications dependency status]][notifications dependency link] |
 | [`@zendeskgarden/react-pagination`](packages/pagination)       | [![npm version][pagination npm version]][pagination npm link]       | [![Dependency Status][pagination dependency status]][pagination dependency link]       |
-| [`@zendeskgarden/react-radios`](packages/radios)               | [![npm version][radios npm version]][radios npm link]               | [![Dependency Status][radios dependency status]][radios dependency link]               |
 | [`@zendeskgarden/react-ranges`](packages/ranges)               | [![npm version][ranges npm version]][ranges npm link]               | [![Dependency Status][ranges dependency status]][ranges dependency link]               |
 | [`@zendeskgarden/react-selection`](packages/selection)         | [![npm version][selection npm version]][selection npm link]         | [![Dependency Status][selection dependency status]][selection dependency link]         |
 | [`@zendeskgarden/react-tabs`](packages/tabs)                   | [![npm version][tabs npm version]][tabs npm link]                   | [![Dependency Status][tabs dependency status]][tabs dependency link]                   |
 | [`@zendeskgarden/react-tables`](packages/tables)               | [![npm version][tables npm version]][tables npm link]               | [![Dependency Status][tables dependency status]][tables dependency link]               |
 | [`@zendeskgarden/react-tags`](packages/tags)                   | [![npm version][tags npm version]][tags npm link]                   | [![Dependency Status][tags dependency status]][tags dependency link]                   |
 | [`@zendeskgarden/react-testing`](packages/testing)             | [![npm version][testing npm version]][testing npm link]             | [![Dependency Status][testing dependency status]][testing dependency link]             |
-| [`@zendeskgarden/react-textfields`](packages/textfields)       | [![npm version][textfields npm version]][textfields npm link]       | [![Dependency Status][textfields dependency status]][textfields dependency link]       |
 | [`@zendeskgarden/react-theming`](packages/theming)             | [![npm version][theming npm version]][theming npm link]             | [![Dependency Status][theming dependency status]][theming dependency link]             |
-| [`@zendeskgarden/react-toggles`](packages/toggles)             | [![npm version][toggles npm version]][toggles npm link]             | [![Dependency Status][toggles dependency status]][toggles dependency link]             |
 | [`@zendeskgarden/react-tooltips`](packages/tooltips)           | [![npm version][tooltips npm version]][tooltips npm link]           | [![Dependency Status][tooltips dependency status]][tooltips dependency link]           |
 | [`@zendeskgarden/react-typography`](packages/typography)       | [![npm version][typography npm version]][typography npm link]       | [![Dependency Status][typography dependency status]][typography dependency link]       |
 | [`@zendeskgarden/react-utilities`](packages/utilities)         | [![npm version][utilities npm version]][utilities npm link]         | [![Dependency Status][utilities dependency status]][utilities dependency link]         |
@@ -60,10 +56,6 @@ to install.
 [buttons npm link]: https://www.npmjs.com/package/@zendeskgarden/react-buttons
 [buttons dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/buttons&style=flat-square
 [buttons dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/buttons
-[checkboxes npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-checkboxes.svg?style=flat-square
-[checkboxes npm link]: https://www.npmjs.com/package/@zendeskgarden/react-checkboxes
-[checkboxes dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/checkboxes&style=flat-square
-[checkboxes dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/checkboxes
 [chrome npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-chrome.svg?style=flat-square
 [chrome npm link]: https://www.npmjs.com/package/@zendeskgarden/react-chrome
 [chrome dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/chrome&style=flat-square
@@ -96,10 +88,6 @@ to install.
 [pagination npm link]: https://www.npmjs.com/package/@zendeskgarden/react-pagination
 [pagination dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/pagination&style=flat-square
 [pagination dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/pagination
-[radios npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-radios.svg?style=flat-square
-[radios npm link]: https://www.npmjs.com/package/@zendeskgarden/react-radios
-[radios dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/radios&style=flat-square
-[radios dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/radios
 [ranges npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-ranges.svg?style=flat-square
 [ranges npm link]: https://www.npmjs.com/package/@zendeskgarden/react-ranges
 [ranges dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/ranges&style=flat-square
@@ -124,18 +112,10 @@ to install.
 [testing npm link]: https://www.npmjs.com/package/@zendeskgarden/react-testing
 [testing dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/testing&style=flat-square
 [testing dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/testing
-[textfields npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-textfields.svg?style=flat-square
-[textfields npm link]: https://www.npmjs.com/package/@zendeskgarden/react-textfields
-[textfields dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/textfields&style=flat-square
-[textfields dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/textfields
 [theming npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-theming.svg?style=flat-square
 [theming npm link]: https://www.npmjs.com/package/@zendeskgarden/react-theming
 [theming dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/theming&style=flat-square
 [theming dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/theming
-[toggles npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-toggles.svg?style=flat-square
-[toggles npm link]: https://www.npmjs.com/package/@zendeskgarden/react-toggles
-[toggles dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/toggles&style=flat-square
-[toggles dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/toggles
 [tooltips npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-tooltips.svg?style=flat-square
 [tooltips npm link]: https://www.npmjs.com/package/@zendeskgarden/react-tooltips
 [tooltips dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/tooltips&style=flat-square

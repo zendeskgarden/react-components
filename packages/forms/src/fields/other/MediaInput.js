@@ -13,7 +13,7 @@ import { StyledTextMediaInput, StyledTextMediaFigure } from '../../styled';
 import FauxInput from './FauxInput';
 
 /**
- * Accepts all <input> props.
+ * Accepts all `<input />` props.
  */
 function MediaInput({ wrapperProps = {}, start, end, ...props }) {
   const { getInputProps } = useFieldContext();

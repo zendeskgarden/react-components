@@ -10,12 +10,7 @@ import styled from 'styled-components';
 import classNames from 'classnames';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
-
-const VALIDATION = {
-  SUCCESS: 'success',
-  WARNING: 'warning',
-  ERROR: 'error'
-};
+import VALIDATION from '../../utils/validation';
 
 const isInvalid = validation => {
   return validation === VALIDATION.WARNING || validation === VALIDATION.ERROR;

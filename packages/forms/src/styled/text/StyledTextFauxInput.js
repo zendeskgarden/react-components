@@ -6,13 +6,8 @@
  */
 
 import PropTypes from 'prop-types';
+import VALIDATION from '../../utils/validation';
 import StyledTextInput from './StyledTextInput';
-
-const VALIDATION = {
-  SUCCESS: 'success',
-  WARNING: 'warning',
-  ERROR: 'error'
-};
 
 const StyledTextFauxInput = StyledTextInput.withComponent('div');
 

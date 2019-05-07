@@ -10,12 +10,7 @@ import styled from 'styled-components';
 import classNames from 'classnames';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
-
-const VALIDATION = {
-  SUCCESS: 'success',
-  WARNING: 'warning',
-  ERROR: 'error'
-};
+import VALIDATION from '../../utils/validation';
 
 /**
  * Accepts all `<div>` props

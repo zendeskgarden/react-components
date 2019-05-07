@@ -54,12 +54,7 @@ Input.propTypes = {
   hovered: PropTypes.bool,
   /** Displays select open state */
   open: PropTypes.bool,
-  validation: PropTypes.oneOf([
-    VALIDATION.SUCCESS,
-    VALIDATION.WARNING,
-    VALIDATION.ERROR,
-    VALIDATION.NONE
-  ])
+  validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
 };
 
 export default Input;
