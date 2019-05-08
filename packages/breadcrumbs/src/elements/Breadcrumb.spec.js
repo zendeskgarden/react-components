@@ -6,81 +6,72 @@
  */
 
 import React from 'react';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
+import { render } from 'garden-test-utils';
 
 import Breadcrumb from './Breadcrumb';
-import BreadcrumbView from '../views/BreadcrumbView';
-import List from '../views/List';
 import Item from '../views/Item';
 
+const BasicExample = () => (
+  <Breadcrumb data-test-id="breadcrumb">
+    <a data-test-id="item" href="/#">
+      One
+    </a>
+    <a data-test-id="item" href="/#">
+      Two
+    </a>
+    <Item data-test-id="item">Three</Item>
+  </Breadcrumb>
+);
+
 describe('Breadcrumb', () => {
-  let wrapper;
-
-  beforeEach(() => {
-    wrapper = mountWithTheme(
-      <Breadcrumb data-test-breadcrumb={true}>
-        <a href="/#">One</a>
-        <a data-test-anchor={true} href="/#">
-          Two
-        </a>
-        <Item data-test-item={true}>Three</Item>
-      </Breadcrumb>
-    );
-  });
-
   describe('BreadcrumbView', () => {
     it('receives BreadcrumbContainer props', () => {
-      expect(wrapper.find(BreadcrumbView)).toHaveProp('aria-label', 'Breadcrumb navigation');
+      const { getByTestId } = render(<BasicExample />);
+
+      expect(getByTestId('breadcrumb').parentElement).toHaveAttribute(
+        'aria-label',
+        'Breadcrumb navigation'
+      );
     });
 
     it('does not receive BreadcrumbContainer `role` prop', () => {
-      expect(wrapper.find(BreadcrumbView)).not.toHaveProp('role', 'navigation');
-    });
-  });
+      const { getByTestId } = render(<BasicExample />);
 
-  describe('List', () => {
-    it('receives Breadcrumb props', () => {
-      expect(wrapper.find(List)).toHaveProp('data-test-breadcrumb', true);
+      expect(getByTestId('breadcrumb').parentElement).not.toHaveAttribute('role');
     });
   });
 
   describe('Anchor List', () => {
-    wrapper = mountWithTheme(
-      <Breadcrumb>
-        <a href="/#">First</a>
-        <a href="/#">Last</a>
-      </Breadcrumb>
-    );
+    it('applies current aria values correctly', () => {
+      const { getAllByTestId } = render(
+        <Breadcrumb>
+          <a href="/#" data-test-id="item">
+            First
+          </a>
+          <a href="/#" data-test-id="item">
+            Last
+          </a>
+        </Breadcrumb>
+      );
 
-    expect(
-      wrapper
-        .find(Item)
-        .first()
-        .find('a')
-    ).not.toHaveProp('aria-current', 'page');
-    expect(
-      wrapper
-        .find(Item)
-        .last()
-        .find('a')
-    ).toHaveProp('aria-current', 'page');
+      const items = getAllByTestId('item');
+
+      expect(items[0]).not.toHaveAttribute('aria-current');
+      expect(items[1]).toHaveAttribute('aria-current', 'page');
+    });
   });
 
   describe('Item', () => {
-    it('receives Item props', () => {
-      expect(wrapper.find(Item).last()).toHaveProp('data-test-item', true);
-    });
-
-    it('does not receive non-Item props', () => {
-      expect(wrapper.find(Item).at(1)).not.toHaveProp('data-test-anchor', true);
-    });
-
     it('receives current styling if last', () => {
-      expect(wrapper.find(Item).last()).toHaveProp('current', true);
+      const { getAllByTestId } = render(<BasicExample />);
+
+      expect(getAllByTestId('item')[2]).toHaveClass('is-current');
     });
 
     it('does not receive current styling if not last', () => {
-      expect(wrapper.find(Item).first()).not.toHaveProp('current', true);
+      const { getAllByTestId } = render(<BasicExample />);
+
+      expect(getAllByTestId('item')[0]).not.toHaveClass('is-current');
     });
   });
 });

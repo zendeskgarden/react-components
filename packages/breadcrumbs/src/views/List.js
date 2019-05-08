@@ -15,15 +15,14 @@ const COMPONENT_ID = 'breadcrumbs.list';
 /**
  * Accepts all `<ol>` props
  */
-const List = styled.ol.attrs({
+const List = styled.ol.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(BreadcrumbStyles['c-breadcrumb'], {
-      // RTL
-      [BreadcrumbStyles['is-rtl']]: isRtl(props)
-    })
-})`
+  className: classNames(BreadcrumbStyles['c-breadcrumb'], {
+    // RTL
+    [BreadcrumbStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
