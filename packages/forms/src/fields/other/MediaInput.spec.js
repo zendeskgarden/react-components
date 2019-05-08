@@ -7,15 +7,15 @@
 
 import React from 'react';
 import { render, fireEvent } from 'garden-test-utils';
-import { FieldProvider, MediaInput } from '../../';
+import { Field, MediaInput } from '../../';
 
 const Example = () => (
-  <FieldProvider>
+  <Field>
     <MediaInput
       start={<span data-test-id="start">start</span>}
       end={<span data-test-id="end">end</span>}
     />
-  </FieldProvider>
+  </Field>
 );
 
 describe('MediaInput', () => {

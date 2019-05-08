@@ -1,10 +1,10 @@
 ```jsx
-<FieldProvider>
+<Field>
   <Checkbox>
     <Label>Example checkbox</Label>
     <Hint>Hints are included</Hint>
   </Checkbox>
-</FieldProvider>
+</Field>
 ```
 
 ### Validation States
@@ -18,7 +18,7 @@ getValidationType = isChecked => (isChecked ? 'success' : 'error');
 getValidationMessage = isChecked =>
   isChecked ? 'Thanks for checking that' : 'You must enable this checkbox';
 
-<FieldProvider>
+<Field>
   <Checkbox
     checked={state.isChecked}
     onChange={event => setState({ isChecked: event.target.checked })}
@@ -29,7 +29,7 @@ getValidationMessage = isChecked =>
       {getValidationMessage(state.isChecked)}
     </Message>
   </Checkbox>
-</FieldProvider>;
+</Field>;
 ```
 
 ### Visual States
@@ -38,53 +38,53 @@ getValidationMessage = isChecked =>
 <Grid>
   <Row>
     <Col md={3}>
-      <FieldProvider>
+      <Field>
         <Checkbox>
           <Label regular>Regular Label</Label>
         </Checkbox>
-      </FieldProvider>
+      </Field>
     </Col>
     <Col md={3}>
-      <FieldProvider>
+      <Field>
         <Checkbox>
           <Label checked>Checked Label</Label>
         </Checkbox>
-      </FieldProvider>
+      </Field>
     </Col>
     <Col md={3}>
-      <FieldProvider>
+      <Field>
         <Checkbox>
           <Label hidden>Hidden Label</Label>
         </Checkbox>
-      </FieldProvider>
+      </Field>
     </Col>
     <Col md={3}>
-      <FieldProvider>
+      <Field>
         <Checkbox>
           <Label indeterminate>Indeterminate Label</Label>
         </Checkbox>
-      </FieldProvider>
+      </Field>
     </Col>
     <Col md={3}>
-      <FieldProvider>
+      <Field>
         <Checkbox>
           <Label hovered>Hovered Label</Label>
         </Checkbox>
-      </FieldProvider>
+      </Field>
     </Col>
     <Col md={3}>
-      <FieldProvider>
+      <Field>
         <Checkbox>
           <Label focused>Focused Label</Label>
         </Checkbox>
-      </FieldProvider>
+      </Field>
     </Col>
     <Col md={3}>
-      <FieldProvider>
+      <Field>
         <Checkbox disabled>
           <Label>Disabled Label</Label>
         </Checkbox>
-      </FieldProvider>
+      </Field>
     </Col>
   </Row>
 </Grid>

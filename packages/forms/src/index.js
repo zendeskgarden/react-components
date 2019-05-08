@@ -8,7 +8,7 @@
 import * as styledElements from './styled';
 
 /** Common */
-export { default as FieldProvider } from './fields/common/FieldProvider';
+export { default as Field } from './fields/common/Field';
 export { default as Hint } from './fields/common/Hint';
 export { default as Label } from './fields/common/Label';
 export { default as Message } from './fields/common/Message';

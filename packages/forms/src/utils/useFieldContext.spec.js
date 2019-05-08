@@ -8,7 +8,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import FieldProvider from '../fields/common/FieldProvider';
+import Field from '../fields/common/Field';
 import useFieldContext from '../utils/useFieldContext';
 
 describe('useFieldContext', () => {
@@ -18,7 +18,7 @@ describe('useFieldContext', () => {
     return <div>{context && 'it worked'}</div>;
   };
 
-  it('throws if called outside of FieldProvider component', () => {
+  it('throws if called outside of Field component', () => {
     const originalError = console.error;
 
     console.error = jest.fn();
@@ -32,11 +32,11 @@ describe('useFieldContext', () => {
     console.error = originalError;
   });
 
-  it('does not throw if called within FieldProvider component', () => {
+  it('does not throw if called within Field component', () => {
     const Example = () => (
-      <FieldProvider>
+      <Field>
         <FieldContextConsumer />
-      </FieldProvider>
+      </Field>
     );
 
     expect(() => {

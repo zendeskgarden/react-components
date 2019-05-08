@@ -14,10 +14,10 @@ const Example = () => {
   const [value, setValue] = React.useState('');
 
   return (
-    <FieldProvider>
+    <Field>
       <Label data-custom-value="this-is-available">Custom Label</Label>
       <Input value={value} onChange={e => setValue(e.target.value)} />
-    </FieldProvider>
+    </Field>
   );
 };
 ```
@@ -27,7 +27,7 @@ const Example = () => {
 A common set of core components provide accessibility attributes and dynamically change
 styling based on which form field they are rendered within.
 
-- `FieldProvider`
+- `Field`
   - Provides all accessibility attributes via the Context API
   - Does not render any elements to the DOM.
 - `Label`

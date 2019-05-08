@@ -1,10 +1,10 @@
 ```jsx
-<FieldProvider>
+<Field>
   <Label>Default Input</Label>
   <Hint>All fields support optional hints</Hint>
   <Input />
   <Message>Additional messages are also available</Message>
-</FieldProvider>
+</Field>
 ```
 
 ### Validation
@@ -26,7 +26,7 @@ getValidationMessage = value =>
     ? 'Text must be greater than 10 characters'
     : 'You have enough characters';
 
-<FieldProvider>
+<Field>
   <Label>Dynamic Validation Example</Label>
   <Hint>Enter text to see validation states</Hint>
   <Textarea
@@ -38,5 +38,5 @@ getValidationMessage = value =>
   <Message validation={getValidation(state.textValue)}>
     {getValidationMessage(state.textValue)}
   </Message>
-</FieldProvider>;
+</Field>;
 ```

@@ -8,15 +8,15 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import Input from './Input';
-import FieldProvider from './common/FieldProvider';
+import Field from './common/Field';
 import Label from './common/Label';
 
 describe('Input', () => {
   it('is rendered as an input', () => {
     const { getByTestId } = render(
-      <FieldProvider>
+      <Field>
         <Input data-test-id="input" />
-      </FieldProvider>
+      </Field>
     );
 
     expect(getByTestId('input').nodeName).toBe('INPUT');
@@ -24,10 +24,10 @@ describe('Input', () => {
 
   it('receives correct accessibility attributes', () => {
     const { getByTestId } = render(
-      <FieldProvider>
+      <Field>
         <Label data-test-id="label">Label</Label>
         <Input data-test-id="input" />
-      </FieldProvider>
+      </Field>
     );
 
     const labelNode = getByTestId('label');

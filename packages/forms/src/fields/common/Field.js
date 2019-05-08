@@ -15,13 +15,13 @@ export const FieldContext = createContext(undefined);
  * Provides accessibility attributes to child form fields.
  * Does not render a corresponding DOM element.
  */
-function FieldProvider({ id, children }) {
+function Field({ id, children }) {
   const fieldProps = useField(id);
 
   return <FieldContext.Provider value={fieldProps}>{children}</FieldContext.Provider>;
 }
 
-FieldProvider.propTypes = {
+Field.propTypes = {
   /**
    * The ID that is used as the base for accessiblity attributes
    */
@@ -29,4 +29,4 @@ FieldProvider.propTypes = {
   children: PropTypes.node
 };
 
-export default FieldProvider;
+export default Field;

@@ -1,10 +1,10 @@
 ```jsx
-<FieldProvider>
+<Field>
   <Toggle>
     <Label>Example toggle</Label>
     <Hint>Hints are included</Hint>
   </Toggle>
-</FieldProvider>
+</Field>
 ```
 
 ### Validation States
@@ -18,7 +18,7 @@ getValidationType = isChecked => (isChecked ? 'success' : 'error');
 getValidationMessage = isChecked =>
   isChecked ? 'Thanks for toggling that' : 'You must enable this toggle';
 
-<FieldProvider>
+<Field>
   <Toggle
     checked={state.isChecked}
     onChange={event => setState({ isChecked: event.target.checked })}
@@ -29,7 +29,7 @@ getValidationMessage = isChecked =>
       {getValidationMessage(state.isChecked)}
     </Message>
   </Toggle>
-</FieldProvider>;
+</Field>;
 ```
 
 ### Visual States
@@ -38,53 +38,53 @@ getValidationMessage = isChecked =>
 <Grid>
   <Row>
     <Col md={3}>
-      <FieldProvider>
+      <Field>
         <Toggle>
           <Label regular>Regular Label</Label>
         </Toggle>
-      </FieldProvider>
+      </Field>
     </Col>
     <Col md={3}>
-      <FieldProvider>
+      <Field>
         <Toggle>
           <Label checked>Checked Label</Label>
         </Toggle>
-      </FieldProvider>
+      </Field>
     </Col>
     <Col md={3}>
-      <FieldProvider>
+      <Field>
         <Toggle>
           <Label hidden>Hidden Label</Label>
         </Toggle>
-      </FieldProvider>
+      </Field>
     </Col>
     <Col md={3}>
-      <FieldProvider>
+      <Field>
         <Toggle>
           <Label indeterminate>Indeterminate Label</Label>
         </Toggle>
-      </FieldProvider>
+      </Field>
     </Col>
     <Col md={3}>
-      <FieldProvider>
+      <Field>
         <Toggle>
           <Label hovered>Hovered Label</Label>
         </Toggle>
-      </FieldProvider>
+      </Field>
     </Col>
     <Col md={3}>
-      <FieldProvider>
+      <Field>
         <Toggle>
           <Label focused>Focused Label</Label>
         </Toggle>
-      </FieldProvider>
+      </Field>
     </Col>
     <Col md={3}>
-      <FieldProvider>
+      <Field>
         <Toggle disabled>
           <Label>Disabled Label</Label>
         </Toggle>
-      </FieldProvider>
+      </Field>
     </Col>
   </Row>
 </Grid>

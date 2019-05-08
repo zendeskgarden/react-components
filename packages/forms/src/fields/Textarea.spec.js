@@ -8,15 +8,15 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import Textarea from './Textarea';
-import FieldProvider from './common/FieldProvider';
+import Field from './common/Field';
 import Label from './common/Label';
 
 describe('Textarea', () => {
   it('is rendered as a textarea', () => {
     const { getByTestId } = render(
-      <FieldProvider>
+      <Field>
         <Textarea data-test-id="textarea" />
-      </FieldProvider>
+      </Field>
     );
 
     expect(getByTestId('textarea').nodeName).toBe('TEXTAREA');
@@ -24,10 +24,10 @@ describe('Textarea', () => {
 
   it('receives correct accessibility attributes', () => {
     const { getByTestId } = render(
-      <FieldProvider>
+      <Field>
         <Label data-test-id="label">Label</Label>
         <Textarea data-test-id="textarea" />
-      </FieldProvider>
+      </Field>
     );
 
     const labelNode = getByTestId('label');

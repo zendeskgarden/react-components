@@ -7,14 +7,14 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { FieldProvider, Checkbox, Radio, Toggle, Hint } from '../../';
+import { Field, Checkbox, Radio, Toggle, Hint } from '../../';
 
 describe('Hint', () => {
   it('renders text hint by default', () => {
     const { getByTestId } = render(
-      <FieldProvider>
+      <Field>
         <Hint data-test-id="hint">Test</Hint>
-      </FieldProvider>
+      </Field>
     );
 
     expect(getByTestId('hint')).toHaveAttribute('data-garden-id', 'forms.text_hint');
@@ -22,11 +22,11 @@ describe('Hint', () => {
 
   it('renders checkbox hint if within a Checkbox component', () => {
     const { getByTestId } = render(
-      <FieldProvider>
+      <Field>
         <Checkbox>
           <Hint data-test-id="hint">Test</Hint>
         </Checkbox>
-      </FieldProvider>
+      </Field>
     );
 
     expect(getByTestId('hint')).toHaveAttribute('data-garden-id', 'forms.checkbox_hint');
@@ -34,11 +34,11 @@ describe('Hint', () => {
 
   it('renders toggle hint if within a Toggle component', () => {
     const { getByTestId } = render(
-      <FieldProvider>
+      <Field>
         <Toggle>
           <Hint data-test-id="hint">Test</Hint>
         </Toggle>
-      </FieldProvider>
+      </Field>
     );
 
     expect(getByTestId('hint')).toHaveAttribute('data-garden-id', 'forms.toggle_hint');
@@ -46,11 +46,11 @@ describe('Hint', () => {
 
   it('renders radio hint if within a Radio component', () => {
     const { getByTestId } = render(
-      <FieldProvider>
+      <Field>
         <Radio>
           <Hint data-test-id="hint">Test</Hint>
         </Radio>
-      </FieldProvider>
+      </Field>
     );
 
     expect(getByTestId('hint')).toHaveAttribute('data-garden-id', 'forms.radio_hint');

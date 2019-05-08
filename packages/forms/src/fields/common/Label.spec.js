@@ -7,14 +7,14 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { FieldProvider, Checkbox, Radio, Toggle, Label } from '../../';
+import { Field, Checkbox, Radio, Toggle, Label } from '../../';
 
 describe('Hint', () => {
   it('renders text label by default', () => {
     const { getByTestId } = render(
-      <FieldProvider>
+      <Field>
         <Label data-test-id="label">Test</Label>
-      </FieldProvider>
+      </Field>
     );
 
     expect(getByTestId('label')).toHaveAttribute('data-garden-id', 'forms.text_label');
@@ -22,11 +22,11 @@ describe('Hint', () => {
 
   it('renders checkbox label if within a Checkbox component', () => {
     const { getByTestId } = render(
-      <FieldProvider>
+      <Field>
         <Checkbox>
           <Label data-test-id="label">Test</Label>
         </Checkbox>
-      </FieldProvider>
+      </Field>
     );
 
     expect(getByTestId('label')).toHaveAttribute('data-garden-id', 'forms.checkbox_label');
@@ -34,11 +34,11 @@ describe('Hint', () => {
 
   it('renders toggle label if within a Toggle component', () => {
     const { getByTestId } = render(
-      <FieldProvider>
+      <Field>
         <Toggle>
           <Label data-test-id="label">Test</Label>
         </Toggle>
-      </FieldProvider>
+      </Field>
     );
 
     expect(getByTestId('label')).toHaveAttribute('data-garden-id', 'forms.toggle_label');
@@ -46,11 +46,11 @@ describe('Hint', () => {
 
   it('renders radio label if within a Radio component', () => {
     const { getByTestId } = render(
-      <FieldProvider>
+      <Field>
         <Radio>
           <Label data-test-id="label">Test</Label>
         </Radio>
-      </FieldProvider>
+      </Field>
     );
 
     expect(getByTestId('label')).toHaveAttribute('data-garden-id', 'forms.radio_label');

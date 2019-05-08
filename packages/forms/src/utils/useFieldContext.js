@@ -6,7 +6,7 @@
  */
 
 import { useContext } from 'react';
-import { FieldContext } from '../fields/common/FieldProvider';
+import { FieldContext } from '../fields/common/Field';
 
 /**
  * Retrieve Field component context

@@ -1,24 +1,24 @@
 ```jsx
 <form>
   <div role="group" aria-label="Uncontrolled Usage Example">
-    <FieldProvider>
+    <Field>
       <Radio name="options" value="option-1">
         <Label>Option 1</Label>
         <Hint>Example hint</Hint>
       </Radio>
-    </FieldProvider>
-    <FieldProvider>
+    </Field>
+    <Field>
       <Radio name="options" value="option-2" disabled>
         <Label>Option 2</Label>
         <Hint>Disabled option</Hint>
       </Radio>
-    </FieldProvider>
-    <FieldProvider>
+    </Field>
+    <Field>
       <Radio name="options" value="option-3">
         <Label>Option 3</Label>
         <Hint>Example hint</Hint>
       </Radio>
-    </FieldProvider>
+    </Field>
   </div>
 </form>
 ```
@@ -39,7 +39,7 @@ const CenteredText = styled.div`
     <Col md>
       <form>
         <div role="group" aria-label="Controlled Usage Example">
-          <FieldProvider>
+          <Field>
             <Radio
               name="controlled-options"
               value="option-1"
@@ -49,8 +49,8 @@ const CenteredText = styled.div`
               <Label>Option 1</Label>
               <Hint>Controlled radio</Hint>
             </Radio>
-          </FieldProvider>
-          <FieldProvider>
+          </Field>
+          <Field>
             <Radio
               name="controlled-options"
               value="option-2"
@@ -60,8 +60,8 @@ const CenteredText = styled.div`
               <Label>Option 2</Label>
               <Hint>Controlled radio</Hint>
             </Radio>
-          </FieldProvider>
-          <FieldProvider>
+          </Field>
+          <Field>
             <Radio
               name="controlled-options"
               value="option-3"
@@ -71,7 +71,7 @@ const CenteredText = styled.div`
               <Label>Option 3</Label>
               <Hint>Controlled radio</Hint>
             </Radio>
-          </FieldProvider>
+          </Field>
         </div>
       </form>
     </Col>
