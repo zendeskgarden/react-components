@@ -5,6 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+if (process.env.NODE_ENV !== 'production') {
+  /* eslint-disable no-console */
+  console.warn(
+    'Deprecation Warning: The `@zendeskgarden/react-menus` package has been deprecated. ' +
+      'It will be removed in an upcoming major release. Migrate to the ' +
+      '`@zendeskgarden/react-dropdowns` package to continue receiving updates.'
+  );
+  /* eslint-enable */
+}
+
 export { default as MenuContainer } from './containers/MenuContainer';
 export { default as Menu } from './elements/Menu';
 export { default as AddItem } from './views/items/AddItem';

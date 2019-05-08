@@ -21,17 +21,28 @@ const { zdColorBlue500 } = require('@zendeskgarden/css-variables');
 const { zdColorBlue500, zdColorGrey500 } = require('@zendeskgarden/css-variables');
 const { RangeField, Label, Range } = require('@zendeskgarden/react-ranges/src');
 const {
-  SelectField,
-  Label: SelectLabel,
+  Dropdown,
+  Field,
+  Label: DropdownLabel,
   Select,
+  Menu,
   Item
-} = require('@zendeskgarden/react-select/src');
+} = require('@zendeskgarden/react-dropdowns/src');
 
-const colors = {
-  'BLUE-500': zdColorBlue500,
-  'GREY-500': zdColorGrey500,
-  INHERIT: 'inherit'
-};
+const colors = [
+  {
+    label: 'BLUE-500',
+    value: zdColorBlue500
+  },
+  {
+    label: 'GREY-500',
+    value: zdColorGrey500
+  },
+  {
+    label: 'INHERIT',
+    value: 'inherit'
+  }
+];
 
 const SpacedRow = styled(Row)`
   margin-bottom: 40px;
@@ -72,7 +83,7 @@ const Color = ({ name, color, includeSample }) =>
   initialState={{
     size: 48,
     velocity: 0.05,
-    color: 'BLUE-500'
+    color: colors[0]
   }}
 >
   {(state, setState) => (
@@ -105,27 +116,30 @@ const Color = ({ name, color, includeSample }) =>
           </RangeField>
         </Col>
         <Col md={6}>
-          <SelectField>
-            <SelectLabel>Color</SelectLabel>
-            <Select
-              selectedKey={state.color}
-              onChange={color => setState({ color })}
-              options={[
-                Object.keys(colors).map(colorKey => (
-                  <Item key={colorKey} textValue={colorKey}>
-                    <Color color={colors[colorKey]} name={colorKey} includeSample />
-                  </Item>
-                ))
-              ]}
-            >
-              <Color color={colors[state.color]} name={state.color} />
-            </Select>
-          </SelectField>
+          <Dropdown
+            selectedItem={state.color}
+            onSelect={color => setState({ color })}
+            downshiftProps={{ itemToString: item => item && item.label }}
+          >
+            <Field>
+              <DropdownLabel>Color</DropdownLabel>
+              <Select>
+                <Color color={state.color.value} name={state.color.label} />
+              </Select>
+            </Field>
+            <Menu>
+              {colors.map(colorItem => (
+                <Item key={colorItem.value} value={colorItem}>
+                  <Color color={colorItem.value} name={colorItem.label} includeSample />
+                </Item>
+              ))}
+            </Menu>
+          </Dropdown>
         </Col>
       </SpacedRow>
       <SpacedRow>
         <Col style={{ textAlign: 'center' }}>
-          <Dots size={`${state.size}px`} velocity={state.velocity} color={colors[state.color]} />
+          <Dots size={`${state.size}px`} velocity={state.velocity} color={state.color.value} />
         </Col>
       </SpacedRow>
     </Grid>

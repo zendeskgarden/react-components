@@ -1,6 +1,13 @@
 ```jsx
 const { zdSpacingSm } = require('@zendeskgarden/css-variables');
-const { SelectField, Select, Label, Item } = require('@zendeskgarden/react-select/src');
+const {
+  Dropdown,
+  Field,
+  Label,
+  Select,
+  Menu,
+  Item
+} = require('@zendeskgarden/react-dropdowns/src');
 const { Checkbox, Label: CheckboxLabel, Hint } = require('@zendeskgarden/react-checkboxes/src');
 const { XL } = require('@zendeskgarden/react-typography/src');
 
@@ -54,21 +61,17 @@ const StyledRow = styled(Layout.Row)`
       </Checkbox>
     </Layout.Col>
     <Layout.Col md>
-      <SelectField>
-        <Label>Row Size</Label>
-        <Select
-          small
-          selectedKey={state.rowSize}
-          onChange={rowSize => setState({ rowSize })}
-          options={[
-            <Item key="small">small</Item>,
-            <Item key="default">default</Item>,
-            <Item key="large">large</Item>
-          ]}
-        >
-          {state.rowSize}
-        </Select>
-      </SelectField>
+      <Dropdown selectedItem={state.rowSize} onSelect={rowSize => setState({ rowSize })}>
+        <Field>
+          <Label>Row Size</Label>
+          <Select small>{state.rowSize}</Select>
+        </Field>
+        <Menu small>
+          <Item value="small">small</Item>
+          <Item value="default">default</Item>
+          <Item value="large">large</Item>
+        </Menu>
+      </Dropdown>
     </Layout.Col>
   </StyledRow>
   <Layout.Row>
