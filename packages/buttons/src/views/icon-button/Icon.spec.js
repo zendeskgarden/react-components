@@ -6,27 +6,27 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 import Icon from './Icon';
 
 describe('Icon', () => {
   it('renders default styling correctly', () => {
-    const wrapper = shallow(
+    const { container } = render(
       <Icon>
         <svg />
       </Icon>
     );
 
-    expect(wrapper).toHaveClassName('c-btn__icon');
+    expect(container.firstChild).toHaveClass('c-btn__icon');
   });
 
   it('renders rotated styling if provided', () => {
-    const wrapper = shallow(
+    const { container } = render(
       <Icon rotated>
         <svg />
       </Icon>
     );
 
-    expect(wrapper).toHaveClassName('is-rotated');
+    expect(container.firstChild).toHaveClass('is-rotated');
   });
 });

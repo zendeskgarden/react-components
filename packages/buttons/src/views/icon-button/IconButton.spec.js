@@ -6,13 +6,13 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 import IconButton from './IconButton';
 
 describe('IconButton', () => {
   it('renders pill and muted styling by default', () => {
-    const wrapper = shallow(<IconButton />);
+    const { container } = render(<IconButton />);
 
-    expect(wrapper).toHaveClassName('c-btn--icon');
+    expect(container.firstChild).toHaveClass('c-btn--icon');
   });
 });
