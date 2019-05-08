@@ -6,54 +6,63 @@
  */
 
 import React from 'react';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
+import { render, fireEvent } from 'garden-test-utils';
 
 import Toggle from './Toggle';
 import Label from '../views/Label';
 import Hint from '../views/Hint';
 import Message from '../views/Message';
-import Input from '../views/Input';
+
+const TOGGLE_ID = 'test';
+
+const BasicExample = () => (
+  <Toggle data-test-id="input" id={TOGGLE_ID}>
+    <Label data-test-id="label">Label</Label>
+    <Hint data-test-id="hint">Hint</Hint>
+    <Message data-test-id="message">Message</Message>
+    <div data-test-id="extra">extra information</div>
+  </Toggle>
+);
 
 describe('Toggle', () => {
-  const TOGGLE_ID = 'test';
-  let wrapper;
-
-  const basicExample = () => (
-    <Toggle id={TOGGLE_ID}>
-      <Label>Label</Label>
-      <Hint>Hint</Hint>
-      <Message>Message</Message>
-      <div data-test-id="extra">extra information</div>
-    </Toggle>
-  );
-
-  beforeEach(() => {
-    wrapper = mountWithTheme(basicExample());
-  });
-
   it('applies container props to Label', () => {
-    expect(wrapper.find(Label)).toHaveProp('id', `${TOGGLE_ID}--label`);
+    const { getByTestId } = render(<BasicExample />);
+
+    expect(getByTestId('label')).toHaveAttribute('id', `${TOGGLE_ID}--label`);
   });
 
   it('applies container props to Hint', () => {
-    expect(wrapper.find(Hint)).toHaveProp('id', `${TOGGLE_ID}--hint`);
+    const { getByTestId } = render(<BasicExample />);
+
+    expect(getByTestId('hint')).toHaveAttribute('id', `${TOGGLE_ID}--hint`);
   });
 
   it('applies no props to any other element', () => {
-    expect(Object.keys(wrapper.find('[data-test-id="extra"]').props())).toHaveLength(2);
+    const { getByTestId } = render(<BasicExample />);
+    const extraInfo = getByTestId('extra');
+
+    expect(Object.keys(extraInfo.attributes)).toHaveLength(1);
   });
 
   it('applies input props correctly', () => {
-    expect(wrapper.find(Input)).toHaveProp('id', `${TOGGLE_ID}--input`);
+    const { getByTestId } = render(<BasicExample />);
+
+    expect(getByTestId('input')).toHaveAttribute('id', `${TOGGLE_ID}--input`);
   });
 
   it('applies focused prop to Label if keyboard focused', () => {
-    wrapper.find(Input).simulate('focus');
-    expect(wrapper.find(Label)).toHaveProp('focused', true);
+    const { getByTestId } = render(<BasicExample />);
+
+    fireEvent.focus(getByTestId('input'));
+
+    expect(getByTestId('label')).toHaveClass('is-focused');
   });
 
   it('does not apply focused prop to Label if clicked', () => {
-    wrapper.find(Input).simulate('click');
-    expect(wrapper.find(Label)).toHaveProp('focused', false);
+    const { getByTestId } = render(<BasicExample />);
+
+    fireEvent.click(getByTestId('input'));
+
+    expect(getByTestId('label')).not.toHaveClass('is-focused');
   });
 });
