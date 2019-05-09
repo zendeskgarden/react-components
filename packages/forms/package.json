@@ -25,11 +25,11 @@
     "classnames": "^2.2.5"
   },
   "peerDependencies": {
-    "@zendeskgarden/react-theming": "^1.0.0 || ^2.0.0 || ^3.0.0",
+    "@zendeskgarden/react-theming": "^4.0.0",
     "prop-types": "^15.6.1",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
-    "styled-components": "^3.2.6"
+    "styled-components": "^4.2.0"
   },
   "devDependencies": {
     "@zendeskgarden/css-forms": "7.0.8",

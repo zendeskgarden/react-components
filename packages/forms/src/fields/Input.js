@@ -20,7 +20,7 @@ const VALIDATION = {
  * Accepts all `<input />` props.
  * Must be rendered within a `<Field>` component.
  */
-function Input(props) {
+const Input = React.forwardRef((props, ref) => {
   const { getInputProps } = useFieldContext();
 
   return (
@@ -29,13 +29,14 @@ function Input(props) {
         {
           'data-garden-id': 'forms.input',
           'data-garden-version': PACKAGE_VERSION,
+          ref,
           ...props
         },
         { isDescribed: true }
       )}
     />
   );
-}
+});
 
 Input.propTypes = {
   /** Allows flush spacing of Tab elements */

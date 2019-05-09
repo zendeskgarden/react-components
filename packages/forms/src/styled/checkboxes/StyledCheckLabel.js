@@ -14,24 +14,23 @@ import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
 /**
  * Accepts all `<label>` props
  */
-const StyledCheckLabel = styled.label.attrs({
-  className: props =>
-    classNames(CheckboxStyles['c-chk__label'], {
-      // Styles
-      [CheckboxStyles['c-chk__label--regular']]: props.regular,
+const StyledCheckLabel = styled.label.attrs(props => ({
+  className: classNames(CheckboxStyles['c-chk__label'], {
+    // Styles
+    [CheckboxStyles['c-chk__label--regular']]: props.regular,
 
-      // States
-      [CheckboxStyles['is-hidden']]: props.hidden,
-      [CheckboxStyles['is-checked']]: props.checked,
-      [CheckboxStyles['is-indeterminate']]: props.indeterminate,
-      [CheckboxStyles['is-hovered']]: props.hovered,
-      [CheckboxStyles['is-focused']]: props.focused,
-      [CheckboxStyles['is-disabled']]: props.disabled,
+    // States
+    [CheckboxStyles['is-hidden']]: props.hidden,
+    [CheckboxStyles['is-checked']]: props.checked,
+    [CheckboxStyles['is-indeterminate']]: props.indeterminate,
+    [CheckboxStyles['is-hovered']]: props.hovered,
+    [CheckboxStyles['is-focused']]: props.focused,
+    [CheckboxStyles['is-disabled']]: props.disabled,
 
-      // RTL
-      [CheckboxStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL
+    [CheckboxStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTheme('forms.check_label', props)};
 `;
 

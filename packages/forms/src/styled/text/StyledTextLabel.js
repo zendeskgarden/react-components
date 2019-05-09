@@ -14,16 +14,15 @@ import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 /**
  * Accepts all `<label>` props
  */
-const StyledTextLabel = styled.label.attrs({
-  className: props =>
-    classNames(TextStyles['c-txt__label'], {
-      [TextStyles['c-txt__label--regular']]: props.regular,
-      [TextStyles['c-txt__label--sm']]: props.small,
+const StyledTextLabel = styled.label.attrs(props => ({
+  className: classNames(TextStyles['c-txt__label'], {
+    [TextStyles['c-txt__label--regular']]: props.regular,
+    [TextStyles['c-txt__label--sm']]: props.small,
 
-      // RTL
-      [TextStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL
+    [TextStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   display: block;
 
   ${props => retrieveTheme('forms.text_label', props)};

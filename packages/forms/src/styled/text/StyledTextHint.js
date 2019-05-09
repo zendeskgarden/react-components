@@ -14,15 +14,14 @@ import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 /**
  * Accepts all `<div>` props
  */
-const StyledTextHint = styled.div.attrs({
-  className: props =>
-    classNames(TextStyles['c-txt__hint'], {
-      [TextStyles['c-txt__hint--sm']]: props.small,
+const StyledTextHint = styled.div.attrs(props => ({
+  className: classNames(TextStyles['c-txt__hint'], {
+    [TextStyles['c-txt__hint--sm']]: props.small,
 
-      // RTL
-      [TextStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL
+    [TextStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTheme('forms.text_hint', props)};
 `;
 
