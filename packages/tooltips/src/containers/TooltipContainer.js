@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Manager, Popper, Target } from 'react-popper';
@@ -230,7 +230,7 @@ class TooltipContainer extends ControlledComponent {
               );
 
               if (appendToBody) {
-                return ReactDOM.createPortal(tooltip, document.body);
+                return createPortal(tooltip, document.body);
               }
 
               return tooltip;

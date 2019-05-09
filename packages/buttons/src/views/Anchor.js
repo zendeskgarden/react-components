@@ -60,8 +60,7 @@ export const StyledNewWindowIcon = styled(NewWindowIcon)`
  * Accepts all `<a>` props
  */
 const Anchor = React.forwardRef((props, ref) => {
-  // eslint-disable-next-line no-unused-vars
-  const { focused, external, children, theme, ...other } = props; // eslint-disable-line react/prop-types
+  const { focused, external, children, ...other } = props;
   const rtl = isRtl(props);
 
   return (
