@@ -6,54 +6,62 @@
  */
 
 import React from 'react';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
+import { render, fireEvent } from 'garden-test-utils';
 
 import Checkbox from './Checkbox';
 import Label from '../views/Label';
 import Hint from '../views/Hint';
 import Message from '../views/Message';
-import Input from '../views/Input';
 
 describe('Checkbox', () => {
   const CHECKBOX_ID = 'test';
-  let wrapper;
 
-  const basicExample = () => (
-    <Checkbox id={CHECKBOX_ID}>
-      <Label>Label</Label>
-      <Hint>Hint</Hint>
-      <Message>Message</Message>
+  const BasicExample = () => (
+    <Checkbox data-test-id="input" id={CHECKBOX_ID}>
+      <Label data-test-id="label">Label</Label>
+      <Hint data-test-id="hint">Hint</Hint>
+      <Message data-test-id="message">Message</Message>
       <div data-test-id="extra">extra information</div>
     </Checkbox>
   );
 
-  beforeEach(() => {
-    wrapper = mountWithTheme(basicExample());
-  });
-
   it('applies container props to Label', () => {
-    expect(wrapper.find(Label)).toHaveProp('id', `${CHECKBOX_ID}--label`);
+    const { getByTestId } = render(<BasicExample />);
+
+    expect(getByTestId('label')).toHaveAttribute('id', `${CHECKBOX_ID}--label`);
   });
 
   it('applies container props to Hint', () => {
-    expect(wrapper.find(Hint)).toHaveProp('id', `${CHECKBOX_ID}--hint`);
+    const { getByTestId } = render(<BasicExample />);
+
+    expect(getByTestId('hint')).toHaveAttribute('id', `${CHECKBOX_ID}--hint`);
   });
 
   it('applies no props to any other element', () => {
-    expect(Object.keys(wrapper.find('[data-test-id="extra"]').props())).toHaveLength(2);
+    const { getByTestId } = render(<BasicExample />);
+
+    expect(Object.keys(getByTestId('extra').attributes)).toHaveLength(1);
   });
 
   it('applies input props correctly', () => {
-    expect(wrapper.find(Input)).toHaveProp('id', `${CHECKBOX_ID}--input`);
+    const { getByTestId } = render(<BasicExample />);
+
+    expect(getByTestId('input')).toHaveAttribute('id', `${CHECKBOX_ID}--input`);
   });
 
   it('applies focused prop to Label if keyboard focused', () => {
-    wrapper.find(Input).simulate('focus');
-    expect(wrapper.find(Label)).toHaveProp('focused', true);
+    const { getByTestId } = render(<BasicExample />);
+
+    fireEvent.focus(getByTestId('input'));
+
+    expect(getByTestId('label')).toHaveClass('is-focused');
   });
 
   it('does not apply focused prop to Label if clicked', () => {
-    wrapper.find(Input).simulate('click');
-    expect(wrapper.find(Label)).toHaveProp('focused', false);
+    const { getByTestId } = render(<BasicExample />);
+
+    fireEvent.click(getByTestId('input'));
+
+    expect(getByTestId('label')).not.toHaveClass('is-focused');
   });
 });
