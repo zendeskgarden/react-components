@@ -16,26 +16,25 @@ const COMPONENT_ID = 'radios.label';
 /**
  * Accepts all `<label>` props
  */
-const Label = styled.label.attrs({
+const Label = styled.label.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(CheckboxStyles['c-chk__label'], CheckboxStyles['c-chk__label--radio'], {
-      // Styles
-      [CheckboxStyles['c-chk__label--regular']]: props.regular,
+  className: classNames(CheckboxStyles['c-chk__label'], CheckboxStyles['c-chk__label--radio'], {
+    // Styles
+    [CheckboxStyles['c-chk__label--regular']]: props.regular,
 
-      // States
-      [CheckboxStyles['is-hidden']]: props.hidden,
-      [CheckboxStyles['is-checked']]: props.checked,
-      [CheckboxStyles['is-indeterminate']]: props.indeterminate,
-      [CheckboxStyles['is-hovered']]: props.hovered,
-      [CheckboxStyles['is-focused']]: props.focused,
-      [CheckboxStyles['is-disabled']]: props.disabled,
+    // States
+    [CheckboxStyles['is-hidden']]: props.hidden,
+    [CheckboxStyles['is-checked']]: props.checked,
+    [CheckboxStyles['is-indeterminate']]: props.indeterminate,
+    [CheckboxStyles['is-hovered']]: props.hovered,
+    [CheckboxStyles['is-focused']]: props.focused,
+    [CheckboxStyles['is-disabled']]: props.disabled,
 
-      // RTL
-      [CheckboxStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL
+    [CheckboxStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
