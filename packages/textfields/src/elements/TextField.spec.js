@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
+import { render } from 'garden-test-utils';
 
 import TextField from './TextField';
 import Label from '../views/Label';
@@ -17,44 +17,50 @@ import Textarea from '../views/Textarea';
 
 describe('TextField', () => {
   const TEXT_FIELD_ID = 'test';
-  let wrapper;
 
-  const basicExample = (textElement = <Input />) => (
+  const BasicExample = ({ textElement = <Input data-test-id="input" /> }) => (
     <TextField id={TEXT_FIELD_ID}>
-      <Label>Label</Label>
-      <Hint>Hint</Hint>
+      <Label data-test-id="label">Label</Label>
+      <Hint data-test-id="hint">Hint</Hint>
       {textElement}
-      <Message>Message</Message>
+      <Message data-test-id="message">Message</Message>
       <div data-test-id="extra">extra information</div>
     </TextField>
   );
 
-  beforeEach(() => {
-    wrapper = mountWithTheme(basicExample());
-  });
-
   it('applies container props to Label', () => {
-    expect(wrapper.find(Label)).toHaveProp('id', `${TEXT_FIELD_ID}--label`);
+    const { getByTestId } = render(<BasicExample />);
+
+    expect(getByTestId('label')).toHaveAttribute('id', `${TEXT_FIELD_ID}--label`);
   });
 
   it('applies container props to Hint', () => {
-    expect(wrapper.find(Hint)).toHaveProp('id', `${TEXT_FIELD_ID}--hint`);
+    const { getByTestId } = render(<BasicExample />);
+
+    expect(getByTestId('hint')).toHaveAttribute('id', `${TEXT_FIELD_ID}--hint`);
   });
 
   it('applies no props to any other element', () => {
-    expect(Object.keys(wrapper.find('[data-test-id="extra"]').props())).toHaveLength(2);
+    const { getByTestId } = render(<BasicExample />);
+
+    expect(getByTestId('extra').attributes).toHaveLength(1);
   });
 
   describe('with Input', () => {
     it('applies input props correctly', () => {
-      expect(wrapper.find(Input)).toHaveProp('id', `${TEXT_FIELD_ID}--input`);
+      const { getByTestId } = render(<BasicExample />);
+
+      expect(getByTestId('input')).toHaveAttribute('id', `${TEXT_FIELD_ID}--input`);
     });
   });
 
   describe('with Textarea', () => {
     it('applies input props correctly', () => {
-      wrapper = mountWithTheme(basicExample(<Textarea />));
-      expect(wrapper.find(Textarea)).toHaveProp('id', `${TEXT_FIELD_ID}--input`);
+      const { getByTestId } = render(
+        <BasicExample textElement={<Textarea data-test-id="textarea" />} />
+      );
+
+      expect(getByTestId('textarea')).toHaveAttribute('id', `${TEXT_FIELD_ID}--input`);
     });
   });
 });
