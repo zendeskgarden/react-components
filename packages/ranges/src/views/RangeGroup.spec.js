@@ -6,27 +6,26 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-import { shallowWithTheme } from '@zendeskgarden/react-testing';
+import { render, renderRtl } from 'garden-test-utils';
 
 import RangeGroup from './RangeGroup';
 
 describe('RangeGroup', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<RangeGroup />);
+    const { container } = render(<RangeGroup />);
 
-    expect(wrapper).toHaveClassName('c-range');
+    expect(container.firstChild).toHaveClass('c-range');
   });
 
   it('renders RTL styling', () => {
-    const wrapper = shallowWithTheme(<RangeGroup />, { rtl: true });
+    const { container } = renderRtl(<RangeGroup />);
 
-    expect(wrapper).toHaveClassName('is-rtl');
+    expect(container.firstChild).toHaveClass('is-rtl');
   });
 
   it('renders inline styling if provided', () => {
-    const wrapper = shallow(<RangeGroup inline />);
+    const { container } = render(<RangeGroup inline />);
 
-    expect(wrapper).toHaveClassName('c-range--inline');
+    expect(container.firstChild).toHaveClass('c-range--inline');
   });
 });
