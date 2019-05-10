@@ -42,45 +42,44 @@ const SIZE = {
 /**
  * Accepts all `<div>` props
  */
-const Tag = styled.div.attrs({
+const Tag = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(TagStyles['c-tag'], {
-      // Sizes
-      [TagStyles['c-tag--sm']]: props.size === SIZE.SMALL,
-      [TagStyles['c-tag--lg']]: props.size === SIZE.LARGE,
+  className: classNames(TagStyles['c-tag'], {
+    // Sizes
+    [TagStyles['c-tag--sm']]: props.size === SIZE.SMALL,
+    [TagStyles['c-tag--lg']]: props.size === SIZE.LARGE,
 
-      // Shapes
-      [TagStyles['c-tag--pill']]: props.pill,
+    // Shapes
+    [TagStyles['c-tag--pill']]: props.pill,
 
-      // Interaction States
-      [TagStyles['is-focused']]: props.focused,
-      [TagStyles['is-hovered']]: props.hovered,
+    // Interaction States
+    [TagStyles['is-focused']]: props.focused,
+    [TagStyles['is-hovered']]: props.hovered,
 
-      // Colors
-      [TagStyles['c-tag--grey']]: props.type === TYPE.GREY,
-      [TagStyles['c-tag--blue']]: props.type === TYPE.BLUE,
-      [TagStyles['c-tag--kale']]: props.type === TYPE.KALE,
-      [TagStyles['c-tag--red']]: props.type === TYPE.RED,
-      [TagStyles['c-tag--green']]: props.type === TYPE.GREEN,
-      [TagStyles['c-tag--yellow']]: props.type === TYPE.YELLOW,
-      [TagStyles['c-tag--fuschia']]: props.type === TYPE.FUSCHIA,
-      [TagStyles['c-tag--pink']]: props.type === TYPE.PINK,
-      [TagStyles['c-tag--crimson']]: props.type === TYPE.CRIMSON,
-      [TagStyles['c-tag--orange']]: props.type === TYPE.ORANGE,
-      [TagStyles['c-tag--lemon']]: props.type === TYPE.LEMON,
-      [TagStyles['c-tag--lime']]: props.type === TYPE.LIME,
-      [TagStyles['c-tag--mint']]: props.type === TYPE.MINT,
-      [TagStyles['c-tag--teal']]: props.type === TYPE.TEAL,
-      [TagStyles['c-tag--azure']]: props.type === TYPE.AZURE,
-      [TagStyles['c-tag--royal']]: props.type === TYPE.ROYAL,
-      [TagStyles['c-tag--purple']]: props.type === TYPE.PURPLE,
+    // Colors
+    [TagStyles['c-tag--grey']]: props.type === TYPE.GREY,
+    [TagStyles['c-tag--blue']]: props.type === TYPE.BLUE,
+    [TagStyles['c-tag--kale']]: props.type === TYPE.KALE,
+    [TagStyles['c-tag--red']]: props.type === TYPE.RED,
+    [TagStyles['c-tag--green']]: props.type === TYPE.GREEN,
+    [TagStyles['c-tag--yellow']]: props.type === TYPE.YELLOW,
+    [TagStyles['c-tag--fuschia']]: props.type === TYPE.FUSCHIA,
+    [TagStyles['c-tag--pink']]: props.type === TYPE.PINK,
+    [TagStyles['c-tag--crimson']]: props.type === TYPE.CRIMSON,
+    [TagStyles['c-tag--orange']]: props.type === TYPE.ORANGE,
+    [TagStyles['c-tag--lemon']]: props.type === TYPE.LEMON,
+    [TagStyles['c-tag--lime']]: props.type === TYPE.LIME,
+    [TagStyles['c-tag--mint']]: props.type === TYPE.MINT,
+    [TagStyles['c-tag--teal']]: props.type === TYPE.TEAL,
+    [TagStyles['c-tag--azure']]: props.type === TYPE.AZURE,
+    [TagStyles['c-tag--royal']]: props.type === TYPE.ROYAL,
+    [TagStyles['c-tag--purple']]: props.type === TYPE.PURPLE,
 
-      // RTL
-      [TagStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL
+    [TagStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

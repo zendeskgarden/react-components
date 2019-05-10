@@ -6,159 +6,158 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-import { shallowWithTheme } from '@zendeskgarden/react-testing';
+import { render, renderRtl } from 'garden-test-utils';
 
 import Tag from './Tag';
 
 describe('Tag', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Tag />);
+    const { container } = render(<Tag />);
 
-    expect(wrapper).toHaveClassName('c-tag');
+    expect(container.firstChild).toHaveClass('c-tag');
   });
 
   it('renders RTL styling if provided', () => {
-    const wrapper = shallowWithTheme(<Tag />, { rtl: true });
+    const { container } = renderRtl(<Tag />);
 
-    expect(wrapper).toHaveClassName('is-rtl');
+    expect(container.firstChild).toHaveClass('is-rtl');
   });
 
   it('renders pill styling if provided', () => {
-    const wrapper = shallow(<Tag pill />);
+    const { container } = render(<Tag pill />);
 
-    expect(wrapper).toHaveClassName('c-tag--pill');
+    expect(container.firstChild).toHaveClass('c-tag--pill');
   });
 
   describe('size', () => {
     it('renders small styling if provided', () => {
-      const wrapper = shallow(<Tag size="small" />);
+      const { container } = render(<Tag size="small" />);
 
-      expect(wrapper).toHaveClassName('c-tag--sm');
+      expect(container.firstChild).toHaveClass('c-tag--sm');
     });
 
     it('renders large styling if provided', () => {
-      const wrapper = shallow(<Tag size="large" />);
+      const { container } = render(<Tag size="large" />);
 
-      expect(wrapper).toHaveClassName('c-tag--lg');
+      expect(container.firstChild).toHaveClass('c-tag--lg');
     });
   });
 
   describe('state', () => {
     it('renders focused styling if provided', () => {
-      const wrapper = shallow(<Tag focused />);
+      const { container } = render(<Tag focused />);
 
-      expect(wrapper).toHaveClassName('is-focused');
+      expect(container.firstChild).toHaveClass('is-focused');
     });
 
     it('renders hovered styling if provided', () => {
-      const wrapper = shallow(<Tag hovered />);
+      const { container } = render(<Tag hovered />);
 
-      expect(wrapper).toHaveClassName('is-hovered');
+      expect(container.firstChild).toHaveClass('is-hovered');
     });
   });
 
   describe('visual types', () => {
     it('renders grey styling if provided', () => {
-      const wrapper = shallow(<Tag type="grey" />);
+      const { container } = render(<Tag type="grey" />);
 
-      expect(wrapper).toHaveClassName('c-tag--grey');
+      expect(container.firstChild).toHaveClass('c-tag--grey');
     });
 
     it('renders blue styling if provided', () => {
-      const wrapper = shallow(<Tag type="blue" />);
+      const { container } = render(<Tag type="blue" />);
 
-      expect(wrapper).toHaveClassName('c-tag--blue');
+      expect(container.firstChild).toHaveClass('c-tag--blue');
     });
 
     it('renders kale styling if provided', () => {
-      const wrapper = shallow(<Tag type="kale" />);
+      const { container } = render(<Tag type="kale" />);
 
-      expect(wrapper).toHaveClassName('c-tag--kale');
+      expect(container.firstChild).toHaveClass('c-tag--kale');
     });
 
     it('renders red styling if provided', () => {
-      const wrapper = shallow(<Tag type="red" />);
+      const { container } = render(<Tag type="red" />);
 
-      expect(wrapper).toHaveClassName('c-tag--red');
+      expect(container.firstChild).toHaveClass('c-tag--red');
     });
 
     it('renders green styling if provided', () => {
-      const wrapper = shallow(<Tag type="green" />);
+      const { container } = render(<Tag type="green" />);
 
-      expect(wrapper).toHaveClassName('c-tag--green');
+      expect(container.firstChild).toHaveClass('c-tag--green');
     });
 
     it('renders yellow styling if provided', () => {
-      const wrapper = shallow(<Tag type="yellow" />);
+      const { container } = render(<Tag type="yellow" />);
 
-      expect(wrapper).toHaveClassName('c-tag--yellow');
+      expect(container.firstChild).toHaveClass('c-tag--yellow');
     });
 
     it('renders fuschia styling if provided', () => {
-      const wrapper = shallow(<Tag type="fuschia" />);
+      const { container } = render(<Tag type="fuschia" />);
 
-      expect(wrapper).toHaveClassName('c-tag--fuschia');
+      expect(container.firstChild).toHaveClass('c-tag--fuschia');
     });
 
     it('renders pink styling if provided', () => {
-      const wrapper = shallow(<Tag type="pink" />);
+      const { container } = render(<Tag type="pink" />);
 
-      expect(wrapper).toHaveClassName('c-tag--pink');
+      expect(container.firstChild).toHaveClass('c-tag--pink');
     });
 
     it('renders crimson styling if provided', () => {
-      const wrapper = shallow(<Tag type="crimson" />);
+      const { container } = render(<Tag type="crimson" />);
 
-      expect(wrapper).toHaveClassName('c-tag--crimson');
+      expect(container.firstChild).toHaveClass('c-tag--crimson');
     });
 
     it('renders orange styling if provided', () => {
-      const wrapper = shallow(<Tag type="orange" />);
+      const { container } = render(<Tag type="orange" />);
 
-      expect(wrapper).toHaveClassName('c-tag--orange');
+      expect(container.firstChild).toHaveClass('c-tag--orange');
     });
 
     it('renders lemon styling if provided', () => {
-      const wrapper = shallow(<Tag type="lemon" />);
+      const { container } = render(<Tag type="lemon" />);
 
-      expect(wrapper).toHaveClassName('c-tag--lemon');
+      expect(container.firstChild).toHaveClass('c-tag--lemon');
     });
 
     it('renders lime styling if provided', () => {
-      const wrapper = shallow(<Tag type="lime" />);
+      const { container } = render(<Tag type="lime" />);
 
-      expect(wrapper).toHaveClassName('c-tag--lime');
+      expect(container.firstChild).toHaveClass('c-tag--lime');
     });
 
     it('renders mint styling if provided', () => {
-      const wrapper = shallow(<Tag type="mint" />);
+      const { container } = render(<Tag type="mint" />);
 
-      expect(wrapper).toHaveClassName('c-tag--mint');
+      expect(container.firstChild).toHaveClass('c-tag--mint');
     });
 
     it('renders teal styling if provided', () => {
-      const wrapper = shallow(<Tag type="teal" />);
+      const { container } = render(<Tag type="teal" />);
 
-      expect(wrapper).toHaveClassName('c-tag--teal');
+      expect(container.firstChild).toHaveClass('c-tag--teal');
     });
 
     it('renders azure styling if provided', () => {
-      const wrapper = shallow(<Tag type="azure" />);
+      const { container } = render(<Tag type="azure" />);
 
-      expect(wrapper).toHaveClassName('c-tag--azure');
+      expect(container.firstChild).toHaveClass('c-tag--azure');
     });
 
     it('renders royal styling if provided', () => {
-      const wrapper = shallow(<Tag type="royal" />);
+      const { container } = render(<Tag type="royal" />);
 
-      expect(wrapper).toHaveClassName('c-tag--royal');
+      expect(container.firstChild).toHaveClass('c-tag--royal');
     });
 
     it('renders purple styling if provided', () => {
-      const wrapper = shallow(<Tag type="purple" />);
+      const { container } = render(<Tag type="purple" />);
 
-      expect(wrapper).toHaveClassName('c-tag--purple');
+      expect(container.firstChild).toHaveClass('c-tag--purple');
     });
   });
 });
