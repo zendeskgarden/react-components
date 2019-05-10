@@ -6,20 +6,19 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-import { shallowWithTheme } from '@zendeskgarden/react-testing';
+import { render, renderRtl } from 'garden-test-utils';
 import List from './List';
 
 describe('List', () => {
   it('renders default styling correctly', () => {
-    const wrapper = shallow(<List />);
+    const { container } = render(<List />);
 
-    expect(wrapper).toHaveClassName('c-breadcrumb');
+    expect(container.firstChild).toHaveClass('c-breadcrumb');
   });
 
   it('renders RTL styling correctly', () => {
-    const wrapper = shallowWithTheme(<List />, { rtl: true });
+    const { container } = renderRtl(<List />);
 
-    expect(wrapper).toHaveClassName('is-rtl');
+    expect(container.firstChild).toHaveClass('is-rtl');
   });
 });

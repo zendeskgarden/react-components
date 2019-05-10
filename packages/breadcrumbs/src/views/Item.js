@@ -16,15 +16,14 @@ const COMPONENT_ID = 'breadcrumbs.item';
 /**
  * Accepts all `<li>` props
  */
-const Item = styled.li.attrs({
+const Item = styled.li.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(BreadcrumbStyles['c-breadcrumb__item'], {
-      // State
-      [BreadcrumbStyles['is-current']]: props.current
-    })
-})`
+  className: classNames(BreadcrumbStyles['c-breadcrumb__item'], {
+    // State
+    [BreadcrumbStyles['is-current']]: props.current
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

@@ -21,8 +21,7 @@ These features require the following minimum versions of the dependencies:
 
 - `react@^16.8.0`
 - `react-dom@^16.8.0`
-- `styled-components@^3.4.0`
-  - `v4` will become available once all other packages are migrated
+- `styled-components@^4.2.0`
 
 ## Usage
 

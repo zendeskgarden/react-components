@@ -6,21 +6,20 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-import { shallowWithTheme } from '@zendeskgarden/react-testing';
+import { render, renderRtl } from 'garden-test-utils';
 
 import ToggleView from './ToggleView';
 
 describe('ToggleView', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<ToggleView />);
+    const { container } = render(<ToggleView />);
 
-    expect(wrapper).toHaveClassName('c-chk');
+    expect(container.firstChild).toHaveClass('c-chk');
   });
 
   it('renders RTL styling', () => {
-    const wrapper = shallowWithTheme(<ToggleView />, { rtl: true });
+    const { container } = renderRtl(<ToggleView />);
 
-    expect(wrapper).toHaveClassName('is-rtl');
+    expect(container.firstChild).toHaveClass('is-rtl');
   });
 });

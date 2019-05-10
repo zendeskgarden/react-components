@@ -24,17 +24,16 @@ const VALIDATION = {
 /**
  * Accepts all `<textarea>` props
  */
-const Textarea = styled(Input.withComponent('textarea')).attrs({
+const Textarea = styled(Input.withComponent('textarea')).attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(TextStyles['c-txt__input--area'], {
-      [TextStyles['is-resizable']]: props.resizable,
+  className: classNames(props.className, TextStyles['c-txt__input--area'], {
+    [TextStyles['is-resizable']]: props.resizable,
 
-      // RTL
-      [TextStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL
+    [TextStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

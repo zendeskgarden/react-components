@@ -9,7 +9,7 @@
       </Checkbox>
     </Col>
     <Col md={3}>
-      <Checkbox checked>
+      <Checkbox checked readOnly>
         <Label>Checked Label</Label>
       </Checkbox>
     </Col>

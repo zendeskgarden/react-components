@@ -6,6 +6,7 @@
  */
 
 import styled from 'styled-components';
+import classNames from 'classnames';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import StyledCheckHint from '../checkboxes/StyledCheckHint';
 import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
@@ -13,9 +14,9 @@ import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
 /**
  * Accepts all `<div>` props
  */
-const StyledToggleHint = styled(StyledCheckHint).attrs({
-  className: CheckboxStyles['c-chk__hint--toggle']
-})`
+const StyledToggleHint = styled(StyledCheckHint).attrs(props => ({
+  className: classNames(props.className, CheckboxStyles['c-chk__hint--toggle'])
+}))`
   ${props => retrieveTheme('forms.toggle_hint', props)};
 `;
 

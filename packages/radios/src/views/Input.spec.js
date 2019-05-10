@@ -6,14 +6,14 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 
 import Input from './Input';
 
 describe('Input', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Input />);
+    const { container } = render(<Input />);
 
-    expect(wrapper).toHaveClassName('c-chk__input');
+    expect(container.firstChild).toHaveClass('c-chk__input');
   });
 });

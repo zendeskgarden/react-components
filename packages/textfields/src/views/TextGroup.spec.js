@@ -6,27 +6,26 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-import { shallowWithTheme } from '@zendeskgarden/react-testing';
+import { render, renderRtl } from 'garden-test-utils';
 
 import TextGroup from './TextGroup';
 
 describe('TextGroup', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<TextGroup />);
+    const { container } = render(<TextGroup />);
 
-    expect(wrapper).toHaveClassName('c-txt');
+    expect(container.firstChild).toHaveClass('c-txt');
   });
 
   it('renders RTL styling', () => {
-    const wrapper = shallowWithTheme(<TextGroup />, { rtl: true });
+    const { container } = renderRtl(<TextGroup />);
 
-    expect(wrapper).toHaveClassName('is-rtl');
+    expect(container.firstChild).toHaveClass('is-rtl');
   });
 
   it('renders inline styling if provided', () => {
-    const wrapper = shallow(<TextGroup inline />);
+    const { container } = render(<TextGroup inline />);
 
-    expect(wrapper).toHaveClassName('c-txt--inline');
+    expect(container.firstChild).toHaveClass('c-txt--inline');
   });
 });

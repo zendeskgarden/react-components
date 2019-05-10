@@ -15,7 +15,7 @@ import FauxInput from './FauxInput';
 /**
  * Accepts all `<input />` props.
  */
-function MediaInput({ wrapperProps = {}, start, end, ...props }) {
+const MediaInput = React.forwardRef(({ wrapperProps = {}, start, end, ...props }, forwardedRef) => {
   const { getInputProps } = useFieldContext();
   const inputRef = useRef(undefined);
 
@@ -36,14 +36,21 @@ function MediaInput({ wrapperProps = {}, start, end, ...props }) {
       {start && <StyledTextMediaFigure>{start}</StyledTextMediaFigure>}
       <StyledTextMediaInput
         {...getInputProps({
-          innerRef: inputRef,
+          bare: true,
+          ref: ref => {
+            inputRef.current = ref;
+
+            if (forwardedRef) {
+              forwardedRef(ref);
+            }
+          },
           ...props
         })}
       />
       {end && <StyledTextMediaFigure>{end}</StyledTextMediaFigure>}
     </FauxInput>
   );
-}
+});
 
 MediaInput.propTypes = {
   /** Applied to the wrapping `<div>` element */

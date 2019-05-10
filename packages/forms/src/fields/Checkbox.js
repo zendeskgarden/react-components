@@ -18,7 +18,7 @@ export const CheckboxContext = createContext(undefined);
 /**
  * Accepts all `<input type="checkbox" />` props
  */
-function Checkbox({ children, ...props }) {
+const Checkbox = React.forwardRef(({ children, ...props }, ref) => {
   const { getLabelProps, ...fieldCtx } = useFieldContext();
   const { getFocusProps, keyboardFocused } = useKeyboardFocus();
 
@@ -45,6 +45,7 @@ function Checkbox({ children, ...props }) {
             {...modifiedFieldCtx.getInputProps({
               'data-garden-id': 'forms.checkbox',
               'data-garden-version': PACKAGE_VERSION,
+              ref,
               ...keyboardFocusedProps
             })}
           />
@@ -53,7 +54,7 @@ function Checkbox({ children, ...props }) {
       </CheckboxContext.Provider>
     </FieldContext.Provider>
   );
-}
+});
 
 Checkbox.propTypes = {
   children: PropTypes.node

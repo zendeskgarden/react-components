@@ -18,7 +18,7 @@ export const ToggleContext = createContext(undefined);
 /**
  * Accepts all `<input type="checkbox" />` props
  */
-function Toggle({ children, ...props }) {
+const Toggle = React.forwardRef(({ children, ...props }, ref) => {
   const { getLabelProps, ...fieldCtx } = useFieldContext();
   const { getFocusProps, keyboardFocused } = useKeyboardFocus();
 
@@ -45,6 +45,7 @@ function Toggle({ children, ...props }) {
             {...modifiedFieldCtx.getInputProps({
               'data-garden-id': 'forms.toggle',
               'data-garden-version': PACKAGE_VERSION,
+              ref,
               ...keyboardFocusedProps
             })}
           />
@@ -53,7 +54,7 @@ function Toggle({ children, ...props }) {
       </ToggleContext.Provider>
     </FieldContext.Provider>
   );
-}
+});
 
 Toggle.propTypes = {
   children: PropTypes.node

@@ -9,7 +9,7 @@
       </Toggle>
     </Col>
     <Col lg={3}>
-      <Toggle checked>
+      <Toggle checked readOnly>
         <Label>Checked Label</Label>
       </Toggle>
     </Col>
