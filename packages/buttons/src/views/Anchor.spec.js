@@ -6,62 +6,62 @@
  */
 
 import React from 'react';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
-import Anchor, { StyledAnchor } from './Anchor';
+import { render, fireEvent } from 'garden-test-utils';
+import Anchor from './Anchor';
 
 describe('Anchor', () => {
   it('renders default styling', () => {
-    const wrapper = mountWithTheme(<Anchor />);
+    const { container } = render(<Anchor />);
 
-    expect(wrapper.find(StyledAnchor).childAt(0)).toHaveClassName('c-btn');
-    expect(wrapper.find(StyledAnchor).childAt(0)).toHaveClassName('c-btn--anchor');
+    expect(container.firstChild).toHaveClass('c-btn');
+    expect(container.firstChild).toHaveClass('c-btn--anchor');
   });
 
   it('renders danger styling if provided', () => {
-    const wrapper = mountWithTheme(<Anchor danger />);
+    const { container } = render(<Anchor danger />);
 
-    expect(wrapper.find(StyledAnchor).childAt(0)).toHaveClassName('c-btn--danger');
+    expect(container.firstChild).toHaveClass('c-btn--danger');
   });
 
   describe('Selection', () => {
     it('does not render focused styling if focused by mouse', () => {
-      const wrapper = mountWithTheme(<Anchor data-test-id="anchor" />);
+      const { container } = render(<Anchor />);
 
-      wrapper.find('a[data-test-id="anchor"]').simulate('click');
-      expect(wrapper.find('a[data-test-id="anchor"]')).not.toHaveClassName('is-focused');
+      fireEvent.click(container.firstChild);
+      expect(container.firstChild).not.toHaveClass('is-focused');
     });
 
     it('renders focused styling if focused by keyboard', () => {
-      const wrapper = mountWithTheme(<Anchor data-test-id="anchor" />);
+      const { container } = render(<Anchor data-test-id="anchor" />);
 
-      wrapper.find('a[data-test-id="anchor"]').simulate('focus');
-      expect(wrapper.find('a[data-test-id="anchor"]')).toHaveClassName('is-focused');
+      fireEvent.focus(container.firstChild);
+      expect(container.firstChild).toHaveClass('is-focused');
     });
   });
 
   describe('States', () => {
     it('renders active styling if provided', () => {
-      const wrapper = mountWithTheme(<Anchor active />);
+      const { container } = render(<Anchor active />);
 
-      expect(wrapper.find(StyledAnchor).childAt(0)).toHaveClassName('is-active');
+      expect(container.firstChild).toHaveClass('is-active');
     });
 
     it('renders disabled styling if provided', () => {
-      const wrapper = mountWithTheme(<Anchor disabled />);
+      const { container } = render(<Anchor disabled />);
 
-      expect(wrapper.find(StyledAnchor).childAt(0)).toHaveClassName('is-disabled');
+      expect(container.firstChild).toHaveClass('is-disabled');
     });
 
     it('renders focused styling if provided', () => {
-      const wrapper = mountWithTheme(<Anchor focused />);
+      const { container } = render(<Anchor focused />);
 
-      expect(wrapper.find(StyledAnchor).childAt(0)).toHaveClassName('is-focused');
+      expect(container.firstChild).toHaveClass('is-focused');
     });
 
     it('renders hovered styling if provided', () => {
-      const wrapper = mountWithTheme(<Anchor hovered />);
+      const { container } = render(<Anchor hovered />);
 
-      expect(wrapper.find(StyledAnchor).childAt(0)).toHaveClassName('is-hovered');
+      expect(container.firstChild).toHaveClass('is-hovered');
     });
   });
 });

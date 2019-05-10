@@ -115,7 +115,7 @@ export default class Tooltip extends ControlledComponent {
         trigger={({ getTriggerProps, ref }) => {
           const triggerElement = cloneElement(trigger, getTriggerProps(trigger.props));
 
-          return <TriggerWrapper innerRef={ref}>{triggerElement}</TriggerWrapper>;
+          return <TriggerWrapper ref={ref}>{triggerElement}</TriggerWrapper>;
         }}
       >
         {({ getTooltipProps, placement }) => {

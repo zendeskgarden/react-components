@@ -26,7 +26,7 @@ const increment = (num = 0) => setState({ count: state.count + num });
           onOpen={isOpen => setState({ isOpen })}
           onSelect={value => increment(value)}
         >
-          <Trigger refKey="buttonRef">
+          <Trigger>
             <ChevronButton rotated={state.isOpen} aria-label="Other Options" />
           </Trigger>
           <Menu placement="bottom-end">

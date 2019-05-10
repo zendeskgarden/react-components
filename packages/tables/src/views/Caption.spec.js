@@ -6,14 +6,14 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 
 import Caption from './Caption';
 
 describe('Caption', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Caption />);
+    const { container } = render(<Caption />);
 
-    expect(wrapper).toHaveClassName('c-table__caption');
+    expect(container.firstChild).toHaveClass('c-table__caption');
   });
 });

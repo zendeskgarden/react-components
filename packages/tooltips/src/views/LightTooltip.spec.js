@@ -6,13 +6,13 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 import LightTooltip from './LightTooltip';
 
 describe('LightTooltip', () => {
   it('renders default styling correctly', () => {
-    const wrapper = shallow(<LightTooltip />);
+    const { container } = render(<LightTooltip />);
 
-    expect(wrapper).toHaveClassName('c-tooltip--light');
+    expect(container.firstChild).toHaveClass('c-tooltip--light');
   });
 });

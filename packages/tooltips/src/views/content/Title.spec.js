@@ -6,13 +6,13 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 import Title from './Title';
 
 describe('Title', () => {
   it('renders default styling correctly', () => {
-    const wrapper = shallow(<Title />);
+    const { container } = render(<Title />);
 
-    expect(wrapper).toHaveClassName('c-tooltip__title');
+    expect(container.firstChild).toHaveClass('c-tooltip__title');
   });
 });

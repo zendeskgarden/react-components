@@ -6,51 +6,51 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, fireEvent } from 'garden-test-utils';
 
-import OverflowButton, { StyledOverflowButton } from './OverflowButton';
+import OverflowButton from './OverflowButton';
 
 describe('OverflowButton', () => {
   it('applies default styling by default', () => {
-    const wrapper = shallow(<StyledOverflowButton />);
+    const { container } = render(<OverflowButton />);
 
-    expect(wrapper).toHaveClassName('c-table__row__cell__overflow');
+    expect(container.firstChild).toHaveClass('c-table__row__cell__overflow');
   });
 
   it('applies hovered styling if provided', () => {
-    const wrapper = shallow(<StyledOverflowButton hovered />);
+    const { container } = render(<OverflowButton hovered />);
 
-    expect(wrapper).toHaveClassName('is-hovered');
+    expect(container.firstChild).toHaveClass('is-hovered');
   });
 
   it('applies active styling if provided', () => {
-    const wrapper = shallow(<StyledOverflowButton active />);
+    const { container } = render(<OverflowButton active />);
 
-    expect(wrapper).toHaveClassName('is-active');
+    expect(container.firstChild).toHaveClass('is-active');
   });
 
   it('applies focused styling if provided', () => {
-    const wrapper = shallow(<StyledOverflowButton focused />);
+    const { container } = render(<OverflowButton focused />);
 
-    expect(wrapper).toHaveClassName('is-focused');
+    expect(container.firstChild).toHaveClass('is-focused');
   });
 
   describe('onFocus', () => {
     it('applies focused state', () => {
-      const wrapper = shallow(<OverflowButton />);
+      const { container } = render(<OverflowButton />);
 
-      wrapper.simulate('focus');
-      expect(wrapper).toHaveProp('focused', true);
+      fireEvent.focus(container.firstChild);
+      expect(container.firstChild).toHaveClass('is-focused');
     });
   });
 
   describe('onBlur', () => {
     it('removes focused state', () => {
-      const wrapper = shallow(<OverflowButton />);
+      const { container } = render(<OverflowButton />);
 
-      wrapper.simulate('focus');
-      wrapper.simulate('blur');
-      expect(wrapper).toHaveProp('focused', false);
+      fireEvent.focus(container.firstChild);
+      fireEvent.blur(container.firstChild);
+      expect(container.firstChild).not.toHaveClass('is-focused');
     });
   });
 });

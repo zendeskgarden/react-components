@@ -20,70 +20,54 @@ const SIZE = {
   LARGE: 'large'
 };
 
-export const StyledButton = styled.button.attrs({
+export const StyledButton = styled.button.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: ({
-    danger,
-    size,
-    stretched,
-    disabled,
-    focused,
-    focusInset,
-    hovered,
-    active,
-    selected,
-    pill,
-    primary,
-    basic,
-    muted,
-    link
-  }) =>
-    classNames(ButtonStyles['c-btn'], {
-      // Danger styling
-      [ButtonStyles['c-btn--danger']]: !disabled && danger,
+  className: classNames(ButtonStyles['c-btn'], {
+    // Danger styling
+    [ButtonStyles['c-btn--danger']]: !props.disabled && props.danger,
 
-      // Styles
-      [ButtonStyles['c-btn--primary']]: primary,
-      [ButtonStyles['c-btn--basic']]: basic,
-      [ButtonStyles['c-btn--muted']]: muted,
-      [ButtonStyles['c-btn--pill']]: pill,
-      [ButtonStyles['c-btn--anchor']]: link,
-      [ButtonStyles['c-btn--focus-inset']]: focusInset,
+    // Styles
+    [ButtonStyles['c-btn--primary']]: props.primary,
+    [ButtonStyles['c-btn--basic']]: props.basic,
+    [ButtonStyles['c-btn--muted']]: props.muted,
+    [ButtonStyles['c-btn--pill']]: props.pill,
+    [ButtonStyles['c-btn--anchor']]: props.link,
+    [ButtonStyles['c-btn--focus-inset']]: props.focusInset,
 
-      // Sizes
-      [ButtonStyles['c-btn--sm']]: size === SIZE.SMALL,
-      [ButtonStyles['c-btn--lg']]: size === SIZE.LARGE,
-      [ButtonStyles['c-btn--full']]: stretched,
+    // Sizes
+    [ButtonStyles['c-btn--sm']]: props.size === SIZE.SMALL,
+    [ButtonStyles['c-btn--lg']]: props.size === SIZE.LARGE,
+    [ButtonStyles['c-btn--full']]: props.stretched,
 
-      // States
-      [ButtonStyles['is-active']]: active,
-      [ButtonStyles['is-disabled']]: disabled,
-      [ButtonStyles['is-focused']]: focused,
-      [ButtonStyles['is-hovered']]: hovered,
-      [ButtonStyles['is-selected']]: selected
-    }),
+    // States
+    [ButtonStyles['is-active']]: props.active,
+    [ButtonStyles['is-disabled']]: props.disabled,
+    [ButtonStyles['is-focused']]: props.focused,
+    [ButtonStyles['is-hovered']]: props.hovered,
+    [ButtonStyles['is-selected']]: props.selected
+  }),
   type: 'button'
-})`
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
 /**
  * Accepts all `<button>` props
  */
-const Button = ({ focused, buttonRef, ...other }) => (
+const Button = React.forwardRef(({ focused, ...other }, ref) => (
   <KeyboardFocusContainer>
     {({ getFocusProps, keyboardFocused }) => (
       <StyledButton
         {...getFocusProps({
-          innerRef: buttonRef,
+          ref,
           ...other,
           focused: focused || keyboardFocused
         })}
       />
     )}
   </KeyboardFocusContainer>
-);
+));
 
 Button.propTypes = {
   /** Apply danger styling */
@@ -107,9 +91,7 @@ Button.propTypes = {
   focusInset: PropTypes.bool,
   hovered: PropTypes.bool,
   active: PropTypes.bool,
-  selected: PropTypes.bool,
-  /** Callback for reference of the native button element */
-  buttonRef: PropTypes.func
+  selected: PropTypes.bool
 };
 
 Button.hasType = () => Button;

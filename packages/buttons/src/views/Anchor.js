@@ -16,22 +16,21 @@ import NewWindowIcon from '@zendeskgarden/svg-icons/src/12/new-window-stroke.svg
 
 const COMPONENT_ID = 'buttons.anchor';
 
-export const StyledAnchor = styled.a.attrs({
+export const StyledAnchor = styled.a.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: ({ danger, disabled, focused, hovered, active, selected }) =>
-    classNames(ButtonStyles['c-btn'], ButtonStyles['c-btn--anchor'], {
-      // Danger styling
-      [ButtonStyles['c-btn--danger']]: danger,
+  className: classNames(ButtonStyles['c-btn'], ButtonStyles['c-btn--anchor'], {
+    // Danger styling
+    [ButtonStyles['c-btn--danger']]: props.danger,
 
-      // States
-      [ButtonStyles['is-active']]: active,
-      [ButtonStyles['is-disabled']]: disabled,
-      [ButtonStyles['is-focused']]: focused,
-      [ButtonStyles['is-hovered']]: hovered,
-      [ButtonStyles['is-selected']]: selected
-    })
-})`
+    // States
+    [ButtonStyles['is-active']]: props.active,
+    [ButtonStyles['is-disabled']]: props.disabled,
+    [ButtonStyles['is-focused']]: props.focused,
+    [ButtonStyles['is-hovered']]: props.hovered,
+    [ButtonStyles['is-selected']]: props.selected
+  })
+}))`
   ${props =>
     props.external &&
     `
@@ -60,9 +59,8 @@ export const StyledNewWindowIcon = styled(NewWindowIcon)`
 /**
  * Accepts all `<a>` props
  */
-const Anchor = props => {
-  // eslint-disable-next-line
-  const { focused, external, children, theme, ...other } = props;
+const Anchor = React.forwardRef((props, ref) => {
+  const { focused, external, children, ...other } = props;
   const rtl = isRtl(props);
 
   return (
@@ -72,6 +70,7 @@ const Anchor = props => {
           {...getFocusProps({
             ...other,
             external,
+            ref,
             dir: rtl ? 'rtl' : undefined,
             focused: focused || keyboardFocused
           })}
@@ -82,7 +81,7 @@ const Anchor = props => {
       )}
     </KeyboardFocusContainer>
   );
-};
+});
 
 Anchor.propTypes = {
   /** Apply danger styling */

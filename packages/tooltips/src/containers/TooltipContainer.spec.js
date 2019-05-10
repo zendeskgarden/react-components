@@ -6,120 +6,93 @@
  */
 
 import React from 'react';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
-import { Portal } from 'react-portal';
+import { render, fireEvent } from 'garden-test-utils';
 import TooltipContainer from './TooltipContainer';
-import {
-  GARDEN_PLACEMENTS,
-  getPopperPlacement,
-  getRtlPopperPlacement
-} from '../utils/gardenPlacements';
 
-/**
- * Mocks popper.js calls within react-popper due to virtual testing environment
- */
-jest.mock('popper.js', () => {
-  const PopperJS = jest.requireActual('popper.js');
-
-  return class Popper {
-    static placements = PopperJS.placements;
-
-    constructor() {
-      return {
-        destroy: () => {
-          // mock implementation
-        },
-        scheduleUpdate: () => {
-          // mock implementation
-        }
-      };
-    }
-  };
-});
+const BasicExample = props => (
+  <TooltipContainer
+    id="custom-test-id"
+    trigger={({ getTriggerProps, ref }) => (
+      <div {...getTriggerProps({ 'data-test-id': 'trigger', ref })}>trigger</div>
+    )}
+    {...props}
+  >
+    {({ getTooltipProps, placement }) => (
+      <div {...getTooltipProps({ 'data-test-id': 'tooltip', 'data-placement': placement })}>
+        tooltip
+      </div>
+    )}
+  </TooltipContainer>
+);
 
 jest.useFakeTimers();
 
 describe('TooltipContainer', () => {
-  let wrapper;
-
-  const BasicExample = props => (
-    <TooltipContainer
-      id="custom-test-id"
-      trigger={({ getTriggerProps, ref }) => (
-        <div {...getTriggerProps({ 'data-test-id': 'trigger', ref })}>trigger</div>
-      )}
-      {...props}
-    >
-      {({ getTooltipProps, placement }) => (
-        <div {...getTooltipProps({ 'data-test-id': 'tooltip', 'data-placement': placement })}>
-          tooltip
-        </div>
-      )}
-    </TooltipContainer>
-  );
-
-  const findTooltip = providedWrapper => {
-    return providedWrapper.find('[data-test-id="tooltip"]');
-  };
-
-  const findTrigger = providedWrapper => {
-    return providedWrapper.find('[data-test-id="trigger"]');
-  };
-
   beforeEach(() => {
     clearTimeout.mockClear();
-
-    wrapper = mountWithTheme(<BasicExample />);
   });
 
   describe('getTriggerProps', () => {
     it('should have tabIndex of 0', () => {
-      expect(findTrigger(wrapper)).toHaveProp('tabIndex', 0);
+      const { getByTestId } = render(<BasicExample />);
+
+      expect(getByTestId('trigger')).toHaveAttribute('tabIndex', '0');
     });
 
     describe('onFocus()', () => {
       it('should not display tooltip immediately when focused', () => {
-        findTrigger(wrapper).simulate('focus');
-        expect(findTooltip(wrapper)).toHaveLength(0);
+        const { getByTestId, queryByTestId } = render(<BasicExample />);
+
+        fireEvent.focus(getByTestId('trigger'));
+        expect(queryByTestId('tooltip')).not.toBeInTheDocument();
       });
 
       it('should display tooltip after delay when focused', () => {
-        findTrigger(wrapper).simulate('focus');
+        const { getByTestId } = render(<BasicExample />);
+
+        fireEvent.focus(getByTestId('trigger'));
 
         jest.runOnlyPendingTimers();
-        wrapper.update();
-        expect(findTooltip(wrapper)).toHaveLength(1);
+        expect(getByTestId('tooltip')).toBeInTheDocument();
       });
     });
 
     describe('onBlur()', () => {
       it('should close tooltip immediately after blur', () => {
-        findTrigger(wrapper).simulate('focus');
-        findTrigger(wrapper).simulate('blur');
+        const { getByTestId, queryByTestId } = render(<BasicExample />);
 
+        fireEvent.focus(getByTestId('trigger'));
+        fireEvent.blur(getByTestId('trigger'));
         jest.runOnlyPendingTimers();
-        wrapper.update();
-        expect(findTooltip(wrapper)).toHaveLength(0);
+
+        expect(queryByTestId('tooltip')).not.toBeInTheDocument();
       });
     });
 
     describe('onMouseEnter()', () => {
       it('should not display tooltip immediately when clicked', () => {
-        findTrigger(wrapper).simulate('mouseenter');
-        expect(findTooltip(wrapper)).toHaveLength(0);
+        const { getByTestId, queryByTestId } = render(<BasicExample />);
+
+        fireEvent.mouseEnter(getByTestId('trigger'));
+
+        expect(queryByTestId('tooltip')).not.toBeInTheDocument();
       });
 
       it('should display tooltip after delay when clicked', () => {
-        findTrigger(wrapper).simulate('mouseenter');
+        const { getByTestId } = render(<BasicExample />);
 
+        fireEvent.mouseEnter(getByTestId('trigger'));
         jest.runOnlyPendingTimers();
-        wrapper.update();
-        expect(findTooltip(wrapper)).toHaveLength(1);
+
+        expect(getByTestId('tooltip')).toBeInTheDocument();
       });
 
       it('should clear open timeout if unmounted during interval', () => {
-        findTrigger(wrapper).simulate('mouseenter');
-        wrapper.unmount();
+        const { getByTestId, unmount } = render(<BasicExample />);
+
+        fireEvent.mouseEnter(getByTestId('trigger'));
+        unmount();
+
         // 3 total clearTimeouts occur during this action
         expect(clearTimeout).toHaveBeenCalledTimes(3);
       });
@@ -127,181 +100,105 @@ describe('TooltipContainer', () => {
 
     describe('onMouseLeave()', () => {
       it('should not hide tooltip immediately when mouseleaved', () => {
-        findTrigger(wrapper).simulate('mouseenter');
-        jest.runOnlyPendingTimers();
-        wrapper.update();
-        expect(findTooltip(wrapper)).toHaveLength(1);
+        const { getByTestId } = render(<BasicExample />);
 
-        findTrigger(wrapper).simulate('mouseleave');
-        wrapper.update();
-        expect(findTooltip(wrapper)).toHaveLength(1);
+        fireEvent.mouseEnter(getByTestId('trigger'));
+        jest.runOnlyPendingTimers();
+
+        expect(getByTestId('tooltip')).toBeInTheDocument();
+
+        fireEvent.mouseLeave(getByTestId('trigger'));
+
+        expect(getByTestId('tooltip')).toBeInTheDocument();
       });
 
       it('should hide tooltip aften delay when mouseleaved', () => {
-        findTrigger(wrapper).simulate('mouseenter');
-        findTrigger(wrapper).simulate('mouseleave');
+        const { getByTestId, queryByTestId } = render(<BasicExample />);
 
+        fireEvent.mouseEnter(getByTestId('trigger'));
+        fireEvent.mouseLeave(getByTestId('trigger'));
         jest.runOnlyPendingTimers();
-        wrapper.update();
-        expect(findTooltip(wrapper)).toHaveLength(0);
+
+        expect(queryByTestId('tooltip')).not.toBeInTheDocument();
       });
     });
   });
 
   describe('getTooltipProps', () => {
     it('should not close tooltip if mouseenter during close delay period', () => {
-      findTrigger(wrapper).simulate('mouseenter');
-      jest.runOnlyPendingTimers();
-      wrapper.update();
+      const { getByTestId } = render(<BasicExample />);
 
-      findTrigger(wrapper).simulate('mouseleave');
-      findTooltip(wrapper).simulate('mouseenter');
+      fireEvent.mouseEnter(getByTestId('trigger'));
       jest.runOnlyPendingTimers();
-      wrapper.update();
+      fireEvent.mouseLeave(getByTestId('trigger'));
+      fireEvent.mouseEnter(getByTestId('tooltip'));
+      jest.runOnlyPendingTimers();
 
-      expect(findTooltip(wrapper)).toHaveLength(1);
+      expect(getByTestId('tooltip')).toBeInTheDocument();
     });
 
     it('should close tooltip if mouseleaveed', () => {
-      findTrigger(wrapper).simulate('mouseenter');
-      jest.runOnlyPendingTimers();
-      wrapper.update();
+      const { getByTestId, queryByTestId } = render(<BasicExample />);
 
-      findTooltip(wrapper).simulate('mouseenter');
-      findTooltip(wrapper).simulate('mouseleave');
+      fireEvent.mouseEnter(getByTestId('trigger'));
       jest.runOnlyPendingTimers();
-      wrapper.update();
+      fireEvent.mouseEnter(getByTestId('tooltip'));
+      fireEvent.mouseLeave(getByTestId('tooltip'));
+      jest.runOnlyPendingTimers();
 
-      expect(findTooltip(wrapper)).toHaveLength(0);
+      expect(queryByTestId('tooltip')).not.toBeInTheDocument();
     });
 
     it('should leave tooltip open if focused', () => {
-      findTrigger(wrapper).simulate('mouseenter');
-      jest.runOnlyPendingTimers();
-      wrapper.update();
+      const { getByTestId } = render(<BasicExample />);
 
-      findTrigger(wrapper).simulate('blur');
-      findTooltip(wrapper).simulate('focus');
+      fireEvent.mouseEnter(getByTestId('trigger'));
       jest.runOnlyPendingTimers();
-      wrapper.update();
+      fireEvent.blur(getByTestId('trigger'));
+      fireEvent.focus(getByTestId('tooltip'));
+      jest.runOnlyPendingTimers();
 
-      expect(findTooltip(wrapper)).toHaveLength(1);
+      expect(getByTestId('tooltip')).toBeInTheDocument();
     });
 
     it('should close tooltip if blurred', () => {
-      findTrigger(wrapper).simulate('mouseenter');
-      jest.runOnlyPendingTimers();
-      wrapper.update();
+      const { getByTestId, queryByTestId } = render(<BasicExample />);
 
-      findTrigger(wrapper).simulate('blur');
-      findTooltip(wrapper).simulate('focus');
+      fireEvent.mouseEnter(getByTestId('trigger'));
       jest.runOnlyPendingTimers();
-      wrapper.update();
-
-      findTooltip(wrapper).simulate('blur');
+      fireEvent.blur(getByTestId('trigger'));
+      fireEvent.focus(getByTestId('tooltip'));
       jest.runOnlyPendingTimers();
-      wrapper.update();
 
-      expect(findTooltip(wrapper)).toHaveLength(0);
+      fireEvent.blur(getByTestId('tooltip'));
+      jest.runOnlyPendingTimers();
+
+      expect(queryByTestId('tooltip')).not.toBeInTheDocument();
     });
 
     it('should render tooltip within portal if appendToBody is provided', () => {
-      wrapper = mountWithTheme(
-        <TooltipContainer
-          appendToBody
-          id="custom-test-id"
-          trigger={({ getTriggerProps }) => (
-            <div {...getTriggerProps({ 'data-test-id': 'trigger' })}>trigger</div>
-          )}
-        >
-          {({ getTooltipProps }) => (
-            <div {...getTooltipProps({ 'data-test-id': 'tooltip' })}>tooltip</div>
-          )}
-        </TooltipContainer>
-      );
+      const { getByTestId } = render(<BasicExample appendToBody />);
 
-      findTrigger(wrapper).simulate('focus');
+      fireEvent.focus(getByTestId('trigger'));
 
       jest.runOnlyPendingTimers();
-      wrapper.update();
-      expect(wrapper.contains(Portal)).toBe(true);
+      expect(getByTestId('tooltip').parentElement.parentElement).toEqual(document.body);
     });
   });
 
   describe('zIndex', () => {
     it('should not apply zIndex if none is provided', () => {
-      wrapper = mountWithTheme(<BasicExample isVisible />);
-      const tooltipWrapper = findTooltip(wrapper).parent();
+      const { getByTestId } = render(<BasicExample isVisible />);
+      const tooltipWrapper = getByTestId('tooltip').parentElement;
 
       expect(tooltipWrapper).not.toHaveStyleRule('z-index');
     });
 
     it('should apply zIndex if provided', () => {
-      wrapper = mountWithTheme(<BasicExample zIndex={3000} isVisible />);
-      const tooltipWrapper = findTooltip(wrapper).parent();
+      const { getByTestId } = render(<BasicExample zIndex={3000} isVisible />);
+      const tooltipWrapper = getByTestId('tooltip').parentElement;
 
       expect(tooltipWrapper).toHaveStyleRule('z-index', '3000');
-    });
-  });
-
-  describe('placement', () => {
-    describe('with LTR locale', () => {
-      it('applies placements as provided', () => {
-        Object.values(GARDEN_PLACEMENTS).forEach(providedPlacement => {
-          wrapper = mountWithTheme(
-            <TooltipContainer
-              placement={providedPlacement}
-              id="custom-test-id"
-              trigger={({ getTriggerProps }) => (
-                <div {...getTriggerProps({ 'data-test-id': 'trigger' })}>trigger</div>
-              )}
-            >
-              {({ getTooltipProps, placement }) => (
-                <div
-                  {...getTooltipProps({ 'data-test-id': 'tooltip', 'data-placement': placement })}
-                >
-                  tooltip
-                </div>
-              )}
-            </TooltipContainer>
-          );
-
-          expect(wrapper.find('Popper')).toHaveProp(
-            'placement',
-            getPopperPlacement(providedPlacement)
-          );
-        });
-      });
-    });
-
-    describe('with RTL locale', () => {
-      it('applies translated placements', () => {
-        Object.values(GARDEN_PLACEMENTS).forEach(providedPlacement => {
-          wrapper = mountWithTheme(
-            <TooltipContainer
-              placement={providedPlacement}
-              id="custom-test-id"
-              trigger={({ getTriggerProps }) => (
-                <div {...getTriggerProps({ 'data-test-id': 'trigger' })}>trigger</div>
-              )}
-            >
-              {({ getTooltipProps, placement }) => (
-                <div
-                  {...getTooltipProps({ 'data-test-id': 'tooltip', 'data-placement': placement })}
-                >
-                  tooltip
-                </div>
-              )}
-            </TooltipContainer>,
-            { rtl: true }
-          );
-
-          expect(wrapper.find('Popper')).toHaveProp(
-            'placement',
-            getRtlPopperPlacement(providedPlacement)
-          );
-        });
-      });
     });
   });
 });

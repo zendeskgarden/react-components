@@ -17,22 +17,21 @@ const COMPONENT_ID = 'grid.grid';
  * Implemented with the [Bootstrap v4 Flexbox Grid](http://getbootstrap.com/docs/4.0/layout/overview/).
  * Accepts all `<div>` props.
  */
-const Grid = styled.div.attrs({
+const Grid = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames({
-      // Container types
-      [GridStyles['container-fluid']]: props.fluid,
-      [GridStyles.container]: !props.fluid,
+  className: classNames({
+    // Container types
+    [GridStyles['container-fluid']]: props.fluid,
+    [GridStyles.container]: !props.fluid,
 
-      // Debug styling
-      [GridStyles[`is-debug`]]: props.debug,
+    // Debug styling
+    [GridStyles[`is-debug`]]: props.debug,
 
-      // RTL styling
-      [GridStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL styling
+    [GridStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

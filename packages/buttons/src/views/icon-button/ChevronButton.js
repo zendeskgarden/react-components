@@ -19,13 +19,13 @@ const SIZE = {
 /**
  * IconButton with an embedded chevron icon
  */
-const ChevronButton = ({ rotated, ...buttonProps }) => (
-  <IconButton pill={false} muted={false} basic={false} {...buttonProps}>
+const ChevronButton = React.forwardRef(({ rotated, ...buttonProps }, ref) => (
+  <IconButton pill={false} muted={false} basic={false} ref={ref} {...buttonProps}>
     <Icon rotated={rotated}>
       <ChevronDownIcon />
     </Icon>
   </IconButton>
-);
+));
 
 ChevronButton.propTypes = {
   /** Apply danger styling */

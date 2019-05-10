@@ -23,51 +23,54 @@ const SORT = {
 /**
  * Accepts all `<button>` props
  */
-export const Sortable = styled.button.attrs({
+const StyledSortableButton = styled.button.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   type: 'button',
-  className: props =>
-    classNames(TableStyles['c-table__row__cell__sortable'], {
-      // Sorting
-      [TableStyles['is-ascending']]: props.sort === SORT.ASCENDING,
-      [TableStyles['is-descending']]: props.sort === SORT.DESCENDING,
+  className: classNames(TableStyles['c-table__row__cell__sortable'], {
+    // Sorting
+    [TableStyles['is-ascending']]: props.sort === SORT.ASCENDING,
+    [TableStyles['is-descending']]: props.sort === SORT.DESCENDING,
 
-      // State
-      [TableStyles['is-focused']]: props.focused,
-      [TableStyles['is-active']]: props.active
-    })
-})`
+    // State
+    [TableStyles['is-focused']]: props.focused,
+    [TableStyles['is-active']]: props.active
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
-const SortableCell = ({ minimum, truncate, sort, cellProps, width, ...otherProps }) => {
-  let ariaSortValue = 'none';
+/**
+ * Accepts all `<button>` props
+ */
+const SortableCell = React.forwardRef(
+  ({ minimum, truncate, sort, cellProps, width, ...otherProps }, ref) => {
+    let ariaSortValue = 'none';
 
-  if (sort === SORT.ASCENDING) {
-    ariaSortValue = 'ascending';
-  } else if (sort === SORT.DESCENDING) {
-    ariaSortValue = 'descending';
+    if (sort === SORT.ASCENDING) {
+      ariaSortValue = 'ascending';
+    } else if (sort === SORT.DESCENDING) {
+      ariaSortValue = 'descending';
+    }
+
+    return (
+      <HeaderCell
+        minimum={minimum}
+        truncate={truncate}
+        aria-sort={ariaSortValue}
+        width={width}
+        {...cellProps}
+      >
+        <StyledSortableButton sort={sort} ref={ref} {...otherProps} />
+      </HeaderCell>
+    );
   }
-
-  return (
-    <HeaderCell
-      minimum={minimum}
-      truncate={truncate}
-      aria-sort={ariaSortValue}
-      width={width}
-      {...cellProps}
-    >
-      <Sortable sort={sort} {...otherProps} />
-    </HeaderCell>
-  );
-};
+);
 
 SortableCell.propTypes = {
   sort: PropTypes.oneOf([SORT.ASCENDING, SORT.DESCENDING]),
   focused: PropTypes.bool,
   active: PropTypes.bool,
-  buttonRef: PropTypes.func,
   /** Applies minimum size styling */
   minimum: PropTypes.bool,
   /** Applies truncated text styling */
