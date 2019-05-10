@@ -16,7 +16,7 @@ import { StyledLabel } from '../styled';
 /**
  * Accepts all `<label>` props. Must be nested with a `<Field>` component.
  */
-function Label({ onMouseEnter, onMouseLeave, ...other }) {
+const Label = React.forwardRef(({ onMouseEnter, onMouseLeave, ...other }, ref) => {
   const {
     downshift: { getLabelProps }
   } = useDropdownContext();
@@ -32,8 +32,8 @@ function Label({ onMouseEnter, onMouseLeave, ...other }) {
     ...other
   });
 
-  return <StyledLabel {...labelProps} />;
-}
+  return <StyledLabel ref={ref} {...labelProps} />;
+});
 
 Label.propTypes = {
   regular: PropTypes.bool,

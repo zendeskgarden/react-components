@@ -14,7 +14,9 @@ import { StyledAddItem } from '../../styled';
 /**
  * Accepts all `<li>` props
  */
-const AddItem = props => <Item component={StyledAddItem} {...props} />;
+const AddItem = React.forwardRef((props, ref) => (
+  <Item component={StyledAddItem} ref={ref} {...props} />
+));
 
 AddItem.propTypes = {
   value: PropTypes.string,

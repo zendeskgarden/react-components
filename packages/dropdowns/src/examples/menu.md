@@ -9,7 +9,7 @@ const SettingsIcon = require('@zendeskgarden/svg-icons/src/16/gear-stroke.svg').
   <Row>
     <Col md>
       <Dropdown onSelect={item => alert(item)}>
-        <Trigger refKey="innerRef">
+        <Trigger>
           <Button>Default Menu</Button>
         </Trigger>
         <Menu>
@@ -21,7 +21,7 @@ const SettingsIcon = require('@zendeskgarden/svg-icons/src/16/gear-stroke.svg').
     </Col>
     <Col md>
       <Dropdown onSelect={item => alert(item)}>
-        <Trigger refKey="buttonRef">
+        <Trigger>
           <IconButton aria-label="Settings" title="Settings">
             <Icon>
               <SettingsIcon />
@@ -76,7 +76,7 @@ initialState = {
   }}
   onSelect={item => alert(item)}
 >
-  <Trigger refKey="innerRef">
+  <Trigger>
     <Button active={state.isOpen}>Advanced Layout</Button>
   </Trigger>
   <Menu placement="end" arrow>
@@ -150,7 +150,7 @@ initialState = {
     }
   }}
 >
-  <Trigger refKey="innerRef">
+  <Trigger>
     <Button active={state.isOpen}>Async Loading</Button>
   </Trigger>
   <Menu placement="end" arrow>
@@ -235,7 +235,7 @@ const renderItems = () => {
     setState(updatedState);
   }}
 >
-  <Trigger refKey="innerRef">
+  <Trigger>
     <Button>Tree Layout</Button>
   </Trigger>
   <Menu placement="end" arrow style={{ width: 200, height: 270 }}>
