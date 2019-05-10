@@ -16,14 +16,13 @@ const COMPONENT_ID = 'chrome.header_item_text';
 /**
  * Accepts all `<span>` props
  */
-const HeaderItemText = styled.span.attrs({
+const HeaderItemText = styled.span.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(ChromeStyles['c-chrome__body__header__item__text'], {
-      [ChromeStyles['is-clipped']]: props.clipped
-    })
-})`
+  className: classNames(ChromeStyles['c-chrome__body__header__item__text'], {
+    [ChromeStyles['is-clipped']]: props.clipped
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

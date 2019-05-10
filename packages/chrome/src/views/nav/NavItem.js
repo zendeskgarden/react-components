@@ -28,38 +28,37 @@ const PRODUCT = {
 /**
  * Accepts all `<button>` props
  */
-export const StyledNavItem = styled.button.attrs({
+export const StyledNavItem = styled.button.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(ChromeStyles['c-chrome__nav__item'], {
-      // Styling
-      [ChromeStyles['c-chrome__nav__item--logo']]: props.logo,
-      [ChromeStyles['c-chrome__nav__item--brandmark']]: props.brandmark,
+  className: classNames(ChromeStyles['c-chrome__nav__item'], {
+    // Styling
+    [ChromeStyles['c-chrome__nav__item--logo']]: props.logo,
+    [ChromeStyles['c-chrome__nav__item--brandmark']]: props.brandmark,
 
-      // Products
-      [ChromeStyles['c-chrome__nav__item--logo--chat']]: props.product === PRODUCT.CHAT,
-      [ChromeStyles['c-chrome__nav__item--logo--connect']]: props.product === PRODUCT.CONNECT,
-      [ChromeStyles['c-chrome__nav__item--logo--explore']]: props.product === PRODUCT.EXPLORE,
-      [ChromeStyles['c-chrome__nav__item--logo--guide']]: props.product === PRODUCT.GUIDE,
-      [ChromeStyles['c-chrome__nav__item--logo--message']]: props.product === PRODUCT.MESSAGE,
-      [ChromeStyles['c-chrome__nav__item--logo--support']]: props.product === PRODUCT.SUPPORT,
-      [ChromeStyles['c-chrome__nav__item--logo--talk']]: props.product === PRODUCT.TALK,
+    // Products
+    [ChromeStyles['c-chrome__nav__item--logo--chat']]: props.product === PRODUCT.CHAT,
+    [ChromeStyles['c-chrome__nav__item--logo--connect']]: props.product === PRODUCT.CONNECT,
+    [ChromeStyles['c-chrome__nav__item--logo--explore']]: props.product === PRODUCT.EXPLORE,
+    [ChromeStyles['c-chrome__nav__item--logo--guide']]: props.product === PRODUCT.GUIDE,
+    [ChromeStyles['c-chrome__nav__item--logo--message']]: props.product === PRODUCT.MESSAGE,
+    [ChromeStyles['c-chrome__nav__item--logo--support']]: props.product === PRODUCT.SUPPORT,
+    [ChromeStyles['c-chrome__nav__item--logo--talk']]: props.product === PRODUCT.TALK,
 
-      // State
-      [ChromeStyles['is-current']]: props.current,
-      [ChromeStyles['is-hovered']]: props.hovered,
-      [ChromeStyles['is-focused']]: props.focused,
-      [ChromeStyles['is-active']]: props.active
-    })
-})`
+    // State
+    [ChromeStyles['is-current']]: props.current,
+    [ChromeStyles['is-hovered']]: props.hovered,
+    [ChromeStyles['is-focused']]: props.focused,
+    [ChromeStyles['is-active']]: props.active
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
 /**
  * Accepts all `<button>` props
  */
-const NavItem = ({ logo, brandmark, ...other }) => (
+const NavItem = React.forwardRef(({ logo, brandmark, ...other }, ref) => (
   <KeyboardFocusContainer>
     {({ getFocusProps, keyboardFocused }) => (
       <StyledNavItem
@@ -68,12 +67,13 @@ const NavItem = ({ logo, brandmark, ...other }) => (
           focused: keyboardFocused,
           logo: logo || brandmark,
           brandmark,
+          ref,
           ...other
         })}
       />
     )}
   </KeyboardFocusContainer>
-);
+));
 
 NavItem.propTypes = {
   /** Applies product-specific color palette */
