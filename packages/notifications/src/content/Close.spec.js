@@ -6,27 +6,27 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 import Close from './Close';
 
 describe('Close', () => {
   it('renders default close styling', () => {
-    const wrapper = shallow(<Close />);
+    const { container } = render(<Close />);
 
-    expect(wrapper).toHaveClassName('c-callout__close');
+    expect(container.firstChild).toHaveClass('c-callout__close');
   });
 
   describe('state', () => {
     it('renders focused styling correctly', () => {
-      const wrapper = shallow(<Close focused />);
+      const { container } = render(<Close focused />);
 
-      expect(wrapper).toHaveClassName('is-focused');
+      expect(container.firstChild).toHaveClass('is-focused');
     });
 
     it('renders hovered styling correctly', () => {
-      const wrapper = shallow(<Close hovered />);
+      const { container } = render(<Close hovered />);
 
-      expect(wrapper).toHaveClassName('is-hovered');
+      expect(container.firstChild).toHaveClass('is-hovered');
     });
   });
 });
