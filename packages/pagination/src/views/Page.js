@@ -16,18 +16,17 @@ const COMPONENT_ID = 'pagination.page';
 /**
  * Accepts all `<li>` props
  */
-const Page = styled.li.attrs({
+const Page = styled.li.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(PaginationStyles['c-pagination__page'], {
-      // States
-      [PaginationStyles['is-current']]: props.current,
-      [PaginationStyles['is-focused']]: props.focused,
-      [PaginationStyles['is-hovered']]: props.hovered,
-      [PaginationStyles['is-hidden']]: props.hidden
-    })
-})`
+  className: classNames(PaginationStyles['c-pagination__page'], {
+    // States
+    [PaginationStyles['is-current']]: props.current,
+    [PaginationStyles['is-focused']]: props.focused,
+    [PaginationStyles['is-hovered']]: props.hovered,
+    [PaginationStyles['is-hidden']]: props.hidden
+  })
+}))`
   /**
    * Due to the efficient rendering of content within React some
    * pages are not re-rendered with a state change. This can lead
