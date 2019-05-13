@@ -7,11 +7,10 @@
  */
 
 import React from 'react';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
+import { render, fireEvent } from 'garden-test-utils';
 import AccordionContainer from './AccordionContainer';
 
 describe('AccordionContainer', () => {
-  let wrapper;
   let onChangeSpy;
 
   const BasicExample = props => (
@@ -31,12 +30,7 @@ describe('AccordionContainer', () => {
 
   beforeEach(() => {
     onChangeSpy = jest.fn();
-    wrapper = mountWithTheme(<BasicExample onStateChange={onChangeSpy} />);
   });
-
-  const findHeading = enzymeWrapper => enzymeWrapper.find('[data-test-id="heading"]');
-  const findHeadingButton = enzymeWrapper => enzymeWrapper.find('[data-test-id="heading-button"]');
-  const findPanel = enzymeWrapper => enzymeWrapper.find('[data-test-id="panel"]');
 
   describe('getHeadingProps()', () => {
     it('throws accessibility error if no headingLevel is provided', () => {
@@ -45,7 +39,7 @@ describe('AccordionContainer', () => {
       console.error = jest.fn();
 
       expect(() => {
-        wrapper = mountWithTheme(
+        render(
           <AccordionContainer id="test" expanded={false}>
             {({ getHeadingProps, getHeadingButtonProps, getPanelProps }) => (
               <div>
@@ -65,41 +59,53 @@ describe('AccordionContainer', () => {
     });
 
     it('applies correct role attribute', () => {
-      expect(findHeading(wrapper)).toHaveProp('role', 'heading');
+      const { getByTestId } = render(<BasicExample />);
+
+      expect(getByTestId('heading')).toHaveAttribute('role', 'heading');
     });
   });
 
   describe('getHeadingButtonProps()', () => {
     it('applies correct id attribute', () => {
-      expect(findHeadingButton(wrapper)).toHaveProp('id', 'test-header');
+      const { getByTestId } = render(<BasicExample />);
+
+      expect(getByTestId('heading-button')).toHaveAttribute('id', 'test-header');
     });
 
     it('applies correct aria-controls attribute', () => {
-      expect(findHeadingButton(wrapper)).toHaveProp('aria-controls', 'test-panel');
+      const { getByTestId } = render(<BasicExample />);
+
+      expect(getByTestId('heading-button')).toHaveAttribute('aria-controls', 'test-panel');
     });
 
     describe('aria-expanded', () => {
       it('applies correct attribute when collapsed', () => {
-        expect(findHeadingButton(wrapper)).toHaveProp('aria-expanded', false);
+        const { getByTestId } = render(<BasicExample />);
+
+        expect(getByTestId('heading-button')).toHaveAttribute('aria-expanded', 'false');
       });
 
       it('applies correct attribute when expanded', () => {
-        wrapper = mountWithTheme(<BasicExample onStateChange={onChangeSpy} expanded />);
+        const { getByTestId } = render(<BasicExample expanded />);
 
-        expect(findHeadingButton(wrapper)).toHaveProp('aria-expanded', true);
+        expect(getByTestId('heading-button')).toHaveAttribute('aria-expanded', 'true');
       });
     });
 
     describe('onClick()', () => {
       it('calls onStateChange with correct value when collapsed', () => {
-        findHeadingButton(wrapper).simulate('click');
+        const { getByTestId } = render(<BasicExample onStateChange={onChangeSpy} />);
+
+        fireEvent.click(getByTestId('heading-button'));
+
         expect(onChangeSpy).toHaveBeenCalledWith({ expanded: true });
       });
 
       it('calls onStateChange with correct value when expanded', () => {
-        wrapper = mountWithTheme(<BasicExample onStateChange={onChangeSpy} expanded />);
+        const { getByTestId } = render(<BasicExample onStateChange={onChangeSpy} expanded />);
 
-        findHeadingButton(wrapper).simulate('click');
+        fireEvent.click(getByTestId('heading-button'));
+
         expect(onChangeSpy).toHaveBeenCalledWith({ expanded: false });
       });
     });
@@ -107,26 +113,34 @@ describe('AccordionContainer', () => {
 
   describe('getPanelProps()', () => {
     it('applies correct role attribute', () => {
-      expect(findPanel(wrapper)).toHaveProp('role', 'region');
+      const { getByTestId } = render(<BasicExample />);
+
+      expect(getByTestId('panel')).toHaveAttribute('role', 'region');
     });
 
     it('applies correct aria-labelledby attribute', () => {
-      expect(findPanel(wrapper)).toHaveProp('aria-labelledby', 'test-header');
+      const { getByTestId } = render(<BasicExample />);
+
+      expect(getByTestId('panel')).toHaveAttribute('aria-labelledby', 'test-header');
     });
 
     it('applies correct id attribute', () => {
-      expect(findPanel(wrapper)).toHaveProp('id', 'test-panel');
+      const { getByTestId } = render(<BasicExample />);
+
+      expect(getByTestId('panel')).toHaveAttribute('id', 'test-panel');
     });
 
     describe('aria-hidden', () => {
       it('applies correct attribute when collapsed', () => {
-        expect(findPanel(wrapper)).toHaveProp('aria-hidden', true);
+        const { getByTestId } = render(<BasicExample />);
+
+        expect(getByTestId('panel')).toHaveAttribute('aria-hidden', 'true');
       });
 
       it('applies correct attribute when expanded', () => {
-        wrapper = mountWithTheme(<BasicExample onStateChange={onChangeSpy} expanded />);
+        const { getByTestId } = render(<BasicExample expanded />);
 
-        expect(findPanel(wrapper)).toHaveProp('aria-hidden', false);
+        expect(getByTestId('panel')).toHaveAttribute('aria-hidden', 'false');
       });
     });
   });

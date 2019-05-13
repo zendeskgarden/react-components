@@ -16,17 +16,16 @@ const COMPONENT_ID = 'ranges.hint';
 /**
  * Accepts all `<div>` props
  */
-const Hint = styled.div.attrs({
+const Hint = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(RangeStyles['c-range__hint'], {
-      [RangeStyles['c-range__hint--sm']]: props.small,
+  className: classNames(RangeStyles['c-range__hint'], {
+    [RangeStyles['c-range__hint--sm']]: props.small,
 
-      // RTL
-      [RangeStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL
+    [RangeStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

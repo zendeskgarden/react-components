@@ -23,7 +23,7 @@ function Field(props) {
 
   return (
     <FieldContext.Provider value={{ isLabelHovered, setIsLabelHovered }}>
-      <StyledField {...getRootProps({ refKey: 'innerRef', ...props })} />
+      <StyledField {...getRootProps({ ...props })} />
     </FieldContext.Provider>
   );
 }

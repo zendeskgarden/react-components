@@ -16,18 +16,20 @@ import useMenuContext from '../../utils/useMenuContext';
 /**
  * Accepts all `<li>` props
  */
-const PreviousItem = ({ value, disabled, ...props }) => {
+const PreviousItem = React.forwardRef(({ value, disabled, ...props }, ref) => {
   const { previousIndexRef } = useDropdownContext();
   const { itemIndexRef } = useMenuContext();
 
   if (disabled) {
-    return <Item component={StyledPreviousItem} disabled {...props} />;
+    return <Item component={StyledPreviousItem} disabled {...props} ref={ref} />;
   }
 
   previousIndexRef.current = itemIndexRef.current;
 
-  return <Item component={StyledPreviousItem} aria-expanded={true} value={value} {...props} />;
-};
+  return (
+    <Item component={StyledPreviousItem} aria-expanded={true} value={value} {...props} ref={ref} />
+  );
+});
 
 PreviousItem.propTypes = {
   value: PropTypes.any,

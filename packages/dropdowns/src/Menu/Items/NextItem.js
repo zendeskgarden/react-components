@@ -16,7 +16,7 @@ import useMenuContext from '../../utils/useMenuContext';
 /**
  * Accepts all `<li>` props
  */
-const NextItem = ({ value, disabled, ...props }) => {
+const NextItem = React.forwardRef(({ value, disabled, ...props }, ref) => {
   const { nextItemsHashRef } = useDropdownContext();
   const { itemIndexRef } = useMenuContext();
 
@@ -27,8 +27,10 @@ const NextItem = ({ value, disabled, ...props }) => {
   // Include current index in global Dropdown context
   nextItemsHashRef.current[value] = itemIndexRef.current;
 
-  return <Item component={StyledNextItem} aria-expanded={true} value={value} {...props} />;
-};
+  return (
+    <Item component={StyledNextItem} aria-expanded={true} value={value} ref={ref} {...props} />
+  );
+});
 
 NextItem.propTypes = {
   value: PropTypes.string,

@@ -15,7 +15,7 @@ import useMenuContext from '../../utils/useMenuContext';
 /**
  * Accepts all `<li>` props
  */
-const Item = ({ value, disabled, component = StyledItem, ...props }) => {
+const Item = React.forwardRef(({ value, disabled, component = StyledItem, ...props }, ref) => {
   const {
     selectedItems,
     downshift: {
@@ -69,10 +69,11 @@ const Item = ({ value, disabled, component = StyledItem, ...props }) => {
       item: value,
       focused: isFocused,
       checked: isSelected,
+      ref,
       ...props
     })
   );
-};
+});
 
 Item.propTypes = {
   // The value that is returned through Dropdown during selection

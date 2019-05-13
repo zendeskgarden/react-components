@@ -10,28 +10,28 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 
-export const DotsCircle = styled.circle.attrs({
+export const DotsCircle = styled.circle.attrs(props => ({
   cx: 9,
   cy: 9,
   r: 9,
-  transform: props => props.transform
-})``;
+  transform: props.transform
+}))``;
 
 DotsCircle.propTypes = {
   transform: PropTypes.string
 };
 
-export const SpinnerCircle = styled.circle.attrs({
+export const SpinnerCircle = styled.circle.attrs(props => ({
   cx: 40,
   cy: 40,
   r: 34,
   fill: 'none',
   stroke: 'currentColor',
   strokeLinecap: 'round',
-  strokeWidth: ({ strokeWidthValue }) => strokeWidthValue,
-  strokeDasharray: ({ dasharrayValue }) => `${dasharrayValue} 250`,
-  transform: props => props.transform
-})``;
+  strokeWidth: props.strokeWidthValue,
+  strokeDasharray: `${props.dasharrayValue} 250`,
+  transform: props.transform
+}))``;
 
 SpinnerCircle.propTypes = {
   dasharrayValue: PropTypes.string,
@@ -39,16 +39,16 @@ SpinnerCircle.propTypes = {
   transform: PropTypes.string
 };
 
-const StyledSvg = styled.svg.attrs({
+const StyledSvg = styled.svg.attrs(props => ({
   'data-garden-id': ({ dataGardenId }) => dataGardenId,
   'data-garden-version': PACKAGE_VERSION,
   xmlns: 'http://www.w3.org/2000/svg',
-  width: ({ width }) => width,
-  height: ({ height }) => height,
+  width: props.width,
+  height: props.height,
   focusable: 'false',
-  viewBox: ({ width, height }) => `0 0 ${width} ${height}`,
+  viewBox: `0 0 ${props.width} ${props.height}`,
   role: 'progressbar'
-})`
+}))`
   width: 1em;
   height: 0.9em;
   color: ${props => props.color || 'inherit'};
@@ -62,13 +62,15 @@ StyledSvg.propTypes = {
   fontSize: PropTypes.any
 };
 
-export const StyledSVG = ({ children, fontSize, width, height, ...other }) => {
-  return (
-    <StyledSvg fontSize={fontSize} width={width} height={height} {...other}>
-      {children}
-    </StyledSvg>
-  );
-};
+export const StyledSVG = React.forwardRef(
+  ({ children, fontSize, width, height, ...other }, ref) => {
+    return (
+      <StyledSvg fontSize={fontSize} width={width} height={height} ref={ref} {...other}>
+        {children}
+      </StyledSvg>
+    );
+  }
+);
 
 StyledSVG.propTypes = {
   children: PropTypes.node,

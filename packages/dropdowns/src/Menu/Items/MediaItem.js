@@ -13,9 +13,9 @@ import { StyledMediaItem } from '../../styled';
 /**
  * Accepts all `<li>` props
  */
-const MediaItem = props => {
-  return <Item component={StyledMediaItem} {...props} />;
-};
+const MediaItem = React.forwardRef((props, ref) => (
+  <Item component={StyledMediaItem} ref={ref} {...props} />
+));
 
 MediaItem.propTypes = {
   active: PropTypes.bool,

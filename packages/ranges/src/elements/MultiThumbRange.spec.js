@@ -7,270 +7,260 @@
 
 import React from 'react';
 import { KEY_CODES } from '@zendeskgarden/react-selection';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
+import { render, renderRtl, fireEvent } from 'garden-test-utils';
 import MultiThumbRange from './MultiThumbRange';
 
 jest.mock('lodash.debounce');
 import debounce from 'lodash.debounce';
 
 describe('MultiThumbRange', () => {
+  let originalGetBoundingClientRect;
+
   beforeEach(() => {
     debounce.mockImplementation(fn => fn);
 
+    originalGetBoundingClientRect = Element.prototype.getBoundingClientRect;
     Element.prototype.getBoundingClientRect = jest.fn(() => {
       return { width: 100, height: 10, top: 0, left: 0, bottom: 0, right: 0, x: 20 };
     });
   });
 
+  afterEach(() => {
+    Element.prototype.getBoundingClientRect = originalGetBoundingClientRect;
+  });
+
   describe('Slider', () => {
     it('shows correct styling when disabled', () => {
-      const example = mountWithTheme(<MultiThumbRange disabled />);
+      const { getByTestId } = render(<MultiThumbRange disabled />);
 
-      expect(example.find('[data-test-id="slider"]').first()).toHaveClassName('is-disabled');
+      expect(getByTestId('slider')).toHaveClass('is-disabled');
     });
 
     it('shows correct styling when in RTL mode', () => {
-      const example = mountWithTheme(<MultiThumbRange />, { rtl: true });
+      const { getByTestId } = renderRtl(<MultiThumbRange />);
 
-      expect(example.find('[data-test-id="slider"]').first()).toHaveClassName('is-rtl');
+      expect(getByTestId('slider')).toHaveClass('is-rtl');
     });
 
     it('removes document event listeners on unmount', () => {
-      window.removeEventListener = jest.fn();
-      const example = mountWithTheme(<MultiThumbRange />);
+      const originalRemoveEventListener = window.removeEventListener;
 
-      example.unmount();
+      window.removeEventListener = jest.fn();
+
+      const { unmount } = render(<MultiThumbRange />);
+
+      unmount();
 
       expect(window.removeEventListener).toHaveBeenCalled();
+
+      window.removeEventListener = originalRemoveEventListener;
     });
   });
 
   describe('Track', () => {
     it('positioning style is applied correctly', () => {
-      const example = mountWithTheme(<MultiThumbRange minValue={15} maxValue={75} />).first();
+      const { getByTestId } = render(
+        <div style={{ width: 500 }}>
+          <MultiThumbRange minValue={15} maxValue={75} />
+        </div>
+      );
 
-      example.setState({ railWidthPx: 500 });
-
-      expect(example.find('[data-test-id="track"]')).toHaveProp('style', {
-        backgroundSize: '60px',
-        backgroundPosition: '15px'
-      });
+      expect(getByTestId('track')).toHaveStyle('background-size: 60px; background-position: 15px;');
     });
 
     it('positioning style is applied correctly when in RTL mode', () => {
-      const example = mountWithTheme(<MultiThumbRange minValue={15} maxValue={75} />, {
-        rtl: true
-      }).first();
+      const { getByTestId } = renderRtl(
+        <div style={{ width: 500 }}>
+          <MultiThumbRange minValue={15} maxValue={75} />
+        </div>
+      );
 
-      example.setState({ railWidthPx: 500 });
-
-      expect(example.find('[data-test-id="track"]')).toHaveProp('style', {
-        backgroundSize: '60px',
-        backgroundPosition: '25px'
-      });
+      expect(getByTestId('track')).toHaveStyle('background-size: 60px; background-position: 25px;');
     });
   });
 
   describe('Min Thumb', () => {
     it('applies correct accessibility values', () => {
-      const example = mountWithTheme(<MultiThumbRange minValue={15} maxValue={75} />).first();
-      const thumb = example.find('[data-test-id="thumb"]').first();
+      const { getAllByTestId } = render(<MultiThumbRange minValue={15} maxValue={75} />);
+      const thumb = getAllByTestId('thumb')[0];
 
-      expect(thumb).toHaveProp('role', 'slider');
-      expect(thumb).toHaveProp('tabIndex', 0);
-      expect(thumb).toHaveProp('aria-valuemin', 0);
-      expect(thumb).toHaveProp('aria-valuemax', 75);
-      expect(thumb).toHaveProp('aria-valuenow', 15);
-      expect(thumb).toHaveProp('aria-valuetext', 15);
+      expect(thumb).toHaveAttribute('role', 'slider');
+      expect(thumb).toHaveAttribute('tabIndex', '0');
+      expect(thumb).toHaveAttribute('aria-valuemin', '0');
+      expect(thumb).toHaveAttribute('aria-valuemax', '75');
+      expect(thumb).toHaveAttribute('aria-valuenow', '15');
+      expect(thumb).toHaveAttribute('aria-valuetext', '15');
     });
 
     it('removes thumb from tab order when disabled', () => {
-      const example = mountWithTheme(
-        <MultiThumbRange disabled minValue={15} maxValue={75} />
-      ).first();
-      const thumb = example.find('[data-test-id="thumb"]').first();
+      const { getAllByTestId } = render(<MultiThumbRange disabled minValue={15} maxValue={75} />);
+      const thumb = getAllByTestId('thumb')[0];
 
-      expect(thumb).toHaveProp('tabIndex', -1);
+      expect(thumb).toHaveAttribute('tabIndex', '-1');
     });
 
     it('applies correct style', () => {
-      const example = mountWithTheme(<MultiThumbRange minValue={15} maxValue={75} />).first();
-      const thumb = example.find('[data-test-id="thumb"]').first();
+      const { getAllByTestId } = render(<MultiThumbRange minValue={15} maxValue={75} />);
+      const thumb = getAllByTestId('thumb')[0];
 
-      expect(thumb).toHaveProp('style', { left: '15px' });
+      expect(thumb).toHaveStyle('left: 15px');
     });
 
     it('applies correct style when in RTL mode', () => {
-      const example = mountWithTheme(<MultiThumbRange minValue={15} maxValue={75} />, {
-        rtl: true
-      }).first();
-      const thumb = example.find('[data-test-id="thumb"]').first();
+      const { getAllByTestId } = renderRtl(<MultiThumbRange minValue={15} maxValue={75} />);
+      const thumb = getAllByTestId('thumb')[0];
 
-      expect(thumb).toHaveProp('style', { right: '15px' });
+      expect(thumb).toHaveStyle('right: 15px');
     });
 
     describe('Key Handlers (LTR)', () => {
-      let example;
       let onChangeSpy;
-      let minThumb;
 
       beforeEach(() => {
         onChangeSpy = jest.fn();
-        example = mountWithTheme(
-          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
-        );
-        minThumb = example.find('[data-test-id="thumb"]').first();
       });
 
       it('decrements minValue on LEFT key', () => {
-        minThumb.simulate('keydown', { keyCode: KEY_CODES.LEFT });
+        const { getAllByTestId } = render(
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+        );
+
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.LEFT });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 10, maxValue: 75 });
       });
 
       it('decrements minValue on DOWN key', () => {
-        minThumb.simulate('keydown', { keyCode: KEY_CODES.DOWN });
+        const { getAllByTestId } = render(
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+        );
+
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.DOWN });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 10, maxValue: 75 });
       });
 
       it('increments minValue on RIGHT key', () => {
-        minThumb.simulate('keydown', { keyCode: KEY_CODES.RIGHT });
+        const { getAllByTestId } = render(
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+        );
+
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.RIGHT });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 20, maxValue: 75 });
       });
 
       it('increments minValue on UP key', () => {
-        minThumb.simulate('keydown', { keyCode: KEY_CODES.UP });
+        const { getAllByTestId } = render(
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+        );
+
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.UP });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 20, maxValue: 75 });
       });
 
       it('sets minValue to min on HOME key', () => {
-        minThumb.simulate('keydown', { keyCode: KEY_CODES.HOME });
+        const { getAllByTestId } = render(
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+        );
+
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.HOME });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 0, maxValue: 75 });
       });
 
       it('sets minValue to maxValue on END key', () => {
-        minThumb.simulate('keydown', { keyCode: KEY_CODES.END });
+        const { getAllByTestId } = render(
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+        );
+
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.END });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 75, maxValue: 75 });
       });
     });
 
     describe('Key Handlers (RTL)', () => {
-      let example;
       let onChangeSpy;
-      let minThumb;
 
       beforeEach(() => {
         onChangeSpy = jest.fn();
-        example = mountWithTheme(
-          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />,
-          { rtl: true }
-        );
-        minThumb = example.find('[data-test-id="thumb"]').first();
       });
 
       it('increments minValue on LEFT key', () => {
-        minThumb.simulate('keydown', { keyCode: KEY_CODES.LEFT });
+        const { getAllByTestId } = renderRtl(
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+        );
+
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.LEFT });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 20, maxValue: 75 });
       });
 
       it('decrements minValue on RIGHT key', () => {
-        minThumb.simulate('keydown', { keyCode: KEY_CODES.RIGHT });
+        const { getAllByTestId } = renderRtl(
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+        );
+
+        fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.RIGHT });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 10, maxValue: 75 });
       });
     });
 
     describe('Drag Functionality', () => {
-      const documentEvents = {};
-      let example;
       let onChangeSpy;
-
-      const buildExample = customExample => {
-        document.addEventListener = jest.fn((name, fn) => {
-          documentEvents[name] = fn;
-        });
-        document.removeEventListener = jest.fn();
-        example = customExample;
-        const thumb = example.find('[data-test-id="thumb"]').first();
-
-        thumb.simulate('mousedown');
-        thumb.simulate('focus');
-
-        example.update();
-      };
 
       beforeEach(() => {
         onChangeSpy = jest.fn();
-
-        buildExample(
-          mountWithTheme(
-            <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
-          )
-        );
-      });
-
-      describe('onMouseDown', () => {
-        it('attaches events to document', () => {
-          expect(document.addEventListener).toHaveBeenCalledTimes(2);
-        });
-
-        it('applies focused styling', () => {
-          expect(example.find('[data-test-id="thumb"]').first()).toHaveClassName('is-focused');
-        });
       });
 
       describe('document mousemove event', () => {
         it('updates minValue on drag', () => {
-          const onDocumentMouseMove = documentEvents.mousemove;
+          const { container, getAllByTestId } = render(
+            <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+          );
+          const thumb = getAllByTestId('thumb')[0];
 
-          onDocumentMouseMove({ pageX: 30 });
+          fireEvent.mouseDown(thumb);
+
+          const mouseEvent = new MouseEvent('mousemove', {
+            target: container.firstChild
+          });
+
+          mouseEvent.pageX = 30;
+
+          fireEvent(container.ownerDocument, mouseEvent);
 
           expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 10, maxValue: 75 });
         });
 
         it('updates minValue on drag in RTL mode', () => {
-          onChangeSpy = jest.fn();
-          buildExample(
-            mountWithTheme(
-              <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />,
-              { rtl: true }
-            )
+          const { container, getAllByTestId } = renderRtl(
+            <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
           );
+          const thumb = getAllByTestId('thumb')[0];
 
-          const onDocumentMouseMove = documentEvents.mousemove;
+          fireEvent.mouseDown(thumb);
 
-          onDocumentMouseMove({ pageX: 30 });
+          const mouseEvent = new MouseEvent('mousemove');
+
+          mouseEvent.pageX = 30;
+
+          fireEvent(container.ownerDocument, mouseEvent);
 
           expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 75, maxValue: 75 });
         });
 
         it('does not update minValue when disabled', () => {
-          onChangeSpy = jest.fn();
-          buildExample(
-            mountWithTheme(
-              <MultiThumbRange
-                minValue={15}
-                maxValue={75}
-                step={5}
-                onChange={onChangeSpy}
-                disabled
-              />
-            )
+          const { container, getAllByTestId } = renderRtl(
+            <MultiThumbRange disabled minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
           );
+          const thumb = getAllByTestId('thumb')[0];
 
-          const onDocumentMouseMove = documentEvents.mousemove;
+          fireEvent.mouseDown(thumb);
+          fireEvent.focus(thumb);
 
-          onDocumentMouseMove({ pageX: 30 });
+          const mouseEvent = new MouseEvent('mousemove');
+
+          mouseEvent.pageX = 30;
+
+          fireEvent(container.ownerDocument, mouseEvent);
 
           expect(onChangeSpy).not.toHaveBeenCalled();
-        });
-      });
-
-      describe('document mouseup event', () => {
-        it('removes event listeners from document', () => {
-          const onDocumentMouseUp = documentEvents.mouseup;
-
-          onDocumentMouseUp();
-
-          expect(document.removeEventListener).toHaveBeenCalledTimes(2);
         });
       });
     });
@@ -278,204 +268,193 @@ describe('MultiThumbRange', () => {
 
   describe('Max Thumb', () => {
     it('applies correct accessibility values', () => {
-      const example = mountWithTheme(<MultiThumbRange minValue={15} maxValue={75} />).first();
-      const thumb = example.find('[data-test-id="thumb"]').last();
+      const { getAllByTestId } = render(<MultiThumbRange minValue={15} maxValue={75} />);
+      const thumb = getAllByTestId('thumb')[1];
 
-      expect(thumb).toHaveProp('role', 'slider');
-      expect(thumb).toHaveProp('tabIndex', 0);
-      expect(thumb).toHaveProp('aria-valuemin', 15);
-      expect(thumb).toHaveProp('aria-valuemax', 100);
-      expect(thumb).toHaveProp('aria-valuenow', 75);
-      expect(thumb).toHaveProp('aria-valuetext', 75);
+      expect(thumb).toHaveAttribute('role', 'slider');
+      expect(thumb).toHaveAttribute('tabIndex', '0');
+      expect(thumb).toHaveAttribute('aria-valuemin', '15');
+      expect(thumb).toHaveAttribute('aria-valuemax', '100');
+      expect(thumb).toHaveAttribute('aria-valuenow', '75');
+      expect(thumb).toHaveAttribute('aria-valuetext', '75');
     });
 
     it('removes thumb from tab order when disabled', () => {
-      const example = mountWithTheme(
-        <MultiThumbRange disabled minValue={15} maxValue={75} />
-      ).first();
-      const thumb = example.find('[data-test-id="thumb"]').last();
+      const { getAllByTestId } = render(<MultiThumbRange disabled minValue={15} maxValue={75} />);
+      const thumb = getAllByTestId('thumb')[1];
 
-      expect(thumb).toHaveProp('tabIndex', -1);
+      expect(thumb).toHaveAttribute('tabindex', '-1');
     });
 
     it('applies correct style', () => {
-      const example = mountWithTheme(<MultiThumbRange minValue={15} maxValue={75} />).first();
-      const thumb = example.find('[data-test-id="thumb"]').last();
+      const { getAllByTestId } = render(<MultiThumbRange minValue={15} maxValue={75} />);
+      const thumb = getAllByTestId('thumb')[1];
 
-      expect(thumb).toHaveProp('style', { left: '75px' });
+      expect(thumb).toHaveStyle('left: 75px');
     });
 
     it('applies correct style when in RTL mode', () => {
-      const example = mountWithTheme(<MultiThumbRange minValue={15} maxValue={75} />, {
-        rtl: true
-      }).first();
-      const thumb = example.find('[data-test-id="thumb"]').last();
+      const { getAllByTestId } = renderRtl(<MultiThumbRange minValue={15} maxValue={75} />);
+      const thumb = getAllByTestId('thumb')[1];
 
-      expect(thumb).toHaveProp('style', { right: '75px' });
+      expect(thumb).toHaveStyle('right: 75px');
     });
 
     describe('Key Handlers (LTR)', () => {
-      let example;
       let onChangeSpy;
-      let maxThumb;
 
       beforeEach(() => {
         onChangeSpy = jest.fn();
-        example = mountWithTheme(
-          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
-        );
-        maxThumb = example.find('[data-test-id="thumb"]').last();
       });
 
       it('decrements maxValue on LEFT key', () => {
-        maxThumb.simulate('keydown', { keyCode: KEY_CODES.LEFT });
+        const { getAllByTestId } = render(
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+        );
+        const maxThumb = getAllByTestId('thumb')[1];
+
+        fireEvent.keyDown(maxThumb, { keyCode: KEY_CODES.LEFT });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 70 });
       });
 
       it('decrements maxValue on DOWN key', () => {
-        maxThumb.simulate('keydown', { keyCode: KEY_CODES.DOWN });
+        const { getAllByTestId } = render(
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+        );
+        const maxThumb = getAllByTestId('thumb')[1];
+
+        fireEvent.keyDown(maxThumb, { keyCode: KEY_CODES.DOWN });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 70 });
       });
 
       it('increments maxValue on RIGHT key', () => {
-        maxThumb.simulate('keydown', { keyCode: KEY_CODES.RIGHT });
+        const { getAllByTestId } = render(
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+        );
+        const maxThumb = getAllByTestId('thumb')[1];
+
+        fireEvent.keyDown(maxThumb, { keyCode: KEY_CODES.RIGHT });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 80 });
       });
 
       it('increments maxValue on UP key', () => {
-        maxThumb.simulate('keydown', { keyCode: KEY_CODES.UP });
+        const { getAllByTestId } = render(
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+        );
+        const maxThumb = getAllByTestId('thumb')[1];
+
+        fireEvent.keyDown(maxThumb, { keyCode: KEY_CODES.UP });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 80 });
       });
 
       it('sets maxValue to minValue on HOME key', () => {
-        maxThumb.simulate('keydown', { keyCode: KEY_CODES.HOME });
+        const { getAllByTestId } = render(
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+        );
+        const maxThumb = getAllByTestId('thumb')[1];
+
+        fireEvent.keyDown(maxThumb, { keyCode: KEY_CODES.HOME });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 15 });
       });
 
       it('sets maxValue to max on END key', () => {
-        maxThumb.simulate('keydown', { keyCode: KEY_CODES.END });
+        const { getAllByTestId } = render(
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+        );
+        const maxThumb = getAllByTestId('thumb')[1];
+
+        fireEvent.keyDown(maxThumb, { keyCode: KEY_CODES.END });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 100 });
       });
     });
 
     describe('Key Handlers (RTL)', () => {
-      let example;
       let onChangeSpy;
-      let maxThumb;
 
       beforeEach(() => {
         onChangeSpy = jest.fn();
-        example = mountWithTheme(
-          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />,
-          { rtl: true }
-        );
-        maxThumb = example.find('[data-test-id="thumb"]').last();
       });
 
       it('increments maxValue on LEFT key', () => {
-        maxThumb.simulate('keydown', { keyCode: KEY_CODES.LEFT });
+        const { getAllByTestId } = renderRtl(
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+        );
+        const maxThumb = getAllByTestId('thumb')[1];
+
+        fireEvent.keyDown(maxThumb, { keyCode: KEY_CODES.LEFT });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 80 });
       });
 
       it('decrements maxValue on RIGHT key', () => {
-        maxThumb.simulate('keydown', { keyCode: KEY_CODES.RIGHT });
+        const { getAllByTestId } = renderRtl(
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+        );
+        const maxThumb = getAllByTestId('thumb')[1];
+
+        fireEvent.keyDown(maxThumb, { keyCode: KEY_CODES.RIGHT });
         expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 70 });
       });
     });
 
     describe('Drag Functionality', () => {
-      const documentEvents = {};
-      let example;
       let onChangeSpy;
-
-      const buildExample = customExample => {
-        document.addEventListener = jest.fn((name, fn) => {
-          documentEvents[name] = fn;
-        });
-        document.removeEventListener = jest.fn();
-        example = customExample;
-        const thumb = example.find('[data-test-id="thumb"]').last();
-
-        thumb.simulate('mousedown');
-        thumb.simulate('focus');
-
-        example.update();
-      };
 
       beforeEach(() => {
         onChangeSpy = jest.fn();
-
-        buildExample(
-          mountWithTheme(
-            <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
-          )
-        );
-      });
-
-      describe('onMouseDown', () => {
-        it('attaches events to document', () => {
-          expect(document.addEventListener).toHaveBeenCalledTimes(2);
-        });
-
-        it('applies focused styling', () => {
-          expect(example.find('[data-test-id="thumb"]').last()).toHaveClassName('is-focused');
-        });
       });
 
       describe('document mousemove event', () => {
-        it('updates minValue on drag', () => {
-          const onDocumentMouseMove = documentEvents.mousemove;
+        it('updates maxValue on drag', () => {
+          const { container, getAllByTestId } = render(
+            <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+          );
+          const thumb = getAllByTestId('thumb')[1];
 
-          onDocumentMouseMove({ pageX: 30 });
+          fireEvent.mouseDown(thumb);
+
+          const mouseEvent = new MouseEvent('mousemove', {
+            target: container.firstChild
+          });
+
+          mouseEvent.pageX = 30;
+
+          fireEvent(container.ownerDocument, mouseEvent);
 
           expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 15 });
         });
 
-        it('updates minValue on drag in RTL mode', () => {
-          onChangeSpy = jest.fn();
-          buildExample(
-            mountWithTheme(
-              <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />,
-              { rtl: true }
-            )
+        it('updates maxValue on drag in RTL mode', () => {
+          const { container, getAllByTestId } = renderRtl(
+            <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
           );
+          const thumb = getAllByTestId('thumb')[1];
 
-          const onDocumentMouseMove = documentEvents.mousemove;
+          fireEvent.mouseDown(thumb);
 
-          onDocumentMouseMove({ pageX: 30 });
+          const mouseEvent = new MouseEvent('mousemove');
+
+          mouseEvent.pageX = 30;
+
+          fireEvent(container.ownerDocument, mouseEvent);
 
           expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 90 });
         });
 
         it('does not update maxValue when disabled', () => {
-          onChangeSpy = jest.fn();
-          buildExample(
-            mountWithTheme(
-              <MultiThumbRange
-                minValue={15}
-                maxValue={75}
-                step={5}
-                onChange={onChangeSpy}
-                disabled
-              />
-            )
+          const { container, getAllByTestId } = renderRtl(
+            <MultiThumbRange disabled minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
           );
+          const thumb = getAllByTestId('thumb')[1];
 
-          const onDocumentMouseMove = documentEvents.mousemove;
+          fireEvent.mouseDown(thumb);
 
-          onDocumentMouseMove({ pageX: 30 });
+          const mouseEvent = new MouseEvent('mousemove');
+
+          mouseEvent.pageX = 30;
+
+          fireEvent(container.ownerDocument, mouseEvent);
 
           expect(onChangeSpy).not.toHaveBeenCalled();
-        });
-      });
-
-      describe('document mouseup event', () => {
-        it('removes event listeners from document', () => {
-          const onDocumentMouseUp = documentEvents.mouseup;
-
-          onDocumentMouseUp();
-
-          expect(document.removeEventListener).toHaveBeenCalledTimes(2);
         });
       });
     });

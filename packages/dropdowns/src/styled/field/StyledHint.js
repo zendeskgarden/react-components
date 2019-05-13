@@ -16,17 +16,16 @@ const COMPONENT_ID = 'dropdowns.hint';
 /**
  * Accepts all `<div>` props
  */
-const StyledHint = styled.div.attrs({
+const StyledHint = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(TextStyles['c-txt__hint'], {
-      [TextStyles['c-txt__hint--sm']]: props.small,
+  className: classNames(TextStyles['c-txt__hint'], {
+    [TextStyles['c-txt__hint--sm']]: props.small,
 
-      // RTL
-      [TextStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL
+    [TextStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

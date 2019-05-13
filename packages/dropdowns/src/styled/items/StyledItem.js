@@ -16,19 +16,18 @@ const COMPONENT_ID = 'dropdowns.item';
 /**
  * Accepts all `<li>` props
  */
-const StyledItem = styled.li.attrs({
+const StyledItem = styled.li.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(MenuStyles['c-menu__item'], {
-      // State
-      [MenuStyles['is-active']]: props.active,
-      [MenuStyles['is-focused']]: props.focused,
-      [MenuStyles['is-hovered']]: props.hovered,
-      [MenuStyles['is-disabled']]: props.disabled,
-      [MenuStyles['is-checked']]: props.checked
-    })
-})`
+  className: classNames(MenuStyles['c-menu__item'], {
+    // State
+    [MenuStyles['is-active']]: props.active,
+    [MenuStyles['is-focused']]: props.focused,
+    [MenuStyles['is-hovered']]: props.hovered,
+    [MenuStyles['is-disabled']]: props.disabled,
+    [MenuStyles['is-checked']]: props.checked
+  })
+}))`
   /* stylelint-disable */
   ${props =>
     !props.focused &&
