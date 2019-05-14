@@ -6,19 +6,19 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 import Header from './Header';
 
 describe('Header', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Header />);
+    const { container } = render(<Header />);
 
-    expect(wrapper).toHaveClassName('c-dialog__header');
+    expect(container.firstChild).toHaveClass('c-dialog__header');
   });
 
   it('renders danger styling if provided', () => {
-    const wrapper = shallow(<Header danger />);
+    const { container } = render(<Header danger />);
 
-    expect(wrapper).toHaveClassName('c-dialog__header--danger');
+    expect(container.firstChild).toHaveClass('c-dialog__header--danger');
   });
 });

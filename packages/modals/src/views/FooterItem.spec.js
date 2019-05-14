@@ -6,13 +6,13 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 import FooterItem from './FooterItem';
 
 describe('FooterItem', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<FooterItem />);
+    const { container } = render(<FooterItem />);
 
-    expect(wrapper).toHaveClassName('c-dialog__footer__item');
+    expect(container.firstChild).toHaveClass('c-dialog__footer__item');
   });
 });

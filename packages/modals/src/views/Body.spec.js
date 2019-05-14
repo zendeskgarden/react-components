@@ -6,13 +6,13 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 import Body from './Body';
 
 describe('Body', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Body />);
+    const { container } = render(<Body />);
 
-    expect(wrapper).toHaveClassName('c-dialog__body');
+    expect(container.firstChild).toHaveClass('c-dialog__body');
   });
 });
