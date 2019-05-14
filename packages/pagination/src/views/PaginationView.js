@@ -15,15 +15,14 @@ const COMPONENT_ID = 'pagination.pagination_view';
 /**
  * Accepts all `<ul>` props
  */
-const PaginationView = styled.ul.attrs({
+const PaginationView = styled.ul.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(PaginationStyles['c-pagination'], {
-      // RTL
-      [PaginationStyles['is-rtl']]: isRtl(props)
-    })
-})`
+  className: classNames(PaginationStyles['c-pagination'], {
+    // RTL
+    [PaginationStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   *,
   ::before,
   ::after {

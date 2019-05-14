@@ -6,13 +6,13 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 import Title from './Title';
 
 describe('Title', () => {
   it('renders with title styling', () => {
-    const wrapper = shallow(<Title />);
+    const { container } = render(<Title />);
 
-    expect(wrapper).toHaveClassName('c-callout__title');
+    expect(container.firstChild).toHaveClass('c-callout__title');
   });
 });
