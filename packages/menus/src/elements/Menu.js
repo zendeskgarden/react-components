@@ -168,7 +168,7 @@ export default class Menu extends ControlledComponent {
           placement
         }) => (
           <ScrollableMenuView
-            {...getMenuProps({ placement, arrow, menuRef, maxHeight, ...menuProps })}
+            {...getMenuProps({ placement, arrow, ref: menuRef, maxHeight, ...menuProps })}
           >
             {Children.map(children, child => {
               if (!isValidElement(child)) {

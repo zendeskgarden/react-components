@@ -6,11 +6,10 @@
  */
 
 import React from 'react';
+import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Manager, Popper, Target } from 'react-popper';
-import { Portal } from 'react-portal';
-import Fragment from 'render-fragment';
 import {
   SelectionContainer,
   ControlledComponent,
@@ -521,7 +520,7 @@ class MenuContainer extends ControlledComponent {
 
     return (
       <Manager tag={false}>
-        <Fragment>
+        <>
           <Target>
             {({ targetProps }) => {
               const { ref: targetRef } = targetProps;
@@ -550,7 +549,7 @@ class MenuContainer extends ControlledComponent {
                 const outOfBoundaries = popperProps['data-x-out-of-boundaries'];
 
                 const menu = (
-                  <MenuWrapper innerRef={popperProps.ref} style={popperProps.style} zIndex={zIndex}>
+                  <MenuWrapper ref={popperProps.ref} style={popperProps.style} zIndex={zIndex}>
                     <FocusJailContainer focusOnMount={false}>
                       {({ getContainerProps: getFocusJailContainerProps, containerRef }) => (
                         <SelectionContainer
@@ -624,14 +623,14 @@ class MenuContainer extends ControlledComponent {
                 );
 
                 if (appendToNode) {
-                  return <Portal node={appendToNode}>{menu}</Portal>;
+                  return createPortal(menu, appendToNode);
                 }
 
-                return <Portal>{menu}</Portal>;
+                return menu;
               }}
             </Popper>
           )}
-        </Fragment>
+        </>
       </Manager>
     );
   }

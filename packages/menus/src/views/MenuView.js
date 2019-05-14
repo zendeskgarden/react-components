@@ -76,55 +76,54 @@ const retrieveMenuMargin = ({ arrow, placement }) => {
 /**
  * Accepts all `<ul>` props
  */
-const StyledMenuView = styled.ul.attrs({
+const StyledMenuView = styled.ul.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(MenuStyles['c-menu'], {
-      // Size
-      [MenuStyles['c-menu--sm']]: props.small,
+  className: classNames(MenuStyles['c-menu'], {
+    // Size
+    [MenuStyles['c-menu--sm']]: props.small,
 
-      // Placement
-      [MenuStyles['c-menu--up']]:
-        props.placement === PLACEMENT.TOP ||
-        props.placement === PLACEMENT.TOP_START ||
-        props.placement === PLACEMENT.TOP_END,
-      [MenuStyles['c-menu--right']]:
-        props.placement === PLACEMENT.RIGHT ||
-        props.placement === PLACEMENT.RIGHT_START ||
-        props.placement === PLACEMENT.RIGHT_END,
-      [MenuStyles['c-menu--left']]:
-        props.placement === PLACEMENT.LEFT ||
-        props.placement === PLACEMENT.LEFT_START ||
-        props.placement === PLACEMENT.LEFT_END,
-      [MenuStyles['c-menu--down']]:
-        props.placement === PLACEMENT.BOTTOM ||
-        props.placement === PLACEMENT.BOTTOM_START ||
-        props.placement === PLACEMENT.BOTTOM_END,
+    // Placement
+    [MenuStyles['c-menu--up']]:
+      props.placement === PLACEMENT.TOP ||
+      props.placement === PLACEMENT.TOP_START ||
+      props.placement === PLACEMENT.TOP_END,
+    [MenuStyles['c-menu--right']]:
+      props.placement === PLACEMENT.RIGHT ||
+      props.placement === PLACEMENT.RIGHT_START ||
+      props.placement === PLACEMENT.RIGHT_END,
+    [MenuStyles['c-menu--left']]:
+      props.placement === PLACEMENT.LEFT ||
+      props.placement === PLACEMENT.LEFT_START ||
+      props.placement === PLACEMENT.LEFT_END,
+    [MenuStyles['c-menu--down']]:
+      props.placement === PLACEMENT.BOTTOM ||
+      props.placement === PLACEMENT.BOTTOM_START ||
+      props.placement === PLACEMENT.BOTTOM_END,
 
-      // State
-      [MenuStyles['is-open']]: props.animate,
-      [MenuStyles['is-hidden']]: props.hidden,
+    // State
+    [MenuStyles['is-open']]: props.animate,
+    [MenuStyles['is-hidden']]: props.hidden,
 
-      // Arrows
-      [ArrowStyles['c-arrow']]: shouldShowArrow(props),
-      [ArrowStyles['c-arrow--r']]: props.placement === PLACEMENT.LEFT,
-      [ArrowStyles['c-arrow--rt']]: props.placement === PLACEMENT.LEFT_START,
-      [ArrowStyles['c-arrow--rb']]: props.placement === PLACEMENT.LEFT_END,
-      [ArrowStyles['c-arrow--b']]: props.placement === PLACEMENT.TOP,
-      [ArrowStyles['c-arrow--bl']]: props.placement === PLACEMENT.TOP_START,
-      [ArrowStyles['c-arrow--br']]: props.placement === PLACEMENT.TOP_END,
-      [ArrowStyles['c-arrow--l']]: props.placement === PLACEMENT.RIGHT,
-      [ArrowStyles['c-arrow--lt']]: props.placement === PLACEMENT.RIGHT_START,
-      [ArrowStyles['c-arrow--lb']]: props.placement === PLACEMENT.RIGHT_END,
-      [ArrowStyles['c-arrow--t']]: props.placement === PLACEMENT.BOTTOM,
-      [ArrowStyles['c-arrow--tl']]: props.placement === PLACEMENT.BOTTOM_START,
-      [ArrowStyles['c-arrow--tr']]: props.placement === PLACEMENT.BOTTOM_END,
+    // Arrows
+    [ArrowStyles['c-arrow']]: shouldShowArrow(props),
+    [ArrowStyles['c-arrow--r']]: props.placement === PLACEMENT.LEFT,
+    [ArrowStyles['c-arrow--rt']]: props.placement === PLACEMENT.LEFT_START,
+    [ArrowStyles['c-arrow--rb']]: props.placement === PLACEMENT.LEFT_END,
+    [ArrowStyles['c-arrow--b']]: props.placement === PLACEMENT.TOP,
+    [ArrowStyles['c-arrow--bl']]: props.placement === PLACEMENT.TOP_START,
+    [ArrowStyles['c-arrow--br']]: props.placement === PLACEMENT.TOP_END,
+    [ArrowStyles['c-arrow--l']]: props.placement === PLACEMENT.RIGHT,
+    [ArrowStyles['c-arrow--lt']]: props.placement === PLACEMENT.RIGHT_START,
+    [ArrowStyles['c-arrow--lb']]: props.placement === PLACEMENT.RIGHT_END,
+    [ArrowStyles['c-arrow--t']]: props.placement === PLACEMENT.BOTTOM,
+    [ArrowStyles['c-arrow--tl']]: props.placement === PLACEMENT.BOTTOM_START,
+    [ArrowStyles['c-arrow--tr']]: props.placement === PLACEMENT.BOTTOM_END,
 
-      // RTL
-      [MenuStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL
+    [MenuStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   && {
     position: relative;
   }
@@ -140,16 +139,16 @@ const MenuWrapper = styled.div`
   ${retrieveMenuMargin};
 `;
 
-const MenuView = props => {
+const MenuView = React.forwardRef((props, ref) => {
   const { arrow, placement } = props;
-  const { menuRef, ...otherRefs } = props;
+  const { ...otherRefs } = props;
 
   return (
     <MenuWrapper arrow={arrow} placement={placement}>
-      <StyledMenuView innerRef={menuRef} {...otherRefs} />
+      <StyledMenuView ref={ref} {...otherRefs} />
     </MenuWrapper>
   );
-};
+});
 
 MenuView.propTypes = {
   /**
@@ -173,11 +172,7 @@ MenuView.propTypes = {
   animate: PropTypes.bool,
   small: PropTypes.bool,
   hidden: PropTypes.bool,
-  arrow: PropTypes.bool,
-  /**
-   * Ref of internal Menu container
-   */
-  menuRef: PropTypes.func
+  arrow: PropTypes.bool
 };
 
 /** @component */

@@ -34,13 +34,11 @@ for (let x = 1; x <= 5; x++) {
 <MenuContainer
   onChange={itemKey => alert(`Selected menu item: "${itemKey}"`)}
   trigger={({ getTriggerProps, triggerRef, isOpen }) => (
-    <Button {...getTriggerProps({ innerRef: triggerRef, active: isOpen })}>
-      Simple Menu Example
-    </Button>
+    <Button {...getTriggerProps({ ref: triggerRef, active: isOpen })}>Simple Menu Example</Button>
   )}
 >
   {({ getMenuProps, menuRef, placement, getItemProps, focusedKey }) => (
-    <MenuView {...getMenuProps({ placement, arrow: true, animate: true, menuRef })}>
+    <MenuView {...getMenuProps({ placement, arrow: true, animate: true, ref: menuRef })}>
       {menuItems.map(item => (
         /**
          * key - The unique identifier for each Menu Item. Necessary regardless of use within `.map()`
@@ -100,11 +98,11 @@ const secondaryMenuItems = [
       <MenuContainer
         onChange={key => setState({ selectedKey: key })}
         trigger={({ getTriggerProps, triggerRef, isOpen }) => (
-          <Button {...getTriggerProps({ innerRef: triggerRef, active: isOpen })}>Open Menu</Button>
+          <Button {...getTriggerProps({ ref: triggerRef, active: isOpen })}>Open Menu</Button>
         )}
       >
         {({ getMenuProps, menuRef, placement, getItemProps, focusedKey }) => (
-          <MenuView {...getMenuProps({ placement, animate: true, arrow: true, menuRef })}>
+          <MenuView {...getMenuProps({ placement, animate: true, arrow: true, ref: menuRef })}>
             <HeaderItem>Simple Example</HeaderItem>
             <Separator />
             {mainMenuItems.map(item => {
@@ -174,13 +172,13 @@ const ScrollableArea = styled.div`
 
 <MenuContainer
   trigger={({ getTriggerProps, triggerRef, isOpen }) => (
-    <Button {...getTriggerProps({ innerRef: triggerRef, active: isOpen })}>
+    <Button {...getTriggerProps({ ref: triggerRef, active: isOpen })}>
       Scrolling Menu Example
     </Button>
   )}
 >
   {({ getMenuProps, menuRef, placement, getItemProps, focusedKey }) => (
-    <MenuView {...getMenuProps({ placement, animate: true, arrow: true, menuRef })}>
+    <MenuView {...getMenuProps({ placement, animate: true, arrow: true, ref: menuRef })}>
       <HeaderItem>Scrollable Area</HeaderItem>
       <Separator />
       <ScrollableArea>
@@ -244,7 +242,7 @@ initialState = {
         )}
       >
         {({ getMenuProps, menuRef, placement, getItemProps, focusedKey }) => (
-          <CustomMenuContainer {...getMenuProps({ innerRef: menuRef })}>
+          <CustomMenuContainer {...getMenuProps({ ref: menuRef })}>
             {menuItems.map(item => (
               <CustomMenuItem
                 {...getItemProps({
@@ -358,7 +356,7 @@ const getMatchingMenuItems = (searchValue, getItemProps, focusedKey) => {
       }}
       onChange={itemKey => alert(`Selected menu item: "${itemKey}"`)}
       trigger={({ getTriggerProps, triggerRef, isOpen }) => (
-        <Button {...getTriggerProps({ innerRef: triggerRef, active: isOpen })}>
+        <Button {...getTriggerProps({ ref: triggerRef, active: isOpen })}>
           Inline search example
         </Button>
       )}
@@ -369,7 +367,7 @@ const getMatchingMenuItems = (searchValue, getItemProps, focusedKey) => {
             placement,
             arrow: true,
             animate: true,
-            menuRef,
+            ref: menuRef,
             onKeyDown: event => {
               // We don't want the space key to trigger a selection since there is a child input
               if (event.keyCode === KEY_CODES.SPACE) {
@@ -394,7 +392,7 @@ const getMatchingMenuItems = (searchValue, getItemProps, focusedKey) => {
 
                   setState({ searchValue: e.target.value, focusedKey: firstFocusableKey });
                 }}
-                innerRef={ref => ref && ref.focus()}
+                ref={ref => ref && ref.focus()}
               />
             </FauxInput>
           </InputWrapper>
@@ -572,9 +570,7 @@ retrieveMenuItems = (node, getItemProps, getNextItemProps, getPreviousItemProps,
   focusedKey={state.focusedKey}
   isOpen={state.isOpen}
   trigger={({ getTriggerProps, triggerRef, isOpen }) => (
-    <Button {...getTriggerProps({ innerRef: triggerRef, active: isOpen })}>
-      Simple Menu Example
-    </Button>
+    <Button {...getTriggerProps({ ref: triggerRef, active: isOpen })}>Simple Menu Example</Button>
   )}
 >
   {({
@@ -587,7 +583,13 @@ retrieveMenuItems = (node, getItemProps, getNextItemProps, getPreviousItemProps,
     focusedKey
   }) => (
     <MenuView
-      {...getMenuProps({ placement, animate: true, arrow: true, menuRef, style: { height: 225 } })}
+      {...getMenuProps({
+        placement,
+        animate: true,
+        arrow: true,
+        ref: menuRef,
+        style: { height: 225 }
+      })}
     >
       {this.retrieveMenuItems(
         state.node,
