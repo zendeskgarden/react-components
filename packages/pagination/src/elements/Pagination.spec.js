@@ -69,11 +69,9 @@ describe('Pagination', () => {
         <BasicExample currentPage={1} totalPages={10} transformPageProps={transformPageProps} />
       );
 
-      for (let index = 0; index < container.firstChild.children.length; index++) {
-        const child = container.firstChild.children[index];
-
+      [...container.firstChild.children].forEach(child => {
         expect(child).toHaveAttribute('data-test-id', CUSTOM_PROP_VALUE);
-      }
+      });
     });
   });
 
