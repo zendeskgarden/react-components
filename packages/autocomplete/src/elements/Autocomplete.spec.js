@@ -6,118 +6,104 @@
  */
 
 import React from 'react';
-import { Label, FauxInput, Input } from '@zendeskgarden/react-textfields';
-import { MenuView, Item } from '@zendeskgarden/react-menus';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
+import { render, fireEvent } from 'garden-test-utils';
 import { KEY_CODES } from '@zendeskgarden/react-selection';
 import Autocomplete from './Autocomplete';
 
 describe('Autocomplete', () => {
   it('renders children if provided', () => {
-    const wrapper = mountWithTheme(
+    const { getByTestId } = render(
       <Autocomplete options={[]}>
-        <div id="autocomplete-child">Child content</div>
+        <div data-test-id="autocomplete-child">Child content</div>
       </Autocomplete>
     );
 
-    expect(wrapper.find('#autocomplete-child')).toHaveText('Child content');
+    expect(getByTestId('autocomplete-child').textContent).toBe('Child content');
   });
 
   it('renders label if provided', () => {
     const label = 'Test Label';
-    const wrapper = mountWithTheme(<Autocomplete label={label} options={[]} />);
+    const { getByTestId } = render(
+      <Autocomplete label={<span data-test-id="label">{label}</span>} options={[]} />
+    );
 
-    expect(wrapper.find(Label)).toHaveText(label);
+    expect(getByTestId('label').textContent).toBe(label);
   });
 
   it('renders aria-label if provided', () => {
     const ariaLabel = 'Test Aria Label';
-    const wrapper = mountWithTheme(<Autocomplete aria-label={ariaLabel} options={[]} />);
+    const { container } = render(<Autocomplete aria-label={ariaLabel} options={[]} />);
 
-    expect(wrapper.find(FauxInput)).toHaveProp('aria-label', ariaLabel);
+    expect(container.firstChild.firstChild).toHaveAttribute('aria-label', ariaLabel);
   });
 
   it('renders validation styling if provided', () => {
     const validation = 'warning';
-    const wrapper = mountWithTheme(<Autocomplete validation={validation} options={[]} />);
+    const { container } = render(<Autocomplete validation={validation} options={[]} />);
 
-    expect(wrapper.find(FauxInput)).toHaveProp('validation', validation);
+    expect(container.firstChild.firstChild).toHaveClass('c-txt__input--warning');
   });
 
   it('renders focus-inset styling if provided', () => {
-    const wrapper = mountWithTheme(<Autocomplete focusInset options={[]} />);
+    const { container } = render(<Autocomplete focusInset options={[]} />);
 
-    expect(wrapper.find(FauxInput)).toHaveProp('focusInset');
+    expect(container.firstChild.firstChild).toHaveClass('c-txt__input--focus-inset');
   });
 
   it('renders small styling if provided', () => {
-    const wrapper = mountWithTheme(<Autocomplete small options={[]} />);
-    const triggerElement = wrapper.find(FauxInput);
+    const { container } = render(<Autocomplete small options={[]} />);
 
-    expect(triggerElement).toHaveProp('small');
-
-    triggerElement.simulate('click');
-
-    expect(wrapper.find(MenuView)).toHaveProp('small');
+    expect(container.firstChild.firstChild).toHaveClass('c-txt__input--sm');
   });
 
   it('renders disabled styling if provided', () => {
-    const wrapper = mountWithTheme(<Autocomplete disabled options={[]} />);
-    const triggerElement = wrapper.find(FauxInput);
+    const { container } = render(<Autocomplete disabled options={[]} />);
 
-    expect(triggerElement).toHaveProp('disabled');
-
-    triggerElement.simulate('click');
-
-    expect(wrapper.find(MenuView)).not.toExist();
+    expect(container.firstChild.firstChild).toHaveClass('is-disabled');
   });
 
   it('applies inputRef if provided', () => {
     const inputRefSpy = jest.fn();
 
-    mountWithTheme(<Autocomplete inputRef={inputRefSpy} options={[]} />);
+    render(<Autocomplete inputRef={inputRefSpy} options={[]} />);
     expect(inputRefSpy).toHaveBeenCalled();
   });
 
   describe('Input', () => {
     it('applies focused styling when focused', () => {
-      const wrapper = mountWithTheme(<Autocomplete options={[]} />);
-      const triggerElement = wrapper.find(FauxInput);
+      const { container } = render(<Autocomplete options={[]} />);
 
-      triggerElement.simulate('click');
-      wrapper.find(Input).simulate('focus');
+      fireEvent.click(container.firstChild.firstChild);
+      fireEvent.focus(container.querySelector('input'));
 
-      expect(triggerElement).toHaveProp('focused');
+      expect(container.firstChild.firstChild).toHaveClass('is-focused');
     });
 
     it('removes focused styling when blured', () => {
-      const wrapper = mountWithTheme(<Autocomplete options={[]} />);
-      const triggerElement = wrapper.find(FauxInput);
+      const { container } = render(<Autocomplete options={[]} />);
 
-      triggerElement.simulate('click');
-      wrapper.find(Input).simulate('blur');
+      fireEvent.click(container.firstChild.firstChild);
+      fireEvent.blur(container.querySelector('input'));
 
-      expect(triggerElement).toHaveProp('focused', false);
+      expect(container.firstChild.firstChild).not.toHaveClass('is-focused');
     });
 
     it('updates input text with onChange event', () => {
       const inputValue = 'test';
-      const wrapper = mountWithTheme(<Autocomplete options={[]} />);
-      const triggerElement = wrapper.find(FauxInput);
+      const { container } = render(<Autocomplete options={[]} />);
 
-      triggerElement.simulate('click');
+      fireEvent.click(container.firstChild.firstChild);
 
-      const input = wrapper.find(Input);
+      const input = container.querySelector('input');
 
-      input.simulate('change', { target: { value: inputValue } });
-      wrapper.update();
+      fireEvent.change(input, { target: { value: inputValue } });
 
-      expect(wrapper).toHaveState('inputValue', inputValue);
+      expect(input.value).toBe(inputValue);
     });
 
     it('does not select option if ENTER key is used without input text', () => {
       const onChangeSpy = jest.fn();
-      const wrapper = mountWithTheme(
+      const { container } = render(
         <Autocomplete
           onChange={onChangeSpy}
           options={[
@@ -136,23 +122,24 @@ describe('Autocomplete', () => {
           ]}
         />
       );
-      const triggerElement = wrapper.find(FauxInput);
 
-      triggerElement.simulate('click');
+      fireEvent.click(container.firstChild.firstChild);
 
-      wrapper.find(Input).simulate('keydown', { keyCode: KEY_CODES.ENTER, target: { value: '' } });
+      const input = container.querySelector('input');
+
+      fireEvent.keyDown(input, { keyCode: KEY_CODES.ENTER, target: { value: '' } });
+
       expect(onChangeSpy).not.toHaveBeenCalled();
 
-      wrapper
-        .find(Input)
-        .simulate('keydown', { keyCode: KEY_CODES.ENTER, target: { value: '   ' } });
+      fireEvent.keyDown(input, { keyCode: KEY_CODES.ENTER, target: { value: '   ' } });
+
       expect(onChangeSpy).not.toHaveBeenCalled();
     });
   });
 
   describe('Options', () => {
     it('renders options correctly', () => {
-      const wrapper = mountWithTheme(
+      const { container, getAllByRole } = render(
         <Autocomplete
           options={[
             {
@@ -171,21 +158,18 @@ describe('Autocomplete', () => {
         />
       );
 
-      const triggerElement = wrapper.find(FauxInput);
+      fireEvent.click(container.firstChild.firstChild);
+      const items = getAllByRole('option');
 
-      triggerElement.simulate('click');
-
-      const menuItems = wrapper.find(Item);
-
-      expect(menuItems).toHaveLength(3);
-      expect(menuItems.at(0)).toHaveText('Option 1');
-      expect(menuItems.at(1)).toHaveText('Option 2');
-      expect(menuItems.at(2)).toHaveText('Option 3');
+      expect(items).toHaveLength(3);
+      expect(items[0].textContent).toBe('Option 1');
+      expect(items[1].textContent).toBe('Option 2');
+      expect(items[2].textContent).toBe('Option 3');
     });
 
     it('call onChange correctly when option is selected', () => {
       const onChangeSpy = jest.fn();
-      const wrapper = mountWithTheme(
+      const { container, getAllByRole } = render(
         <Autocomplete
           onChange={onChangeSpy}
           options={[
@@ -205,13 +189,10 @@ describe('Autocomplete', () => {
         />
       );
 
-      const triggerElement = wrapper.find(FauxInput);
+      fireEvent.click(container.firstChild.firstChild);
+      const items = getAllByRole('option');
 
-      triggerElement.simulate('click');
-      wrapper
-        .find(Item)
-        .at(0)
-        .simulate('click');
+      fireEvent.click(items[0]);
 
       expect(onChangeSpy).toHaveBeenCalledWith('option-1');
     });
