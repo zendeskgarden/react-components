@@ -39,7 +39,7 @@
     "@zendeskgarden/css-arrows": "3.1.1",
     "@zendeskgarden/css-menus": "9.0.9",
     "@zendeskgarden/react-theming": "^3.2.1",
-    "@zendeskgarden/svg-icons": "6.1.1"
+    "@zendeskgarden/svg-icons": "6.2.0"
   },
   "keywords": [
     "components",

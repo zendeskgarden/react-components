@@ -33,7 +33,7 @@
     "@zendeskgarden/css-chrome": "4.1.7",
     "@zendeskgarden/css-variables": "6.3.3",
     "@zendeskgarden/react-theming": "^3.2.1",
-    "@zendeskgarden/svg-icons": "6.1.1"
+    "@zendeskgarden/svg-icons": "6.2.0"
   },
   "keywords": [
     "components",
