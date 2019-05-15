@@ -32,7 +32,7 @@
     "styled-components": "^3.2.6"
   },
   "devDependencies": {
-    "@zendeskgarden/css-forms": "7.0.8",
+    "@zendeskgarden/css-forms": "7.0.9",
     "@zendeskgarden/react-theming": "^3.2.1"
   },
   "keywords": [

@@ -34,8 +34,8 @@
     "@zendeskgarden/css-tables": "4.0.8",
     "@zendeskgarden/css-variables": "6.3.3",
     "@zendeskgarden/react-theming": "^3.2.1",
-    "@zendeskgarden/svg-icons": "6.1.1",
-    "react-beautiful-dnd": "11.0.2",
+    "@zendeskgarden/svg-icons": "6.2.0",
+    "react-beautiful-dnd": "11.0.3",
     "react-window": "1.8.1"
   },
   "keywords": [
