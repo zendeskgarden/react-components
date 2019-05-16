@@ -3,13 +3,6 @@
 This package includes components and render prop containers relating to
 buttons within the Garden Design System.
 
-## DEPRECATION WARNING
-
-This package has been deprecated in favor of the API provided in the
-[@zendeskgarden/react-dropdowns](https://garden.zendesk.com/react-components/dropdowns/) package.
-
-This package will stop receiving updates in a future major release.
-
 ## Installation
 
 ```sh
