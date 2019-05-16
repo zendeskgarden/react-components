@@ -118,7 +118,7 @@ describe('FocusJailContainer', () => {
       });
 
       it("doesn't intercept tab key if not the first or last tabbable item", () => {
-        const { container } = render(
+        const { getByTestId } = render(
           <FocusJailContainer>
             {({ getContainerProps, containerRef }) => (
               <div {...getContainerProps({ 'data-test-id': 'container' })} ref={containerRef}>
@@ -132,7 +132,7 @@ describe('FocusJailContainer', () => {
         );
 
         focusElementSpy.mockClear();
-        fireEvent.keyDown(container.firstChild, { keyCode: KEY_CODES.TAB });
+        fireEvent.keyDown(getByTestId('container'), { keyCode: KEY_CODES.TAB });
 
         expect(focusElementSpy).toHaveBeenCalledTimes(0);
       });
