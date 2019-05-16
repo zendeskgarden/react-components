@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getExports } from '@zendeskgarden/react-testing';
+import { getExports } from 'garden-test-utils';
 import * as rootIndex from './';
 
 describe('Index', () => {
