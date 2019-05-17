@@ -5,6 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+/* eslint-disable react/prop-types */
+
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
@@ -15,7 +17,7 @@ import FauxInput from './FauxInput';
 /**
  * Accepts all `<input />` props.
  */
-function MediaInput({ wrapperProps = {}, start, end, ...props }) {
+function MediaInput({ wrapperProps = {}, start, end, disabled, ...props }) {
   const { getInputProps } = useFieldContext();
   const inputRef = useRef(undefined);
 
@@ -30,6 +32,7 @@ function MediaInput({ wrapperProps = {}, start, end, ...props }) {
       data-garden-id="forms.media_input"
       data-garden-version={PACKAGE_VERSION}
       onClick={onFauxInputClickHandler}
+      disabled={disabled}
       mediaLayout
       {...otherWrapperProps}
     >
@@ -37,6 +40,7 @@ function MediaInput({ wrapperProps = {}, start, end, ...props }) {
       <StyledTextMediaInput
         {...getInputProps({
           innerRef: inputRef,
+          disabled,
           ...props
         })}
       />
@@ -46,7 +50,7 @@ function MediaInput({ wrapperProps = {}, start, end, ...props }) {
 }
 
 MediaInput.propTypes = {
-  /** Applied to the wrapping `<div>` element */
+  /** Applied to the wrapping `<div>` element. Accepts all props of `FauxInput`. */
   wrapperProps: PropTypes.object,
   /** The slot for "start" icons and content */
   start: PropTypes.node,
