@@ -6,32 +6,31 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-import { shallowWithTheme } from '@zendeskgarden/react-testing';
+import { render, renderRtl } from 'garden-test-utils';
 import Well from './Well';
 
 describe('Well', () => {
   it('renders default well styling', () => {
-    const wrapper = shallow(<Well />);
+    const { container } = render(<Well />);
 
-    expect(wrapper).toHaveClassName('c-callout');
+    expect(container.firstChild).toHaveClass('c-callout');
   });
 
   it('renders with RTL styling if applied', () => {
-    const wrapper = shallowWithTheme(<Well />, { rtl: true });
+    const { container } = renderRtl(<Well />);
 
-    expect(wrapper).toHaveClassName('is-rtl');
+    expect(container.firstChild).toHaveClass('is-rtl');
   });
 
   it('renders recessed styling correctly', () => {
-    const wrapper = shallow(<Well recessed />);
+    const { container } = render(<Well recessed />);
 
-    expect(wrapper).toHaveClassName('c-callout--recessed');
+    expect(container.firstChild).toHaveClass('c-callout--recessed');
   });
 
   it('renders floating styling correctly', () => {
-    const wrapper = shallow(<Well floating />);
+    const { container } = render(<Well floating />);
 
-    expect(wrapper).toHaveClassName('c-callout--dialog');
+    expect(container.firstChild).toHaveClass('c-callout--dialog');
   });
 });
