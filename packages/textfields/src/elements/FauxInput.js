@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { composeEventHandlers, ControlledComponent } from '@zendeskgarden/react-selection';
+import React, { useState, forwardRef } from 'react';
+import { composeEventHandlers } from '@zendeskgarden/react-selection';
 import PropTypes from 'prop-types';
 
 import Input from '../views/Input';
@@ -21,60 +21,53 @@ const VALIDATION = {
 /**
  * Accepts all `<div>` props
  */
-export default class FauxInput extends ControlledComponent {
-  static propTypes = {
-    inputRef: PropTypes.func,
-    /** Allows flush spacing of Tab elements */
-    tagLayout: PropTypes.bool,
-    /** Applies flex layout to support MediaFigure components */
-    mediaLayout: PropTypes.bool,
-    small: PropTypes.bool,
-    /** Applies select styling */
-    select: PropTypes.bool,
-    /** Removes all borders and styling */
-    bare: PropTypes.bool,
-    disabled: PropTypes.bool,
-    focused: PropTypes.bool,
-    /** Applies inset `box-shadow` styling on focus */
-    focusInset: PropTypes.bool,
-    hovered: PropTypes.bool,
-    /** Displays select open state */
-    open: PropTypes.bool,
-    validation: PropTypes.oneOf([
-      VALIDATION.SUCCESS,
-      VALIDATION.WARNING,
-      VALIDATION.ERROR,
-      VALIDATION.NONE
-    ])
-  };
+const FauxInput = forwardRef((props, ref) => {
+  // eslint-disable-next-line react/prop-types
+  const { onFocus, onBlur, focused, children, ...otherProps } = props;
+  const [isFocused, setIsFocused] = useState(false);
 
-  constructor(...args) {
-    super(...args);
+  return (
+    <DIVInput
+      {...otherProps}
+      ref={ref}
+      onFocus={composeEventHandlers(onFocus, () => {
+        setIsFocused(true);
+      })}
+      onBlur={composeEventHandlers(onBlur, () => {
+        setIsFocused(false);
+      })}
+      focused={focused === undefined ? isFocused : focused}
+      aria-invalid={null} // eslint-disable-line jsx-a11y/aria-proptypes
+    >
+      {children}
+    </DIVInput>
+  );
+});
 
-    this.state = {
-      focused: false
-    };
-  }
+FauxInput.propTypes = {
+  /** Allows flush spacing of Tab elements */
+  tagLayout: PropTypes.bool,
+  /** Applies flex layout to support MediaFigure components */
+  mediaLayout: PropTypes.bool,
+  small: PropTypes.bool,
+  /** Applies select styling */
+  select: PropTypes.bool,
+  /** Removes all borders and styling */
+  bare: PropTypes.bool,
+  disabled: PropTypes.bool,
+  focused: PropTypes.bool,
+  /** Applies inset `box-shadow` styling on focus */
+  focusInset: PropTypes.bool,
+  hovered: PropTypes.bool,
+  /** Displays select open state */
+  open: PropTypes.bool,
+  validation: PropTypes.oneOf([
+    VALIDATION.SUCCESS,
+    VALIDATION.WARNING,
+    VALIDATION.ERROR,
+    VALIDATION.NONE
+  ])
+};
 
-  render() {
-    const { onFocus, onBlur, children, inputRef, ...otherProps } = this.props;
-    const { focused } = this.getControlledState();
-
-    return (
-      <DIVInput
-        innerRef={inputRef}
-        {...otherProps}
-        onFocus={composeEventHandlers(onFocus, () => {
-          this.setControlledState({ focused: true });
-        })}
-        onBlur={composeEventHandlers(onBlur, () => {
-          this.setControlledState({ focused: false });
-        })}
-        focused={focused}
-        aria-invalid={null} // eslint-disable-line jsx-a11y/aria-proptypes
-      >
-        {children}
-      </DIVInput>
-    );
-  }
-}
+/** @component */
+export default FauxInput;

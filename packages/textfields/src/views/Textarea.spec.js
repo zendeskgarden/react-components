@@ -6,27 +6,25 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
-
+import { render, renderRtl } from 'garden-test-utils';
 import Textarea from './Textarea';
 
 describe('Textarea', () => {
   it('renders default styling', () => {
-    const wrapper = mount(<Textarea />);
+    const { container } = render(<Textarea />);
 
-    expect(wrapper.childAt(0)).toHaveClassName('c-txt__input--area');
+    expect(container.firstChild).toHaveClass('c-txt__input--area');
   });
 
   it('renders RTL styling', () => {
-    const wrapper = mountWithTheme(<Textarea />, { rtl: true });
+    const { container } = renderRtl(<Textarea />);
 
-    expect(wrapper.childAt(0)).toHaveClassName('is-rtl');
+    expect(container.firstChild).toHaveClass('is-rtl');
   });
 
   it('renders resizable styling if provided', () => {
-    const wrapper = mount(<Textarea resizable />);
+    const { container } = render(<Textarea resizable />);
 
-    expect(wrapper.childAt(0)).toHaveClassName('is-resizable');
+    expect(container.firstChild).toHaveClass('is-resizable');
   });
 });

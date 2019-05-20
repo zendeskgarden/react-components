@@ -6,45 +6,41 @@
  */
 
 import React from 'react';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
-
+import { render, fireEvent } from 'garden-test-utils';
 import FauxInput from './FauxInput';
 
 describe('FauxInput', () => {
   const TEXT_FIELD_ID = 'test';
-  let wrapper;
 
-  const basicExample = () => (
-    <FauxInput id={TEXT_FIELD_ID}>
+  const BasicExample = () => (
+    <FauxInput data-test-id="input" id={TEXT_FIELD_ID}>
       <button tabIndex={0} data-test-id="inner-content">
         focusable content
       </button>
     </FauxInput>
   );
 
-  const findInput = enzymeWrapper =>
-    enzymeWrapper
-      .find(FauxInput)
-      .children()
-      .at(0);
-  const findInnerContent = enzymeWrapper => enzymeWrapper.find('[data-test-id="inner-content"]');
-
-  beforeEach(() => {
-    wrapper = mountWithTheme(basicExample());
-  });
-
   it('does not apply focused styling by default', () => {
-    expect(findInput(wrapper)).toHaveProp('focused', false);
+    const { getByTestId } = render(<BasicExample />);
+
+    expect(getByTestId('input')).not.toHaveClass('is-focused');
   });
 
   it('applies focused styling when content is focused', () => {
-    findInnerContent(wrapper).simulate('focus');
-    expect(findInput(wrapper)).toHaveProp('focused', true);
+    const { getByTestId } = render(<BasicExample />);
+
+    fireEvent.focus(getByTestId('inner-content'));
+
+    expect(getByTestId('input')).toHaveClass('is-focused');
   });
 
   it('removes focused styling when content is blured', () => {
-    findInnerContent(wrapper).simulate('focus');
-    findInnerContent(wrapper).simulate('blur');
-    expect(findInput(wrapper)).toHaveProp('focused', false);
+    const { getByTestId } = render(<BasicExample />);
+    const innerContent = getByTestId('inner-content');
+
+    fireEvent.focus(innerContent);
+    fireEvent.blur(innerContent);
+
+    expect(getByTestId('input')).not.toHaveClass('is-focused');
   });
 });

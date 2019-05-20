@@ -6,90 +6,89 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-import { shallowWithTheme } from '@zendeskgarden/react-testing';
+import { render, renderRtl } from 'garden-test-utils';
 
 import Input from './Input';
 
 describe('Input', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Input />);
+    const { container } = render(<Input />);
 
-    expect(wrapper).toHaveClassName('c-txt__input');
+    expect(container.firstChild).toHaveClass('c-txt__input');
   });
 
   it('renders RTL styling', () => {
-    const wrapper = shallowWithTheme(<Input />, { rtl: true });
+    const { container } = renderRtl(<Input />);
 
-    expect(wrapper).toHaveClassName('is-rtl');
+    expect(container.firstChild).toHaveClass('is-rtl');
   });
 
   it('renders small styling if provided', () => {
-    const wrapper = shallow(<Input small />);
+    const { container } = render(<Input small />);
 
-    expect(wrapper).toHaveClassName('c-txt__input--sm');
+    expect(container.firstChild).toHaveClass('c-txt__input--sm');
   });
 
   it('renders tag layout styling if provided', () => {
-    const wrapper = shallow(<Input tagLayout />);
+    const { container } = render(<Input tagLayout />);
 
-    expect(wrapper).toHaveClassName('c-txt__input--tag');
+    expect(container.firstChild).toHaveClass('c-txt__input--tag');
   });
 
   it('renders select styling if provided', () => {
-    const wrapper = shallow(<Input select />);
+    const { container } = render(<Input select />);
 
-    expect(wrapper).toHaveClassName('c-txt__input--select');
+    expect(container.firstChild).toHaveClass('c-txt__input--select');
   });
 
   it('renders media layout styling if provided', () => {
-    const wrapper = shallow(<Input mediaLayout />);
+    const { container } = render(<Input mediaLayout />);
 
-    expect(wrapper).toHaveClassName('c-txt__input--media');
+    expect(container.firstChild).toHaveClass('c-txt__input--media');
   });
 
   it('renders bare styling if provided', () => {
-    const wrapper = shallow(<Input bare />);
+    const { container } = render(<Input bare />);
 
-    expect(wrapper).toHaveClassName('c-txt__input--bare');
+    expect(container.firstChild).toHaveClass('c-txt__input--bare');
   });
 
   it('renders focus-inset styling if provided', () => {
-    const wrapper = shallow(<Input focusInset />);
+    const { container } = render(<Input focusInset />);
 
-    expect(wrapper).toHaveClassName('c-txt__input--focus-inset');
+    expect(container.firstChild).toHaveClass('c-txt__input--focus-inset');
   });
 
   it('renders disabled styling if provided', () => {
-    const wrapper = shallow(<Input disabled />);
+    const { container } = render(<Input disabled />);
 
-    expect(wrapper).toHaveClassName('is-disabled');
+    expect(container.firstChild).toHaveClass('is-disabled');
   });
 
   it('renders focused styling if provided', () => {
-    const wrapper = shallow(<Input focused />);
+    const { container } = render(<Input focused />);
 
-    expect(wrapper).toHaveClassName('is-focused');
+    expect(container.firstChild).toHaveClass('is-focused');
   });
 
   it('renders hovered styling if provided', () => {
-    const wrapper = shallow(<Input hovered />);
+    const { container } = render(<Input hovered />);
 
-    expect(wrapper).toHaveClassName('is-hovered');
+    expect(container.firstChild).toHaveClass('is-hovered');
   });
 
   it('renders open styling if provided', () => {
-    const wrapper = shallow(<Input open />);
+    const { container } = render(<Input open />);
 
-    expect(wrapper).toHaveClassName('is-open');
+    expect(container.firstChild).toHaveClass('is-open');
   });
 
   describe('validation', () => {
     ['success', 'warning', 'error'].forEach(validation => {
       it(`renders ${validation} styling if provided`, () => {
-        const wrapper = shallow(<Input validation={validation} />);
+        const { container } = render(<Input validation={validation} />);
 
-        expect(wrapper).toHaveClassName(`c-txt__input--${validation}`);
+        expect(container.firstChild).toHaveClass(`c-txt__input--${validation}`);
       });
     });
   });

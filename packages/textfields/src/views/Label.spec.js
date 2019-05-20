@@ -6,33 +6,32 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-import { shallowWithTheme } from '@zendeskgarden/react-testing';
+import { render, renderRtl } from 'garden-test-utils';
 
 import Label from './Label';
 
 describe('Label', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Label />);
+    const { container } = render(<Label />);
 
-    expect(wrapper).toHaveClassName('c-txt__label');
+    expect(container.firstChild).toHaveClass('c-txt__label');
   });
 
   it('renders RTL styling', () => {
-    const wrapper = shallowWithTheme(<Label />, { rtl: true });
+    const { container } = renderRtl(<Label />);
 
-    expect(wrapper).toHaveClassName('is-rtl');
+    expect(container.firstChild).toHaveClass('is-rtl');
   });
 
   it('renders small styling if provided', () => {
-    const wrapper = shallow(<Label small />);
+    const { container } = render(<Label small />);
 
-    expect(wrapper).toHaveClassName('c-txt__label--sm');
+    expect(container.firstChild).toHaveClass('c-txt__label--sm');
   });
 
   it('renders regular styling if provided', () => {
-    const wrapper = shallow(<Label regular />);
+    const { container } = render(<Label regular />);
 
-    expect(wrapper).toHaveClassName('c-txt__label--regular');
+    expect(container.firstChild).toHaveClass('c-txt__label--regular');
   });
 });
