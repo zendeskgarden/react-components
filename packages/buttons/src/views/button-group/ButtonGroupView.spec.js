@@ -6,20 +6,19 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-import { shallowWithTheme } from '@zendeskgarden/react-testing';
+import { render, renderRtl } from 'garden-test-utils';
 import ButtonGroupView from './ButtonGroupView';
 
 describe('ButtonGroupView', () => {
   it('renders correct styling', () => {
-    const wrapper = shallow(<ButtonGroupView />);
+    const { container } = render(<ButtonGroupView />);
 
-    expect(wrapper).toHaveClassName('l-btn-group');
+    expect(container.firstChild).toHaveClass('l-btn-group');
   });
 
   it('renders correctly styling when RTL', () => {
-    const wrapper = shallowWithTheme(<ButtonGroupView />, { rtl: true });
+    const { container } = renderRtl(<ButtonGroupView />);
 
-    expect(wrapper).toHaveClassName('is-rtl');
+    expect(container.firstChild).toHaveClass('is-rtl');
   });
 });

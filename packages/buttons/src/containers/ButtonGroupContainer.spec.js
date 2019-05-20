@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
+import { render, fireEvent } from 'garden-test-utils';
 import closest from 'dom-helpers/query/closest';
 
 import ButtonGroupContainer from './ButtonGroupContainer';
@@ -16,10 +16,9 @@ jest.mock('dom-helpers/query/closest');
 closest.mockImplementation(() => ({ focus: jest.fn() }));
 
 describe('ButtonGroupContainer', () => {
-  let wrapper;
   const buttons = ['button-1', 'button-2', 'button-3'];
 
-  const basicExample = () => (
+  const BasicExample = () => (
     <ButtonGroupContainer>
       {({ getGroupProps, getButtonProps, selectedKey, focusedKey }) => (
         <div {...getGroupProps({ 'data-test-id': 'group' })}>
@@ -40,16 +39,11 @@ describe('ButtonGroupContainer', () => {
     </ButtonGroupContainer>
   );
 
-  beforeEach(() => {
-    wrapper = mountWithTheme(basicExample());
-  });
-
-  const findButtonGroup = enzymeWrapper => enzymeWrapper.find('[data-test-id="group"]');
-  const findButtons = enzymeWrapper => enzymeWrapper.find('[data-test-id="button"]');
-
   describe('getGroupProps', () => {
     it('applies correct accessibility role', () => {
-      expect(findButtonGroup(wrapper)).toHaveProp('role', 'group');
+      const { getByTestId } = render(<BasicExample />);
+
+      expect(getByTestId('group')).toHaveAttribute('role', 'group');
     });
   });
 
@@ -60,7 +54,7 @@ describe('ButtonGroupContainer', () => {
       console.error = jest.fn();
 
       expect(() => {
-        mountWithTheme(
+        render(
           <ButtonGroupContainer>
             {({ getButtonProps }) => <div {...getButtonProps()}>Test button</div>}
           </ButtonGroupContainer>
@@ -73,32 +67,40 @@ describe('ButtonGroupContainer', () => {
     });
 
     it('applies the correct accessibility role', () => {
-      findButtons(wrapper).forEach(button => {
-        expect(button).toHaveProp('role', 'button');
+      const { getAllByTestId } = render(<BasicExample />);
+
+      getAllByTestId('button').forEach(button => {
+        expect(button).toHaveAttribute('role', 'button');
       });
     });
 
     it('applies the correct accessibility tabIndex', () => {
-      findButtons(wrapper).forEach(button => {
-        expect(button).toHaveProp('tabIndex', -1);
+      const { getAllByTestId } = render(<BasicExample />);
+
+      getAllByTestId('button').forEach(button => {
+        expect(button).toHaveAttribute('tabIndex', '-1');
       });
     });
 
     it('applies the correct accessibility selected value when not selected', () => {
-      expect(findButtons(wrapper).first()).toHaveProp('aria-pressed', false);
+      const { getAllByTestId } = render(<BasicExample />);
+
+      expect(getAllByTestId('button')[0]).toHaveAttribute('aria-pressed', 'false');
     });
 
     it('applies the correct accessibility selected value when selected', () => {
-      findButtons(wrapper)
-        .first()
-        .simulate('click');
-      expect(findButtons(wrapper).first()).toHaveProp('aria-pressed', true);
+      const { getAllByTestId } = render(<BasicExample />);
+      const firstButton = getAllByTestId('button')[0];
+
+      fireEvent.click(firstButton);
+
+      expect(firstButton).toHaveAttribute('aria-pressed', 'true');
     });
 
     it('moves focus to the ButtonGroupView if a button receives focus', () => {
-      findButtons(wrapper)
-        .at(0)
-        .simulate('focus');
+      const { getAllByTestId } = render(<BasicExample />);
+
+      fireEvent.focus(getAllByTestId('button')[0]);
 
       expect(closest).toHaveBeenCalled();
     });

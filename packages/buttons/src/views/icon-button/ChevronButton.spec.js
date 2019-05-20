@@ -6,14 +6,13 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from 'garden-test-utils';
 import ChevronButton from './ChevronButton';
-import Icon from './Icon';
 
 describe('ChevronButton', () => {
   it('rotates icon if prop is provided', () => {
-    const wrapper = mount(<ChevronButton rotated />);
+    const { container } = render(<ChevronButton rotated />);
 
-    expect(wrapper.find(Icon).childAt(0)).toHaveClassName('is-rotated');
+    expect(container.firstChild.firstChild).toHaveClass('is-rotated');
   });
 });
