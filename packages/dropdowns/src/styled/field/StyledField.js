@@ -16,17 +16,16 @@ const COMPONENT_ID = 'dropdowns.text_group';
 /**
  * Accepts all `<div>` props
  */
-const StyledField = styled.div.attrs({
+const StyledField = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(TextStyles['c-txt'], {
-      [TextStyles['c-txt--inline']]: props.inline,
+  className: classNames(TextStyles['c-txt'], {
+    [TextStyles['c-txt--inline']]: props.inline,
 
-      // RTL
-      [TextStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL
+    [TextStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
