@@ -30,8 +30,6 @@ const StyledEllipsis = styled.div.attrs({
  * and any text-overflow styling.
  *
  * All other props are spread onto the element.
- *
- * @param {*} props
  */
 function Ellipsis({ children, title, tag, ...other }) {
   const CustomTagEllipsis = StyledEllipsis.withComponent(tag);

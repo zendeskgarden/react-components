@@ -6,15 +6,15 @@
  */
 
 import React from 'react';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
+import { renderRtl } from 'garden-test-utils';
 import XXXL from './XXXL';
 
 describe('XXXL', () => {
   const Example = props => <XXXL {...props}>Hello world</XXXL>;
 
   it('applies correct styling with RTL locale', () => {
-    const wrapper = mountWithTheme(<Example />, { rtl: true });
+    const { container } = renderRtl(<Example />);
 
-    expect(wrapper.childAt(0)).toHaveStyleRule('direction', 'rtl');
+    expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });
 });
