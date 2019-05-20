@@ -25,16 +25,15 @@ const THUMB_COMPONENT_ID = 'ranges.multi_thumb_range.thumb';
  * These Styled components are not exported with the other Views due to their logic
  * being more tightly coupled with this specific implemenation.
  */
-const StyledSlider = styled.div.attrs({
+const StyledSlider = styled.div.attrs(props => ({
   'data-garden-id': SLIDER_COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   'data-test-id': 'slider',
-  className: props =>
-    classNames(RangeStyles['c-range__slider'], {
-      [RangeStyles['is-disabled']]: props.isDisabled,
-      [RangeStyles['is-rtl']]: isRtl(props)
-    })
-})`
+  className: classNames(RangeStyles['c-range__slider'], {
+    [RangeStyles['is-disabled']]: props.isDisabled,
+    [RangeStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   *,
   *::before,
   *::after {
@@ -62,15 +61,14 @@ const StyledTrackRail = styled.div.attrs({
   ${props => retrieveTheme(RAIL_COMPONENT_ID, props)};
 `;
 
-const StyledThumb = styled.div.attrs({
+const StyledThumb = styled.div.attrs(props => ({
   'data-garden-id': THUMB_COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   'data-test-id': 'thumb',
-  className: props =>
-    classNames(RangeStyles['c-range__slider__track__rail__thumb'], {
-      [RangeStyles['is-focused']]: props.isFocused
-    })
-})`
+  className: classNames(RangeStyles['c-range__slider__track__rail__thumb'], {
+    [RangeStyles['is-focused']]: props.isFocused
+  })
+}))`
   ${props => retrieveTheme(THUMB_COMPONENT_ID, props)};
 `;
 
@@ -147,6 +145,11 @@ class MultiThumbRange extends Component {
   onDocumentMouseMove = e => {
     const { min, max, step } = this.props;
     const { isMinThumbFocused } = this.state;
+
+    if (!this.trackRailRef) {
+      return;
+    }
+
     const trackOffsetLeft = this.trackRailRef.getBoundingClientRect().x;
     const trackOffsetRight = trackOffsetLeft + this.trackRailRef.getBoundingClientRect().width;
     const trackWidth = this.trackRailRef.getBoundingClientRect().width;
@@ -351,7 +354,7 @@ class MultiThumbRange extends Component {
       <StyledSlider isDisabled={disabled}>
         <StyledTrack style={trackStyle}>
           <StyledTrackRail
-            innerRef={ref => {
+            ref={ref => {
               this.trackRailRef = ref;
             }}
           >
@@ -364,7 +367,7 @@ class MultiThumbRange extends Component {
               aria-valuetext={minValue}
               isFocused={isMinThumbFocused}
               style={minThumbStyle}
-              innerRef={ref => {
+              ref={ref => {
                 this.minThumbRef = ref;
               }}
               onKeyDown={e => this.onKeyDown('min')(e)}
@@ -393,7 +396,7 @@ class MultiThumbRange extends Component {
               isFocused={isMaxThumbFocused}
               style={maxThumbStyle}
               onKeyDown={e => this.onKeyDown('max')(e)}
-              innerRef={ref => {
+              ref={ref => {
                 this.maxThumbRef = ref;
               }}
               onFocus={() => {

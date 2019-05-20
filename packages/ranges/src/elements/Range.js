@@ -92,7 +92,7 @@ export default class Range extends ControlledComponent {
         onChange={composeEventHandlers(onChange, event => {
           this.updateBackgroundWidthFromInput(event.target);
         })}
-        innerRef={ref => {
+        ref={ref => {
           this.rangeRef = ref;
           rangeRef && rangeRef(ref);
         }}

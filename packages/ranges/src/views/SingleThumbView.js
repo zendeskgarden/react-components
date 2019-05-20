@@ -16,20 +16,19 @@ const COMPONENT_ID = 'ranges.single_thumb_view';
 /**
  * Accepts all `<input [type="range"]>` props
  */
-const SingleThumbView = styled.input.attrs({
+const SingleThumbView = styled.input.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   type: 'range',
-  className: props =>
-    classNames(RangeStyles['c-range__input'], {
-      [RangeStyles['is-disabled']]: props.disabled,
-      [RangeStyles['is-focused']]: props.focused,
-      [RangeStyles['is-hovered']]: props.hovered,
+  className: classNames(RangeStyles['c-range__input'], {
+    [RangeStyles['is-disabled']]: props.disabled,
+    [RangeStyles['is-focused']]: props.focused,
+    [RangeStyles['is-hovered']]: props.hovered,
 
-      // RTL
-      [RangeStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL
+    [RangeStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   && {
     ${({ backgroundSize }) => `background-size: ${backgroundSize};`};
   }
