@@ -15,15 +15,14 @@ const COMPONENT_ID = 'radios.hint';
 /**
  * Accepts all `<div>` props
  */
-const Hint = styled.div.attrs({
+const Hint = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(CheckboxStyles['c-chk__hint'], CheckboxStyles['c-chk__hint--radio'], {
-      // RTL
-      [CheckboxStyles['is-rtl']]: isRtl(props)
-    })
-})`
+  className: classNames(CheckboxStyles['c-chk__hint'], CheckboxStyles['c-chk__hint--radio'], {
+    // RTL
+    [CheckboxStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

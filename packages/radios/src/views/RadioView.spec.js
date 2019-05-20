@@ -6,21 +6,20 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-import { shallowWithTheme } from '@zendeskgarden/react-testing';
+import { render, renderRtl } from 'garden-test-utils';
 
 import RadioView from './RadioView';
 
 describe('RadioView', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<RadioView />);
+    const { container } = render(<RadioView />);
 
-    expect(wrapper).toHaveClassName('c-chk');
+    expect(container.firstChild).toHaveClass('c-chk');
   });
 
   it('renders RTL styling', () => {
-    const wrapper = shallowWithTheme(<RadioView />, { rtl: true });
+    const { container } = renderRtl(<RadioView />);
 
-    expect(wrapper).toHaveClassName('is-rtl');
+    expect(container.firstChild).toHaveClass('is-rtl');
   });
 });
