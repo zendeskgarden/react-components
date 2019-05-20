@@ -6,27 +6,26 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-import { shallowWithTheme } from '@zendeskgarden/react-testing';
+import { render, renderRtl } from 'garden-test-utils';
 
 import TabsView from './TabsView';
 
 describe('TabsView', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<TabsView />);
+    const { container } = render(<TabsView />);
 
-    expect(wrapper).toHaveClassName('c-tab');
+    expect(container.firstChild).toHaveClass('c-tab');
   });
 
   it('renders RTL styling', () => {
-    const wrapper = shallowWithTheme(<TabsView />, { rtl: true });
+    const { container } = renderRtl(<TabsView />);
 
-    expect(wrapper).toHaveClassName('is-rtl');
+    expect(container.firstChild).toHaveClass('is-rtl');
   });
 
   it('renders vertical styling', () => {
-    const wrapper = shallow(<TabsView vertical />);
+    const { container } = render(<TabsView vertical />);
 
-    expect(wrapper).toHaveClassName('c-tab--block');
+    expect(container.firstChild).toHaveClass('c-tab--block');
   });
 });
