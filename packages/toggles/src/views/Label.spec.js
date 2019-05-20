@@ -6,52 +6,50 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-import { shallowWithTheme } from '@zendeskgarden/react-testing';
-
+import { render, renderRtl } from 'garden-test-utils';
 import Label from './Label';
 
 describe('Label', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Label />);
+    const { container } = render(<Label />);
 
-    expect(wrapper).toHaveClassName('c-chk__label');
-    expect(wrapper).toHaveClassName('c-chk__label--toggle');
+    expect(container.firstChild).toHaveClass('c-chk__label');
+    expect(container.firstChild).toHaveClass('c-chk__label--toggle');
   });
 
   it('renders RTL styling', () => {
-    const wrapper = shallowWithTheme(<Label />, { rtl: true });
+    const { container } = renderRtl(<Label />);
 
-    expect(wrapper).toHaveClassName('is-rtl');
+    expect(container.firstChild).toHaveClass('is-rtl');
   });
 
   it('renders regular styling if provided', () => {
-    const wrapper = shallow(<Label regular />);
+    const { container } = render(<Label regular />);
 
-    expect(wrapper).toHaveClassName('c-chk__label--regular');
+    expect(container.firstChild).toHaveClass('c-chk__label--regular');
   });
 
   it('renders checked styling if provided', () => {
-    const wrapper = shallow(<Label checked />);
+    const { container } = render(<Label checked />);
 
-    expect(wrapper).toHaveClassName('is-checked');
+    expect(container.firstChild).toHaveClass('is-checked');
   });
 
   it('renders hovered styling if provided', () => {
-    const wrapper = shallow(<Label hovered />);
+    const { container } = render(<Label hovered />);
 
-    expect(wrapper).toHaveClassName('is-hovered');
+    expect(container.firstChild).toHaveClass('is-hovered');
   });
 
   it('renders focused styling if provided', () => {
-    const wrapper = shallow(<Label focused />);
+    const { container } = render(<Label focused />);
 
-    expect(wrapper).toHaveClassName('is-focused');
+    expect(container.firstChild).toHaveClass('is-focused');
   });
 
   it('renders disabled styling if provided', () => {
-    const wrapper = shallow(<Label disabled />);
+    const { container } = render(<Label disabled />);
 
-    expect(wrapper).toHaveClassName('is-disabled');
+    expect(container.firstChild).toHaveClass('is-disabled');
   });
 });
