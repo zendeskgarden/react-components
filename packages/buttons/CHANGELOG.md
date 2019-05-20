@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.9.8](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.9.7...@zendeskgarden/react-buttons@3.9.8) (2019-05-20)
+
+
+### Bug Fixes
+
+* **docs:** remove invalid deprecation warning ([#338](https://github.com/zendeskgarden/react-components/issues/338)) ([fb7a398](https://github.com/zendeskgarden/react-components/commit/fb7a398))
+
+
+
+
+
 ## [3.9.7](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-buttons@3.9.6...@zendeskgarden/react-buttons@3.9.7) (2019-05-15)
 
 **Note:** Version bump only for package @zendeskgarden/react-buttons
