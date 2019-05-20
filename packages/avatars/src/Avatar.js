@@ -21,24 +21,23 @@ const SIZE = {
 /**
  * Accepts all `<figure>` props
  */
-const Avatar = styled.figure.attrs({
+const Avatar = styled.figure.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(AvatarStyles['c-avatar'], {
-      // Types
-      [AvatarStyles['c-avatar--system']]: props.system,
+  className: classNames(AvatarStyles['c-avatar'], {
+    // Types
+    [AvatarStyles['c-avatar--system']]: props.system,
 
-      // Sizes
-      [AvatarStyles['c-avatar--xs']]: props.size === SIZE.EXTRASMALL,
-      [AvatarStyles['c-avatar--sm']]: props.size === SIZE.SMALL,
-      [AvatarStyles['c-avatar--lg']]: props.size === SIZE.LARGE,
+    // Sizes
+    [AvatarStyles['c-avatar--xs']]: props.size === SIZE.EXTRASMALL,
+    [AvatarStyles['c-avatar--sm']]: props.size === SIZE.SMALL,
+    [AvatarStyles['c-avatar--lg']]: props.size === SIZE.LARGE,
 
-      // State
-      [AvatarStyles['is-disabled']]: props.disabled,
-      [AvatarStyles['c-avatar--borderless']]: props.isBorderless
-    })
-})`
+    // State
+    [AvatarStyles['is-disabled']]: props.disabled,
+    [AvatarStyles['c-avatar--borderless']]: props.isBorderless
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
