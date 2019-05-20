@@ -6,6 +6,7 @@
  */
 
 import styled from 'styled-components';
+import classNames from 'classnames';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 
@@ -14,10 +15,10 @@ import StyledTextInput from './StyledTextInput';
 /**
  * Accepts all `<input>` props
  */
-const StyledTextMediaInput = styled(StyledTextInput).attrs({
+const StyledTextMediaInput = styled(StyledTextInput).attrs(props => ({
   bare: true,
-  className: TextStyles['c-txt__input--media__body']
-})`
+  className: classNames(props.className, TextStyles['c-txt__input--media__body'])
+}))`
   ${props => retrieveTheme('forms.text_media_input', props)};
 `;
 

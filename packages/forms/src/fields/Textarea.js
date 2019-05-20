@@ -19,7 +19,7 @@ const VALIDATION = {
 /**
  * Accepts all `<textarea />` props
  */
-function Textarea(props) {
+const Textarea = React.forwardRef((props, ref) => {
   const { getInputProps } = useFieldContext();
 
   return (
@@ -28,13 +28,14 @@ function Textarea(props) {
         {
           'data-garden-id': 'forms.textarea',
           'data-garden-version': PACKAGE_VERSION,
+          ref,
           ...props
         },
         { isDescribed: true }
       )}
     />
   );
-}
+});
 
 Textarea.propTypes = {
   small: PropTypes.bool,

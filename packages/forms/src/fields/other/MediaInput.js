@@ -17,37 +17,46 @@ import FauxInput from './FauxInput';
 /**
  * Accepts all `<input />` props.
  */
-function MediaInput({ wrapperProps = {}, start, end, disabled, ...props }) {
-  const { getInputProps } = useFieldContext();
-  const inputRef = useRef(undefined);
+const MediaInput = React.forwardRef(
+  ({ wrapperProps = {}, start, end, disabled, ...props }, forwardedRef) => {
+    const { getInputProps } = useFieldContext();
+    const inputRef = useRef(undefined);
 
-  const { onClick, ...otherWrapperProps } = wrapperProps;
+    const { onClick, ...otherWrapperProps } = wrapperProps;
 
-  const onFauxInputClickHandler = composeEventHandlers(onClick, () => {
-    inputRef.current && inputRef.current.focus();
-  });
+    const onFauxInputClickHandler = composeEventHandlers(onClick, () => {
+      inputRef.current && inputRef.current.focus();
+    });
 
-  return (
-    <FauxInput
-      data-garden-id="forms.media_input"
-      data-garden-version={PACKAGE_VERSION}
-      onClick={onFauxInputClickHandler}
-      disabled={disabled}
-      mediaLayout
-      {...otherWrapperProps}
-    >
-      {start && <StyledTextMediaFigure>{start}</StyledTextMediaFigure>}
-      <StyledTextMediaInput
-        {...getInputProps({
-          innerRef: inputRef,
-          disabled,
-          ...props
-        })}
-      />
-      {end && <StyledTextMediaFigure>{end}</StyledTextMediaFigure>}
-    </FauxInput>
-  );
-}
+    return (
+      <FauxInput
+        data-garden-id="forms.media_input"
+        data-garden-version={PACKAGE_VERSION}
+        onClick={onFauxInputClickHandler}
+        disabled={disabled}
+        mediaLayout
+        {...otherWrapperProps}
+      >
+        {start && <StyledTextMediaFigure>{start}</StyledTextMediaFigure>}
+        <StyledTextMediaInput
+          {...getInputProps({
+            disabled,
+            bare: true,
+            ref: ref => {
+              inputRef.current = ref;
+
+              if (forwardedRef) {
+                forwardedRef(ref);
+              }
+            },
+            ...props
+          })}
+        />
+        {end && <StyledTextMediaFigure>{end}</StyledTextMediaFigure>}
+      </FauxInput>
+    );
+  }
+);
 
 MediaInput.propTypes = {
   /** Applied to the wrapping `<div>` element. Accepts all props of `FauxInput`. */

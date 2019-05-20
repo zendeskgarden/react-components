@@ -15,17 +15,16 @@ import VALIDATION from '../../utils/validation';
 /**
  * Accepts all `<div>` props
  */
-const StyledCheckMessage = styled.div.attrs({
-  className: props =>
-    classNames(CheckboxStyles['c-chk__message'], {
-      [CheckboxStyles['c-chk__message--success']]: props.validation === VALIDATION.SUCCESS,
-      [CheckboxStyles['c-chk__message--warning']]: props.validation === VALIDATION.WARNING,
-      [CheckboxStyles['c-chk__message--error']]: props.validation === VALIDATION.ERROR,
+const StyledCheckMessage = styled.div.attrs(props => ({
+  className: classNames(CheckboxStyles['c-chk__message'], {
+    [CheckboxStyles['c-chk__message--success']]: props.validation === VALIDATION.SUCCESS,
+    [CheckboxStyles['c-chk__message--warning']]: props.validation === VALIDATION.WARNING,
+    [CheckboxStyles['c-chk__message--error']]: props.validation === VALIDATION.ERROR,
 
-      // RTL
-      [CheckboxStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL
+    [CheckboxStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTheme('forms.check_message', props)};
 `;
 

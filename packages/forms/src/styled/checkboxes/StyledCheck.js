@@ -13,13 +13,12 @@ import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
 /**
  * Used as a layout wrapper for other Checkbox views. Accepts all `<div>` props.
  */
-const StyledCheckbox = styled.div.attrs({
-  className: props =>
-    classNames(CheckboxStyles['c-chk'], {
-      // RTL
-      [CheckboxStyles['is-rtl']]: isRtl(props)
-    })
-})`
+const StyledCheckbox = styled.div.attrs(props => ({
+  className: classNames(CheckboxStyles['c-chk'], {
+    // RTL
+    [CheckboxStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTheme('forms.checkbox', props)};
 `;
 

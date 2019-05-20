@@ -17,15 +17,14 @@ import StyledTextInput from './StyledTextInput';
 /**
  * Accepts all `<textarea>` props
  */
-const StyledTextarea = styled(StyledTextInput.withComponent('textarea')).attrs({
-  className: props =>
-    classNames(TextStyles['c-txt__input--area'], {
-      [TextStyles['is-resizable']]: props.resizable,
+const StyledTextarea = styled(StyledTextInput.withComponent('textarea')).attrs(props => ({
+  className: classNames(props.className, TextStyles['c-txt__input--area'], {
+    [TextStyles['is-resizable']]: props.resizable,
 
-      // RTL
-      [TextStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL
+    [TextStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTheme('forms.text_area', props)};
 `;
 
