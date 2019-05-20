@@ -6,23 +6,23 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 import HeaderItem from './HeaderItem';
 
 describe('HeaderItem', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<HeaderItem />);
+    const { container } = render(<HeaderItem />);
 
-    expect(wrapper).toHaveClassName('c-menu__item--header');
+    expect(container.firstChild).toHaveClass('c-menu__item--header');
   });
 
   it('renders icon styling if provided', () => {
-    const wrapper = shallow(
+    const { container } = render(
       <HeaderItem containsIcon>
         <svg />
       </HeaderItem>
     );
 
-    expect(wrapper).toHaveClassName('c-menu__item--header--icon');
+    expect(container.firstChild).toHaveClass('c-menu__item--header--icon');
   });
 });

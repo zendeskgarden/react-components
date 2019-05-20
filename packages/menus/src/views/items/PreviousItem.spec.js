@@ -6,13 +6,13 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 import PreviousItem from './PreviousItem';
 
 describe('PreviousItem', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<PreviousItem />);
+    const { container } = render(<PreviousItem />);
 
-    expect(wrapper).toHaveClassName('c-menu__item--previous');
+    expect(container.firstChild).toHaveClass('c-menu__item--previous');
   });
 });

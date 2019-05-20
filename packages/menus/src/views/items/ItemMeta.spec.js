@@ -6,13 +6,13 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 import ItemMeta from './ItemMeta';
 
 describe('ItemMeta', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<ItemMeta />);
+    const { container } = render(<ItemMeta />);
 
-    expect(wrapper).toHaveClassName('c-menu__item__meta');
+    expect(container.firstChild).toHaveClass('c-menu__item__meta');
   });
 });

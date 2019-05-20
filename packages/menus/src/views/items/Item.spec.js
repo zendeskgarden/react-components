@@ -6,43 +6,43 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 import Item from './Item';
 
 describe('Item', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Item />);
+    const { container } = render(<Item />);
 
-    expect(wrapper).toHaveClassName('c-menu__item');
+    expect(container.firstChild).toHaveClass('c-menu__item');
   });
 
   it('renders active styling', () => {
-    const wrapper = shallow(<Item active />);
+    const { container } = render(<Item active />);
 
-    expect(wrapper).toHaveClassName('is-active');
+    expect(container.firstChild).toHaveClass('is-active');
   });
 
   it('renders focused styling', () => {
-    const wrapper = shallow(<Item focused />);
+    const { container } = render(<Item focused />);
 
-    expect(wrapper).toHaveClassName('is-focused');
+    expect(container.firstChild).toHaveClass('is-focused');
   });
 
   it('renders hovered styling', () => {
-    const wrapper = shallow(<Item hovered />);
+    const { container } = render(<Item hovered />);
 
-    expect(wrapper).toHaveClassName('is-hovered');
+    expect(container.firstChild).toHaveClass('is-hovered');
   });
 
   it('renders disabled styling', () => {
-    const wrapper = shallow(<Item disabled />);
+    const { container } = render(<Item disabled />);
 
-    expect(wrapper).toHaveClassName('is-disabled');
+    expect(container.firstChild).toHaveClass('is-disabled');
   });
 
   it('renders checked styling', () => {
-    const wrapper = shallow(<Item checked />);
+    const { container } = render(<Item checked />);
 
-    expect(wrapper).toHaveClassName('is-checked');
+    expect(container.firstChild).toHaveClass('is-checked');
   });
 });
