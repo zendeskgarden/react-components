@@ -16,18 +16,17 @@ const COMPONENT_ID = 'modals.backdrop';
 /**
  * Accepts all `<div>` props
  */
-const Backdrop = styled.div.attrs({
+const Backdrop = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(ModalStyles['l-backdrop'], {
-      [ModalStyles['l-backdrop--center']]: props.center,
-      [ModalStyles['is-visible']]: props.animate,
+  className: classNames(ModalStyles['l-backdrop'], {
+    [ModalStyles['l-backdrop--center']]: props.center,
+    [ModalStyles['is-visible']]: props.animate,
 
-      // RTL
-      [ModalStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL
+    [ModalStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

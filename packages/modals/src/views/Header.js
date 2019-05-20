@@ -15,15 +15,14 @@ const COMPONENT_ID = 'modals.header';
 /**
  * Accepts all `<div>` props
  */
-const Header = styled.div.attrs({
+const Header = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: ({ danger }) =>
-    classNames(ModalStyles['c-dialog__header'], {
-      // Danger styling
-      [ModalStyles['c-dialog__header--danger']]: danger
-    })
-})`
+  className: classNames(ModalStyles['c-dialog__header'], {
+    // Danger styling
+    [ModalStyles['c-dialog__header--danger']]: props.danger
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

@@ -6,17 +6,16 @@
  */
 
 import React from 'react';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
+import { render, fireEvent } from 'garden-test-utils';
 import { KEY_CODES } from '@zendeskgarden/react-selection';
 import ModalContainer from './ModalContainer';
 
 describe('FocusJailContainer', () => {
-  let wrapper;
-  let onCloseSpy;
   const MODAL_ID = 'TEST_ID';
+  let onCloseSpy;
 
-  const basicExample = onClose => (
-    <ModalContainer onClose={onClose} id={MODAL_ID}>
+  const BasicExample = props => (
+    <ModalContainer {...props} id={MODAL_ID}>
       {({
         getBackdropProps,
         getModalProps,
@@ -40,50 +39,53 @@ describe('FocusJailContainer', () => {
     </ModalContainer>
   );
 
-  const findBackdrop = enzymeWrapper => enzymeWrapper.find('[data-test-id="backdrop"]');
-  const findModal = enzymeWrapper => enzymeWrapper.find('[data-test-id="modal"]');
-  const findTitle = enzymeWrapper => enzymeWrapper.find('[data-test-id="title"]');
-  const findContent = enzymeWrapper => enzymeWrapper.find('[data-test-id="content"]');
-  const findClose = enzymeWrapper => enzymeWrapper.find('[data-test-id="close"]');
-  const findAdditionalClose = enzymeWrapper =>
-    enzymeWrapper.find('[data-test-id="additional-close"]');
-
   beforeEach(() => {
     onCloseSpy = jest.fn();
-    wrapper = mountWithTheme(basicExample(onCloseSpy));
   });
 
   describe('getBackdropProps()', () => {
     it('calls onClose when clicked', () => {
-      findBackdrop(wrapper).simulate('click');
+      const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
+
+      fireEvent.click(getByTestId('backdrop'));
       expect(onCloseSpy).toHaveBeenCalled();
     });
   });
 
   describe('getModalProps()', () => {
     it('applies accessibily pros', () => {
-      const modal = findModal(wrapper);
+      const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
+      const modal = getByTestId('modal');
 
-      expect(modal).toHaveProp('role', 'dialog');
-      expect(modal).toHaveProp('tabIndex', -1);
-      expect(modal).toHaveProp('aria-modal', true);
-      expect(modal).toHaveProp('aria-labelledby', `${MODAL_ID}--title`);
-      expect(modal).toHaveProp('aria-describedby', `${MODAL_ID}--content`);
+      expect(modal).toHaveAttribute('role', 'dialog');
+      expect(modal).toHaveAttribute('tabIndex', '-1');
+      expect(modal).toHaveAttribute('aria-modal', 'true');
+      expect(modal).toHaveAttribute('aria-labelledby', `${MODAL_ID}--title`);
+      expect(modal).toHaveAttribute('aria-describedby', `${MODAL_ID}--content`);
     });
 
     it('does not trigger onClose when clicked', () => {
-      findModal(wrapper).simulate('click');
+      const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
+
+      fireEvent.click(getByTestId('modal'));
+
       expect(onCloseSpy).not.toHaveBeenCalled();
     });
 
     describe('onKeyDown', () => {
       it('closes modal when ESC is pressed', () => {
-        findModal(wrapper).simulate('keydown', { keyCode: KEY_CODES.ESCAPE });
+        const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
+
+        fireEvent.keyDown(getByTestId('modal'), { keyCode: KEY_CODES.ESCAPE });
+
         expect(onCloseSpy).toHaveBeenCalled();
       });
 
       it('does not close modal when other keys are pressed', () => {
-        findModal(wrapper).simulate('keydown', { keyCode: KEY_CODES.ENTER });
+        const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
+
+        fireEvent.keyDown(getByTestId('modal', { keyCode: KEY_CODES.ENTER }));
+
         expect(onCloseSpy).not.toHaveBeenCalled();
       });
     });
@@ -91,30 +93,42 @@ describe('FocusJailContainer', () => {
 
   describe('getTitleProps()', () => {
     it('applies accessibility props', () => {
-      expect(findTitle(wrapper)).toHaveProp('id', `${MODAL_ID}--title`);
+      const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
+
+      expect(getByTestId('title')).toHaveAttribute('id', `${MODAL_ID}--title`);
     });
   });
 
   describe('getContentProps()', () => {
     it('applies accessibility props', () => {
-      expect(findContent(wrapper)).toHaveProp('id', `${MODAL_ID}--content`);
+      const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
+
+      expect(getByTestId('content')).toHaveAttribute('id', `${MODAL_ID}--content`);
     });
   });
 
   describe('getCloseProps()', () => {
     it('applies accessibility props', () => {
-      expect(findClose(wrapper)).toHaveProp('aria-label', 'Close modal');
+      const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
+
+      expect(getByTestId('close')).toHaveAttribute('aria-label', 'Close modal');
     });
 
     it('closes modal onClick', () => {
-      findClose(wrapper).simulate('click');
+      const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
+
+      fireEvent.click(getByTestId('close'));
+
       expect(onCloseSpy).toHaveBeenCalled();
     });
   });
 
   describe('closeModal callback', () => {
     it('triggers onClose if callback is triggered', () => {
-      findAdditionalClose(wrapper).simulate('click');
+      const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
+
+      fireEvent.click(getByTestId('additional-close'));
+
       expect(onCloseSpy).toHaveBeenCalled();
     });
   });

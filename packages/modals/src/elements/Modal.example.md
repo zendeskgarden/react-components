@@ -129,7 +129,7 @@ const onModalClose = () => setState({ isModalVisible: false });
           <Label>Input 1</Label>
           <Input
             placeholder="Focus will be locked in this modal"
-            innerRef={ref => {
+            ref={ref => {
               setTimeout(() => {
                 ref && ref.focus();
               }, 0);
