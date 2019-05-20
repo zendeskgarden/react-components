@@ -25,54 +25,54 @@ const PRODUCT = {
   TALK: 'talk'
 };
 
-export const StyledHeaderItem = styled.button.attrs({
+export const StyledHeaderItem = styled.button.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(ChromeStyles['c-chrome__body__header__item'], {
-      // Styling
-      [ChromeStyles['c-chrome__body__header__item--max-x']]: props.maxX,
-      [ChromeStyles['c-chrome__body__header__item--max-y']]: props.maxY,
-      [ChromeStyles['c-chrome__body__header__item--logo']]: props.logo,
-      [ChromeStyles['c-chrome__body__header__item--round']]: props.round,
+  className: classNames(ChromeStyles['c-chrome__body__header__item'], {
+    // Styling
+    [ChromeStyles['c-chrome__body__header__item--max-x']]: props.maxX,
+    [ChromeStyles['c-chrome__body__header__item--max-y']]: props.maxY,
+    [ChromeStyles['c-chrome__body__header__item--logo']]: props.logo,
+    [ChromeStyles['c-chrome__body__header__item--round']]: props.round,
 
-      // Products
-      [ChromeStyles['c-chrome__body__header__item--logo--chat']]: props.product === PRODUCT.CHAT,
-      [ChromeStyles['c-chrome__body__header__item--logo--connect']]:
-        props.product === PRODUCT.CONNECT,
-      [ChromeStyles['c-chrome__body__header__item--logo--explore']]:
-        props.product === PRODUCT.EXPLORE,
-      [ChromeStyles['c-chrome__body__header__item--logo--guide']]: props.product === PRODUCT.GUIDE,
-      [ChromeStyles['c-chrome__body__header__item--logo--message']]:
-        props.product === PRODUCT.MESSAGE,
-      [ChromeStyles['c-chrome__body__header__item--logo--support']]:
-        props.product === PRODUCT.SUPPORT,
-      [ChromeStyles['c-chrome__body__header__item--logo--talk']]: props.product === PRODUCT.TALK,
+    // Products
+    [ChromeStyles['c-chrome__body__header__item--logo--chat']]: props.product === PRODUCT.CHAT,
+    [ChromeStyles['c-chrome__body__header__item--logo--connect']]:
+      props.product === PRODUCT.CONNECT,
+    [ChromeStyles['c-chrome__body__header__item--logo--explore']]:
+      props.product === PRODUCT.EXPLORE,
+    [ChromeStyles['c-chrome__body__header__item--logo--guide']]: props.product === PRODUCT.GUIDE,
+    [ChromeStyles['c-chrome__body__header__item--logo--message']]:
+      props.product === PRODUCT.MESSAGE,
+    [ChromeStyles['c-chrome__body__header__item--logo--support']]:
+      props.product === PRODUCT.SUPPORT,
+    [ChromeStyles['c-chrome__body__header__item--logo--talk']]: props.product === PRODUCT.TALK,
 
-      // State
-      [ChromeStyles['is-hovered']]: props.hovered,
-      [ChromeStyles['is-focused']]: props.focused,
-      [ChromeStyles['is-active']]: props.active
-    })
-})`
+    // State
+    [ChromeStyles['is-hovered']]: props.hovered,
+    [ChromeStyles['is-focused']]: props.focused,
+    [ChromeStyles['is-active']]: props.active
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
 /**
  * Accepts all `<button>` props
  */
-const HeaderItem = ({ focused, ...other }) => (
+const HeaderItem = React.forwardRef(({ focused, ...other }, ref) => (
   <KeyboardFocusContainer>
     {({ getFocusProps, keyboardFocused }) => (
       <StyledHeaderItem
         {...getFocusProps({
           ...other,
+          ref,
           focused: focused || keyboardFocused
         })}
       />
     )}
   </KeyboardFocusContainer>
-);
+));
 
 HeaderItem.propTypes = {
   /** Horizontally maximize a flex item in the header to take as much space as possible (i.e. breadcrumb container) */

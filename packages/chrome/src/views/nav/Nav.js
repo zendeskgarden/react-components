@@ -16,19 +16,18 @@ const COMPONENT_ID = 'chrome.nav';
 /**
  * Accepts all `<div>` props
  */
-const Nav = styled.nav.attrs({
+const Nav = styled.nav.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(ChromeStyles['c-chrome__nav'], {
-      // State
-      [ChromeStyles['c-chrome__nav--expanded']]: props.expanded,
+  className: classNames(ChromeStyles['c-chrome__nav'], {
+    // State
+    [ChromeStyles['c-chrome__nav--expanded']]: props.expanded,
 
-      // Colors
-      [ChromeStyles['c-chrome__nav--dark']]: props.dark,
-      [ChromeStyles['c-chrome__nav--light']]: props.light
-    })
-})`
+    // Colors
+    [ChromeStyles['c-chrome__nav--dark']]: props.dark,
+    [ChromeStyles['c-chrome__nav--light']]: props.light
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
