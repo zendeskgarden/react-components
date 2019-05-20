@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1558371574870" clover="3.2.0">
-  <project timestamp="1558371574870" name="All files">
+<coverage generated="1558373668577" clover="3.2.0">
+  <project timestamp="1558373668577" name="All files">
     <metrics statements="2971" coveredstatements="2904" conditionals="1343" coveredconditionals="1183" methods="949" coveredmethods="925" elements="5263" coveredelements="5012" complexity="0" loc="2971" ncloc="2971" packages="94" files="280" classes="280"/>
     <package name="autocomplete.src.containers">
       <metrics statements="154" coveredstatements="152" conditionals="94" coveredconditionals="78" methods="46" coveredmethods="45"/>
@@ -1360,8 +1360,8 @@
       <file name="Field.js" path="/home/travis/build/zendeskgarden/react-components/packages/forms/src/fields/common/Field.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="12" count="7" type="stmt"/>
-        <line num="19" count="20" type="stmt"/>
-        <line num="21" count="20" type="stmt"/>
+        <line num="19" count="21" type="stmt"/>
+        <line num="21" count="21" type="stmt"/>
         <line num="24" count="7" type="stmt"/>
       </file>
       <file name="Hint.js" path="/home/travis/build/zendeskgarden/react-components/packages/forms/src/fields/common/Hint.js">
@@ -1436,28 +1436,28 @@
       <file name="FauxInput.js" path="/home/travis/build/zendeskgarden/react-components/packages/forms/src/fields/other/FauxInput.js">
         <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
         <line num="14" count="5" type="stmt"/>
-        <line num="25" count="14" type="stmt"/>
-        <line num="26" count="14" type="stmt"/>
-        <line num="28" count="14" type="stmt"/>
+        <line num="25" count="15" type="stmt"/>
+        <line num="26" count="15" type="stmt"/>
+        <line num="28" count="15" type="stmt"/>
         <line num="29" count="2" type="stmt"/>
-        <line num="32" count="14" type="stmt"/>
+        <line num="32" count="15" type="stmt"/>
         <line num="33" count="1" type="stmt"/>
-        <line num="36" count="14" type="stmt"/>
+        <line num="36" count="15" type="stmt"/>
         <line num="37" count="3" type="stmt"/>
-        <line num="40" count="14" type="stmt"/>
+        <line num="40" count="15" type="stmt"/>
         <line num="41" count="1" type="stmt"/>
-        <line num="44" count="14" type="stmt"/>
+        <line num="44" count="15" type="stmt"/>
         <line num="59" count="5" type="stmt"/>
       </file>
       <file name="MediaInput.js" path="/home/travis/build/zendeskgarden/react-components/packages/forms/src/fields/other/MediaInput.js">
         <metrics statements="7" coveredstatements="7" conditionals="7" coveredconditionals="7" methods="2" coveredmethods="2"/>
-        <line num="19" count="3" type="stmt"/>
-        <line num="20" count="3" type="stmt"/>
-        <line num="22" count="3" type="stmt"/>
-        <line num="24" count="3" type="stmt"/>
-        <line num="25" count="1" type="cond" truecount="2" falsecount="0"/>
-        <line num="28" count="3" type="stmt"/>
-        <line num="48" count="4" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
+        <line num="22" count="4" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
+        <line num="26" count="4" type="stmt"/>
+        <line num="27" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="30" count="4" type="stmt"/>
+        <line num="52" count="4" type="stmt"/>
       </file>
     </package>
     <package name="forms.src.styled">
@@ -1548,11 +1548,11 @@
       <file name="StyledTextInput.js" path="/home/travis/build/zendeskgarden/react-components/packages/forms/src/styled/text/StyledTextInput.js">
         <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
         <line num="15" count="10" type="stmt"/>
-        <line num="16" count="40" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="42" type="cond" truecount="2" falsecount="0"/>
         <line num="22" count="10" type="stmt"/>
-        <line num="23" count="40" type="stmt"/>
-        <line num="25" count="40" type="stmt"/>
-        <line num="49" count="40" type="stmt"/>
+        <line num="23" count="42" type="stmt"/>
+        <line num="25" count="42" type="stmt"/>
+        <line num="49" count="42" type="stmt"/>
         <line num="52" count="10" type="stmt"/>
       </file>
       <file name="StyledTextLabel.js" path="/home/travis/build/zendeskgarden/react-components/packages/forms/src/styled/text/StyledTextLabel.js">
@@ -1565,12 +1565,12 @@
       <file name="StyledTextMediaFigure.js" path="/home/travis/build/zendeskgarden/react-components/packages/forms/src/styled/text/StyledTextMediaFigure.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="15" count="8" type="stmt"/>
-        <line num="18" count="7" type="stmt"/>
+        <line num="18" count="9" type="stmt"/>
       </file>
       <file name="StyledTextMediaInput.js" path="/home/travis/build/zendeskgarden/react-components/packages/forms/src/styled/text/StyledTextMediaInput.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="17" count="8" type="stmt"/>
-        <line num="21" count="4" type="stmt"/>
+        <line num="21" count="5" type="stmt"/>
       </file>
       <file name="StyledTextMessage.js" path="/home/travis/build/zendeskgarden/react-components/packages/forms/src/styled/text/StyledTextMessage.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -1627,10 +1627,10 @@
       <file name="useFieldContext.js" path="/home/travis/build/zendeskgarden/react-components/packages/forms/src/utils/useFieldContext.js">
         <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="14" count="7" type="stmt"/>
-        <line num="15" count="29" type="stmt"/>
-        <line num="17" count="29" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="30" type="stmt"/>
+        <line num="17" count="30" type="cond" truecount="2" falsecount="0"/>
         <line num="18" count="2" type="stmt"/>
-        <line num="23" count="27" type="stmt"/>
+        <line num="23" count="28" type="stmt"/>
       </file>
       <file name="useRadioContext.js" path="/home/travis/build/zendeskgarden/react-components/packages/forms/src/utils/useRadioContext.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -3713,8 +3713,8 @@
       <file name="ThemeProvider.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/ThemeProvider/ThemeProvider.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="12" count="237" type="stmt"/>
-        <line num="13" count="877" type="stmt"/>
-        <line num="19" count="877" type="stmt"/>
+        <line num="13" count="878" type="stmt"/>
+        <line num="19" count="878" type="stmt"/>
         <line num="22" count="237" type="stmt"/>
       </file>
     </package>
@@ -3726,13 +3726,13 @@
       </file>
       <file name="isRtl.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/utils/isRtl.js">
         <metrics statements="1" coveredstatements="1" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
-        <line num="10" count="2580" type="cond" truecount="2" falsecount="0"/>
+        <line num="10" count="2582" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="retrieveTheme.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/utils/retrieveTheme.js">
         <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
-        <line num="10" count="4079" type="stmt"/>
-        <line num="12" count="4079" type="cond" truecount="2" falsecount="0"/>
-        <line num="13" count="1641" type="stmt"/>
+        <line num="10" count="4084" type="stmt"/>
+        <line num="12" count="4084" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="1646" type="stmt"/>
         <line num="16" count="2438" type="stmt"/>
         <line num="18" count="2438" type="cond" truecount="2" falsecount="0"/>
         <line num="19" count="1" type="stmt"/>
