@@ -55,36 +55,35 @@ const retrieveTooltipMargin = ({ arrow, size }) => {
 /**
  * Accepts all `<div>` props
  */
-const TooltipView = styled.div.attrs({
+const TooltipView = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(TooltipStyles['c-tooltip'], {
-      // Size
-      [TooltipStyles['c-tooltip--medium']]: props.size === SIZE.MEDIUM,
-      [TooltipStyles['c-tooltip--large']]: props.size === SIZE.LARGE,
-      [TooltipStyles['c-tooltip--extra-large']]: props.size === SIZE.EXTRA_LARGE,
+  className: classNames(TooltipStyles['c-tooltip'], {
+    // Size
+    [TooltipStyles['c-tooltip--medium']]: props.size === SIZE.MEDIUM,
+    [TooltipStyles['c-tooltip--large']]: props.size === SIZE.LARGE,
+    [TooltipStyles['c-tooltip--extra-large']]: props.size === SIZE.EXTRA_LARGE,
 
-      // Arrows
-      [TooltipStyles['c-arrow']]: shouldShowArrow(props),
-      [ArrowStyles['c-arrow']]: shouldShowArrow(props),
-      [ArrowStyles['c-arrow--r']]: props.placement === PLACEMENT.LEFT,
-      [ArrowStyles['c-arrow--rt']]: props.placement === PLACEMENT.LEFT_START,
-      [ArrowStyles['c-arrow--rb']]: props.placement === PLACEMENT.LEFT_END,
-      [ArrowStyles['c-arrow--b']]: props.placement === PLACEMENT.TOP,
-      [ArrowStyles['c-arrow--bl']]: props.placement === PLACEMENT.TOP_START,
-      [ArrowStyles['c-arrow--br']]: props.placement === PLACEMENT.TOP_END,
-      [ArrowStyles['c-arrow--l']]: props.placement === PLACEMENT.RIGHT,
-      [ArrowStyles['c-arrow--lt']]: props.placement === PLACEMENT.RIGHT_START,
-      [ArrowStyles['c-arrow--lb']]: props.placement === PLACEMENT.RIGHT_END,
-      [ArrowStyles['c-arrow--t']]: props.placement === PLACEMENT.BOTTOM,
-      [ArrowStyles['c-arrow--tl']]: props.placement === PLACEMENT.BOTTOM_START,
-      [ArrowStyles['c-arrow--tr']]: props.placement === PLACEMENT.BOTTOM_END,
+    // Arrows
+    [TooltipStyles['c-arrow']]: shouldShowArrow(props),
+    [ArrowStyles['c-arrow']]: shouldShowArrow(props),
+    [ArrowStyles['c-arrow--r']]: props.placement === PLACEMENT.LEFT,
+    [ArrowStyles['c-arrow--rt']]: props.placement === PLACEMENT.LEFT_START,
+    [ArrowStyles['c-arrow--rb']]: props.placement === PLACEMENT.LEFT_END,
+    [ArrowStyles['c-arrow--b']]: props.placement === PLACEMENT.TOP,
+    [ArrowStyles['c-arrow--bl']]: props.placement === PLACEMENT.TOP_START,
+    [ArrowStyles['c-arrow--br']]: props.placement === PLACEMENT.TOP_END,
+    [ArrowStyles['c-arrow--l']]: props.placement === PLACEMENT.RIGHT,
+    [ArrowStyles['c-arrow--lt']]: props.placement === PLACEMENT.RIGHT_START,
+    [ArrowStyles['c-arrow--lb']]: props.placement === PLACEMENT.RIGHT_END,
+    [ArrowStyles['c-arrow--t']]: props.placement === PLACEMENT.BOTTOM,
+    [ArrowStyles['c-arrow--tl']]: props.placement === PLACEMENT.BOTTOM_START,
+    [ArrowStyles['c-arrow--tr']]: props.placement === PLACEMENT.BOTTOM_END,
 
-      // RTL
-      [TooltipStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL
+    [TooltipStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTooltipMargin(props)};
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
