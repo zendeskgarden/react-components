@@ -6,21 +6,20 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-import { shallowWithTheme } from '@zendeskgarden/react-testing';
+import { render, renderRtl } from 'garden-test-utils';
 
 import Hint from './Hint';
 
 describe('Hint', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Hint />);
+    const { container } = render(<Hint />);
 
-    expect(wrapper).toHaveClassName('c-chk__hint');
+    expect(container.firstChild).toHaveClass('c-chk__hint');
   });
 
   it('renders RTL styling', () => {
-    const wrapper = shallowWithTheme(<Hint />, { rtl: true });
+    const { container } = renderRtl(<Hint />);
 
-    expect(wrapper).toHaveClassName('is-rtl');
+    expect(container.firstChild).toHaveClass('is-rtl');
   });
 });
