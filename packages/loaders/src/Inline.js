@@ -28,13 +28,13 @@ export const StyledCircle = styled.circle.attrs({
   r: 2
 })``;
 
-const StyledTypingSvg = styled.svg.attrs({
+const StyledTypingSvg = styled.svg.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   viewBox: '0 0 16 4',
-  width: ({ size }) => size,
-  height: ({ size }) => size * 0.25
-})`
+  width: props.size,
+  height: props.size * 0.25
+}))`
   color: ${({ color }) => color};
 
   ${StyledCircle} {

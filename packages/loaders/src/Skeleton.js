@@ -7,7 +7,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { rgba } from 'polished';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import {
@@ -62,14 +62,14 @@ const StyledSkeleton = styled.div.attrs({
 
     ${props =>
       isRtl(props)
-        ? `
-    right: -1800px;
-    animation: ${skeletonRtlAnimation} 1.5s ease-in-out 300ms infinite;
-  `
-        : `
-    left: -1800px;
-    animation: ${skeletonAnimation} 1.5s ease-in-out 300ms infinite;
-  `}
+        ? css`
+            right: -1800px;
+            animation: ${skeletonRtlAnimation} 1.5s ease-in-out 300ms infinite;
+          `
+        : css`
+            left: -1800px;
+            animation: ${skeletonAnimation} 1.5s ease-in-out 300ms infinite;
+          `}
 
     /* stylelint-disable function-comma-space-after */
     background-image:
