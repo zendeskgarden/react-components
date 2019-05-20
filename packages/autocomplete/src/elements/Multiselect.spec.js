@@ -6,112 +6,97 @@
  */
 
 import React from 'react';
-import { Label, FauxInput, Input } from '@zendeskgarden/react-textfields';
-import { MenuView, Item } from '@zendeskgarden/react-menus';
-import { Tag } from '@zendeskgarden/react-tags';
-import { Anchor } from '@zendeskgarden/react-buttons';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
+import { render, fireEvent } from 'garden-test-utils';
 import { KEY_CODES } from '@zendeskgarden/react-selection';
 import Multiselect from './Multiselect';
 
 describe('Autocomplete', () => {
   it('renders label if provided', () => {
     const label = 'Test Label';
-    const wrapper = mountWithTheme(<Multiselect label={label} options={[]} />);
+    const { container } = render(<Multiselect label={label} options={[]} />);
 
-    expect(wrapper.find(Label)).toHaveText(label);
+    expect(container.querySelector('label').textContent).toBe(label);
   });
 
   it('renders aria-label if provided', () => {
     const ariaLabel = 'Test Aria Label';
-    const wrapper = mountWithTheme(<Multiselect aria-label={ariaLabel} options={[]} />);
+    const { container } = render(<Multiselect aria-label={ariaLabel} options={[]} />);
 
-    expect(wrapper.find(FauxInput)).toHaveProp('aria-label', ariaLabel);
+    expect(container.firstChild.firstChild).toHaveAttribute('aria-label', ariaLabel);
   });
 
   it('renders validation styling if provided', () => {
     const validation = 'warning';
-    const wrapper = mountWithTheme(<Multiselect validation={validation} options={[]} />);
+    const { container } = render(<Multiselect validation={validation} options={[]} />);
 
-    expect(wrapper.find(FauxInput)).toHaveProp('validation', validation);
+    expect(container.firstChild.firstChild).toHaveClass('c-txt__input--warning');
   });
 
   it('renders small styling if provided', () => {
-    const wrapper = mountWithTheme(<Multiselect small options={[]} />);
-    const triggerElement = wrapper.find(FauxInput);
+    const { container, baseElement } = render(<Multiselect small options={[]} />);
 
-    expect(triggerElement).toHaveProp('small');
+    expect(container.firstChild.firstChild).toHaveClass('c-txt__input--sm');
 
-    triggerElement.simulate('click');
+    fireEvent.click(container.firstChild.firstChild);
 
-    expect(wrapper.find(MenuView)).toHaveProp('small');
+    expect(baseElement.querySelector('ul')).toHaveClass('c-menu--sm');
   });
 
   it('renders disabled styling if provided', () => {
-    const wrapper = mountWithTheme(<Multiselect disabled options={[]} />);
-    const triggerElement = wrapper.find(FauxInput);
+    const { container } = render(<Multiselect disabled options={[]} />);
 
-    expect(triggerElement).toHaveProp('disabled');
-
-    triggerElement.simulate('click');
-
-    expect(wrapper.find(MenuView)).not.toExist();
+    expect(container.firstChild.firstChild).toHaveClass('is-disabled');
   });
 
   it('applies inputRef if provided', () => {
     const inputRefSpy = jest.fn();
 
-    mountWithTheme(<Multiselect inputRef={inputRefSpy} options={[]} />);
+    render(<Multiselect inputRef={inputRefSpy} options={[]} />);
     expect(inputRefSpy).toHaveBeenCalled();
   });
 
   describe('Input', () => {
     it('applies focused styling when focused', () => {
-      const wrapper = mountWithTheme(<Multiselect options={[]} />);
-      const triggerElement = wrapper.find(FauxInput);
+      const { container } = render(<Multiselect options={[]} />);
 
-      triggerElement.simulate('click');
-      wrapper.find(Input).simulate('focus');
+      fireEvent.click(container.firstChild.firstChild);
+      fireEvent.focus(container.querySelector('input'));
 
-      expect(triggerElement).toHaveProp('focused');
+      expect(container.firstChild.firstChild).toHaveClass('is-focused');
     });
 
     it('does not apply focused styling when focused while disabled', () => {
-      const wrapper = mountWithTheme(<Multiselect disabled options={[]} />);
+      const { container } = render(<Multiselect disabled options={[]} />);
 
-      wrapper.find(Input).simulate('focus');
+      fireEvent.focus(container.querySelector('input'));
 
-      expect(wrapper.find(FauxInput)).not.toHaveProp('focused');
+      expect(container.firstChild.firstChild).not.toHaveClass('is-focused');
     });
 
     it('removes focused styling when blured', () => {
-      const wrapper = mountWithTheme(<Multiselect options={[]} />);
-      const triggerElement = wrapper.find(FauxInput);
+      const { container } = render(<Multiselect options={[]} />);
 
-      triggerElement.simulate('click');
-      wrapper.find(Input).simulate('blur');
+      fireEvent.click(container.firstChild.firstChild);
+      fireEvent.blur(container.querySelector('input'));
 
-      expect(triggerElement).toHaveProp('focused', false);
+      expect(container.firstChild.firstChild).not.toHaveClass('is-focused');
     });
 
     it('updates input text with onChange event', () => {
       const inputValue = 'test';
-      const wrapper = mountWithTheme(<Multiselect options={[]} />);
-      const triggerElement = wrapper.find(FauxInput);
+      const { container } = render(<Multiselect options={[]} />);
+      const input = container.querySelector('input');
 
-      triggerElement.simulate('click');
+      fireEvent.click(container.firstChild.firstChild);
 
-      const input = wrapper.find(Input);
+      fireEvent.change(input, { target: { value: inputValue } });
 
-      input.simulate('change', { target: { value: inputValue } });
-      wrapper.update();
-
-      expect(wrapper).toHaveState('inputValue', inputValue);
+      expect(input.value).toBe(inputValue);
     });
 
     it('does not select option if ENTER key is used without input text', () => {
       const onChangeSpy = jest.fn();
-      const wrapper = mountWithTheme(
+      const { container } = render(
         <Multiselect
           onChange={onChangeSpy}
           options={[
@@ -130,27 +115,32 @@ describe('Autocomplete', () => {
           ]}
         />
       );
-      const triggerElement = wrapper.find(FauxInput);
 
-      triggerElement.simulate('click');
+      fireEvent.click(container.firstChild.firstChild);
+      fireEvent.keyDown(container.querySelector('input'), {
+        keyCode: KEY_CODES.ENTER,
+        target: { value: '' }
+      });
 
-      wrapper.find(Input).simulate('keydown', { keyCode: KEY_CODES.ENTER, target: { value: '' } });
       expect(onChangeSpy).not.toHaveBeenCalled();
 
-      wrapper
-        .find(Input)
-        .simulate('keydown', { keyCode: KEY_CODES.ENTER, target: { value: '   ' } });
+      fireEvent.keyDown(container.querySelector('input'), {
+        keyCode: KEY_CODES.ENTER,
+        target: { value: '   ' }
+      });
+
       expect(onChangeSpy).not.toHaveBeenCalled();
     });
 
     describe('Keyboard removal', () => {
-      let example;
       let onChangeSpy;
 
       beforeEach(() => {
         onChangeSpy = jest.fn();
+      });
 
-        example = mountWithTheme(
+      it('removes latest selected value if delete key is pressed', () => {
+        const { container } = render(
           <Multiselect
             selectedValues={['option-1', 'option-2']}
             onChange={onChangeSpy}
@@ -166,28 +156,57 @@ describe('Autocomplete', () => {
             ]}
           />
         );
-      });
 
-      it('removes latest selected value if delete key is pressed', () => {
-        example.find(Input).simulate('focus');
-        example.find(Input).simulate('keydown', { keyCode: KEY_CODES.DELETE });
+        fireEvent.focus(container.querySelector('input'));
+        fireEvent.keyDown(container.querySelector('input'), { keyCode: KEY_CODES.DELETE });
 
         expect(onChangeSpy).toHaveBeenCalledWith(['option-1']);
       });
 
       it('removes latest selected value if backspace key is pressed', () => {
-        example.find(Input).simulate('focus');
-        example.find(Input).simulate('keydown', { keyCode: KEY_CODES.BACKSPACE });
+        const { container } = render(
+          <Multiselect
+            selectedValues={['option-1', 'option-2']}
+            onChange={onChangeSpy}
+            options={[
+              {
+                label: 'option-1',
+                value: 'option-1'
+              },
+              {
+                label: 'option-2',
+                value: 'option-2'
+              }
+            ]}
+          />
+        );
+
+        fireEvent.focus(container.querySelector('input'));
+        fireEvent.keyDown(container.querySelector('input'), { keyCode: KEY_CODES.BACKSPACE });
 
         expect(onChangeSpy).toHaveBeenCalledWith(['option-1']);
       });
 
       it('removes focused selected value if either key is pressed', () => {
-        example
-          .find(Tag)
-          .first()
-          .simulate('click');
-        example.find(Input).simulate('keydown', { keyCode: KEY_CODES.BACKSPACE });
+        const { container } = render(
+          <Multiselect
+            selectedValues={['option-1', 'option-2']}
+            onChange={onChangeSpy}
+            options={[
+              {
+                label: 'option-1',
+                value: 'option-1'
+              },
+              {
+                label: 'option-2',
+                value: 'option-2'
+              }
+            ]}
+          />
+        );
+
+        fireEvent.click(container.querySelector('.c-tag'));
+        fireEvent.keyDown(container.querySelector('input'), { keyCode: KEY_CODES.BACKSPACE });
 
         expect(onChangeSpy).toHaveBeenCalledWith(['option-2']);
       });
@@ -196,7 +215,7 @@ describe('Autocomplete', () => {
 
   describe('Options', () => {
     it('renders options correctly', () => {
-      const wrapper = mountWithTheme(
+      const { container, getAllByRole } = render(
         <Multiselect
           options={[
             {
@@ -215,21 +234,19 @@ describe('Autocomplete', () => {
         />
       );
 
-      const triggerElement = wrapper.find(FauxInput);
+      fireEvent.click(container.firstChild.firstChild);
 
-      triggerElement.simulate('click');
-
-      const menuItems = wrapper.find(Item);
+      const menuItems = getAllByRole('option');
 
       expect(menuItems).toHaveLength(3);
-      expect(menuItems.at(0)).toHaveText('Option 1');
-      expect(menuItems.at(1)).toHaveText('Option 2');
-      expect(menuItems.at(2)).toHaveText('Option 3');
+      expect(menuItems[0].textContent).toBe('Option 1');
+      expect(menuItems[1].textContent).toBe('Option 2');
+      expect(menuItems[2].textContent).toBe('Option 3');
     });
 
     it('call onChange correctly when option is selected', () => {
       const onChangeSpy = jest.fn();
-      const wrapper = mountWithTheme(
+      const { container, getAllByRole } = render(
         <Multiselect
           onChange={onChangeSpy}
           options={[
@@ -249,20 +266,18 @@ describe('Autocomplete', () => {
         />
       );
 
-      const triggerElement = wrapper.find(FauxInput);
+      fireEvent.click(container.firstChild.firstChild);
 
-      triggerElement.simulate('click');
-      wrapper
-        .find(Item)
-        .at(0)
-        .simulate('click');
+      const menuItems = getAllByRole('option');
+
+      fireEvent.click(menuItems[0]);
 
       expect(onChangeSpy).toHaveBeenCalledWith(['option-1']);
     });
 
     it('call onChange correctly when option is deselected', () => {
       const onChangeSpy = jest.fn();
-      const wrapper = mountWithTheme(
+      const { container, getAllByRole } = render(
         <Multiselect
           onChange={onChangeSpy}
           selectedValues={['option-1']}
@@ -283,32 +298,31 @@ describe('Autocomplete', () => {
         />
       );
 
-      const triggerElement = wrapper.find(FauxInput);
+      fireEvent.click(container.firstChild.firstChild);
 
-      triggerElement.simulate('click');
-      wrapper
-        .find(Item)
-        .at(0)
-        .simulate('click');
+      const menuItems = getAllByRole('option');
+
+      fireEvent.click(menuItems[0]);
 
       expect(onChangeSpy).toHaveBeenCalledWith([]);
     });
   });
 
   describe('Tags', () => {
-    let tagsExample;
     let onChangeSpy;
 
+    const values = [];
+
+    for (let x = 0; x < 25; x++) {
+      values.push(`option-${x}`);
+    }
+
     beforeEach(() => {
-      const values = [];
-
-      for (let x = 0; x < 25; x++) {
-        values.push(`option-${x}`);
-      }
-
       onChangeSpy = jest.fn();
+    });
 
-      tagsExample = mountWithTheme(
+    it('shows all tags if less than five options are selected', () => {
+      const { container } = render(
         <Multiselect
           selectedValues={values}
           onChange={onChangeSpy}
@@ -318,69 +332,111 @@ describe('Autocomplete', () => {
           }))}
         />
       );
-    });
 
-    it('shows all tags if less than five options are selected', () => {
-      tagsExample.setProps({ selectedValues: ['option-1', 'option-2', 'option-3', 'option-4'] });
-      tagsExample.update();
-
-      expect(tagsExample.find(Tag)).toHaveLength(4);
+      expect(container.querySelectorAll('.c-tag')).toHaveLength(4);
     });
 
     it('shows expansion anchor if more than five options are selected', () => {
-      expect(tagsExample.find(Tag)).toHaveLength(4);
-      const expansionElement = tagsExample.find(Anchor);
+      const { container } = render(
+        <Multiselect
+          selectedValues={values}
+          onChange={onChangeSpy}
+          options={values.map(val => ({
+            label: `${val} - custom label`,
+            value: val
+          }))}
+        />
+      );
 
-      expect(expansionElement).toExist();
-      expect(expansionElement).toHaveText('+ 21 more');
+      expect(container.querySelectorAll('.c-tag')).toHaveLength(4);
+
+      const expansionElement = container.querySelector('a');
+
+      expect(expansionElement).not.toBe(null);
+      expect(expansionElement.textContent).toBe('+ 21 more');
     });
 
     it('shows all tags if multiselect is focused', () => {
-      tagsExample.find(Input).simulate('focus');
+      const { container } = render(
+        <Multiselect
+          selectedValues={values}
+          onChange={onChangeSpy}
+          options={values.map(val => ({
+            label: `${val} - custom label`,
+            value: val
+          }))}
+        />
+      );
 
-      expect(tagsExample.find(Tag)).toHaveLength(25);
+      fireEvent.focus(container.querySelector('input'));
+
+      expect(container.querySelectorAll('.c-tag')).toHaveLength(25);
     });
 
     it('displays tags with label value if provided', () => {
-      expect(tagsExample.find(Tag).first()).toHaveText('option-0 - custom label');
+      const { container } = render(
+        <Multiselect
+          selectedValues={values}
+          onChange={onChangeSpy}
+          options={values.map(val => ({
+            label: `${val} - custom label`,
+            value: val
+          }))}
+        />
+      );
+
+      expect(container.querySelector('.c-tag').textContent).toBe('option-0 - custom label');
     });
 
     it('removes selection if tag is removed by mouse', () => {
-      tagsExample.setProps({ selectedValues: ['option-1', 'option-2'] });
-      tagsExample.update();
-      tagsExample
-        .find(Tag)
-        .first()
-        .find('div')
-        .last()
-        .simulate('click');
+      const { container } = render(
+        <Multiselect
+          selectedValues={['option-1', 'option-2']}
+          onChange={onChangeSpy}
+          options={values.map(val => ({
+            label: `${val} - custom label`,
+            value: val
+          }))}
+        />
+      );
+
+      fireEvent.click(container.querySelector('.c-tag__remove'));
 
       expect(onChangeSpy).toHaveBeenCalledWith(['option-2']);
     });
 
     it('removes selection if tag is removed by mouse while expanded', () => {
-      tagsExample.setProps({ selectedValues: ['option-1', 'option-2'] });
-      tagsExample.update();
-      tagsExample.find(Input).simulate('focus');
-      tagsExample
-        .find(Tag)
-        .first()
-        .find('div')
-        .last()
-        .simulate('click');
+      const { container } = render(
+        <Multiselect
+          selectedValues={['option-1', 'option-2']}
+          onChange={onChangeSpy}
+          options={values.map(val => ({
+            label: `${val} - custom label`,
+            value: val
+          }))}
+        />
+      );
+
+      fireEvent.focus(container.querySelector('input'));
+      fireEvent.click(container.querySelector('.c-tag__remove'));
 
       expect(onChangeSpy).toHaveBeenCalledWith(['option-2']);
     });
 
     it('does not remove selection if tag is removed while in the disabled state', () => {
-      tagsExample.setProps({ selectedValues: ['option-1', 'option-2'], disabled: true });
-      tagsExample.update();
-      tagsExample
-        .find(Tag)
-        .first()
-        .find('div')
-        .last()
-        .simulate('click');
+      const { container } = render(
+        <Multiselect
+          disabled
+          selectedValues={['option-1', 'option-2']}
+          onChange={onChangeSpy}
+          options={values.map(val => ({
+            label: `${val} - custom label`,
+            value: val
+          }))}
+        />
+      );
+
+      fireEvent.click(container.querySelector('.c-tag__remove'));
 
       expect(onChangeSpy).not.toHaveBeenCalled();
     });

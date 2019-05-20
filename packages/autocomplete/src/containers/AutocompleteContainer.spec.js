@@ -7,44 +7,21 @@
 
 import React from 'react';
 import { KEY_CODES } from '@zendeskgarden/react-selection';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
+import { render, renderRtl, fireEvent } from 'garden-test-utils';
 import AutocompleteContainer from './AutocompleteContainer';
-
-/**
- * Mocks popper.js calls within react-popper due to virtual testing environment
- */
-jest.mock('popper.js', () => {
-  const PopperJS = jest.requireActual('popper.js');
-
-  return class Popper {
-    static placements = PopperJS.placements;
-
-    constructor() {
-      return {
-        destroy: () => {
-          // mock implementation
-        },
-        scheduleUpdate: () => {
-          // mock implementation
-        }
-      };
-    }
-  };
-});
 
 jest.useFakeTimers();
 
 describe('AutocompleteContainer', () => {
-  let wrapper;
   let onSelectSpy;
 
-  const tags = ['Tag1', 'Tag2', 'Tag3'];
-  const items = ['Item1', 'Item2', 'Item3'];
+  const tagLabels = ['Tag1', 'Tag2', 'Tag3'];
+  const itemLabels = ['Item1', 'Item2', 'Item3'];
 
-  const mutliSelectExample = onSelect => (
+  const Example = props => (
     <AutocompleteContainer
+      {...props}
       id="test"
-      onSelect={onSelect}
       trigger={({
         getTriggerProps,
         getInputProps,
@@ -55,7 +32,7 @@ describe('AutocompleteContainer', () => {
       }) => {
         return (
           <div {...getTriggerProps({ ref: triggerRef, 'data-test-id': 'trigger' })}>
-            {tags.map((tag, index) => {
+            {tagLabels.map((tag, index) => {
               const key = `tag-${index}`;
 
               return (
@@ -87,7 +64,7 @@ describe('AutocompleteContainer', () => {
               'data-test-id': 'menu'
             })}
           >
-            {items.map((item, index) => {
+            {itemLabels.map((item, index) => {
               const key = `menu-item-${index}`;
 
               return (
@@ -108,346 +85,325 @@ describe('AutocompleteContainer', () => {
     </AutocompleteContainer>
   );
 
-  const findTrigger = enzymeWrapper => enzymeWrapper.find('[data-test-id="trigger"]');
-  const findInput = enzymeWrapper => enzymeWrapper.find('[data-test-id="input"]');
-  const findTags = enzymeWrapper => enzymeWrapper.find('[data-test-id="tag"]');
-  const findMenu = enzymeWrapper => enzymeWrapper.find('[data-test-id="menu"]');
-  const findMenuItems = enzymeWrapper => enzymeWrapper.find('[data-test-id="item"]');
-  const getAutocompleteInstance = enzymeWrapper => enzymeWrapper.childAt(0).instance();
-
   beforeEach(() => {
     onSelectSpy = jest.fn();
-    wrapper = mountWithTheme(mutliSelectExample(onSelectSpy));
   });
 
   describe('getTriggerProps()', () => {
     describe('onMouseDown', () => {
       it('sets triggerMousedDown to true', () => {
-        findTrigger(wrapper).simulate('mousedown');
-        expect(getAutocompleteInstance(wrapper).triggerMousedDown).toBe(true);
+        const { getByTestId, queryByTestId } = render(<Example />);
+
+        fireEvent.mouseDown(getByTestId('trigger'));
+
+        expect(queryByTestId('menu')).toBe(null);
       });
     });
 
     describe('onMouseUp', () => {
       it('sets triggerMousedDown to false', () => {
-        findTrigger(wrapper).simulate('mouseup');
-        expect(getAutocompleteInstance(wrapper).triggerMousedDown).toBe(false);
+        const { getByTestId, queryByTestId } = render(<Example />);
+
+        fireEvent.mouseUp(getByTestId('trigger'));
+
+        expect(queryByTestId('menu')).toBe(null);
       });
     });
 
     describe('onClick', () => {
-      let instance;
+      it('opens the dropdown if currently closed', () => {
+        const { getByTestId, queryByTestId } = render(<Example />);
 
-      beforeEach(() => {
-        instance = getAutocompleteInstance(wrapper);
-        instance.openDropdown = jest.fn();
-        instance.closeDropdown = jest.fn();
-        instance.focusInput = jest.fn();
-      });
+        fireEvent.click(getByTestId('trigger'));
 
-      it('opens the dropdown if currently closes', () => {
-        findTrigger(wrapper).simulate('click');
-        expect(instance.openDropdown).toHaveBeenCalled();
+        expect(queryByTestId('menu')).not.toBe(null);
       });
 
       it('closes the dropdown if currently open', () => {
-        wrapper.setProps({ isOpen: true });
-        findTrigger(wrapper).simulate('click');
-        expect(instance.closeDropdown).toHaveBeenCalled();
+        const { getByTestId, queryByTestId } = render(<Example />);
+
+        fireEvent.click(getByTestId('trigger'));
+
+        expect(queryByTestId('menu')).not.toBe(null);
+
+        fireEvent.click(getByTestId('trigger'));
+
+        expect(queryByTestId('menu')).toBe(null);
       });
 
       it('focuses the input', () => {
-        findTrigger(wrapper).simulate('click');
-        expect(instance.focusInput).toHaveBeenCalled();
+        const { getByTestId } = render(<Example />);
+
+        fireEvent.click(getByTestId('trigger'));
+
+        expect(getByTestId('input')).toHaveFocus();
       });
     });
   });
 
   describe('getTagProps()', () => {
     it('applies accessibility attributes', () => {
-      expect(findTags(wrapper).first()).toHaveProp('id', 'test--tag-tag-0');
-    });
+      const { getAllByTestId } = render(<Example />);
 
-    describe('onMouseDown', () => {
-      it('sets tagMousedDown to true', () => {
-        findTags(wrapper)
-          .first()
-          .simulate('mousedown');
-        expect(getAutocompleteInstance(wrapper).tagMousedDown).toBe(true);
-      });
-    });
-
-    describe('onMouseUp', () => {
-      it('sets tagMousedDown to false', () => {
-        findTags(wrapper)
-          .first()
-          .simulate('mouseup');
-        expect(getAutocompleteInstance(wrapper).tagMousedDown).toBe(false);
-      });
+      expect(getAllByTestId('tag')[0]).toHaveAttribute('id', 'test--tag-tag-0');
     });
 
     describe('onClick', () => {
-      let instance;
-
-      beforeEach(() => {
-        instance = getAutocompleteInstance(wrapper);
-        instance.focusInput = jest.fn();
-        findTags(wrapper)
-          .last()
-          .simulate('click');
-      });
-
       it('sets clicked Tag as currently focused', () => {
-        expect(instance.tagSelectionModel.selectedIndex).toBe(2);
+        const { getAllByTestId } = render(<Example />);
+        const tags = getAllByTestId('tag');
+
+        fireEvent.click(tags[tags.length - 1]);
+
+        expect(tags[tags.length - 1]).toHaveAttribute('data-focused', 'true');
       });
 
       it('focuses input', () => {
-        expect(instance.focusInput).toHaveBeenCalled();
+        const { getAllByTestId, getByTestId } = render(<Example />);
+
+        fireEvent.click(getAllByTestId('tag')[0]);
+        expect(getByTestId('input')).toHaveFocus();
       });
     });
   });
 
   describe('getInputProps()', () => {
     it('applies accessibility attributes', () => {
-      const input = findInput(wrapper);
+      const { getByTestId } = render(<Example />);
+      const input = getByTestId('input');
 
-      expect(input).toHaveProp('tabIndex', 0);
-      expect(input).toHaveProp('role', 'combobox');
-      expect(input).toHaveProp('aria-autocomplete', 'list');
-      expect(input).toHaveProp('aria-haspopup', 'true');
-      expect(input).toHaveProp('autoComplete', 'off');
-    });
-
-    describe('onClick', () => {
-      it('prevents default event', () => {
-        const input = findInput(wrapper);
-        const preventDefault = jest.fn();
-
-        input.simulate('click', { preventDefault });
-        expect(preventDefault).toHaveBeenCalled();
-      });
-    });
-
-    describe('onBlur', () => {
-      let instance;
-
-      beforeEach(() => {
-        instance = getAutocompleteInstance(wrapper);
-        instance.closeDropdown = jest.fn();
-      });
-
-      it('does not close dropdown if menu is moused down', () => {
-        instance.menuMousedDown = true;
-        findInput(wrapper).simulate('blur');
-        expect(instance.closeDropdown).not.toHaveBeenCalled();
-      });
-
-      it('does not close dropdown if trigger is moused down', () => {
-        instance.triggerMousedDown = true;
-        findInput(wrapper).simulate('blur');
-        expect(instance.closeDropdown).not.toHaveBeenCalled();
-      });
-
-      it('does not close dropdown if already closed', () => {
-        wrapper.setProps({ isOpen: false });
-        findInput(wrapper).simulate('blur');
-        expect(instance.closeDropdown).not.toHaveBeenCalled();
-      });
-
-      it('closes dropdown if neither trigger nor menu is moused down', () => {
-        wrapper.setProps({ isOpen: true });
-        instance.menuMousedDown = false;
-        instance.triggerMousedDown = false;
-        findInput(wrapper).simulate('blur');
-        expect(instance.closeDropdown).toHaveBeenCalled();
-      });
+      expect(input).toHaveAttribute('tabIndex', '0');
+      expect(input).toHaveAttribute('role', 'combobox');
+      expect(input).toHaveAttribute('aria-autocomplete', 'list');
+      expect(input).toHaveAttribute('aria-haspopup', 'true');
+      expect(input).toHaveAttribute('autoComplete', 'off');
     });
 
     describe('onChange', () => {
       it('clears focused menu item', () => {
-        const instance = getAutocompleteInstance(wrapper);
+        const { getByTestId, getAllByTestId } = render(<Example />);
 
-        instance.focusSelectionModel.clearSelection = jest.fn();
-        findInput(wrapper).simulate('change');
-        expect(instance.focusSelectionModel.clearSelection).toHaveBeenCalled();
+        fireEvent.change(getByTestId('input'));
+
+        getAllByTestId('tag').forEach(tag => {
+          expect(tag).toHaveAttribute('data-focused', 'false');
+        });
       });
     });
 
     describe('onKeyDown', () => {
-      let instance;
-      let input;
-
-      beforeEach(() => {
-        input = findInput(wrapper);
-        instance = getAutocompleteInstance(wrapper);
-        instance.openDropdown = jest.fn();
-        instance.closeDropdown = jest.fn();
-        instance.focusSelectionModel.selectPrevious = jest.fn();
-        instance.focusSelectionModel.selectNext = jest.fn();
-        instance.focusSelectionModel.selectLast = jest.fn();
-        instance.focusSelectionModel.selectFirst = jest.fn();
-        instance.tagSelectionModel.selectFirst = jest.fn();
-        instance.tagSelectionModel.selectPrevious = jest.fn();
-        instance.tagSelectionModel.selectNext = jest.fn();
-      });
-
       describe('space', () => {
-        it('does not open dropdown if already open', () => {
-          wrapper.setProps({ isOpen: true });
-          input.simulate('keydown', { keyCode: KEY_CODES.SPACE });
-          expect(instance.openDropdown).not.toHaveBeenCalled();
-        });
-
         it('opens dropdown if not currently open', () => {
-          wrapper.setProps({ isOpen: false });
-          input.simulate('keydown', { keyCode: KEY_CODES.SPACE });
-          expect(instance.openDropdown).toHaveBeenCalled();
+          const { getByTestId, queryByTestId } = render(<Example />);
+
+          fireEvent.keyDown(getByTestId('input'), { keyCode: KEY_CODES.SPACE });
+
+          expect(queryByTestId('menu')).not.toBe(null);
         });
       });
 
       describe('up arrow', () => {
         it('focus previous menu item if dropdown is open', () => {
-          wrapper.setProps({ isOpen: true });
-          input.simulate('keydown', { keyCode: KEY_CODES.UP });
-          expect(instance.focusSelectionModel.selectPrevious).toHaveBeenCalled();
+          const { getByTestId, getAllByTestId } = render(<Example isOpen />);
+
+          fireEvent.keyDown(getByTestId('input'), { keyCode: KEY_CODES.UP });
+
+          const items = getAllByTestId('item');
+
+          expect(items[items.length - 1]).toHaveAttribute('data-focused', 'true');
         });
 
         it('focus last menu item if dropdown is closed', () => {
-          wrapper.setProps({ isOpen: false });
-          input.simulate('keydown', { keyCode: KEY_CODES.UP });
-          expect(instance.focusSelectionModel.selectLast).toHaveBeenCalled();
+          const { getByTestId, getAllByTestId } = render(<Example />);
+
+          fireEvent.keyDown(getByTestId('input'), { keyCode: KEY_CODES.UP });
+
+          const items = getAllByTestId('item');
+
+          expect(items[items.length - 1]).toHaveAttribute('data-focused', 'true');
         });
       });
 
       describe('down arrow', () => {
         it('focus next menu item if dropdown is open', () => {
-          wrapper.setProps({ isOpen: true });
-          input.simulate('keydown', { keyCode: KEY_CODES.DOWN });
-          expect(instance.focusSelectionModel.selectNext).toHaveBeenCalled();
+          const { getByTestId, getAllByTestId } = render(<Example isOpen />);
+
+          fireEvent.keyDown(getByTestId('input'), { keyCode: KEY_CODES.DOWN });
+
+          const items = getAllByTestId('item');
+
+          expect(items[0]).toHaveAttribute('data-focused', 'true');
         });
 
         it('focus first menu item if dropdown is closed', () => {
-          wrapper.setProps({ isOpen: false });
-          input.simulate('keydown', { keyCode: KEY_CODES.DOWN });
-          expect(instance.focusSelectionModel.selectFirst).toHaveBeenCalled();
+          const { getByTestId, getAllByTestId } = render(<Example />);
+
+          fireEvent.keyDown(getByTestId('input'), { keyCode: KEY_CODES.DOWN });
+
+          const items = getAllByTestId('item');
+
+          expect(items[0]).toHaveAttribute('data-focused', 'true');
         });
       });
 
       describe('enter', () => {
         describe('when dropdown is open', () => {
-          beforeEach(() => {
-            wrapper.setProps({ isOpen: true });
-          });
-
           it('selects currently focused item if it exists', () => {
-            instance.focusSelectionModel.hasSelection = jest.fn().mockReturnValue(true);
-            instance.focusSelectionModel.selectedIndex = 1;
-            input.simulate('keydown', { keyCode: KEY_CODES.ENTER });
-            expect(onSelectSpy).toHaveBeenCalledWith('menu-item-1');
+            const { getByTestId } = render(<Example isOpen onSelect={onSelectSpy} />);
+
+            fireEvent.keyDown(getByTestId('input'), { keyCode: KEY_CODES.DOWN });
+            fireEvent.keyDown(getByTestId('input'), { keyCode: KEY_CODES.ENTER });
+
+            expect(onSelectSpy).toHaveBeenCalledWith('menu-item-0');
           });
 
           it('select first item otherwise', () => {
-            input.simulate('keydown', { keyCode: KEY_CODES.ENTER });
+            const { getByTestId } = render(<Example isOpen onSelect={onSelectSpy} />);
+
+            fireEvent.keyDown(getByTestId('input'), { keyCode: KEY_CODES.ENTER });
+
             expect(onSelectSpy).toHaveBeenCalledWith('menu-item-0');
           });
         });
 
         describe('when dropdown is closed', () => {
           it('opens dropdown if no tags are selected', () => {
-            wrapper.setProps({ isOpen: false });
-            instance.tagSelectionModel.hasSelection = jest.fn().mockReturnValue(false);
-            input.simulate('keydown', { keyCode: KEY_CODES.ENTER });
-            expect(instance.openDropdown).toHaveBeenCalled();
+            const { getByTestId } = render(<Example onSelect={onSelectSpy} />);
+
+            fireEvent.keyDown(getByTestId('input'), { keyCode: KEY_CODES.ENTER });
+
+            expect(getByTestId('menu')).not.toBe(null);
           });
         });
       });
 
       describe('escape', () => {
         it('closes dropdown if open', () => {
-          wrapper.setProps({ isOpen: true });
-          input.simulate('keydown', { keyCode: KEY_CODES.ESCAPE });
-          expect(instance.closeDropdown).toHaveBeenCalled();
+          const { getByTestId, queryByTestId } = render(<Example onSelect={onSelectSpy} />);
+
+          fireEvent.click(getByTestId('trigger'));
+
+          expect(queryByTestId('menu')).not.toBe(null);
+
+          fireEvent.keyDown(getByTestId('input'), { keyCode: KEY_CODES.ESCAPE });
+
+          expect(queryByTestId('menu')).toBe(null);
         });
       });
 
       describe('end', () => {
         describe('when dropdown is open', () => {
-          beforeEach(() => {
-            wrapper.setProps({ isOpen: true });
-          });
-
           it('selects currently focused item if it exists', () => {
-            input.simulate('keydown', { keyCode: KEY_CODES.END });
-            expect(instance.focusSelectionModel.selectLast).toHaveBeenCalled();
+            const { getByTestId, getAllByTestId } = render(<Example isOpen />);
+
+            fireEvent.keyDown(getByTestId('input'), { keyCode: KEY_CODES.END });
+
+            const items = getAllByTestId('item');
+
+            expect(items[items.length - 1]).toHaveAttribute('data-focused', 'true');
           });
         });
 
         describe('when dropdown is closed', () => {
-          beforeEach(() => {
-            wrapper.setProps({ isOpen: false });
-          });
-
           it('does not open dropdown if target value is non-empty', () => {
-            input.simulate('keydown', { keyCode: KEY_CODES.END, target: { value: 'test' } });
-            expect(instance.openDropdown).not.toHaveBeenCalled();
+            const { getByTestId, queryByTestId } = render(<Example />);
+
+            fireEvent.keyDown(getByTestId('input'), {
+              keyCode: KEY_CODES.END,
+              target: { value: 'test' }
+            });
+
+            expect(queryByTestId('menu')).toBe(null);
           });
 
           it('does not open dropdown if no tags are selected', () => {
-            instance.tagSelectionModel.hasSelection = jest.fn().mockReturnValue(false);
-            input.simulate('keydown', { keyCode: KEY_CODES.END, target: { value: '' } });
-            expect(instance.openDropdown).not.toHaveBeenCalled();
+            const { getByTestId, queryByTestId } = render(<Example />);
+
+            fireEvent.keyDown(getByTestId('input'), {
+              keyCode: KEY_CODES.END,
+              target: { value: '' }
+            });
+
+            expect(queryByTestId('menu')).toBe(null);
           });
 
           it('opens dropdown otherwise', () => {
-            instance.tagSelectionModel.hasSelection = jest.fn().mockReturnValue(true);
-            input.simulate('keydown', { keyCode: KEY_CODES.END, target: { value: '' } });
-            expect(instance.openDropdown).toHaveBeenCalled();
+            const { getByTestId, getAllByTestId, queryByTestId } = render(<Example />);
+
+            fireEvent.click(getAllByTestId('tag')[0]);
+
+            fireEvent.keyDown(getByTestId('input'), {
+              keyCode: KEY_CODES.END,
+              target: { value: '' }
+            });
+
+            expect(queryByTestId('menu')).not.toBe(null);
           });
         });
       });
 
       describe('home', () => {
         it('selects first menu item when dropdown is open', () => {
-          wrapper.setProps({ isOpen: true });
-          input.simulate('keydown', { keyCode: KEY_CODES.HOME });
-          expect(instance.focusSelectionModel.selectFirst).toHaveBeenCalled();
+          const { getByTestId, getAllByTestId } = render(<Example isOpen />);
+
+          fireEvent.keyDown(getByTestId('input'), {
+            keyCode: KEY_CODES.HOME
+          });
+
+          expect(getAllByTestId('item')[0]).toHaveAttribute('data-focused');
         });
 
         it('selects first tag when target value is empty', () => {
-          wrapper.setProps({ isOpen: false });
-          input.simulate('keydown', { keyCode: KEY_CODES.HOME, target: { value: '' } });
-          expect(instance.tagSelectionModel.selectFirst).toHaveBeenCalled();
+          const { getByTestId, getAllByTestId } = render(<Example />);
+
+          fireEvent.keyDown(getByTestId('input'), {
+            keyCode: KEY_CODES.HOME,
+            target: { value: '' }
+          });
+
+          expect(getAllByTestId('tag')[0]).toHaveAttribute('data-focused');
         });
       });
 
       describe('right', () => {
         describe('when in LTR locale', () => {
           it('opens dropdown if target value is empty and last tag is focused', () => {
-            instance.tagSelectionModel.selectedIndex = 0;
-            instance.tagSelectionModel.numItems = 1;
-            input.simulate('keydown', { keyCode: KEY_CODES.RIGHT, target: { value: '' } });
-            expect(instance.openDropdown).toHaveBeenCalled();
+            const { getByTestId, getAllByTestId, queryByTestId } = render(<Example />);
+            const tags = getAllByTestId('tag');
+
+            fireEvent.click(tags[tags.length - 1]);
+            fireEvent.keyDown(getByTestId('input'), {
+              keyCode: KEY_CODES.RIGHT,
+              target: { value: '' }
+            });
+
+            expect(queryByTestId('menu')).not.toBe(null);
           });
 
           it('otherwise selects next tag if dropdown is closed', () => {
-            wrapper.setProps({ isOpen: false });
-            input.simulate('keydown', { keyCode: KEY_CODES.RIGHT, target: { value: '' } });
-            expect(instance.tagSelectionModel.selectNext).toHaveBeenCalled();
+            const { getByTestId, getAllByTestId } = render(<Example />);
+
+            fireEvent.keyDown(getByTestId('input'), {
+              keyCode: KEY_CODES.RIGHT,
+              target: { value: '' }
+            });
+
+            expect(getAllByTestId('tag')[0]).toHaveAttribute('data-focused');
           });
         });
 
         describe('when in RTL locale', () => {
-          beforeEach(() => {
-            wrapper = mountWithTheme(mutliSelectExample(onSelectSpy), { rtl: true });
-            input = findInput(wrapper);
-            instance = getAutocompleteInstance(wrapper);
-          });
-
           it('selects previous tag if target value is empty and non-first tag is currently selected', () => {
-            instance.tagSelectionModel.selectedIndex = 1;
-            instance.tagSelectionModel.selectPrevious = jest.fn();
-            input.simulate('keydown', { keyCode: KEY_CODES.RIGHT, target: { value: '' } });
-            expect(instance.tagSelectionModel.selectPrevious).toHaveBeenCalled();
+            const { getByTestId, getAllByTestId } = renderRtl(<Example />);
+            const tags = getAllByTestId('tag');
+
+            fireEvent.click(tags[1]);
+            fireEvent.keyDown(getByTestId('input'), {
+              keyCode: KEY_CODES.RIGHT,
+              target: { value: '' }
+            });
+
+            expect(tags[0]).toHaveAttribute('data-focused');
           });
         });
       });
@@ -455,32 +411,43 @@ describe('AutocompleteContainer', () => {
       describe('left', () => {
         describe('when in LTR locale', () => {
           it('selects previous if target value is empty and first tag is not selected', () => {
-            wrapper.setProps({ isOpen: false });
-            input.simulate('keydown', { keyCode: KEY_CODES.LEFT, target: { value: '' } });
-            expect(instance.tagSelectionModel.selectPrevious).toHaveBeenCalled();
+            const { getByTestId, getAllByTestId } = render(<Example />);
+            const tags = getAllByTestId('tag');
+
+            fireEvent.keyDown(getByTestId('input'), {
+              keyCode: KEY_CODES.LEFT,
+              target: { value: '' }
+            });
+
+            expect(tags[tags.length - 1]).toHaveAttribute('data-focused');
           });
         });
 
         describe('when in RTL locale', () => {
-          beforeEach(() => {
-            wrapper = mountWithTheme(mutliSelectExample(onSelectSpy), { rtl: true });
-            input = findInput(wrapper);
-            instance = getAutocompleteInstance(wrapper);
-            instance.openDropdown = jest.fn();
-          });
-
           it('opens dropdown if target value is empty and last tag is selected', () => {
-            instance.tagSelectionModel.selectedIndex = 1;
-            instance.tagSelectionModel.numItems = 2;
-            input.simulate('keydown', { keyCode: KEY_CODES.LEFT, target: { value: '' } });
-            expect(instance.openDropdown).toHaveBeenCalled();
+            const { getByTestId, getAllByTestId } = renderRtl(<Example />);
+            const tags = getAllByTestId('tag');
+
+            fireEvent.click(tags[2]);
+            fireEvent.keyDown(getByTestId('input'), {
+              keyCode: KEY_CODES.LEFT,
+              target: { value: '' }
+            });
+
+            expect(getByTestId('menu')).not.toBe(null);
           });
 
           it('focuses the next tag if dropdown is closed', () => {
-            wrapper.setProps({ isOpen: false });
-            instance.tagSelectionModel.selectNext = jest.fn();
-            input.simulate('keydown', { keyCode: KEY_CODES.LEFT, target: { value: '' } });
-            expect(instance.tagSelectionModel.selectNext).toHaveBeenCalled();
+            const { getByTestId, getAllByTestId } = renderRtl(<Example />);
+            const tags = getAllByTestId('tag');
+
+            fireEvent.click(tags[1]);
+            fireEvent.keyDown(getByTestId('input'), {
+              keyCode: KEY_CODES.LEFT,
+              target: { value: '' }
+            });
+
+            expect(tags[0]).toHaveAttribute('data-focused');
           });
         });
       });
@@ -488,65 +455,48 @@ describe('AutocompleteContainer', () => {
   });
 
   describe('getMenuProps()', () => {
-    let instance;
-
-    beforeEach(() => {
-      wrapper.setProps({ isOpen: true });
-      instance = getAutocompleteInstance(wrapper);
-    });
-
     it('applies accessibility attributes correctly', () => {
-      const menu = findMenu(wrapper);
+      const { getByTestId } = render(<Example isOpen />);
 
-      expect(menu).toHaveProp('role', 'listbox');
-    });
-
-    describe('onMouseDown', () => {
-      it('sets menuMousedDown to true', () => {
-        findMenu(wrapper).simulate('mousedown');
-        expect(instance.menuMousedDown).toBe(true);
-      });
+      expect(getByTestId('menu')).toHaveAttribute('role', 'listbox');
     });
 
     describe('onMouseUp', () => {
-      beforeEach(() => {
-        instance.focusInput = jest.fn();
-        findMenu(wrapper).simulate('mouseup');
-      });
-
-      it('sets menuMousedDown to false', () => {
-        expect(instance.menuMousedDown).toBe(false);
-      });
-
       it('focuses input', () => {
-        expect(instance.focusInput).toHaveBeenCalled();
+        const { getByTestId } = render(<Example isOpen />);
+
+        fireEvent.mouseDown(getByTestId('menu'));
+        fireEvent.mouseUp(getByTestId('menu'));
+
+        expect(getByTestId('input')).toHaveFocus();
       });
     });
   });
 
   describe('getItemProps()', () => {
-    beforeEach(() => {
-      wrapper.setProps({ isOpen: true });
-    });
-
     it('applies correct accessibility attributes', () => {
-      const item = findMenuItems(wrapper).first();
+      const { getAllByTestId } = render(<Example isOpen />);
+      const item = getAllByTestId('item')[0];
 
-      expect(item).toHaveProp('id', 'test--item-menu-item-0');
-      expect(item).toHaveProp('role', 'option');
+      expect(item).toHaveAttribute('id', 'test--item-menu-item-0');
+      expect(item).toHaveAttribute('role', 'option');
     });
 
     it('sets current focus selection model if current item is focused', () => {
-      findInput(wrapper).simulate('keydown', { keyCode: KEY_CODES.DOWN });
-      expect(findMenuItems(wrapper).first()).toHaveProp('data-focused', true);
+      const { getAllByTestId, getByTestId } = render(<Example isOpen />);
+
+      fireEvent.keyDown(getByTestId('input'), { keyCode: KEY_CODES.DOWN });
+
+      expect(getAllByTestId('item')[0]).toHaveAttribute('data-focused', 'true');
     });
 
     describe('onClick', () => {
       it('selects the clicked menu item', () => {
-        const item = findMenuItems(wrapper).at(1);
+        const { getAllByTestId } = render(<Example isOpen onSelect={onSelectSpy} />);
 
-        item.simulate('click');
-        expect(onSelectSpy).toHaveBeenCalledWith('menu-item-1');
+        fireEvent.click(getAllByTestId('item')[0]);
+
+        expect(onSelectSpy).toHaveBeenCalledWith('menu-item-0');
       });
     });
 
@@ -558,9 +508,10 @@ describe('AutocompleteContainer', () => {
           { text: 'Item 3', index: 1 }
         ];
 
-        wrapper = mountWithTheme(
+        const { getByTestId, getAllByTestId } = render(
           <AutocompleteContainer
             id="test"
+            isOpen
             trigger={({ getTriggerProps, getInputProps, triggerRef, inputRef }) => {
               return (
                 <div {...getTriggerProps({ ref: triggerRef })}>
@@ -598,48 +549,33 @@ describe('AutocompleteContainer', () => {
             }}
           </AutocompleteContainer>
         );
-        wrapper.setProps({ isOpen: true });
 
-        findInput(wrapper).simulate('keydown', { keyCode: KEY_CODES.DOWN });
-        expect(findMenuItems(wrapper).first()).toHaveProp('data-focused', true);
+        const input = getByTestId('input');
+        const items = getAllByTestId('item');
 
-        findInput(wrapper).simulate('keydown', { keyCode: KEY_CODES.DOWN });
-        expect(findMenuItems(wrapper).last()).toHaveProp('data-focused', true);
+        fireEvent.keyDown(input, { keyCode: KEY_CODES.DOWN });
+        expect(items[0]).toHaveAttribute('data-focused', 'true');
 
-        findInput(wrapper).simulate('keydown', { keyCode: KEY_CODES.DOWN });
-        expect(findMenuItems(wrapper).at(1)).toHaveProp('data-focused', true);
+        fireEvent.keyDown(input, { keyCode: KEY_CODES.DOWN });
+        expect(items[2]).toHaveAttribute('data-focused', 'true');
+
+        fireEvent.keyDown(input, { keyCode: KEY_CODES.DOWN });
+        expect(items[1]).toHaveAttribute('data-focused', 'true');
       });
     });
   });
 
   describe('openDropdown()', () => {
     it('opens dropdown and removes focused tag', () => {
-      const instance = getAutocompleteInstance(wrapper);
+      const { getAllByTestId, getByTestId } = render(<Example />);
 
-      instance.openDropdown();
-      expect(instance.state.isOpen).toBe(true);
-      expect(instance.state.tagFocusedKey).toBe(undefined);
-    });
-  });
+      fireEvent.click(getByTestId('trigger'));
 
-  describe('closeDropdown()', () => {
-    it('clears focused menu item and closes dropdown', () => {
-      const instance = getAutocompleteInstance(wrapper);
+      expect(getByTestId('menu')).not.toBe(null);
 
-      instance.focusSelectionModel.clearSelection = jest.fn();
-      instance.closeDropdown();
-      expect(instance.state.isOpen).toBe(false);
-      expect(instance.focusSelectionModel.clearSelection).toHaveBeenCalled();
-    });
-  });
-
-  describe('focusInput()', () => {
-    it('focuses inputRef is provided', () => {
-      const instance = getAutocompleteInstance(wrapper);
-
-      instance.inputRef = { focus: jest.fn() };
-      instance.focusInput();
-      expect(instance.inputRef.focus).toHaveBeenCalled();
+      getAllByTestId('tag').forEach(tag => {
+        expect(tag).not.toHaveAttribute('data-focused', 'true');
+      });
     });
   });
 });
