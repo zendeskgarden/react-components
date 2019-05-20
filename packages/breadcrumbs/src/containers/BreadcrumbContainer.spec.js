@@ -6,42 +6,36 @@
  */
 
 import React from 'react';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
+import { render } from 'garden-test-utils';
 
 import BreadcrumbContainer from './BreadcrumbContainer';
 
+const BasicExample = () => (
+  <BreadcrumbContainer>
+    {({ getContainerProps, getCurrentPageProps }) => (
+      <div {...getContainerProps({ 'data-test-id': 'container' })}>
+        <a {...getCurrentPageProps({ 'data-test-id': 'anchor' })}>Test</a>
+      </div>
+    )}
+  </BreadcrumbContainer>
+);
+
 describe('BreadcrumbContainer', () => {
-  let wrapper;
-
-  beforeEach(() => {
-    wrapper = mountWithTheme(
-      <BreadcrumbContainer>
-        {({ getContainerProps, getCurrentPageProps }) => (
-          <div {...getContainerProps({ 'data-test-id': 'container' })}>
-            <a {...getCurrentPageProps({ 'data-test-id': 'anchor' })}>Test</a>
-          </div>
-        )}
-      </BreadcrumbContainer>
-    );
-  });
-
-  const findContainer = enzymeWrapper => enzymeWrapper.find('[data-test-id="container"]');
-  const findAnchor = enzymeWrapper => enzymeWrapper.find('[data-test-id="anchor"]');
-
   describe('getContainerProps()', () => {
     it('applies correct accessibility attributes', () => {
-      const container = findContainer(wrapper);
+      const { getByTestId } = render(<BasicExample />);
+      const container = getByTestId('container');
 
-      expect(container).toHaveProp('role', 'navigation');
-      expect(container).toHaveProp('aria-label', 'Breadcrumb navigation');
+      expect(container).toHaveAttribute('role', 'navigation');
+      expect(container).toHaveAttribute('aria-label', 'Breadcrumb navigation');
     });
   });
 
   describe('getCurrentPageProps()', () => {
     it('applies correct accessibility attributes', () => {
-      const anchor = findAnchor(wrapper);
+      const { getByTestId } = render(<BasicExample />);
 
-      expect(anchor).toHaveProp('aria-current', 'page');
+      expect(getByTestId('anchor')).toHaveAttribute('aria-current', 'page');
     });
   });
 });
