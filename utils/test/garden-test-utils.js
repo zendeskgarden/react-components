@@ -35,3 +35,4 @@ const customRtlRender = (ui, options) => render(ui, { wrapper: RtlProvider, ...o
 export * from 'react-testing-library';
 export { customLtrRender as render };
 export { customRtlRender as renderRtl };
+export { default as getExports } from './getExports';
