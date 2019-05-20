@@ -22,8 +22,7 @@ const increment = (num = 0) => setState({ count: state.count + num });
       <ButtonGroupView>
         <Button onClick={() => increment(1)}>Add 1</Button>
         <Dropdown
-          isOpen={state.isOpen}
-          onOpen={isOpen => setState({ isOpen })}
+          onStateChange={({ isOpen }) => setState({ isOpen })}
           onSelect={value => increment(value)}
         >
           <Trigger>

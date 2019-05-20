@@ -45,7 +45,7 @@ for (let x = 1; x <= 100000; x++) {
     itemCount={rowData.length}
     itemSize={35}
     width="100%"
-    outerTagName={Body}
+    outerElementType={Body}
   >
     {({ index, style }) => (
       <Row key={rowData[index].id} style={style} aria-rowindex={index + 1}>
