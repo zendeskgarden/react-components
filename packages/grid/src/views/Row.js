@@ -16,16 +16,15 @@ const COMPONENT_ID = 'grid.row';
 /**
  * Accepts all `<div>` props
  */
-const Row = styled.div.attrs({
+const Row = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(GridStyles.row, {
-      [GridStyles['no-gutters']]: !props.gutters,
-      [GridStyles[`align-items-${props.alignItems}`]]: props.alignItems,
-      [GridStyles[`justify-content-${props.justifyContent}`]]: props.justifyContent
-    })
-})`
+  className: classNames(GridStyles.row, {
+    [GridStyles['no-gutters']]: !props.gutters,
+    [GridStyles[`align-items-${props.alignItems}`]]: props.alignItems,
+    [GridStyles[`justify-content-${props.justifyContent}`]]: props.justifyContent
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

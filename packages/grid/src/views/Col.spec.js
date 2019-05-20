@@ -6,14 +6,14 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 import Col from './Col';
 
 describe('Col', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Col />);
+    const { container } = render(<Col />);
 
-    expect(wrapper).toHaveClassName('col');
+    expect(container.firstChild).toHaveClass('col');
   });
 
   describe('Sizing', () => {
@@ -45,7 +45,7 @@ describe('Col', () => {
       const key = Object.keys(props)[0];
 
       it(`renders ${key} if provided`, () => {
-        const wrapper = shallow(<Col {...props} />);
+        const { container } = render(<Col {...props} />);
         let className;
 
         if (key === 'size') {
@@ -56,7 +56,7 @@ describe('Col', () => {
           className = `col-${key}`;
         }
 
-        expect(wrapper).toHaveClassName(className);
+        expect(container.firstChild).toHaveClass(className);
       });
     });
   });
@@ -76,9 +76,9 @@ describe('Col', () => {
       };
 
       it(`renders ${offset} if provided`, () => {
-        const wrapper = shallow(<Col {...props} />);
+        const { container } = render(<Col {...props} />);
 
-        expect(wrapper).toHaveClassName(`${classes[offset]}-${props[offset]}`);
+        expect(container.firstChild).toHaveClass(`${classes[offset]}-${props[offset]}`);
       });
     });
   });
@@ -86,9 +86,9 @@ describe('Col', () => {
   describe('Align Self', () => {
     ['start', 'center', 'end'].forEach(alignment => {
       it(`renders ${alignment} self alignment if provided`, () => {
-        const wrapper = shallow(<Col alignSelf={alignment} />);
+        const { container } = render(<Col alignSelf={alignment} />);
 
-        expect(wrapper).toHaveClassName(`align-self-${alignment}`);
+        expect(container.firstChild).toHaveClass(`align-self-${alignment}`);
       });
     });
   });
@@ -96,24 +96,24 @@ describe('Col', () => {
   describe('Justify Content', () => {
     ['start', 'center', 'end', 'around', 'between'].forEach(justifyContent => {
       it(`renders ${justifyContent} justify content if provided`, () => {
-        const wrapper = shallow(<Col justifyContent={justifyContent} />);
+        const { container } = render(<Col justifyContent={justifyContent} />);
 
-        expect(wrapper).toHaveClassName(`justify-content-${justifyContent}`);
+        expect(container.firstChild).toHaveClass(`justify-content-${justifyContent}`);
       });
     });
   });
 
   describe('Order', () => {
     it('renders pseudo order if provided', () => {
-      const wrapper = shallow(<Col order="first" />);
+      const { container } = render(<Col order="first" />);
 
-      expect(wrapper).toHaveClassName('order-first');
+      expect(container.firstChild).toHaveClass('order-first');
     });
 
     it('renders string based order if provided', () => {
-      const wrapper = shallow(<Col order="md-12" />);
+      const { container } = render(<Col order="md-12" />);
 
-      expect(wrapper).toHaveClassName('order-md-12');
+      expect(container.firstChild).toHaveClass('order-md-12');
     });
   });
 });
