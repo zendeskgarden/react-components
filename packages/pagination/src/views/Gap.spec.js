@@ -6,14 +6,14 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 
 import Gap from './Gap';
 
 describe('Gap', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Gap />);
+    const { container } = render(<Gap />);
 
-    expect(wrapper).toHaveClassName('c-pagination__page--gap');
+    expect(container.firstChild).toHaveClass('c-pagination__page--gap');
   });
 });

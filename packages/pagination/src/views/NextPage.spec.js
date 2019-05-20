@@ -6,14 +6,14 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 
 import NextPage from './NextPage';
 
 describe('NextPage', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<NextPage />);
+    const { container } = render(<NextPage />);
 
-    expect(wrapper).toHaveClassName('c-pagination__page--next');
+    expect(container.firstChild).toHaveClass('c-pagination__page--next');
   });
 });

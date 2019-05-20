@@ -7,15 +7,13 @@
  */
 
 import React from 'react';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
-
+import { render, fireEvent } from 'garden-test-utils';
 import PaginationContainer from './PaginationContainer';
 
 describe('PaginationContainer', () => {
-  let wrapper;
   const pages = [1, 2, 3, 4, 5];
 
-  const basicExample = () => (
+  const BasicExample = () => (
     <PaginationContainer>
       {({
         getContainerProps,
@@ -59,21 +57,12 @@ describe('PaginationContainer', () => {
     </PaginationContainer>
   );
 
-  beforeEach(() => {
-    wrapper = mountWithTheme(basicExample());
-  });
-
-  const findContainer = enzymeWrapper => enzymeWrapper.find('[data-test-id="container"]');
-  const findPage = enzymeWrapper => enzymeWrapper.find('[data-test-id="page"]');
-  const findPrevious = enzymeWrapper => enzymeWrapper.find('[data-test-id="previous"]');
-  const findNext = enzymeWrapper => enzymeWrapper.find('[data-test-id="next"]');
-
   describe('getContainerProps()', () => {
     it('applies correct accessibility attributes', () => {
-      const container = findContainer(wrapper);
+      const { container } = render(<BasicExample />);
 
-      expect(container).toHaveProp('role', 'listbox');
-      expect(container).toHaveProp('aria-label', 'Pagination navigation');
+      expect(container.firstChild).toHaveAttribute('role', 'listbox');
+      expect(container.firstChild).toHaveAttribute('aria-label', 'Pagination navigation');
     });
   });
 
@@ -84,7 +73,7 @@ describe('PaginationContainer', () => {
       console.error = jest.fn();
 
       expect(() => {
-        mountWithTheme(
+        render(
           <PaginationContainer>
             {({ getPreviousPageProps }) => <div {...getPreviousPageProps()} />}
           </PaginationContainer>
@@ -97,7 +86,9 @@ describe('PaginationContainer', () => {
     });
 
     it('applies correct accessibility attributes', () => {
-      expect(findPrevious(wrapper)).toHaveProp('aria-label', 'Previous page');
+      const { container } = render(<BasicExample />);
+
+      expect(container.firstChild.children[0]).toHaveAttribute('aria-label', 'Previous page');
     });
   });
 
@@ -108,7 +99,7 @@ describe('PaginationContainer', () => {
       console.error = jest.fn();
 
       expect(() => {
-        mountWithTheme(
+        render(
           <PaginationContainer>
             {({ getNextPageProps }) => <div {...getNextPageProps()} />}
           </PaginationContainer>
@@ -121,7 +112,11 @@ describe('PaginationContainer', () => {
     });
 
     it('applies correct accessibility attributes', () => {
-      expect(findNext(wrapper)).toHaveProp('aria-label', 'Next page');
+      const { container } = render(<BasicExample />);
+
+      expect(
+        container.firstChild.children[container.firstChild.children.length - 1]
+      ).toHaveAttribute('aria-label', 'Next page');
     });
   });
 
@@ -132,7 +127,7 @@ describe('PaginationContainer', () => {
       console.error = jest.fn();
 
       expect(() => {
-        mountWithTheme(
+        render(
           <PaginationContainer>
             {({ getPageProps }) => <div {...getPageProps()} />}
           </PaginationContainer>
@@ -145,14 +140,18 @@ describe('PaginationContainer', () => {
     });
 
     it('applies correct accessibility attributes if not current page', () => {
-      expect(findPage(wrapper).at(0)).toHaveProp('aria-label', 'Page 1');
+      const { container } = render(<BasicExample />);
+
+      expect(container.firstChild.children[1]).toHaveAttribute('aria-label', 'Page 1');
     });
 
     it('applies correct accessibility attributes if current page', () => {
-      findPage(wrapper)
-        .at(0)
-        .simulate('click');
-      expect(findPage(wrapper).at(0)).toHaveProp('aria-label', 'Current page, Page 1');
+      const { container } = render(<BasicExample />);
+      const firstPage = container.firstChild.children[1];
+
+      fireEvent.click(firstPage);
+
+      expect(firstPage).toHaveAttribute('aria-label', 'Current page, Page 1');
     });
   });
 });
