@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
+import { render, fireEvent } from 'garden-test-utils';
 
 import SelectField from './SelectField';
 import Select from './Select';
@@ -16,48 +16,60 @@ import Hint from '../views/fields/Hint';
 import Message from '../views/fields/Message';
 
 describe('SelectField', () => {
-  let wrapper;
-
-  const basicExample = () => (
+  const BasicExample = () => (
     <SelectField>
-      <Label>Label</Label>
-      <Hint>Hint</Hint>
-      <Select options={[<Item key="1-item">Item 1</Item>, <Item key="2-item">Item 2</Item>]}>
+      <Label data-test-id="label">Label</Label>
+      <Hint data-test-id="hint'">Hint</Hint>
+      <Select
+        data-test-id="select"
+        options={[
+          <Item key="1-item" data-test-id="item">
+            Item 1
+          </Item>,
+          <Item key="2-item" data-test-id="item">
+            Item 2
+          </Item>
+        ]}
+      >
         preview
       </Select>
-      <Message>Message</Message>
+      <Message data-test-id="message">Message</Message>
       <div data-test-id="extra">extra information</div>
     </SelectField>
   );
 
-  const findSelect = enzymeWrapper => enzymeWrapper.find(Select);
-  const findLabel = enzymeWrapper => enzymeWrapper.find(Label);
-
-  beforeEach(() => {
-    wrapper = mountWithTheme(basicExample());
-  });
-
   describe('Label', () => {
     it('applies hover styling to Select if mouse in', () => {
-      findLabel(wrapper).simulate('mouseenter');
-      expect(findSelect(wrapper)).toHaveProp('hovered', true);
+      const { getByTestId } = render(<BasicExample />);
+
+      fireEvent.mouseEnter(getByTestId('label'));
+
+      expect(getByTestId('select')).toHaveClass('is-hovered');
     });
 
     it('removes hover styling of Select if mouse out', () => {
-      findLabel(wrapper).simulate('mouseenter');
-      findLabel(wrapper).simulate('mouseleave');
-      expect(findSelect(wrapper)).toHaveProp('hovered', false);
+      const { getByTestId } = render(<BasicExample />);
+      const label = getByTestId('label');
+      const select = getByTestId('select');
+
+      fireEvent.mouseEnter(label);
+      fireEvent.mouseLeave(label);
+
+      expect(select).not.toHaveClass('is-hovered');
     });
 
     it('focuses select if clicked', () => {
-      findLabel(wrapper).simulate('click');
-      expect(wrapper.find('SelectView').contains(document.activeElement)).toBe(true);
+      const { getByTestId } = render(<BasicExample />);
+
+      fireEvent.click(getByTestId('label'));
+
+      expect(getByTestId('select')).toHaveFocus();
     });
   });
 
   it('does not throw if invalid element is provided as child', () => {
     expect(() => {
-      mountWithTheme(
+      render(
         <SelectField>
           <Label>Label</Label>
           <Select options={[<Item key="1-item">Item 1</Item>, <Item key="2-item">Item 2</Item>]}>

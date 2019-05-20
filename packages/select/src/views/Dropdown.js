@@ -36,11 +36,9 @@ const StyledMenuView = styled(MenuView).attrs({
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
-const Dropdown = props => {
-  const { dropdownRef, ...otherProps } = props;
-
-  return <StyledMenuView menuRef={dropdownRef} {...otherProps} />;
-};
+const Dropdown = React.forwardRef((props, ref) => {
+  return <StyledMenuView ref={ref} {...props} />;
+});
 
 Dropdown.propTypes = {
   /**
@@ -64,11 +62,7 @@ Dropdown.propTypes = {
   animate: PropTypes.bool,
   small: PropTypes.bool,
   hidden: PropTypes.bool,
-  arrow: PropTypes.bool,
-  /**
-   * Ref of internal Menu container
-   */
-  dropdownRef: PropTypes.func
+  arrow: PropTypes.bool
 };
 
 /** @component */
