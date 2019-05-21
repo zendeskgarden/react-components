@@ -327,12 +327,12 @@ describe('MenuContainer', () => {
 
     describe('getMenuProps()', () => {
       it('applies correct accessibility attributes', () => {
-        const exampleUtils = render(<BasicExample onChange={onChangeSpy} />);
+        const { getByTestId } = render(<BasicExample onChange={onChangeSpy} />);
 
-        fireEvent.click(exampleUtils.getByTestId('trigger'));
+        fireEvent.click(getByTestId('trigger'));
         jest.runOnlyPendingTimers();
 
-        const menu = exampleUtils.getByTestId('menu');
+        const menu = getByTestId('menu');
 
         expect(menu).toHaveAttribute('tabIndex', '-1');
         expect(menu).toHaveAttribute('role', 'menu');
@@ -340,52 +340,52 @@ describe('MenuContainer', () => {
 
       describe('onKeyDown()', () => {
         it('closes menu on ESC keypress', () => {
-          const exampleUtils = render(<BasicExample onChange={onChangeSpy} />);
+          const { getByTestId, queryByTestId } = render(<BasicExample onChange={onChangeSpy} />);
 
-          fireEvent.click(exampleUtils.getByTestId('trigger'));
+          fireEvent.click(getByTestId('trigger'));
           jest.runOnlyPendingTimers();
 
-          fireEvent.keyDown(exampleUtils.getByTestId('menu'), { keyCode: KEY_CODES.ESCAPE });
-          expect(exampleUtils.queryByTestId('menu')).toBe(null);
+          fireEvent.keyDown(getByTestId('menu'), { keyCode: KEY_CODES.ESCAPE });
+          expect(queryByTestId('menu')).toBe(null);
         });
 
         it('focuses first item if Tab is pressed', () => {
-          const exampleUtils = render(<BasicExample onChange={onChangeSpy} />);
+          const { getByTestId, getAllByTestId } = render(<BasicExample onChange={onChangeSpy} />);
 
-          fireEvent.click(exampleUtils.getByTestId('trigger'));
+          fireEvent.click(getByTestId('trigger'));
           jest.runOnlyPendingTimers();
 
-          fireEvent.keyDown(exampleUtils.getByTestId('menu'), { keyCode: KEY_CODES.TAB });
-          expect(exampleUtils.getAllByTestId('item')[0]).toHaveAttribute('data-focused', 'true');
+          fireEvent.keyDown(getByTestId('menu'), { keyCode: KEY_CODES.TAB });
+          expect(getAllByTestId('item')[0]).toHaveAttribute('data-focused', 'true');
         });
 
         it('focuses last item if shift-Tab is pressed', () => {
-          const exampleUtils = render(<BasicExample onChange={onChangeSpy} />);
+          const { getByTestId, getAllByTestId } = render(<BasicExample onChange={onChangeSpy} />);
 
-          fireEvent.click(exampleUtils.getByTestId('trigger'));
+          fireEvent.click(getByTestId('trigger'));
           jest.runOnlyPendingTimers();
 
-          fireEvent.keyDown(exampleUtils.getByTestId('menu'), {
+          fireEvent.keyDown(getByTestId('menu'), {
             keyCode: KEY_CODES.TAB,
             shiftKey: true
           });
 
-          const items = exampleUtils.getAllByTestId('item');
+          const items = getAllByTestId('item');
 
           expect(items[items.length - 1]).toHaveAttribute('data-focused', 'true');
         });
 
         describe('Text matching', () => {
           it('focuses first matching item with textValue that matches key', () => {
-            const exampleUtils = render(<BasicExample onChange={onChangeSpy} />);
+            const { getByTestId } = render(<BasicExample onChange={onChangeSpy} />);
 
-            fireEvent.click(exampleUtils.getByTestId('trigger'));
+            fireEvent.click(getByTestId('trigger'));
             jest.runOnlyPendingTimers();
 
             const P_KEY_CODE = 80;
 
-            fireEvent.keyDown(exampleUtils.getByTestId('menu'), { keyCode: P_KEY_CODE, key: 'p' });
-            fireEvent.keyDown(exampleUtils.getByTestId('menu'), {
+            fireEvent.keyDown(getByTestId('menu'), { keyCode: P_KEY_CODE, key: 'p' });
+            fireEvent.keyDown(getByTestId('menu'), {
               keyCode: KEY_CODES.ENTER,
               key: 'enter'
             });
@@ -395,12 +395,12 @@ describe('MenuContainer', () => {
 
           it('focuses second matching item with textValue that matches key if triggered again', () => {
             const P_KEY_CODE = 80;
-            const exampleUtils = render(<BasicExample onChange={onChangeSpy} />);
+            const { getByTestId } = render(<BasicExample onChange={onChangeSpy} />);
 
-            fireEvent.click(exampleUtils.getByTestId('trigger'));
+            fireEvent.click(getByTestId('trigger'));
             jest.runOnlyPendingTimers();
 
-            const menu = exampleUtils.getByTestId('menu');
+            const menu = getByTestId('menu');
 
             fireEvent.keyDown(menu, { keyCode: P_KEY_CODE, key: 'p' });
             fireEvent.keyDown(menu, { keyCode: P_KEY_CODE, key: 'p' });
@@ -413,11 +413,11 @@ describe('MenuContainer', () => {
         describe('with LTR locale', () => {
           describe('RIGHT arrow keypress', () => {
             it('selects currently focused item if created with getNextItemProps()', () => {
-              const exampleUtils = render(<BasicExample onChange={onChangeSpy} />);
+              const { getByTestId } = render(<BasicExample onChange={onChangeSpy} />);
 
-              fireEvent.click(exampleUtils.getByTestId('trigger'));
+              fireEvent.click(getByTestId('trigger'));
               jest.runOnlyPendingTimers();
-              const menu = exampleUtils.getByTestId('menu');
+              const menu = getByTestId('menu');
 
               fireEvent.keyDown(menu, { keyCode: KEY_CODES.DOWN, key: 'down' });
               fireEvent.keyDown(menu, { keyCode: KEY_CODES.DOWN, key: 'down' });
@@ -428,12 +428,12 @@ describe('MenuContainer', () => {
             });
 
             it('does not select currently focused item if not created with getNextItemProps()', () => {
-              const exampleUtils = render(<BasicExample onChange={onChangeSpy} />);
+              const { getByTestId } = render(<BasicExample onChange={onChangeSpy} />);
 
-              fireEvent.click(exampleUtils.getByTestId('trigger'));
+              fireEvent.click(getByTestId('trigger'));
               jest.runOnlyPendingTimers();
 
-              const menu = exampleUtils.getByTestId('menu');
+              const menu = getByTestId('menu');
 
               fireEvent.keyDown(menu, { keyCode: KEY_CODES.DOWN, key: 'down' });
               fireEvent.keyDown(menu, { keyCode: KEY_CODES.DOWN, key: 'down' });
@@ -445,12 +445,12 @@ describe('MenuContainer', () => {
 
           describe('LEFT arrow keypress', () => {
             it('selects previous item if created with getPreviousItemProps()', () => {
-              const exampleUtils = render(<BasicExample onChange={onChangeSpy} />);
+              const { getByTestId } = render(<BasicExample onChange={onChangeSpy} />);
 
-              fireEvent.click(exampleUtils.getByTestId('trigger'));
+              fireEvent.click(getByTestId('trigger'));
               jest.runOnlyPendingTimers();
 
-              const menu = exampleUtils.getByTestId('menu');
+              const menu = getByTestId('menu');
 
               fireEvent.keyDown(menu, { keyCode: KEY_CODES.LEFT, key: 'left' });
 
@@ -462,11 +462,11 @@ describe('MenuContainer', () => {
         describe('with RTL locale', () => {
           describe('RIGHT arrow keypress', () => {
             it('selects previous item if created with getPreviousItemProps()', () => {
-              const exampleUtils = renderRtl(<BasicExample onChange={onChangeSpy} />);
+              const { getByTestId } = renderRtl(<BasicExample onChange={onChangeSpy} />);
 
-              fireEvent.click(exampleUtils.getByTestId('trigger'));
+              fireEvent.click(getByTestId('trigger'));
               jest.runOnlyPendingTimers();
-              fireEvent.keyDown(exampleUtils.getByTestId('menu'), {
+              fireEvent.keyDown(getByTestId('menu'), {
                 keyCode: KEY_CODES.RIGHT,
                 key: 'right'
               });
@@ -477,12 +477,12 @@ describe('MenuContainer', () => {
 
           describe('LEFT arrow keypress', () => {
             it('selects currently focused item if created with getNextItemProps()', () => {
-              const exampleUtils = renderRtl(<BasicExample onChange={onChangeSpy} />);
+              const { getByTestId } = renderRtl(<BasicExample onChange={onChangeSpy} />);
 
-              fireEvent.click(exampleUtils.getByTestId('trigger'));
+              fireEvent.click(getByTestId('trigger'));
               jest.runOnlyPendingTimers();
 
-              const menu = exampleUtils.getByTestId('menu');
+              const menu = getByTestId('menu');
 
               fireEvent.keyDown(menu, { keyCode: KEY_CODES.DOWN, key: 'down' });
               fireEvent.keyDown(menu, { keyCode: KEY_CODES.DOWN, key: 'down' });
@@ -493,12 +493,12 @@ describe('MenuContainer', () => {
             });
 
             it('does not select currently focused item if not created with getNextItemProps()', () => {
-              const exampleUtils = renderRtl(<BasicExample onChange={onChangeSpy} />);
+              const { getByTestId } = renderRtl(<BasicExample onChange={onChangeSpy} />);
 
-              fireEvent.click(exampleUtils.getByTestId('trigger'));
+              fireEvent.click(getByTestId('trigger'));
               jest.runOnlyPendingTimers();
 
-              const menu = exampleUtils.getByTestId('menu');
+              const menu = getByTestId('menu');
 
               fireEvent.keyDown(menu, { keyCode: KEY_CODES.DOWN, key: 'down' });
               fireEvent.keyDown(menu, { keyCode: KEY_CODES.DOWN, key: 'down' });
