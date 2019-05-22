@@ -31,7 +31,7 @@ const NextItem = ({ value, disabled, ...props }) => {
 };
 
 NextItem.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.any,
   disabled: PropTypes.bool,
   active: PropTypes.bool,
   focused: PropTypes.bool,

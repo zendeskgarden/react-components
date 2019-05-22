@@ -17,7 +17,7 @@ import { StyledAddItem } from '../../styled';
 const AddItem = props => <Item component={StyledAddItem} {...props} />;
 
 AddItem.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.any,
   active: PropTypes.bool,
   focused: PropTypes.bool,
   hovered: PropTypes.bool,
