@@ -1,24 +1,36 @@
 # Versioning
 
-Garden follows [semantic versioning](https://semver.org/). We release patch
-versions for bug fixes, minor versions for new features, and major versions
-for any breaking changes.
+Garden components are distributed as a collection of individual packages
+published under the [@zendeskgarden](https://www.npmjs.com/org/zendeskgarden)
+namespace. These packages follow [semantic versioning](https://semver.org/).
+We publish patch versions for bug fixes, minor versions for new features, and
+major versions for any breaking changes. Fixes are released upon approval,
+features every two weeks, and breaking changes once per quarter.
 
-Each pull request is titled with a [conventional
-commit](https://www.conventionalcommits.org/) message. Together with a
-BREAKING CHANGE checkbox, this message determines whether the change will be
-part of a patch, minor, or major version. We release patch and minor versions
-as they are approved. We limit major versions to once or twice per quarter.
+Garden distributes packages under a
+[fixed](https://github.com/lerna/lerna#fixedlocked-mode-default) (common
+major) version number. Each package may be individually upgraded, but it is
+best practice to keep dependencies up-to-date. All versions are recorded in the
+[changelog](https://github.com/zendeskgarden/react-components/blob/master/CHANGELOG.MD)
+upon release.
 
-All versions are recorded in the [changelog](CHANGELOG.MD) upon release.
+While it's feasible to backport bug fixes to previous major versions, this
+should be avoided whenever possible. The core Garden team reviews backport
+requests on per case basis. Please
+[open an issue](https://github.com/zendeskgarden/react-components/issues/new)
+with your particular versioning concerns. We will do our best to accommodate
+your needs.
 
-Garden practices good hygiene by keeping dependencies up to date, using a
-regularly scheduled [renovate](https://renovatebot.com/) to prevent
-dependency decay. We strongly recommend that you do the same.
+## Dependencies
 
-Having said that, we realize that some Garden version updates require
-migration planning. We will establish a reasonable timeline for backporting
-bug fixes to previous major versions – easing transition to the current
-release. Stay tuned as we work to produce a pragmatic versioning policy. In
-the mean time, please contact garden@zendesk.com with your particular
-versioning concerns and we will do our best to accommodate your needs.
+All components require the following shared dependencies:
+
+- `@zendeskgarden/react-theming`
+- `prop-types`
+- `react`
+- `react-dom`
+- `styled-components`
+
+Garden practices good hygiene by keeping internal dependencies up to date,
+using a scheduled [Renovate](https://renovatebot.com/) to prevent dependency
+decay.
