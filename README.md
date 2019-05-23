@@ -140,7 +140,7 @@ package.
 npm install @zendeskgarden/react-buttons
 
 # Install peer dependencies
-npm install styled-components @zendeskgarden/react-theming
+npm install styled-components @zendeskgarden/react-theming prop-types
 ```
 
 ### Include global styling and `ThemeProvider`
