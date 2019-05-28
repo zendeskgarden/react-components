@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.6](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-utilities@0.2.5...@zendeskgarden/react-utilities@0.2.6) (2019-05-28)
+
+
+### Features
+
+* add matchExports testing utility ([#225](https://github.com/zendeskgarden/react-components/issues/225)) ([8666052](https://github.com/zendeskgarden/react-components/commit/8666052))
+* refactor matchExports to getExports ([#228](https://github.com/zendeskgarden/react-components/issues/228)) ([7280879](https://github.com/zendeskgarden/react-components/commit/7280879))
+
+
+### BREAKING CHANGES
+
+* The `@zendeskgarden/react-testing` utility `matchExports` has been refactored to `getExports`.
+
+This utility no longer applies any assertions.
+
+
+
+
+
 ## [0.2.5](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-utilities@0.2.4...@zendeskgarden/react-utilities@0.2.5) (2018-12-05)
 
 **Note:** Version bump only for package @zendeskgarden/react-utilities

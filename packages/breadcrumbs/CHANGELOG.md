@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.6](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-breadcrumbs@0.3.5...@zendeskgarden/react-breadcrumbs@0.3.6) (2019-05-28)
+
+**Note:** Version bump only for package @zendeskgarden/react-breadcrumbs
+
+
+
+
+
 ## [0.3.5](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-breadcrumbs@0.3.4...@zendeskgarden/react-breadcrumbs@0.3.5) (2019-05-06)
 
 **Note:** Version bump only for package @zendeskgarden/react-breadcrumbs

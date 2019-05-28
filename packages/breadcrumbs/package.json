@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "0.3.5",
+  "version": "0.3.6",
   "main": "./dist/index.js",
   "files": [
     "dist"
@@ -30,8 +30,8 @@
   },
   "devDependencies": {
     "@zendeskgarden/css-breadcrumbs": "0.2.11",
-    "@zendeskgarden/react-theming": "^3.2.1",
-    "@zendeskgarden/react-utilities": "^0.2.5"
+    "@zendeskgarden/react-theming": "^3.2.2",
+    "@zendeskgarden/react-utilities": "^0.2.6"
   },
   "keywords": [
     "components",

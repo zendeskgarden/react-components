@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.7](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-notifications@3.3.6...@zendeskgarden/react-notifications@3.3.7) (2019-05-28)
+
+**Note:** Version bump only for package @zendeskgarden/react-notifications
+
+
+
+
+
 ## [3.3.6](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-notifications@3.3.5...@zendeskgarden/react-notifications@3.3.6) (2019-05-06)
 
 **Note:** Version bump only for package @zendeskgarden/react-notifications
