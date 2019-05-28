@@ -93,6 +93,7 @@ found at http://www.apache.org/licenses/LICENSE-2.0
             loader: 'css-loader',
             options: {
               modules: true,
+              context: __dirname, // Solves CSS name clashes in multiple packages https://github.com/webpack-contrib/css-loader/issues/413
               localIdentName: '[name]__[local]___[hash:base64:5]'
             }
           }
