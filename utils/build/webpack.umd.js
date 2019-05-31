@@ -41,8 +41,8 @@ module.exports = merge(baseConfig, {
       root: 'ReactDOM'
     },
     'prop-types': {
-      commonjs: 'rop-types',
-      commonjs2: 'rop-types',
+      commonjs: 'prop-types',
+      commonjs2: 'prop-types',
       amd: 'prop-types',
       root: 'PropTypes'
     },
