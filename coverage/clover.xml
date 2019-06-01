@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1559338229624" clover="3.2.0">
-  <project timestamp="1559338229624" name="All files">
+<coverage generated="1559348220601" clover="3.2.0">
+  <project timestamp="1559348220601" name="All files">
     <metrics statements="2971" coveredstatements="2904" conditionals="1343" coveredconditionals="1183" methods="949" coveredmethods="925" elements="5263" coveredelements="5012" complexity="0" loc="2971" ncloc="2971" packages="94" files="280" classes="280"/>
     <package name="autocomplete.src.containers">
       <metrics statements="154" coveredstatements="152" conditionals="94" coveredconditionals="78" methods="46" coveredmethods="45"/>
@@ -3558,9 +3558,9 @@
         <line num="17" count="4" type="stmt"/>
         <line num="37" count="4" type="stmt"/>
         <line num="45" count="4" type="stmt"/>
-        <line num="49" count="116" type="stmt"/>
-        <line num="84" count="116" type="stmt"/>
-        <line num="87" count="4" type="stmt"/>
+        <line num="49" count="117" type="stmt"/>
+        <line num="85" count="117" type="stmt"/>
+        <line num="88" count="4" type="stmt"/>
       </file>
     </package>
     <package name="testing.src.utils">
@@ -3726,13 +3726,13 @@
       </file>
       <file name="isRtl.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/utils/isRtl.js">
         <metrics statements="1" coveredstatements="1" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
-        <line num="10" count="2582" type="cond" truecount="2" falsecount="0"/>
+        <line num="10" count="2583" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="retrieveTheme.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/utils/retrieveTheme.js">
         <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
-        <line num="10" count="4084" type="stmt"/>
-        <line num="12" count="4084" type="cond" truecount="2" falsecount="0"/>
-        <line num="13" count="1646" type="stmt"/>
+        <line num="10" count="4085" type="stmt"/>
+        <line num="12" count="4085" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="1647" type="stmt"/>
         <line num="16" count="2438" type="stmt"/>
         <line num="18" count="2438" type="cond" truecount="2" falsecount="0"/>
         <line num="19" count="1" type="stmt"/>
