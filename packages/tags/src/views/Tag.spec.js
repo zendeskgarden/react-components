@@ -30,6 +30,12 @@ describe('Tag', () => {
     expect(wrapper).toHaveClassName('c-tag--pill');
   });
 
+  it('renders round styling if provided', () => {
+    const wrapper = shallow(<Tag round />);
+
+    expect(wrapper).toHaveClassName('c-tag--round');
+  });
+
   describe('size', () => {
     it('renders small styling if provided', () => {
       const wrapper = shallow(<Tag size="small" />);

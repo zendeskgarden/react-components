@@ -14,6 +14,9 @@ number of characters.
     <Col md>
       <Tag pill>Pill tag</Tag>
     </Col>
+    <Col md>
+      <Tag round>8</Tag>
+    </Col>
   </Row>
 </Grid>
 ```
@@ -46,15 +49,15 @@ number of characters.
       </Tag>
     </Col>
     <Col md={4}>
-      <Tag size="small" pill>
+      <Tag size="small" round>
         1
       </Tag>
     </Col>
     <Col md={4}>
-      <Tag pill>2</Tag>
+      <Tag round>2</Tag>
     </Col>
     <Col md={4}>
-      <Tag size="large" pill>
+      <Tag size="large" round>
         12
       </Tag>
     </Col>
@@ -118,6 +121,16 @@ const types = [
     <Col md={6}>
       <Tag size="large" pill focused>
         Focused pill
+      </Tag>
+    </Col>
+    <Col md={6}>
+      <Tag size="large" round>
+        10
+      </Tag>
+    </Col>
+    <Col md={6}>
+      <Tag size="large" round focused>
+        10
       </Tag>
     </Col>
   </Row>

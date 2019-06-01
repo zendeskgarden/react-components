@@ -53,6 +53,7 @@ const Tag = styled.div.attrs({
 
       // Shapes
       [TagStyles['c-tag--pill']]: props.pill,
+      [TagStyles['c-tag--round']]: props.round,
 
       // Interaction States
       [TagStyles['is-focused']]: props.focused,
@@ -87,6 +88,7 @@ const Tag = styled.div.attrs({
 Tag.propTypes = {
   size: PropTypes.oneOf([SIZE.SMALL, SIZE.LARGE]),
   pill: PropTypes.bool,
+  round: PropTypes.bool,
   focused: PropTypes.bool,
   hovered: PropTypes.bool,
   type: PropTypes.oneOf([
