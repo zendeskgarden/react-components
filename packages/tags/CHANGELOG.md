@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tags@1.3.5...@zendeskgarden/react-tags@1.4.0) (2019-06-01)
+
+
+### Features
+
+* **tags:** add prop for "round" tag styling ([#347](https://github.com/zendeskgarden/react-components/issues/347)) ([a792c14](https://github.com/zendeskgarden/react-components/commit/a792c14))
+
+
+
+
+
 ## [1.3.5](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-tags@1.3.4...@zendeskgarden/react-tags@1.3.5) (2019-05-31)
 
 **Note:** Version bump only for package @zendeskgarden/react-tags
