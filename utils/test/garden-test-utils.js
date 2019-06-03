@@ -7,7 +7,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { render, configure } from 'react-testing-library';
+import { render, configure } from '@testing-library/react';
 import { ThemeProvider } from '../../packages/theming/src';
 
 configure({ testIdAttribute: 'data-test-id' });
@@ -32,7 +32,7 @@ const customLtrRender = (ui, options) => render(ui, { wrapper: LtrProvider, ...o
 const customRtlRender = (ui, options) => render(ui, { wrapper: RtlProvider, ...options });
 
 // eslint-disable-next-line no-duplicate-imports
-export * from 'react-testing-library';
+export * from '@testing-library/react';
 export { customLtrRender as render };
 export { customRtlRender as renderRtl };
 export { default as getExports } from './getExports';
