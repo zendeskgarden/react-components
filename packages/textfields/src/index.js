@@ -15,3 +15,13 @@ export { default as MediaInput } from './views/MediaInput';
 export { default as Message } from './views/Message';
 export { default as Textarea } from './views/Textarea';
 export { default as TextGroup } from './views/TextGroup';
+
+if (process.env.NODE_ENV !== 'production') {
+  /* eslint-disable no-console */
+  console.warn(
+    'Deprecation Warning: The `@zendeskgarden/react-textfields` package has been deprecated. ' +
+      'It will be removed in an upcoming major release. Migrate to the ' +
+      '`@zendeskgarden/react-forms` package to continue receiving updates.'
+  );
+  /* eslint-enable */
+}
