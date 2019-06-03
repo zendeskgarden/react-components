@@ -11,7 +11,7 @@ import classNames from 'classnames';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 
-const COMPONENT_ID = 'dropdowns.text_group';
+const COMPONENT_ID = 'dropdowns.field';
 
 /**
  * Accepts all `<div>` props
