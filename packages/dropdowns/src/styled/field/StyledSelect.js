@@ -11,7 +11,7 @@ import classNames from 'classnames';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 
-const COMPONENT_ID = 'dropdowns.select_view';
+const COMPONENT_ID = 'dropdowns.select';
 const VALIDATION = {
   SUCCESS: 'success',
   WARNING: 'warning',
