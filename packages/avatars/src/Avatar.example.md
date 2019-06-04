@@ -1,6 +1,6 @@
 For accessibility ensure that all children images include an `alt` description.
 
-For implementations that use the `badge` prop ensure that information is ready
+For implementations that use the `badge` prop ensure that information is read
 correctly by assistive technologies as necessary for your use-case.
 
 ### Types
