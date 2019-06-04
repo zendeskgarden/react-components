@@ -3,6 +3,13 @@
 This package includes components relating to textfields in the
 [Garden Design System](https://zendeskgarden.github.io/).
 
+## DEPRECATION WARNING
+
+This package has been deprecated in favor of the API provided in the
+[@zendeskgarden/react-forms](https://garden.zendesk.com/react-components/forms/) package.
+
+This package will stop receiving updates in a future major release.
+
 ## Installation
 
 ```sh
