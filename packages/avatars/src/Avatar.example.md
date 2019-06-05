@@ -144,3 +144,44 @@ const StyledTextAvatar = styled(Avatar)`
   </Row>
 </Grid>;
 ```
+
+### Animation
+
+```jsx
+class Example extends React.Component {
+  constructor() {
+    this.state = {
+      status: undefined,
+      badge: undefined
+    };
+  }
+
+  componentDidMount() {
+    this.timer = setInterval(() => {
+      if (this.state.status === undefined) {
+        this.setState({ status: 'available', badge: undefined });
+      } else if (this.state.status === 'available' && this.state.badge === undefined) {
+        this.setState({ status: 'available', badge: '5' });
+      } else if (this.state.status === 'available' && this.state.badge !== undefined) {
+        this.setState({ status: 'away', badge: undefined });
+      } else {
+        this.setState({ status: undefined, badge: undefined });
+      }
+    }, 3000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+
+  render() {
+    return (
+      <Avatar status={this.state.status} badge={this.state.badge}>
+        <img src="images/avatar-1.png" alt="User avatar" />
+      </Avatar>
+    );
+  }
+}
+
+<Example />;
+```
