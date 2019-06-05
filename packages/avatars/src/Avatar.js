@@ -32,7 +32,7 @@ const Avatar = ({ isSystem, size, status, children, badge, ...other }) => {
   }
 
   const FormattedBadge = () => {
-    if (status === undefined) {
+    if (status === undefined || status === STATUS.AWAY) {
       return null;
     }
 

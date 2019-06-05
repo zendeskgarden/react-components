@@ -50,6 +50,14 @@ describe('Avatar', () => {
     expect(getByTestId('badge')).not.toBeUndefined();
   });
 
+  it('does not render badge if away status is provided', () => {
+    const { queryByTestId } = render(
+      <Avatar status="away" badge={<span data-test-id="badge">2</span>} />
+    );
+
+    expect(queryByTestId('badge')).toBe(null);
+  });
+
   it('renders text element if provided', () => {
     const { getByTestId } = render(
       <Avatar>
