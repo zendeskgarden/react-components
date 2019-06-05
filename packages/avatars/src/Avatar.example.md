@@ -110,7 +110,7 @@ const StyledTextAvatar = styled(Avatar)`
 <Grid>
   <Row>
     <Col md={4}>
-      <Avatar status="active" badge="9+">
+      <Avatar status="available" badge="9+">
         <img src="images/avatar-1.png" alt="Example Avatar" />
       </Avatar>
     </Col>
@@ -127,7 +127,7 @@ const StyledTextAvatar = styled(Avatar)`
   </Row>
   <Row>
     <Col md={4}>
-      <StyledTextAvatar status="active" badge="9+" size="large">
+      <StyledTextAvatar status="available" badge="9+" size="large">
         <Text>JZ</Text>
       </StyledTextAvatar>
     </Col>
