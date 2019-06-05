@@ -6,50 +6,65 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-import Avatar from './Avatar';
+import { render } from 'garden-test-utils';
+import { Avatar, Text } from './';
 
 describe('Avatar', () => {
-  const defaultImage = <img src="test" alt="test" />;
+  it('applies system styling if provided', () => {
+    const { container } = render(<Avatar isSystem />);
 
-  it('applies default styling correctly', () => {
-    const wrapper = shallow(<Avatar>{defaultImage}</Avatar>);
-
-    expect(wrapper).toHaveClassName('c-avatar');
+    expect(container.firstChild).toHaveClass('c-avatar--system');
   });
 
-  it('applies system styling correctly if provided', () => {
-    const wrapper = shallow(<Avatar system>{defaultImage}</Avatar>);
+  it('applies size if provided', () => {
+    const { container } = render(<Avatar size="large" />);
 
-    expect(wrapper).toHaveClassName('c-avatar--system');
+    expect(container.firstChild).toHaveClass('c-avatar--lg');
   });
 
-  describe('Sizes', () => {
-    ['extrasmall', 'small', 'large'].forEach(size => {
-      it(`applies ${size} correctly if provided`, () => {
-        const wrapper = shallow(<Avatar size={size}>{defaultImage}</Avatar>);
-        const classes = {
-          extrasmall: 'c-avatar--xs',
-          small: 'c-avatar--sm',
-          large: 'c-avatar--lg'
-        };
+  it('applies away styling if provided', () => {
+    const { container } = render(<Avatar status="away" />);
 
-        expect(wrapper).toHaveClassName(classes[size]);
-      });
-    });
+    expect(container.firstChild).toHaveClass('is-away');
   });
 
-  describe('States', () => {
-    it('applies disabled styling if provided', () => {
-      const wrapper = shallow(<Avatar disabled>{defaultImage}</Avatar>);
+  it('applies available styling if provided without badge', () => {
+    const { container } = render(<Avatar status="available" />);
 
-      expect(wrapper).toHaveClassName('is-disabled');
-    });
+    expect(container.firstChild).toHaveClass('is-available');
+  });
 
-    it('applies borderless styling if provided', () => {
-      const wrapper = shallow(<Avatar isBorderless>{defaultImage}</Avatar>);
+  it('applies active styling if provided with badge', () => {
+    const { container } = render(
+      <Avatar status="available" badge={<span data-test-id="badge">2</span>} />
+    );
 
-      expect(wrapper).toHaveClassName('c-avatar--borderless');
-    });
+    expect(container.firstChild).toHaveClass('is-active');
+  });
+
+  it('renders badge if provided with status', () => {
+    const { getByTestId } = render(
+      <Avatar status="available" badge={<span data-test-id="badge">2</span>} />
+    );
+
+    expect(getByTestId('badge')).not.toBeUndefined();
+  });
+
+  it('does not render badge if away status is provided', () => {
+    const { queryByTestId } = render(
+      <Avatar status="away" badge={<span data-test-id="badge">2</span>} />
+    );
+
+    expect(queryByTestId('badge')).toBe(null);
+  });
+
+  it('renders text element if provided', () => {
+    const { getByTestId } = render(
+      <Avatar>
+        <Text data-test-id="text">AG</Text>
+      </Avatar>
+    );
+
+    expect(getByTestId('text')).not.toBeUndefined();
   });
 });
