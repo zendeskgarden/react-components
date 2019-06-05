@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-avatars@4.0.12...@zendeskgarden/react-avatars@5.0.0) (2019-06-05)
+
+
+### Features
+
+* **avatars:** upgrade Avatars to new badge styling ([#352](https://github.com/zendeskgarden/react-components/issues/352)) ([d19d306](https://github.com/zendeskgarden/react-components/commit/d19d306))
+
+
+### BREAKING CHANGES
+
+* **avatars:** - Avatars no longer have the `disabled` or `isBorderless` props
+- The `system` prop has been renamed to `isSystem` to better align with other boolean props within Garden
+- Avatars are now able to receive a `status` prop of "available" or "away" as well as a customizable `badge` to show information with the Avatar
+
+
+
+
+
 ## [4.0.12](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-avatars@4.0.11...@zendeskgarden/react-avatars@4.0.12) (2019-05-31)
 
 **Note:** Version bump only for package @zendeskgarden/react-avatars
