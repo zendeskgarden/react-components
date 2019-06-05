@@ -36,7 +36,7 @@ const Avatar = ({ isSystem, size, status, children, badge, ...other }) => {
       return null;
     }
 
-    if (computedStatus === STATUS.AWAY) {
+    if (computedStatus === STATUS.AVAILABLE) {
       return <StyledBadge />;
     }
 
