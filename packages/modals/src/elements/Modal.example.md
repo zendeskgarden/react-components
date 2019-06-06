@@ -111,7 +111,7 @@ and keyboard navigation to the Modal content.
 
 ```jsx
 const { Button } = require('@zendeskgarden/react-buttons/src');
-const { TextField, Label, Input } = require('@zendeskgarden/react-textfields/src');
+const { Field, Label, Input } = require('@zendeskgarden/react-forms/src');
 
 initialState = {
   isModalVisible: false
@@ -125,7 +125,7 @@ const onModalClose = () => setState({ isModalVisible: false });
     <Modal onClose={onModalClose}>
       <Header>Focus Jail Container</Header>
       <Body>
-        <TextField>
+        <Field>
           <Label>Input 1</Label>
           <Input
             placeholder="Focus will be locked in this modal"
@@ -135,11 +135,11 @@ const onModalClose = () => setState({ isModalVisible: false });
               }, 0);
             }}
           />
-        </TextField>
-        <TextField>
+        </Field>
+        <Field>
           <Label>Input 2</Label>
           <Input placeholder="Focus will be locked in this modal" />
-        </TextField>
+        </Field>
       </Body>
       <Footer>
         <FooterItem>

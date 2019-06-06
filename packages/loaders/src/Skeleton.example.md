@@ -1,7 +1,7 @@
 ```jsx
 const { XXXL, XXL, MD } = require('@zendeskgarden/react-typography/src');
 const { Button } = require('@zendeskgarden/react-buttons/src');
-const { Checkbox, Label } = require('@zendeskgarden/react-checkboxes/src');
+const { Field, Checkbox, Label } = require('@zendeskgarden/react-forms/src');
 const { zdColorKale800, zdColorWhite, zdColorBlack } = require('@zendeskgarden/css-variables');
 
 initialState = {
@@ -42,12 +42,14 @@ const StyledCol = styled(Col)`
       </Button>
       <br />
       <br />
-      <Checkbox
-        checked={state.isDarkMode}
-        onChange={e => setState({ isDarkMode: e.target.checked })}
-      >
-        <Label>Enable Dark Styling</Label>
-      </Checkbox>
+      <Field>
+        <Checkbox
+          checked={state.isDarkMode}
+          onChange={e => setState({ isDarkMode: e.target.checked })}
+        >
+          <Label>Enable Dark Styling</Label>
+        </Checkbox>
+      </Field>
     </StyledCol>
   </Row>
 </Grid>;
