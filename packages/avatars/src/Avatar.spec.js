@@ -7,50 +7,64 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import Avatar from './Avatar';
+import { Avatar, Text } from './';
 
 describe('Avatar', () => {
-  const defaultImage = <img src="test" alt="test" />;
-
-  it('applies default styling correctly', () => {
-    const { container } = render(<Avatar>{defaultImage}</Avatar>);
-
-    expect(container.firstChild).toHaveClass('c-avatar');
-  });
-
-  it('applies system styling correctly if provided', () => {
-    const { container } = render(<Avatar system>{defaultImage}</Avatar>);
+  it('applies system styling if provided', () => {
+    const { container } = render(<Avatar isSystem />);
 
     expect(container.firstChild).toHaveClass('c-avatar--system');
   });
 
-  describe('Sizes', () => {
-    ['extrasmall', 'small', 'large'].forEach(size => {
-      it(`applies ${size} correctly if provided`, () => {
-        const classes = {
-          extrasmall: 'c-avatar--xs',
-          small: 'c-avatar--sm',
-          large: 'c-avatar--lg'
-        };
+  it('applies size if provided', () => {
+    const { container } = render(<Avatar size="large" />);
 
-        const { container } = render(<Avatar size={size}>{defaultImage}</Avatar>);
-
-        expect(container.firstChild).toHaveClass(classes[size]);
-      });
-    });
+    expect(container.firstChild).toHaveClass('c-avatar--lg');
   });
 
-  describe('States', () => {
-    it('applies disabled styling if provided', () => {
-      const { container } = render(<Avatar disabled>{defaultImage}</Avatar>);
+  it('applies away styling if provided', () => {
+    const { container } = render(<Avatar status="away" />);
 
-      expect(container.firstChild).toHaveClass('is-disabled');
-    });
+    expect(container.firstChild).toHaveClass('is-away');
+  });
 
-    it('applies borderless styling if provided', () => {
-      const { container } = render(<Avatar isBorderless>{defaultImage}</Avatar>);
+  it('applies available styling if provided without badge', () => {
+    const { container } = render(<Avatar status="available" />);
 
-      expect(container.firstChild).toHaveClass('c-avatar--borderless');
-    });
+    expect(container.firstChild).toHaveClass('is-available');
+  });
+
+  it('applies active styling if provided with badge', () => {
+    const { container } = render(
+      <Avatar status="available" badge={<span data-test-id="badge">2</span>} />
+    );
+
+    expect(container.firstChild).toHaveClass('is-active');
+  });
+
+  it('renders badge if provided with status', () => {
+    const { getByTestId } = render(
+      <Avatar status="available" badge={<span data-test-id="badge">2</span>} />
+    );
+
+    expect(getByTestId('badge')).not.toBeUndefined();
+  });
+
+  it('does not render badge if away status is provided', () => {
+    const { queryByTestId } = render(
+      <Avatar status="away" badge={<span data-test-id="badge">2</span>} />
+    );
+
+    expect(queryByTestId('badge')).toBe(null);
+  });
+
+  it('renders text element if provided', () => {
+    const { getByTestId } = render(
+      <Avatar>
+        <Text data-test-id="text">AG</Text>
+      </Avatar>
+    );
+
+    expect(getByTestId('text')).not.toBeUndefined();
   });
 });

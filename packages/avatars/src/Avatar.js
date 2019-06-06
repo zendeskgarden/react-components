@@ -5,49 +5,65 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import classNames from 'classnames';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
-import AvatarStyles from '@zendeskgarden/css-avatars';
+import { StyledAvatar, StyledBadge } from './styled';
 
-const COMPONENT_ID = 'avatars.avatar';
 const SIZE = {
   EXTRASMALL: 'extrasmall',
   SMALL: 'small',
   LARGE: 'large'
 };
 
+const STATUS = {
+  AVAILABLE: 'available',
+  ACTIVE: 'active',
+  AWAY: 'away'
+};
+
 /**
- * Accepts all `<figure>` props
+ * Accepts all `<figure>` attributes and events
  */
-const Avatar = styled.figure.attrs(props => ({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: classNames(AvatarStyles['c-avatar'], {
-    // Types
-    [AvatarStyles['c-avatar--system']]: props.system,
+const Avatar = ({ isSystem, size, status, children, badge, ...other }) => {
+  let computedStatus = status;
 
-    // Sizes
-    [AvatarStyles['c-avatar--xs']]: props.size === SIZE.EXTRASMALL,
-    [AvatarStyles['c-avatar--sm']]: props.size === SIZE.SMALL,
-    [AvatarStyles['c-avatar--lg']]: props.size === SIZE.LARGE,
+  if (status === STATUS.AVAILABLE && badge !== undefined) {
+    computedStatus = STATUS.ACTIVE;
+  }
 
-    // State
-    [AvatarStyles['is-disabled']]: props.disabled,
-    [AvatarStyles['c-avatar--borderless']]: props.isBorderless
-  })
-}))`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
-`;
+  const FormattedBadge = () => {
+    if (status === undefined || status === STATUS.AWAY) {
+      return null;
+    }
+
+    if (computedStatus === STATUS.AVAILABLE) {
+      return <StyledBadge />;
+    }
+
+    return <StyledBadge>{badge}</StyledBadge>;
+  };
+
+  return (
+    <StyledAvatar
+      isSystem={isSystem}
+      size={size}
+      status={computedStatus}
+      aria-live="polite"
+      {...other}
+    >
+      {children}
+      <FormattedBadge />
+    </StyledAvatar>
+  );
+};
 
 Avatar.propTypes = {
   /** Applies system styling */
-  system: PropTypes.bool,
+  isSystem: PropTypes.bool,
+  badge: PropTypes.node,
   size: PropTypes.oneOf([SIZE.EXTRASMALL, SIZE.SMALL, SIZE.LARGE]),
-  disabled: PropTypes.bool,
-  /** Removes border for improved display on a dark background */
-  isBorderless: PropTypes.bool
+  status: PropTypes.oneOf([STATUS.AVAILABLE, STATUS.AWAY]),
+  children: PropTypes.node
 };
 
 /** @component */

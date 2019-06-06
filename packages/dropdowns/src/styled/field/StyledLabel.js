@@ -11,7 +11,7 @@ import classNames from 'classnames';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 
-const COMPONENT_ID = 'dropdown.label';
+const COMPONENT_ID = 'dropdowns.label';
 
 /**
  * Accepts all `<label>` props

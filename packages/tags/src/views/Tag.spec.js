@@ -29,6 +29,12 @@ describe('Tag', () => {
     expect(container.firstChild).toHaveClass('c-tag--pill');
   });
 
+  it('renders round styling if provided', () => {
+    const { container } = render(<Tag round />);
+
+    expect(container.firstChild).toHaveClass('c-tag--round');
+  });
+
   describe('size', () => {
     it('renders small styling if provided', () => {
       const { container } = render(<Tag size="small" />);

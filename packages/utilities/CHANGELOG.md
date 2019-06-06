@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.7](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-utilities@0.2.6...@zendeskgarden/react-utilities@0.2.7) (2019-05-31)
+
+**Note:** Version bump only for package @zendeskgarden/react-utilities
+
+
+
+
+
 ## [0.2.6](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-utilities@0.2.5...@zendeskgarden/react-utilities@0.2.6) (2019-05-28)
 
 

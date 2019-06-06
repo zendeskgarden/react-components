@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.9](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-radios@3.5.8...@zendeskgarden/react-radios@3.5.9) (2019-06-04)
+
+**Note:** Version bump only for package @zendeskgarden/react-radios
+
+
+
+
+
+## [3.5.8](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-radios@3.5.7...@zendeskgarden/react-radios@3.5.8) (2019-05-31)
+
+**Note:** Version bump only for package @zendeskgarden/react-radios
+
+
+
+
+
 ## [3.5.7](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-radios@3.5.6...@zendeskgarden/react-radios@3.5.7) (2019-05-28)
 
 **Note:** Version bump only for package @zendeskgarden/react-radios

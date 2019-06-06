@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.6](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-dropdowns@0.2.5...@zendeskgarden/react-dropdowns@0.2.6) (2019-06-03)
+
+
+### Bug Fixes
+
+* **dropdowns:** namespace styled elements correctly ([#350](https://github.com/zendeskgarden/react-components/issues/350)) ([7f1c23c](https://github.com/zendeskgarden/react-components/commit/7f1c23c))
+
+
+
+
+
+## [0.2.5](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-dropdowns@0.2.4...@zendeskgarden/react-dropdowns@0.2.5) (2019-05-31)
+
+**Note:** Version bump only for package @zendeskgarden/react-dropdowns
+
+
+
+
+
 ## [0.2.4](https://github.com/zendeskgarden/react-components/compare/@zendeskgarden/react-dropdowns@0.2.3...@zendeskgarden/react-dropdowns@0.2.4) (2019-05-28)
 
 **Note:** Version bump only for package @zendeskgarden/react-dropdowns
