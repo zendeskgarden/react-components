@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>9/9</span>
+        <span class='fraction'>10/10</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -107,11 +107,7 @@
 <a name='L59'></a><a href='#L59'>59</a>
 <a name='L60'></a><a href='#L60'>60</a>
 <a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L62'></a><a href='#L62'>62</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -128,39 +124,27 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
@@ -176,6 +160,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
  * Copyright Zendesk, Inc.
  *
@@ -183,7 +175,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 &nbsp;
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -193,61 +185,57 @@ import { composeEventHandlers } from '@zendeskgarden/react-selection';
 &nbsp;
 const COMPONENT_ID = 'tables.overflow_button';
 &nbsp;
-/**
- * Accepts all `&lt;button&gt;` props
- */
-export const StyledOverflowButton = styled.button.attrs({
+export const StyledOverflowButton = styled.button.attrs(props =&gt; ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   type: 'button',
-  className: props =&gt;
-    classNames(TableStyles['c-table__row__cell__overflow'], {
-      [TableStyles['is-hovered']]: props.hovered,
-      [TableStyles['is-active']]: props.active,
-      [TableStyles['is-focused']]: props.focused
-    })
-})`
+  className: classNames(TableStyles['c-table__row__cell__overflow'], {
+    [TableStyles['is-hovered']]: props.hovered,
+    [TableStyles['is-active']]: props.active,
+    [TableStyles['is-focused']]: props.focused
+  })
+}))`
   ${props =&gt; retrieveTheme(COMPONENT_ID, props)};
 `;
 &nbsp;
-export default class OverflowButton extends Component {
-  static propTypes = {
-    hovered: PropTypes.bool,
-    active: PropTypes.bool,
-    focused: PropTypes.bool
-  };
+/**
+ * Accepts all `&lt;button&gt;` props
+ */
+// eslint-disable-next-line react/prop-types
+const OverflowButton = React.forwardRef(({ onFocus, onBlur, ...other }, ref) =&gt; {
+  const [isFocused, setIsFocused] = useState(false);
 &nbsp;
-  state = {
-    focused: false
-  };
+  return (
+    &lt;StyledOverflowButton
+      onFocus={composeEventHandlers(onFocus, () =&gt; {
+        setIsFocused(true);
+      })}
+      onBlur={composeEventHandlers(onBlur, () =&gt; {
+        setIsFocused(false);
+      })}
+      focused={isFocused}
+      ref={ref}
+      {...other}
+    &gt;
+      &amp;nbsp;
+    &lt;/StyledOverflowButton&gt;
+  );
+});
 &nbsp;
-  render() {
-    const { onFocus, onBlur, ...other } = this.props; // eslint-disable-line react/prop-types
-    const { focused } = this.state;
+OverflowButton.propTypes = {
+  hovered: PropTypes.bool,
+  active: PropTypes.bool,
+  focused: PropTypes.bool
+};
 &nbsp;
-    return (
-      &lt;StyledOverflowButton
-        onFocus={composeEventHandlers(onFocus, () =&gt; {
-          this.setState({ focused: true });
-        })}
-        onBlur={composeEventHandlers(onBlur, () =&gt; {
-          this.setState({ focused: false });
-        })}
-        focused={focused}
-        {...other}
-      &gt;
-        &amp;nbsp;
-      &lt;/StyledOverflowButton&gt;
-    );
-  }
-}
+export default OverflowButton;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 05 2019 19:20:26 GMT+0000 (Coordinated Universal Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jun 07 2019 22:26:42 GMT+0000 (Coordinated Universal Time)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

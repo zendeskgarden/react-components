@@ -22,12 +22,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>9/9</span>
+        <span class='fraction'>10/10</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>1/2</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -118,14 +118,7 @@
 <a name='L70'></a><a href='#L70'>70</a>
 <a name='L71'></a><a href='#L71'>71</a>
 <a name='L72'></a><a href='#L72'>72</a>
-<a name='L73'></a><a href='#L73'>73</a>
-<a name='L74'></a><a href='#L74'>74</a>
-<a name='L75'></a><a href='#L75'>75</a>
-<a name='L76'></a><a href='#L76'>76</a>
-<a name='L77'></a><a href='#L77'>77</a>
-<a name='L78'></a><a href='#L78'>78</a>
-<a name='L79'></a><a href='#L79'>79</a>
-<a name='L80'></a><a href='#L80'>80</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L73'></a><a href='#L73'>73</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -141,25 +134,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -179,23 +153,35 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -211,7 +197,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 &nbsp;
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -221,20 +207,19 @@ import { composeEventHandlers } from '@zendeskgarden/react-selection';
 &nbsp;
 const COMPONENT_ID = 'tables.row';
 &nbsp;
-export const StyledRow = styled.div.attrs({
+export const StyledRow = styled.div.attrs(props =&gt; ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   tabIndex: -1,
   role: 'row',
-  className: props =&gt;
-    classNames(TableStyles['c-table__row'], {
-      [TableStyles['c-table__row--stripe']]: props.striped,
+  className: classNames(TableStyles['c-table__row'], {
+    [TableStyles['c-table__row--stripe']]: props.striped,
 &nbsp;
-      [TableStyles['is-focused']]: props.focused,
-      [TableStyles['is-hovered']]: props.hovered,
-      [TableStyles['is-selected']]: props.selected
-    })
-})`
+    [TableStyles['is-focused']]: props.focused,
+    [TableStyles['is-hovered']]: props.hovered,
+    [TableStyles['is-selected']]: props.selected
+  })
+}))`
   /* stylelint-disable */
   display: flex !important;
   height: auto !important;
@@ -246,50 +231,44 @@ export const StyledRow = styled.div.attrs({
 /**
  * Accepts all `&lt;tr&gt;` props
  */
-export default class Row extends Component {
-  static propTypes = {
-    /** Applies striped styling */
-    striped: PropTypes.bool,
-    /** Applies focused styling */
-    focused: PropTypes.bool,
-    /** Applies hovered styling */
-    hovered: PropTypes.bool,
-    /** Applies selected styling */
-    selected: PropTypes.bool,
-    rowRef: PropTypes.func
-  };
+// eslint-disable-next-line react/prop-types
+const Row = React.forwardRef(({ onFocus, onBlur, focused, ...otherProps }, ref) =&gt; {
+  const [isFocused, setIsFocused] = useState(false);
 &nbsp;
-  state = {
-    focused: false
-  };
+  return (
+    &lt;StyledRow
+      onFocus={composeEventHandlers(onFocus, () =&gt; {
+        setIsFocused(true);
+      })}
+      onBlur={composeEventHandlers(onBlur, () =&gt; {
+        setIsFocused(false);
+      })}
+      focused={typeof focused === 'undefined' ? isFocused : focused}
+      ref={ref}
+      {...otherProps}
+    /&gt;
+  );
+});
 &nbsp;
-  render() {
-    // eslint-disable-next-line react/prop-types
-    const { onFocus, onBlur, rowRef, focused: propFocused, ...otherProps } = this.props;
-    const { focused } = this.state;
+Row.propTypes = {
+  /** Applies striped styling */
+  striped: PropTypes.bool,
+  /** Applies focused styling */
+  focused: PropTypes.bool,
+  /** Applies hovered styling */
+  hovered: PropTypes.bool,
+  /** Applies selected styling */
+  selected: PropTypes.bool
+};
 &nbsp;
-    return (
-      &lt;StyledRow
-        onFocus={composeEventHandlers(onFocus, () =&gt; {
-          this.setState({ focused: true });
-        })}
-        onBlur={composeEventHandlers(onBlur, () =&gt; {
-          this.setState({ focused: false });
-        })}
-        focused={typeof propFocused === 'undefined' ? focused : <span class="branch-1 cbranch-no" title="branch not covered" >propFocused}</span>
-        innerRef={rowRef}
-        {...otherProps}
-      /&gt;
-    );
-  }
-}
+export default Row;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 05 2019 19:20:26 GMT+0000 (Coordinated Universal Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jun 07 2019 22:26:42 GMT+0000 (Coordinated Universal Time)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

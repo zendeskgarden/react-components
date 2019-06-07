@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>9/9</span>
+        <span class='fraction'>8/8</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -32,12 +32,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>3/3</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>9/9</span>
+        <span class='fraction'>7/7</span>
       </div>
     </div>
     <p class="quiet">
@@ -123,8 +123,7 @@
 <a name='L75'></a><a href='#L75'>75</a>
 <a name='L76'></a><a href='#L76'>76</a>
 <a name='L77'></a><a href='#L77'>77</a>
-<a name='L78'></a><a href='#L78'>78</a>
-<a name='L79'></a><a href='#L79'>79</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L78'></a><a href='#L78'>78</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -148,12 +147,11 @@
 <span class="cline-any cline-yes">92x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">92x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">92x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -226,35 +224,34 @@ const isInvalid = validation =&gt; {
   return validation === VALIDATION.WARNING || validation === VALIDATION.ERROR;
 };
 &nbsp;
-const StyledSelect = styled.div.attrs({
+const StyledSelect = styled.div.attrs(props =&gt; ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  'aria-invalid': props =&gt; isInvalid(props.validation),
-  className: props =&gt;
-    classNames(TextStyles['c-txt__input'], TextStyles['c-txt__input--select'], {
-      [TextStyles['c-txt__input--sm']]: props.small,
+  'aria-invalid': isInvalid(props.validation),
+  className: classNames(TextStyles['c-txt__input'], TextStyles['c-txt__input--select'], {
+    [TextStyles['c-txt__input--sm']]: props.small,
 &nbsp;
-      // Unable to use `tag` prop due to it being a valid, non-boolean prop
-      [TextStyles['c-txt__input--tag']]: props.tagLayout,
+    // Unable to use `tag` prop due to it being a valid, non-boolean prop
+    [TextStyles['c-txt__input--tag']]: props.tagLayout,
 &nbsp;
-      // Unable to use `media` prop due to it being a valid, non-boolean prop
-      [TextStyles['c-txt__input--media']]: props.mediaLayout,
-      [TextStyles['c-txt__input--bare']]: props.bare,
-      [TextStyles['c-txt__input--focus-inset']]: props.focusInset,
+    // Unable to use `media` prop due to it being a valid, non-boolean prop
+    [TextStyles['c-txt__input--media']]: props.mediaLayout,
+    [TextStyles['c-txt__input--bare']]: props.bare,
+    [TextStyles['c-txt__input--focus-inset']]: props.focusInset,
 &nbsp;
-      [TextStyles['is-disabled']]: props.disabled,
-      [TextStyles['is-focused']]: props.focused,
-      [TextStyles['is-hovered']]: props.hovered,
-      [TextStyles['is-open']]: props.open,
+    [TextStyles['is-disabled']]: props.disabled,
+    [TextStyles['is-focused']]: props.focused,
+    [TextStyles['is-hovered']]: props.hovered,
+    [TextStyles['is-open']]: props.open,
 &nbsp;
-      [TextStyles['c-txt__input--success']]: props.validation === VALIDATION.SUCCESS,
-      [TextStyles['c-txt__input--warning']]: props.validation === VALIDATION.WARNING,
-      [TextStyles['c-txt__input--error']]: props.validation === VALIDATION.ERROR,
+    [TextStyles['c-txt__input--success']]: props.validation === VALIDATION.SUCCESS,
+    [TextStyles['c-txt__input--warning']]: props.validation === VALIDATION.WARNING,
+    [TextStyles['c-txt__input--error']]: props.validation === VALIDATION.ERROR,
 &nbsp;
-      // RTL
-      [TextStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL
+    [TextStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   cursor: default;
 &nbsp;
   ${props =&gt; retrieveTheme(COMPONENT_ID, props)};
@@ -286,7 +283,7 @@ export default StyledSelect;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 05 2019 19:20:26 GMT+0000 (Coordinated Universal Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jun 07 2019 22:26:42 GMT+0000 (Coordinated Universal Time)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

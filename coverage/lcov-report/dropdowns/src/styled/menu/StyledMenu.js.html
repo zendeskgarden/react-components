@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>24/24</span>
+        <span class='fraction'>23/23</span>
       </div>
     </div>
     <p class="quiet">
@@ -236,8 +236,7 @@
 <a name='L188'></a><a href='#L188'>188</a>
 <a name='L189'></a><a href='#L189'>189</a>
 <a name='L190'></a><a href='#L190'>190</a>
-<a name='L191'></a><a href='#L191'>191</a>
-<a name='L192'></a><a href='#L192'>192</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L191'></a><a href='#L191'>191</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -315,11 +314,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">217x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -506,55 +504,54 @@ const retrieveMenuMargin = ({ arrow, placement }) =&gt; {
 /**
  * Accepts all `&lt;ul&gt;` props
  */
-const StyledMenuView = styled.ul.attrs({
+const StyledMenuView = styled.ul.attrs(props =&gt; ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =&gt;
-    classNames(MenuStyles['c-menu'], {
-      // Size
-      [MenuStyles['c-menu--sm']]: props.small,
+  className: classNames(MenuStyles['c-menu'], {
+    // Size
+    [MenuStyles['c-menu--sm']]: props.small,
 &nbsp;
-      // Placement
-      [MenuStyles['c-menu--up']]:
-        props.placement === PLACEMENT.TOP ||
-        props.placement === PLACEMENT.TOP_START ||
-        props.placement === PLACEMENT.TOP_END,
-      [MenuStyles['c-menu--right']]:
-        props.placement === PLACEMENT.RIGHT ||
-        props.placement === PLACEMENT.RIGHT_START ||
-        props.placement === PLACEMENT.RIGHT_END,
-      [MenuStyles['c-menu--left']]:
-        props.placement === PLACEMENT.LEFT ||
-        props.placement === PLACEMENT.LEFT_START ||
-        props.placement === PLACEMENT.LEFT_END,
-      [MenuStyles['c-menu--down']]:
-        props.placement === PLACEMENT.BOTTOM ||
-        props.placement === PLACEMENT.BOTTOM_START ||
-        props.placement === PLACEMENT.BOTTOM_END,
+    // Placement
+    [MenuStyles['c-menu--up']]:
+      props.placement === PLACEMENT.TOP ||
+      props.placement === PLACEMENT.TOP_START ||
+      props.placement === PLACEMENT.TOP_END,
+    [MenuStyles['c-menu--right']]:
+      props.placement === PLACEMENT.RIGHT ||
+      props.placement === PLACEMENT.RIGHT_START ||
+      props.placement === PLACEMENT.RIGHT_END,
+    [MenuStyles['c-menu--left']]:
+      props.placement === PLACEMENT.LEFT ||
+      props.placement === PLACEMENT.LEFT_START ||
+      props.placement === PLACEMENT.LEFT_END,
+    [MenuStyles['c-menu--down']]:
+      props.placement === PLACEMENT.BOTTOM ||
+      props.placement === PLACEMENT.BOTTOM_START ||
+      props.placement === PLACEMENT.BOTTOM_END,
 &nbsp;
-      // State
-      [MenuStyles['is-open']]: props.animate,
-      [MenuStyles['is-hidden']]: props.hidden,
+    // State
+    [MenuStyles['is-open']]: props.animate,
+    [MenuStyles['is-hidden']]: props.hidden,
 &nbsp;
-      // Arrows
-      [ArrowStyles['c-arrow']]: shouldShowArrow(props),
-      [ArrowStyles['c-arrow--r']]: props.placement === PLACEMENT.LEFT,
-      [ArrowStyles['c-arrow--rt']]: props.placement === PLACEMENT.LEFT_START,
-      [ArrowStyles['c-arrow--rb']]: props.placement === PLACEMENT.LEFT_END,
-      [ArrowStyles['c-arrow--b']]: props.placement === PLACEMENT.TOP,
-      [ArrowStyles['c-arrow--bl']]: props.placement === PLACEMENT.TOP_START,
-      [ArrowStyles['c-arrow--br']]: props.placement === PLACEMENT.TOP_END,
-      [ArrowStyles['c-arrow--l']]: props.placement === PLACEMENT.RIGHT,
-      [ArrowStyles['c-arrow--lt']]: props.placement === PLACEMENT.RIGHT_START,
-      [ArrowStyles['c-arrow--lb']]: props.placement === PLACEMENT.RIGHT_END,
-      [ArrowStyles['c-arrow--t']]: props.placement === PLACEMENT.BOTTOM,
-      [ArrowStyles['c-arrow--tl']]: props.placement === PLACEMENT.BOTTOM_START,
-      [ArrowStyles['c-arrow--tr']]: props.placement === PLACEMENT.BOTTOM_END,
+    // Arrows
+    [ArrowStyles['c-arrow']]: shouldShowArrow(props),
+    [ArrowStyles['c-arrow--r']]: props.placement === PLACEMENT.LEFT,
+    [ArrowStyles['c-arrow--rt']]: props.placement === PLACEMENT.LEFT_START,
+    [ArrowStyles['c-arrow--rb']]: props.placement === PLACEMENT.LEFT_END,
+    [ArrowStyles['c-arrow--b']]: props.placement === PLACEMENT.TOP,
+    [ArrowStyles['c-arrow--bl']]: props.placement === PLACEMENT.TOP_START,
+    [ArrowStyles['c-arrow--br']]: props.placement === PLACEMENT.TOP_END,
+    [ArrowStyles['c-arrow--l']]: props.placement === PLACEMENT.RIGHT,
+    [ArrowStyles['c-arrow--lt']]: props.placement === PLACEMENT.RIGHT_START,
+    [ArrowStyles['c-arrow--lb']]: props.placement === PLACEMENT.RIGHT_END,
+    [ArrowStyles['c-arrow--t']]: props.placement === PLACEMENT.BOTTOM,
+    [ArrowStyles['c-arrow--tl']]: props.placement === PLACEMENT.BOTTOM_START,
+    [ArrowStyles['c-arrow--tr']]: props.placement === PLACEMENT.BOTTOM_END,
 &nbsp;
-      // RTL
-      [MenuStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL
+    [MenuStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   &amp;&amp; {
     position: relative;
   }
@@ -583,7 +580,7 @@ const StyledMaxHeightWrapper = styled.div`
 const StyledMenu = React.forwardRef(({ arrow, placement, maxHeight, children, ...other }, ref) =&gt; {
   return (
     &lt;StyledMenuWrapper arrow={arrow} placement={placement}&gt;
-      &lt;StyledMenuView innerRef={ref} arrow={arrow} placement={placement} {...other}&gt;
+      &lt;StyledMenuView ref={ref} arrow={arrow} placement={placement} {...other}&gt;
         &lt;StyledMaxHeightWrapper maxHeight={maxHeight}&gt;{children}&lt;/StyledMaxHeightWrapper&gt;
       &lt;/StyledMenuView&gt;
     &lt;/StyledMenuWrapper&gt;
@@ -625,7 +622,7 @@ export default StyledMenu;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 05 2019 19:20:26 GMT+0000 (Coordinated Universal Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jun 07 2019 22:26:42 GMT+0000 (Coordinated Universal Time)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

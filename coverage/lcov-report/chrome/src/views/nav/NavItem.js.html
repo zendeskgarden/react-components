@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>9/9</span>
+        <span class='fraction'>8/8</span>
       </div>
     </div>
     <p class="quiet">
@@ -177,41 +177,41 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -278,38 +278,37 @@ const PRODUCT = {
 /**
  * Accepts all `&lt;button&gt;` props
  */
-export const StyledNavItem = styled.button.attrs({
+export const StyledNavItem = styled.button.attrs(props =&gt; ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =&gt;
-    classNames(ChromeStyles['c-chrome__nav__item'], {
-      // Styling
-      [ChromeStyles['c-chrome__nav__item--logo']]: props.logo,
-      [ChromeStyles['c-chrome__nav__item--brandmark']]: props.brandmark,
+  className: classNames(ChromeStyles['c-chrome__nav__item'], {
+    // Styling
+    [ChromeStyles['c-chrome__nav__item--logo']]: props.logo,
+    [ChromeStyles['c-chrome__nav__item--brandmark']]: props.brandmark,
 &nbsp;
-      // Products
-      [ChromeStyles['c-chrome__nav__item--logo--chat']]: props.product === PRODUCT.CHAT,
-      [ChromeStyles['c-chrome__nav__item--logo--connect']]: props.product === PRODUCT.CONNECT,
-      [ChromeStyles['c-chrome__nav__item--logo--explore']]: props.product === PRODUCT.EXPLORE,
-      [ChromeStyles['c-chrome__nav__item--logo--guide']]: props.product === PRODUCT.GUIDE,
-      [ChromeStyles['c-chrome__nav__item--logo--message']]: props.product === PRODUCT.MESSAGE,
-      [ChromeStyles['c-chrome__nav__item--logo--support']]: props.product === PRODUCT.SUPPORT,
-      [ChromeStyles['c-chrome__nav__item--logo--talk']]: props.product === PRODUCT.TALK,
+    // Products
+    [ChromeStyles['c-chrome__nav__item--logo--chat']]: props.product === PRODUCT.CHAT,
+    [ChromeStyles['c-chrome__nav__item--logo--connect']]: props.product === PRODUCT.CONNECT,
+    [ChromeStyles['c-chrome__nav__item--logo--explore']]: props.product === PRODUCT.EXPLORE,
+    [ChromeStyles['c-chrome__nav__item--logo--guide']]: props.product === PRODUCT.GUIDE,
+    [ChromeStyles['c-chrome__nav__item--logo--message']]: props.product === PRODUCT.MESSAGE,
+    [ChromeStyles['c-chrome__nav__item--logo--support']]: props.product === PRODUCT.SUPPORT,
+    [ChromeStyles['c-chrome__nav__item--logo--talk']]: props.product === PRODUCT.TALK,
 &nbsp;
-      // State
-      [ChromeStyles['is-current']]: props.current,
-      [ChromeStyles['is-hovered']]: props.hovered,
-      [ChromeStyles['is-focused']]: props.focused,
-      [ChromeStyles['is-active']]: props.active
-    })
-})`
+    // State
+    [ChromeStyles['is-current']]: props.current,
+    [ChromeStyles['is-hovered']]: props.hovered,
+    [ChromeStyles['is-focused']]: props.focused,
+    [ChromeStyles['is-active']]: props.active
+  })
+}))`
   ${props =&gt; retrieveTheme(COMPONENT_ID, props)};
 `;
 &nbsp;
 /**
  * Accepts all `&lt;button&gt;` props
  */
-const NavItem = ({ logo, brandmark, ...other }) =&gt; (
+const NavItem = React.forwardRef(({ logo, brandmark, ...other }, ref) =&gt; (
   &lt;KeyboardFocusContainer&gt;
     {({ getFocusProps, keyboardFocused }) =&gt; (
       &lt;StyledNavItem
@@ -318,12 +317,13 @@ const NavItem = ({ logo, brandmark, ...other }) =&gt; (
           focused: keyboardFocused,
           logo: logo || brandmark,
           brandmark,
+          ref,
           ...other
         })}
       /&gt;
     )}
   &lt;/KeyboardFocusContainer&gt;
-);
+));
 &nbsp;
 NavItem.propTypes = {
   /** Applies product-specific color palette */
@@ -355,7 +355,7 @@ export default NavItem;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 05 2019 19:20:26 GMT+0000 (Coordinated Universal Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jun 07 2019 22:26:42 GMT+0000 (Coordinated Universal Time)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>
