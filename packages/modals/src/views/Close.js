@@ -15,16 +15,15 @@ import { retrieveTheme } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.close';
 
-const StyledClose = styled.button.attrs({
+const StyledClose = styled.button.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(ModalStyles['c-dialog__close'], {
-      // State
-      [ModalStyles['is-focused']]: props.focused,
-      [ModalStyles['is-hovered']]: props.hovered
-    })
-})`
+  className: classNames(ModalStyles['c-dialog__close'], {
+    // State
+    [ModalStyles['is-focused']]: props.focused,
+    [ModalStyles['is-hovered']]: props.hovered
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

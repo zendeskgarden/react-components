@@ -10,10 +10,8 @@ const types = ['Red', 'Yellow', 'Green', 'Grey', null];
 <Grid>
   <Row>
     {types.map((type, index) => (
-      <Col md={2}>
-        <Code key={index} type={type ? type.toLowerCase() : type}>
-          {type || 'Default (Grey)'}
-        </Code>
+      <Col md={2} key={type}>
+        <Code type={type ? type.toLowerCase() : type}>{type || 'Default (Grey)'}</Code>
       </Col>
     ))}
   </Row>
@@ -28,14 +26,10 @@ const sizes = ['Small', 'Medium', 'Large', null];
 
 <Grid>
   {types.map(type => (
-    <Row>
+    <Row key={type}>
       {sizes.map((size, index) => (
-        <Col md={2}>
-          <Code
-            key={index}
-            size={size ? size.toLowerCase() : size}
-            type={type ? type.toLowerCase() : type}
-          >
+        <Col md={2} key={index}>
+          <Code size={size ? size.toLowerCase() : size} type={type ? type.toLowerCase() : type}>
             {size || 'Default (Medium)'}
           </Code>
         </Col>

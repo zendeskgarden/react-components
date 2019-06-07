@@ -28,27 +28,26 @@ const STATUS = {
 /**
  * Accepts all `<figure>` props
  */
-export const StyledAvatar = styled.figure.attrs({
+export const StyledAvatar = styled.figure.attrs(props => ({
   'data-garden-id': AVATARS_COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(AvatarStyles['c-avatar'], {
-      // Types
-      [AvatarStyles['c-avatar--system']]: props.isSystem,
+  className: classNames(AvatarStyles['c-avatar'], {
+    // Types
+    [AvatarStyles['c-avatar--system']]: props.isSystem,
 
-      // Sizes
-      [AvatarStyles['c-avatar--xs']]: props.size === SIZE.EXTRASMALL,
-      [AvatarStyles['c-avatar--sm']]: props.size === SIZE.SMALL,
-      [AvatarStyles['c-avatar--lg']]: props.size === SIZE.LARGE,
+    // Sizes
+    [AvatarStyles['c-avatar--xs']]: props.size === SIZE.EXTRASMALL,
+    [AvatarStyles['c-avatar--sm']]: props.size === SIZE.SMALL,
+    [AvatarStyles['c-avatar--lg']]: props.size === SIZE.LARGE,
 
-      // Status
-      [AvatarStyles['is-available']]: props.status === STATUS.AVAILABLE,
-      [AvatarStyles['is-active']]: props.status === STATUS.ACTIVE,
-      [AvatarStyles['is-away']]: props.status === STATUS.AWAY,
+    // Status
+    [AvatarStyles['is-available']]: props.status === STATUS.AVAILABLE,
+    [AvatarStyles['is-active']]: props.status === STATUS.ACTIVE,
+    [AvatarStyles['is-away']]: props.status === STATUS.AWAY,
 
-      [AvatarStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    [AvatarStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTheme(AVATARS_COMPONENT_ID, props)};
 `;
 

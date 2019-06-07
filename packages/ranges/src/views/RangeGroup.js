@@ -16,17 +16,16 @@ const COMPONENT_ID = 'ranges.range_group';
 /**
  * Accepts all `<div>` props
  */
-const RangeGroup = styled.div.attrs({
+const RangeGroup = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(RangeStyles['c-range'], {
-      [RangeStyles['c-range--inline']]: props.inline,
+  className: classNames(RangeStyles['c-range'], {
+    [RangeStyles['c-range--inline']]: props.inline,
 
-      // RTL
-      [RangeStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL
+    [RangeStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

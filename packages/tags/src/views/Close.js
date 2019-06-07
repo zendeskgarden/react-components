@@ -16,15 +16,14 @@ const COMPONENT_ID = 'tags.close';
 /**
  * Used to close a Tag. Supports all `<div>` props.
  */
-const Close = styled.div.attrs({
+const Close = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   'aria-label': 'Press delete to remove',
-  className: props =>
-    classNames(TagStyles['c-tag__remove'], {
-      [TagStyles['is-hovered']]: props.hovered
-    })
-})`
+  className: classNames(TagStyles['c-tag__remove'], {
+    [TagStyles['is-hovered']]: props.hovered
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

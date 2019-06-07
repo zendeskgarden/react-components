@@ -18,7 +18,7 @@ export const RadioContext = createContext(undefined);
 /**
  * Accepts all `<input type="radio" />` props
  */
-function Radio({ children, ...props }) {
+const Radio = React.forwardRef(({ children, ...props }, ref) => {
   const { getLabelProps, ...fieldCtx } = useFieldContext();
   const { getFocusProps, keyboardFocused } = useKeyboardFocus();
 
@@ -45,6 +45,7 @@ function Radio({ children, ...props }) {
             {...modifiedFieldCtx.getInputProps({
               'data-garden-id': 'forms.radio',
               'data-garden-version': PACKAGE_VERSION,
+              ref,
               ...keyboardFocusedProps
             })}
           />
@@ -53,7 +54,7 @@ function Radio({ children, ...props }) {
       </RadioContext.Provider>
     </FieldContext.Provider>
   );
-}
+});
 
 Radio.propTypes = {
   children: PropTypes.node

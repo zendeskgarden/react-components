@@ -11,7 +11,7 @@ More complex examples can be implemented with the
 
 ```jsx
 const { KEY_CODES } = require('@zendeskgarden/react-selection/src');
-const { FauxInput } = require('@zendeskgarden/react-textfields/src');
+const { FauxInput } = require('@zendeskgarden/react-forms/src');
 const tags = [];
 
 for (let x = 1; x < 10; x++) {

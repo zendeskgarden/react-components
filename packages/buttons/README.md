@@ -22,7 +22,6 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
  */
 import '@zendeskgarden/react-buttons/dist/styles.css';
 
-import { Fragment } from 'react';
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Button } from '@zendeskgarden/react-buttons';
 
@@ -30,12 +29,12 @@ import { Button } from '@zendeskgarden/react-buttons';
  * Place a `ThemeProvider` at the root of your React application
  */
 <ThemeProvider>
-  <Fragment>
+  <>
     <Button onClick={() => alert('clicked')}>Default</Button>
     <Button primary disabled>
       Disabled Primary button
     </Button>
-  </Fragement>
+  </>
 </ThemeProvider>;
 ```
 

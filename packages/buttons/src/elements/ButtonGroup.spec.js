@@ -7,17 +7,20 @@
  */
 
 import React from 'react';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
+import { render, fireEvent } from 'garden-test-utils';
 
 import ButtonGroup from './ButtonGroup';
-import ButtonGroupView from '../views/button-group/ButtonGroupView';
 import Button from '../views/Button';
 
 describe('ButtonGroup', () => {
-  const basicExample = (
-    <ButtonGroup>
-      <Button key="button-1">Button 1</Button>
-      <Button key="button-2">Button 2</Button>
+  const BasicExample = () => (
+    <ButtonGroup data-test-id="group">
+      <Button key="button-1" data-test-id="button">
+        Button 1
+      </Button>
+      <Button key="button-2" data-test-id="button">
+        Button 2
+      </Button>
     </ButtonGroup>
   );
 
@@ -27,7 +30,7 @@ describe('ButtonGroup', () => {
     console.error = jest.fn();
 
     expect(() => {
-      mountWithTheme(
+      render(
         <ButtonGroup>
           <Button>Invalid Button</Button>
         </ButtonGroup>
@@ -38,49 +41,55 @@ describe('ButtonGroup', () => {
   });
 
   it('applies selected styling to currently selected tab', () => {
-    const wrapper = mountWithTheme(basicExample);
+    const { getAllByTestId } = render(<BasicExample />);
+    const lastButton = getAllByTestId('button')[1];
 
-    wrapper
-      .find(Button)
-      .at(1)
-      .simulate('click');
+    fireEvent.click(lastButton);
 
-    expect(wrapper.find(Button).at(1)).toHaveProp('selected', true);
+    expect(lastButton).toHaveAttribute('aria-pressed', 'true');
   });
 
   it('applies focused styling to currently focused tab', () => {
-    const wrapper = mountWithTheme(basicExample);
+    const { getAllByTestId, getByTestId } = render(<BasicExample />);
 
-    wrapper.find(ButtonGroupView).simulate('focus');
-    expect(wrapper.find(Button).at(0)).toHaveProp('focused', true);
+    fireEvent.focus(getByTestId('group'));
+
+    expect(getAllByTestId('button')[0]).toHaveAttribute('aria-pressed', 'true');
   });
 
   it('applies disabled styling if provided', () => {
-    const wrapper = mountWithTheme(
+    const { getAllByTestId } = render(
       <ButtonGroup>
-        <Button key="button-1">Button 1</Button>
-        <Button disabled>Button 2</Button>
+        <Button key="button-1" data-test-id="button">
+          Button 1
+        </Button>
+        <Button disabled data-test-id="button">
+          Button 2
+        </Button>
       </ButtonGroup>
     );
 
-    expect(wrapper.find(Button).at(1)).toHaveProp('disabled', true);
+    expect(getAllByTestId('button')[1]).toHaveAttribute('disabled');
   });
 
   it('selected first tab if in uncontrolled state', () => {
-    const wrapper = mountWithTheme(basicExample);
+    const { getAllByTestId } = render(<BasicExample />);
 
-    expect(wrapper.find(Button).at(0)).toHaveProp('selected', true);
+    expect(getAllByTestId('button')[0]).toHaveAttribute('aria-pressed', 'true');
   });
 
   it('does not apply props to any component other than Button', () => {
-    const wrapper = mountWithTheme(
+    const { getByTestId, container } = render(
       <ButtonGroup>
         <span>Non button test</span>
-        <Button key="button-1">Button 1</Button>
+        <Button key="button-1" data-test-id="button">
+          Button 1
+        </Button>
       </ButtonGroup>
     );
 
-    wrapper.find(ButtonGroupView).simulate('focus');
-    expect(wrapper.children().at(0)).not.toHaveProp('focused');
+    fireEvent.focus(getByTestId('button'));
+
+    expect(container.firstChild).toHaveFocus();
   });
 });

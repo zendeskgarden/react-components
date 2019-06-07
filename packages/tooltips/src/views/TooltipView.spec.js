@@ -6,29 +6,28 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-import { shallowWithTheme } from '@zendeskgarden/react-testing';
+import { render, renderRtl } from 'garden-test-utils';
 import TooltipView from './TooltipView';
 
 describe('TooltipView', () => {
   it('renders default styling correctly', () => {
-    const wrapper = shallow(<TooltipView />);
+    const { container } = render(<TooltipView />);
 
-    expect(wrapper).toHaveClassName('c-tooltip');
+    expect(container.firstChild).toHaveClass('c-tooltip');
   });
 
   it('renders RTL styling correctly', () => {
-    const wrapper = shallowWithTheme(<TooltipView />, { rtl: true });
+    const { container } = renderRtl(<TooltipView />);
 
-    expect(wrapper).toHaveClassName('is-rtl');
+    expect(container.firstChild).toHaveClass('is-rtl');
   });
 
   describe('Sizing', () => {
     ['medium', 'large', 'extra-large'].forEach(size => {
       it(`renders ${size} size correctly`, () => {
-        const wrapper = shallow(<TooltipView size={size} />);
+        const { container } = render(<TooltipView size={size} />);
 
-        expect(wrapper).toHaveClassName(`c-tooltip--${size}`);
+        expect(container.firstChild).toHaveClass(`c-tooltip--${size}`);
       });
     });
   });
@@ -64,16 +63,16 @@ describe('TooltipView', () => {
       };
 
       it(`renders ${placement} placement correctly`, () => {
-        const wrapper = shallow(<TooltipView placement={placement} />);
+        const { container } = render(<TooltipView placement={placement} />);
 
-        expect(wrapper).toHaveClassName(`c-arrow--${classes[placement]}`);
+        expect(container.firstChild).toHaveClass(`c-arrow--${classes[placement]}`);
       });
     });
 
     it('does not render arrow styling if disabled', () => {
-      const wrapper = shallow(<TooltipView arrow={false} placement="top" />);
+      const { container } = render(<TooltipView arrow={false} placement="top" />);
 
-      expect(wrapper).not.toHaveClassName('c-arrow');
+      expect(container.firstChild).not.toHaveClass('c-arrow');
     });
   });
 });

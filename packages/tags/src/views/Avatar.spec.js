@@ -6,17 +6,17 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from 'garden-test-utils';
 import Avatar from './Avatar';
 
 describe('Avatar', () => {
   it('renders default styling correctly', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Avatar>
         <svg />
       </Avatar>
     );
 
-    expect(wrapper.childAt(0)).toHaveClassName('c-tag__avatar');
+    expect(container.firstChild).toHaveClass('c-tag__avatar');
   });
 });

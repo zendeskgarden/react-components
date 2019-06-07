@@ -1,5 +1,5 @@
 ```jsx
-const { zdSpacingSm } = require('@zendeskgarden/css-variables');
+const { zdSpacingSm, zdSpacingXxs } = require('@zendeskgarden/css-variables');
 const { XL } = require('@zendeskgarden/react-typography/src');
 
 <Table>
@@ -17,7 +17,7 @@ const { XL } = require('@zendeskgarden/react-typography/src');
   <Body>
     <GroupRow>
       <Cell width="100%">
-        Status <strong>Open</strong>
+        Status <strong style={{ marginLeft: zdSpacingXxs }}>Open</strong>
       </Cell>
     </GroupRow>
     <Row>
@@ -34,7 +34,7 @@ const { XL } = require('@zendeskgarden/react-typography/src');
     </Row>
     <GroupRow>
       <Cell width="100%">
-        Status <strong>Closed</strong>
+        Status <strong style={{ marginLeft: zdSpacingXxs }}>Closed</strong>
       </Cell>
     </GroupRow>
     <Row>

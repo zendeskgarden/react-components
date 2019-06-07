@@ -6,30 +6,29 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-import { shallowWithTheme } from '@zendeskgarden/react-testing';
+import { render, renderRtl } from 'garden-test-utils';
 
 import Message from './Message';
 
 describe('Message', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Message />);
+    const { container } = render(<Message />);
 
-    expect(wrapper).toHaveClassName('c-chk__message');
+    expect(container.firstChild).toHaveClass('c-chk__message');
   });
 
   it('renders RTL styling', () => {
-    const wrapper = shallowWithTheme(<Message />, { rtl: true });
+    const { container } = renderRtl(<Message />);
 
-    expect(wrapper).toHaveClassName('is-rtl');
+    expect(container.firstChild).toHaveClass('is-rtl');
   });
 
   describe('validation', () => {
     ['success', 'warning', 'error'].forEach(validation => {
       it(`renders ${validation} styling if provided`, () => {
-        const wrapper = shallow(<Message validation={validation} />);
+        const { container } = render(<Message validation={validation} />);
 
-        expect(wrapper).toHaveClassName(`c-chk__message--${validation}`);
+        expect(container.firstChild).toHaveClass(`c-chk__message--${validation}`);
       });
     });
   });

@@ -6,19 +6,19 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 import Item from './Item';
 
 describe('Item', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Item />);
+    const { container } = render(<Item />);
 
-    expect(wrapper).toHaveClassName('c-breadcrumb__item');
+    expect(container.firstChild).toHaveClass('c-breadcrumb__item');
   });
 
   it('renders current styling', () => {
-    const wrapper = shallow(<Item current />);
+    const { container } = render(<Item current />);
 
-    expect(wrapper).toHaveClassName('is-current');
+    expect(container.firstChild).toHaveClass('is-current');
   });
 });

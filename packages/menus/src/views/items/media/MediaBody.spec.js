@@ -6,13 +6,13 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 import MediaBody from './MediaBody';
 
 describe('MediaBody', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<MediaBody />);
+    const { container } = render(<MediaBody />);
 
-    expect(wrapper).toHaveClassName('c-menu__item--media__body');
+    expect(container.firstChild).toHaveClass('c-menu__item--media__body');
   });
 });

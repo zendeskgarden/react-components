@@ -6,13 +6,13 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 import Paragraph from './Paragraph';
 
 describe('Paragraph', () => {
   it('renders paragraph styling', () => {
-    const wrapper = shallow(<Paragraph />);
+    const { container } = render(<Paragraph />);
 
-    expect(wrapper).toHaveClassName('c-callout__paragraph');
+    expect(container.firstChild).toHaveClass('c-callout__paragraph');
   });
 });

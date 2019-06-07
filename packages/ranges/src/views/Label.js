@@ -16,18 +16,17 @@ const COMPONENT_ID = 'ranges.label';
 /**
  * Accepts all `<label>` props
  */
-const Label = styled.label.attrs({
+const Label = styled.label.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(RangeStyles['c-range__label'], {
-      [RangeStyles['c-range__label--regular']]: props.regular,
-      [RangeStyles['c-range__label--sm']]: props.small,
+  className: classNames(RangeStyles['c-range__label'], {
+    [RangeStyles['c-range__label--regular']]: props.regular,
+    [RangeStyles['c-range__label--sm']]: props.small,
 
-      // RTL
-      [RangeStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL
+    [RangeStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

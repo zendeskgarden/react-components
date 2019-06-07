@@ -6,12 +6,10 @@
  */
 
 import React from 'react';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
+import { render, fireEvent } from 'garden-test-utils';
 import { KEY_CODES } from '@zendeskgarden/react-selection';
 
 import Modal from './Modal';
-import ModalView from '../views/ModalView';
-import Backdrop from '../views/Backdrop';
 import Body from '../views/Body';
 import Footer from '../views/Footer';
 import Header from '../views/Header';
@@ -19,75 +17,98 @@ import Close from '../views/Close';
 
 describe('Modal', () => {
   const MODAL_ID = 'TEST_ID';
-  let wrapper;
   let onCloseSpy;
 
-  const basicExample = onCloseCallback => (
-    <Modal onClose={onCloseCallback} id={MODAL_ID} backdropProps={{ 'data-test-backdrop': true }}>
-      <Header>Example Header</Header>
-      <Body>Body content</Body>
-      <Footer>
-        <button onClick={onCloseCallback}>Confirm</button>
+  const BasicExample = props => (
+    <Modal
+      {...props}
+      id={MODAL_ID}
+      data-test-id="modal"
+      backdropProps={{ 'data-test-id': 'backdrop' }}
+    >
+      <Header data-test-id="header">Example Header</Header>
+      <Body data-test-id="body">Body content</Body>
+      <Footer data-test-id="footer">
+        <button onClick={props.onClose}>Confirm</button>
       </Footer>
-      <Close />
+      <Close data-test-id="close" />
     </Modal>
   );
 
   beforeEach(() => {
     onCloseSpy = jest.fn();
-    wrapper = mountWithTheme(basicExample(onCloseSpy));
   });
 
   describe('componentDidMount()', () => {
     it('should disable overflow scrolling for body element', () => {
-      expect(document.body.style.overflow).toBe('hidden');
+      const { baseElement } = render(<BasicExample />);
+
+      expect(baseElement.style.overflow).toBe('hidden');
     });
   });
 
   describe('componentWillUnmount()', () => {
     it('should apply previous body overflow style', () => {
       document.body.style.overflow = 'auto';
-      wrapper = mountWithTheme(basicExample(onCloseSpy));
-      expect(document.body.style.overflow).toBe('hidden');
+      const { baseElement, unmount } = render(<BasicExample />);
 
-      wrapper.unmount();
-      expect(document.body.style.overflow).toBe('auto');
+      expect(baseElement.style.overflow).toBe('hidden');
+
+      unmount();
+
+      expect(baseElement.style.overflow).toBe('auto');
     });
   });
 
   it('applies backdropProps to Backdrop element', () => {
-    expect(wrapper.find(Backdrop)).toHaveProp('data-test-backdrop', true);
+    const { getByTestId } = render(<BasicExample />);
+
+    expect(getByTestId('backdrop')).not.toBe(null);
   });
 
   it('applies modal props to ModalView element', () => {
-    expect(wrapper.find(ModalView)).toHaveProp('aria-modal', true);
+    const { getByTestId } = render(<BasicExample />);
+
+    expect(getByTestId('modal')).toHaveAttribute('aria-modal', 'true');
   });
 
   it('applies title props to Header element', () => {
-    expect(wrapper.find(Header)).toHaveProp('id', `${MODAL_ID}--title`);
+    const { getByTestId } = render(<BasicExample />);
+
+    expect(getByTestId('header')).toHaveAttribute('id', `${MODAL_ID}--title`);
   });
 
   it('applies content props to Body element', () => {
-    expect(wrapper.find(Body)).toHaveProp('id', `${MODAL_ID}--content`);
+    const { getByTestId } = render(<BasicExample />);
+
+    expect(getByTestId('body')).toHaveAttribute('id', `${MODAL_ID}--content`);
   });
 
   it('applies close props to Close element', () => {
-    expect(wrapper.find(Close)).toHaveProp('aria-label', 'Close modal');
+    const { getByTestId } = render(<BasicExample />);
+
+    expect(getByTestId('close')).toHaveAttribute('aria-label', 'Close modal');
   });
 
   describe('onClose()', () => {
     it('is triggered by backdrop click', () => {
-      wrapper.find(Backdrop).simulate('click');
+      const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
+
+      fireEvent.click(getByTestId('backdrop'));
       expect(onCloseSpy).toHaveBeenCalled();
     });
 
     it('is triggered by Close element click', () => {
-      wrapper.find(Close).simulate('click');
+      const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
+
+      fireEvent.click(getByTestId('close'));
       expect(onCloseSpy).toHaveBeenCalled();
     });
 
     it('is triggered by ESC keydown', () => {
-      wrapper.find(ModalView).simulate('keydown', { keyCode: KEY_CODES.ESCAPE });
+      const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
+
+      fireEvent.keyDown(getByTestId('modal'), { keyCode: KEY_CODES.ESCAPE });
       expect(onCloseSpy).toHaveBeenCalled();
     });
   });

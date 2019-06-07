@@ -22,20 +22,19 @@ const VALIDATION = {
 /**
  * Accepts all `<div>` props
  */
-const StyledMessage = styled.div.attrs({
+const StyledMessage = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   role: 'alert',
-  className: props =>
-    classNames(TextStyles['c-txt__message'], {
-      [TextStyles['c-txt__message--success']]: props.validation === VALIDATION.SUCCESS,
-      [TextStyles['c-txt__message--warning']]: props.validation === VALIDATION.WARNING,
-      [TextStyles['c-txt__message--error']]: props.validation === VALIDATION.ERROR,
+  className: classNames(TextStyles['c-txt__message'], {
+    [TextStyles['c-txt__message--success']]: props.validation === VALIDATION.SUCCESS,
+    [TextStyles['c-txt__message--warning']]: props.validation === VALIDATION.WARNING,
+    [TextStyles['c-txt__message--error']]: props.validation === VALIDATION.ERROR,
 
-      // RTL
-      [TextStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL
+    [TextStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

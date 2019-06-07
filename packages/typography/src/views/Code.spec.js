@@ -6,8 +6,7 @@
  */
 
 import React from 'react';
-import { mount } from 'enzyme';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
+import { render, renderRtl } from 'garden-test-utils';
 import {
   zdColorGreen200,
   zdColorGrey200,
@@ -21,60 +20,63 @@ import Code from './Code';
 
 describe('Code', () => {
   it('applies correct styling with RTL locale', () => {
-    const wrapper = mountWithTheme(<Code />, { rtl: true });
+    const { container } = renderRtl(<Code />);
 
-    expect(wrapper).toHaveStyleRule('direction', 'rtl');
+    expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });
 
   it('applies monospace font styling', () => {
-    const wrapper = mount(<Code />);
+    const { container } = render(<Code />);
 
-    expect(wrapper).toHaveStyleRule('font-family', expect.stringContaining('monospace'));
+    expect(container.firstChild).toHaveStyleRule(
+      'font-family',
+      expect.stringContaining('monospace')
+    );
   });
 
   describe('size', () => {
     it('renders small styling if provided', () => {
-      const wrapper = mount(<Code size="small" />);
+      const { container } = render(<Code size="small" />);
 
-      expect(wrapper).toHaveStyleRule('font-size', zdFontSizeSmMonospace);
+      expect(container.firstChild).toHaveStyleRule('font-size', zdFontSizeSmMonospace);
     });
 
     it('renders medium styling if provided', () => {
-      const wrapper = mount(<Code size="medium" />);
+      const { container } = render(<Code size="medium" />);
 
-      expect(wrapper).toHaveStyleRule('font-size', zdFontSizeMdMonospace);
+      expect(container.firstChild).toHaveStyleRule('font-size', zdFontSizeMdMonospace);
     });
 
     it('renders large styling if provided', () => {
-      const wrapper = mount(<Code size="large" />);
+      const { container } = render(<Code size="large" />);
 
-      expect(wrapper).toHaveStyleRule('font-size', zdFontSizeLgMonospace);
+      expect(container.firstChild).toHaveStyleRule('font-size', zdFontSizeLgMonospace);
     });
   });
 
   describe('visual types', () => {
     it('renders grey styling if provided', () => {
-      const wrapper = mount(<Code type="grey" />);
+      const { container } = render(<Code type="grey" />);
 
-      expect(wrapper).toHaveStyleRule('background-color', zdColorGrey200);
+      expect(container.firstChild).toHaveStyleRule('background-color', zdColorGrey200);
     });
 
     it('renders green styling if provided', () => {
-      const wrapper = mount(<Code type="green" />);
+      const { container } = render(<Code type="green" />);
 
-      expect(wrapper).toHaveStyleRule('background-color', zdColorGreen200);
+      expect(container.firstChild).toHaveStyleRule('background-color', zdColorGreen200);
     });
 
     it('renders red styling if provided', () => {
-      const wrapper = mount(<Code type="red" />);
+      const { container } = render(<Code type="red" />);
 
-      expect(wrapper).toHaveStyleRule('background-color', zdColorRed200);
+      expect(container.firstChild).toHaveStyleRule('background-color', zdColorRed200);
     });
 
     it('renders yellow styling if provided', () => {
-      const wrapper = mount(<Code type="yellow" />);
+      const { container } = render(<Code type="yellow" />);
 
-      expect(wrapper).toHaveStyleRule('background-color', zdColorYellow200);
+      expect(container.firstChild).toHaveStyleRule('background-color', zdColorYellow200);
     });
   });
 });

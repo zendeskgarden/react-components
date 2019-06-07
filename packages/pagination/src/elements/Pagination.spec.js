@@ -6,14 +6,10 @@
  */
 
 import React from 'react';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
+import { render, fireEvent } from 'garden-test-utils';
 import { KEY_CODES } from '@zendeskgarden/react-selection';
 
 import Pagination from './Pagination';
-import PaginationView from '../views/PaginationView';
-import PreviousPage from '../views/PreviousPage';
-import NextPage from '../views/NextPage';
-import Page from '../views/Page';
 
 describe('Pagination', () => {
   let onStateChange;
@@ -39,13 +35,13 @@ describe('Pagination', () => {
 
     beforeEach(() => {
       transformPageProps = jest.fn((pageType, props) => props);
-
-      mountWithTheme(
-        <BasicExample currentPage={1} totalPages={10} transformPageProps={transformPageProps} />
-      );
     });
 
     it('calls provided transform function with correct page type', () => {
+      render(
+        <BasicExample currentPage={1} totalPages={10} transformPageProps={transformPageProps} />
+      );
+
       expect(transformPageProps).toHaveBeenCalledTimes(11);
       expect(transformPageProps.mock.calls[0][0]).toBe('previous');
       expect(transformPageProps.mock.calls[1][0]).toBe('page');
@@ -69,184 +65,170 @@ describe('Pagination', () => {
         return props;
       };
 
-      const wrapper = mountWithTheme(
+      const { container } = render(
         <BasicExample currentPage={1} totalPages={10} transformPageProps={transformPageProps} />
       );
 
-      wrapper
-        .find('ul')
-        .children()
-        .forEach(child => {
-          expect(child).toHaveProp('data-test-id', CUSTOM_PROP_VALUE);
-        });
+      [...container.firstChild.children].forEach(child => {
+        expect(child).toHaveAttribute('data-test-id', CUSTOM_PROP_VALUE);
+      });
     });
   });
 
   describe('Previous Page', () => {
     it('is visible if currentPage is first page', () => {
-      const wrapper = mountWithTheme(<BasicExample currentPage={1} />);
+      const { container } = render(<BasicExample currentPage={1} />);
 
-      expect(wrapper.find(PreviousPage)).toHaveProp('hidden');
+      expect(container.firstChild.children[0]).toHaveAttribute('hidden');
     });
 
     it('is visible otherwise', () => {
-      const wrapper = mountWithTheme(<BasicExample currentPage={2} />);
+      const { container } = render(<BasicExample currentPage={2} />);
 
-      expect(wrapper.find(PreviousPage)).not.toHaveProp('hidden');
+      expect(container.firstChild.children[0]).not.toHaveAttribute('hidden');
     });
 
     it('decrements currentPage when selected', () => {
-      const wrapper = mountWithTheme(<BasicExample currentPage={3} />);
+      const { container } = render(<BasicExample currentPage={3} />);
 
-      wrapper.find(PreviousPage).simulate('click');
+      fireEvent.click(container.firstChild.children[0]);
       expect(onStateChange).toHaveBeenCalledWith({ currentPage: 2 });
     });
 
     it('focuses first page when visibility is lost', () => {
-      const wrapper = mountWithTheme(<Pagination totalPages={5} currentPage={2} />);
-      const paginationWrapper = wrapper.find(PaginationView);
+      const { container } = render(<Pagination totalPages={5} currentPage={2} />);
+      const paginationWrapper = container.firstChild;
 
-      wrapper.simulate('focus');
-      paginationWrapper.simulate('keydown', { keyCode: KEY_CODES.LEFT });
-      paginationWrapper.simulate('keydown', { keyCode: KEY_CODES.LEFT });
-      paginationWrapper.simulate('keydown', { keyCode: KEY_CODES.ENTER });
+      fireEvent.focus(paginationWrapper);
 
-      expect(wrapper.state()).toMatchObject({ currentPage: 1, focusedKey: 1 });
+      fireEvent.keyDown(paginationWrapper, { keyCode: KEY_CODES.LEFT });
+      fireEvent.keyDown(paginationWrapper, { keyCode: KEY_CODES.LEFT });
+      fireEvent.keyDown(paginationWrapper, { keyCode: KEY_CODES.ENTER });
+
+      expect(container.firstChild.children[1]).toHaveClass('is-focused');
+      expect(container.firstChild.children[2]).toHaveClass('is-current');
     });
   });
 
   describe('Next Page', () => {
     it('is visible if currentPage is final page', () => {
-      const wrapper = mountWithTheme(<BasicExample currentPage={5} totalPages={5} />);
+      const { container } = render(<BasicExample currentPage={5} totalPages={5} />);
 
-      expect(wrapper.find(NextPage)).toHaveProp('hidden');
+      expect(
+        container.firstChild.children[container.firstChild.children.length - 1]
+      ).toHaveAttribute('hidden');
     });
 
     it('is visible otherwise', () => {
-      const wrapper = mountWithTheme(<BasicExample currentPage={2} totalPages={5} />);
+      const { container } = render(<BasicExample currentPage={2} totalPages={5} />);
 
-      expect(wrapper.find(NextPage)).not.toHaveProp('hidden');
+      expect(
+        container.firstChild.children[container.firstChild.children.length - 1]
+      ).not.toHaveAttribute('hidden');
     });
 
     it('decrements currentPage when selected', () => {
-      const wrapper = mountWithTheme(<BasicExample currentPage={3} totalPages={5} />);
+      const { container } = render(<BasicExample currentPage={3} totalPages={5} />);
 
-      wrapper.find(NextPage).simulate('click');
+      fireEvent.click(container.firstChild.children[container.firstChild.children.length - 1]);
+
       expect(onStateChange).toHaveBeenCalledWith({ currentPage: 4 });
     });
 
     it('focuses last page when visibility is lost', () => {
-      const wrapper = mountWithTheme(<Pagination totalPages={5} currentPage={4} />);
-      const paginationWrapper = wrapper.find(PaginationView);
+      const { container } = render(
+        <Pagination totalPages={5} currentPage={4} onStateChange={onStateChange} />
+      );
+      const paginationWrapper = container.firstChild;
 
-      wrapper.simulate('focus');
-      paginationWrapper.simulate('keydown', { keyCode: KEY_CODES.RIGHT });
-      paginationWrapper.simulate('keydown', { keyCode: KEY_CODES.RIGHT });
-      paginationWrapper.simulate('keydown', { keyCode: KEY_CODES.ENTER });
+      fireEvent.focus(paginationWrapper);
+      fireEvent.keyDown(paginationWrapper, { keyCode: KEY_CODES.RIGHT });
+      fireEvent.keyDown(paginationWrapper, { keyCode: KEY_CODES.RIGHT });
+      fireEvent.keyDown(paginationWrapper, { keyCode: KEY_CODES.ENTER });
 
-      expect(wrapper.state()).toMatchObject({ currentPage: 5, focusedKey: 5 });
+      expect(onStateChange).toHaveBeenCalledWith({ currentPage: 5 });
     });
   });
 
   describe('Pages', () => {
     it('updates onStateChange with currentPage when selected', () => {
-      const wrapper = mountWithTheme(<BasicExample currentPage={1} totalPages={5} />);
+      const { getByText } = render(<BasicExample currentPage={1} totalPages={5} />);
 
-      wrapper
-        .find(Page)
-        .at(2)
-        .simulate('click');
+      fireEvent.click(getByText('2'));
+
       expect(onStateChange).toHaveBeenCalledWith({ currentPage: 2 });
     });
 
     it('updates onChange with currentPage when selected', () => {
-      const wrapper = mountWithTheme(<BasicExample currentPage={1} totalPages={5} />);
+      const { getByText } = render(<BasicExample currentPage={1} totalPages={5} />);
 
-      wrapper
-        .find(Page)
-        .at(2)
-        .simulate('click');
+      fireEvent.click(getByText('2'));
+
       expect(onChange).toHaveBeenCalledWith(2);
     });
 
     it('hides front gap when currentPage is within padding range', () => {
-      const wrapper = mountWithTheme(<BasicExample currentPage={1} totalPages={25} />);
-      const children = wrapper
-        .find(PaginationView)
-        .children()
-        .at(0)
-        .children();
+      const { container } = render(<BasicExample currentPage={1} totalPages={25} />);
+      const children = container.firstChild.children;
 
-      expect(children.at(0).name()).toBe('PreviousPage');
-      expect(children.at(1).name()).toBe('Page');
-      expect(children.at(2).name()).toBe('Page');
-      expect(children.at(3).name()).toBe('Page');
-      expect(children.at(4).name()).toBe('Page');
-      expect(children.at(5).name()).toBe('Page');
-      expect(children.at(6).name()).toBe('Page');
-      expect(children.at(7).name()).toBe('Page');
-      expect(children.at(8).name()).toBe('Gap');
-      expect(children.at(9).name()).toBe('Page');
-      expect(children.at(10).name()).toBe('NextPage');
+      expect(children[0]).toHaveClass('c-pagination__page--previous');
+      expect(children[1]).toHaveClass('c-pagination__page');
+      expect(children[2]).toHaveClass('c-pagination__page');
+      expect(children[3]).toHaveClass('c-pagination__page');
+      expect(children[4]).toHaveClass('c-pagination__page');
+      expect(children[5]).toHaveClass('c-pagination__page');
+      expect(children[6]).toHaveClass('c-pagination__page');
+      expect(children[7]).toHaveClass('c-pagination__page');
+      expect(children[8]).toHaveClass('c-pagination__page--gap');
+      expect(children[9]).toHaveClass('c-pagination__page');
+      expect(children[10]).toHaveClass('c-pagination__page--next');
     });
 
     it('hides back gap when currentPage is within padding range', () => {
-      const wrapper = mountWithTheme(<BasicExample currentPage={25} totalPages={25} />);
-      const children = wrapper
-        .find(PaginationView)
-        .children()
-        .at(0)
-        .children();
+      const { container } = render(<BasicExample currentPage={25} totalPages={25} />);
+      const children = container.firstChild.children;
 
-      expect(children.at(0).name()).toBe('PreviousPage');
-      expect(children.at(1).name()).toBe('Page');
-      expect(children.at(2).name()).toBe('Gap');
-      expect(children.at(3).name()).toBe('Page');
-      expect(children.at(4).name()).toBe('Page');
-      expect(children.at(5).name()).toBe('Page');
-      expect(children.at(6).name()).toBe('Page');
-      expect(children.at(7).name()).toBe('Page');
-      expect(children.at(8).name()).toBe('Page');
-      expect(children.at(9).name()).toBe('Page');
-      expect(children.at(10).name()).toBe('NextPage');
+      expect(children[0]).toHaveClass('c-pagination__page--previous');
+      expect(children[1]).toHaveClass('c-pagination__page');
+      expect(children[2]).toHaveClass('c-pagination__page--gap');
+      expect(children[3]).toHaveClass('c-pagination__page');
+      expect(children[4]).toHaveClass('c-pagination__page');
+      expect(children[5]).toHaveClass('c-pagination__page');
+      expect(children[6]).toHaveClass('c-pagination__page');
+      expect(children[7]).toHaveClass('c-pagination__page');
+      expect(children[8]).toHaveClass('c-pagination__page');
+      expect(children[9]).toHaveClass('c-pagination__page');
+      expect(children[10]).toHaveClass('c-pagination__page--next');
     });
 
     it('displays both gaps if not within padding range and totalPages is greater than padding limit', () => {
-      const wrapper = mountWithTheme(<BasicExample currentPage={15} totalPages={25} />);
-      const children = wrapper
-        .find(PaginationView)
-        .children()
-        .at(0)
-        .children();
+      const { container } = render(<BasicExample currentPage={15} totalPages={25} />);
+      const children = container.firstChild.children;
 
-      expect(children.at(0).name()).toBe('PreviousPage');
-      expect(children.at(1).name()).toBe('Page');
-      expect(children.at(2).name()).toBe('Gap');
-      expect(children.at(3).name()).toBe('Page');
-      expect(children.at(4).name()).toBe('Page');
-      expect(children.at(5).name()).toBe('Page');
-      expect(children.at(6).name()).toBe('Page');
-      expect(children.at(7).name()).toBe('Page');
-      expect(children.at(8).name()).toBe('Gap');
-      expect(children.at(9).name()).toBe('Page');
-      expect(children.at(10).name()).toBe('NextPage');
+      expect(children[0]).toHaveClass('c-pagination__page--previous');
+      expect(children[1]).toHaveClass('c-pagination__page');
+      expect(children[2]).toHaveClass('c-pagination__page--gap');
+      expect(children[3]).toHaveClass('c-pagination__page');
+      expect(children[4]).toHaveClass('c-pagination__page');
+      expect(children[5]).toHaveClass('c-pagination__page');
+      expect(children[6]).toHaveClass('c-pagination__page');
+      expect(children[7]).toHaveClass('c-pagination__page');
+      expect(children[8]).toHaveClass('c-pagination__page--gap');
+      expect(children[9]).toHaveClass('c-pagination__page');
+      expect(children[10]).toHaveClass('c-pagination__page--next');
     });
 
     it('displays no gaps if less than padding limit', () => {
-      const wrapper = mountWithTheme(<BasicExample currentPage={1} totalPages={5} />);
-      const children = wrapper
-        .find(PaginationView)
-        .children()
-        .at(0)
-        .children();
+      const { container } = render(<BasicExample currentPage={1} totalPages={5} />);
+      const children = container.firstChild.children;
 
-      expect(children.at(0).name()).toBe('PreviousPage');
-      expect(children.at(1).name()).toBe('Page');
-      expect(children.at(2).name()).toBe('Page');
-      expect(children.at(3).name()).toBe('Page');
-      expect(children.at(4).name()).toBe('Page');
-      expect(children.at(5).name()).toBe('Page');
-      expect(children.at(6).name()).toBe('NextPage');
+      expect(children[0]).toHaveClass('c-pagination__page--previous');
+      expect(children[1]).toHaveClass('c-pagination__page');
+      expect(children[2]).toHaveClass('c-pagination__page');
+      expect(children[3]).toHaveClass('c-pagination__page');
+      expect(children[4]).toHaveClass('c-pagination__page');
+      expect(children[5]).toHaveClass('c-pagination__page');
+      expect(children[6]).toHaveClass('c-pagination__page--next');
     });
   });
 });

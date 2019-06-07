@@ -6,19 +6,19 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 import Close from './Close';
 
 describe('Close', () => {
   it('renders default close styling', () => {
-    const wrapper = shallow(<Close />);
+    const { container } = render(<Close />);
 
-    expect(wrapper).toHaveClassName('c-tag__remove');
+    expect(container.firstChild).toHaveClass('c-tag__remove');
   });
 
   it('renders hovered styling correctly', () => {
-    const wrapper = shallow(<Close hovered />);
+    const { container } = render(<Close hovered />);
 
-    expect(wrapper).toHaveClassName('is-hovered');
+    expect(container.firstChild).toHaveClass('is-hovered');
   });
 });

@@ -57,7 +57,7 @@ const Select = ({ children, ...props }) => {
           focused={isOpen ? isOpen : undefined}
           open={isOpen}
           {...selectProps}
-          innerRef={selectRef => {
+          ref={selectRef => {
             // Pass ref to popperJS for positioning
             popperReference(selectRef);
 
@@ -74,7 +74,7 @@ const Select = ({ children, ...props }) => {
               readOnly: true,
               isHidden: true,
               tabIndex: -1,
-              innerRef: hiddenInputRef,
+              ref: hiddenInputRef,
               value: ''
             })}
           />

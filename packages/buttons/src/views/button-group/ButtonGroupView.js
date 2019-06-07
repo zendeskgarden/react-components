@@ -15,14 +15,13 @@ const COMPONENT_ID = 'buttons.button_group_view';
 /**
  * Accepts all `<div>` props
  */
-const ButtonGroupView = styled.div.attrs({
+const ButtonGroupView = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(ButtonStyles['l-btn-group'], {
-      [ButtonStyles['is-rtl']]: isRtl(props)
-    })
-})`
+  className: classNames(ButtonStyles['l-btn-group'], {
+    [ButtonStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   :focus {
     outline: none;
   }

@@ -15,35 +15,35 @@ import ChromeStyles from '@zendeskgarden/css-chrome';
 
 const COMPONENT_ID = 'chrome.subnav_item';
 
-export const StyledSubNavItem = styled.button.attrs({
+export const StyledSubNavItem = styled.button.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(ChromeStyles['c-chrome__subnav__item'], {
-      // State
-      [ChromeStyles['is-current']]: props.current,
-      [ChromeStyles['is-hovered']]: props.hovered,
-      [ChromeStyles['is-focused']]: props.focused
-    })
-})`
+  className: classNames(ChromeStyles['c-chrome__subnav__item'], {
+    // State
+    [ChromeStyles['is-current']]: props.current,
+    [ChromeStyles['is-hovered']]: props.hovered,
+    [ChromeStyles['is-focused']]: props.focused
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
 /**
  * Accepts all `<button>` props
  */
-const SubNavItem = props => (
+const SubNavItem = React.forwardRef((props, ref) => (
   <KeyboardFocusContainer>
     {({ getFocusProps, keyboardFocused }) => (
       <StyledSubNavItem
         {...getFocusProps({
           focused: keyboardFocused,
+          ref,
           ...props
         })}
       />
     )}
   </KeyboardFocusContainer>
-);
+));
 
 SubNavItem.propTypes = {
   /** Indicate which item is current in the nav */

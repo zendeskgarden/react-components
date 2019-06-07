@@ -6,33 +6,32 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-import { shallowWithTheme } from '@zendeskgarden/react-testing';
+import { render, renderRtl } from 'garden-test-utils';
 
 import Grid from './Grid';
 
 describe('Grid', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Grid />);
+    const { container } = render(<Grid />);
 
-    expect(wrapper).toHaveClassName('container-fluid');
+    expect(container.firstChild).toHaveClass('container-fluid');
   });
 
   it('renders RTL styling if provided', () => {
-    const wrapper = shallowWithTheme(<Grid />, { rtl: true });
+    const { container } = renderRtl(<Grid />);
 
-    expect(wrapper).toHaveClassName('is-rtl');
+    expect(container.firstChild).toHaveClass('is-rtl');
   });
 
   it('disables fluid styling if provided', () => {
-    const wrapper = shallow(<Grid fluid={false} />);
+    const { container } = render(<Grid fluid={false} />);
 
-    expect(wrapper).toHaveClassName('container');
+    expect(container.firstChild).toHaveClass('container');
   });
 
   it('renders debug styling if provided', () => {
-    const wrapper = shallow(<Grid debug />);
+    const { container } = render(<Grid debug />);
 
-    expect(wrapper).toHaveClassName('is-debug');
+    expect(container.firstChild).toHaveClass('is-debug');
   });
 });

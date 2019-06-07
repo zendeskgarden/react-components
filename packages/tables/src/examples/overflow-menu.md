@@ -15,7 +15,7 @@ const { XL } = require('@zendeskgarden/react-typography/src');
 
 const OverflowMenu = () => (
   <Dropdown onSelect={selectedKey => alert(selectedKey)}>
-    <Trigger refKey="innerRef">
+    <Trigger>
       <OverflowButton aria-label="Row actions" />
     </Trigger>
     <Menu

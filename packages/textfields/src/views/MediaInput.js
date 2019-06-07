@@ -6,6 +6,7 @@
  */
 
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import styled from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
@@ -23,11 +24,11 @@ const VALIDATION = {
 /**
  * Accepts all `<input>` props
  */
-const MediaInput = styled(Input).attrs({
+const MediaInput = styled(Input).attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: TextStyles['c-txt__input--media__body']
-})`
+  className: classNames(props.className, TextStyles['c-txt__input--media__body'])
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

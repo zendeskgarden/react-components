@@ -16,14 +16,13 @@ const COMPONENT_ID = 'chrome.subnav_item_text';
 /**
  * Accepts all `<span>` props
  */
-const SubNavItemText = styled.span.attrs({
+const SubNavItemText = styled.span.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(ChromeStyles['c-chrome__subnav__item__text'], {
-      [ChromeStyles['c-chrome__subnav__item__text--wrap']]: props.isWrapped
-    })
-})`
+  className: classNames(ChromeStyles['c-chrome__subnav__item__text'], {
+    [ChromeStyles['c-chrome__subnav__item__text--wrap']]: props.isWrapped
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

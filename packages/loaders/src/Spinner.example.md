@@ -20,7 +20,6 @@ const { zdColorBlue500 } = require('@zendeskgarden/css-variables');
 ```jsx
 const { zdColorBlue500, zdColorGrey500 } = require('@zendeskgarden/css-variables');
 const { RangeField, Label, Range } = require('@zendeskgarden/react-ranges/src');
-const Test = require('@zendeskgarden/react-select/src');
 const {
   Dropdown,
   Field,

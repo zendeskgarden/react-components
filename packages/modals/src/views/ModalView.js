@@ -16,21 +16,20 @@ const COMPONENT_ID = 'modals.modal_view';
 /**
  * Accepts all `<div>` props
  */
-const ModalView = styled.div.attrs({
+const ModalView = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(ModalStyles['c-dialog'], {
-      // Sizing
-      [ModalStyles['c-dialog--large']]: props.large,
+  className: classNames(ModalStyles['c-dialog'], {
+    // Sizing
+    [ModalStyles['c-dialog--large']]: props.large,
 
-      // States
-      [ModalStyles['is-open']]: props.animate,
+    // States
+    [ModalStyles['is-open']]: props.animate,
 
-      // RTL
-      [ModalStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL
+    [ModalStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

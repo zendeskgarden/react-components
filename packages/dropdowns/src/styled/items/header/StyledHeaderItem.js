@@ -18,14 +18,13 @@ const COMPONENT_ID = 'dropdowns.header_item';
 /**
  * Accepts all `<li>` props
  */
-const StyledHeaderItem = styled(StyledItem).attrs({
+const StyledHeaderItem = styled(StyledItem).attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    className(MenuStyles['c-menu__item--header'], {
-      [MenuStyles['c-menu__item--header--icon']]: props.containsIcon
-    })
-})`
+  className: className(props.className, MenuStyles['c-menu__item--header'], {
+    [MenuStyles['c-menu__item--header--icon']]: props.containsIcon
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

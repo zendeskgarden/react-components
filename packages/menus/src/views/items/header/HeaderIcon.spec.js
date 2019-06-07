@@ -6,17 +6,17 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 import HeaderIcon from './HeaderIcon';
 
 describe('HeaderIcon', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(
+    const { container } = render(
       <HeaderIcon>
         <svg />
       </HeaderIcon>
     );
 
-    expect(wrapper).toHaveClassName('c-menu__item--header__icon');
+    expect(container.firstChild).toHaveClass('c-menu__item--header__icon');
   });
 });

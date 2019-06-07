@@ -9,7 +9,7 @@
       </Radio>
     </Col>
     <Col md={4}>
-      <Radio checked>
+      <Radio checked readOnly>
         <Label>Checked Label</Label>
       </Radio>
     </Col>

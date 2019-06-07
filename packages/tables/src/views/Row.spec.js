@@ -6,57 +6,57 @@
  */
 
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { render, fireEvent } from 'garden-test-utils';
 
-import Row, { StyledRow } from './Row';
+import Row from './Row';
 
 describe('Row', () => {
   it('applies default styling by default', () => {
-    const wrapper = shallow(<StyledRow />);
+    const { container } = render(<Row />);
 
-    expect(wrapper).toHaveClassName('c-table__row');
+    expect(container.firstChild).toHaveClass('c-table__row');
   });
 
   it('applies hovered styling if provided', () => {
-    const wrapper = shallow(<StyledRow hovered />);
+    const { container } = render(<Row hovered />);
 
-    expect(wrapper).toHaveClassName('is-hovered');
+    expect(container.firstChild).toHaveClass('is-hovered');
   });
 
   it('applies selected styling if provided', () => {
-    const wrapper = shallow(<StyledRow selected />);
+    const { container } = render(<Row selected />);
 
-    expect(wrapper).toHaveClassName('is-selected');
+    expect(container.firstChild).toHaveClass('is-selected');
   });
 
   it('applies focused styling if provided', () => {
-    const wrapper = shallow(<StyledRow focused />);
+    const { container } = render(<Row focused />);
 
-    expect(wrapper).toHaveClassName('is-focused');
+    expect(container.firstChild).toHaveClass('is-focused');
   });
 
   it('applies striped styling if provided', () => {
-    const wrapper = shallow(<StyledRow striped />);
+    const { container } = render(<Row striped />);
 
-    expect(wrapper).toHaveClassName('c-table__row--stripe');
+    expect(container.firstChild).toHaveClass('c-table__row--stripe');
   });
 
   describe('onFocus', () => {
     it('applies focused state', () => {
-      const wrapper = mount(<Row />);
+      const { container } = render(<Row />);
 
-      wrapper.find(StyledRow).simulate('focus');
-      expect(wrapper.find(StyledRow)).toHaveProp('focused', true);
+      fireEvent.focus(container.firstChild);
+      expect(container.firstChild).toHaveClass('is-focused');
     });
   });
 
   describe('onBlur', () => {
     it('removes focused state', () => {
-      const wrapper = mount(<Row />);
+      const { container } = render(<Row />);
 
-      wrapper.find(StyledRow).simulate('focus');
-      wrapper.find(StyledRow).simulate('blur');
-      expect(wrapper.find(StyledRow)).toHaveProp('focused', false);
+      fireEvent.focus(container.firstChild);
+      fireEvent.blur(container.firstChild);
+      expect(container.firstChild).not.toHaveClass('is-focused');
     });
   });
 });

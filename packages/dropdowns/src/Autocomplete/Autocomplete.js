@@ -61,7 +61,7 @@ const Autocomplete = ({ children, ...props }) => {
           hovered={isLabelHovered && !isOpen}
           focused={isOpen ? true : isFocused}
           open={isOpen}
-          innerRef={selectRef => {
+          ref={selectRef => {
             // Pass ref to popperJS for positioning
             popperReference(selectRef);
 
@@ -84,7 +84,7 @@ const Autocomplete = ({ children, ...props }) => {
               onBlur: () => {
                 setIsFocused(false);
               },
-              innerRef: inputRef
+              ref: inputRef
             })}
           />
         </StyledSelect>

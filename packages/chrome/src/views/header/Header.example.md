@@ -1,5 +1,5 @@
 ```jsx
-const { Toggle, Label } = require('@zendeskgarden/react-toggles/src');
+const { Field, Toggle, Label } = require('@zendeskgarden/react-forms/src');
 const SupportIcon = require('@zendeskgarden/svg-icons/src/26/relationshape-support.svg').default;
 const HelpIcon = require('@zendeskgarden/svg-icons/src/16/lifesaver-stroke.svg').default;
 const MenuTrayIcon = require('@zendeskgarden/svg-icons/src/16/grid-2x2-stroke.svg').default;
@@ -10,12 +10,14 @@ initialState = {
 };
 
 <div>
-  <Toggle
-    checked={state.standalone}
-    onChange={event => setState({ standalone: event.target.checked })}
-  >
-    <Label style={{ marginBottom: 8 }}>Enable Standalone Mode</Label>
-  </Toggle>
+  <Field>
+    <Toggle
+      checked={state.standalone}
+      onChange={event => setState({ standalone: event.target.checked })}
+    >
+      <Label style={{ marginBottom: 8 }}>Enable Standalone Mode</Label>
+    </Toggle>
+  </Field>
   <Chrome style={{ height: 200 }}>
     <Body>
       <Header standalone={state.standalone}>

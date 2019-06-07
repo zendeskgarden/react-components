@@ -7,6 +7,7 @@
 
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import classNames from 'classnames';
 import ButtonStyles from '@zendeskgarden/css-buttons';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 
@@ -19,11 +20,11 @@ const SIZE = {
   LARGE: 'large'
 };
 
-const IconButton = styled(Button).attrs({
+const IconButton = styled(Button).attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: ButtonStyles['c-btn--icon']
-})`
+  className: classNames(props.className, ButtonStyles['c-btn--icon'])
+}))`
   ${props => retrieveTheme('buttons.icon_button', props)};
 `;
 

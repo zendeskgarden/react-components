@@ -13,7 +13,7 @@ import TableOfContentsRenderer from 'react-styleguidist/lib/rsg-components/Table
 import { Button, Anchor } from '../../../packages/buttons/src';
 import { ThemeProvider } from '../../../packages/theming/src';
 import { Tooltip, Title } from '../../../packages/tooltips/src';
-import { Toggle, Label } from '../../../packages/toggles/src';
+import { Field, Toggle, Label } from '../../../packages/forms/src';
 import ChangelogModal from './Changelog';
 import Spacer from './Spacer';
 import PACKAGE_JSON from 'package.json';
@@ -106,18 +106,20 @@ class TableOfContents extends Component {
                 size="extra-large"
                 trigger={
                   <div>
-                    <Toggle
-                      checked={isRtl}
-                      onChange={() => {
-                        if (isRtl) {
-                          location.search = '';
-                        } else {
-                          location.search = '?isRtl';
-                        }
-                      }}
-                    >
-                      <Label>RTL Locale</Label>
-                    </Toggle>
+                    <Field>
+                      <Toggle
+                        checked={isRtl}
+                        onChange={() => {
+                          if (isRtl) {
+                            location.search = '';
+                          } else {
+                            location.search = '?isRtl';
+                          }
+                        }}
+                      >
+                        <Label>RTL Locale</Label>
+                      </Toggle>
+                    </Field>
                   </div>
                 }
               >
