@@ -27,5 +27,6 @@
       }
     }
   ],
+  "labels": ["PR: Internal :seedling:"],
   "reviewers": ["ryanseddon", "jzempel", "austin94"]
 }
