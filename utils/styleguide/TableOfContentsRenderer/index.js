@@ -17,7 +17,7 @@ import { Field, Toggle, Label } from '../../../packages/forms/src';
 import ChangelogModal from './Changelog';
 import Spacer from './Spacer';
 import PACKAGE_JSON from 'package.json';
-import CHANGELOG from 'CHANGELOG.md';
+import CHANGELOG from '../../../CHANGELOG.md';
 
 const TableOfContentsChildrenWrapper = styled.div`
   a:hover {

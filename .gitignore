@@ -1,6 +1,7 @@
 # General ignores
 node_modules
 *.log
+.changelog
 
 # Package specific
 packages/**/dist
