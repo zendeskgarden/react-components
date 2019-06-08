@@ -1,7 +1,9 @@
 {
-  "version": "5.0.0",
+  "version": "6.0.0",
   "npmClient": "yarn",
-  "npmClientArgs": ["--no-lockfile"],
+  "npmClientArgs": [
+    "--no-lockfile"
+  ],
   "changelog": {
     "repo": "zendeskgarden/react-components",
     "cacheDir": ".changelog",
@@ -13,7 +15,12 @@
       "PR: Internal :seedling:": ":seedling: Internal"
     }
   },
-  "ignoreChanges": ["*.md", "*.spec.js", "**/__snapshots__/**", "styleguide.config.js"],
+  "ignoreChanges": [
+    "*.md",
+    "*.spec.js",
+    "**/__snapshots__/**",
+    "styleguide.config.js"
+  ],
   "command": {
     "publish": {
       "registry": "https://registry.npmjs.org/"
