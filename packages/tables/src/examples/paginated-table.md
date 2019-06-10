@@ -56,7 +56,7 @@ const getPagedData = (data, currentPage, pageSize) => {
     <Body>
       {getPagedData(data, state.currentPage, state.pageSize).map(row => (
         <Row key={row.id}>
-          <Cell width="45px">
+          <Cell width="56px">
             <Avatar size="small">
               <img src={row.avatar} alt="Example Avatar" />
             </Avatar>
