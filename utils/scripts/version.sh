@@ -51,7 +51,7 @@ git add CHANGELOG.md
 git commit -m "Add $current_tag to CHANGELOG.md [skip ci]" --no-verify --quiet
 
 echo "INFO: Pushing updates..."
-git push master
+git push origin master
 
 echo "INFO: Versioning process complete..."
 echo "\n\nDon't forget to approve the draft release:\nhttps://github.com/zendeskgarden/react-components/releases"
