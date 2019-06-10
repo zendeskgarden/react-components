@@ -18,7 +18,7 @@
 
 <!--
   BONUS POINTS: spin up and share an example via
-  https://codesandbox.io/s/43nwpkn717 or https://codesandbox.io/s/new or https://stackblitz.com/fork/react.
+  https://codesandbox.io/s/github/zendeskgarden/react-components/tree/master/examples/codesandbox/garden-create-react-app or https://codesandbox.io/s/new or https://stackblitz.com/fork/react.
 -->
 
 ### Fine Print

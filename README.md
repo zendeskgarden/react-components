@@ -173,7 +173,7 @@ render(<App />, document.getElementById('root'));
 
 Try out Garden React components in a mock product environment.
 
-[![Edit Garden Create-React-App](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/43nwpkn717)
+[![Edit Garden Create-React-App](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/zendeskgarden/react-components/tree/master/examples/codesandbox/garden-create-react-app)
 
 ## Contribution
 
