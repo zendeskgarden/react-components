@@ -10,12 +10,6 @@
     "test": "react-scripts test"
   },
   "dependencies": {
-    "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
-  },
-  "devDependencies": {
     "@zendeskgarden/css-bedrock": "^7.0.25",
     "@zendeskgarden/css-variables": "^6.3.4",
     "@zendeskgarden/react-avatars": "^6.0.0",
@@ -34,6 +28,10 @@
     "@zendeskgarden/react-theming": "^6.0.0",
     "@zendeskgarden/react-typography": "^6.0.0",
     "@zendeskgarden/svg-icons": "^6.3.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1",
     "styled-components": "^4.3.1"
   },
   "keywords": [
