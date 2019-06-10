@@ -13,6 +13,7 @@ set -e
 
 echo "INFO: Pulling recent changes..."
 git pull
+git fetch --tags
 
 echo "INFO: Validating environment..."
 yarn install --ignore-scripts
@@ -29,7 +30,7 @@ previous_tag=$(git describe --abbrev=0 --tags $current_tag^)
 
 echo "INFO: Generating changelog..."
 temp_changelog_path="CHANGELOG.temp"
-node node_modules/.bin/lerna-changelog --tag-from $previous_tag --tag-to $current_tag > $temp_changelog_path
+GITHUB_AUTH=$GITHUB_AUTH node node_modules/.bin/lerna-changelog --tag-from $previous_tag --tag-to $current_tag > $temp_changelog_path
 
 echo "INFO: Allowing changelog edits..."
 # Retrieve default git editor
@@ -41,7 +42,7 @@ changelog=$(cat $temp_changelog_path)
 rm $temp_changelog_path
 
 echo "INFO: Publishing Github release..."
-echo "$changelog" | node utils/scripts/github-release.js $current_tag
+echo "$changelog" | GITHUB_AUTH=$GITHUB_AUTH node utils/scripts/github-release.js $current_tag
 
 echo "INFO: Updating CHANGELOG.md..."
 echo "$changelog" | node utils/scripts/update-changelog.js
