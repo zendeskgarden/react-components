@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "6.0.0",
+  "version": "6.0.1",
   "main": "./dist/index.js",
   "files": [
     "dist"
@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@zendeskgarden/css-forms": "7.0.10",
-    "@zendeskgarden/react-theming": "^6.0.0"
+    "@zendeskgarden/react-theming": "^6.0.1"
   },
   "keywords": [
     "components",
