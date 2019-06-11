@@ -11,22 +11,21 @@ import classNames from 'classnames';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 
-const COMPONENT_ID = 'dropdowns.text_group';
+const COMPONENT_ID = 'dropdowns.field';
 
 /**
  * Accepts all `<div>` props
  */
-const StyledField = styled.div.attrs({
+const StyledField = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(TextStyles['c-txt'], {
-      [TextStyles['c-txt--inline']]: props.inline,
+  className: classNames(TextStyles['c-txt'], {
+    [TextStyles['c-txt--inline']]: props.inline,
 
-      // RTL
-      [TextStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL
+    [TextStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

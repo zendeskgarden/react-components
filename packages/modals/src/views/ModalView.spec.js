@@ -6,32 +6,31 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-import { shallowWithTheme } from '@zendeskgarden/react-testing';
+import { render, renderRtl } from 'garden-test-utils';
 import ModalView from './ModalView';
 
 describe('ModalView', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<ModalView />);
+    const { container } = render(<ModalView />);
 
-    expect(wrapper).toHaveClassName('c-dialog');
+    expect(container.firstChild).toHaveClass('c-dialog');
   });
 
   it('renders RTL styling if provided', () => {
-    const wrapper = shallowWithTheme(<ModalView />, { rtl: true });
+    const { container } = renderRtl(<ModalView />);
 
-    expect(wrapper).toHaveClassName('is-rtl');
+    expect(container.firstChild).toHaveClass('is-rtl');
   });
 
   it('renders large styling if provided', () => {
-    const wrapper = shallow(<ModalView large />);
+    const { container } = render(<ModalView large />);
 
-    expect(wrapper).toHaveClassName('c-dialog--large');
+    expect(container.firstChild).toHaveClass('c-dialog--large');
   });
 
   it('renders animate styling if provided', () => {
-    const wrapper = shallow(<ModalView animate />);
+    const { container } = render(<ModalView animate />);
 
-    expect(wrapper).toHaveClassName('is-open');
+    expect(container.firstChild).toHaveClass('is-open');
   });
 });

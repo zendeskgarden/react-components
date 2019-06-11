@@ -6,15 +6,15 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 
 import GroupRow from './GroupRow';
 
 describe('GroupRow', () => {
   it('applies default styling by default', () => {
-    const wrapper = shallow(<GroupRow />);
+    const { container } = render(<GroupRow />);
 
-    expect(wrapper).toHaveClassName('c-table__row');
-    expect(wrapper).toHaveClassName('c-table__row--group');
+    expect(container.firstChild).toHaveClass('c-table__row');
+    expect(container.firstChild).toHaveClass('c-table__row--group');
   });
 });

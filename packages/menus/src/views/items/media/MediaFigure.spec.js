@@ -6,17 +6,17 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 import MediaFigure from './MediaFigure';
 
 describe('MediaFigure', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(
+    const { container } = render(
       <MediaFigure>
         <svg />
       </MediaFigure>
     );
 
-    expect(wrapper).toHaveClassName('c-menu__item--media__figure');
+    expect(container.firstChild).toHaveClass('c-menu__item--media__figure');
   });
 });

@@ -239,7 +239,7 @@ export default class Select extends ControlledComponent {
               disabled: selectDisabled,
               small,
               ...otherSelectProps,
-              inputRef: ref => {
+              ref: ref => {
                 this.triggerRef = ref;
                 triggerRef(ref);
                 selectRef && selectRef(ref);
@@ -280,7 +280,7 @@ export default class Select extends ControlledComponent {
             {...getSelectProps({
               placement,
               animate,
-              dropdownRef,
+              ref: dropdownRef,
               small,
               style: {
                 width: this.triggerRef && this.triggerRef.getBoundingClientRect().width,

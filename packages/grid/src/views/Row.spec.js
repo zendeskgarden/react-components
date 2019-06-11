@@ -6,28 +6,28 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 import Row from './Row';
 
 describe('Row', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Row />);
+    const { container } = render(<Row />);
 
-    expect(wrapper).toHaveClassName('row');
+    expect(container.firstChild).toHaveClass('row');
   });
 
   it('renders without gutters if provided', () => {
-    const wrapper = shallow(<Row gutters={false} />);
+    const { container } = render(<Row gutters={false} />);
 
-    expect(wrapper).toHaveClassName('no-gutters');
+    expect(container.firstChild).toHaveClass('no-gutters');
   });
 
   describe('Align Items', () => {
     ['start', 'center', 'end'].forEach(alignment => {
       it(`renders ${alignment} alignment if provided`, () => {
-        const wrapper = shallow(<Row alignItems={alignment} />);
+        const { container } = render(<Row alignItems={alignment} />);
 
-        expect(wrapper).toHaveClassName(`align-items-${alignment}`);
+        expect(container.firstChild).toHaveClass(`align-items-${alignment}`);
       });
     });
   });
@@ -35,9 +35,9 @@ describe('Row', () => {
   describe('Justify Content', () => {
     ['start', 'center', 'end', 'around', 'between'].forEach(justifyContent => {
       it(`renders ${justifyContent} justify content if provided`, () => {
-        const wrapper = shallow(<Row justifyContent={justifyContent} />);
+        const { container } = render(<Row justifyContent={justifyContent} />);
 
-        expect(wrapper).toHaveClassName(`justify-content-${justifyContent}`);
+        expect(container.firstChild).toHaveClass(`justify-content-${justifyContent}`);
       });
     });
   });

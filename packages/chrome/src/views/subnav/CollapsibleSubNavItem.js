@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Component } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
@@ -19,14 +19,13 @@ const COMPONENT_ID = 'chrome.collapsible_sub_nav_item';
 const PANEL_COMPONENT_ID = 'chrome.collapsible_sub_nav_item_panel';
 
 /** Accepts all `<div>` props */
-export const StyledSubNavItemHeader = styled(SubNavItem).attrs({
+export const StyledSubNavItemHeader = styled(SubNavItem).attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(ChromeStyles['c-chrome__subnav__item--header'], {
-      [ChromeStyles['is-expanded']]: props.expanded
-    })
-})`
+  className: classNames(ChromeStyles['c-chrome__subnav__item--header'], {
+    [ChromeStyles['is-expanded']]: props.expanded
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
@@ -35,14 +34,13 @@ StyledSubNavItemHeader.propTypes = {
 };
 
 /** Accepts all `<div>` props */
-export const StyledSubNavPanel = styled.div.attrs({
+export const StyledSubNavPanel = styled.div.attrs(props => ({
   'data-garden-id': PANEL_COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(ChromeStyles['c-chrome__subnav__panel'], {
-      [ChromeStyles['is-hidden']]: props.isHidden
-    })
-})`
+  className: classNames(ChromeStyles['c-chrome__subnav__panel'], {
+    [ChromeStyles['is-hidden']]: props.isHidden
+  })
+}))`
   ${props => retrieveTheme(PANEL_COMPONENT_ID, props)};
 `;
 
@@ -53,57 +51,56 @@ StyledSubNavPanel.propTypes = {
 /**
  * Accepts all `<button>` props
  */
-export default class CollapsibleSubNavItem extends Component {
-  static propTypes = {
-    header: PropTypes.any,
-    expanded: PropTypes.bool,
-    hovered: PropTypes.bool,
-    focused: PropTypes.bool,
-    onChange: PropTypes.func,
-    children: PropTypes.node
-  };
+const CollapsibleSubNavItem = ({ header, children, expanded, onChange, ...other }) => {
+  const panelRef = useRef(undefined);
 
-  componentDidUpdate() {
-    if (this.props.expanded && this.panelRef) {
-      this.panelRef.style.maxHeight = `${this.panelRef.scrollHeight}px`; // eslint-disable-line react/prop-types
+  useEffect(() => {
+    if (expanded && panelRef.current) {
+      panelRef.current.style.maxHeight = `${panelRef.current.scrollHeight}px`;
     }
-  }
+  }, [expanded]);
 
-  render() {
-    const { header, children, expanded, onChange, ...other } = this.props;
-
-    return (
-      <AccordionContainer
-        expanded={expanded}
-        onStateChange={newState => {
-          onChange && onChange(newState.expanded);
-        }}
-      >
-        {({ getHeadingProps, getHeadingButtonProps, getPanelProps }) => (
-          <div>
-            <div {...getHeadingProps({ headingLevel: 2 })}>
-              <StyledSubNavItemHeader
-                {...getHeadingButtonProps({
-                  expanded,
-                  ...other
-                })}
-              >
-                {header}
-              </StyledSubNavItemHeader>
-            </div>
-            <StyledSubNavPanel
-              {...getPanelProps({
-                isHidden: !expanded,
-                innerRef: ref => {
-                  this.panelRef = ref;
-                }
+  return (
+    <AccordionContainer
+      expanded={expanded}
+      onStateChange={newState => {
+        onChange && onChange(newState.expanded);
+      }}
+    >
+      {({ getHeadingProps, getHeadingButtonProps, getPanelProps }) => (
+        <div>
+          <div {...getHeadingProps({ headingLevel: 2 })}>
+            <StyledSubNavItemHeader
+              {...getHeadingButtonProps({
+                expanded,
+                ...other
               })}
             >
-              {children}
-            </StyledSubNavPanel>
+              {header}
+            </StyledSubNavItemHeader>
           </div>
-        )}
-      </AccordionContainer>
-    );
-  }
-}
+          <StyledSubNavPanel
+            {...getPanelProps({
+              isHidden: !expanded,
+              ref: panelRef
+            })}
+          >
+            {children}
+          </StyledSubNavPanel>
+        </div>
+      )}
+    </AccordionContainer>
+  );
+};
+
+CollapsibleSubNavItem.propTypes = {
+  header: PropTypes.any,
+  expanded: PropTypes.bool,
+  hovered: PropTypes.bool,
+  focused: PropTypes.bool,
+  onChange: PropTypes.func,
+  children: PropTypes.node
+};
+
+/** @component */
+export default CollapsibleSubNavItem;

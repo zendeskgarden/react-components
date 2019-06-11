@@ -9,7 +9,7 @@ you can programmatically trigger navigation with the `onClick` events.
 
 ```jsx
 const { Button } = require('@zendeskgarden/react-buttons/src');
-const { Toggle, Label } = require('@zendeskgarden/react-toggles/src');
+const { Field, Toggle, Label } = require('@zendeskgarden/react-forms/src');
 const ConnectIcon = require('@zendeskgarden/svg-icons/src/26/relationshape-connect.svg').default;
 const HomeIcon = require('@zendeskgarden/svg-icons/src/26/home-fill.svg').default;
 const ListsIcon = require('@zendeskgarden/svg-icons/src/26/customer-lists-fill.svg').default;
@@ -28,9 +28,14 @@ initialState = {
 };
 
 <div>
-  <Toggle checked={state.expanded} onChange={event => setState({ expanded: event.target.checked })}>
-    <Label style={{ marginBottom: 8 }}>Expand Navigation</Label>
-  </Toggle>
+  <Field>
+    <Toggle
+      checked={state.expanded}
+      onChange={event => setState({ expanded: event.target.checked })}
+    >
+      <Label style={{ marginBottom: 8 }}>Expand Navigation</Label>
+    </Toggle>
+  </Field>
   <Chrome style={{ height: 500 }}>
     <Nav expanded={state.expanded}>
       <NavItem logo product="connect" title="Zendesk Connect">

@@ -9,11 +9,12 @@ import React from 'react';
 import { render, fireEvent } from 'garden-test-utils';
 import { Field, MediaInput } from '../../';
 
-const Example = () => (
+const Example = props => (
   <Field>
     <MediaInput
       start={<span data-test-id="start">start</span>}
       end={<span data-test-id="end">end</span>}
+      {...props}
     />
   </Field>
 );
@@ -37,5 +38,12 @@ describe('MediaInput', () => {
     const { getByTestId } = render(<Example />);
 
     expect(getByTestId('end')).toHaveTextContent('end');
+  });
+
+  it('applies disabled styling if provided', () => {
+    const { container, getByTestId } = render(<Example data-test-id="input" disabled />);
+
+    expect(container.firstChild).toHaveClass('is-disabled');
+    expect(getByTestId('input')).toHaveAttribute('disabled');
   });
 });

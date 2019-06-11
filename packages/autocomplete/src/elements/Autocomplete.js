@@ -55,7 +55,7 @@ const StyledValueWrapper = styled.div`
 
 export default class Autocomplete extends ControlledComponent {
   static propTypes = {
-    label: PropTypes.string,
+    label: PropTypes.node,
     'aria-label': PropTypes.string,
     validation: PropTypes.oneOf([
       VALIDATION.SUCCESS,
@@ -248,7 +248,7 @@ export default class Autocomplete extends ControlledComponent {
                   focusInset,
                   validation,
                   'aria-label': ariaLabel,
-                  inputRef: ref => {
+                  ref: ref => {
                     this.wrapperRef = ref;
                     triggerRef(ref);
                   }
@@ -280,7 +280,7 @@ export default class Autocomplete extends ControlledComponent {
                             autocomplete: 'off',
                             autocapitalize: 'off',
                             autocorrect: 'off',
-                            innerRef: ref => {
+                            ref: ref => {
                               this.inputRef = ref;
                               triggerInputRef(ref);
                               inputRef && inputRef(ref);

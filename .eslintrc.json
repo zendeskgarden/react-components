@@ -32,6 +32,7 @@
     "no-unused-expressions": ["error", { "allowShortCircuit": true }],
     "react/jsx-key": "off",
     "react/display-name": "off",
+    "react/no-unsafe": ["error", { "checkAliases": true }],
     "jsx-a11y/label-has-for": "off",
     "jest/no-disabled-tests": "off",
     "react-hooks/rules-of-hooks": "error",

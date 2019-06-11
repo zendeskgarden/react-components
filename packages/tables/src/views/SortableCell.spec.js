@@ -6,40 +6,40 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 
-import { Sortable } from './SortableCell';
+import SortableCell from './SortableCell';
 
 describe('SortableCell', () => {
   it('applies default styling', () => {
-    const wrapper = shallow(<Sortable />);
+    const { getByTestId } = render(<SortableCell data-test-id="button" />);
 
-    expect(wrapper).toHaveClassName('c-table__row__cell__sortable');
+    expect(getByTestId('button')).toHaveClass('c-table__row__cell__sortable');
   });
 
   it('applies focused styling if provided', () => {
-    const wrapper = shallow(<Sortable focused />);
+    const { getByTestId } = render(<SortableCell focused data-test-id="button" />);
 
-    expect(wrapper).toHaveClassName('is-focused');
+    expect(getByTestId('button')).toHaveClass('is-focused');
   });
 
   it('applies active styling if provided', () => {
-    const wrapper = shallow(<Sortable active />);
+    const { getByTestId } = render(<SortableCell active data-test-id="button" />);
 
-    expect(wrapper).toHaveClassName('is-active');
+    expect(getByTestId('button')).toHaveClass('is-active');
   });
 
   describe('sorting', () => {
     it('applies ascending props when applied', () => {
-      const wrapper = shallow(<Sortable sort="asc" />);
+      const { getByTestId } = render(<SortableCell sort="asc" data-test-id="button" />);
 
-      expect(wrapper).toHaveClassName('is-ascending');
+      expect(getByTestId('button')).toHaveClass('is-ascending');
     });
 
     it('applies descending props when applied', () => {
-      const wrapper = shallow(<Sortable sort="desc" />);
+      const { getByTestId } = render(<SortableCell sort="desc" data-test-id="button" />);
 
-      expect(wrapper).toHaveClassName('is-descending');
+      expect(getByTestId('button')).toHaveClass('is-descending');
     });
   });
 });

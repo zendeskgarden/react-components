@@ -34,7 +34,6 @@ to install.
 | [`@zendeskgarden/react-tabs`](packages/tabs)                   | [![npm version][tabs npm version]][tabs npm link]                   | [![Dependency Status][tabs dependency status]][tabs dependency link]                   |
 | [`@zendeskgarden/react-tables`](packages/tables)               | [![npm version][tables npm version]][tables npm link]               | [![Dependency Status][tables dependency status]][tables dependency link]               |
 | [`@zendeskgarden/react-tags`](packages/tags)                   | [![npm version][tags npm version]][tags npm link]                   | [![Dependency Status][tags dependency status]][tags dependency link]                   |
-| [`@zendeskgarden/react-testing`](packages/testing)             | [![npm version][testing npm version]][testing npm link]             | [![Dependency Status][testing dependency status]][testing dependency link]             |
 | [`@zendeskgarden/react-theming`](packages/theming)             | [![npm version][theming npm version]][theming npm link]             | [![Dependency Status][theming dependency status]][theming dependency link]             |
 | [`@zendeskgarden/react-tooltips`](packages/tooltips)           | [![npm version][tooltips npm version]][tooltips npm link]           | [![Dependency Status][tooltips dependency status]][tooltips dependency link]           |
 | [`@zendeskgarden/react-typography`](packages/typography)       | [![npm version][typography npm version]][typography npm link]       | [![Dependency Status][typography dependency status]][typography dependency link]       |
@@ -108,10 +107,6 @@ to install.
 [tags npm link]: https://www.npmjs.com/package/@zendeskgarden/react-tags
 [tags dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/tags&style=flat-square
 [tags dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/tags
-[testing npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-testing.svg?style=flat-square
-[testing npm link]: https://www.npmjs.com/package/@zendeskgarden/react-testing
-[testing dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/testing&style=flat-square
-[testing dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/testing
 [theming npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-theming.svg?style=flat-square
 [theming npm link]: https://www.npmjs.com/package/@zendeskgarden/react-theming
 [theming dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/theming&style=flat-square
@@ -145,7 +140,7 @@ package.
 npm install @zendeskgarden/react-buttons
 
 # Install peer dependencies
-npm install styled-components @zendeskgarden/react-theming
+npm install styled-components @zendeskgarden/react-theming prop-types
 ```
 
 ### Include global styling and `ThemeProvider`
@@ -178,7 +173,7 @@ render(<App />, document.getElementById('root'));
 
 Try out Garden React components in a mock product environment.
 
-[![Edit Garden Create-React-App](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/43nwpkn717)
+[![Edit Garden Create-React-App](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/zendeskgarden/react-components/tree/master/examples/codesandbox/garden-create-react-app)
 
 ## Contribution
 

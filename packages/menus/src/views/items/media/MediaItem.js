@@ -6,6 +6,7 @@
  */
 
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import styled from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import MenuStyles from '@zendeskgarden/css-menus';
@@ -17,11 +18,11 @@ const COMPONENT_ID = 'menus.media_item';
 /**
  * Accepts all `<li>` props
  */
-const MediaItem = styled(Item).attrs({
+const MediaItem = styled(Item).attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: MenuStyles['c-menu__item--media']
-})`
+  className: classNames(props.className, MenuStyles['c-menu__item--media'])
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

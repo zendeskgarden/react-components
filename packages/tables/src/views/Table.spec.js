@@ -6,22 +6,21 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-import { shallowWithTheme } from '@zendeskgarden/react-testing';
+import { render, renderRtl } from 'garden-test-utils';
 
 import Table from './Table';
 
 describe('Table', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Table />);
+    const { container } = render(<Table />);
 
-    expect(wrapper).toHaveClassName('c-table');
+    expect(container.firstChild).toHaveClass('c-table');
   });
 
   it('renders RTL styling if provided', () => {
-    const wrapper = shallowWithTheme(<Table />, { rtl: true });
+    const { container } = renderRtl(<Table />);
 
-    expect(wrapper).toHaveClassName('is-rtl');
+    expect(container.firstChild).toHaveClass('is-rtl');
   });
 
   it('renders sizing correctly if provided', () => {
@@ -31,9 +30,9 @@ describe('Table', () => {
     };
 
     ['small', 'large'].forEach(size => {
-      const wrapper = shallow(<Table size={size} />);
+      const { container } = render(<Table size={size} />);
 
-      expect(wrapper).toHaveClassName(`c-table--${classes[size]}`);
+      expect(container.firstChild).toHaveClass(`c-table--${classes[size]}`);
     });
   });
 });

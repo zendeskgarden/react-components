@@ -6,6 +6,7 @@
  */
 
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import styled from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 import VALIDATION from '../../utils/validation';
@@ -15,9 +16,9 @@ import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
 /**
  * Accepts all `<div>` props
  */
-const StyledRadioMessage = styled(StyledCheckMessage).attrs({
-  className: CheckboxStyles['c-chk__message--radio']
-})`
+const StyledRadioMessage = styled(StyledCheckMessage).attrs(props => ({
+  className: classNames(props.className, CheckboxStyles['c-chk__message--radio'])
+}))`
   ${props => retrieveTheme('forms.radio_message', props)};
 `;
 

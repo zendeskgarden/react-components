@@ -16,19 +16,18 @@ const COMPONENT_ID = 'notifications.well';
 /**
  * Supports all `<div>` props
  */
-const Well = styled.div.attrs({
+const Well = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(CalloutStyles['c-callout'], {
-      // RTL
-      [CalloutStyles['is-rtl']]: isRtl(props),
+  className: classNames(CalloutStyles['c-callout'], {
+    // RTL
+    [CalloutStyles['is-rtl']]: isRtl(props),
 
-      // Styles
-      [CalloutStyles['c-callout--recessed']]: props.recessed,
-      [CalloutStyles['c-callout--dialog']]: props.floating
-    })
-})`
+    // Styles
+    [CalloutStyles['c-callout--recessed']]: props.recessed,
+    [CalloutStyles['c-callout--dialog']]: props.floating
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

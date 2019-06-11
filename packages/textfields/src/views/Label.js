@@ -16,18 +16,17 @@ const COMPONENT_ID = 'textfields.label';
 /**
  * Accepts all `<label>` props
  */
-const Label = styled.label.attrs({
+const Label = styled.label.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(TextStyles['c-txt__label'], {
-      [TextStyles['c-txt__label--regular']]: props.regular,
-      [TextStyles['c-txt__label--sm']]: props.small,
+  className: classNames(TextStyles['c-txt__label'], {
+    [TextStyles['c-txt__label--regular']]: props.regular,
+    [TextStyles['c-txt__label--sm']]: props.small,
 
-      // RTL
-      [TextStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL
+    [TextStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

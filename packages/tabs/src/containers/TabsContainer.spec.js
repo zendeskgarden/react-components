@@ -7,21 +7,19 @@
  */
 
 import React from 'react';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
-import { SelectionContainer } from '@zendeskgarden/react-selection';
+import { render, fireEvent } from 'garden-test-utils';
 
 import TabsContainer from './TabsContainer';
 
 describe('TabsContainer', () => {
-  let wrapper;
   let onChangeSpy;
   const tabs = ['tab-1', 'tab-2', 'tab-3'];
 
-  const basicExample = ({ vertical, onChange } = {}) => (
-    <TabsContainer vertical={vertical} onChange={onChange}>
+  const BasicExample = props => (
+    <TabsContainer {...props}>
       {({ getTabListProps, getTabProps, getTabPanelProps, selectedKey, focusedKey }) => (
         <div>
-          <div {...getTabListProps({ 'data-test-id': 'tab-list' })}>
+          <div {...getTabListProps({ 'data-test-id': 'tablist' })}>
             {tabs.map(tab => (
               <div
                 {...getTabProps({
@@ -36,9 +34,7 @@ describe('TabsContainer', () => {
             ))}
           </div>
           {tabs.map(tab => (
-            <div {...getTabPanelProps({ key: tab, 'data-test-id': 'tab-panel' })}>
-              {tab} content
-            </div>
+            <div {...getTabPanelProps({ key: tab, 'data-test-id': 'panel' })}>{tab} content</div>
           ))}
         </div>
       )}
@@ -47,34 +43,21 @@ describe('TabsContainer', () => {
 
   beforeEach(() => {
     onChangeSpy = jest.fn();
-    wrapper = mountWithTheme(basicExample({ onChange: onChangeSpy }));
-  });
-
-  const findTabList = enzymeWrapper => enzymeWrapper.find('[data-test-id="tab-list"]');
-  const findTabs = enzymeWrapper => enzymeWrapper.find('[data-test-id="tab"]');
-  const findTabPanels = enzymeWrapper => enzymeWrapper.find('[data-test-id="tab-panel"]');
-
-  it('applies horizontal direction to SelectionContainer by default', () => {
-    expect(wrapper.find(SelectionContainer)).toHaveProp('direction', 'horizontal');
-  });
-
-  it('applies vertical direction to SelectionContainer if provided', () => {
-    wrapper = mountWithTheme(basicExample({ vertical: true }));
-
-    expect(wrapper.find(SelectionContainer)).toHaveProp('direction', 'vertical');
   });
 
   it('calls onChange with selectedKey when Tab is selected', () => {
-    findTabs(wrapper)
-      .first()
-      .simulate('click');
+    const { getAllByTestId } = render(<BasicExample onChange={onChangeSpy} />);
+
+    fireEvent.click(getAllByTestId('tab')[0]);
 
     expect(onChangeSpy).toHaveBeenCalledWith('tab-1');
   });
 
   describe('TabList', () => {
     it('applies correct accessibility role', () => {
-      expect(findTabList(wrapper)).toHaveProp('role', 'tablist');
+      const { getByTestId } = render(<BasicExample />);
+
+      expect(getByTestId('tablist')).toHaveAttribute('role', 'tablist');
     });
 
     describe('Tab', () => {
@@ -84,7 +67,7 @@ describe('TabsContainer', () => {
         console.error = jest.fn();
 
         expect(() => {
-          mountWithTheme(
+          render(
             <TabsContainer>
               {({ getTabProps }) => <div {...getTabProps()}>Test tab</div>}
             </TabsContainer>
@@ -97,8 +80,10 @@ describe('TabsContainer', () => {
       });
 
       it('applies the correct accessibility role', () => {
-        findTabs(wrapper).forEach(tab => {
-          expect(tab).toHaveProp('role', 'tab');
+        const { getAllByTestId } = render(<BasicExample />);
+
+        getAllByTestId('tab').forEach(tab => {
+          expect(tab).toHaveAttribute('role', 'tab');
         });
       });
     });
@@ -111,7 +96,7 @@ describe('TabsContainer', () => {
       console.error = jest.fn();
 
       expect(() => {
-        mountWithTheme(
+        render(
           <TabsContainer>
             {({ getTabPanelProps }) => <div {...getTabPanelProps()}>Test tab</div>}
           </TabsContainer>
@@ -124,27 +109,30 @@ describe('TabsContainer', () => {
     });
 
     it('applies the correct accessibility role', () => {
-      findTabPanels(wrapper).forEach(tabPanel => {
-        expect(tabPanel).toHaveProp('role', 'tabpanel');
+      const { getAllByTestId } = render(<BasicExample />);
+
+      getAllByTestId('panel').forEach(tabPanel => {
+        expect(tabPanel).toHaveAttribute('role', 'tabpanel');
       });
     });
 
     describe('when tab selected', () => {
-      beforeEach(() => {
-        findTabs(wrapper)
-          .at(1)
-          .simulate('click');
-      });
-
       it('enables aria-hidden if tab is currently not selected', () => {
-        expect(findTabPanels(wrapper).at(1)).toHaveProp('aria-hidden', false);
+        const { getAllByTestId } = render(<BasicExample />);
+
+        fireEvent.click(getAllByTestId('tab')[1]);
+
+        expect(getAllByTestId('panel')[1]).toHaveAttribute('aria-hidden', 'false');
       });
 
       it('disables aria-hidden if tab is currently selected', () => {
-        const items = findTabPanels(wrapper);
+        const { getAllByTestId } = render(<BasicExample />);
 
-        expect(items.at(0)).toHaveProp('aria-hidden', true);
-        expect(items.at(2)).toHaveProp('aria-hidden', true);
+        fireEvent.click(getAllByTestId('tab')[1]);
+        const items = getAllByTestId('panel');
+
+        expect(items[0]).toHaveAttribute('aria-hidden', 'true');
+        expect(items[2]).toHaveAttribute('aria-hidden', 'true');
       });
     });
   });

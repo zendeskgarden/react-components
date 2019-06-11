@@ -26,35 +26,34 @@ const isInvalid = validation => {
 /**
  * Accepts all `<input>` props
  */
-const Input = styled.input.attrs({
+const Input = styled.input.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  'aria-invalid': props => isInvalid(props.validation),
-  className: props =>
-    classNames(TextStyles['c-txt__input'], {
-      [TextStyles['c-txt__input--sm']]: props.small,
+  'aria-invalid': isInvalid(props.validation),
+  className: classNames(TextStyles['c-txt__input'], {
+    [TextStyles['c-txt__input--sm']]: props.small,
 
-      // Unable to use `tag` prop due to it being a valid, non-boolean prop
-      [TextStyles['c-txt__input--tag']]: props.tagLayout,
-      [TextStyles['c-txt__input--select']]: props.select,
-      // Unable to use `media` prop due to it being a valid, non-boolean prop
-      [TextStyles['c-txt__input--media']]: props.mediaLayout,
-      [TextStyles['c-txt__input--bare']]: props.bare,
-      [TextStyles['c-txt__input--focus-inset']]: props.focusInset,
+    // Unable to use `tag` prop due to it being a valid, non-boolean prop
+    [TextStyles['c-txt__input--tag']]: props.tagLayout,
+    [TextStyles['c-txt__input--select']]: props.select,
+    // Unable to use `media` prop due to it being a valid, non-boolean prop
+    [TextStyles['c-txt__input--media']]: props.mediaLayout,
+    [TextStyles['c-txt__input--bare']]: props.bare,
+    [TextStyles['c-txt__input--focus-inset']]: props.focusInset,
 
-      [TextStyles['is-disabled']]: props.disabled,
-      [TextStyles['is-focused']]: props.focused,
-      [TextStyles['is-hovered']]: props.hovered,
-      [TextStyles['is-open']]: props.open,
+    [TextStyles['is-disabled']]: props.disabled,
+    [TextStyles['is-focused']]: props.focused,
+    [TextStyles['is-hovered']]: props.hovered,
+    [TextStyles['is-open']]: props.open,
 
-      [TextStyles['c-txt__input--success']]: props.validation === VALIDATION.SUCCESS,
-      [TextStyles['c-txt__input--warning']]: props.validation === VALIDATION.WARNING,
-      [TextStyles['c-txt__input--error']]: props.validation === VALIDATION.ERROR,
+    [TextStyles['c-txt__input--success']]: props.validation === VALIDATION.SUCCESS,
+    [TextStyles['c-txt__input--warning']]: props.validation === VALIDATION.WARNING,
+    [TextStyles['c-txt__input--error']]: props.validation === VALIDATION.ERROR,
 
-      // RTL
-      [TextStyles['is-rtl']]: isRtl(props)
-    })
-})`
+    // RTL
+    [TextStyles['is-rtl']]: isRtl(props)
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

@@ -6,20 +6,22 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-import { shallowWithTheme } from '@zendeskgarden/react-testing';
+import { render, renderRtl } from 'garden-test-utils';
 import SM from './SM';
 
 describe('SM', () => {
   it('applies monospace styling if provided', () => {
-    const wrapper = shallow(<SM monospace />);
+    const { container } = render(<SM monospace />);
 
-    expect(wrapper).toHaveStyleRule('font-family', expect.stringContaining('monospace'));
+    expect(container.firstChild).toHaveStyleRule(
+      'font-family',
+      expect.stringContaining('monospace')
+    );
   });
 
   it('applies correct styling with RTL locale', () => {
-    const wrapper = shallowWithTheme(<SM />, { rtl: true });
+    const { container } = renderRtl(<SM />);
 
-    expect(wrapper).toHaveStyleRule('direction', 'rtl');
+    expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });
 });

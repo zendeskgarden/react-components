@@ -6,19 +6,18 @@
  */
 
 import React from 'react';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
+import { render, fireEvent } from 'garden-test-utils';
 
 import SelectContainer from './SelectContainer';
 
 describe('SelectContainer', () => {
-  let wrapper;
   let onChangeSpy;
   const items = ['item-1', 'item-2', 'item-3'];
 
-  const basicExample = onChange => (
+  const BasicExample = props => (
     <SelectContainer
       selectedKey={undefined}
-      onChange={onChange}
+      {...props}
       trigger={({ getTriggerProps, triggerRef }) => (
         <div
           {...getTriggerProps({
@@ -55,34 +54,32 @@ describe('SelectContainer', () => {
 
   beforeEach(() => {
     onChangeSpy = jest.fn();
-    wrapper = mountWithTheme(basicExample(onChangeSpy));
   });
-
-  const findTrigger = enzymeWrapper => enzymeWrapper.find('[data-test-id="trigger"]');
-  const findDropdown = enzymeWrapper => enzymeWrapper.find('[data-test-id="dropdown"]');
-  const findItems = enzymeWrapper => enzymeWrapper.find('[data-test-id="item"]');
 
   describe('getTriggerProps()', () => {
     it('applies correct accessibility attributes', () => {
-      expect(findTrigger(wrapper)).toHaveProp('role', 'combobox');
+      const { getByTestId } = render(<BasicExample onChange={onChangeSpy} />);
+
+      expect(getByTestId('trigger')).toHaveAttribute('role', 'combobox');
     });
   });
 
   describe('getSelectProps()', () => {
     it('applies correct accessibility attributes', () => {
-      findTrigger(wrapper).simulate('click');
-      wrapper.update();
-      expect(findDropdown(wrapper)).toHaveProp('role', 'listbox');
+      const { getByTestId } = render(<BasicExample onChange={onChangeSpy} />);
+
+      fireEvent.click(getByTestId('trigger'));
+
+      expect(getByTestId('dropdown')).toHaveAttribute('role', 'listbox');
     });
   });
 
   describe('onChange', () => {
     it('receives selected item key on select', () => {
-      findTrigger(wrapper).simulate('click');
-      wrapper.update();
-      findItems(wrapper)
-        .at(0)
-        .simulate('click');
+      const { getByTestId, getAllByTestId } = render(<BasicExample onChange={onChangeSpy} />);
+
+      fireEvent.click(getByTestId('trigger'));
+      fireEvent.click(getAllByTestId('item')[0]);
 
       expect(onChangeSpy).toHaveBeenCalledWith('item-1');
     });

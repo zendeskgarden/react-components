@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
+import { render } from 'garden-test-utils';
 
 import RangeField from './RangeField';
 import Range from './Range';
@@ -16,35 +16,38 @@ import Message from '../views/Message';
 
 describe('RangeField', () => {
   const RANGE_FIELD_ID = 'test';
-  let wrapper;
 
-  const basicExample = () => (
+  const BasicExample = () => (
     <RangeField id={RANGE_FIELD_ID}>
-      <Label>Label</Label>
-      <Hint>Hint</Hint>
-      <Range />
-      <Message>Message</Message>
+      <Label data-test-id="label">Label</Label>
+      <Hint data-test-id="hint">Hint</Hint>
+      <Range data-test-id="range" />
+      <Message data-test-id="message">Message</Message>
       <div data-test-id="extra">extra information</div>
     </RangeField>
   );
 
-  beforeEach(() => {
-    wrapper = mountWithTheme(basicExample());
-  });
-
   it('applies container props to Label', () => {
-    expect(wrapper.find(Label)).toHaveProp('id', `${RANGE_FIELD_ID}--label`);
+    const { getByTestId } = render(<BasicExample />);
+
+    expect(getByTestId('label')).toHaveAttribute('id', `${RANGE_FIELD_ID}--label`);
   });
 
   it('applies container props to Hint', () => {
-    expect(wrapper.find(Hint)).toHaveProp('id', `${RANGE_FIELD_ID}--hint`);
+    const { getByTestId } = render(<BasicExample />);
+
+    expect(getByTestId('hint')).toHaveAttribute('id', `${RANGE_FIELD_ID}--hint`);
   });
 
   it('applies input props to Range', () => {
-    expect(wrapper.find(Range)).toHaveProp('id', `${RANGE_FIELD_ID}--input`);
+    const { getByTestId } = render(<BasicExample />);
+
+    expect(getByTestId('range')).toHaveAttribute('id', `${RANGE_FIELD_ID}--input`);
   });
 
   it('applies no props to any other element', () => {
-    expect(Object.keys(wrapper.find('[data-test-id="extra"]').props())).toHaveLength(2);
+    const { getByTestId } = render(<BasicExample />);
+
+    expect(getByTestId('extra').attributes).toHaveLength(1);
   });
 });

@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "5.5.5",
+  "version": "6.0.1",
   "main": "./dist/index.js",
   "files": [
     "dist"
@@ -19,23 +19,22 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendeskgarden/react-selection": "^4.6.2",
-    "@zendeskgarden/react-utilities": "^0.2.5",
+    "@zendeskgarden/react-selection": "^6.0.1",
+    "@zendeskgarden/react-utilities": "^6.0.1",
     "classnames": "^2.2.5",
     "dom-helpers": "^3.3.1",
-    "react-portal": "^4.1.2",
     "tabbable": "^1.1.2"
   },
   "peerDependencies": {
-    "@zendeskgarden/react-theming": "^1.0.0 || ^2.0.0 || ^3.0.0",
+    "@zendeskgarden/react-theming": "^6.0.0",
     "prop-types": "^15.6.1",
-    "react": "^15.0.0 || ^16.0.0",
-    "react-dom": "^15.0.0 || ^16.0.0",
-    "styled-components": "^3.2.6"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "@zendeskgarden/css-modals": "6.4.10",
-    "@zendeskgarden/react-theming": "^3.2.1"
+    "@zendeskgarden/css-modals": "6.4.11",
+    "@zendeskgarden/react-theming": "^6.0.1"
   },
   "keywords": [
     "components",

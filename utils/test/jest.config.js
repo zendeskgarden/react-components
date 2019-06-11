@@ -20,7 +20,7 @@ module.exports = {
   snapshotSerializers: ['enzyme-to-json/serializer'],
   setupFilesAfterEnv: [
     '<rootDir>/utils/test/jest.setup.js',
-    'react-testing-library/cleanup-after-each'
+    '@testing-library/react/cleanup-after-each'
   ],
   moduleNameMapper: {
     '\\.(css)$': 'identity-obj-proxy',

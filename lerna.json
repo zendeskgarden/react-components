@@ -1,13 +1,31 @@
 {
+  "version": "6.0.1",
   "npmClient": "yarn",
-  "version": "independent",
-  "ignoreChanges": ["*.md", "*.spec.js", "**/__snapshots__/**", "styleguide.config.js"],
+  "npmClientArgs": [
+    "--no-lockfile"
+  ],
+  "changelog": {
+    "repo": "zendeskgarden/react-components",
+    "cacheDir": ".changelog",
+    "labels": {
+      "PR: Breaking Change :boom:": ":boom: Breaking Change",
+      "PR: New Feature :rocket:": ":rocket: New Feature",
+      "PR: Bug Fix :bug:": ":bug: Bug Fix",
+      "PR: Docs :memo:": ":memo: Documentation",
+      "PR: Internal :seedling:": ":seedling: Internal"
+    }
+  },
+  "ignoreChanges": [
+    "*.md",
+    "*.spec.js",
+    "**/__snapshots__/**",
+    "styleguide.config.js"
+  ],
   "command": {
     "publish": {
       "registry": "https://registry.npmjs.org/"
     },
     "version": {
-      "push": false,
       "allowBranch": "master",
       "message": "chore(release): publish"
     }

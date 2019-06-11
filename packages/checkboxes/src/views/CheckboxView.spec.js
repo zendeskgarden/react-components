@@ -6,21 +6,20 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-import { shallowWithTheme } from '@zendeskgarden/react-testing';
+import { render, renderRtl } from 'garden-test-utils';
 
 import CheckboxView from './CheckboxView';
 
 describe('CheckboxView', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<CheckboxView />);
+    const { container } = render(<CheckboxView />);
 
-    expect(wrapper).toHaveClassName('c-chk');
+    expect(container.firstChild).toHaveClass('c-chk');
   });
 
   it('renders RTL styling', () => {
-    const wrapper = shallowWithTheme(<CheckboxView />, { rtl: true });
+    const { container } = renderRtl(<CheckboxView />);
 
-    expect(wrapper).toHaveClassName('is-rtl');
+    expect(container.firstChild).toHaveClass('is-rtl');
   });
 });

@@ -16,14 +16,13 @@ const COMPONENT_ID = 'chrome.body';
 /**
  * Accepts all `<div>` props
  */
-const Body = styled.div.attrs({
+const Body = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(ChromeStyles['c-chrome__body'], {
-      [ChromeStyles['c-chrome__body--footer']]: props.hasFooter
-    })
-})`
+  className: classNames(ChromeStyles['c-chrome__body'], {
+    [ChromeStyles['c-chrome__body--footer']]: props.hasFooter
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

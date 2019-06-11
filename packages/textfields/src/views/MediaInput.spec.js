@@ -6,14 +6,13 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-
+import { render } from 'garden-test-utils';
 import MediaInput from './MediaInput';
 
 describe('MediaInput', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<MediaInput />);
+    const { container } = render(<MediaInput />);
 
-    expect(wrapper).toHaveClassName('c-txt__input--media__body');
+    expect(container.firstChild).toHaveClass('c-txt__input--media__body');
   });
 });

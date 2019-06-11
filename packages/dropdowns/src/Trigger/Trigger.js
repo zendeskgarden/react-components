@@ -74,7 +74,7 @@ const Trigger = ({ children, refKey, ...triggerProps }) => {
               readOnly: true,
               isHidden: true,
               tabIndex: -1,
-              innerRef: hiddenInputRef,
+              ref: hiddenInputRef,
               value: ''
             })}
           />

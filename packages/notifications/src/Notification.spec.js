@@ -6,33 +6,33 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 import Notification from './Notification';
 
 describe('Notification', () => {
   describe('validation', () => {
     it('should render success styling correctly', () => {
-      const wrapper = shallow(<Notification type="success" />);
+      const { container } = render(<Notification type="success" />);
 
-      expect(wrapper).toHaveClassName('c-callout--success');
+      expect(container.firstChild).toHaveClass('c-callout--success');
     });
 
     it('should render warning styling correctly', () => {
-      const wrapper = shallow(<Notification type="warning" />);
+      const { container } = render(<Notification type="warning" />);
 
-      expect(wrapper).toHaveClassName('c-callout--warning');
+      expect(container.firstChild).toHaveClass('c-callout--warning');
     });
 
     it('should render error styling correctly', () => {
-      const wrapper = shallow(<Notification type="error" />);
+      const { container } = render(<Notification type="error" />);
 
-      expect(wrapper).toHaveClassName('c-callout--error');
+      expect(container.firstChild).toHaveClass('c-callout--error');
     });
 
     it('should render info styling correctly', () => {
-      const wrapper = shallow(<Notification type="info" />);
+      const { container } = render(<Notification type="info" />);
 
-      expect(wrapper).toHaveClassName('c-callout--info');
+      expect(container.firstChild).toHaveClass('c-callout--info');
     });
   });
 });

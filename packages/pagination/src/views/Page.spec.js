@@ -6,38 +6,38 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 
 import Page from './Page';
 
 describe('Page', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Page />);
+    const { container } = render(<Page />);
 
-    expect(wrapper).toHaveClassName('c-pagination__page');
+    expect(container.firstChild).toHaveClass('c-pagination__page');
   });
 
   it('renders current styling if provided', () => {
-    const wrapper = shallow(<Page current />);
+    const { container } = render(<Page current />);
 
-    expect(wrapper).toHaveClassName('is-current');
+    expect(container.firstChild).toHaveClass('is-current');
   });
 
   it('renders focused styling if provided', () => {
-    const wrapper = shallow(<Page focused />);
+    const { container } = render(<Page focused />);
 
-    expect(wrapper).toHaveClassName('is-focused');
+    expect(container.firstChild).toHaveClass('is-focused');
   });
 
   it('renders hovered styling if provided', () => {
-    const wrapper = shallow(<Page hovered />);
+    const { container } = render(<Page hovered />);
 
-    expect(wrapper).toHaveClassName('is-hovered');
+    expect(container.firstChild).toHaveClass('is-hovered');
   });
 
   it('renders hidden styling if provided', () => {
-    const wrapper = shallow(<Page hidden />);
+    const { container } = render(<Page hidden />);
 
-    expect(wrapper).toHaveClassName('is-hidden');
+    expect(container.firstChild).toHaveClass('is-hidden');
   });
 });

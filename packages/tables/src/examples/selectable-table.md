@@ -1,7 +1,7 @@
 ```jsx
 const { zdSpacingSm } = require('@zendeskgarden/css-variables');
 const { XL } = require('@zendeskgarden/react-typography/src');
-const { Checkbox, Label } = require('@zendeskgarden/react-checkboxes/src');
+const { Field, Checkbox, Label } = require('@zendeskgarden/react-forms/src');
 
 const data = [];
 
@@ -38,26 +38,28 @@ const isSelectAllChecked = (selectedRows, rows) => {
   <Head>
     <HeaderRow>
       <HeaderCell minimum>
-        <Checkbox
-          checked={isSelectAllChecked(state.selectedRows, state.rows)}
-          onChange={e => {
-            if (e.target.checked) {
-              const selectedRows = state.rows.reduce((accum, value) => {
-                accum[value.id] = true;
+        <Field>
+          <Checkbox
+            checked={isSelectAllChecked(state.selectedRows, state.rows)}
+            onChange={e => {
+              if (e.target.checked) {
+                const selectedRows = state.rows.reduce((accum, value) => {
+                  accum[value.id] = true;
 
-                return accum;
-              }, {});
+                  return accum;
+                }, {});
 
-              setState({ selectedRows });
-            } else {
-              setState({ selectedRows: {} });
-            }
-          }}
-        >
-          <Label hidden indeterminate={isSelectAllIndeterminate(state.selectedRows, state.rows)}>
-            Select all tickets
-          </Label>
-        </Checkbox>
+                setState({ selectedRows });
+              } else {
+                setState({ selectedRows: {} });
+              }
+            }}
+          >
+            <Label hidden indeterminate={isSelectAllIndeterminate(state.selectedRows, state.rows)}>
+              Select all tickets
+            </Label>
+          </Checkbox>
+        </Field>
       </HeaderCell>
       <HeaderCell scope="col">Long Truncated Title</HeaderCell>
     </HeaderRow>
@@ -66,22 +68,24 @@ const isSelectAllChecked = (selectedRows, rows) => {
     {state.rows.map(row => (
       <Row key={row.id} selected={state.selectedRows[row.id]}>
         <Cell minimum>
-          <Checkbox
-            checked={state.selectedRows[row.id] ? true : false}
-            onChange={e => {
-              const selectedRows = Object.assign({}, state.selectedRows);
+          <Field>
+            <Checkbox
+              checked={state.selectedRows[row.id] ? true : false}
+              onChange={e => {
+                const selectedRows = Object.assign({}, state.selectedRows);
 
-              if (e.target.checked) {
-                selectedRows[row.id] = true;
-              } else {
-                delete selectedRows[row.id];
-              }
+                if (e.target.checked) {
+                  selectedRows[row.id] = true;
+                } else {
+                  delete selectedRows[row.id];
+                }
 
-              setState({ selectedRows });
-            }}
-          >
-            <Label hidden>Select ticket</Label>
-          </Checkbox>
+                setState({ selectedRows });
+              }}
+            >
+              <Label hidden>Select ticket</Label>
+            </Checkbox>
+          </Field>
         </Cell>
         <Cell truncate title={row.title}>
           {row.title}

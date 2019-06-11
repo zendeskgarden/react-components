@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "4.6.2",
+  "version": "6.0.1",
   "main": "./dist/index.js",
   "files": [
     "dist"
@@ -23,13 +23,13 @@
     "dom-helpers": "^3.3.1"
   },
   "peerDependencies": {
-    "@zendeskgarden/react-theming": "^1.0.0 || ^2.0.0 || ^3.0.0",
+    "@zendeskgarden/react-theming": "^6.0.0",
     "prop-types": "^15.6.1",
-    "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
-    "react-dom": "^0.14.0 || ^15.0.0 || ^16.0.0"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   },
   "devDependencies": {
-    "@zendeskgarden/react-theming": "^3.2.1"
+    "@zendeskgarden/react-theming": "^6.0.1"
   },
   "keywords": [
     "components",

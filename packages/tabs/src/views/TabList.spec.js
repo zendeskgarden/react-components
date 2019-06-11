@@ -6,14 +6,14 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 
 import TabList from './TabList';
 
 describe('TabList', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<TabList />);
+    const { container } = render(<TabList />);
 
-    expect(wrapper).toHaveClassName('c-tab__list');
+    expect(container.firstChild).toHaveClass('c-tab__list');
   });
 });

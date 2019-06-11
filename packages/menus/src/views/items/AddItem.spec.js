@@ -6,13 +6,13 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 import AddItem from './AddItem';
 
 describe('AddItem', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<AddItem />);
+    const { container } = render(<AddItem />);
 
-    expect(wrapper).toHaveClassName('c-menu__item--add');
+    expect(container.firstChild).toHaveClass('c-menu__item--add');
   });
 });

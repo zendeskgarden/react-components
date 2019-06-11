@@ -6,44 +6,44 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 
 import Tab from './Tab';
 
 describe('Tab', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Tab />);
+    const { container } = render(<Tab />);
 
-    expect(wrapper).toHaveClassName('c-tab__list__item');
+    expect(container.firstChild).toHaveClass('c-tab__list__item');
   });
 
   it('renders hovered styling', () => {
-    const wrapper = shallow(<Tab hovered />);
+    const { container } = render(<Tab hovered />);
 
-    expect(wrapper).toHaveClassName('is-hovered');
+    expect(container.firstChild).toHaveClass('is-hovered');
   });
 
   it('renders focused styling', () => {
-    const wrapper = shallow(<Tab focused />);
+    const { container } = render(<Tab focused />);
 
-    expect(wrapper).toHaveClassName('is-focused');
+    expect(container.firstChild).toHaveClass('is-focused');
   });
 
   it('renders active styling', () => {
-    const wrapper = shallow(<Tab active />);
+    const { container } = render(<Tab active />);
 
-    expect(wrapper).toHaveClassName('is-active');
+    expect(container.firstChild).toHaveClass('is-active');
   });
 
   it('renders disabled styling', () => {
-    const wrapper = shallow(<Tab disabled />);
+    const { container } = render(<Tab disabled />);
 
-    expect(wrapper).toHaveClassName('is-disabled');
+    expect(container.firstChild).toHaveClass('is-disabled');
   });
 
   it('renders selected styling', () => {
-    const wrapper = shallow(<Tab selected />);
+    const { container } = render(<Tab selected />);
 
-    expect(wrapper).toHaveClassName('is-selected');
+    expect(container.firstChild).toHaveClass('is-selected');
   });
 });

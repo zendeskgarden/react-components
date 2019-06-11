@@ -6,13 +6,13 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'garden-test-utils';
 import Separator from './Separator';
 
 describe('Separator', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Separator />);
+    const { container } = render(<Separator />);
 
-    expect(wrapper).toHaveClassName('c-menu__separator');
+    expect(container.firstChild).toHaveClass('c-menu__separator');
   });
 });

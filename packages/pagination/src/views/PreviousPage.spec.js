@@ -6,14 +6,13 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-
+import { render } from 'garden-test-utils';
 import PreviousPage from './PreviousPage';
 
 describe('PreviousPage', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<PreviousPage />);
+    const { container } = render(<PreviousPage />);
 
-    expect(wrapper).toHaveClassName('c-pagination__page--previous');
+    expect(container.firstChild).toHaveClass('c-pagination__page--previous');
   });
 });

@@ -16,19 +16,18 @@ const COMPONENT_ID = 'tabs.tab';
 /**
  * Accepts all `<div>` props
  */
-const Tab = styled.div.attrs({
+const Tab = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props =>
-    classNames(TabStyles['c-tab__list__item'], {
-      // Visual states
-      [TabStyles['is-hovered']]: props.hovered,
-      [TabStyles['is-focused']]: props.focused,
-      [TabStyles['is-active']]: props.active,
-      [TabStyles['is-disabled']]: props.disabled,
-      [TabStyles['is-selected']]: props.selected
-    })
-})`
+  className: classNames(TabStyles['c-tab__list__item'], {
+    // Visual states
+    [TabStyles['is-hovered']]: props.hovered,
+    [TabStyles['is-focused']]: props.focused,
+    [TabStyles['is-active']]: props.active,
+    [TabStyles['is-disabled']]: props.disabled,
+    [TabStyles['is-selected']]: props.selected
+  })
+}))`
   ${props => retrieveTheme('tabs.tab', props)};
 `;
 

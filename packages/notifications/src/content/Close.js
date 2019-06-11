@@ -16,17 +16,16 @@ const COMPONENT_ID = 'notifications.close';
 /**
  * Used to close a Notification. Supports all `<button>` props
  */
-const Close = styled.button.attrs({
+const Close = styled.button.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   type: 'button',
-  className: props =>
-    classNames(CalloutStyles['c-callout__close'], {
-      // State
-      [CalloutStyles['is-focused']]: props.focused,
-      [CalloutStyles['is-hovered']]: props.hovered
-    })
-})`
+  className: classNames(CalloutStyles['c-callout__close'], {
+    // State
+    [CalloutStyles['is-focused']]: props.focused,
+    [CalloutStyles['is-hovered']]: props.hovered
+  })
+}))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 

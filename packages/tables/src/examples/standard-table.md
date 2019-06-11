@@ -8,7 +8,12 @@ const {
   Menu,
   Item
 } = require('@zendeskgarden/react-dropdowns/src');
-const { Checkbox, Label: CheckboxLabel, Hint } = require('@zendeskgarden/react-checkboxes/src');
+const {
+  Field: FormsField,
+  Checkbox,
+  Label: CheckboxLabel,
+  Hint
+} = require('@zendeskgarden/react-forms/src');
 const { XL } = require('@zendeskgarden/react-typography/src');
 
 initialState = {
@@ -55,10 +60,12 @@ const StyledRow = styled(Layout.Row)`
 <Layout.Grid>
   <StyledRow>
     <Layout.Col md>
-      <Checkbox checked={state.striped} onChange={e => setState({ striped: e.target.checked })}>
-        <CheckboxLabel>Striped Styling</CheckboxLabel>
-        <Hint>Applied to every other Row</Hint>
-      </Checkbox>
+      <FormsField>
+        <Checkbox checked={state.striped} onChange={e => setState({ striped: e.target.checked })}>
+          <CheckboxLabel>Striped Styling</CheckboxLabel>
+          <Hint>Applied to every other Row</Hint>
+        </Checkbox>
+      </FormsField>
     </Layout.Col>
     <Layout.Col md>
       <Dropdown selectedItem={state.rowSize} onSelect={rowSize => setState({ rowSize })}>

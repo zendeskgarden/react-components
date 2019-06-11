@@ -7,76 +7,71 @@
  */
 
 import React from 'react';
-import { mountWithTheme } from '@zendeskgarden/react-testing';
+import { render, fireEvent } from 'garden-test-utils';
 
 import Tabs from './Tabs';
-import TabsContainer from '../containers/TabsContainer';
-import TabsView from '../views/TabsView';
-import TabList from '../views/TabList';
-import Tab from '../views/Tab';
 import TabPanel from '../views/TabPanel';
 
 describe('Tabs', () => {
-  const basicExample = (
-    <Tabs>
-      <TabPanel label="Tab 1" key="tab-1">
+  const BasicExample = props => (
+    <Tabs data-test-id="container" {...props}>
+      <TabPanel label={<span data-test-id="tab">Tab 1</span>} key="tab-1" data-test-id="panel">
         Tab 1 content
       </TabPanel>
-      <TabPanel label="Tab 2" key="tab-2">
+      <TabPanel label={<span data-test-id="tab">Tab 2</span>} key="tab-2" data-test-id="panel">
         Tab 2 content
       </TabPanel>
     </Tabs>
   );
 
   it('renders horizontal mode by default', () => {
-    const wrapper = mountWithTheme(<Tabs />);
+    const { getByTestId } = render(<BasicExample />);
 
-    expect(wrapper.find(TabsContainer)).toHaveProp('vertical', false);
-    expect(wrapper.find(Tabs)).toHaveProp('vertical', false);
+    expect(getByTestId('container')).not.toHaveClass('c-tab--block');
   });
 
   it('renders vertical mode if provided', () => {
-    const wrapper = mountWithTheme(<Tabs vertical />);
+    const { getByTestId } = render(<BasicExample vertical />);
 
-    expect(wrapper.find(TabsContainer)).toHaveProp('vertical', true);
-    expect(wrapper.find(TabsView)).toHaveProp('vertical', true);
+    expect(getByTestId('container')).toHaveClass('c-tab--block');
   });
 
   describe('Tab', () => {
     it('applies selected styling to currently selected tab', () => {
-      const wrapper = mountWithTheme(basicExample);
+      const { getAllByTestId } = render(<BasicExample />);
+      const tab = getAllByTestId('tab')[1];
 
-      wrapper
-        .find(Tab)
-        .at(1)
-        .simulate('click');
+      fireEvent.click(tab);
 
-      expect(wrapper.find(Tab).at(1)).toHaveProp('selected', true);
+      expect(tab.parentElement).toHaveClass('is-selected');
     });
 
     it('applies focused styling to currently focused tab', () => {
-      const wrapper = mountWithTheme(basicExample);
+      const { getAllByTestId, getByRole } = render(<BasicExample />);
+      const tab = getAllByTestId('tab')[0];
 
-      wrapper.find(TabList).simulate('focus');
+      fireEvent.focus(getByRole('tablist'));
 
-      expect(wrapper.find(Tab).first()).toHaveProp('focused', true);
+      expect(tab.parentElement).toHaveClass('is-focused');
     });
 
     it('applies disabled styling if provided', () => {
-      const wrapper = mountWithTheme(
+      const { getAllByTestId } = render(
         <Tabs>
-          <TabPanel label="Tab 1" key="tab-1">
+          <TabPanel label={<span data-test-id="tab">Tab 1</span>} key="tab-1">
             Tab 1 content
           </TabPanel>
-          <TabPanel disabled>Disabled tab</TabPanel>
+          <TabPanel disabled label={<span data-test-id="tab">Tab 2</span>}>
+            Disabled tab
+          </TabPanel>
         </Tabs>
       );
 
-      expect(wrapper.find(Tab).last()).toHaveProp('disabled', true);
+      expect(getAllByTestId('tab')[1].parentElement).toHaveClass('is-disabled');
     });
 
     it('applies custom props if provided', () => {
-      const wrapper = mountWithTheme(
+      const { getByTestId } = render(
         <Tabs>
           <TabPanel key="custom" tabProps={{ 'data-test-id': 'custom-tab' }}>
             Custom Tab
@@ -84,13 +79,13 @@ describe('Tabs', () => {
         </Tabs>
       );
 
-      expect(wrapper.find('[data-test-id="custom-tab"]')).toExist();
+      expect(getByTestId('custom-tab')).toBeInTheDocument();
     });
 
     it('selected first tab if in uncontrolled state', () => {
-      const wrapper = mountWithTheme(basicExample);
+      const { getAllByTestId } = render(<BasicExample />);
 
-      expect(wrapper.find(Tab).first()).toHaveProp('selected', true);
+      expect(getAllByTestId('tab')[0].parentElement).toHaveClass('is-selected');
     });
   });
 
@@ -101,7 +96,7 @@ describe('Tabs', () => {
       console.error = jest.fn();
 
       expect(() => {
-        mountWithTheme(
+        render(
           <Tabs>
             <TabPanel>Invalid panel</TabPanel>
           </Tabs>
@@ -115,7 +110,7 @@ describe('Tabs', () => {
 
     it('does not throw if a key is provided to TabPanel', () => {
       expect(() => {
-        mountWithTheme(
+        render(
           <Tabs>
             <TabPanel key="valid-panel">Valid panel</TabPanel>
           </Tabs>

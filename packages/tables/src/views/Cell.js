@@ -16,17 +16,16 @@ const COMPONENT_ID = 'tables.cell';
 /**
  * Accepts all `<div>` props
  */
-const Cell = styled.div.attrs({
+const Cell = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   role: 'gridcell',
-  className: props =>
-    classNames(TableStyles['c-table__row__cell'], {
-      [TableStyles['c-table__row__cell--min']]: props.minimum,
-      [TableStyles['c-table__row__cell--truncate']]: props.truncate,
-      [TableStyles['c-table__row__cell--overflow']]: props.menu
-    })
-})`
+  className: classNames(TableStyles['c-table__row__cell'], {
+    [TableStyles['c-table__row__cell--min']]: props.minimum,
+    [TableStyles['c-table__row__cell--truncate']]: props.truncate,
+    [TableStyles['c-table__row__cell--overflow']]: props.menu
+  })
+}))`
   && {
     display: flex;
     width: ${({ width }) => width};

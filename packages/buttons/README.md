@@ -3,13 +3,6 @@
 This package includes components and render prop containers relating to
 buttons within the Garden Design System.
 
-## DEPRECATION WARNING
-
-This package has been deprecated in favor of the API provided in the
-[@zendeskgarden/react-dropdowns](https://garden.zendesk.com/react-components/dropdowns/) package.
-
-This package will stop receiving updates in a future major release.
-
 ## Installation
 
 ```sh
@@ -29,7 +22,6 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
  */
 import '@zendeskgarden/react-buttons/dist/styles.css';
 
-import { Fragment } from 'react';
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Button } from '@zendeskgarden/react-buttons';
 
@@ -37,12 +29,12 @@ import { Button } from '@zendeskgarden/react-buttons';
  * Place a `ThemeProvider` at the root of your React application
  */
 <ThemeProvider>
-  <Fragment>
+  <>
     <Button onClick={() => alert('clicked')}>Default</Button>
     <Button primary disabled>
       Disabled Primary button
     </Button>
-  </Fragement>
+  </>
 </ThemeProvider>;
 ```
 

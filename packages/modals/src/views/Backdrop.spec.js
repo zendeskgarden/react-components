@@ -6,32 +6,31 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
-import { shallowWithTheme } from '@zendeskgarden/react-testing';
+import { render, renderRtl } from 'garden-test-utils';
 import Backdrop from './Backdrop';
 
 describe('Backdrop', () => {
   it('renders default styling', () => {
-    const wrapper = shallow(<Backdrop />);
+    const { container } = render(<Backdrop />);
 
-    expect(wrapper).toHaveClassName('l-backdrop');
+    expect(container.firstChild).toHaveClass('l-backdrop');
   });
 
   it('renders RTL styling', () => {
-    const wrapper = shallowWithTheme(<Backdrop />, { rtl: true });
+    const { container } = renderRtl(<Backdrop />);
 
-    expect(wrapper).toHaveClassName('is-rtl');
+    expect(container.firstChild).toHaveClass('is-rtl');
   });
 
   it('renders center styling if provided', () => {
-    const wrapper = shallow(<Backdrop center />);
+    const { container } = render(<Backdrop center />);
 
-    expect(wrapper).toHaveClassName('l-backdrop--center');
+    expect(container.firstChild).toHaveClass('l-backdrop--center');
   });
 
   it('renders animation styling if provided', () => {
-    const wrapper = shallow(<Backdrop animate />);
+    const { container } = render(<Backdrop animate />);
 
-    expect(wrapper).toHaveClassName('is-visible');
+    expect(container.firstChild).toHaveClass('is-visible');
   });
 });
