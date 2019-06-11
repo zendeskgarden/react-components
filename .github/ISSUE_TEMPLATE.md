@@ -12,9 +12,9 @@
 
 ## Steps to Reproduce
 
-  1.
-  1.
-  1.
+1.
+1.
+1.
 
 <!--
   BONUS POINTS: spin up and share an example via
@@ -23,6 +23,6 @@
 
 ### Fine Print
 
-* Component: <!-- buttons -->
-* Version: <!-- your issue might already be fixed with the latest version -->
-* Browsers: all
+- Component: <!-- buttons -->
+- Version: <!-- your issue might already be fixed with the latest version -->
+- Browsers: all
