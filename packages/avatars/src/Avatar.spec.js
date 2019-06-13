@@ -35,19 +35,15 @@ describe('Avatar', () => {
   });
 
   it('applies active styling if provided with badge', () => {
-    const { container } = render(
-      <Avatar status="available" badge={<span data-test-id="badge">2</span>} />
-    );
+    const { container } = render(<Avatar status="available" badge="2" />);
 
     expect(container.firstChild).toHaveClass('is-active');
   });
 
   it('renders badge if provided with status', () => {
-    const { getByTestId } = render(
-      <Avatar status="available" badge={<span data-test-id="badge">2</span>} />
-    );
+    const { container } = render(<Avatar status="available" badge="2" />);
 
-    expect(getByTestId('badge')).not.toBeUndefined();
+    expect(container.firstChild).toHaveAttribute('data-badge');
   });
 
   it('does not render badge if away status is provided', () => {

@@ -58,19 +58,6 @@ StyledAvatar.propTypes = {
   status: PropTypes.oneOf([STATUS.AVAILABLE, STATUS.ACTIVE, STATUS.AWAY])
 };
 
-const BADGE_COMPONENT_ID = 'avatars.badge';
-
-/**
- * Accepts all `<figcaption>` attributes
- */
-export const StyledBadge = styled.figcaption.attrs({
-  'data-garden-id': BADGE_COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: AvatarStyles['c-avatar__badge']
-})`
-  ${props => retrieveTheme(BADGE_COMPONENT_ID, props)};
-`;
-
 const TEXT_COMPONENT_ID = 'avatars.text';
 
 /**
