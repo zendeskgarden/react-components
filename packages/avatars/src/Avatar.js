@@ -7,7 +7,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyledAvatar, StyledBadge } from './styled';
+import { StyledAvatar } from './styled';
 
 const SIZE = {
   EXTRASMALL: 'extrasmall',
@@ -27,32 +27,20 @@ const STATUS = {
 const Avatar = ({ isSystem, size, status, children, badge, ...other }) => {
   let computedStatus = status;
 
-  if (status === STATUS.AVAILABLE && badge !== undefined) {
+  if (status === STATUS.AVAILABLE && badge) {
     computedStatus = STATUS.ACTIVE;
   }
-
-  const FormattedBadge = () => {
-    if (status === undefined || status === STATUS.AWAY) {
-      return null;
-    }
-
-    if (computedStatus === STATUS.AVAILABLE) {
-      return <StyledBadge />;
-    }
-
-    return <StyledBadge>{badge}</StyledBadge>;
-  };
 
   return (
     <StyledAvatar
       isSystem={isSystem}
       size={size}
       status={computedStatus}
+      data-badge={badge}
       aria-live="polite"
       {...other}
     >
       {children}
-      <FormattedBadge />
     </StyledAvatar>
   );
 };
@@ -60,7 +48,7 @@ const Avatar = ({ isSystem, size, status, children, badge, ...other }) => {
 Avatar.propTypes = {
   /** Applies system styling */
   isSystem: PropTypes.bool,
-  badge: PropTypes.node,
+  badge: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
   size: PropTypes.oneOf([SIZE.EXTRASMALL, SIZE.SMALL, SIZE.LARGE]),
   status: PropTypes.oneOf([STATUS.AVAILABLE, STATUS.AWAY]),
   children: PropTypes.node

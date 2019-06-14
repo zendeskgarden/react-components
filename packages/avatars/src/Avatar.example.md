@@ -27,7 +27,7 @@ const StyledSvgAvatar = styled(Avatar)`
     </Col>
     <Col md>
       <h3>System</h3>
-      <Avatar system>
+      <Avatar isSystem>
         <img src="images/system.png" alt="System avatar" />
       </Avatar>
     </Col>
@@ -75,22 +75,22 @@ const StyledSvgAvatar = styled(Avatar)`
   </Row>
   <Row alignItems="center" justifyContent="center">
     <Col md>
-      <Avatar size="extrasmall" system>
+      <Avatar size="extrasmall" isSystem>
         <img src="images/system.png" alt="System Avatar" />
       </Avatar>
     </Col>
     <Col md>
-      <Avatar size="small" system>
+      <Avatar size="small" isSystem>
         <img src="images/system.png" alt="System Avatar" />
       </Avatar>
     </Col>
     <Col md>
-      <Avatar system>
+      <Avatar isSystem>
         <img src="images/system.png" alt="System Avatar" />
       </Avatar>
     </Col>
     <Col md>
-      <Avatar size="large" system>
+      <Avatar size="large" isSystem>
         <img src="images/system.png" alt="System Avatar" />
       </Avatar>
     </Col>

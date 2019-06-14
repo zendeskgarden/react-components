@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { StyledAvatar, StyledBadge, StyledText } from './styled';
+import { StyledAvatar, StyledText } from './styled';
 
 describe('Styled Elements', () => {
   describe('StyledAvatar', () => {
@@ -49,14 +49,6 @@ describe('Styled Elements', () => {
       const { container } = renderRtl(<StyledAvatar />);
 
       expect(container.firstChild).toHaveClass(`is-rtl`);
-    });
-  });
-
-  describe('StyledBadge', () => {
-    it('renders badge styling by default', () => {
-      const { container } = render(<StyledBadge />);
-
-      expect(container.firstChild).toHaveClass(`c-avatar__badge`);
     });
   });
 
