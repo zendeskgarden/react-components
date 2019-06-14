@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1560472769962" clover="3.2.0">
-  <project timestamp="1560472769962" name="All files">
-    <metrics statements="2896" coveredstatements="2830" conditionals="1353" coveredconditionals="1196" methods="955" coveredmethods="929" elements="5204" coveredelements="4955" complexity="0" loc="2896" ncloc="2896" packages="93" files="278" classes="278"/>
+<coverage generated="1560474061539" clover="3.2.0">
+  <project timestamp="1560474061539" name="All files">
+    <metrics statements="2887" coveredstatements="2821" conditionals="1347" coveredconditionals="1190" methods="953" coveredmethods="927" elements="5187" coveredelements="4938" complexity="0" loc="2887" ncloc="2887" packages="93" files="278" classes="278"/>
     <package name="autocomplete.src.containers">
       <metrics statements="154" coveredstatements="149" conditionals="96" coveredconditionals="78" methods="46" coveredmethods="42"/>
       <file name="AutocompleteContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/autocomplete/src/containers/AutocompleteContainer.js">
@@ -338,9 +338,9 @@
       </file>
     </package>
     <package name="avatars.src">
-      <metrics statements="27" coveredstatements="27" conditionals="10" coveredconditionals="10" methods="6" coveredmethods="6"/>
+      <metrics statements="18" coveredstatements="18" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
       <file name="Avatar.js" path="/home/travis/build/zendeskgarden/react-components/packages/avatars/src/Avatar.js">
-        <metrics statements="14" coveredstatements="14" conditionals="10" coveredconditionals="10" methods="2" coveredmethods="2"/>
+        <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
         <line num="12" count="1" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
         <line num="27" count="1" type="stmt"/>
@@ -348,20 +348,14 @@
         <line num="30" count="8" type="cond" truecount="4" falsecount="0"/>
         <line num="31" count="2" type="stmt"/>
         <line num="34" count="8" type="stmt"/>
-        <line num="35" count="8" type="cond" truecount="4" falsecount="0"/>
-        <line num="36" count="5" type="stmt"/>
-        <line num="39" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="40" count="1" type="stmt"/>
-        <line num="43" count="2" type="stmt"/>
-        <line num="46" count="8" type="stmt"/>
-        <line num="60" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
       </file>
       <file name="Text.js" path="/home/travis/build/zendeskgarden/react-components/packages/avatars/src/Text.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="11" count="1" type="stmt"/>
       </file>
       <file name="styled.js" path="/home/travis/build/zendeskgarden/react-components/packages/avatars/src/styled.js">
-        <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="14" count="2" type="stmt"/>
         <line num="16" count="2" type="stmt"/>
         <line num="22" count="2" type="stmt"/>
@@ -370,10 +364,7 @@
         <line num="54" count="2" type="stmt"/>
         <line num="61" count="2" type="stmt"/>
         <line num="66" count="2" type="stmt"/>
-        <line num="71" count="4" type="stmt"/>
-        <line num="74" count="2" type="stmt"/>
-        <line num="79" count="2" type="stmt"/>
-        <line num="84" count="2" type="stmt"/>
+        <line num="71" count="2" type="stmt"/>
       </file>
     </package>
     <package name="breadcrumbs.src.containers">
@@ -3634,8 +3625,8 @@
       <file name="ThemeProvider.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/ThemeProvider/ThemeProvider.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="12" count="241" type="stmt"/>
-        <line num="13" count="1097" type="stmt"/>
-        <line num="19" count="1097" type="stmt"/>
+        <line num="13" count="1096" type="stmt"/>
+        <line num="19" count="1096" type="stmt"/>
         <line num="22" count="241" type="stmt"/>
       </file>
     </package>
@@ -3651,9 +3642,9 @@
       </file>
       <file name="retrieveTheme.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/utils/retrieveTheme.js">
         <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
-        <line num="10" count="3795" type="stmt"/>
-        <line num="12" count="3795" type="cond" truecount="2" falsecount="0"/>
-        <line num="13" count="3793" type="stmt"/>
+        <line num="10" count="3791" type="stmt"/>
+        <line num="12" count="3791" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="3789" type="stmt"/>
         <line num="16" count="2" type="stmt"/>
         <line num="18" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="19" count="1" type="stmt"/>
