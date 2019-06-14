@@ -29,4 +29,14 @@ describe('Icon', () => {
 
     expect(container.firstChild).toHaveClass('is-rotated');
   });
+
+  it('passes className prop', () => {
+    const { container } = render(
+      <Icon className="test">
+        <svg />
+      </Icon>
+    );
+
+    expect(container.firstChild).toHaveClass('test');
+  });
 });
