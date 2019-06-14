@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1560474061539" clover="3.2.0">
-  <project timestamp="1560474061539" name="All files">
+<coverage generated="1560529211286" clover="3.2.0">
+  <project timestamp="1560529211286" name="All files">
     <metrics statements="2887" coveredstatements="2821" conditionals="1347" coveredconditionals="1190" methods="953" coveredmethods="927" elements="5187" coveredelements="4938" complexity="0" loc="2887" ncloc="2887" packages="93" files="278" classes="278"/>
     <package name="autocomplete.src.containers">
       <metrics statements="154" coveredstatements="149" conditionals="96" coveredconditionals="78" methods="46" coveredmethods="42"/>
@@ -516,8 +516,8 @@
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="13" count="5" type="stmt"/>
         <line num="15" count="5" type="stmt"/>
-        <line num="16" count="3" type="stmt"/>
-        <line num="25" count="5" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="29" count="5" type="stmt"/>
       </file>
       <file name="IconButton.js" path="/home/travis/build/zendeskgarden/react-components/packages/buttons/src/views/icon-button/IconButton.js">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -3625,8 +3625,8 @@
       <file name="ThemeProvider.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/ThemeProvider/ThemeProvider.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="12" count="241" type="stmt"/>
-        <line num="13" count="1096" type="stmt"/>
-        <line num="19" count="1096" type="stmt"/>
+        <line num="13" count="1097" type="stmt"/>
+        <line num="19" count="1097" type="stmt"/>
         <line num="22" count="241" type="stmt"/>
       </file>
     </package>
