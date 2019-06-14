@@ -48,7 +48,7 @@ const Avatar = ({ isSystem, size, status, children, badge, ...other }) => {
 Avatar.propTypes = {
   /** Applies system styling */
   isSystem: PropTypes.bool,
-  badge: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+  badge: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   size: PropTypes.oneOf([SIZE.EXTRASMALL, SIZE.SMALL, SIZE.LARGE]),
   status: PropTypes.oneOf([STATUS.AVAILABLE, STATUS.AWAY]),
   children: PropTypes.node
