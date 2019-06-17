@@ -22,7 +22,7 @@ describe('Avatar', () => {
     expect(container.firstChild).toHaveClass('c-avatar--lg');
   });
 
-  it('applies away styling if provided', () => {
+  it('applies away styling if provided without badge', () => {
     const { container } = render(<Avatar status="away" />);
 
     expect(container.firstChild).toHaveClass('is-away');
@@ -34,16 +34,22 @@ describe('Avatar', () => {
     expect(container.firstChild).toHaveClass('is-available');
   });
 
-  it('applies active styling if provided with badge', () => {
+  it('renders badge if provided', () => {
+    const { container } = render(<Avatar badge="2" />);
+
+    expect(container.firstChild).toHaveAttribute('data-badge');
+  });
+
+  it('applies active styling to available status if provided with badge', () => {
     const { container } = render(<Avatar status="available" badge="2" />);
 
     expect(container.firstChild).toHaveClass('is-active');
   });
 
-  it('renders badge if provided with status', () => {
-    const { container } = render(<Avatar status="available" badge="2" />);
+  it('applies active styling to away status if provided with badge', () => {
+    const { container } = render(<Avatar status="away" badge="2" />);
 
-    expect(container.firstChild).toHaveAttribute('data-badge');
+    expect(container.firstChild).toHaveClass('is-active');
   });
 
   it('renders text element if provided', () => {

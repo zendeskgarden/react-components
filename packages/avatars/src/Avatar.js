@@ -25,11 +25,7 @@ const STATUS = {
  * Accepts all `<figure>` attributes and events
  */
 const Avatar = ({ isSystem, size, status, children, badge, ...other }) => {
-  let computedStatus = status;
-
-  if (status === STATUS.AVAILABLE && badge) {
-    computedStatus = STATUS.ACTIVE;
-  }
+  const computedStatus = badge ? STATUS.ACTIVE : status;
 
   return (
     <StyledAvatar

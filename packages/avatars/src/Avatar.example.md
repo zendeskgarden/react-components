@@ -110,7 +110,7 @@ const StyledTextAvatar = styled(Avatar)`
 <Grid>
   <Row>
     <Col md={4}>
-      <Avatar status="available" badge="9+">
+      <Avatar status="available" badge="1">
         <img src="images/avatar-1.png" alt="Example Avatar" />
       </Avatar>
     </Col>
@@ -127,7 +127,7 @@ const StyledTextAvatar = styled(Avatar)`
   </Row>
   <Row>
     <Col md={4}>
-      <StyledTextAvatar status="available" badge="9+" size="large">
+      <StyledTextAvatar status="away" badge="9+" size="large">
         <Text>JZ</Text>
       </StyledTextAvatar>
     </Col>
@@ -159,11 +159,13 @@ class Example extends React.Component {
   componentDidMount() {
     this.timer = setInterval(() => {
       if (this.state.status === undefined) {
+        this.setState({ status: 'away', badge: undefined });
+      } else if (this.state.status === 'away' && this.state.badge === undefined) {
         this.setState({ status: 'available', badge: undefined });
       } else if (this.state.status === 'available' && this.state.badge === undefined) {
-        this.setState({ status: 'available', badge: '5' });
-      } else if (this.state.status === 'available' && this.state.badge !== undefined) {
-        this.setState({ status: 'away', badge: undefined });
+        this.setState({ status: 'away', badge: 2 });
+      } else if (this.state.status === 'away' && this.state.badge !== undefined) {
+        this.setState({ status: 'available', badge: 1 });
       } else {
         this.setState({ status: undefined, badge: undefined });
       }
