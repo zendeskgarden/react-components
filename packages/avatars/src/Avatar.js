@@ -12,6 +12,7 @@ import { StyledAvatar } from './styled';
 const SIZE = {
   EXTRASMALL: 'extrasmall',
   SMALL: 'small',
+  MEDIUM: 'medium',
   LARGE: 'large'
 };
 
@@ -46,9 +47,13 @@ Avatar.propTypes = {
   /** Applies system styling */
   isSystem: PropTypes.bool,
   badge: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  size: PropTypes.oneOf([SIZE.EXTRASMALL, SIZE.SMALL, SIZE.LARGE]),
+  size: PropTypes.oneOf([SIZE.EXTRASMALL, SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]),
   status: PropTypes.oneOf([STATUS.AVAILABLE, STATUS.AWAY]),
   children: PropTypes.node
+};
+
+Avatar.defaultProps = {
+  size: SIZE.MEDIUM
 };
 
 /** @component */

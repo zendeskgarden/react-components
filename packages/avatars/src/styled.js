@@ -16,6 +16,7 @@ const AVATARS_COMPONENT_ID = 'avatars.avatar';
 const SIZE = {
   EXTRASMALL: 'extrasmall',
   SMALL: 'small',
+  MEDIUM: 'medium',
   LARGE: 'large'
 };
 
@@ -54,7 +55,7 @@ export const StyledAvatar = styled.figure.attrs(props => ({
 StyledAvatar.propTypes = {
   /** Applies system styling */
   isSystem: PropTypes.bool,
-  size: PropTypes.oneOf([SIZE.EXTRASMALL, SIZE.SMALL, SIZE.LARGE]),
+  size: PropTypes.oneOf([SIZE.EXTRASMALL, SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]),
   status: PropTypes.oneOf([STATUS.AVAILABLE, STATUS.ACTIVE, STATUS.AWAY])
 };
 
