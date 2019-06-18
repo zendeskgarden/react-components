@@ -33,6 +33,7 @@ const Avatar = ({ isSystem, size, status, children, badge, ...other }) => {
       size={size}
       status={computedStatus}
       data-badge={badge}
+      aria-atomic="true"
       aria-live="polite"
       {...other}
     >
