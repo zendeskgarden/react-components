@@ -14,10 +14,10 @@
     "dist"
   ],
   "scripts": {
-    "build": "../../utils/scripts/build.sh",
-    "build:demo": "../../utils/scripts/build-demo.sh",
-    "start": "../../utils/scripts/start.sh"
+    "build": "../../utils/scripts/build.sh && yarn build:types",
+    "build:types": "tsc -p tsconfig.build.json"
   },
+  "types": "./dist/typings/index.d.ts",
   "dependencies": {
     "@zendeskgarden/container-selection": "^0.2.3",
     "classnames": "^2.2.5",
@@ -49,5 +49,5 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenDropdowns",
-  "zendeskgarden:src": "src/index.js"
+  "zendeskgarden:src": "src/index.ts"
 }
