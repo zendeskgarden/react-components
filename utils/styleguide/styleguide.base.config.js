@@ -157,6 +157,21 @@ const defaultStyleguideConfig = {
           options: babelOptions
         },
         {
+          test: /\.tsx?$/u,
+          use: [
+            {
+              loader: 'babel-loader',
+              options: babelOptions
+            },
+            {
+              loader: require.resolve('ts-loader'),
+              options: {
+                configFile: path.resolve(__dirname, '../../.storybook/tsconfig.storybook.json')
+              }
+            }
+          ]
+        },
+        {
           test: /\.css$/u,
           exclude: /@zendeskgarden\/css-/u,
           loader: 'style-loader!css-loader'
@@ -199,6 +214,7 @@ const defaultStyleguideConfig = {
       })
     ],
     resolve: {
+      extensions: ['.svg', '.js', '.json', '.md', '.css', '.ts', '.tsx'],
       alias: {
         'package.json': path.resolve('package.json'),
         'CHANGELOG.md': path.resolve('CHANGELOG.md'),

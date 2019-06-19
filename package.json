@@ -5,7 +5,7 @@
   "scripts": {
     "build": "lerna run build --stream",
     "build:analyze": "ANALYZE_BUNDLE=true yarn build:single",
-    "build:demo": "yarn build:storybook && lerna run build:demo --stream",
+    "build:demo": "yarn build && yarn build:storybook && lerna run build:demo --stream",
     "build:single": "utils/scripts/scoped-npm-command.js --script build",
     "build:storybook": "build-storybook -s ./utils/styleguide/public -o ./demo/storybook",
     "format": "yarn format:package_json && yarn format:js && yarn format:ts && yarn format:markdown",
