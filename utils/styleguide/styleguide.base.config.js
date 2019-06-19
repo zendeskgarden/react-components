@@ -223,7 +223,6 @@ const defaultStyleguideConfig = {
         '@zendeskgarden/react-tables': path.resolve('..', 'tables'),
         '@zendeskgarden/react-tabs': path.resolve('..', 'tabs'),
         '@zendeskgarden/react-tags': path.resolve('..', 'tags'),
-        '@zendeskgarden/react-testing': path.resolve('..', 'testing'),
         '@zendeskgarden/react-textfields': path.resolve('..', 'textfields'),
         '@zendeskgarden/react-theming': path.resolve('..', 'theming'),
         '@zendeskgarden/react-toggles': path.resolve('..', 'toggles'),

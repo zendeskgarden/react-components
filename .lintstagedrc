@@ -7,6 +7,20 @@
       "prettier --write",
       "git add"
     ],
+    "*.tsx": [
+      "stylelint",
+      "eslint",
+      "jest --config=utils/test/jest.config.js --findRelatedTests",
+      "prettier --write",
+      "git add"
+    ],
+    "*.ts": [
+      "stylelint",
+      "eslint",
+      "jest --config=utils/test/jest.config.js --findRelatedTests",
+      "prettier --write",
+      "git add"
+    ],
     "*.md": [
       "markdownlint",
       "prettier --write",

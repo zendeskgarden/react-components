@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "jsx": "react",
+    "sourceMap": true,
+    "noEmit": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "garden-test-utils": ["utils/test/garden-test-utils.tsx"],
+      "storybook-utils": [".storybook/utils.ts"],
+    },
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true
+  },
+  "files": ["utils/build/declarations.d.ts", "utils/test/jest.d.ts", ".storybook/storybook.d.ts"],
+  "include": ["packages/*/src/**/*", ".storybook/*"],
+  "exclude": [
+    "node_modules", "**/node_modules", "**/dist"
+  ]
+}

@@ -1,9 +1,7 @@
 {
   "version": "6.0.2",
   "npmClient": "yarn",
-  "npmClientArgs": [
-    "--no-lockfile"
-  ],
+  "npmClientArgs": ["--no-lockfile"],
   "changelog": {
     "repo": "zendeskgarden/react-components",
     "cacheDir": ".changelog",
@@ -18,6 +16,10 @@
   "ignoreChanges": [
     "*.md",
     "*.spec.js",
+    "*.spec.ts",
+    "*.spec.tsx",
+    "*.stories.ts",
+    "*.stories.tsx",
     "**/__snapshots__/**",
     "styleguide.config.js"
   ],

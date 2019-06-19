@@ -17,6 +17,7 @@ install: yarn --frozen-lockfile --ignore-scripts
 
 script:
   - yarn lint
+  - yarn ts
   - yarn format
   - yarn lerna bootstrap --ignore-scripts
   - yarn test:all --coverage --runInBand
