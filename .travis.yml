@@ -16,6 +16,7 @@ before_install:
 install: yarn --frozen-lockfile --ignore-scripts
 
 script:
+  - yarn lerna bootstrap --ignore-scripts
   - yarn lint
   - yarn ts
   - yarn format
