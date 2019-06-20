@@ -14,8 +14,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "../../utils/scripts/build.sh && yarn build:types",
-    "build:types": "tsc -p tsconfig.build.json"
+    "build": "../../utils/scripts/build.sh && tsc -p tsconfig.build.json"
   },
   "types": "./dist/typings/index.d.ts",
   "dependencies": {

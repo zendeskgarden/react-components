@@ -7,14 +7,7 @@
       "prettier --write",
       "git add"
     ],
-    "*.tsx": [
-      "stylelint",
-      "eslint",
-      "jest --config=utils/test/jest.config.js --findRelatedTests",
-      "prettier --write",
-      "git add"
-    ],
-    "*.ts": [
+    "*.{ts,tsx}": [
       "stylelint",
       "eslint",
       "jest --config=utils/test/jest.config.js --findRelatedTests",

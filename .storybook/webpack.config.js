@@ -7,12 +7,13 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const { readdir } = require('fs').promises;
+const { promisify } = require('util');
+const { readdir } = require('fs');
 const babelOptions = require(path.resolve(__dirname, '../babel.config.js'));
 const lernaConfig = require(path.resolve(__dirname, '../lerna.json'));
 
 module.exports = async ({ config }) => {
-  const packageNames = await readdir(path.resolve(__dirname, '../packages'));
+  const packageNames = await promisify(readdir)(path.resolve(__dirname, '../packages'));
 
   /**
    * Include global variables

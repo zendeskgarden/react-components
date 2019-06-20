@@ -2,6 +2,7 @@
 node_modules
 *.log
 .changelog
+.vscode
 
 # Package specific
 packages/**/dist
