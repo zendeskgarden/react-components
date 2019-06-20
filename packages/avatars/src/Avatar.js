@@ -12,6 +12,7 @@ import { StyledAvatar } from './styled';
 const SIZE = {
   EXTRASMALL: 'extrasmall',
   SMALL: 'small',
+  MEDIUM: 'medium',
   LARGE: 'large'
 };
 
@@ -25,11 +26,7 @@ const STATUS = {
  * Accepts all `<figure>` attributes and events
  */
 const Avatar = ({ isSystem, size, status, children, badge, ...other }) => {
-  let computedStatus = status;
-
-  if (status === STATUS.AVAILABLE && badge) {
-    computedStatus = STATUS.ACTIVE;
-  }
+  const computedStatus = badge ? STATUS.ACTIVE : status;
 
   return (
     <StyledAvatar
@@ -37,6 +34,7 @@ const Avatar = ({ isSystem, size, status, children, badge, ...other }) => {
       size={size}
       status={computedStatus}
       data-badge={badge}
+      aria-atomic="true"
       aria-live="polite"
       {...other}
     >
@@ -49,9 +47,13 @@ Avatar.propTypes = {
   /** Applies system styling */
   isSystem: PropTypes.bool,
   badge: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  size: PropTypes.oneOf([SIZE.EXTRASMALL, SIZE.SMALL, SIZE.LARGE]),
+  size: PropTypes.oneOf([SIZE.EXTRASMALL, SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]),
   status: PropTypes.oneOf([STATUS.AVAILABLE, STATUS.AWAY]),
   children: PropTypes.node
+};
+
+Avatar.defaultProps = {
+  size: SIZE.MEDIUM
 };
 
 /** @component */
