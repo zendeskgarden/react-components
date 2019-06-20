@@ -12,7 +12,11 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v6.0.3 (2019-06-20)
 
+#### :bug: Bug Fix
+* `avatars`
+  * [#368](https://github.com/zendeskgarden/react-components/pull/368) fix(avatars): display badge status whenever badge data exists ([@jzempel](https://github.com/jzempel))
 
 ## v6.0.2 (2019-06-14)
 
