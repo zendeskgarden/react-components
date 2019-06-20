@@ -13,11 +13,13 @@ module.exports = {
         targets: '> 0.5%, last 2 versions, Firefox ESR, not dead'
       }
     ],
-    '@babel/preset-react'
+    '@babel/preset-react',
+    '@babel/preset-typescript'
   ],
   plugins: [
     '@babel/plugin-transform-object-assign',
     '@babel/plugin-proposal-class-properties',
+    '@babel/proposal-object-rest-spread',
     'babel-plugin-styled-components'
   ]
 };
