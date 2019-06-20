@@ -380,7 +380,7 @@ class Example extends React.Component {
 
   componentDidMount() {
     this.timeout = setTimeout(() => {
-      this.timer = setInterval(() => {
+      this.interval = setInterval(() => {
         if (this.state.status === undefined) {
           this.setState({ status: 'away', badge: undefined });
         } else if (this.state.status === 'away' && this.state.badge === undefined) {
@@ -397,7 +397,7 @@ class Example extends React.Component {
   }
 
   componentWillUnmount() {
-    clearInterval(this.timer);
+    clearInterval(this.interval);
     clearTimeout(this.timeout);
   }
 
