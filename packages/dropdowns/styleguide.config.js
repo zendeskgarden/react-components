@@ -15,7 +15,7 @@ const reactDocgen = require('react-docgen');
  */
 module.exports = {
   propsParser: reactDocgenTypescript.withCustomConfig(
-    path.resolve(__dirname, '../../utils/styleguide/tsconfig.styleguide.json'),
+    path.resolve(__dirname, '../../tsconfig.json'),
     {
       propFilter: props => {
         return props.parent.fileName.indexOf('node_modules') === -1;

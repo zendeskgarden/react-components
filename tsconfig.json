@@ -2,9 +2,8 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "jsx": "react",
+    "jsx": "preserve",
     "sourceMap": true,
-    "noEmit": true,
     "strict": true,
     "moduleResolution": "node",
     "baseUrl": "./",

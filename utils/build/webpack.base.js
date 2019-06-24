@@ -78,6 +78,12 @@ found at http://www.apache.org/licenses/LICENSE-2.0
           {
             loader: 'babel-loader',
             options: babelOptions
+          },
+          {
+            loader: 'ts-loader',
+            options: {
+              configFile: path.resolve('tsconfig.build.json')
+            }
           }
         ]
       },

@@ -1,11 +1,10 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "noEmit": false,
     "rootDir": "src",
     "declarationDir": "dist/typings",
     "declaration": true,
-    "emitDeclarationOnly": true,
+    "sourceMap": false
   },
   "include": ["src/**/*"],
   "exclude": ["**/*.spec.tsx", "**/*.spec.ts"]
