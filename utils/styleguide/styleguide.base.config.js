@@ -8,8 +8,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const {
-  zdColorBlue600,
-  zdColorGrey100,
+  zdColorKale100,
   zdColorKale400,
   zdColorRed600,
   zdFontSizeMd
@@ -39,10 +38,10 @@ const defaultStyleguideConfig = {
   usageMode: 'expand',
   theme: {
     color: {
-      link: zdColorBlue600,
-      linkHover: zdColorBlue600,
-      codeBackground: zdColorGrey100,
-      sidebarBackground: zdColorGrey100,
+      base: 'inherit',
+      baseBackground: 'inherit',
+      codeBackground: 'inherit',
+      sidebarBackground: zdColorKale100,
       name: zdColorKale400,
       type: zdColorRed600
     }
@@ -139,11 +138,14 @@ const defaultStyleguideConfig = {
     return `import { ${name} } from '${packageManifest.name}'`;
   },
   styleguideComponents: {
+    StyleGuideRenderer: path.resolve(__dirname, 'StyleGuideRenderer'),
     Wrapper: path.resolve(__dirname, 'Wrapper'),
     TableOfContentsRenderer: path.resolve(__dirname, 'TableOfContentsRenderer'),
     LogoRenderer: path.resolve(__dirname, 'LogoRenderer'),
+    LinkRenderer: path.resolve(__dirname, 'LinkRenderer'),
     TableRenderer: path.resolve(__dirname, 'TableRenderer'),
     ArgumentsRenderer: path.resolve(__dirname, 'ArgumentsRenderer'),
+    'Markdown/Pre': path.resolve(__dirname, 'Pre'),
     'slots/CodeTabButton': path.resolve(__dirname, 'CodeTabButton')
   },
   webpackConfig: {
