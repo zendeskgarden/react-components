@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 import ArrowStyles from '@zendeskgarden/css-arrows';
 import TooltipStyles from '@zendeskgarden/css-tooltips';
 
@@ -85,7 +85,7 @@ const TooltipView = styled.div.attrs(props => ({
   })
 }))`
   ${props => retrieveTooltipMargin(props)};
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 TooltipView.propTypes = {

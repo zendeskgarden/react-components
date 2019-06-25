@@ -7,7 +7,7 @@
 
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { FauxInput } from '@zendeskgarden/react-textfields';
 
 const COMPONENT_ID = 'select.select_view';
@@ -25,7 +25,7 @@ const SelectView = styled(FauxInput).attrs({
 })`
   cursor: default;
 
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 SelectView.propTypes = {

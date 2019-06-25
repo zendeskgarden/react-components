@@ -8,7 +8,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'example.component_id';
 
@@ -24,15 +24,15 @@ const Example = styled.div.attrs({
       'example-cool-class': props.coolProp
     })
 })`
-  color: red;
+  color: #f00;
 
   :hover {
-    color: blue;
+    color: #00f;
   }
 
   direction: ${props => (isRtl(props) ? 'rtl' : 'ltr')};
 
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 Example.propTypes = {

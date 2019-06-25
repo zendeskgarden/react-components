@@ -8,7 +8,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import GridStyles from '@zendeskgarden/css-grid';
 
 const COMPONENT_ID = 'grid.col';
@@ -67,7 +67,7 @@ const Col = styled.div.attrs(props => ({
     [GridStyles[`order-${props.order}`]]: props.order
   })
 }))`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 Col.propTypes = {

@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import TooltipStyles from '@zendeskgarden/css-tooltips';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tooltip.paragraph';
 
@@ -19,7 +19,7 @@ const Paragraph = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION,
   className: TooltipStyles['c-tooltip__paragraph']
 })`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 /** @component */

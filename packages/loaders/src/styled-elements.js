@@ -8,7 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 export const DotsCircle = styled.circle.attrs(props => ({
   cx: 9,
@@ -54,7 +54,7 @@ const StyledSvg = styled.svg.attrs(props => ({
   color: ${props => props.color || 'inherit'};
   font-size: ${props => props.fontSize || 'inherit'};
 
-  ${props => retrieveTheme(props.dataGardenId, props)};
+  ${props => retrieveComponentStyles(props.dataGardenId, props)};
 `;
 
 StyledSvg.propTypes = {

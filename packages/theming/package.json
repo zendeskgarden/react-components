@@ -18,6 +18,10 @@
     "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
+  "dependencies": {
+    "merge-anything": "2.2.5",
+    "polished": "3.4.1"
+  },
   "peerDependencies": {
     "prop-types": "^15.6.1",
     "react": "^16.8.0",

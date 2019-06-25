@@ -18,7 +18,7 @@ import {
   zdColorYellow200,
   zdColorYellow800
 } from '@zendeskgarden/css-variables';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import SM from './SM';
 import MD from './MD';
 import LG from './LG';
@@ -77,7 +77,7 @@ const codeCSS = css`
   padding: 1.5px;
   color: ${props => foregroundColor(props.type)};
 
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 const StyledSM = styled(SM).attrs(codeAttributes)`

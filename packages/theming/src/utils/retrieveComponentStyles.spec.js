@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import retrieveTheme from './retrieveTheme';
+import retrieveComponentStyles from './retrieveComponentStyles';
 
-describe('retrieveTheme', () => {
+describe('retrieveComponentStyles', () => {
   const COMPONENT_ID = 'component-id';
   const EXAMPLE_STYLE = 'test-style';
 
   it('returns undefined if no matching styles is found', () => {
-    const styles = retrieveTheme(COMPONENT_ID, { theme: {} });
+    const styles = retrieveComponentStyles(COMPONENT_ID, { theme: {} });
 
     expect(styles).toBe(undefined);
   });
@@ -20,8 +20,8 @@ describe('retrieveTheme', () => {
   it('calls style as method if provided as a function', () => {
     const componentStyles = jest.fn().mockReturnValue(EXAMPLE_STYLE);
 
-    const componentStyle = retrieveTheme(COMPONENT_ID, {
-      theme: { styles: { [COMPONENT_ID]: componentStyles } },
+    const componentStyle = retrieveComponentStyles(COMPONENT_ID, {
+      theme: { components: { [COMPONENT_ID]: componentStyles } },
       mockData: true
     });
 
@@ -30,8 +30,8 @@ describe('retrieveTheme', () => {
   });
 
   it('returns style directly if found', () => {
-    const componentStyle = retrieveTheme(COMPONENT_ID, {
-      theme: { styles: { [COMPONENT_ID]: EXAMPLE_STYLE } },
+    const componentStyle = retrieveComponentStyles(COMPONENT_ID, {
+      theme: { components: { [COMPONENT_ID]: EXAMPLE_STYLE } },
       mockData: true
     });
 

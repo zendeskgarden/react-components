@@ -8,7 +8,7 @@
 import PropTypes from 'prop-types';
 import className from 'classnames';
 import styled from 'styled-components';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import MenuStyles from '@zendeskgarden/css-menus';
 
 import StyledItem from '../StyledItem';
@@ -25,7 +25,7 @@ const StyledHeaderItem = styled(StyledItem).attrs(props => ({
     [MenuStyles['c-menu__item--header--icon']]: props.containsIcon
   })
 }))`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledHeaderItem.propTypes = {

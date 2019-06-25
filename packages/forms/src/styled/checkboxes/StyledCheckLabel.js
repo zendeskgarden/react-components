@@ -8,7 +8,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
 
 /**
@@ -31,7 +31,7 @@ const StyledCheckLabel = styled.label.attrs(props => ({
     [CheckboxStyles['is-rtl']]: isRtl(props)
   })
 }))`
-  ${props => retrieveTheme('forms.check_label', props)};
+  ${props => retrieveComponentStyles('forms.check_label', props)};
 `;
 
 StyledCheckLabel.propTypes = {

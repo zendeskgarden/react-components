@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 
 const COMPONENT_ID = 'textfields.media_figure';
@@ -19,7 +19,7 @@ const MediaFigure = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION,
   className: TextStyles['c-txt__input--media__figure']
 })`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 /** @component */

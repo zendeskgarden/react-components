@@ -14,7 +14,7 @@ import {
   zdFontSizeSmMonospace,
   zdLineHeightSm
 } from '@zendeskgarden/css-variables';
-import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'typography.sm';
 
@@ -28,7 +28,7 @@ const StyledSM = styled.div.attrs({
 
   direction: ${props => (isRtl(props) ? 'rtl' : 'ltr')};
 
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 /**

@@ -8,7 +8,7 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styled from 'styled-components';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import MenuStyles from '@zendeskgarden/css-menus';
 
 import StyledItem from '../StyledItem';
@@ -23,7 +23,7 @@ const StyledMediaItem = styled(StyledItem).attrs(props => ({
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(props.className, MenuStyles['c-menu__item--media'])
 }))`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledMediaItem.propTypes = {

@@ -20,28 +20,31 @@ Garden (and custom) components as well as providing a RTL context.
 It is intended to be used at the root of an application to provide a global
 context for RTL.
 
-`ThemeProvider` components can be nested within each other for areas that require
-additional, custom theming.
+`ThemeProvider` components can be nested for areas that require additional,
+custom theming.
 
 ### Theming
 
-All themes are auto-prefixed and has access to the `props` provided to the component.
+All components are auto-prefixed and have access to the `props` provided to
+the component.
 
 ```jsx static
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Notification, Title, Paragraph } from '@zendeskgarden/react-notifications';
 
 const theme = {
-  'notifications.title': `
-    && {
-      color: red;
+  components: {
+    'notifications.title': `
+      && {
+        color: red;
 
-      :hover {
-        color: blue;
+        :hover {
+          color: blue;
+        }
       }
-    }
-  `,
-  'notifications.paragraph': props => (props.purple ? 'color: purple' : '')
+    `,
+    'notifications.paragraph': props => (props.purple ? 'color: purple' : '')
+  }
 };
 
 <ThemeProvider theme={theme}>
@@ -59,7 +62,7 @@ import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Notification } from '@zendeskgarden/react-notifications';
 
 <ThemeProvider rtl>
-  <Notification>This notification content will have custom styling.</Notification>
+  <Notification>This notification content will render with RTL layout.</Notification>
 </ThemeProvider>;
 ```
 
@@ -69,11 +72,11 @@ allows any component to interact with its `ThemeProvider`.
 ```jsx static
 import { withTheme } from '@zendeskgarden/react-theming';
 
-const StyledDiv = ({ theme, children }) => (
+const Div = ({ theme, children }) => (
   <div style={{ direction: theme.rtl ? 'rtl' : 'ltr' }}>{children}</div>
 );
 
-const LocalizedComponent = withTheme(StyledDiv);
+const LocalizedComponent = withTheme(Div);
 
 <ThemeProvider rtl>
   <LocalizedComponent>RTL localizable</LocalizedComponent>
@@ -97,14 +100,16 @@ const commonOverrides = `
   }
 `;
 const theme = {
-  'notifications.title': css`
-    ${commonOverrides} && {
-      color: red;
-    }
-  `,
-  'notifications.paragraph': css`
-    ${commonOverrides} ${props => (props.purple ? 'color: purple' : '')};
-  `
+  components: {
+    'notifications.title': css`
+      ${commonOverrides} && {
+        color: red;
+      }
+    `,
+    'notifications.paragraph': css`
+      ${commonOverrides} ${props => (props.purple ? 'color: purple' : '')};
+    `
+  }
 };
 
 <ThemeProvider theme={theme}>
@@ -121,12 +126,12 @@ apply styles based on props or compose from other template literals.
 
 ### Theme ids
 
-Each component has a `COMPONENT_ID` applied so you can target it in your own theme
-file to override the default look and feel. This table contains all the ids and which
-package they apply to.
+Each component has a `COMPONENT_ID` applied so you can target it in your own
+theme object to override the default look and feel. This table contains all
+the ids and which package they apply to.
 
 ```jsx noeditor
-<CIDTable />
+<CIDTable>See https://zendeskgarden.github.io/react-components/theming</CIDTable>
 ```
 
 ### WARNING
@@ -134,6 +139,7 @@ package they apply to.
 Theming is meant to be used for small, global changes to a component
 (i.e accent color, padding changes, etc.)
 
-If you find yourself "skinning" a component, it may be much easier (and maintainable)
-if you were to create these presentation assets as standalone components and use
-them with our advanced `Container` abstractions.
+If you find yourself "skinning" a component, it may be much easier (and
+maintainable) if you were to create these presentation assets as standalone
+components and use them with our advanced
+[`Container`](https://zendeskgarden.github.io/react-containers) abstractions.

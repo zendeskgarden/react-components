@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import TabStyles from '@zendeskgarden/css-tabs';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tabs.tablist';
 
@@ -23,7 +23,7 @@ const TabList = styled.div.attrs({
     outline: none;
   }
 
-  ${props => retrieveTheme('tabs.tab_list', props)};
+  ${props => retrieveComponentStyles('tabs.tab_list', props)};
 `;
 
 /** @component */

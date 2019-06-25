@@ -85,10 +85,10 @@ In addition all views must
 
 - Be created using (or extending) a
   [styled-components](https://www.styled-components.com/) primitive
-- Use the `retrieveTheme` utility to allow dynamic theming
+- Use the `retrieveComponentStyles` utility to allow dynamic theming
 - Provide the following analytics attributes:
   - `data-garden-id="unique-component-id"` - this should match the ID
-    provided to `retrieveTheme`
+    provided to `retrieveComponentStyles`
   - `data-garden-version="packageVersion"` - provided by `package.json`
   - (these attributes allow us to view current Garden usage across the
     Zendesk product suite)

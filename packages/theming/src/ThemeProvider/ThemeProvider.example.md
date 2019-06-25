@@ -14,7 +14,7 @@ const ThemableButton = styled.div`
     color: yellow;
   }
 
-  ${props => retrieveTheme('button', props)};
+  ${props => retrieveComponentStyles('button', props)};
 `;
 
 const Container = styled.div`
@@ -23,16 +23,20 @@ const Container = styled.div`
 `;
 
 const theme = {
-  button: `color: red;`
+  components: {
+    button: `color: red;`
+  }
 };
 
 const nestedTheme = {
-  button: `
-    color: green;
-    :hover {
-      color: blue;
-    }
-  `
+  components: {
+    button: `
+      color: green;
+      :hover {
+        color: blue;
+      }
+    `
+  }
 };
 
 <ThemeProvider theme={theme}>

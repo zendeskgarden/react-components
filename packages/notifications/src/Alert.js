@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import CalloutStyles from '@zendeskgarden/css-callouts';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 import Well from './Well';
 const COMPONENT_ID = 'notifications.alert';
@@ -36,7 +36,7 @@ const Alert = styled(Well).attrs(props => ({
     [CalloutStyles['c-callout--info']]: props.type === VALIDATION.INFO
   })
 }))`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 Alert.propTypes = {

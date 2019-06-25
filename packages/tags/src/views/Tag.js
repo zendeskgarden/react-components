@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import classNames from 'classnames';
 import TagStyles from '@zendeskgarden/css-tags';
 
-import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tags.tag_view';
 
@@ -81,7 +81,7 @@ const Tag = styled.div.attrs(props => ({
     [TagStyles['is-rtl']]: isRtl(props)
   })
 }))`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 Tag.propTypes = {

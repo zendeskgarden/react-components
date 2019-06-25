@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import StyledCheckHint from '../checkboxes/StyledCheckHint';
 import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
 
@@ -17,7 +17,7 @@ import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
 const StyleRadioHint = styled(StyledCheckHint).attrs(props => ({
   className: classNames(props.className, CheckboxStyles['c-chk__hint--radio'])
 }))`
-  ${props => retrieveTheme('forms.radio_hint', props)};
+  ${props => retrieveComponentStyles('forms.radio_hint', props)};
 `;
 
 export default StyleRadioHint;

@@ -6,14 +6,14 @@
  */
 
 /** @component */
-export default function retrieveTheme(componentId, props) {
-  const styles = props.theme.styles;
+export default function retrieveComponentStyles(componentId, props) {
+  const components = props.theme.components;
 
-  if (!styles) {
+  if (!components) {
     return undefined;
   }
 
-  const componentStyles = styles[componentId];
+  const componentStyles = components[componentId];
 
   if (typeof componentStyles === 'function') {
     return componentStyles(props);

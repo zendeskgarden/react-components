@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import ButtonStyles from '@zendeskgarden/css-buttons';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'buttons.icon_button';
 
@@ -25,7 +25,7 @@ const IconButton = styled(Button).attrs(props => ({
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(props.className, ButtonStyles['c-btn--icon'])
 }))`
-  ${props => retrieveTheme('buttons.icon_button', props)};
+  ${props => retrieveComponentStyles('buttons.icon_button', props)};
 `;
 
 IconButton.propTypes = {
