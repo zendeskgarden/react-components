@@ -150,7 +150,21 @@ Menu.propTypes = {
    * These placements differ from the default naming of Popper.JS placements to help
    * assist with RTL layouts.
    **/
-  placement: PropTypes.oneOf(Object.values(GARDEN_PLACEMENT)),
+  placement: PropTypes.oneOf([
+    'auto',
+    'top',
+    'top-start',
+    'top-end',
+    'end',
+    'end-top',
+    'end-bottom',
+    'bottom',
+    'bottom-start',
+    'bottom-end',
+    'start',
+    'start-top',
+    'start-bottom'
+  ]),
   animate: PropTypes.bool,
   small: PropTypes.bool,
   hidden: PropTypes.bool,
@@ -159,7 +173,7 @@ Menu.propTypes = {
 };
 
 Menu.defaultProps = {
-  placement: GARDEN_PLACEMENT.BOTTOM_START,
+  placement: 'bottom-start',
   animate: true,
   eventsEnabled: true,
   maxHeight: '400px',

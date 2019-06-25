@@ -34,35 +34,19 @@ const retrieveMenuMargin = ({
 }) => {
   const marginAmount = shouldShowArrow({ arrow, placement }) ? '8px' : '4px';
 
-  if (
-    placement === POPPER_PLACEMENT.BOTTOM ||
-    placement === POPPER_PLACEMENT.BOTTOM_START ||
-    placement === POPPER_PLACEMENT.BOTTOM_END
-  ) {
+  if (placement === 'bottom' || placement === 'bottom-start' || placement === 'bottom-end') {
     return `margin-top: ${marginAmount};`;
   }
 
-  if (
-    placement === POPPER_PLACEMENT.TOP ||
-    placement === POPPER_PLACEMENT.TOP_START ||
-    placement === POPPER_PLACEMENT.TOP_END
-  ) {
+  if (placement === 'top' || placement === 'top-start' || placement === 'top-end') {
     return `margin-bottom: ${marginAmount};`;
   }
 
-  if (
-    placement === POPPER_PLACEMENT.LEFT ||
-    placement === POPPER_PLACEMENT.LEFT_START ||
-    placement === POPPER_PLACEMENT.LEFT_END
-  ) {
+  if (placement === 'left' || placement === 'left-start' || placement === 'left-end') {
     return `margin-right: ${marginAmount};`;
   }
 
-  if (
-    placement === POPPER_PLACEMENT.RIGHT ||
-    placement === POPPER_PLACEMENT.RIGHT_START ||
-    placement === POPPER_PLACEMENT.RIGHT_END
-  ) {
+  if (placement === 'right' || placement === 'right-start' || placement === 'right-end') {
     return `margin-left: ${marginAmount};`;
   }
 
@@ -88,21 +72,19 @@ const StyledMenuView = styled.ul.attrs<IStyledMenuViewProps>(props => ({
 
     // Placement
     [MenuStyles['c-menu--up']]:
-      props.placement === POPPER_PLACEMENT.TOP ||
-      props.placement === POPPER_PLACEMENT.TOP_START ||
-      props.placement === POPPER_PLACEMENT.TOP_END,
+      props.placement === 'top' || props.placement === 'top-start' || props.placement === 'top-end',
     [MenuStyles['c-menu--right']]:
-      props.placement === POPPER_PLACEMENT.RIGHT ||
-      props.placement === POPPER_PLACEMENT.RIGHT_START ||
-      props.placement === POPPER_PLACEMENT.RIGHT_END,
+      props.placement === 'right' ||
+      props.placement === 'right-start' ||
+      props.placement === 'right-end',
     [MenuStyles['c-menu--left']]:
-      props.placement === POPPER_PLACEMENT.LEFT ||
-      props.placement === POPPER_PLACEMENT.LEFT_START ||
-      props.placement === POPPER_PLACEMENT.LEFT_END,
+      props.placement === 'left' ||
+      props.placement === 'left-start' ||
+      props.placement === 'left-end',
     [MenuStyles['c-menu--down']]:
-      props.placement === POPPER_PLACEMENT.BOTTOM ||
-      props.placement === POPPER_PLACEMENT.BOTTOM_START ||
-      props.placement === POPPER_PLACEMENT.BOTTOM_END,
+      props.placement === 'bottom' ||
+      props.placement === 'bottom-start' ||
+      props.placement === 'bottom-end',
 
     // State
     [MenuStyles['is-open']]: props.animate,
@@ -110,18 +92,18 @@ const StyledMenuView = styled.ul.attrs<IStyledMenuViewProps>(props => ({
 
     // Arrows
     [ArrowStyles['c-arrow']]: shouldShowArrow({ arrow: props.arrow, placement: props.placement }),
-    [ArrowStyles['c-arrow--r']]: props.placement === POPPER_PLACEMENT.LEFT,
-    [ArrowStyles['c-arrow--rt']]: props.placement === POPPER_PLACEMENT.LEFT_START,
-    [ArrowStyles['c-arrow--rb']]: props.placement === POPPER_PLACEMENT.LEFT_END,
-    [ArrowStyles['c-arrow--b']]: props.placement === POPPER_PLACEMENT.TOP,
-    [ArrowStyles['c-arrow--bl']]: props.placement === POPPER_PLACEMENT.TOP_START,
-    [ArrowStyles['c-arrow--br']]: props.placement === POPPER_PLACEMENT.TOP_END,
-    [ArrowStyles['c-arrow--l']]: props.placement === POPPER_PLACEMENT.RIGHT,
-    [ArrowStyles['c-arrow--lt']]: props.placement === POPPER_PLACEMENT.RIGHT_START,
-    [ArrowStyles['c-arrow--lb']]: props.placement === POPPER_PLACEMENT.RIGHT_END,
-    [ArrowStyles['c-arrow--t']]: props.placement === POPPER_PLACEMENT.BOTTOM,
-    [ArrowStyles['c-arrow--tl']]: props.placement === POPPER_PLACEMENT.BOTTOM_START,
-    [ArrowStyles['c-arrow--tr']]: props.placement === POPPER_PLACEMENT.BOTTOM_END,
+    [ArrowStyles['c-arrow--r']]: props.placement === 'left',
+    [ArrowStyles['c-arrow--rt']]: props.placement === 'left-start',
+    [ArrowStyles['c-arrow--rb']]: props.placement === 'left-end',
+    [ArrowStyles['c-arrow--b']]: props.placement === 'top',
+    [ArrowStyles['c-arrow--bl']]: props.placement === 'top-start',
+    [ArrowStyles['c-arrow--br']]: props.placement === 'top-end',
+    [ArrowStyles['c-arrow--l']]: props.placement === 'right',
+    [ArrowStyles['c-arrow--lt']]: props.placement === 'right-start',
+    [ArrowStyles['c-arrow--lb']]: props.placement === 'right-end',
+    [ArrowStyles['c-arrow--t']]: props.placement === 'bottom',
+    [ArrowStyles['c-arrow--tl']]: props.placement === 'bottom-start',
+    [ArrowStyles['c-arrow--tr']]: props.placement === 'bottom-end',
 
     // RTL
     [MenuStyles['is-rtl']]: isRtl(props)

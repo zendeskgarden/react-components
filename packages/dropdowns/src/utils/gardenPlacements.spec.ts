@@ -12,54 +12,68 @@ import {
   getRtlPopperPlacement
 } from './garden-placements';
 
+const GARDEN_PLACEMENT_VALUES: GARDEN_PLACEMENT[] = [
+  'auto',
+  'top',
+  'top-start',
+  'top-end',
+  'bottom',
+  'bottom-start',
+  'bottom-end',
+  'end',
+  'end-top',
+  'end-bottom',
+  'start',
+  'start-top',
+  'start-bottom'
+];
+
 describe('Garden Placement Utilities', () => {
   describe('getPopperPlacement()', () => {
     it('provides correct mapping between Garden and Popper.js placements', () => {
-      const GARDEN_POPPER_MAPPINGS = {
-        [GARDEN_PLACEMENT.AUTO]: POPPER_PLACEMENT.AUTO,
-        [GARDEN_PLACEMENT.TOP]: POPPER_PLACEMENT.TOP,
-        [GARDEN_PLACEMENT.TOP_START]: POPPER_PLACEMENT.TOP_START,
-        [GARDEN_PLACEMENT.TOP_END]: POPPER_PLACEMENT.TOP_END,
-        [GARDEN_PLACEMENT.END]: POPPER_PLACEMENT.RIGHT,
-        [GARDEN_PLACEMENT.END_TOP]: POPPER_PLACEMENT.RIGHT_START,
-        [GARDEN_PLACEMENT.END_BOTTOM]: POPPER_PLACEMENT.RIGHT_END,
-        [GARDEN_PLACEMENT.BOTTOM]: POPPER_PLACEMENT.BOTTOM,
-        [GARDEN_PLACEMENT.BOTTOM_START]: POPPER_PLACEMENT.BOTTOM_START,
-        [GARDEN_PLACEMENT.BOTTOM_END]: POPPER_PLACEMENT.BOTTOM_END,
-        [GARDEN_PLACEMENT.START]: POPPER_PLACEMENT.LEFT,
-        [GARDEN_PLACEMENT.START_TOP]: POPPER_PLACEMENT.LEFT_START,
-        [GARDEN_PLACEMENT.START_BOTTOM]: POPPER_PLACEMENT.LEFT_END
+      const GARDEN_POPPER_MAPPINGS: Record<GARDEN_PLACEMENT, POPPER_PLACEMENT> = {
+        auto: 'auto',
+        top: 'top',
+        'top-start': 'top-start',
+        'top-end': 'top-end',
+        end: 'right',
+        'end-top': 'right-start',
+        'end-bottom': 'right-end',
+        bottom: 'bottom',
+        'bottom-start': 'bottom-start',
+        'bottom-end': 'bottom-end',
+        start: 'left',
+        'start-top': 'left-start',
+        'start-bottom': 'left-end'
       };
 
-      Object.keys(GARDEN_PLACEMENT).forEach(gardenPlacement => {
-        expect(getPopperPlacement(gardenPlacement as GARDEN_PLACEMENT)).toBe(
-          (GARDEN_POPPER_MAPPINGS as any)[gardenPlacement]
-        );
+      GARDEN_PLACEMENT_VALUES.forEach(gardenPlacement => {
+        expect(getPopperPlacement(gardenPlacement)).toBe(GARDEN_POPPER_MAPPINGS[gardenPlacement]);
       });
     });
   });
 
   describe('getRtlPopperPlacement()', () => {
     it('provides correct mapping between Garden placement and RTL equivalent', () => {
-      const RTL_PLACEMENT_MAPPINGS = {
-        [GARDEN_PLACEMENT.AUTO]: POPPER_PLACEMENT.AUTO,
-        [GARDEN_PLACEMENT.START]: POPPER_PLACEMENT.RIGHT,
-        [GARDEN_PLACEMENT.START_TOP]: POPPER_PLACEMENT.RIGHT_START,
-        [GARDEN_PLACEMENT.START_BOTTOM]: POPPER_PLACEMENT.RIGHT_END,
-        [GARDEN_PLACEMENT.TOP_START]: POPPER_PLACEMENT.TOP_END,
-        [GARDEN_PLACEMENT.TOP]: POPPER_PLACEMENT.TOP,
-        [GARDEN_PLACEMENT.TOP_END]: POPPER_PLACEMENT.TOP_START,
-        [GARDEN_PLACEMENT.END]: POPPER_PLACEMENT.LEFT,
-        [GARDEN_PLACEMENT.END_TOP]: POPPER_PLACEMENT.LEFT_START,
-        [GARDEN_PLACEMENT.END_BOTTOM]: POPPER_PLACEMENT.LEFT_END,
-        [GARDEN_PLACEMENT.BOTTOM_START]: POPPER_PLACEMENT.BOTTOM_END,
-        [GARDEN_PLACEMENT.BOTTOM]: POPPER_PLACEMENT.BOTTOM,
-        [GARDEN_PLACEMENT.BOTTOM_END]: POPPER_PLACEMENT.BOTTOM_START
+      const RTL_PLACEMENT_MAPPINGS: Record<GARDEN_PLACEMENT, POPPER_PLACEMENT> = {
+        auto: 'auto',
+        start: 'right',
+        'start-top': 'right-start',
+        'start-bottom': 'right-end',
+        'top-start': 'top-end',
+        top: 'top',
+        'top-end': 'top-start',
+        end: 'left',
+        'end-top': 'left-start',
+        'end-bottom': 'left-end',
+        'bottom-start': 'bottom-end',
+        bottom: 'bottom',
+        'bottom-end': 'bottom-start'
       };
 
-      Object.keys(GARDEN_PLACEMENT).forEach(gardenPlacement => {
-        expect(getRtlPopperPlacement(gardenPlacement as GARDEN_PLACEMENT)).toBe(
-          (RTL_PLACEMENT_MAPPINGS as any)[gardenPlacement]
+      GARDEN_PLACEMENT_VALUES.forEach(gardenPlacement => {
+        expect(getRtlPopperPlacement(gardenPlacement)).toBe(
+          RTL_PLACEMENT_MAPPINGS[gardenPlacement]
         );
       });
     });

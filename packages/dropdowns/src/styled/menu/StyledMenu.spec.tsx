@@ -39,43 +39,43 @@ describe('StyledMenuView', () => {
 
   describe('Directional styling', () => {
     it('renders up styling if placement is provided', () => {
-      [POPPER_PLACEMENT.TOP, POPPER_PLACEMENT.TOP_START, POPPER_PLACEMENT.TOP_END].forEach(
-        placement => {
-          const { container } = render(<StyledMenu placement={placement} />);
+      const placements: POPPER_PLACEMENT[] = ['top', 'top-start', 'top-end'];
 
-          expect(container.querySelector('ul')).toHaveClass('c-menu--up');
-        }
-      );
+      placements.forEach(placement => {
+        const { container } = render(<StyledMenu placement={placement} />);
+
+        expect(container.querySelector('ul')).toHaveClass('c-menu--up');
+      });
     });
 
     it('renders down styling if placement is provided', () => {
-      [POPPER_PLACEMENT.BOTTOM, POPPER_PLACEMENT.BOTTOM_START, POPPER_PLACEMENT.BOTTOM_END].forEach(
-        placement => {
-          const { container } = render(<StyledMenu placement={placement} />);
+      const placements: POPPER_PLACEMENT[] = ['bottom', 'bottom-start', 'bottom-end'];
 
-          expect(container.querySelector('ul')).toHaveClass('c-menu--down');
-        }
-      );
+      placements.forEach(placement => {
+        const { container } = render(<StyledMenu placement={placement} />);
+
+        expect(container.querySelector('ul')).toHaveClass('c-menu--down');
+      });
     });
 
     it('renders left styling if placement is provided', () => {
-      [POPPER_PLACEMENT.LEFT, POPPER_PLACEMENT.LEFT_START, POPPER_PLACEMENT.LEFT_END].forEach(
-        placement => {
-          const { container } = render(<StyledMenu placement={placement} />);
+      const placements: POPPER_PLACEMENT[] = ['left', 'left-start', 'left-end'];
 
-          expect(container.querySelector('ul')).toHaveClass('c-menu--left');
-        }
-      );
+      placements.forEach(placement => {
+        const { container } = render(<StyledMenu placement={placement} />);
+
+        expect(container.querySelector('ul')).toHaveClass('c-menu--left');
+      });
     });
 
     it('renders right styling if placement is provided', () => {
-      [POPPER_PLACEMENT.RIGHT, POPPER_PLACEMENT.RIGHT_START, POPPER_PLACEMENT.RIGHT_END].forEach(
-        placement => {
-          const { container } = render(<StyledMenu placement={placement} />);
+      const placements: POPPER_PLACEMENT[] = ['right', 'right-start', 'right-end'];
 
-          expect(container.querySelector('ul')).toHaveClass('c-menu--right');
-        }
-      );
+      placements.forEach(placement => {
+        const { container } = render(<StyledMenu placement={placement} />);
+
+        expect(container.querySelector('ul')).toHaveClass('c-menu--right');
+      });
     });
   });
 
@@ -93,26 +93,26 @@ describe('StyledMenuView', () => {
     });
 
     it('renders otherwise', () => {
-      const { container } = render(<StyledMenu arrow placement={POPPER_PLACEMENT.RIGHT} />);
+      const { container } = render(<StyledMenu arrow placement="right" />);
 
       expect(container.querySelector('ul')).toHaveClass('c-arrow');
     });
   });
 
   describe('Arrow placement', () => {
-    const arrowClasses = {
-      [POPPER_PLACEMENT.LEFT]: 'c-arrow--r',
-      [POPPER_PLACEMENT.LEFT_START]: 'c-arrow--rt',
-      [POPPER_PLACEMENT.LEFT_END]: 'c-arrow--rb',
-      [POPPER_PLACEMENT.TOP]: 'c-arrow--b',
-      [POPPER_PLACEMENT.TOP_START]: 'c-arrow--bl',
-      [POPPER_PLACEMENT.TOP_END]: 'c-arrow--br',
-      [POPPER_PLACEMENT.RIGHT]: 'c-arrow--l',
-      [POPPER_PLACEMENT.RIGHT_START]: 'c-arrow--lt',
-      [POPPER_PLACEMENT.RIGHT_END]: 'c-arrow--lb',
-      [POPPER_PLACEMENT.BOTTOM]: 'c-arrow--t',
-      [POPPER_PLACEMENT.BOTTOM_START]: 'c-arrow--tl',
-      [POPPER_PLACEMENT.BOTTOM_END]: 'c-arrow--tr'
+    const arrowClasses: Record<string, string> = {
+      left: 'c-arrow--r',
+      'left-start': 'c-arrow--rt',
+      'left-end': 'c-arrow--rb',
+      top: 'c-arrow--b',
+      'top-start': 'c-arrow--bl',
+      'top-end': 'c-arrow--br',
+      right: 'c-arrow--l',
+      'right-start': 'c-arrow--lt',
+      'right-end': 'c-arrow--lb',
+      bottom: 'c-arrow--t',
+      'bottom-start': 'c-arrow--tl',
+      'bottom-end': 'c-arrow--tr'
     };
 
     it('renders correct arrow placement if provided', () => {
