@@ -12,7 +12,8 @@
     },
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "noEmit": true
   },
   "files": ["utils/build/declarations.d.ts", "utils/test/jest.d.ts"],
   "include": ["packages/*/src/**/*"],

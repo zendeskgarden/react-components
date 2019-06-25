@@ -5,7 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { createContext, useRef, useEffect, CSSProperties, HTMLProps } from 'react';
+import React, {
+  createContext,
+  useRef,
+  useEffect,
+  CSSProperties,
+  HTMLProps,
+  MutableRefObject
+} from 'react';
 import PropTypes from 'prop-types';
 import { Popper } from 'react-popper';
 import { Modifiers } from 'popper.js';
@@ -20,7 +27,7 @@ import {
 } from '../utils/garden-placements';
 
 export interface IMenuContext {
-  itemIndexRef: React.MutableRefObject<number>;
+  itemIndexRef: MutableRefObject<number>;
 }
 
 export const MenuContext = createContext<IMenuContext | undefined>(undefined);
@@ -160,4 +167,4 @@ Menu.defaultProps = {
 };
 
 /** @component */
-export default withTheme(Menu);
+export default withTheme(Menu) as React.FunctionComponent<IMenuProps>;

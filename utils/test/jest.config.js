@@ -5,6 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+const path = require('path');
 const { defaults } = require('jest-config');
 
 module.exports = {
@@ -14,7 +15,10 @@ module.exports = {
   transformIgnorePatterns: ['\\/node_modules\\/(?!@zendeskgarden)'],
   resolver: `${__dirname}/jest.resolver.js`,
   globals: {
-    PACKAGE_VERSION: 'version'
+    PACKAGE_VERSION: 'version',
+    'ts-jest': {
+      tsConfig: path.resolve(__dirname, 'tsconfig.test.json')
+    }
   },
   moduleFileExtensions: [...defaults.moduleFileExtensions],
   snapshotSerializers: ['enzyme-to-json/serializer'],

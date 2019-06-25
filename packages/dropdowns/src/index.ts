@@ -25,9 +25,6 @@ export { default as MediaFigure } from './Menu/Items/MediaFigure';
 export { default as MediaItem } from './Menu/Items/MediaItem';
 export { default as NextItem } from './Menu/Items/NextItem';
 export { default as PreviousItem } from './Menu/Items/PreviousItem';
-export {
-  GARDEN_PLACEMENT as GARDEN_PLACEMENTS,
-  POPPER_PLACEMENT as POPPER_PLACEMENTS
-} from './utils/garden-placements';
+export { GARDEN_PLACEMENT, POPPER_PLACEMENT } from './utils/garden-placements';
 
 export * from './styled';
