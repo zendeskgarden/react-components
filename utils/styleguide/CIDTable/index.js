@@ -13,7 +13,7 @@ export default class CIDTable extends Component {
     const cids = data.split(',');
 
     return cids.reduce((acc, item) => {
-      const [group] = item.split('.');
+      const [group] = item.trim().split('.');
 
       if (acc[group]) {
         acc[group].push(item);
