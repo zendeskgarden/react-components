@@ -13,7 +13,7 @@ const ResolverFactory = require('enhanced-resolve').ResolverFactory;
 const webpackResolver = ResolverFactory.createResolver({
   fileSystem: fs,
   useSyncFileSystemCalls: true,
-  extensions: ['.js', '.jsx'],
+  extensions: ['.js', '.jsx', '.ts', '.tsx'],
   mainFields: ['zendeskgarden:src', 'main']
 });
 
