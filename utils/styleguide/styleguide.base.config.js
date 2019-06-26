@@ -7,12 +7,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const {
-  zdColorKale100,
-  zdColorKale400,
-  zdColorRed600,
-  zdFontSizeMd
-} = require('@zendeskgarden/css-variables');
+const { defaultTheme, palette } = require(path.resolve('../../packages/theming'));
 const packageManifest = require(path.resolve('package.json'));
 const customStyleguideConfig = require(path.resolve('styleguide.config.js'));
 const babelOptions = require(path.resolve('../../babel.config.js'));
@@ -41,15 +36,15 @@ const defaultStyleguideConfig = {
       base: 'inherit',
       baseBackground: 'inherit',
       codeBackground: 'inherit',
-      sidebarBackground: zdColorKale100,
-      name: zdColorKale400,
-      type: zdColorRed600
+      sidebarBackground: palette.kale[100],
+      name: palette.kale[400],
+      type: palette.red[600]
     }
   },
   styles: {
     StyleGuide: {
       '@global body': {
-        fontSize: zdFontSizeMd
+        fontSize: defaultTheme.fontSizes.md
       }
     }
   },

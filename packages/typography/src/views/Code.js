@@ -8,17 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import {
-  zdColorGreen200,
-  zdColorGreen700,
-  zdColorGrey200,
-  zdColorGrey700,
-  zdColorRed200,
-  zdColorRed700,
-  zdColorYellow200,
-  zdColorYellow800
-} from '@zendeskgarden/css-variables';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { palette, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import SM from './SM';
 import MD from './MD';
 import LG from './LG';
@@ -41,28 +31,28 @@ const TYPE = {
 const backgroundColor = type => {
   switch (type) {
     case TYPE.RED:
-      return zdColorRed200;
+      return palette.red[200];
     case TYPE.GREEN:
-      return zdColorGreen200;
+      return palette.green[200];
     case TYPE.YELLOW:
-      return zdColorYellow200;
+      return palette.yellow[200];
     case TYPE.GREY:
     default:
-      return zdColorGrey200;
+      return palette.grey[200];
   }
 };
 
 const foregroundColor = type => {
   switch (type) {
     case TYPE.RED:
-      return zdColorRed700;
+      return palette.red[700];
     case TYPE.GREEN:
-      return zdColorGreen700;
+      return palette.green[700];
     case TYPE.YELLOW:
-      return zdColorYellow800;
+      return palette.yellow[700];
     case TYPE.GREY:
     default:
-      return zdColorGrey700;
+      return palette.grey[700];
   }
 };
 

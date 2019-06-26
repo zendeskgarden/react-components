@@ -8,12 +8,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import StyleGuideRenderer from 'react-styleguidist/lib/rsg-components/StyleGuide/StyleGuideRenderer';
-
-const { zdColorGrey800, zdColorKale800, zdColorWhite } = require('@zendeskgarden/css-variables');
+import { palette } from '../../../packages/theming/src';
 
 const StyleGuideWrapper = styled.div`
-  background-color: ${props => (props.dark ? zdColorKale800 : zdColorWhite)};
-  color: ${props => (props.dark ? zdColorWhite : zdColorGrey800)};
+  background-color: ${props => (props.dark ? palette.kale[800] : palette.white)};
+  color: ${props => (props.dark ? palette.white : palette.grey[800])};
 `;
 
 const StyleGuide = props => {

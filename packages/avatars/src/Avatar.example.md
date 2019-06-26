@@ -91,19 +91,15 @@ reserved for modification of internal status rings – see "States" below for
 details.
 
 ```jsx
-const {
-  zdColorGrey600,
-  zdColorKale800,
-  zdColorSecondaryAzure600
-} = require('@zendeskgarden/css-variables');
+const { palette } = require('@zendeskgarden/react-theming/src');
 const StyledSvgAvatar = styled(Avatar)`
-  background-color: ${zdColorGrey600};
+  background-color: ${palette.grey[600]};
 `;
 const StyledTextAvatar = styled(Avatar)`
-  background-color: ${zdColorSecondaryAzure600};
+  background-color: ${palette.azure[600]};
 `;
 const StyledSystemAvatar = styled(Avatar)`
-  background-color: ${zdColorKale800};
+  background-color: ${palette.kale[800]};
 `;
 const UserIcon = require('@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg').default;
 const ZendeskIcon = require('@zendeskgarden/svg-icons/src/26/zendesk.svg').default;
@@ -282,16 +278,16 @@ const StyledCol = styled(Col)`
 ```
 
 ```jsx
-const { zdColorGrey800 } = require('@zendeskgarden/css-variables');
+const { palette } = require('@zendeskgarden/react-theming/src');
 const StyledGrid = styled(Grid)`
   padding: 10px;
-  background-color: ${zdColorGrey800};
+  background-color: ${palette.grey[800]};
 `;
 const StyledCol = styled(Col)`
   text-align: center;
 `;
 const StyledAvatar = styled(Avatar)`
-  color: ${zdColorGrey800} !important;
+  color: ${palette.grey[800]} !important;
 `;
 
 <StyledGrid>
@@ -368,7 +364,7 @@ const StyledAvatar = styled(Avatar)`
 
 ```jsx
 const UserIcon = require('@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg').default;
-const { zdColorGrey600 } = require('@zendeskgarden/css-variables');
+const { palette } = require('@zendeskgarden/react-theming/src');
 
 class Example extends React.Component {
   constructor() {
@@ -413,12 +409,12 @@ class Example extends React.Component {
 <Grid>
   <Row>
     <Col md>
-      <Example style={{ backgroundColor: zdColorGrey600 }}>
+      <Example style={{ backgroundColor: palette.grey[600] }}>
         <img src="images/avatar-1.png" alt="Marcus Oakley" />
       </Example>
     </Col>
     <Col md>
-      <Example style={{ backgroundColor: zdColorGrey600 }} delay={1500}>
+      <Example style={{ backgroundColor: palette.grey[600] }} delay={1500}>
         <UserIcon role="img" aria-label="Generic User" />
       </Example>
     </Col>

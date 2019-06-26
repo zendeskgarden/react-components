@@ -1,10 +1,5 @@
 ```jsx
-const {
-  zdColorGrey600,
-  zdColorGreen600,
-  zdColorRed600,
-  zdColorBlue600
-} = require('@zendeskgarden/css-variables');
+const { palette } = require('@zendeskgarden/react-theming/src');
 
 <Grid aria-busy="true" aria-live="polite">
   <Row>
@@ -20,24 +15,24 @@ const {
   </Row>
   <Row>
     <Col md>
-      <Inline color={zdColorGrey600} />
+      <Inline color={palette.grey[600]} />
     </Col>
     <Col md>
-      <Inline size={32} color={zdColorGrey600} />
+      <Inline size={32} color={palette.grey[600]} />
     </Col>
     <Col md>
-      <Inline size={64} color={zdColorGrey600} />
+      <Inline size={64} color={palette.grey[600]} />
     </Col>
   </Row>
   <Row>
     <Col md>
-      <Inline color={zdColorGreen600} />
+      <Inline color={palette.green[600]} />
     </Col>
     <Col md>
-      <Inline size={32} color={zdColorRed600} />
+      <Inline size={32} color={palette.red[600]} />
     </Col>
     <Col md>
-      <Inline size={64} color={zdColorBlue600} />
+      <Inline size={64} color={palette.blue[600]} />
     </Col>
   </Row>
 </Grid>;

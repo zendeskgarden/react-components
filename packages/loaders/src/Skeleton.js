@@ -9,13 +9,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes, css } from 'styled-components';
 import { rgba } from 'polished';
-import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 import {
-  zdColorGrey800,
-  zdColorKale700,
-  zdColorWhite,
-  zdSpacingXxs
-} from '@zendeskgarden/css-variables';
+  defaultTheme,
+  palette,
+  retrieveComponentStyles,
+  isRtl
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'loaders.skeleton';
 
@@ -49,8 +48,10 @@ const StyledSkeleton = styled.div.attrs({
   display: inline-block;
   position: relative;
   animation: ${fadeInAnimation} 750ms linear;
-  border-radius: ${zdSpacingXxs};
-  background-color: ${props => (props.dark ? rgba(zdColorWhite, 0.2) : rgba(zdColorGrey800, 0.1))};
+  border-radius: ${defaultTheme.space.xxs};
+  /* stylelint-disable-next-line declaration-colon-newline-after */
+  background-color: ${props =>
+    props.dark ? rgba(palette.white, 0.2) : rgba(palette.grey[800], 0.1)};
   width: ${props => props.customWidth};
   height: ${props => props.customHeight};
   overflow: hidden;
@@ -75,7 +76,7 @@ const StyledSkeleton = styled.div.attrs({
     background-image:
       linear-gradient(${props => (isRtl(props) ? '-45deg' : '45deg')},
       transparent,
-      ${props => (props.dark ? rgba(zdColorKale700, 0.4) : rgba(zdColorWhite, 0.6))},
+      ${props => (props.dark ? rgba(palette.kale[700], 0.4) : rgba(palette.white, 0.6))},
       transparent);
     /* stylelint-enable function-comma-space-after */
 

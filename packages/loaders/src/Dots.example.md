@@ -10,15 +10,15 @@ and usability features:
 ### Basic Usage
 
 ```jsx
-const { zdColorBlue500 } = require('@zendeskgarden/css-variables');
+const { palette } = require('@zendeskgarden/react-theming/src');
 
-<Dots color={zdColorBlue500} size="48px" />;
+<Dots color={palette.blue[500]} size="48px" />;
 ```
 
 ### Advanced Usage
 
 ```jsx
-const { zdColorBlue500, zdColorGrey500 } = require('@zendeskgarden/css-variables');
+const { palette } = require('@zendeskgarden/react-theming/src');
 const { RangeField, Label, Range } = require('@zendeskgarden/react-ranges/src');
 const {
   Dropdown,
@@ -32,11 +32,11 @@ const {
 const colors = [
   {
     label: 'BLUE-500',
-    value: zdColorBlue500
+    value: palette.blue[500]
   },
   {
     label: 'GREY-500',
-    value: zdColorGrey500
+    value: palette.grey[500]
   },
   {
     label: 'INHERIT',
