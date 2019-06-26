@@ -33,12 +33,16 @@ const defaultStyleguideConfig = {
   usageMode: 'expand',
   theme: {
     color: {
+      linkHover: palette.blue[600],
       base: 'inherit',
       baseBackground: 'inherit',
       codeBackground: 'inherit',
       sidebarBackground: palette.kale[100],
       name: palette.kale[400],
       type: palette.red[600]
+    },
+    fontFamily: {
+      base: defaultTheme.fonts.system
     }
   },
   styles: {
@@ -118,12 +122,7 @@ const defaultStyleguideConfig = {
     },
     objectAssign: 'Object.assign'
   },
-  require: [
-    'core-js',
-    path.resolve(__dirname, 'setup.js'),
-    path.resolve(__dirname, 'styles.css'),
-    'github-markdown-css'
-  ],
+  require: ['core-js', path.resolve(__dirname, 'setup.js'), 'github-markdown-css'],
   getExampleFilename(componentPath) {
     return componentPath.replace(/\.jsx?$/u, '.example.md');
   },
