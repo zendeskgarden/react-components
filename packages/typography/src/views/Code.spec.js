@@ -7,7 +7,6 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { math } from 'polished';
 import { defaultTheme, palette } from '@zendeskgarden/react-theming';
 import Code from './Code';
 
@@ -31,28 +30,19 @@ describe('Code', () => {
     it('renders small styling if provided', () => {
       const { container } = render(<Code size="small" />);
 
-      expect(container.firstChild).toHaveStyleRule(
-        'font-size',
-        math(`${defaultTheme.fontSizes.sm} - 1px`)
-      );
+      expect(container.firstChild).toHaveStyleRule('font-size', defaultTheme.fontSizes.mono.sm);
     });
 
     it('renders medium styling if provided', () => {
       const { container } = render(<Code size="medium" />);
 
-      expect(container.firstChild).toHaveStyleRule(
-        'font-size',
-        math(`${defaultTheme.fontSizes.md} - 1px`)
-      );
+      expect(container.firstChild).toHaveStyleRule('font-size', defaultTheme.fontSizes.mono.md);
     });
 
     it('renders large styling if provided', () => {
       const { container } = render(<Code size="large" />);
 
-      expect(container.firstChild).toHaveStyleRule(
-        'font-size',
-        math(`${defaultTheme.fontSizes.lg} - 1px`)
-      );
+      expect(container.firstChild).toHaveStyleRule('font-size', defaultTheme.fontSizes.mono.lg);
     });
   });
 

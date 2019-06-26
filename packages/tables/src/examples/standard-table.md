@@ -1,5 +1,5 @@
 ```jsx
-const { zdSpacingSm } = require('@zendeskgarden/css-variables');
+const { defaultTheme } = require('@zendeskgarden/react-theming/src');
 const {
   Dropdown,
   Field,
@@ -84,7 +84,7 @@ const StyledRow = styled(Layout.Row)`
   <Layout.Row>
     <Layout.Col>
       <Table size={state.rowSize === 'default' ? undefined : state.rowSize}>
-        <XL tag={Caption} style={{ marginBottom: zdSpacingSm }}>
+        <XL tag={Caption} style={{ marginBottom: defaultTheme.space.sm }}>
           Your Unsolved Tickets
         </XL>
         <Head>

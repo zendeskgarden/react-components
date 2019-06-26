@@ -2613,11 +2613,6 @@
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
 
-"@zendeskgarden/css-variables@6.3.4":
-  version "6.3.4"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/css-variables/-/css-variables-6.3.4.tgz#56d1a9d1acfda3e0d4ce40112c312bacf7c1519d"
-  integrity sha512-mYc/ohYYOkQgS78U0rgMwdIA7jEOt+VvV8iegXhwGX0muPm6WqHdC88gsQE5ZrMWxNXts73cBBwI/bXxuHSv3A==
-
 "@zendeskgarden/eslint-config@7.2.1":
   version "7.2.1"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/eslint-config/-/eslint-config-7.2.1.tgz#d0e0bd461097e0f367ef1186f2c32a475e28f4cd"

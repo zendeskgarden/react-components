@@ -5,6 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { math } from 'polished';
+
 export const fonts = {
   mono: [
     'SFMono-Regular' /* macOS */,
@@ -36,6 +38,12 @@ export const fontSizes = {
   xl: '22px',
   xxl: '26px',
   xxxl: '36px'
+};
+
+fontSizes.mono = {
+  sm: math(`${fontSizes.sm} - 1px`),
+  md: math(`${fontSizes.md} - 1px`),
+  lg: math(`${fontSizes.lg} - 1px`)
 };
 
 export const fontWeights = {

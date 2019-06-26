@@ -8,8 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { zdFontSizeXxxl, zdLineHeightXxxl } from '@zendeskgarden/css-variables';
-import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
+import { defaultTheme, retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'typography.xxxl';
 
@@ -17,8 +16,8 @@ const StyledXXXL = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  line-height: ${zdLineHeightXxxl};
-  font-size: ${zdFontSizeXxxl};
+  line-height: ${defaultTheme.lineHeights.xxxl};
+  font-size: ${defaultTheme.fontSizes.xxxl};
 
   direction: ${props => (isRtl(props) ? 'rtl' : 'ltr')};
 

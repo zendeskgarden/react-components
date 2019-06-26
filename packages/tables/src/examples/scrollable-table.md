@@ -2,7 +2,7 @@ Scrollable tables can be enabled with the `scrollable` prop. This defines the
 height of the `<Body>` element.
 
 ```jsx
-const { zdSpacingSm } = require('@zendeskgarden/css-variables');
+const { defaultTheme } = require('@zendeskgarden/react-theming/src');
 const { XL } = require('@zendeskgarden/react-typography/src');
 
 const rowData = [];
@@ -18,7 +18,7 @@ for (let x = 0; x < 100; x++) {
 }
 
 <Table scrollable="200px">
-  <XL tag={Caption} style={{ marginBottom: zdSpacingSm }}>
+  <XL tag={Caption} style={{ marginBottom: defaultTheme.space.sm }}>
     Your Scrollable Tickets
   </XL>
   <Head>

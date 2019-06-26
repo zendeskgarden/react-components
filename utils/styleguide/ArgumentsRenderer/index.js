@@ -9,22 +9,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Argument from 'react-styleguidist/lib/rsg-components/Argument/ArgumentRenderer';
-import {
-  zdFontSizeEpsilon,
-  zdFontWeightSemibold,
-  zdSpacingXs,
-  zdSpacingXxs
-} from '@zendeskgarden/css-variables';
+import { defaultTheme } from '../../../packages/theming/src';
 
 const ArgumentsContainer = styled.div`
-  margin-bottom: ${zdSpacingXs};
+  margin-bottom: ${defaultTheme.space.xs};
   font-size: inherit;
 `;
 
 const Heading = styled.div`
-  margin-bottom: ${zdSpacingXxs};
-  font-size: ${zdFontSizeEpsilon};
-  font-weight: ${zdFontWeightSemibold};
+  margin-bottom: ${defaultTheme.space.xxs};
+  font-size: ${defaultTheme.fontSizes.md};
+  font-weight: ${defaultTheme.fontWeights.semibold};
 `;
 
 const ArgumentsRenderer = ({ args, heading }) => (

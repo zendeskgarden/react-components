@@ -8,13 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {
-  zdFontFamilyMonospace,
-  zdFontSizeMd,
-  zdFontSizeMdMonospace,
-  zdLineHeightMd
-} from '@zendeskgarden/css-variables';
-import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
+import { defaultTheme, retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'typography.md';
 
@@ -22,9 +16,11 @@ const StyledMD = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  line-height: ${zdLineHeightMd};
-  font-family: ${props => (props.monospace ? zdFontFamilyMonospace : null)};
-  font-size: ${props => (props.monospace ? zdFontSizeMdMonospace : zdFontSizeMd)};
+  line-height: ${defaultTheme.lineHeights.md};
+  font-family: ${props => (props.monospace ? defaultTheme.fonts.mono : null)};
+  /* stylelint-disable-next-line declaration-colon-newline-after */
+  font-size: ${props =>
+    props.monospace ? defaultTheme.fontSizes.mono.md : defaultTheme.fontSizes.md};
 
   direction: ${props => (isRtl(props) ? 'rtl' : 'ltr')};
 

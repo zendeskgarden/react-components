@@ -8,13 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {
-  zdFontFamilyMonospace,
-  zdFontSizeSm,
-  zdFontSizeSmMonospace,
-  zdLineHeightSm
-} from '@zendeskgarden/css-variables';
-import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
+import { defaultTheme, retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'typography.sm';
 
@@ -22,9 +16,11 @@ const StyledSM = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  line-height: ${zdLineHeightSm};
-  font-family: ${props => (props.monospace ? zdFontFamilyMonospace : null)};
-  font-size: ${props => (props.monospace ? zdFontSizeSmMonospace : zdFontSizeSm)};
+  line-height: ${defaultTheme.lineHeights.sm};
+  font-family: ${props => (props.monospace ? defaultTheme.fonts.mono : null)};
+  /* stylelint-disable-next-line declaration-colon-newline-after */
+  font-size: ${props =>
+    props.monospace ? defaultTheme.fontSizes.mono.sm : defaultTheme.fontSizes.sm};
 
   direction: ${props => (isRtl(props) ? 'rtl' : 'ltr')};
 

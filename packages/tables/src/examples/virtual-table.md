@@ -5,7 +5,7 @@ library to implement its virtualization.
 
 ```jsx
 const { FixedSizeList } = require('react-window');
-const { zdSpacingSm } = require('@zendeskgarden/css-variables');
+const { defaultTheme } = require('@zendeskgarden/react-theming/src');
 const { XL } = require('@zendeskgarden/react-typography/src');
 
 const rowData = [];
@@ -21,7 +21,7 @@ for (let x = 1; x <= 100000; x++) {
 }
 
 <Table scrollable="500px" aria-rowcount={rowData.length} aria-colcount={4}>
-  <XL tag={Caption} style={{ marginBottom: zdSpacingSm }}>
+  <XL tag={Caption} style={{ marginBottom: defaultTheme.space.sm }}>
     {rowData.length.toLocaleString()} Virtualized Tickets
   </XL>
   <Head>

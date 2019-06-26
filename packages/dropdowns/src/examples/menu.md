@@ -49,7 +49,7 @@ Any object or value can be provided.
 
 ```jsx
 const { Button } = require('@zendeskgarden/react-buttons/src');
-const { zdColorGrey200 } = require('@zendeskgarden/css-variables');
+const { palette } = require('@zendeskgarden/react-theming/src');
 const GroupIcon = require('@zendeskgarden/svg-icons/src/16/user-group-stroke.svg').default;
 const ClipboardSvg = require('@zendeskgarden/svg-icons/src/12/clipboard-list-stroke.svg').default;
 const BoxSvg = require('@zendeskgarden/svg-icons/src/12/box-3d-stroke.svg').default;
@@ -59,7 +59,7 @@ const StyledItemWrapper = styled.div`
   display: flex;
 
   li:not(:last-child) {
-    border-right: 1px solid ${zdColorGrey200};
+    border-right: 1px solid ${palette.grey[200]};
   }
 `;
 
@@ -177,7 +177,6 @@ with the `isOpen` and `onOpen` props.
 
 ```jsx
 const { Button } = require('@zendeskgarden/react-buttons/src');
-const { zdColorBlue600 } = require('@zendeskgarden/css-variables');
 
 initialState = {
   isOpen: false,
