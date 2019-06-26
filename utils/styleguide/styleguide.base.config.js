@@ -139,6 +139,7 @@ const defaultStyleguideConfig = {
     LinkRenderer: path.resolve(__dirname, 'LinkRenderer'),
     TableRenderer: path.resolve(__dirname, 'TableRenderer'),
     ArgumentsRenderer: path.resolve(__dirname, 'ArgumentsRenderer'),
+    ExamplePlaceholderRenderer: path.resolve(__dirname, 'ExamplePlaceholderRenderer'),
     'Markdown/Pre': path.resolve(__dirname, 'Pre'),
     'slots/CodeTabButton': path.resolve(__dirname, 'CodeTabButton')
   },
