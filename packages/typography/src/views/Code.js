@@ -8,7 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { palette, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import SM from './SM';
 import MD from './MD';
 import LG from './LG';
@@ -28,31 +28,31 @@ const TYPE = {
   YELLOW: 'yellow'
 };
 
-const backgroundColor = type => {
+const backgroundColor = (type, theme) => {
   switch (type) {
     case TYPE.RED:
-      return palette.red[200];
+      return theme.palette.red[200];
     case TYPE.GREEN:
-      return palette.green[200];
+      return theme.palette.green[200];
     case TYPE.YELLOW:
-      return palette.yellow[200];
+      return theme.palette.yellow[200];
     case TYPE.GREY:
     default:
-      return palette.grey[200];
+      return theme.palette.grey[200];
   }
 };
 
-const foregroundColor = type => {
+const foregroundColor = (type, theme) => {
   switch (type) {
     case TYPE.RED:
-      return palette.red[700];
+      return theme.palette.red[700];
     case TYPE.GREEN:
-      return palette.green[700];
+      return theme.palette.green[700];
     case TYPE.YELLOW:
-      return palette.yellow[700];
+      return theme.palette.yellow[700];
     case TYPE.GREY:
     default:
-      return palette.grey[700];
+      return theme.palette.grey[700];
   }
 };
 
@@ -63,9 +63,9 @@ const codeAttributes = {
 
 const codeCSS = css`
   border-radius: 2px;
-  background-color: ${props => backgroundColor(props.type)};
+  background-color: ${props => backgroundColor(props.type, props.theme)};
   padding: 1.5px;
-  color: ${props => foregroundColor(props.type)};
+  color: ${props => foregroundColor(props.type, props.theme)};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

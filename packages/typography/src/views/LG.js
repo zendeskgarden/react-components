@@ -16,16 +16,20 @@ const StyledLG = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  line-height: ${defaultTheme.lineHeights.md};
-  font-family: ${props => (props.monospace ? defaultTheme.fonts.mono : null)};
+  line-height: ${props => props.theme.lineHeights.md};
+  font-family: ${props => (props.monospace ? props.theme.fonts.mono : null)};
   /* stylelint-disable-next-line declaration-colon-newline-after */
   font-size: ${props =>
-    props.monospace ? defaultTheme.fontSizes.mono.lg : defaultTheme.fontSizes.lg};
+    props.monospace ? props.theme.fontSizes.mono.lg : props.theme.fontSizes.lg};
 
   direction: ${props => (isRtl(props) ? 'rtl' : 'ltr')};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledLG.defaultProps = {
+  theme: defaultTheme
+};
 
 /**
  * Accepts all standard props relating to provided `tag`

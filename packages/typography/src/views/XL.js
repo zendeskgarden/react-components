@@ -16,13 +16,17 @@ const StyledXL = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  line-height: ${defaultTheme.lineHeights.xl};
-  font-size: ${defaultTheme.fontSizes.xl};
+  line-height: ${props => props.theme.lineHeights.xl};
+  font-size: ${props => props.theme.fontSizes.xl};
 
   direction: ${props => (isRtl(props) ? 'rtl' : 'ltr')};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledXL.defaultProps = {
+  theme: defaultTheme
+};
 
 /**
  * Accepts all standard props relating to provided `tag`

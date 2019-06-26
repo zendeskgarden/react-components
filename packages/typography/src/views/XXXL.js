@@ -16,13 +16,17 @@ const StyledXXXL = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  line-height: ${defaultTheme.lineHeights.xxxl};
-  font-size: ${defaultTheme.fontSizes.xxxl};
+  line-height: ${props => props.theme.lineHeights.xxxl};
+  font-size: ${props => props.theme.fontSizes.xxxl};
 
   direction: ${props => (isRtl(props) ? 'rtl' : 'ltr')};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledXXXL.defaultProps = {
+  theme: defaultTheme
+};
 
 /**
  * Accepts all standard props relating to provided `tag`
