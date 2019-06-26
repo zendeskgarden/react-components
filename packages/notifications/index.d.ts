@@ -11,9 +11,9 @@ declare module '@zendeskgarden/react-notifications' {
 
 declare namespace __GARDEN {
   export enum ValidationTypes {
-    SUCCESS = "success",
-    WARNING = "warning",
-    ERROR = "error"
+    SUCCESS = 'success',
+    WARNING = 'warning',
+    ERROR = 'error'
   }
 
   export interface AlertProps {
@@ -29,7 +29,9 @@ declare namespace __GARDEN {
     type?: ValidationTypes;
   }
 
-  export class Notification extends React.Component<NotificationProps & React.HTMLProps<HTMLDivElement>> {}
+  export class Notification extends React.Component<
+    NotificationProps & React.HTMLProps<HTMLDivElement>
+  > {}
 
   export interface WellProps {
     recessed?: boolean;

@@ -124,12 +124,24 @@ const defaultStyleguideConfig = {
   },
   require: ['core-js', path.resolve(__dirname, 'setup.js'), 'github-markdown-css'],
   getExampleFilename(componentPath) {
-    return componentPath.replace(/\.jsx?$/u, '.example.md');
+    return componentPath.replace(/\.(jsx?|tsx?)?$/u, '.example.md');
   },
   getComponentPathLine(componentPath) {
-    const name = path.basename(componentPath, '.js');
+    if (componentPath.indexOf('.js') !== -1) {
+      const name = path.basename(componentPath, '.js');
 
-    return `import { ${name} } from '${packageManifest.name}'`;
+      return `import { ${name} } from '${packageManifest.name}'`;
+    } else if (componentPath.indexOf('.tsx') !== -1) {
+      const name = path.basename(componentPath, '.tsx');
+
+      return `import { ${name} } from '${packageManifest.name}'`;
+    } else if (componentPath.indexOf('.ts') !== -1) {
+      const name = path.basename(componentPath, '.ts');
+
+      return `import { ${name} } from '${packageManifest.name}'`;
+    }
+
+    return 'Unknown import';
   },
   styleguideComponents: {
     StyleGuideRenderer: path.resolve(__dirname, 'StyleGuideRenderer'),
@@ -152,6 +164,30 @@ const defaultStyleguideConfig = {
           exclude: /node_modules/u,
           loader: 'babel-loader',
           options: babelOptions
+        },
+        {
+          test: /\.tsx?$/u,
+          loaders: [
+            {
+              loader: 'eslint-loader'
+            }
+          ],
+          enforce: 'pre'
+        },
+        {
+          test: /\.tsx?$/u,
+          use: [
+            {
+              loader: 'babel-loader',
+              options: babelOptions
+            },
+            {
+              loader: require.resolve('ts-loader'),
+              options: {
+                configFile: path.resolve(__dirname, 'tsconfig.styleguide.json')
+              }
+            }
+          ]
         },
         {
           test: /\.css$/u,
@@ -196,6 +232,7 @@ const defaultStyleguideConfig = {
       })
     ],
     resolve: {
+      extensions: ['.svg', '.js', '.json', '.md', '.css', '.ts', '.tsx'],
       alias: {
         'package.json': path.resolve('package.json'),
         'CHANGELOG.md': path.resolve('CHANGELOG.md'),
@@ -220,7 +257,6 @@ const defaultStyleguideConfig = {
         '@zendeskgarden/react-tables': path.resolve('..', 'tables'),
         '@zendeskgarden/react-tabs': path.resolve('..', 'tabs'),
         '@zendeskgarden/react-tags': path.resolve('..', 'tags'),
-        '@zendeskgarden/react-testing': path.resolve('..', 'testing'),
         '@zendeskgarden/react-textfields': path.resolve('..', 'textfields'),
         '@zendeskgarden/react-theming': path.resolve('..', 'theming'),
         '@zendeskgarden/react-toggles': path.resolve('..', 'toggles'),
@@ -232,6 +268,8 @@ const defaultStyleguideConfig = {
   }
 };
 
+defaultStyleguideConfig.propsParser = customStyleguideConfig.propsParser;
+defaultStyleguideConfig.resolver = customStyleguideConfig.resolver;
 defaultStyleguideConfig.sections = customStyleguideConfig.sections;
 defaultStyleguideConfig.require = defaultStyleguideConfig.require.concat(
   customStyleguideConfig.require || []

@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "jsx": "preserve",
+    "sourceMap": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "garden-test-utils": ["utils/test/garden-test-utils.tsx"]
+    },
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "noEmit": true
+  },
+  "files": ["utils/build/declarations.d.ts", "utils/test/jest.d.ts"],
+  "include": ["packages/*/src/**/*"],
+  "exclude": [
+    "node_modules", "**/node_modules", "**/dist"
+  ]
+}
