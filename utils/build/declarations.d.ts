@@ -9,7 +9,6 @@
 declare const PACKAGE_VERSION: string;
 
 /** CSS packages */
-declare module '@zendeskgarden/css-variables';
 declare module '@zendeskgarden/css-menus';
 declare module '@zendeskgarden/css-forms';
 declare module '@zendeskgarden/css-arrows';
