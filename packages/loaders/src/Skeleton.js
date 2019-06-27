@@ -42,7 +42,7 @@ const StyledSkeleton = styled.div.attrs({
   display: inline-block;
   position: relative;
   animation: ${fadeInAnimation} 750ms linear;
-  border-radius: ${props => props.theme.space.xxs};
+  border-radius: ${props => props.theme.borderRadii.md};
   /* stylelint-disable-next-line declaration-colon-newline-after */
   background-color: ${props =>
     props.dark ? rgba(props.theme.palette.white, 0.2) : rgba(props.theme.palette.grey[800], 0.1)};
