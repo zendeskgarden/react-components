@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>14/14</span>
+        <span class='fraction'>0/14</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,21 +30,21 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>5/5</span>
+        <span class='fraction'>0/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>14/14</span>
+        <span class='fraction'>0/14</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -141,7 +141,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -151,30 +151,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">15x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -189,7 +187,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -223,7 +223,7 @@ import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { StyledTextFauxInput } from '../../styled';
 &nbsp;
-const VALIDATION = {
+const VALIDATION = <span class="cstat-no" title="statement not covered" >{</span>
   SUCCESS: 'success',
   WARNING: 'warning',
   ERROR: 'error'
@@ -233,28 +233,28 @@ const VALIDATION = {
  * Provides input styling for use in non-input scenarios.
  * Accepts all `&lt;div&gt;` props.
  */
-const FauxInput = React.forwardRef(
-  ({ onMouseEnter, onMouseLeave, onFocus, onBlur, ...props }, ref) =&gt; {
-    const [isHovered, setIsHovered] = useState(false);
-    const [isFocused, setIsFocused] = useState(false);
+const FauxInput = <span class="cstat-no" title="statement not covered" >React.forwardRef(</span>
+<span class="fstat-no" title="function not covered" >  ({</span> onMouseEnter, onMouseLeave, onFocus, onBlur, ...props }, ref) =&gt; {
+    const [isHovered, setIsHovered] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
+    const [isFocused, setIsFocused] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
 &nbsp;
-    const onMouseEnterHandler = composeEventHandlers(onMouseEnter, () =&gt; {
-      setIsHovered(true);
+    const onMouseEnterHandler = <span class="cstat-no" title="statement not covered" >composeEventHandlers(onMouseEnter, <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      setIsHovered(true);</span>
     });
 &nbsp;
-    const onMouseLeaveHandler = composeEventHandlers(onMouseLeave, () =&gt; {
-      setIsHovered(false);
+    const onMouseLeaveHandler = <span class="cstat-no" title="statement not covered" >composeEventHandlers(onMouseLeave, <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      setIsHovered(false);</span>
     });
 &nbsp;
-    const onFocusHandler = composeEventHandlers(onFocus, () =&gt; {
-      setIsFocused(true);
+    const onFocusHandler = <span class="cstat-no" title="statement not covered" >composeEventHandlers(onFocus, <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      setIsFocused(true);</span>
     });
 &nbsp;
-    const onBlurHandler = composeEventHandlers(onBlur, () =&gt; {
-      setIsFocused(false);
+    const onBlurHandler = <span class="cstat-no" title="statement not covered" >composeEventHandlers(onBlur, <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      setIsFocused(false);</span>
     });
 &nbsp;
-    return (
+<span class="cstat-no" title="statement not covered" >    return (</span>
       &lt;StyledTextFauxInput
         data-garden-id="forms.faux_input"
         data-garden-version={PACKAGE_VERSION}
@@ -271,7 +271,7 @@ const FauxInput = React.forwardRef(
   }
 );
 &nbsp;
-FauxInput.propTypes = {
+<span class="cstat-no" title="statement not covered" >FauxInput.propTypes = {</span>
   /** Allows flush spacing of Tab elements */
   tagLayout: PropTypes.bool,
   /** Applies flex layout to support MediaFigure components */
@@ -298,7 +298,7 @@ export default FauxInput;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 26 2019 21:45:33 GMT+0000 (Coordinated Universal Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 26 2019 11:21:25 GMT-0700 (Pacific Daylight Time)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>
