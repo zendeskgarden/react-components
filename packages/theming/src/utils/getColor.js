@@ -9,7 +9,7 @@ import { default as defaultTheme } from '../theme';
 import { darken, lighten } from 'polished';
 
 /** @component */
-export default function getColor({ hue, shade, theme } = {}) {
+export default function getColor({ hue, shade = 500, theme } = {}) {
   let retVal;
   const palette = theme && theme.palette ? theme.palette : defaultTheme.palette;
   const colors = theme && theme.colors ? theme.colors : defaultTheme.colors;
@@ -21,7 +21,7 @@ export default function getColor({ hue, shade, theme } = {}) {
   }
 
   if (_hue && typeof _hue === 'object') {
-    let _shade = shade || colors.primaryShade;
+    let _shade = shade;
 
     _shade = Object.keys(_hue).reduce((previous, current) => {
       // Find the closest available shade within the given hue.
