@@ -13,7 +13,7 @@ import {
   DASHARRAY_FRAMES,
   ROTATION_FRAMES
 } from './utils/spinner-coordinates';
-import { SpinnerCircle, StyledSVG } from './styled-elements';
+import { SpinnerCircle, StyledSVG, LoadingPlaceholder } from './styled-elements';
 import { useSchedule } from '@zendeskgarden/container-schedule';
 
 const COMPONENT_ID = 'loaders.spinner';
@@ -42,6 +42,7 @@ const computeFrames = (frames, duration) => {
   }, {});
 };
 
+/** @component */
 export default function Spinner({
   size = 'inherit',
   duration = 1250,
@@ -53,7 +54,7 @@ export default function Spinner({
   const rotationValues = computeFrames(ROTATION_FRAMES, duration);
   const dasharrayValues = computeFrames(DASHARRAY_FRAMES, duration);
 
-  const elapsed = useSchedule({ duration, delayMS });
+  const { elapsed, delayComplete } = useSchedule({ duration, delayMS });
   const frame = (elapsed * 100).toFixed(0);
 
   const strokeWidthValue = strokeWidthValues[frame];
@@ -62,6 +63,10 @@ export default function Spinner({
 
   const WIDTH = 80;
   const HEIGHT = 80;
+
+  if (!delayComplete && delayMS !== 0) {
+    return <LoadingPlaceholder fontSize={size}>&nbsp;</LoadingPlaceholder>;
+  }
 
   return (
     <StyledSVG
