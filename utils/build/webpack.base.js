@@ -67,7 +67,7 @@ found at http://www.apache.org/licenses/LICENSE-2.0
         use: [
           {
             loader: 'babel-loader',
-            options: babelOptions
+            options: { ...babelOptions, envName: 'production' }
           }
         ]
       },
@@ -77,7 +77,7 @@ found at http://www.apache.org/licenses/LICENSE-2.0
         use: [
           {
             loader: 'babel-loader',
-            options: babelOptions
+            options: { ...babelOptions, envName: 'production' }
           },
           {
             loader: 'ts-loader',

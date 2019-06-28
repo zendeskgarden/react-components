@@ -1,0 +1,58 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import React from 'react';
+import { Locale } from 'date-fns';
+import format from 'date-fns/format';
+import { StyledHeader, StyledHeaderPaddle, StyledHeaderLabel } from '../styled';
+import useDatepickerContext from '../utils/useDatepickerContext';
+
+import ChevronLeftStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
+import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
+
+interface IMonthSelectorProps {
+  locale?: Locale;
+  small: boolean;
+}
+
+const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({ locale, small }) => {
+  const { state, dispatch } = useDatepickerContext();
+
+  return (
+    <StyledHeader>
+      <StyledHeaderPaddle
+        isSmall={small}
+        onClick={() => {
+          dispatch({
+            type: 'preview_previous_month'
+          });
+        }}
+        data-test-id="previous-month"
+      >
+        <ChevronLeftStrokeIcon />
+      </StyledHeaderPaddle>
+      <StyledHeaderLabel isSmall={small} data-test-id="month-display">
+        {format(state.previewDate, 'MMMM yyyy', {
+          locale
+        })}
+      </StyledHeaderLabel>
+      <StyledHeaderPaddle
+        isSmall={small}
+        onClick={() => {
+          dispatch({
+            type: 'preview_next_month'
+          });
+        }}
+        data-test-id="next-month"
+      >
+        <ChevronRightStrokeIcon />
+      </StyledHeaderPaddle>
+    </StyledHeader>
+  );
+};
+
+export default MonthSelector;
