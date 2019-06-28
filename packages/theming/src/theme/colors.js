@@ -12,7 +12,6 @@ const colors = {
   background: palette.white,
   foreground: palette.grey[800],
   primaryHue: palette.blue,
-  primaryShade: 600,
   dangerHue: palette.red,
   warningHue: palette.yellow,
   successHue: palette.green,
