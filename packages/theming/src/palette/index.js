@@ -30,10 +30,10 @@ export default {
   product,
 
   /* primary */
-  blue,
-  green,
   grey,
+  blue,
   kale,
+  green,
   red,
   yellow,
 

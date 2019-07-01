@@ -10,6 +10,10 @@ module.exports = {
       content: '../../packages/theming/README.md'
     },
     {
+      name: 'Palette',
+      components: '../../packages/theming/src/palette/index.js'
+    },
+    {
       name: 'Theming',
       components: '../../packages/theming/src/ThemeProvider/[A-Z]*.js'
     },

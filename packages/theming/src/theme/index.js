@@ -13,6 +13,7 @@ import { shadows, shadowWidths } from './shadows';
 import { default as space } from './space';
 import palette from '../palette';
 
+/** @component */
 export default {
   borders,
   borderRadii: borderRadii(),
