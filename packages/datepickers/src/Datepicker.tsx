@@ -128,6 +128,7 @@ const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
   const [state, dispatch] = useReducer(memoizedReducer, retrieveInitialState(props));
   const scheduleUpdateRef = useRef<(() => void) | undefined>(undefined);
   const inputRef = useRef<HTMLInputElement>(null);
+  const isInputMouseDownRef = useRef(false);
 
   /**
    * Recalculate popper placement while open to allow animations to complete.
@@ -192,11 +193,17 @@ const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
                 ref(refValue);
                 (inputRef as any).current = refValue;
               },
-              onFocus: () => {
-                dispatch({ type: 'OPEN' });
+              onMouseDown: () => {
+                isInputMouseDownRef.current = true;
+              },
+              onMouseUp: () => {
+                setTimeout(() => {
+                  isInputMouseDownRef.current = false;
+                }, 0);
               },
               onClick: () => {
-                if (!state.isOpen) {
+                /** Ensure click/focus events from associated labels are not triggered */
+                if (isInputMouseDownRef.current && !state.isOpen) {
                   dispatch({ type: 'OPEN' });
                 }
               },

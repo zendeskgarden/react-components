@@ -36,6 +36,7 @@ describe('Datepicker', () => {
     it('displays dates with correct previous styling', () => {
       const { getByTestId, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
 
+      fireEvent.mouseDown(getByTestId('input'));
       fireEvent.click(getByTestId('input'));
       const days = getAllByTestId('day');
 
@@ -53,6 +54,7 @@ describe('Datepicker', () => {
     it('displays dates with selected and today styling', () => {
       const { getByTestId, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
 
+      fireEvent.mouseDown(getByTestId('input'));
       fireEvent.click(getByTestId('input'));
       const days = getAllByTestId('day');
 
@@ -69,6 +71,7 @@ describe('Datepicker', () => {
         />
       );
 
+      fireEvent.mouseDown(getByTestId('input'));
       fireEvent.click(getByTestId('input'));
       const days = getAllByTestId('day');
 
@@ -88,6 +91,7 @@ describe('Datepicker', () => {
     it('displays selected month in correct format', () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
 
+      fireEvent.mouseDown(getByTestId('input'));
       fireEvent.click(getByTestId('input'));
 
       expect(getByTestId('month-display')).toHaveTextContent('February 2019');
@@ -96,6 +100,7 @@ describe('Datepicker', () => {
     it('displays previous month if previous paddle is clicked', () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
 
+      fireEvent.mouseDown(getByTestId('input'));
       fireEvent.click(getByTestId('input'));
       fireEvent.click(getByTestId('previous-month'));
 
@@ -105,6 +110,7 @@ describe('Datepicker', () => {
     it('displays next month if next paddle is clicked', () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
 
+      fireEvent.mouseDown(getByTestId('input'));
       fireEvent.click(getByTestId('input'));
       fireEvent.click(getByTestId('next-month'));
 
@@ -114,6 +120,7 @@ describe('Datepicker', () => {
     it('displays current month if no value is provided', () => {
       const { getByTestId } = render(<Example />);
 
+      fireEvent.mouseDown(getByTestId('input'));
       fireEvent.click(getByTestId('input'));
 
       expect(getByTestId('month-display')).toHaveTextContent('February 2019');
@@ -126,6 +133,7 @@ describe('Datepicker', () => {
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
+      fireEvent.mouseDown(getByTestId('input'));
       fireEvent.click(getByTestId('input'));
       fireEvent.click(getAllByTestId('day')[1]);
 
@@ -139,6 +147,7 @@ describe('Datepicker', () => {
 
       const input = getByTestId('input');
 
+      fireEvent.mouseDown(input);
       fireEvent.click(input);
       fireEvent.click(getAllByTestId('day')[1]);
 
@@ -155,6 +164,7 @@ describe('Datepicker', () => {
         />
       );
 
+      fireEvent.mouseDown(getByTestId('input'));
       fireEvent.click(getByTestId('input'));
       const days = getAllByTestId('day');
 
@@ -183,7 +193,8 @@ describe('Datepicker', () => {
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      fireEvent.focus(getByTestId('input'));
+      fireEvent.mouseDown(getByTestId('input'));
+      fireEvent.click(getByTestId('input'));
 
       expect(queryByTestId('datepicker-menu')).not.toBeNull();
     });
@@ -193,6 +204,7 @@ describe('Datepicker', () => {
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
+      fireEvent.mouseDown(getByTestId('input'));
       fireEvent.click(getByTestId('input'));
 
       expect(queryByTestId('datepicker-menu')).not.toBeNull();
@@ -204,6 +216,7 @@ describe('Datepicker', () => {
       );
       const input = getByTestId('input');
 
+      fireEvent.mouseDown(getByTestId('input'));
       fireEvent.click(input);
       fireEvent.blur(input);
 
@@ -235,12 +248,14 @@ describe('Datepicker', () => {
       );
       const input = getByTestId('input');
 
-      fireEvent.focus(input);
+      fireEvent.mouseDown(getByTestId('input'));
+      fireEvent.click(input);
       fireEvent.keyDown(input, { keyCode: KEY_CODES.ESCAPE });
 
       expect(queryByTestId('datepicker-menu')).toBeNull();
 
-      fireEvent.focus(input);
+      fireEvent.mouseDown(getByTestId('input'));
+      fireEvent.click(input);
       fireEvent.keyDown(input, { keyCode: KEY_CODES.ENTER });
       expect(queryByTestId('datepicker-menu')).toBeNull();
     });
@@ -249,7 +264,8 @@ describe('Datepicker', () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
       const input = getByTestId('input');
 
-      fireEvent.focus(input);
+      fireEvent.mouseDown(getByTestId('input'));
+      fireEvent.click(input);
       fireEvent.mouseDown(getByTestId('calendar-wrapper'));
 
       expect(getByTestId('datepicker-menu')).not.toBeNull();
@@ -319,7 +335,8 @@ describe('Datepicker', () => {
     it('applies LTR classes by default', () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
 
-      fireEvent.focus(getByTestId('input'));
+      fireEvent.mouseDown(getByTestId('input'));
+      fireEvent.click(getByTestId('input'));
 
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-rtl', 'false');
     });
@@ -327,7 +344,8 @@ describe('Datepicker', () => {
     it('applies RTL classes if provided', () => {
       const { getByTestId } = renderRtl(<Example value={DEFAULT_DATE} />);
 
-      fireEvent.focus(getByTestId('input'));
+      fireEvent.mouseDown(getByTestId('input'));
+      fireEvent.click(getByTestId('input'));
 
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-rtl', 'true');
     });
