@@ -234,11 +234,7 @@ const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
             {({ ref, style, scheduleUpdate, placement: currentPlacement }) => {
               scheduleUpdateRef.current = scheduleUpdate;
 
-              let popperStyle = { ...style, zIndex };
-
-              if (!state.isOpen) {
-                popperStyle = { ...style, zIndex: -1, visibility: 'hidden' };
-              }
+              const popperStyle = { ...style, zIndex };
 
               return (
                 <div

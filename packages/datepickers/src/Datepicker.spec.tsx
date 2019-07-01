@@ -303,6 +303,18 @@ describe('Datepicker', () => {
     });
   });
 
+  describe('formatDate()', () => {
+    it('uses custom formatDate method if provided', () => {
+      const FORMATTED_DATE = 'test';
+      const { getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} formatDate={() => FORMATTED_DATE} />
+      );
+      const input = getByTestId('input');
+
+      expect(input).toHaveValue(FORMATTED_DATE);
+    });
+  });
+
   describe('Popper', () => {
     it('applies LTR classes by default', () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
