@@ -38,14 +38,14 @@ function formatInputValue({
 }
 
 export type DatepickerAction =
-  | { type: 'open' }
-  | { type: 'close' }
-  | { type: 'preview_next_month' }
-  | { type: 'preview_previous_month' }
-  | { type: 'manually_update_input'; value: string }
-  | { type: 'controlled_value_change'; value?: Date }
-  | { type: 'controlled_locale_change' }
-  | { type: 'select_date'; value: Date };
+  | { type: 'OPEN' }
+  | { type: 'CLOSE' }
+  | { type: 'PREVIEW_NEXT_MONTH' }
+  | { type: 'PREVIEW_PREVIOUS_MONTH' }
+  | { type: 'MANUALLY_UPDATE_INPUT'; value: string }
+  | { type: 'CONTROLLED_VALUE_CHANGE'; value?: Date }
+  | { type: 'CONTROLLED_LOCALE_CHANGE' }
+  | { type: 'SELECT_DATE'; value: Date };
 
 export const datepickerReducer = ({
   value,
@@ -57,35 +57,35 @@ export const datepickerReducer = ({
   locale: any;
 }) => (state: IDatepickerState, action: DatepickerAction): IDatepickerState => {
   switch (action.type) {
-    case 'open':
+    case 'OPEN':
       return { ...state, isOpen: true, previewDate: value || new Date() };
-    case 'close': {
+    case 'CLOSE': {
       const inputValue = formatInputValue({ date: value, locale, dateFormat });
 
       return { ...state, isOpen: false, inputValue };
     }
-    case 'preview_next_month': {
+    case 'PREVIEW_NEXT_MONTH': {
       const previewDate = addMonths(state.previewDate, 1);
 
       return { ...state, previewDate };
     }
-    case 'preview_previous_month': {
+    case 'PREVIEW_PREVIOUS_MONTH': {
       const previewDate = subMonths(state.previewDate, 1);
 
       return { ...state, previewDate };
     }
-    case 'manually_update_input': {
+    case 'MANUALLY_UPDATE_INPUT': {
       return { ...state, isOpen: true, inputValue: action.value };
     }
-    case 'controlled_value_change': {
+    case 'CONTROLLED_VALUE_CHANGE': {
       return { ...state, previewDate: action.value || new Date() };
     }
-    case 'controlled_locale_change': {
+    case 'CONTROLLED_LOCALE_CHANGE': {
       const inputValue = formatInputValue({ date: value, locale, dateFormat });
 
       return { ...state, inputValue };
     }
-    case 'select_date': {
+    case 'SELECT_DATE': {
       const inputValue = formatInputValue({ date: action.value, locale, dateFormat });
 
       return { ...state, isOpen: false, inputValue };

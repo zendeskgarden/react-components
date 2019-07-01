@@ -16,9 +16,12 @@ import isBefore from 'date-fns/isBefore';
 import { isRtl, withTheme } from '@zendeskgarden/react-theming';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
 
-import { GARDEN_PLACEMENT } from './';
 import { StyledMenu } from './styled';
-import { getRtlPopperPlacement, getPopperPlacement } from './utils/garden-placements';
+import {
+  getRtlPopperPlacement,
+  getPopperPlacement,
+  GARDEN_PLACEMENT
+} from './utils/garden-placements';
 import Calendar from './components/Calendar';
 import { datepickerReducer, retrieveInitialState } from './utils/reducer';
 import { DatepickerContext } from './utils/useDatepickerContext';
@@ -167,10 +170,10 @@ const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
   });
 
   /**
-   * Disptach update to reducer when controlled value is changed
+   * Dispatch update to reducer when controlled value is changed
    */
   useEffect(() => {
-    dispatch({ type: 'controlled_value_change', value });
+    dispatch({ type: 'CONTROLLED_VALUE_CHANGE', value });
   }, [value]);
 
   /**
@@ -198,7 +201,7 @@ const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
   }, [state.inputValue, dateFormat, locale, onChange, value, customParseDate]);
 
   useEffect(() => {
-    dispatch({ type: 'controlled_locale_change' });
+    dispatch({ type: 'CONTROLLED_LOCALE_CHANGE' });
   }, [locale]);
 
   const popperPlacement = isRtl(props)
@@ -221,29 +224,29 @@ const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
                 (inputRef as any).current = refValue;
               },
               onFocus: () => {
-                dispatch({ type: 'open' });
+                dispatch({ type: 'OPEN' });
               },
               onClick: () => {
                 if (!state.isOpen) {
-                  dispatch({ type: 'open' });
+                  dispatch({ type: 'OPEN' });
                 }
               },
               onBlur: () => {
-                dispatch({ type: 'close' });
+                dispatch({ type: 'CLOSE' });
               },
               onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
-                dispatch({ type: 'manually_update_input', value: e.target.value });
+                dispatch({ type: 'MANUALLY_UPDATE_INPUT', value: e.target.value });
               },
               onKeyDown: e => {
                 switch (e.keyCode) {
                   case KEY_CODES.ESCAPE:
                   case KEY_CODES.ENTER:
-                    dispatch({ type: 'close' });
+                    dispatch({ type: 'CLOSE' });
                     break;
                   case KEY_CODES.UP:
                   case KEY_CODES.DOWN:
                   case KEY_CODES.SPACE:
-                    dispatch({ type: 'open' });
+                    dispatch({ type: 'OPEN' });
                     break;
                 }
               },

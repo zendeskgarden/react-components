@@ -90,7 +90,7 @@ const Calendar: React.FunctionComponent<ICalendarProps> = ({
           small={small!}
           onClick={() => {
             if (!isDisabled) {
-              dispatch({ type: 'select_date', value: date });
+              dispatch({ type: 'SELECT_DATE', value: date });
             }
           }}
           data-test-id="day"

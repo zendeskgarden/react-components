@@ -28,7 +28,7 @@ const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({ locale, s
         isSmall={small}
         onClick={() => {
           dispatch({
-            type: 'preview_previous_month'
+            type: 'PREVIEW_PREVIOUS_MONTH'
           });
         }}
         data-test-id="previous-month"
@@ -44,7 +44,7 @@ const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({ locale, s
         isSmall={small}
         onClick={() => {
           dispatch({
-            type: 'preview_next_month'
+            type: 'PREVIEW_NEXT_MONTH'
           });
         }}
         data-test-id="next-month"
