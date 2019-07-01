@@ -47,7 +47,7 @@
     "@typescript-eslint/parser": "1.11.0",
     "@zendeskgarden/css-bedrock": "7.0.26",
     "@zendeskgarden/css-variables": "6.3.5",
-    "@zendeskgarden/eslint-config": "7.2.1",
+    "@zendeskgarden/eslint-config": "7.2.2",
     "@zendeskgarden/stylelint-config": "10.0.0",
     "@zendeskgarden/svg-icons": "5.3.1",
     "babel-core": "7.0.0-bridge.0",
