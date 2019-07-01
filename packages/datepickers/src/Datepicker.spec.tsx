@@ -142,7 +142,7 @@ describe('Datepicker', () => {
       fireEvent.click(input);
       fireEvent.click(getAllByTestId('day')[1]);
 
-      expect(input).toHaveValue('January 28th, 2019');
+      expect(input).toHaveValue('January 28, 2019');
     });
 
     it('does not select date if before minDate', () => {
@@ -169,7 +169,7 @@ describe('Datepicker', () => {
     it('displays provided value', () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
 
-      expect(getByTestId('input')).toHaveValue('February 5th, 2019');
+      expect(getByTestId('input')).toHaveValue('February 5, 2019');
     });
 
     it('displays empty string if no value provided', () => {

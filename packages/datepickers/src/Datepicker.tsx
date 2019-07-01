@@ -8,8 +8,6 @@
 import React, { useRef, useEffect, useReducer, useCallback, FunctionComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Manager, Popper, Reference } from 'react-popper';
-import { Locale } from 'date-fns';
-import parse from 'date-fns/parse';
 import isSameDay from 'date-fns/isSameDay';
 import isValid from 'date-fns/isValid';
 import isBefore from 'date-fns/isBefore';
@@ -29,35 +27,9 @@ import { DatepickerContext } from './utils/useDatepickerContext';
 /**
  * Parse string input value using current locale and date formats
  */
-function parseInputValue({
-  inputValue,
-  locale,
-  dateFormat
-}: {
-  inputValue: string;
-  locale?: Locale;
-  dateFormat: string;
-}): Date {
-  const MINIMUM_DATE = new Date(1000, 0, 0);
-  const parseOptions = {
-    locale,
-    useAdditionalDayOfYearTokens: true,
-    useAdditionalWeekYearTokens: true
-  };
-
-  let tryParseDate = parse(inputValue, 'P', MINIMUM_DATE, parseOptions);
-
-  if (!isValid(tryParseDate) || isSameDay(tryParseDate, MINIMUM_DATE)) {
-    tryParseDate = parse(inputValue, 'PP', MINIMUM_DATE, parseOptions);
-  }
-
-  if (!isValid(tryParseDate) || isSameDay(tryParseDate, MINIMUM_DATE)) {
-    tryParseDate = parse(inputValue, 'PPP', MINIMUM_DATE, parseOptions);
-  }
-
-  if (!isValid(tryParseDate) || isSameDay(tryParseDate, MINIMUM_DATE)) {
-    tryParseDate = parse(inputValue, dateFormat, MINIMUM_DATE, parseOptions);
-  }
+function parseInputValue({ inputValue }: { inputValue: string }): Date {
+  const MINIMUM_DATE = new Date(1001, 0, 0);
+  const tryParseDate = new Date(inputValue);
 
   if (
     !isValid(tryParseDate) ||
@@ -80,14 +52,13 @@ export interface IDatepickerProps {
    */
   onChange?: (date: Date) => void;
   /**
-   * Formats date object with a [Unicode TR35 format string](https://date-fns.org/v2.0.0-beta.2/docs/format)
-   * Use the "local-aware" formats for best flexibility.
+   * Allows customization of date formatting within input.
    */
-  dateFormat?: string;
+  formatDate?: (date: Date) => string;
   /**
-   * Accepts valid date-fns locale object https://date-fns.org/v2.0.0-beta.2/docs/I18n
+   * Accepts [all valid Intl locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation)
    */
-  locale?: Locale;
+  locale?: string;
   /**
    * Minimum value. Users are still able to manually enter a date below this value.
    */
@@ -142,15 +113,15 @@ const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
     value,
     small,
     onChange,
-    dateFormat = 'PPP',
+    formatDate,
     minValue,
     maxValue,
     locale,
     customParseDate
   } = props;
-  const memoizedReducer = useCallback(datepickerReducer({ value, dateFormat, locale }), [
+  const memoizedReducer = useCallback(datepickerReducer({ value, formatDate, locale }), [
     value,
-    dateFormat,
+    formatDate,
     locale,
     onChange
   ]);
@@ -190,15 +161,13 @@ const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
       return;
     }
     const parsedInputValue = parseInputValue({
-      inputValue: state.inputValue,
-      locale,
-      dateFormat
+      inputValue: state.inputValue
     });
 
     if (isValid(parsedInputValue) && !isSameDay(parsedInputValue, value!)) {
       onChange && onChange(parsedInputValue);
     }
-  }, [state.inputValue, dateFormat, locale, onChange, value, customParseDate]);
+  }, [state.inputValue, formatDate, locale, onChange, value, customParseDate]);
 
   useEffect(() => {
     dispatch({ type: 'CONTROLLED_LOCALE_CHANGE' });
@@ -304,7 +273,7 @@ const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
 Datepicker.propTypes = {
   value: PropTypes.any,
   onChange: PropTypes.any,
-  dateFormat: PropTypes.string.isRequired,
+  formatDate: PropTypes.func,
   locale: PropTypes.any,
   minValue: PropTypes.any,
   maxValue: PropTypes.any,
@@ -336,7 +305,6 @@ Datepicker.propTypes = {
 Datepicker.defaultProps = {
   placement: 'bottom-start',
   refKey: 'ref',
-  dateFormat: 'PPP',
   animate: true,
   eventsEnabled: true,
   zIndex: 1000

@@ -1,4 +1,7 @@
-The `<Datepicker>` supports all [date-fns locales](https://date-fns.org/v2.0.0-beta.2/docs/I18n).
+The `<Datepicker>` supports all valid [Intl locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation).
+
+You are able to customize language, region, and calendar type with
+a [BCP 47 language tag](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat#Parameters).
 
 ```jsx
 const { Field, Label, Hint, Input } = require('@zendeskgarden/react-forms/src');
@@ -11,36 +14,30 @@ const {
   Field: DropdownField,
   Hint: DropdownHint
 } = require('@zendeskgarden/react-dropdowns/src');
-const arLocale = require('date-fns/locale/ar-SA');
-const enLocale = require('date-fns/locale/en-US');
-const enGbLocale = require('date-fns/locale/en-GB');
-const esLocale = require('date-fns/locale/es');
-const jaLocale = require('date-fns/locale/ja');
-const zhLocale = require('date-fns/locale/zh-CN');
 
 const locales = [
   {
-    value: arLocale,
+    value: 'ar-SA',
     label: 'Arabic (ar-SA)'
   },
   {
-    value: enLocale,
+    value: 'en-US',
     label: 'English (en-US)'
   },
   {
-    value: enGbLocale,
+    value: 'en-GB',
     label: 'English (en-GB)'
   },
   {
-    value: esLocale,
+    value: 'es',
     label: 'Spanish (es)'
   },
   {
-    value: jaLocale,
+    value: 'ja',
     label: 'Japanese (ja)'
   },
   {
-    value: zhLocale,
+    value: 'zh-CH',
     label: 'Chinese [zh-CH]'
   }
 ];

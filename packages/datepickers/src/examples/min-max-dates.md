@@ -1,11 +1,17 @@
 ```jsx
 const { Field, Label, Hint, Input, Message } = require('@zendeskgarden/react-forms/src');
-const { isBefore, subDays, format } = require('date-fns');
+const { isBefore, subDays } = require('date-fns');
 
 initialState = {
   value: new Date(),
   minValue: new Date()
 };
+
+const dateFormatter = new Intl.DateTimeFormat({
+  month: '2-digit',
+  day: '2-digit',
+  year: 'numeric'
+});
 
 const isInvalid = () => {
   return isBefore(state.value, subDays(state.minValue, 1));
@@ -23,7 +29,7 @@ const isInvalid = () => {
   </Datepicker>
   {isInvalid() && (
     <Message validation="error">
-      You must provide a date greater than {format(state.minValue, 'PPP')}
+      You must provide a date greater than {dateFormatter.format(state.minValue)}
     </Message>
   )}
 </Field>;

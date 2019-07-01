@@ -5,8 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Locale } from 'date-fns';
-import format from 'date-fns/format';
 import addMonths from 'date-fns/addMonths';
 import subMonths from 'date-fns/subMonths';
 import isValid from 'date-fns/isValid';
@@ -24,17 +22,25 @@ export interface IDatepickerState {
 function formatInputValue({
   date,
   locale,
-  dateFormat
+  formatDate
 }: {
   date?: Date;
-  locale: Locale;
-  dateFormat: string;
+  locale: string;
+  formatDate?: (date: Date) => string;
 }) {
   if (!date) {
     return '';
   }
 
-  return format(date, dateFormat, { locale });
+  if (formatDate) {
+    return formatDate(date);
+  }
+
+  return new Intl.DateTimeFormat(locale, {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric'
+  }).format(date);
 }
 
 export type DatepickerAction =
@@ -49,18 +55,18 @@ export type DatepickerAction =
 
 export const datepickerReducer = ({
   value,
-  dateFormat,
+  formatDate,
   locale
 }: {
   value?: Date;
-  dateFormat: string;
+  formatDate?: (date: Date) => string;
   locale: any;
 }) => (state: IDatepickerState, action: DatepickerAction): IDatepickerState => {
   switch (action.type) {
     case 'OPEN':
       return { ...state, isOpen: true, previewDate: value || new Date() };
     case 'CLOSE': {
-      const inputValue = formatInputValue({ date: value, locale, dateFormat });
+      const inputValue = formatInputValue({ date: value, locale, formatDate });
 
       return { ...state, isOpen: false, inputValue };
     }
@@ -81,12 +87,12 @@ export const datepickerReducer = ({
       return { ...state, previewDate: action.value || new Date() };
     }
     case 'CONTROLLED_LOCALE_CHANGE': {
-      const inputValue = formatInputValue({ date: value, locale, dateFormat });
+      const inputValue = formatInputValue({ date: value, locale, formatDate });
 
       return { ...state, inputValue };
     }
     case 'SELECT_DATE': {
-      const inputValue = formatInputValue({ date: action.value, locale, dateFormat });
+      const inputValue = formatInputValue({ date: action.value, locale, formatDate });
 
       return { ...state, isOpen: false, inputValue };
     }
@@ -109,7 +115,15 @@ export function retrieveInitialState(initialProps: IDatepickerProps): IDatepicke
   let inputValue = '';
 
   if (initialProps.value !== undefined) {
-    inputValue = format(previewDate, initialProps.dateFormat!, { locale: initialProps.locale });
+    if (initialProps.formatDate) {
+      inputValue = initialProps.formatDate(initialProps.value);
+    } else {
+      inputValue = new Intl.DateTimeFormat(initialProps.locale, {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+      }).format(previewDate);
+    }
   }
 
   return {

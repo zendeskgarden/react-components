@@ -5,9 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { Locale } from 'date-fns';
-import format from 'date-fns/format';
+import React, { useCallback } from 'react';
 import { StyledHeader, StyledHeaderPaddle, StyledHeaderLabel } from '../styled';
 import useDatepickerContext from '../utils/useDatepickerContext';
 
@@ -15,12 +13,24 @@ import ChevronLeftStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-
 import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
 
 interface IMonthSelectorProps {
-  locale?: Locale;
+  locale?: string;
   small: boolean;
 }
 
 const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({ locale, small }) => {
   const { state, dispatch } = useDatepickerContext();
+
+  const headerLabelFormatter = useCallback(
+    date => {
+      const formatter = new Intl.DateTimeFormat(locale, {
+        month: 'long',
+        year: 'numeric'
+      });
+
+      return formatter.format(date);
+    },
+    [locale]
+  );
 
   return (
     <StyledHeader>
@@ -36,9 +46,7 @@ const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({ locale, s
         <ChevronLeftStrokeIcon />
       </StyledHeaderPaddle>
       <StyledHeaderLabel isSmall={small} data-test-id="month-display">
-        {format(state.previewDate, 'MMMM yyyy', {
-          locale
-        })}
+        {headerLabelFormatter(state.previewDate)}
       </StyledHeaderLabel>
       <StyledHeaderPaddle
         isSmall={small}

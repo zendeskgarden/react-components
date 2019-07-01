@@ -5,8 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { Locale } from 'date-fns';
+import React, { useCallback } from 'react';
 import startOfMonth from 'date-fns/startOfMonth';
 import endOfMonth from 'date-fns/endOfMonth';
 import startOfWeek from 'date-fns/startOfWeek';
@@ -14,7 +13,6 @@ import endOfWeek from 'date-fns/endOfWeek';
 import eachDayOfInterval from 'date-fns/eachDayOfInterval';
 import addDays from 'date-fns/addDays';
 import isToday from 'date-fns/isToday';
-import format from 'date-fns/format';
 import isSameDay from 'date-fns/isSameDay';
 import isSameMonth from 'date-fns/isSameMonth';
 import isBefore from 'date-fns/isBefore';
@@ -28,6 +26,7 @@ import {
   StyledDay
 } from '../styled';
 import useDatepickerContext from '../utils/useDatepickerContext';
+import { getStartOfWeek } from '../utils/calendar-utils';
 import MonthSelector from './MonthSelector';
 
 interface ICalendarProps {
@@ -35,7 +34,7 @@ interface ICalendarProps {
   minValue?: Date;
   maxValue?: Date;
   small?: boolean;
-  locale?: Locale;
+  locale?: string;
 }
 
 const Calendar: React.FunctionComponent<ICalendarProps> = ({
@@ -47,14 +46,30 @@ const Calendar: React.FunctionComponent<ICalendarProps> = ({
 }) => {
   const { state, dispatch } = useDatepickerContext();
 
+  const weekStartsOn = getStartOfWeek(locale);
   const monthStartDate = startOfMonth(state.previewDate);
   const monthEndDate = endOfMonth(monthStartDate);
-  const startDate = startOfWeek(monthStartDate, { locale });
-  const endDate = endOfWeek(monthEndDate, { locale });
+  const startDate = startOfWeek(monthStartDate, {
+    weekStartsOn
+  });
+  const endDate = endOfWeek(monthEndDate, {
+    weekStartsOn
+  });
+
+  const dayLabelFormatter = useCallback(
+    date => {
+      const formatter = new Intl.DateTimeFormat(locale, {
+        weekday: 'short'
+      });
+
+      return formatter.format(date);
+    },
+    [locale]
+  );
 
   const dayLabels = eachDayOfInterval({ start: startDate, end: addDays(startDate, 6) }).map(
     date => {
-      const formattedDayLabel = format(date, 'E', { locale });
+      const formattedDayLabel = dayLabelFormatter(date);
 
       return (
         <StyledCalendarItem key={`day-label-${formattedDayLabel}`} isSmall={small}>
@@ -64,8 +79,19 @@ const Calendar: React.FunctionComponent<ICalendarProps> = ({
     }
   );
 
+  const dayFormatter = useCallback(
+    date => {
+      const formatter = new Intl.DateTimeFormat(locale, {
+        day: 'numeric'
+      });
+
+      return formatter.format(date);
+    },
+    [locale]
+  );
+
   const items = eachDayOfInterval({ start: startDate, end: endDate }).map((date, itemsIndex) => {
-    const formattedDayLabel = format(date, 'd', { locale });
+    const formattedDayLabel = dayFormatter(date);
     const isCurrentDate = isToday(date);
     const isPreviousMonth = !isSameMonth(date, state.previewDate);
     const isSelected = value && isSameDay(date, value);
