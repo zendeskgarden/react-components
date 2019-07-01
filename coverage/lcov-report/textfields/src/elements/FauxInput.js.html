@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/9</span>
+        <span class='fraction'>9/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/3</span>
+        <span class='fraction'>3/3</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/9</span>
+        <span class='fraction'>9/9</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -131,8 +131,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -142,22 +142,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">111x</span>
+<span class="cline-any cline-yes">111x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">111x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">28x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -165,7 +163,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -204,8 +204,8 @@ import { composeEventHandlers } from '@zendeskgarden/react-selection';
 import PropTypes from 'prop-types';
 &nbsp;
 import Input from '../views/Input';
-const DIVInput = <span class="cstat-no" title="statement not covered" >Input.withComponent('div');</span>
-const VALIDATION = <span class="cstat-no" title="statement not covered" >{</span>
+const DIVInput = Input.withComponent('div');
+const VALIDATION = {
   SUCCESS: 'success',
   WARNING: 'warning',
   ERROR: 'error',
@@ -215,20 +215,20 @@ const VALIDATION = <span class="cstat-no" title="statement not covered" >{</span
 /**
  * Accepts all `&lt;div&gt;` props
  */
-const FauxInput = <span class="cstat-no" title="statement not covered" >forwardRef(<span class="fstat-no" title="function not covered" >(p</span>rops, ref) =&gt; {</span>
+const FauxInput = forwardRef((props, ref) =&gt; {
   // eslint-disable-next-line react/prop-types
-  const { onFocus, onBlur, focused, children, ...otherProps } = <span class="cstat-no" title="statement not covered" >props;</span>
-  const [isFocused, setIsFocused] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
+  const { onFocus, onBlur, focused, children, ...otherProps } = props;
+  const [isFocused, setIsFocused] = useState(false);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;DIVInput
       {...otherProps}
       ref={ref}
-      onFocus={composeEventHandlers(onFocus, <span class="fstat-no" title="function not covered" >()</span> =&gt; {
-<span class="cstat-no" title="statement not covered" >        setIsFocused(true);</span>
+      onFocus={composeEventHandlers(onFocus, () =&gt; {
+        setIsFocused(true);
       })}
-      onBlur={composeEventHandlers(onBlur, <span class="fstat-no" title="function not covered" >()</span> =&gt; {
-<span class="cstat-no" title="statement not covered" >        setIsFocused(false);</span>
+      onBlur={composeEventHandlers(onBlur, () =&gt; {
+        setIsFocused(false);
       })}
       focused={focused === undefined ? isFocused : focused}
       aria-invalid={null} // eslint-disable-line jsx-a11y/aria-proptypes
@@ -238,7 +238,7 @@ const FauxInput = <span class="cstat-no" title="statement not covered" >forwardR
   );
 });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >FauxInput.propTypes = {</span>
+FauxInput.propTypes = {
   /** Allows flush spacing of Tab elements */
   tagLayout: PropTypes.bool,
   /** Applies flex layout to support MediaFigure components */
@@ -271,7 +271,7 @@ export default FauxInput;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 26 2019 11:21:25 GMT-0700 (Pacific Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Jul 01 2019 19:53:26 GMT+0000 (Coordinated Universal Time)
 </div>
 </div>
 <script src="../../../prettify.js"></script>
