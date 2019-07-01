@@ -179,71 +179,80 @@ describe('Datepicker', () => {
     });
 
     it('opens datepicker on focus', () => {
-      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const { getByTestId, queryByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
 
       fireEvent.focus(getByTestId('input'));
 
-      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+      expect(queryByTestId('datepicker-menu')).not.toBeNull();
     });
 
     it('opens datepicker on click', () => {
-      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const { getByTestId, queryByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
 
       fireEvent.click(getByTestId('input'));
 
-      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+      expect(queryByTestId('datepicker-menu')).not.toBeNull();
     });
 
     it('closes datepicker on blur', () => {
-      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const { getByTestId, queryByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
       const input = getByTestId('input');
 
       fireEvent.click(input);
       fireEvent.blur(input);
 
-      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+      expect(queryByTestId('datepicker-menu')).toBeNull();
     });
 
     it('opens datepicker when correct keys are used', () => {
-      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const { getByTestId, queryByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
       const input = getByTestId('input');
-      const datepickerMenu = getByTestId('datepicker-menu');
 
       fireEvent.keyDown(input, { keyCode: KEY_CODES.UP });
-      expect(datepickerMenu).toHaveAttribute('data-test-open', 'true');
+      expect(queryByTestId('datepicker-menu')).not.toBeNull();
       fireEvent.blur(input);
 
       fireEvent.keyDown(input, { keyCode: KEY_CODES.DOWN });
-      expect(datepickerMenu).toHaveAttribute('data-test-open', 'true');
+      expect(queryByTestId('datepicker-menu')).not.toBeNull();
       fireEvent.blur(input);
 
       fireEvent.keyDown(input, { keyCode: KEY_CODES.SPACE });
-      expect(datepickerMenu).toHaveAttribute('data-test-open', 'true');
+      expect(queryByTestId('datepicker-menu')).not.toBeNull();
       fireEvent.blur(input);
     });
 
     it('closes datepicker when correct keys are used', () => {
-      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const { getByTestId, queryByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
       const input = getByTestId('input');
-      const datepickerMenu = getByTestId('datepicker-menu');
 
       fireEvent.focus(input);
       fireEvent.keyDown(input, { keyCode: KEY_CODES.ESCAPE });
-      expect(datepickerMenu).toHaveAttribute('data-test-open', 'false');
+
+      expect(queryByTestId('datepicker-menu')).toBeNull();
 
       fireEvent.focus(input);
       fireEvent.keyDown(input, { keyCode: KEY_CODES.ENTER });
-      expect(datepickerMenu).toHaveAttribute('data-test-open', 'false');
+      expect(queryByTestId('datepicker-menu')).toBeNull();
     });
 
     it('leaves datepicker open if calendar is moused down', () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
       const input = getByTestId('input');
-      const datepickerMenu = getByTestId('datepicker-menu');
 
       fireEvent.focus(input);
       fireEvent.mouseDown(getByTestId('calendar-wrapper'));
-      expect(datepickerMenu).toHaveAttribute('data-test-open', 'true');
+
+      expect(getByTestId('datepicker-menu')).not.toBeNull();
     });
 
     it('calls onChange with provided date if manually added', () => {
@@ -298,11 +307,15 @@ describe('Datepicker', () => {
     it('applies LTR classes by default', () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
 
+      fireEvent.focus(getByTestId('input'));
+
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-rtl', 'false');
     });
 
     it('applies RTL classes if provided', () => {
       const { getByTestId } = renderRtl(<Example value={DEFAULT_DATE} />);
+
+      fireEvent.focus(getByTestId('input'));
 
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-rtl', 'true');
     });

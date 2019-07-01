@@ -224,47 +224,49 @@ const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
             });
           }}
         </Reference>
-        <Popper
-          placement={popperPlacement as any}
-          modifiers={popperModifiers}
-          // Disable position updating on scroll events while menu is closed
-          eventsEnabled={state.isOpen && eventsEnabled}
-        >
-          {({ ref, style, scheduleUpdate, placement: currentPlacement }) => {
-            scheduleUpdateRef.current = scheduleUpdate;
+        {state.isOpen && (
+          <Popper
+            placement={popperPlacement as any}
+            modifiers={popperModifiers}
+            // Disable position updating on scroll events while menu is closed
+            eventsEnabled={state.isOpen && eventsEnabled}
+          >
+            {({ ref, style, scheduleUpdate, placement: currentPlacement }) => {
+              scheduleUpdateRef.current = scheduleUpdate;
 
-            let popperStyle = { ...style, zIndex };
+              let popperStyle = { ...style, zIndex };
 
-            if (!state.isOpen) {
-              popperStyle = { ...style, zIndex: -1, visibility: 'hidden' };
-            }
+              if (!state.isOpen) {
+                popperStyle = { ...style, zIndex: -1, visibility: 'hidden' };
+              }
 
-            return (
-              <div
-                ref={ref}
-                style={popperStyle}
-                data-garden-id="datepickers.datepicker"
-                date-garden-version={PACKAGE_VERSION}
-              >
-                <StyledMenu
-                  animate={state.isOpen && animate}
-                  placement={currentPlacement as any}
-                  data-test-id="datepicker-menu"
-                  data-test-open={state.isOpen}
-                  data-test-rtl={isRtl(props)}
+              return (
+                <div
+                  ref={ref}
+                  style={popperStyle}
+                  data-garden-id="datepickers.datepicker"
+                  date-garden-version={PACKAGE_VERSION}
                 >
-                  <Calendar
-                    small={small}
-                    value={value}
-                    minValue={minValue}
-                    maxValue={maxValue}
-                    locale={locale}
-                  />
-                </StyledMenu>
-              </div>
-            );
-          }}
-        </Popper>
+                  <StyledMenu
+                    animate={state.isOpen && animate}
+                    placement={currentPlacement as any}
+                    data-test-id="datepicker-menu"
+                    data-test-open={state.isOpen}
+                    data-test-rtl={isRtl(props)}
+                  >
+                    <Calendar
+                      small={small}
+                      value={value}
+                      minValue={minValue}
+                      maxValue={maxValue}
+                      locale={locale}
+                    />
+                  </StyledMenu>
+                </div>
+              );
+            }}
+          </Popper>
+        )}
       </Manager>
     </DatepickerContext.Provider>
   );
