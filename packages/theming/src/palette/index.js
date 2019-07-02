@@ -32,21 +32,21 @@ export default {
   /* primary */
   grey,
   blue,
-  kale,
-  green,
   red,
   yellow,
+  green,
+  kale,
 
   /* secondary */
-  azure,
-  crimson,
   fuschia,
+  pink,
+  crimson,
+  orange,
   lemon,
   lime,
   mint,
-  orange,
-  pink,
-  purple,
+  teal,
+  azure,
   royal,
-  teal
+  purple
 };

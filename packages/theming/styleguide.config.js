@@ -11,10 +11,14 @@ module.exports = {
     },
     {
       name: 'Palette',
-      components: '../../packages/theming/src/palette/index.js'
+      content: '../../packages/theming/src/palette/palette.example.md'
     },
     {
-      name: 'Theming',
+      name: 'Theme',
+      content: '../../packages/theming/src/theme/theme.example.md'
+    },
+    {
+      name: 'ThemeProvider',
       components: '../../packages/theming/src/ThemeProvider/[A-Z]*.js'
     },
     {

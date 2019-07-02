@@ -11,11 +11,11 @@ const colors = {
   base: 'light',
   background: palette.white,
   foreground: palette.grey[800],
-  primaryHue: palette.blue,
-  dangerHue: palette.red,
-  warningHue: palette.yellow,
-  successHue: palette.green,
-  neutralHue: palette.grey
+  primaryHue: 'blue',
+  dangerHue: 'red',
+  warningHue: 'yellow',
+  successHue: 'green',
+  neutralHue: 'grey'
 };
 
 export default colors;

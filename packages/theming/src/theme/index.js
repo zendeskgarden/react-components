@@ -11,9 +11,13 @@ import { fonts, fontSizes, fontWeights } from './fonts';
 import { default as lineHeights } from './lineHeights';
 import { shadows, shadowWidths } from './shadows';
 import { default as space } from './space';
-import palette from '../palette';
+import { default as defaultPalette } from '../palette';
 
-/** @component */
+const palette = { ...defaultPalette };
+
+/* Exclude product palette from the theme */
+delete palette.product;
+
 export default {
   borders,
   borderRadii: borderRadii(),

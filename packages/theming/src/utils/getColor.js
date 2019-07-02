@@ -21,11 +21,9 @@ export default function getColor({ hue, shade = 500, theme } = {}) {
   }
 
   if (_hue && typeof _hue === 'object') {
-    let _shade = shade;
-
-    _shade = Object.keys(_hue).reduce((previous, current) => {
+    const _shade = Object.keys(_hue).reduce((previous, current) => {
       // Find the closest available shade within the given hue.
-      return Math.abs(current - _shade) < Math.abs(previous - _shade)
+      return Math.abs(current - shade) < Math.abs(previous - shade)
         ? parseInt(current, 10)
         : parseInt(previous, 10);
     });

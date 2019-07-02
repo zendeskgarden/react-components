@@ -113,6 +113,12 @@ const defaultStyleguideConfig = {
             }
           })();
         </script>`
+      ],
+      links: [
+        {
+          rel: 'stylesheet',
+          href: 'https://zendeskgarden.github.io/css-components/utilities/index.css'
+        }
       ]
     }
   },
