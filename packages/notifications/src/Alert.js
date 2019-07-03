@@ -9,9 +9,8 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import CalloutStyles from '@zendeskgarden/css-callouts';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 
-import Well from './Well';
 const COMPONENT_ID = 'notifications.alert';
 
 const VALIDATION = {
@@ -24,11 +23,16 @@ const VALIDATION = {
 /**
  * Supports all `<div>` props
  */
-const Alert = styled(Well).attrs(props => ({
+const Alert = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  recessed: props.type === VALIDATION.INFO,
-  className: classNames(props.className, {
+  className: classNames(CalloutStyles['c-callout'], {
+    // RTL
+    [CalloutStyles['is-rtl']]: isRtl(props),
+
+    // Styles
+    [CalloutStyles['c-callout--recessed']]: props.type === VALIDATION.INFO,
+
     // Validation types
     [CalloutStyles['c-callout--success']]: props.type === VALIDATION.SUCCESS,
     [CalloutStyles['c-callout--warning']]: props.type === VALIDATION.WARNING,
