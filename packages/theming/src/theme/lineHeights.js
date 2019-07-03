@@ -5,13 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-const lineHeights = (base = 4) => ({
+import { base } from './space';
+
+const lineHeights = {
   sm: `${base * 4}px`,
   md: `${base * 5}px`,
   lg: `${base * 6}px`,
   xl: `${base * 7}px`,
   xxl: `${base * 8}px`,
   xxxl: `${base * 11}px`
-});
+};
 
 export default lineHeights;

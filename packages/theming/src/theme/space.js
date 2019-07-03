@@ -5,7 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-const space = (base = 4) => ({
+export const base = 4;
+
+const space = {
   base,
   xxs: `${base}px`,
   xs: `${base * 2}px`,
@@ -14,6 +16,6 @@ const space = (base = 4) => ({
   lg: `${base * 8}px`,
   xl: `${base * 10}px`,
   xxl: `${base * 12}px`
-});
+};
 
 export default space;

@@ -5,10 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export const borderRadii = (base = 4) => ({
+import { base } from './space';
+
+export const borderRadii = {
   sm: `${base / 2}px`,
   md: `${base}px`
-});
+};
 
 export const borderStyles = {
   solid: 'solid'

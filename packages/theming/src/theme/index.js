@@ -20,7 +20,7 @@ delete palette.product;
 
 export default {
   borders,
-  borderRadii: borderRadii(),
+  borderRadii,
   borderStyles,
   borderWidths,
   colors,
@@ -28,9 +28,9 @@ export default {
   fonts,
   fontSizes,
   fontWeights,
-  lineHeights: lineHeights(),
+  lineHeights,
   palette,
   shadowWidths,
   shadows,
-  space: space()
+  space
 };
