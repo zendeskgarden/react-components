@@ -11,11 +11,11 @@ module.exports = {
     },
     {
       name: 'Palette',
-      content: '../../packages/theming/src/palette/palette.example.md'
+      content: '../../packages/theming/src/examples/palette.md'
     },
     {
       name: 'Theme',
-      content: '../../packages/theming/src/theme/theme.example.md'
+      content: '../../packages/theming/src/examples/theme.md'
     },
     {
       name: 'ThemeProvider',

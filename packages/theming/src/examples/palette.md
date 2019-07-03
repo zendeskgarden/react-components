@@ -1,4 +1,6 @@
-<code class="u-display-block u-fg-grey-600 u-font-family-monospace u-fs-md u-mb-sm">import { palette } from '@zendeskgarden/react-theming'</code>
+<code class="u-display-block u-fg-grey-600 u-font-family-monospace u-fs-md u-mb-sm">
+  import { palette } from '@zendeskgarden/react-theming'
+</code>
 
 The Garden palette contains **product** and **UI** colors along with `white`
 and `black`. UI colors are used to style interface elements. Primary colors
@@ -29,7 +31,7 @@ Except for `yellow` (which is notoriously challenging to make both beautiful
 and accessible), all `600`, `700`, and `800` shades exceed the WCAG AA
 contrast of 4.5:1 against white or `100` backgrounds. Furthermore, the `800`
 shades are AAA accessible in that they achieve contrasts over 7:1 against
-white or `100` backgrounds. Only the `700` and `800` shades of yellow meet
+white or `100` backgrounds. Only the `700` and `800` shades of `yellow` meet
 similar WCAG contrast standards.
 
 ### Secondary
@@ -43,7 +45,9 @@ on white or `100` backgrounds. Except for `lemon`, all `600` secondary shades
 meet a minimum contrast ratio of 4.5:1 and pass WCAG requirements for text on
 white or `100` backgrounds.
 
-```jsx
+### Color palette
+
+```jsx noeditor
 const { palette } = require('@zendeskgarden/react-theming/src');
 const { LG } = require('@zendeskgarden/react-typography/src');
 
