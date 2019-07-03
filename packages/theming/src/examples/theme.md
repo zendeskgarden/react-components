@@ -56,9 +56,9 @@ require deeper color control.
 ### Components
 
 The `components` object (empty by default) is for individual component
-styling. Within this object, keys are `COMPONENT_ID`s and values are template
-strings of CSS to be applied to the component. You may find that a `css`
-helper from a library like
+styling. Within this object, keys are `COMPONENT_ID`s (see table below).
+Values are template strings of CSS to be applied to the component. You may
+find that a `css` helper from a library like
 [styled-components](https://www.styled-components.com/docs/api#css) may be
 helpful in cases where you need advanced composition or access to component
 `props`. The following example code illustrates potential component styling
@@ -94,6 +94,10 @@ const theme = {
 </ThemeProvider>;
 ```
 
+```jsx noeditor
+<CIDTable>See https://zendeskgarden.github.io/react-components/theming</CIDTable>
+```
+
 ### Fonts
 
 The `fonts` section of the theme contains two CSS `font-family` stacks:
@@ -127,7 +131,7 @@ completely non-blue set of shades or provide random shade ordering that doesn't
 fall in line with Garden's 100 (extra light) through 800 (extra dark) structure.
 We would discourage you from mutating the palette in this manner as it
 weakens semantics and reduces the likelihood of successful component color
-styling. When you find yourself using `palette` theming to tweak precise
+styling. When you find yourself using `palette` theming to surgically tweak
 component colors (i.e. "I want to change the background color on button
 hover"), consider using **Components** theming described above.
 
@@ -178,7 +182,7 @@ values (i.e. `borderRadii` & `lineHeights`) to correspond with your `base` of ch
 
 ### `defaultTheme` object
 
-The following output displays Garden's `defaultTheme` in its entirety.
+The following reference displays Garden's `defaultTheme` in its entirety.
 
 ```jsx noeditor
 const { Well } = require('@zendeskgarden/react-notifications/src');

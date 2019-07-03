@@ -18,7 +18,7 @@ module.exports = {
       content: '../../packages/theming/src/examples/theme.md'
     },
     {
-      name: 'ThemeProvider',
+      name: 'Components',
       components: '../../packages/theming/src/ThemeProvider/[A-Z]*.js'
     },
     {

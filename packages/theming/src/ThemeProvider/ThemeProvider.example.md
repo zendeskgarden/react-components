@@ -1,52 +1,53 @@
-#### WARNING
-
-Theming of styles affects all usages of a component within the `ThemeProvider`.
-Try extending one of our Presentation components and see if that fits your
-specific usage.
-
-All UI components are themable by an unique component ID. These themes can be nested.
+All UI components are themable by a unique component ID. These themes can be nested.
 
 ```jsx
-const ThemableButton = styled.div`
-  margin: 12px;
+const ThemableDiv = styled.div`
+  margin: ${props => props.theme.space.base * 3}px;
 
   :hover {
     color: yellow;
   }
 
-  ${props => retrieveComponentStyles('button', props)};
+  ${props => retrieveComponentStyles('unique_id', props)};
 `;
 
 const Container = styled.div`
   border: grey solid;
-  padding: 24px;
+  padding: ${props => props.theme.space.base * 5}px;
 `;
 
 const theme = {
   components: {
-    button: `color: red;`
+    unique_id: `color: red;`
+  },
+  space: {
+    base: 4
   }
 };
 
 const nestedTheme = {
   components: {
-    button: `
+    unique_id: `
       color: green;
+
       :hover {
         color: blue;
       }
     `
+  },
+  space: {
+    base: 5
   }
 };
 
 <ThemeProvider theme={theme}>
   <Container>
-    <ThemableButton>Simple Theme</ThemableButton>
-    <Container>
-      <ThemeProvider theme={nestedTheme}>
-        <ThemableButton>Nested Theme</ThemableButton>
-      </ThemeProvider>
-    </Container>
+    <ThemableDiv>Simple Theme</ThemableDiv>
+    <ThemeProvider theme={nestedTheme}>
+      <Container>
+        <ThemableDiv>Nested Theme</ThemableDiv>
+      </Container>
+    </ThemeProvider>
   </Container>
 </ThemeProvider>;
 ```
