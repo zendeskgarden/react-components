@@ -1,24 +1,30 @@
 All UI components are themable by a unique component ID. These themes can be nested.
 
 ```jsx
+const { css } = require('styled-components');
+
 const ThemableDiv = styled.div`
   margin: ${props => props.theme.space.base * 3}px;
 
   :hover {
-    color: yellow;
+    color: ${props => getColor({ hue: props.theme.colors.warningHue, theme: props.theme })};
   }
 
   ${props => retrieveComponentStyles('unique_id', props)};
 `;
 
 const Container = styled.div`
-  border: grey solid;
+  border: ${props => props.theme.borders.sm};
+  border-color: ${props => getColor({ hue: props.theme.colors.neutralHue, theme: props.theme })}
+  border-radius: ${props => props.theme.borderRadii.md};
   padding: ${props => props.theme.space.base * 5}px;
 `;
 
 const theme = {
   components: {
-    unique_id: `color: red;`
+    unique_id: css`
+      color: ${props => getColor({ hue: props.theme.colors.dangerHue, theme: props.theme })};
+    `
   },
   space: {
     base: 4
@@ -26,12 +32,19 @@ const theme = {
 };
 
 const nestedTheme = {
+  borderRadii: {
+    md: 0
+  },
+  colors: {
+    successHue: 'fuschia',
+    neutralHue: 'purple'
+  },
   components: {
-    unique_id: `
-      color: green;
+    unique_id: css`
+      color: ${props => getColor({ hue: props.theme.colors.successHue, theme: props.theme })};
 
       :hover {
-        color: blue;
+        color: ${props => getColor({ hue: props.theme.colors.primaryHue, theme: props.theme })};
       }
     `
   },
