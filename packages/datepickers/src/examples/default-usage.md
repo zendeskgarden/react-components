@@ -1,7 +1,6 @@
 The `<Datepicker>` takes a native `Date()` object as its input. It is able to
-accept several varieties of user input to parse it's date.
-
-By default it allows the standard `Date.parse()` formats, including:
+accept several varieties of user input to parse it's date. By default it
+allows the standard `Date.parse()` formats, including:
 
 - `09/04/1986`
 - `Sep 4, 1986`

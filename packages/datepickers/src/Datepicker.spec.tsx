@@ -62,7 +62,7 @@ describe('Datepicker', () => {
       expect(days[9]).toHaveAttribute('data-test-today', 'true');
     });
 
-    it('display disabled styling for minimum and maximum values', () => {
+    it('displays disabled styling for minimum and maximum values', () => {
       const { getByTestId, getAllByTestId } = render(
         <Example
           value={DEFAULT_DATE}
@@ -271,11 +271,29 @@ describe('Datepicker', () => {
       expect(getByTestId('datepicker-menu')).not.toBeNull();
     });
 
-    it('calls onChange with provided date if manually added', () => {
+    it('calls onChange with provided date if manually added in short format', () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const input = getByTestId('input');
+
+      fireEvent.change(input, { target: { value: '1/4/2019' } });
+
+      expect(onChangeSpy).toHaveBeenCalledWith(new Date(2019, 0, 4));
+    });
+
+    it('calls onChange with provided date if manually added in medium format', () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
       const input = getByTestId('input');
 
       fireEvent.change(input, { target: { value: 'Jan 4, 2019' } });
+
+      expect(onChangeSpy).toHaveBeenCalledWith(new Date(2019, 0, 4));
+    });
+
+    it('calls onChange with provided date if manually added in long format', () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const input = getByTestId('input');
+
+      fireEvent.change(input, { target: { value: 'January 4th, 2019' } });
 
       expect(onChangeSpy).toHaveBeenCalledWith(new Date(2019, 0, 4));
     });

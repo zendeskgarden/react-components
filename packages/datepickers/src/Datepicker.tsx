@@ -11,6 +11,7 @@ import { Manager, Popper, Reference } from 'react-popper';
 import isSameDay from 'date-fns/isSameDay';
 import isValid from 'date-fns/isValid';
 import isBefore from 'date-fns/isBefore';
+import parse from 'date-fns/parse';
 import { isRtl, withTheme } from '@zendeskgarden/react-theming';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
 
@@ -29,17 +30,25 @@ import { DatepickerContext } from './utils/useDatepickerContext';
  */
 function parseInputValue({ inputValue }: { inputValue: string }): Date {
   const MINIMUM_DATE = new Date(1001, 0, 0);
-  const tryParseDate = new Date(inputValue);
+  let tryParseDate = parse(inputValue, 'P', new Date());
 
-  if (
-    !isValid(tryParseDate) ||
-    isSameDay(tryParseDate, MINIMUM_DATE) ||
-    isBefore(tryParseDate, MINIMUM_DATE)
-  ) {
-    return new Date(NaN);
+  if (isValid(tryParseDate) && !isBefore(tryParseDate, MINIMUM_DATE)) {
+    return tryParseDate;
   }
 
-  return tryParseDate;
+  tryParseDate = parse(inputValue, 'PP', new Date());
+
+  if (isValid(tryParseDate) && !isBefore(tryParseDate, MINIMUM_DATE)) {
+    return tryParseDate;
+  }
+
+  tryParseDate = parse(inputValue, 'PPP', new Date());
+
+  if (isValid(tryParseDate) && !isBefore(tryParseDate, MINIMUM_DATE)) {
+    return tryParseDate;
+  }
+
+  return new Date(NaN);
 }
 
 export interface IDatepickerProps {
@@ -77,9 +86,13 @@ export interface IDatepickerProps {
   customParseDate?: (inputValue: string) => Date;
   /**
    * The ref key used to position the dropdown
+   * @default ref
    */
   refKey?: string;
-  /** Locale-aware placement for the dropdown element */
+  /**
+   * Locale-aware placement for the dropdown element
+   * @default bottom-start
+   **/
   placement?: GARDEN_PLACEMENT;
   /** Display an arrow to the reference element */
   arrow?: boolean;
@@ -89,14 +102,17 @@ export interface IDatepickerProps {
   popperModifiers?: any;
   /**
    * Show open animations
+   * @default true
    */
   animate?: boolean;
   /**
    * Allow dropdown to reposition during browser resize events
+   * @default true
    */
   eventsEnabled?: boolean;
   /**
    * The z-index of the dropdown
+   * @default 1000
    */
   zIndex?: number;
 }

@@ -24,19 +24,24 @@ import {
 } from '@zendeskgarden/css-variables';
 import { isRtl, retrieveTheme } from '@zendeskgarden/react-theming';
 import rgba from 'polished/lib/color/rgba';
+import math from 'polished/lib/math/math';
+
+const retrieveSpacing = ({ isSmall }: { isSmall?: boolean }) => {
+  if (isSmall) {
+    return zdSpacingLg;
+  }
+
+  return zdSpacingXl;
+};
 
 export const StyledDatepicker = styled.div<{
   isSmall: boolean;
 }>`
   /* stylelint-disable */
-  padding: ${props => (props.isSmall ? `calc(${zdSpacingLg} / 2)` : zdSpacing)};
+  padding: ${props => (props.isSmall ? math(`${zdSpacingLg} / 2`) : zdSpacing)};
   color: ${zdColorGrey800};
 
-  ${props =>
-    isRtl(props) &&
-    `
-    direction: rtl;
-  `}
+  direction: ${props => isRtl(props) && 'rtl'};
 
   ${props => retrieveTheme('datepickers.datepicker', props)};
 `;
@@ -48,8 +53,8 @@ export const StyledHeader = styled.div`
 `;
 
 export const StyledHeaderPaddle = styled.div<{ isSmall: boolean }>`
-  width: ${props => (props.isSmall ? zdSpacingLg : zdSpacingXl)};
-  height: ${props => (props.isSmall ? zdSpacingLg : zdSpacingXl)};
+  width: ${retrieveSpacing};
+  height: ${retrieveSpacing};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,15 +72,11 @@ export const StyledHeaderPaddle = styled.div<{ isSmall: boolean }>`
     color: ${zdColorGrey800};
   }
 
-  ${props =>
-    isRtl(props) &&
-    `
-    transform: rotate(180deg);
-  `}
+  transform: ${props => isRtl(props) && 'rotate(180deg)'};
 
   * {
-    width: calc(${zdSpacingLg} / 2);
-    height: calc(${zdSpacingLg} / 2);
+    width: ${math(`${zdSpacingLg} / 2`)};
+    height: ${math(`${zdSpacingLg} / 2`)};
   }
 
   ${props => retrieveTheme('datepickers.header_paddle', props)};
@@ -98,15 +99,15 @@ export const StyledHeaderLabel = styled.div<{ isSmall: boolean }>`
 `;
 
 export const StyledCalendar = styled.div<{ isSmall?: boolean }>`
-  width: calc(${props => (props.isSmall ? zdSpacingLg : zdSpacingXl)} * 7);
+  width: ${props => math(`${retrieveSpacing(props)} * 7`)};
 
   ${props => retrieveTheme('datepickers.calendar', props)};
 `;
 
 export const StyledCalendarItem = styled.div<{ isSmall?: boolean }>`
   display: inline-block;
-  width: ${props => (props.isSmall ? zdSpacingLg : zdSpacingXl)};
-  height: ${props => (props.isSmall ? zdSpacingLg : zdSpacingXl)};
+  width: ${retrieveSpacing};
+  height: ${retrieveSpacing};
 
   ${props => retrieveTheme('datepickers.calendar_item', props)};
 `;
@@ -122,13 +123,48 @@ export const StyledDayLabel = styled.div<{ isSmall: boolean }>`
   ${props => retrieveTheme('datepickers.day_label', props)};
 `;
 
-export const StyledDay = styled.div<{
+interface IStyledDayProps {
   isPreviousMonth?: boolean;
   isToday?: boolean;
   isDisabled?: boolean;
   isSelected?: boolean;
   small: boolean;
-}>`
+}
+
+const retrieveStyledDayColor = ({
+  isDisabled,
+  isSelected,
+  isToday,
+  isPreviousMonth
+}: IStyledDayProps) => {
+  if (isDisabled) {
+    return zdColorGrey400;
+  }
+
+  if (isSelected && !isDisabled) {
+    return zdColorWhite;
+  }
+
+  if (isToday) {
+    return 'inherit';
+  }
+
+  if (isPreviousMonth) {
+    return zdColorGrey600;
+  }
+
+  return zdColorBlue600;
+};
+
+const retrieveBackgroundColor = ({ isSelected, isDisabled }: IStyledDayProps) => {
+  if (isSelected && !isDisabled) {
+    return zdColorBlue600;
+  }
+
+  return 'inherit';
+};
+
+export const StyledDay = styled.div<IStyledDayProps>`
   cursor: ${props => (props.isDisabled ? 'inherit' : 'pointer')};
   width: 100%;
   height: 100%;
@@ -139,29 +175,8 @@ export const StyledDay = styled.div<{
   font-size: ${props => (props.small ? zdFontSizeSm : zdFontSizeMd)};
   font-weight: ${props => (props.isToday && !props.isDisabled ? zdFontWeightBold : 'inherit')};
   line-height: ${zdLineHeightMd};
-  color: ${props => {
-    if (props.isDisabled) {
-      return zdColorGrey400;
-    }
-
-    if (props.isToday) {
-      return 'inherit';
-    }
-
-    if (props.isPreviousMonth) {
-      return zdColorGrey600;
-    }
-
-    return zdColorBlue600;
-  }};
-
-  ${props =>
-    props.isSelected &&
-    !props.isDisabled &&
-    `
-    background-color: ${zdColorBlue600};
-    color: ${zdColorWhite};
-  `}
+  color: ${retrieveStyledDayColor};
+  background-color: ${retrieveBackgroundColor};
 
   ${props =>
     !props.isSelected &&
