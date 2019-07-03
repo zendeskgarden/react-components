@@ -168,9 +168,9 @@ The `shadows` portion of the default theme contains three functions:
 - `sm` and `md`: each take an RGBA `color` parameter and are typically used
   to apply Garden's `:focus` box shadow. Values under the `shadowWidths` theme
   object are used to determine shadow thickness.
-- `lg`: takes `offsetY` and `blurRadius` parameters for applying a faint
-  kale-colored drop shadow to components that appear to float above the surface
-  (i.e. modals, notifications, etc.).
+- `lg`: takes `offsetY`, `blurRadius`, and `theme` parameters for applying a
+  faint kale-colored drop shadow to components that appear to float above the
+  surface (i.e. modals, notifications, etc.).
 
 ### Space
 

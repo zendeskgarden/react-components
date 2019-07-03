@@ -53,7 +53,7 @@ const { LG } = require('@zendeskgarden/react-typography/src');
 
 const Swatch = styled.div`
   max-width: 92px;
-  box-shadow: ${props => props.theme.shadows.lg('8px', '12px')};
+  box-shadow: ${props => props.theme.shadows.lg('8px', '12px', props.theme)};
 `;
 
 const SwatchColor = styled.div`

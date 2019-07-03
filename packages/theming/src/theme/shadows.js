@@ -16,5 +16,6 @@ export const shadowWidths = {
 export const shadows = {
   sm: color => `0 0 0 ${shadowWidths.sm} ${color}`,
   md: color => `0 0 0 ${shadowWidths.md} ${color}`,
-  lg: (offsetY, blurRadius) => `0 ${offsetY} ${blurRadius} 0 ${rgba(palette.kale[600], 0.15)}`
+  lg: (offsetY, blurRadius, theme) =>
+    `0 ${offsetY} ${blurRadius} 0 ${rgba(theme.palette.kale[600], 0.15)}`
 };
