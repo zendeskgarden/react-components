@@ -22,6 +22,7 @@ to install.
 | [`@zendeskgarden/react-breadcrumbs`](packages/breadcrumbs)     | [![npm version][breadcrumbs npm version]][breadcrumbs npm link]     | [![Dependency Status][breadcrumbs dependency status]][breadcrumbs dependency link]     |
 | [`@zendeskgarden/react-buttons`](packages/buttons)             | [![npm version][buttons npm version]][buttons npm link]             | [![Dependency Status][buttons dependency status]][buttons dependency link]             |
 | [`@zendeskgarden/react-chrome`](packages/chrome)               | [![npm version][chrome npm version]][chrome npm link]               | [![Dependency Status][chrome dependency status]][chrome dependency link]               |
+| [`@zendeskgarden/react-datepickers`](packages/datepickers)     | [![npm version][datepickers npm version]][datepickers npm link]     | [![Dependency Status][datepickers dependency status]][datepickers dependency link]     |
 | [`@zendeskgarden/react-dropdowns`](packages/dropdowns)         | [![npm version][dropdowns npm version]][dropdowns npm link]         | [![Dependency Status][dropdowns dependency status]][dropdowns dependency link]         |
 | [`@zendeskgarden/react-forms`](packages/forms)                 | [![npm version][forms npm version]][forms npm link]                 | [![Dependency Status][forms dependency status]][forms dependency link]                 |
 | [`@zendeskgarden/react-grid`](packages/grid)                   | [![npm version][grid npm version]][grid npm link]                   | [![Dependency Status][grid dependency status]][grid dependency link]                   |
@@ -59,6 +60,10 @@ to install.
 [chrome npm link]: https://www.npmjs.com/package/@zendeskgarden/react-chrome
 [chrome dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/chrome&style=flat-square
 [chrome dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/chrome
+[datepickers npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-datepickers.svg?style=flat-square
+[datepickers npm link]: https://www.npmjs.com/package/@zendeskgarden/react-datepickers
+[datepickers dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/datepickers&style=flat-square
+[datepickers dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/datepickers
 [dropdowns npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-dropdowns.svg?style=flat-square
 [dropdowns npm link]: https://www.npmjs.com/package/@zendeskgarden/react-dropdowns
 [dropdowns dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/dropdowns&style=flat-square
