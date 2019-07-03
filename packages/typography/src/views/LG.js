@@ -17,7 +17,7 @@ const StyledLG = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   line-height: ${props => props.theme.lineHeights.md};
-  font-family: ${props => (props.monospace ? props.theme.fonts.mono : null)};
+  font-family: ${props => props.monospace && props.theme.fonts.mono};
   /* stylelint-disable-next-line declaration-colon-newline-after */
   font-size: ${props =>
     props.monospace ? props.theme.fontSizes.mono.lg : props.theme.fontSizes.lg};
