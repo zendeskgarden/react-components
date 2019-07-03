@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1562184423635" clover="3.2.0">
-  <project timestamp="1562184423635" name="All files">
+<coverage generated="1562184442269" clover="3.2.0">
+  <project timestamp="1562184442269" name="All files">
     <metrics statements="3552" coveredstatements="3483" conditionals="1522" coveredconditionals="1359" methods="1013" coveredmethods="985" elements="6087" coveredelements="5827" complexity="0" loc="3552" ncloc="3552" packages="98" files="289" classes="289"/>
     <package name="autocomplete.src.containers">
       <metrics statements="173" coveredstatements="168" conditionals="96" coveredconditionals="78" methods="46" coveredmethods="42"/>
@@ -2966,26 +2966,26 @@
       <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
       <file name="Alert.js" path="/home/travis/build/zendeskgarden/react-components/packages/notifications/src/Alert.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="27" count="4" type="stmt"/>
-        <line num="39" count="4" type="stmt"/>
-        <line num="42" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="26" count="5" type="stmt"/>
+        <line num="43" count="5" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
       </file>
       <file name="Notification.js" path="/home/travis/build/zendeskgarden/react-components/packages/notifications/src/Notification.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="27" count="4" type="stmt"/>
-        <line num="39" count="4" type="stmt"/>
-        <line num="42" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="26" count="5" type="stmt"/>
+        <line num="40" count="5" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
       </file>
       <file name="Well.js" path="/home/travis/build/zendeskgarden/react-components/packages/notifications/src/Well.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="14" count="4" type="stmt"/>
-        <line num="19" count="12" type="stmt"/>
-        <line num="31" count="12" type="stmt"/>
-        <line num="34" count="4" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
+        <line num="31" count="4" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
       </file>
     </package>
     <package name="notifications.src.content">
@@ -4326,8 +4326,8 @@
       <file name="ThemeProvider.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/ThemeProvider/ThemeProvider.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="12" count="243" type="stmt"/>
-        <line num="13" count="1157" type="stmt"/>
-        <line num="19" count="1157" type="stmt"/>
+        <line num="13" count="1159" type="stmt"/>
+        <line num="19" count="1159" type="stmt"/>
         <line num="22" count="243" type="stmt"/>
       </file>
     </package>
@@ -4339,13 +4339,13 @@
       </file>
       <file name="isRtl.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/utils/isRtl.js">
         <metrics statements="1" coveredstatements="1" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
-        <line num="10" count="2635" type="cond" truecount="2" falsecount="0"/>
+        <line num="10" count="2637" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="retrieveTheme.js" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/utils/retrieveTheme.js">
         <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
-        <line num="10" count="6477" type="stmt"/>
-        <line num="12" count="6477" type="cond" truecount="2" falsecount="0"/>
-        <line num="13" count="6475" type="stmt"/>
+        <line num="10" count="6471" type="stmt"/>
+        <line num="12" count="6471" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="6469" type="stmt"/>
         <line num="16" count="2" type="stmt"/>
         <line num="18" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="19" count="1" type="stmt"/>
