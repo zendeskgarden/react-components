@@ -15,7 +15,8 @@ const colors = {
   dangerHue: 'red',
   warningHue: 'yellow',
   successHue: 'green',
-  neutralHue: 'grey'
+  neutralHue: 'grey',
+  chromeHue: 'kale'
 };
 
 export default colors;

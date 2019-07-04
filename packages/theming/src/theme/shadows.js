@@ -7,6 +7,7 @@
 
 import { math, rgba } from 'polished';
 import { default as palette } from '../palette';
+import { default as getColor } from '../utils/getColor';
 
 export const shadowWidths = {
   sm: '2px',
@@ -17,5 +18,8 @@ export const shadows = {
   sm: color => `0 0 0 ${shadowWidths.sm} ${color}`,
   md: color => `0 0 0 ${shadowWidths.md} ${color}`,
   lg: (offsetY, blurRadius, theme) =>
-    `0 ${offsetY} ${blurRadius} 0 ${rgba(theme.palette.kale[600], 0.15)}`
+    `0 ${offsetY} ${blurRadius} 0 ${rgba(
+      getColor({ hue: theme.colors.chromeHue, shade: 600, theme }),
+      0.15
+    )}`
 };

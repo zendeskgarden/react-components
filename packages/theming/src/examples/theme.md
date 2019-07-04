@@ -43,6 +43,7 @@ palette hue name or object (i.e. keyed by numbers 100..800).
 - `warningHue`: used to represent caution or warning states. Defaults to `yellow`.
 - `successHue`: used to represent success states. Defaults to `green`.
 - `neutralHue`: used to provide neutral or disabled colors. Defaults to `grey`.
+- `chromeHue`: used for Chrome navigation elements and drop shadows. Defaults to `kale`.
 
 This simplified approach allows components to apply necessary alpha and state
 (i.e. hover, active, focused) styling based on various shades throughout the
