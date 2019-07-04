@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "6.0.1",
+  "version": "6.2.0",
   "main": "./dist/index.js",
   "files": [
     "dist"
@@ -19,7 +19,7 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendeskgarden/react-selection": "^6.0.1",
+    "@zendeskgarden/react-selection": "^6.2.0",
     "classnames": "^2.2.5",
     "dom-helpers": "^3.3.1"
   },
@@ -31,11 +31,11 @@
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "@zendeskgarden/css-tables": "4.0.9",
-    "@zendeskgarden/react-theming": "^6.0.1",
+    "@zendeskgarden/css-tables": "4.0.10",
+    "@zendeskgarden/react-theming": "^6.2.0",
     "@zendeskgarden/svg-icons": "6.3.0",
-    "react-beautiful-dnd": "11.0.3",
-    "react-window": "1.8.2"
+    "react-beautiful-dnd": "11.0.4",
+    "react-window": "1.8.4"
   },
   "keywords": [
     "components",

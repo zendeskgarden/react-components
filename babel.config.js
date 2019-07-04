@@ -20,5 +20,10 @@ module.exports = {
     '@babel/plugin-proposal-class-properties',
     '@babel/proposal-object-rest-spread',
     'babel-plugin-styled-components'
-  ]
+  ],
+  env: {
+    production: {
+      plugins: [['react-remove-properties', { properties: [/data-test/u] }]]
+    }
+  }
 };
