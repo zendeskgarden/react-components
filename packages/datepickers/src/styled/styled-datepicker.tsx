@@ -28,7 +28,7 @@ export const StyledDatepicker = styled.div<{
 }>`
   /* stylelint-disable */
   padding: ${props =>
-    props.isSmall ? math(`${defaultTheme.space.md} / 2`) : defaultTheme.space.lg};
+    props.isSmall ? math(`${defaultTheme.space.lg} / 2`) : defaultTheme.space.md};
   color: ${palette.grey[800]};
 
   direction: ${props => isRtl(props) && 'rtl'};
@@ -65,7 +65,7 @@ export const StyledHeaderPaddle = styled.div<{ isSmall: boolean }>`
   transform: ${props => isRtl(props) && 'rotate(180deg)'};
 
   * {
-    width: ${math(`${defaultTheme.space.md} / 2`)};
+    width: ${math(`${defaultTheme.space.lg} / 2`)};
     height: ${math(`${defaultTheme.space.lg} / 2`)};
   }
 
