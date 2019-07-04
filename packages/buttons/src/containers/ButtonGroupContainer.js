@@ -5,6 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+if (process.env.NODE_ENV !== 'production') {
+  /* eslint-disable no-console */
+  console.warn(
+    'Deprecation Warning: The `@zendeskgarden/react-buttons` ButtonGroupContainer has been deprecated. ' +
+      'It will be removed in an upcoming major release. Migrate to the ' +
+      '`@zendeskgarden/container-buttongroup` package to continue receiving updates.'
+  );
+  /* eslint-enable */
+}
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import {

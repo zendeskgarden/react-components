@@ -1,3 +1,10 @@
+### DEPRECATION WARNING
+
+This container has been deprecated in favor of our new hook based container
+[@zendeskgarden/container-pagination](https://garden.zendesk.com/react-containers/storybook/?path=/story/pagination-container--usepagination).
+
+This container will be removed in a future major release.
+
 ```jsx
 <PaginationContainer>
   {({

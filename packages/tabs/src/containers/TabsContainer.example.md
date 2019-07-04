@@ -1,3 +1,10 @@
+### DEPRECATION WARNING
+
+This container has been deprecated in favor of our new hook based container
+[@zendeskgarden/container-tabs](https://garden.zendesk.com/react-containers/storybook/?path=/story/tabs-container--usetabs).
+
+This container will be removed in a future major release.
+
 ```jsx
 initialState = {
   tabs: ['Tab 1', 'Tab 2', 'Tab 3'],

@@ -1,3 +1,10 @@
+### DEPRECATION WARNING
+
+This container has been deprecated in favor of our new hook based container
+[@zendeskgarden/container-buttongroup](https://garden.zendesk.com/react-containers/storybook/?path=/story/buttongroup-container--usebuttongroup).
+
+This container will be removed in a future major release.
+
 ```jsx
 const buttons = ['Button 1', 'Button 2', 'Button 3'];
 

@@ -1,3 +1,10 @@
+### DEPRECATION WARNING
+
+This container has been deprecated in favor of our new hook based container
+[@zendeskgarden/container-accordion](https://garden.zendesk.com/react-containers/storybook/?path=/story/accordion-container--useaccordion).
+
+This container will be removed in a future major release.
+
 ```jsx
 const {
   zdSpacing,

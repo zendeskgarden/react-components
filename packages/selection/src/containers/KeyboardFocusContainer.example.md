@@ -1,3 +1,10 @@
+### DEPRECATION WARNING
+
+This container has been deprecated in favor of our new hook based container
+[@zendeskgarden/container-keyboardfocus](https://garden.zendesk.com/react-containers/storybook/?path=/story/keyboardfocus-container--usekeyboardfocus).
+
+This container will be removed in a future major release.
+
 This render prop based component helps with differentiating
 between focus events triggered by a keyboard event or a mouse event.
 

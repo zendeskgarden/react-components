@@ -1,3 +1,10 @@
+### DEPRECATION WARNING
+
+This container has been deprecated in favor of our new hook based container
+[@zendeskgarden/container-tooltip](https://garden.zendesk.com/react-containers/storybook/?path=/story/tooltip-container-usetooltip--default).
+
+This container will be removed in a future major release.
+
 The `TooltipContainer` component uses the render prop pattern to apply events and
 accessibility props to any element.
 

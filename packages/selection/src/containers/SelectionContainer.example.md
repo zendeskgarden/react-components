@@ -1,3 +1,10 @@
+### DEPRECATION WARNING
+
+This container has been deprecated in favor of our new hook based container
+[@zendeskgarden/container-selection](https://garden.zendesk.com/react-containers/storybook/?path=/story/selection-containers--useselection).
+
+This container will be removed in a future major release.
+
 The `SelectionContainer` component helps ensure that any
 "single-selection scenario" has the required:
 
