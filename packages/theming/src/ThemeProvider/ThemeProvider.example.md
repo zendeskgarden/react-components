@@ -7,7 +7,7 @@ const ThemableDiv = styled.div`
   margin: ${props => props.theme.space.base * 3}px;
 
   :hover {
-    color: ${props => getColor({ hue: props.theme.colors.warningHue, theme: props.theme })};
+    color: ${props => getColor({ hue: '__warning', ...props })};
   }
 
   ${props => retrieveComponentStyles('unique_id', props)};
@@ -15,7 +15,7 @@ const ThemableDiv = styled.div`
 
 const Container = styled.div`
   border: ${props => props.theme.borders.sm};
-  border-color: ${props => getColor({ hue: props.theme.colors.neutralHue, theme: props.theme })}
+  border-color: ${props => getColor({ hue: '__neutral', ...props })}
   border-radius: ${props => props.theme.borderRadii.md};
   padding: ${props => props.theme.space.base * 5}px;
 `;
@@ -23,7 +23,7 @@ const Container = styled.div`
 const theme = {
   components: {
     unique_id: css`
-      color: ${props => getColor({ hue: props.theme.colors.dangerHue, theme: props.theme })};
+      color: ${props => getColor({ hue: '__danger', ...props })};
     `
   },
   space: {
@@ -41,10 +41,10 @@ const nestedTheme = {
   },
   components: {
     unique_id: css`
-      color: ${props => getColor({ hue: props.theme.colors.successHue, theme: props.theme })};
+      color: ${props => getColor({ hue: '__success', ...props })};
 
       :hover {
-        color: ${props => getColor({ hue: props.theme.colors.primaryHue, theme: props.theme })};
+        color: ${props => getColor({ hue: '__primary', ...props })};
       }
     `
   },

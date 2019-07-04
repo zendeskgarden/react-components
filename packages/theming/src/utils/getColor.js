@@ -8,7 +8,42 @@
 import { default as defaultTheme } from '../theme';
 import { darken, lighten } from 'polished';
 
-/** @component */
+const toHue = (hue, theme) => {
+  const colors = theme && theme.colors ? theme.colors : defaultTheme.colors;
+
+  switch (hue) {
+    case '__primary':
+      return colors.primaryHue;
+    case '__danger':
+      return colors.dangerHue;
+    case '__warning':
+      return colors.warningHue;
+    case '__success':
+      return colors.successHue;
+    case '__neutral':
+      return colors.neutralHue;
+    case '__chrome':
+      return colors.chromeHue;
+    default:
+      return hue || colors.primaryHue;
+  }
+};
+
+/**
+ * Get the palette color for the given hue, shade, and theme.
+ *
+ * @param {string|Object} [props.hue] A palette hue or one of the following reserved keys:
+ *  - `'__primary'` = `theme.colors.primaryHue`
+ *  - `'__danger'` = `theme.colors.dangerHue`
+ *  - `'__warning'` = `theme.colors.warningHue`
+ *  - `'__success'` = `theme.colors.successHue`
+ *  - `'__neutral'` = `theme.colors.neutralHue`
+ *  - `'__chrome'` = `theme.colors.chromeHue`
+ * @param {number} [props.shade=600] A hue shade.
+ * @param {Object} [props.theme] Context `theme` object.
+ *
+ * @component
+ */
 export default function getColor({ hue, shade = 600, theme } = {}) {
   let retVal;
 
@@ -16,8 +51,7 @@ export default function getColor({ hue, shade = 600, theme } = {}) {
     retVal = undefined;
   } else {
     const palette = theme && theme.palette ? theme.palette : defaultTheme.palette;
-    const colors = theme && theme.colors ? theme.colors : defaultTheme.colors;
-    let _hue = hue || colors.primaryHue;
+    let _hue = toHue(hue, theme);
 
     if (Object.prototype.hasOwnProperty.call(palette, _hue)) {
       // Convert string to a hue object.

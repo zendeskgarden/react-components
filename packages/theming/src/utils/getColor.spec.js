@@ -41,6 +41,50 @@ describe('getColor', () => {
 
       expect(color).toBe(expected);
     });
+
+    describe('by reserved key', () => {
+      it('gets the default primary color', () => {
+        const color = getColor({ hue: '__primary' });
+        const expected = palette[defaultTheme.colors.primaryHue][defaultShade];
+
+        expect(color).toBe(expected);
+      });
+
+      it('gets the default danger color', () => {
+        const color = getColor({ hue: '__danger' });
+        const expected = palette[defaultTheme.colors.dangerHue][defaultShade];
+
+        expect(color).toBe(expected);
+      });
+
+      it('gets the default warning color', () => {
+        const color = getColor({ hue: '__warning' });
+        const expected = palette[defaultTheme.colors.warningHue][defaultShade];
+
+        expect(color).toBe(expected);
+      });
+
+      it('gets the default success color', () => {
+        const color = getColor({ hue: '__success' });
+        const expected = palette[defaultTheme.colors.successHue][defaultShade];
+
+        expect(color).toBe(expected);
+      });
+
+      it('gets the default neutral color', () => {
+        const color = getColor({ hue: '__neutral' });
+        const expected = palette[defaultTheme.colors.neutralHue][defaultShade];
+
+        expect(color).toBe(expected);
+      });
+
+      it('gets the default chrome color', () => {
+        const color = getColor({ hue: '__chrome' });
+        const expected = palette[defaultTheme.colors.chromeHue][defaultShade];
+
+        expect(color).toBe(expected);
+      });
+    });
   });
 
   describe('by shade', () => {

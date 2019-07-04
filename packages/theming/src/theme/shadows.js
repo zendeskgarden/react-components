@@ -18,8 +18,5 @@ export const shadows = {
   sm: color => `0 0 0 ${shadowWidths.sm} ${color}`,
   md: color => `0 0 0 ${shadowWidths.md} ${color}`,
   lg: (offsetY, blurRadius, theme) =>
-    `0 ${offsetY} ${blurRadius} 0 ${rgba(
-      getColor({ hue: theme.colors.chromeHue, shade: 600, theme }),
-      0.15
-    )}`
+    `0 ${offsetY} ${blurRadius} 0 ${rgba(getColor({ hue: '__chrome', shade: 600, theme }), 0.15)}`
 };
