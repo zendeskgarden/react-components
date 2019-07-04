@@ -49,7 +49,7 @@ const foregroundColor = (type, theme) => {
     case TYPE.GREEN:
       return theme.palette.green[700];
     case TYPE.YELLOW:
-      return theme.palette.yellow[700];
+      return theme.palette.yellow[800];
     case TYPE.GREY:
     default:
       return theme.palette.grey[700];
