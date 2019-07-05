@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test') {
   /* eslint-disable no-console */
   console.warn(
     'Deprecation Warning: The `@zendeskgarden/react-modals` ModalContainer has been deprecated. ' +
