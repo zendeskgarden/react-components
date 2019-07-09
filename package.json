@@ -96,6 +96,7 @@
     "live-server": "1.2.1",
     "markdown-loader": "5.0.0",
     "markdownlint-cli": "0.17.0",
+    "micromatch": "4.0.2",
     "mini-css-extract-plugin": "0.7.0",
     "mockdate": "2.0.3",
     "node-fetch": "2.6.0",
@@ -124,5 +125,8 @@
     "webpack-cli": "3.3.5",
     "webpack-merge": "4.2.1",
     "webpack-node-externals": "1.7.2"
+  },
+  "resolutions": {
+    "@types/react": "^16.8.23"
   }
 }
