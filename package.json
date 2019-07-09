@@ -92,7 +92,7 @@
     "jest-styled-components": "6.3.3",
     "lerna": "3.15.0",
     "lerna-changelog": "0.8.2",
-    "lint-staged": "8.2.1",
+    "lint-staged": "9.1.0",
     "live-server": "1.2.1",
     "markdown-loader": "5.0.0",
     "markdownlint-cli": "0.17.0",
