@@ -59,20 +59,24 @@ export default function getColor({ hue, shade = 600, theme } = {}) {
     }
 
     if (_hue && typeof _hue === 'object') {
-      const _shade = Object.keys(_hue).reduce((previous, current) => {
-        // Find the closest available shade within the given hue.
-        return Math.abs(current - shade) < Math.abs(previous - shade)
-          ? parseInt(current, 10)
-          : parseInt(previous, 10);
-      });
+      retVal = _hue[shade];
 
-      retVal = _hue[_shade];
+      if (!retVal) {
+        const _shade = Object.keys(_hue).reduce((previous, current) => {
+          // Find the closest available shade within the given hue.
+          return Math.abs(current - shade) < Math.abs(previous - shade)
+            ? parseInt(current, 10)
+            : parseInt(previous, 10);
+        });
 
-      if (shade !== _shade) {
-        // Adjust darkness/lightness if shade doesn't exist within the given hue.
-        const amount = (Math.abs(shade - _shade) / 100) * 0.05;
+        retVal = _hue[_shade];
 
-        retVal = shade > _shade ? darken(amount, retVal) : lighten(amount, retVal);
+        if (shade !== _shade) {
+          // Adjust darkness/lightness if shade doesn't exist within the given hue.
+          const amount = (Math.abs(shade - _shade) / 100) * 0.05;
+
+          retVal = shade > _shade ? darken(amount, retVal) : lighten(amount, retVal);
+        }
       }
     } else {
       retVal = _hue;
