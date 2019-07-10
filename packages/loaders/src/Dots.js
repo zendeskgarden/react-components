@@ -7,6 +7,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+import { useSchedule } from '@zendeskgarden/container-schedule';
 
 import {
   DotsOneCircle,
@@ -15,7 +16,7 @@ import {
   StyledSVG,
   LoadingPlaceholder
 } from './styled-elements';
-import { useSchedule } from '@zendeskgarden/container-schedule';
+import { useCSSSVGAnimation } from './utils/useCSSSVGAnimation';
 
 const COMPONENT_ID = 'loaders.dots';
 
@@ -28,13 +29,14 @@ export default function Dots({
   ...other
 }) {
   const { delayComplete } = useSchedule({ duration, delayMS });
+  const noAnimatedSVGSupport = useCSSSVGAnimation();
   const dotOne = useRef(null);
   const dotTwo = useRef(null);
   const dotThree = useRef(null);
 
   useEffect(() => {
     // gah user agent sniffing! This is so we only run the effect in IE11
-    if (/MSIE \d|Trident.*rv:/u.test(navigator.userAgent) && delayComplete) {
+    if (noAnimatedSVGSupport && delayComplete) {
       const transforms = [
         window.getComputedStyle(dotOne.current).getPropertyValue('transform'),
         window.getComputedStyle(dotTwo.current).getPropertyValue('transform'),

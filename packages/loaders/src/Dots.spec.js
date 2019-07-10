@@ -19,6 +19,7 @@ describe('Dots', () => {
     clearTimeout.mockClear();
     global.cancelAnimationFrame = jest.fn();
     global.requestAnimationFrame = jest.fn();
+    global.document.elementFromPoint = jest.fn();
     mockDate.set(DEFAULT_DATE);
   });
 
