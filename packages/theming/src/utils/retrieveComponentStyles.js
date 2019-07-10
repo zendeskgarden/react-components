@@ -7,7 +7,7 @@
 
 /** @component */
 export default function retrieveComponentStyles(componentId, props) {
-  const components = props.theme.components;
+  const components = props.theme && props.theme.components;
 
   if (!components) {
     return undefined;
