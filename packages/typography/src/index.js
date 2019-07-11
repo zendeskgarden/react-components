@@ -13,3 +13,5 @@ export { default as XXL } from './views/XXL';
 export { default as XXXL } from './views/XXXL';
 export { default as Code } from './views/Code';
 export { default as Ellipsis } from './views/Ellipsis';
+export { default as List } from './views/lists/List';
+export { default as Item } from './views/lists/Item';

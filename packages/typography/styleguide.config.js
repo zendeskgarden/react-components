@@ -25,7 +25,9 @@ module.exports = {
         '../../packages/typography/src/views/XXL.js',
         '../../packages/typography/src/views/XXXL.js',
         '../../packages/typography/src/views/Code.js',
-        '../../packages/typography/src/views/Ellipsis.js'
+        '../../packages/typography/src/views/Ellipsis.js',
+        '../../packages/typography/src/views/lists/List.js',
+        '../../packages/typography/src/views/lists/Item.js'
       ]
     }
   ]
