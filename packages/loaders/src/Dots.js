@@ -16,7 +16,7 @@ import {
   StyledSVG,
   LoadingPlaceholder
 } from './styled-elements';
-import { useCSSSVGAnimation } from './utils/useCSSSVGAnimation';
+import { useCSSSVGAnimation } from './hooks/useCSSSVGAnimation';
 
 const COMPONENT_ID = 'loaders.dots';
 
