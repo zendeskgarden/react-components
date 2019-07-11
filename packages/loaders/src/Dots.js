@@ -35,7 +35,6 @@ export default function Dots({
   const dotThree = useRef(null);
 
   useEffect(() => {
-    // gah user agent sniffing! This is so we only run the effect in IE11
     if (noAnimatedSVGSupport && delayComplete) {
       const transforms = [
         window.getComputedStyle(dotOne.current).getPropertyValue('transform'),

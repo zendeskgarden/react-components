@@ -1,4 +1,3 @@
-/* stylelint-disable rule-empty-line-before */
 /**
  * Copyright Zendesk, Inc.
  *
@@ -8,6 +7,7 @@
 
 import { keyframes } from 'styled-components';
 
+/* stylelint-disable rule-empty-line-before */
 export const dotOneKeyframes = keyframes`
   0% { transform: translate(0, 5px); }
   3% { transform: translate(1px, -5px); }

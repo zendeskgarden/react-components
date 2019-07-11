@@ -7,6 +7,7 @@
 
 import { useEffect, useState } from 'react';
 
+// Adapted from https://eprev.org/2017/01/05/how-to-detect-if-css-transforms-are-supported-on-svg/
 export const useCSSSVGAnimation = () => {
   const [canAnimateSVG, setAnimateSVG] = useState(true);
 
