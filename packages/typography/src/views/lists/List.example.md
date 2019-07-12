@@ -101,10 +101,15 @@ const {
 const { Range, RangeField, Label: RangeLabel } = require('@zendeskgarden/react-ranges/src');
 
 initialState = {
+  length: 1,
   levels: 5,
   ordered: false,
   size: List.defaultProps.size
 };
+
+const text = 'garden es bonus vobis proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic beet greens corn soko endive gumbo gourd shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato cucumber earthnut pea peanut soko zucchini.'.split(
+  ' '
+);
 
 const getType = (ordered, level) => {
   const types = ordered ? ['decimal', 'lower-alpha', 'lower-roman'] : ['disc', 'circle', 'square'];
@@ -114,16 +119,18 @@ const getType = (ordered, level) => {
 };
 
 const NestedList = ({ level = 0, ...props }) => {
+  const content = text.slice(0, state.length).join(' ');
+
   if (level < state.levels) {
     return (
       <List type={getType(props.ordered, level)} {...props}>
-        <Item>item</Item>
+        <Item>{content}</Item>
         <Item>
-          item
+          {content}
           <NestedList level={level + 1} {...props} />
         </Item>
-        <Item>item</Item>
-        <Item>item</Item>
+        <Item>{content}</Item>
+        <Item>{content}</Item>
       </List>
     );
   } else {
@@ -148,6 +155,15 @@ const NestedList = ({ level = 0, ...props }) => {
         min={1}
         value={state.levels}
         onChange={event => setState({ levels: event.target.value })}
+      />
+    </RangeField>
+    <RangeField>
+      <RangeLabel>Length</RangeLabel>
+      <Range
+        max={text.length}
+        min={1}
+        value={state.length}
+        onChange={event => setState({ length: event.target.value })}
       />
     </RangeField>
     <Dropdown selectedItem={state.size} onSelect={size => setState({ size })}>
