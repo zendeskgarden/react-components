@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { isRtl, retrieveTheme } from '@zendeskgarden/react-theming';
-import { StyledOrderedList } from './List';
+import { ListContext, StyledOrderedList } from './List';
+import { StyledMD } from '../MD';
 
 const COMPONENT_ID = 'typography.list_item';
 
@@ -27,7 +28,34 @@ const StyledListItem = styled.li.attrs({
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
-const Item = ({ children, ...props }) => <StyledListItem>{children}</StyledListItem>;
+const StyledListItemContent = styled(StyledMD)`
+  /* stylelint-disable-next-line declaration-colon-newline-after */
+  padding: ${props => {
+    switch (props.size) {
+      case 'small':
+        return '0';
+      case 'large':
+        return '4px 0';
+      case 'medium':
+      default:
+        return '2px 0';
+    }
+  }};
+`;
+
+const Item = ({ children, ...props }) => {
+  const size = useContext(ListContext);
+
+  return (
+    <StyledListItem>
+      <StyledListItemContent size={size}>{children}</StyledListItemContent>
+    </StyledListItem>
+  );
+};
+
+Item.propTypes = {
+  children: PropTypes.any
+};
 
 /** @component */
 export default Item;

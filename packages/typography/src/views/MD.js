@@ -18,7 +18,7 @@ import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'typography.md';
 
-const StyledMD = styled.div.attrs({
+export const StyledMD = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { createContext } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { isRtl, retrieveTheme } from '@zendeskgarden/react-theming';
@@ -25,6 +25,12 @@ const TYPE_UNORDERED = {
   CIRCLE: 'circle',
   DISC: 'disc',
   SQUARE: 'square'
+};
+
+const SIZE = {
+  SMALL: 'small',
+  MEDIUM: 'medium',
+  LARGE: 'large'
 };
 
 const listAttributes = {
@@ -55,18 +61,25 @@ export const StyledUnorderedList = styled.ul.attrs(listAttributes)`
     Object.values(TYPE_UNORDERED).indexOf(props.type) !== -1 && props.type};
 `;
 
+export const ListContext = createContext();
+
 /**
  * Accepts all `ul`/`ol` props
  */
-const List = ({ ordered, children, ...other }) =>
-  ordered ? (
-    <StyledOrderedList {...other}>{children}</StyledOrderedList>
-  ) : (
-    <StyledUnorderedList {...other}>{children}</StyledUnorderedList>
-  );
+const List = ({ ordered, size, children, ...other }) => (
+  <ListContext.Provider value={size}>
+    {ordered ? (
+      <StyledOrderedList {...other}>{children}</StyledOrderedList>
+    ) : (
+      <StyledUnorderedList {...other}>{children}</StyledUnorderedList>
+    )}
+  </ListContext.Provider>
+);
 
 List.propTypes = {
+  children: PropTypes.node,
   ordered: PropTypes.bool,
+  size: PropTypes.oneOf([SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]),
   type: PropTypes.oneOf([
     TYPE_UNORDERED.CIRCLE,
     TYPE_UNORDERED.DISC,
@@ -78,6 +91,10 @@ List.propTypes = {
     TYPE_ORDERED.LOWER_ROMAN,
     TYPE_ORDERED.UPPER_ROMAN
   ])
+};
+
+List.defaultProps = {
+  size: SIZE.MEDIUM
 };
 
 /** @component */
