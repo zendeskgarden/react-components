@@ -6,30 +6,25 @@
  */
 
 import React from 'react';
-import styled from 'styled-components';
 import { Button } from '@zendeskgarden/react-buttons';
-import { Menu, Item } from '@zendeskgarden/react-menus';
-import { zdColorGrey600, zdFontSizeAlpha, zdSpacing } from '@zendeskgarden/css-variables';
+import { Dropdown, Trigger, Menu, Item } from '@zendeskgarden/react-dropdowns';
+import { XXL } from '@zendeskgarden/react-typography';
 
 import Layout from '../components/layout';
 
-const Title = styled.h1`
-  margin-bottom: ${zdSpacing};
-  color: ${zdColorGrey600};
-  font-size: ${zdFontSizeAlpha};
-`;
-
 const IndexPage = () => (
   <Layout title="Home Page">
-    <Title>Home Page</Title>
-    <Menu
-      onChange={selectedKey => alert(selectedKey)} // eslint-disable-line no-alert
-      trigger={({ ref }) => <Button innerRef={ref}>Example Menu</Button>}
-    >
-      <Item key="item-1">1 - Item</Item>
-      <Item key="item-2">2 - Item</Item>
-      <Item key="item-3">3 - Item</Item>
-    </Menu>
+    <XXL tag="h2">Home Page</XXL>
+    <Dropdown onSelect={value => alert(value)}>
+      <Trigger>
+        <Button>Example Menu</Button>
+      </Trigger>
+      <Menu>
+        <Item value="item-1">1 - Item</Item>
+        <Item value="item-2">2 - Item</Item>
+        <Item value="item-3">3 - Item</Item>
+      </Menu>
+    </Dropdown>
   </Layout>
 );
 
