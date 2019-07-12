@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1562885700609" clover="3.2.0">
-  <project timestamp="1562885700610" name="All files">
-    <metrics statements="3552" coveredstatements="3483" conditionals="1522" coveredconditionals="1359" methods="1013" coveredmethods="985" elements="6087" coveredelements="5827" complexity="0" loc="3552" ncloc="3552" packages="98" files="289" classes="289"/>
+<coverage generated="1562962638312" clover="3.2.0">
+  <project timestamp="1562962638313" name="All files">
+    <metrics statements="3553" coveredstatements="3484" conditionals="1522" coveredconditionals="1359" methods="1013" coveredmethods="985" elements="6088" coveredelements="5828" complexity="0" loc="3553" ncloc="3553" packages="98" files="289" classes="289"/>
     <package name="autocomplete.src.containers">
       <metrics statements="173" coveredstatements="168" conditionals="96" coveredconditionals="78" methods="46" coveredmethods="42"/>
       <file name="AutocompleteContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/autocomplete/src/containers/AutocompleteContainer.js">
@@ -1174,9 +1174,9 @@
       </file>
     </package>
     <package name="dropdowns.src">
-      <metrics statements="21" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="22" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.ts" path="/home/travis/build/zendeskgarden/react-components/packages/dropdowns/src/index.ts">
-        <metrics statements="21" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="22" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="8" count="11" type="stmt"/>
         <line num="9" count="11" type="stmt"/>
         <line num="10" count="11" type="stmt"/>
@@ -1198,6 +1198,7 @@
         <line num="26" count="11" type="stmt"/>
         <line num="27" count="11" type="stmt"/>
         <line num="30" count="11" type="stmt"/>
+        <line num="32" count="11" type="stmt"/>
       </file>
     </package>
     <package name="dropdowns.src.Autocomplete">
