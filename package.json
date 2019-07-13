@@ -87,7 +87,7 @@
     "inquirer": "6.4.1",
     "inquirer-autocomplete-prompt": "1.0.1",
     "jest": "24.8.0",
-    "jest-dom": "3.5.0",
+    "jest-dom": "4.0.0",
     "jest-enzyme": "7.0.2",
     "jest-styled-components": "6.3.3",
     "lerna": "3.15.0",
