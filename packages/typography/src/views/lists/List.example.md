@@ -171,7 +171,7 @@ const NestedList = ({ level = 0, ...props }) => {
         <SelectLabel>Size</SelectLabel>
         <Select small>{state.size}</Select>
       </SelectField>
-      <Menu>
+      <Menu small>
         <MenuItem value="small">small</MenuItem>
         <MenuItem value="medium">medium (default)</MenuItem>
         <MenuItem value="large">large</MenuItem>
