@@ -85,11 +85,7 @@ types of `decimal`, `decimal-leading-zero`, `lower-alpha`, `upper-alpha`,
 
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
-const {
-  Checkbox,
-  Field: CheckboxField,
-  Label: CheckboxLabel
-} = require('@zendeskgarden/react-forms/src');
+const { Checkbox, Field, Input, Label } = require('@zendeskgarden/react-forms/src');
 const {
   Dropdown,
   Select,
@@ -104,7 +100,8 @@ initialState = {
   length: 1,
   levels: 1,
   ordered: false,
-  size: List.defaultProps.size
+  size: List.defaultProps.size,
+  start: 1
 };
 
 const text = 'garden es bonus vobis proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic beet greens corn soko endive gumbo gourd shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato cucumber earthnut pea peanut soko zucchini.'.split(
@@ -123,7 +120,7 @@ const NestedList = ({ level = 0, ...props }) => {
 
   if (level < state.levels) {
     return (
-      <List type={getType(props.ordered, level)} {...props}>
+      <List start={state.start} type={getType(props.ordered, level)} {...props}>
         <Item>{content}</Item>
         <Item>
           {content}
@@ -140,14 +137,14 @@ const NestedList = ({ level = 0, ...props }) => {
 
 <>
   <Well recessed style={{ width: 300 }}>
-    <CheckboxField>
+    <Field>
       <Checkbox
         checked={state.ordered}
         onChange={event => setState({ ordered: event.target.checked })}
       >
-        <CheckboxLabel style={{ marginBottom: 8 }}>Ordered</CheckboxLabel>
+        <Label style={{ marginBottom: 8 }}>Ordered</Label>
       </Checkbox>
-    </CheckboxField>
+    </Field>
     <RangeField>
       <RangeLabel>Levels</RangeLabel>
       <Range
@@ -177,6 +174,16 @@ const NestedList = ({ level = 0, ...props }) => {
         <MenuItem value="large">large</MenuItem>
       </Menu>
     </Dropdown>
+    <Field>
+      <Label>Start</Label>
+      <Input
+        disabled={!state.ordered}
+        small
+        type="number"
+        value={state.start}
+        onChange={event => setState({ start: event.target.value })}
+      />
+    </Field>
   </Well>
   <MD tag="p">
     Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya nuts
