@@ -102,7 +102,7 @@ const { Range, RangeField, Label: RangeLabel } = require('@zendeskgarden/react-r
 
 initialState = {
   length: 1,
-  levels: 5,
+  levels: 1,
   ordered: false,
   size: List.defaultProps.size
 };
