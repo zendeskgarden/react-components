@@ -9,6 +9,7 @@ import React, { createContext } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { isRtl, retrieveTheme } from '@zendeskgarden/react-theming';
+import Item from './Item';
 
 const COMPONENT_ID = 'typography.list';
 
@@ -50,15 +51,13 @@ const listCSS = css`
 `;
 
 export const StyledOrderedList = styled.ol.attrs(listAttributes)`
+  list-style-type: ${props => props.type};
   ${listCSS};
-  list-style-type: ${props => Object.values(TYPE_ORDERED).indexOf(props.type) !== -1 && props.type};
 `;
 
 export const StyledUnorderedList = styled.ul.attrs(listAttributes)`
+  list-style-type: ${props => props.type};
   ${listCSS};
-  /* stylelint-disable-next-line declaration-colon-newline-after */
-  list-style-type: ${props =>
-    Object.values(TYPE_UNORDERED).indexOf(props.type) !== -1 && props.type};
 `;
 
 export const ListContext = createContext();
@@ -66,15 +65,23 @@ export const ListContext = createContext();
 /**
  * Accepts all `ul`/`ol` props
  */
-const List = ({ ordered, size, children, ...other }) => (
-  <ListContext.Provider value={size}>
-    {ordered ? (
-      <StyledOrderedList {...other}>{children}</StyledOrderedList>
-    ) : (
-      <StyledUnorderedList {...other}>{children}</StyledUnorderedList>
-    )}
-  </ListContext.Provider>
-);
+const List = ({ ordered, size, type, children, ...other }) => {
+  const isValidType = Object.values(ordered ? TYPE_ORDERED : TYPE_UNORDERED).indexOf(type) !== -1;
+
+  return (
+    <ListContext.Provider value={{ size }}>
+      {ordered ? (
+        <StyledOrderedList type={isValidType ? type : null} {...other}>
+          {children}
+        </StyledOrderedList>
+      ) : (
+        <StyledUnorderedList type={isValidType ? type : null} {...other}>
+          {children}
+        </StyledUnorderedList>
+      )}
+    </ListContext.Provider>
+  );
+};
 
 List.propTypes = {
   children: PropTypes.node,
@@ -96,6 +103,8 @@ List.propTypes = {
 List.defaultProps = {
   size: SIZE.MEDIUM
 };
+
+List.Item = Item;
 
 /** @component */
 export default List;

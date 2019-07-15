@@ -9,8 +9,9 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { isRtl, retrieveTheme } from '@zendeskgarden/react-theming';
-import { ListContext, StyledOrderedList } from './List';
-import { StyledMD } from '../MD';
+import { StyledOrderedList } from './List';
+import useListContext from './useListContext';
+import MD from '../MD';
 
 const COMPONENT_ID = 'typography.list_item';
 
@@ -19,7 +20,7 @@ const StyledListItem = styled.li.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   /* stylelint-disable */
-  ${StyledOrderedList} > & {
+  ${StyledOrderedList} & {
     margin-${props => (isRtl(props) ? 'right' : 'left')}: -4px;
     padding-${props => (isRtl(props) ? 'right' : 'left')}: 4px;
   }
@@ -28,7 +29,7 @@ const StyledListItem = styled.li.attrs({
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
 
-const StyledListItemContent = styled(StyledMD)`
+const StyledListItemContent = styled(MD)`
   /* stylelint-disable-next-line declaration-colon-newline-after */
   padding: ${props => {
     switch (props.size) {
@@ -44,7 +45,7 @@ const StyledListItemContent = styled(StyledMD)`
 `;
 
 const Item = ({ children, ...props }) => {
-  const size = useContext(ListContext);
+  const { size } = useListContext();
 
   return (
     <StyledListItem>

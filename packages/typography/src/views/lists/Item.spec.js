@@ -7,12 +7,17 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
+import List from './List';
 import Item from './Item';
 
 describe('Item', () => {
   it('applies default padding', () => {
-    const { container } = render(<Item />);
+    const { container } = render(
+      <List>
+        <Item />
+      </List>
+    );
 
-    expect(container.querySelector('li').firstChild).toHaveStyleRule('padding', '2px 0');
+    expect(container.querySelector('div')).toHaveStyleRule('padding', '2px 0');
   });
 });

@@ -5,25 +5,25 @@ style types of `circle`, `disc`, or `square`.
 <p style={{marginTop: 0}}>Type <Code>disc</Code> (default)</p>
 
 <List>
-  <Item>Item</Item>
-  <Item>Item</Item>
-  <Item>Item</Item>
+  <List.Item>Item</List.Item>
+  <List.Item>Item</List.Item>
+  <List.Item>Item</List.Item>
 </List>
 
 <p>Type <Code>circle</Code></p>
 
 <List type="circle">
-  <Item>Item</Item>
-  <Item>Item</Item>
-  <Item>Item</Item>
+  <List.Item>Item</List.Item>
+  <List.Item>Item</List.Item>
+  <List.Item>Item</List.Item>
 </List>
 
 <p>Type <Code>square</Code></p>
 
 <List type="square">
-  <Item>Item</Item>
-  <Item>Item</Item>
-  <Item>Item</Item>
+  <List.Item>Item</List.Item>
+  <List.Item>Item</List.Item>
+  <List.Item>Item</List.Item>
 </List>
 ```
 
@@ -35,49 +35,49 @@ types of `decimal`, `decimal-leading-zero`, `lower-alpha`, `upper-alpha`,
 <p style={{marginTop: 0}}>Type <Code>decimal</Code> (default)</p>
 
 <List ordered>
-  <Item>One</Item>
-  <Item>Two</Item>
-  <Item>Three</Item>
+  <List.Item>One</List.Item>
+  <List.Item>Two</List.Item>
+  <List.Item>Three</List.Item>
 </List>
 
 <p>Type <Code>decimal-leading-zero</Code></p>
 
 <List ordered type="decimal-leading-zero">
-  <Item>One</Item>
-  <Item>Two</Item>
-  <Item>Three</Item>
+  <List.Item>One</List.Item>
+  <List.Item>Two</List.Item>
+  <List.Item>Three</List.Item>
 </List>
 
 <p>Type <Code>lower-alpha</Code></p>
 
 <List ordered type="lower-alpha">
-  <Item>One</Item>
-  <Item>Two</Item>
-  <Item>Three</Item>
+  <List.Item>One</List.Item>
+  <List.Item>Two</List.Item>
+  <List.Item>Three</List.Item>
 </List>
 
 <p>Type <Code>upper-alpha</Code></p>
 
 <List ordered type="upper-alpha">
-  <Item>One</Item>
-  <Item>Two</Item>
-  <Item>Three</Item>
+  <List.Item>One</List.Item>
+  <List.Item>Two</List.Item>
+  <List.Item>Three</List.Item>
 </List>
 
 <p>Type <Code>lower-roman</Code></p>
 
 <List ordered type="lower-roman">
-  <Item>One</Item>
-  <Item>Two</Item>
-  <Item>Three</Item>
+  <List.Item>One</List.Item>
+  <List.Item>Two</List.Item>
+  <List.Item>Three</List.Item>
 </List>
 
 <p>Type <Code>upper-roman</Code></p>
 
 <List ordered type="upper-roman">
-  <Item>One</Item>
-  <Item>Two</Item>
-  <Item>Three</Item>
+  <List.Item>One</List.Item>
+  <List.Item>Two</List.Item>
+  <List.Item>Three</List.Item>
 </List>
 ```
 
@@ -121,13 +121,13 @@ const NestedList = ({ level = 0, ...props }) => {
   if (level < state.levels) {
     return (
       <List start={state.start} type={getType(props.ordered, level)} {...props}>
-        <Item>{content}</Item>
-        <Item>
+        <List.Item>{content}</List.Item>
+        <List.Item>
           {content}
           <NestedList level={level + 1} {...props} />
-        </Item>
-        <Item>{content}</Item>
-        <Item>{content}</Item>
+        </List.Item>
+        <List.Item>{content}</List.Item>
+        <List.Item>{content}</List.Item>
       </List>
     );
   } else {
