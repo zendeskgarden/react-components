@@ -1,5 +1,3 @@
-### Interactive Demo
-
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
 const { Checkbox, Field, Input, Label } = require('@zendeskgarden/react-forms/src');
@@ -17,14 +15,24 @@ initialState = {
   length: 1,
   levels: 1,
   ordered: false,
-  size: List.defaultProps.size,
+  size: UnorderedList.defaultProps.size,
   start: 1
 };
 
-const text = 'garden es bonus vobis proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic beet greens corn soko endive gumbo gourd shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato cucumber earthnut pea peanut soko zucchini.'.split(
-  ' '
-);
-
+const text = [
+  'garden es bonus vobis proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic beet greens corn soko endive gumbo gourd shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato cucumber earthnut pea peanut soko zucchini.'.split(
+    ' '
+  ),
+  'greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale celery potato scallion desert raisin horseradish spinach carrot soko lotus root water spinach fennel kombu maize bamboo shoot green bean swiss chard seakale pumpkin sprout coriander.'.split(
+    ' '
+  ),
+  'water chestnut gourd swiss chard wakame kohlrabi beetroot carrot watercress corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke chestnut eggplant winter purslane fennel azuki bean earthnut pea sierra leone bologi leek soko chicory celtuce parsley jícama salsify celery quandong swiss chard.'.split(
+    ' '
+  ),
+  'rock melon radish asparagus spinach beetroot water spinach okra water chestnut ricebean pea catsear courgette summer purslane water spinach arugula pea tatsoi aubergine spring onion bush tomato kale radicchio turnip chicory salsify pea sprouts fava bean dandelion zucchini burdock yarrow chickpea dandelion sorrel courgette turnip greens.'.split(
+    ' '
+  )
+];
 const getType = (ordered, level) => {
   const types = ordered ? ['decimal', 'lower-alpha', 'lower-roman'] : ['disc', 'circle', 'square'];
   const index = level % types.length;
@@ -33,18 +41,19 @@ const getType = (ordered, level) => {
 };
 
 const NestedList = ({ level = 0, ...props }) => {
-  const content = text.slice(0, state.length).join(' ');
+  const content = text.map(string => string.slice(0, state.length).join(' '));
+  const List = state.ordered ? OrderedList : UnorderedList;
 
   if (level < state.levels) {
     return (
-      <List start={state.start} type={getType(props.ordered, level)} {...props}>
-        <List.Item>{content}</List.Item>
+      <List start={state.start} type={getType(state.ordered, level)} {...props}>
+        <List.Item>{content[0]}</List.Item>
         <List.Item>
-          {content}
+          {content[1]}
           <NestedList level={level + 1} {...props} />
         </List.Item>
-        <List.Item>{content}</List.Item>
-        <List.Item>{content}</List.Item>
+        <List.Item>{content[2]}</List.Item>
+        <List.Item>{content[3]}</List.Item>
       </List>
     );
   } else {
@@ -74,7 +83,7 @@ const NestedList = ({ level = 0, ...props }) => {
     <RangeField>
       <RangeLabel>Length</RangeLabel>
       <Range
-        max={text.length}
+        max={text[0].length}
         min={1}
         value={state.length}
         onChange={event => setState({ length: event.target.value })}

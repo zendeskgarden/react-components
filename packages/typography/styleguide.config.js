@@ -16,6 +16,15 @@ module.exports = {
       content: '../../packages/typography/README.md'
     },
     {
+      name: 'Examples',
+      sections: [
+        {
+          name: 'Lists',
+          content: '../../packages/typography/examples/list.md'
+        }
+      ]
+    },
+    {
       name: 'Components',
       components: [
         '../../packages/typography/src/views/SM.js',
