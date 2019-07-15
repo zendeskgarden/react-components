@@ -14,7 +14,7 @@ describe('Index', () => {
       cwd: __dirname,
       fileMapper: files => {
         return files
-          .filter(file => !/Item|useListContext/u.test(file))
+          .filter(file => !/Item|use(Ordered|Unordered)ListContext|styles/u.test(file))
           .map(entry =>
             entry
               .replace(/\.js$/u, '')

@@ -6,16 +6,16 @@
  */
 
 import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
-import List from './List';
-import Item from './Item';
+import { render } from 'garden-test-utils';
+import UnorderedList from './UnorderedList';
+import UnorderedListItem from './UnorderedListItem';
 
-describe('Item', () => {
+describe('UnorderedListItem', () => {
   it('applies default padding', () => {
     const { container } = render(
-      <List>
-        <Item />
-      </List>
+      <UnorderedList>
+        <UnorderedListItem />
+      </UnorderedList>
     );
 
     expect(container.querySelector('div')).toHaveStyleRule('padding', '2px 0');
