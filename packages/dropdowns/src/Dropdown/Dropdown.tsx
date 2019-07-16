@@ -164,6 +164,9 @@ const Dropdown: React.FunctionComponent<IDropdownProps> = props => {
             } else {
               onSelect && onSelect(changes.selectedItem, stateAndHelpers);
             }
+
+            // Reset input value when item is selected
+            stateAndHelpers.setState({ inputValue: '' });
           }
 
           onStateChange && onStateChange(changes, stateAndHelpers);
