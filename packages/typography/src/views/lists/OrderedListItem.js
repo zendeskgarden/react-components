@@ -8,7 +8,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { isRtl, retrieveTheme } from '@zendeskgarden/react-theming';
+import { isRtl, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import useOrderedListContext from './useOrderedListContext';
 import MD from '../MD';
 import { listItemContentCSS } from './styles';
@@ -24,7 +24,7 @@ const StyledOrderedListItem = styled.li.attrs({
   padding-${props => (isRtl(props) ? 'right' : 'left')}: 4px;
   /* stylelint-enable */
 
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 const StyledOrderedListItemContent = styled(MD)`
