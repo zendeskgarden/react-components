@@ -1,3 +1,31 @@
+### Sizes
+
+```jsx
+<p style={{marginTop: 0}}>Size <Code>small</Code></p>
+
+<UnorderedList size="small">
+  <UnorderedList.Item>One</UnorderedList.Item>
+  <UnorderedList.Item>Two</UnorderedList.Item>
+  <UnorderedList.Item>Three</UnorderedList.Item>
+</UnorderedList>
+
+<p>Size <Code>medium</Code> (default)</p>
+
+<UnorderedList size="medium">
+  <UnorderedList.Item>One</UnorderedList.Item>
+  <UnorderedList.Item>Two</UnorderedList.Item>
+  <UnorderedList.Item>Three</UnorderedList.Item>
+</UnorderedList>
+
+<p>Size <Code>large</Code></p>
+
+<UnorderedList size="large">
+  <UnorderedList.Item>One</UnorderedList.Item>
+  <UnorderedList.Item>Two</UnorderedList.Item>
+  <UnorderedList.Item>Three</UnorderedList.Item>
+</UnorderedList>
+```
+
 ### Types
 
 ```jsx
