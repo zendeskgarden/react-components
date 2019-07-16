@@ -11,7 +11,7 @@ import 'jest-enzyme';
 // Styled-Component setup
 import 'jest-styled-components';
 
-import 'jest-dom/extend-expect';
+import '@testing-library/jest-dom/extend-expect';
 
 // Setup enzyme's react adapter
 import Adapter from 'enzyme-adapter-react-16';

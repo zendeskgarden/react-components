@@ -27,7 +27,7 @@ import {
   Main,
   Body
 } from '@zendeskgarden/react-chrome';
-import { Menu, Item } from '@zendeskgarden/react-menus';
+import { Dropdown, Trigger, Menu, Item } from '@zendeskgarden/react-dropdowns';
 
 /**
  * Garden Icons
@@ -62,22 +62,21 @@ const Layout = ({ children, title = 'This is the default title' }) => (
     </Nav>
     <Body>
       <Header>
-        <Menu
-          arrow
-          placement="bottom-end"
-          trigger={({ ref, isOpen }) => (
-            <HeaderItem innerRef={ref} active={isOpen}>
+        <Dropdown>
+          <Trigger>
+            <HeaderItem>
               <HeaderItemIcon>
                 <MenuTrayIcon />
               </HeaderItemIcon>
               <HeaderItemText clipped>Products</HeaderItemText>
             </HeaderItem>
-          )}
-        >
-          <Item key="support">Support</Item>
-          <Item key="chat">Chat</Item>
-          <Item key="talk">Talk</Item>
-        </Menu>
+          </Trigger>
+          <Menu placement="bottom-end">
+            <Item value="support">Support</Item>
+            <Item value="chat">Chat</Item>
+            <Item value="talk">Talk</Item>
+          </Menu>
+        </Dropdown>
         <HeaderItem round>
           <HeaderItemIcon>
             <PersonIcon />
@@ -94,7 +93,7 @@ const Layout = ({ children, title = 'This is the default title' }) => (
 
 Layout.propTypes = {
   children: PropTypes.any,
-  title: PropTypes.element
+  title: PropTypes.node
 };
 
 export default Layout;
