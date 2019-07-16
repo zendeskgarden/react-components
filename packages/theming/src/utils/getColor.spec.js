@@ -6,8 +6,8 @@
  */
 
 import getColor from './getColor';
-import palette from '../palette';
-import defaultTheme from '../theme';
+import PALETTE from '../palette';
+import DEFAULT_THEME from '../theme';
 import { darken, lighten } from 'polished';
 
 const defaultShade = 600;
@@ -16,21 +16,21 @@ describe('getColor', () => {
   describe('by hue', () => {
     it('gets the primary hue when none is specified', () => {
       const color = getColor();
-      const expected = palette[defaultTheme.colors.primaryHue][defaultShade];
+      const expected = PALETTE[DEFAULT_THEME.colors.primaryHue][defaultShade];
 
       expect(color).toBe(expected);
     });
 
     it('gets the hue specified by string', () => {
       const color = getColor({ hue: 'red' });
-      const expected = palette.red[defaultShade];
+      const expected = PALETTE.red[defaultShade];
 
       expect(color).toBe(expected);
     });
 
     it('gets the hue specified by object', () => {
-      const color = getColor({ hue: palette.green });
-      const expected = palette.green[defaultShade];
+      const color = getColor({ hue: PALETTE.green });
+      const expected = PALETTE.green[defaultShade];
 
       expect(color).toBe(expected);
     });
@@ -45,42 +45,42 @@ describe('getColor', () => {
     describe('by reserved key', () => {
       it('gets the default primary color', () => {
         const color = getColor({ hue: '__primary' });
-        const expected = palette[defaultTheme.colors.primaryHue][defaultShade];
+        const expected = PALETTE[DEFAULT_THEME.colors.primaryHue][defaultShade];
 
         expect(color).toBe(expected);
       });
 
       it('gets the default danger color', () => {
         const color = getColor({ hue: '__danger' });
-        const expected = palette[defaultTheme.colors.dangerHue][defaultShade];
+        const expected = PALETTE[DEFAULT_THEME.colors.dangerHue][defaultShade];
 
         expect(color).toBe(expected);
       });
 
       it('gets the default warning color', () => {
         const color = getColor({ hue: '__warning' });
-        const expected = palette[defaultTheme.colors.warningHue][defaultShade];
+        const expected = PALETTE[DEFAULT_THEME.colors.warningHue][defaultShade];
 
         expect(color).toBe(expected);
       });
 
       it('gets the default success color', () => {
         const color = getColor({ hue: '__success' });
-        const expected = palette[defaultTheme.colors.successHue][defaultShade];
+        const expected = PALETTE[DEFAULT_THEME.colors.successHue][defaultShade];
 
         expect(color).toBe(expected);
       });
 
       it('gets the default neutral color', () => {
         const color = getColor({ hue: '__neutral' });
-        const expected = palette[defaultTheme.colors.neutralHue][defaultShade];
+        const expected = PALETTE[DEFAULT_THEME.colors.neutralHue][defaultShade];
 
         expect(color).toBe(expected);
       });
 
       it('gets the default chrome color', () => {
         const color = getColor({ hue: '__chrome' });
-        const expected = palette[defaultTheme.colors.chromeHue][defaultShade];
+        const expected = PALETTE[DEFAULT_THEME.colors.chromeHue][defaultShade];
 
         expect(color).toBe(expected);
       });
@@ -90,21 +90,21 @@ describe('getColor', () => {
   describe('by shade', () => {
     it('gets the specified shade of hue', () => {
       const color = getColor({ hue: 'red', shade: 100 });
-      const expected = palette.red[100];
+      const expected = PALETTE.red[100];
 
       expect(color).toBe(expected);
     });
 
     it('darkens the color if shade is greater than what exists within the hue', () => {
       const color = getColor({ hue: 'blue', shade: 900 });
-      const expected = darken(0.05, palette.blue[800]);
+      const expected = darken(0.05, PALETTE.blue[800]);
 
       expect(color).toBe(expected);
     });
 
     it('lightens the color if shade is lesser than what what exists within the hue', () => {
       const color = getColor({ hue: 'blue', shade: 0 });
-      const expected = lighten(0.05, palette.blue[100]);
+      const expected = lighten(0.05, PALETTE.blue[100]);
 
       expect(color).toBe(expected);
     });

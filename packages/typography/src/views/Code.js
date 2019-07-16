@@ -8,7 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { defaultTheme, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import SM from './SM';
 import MD from './MD';
 import LG from './LG';
@@ -105,7 +105,7 @@ Code.propTypes = {
 };
 
 Code.defaultProps = {
-  theme: defaultTheme
+  theme: DEFAULT_THEME
 };
 
 /** @component */

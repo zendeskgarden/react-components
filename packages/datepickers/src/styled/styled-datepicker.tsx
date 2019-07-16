@@ -7,8 +7,8 @@
 
 import styled, { css } from 'styled-components';
 import {
-  defaultTheme,
-  palette,
+  DEFAULT_THEME,
+  PALETTE,
   isRtl,
   retrieveComponentStyles
 } from '@zendeskgarden/react-theming';
@@ -17,10 +17,10 @@ import math from 'polished/lib/math/math';
 
 const retrieveSpacing = ({ isSmall }: { isSmall?: boolean }) => {
   if (isSmall) {
-    return defaultTheme.space.lg;
+    return DEFAULT_THEME.space.lg;
   }
 
-  return defaultTheme.space.xl;
+  return DEFAULT_THEME.space.xl;
 };
 
 export const StyledDatepicker = styled.div<{
@@ -28,8 +28,8 @@ export const StyledDatepicker = styled.div<{
 }>`
   /* stylelint-disable */
   padding: ${props =>
-    props.isSmall ? math(`${defaultTheme.space.lg} / 2`) : defaultTheme.space.md};
-  color: ${palette.grey[800]};
+    props.isSmall ? math(`${DEFAULT_THEME.space.lg} / 2`) : DEFAULT_THEME.space.md};
+  color: ${PALETTE.grey[800]};
 
   direction: ${props => isRtl(props) && 'rtl'};
 
@@ -48,34 +48,34 @@ export const StyledHeaderPaddle = styled.div<{ isSmall: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: ${palette.grey[600]};
+  color: ${PALETTE.grey[600]};
   cursor: pointer;
   border-radius: 50%;
 
   :hover {
-    color: ${palette.grey[800]};
-    background-color: ${rgba(palette.blue[600], 0.08)};
+    color: ${PALETTE.grey[800]};
+    background-color: ${rgba(PALETTE.blue[600], 0.08)};
   }
 
   :active {
-    background-color: ${rgba(palette.blue[600], 0.2)};
-    color: ${palette.grey[800]};
+    background-color: ${rgba(PALETTE.blue[600], 0.2)};
+    color: ${PALETTE.grey[800]};
   }
 
   transform: ${props => isRtl(props) && 'rotate(180deg)'};
 
   * {
-    width: ${math(`${defaultTheme.space.lg} / 2`)};
-    height: ${math(`${defaultTheme.space.lg} / 2`)};
+    width: ${math(`${DEFAULT_THEME.space.lg} / 2`)};
+    height: ${math(`${DEFAULT_THEME.space.lg} / 2`)};
   }
 
   ${props => retrieveComponentStyles('datepickers.header_paddle', props)};
 `;
 
 const boldedStyling = css<{ isSmall: boolean }>`
-  font-size: ${props => (props.isSmall ? defaultTheme.fontSizes.sm : defaultTheme.fontSizes.md)};
-  font-weight: ${defaultTheme.fontWeights.semibold};
-  line-height: ${defaultTheme.lineHeights.md};
+  font-size: ${props => (props.isSmall ? DEFAULT_THEME.fontSizes.sm : DEFAULT_THEME.fontSizes.md)};
+  font-weight: ${DEFAULT_THEME.fontWeights.semibold};
+  line-height: ${DEFAULT_THEME.lineHeights.md};
 `;
 
 export const StyledHeaderLabel = styled.div<{ isSmall: boolean }>`
@@ -128,11 +128,11 @@ const retrieveStyledDayColor = ({
   isPreviousMonth
 }: IStyledDayProps) => {
   if (isDisabled) {
-    return palette.grey[400];
+    return PALETTE.grey[400];
   }
 
   if (isSelected && !isDisabled) {
-    return palette.white;
+    return PALETTE.white;
   }
 
   if (isToday) {
@@ -140,15 +140,15 @@ const retrieveStyledDayColor = ({
   }
 
   if (isPreviousMonth) {
-    return palette.grey[600];
+    return PALETTE.grey[600];
   }
 
-  return palette.blue[600];
+  return PALETTE.blue[600];
 };
 
 const retrieveBackgroundColor = ({ isSelected, isDisabled }: IStyledDayProps) => {
   if (isSelected && !isDisabled) {
-    return palette.blue[600];
+    return PALETTE.blue[600];
   }
 
   return 'inherit';
@@ -162,10 +162,10 @@ export const StyledDay = styled.div<IStyledDayProps>`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  font-size: ${props => (props.small ? defaultTheme.fontSizes.sm : defaultTheme.fontSizes.md)};
+  font-size: ${props => (props.small ? DEFAULT_THEME.fontSizes.sm : DEFAULT_THEME.fontSizes.md)};
   font-weight: ${props =>
-    props.isToday && !props.isDisabled ? defaultTheme.fontWeights.bold : 'inherit'};
-  line-height: ${defaultTheme.lineHeights.md};
+    props.isToday && !props.isDisabled ? DEFAULT_THEME.fontWeights.bold : 'inherit'};
+  line-height: ${DEFAULT_THEME.lineHeights.md};
   color: ${retrieveStyledDayColor};
   background-color: ${retrieveBackgroundColor};
 
@@ -174,13 +174,13 @@ export const StyledDay = styled.div<IStyledDayProps>`
     !props.isDisabled &&
     `
   :hover {
-    background-color: ${rgba(palette.blue[600], 0.08)};
-    color: ${palette.blue[800]};
+    background-color: ${rgba(PALETTE.blue[600], 0.08)};
+    color: ${PALETTE.blue[800]};
   }
 
   :active {
-    background-color: ${rgba(palette.blue[600], 0.2)};
-    color: ${palette.blue[800]};
+    background-color: ${rgba(PALETTE.blue[600], 0.2)};
+    color: ${PALETTE.blue[800]};
   }
   `}
 

@@ -9,7 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes, css } from 'styled-components';
 import { rgba } from 'polished';
-import { defaultTheme, retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'loaders.skeleton';
 
@@ -87,7 +87,7 @@ const StyledSkeleton = styled.div.attrs({
 `;
 
 StyledSkeleton.defaultProps = {
-  theme: defaultTheme
+  theme: DEFAULT_THEME
 };
 
 /**

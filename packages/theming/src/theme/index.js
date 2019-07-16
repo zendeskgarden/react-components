@@ -11,9 +11,9 @@ import { fonts, fontSizes, fontWeights } from './fonts';
 import { default as lineHeights } from './lineHeights';
 import { shadows, shadowWidths } from './shadows';
 import { default as space } from './space';
-import { default as defaultPalette } from '../palette';
+import PALETTE from '../palette';
 
-const palette = { ...defaultPalette };
+const palette = { ...PALETTE };
 
 /* Exclude product palette from the theme */
 delete palette.product;

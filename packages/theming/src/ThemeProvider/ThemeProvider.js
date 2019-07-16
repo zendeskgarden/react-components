@@ -9,10 +9,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import merge from 'merge-anything';
-import { default as defaultTheme } from '../theme';
+import { default as DEFAULT_THEME } from '../theme';
 
 const ThemeProvider = props => {
-  const theme = merge(defaultTheme, props.theme);
+  const theme = merge(DEFAULT_THEME, props.theme);
 
   theme.rtl = props.rtl;
   theme.document = props.document;
@@ -28,7 +28,7 @@ ThemeProvider.propTypes = {
 };
 
 ThemeProvider.defaultProps = {
-  theme: defaultTheme
+  theme: DEFAULT_THEME
 };
 
 /** @component */

@@ -8,12 +8,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import StyleGuideRenderer from 'react-styleguidist/lib/rsg-components/StyleGuide/StyleGuideRenderer';
-import { defaultTheme, palette } from '../../../packages/theming/src';
+import { DEFAULT_THEME, PALETTE } from '../../../packages/theming/src';
 
 const StyleGuideWrapper = styled.div`
-  background-color: ${props => (props.dark ? palette.kale[800] : palette.white)};
-  color: ${props => (props.dark ? palette.white : palette.grey[800])};
-  font-family: ${defaultTheme.fonts.system};
+  background-color: ${props => (props.dark ? PALETTE.kale[800] : PALETTE.white)};
+  color: ${props => (props.dark ? PALETTE.white : PALETTE.grey[800])};
+  font-family: ${DEFAULT_THEME.fonts.system};
 `;
 
 const StyleGuide = props => {

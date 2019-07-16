@@ -7,12 +7,12 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { palette } from '../../../packages/theming/src';
+import { PALETTE } from '../../../packages/theming/src';
 import ZendeskLogo from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
 
 const LogoWrapper = styled.div`
   text-align: center;
-  color: ${palette.kale[700]};
+  color: ${PALETTE.kale[700]};
 `;
 
 const LogoRenderer = () => (

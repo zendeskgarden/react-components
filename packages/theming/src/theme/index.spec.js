@@ -5,17 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import defaultTheme from '.';
-import palette from '../palette';
+import DEFAULT_THEME from '.';
+import PALETTE from '../palette';
 
-describe('defaultTheme', () => {
-  it('does not include `palette.product`', () => {
-    expect(defaultTheme.palette.product).toBeUndefined();
+describe('DEFAULT_THEME', () => {
+  it('does not include `PALETTE.product`', () => {
+    expect(DEFAULT_THEME.palette.product).toBeUndefined();
   });
 
   describe('palette', () => {
     it('does include `product`', () => {
-      expect(palette.product).toBeDefined();
+      expect(PALETTE.product).toBeDefined();
     });
   });
 });

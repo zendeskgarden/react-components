@@ -162,7 +162,7 @@ const onModalClose = () => setState({ isModalVisible: false });
 ### Widths
 
 ```jsx
-const { defaultTheme } = require('@zendeskgarden/react-theming/src');
+const { DEFAULT_THEME } = require('@zendeskgarden/react-theming/src');
 const { Button } = require('@zendeskgarden/react-buttons/src');
 
 initialState = {
@@ -195,7 +195,7 @@ const onModalClose = () => setState({ isModalVisible: false });
   {state.isModalVisible && (
     <Modal
       onClose={onModalClose}
-      style={{ width: state.width, paddingBottom: defaultTheme.space.md }}
+      style={{ width: state.width, paddingBottom: DEFAULT_THEME.space.md }}
     >
       <Header>{state.width} Header</Header>
       <Body>

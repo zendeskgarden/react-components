@@ -5,8 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { math, rgba } from 'polished';
-import { default as palette } from '../palette';
+import { rgba } from 'polished';
 import { default as getColor } from '../utils/getColor';
 
 export const shadowWidths = {

@@ -8,7 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { defaultTheme, retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'typography.sm';
 
@@ -28,7 +28,7 @@ const StyledSM = styled.div.attrs({
 `;
 
 StyledSM.defaultProps = {
-  theme: defaultTheme
+  theme: DEFAULT_THEME
 };
 
 /**

@@ -1,5 +1,5 @@
 <code class="u-display-block u-fg-grey-600 u-font-family-monospace u-fs-md u-mb-sm">
-  import { palette } from '@zendeskgarden/react-theming'
+  import { PALETTE } from '@zendeskgarden/react-theming'
 </code>
 
 The Garden palette contains **product** and **UI** colors along with `white`
@@ -48,7 +48,7 @@ white or `100` backgrounds.
 ### Color palette
 
 ```jsx noeditor
-const { palette } = require('@zendeskgarden/react-theming/src');
+const { PALETTE } = require('@zendeskgarden/react-theming/src');
 const { LG } = require('@zendeskgarden/react-typography/src');
 
 const Swatch = styled.div`
@@ -76,9 +76,9 @@ const SwatchHex = styled.div`
 `;
 
 <Grid>
-  {Object.keys(palette).map(
+  {Object.keys(PALETTE).map(
     hue =>
-      typeof palette[hue] === 'object' && (
+      typeof PALETTE[hue] === 'object' && (
         <div key={hue}>
           <Row>
             <Col>
@@ -86,13 +86,13 @@ const SwatchHex = styled.div`
             </Col>
           </Row>
           <Row>
-            {Object.keys(palette[hue]).map(shade => (
+            {Object.keys(PALETTE[hue]).map(shade => (
               <Col key={shade} style={{ marginBottom: 16 }}>
-                <Swatch title={`${hue}[${shade}]: ${palette[hue][shade]}`}>
-                  <SwatchColor color={palette[hue][shade]} />
+                <Swatch title={`${hue}[${shade}]: ${PALETTE[hue][shade]}`}>
+                  <SwatchColor color={PALETTE[hue][shade]} />
                   <SwatchInfo>
                     <SwatchName>{shade}</SwatchName>
-                    <SwatchHex>{palette[hue][shade]}</SwatchHex>
+                    <SwatchHex>{PALETTE[hue][shade]}</SwatchHex>
                   </SwatchInfo>
                 </Swatch>
               </Col>

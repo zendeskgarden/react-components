@@ -91,15 +91,15 @@ reserved for modification of internal status rings – see "States" below for
 details.
 
 ```jsx
-const { palette } = require('@zendeskgarden/react-theming/src');
+const { PALETTE } = require('@zendeskgarden/react-theming/src');
 const StyledSvgAvatar = styled(Avatar)`
-  background-color: ${palette.grey[600]};
+  background-color: ${PALETTE.grey[600]};
 `;
 const StyledTextAvatar = styled(Avatar)`
-  background-color: ${palette.azure[600]};
+  background-color: ${PALETTE.azure[600]};
 `;
 const StyledSystemAvatar = styled(Avatar)`
-  background-color: ${palette.kale[800]};
+  background-color: ${PALETTE.kale[800]};
 `;
 const UserIcon = require('@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg').default;
 const ZendeskIcon = require('@zendeskgarden/svg-icons/src/26/zendesk.svg').default;
@@ -278,16 +278,16 @@ const StyledCol = styled(Col)`
 ```
 
 ```jsx
-const { palette } = require('@zendeskgarden/react-theming/src');
+const { PALETTE } = require('@zendeskgarden/react-theming/src');
 const StyledGrid = styled(Grid)`
   padding: 10px;
-  background-color: ${palette.grey[800]};
+  background-color: ${PALETTE.grey[800]};
 `;
 const StyledCol = styled(Col)`
   text-align: center;
 `;
 const StyledAvatar = styled(Avatar)`
-  color: ${palette.grey[800]} !important;
+  color: ${PALETTE.grey[800]} !important;
 `;
 
 <StyledGrid>
@@ -364,7 +364,7 @@ const StyledAvatar = styled(Avatar)`
 
 ```jsx
 const UserIcon = require('@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg').default;
-const { palette } = require('@zendeskgarden/react-theming/src');
+const { PALETTE } = require('@zendeskgarden/react-theming/src');
 
 class Example extends React.Component {
   constructor() {
@@ -409,12 +409,12 @@ class Example extends React.Component {
 <Grid>
   <Row>
     <Col md>
-      <Example style={{ backgroundColor: palette.grey[600] }}>
+      <Example style={{ backgroundColor: PALETTE.grey[600] }}>
         <img src="images/avatar-1.png" alt="Marcus Oakley" />
       </Example>
     </Col>
     <Col md>
-      <Example style={{ backgroundColor: palette.grey[600] }} delay={1500}>
+      <Example style={{ backgroundColor: PALETTE.grey[600] }} delay={1500}>
         <UserIcon role="img" aria-label="Generic User" />
       </Example>
     </Col>

@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { default as defaultTheme } from '../theme';
+import { default as DEFAULT_THEME } from '../theme';
 import { darken, lighten } from 'polished';
 
 const toHue = (hue, theme) => {
-  const colors = theme && theme.colors ? theme.colors : defaultTheme.colors;
+  const colors = theme && theme.colors ? theme.colors : DEFAULT_THEME.colors;
 
   switch (hue) {
     case '__primary':
@@ -50,7 +50,7 @@ export default function getColor({ hue, shade = 600, theme } = {}) {
   if (isNaN(shade)) {
     retVal = undefined;
   } else {
-    const palette = theme && theme.palette ? theme.palette : defaultTheme.palette;
+    const palette = theme && theme.palette ? theme.palette : DEFAULT_THEME.palette;
     let _hue = toHue(hue, theme);
 
     if (Object.prototype.hasOwnProperty.call(palette, _hue)) {

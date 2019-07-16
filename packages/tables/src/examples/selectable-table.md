@@ -1,5 +1,5 @@
 ```jsx
-const { defaultTheme } = require('@zendeskgarden/react-theming/src');
+const { DEFAULT_THEME } = require('@zendeskgarden/react-theming/src');
 const { XL } = require('@zendeskgarden/react-typography/src');
 const { Field, Checkbox, Label } = require('@zendeskgarden/react-forms/src');
 
@@ -32,7 +32,7 @@ const isSelectAllChecked = (selectedRows, rows) => {
 };
 
 <Table>
-  <XL tag={Caption} style={{ marginBottom: defaultTheme.space.sm }}>
+  <XL tag={Caption} style={{ marginBottom: DEFAULT_THEME.space.sm }}>
     Selectable Ticket View
   </XL>
   <Head>

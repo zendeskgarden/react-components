@@ -1,5 +1,5 @@
 ```jsx
-const { palette } = require('@zendeskgarden/react-theming/src');
+const { PALETTE } = require('@zendeskgarden/react-theming/src');
 
 <Grid aria-busy="true" aria-live="polite">
   <Row>
@@ -15,24 +15,24 @@ const { palette } = require('@zendeskgarden/react-theming/src');
   </Row>
   <Row>
     <Col md>
-      <Inline color={palette.grey[600]} />
+      <Inline color={PALETTE.grey[600]} />
     </Col>
     <Col md>
-      <Inline size={32} color={palette.grey[600]} />
+      <Inline size={32} color={PALETTE.grey[600]} />
     </Col>
     <Col md>
-      <Inline size={64} color={palette.grey[600]} />
+      <Inline size={64} color={PALETTE.grey[600]} />
     </Col>
   </Row>
   <Row>
     <Col md>
-      <Inline color={palette.green[600]} />
+      <Inline color={PALETTE.green[600]} />
     </Col>
     <Col md>
-      <Inline size={32} color={palette.red[600]} />
+      <Inline size={32} color={PALETTE.red[600]} />
     </Col>
     <Col md>
-      <Inline size={64} color={palette.blue[600]} />
+      <Inline size={64} color={PALETTE.blue[600]} />
     </Col>
   </Row>
 </Grid>;

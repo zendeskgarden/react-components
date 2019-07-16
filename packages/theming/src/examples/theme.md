@@ -1,5 +1,5 @@
 <code class="u-display-block u-fg-grey-600 u-font-family-monospace u-fs-md u-mb-sm">
-  import { defaultTheme } from '@zendeskgarden/react-theming'
+  import { DEFAULT_THEME } from '@zendeskgarden/react-theming'
 </code>
 
 The default theme object provides common variables used to visually style
@@ -7,7 +7,7 @@ Garden components. Use it to consistently style your own components or
 application in conjunction with Garden. One of the easiest ways to customize
 Garden is to modify some or all of the variables in the `theme` object passed
 as a prop to the `ThemeProvider`. Whatever `theme` you provide will be merged
-with the `defaultTheme` and used to style components nested under the
+with the `DEFAULT_THEME` and used to style components nested under the
 `ThemeProvider`. Several key top-level theming objects are described below.
 
 ### Border Radii
@@ -181,13 +181,13 @@ sweeping control over component padding and margins. Pixel sizes `xxs`
 through `xxl` are added for convenience. Remember, to update other theming
 values (i.e. `borderRadii` & `lineHeights`) to correspond with your `base` of choice.
 
-### `defaultTheme` object
+### `DEFAULT_THEME` object
 
-The following reference displays Garden's `defaultTheme` in its entirety.
+The following reference displays Garden's `DEFAULT_THEME` in its entirety.
 
 ```jsx noeditor
 const { Well } = require('@zendeskgarden/react-notifications/src');
-const { defaultTheme } = require('@zendeskgarden/react-theming/src');
+const { DEFAULT_THEME } = require('@zendeskgarden/react-theming/src');
 
 const StyledTheme = styled.pre`
   margin: 0;
@@ -212,6 +212,6 @@ const replacer = (key, value) => {
 };
 
 <Well recessed>
-  <StyledTheme>{JSON.stringify(defaultTheme, replacer, '  ')}</StyledTheme>
+  <StyledTheme>{JSON.stringify(DEFAULT_THEME, replacer, '  ')}</StyledTheme>
 </Well>;
 ```

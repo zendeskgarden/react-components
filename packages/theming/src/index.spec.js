@@ -21,7 +21,7 @@ describe('Index', () => {
               .split('/')
               .pop()
           )
-          .concat('defaultTheme', 'palette')
+          .concat('DEFAULT_THEME', 'PALETTE')
           .sort();
       }
     });

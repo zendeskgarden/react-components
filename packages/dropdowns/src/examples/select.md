@@ -38,16 +38,16 @@ initialState = {
 ### Advanced Customization
 
 ```js
-const { palette } = require('@zendeskgarden/react-theming/src');
+const { PALETTE } = require('@zendeskgarden/react-theming/src');
 const options = [
-  { label: 'Support Green', value: palette.product.support },
-  { label: 'Message Green', value: palette.product.message },
-  { label: 'Explore Blue', value: palette.product.explore },
-  { label: 'Guide Pink', value: palette.product.guide },
-  { label: 'Connect Red', value: palette.product.connect },
-  { label: 'Chat Orange', value: palette.product.chat },
-  { label: 'Talk Yellow', value: palette.product.talk },
-  { label: 'Sell Gold', value: palette.product.sell }
+  { label: 'Support Green', value: PALETTE.product.support },
+  { label: 'Message Green', value: PALETTE.product.message },
+  { label: 'Explore Blue', value: PALETTE.product.explore },
+  { label: 'Guide Pink', value: PALETTE.product.guide },
+  { label: 'Connect Red', value: PALETTE.product.connect },
+  { label: 'Chat Orange', value: PALETTE.product.chat },
+  { label: 'Talk Yellow', value: PALETTE.product.talk },
+  { label: 'Sell Gold', value: PALETTE.product.sell }
 ];
 
 const ColorSampleSquare = styled.div`

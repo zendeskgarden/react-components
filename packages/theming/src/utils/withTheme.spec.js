@@ -8,7 +8,7 @@
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
 import withTheme from './withTheme';
-import defaultTheme from '../theme';
+import DEFAULT_THEME from '../theme';
 
 const Example = ({ theme: { rtl } }) => {
   return <div data-rtl={rtl ? rtl : false}>test</div>;
@@ -34,12 +34,12 @@ describe('withTheme', () => {
   });
 
   it('sets defaultProps if theme is missing', () => {
-    expect(Div.defaultProps.theme).toBe(defaultTheme);
+    expect(Div.defaultProps.theme).toBe(DEFAULT_THEME);
   });
 
   it('applies the default theme, if missing, to the wrapped component', () => {
     const { container } = render(<NoThemedExample />);
 
-    expect(container.firstChild).toHaveAttribute('data-test', defaultTheme.space.base.toString());
+    expect(container.firstChild).toHaveAttribute('data-test', DEFAULT_THEME.space.base.toString());
   });
 });

@@ -1,9 +1,9 @@
 ```jsx
-const { defaultTheme } = require('@zendeskgarden/react-theming/src');
+const { DEFAULT_THEME } = require('@zendeskgarden/react-theming/src');
 const { XL } = require('@zendeskgarden/react-typography/src');
 
 <Table>
-  <XL tag={Caption} style={{ marginBottom: defaultTheme.space.sm }}>
+  <XL tag={Caption} style={{ marginBottom: DEFAULT_THEME.space.sm }}>
     Your Unsolved Tickets
   </XL>
   <Head>
@@ -17,7 +17,7 @@ const { XL } = require('@zendeskgarden/react-typography/src');
   <Body>
     <GroupRow>
       <Cell width="100%">
-        Status <strong style={{ marginLeft: defaultTheme.space.xxs }}>Open</strong>
+        Status <strong style={{ marginLeft: DEFAULT_THEME.space.xxs }}>Open</strong>
       </Cell>
     </GroupRow>
     <Row>
@@ -34,7 +34,7 @@ const { XL } = require('@zendeskgarden/react-typography/src');
     </Row>
     <GroupRow>
       <Cell width="100%">
-        Status <strong style={{ marginLeft: defaultTheme.space.xxs }}>Closed</strong>
+        Status <strong style={{ marginLeft: DEFAULT_THEME.space.xxs }}>Closed</strong>
       </Cell>
     </GroupRow>
     <Row>

@@ -7,7 +7,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const { defaultTheme, palette } = require(path.resolve('../../packages/theming'));
+const { DEFAULT_THEME, PALETTE } = require(path.resolve('../../packages/theming'));
 const packageManifest = require(path.resolve('package.json'));
 const customStyleguideConfig = require(path.resolve('styleguide.config.js'));
 const babelOptions = require(path.resolve('../../babel.config.js'));
@@ -33,22 +33,22 @@ const defaultStyleguideConfig = {
   usageMode: 'expand',
   theme: {
     color: {
-      linkHover: palette.blue[600],
+      linkHover: PALETTE.blue[600],
       base: 'inherit',
       baseBackground: 'inherit',
       codeBackground: 'inherit',
-      sidebarBackground: palette.kale[100],
-      name: palette.kale[400],
-      type: palette.red[600]
+      sidebarBackground: PALETTE.kale[100],
+      name: PALETTE.kale[400],
+      type: PALETTE.red[600]
     },
     fontFamily: {
-      base: defaultTheme.fonts.system
+      base: DEFAULT_THEME.fonts.system
     }
   },
   styles: {
     StyleGuide: {
       '@global body': {
-        fontSize: defaultTheme.fontSizes.md
+        fontSize: DEFAULT_THEME.fontSizes.md
       }
     }
   },

@@ -1,7 +1,7 @@
 ```jsx
 const { Pagination } = require('@zendeskgarden/react-pagination/src');
 const { Avatar } = require('@zendeskgarden/react-avatars/src');
-const { defaultTheme, palette } = require('@zendeskgarden/react-theming/src');
+const { DEFAULT_THEME, PALETTE } = require('@zendeskgarden/react-theming/src');
 const { XL, MD } = require('@zendeskgarden/react-typography/src');
 
 const data = [];
@@ -38,10 +38,10 @@ const getPagedData = (data, currentPage, pageSize) => {
 <div>
   <Table size="small">
     <Caption>
-      <XL tag={Caption} style={{ marginBottom: defaultTheme.space.sm }}>
+      <XL tag={Caption} style={{ marginBottom: DEFAULT_THEME.space.sm }}>
         Paginated Tickets
       </XL>
-      <MD style={{ color: palette.grey[600] }}>
+      <MD style={{ color: PALETTE.grey[600] }}>
         {(state.currentPage - 1) * state.pageSize + 1}-{state.currentPage * state.pageSize} of{' '}
         {data.length}
       </MD>

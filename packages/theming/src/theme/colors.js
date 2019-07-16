@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import palette from '../palette';
+import PALETTE from '../palette';
 
 const colors = {
   base: 'light',
-  background: palette.white,
-  foreground: palette.grey[800],
+  background: PALETTE.white,
+  foreground: PALETTE.grey[800],
   primaryHue: 'blue',
   dangerHue: 'red',
   warningHue: 'yellow',
