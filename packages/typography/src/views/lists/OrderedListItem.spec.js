@@ -8,13 +8,12 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import OrderedList from './OrderedList';
-import OrderedListItem from './OrderedListItem';
 
 describe('OrderedListItem', () => {
   it('applies default padding', () => {
     const { container } = render(
       <OrderedList>
-        <OrderedListItem />
+        <OrderedList.Item />
       </OrderedList>
     );
 
