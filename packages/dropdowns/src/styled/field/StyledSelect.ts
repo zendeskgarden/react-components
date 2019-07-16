@@ -65,5 +65,9 @@ export const StyledSelect = styled.div.attrs<IStyledSelectProps>(props => ({
 }))<IStyledSelectProps>`
   cursor: default;
 
+  && {
+    appearance: none;
+  }
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

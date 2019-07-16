@@ -27,4 +27,6 @@ export { default as NextItem } from './Menu/Items/NextItem';
 export { default as PreviousItem } from './Menu/Items/PreviousItem';
 export { GARDEN_PLACEMENT, POPPER_PLACEMENT } from './utils/garden-placements';
 
+export { resetIdCounter } from 'downshift';
+
 export * from './styled';

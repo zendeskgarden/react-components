@@ -106,13 +106,13 @@ initialState = {
     </MediaItem>
     <Separator />
     <StyledItemWrapper>
-      <Item value="clipboard-action">
+      <Item value="clipboard-action" title="Clipboard action">
         <ClipboardSvg />
       </Item>
-      <Item value="box-action">
+      <Item value="box-action" title="Box action">
         <BoxSvg />
       </Item>
-      <Item value="database-action">
+      <Item value="database-action" title="Database action">
         <DatabaseSvg />
       </Item>
     </StyledItemWrapper>
