@@ -45,10 +45,10 @@ complex, depending on your needs:
 ### RTL
 
 ```jsx static
-import { ThemeProvider } from '@zendeskgarden/react-theming';
+import { ThemeProvider, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { Notification } from '@zendeskgarden/react-notifications';
 
-<ThemeProvider rtl>
+<ThemeProvider theme={{ ...DEFAULT_THEME, rtl: true }}>
   <Notification>This notification content will render with RTL layout.</Notification>
 </ThemeProvider>;
 ```
@@ -65,7 +65,7 @@ const Div = ({ theme, children }) => (
 
 const LocalizedComponent = withTheme(Div);
 
-<ThemeProvider rtl>
+<ThemeProvider theme={{ ...DEFAULT_THEME, rtl: true }}>
   <LocalizedComponent>RTL localizable</LocalizedComponent>
 </ThemeProvider>;
 ```

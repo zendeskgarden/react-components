@@ -24,7 +24,7 @@ import { default as royal } from './royal';
 import { default as teal } from './teal';
 import { default as yellow } from './yellow';
 
-export default {
+const PALETTE = {
   black: '#000',
   white: '#fff',
   product,
@@ -50,3 +50,6 @@ export default {
   royal,
   purple
 };
+
+/** @component */
+export default PALETTE;

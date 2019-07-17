@@ -1,7 +1,3 @@
-<code class="u-display-block u-fg-grey-600 u-font-family-monospace u-fs-md u-mb-sm">
-  import { PALETTE } from '@zendeskgarden/react-theming'
-</code>
-
 The Garden palette contains **product** and **UI** colors along with `white`
 and `black`. UI colors are used to style interface elements. Primary colors
 are used to style interface structure, actionable items, and validation.
@@ -48,7 +44,6 @@ white or `100` backgrounds.
 ### Color palette
 
 ```jsx noeditor
-const { PALETTE } = require('@zendeskgarden/react-theming/src');
 const { LG } = require('@zendeskgarden/react-typography/src');
 
 const Swatch = styled.div`

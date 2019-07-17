@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import glob from 'glob';
 import { render, configure } from '@testing-library/react';
 // @ts-ignore
-import { ThemeProvider } from '../../packages/theming/src';
+import { ThemeProvider, DEFAULT_THEME } from '../../packages/theming/src';
 
 configure({ testIdAttribute: 'data-test-id' });
 
@@ -23,7 +23,7 @@ LtrProvider.propTypes = {
 };
 
 const RtlProvider: React.FunctionComponent = ({ children }) => {
-  return <ThemeProvider rtl>{children}</ThemeProvider>;
+  return <ThemeProvider theme={{ ...DEFAULT_THEME, rtl: true }}>{children}</ThemeProvider>;
 };
 
 RtlProvider.propTypes = {

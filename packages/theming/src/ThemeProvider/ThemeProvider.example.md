@@ -1,7 +1,6 @@
 All UI components are themable by a unique component ID. These themes can be nested.
 
 ```jsx
-const { DEFAULT_THEME } = require('@zendeskgarden/react-theming/src');
 const { css } = require('styled-components');
 
 const ThemableDiv = styled.div`

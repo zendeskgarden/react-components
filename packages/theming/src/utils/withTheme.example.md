@@ -17,7 +17,7 @@ const LocalizedDiv = withTheme(({ theme, children }) => (
 
 <State initialState={{ isRtl: true }}>
   {(state, setState) => (
-    <ThemeProvider rtl={state.isRtl}>
+    <ThemeProvider theme={{ ...DEFAULT_THEME, rtl: state.isRtl }}>
       <div>
         <button onClick={() => setState({ isRtl: !state.isRtl })}>
           {state.isRtl ? 'Disable RTL' : 'Enable RTL'}

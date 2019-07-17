@@ -18,19 +18,24 @@ const palette = { ...PALETTE };
 /* Exclude product palette from the theme */
 delete palette.product;
 
-export default {
+const DEFAULT_THEME = {
   borders,
   borderRadii,
   borderStyles,
   borderWidths,
   colors,
   components: {},
+  document,
   fonts,
   fontSizes,
   fontWeights,
   lineHeights,
   palette,
+  rtl: false,
   shadowWidths,
   shadows,
   space
 };
+
+/** @component */
+export default DEFAULT_THEME;

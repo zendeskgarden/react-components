@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { default as DEFAULT_THEME } from '../theme';
+import DEFAULT_THEME from '../theme';
 import { darken, lighten } from 'polished';
 
 const toHue = (hue, theme) => {

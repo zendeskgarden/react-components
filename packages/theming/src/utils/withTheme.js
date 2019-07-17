@@ -6,14 +6,14 @@
  */
 
 import { withTheme as styledWithTheme } from 'styled-components';
-import { default as theme } from '../theme';
+import DEFAULT_THEME from '../theme';
 
 /** @component */
 export default function withTheme(WrappedComponent) {
   if (WrappedComponent.defaultProps === undefined) {
-    WrappedComponent.defaultProps = { theme };
+    WrappedComponent.defaultProps = { theme: DEFAULT_THEME };
   } else if (WrappedComponent.defaultProps.theme === undefined) {
-    WrappedComponent.defaultProps.theme = theme;
+    WrappedComponent.defaultProps.theme = DEFAULT_THEME;
   }
 
   return styledWithTheme(WrappedComponent);
