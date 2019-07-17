@@ -8,16 +8,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
-import merge from 'merge-anything';
-import { default as DEFAULT_THEME } from '../theme';
+import DEFAULT_THEME from '../theme';
 
 const ThemeProvider = props => {
-  const theme = merge(DEFAULT_THEME, props.theme);
+  props.theme.rtl = props.rtl;
+  props.theme.document = props.document;
 
-  theme.rtl = props.rtl;
-  theme.document = props.document;
-
-  return <StyledThemeProvider theme={theme}>{props.children}</StyledThemeProvider>;
+  return <StyledThemeProvider theme={props.theme}>{props.children}</StyledThemeProvider>;
 };
 
 ThemeProvider.propTypes = {

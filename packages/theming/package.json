@@ -19,7 +19,6 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "merge-anything": "^2.2.5",
     "polished": "^3.4.1"
   },
   "peerDependencies": {

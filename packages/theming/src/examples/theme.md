@@ -6,19 +6,22 @@ The default theme object provides common variables used to visually style
 Garden components. Use it to consistently style your own components or
 application in conjunction with Garden. One of the easiest ways to customize
 Garden is to modify some or all of the variables in the `theme` object passed
-as a prop to the `ThemeProvider`. Whatever `theme` you provide will be merged
-with the `DEFAULT_THEME` and used to style components nested under the
-`ThemeProvider`. Several key top-level theming objects are described below.
+as a prop to the `ThemeProvider`. Whatever `theme` you provide will be used
+to style components nested under the `ThemeProvider`. Be sure to provide a
+full `theme` object as the default theme is replaced rather than merged.
+Several key top-level theming objects are described below.
 
 ### Border Radii
 
 Both the `sm` and `md` values are used to determine the "roundness" of
 various components. For example, the following `theme` update would
-render buttons with square corners:
+render Garden buttons with square corners:
 
 ```jsx static
 const theme = {
+  ...DEFAULT_THEME,
   borderRadii: {
+    ...DEFAULT_THEME.borderRadii,
     md: 0
   }
 };
@@ -136,15 +139,18 @@ The following snippet shows how Garden's palette can be modified and extended
 with colors from Material-UI.
 
 ```jsx static
-import { ThemeProvider } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, ThemeProvider } from '@zendeskgarden/react-theming';
 import { Button } from '@zendeskgarden/react-buttons';
 import { colors } from '@material-ui/core';
 
 const theme = {
+  ...DEFAULT_THEME,
   colors: {
+    ...DEFAULT_THEME.colors,
     dangerHue: 'deepOrange'
   },
   palette: {
+    ...DEFAULT_THEME.palette,
     blue: colors.blue,
     deepOrange: colors.deepOrange
   }
