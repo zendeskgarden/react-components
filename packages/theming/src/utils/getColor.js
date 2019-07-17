@@ -11,43 +11,30 @@ import { darken, lighten } from 'polished';
 const toHue = (hue, theme) => {
   const colors = theme && theme.colors ? theme.colors : DEFAULT_THEME.colors;
 
-  switch (hue) {
-    case '__primary':
-      return colors.primaryHue;
-    case '__danger':
-      return colors.dangerHue;
-    case '__warning':
-      return colors.warningHue;
-    case '__success':
-      return colors.successHue;
-    case '__neutral':
-      return colors.neutralHue;
-    case '__chrome':
-      return colors.chromeHue;
-    default:
-      return hue || colors.primaryHue;
-  }
+  return hue ? colors[hue] || hue : colors.primaryHue;
 };
 
 /**
  * Get the palette color for the given hue, shade, and theme.
  *
- * @param {string|Object} [props.hue] A palette hue or one of the following reserved keys:
- *  - `'__primary'` = `theme.colors.primaryHue`
- *  - `'__danger'` = `theme.colors.dangerHue`
- *  - `'__warning'` = `theme.colors.warningHue`
- *  - `'__success'` = `theme.colors.successHue`
- *  - `'__neutral'` = `theme.colors.neutralHue`
- *  - `'__chrome'` = `theme.colors.chromeHue`
- * @param {number} [props.shade=600] A hue shade.
- * @param {Object} [props.theme] Context `theme` object.
+ * @param {string|Object} hue A `theme.palette` hue or one of the following `theme.colors` keys:
+ *  - `'background'` = `theme.colors.background`
+ *  - `'foreground'` = `theme.colors.foreground`
+ *  - `'primaryHue'` = `theme.colors.primaryHue`
+ *  - `'dangerHue'` = `theme.colors.dangerHue`
+ *  - `'warningHue'` = `theme.colors.warningHue`
+ *  - `'successHue'` = `theme.colors.successHue`
+ *  - `'neutralHue'` = `theme.colors.neutralHue`
+ *  - `'chromeHue'` = `theme.colors.chromeHue`
+ * @param {number} [shade=600] A hue shade.
+ * @param {Object} theme Context `theme` object.
  *
  * @component
  */
-export default function getColor({ hue, shade = 600, theme } = {}) {
+export default function getColor(hue, shade = 600, theme) {
   let retVal;
 
-  if (isNaN(shade)) {
+  if (isNaN(parseInt(shade, 10))) {
     retVal = undefined;
   } else {
     const palette = theme && theme.palette ? theme.palette : DEFAULT_THEME.palette;

@@ -6,7 +6,7 @@
  */
 
 import { rgba } from 'polished';
-import { default as getColor } from '../utils/getColor';
+import getColor from '../utils/getColor';
 
 export const shadowWidths = {
   sm: '2px',
@@ -17,5 +17,5 @@ export const shadows = {
   sm: color => `0 0 0 ${shadowWidths.sm} ${color}`,
   md: color => `0 0 0 ${shadowWidths.md} ${color}`,
   lg: (offsetY, blurRadius, theme) =>
-    `0 ${offsetY} ${blurRadius} 0 ${rgba(getColor({ hue: '__chrome', shade: 600, theme }), 0.15)}`
+    `0 ${offsetY} ${blurRadius} 0 ${rgba(getColor('chromeHue', 600, theme), 0.15)}`
 };
