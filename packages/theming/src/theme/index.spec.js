@@ -6,16 +6,13 @@
  */
 
 import DEFAULT_THEME from '.';
-import PALETTE from '../palette';
 
 describe('DEFAULT_THEME', () => {
-  it('does not include `PALETTE.product`', () => {
-    expect(DEFAULT_THEME.palette.product).toBeUndefined();
+  it('matches snapshot', () => {
+    expect(DEFAULT_THEME).toMatchSnapshot();
   });
 
-  describe('PALETTE', () => {
-    it('does include `product`', () => {
-      expect(PALETTE.product).toBeDefined();
-    });
+  it('does not include `PALETTE.product`', () => {
+    expect(DEFAULT_THEME.palette.product).toBeUndefined();
   });
 });
