@@ -57,9 +57,9 @@ require deeper color control.
 ### Components
 
 The `components` object (empty by default) is for individual component
-styling. Within this object, keys are `COMPONENT_ID`s (see table below).
-Values are template strings of CSS to be applied to the component. You may
-find that a `css` helper from a library like
+styling. Within this object, keys are `COMPONENT_ID`s (see `styled` component
+source code for IDs). Values are template strings of CSS to be applied to the
+component. You may find that a `css` helper from a library like
 [styled-components](https://www.styled-components.com/docs/api#css) may be
 helpful in cases where you need advanced composition or access to component
 `props`. The following example code illustrates potential component styling
@@ -93,10 +93,6 @@ const theme = {
     <Paragraph purple>Custom theme triggered by prop</Paragraph>
   </Notification>
 </ThemeProvider>;
-```
-
-```jsx noeditor
-<CIDTable>See https://zendeskgarden.github.io/react-components/theming</CIDTable>
 ```
 
 ### Fonts
