@@ -42,4 +42,18 @@ describe('withTheme', () => {
 
     expect(container.firstChild).toHaveAttribute('data-test', DEFAULT_THEME.space.base.toString());
   });
+
+  it('allows a custom theme to be applied to the wrapped component', () => {
+    const VALUE = 'custom';
+    const theme = {
+      ...DEFAULT_THEME,
+      space: {
+        ...DEFAULT_THEME.space,
+        base: VALUE
+      }
+    };
+    const { container } = render(<NoThemedExample theme={theme} />);
+
+    expect(container.firstChild).toHaveAttribute('data-test', VALUE);
+  });
 });
