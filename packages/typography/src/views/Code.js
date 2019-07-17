@@ -8,7 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import SM from './SM';
 import MD from './MD';
 import LG from './LG';
@@ -102,10 +102,6 @@ const Code = ({ size, ...other }) => {
 Code.propTypes = {
   size: PropTypes.oneOf([SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]),
   type: PropTypes.oneOf([TYPE.GREY, TYPE.RED, TYPE.GREEN, TYPE.YELLOW])
-};
-
-Code.defaultProps = {
-  theme: DEFAULT_THEME
 };
 
 /** @component */

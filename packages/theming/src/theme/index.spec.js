@@ -13,7 +13,7 @@ describe('DEFAULT_THEME', () => {
     expect(DEFAULT_THEME.palette.product).toBeUndefined();
   });
 
-  describe('palette', () => {
+  describe('PALETTE', () => {
     it('does include `product`', () => {
       expect(PALETTE.product).toBeDefined();
     });
