@@ -8,12 +8,6 @@
 import DEFAULT_THEME from '../theme';
 import { darken, lighten } from 'polished';
 
-const toHue = (hue, theme) => {
-  const colors = theme && theme.colors ? theme.colors : DEFAULT_THEME.colors;
-
-  return hue ? colors[hue] || hue : colors.primaryHue;
-};
-
 /**
  * Get the palette color for the given hue, shade, and theme.
  *
@@ -38,10 +32,11 @@ export default function getColor(hue, shade = 600, theme) {
     retVal = undefined;
   } else {
     const palette = theme && theme.palette ? theme.palette : DEFAULT_THEME.palette;
-    let _hue = toHue(hue, theme);
+    const colors = theme && theme.colors ? theme.colors : DEFAULT_THEME.colors;
+    let _hue = hue ? colors[hue] || hue : colors.primaryHue;
 
     if (Object.prototype.hasOwnProperty.call(palette, _hue)) {
-      // Convert string to a hue object.
+      // Convert string to a palette hue object.
       _hue = palette[_hue];
     }
 
