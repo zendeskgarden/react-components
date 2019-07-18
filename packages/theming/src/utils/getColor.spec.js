@@ -8,7 +8,7 @@
 import getColor from './getColor';
 import PALETTE from '../palette';
 import DEFAULT_THEME from '../theme';
-import { darken, lighten } from 'polished';
+import { darken, lighten, rgba } from 'polished';
 
 const DEFAULT_SHADE = 600;
 
@@ -164,6 +164,16 @@ describe('getColor', () => {
     it('gets the specified color from the theme', () => {
       const color = getColor('test', 400, theme);
       const expected = theme.palette.test[400];
+
+      expect(color).toBe(expected);
+    });
+  });
+
+  describe('by transparency', () => {
+    it('resolves when only transparency is specified', () => {
+      const transparency = 0.5;
+      const expected = rgba(PALETTE[DEFAULT_THEME.colors.primaryHue][DEFAULT_SHADE], transparency);
+      const color = getColor(undefined, undefined, undefined, transparency);
 
       expect(color).toBe(expected);
     });
