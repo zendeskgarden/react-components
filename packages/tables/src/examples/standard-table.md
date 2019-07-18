@@ -1,5 +1,4 @@
 ```jsx
-const { DEFAULT_THEME } = require('@zendeskgarden/react-theming/src');
 const {
   Dropdown,
   Field,

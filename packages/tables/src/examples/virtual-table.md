@@ -5,7 +5,6 @@ library to implement its virtualization.
 
 ```jsx
 const { FixedSizeList } = require('react-window');
-const { DEFAULT_THEME } = require('@zendeskgarden/react-theming/src');
 const { XL } = require('@zendeskgarden/react-typography/src');
 
 const rowData = [];

@@ -2,7 +2,6 @@ When creating a sortable table, use the `SortableCell` component
 to ensure that the header is interactable and all accessibility attributes are applied.
 
 ```jsx
-const { DEFAULT_THEME } = require('@zendeskgarden/react-theming/src');
 const { XL } = require('@zendeskgarden/react-typography/src');
 
 const data = [];

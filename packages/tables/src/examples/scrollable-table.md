@@ -2,7 +2,6 @@ Scrollable tables can be enabled with the `scrollable` prop. This defines the
 height of the `<Body>` element.
 
 ```jsx
-const { DEFAULT_THEME } = require('@zendeskgarden/react-theming/src');
 const { XL } = require('@zendeskgarden/react-typography/src');
 
 const rowData = [];

@@ -9,7 +9,6 @@ to apply manual positioning against the `Menu` to ensure a standard look and fee
 or other assistive technique to have discernible text.
 
 ```jsx
-const { DEFAULT_THEME } = require('@zendeskgarden/react-theming/src');
 const { Dropdown, Trigger, Menu, Item } = require('@zendeskgarden/react-dropdowns/src');
 const { XL } = require('@zendeskgarden/react-typography/src');
 

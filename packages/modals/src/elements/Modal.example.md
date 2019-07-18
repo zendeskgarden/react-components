@@ -162,7 +162,6 @@ const onModalClose = () => setState({ isModalVisible: false });
 ### Widths
 
 ```jsx
-const { DEFAULT_THEME } = require('@zendeskgarden/react-theming/src');
 const { Button } = require('@zendeskgarden/react-buttons/src');
 
 initialState = {

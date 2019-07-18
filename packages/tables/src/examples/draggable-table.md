@@ -7,7 +7,6 @@ This example includes:
 - Accessible ordering with the `Space/Up/Down` keys
 
 ```jsx
-const { DEFAULT_THEME } = require('@zendeskgarden/react-theming/src');
 const { DragDropContext, Droppable, Draggable } = require('react-beautiful-dnd');
 const GripIcon = require('@zendeskgarden/svg-icons/src/12/grip.svg').default;
 const { XL } = require('@zendeskgarden/react-typography/src');

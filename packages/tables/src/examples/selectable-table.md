@@ -1,5 +1,4 @@
 ```jsx
-const { DEFAULT_THEME } = require('@zendeskgarden/react-theming/src');
 const { XL } = require('@zendeskgarden/react-typography/src');
 const { Field, Checkbox, Label } = require('@zendeskgarden/react-forms/src');
 
