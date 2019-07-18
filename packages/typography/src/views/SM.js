@@ -8,13 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {
-  zdFontFamilyMonospace,
-  zdFontSizeSm,
-  zdFontSizeSmMonospace,
-  zdLineHeightSm
-} from '@zendeskgarden/css-variables';
-import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'typography.sm';
 
@@ -22,14 +16,20 @@ const StyledSM = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  line-height: ${zdLineHeightSm};
-  font-family: ${props => (props.monospace ? zdFontFamilyMonospace : null)};
-  font-size: ${props => (props.monospace ? zdFontSizeSmMonospace : zdFontSizeSm)};
+  line-height: ${props => props.theme.lineHeights.sm};
+  font-family: ${props => props.monospace && props.theme.fonts.mono};
+  /* stylelint-disable-next-line declaration-colon-newline-after */
+  font-size: ${props =>
+    props.monospace ? props.theme.fontSizes.mono.sm : props.theme.fontSizes.sm};
 
   direction: ${props => (isRtl(props) ? 'rtl' : 'ltr')};
 
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledSM.defaultProps = {
+  theme: DEFAULT_THEME
+};
 
 /**
  * Accepts all standard props relating to provided `tag`

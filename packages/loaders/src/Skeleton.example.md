@@ -2,7 +2,7 @@
 const { XXXL, XXL, MD } = require('@zendeskgarden/react-typography/src');
 const { Button } = require('@zendeskgarden/react-buttons/src');
 const { Field, Checkbox, Label } = require('@zendeskgarden/react-forms/src');
-const { zdColorKale800, zdColorWhite, zdColorBlack } = require('@zendeskgarden/css-variables');
+const { PALETTE } = require('@zendeskgarden/react-theming/src');
 
 initialState = {
   isLoading: true,
@@ -10,8 +10,8 @@ initialState = {
 };
 
 const StyledCol = styled(Col)`
-  background-color: ${props => (props.isDarkMode ? zdColorKale800 : zdColorWhite)};
-  color: ${props => (props.isDarkMode ? zdColorWhite : zdColorBlack)};
+  background-color: ${props => (props.isDarkMode ? PALETTE.grey[800] : PALETTE.white)};
+  color: ${props => (props.isDarkMode ? PALETTE.white : PALETTE.black)};
   padding: 18px;
 `;
 

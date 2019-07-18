@@ -8,7 +8,7 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styled from 'styled-components';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import StyledCheckLabel from '../checkboxes/StyledCheckLabel';
 import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
 
@@ -18,7 +18,7 @@ import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
 const StyledRadioLabel = styled(StyledCheckLabel).attrs(props => ({
   className: classNames(props.className, CheckboxStyles['c-chk__label--radio'])
 }))`
-  ${props => retrieveTheme('forms.radio_label', props)};
+  ${props => retrieveComponentStyles('forms.radio_label', props)};
 `;
 
 StyledRadioLabel.propTypes = {

@@ -8,7 +8,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 import RangeStyles from '@zendeskgarden/css-forms/dist/range.css';
 
 const COMPONENT_ID = 'ranges.single_thumb_view';
@@ -33,7 +33,7 @@ const SingleThumbView = styled.input.attrs(props => ({
     ${({ backgroundSize }) => `background-size: ${backgroundSize};`};
   }
 
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 SingleThumbView.propTypes = {

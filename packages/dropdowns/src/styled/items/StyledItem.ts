@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import MenuStyles from '@zendeskgarden/css-menus';
 
 const COMPONENT_ID = 'dropdowns.item';
@@ -43,6 +43,6 @@ export const StyledItem = styled.li.attrs<IStyledItemProps>(props => ({
     }
   `};
 
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
   /* stylelint-enable */
 `;

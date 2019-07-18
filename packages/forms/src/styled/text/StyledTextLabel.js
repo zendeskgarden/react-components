@@ -8,7 +8,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 
 /**
@@ -25,7 +25,7 @@ const StyledTextLabel = styled.label.attrs(props => ({
 }))`
   display: block;
 
-  ${props => retrieveTheme('forms.text_label', props)};
+  ${props => retrieveComponentStyles('forms.text_label', props)};
 `;
 
 StyledTextLabel.propTypes = {

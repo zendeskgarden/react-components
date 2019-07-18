@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
 
 /**
@@ -17,7 +17,7 @@ const StyledCheckInput = styled.input.attrs({
   type: 'checkbox',
   tabIndex: 0
 })`
-  ${props => retrieveTheme('forms.check_input', props)};
+  ${props => retrieveComponentStyles('forms.check_input', props)};
 `;
 
 export default StyledCheckInput;

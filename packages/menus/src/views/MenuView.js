@@ -9,7 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 import MenuStyles from '@zendeskgarden/css-menus';
 import ArrowStyles from '@zendeskgarden/css-arrows';
 
@@ -132,7 +132,7 @@ const StyledMenuView = styled.ul.attrs(props => ({
     outline: none;
   }
 
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 const MenuWrapper = styled.div`

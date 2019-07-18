@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import classNames from 'classnames';
 import TableStyles from '@zendeskgarden/css-tables';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 import { StyledOverflowButton } from './OverflowButton';
 
@@ -30,7 +30,7 @@ const HeaderRow = styled.div.attrs({
   }
   /* stylelint-enable */
 
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 /** @component */

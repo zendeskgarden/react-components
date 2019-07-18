@@ -3,6 +3,7 @@ language: node_js
 branches:
   only:
     - master
+    - next
 
 cache:
   yarn: true

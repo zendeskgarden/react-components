@@ -7,7 +7,7 @@
 
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { Item as MenuItem } from '@zendeskgarden/react-menus';
 
 const COMPONENT_ID = 'select.item';
@@ -19,7 +19,7 @@ const Item = styled(MenuItem).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 Item.propTypes = {

@@ -7,7 +7,7 @@
 
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import Cell from './Cell';
 
 const COMPONENT_ID = 'tables.header_cell';
@@ -18,7 +18,7 @@ const HeaderCell = styled(Cell).attrs({
   'data-garden-version': PACKAGE_VERSION,
   role: 'columnheader'
 })`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 HeaderCell.propTypes = {

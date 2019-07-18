@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import TabStyles from '@zendeskgarden/css-tabs';
-import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tabs.tabs_view';
 
@@ -27,7 +27,7 @@ const TabsView = styled.div.attrs(props => ({
     [TabStyles['is-rtl']]: isRtl(props)
   })
 }))`
-  ${props => retrieveTheme('tabs.tabs', props)};
+  ${props => retrieveComponentStyles('tabs.tabs', props)};
 `;
 
 TabsView.propTypes = {

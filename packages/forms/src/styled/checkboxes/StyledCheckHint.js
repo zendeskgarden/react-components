@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
 
 /**
@@ -19,7 +19,7 @@ const StyledCheckHint = styled.div.attrs(props => ({
     [CheckboxStyles['is-rtl']]: isRtl(props)
   })
 }))`
-  ${props => retrieveTheme('forms.checkbox_hint', props)};
+  ${props => retrieveComponentStyles('forms.checkbox_hint', props)};
 `;
 
 export default StyledCheckHint;

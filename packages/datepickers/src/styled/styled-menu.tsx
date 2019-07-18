@@ -8,7 +8,7 @@
 import React, { HTMLProps } from 'react';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 import MenuStyles from '@zendeskgarden/css-menus';
 import ArrowStyles from '@zendeskgarden/css-arrows';
 import { POPPER_PLACEMENT } from '../utils/garden-placements';
@@ -118,7 +118,7 @@ const StyledMenuView = styled.ul.attrs<IStyledMenuViewProps>(props => ({
     outline: none;
   }
 
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 ` as React.FunctionComponent<IStyledMenuViewProps>;
 
 interface IStyledMenuWrapperProps {

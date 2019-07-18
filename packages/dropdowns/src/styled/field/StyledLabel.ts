@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 
 const COMPONENT_ID = 'dropdowns.label';
@@ -31,5 +31,5 @@ export const StyledLabel = styled.label.attrs<IStyledLabel>(props => ({
     [TextStyles['is-rtl']]: isRtl(props)
   })
 }))<IStyledLabel>`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import TabStyles from '@zendeskgarden/css-tabs';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tabs.tab';
 
@@ -28,7 +28,7 @@ const Tab = styled.div.attrs(props => ({
     [TabStyles['is-selected']]: props.selected
   })
 }))`
-  ${props => retrieveTheme('tabs.tab', props)};
+  ${props => retrieveComponentStyles('tabs.tab', props)};
 `;
 
 Tab.propTypes = {

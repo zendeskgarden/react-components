@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import TableStyles from '@zendeskgarden/css-tables';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tables.cell';
 
@@ -31,7 +31,7 @@ const Cell = styled.div.attrs(props => ({
     width: ${({ width }) => width};
   }
 
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 Cell.propTypes = {

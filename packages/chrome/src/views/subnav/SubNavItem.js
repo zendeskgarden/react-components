@@ -9,7 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
 import ChromeStyles from '@zendeskgarden/css-chrome';
 
@@ -25,7 +25,7 @@ export const StyledSubNavItem = styled.button.attrs(props => ({
     [ChromeStyles['is-focused']]: props.focused
   })
 }))`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 /**

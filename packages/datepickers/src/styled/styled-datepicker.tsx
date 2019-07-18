@@ -7,49 +7,39 @@
 
 import styled, { css } from 'styled-components';
 import {
-  zdSpacing,
-  zdSpacingLg,
-  zdSpacingXl,
-  zdFontSizeSm,
-  zdFontSizeMd,
-  zdFontWeightSemibold,
-  zdFontWeightBold,
-  zdLineHeightMd,
-  zdColorWhite,
-  zdColorBlue600,
-  zdColorBlue800,
-  zdColorGrey400,
-  zdColorGrey600,
-  zdColorGrey800
-} from '@zendeskgarden/css-variables';
-import { isRtl, retrieveTheme } from '@zendeskgarden/react-theming';
+  DEFAULT_THEME,
+  PALETTE,
+  isRtl,
+  retrieveComponentStyles
+} from '@zendeskgarden/react-theming';
 import rgba from 'polished/lib/color/rgba';
 import math from 'polished/lib/math/math';
 
 const retrieveSpacing = ({ isSmall }: { isSmall?: boolean }) => {
   if (isSmall) {
-    return zdSpacingLg;
+    return DEFAULT_THEME.space.lg;
   }
 
-  return zdSpacingXl;
+  return DEFAULT_THEME.space.xl;
 };
 
 export const StyledDatepicker = styled.div<{
   isSmall: boolean;
 }>`
   /* stylelint-disable */
-  padding: ${props => (props.isSmall ? math(`${zdSpacingLg} / 2`) : zdSpacing)};
-  color: ${zdColorGrey800};
+  padding: ${props =>
+    props.isSmall ? math(`${DEFAULT_THEME.space.lg} / 2`) : DEFAULT_THEME.space.md};
+  color: ${PALETTE.grey[800]};
 
   direction: ${props => isRtl(props) && 'rtl'};
 
-  ${props => retrieveTheme('datepickers.datepicker', props)};
+  ${props => retrieveComponentStyles('datepickers.datepicker', props)};
 `;
 
 export const StyledHeader = styled.div`
   display: flex;
 
-  ${props => retrieveTheme('datepickers.header', props)};
+  ${props => retrieveComponentStyles('datepickers.header', props)};
 `;
 
 export const StyledHeaderPaddle = styled.div<{ isSmall: boolean }>`
@@ -58,34 +48,34 @@ export const StyledHeaderPaddle = styled.div<{ isSmall: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: ${zdColorGrey600};
+  color: ${PALETTE.grey[600]};
   cursor: pointer;
   border-radius: 50%;
 
   :hover {
-    color: ${zdColorGrey800};
-    background-color: ${rgba(zdColorBlue600, 0.08)};
+    color: ${PALETTE.grey[800]};
+    background-color: ${rgba(PALETTE.blue[600], 0.08)};
   }
 
   :active {
-    background-color: ${rgba(zdColorBlue600, 0.2)};
-    color: ${zdColorGrey800};
+    background-color: ${rgba(PALETTE.blue[600], 0.2)};
+    color: ${PALETTE.grey[800]};
   }
 
   transform: ${props => isRtl(props) && 'rotate(180deg)'};
 
   * {
-    width: ${math(`${zdSpacingLg} / 2`)};
-    height: ${math(`${zdSpacingLg} / 2`)};
+    width: ${math(`${DEFAULT_THEME.space.lg} / 2`)};
+    height: ${math(`${DEFAULT_THEME.space.lg} / 2`)};
   }
 
-  ${props => retrieveTheme('datepickers.header_paddle', props)};
+  ${props => retrieveComponentStyles('datepickers.header_paddle', props)};
 `;
 
 const boldedStyling = css<{ isSmall: boolean }>`
-  font-size: ${props => (props.isSmall ? zdFontSizeSm : zdFontSizeMd)};
-  font-weight: ${zdFontWeightSemibold};
-  line-height: ${zdLineHeightMd};
+  font-size: ${props => (props.isSmall ? DEFAULT_THEME.fontSizes.sm : DEFAULT_THEME.fontSizes.md)};
+  font-weight: ${DEFAULT_THEME.fontWeights.semibold};
+  line-height: ${DEFAULT_THEME.lineHeights.md};
 `;
 
 export const StyledHeaderLabel = styled.div<{ isSmall: boolean }>`
@@ -95,13 +85,13 @@ export const StyledHeaderLabel = styled.div<{ isSmall: boolean }>`
   justify-content: center;
   ${boldedStyling};
 
-  ${props => retrieveTheme('datepickers.header_label', props)};
+  ${props => retrieveComponentStyles('datepickers.header_label', props)};
 `;
 
 export const StyledCalendar = styled.div<{ isSmall?: boolean }>`
   width: ${props => math(`${retrieveSpacing(props)} * 7`)};
 
-  ${props => retrieveTheme('datepickers.calendar', props)};
+  ${props => retrieveComponentStyles('datepickers.calendar', props)};
 `;
 
 export const StyledCalendarItem = styled.div<{ isSmall?: boolean }>`
@@ -109,7 +99,7 @@ export const StyledCalendarItem = styled.div<{ isSmall?: boolean }>`
   width: ${retrieveSpacing};
   height: ${retrieveSpacing};
 
-  ${props => retrieveTheme('datepickers.calendar_item', props)};
+  ${props => retrieveComponentStyles('datepickers.calendar_item', props)};
 `;
 
 export const StyledDayLabel = styled.div<{ isSmall: boolean }>`
@@ -120,7 +110,7 @@ export const StyledDayLabel = styled.div<{ isSmall: boolean }>`
   height: 100%;
   ${boldedStyling};
 
-  ${props => retrieveTheme('datepickers.day_label', props)};
+  ${props => retrieveComponentStyles('datepickers.day_label', props)};
 `;
 
 interface IStyledDayProps {
@@ -138,11 +128,11 @@ const retrieveStyledDayColor = ({
   isPreviousMonth
 }: IStyledDayProps) => {
   if (isDisabled) {
-    return zdColorGrey400;
+    return PALETTE.grey[400];
   }
 
   if (isSelected && !isDisabled) {
-    return zdColorWhite;
+    return PALETTE.white;
   }
 
   if (isToday) {
@@ -150,15 +140,15 @@ const retrieveStyledDayColor = ({
   }
 
   if (isPreviousMonth) {
-    return zdColorGrey600;
+    return PALETTE.grey[600];
   }
 
-  return zdColorBlue600;
+  return PALETTE.blue[600];
 };
 
 const retrieveBackgroundColor = ({ isSelected, isDisabled }: IStyledDayProps) => {
   if (isSelected && !isDisabled) {
-    return zdColorBlue600;
+    return PALETTE.blue[600];
   }
 
   return 'inherit';
@@ -172,9 +162,10 @@ export const StyledDay = styled.div<IStyledDayProps>`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  font-size: ${props => (props.small ? zdFontSizeSm : zdFontSizeMd)};
-  font-weight: ${props => (props.isToday && !props.isDisabled ? zdFontWeightBold : 'inherit')};
-  line-height: ${zdLineHeightMd};
+  font-size: ${props => (props.small ? DEFAULT_THEME.fontSizes.sm : DEFAULT_THEME.fontSizes.md)};
+  font-weight: ${props =>
+    props.isToday && !props.isDisabled ? DEFAULT_THEME.fontWeights.bold : 'inherit'};
+  line-height: ${DEFAULT_THEME.lineHeights.md};
   color: ${retrieveStyledDayColor};
   background-color: ${retrieveBackgroundColor};
 
@@ -183,15 +174,15 @@ export const StyledDay = styled.div<IStyledDayProps>`
     !props.isDisabled &&
     `
   :hover {
-    background-color: ${rgba(zdColorBlue600, 0.08)};
-    color: ${zdColorBlue800};
+    background-color: ${rgba(PALETTE.blue[600], 0.08)};
+    color: ${PALETTE.blue[800]};
   }
 
   :active {
-    background-color: ${rgba(zdColorBlue600, 0.2)};
-    color: ${zdColorBlue800};
+    background-color: ${rgba(PALETTE.blue[600], 0.2)};
+    color: ${PALETTE.blue[800]};
   }
   `}
 
-  ${props => retrieveTheme('datepickers.day', props)};
+  ${props => retrieveComponentStyles('datepickers.day', props)};
 `;

@@ -8,7 +8,7 @@
 import React, { createContext } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { listCSS } from './styles';
 import UnorderedListItem from './UnorderedListItem';
 
@@ -31,7 +31,7 @@ const StyledUnorderedList = styled.ul.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   ${props => listCSS(props)};
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 export const UnorderedListContext = createContext();

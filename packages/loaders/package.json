@@ -19,9 +19,8 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendeskgarden/css-variables": "^6.1.0",
     "classnames": "^2.2.5",
-    "polished": "^2.3.3"
+    "polished": "^3.4.1"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^6.0.0",

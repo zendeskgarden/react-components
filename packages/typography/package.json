@@ -18,9 +18,6 @@
     "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
-  "dependencies": {
-    "@zendeskgarden/css-variables": "6.3.0"
-  },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^6.0.0",
     "prop-types": "^15.6.1",

@@ -8,7 +8,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 import VALIDATION from '../../utils/validation';
 import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 
@@ -25,7 +25,7 @@ const StyledTextarea = styled(StyledTextInput.withComponent('textarea')).attrs(p
     [TextStyles['is-rtl']]: isRtl(props)
   })
 }))`
-  ${props => retrieveTheme('forms.text_area', props)};
+  ${props => retrieveComponentStyles('forms.text_area', props)};
 `;
 
 StyledTextarea.propTypes = {

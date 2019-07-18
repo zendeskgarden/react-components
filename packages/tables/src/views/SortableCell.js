@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import TableStyles from '@zendeskgarden/css-tables';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 import HeaderCell from './HeaderCell';
 
@@ -37,7 +37,7 @@ const StyledSortableButton = styled.button.attrs(props => ({
     [TableStyles['is-active']]: props.active
   })
 }))`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 /**

@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import TooltipStyles from '@zendeskgarden/css-tooltips';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 import TooltipView from './TooltipView';
 
@@ -45,7 +45,7 @@ const LightTooltip = styled(TooltipView).attrs(props => ({
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(props.className, TooltipStyles['c-tooltip--light'])
 }))`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 LightTooltip.propTypes = {

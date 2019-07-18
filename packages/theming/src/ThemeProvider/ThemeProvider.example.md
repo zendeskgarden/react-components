@@ -1,48 +1,72 @@
-#### WARNING
-
-Theming of styles affects all usages of a component within the `ThemeProvider`.
-Try extending one of our Presentation components and see if that fits your
-specific usage.
-
-All UI components are themable by an unique component ID. These themes can be nested.
+All UI components are themable by a unique component ID. These themes can be nested.
 
 ```jsx
-const ThemableButton = styled.div`
-  margin: 12px;
+const { css } = require('styled-components');
+
+const ThemableDiv = styled.div`
+  margin: ${props => props.theme.space.base * 3}px;
 
   :hover {
-    color: yellow;
+    color: ${props => getColor('warningHue', undefined, props.theme)};
   }
 
-  ${props => retrieveTheme('button', props)};
+  ${props => retrieveComponentStyles('unique_id', props)};
 `;
 
 const Container = styled.div`
-  border: grey solid;
-  padding: 24px;
+  border: ${props => props.theme.borders.sm};
+  border-color: ${props => getColor('neutralHue', undefined, props.theme)}
+  border-radius: ${props => props.theme.borderRadii.md};
+  padding: ${props => props.theme.space.base * 5}px;
 `;
 
 const theme = {
-  button: `color: red;`
+  ...DEFAULT_THEME,
+  components: {
+    unique_id: css`
+      color: ${props => getColor('dangerHue', undefined, props.theme)};
+    `
+  },
+  space: {
+    ...DEFAULT_THEME.space,
+    base: 4
+  }
 };
 
 const nestedTheme = {
-  button: `
-    color: green;
-    :hover {
-      color: blue;
-    }
-  `
+  ...DEFAULT_THEME,
+  borderRadii: {
+    ...DEFAULT_THEME.borderRadii,
+    md: 0
+  },
+  colors: {
+    ...DEFAULT_THEME.colors,
+    successHue: 'fuschia',
+    neutralHue: 'purple'
+  },
+  components: {
+    unique_id: css`
+      color: ${props => getColor('successHue', undefined, props.theme)};
+
+      :hover {
+        color: ${props => getColor('primaryHue', undefined, props.theme)};
+      }
+    `
+  },
+  space: {
+    ...DEFAULT_THEME.space,
+    base: 5
+  }
 };
 
 <ThemeProvider theme={theme}>
   <Container>
-    <ThemableButton>Simple Theme</ThemableButton>
-    <Container>
-      <ThemeProvider theme={nestedTheme}>
-        <ThemableButton>Nested Theme</ThemableButton>
-      </ThemeProvider>
-    </Container>
+    <ThemableDiv>Simple Theme</ThemableDiv>
+    <ThemeProvider theme={nestedTheme}>
+      <Container>
+        <ThemableDiv>Nested Theme</ThemableDiv>
+      </Container>
+    </ThemeProvider>
   </Container>
 </ThemeProvider>;
 ```

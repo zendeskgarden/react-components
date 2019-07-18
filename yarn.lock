@@ -2499,7 +2499,7 @@
     "@zendeskgarden/css-variables" "^6.3.5"
     normalize.css "^8.0.0"
 
-"@zendeskgarden/css-variables@6.3.5", "@zendeskgarden/css-variables@^6.3.5":
+"@zendeskgarden/css-variables@^6.3.5":
   version "6.3.5"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/css-variables/-/css-variables-6.3.5.tgz#48580dc455140bcc138bf1b2225c98cecad1e639"
   integrity sha512-iqtrlGEGXObHwcG3oO50t1QYBQe3HRzkjA7LwC7+wwkP3hG3OfULTo88TWVtP8aDOH64mz7rveRGxRQzpp2djA==

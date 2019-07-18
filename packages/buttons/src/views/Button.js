@@ -11,7 +11,7 @@ import styled from 'styled-components';
 import classNames from 'classnames';
 import ButtonStyles from '@zendeskgarden/css-buttons';
 import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'buttons.button';
 
@@ -49,7 +49,7 @@ export const StyledButton = styled.button.attrs(props => ({
   }),
   type: 'button'
 }))`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 /**
