@@ -8,7 +8,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 import ModalStyles from '@zendeskgarden/css-modals';
 
 const COMPONENT_ID = 'modals.backdrop';
@@ -27,12 +27,20 @@ const Backdrop = styled.div.attrs(props => ({
     [ModalStyles['is-rtl']]: isRtl(props)
   })
 }))`
+  font-family: ${props => props.theme.fonts.system};
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
+Backdrop.defaultProps = {
+  theme: DEFAULT_THEME
+};
+
 Backdrop.propTypes = {
   center: PropTypes.bool,
-  animate: PropTypes.bool
+  animate: PropTypes.bool,
+  /** @ignore */
+  theme: PropTypes.object
 };
 
 /** @component */
