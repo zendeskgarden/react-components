@@ -6,7 +6,7 @@
  */
 
 import DEFAULT_THEME from '../theme';
-import { darken, lighten } from 'polished';
+import { darken, lighten, rgba } from 'polished';
 
 /**
  * Get the palette color for the given hue, shade, and theme.
@@ -22,10 +22,11 @@ import { darken, lighten } from 'polished';
  *  - `'chromeHue'` = `theme.colors.chromeHue`
  * @param {number} [shade=600] A hue shade.
  * @param {Object} theme Context `theme` object.
+ * @param {Number} [transparency] An alpha-channel value between 0 and 1.
  *
  * @component
  */
-export default function getColor(hue, shade = 600, theme) {
+export default function getColor(hue, shade = 600, theme, transparency) {
   let retVal;
 
   if (isNaN(parseInt(shade, 10))) {
@@ -62,6 +63,10 @@ export default function getColor(hue, shade = 600, theme) {
       }
     } else {
       retVal = _hue;
+    }
+
+    if (transparency) {
+      retVal = rgba(retVal, transparency);
     }
   }
 
