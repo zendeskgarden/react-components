@@ -29,23 +29,6 @@ Object {
     "warningHue": "yellow",
   },
   "components": Object {},
-  "document": Document {
-    "location": Location {
-      "assign": [Function],
-      "hash": "",
-      "host": "localhost",
-      "hostname": "localhost",
-      "href": "http://localhost/",
-      "origin": "http://localhost",
-      "pathname": "/",
-      "port": "",
-      "protocol": "http:",
-      "reload": [Function],
-      "replace": [Function],
-      "search": "",
-      "toString": [Function],
-    },
-  },
   "fontSizes": Object {
     "lg": "18px",
     "md": "14px",

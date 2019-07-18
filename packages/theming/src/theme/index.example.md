@@ -95,6 +95,21 @@ const theme = {
 </ThemeProvider>;
 ```
 
+### Document
+
+A `document` object may be added to the theme and will be used to support
+components (i.e. menus, modals, etc) that require a document context. For
+example:
+
+```jsx static
+const theme = {
+  ...DEFAULT_THEME,
+  document: document.getElementsByTagName('iframe')[0].contentDocument
+};
+
+<ThemeProvider theme={theme}>...</ThemeProvider>;
+```
+
 ### Fonts
 
 The `fonts` section of the theme contains two CSS `font-family` stacks:

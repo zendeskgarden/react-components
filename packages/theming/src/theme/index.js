@@ -136,7 +136,6 @@ const DEFAULT_THEME = {
   borderWidths,
   colors,
   components: {},
-  document,
   fonts,
   fontSizes,
   fontWeights,
