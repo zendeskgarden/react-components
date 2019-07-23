@@ -57,7 +57,7 @@ initialState = {
       >
         <DropdownField>
           <DropdownLabel>Locale</DropdownLabel>
-          <DropdownHint>Using date-fns localization</DropdownHint>
+          <DropdownHint>Using Intl.DateTimeFormat localization</DropdownHint>
           <Select>{state.locale.label}</Select>
         </DropdownField>
         <Menu>
@@ -72,7 +72,7 @@ initialState = {
     <Col lg={8}>
       <Field>
         <Label>Localized date</Label>
-        <Hint>Using date-fns locale</Hint>
+        <Hint>Using Intl.DateTimeFormat localization</Hint>
         <Datepicker
           value={state.value}
           onChange={newDate => {
