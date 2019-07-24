@@ -7,7 +7,6 @@
 
 import { math, rgba } from 'polished';
 import PALETTE from '../palette';
-import getColor from '../utils/getColor';
 
 const BASE = 4;
 

@@ -8,6 +8,19 @@
 import DEFAULT_THEME from '../theme';
 import { darken, lighten, rgba } from 'polished';
 
+const DEFAULT_SHADE = 600;
+
+const adjust = (color, expected, actual) => {
+  if (expected !== actual) {
+    // Adjust darkness/lightness if color is not the expected shade.
+    const amount = (Math.abs(expected - actual) / 100) * 0.05;
+
+    return expected > actual ? darken(amount, color) : lighten(amount, color);
+  }
+
+  return color;
+};
+
 /**
  * Get the palette color for the given hue, shade, and theme.
  *
@@ -20,13 +33,13 @@ import { darken, lighten, rgba } from 'polished';
  *  - `'successHue'` = `theme.colors.successHue`
  *  - `'neutralHue'` = `theme.colors.neutralHue`
  *  - `'chromeHue'` = `theme.colors.chromeHue`
- * @param {number} [shade=600] A hue shade.
+ * @param {number} [shade=DEFAULT_SHADE] A hue shade.
  * @param {Object} theme Context `theme` object.
  * @param {Number} [transparency] An alpha-channel value between 0 and 1.
  *
  * @component
  */
-export default function getColor(hue, shade = 600, theme, transparency) {
+export default function getColor(hue, shade = DEFAULT_SHADE, theme, transparency) {
   let retVal;
 
   if (isNaN(parseInt(shade, 10))) {
@@ -51,18 +64,10 @@ export default function getColor(hue, shade = 600, theme, transparency) {
             ? parseInt(current, 10)
             : parseInt(previous, 10);
         });
-
-        retVal = _hue[_shade];
-
-        if (shade !== _shade) {
-          // Adjust darkness/lightness if shade doesn't exist within the given hue.
-          const amount = (Math.abs(shade - _shade) / 100) * 0.05;
-
-          retVal = shade > _shade ? darken(amount, retVal) : lighten(amount, retVal);
-        }
+        retVal = adjust(_hue[_shade], shade, _shade);
       }
     } else {
-      retVal = _hue;
+      retVal = adjust(_hue, shade, DEFAULT_SHADE);
     }
 
     if (transparency) {
