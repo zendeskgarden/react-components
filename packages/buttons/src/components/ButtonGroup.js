@@ -11,8 +11,8 @@ import { ControlledComponent, IdManager } from '@zendeskgarden/react-selection';
 import { hasType } from '@zendeskgarden/react-utilities';
 
 import ButtonGroupContainer from '../containers/ButtonGroupContainer';
-import ButtonGroupView from '../views/button-group/ButtonGroupView';
-import Button from '../views/Button';
+import { StyledButtonGroup } from '../styled';
+import Button from './Button';
 
 /**
  * High-level abstraction for basic ButtonGroup implementations.
@@ -20,6 +20,7 @@ import Button from '../views/Button';
 export default class ButtonGroup extends ControlledComponent {
   static propTypes = {
     id: PropTypes.any,
+    /** @ignore */
     children: PropTypes.any,
     /**
      * Currently selected tab to display
@@ -83,6 +84,7 @@ export default class ButtonGroup extends ControlledComponent {
             key,
             selected: key === selectedKey,
             focused: key === focusedKey,
+            focusInset: true,
             ...child.props
           })
         );
@@ -104,9 +106,9 @@ export default class ButtonGroup extends ControlledComponent {
         onStateChange={this.setControlledState}
       >
         {({ getGroupProps, getButtonProps }) => (
-          <ButtonGroupView {...getGroupProps(otherProps)}>
+          <StyledButtonGroup {...getGroupProps(otherProps)}>
             {this.renderButtons(getButtonProps)}
-          </ButtonGroupView>
+          </StyledButtonGroup>
         )}
       </ButtonGroupContainer>
     );

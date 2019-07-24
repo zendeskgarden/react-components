@@ -5,46 +5,55 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+const path = require('path');
+const reactDocgenTypescript = require('react-docgen-typescript');
+const reactDocgen = require('react-docgen');
+
 /**
  * Package specific styleguide configuration
  * https://github.com/styleguidist/react-styleguidist/blob/master/docs/Configuration.md
  */
 module.exports = {
+  /*
+  propsParser: reactDocgenTypescript.withCustomConfig(
+    path.resolve(__dirname, '../../tsconfig.json'),
+    {
+      propFilter: props => {
+        return props.parent.fileName.indexOf('node_modules') === -1;
+      }
+    }
+  ).parse,
+  resolver: reactDocgen.resolver.findAllComponentDefinitions,
+  */
   sections: [
     {
       name: '',
       content: '../../packages/buttons/README.md'
     },
     {
-      name: 'Elements',
-      components: '../../packages/buttons/src/elements/[A-Z]*.js',
+      name: 'Examples',
       sections: [
         {
-          name: 'SplitButton',
-          content: '../../packages/buttons/src/elements/SplitButton.example.md'
-        }
-      ]
-    },
-    {
-      name: 'Containers',
-      components: '../../packages/buttons/src/containers/[A-Z]*.js'
-    },
-    {
-      name: 'Views',
-      sections: [
+          name: 'Button',
+          content: '../../packages/buttons/examples/button.md'
+        },
         {
-          name: 'Generics',
-          components: '../../packages/buttons/src/views/[A-Z]*.js'
+          name: 'Anchor',
+          content: '../../packages/buttons/examples/anchor.md'
+        },
+        {
+          name: 'Button Group',
+          content: '../../packages/buttons/examples/button-group.md'
         },
         {
           name: 'IconButton',
-          components: '../../packages/buttons/src/views/icon-button/[A-Z]*.js'
-        },
-        {
-          name: 'ButtonGroup',
-          components: '../../packages/buttons/src/views/button-group/[A-Z]*.js'
+          content: '../../packages/buttons/examples/icon-button.md'
         }
       ]
+    },
+    {
+      name: 'Components',
+      components: '../../packages/buttons/src/components/*.js'
     }
   ]
 };

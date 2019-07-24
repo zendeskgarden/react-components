@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+export { default as Button } from './components/Button';
+export { default as Anchor } from './components/Anchor';
+export { default as ButtonGroup } from './components/ButtonGroup';
+export { default as ChevronButton } from './components/ChevronButton';
+export { default as IconButton } from './components/IconButton';
+/*
 export { default as ButtonGroupContainer } from './containers/ButtonGroupContainer';
-export { default as ButtonGroup } from './elements/ButtonGroup';
-export { default as Anchor } from './views/Anchor';
-export { default as Button } from './views/Button';
-export { default as ChevronButton } from './views/icon-button/ChevronButton';
-export { default as IconButton } from './views/icon-button/IconButton';
-export { default as Icon } from './views/icon-button/Icon';
-export { default as ButtonGroupView } from './views/button-group/ButtonGroupView';
+*/
