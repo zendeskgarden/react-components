@@ -13,8 +13,7 @@ module.exports = {
   require: [
     '../../packages/menus/dist/styles.css',
     '../../packages/textfields/dist/styles.css',
-    '../../packages/tags/dist/styles.css',
-    '../../packages/buttons/dist/styles.css'
+    '../../packages/tags/dist/styles.css'
   ],
   sections: [
     {
