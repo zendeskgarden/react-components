@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "declarationDir": "dist/typings",
+    "declaration": true,
+    "sourceMap": false,
+    "noEmit": false
+  },
+  "include": ["src/components/*"],
+  "exclude": ["**/*.spec.tsx", "**/*.spec.ts"]
+}
