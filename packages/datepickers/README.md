@@ -36,9 +36,3 @@ import { Datepicker } from '@zendeskgarden/react-datepickers';
   </Field>
 </ThemeProvider>;
 ```
-
-## date-fns dependency
-
-We currently use the v2, `date-fns@next`, distribution of [date-fns](https://date-fns.org/).
-This allows us to provide a wider range of locales and include non-strict date parsing.
-Ensure you are depending on locales from this version of `date-fns`.

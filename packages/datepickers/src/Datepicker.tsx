@@ -81,7 +81,7 @@ export interface IDatepickerProps {
    */
   small?: boolean;
   /**
-   * Override default date parsing
+   * Override default date parsing. Receives a localized input value and returns a `Date` object.
    */
   customParseDate?: (inputValue: string) => Date;
   /**
