@@ -2,6 +2,12 @@ The `<Dropdown>` package does not include any filtering logic. The simplest way 
 perform filtering is to control the `inputValue` and `onInputValueChange` props and
 conditionally render `<Item>`s as necessary.
 
+Due to a known issue caused by google translation extension, which replaces text node
+with `<font>` while React keeps references to the text node.
+Any conditionally rendered text node should be wrapped with `<span>`.
+Read the [React issue](https://github.com/facebook/react/issues/11538#issuecomment-390386520)
+for more information.
+
 ```js
 const debounce = require('lodash.debounce');
 const options = [
@@ -67,7 +73,7 @@ function ExampleAutocomplete() {
 
     return matchingOptions.map(option => (
       <Item key={option} value={option}>
-        {option}
+        <span>{option}</span>
       </Item>
     ));
   };
@@ -91,7 +97,7 @@ function ExampleAutocomplete() {
           <span aria-label="Garden emoji" role="image">
             🌱
           </span>
-          {selectedItem}
+          <span>{selectedItem}</span>
         </Autocomplete>
       </Field>
       <Menu>{renderOptions()}</Menu>
