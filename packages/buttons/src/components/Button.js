@@ -50,6 +50,7 @@ Button.propTypes = {
   /** Applies inset `box-shadow` styling on focus */
   focusInset: PropTypes.bool,
   focused: PropTypes.bool,
+  /** @ignore prop used by `ButtonGroup` */
   selected: PropTypes.bool
 };
 

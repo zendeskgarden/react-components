@@ -17,7 +17,7 @@ const SIZE = {
 };
 
 /**
- * IconButton with an embedded chevron icon
+ * An `IconButton` with an embedded chevron icon
  */
 const ChevronButton = React.forwardRef(({ rotated, ...buttonProps }, ref) => (
   <IconButton pill={false} basic={false} ref={ref} rotated={rotated} {...buttonProps}>
