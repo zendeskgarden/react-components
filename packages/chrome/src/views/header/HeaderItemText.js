@@ -8,7 +8,7 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styled from 'styled-components';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import ChromeStyles from '@zendeskgarden/css-chrome';
 
 const COMPONENT_ID = 'chrome.header_item_text';
@@ -23,7 +23,7 @@ const HeaderItemText = styled.span.attrs(props => ({
     [ChromeStyles['is-clipped']]: props.clipped
   })
 }))`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 HeaderItemText.propTypes = {

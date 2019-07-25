@@ -7,15 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import {
-  zdColorGreen200,
-  zdColorGrey200,
-  zdColorRed200,
-  zdColorYellow200,
-  zdFontSizeSmMonospace,
-  zdFontSizeMdMonospace,
-  zdFontSizeLgMonospace
-} from '@zendeskgarden/css-variables';
+import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 import Code from './Code';
 
 describe('Code', () => {
@@ -38,19 +30,19 @@ describe('Code', () => {
     it('renders small styling if provided', () => {
       const { container } = render(<Code size="small" />);
 
-      expect(container.firstChild).toHaveStyleRule('font-size', zdFontSizeSmMonospace);
+      expect(container.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.mono.sm);
     });
 
     it('renders medium styling if provided', () => {
       const { container } = render(<Code size="medium" />);
 
-      expect(container.firstChild).toHaveStyleRule('font-size', zdFontSizeMdMonospace);
+      expect(container.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.mono.md);
     });
 
     it('renders large styling if provided', () => {
       const { container } = render(<Code size="large" />);
 
-      expect(container.firstChild).toHaveStyleRule('font-size', zdFontSizeLgMonospace);
+      expect(container.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.mono.lg);
     });
   });
 
@@ -58,25 +50,25 @@ describe('Code', () => {
     it('renders grey styling if provided', () => {
       const { container } = render(<Code type="grey" />);
 
-      expect(container.firstChild).toHaveStyleRule('background-color', zdColorGrey200);
+      expect(container.firstChild).toHaveStyleRule('background-color', PALETTE.grey[200]);
     });
 
     it('renders green styling if provided', () => {
       const { container } = render(<Code type="green" />);
 
-      expect(container.firstChild).toHaveStyleRule('background-color', zdColorGreen200);
+      expect(container.firstChild).toHaveStyleRule('background-color', PALETTE.green[200]);
     });
 
     it('renders red styling if provided', () => {
       const { container } = render(<Code type="red" />);
 
-      expect(container.firstChild).toHaveStyleRule('background-color', zdColorRed200);
+      expect(container.firstChild).toHaveStyleRule('background-color', PALETTE.red[200]);
     });
 
     it('renders yellow styling if provided', () => {
       const { container } = render(<Code type="yellow" />);
 
-      expect(container.firstChild).toHaveStyleRule('background-color', zdColorYellow200);
+      expect(container.firstChild).toHaveStyleRule('background-color', PALETTE.yellow[200]);
     });
   });
 });

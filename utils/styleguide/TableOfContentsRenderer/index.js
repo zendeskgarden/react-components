@@ -73,11 +73,7 @@ class TableOfContents extends Component {
           <TableOfContentsChildrenWrapper>{children}</TableOfContentsChildrenWrapper>
           <ThemeProvider>
             <RTLContainer>
-              <ChangelogButton
-                link
-                size="small"
-                onClick={() => this.setState({ isChangelogModalOpen: true })}
-              >
+              <ChangelogButton link onClick={() => this.setState({ isChangelogModalOpen: true })}>
                 View Changelog
               </ChangelogButton>
               {isChangelogModalOpen && (
@@ -105,7 +101,7 @@ class TableOfContents extends Component {
                 type="light"
                 size="extra-large"
                 trigger={
-                  <div>
+                  <div style={{ marginBottom: 20 }}>
                     <Field>
                       <Toggle
                         checked={isRtl}

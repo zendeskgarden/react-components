@@ -7,7 +7,6 @@ This example includes:
 - Accessible ordering with the `Space/Up/Down` keys
 
 ```jsx
-const { zdSpacingSm } = require('@zendeskgarden/css-variables');
 const { DragDropContext, Droppable, Draggable } = require('react-beautiful-dnd');
 const GripIcon = require('@zendeskgarden/svg-icons/src/12/grip.svg').default;
 const { XL } = require('@zendeskgarden/react-typography/src');
@@ -82,7 +81,7 @@ class DraggableExample extends React.Component {
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <Table>
-          <XL tag={Caption} style={{ marginBottom: zdSpacingSm }}>
+          <XL tag={Caption} style={{ marginBottom: DEFAULT_THEME.space.sm }}>
             Your Unsolved Tickets
           </XL>
           <Head>

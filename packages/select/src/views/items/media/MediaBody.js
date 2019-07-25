@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { MediaBody as MenuMediaBody } from '@zendeskgarden/react-menus';
 
 const COMPONENT_ID = 'select.media_body';
@@ -18,7 +18,7 @@ const MediaBody = styled(MenuMediaBody).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 /** @component */

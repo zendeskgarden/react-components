@@ -11,7 +11,7 @@ import styled from 'styled-components';
 import classNames from 'classnames';
 import ButtonStyles from '@zendeskgarden/css-buttons';
 import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
-import { retrieveTheme, withTheme, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, withTheme, isRtl } from '@zendeskgarden/react-theming';
 import NewWindowIcon from '@zendeskgarden/svg-icons/src/12/new-window-stroke.svg';
 
 const COMPONENT_ID = 'buttons.anchor';
@@ -40,7 +40,7 @@ export const StyledAnchor = styled.a.attrs(props => ({
     }
   `}
 
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 export const StyledNewWindowIcon = styled(NewWindowIcon)`

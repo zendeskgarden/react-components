@@ -8,17 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import {
-  zdColorGreen200,
-  zdColorGreen700,
-  zdColorGrey200,
-  zdColorGrey700,
-  zdColorRed200,
-  zdColorRed700,
-  zdColorYellow200,
-  zdColorYellow800
-} from '@zendeskgarden/css-variables';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import SM from './SM';
 import MD from './MD';
 import LG from './LG';
@@ -38,31 +28,31 @@ const TYPE = {
   YELLOW: 'yellow'
 };
 
-const backgroundColor = type => {
+const backgroundColor = (type, theme) => {
   switch (type) {
     case TYPE.RED:
-      return zdColorRed200;
+      return theme.palette.red[200];
     case TYPE.GREEN:
-      return zdColorGreen200;
+      return theme.palette.green[200];
     case TYPE.YELLOW:
-      return zdColorYellow200;
+      return theme.palette.yellow[200];
     case TYPE.GREY:
     default:
-      return zdColorGrey200;
+      return theme.palette.grey[200];
   }
 };
 
-const foregroundColor = type => {
+const foregroundColor = (type, theme) => {
   switch (type) {
     case TYPE.RED:
-      return zdColorRed700;
+      return theme.palette.red[700];
     case TYPE.GREEN:
-      return zdColorGreen700;
+      return theme.palette.green[700];
     case TYPE.YELLOW:
-      return zdColorYellow800;
+      return theme.palette.yellow[800];
     case TYPE.GREY:
     default:
-      return zdColorGrey700;
+      return theme.palette.grey[700];
   }
 };
 
@@ -73,11 +63,11 @@ const codeAttributes = {
 
 const codeCSS = css`
   border-radius: 2px;
-  background-color: ${props => backgroundColor(props.type)};
+  background-color: ${props => backgroundColor(props.type, props.theme)};
   padding: 1.5px;
-  color: ${props => foregroundColor(props.type)};
+  color: ${props => foregroundColor(props.type, props.theme)};
 
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 const StyledSM = styled(SM).attrs(codeAttributes)`

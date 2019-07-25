@@ -16,6 +16,15 @@ module.exports = {
       content: '../../packages/typography/README.md'
     },
     {
+      name: 'Examples',
+      sections: [
+        {
+          name: 'Lists',
+          content: '../../packages/typography/examples/list.md'
+        }
+      ]
+    },
+    {
       name: 'Components',
       components: [
         '../../packages/typography/src/views/SM.js',
@@ -25,7 +34,9 @@ module.exports = {
         '../../packages/typography/src/views/XXL.js',
         '../../packages/typography/src/views/XXXL.js',
         '../../packages/typography/src/views/Code.js',
-        '../../packages/typography/src/views/Ellipsis.js'
+        '../../packages/typography/src/views/Ellipsis.js',
+        '../../packages/typography/src/views/lists/OrderedList.js',
+        '../../packages/typography/src/views/lists/UnorderedList.js'
       ]
     }
   ]

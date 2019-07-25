@@ -8,7 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 import { dotOneKeyframes, dotTwoKeyframes, dotThreeKeyframes } from './utils/animations';
 
@@ -77,7 +77,7 @@ const StyledSvg = styled.svg.attrs(props => ({
   color: ${props => props.color || 'inherit'};
   font-size: ${props => props.fontSize || 'inherit'};
 
-  ${props => retrieveTheme(props.dataGardenId, props)};
+  ${props => retrieveComponentStyles(props.dataGardenId, props)};
 `;
 
 StyledSvg.propTypes = {

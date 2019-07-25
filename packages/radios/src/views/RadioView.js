@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
 
 const COMPONENT_ID = 'radios.radio_view';
@@ -23,7 +23,7 @@ const RadioView = styled.div.attrs(props => ({
     [CheckboxStyles['is-rtl']]: isRtl(props)
   })
 }))`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 /** @component */

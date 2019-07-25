@@ -8,7 +8,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 import ModalStyles from '@zendeskgarden/css-modals';
 
 const COMPONENT_ID = 'modals.modal_view';
@@ -30,7 +30,7 @@ const ModalView = styled.div.attrs(props => ({
     [ModalStyles['is-rtl']]: isRtl(props)
   })
 }))`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 ModalView.propTypes = {

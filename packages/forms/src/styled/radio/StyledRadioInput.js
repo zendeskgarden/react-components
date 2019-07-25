@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import StyledCheckInput from '../checkboxes/StyledCheckInput';
 
 /**
@@ -15,7 +15,7 @@ import StyledCheckInput from '../checkboxes/StyledCheckInput';
 const StyledRadioInput = styled(StyledCheckInput).attrs({
   type: 'radio'
 })`
-  ${props => retrieveTheme('forms.radio_input', props)};
+  ${props => retrieveComponentStyles('forms.radio_input', props)};
 `;
 
 export default StyledRadioInput;

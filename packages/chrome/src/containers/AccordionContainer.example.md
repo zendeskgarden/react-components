@@ -1,10 +1,5 @@
 ```jsx
-const {
-  zdSpacing,
-  zdSpacingSm,
-  zdSpacingXs,
-  zdColorGrey300
-} = require('@zendeskgarden/css-variables');
+const { PALETTE } = require('@zendeskgarden/react-theming/src');
 const DownIcon = require('@zendeskgarden/svg-icons/src/16/chevron-down-fill.svg').default;
 
 const UpIcon = styled(DownIcon)`
@@ -12,8 +7,8 @@ const UpIcon = styled(DownIcon)`
 `;
 
 const StyledAccordion = styled.div`
-  border: 1px solid ${zdColorGrey300};
-  border-radius: ${zdSpacingXs};
+  border: 1px solid ${PALETTE.grey[300]};
+  border-radius: ${DEFAULT_THEME.borderRadii.md};
 `;
 
 const StyledHeadingButton = styled.button`
@@ -23,7 +18,7 @@ const StyledHeadingButton = styled.button`
   font-size: 1em;
   font-weight: normal;
   margin: 0;
-  padding: ${zdSpacingSm} ${zdSpacing};
+  padding: ${DEFAULT_THEME.space.sm} ${DEFAULT_THEME.space.md};
   position: relative;
   text-align: left;
   width: 100%;
@@ -35,8 +30,8 @@ const StyledIconWrapper = styled.div`
 
 const StyledPanel = styled.div`
   margin: 0;
-  padding: ${zdSpacingSm} ${zdSpacing};
-  border-top: 1px solid ${zdColorGrey300};
+  padding: ${DEFAULT_THEME.space.sm} ${DEFAULT_THEME.space.md};
+  border-top: 1px solid ${PALETTE.grey[300]};
 
   display: ${props => (props.hidden ? 'none' : 'block')};
 `;

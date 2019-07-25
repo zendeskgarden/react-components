@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styled from 'styled-components';
 import PaginationStyles from '@zendeskgarden/css-pagination';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 import Page from './Page';
 const COMPONENT_ID = 'pagination.next_page';
@@ -22,7 +22,7 @@ const NextPage = styled(Page).attrs(props => ({
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(props.className, PaginationStyles['c-pagination__page--next'])
 }))`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 NextPage.propTypes = {

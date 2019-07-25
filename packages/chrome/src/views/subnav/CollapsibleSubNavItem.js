@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import ChromeStyles from '@zendeskgarden/css-chrome';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 import AccordionContainer from '../../containers/AccordionContainer';
 import SubNavItem from './SubNavItem';
@@ -26,7 +26,7 @@ export const StyledSubNavItemHeader = styled(SubNavItem).attrs(props => ({
     [ChromeStyles['is-expanded']]: props.expanded
   })
 }))`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledSubNavItemHeader.propTypes = {
@@ -41,7 +41,7 @@ export const StyledSubNavPanel = styled.div.attrs(props => ({
     [ChromeStyles['is-hidden']]: props.isHidden
   })
 }))`
-  ${props => retrieveTheme(PANEL_COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(PANEL_COMPONENT_ID, props)};
 `;
 
 StyledSubNavPanel.propTypes = {

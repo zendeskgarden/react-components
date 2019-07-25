@@ -8,7 +8,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 
 /**
@@ -22,7 +22,7 @@ const StyledTextHint = styled.div.attrs(props => ({
     [TextStyles['is-rtl']]: isRtl(props)
   })
 }))`
-  ${props => retrieveTheme('forms.text_hint', props)};
+  ${props => retrieveComponentStyles('forms.text_hint', props)};
 `;
 
 StyledTextHint.propTypes = {

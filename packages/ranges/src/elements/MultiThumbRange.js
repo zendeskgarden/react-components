@@ -13,7 +13,12 @@ import classNames from 'classnames';
 import styled from 'styled-components';
 import debounce from 'lodash.debounce';
 import { KEY_CODES } from '@zendeskgarden/react-selection';
-import { retrieveTheme, withTheme, isRtl, getDocument } from '@zendeskgarden/react-theming';
+import {
+  retrieveComponentStyles,
+  withTheme,
+  isRtl,
+  getDocument
+} from '@zendeskgarden/react-theming';
 import RangeStyles from '@zendeskgarden/css-forms/dist/range.css';
 
 const SLIDER_COMPONENT_ID = 'ranges.multi_thumb_range.slider';
@@ -40,7 +45,7 @@ const StyledSlider = styled.div.attrs(props => ({
     box-sizing: border-box;
   }
 
-  ${props => retrieveTheme(SLIDER_COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(SLIDER_COMPONENT_ID, props)};
 `;
 
 const StyledTrack = styled.div.attrs({
@@ -49,7 +54,7 @@ const StyledTrack = styled.div.attrs({
   'data-test-id': 'track',
   className: RangeStyles['c-range__slider__track']
 })`
-  ${props => retrieveTheme(TRACK_COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(TRACK_COMPONENT_ID, props)};
 `;
 
 const StyledTrackRail = styled.div.attrs({
@@ -58,7 +63,7 @@ const StyledTrackRail = styled.div.attrs({
   'data-test-id': 'rail',
   className: RangeStyles['c-range__slider__track__rail']
 })`
-  ${props => retrieveTheme(RAIL_COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(RAIL_COMPONENT_ID, props)};
 `;
 
 const StyledThumb = styled.div.attrs(props => ({
@@ -69,7 +74,7 @@ const StyledThumb = styled.div.attrs(props => ({
     [RangeStyles['is-focused']]: props.isFocused
   })
 }))`
-  ${props => retrieveTheme(THUMB_COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(THUMB_COMPONENT_ID, props)};
 `;
 
 class MultiThumbRange extends Component {

@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 
 /**
@@ -15,7 +15,7 @@ import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 const StyledMediaFigure = styled.div.attrs({
   className: TextStyles['c-txt__input--media__figure']
 })`
-  ${props => retrieveTheme('forms.media_figure', props)};
+  ${props => retrieveComponentStyles('forms.media_figure', props)};
 `;
 
 export default StyledMediaFigure;

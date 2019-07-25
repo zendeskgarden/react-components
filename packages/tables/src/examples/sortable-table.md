@@ -2,7 +2,6 @@ When creating a sortable table, use the `SortableCell` component
 to ensure that the header is interactable and all accessibility attributes are applied.
 
 ```jsx
-const { zdSpacingSm } = require('@zendeskgarden/css-variables');
 const { XL } = require('@zendeskgarden/react-typography/src');
 
 const data = [];
@@ -52,7 +51,7 @@ const sortData = (data, requesterSort, typeSort) => {
 };
 
 <Table>
-  <XL tag={Caption} style={{ marginBottom: zdSpacingSm }}>
+  <XL tag={Caption} style={{ marginBottom: DEFAULT_THEME.space.sm }}>
     Sortable Ticket View
   </XL>
   <Head>

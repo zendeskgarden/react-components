@@ -6,11 +6,17 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
+import { render, renderRtl } from 'garden-test-utils';
 import Alert from './Alert';
 
 describe('Alert', () => {
   describe('validation', () => {
+    it('should render with RTL styling if applied', () => {
+      const { container } = renderRtl(<Alert type="success" />);
+
+      expect(container.firstChild).toHaveClass('is-rtl');
+    });
+
     it('should render success styling correctly', () => {
       const { container } = render(<Alert type="success" />);
 

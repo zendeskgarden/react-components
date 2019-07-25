@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import scrollbarSize from 'dom-helpers/util/scrollbarSize';
 import TableStyles from '@zendeskgarden/css-tables';
-import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 
 import { StyledRow } from './Row';
 import Body from './Body';
@@ -75,7 +75,7 @@ const Table = styled.div.attrs(props => ({
   })
 }))`
   ${props => retrieveSrollableStyling(props)};
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 
   ${/* sc-selector */ StyledRow} {
     min-height: ${({ size }) => retrieveRowMinHeight(size)};

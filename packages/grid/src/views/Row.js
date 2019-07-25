@@ -8,7 +8,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import GridStyles from '@zendeskgarden/css-grid';
 
 const COMPONENT_ID = 'grid.row';
@@ -25,7 +25,7 @@ const Row = styled.div.attrs(props => ({
     [GridStyles[`justify-content-${props.justifyContent}`]]: props.justifyContent
   })
 }))`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 Row.propTypes = {

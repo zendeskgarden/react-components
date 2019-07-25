@@ -8,7 +8,7 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styled from 'styled-components';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 
 import Input from './Input';
@@ -29,7 +29,7 @@ const MediaInput = styled(Input).attrs(props => ({
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(props.className, TextStyles['c-txt__input--media__body'])
 }))`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 MediaInput.propTypes = {

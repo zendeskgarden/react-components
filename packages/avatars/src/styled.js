@@ -8,7 +8,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 import AvatarStyles from '@zendeskgarden/css-avatars';
 
 const AVATARS_COMPONENT_ID = 'avatars.avatar';
@@ -49,7 +49,7 @@ export const StyledAvatar = styled.figure.attrs(props => ({
     [AvatarStyles['is-rtl']]: isRtl(props)
   })
 }))`
-  ${props => retrieveTheme(AVATARS_COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(AVATARS_COMPONENT_ID, props)};
 `;
 
 StyledAvatar.propTypes = {
@@ -69,5 +69,5 @@ export const StyledText = styled.span.attrs({
   'data-garden-version': PACKAGE_VERSION,
   className: AvatarStyles['c-avatar__txt']
 })`
-  ${props => retrieveTheme(TEXT_COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(TEXT_COMPONENT_ID, props)};
 `;

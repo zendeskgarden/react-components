@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import classNames from 'classnames';
 import TableStyles from '@zendeskgarden/css-tables';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tables.group_row';
 
@@ -22,7 +22,7 @@ const GroupRow = styled.div.attrs({
     display: flex;
   }
 
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 /** @component */

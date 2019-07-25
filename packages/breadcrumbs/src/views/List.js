@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import classNames from 'classnames';
 import BreadcrumbStyles from '@zendeskgarden/css-breadcrumbs';
-import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'breadcrumbs.list';
 
@@ -23,7 +23,7 @@ const List = styled.ol.attrs(props => ({
     [BreadcrumbStyles['is-rtl']]: isRtl(props)
   })
 }))`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 /** @component */

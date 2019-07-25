@@ -7,7 +7,7 @@
 
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { MediaItem as MenuMediaItem } from '@zendeskgarden/react-menus';
 
 const COMPONENT_ID = 'select.media_item';
@@ -19,7 +19,7 @@ const MediaItem = styled(MenuMediaItem).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 MediaItem.propTypes = {

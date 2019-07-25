@@ -9,13 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes, css } from 'styled-components';
 import { rgba } from 'polished';
-import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
-import {
-  zdColorGrey800,
-  zdColorKale700,
-  zdColorWhite,
-  zdSpacingXxs
-} from '@zendeskgarden/css-variables';
+import { DEFAULT_THEME, retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'loaders.skeleton';
 
@@ -41,7 +35,6 @@ const skeletonRtlAnimation = keyframes`
   }
 `;
 
-/* eslint-disable */
 const StyledSkeleton = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
@@ -49,8 +42,10 @@ const StyledSkeleton = styled.div.attrs({
   display: inline-block;
   position: relative;
   animation: ${fadeInAnimation} 750ms linear;
-  border-radius: ${zdSpacingXxs};
-  background-color: ${props => (props.dark ? rgba(zdColorWhite, 0.2) : rgba(zdColorGrey800, 0.1))};
+  border-radius: ${props => props.theme.borderRadii.md};
+  /* stylelint-disable-next-line declaration-colon-newline-after */
+  background-color: ${props =>
+    props.dark ? rgba(props.theme.palette.white, 0.2) : rgba(props.theme.palette.grey[800], 0.1)};
   width: ${props => props.customWidth};
   height: ${props => props.customHeight};
   overflow: hidden;
@@ -75,7 +70,11 @@ const StyledSkeleton = styled.div.attrs({
     background-image:
       linear-gradient(${props => (isRtl(props) ? '-45deg' : '45deg')},
       transparent,
-      ${props => (props.dark ? rgba(zdColorKale700, 0.4) : rgba(zdColorWhite, 0.6))},
+      /* stylelint-disable-next-line function-comma-newline-before */
+      ${props =>
+        props.dark
+          ? rgba(props.theme.palette.kale[700], 0.4)
+          : rgba(props.theme.palette.white, 0.6)},
       transparent);
     /* stylelint-enable function-comma-space-after */
 
@@ -84,9 +83,12 @@ const StyledSkeleton = styled.div.attrs({
     content: '';
   }
 
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-/* eslint-enable */
+
+StyledSkeleton.defaultProps = {
+  theme: DEFAULT_THEME
+};
 
 /**
  * Loader used to create Skeleton objects

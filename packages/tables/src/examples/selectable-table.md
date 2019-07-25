@@ -1,5 +1,4 @@
 ```jsx
-const { zdSpacingSm } = require('@zendeskgarden/css-variables');
 const { XL } = require('@zendeskgarden/react-typography/src');
 const { Field, Checkbox, Label } = require('@zendeskgarden/react-forms/src');
 
@@ -32,7 +31,7 @@ const isSelectAllChecked = (selectedRows, rows) => {
 };
 
 <Table>
-  <XL tag={Caption} style={{ marginBottom: zdSpacingSm }}>
+  <XL tag={Caption} style={{ marginBottom: DEFAULT_THEME.space.sm }}>
     Selectable Ticket View
   </XL>
   <Head>

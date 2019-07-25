@@ -10,8 +10,12 @@ module.exports = {
       content: '../../packages/theming/README.md'
     },
     {
-      name: 'Theming',
-      components: '../../packages/theming/src/ThemeProvider/[A-Z]*.js'
+      name: 'Components',
+      components: [
+        '../../packages/theming/src/ThemeProvider/[A-Z]*.js',
+        '../../packages/theming/src/palette/index.js',
+        '../../packages/theming/src/theme/index.js'
+      ]
     },
     {
       name: 'Utils',

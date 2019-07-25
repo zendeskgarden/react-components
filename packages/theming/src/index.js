@@ -6,7 +6,10 @@
  */
 
 export { default as ThemeProvider } from './ThemeProvider/ThemeProvider';
+export { default as DEFAULT_THEME } from './theme';
+export { default as PALETTE } from './palette';
 export { default as isRtl } from './utils/isRtl';
-export { default as retrieveTheme } from './utils/retrieveTheme';
+export { default as retrieveComponentStyles } from './utils/retrieveComponentStyles';
 export { default as withTheme } from './utils/withTheme';
 export { default as getDocument } from './utils/getDocument';
+export { default as getColor } from './utils/getColor';

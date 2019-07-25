@@ -3,6 +3,7 @@ language: node_js
 branches:
   only:
     - master
+    - next
 
 cache:
   yarn: true
@@ -16,9 +17,10 @@ before_install:
 install: yarn --frozen-lockfile --ignore-scripts
 
 script:
-  - yarn lint
-  - yarn format
   - yarn lerna bootstrap --ignore-scripts
+  - yarn lint
+  - yarn tsc
+  - yarn format
   - yarn test:all --coverage --runInBand
 
 after_success: yarn coveralls < demo/coverage/lcov.info

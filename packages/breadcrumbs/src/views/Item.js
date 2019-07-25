@@ -8,7 +8,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import BreadcrumbStyles from '@zendeskgarden/css-breadcrumbs';
 
 const COMPONENT_ID = 'breadcrumbs.item';
@@ -24,7 +24,7 @@ const Item = styled.li.attrs(props => ({
     [BreadcrumbStyles['is-current']]: props.current
   })
 }))`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 Item.propTypes = { current: PropTypes.bool };

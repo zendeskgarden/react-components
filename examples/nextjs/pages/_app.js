@@ -7,7 +7,14 @@
 
 import React from 'react';
 import App, { Container } from 'next/app';
+import Head from 'next/head';
 import { ThemeProvider } from '@zendeskgarden/react-theming';
+
+/** Import Garden styles globally with next-css */
+import '@zendeskgarden/css-bedrock/dist/index.css';
+import '@zendeskgarden/react-chrome/dist/styles.css';
+import '@zendeskgarden/react-buttons/dist/styles.css';
+import '@zendeskgarden/react-dropdowns/dist/styles.css';
 
 export default class GardenApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -25,6 +32,9 @@ export default class GardenApp extends App {
 
     return (
       <Container>
+        <Head>
+          <title>My page</title>
+        </Head>
         <ThemeProvider>
           <Component {...pageProps} />
         </ThemeProvider>
