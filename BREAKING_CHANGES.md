@@ -12,3 +12,9 @@
 - custom `document` object
   - previously `<ThemeProvider document={doc}>`
   - currently `<ThemeProvider theme={{ ...DEFAULT_THEME, document: doc }}>`
+
+## @zendeskgarden/react-loaders
+
+- `<Dots />` loader no longer has the `velocity` prop
+  - Use `duration` instead which accepts `ms` defaults to 1250ms
+
