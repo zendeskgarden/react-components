@@ -46,7 +46,7 @@ ChevronButton.propTypes = {
   hovered: PropTypes.bool,
   active: PropTypes.bool,
   /** Callback for reference of the native button element */
-  buttonRef: PropTypes.func,
+  buttonRef: PropTypes.any,
   /** Rotates icon 180 degrees */
   rotated: PropTypes.bool
 };
