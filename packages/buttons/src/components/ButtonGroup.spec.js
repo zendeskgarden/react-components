@@ -10,7 +10,7 @@ import React from 'react';
 import { render, fireEvent } from 'garden-test-utils';
 
 import ButtonGroup from './ButtonGroup';
-import Button from '../views/Button';
+import Button from './Button';
 
 describe('ButtonGroup', () => {
   const BasicExample = () => (

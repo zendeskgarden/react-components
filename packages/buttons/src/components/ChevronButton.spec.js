@@ -13,6 +13,6 @@ describe('ChevronButton', () => {
   it('rotates icon if prop is provided', () => {
     const { container } = render(<ChevronButton rotated />);
 
-    expect(container.firstChild.firstChild).toHaveClass('is-rotated');
+    expect(container.firstChild.firstChild).toHaveStyleRule('transform', 'rotate(+180deg)');
   });
 });

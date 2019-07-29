@@ -8,11 +8,16 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import IconButton from './IconButton';
+import GearIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
 
 describe('IconButton', () => {
   it('renders pill and muted styling by default', () => {
-    const { container } = render(<IconButton />);
+    const { container } = render(
+      <IconButton>
+        <GearIcon />
+      </IconButton>
+    );
 
-    expect(container.firstChild).toHaveClass('c-btn--icon');
+    expect(container.firstChild).toHaveStyleRule('width', '40px');
   });
 });

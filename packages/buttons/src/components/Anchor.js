@@ -24,7 +24,7 @@ const Anchor = React.forwardRef(({ children, external, ...buttonProps }, ref) =>
         })}
       >
         {children}
-        {external && <StyledExternalIcon />}
+        {external && <StyledExternalIcon data-test-id="anchor-external" />}
       </StyledAnchor>
     )}
   </KeyboardFocusContainer>

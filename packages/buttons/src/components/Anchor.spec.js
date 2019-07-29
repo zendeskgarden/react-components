@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import { getColor } from '@zendeskgarden/react-theming';
 import { render, fireEvent } from 'garden-test-utils';
 import Anchor from './Anchor';
 
@@ -13,14 +14,25 @@ describe('Anchor', () => {
   it('renders default styling', () => {
     const { container } = render(<Anchor />);
 
-    expect(container.firstChild).toHaveClass('c-btn');
-    expect(container.firstChild).toHaveClass('c-btn--anchor');
+    expect(container.firstChild).toHaveStyleRule('display', 'inline');
   });
 
   it('renders danger styling if provided', () => {
     const { container } = render(<Anchor danger />);
 
-    expect(container.firstChild).toHaveClass('c-btn--danger');
+    expect(container.firstChild).toHaveStyleRule('color', getColor('dangerHue'));
+  });
+
+  it('renders external styling if provided', () => {
+    const { getByTestId } = render(<Anchor external />);
+
+    expect(getByTestId('anchor-external')).not.toBeNull();
+  });
+
+  it('renders disabled styling if provided', () => {
+    const { container } = render(<Anchor disabled />);
+
+    expect(container.firstChild).toHaveStyleRule('color', getColor('neutralHue'));
   });
 
   describe('Selection', () => {
@@ -28,40 +40,14 @@ describe('Anchor', () => {
       const { container } = render(<Anchor />);
 
       fireEvent.click(container.firstChild);
-      expect(container.firstChild).not.toHaveClass('is-focused');
+      expect(container.firstChild).not.toHaveClass('focus-visible');
     });
 
     it('renders focused styling if focused by keyboard', () => {
-      const { container } = render(<Anchor data-test-id="anchor" />);
+      const { container } = render(<Anchor />);
 
       fireEvent.focus(container.firstChild);
-      expect(container.firstChild).toHaveClass('is-focused');
-    });
-  });
-
-  describe('States', () => {
-    it('renders active styling if provided', () => {
-      const { container } = render(<Anchor active />);
-
-      expect(container.firstChild).toHaveClass('is-active');
-    });
-
-    it('renders disabled styling if provided', () => {
-      const { container } = render(<Anchor disabled />);
-
-      expect(container.firstChild).toHaveClass('is-disabled');
-    });
-
-    it('renders focused styling if provided', () => {
-      const { container } = render(<Anchor focused />);
-
-      expect(container.firstChild).toHaveClass('is-focused');
-    });
-
-    it('renders hovered styling if provided', () => {
-      const { container } = render(<Anchor hovered />);
-
-      expect(container.firstChild).toHaveClass('is-hovered');
+      expect(container.firstChild).toHaveClass('focus-visible');
     });
   });
 });

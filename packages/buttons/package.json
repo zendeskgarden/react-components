@@ -18,7 +18,6 @@
     "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
-  "types": "./dist/typings/index.d.ts",
   "dependencies": {
     "@zendeskgarden/react-selection": "^6.2.0",
     "@zendeskgarden/react-utilities": "^6.2.0",

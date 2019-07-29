@@ -10,6 +10,4 @@ export { default as Anchor } from './components/Anchor';
 export { default as ButtonGroup } from './components/ButtonGroup';
 export { default as ChevronButton } from './components/ChevronButton';
 export { default as IconButton } from './components/IconButton';
-/*
 export { default as ButtonGroupContainer } from './containers/ButtonGroupContainer';
-*/
