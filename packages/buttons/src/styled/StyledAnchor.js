@@ -11,13 +11,6 @@ import { StyledButton } from './StyledButton';
 
 const COMPONENT_ID = 'buttons.anchor';
 
-/*
-export interface IStyledAnchorProps {
-  external?: boolean;
-  theme: DefaultTheme;
-}
-*/
-
 /**
  * Accepts all `<a>` props
  */

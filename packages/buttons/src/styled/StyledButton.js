@@ -25,29 +25,6 @@ const SIZE = {
   LARGE: 'large'
 };
 
-/*
-export enum SIZE {
-  SMALL = 'small',
-  MEDIUM = 'medium',
-  LARGE = 'large'
-}
-
-export interface IStyledButtonProps {
-  basic?: boolean;
-  danger?: boolean;
-  disabled?: boolean;
-  focused?: boolean;
-  focusInset?: boolean;
-  link?: boolean;
-  pill?: boolean;
-  primary?: boolean;
-  selected?: boolean;
-  size?: SIZE;
-  stretched?: boolean;
-  theme: DefaultTheme;
-}
-*/
-
 const getBorderRadius = props => {
   if (props.link) {
     return 0;

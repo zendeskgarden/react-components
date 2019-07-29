@@ -11,12 +11,6 @@ import { DEFAULT_THEME, retrieveComponentStyles, isRtl } from '@zendeskgarden/re
 
 const COMPONENT_ID = 'buttons.external_icon';
 
-/*
-export interface IStyledExternalIconProps {
-  theme: DefaultTheme;
-}
-*/
-
 /**
  * Accepts all `<svg>` props
  */

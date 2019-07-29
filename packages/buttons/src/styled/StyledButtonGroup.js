@@ -10,12 +10,6 @@ import { DEFAULT_THEME, retrieveComponentStyles, isRtl } from '@zendeskgarden/re
 
 const COMPONENT_ID = 'buttons.button_group_view';
 
-/*
-export interface IStyledButtonGroupProps {
-  theme: DefaultTheme;
-}
-*/
-
 /**
  * Accepts all `<div>` props
  */
