@@ -6,7 +6,7 @@
  */
 
 import React, { useCallback } from 'react';
-import { StyledHeader, StyledHeaderPaddle, StyledHeaderLabel } from '../styled';
+import { StyledHeader, StyledHeaderPaddle, StyledHeaderLabel } from '../../styled';
 import useDatepickerContext from '../utils/useDatepickerContext';
 
 import ChevronLeftStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
@@ -33,7 +33,7 @@ const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({ locale, s
   );
 
   return (
-    <StyledHeader>
+    <StyledHeader isSmall={small}>
       <StyledHeaderPaddle
         isSmall={small}
         onClick={() => {
