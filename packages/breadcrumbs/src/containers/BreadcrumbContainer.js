@@ -5,16 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-if (process.env.NODE_ENV !== 'production') {
-  /* eslint-disable no-console */
-  console.warn(
-    'Deprecation Warning: The `@zendeskgarden/react-breadcrumbs` BreadcrumbContainer has been deprecated. ' +
-      'It will be removed in an upcoming major release. Migrate to the ' +
-      '`@zendeskgarden/container-breadcrumb` package to continue receiving updates.'
-  );
-  /* eslint-enable */
-}
-
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
