@@ -52,7 +52,7 @@ export default class Radio extends ControlledComponent {
     getHintProps,
     keyboardFocused
   } = {}) => {
-    const { children, wrapperProps, id, ...checkboxInputProps } = this.props; // eslint-disable-line no-unused-vars
+    const { children, wrapperProps, id, ...checkboxInputProps } = this.props; // eslint-disable-line @typescript-eslint/no-unused-vars
 
     /**
      * Due to us applying keyboard-only focus events to 2 separate elements (the input and label)

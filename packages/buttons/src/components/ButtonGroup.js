@@ -94,7 +94,7 @@ export default class ButtonGroup extends ControlledComponent {
   };
 
   render() {
-    const { children, onStateChange, ...otherProps } = this.props; // eslint-disable-line no-unused-vars
+    const { children, onStateChange, ...otherProps } = this.props; // eslint-disable-line @typescript-eslint/no-unused-vars
     const { focusedKey, selectedKey, id } = this.getControlledState();
 
     return (

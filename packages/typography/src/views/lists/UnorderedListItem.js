@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
@@ -26,7 +26,7 @@ const StyledUnorderedListItemContent = styled(MD)`
   ${props => listItemContentCSS(props)};
 `;
 
-const UnorderedListItem = ({ children, ...props }) => {
+const UnorderedListItem = ({ children }) => {
   const { size } = useUnorderedListContext();
 
   return (

@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { isRtl, retrieveComponentStyles } from '@zendeskgarden/react-theming';
@@ -31,7 +31,7 @@ const StyledOrderedListItemContent = styled(MD)`
   ${props => listItemContentCSS(props)};
 `;
 
-const OrderedListItem = ({ children, ...props }) => {
+const OrderedListItem = ({ children }) => {
   const { size } = useOrderedListContext();
 
   return (

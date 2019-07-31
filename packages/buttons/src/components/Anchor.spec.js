@@ -6,7 +6,6 @@
  */
 
 import React from 'react';
-import { getColor } from '@zendeskgarden/react-theming';
 import { render, fireEvent } from 'garden-test-utils';
 import Anchor from './Anchor';
 

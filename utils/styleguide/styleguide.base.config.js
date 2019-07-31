@@ -11,7 +11,6 @@ const { DEFAULT_THEME, PALETTE } = require(path.resolve('../../packages/theming'
 const packageManifest = require(path.resolve('package.json'));
 const customStyleguideConfig = require(path.resolve('styleguide.config.js'));
 const babelOptions = require(path.resolve('../../babel.config.js'));
-const exec = require('child_process').execSync;
 const basePathName = path.basename(path.resolve('./'));
 const googleTrackingId = 'UA-970836-25';
 const capitalizePackageName = basePathName.charAt(0).toUpperCase() + basePathName.slice(1);

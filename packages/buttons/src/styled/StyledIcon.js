@@ -12,6 +12,7 @@ import { DEFAULT_THEME, isRtl, retrieveComponentStyles } from '@zendeskgarden/re
 
 const COMPONENT_ID = 'buttons.icon';
 
+/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
 export const StyledIcon = styled(({ children, rotated, ...props }) =>
   React.cloneElement(Children.only(children), props)
 ).attrs({
