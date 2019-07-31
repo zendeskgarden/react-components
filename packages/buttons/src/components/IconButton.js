@@ -29,6 +29,7 @@ const IconButton = React.forwardRef(({ children, focused, rotated, ...buttonProp
         <StyledIconButton
           {...getFocusProps({
             ref,
+            tabIndex: null,
             ...buttonProps,
             focused: focused || keyboardFocused,
             focusInset

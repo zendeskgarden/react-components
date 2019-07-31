@@ -29,6 +29,7 @@ const Button = React.forwardRef(({ focused, ...other }, ref) => {
         <StyledButton
           {...getFocusProps({
             ref,
+            tabIndex: null,
             ...other,
             focused: focused || keyboardFocused,
             focusInset

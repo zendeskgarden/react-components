@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /**
  * Copyright Zendesk, Inc.
  *
@@ -8,7 +7,6 @@
 
 import React from 'react';
 import { render, fireEvent } from 'garden-test-utils';
-
 import ButtonGroup from './ButtonGroup';
 import Button from './Button';
 
@@ -24,6 +22,7 @@ describe('ButtonGroup', () => {
     </ButtonGroup>
   );
 
+  /* eslint-disable no-console */
   it('throws if key is not provided to button', () => {
     const originalError = console.error;
 
