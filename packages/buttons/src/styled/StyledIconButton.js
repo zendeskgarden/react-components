@@ -7,7 +7,7 @@
 
 import styled, { css } from 'styled-components';
 import { math } from 'polished';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledButton, getLineHeight } from './StyledButton';
 import { StyledIcon } from './StyledIcon';
 
@@ -59,7 +59,3 @@ export const StyledIconButton = styled(StyledButton).attrs(() => ({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledIconButton.defaultProps = {
-  theme: DEFAULT_THEME
-};

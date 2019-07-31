@@ -64,6 +64,7 @@ export default function getColor(hue, shade = DEFAULT_SHADE, theme, transparency
             ? parseInt(current, 10)
             : parseInt(previous, 10);
         });
+
         retVal = adjust(_hue[_shade], shade, _shade);
       }
     } else {

@@ -6,12 +6,13 @@
  */
 
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import React, { Children } from 'react';
 import { DEFAULT_THEME, isRtl, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'buttons.icon';
 
-export const StyledIcon = styled(({ children, ...props }) =>
+export const StyledIcon = styled(({ children, rotated, ...props }) =>
   React.cloneElement(Children.only(children), props)
 ).attrs({
   'data-garden-id': COMPONENT_ID,
@@ -24,6 +25,11 @@ export const StyledIcon = styled(({ children, ...props }) =>
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledIcon.propTypes = {
+  rotated: PropTypes.bool,
+  theme: PropTypes.object
+};
 
 StyledIcon.defaultProps = {
   theme: DEFAULT_THEME

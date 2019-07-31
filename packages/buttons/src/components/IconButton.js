@@ -47,6 +47,8 @@ IconButton.propTypes = {
   pill: PropTypes.bool,
   /** Applies inset `box-shadow` styling on focus */
   focusInset: PropTypes.bool,
+  /** @ignore */
+  focused: PropTypes.bool,
   /** Rotates icon 180 degrees */
   rotated: PropTypes.bool
 };
@@ -55,11 +57,6 @@ IconButton.defaultProps = {
   pill: true,
   basic: true,
   size: SIZE.MEDIUM
-};
-
-IconButton.propTypes = {
-  /** Rotates icon 180 degrees */
-  rotated: PropTypes.bool
 };
 
 /** @component */

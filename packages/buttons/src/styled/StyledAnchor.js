@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme } from 'styled-components';
-import { DEFAULT_THEME, retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 import { StyledButton } from './StyledButton';
 
 const COMPONENT_ID = 'buttons.anchor';
@@ -28,6 +29,6 @@ export const StyledAnchor = styled(StyledButton).attrs(() => ({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledAnchor.defaultProps = {
-  theme: DEFAULT_THEME
+StyledAnchor.propTypes = {
+  external: PropTypes.bool
 };

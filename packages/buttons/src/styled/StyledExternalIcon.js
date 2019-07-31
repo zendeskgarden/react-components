@@ -6,6 +6,7 @@
  */
 
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import NewWindowIcon from '@zendeskgarden/svg-icons/src/12/new-window-stroke.svg';
 import { DEFAULT_THEME, retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 
@@ -26,6 +27,10 @@ export const StyledExternalIcon = styled(NewWindowIcon).attrs(() => ({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledExternalIcon.propTypes = {
+  theme: PropTypes.object
+};
 
 StyledExternalIcon.defaultProps = {
   theme: DEFAULT_THEME

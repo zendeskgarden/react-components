@@ -11,22 +11,10 @@ import { render, fireEvent } from 'garden-test-utils';
 import Anchor from './Anchor';
 
 describe('Anchor', () => {
-  it('renders default styling', () => {
-    const { container } = render(<Anchor />);
+  it('renders external SVG if provided', () => {
+    const { container } = render(<Anchor external />);
 
-    expect(container.firstChild).toHaveStyleRule('display', 'inline');
-  });
-
-  it('renders danger styling if provided', () => {
-    const { container } = render(<Anchor danger />);
-
-    expect(container.firstChild).toHaveStyleRule('color', getColor('dangerHue'));
-  });
-
-  it('renders external styling if provided', () => {
-    const { getByTestId } = render(<Anchor external />);
-
-    expect(getByTestId('anchor-external')).not.toBeNull();
+    expect(container.querySelector('svg')).not.toBeNull();
   });
 
   it('renders disabled styling if provided', () => {

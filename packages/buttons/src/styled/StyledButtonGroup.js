@@ -6,6 +6,7 @@
  */
 
 import styled from 'styled-components';
+import PropType from 'prop-types';
 import { DEFAULT_THEME, retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'buttons.button_group_view';
@@ -28,6 +29,10 @@ export const StyledButtonGroup = styled.div.attrs(() => ({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledButtonGroup.propTypes = {
+  theme: PropType.object
+};
 
 StyledButtonGroup.defaultProps = {
   theme: DEFAULT_THEME

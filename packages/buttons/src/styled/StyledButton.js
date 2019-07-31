@@ -6,6 +6,7 @@
  */
 
 import styled, { css } from 'styled-components';
+import PropTypes from 'prop-types';
 import { em, math, rgba } from 'polished';
 import classNames from 'classnames';
 import {
@@ -318,7 +319,20 @@ export const StyledButton = styled.button.attrs(props => ({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
+StyledButton.propTypes = {
+  basic: PropTypes.bool,
+  danger: PropTypes.bool,
+  focused: PropTypes.bool,
+  focusInset: PropTypes.bool,
+  link: PropTypes.bool,
+  primary: PropTypes.bool,
+  pill: PropTypes.bool,
+  selected: PropTypes.bool,
+  size: PropTypes.oneOf([SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]),
+  stretched: PropTypes.bool,
+  theme: PropTypes.object
+};
+
 StyledButton.defaultProps = {
-  size: SIZE.MEDIUM,
   theme: DEFAULT_THEME
 };
