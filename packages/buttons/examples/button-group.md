@@ -98,7 +98,7 @@ native DOM representations.
 
 ```jsx
 <Grid>
-  <Row>
+  <Row alignItems="center">
     <Col>
       <ButtonGroup>
         <Button size="small" key="button-1">
@@ -107,13 +107,8 @@ native DOM representations.
         <Button size="small" key="button-2">
           Small
         </Button>
-        <Button size="small" key="button-3">
-          Small
-        </Button>
       </ButtonGroup>
     </Col>
-  </Row>
-  <Row>
     <Col>
       <ButtonGroup>
         <Button size="medium" key="button-1">
@@ -122,22 +117,14 @@ native DOM representations.
         <Button size="medium" key="button-2">
           Medium
         </Button>
-        <Button size="medium" key="button-3">
-          Medium
-        </Button>
       </ButtonGroup>
     </Col>
-  </Row>
-  <Row>
     <Col>
       <ButtonGroup>
         <Button size="large" key="button-1">
           Large
         </Button>
         <Button size="large" key="button-2">
-          Large
-        </Button>
-        <Button size="large" key="button-3">
           Large
         </Button>
       </ButtonGroup>

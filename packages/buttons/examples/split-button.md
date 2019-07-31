@@ -101,23 +101,19 @@ const increment = (num = 0) => setState({ count: state.count + num });
 
 ```jsx
 <Grid>
-  <Row>
+  <Row alignItems="center">
     <Col>
       <SplitButton>
         <Button size="small">Small</Button>
         <ChevronButton size="small" />
       </SplitButton>
     </Col>
-  </Row>
-  <Row>
     <Col>
       <SplitButton>
         <Button size="medium">Medium</Button>
         <ChevronButton size="medium" />
       </SplitButton>
     </Col>
-  </Row>
-  <Row>
     <Col>
       <SplitButton>
         <Button size="large">Large</Button>
