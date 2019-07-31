@@ -23,21 +23,6 @@ native DOM representations.
     </Col>
     <Col>
       <ButtonGroup>
-        <Button danger key="button-1">
-          Danger
-        </Button>
-        <Button danger key="button-2">
-          Danger
-        </Button>
-        <Button danger key="button-3">
-          Danger
-        </Button>
-      </ButtonGroup>
-    </Col>
-  </Row>
-  <Row>
-    <Col>
-      <ButtonGroup>
         <Button primary key="button-1">
           Primary
         </Button>
@@ -46,6 +31,21 @@ native DOM representations.
         </Button>
         <Button primary key="button-3">
           Primary
+        </Button>
+      </ButtonGroup>
+    </Col>
+  </Row>
+  <Row>
+    <Col>
+      <ButtonGroup>
+        <Button danger key="button-1">
+          Danger
+        </Button>
+        <Button danger key="button-2">
+          Danger
+        </Button>
+        <Button danger key="button-3">
+          Danger
         </Button>
       </ButtonGroup>
     </Col>

@@ -45,3 +45,85 @@ const increment = (num = 0) => setState({ count: state.count + num });
   </Row>
 </Grid>;
 ```
+
+### Types
+
+```jsx
+<Grid>
+  <Row>
+    <Col>
+      <SplitButton>
+        <Button>Default</Button>
+        <ChevronButton />
+      </SplitButton>
+    </Col>
+    <Col>
+      <SplitButton>
+        <Button primary>Primary</Button>
+        <ChevronButton primary />
+      </SplitButton>
+    </Col>
+  </Row>
+  <Row>
+    <Col>
+      <SplitButton>
+        <Button danger>Danger</Button>
+        <ChevronButton danger />
+      </SplitButton>
+    </Col>
+    <Col>
+      <SplitButton>
+        <Button primary danger>
+          Primary Danger
+        </Button>
+        <ChevronButton primary danger />
+      </SplitButton>
+    </Col>
+  </Row>
+  <Row>
+    <Col>
+      <SplitButton>
+        <Button pill>Pill</Button>
+        <ChevronButton pill />
+      </SplitButton>
+    </Col>
+    <Col>
+      <SplitButton>
+        <Button disabled>Disabled</Button>
+        <ChevronButton disabled />
+      </SplitButton>
+    </Col>
+  </Row>
+</Grid>
+```
+
+### Sizes
+
+```jsx
+<Grid>
+  <Row>
+    <Col>
+      <SplitButton>
+        <Button size="small">Small</Button>
+        <ChevronButton size="small" />
+      </SplitButton>
+    </Col>
+  </Row>
+  <Row>
+    <Col>
+      <SplitButton>
+        <Button size="medium">Medium</Button>
+        <ChevronButton size="medium" />
+      </SplitButton>
+    </Col>
+  </Row>
+  <Row>
+    <Col>
+      <SplitButton>
+        <Button size="large">Large</Button>
+        <ChevronButton size="large" />
+      </SplitButton>
+    </Col>
+  </Row>
+</Grid>
+```
