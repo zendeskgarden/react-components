@@ -43,9 +43,7 @@ IconButton.propTypes = {
   disabled: PropTypes.bool,
   focused: PropTypes.bool,
   hovered: PropTypes.bool,
-  active: PropTypes.bool,
-  /** Callback for reference of the native button element */
-  buttonRef: PropTypes.func
+  active: PropTypes.bool
 };
 
 IconButton.defaultProps = {
