@@ -19,6 +19,7 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
+    "@zendeskgarden/container-schedule": "^1.0.0",
     "classnames": "^2.2.5",
     "polished": "^3.4.1"
   },
