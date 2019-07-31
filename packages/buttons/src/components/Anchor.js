@@ -19,6 +19,7 @@ const Anchor = React.forwardRef(({ children, external, ...buttonProps }, ref) =>
       <StyledAnchor
         {...getFocusProps({
           ref,
+          external,
           ...buttonProps,
           focused: keyboardFocused
         })}
