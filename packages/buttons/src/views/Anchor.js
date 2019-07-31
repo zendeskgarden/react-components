@@ -35,7 +35,7 @@ export const StyledAnchor = styled.a.attrs(props => ({
     props.external &&
     `
     && {
-      white-space: pre;
+      white-space: pre-wrap;
       word-wrap: break-word;
     }
   `}
