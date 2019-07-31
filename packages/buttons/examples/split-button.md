@@ -1,6 +1,6 @@
 The `SplitButton` pattern is accomplished with:
 
-- `ButtonGroupView` component as a containing wrapper
+- `SplitButton` component as a container
 - `Button` component for the main action
 - `ChevronButton` component for the secondary actions
 - `Dropdown/Menu/Trigger` components from [@zendeskgarden/react-dropdowns](https://garden.zendesk.com/react-components/dropdowns/)
@@ -19,12 +19,16 @@ const increment = (num = 0) => setState({ count: state.count + num });
 <Grid>
   <Row>
     <Col sm={6}>
-      <ButtonGroup>
-        <Button onClick={() => increment(1)} key="primary" selected={false}>
+      <SplitButton>
+        <Button onClick={() => increment(1)} key="primary">
           Add 1
         </Button>
         <Dropdown
-          onStateChange={({ isOpen }) => setState({ isOpen })}
+          onStateChange={changes => {
+            if (Object.prototype.hasOwnProperty.call(changes, 'isOpen')) {
+              setState({ isOpen: changes.isOpen });
+            }
+          }}
           onSelect={value => increment(value)}
         >
           <Trigger>
@@ -35,7 +39,7 @@ const increment = (num = 0) => setState({ count: state.count + num });
             <Item value={10}>Add 10</Item>
           </Menu>
         </Dropdown>
-      </ButtonGroup>
+      </SplitButton>
     </Col>
     <Col sm={6}>Total Count: {state.count}</Col>
   </Row>

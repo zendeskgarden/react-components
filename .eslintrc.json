@@ -56,12 +56,6 @@
       "rules": {
         "react/prop-types": "off"
       }
-    },
-    {
-      "files": ["*.js"],
-      "rules": {
-        "@typescript-eslint/no-unused-vars": "off"
-      }
     }
   ]
 }

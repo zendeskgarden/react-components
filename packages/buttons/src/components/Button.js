@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
 import { StyledButton } from '../styled';
+import { ButtonGroupContext } from './ButtonGroup';
 
 const SIZE = {
   SMALL: 'small',
@@ -19,19 +20,24 @@ const SIZE = {
 /**
  * Accepts all `<button>` props
  */
-const Button = React.forwardRef(({ focused, ...other }, ref) => (
-  <KeyboardFocusContainer>
-    {({ getFocusProps, keyboardFocused }) => (
-      <StyledButton
-        {...getFocusProps({
-          ref,
-          ...other,
-          focused: focused || keyboardFocused
-        })}
-      />
-    )}
-  </KeyboardFocusContainer>
-));
+const Button = React.forwardRef(({ focused, ...other }, ref) => {
+  const focusInset = other.focusInset || useContext(ButtonGroupContext);
+
+  return (
+    <KeyboardFocusContainer>
+      {({ getFocusProps, keyboardFocused }) => (
+        <StyledButton
+          {...getFocusProps({
+            ref,
+            ...other,
+            focused: focused || keyboardFocused,
+            focusInset
+          })}
+        />
+      )}
+    </KeyboardFocusContainer>
+  );
+});
 
 Button.propTypes = {
   /** Apply danger styling */

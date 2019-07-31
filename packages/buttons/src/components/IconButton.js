@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
 import { StyledIconButton, StyledIcon } from '../styled';
+import { ButtonGroupContext } from './ButtonGroup';
 
 const SIZE = {
   SMALL: 'small',
@@ -19,21 +20,26 @@ const SIZE = {
 /**
  * Accepts all `<button>` props
  */
-const IconButton = React.forwardRef(({ children, focused, rotated, ...buttonProps }, ref) => (
-  <KeyboardFocusContainer>
-    {({ getFocusProps, keyboardFocused }) => (
-      <StyledIconButton
-        {...getFocusProps({
-          ref,
-          ...buttonProps,
-          focused: focused || keyboardFocused
-        })}
-      >
-        <StyledIcon rotated={rotated}>{children}</StyledIcon>
-      </StyledIconButton>
-    )}
-  </KeyboardFocusContainer>
-));
+const IconButton = React.forwardRef(({ children, focused, rotated, ...buttonProps }, ref) => {
+  const focusInset = buttonProps.focusInset || useContext(ButtonGroupContext);
+
+  return (
+    <KeyboardFocusContainer>
+      {({ getFocusProps, keyboardFocused }) => (
+        <StyledIconButton
+          {...getFocusProps({
+            ref,
+            ...buttonProps,
+            focused: focused || keyboardFocused,
+            focusInset
+          })}
+        >
+          <StyledIcon rotated={rotated}>{children}</StyledIcon>
+        </StyledIconButton>
+      )}
+    </KeyboardFocusContainer>
+  );
+});
 
 IconButton.propTypes = {
   /** Apply danger styling */

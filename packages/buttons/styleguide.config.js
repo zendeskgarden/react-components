@@ -27,12 +27,16 @@ module.exports = {
           content: '../../packages/buttons/examples/anchor.md'
         },
         {
-          name: 'Button Group',
-          content: '../../packages/buttons/examples/button-group.md'
+          name: 'Icon Button',
+          content: '../../packages/buttons/examples/icon-button.md'
         },
         {
-          name: 'IconButton',
-          content: '../../packages/buttons/examples/icon-button.md'
+          name: 'Split Button',
+          content: '../../packages/buttons/examples/split-button.md'
+        },
+        {
+          name: 'Button Group',
+          content: '../../packages/buttons/examples/button-group.md'
         }
       ]
     },

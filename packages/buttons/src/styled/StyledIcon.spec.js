@@ -14,7 +14,7 @@ describe('StyledIcon', () => {
   it('renders the expected element', () => {
     const { container } = render(
       <StyledIcon>
-        <img />
+        <img alt="" />
       </StyledIcon>
     );
 
