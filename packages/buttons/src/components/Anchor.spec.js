@@ -17,25 +17,17 @@ describe('Anchor', () => {
     expect(container.querySelector('svg')).not.toBeNull();
   });
 
-  it('renders disabled styling if provided', () => {
-    const { container } = render(<Anchor disabled />);
+  it('does not render focused styling if focused by mouse', () => {
+    const { container } = render(<Anchor />);
 
-    expect(container.firstChild).toHaveStyleRule('color', getColor('neutralHue'));
+    fireEvent.click(container.firstChild);
+    expect(container.firstChild).not.toHaveClass('focus-visible');
   });
 
-  describe('Selection', () => {
-    it('does not render focused styling if focused by mouse', () => {
-      const { container } = render(<Anchor />);
+  it('renders focused styling if focused by keyboard', () => {
+    const { container } = render(<Anchor />);
 
-      fireEvent.click(container.firstChild);
-      expect(container.firstChild).not.toHaveClass('focus-visible');
-    });
-
-    it('renders focused styling if focused by keyboard', () => {
-      const { container } = render(<Anchor />);
-
-      fireEvent.focus(container.firstChild);
-      expect(container.firstChild).toHaveClass('focus-visible');
-    });
+    fireEvent.focus(container.firstChild);
+    expect(container.firstChild).toHaveClass('focus-visible');
   });
 });

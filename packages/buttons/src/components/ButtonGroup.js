@@ -22,9 +22,7 @@ export default class ButtonGroup extends ControlledComponent {
     id: PropTypes.any,
     /** @ignore */
     children: PropTypes.any,
-    /**
-     * Currently selected tab to display
-     */
+    /** Currently selected button */
     selectedKey: PropTypes.any,
     /**
      * @param {Object} newState
