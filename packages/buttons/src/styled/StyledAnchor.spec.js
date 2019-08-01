@@ -29,12 +29,6 @@ describe('StyledAnchor', () => {
     expect(container.firstChild).toHaveStyleRule('color', getColor('dangerHue'));
   });
 
-  it('renders external styling if provided', () => {
-    const { container } = render(<StyledAnchor external />);
-
-    expect(container.firstChild).toHaveStyleRule('white-space', 'pre');
-  });
-
   it('renders expected RTL direction', () => {
     const { container } = renderRtl(<StyledAnchor />);
 

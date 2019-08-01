@@ -6,7 +6,6 @@
  */
 
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 import { StyledButton } from './StyledButton';
 
@@ -24,12 +23,6 @@ export const StyledAnchor = styled(StyledButton).attrs(props => ({
   type: undefined
 }))`
   direction: ${props => isRtl(props) && 'rtl'};
-  word-wrap: ${props => props.external && 'break-word'};
-  white-space: ${props => props.external && 'pre'};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledAnchor.propTypes = {
-  external: PropTypes.bool
-};
