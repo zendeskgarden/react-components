@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>11/11</span>
+        <span class='fraction'>0/11</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,21 +30,21 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>0/1</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>11/11</span>
+        <span class='fraction'>0/11</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -97,17 +97,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -116,24 +116,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">49x</span>
-<span class="cline-any cline-yes">49x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">49x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
  * Copyright Zendesk, Inc.
  *
@@ -141,17 +141,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 &nbsp;
-import React, { createContext, useState, HTMLProps } from 'react';
-import PropTypes from 'prop-types';
-import { StyledField } from '../styled';
-import useDropdownContext from '../utils/useDropdownContext';
+<span class="cstat-no" title="statement not covered" >import React, { createContext, useState, HTMLProps } from 'react';</span>
+<span class="cstat-no" title="statement not covered" >import PropTypes from 'prop-types';</span>
+<span class="cstat-no" title="statement not covered" >import { StyledField } from '../styled';</span>
+<span class="cstat-no" title="statement not covered" >import useDropdownContext from '../utils/useDropdownContext';</span>
 &nbsp;
 export interface IFieldContext {
   isLabelHovered: boolean;
   setIsLabelHovered: (isHovered: boolean) =&gt; void;
 }
 &nbsp;
-export const FieldContext = createContext&lt;IFieldContext | undefined&gt;(undefined);
+export const <span class="cstat-no" title="statement not covered" >FieldContext = createContext&lt;IFieldContext | undefined&gt;(undefined);</span>
 &nbsp;
 interface IFieldProps extends HTMLProps&lt;HTMLDivElement&gt; {
   inline?: boolean;
@@ -160,31 +160,31 @@ interface IFieldProps extends HTMLProps&lt;HTMLDivElement&gt; {
 /**
  * Accepts all `&lt;div&gt;` props
  */
-const Field: React.FunctionComponent&lt;IFieldProps&gt; = props =&gt; {
+const Field: React.FunctionComponent&lt;IFieldProps&gt; = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >props </span>=&gt; {</span>
   const {
     downshift: { getRootProps }
-  } = useDropdownContext();
-  const [isLabelHovered, setIsLabelHovered] = useState&lt;boolean&gt;(false);
+  } = <span class="cstat-no" title="statement not covered" >useDropdownContext();</span>
+  const [isLabelHovered, setIsLabelHovered] = <span class="cstat-no" title="statement not covered" >useState&lt;boolean&gt;(false);</span>
 &nbsp;
-  return (
+<span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;FieldContext.Provider value={{ isLabelHovered, setIsLabelHovered }}&gt;
       &lt;StyledField {...getRootProps({ ...props, refKey: 'ref' })} /&gt;
     &lt;/FieldContext.Provider&gt;
   );
 };
 &nbsp;
-Field.propTypes = {
+<span class="cstat-no" title="statement not covered" >Field.propTypes = {</span>
   inline: PropTypes.bool
 };
 &nbsp;
-export default Field;
+<span class="cstat-no" title="statement not covered" >export default Field;</span>
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jul 31 2019 18:14:34 GMT+0000 (Coordinated Universal Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jul 30 2019 11:05:36 GMT-0700 (Pacific Daylight Time)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>0/4</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,21 +30,21 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>0/1</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>0/4</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -98,7 +98,9 @@
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -111,7 +113,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -119,15 +121,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -163,7 +167,7 @@ import IconButton from './IconButton';
 import Icon from './Icon';
 import ChevronDownIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 &nbsp;
-const SIZE = {
+const SIZE = <span class="cstat-no" title="statement not covered" >{</span>
   SMALL: 'small',
   LARGE: 'large'
 };
@@ -171,15 +175,15 @@ const SIZE = {
 /**
  * IconButton with an embedded chevron icon
  */
-const ChevronButton = React.forwardRef(({ rotated, ...buttonProps }, ref) =&gt; (
-  &lt;IconButton pill={false} muted={false} basic={false} ref={ref} {...buttonProps}&gt;
+const ChevronButton = <span class="cstat-no" title="statement not covered" >React.forwardRef(<span class="fstat-no" title="function not covered" >({</span> rotated, ...buttonProps }, ref) =&gt; (</span>
+<span class="cstat-no" title="statement not covered" >  &lt;IconButton pill={false} muted={false} basic={false} ref={ref} {...buttonProps}&gt;</span>
     &lt;Icon rotated={rotated}&gt;
       &lt;ChevronDownIcon /&gt;
     &lt;/Icon&gt;
   &lt;/IconButton&gt;
 ));
 &nbsp;
-ChevronButton.propTypes = {
+<span class="cstat-no" title="statement not covered" >ChevronButton.propTypes = {</span>
   /** Apply danger styling */
   danger: PropTypes.bool,
   size: PropTypes.oneOf([SIZE.SMALL, SIZE.LARGE]),
@@ -197,6 +201,8 @@ ChevronButton.propTypes = {
   focusInset: PropTypes.bool,
   hovered: PropTypes.bool,
   active: PropTypes.bool,
+  /** Callback for reference of the native button element */
+  buttonRef: PropTypes.func,
   /** Rotates icon 180 degrees */
   rotated: PropTypes.bool
 };
@@ -208,7 +214,7 @@ export default ChevronButton;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jul 31 2019 18:14:34 GMT+0000 (Coordinated Universal Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jul 30 2019 11:05:36 GMT-0700 (Pacific Daylight Time)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>
