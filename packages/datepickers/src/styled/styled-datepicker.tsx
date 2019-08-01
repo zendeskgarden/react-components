@@ -115,7 +115,6 @@ export const StyledRangeCalendar = styled.div`
     padding: 0;
   }
 
-
   ${StyledDatepicker}:${props => (isRtl(props) ? 'last-of-type' : 'first-of-type')} {
     margin-right: ${zdSpacing};
   }
