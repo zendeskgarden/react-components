@@ -314,15 +314,58 @@ describe('DatepickerRange', () => {
       expect(monthDisplays[1]).toHaveTextContent('March 2019');
     });
 
+    it('resets preview date if start input is focused while outside of visible range', () => {
+      const { getAllByTestId, getByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const previousPaddle = getAllByTestId('previous-month')[0];
+
+      fireEvent.click(previousPaddle);
+      fireEvent.click(previousPaddle);
+      fireEvent.click(previousPaddle);
+      fireEvent.click(previousPaddle);
+
+      const monthDisplays = getAllByTestId('month-display');
+
+      expect(monthDisplays[0]).toHaveTextContent('October 2018');
+      expect(monthDisplays[1]).toHaveTextContent('November 2018');
+
+      fireEvent.focus(getByTestId('start'));
+
+      expect(monthDisplays[0]).toHaveTextContent('February 2019');
+      expect(monthDisplays[1]).toHaveTextContent('March 2019');
+    });
+
+    it('resets preview date if end input is focused while outside of visible range', () => {
+      const { getAllByTestId, getByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const nextPaddle = getAllByTestId('next-month')[1];
+
+      fireEvent.click(nextPaddle);
+      fireEvent.click(nextPaddle);
+      fireEvent.click(nextPaddle);
+      fireEvent.click(nextPaddle);
+
+      const monthDisplays = getAllByTestId('month-display');
+
+      expect(monthDisplays[0]).toHaveTextContent('June 2019');
+      expect(monthDisplays[1]).toHaveTextContent('July 2019');
+
+      fireEvent.focus(getByTestId('end'));
+
+      expect(monthDisplays[0]).toHaveTextContent('March 2019');
+      expect(monthDisplays[1]).toHaveTextContent('April 2019');
+    });
+
     it('renders small styling correctly', () => {
       const { getAllByTestId, rerender } = render(<Example small />);
-
       const calendarWrappers = getAllByTestId('calendar-wrapper');
 
       expect(calendarWrappers[0]).toHaveStyleRule('padding', '16px');
-
       rerender(<Example />);
-
       expect(calendarWrappers[0]).toHaveStyleRule('padding', '20px');
     });
   });
@@ -449,6 +492,86 @@ describe('DatepickerRange', () => {
       fireEvent.click(secondMonthDays[33]);
 
       expect(onChangeSpy).not.toHaveBeenCalled();
+    });
+
+    it('updates valid start value when start input is focused', () => {
+      const { getAllByTestId, getByTestId } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+        />
+      );
+
+      const monthDisplays = getAllByTestId('calendar-wrapper');
+
+      fireEvent.focus(getByTestId('start'));
+      fireEvent.click(globalGetAllByTestId(monthDisplays[0], 'day')[12]);
+
+      expect(onChangeSpy).toHaveBeenCalledWith({
+        startValue: new Date(2019, 1, 8),
+        endValue: new Date(2019, 2, 5)
+      });
+    });
+
+    it('updates invalid start value when start input is focused', () => {
+      const { getAllByTestId, getByTestId } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+        />
+      );
+
+      const monthDisplays = getAllByTestId('calendar-wrapper');
+
+      fireEvent.focus(getByTestId('start'));
+      fireEvent.click(globalGetAllByTestId(monthDisplays[1], 'day')[12]);
+
+      expect(onChangeSpy).toHaveBeenCalledWith({
+        startValue: new Date(2019, 2, 8),
+        endValue: undefined
+      });
+    });
+
+    it('updates valid end value when end input is focused', () => {
+      const { getAllByTestId, getByTestId } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+        />
+      );
+
+      const monthDisplays = getAllByTestId('calendar-wrapper');
+
+      fireEvent.focus(getByTestId('end'));
+      fireEvent.click(globalGetAllByTestId(monthDisplays[1], 'day')[12]);
+
+      expect(onChangeSpy).toHaveBeenCalledWith({
+        startValue: new Date(2019, 1, 5),
+        endValue: new Date(2019, 2, 8)
+      });
+    });
+
+    it('updates invalid end value when end input is focused', () => {
+      const { getAllByTestId, getByTestId } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+        />
+      );
+
+      const monthDisplays = getAllByTestId('calendar-wrapper');
+
+      fireEvent.focus(getByTestId('end'));
+      fireEvent.click(globalGetAllByTestId(monthDisplays[0], 'day')[8]);
+
+      expect(onChangeSpy).toHaveBeenCalledWith({
+        startValue: new Date(2019, 1, 4),
+        endValue: undefined
+      });
     });
   });
 

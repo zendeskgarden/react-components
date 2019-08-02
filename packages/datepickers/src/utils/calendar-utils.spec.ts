@@ -20,5 +20,9 @@ describe('Calendar Utilities', () => {
     it('provides Sunday start date if no match is found', () => {
       expect(getStartOfWeek('invalid')).toBe(0);
     });
+
+    it('provides Sunday start date if no locale is provided', () => {
+      expect(getStartOfWeek()).toBe(0);
+    });
   });
 });

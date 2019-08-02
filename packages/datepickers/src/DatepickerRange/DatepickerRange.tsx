@@ -71,6 +71,7 @@ const DatepickerRange = (props: PropsWithChildren<IDatepickerRangeProps>) => {
 
   const [state, dispatch] = useReducer(reducer, retrieveInitialState(props));
   const previousStartValue = useRef(props.startValue);
+  const previousEndValue = useRef(props.endValue);
   const startInputRef = useRef<HTMLInputElement>();
   const endInputRef = useRef<HTMLInputElement>();
 
@@ -80,7 +81,7 @@ const DatepickerRange = (props: PropsWithChildren<IDatepickerRangeProps>) => {
       value: props.startValue
     });
 
-    if (previousStartValue.current !== props.startValue) {
+    if (previousStartValue.current !== props.startValue && props.startValue !== undefined) {
       endInputRef.current && endInputRef.current.focus();
     }
 
@@ -92,6 +93,12 @@ const DatepickerRange = (props: PropsWithChildren<IDatepickerRangeProps>) => {
       type: 'CONTROLLED_END_VALUE_CHANGE',
       value: props.endValue
     });
+
+    if (previousEndValue.current !== props.endValue && props.endValue !== undefined) {
+      startInputRef.current && startInputRef.current.focus();
+    }
+
+    previousEndValue.current = props.endValue;
   }, [props.endValue]);
 
   return (

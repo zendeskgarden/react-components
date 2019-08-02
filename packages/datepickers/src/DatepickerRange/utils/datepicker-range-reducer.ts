@@ -14,11 +14,14 @@ import endOfMonth from 'date-fns/endOfMonth';
 import parse from 'date-fns/parse';
 import startOfMonth from 'date-fns/startOfMonth';
 import compareAsc from 'date-fns/compareAsc';
+import isAfter from 'date-fns/isAfter';
 import { IDatepickerRangeProps } from '../DatepickerRange';
 
 export interface IDatepickerRangeState {
   previewDate: Date;
   hoverDate?: Date;
+  isStartFocused: boolean;
+  isEndFocused: boolean;
   startInputValue?: string;
   endInputValue?: string;
 }
@@ -87,6 +90,8 @@ export type DatepickerRangeAction =
   | { type: 'END_INPUT_ONCHANGE'; value: string }
   | { type: 'START_BLUR' }
   | { type: 'END_BLUR' }
+  | { type: 'START_FOCUS' }
+  | { type: 'END_FOCUS' }
   | { type: 'CONTROLLED_START_VALUE_CHANGE'; value?: Date }
   | { type: 'CONTROLLED_END_VALUE_CHANGE'; value?: Date };
 
@@ -106,6 +111,38 @@ export const datepickerRangeReducer = ({
   customParseDate?: (inputValue?: string) => Date;
 }) => (state: IDatepickerRangeState, action: DatepickerRangeAction): IDatepickerRangeState => {
   switch (action.type) {
+    case 'START_FOCUS': {
+      let previewDate = state.previewDate;
+
+      if (startValue) {
+        if (
+          compareAsc(startValue, startOfMonth(state.previewDate)) === 1 &&
+          compareAsc(startValue, addMonths(endOfMonth(state.previewDate), 1)) === -1
+        ) {
+          previewDate = state.previewDate;
+        } else {
+          previewDate = startOfMonth(startValue);
+        }
+      }
+
+      return { ...state, previewDate, isStartFocused: true };
+    }
+    case 'END_FOCUS': {
+      let previewDate = state.previewDate;
+
+      if (endValue) {
+        if (
+          compareAsc(endValue, startOfMonth(state.previewDate)) === 1 &&
+          compareAsc(endValue, addMonths(endOfMonth(state.previewDate), 1)) === -1
+        ) {
+          previewDate = state.previewDate;
+        } else {
+          previewDate = startOfMonth(endValue);
+        }
+      }
+
+      return { ...state, previewDate, isEndFocused: true };
+    }
     case 'START_BLUR': {
       let parsedDate;
 
@@ -125,7 +162,8 @@ export const datepickerRangeReducer = ({
 
       return {
         ...state,
-        startInputValue: startInputValue || formatValue({ value: startValue, locale, formatDate })
+        startInputValue: startInputValue || formatValue({ value: startValue, locale, formatDate }),
+        isStartFocused: false
       };
     }
     case 'END_BLUR': {
@@ -149,7 +187,8 @@ export const datepickerRangeReducer = ({
 
       return {
         ...state,
-        endInputValue
+        endInputValue,
+        isEndFocused: false
       };
     }
     case 'CONTROLLED_START_VALUE_CHANGE': {
@@ -199,7 +238,20 @@ export const datepickerRangeReducer = ({
       };
     }
     case 'CLICK_DATE':
-      if (startValue === undefined) {
+      // console.log(state.isStartFocused, state.isEndFocused);
+      if (state.isStartFocused) {
+        if (endValue !== undefined && isBefore(action.value, endValue)) {
+          onChange && onChange({ startValue: action.value, endValue });
+        } else {
+          onChange && onChange({ startValue: action.value, endValue: undefined });
+        }
+      } else if (state.isEndFocused) {
+        if (startValue !== undefined && isAfter(action.value, startValue)) {
+          onChange && onChange({ startValue, endValue: action.value });
+        } else {
+          onChange && onChange({ startValue: action.value, endValue: undefined });
+        }
+      } else if (startValue === undefined) {
         onChange && onChange({ startValue: action.value, endValue: undefined });
       } else if (endValue === undefined) {
         if (isBefore(action.value, startValue)) {
@@ -261,6 +313,8 @@ export function retrieveInitialState(initialProps: IDatepickerRangeProps): IDate
   return {
     previewDate,
     startInputValue,
-    endInputValue
+    endInputValue,
+    isStartFocused: false,
+    isEndFocused: false
   };
 }

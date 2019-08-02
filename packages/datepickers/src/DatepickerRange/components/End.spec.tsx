@@ -8,6 +8,7 @@
 import React from 'react';
 import { render, fireEvent } from 'garden-test-utils';
 import mockDate from 'mockdate';
+import { KEY_CODES } from '@zendeskgarden/container-utilities';
 import DatepickerRange, { IDatepickerRangeProps } from '../DatepickerRange';
 
 const DEFAULT_START_VALUE = new Date(2019, 1, 5);
@@ -113,6 +114,25 @@ describe('DatepickerRange', () => {
       });
     });
 
+    it('calls onChange with provided date if ENTER key is used', () => {
+      const { getByTestId } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+        />
+      );
+      const endInput = getByTestId('end');
+
+      fireEvent.change(endInput, { target: { value: 'January 4th, 2019' } });
+      fireEvent.keyDown(endInput, { keyCode: KEY_CODES.ENTER });
+
+      expect(onChangeSpy).toHaveBeenCalledWith({
+        startValue: DEFAULT_START_VALUE,
+        endValue: new Date(2019, 0, 4)
+      });
+    });
+
     it('does not call onChange with provided date if invalid', () => {
       const { getByTestId } = render(
         <Example
@@ -167,6 +187,46 @@ describe('DatepickerRange', () => {
       fireEvent.blur(getByTestId('end'));
 
       expect(onBlurSpy).toHaveBeenCalled();
+    });
+
+    it('calls onFocus prop if provided', () => {
+      const onFocusSpy = jest.fn();
+
+      const { getByTestId } = render(
+        <DatepickerRange>
+          <DatepickerRange.Start>
+            <input data-test-id="start" />
+          </DatepickerRange.Start>
+          <DatepickerRange.End>
+            <input data-test-id="end" onFocus={onFocusSpy} />
+          </DatepickerRange.End>
+          <DatepickerRange.Calendar />
+        </DatepickerRange>
+      );
+
+      fireEvent.focus(getByTestId('end'));
+
+      expect(onFocusSpy).toHaveBeenCalled();
+    });
+
+    it('calls onKeyDown prop if provided', () => {
+      const onKeyDownSpy = jest.fn();
+
+      const { getByTestId } = render(
+        <DatepickerRange>
+          <DatepickerRange.Start>
+            <input data-test-id="start" />
+          </DatepickerRange.Start>
+          <DatepickerRange.End>
+            <input data-test-id="end" onKeyDown={onKeyDownSpy} />
+          </DatepickerRange.End>
+          <DatepickerRange.Calendar />
+        </DatepickerRange>
+      );
+
+      fireEvent.keyDown(getByTestId('end'));
+
+      expect(onKeyDownSpy).toHaveBeenCalled();
     });
   });
 });
