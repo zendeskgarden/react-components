@@ -125,6 +125,7 @@ export const StyledCalendarItem = styled.div<{ isSmall?: boolean }>`
   width: ${retrieveSpacing};
   height: ${retrieveSpacing};
   position: relative;
+  vertical-align: top;
 
   ${props => retrieveTheme('datepickers.calendar_item', props)};
 `;
