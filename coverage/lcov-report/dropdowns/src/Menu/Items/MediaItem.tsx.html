@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/8</span>
+        <span class='fraction'>8/8</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,21 +30,21 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/1</span>
+        <span class='fraction'>1/1</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/8</span>
+        <span class='fraction'>8/8</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -82,28 +82,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
  * Copyright Zendesk, Inc.
  *
@@ -111,19 +111,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 &nbsp;
-<span class="cstat-no" title="statement not covered" >import React from 'react';</span>
-<span class="cstat-no" title="statement not covered" >import PropTypes from 'prop-types';</span>
-<span class="cstat-no" title="statement not covered" >import Item, { IItemProps } from './Item';</span>
-<span class="cstat-no" title="statement not covered" >import { StyledMediaItem } from '../../styled';</span>
+import React from 'react';
+import PropTypes from 'prop-types';
+import Item, { IItemProps } from './Item';
+import { StyledMediaItem } from '../../styled';
 &nbsp;
 /**
  * Accepts all `&lt;li&gt;` props
  */
-const MediaItem = <span class="cstat-no" title="statement not covered" >React.forwardRef&lt;HTMLLIElement, IItemProps&gt;(<span class="fstat-no" title="function not covered" >(p</span>rops, ref) =&gt; (</span>
-<span class="cstat-no" title="statement not covered" >  &lt;Item component={StyledMediaItem} ref={ref} {...props} /&gt;</span>
+const MediaItem = React.forwardRef&lt;HTMLLIElement, IItemProps&gt;((props, ref) =&gt; (
+  &lt;Item component={StyledMediaItem} ref={ref} {...props} /&gt;
 )) as React.FunctionComponent&lt;IItemProps&gt;;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >MediaItem.propTypes = {</span>
+MediaItem.propTypes = {
   active: PropTypes.bool,
   focused: PropTypes.bool,
   hovered: PropTypes.bool,
@@ -132,14 +132,14 @@ const MediaItem = <span class="cstat-no" title="statement not covered" >React.fo
 };
 &nbsp;
 /** @component */
-<span class="cstat-no" title="statement not covered" >export default MediaItem;</span>
+export default MediaItem;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jul 30 2019 11:05:36 GMT-0700 (Pacific Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Aug 02 2019 15:45:41 GMT+0000 (Coordinated Universal Time)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/6</span>
+        <span class='fraction'>6/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/1</span>
+        <span class='fraction'>1/1</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/6</span>
+        <span class='fraction'>6/6</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -92,15 +92,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -116,12 +113,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">216x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
@@ -131,12 +131,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 &nbsp;
-<span class="cstat-no" title="statement not covered" >import classNames from 'classnames';</span>
-<span class="cstat-no" title="statement not covered" >import styled, { css } from 'styled-components';</span>
-<span class="cstat-no" title="statement not covered" >import TextStyles from '@zendeskgarden/css-forms/dist/text.css';</span>
+import classNames from 'classnames';
+import styled, { css } from 'styled-components';
+import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 import { HTMLProps } from 'react';
 &nbsp;
-const hiddenStyling = <span class="cstat-no" title="statement not covered" >css`</span>
+const hiddenStyling = css`
   position: absolute;
   left: -100px;
   transform: scale(0);
@@ -155,12 +155,12 @@ export interface IStyledInputProps extends HTMLProps&lt;HTMLInputElement&gt; {
   isHidden?: boolean;
 }
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >StyledInput = styled.input.attrs({</span>
+export const StyledInput = styled.input.attrs({
   className: classNames(TextStyles['c-txt__input'], TextStyles['c-txt__input--bare'])
 })&lt;IStyledInputProps&gt;`
   &amp;&amp; {
     vertical-align: baseline;
-    ${<span class="fstat-no" title="function not covered" >props </span>=&gt; <span class="cstat-no" title="statement not covered" >props.isHidden &amp;&amp; hiddenStyling}</span>
+    ${props =&gt; props.isHidden &amp;&amp; hiddenStyling}
   }
 ` as React.FunctionComponent&lt;IStyledInputProps&gt;;
 &nbsp;</pre></td></tr>
@@ -169,7 +169,7 @@ export const <span class="cstat-no" title="statement not covered" >StyledInput =
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jul 30 2019 11:05:36 GMT-0700 (Pacific Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Aug 02 2019 15:45:41 GMT+0000 (Coordinated Universal Time)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

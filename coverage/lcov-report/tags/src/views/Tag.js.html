@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/7</span>
+        <span class='fraction'>7/7</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,21 +30,21 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/6</span>
+        <span class='fraction'>6/6</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -175,9 +175,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -197,7 +197,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -205,7 +205,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">101x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -244,10 +244,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">101x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -290,9 +290,9 @@ import TagStyles from '@zendeskgarden/css-tags';
 &nbsp;
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 &nbsp;
-const COMPONENT_ID = <span class="cstat-no" title="statement not covered" >'tags.tag_view';</span>
+const COMPONENT_ID = 'tags.tag_view';
 &nbsp;
-const TYPE = <span class="cstat-no" title="statement not covered" >{</span>
+const TYPE = {
   GREY: 'grey',
   BLUE: 'blue',
   KALE: 'kale',
@@ -312,7 +312,7 @@ const TYPE = <span class="cstat-no" title="statement not covered" >{</span>
   PURPLE: 'purple'
 };
 &nbsp;
-const SIZE = <span class="cstat-no" title="statement not covered" >{</span>
+const SIZE = {
   SMALL: 'small',
   LARGE: 'large'
 };
@@ -320,7 +320,7 @@ const SIZE = <span class="cstat-no" title="statement not covered" >{</span>
 /**
  * Accepts all `&lt;div&gt;` props
  */
-const Tag = <span class="cstat-no" title="statement not covered" >styled.div.attrs(<span class="fstat-no" title="function not covered" >pr</span>ops =&gt; (<span class="cstat-no" title="statement not covered" >{</span></span>
+const Tag = styled.div.attrs(props =&gt; ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(TagStyles['c-tag'], {
@@ -359,10 +359,10 @@ const Tag = <span class="cstat-no" title="statement not covered" >styled.div.att
     [TagStyles['is-rtl']]: isRtl(props)
   })
 }))`
-  ${<span class="fstat-no" title="function not covered" >pr</span>ops =&gt; <span class="cstat-no" title="statement not covered" >retrieveTheme(COMPONENT_ID, props)}</span>;
+  ${props =&gt; retrieveTheme(COMPONENT_ID, props)};
 `;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >Tag.propTypes = {</span>
+Tag.propTypes = {
   size: PropTypes.oneOf([SIZE.SMALL, SIZE.LARGE]),
   pill: PropTypes.bool,
   round: PropTypes.bool,
@@ -397,7 +397,7 @@ export default Tag;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jul 30 2019 11:05:36 GMT-0700 (Pacific Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Aug 02 2019 15:45:41 GMT+0000 (Coordinated Universal Time)
 </div>
 </div>
 <script src="../../../prettify.js"></script>
