@@ -12,6 +12,25 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v6.3.1 (2019-08-02)
+
+#### :bug: Bug Fix
+* `buttons`
+  * [#398](https://github.com/zendeskgarden/react-components/pull/398) fix(buttons): white-space/word-wrap styling in the Anchor component ([@luis-almeida](https://github.com/luis-almeida))
+  * [#396](https://github.com/zendeskgarden/react-components/pull/396) fix(buttons): allow correct ref validation in PropTypes ([@austin94](https://github.com/austin94))
+
+#### :memo: Documentation
+* `dropdowns`
+  * [#394](https://github.com/zendeskgarden/react-components/pull/394) Update autocomplete dropdown example due to google translate issue ([@KaiminHuang](https://github.com/KaiminHuang))
+* `datepickers`
+  * [#393](https://github.com/zendeskgarden/react-components/pull/393) chore(datepicker): update examples to include correct localization names ([@austin94](https://github.com/austin94))
+
+#### :seedling: Internal
+* Other
+  * [#395](https://github.com/zendeskgarden/react-components/pull/395) chore(deps): update all development non-major dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `avatars`, `breadcrumbs`, `buttons`, `checkboxes`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `menus`, `modals`, `notifications`, `pagination`, `radios`, `ranges`, `tables`, `tabs`, `tags`, `textfields`, `toggles`, `tooltips`
+  * [#392](https://github.com/zendeskgarden/react-components/pull/392) chore(deps): update all development non-major dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v6.3.0 (2019-07-16)
 
 #### :rocket: New Feature
