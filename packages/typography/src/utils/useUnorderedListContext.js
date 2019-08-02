@@ -6,7 +6,7 @@
  */
 
 import { useContext } from 'react';
-import { UnorderedListContext } from './UnorderedList';
+import { UnorderedListContext } from '../components/lists/UnorderedList';
 
 /**
  * Retrieve UnorderedList component context

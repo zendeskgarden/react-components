@@ -7,23 +7,23 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import OrderedList from './OrderedList';
-import useOrderedListContext from './useOrderedListContext';
+import UnorderedList from '../components/lists/UnorderedList';
+import useUnorderedListContext from './useUnorderedListContext';
 
-describe('useOrderedListContext', () => {
-  const OrderedListContextConsumer = () => {
-    const context = useOrderedListContext();
+describe('useUnorderedListContext', () => {
+  const UnorderedListContextConsumer = () => {
+    const context = useUnorderedListContext();
 
     return <div>{context && 'it works'}</div>;
   };
 
-  it('throws if called outside of OrderedList component', () => {
+  it('throws if called outside of UnorderedList component', () => {
     /* eslint-disable no-console */
     const originalError = console.error;
 
     console.error = jest.fn();
 
-    const Example = () => <OrderedListContextConsumer />;
+    const Example = () => <UnorderedListContextConsumer />;
 
     expect(() => {
       render(<Example />);
@@ -32,11 +32,11 @@ describe('useOrderedListContext', () => {
     console.error = originalError;
   });
 
-  it('does not throw if called within OrderedList component', () => {
+  it('does not throw if called within UnorderedList component', () => {
     const Example = () => (
-      <OrderedList>
-        <OrderedListContextConsumer />
-      </OrderedList>
+      <UnorderedList>
+        <UnorderedListContextConsumer />
+      </UnorderedList>
     );
 
     expect(() => {

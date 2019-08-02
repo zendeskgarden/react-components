@@ -9,7 +9,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import useUnorderedListContext from './useUnorderedListContext';
+import useUnorderedListContext from '../../utils/useUnorderedListContext';
 import MD from '../MD';
 import { listItemContentCSS } from './styles';
 

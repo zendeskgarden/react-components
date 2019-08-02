@@ -6,7 +6,7 @@
  */
 
 import { useContext } from 'react';
-import { OrderedListContext } from './OrderedList';
+import { OrderedListContext } from '../components/lists/OrderedList';
 
 /**
  * Retrieve OrderedList component context

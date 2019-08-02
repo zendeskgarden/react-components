@@ -57,13 +57,29 @@ module.exports = {
         },
         {
           name: 'Lists',
-          content: '../../packages/typography/examples/list.md'
+          sections: [
+            {
+              content: '../../packages/typography/examples/list.md'
+            },
+            {
+              name: 'Ordered',
+              content: '../../packages/typography/examples/ordered-list.md'
+            },
+            {
+              name: 'Unordered',
+              content: '../../packages/typography/examples/unordered-list.md'
+            }
+          ]
         }
       ]
     },
     {
       name: 'Components',
-      components: '../../packages/typography/src/components/*.js'
+      components: [
+        '../../packages/typography/src/components/*.js',
+        '../../packages/typography/src/components/lists/OrderedList.js',
+        '../../packages/typography/src/components/lists/UnorderedList.js'
+      ]
     }
   ]
 };
