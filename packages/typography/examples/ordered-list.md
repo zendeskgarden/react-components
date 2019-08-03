@@ -31,7 +31,7 @@
 ```jsx
 <p style={{marginTop: 0}}>Type <Code>decimal</Code> (default)</p>
 
-<OrderedList>
+<OrderedList type="decimal">
   <OrderedList.Item>One</OrderedList.Item>
   <OrderedList.Item>Two</OrderedList.Item>
   <OrderedList.Item>Three</OrderedList.Item>

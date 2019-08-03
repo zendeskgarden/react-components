@@ -6,24 +6,8 @@
  */
 
 import React from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
-
-const COMPONENT_ID = 'typography.ellipsis';
-
-const StyledEllipsis = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-
-  direction: ${props => (isRtl(props) ? 'rtl' : 'ltr')};
-
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
-`;
+import { StyledEllipsis } from '../styled';
 
 /**
  * A component that automatically includes a native `title` attribute
@@ -32,7 +16,7 @@ const StyledEllipsis = styled.div.attrs({
  * All other props are spread onto the element.
  */
 function Ellipsis({ children, title, tag, ...other }) {
-  const CustomTagEllipsis = StyledEllipsis.withComponent(tag);
+  const StyledEllipsisTag = StyledEllipsis.withComponent(tag);
 
   let textContent = null;
 
@@ -43,9 +27,9 @@ function Ellipsis({ children, title, tag, ...other }) {
   }
 
   return (
-    <CustomTagEllipsis title={textContent} {...other}>
+    <StyledEllipsisTag title={textContent} {...other}>
       {children}
-    </CustomTagEllipsis>
+    </StyledEllipsisTag>
   );
 }
 

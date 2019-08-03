@@ -7,12 +7,8 @@
 
 import React, { createContext } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import OrderedListItem from './OrderedListItem';
-import { listCSS } from './styles';
-
-const COMPONENT_ID = 'typography.ordered_list';
+import { StyledOrderedList } from '../../styled';
 
 const TYPE = {
   DECIMAL: 'decimal',
@@ -28,14 +24,6 @@ const SIZE = {
   MEDIUM: 'medium',
   LARGE: 'large'
 };
-
-const StyledOrderedList = styled.ol.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
-  ${props => listCSS(props)};
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
-`;
 
 export const OrderedListContext = createContext();
 

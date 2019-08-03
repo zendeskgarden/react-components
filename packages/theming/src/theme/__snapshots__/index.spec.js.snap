@@ -32,11 +32,6 @@ Object {
   "fontSizes": Object {
     "lg": "18px",
     "md": "14px",
-    "mono": Object {
-      "lg": "17px",
-      "md": "13px",
-      "sm": "11px",
-    },
     "sm": "12px",
     "xl": "22px",
     "xxl": "26px",

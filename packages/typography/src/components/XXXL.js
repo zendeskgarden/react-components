@@ -7,34 +7,15 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { DEFAULT_THEME, retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
-
-const COMPONENT_ID = 'typography.xxxl';
-
-const StyledXXXL = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
-  line-height: ${props => props.theme.lineHeights.xxxl};
-  font-size: ${props => props.theme.fontSizes.xxxl};
-
-  direction: ${props => (isRtl(props) ? 'rtl' : 'ltr')};
-
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
-`;
-
-StyledXXXL.defaultProps = {
-  theme: DEFAULT_THEME
-};
+import { StyledFont } from '../styled';
 
 /**
  * Accepts all standard props relating to provided `tag`
  */
 const XXXL = ({ tag, ...other }) => {
-  const CustomTagXXXL = StyledXXXL.withComponent(tag);
+  const StyledFontTag = StyledFont.withComponent(tag);
 
-  return <CustomTagXXXL {...other} />;
+  return <StyledFontTag size="xxxl" {...other} />;
 };
 
 XXXL.propTypes = {

@@ -5,13 +5,13 @@
 ### Colors
 
 ```jsx
-const types = ['Red', 'Yellow', 'Green', 'Grey', null];
+const hues = ['Red', 'Yellow', 'Green', 'Grey', null];
 
 <Grid>
   <Row>
-    {types.map((type, index) => (
-      <Col md={2} key={type}>
-        <Code type={type ? type.toLowerCase() : type}>{type || 'Default (Grey)'}</Code>
+    {hues.map((hue, index) => (
+      <Col md={2} key={hue}>
+        <Code hue={hue ? hue.toLowerCase() : hue}>{hue || 'Default (Grey)'}</Code>
       </Col>
     ))}
   </Row>
@@ -21,15 +21,15 @@ const types = ['Red', 'Yellow', 'Green', 'Grey', null];
 ### Sizes
 
 ```jsx
-const types = [null, 'Red', 'Yellow', 'Green'];
+const hues = [null, 'Red', 'Yellow', 'Green'];
 const sizes = ['Small', 'Medium', 'Large', null];
 
 <Grid>
-  {types.map(type => (
-    <Row key={type}>
+  {hues.map(hue => (
+    <Row key={hue}>
       {sizes.map((size, index) => (
         <Col md={2} key={index}>
-          <Code size={size ? size.toLowerCase() : size} type={type ? type.toLowerCase() : type}>
+          <Code size={size ? size.toLowerCase() : size} hue={hue ? hue.toLowerCase() : hue}>
             {size || 'Default (Medium)'}
           </Code>
         </Col>

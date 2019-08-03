@@ -75,12 +75,6 @@ const fontSizes = {
   xxxl: '36px'
 };
 
-fontSizes.mono = {
-  sm: math(`${fontSizes.sm} - 1px`),
-  md: math(`${fontSizes.md} - 1px`),
-  lg: math(`${fontSizes.lg} - 1px`)
-};
-
 const fontWeights = {
   thin: 100,
   extralight: 200,

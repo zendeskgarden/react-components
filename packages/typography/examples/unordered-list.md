@@ -31,7 +31,7 @@
 ```jsx
 <p style={{marginTop: 0}}>Type <Code>disc</Code> (default)</p>
 
-<UnorderedList>
+<UnorderedList type="disc">
   <UnorderedList.Item>Item</UnorderedList.Item>
   <UnorderedList.Item>Item</UnorderedList.Item>
   <UnorderedList.Item>Item</UnorderedList.Item>

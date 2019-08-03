@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import Code from './Code';
 
 describe('Code', () => {
@@ -30,43 +30,43 @@ describe('Code', () => {
     it('renders small styling if provided', () => {
       const { container } = render(<Code size="small" />);
 
-      expect(container.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.mono.sm);
+      expect(container.firstChild).toHaveStyleRule('font-size', '11px');
     });
 
     it('renders medium styling if provided', () => {
       const { container } = render(<Code size="medium" />);
 
-      expect(container.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.mono.md);
+      expect(container.firstChild).toHaveStyleRule('font-size', '13px');
     });
 
     it('renders large styling if provided', () => {
       const { container } = render(<Code size="large" />);
 
-      expect(container.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.mono.lg);
+      expect(container.firstChild).toHaveStyleRule('font-size', '17px');
     });
   });
 
-  describe('visual types', () => {
-    it('renders grey styling if provided', () => {
-      const { container } = render(<Code type="grey" />);
+  describe('hue', () => {
+    it('renders grey hue if provided', () => {
+      const { container } = render(<Code hue="grey" />);
 
       expect(container.firstChild).toHaveStyleRule('background-color', PALETTE.grey[200]);
     });
 
-    it('renders green styling if provided', () => {
-      const { container } = render(<Code type="green" />);
+    it('renders green hue if provided', () => {
+      const { container } = render(<Code hue="green" />);
 
       expect(container.firstChild).toHaveStyleRule('background-color', PALETTE.green[200]);
     });
 
-    it('renders red styling if provided', () => {
-      const { container } = render(<Code type="red" />);
+    it('renders red hue if provided', () => {
+      const { container } = render(<Code hue="red" />);
 
       expect(container.firstChild).toHaveStyleRule('background-color', PALETTE.red[200]);
     });
 
-    it('renders yellow styling if provided', () => {
-      const { container } = render(<Code type="yellow" />);
+    it('renders yellow hue if provided', () => {
+      const { container } = render(<Code hue="yellow" />);
 
       expect(container.firstChild).toHaveStyleRule('background-color', PALETTE.yellow[200]);
     });

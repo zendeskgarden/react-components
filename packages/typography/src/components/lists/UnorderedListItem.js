@@ -5,33 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import useUnorderedListContext from '../../utils/useUnorderedListContext';
-import MD from '../MD';
-import { listItemContentCSS } from './styles';
+import { StyledUnorderedListItem, StyledUnorderedListItemContent } from '../../styled';
 
-const COMPONENT_ID = 'typography.unordered_list_item';
-
-const StyledUnorderedListItem = styled.li.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
-`;
-
-const StyledUnorderedListItemContent = styled(MD)`
-  ${props => listItemContentCSS(props)};
-`;
-
-const UnorderedListItem = ({ children, ...props }) => {
+const UnorderedListItem = ({ children, ...other }) => {
   const { size } = useUnorderedListContext();
 
   return (
-    <StyledUnorderedListItem>
-      <StyledUnorderedListItemContent size={size}>{children}</StyledUnorderedListItemContent>
+    <StyledUnorderedListItem {...other}>
+      <StyledUnorderedListItemContent space={size}>{children}</StyledUnorderedListItemContent>
     </StyledUnorderedListItem>
   );
 };

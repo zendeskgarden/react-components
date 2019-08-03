@@ -7,12 +7,8 @@
 
 import React, { createContext } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import { listCSS } from './styles';
 import UnorderedListItem from './UnorderedListItem';
-
-const COMPONENT_ID = 'typography.unordered_list';
+import { StyledUnorderedList } from '../../styled';
 
 const TYPE = {
   CIRCLE: 'circle',
@@ -25,14 +21,6 @@ const SIZE = {
   MEDIUM: 'medium',
   LARGE: 'large'
 };
-
-const StyledUnorderedList = styled.ul.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
-  ${props => listCSS(props)};
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
-`;
 
 export const UnorderedListContext = createContext();
 
