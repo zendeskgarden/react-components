@@ -98,7 +98,7 @@
     "markdownlint-cli": "0.17.0",
     "micromatch": "4.0.2",
     "mini-css-extract-plugin": "0.8.0",
-    "mockdate": "2.0.4",
+    "mockdate": "2.0.3",
     "node-fetch": "2.6.0",
     "optimize-css-assets-webpack-plugin": "5.0.3",
     "prettier": "1.18.2",
