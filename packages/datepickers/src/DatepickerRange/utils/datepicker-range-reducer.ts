@@ -238,7 +238,6 @@ export const datepickerRangeReducer = ({
       };
     }
     case 'CLICK_DATE':
-      // console.log(state.isStartFocused, state.isEndFocused);
       if (state.isStartFocused) {
         if (endValue !== undefined && isBefore(action.value, endValue)) {
           onChange && onChange({ startValue: action.value, endValue });
