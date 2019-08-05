@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1565023057139" clover="3.2.0">
-  <project timestamp="1565023057140" name="All files">
-    <metrics statements="3620" coveredstatements="3551" conditionals="1538" coveredconditionals="1373" methods="1031" coveredmethods="1003" elements="6189" coveredelements="5927" complexity="0" loc="3620" ncloc="3620" packages="99" files="296" classes="296"/>
+<coverage generated="1565036381287" clover="3.2.0">
+  <project timestamp="1565036381287" name="All files">
+    <metrics statements="3620" coveredstatements="3551" conditionals="1539" coveredconditionals="1374" methods="1031" coveredmethods="1003" elements="6190" coveredelements="5928" complexity="0" loc="3620" ncloc="3620" packages="99" files="296" classes="296"/>
     <package name="autocomplete.src.containers">
       <metrics statements="173" coveredstatements="168" conditionals="96" coveredconditionals="78" methods="46" coveredmethods="42"/>
       <file name="AutocompleteContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/autocomplete/src/containers/AutocompleteContainer.js">
@@ -1404,7 +1404,7 @@
       </file>
     </package>
     <package name="dropdowns.src.Menu.Items">
-      <metrics statements="93" coveredstatements="93" conditionals="19" coveredconditionals="19" methods="7" coveredmethods="7"/>
+      <metrics statements="93" coveredstatements="93" conditionals="20" coveredconditionals="20" methods="7" coveredmethods="7"/>
       <file name="AddItem.tsx" path="/home/travis/build/zendeskgarden/react-components/packages/dropdowns/src/Menu/Items/AddItem.tsx">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="8" count="11" type="stmt"/>
@@ -1433,7 +1433,7 @@
         <line num="40" count="11" type="stmt"/>
       </file>
       <file name="Item.ts" path="/home/travis/build/zendeskgarden/react-components/packages/dropdowns/src/Menu/Items/Item.ts">
-        <metrics statements="25" coveredstatements="25" conditionals="15" coveredconditionals="15" methods="3" coveredmethods="3"/>
+        <metrics statements="25" coveredstatements="25" conditionals="16" coveredconditionals="16" methods="3" coveredmethods="3"/>
         <line num="8" count="11" type="stmt"/>
         <line num="9" count="11" type="stmt"/>
         <line num="11" count="11" type="stmt"/>
@@ -1442,7 +1442,7 @@
         <line num="30" count="11" type="stmt"/>
         <line num="42" count="500" type="stmt"/>
         <line num="43" count="500" type="stmt"/>
-        <line num="45" count="500" type="cond" truecount="4" falsecount="0"/>
+        <line num="45" count="500" type="cond" truecount="5" falsecount="0"/>
         <line num="46" count="2" type="stmt"/>
         <line num="49" count="498" type="stmt"/>
         <line num="50" count="498" type="stmt"/>
