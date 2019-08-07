@@ -8,16 +8,20 @@ AWKCMD='
   {
     # On first record
     if ( NR == 1) {
-      # Remove single quotes
-      gsub(/\047/, "");
+      # Remove single OR double quotes
+      gsub(/[\047|\"]/, "");
     } else {
-      # Replace first single quote with (,)
-      sub(/\047/, ",", $4);
-      # Remove single quotes
-      gsub(/\047/, ""i, $4);
+      # Replace first single OR double quote with (,)
+      sub(/[\047|\"]/, ",", $4);
+      # Remove single OR double quotes
+      gsub(/[\047|\"]/, "", $4);
+      # Remove COMPONENT_ID
+      gsub(/[A-Z_{]*COMPONENT_ID[}]*/, "", $4);
+      # Remove arrow functions
+      gsub(/\(\{ [a-zA-Z]+ \}\)/, "", $4)
     }
   }
-  # Print second column only which contains component_id
+  # Print fourth column only which contains component_id
   { print $4 }
 '
 grep \
@@ -27,7 +31,7 @@ grep \
   --include=\*.js \
   --exclude=\*.spec.js \
   -rn '../../packages' \
-  -e "\'data-garden-id\': \'" \
+  -e "data-garden-id" \
   -e "const [A-Z_]*COMPONENT_ID =" |
   sort | # Sort alphabetically
   awk "$AWKCMD" | # Run the above awk program
