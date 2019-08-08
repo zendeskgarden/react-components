@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { POPPER_PLACEMENT } from '../utils/garden-placements';
+import { POPPER_PLACEMENT } from '../Datepicker/utils/garden-placements';
 import { StyledMenu } from './styled-menu';
 
 describe('StyledMenuView', () => {

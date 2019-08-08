@@ -30,33 +30,40 @@ module.exports = {
     },
     {
       name: 'Examples',
-      content: '../../packages/datepickers/src/examples/examples.md',
+      content: '../../packages/datepickers/examples/examples.md',
       sections: [
         {
           name: 'Default usage',
-          content: '../../packages/datepickers/src/examples/default-usage.md'
+          content: '../../packages/datepickers/examples/default-usage.md'
         },
         {
           name: 'Custom date formats',
-          content: '../../packages/datepickers/src/examples/custom-formats.md'
+          content: '../../packages/datepickers/examples/custom-formats.md'
         },
         {
           name: 'Localization',
-          content: '../../packages/datepickers/src/examples/localization.md'
+          content: '../../packages/datepickers/examples/localization.md'
         },
         {
           name: 'Min and max dates',
-          content: '../../packages/datepickers/src/examples/min-max-dates.md'
+          content: '../../packages/datepickers/examples/min-max-dates.md'
         },
         {
           name: 'Compact sizing',
-          content: '../../packages/datepickers/src/examples/compact.md'
+          content: '../../packages/datepickers/examples/compact.md'
+        },
+        {
+          name: 'Range',
+          content: '../../packages/datepickers/examples/range.md'
         }
       ]
     },
     {
       name: 'Components',
-      components: '../../packages/datepickers/src/[A-Z]*.{ts,tsx}'
+      components: [
+        '../../packages/datepickers/src/Datepicker/[A-Z]*.{ts,tsx}',
+        '../../packages/datepickers/src/DatepickerRange/[A-Z]*.{ts,tsx}'
+      ]
     }
   ]
 };

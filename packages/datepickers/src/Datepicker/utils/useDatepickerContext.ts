@@ -6,7 +6,7 @@
  */
 
 import { useContext, createContext } from 'react';
-import { IDatepickerState, DatepickerAction } from './reducer';
+import { IDatepickerState, DatepickerAction } from './datepicker-reducer';
 
 export interface IDatepickerContext {
   state: IDatepickerState;

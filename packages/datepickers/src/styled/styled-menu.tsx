@@ -11,7 +11,7 @@ import classNames from 'classnames';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import MenuStyles from '@zendeskgarden/css-menus';
 import ArrowStyles from '@zendeskgarden/css-arrows';
-import { POPPER_PLACEMENT } from '../utils/garden-placements';
+import { POPPER_PLACEMENT } from '../Datepicker/utils/garden-placements';
 
 const COMPONENT_ID = 'dropdowns.menu';
 
