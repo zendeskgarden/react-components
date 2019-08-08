@@ -1,6 +1,6 @@
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
-const { Checkbox, Field, Input, Label } = require('@zendeskgarden/react-forms/src');
+const { Toggle, Field, Input, Label } = require('@zendeskgarden/react-forms/src');
 const {
   Dropdown,
   Select,
@@ -64,12 +64,12 @@ const NestedList = ({ level = 0, ...props }) => {
 <>
   <Well recessed style={{ width: 300 }}>
     <Field>
-      <Checkbox
+      <Toggle
         checked={state.ordered}
         onChange={event => setState({ ordered: event.target.checked })}
       >
         <Label style={{ marginBottom: 8 }}>Ordered</Label>
-      </Checkbox>
+      </Toggle>
     </Field>
     <RangeField>
       <RangeLabel>Levels</RangeLabel>

@@ -46,7 +46,7 @@ Code.propTypes = {
 
 Code.defaultProps = {
   hue: HUE.GREY,
-  size: SIZE.MD
+  size: SIZE.MEDIUM
 };
 
 /** @component */

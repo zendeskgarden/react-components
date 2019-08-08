@@ -20,32 +20,7 @@ module.exports = {
       sections: [
         {
           name: 'Typography',
-          sections: [
-            {
-              name: 'Small',
-              content: '../../packages/typography/examples/sm.md'
-            },
-            {
-              name: 'Medium',
-              content: '../../packages/typography/examples/md.md'
-            },
-            {
-              name: 'Large',
-              content: '../../packages/typography/examples/lg.md'
-            },
-            {
-              name: 'XL',
-              content: '../../packages/typography/examples/xl.md'
-            },
-            {
-              name: 'XXL',
-              content: '../../packages/typography/examples/xxl.md'
-            },
-            {
-              name: 'XXXL',
-              content: '../../packages/typography/examples/xxxl.md'
-            }
-          ]
+          content: '../../packages/typography/examples/typography.md'
         },
         {
           name: 'Ellipsis',
@@ -57,19 +32,7 @@ module.exports = {
         },
         {
           name: 'Lists',
-          sections: [
-            {
-              content: '../../packages/typography/examples/list.md'
-            },
-            {
-              name: 'Ordered',
-              content: '../../packages/typography/examples/ordered-list.md'
-            },
-            {
-              name: 'Unordered',
-              content: '../../packages/typography/examples/unordered-list.md'
-            }
-          ]
+          content: '../../packages/typography/examples/lists.md'
         }
       ]
     },

@@ -1,40 +1,49 @@
 ```jsx
-<Code>inline code fragment</Code>
-```
+const { Well } = require('@zendeskgarden/react-notifications/src');
+const {
+  Dropdown,
+  Select,
+  Field,
+  Label,
+  Menu,
+  Item
+} = require('@zendeskgarden/react-dropdowns/src');
 
-### Colors
+initialState = {
+  hue: 'grey',
+  size: 'medium'
+};
 
-```jsx
-const hues = ['Red', 'Yellow', 'Green', 'Grey', null];
-
-<Grid>
-  <Row>
-    {hues.map((hue, index) => (
-      <Col md={2} key={hue}>
-        <Code hue={hue ? hue.toLowerCase() : hue}>{hue || 'Default (Grey)'}</Code>
-      </Col>
-    ))}
-  </Row>
-</Grid>;
-```
-
-### Sizes
-
-```jsx
-const hues = [null, 'Red', 'Yellow', 'Green'];
-const sizes = ['Small', 'Medium', 'Large', null];
-
-<Grid>
-  {hues.map(hue => (
-    <Row key={hue}>
-      {sizes.map((size, index) => (
-        <Col md={2} key={index}>
-          <Code size={size ? size.toLowerCase() : size} hue={hue ? hue.toLowerCase() : hue}>
-            {size || 'Default (Medium)'}
-          </Code>
-        </Col>
-      ))}
-    </Row>
-  ))}
-</Grid>;
+<>
+  <Well recessed style={{ width: 300 }}>
+    <Dropdown selectedItem={state.hue} onSelect={hue => setState({ hue })}>
+      <Field>
+        <Label>Hue</Label>
+        <Select small>{state.hue}</Select>
+      </Field>
+      <Menu small>
+        <Item value="grey">grey (default)</Item>
+        <Item value="green">green</Item>
+        <Item value="yellow">yellow</Item>
+        <Item value="red">red</Item>
+      </Menu>
+    </Dropdown>
+    <Dropdown selectedItem={state.size} onSelect={size => setState({ size })}>
+      <Field>
+        <Label>Size</Label>
+        <Select small>{state.size}</Select>
+      </Field>
+      <Menu small>
+        <Item value="small">small</Item>
+        <Item value="medium">medium (default)</Item>
+        <Item value="large">large</Item>
+      </Menu>
+    </Dropdown>
+  </Well>
+  <div style={{ marginTop: 20 }}>
+    <Code hue={state.hue} size={state.size}>
+      veggies es bonus vobis
+    </Code>
+  </div>
+</>;
 ```

@@ -1,16 +1,16 @@
 ```jsx
 <div>
   <div>
-    <Ellipsis>Grumpy wizards make toxic brew for the evil Queen and Jack.</Ellipsis>
+    <Ellipsis>Veggies es bonus vobis, proinde vos postulo essum magis.</Ellipsis>
   </div>
   <div>
     <Ellipsis style={{ width: 300 }}>
-      Grumpy wizards make toxic brew for the evil Queen and Jack.
+      Veggies es bonus vobis, proinde vos postulo essum magis.
     </Ellipsis>
   </div>
   <div>
     <Ellipsis style={{ width: 150 }}>
-      Grumpy wizards make toxic brew for the evil Queen and Jack.
+      Veggies es bonus vobis, proinde vos postulo essum magis.
     </Ellipsis>
   </div>
 </div>
