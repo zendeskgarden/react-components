@@ -119,7 +119,7 @@ export default class Tabs extends ControlledComponent {
               }
 
               // Don't want to duplicate tabProps in the TabPanel
-              const { tabProps, ...other } = child.props; // eslint-disable-line no-unused-vars
+              const { tabProps, ...other } = child.props; // eslint-disable-line @typescript-eslint/no-unused-vars
 
               return cloneElement(
                 child,

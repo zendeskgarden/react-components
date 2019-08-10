@@ -203,7 +203,7 @@ export default class Select extends ControlledComponent {
       eventsEnabled,
       popperModifiers,
       children,
-      onChange, // eslint-disable-line no-unused-vars
+      onChange, // eslint-disable-line @typescript-eslint/no-unused-vars
       small,
       selectRef,
       disabled: selectDisabled,

@@ -8,7 +8,6 @@
 import '@zendeskgarden/react-menus/dist/styles.css';
 import '@zendeskgarden/react-textfields/dist/styles.css';
 import '@zendeskgarden/react-tags/dist/styles.css';
-import '@zendeskgarden/react-buttons/dist/styles.css';
 
 if (process.env.NODE_ENV !== 'production') {
   /* eslint-disable no-console */

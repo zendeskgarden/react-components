@@ -11,8 +11,9 @@ import styled from 'styled-components';
 import TableOfContentsRenderer from 'react-styleguidist/lib/rsg-components/TableOfContents/TableOfContentsRenderer';
 
 import { Button, Anchor } from '../../../packages/buttons/src';
-import { ThemeProvider } from '../../../packages/theming/src';
+import { DEFAULT_THEME, ThemeProvider } from '../../../packages/theming/src';
 import { Tooltip, Title } from '../../../packages/tooltips/src';
+import { Code } from '../../../packages/typography/src';
 import { Field, Toggle, Label } from '../../../packages/forms/src';
 import ChangelogModal from './Changelog';
 import Spacer from './Spacer';
@@ -100,6 +101,7 @@ class TableOfContents extends Component {
                 appendToBody
                 type="light"
                 size="extra-large"
+                style={{ fontFamily: DEFAULT_THEME.fonts.system }}
                 trigger={
                   <div style={{ marginBottom: 20 }}>
                     <Field>
@@ -122,7 +124,7 @@ class TableOfContents extends Component {
                 <Title>RTL in Garden</Title>
                 <p>
                   All Garden components are RTL locale aware when used with the{' '}
-                  {'<ThemeProvider />'} component.
+                  <Code>{'<ThemeProvider />'}</Code> component.
                 </p>
                 <p>
                   <Anchor href="../theming">View Garden Theming Package</Anchor>

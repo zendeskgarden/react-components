@@ -1,7 +1,7 @@
 # @zendeskgarden/react-buttons [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-buttons.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-buttons)
 
-This package includes components and render prop containers relating to
-buttons within the Garden Design System.
+This package includes components relating to buttons in the
+[Garden Design System](https://zendeskgarden.github.io/).
 
 ## Installation
 
@@ -14,14 +14,7 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 
 ## Usage
 
-### General Buttons
-
 ```jsx static
-/**
- * Include button styling at the root of your application
- */
-import '@zendeskgarden/react-buttons/dist/styles.css';
-
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Button } from '@zendeskgarden/react-buttons';
 
@@ -31,8 +24,8 @@ import { Button } from '@zendeskgarden/react-buttons';
 <ThemeProvider>
   <>
     <Button onClick={() => alert('clicked')}>Default</Button>
-    <Button primary disabled>
-      Disabled Primary button
+    <Button primary danger>
+      Primary danger button
     </Button>
   </>
 </ThemeProvider>;
@@ -41,13 +34,26 @@ import { Button } from '@zendeskgarden/react-buttons';
 ### Button Group
 
 ```jsx static
-initialState = {
-  selectedKey: 'item-1'
+import React, { useState } from 'react';
+import { ButtonGroup, Button } from '@zendeskgarden/react-buttons';
+
+const MyButtonGroup = ({ children, initialKey, ...props }) => {
+  const [selectedKey, setSelectedKey] = useState(initialKey);
+
+  return (
+    <ButtonGroup
+      selectedKey={selectedKey}
+      onStateChange={newState => setSelectedKey(newState.selectedKey)}
+      {...props}
+    >
+      {children}
+    </ButtonGroup>
+  );
 };
 
-<ButtonGroup selectedKey={state.selectedKey} onStateChange={setState}>
+<MyButtonGroup initialKey="item-1">
   <Button key="item-1">Item 1</Button>
   <Button key="item-2">Item 2</Button>
   <Button key="item-3">Item 3</Button>
-</ButtonGroup>;
+</MyButtonGroup>;
 ```

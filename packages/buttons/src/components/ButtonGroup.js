@@ -5,14 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children, cloneElement, isValidElement } from 'react';
+import React, { Children, cloneElement, isValidElement, createContext } from 'react';
 import PropTypes from 'prop-types';
 import { ControlledComponent, IdManager } from '@zendeskgarden/react-selection';
 import { hasType } from '@zendeskgarden/react-utilities';
 
 import ButtonGroupContainer from '../containers/ButtonGroupContainer';
-import ButtonGroupView from '../views/button-group/ButtonGroupView';
-import Button from '../views/Button';
+import { StyledButtonGroup } from '../styled';
+import Button from './Button';
+
+export const ButtonGroupContext = createContext();
 
 /**
  * High-level abstraction for basic ButtonGroup implementations.
@@ -20,10 +22,9 @@ import Button from '../views/Button';
 export default class ButtonGroup extends ControlledComponent {
   static propTypes = {
     id: PropTypes.any,
+    /** @ignore */
     children: PropTypes.any,
-    /**
-     * Currently selected tab to display
-     */
+    /** Currently selected button */
     selectedKey: PropTypes.any,
     /**
      * @param {Object} newState
@@ -93,7 +94,7 @@ export default class ButtonGroup extends ControlledComponent {
   };
 
   render() {
-    const { children, ...otherProps } = this.props; // eslint-disable-line no-unused-vars
+    const { children, onStateChange, ...otherProps } = this.props; // eslint-disable-line @typescript-eslint/no-unused-vars
     const { focusedKey, selectedKey, id } = this.getControlledState();
 
     return (
@@ -104,9 +105,11 @@ export default class ButtonGroup extends ControlledComponent {
         onStateChange={this.setControlledState}
       >
         {({ getGroupProps, getButtonProps }) => (
-          <ButtonGroupView {...getGroupProps(otherProps)}>
-            {this.renderButtons(getButtonProps)}
-          </ButtonGroupView>
+          <ButtonGroupContext.Provider value={true}>
+            <StyledButtonGroup {...getGroupProps(otherProps)}>
+              {this.renderButtons(getButtonProps)}
+            </StyledButtonGroup>
+          </ButtonGroupContext.Provider>
         )}
       </ButtonGroupContainer>
     );
