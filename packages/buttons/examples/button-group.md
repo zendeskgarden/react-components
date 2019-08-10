@@ -139,18 +139,23 @@ All elements proxy their events and attributes. This example uses controlled
 state as well as custom `onClick` events for each button.
 
 ```jsx
-initialState = { selectedKey: 'button-2' };
-
-<ButtonGroup
-  selectedKey={state.selectedKey}
-  onStateChange={newState => {
+const ExampleButtonGroup = ({ children, initialKey, ...props }) => {
+  const [selectedKey, setSelectedKey] = React.useState(initialKey);
+  const stateChange = newState => {
     if (newState.selectedKey) {
       alert(`Button "${newState.selectedKey}" selected`);
+      setSelectedKey(newState.selectedKey);
     }
+  };
 
-    setState(newState);
-  }}
->
+  return (
+    <ButtonGroup selectedKey={selectedKey} onStateChange={stateChange} {...props}>
+      {children}
+    </ButtonGroup>
+  );
+};
+
+<ExampleButtonGroup initialKey="button-2">
   <Button key="button-1" onClick={() => console.log('clicked')}>
     Item 1
   </Button>
@@ -164,5 +169,5 @@ initialState = { selectedKey: 'button-2' };
   <Button key="button-4" onClick={() => console.log('clicked')}>
     Item 4
   </Button>
-</ButtonGroup>;
+</ExampleButtonGroup>;
 ```

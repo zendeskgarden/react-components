@@ -3,12 +3,11 @@ The following example displays a selection of `IconButton` and
 also controlled so that the icons rotate on click.
 
 ```jsx
-const { useState } = require('react');
 const SettingsIcon = require('@zendeskgarden/svg-icons/src/16/gear-stroke.svg').default;
 const AttachmentIcon = require('@zendeskgarden/svg-icons/src/16/paperclip.svg').default;
 
 const ExampleIconButton = ({ children, type, ...other }) => {
-  const [rotated, setRotated] = useState(false);
+  const [rotated, setRotated] = React.useState(false);
   const click = () => setRotated(!rotated);
 
   if (type === 'chevron') {

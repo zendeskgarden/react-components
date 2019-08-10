@@ -34,15 +34,26 @@ import { Button } from '@zendeskgarden/react-buttons';
 ### Button Group
 
 ```jsx static
+import React, { useState } from 'react';
 import { ButtonGroup, Button } from '@zendeskgarden/react-buttons';
 
-initialState = {
-  selectedKey: 'item-1'
+const MyButtonGroup = ({ children, initialKey, ...props }) => {
+  const [selectedKey, setSelectedKey] = useState(initialKey);
+
+  return (
+    <ButtonGroup
+      selectedKey={selectedKey}
+      onStateChange={newState => setSelectedKey(newState.selectedKey)}
+      {...props}
+    >
+      {children}
+    </ButtonGroup>
+  );
 };
 
-<ButtonGroup selectedKey={state.selectedKey} onStateChange={setState}>
+<MyButtonGroup initialKey="item-1">
   <Button key="item-1">Item 1</Button>
   <Button key="item-2">Item 2</Button>
   <Button key="item-3">Item 3</Button>
-</ButtonGroup>;
+</MyButtonGroup>;
 ```

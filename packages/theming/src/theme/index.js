@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { math } from 'polished';
+import math from 'polished/lib/math/math';
 import PALETTE from '../palette';
 
 const BASE = 4;

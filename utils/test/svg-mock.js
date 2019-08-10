@@ -5,10 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import React from 'react';
 
-const MockSVG = styled.svg.attrs(() => ({
-  xmlns: 'http://www.w3.org/2000/svg'
-}))``;
+const MockSVG = props => <svg xmlns="http://www.w3.org/2000/svg" {...props} />;
 
 export default MockSVG;
