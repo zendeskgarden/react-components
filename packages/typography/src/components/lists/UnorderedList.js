@@ -8,6 +8,7 @@
 import React, { createContext } from 'react';
 import PropTypes from 'prop-types';
 import UnorderedListItem from './UnorderedListItem';
+import { UnorderedListContext } from '../../utils/useUnorderedListContext';
 import { StyledUnorderedList } from '../../styled';
 
 const TYPE = {
@@ -21,8 +22,6 @@ const SIZE = {
   MEDIUM: 'medium',
   LARGE: 'large'
 };
-
-export const UnorderedListContext = createContext();
 
 /**
  * Accepts all `ul` props

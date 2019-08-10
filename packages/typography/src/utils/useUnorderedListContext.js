@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useContext } from 'react';
-import { UnorderedListContext } from '../components/lists/UnorderedList';
+import { createContext, useContext } from 'react';
+
+export const UnorderedListContext = createContext();
 
 /**
  * Retrieve UnorderedList component context

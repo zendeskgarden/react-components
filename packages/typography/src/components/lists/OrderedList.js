@@ -8,6 +8,7 @@
 import React, { createContext } from 'react';
 import PropTypes from 'prop-types';
 import OrderedListItem from './OrderedListItem';
+import { OrderedListContext } from '../../utils/useOrderedListContext';
 import { StyledOrderedList } from '../../styled';
 
 const TYPE = {
@@ -24,8 +25,6 @@ const SIZE = {
   MEDIUM: 'medium',
   LARGE: 'large'
 };
-
-export const OrderedListContext = createContext();
 
 /**
  * Accepts all `ol` props

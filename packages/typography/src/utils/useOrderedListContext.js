@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useContext } from 'react';
-import { OrderedListContext } from '../components/lists/OrderedList';
+import { createContext, useContext } from 'react';
+
+export const OrderedListContext = createContext();
 
 /**
  * Retrieve OrderedList component context
