@@ -16,35 +16,33 @@ module.exports = {
       content: '../../packages/buttons/README.md'
     },
     {
-      name: 'Elements',
-      components: '../../packages/buttons/src/elements/[A-Z]*.js',
+      name: 'Examples',
       sections: [
         {
-          name: 'SplitButton',
-          content: '../../packages/buttons/src/elements/SplitButton.example.md'
+          name: 'Button',
+          content: '../../packages/buttons/examples/button.md'
+        },
+        {
+          name: 'Anchor',
+          content: '../../packages/buttons/examples/anchor.md'
+        },
+        {
+          name: 'Icon Button',
+          content: '../../packages/buttons/examples/icon-button.md'
+        },
+        {
+          name: 'Split Button',
+          content: '../../packages/buttons/examples/split-button.md'
+        },
+        {
+          name: 'Button Group',
+          content: '../../packages/buttons/examples/button-group.md'
         }
       ]
     },
     {
-      name: 'Containers',
-      components: '../../packages/buttons/src/containers/[A-Z]*.js'
-    },
-    {
-      name: 'Views',
-      sections: [
-        {
-          name: 'Generics',
-          components: '../../packages/buttons/src/views/[A-Z]*.js'
-        },
-        {
-          name: 'IconButton',
-          components: '../../packages/buttons/src/views/icon-button/[A-Z]*.js'
-        },
-        {
-          name: 'ButtonGroup',
-          components: '../../packages/buttons/src/views/button-group/[A-Z]*.js'
-        }
-      ]
+      name: 'Components',
+      components: '../../packages/buttons/src/components/*.js'
     }
   ]
 };

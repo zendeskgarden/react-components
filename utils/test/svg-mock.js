@@ -7,6 +7,6 @@
 
 import React from 'react';
 
-const MockSVG = props => <span {...props}>SVG</span>;
+const MockSVG = props => <svg xmlns="http://www.w3.org/2000/svg" {...props} />;
 
 export default MockSVG;

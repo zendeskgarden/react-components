@@ -116,9 +116,25 @@ describe('getColor', () => {
       expect(color).toBe(expected);
     });
 
+    it('darkens a non-hue color if shade is greater than the default', () => {
+      const hex = '#fd5a1e';
+      const color = getColor(hex, DEFAULT_SHADE + 100);
+      const expected = darken(0.05, hex);
+
+      expect(color).toBe(expected);
+    });
+
     it('lightens the color if shade is lesser than what what exists within the hue', () => {
       const color = getColor('blue', 0);
       const expected = lighten(0.05, PALETTE.blue[100]);
+
+      expect(color).toBe(expected);
+    });
+
+    it('lightens a non-hue color if shade is greater than the default', () => {
+      const hex = '#fd5a1e';
+      const color = getColor(hex, DEFAULT_SHADE - 100);
+      const expected = lighten(0.05, hex);
 
       expect(color).toBe(expected);
     });

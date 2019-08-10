@@ -6,28 +6,23 @@
  */
 
 import styled from 'styled-components';
-import classNames from 'classnames';
-import ButtonStyles from '@zendeskgarden/css-buttons';
 import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
+import { StyledButton } from './StyledButton';
 
-const COMPONENT_ID = 'buttons.button_group_view';
+const COMPONENT_ID = 'buttons.anchor';
 
 /**
- * Accepts all `<div>` props
+ * Accepts all `<a>` props
  */
-const ButtonGroupView = styled.div.attrs(props => ({
+export const StyledAnchor = styled(StyledButton).attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: classNames(ButtonStyles['l-btn-group'], {
-    [ButtonStyles['is-rtl']]: isRtl(props)
-  })
+  as: 'a',
+  dir: isRtl(props) ? 'rtl' : undefined,
+  link: true,
+  type: undefined
 }))`
-  :focus {
-    outline: none;
-  }
+  direction: ${props => isRtl(props) && 'rtl'};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-/** @component */
-export default ButtonGroupView;

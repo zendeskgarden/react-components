@@ -8,7 +8,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import hasType from './hasType';
-import Button from '../../../buttons/src/views/Button';
+import Button from '../../../buttons/src/components/Button';
 import Hint from '../../../checkboxes/src/views/Hint';
 
 describe('hasType', () => {

@@ -5,9 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { math, rgba } from 'polished';
+import math from 'polished/lib/math/math';
 import PALETTE from '../palette';
-import getColor from '../utils/getColor';
 
 const BASE = 4;
 
