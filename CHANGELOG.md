@@ -12,6 +12,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v6.4.1 (2019-08-12)
+
+#### :bug: Bug Fix
+* `datepickers`
+  * [#409](https://github.com/zendeskgarden/react-components/pull/409) fix(build): correct prettier error to allow release ([@austin94](https://github.com/austin94))
+
 ## v6.4.0 (2019-08-12)
 
 #### :rocket: New Feature
