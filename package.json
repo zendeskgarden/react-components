@@ -58,7 +58,7 @@
     "babel-plugin-react-remove-properties": "0.3.0",
     "babel-plugin-styled-components": "1.10.6",
     "chalk": "2.4.2",
-    "commander": "2.20.0",
+    "commander": "3.0.0",
     "core-js": "3.2.1",
     "coveralls": "3.0.6",
     "enhanced-resolve": "4.1.0",
