@@ -10,15 +10,15 @@ import PropTypes from 'prop-types';
 import useOrderedListContext from '../../utils/useOrderedListContext';
 import { StyledOrderedListItem, StyledOrderedListItemContent } from '../../styled';
 
-const OrderedListItem = ({ children, ...other }) => {
+const OrderedListItem = React.forwardRef(({ children, ...other }, ref) => {
   const { size } = useOrderedListContext();
 
   return (
-    <StyledOrderedListItem {...other}>
+    <StyledOrderedListItem ref={ref} {...other}>
       <StyledOrderedListItemContent space={size}>{children}</StyledOrderedListItemContent>
     </StyledOrderedListItem>
   );
-};
+});
 
 OrderedListItem.propTypes = {
   children: PropTypes.any

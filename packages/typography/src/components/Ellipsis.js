@@ -10,12 +10,10 @@ import PropTypes from 'prop-types';
 import { StyledEllipsis } from '../styled';
 
 /**
- * A component that automatically includes a native `title` attribute
- * and any text-overflow styling.
- *
- * All other props are spread onto the element.
+ * A component that automatically includes a native `title` attribute and any
+ * text-overflow styling. All other props are spread onto the element.
  */
-function Ellipsis({ children, title, tag, ...other }) {
+const Ellipsis = React.forwardRef(({ children, title, tag, ...other }, ref) => {
   const StyledEllipsisTag = StyledEllipsis.withComponent(tag);
 
   let textContent = null;
@@ -27,11 +25,11 @@ function Ellipsis({ children, title, tag, ...other }) {
   }
 
   return (
-    <StyledEllipsisTag title={textContent} {...other}>
+    <StyledEllipsisTag ref={ref} title={textContent} {...other}>
       {children}
     </StyledEllipsisTag>
   );
-}
+});
 
 Ellipsis.propTypes = {
   /**

@@ -12,11 +12,11 @@ import { StyledFont } from '../styled';
 /**
  * Accepts all standard props relating to provided `tag`
  */
-const SM = ({ tag, ...other }) => {
+const SM = React.forwardRef(({ tag, ...other }, ref) => {
   const StyledFontTag = StyledFont.withComponent(tag);
 
-  return <StyledFontTag size="sm" {...other} />;
-};
+  return <StyledFontTag ref={ref} size="sm" {...other} />;
+});
 
 SM.propTypes = {
   /** Any valid DOM element for the styled component */

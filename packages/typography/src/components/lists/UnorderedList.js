@@ -26,11 +26,13 @@ const SIZE = {
 /**
  * Accepts all `ul` props
  */
-const UnorderedList = ({ size, children, ...other }) => (
+const UnorderedList = React.forwardRef(({ size, children, ...other }, ref) => (
   <UnorderedListContext.Provider value={{ size }}>
-    <StyledUnorderedList {...other}>{children}</StyledUnorderedList>
+    <StyledUnorderedList ref={ref} {...other}>
+      {children}
+    </StyledUnorderedList>
   </UnorderedListContext.Provider>
-);
+));
 
 UnorderedList.propTypes = {
   children: PropTypes.node,

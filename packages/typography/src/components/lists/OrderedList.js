@@ -29,11 +29,13 @@ const SIZE = {
 /**
  * Accepts all `ol` props
  */
-const OrderedList = ({ size, children, ...other }) => (
+const OrderedList = React.forwardRef(({ size, children, ...other }, ref) => (
   <OrderedListContext.Provider value={{ size }}>
-    <StyledOrderedList {...other}>{children}</StyledOrderedList>
+    <StyledOrderedList ref={ref} {...other}>
+      {children}
+    </StyledOrderedList>
   </OrderedListContext.Provider>
-);
+));
 
 OrderedList.propTypes = {
   children: PropTypes.node,

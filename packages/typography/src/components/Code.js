@@ -25,7 +25,7 @@ const HUE = {
 /**
  * Accepts all `code` props
  */
-const Code = ({ size, ...other }) => {
+const Code = React.forwardRef(({ size, ...other }, ref) => {
   let _size;
 
   if (size === SIZE.SMALL) {
@@ -36,8 +36,8 @@ const Code = ({ size, ...other }) => {
     _size = 'lg';
   }
 
-  return <StyledCode size={_size} {...other} />;
-};
+  return <StyledCode ref={ref} size={_size} {...other} />;
+});
 
 Code.propTypes = {
   hue: PropTypes.oneOf([HUE.GREY, HUE.RED, HUE.GREEN, HUE.YELLOW]),
