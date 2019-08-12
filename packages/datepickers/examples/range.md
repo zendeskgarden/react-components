@@ -28,9 +28,11 @@ const isInvalid = () => compareAsc(state.startValue, state.endValue) === 1;
         <Field>
           <Label>End</Label>
           <DatepickerRange.End>
-            <Input validation={isInvalid() ? 'error' : undefined}/>
+            <Input validation={isInvalid() ? 'error' : undefined} />
           </DatepickerRange.End>
-          {isInvalid() && <Message validation="error">End date must occur after the Start date</Message>}
+          {isInvalid() && (
+            <Message validation="error">End date must occur after the Start date</Message>
+          )}
         </Field>
       </Col>
     </Row>
