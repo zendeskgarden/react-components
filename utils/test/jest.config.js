@@ -22,10 +22,7 @@ module.exports = {
   },
   moduleFileExtensions: [...defaults.moduleFileExtensions],
   snapshotSerializers: ['enzyme-to-json/serializer'],
-  setupFilesAfterEnv: [
-    '<rootDir>/utils/test/jest.setup.js',
-    '@testing-library/react/cleanup-after-each'
-  ],
+  setupFilesAfterEnv: ['<rootDir>/utils/test/jest.setup.js'],
   moduleNameMapper: {
     '\\.(css)$': 'identity-obj-proxy',
     '@zendeskgarden/css(?!-variables)': 'identity-obj-proxy',
