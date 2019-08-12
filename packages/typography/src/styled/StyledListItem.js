@@ -6,6 +6,7 @@
  */
 
 import styled, { css } from 'styled-components';
+import math from 'polished/lib/math/math';
 import PropTypes from 'prop-types';
 import { DEFAULT_THEME, isRtl, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledFont } from './StyledFont';
@@ -24,11 +25,11 @@ const listItemContentStyles = props => {
       padding = '0';
       break;
     case SPACE.LARGE:
-      padding = '4px 0';
+      padding = `${math(`${props.theme.space.base} * 1px`)} 0`;
       break;
     case SPACE.MEDIUM:
     default:
-      padding = '2px 0';
+      padding = `${math(`${props.theme.space.base} * 0.5px`)} 0`;
       break;
   }
 
@@ -44,8 +45,10 @@ export const StyledOrderedListItem = styled.li.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   /* stylelint-disable */
-  margin-${props => (isRtl(props) ? 'right' : 'left')}: -4px;
-  padding-${props => (isRtl(props) ? 'right' : 'left')}: 4px;
+  margin-${props => (isRtl(props) ? 'right' : 'left')}: ${props =>
+  math(`${props.theme.space.base} * -1px`)};
+  padding-${props => (isRtl(props) ? 'right' : 'left')}: ${props =>
+  math(`${props.theme.space.base} * 1px`)};
   /* stylelint-enable */
 
   ${props => retrieveComponentStyles(ORDERED_ID, props)};
@@ -64,11 +67,13 @@ export const StyledOrderedListItemContent = styled(StyledFont)`
 `;
 
 StyledOrderedListItemContent.propTypes = {
-  space: PropTypes.oneOf([SPACE.SMALL, SPACE.MEDIUM, SPACE.LARGE])
+  space: PropTypes.oneOf([SPACE.SMALL, SPACE.MEDIUM, SPACE.LARGE]),
+  theme: PropTypes.object
 };
 
 StyledOrderedListItemContent.defaultProps = {
-  space: SPACE.MEDIUM
+  space: SPACE.MEDIUM,
+  theme: DEFAULT_THEME
 };
 
 const UNORDERED_ID = 'typography.unordered_list_item';
@@ -93,9 +98,11 @@ export const StyledUnorderedListItemContent = styled(StyledFont)`
 `;
 
 StyledUnorderedListItemContent.propTypes = {
-  space: PropTypes.oneOf([SPACE.SMALL, SPACE.MEDIUM, SPACE.LARGE])
+  space: PropTypes.oneOf([SPACE.SMALL, SPACE.MEDIUM, SPACE.LARGE]),
+  theme: PropTypes.object
 };
 
 StyledUnorderedListItemContent.defaultProps = {
-  space: SPACE.MEDIUM
+  space: SPACE.MEDIUM,
+  theme: DEFAULT_THEME
 };
