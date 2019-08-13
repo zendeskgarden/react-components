@@ -19,24 +19,29 @@ module.exports = {
       name: 'Examples',
       sections: [
         {
+          name: 'Typography',
+          content: '../../packages/typography/examples/typography.md'
+        },
+        {
+          name: 'Ellipsis',
+          content: '../../packages/typography/examples/ellipsis.md'
+        },
+        {
+          name: 'Code',
+          content: '../../packages/typography/examples/code.md'
+        },
+        {
           name: 'Lists',
-          content: '../../packages/typography/examples/list.md'
+          content: '../../packages/typography/examples/lists.md'
         }
       ]
     },
     {
       name: 'Components',
       components: [
-        '../../packages/typography/src/views/SM.js',
-        '../../packages/typography/src/views/MD.js',
-        '../../packages/typography/src/views/LG.js',
-        '../../packages/typography/src/views/XL.js',
-        '../../packages/typography/src/views/XXL.js',
-        '../../packages/typography/src/views/XXXL.js',
-        '../../packages/typography/src/views/Code.js',
-        '../../packages/typography/src/views/Ellipsis.js',
-        '../../packages/typography/src/views/lists/OrderedList.js',
-        '../../packages/typography/src/views/lists/UnorderedList.js'
+        '../../packages/typography/src/components/*.js',
+        '../../packages/typography/src/components/lists/OrderedList.js',
+        '../../packages/typography/src/components/lists/UnorderedList.js'
       ]
     }
   ]

@@ -23,3 +23,9 @@
 - custom `document` object
   - previously `<ThemeProvider document={doc}>`
   - currently `<ThemeProvider theme={{ ...DEFAULT_THEME, document: doc }}>`
+
+## @zendeskgarden/react-typography
+
+- rename `Code` hue prop
+  - previously `<Code type="red">`
+  - currently `<Code hue="red">`
