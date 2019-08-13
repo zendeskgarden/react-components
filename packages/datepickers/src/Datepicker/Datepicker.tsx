@@ -15,14 +15,14 @@ import parse from 'date-fns/parse';
 import { isRtl, withTheme } from '@zendeskgarden/react-theming';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
 
-import { StyledMenu } from './styled';
+import { StyledMenu } from '../styled';
 import {
   getRtlPopperPlacement,
   getPopperPlacement,
   GARDEN_PLACEMENT
 } from './utils/garden-placements';
 import Calendar from './components/Calendar';
-import { datepickerReducer, retrieveInitialState } from './utils/reducer';
+import { datepickerReducer, retrieveInitialState } from './utils/datepicker-reducer';
 import { DatepickerContext } from './utils/useDatepickerContext';
 
 /**
@@ -81,7 +81,7 @@ export interface IDatepickerProps {
    */
   small?: boolean;
   /**
-   * Override default date parsing
+   * Override default date parsing. Receives a localized input value and returns a `Date` object.
    */
   customParseDate?: (inputValue: string) => Date;
   /**
@@ -328,7 +328,8 @@ Datepicker.defaultProps = {
   refKey: 'ref',
   animate: true,
   eventsEnabled: true,
-  zIndex: 1000
+  zIndex: 1000,
+  locale: 'en-US'
 };
 
 export default withTheme(Datepicker) as FunctionComponent<IDatepickerProps>;

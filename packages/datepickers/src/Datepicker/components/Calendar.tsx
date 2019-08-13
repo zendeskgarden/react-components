@@ -24,9 +24,9 @@ import {
   StyledCalendarItem,
   StyledDayLabel,
   StyledDay
-} from '../styled';
+} from '../../styled';
 import useDatepickerContext from '../utils/useDatepickerContext';
-import { getStartOfWeek } from '../utils/calendar-utils';
+import { getStartOfWeek } from '../../utils/calendar-utils';
 import MonthSelector from './MonthSelector';
 
 interface ICalendarProps {

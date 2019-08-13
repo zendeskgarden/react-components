@@ -12,6 +12,63 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v6.4.1 (2019-08-12)
+
+#### :bug: Bug Fix
+* `datepickers`
+  * [#409](https://github.com/zendeskgarden/react-components/pull/409) fix(build): correct prettier error to allow release ([@austin94](https://github.com/austin94))
+
+## v6.4.0 (2019-08-12)
+
+#### :rocket: New Feature
+* `datepickers`
+  * [#397](https://github.com/zendeskgarden/react-components/pull/397)  feat(datepickers): introduce DatepickerRange component ([@austin94](https://github.com/austin94))
+  * [#397](https://github.com/zendeskgarden/react-components/pull/397) Apply a default locale of `en-US` to all datepickers to align with default browser date parsing.
+
+## v6.3.2 (2019-08-05)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#402](https://github.com/zendeskgarden/react-components/pull/402) feat(Menu/Items/Item): change Item 'value' requirement to be inclusive of 0 ([@chungkikelly](https://github.com/chungkikelly))
+
+#### :seedling: Internal
+* [#400](https://github.com/zendeskgarden/react-components/pull/400) chore(deps): update all development non-major dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
+## v6.3.1 (2019-08-02)
+
+#### :bug: Bug Fix
+* `buttons`
+  * [#398](https://github.com/zendeskgarden/react-components/pull/398) fix(buttons): white-space/word-wrap styling in the Anchor component ([@luis-almeida](https://github.com/luis-almeida))
+  * [#396](https://github.com/zendeskgarden/react-components/pull/396) fix(buttons): allow correct ref validation in PropTypes ([@austin94](https://github.com/austin94))
+
+#### :memo: Documentation
+* `dropdowns`
+  * [#394](https://github.com/zendeskgarden/react-components/pull/394) Update autocomplete dropdown example due to google translate issue ([@KaiminHuang](https://github.com/KaiminHuang))
+* `datepickers`
+  * [#393](https://github.com/zendeskgarden/react-components/pull/393) chore(datepicker): update examples to include correct localization names ([@austin94](https://github.com/austin94))
+
+#### :seedling: Internal
+* Other
+  * [#395](https://github.com/zendeskgarden/react-components/pull/395) chore(deps): update all development non-major dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `avatars`, `breadcrumbs`, `buttons`, `checkboxes`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `menus`, `modals`, `notifications`, `pagination`, `radios`, `ranges`, `tables`, `tabs`, `tags`, `textfields`, `toggles`, `tooltips`
+  * [#392](https://github.com/zendeskgarden/react-components/pull/392) chore(deps): update all development non-major dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
+## v6.3.0 (2019-07-16)
+
+#### :rocket: New Feature
+* `typography`
+  * [#388](https://github.com/zendeskgarden/react-components/pull/388) feat(typography): add `List` component ([@jzempel](https://github.com/jzempel))
+* `dropdowns`
+  * [#387](https://github.com/zendeskgarden/react-components/pull/387) feat(dropdowns): export resetIdCounter to allow SSR ([@austin94](https://github.com/austin94))
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#391](https://github.com/zendeskgarden/react-components/pull/391) fix(dropdowns): allow previous item selection with arrow key ([@austin94](https://github.com/austin94))
+
+#### :seedling: Internal
+* [#389](https://github.com/zendeskgarden/react-components/pull/389) chore(deps): update all development non-major dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* [#390](https://github.com/zendeskgarden/react-components/pull/390) chore(deps): update dependency jest-dom to v4 ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v6.2.1 (2019-07-11)
 
 #### :bug: Bug Fix

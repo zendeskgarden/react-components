@@ -42,7 +42,7 @@ const Item = React.forwardRef<HTMLElement, IItemProps>(
     } = useDropdownContext();
     const { itemIndexRef } = useMenuContext();
 
-    if (!value && !disabled) {
+    if ((value === undefined || value === null) && !disabled) {
       throw new Error('All Item components require a `value` prop');
     }
 

@@ -36,13 +36,14 @@ export const StyledDatepicker = styled.div<{
   ${props => retrieveComponentStyles('datepickers.datepicker', props)};
 `;
 
-export const StyledHeader = styled.div`
+export const StyledHeader = styled.div<{ isSmall: boolean }>`
+  width: ${props => math(`${retrieveSpacing(props)} * 7`)};
   display: flex;
 
   ${props => retrieveComponentStyles('datepickers.header', props)};
 `;
 
-export const StyledHeaderPaddle = styled.div<{ isSmall: boolean }>`
+export const StyledHeaderPaddle = styled.div<{ isSmall: boolean; isHidden?: boolean }>`
   width: ${retrieveSpacing};
   height: ${retrieveSpacing};
   display: flex;
@@ -51,6 +52,8 @@ export const StyledHeaderPaddle = styled.div<{ isSmall: boolean }>`
   color: ${PALETTE.grey[600]};
   cursor: pointer;
   border-radius: 50%;
+
+  ${props => props.isHidden && `visibility: hidden;`};
 
   :hover {
     color: ${PALETTE.grey[800]};
@@ -94,10 +97,25 @@ export const StyledCalendar = styled.div<{ isSmall?: boolean }>`
   ${props => retrieveComponentStyles('datepickers.calendar', props)};
 `;
 
+export const StyledRangeCalendar = styled.div`
+  display: flex;
+  overflow: auto;
+
+  ${StyledDatepicker} {
+    padding: 0;
+  }
+
+  ${StyledDatepicker}:${props => (isRtl(props) ? 'last-of-type' : 'first-of-type')} {
+    margin-right: ${DEFAULT_THEME.space.md};
+  }
+`;
+
 export const StyledCalendarItem = styled.div<{ isSmall?: boolean }>`
   display: inline-block;
   width: ${retrieveSpacing};
   height: ${retrieveSpacing};
+  position: relative;
+  vertical-align: top;
 
   ${props => retrieveComponentStyles('datepickers.calendar_item', props)};
 `;
@@ -155,6 +173,7 @@ const retrieveBackgroundColor = ({ isSelected, isDisabled }: IStyledDayProps) =>
 };
 
 export const StyledDay = styled.div<IStyledDayProps>`
+  position: absolute;
   cursor: ${props => (props.isDisabled ? 'inherit' : 'pointer')};
   width: 100%;
   height: 100%;
@@ -185,4 +204,30 @@ export const StyledDay = styled.div<IStyledDayProps>`
   `}
 
   ${props => retrieveComponentStyles('datepickers.day', props)};
+`;
+
+export const StyledHighlight = styled.div<{
+  isHighlighted: boolean;
+  isStart: boolean;
+  isEnd: boolean;
+}>`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  ${props =>
+    props.isStart &&
+    `
+    border-radius: ${isRtl(props) ? '0 50% 50% 0' : '50% 0 0 50%'};
+  `}
+
+  ${props =>
+    props.isEnd &&
+    `
+    border-radius: ${isRtl(props) ? '50% 0 0 50%' : '0 50% 50% 0'};
+  `}
+
+  ${props => props.isHighlighted && `background-color: ${rgba(PALETTE.blue[600], 0.08)};`}
 `;
