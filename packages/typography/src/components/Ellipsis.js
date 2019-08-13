@@ -14,8 +14,6 @@ import { StyledEllipsis } from '../styled';
  * text-overflow styling. All other props are spread onto the element.
  */
 const Ellipsis = React.forwardRef(({ children, title, tag, ...other }, ref) => {
-  const StyledEllipsisTag = StyledEllipsis.withComponent(tag);
-
   let textContent = null;
 
   if (title !== undefined) {
@@ -25,9 +23,9 @@ const Ellipsis = React.forwardRef(({ children, title, tag, ...other }, ref) => {
   }
 
   return (
-    <StyledEllipsisTag ref={ref} title={textContent} {...other}>
+    <StyledEllipsis as={tag} ref={ref} title={textContent} {...other}>
       {children}
-    </StyledEllipsisTag>
+    </StyledEllipsis>
   );
 });
 

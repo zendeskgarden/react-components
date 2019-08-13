@@ -12,11 +12,9 @@ import { StyledFont } from '../styled';
 /**
  * Accepts all standard props relating to provided `tag`
  */
-const XL = React.forwardRef(({ tag, ...other }, ref) => {
-  const StyledFontTag = StyledFont.withComponent(tag);
-
-  return <StyledFontTag ref={ref} size="xl" {...other} />;
-});
+const XL = React.forwardRef(({ tag, ...other }, ref) => (
+  <StyledFont as={tag} ref={ref} size="xl" {...other} />
+));
 
 XL.propTypes = {
   /** Any valid DOM element for the styled component */
