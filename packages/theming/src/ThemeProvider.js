@@ -6,7 +6,7 @@
  */
 
 import { ThemeProvider } from 'styled-components';
-import DEFAULT_THEME from '../theme';
+import DEFAULT_THEME from './theme';
 
 ThemeProvider.defaultProps = {
   theme: DEFAULT_THEME

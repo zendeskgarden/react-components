@@ -12,7 +12,7 @@ module.exports = {
     {
       name: 'Components',
       components: [
-        '../../packages/theming/src/ThemeProvider/[A-Z]*.js',
+        '../../packages/theming/src/ThemeProvider.js',
         '../../packages/theming/src/palette/index.js',
         '../../packages/theming/src/theme/index.js'
       ]
