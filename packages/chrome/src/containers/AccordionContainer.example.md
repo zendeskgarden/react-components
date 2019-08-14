@@ -1,5 +1,4 @@
 ```jsx
-const { PALETTE } = require('@zendeskgarden/react-theming/src');
 const DownIcon = require('@zendeskgarden/svg-icons/src/16/chevron-down-fill.svg').default;
 
 const UpIcon = styled(DownIcon)`

@@ -1,7 +1,6 @@
 ```jsx
 const { Pagination } = require('@zendeskgarden/react-pagination/src');
 const { Avatar } = require('@zendeskgarden/react-avatars/src');
-const { PALETTE } = require('@zendeskgarden/react-theming/src');
 const { XL, MD } = require('@zendeskgarden/react-typography/src');
 
 const data = [];
