@@ -2,7 +2,6 @@
 const { XXXL, XXL, MD } = require('@zendeskgarden/react-typography/src');
 const { Button } = require('@zendeskgarden/react-buttons/src');
 const { Field, Checkbox, Label } = require('@zendeskgarden/react-forms/src');
-const { PALETTE } = require('@zendeskgarden/react-theming/src');
 
 initialState = {
   isLoading: true,

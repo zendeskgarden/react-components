@@ -1,6 +1,4 @@
 ```jsx
-const { PALETTE } = require('@zendeskgarden/react-theming/src');
-
 <Grid aria-busy="true" aria-live="polite">
   <Row>
     <p>
@@ -35,5 +33,5 @@ const { PALETTE } = require('@zendeskgarden/react-theming/src');
       <Inline size={64} color={PALETTE.blue[600]} />
     </Col>
   </Row>
-</Grid>;
+</Grid>
 ```

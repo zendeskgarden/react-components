@@ -200,13 +200,14 @@ values (i.e. `borderRadii` & `lineHeights`) to correspond with your `base` of ch
 The following reference displays Garden's `DEFAULT_THEME` in its entirety.
 
 ```jsx noeditor
+const { math } = require('polished');
 const { Well } = require('@zendeskgarden/react-notifications/src');
 
 const StyledTheme = styled.pre`
   margin: 0;
   padding: 0;
   font-family: ${props => props.theme.fonts.mono};
-  font-size: ${props => props.theme.fontSizes.mono.sm};
+  font-size: ${props => math(`${props.theme.fontSizes.sm} - 1px`)};
   overflow: hidden;
 `;
 

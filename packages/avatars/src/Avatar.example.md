@@ -91,7 +91,6 @@ reserved for modification of internal status rings – see "States" below for
 details.
 
 ```jsx
-const { PALETTE } = require('@zendeskgarden/react-theming/src');
 const StyledSvgAvatar = styled(Avatar)`
   background-color: ${PALETTE.grey[600]};
 `;
@@ -278,7 +277,6 @@ const StyledCol = styled(Col)`
 ```
 
 ```jsx
-const { PALETTE } = require('@zendeskgarden/react-theming/src');
 const StyledGrid = styled(Grid)`
   padding: 10px;
   background-color: ${PALETTE.grey[800]};
@@ -364,7 +362,6 @@ const StyledAvatar = styled(Avatar)`
 
 ```jsx
 const UserIcon = require('@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg').default;
-const { PALETTE } = require('@zendeskgarden/react-theming/src');
 
 class Example extends React.Component {
   constructor() {

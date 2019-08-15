@@ -10,15 +10,12 @@ and usability features:
 ### Basic Usage
 
 ```jsx
-const { PALETTE } = require('@zendeskgarden/react-theming/src');
-
-<Spinner color={PALETTE.blue[500]} size="48px" />;
+<Spinner color={PALETTE.blue[500]} size="48px" />
 ```
 
 ### Advanced Usage
 
 ```jsx
-const { PALETTE } = require('@zendeskgarden/react-theming/src');
 const { RangeField, Label, Range } = require('@zendeskgarden/react-ranges/src');
 const {
   Dropdown,

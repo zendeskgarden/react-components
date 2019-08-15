@@ -11,10 +11,19 @@ module.exports = {
     },
     {
       name: 'Components',
-      components: [
-        '../../packages/theming/src/ThemeProvider/[A-Z]*.js',
-        '../../packages/theming/src/palette/index.js',
-        '../../packages/theming/src/theme/index.js'
+      sections: [
+        {
+          name: 'ThemeProvider',
+          content: '../../packages/theming/examples/theme-provider.md'
+        },
+        {
+          name: 'PALETTE',
+          content: '../../packages/theming/examples/palette.md'
+        },
+        {
+          name: 'DEFAULT_THEME',
+          content: '../../packages/theming/examples/default-theme.md'
+        }
       ]
     },
     {
