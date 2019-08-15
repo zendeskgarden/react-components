@@ -38,7 +38,6 @@ initialState = {
 ### Advanced Customization
 
 ```js
-const { PALETTE } = require('@zendeskgarden/react-theming/src');
 const options = [
   { label: 'Support Green', value: PALETTE.product.support },
   { label: 'Message Green', value: PALETTE.product.message },
