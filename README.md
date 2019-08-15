@@ -17,7 +17,6 @@ to install.
 
 | Package                                                        | Version                                                             | Dependencies                                                                           |
 | -------------------------------------------------------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| [`@zendeskgarden/react-autocomplete`](packages/autocomplete)   | [![npm version][autocomplete npm version]][autocomplete npm link]   | [![Dependency Status][autocomplete dependency status]][autocomplete dependency link]   |
 | [`@zendeskgarden/react-avatars`](packages/avatars)             | [![npm version][avatars npm version]][avatars npm link]             | [![Dependency Status][avatars dependency status]][avatars dependency link]             |
 | [`@zendeskgarden/react-breadcrumbs`](packages/breadcrumbs)     | [![npm version][breadcrumbs npm version]][breadcrumbs npm link]     | [![Dependency Status][breadcrumbs dependency status]][breadcrumbs dependency link]     |
 | [`@zendeskgarden/react-buttons`](packages/buttons)             | [![npm version][buttons npm version]][buttons npm link]             | [![Dependency Status][buttons dependency status]][buttons dependency link]             |
@@ -40,10 +39,6 @@ to install.
 | [`@zendeskgarden/react-typography`](packages/typography)       | [![npm version][typography npm version]][typography npm link]       | [![Dependency Status][typography dependency status]][typography dependency link]       |
 | [`@zendeskgarden/react-utilities`](packages/utilities)         | [![npm version][utilities npm version]][utilities npm link]         | [![Dependency Status][utilities dependency status]][utilities dependency link]         |
 
-[autocomplete npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-autocomplete.svg?style=flat-square
-[autocomplete npm link]: https://www.npmjs.com/package/@zendeskgarden/react-autocomplete
-[autocomplete dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/autocomplete&style=flat-square
-[autocomplete dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/autocomplete
 [avatars npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-avatars.svg?style=flat-square
 [avatars npm link]: https://www.npmjs.com/package/@zendeskgarden/react-avatars
 [avatars dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/avatars&style=flat-square
