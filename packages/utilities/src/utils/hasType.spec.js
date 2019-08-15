@@ -9,7 +9,7 @@ import React from 'react';
 import styled from 'styled-components';
 import hasType from './hasType';
 import Button from '../../../buttons/src/components/Button';
-import Hint from '../../../checkboxes/src/views/Hint';
+import Hint from '../../../ranges/src/views/Hint';
 
 describe('hasType', () => {
   describe('if hasType is provided', () => {

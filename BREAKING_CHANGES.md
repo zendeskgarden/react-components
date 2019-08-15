@@ -1,15 +1,39 @@
 # v7.0.0
 
+## @zendeskgarden/react-autocomplete
+
+- removed; see `@zendeskgarden/react-dropdowns`
+
 ## @zendeskgarden/react-buttons
 
 - no longer packages a `styles.css` dist; CSS is self-contained
 - removed `ButtonGroupView`; use new `SplitButton` component instead
 - removed `Icon`; just use `IconButton` with a `rotated` prop
 
+## @zendeskgarden/react-checkboxes
+
+- removed; see `@zendeskgarden/react-forms`
+
 ## @zendeskgarden/react-loaders
 
 - `<Dots />` loader no longer has the `velocity` prop
   - Use `duration` instead which accepts `ms` defaults to 1250ms
+
+## @zendeskgarden/react-menus
+
+- removed; see `@zendeskgarden/react-dropdowns`
+
+## @zendeskgarden/react-radios
+
+- removed; see `@zendeskgarden/react-forms`
+
+## @zendeskgarden/react-select
+
+- removed; see `@zendeskgarden/react-forms`
+
+## @zendeskgarden/react-textfields
+
+- removed; see `@zendeskgarden/react-forms`
 
 ## @zendeskgarden/react-theming
 
@@ -23,6 +47,10 @@
 - custom `document` object
   - previously `<ThemeProvider document={doc}>`
   - currently `<ThemeProvider theme={{ ...DEFAULT_THEME, document: doc }}>`
+
+## @zendeskgarden/react-toggles
+
+- removed; see `@zendeskgarden/react-forms`
 
 ## @zendeskgarden/react-typography
 
