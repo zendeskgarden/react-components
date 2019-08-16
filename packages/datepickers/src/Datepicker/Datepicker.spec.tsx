@@ -78,7 +78,7 @@ describe('Datepicker', () => {
       for (let x = 0; x < days.length; x++) {
         const element = days[x];
 
-        if (x < 6) {
+        if (x <= 6) {
           expect(element).toHaveAttribute('data-test-disabled', 'true');
         } else if (x > 11) {
           expect(element).toHaveAttribute('data-test-disabled', 'true');

@@ -50,6 +50,20 @@ const Calendar: React.FunctionComponent<HTMLProps<HTMLDivElement>> = props => {
         displayDate={addMonths(state.previewDate, 1)}
         small={small}
         isPreviousHidden
+        isNextHidden
+        dispatch={dispatch}
+        minValue={minValue}
+        maxValue={maxValue}
+        startValue={startValue}
+        endValue={endValue}
+        onChange={onChange}
+        hoverDate={state.hoverDate}
+      />
+      <Month
+        locale={locale}
+        displayDate={addMonths(state.previewDate, 2)}
+        small={small}
+        isPreviousHidden
         dispatch={dispatch}
         minValue={minValue}
         maxValue={maxValue}

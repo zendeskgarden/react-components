@@ -152,11 +152,11 @@ const Month: React.FunctionComponent<{
     let isDisabled = false;
 
     if (minValue !== undefined) {
-      isDisabled = isBefore(date, subDays(minValue, 1));
+      isDisabled = isBefore(date, minValue) && !isSameDay(date, minValue);
     }
 
     if (maxValue !== undefined) {
-      isDisabled = isDisabled || isAfter(date, maxValue);
+      isDisabled = isDisabled || (isAfter(date, maxValue) && !isSameDay(date, maxValue));
     }
 
     let isHighlighted = false;
@@ -180,10 +180,7 @@ const Month: React.FunctionComponent<{
       false;
 
     let isInvalidDateRange =
-      (endValue &&
-        startValue &&
-        (compareAsc(endValue, startValue) === -1 || compareAsc(endValue, startValue) === 0)) ||
-      false;
+      (endValue && startValue && compareAsc(endValue, startValue) === -1) || false;
 
     if (minValue) {
       if (startValue) {
