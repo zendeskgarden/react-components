@@ -5,38 +5,111 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import styled, { css } from 'styled-components';
+import { math, stripUnit } from 'polished';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import classNames from 'classnames';
-import TagStyles from '@zendeskgarden/css-tags';
-
-import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
+import { getColor, isRtl, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import DEFAULT_THEME from '@zendeskgarden/react-theming/src/theme';
 
 const COMPONENT_ID = 'tags.tag_view';
 
-const TYPE = {
-  GREY: 'grey',
-  BLUE: 'blue',
-  KALE: 'kale',
-  RED: 'red',
-  GREEN: 'green',
-  YELLOW: 'yellow',
-  FUSCHIA: 'fuschia',
-  PINK: 'pink',
-  CRIMSON: 'crimson',
-  ORANGE: 'orange',
-  LEMON: 'lemon',
-  LIME: 'lime',
-  MINT: 'mint',
-  TEAL: 'teal',
-  AZURE: 'azure',
-  ROYAL: 'royal',
-  PURPLE: 'purple'
-};
-
 const SIZE = {
   SMALL: 'small',
+  MEDIUM: 'medium',
   LARGE: 'large'
+};
+
+const colorStyles = props => {
+  let backgroundColor;
+  let boxShadowColor;
+  let foregroundColor;
+
+  if (props.hue) {
+    const shade = props.hue === 'yellow' ? 400 : 600;
+
+    backgroundColor = getColor(props.hue, shade, props.theme);
+    boxShadowColor = getColor(props.hue, shade, props.theme, 0.35);
+
+    if (props.hue === 'yellow' || props.hue === 'lemon') {
+      foregroundColor = getColor('yellow', 800, props.theme);
+    } else {
+      foregroundColor = getColor('white');
+    }
+  } else {
+    backgroundColor = getColor('neutralHue', 200, props.theme);
+    boxShadowColor = getColor('neutralHue', 600, props.theme, 0.35);
+    foregroundColor = getColor('neutralHue', 700, props.theme);
+  }
+
+  return css`
+    background-color: ${backgroundColor};
+    color: ${foregroundColor};
+
+    &:hover {
+      color: ${foregroundColor}; /* <a> element reset */
+    }
+
+    &.focus-visible {
+      box-shadow: ${props.theme.shadows.sm(boxShadowColor)};
+    }
+  `;
+};
+
+const sizeStyles = props => {
+  let borderRadius;
+  let padding;
+  let height;
+  let fontSize;
+  let minWidth;
+
+  if (props.size === SIZE.SMALL) {
+    borderRadius = props.theme.borderRadii.sm;
+    padding = props.theme.space.base;
+    height = props.theme.space.base * 4;
+    fontSize = props.theme.fontSizes.xs;
+  } else if (props.size === SIZE.LARGE) {
+    borderRadius = props.theme.borderRadii.md;
+    padding = props.theme.space.base * 3;
+    height = props.theme.space.base * 8;
+    fontSize = props.theme.fontSizes.sm;
+  } else {
+    borderRadius = props.theme.borderRadii.sm;
+    padding = props.theme.space.base * 2;
+    height = props.theme.space.base * 5;
+    fontSize = props.theme.fontSizes.sm;
+  }
+
+  if (props.round) {
+    borderRadius = '50%';
+    padding = 0;
+    minWidth = height;
+  } else if (props.pill) {
+    borderRadius = '100px';
+
+    if (props.size === SIZE.SMALL) {
+      padding = props.theme.space.base * 1.5;
+      minWidth = props.theme.space.base * 6;
+    } else if (props.size === SIZE.LARGE) {
+      minWidth = props.theme.space.base * 12;
+    } else {
+      minWidth = props.theme.space.base * 7.5;
+    }
+  }
+
+  return css`
+    border-radius: ${borderRadius};
+    padding: 0 ${math(`${padding} * 1px`)};
+    min-width: ${minWidth && math(`${minWidth} * 1px`)};
+    height: ${math(`${height} * 1px`)};
+    line-height: ${math(`${height} / ${stripUnit(fontSize)}`)};
+    font-size: ${fontSize};
+
+    & > * {
+      min-width: ${minWidth ? math(`${minWidth - padding * 2} * 1px`) : '2em'};
+      text-align: ${props.round && 'center'};
+    }
+  `;
 };
 
 /**
@@ -45,70 +118,62 @@ const SIZE = {
 const Tag = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: classNames(TagStyles['c-tag'], {
-    // Sizes
-    [TagStyles['c-tag--sm']]: props.size === SIZE.SMALL,
-    [TagStyles['c-tag--lg']]: props.size === SIZE.LARGE,
-
-    // Shapes
-    [TagStyles['c-tag--pill']]: props.pill,
-    [TagStyles['c-tag--round']]: props.round,
-
-    // Interaction States
-    [TagStyles['is-focused']]: props.focused,
-    [TagStyles['is-hovered']]: props.hovered,
-
-    // Colors
-    [TagStyles['c-tag--grey']]: props.type === TYPE.GREY,
-    [TagStyles['c-tag--blue']]: props.type === TYPE.BLUE,
-    [TagStyles['c-tag--kale']]: props.type === TYPE.KALE,
-    [TagStyles['c-tag--red']]: props.type === TYPE.RED,
-    [TagStyles['c-tag--green']]: props.type === TYPE.GREEN,
-    [TagStyles['c-tag--yellow']]: props.type === TYPE.YELLOW,
-    [TagStyles['c-tag--fuschia']]: props.type === TYPE.FUSCHIA,
-    [TagStyles['c-tag--pink']]: props.type === TYPE.PINK,
-    [TagStyles['c-tag--crimson']]: props.type === TYPE.CRIMSON,
-    [TagStyles['c-tag--orange']]: props.type === TYPE.ORANGE,
-    [TagStyles['c-tag--lemon']]: props.type === TYPE.LEMON,
-    [TagStyles['c-tag--lime']]: props.type === TYPE.LIME,
-    [TagStyles['c-tag--mint']]: props.type === TYPE.MINT,
-    [TagStyles['c-tag--teal']]: props.type === TYPE.TEAL,
-    [TagStyles['c-tag--azure']]: props.type === TYPE.AZURE,
-    [TagStyles['c-tag--royal']]: props.type === TYPE.ROYAL,
-    [TagStyles['c-tag--purple']]: props.type === TYPE.PURPLE,
-
-    // RTL
-    [TagStyles['is-rtl']]: isRtl(props)
-  })
+  className: classNames(props.className, { 'focus-visible': props.focused })
 }))`
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: ${props => (props.round || props.pill) && 'center'};
+  transition: box-shadow 0.1s ease-in-out;
+  border: 0; /* <button> element reset */
+  max-width: 100%;
+  overflow: hidden;
+  text-decoration: none; /* <a> element reset */
+  font-weight: ${props => props.theme.fontWeights.semibold};
+  direction: ${props => (isRtl(props) ? 'rtl' : 'ltr')};
+
+  ${props => sizeStyles(props)};
+
+  &:hover {
+    cursor: default;
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:any-link:hover {
+    cursor: pointer;
+  }
+
+  &.focus-visible {
+    text-decoration: none;
+  }
+
+  ${props => colorStyles(props)};
+
+  & > * {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 Tag.propTypes = {
-  size: PropTypes.oneOf([SIZE.SMALL, SIZE.LARGE]),
+  hue: PropTypes.string,
+  size: PropTypes.oneOf([SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]),
   pill: PropTypes.bool,
   round: PropTypes.bool,
   focused: PropTypes.bool,
-  hovered: PropTypes.bool,
-  type: PropTypes.oneOf([
-    TYPE.GREY,
-    TYPE.BLUE,
-    TYPE.KALE,
-    TYPE.RED,
-    TYPE.GREEN,
-    TYPE.YELLOW,
-    TYPE.FUSCHIA,
-    TYPE.PINK,
-    TYPE.CRIMSON,
-    TYPE.ORANGE,
-    TYPE.LEMON,
-    TYPE.LIME,
-    TYPE.MINT,
-    TYPE.TEAL,
-    TYPE.AZURE,
-    TYPE.ROYAL,
-    TYPE.PURPLE
-  ])
+  theme: PropTypes.object
+};
+
+Tag.defaultProps = {
+  size: SIZE.MEDIUM,
+  theme: DEFAULT_THEME
 };
 
 /** @component */

@@ -93,7 +93,7 @@ const types = [
   <Row>
     {types.map(type => (
       <Col md={2} key={type}>
-        <Tag type={type ? type.toLowerCase() : type}>{type || 'Default'}</Tag>
+        <Tag hue={type ? type.toLowerCase() : type}>{type || 'Default'}</Tag>
       </Col>
     ))}
   </Row>

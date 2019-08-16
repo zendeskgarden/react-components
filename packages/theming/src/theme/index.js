@@ -65,6 +65,7 @@ const fonts = {
 };
 
 const fontSizes = {
+  xs: '10px',
   sm: '12px',
   md: '14px',
   lg: '18px',
@@ -78,10 +79,11 @@ const fontWeights = {
   extralight: 200,
   light: 300,
   regular: 400,
-  semibold: 500,
-  bold: 600,
-  extrabold: 700,
-  black: 800
+  medium: 500,
+  semibold: 600,
+  bold: 700,
+  extrabold: 800,
+  black: 900
 };
 
 const lineHeights = {
