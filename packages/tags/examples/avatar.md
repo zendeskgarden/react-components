@@ -10,83 +10,83 @@ const PersonIcon = require('@zendeskgarden/svg-icons/src/16/user-circle-stroke.s
   <Row>
     <Col md={4}>
       <Tag size="small">
-        <Avatar>
+        <Tag.Avatar>
           <img src="images/amir.png" alt="This is a hidden avatar due to the small size" />
-        </Avatar>
+        </Tag.Avatar>
         Small avatar
-        <Close />
+        <Tag.Close />
       </Tag>
     </Col>
     <Col md={4}>
       <Tag>
-        <Avatar>
+        <Tag.Avatar>
           <img src="images/amir.png" alt="Example Avatar" />
-        </Avatar>
+        </Tag.Avatar>
         Default avatar
-        <Close />
+        <Tag.Close />
       </Tag>
     </Col>
     <Col md={4}>
       <Tag size="large">
-        <Avatar>
+        <Tag.Avatar>
           <img src="images/amir.png" alt="Example Avatar" />
-        </Avatar>
+        </Tag.Avatar>
         Large avatar
-        <Close />
+        <Tag.Close />
       </Tag>
     </Col>
     <Col md={4}>
       <Tag size="small" pill>
-        <Avatar>
+        <Tag.Avatar>
           <img src="images/amir.png" alt="Example Avatar" />
-        </Avatar>
+        </Tag.Avatar>
         Small avatar
-        <Close />
+        <Tag.Close />
       </Tag>
     </Col>
     <Col md={4}>
       <Tag pill>
-        <Avatar>
+        <Tag.Avatar>
           <img src="images/amir.png" alt="Example Avatar" />
-        </Avatar>
+        </Tag.Avatar>
         Default avatar
-        <Close />
+        <Tag.Close />
       </Tag>
     </Col>
     <Col md={4}>
       <Tag size="large" pill>
-        <Avatar>
+        <Tag.Avatar>
           <img src="images/amir.png" alt="Example Avatar" />
-        </Avatar>
+        </Tag.Avatar>
         Large avatar
-        <Close />
+        <Tag.Close />
       </Tag>
     </Col>
     <Col md={4}>
       <Tag size="small" pill dark>
-        <Avatar>
+        <Tag.Avatar>
           <PersonIcon alt="Example Avatar" />
-        </Avatar>
+        </Tag.Avatar>
         Small avatar
-        <Close />
+        <Tag.Close />
       </Tag>
     </Col>
     <Col md={4}>
       <Tag pill dark>
-        <Avatar>
+        <Tag.Avatar>
           <PersonIcon alt="Example Avatar" />
-        </Avatar>
+        </Tag.Avatar>
         Default avatar
-        <Close />
+        <Tag.Close />
       </Tag>
     </Col>
     <Col md={4}>
       <Tag size="large" pill dark>
-        <Avatar>
+        <Tag.Avatar>
           <PersonIcon alt="Example Avatar" />
-        </Avatar>
+        </Tag.Avatar>
         Large avatar
-        <Close />
+        <Tag.Close />
       </Tag>
     </Col>
   </Row>

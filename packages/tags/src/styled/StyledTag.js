@@ -11,6 +11,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { getColor, isRtl, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import DEFAULT_THEME from '@zendeskgarden/react-theming/src/theme';
+import { StyledAvatar } from './StyledAvatar';
+import { StyledClose } from './StyledClose';
 
 const COMPONENT_ID = 'tags.tag_view';
 
@@ -24,6 +26,7 @@ const colorStyles = props => {
   let backgroundColor;
   let boxShadowColor;
   let foregroundColor;
+  let closeColor;
 
   if (props.hue) {
     const shade = props.hue === 'yellow' ? 400 : 600;
@@ -40,6 +43,7 @@ const colorStyles = props => {
     backgroundColor = getColor('neutralHue', 200, props.theme);
     boxShadowColor = getColor('neutralHue', 600, props.theme, 0.35);
     foregroundColor = getColor('neutralHue', 700, props.theme);
+    closeColor = getColor('neutralHue', 600, props.theme);
   }
 
   return css`
@@ -53,6 +57,10 @@ const colorStyles = props => {
     &.focus-visible {
       box-shadow: ${props.theme.shadows.sm(boxShadowColor)};
     }
+
+    & ${StyledClose} {
+      color: ${closeColor};
+    }
   `;
 };
 
@@ -62,22 +70,26 @@ const sizeStyles = props => {
   let height;
   let fontSize;
   let minWidth;
+  let avatarSize;
 
   if (props.size === SIZE.SMALL) {
     borderRadius = props.theme.borderRadii.sm;
     padding = props.theme.space.base;
     height = props.theme.space.base * 4;
     fontSize = props.theme.fontSizes.xs;
+    avatarSize = 0;
   } else if (props.size === SIZE.LARGE) {
     borderRadius = props.theme.borderRadii.md;
     padding = props.theme.space.base * 3;
     height = props.theme.space.base * 8;
     fontSize = props.theme.fontSizes.sm;
+    avatarSize = props.theme.space.base * 6;
   } else {
     borderRadius = props.theme.borderRadii.sm;
     padding = props.theme.space.base * 2;
     height = props.theme.space.base * 5;
     fontSize = props.theme.fontSizes.sm;
+    avatarSize = props.theme.space.base * 4;
   }
 
   if (props.round) {
@@ -97,6 +109,8 @@ const sizeStyles = props => {
     }
   }
 
+  const avatarMargin = (height - avatarSize) / 2;
+
   return css`
     border-radius: ${borderRadius};
     padding: 0 ${math(`${padding} * 1px`)};
@@ -107,15 +121,27 @@ const sizeStyles = props => {
 
     & > * {
       min-width: ${minWidth ? math(`${minWidth - padding * 2} * 1px`) : '2em'};
-      text-align: ${props.round && 'center'};
+    }
+
+    & ${StyledAvatar} {
+      margin-${isRtl(props) ? 'right' : 'left'}: ${math(`${padding - avatarMargin} * -1px`)};
+      margin-${isRtl(props) ? 'left' : 'right'}: ${math(`${avatarMargin * 2} * 1px`)};
+      border-radius: ${borderRadius};
+      width: ${math(`${avatarSize} * 1px`)};
+      height: ${math(`${avatarSize} * 1px`)};
+    }
+
+    & ${StyledClose} {
+      /* stylelint-disable-next-line property-no-unknown */
+      margin-${isRtl(props) ? 'left' : 'right'}: ${math(`${padding} * -1px`)};
+      border-radius: ${borderRadius};
+      width: ${math(`${height} * 1px`)};
+      height: ${math(`${height} * 1px`)};
     }
   `;
 };
 
-/**
- * Accepts all `<div>` props
- */
-const Tag = styled.div.attrs(props => ({
+export const StyledTag = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(props.className, { 'focus-visible': props.focused })
@@ -157,12 +183,17 @@ const Tag = styled.div.attrs(props => ({
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    text-align: ${props => props.round && 'center'};
+  }
+
+  & ${StyledAvatar} {
+    display: ${props => props.size === SIZE.SMALL && 'none'};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-Tag.propTypes = {
+StyledTag.propTypes = {
   hue: PropTypes.string,
   size: PropTypes.oneOf([SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]),
   pill: PropTypes.bool,
@@ -171,10 +202,7 @@ Tag.propTypes = {
   theme: PropTypes.object
 };
 
-Tag.defaultProps = {
+StyledTag.defaultProps = {
   size: SIZE.MEDIUM,
   theme: DEFAULT_THEME
 };
-
-/** @component */
-export default Tag;

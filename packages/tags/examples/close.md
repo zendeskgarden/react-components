@@ -39,7 +39,7 @@ const removeTag = tagKey => alert(`Tag "${tagKey}" removed`);
       }}
     >
       {tag.text}
-      <Close onClick={() => removeTag(tag.id)} />
+      <Tag.Close onClick={() => removeTag(tag.id)} />
     </SpacedTag>
   ))}
 </FauxInput>;
