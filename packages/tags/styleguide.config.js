@@ -13,7 +13,7 @@ module.exports = {
       name: 'Examples',
       sections: [
         {
-          name: 'Tag',
+          name: '',
           content: '../../packages/tags/examples/tag.md'
         },
         {

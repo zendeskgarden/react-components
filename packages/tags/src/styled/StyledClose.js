@@ -6,7 +6,8 @@
  */
 
 import styled from 'styled-components';
-import { isRtl, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import PropTypes from 'prop-types';
+import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tags.close';
 
@@ -16,7 +17,6 @@ export const StyledClose = styled.div.attrs(() => ({
   'aria-label': 'Press delete to remove'
 }))`
   display: flex;
-  flex-direction: ${props => isRtl(props) && 'row-reverse'};
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
@@ -37,3 +37,11 @@ export const StyledClose = styled.div.attrs(() => ({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledClose.propTypes = {
+  theme: PropTypes.object
+};
+
+StyledClose.defaultProps = {
+  theme: DEFAULT_THEME
+};

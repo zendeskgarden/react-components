@@ -15,24 +15,19 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 ## Usage
 
 ```jsx static
-/**
- * Include tag styling at the root of your application
- */
-import '@zendeskgarden/react-tags/dist/styles.css';
-
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Tag, Avatar, Close } from '@zendeskgarden/react-tags';
+import { Tag } from '@zendeskgarden/react-tags';
 
 /**
  * Place a `ThemeProvider` at the root of your React application
  */
 <ThemeProvider>
   <Tag pill>
-    <Avatar>
-      <img src="images/amir.png" alt="Example Avatar" />
-    </Avatar>
+    <Tag.Avatar>
+      <img src="images/user.png" alt="Example User" />
+    </Tag.Avatar>
     Default tag with avatar
-    <Close onClick={() => alert('remove tag')} />
+    <Tag.Close onClick={() => alert('remove tag')} />
   </Tag>
 </ThemeProvider>;
 ```

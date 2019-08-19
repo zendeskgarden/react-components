@@ -9,8 +9,12 @@ import styled, { css } from 'styled-components';
 import { math, stripUnit } from 'polished';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { getColor, isRtl, retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import DEFAULT_THEME from '@zendeskgarden/react-theming/src/theme';
+import {
+  DEFAULT_THEME,
+  getColor,
+  isRtl,
+  retrieveComponentStyles
+} from '@zendeskgarden/react-theming';
 import { StyledAvatar } from './StyledAvatar';
 import { StyledClose } from './StyledClose';
 
@@ -110,6 +114,7 @@ const sizeStyles = props => {
   }
 
   const avatarMargin = (height - avatarSize) / 2;
+  const avatarTextMargin = props.round ? avatarMargin : avatarMargin * 2;
 
   return css`
     border-radius: ${borderRadius};
@@ -124,10 +129,13 @@ const sizeStyles = props => {
     }
 
     & ${StyledAvatar} {
+      /* stylelint-disable-next-line property-no-unknown */
       margin-${isRtl(props) ? 'right' : 'left'}: ${math(`${padding - avatarMargin} * -1px`)};
-      margin-${isRtl(props) ? 'left' : 'right'}: ${math(`${avatarMargin * 2} * 1px`)};
+      /* stylelint-disable-next-line property-no-unknown */
+      margin-${isRtl(props) ? 'left' : 'right'}: ${math(`${avatarTextMargin} * 1px`)};
       border-radius: ${borderRadius};
       width: ${math(`${avatarSize} * 1px`)};
+      min-width: ${math(`${avatarSize} * 1px`)}; /* prevent flex shrink */
       height: ${math(`${avatarSize} * 1px`)};
     }
 
@@ -154,6 +162,7 @@ export const StyledTag = styled.div.attrs(props => ({
   border: 0; /* <button> element reset */
   max-width: 100%;
   overflow: hidden;
+  vertical-align: middle;
   text-decoration: none; /* <a> element reset */
   font-weight: ${props => props.theme.fontWeights.semibold};
   direction: ${props => (isRtl(props) ? 'rtl' : 'ltr')};
@@ -181,13 +190,17 @@ export const StyledTag = styled.div.attrs(props => ({
 
   & > * {
     overflow: hidden;
+    text-align: ${props => props.round && 'center'};
     text-overflow: ellipsis;
     white-space: nowrap;
-    text-align: ${props => props.round && 'center'};
   }
 
   & ${StyledAvatar} {
     display: ${props => props.size === SIZE.SMALL && 'none'};
+  }
+
+  & ${StyledClose} {
+    display: ${props => props.round && 'none'};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
