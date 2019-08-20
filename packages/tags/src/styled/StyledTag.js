@@ -6,7 +6,7 @@
  */
 
 import styled, { css } from 'styled-components';
-import { math, stripUnit } from 'polished';
+import { math, readableColor, stripUnit } from 'polished';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {
@@ -41,7 +41,11 @@ const colorStyles = props => {
     if (props.hue === 'yellow' || props.hue === 'lemon') {
       foregroundColor = getColor('yellow', 800, props.theme);
     } else {
-      foregroundColor = getColor('white');
+      foregroundColor = readableColor(
+        backgroundColor,
+        getColor('foreground', 600 /* DEFAULT_SHADE */, props.theme),
+        getColor('background', 600 /* DEFAULT_SHADE */, props.theme)
+      );
     }
   } else {
     backgroundColor = getColor('neutralHue', 200, props.theme);

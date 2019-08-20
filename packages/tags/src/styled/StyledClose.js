@@ -28,7 +28,7 @@ export const StyledClose = styled.div.attrs(() => ({
   font-size: 0; /* text content reset */
 
   &:hover {
-    opacity: 1;
+    opacity: 0.9;
   }
 
   &:focus {

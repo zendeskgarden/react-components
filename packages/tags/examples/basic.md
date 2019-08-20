@@ -4,12 +4,7 @@ Round tags are intended to contain a minimal number of characters. A
 `Tag.Avatar` may receive an `svg` or `img` element, but will apply styling to
 any element provided. A `Tag.Avatar` will be hidden when used within a small
 `Tag`. The `Tag.Close` component is a `<div>` rather than a `<button>`,
-helping enforce that the container element should receive focus.
-
-### Accessibility warning
-
-The `Tag.Close` component includes a default `aria-label` in English. If you are
-localizing your application you must overwrite this property with your own translation.
+helping to enforce that the container element should receive focus.
 
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
@@ -141,6 +136,7 @@ initialState = {
         pill={state.shape === 'pill'}
         round={state.shape === 'round'}
         size={state.size}
+        onClick={() => setState({ focused: true })}
       >
         {state.avatar && (
           <Tag.Avatar>
@@ -148,7 +144,7 @@ initialState = {
           </Tag.Avatar>
         )}
         {state.text}
-        {state.close && <Tag.Close />}
+        {state.close && <Tag.Close onClick={() => alert(`Delete "${state.text}" tag`)} />}
       </Tag>
     </Col>
   </Row>

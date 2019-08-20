@@ -30,7 +30,6 @@
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "@zendeskgarden/css-tags": "5.1.7",
     "@zendeskgarden/react-theming": "^6.2.0"
   },
   "keywords": [

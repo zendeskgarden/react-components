@@ -13,16 +13,8 @@ module.exports = {
       name: 'Examples',
       sections: [
         {
-          name: '',
-          content: '../../packages/tags/examples/tag.md'
-        },
-        {
-          name: '',
-          content: '../../packages/tags/examples/avatar.md'
-        },
-        {
-          name: '',
-          content: '../../packages/tags/examples/close.md'
+          name: 'Basic',
+          content: '../../packages/tags/examples/basic.md'
         }
       ]
     },

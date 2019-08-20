@@ -10,15 +10,16 @@ import { render } from 'garden-test-utils';
 import Close from './Close';
 
 describe('Close', () => {
-  it('renders default close styling', () => {
+  it('renders a close SVG icon', () => {
     const { container } = render(<Close />);
 
-    expect(container.firstChild).toHaveClass('c-tag__remove');
+    expect(container.querySelector('svg')).not.toBeNull();
   });
 
-  it('renders hovered styling correctly', () => {
-    const { container } = render(<Close hovered />);
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef();
+    const { container } = render(<Close ref={ref} />);
 
-    expect(container.firstChild).toHaveClass('is-hovered');
+    expect(container.firstChild).toBe(ref.current);
   });
 });

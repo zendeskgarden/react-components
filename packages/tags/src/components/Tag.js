@@ -37,7 +37,11 @@ const HUE = {
 };
 
 /**
- * Accepts all `<div>` props
+ * Accepts all `<div>` props.
+ *
+ * **Accessibility warning:** the `Tag.Close` component includes a default
+ * English `aria-label`. If you are localizing your application you must
+ * overwrite this property with your own translation.
  */
 const Tag = React.forwardRef(({ ...props }, ref) => <StyledTag ref={ref} {...props} />);
 
