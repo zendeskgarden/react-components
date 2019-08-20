@@ -83,7 +83,6 @@ initialState = {
           onSelect={shape =>
             setState({
               shape,
-              avatar: shape === 'round' ? false : state.avatar,
               text: shape === 'round' ? '8' : state.text
             })
           }
@@ -101,7 +100,6 @@ initialState = {
         <Field>
           <Toggle
             checked={state.avatar}
-            disabled={state.shape === 'round'}
             onChange={event => setState({ avatar: event.target.checked })}
           >
             <Label style={{ marginTop: 8 }}>

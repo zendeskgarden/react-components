@@ -117,6 +117,7 @@ const sizeStyles = props => {
     }
   }
 
+  const avatarBorderRadius = props.size === SIZE.LARGE ? math(`${borderRadius} - 1`) : borderRadius;
   const avatarMargin = (height - avatarSize) / 2;
   const avatarTextMargin = props.round ? avatarMargin : avatarMargin * 2;
 
@@ -137,7 +138,7 @@ const sizeStyles = props => {
       margin-${isRtl(props) ? 'right' : 'left'}: ${math(`${padding - avatarMargin} * -1px`)};
       /* stylelint-disable-next-line property-no-unknown */
       margin-${isRtl(props) ? 'left' : 'right'}: ${math(`${avatarTextMargin} * 1px`)};
-      border-radius: ${borderRadius};
+      border-radius: ${avatarBorderRadius};
       width: ${math(`${avatarSize} * 1px`)};
       min-width: ${math(`${avatarSize} * 1px`)}; /* prevent flex shrink */
       height: ${math(`${avatarSize} * 1px`)};
@@ -182,6 +183,11 @@ export const StyledTag = styled.div.attrs(props => ({
     outline: none;
   }
 
+  &:link:hover,
+  &:visited:hover {
+    cursor: pointer;
+  }
+
   &:any-link:hover {
     cursor: pointer;
   }
@@ -200,7 +206,7 @@ export const StyledTag = styled.div.attrs(props => ({
   }
 
   & ${StyledAvatar} {
-    display: ${props => props.size === SIZE.SMALL && 'none'};
+    display: ${props => (props.round || props.size === SIZE.SMALL) && 'none'};
   }
 
   & ${StyledClose} {
