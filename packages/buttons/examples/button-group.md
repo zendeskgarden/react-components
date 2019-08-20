@@ -140,16 +140,14 @@ state as well as custom `onClick` events for each button.
 
 ```jsx
 const ExampleButtonGroup = ({ children, initialKey, ...props }) => {
-  const [selectedKey, setSelectedKey] = React.useState(initialKey);
-  const stateChange = newState => {
-    if (newState.selectedKey) {
-      alert(`Button "${newState.selectedKey}" selected`);
-      setSelectedKey(newState.selectedKey);
-    }
+  const [selectedItem, setSelectedItem] = React.useState(initialKey);
+  const onSelect = selectedItem => {
+      alert(`Button "${selectedItem}" selected`);
+      setSelectedItem(selectedItem);
   };
 
   return (
-    <ButtonGroup selectedKey={selectedKey} onStateChange={stateChange} {...props}>
+    <ButtonGroup selectedItem={selectedItem} onSelect={onSelect} {...props}>
       {children}
     </ButtonGroup>
   );
