@@ -12,7 +12,7 @@ import XIcon from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
 /**
  * Used to close a Tag. Supports all `<div>` props.
  */
-const Close = React.forwardRef(({ ...props }, ref) => (
+const Close = React.forwardRef((props, ref) => (
   <StyledClose ref={ref} {...props}>
     <XIcon />
   </StyledClose>

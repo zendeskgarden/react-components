@@ -43,7 +43,7 @@ const HUE = {
  * English `aria-label`. If you are localizing your application you must
  * overwrite this property with your own translation.
  */
-const Tag = React.forwardRef(({ ...props }, ref) => <StyledTag ref={ref} {...props} />);
+const Tag = React.forwardRef((props, ref) => <StyledTag ref={ref} {...props} />);
 
 Tag.propTypes = {
   size: PropTypes.oneOf([SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]),
