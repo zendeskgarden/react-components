@@ -34,7 +34,7 @@
 ## @zendesk/react-tags
 
 - no longer packages a `styles.css` dist; CSS is self-contained
-- removed component exports
+- removed child component exports
   - previously `Avatar`; currently `Tag.Avatar`
   - previously `Close`; currently `Tag.Close`
 - rename `type` -> `hue` prop
