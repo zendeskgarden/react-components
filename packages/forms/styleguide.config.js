@@ -27,7 +27,7 @@ module.exports = {
           content: '../../packages/forms/examples/text-input.md'
         },
         {
-          name: 'Checkbox',
+          name: 'Checkboxes',
           content: '../../packages/forms/examples/checkbox.md'
         },
         {
