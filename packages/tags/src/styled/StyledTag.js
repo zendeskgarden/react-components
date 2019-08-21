@@ -171,6 +171,7 @@ export const StyledTag = styled.div.attrs(props => ({
   overflow: hidden;
   vertical-align: middle;
   text-decoration: none; /* <a> element reset */
+  white-space: nowrap;
   font-weight: ${props => props.theme.fontWeights.semibold};
   direction: ${props => (isRtl(props) ? 'rtl' : 'ltr')};
 
