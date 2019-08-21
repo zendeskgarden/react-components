@@ -1,10 +1,10 @@
-The `Tag` component exposes a variety of styling options needed to support
-badges, pills, and tags. Use pill or round class modifiers to shape a tag.
-Round tags are intended to contain a minimal number of characters. A
-`Tag.Avatar` may receive an `svg` or `img` element, but will apply styling to
-any element provided. A `Tag.Avatar` will be hidden when used within a small
-`Tag`. The `Tag.Close` component is a `<div>` rather than a `<button>`,
-helping to enforce that the container element should receive focus.
+The following example provides controls that can be used to affect basic
+`Tag` structure and styling. Please note the following:
+
+- `round` tags are only meant to contain one or two characters (i.e. numbers)
+- `round` tags do not display `Tag.Avatar` or `Tag.Close` components
+- a `Tag.Avatar` is designed to contain one `img` or `svg` child
+- a `Tag.Avatar` is not displayed in `small`-sized tags
 
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
@@ -20,9 +20,6 @@ const {
 const { Code } = require('@zendeskgarden/react-typography/src');
 
 initialState = {
-  avatar: false,
-  close: false,
-  focused: false,
   hue: 'default',
   shape: 'default',
   size: 'medium',

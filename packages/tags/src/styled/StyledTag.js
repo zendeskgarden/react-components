@@ -100,12 +100,18 @@ const sizeStyles = props => {
     avatarSize = props.theme.space.base * 4;
   }
 
+  let avatarBorderRadius = props.size === SIZE.LARGE ? math(`${borderRadius} - 1`) : borderRadius;
+  const avatarMargin = (height - avatarSize) / 2;
+  const avatarTextMargin = props.round ? avatarMargin : avatarMargin * 2;
+
   if (props.round) {
     borderRadius = '50%';
     padding = 0;
     minWidth = height;
+    avatarBorderRadius = '50%';
   } else if (props.pill) {
     borderRadius = '100px';
+    avatarBorderRadius = '50%';
 
     if (props.size === SIZE.SMALL) {
       padding = props.theme.space.base * 1.5;
@@ -116,10 +122,6 @@ const sizeStyles = props => {
       minWidth = props.theme.space.base * 7.5;
     }
   }
-
-  const avatarBorderRadius = props.size === SIZE.LARGE ? math(`${borderRadius} - 1`) : borderRadius;
-  const avatarMargin = (height - avatarSize) / 2;
-  const avatarTextMargin = props.round ? avatarMargin : avatarMargin * 2;
 
   return css`
     border-radius: ${borderRadius};

@@ -15,6 +15,10 @@ module.exports = {
         {
           name: 'Basic',
           content: '../../packages/tags/examples/basic.md'
+        },
+        {
+          name: 'Advanced',
+          content: '../../packages/tags/examples/advanced.md'
         }
       ]
     },
