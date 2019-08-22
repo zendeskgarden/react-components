@@ -24,10 +24,13 @@ import { Tag } from '@zendeskgarden/react-tags';
 <ThemeProvider>
   <Tag pill>
     <Tag.Avatar>
-      <img src="images/user.png" alt="Example User" />
+      <img alt="" src="images/user.png" />
     </Tag.Avatar>
-    Default tag with avatar
-    <Tag.Close onClick={() => alert('remove tag')} />
+    Example User
+    <Tag.Close
+      aria-label="press delete to remove Example User tag"
+      onClick={() => alert('remove tag')}
+    />
   </Tag>
 </ThemeProvider>;
 ```

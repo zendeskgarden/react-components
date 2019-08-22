@@ -82,7 +82,7 @@ const tags = [
           <Tag key={index} pill={state.pill} size={state.size} style={{ margin: 2 }}>
             {state.avatar && (
               <Tag.Avatar>
-                <img src={`images/avatar-${Math.floor(Math.random() * 5 + 1)}.png`} />
+                <img alt="" src={`images/avatar-${Math.floor(Math.random() * 5 + 1)}.png`} />
               </Tag.Avatar>
             )}
             <Ellipsis>{tag}</Ellipsis>
