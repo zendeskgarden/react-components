@@ -31,6 +31,15 @@
 
 - removed; see `@zendeskgarden/react-forms`
 
+## @zendesk/react-tags
+
+- no longer packages a `styles.css` dist; CSS is self-contained
+- removed child component exports
+  - previously `Avatar`; currently `Tag.Avatar`
+  - previously `Close`; currently `Tag.Close`
+- rename `type` -> `hue` prop
+  - previously `<Tag type="blue" />`; currently `<Tag hue="blue" />`
+
 ## @zendeskgarden/react-textfields
 
 - removed; see `@zendeskgarden/react-forms`

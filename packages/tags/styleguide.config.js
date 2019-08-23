@@ -10,8 +10,21 @@ module.exports = {
       content: '../../packages/tags/README.md'
     },
     {
-      name: 'Views',
-      components: '../../packages/tags/src/views/[A-Z]*.js'
+      name: 'Examples',
+      sections: [
+        {
+          name: 'Basic',
+          content: '../../packages/tags/examples/basic.md'
+        },
+        {
+          name: 'Advanced',
+          content: '../../packages/tags/examples/advanced.md'
+        }
+      ]
+    },
+    {
+      name: 'Components',
+      components: '../../packages/tags/src/components/Tag.js'
     }
   ]
 };

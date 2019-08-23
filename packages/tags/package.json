@@ -19,7 +19,8 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "classnames": "^2.2.5"
+    "classnames": "^2.2.5",
+    "polished": "^3.4.1"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^6.0.0",
@@ -29,7 +30,6 @@
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "@zendeskgarden/css-tags": "5.1.7",
     "@zendeskgarden/react-theming": "^6.2.0"
   },
   "keywords": [

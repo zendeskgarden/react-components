@@ -5,4 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { default as Tag } from './components/Tag';
+export * from './StyledTag';
+export * from './StyledAvatar';
+export * from './StyledClose';
