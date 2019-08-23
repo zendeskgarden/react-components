@@ -135,7 +135,7 @@ initialState = {
       >
         {state.avatar && (
           <Tag.Avatar>
-            <img alt="" src={`images/avatar-${Math.floor(Math.random() * 5 + 1)}.png`} />
+            <img alt="" src={`images/avatar-${Math.floor(Math.random() * 70 + 1)}.png`} />
           </Tag.Avatar>
         )}
         {state.text}
