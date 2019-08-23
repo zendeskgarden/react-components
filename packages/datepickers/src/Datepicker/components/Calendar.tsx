@@ -17,7 +17,6 @@ import isSameDay from 'date-fns/isSameDay';
 import isSameMonth from 'date-fns/isSameMonth';
 import isBefore from 'date-fns/isBefore';
 import isAfter from 'date-fns/isAfter';
-import subDays from 'date-fns/subDays';
 import {
   StyledDatepicker,
   StyledCalendar,
@@ -99,11 +98,11 @@ const Calendar: React.FunctionComponent<ICalendarProps> = ({
     let isDisabled = false;
 
     if (minValue !== undefined) {
-      isDisabled = isBefore(date, subDays(minValue, 1));
+      isDisabled = isBefore(date, minValue) && !isSameDay(date, minValue);
     }
 
     if (maxValue !== undefined) {
-      isDisabled = isDisabled || isAfter(date, maxValue);
+      isDisabled = isDisabled || (isAfter(date, maxValue) && !isSameDay(date, maxValue));
     }
 
     return (

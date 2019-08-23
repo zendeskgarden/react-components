@@ -2,6 +2,12 @@
 const { Field, Label, Input, Message } = require('@zendeskgarden/react-forms/src');
 const { addDays, compareAsc } = require('date-fns');
 
+const StyledCol = styled(Col)`
+  && {
+    max-width: 300px;
+  }
+`;
+
 initialState = {
   startValue: new Date(),
   endValue: addDays(new Date(), 16)
@@ -16,15 +22,15 @@ const isInvalid = () => compareAsc(state.startValue, state.endValue) === 1;
 >
   <Grid>
     <Row>
-      <Col md>
+      <StyledCol md>
         <Field>
           <Label>Start</Label>
           <DatepickerRange.Start>
             <Input />
           </DatepickerRange.Start>
         </Field>
-      </Col>
-      <Col md>
+      </StyledCol>
+      <StyledCol md>
         <Field>
           <Label>End</Label>
           <DatepickerRange.End>
@@ -34,7 +40,7 @@ const isInvalid = () => compareAsc(state.startValue, state.endValue) === 1;
             <Message validation="error">End date must occur after the Start date</Message>
           )}
         </Field>
-      </Col>
+      </StyledCol>
     </Row>
     <Row>
       <Col>

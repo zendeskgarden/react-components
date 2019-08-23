@@ -239,13 +239,19 @@ export const datepickerRangeReducer = ({
     }
     case 'CLICK_DATE':
       if (state.isStartFocused) {
-        if (endValue !== undefined && isBefore(action.value, endValue)) {
+        if (
+          endValue !== undefined &&
+          (isBefore(action.value, endValue) || isSameDay(action.value, endValue))
+        ) {
           onChange && onChange({ startValue: action.value, endValue });
         } else {
           onChange && onChange({ startValue: action.value, endValue: undefined });
         }
       } else if (state.isEndFocused) {
-        if (startValue !== undefined && isAfter(action.value, startValue)) {
+        if (
+          startValue !== undefined &&
+          (isAfter(action.value, startValue) || isSameDay(action.value, startValue))
+        ) {
           onChange && onChange({ startValue, endValue: action.value });
         } else {
           onChange && onChange({ startValue: action.value, endValue: undefined });
