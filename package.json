@@ -85,7 +85,7 @@
     "html-loader": "0.5.5",
     "husky": "3.0.4",
     "identity-obj-proxy": "3.0.0",
-    "inquirer": "6.5.2",
+    "inquirer": "7.0.0",
     "inquirer-autocomplete-prompt": "1.0.1",
     "jest": "24.9.0",
     "jest-enzyme": "7.1.0",
