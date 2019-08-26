@@ -119,7 +119,6 @@ describe('StyledMenuView', () => {
       Object.keys(arrowClasses).forEach((placement: any) => {
         const { container } = render(<StyledMenu arrow placement={placement} />);
 
-        // @ts-ignore
         expect(container.querySelector('ul')).toHaveClass(arrowClasses[placement]);
       });
     });
