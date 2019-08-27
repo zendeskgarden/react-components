@@ -7,7 +7,7 @@
 
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { useKeyboardFocus } from '@zendeskgarden/container-keyboardfocus';
+import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
 import { StyledButton } from '../styled';
 import { ButtonGroupContext } from './ButtonGroup';
 
@@ -22,18 +22,21 @@ const SIZE = {
  */
 const Button = React.forwardRef(({ focused, ...other }, ref) => {
   const focusInset = other.focusInset || useContext(ButtonGroupContext);
-  const { getFocusProps, keyboardFocused } = useKeyboardFocus();
 
   return (
-    <StyledButton
-      {...getFocusProps({
-        ref,
-        tabIndex: null,
-        ...other,
-        focused: focused || keyboardFocused,
-        focusInset
-      })}
-    />
+    <KeyboardFocusContainer>
+      {({ getFocusProps, keyboardFocused }) => (
+        <StyledButton
+          {...getFocusProps({
+            ref,
+            tabIndex: null,
+            ...other,
+            focused: focused || keyboardFocused,
+            focusInset
+          })}
+        />
+      )}
+    </KeyboardFocusContainer>
   );
 });
 
