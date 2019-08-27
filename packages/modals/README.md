@@ -28,7 +28,7 @@ import { Button } from '@zendeskgarden/react-buttons';
  * Place a `ThemeProvider` at the root of your React application
  */
 <ThemeProvider>
-  <Modal onClose={() => alert('modal closing'))}>
+  <Modal onClose={() => alert('modal closing')}>
     <Header>Example Header</Header>
     <Body>
       Some content
