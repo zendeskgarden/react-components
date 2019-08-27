@@ -30,20 +30,16 @@ import { Button } from '@zendeskgarden/react-buttons';
 <ThemeProvider>
   <Modal onClose={() => alert('modal closing')}>
     <Header>Example Header</Header>
-    <Body>
-      Some content
-    </Body>
+    <Body>Some content</Body>
     <Footer>
       <FooterItem>
         <Button basic>Cancel</Button>
       </FooterItem>
       <FooterItem>
-        <Button primary>
-          Confirm
-        </Button>
+        <Button primary>Confirm</Button>
       </FooterItem>
     </Footer>
     <Close aria-label="Close modal" />
   </Modal>
-</ThemeProvider>
+</ThemeProvider>;
 ```
