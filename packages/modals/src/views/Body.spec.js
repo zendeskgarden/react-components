@@ -8,10 +8,15 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import Body from './Body';
+import { ModalContext } from '../utils/useModalContext';
 
 describe('Body', () => {
   it('renders default styling', () => {
-    const { container } = render(<Body />);
+    const { container } = render(
+      <ModalContext.Provider value={{ getContentProps: jest.fn() }}>
+        <Body />
+      </ModalContext.Provider>
+    );
 
     expect(container.firstChild).toHaveClass('c-dialog__body');
   });

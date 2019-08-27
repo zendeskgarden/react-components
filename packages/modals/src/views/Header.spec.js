@@ -8,16 +8,23 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import Header from './Header';
+import { ModalContext } from '../utils/useModalContext';
+
+const ContextHeader = props => (
+  <ModalContext.Provider value={{ getTitleProps: jest.fn() }}>
+    <Header {...props} />
+  </ModalContext.Provider>
+);
 
 describe('Header', () => {
   it('renders default styling', () => {
-    const { container } = render(<Header />);
+    const { container } = render(<ContextHeader />);
 
     expect(container.firstChild).toHaveClass('c-dialog__header');
   });
 
   it('renders danger styling if provided', () => {
-    const { container } = render(<Header danger />);
+    const { container } = render(<ContextHeader danger />);
 
     expect(container.firstChild).toHaveClass('c-dialog__header--danger');
   });

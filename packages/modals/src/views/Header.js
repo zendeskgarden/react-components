@@ -5,17 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import React from 'react';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import ModalStyles from '@zendeskgarden/css-modals';
+
+import useModalContext from '../utils/useModalContext';
 
 const COMPONENT_ID = 'modals.header';
 
 /**
  * Accepts all `<div>` props
  */
-const Header = styled.div.attrs(props => ({
+const StyledHeader = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(ModalStyles['c-dialog__header'], {
@@ -26,7 +29,11 @@ const Header = styled.div.attrs(props => ({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-Header.hasType = () => Header;
+const Header = props => {
+  const { getTitleProps } = useModalContext();
+
+  return <StyledHeader {...getTitleProps()} {...props} />;
+};
 
 /** @component */
 export default Header;

@@ -13,6 +13,8 @@ import ModalStyles from '@zendeskgarden/css-modals';
 import { composeEventHandlers } from '@zendeskgarden/react-selection';
 import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
+import { ModalContext } from '../utils/useModalContext';
+
 const COMPONENT_ID = 'modals.close';
 
 const StyledClose = styled.button.attrs(props => ({
@@ -36,7 +38,7 @@ export default class Close extends Component {
     hovered: PropTypes.bool
   };
 
-  static hasType = () => Close;
+  static contextType = ModalContext;
 
   state = {
     isFocused: false
@@ -45,12 +47,14 @@ export default class Close extends Component {
   render() {
     const { onFocus, onBlur, ...other } = this.props; // eslint-disable-line react/prop-types
     const { isFocused } = this.state;
+    const { getCloseProps } = this.context;
 
     return (
       <StyledClose
         focused={isFocused}
         onFocus={composeEventHandlers(onFocus, () => this.setState({ isFocused: true }))}
         onBlur={composeEventHandlers(onBlur, () => this.setState({ isFocused: false }))}
+        {...getCloseProps()}
         {...other}
       />
     );

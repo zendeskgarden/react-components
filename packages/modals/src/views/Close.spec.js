@@ -8,30 +8,37 @@
 import React from 'react';
 import { render, fireEvent } from 'garden-test-utils';
 import Close from './Close';
+import { ModalContext } from '../utils/useModalContext';
+
+const ContextClose = props => (
+  <ModalContext.Provider value={{ getCloseProps: jest.fn() }}>
+    <Close {...props} />
+  </ModalContext.Provider>
+);
 
 describe('Close', () => {
   it('renders default close styling', () => {
-    const { container } = render(<Close />);
+    const { container } = render(<ContextClose />);
 
     expect(container.firstChild).toHaveClass('c-dialog__close');
   });
 
   describe('state', () => {
     it('renders focused styling correctly if provided', () => {
-      const { container } = render(<Close focused />);
+      const { container } = render(<ContextClose focused />);
 
       expect(container.firstChild).toHaveClass('is-focused');
     });
 
     it('renders focused styling if focused', () => {
-      const { container } = render(<Close />);
+      const { container } = render(<ContextClose />);
 
       fireEvent.focus(container.firstChild);
       expect(container.firstChild).toHaveClass('is-focused');
     });
 
     it('removes focused styling if blurred', () => {
-      const { container } = render(<Close />);
+      const { container } = render(<ContextClose />);
 
       fireEvent.focus(container.firstChild);
       fireEvent.blur(container.firstChild);
@@ -39,7 +46,7 @@ describe('Close', () => {
     });
 
     it('renders hovered styling correctly if provided', () => {
-      const { container } = render(<Close hovered />);
+      const { container } = render(<ContextClose hovered />);
 
       expect(container.firstChild).toHaveClass('is-hovered');
     });
