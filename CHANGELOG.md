@@ -12,6 +12,28 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v6.4.4 (2019-08-27)
+
+#### :bug: Bug Fix
+* `chrome`
+  * [#416](https://github.com/zendeskgarden/react-components/pull/416) chore(deps): update css-chrome dependency to correct Chrome overflow issue ([@renovate[bot]](https://github.com/apps/renovate))
+
+#### :memo: Documentation
+* `modals`
+  * [#434](https://github.com/zendeskgarden/react-components/pull/434) fix(modals): documentation typo ([@sunesimonsen](https://github.com/sunesimonsen))
+  * [#435](https://github.com/zendeskgarden/react-components/pull/435) fix(modals): missing import from react-modals documentation ([@sunesimonsen](https://github.com/sunesimonsen))
+
+#### :seedling: Internal
+* Other
+  * [#430](https://github.com/zendeskgarden/react-components/pull/430) chore(deps): update all development non-major dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#429](https://github.com/zendeskgarden/react-components/pull/429) chore(deps): update dependency eslint-loader to v3 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#428](https://github.com/zendeskgarden/react-components/pull/428) chore(deps): update dependency inquirer to v7 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#426](https://github.com/zendeskgarden/react-components/pull/426) chore(deps): update dependency @zendeskgarden/eslint-config to v8 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#417](https://github.com/zendeskgarden/react-components/pull/417) chore(deps): update dependency rimraf to v3 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#427](https://github.com/zendeskgarden/react-components/pull/427) chore(deps): update dependency eslint-plugin-react-hooks to v2 ([@renovate[bot]](https://github.com/apps/renovate))
+* `avatars`, `breadcrumbs`, `buttons`, `checkboxes`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `menus`, `modals`, `notifications`, `pagination`, `radios`, `ranges`, `tables`, `tabs`, `tags`, `textfields`, `toggles`, `tooltips`
+  * [#416](https://github.com/zendeskgarden/react-components/pull/416) chore(deps): update all development non-major dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v6.4.3 (2019-08-23)
 
 #### :bug: Bug Fix
