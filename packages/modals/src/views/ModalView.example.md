@@ -3,6 +3,7 @@ This is a visual only example. For an accessible, complete implementation
 
 ```jsx
 const { Button } = require('@zendeskgarden/react-buttons/src');
+const { ModalContext } = require('../utils/useModalContext');
 
 const ExampleModalContainer = styled.div`
   position: relative;
@@ -14,21 +15,23 @@ const ExampleModalContainer = styled.div`
  * The inline styles are necessary to limit the modal
  * to the styleguide example sandbox
  */
-<ExampleModalContainer>
-  <Backdrop style={{ position: 'absolute' }} center>
-    <ModalView style={{ position: 'absolute' }}>
-      <Header>Example Header</Header>
-      <Body>Example content goes here</Body>
-      <Footer>
-        <FooterItem>
-          <Button basic>Cancel</Button>
-        </FooterItem>
-        <FooterItem>
-          <Button primary>Submit</Button>
-        </FooterItem>
-      </Footer>
-      <Close aria-label="Close modal" />
-    </ModalView>
-  </Backdrop>
-</ExampleModalContainer>;
+<ModalContext.Provider value={{getCloseProps: () => {}, getContentProps: () => {}, getTitleProps: () => {}}}>
+  <ExampleModalContainer>
+    <Backdrop style={{ position: 'absolute' }} center>
+      <ModalView style={{ position: 'absolute' }}>
+        <Header>Example Header</Header>
+        <Body>Example content goes here</Body>
+        <Footer>
+          <FooterItem>
+            <Button basic>Cancel</Button>
+          </FooterItem>
+          <FooterItem>
+            <Button primary>Submit</Button>
+          </FooterItem>
+        </Footer>
+        <Close aria-label="Close modal" />
+      </ModalView>
+    </Backdrop>
+  </ExampleModalContainer>
+</ModalContext.Provider>;
 ```

@@ -15,6 +15,8 @@ import {
 } from '@zendeskgarden/react-selection';
 import FocusJailContainer from './FocusJailContainer';
 
+import { ModalContext } from '../utils/useModalContext';
+
 export default class ModalContainer extends ControlledComponent {
   static propTypes = {
     /**
@@ -118,8 +120,8 @@ export default class ModalContainer extends ControlledComponent {
 
     return (
       <FocusJailContainer>
-        {({ getContainerProps, containerRef }) =>
-          render({
+        {({ getContainerProps, containerRef }) => {
+          const renderProps = {
             getBackdropProps: this.getBackdropProps,
             getModalProps: props => getContainerProps(this.getModalProps(props)),
             getTitleProps: this.getTitleProps,
@@ -127,8 +129,12 @@ export default class ModalContainer extends ControlledComponent {
             getCloseProps: this.getCloseProps,
             modalRef: containerRef,
             closeModal: this.closeModal
-          })
-        }
+          };
+
+          return (
+            <ModalContext.Provider value={renderProps}>{render(renderProps)}</ModalContext.Provider>
+          );
+        }}
       </FocusJailContainer>
     );
   }

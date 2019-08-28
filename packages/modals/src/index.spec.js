@@ -15,13 +15,13 @@ describe('Index', () => {
       cwd: __dirname,
       fileMapper: files => {
         return files
-          .filter(file => !/ModalContext/u.test(file))
           .map(entry =>
             entry
               .replace(/\.js$/u, '')
               .split('/')
               .pop()
           )
+          .concat('ModalContext', 'useModalContext')
           .sort();
       }
     });
