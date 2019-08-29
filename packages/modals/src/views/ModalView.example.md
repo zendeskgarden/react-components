@@ -15,10 +15,16 @@ const ExampleModalContainer = styled.div`
  * The inline styles are necessary to limit the modal
  * to the styleguide example sandbox
  */
-<ModalContext.Provider value={{getCloseProps: () => {}, getContentProps: () => {}, getTitleProps: () => {}}}>
-  <ExampleModalContainer>
-    <Backdrop style={{ position: 'absolute' }} center>
-      <ModalView style={{ position: 'absolute' }}>
+<ExampleModalContainer>
+  <ModalContext.Provider
+    value={{
+      getCloseProps: () => {},
+      getContentProps: () => {},
+      getTitleProps: () => {}
+    }}
+  >
+    <Backdrop style={{ position: "absolute" }} center>
+      <ModalView style={{ position: "absolute" }}>
         <Header>Example Header</Header>
         <Body>Example content goes here</Body>
         <Footer>
@@ -32,6 +38,6 @@ const ExampleModalContainer = styled.div`
         <Close aria-label="Close modal" />
       </ModalView>
     </Backdrop>
-  </ExampleModalContainer>
-</ModalContext.Provider>;
+  </ModalContext.Provider>
+</ExampleModalContainer>;
 ```
