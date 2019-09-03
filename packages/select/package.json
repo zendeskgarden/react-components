@@ -1,6 +1,6 @@
 {
-  "name": "@zendeskgarden/react-forms",
-  "description": "Components relating to form elements in the Garden Design System",
+  "name": "@zendeskgarden/react-select",
+  "description": "Components relating to select in the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
   "homepage": "https://garden.zendesk.com/",
@@ -19,9 +19,10 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendeskgarden/container-field": "^0.1.0",
-    "@zendeskgarden/container-keyboardfocus": "^0.1.4",
-    "@zendeskgarden/container-utilities": "^0.1.0",
+    "@zendeskgarden/react-menus": "^6.4.4",
+    "@zendeskgarden/react-selection": "^6.2.0",
+    "@zendeskgarden/react-textfields": "^6.4.4",
+    "@zendeskgarden/react-utilities": "^6.2.0",
     "classnames": "^2.2.5"
   },
   "peerDependencies": {
@@ -32,7 +33,6 @@
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "@zendeskgarden/css-forms": "7.0.13",
     "@zendeskgarden/react-theming": "^6.2.0"
   },
   "keywords": [
@@ -44,6 +44,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "zendeskgarden:library": "GardenForms",
+  "zendeskgarden:library": "GardenSelect",
   "zendeskgarden:src": "src/index.js"
 }

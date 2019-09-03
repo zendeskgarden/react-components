@@ -21,29 +21,25 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 import '@zendeskgarden/react-modals/dist/styles.css';
 
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Modal, Header, Body, Footer, Close } from '@zendeskgarden/react-modals';
+import { Modal, Header, Body, Footer, FooterItem, Close } from '@zendeskgarden/react-modals';
 import { Button } from '@zendeskgarden/react-buttons';
 
 /**
  * Place a `ThemeProvider` at the root of your React application
  */
 <ThemeProvider>
-  <Modal onClose={() => alert('modal closing'))}>
+  <Modal onClose={() => alert('modal closing')}>
     <Header>Example Header</Header>
-    <Body>
-      Some content
-    </Body>
+    <Body>Some content</Body>
     <Footer>
       <FooterItem>
         <Button basic>Cancel</Button>
       </FooterItem>
       <FooterItem>
-        <Button primary>
-          Confirm
-        </Button>
+        <Button primary>Confirm</Button>
       </FooterItem>
     </Footer>
     <Close aria-label="Close modal" />
   </Modal>
-</ThemeProvider>
+</ThemeProvider>;
 ```

@@ -188,7 +188,7 @@ describe('DatepickerRange', () => {
           startValue={DEFAULT_START_VALUE}
           endValue={DEFAULT_END_VALUE}
           minValue={subDays(DEFAULT_START_VALUE, 2)}
-          maxValue={addDays(DEFAULT_END_VALUE, 2)}
+          maxValue={addDays(DEFAULT_END_VALUE, 1)}
         />
       );
 
@@ -200,9 +200,9 @@ describe('DatepickerRange', () => {
 
         if (x < 5) {
           expect(element).not.toHaveAttribute('data-test-disabled');
-        } else if (x === 5) {
+        } else if (x < 7) {
           expect(element).toHaveAttribute('data-test-disabled', 'true');
-        } else if (x > 5 && x < 33) {
+        } else if (x >= 7 && x <= 32) {
           expect(element).toHaveAttribute('data-test-disabled', 'false');
         } else {
           expect(element).not.toHaveAttribute('data-test-disabled');
@@ -216,9 +216,9 @@ describe('DatepickerRange', () => {
 
         if (x < 5) {
           expect(element).not.toHaveAttribute('data-test-disabled');
-        } else if (x >= 5 && x < 12) {
+        } else if (x >= 5 && x < 11) {
           expect(element).toHaveAttribute('data-test-disabled', 'false');
-        } else if (x >= 12 && x < 36) {
+        } else if (x >= 11 && x < 36) {
           expect(element).toHaveAttribute('data-test-disabled', 'true');
         } else {
           expect(element).not.toHaveAttribute('data-test-disabled');

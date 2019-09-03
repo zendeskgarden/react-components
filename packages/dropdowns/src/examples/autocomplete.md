@@ -83,11 +83,7 @@ function ExampleAutocomplete() {
       inputValue={inputValue}
       selectedItem={selectedItem}
       onSelect={item => setSelectedItem(item)}
-      onStateChange={changes => {
-        if (Object.prototype.hasOwnProperty.call(changes, 'inputValue')) {
-          setInputValue(changes.inputValue);
-        }
-      }}
+      onInputValueChange={inputValue => setInputValue(inputValue)}
       downshiftProps={{ defaultHighlightedIndex: 0 }}
     >
       <Field>
