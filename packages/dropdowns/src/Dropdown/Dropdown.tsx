@@ -12,6 +12,9 @@ import { Manager } from 'react-popper';
 import { withTheme, isRtl } from '@zendeskgarden/react-theming';
 import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
 
+export const REMOVE_ITEM_STATE_TYPE = 'REMOVE_ITEM';
+export const TAB_SELECT_ITEM_STATE_TYPE = 'TAB_ITEM';
+
 export interface IDropdownContext {
   itemIndexRef: React.MutableRefObject<number>;
   previousItemRef: React.MutableRefObject<any>;
@@ -20,6 +23,7 @@ export interface IDropdownContext {
   popperReferenceElementRef: React.MutableRefObject<any>;
   selectedItems?: any[];
   downshift: ControllerStateAndHelpers<any>;
+  containsMultiselectRef: React.MutableRefObject<boolean>;
 }
 
 export const DropdownContext = React.createContext<IDropdownContext | undefined>(undefined);
@@ -64,6 +68,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps> = props => {
   const previousItemRef = useRef<number | undefined>(undefined);
   const previousIndexRef = useRef<number | undefined>(undefined);
   const nextItemsHashRef = useRef<object>({});
+  const containsMultiselectRef = useRef(false);
 
   // Used to inform Menu (Popper) that a full-width menu is needed
   const popperReferenceElementRef = useRef<any>(null);
@@ -71,25 +76,22 @@ const Dropdown: React.FunctionComponent<IDropdownProps> = props => {
   /**
    * Add additional keyboard nav to the basics provided by Downshift
    **/
-  const customGetInputProps = ({ onKeyDown, ...other }: any, downshift: any, rtl: any) => {
+  const customGetInputProps = (
+    { onKeyDown, ...other }: any,
+    downshift: ControllerStateAndHelpers<any>,
+    rtl: any
+  ) => {
     return {
-      onKeyDown: composeEventHandlers(onKeyDown, (e: any) => {
+      onKeyDown: composeEventHandlers(onKeyDown, (e: KeyboardEvent) => {
         const PREVIOUS_KEY = rtl ? KEY_CODES.RIGHT : KEY_CODES.LEFT;
         const NEXT_KEY = rtl ? KEY_CODES.LEFT : KEY_CODES.RIGHT;
 
         if (downshift.isOpen) {
-          // Select highlighted item on TAB
-          if (e.keyCode === KEY_CODES.TAB) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            downshift.selectHighlightedItem();
-          }
-
           // Select previous item if available
           if (
             e.keyCode === PREVIOUS_KEY &&
             previousIndexRef.current !== null &&
+            previousIndexRef.current !== undefined &&
             !downshift.inputValue
           ) {
             e.preventDefault();
@@ -106,7 +108,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps> = props => {
               e.preventDefault();
               e.stopPropagation();
 
-              downshift.selectItemAtIndex(downshift.highlightedIndex);
+              downshift.selectItemAtIndex(downshift.highlightedIndex!);
             }
           }
         } else if (
@@ -184,15 +186,26 @@ const Dropdown: React.FunctionComponent<IDropdownProps> = props => {
           switch (changes.type) {
             case Downshift.stateChangeTypes.controlledPropUpdatedSelectedItem:
             case Downshift.stateChangeTypes.mouseUp:
-            case Downshift.stateChangeTypes.keyDownEnter:
-            case Downshift.stateChangeTypes.clickItem:
-            case Downshift.stateChangeTypes.clickButton:
             case Downshift.stateChangeTypes.keyDownSpaceButton:
             case Downshift.stateChangeTypes.blurButton:
               return {
                 ...changes,
                 inputValue: ''
               };
+            case Downshift.stateChangeTypes.keyDownEnter:
+            case Downshift.stateChangeTypes.clickItem:
+            case TAB_SELECT_ITEM_STATE_TYPE as any: {
+              const updatedState = { ...changes, inputValue: '' };
+
+              if (containsMultiselectRef.current) {
+                updatedState.isOpen = true;
+                updatedState.highlightedIndex = _state.highlightedIndex;
+              }
+
+              return updatedState;
+            }
+            case REMOVE_ITEM_STATE_TYPE as any:
+              return { ...changes, isOpen: false };
             default:
               return changes;
           }
@@ -208,7 +221,8 @@ const Dropdown: React.FunctionComponent<IDropdownProps> = props => {
               nextItemsHashRef,
               popperReferenceElementRef,
               selectedItems,
-              downshift: transformDownshift(downshift)
+              downshift: transformDownshift(downshift),
+              containsMultiselectRef
             }}
           >
             {children}

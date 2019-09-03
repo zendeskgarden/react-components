@@ -8,6 +8,7 @@
 export { default as Dropdown } from './Dropdown/Dropdown';
 export { default as Trigger } from './Trigger/Trigger';
 export { default as Autocomplete } from './Autocomplete/Autocomplete';
+export { default as Multiselect } from './Multiselect/Multiselect';
 export { default as Select } from './Select/Select';
 export { default as Field } from './Fields/Field';
 export { default as Hint } from './Fields/Hint';
