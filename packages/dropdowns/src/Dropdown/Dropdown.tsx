@@ -35,6 +35,10 @@ export interface IDropdownProps {
     options: StateChangeOptions<any>,
     stateAndHelpers: ControllerStateAndHelpers<any>
   ) => void;
+  onInputValueChange?: (
+    inputValue: string,
+    stateAndHelpers: ControllerStateAndHelpers<any>
+  ) => void;
   downshiftProps?: object;
 }
 
@@ -52,6 +56,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps> = props => {
     inputValue,
     onSelect,
     onStateChange,
+    onInputValueChange,
     downshiftProps
   } = props;
   // Refs used to handle custom Garden keyboard nav
@@ -135,6 +140,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps> = props => {
         highlightedIndex={highlightedIndex}
         selectedItem={selectedItem || null} // Ensures that selectedItem never becomes controlled internally by Downshift
         inputValue={inputValue}
+        onInputValueChange={onInputValueChange}
         onStateChange={(changes, stateAndHelpers) => {
           if (
             Object.prototype.hasOwnProperty.call(changes, 'selectedItem') &&

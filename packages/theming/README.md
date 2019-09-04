@@ -9,7 +9,7 @@ and RTL capabilities in the [Garden Design System](https://zendeskgarden.github.
 npm install @zendeskgarden/react-theming
 
 # Peer Dependencies - Also Required
-npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
+npm install react react-dom prop-types styled-components
 ```
 
 ## Usage
