@@ -49,11 +49,12 @@ describe('ButtonGroup', () => {
   });
 
   it('applies focused styling to currently focused tab', () => {
-    const { getAllByTestId, getByTestId } = render(<BasicExample />);
+    const { getAllByTestId } = render(<BasicExample />);
+    const [, button] = getAllByTestId('button');
 
-    fireEvent.focus(getByTestId('group'));
+    fireEvent.focus(button);
 
-    expect(getAllByTestId('button')[0]).toHaveAttribute('aria-pressed', 'true');
+    expect(button).toHaveAttribute('tabIndex', '0');
   });
 
   it('applies disabled styling if provided', () => {
@@ -78,7 +79,7 @@ describe('ButtonGroup', () => {
   });
 
   it('does not apply props to any component other than Button', () => {
-    const { getByTestId, container } = render(
+    const { getByTestId } = render(
       <ButtonGroup>
         <span>Non button test</span>
         <Button key="button-1" data-test-id="button">
@@ -87,8 +88,10 @@ describe('ButtonGroup', () => {
       </ButtonGroup>
     );
 
-    fireEvent.focus(getByTestId('button'));
+    const button = getByTestId('button');
 
-    expect(container.firstChild).toHaveFocus();
+    fireEvent.focus(button);
+
+    expect(button).toHaveFocus();
   });
 });

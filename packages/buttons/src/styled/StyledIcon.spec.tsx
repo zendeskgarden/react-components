@@ -6,41 +6,49 @@
  */
 
 import React from 'react';
-import { render, fireEvent } from 'garden-test-utils';
-import IconButton from './IconButton';
+import { render, renderRtl } from 'garden-test-utils';
+import { StyledIcon } from './StyledIcon';
 import TestIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
 
-describe('IconButton', () => {
-  it('renders a child SVG', () => {
+describe('StyledIcon', () => {
+  it('renders the expected element', () => {
     const { container } = render(
-      <IconButton>
-        <TestIcon />
-      </IconButton>
+      <StyledIcon>
+        <img alt="" />
+      </StyledIcon>
     );
 
-    expect(container.querySelector('svg')).not.toBeNull();
+    expect(container.firstChild!.nodeName).toBe('IMG');
   });
 
-  it('does not render focused styling if focused by mouse', () => {
-    const { container } = render(
-      <IconButton>
-        <TestIcon />
-      </IconButton>
+  it('successfully renders child icon', () => {
+    const { getByTestId } = render(
+      <StyledIcon>
+        <TestIcon data-test-id="icon" />
+      </StyledIcon>
     );
 
-    fireEvent.click(container.firstChild);
-    expect(container.firstChild).not.toHaveClass('focus-visible');
+    expect(getByTestId('icon')).not.toBeNull();
   });
 
-  it('renders focused styling if focused by keyboard', () => {
+  it('renders  styling if provided', () => {
     const { container } = render(
-      <IconButton>
+      <StyledIcon rotated>
         <TestIcon />
-      </IconButton>
+      </StyledIcon>
     );
 
-    fireEvent.focus(container.firstChild);
-    expect(container.firstChild).toHaveClass('focus-visible');
+    expect(container.firstChild).toHaveStyleRule('transform', 'rotate(+180deg)');
+  });
+
+  it('renders expected RTL styling', () => {
+    const { container } = renderRtl(
+      <StyledIcon rotated>
+        <TestIcon />
+      </StyledIcon>
+    );
+
+    expect(container.firstChild).toHaveStyleRule('transform', 'rotate(-180deg)');
   });
 
   describe('Invalid', () => {
@@ -58,17 +66,17 @@ describe('IconButton', () => {
 
     it('throws if rendered with no child', () => {
       expect(() => {
-        render(<IconButton />);
+        render(<StyledIcon />);
       }).toThrow();
     });
 
     it('throws if rendered with more than one child', () => {
       expect(() => {
         render(
-          <IconButton>
+          <StyledIcon>
             <TestIcon />
             <TestIcon />
-          </IconButton>
+          </StyledIcon>
         );
       }).toThrow();
     });

@@ -14,7 +14,7 @@ describe('StyledAnchor', () => {
   it('renders the expected element', () => {
     const { container } = render(<StyledAnchor />);
 
-    expect(container.firstChild.nodeName).toBe('A');
+    expect(container.firstChild!.nodeName).toBe('A');
   });
 
   it('renders default styling', () => {

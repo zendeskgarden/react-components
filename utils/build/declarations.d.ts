@@ -10,6 +10,7 @@ declare const PACKAGE_VERSION: string;
 
 /** React packages */
 declare module '@zendeskgarden/container-selection';
+declare module '@zendeskgarden/container-buttongroup';
 declare module '@zendeskgarden/container-utilities' {
   interface IKeyCodes {
     ALT: 18;
@@ -42,6 +43,8 @@ declare module '@zendeskgarden/container-utilities' {
 }
 declare module '@zendeskgarden/react-buttons';
 declare module '@zendeskgarden/react-grid';
+declare module '@zendeskgarden/react-selection';
+declare module '@zendeskgarden/react-utilities';
 
 /** Files */
 declare module '*.svg';

@@ -15,7 +15,7 @@ describe('StyledIconButton', () => {
   it('renders the expected element', () => {
     const { container } = render(<StyledIconButton />);
 
-    expect(container.firstChild.nodeName).toBe('BUTTON');
+    expect(container.firstChild!.nodeName).toBe('BUTTON');
   });
 
   it('renders default styling', () => {
@@ -30,9 +30,9 @@ describe('StyledIconButton', () => {
 
       expect(container.firstChild).toHaveStyleRule('width', '32px');
       expect(container.firstChild).toHaveStyleRule('width', '16px', {
-        modifier: css`
+        modifier: (css`
           ${StyledIcon}
-        `
+        ` as unknown) as string
       });
     });
 
@@ -41,9 +41,9 @@ describe('StyledIconButton', () => {
 
       expect(container.firstChild).toHaveStyleRule('width', '40px');
       expect(container.firstChild).toHaveStyleRule('width', '16px', {
-        modifier: css`
+        modifier: (css`
           ${StyledIcon}
-        `
+        ` as unknown) as string
       });
     });
 
@@ -52,9 +52,9 @@ describe('StyledIconButton', () => {
 
       expect(container.firstChild).toHaveStyleRule('width', '48px');
       expect(container.firstChild).toHaveStyleRule('width', '24px', {
-        modifier: css`
+        modifier: (css`
           ${StyledIcon}
-        `
+        ` as unknown) as string
       });
     });
   });

@@ -5,14 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import { StyledButtonGroup } from '../styled';
 import { ButtonGroupContext } from './ButtonGroup';
 
 /**
  * High-level abstraction for basic SplitButton implementations.
  */
-const SplitButton = ({ children, ...other }) => (
+const SplitButton: React.FunctionComponent<HTMLAttributes<HTMLDivElement>> = ({
+  children,
+  ...other
+}) => (
   <ButtonGroupContext.Provider value={true}>
     <StyledButtonGroup {...other}>{children}</StyledButtonGroup>
   </ButtonGroupContext.Provider>

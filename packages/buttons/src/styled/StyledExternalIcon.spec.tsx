@@ -13,7 +13,7 @@ describe('StyledExternalIcon', () => {
   it('renders the expected element', () => {
     const { container } = render(<StyledExternalIcon />);
 
-    expect(container.firstChild.nodeName).toBe('svg');
+    expect(container.firstChild!.nodeName).toBe('svg');
   });
 
   it('renders expected RTL styling', () => {

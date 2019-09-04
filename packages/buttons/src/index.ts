@@ -11,4 +11,3 @@ export { default as ButtonGroup } from './components/ButtonGroup';
 export { default as ChevronButton } from './components/ChevronButton';
 export { default as IconButton } from './components/IconButton';
 export { default as SplitButton } from './components/SplitButton';
-export { default as ButtonGroupContainer } from './containers/ButtonGroupContainer';

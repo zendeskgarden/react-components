@@ -18,7 +18,9 @@
     "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
+  "types": "dist/typings/index.d.ts",
   "dependencies": {
+    "@zendeskgarden/container-buttongroup": "^0.1.8",
     "@zendeskgarden/react-selection": "^6.2.0",
     "@zendeskgarden/react-utilities": "^6.2.0",
     "classnames": "^2.2.5",
@@ -46,5 +48,5 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenButtons",
-  "zendeskgarden:src": "src/index.js"
+  "zendeskgarden:src": "src/index.ts"
 }

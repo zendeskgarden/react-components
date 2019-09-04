@@ -6,7 +6,6 @@
  */
 
 import React from 'react';
-import { css } from 'styled-components';
 import { render, renderRtl } from 'garden-test-utils';
 import { StyledButtonGroup } from './StyledButtonGroup';
 import { StyledButton } from './StyledButton';
@@ -15,7 +14,7 @@ describe('StyledButtonGroup', () => {
   it('renders the expected element', () => {
     const { container } = render(<StyledButtonGroup />);
 
-    expect(container.firstChild.nodeName).toBe('DIV');
+    expect(container.firstChild!.nodeName).toBe('DIV');
   });
 
   it('renders default styling', () => {
@@ -37,10 +36,11 @@ describe('StyledButtonGroup', () => {
       </StyledButtonGroup>
     );
 
+    /* stylelint-disable */
     expect(getByTestId('group-button')).toHaveStyleRule('position', 'relative', {
-      modifier: css`
+      modifier: (`
         ${StyledButtonGroup} &
-      `
+      ` as unknown) as string
     });
   });
 });

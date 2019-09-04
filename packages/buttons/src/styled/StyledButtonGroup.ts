@@ -6,21 +6,20 @@
  */
 
 import styled from 'styled-components';
-import PropType from 'prop-types';
-import { DEFAULT_THEME, retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'buttons.button_group_view';
 
 /**
  * Accepts all `<div>` props
  */
-export const StyledButtonGroup = styled.div.attrs(() => ({
+export const StyledButtonGroup = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-}))`
+})`
   position: relative;
   z-index: 0;
-  direction: ${props => isRtl(props) && 'rtl'};
+  direction: ${props => props.theme.rtl && 'rtl'};
   white-space: nowrap;
 
   :focus {
@@ -29,10 +28,6 @@ export const StyledButtonGroup = styled.div.attrs(() => ({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledButtonGroup.propTypes = {
-  theme: PropType.object
-};
 
 StyledButtonGroup.defaultProps = {
   theme: DEFAULT_THEME

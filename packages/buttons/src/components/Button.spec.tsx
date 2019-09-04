@@ -13,14 +13,14 @@ describe('Button', () => {
   it('does not render visible focus if focused by mouse', () => {
     const { container } = render(<Button />);
 
-    fireEvent.click(container.firstChild);
+    fireEvent.click(container.firstChild as any);
     expect(container.firstChild).not.toHaveClass('focus-visible');
   });
 
   it('renders visible focus if focused by keyboard', () => {
     const { container } = render(<Button />);
 
-    fireEvent.focus(container.firstChild);
+    fireEvent.focus(container.firstChild as any);
     expect(container.firstChild).toHaveClass('focus-visible');
   });
 });
