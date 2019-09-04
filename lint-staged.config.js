@@ -8,7 +8,7 @@
 const micromatch = require('micromatch');
 
 module.exports = {
-  '*.{js, ts, tsx}': [
+  '*.{js,ts,tsx}': [
     'stylelint',
     'eslint',
     'jest --config=utils/test/jest.config.js --findRelatedTests',

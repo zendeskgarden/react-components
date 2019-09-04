@@ -6,17 +6,20 @@
  */
 
 import React from 'react';
+import { ThemeProps, DefaultTheme } from 'styled-components';
 import { render, renderRtl } from 'garden-test-utils';
 import withTheme from './withTheme';
 import DEFAULT_THEME from '../theme';
 
-const Example = ({ theme: { rtl } }) => {
+const Example: React.FunctionComponent<ThemeProps<DefaultTheme>> = ({ theme: { rtl } }) => {
   return <div data-rtl={rtl ? rtl : false}>test</div>;
 };
 
 const ThemedExample = withTheme(Example);
 
-const Div = ({ theme }) => <div data-test={theme.space.base}>test</div>;
+const Div: React.FunctionComponent<ThemeProps<DefaultTheme>> = ({ theme }) => (
+  <div data-test={theme.space.base}>test</div>
+);
 
 const NoThemedExample = withTheme(Div);
 
@@ -34,7 +37,7 @@ describe('withTheme', () => {
   });
 
   it('sets defaultProps if theme is missing', () => {
-    expect(Div.defaultProps.theme).toBe(DEFAULT_THEME);
+    expect(Div.defaultProps!.theme).toBe(DEFAULT_THEME);
   });
 
   it('applies the default theme, if missing, to the wrapped component', () => {
@@ -44,7 +47,7 @@ describe('withTheme', () => {
   });
 
   it('allows a custom theme to be applied to the wrapped component', () => {
-    const VALUE = 'custom';
+    const VALUE = 25;
     const theme = {
       ...DEFAULT_THEME,
       space: {
@@ -54,6 +57,6 @@ describe('withTheme', () => {
     };
     const { container } = render(<NoThemedExample theme={theme} />);
 
-    expect(container.firstChild).toHaveAttribute('data-test', VALUE);
+    expect(container.firstChild).toHaveAttribute('data-test', VALUE.toString());
   });
 });

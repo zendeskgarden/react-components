@@ -9,7 +9,7 @@ import { withTheme as styledWithTheme } from 'styled-components';
 import DEFAULT_THEME from '../theme';
 
 /** @component */
-export default function withTheme(WrappedComponent) {
+export default function withTheme(WrappedComponent: any) {
   if (WrappedComponent.defaultProps === undefined) {
     WrappedComponent.defaultProps = { theme: DEFAULT_THEME };
   } else if (WrappedComponent.defaultProps.theme === undefined) {

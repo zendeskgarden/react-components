@@ -14,6 +14,7 @@ import React, {
   MutableRefObject
 } from 'react';
 import PropTypes from 'prop-types';
+import { ThemeProps, DefaultTheme } from 'styled-components';
 import { Popper } from 'react-popper';
 import { Modifiers } from 'popper.js';
 import { withTheme, isRtl } from '@zendeskgarden/react-theming';
@@ -52,7 +53,7 @@ interface IMenuProps extends HTMLProps<HTMLUListElement> {
 /**
  * Accepts all `<ul>` props
  */
-const Menu: React.FunctionComponent<IMenuProps> = props => {
+const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = props => {
   const {
     placement,
     popperModifiers,

@@ -21,8 +21,7 @@ describe('retrieveComponentStyles', () => {
     const componentStyles = jest.fn().mockReturnValue(EXAMPLE_STYLE);
 
     const componentStyle = retrieveComponentStyles(COMPONENT_ID, {
-      theme: { components: { [COMPONENT_ID]: componentStyles } },
-      mockData: true
+      theme: { components: { [COMPONENT_ID]: componentStyles } }
     });
 
     expect(componentStyles).toHaveBeenCalled();
@@ -31,8 +30,7 @@ describe('retrieveComponentStyles', () => {
 
   it('returns style directly if found', () => {
     const componentStyle = retrieveComponentStyles(COMPONENT_ID, {
-      theme: { components: { [COMPONENT_ID]: EXAMPLE_STYLE } },
-      mockData: true
+      theme: { components: { [COMPONENT_ID]: EXAMPLE_STYLE } }
     });
 
     expect(componentStyle).toBe(EXAMPLE_STYLE);

@@ -40,7 +40,6 @@ declare module '@zendeskgarden/container-utilities' {
 
   export const KEY_CODES: IKeyCodes;
 }
-declare module '@zendeskgarden/react-theming';
 declare module '@zendeskgarden/react-buttons';
 declare module '@zendeskgarden/react-grid';
 

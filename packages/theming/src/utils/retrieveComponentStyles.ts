@@ -5,8 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { ThemeProps, DefaultTheme } from 'styled-components';
+
 /** @component */
-export default function retrieveComponentStyles(componentId, props) {
+export default function retrieveComponentStyles(
+  componentId: string,
+  props: Partial<ThemeProps<Partial<DefaultTheme>>>
+) {
   const components = props.theme && props.theme.components;
 
   if (!components) {
