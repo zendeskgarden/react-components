@@ -14,13 +14,6 @@ const DEFAULT_SHADE = 600;
 
 describe('getColor', () => {
   describe('by hue', () => {
-    it('gets the primary hue when none is specified', () => {
-      const color = getColor();
-      const expected = PALETTE[DEFAULT_THEME.colors.primaryHue][DEFAULT_SHADE];
-
-      expect(color).toBe(expected);
-    });
-
     it('gets the hue specified by string', () => {
       const color = getColor('red');
       const expected = PALETTE.red[DEFAULT_SHADE];
@@ -59,42 +52,42 @@ describe('getColor', () => {
 
       it('gets the default primary color', () => {
         const color = getColor('primaryHue');
-        const expected = PALETTE[DEFAULT_THEME.colors.primaryHue][DEFAULT_SHADE];
+        const expected = (PALETTE as any)[DEFAULT_THEME.colors.primaryHue][DEFAULT_SHADE];
 
         expect(color).toBe(expected);
       });
 
       it('gets the default danger color', () => {
         const color = getColor('dangerHue');
-        const expected = PALETTE[DEFAULT_THEME.colors.dangerHue][DEFAULT_SHADE];
+        const expected = (PALETTE as any)[DEFAULT_THEME.colors.dangerHue][DEFAULT_SHADE];
 
         expect(color).toBe(expected);
       });
 
       it('gets the default warning color', () => {
         const color = getColor('warningHue');
-        const expected = PALETTE[DEFAULT_THEME.colors.warningHue][DEFAULT_SHADE];
+        const expected = (PALETTE as any)[DEFAULT_THEME.colors.warningHue][DEFAULT_SHADE];
 
         expect(color).toBe(expected);
       });
 
       it('gets the default success color', () => {
         const color = getColor('successHue');
-        const expected = PALETTE[DEFAULT_THEME.colors.successHue][DEFAULT_SHADE];
+        const expected = (PALETTE as any)[DEFAULT_THEME.colors.successHue][DEFAULT_SHADE];
 
         expect(color).toBe(expected);
       });
 
       it('gets the default neutral color', () => {
         const color = getColor('neutralHue');
-        const expected = PALETTE[DEFAULT_THEME.colors.neutralHue][DEFAULT_SHADE];
+        const expected = (PALETTE as any)[DEFAULT_THEME.colors.neutralHue][DEFAULT_SHADE];
 
         expect(color).toBe(expected);
       });
 
       it('gets the default chrome color', () => {
         const color = getColor('chromeHue');
-        const expected = PALETTE[DEFAULT_THEME.colors.chromeHue][DEFAULT_SHADE];
+        const expected = (PALETTE as any)[DEFAULT_THEME.colors.chromeHue][DEFAULT_SHADE];
 
         expect(color).toBe(expected);
       });
@@ -140,14 +133,14 @@ describe('getColor', () => {
     });
 
     it('is undefined if shade is invalid', () => {
-      const color = getColor(undefined, 'foo');
+      const color = getColor('red', NaN);
 
       expect(color).toBeUndefined();
     });
   });
 
   describe('by theme', () => {
-    let theme;
+    let theme: any;
 
     beforeEach(() => {
       theme = {
@@ -161,13 +154,6 @@ describe('getColor', () => {
           }
         }
       };
-    });
-
-    it('resolves when only theme is specified', () => {
-      const color = getColor(undefined, undefined, theme);
-      const expected = theme.palette[theme.colors.primaryHue][DEFAULT_SHADE];
-
-      expect(color).toBe(expected);
     });
 
     it('falls back when hue is off palette', () => {
@@ -186,10 +172,13 @@ describe('getColor', () => {
   });
 
   describe('by transparency', () => {
-    it('resolves when only transparency is specified', () => {
+    it('resolves when only hue and transparency is specified', () => {
       const transparency = 0.5;
-      const expected = rgba(PALETTE[DEFAULT_THEME.colors.primaryHue][DEFAULT_SHADE], transparency);
-      const color = getColor(undefined, undefined, undefined, transparency);
+      const expected = rgba(
+        (PALETTE as any)[DEFAULT_THEME.colors.primaryHue][DEFAULT_SHADE],
+        transparency
+      );
+      const color = getColor('primaryHue', undefined, undefined, transparency);
 
       expect(color).toBe(expected);
     });

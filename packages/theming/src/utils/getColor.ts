@@ -6,11 +6,14 @@
  */
 
 import DEFAULT_THEME from '../theme';
-import { darken, lighten, rgba } from 'polished';
+import darken from 'polished/lib/color/darken';
+import lighten from 'polished/lib/color/lighten';
+import rgba from 'polished/lib/color/rgba';
+import { DefaultTheme, Hue } from 'styled-components';
 
 const DEFAULT_SHADE = 600;
 
-const adjust = (color, expected, actual) => {
+const adjust = (color: string, expected: number, actual: number) => {
   if (expected !== actual) {
     // Adjust darkness/lightness if color is not the expected shade.
     const amount = (Math.abs(expected - actual) / 100) * 0.05;
@@ -39,41 +42,53 @@ const adjust = (color, expected, actual) => {
  *
  * @component
  */
-export default function getColor(hue, shade = DEFAULT_SHADE, theme, transparency) {
+export default function getColor(
+  hue: Hue,
+  shade: number = DEFAULT_SHADE,
+  theme?: DefaultTheme,
+  transparency?: number
+) {
   let retVal;
 
-  if (isNaN(parseInt(shade, 10))) {
-    retVal = undefined;
+  if (isNaN(shade)) {
+    return undefined;
+  }
+
+  const palette = theme && theme.palette ? theme.palette : DEFAULT_THEME.palette;
+  const colors = theme && theme.colors ? theme.colors : DEFAULT_THEME.colors;
+
+  let _hue: Hue;
+
+  if (typeof hue === 'string') {
+    _hue = (colors as any)[hue] || hue;
   } else {
-    const palette = theme && theme.palette ? theme.palette : DEFAULT_THEME.palette;
-    const colors = theme && theme.colors ? theme.colors : DEFAULT_THEME.colors;
-    let _hue = hue ? colors[hue] || hue : colors.primaryHue;
+    _hue = hue;
+  }
 
-    if (Object.prototype.hasOwnProperty.call(palette, _hue)) {
-      // Convert string to a palette hue object.
-      _hue = palette[_hue];
-    }
+  if (Object.prototype.hasOwnProperty.call(palette, _hue as string)) {
+    // Convert string to a palette hue object.
+    _hue = palette[_hue as string];
+  }
 
-    if (_hue && typeof _hue === 'object') {
-      retVal = _hue[shade];
+  if (typeof _hue === 'object') {
+    retVal = _hue[shade];
 
-      if (!retVal) {
-        const _shade = Object.keys(_hue).reduce((previous, current) => {
+    if (!retVal) {
+      const _shade = Object.keys(_hue)
+        .map(hueKey => parseInt(hueKey, 10))
+        .reduce((previous, current) => {
           // Find the closest available shade within the given hue.
-          return Math.abs(current - shade) < Math.abs(previous - shade)
-            ? parseInt(current, 10)
-            : parseInt(previous, 10);
+          return Math.abs(current - shade) < Math.abs(previous - shade) ? current : previous;
         });
 
-        retVal = adjust(_hue[_shade], shade, _shade);
-      }
-    } else {
-      retVal = adjust(_hue, shade, DEFAULT_SHADE);
+      retVal = adjust(_hue[_shade], shade, _shade);
     }
+  } else {
+    retVal = adjust(_hue, shade, DEFAULT_SHADE);
+  }
 
-    if (transparency) {
-      retVal = rgba(retVal, transparency);
-    }
+  if (transparency) {
+    retVal = rgba(retVal, transparency);
   }
 
   return retVal;

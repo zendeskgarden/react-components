@@ -7,6 +7,7 @@
 
 import React, { useRef, useEffect, useReducer, useCallback, FunctionComponent } from 'react';
 import PropTypes from 'prop-types';
+import { ThemeProps, DefaultTheme } from 'styled-components';
 import { Manager, Popper, Reference } from 'react-popper';
 import isSameDay from 'date-fns/isSameDay';
 import isValid from 'date-fns/isValid';
@@ -117,7 +118,7 @@ export interface IDatepickerProps {
   zIndex?: number;
 }
 
-const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
+const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultTheme>> = props => {
   const {
     children,
     placement,

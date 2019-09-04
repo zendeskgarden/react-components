@@ -5,6 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { DefaultTheme } from 'styled-components';
 import PALETTE from '../palette';
 
 const BASE = 4;
@@ -29,7 +30,6 @@ const borders = {
 };
 
 const colors = {
-  base: 'light',
   background: PALETTE.white,
   foreground: PALETTE.grey[800],
   primaryHue: 'blue',
@@ -95,7 +95,7 @@ const lineHeights = {
   xxxl: `${BASE * 11}px`
 };
 
-const palette = { ...PALETTE };
+const palette = PALETTE;
 
 /* Exclude product palette from the theme */
 delete palette.product;
@@ -106,9 +106,10 @@ const shadowWidths = {
 };
 
 const shadows = {
-  sm: color => `0 0 0 ${shadowWidths.sm} ${color}`,
-  md: color => `0 0 0 ${shadowWidths.md} ${color}`,
-  lg: (offsetY, blurRadius, color) => `0 ${offsetY} ${blurRadius} 0 ${color}`
+  sm: (color: string) => `0 0 0 ${shadowWidths.sm} ${color}`,
+  md: (color: string) => `0 0 0 ${shadowWidths.md} ${color}`,
+  lg: (offsetY: string, blurRadius: string, color: string) =>
+    `0 ${offsetY} ${blurRadius} 0 ${color}`
 };
 
 const space = {
@@ -122,12 +123,15 @@ const space = {
   xxl: `${BASE * 12}px`
 };
 
-const DEFAULT_THEME = {
+const DEFAULT_THEME: DefaultTheme = {
   borders,
   borderRadii,
   borderStyles,
   borderWidths,
-  colors,
+  colors: {
+    base: 'light',
+    ...colors
+  },
   components: {},
   fonts,
   fontSizes,

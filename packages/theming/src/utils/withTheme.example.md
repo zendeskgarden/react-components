@@ -22,7 +22,7 @@ const LocalizedDiv = withTheme(({ theme, children }) => (
         <button onClick={() => setState({ isRtl: !state.isRtl })}>
           {state.isRtl ? 'Disable RTL' : 'Enable RTL'}
         </button>
-        <LocalizedDiv>This content handles RTL localization asdfasdfasdf</LocalizedDiv>
+        <LocalizedDiv>This content handles RTL localization</LocalizedDiv>
       </div>
     </ThemeProvider>
   )}

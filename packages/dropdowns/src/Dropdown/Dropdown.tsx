@@ -7,6 +7,7 @@
 
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import { DefaultTheme, ThemeProps } from 'styled-components';
 import Downshift, { ControllerStateAndHelpers, StateChangeOptions } from 'downshift';
 import { Manager } from 'react-popper';
 import { withTheme, isRtl } from '@zendeskgarden/react-theming';
@@ -46,7 +47,7 @@ export interface IDropdownProps {
  * Component that provides state and a11y through the context API
  * to its consumers.
  */
-const Dropdown: React.FunctionComponent<IDropdownProps> = props => {
+const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme>> = props => {
   const {
     children,
     isOpen,

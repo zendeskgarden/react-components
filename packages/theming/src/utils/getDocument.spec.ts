@@ -25,14 +25,14 @@ describe('getDocument', () => {
       getDocument({
         theme: {}
       })
-    ).toBe(global.document);
+    ).toBe(window.document);
   });
 
   it('returns `document` if no theme is provided', () => {
-    expect(getDocument({})).toBe(global.document);
+    expect(getDocument({})).toBe(window.document);
   });
 
   it('returns `document` if no props are provided', () => {
-    expect(getDocument()).toBe(global.document);
+    expect(getDocument()).toBe(window.document);
   });
 });
