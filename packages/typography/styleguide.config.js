@@ -5,11 +5,24 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+const path = require('path');
+const reactDocgenTypescript = require('react-docgen-typescript');
+const reactDocgen = require('react-docgen');
+
 /**
  * Package specific styleguide configuration
  * https://github.com/styleguidist/react-styleguidist/blob/master/docs/Configuration.md
  */
 module.exports = {
+  propsParser: reactDocgenTypescript.withCustomConfig(
+    path.resolve(__dirname, '../../tsconfig.json'),
+    {
+      propFilter: props => {
+        return props.parent.fileName.indexOf('node_modules') === -1;
+      }
+    }
+  ).parse,
+  resolver: reactDocgen.resolver.findAllComponentDefinitions,
   sections: [
     {
       name: '',
@@ -39,9 +52,9 @@ module.exports = {
     {
       name: 'Components',
       components: [
-        '../../packages/typography/src/components/*.js',
-        '../../packages/typography/src/components/lists/OrderedList.js',
-        '../../packages/typography/src/components/lists/UnorderedList.js'
+        '../../packages/typography/src/components/*.{ts,tsx}',
+        '../../packages/typography/src/components/lists/OrderedList.tsx',
+        '../../packages/typography/src/components/lists/UnorderedList.tsx'
       ]
     }
   ]

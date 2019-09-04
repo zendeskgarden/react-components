@@ -18,6 +18,7 @@
     "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
+  "types": "dist/typings/index.d.ts",
   "dependencies": {
     "polished": "^3.4.1"
   },
@@ -41,5 +42,5 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenTypography",
-  "zendeskgarden:src": "src/index.js"
+  "zendeskgarden:src": "src/index.ts"
 }

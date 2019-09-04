@@ -9,23 +9,21 @@ import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
 import Ellipsis from './Ellipsis';
 
-const Example = props => <Ellipsis {...props}>Hello world</Ellipsis>;
-
 describe('Ellipsis', () => {
   it('applies title by default', () => {
-    const { container } = render(<Example />);
+    const { container } = render(<Ellipsis>Hello world</Ellipsis>);
 
     expect(container.firstChild).toHaveAttribute('title', 'Hello world');
   });
 
   it('overrides title attribute if provided', () => {
-    const { container } = render(<Example title="Custom title" />);
+    const { container } = render(<Ellipsis title="Custom title">Hello world</Ellipsis>);
 
     expect(container.firstChild).toHaveAttribute('title', 'Custom title');
   });
 
   it('applies correct styling with RTL locale', () => {
-    const { container } = renderRtl(<Example />);
+    const { container } = renderRtl(<Ellipsis>Hello world</Ellipsis>);
 
     expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });

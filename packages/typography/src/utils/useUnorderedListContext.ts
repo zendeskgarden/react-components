@@ -7,7 +7,11 @@
 
 import { createContext, useContext } from 'react';
 
-export const UnorderedListContext = createContext();
+interface IUnorderedListContext {
+  size: 'small' | 'medium' | 'large';
+}
+
+export const UnorderedListContext = createContext<IUnorderedListContext | undefined>(undefined);
 
 /**
  * Retrieve UnorderedList component context
