@@ -20,7 +20,7 @@ interface IAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 /**
  * Accepts all `<a>` props
  */
-const Anchor: React.FunctionComponent<IAnchorProps> = React.forwardRef(
+const Anchor = React.forwardRef<HTMLAnchorElement, IAnchorProps>(
   ({ children, external, ...buttonProps }, ref) => (
     <KeyboardFocusContainer>
       {({ getFocusProps, keyboardFocused }: any) => (
