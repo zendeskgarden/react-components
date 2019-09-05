@@ -18,8 +18,8 @@ interface IXXXLProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * Accepts all standard props relating to provided `tag`
  */
-const XXXL: React.FunctionComponent<IXXXLProps> = React.forwardRef(({ tag, ...other }, ref) => (
-  <StyledFont as={tag} ref={ref as any} size="xxxl" {...other} />
+const XXXL = React.forwardRef<HTMLDivElement, IXXXLProps>(({ tag, ...other }, ref) => (
+  <StyledFont as={tag} ref={ref} size="xxxl" {...other} />
 ));
 
 XXXL.defaultProps = {

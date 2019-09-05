@@ -18,8 +18,8 @@ interface IMDProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * Accepts all standard props relating to provided `tag`
  */
-const MD: React.FunctionComponent<IMDProps> = React.forwardRef(({ tag, ...other }, ref) => (
-  <StyledFont as={tag} ref={ref as any} size="md" {...other} />
+const MD = React.forwardRef<HTMLDivElement, IMDProps>(({ tag, ...other }, ref) => (
+  <StyledFont as={tag} ref={ref} size="md" {...other} />
 ));
 
 MD.defaultProps = {

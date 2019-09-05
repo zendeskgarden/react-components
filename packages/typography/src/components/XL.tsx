@@ -18,8 +18,8 @@ interface IXLProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * Accepts all standard props relating to provided `tag`
  */
-const XL: React.FunctionComponent<IXLProps> = React.forwardRef(({ tag, ...other }, ref) => (
-  <StyledFont as={tag} ref={ref as any} size="xl" {...other} />
+const XL = React.forwardRef<HTMLDivElement, IXLProps>(({ tag, ...other }, ref) => (
+  <StyledFont as={tag} ref={ref} size="xl" {...other} />
 ));
 
 XL.defaultProps = {

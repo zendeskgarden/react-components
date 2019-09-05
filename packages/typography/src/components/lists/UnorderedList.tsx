@@ -18,10 +18,10 @@ interface IUnorderedListProps extends HTMLAttributes<HTMLUListElement> {
 /**
  * Accepts all `ul` props
  */
-const UnorderedList: React.FunctionComponent<IUnorderedListProps> = React.forwardRef(
+const UnorderedList = React.forwardRef<HTMLUListElement, IUnorderedListProps>(
   ({ size, type, ...other }, ref) => (
     <UnorderedListContext.Provider value={{ size: size! }}>
-      <StyledUnorderedList ref={ref as any} listType={type!} {...other} />
+      <StyledUnorderedList ref={ref} listType={type!} {...other} />
     </UnorderedListContext.Provider>
   )
 );
@@ -34,6 +34,8 @@ UnorderedList.defaultProps = {
 (UnorderedList as any).Item = UnorderedListItem;
 
 /** @component */
-export default UnorderedList as React.FunctionComponent<IUnorderedListProps> & {
+export default UnorderedList as React.ForwardRefExoticComponent<
+  IUnorderedListProps & React.RefAttributes<HTMLUListElement>
+> & {
   Item: typeof UnorderedListItem;
 };

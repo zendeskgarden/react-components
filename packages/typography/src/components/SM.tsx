@@ -18,8 +18,8 @@ interface ISMProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * Accepts all standard props relating to provided `tag`
  */
-const SM: React.FunctionComponent<ISMProps> = React.forwardRef(({ tag, ...other }, ref) => (
-  <StyledFont as={tag} ref={ref as any} size="sm" {...other} />
+const SM = React.forwardRef<HTMLDivElement, ISMProps>(({ tag, ...other }, ref) => (
+  <StyledFont as={tag} ref={ref} size="sm" {...other} />
 ));
 
 SM.defaultProps = {

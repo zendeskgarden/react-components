@@ -24,11 +24,11 @@ interface IOrderedListProps extends HTMLAttributes<HTMLOListElement> {
 /**
  * Accepts all `ol` props
  */
-const OrderedList: React.FunctionComponent<IOrderedListProps> = React.forwardRef(
+const OrderedList = React.forwardRef<HTMLOListElement, IOrderedListProps>(
   ({ size, type, ...other }, ref) => {
     return (
       <OrderedListContext.Provider value={{ size: size! }}>
-        <StyledOrderedList ref={ref as any} listType={type!} {...other} />
+        <StyledOrderedList ref={ref} listType={type!} {...other} />
       </OrderedListContext.Provider>
     );
   }
@@ -42,6 +42,8 @@ OrderedList.defaultProps = {
 (OrderedList as any).Item = OrderedListItem;
 
 /** @component */
-export default OrderedList as React.FunctionComponent<IOrderedListProps> & {
+export default OrderedList as React.ForwardRefExoticComponent<
+  IOrderedListProps & React.RefAttributes<HTMLOListElement>
+> & {
   Item: typeof OrderedListItem;
 };
