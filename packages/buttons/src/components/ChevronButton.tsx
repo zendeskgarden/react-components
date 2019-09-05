@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes, WeakValidationMap } from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import IconButton from './IconButton';
 import ChevronDownIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
@@ -29,12 +29,9 @@ interface IChevronButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 /**
  * An `IconButton` with an embedded chevron icon
  */
-const ChevronButton: React.ForwardRefExoticComponent<
+const ChevronButton: React.FunctionComponent<
   IChevronButtonProps & React.RefAttributes<HTMLButtonElement>
-> & { propTypes?: WeakValidationMap<IChevronButtonProps> } = React.forwardRef<
-  HTMLButtonElement,
-  IChevronButtonProps
->(({ ...buttonProps }, ref) => (
+> = React.forwardRef<HTMLButtonElement, IChevronButtonProps>(({ ...buttonProps }, ref) => (
   <IconButton ref={ref} {...buttonProps}>
     <ChevronDownIcon />
   </IconButton>

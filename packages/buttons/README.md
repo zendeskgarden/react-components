@@ -37,13 +37,13 @@ import { Button } from '@zendeskgarden/react-buttons';
 import React, { useState } from 'react';
 import { ButtonGroup, Button } from '@zendeskgarden/react-buttons';
 
-const MyButtonGroup = ({ children, initialKey, ...props }) => {
-  const [selectedKey, setSelectedKey] = useState(initialKey);
+const MyButtonGroup = ({ children, initialItem, ...props }) => {
+  const [selectedItem, setSelectedItem] = useState(initialItem);
 
   return (
     <ButtonGroup
-      selectedKey={selectedKey}
-      onStateChange={newState => setSelectedKey(newState.selectedKey)}
+      selectedItem={selectedItem}
+      onSelect={selectedItem => setSelectedItem(selectedItem)}
       {...props}
     >
       {children}

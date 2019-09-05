@@ -53,20 +53,20 @@ const ButtonGroup: React.FunctionComponent<IButtonGroupProps> = ({
           return child;
         }
 
-        const key = child.key;
+        const value = (child.props as any).value;
 
-        if (!key) {
-          throw new Error('"key" prop must be provided to Button');
+        if (!value) {
+          throw new Error('"value" prop must be provided to Button');
         }
 
         return cloneElement(
           child,
           getButtonProps({
-            key,
-            item: key,
+            key: value,
+            item: value,
             focusRef: createRef(),
-            selected: key === selectedItem,
-            focused: key === focusedItem,
+            selected: value === selectedItem,
+            focused: value === focusedItem,
             ...child.props
           })
         );

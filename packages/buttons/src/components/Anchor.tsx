@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { AnchorHTMLAttributes, WeakValidationMap } from 'react';
+import React, { AnchorHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
 import { StyledAnchor, StyledExternalIcon } from '../styled';
@@ -19,28 +19,30 @@ interface IAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 
 /**
  * Accepts all `<a>` props
+ *
+ * @component
+ * @name Anchor
  */
-const Anchor: React.ForwardRefExoticComponent<
+const Anchor: React.FunctionComponent<
   IAnchorProps & React.RefAttributes<HTMLAnchorElement>
-> & { propTypes?: WeakValidationMap<IAnchorProps> } = React.forwardRef<
-  HTMLAnchorElement,
-  IAnchorProps
->(({ children, external, ...buttonProps }, ref) => (
-  <KeyboardFocusContainer>
-    {({ getFocusProps, keyboardFocused }: any) => (
-      <StyledAnchor
-        {...getFocusProps({
-          ref,
-          ...buttonProps,
-          focused: keyboardFocused
-        })}
-      >
-        {children}
-        {external && <StyledExternalIcon />}
-      </StyledAnchor>
-    )}
-  </KeyboardFocusContainer>
-));
+> = React.forwardRef<HTMLAnchorElement, IAnchorProps>(
+  ({ children, external, ...buttonProps }, ref) => (
+    <KeyboardFocusContainer>
+      {({ getFocusProps, keyboardFocused }: any) => (
+        <StyledAnchor
+          {...getFocusProps({
+            ref,
+            ...buttonProps,
+            focused: keyboardFocused
+          })}
+        >
+          {children}
+          {external && <StyledExternalIcon />}
+        </StyledAnchor>
+      )}
+    </KeyboardFocusContainer>
+  )
+);
 
 Anchor.propTypes = {
   danger: PropTypes.bool,

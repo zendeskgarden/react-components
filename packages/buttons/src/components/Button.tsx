@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useContext, ButtonHTMLAttributes, WeakValidationMap } from 'react';
+import React, { useContext, ButtonHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
 import { StyledButton } from '../styled';
@@ -36,12 +36,9 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 /**
  * Accepts all `<button>` props
  */
-const Button: React.ForwardRefExoticComponent<
+const Button: React.FunctionComponent<
   IButtonProps & React.RefAttributes<HTMLButtonElement>
-> & { propTypes?: WeakValidationMap<IButtonProps> } = React.forwardRef<
-  HTMLButtonElement,
-  IButtonProps
->(({ focused, ...other }, ref) => {
+> = React.forwardRef<HTMLButtonElement, IButtonProps>(({ focused, ...other }, ref) => {
   const focusInset = other.focusInset || useContext(ButtonGroupContext);
 
   return (

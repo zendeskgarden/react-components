@@ -1,10 +1,10 @@
 The `ButtonGroup` component requires the following structure. All `Button`
-components require a unique `key`. All elements proxy the props of their
+components require a unique `value`. All elements proxy the props of their
 native DOM representations.
 
 ```jsx static
 <ButtonGroup>
-  <Button key="button-1">Item 1</Button>
+  <Button value="button-1">Item 1</Button>
   ...
 </ButtonGroup>
 ```
@@ -16,20 +16,20 @@ native DOM representations.
   <Row>
     <Col>
       <ButtonGroup>
-        <Button key="button-1">Default</Button>
-        <Button key="button-2">Default</Button>
-        <Button key="button-3">Default</Button>
+        <Button value="button-1">Default</Button>
+        <Button value="button-2">Default</Button>
+        <Button value="button-3">Default</Button>
       </ButtonGroup>
     </Col>
     <Col>
       <ButtonGroup>
-        <Button primary key="button-1">
+        <Button primary value="button-1">
           Primary
         </Button>
-        <Button primary key="button-2">
+        <Button primary value="button-2">
           Primary
         </Button>
-        <Button primary key="button-3">
+        <Button primary value="button-3">
           Primary
         </Button>
       </ButtonGroup>
@@ -38,26 +38,26 @@ native DOM representations.
   <Row>
     <Col>
       <ButtonGroup>
-        <Button danger key="button-1">
+        <Button danger value="button-1">
           Danger
         </Button>
-        <Button danger key="button-2">
+        <Button danger value="button-2">
           Danger
         </Button>
-        <Button danger key="button-3">
+        <Button danger value="button-3">
           Danger
         </Button>
       </ButtonGroup>
     </Col>
     <Col>
       <ButtonGroup>
-        <Button primary danger key="button-1">
+        <Button primary danger value="button-1">
           Primary Danger
         </Button>
-        <Button primary danger key="button-2">
+        <Button primary danger value="button-2">
           Primary Danger
         </Button>
-        <Button primary danger key="button-3">
+        <Button primary danger value="button-3">
           Primary Danger
         </Button>
       </ButtonGroup>
@@ -66,26 +66,26 @@ native DOM representations.
   <Row>
     <Col>
       <ButtonGroup>
-        <Button pill key="button-1">
+        <Button pill value="button-1">
           Pill
         </Button>
-        <Button pill key="button-2">
+        <Button pill value="button-2">
           Pill
         </Button>
-        <Button pill key="button-3">
+        <Button pill value="button-3">
           Pill
         </Button>
       </ButtonGroup>
     </Col>
     <Col>
       <ButtonGroup>
-        <Button disabled key="button-1">
+        <Button disabled value="button-1">
           Disabled
         </Button>
-        <Button disabled key="button-2">
+        <Button disabled value="button-2">
           Disabled
         </Button>
-        <Button disabled key="button-3">
+        <Button disabled value="button-3">
           Disabled
         </Button>
       </ButtonGroup>
@@ -101,30 +101,30 @@ native DOM representations.
   <Row alignItems="center">
     <Col>
       <ButtonGroup>
-        <Button size="small" key="button-1">
+        <Button size="small" value="button-1">
           Small
         </Button>
-        <Button size="small" key="button-2">
+        <Button size="small" value="button-2">
           Small
         </Button>
       </ButtonGroup>
     </Col>
     <Col>
       <ButtonGroup>
-        <Button size="medium" key="button-1">
+        <Button size="medium" value="button-1">
           Medium
         </Button>
-        <Button size="medium" key="button-2">
+        <Button size="medium" value="button-2">
           Medium
         </Button>
       </ButtonGroup>
     </Col>
     <Col>
       <ButtonGroup>
-        <Button size="large" key="button-1">
+        <Button size="large" value="button-1">
           Large
         </Button>
-        <Button size="large" key="button-2">
+        <Button size="large" value="button-2">
           Large
         </Button>
       </ButtonGroup>
@@ -139,34 +139,35 @@ All elements proxy their events and attributes. This example uses controlled
 state as well as custom `onClick` events for each button.
 
 ```jsx
-const ExampleButtonGroup = ({ children, initialKey, ...props }) => {
-  const [selectedKey, setSelectedKey] = React.useState(initialKey);
-  const stateChange = newState => {
-    if (newState.selectedKey) {
-      alert(`Button "${newState.selectedKey}" selected`);
-      setSelectedKey(newState.selectedKey);
+const ExampleButtonGroup = ({ children, initialItem, ...props }) => {
+  const [selectedItem, setSelectedItem] = React.useState(initialItem);
+
+  const stateChange = newItem => {
+    if (newItem) {
+      alert(`Button "${newItem}" selected`);
+      setSelectedItem(newItem);
     }
   };
 
   return (
-    <ButtonGroup selectedKey={selectedKey} onStateChange={stateChange} {...props}>
+    <ButtonGroup selectedItem={selectedItem} onSelect={stateChange} {...props}>
       {children}
     </ButtonGroup>
   );
 };
 
-<ExampleButtonGroup initialKey="button-2">
-  <Button key="button-1" onClick={() => console.log('clicked')}>
+<ExampleButtonGroup initialItem="button-2">
+  <Button value="button-1" onClick={() => console.log('clicked')}>
     Item 1
   </Button>
-  <Button key="button-2" onClick={() => console.log('clicked')}>
+  <Button value="button-2" onClick={() => console.log('clicked')}>
     Item 2
   </Button>
-  <Button key="button-3" onClick={() => console.log('clicked')}>
+  <Button value="button-3" onClick={() => console.log('clicked')}>
     Item 3
   </Button>
   <Button disabled>Disabled item</Button>
-  <Button key="button-4" onClick={() => console.log('clicked')}>
+  <Button value="button-4" onClick={() => console.log('clicked')}>
     Item 4
   </Button>
 </ExampleButtonGroup>;

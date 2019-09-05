@@ -13,10 +13,10 @@ import Button from './Button';
 describe('ButtonGroup', () => {
   const BasicExample = () => (
     <ButtonGroup data-test-id="group">
-      <Button key="button-1" data-test-id="button">
+      <Button value="button-1" data-test-id="button">
         Button 1
       </Button>
-      <Button key="button-2" data-test-id="button">
+      <Button value="button-2" data-test-id="button">
         Button 2
       </Button>
     </ButtonGroup>
@@ -34,7 +34,7 @@ describe('ButtonGroup', () => {
           <Button>Invalid Button</Button>
         </ButtonGroup>
       );
-    }).toThrow('"key" prop must be provided to Button');
+    }).toThrow('"value" prop must be provided to Button');
 
     console.error = originalError;
   });
@@ -60,7 +60,7 @@ describe('ButtonGroup', () => {
   it('applies disabled styling if provided', () => {
     const { getAllByTestId } = render(
       <ButtonGroup>
-        <Button key="button-1" data-test-id="button">
+        <Button value="button-1" data-test-id="button">
           Button 1
         </Button>
         <Button disabled data-test-id="button">
@@ -82,7 +82,7 @@ describe('ButtonGroup', () => {
     const { getByTestId } = render(
       <ButtonGroup>
         <span>Non button test</span>
-        <Button key="button-1" data-test-id="button">
+        <Button value="button-1" data-test-id="button">
           Button 1
         </Button>
       </ButtonGroup>
