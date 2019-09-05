@@ -7,7 +7,6 @@
 
 import styled from 'styled-components';
 import React, { Children } from 'react';
-import PropTypes from 'prop-types';
 import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tags.avatar';
@@ -23,10 +22,6 @@ export const StyledAvatar = styled(({ children, ...props }) =>
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledAvatar.propTypes = {
-  theme: PropTypes.object
-};
 
 StyledAvatar.defaultProps = {
   theme: DEFAULT_THEME

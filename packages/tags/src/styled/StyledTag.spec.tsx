@@ -14,7 +14,7 @@ describe('StyledTag', () => {
   it('renders the expected element', () => {
     const { container } = render(<StyledTag />);
 
-    expect(container.firstChild.nodeName).toBe('DIV');
+    expect(container.firstChild!.nodeName).toBe('DIV');
   });
 
   it('renders default styling', () => {

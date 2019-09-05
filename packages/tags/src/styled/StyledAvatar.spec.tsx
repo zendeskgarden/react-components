@@ -17,7 +17,7 @@ describe('StyledAvatar', () => {
       </StyledAvatar>
     );
 
-    expect(container.firstChild.nodeName).toBe('IMG');
+    expect(container.firstChild!.nodeName).toBe('IMG');
   });
 
   it('successfully renders child icon', () => {
