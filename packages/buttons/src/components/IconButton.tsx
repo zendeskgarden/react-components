@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useContext, ButtonHTMLAttributes } from 'react';
+import React, { useContext, ButtonHTMLAttributes, WeakValidationMap } from 'react';
 import PropTypes from 'prop-types';
 import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
 import { StyledIconButton, StyledIcon } from '../styled';
@@ -32,29 +32,32 @@ interface IIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 /**
  * Accepts all `<button>` props
  */
-const IconButton = React.forwardRef<HTMLButtonElement, IIconButtonProps>(
-  ({ children, focused, rotated, ...buttonProps }, ref) => {
-    const focusInset = buttonProps.focusInset || useContext(ButtonGroupContext);
+const IconButton: React.ForwardRefExoticComponent<
+  IIconButtonProps & React.RefAttributes<HTMLButtonElement>
+> & { propTypes?: WeakValidationMap<IIconButtonProps> } = React.forwardRef<
+  HTMLButtonElement,
+  IIconButtonProps
+>(({ children, focused, rotated, ...buttonProps }, ref) => {
+  const focusInset = buttonProps.focusInset || useContext(ButtonGroupContext);
 
-    return (
-      <KeyboardFocusContainer>
-        {({ getFocusProps, keyboardFocused }: any) => (
-          <StyledIconButton
-            {...getFocusProps({
-              ref,
-              tabIndex: null,
-              ...buttonProps,
-              focused: focused || keyboardFocused,
-              focusInset
-            })}
-          >
-            <StyledIcon rotated={rotated}>{children}</StyledIcon>
-          </StyledIconButton>
-        )}
-      </KeyboardFocusContainer>
-    );
-  }
-);
+  return (
+    <KeyboardFocusContainer>
+      {({ getFocusProps, keyboardFocused }: any) => (
+        <StyledIconButton
+          {...getFocusProps({
+            ref,
+            tabIndex: null,
+            ...buttonProps,
+            focused: focused || keyboardFocused,
+            focusInset
+          })}
+        >
+          <StyledIcon rotated={rotated}>{children}</StyledIcon>
+        </StyledIconButton>
+      )}
+    </KeyboardFocusContainer>
+  );
+});
 
 IconButton.propTypes = {
   danger: PropTypes.bool,
