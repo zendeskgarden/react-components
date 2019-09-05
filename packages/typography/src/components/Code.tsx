@@ -16,7 +16,9 @@ export interface ICodeProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * Accepts all `<code>` props
  */
-const Code = React.forwardRef<HTMLDivElement, ICodeProps>(({ size, hue, ...other }, ref) => {
+const Code: React.FunctionComponent<
+  ICodeProps & React.RefAttributes<HTMLDivElement>
+> = React.forwardRef<HTMLDivElement, ICodeProps>(({ size, hue, ...other }, ref) => {
   let _size: 'sm' | 'md' | 'lg';
 
   if (size === 'small') {

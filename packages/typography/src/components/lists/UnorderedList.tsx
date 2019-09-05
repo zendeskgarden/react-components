@@ -34,7 +34,7 @@ UnorderedList.defaultProps = {
 (UnorderedList as any).Item = UnorderedListItem;
 
 /** @component */
-export default UnorderedList as React.ForwardRefExoticComponent<
+export default (UnorderedList as unknown) as React.FunctionComponent<
   IUnorderedListProps & React.RefAttributes<HTMLUListElement>
 > & {
   Item: typeof UnorderedListItem;

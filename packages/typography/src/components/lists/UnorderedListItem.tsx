@@ -9,7 +9,9 @@ import React, { HTMLAttributes } from 'react';
 import useUnorderedListContext from '../../utils/useUnorderedListContext';
 import { StyledUnorderedListItem, StyledUnorderedListItemContent } from '../../styled';
 
-const UnorderedListItem = React.forwardRef<HTMLLIElement, HTMLAttributes<HTMLLIElement>>(
+const UnorderedListItem: React.FunctionComponent<
+  HTMLAttributes<HTMLLIElement> & React.RefAttributes<HTMLLIElement>
+> = React.forwardRef<HTMLLIElement, HTMLAttributes<HTMLLIElement>>(
   ({ children, ...other }, ref) => {
     const { size } = useUnorderedListContext();
 

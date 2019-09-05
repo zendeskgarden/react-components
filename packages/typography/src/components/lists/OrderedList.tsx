@@ -42,7 +42,7 @@ OrderedList.defaultProps = {
 (OrderedList as any).Item = OrderedListItem;
 
 /** @component */
-export default OrderedList as React.ForwardRefExoticComponent<
+export default (OrderedList as unknown) as React.FunctionComponent<
   IOrderedListProps & React.RefAttributes<HTMLOListElement>
 > & {
   Item: typeof OrderedListItem;
