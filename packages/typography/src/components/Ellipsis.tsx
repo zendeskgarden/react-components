@@ -21,23 +21,23 @@ interface IEllipsisProps extends HTMLAttributes<HTMLSpanElement> {
  * A component that automatically includes a native `title` attribute and any
  * text-overflow styling. All other props are spread onto the element.
  */
-const Ellipsis = React.forwardRef<HTMLDivElement, IEllipsisProps>(
-  ({ children, title, tag, ...other }, ref) => {
-    let textContent = undefined;
+const Ellipsis: React.FunctionComponent<
+  IEllipsisProps & React.RefAttributes<HTMLDivElement>
+> = React.forwardRef<HTMLDivElement, IEllipsisProps>(({ children, title, tag, ...other }, ref) => {
+  let textContent = undefined;
 
-    if (title !== undefined) {
-      textContent = title;
-    } else if (typeof children === 'string') {
-      textContent = children;
-    }
-
-    return (
-      <StyledEllipsis as={tag} ref={ref} title={textContent} {...other}>
-        {children}
-      </StyledEllipsis>
-    );
+  if (title !== undefined) {
+    textContent = title;
+  } else if (typeof children === 'string') {
+    textContent = children;
   }
-);
+
+  return (
+    <StyledEllipsis as={tag} ref={ref} title={textContent} {...other}>
+      {children}
+    </StyledEllipsis>
+  );
+});
 
 Ellipsis.defaultProps = {
   tag: 'div'

@@ -13,10 +13,10 @@ import Button from './Button';
 describe('ButtonGroup', () => {
   const BasicExample = () => (
     <ButtonGroup data-test-id="group">
-      <Button key="button-1" data-test-id="button">
+      <Button value="button-1" data-test-id="button">
         Button 1
       </Button>
-      <Button key="button-2" data-test-id="button">
+      <Button value="button-2" data-test-id="button">
         Button 2
       </Button>
     </ButtonGroup>
@@ -34,7 +34,7 @@ describe('ButtonGroup', () => {
           <Button>Invalid Button</Button>
         </ButtonGroup>
       );
-    }).toThrow('"key" prop must be provided to Button');
+    }).toThrow('"value" prop must be provided to Button');
 
     console.error = originalError;
   });
@@ -49,17 +49,18 @@ describe('ButtonGroup', () => {
   });
 
   it('applies focused styling to currently focused tab', () => {
-    const { getAllByTestId, getByTestId } = render(<BasicExample />);
+    const { getAllByTestId } = render(<BasicExample />);
+    const [, button] = getAllByTestId('button');
 
-    fireEvent.focus(getByTestId('group'));
+    fireEvent.focus(button);
 
-    expect(getAllByTestId('button')[0]).toHaveAttribute('aria-pressed', 'true');
+    expect(button).toHaveAttribute('tabIndex', '0');
   });
 
   it('applies disabled styling if provided', () => {
     const { getAllByTestId } = render(
       <ButtonGroup>
-        <Button key="button-1" data-test-id="button">
+        <Button value="button-1" data-test-id="button">
           Button 1
         </Button>
         <Button disabled data-test-id="button">
@@ -78,17 +79,19 @@ describe('ButtonGroup', () => {
   });
 
   it('does not apply props to any component other than Button', () => {
-    const { getByTestId, container } = render(
+    const { getByTestId } = render(
       <ButtonGroup>
         <span>Non button test</span>
-        <Button key="button-1" data-test-id="button">
+        <Button value="button-1" data-test-id="button">
           Button 1
         </Button>
       </ButtonGroup>
     );
 
-    fireEvent.focus(getByTestId('button'));
+    const button = getByTestId('button');
 
-    expect(container.firstChild).toHaveFocus();
+    fireEvent.focus(button);
+
+    expect(button).toHaveFocus();
   });
 });

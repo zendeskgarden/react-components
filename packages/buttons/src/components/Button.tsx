@@ -5,27 +5,45 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useContext } from 'react';
+import React, { useContext, ButtonHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
 import { StyledButton } from '../styled';
 import { ButtonGroupContext } from './ButtonGroup';
 
-const SIZE = {
-  SMALL: 'small',
-  MEDIUM: 'medium',
-  LARGE: 'large'
-};
+interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Apply danger styling */
+  danger?: boolean;
+  size?: 'small' | 'medium' | 'large';
+  /** Stretch the button to its container width */
+  stretched?: boolean;
+  /** Applies primary button styling */
+  primary?: boolean;
+  /** Applies basic button styling */
+  basic?: boolean;
+  /** Applies link (anchor) button styling */
+  link?: boolean;
+  /** Applies pill styling */
+  pill?: boolean;
+  /** Applies inset `box-shadow` styling on focus */
+  focusInset?: boolean;
+  /** @ignore */
+  focused?: boolean;
+  /** @ignore prop used by `ButtonGroup` */
+  selected?: boolean;
+}
 
 /**
  * Accepts all `<button>` props
  */
-const Button = React.forwardRef(({ focused, ...other }, ref) => {
+const Button: React.FunctionComponent<
+  IButtonProps & React.RefAttributes<HTMLButtonElement>
+> = React.forwardRef<HTMLButtonElement, IButtonProps>(({ focused, ...other }, ref) => {
   const focusInset = other.focusInset || useContext(ButtonGroupContext);
 
   return (
     <KeyboardFocusContainer>
-      {({ getFocusProps, keyboardFocused }) => (
+      {({ getFocusProps, keyboardFocused }: any) => (
         <StyledButton
           {...getFocusProps({
             ref,
@@ -41,32 +59,23 @@ const Button = React.forwardRef(({ focused, ...other }, ref) => {
 });
 
 Button.propTypes = {
-  /** Apply danger styling */
   danger: PropTypes.bool,
-  size: PropTypes.oneOf([SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]),
-  /** Stretch the button to its container width */
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
   stretched: PropTypes.bool,
-  /** Applies primary button styling */
   primary: PropTypes.bool,
-  /** Applies basic button styling */
   basic: PropTypes.bool,
-  /** Applies link (anchor) button styling */
   link: PropTypes.bool,
-  /** Applies pill styling */
   pill: PropTypes.bool,
-  /** Applies inset `box-shadow` styling on focus */
   focusInset: PropTypes.bool,
-  /** @ignore */
   focused: PropTypes.bool,
-  /** @ignore prop used by `ButtonGroup` */
   selected: PropTypes.bool
 };
 
 Button.defaultProps = {
-  size: SIZE.MEDIUM
+  size: 'medium'
 };
 
-Button.hasType = () => Button;
+(Button as any).hasType = () => Button;
 
 /** @component */
 export default Button;

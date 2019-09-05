@@ -5,21 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css } from 'styled-components';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import { StyledButton, getLineHeight } from './StyledButton';
+import { StyledButton, getLineHeight, IStyledButtonProps } from './StyledButton';
 import { StyledIcon } from './StyledIcon';
 
 const COMPONENT_ID = 'buttons.icon_button';
 
-const SIZE = {
-  SMALL: 'small',
-  MEDIUM: 'medium',
-  LARGE: 'large'
-};
-
-const iconButtonStyles = props => {
+const iconButtonStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   const lineHeight = getLineHeight(props);
   const size = math(`${lineHeight} * 1px`);
 
@@ -32,9 +26,9 @@ const iconButtonStyles = props => {
   `;
 };
 
-const iconStyles = props => {
+const iconStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   const size =
-    props.size === SIZE.LARGE
+    props.size === 'large'
       ? math(`${props.theme.space.base * 6} * 1px`)
       : math(`${props.theme.space.base * 4} * 1px`);
 

@@ -14,7 +14,7 @@ describe('StyledButton', () => {
   it('renders the expected element', () => {
     const { container } = render(<StyledButton />);
 
-    expect(container.firstChild.nodeName).toBe('BUTTON');
+    expect(container.firstChild!.nodeName).toBe('BUTTON');
   });
 
   it('renders default styling', () => {

@@ -9,6 +9,9 @@
 - no longer packages a `styles.css` dist; CSS is self-contained
 - removed `ButtonGroupView`; use new `SplitButton` component instead
 - removed `Icon`; just use `IconButton` with a `rotated` prop
+- `ButtonGroup` now expects a `selectedItem` prop instead of `selectedKey`
+- `ButtonGroup` now uses an `onSelect` callback replacing the `onStateChange`, it passes `selectedItem` directly rather than nesting it in an object
+- `ButtonGroup` now requires it's children to contain a `value` prop which is returned when selected
 
 ## @zendeskgarden/react-checkboxes
 

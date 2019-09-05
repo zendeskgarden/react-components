@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css } from 'styled-components';
-import PropTypes from 'prop-types';
-import { em, math, rgba } from 'polished';
+import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+import em from 'polished/lib/helpers/em';
+import math from 'polished/lib/math/math';
+import rgba from 'polished/lib/color/rgba';
 import classNames from 'classnames';
 import {
   DEFAULT_THEME,
@@ -17,6 +18,7 @@ import {
 } from '@zendeskgarden/react-theming';
 import { StyledButtonGroup } from './StyledButtonGroup';
 import { StyledIcon } from './StyledIcon';
+import { HTMLAttributes } from 'react';
 
 const COMPONENT_ID = 'buttons.button';
 
@@ -26,7 +28,7 @@ const SIZE = {
   LARGE: 'large'
 };
 
-const getBorderRadius = props => {
+const getBorderRadius = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   if (props.link) {
     return 0;
   } else if (props.pill) {
@@ -36,7 +38,7 @@ const getBorderRadius = props => {
   return props.theme.borderRadii.md;
 };
 
-export const getLineHeight = props => {
+export const getLineHeight = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   if (props.size === SIZE.SMALL) {
     return props.theme.space.base * 8;
   } else if (props.size === SIZE.LARGE) {
@@ -46,7 +48,9 @@ export const getLineHeight = props => {
   return props.theme.space.base * 10;
 };
 
-const colorStyles = props => {
+const colorStyles = (
+  props: IStyledButtonProps & ThemeProps<DefaultTheme> & HTMLAttributes<HTMLButtonElement>
+) => {
   let retVal;
   let hue;
 
@@ -68,7 +72,7 @@ const colorStyles = props => {
     props.focusInset && (props.primary || props.selected) ? props.theme.palette.white : baseColor;
   const boxShadow = `
     ${props.focusInset ? 'inset' : ''}
-    ${props.theme.shadows.md(rgba(boxShadowColor, 0.35))}`;
+    ${props.theme.shadows.md(rgba(boxShadowColor as string, 0.35))}`;
 
   if (props.link) {
     retVal = css`
@@ -117,7 +121,7 @@ const colorStyles = props => {
 
       &:hover {
         border-color: ${!props.basic && hoverColor};
-        background-color: ${rgba(baseColor, 0.08)};
+        background-color: ${rgba(baseColor as string, 0.08)};
         color: ${hoverColor};
       }
 
@@ -127,7 +131,7 @@ const colorStyles = props => {
 
       &:active {
         border-color: ${!props.basic && activeColor};
-        background-color: ${rgba(baseColor, 0.2)};
+        background-color: ${rgba(baseColor as string, 0.2)};
         color: ${activeColor};
       }
 
@@ -142,7 +146,7 @@ const colorStyles = props => {
   return retVal;
 };
 
-const groupStyles = props => {
+const groupStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   const primary = props.primary;
   const rtl = isRtl(props);
   const lightBorderColor = props.theme.colors.background;
@@ -203,7 +207,7 @@ const groupStyles = props => {
   `;
 };
 
-const sizeStyles = props => {
+const sizeStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   let retVal;
 
   if (props.link) {
@@ -239,15 +243,29 @@ const sizeStyles = props => {
   return retVal;
 };
 
+export interface IStyledButtonProps {
+  basic?: boolean;
+  danger?: boolean;
+  focused?: boolean;
+  focusInset?: boolean;
+  link?: boolean;
+  primary?: boolean;
+  pill?: boolean;
+  selected?: boolean;
+  size?: 'small' | 'medium' | 'large';
+  stretched?: boolean;
+  disabled?: boolean;
+}
+
 /**
  * Accepts all `<button>` props
  */
-export const StyledButton = styled.button.attrs(props => ({
+export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(props.className, { 'focus-visible': props.focused }),
   type: 'button'
-}))`
+}))<IStyledButtonProps>`
   display: ${props => (props.link ? 'inline' : 'inline-block')};
   /* prettier-ignore */
   transition:
@@ -318,20 +336,6 @@ export const StyledButton = styled.button.attrs(props => ({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledButton.propTypes = {
-  basic: PropTypes.bool,
-  danger: PropTypes.bool,
-  focused: PropTypes.bool,
-  focusInset: PropTypes.bool,
-  link: PropTypes.bool,
-  primary: PropTypes.bool,
-  pill: PropTypes.bool,
-  selected: PropTypes.bool,
-  size: PropTypes.oneOf([SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]),
-  stretched: PropTypes.bool,
-  theme: PropTypes.object
-};
 
 StyledButton.defaultProps = {
   theme: DEFAULT_THEME
