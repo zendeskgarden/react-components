@@ -10,10 +10,8 @@ import { renderRtl } from 'garden-test-utils';
 import XXXL from './XXXL';
 
 describe('XXXL', () => {
-  const Example = props => <XXXL {...props}>Hello world</XXXL>;
-
   it('applies correct styling with RTL locale', () => {
-    const { container } = renderRtl(<Example />);
+    const { container } = renderRtl(<XXXL>Hello world</XXXL>);
 
     expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });

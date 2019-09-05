@@ -5,26 +5,26 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { HTMLAttributes } from 'react';
 import { StyledFont } from '../styled';
+
+interface ILGProps extends HTMLAttributes<HTMLDivElement> {
+  /** Any valid DOM element for the styled component */
+  tag?: any;
+  /** Render monospace font */
+  monospace?: boolean;
+}
 
 /**
  * Accepts all standard props relating to provided `tag`
  */
-const LG = React.forwardRef(({ tag, ...other }, ref) => (
+const LG = React.forwardRef<HTMLDivElement, ILGProps>(({ tag, ...other }, ref) => (
   <StyledFont as={tag} ref={ref} size="lg" {...other} />
 ));
 
-LG.propTypes = {
-  /** Any valid DOM element for the styled component */
-  tag: PropTypes.any,
-  /** Render monospace font */
-  monospace: PropTypes.bool
-};
-
 LG.defaultProps = {
-  tag: 'div'
+  tag: 'div',
+  monospace: false
 };
 
 /** @component */

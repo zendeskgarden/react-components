@@ -10,10 +10,8 @@ import { render, renderRtl } from 'garden-test-utils';
 import XL from './XL';
 
 describe('XL', () => {
-  const Example = props => <XL {...props}>Hello world</XL>;
-
   it('does not apply monospace styling if provided', () => {
-    const { container } = render(<Example monospace />);
+    const { container } = render(<XL monospace>Hello world</XL>);
 
     expect(container.firstChild).not.toHaveStyleRule(
       'font-family',
@@ -22,7 +20,7 @@ describe('XL', () => {
   });
 
   it('applies correct styling with RTL locale', () => {
-    const { container } = renderRtl(<Example />);
+    const { container } = renderRtl(<XL>Hello world</XL>);
 
     expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });

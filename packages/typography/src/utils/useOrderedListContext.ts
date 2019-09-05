@@ -7,7 +7,11 @@
 
 import { createContext, useContext } from 'react';
 
-export const OrderedListContext = createContext();
+interface IOrderedListContext {
+  size: 'small' | 'medium' | 'large';
+}
+
+export const OrderedListContext = createContext<IOrderedListContext | undefined>(undefined);
 
 /**
  * Retrieve OrderedList component context

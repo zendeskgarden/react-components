@@ -5,24 +5,26 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { HTMLAttributes } from 'react';
 import { StyledFont } from '../styled';
+
+interface IXXXLProps extends HTMLAttributes<HTMLDivElement> {
+  /** Any valid DOM element for the styled component */
+  tag?: any;
+  /** Render monospace font */
+  monospace?: boolean;
+}
 
 /**
  * Accepts all standard props relating to provided `tag`
  */
-const XXXL = React.forwardRef(({ tag, ...other }, ref) => (
+const XXXL = React.forwardRef<HTMLDivElement, IXXXLProps>(({ tag, ...other }, ref) => (
   <StyledFont as={tag} ref={ref} size="xxxl" {...other} />
 ));
 
-XXXL.propTypes = {
-  /** Any valid DOM element for the styled component */
-  tag: PropTypes.any
-};
-
 XXXL.defaultProps = {
-  tag: 'div'
+  tag: 'div',
+  monospace: false
 };
 
 /** @component */

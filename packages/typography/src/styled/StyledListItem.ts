@@ -5,29 +5,24 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css } from 'styled-components';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import math from 'polished/lib/math/math';
-import PropTypes from 'prop-types';
 import { DEFAULT_THEME, isRtl, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledFont } from './StyledFont';
 
-const SPACE = {
-  SMALL: 'small',
-  MEDIUM: 'medium',
-  LARGE: 'large'
-};
-
-const listItemContentStyles = props => {
+const listItemContentStyles = (
+  props: IStyledOrderedListItemContentProps & ThemeProps<DefaultTheme>
+) => {
   let padding;
 
   switch (props.space) {
-    case SPACE.SMALL:
+    case 'small':
       padding = '0';
       break;
-    case SPACE.LARGE:
+    case 'large':
       padding = `${math(`${props.theme.space.base} * 1px`)} 0`;
       break;
-    case SPACE.MEDIUM:
+    case 'medium':
     default:
       padding = `${math(`${props.theme.space.base} * 0.5px`)} 0`;
       break;
@@ -54,26 +49,22 @@ export const StyledOrderedListItem = styled.li.attrs({
   ${props => retrieveComponentStyles(ORDERED_ID, props)};
 `;
 
-StyledOrderedListItem.propTypes = {
-  theme: PropTypes.object
-};
-
 StyledOrderedListItem.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-export const StyledOrderedListItemContent = styled(StyledFont)`
+interface IStyledOrderedListItemContentProps {
+  space?: 'small' | 'medium' | 'large';
+}
+
+export const StyledOrderedListItemContent = styled(StyledFont)<IStyledOrderedListItemContentProps>`
   ${props => listItemContentStyles(props)};
 `;
 
-StyledOrderedListItemContent.propTypes = {
-  space: PropTypes.oneOf([SPACE.SMALL, SPACE.MEDIUM, SPACE.LARGE]),
-  theme: PropTypes.object
-};
-
 StyledOrderedListItemContent.defaultProps = {
-  space: SPACE.MEDIUM,
-  theme: DEFAULT_THEME
+  theme: DEFAULT_THEME,
+  space: 'medium',
+  monospace: false
 };
 
 const UNORDERED_ID = 'typography.unordered_list_item';
@@ -85,24 +76,17 @@ export const StyledUnorderedListItem = styled.li.attrs({
   ${props => retrieveComponentStyles(UNORDERED_ID, props)};
 `;
 
-StyledUnorderedListItem.propTypes = {
-  theme: PropTypes.object
-};
-
 StyledUnorderedListItem.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-export const StyledUnorderedListItemContent = styled(StyledFont)`
+export const StyledUnorderedListItemContent = styled(StyledFont)<
+  IStyledOrderedListItemContentProps
+>`
   ${props => listItemContentStyles(props)};
 `;
 
-StyledUnorderedListItemContent.propTypes = {
-  space: PropTypes.oneOf([SPACE.SMALL, SPACE.MEDIUM, SPACE.LARGE]),
-  theme: PropTypes.object
-};
-
 StyledUnorderedListItemContent.defaultProps = {
-  space: SPACE.MEDIUM,
-  theme: DEFAULT_THEME
+  theme: DEFAULT_THEME,
+  space: 'medium'
 };

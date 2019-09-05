@@ -5,20 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css } from 'styled-components';
-import PropTypes from 'prop-types';
+import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import { StyledFont } from './StyledFont';
+import { StyledFont, IStyledFontProps } from './StyledFont';
 
 const COMPONENT_ID = 'typography.code';
 
-const SIZE = {
-  SM: 'sm',
-  MD: 'md',
-  LG: 'lg'
-};
-
-const colorStyles = props => {
+const colorStyles = (props: IStyledCodeProps & ThemeProps<DefaultTheme>) => {
   const hue = props.hue || 'neutralHue';
   const backgroundColor = getColor(hue, 200, props.theme);
   const shade = hue === 'yellow' ? 800 : 700;
@@ -30,13 +23,17 @@ const colorStyles = props => {
   `;
 };
 
+interface IStyledCodeProps extends IStyledFontProps {
+  hue?: string;
+  size?: 'sm' | 'md' | 'lg';
+}
+
 export const StyledCode = styled(StyledFont).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  as: 'code',
-  monospace: true
-})`
-  border-radius: 2px;
+  as: 'code'
+})<IStyledCodeProps>`
+  border-radius: ${props => props.theme.borderRadii.sm};
   padding: 1.5px;
 
   ${props => colorStyles(props)};
@@ -44,14 +41,9 @@ export const StyledCode = styled(StyledFont).attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledCode.propTypes = {
-  hue: PropTypes.string,
-  size: PropTypes.oneOf([SIZE.SM, SIZE.MD, SIZE.LG]),
-  theme: PropTypes.object
-};
-
 StyledCode.defaultProps = {
+  theme: DEFAULT_THEME,
+  monospace: true,
   hue: 'neutralHue',
-  size: SIZE.MD,
-  theme: DEFAULT_THEME
+  size: 'md'
 };
