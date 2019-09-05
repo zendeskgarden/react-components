@@ -17,7 +17,7 @@ describe('Close', () => {
   });
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef();
+    const ref = React.createRef<HTMLDivElement>();
     const { container } = render(<Close ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);

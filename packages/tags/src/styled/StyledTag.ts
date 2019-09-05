@@ -5,28 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css } from 'styled-components';
-import { math, readableColor, stripUnit } from 'polished';
-import PropTypes from 'prop-types';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import math from 'polished/lib/math/math';
+import readableColor from 'polished/lib/color/readableColor';
+import stripUnit from 'polished/lib/helpers/stripUnit';
 import classNames from 'classnames';
-import {
-  DEFAULT_THEME,
-  getColor,
-  isRtl,
-  retrieveComponentStyles
-} from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledAvatar } from './StyledAvatar';
 import { StyledClose } from './StyledClose';
 
 const COMPONENT_ID = 'tags.tag_view';
 
-const SIZE = {
-  SMALL: 'small',
-  MEDIUM: 'medium',
-  LARGE: 'large'
-};
-
-const colorStyles = props => {
+const colorStyles = (props: IStyledTagProps & ThemeProps<DefaultTheme>) => {
   let backgroundColor;
   let boxShadowColor;
   let foregroundColor;
@@ -42,7 +32,7 @@ const colorStyles = props => {
       foregroundColor = getColor('yellow', 800, props.theme);
     } else {
       foregroundColor = readableColor(
-        backgroundColor,
+        backgroundColor!,
         getColor('foreground', 600 /* DEFAULT_SHADE */, props.theme),
         getColor('background', 600 /* DEFAULT_SHADE */, props.theme)
       );
@@ -63,7 +53,7 @@ const colorStyles = props => {
     }
 
     &.focus-visible {
-      box-shadow: ${props.theme.shadows.sm(boxShadowColor)};
+      box-shadow: ${props.theme.shadows.sm(boxShadowColor!)};
     }
 
     & ${StyledClose} {
@@ -72,7 +62,7 @@ const colorStyles = props => {
   `;
 };
 
-const sizeStyles = props => {
+const sizeStyles = (props: IStyledTagProps & ThemeProps<DefaultTheme>) => {
   let borderRadius;
   let padding;
   let height;
@@ -80,13 +70,13 @@ const sizeStyles = props => {
   let minWidth;
   let avatarSize;
 
-  if (props.size === SIZE.SMALL) {
+  if (props.size === 'small') {
     borderRadius = props.theme.borderRadii.sm;
     padding = props.theme.space.base;
     height = props.theme.space.base * 4;
     fontSize = props.theme.fontSizes.xs;
     avatarSize = 0;
-  } else if (props.size === SIZE.LARGE) {
+  } else if (props.size === 'large') {
     borderRadius = props.theme.borderRadii.md;
     padding = props.theme.space.base * 3;
     height = props.theme.space.base * 8;
@@ -100,7 +90,7 @@ const sizeStyles = props => {
     avatarSize = props.theme.space.base * 4;
   }
 
-  let avatarBorderRadius = props.size === SIZE.LARGE ? math(`${borderRadius} - 1`) : borderRadius;
+  let avatarBorderRadius = props.size === 'large' ? math(`${borderRadius} - 1`) : borderRadius;
   const avatarMargin = (height - avatarSize) / 2;
   const avatarTextMargin = props.round ? avatarMargin : avatarMargin * 2;
 
@@ -113,10 +103,10 @@ const sizeStyles = props => {
     borderRadius = '100px';
     avatarBorderRadius = '50%';
 
-    if (props.size === SIZE.SMALL) {
+    if (props.size === 'small') {
       padding = props.theme.space.base * 1.5;
       minWidth = props.theme.space.base * 6;
-    } else if (props.size === SIZE.LARGE) {
+    } else if (props.size === 'large') {
       minWidth = props.theme.space.base * 12;
     } else {
       minWidth = props.theme.space.base * 7.5;
@@ -137,9 +127,9 @@ const sizeStyles = props => {
 
     & ${StyledAvatar} {
       /* stylelint-disable-next-line property-no-unknown */
-      margin-${isRtl(props) ? 'right' : 'left'}: ${math(`${padding - avatarMargin} * -1px`)};
+      margin-${props.theme.rtl ? 'right' : 'left'}: ${math(`${padding - avatarMargin} * -1px`)};
       /* stylelint-disable-next-line property-no-unknown */
-      margin-${isRtl(props) ? 'left' : 'right'}: ${math(`${avatarTextMargin} * 1px`)};
+      margin-${props.theme.rtl ? 'left' : 'right'}: ${math(`${avatarTextMargin} * 1px`)};
       border-radius: ${avatarBorderRadius};
       width: ${math(`${avatarSize} * 1px`)};
       min-width: ${math(`${avatarSize} * 1px`)}; /* prevent flex shrink */
@@ -148,7 +138,7 @@ const sizeStyles = props => {
 
     & ${StyledClose} {
       /* stylelint-disable-next-line property-no-unknown */
-      margin-${isRtl(props) ? 'left' : 'right'}: ${math(`${padding} * -1px`)};
+      margin-${props.theme.rtl ? 'left' : 'right'}: ${math(`${padding} * -1px`)};
       border-radius: ${borderRadius};
       width: ${math(`${height} * 1px`)};
       height: ${math(`${height} * 1px`)};
@@ -156,11 +146,19 @@ const sizeStyles = props => {
   `;
 };
 
-export const StyledTag = styled.div.attrs(props => ({
+interface IStyledTagProps {
+  hue?: string;
+  size?: 'small' | 'medium' | 'large';
+  pill?: boolean;
+  round?: boolean;
+  focused?: boolean;
+}
+
+export const StyledTag = styled.div.attrs<IStyledTagProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(props.className, { 'focus-visible': props.focused })
-}))`
+}))<IStyledTagProps>`
   display: inline-flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -173,7 +171,7 @@ export const StyledTag = styled.div.attrs(props => ({
   text-decoration: none; /* <a> element reset */
   white-space: nowrap;
   font-weight: ${props => props.theme.fontWeights.semibold};
-  direction: ${props => (isRtl(props) ? 'rtl' : 'ltr')};
+  direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
 
   ${props => sizeStyles(props)};
 
@@ -209,7 +207,7 @@ export const StyledTag = styled.div.attrs(props => ({
   }
 
   & ${StyledAvatar} {
-    display: ${props => (props.round || props.size === SIZE.SMALL) && 'none'};
+    display: ${props => (props.round || props.size === 'small') && 'none'};
   }
 
   & ${StyledClose} {
@@ -219,16 +217,7 @@ export const StyledTag = styled.div.attrs(props => ({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledTag.propTypes = {
-  hue: PropTypes.string,
-  size: PropTypes.oneOf([SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]),
-  pill: PropTypes.bool,
-  round: PropTypes.bool,
-  focused: PropTypes.bool,
-  theme: PropTypes.object
-};
-
 StyledTag.defaultProps = {
-  size: SIZE.MEDIUM,
+  size: 'medium',
   theme: DEFAULT_THEME
 };

@@ -18,7 +18,7 @@ describe('Tag', () => {
   });
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef();
+    const ref = React.createRef<HTMLDivElement>();
     const { container } = render(<Tag ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
@@ -44,9 +44,12 @@ describe('Tag', () => {
         'royal',
         'purple'
       ].forEach(color => {
-        const { container } = render(<Tag hue={color} />);
+        const { container } = render(<Tag hue={color as any} />);
 
-        expect(container.firstChild).toHaveStyleRule('background-color', PALETTE[color][600]);
+        expect(container.firstChild).toHaveStyleRule(
+          'background-color',
+          (PALETTE as any)[color][600]
+        );
       });
     });
 

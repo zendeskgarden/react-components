@@ -6,16 +6,15 @@
  */
 
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tags.close';
 
-export const StyledClose = styled.div.attrs(() => ({
+export const StyledClose = styled.div.attrs<{}>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   'aria-label': 'Press delete to remove'
-}))`
+})`
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -37,10 +36,6 @@ export const StyledClose = styled.div.attrs(() => ({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledClose.propTypes = {
-  theme: PropTypes.object
-};
 
 StyledClose.defaultProps = {
   theme: DEFAULT_THEME
