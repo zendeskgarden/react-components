@@ -7,7 +7,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyledAvatar } from './styled';
+import { StyledAvatar } from '../styled';
 
 const SIZE = {
   EXTRASMALL: 'extrasmall',
@@ -44,6 +44,12 @@ const Avatar = ({ isSystem, size, status, children, badge, ...other }) => {
 };
 
 Avatar.propTypes = {
+  /** Set the avatar background color */
+  backgroundColor: PropTypes.string,
+  /** Set the color for child SVG or `Avatar.Text` components */
+  foregroundColor: PropTypes.string,
+  /** Set the color of the surface behind the avatar – used to manipulate the inner status rings */
+  surfaceColor: PropTypes.string,
   /** Applies system styling */
   isSystem: PropTypes.bool,
   badge: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
