@@ -8,8 +8,8 @@
 import React, { Component, Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { hasType } from '@zendeskgarden/react-utilities';
+import { useBreadcrumb } from '@zendeskgarden/container-breadcrumb';
 
-import BreadcrumbContainer from '../containers/BreadcrumbContainer';
 import BreadcrumbView from '../views/BreadcrumbView';
 import List from '../views/List';
 import Item from '../views/Item';
@@ -44,16 +44,13 @@ export default class Breadcrumb extends Component {
 
   render() {
     const { children, ...breadcrumbProps } = this.props;
+    const { getContainerProps, getCurrentPageProps } = useBreadcrumb();
 
     return (
-      <BreadcrumbContainer>
-        {({ getContainerProps, getCurrentPageProps }) => (
-          /* role not needed as `BreadcrumbView` is a navigation landmark. */
-          <BreadcrumbView {...getContainerProps({ role: null })}>
-            <List {...breadcrumbProps}>{this.renderItems(children, getCurrentPageProps)}</List>
-          </BreadcrumbView>
-        )}
-      </BreadcrumbContainer>
+      /* role not needed as `BreadcrumbView` is a navigation landmark. */
+      <BreadcrumbView {...getContainerProps({ role: null })}>
+        <List {...breadcrumbProps}>{this.renderItems(children, getCurrentPageProps)}</List>
+      </BreadcrumbView>
     );
   }
 }
