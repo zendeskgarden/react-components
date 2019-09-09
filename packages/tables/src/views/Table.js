@@ -23,7 +23,6 @@ const SIZE = {
   LARGE: 'large'
 };
 
-/* eslint-disable indent */
 const retrieveSrollableStyling = props => {
   if (!props.scrollable) {
     return '';

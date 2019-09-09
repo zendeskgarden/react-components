@@ -44,7 +44,7 @@ const StyledInput = styled(Input)`
   }
 
   ${props =>
-    props.selectedValues.length !== 0 && // eslint-disable-line
+    props.selectedValues.length !== 0 &&
     (!props.isFocused || props.tagFocusedKey !== undefined) &&
     !props.isOpen &&
     !props.placeholder &&

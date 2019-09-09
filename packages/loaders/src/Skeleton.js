@@ -41,7 +41,6 @@ const skeletonRtlAnimation = keyframes`
   }
 `;
 
-/* eslint-disable */
 const StyledSkeleton = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
