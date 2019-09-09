@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, useState, PropsWithChildren, useMemo, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useMemo, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
 import { useSelection } from '@zendeskgarden/container-selection';
+import { isRtl, withTheme } from '@zendeskgarden/react-theming';
 import {
   StyledMultiselectInput,
   StyledSelect,
@@ -37,7 +38,7 @@ interface IMultiselectProps {
   placeholder?: string;
   validation?: VALIDATION;
   /** Number of items to show in the collapsed state. Default of 4. */
-  maxItems: number;
+  maxItems?: number;
   renderShowMore?: (index: number) => string;
   renderItem: (options: { value: any; removeValue: () => void }) => React.ReactElement;
 }
@@ -45,13 +46,13 @@ interface IMultiselectProps {
 /**
  * Applies state and a11y attributes to its children. Must be nested within a `<Field>` component.
  */
-const Multiselect = ({
+const Multiselect: React.FunctionComponent<IMultiselectProps> = ({
   renderItem,
   placeholder,
   maxItems,
   renderShowMore,
   ...props
-}: PropsWithChildren<IMultiselectProps>) => {
+}) => {
   const {
     popperReferenceElementRef,
     selectedItems,
@@ -74,7 +75,7 @@ const Multiselect = ({
   const [focusedItem, setFocusedItem] = useState(undefined);
 
   const { getContainerProps, getItemProps } = useSelection({
-    rtl: false,
+    rtl: isRtl(props),
     focusedItem,
     selectedItem: undefined,
     onFocus: (item: any) => {
@@ -152,13 +153,24 @@ const Multiselect = ({
               e.preventDefault();
             }
 
-            if (e.keyCode === KEY_CODES.LEFT && index === 0) {
-              e.preventDefault();
-            }
+            if (isRtl(props)) {
+              if (e.keyCode === KEY_CODES.RIGHT && index === 0) {
+                e.preventDefault();
+              }
 
-            if (e.keyCode === KEY_CODES.RIGHT && index === selectedItems!.length - 1) {
-              e.preventDefault();
-              inputRef.current && inputRef.current.focus();
+              if (e.keyCode === KEY_CODES.LEFT && index === selectedItems!.length - 1) {
+                e.preventDefault();
+                inputRef.current && inputRef.current.focus();
+              }
+            } else {
+              if (e.keyCode === KEY_CODES.LEFT && index === 0) {
+                e.preventDefault();
+              }
+
+              if (e.keyCode === KEY_CODES.RIGHT && index === selectedItems!.length - 1) {
+                e.preventDefault();
+                inputRef.current && inputRef.current.focus();
+              }
             }
           },
           onClick: (e: MouseEvent) => {
@@ -172,7 +184,7 @@ const Multiselect = ({
 
       return <StyledItemWrapper key={key}>{clonedChild}</StyledItemWrapper>;
     },
-    [getItemProps, inputValue, renderItem, setDownshiftState, itemToString, selectedItems]
+    [getItemProps, inputValue, renderItem, setDownshiftState, itemToString, selectedItems, props]
   );
 
   const items = useMemo(() => {
@@ -183,7 +195,7 @@ const Multiselect = ({
       for (let x = 0; x < itemValues.length; x++) {
         const item = itemValues[x];
 
-        if (x < maxItems) {
+        if (x < maxItems!) {
           output.push(renderSelectableItem(item, x));
         } else if (!isFocused && !inputValue) {
           output.push(
@@ -250,7 +262,13 @@ const Multiselect = ({
               },
               onKeyDown: (e: KeyboardEvent) => {
                 if (!inputValue) {
-                  if (e.keyCode === KEY_CODES.LEFT && selectedItems!.length > 0) {
+                  if (isRtl(props) && e.keyCode === KEY_CODES.RIGHT && selectedItems!.length > 0) {
+                    setFocusedItem(selectedItems![selectedItems!.length - 1]);
+                  } else if (
+                    !isRtl(props) &&
+                    e.keyCode === KEY_CODES.LEFT &&
+                    selectedItems!.length > 0
+                  ) {
                     setFocusedItem(selectedItems![selectedItems!.length - 1]);
                   } else if (e.keyCode === KEY_CODES.BACKSPACE && selectedItems!.length > 0) {
                     (setDownshiftState as any)({
@@ -300,4 +318,5 @@ Multiselect.defaultProps = {
   maxItems: 4
 };
 
-export default Multiselect;
+/* @component */
+export default withTheme(Multiselect) as React.FunctionComponent<IMultiselectProps>;
