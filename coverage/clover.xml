@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1568041456954" clover="3.2.0">
-  <project timestamp="1568041456955" name="All files">
-    <metrics statements="3895" coveredstatements="3826" conditionals="1799" coveredconditionals="1630" methods="1069" coveredmethods="1040" elements="6763" coveredelements="6496" complexity="0" loc="3895" ncloc="3895" packages="104" files="303" classes="303"/>
+<coverage generated="1568046819569" clover="3.2.0">
+  <project timestamp="1568046819569" name="All files">
+    <metrics statements="3897" coveredstatements="3828" conditionals="1801" coveredconditionals="1631" methods="1068" coveredmethods="1039" elements="6766" coveredelements="6498" complexity="0" loc="3897" ncloc="3897" packages="104" files="303" classes="303"/>
     <package name="autocomplete.src.containers">
       <metrics statements="173" coveredstatements="168" conditionals="96" coveredconditionals="78" methods="46" coveredmethods="42"/>
       <file name="AutocompleteContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/autocomplete/src/containers/AutocompleteContainer.js">
@@ -400,22 +400,24 @@
       </file>
     </package>
     <package name="breadcrumbs.src.containers">
-      <metrics statements="7" coveredstatements="7" conditionals="3" coveredconditionals="2" methods="3" coveredmethods="3"/>
+      <metrics statements="9" coveredstatements="9" conditionals="5" coveredconditionals="3" methods="3" coveredmethods="3"/>
       <file name="BreadcrumbContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/breadcrumbs/src/containers/BreadcrumbContainer.js">
-        <metrics statements="7" coveredstatements="7" conditionals="3" coveredconditionals="2" methods="3" coveredmethods="3"/>
-        <line num="12" count="3" type="stmt"/>
-        <line num="25" count="7" type="cond" truecount="1" falsecount="1"/>
-        <line num="26" count="7" type="stmt"/>
-        <line num="33" count="7" type="stmt"/>
-        <line num="34" count="12" type="stmt"/>
-        <line num="41" count="7" type="cond" truecount="1" falsecount="0"/>
-        <line num="43" count="7" type="stmt"/>
+        <metrics statements="9" coveredstatements="9" conditionals="5" coveredconditionals="3" methods="3" coveredmethods="3"/>
+        <line num="11" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="35" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="51" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="53" count="2" type="stmt"/>
       </file>
     </package>
     <package name="breadcrumbs.src.elements">
-      <metrics statements="11" coveredstatements="11" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
+      <metrics statements="11" coveredstatements="11" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
       <file name="Breadcrumb.js" path="/home/travis/build/zendeskgarden/react-components/packages/breadcrumbs/src/elements/Breadcrumb.js">
-        <metrics statements="11" coveredstatements="11" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
+        <metrics statements="11" coveredstatements="11" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
         <line num="22" count="2" type="stmt"/>
         <line num="26" count="5" type="stmt"/>
         <line num="27" count="10" type="cond" truecount="2" falsecount="0"/>
@@ -425,8 +427,8 @@
         <line num="34" count="14" type="stmt"/>
         <line num="39" count="14" type="cond" truecount="2" falsecount="0"/>
         <line num="46" count="5" type="stmt"/>
-        <line num="48" count="5" type="stmt"/>
-        <line num="52" count="5" type="stmt"/>
+        <line num="47" count="5" type="stmt"/>
+        <line num="49" count="5" type="stmt"/>
       </file>
     </package>
     <package name="breadcrumbs.src.views">
