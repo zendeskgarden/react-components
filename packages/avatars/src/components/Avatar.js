@@ -25,7 +25,17 @@ const STATUS = {
 /**
  * Accepts all `<figure>` attributes and events
  */
-const Avatar = ({ isSystem, size, status, children, badge, ...other }) => {
+const Avatar = ({
+  isSystem,
+  size,
+  status,
+  children,
+  badge,
+  surfaceColor,
+  backgroundColor,
+  foregroundColor,
+  ...other
+}) => {
   const computedStatus = badge === undefined ? status : STATUS.ACTIVE;
 
   return (
@@ -34,6 +44,9 @@ const Avatar = ({ isSystem, size, status, children, badge, ...other }) => {
       size={size}
       status={computedStatus}
       data-badge={badge}
+      surfaceColor={surfaceColor}
+      backgroundColor={backgroundColor}
+      foregroundColor={foregroundColor}
       aria-atomic="true"
       aria-live="polite"
       {...other}
@@ -62,6 +75,8 @@ Avatar.defaultProps = {
   size: SIZE.MEDIUM
 };
 
+/** Accepts all `<figcaption>` props */
+/** @component */
 Avatar.Text = StyledText;
 
 /** @component */

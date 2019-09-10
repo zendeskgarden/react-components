@@ -7,56 +7,94 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { StyledAvatar, StyledText } from './styled';
+import { StyledAvatar } from './StyledAvatar';
+import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
-describe('Styled Elements', () => {
-  describe('StyledAvatar', () => {
-    it('renders avatar styling by default', () => {
-      const { container } = render(<StyledAvatar />);
+describe('StyledAvatar', () => {
+  it('renders avatar styling by default', () => {
+    const { container } = render(<StyledAvatar />);
 
-      expect(container.firstChild).toHaveClass('c-avatar');
+    expect(container.firstChild).toHaveStyleRule('border-radius', '50%');
+  });
+
+  it('renders system styling if provided', () => {
+    const { container } = render(<StyledAvatar isSystem />);
+
+    expect(container.firstChild).toHaveStyleRule('border-radius', DEFAULT_THEME.borderRadii.md);
+  });
+
+  describe('color', () => {
+    it('renders surface color as expected', () => {
+      const { container } = render(<StyledAvatar status="away" surfaceColor="red" />);
+
+      expect(container.firstChild).toHaveStyleRule('color', 'red');
     });
 
-    it('renders system styling if provided', () => {
-      const { container } = render(<StyledAvatar isSystem />);
+    it('renders background color as expected', () => {
+      const { container } = render(<StyledAvatar backgroundColor="red" />);
 
-      expect(container.firstChild).toHaveClass('c-avatar--system');
+      expect(container.firstChild).toHaveStyleRule('background-color', 'red');
     });
 
-    it('renders correct sizing if provided', () => {
-      const sizeMapping = {
-        extrasmall: 'xs',
-        small: 'sm',
-        large: 'lg'
-      };
+    it('renders foreground color as expected', () => {
+      const { container } = render(<StyledAvatar foregroundColor="red" />);
 
-      ['extrasmall', 'small', 'large'].forEach(size => {
-        const { container } = render(<StyledAvatar size={size} />);
-
-        expect(container.firstChild).toHaveClass(`c-avatar--${sizeMapping[size]}`);
-      });
-    });
-
-    it('renders correct status if provided', () => {
-      ['available', 'active', 'away'].forEach(status => {
-        const { container } = render(<StyledAvatar status={status} />);
-
-        expect(container.firstChild).toHaveClass(`is-${status}`);
-      });
-    });
-
-    it('renders RTL styling if provided', () => {
-      const { container } = renderRtl(<StyledAvatar />);
-
-      expect(container.firstChild).toHaveClass(`is-rtl`);
+      expect(container.firstChild).toHaveStyleRule('color', 'red', { modifier: '> svg' });
     });
   });
 
-  describe('StyledText', () => {
-    it('renders text styling by default', () => {
-      const { container } = render(<StyledText />);
+  describe('size', () => {
+    it('renders extrasmall', () => {
+      const { container } = render(<StyledAvatar size="extrasmall" />);
 
-      expect(container.firstChild).toHaveClass(`c-avatar__txt`);
+      expect(container.firstChild).toHaveStyleRule('width', '24px');
     });
+
+    it('renders small', () => {
+      const { container } = render(<StyledAvatar size="small" />);
+
+      expect(container.firstChild).toHaveStyleRule('width', '32px');
+    });
+
+    it('renders medium', () => {
+      const { container } = render(<StyledAvatar size="medium" />);
+
+      expect(container.firstChild).toHaveStyleRule('width', '40px');
+    });
+
+    it('renders large', () => {
+      const { container } = render(<StyledAvatar size="large" />);
+
+      expect(container.firstChild).toHaveStyleRule('width', '48px');
+    });
+  });
+
+  describe('status', () => {
+    it('renders away', () => {
+      const { container } = render(<StyledAvatar status="away" />);
+      const color = getColor('yellow', 400);
+
+      expect(container.firstChild).toHaveStyleRule('box-shadow', DEFAULT_THEME.shadows.sm(color));
+    });
+
+    it('renders available', () => {
+      const { container } = render(<StyledAvatar status="available" />);
+      const color = getColor('mint', 400);
+
+      expect(container.firstChild).toHaveStyleRule('box-shadow', DEFAULT_THEME.shadows.sm(color));
+    });
+
+    it('renders active', () => {
+      const { container } = render(<StyledAvatar status="active" />);
+      const color = getColor('crimson', 400);
+
+      expect(container.firstChild).toHaveStyleRule('box-shadow', DEFAULT_THEME.shadows.sm(color));
+    });
+  });
+
+  it('renders RTL styling if provided', () => {
+    const { container } = renderRtl(<StyledAvatar />);
+
+    expect(container.firstChild).toHaveStyleRule('left', '2px', { modifier: '::after' });
   });
 });

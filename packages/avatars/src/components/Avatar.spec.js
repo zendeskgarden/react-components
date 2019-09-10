@@ -7,55 +7,34 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { Avatar, Text } from './';
+import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import Avatar from './Avatar';
+
+const activeBoxShadow = DEFAULT_THEME.shadows.sm(getColor('crimson', 400));
 
 describe('Avatar', () => {
-  it('applies system styling if provided', () => {
-    const { container } = render(<Avatar isSystem />);
-
-    expect(container.firstChild).toHaveClass('c-avatar--system');
-  });
-
-  it('applies size if provided', () => {
-    const { container } = render(<Avatar size="large" />);
-
-    expect(container.firstChild).toHaveClass('c-avatar--lg');
-  });
-
-  it('applies away styling if provided without badge', () => {
-    const { container } = render(<Avatar status="away" />);
-
-    expect(container.firstChild).toHaveClass('is-away');
-  });
-
-  it('applies available styling if provided without badge', () => {
-    const { container } = render(<Avatar status="available" />);
-
-    expect(container.firstChild).toHaveClass('is-available');
-  });
-
   it('renders badge if provided', () => {
     const { container } = render(<Avatar badge="2" />);
 
-    expect(container.firstChild).toHaveAttribute('data-badge');
+    expect(container.firstChild).toHaveAttribute('data-badge', '2');
   });
 
   it('applies active styling to available status if provided with badge', () => {
     const { container } = render(<Avatar status="available" badge="2" />);
 
-    expect(container.firstChild).toHaveClass('is-active');
+    expect(container.firstChild).toHaveStyleRule('box-shadow', activeBoxShadow);
   });
 
   it('applies active styling to away status if provided with badge', () => {
     const { container } = render(<Avatar status="away" badge="2" />);
 
-    expect(container.firstChild).toHaveClass('is-active');
+    expect(container.firstChild).toHaveStyleRule('box-shadow', activeBoxShadow);
   });
 
   it('renders text element if provided', () => {
     const { getByTestId } = render(
       <Avatar>
-        <Text data-test-id="text">AG</Text>
+        <Avatar.Text data-test-id="text">AG</Avatar.Text>
       </Avatar>
     );
 
