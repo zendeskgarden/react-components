@@ -7,7 +7,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyledAvatar } from '../styled';
+import { StyledAvatar, StyledText } from '../styled';
 
 const SIZE = {
   EXTRASMALL: 'extrasmall',
@@ -26,7 +26,7 @@ const STATUS = {
  * Accepts all `<figure>` attributes and events
  */
 const Avatar = ({ isSystem, size, status, children, badge, ...other }) => {
-  const computedStatus = badge ? STATUS.ACTIVE : status;
+  const computedStatus = badge === undefined ? status : STATUS.ACTIVE;
 
   return (
     <StyledAvatar
@@ -61,6 +61,8 @@ Avatar.propTypes = {
 Avatar.defaultProps = {
   size: SIZE.MEDIUM
 };
+
+Avatar.Text = StyledText;
 
 /** @component */
 export default Avatar;
