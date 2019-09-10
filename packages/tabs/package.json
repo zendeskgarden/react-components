@@ -19,6 +19,7 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
+    "@zendeskgarden/container-tabs": "^0.2.4",
     "@zendeskgarden/react-selection": "^6.2.0",
     "classnames": "^2.2.5"
   },

@@ -9,6 +9,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { SelectionContainer, ControlledComponent, IdManager } from '@zendeskgarden/react-selection';
 
+if (process.env.NODE_ENV !== 'production') {
+  /* eslint-disable no-console */
+  console.warn(
+    'Deprecation Warning: The `TabsContainer` component has been deprecated. ' +
+      'It will be removed in an upcoming major release. Migrate to the ' +
+      '`@zendeskgarden/container-tabs` package to continue receiving updates.'
+  );
+  /* eslint-enable */
+}
+
 export default class TabsContainer extends ControlledComponent {
   static propTypes = {
     /**

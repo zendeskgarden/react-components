@@ -8,8 +8,9 @@
 import React, { Children, cloneElement, isValidElement } from 'react';
 import PropTypes from 'prop-types';
 import { ControlledComponent } from '@zendeskgarden/react-selection';
+import { TabsContainer } from '@zendeskgarden/container-tabs';
+import { isRtl, withTheme } from '@zendeskgarden/react-theming';
 
-import TabsContainer from '../containers/TabsContainer';
 import TabsView from '../views/TabsView';
 import TabList from '../views/TabList';
 import Tab from '../views/Tab';
@@ -17,7 +18,7 @@ import Tab from '../views/Tab';
 /**
  * High-level abstraction for basic Tabs implementations.
  */
-export default class Tabs extends ControlledComponent {
+class Tabs extends ControlledComponent {
   static propTypes = {
     children: PropTypes.any,
     /**
@@ -48,8 +49,7 @@ export default class Tabs extends ControlledComponent {
     super(...args);
 
     this.state = {
-      selectedKey: undefined,
-      focusedKey: undefined
+      selectedKey: undefined
     };
 
     this.firstKey = undefined;
@@ -66,20 +66,25 @@ export default class Tabs extends ControlledComponent {
 
   render() {
     const { vertical, children, onChange, ...otherProps } = this.props;
-    const { focusedKey, selectedKey } = this.getControlledState();
+    const { selectedKey } = this.getControlledState();
 
     return (
       <TabsContainer
+        rtl={isRtl(otherProps)}
         vertical={vertical}
-        selectedKey={selectedKey}
-        focusedKey={focusedKey}
-        onChange={onChange}
-        onStateChange={this.setControlledState}
+        selectedItem={selectedKey}
+        onSelect={item => {
+          if (onChange) {
+            onChange(item);
+          } else {
+            this.setControlledState({ selectedKey: item });
+          }
+        }}
       >
-        {({ getTabListProps, getTabPanelProps, getTabProps }) => (
+        {({ getTabListProps, getTabPanelProps, getTabProps, focusedItem, selectedItem }) => (
           <TabsView vertical={vertical} {...otherProps}>
             <TabList {...getTabListProps()}>
-              {Children.map(children, child => {
+              {Children.map(children, (child, index) => {
                 if (!isValidElement(child)) {
                   return child;
                 }
@@ -95,12 +100,18 @@ export default class Tabs extends ControlledComponent {
                   this.firstKey = key;
                 }
 
+                const focusRef = React.createRef();
+
                 return (
                   <Tab
                     {...getTabProps({
                       key,
-                      selected: key === selectedKey,
-                      focused: key === focusedKey,
+                      index,
+                      item: key,
+                      focusRef,
+                      ref: focusRef,
+                      selected: key === selectedItem,
+                      focused: key === focusedItem,
                       ...tabProps
                     })}
                   >
@@ -109,7 +120,7 @@ export default class Tabs extends ControlledComponent {
                 );
               })}
             </TabList>
-            {Children.map(children, child => {
+            {Children.map(children, (child, index) => {
               if (!isValidElement(child)) {
                 return child;
               }
@@ -125,6 +136,9 @@ export default class Tabs extends ControlledComponent {
                 child,
                 getTabPanelProps({
                   key: child.key,
+                  index,
+                  item: child.key,
+                  'aria-hidden': selectedItem !== child.key,
                   ...other
                 })
               );
@@ -135,3 +149,5 @@ export default class Tabs extends ControlledComponent {
     );
   }
 }
+
+export default withTheme(Tabs);

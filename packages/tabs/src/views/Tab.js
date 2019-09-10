@@ -28,6 +28,16 @@ const Tab = styled.div.attrs(props => ({
     [TabStyles['is-selected']]: props.selected
   })
 }))`
+  &&& {
+    ${props =>
+      !props.focused &&
+      `
+      :before {
+        box-shadow: none;
+      }
+    `}
+  }
+
   ${props => retrieveTheme('tabs.tab', props)};
 `;
 
