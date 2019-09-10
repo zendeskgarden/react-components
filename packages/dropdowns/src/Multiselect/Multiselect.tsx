@@ -55,7 +55,7 @@ const Multiselect: React.FunctionComponent<IMultiselectProps> = ({
 }) => {
   const {
     popperReferenceElementRef,
-    selectedItems,
+    selectedItems = [],
     containsMultiselectRef,
     downshift: {
       getToggleButtonProps,
@@ -106,7 +106,7 @@ const Multiselect: React.FunctionComponent<IMultiselectProps> = ({
       if (isOpen) {
         (e.nativeEvent as any).preventDownshiftDefault = true;
       } else if (!inputValue && e.keyCode === KEY_CODES.HOME) {
-        setFocusedItem(selectedItems![0]);
+        setFocusedItem(selectedItems[0]);
         e.preventDefault();
       }
     },
@@ -158,7 +158,7 @@ const Multiselect: React.FunctionComponent<IMultiselectProps> = ({
                 e.preventDefault();
               }
 
-              if (e.keyCode === KEY_CODES.LEFT && index === selectedItems!.length - 1) {
+              if (e.keyCode === KEY_CODES.LEFT && index === selectedItems.length - 1) {
                 e.preventDefault();
                 inputRef.current && inputRef.current.focus();
               }
@@ -167,7 +167,7 @@ const Multiselect: React.FunctionComponent<IMultiselectProps> = ({
                 e.preventDefault();
               }
 
-              if (e.keyCode === KEY_CODES.RIGHT && index === selectedItems!.length - 1) {
+              if (e.keyCode === KEY_CODES.RIGHT && index === selectedItems.length - 1) {
                 e.preventDefault();
                 inputRef.current && inputRef.current.focus();
               }
@@ -188,38 +188,36 @@ const Multiselect: React.FunctionComponent<IMultiselectProps> = ({
   );
 
   const items = useMemo(() => {
-    if (!props.disabled) {
-      const itemValues = selectedItems || [];
-      const output = [];
+    const itemValues = selectedItems || [];
+    const output = [];
 
-      for (let x = 0; x < itemValues.length; x++) {
-        const item = itemValues[x];
+    for (let x = 0; x < itemValues.length; x++) {
+      const item = itemValues[x];
 
-        if (x < maxItems!) {
-          output.push(renderSelectableItem(item, x));
-        } else if (!isFocused && !inputValue) {
-          output.push(
-            <StyledMoreAnchor key="more-anchor">
-              {renderShowMore
-                ? renderShowMore(itemValues.length - x)
-                : `+ ${itemValues.length - x} more`}
-            </StyledMoreAnchor>
-          );
-          break;
+      if (x < maxItems!) {
+        if (props.disabled) {
+          // eslint-disable-next-line no-empty-function
+          const renderedItem = renderItem({ value: item, removeValue: () => {} });
+
+          output.push(<StyledItemWrapper key={x}>{renderedItem}</StyledItemWrapper>);
         } else {
           output.push(renderSelectableItem(item, x));
         }
+      } else if ((!isFocused && !inputValue) || props.disabled) {
+        output.push(
+          <StyledMoreAnchor key="more-anchor">
+            {renderShowMore
+              ? renderShowMore(itemValues.length - x)
+              : `+ ${itemValues.length - x} more`}
+          </StyledMoreAnchor>
+        );
+        break;
+      } else {
+        output.push(renderSelectableItem(item, x));
       }
-
-      return output;
     }
 
-    return (selectedItems || []).map((item, index) => {
-      // eslint-disable-next-line no-empty-function
-      const renderedItem = renderItem({ value: item, removeValue: () => {} });
-
-      return <StyledItemWrapper key={index}>{renderedItem}</StyledItemWrapper>;
-    });
+    return output;
   }, [
     isFocused,
     props.disabled,
@@ -262,18 +260,18 @@ const Multiselect: React.FunctionComponent<IMultiselectProps> = ({
               },
               onKeyDown: (e: KeyboardEvent) => {
                 if (!inputValue) {
-                  if (isRtl(props) && e.keyCode === KEY_CODES.RIGHT && selectedItems!.length > 0) {
-                    setFocusedItem(selectedItems![selectedItems!.length - 1]);
+                  if (isRtl(props) && e.keyCode === KEY_CODES.RIGHT && selectedItems.length > 0) {
+                    setFocusedItem(selectedItems[selectedItems.length - 1]);
                   } else if (
                     !isRtl(props) &&
                     e.keyCode === KEY_CODES.LEFT &&
-                    selectedItems!.length > 0
+                    selectedItems.length > 0
                   ) {
-                    setFocusedItem(selectedItems![selectedItems!.length - 1]);
-                  } else if (e.keyCode === KEY_CODES.BACKSPACE && selectedItems!.length > 0) {
+                    setFocusedItem(selectedItems[selectedItems.length - 1]);
+                  } else if (e.keyCode === KEY_CODES.BACKSPACE && selectedItems.length > 0) {
                     (setDownshiftState as any)({
                       type: REMOVE_ITEM_STATE_TYPE,
-                      selectedItem: selectedItems![selectedItems!.length - 1]
+                      selectedItem: selectedItems[selectedItems.length - 1]
                     });
                     (e as any).nativeEvent.preventDownshiftDefault = true;
                     e.preventDefault();
@@ -284,10 +282,10 @@ const Multiselect: React.FunctionComponent<IMultiselectProps> = ({
               onBlur: () => {
                 closeMenu();
               },
-              isVisible: isFocused || inputValue || selectedItems!.length === 0,
+              isVisible: isFocused || inputValue || selectedItems.length === 0,
               isSmall: props.small,
               ref: inputRef,
-              placeholder: selectedItems!.length === 0 ? placeholder : undefined
+              placeholder: selectedItems.length === 0 ? placeholder : undefined
             }) as any)}
           />
         </StyledSelect>
