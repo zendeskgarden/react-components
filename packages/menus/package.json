@@ -49,5 +49,6 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenMenus",
+  "zendeskgarden:max_size": "40.5 kB",
   "zendeskgarden:src": "src/index.js"
 }

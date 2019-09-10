@@ -48,5 +48,6 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenTables",
+  "zendeskgarden:max_size": "10 kB",
   "zendeskgarden:src": "src/index.js"
 }

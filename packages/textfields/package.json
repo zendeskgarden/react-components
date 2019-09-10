@@ -44,5 +44,6 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenTextfields",
+  "zendeskgarden:max_size": "10 kB",
   "zendeskgarden:src": "src/index.js"
 }

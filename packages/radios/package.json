@@ -44,5 +44,6 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenRadios",
+  "zendeskgarden:max_size": "9.5 kB",
   "zendeskgarden:src": "src/index.js"
 }
