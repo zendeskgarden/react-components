@@ -37,7 +37,7 @@ const FauxInput = forwardRef((props, ref) => {
         setIsFocused(false);
       })}
       focused={focused === undefined ? isFocused : focused}
-      aria-invalid={null} // eslint-disable-line jsx-a11y/aria-proptypes
+      aria-invalid={null}
     >
       {children}
     </DIVInput>
