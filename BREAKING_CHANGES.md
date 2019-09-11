@@ -4,6 +4,13 @@
 
 - removed; see `@zendeskgarden/react-dropdowns`
 
+## @zendeskgarden/react-avatars
+
+- no longer packages a `styles.css` dist; CSS is self-contained
+- removed child `Text` export
+  - previously `Text`; currently `Avatar.Text`
+- FEATURES: `surfaceColor`, `backgroundColor`, and `foregroundColor` props to ease color control
+
 ## @zendeskgarden/react-buttons
 
 - no longer packages a `styles.css` dist; CSS is self-contained
