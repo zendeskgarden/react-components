@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import { StyledAvatar, StyledText } from '../styled';
 
@@ -25,36 +25,42 @@ const STATUS = {
 /**
  * Accepts all `<figure>` attributes and events
  */
-const Avatar = ({
-  isSystem,
-  size,
-  status,
-  children,
-  badge,
-  surfaceColor,
-  backgroundColor,
-  foregroundColor,
-  ...other
-}) => {
-  const computedStatus = badge === undefined ? status : STATUS.ACTIVE;
+const Avatar = React.forwardRef(
+  (
+    {
+      isSystem,
+      size,
+      status,
+      children,
+      badge,
+      surfaceColor,
+      backgroundColor,
+      foregroundColor,
+      ...other
+    },
+    ref
+  ) => {
+    const computedStatus = badge === undefined ? status : STATUS.ACTIVE;
 
-  return (
-    <StyledAvatar
-      isSystem={isSystem}
-      size={size}
-      status={computedStatus}
-      data-badge={badge}
-      surfaceColor={surfaceColor}
-      backgroundColor={backgroundColor}
-      foregroundColor={foregroundColor}
-      aria-atomic="true"
-      aria-live="polite"
-      {...other}
-    >
-      {children}
-    </StyledAvatar>
-  );
-};
+    return (
+      <StyledAvatar
+        ref={ref}
+        isSystem={isSystem}
+        size={size}
+        status={computedStatus}
+        data-badge={badge}
+        surfaceColor={surfaceColor}
+        backgroundColor={backgroundColor}
+        foregroundColor={foregroundColor}
+        aria-atomic="true"
+        aria-live="polite"
+        {...other}
+      >
+        {Children.only(children)}
+      </StyledAvatar>
+    );
+  }
+);
 
 Avatar.propTypes = {
   /** Set the avatar background color */
@@ -75,8 +81,6 @@ Avatar.defaultProps = {
   size: SIZE.MEDIUM
 };
 
-/** Accepts all `<figcaption>` props */
-/** @component */
 Avatar.Text = StyledText;
 
 /** @component */

@@ -11,7 +11,16 @@ module.exports = {
     },
     {
       name: 'Examples',
-      content: '../../packages/avatars/examples/index.md'
+      sections: [
+        {
+          name: 'Basic',
+          content: '../../packages/avatars/examples/basic.md'
+        },
+        {
+          name: 'Advanced',
+          content: '../../packages/avatars/examples/advanced.md'
+        }
+      ]
     },
     {
       name: 'Components',

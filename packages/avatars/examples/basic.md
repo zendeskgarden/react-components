@@ -1,9 +1,9 @@
 Along with a child `<img>`, avatars also support the display of a single
-child SVG icon or `<Avatar.Text>` component. In both of these cases, the
-`backgroundColor` of the `<Avatar>` must be set to override the browser's
+child `<svg>` icon or `<Avatar.Text>` component. In both of the latter cases,
+the `backgroundColor` of the `<Avatar>` must be set to override the browser's
 "transparent" default. Optionally, a `foregroundColor` (default "white") prop
-may be set to alter the color of the child SVG or `<Avatar.Text>`. Note that
-a `surfaceColor` (default "white") prop should be used on `<Avatar>`
+may be set to alter the color of the child `<svg>` or `<Avatar.Text>`. Note
+that a `surfaceColor` (default "white") prop should be used on `<Avatar>`
 components to ensure internal status rings blend with current background
 color.
 
