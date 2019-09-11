@@ -10,6 +10,12 @@ import { render } from 'garden-test-utils';
 import { StyledText } from './StyledText';
 
 describe('StyledText', () => {
+  it('renders the expected element', () => {
+    const { container } = render(<StyledText />);
+
+    expect(container.firstChild.nodeName).toBe('SPAN');
+  });
+
   it('renders with expected styling', () => {
     const { container } = render(<StyledText />);
 

@@ -11,6 +11,12 @@ import { StyledAvatar } from './StyledAvatar';
 import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 describe('StyledAvatar', () => {
+  it('renders the expected element', () => {
+    const { container } = render(<StyledAvatar />);
+
+    expect(container.firstChild.nodeName).toBe('FIGURE');
+  });
+
   it('renders avatar styling by default', () => {
     const { container } = render(<StyledAvatar />);
 
