@@ -41,5 +41,6 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenTypography",
+  "zendeskgarden:max_size": "5 kB",
   "zendeskgarden:src": "src/index.js"
 }

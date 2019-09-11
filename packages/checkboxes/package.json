@@ -44,5 +44,6 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenCheckboxes",
+  "zendeskgarden:max_size": "9 kB",
   "zendeskgarden:src": "src/index.js"
 }

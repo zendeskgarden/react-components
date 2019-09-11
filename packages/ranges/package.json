@@ -45,5 +45,6 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenRanges",
+  "zendeskgarden:max_size": "12.5 kB",
   "zendeskgarden:src": "src/index.js"
 }

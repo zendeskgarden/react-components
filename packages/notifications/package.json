@@ -43,5 +43,6 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenNotifications",
+  "zendeskgarden:max_size": "3 kB",
   "zendeskgarden:src": "src/index.js"
 }

@@ -42,5 +42,6 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenTags",
+  "zendeskgarden:max_size": "3 kB",
   "zendeskgarden:src": "src/index.js"
 }
