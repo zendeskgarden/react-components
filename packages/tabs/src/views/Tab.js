@@ -28,6 +28,7 @@ const Tab = styled.div.attrs(props => ({
     [TabStyles['is-selected']]: props.selected
   })
 }))`
+  /** This removes focus styling when not needed. Mimics :focus-visible */
   &&& {
     ${props =>
       !props.focused &&
