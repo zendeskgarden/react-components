@@ -228,7 +228,7 @@ initialState = {
 </Grid>;
 ```
 
-#### Accessibility
+### Accessibility
 
 Ensure that all child images include an `alt` description. Similarly, ensure
 that all child SVGs include `role="img"` with an `aria-label` description. By

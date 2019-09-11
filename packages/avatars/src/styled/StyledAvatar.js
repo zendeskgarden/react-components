@@ -264,7 +264,8 @@ StyledAvatar.propTypes = {
   /** Applies system styling */
   isSystem: PropTypes.bool,
   size: PropTypes.oneOf([SIZE.EXTRASMALL, SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]),
-  status: PropTypes.oneOf([STATUS.AVAILABLE, STATUS.ACTIVE, STATUS.AWAY])
+  status: PropTypes.oneOf([STATUS.AVAILABLE, STATUS.ACTIVE, STATUS.AWAY]),
+  theme: PropTypes.object
 };
 
 StyledAvatar.defaultProps = {

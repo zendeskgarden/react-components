@@ -6,7 +6,8 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import PropTypes from 'prop-types';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const TEXT_COMPONENT_ID = 'avatars.text';
 
@@ -23,3 +24,11 @@ export const StyledText = styled.span.attrs({
 
   ${props => retrieveComponentStyles(TEXT_COMPONENT_ID, props)};
 `;
+
+StyledText.propTypes = {
+  theme: PropTypes.object
+};
+
+StyledText.defaultProps = {
+  theme: DEFAULT_THEME
+};
