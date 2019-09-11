@@ -19,6 +19,7 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
+    "@zendeskgarden/container-tabs": "^0.2.4",
     "@zendeskgarden/react-selection": "^6.2.0",
     "classnames": "^2.2.5"
   },
@@ -43,6 +44,6 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenTabs",
-  "zendeskgarden:max_size": "9.5 kB",
+  "zendeskgarden:max_size": "11.5 kB",
   "zendeskgarden:src": "src/index.js"
 }

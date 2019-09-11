@@ -38,5 +38,6 @@
     "access": "public"
   },
   "zendeskgarden:library": "Garden{{capitalize component}}",
+  "zendeskgarden:max_size": "1 kB",
   "zendeskgarden:src": "src/index.js"
 }

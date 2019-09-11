@@ -1,4 +1,12 @@
-```jsx
+## DEPRECATION WARNING
+
+This component has been deprecated in favor of the API provided in the
+[@zendeskgarden/container-tabs](https://www.npmjs.com/package/@zendeskgarden/container-tabs)
+package.
+
+This component will be removed in a future major release.
+
+```jsx static
 initialState = {
   tabs: ['Tab 1', 'Tab 2', 'Tab 3'],
   selectedKey: 'Tab 1',

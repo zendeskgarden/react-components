@@ -50,7 +50,7 @@ describe('Tabs', () => {
       const { getAllByTestId, getByRole } = render(<BasicExample />);
       const tab = getAllByTestId('tab')[0];
 
-      fireEvent.focus(getByRole('tablist'));
+      fireEvent.focus(tab);
 
       expect(tab.parentElement).toHaveClass('is-focused');
     });
@@ -101,9 +101,7 @@ describe('Tabs', () => {
             <TabPanel>Invalid panel</TabPanel>
           </Tabs>
         );
-      }).toThrow(
-        '"key" must be defined within getTabProps regardless of being used within a .map()'
-      );
+      }).toThrow('Accessibility Error: You must provide an "item" option to "getTabPanelProps()"');
 
       console.error = originalError;
     });

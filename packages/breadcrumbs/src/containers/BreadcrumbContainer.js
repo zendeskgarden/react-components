@@ -8,16 +8,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-if (process.env.NODE_ENV !== 'production') {
-  /* eslint-disable no-console */
-  console.warn(
-    'Deprecation Warning: The `BreadcrumbContainer` component has been deprecated. ' +
-      'It will be removed in an upcoming major release. Migrate to the ' +
-      '`@zendeskgarden/container-breadcrumb` package to continue receiving updates.'
-  );
-  /* eslint-enable */
-}
-
 export default class BreadcrumbContainer extends Component {
   static propTypes = {
     /**
@@ -31,6 +21,19 @@ export default class BreadcrumbContainer extends Component {
      */
     render: PropTypes.func
   };
+
+  // eslint-disable-next-line class-methods-use-this
+  componentDidMount() {
+    if (process.env.NODE_ENV !== 'production') {
+      /* eslint-disable no-console */
+      console.warn(
+        'Deprecation Warning: The `BreadcrumbContainer` component has been deprecated. ' +
+          'It will be removed in an upcoming major release. Migrate to the ' +
+          '`@zendeskgarden/container-breadcrumb` package to continue receiving updates.'
+      );
+      /* eslint-enable */
+    }
+  }
 
   getContainerProps = ({ role = 'navigation', ...other } = {}) => {
     return {
