@@ -6,7 +6,6 @@ package.
 
 This component will be removed in a future major release.
 
-
 The `TooltipContainer` component uses the render prop pattern to apply events and
 accessibility props to any element.
 

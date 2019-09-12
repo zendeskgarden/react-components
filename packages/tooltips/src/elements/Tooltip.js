@@ -88,42 +88,45 @@ const Tooltip = ({
             return <TriggerWrapper ref={targetProps.ref}>{triggerElement}</TriggerWrapper>;
           }}
         </Target>
-        {isVisible && (
-          <Popper
-            placement={popperPlacement}
-            eventsEnabled={eventsEnabled}
-            modifiers={popperModifiers}
-          >
-            {({ popperProps }) => {
-              const { onFocus, onBlur, ...otherTooltipProps } = otherProps;
-              const tooltipProps = {
-                arrow,
-                placement: popperProps['data-placement'],
-                size,
-                onFocus: composeEventHandlers(onFocus, () => {
-                  openTooltip();
-                }),
-                onBlur: composeEventHandlers(onBlur, () => {
-                  closeTooltip(0);
-                }),
-                ...otherTooltipProps
-              };
-              const TooltipElem = type === TYPE.LIGHT ? LightTooltip : TooltipView;
+        <Popper
+          placement={popperPlacement}
+          eventsEnabled={eventsEnabled}
+          modifiers={popperModifiers}
+        >
+          {({ popperProps }) => {
+            const { onFocus, onBlur, ...otherTooltipProps } = otherProps;
+            const tooltipProps = {
+              arrow,
+              placement: popperProps['data-placement'],
+              size,
+              onFocus: composeEventHandlers(onFocus, () => {
+                openTooltip();
+              }),
+              onBlur: composeEventHandlers(onBlur, () => {
+                closeTooltip(0);
+              }),
+              ...otherTooltipProps
+            };
+            const TooltipElem = type === TYPE.LIGHT ? LightTooltip : TooltipView;
 
-              const tooltip = (
-                <TooltipWrapper ref={popperProps.ref} style={popperProps.style} zIndex={zIndex}>
-                  <TooltipElem {...getTooltipProps(tooltipProps)}>{children}</TooltipElem>
-                </TooltipWrapper>
-              );
+            const tooltip = (
+              <TooltipWrapper
+                ref={popperProps.ref}
+                style={popperProps.style}
+                zIndex={zIndex}
+                aria-hidden={!isVisible}
+              >
+                <TooltipElem {...getTooltipProps(tooltipProps)}>{children}</TooltipElem>
+              </TooltipWrapper>
+            );
 
-              if (appendToBody) {
-                return createPortal(tooltip, getDocument(otherProps).body);
-              }
+            if (appendToBody) {
+              return createPortal(tooltip, getDocument(otherProps).body);
+            }
 
-              return tooltip;
-            }}
-          </Popper>
-        )}
+            return tooltip;
+          }}
+        </Popper>
       </>
     </Manager>
   );
