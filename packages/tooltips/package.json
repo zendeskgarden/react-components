@@ -19,6 +19,8 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
+    "@zendeskgarden/container-tooltip": "^0.2.3",
+    "@zendeskgarden/container-utilities": "^0.1.1",
     "@zendeskgarden/react-selection": "^6.2.0",
     "classnames": "^2.2.5",
     "react-popper": "0.8.2"
