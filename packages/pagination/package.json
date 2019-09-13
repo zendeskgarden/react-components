@@ -19,7 +19,7 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendeskgarden/container-pagination": "^0.1.9",
+    "@zendeskgarden/container-pagination": "^0.1.10",
     "@zendeskgarden/react-selection": "^6.2.0",
     "classnames": "^2.2.5"
   },

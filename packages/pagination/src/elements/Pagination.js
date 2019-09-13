@@ -7,6 +7,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withTheme, isRtl } from '@zendeskgarden/react-theming';
 import { ControlledComponent, IdManager } from '@zendeskgarden/react-selection';
 import { PaginationContainer } from '@zendeskgarden/container-pagination';
 
@@ -26,7 +27,7 @@ export const PAGE_TYPE = {
   PREVIOUS_PAGE: 'previous'
 };
 
-export default class Pagination extends ControlledComponent {
+class Pagination extends ControlledComponent {
   static propTypes = {
     /**
      * The currently selected page
@@ -274,10 +275,11 @@ export default class Pagination extends ControlledComponent {
     return (
       <PaginationContainer
         id={id}
+        rtl={isRtl(this.props)}
         focusedItem={focusedKey}
         selectedItem={currentPage}
         onFocus={item => {
-          this.setState({ focusedKey: item });
+          this.setControlledState({ focusedKey: item });
         }}
         onSelect={item => {
           const { totalPages, onChange } = this.props;
@@ -324,3 +326,5 @@ export default class Pagination extends ControlledComponent {
     );
   }
 }
+
+export default withTheme(Pagination);

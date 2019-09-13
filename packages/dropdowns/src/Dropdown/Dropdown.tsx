@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import Downshift, { ControllerStateAndHelpers, StateChangeOptions } from 'downshift';
 import { Manager } from 'react-popper';
 import { withTheme, isRtl } from '@zendeskgarden/react-theming';
-import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-selection';
+import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
 
 export interface IDropdownContext {
   itemIndexRef: React.MutableRefObject<number>;
