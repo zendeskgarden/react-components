@@ -6,13 +6,31 @@
  */
 
 import React, { cloneElement } from 'react';
+import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { ControlledComponent, IdManager } from '@zendeskgarden/react-selection';
+import { useTooltip } from '@zendeskgarden/container-tooltip';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import { isRtl, withTheme, getDocument } from '@zendeskgarden/react-theming';
+import { Manager, Popper, Target } from 'react-popper';
 
-import TooltipContainer from '../containers/TooltipContainer';
+import { getPopperPlacement, getRtlPopperPlacement } from '../utils/gardenPlacements';
 import TooltipView from '../views/TooltipView';
 import LightTooltip from '../views/LightTooltip';
+
+/**
+ * This container must provide a wrapper for the provided tooltip
+ * due to constraints in our arrow css. We must ensure that the container
+ * of the tooltip can retain it's relative positioning. Without this
+ * container Popper would apply absolute positioning.
+ */
+const TooltipWrapper = styled.div`
+  z-index: ${props => props.zIndex};
+
+  &[aria-hidden='true'] {
+    display: none;
+  }
+`;
 
 const SIZE = {
   SMALL: 'small',
@@ -34,97 +52,133 @@ const TriggerWrapper = styled.div`
   display: inline-block;
 `;
 
-export default class Tooltip extends ControlledComponent {
-  static propTypes = {
-    /** Appends the tooltip to the body element */
-    appendToBody: PropTypes.bool,
-    arrow: PropTypes.bool,
-    children: PropTypes.node,
-    /** Milliseconds of delay before open/close of tooltip is initiated */
-    delayMilliseconds: PropTypes.number,
-    /** Whether Popper.js should update based on DOM resize events */
-    eventsEnabled: PropTypes.bool,
-    id: PropTypes.string,
-    trigger: PropTypes.node,
-    /**
-     * These placements differ from the default naming of Popper.JS placements to help
-     * assist with RTL layouts.
-     **/
-    placement: PropTypes.oneOf([
-      'auto',
-      'top',
-      'top-start',
-      'top-end',
-      'end',
-      'end-top',
-      'end-bottom',
-      'bottom',
-      'bottom-start',
-      'bottom-end',
-      'start',
-      'start-top',
-      'start-bottom'
-    ]),
-    /** Passes options to [Popper.JS Instance](https://github.com/FezVrasta/popper.js/blob/master/docs/_includes/popper-documentation.md#new-popperreference-popper-options) */
-    popperModifiers: PropTypes.object,
-    size: PropTypes.oneOf([SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE, SIZE.EXTRA_LARGE]),
-    type: PropTypes.oneOf([TYPE.LIGHT, TYPE.DARK]),
-    /**
-     * The z-index of the popper.js placement container
-     */
-    zIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
-  };
+const Tooltip = ({
+  appendToBody,
+  arrow,
+  children,
+  delayMilliseconds,
+  eventsEnabled,
+  id,
+  trigger,
+  placement,
+  popperModifiers,
+  size,
+  type,
+  zIndex,
+  initialIsVisible,
+  ...otherProps
+}) => {
+  const { isVisible, getTooltipProps, getTriggerProps, openTooltip, closeTooltip } = useTooltip({
+    id,
+    delayMilliseconds,
+    isVisible: initialIsVisible
+  });
 
-  static defaultProps = {
-    arrow: true,
-    eventsEnabled: true,
-    type: TYPE.DARK
-  };
+  const popperPlacement = isRtl(otherProps)
+    ? getRtlPopperPlacement(placement)
+    : getPopperPlacement(placement);
 
-  state = {
-    id: IdManager.generateId('garden-tooltip')
-  };
+  return (
+    <Manager tag={false}>
+      <>
+        <Target>
+          {({ targetProps }) => {
+            const triggerElement = cloneElement(trigger, getTriggerProps(trigger.props));
 
-  render() {
-    const {
-      appendToBody,
-      trigger,
-      placement: defaultPlacement,
-      eventsEnabled,
-      popperModifiers,
-      delayMilliseconds,
-      type,
-      arrow,
-      children,
-      size,
-      zIndex,
-      ...otherProps
-    } = this.props;
+            return <TriggerWrapper ref={targetProps.ref}>{triggerElement}</TriggerWrapper>;
+          }}
+        </Target>
+        <Popper
+          placement={popperPlacement}
+          eventsEnabled={eventsEnabled}
+          modifiers={popperModifiers}
+        >
+          {({ popperProps }) => {
+            const { onFocus, onBlur, ...otherTooltipProps } = otherProps;
+            const tooltipProps = {
+              arrow,
+              placement: popperProps['data-placement'],
+              size,
+              onFocus: composeEventHandlers(onFocus, () => {
+                openTooltip();
+              }),
+              onBlur: composeEventHandlers(onBlur, () => {
+                closeTooltip(0);
+              }),
+              ...otherTooltipProps
+            };
+            const TooltipElem = type === TYPE.LIGHT ? LightTooltip : TooltipView;
 
-    const { id } = this.getControlledState();
+            const tooltip = (
+              <TooltipWrapper
+                ref={popperProps.ref}
+                style={popperProps.style}
+                zIndex={zIndex}
+                aria-hidden={!isVisible}
+              >
+                <TooltipElem {...getTooltipProps(tooltipProps)}>{children}</TooltipElem>
+              </TooltipWrapper>
+            );
 
-    return (
-      <TooltipContainer
-        appendToBody={appendToBody}
-        id={id}
-        placement={defaultPlacement}
-        eventsEnabled={eventsEnabled}
-        popperModifiers={popperModifiers}
-        zIndex={zIndex}
-        delayMilliseconds={delayMilliseconds}
-        trigger={({ getTriggerProps, ref }) => {
-          const triggerElement = cloneElement(trigger, getTriggerProps(trigger.props));
+            if (appendToBody) {
+              return createPortal(tooltip, getDocument(otherProps).body);
+            }
 
-          return <TriggerWrapper ref={ref}>{triggerElement}</TriggerWrapper>;
-        }}
-      >
-        {({ getTooltipProps, placement }) => {
-          const tooltipProps = { arrow, placement, size, ...otherProps };
-          const TooltipElem = type === TYPE.LIGHT ? LightTooltip : TooltipView;
+            return tooltip;
+          }}
+        </Popper>
+      </>
+    </Manager>
+  );
+};
 
-          return <TooltipElem {...getTooltipProps(tooltipProps)}>{children}</TooltipElem>;
-        }}
-      </TooltipContainer>
-    );
-  }
-}
+Tooltip.propTypes = {
+  /** Appends the tooltip to the body element */
+  appendToBody: PropTypes.bool,
+  arrow: PropTypes.bool,
+  children: PropTypes.node,
+  /** Milliseconds of delay before open/close of tooltip is initiated */
+  delayMilliseconds: PropTypes.number,
+  /** Whether Popper.js should update based on DOM resize events */
+  eventsEnabled: PropTypes.bool,
+  id: PropTypes.string,
+  trigger: PropTypes.node,
+  /**
+   * These placements differ from the default naming of Popper.JS placements to help
+   * assist with RTL layouts.
+   **/
+  placement: PropTypes.oneOf([
+    'auto',
+    'top',
+    'top-start',
+    'top-end',
+    'end',
+    'end-top',
+    'end-bottom',
+    'bottom',
+    'bottom-start',
+    'bottom-end',
+    'start',
+    'start-top',
+    'start-bottom'
+  ]),
+  /** Passes options to [Popper.JS Instance](https://github.com/FezVrasta/popper.js/blob/master/docs/_includes/popper-documentation.md#new-popperreference-popper-options) */
+  popperModifiers: PropTypes.object,
+  size: PropTypes.oneOf([SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE, SIZE.EXTRA_LARGE]),
+  type: PropTypes.oneOf([TYPE.LIGHT, TYPE.DARK]),
+  /**
+   * The z-index of the popper.js placement container
+   */
+  zIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  initialIsVisible: PropTypes.bool
+};
+
+Tooltip.defaultProps = {
+  arrow: true,
+  eventsEnabled: true,
+  type: TYPE.DARK,
+  placement: 'top',
+  delayMilliseconds: 500
+};
+
+export default withTheme(Tooltip);

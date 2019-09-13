@@ -1,3 +1,11 @@
+## DEPRECATION WARNING
+
+This component has been deprecated in favor of the API provided in the
+[@zendeskgarden/container-tooltip](https://www.npmjs.com/package/@zendeskgarden/container-tooltip)
+package.
+
+This component will be removed in a future major release.
+
 The `TooltipContainer` component uses the render prop pattern to apply events and
 accessibility props to any element.
 
@@ -10,7 +18,7 @@ Follows the [W3C Tooltip accessibility pattern](https://www.w3.org/TR/wai-aria-p
 
 All state is handled internally in the component.
 
-```jsx
+```jsx static
 const { Button } = require('@zendeskgarden/react-buttons/src');
 
 <TooltipContainer
@@ -33,7 +41,7 @@ control the tooltip visibility with the `isVisible` and `onStateChange` props.
 
 This example defaults the tooltip to the `visible` state.
 
-```jsx
+```jsx static
 const { Button } = require('@zendeskgarden/react-buttons/src');
 
 initialState = {
@@ -58,7 +66,7 @@ initialState = {
 
 You can apply this container to _any_ UI element.
 
-```jsx
+```jsx static
 const CustomElement = styled.div`
   padding: 25px;
   color: white;
@@ -101,7 +109,7 @@ const CustomTooltip = styled.div`
 
 This example uses a native input, which doesn't open it's tooltip `onMouseEnter`.
 
-```jsx
+```jsx static
 const { Field, Input } = require('@zendeskgarden/react-forms/src');
 
 <TooltipContainer
@@ -136,7 +144,7 @@ const { Field, Input } = require('@zendeskgarden/react-forms/src');
 
 ### Placements
 
-```jsx
+```jsx static
 const { ThemeProvider } = require('@zendeskgarden/react-theming/src');
 const { Field, Toggle, Label } = require('@zendeskgarden/react-forms/src');
 

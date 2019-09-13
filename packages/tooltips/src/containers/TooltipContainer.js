@@ -108,6 +108,19 @@ class TooltipContainer extends ControlledComponent {
     this.mouseEntered = true;
   }
 
+  // eslint-disable-next-line class-methods-use-this
+  componentDidMount() {
+    if (process.env.NODE_ENV !== 'production') {
+      /* eslint-disable no-console */
+      console.warn(
+        'Deprecation Warning: The `TooltipContainer` component has been deprecated. ' +
+          'It will be removed in an upcoming major release. Migrate to the ' +
+          '`@zendeskgarden/container-tooltips` package to continue receiving updates.'
+      );
+      /* eslint-enable */
+    }
+  }
+
   componentWillUnmount() {
     clearTimeout(this.openTooltipTimeout);
     clearTimeout(this.closeTooltipTimeout);

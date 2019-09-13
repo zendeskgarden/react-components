@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { render, fireEvent } from 'garden-test-utils';
+import { render, fireEvent, act } from 'garden-test-utils';
 
 import Tooltip from './Tooltip';
 
@@ -30,19 +30,29 @@ describe('Tooltip', () => {
     it('renders light tooltip if provided', () => {
       const { getByTestId } = render(<BasicExample type="light" />);
 
-      fireEvent.focus(getByTestId('trigger'));
-      jest.runOnlyPendingTimers();
+      act(() => {
+        fireEvent.focus(getByTestId('trigger'));
+        jest.runOnlyPendingTimers();
+      });
 
-      expect(getByTestId('tooltip')).toBeInTheDocument();
+      const tooltip = getByTestId('tooltip');
+
+      expect(tooltip).toBeInTheDocument();
+      expect(tooltip).toHaveClass('c-tooltip--light');
     });
 
     it('renders dark tooltip if provided', () => {
       const { getByTestId } = render(<BasicExample type="dark" />);
 
-      fireEvent.focus(getByTestId('trigger'));
-      jest.runOnlyPendingTimers();
+      act(() => {
+        fireEvent.focus(getByTestId('trigger'));
+        jest.runOnlyPendingTimers();
+      });
 
-      expect(getByTestId('tooltip')).toBeInTheDocument();
+      const tooltip = getByTestId('tooltip');
+
+      expect(tooltip).toBeInTheDocument();
+      expect(tooltip).not.toHaveClass('c-tooltip--light');
     });
   });
 });
