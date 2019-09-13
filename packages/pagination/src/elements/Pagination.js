@@ -300,8 +300,6 @@ class Pagination extends ControlledComponent {
             if (updatedCurrentPage === totalPages && updatedFocusedKey === NEXT_KEY) {
               updatedFocusedKey = totalPages;
             }
-          } else if (typeof updatedCurrentPage === 'number') {
-            // updatedCurrentPage = updatedCurrentPage;
           }
 
           if (updatedCurrentPage !== undefined) {
