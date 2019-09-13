@@ -7,9 +7,10 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withTheme, isRtl } from '@zendeskgarden/react-theming';
 import { ControlledComponent, IdManager } from '@zendeskgarden/react-selection';
+import { PaginationContainer } from '@zendeskgarden/container-pagination';
 
-import PaginationContainer from '../containers/PaginationContainer';
 import PaginationView from '../views/PaginationView';
 import Page from '../views/Page';
 import Gap from '../views/Gap';
@@ -26,7 +27,7 @@ export const PAGE_TYPE = {
   PREVIOUS_PAGE: 'previous'
 };
 
-export default class Pagination extends ControlledComponent {
+class Pagination extends ControlledComponent {
   static propTypes = {
     /**
      * The currently selected page
@@ -94,6 +95,7 @@ export default class Pagination extends ControlledComponent {
   renderPreviousPage = getPreviousPageProps => {
     const { focusedKey, currentPage } = this.getControlledState();
     const isFirstPageSelected = currentPage === 1;
+    const focusRef = React.createRef();
 
     // The PreviousPage element should be hidden when first page is selected
     if (isFirstPageSelected) {
@@ -106,7 +108,13 @@ export default class Pagination extends ControlledComponent {
       <PreviousPage
         {...this.getTransformedProps(
           PAGE_TYPE.PREVIOUS_PAGE,
-          getPreviousPageProps({ key: PREVIOUS_KEY, focused: focusedKey === PREVIOUS_KEY })
+          getPreviousPageProps({
+            key: PREVIOUS_KEY,
+            focused: focusedKey === PREVIOUS_KEY,
+            item: PREVIOUS_KEY,
+            ref: focusRef,
+            focusRef
+          })
         )}
       />
     );
@@ -116,6 +124,7 @@ export default class Pagination extends ControlledComponent {
     const { focusedKey, currentPage } = this.getControlledState();
     const { totalPages } = this.props;
     const isLastPageSelected = currentPage === totalPages;
+    const focusRef = React.createRef();
 
     // The NextPage element should be hidden when the last page is selected
     if (isLastPageSelected) {
@@ -126,7 +135,13 @@ export default class Pagination extends ControlledComponent {
       <NextPage
         {...this.getTransformedProps(
           PAGE_TYPE.NEXT_PAGE,
-          getNextPageProps({ key: NEXT_KEY, focused: focusedKey === NEXT_KEY })
+          getNextPageProps({
+            item: NEXT_KEY,
+            key: NEXT_KEY,
+            focused: focusedKey === NEXT_KEY,
+            ref: focusRef,
+            focusRef
+          })
         )}
       />
     );
@@ -134,6 +149,7 @@ export default class Pagination extends ControlledComponent {
 
   createPage = (pageIndex, getPageProps) => {
     const { focusedKey, currentPage } = this.getControlledState();
+    const focusRef = React.createRef();
 
     return (
       <Page
@@ -142,7 +158,11 @@ export default class Pagination extends ControlledComponent {
           getPageProps({
             current: currentPage === pageIndex,
             focused: focusedKey === pageIndex,
-            key: pageIndex
+            key: pageIndex,
+            item: pageIndex,
+            page: pageIndex,
+            ref: focusRef,
+            focusRef
           })
         )}
       >
@@ -255,8 +275,42 @@ export default class Pagination extends ControlledComponent {
     return (
       <PaginationContainer
         id={id}
-        focusedKey={focusedKey}
-        selectedKey={currentPage}
+        rtl={isRtl(this.props)}
+        focusedItem={focusedKey}
+        selectedItem={currentPage}
+        onFocus={item => {
+          this.setControlledState({ focusedKey: item });
+        }}
+        onSelect={item => {
+          const { totalPages, onChange } = this.props;
+          let updatedCurrentPage = item;
+          let updatedFocusedKey = focusedKey;
+
+          if (updatedCurrentPage === PREVIOUS_KEY && currentPage > 1) {
+            updatedCurrentPage = currentPage - 1;
+
+            // Must manually change focusedKey once PreviousPage is no longer visible
+            if (updatedCurrentPage === 1 && focusedKey === PREVIOUS_KEY) {
+              updatedFocusedKey = 1;
+            }
+          } else if (updatedCurrentPage === NEXT_KEY && currentPage < totalPages) {
+            updatedCurrentPage = currentPage + 1;
+
+            // Must manually change focusedKey once NextPage is no longer visible
+            if (updatedCurrentPage === totalPages && updatedFocusedKey === NEXT_KEY) {
+              updatedFocusedKey = totalPages;
+            }
+          }
+
+          if (updatedCurrentPage !== undefined) {
+            onChange && onChange(updatedCurrentPage);
+          }
+
+          this.setControlledState({
+            currentPage: updatedCurrentPage,
+            focusedKey: updatedFocusedKey
+          });
+        }}
         onStateChange={this.onPaginationStateChange}
       >
         {({ getContainerProps, getPageProps, getPreviousPageProps, getNextPageProps }) => (
@@ -270,3 +324,5 @@ export default class Pagination extends ControlledComponent {
     );
   }
 }
+
+export default withTheme(Pagination);

@@ -99,11 +99,10 @@ describe('Pagination', () => {
       const { container } = render(<Pagination totalPages={5} currentPage={2} />);
       const paginationWrapper = container.firstChild;
 
-      fireEvent.focus(paginationWrapper);
+      const previousPage = container.firstChild.children[0];
 
-      fireEvent.keyDown(paginationWrapper, { keyCode: KEY_CODES.LEFT });
-      fireEvent.keyDown(paginationWrapper, { keyCode: KEY_CODES.LEFT });
-      fireEvent.keyDown(paginationWrapper, { keyCode: KEY_CODES.ENTER });
+      fireEvent.focus(previousPage);
+      fireEvent.keyDown(previousPage, { keyCode: KEY_CODES.ENTER });
 
       expect(container.firstChild.children[1]).toHaveClass('is-focused');
       expect(container.firstChild.children[2]).toHaveClass('is-current');
@@ -140,11 +139,10 @@ describe('Pagination', () => {
         <Pagination totalPages={5} currentPage={4} onStateChange={onStateChange} />
       );
       const paginationWrapper = container.firstChild;
+      const nextPage = paginationWrapper.children[paginationWrapper.children.length - 1];
 
-      fireEvent.focus(paginationWrapper);
-      fireEvent.keyDown(paginationWrapper, { keyCode: KEY_CODES.RIGHT });
-      fireEvent.keyDown(paginationWrapper, { keyCode: KEY_CODES.RIGHT });
-      fireEvent.keyDown(paginationWrapper, { keyCode: KEY_CODES.ENTER });
+      fireEvent.focus(nextPage);
+      fireEvent.keyDown(nextPage, { keyCode: KEY_CODES.ENTER });
 
       expect(onStateChange).toHaveBeenCalledWith({ currentPage: 5 });
     });

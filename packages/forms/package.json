@@ -19,9 +19,9 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendeskgarden/container-field": "^0.1.0",
-    "@zendeskgarden/container-keyboardfocus": "^0.1.4",
-    "@zendeskgarden/container-utilities": "^0.1.0",
+    "@zendeskgarden/container-field": "^1.0.3",
+    "@zendeskgarden/container-keyboardfocus": "^0.2.3",
+    "@zendeskgarden/container-utilities": "^0.1.2",
     "classnames": "^2.2.5"
   },
   "peerDependencies": {

@@ -19,6 +19,7 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
+    "@zendeskgarden/container-pagination": "^0.1.10",
     "@zendeskgarden/react-selection": "^6.2.0",
     "classnames": "^2.2.5"
   },
@@ -43,6 +44,6 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenPagination",
-  "zendeskgarden:max_size": "10 kB",
+  "zendeskgarden:max_size": "12 kB",
   "zendeskgarden:src": "src/index.js"
 }

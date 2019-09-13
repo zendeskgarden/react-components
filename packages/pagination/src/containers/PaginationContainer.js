@@ -51,6 +51,19 @@ export default class PaginationContainer extends ControlledComponent {
     };
   }
 
+  // eslint-disable-next-line class-methods-use-this
+  componentDidMount() {
+    if (process.env.NODE_ENV !== 'production') {
+      /* eslint-disable no-console */
+      console.warn(
+        'Deprecation Warning: The `PaginationContainer` component has been deprecated. ' +
+          'It will be removed in an upcoming major release. Migrate to the ' +
+          '`@zendeskgarden/container-pagination` package to continue receiving updates.'
+      );
+      /* eslint-enable */
+    }
+  }
+
   getContainerProps = (props = {}) => {
     return {
       'aria-label': 'Pagination navigation',
