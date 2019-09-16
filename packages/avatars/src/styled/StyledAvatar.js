@@ -204,10 +204,10 @@ const sizeStyles = props => {
 /**
  * Accepts all `<figure>` props
  */
-export const StyledAvatar = styled.figure.attrs(() => ({
+export const StyledAvatar = styled.figure.attrs({
   'data-garden-id': AVATARS_COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-}))`
+})`
   display: inline-flex;
   position: relative;
   align-items: center;
