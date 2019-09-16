@@ -20,6 +20,7 @@
   },
   "types": "./dist/typings/index.d.ts",
   "dependencies": {
+    "@zendeskgarden/container-selection": "^1.1.5",
     "@zendeskgarden/container-utilities": "^0.1.2",
     "classnames": "^2.2.5",
     "downshift": "^3.2.7",

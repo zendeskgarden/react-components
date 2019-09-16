@@ -6,10 +6,12 @@
  */
 
 import React from 'react';
-import { render, fireEvent, renderRtl } from 'garden-test-utils';
+import { render, fireEvent, renderRtl, act } from 'garden-test-utils';
 import { Dropdown, Multiselect, Field, Menu, Item, Label } from '..';
 import { IDropdownProps } from '../Dropdown/Dropdown';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
+
+jest.useFakeTimers();
 
 const ExampleWrapper: React.FC<IDropdownProps> = ({ children, ...other }) => (
   <Dropdown {...other}>
@@ -51,7 +53,7 @@ describe('Multiselect', () => {
     expect(document.activeElement!.nodeName).toBe('INPUT');
   });
 
-  it('closes on input blur', () => {
+  it('closes on multiselect blur', () => {
     const { getByTestId } = render(
       <ExampleWrapper>
         <Multiselect
@@ -71,9 +73,17 @@ describe('Multiselect', () => {
     const multiselect = getByTestId('multiselect');
     const input = multiselect.querySelector('input');
 
-    fireEvent.focus(input!);
+    act(() => {
+      fireEvent.focus(input!);
+    });
+
     expect(multiselect).toHaveClass('is-focused');
-    fireEvent.blur(input!);
+
+    act(() => {
+      fireEvent.blur(multiselect!);
+      jest.runOnlyPendingTimers();
+    });
+
     expect(multiselect).not.toHaveClass('is-focused');
   });
 

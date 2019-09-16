@@ -70,6 +70,7 @@ const Multiselect: React.FunctionComponent<IMultiselectProps> = ({
   const { isLabelHovered } = useFieldContext();
   const inputRef = useRef<HTMLInputElement>(null);
   const triggerRef = useRef<HTMLElement>(null);
+  const blurTimeoutRef = useRef<number | undefined>();
   const previousIsOpenRef = useRef<boolean | undefined>(undefined);
   const [isFocused, setIsFocused] = useState(false);
   const [focusedItem, setFocusedItem] = useState(undefined);
@@ -85,6 +86,11 @@ const Multiselect: React.FunctionComponent<IMultiselectProps> = ({
 
   useEffect(() => {
     containsMultiselectRef.current = true;
+    const tempRef = blurTimeoutRef;
+
+    return () => {
+      clearTimeout(tempRef.current);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -93,15 +99,20 @@ const Multiselect: React.FunctionComponent<IMultiselectProps> = ({
     if (isOpen && !previousIsOpenRef.current) {
       inputRef.current && inputRef.current.focus();
     }
-
-    // Focus trigger when Menu is closed
-    if (!isOpen && previousIsOpenRef.current) {
-      triggerRef.current && triggerRef.current.focus();
-    }
     previousIsOpenRef.current = isOpen;
   }, [isOpen]);
 
+  /**
+   * Close menu when an item becomes focused
+   */
+  useEffect(() => {
+    if (focusedItem !== undefined && isOpen) {
+      closeMenu();
+    }
+  }, [focusedItem, isOpen, closeMenu]);
+
   const selectProps = getToggleButtonProps({
+    tabIndex: -1,
     onKeyDown: e => {
       if (isOpen) {
         (e.nativeEvent as any).preventDownshiftDefault = true;
@@ -114,12 +125,13 @@ const Multiselect: React.FunctionComponent<IMultiselectProps> = ({
       setIsFocused(true);
     },
     onBlur: (e: React.FocusEvent<HTMLElement>) => {
-      if (!e.currentTarget.contains(e.relatedTarget as Node)) {
-        setIsFocused(false);
+      const currentTarget = e.currentTarget;
 
-        e.preventDefault();
-        (e.nativeEvent as any).preventDownshiftDefault = true;
-      }
+      blurTimeoutRef.current = (setTimeout(() => {
+        if (!currentTarget.contains(document.activeElement)) {
+          setIsFocused(false);
+        }
+      }, 0) as unknown) as number;
     },
     ...props
   });
@@ -196,7 +208,6 @@ const Multiselect: React.FunctionComponent<IMultiselectProps> = ({
 
       if (x < maxItems!) {
         if (props.disabled) {
-          // eslint-disable-next-line no-empty-function
           const renderedItem = renderItem({ value: item, removeValue: () => {} });
 
           output.push(<StyledItemWrapper key={x}>{renderedItem}</StyledItemWrapper>);
@@ -258,6 +269,11 @@ const Multiselect: React.FunctionComponent<IMultiselectProps> = ({
               onFocus: () => {
                 setFocusedItem(undefined);
               },
+              onClick: (e: MouseEvent) => {
+                if (inputValue && inputValue.length > 0 && isOpen) {
+                  (e as any).nativeEvent.preventDownshiftDefault = true;
+                }
+              },
               onKeyDown: (e: KeyboardEvent) => {
                 if (!inputValue) {
                   if (isRtl(props) && e.keyCode === KEY_CODES.RIGHT && selectedItems.length > 0) {
@@ -278,9 +294,6 @@ const Multiselect: React.FunctionComponent<IMultiselectProps> = ({
                     e.stopPropagation();
                   }
                 }
-              },
-              onBlur: () => {
-                closeMenu();
               },
               isVisible: isFocused || inputValue || selectedItems.length === 0,
               isSmall: props.small,
