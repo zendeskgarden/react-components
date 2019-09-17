@@ -1,4 +1,12 @@
-```jsx
+## DEPRECATION WARNING
+
+This component has been deprecated in favor of the API provided in the
+[@zendeskgarden/container-modal](https://www.npmjs.com/package/@zendeskgarden/container-modal)
+package.
+
+This component will be removed in a future major release.
+
+```jsx static
 const { Button } = require('@zendeskgarden/react-buttons/src');
 
 initialState = {

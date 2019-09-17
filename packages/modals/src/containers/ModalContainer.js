@@ -47,6 +47,19 @@ export default class ModalContainer extends ControlledComponent {
     id: IdManager.generateId('garden-modal-container')
   };
 
+  // eslint-disable-next-line class-methods-use-this
+  componentDidMount() {
+    if (process.env.NODE_ENV !== 'production') {
+      /* eslint-disable no-console */
+      console.warn(
+        'Deprecation Warning: The `ModalContainer` component has been deprecated. ' +
+          'It will be removed in an upcoming major release. Migrate to the ' +
+          '`@zendeskgarden/container-modal` package to continue receiving updates.'
+      );
+      /* eslint-enable */
+    }
+  }
+
   getTitleId = () => `${this.getControlledState().id}--title`;
 
   getContentId = () => `${this.getControlledState().id}--content`;

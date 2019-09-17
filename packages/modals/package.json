@@ -19,6 +19,7 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
+    "@zendeskgarden/container-modal": "^0.3.1",
     "@zendeskgarden/react-selection": "^6.5.0",
     "@zendeskgarden/react-utilities": "^6.5.0",
     "classnames": "^2.2.5",
@@ -46,6 +47,6 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenModals",
-  "zendeskgarden:max_size": "12 kB",
+  "zendeskgarden:max_size": "14 kB",
   "zendeskgarden:src": "src/index.js"
 }

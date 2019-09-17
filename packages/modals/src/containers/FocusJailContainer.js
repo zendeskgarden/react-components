@@ -45,6 +45,16 @@ export class FocusJailContainer extends ControlledComponent {
     if (focusOnMount) {
       this.focusElement(this.container);
     }
+
+    if (process.env.NODE_ENV !== 'production') {
+      /* eslint-disable no-console */
+      console.warn(
+        'Deprecation Warning: The `FocusJailContainer` component has been deprecated. ' +
+          'It will be removed in an upcoming major release. Migrate to the ' +
+          '`@zendeskgarden/container-focusjail` package to continue receiving updates.'
+      );
+      /* eslint-enable */
+    }
   }
 
   /** This method is added to the prototype of FocusJailContainer to allow for easier test mocking */
