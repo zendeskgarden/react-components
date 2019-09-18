@@ -37,20 +37,6 @@ const ExampleDropdown = (props: IDropdownProps) => (
 
 describe('Dropdown', () => {
   describe('Custom keyboard nav', () => {
-    it('selects item on TAB key', () => {
-      const onSelectSpy = jest.fn();
-      const { container, getByTestId } = render(<ExampleDropdown onSelect={onSelectSpy} />);
-
-      const trigger = getByTestId('trigger');
-      const input = container.querySelector('input');
-
-      fireEvent.click(trigger);
-      fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
-      fireEvent.keyDown(input!, { key: 'Tab', keyCode: 9 });
-
-      expect(onSelectSpy.mock.calls[0][0]).toBe('previous-item');
-    });
-
     it('selects previous item on left arrow key in LTR mode', () => {
       const onSelectSpy = jest.fn();
       const { container, getByTestId } = render(<ExampleDropdown onSelect={onSelectSpy} />);
