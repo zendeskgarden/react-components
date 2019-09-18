@@ -25,6 +25,6 @@
       "enabled": false
     }
   ],
-  "labels": ["PR: Internal :seedling:"],
-  "schedule": ["every 4 weeks on Wednesday"]
+  "schedule": ["every 4 weeks on Wednesday"],
+  "labels": ["PR: Internal :seedling:"]
 }
