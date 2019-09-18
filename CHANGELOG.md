@@ -12,6 +12,24 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v6.6.0 (2019-09-18)
+
+#### :construction: Deprecations
+* `react-modals`
+  * `FocusJailContainer`
+    * Migrate to [@zendeskgarden/container-focusjail](https://www.npmjs.com/package/@zendeskgarden/container-focusjail)
+  * `ModalContainer`
+    * Migrate to [@zendeskgarden/container-modal](https://www.npmjs.com/package/@zendeskgarden/container-modal)
+
+#### :rocket: New Feature
+* `dropdowns`
+  * [#439](https://github.com/zendeskgarden/react-components/pull/439) feat(dropdowns): introduce Multiselect component ([@austin94](https://github.com/austin94))
+* `autocomplete`, `menus`, `modals`, `select`
+  * [#456](https://github.com/zendeskgarden/react-components/pull/456) feat(modals): deprecate FocusJailContainer and ModalContainer ([@austin94](https://github.com/austin94))
+
+#### :seedling: Internal
+* [#454](https://github.com/zendeskgarden/react-components/pull/454) chore(deps): update all development non-major dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v6.5.0 (2019-09-13)
 
 #### Deprecations
