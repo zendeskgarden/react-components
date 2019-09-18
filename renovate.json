@@ -26,6 +26,5 @@
     }
   ],
   "labels": ["PR: Internal :seedling:"],
-  "reviewers": ["team:maintainers"],
   "schedule": ["every 4 weeks on Wednesday"]
 }
