@@ -5,5 +5,4 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { default as Avatar } from './Avatar';
-export { default as Text } from './Text';
+export { default as Avatar } from './components/Avatar';

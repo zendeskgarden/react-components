@@ -5,10 +5,5 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StyledText } from './styled';
-
-/** Accepts all `<figcaption>` props */
-const Text = StyledText;
-
-/** @component */
-export default Text;
+export * from './StyledAvatar';
+export * from './StyledText';
