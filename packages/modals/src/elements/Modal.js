@@ -22,6 +22,8 @@ import Body from '../views/Body';
 import Close from '../views/Close';
 import Header from '../views/Header';
 
+import useCombinedRefs from '../utils/useCombinedRefs';
+
 const isOverflowing = element => {
   const doc = ownerDocument(element);
   const win = ownerWindow(doc);
@@ -43,65 +45,68 @@ const isOverflowing = element => {
 /**
  * High-level abstraction for basic Modal implementations. Accepts all `<div>` props.
  */
-const Modal = ({ backdropProps, children, onClose, center, animate, id, ...modalProps }) => {
-  const modalRef = useRef(null);
-  const {
-    getBackdropProps,
-    getModalProps,
-    getTitleProps,
-    getContentProps,
-    getCloseProps
-  } = useModal({ id, onClose, modalRef });
+const Modal = React.forwardRef(
+  ({ backdropProps, children, onClose, center, animate, id, ...modalProps }, ref) => {
+    const modalRef = useCombinedRefs(ref);
 
-  useEffect(() => {
-    const bodyElement = document.querySelector('body');
-    let previousBodyPaddingRight;
+    const {
+      getBackdropProps,
+      getModalProps,
+      getTitleProps,
+      getContentProps,
+      getCloseProps
+    } = useModal({ id, onClose, modalRef });
 
-    if (isOverflowing(bodyElement)) {
-      const scrollbarSize = getScrollbarSize();
-      const bodyPaddingRight = parseInt(css(bodyElement, 'paddingRight') || 0, 10);
+    useEffect(() => {
+      const bodyElement = document.querySelector('body');
+      let previousBodyPaddingRight;
 
-      previousBodyPaddingRight = bodyElement.style.paddingRight;
-      bodyElement.style.paddingRight = `${bodyPaddingRight + scrollbarSize}px`;
-    }
+      if (isOverflowing(bodyElement)) {
+        const scrollbarSize = getScrollbarSize();
+        const bodyPaddingRight = parseInt(css(bodyElement, 'paddingRight') || 0, 10);
 
-    const previousBodyOverflow = bodyElement.style.overflow;
+        previousBodyPaddingRight = bodyElement.style.paddingRight;
+        bodyElement.style.paddingRight = `${bodyPaddingRight + scrollbarSize}px`;
+      }
 
-    bodyElement.style.overflow = 'hidden';
+      const previousBodyOverflow = bodyElement.style.overflow;
 
-    return () => {
-      bodyElement.style.overflow = previousBodyOverflow;
-      bodyElement.style.paddingRight = previousBodyPaddingRight;
-    };
-  }, []);
+      bodyElement.style.overflow = 'hidden';
 
-  return createPortal(
-    <Backdrop {...getBackdropProps({ center, animate, ...backdropProps })}>
-      <ModalView {...getModalProps({ animate, ref: modalRef, ...modalProps })}>
-        {Children.map(children, child => {
-          if (!isValidElement(child)) {
+      return () => {
+        bodyElement.style.overflow = previousBodyOverflow;
+        bodyElement.style.paddingRight = previousBodyPaddingRight;
+      };
+    }, []);
+
+    return createPortal(
+      <Backdrop {...getBackdropProps({ center, animate, ...backdropProps })}>
+        <ModalView {...getModalProps({ animate, ref: modalRef, ...modalProps })}>
+          {Children.map(children, child => {
+            if (!isValidElement(child)) {
+              return child;
+            }
+
+            if (hasType(child, Header)) {
+              return cloneElement(child, getTitleProps(child.props));
+            }
+
+            if (hasType(child, Body)) {
+              return cloneElement(child, getContentProps(child.props));
+            }
+
+            if (hasType(child, Close)) {
+              return cloneElement(child, getCloseProps(child.props));
+            }
+
             return child;
-          }
-
-          if (hasType(child, Header)) {
-            return cloneElement(child, getTitleProps(child.props));
-          }
-
-          if (hasType(child, Body)) {
-            return cloneElement(child, getContentProps(child.props));
-          }
-
-          if (hasType(child, Close)) {
-            return cloneElement(child, getCloseProps(child.props));
-          }
-
-          return child;
-        })}
-      </ModalView>
-    </Backdrop>,
-    document.body
-  );
-};
+          })}
+        </ModalView>
+      </Backdrop>,
+      document.body
+    );
+  }
+);
 
 Modal.propTypes = {
   children: PropTypes.any,
@@ -138,4 +143,5 @@ Modal.defaultProps = {
   center: true
 };
 
+/** @component */
 export default Modal;
