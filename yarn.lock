@@ -2822,10 +2822,10 @@
   resolved "https://registry.yarnpkg.com/@zendeskgarden/eslint-config/-/eslint-config-9.0.0.tgz#f506b86d2b53dc860a58a7f0d8b6303b2858cfbb"
   integrity sha512-8u3ZD/cvnkWKXHTTOuNI8RFSJMolAlfORJ5fxzCLXRWQc0pNKzEEUENnScNSsufXysOWQiiY6DY7d9jH/vgmRg==
 
-"@zendeskgarden/stylelint-config@10.0.0":
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/stylelint-config/-/stylelint-config-10.0.0.tgz#e87636deb4bd16318e569515deec716060d31bb6"
-  integrity sha512-qQwbXp5ewzsTtzSdr1EaGjSfDybT/KDY/pN44PrFff1sJpybPn/I/h7L/2/kn9onQ866eOgeVBKROjz+Id6oiQ==
+"@zendeskgarden/stylelint-config@11.0.0":
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/stylelint-config/-/stylelint-config-11.0.0.tgz#eec2926fa0ed1f95b9b13c5788a67dabcb3400c3"
+  integrity sha512-HZFLo8pIwiL3WuLMDTrhPqqM6aALXRcJqiqbHZfwqRmABHtjqlIGxj835BnZ2rxylkWY9JSKF/eLmgB77Xq/Xg==
 
 "@zendeskgarden/svg-icons@5.3.1":
   version "5.3.1"
