@@ -48,6 +48,6 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenButtons",
-  "zendeskgarden:max_size": "11 kB",
+  "zendeskgarden:max_size": "13.5 kB",
   "zendeskgarden:src": "src/index.js"
 }
