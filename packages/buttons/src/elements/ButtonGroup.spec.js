@@ -88,8 +88,10 @@ describe('ButtonGroup', () => {
       </ButtonGroup>
     );
 
-    fireEvent.focus(getByTestId('button'));
+    const button = getByTestId('button');
 
-    expect(container.firstChild).toHaveFocus();
+    fireEvent.focus(button);
+
+    expect(button).toHaveFocus();
   });
 });
