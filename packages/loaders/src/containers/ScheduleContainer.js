@@ -52,6 +52,16 @@ export default class ScheduleContainer extends Component {
         this.performAnimationFrame();
       });
     }, delayMS);
+
+    if (process.env.NODE_ENV !== 'production') {
+      /* eslint-disable no-console */
+      console.warn(
+        'Deprecation Warning: The `ScheduleContainer` component has been deprecated. ' +
+          'It will be removed in an upcoming major release. Migrate to the ' +
+          '`@zendeskgarden/container-schedule` package to continue receiving updates.'
+      );
+      /* eslint-enable */
+    }
   }
 
   componentWillUnmount() {

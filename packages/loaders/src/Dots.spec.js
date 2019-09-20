@@ -6,16 +6,25 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
+import { render, act } from 'garden-test-utils';
+import mockDate from 'mockdate';
 import Dots from './Dots';
 
 jest.useFakeTimers();
+
+const DEFAULT_DATE = new Date(2019, 1, 5, 1, 1, 1);
 
 describe('Dots', () => {
   beforeEach(() => {
     clearTimeout.mockClear();
     global.cancelAnimationFrame = jest.fn();
     global.requestAnimationFrame = jest.fn();
+    global.document.elementFromPoint = jest.fn();
+    mockDate.set(DEFAULT_DATE);
+  });
+
+  afterEach(() => {
+    mockDate.reset();
   });
 
   describe('Loading delay', () => {
@@ -28,7 +37,9 @@ describe('Dots', () => {
     it('shows loader after initial delay', () => {
       const { queryByTestId } = render(<Dots data-test-id="dots" />);
 
-      jest.runOnlyPendingTimers();
+      act(() => {
+        jest.runOnlyPendingTimers();
+      });
 
       expect(queryByTestId('dots')).not.toBeNull();
     });
@@ -38,196 +49,238 @@ describe('Dots', () => {
     it('updates animation after request animation frame', () => {
       const { container } = render(<Dots data-test-id="dots" />);
 
-      jest.runOnlyPendingTimers();
+      act(() => {
+        jest.runOnlyPendingTimers();
+      });
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
-<g
-  fill="currentColor"
->
-  <circle
-    class=""
-    cx="9"
-    cy="9"
-    r="9"
-    transform="translate(31 32)"
-  />
-  <circle
-    class=""
-    cx="9"
-    cy="9"
-    r="9"
-    transform="translate(0 27.333333331333325)"
-  />
-  <circle
-    class=""
-    cx="9"
-    cy="9"
-    r="9"
-    transform="translate(62 27)"
-  />
-</g>
-`);
+        .c0 {
+          -webkit-animation: dMEWJg 1250ms linear infinite;
+          animation: dMEWJg 1250ms linear infinite;
+        }
 
-      // Requestion animation with 1000 MS delay
-      requestAnimationFrame.mock.calls[0][0](1000);
+        .c1 {
+          -webkit-animation: hiIgQS 1250ms linear infinite;
+          animation: hiIgQS 1250ms linear infinite;
+        }
+
+        .c2 {
+          -webkit-animation: jfCXbz 1250ms linear infinite;
+          animation: jfCXbz 1250ms linear infinite;
+        }
+
+        <g
+          fill="currentColor"
+        >
+          <circle
+            class="c0"
+            cx="9"
+            cy="36"
+            r="9"
+          />
+          <circle
+            class="c1"
+            cx="40"
+            cy="36"
+            r="9"
+          />
+          <circle
+            class="c2"
+            cx="71"
+            cy="36"
+            r="9"
+          />
+        </g>
+      `);
+
+      act(() => {
+        // move time forward 1 second
+        mockDate.set(DEFAULT_DATE.setSeconds(2));
+        requestAnimationFrame.mock.calls[0][0]();
+      });
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
-<g
-  fill="currentColor"
->
-  <circle
-    class="styled-elements__DotsCircle-sc-19dhio6-0 gEjoef"
-    cx="9"
-    cy="9"
-    r="9"
-    transform="translate(0 27)"
-  />
-  <circle
-    class="styled-elements__DotsCircle-sc-19dhio6-0 gEjoef"
-    cx="9"
-    cy="9"
-    r="9"
-    transform="translate(47.71816926427921 27)"
-  />
-  <circle
-    class="styled-elements__DotsCircle-sc-19dhio6-0 gEjoef"
-    cx="9"
-    cy="9"
-    r="9"
-    transform="translate(47.12454211563258 0.0012592386825828114)"
-  />
-</g>
-`);
+        <g
+          fill="currentColor"
+        >
+          <circle
+            class="styled-elements__DotsCircle-sc-19dhio6-0 styled-elements__DotsOneCircle-sc-19dhio6-1 iNpQBP"
+            cx="9"
+            cy="36"
+            r="9"
+          />
+          <circle
+            class="styled-elements__DotsCircle-sc-19dhio6-0 styled-elements__DotsTwoCircle-sc-19dhio6-2 bbNrxJ"
+            cx="40"
+            cy="36"
+            r="9"
+          />
+          <circle
+            class="styled-elements__DotsCircle-sc-19dhio6-0 styled-elements__DotsThreeCircle-sc-19dhio6-3 jkSUgg"
+            cx="71"
+            cy="36"
+            r="9"
+          />
+        </g>
+      `);
     });
 
     it('updates animation after request animation frame with negative bound velocity', () => {
       const { container } = render(<Dots velocity={-1.1} />);
 
-      jest.runOnlyPendingTimers();
+      act(() => {
+        jest.runOnlyPendingTimers();
+      });
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
-<g
-  fill="currentColor"
->
-  <circle
-    class=""
-    cx="9"
-    cy="9"
-    r="9"
-    transform="translate(31 32)"
-  />
-  <circle
-    class=""
-    cx="9"
-    cy="9"
-    r="9"
-    transform="translate(0 27.333333331333325)"
-  />
-  <circle
-    class=""
-    cx="9"
-    cy="9"
-    r="9"
-    transform="translate(62 27)"
-  />
-</g>
-`);
+        .c0 {
+          -webkit-animation: dMEWJg 1250ms linear infinite;
+          animation: dMEWJg 1250ms linear infinite;
+        }
 
-      // Requestion animation with 1000 MS delay
-      requestAnimationFrame.mock.calls[0][0](1000);
+        .c1 {
+          -webkit-animation: hiIgQS 1250ms linear infinite;
+          animation: hiIgQS 1250ms linear infinite;
+        }
+
+        .c2 {
+          -webkit-animation: jfCXbz 1250ms linear infinite;
+          animation: jfCXbz 1250ms linear infinite;
+        }
+
+        <g
+          fill="currentColor"
+        >
+          <circle
+            class="c0"
+            cx="9"
+            cy="36"
+            r="9"
+          />
+          <circle
+            class="c1"
+            cx="40"
+            cy="36"
+            r="9"
+          />
+          <circle
+            class="c2"
+            cx="71"
+            cy="36"
+            r="9"
+          />
+        </g>
+      `);
+
+      act(() => {
+        // move time forward 1 second
+        mockDate.set(DEFAULT_DATE.setSeconds(2));
+        requestAnimationFrame.mock.calls[0][0]();
+      });
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
-<g
-  fill="currentColor"
->
-  <circle
-    class="styled-elements__DotsCircle-sc-19dhio6-0 gEjoef"
-    cx="9"
-    cy="9"
-    r="9"
-    transform="translate(0 27)"
-  />
-  <circle
-    class="styled-elements__DotsCircle-sc-19dhio6-0 gEjoef"
-    cx="9"
-    cy="9"
-    r="9"
-    transform="translate(62 27)"
-  />
-  <circle
-    class="styled-elements__DotsCircle-sc-19dhio6-0 gEjoef"
-    cx="9"
-    cy="9"
-    r="9"
-    transform="translate(31.794871928777127 27.642802459962635)"
-  />
-</g>
-`);
+        <g
+          fill="currentColor"
+        >
+          <circle
+            class="styled-elements__DotsCircle-sc-19dhio6-0 styled-elements__DotsOneCircle-sc-19dhio6-1 iNpQBP"
+            cx="9"
+            cy="36"
+            r="9"
+          />
+          <circle
+            class="styled-elements__DotsCircle-sc-19dhio6-0 styled-elements__DotsTwoCircle-sc-19dhio6-2 bbNrxJ"
+            cx="40"
+            cy="36"
+            r="9"
+          />
+          <circle
+            class="styled-elements__DotsCircle-sc-19dhio6-0 styled-elements__DotsThreeCircle-sc-19dhio6-3 jkSUgg"
+            cx="71"
+            cy="36"
+            r="9"
+          />
+        </g>
+      `);
     });
 
     it('updates animation after request animation frame with positive bound velocity', () => {
       const { container } = render(<Dots velocity={1.1} />);
 
-      jest.runOnlyPendingTimers();
+      act(() => {
+        jest.runOnlyPendingTimers();
+      });
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
-<g
-  fill="currentColor"
->
-  <circle
-    class=""
-    cx="9"
-    cy="9"
-    r="9"
-    transform="translate(31 32)"
-  />
-  <circle
-    class=""
-    cx="9"
-    cy="9"
-    r="9"
-    transform="translate(0 27.333333331333325)"
-  />
-  <circle
-    class=""
-    cx="9"
-    cy="9"
-    r="9"
-    transform="translate(62 27)"
-  />
-</g>
-`);
+        .c0 {
+          -webkit-animation: dMEWJg 1250ms linear infinite;
+          animation: dMEWJg 1250ms linear infinite;
+        }
 
-      // Requestion animation with 1000 MS delay
-      requestAnimationFrame.mock.calls[0][0](1000);
+        .c1 {
+          -webkit-animation: hiIgQS 1250ms linear infinite;
+          animation: hiIgQS 1250ms linear infinite;
+        }
+
+        .c2 {
+          -webkit-animation: jfCXbz 1250ms linear infinite;
+          animation: jfCXbz 1250ms linear infinite;
+        }
+
+        <g
+          fill="currentColor"
+        >
+          <circle
+            class="c0"
+            cx="9"
+            cy="36"
+            r="9"
+          />
+          <circle
+            class="c1"
+            cx="40"
+            cy="36"
+            r="9"
+          />
+          <circle
+            class="c2"
+            cx="71"
+            cy="36"
+            r="9"
+          />
+        </g>
+      `);
+
+      act(() => {
+        // move time forward 1 second
+        mockDate.set(DEFAULT_DATE.setSeconds(2));
+        requestAnimationFrame.mock.calls[0][0]();
+      });
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
-<g
-  fill="currentColor"
->
-  <circle
-    class="styled-elements__DotsCircle-sc-19dhio6-0 gEjoef"
-    cx="9"
-    cy="9"
-    r="9"
-    transform="translate(0.27517054399062246 27)"
-  />
-  <circle
-    class="styled-elements__DotsCircle-sc-19dhio6-0 gEjoef"
-    cx="9"
-    cy="9"
-    r="9"
-    transform="translate(24.64102564285995 7.5914048384185335)"
-  />
-  <circle
-    class="styled-elements__DotsCircle-sc-19dhio6-0 gEjoef"
-    cx="9"
-    cy="9"
-    r="9"
-    transform="translate(62 27)"
-  />
-</g>
-`);
+        <g
+          fill="currentColor"
+        >
+          <circle
+            class="styled-elements__DotsCircle-sc-19dhio6-0 styled-elements__DotsOneCircle-sc-19dhio6-1 iNpQBP"
+            cx="9"
+            cy="36"
+            r="9"
+          />
+          <circle
+            class="styled-elements__DotsCircle-sc-19dhio6-0 styled-elements__DotsTwoCircle-sc-19dhio6-2 bbNrxJ"
+            cx="40"
+            cy="36"
+            r="9"
+          />
+          <circle
+            class="styled-elements__DotsCircle-sc-19dhio6-0 styled-elements__DotsThreeCircle-sc-19dhio6-3 jkSUgg"
+            cx="71"
+            cy="36"
+            r="9"
+          />
+        </g>
+      `);
     });
   });
 });
