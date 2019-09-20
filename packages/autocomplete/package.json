@@ -50,6 +50,6 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenAutocomplete",
-  "zendeskgarden:max_size": "58 kB",
+  "zendeskgarden:max_size": "60 kB",
   "zendeskgarden:src": "src/index.js"
 }

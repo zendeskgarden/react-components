@@ -57,6 +57,19 @@ export default class ButtonGroupContainer extends ControlledComponent {
     };
   }
 
+  // eslint-disable-next-line class-methods-use-this
+  componentDidMount() {
+    if (process.env.NODE_ENV !== 'production') {
+      /* eslint-disable no-console */
+      console.warn(
+        'Deprecation Warning: The `ButtonGroupContainer` component has been deprecated. ' +
+          'It will be removed in an upcoming major release. Migrate to the ' +
+          '`@zendeskgarden/container-buttongroup` package to continue receiving updates.'
+      );
+      /* eslint-enable */
+    }
+  }
+
   getGroupProps = ({ role = 'group', ...other } = {}) => {
     return {
       role,

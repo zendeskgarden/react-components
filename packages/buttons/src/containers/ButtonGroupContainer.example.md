@@ -1,4 +1,12 @@
-```jsx
+## DEPRECATION WARNING
+
+This component has been deprecated in favor of the API provided in the
+[@zendeskgarden/container-buttongroup](https://www.npmjs.com/package/@zendeskgarden/container-buttongroup)
+package.
+
+This component will be removed in a future major release.
+
+```jsx static
 const buttons = ['Button 1', 'Button 2', 'Button 3'];
 
 <ButtonGroupContainer>
@@ -20,7 +28,7 @@ const buttons = ['Button 1', 'Button 2', 'Button 3'];
 </ButtonGroupContainer>;
 ```
 
-```jsx
+```jsx static
 const buttons = [
   { title: 'Button 1' },
   { title: 'Disabled', disabled: true },

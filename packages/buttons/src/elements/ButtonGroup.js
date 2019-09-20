@@ -5,110 +5,84 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children, cloneElement, isValidElement } from 'react';
+import React, { Children, cloneElement, isValidElement, useState } from 'react';
 import PropTypes from 'prop-types';
-import { ControlledComponent, IdManager } from '@zendeskgarden/react-selection';
+import { withTheme, isRtl } from '@zendeskgarden/react-theming';
 import { hasType } from '@zendeskgarden/react-utilities';
+import { useButtonGroup } from '@zendeskgarden/container-buttongroup';
 
-import ButtonGroupContainer from '../containers/ButtonGroupContainer';
 import ButtonGroupView from '../views/button-group/ButtonGroupView';
 import Button from '../views/Button';
 
 /**
  * High-level abstraction for basic ButtonGroup implementations.
  */
-export default class ButtonGroup extends ControlledComponent {
-  static propTypes = {
-    id: PropTypes.any,
-    children: PropTypes.any,
-    /**
-     * Currently selected tab to display
-     */
-    selectedKey: PropTypes.any,
-    /**
-     * @param {Object} newState
-     * @param {Any} newState.selectedKey - The newly selected key
-     */
-    onStateChange: PropTypes.func
-  };
+const ButtonGroup = ({ id, selectedKey, onStateChange, children, ...otherProps }) => {
+  const [controlledSelectedItem, setControlledSelectedItem] = useState(selectedKey);
 
-  constructor(...args) {
-    super(...args);
-
-    this.state = {
-      id: IdManager.generateId('garden-button-group'),
-      selectedKey: undefined,
-      focusedKey: undefined
-    };
-
-    this.firstKey = undefined;
-  }
-
-  componentDidMount() {
-    /**
-     * In an uncontrolled state we want to always display the first button
-     */
-    if (!this.isControlledProp('selectedKey') && typeof this.firstKey !== 'undefined') {
-      this.setControlledState({ selectedKey: this.firstKey });
+  const { selectedItem, focusedItem, getButtonProps, getGroupProps } = useButtonGroup({
+    id,
+    rtl: isRtl(otherProps),
+    defaultSelectedIndex: 0,
+    selectedItem: selectedKey === undefined ? controlledSelectedItem : selectedKey,
+    onSelect: newSelectedItem => {
+      if (onStateChange) {
+        onStateChange({ selectedKey: newSelectedItem });
+      } else {
+        setControlledSelectedItem(newSelectedItem);
+      }
     }
-  }
+  });
 
-  renderButtons = getButtonProps => {
-    const { children } = this.props;
-    const { selectedKey, focusedKey } = this.getControlledState();
+  const buttons = Children.map(children, child => {
+    if (!isValidElement(child)) {
+      return child;
+    }
 
-    return Children.map(children, child => {
-      if (!isValidElement(child)) {
+    if (hasType(child, Button)) {
+      if (child.props.disabled) {
         return child;
       }
 
-      if (hasType(child, Button)) {
-        if (child.props.disabled) {
-          return child;
-        }
+      const key = child.key;
 
-        const key = child.key;
-
-        if (!key) {
-          throw new Error('"key" prop must be provided to Button');
-        }
-
-        if (typeof this.firstKey === 'undefined') {
-          this.firstKey = key;
-        }
-
-        return cloneElement(
-          child,
-          getButtonProps({
-            key,
-            selected: key === selectedKey,
-            focused: key === focusedKey,
-            ...child.props
-          })
-        );
+      if (!key) {
+        throw new Error('"key" prop must be provided to Button');
       }
 
-      return child;
-    });
-  };
+      const focusRef = React.createRef();
 
-  render() {
-    const { children, ...otherProps } = this.props;
-    const { focusedKey, selectedKey, id } = this.getControlledState();
+      return cloneElement(
+        child,
+        getButtonProps({
+          key,
+          selected: key === selectedItem,
+          focused: key === focusedItem,
+          item: key,
+          focusRef,
+          ...child.props
+        })
+      );
+    }
 
-    return (
-      <ButtonGroupContainer
-        id={id}
-        focusedKey={focusedKey}
-        selectedKey={selectedKey}
-        onStateChange={this.setControlledState}
-      >
-        {({ getGroupProps, getButtonProps }) => (
-          <ButtonGroupView {...getGroupProps(otherProps)}>
-            {this.renderButtons(getButtonProps)}
-          </ButtonGroupView>
-        )}
-      </ButtonGroupContainer>
-    );
-  }
-}
+    return child;
+  });
+
+  return <ButtonGroupView {...getGroupProps(otherProps)}>{buttons}</ButtonGroupView>;
+};
+
+ButtonGroup.propTypes = {
+  id: PropTypes.any,
+  children: PropTypes.any,
+  /**
+   * Currently selected tab to display
+   */
+  selectedKey: PropTypes.any,
+  /**
+   * @param {Object} newState
+   * @param {Any} newState.selectedKey - The newly selected key
+   */
+  onStateChange: PropTypes.func
+};
+
+export default withTheme(ButtonGroup);
