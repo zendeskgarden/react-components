@@ -59,7 +59,6 @@ const ButtonGroup = ({ id, selectedKey, onStateChange, children, ...otherProps }
           selected: key === selectedItem,
           focused: key === focusedItem,
           item: key,
-          ref: focusRef,
           focusRef,
           ...child.props
         })
