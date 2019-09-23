@@ -29,7 +29,7 @@
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "@zendeskgarden/css-avatars": "6.0.3",
+    "@zendeskgarden/css-avatars": "6.0.4",
     "@zendeskgarden/react-theming": "^6.5.0"
   },
   "keywords": [
