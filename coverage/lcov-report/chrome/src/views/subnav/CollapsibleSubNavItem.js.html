@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">95.83% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>19/19</span>
+        <span class='fraction'>23/24</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">87.5% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>6/6</span>
+        <span class='fraction'>7/8</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>8/8</span>
+        <span class='fraction'>7/7</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">95.45% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>17/17</span>
+        <span class='fraction'>21/22</span>
       </div>
     </div>
     <p class="quiet">
@@ -152,7 +152,25 @@
 <a name='L104'></a><a href='#L104'>104</a>
 <a name='L105'></a><a href='#L105'>105</a>
 <a name='L106'></a><a href='#L106'>106</a>
-<a name='L107'></a><a href='#L107'>107</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a>
+<a name='L121'></a><a href='#L121'>121</a>
+<a name='L122'></a><a href='#L122'>122</a>
+<a name='L123'></a><a href='#L123'>123</a>
+<a name='L124'></a><a href='#L124'>124</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -206,23 +224,39 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -265,14 +299,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 &nbsp;
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import ChromeStyles from '@zendeskgarden/css-chrome';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
+import { useAccordion } from '@zendeskgarden/container-accordion';
+import { getControlledValue } from '@zendeskgarden/container-utilities';
 &nbsp;
-import AccordionContainer from '../../containers/AccordionContainer';
 import SubNavItem from './SubNavItem';
 &nbsp;
 const COMPONENT_ID = 'chrome.collapsible_sub_nav_item';
@@ -311,8 +346,29 @@ StyledSubNavPanel.propTypes = {
 /**
  * Accepts all `&lt;button&gt;` props
  */
-const CollapsibleSubNavItem = ({ header, children, expanded, onChange, ...other }) =&gt; {
+const CollapsibleSubNavItem = ({
+  header,
+  children,
+  expanded: controlledExpanded,
+  onChange,
+  ...other
+}) =&gt; {
   const panelRef = useRef(undefined);
+  const [internalExpanded, setInternalExpanded] = useState(controlledExpanded);
+  const expanded = getControlledValue(controlledExpanded, internalExpanded);
+&nbsp;
+  const { getHeaderProps, getTriggerProps, getPanelProps, expandedSections } = useAccordion({
+    expandedSections: expanded ? [0] : [],
+    onChange: updatedSections =&gt; {
+      const isExpanded = updatedSections.length !== 0;
+&nbsp;
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (onChange) {
+        onChange(isExpanded);
+      } else {
+<span class="cstat-no" title="statement not covered" >        setInternalExpanded(isExpanded);</span>
+      }
+    }
+  });
 &nbsp;
   useEffect(() =&gt; {
     if (expanded &amp;&amp; panelRef.current) {
@@ -321,35 +377,30 @@ const CollapsibleSubNavItem = ({ header, children, expanded, onChange, ...other 
   }, [expanded]);
 &nbsp;
   return (
-    &lt;AccordionContainer
-      expanded={expanded}
-      onStateChange={newState =&gt; {
-        onChange &amp;&amp; onChange(newState.expanded);
-      }}
-    &gt;
-      {({ getHeadingProps, getHeadingButtonProps, getPanelProps }) =&gt; (
-        &lt;div&gt;
-          &lt;div {...getHeadingProps({ headingLevel: 2 })}&gt;
-            &lt;StyledSubNavItemHeader
-              {...getHeadingButtonProps({
-                expanded,
-                ...other
-              })}
-            &gt;
-              {header}
-            &lt;/StyledSubNavItemHeader&gt;
-          &lt;/div&gt;
-          &lt;StyledSubNavPanel
-            {...getPanelProps({
-              isHidden: !expanded,
-              ref: panelRef
-            })}
-          &gt;
-            {children}
-          &lt;/StyledSubNavPanel&gt;
-        &lt;/div&gt;
-      )}
-    &lt;/AccordionContainer&gt;
+    &lt;div&gt;
+      &lt;div {...getHeaderProps({ ariaLevel: 2 })}&gt;
+        &lt;StyledSubNavItemHeader
+          {...getTriggerProps({
+            expanded,
+            index: 0,
+            role: null,
+            tabIndex: null,
+            ...other
+          })}
+        &gt;
+          {header}
+        &lt;/StyledSubNavItemHeader&gt;
+      &lt;/div&gt;
+      &lt;StyledSubNavPanel
+        {...getPanelProps({
+          index: 0,
+          isHidden: !expanded,
+          ref: panelRef
+        })}
+      &gt;
+        {children}
+      &lt;/StyledSubNavPanel&gt;
+    &lt;/div&gt;
   );
 };
 &nbsp;
@@ -370,7 +421,7 @@ export default CollapsibleSubNavItem;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Sep 20 2019 16:06:09 GMT+0000 (Coordinated Universal Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 23 2019 01:04:17 GMT+0000 (Coordinated Universal Time)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>
