@@ -50,6 +50,19 @@ export default class AccordionContainer extends ControlledComponent {
     };
   }
 
+  // eslint-disable-next-line class-methods-use-this
+  componentDidMount() {
+    if (process.env.NODE_ENV !== 'production') {
+      /* eslint-disable no-console */
+      console.warn(
+        'Deprecation Warning: The `AccordionContainer` component has been deprecated. ' +
+          'It will be removed in an upcoming major release. Migrate to the ' +
+          '`@zendeskgarden/container-accordion` package to continue receiving updates.'
+      );
+      /* eslint-enable */
+    }
+  }
+
   getHeaderId = () => `${this.getControlledState().id}-header`;
 
   getPanelId = () => `${this.getControlledState().id}-panel`;
