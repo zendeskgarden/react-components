@@ -16,8 +16,8 @@ git pull
 git fetch --tags
 
 echo "INFO: Validating environment..."
-yarn install --ignore-scripts
-yarn lerna bootstrap
+yarn install
+yarn tsc
 yarn lint
 yarn test:all
 

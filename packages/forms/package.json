@@ -22,7 +22,8 @@
     "@zendeskgarden/container-field": "^1.0.3",
     "@zendeskgarden/container-keyboardfocus": "^0.2.3",
     "@zendeskgarden/container-utilities": "^0.3.0",
-    "classnames": "^2.2.5"
+    "classnames": "^2.2.5",
+    "lodash.debounce": "^4.0.8"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^6.0.0",

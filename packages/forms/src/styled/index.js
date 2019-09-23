@@ -43,3 +43,11 @@ export { default as StyledToggleLabel } from './toggle/StyledToggleLabel';
 export { default as StyledToggleHint } from './toggle/StyledToggleHint';
 export { default as StyledToggleInput } from './toggle/StyledToggleInput';
 export { default as StyledToggleMessage } from './toggle/StyledToggleMessage';
+
+/**
+ * Range styles
+ */
+export { default as StyledRangeSingleThumb } from './range/StyledRangeSingleThumb';
+export { default as StyledRangeLabel } from './range/StyledRangeLabel';
+export { default as StyledRangeHint } from './range/StyledRangeHint';
+export { default as StyledRangeMessage } from './range/StyledRangeMessage';
