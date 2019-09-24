@@ -48,6 +48,10 @@ describe('Range', () => {
 
       const range = getByTestId('range');
 
+      expect(range).toHaveStyleRule('background-size', '25%', {
+        modifier: '&&'
+      });
+
       fireEvent.change(range, { target: { value: 85 } });
 
       expect(range).toHaveStyleRule('background-size', '85%', {

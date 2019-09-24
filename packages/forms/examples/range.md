@@ -20,7 +20,7 @@ getValidationMessage = value =>
     ? 'Value must be greater than 25'
     : value < 50
     ? 'Value must be greater than 50'
-    : 'Youre good!';
+    : "You're good!";
 
 <Field>
   <Label>Dynamic Validation</Label>
