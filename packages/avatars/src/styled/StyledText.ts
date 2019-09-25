@@ -6,28 +6,23 @@
  */
 
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const TEXT_COMPONENT_ID = 'avatars.text';
+const COMPONENT_ID = 'avatars.text';
 
 /**
  * Accepts all `<span>` attributes
  */
 export const StyledText = styled.span.attrs({
-  'data-garden-id': TEXT_COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
   overflow: hidden;
   text-align: center;
   white-space: nowrap;
 
-  ${props => retrieveComponentStyles(TEXT_COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledText.propTypes = {
-  theme: PropTypes.object
-};
 
 StyledText.defaultProps = {
   theme: DEFAULT_THEME
