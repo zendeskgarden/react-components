@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "6.6.0",
+  "version": "6.7.0",
   "main": "./dist/index.js",
   "files": [
     "dist"
@@ -19,7 +19,7 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendeskgarden/react-modals": "^6.6.0",
+    "@zendeskgarden/react-modals": "^6.7.0",
     "@zendeskgarden/react-selection": "^6.5.0",
     "@zendeskgarden/react-tooltips": "^6.5.0",
     "@zendeskgarden/react-utilities": "^6.5.0",
