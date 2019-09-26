@@ -30,7 +30,7 @@
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "@zendeskgarden/css-callouts": "3.3.10",
+    "@zendeskgarden/css-callouts": "3.3.11",
     "@zendeskgarden/react-theming": "^6.5.0"
   },
   "keywords": [
