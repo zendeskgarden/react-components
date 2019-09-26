@@ -20,10 +20,10 @@
   },
   "dependencies": {
     "@zendeskgarden/container-tooltip": "^0.2.4",
-    "@zendeskgarden/container-utilities": "^0.1.2",
+    "@zendeskgarden/container-utilities": "^0.3.0",
     "@zendeskgarden/react-selection": "^6.5.0",
     "classnames": "^2.2.5",
-    "react-popper": "0.8.2"
+    "react-popper": "^0.10.4"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^6.0.0",
@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@zendeskgarden/css-arrows": "3.1.1",
-    "@zendeskgarden/css-tooltips": "4.1.20",
+    "@zendeskgarden/css-tooltips": "4.1.21",
     "@zendeskgarden/react-theming": "^6.5.0"
   },
   "keywords": [
