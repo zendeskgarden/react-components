@@ -13,7 +13,7 @@ describe('StyledText', () => {
   it('renders the expected element', () => {
     const { container } = render(<StyledText />);
 
-    expect(container.firstChild.nodeName).toBe('SPAN');
+    expect(container.firstChild!.nodeName).toBe('SPAN');
   });
 
   it('renders with expected styling', () => {

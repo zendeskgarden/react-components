@@ -10,11 +10,11 @@ import { render } from 'garden-test-utils';
 import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import Avatar from './Avatar';
 
-const activeBoxShadow = DEFAULT_THEME.shadows.sm(getColor('crimson', 400));
+const activeBoxShadow = DEFAULT_THEME.shadows.sm(getColor('crimson', 400)!);
 
 describe('Avatar', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef();
+    const ref = React.createRef<HTMLElement>();
     const { container } = render(
       <Avatar ref={ref}>
         <img alt="" />

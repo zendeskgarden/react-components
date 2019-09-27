@@ -14,7 +14,7 @@ describe('StyledAvatar', () => {
   it('renders the expected element', () => {
     const { container } = render(<StyledAvatar />);
 
-    expect(container.firstChild.nodeName).toBe('FIGURE');
+    expect(container.firstChild!.nodeName).toBe('FIGURE');
   });
 
   it('renders avatar styling by default', () => {
@@ -80,21 +80,21 @@ describe('StyledAvatar', () => {
       const { container } = render(<StyledAvatar status="away" />);
       const color = getColor('yellow', 400);
 
-      expect(container.firstChild).toHaveStyleRule('box-shadow', DEFAULT_THEME.shadows.sm(color));
+      expect(container.firstChild).toHaveStyleRule('box-shadow', DEFAULT_THEME.shadows.sm(color!));
     });
 
     it('renders available', () => {
       const { container } = render(<StyledAvatar status="available" />);
       const color = getColor('mint', 400);
 
-      expect(container.firstChild).toHaveStyleRule('box-shadow', DEFAULT_THEME.shadows.sm(color));
+      expect(container.firstChild).toHaveStyleRule('box-shadow', DEFAULT_THEME.shadows.sm(color!));
     });
 
     it('renders active', () => {
       const { container } = render(<StyledAvatar status="active" />);
       const color = getColor('crimson', 400);
 
-      expect(container.firstChild).toHaveStyleRule('box-shadow', DEFAULT_THEME.shadows.sm(color));
+      expect(container.firstChild).toHaveStyleRule('box-shadow', DEFAULT_THEME.shadows.sm(color!));
     });
   });
 

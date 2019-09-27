@@ -5,27 +5,28 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children } from 'react';
+import React, { Children, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledAvatar, StyledText } from '../styled';
 
-const SIZE = {
-  EXTRASMALL: 'extrasmall',
-  SMALL: 'small',
-  MEDIUM: 'medium',
-  LARGE: 'large'
-};
-
-const STATUS = {
-  AVAILABLE: 'available',
-  ACTIVE: 'active',
-  AWAY: 'away'
-};
+interface IAvatarProps extends HTMLAttributes<HTMLElement> {
+  /** Set the avatar background color */
+  backgroundColor?: string;
+  /** Set the color for child SVG or `Avatar.Text` components */
+  foregroundColor?: string;
+  /** Set the color of the surface behind the avatar – used to manipulate the inner status rings */
+  surfaceColor?: string;
+  /** Applies system styling */
+  isSystem?: boolean;
+  size?: 'extrasmall' | 'small' | 'medium' | 'large';
+  status?: 'available' | 'away';
+  badge?: string | number;
+}
 
 /**
  * Accepts all `<figure>` attributes and events
  */
-const Avatar = React.forwardRef(
+const Avatar: React.FunctionComponent<IAvatarProps> = React.forwardRef<HTMLElement, IAvatarProps>(
   (
     {
       isSystem,
@@ -40,7 +41,7 @@ const Avatar = React.forwardRef(
     },
     ref
   ) => {
-    const computedStatus = badge === undefined ? status : STATUS.ACTIVE;
+    const computedStatus = badge === undefined ? status : 'active';
 
     return (
       <StyledAvatar
@@ -63,25 +64,24 @@ const Avatar = React.forwardRef(
 );
 
 Avatar.propTypes = {
-  /** Set the avatar background color */
   backgroundColor: PropTypes.string,
-  /** Set the color for child SVG or `Avatar.Text` components */
   foregroundColor: PropTypes.string,
-  /** Set the color of the surface behind the avatar – used to manipulate the inner status rings */
   surfaceColor: PropTypes.string,
-  /** Applies system styling */
   isSystem: PropTypes.bool,
   badge: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  size: PropTypes.oneOf([SIZE.EXTRASMALL, SIZE.SMALL, SIZE.MEDIUM, SIZE.LARGE]),
-  status: PropTypes.oneOf([STATUS.AVAILABLE, STATUS.AWAY]),
-  children: PropTypes.node
+  size: PropTypes.oneOf(['extrasmall', 'small', 'medium', 'large']),
+  status: PropTypes.oneOf(['available', 'away'])
 };
 
 Avatar.defaultProps = {
-  size: SIZE.MEDIUM
+  size: 'medium'
 };
 
-Avatar.Text = StyledText;
+(Avatar as any).Text = StyledText;
 
 /** @component */
-export default Avatar;
+export default Avatar as React.FunctionComponent<
+  IAvatarProps & React.RefAttributes<HTMLElement>
+> & {
+  Text: typeof StyledText;
+};
