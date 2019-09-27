@@ -6,6 +6,7 @@
  */
 
 import React, { Children, HTMLAttributes } from 'react';
+import PropTypes from 'prop-types';
 import { StyledAvatar, StyledText } from '../styled';
 
 interface IAvatarProps extends HTMLAttributes<HTMLElement> {
@@ -25,7 +26,7 @@ interface IAvatarProps extends HTMLAttributes<HTMLElement> {
 /**
  * Accepts all `<figure>` attributes and events
  */
-const Avatar = React.forwardRef<HTMLElement, IAvatarProps>(
+const Avatar: React.FunctionComponent<IAvatarProps> = React.forwardRef<HTMLElement, IAvatarProps>(
   (
     {
       isSystem,
@@ -62,6 +63,16 @@ const Avatar = React.forwardRef<HTMLElement, IAvatarProps>(
   }
 );
 
+Avatar.propTypes = {
+  backgroundColor: PropTypes.string,
+  foregroundColor: PropTypes.string,
+  surfaceColor: PropTypes.string,
+  isSystem: PropTypes.bool,
+  badge: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  size: PropTypes.oneOf(['extrasmall', 'small', 'medium', 'large']),
+  status: PropTypes.oneOf(['available', 'away'])
+};
+
 Avatar.defaultProps = {
   size: 'medium'
 };
@@ -69,7 +80,7 @@ Avatar.defaultProps = {
 (Avatar as any).Text = StyledText;
 
 /** @component */
-export default Avatar as React.ForwardRefExoticComponent<
+export default Avatar as React.FunctionComponent<
   IAvatarProps & React.RefAttributes<HTMLElement>
 > & {
   Text: typeof StyledText;
