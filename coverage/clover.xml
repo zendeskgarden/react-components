@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1569616954910" clover="3.2.0">
-  <project timestamp="1569616954911" name="All files">
-    <metrics statements="4072" coveredstatements="3977" conditionals="1949" coveredconditionals="1730" methods="1103" coveredmethods="1069" elements="7124" coveredelements="6776" complexity="0" loc="4072" ncloc="4072" packages="106" files="306" classes="306"/>
+<coverage generated="1569620475650" clover="3.2.0">
+  <project timestamp="1569620475650" name="All files">
+    <metrics statements="4071" coveredstatements="3977" conditionals="1949" coveredconditionals="1730" methods="1102" coveredmethods="1069" elements="7122" coveredelements="6776" complexity="0" loc="4071" ncloc="4071" packages="106" files="306" classes="306"/>
     <package name="autocomplete.src.containers">
       <metrics statements="173" coveredstatements="168" conditionals="96" coveredconditionals="78" methods="46" coveredmethods="42"/>
       <file name="AutocompleteContainer.js" path="/home/travis/build/zendeskgarden/react-components/packages/autocomplete/src/containers/AutocompleteContainer.js">
@@ -2711,7 +2711,7 @@
       </file>
     </package>
     <package name="loaders.src">
-      <metrics statements="112" coveredstatements="111" conditionals="24" coveredconditionals="22" methods="34" coveredmethods="33"/>
+      <metrics statements="111" coveredstatements="111" conditionals="24" coveredconditionals="22" methods="33" coveredmethods="33"/>
       <file name="Dots.js" path="/home/travis/build/zendeskgarden/react-components/packages/loaders/src/Dots.js">
         <metrics statements="25" coveredstatements="25" conditionals="5" coveredconditionals="4" methods="5" coveredmethods="5"/>
         <line num="15" count="2" type="stmt"/>
@@ -2821,23 +2821,22 @@
         <line num="119" count="3" type="stmt"/>
       </file>
       <file name="styled-elements.js" path="/home/travis/build/zendeskgarden/react-components/packages/loaders/src/styled-elements.js">
-        <metrics statements="16" coveredstatements="15" conditionals="4" coveredconditionals="4" methods="9" coveredmethods="8"/>
+        <metrics statements="15" coveredstatements="15" conditionals="4" coveredconditionals="4" methods="8" coveredmethods="8"/>
         <line num="13" count="22" type="stmt"/>
         <line num="20" count="5" type="stmt"/>
         <line num="24" count="5" type="stmt"/>
         <line num="36" count="5" type="stmt"/>
         <line num="42" count="15" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
+        <line num="53" count="15" type="cond" truecount="2" falsecount="0"/>
         <line num="54" count="15" type="cond" truecount="2" falsecount="0"/>
-        <line num="55" count="15" type="cond" truecount="2" falsecount="0"/>
-        <line num="57" count="15" type="stmt"/>
-        <line num="60" count="5" type="stmt"/>
-        <line num="65" count="5" type="stmt"/>
-        <line num="67" count="15" type="stmt"/>
-        <line num="75" count="5" type="stmt"/>
-        <line num="82" count="5" type="stmt"/>
-        <line num="88" count="11" type="stmt"/>
-        <line num="91" count="5" type="stmt"/>
+        <line num="56" count="15" type="stmt"/>
+        <line num="59" count="5" type="stmt"/>
+        <line num="64" count="5" type="stmt"/>
+        <line num="66" count="15" type="stmt"/>
+        <line num="74" count="5" type="stmt"/>
+        <line num="81" count="5" type="stmt"/>
+        <line num="87" count="11" type="stmt"/>
+        <line num="90" count="5" type="stmt"/>
       </file>
     </package>
     <package name="loaders.src.containers">
