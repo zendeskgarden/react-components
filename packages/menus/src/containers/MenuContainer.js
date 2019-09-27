@@ -314,6 +314,7 @@ class MenuContainer extends ControlledComponent {
    * Props to be applied to the menu container
    */
   getMenuProps = (
+    // eslint-disable-next-line default-param-last
     { tabIndex = -1, role = 'menu', onKeyDown, onFocus, ...other } = {},
     focusSelectionModel
   ) => {
