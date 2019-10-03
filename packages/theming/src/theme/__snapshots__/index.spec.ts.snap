@@ -53,6 +53,11 @@ Object {
     "mono": "SFMono-Regular,Consolas,\\"Liberation Mono\\",Menlo,Courier,monospace",
     "system": "system-ui,-apple-system,BlinkMacSystemFont,\\"Segoe UI\\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\\"Helvetica Neue\\",Arial,sans-serif",
   },
+  "iconSizes": Object {
+    "lg": "26px",
+    "md": "16px",
+    "sm": "12px",
+  },
   "lineHeights": Object {
     "lg": "24px",
     "md": "20px",

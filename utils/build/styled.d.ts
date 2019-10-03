@@ -64,6 +64,11 @@ declare module 'styled-components' {
       extrabold: number;
       black: number;
     };
+    iconSizes: {
+      sm: string;
+      md: string;
+      lg: string;
+    };
     lineHeights: {
       sm: string;
       md: string;
