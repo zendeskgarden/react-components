@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "6.5.0",
+  "version": "6.7.1",
   "main": "./dist/index.js",
   "files": [
     "dist"
@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@zendeskgarden/react-selection": "^6.5.0",
-    "@zendeskgarden/react-utilities": "^6.5.0",
+    "@zendeskgarden/react-utilities": "^6.7.1",
     "classnames": "^2.2.5"
   },
   "peerDependencies": {
