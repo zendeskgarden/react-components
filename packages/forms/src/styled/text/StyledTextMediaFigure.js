@@ -6,6 +6,7 @@
  */
 
 import styled, { css } from 'styled-components';
+import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
@@ -22,7 +23,9 @@ const sizeStyles = props => {
 
 const COMPONENT_ID = 'forms.media_figure';
 
-export const StyledTextMediaFigure = styled.div.attrs({
+export const StyledTextMediaFigure = styled(({ children, ...props }) =>
+  React.cloneElement(Children.only(children), props)
+).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
