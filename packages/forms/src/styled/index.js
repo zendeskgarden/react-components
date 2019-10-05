@@ -9,6 +9,7 @@
  * Common styles
  */
 export * from './common/StyledField';
+export * from './common/StyledMessageIcon';
 
 /**
  * Text styles

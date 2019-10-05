@@ -43,9 +43,10 @@ export const StyledTextMessage = styled.div.attrs({
 })`
   direction: ${props => props.theme.rtl && 'rtl'};
   display: inline-block;
+  position: relative;
   vertical-align: middle; /* support message inline with input layout */
   line-height: ${props =>
-    stripUnit(math(`${props.theme.space.base * 4} / ${props.theme.fontSizes.sm}`))};
+    stripUnit(math(`${props.theme.iconSizes.md} / ${props.theme.fontSizes.sm}`))};
   font-size: ${props => props.theme.fontSizes.sm};
 
   ${props => validationStyles(props)};

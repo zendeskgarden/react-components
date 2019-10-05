@@ -14,7 +14,8 @@ import {
   StyledTextMessage,
   StyledCheckMessage,
   StyledRadioMessage,
-  StyledToggleMessage
+  StyledToggleMessage,
+  StyledMessageIcon
 } from '../../styled';
 
 const VALIDATION = {
@@ -47,10 +48,12 @@ function Message(props) {
     sharedProps['data-garden-id'] = 'forms.toggle_message';
   }
 
-  return React.createElement(MessageComponent, {
-    ...sharedProps,
-    ...props
-  });
+  return (
+    <MessageComponent {...sharedProps} {...props}>
+      {props.validation && <StyledMessageIcon validation={props.validation} />}
+      {props.children}
+    </MessageComponent>
+  );
 }
 
 Message.propTypes = {
