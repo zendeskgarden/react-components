@@ -11,6 +11,7 @@ import stripUnit from 'polished/lib/helpers/stripUnit';
 import PropTypes from 'prop-types';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import VALIDATION from '../../utils/validation';
+import { StyledMessageIcon } from '../common/StyledMessageIcon';
 
 const validationStyles = props => {
   const rtl = props.theme.rtl;
@@ -50,6 +51,12 @@ export const StyledTextMessage = styled.div.attrs({
   font-size: ${props => props.theme.fontSizes.sm};
 
   ${props => validationStyles(props)};
+
+  & ${StyledMessageIcon} {
+    position: absolute;
+    top: -1px;
+    ${props => (props.theme.rtl ? 'right' : 'left')}: 0;
+  }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

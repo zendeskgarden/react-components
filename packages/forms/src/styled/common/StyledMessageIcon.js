@@ -36,9 +36,6 @@ export const StyledMessageIcon = styled(MessageIcon).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  position: absolute;
-  top: -1px;
-  ${props => (props.theme.rtl ? 'right' : 'left')}: 0;
   width: ${props => props.theme.iconSizes.md};
   height: ${props => props.theme.iconSizes.md};
 
