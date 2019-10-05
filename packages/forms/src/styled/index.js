@@ -10,12 +10,12 @@
  */
 export { default as StyledTextLabel } from './text/StyledTextLabel';
 export { default as StyledTextHint } from './text/StyledTextHint';
-export { default as StyledTextInput } from './text/StyledTextInput';
-export { default as StyledTextarea } from './text/StyledTextarea';
+export * from './text/StyledTextInput';
+export * from './text/StyledTextarea';
 export { default as StyledTextMessage } from './text/StyledTextMessage';
-export { default as StyledTextFauxInput } from './text/StyledTextFauxInput';
-export { default as StyledTextMediaInput } from './text/StyledTextMediaInput';
-export { default as StyledTextMediaFigure } from './text/StyledTextMediaFigure';
+export * from './text/StyledTextFauxInput';
+export * from './text/StyledTextMediaInput';
+export * from './text/StyledTextMediaFigure';
 
 /**
  * Checkbox styles

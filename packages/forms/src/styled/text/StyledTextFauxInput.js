@@ -5,32 +5,35 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import VALIDATION from '../../utils/validation';
-import StyledTextInput from './StyledTextInput';
+import { StyledTextInput } from './StyledTextInput';
 
-const StyledTextFauxInput = StyledTextInput.withComponent('div');
+const COMPONENT_ID = 'forms.faux_input';
 
-StyledTextFauxInput.displayName = 'StyledTextFauxInput';
+export const StyledTextFauxInput = styled(StyledTextInput).attrs({
+  as: 'div',
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})`
+  display: ${props => props.mediaLayout && 'flex'};
+  align-items: ${props => props.mediaLayout && 'baseline'};
+  cursor: ${props => props.mediaLayout && 'text'};
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+`;
 
 StyledTextFauxInput.propTypes = {
-  /** Allows flush spacing of Tab elements */
-  tagLayout: PropTypes.bool,
-  /** Applies flex layout to support MediaFigure components */
-  mediaLayout: PropTypes.bool,
-  small: PropTypes.bool,
-  /** Applies select styling */
-  select: PropTypes.bool,
-  /** Removes all borders and styling */
-  bare: PropTypes.bool,
-  disabled: PropTypes.bool,
-  focused: PropTypes.bool,
-  /** Applies inset `box-shadow` styling on focus */
+  isSmall: PropTypes.bool,
+  isBare: PropTypes.bool,
   focusInset: PropTypes.bool,
-  hovered: PropTypes.bool,
-  /** Displays select open state */
-  open: PropTypes.bool,
-  validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
+  mediaLayout: PropTypes.bool,
+  validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR]),
+  theme: PropTypes.object
 };
 
-export default StyledTextFauxInput;
+StyledTextFauxInput.defaultProps = {
+  theme: DEFAULT_THEME
+};

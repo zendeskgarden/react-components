@@ -24,6 +24,13 @@
 
 - removed; see `@zendeskgarden/react-forms`
 
+## @zendeskgarden/react-forms
+
+- modified theming COMPONENT_IDs for alignment with `data-garden-id`
+  - previously `forms.text_area`; currently `forms.textarea`
+  - previously `forms.text_input`; currently `forms.input`
+  - previously `forms.text_media_input`; currently `forms.media_input`
+
 ## @zendeskgarden/react-loaders
 
 - `<Dots />` loader no longer has the `velocity` prop

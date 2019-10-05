@@ -27,8 +27,6 @@ const Input = React.forwardRef((props, ref) => {
     <StyledTextInput
       {...getInputProps(
         {
-          'data-garden-id': 'forms.input',
-          'data-garden-version': PACKAGE_VERSION,
           ref,
           ...props
         },

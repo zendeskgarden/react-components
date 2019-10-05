@@ -44,8 +44,6 @@ const FauxInput = React.forwardRef(
 
     return (
       <StyledTextFauxInput
-        data-garden-id="forms.faux_input"
-        data-garden-version={PACKAGE_VERSION}
         onMouseEnter={onMouseEnterHandler}
         onMouseLeave={onMouseLeaveHandler}
         onFocus={onFocusHandler}

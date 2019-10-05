@@ -18,7 +18,7 @@ import FauxInput from './FauxInput';
  * Accepts all `<input />` props.
  */
 const MediaInput = React.forwardRef(
-  ({ wrapperProps = {}, start, end, disabled, ...props }, forwardedRef) => {
+  ({ wrapperProps = {}, start, end, disabled, isSmall, ...props }, forwardedRef) => {
     const { getInputProps } = useFieldContext();
     const inputRef = useRef(undefined);
 
@@ -30,17 +30,17 @@ const MediaInput = React.forwardRef(
 
     return (
       <FauxInput
-        data-garden-id="forms.media_input"
-        data-garden-version={PACKAGE_VERSION}
         onClick={onFauxInputClickHandler}
         disabled={disabled}
+        isSmall={isSmall}
         mediaLayout
         {...otherWrapperProps}
       >
-        {start && <StyledTextMediaFigure>{start}</StyledTextMediaFigure>}
+        {start && <StyledTextMediaFigure isSmall={isSmall}>{start}</StyledTextMediaFigure>}
         <StyledTextMediaInput
           {...getInputProps({
             disabled,
+            isSmall,
             bare: true,
             ref: ref => {
               inputRef.current = ref;
@@ -52,7 +52,7 @@ const MediaInput = React.forwardRef(
             ...props
           })}
         />
-        {end && <StyledTextMediaFigure>{end}</StyledTextMediaFigure>}
+        {end && <StyledTextMediaFigure isSmall={isSmall}>{end}</StyledTextMediaFigure>}
       </FauxInput>
     );
   }

@@ -26,8 +26,6 @@ const Textarea = React.forwardRef((props, ref) => {
     <StyledTextarea
       {...getInputProps(
         {
-          'data-garden-id': 'forms.textarea',
-          'data-garden-version': PACKAGE_VERSION,
           ref,
           ...props
         },

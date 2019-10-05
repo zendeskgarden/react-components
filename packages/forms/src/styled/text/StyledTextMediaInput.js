@@ -6,20 +6,30 @@
  */
 
 import styled from 'styled-components';
-import classNames from 'classnames';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
+import PropTypes from 'prop-types';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { StyledTextInput } from './StyledTextInput';
+import VALIDATION from '../../utils/validation';
 
-import StyledTextInput from './StyledTextInput';
+const COMPONENT_ID = 'forms.media_input';
 
-/**
- * Accepts all `<input>` props
- */
-const StyledTextMediaInput = styled(StyledTextInput).attrs(props => ({
-  bare: true,
-  className: classNames(props.className, TextStyles['c-txt__input--media__body'])
-}))`
-  ${props => retrieveComponentStyles('forms.text_media_input', props)};
+export const StyledTextMediaInput = styled(StyledTextInput).attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION,
+  isBare: true
+})`
+  flex-grow: 1;
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-export default StyledTextMediaInput;
+StyledTextMediaInput.propTypes = {
+  isSmall: PropTypes.bool,
+  focusInset: PropTypes.bool,
+  validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR]),
+  theme: PropTypes.object
+};
+
+StyledTextMediaInput.defaultProps = {
+  theme: DEFAULT_THEME
+};
