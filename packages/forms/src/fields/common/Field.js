@@ -8,17 +8,22 @@
 import React, { createContext } from 'react';
 import PropTypes from 'prop-types';
 import { useField } from '@zendeskgarden/container-field';
+import { StyledField } from '../../styled';
 
 export const FieldContext = createContext(undefined);
 
 /**
- * Provides accessibility attributes to child form fields.
- * Does not render a corresponding DOM element.
+ * Provides accessibility attributes to child form fields. Accepts all `<div>`
+ * attributes and events.
  */
 function Field({ id, children }) {
   const fieldProps = useField(id);
 
-  return <FieldContext.Provider value={fieldProps}>{children}</FieldContext.Provider>;
+  return (
+    <FieldContext.Provider value={fieldProps}>
+      <StyledField>{children}</StyledField>
+    </FieldContext.Provider>
+  );
 }
 
 Field.propTypes = {

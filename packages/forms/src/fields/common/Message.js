@@ -45,8 +45,6 @@ function Message(props) {
   } else if (toggleCtx) {
     MessageComponent = StyledToggleMessage;
     sharedProps['data-garden-id'] = 'forms.toggle_message';
-  } else {
-    sharedProps['data-garden-id'] = 'forms.text_message';
   }
 
   return React.createElement(MessageComponent, {

@@ -28,8 +28,7 @@ A common set of core components provide accessibility attributes and dynamically
 styling based on which form field they are rendered within.
 
 - `Field`
-  - Provides all accessibility attributes via the Context API
-  - Does not render any elements to the DOM.
+  - Provides all accessibility attributes via the Context API.
 - `Label`
   - Modifies styling depending on rendering location within other fields.
 - `Hint`

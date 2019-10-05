@@ -5,32 +5,59 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import styled, { css } from 'styled-components';
+import math from 'polished/lib/math/math';
+import stripUnit from 'polished/lib/helpers/stripUnit';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import classNames from 'classnames';
-import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
-import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import VALIDATION from '../../utils/validation';
 
-/**
- * Accepts all `<div>` props
- */
-const StyledTextMessage = styled.div.attrs(props => ({
-  role: 'alert',
-  className: classNames(TextStyles['c-txt__message'], {
-    [TextStyles['c-txt__message--success']]: props.validation === VALIDATION.SUCCESS,
-    [TextStyles['c-txt__message--warning']]: props.validation === VALIDATION.WARNING,
-    [TextStyles['c-txt__message--error']]: props.validation === VALIDATION.ERROR,
+const validationStyles = props => {
+  const rtl = props.theme.rtl;
+  const padding = math(`${props.theme.space.base} * 5px`);
+  let color;
 
-    // RTL
-    [TextStyles['is-rtl']]: isRtl(props)
-  })
-}))`
-  ${props => retrieveComponentStyles('forms.text_message', props)};
+  if (props.validation === VALIDATION.ERROR) {
+    color = getColor('dangerHue', 600, props.theme);
+  } else if (props.validation === VALIDATION.SUCCESS) {
+    color = getColor('successHue', 600, props.theme);
+  } else if (props.validation === VALIDATION.WARNING) {
+    color = getColor('warningHue', 700, props.theme);
+  } else {
+    color = getColor('neutralHue', 700, props.theme);
+  }
+
+  return css`
+    /* stylelint-disable-next-line property-no-unknown */
+    padding-${rtl ? 'right' : 'left'}: ${props.validation && padding};
+    color: ${color};
+  `;
+};
+
+const COMPONENT_ID = 'forms.input_message';
+
+export const StyledTextMessage = styled.div.attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION,
+  role: 'alert'
+})`
+  direction: ${props => props.theme.rtl && 'rtl'};
+  display: inline-block;
+  vertical-align: middle; /* support message inline with input layout */
+  line-height: ${props =>
+    stripUnit(math(`${props.theme.space.base * 4} / ${props.theme.fontSizes.sm}`))};
+  font-size: ${props => props.theme.fontSizes.sm};
+
+  ${props => validationStyles(props)};
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledTextMessage.propTypes = {
-  validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
+  validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR]),
+  theme: PropTypes.object
 };
 
-export default StyledTextMessage;
+StyledTextMessage.defaultProps = {
+  theme: DEFAULT_THEME
+};

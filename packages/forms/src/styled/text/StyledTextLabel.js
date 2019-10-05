@@ -17,6 +17,7 @@ export const StyledTextLabel = styled.label.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
+  direction: ${props => props.theme.rtl && 'rtl'};
   vertical-align: middle; /* support label inline with input layout */
   line-height: ${props =>
     stripUnit(math(`${props.theme.space.base * 5} / ${props.theme.fontSizes.md}`))};

@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import math from 'polished/lib/math/math';
 import stripUnit from 'polished/lib/helpers/stripUnit';
+import PropTypes from 'prop-types';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.input_hint';
@@ -17,6 +17,7 @@ export const StyledTextHint = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
+  direction: ${props => props.theme.rtl && 'rtl'};
   display: block;
   line-height: ${props =>
     stripUnit(math(`${props.theme.space.base * 5} / ${props.theme.fontSizes.md}`))};

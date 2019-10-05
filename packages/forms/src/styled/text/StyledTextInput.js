@@ -16,6 +16,7 @@ import VALIDATION from '../../utils/validation';
 import { StyledTextMediaFigure } from './StyledTextMediaFigure';
 import { StyledTextHint } from './StyledTextHint';
 import { StyledTextLabel } from './StyledTextLabel';
+import { StyledTextMessage } from './StyledTextMessage';
 
 const isInvalid = validation => {
   return validation === VALIDATION.WARNING || validation === VALIDATION.ERROR;
@@ -160,7 +161,8 @@ const sizeStyles = props => {
     /* stylelint-disable */
     ${StyledTextLabel} + &,
     ${StyledTextHint} + &,
-    & + ${StyledTextHint} {
+    & + ${StyledTextHint},
+    & + ${StyledTextMessage} {
       margin-top: ${math(`${props.theme.space.base} * ${props.isSmall ? '1px' : '2px'}`)};
     }
     /* stylelint-enable */

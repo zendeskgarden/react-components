@@ -6,13 +6,18 @@
  */
 
 /**
+ * Common styles
+ */
+export * from './common/StyledField';
+
+/**
  * Text styles
  */
 export * from './text/StyledTextLabel';
 export * from './text/StyledTextHint';
 export * from './text/StyledTextInput';
 export * from './text/StyledTextarea';
-export { default as StyledTextMessage } from './text/StyledTextMessage';
+export * from './text/StyledTextMessage';
 export * from './text/StyledTextFauxInput';
 export * from './text/StyledTextMediaInput';
 export * from './text/StyledTextMediaFigure';
