@@ -7,26 +7,29 @@
 
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import classNames from 'classnames';
-import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
-import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
+import math from 'polished/lib/math/math';
+import stripUnit from 'polished/lib/helpers/stripUnit';
+import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-/**
- * Accepts all `<div>` props
- */
-const StyledTextHint = styled.div.attrs(props => ({
-  className: classNames(TextStyles['c-txt__hint'], {
-    [TextStyles['c-txt__hint--sm']]: props.small,
+const COMPONENT_ID = 'forms.input_hint';
 
-    // RTL
-    [TextStyles['is-rtl']]: isRtl(props)
-  })
-}))`
-  ${props => retrieveComponentStyles('forms.text_hint', props)};
+export const StyledTextHint = styled.div.attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})`
+  display: block;
+  line-height: ${props =>
+    stripUnit(math(`${props.theme.space.base * 5} / ${props.theme.fontSizes.md}`))};
+  color: ${props => getColor('neutralHue', 600, props.theme)};
+  font-size: ${props => props.theme.fontSizes.md};
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledTextHint.propTypes = {
-  small: PropTypes.bool
+  theme: PropTypes.object
 };
 
-export default StyledTextHint;
+StyledTextHint.defaultProps = {
+  theme: DEFAULT_THEME
+};

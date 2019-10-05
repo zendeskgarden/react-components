@@ -7,30 +7,32 @@
 
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import classNames from 'classnames';
-import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
-import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
+import math from 'polished/lib/math/math';
+import stripUnit from 'polished/lib/helpers/stripUnit';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-/**
- * Accepts all `<label>` props
- */
-const StyledTextLabel = styled.label.attrs(props => ({
-  className: classNames(TextStyles['c-txt__label'], {
-    [TextStyles['c-txt__label--regular']]: props.regular,
-    [TextStyles['c-txt__label--sm']]: props.small,
+const COMPONENT_ID = 'forms.input_label';
 
-    // RTL
-    [TextStyles['is-rtl']]: isRtl(props)
-  })
-}))`
-  display: block;
+export const StyledTextLabel = styled.label.attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})`
+  vertical-align: middle; /* support label inline with input layout */
+  line-height: ${props =>
+    stripUnit(math(`${props.theme.space.base * 5} / ${props.theme.fontSizes.md}`))};
+  color: ${props => props.theme.colors.foreground};
+  font-size: ${props => props.theme.fontSizes.md};
+  font-weight: ${props =>
+    props.isRegular ? props.theme.fontWeights.regular : props.theme.fontWeights.semibold};
 
-  ${props => retrieveComponentStyles('forms.text_label', props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledTextLabel.propTypes = {
-  regular: PropTypes.bool,
-  small: PropTypes.bool
+  isRegular: PropTypes.bool,
+  theme: PropTypes.object
 };
 
-export default StyledTextLabel;
+StyledTextLabel.defaultProps = {
+  theme: DEFAULT_THEME
+};

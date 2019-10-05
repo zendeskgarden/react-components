@@ -44,8 +44,6 @@ function Label(props) {
     LabelComponent = StyledToggleLabel;
     sharedProps['data-garden-id'] = 'forms.toggle_label';
     sharedProps.focused = toggleCtx.isFocused;
-  } else {
-    sharedProps['data-garden-id'] = 'forms.text_label';
   }
 
   return React.createElement(

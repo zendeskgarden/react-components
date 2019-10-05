@@ -8,8 +8,8 @@
 /**
  * Text styles
  */
-export { default as StyledTextLabel } from './text/StyledTextLabel';
-export { default as StyledTextHint } from './text/StyledTextHint';
+export * from './text/StyledTextLabel';
+export * from './text/StyledTextHint';
 export * from './text/StyledTextInput';
 export * from './text/StyledTextarea';
 export { default as StyledTextMessage } from './text/StyledTextMessage';

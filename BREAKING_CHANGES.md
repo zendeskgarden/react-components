@@ -29,6 +29,8 @@
 - modified theming COMPONENT_IDs for alignment with `data-garden-id`
   - previously `forms.text_area`; currently `forms.textarea`
   - previously `forms.text_input`; currently `forms.input`
+  - previously `forms.text_hint`; currently `forms.input_hint`
+  - previously `forms.text_message`; currently `forms.input_message`
   - previously `forms.text_media_input`; currently `forms.media_input`
 
 ## @zendeskgarden/react-loaders

@@ -36,8 +36,6 @@ function Hint(props) {
   } else if (toggleCtx) {
     HintComponent = StyledToggleHint;
     commonProps['data-garden-id'] = 'forms.toggle_hint';
-  } else {
-    commonProps['data-garden-id'] = 'forms.text_hint';
   }
 
   return React.createElement(

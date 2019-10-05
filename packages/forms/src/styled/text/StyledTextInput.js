@@ -14,6 +14,8 @@ import stripUnit from 'polished/lib/helpers/stripUnit';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import VALIDATION from '../../utils/validation';
 import { StyledTextMediaFigure } from './StyledTextMediaFigure';
+import { StyledTextHint } from './StyledTextHint';
+import { StyledTextLabel } from './StyledTextLabel';
 
 const isInvalid = validation => {
   return validation === VALIDATION.WARNING || validation === VALIDATION.ERROR;
@@ -21,8 +23,6 @@ const isInvalid = validation => {
 
 const colorStyles = props => {
   const shade = 600;
-  const backgroundColor = getColor('background', shade, props.theme);
-  const foregroundColor = getColor('foreground', shade, props.theme);
   const placeholderColor = getColor('neutralHue', shade - 200, props.theme);
   let borderColor;
   let hoverBorderColor;
@@ -57,8 +57,8 @@ const colorStyles = props => {
 
   return css`
     border-color: ${borderColor};
-    background-color: ${props.isBare ? 'transparent' : backgroundColor};
-    color: ${foregroundColor};
+    background-color: ${props.isBare ? 'transparent' : props.theme.colors.background};
+    color: ${props.theme.colors.foreground};
 
     &::placeholder {
       color: ${placeholderColor};
@@ -156,6 +156,14 @@ const sizeStyles = props => {
     &::-webkit-color-swatch {
       margin: ${swatchMarginVertical} ${swatchMarginHorizontal};
     }
+
+    /* stylelint-disable */
+    ${StyledTextLabel} + &,
+    ${StyledTextHint} + &,
+    & + ${StyledTextHint} {
+      margin-top: ${math(`${props.theme.space.base} * ${props.isSmall ? '1px' : '2px'}`)};
+    }
+    /* stylelint-enable */
 
     & ${StyledTextMediaFigure} {
       &:first-child {
