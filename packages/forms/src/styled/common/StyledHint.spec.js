@@ -7,23 +7,23 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import StyledTextHint from './StyledTextHint';
+import { StyledHint } from './StyledHint';
 
-describe('StyledTextHint', () => {
+describe('StyledHint', () => {
   it('renders default styling correctly', () => {
-    const { container } = render(<StyledTextHint />);
+    const { container } = render(<StyledHint />);
 
     expect(container.firstChild).toHaveClass('c-txt__hint');
   });
 
   it('renders small styling correctly', () => {
-    const { container } = render(<StyledTextHint small />);
+    const { container } = render(<StyledHint small />);
 
     expect(container.firstChild).toHaveClass('c-txt__hint--sm');
   });
 
   it('renders RTL styling correctly', () => {
-    const { container } = renderRtl(<StyledTextHint />);
+    const { container } = renderRtl(<StyledHint />);
 
     expect(container.firstChild).toHaveClass('is-rtl');
   });

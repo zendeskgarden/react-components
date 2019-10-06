@@ -14,9 +14,9 @@ import stripUnit from 'polished/lib/helpers/stripUnit';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import VALIDATION from '../../utils/validation';
 import { StyledTextMediaFigure } from './StyledTextMediaFigure';
-import { StyledTextHint } from './StyledTextHint';
-import { StyledTextLabel } from './StyledTextLabel';
-import { StyledTextMessage } from './StyledTextMessage';
+import { StyledHint } from '../common/StyledHint';
+import { StyledLabel } from '../common/StyledLabel';
+import { StyledMessage } from '../common/StyledMessage';
 
 const isInvalid = validation => {
   return validation === VALIDATION.WARNING || validation === VALIDATION.ERROR;
@@ -159,10 +159,10 @@ const sizeStyles = props => {
     }
 
     /* stylelint-disable */
-    ${StyledTextLabel} + &,
-    ${StyledTextHint} + &,
-    & + ${StyledTextHint},
-    & + ${StyledTextMessage} {
+    ${StyledLabel} + &,
+    ${StyledHint} + &,
+    & + ${StyledHint},
+    & + ${StyledMessage} {
       margin-top: ${math(`${props.theme.space.base} * ${props.isSmall ? '1px' : '2px'}`)};
     }
     /* stylelint-enable */

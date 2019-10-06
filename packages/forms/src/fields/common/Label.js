@@ -11,12 +11,7 @@ import useFieldContext from '../../utils/useFieldContext';
 import useCheckboxContext from '../../utils/useCheckboxContext';
 import useRadioContext from '../../utils/useRadioContext';
 import useToggleContext from '../../utils/useToggleContext';
-import {
-  StyledTextLabel,
-  StyledCheckLabel,
-  StyledRadioLabel,
-  StyledToggleLabel
-} from '../../styled';
+import { StyledLabel, StyledCheckLabel, StyledRadioLabel, StyledToggleLabel } from '../../styled';
 
 /**
  * Accepts all `<label>` props.
@@ -27,7 +22,7 @@ function Label(props) {
   const radioCtx = useRadioContext();
   const toggleCtx = useToggleContext();
 
-  let LabelComponent = StyledTextLabel;
+  let LabelComponent = StyledLabel;
   const sharedProps = {
     'data-garden-version': PACKAGE_VERSION
   };

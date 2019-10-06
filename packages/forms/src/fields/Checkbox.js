@@ -11,7 +11,7 @@ import { useKeyboardFocus } from '@zendeskgarden/container-keyboardfocus';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { FieldContext } from './common/Field';
 import useFieldContext from '../utils/useFieldContext';
-import { StyledCheck, StyledCheckInput } from '../styled';
+import { StyledCheckInput, StyledField } from '../styled';
 
 export const CheckboxContext = createContext(undefined);
 
@@ -40,7 +40,7 @@ const Checkbox = React.forwardRef(({ children, ...props }, ref) => {
   return (
     <FieldContext.Provider value={modifiedFieldCtx}>
       <CheckboxContext.Provider value={{ isFocused: keyboardFocused }}>
-        <StyledCheck>
+        <StyledField>
           <StyledCheckInput
             {...modifiedFieldCtx.getInputProps({
               'data-garden-id': 'forms.checkbox',
@@ -50,7 +50,7 @@ const Checkbox = React.forwardRef(({ children, ...props }, ref) => {
             })}
           />
           {children}
-        </StyledCheck>
+        </StyledField>
       </CheckboxContext.Provider>
     </FieldContext.Provider>
   );

@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import StyledCheckInput from '../checkboxes/StyledCheckInput';
+import { StyledCheckInput } from '../checkboxes/StyledCheckInput';
 
 /**
  * Hidden `<input>` used to show custom toggle visualization. Accepts all `<input>` props.

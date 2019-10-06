@@ -27,6 +27,7 @@
 ## @zendeskgarden/react-forms
 
 - modified theming COMPONENT_IDs for alignment with `data-garden-id`
+  - previously `forms.check_input`; currently `forms.checkbox`
   - previously `forms.text_area`; currently `forms.textarea`
   - previously `forms.text_input`; currently `forms.input`
   - previously `forms.text_hint`; currently `forms.input_hint`

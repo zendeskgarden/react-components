@@ -9,16 +9,16 @@
  * Common styles
  */
 export * from './common/StyledField';
+export * from './common/StyledHint';
+export * from './common/StyledLabel';
+export * from './common/StyledMessage';
 export * from './common/StyledMessageIcon';
 
 /**
  * Text styles
  */
-export * from './text/StyledTextLabel';
-export * from './text/StyledTextHint';
 export * from './text/StyledTextInput';
 export * from './text/StyledTextarea';
-export * from './text/StyledTextMessage';
 export * from './text/StyledTextFauxInput';
 export * from './text/StyledTextMediaInput';
 export * from './text/StyledTextMediaFigure';
@@ -29,7 +29,7 @@ export * from './text/StyledTextMediaFigure';
 export { default as StyledCheck } from './checkboxes/StyledCheck';
 export { default as StyledCheckLabel } from './checkboxes/StyledCheckLabel';
 export { default as StyledCheckHint } from './checkboxes/StyledCheckHint';
-export { default as StyledCheckInput } from './checkboxes/StyledCheckInput';
+export * from './checkboxes/StyledCheckInput';
 export { default as StyledCheckMessage } from './checkboxes/StyledCheckMessage';
 
 /**

@@ -11,7 +11,7 @@ import useFieldContext from '../../utils/useFieldContext';
 import useCheckboxContext from '../../utils/useCheckboxContext';
 import useRadioContext from '../../utils/useRadioContext';
 import useToggleContext from '../../utils/useToggleContext';
-import { StyledTextHint, StyledCheckHint, StyledRadioHint, StyledToggleHint } from '../../styled';
+import { StyledHint, StyledCheckHint, StyledRadioHint, StyledToggleHint } from '../../styled';
 
 /**
  * Accepts all `<div>` props.
@@ -22,7 +22,7 @@ function Hint(props) {
   const radioCtx = useRadioContext();
   const toggleCtx = useToggleContext();
 
-  let HintComponent = StyledTextHint;
+  let HintComponent = StyledHint;
   const commonProps = {
     'data-garden-version': PACKAGE_VERSION
   };

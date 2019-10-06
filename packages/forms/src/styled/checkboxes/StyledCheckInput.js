@@ -7,17 +7,17 @@
 
 import styled from 'styled-components';
 import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
 
-/**
- * Hidden `<input>` used to show custom checkbox visualization. Accepts all `<input>` props.
- */
-const StyledCheckInput = styled.input.attrs({
-  className: CheckboxStyles['c-chk__input'],
-  type: 'checkbox',
-  tabIndex: 0
+const COMPONENT_ID = 'forms.checkbox';
+
+export const StyledCheckInput = styled.input.attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION,
+  type: 'checkbox'
 })`
-  ${props => retrieveComponentStyles('forms.check_input', props)};
-`;
+  /* hide <input type="checkbox"> but retain accessiblity */
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
 
-export default StyledCheckInput;
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+`;

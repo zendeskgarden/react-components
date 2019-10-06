@@ -11,7 +11,7 @@ import stripUnit from 'polished/lib/helpers/stripUnit';
 import PropTypes from 'prop-types';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import VALIDATION from '../../utils/validation';
-import { StyledMessageIcon } from '../common/StyledMessageIcon';
+import { StyledMessageIcon } from './StyledMessageIcon';
 
 const validationStyles = props => {
   const rtl = props.theme.rtl;
@@ -37,7 +37,7 @@ const validationStyles = props => {
 
 const COMPONENT_ID = 'forms.input_message';
 
-export const StyledTextMessage = styled.div.attrs({
+export const StyledMessage = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   role: 'alert'
@@ -61,11 +61,11 @@ export const StyledTextMessage = styled.div.attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledTextMessage.propTypes = {
+StyledMessage.propTypes = {
   validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR]),
   theme: PropTypes.object
 };
 
-StyledTextMessage.defaultProps = {
+StyledMessage.defaultProps = {
   theme: DEFAULT_THEME
 };

@@ -11,7 +11,7 @@ import useCheckboxContext from '../../utils/useCheckboxContext';
 import useRadioContext from '../../utils/useRadioContext';
 import useToggleContext from '../../utils/useToggleContext';
 import {
-  StyledTextMessage,
+  StyledMessage,
   StyledCheckMessage,
   StyledRadioMessage,
   StyledToggleMessage,
@@ -32,7 +32,7 @@ function Message(props) {
   const radioCtx = useRadioContext();
   const toggleCtx = useToggleContext();
 
-  let MessageComponent = StyledTextMessage;
+  let MessageComponent = StyledMessage;
   const sharedProps = {
     'data-garden-version': PACKAGE_VERSION
   };

@@ -7,25 +7,25 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import StyledTextMessage from './StyledTextMessage';
+import { StyledMessage } from './StyledMessage';
 
-describe('StyledTextMessage', () => {
+describe('StyledMessage', () => {
   it('renders default styling correctly', () => {
-    const { container } = render(<StyledTextMessage />);
+    const { container } = render(<StyledMessage />);
 
     expect(container.firstChild).toHaveClass('c-txt__message');
   });
 
   ['success', 'warning', 'error'].forEach(validation => {
     it(`renders ${validation} validation styling correctly`, () => {
-      const { container } = render(<StyledTextMessage validation={validation} />);
+      const { container } = render(<StyledMessage validation={validation} />);
 
       expect(container.firstChild).toHaveClass(`c-txt__message--${validation}`);
     });
   });
 
   it('renders RTL styling correctly', () => {
-    const { container } = renderRtl(<StyledTextMessage />);
+    const { container } = renderRtl(<StyledMessage />);
 
     expect(container.firstChild).toHaveClass('is-rtl');
   });
