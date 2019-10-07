@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, fireEvent } from 'garden-test-utils';
-import { KEY_CODES } from '@zendeskgarden/react-selection';
+import { KEY_CODES } from '@zendeskgarden/container-utilities';
 
 import Modal from './Modal';
 import Body from '../views/Body';

@@ -10,7 +10,7 @@ More complex examples can be implemented with the
 [SelectionContainer component](https://garden.zendesk.com/react-components/next/selection/#selectioncontainer)
 
 ```jsx
-const { KEY_CODES } = require('@zendeskgarden/react-selection/src');
+const { KEY_CODES } = require('@zendeskgarden/container-utilities');
 const { FauxInput } = require('@zendeskgarden/react-forms/src');
 const tags = [];
 

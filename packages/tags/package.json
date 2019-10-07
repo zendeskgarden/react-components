@@ -29,6 +29,7 @@
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
+    "@zendeskgarden/container-utilities": "0.3.0",
     "@zendeskgarden/css-tags": "5.1.9",
     "@zendeskgarden/react-theming": "^6.5.0"
   },
