@@ -19,7 +19,7 @@ const { zdColorBlue500 } = require('@zendeskgarden/css-variables');
 
 ```jsx
 const { zdColorBlue500, zdColorGrey500 } = require('@zendeskgarden/css-variables');
-const { RangeField, Label, Range } = require('@zendeskgarden/react-ranges/src');
+const { Field: FormField, Label, Range } = require('@zendeskgarden/react-forms/src');
 const {
   Dropdown,
   Field,
@@ -90,7 +90,7 @@ const Color = ({ name, color, includeSample }) =>
     <Grid>
       <SpacedRow>
         <Col md={6}>
-          <RangeField>
+          <FormField>
             <Label>
               Size {state.size}
               px
@@ -101,10 +101,10 @@ const Color = ({ name, color, includeSample }) =>
               min={30}
               max={250}
             />
-          </RangeField>
+          </FormField>
         </Col>
         <Col md={6}>
-          <RangeField>
+          <FormField>
             <Label>Velocity {state.velocity}</Label>
             <Range
               value={state.velocity}
@@ -113,7 +113,7 @@ const Color = ({ name, color, includeSample }) =>
               max={1}
               step={0.05}
             />
-          </RangeField>
+          </FormField>
         </Col>
         <Col md={6}>
           <Dropdown
