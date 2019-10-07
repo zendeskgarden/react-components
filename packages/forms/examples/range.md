@@ -1,14 +1,30 @@
 ```jsx
+const { zdSpacingXs } = require('@zendeskgarden/css-variables');
+
+const StyledHint = styled(Hint)`
+  margin-bottom: ${zdSpacingXs};
+`;
+
 <Field>
   <Label>Default Range</Label>
-  <Hint>Supports all native props</Hint>
+  <StyledHint>Supports all native props</StyledHint>
   <Range />
-</Field>
+</Field>;
 ```
 
 ### Controlled Example
 
 ```jsx
+const { zdSpacingXs } = require('@zendeskgarden/css-variables');
+
+const StyledHint = styled(Hint)`
+  margin-bottom: ${zdSpacingXs};
+`;
+
+const StyledMessage = styled(Message)`
+  margin-top: ${zdSpacingXs};
+`;
+
 initialState = {
   value: 25
 };
@@ -24,16 +40,18 @@ getValidationMessage = value =>
 
 <Field>
   <Label>Dynamic Validation</Label>
-  <Hint>
+  <StyledHint>
     Move range to view changes. [value="
     {state.value}
     "]
-  </Hint>
+  </StyledHint>
   <Range
     value={state.textValue}
     onChange={event => setState({ value: event.target.value })}
     step={5}
   />
-  <Message validation={getValidation(state.value)}>{getValidationMessage(state.value)}</Message>
+  <StyledMessage validation={getValidation(state.value)}>
+    {getValidationMessage(state.value)}
+  </StyledMessage>
 </Field>;
 ```

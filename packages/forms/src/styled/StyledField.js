@@ -9,24 +9,28 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
+
+import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 import RangeStyles from '@zendeskgarden/css-forms/dist/range.css';
 
 /**
  * Accepts all `<div>` props
  */
-const StyledRangeHint = styled.div.attrs(props => ({
-  className: classNames(RangeStyles['c-range__hint'], {
-    [RangeStyles['c-range__hint--sm']]: props.small,
+const StyledField = styled.div.attrs(props => ({
+  className: classNames(TextStyles['c-txt'], RangeStyles['c-range'], {
+    [TextStyles['c-txt--inline']]: props.inline,
+    [RangeStyles['c-range--inline']]: props.inline,
 
     // RTL
+    [TextStyles['is-rtl']]: isRtl(props),
     [RangeStyles['is-rtl']]: isRtl(props)
   })
 }))`
-  ${props => retrieveTheme('forms.range_hint', props)};
+  ${props => retrieveTheme('forms.field', props)};
 `;
 
-StyledRangeHint.propTypes = {
-  small: PropTypes.bool
+StyledField.propTypes = {
+  inline: PropTypes.bool
 };
 
-export default StyledRangeHint;
+export default StyledField;

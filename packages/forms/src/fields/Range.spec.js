@@ -62,11 +62,12 @@ describe('Range', () => {
 
   describe('onFocus()', () => {
     it('it applies focus visualization to Range', () => {
-      const { container } = render(<BasicExample />);
+      const { getByTestId } = render(<BasicExample />);
+      const range = getByTestId('range');
 
-      fireEvent.focus(container.firstChild);
+      fireEvent.focus(range);
 
-      expect(container.firstChild).toHaveClass('is-focused');
+      expect(range).toHaveClass('is-focused');
     });
   });
 

@@ -23,8 +23,6 @@ const StyledTextLabel = styled.label.attrs(props => ({
     [TextStyles['is-rtl']]: isRtl(props)
   })
 }))`
-  display: block;
-
   ${props => retrieveTheme('forms.text_label', props)};
 `;
 
