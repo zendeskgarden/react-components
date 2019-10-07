@@ -1,4 +1,10 @@
 ```jsx
+const { zdSpacingXs } = require('@zendeskgarden/css-variables');
+
+const StyledHint = styled(Hint)`
+  margin-bottom: ${zdSpacingXs};
+`;
+
 initialState = {
   minValue: 0,
   maxValue: 100
@@ -6,9 +12,9 @@ initialState = {
 
 <Field>
   <Label>Default MultiThumb Range</Label>
-  <Hint>
+  <StyledHint>
     Min Value: {state.minValue} | Max Value: {state.maxValue}
-  </Hint>
+  </StyledHint>
   <MultiThumbRange
     minValue={state.minValue}
     maxValue={state.maxValue}
@@ -20,6 +26,12 @@ initialState = {
 ### Custom Step Size
 
 ```jsx
+const { zdSpacingXs } = require('@zendeskgarden/css-variables');
+
+const StyledHint = styled(Hint)`
+  margin-bottom: ${zdSpacingXs};
+`;
+
 initialState = {
   minValue: 0,
   maxValue: 100
@@ -27,9 +39,9 @@ initialState = {
 
 <Field>
   <Label>MultiThumb Range - Step Size (5)</Label>
-  <Hint>
+  <StyledHint>
     Min Value: {state.minValue} | Max Value: {state.maxValue}
-  </Hint>
+  </StyledHint>
   <MultiThumbRange
     minValue={state.minValue}
     maxValue={state.maxValue}
@@ -42,6 +54,12 @@ initialState = {
 ### Disabled State
 
 ```jsx
+const { zdSpacingXs } = require('@zendeskgarden/css-variables');
+
+const StyledHint = styled(Hint)`
+  margin-bottom: ${zdSpacingXs};
+`;
+
 initialState = {
   minValue: 25,
   maxValue: 35
@@ -49,9 +67,9 @@ initialState = {
 
 <Field>
   <Label>Disabled MultiThumb Range</Label>
-  <Hint>
+  <StyledHint>
     Min Value: {state.minValue} | Max Value: {state.maxValue}
-  </Hint>
+  </StyledHint>
   <MultiThumbRange
     disabled
     minValue={state.minValue}
