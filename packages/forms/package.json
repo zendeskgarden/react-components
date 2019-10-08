@@ -22,7 +22,8 @@
     "@zendeskgarden/container-field": "^1.0.3",
     "@zendeskgarden/container-keyboardfocus": "^0.2.3",
     "@zendeskgarden/container-utilities": "^0.3.0",
-    "classnames": "^2.2.5"
+    "classnames": "^2.2.5",
+    "lodash.debounce": "^4.0.8"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^6.0.0",
@@ -33,6 +34,7 @@
   },
   "devDependencies": {
     "@zendeskgarden/css-forms": "7.0.14",
+    "@zendeskgarden/css-variables": "6.4.0",
     "@zendeskgarden/react-theming": "^6.5.0"
   },
   "keywords": [
@@ -45,6 +47,6 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenForms",
-  "zendeskgarden:max_size": "9 kB",
+  "zendeskgarden:max_size": "11 kB",
   "zendeskgarden:src": "src/index.js"
 }

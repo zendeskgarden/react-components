@@ -1,6 +1,6 @@
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
-const { Checkbox, Field, Input, Label } = require('@zendeskgarden/react-forms/src');
+const { Checkbox, Field, Input, Label, Range } = require('@zendeskgarden/react-forms/src');
 const {
   Dropdown,
   Select,
@@ -9,7 +9,6 @@ const {
   Menu,
   Item: MenuItem
 } = require('@zendeskgarden/react-dropdowns/src');
-const { Range, RangeField, Label: RangeLabel } = require('@zendeskgarden/react-ranges/src');
 
 initialState = {
   length: 1,
@@ -71,24 +70,24 @@ const NestedList = ({ level = 0, ...props }) => {
         <Label style={{ marginBottom: 8 }}>Ordered</Label>
       </Checkbox>
     </Field>
-    <RangeField>
-      <RangeLabel>Levels</RangeLabel>
+    <Field>
+      <Label>Levels</Label>
       <Range
         max={9}
         min={1}
         value={state.levels}
         onChange={event => setState({ levels: event.target.value })}
       />
-    </RangeField>
-    <RangeField>
-      <RangeLabel>Length</RangeLabel>
+    </Field>
+    <Field>
+      <Label>Length</Label>
       <Range
         max={text[0].length}
         min={1}
         value={state.length}
         onChange={event => setState({ length: event.target.value })}
       />
-    </RangeField>
+    </Field>
     <Dropdown selectedItem={state.size} onSelect={size => setState({ size })}>
       <SelectField>
         <SelectLabel>Size</SelectLabel>

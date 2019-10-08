@@ -22,10 +22,11 @@ const Example = props => (
 describe('MediaInput', () => {
   it('focuses internal input when FauxInput wrapper is clicked', () => {
     const { container } = render(<Example />);
+    const input = container.querySelector('input');
 
-    fireEvent.click(container.firstChild);
+    fireEvent.click(input);
 
-    expect(container.querySelector('input')).toHaveFocus();
+    expect(input).toHaveFocus();
   });
 
   it('renders start figure if provided', () => {
@@ -41,9 +42,10 @@ describe('MediaInput', () => {
   });
 
   it('applies disabled styling if provided', () => {
-    const { container, getByTestId } = render(<Example data-test-id="input" disabled />);
+    const { getByTestId } = render(<Example data-test-id="input" disabled />);
+    const input = getByTestId('input');
 
-    expect(container.firstChild).toHaveClass('is-disabled');
-    expect(getByTestId('input')).toHaveAttribute('disabled');
+    expect(input).toHaveClass('is-disabled');
+    expect(input).toHaveAttribute('disabled');
   });
 });
