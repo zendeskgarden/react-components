@@ -16,12 +16,14 @@ export const FieldContext = createContext(undefined);
  * Provides accessibility attributes to child form fields. Accepts all `<div>`
  * attributes and events.
  */
-function Field({ id, children }) {
+function Field({ id, children, inline, ...other }) {
   const fieldProps = useField(id);
 
   return (
     <FieldContext.Provider value={fieldProps}>
-      <StyledField>{children}</StyledField>
+      <StyledField inline={inline} {...other}>
+        {children}
+      </StyledField>
     </FieldContext.Provider>
   );
 }
@@ -31,7 +33,8 @@ Field.propTypes = {
    * The ID that is used as the base for accessiblity attributes
    */
   id: PropTypes.string,
-  children: PropTypes.node
+  children: PropTypes.node,
+  inline: PropTypes.bool
 };
 
 export default Field;

@@ -16,7 +16,7 @@ and usability features:
 ### Advanced Usage
 
 ```jsx
-const { RangeField, Label, Range } = require('@zendeskgarden/react-ranges/src');
+const { Field: FormField, Label, Range } = require('@zendeskgarden/react-forms/src');
 const {
   Dropdown,
   Field,
@@ -87,7 +87,7 @@ const Color = ({ name, color, includeSample }) =>
     <Grid>
       <SpacedRow>
         <Col md={6}>
-          <RangeField>
+          <FormField>
             <Label>
               Size {state.size}
               px
@@ -98,10 +98,10 @@ const Color = ({ name, color, includeSample }) =>
               min={30}
               max={250}
             />
-          </RangeField>
+          </FormField>
         </Col>
         <Col md={6}>
-          <RangeField>
+          <FormField>
             <Label>
               Duration {state.duration}
               ms
@@ -113,7 +113,7 @@ const Color = ({ name, color, includeSample }) =>
               max={2500}
               step={625}
             />
-          </RangeField>
+          </FormField>
         </Col>
         <Col md={6}>
           <Dropdown

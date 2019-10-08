@@ -1,6 +1,6 @@
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
-const { Toggle, Field, Input, Label } = require('@zendeskgarden/react-forms/src');
+const { Checkbox, Field, Input, Label, Range } = require('@zendeskgarden/react-forms/src');
 const {
   Dropdown,
   Select,
@@ -9,7 +9,6 @@ const {
   Menu,
   Item: MenuItem
 } = require('@zendeskgarden/react-dropdowns/src');
-const { Range, RangeField, Label: RangeLabel } = require('@zendeskgarden/react-ranges/src');
 
 initialState = {
   length: 1,
@@ -61,72 +60,68 @@ const NestedList = ({ level = 0, ...props }) => {
   }
 };
 
-<Grid>
-  <Row>
-    <Col>
-      <Well recessed style={{ width: 300 }}>
-        <Field>
-          <Toggle
-            checked={state.ordered}
-            onChange={event => setState({ ordered: event.target.checked })}
-          >
-            <Label style={{ marginBottom: 8 }}>Ordered</Label>
-          </Toggle>
-        </Field>
-        <RangeField>
-          <RangeLabel>Levels</RangeLabel>
-          <Range
-            max={9}
-            min={1}
-            value={state.levels}
-            onChange={event => setState({ levels: event.target.value })}
-          />
-        </RangeField>
-        <RangeField>
-          <RangeLabel>Length</RangeLabel>
-          <Range
-            max={text[0].length}
-            min={1}
-            value={state.length}
-            onChange={event => setState({ length: event.target.value })}
-          />
-        </RangeField>
-        <Dropdown selectedItem={state.size} onSelect={size => setState({ size })}>
-          <SelectField>
-            <SelectLabel>Size</SelectLabel>
-            <Select small>{state.size}</Select>
-          </SelectField>
-          <Menu small>
-            <MenuItem value="small">small</MenuItem>
-            <MenuItem value="medium">medium (default)</MenuItem>
-            <MenuItem value="large">large</MenuItem>
-          </Menu>
-        </Dropdown>
-        <Field>
-          <Label>Start</Label>
-          <Input
-            disabled={!state.ordered}
-            small
-            type="number"
-            value={state.start}
-            onChange={event => setState({ start: event.target.value })}
-          />
-        </Field>
-      </Well>
-    </Col>
-    <Col>
-      <MD tag="p" style={{ marginTop: 0 }}>
-        Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya
-        nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea lettuce lettuce
-        leek soko chicory celtuce parsley jícama salsify.
-      </MD>
-      <NestedList {...state} />
-      <MD tag="p" style={{ marginBottom: 0 }}>
-        Soko radicchio bunya nuts gram dulse silver beet parsnip napa cabbage lotus root sea lettuce
-        brussels sprout cabbage. Catsear cauliflower garbanzo yarrow salsify chicory garlic bell.
-        Sea lettuce gumbo grape kale kombu cauliflower salsify kohlrabi okra.
-      </MD>
-    </Col>
-  </Row>
-</Grid>;
+<>
+  <Well recessed style={{ width: 300 }}>
+    <Field>
+      <Checkbox
+        checked={state.ordered}
+        onChange={event => setState({ ordered: event.target.checked })}
+      >
+        <Label style={{ marginBottom: 8 }}>Ordered</Label>
+      </Checkbox>
+    </Field>
+    <Field>
+      <Label>Levels</Label>
+      <Range
+        max={9}
+        min={1}
+        value={state.levels}
+        onChange={event => setState({ levels: event.target.value })}
+      />
+    </Field>
+    <Field>
+      <Label>Length</Label>
+      <Range
+        max={text[0].length}
+        min={1}
+        value={state.length}
+        onChange={event => setState({ length: event.target.value })}
+      />
+    </Field>
+    <Dropdown selectedItem={state.size} onSelect={size => setState({ size })}>
+      <SelectField>
+        <SelectLabel>Size</SelectLabel>
+        <Select small>{state.size}</Select>
+      </SelectField>
+      <Menu small>
+        <MenuItem value="small">small</MenuItem>
+        <MenuItem value="medium">medium (default)</MenuItem>
+        <MenuItem value="large">large</MenuItem>
+      </Menu>
+    </Dropdown>
+    <Field>
+      <Label>Start</Label>
+      <Input
+        disabled={!state.ordered}
+        small
+        type="number"
+        value={state.start}
+        onChange={event => setState({ start: event.target.value })}
+      />
+    </Field>
+  </Well>
+  <MD tag="p">
+    Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya nuts
+    black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea lettuce lettuce water
+    chestnut eggplant winter purslane fennel azuki bean earthnut pea sierra leone bologi leek soko
+    chicory celtuce parsley jícama salsify.
+  </MD>
+  <NestedList {...state} />
+  <MD tag="p" style={{ marginBottom: 0 }}>
+    Soko radicchio bunya nuts gram dulse silver beet parsnip napa cabbage lotus root sea lettuce
+    brussels sprout cabbage. Catsear cauliflower garbanzo yarrow salsify chicory garlic bell pepper
+    napa cabbage lettuce tomato kale arugula melon sierra leone bologi rutabaga tigernut. Sea
+    lettuce gumbo grape kale kombu cauliflower salsify kohlrabi okra.
+  </MD>
+</>;
 ```

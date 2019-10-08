@@ -46,3 +46,8 @@ export * from './toggle/StyledToggleLabel';
 export * from './toggle/StyledToggleHint';
 export * from './toggle/StyledToggleInput';
 export * from './toggle/StyledToggleMessage';
+
+/**
+ * Range styles
+ */
+export { default as StyledRangeSingleThumb } from './range/StyledRangeSingleThumb';

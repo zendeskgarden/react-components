@@ -35,6 +35,14 @@ module.exports = {
           content: '../../packages/forms/examples/radio.md'
         },
         {
+          name: 'Range',
+          content: '../../packages/forms/examples/range.md'
+        },
+        {
+          name: 'Multi-Thumb Range',
+          content: '../../packages/forms/examples/multi-thumb-range.md'
+        },
+        {
           name: 'Toggle',
           content: '../../packages/forms/examples/toggle.md'
         },
