@@ -28,6 +28,20 @@ import { Dots } from '@zendeskgarden/react-loaders';
 </ThemeProvider>;
 ```
 
+### Progress
+
+```jsx static
+import { ThemeProvider } from '@zendeskgarden/react-theming';
+import { Progress } from '@zendeskgarden/react-loaders';
+
+/**
+ * Place a `ThemeProvider` at the root of your React application
+ */
+<ThemeProvider>
+  <Progress value={40} />
+</ThemeProvider>;
+```
+
 ### Spinner
 
 ```jsx static
