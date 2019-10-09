@@ -7,30 +7,19 @@
 
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import classNames from 'classnames';
-import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
-import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { StyledLabel } from '../common/StyledLabel';
+import math from 'polished/lib/math/math';
 
-/**
- * Accepts all `<label>` props
- */
-const StyledCheckLabel = styled.label.attrs(props => ({
-  className: classNames(CheckboxStyles['c-chk__label'], {
-    // Styles
-    [CheckboxStyles['c-chk__label--regular']]: props.regular,
+export const StyledCheckLabel = styled(StyledLabel).attrs(props => ({}))`
+  display: inline-block; /* required to display checkbox on hidden label */
+  position: relative;
+  cursor: pointer;
+  /* stylelint-disable-next-line */
+  padding-${props => (props.theme.rtl ? 'right' : 'left')}:
+    ${props => math(`${props.theme.space.base} * 6px`)};
+  user-select: none;
 
-    // States
-    [CheckboxStyles['is-hidden']]: props.hidden,
-    [CheckboxStyles['is-checked']]: props.checked,
-    [CheckboxStyles['is-indeterminate']]: props.indeterminate,
-    [CheckboxStyles['is-hovered']]: props.hovered,
-    [CheckboxStyles['is-focused']]: props.focused,
-    [CheckboxStyles['is-disabled']]: props.disabled,
-
-    // RTL
-    [CheckboxStyles['is-rtl']]: isRtl(props)
-  })
-}))`
   ${props => retrieveComponentStyles('forms.check_label', props)};
 `;
 
@@ -43,5 +32,3 @@ StyledCheckLabel.propTypes = {
   focused: PropTypes.bool,
   disabled: PropTypes.bool
 };
-
-export default StyledCheckLabel;

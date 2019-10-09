@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styled from 'styled-components';
 import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import StyledCheckLabel from '../checkboxes/StyledCheckLabel';
+import { StyledCheckLabel } from '../checkboxes/StyledCheckLabel';
 import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
 
 /**

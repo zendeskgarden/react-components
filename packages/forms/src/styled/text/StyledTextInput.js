@@ -18,13 +18,15 @@ import { StyledHint } from '../common/StyledHint';
 import { StyledLabel } from '../common/StyledLabel';
 import { StyledMessage } from '../common/StyledMessage';
 
+const COMPONENT_ID = 'forms.input';
+
 const isInvalid = validation => {
   return validation === VALIDATION.WARNING || validation === VALIDATION.ERROR;
 };
 
 const colorStyles = props => {
-  const shade = 600;
-  const placeholderColor = getColor('neutralHue', shade - 200, props.theme);
+  const SHADE = 600;
+  const placeholderColor = getColor('neutralHue', SHADE - 200, props.theme);
   let borderColor;
   let hoverBorderColor;
   let focusBorderColor;
@@ -40,21 +42,21 @@ const colorStyles = props => {
       hue = 'dangerHue';
     }
 
-    borderColor = getColor(hue, shade, props.theme);
+    borderColor = getColor(hue, SHADE, props.theme);
     hoverBorderColor = borderColor;
     focusBorderColor = borderColor;
   } else {
-    borderColor = getColor('neutralHue', shade - 300, props.theme);
-    hoverBorderColor = getColor('primaryHue', shade - 200, props.theme);
-    focusBorderColor = getColor('primaryHue', shade, props.theme);
+    borderColor = getColor('neutralHue', SHADE - 300, props.theme);
+    hoverBorderColor = getColor('primaryHue', SHADE - 200, props.theme);
+    focusBorderColor = getColor('primaryHue', SHADE, props.theme);
   }
 
   const boxShadow = `
     ${props.focusInset ? 'inset' : ''}
     ${props.theme.shadows.md(rgba(focusBorderColor, 0.35))}`;
-  const disabledBackgroundColor = getColor('neutralHue', shade - 500, props.theme);
-  const disabledBorderColor = getColor('neutralHue', shade - 400, props.theme);
-  const disabledForegroundColor = getColor('neutralHue', shade - 200, props.theme);
+  const disabledBackgroundColor = getColor('neutralHue', SHADE - 500, props.theme);
+  const disabledBorderColor = getColor('neutralHue', SHADE - 400, props.theme);
+  const disabledForegroundColor = getColor('neutralHue', SHADE - 200, props.theme);
 
   return css`
     border-color: ${borderColor};
@@ -179,8 +181,6 @@ const sizeStyles = props => {
   `;
 };
 
-const COMPONENT_ID = 'forms.input';
-
 export const StyledTextInput = styled.input.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
@@ -194,7 +194,6 @@ export const StyledTextInput = styled.input.attrs(props => ({
     background-color .25s ease-in-out,
     color .25s ease-in-out;
   direction: ${props => props.theme.rtl && 'rtl'};
-  outline: none;
   border: ${props => (props.isBare ? 'none' : props.theme.borders.sm)};
   border-radius: ${props => (props.isBare ? '0' : props.theme.borderRadii.md)};
   width: 100%; /* vs. display: block to limit mouse interaction area */

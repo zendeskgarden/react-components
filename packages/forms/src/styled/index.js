@@ -27,7 +27,7 @@ export * from './text/StyledTextMediaFigure';
  * Checkbox styles
  */
 export { default as StyledCheck } from './checkboxes/StyledCheck';
-export { default as StyledCheckLabel } from './checkboxes/StyledCheckLabel';
+export * from './checkboxes/StyledCheckLabel';
 export { default as StyledCheckHint } from './checkboxes/StyledCheckHint';
 export * from './checkboxes/StyledCheckInput';
 export { default as StyledCheckMessage } from './checkboxes/StyledCheckMessage';
