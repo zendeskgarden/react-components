@@ -12,6 +12,18 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v6.8.0 (2019-10-09)
+
+#### :rocket: New Feature
+* `forms`, `loaders`, `ranges`, `typography`
+  * [#463](https://github.com/zendeskgarden/react-components/pull/463) feat(forms): deprecate react-ranges and migrate components to react-forms ([@austin94](https://github.com/austin94))
+* `loaders`
+  * [#468](https://github.com/zendeskgarden/react-components/pull/468) feat(loaders): introduce Progress component ([@sunesimonsen](https://github.com/sunesimonsen))
+
+#### :seedling: Internal
+* `modals`, `pagination`, `tables`, `tags`
+  * [#479](https://github.com/zendeskgarden/react-components/pull/479) chore(selection): remove usages of react-selection KEY_CODES and composeEventHandlers ([@austin94](https://github.com/austin94))
+
 ## v6.7.1 (2019-10-03)
 
 #### :seedling: Internal
