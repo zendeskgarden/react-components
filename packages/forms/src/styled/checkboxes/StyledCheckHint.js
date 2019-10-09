@@ -6,20 +6,28 @@
  */
 
 import styled from 'styled-components';
-import classNames from 'classnames';
-import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
-import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
+import math from 'polished/lib/math/math';
+import PropTypes from 'prop-types';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { StyledHint } from '../common/StyledHint';
 
-/**
- * Accepts all `<div>` props
- */
-const StyledCheckHint = styled.div.attrs(props => ({
-  className: classNames(CheckboxStyles['c-chk__hint'], {
-    // RTL
-    [CheckboxStyles['is-rtl']]: isRtl(props)
-  })
-}))`
-  ${props => retrieveComponentStyles('forms.checkbox_hint', props)};
+const COMPONENT_ID = 'forms.checkbox_hint';
+
+export const StyledCheckHint = styled(StyledHint).attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})`
+  /* stylelint-disable-next-line */
+  padding-${props => (props.theme.rtl ? 'right' : 'left')}:
+    ${props => math(`${props.theme.space.base} * 6px`)};
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-export default StyledCheckHint;
+StyledCheckHint.propTypes = {
+  theme: PropTypes.object
+};
+
+StyledCheckHint.defaultProps = {
+  theme: DEFAULT_THEME
+};

@@ -11,7 +11,7 @@ import { useKeyboardFocus } from '@zendeskgarden/container-keyboardfocus';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { FieldContext } from './common/Field';
 import useFieldContext from '../utils/useFieldContext';
-import { StyledCheckInput, StyledField } from '../styled';
+import { StyledField, StyledCheckInput } from '../styled';
 
 export const CheckboxContext = createContext(undefined);
 

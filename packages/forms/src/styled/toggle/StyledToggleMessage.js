@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styled from 'styled-components';
 import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import StyledCheckMessage from '../checkboxes/StyledCheckMessage';
+import { StyledCheckMessage } from '../checkboxes/StyledCheckMessage';
 import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
 import VALIDATION from '../../utils/validation';
 

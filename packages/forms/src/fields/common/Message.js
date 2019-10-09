@@ -33,23 +33,17 @@ function Message(props) {
   const toggleCtx = useToggleContext();
 
   let MessageComponent = StyledMessage;
-  const sharedProps = {
-    'data-garden-version': PACKAGE_VERSION
-  };
 
   if (checkboxCtx) {
     MessageComponent = StyledCheckMessage;
-    sharedProps['data-garden-id'] = 'forms.checkbox_message';
   } else if (radioCtx) {
     MessageComponent = StyledRadioMessage;
-    sharedProps['data-garden-id'] = 'forms.radio_message';
   } else if (toggleCtx) {
     MessageComponent = StyledToggleMessage;
-    sharedProps['data-garden-id'] = 'forms.toggle_message';
   }
 
   return (
-    <MessageComponent {...sharedProps} {...props}>
+    <MessageComponent {...props}>
       {props.validation && <StyledMessageIcon validation={props.validation} />}
       {props.children}
     </MessageComponent>

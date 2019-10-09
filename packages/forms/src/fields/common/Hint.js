@@ -29,7 +29,6 @@ function Hint(props) {
 
   if (checkboxCtx) {
     HintComponent = StyledCheckHint;
-    commonProps['data-garden-id'] = 'forms.checkbox_hint';
   } else if (radioCtx) {
     HintComponent = StyledRadioHint;
     commonProps['data-garden-id'] = 'forms.radio_hint';

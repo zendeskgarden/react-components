@@ -5,13 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import { StyledLabel } from '../common/StyledLabel';
 import math from 'polished/lib/math/math';
+import PropTypes from 'prop-types';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { StyledLabel } from '../common/StyledLabel';
 
-export const StyledCheckLabel = styled(StyledLabel).attrs(props => ({}))`
+const COMPONENT_ID = 'forms.checkbox_label';
+
+export const StyledCheckLabel = styled(StyledLabel).attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})`
   display: inline-block; /* required to display checkbox on hidden label */
   position: relative;
   cursor: pointer;
@@ -20,15 +25,14 @@ export const StyledCheckLabel = styled(StyledLabel).attrs(props => ({}))`
     ${props => math(`${props.theme.space.base} * 6px`)};
   user-select: none;
 
-  ${props => retrieveComponentStyles('forms.check_label', props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledCheckLabel.propTypes = {
-  regular: PropTypes.bool,
-  checked: PropTypes.bool,
-  hidden: PropTypes.bool,
-  indeterminate: PropTypes.bool,
-  hovered: PropTypes.bool,
-  focused: PropTypes.bool,
-  disabled: PropTypes.bool
+  isRegular: PropTypes.bool,
+  theme: PropTypes.object
+};
+
+StyledCheckLabel.defaultProps = {
+  theme: DEFAULT_THEME
 };

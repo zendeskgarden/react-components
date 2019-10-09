@@ -26,16 +26,14 @@ export * from './text/StyledTextMediaFigure';
 /**
  * Checkbox styles
  */
-export { default as StyledCheck } from './checkboxes/StyledCheck';
 export * from './checkboxes/StyledCheckLabel';
-export { default as StyledCheckHint } from './checkboxes/StyledCheckHint';
+export * from './checkboxes/StyledCheckHint';
 export * from './checkboxes/StyledCheckInput';
-export { default as StyledCheckMessage } from './checkboxes/StyledCheckMessage';
+export * from './checkboxes/StyledCheckMessage';
 
 /**
  * Radio styles
  */
-export { default as StyledRadio } from './radio/StyledRadio';
 export { default as StyledRadioLabel } from './radio/StyledRadioLabel';
 export { default as StyledRadioHint } from './radio/StyledRadioHint';
 export { default as StyledRadioInput } from './radio/StyledRadioInput';
@@ -44,7 +42,6 @@ export { default as StyledRadioMessage } from './radio/StyledRadioMessage';
 /**
  * Toggle styles
  */
-export { default as StyledToggle } from './toggle/StyledToggle';
 export { default as StyledToggleLabel } from './toggle/StyledToggleLabel';
 export { default as StyledToggleHint } from './toggle/StyledToggleHint';
 export { default as StyledToggleInput } from './toggle/StyledToggleInput';

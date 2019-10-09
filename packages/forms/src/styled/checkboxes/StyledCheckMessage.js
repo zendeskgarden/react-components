@@ -5,31 +5,31 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import classNames from 'classnames';
-import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
-import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
+import math from 'polished/lib/math/math';
+import PropTypes from 'prop-types';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { StyledMessage } from '../common/StyledMessage';
 import VALIDATION from '../../utils/validation';
 
-/**
- * Accepts all `<div>` props
- */
-const StyledCheckMessage = styled.div.attrs(props => ({
-  className: classNames(CheckboxStyles['c-chk__message'], {
-    [CheckboxStyles['c-chk__message--success']]: props.validation === VALIDATION.SUCCESS,
-    [CheckboxStyles['c-chk__message--warning']]: props.validation === VALIDATION.WARNING,
-    [CheckboxStyles['c-chk__message--error']]: props.validation === VALIDATION.ERROR,
+const COMPONENT_ID = 'forms.checkbox_message';
 
-    // RTL
-    [CheckboxStyles['is-rtl']]: isRtl(props)
-  })
-}))`
-  ${props => retrieveComponentStyles('forms.check_message', props)};
+export const StyledCheckMessage = styled(StyledMessage).attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})`
+  /* stylelint-disable-next-line */
+  padding-${props => (props.theme.rtl ? 'right' : 'left')}:
+    ${props => math(`${props.theme.space.base} * 6px`)};
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledCheckMessage.propTypes = {
-  validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
+  validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR]),
+  theme: PropTypes.object
 };
 
-export default StyledCheckMessage;
+StyledCheckMessage.defaultProps = {
+  theme: DEFAULT_THEME
+};

@@ -37,6 +37,7 @@ const colorStyles = props => {
   const hoverBorderColor = getColor('primaryHue', SHADE - 200, props.theme);
   const focusBorderColor = getColor('primaryHue', SHADE, props.theme);
   const activeBackgroundColor = getColor('primaryHue', SHADE - 400, props.theme);
+  const activeBorderColor = focusBorderColor;
   const boxShadow = props.theme.shadows.md(rgba(focusBorderColor, 0.35));
   const checkedBorderColor = focusBorderColor;
   const checkedBackgroundColor = checkedBorderColor;
@@ -68,6 +69,7 @@ const colorStyles = props => {
     }
 
     & ~ ${StyledCheckLabel}:active::before {
+      border-color: ${activeBorderColor};
       background-color: ${activeBackgroundColor};
     }
 

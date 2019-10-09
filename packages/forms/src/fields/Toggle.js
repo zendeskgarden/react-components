@@ -11,7 +11,7 @@ import { useKeyboardFocus } from '@zendeskgarden/container-keyboardfocus';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { FieldContext } from './common/Field';
 import useFieldContext from '../utils/useFieldContext';
-import { StyledToggle, StyledToggleInput } from '../styled';
+import { StyledField, StyledToggleInput } from '../styled';
 
 export const ToggleContext = createContext(undefined);
 
@@ -40,7 +40,7 @@ const Toggle = React.forwardRef(({ children, ...props }, ref) => {
   return (
     <FieldContext.Provider value={modifiedFieldCtx}>
       <ToggleContext.Provider value={{ isFocused: keyboardFocused }}>
-        <StyledToggle>
+        <StyledField>
           <StyledToggleInput
             {...modifiedFieldCtx.getInputProps({
               'data-garden-id': 'forms.toggle',
@@ -50,7 +50,7 @@ const Toggle = React.forwardRef(({ children, ...props }, ref) => {
             })}
           />
           {children}
-        </StyledToggle>
+        </StyledField>
       </ToggleContext.Provider>
     </FieldContext.Provider>
   );
