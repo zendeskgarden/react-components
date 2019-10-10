@@ -42,7 +42,7 @@ export * from './radio/StyledRadioMessage';
 /**
  * Toggle styles
  */
-export { default as StyledToggleLabel } from './toggle/StyledToggleLabel';
-export { default as StyledToggleHint } from './toggle/StyledToggleHint';
+export * from './toggle/StyledToggleLabel';
+export * from './toggle/StyledToggleHint';
 export * from './toggle/StyledToggleInput';
-export { default as StyledToggleMessage } from './toggle/StyledToggleMessage';
+export * from './toggle/StyledToggleMessage';

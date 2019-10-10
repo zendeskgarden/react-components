@@ -5,22 +5,30 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import math from 'polished/lib/math/math';
+import PropTypes from 'prop-types';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledCheckLabel } from '../checkboxes/StyledCheckLabel';
 
-const StyledToggleLabel = styled(StyledCheckLabel).attrs(props => ({}))`
-  ${props => retrieveComponentStyles('forms.toggle_label', props)};
+const COMPONENT_ID = 'forms.toggle_label';
+
+export const StyledToggleLabel = styled(StyledCheckLabel).attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})`
+  /* stylelint-disable-next-line */
+  padding-${props => (props.theme.rtl ? 'right' : 'left')}:
+    ${props => math(`${props.theme.space.base} * 12px`)};
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledToggleLabel.propTypes = {
-  regular: PropTypes.bool,
-  checked: PropTypes.bool,
-  hidden: PropTypes.bool,
-  hovered: PropTypes.bool,
-  focused: PropTypes.bool,
-  disabled: PropTypes.bool
+  isRegular: PropTypes.bool,
+  theme: PropTypes.object
 };
 
-export default StyledToggleLabel;
+StyledToggleLabel.defaultProps = {
+  theme: DEFAULT_THEME
+};
