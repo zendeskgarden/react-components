@@ -14,13 +14,13 @@ import { StyledCheckLabel } from './StyledCheckLabel';
 
 const COMPONENT_ID = 'forms.checkbox';
 
-const getCheckmarkSvg = props => {
+const markSvg = props => {
   const size = props.theme.iconSizes.sm;
   const color = props.theme.colors.background;
   let child;
 
   if (props.type === 'radio') {
-    child = `<circle cx="6" cy="6" r="2" fill="${color}"/>`;
+    child = `<circle cx="6" cy="6" r="${size / 6}" fill="${color}"/>`;
   } else {
     child = `<path
       fill="none"
@@ -53,7 +53,7 @@ const colorStyles = props => {
   const checkedActiveBorderColor = getColor('primaryHue', SHADE + 100, props.theme);
   const checkedActiveBackgroundColor = checkedActiveBorderColor;
   const disabledBackgroundColor = getColor('neutralHue', SHADE - 400, props.theme);
-  const backgroundImage = encodeURIComponent(getCheckmarkSvg(props));
+  const backgroundImage = encodeURIComponent(markSvg(props));
 
   return css`
     /* stylelint-disable selector-type-no-unknown */

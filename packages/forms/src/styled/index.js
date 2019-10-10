@@ -36,5 +36,5 @@ export * from './checkboxes/StyledCheckMessage';
  */
 export { default as StyledToggleLabel } from './toggle/StyledToggleLabel';
 export { default as StyledToggleHint } from './toggle/StyledToggleHint';
-export { default as StyledToggleInput } from './toggle/StyledToggleInput';
+export * from './toggle/StyledToggleInput';
 export { default as StyledToggleMessage } from './toggle/StyledToggleMessage';
