@@ -43,8 +43,6 @@ const Toggle = React.forwardRef(({ children, ...props }, ref) => {
         <StyledField>
           <StyledToggleInput
             {...modifiedFieldCtx.getInputProps({
-              'data-garden-id': 'forms.toggle',
-              'data-garden-version': PACKAGE_VERSION,
               ref,
               ...keyboardFocusedProps
             })}

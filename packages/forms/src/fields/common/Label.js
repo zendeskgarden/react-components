@@ -22,7 +22,7 @@ function Label(props) {
   const radioCtx = useRadioContext();
   const toggleCtx = useToggleContext();
 
-  let LabelComponent = StyledLabel;
+  let LabelComponent;
   let focused;
 
   if (checkboxCtx) {
@@ -34,6 +34,8 @@ function Label(props) {
   } else if (toggleCtx) {
     LabelComponent = StyledToggleLabel;
     focused = toggleCtx.isFocused;
+  } else {
+    LabelComponent = StyledLabel;
   }
 
   return React.createElement(

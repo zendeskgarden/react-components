@@ -6,7 +6,6 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import useFieldContext from '../../utils/useFieldContext';
 import useCheckboxContext from '../../utils/useCheckboxContext';
 import useRadioContext from '../../utils/useRadioContext';
