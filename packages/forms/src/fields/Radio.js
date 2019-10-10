@@ -11,7 +11,7 @@ import { useKeyboardFocus } from '@zendeskgarden/container-keyboardfocus';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { FieldContext } from './common/Field';
 import useFieldContext from '../utils/useFieldContext';
-import { StyledField, StyledRadioInput } from '../styled';
+import { StyledField, StyledCheckInput } from '../styled';
 
 export const RadioContext = createContext(undefined);
 
@@ -41,10 +41,11 @@ const Radio = React.forwardRef(({ children, ...props }, ref) => {
     <FieldContext.Provider value={modifiedFieldCtx}>
       <RadioContext.Provider value={{ isFocused: keyboardFocused }}>
         <StyledField>
-          <StyledRadioInput
+          <StyledCheckInput
             {...modifiedFieldCtx.getInputProps({
               'data-garden-id': 'forms.radio',
               'data-garden-version': PACKAGE_VERSION,
+              type: 'radio',
               ref,
               ...keyboardFocusedProps
             })}

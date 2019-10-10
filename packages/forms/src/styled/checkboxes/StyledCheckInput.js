@@ -8,27 +8,36 @@
 import styled, { css } from 'styled-components';
 import math from 'polished/lib/math/math';
 import rgba from 'polished/lib/color/rgba';
-import { getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import PropTypes from 'prop-types';
+import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledCheckLabel } from './StyledCheckLabel';
 
 const COMPONENT_ID = 'forms.checkbox';
 
-const getCheckmarkSvg = (indeterminate, props) => `
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="${props.theme.iconSizes.sm}"
-    height="${props.theme.iconSizes.sm}"
-  >
-    <path
+const getCheckmarkSvg = props => {
+  const size = props.theme.iconSizes.sm;
+  const color = props.theme.colors.background;
+  let child;
+
+  if (props.type === 'radio') {
+    child = `<circle cx="6" cy="6" r="2" fill="${color}"/>`;
+  } else {
+    child = `<path
       fill="none"
-      stroke="${props.theme.colors.background}"
+      stroke="${color}"
       stroke-linecap="round"
       stroke-linejoin="round"
       stroke-width="2"
       d="${props.indeterminate ? 'M3 6h6' : 'M3 6l2 2 4-4'}"
-    />
-  </svg>
-`;
+    />`;
+  }
+
+  return `
+    <svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}">
+      ${child}
+    </svg>
+  `;
+};
 
 const colorStyles = props => {
   const SHADE = 600;
@@ -44,12 +53,7 @@ const colorStyles = props => {
   const checkedActiveBorderColor = getColor('primaryHue', SHADE + 100, props.theme);
   const checkedActiveBackgroundColor = checkedActiveBorderColor;
   const disabledBackgroundColor = getColor('neutralHue', SHADE - 400, props.theme);
-  const checkedBackgroundImage = encodeURIComponent(
-    getCheckmarkSvg(false /* indeterminate */, props)
-  );
-  const indeterminateBackgroundImage = encodeURIComponent(
-    getCheckmarkSvg(false /* indeterminate */, props)
-  );
+  const backgroundImage = encodeURIComponent(getCheckmarkSvg(props));
 
   return css`
     /* stylelint-disable selector-type-no-unknown */
@@ -74,25 +78,36 @@ const colorStyles = props => {
     }
 
     &:checked ~ ${StyledCheckLabel}::before {
-      background-image: url('data:image/svg+xml;charset=utf-8,${checkedBackgroundImage}');
+      background-image: url('data:image/svg+xml;charset=utf-8,${backgroundImage}');
     }
 
-    &:indeterminate ~ ${StyledCheckLabel}::before {
-      background-image: url('data:image/svg+xml;charset=utf-8,${indeterminateBackgroundImage}');
-    }
-
-    /* prettier-ignore */
-    &:checked ~ ${StyledCheckLabel}::before,
-    &:indeterminate ~ ${StyledCheckLabel}::before {
+    &:checked ~ ${StyledCheckLabel}::before {
       border-color: ${checkedBorderColor};
       background-color: ${checkedBackgroundColor};
     }
 
+    /**
+     * The ":indeterminate" pseudo-class targets:
+     *  - <input type="checkbox" /> with the indeterminate property set to true
+     *  - <input type="radio" /> when all with the same name are unchecked
+     * The following ensures indeterminate styling is only applied to checkboxes.
+     */
+
+    &:indeterminate ~ ${StyledCheckLabel}::before {
+      border-color: ${props.type === 'checkbox' && checkedBorderColor};
+      background-color: ${props.type === 'checkbox' && checkedBackgroundColor};
+    }
+
     /* stylelint-disable-next-line selector-max-specificity */
-    &:enabled:checked ~ ${StyledCheckLabel}:active::before,
-    &:enabled:indeterminate ~ ${StyledCheckLabel}:active::before {
+    &:enabled:checked ~ ${StyledCheckLabel}:active::before {
       border-color: ${checkedActiveBorderColor};
       background-color: ${checkedActiveBackgroundColor};
+    }
+
+    /* stylelint-disable-next-line selector-max-specificity */
+    &:enabled:indeterminate ~ ${StyledCheckLabel}:active::before {
+      border-color: ${props.type === 'checkbox' && checkedActiveBorderColor};
+      background-color: ${props.type === 'checkbox' && checkedActiveBackgroundColor};
     }
 
     &[disabled] ~ ${StyledCheckLabel}::before {
@@ -122,8 +137,7 @@ const sizeStyles = props => {
 
 export const StyledCheckInput = styled.input.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  type: 'checkbox'
+  'data-garden-version': PACKAGE_VERSION
 })`
   /* hide <input type="checkbox"> but retain accessiblity */
   position: absolute;
@@ -141,7 +155,7 @@ export const StyledCheckInput = styled.input.attrs({
       background-image .25s ease-in-out,
       color .25s ease-in-out;
     border: ${props => props.theme.borders.sm};
-    border-radius: ${props => props.theme.borderRadii.md};
+    border-radius: ${props => (props.type === 'radio' ? '50%' : props.theme.borderRadii.md)};
     background-repeat: no-repeat;
     background-position: center;
     content: '';
@@ -167,3 +181,13 @@ export const StyledCheckInput = styled.input.attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledCheckInput.propTypes = {
+  type: PropTypes.oneOf(['checkbox', 'radio']),
+  theme: PropTypes.object
+};
+
+StyledCheckInput.defaultProps = {
+  type: 'checkbox',
+  theme: DEFAULT_THEME
+};

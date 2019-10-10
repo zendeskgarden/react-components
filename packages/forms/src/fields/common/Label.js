@@ -23,28 +23,23 @@ function Label(props) {
   const toggleCtx = useToggleContext();
 
   let LabelComponent = StyledLabel;
-  const sharedProps = {
-    'data-garden-version': PACKAGE_VERSION
-  };
+  let focused;
 
   if (checkboxCtx) {
     LabelComponent = StyledCheckLabel;
-    sharedProps['data-garden-id'] = 'forms.checkbox_label';
-    sharedProps.focused = checkboxCtx.isFocused;
+    focused = checkboxCtx.isFocused;
   } else if (radioCtx) {
-    LabelComponent = StyledRadioLabel;
-    sharedProps['data-garden-id'] = 'forms.radio_label';
-    sharedProps.focused = radioCtx.isFocused;
+    LabelComponent = StyledCheckLabel;
+    focused = radioCtx.isFocused;
   } else if (toggleCtx) {
     LabelComponent = StyledToggleLabel;
-    sharedProps['data-garden-id'] = 'forms.toggle_label';
-    sharedProps.focused = toggleCtx.isFocused;
+    focused = toggleCtx.isFocused;
   }
 
   return React.createElement(
     LabelComponent,
     getLabelProps({
-      ...sharedProps,
+      focused,
       ...props
     })
   );
@@ -54,17 +49,7 @@ Label.propTypes = {
   /** Applied when used with the `Radio`, `Toggle`, and `Checkbox` components. */
   regular: PropTypes.bool,
   /** Applied when used with the `Radio`, `Toggle`, and `Checkbox` components. */
-  checked: PropTypes.bool,
-  /** Applied when used with the `Radio`, `Toggle`, and `Checkbox` components. */
-  hidden: PropTypes.bool,
-  /** Applied when used with the `Radio`, `Toggle`, and `Checkbox` components. */
-  indeterminate: PropTypes.bool,
-  /** Applied when used with the `Radio`, `Toggle`, and `Checkbox` components. */
-  hovered: PropTypes.bool,
-  /** Applied when used with the `Radio`, `Toggle`, and `Checkbox` components. */
-  focused: PropTypes.bool,
-  /** Applied when used with the `Radio`, `Toggle`, and `Checkbox` components. */
-  disabled: PropTypes.bool
+  hidden: PropTypes.bool
 };
 
 export default Label;

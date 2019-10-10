@@ -32,14 +32,6 @@ export * from './checkboxes/StyledCheckInput';
 export * from './checkboxes/StyledCheckMessage';
 
 /**
- * Radio styles
- */
-export { default as StyledRadioLabel } from './radio/StyledRadioLabel';
-export { default as StyledRadioHint } from './radio/StyledRadioHint';
-export { default as StyledRadioInput } from './radio/StyledRadioInput';
-export { default as StyledRadioMessage } from './radio/StyledRadioMessage';
-
-/**
  * Toggle styles
  */
 export { default as StyledToggleLabel } from './toggle/StyledToggleLabel';

@@ -11,7 +11,7 @@ import useFieldContext from '../../utils/useFieldContext';
 import useCheckboxContext from '../../utils/useCheckboxContext';
 import useRadioContext from '../../utils/useRadioContext';
 import useToggleContext from '../../utils/useToggleContext';
-import { StyledHint, StyledCheckHint, StyledRadioHint, StyledToggleHint } from '../../styled';
+import { StyledHint, StyledCheckHint, StyledToggleHint } from '../../styled';
 
 /**
  * Accepts all `<div>` props.
@@ -22,28 +22,17 @@ function Hint(props) {
   const radioCtx = useRadioContext();
   const toggleCtx = useToggleContext();
 
-  let HintComponent = StyledHint;
-  const commonProps = {
-    'data-garden-version': PACKAGE_VERSION
-  };
+  let HintComponent;
 
-  if (checkboxCtx) {
+  if (checkboxCtx || radioCtx) {
     HintComponent = StyledCheckHint;
-  } else if (radioCtx) {
-    HintComponent = StyledRadioHint;
-    commonProps['data-garden-id'] = 'forms.radio_hint';
   } else if (toggleCtx) {
     HintComponent = StyledToggleHint;
-    commonProps['data-garden-id'] = 'forms.toggle_hint';
+  } else {
+    HintComponent = StyledHint;
   }
 
-  return React.createElement(
-    HintComponent,
-    getHintProps({
-      ...commonProps,
-      ...props
-    })
-  );
+  return React.createElement(HintComponent, getHintProps(props));
 }
 
 Hint.propTypes = {
