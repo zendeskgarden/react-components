@@ -13,6 +13,7 @@ import useToggleContext from '../../utils/useToggleContext';
 import {
   StyledMessage,
   StyledCheckMessage,
+  StyledRadioMessage,
   StyledToggleMessage,
   StyledMessageIcon
 } from '../../styled';
@@ -33,8 +34,10 @@ function Message(props) {
 
   let MessageComponent;
 
-  if (checkboxCtx || radioCtx) {
+  if (checkboxCtx) {
     MessageComponent = StyledCheckMessage;
+  } else if (radioCtx) {
+    MessageComponent = StyledRadioMessage;
   } else if (toggleCtx) {
     MessageComponent = StyledToggleMessage;
   } else {

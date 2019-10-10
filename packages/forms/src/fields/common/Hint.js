@@ -11,7 +11,7 @@ import useFieldContext from '../../utils/useFieldContext';
 import useCheckboxContext from '../../utils/useCheckboxContext';
 import useRadioContext from '../../utils/useRadioContext';
 import useToggleContext from '../../utils/useToggleContext';
-import { StyledHint, StyledCheckHint, StyledToggleHint } from '../../styled';
+import { StyledHint, StyledCheckHint, StyledRadioHint, StyledToggleHint } from '../../styled';
 
 /**
  * Accepts all `<div>` props.
@@ -24,8 +24,10 @@ function Hint(props) {
 
   let HintComponent;
 
-  if (checkboxCtx || radioCtx) {
+  if (checkboxCtx) {
     HintComponent = StyledCheckHint;
+  } else if (radioCtx) {
+    HintComponent = StyledRadioHint;
   } else if (toggleCtx) {
     HintComponent = StyledToggleHint;
   } else {
@@ -34,10 +36,5 @@ function Hint(props) {
 
   return React.createElement(HintComponent, getHintProps(props));
 }
-
-Hint.propTypes = {
-  /** Applies "small" spacing. Only available with `Input` and `Textarea` components. */
-  small: PropTypes.bool
-};
 
 export default Hint;

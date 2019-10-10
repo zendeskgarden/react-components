@@ -43,8 +43,6 @@ const Checkbox = React.forwardRef(({ children, ...props }, ref) => {
         <StyledField>
           <StyledCheckInput
             {...modifiedFieldCtx.getInputProps({
-              'data-garden-id': 'forms.checkbox',
-              'data-garden-version': PACKAGE_VERSION,
               ref,
               ...keyboardFocusedProps
             })}

@@ -6,24 +6,28 @@
  */
 
 import styled from 'styled-components';
+import math from 'polished/lib/math/math';
 import PropTypes from 'prop-types';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledRadioLabel } from '../radio/StyledRadioLabel';
+import { StyledHint } from '../common/StyledHint';
 
-const COMPONENT_ID = 'forms.checkbox_label';
+const COMPONENT_ID = 'forms.radio_hint';
 
-export const StyledCheckLabel = styled(StyledRadioLabel).attrs({
+export const StyledRadioHint = styled(StyledHint).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
+  /* stylelint-disable-next-line */
+  padding-${props => (props.theme.rtl ? 'right' : 'left')}:
+    ${props => math(`${props.theme.space.base} * 6px`)};
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledCheckLabel.propTypes = {
-  isRegular: PropTypes.bool,
+StyledRadioHint.propTypes = {
   theme: PropTypes.object
 };
 
-StyledCheckLabel.defaultProps = {
+StyledRadioHint.defaultProps = {
   theme: DEFAULT_THEME
 };

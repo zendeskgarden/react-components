@@ -29,7 +29,7 @@ function Label(props) {
     LabelComponent = StyledCheckLabel;
     focused = checkboxCtx.isFocused;
   } else if (radioCtx) {
-    LabelComponent = StyledCheckLabel;
+    LabelComponent = StyledRadioLabel;
     focused = radioCtx.isFocused;
   } else if (toggleCtx) {
     LabelComponent = StyledToggleLabel;
