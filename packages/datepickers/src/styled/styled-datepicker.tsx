@@ -13,7 +13,6 @@ import {
   zdFontSizeSm,
   zdFontSizeMd,
   zdFontWeightSemibold,
-  zdFontWeightBold,
   zdLineHeightMd,
   zdColorWhite,
   zdColorBlue600,
@@ -192,7 +191,7 @@ export const StyledDay = styled.div<IStyledDayProps>`
   align-items: center;
   border-radius: 50%;
   font-size: ${props => (props.small ? zdFontSizeSm : zdFontSizeMd)};
-  font-weight: ${props => (props.isToday && !props.isDisabled ? zdFontWeightBold : 'inherit')};
+  font-weight: ${props => (props.isToday && !props.isDisabled ? zdFontWeightSemibold : 'inherit')};
   line-height: ${zdLineHeightMd};
   color: ${retrieveStyledDayColor};
   background-color: ${retrieveBackgroundColor};
