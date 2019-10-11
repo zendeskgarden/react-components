@@ -9,7 +9,7 @@
 
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import { composeEventHandlers, useCombinedRefs } from '@zendeskgarden/container-utilities';
 import useFieldContext from '../../utils/useFieldContext';
 import { StyledTextMediaInput, StyledTextMediaFigure } from '../../styled';
 import FauxInput from './FauxInput';
@@ -20,7 +20,7 @@ import FauxInput from './FauxInput';
 const MediaInput = React.forwardRef(
   ({ wrapperProps = {}, start, end, disabled, ...props }, forwardedRef) => {
     const { getInputProps } = useFieldContext();
-    const inputRef = useRef(undefined);
+    const inputRef = useCombinedRefs(forwardedRef);
 
     const { onClick, ...otherWrapperProps } = wrapperProps;
 
@@ -42,13 +42,7 @@ const MediaInput = React.forwardRef(
           {...getInputProps({
             disabled,
             bare: true,
-            ref: ref => {
-              inputRef.current = ref;
-
-              if (forwardedRef) {
-                forwardedRef(ref);
-              }
-            },
+            ref: inputRef,
             ...props
           })}
         />
