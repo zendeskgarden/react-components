@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@zendeskgarden/container-accordion": "^0.2.0",
+    "@zendeskgarden/container-keyboardfocus": "^0.2.5",
     "@zendeskgarden/container-utilities": "^0.3.0",
     "@zendeskgarden/react-selection": "^6.5.0",
     "classnames": "^2.2.5"

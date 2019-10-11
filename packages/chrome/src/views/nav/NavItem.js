@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
-import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
+import { useKeyboardFocus } from '@zendeskgarden/container-keyboardfocus';
 import ChromeStyles from '@zendeskgarden/css-chrome';
 
 const COMPONENT_ID = 'chrome.nav_item';
@@ -58,22 +58,22 @@ export const StyledNavItem = styled.button.attrs(props => ({
 /**
  * Accepts all `<button>` props
  */
-const NavItem = React.forwardRef(({ logo, brandmark, ...other }, ref) => (
-  <KeyboardFocusContainer>
-    {({ getFocusProps, keyboardFocused }) => (
-      <StyledNavItem
-        {...getFocusProps({
-          tabIndex: logo || brandmark ? -1 : 0,
-          focused: keyboardFocused,
-          logo: logo || brandmark,
-          brandmark,
-          ref,
-          ...other
-        })}
-      />
-    )}
-  </KeyboardFocusContainer>
-));
+const NavItem = React.forwardRef(({ logo, brandmark, ...other }, ref) => {
+  const { getFocusProps, keyboardFocused } = useKeyboardFocus();
+
+  return (
+    <StyledNavItem
+      {...getFocusProps({
+        tabIndex: logo || brandmark ? -1 : 0,
+        focused: keyboardFocused,
+        logo: logo || brandmark,
+        brandmark,
+        ref,
+        ...other
+      })}
+    />
+  );
+});
 
 NavItem.propTypes = {
   /** Applies product-specific color palette */

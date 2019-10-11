@@ -1,5 +1,5 @@
-By default, the `<Button>` component contains an internal `KeyboardFocusContainer`
-wrapper that applies focused styling _ONLY_ on keyboard focus. This can always
+By default, the `<Button>` component contains an internal `useKeyboardFocus`
+hook which applies focused styling _ONLY_ on keyboard focus. This can always
 be overridden by providing the `focus` prop.
 
 ```jsx

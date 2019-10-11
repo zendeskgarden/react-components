@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import ButtonStyles from '@zendeskgarden/css-buttons';
-import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
+import { useKeyboardFocus } from '@zendeskgarden/container-keyboardfocus';
 import { retrieveTheme, withTheme, isRtl } from '@zendeskgarden/react-theming';
 import NewWindowIcon from '@zendeskgarden/svg-icons/src/12/new-window-stroke.svg';
 
@@ -61,25 +61,22 @@ export const StyledNewWindowIcon = styled(NewWindowIcon)`
  */
 const Anchor = React.forwardRef((props, ref) => {
   const { focused, external, children, ...other } = props;
+  const { getFocusProps, keyboardFocused } = useKeyboardFocus();
   const rtl = isRtl(props);
 
   return (
-    <KeyboardFocusContainer>
-      {({ getFocusProps, keyboardFocused }) => (
-        <StyledAnchor
-          {...getFocusProps({
-            ...other,
-            external,
-            ref,
-            dir: rtl ? 'rtl' : undefined,
-            focused: focused || keyboardFocused
-          })}
-        >
-          {children}
-          {external && <StyledNewWindowIcon />}
-        </StyledAnchor>
-      )}
-    </KeyboardFocusContainer>
+    <StyledAnchor
+      {...getFocusProps({
+        ...other,
+        external,
+        ref,
+        dir: rtl ? 'rtl' : undefined,
+        focused: focused || keyboardFocused
+      })}
+    >
+      {children}
+      {external && <StyledNewWindowIcon />}
+    </StyledAnchor>
   );
 });
 

@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
-import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
+import { useKeyboardFocus } from '@zendeskgarden/container-keyboardfocus';
 import ChromeStyles from '@zendeskgarden/css-chrome';
 
 const COMPONENT_ID = 'chrome.header_item';
@@ -60,19 +60,19 @@ export const StyledHeaderItem = styled.button.attrs(props => ({
 /**
  * Accepts all `<button>` props
  */
-const HeaderItem = React.forwardRef(({ focused, ...other }, ref) => (
-  <KeyboardFocusContainer>
-    {({ getFocusProps, keyboardFocused }) => (
-      <StyledHeaderItem
-        {...getFocusProps({
-          ...other,
-          ref,
-          focused: focused || keyboardFocused
-        })}
-      />
-    )}
-  </KeyboardFocusContainer>
-));
+const HeaderItem = React.forwardRef(({ focused, ...other }, ref) => {
+  const { getFocusProps, keyboardFocused } = useKeyboardFocus();
+
+  return (
+    <StyledHeaderItem
+      {...getFocusProps({
+        ...other,
+        ref,
+        focused: focused || keyboardFocused
+      })}
+    />
+  );
+});
 
 HeaderItem.propTypes = {
   /** Horizontally maximize a flex item in the header to take as much space as possible (i.e. breadcrumb container) */

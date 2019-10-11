@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
-import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
+import { useKeyboardFocus } from '@zendeskgarden/container-keyboardfocus';
 import ChromeStyles from '@zendeskgarden/css-chrome';
 
 const COMPONENT_ID = 'chrome.subnav_item';
@@ -31,19 +31,19 @@ export const StyledSubNavItem = styled.button.attrs(props => ({
 /**
  * Accepts all `<button>` props
  */
-const SubNavItem = React.forwardRef((props, ref) => (
-  <KeyboardFocusContainer>
-    {({ getFocusProps, keyboardFocused }) => (
-      <StyledSubNavItem
-        {...getFocusProps({
-          focused: keyboardFocused,
-          ref,
-          ...props
-        })}
-      />
-    )}
-  </KeyboardFocusContainer>
-));
+const SubNavItem = React.forwardRef((props, ref) => {
+  const { getFocusProps, keyboardFocused } = useKeyboardFocus();
+
+  return (
+    <StyledSubNavItem
+      {...getFocusProps({
+        focused: keyboardFocused,
+        ref,
+        ...props
+      })}
+    />
+  );
+});
 
 SubNavItem.propTypes = {
   /** Indicate which item is current in the nav */
