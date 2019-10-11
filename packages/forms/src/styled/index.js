@@ -26,10 +26,10 @@ export * from './text/StyledTextMediaFigure';
 /**
  * Checkbox styles
  */
-export * from './checkboxes/StyledCheckLabel';
-export * from './checkboxes/StyledCheckHint';
-export * from './checkboxes/StyledCheckInput';
-export * from './checkboxes/StyledCheckMessage';
+export * from './checkbox/StyledCheckLabel';
+export * from './checkbox/StyledCheckHint';
+export * from './checkbox/StyledCheckInput';
+export * from './checkbox/StyledCheckMessage';
 
 /**
  * Radio styles

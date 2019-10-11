@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import math from 'polished/lib/math/math';
 import PropTypes from 'prop-types';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledCheckLabel } from '../checkboxes/StyledCheckLabel';
+import { StyledCheckLabel } from '../checkbox/StyledCheckLabel';
 
 const COMPONENT_ID = 'forms.toggle_label';
 

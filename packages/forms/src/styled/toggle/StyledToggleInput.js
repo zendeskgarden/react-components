@@ -8,8 +8,8 @@
 import styled, { css } from 'styled-components';
 import math from 'polished/lib/math/math';
 import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
-import { StyledCheckInput } from '../checkboxes/StyledCheckInput';
-import { StyledCheckLabel } from '../checkboxes/StyledCheckLabel';
+import { StyledCheckInput } from '../checkbox/StyledCheckInput';
+import { StyledCheckLabel } from '../checkbox/StyledCheckLabel';
 
 const COMPONENT_ID = 'forms.checkbox';
 
