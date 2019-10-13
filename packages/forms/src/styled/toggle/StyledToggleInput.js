@@ -32,7 +32,6 @@ const colorStyles = props => {
   const activeBackgroundColor = getColor('neutralHue', SHADE, props.theme);
 
   return css`
-    /* stylelint-disable selector-type-no-unknown */
     & ~ ${StyledCheckLabel}::before {
       background-color: ${backgroundColor};
     }
@@ -45,7 +44,6 @@ const colorStyles = props => {
     & ~ ${StyledCheckLabel}:active::before {
       background-color: ${activeBackgroundColor};
     }
-    /* stylelint-enable selector-type-no-unknown */
   `;
 };
 
@@ -57,7 +55,6 @@ const sizeStyles = props => {
   const width = math(`${props.theme.space.base} * 10px`);
 
   return css`
-    /* stylelint-disable-next-line selector-type-no-unknown */
     & ~ ${StyledCheckLabel}::before {
       background-position: ${backgroundPosition};
       background-size: ${backgroundSize};
@@ -65,7 +62,6 @@ const sizeStyles = props => {
       height: ${height};
     }
 
-    /* stylelint-disable-next-line selector-type-no-unknown */
     &:checked ~ ${StyledCheckLabel}::before {
       background-position: ${checkedBackgroundPosition};
     }
@@ -76,7 +72,6 @@ export const StyledToggleInput = styled(StyledCheckInput).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  /* stylelint-disable-next-line selector-type-no-unknown */
   & ~ ${StyledCheckLabel}::before {
     top: 0;
     /* prettier-ignore */

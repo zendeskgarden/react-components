@@ -6,11 +6,11 @@
  */
 
 import styled, { css } from 'styled-components';
-import PropTypes from 'prop-types';
 import em from 'polished/lib/helpers/em';
 import math from 'polished/lib/math/math';
 import rgba from 'polished/lib/color/rgba';
 import stripUnit from 'polished/lib/helpers/stripUnit';
+import PropTypes from 'prop-types';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import VALIDATION from '../../utils/validation';
 import { StyledTextMediaFigure } from './StyledTextMediaFigure';

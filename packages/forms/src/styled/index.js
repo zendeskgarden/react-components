@@ -50,4 +50,5 @@ export * from './toggle/StyledToggleMessage';
 /**
  * Range styles
  */
+export * from './range/StyledRangeSingleThumbInput';
 export { default as StyledRangeSingleThumb } from './range/StyledRangeSingleThumb';

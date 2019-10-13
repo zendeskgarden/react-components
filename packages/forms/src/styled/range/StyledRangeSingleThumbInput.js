@@ -1,0 +1,228 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import styled, { css } from 'styled-components';
+import math from 'polished/lib/math/math';
+import PropTypes from 'prop-types';
+import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+
+const COMPONENT_ID = 'forms.range_single_thumb';
+
+const thumbStyles = (styles, modifier) => {
+  return `
+    &${modifier || ''}::-moz-range-thumb {
+      ${styles}
+    }
+
+    &${modifier || ''}::-ms-thumb {
+      ${styles}
+    }
+
+    &${modifier || ''}::-webkit-slider-thumb {
+      ${styles}
+    }
+  `;
+};
+
+const trackStyles = (styles, modifier) => {
+  return `
+    &${modifier || ''}::-moz-range-track {
+      ${styles}
+    }
+
+    &${modifier || ''}::-ms-track {
+      ${styles}
+    }
+
+    &${modifier || ''}::-webkit-slider-runnable-track {
+      ${styles}
+    }
+  `;
+};
+
+const trackLowerStyles = styles => {
+  return `
+    &::-moz-range-progress {
+      ${styles}
+    }
+
+    &::-ms-fill-lower {
+      ${styles}
+    }
+  `;
+};
+
+const colorStyles = props => {
+  const SHADE = 600;
+  const thumbBackgroundColor = getColor('primaryHue', SHADE, props.theme);
+  const thumbBorderColor = thumbBackgroundColor;
+  const thumbBoxShadow = props.theme.shadows.lg(
+    math(`${props.theme.space.base} * 1px`),
+    math(`${props.theme.space.base} * 2px`),
+    getColor('neutralHue', SHADE + 200, props.theme, 0.24)
+  );
+  const thumbActiveBackgroundColor = getColor('primaryHue', SHADE + 100, props.theme);
+  const thumbDisabledBackgroundColor = getColor('neutralHue', SHADE - 300, props.theme);
+  const thumbDisabledBorderColor = thumbDisabledBackgroundColor;
+  const thumbFocusBoxShadow = props.theme.shadows.md(
+    getColor('primaryHue', SHADE, props.theme, 0.35)
+  );
+  const trackBackgroundColor = getColor('neutralHue', SHADE - 400, props.theme);
+  const trackLowerBackgroundColor = thumbBackgroundColor;
+  const trackBackgroundImage = `linear-gradient(${trackLowerBackgroundColor}, ${trackLowerBackgroundColor})`;
+  const trackDisabledLowerBackgroundColor = thumbDisabledBackgroundColor;
+  const trackDisabledBackgroundImage = `linear-gradient(${trackDisabledLowerBackgroundColor}, ${trackDisabledLowerBackgroundColor})`;
+
+  return css`
+    ${trackStyles(`
+      background-color: ${trackBackgroundColor};
+      background-image: ${trackBackgroundImage}; /* provide means for styling lower range on WebKit */
+    `)}
+
+    ${thumbStyles(`
+      box-shadow: ${thumbBoxShadow};
+      border-color: ${thumbBorderColor};
+      background-color: ${thumbBackgroundColor};
+    `)}
+
+    ${trackLowerStyles(`
+      background-color: ${trackLowerBackgroundColor};
+    `)}
+
+    ${thumbStyles(
+      `
+        box-shadow: ${thumbFocusBoxShadow};
+      `,
+      ':focus'
+    )}
+
+    ${thumbStyles(
+      `
+        background-color: ${thumbActiveBackgroundColor}
+      `,
+      ':active'
+    )}
+
+    ${trackStyles(
+      `
+        background-image: ${trackDisabledBackgroundImage};
+      `,
+      '[disabled]'
+    )}
+
+    ${thumbStyles(
+      `
+        box-shadow: none;
+        border-color: ${thumbDisabledBorderColor};
+        background-color: ${thumbDisabledBackgroundColor};
+      `,
+      '[disabled]'
+    )}
+
+    ${trackLowerStyles(
+      `
+        background-color: ${trackDisabledLowerBackgroundColor}
+      `,
+      '[disabled'
+    )}
+  `;
+};
+
+const sizeStyles = props => {
+  const thumbSize = math(`${props.theme.space.base} * 5px`);
+  const trackHeight = math(`${props.theme.space.base} * 1.5px`);
+  const trackBorderRadius = trackHeight;
+  const trackMargin = math(`(${thumbSize} - ${trackHeight}) / 2 + ${props.theme.shadowWidths.md}`);
+  const thumbMargin = math(`(${trackHeight} - ${thumbSize}) / 2`);
+
+  return css`
+    ${trackStyles(`
+      margin: ${trackMargin} 0;
+      border-radius: ${trackBorderRadius};
+      height: ${trackHeight};
+    `)};
+
+    ${thumbStyles(`
+      margin: ${thumbMargin} 0; /* reset for IE */
+      width: ${thumbSize};
+      height: ${thumbSize};
+    `)}
+
+    ${trackLowerStyles(`
+      border-top-${props.theme.rtl ? 'right' : 'left'}-radius: ${trackBorderRadius};
+      border-bottom-${props.theme.rtl ? 'right' : 'left'}-radius: ${trackBorderRadius};
+      height: ${trackHeight};
+    `)}
+  `;
+};
+
+export const StyledRangeSingleThumbInput = styled.input.attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION,
+  type: 'range'
+})`
+  appearance: none;
+  direction: ${props => props.theme.rtl && 'rtl'};
+  margin: 0; /* reset for WebKit & Firefox */
+  background-color: inherit;
+  cursor: pointer;
+  padding: 0; /* reset for IE */
+  width: 100%;
+  vertical-align: middle;
+
+  ${props =>
+    trackStyles(`
+      appearance: none;
+      border-color: transparent; /* reset for IE */
+      background-repeat: repeat-y;
+      background-size: ${props.backgroundSize}; /* provide means for styling WebKit lower range */
+      background-position: ${props.theme.rtl ? '100% 100%' : '0% 0%'};
+      width: 99.8%; /* fix for IE which cuts off the upper track's border radius */
+      color: transparent; /* reset for IE */
+      box-sizing: border-box; /* reset for IE */
+    `)}
+
+  ${props => sizeStyles(props)};
+
+  ${props =>
+    thumbStyles(`
+      appearance: none;
+      border: ${props.theme.borders.md};
+      border-radius: 100%;
+      box-sizing: border-box;
+    `)}
+
+  ${props => colorStyles(props)};
+
+  &::-moz-focus-outer {
+    border: 0; /* remove dotted outline from Firefox on focus */
+  }
+
+  &::-ms-tooltip {
+    display: none; /* reset for IE */
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &[disabled] {
+    cursor: default;
+  }
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+`;
+
+StyledRangeSingleThumbInput.propTypes = {
+  backgroundSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  theme: PropTypes.object
+};
+
+StyledRangeSingleThumbInput.defaultProps = {
+  backgroundSize: '0%',
+  theme: DEFAULT_THEME
+};

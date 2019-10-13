@@ -9,7 +9,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { composeEventHandlers, useCombinedRefs } from '@zendeskgarden/container-utilities';
 import useFieldContext from '../utils/useFieldContext';
-import { StyledRangeSingleThumb } from '../styled';
+import { StyledRangeSingleThumbInput } from '../styled';
 
 /**
  * Accepts all `<input [type="range"]>` props.
@@ -42,11 +42,9 @@ const Range = React.forwardRef(({ min, max, step, ...otherProps }, ref) => {
   }, [rangeRef, updateBackgroundWidthFromInput]);
 
   return (
-    <StyledRangeSingleThumb
+    <StyledRangeSingleThumbInput
       {...getInputProps(
         {
-          'data-garden-id': 'forms.range_single_thumb',
-          'data-garden-version': PACKAGE_VERSION,
           ref: rangeRef,
           min,
           max,

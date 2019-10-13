@@ -42,7 +42,6 @@ const colorStyles = props => {
   const backgroundImage = encodeURIComponent(radioSvg(props));
 
   return css`
-    /* stylelint-disable selector-type-no-unknown */
     & ~ ${StyledRadioLabel}::before {
       border-color: ${borderColor};
       background-color: ${props.theme.colors.background};
@@ -53,7 +52,6 @@ const colorStyles = props => {
     }
 
     &:focus ~ ${StyledRadioLabel}::before {
-      outline: none;
       border-color: ${focusBorderColor};
       box-shadow: ${boxShadow};
     }
@@ -82,7 +80,6 @@ const colorStyles = props => {
       border-color: transparent;
       background-color: ${disabledBackgroundColor};
     }
-    /* stylelint-enable selector-type-no-unknown */
   `;
 };
 
@@ -92,7 +89,6 @@ const sizeStyles = props => {
   const top = math(`(${lineHeight} - ${size}) / 2`);
 
   return css`
-    /* stylelint-disable-next-line selector-type-no-unknown */
     & ~ ${StyledRadioLabel}::before {
       top: ${top};
       background-size: ${props.theme.iconSizes.sm};
@@ -112,7 +108,6 @@ export const StyledRadioInput = styled.input.attrs({
   position: absolute;
   clip: rect(1px, 1px, 1px, 1px);
 
-  /* stylelint-disable-next-line selector-type-no-unknown */
   & ~ ${StyledRadioLabel}::before {
     position: absolute;
     ${props => (props.theme.rtl ? 'right' : 'left')}: 0;
@@ -132,7 +127,10 @@ export const StyledRadioInput = styled.input.attrs({
 
   ${props => sizeStyles(props)};
 
-  /* stylelint-disable-next-line selector-type-no-unknown */
+  &:focus ~ ${StyledRadioLabel}::before {
+    outline: none;
+  }
+
   & ~ ${StyledRadioLabel}:active::before {
     /* prettier-ignore */
     transition:

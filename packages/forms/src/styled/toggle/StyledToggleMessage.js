@@ -24,8 +24,8 @@ export const StyledToggleMessage = styled(StyledMessage).attrs({
     ${props => math(`${props.theme.space.base} * 12px`)};
 
   & ${StyledMessageIcon} {
-    ${props => (props.theme.rtl ? 'right' : 'left')}:
-      ${props => math(`${props.theme.space.base} * 10px - ${props.theme.iconSizes.md}`)};
+    ${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
+  math(`${props.theme.space.base} * 10px - ${props.theme.iconSizes.md}`)};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

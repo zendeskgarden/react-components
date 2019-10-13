@@ -41,7 +41,6 @@ const colorStyles = props => {
   const indeterminateActiveBackgroundColor = indeterminateActiveBorderColor;
 
   return css`
-    /* stylelint-disable selector-type-no-unknown */
     &:checked ~ ${StyledCheckLabel}::before {
       background-image: url('data:image/svg+xml;charset=utf-8,${backgroundImage}');
     }
@@ -56,7 +55,6 @@ const colorStyles = props => {
       border-color: ${indeterminateActiveBorderColor};
       background-color: ${indeterminateActiveBackgroundColor};
     }
-    /* stylelint-enable selector-type-no-unknown */
   `;
 };
 
