@@ -7,73 +7,15 @@
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import styled from 'styled-components';
 import debounce from 'lodash.debounce';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
+import { withTheme, isRtl, getDocument } from '@zendeskgarden/react-theming';
 import {
-  retrieveComponentStyles,
-  withTheme,
-  isRtl,
-  getDocument
-} from '@zendeskgarden/react-theming';
-import RangeStyles from '@zendeskgarden/css-forms/dist/range.css';
-
-const SLIDER_COMPONENT_ID = 'ranges.multi_thumb_range.slider';
-const TRACK_COMPONENT_ID = 'ranges.multi_thumb_range.track';
-const RAIL_COMPONENT_ID = 'ranges.multi_thumb_range.rail';
-const THUMB_COMPONENT_ID = 'ranges.multi_thumb_range.thumb';
-
-/**
- * These Styled components are not exported with the other Views due to their logic
- * being more tightly coupled with this specific implemenation.
- */
-const StyledSlider = styled.div.attrs(props => ({
-  'data-garden-id': SLIDER_COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  'data-test-id': 'slider',
-  className: classNames(RangeStyles['c-range__slider'], {
-    [RangeStyles['is-disabled']]: props.isDisabled,
-    [RangeStyles['is-rtl']]: isRtl(props)
-  })
-}))`
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-
-  ${props => retrieveComponentStyles(SLIDER_COMPONENT_ID, props)};
-`;
-
-const StyledTrack = styled.div.attrs({
-  'data-garden-id': TRACK_COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  'data-test-id': 'track',
-  className: RangeStyles['c-range__slider__track']
-})`
-  ${props => retrieveComponentStyles(TRACK_COMPONENT_ID, props)};
-`;
-
-const StyledTrackRail = styled.div.attrs({
-  'data-garden-id': RAIL_COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  'data-test-id': 'rail',
-  className: RangeStyles['c-range__slider__track__rail']
-})`
-  ${props => retrieveComponentStyles(RAIL_COMPONENT_ID, props)};
-`;
-
-const StyledThumb = styled.div.attrs(props => ({
-  'data-garden-id': THUMB_COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  'data-test-id': 'thumb',
-  className: classNames(RangeStyles['c-range__slider__track__rail__thumb'], {
-    [RangeStyles['is-focused']]: props.isFocused
-  })
-}))`
-  ${props => retrieveComponentStyles(THUMB_COMPONENT_ID, props)};
-`;
+  StyledSlider,
+  StyledSliderTrack,
+  StyledSliderTrackRail,
+  StyledSliderThumb
+} from '../styled';
 
 const MultiThumbRange = ({
   min,
@@ -350,12 +292,12 @@ const MultiThumbRange = ({
   const maxThumbStyle = { [positionKey]: `${maxPositionPx}px` };
 
   return (
-    <StyledSlider isDisabled={disabled}>
-      <StyledTrack style={trackStyle}>
-        <StyledTrackRail ref={trackRailRef}>
-          <StyledThumb
+    <StyledSlider disabled={disabled}>
+      <StyledSliderTrack style={trackStyle} disabled={disabled}>
+        <StyledSliderTrackRail ref={trackRailRef}>
+          <StyledSliderThumb
             role="slider"
-            tabIndex={disabled ? -1 : 0}
+            disabled={disabled}
             aria-valuemin={min}
             aria-valuemax={maxValue}
             aria-valuenow={minValue}
@@ -379,9 +321,9 @@ const MultiThumbRange = ({
               minThumbRef.current.focus();
             }}
           />
-          <StyledThumb
+          <StyledSliderThumb
             role="slider"
-            tabIndex={disabled ? -1 : 0}
+            disabled={disabled}
             aria-valuemin={minValue}
             aria-valuemax={max}
             aria-valuenow={maxValue}
@@ -405,8 +347,8 @@ const MultiThumbRange = ({
               maxThumbRef.current.focus();
             }}
           />
-        </StyledTrackRail>
-      </StyledTrack>
+        </StyledSliderTrackRail>
+      </StyledSliderTrack>
     </StyledSlider>
   );
 };

@@ -10,7 +10,7 @@ import math from 'polished/lib/math/math';
 import PropTypes from 'prop-types';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'forms.range_single_thumb';
+const COMPONENT_ID = 'forms.range';
 
 const thumbStyles = (styles, modifier) => {
   return `
@@ -84,8 +84,8 @@ const colorStyles = props => {
     `)}
 
     ${thumbStyles(`
-      box-shadow: ${thumbBoxShadow};
       border-color: ${thumbBorderColor};
+      box-shadow: ${thumbBoxShadow};
       background-color: ${thumbBackgroundColor};
     `)}
 
@@ -116,8 +116,8 @@ const colorStyles = props => {
 
     ${thumbStyles(
       `
-        box-shadow: none;
         border-color: ${thumbDisabledBorderColor};
+        box-shadow: none;
         background-color: ${thumbDisabledBackgroundColor};
       `,
       '[disabled]'
@@ -160,7 +160,7 @@ const sizeStyles = props => {
   `;
 };
 
-export const StyledRangeSingleThumbInput = styled.input.attrs({
+export const StyledRangeInput = styled.input.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   type: 'range'
@@ -217,12 +217,12 @@ export const StyledRangeSingleThumbInput = styled.input.attrs({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledRangeSingleThumbInput.propTypes = {
+StyledRangeInput.propTypes = {
   backgroundSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   theme: PropTypes.object
 };
 
-StyledRangeSingleThumbInput.defaultProps = {
+StyledRangeInput.defaultProps = {
   backgroundSize: '0%',
   theme: DEFAULT_THEME
 };

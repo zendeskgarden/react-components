@@ -9,7 +9,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { composeEventHandlers, useCombinedRefs } from '@zendeskgarden/container-utilities';
 import useFieldContext from '../utils/useFieldContext';
-import { StyledRangeSingleThumbInput } from '../styled';
+import { StyledRangeInput } from '../styled';
 
 /**
  * Accepts all `<input [type="range"]>` props.
@@ -42,7 +42,7 @@ const Range = React.forwardRef(({ min, max, step, ...otherProps }, ref) => {
   }, [rangeRef, updateBackgroundWidthFromInput]);
 
   return (
-    <StyledRangeSingleThumbInput
+    <StyledRangeInput
       {...getInputProps(
         {
           ref: rangeRef,
