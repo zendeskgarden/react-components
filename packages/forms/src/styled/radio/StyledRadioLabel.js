@@ -5,13 +5,28 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import math from 'polished/lib/math/math';
 import PropTypes from 'prop-types';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledLabel } from '../common/StyledLabel';
 
 const COMPONENT_ID = 'forms.radio_label';
+
+const sizeStyles = props => {
+  const size = math(`${props.theme.space.base} * 4px`); /* from StyledRadioInput */
+  const padding = math(`${size} + (${props.theme.space.base} * 2px)`);
+
+  return css`
+    /* stylelint-disable property-no-unknown */
+    padding-${props.theme.rtl ? 'right' : 'left'}: ${padding};
+
+    &[hidden] {
+      padding-${props.theme.rtl ? 'right' : 'left'}: ${size};
+    }
+    /* stylelint-enable property-no-unknown */
+  `;
+};
 
 export const StyledRadioLabel = styled(StyledLabel).attrs({
   'data-garden-id': COMPONENT_ID,
@@ -20,10 +35,15 @@ export const StyledRadioLabel = styled(StyledLabel).attrs({
   display: inline-block; /* required to display input on hidden label */
   position: relative;
   cursor: pointer;
-  /* stylelint-disable-next-line */
-  padding-${props => (props.theme.rtl ? 'right' : 'left')}:
-    ${props => math(`${props.theme.space.base} * 6px`)};
   user-select: none;
+
+  &[hidden] {
+    vertical-align: top;
+    text-indent: -100%;
+    font-size: 0;
+  }
+
+  ${props => sizeStyles(props)};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

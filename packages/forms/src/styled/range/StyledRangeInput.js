@@ -9,6 +9,9 @@ import styled, { css } from 'styled-components';
 import math from 'polished/lib/math/math';
 import PropTypes from 'prop-types';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { StyledHint } from '../common/StyledHint';
+import { StyledLabel } from '../common/StyledLabel';
+import { StyledMessage } from '../common/StyledMessage';
 
 const COMPONENT_ID = 'forms.range';
 
@@ -140,6 +143,16 @@ const sizeStyles = props => {
   const thumbMargin = math(`(${trackHeight} - ${thumbSize}) / 2`);
 
   return css`
+    /* stylelint-disable */
+    ${StyledLabel} + &,
+    ${StyledHint} + &,
+    ${StyledMessage} + &,
+    & + ${StyledHint},
+    & + ${StyledMessage} {
+      margin-top: ${math(`${props.theme.space.base} * ${props.isCompact ? '1px' : '2px'}`)};
+    }
+    /* stylelint-enable */
+
     ${trackStyles(`
       margin: ${trackMargin} 0;
       border-radius: ${trackBorderRadius};
@@ -218,6 +231,7 @@ export const StyledRangeInput = styled.input.attrs({
 `;
 
 StyledRangeInput.propTypes = {
+  isCompact: PropTypes.bool,
   backgroundSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   theme: PropTypes.object
 };

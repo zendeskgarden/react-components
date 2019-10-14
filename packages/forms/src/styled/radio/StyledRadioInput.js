@@ -15,11 +15,10 @@ import { StyledRadioLabel } from './StyledRadioLabel';
 const COMPONENT_ID = 'forms.radio';
 
 const radioSvg = props => {
-  const size = props.theme.iconSizes.sm;
   const color = props.theme.colors.background;
 
   return `
-    <svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}">
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12">
       <circle cx="6" cy="6" r="2" fill="${color}"/>
     </svg>
   `;

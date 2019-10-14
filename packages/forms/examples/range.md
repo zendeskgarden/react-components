@@ -1,9 +1,7 @@
 ```jsx
 const { zdSpacingXs } = require('@zendeskgarden/css-variables');
 
-const StyledHint = styled(Hint)`
-  margin-bottom: ${zdSpacingXs};
-`;
+const StyledHint = styled(Hint)``;
 
 <Field>
   <Label>Default Range</Label>
@@ -17,13 +15,9 @@ const StyledHint = styled(Hint)`
 ```jsx
 const { zdSpacingXs } = require('@zendeskgarden/css-variables');
 
-const StyledHint = styled(Hint)`
-  margin-bottom: ${zdSpacingXs};
-`;
+const StyledHint = styled(Hint)``;
 
-const StyledMessage = styled(Message)`
-  margin-top: ${zdSpacingXs};
-`;
+const StyledMessage = styled(Message)``;
 
 initialState = {
   value: 25

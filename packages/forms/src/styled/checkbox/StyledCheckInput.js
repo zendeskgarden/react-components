@@ -14,18 +14,34 @@ import { StyledCheckLabel } from './StyledCheckLabel';
 const COMPONENT_ID = 'forms.checkbox';
 
 const checkSvg = props => {
-  const size = props.theme.iconSizes.sm;
   const color = props.theme.colors.background;
 
   return `
-    <svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}">
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12">
       <path
         fill="none"
         stroke="${color}"
         stroke-linecap="round"
         stroke-linejoin="round"
         stroke-width="2"
-        d="${props.indeterminate ? 'M3 6h6' : 'M3 6l2 2 4-4'}"
+        d="M3 6l2 2 4-4"
+      />
+    </svg>
+  `;
+};
+
+const dashSvg = props => {
+  const color = props.theme.colors.background;
+
+  return `
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12">
+      <path
+        fill="none"
+        stroke="${color}"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M3 6h6"
       />
     </svg>
   `;
@@ -37,6 +53,7 @@ const colorStyles = props => {
   const backgroundImage = encodeURIComponent(checkSvg(props));
   const indeterminateBorderColor = getColor('primaryHue', SHADE, props.theme);
   const indeterminateBackgroundColor = indeterminateBorderColor;
+  const indeterminateBackgroundImage = encodeURIComponent(dashSvg(props));
   const indeterminateActiveBorderColor = getColor('primaryHue', SHADE + 100, props.theme);
   const indeterminateActiveBackgroundColor = indeterminateActiveBorderColor;
 
@@ -48,6 +65,7 @@ const colorStyles = props => {
     &:indeterminate ~ ${StyledCheckLabel}::before {
       border-color: ${indeterminateBorderColor};
       background-color: ${indeterminateBackgroundColor};
+      background-image: url('data:image/svg+xml;charset=utf-8,${indeterminateBackgroundImage}');
     }
 
     /* stylelint-disable-next-line selector-max-specificity */

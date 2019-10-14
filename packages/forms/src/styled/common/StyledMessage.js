@@ -12,6 +12,7 @@ import PropTypes from 'prop-types';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import VALIDATION from '../../utils/validation';
 import { StyledMessageIcon } from './StyledMessageIcon';
+import { StyledLabel } from './StyledLabel';
 
 const validationStyles = props => {
   const rtl = props.theme.rtl;
@@ -56,6 +57,12 @@ export const StyledMessage = styled.div.attrs({
     position: absolute;
     top: -1px;
     ${props => (props.theme.rtl ? 'right' : 'left')}: 0;
+  }
+
+  /* stylelint-disable-next-line */
+  ${StyledLabel} + & {
+    display: block;
+    margin-top: ${props => math(`${props.theme.space.base} * 1px`)};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

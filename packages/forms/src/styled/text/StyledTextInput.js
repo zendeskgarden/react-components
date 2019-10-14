@@ -92,7 +92,7 @@ const sizeStyles = props => {
   let browseFontSize;
   let swatchHeight;
 
-  if (props.isSmall) {
+  if (props.isCompact) {
     height = math(`${props.theme.space.base} * 8px`);
     paddingHorizontal = math(`${props.theme.space.base} * 3px`);
     paddingVertical = math(`${props.theme.space.base} * 1.5px`);
@@ -145,7 +145,7 @@ const sizeStyles = props => {
     /* stylelint-disable-next-line at-rule-empty-line-before */
     @supports (-ms-ime-align: auto) {
       &[type='color'] {
-        padding: ${props.isSmall ? '0 2px' : '1px 3px'}; /* correct color swatch size for Edge */
+        padding: ${props.isCompact ? '0 2px' : '1px 3px'}; /* correct color swatch size for Edge */
       }
     }
 
@@ -163,9 +163,10 @@ const sizeStyles = props => {
     /* stylelint-disable */
     ${StyledLabel} + &,
     ${StyledHint} + &,
+    ${StyledMessage} + &,
     & + ${StyledHint},
     & + ${StyledMessage} {
-      margin-top: ${math(`${props.theme.space.base} * ${props.isSmall ? '1px' : '2px'}`)};
+      margin-top: ${math(`${props.theme.space.base} * ${props.isCompact ? '1px' : '2px'}`)};
     }
     /* stylelint-enable */
 
@@ -272,7 +273,7 @@ export const StyledTextInput = styled.input.attrs(props => ({
 `;
 
 StyledTextInput.propTypes = {
-  isSmall: PropTypes.bool,
+  isCompact: PropTypes.bool,
   isBare: PropTypes.bool,
   focusInset: PropTypes.bool,
   validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR]),

@@ -7,18 +7,18 @@
 
 import styled, { css } from 'styled-components';
 import math from 'polished/lib/math/math';
-import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import PropTypes from 'prop-types';
+import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledCheckInput } from '../checkbox/StyledCheckInput';
 import { StyledCheckLabel } from '../checkbox/StyledCheckLabel';
 
 const COMPONENT_ID = 'forms.checkbox';
 
 const markSvg = props => {
-  const size = props.theme.iconSizes.md;
   const color = props.theme.colors.background;
 
   return `
-    <svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
       <circle cx="8" cy="8" r="7" fill="${color}"/>
     </svg>
   `;
@@ -90,3 +90,11 @@ export const StyledToggleInput = styled(StyledCheckInput).attrs({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledToggleInput.propTypes = {
+  theme: PropTypes.object
+};
+
+StyledToggleInput.defaultProps = {
+  theme: DEFAULT_THEME
+};

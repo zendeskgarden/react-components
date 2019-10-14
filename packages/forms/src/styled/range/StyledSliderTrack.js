@@ -15,7 +15,7 @@ const COMPONENT_ID = 'forms.slider_track';
 const colorStyles = props => {
   const SHADE = 600;
   const backgroundColor = getColor('neutralHue', SHADE - 400, props.theme);
-  const backgroundImageColor = props.disabled
+  const backgroundImageColor = props.isDisabled
     ? getColor('neutralHue', SHADE - 300, props.theme)
     : getColor('primaryHue', SHADE, props.theme);
 
@@ -57,6 +57,7 @@ export const StyledSliderTrack = styled.div.attrs({
 `;
 
 StyledSliderTrack.propTypes = {
+  isDisabled: PropTypes.bool,
   theme: PropTypes.object
 };
 

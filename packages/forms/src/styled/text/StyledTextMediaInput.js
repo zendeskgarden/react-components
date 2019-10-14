@@ -24,7 +24,7 @@ export const StyledTextMediaInput = styled(StyledTextInput).attrs({
 `;
 
 StyledTextMediaInput.propTypes = {
-  isSmall: PropTypes.bool,
+  isCompact: PropTypes.bool,
   focusInset: PropTypes.bool,
   validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR]),
   theme: PropTypes.object

@@ -9,6 +9,9 @@ import styled from 'styled-components';
 import math from 'polished/lib/math/math';
 import PropTypes from 'prop-types';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { StyledHint } from '../common/StyledHint';
+import { StyledLabel } from '../common/StyledLabel';
+import { StyledMessage } from '../common/StyledMessage';
 
 const COMPONENT_ID = 'forms.slider';
 
@@ -19,15 +22,27 @@ export const StyledSlider = styled.div.attrs({
   display: block;
   position: relative;
   z-index: 0;
-  cursor: ${props => (props.disabled ? 'default' : 'pointer')};
+  cursor: ${props => (props.isDisabled ? 'default' : 'pointer')};
   /* thumb height + focused shadow widths */
   height: ${props =>
     math(`(${props.theme.space.base} * 5px) + (${props.theme.shadowWidths.md} * 2)`)};
+
+  /* stylelint-disable */
+  ${StyledLabel} + &,
+  ${StyledHint} + &,
+  ${StyledMessage} + &,
+  & + ${StyledHint},
+  & + ${StyledMessage} {
+    margin-top: ${props => math(`${props.theme.space.base} * ${props.isCompact ? '1px' : '2px'}`)};
+  }
+  /* stylelint-enable */
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledSlider.propTypes = {
+  isCompact: PropTypes.bool,
+  isDisabled: PropTypes.bool,
   theme: PropTypes.object
 };
 

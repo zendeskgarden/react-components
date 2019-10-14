@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 const sizeStyles = props => {
-  const size = props.isSmall ? props.theme.iconSizes.sm : props.theme.iconSizes.md;
+  const size = props.isCompact ? props.theme.iconSizes.sm : props.theme.iconSizes.md;
 
   return css`
     & svg {
@@ -41,7 +41,7 @@ export const StyledTextMediaFigure = styled(({ children, ...props }) =>
 `;
 
 StyledTextMediaFigure.propTypes = {
-  isSmall: PropTypes.bool,
+  isCompact: PropTypes.bool,
   theme: PropTypes.object
 };
 

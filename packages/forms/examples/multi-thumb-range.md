@@ -1,9 +1,7 @@
 ```jsx
 const { zdSpacingXs } = require('@zendeskgarden/css-variables');
 
-const StyledHint = styled(Hint)`
-  margin-bottom: ${zdSpacingXs};
-`;
+const StyledHint = styled(Hint)``;
 
 initialState = {
   minValue: 0,
@@ -28,9 +26,7 @@ initialState = {
 ```jsx
 const { zdSpacingXs } = require('@zendeskgarden/css-variables');
 
-const StyledHint = styled(Hint)`
-  margin-bottom: ${zdSpacingXs};
-`;
+const StyledHint = styled(Hint)``;
 
 initialState = {
   minValue: 0,
@@ -56,9 +52,7 @@ initialState = {
 ```jsx
 const { zdSpacingXs } = require('@zendeskgarden/css-variables');
 
-const StyledHint = styled(Hint)`
-  margin-bottom: ${zdSpacingXs};
-`;
+const StyledHint = styled(Hint)``;
 
 initialState = {
   minValue: 25,

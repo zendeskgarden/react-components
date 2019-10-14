@@ -26,7 +26,7 @@ export const StyledTextFauxInput = styled(StyledTextInput).attrs({
 `;
 
 StyledTextFauxInput.propTypes = {
-  isSmall: PropTypes.bool,
+  isCompact: PropTypes.bool,
   isBare: PropTypes.bool,
   focusInset: PropTypes.bool,
   mediaLayout: PropTypes.bool,

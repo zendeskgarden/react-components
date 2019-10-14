@@ -25,7 +25,7 @@ export const StyledTextarea = styled(StyledTextInput).attrs({
 `;
 
 StyledTextarea.propTypes = {
-  isSmall: PropTypes.bool,
+  isCompact: PropTypes.bool,
   isBare: PropTypes.bool,
   isResizable: PropTypes.bool,
   focusInset: PropTypes.bool,
