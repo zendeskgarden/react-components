@@ -16,7 +16,6 @@ import { StyledRangeInput } from '../styled';
  * Must be rendered within a `<Field>` component.
  */
 const Range = React.forwardRef(({ min, max, step, ...otherProps }, ref) => {
-  const [isFocused, setIsFocused] = useState(false);
   const [backgroundSize, setBackgroundSize] = useState(0);
   const rangeRef = useCombinedRefs(ref);
   const { getInputProps } = useFieldContext();
@@ -50,14 +49,7 @@ const Range = React.forwardRef(({ min, max, step, ...otherProps }, ref) => {
           max,
           step,
           backgroundSize,
-          focused: isFocused,
           ...otherProps,
-          onFocus: composeEventHandlers(otherProps.onFocus, () => {
-            setIsFocused(true);
-          }),
-          onBlur: composeEventHandlers(otherProps.onBlur, () => {
-            setIsFocused(false);
-          }),
           onChange: composeEventHandlers(otherProps.onChange, event => {
             updateBackgroundWidthFromInput(event.target);
           })
@@ -69,14 +61,10 @@ const Range = React.forwardRef(({ min, max, step, ...otherProps }, ref) => {
 });
 
 Range.propTypes = {
-  defaultValue: PropTypes.number,
-  disabled: PropTypes.bool,
   min: PropTypes.number,
   max: PropTypes.number,
   step: PropTypes.number,
-  onChange: PropTypes.func,
-  focused: PropTypes.bool,
-  hovered: PropTypes.bool
+  onChange: PropTypes.func
 };
 
 Range.defaultProps = {

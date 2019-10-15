@@ -36,14 +36,11 @@ const Textarea = React.forwardRef((props, ref) => {
 });
 
 Textarea.propTypes = {
-  small: PropTypes.bool,
-  bare: PropTypes.bool,
-  disabled: PropTypes.bool,
-  focused: PropTypes.bool,
+  isCompact: PropTypes.bool,
+  isBare: PropTypes.bool,
+  isResizable: PropTypes.bool,
   /** Applies inset `box-shadow` styling on focus */
   focusInset: PropTypes.bool,
-  hovered: PropTypes.bool,
-  resizable: PropTypes.bool,
   validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
 };
 

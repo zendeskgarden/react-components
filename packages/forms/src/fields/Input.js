@@ -37,22 +37,11 @@ const Input = React.forwardRef((props, ref) => {
 });
 
 Input.propTypes = {
-  /** Allows flush spacing of Tab elements */
-  tagLayout: PropTypes.bool,
-  /** Applies flex layout to support MediaFigure components */
-  mediaLayout: PropTypes.bool,
-  small: PropTypes.bool,
-  /** Applies select styling */
-  select: PropTypes.bool,
+  isCompact: PropTypes.bool,
   /** Removes all borders and styling */
-  bare: PropTypes.bool,
-  disabled: PropTypes.bool,
-  focused: PropTypes.bool,
+  isBare: PropTypes.bool,
   /** Applies inset `box-shadow` styling on focus */
   focusInset: PropTypes.bool,
-  hovered: PropTypes.bool,
-  /** Displays select open state */
-  open: PropTypes.bool,
   validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
 };
 

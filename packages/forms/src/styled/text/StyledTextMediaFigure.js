@@ -14,16 +14,15 @@ const sizeStyles = props => {
   const size = props.isCompact ? props.theme.iconSizes.sm : props.theme.iconSizes.md;
 
   return css`
-    & svg {
-      width: ${size};
-      height: ${size};
-    }
+    width: ${size};
+    height: ${size};
   `;
 };
 
 const COMPONENT_ID = 'forms.media_figure';
 
-export const StyledTextMediaFigure = styled(({ children, ...props }) =>
+/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+export const StyledTextMediaFigure = styled(({ children, isCompact, ...props }) =>
   React.cloneElement(Children.only(children), props)
 ).attrs({
   'data-garden-id': COMPONENT_ID,
@@ -32,10 +31,6 @@ export const StyledTextMediaFigure = styled(({ children, ...props }) =>
   color: ${props => getColor('neutralHue', 400, props.theme)};
 
   ${props => sizeStyles(props)}
-
-  & svg {
-    vertical-align: middle;
-  }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

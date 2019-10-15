@@ -23,17 +23,13 @@ function Label(props) {
   const toggleCtx = useToggleContext();
 
   let LabelComponent;
-  let focused;
 
   if (checkboxCtx) {
     LabelComponent = StyledCheckLabel;
-    focused = checkboxCtx.isFocused;
   } else if (radioCtx) {
     LabelComponent = StyledRadioLabel;
-    focused = radioCtx.isFocused;
   } else if (toggleCtx) {
     LabelComponent = StyledToggleLabel;
-    focused = toggleCtx.isFocused;
   } else {
     LabelComponent = StyledLabel;
   }
@@ -41,17 +37,14 @@ function Label(props) {
   return React.createElement(
     LabelComponent,
     getLabelProps({
-      focused,
       ...props
     })
   );
 }
 
 Label.propTypes = {
-  /** Applied when used with the `Radio`, `Toggle`, and `Checkbox` components. */
-  regular: PropTypes.bool,
-  /** Applied when used with the `Radio`, `Toggle`, and `Checkbox` components. */
-  hidden: PropTypes.bool
+  /* style using regular font weight */
+  isRegular: PropTypes.bool
 };
 
 export default Label;

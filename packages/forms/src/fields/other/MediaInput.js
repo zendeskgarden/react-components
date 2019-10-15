@@ -5,8 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-/* eslint-disable react/prop-types */
-
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
@@ -14,15 +12,21 @@ import useFieldContext from '../../utils/useFieldContext';
 import { StyledTextMediaInput, StyledTextMediaFigure } from '../../styled';
 import FauxInput from './FauxInput';
 
+const VALIDATION = {
+  SUCCESS: 'success',
+  WARNING: 'warning',
+  ERROR: 'error'
+};
+
 /**
  * Accepts all `<input />` props.
  */
 const MediaInput = React.forwardRef(
-  ({ wrapperProps = {}, start, end, disabled, isSmall, ...props }, forwardedRef) => {
+  ({ start, end, disabled, isCompact, ...props }, forwardedRef) => {
     const { getInputProps } = useFieldContext();
     const inputRef = useRef(undefined);
 
-    const { onClick, ...otherWrapperProps } = wrapperProps;
+    const { onClick, ...other } = props;
 
     const onFauxInputClickHandler = composeEventHandlers(onClick, () => {
       inputRef.current && inputRef.current.focus();
@@ -30,18 +34,18 @@ const MediaInput = React.forwardRef(
 
     return (
       <FauxInput
+        tabIndex={null}
         onClick={onFauxInputClickHandler}
         disabled={disabled}
-        isSmall={isSmall}
+        isCompact={isCompact}
         mediaLayout
-        {...otherWrapperProps}
+        {...other}
       >
-        {start && <StyledTextMediaFigure isSmall={isSmall}>{start}</StyledTextMediaFigure>}
+        {start && <StyledTextMediaFigure isCompact={isCompact}>{start}</StyledTextMediaFigure>}
         <StyledTextMediaInput
           {...getInputProps({
             disabled,
-            isSmall,
-            bare: true,
+            isCompact,
             ref: ref => {
               inputRef.current = ref;
 
@@ -52,19 +56,26 @@ const MediaInput = React.forwardRef(
             ...props
           })}
         />
-        {end && <StyledTextMediaFigure isSmall={isSmall}>{end}</StyledTextMediaFigure>}
+        {end && <StyledTextMediaFigure isCompact={isCompact}>{end}</StyledTextMediaFigure>}
       </FauxInput>
     );
   }
 );
 
 MediaInput.propTypes = {
-  /** Applied to the wrapping `<div>` element. Accepts all props of `FauxInput`. */
-  wrapperProps: PropTypes.object,
+  isCompact: PropTypes.bool,
+  /** Removes all borders and styling */
+  isBare: PropTypes.bool,
+  disabled: PropTypes.bool,
+  /** Applies inset `box-shadow` styling on focus */
+  focusInset: PropTypes.bool,
   /** The slot for "start" icons and content */
   start: PropTypes.node,
   /** The slot for "end" icons and content */
-  end: PropTypes.node
+  end: PropTypes.node,
+  validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR]),
+  /** @ignore */
+  onClick: PropTypes.func
 };
 
 export default MediaInput;

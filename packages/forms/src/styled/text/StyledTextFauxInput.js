@@ -13,14 +13,16 @@ import { StyledTextInput } from './StyledTextInput';
 
 const COMPONENT_ID = 'forms.faux_input';
 
-export const StyledTextFauxInput = styled(StyledTextInput).attrs({
+export const StyledTextFauxInput = styled(StyledTextInput).attrs(props => ({
   as: 'div',
+  tabIndex: props.disabled ? null : 0,
+  'aria-disabled': props.disabled,
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+}))`
   display: ${props => props.mediaLayout && 'flex'};
   align-items: ${props => props.mediaLayout && 'baseline'};
-  cursor: ${props => props.mediaLayout && 'text'};
+  cursor: ${props => (props.mediaLayout ? 'text' : 'default')};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
