@@ -15,13 +15,16 @@ const COMPONENT_ID = 'forms.slider_track';
 const colorStyles = props => {
   const SHADE = 600;
   const backgroundColor = getColor('neutralHue', SHADE - 400, props.theme);
-  const backgroundImageColor = props.isDisabled
-    ? getColor('neutralHue', SHADE - 300, props.theme)
-    : getColor('primaryHue', SHADE, props.theme);
+  const backgroundImageColor = getColor('primaryHue', SHADE, props.theme);
+  const disabledBackgroundColor = getColor('neutralHue', SHADE - 300, props.theme);
 
   return css`
     background-color: ${backgroundColor};
     background-image: linear-gradient(${backgroundImageColor}, ${backgroundImageColor});
+
+    &[aria-disabled] {
+      background-image: linear-gradient(${disabledBackgroundColor}, ${disabledBackgroundColor});
+    }
   `;
 };
 
@@ -57,7 +60,6 @@ export const StyledSliderTrack = styled.div.attrs({
 `;
 
 StyledSliderTrack.propTypes = {
-  isDisabled: PropTypes.bool,
   theme: PropTypes.object
 };
 

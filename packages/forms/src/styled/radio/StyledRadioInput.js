@@ -75,7 +75,7 @@ const colorStyles = props => {
       background-color: ${checkedActiveBackgroundColor};
     }
 
-    &[disabled] ~ ${StyledRadioLabel}::before {
+    &:disabled ~ ${StyledRadioLabel}::before {
       border-color: transparent;
       background-color: ${disabledBackgroundColor};
     }
@@ -141,7 +141,7 @@ export const StyledRadioInput = styled.input.attrs({
 
   ${props => colorStyles(props)};
 
-  &[disabled] ~ ${StyledRadioLabel} {
+  &:disabled ~ ${StyledRadioLabel} {
     cursor: default;
   }
 

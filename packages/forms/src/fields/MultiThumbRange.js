@@ -292,8 +292,8 @@ const MultiThumbRange = ({
   const maxThumbStyle = { [positionKey]: `${maxPositionPx}px` };
 
   return (
-    <StyledSlider isDisabled={disabled}>
-      <StyledSliderTrack style={trackStyle} isDisabled={disabled}>
+    <StyledSlider aria-disabled={disabled}>
+      <StyledSliderTrack style={trackStyle} aria-disabled={disabled}>
         <StyledSliderTrackRail ref={trackRailRef}>
           <StyledSliderThumb
             role="slider"

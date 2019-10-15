@@ -22,10 +22,14 @@ export const StyledSlider = styled.div.attrs({
   display: block;
   position: relative;
   z-index: 0;
-  cursor: ${props => (props.isDisabled ? 'default' : 'pointer')};
+  cursor: pointer;
   /* thumb height + focused shadow widths */
   height: ${props =>
     math(`(${props.theme.space.base} * 5px) + (${props.theme.shadowWidths.md} * 2)`)};
+
+  &[aria-disabled] {
+    cursor: default;
+  }
 
   /* stylelint-disable */
   ${StyledLabel} + &,
@@ -42,7 +46,6 @@ export const StyledSlider = styled.div.attrs({
 
 StyledSlider.propTypes = {
   isCompact: PropTypes.bool,
-  isDisabled: PropTypes.bool,
   theme: PropTypes.object
 };
 

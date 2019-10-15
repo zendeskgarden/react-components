@@ -114,7 +114,7 @@ const colorStyles = props => {
       `
         background-image: ${trackDisabledBackgroundImage};
       `,
-      '[disabled]'
+      ':disabled'
     )}
 
     ${thumbStyles(
@@ -123,14 +123,14 @@ const colorStyles = props => {
         box-shadow: none;
         background-color: ${thumbDisabledBackgroundColor};
       `,
-      '[disabled]'
+      ':disabled'
     )}
 
     ${trackLowerStyles(
       `
         background-color: ${trackDisabledLowerBackgroundColor}
       `,
-      '[disabled'
+      ':disabled'
     )}
   `;
 };
@@ -223,7 +223,7 @@ export const StyledRangeInput = styled.input.attrs({
     outline: none;
   }
 
-  &[disabled] {
+  &:disabled {
     cursor: default;
   }
 

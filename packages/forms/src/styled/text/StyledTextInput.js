@@ -76,7 +76,9 @@ const colorStyles = props => {
       box-shadow: ${!props.isBare && boxShadow};
     }
 
-    &[disabled] {
+    &:disabled,
+    /* apply to faux input */
+    &[aria-disabled] {
       border-color: ${disabledBorderColor};
       background-color: ${!props.isBare && disabledBackgroundColor};
       color: ${disabledForegroundColor};
@@ -265,7 +267,7 @@ export const StyledTextInput = styled.input.attrs(props => ({
   /* Color (default and validation) styling */
   ${props => colorStyles(props)};
 
-  &[disabled] {
+  &:disabled {
     cursor: default;
   }
 

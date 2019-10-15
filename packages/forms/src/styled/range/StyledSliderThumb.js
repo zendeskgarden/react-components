@@ -39,7 +39,7 @@ const colorStyles = props => {
       background-color: ${activeBackgroundColor};
     }
 
-    &[disabled] {
+    &:disabled {
       border-color: ${disabledBorderColor};
       box-shadow: none;
       background-color: ${disabledBackgroundColor};
