@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useContext } from 'react';
-import { RadioContext } from '../fields/Radio';
+import { createContext, useContext } from 'react';
+
+export const RadioContext = createContext(undefined);
 
 /**
  * Retrieve Radio component context

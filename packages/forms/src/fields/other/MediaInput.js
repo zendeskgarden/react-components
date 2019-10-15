@@ -11,12 +11,7 @@ import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import useFieldContext from '../../utils/useFieldContext';
 import { StyledTextMediaInput, StyledTextMediaFigure } from '../../styled';
 import FauxInput from './FauxInput';
-
-const VALIDATION = {
-  SUCCESS: 'success',
-  WARNING: 'warning',
-  ERROR: 'error'
-};
+import VALIDATION from '../../utils/validation';
 
 /**
  * Accepts all `<input />` props.

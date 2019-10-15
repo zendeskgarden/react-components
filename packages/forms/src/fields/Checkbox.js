@@ -5,15 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { createContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useKeyboardFocus } from '@zendeskgarden/container-keyboardfocus';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { FieldContext } from './common/Field';
 import useFieldContext from '../utils/useFieldContext';
+import { CheckboxContext } from '../utils/useCheckboxContext';
 import { StyledField, StyledCheckInput } from '../styled';
-
-export const CheckboxContext = createContext(undefined);
 
 /**
  * Accepts all `<input type="checkbox" />` props

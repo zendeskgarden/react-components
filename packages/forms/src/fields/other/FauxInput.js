@@ -9,12 +9,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { StyledTextFauxInput } from '../../styled';
-
-const VALIDATION = {
-  SUCCESS: 'success',
-  WARNING: 'warning',
-  ERROR: 'error'
-};
+import VALIDATION from '../../utils/validation';
 
 /**
  * Provides input styling for use in non-input scenarios.

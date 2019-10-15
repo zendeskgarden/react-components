@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useContext } from 'react';
-import { ToggleContext } from '../fields/Toggle';
+import { createContext, useContext } from 'react';
+
+export const ToggleContext = createContext(undefined);
 
 /**
  * Retrieve Toggle component context

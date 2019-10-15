@@ -9,12 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import useFieldContext from '../utils/useFieldContext';
 import { StyledTextarea } from '../styled';
-
-const VALIDATION = {
-  SUCCESS: 'success',
-  WARNING: 'warning',
-  ERROR: 'error'
-};
+import VALIDATION from '../utils/validation';
 
 /**
  * Accepts all `<textarea />` props
