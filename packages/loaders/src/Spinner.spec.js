@@ -6,24 +6,16 @@
  */
 
 import React from 'react';
-import { render, act } from 'garden-test-utils';
-import mockDate from 'mockdate';
+import { render } from 'garden-test-utils';
 import Spinner from './Spinner';
 
 jest.useFakeTimers();
-
-const DEFAULT_DATE = new Date(2019, 1, 5, 1, 1, 1);
 
 describe('Spinner', () => {
   beforeEach(() => {
     clearTimeout.mockClear();
     global.cancelAnimationFrame = jest.fn();
     global.requestAnimationFrame = jest.fn();
-    mockDate.set(DEFAULT_DATE);
-  });
-
-  afterEach(() => {
-    mockDate.reset();
   });
 
   describe('Loading delay', () => {
@@ -36,9 +28,7 @@ describe('Spinner', () => {
     it('shows loader after initial delay', () => {
       const { queryByTestId } = render(<Spinner data-test-id="spinner" />);
 
-      act(() => {
-        jest.runOnlyPendingTimers();
-      });
+      jest.runOnlyPendingTimers();
 
       expect(queryByTestId('spinner')).not.toBeNull();
     });
@@ -48,9 +38,7 @@ describe('Spinner', () => {
     it('updates animation after request animation frame', () => {
       const { container } = render(<Spinner data-test-id="spinner" />);
 
-      act(() => {
-        jest.runOnlyPendingTimers();
-      });
+      jest.runOnlyPendingTimers();
 
       expect(container.firstChild.firstChild).toMatchInlineSnapshot(
         `
@@ -69,16 +57,13 @@ describe('Spinner', () => {
 `
       );
 
-      act(() => {
-        // move time forward 1 second
-        mockDate.set(DEFAULT_DATE.setSeconds(2));
-        requestAnimationFrame.mock.calls[0][0]();
-      });
+      // Requestion animation with 1000 MS delay
+      requestAnimationFrame.mock.calls[0][0](1000);
 
       expect(container.firstChild.firstChild).toMatchInlineSnapshot(
         `
 <circle
-  class="styled-elements__SpinnerCircle-sc-19dhio6-4 glGYSu"
+  class="styled-elements__SpinnerCircle-sc-19dhio6-1 jXGDit"
   cx="40"
   cy="40"
   fill="none"

@@ -18,6 +18,10 @@ module.exports = {
     {
       name: 'Components',
       components: '../../packages/loaders/src/[A-Z]*.js'
+    },
+    {
+      name: 'Containers',
+      components: '../../packages/loaders/src/containers/[A-Z]*.js'
     }
   ]
 };

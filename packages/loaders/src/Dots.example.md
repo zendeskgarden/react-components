@@ -82,7 +82,7 @@ const Color = ({ name, color, includeSample }) =>
 <State
   initialState={{
     size: 48,
-    duration: 1250,
+    velocity: 0.05,
     color: colors[0]
   }}
 >
@@ -105,13 +105,13 @@ const Color = ({ name, color, includeSample }) =>
         </Col>
         <Col md={6}>
           <FormField>
-            <Label>Duration {state.duration}ms</Label>
+            <Label>Velocity {state.velocity}</Label>
             <Range
-              value={state.duration}
-              onChange={event => setState({ duration: parseFloat(event.target.value) })}
-              min={625}
-              max={2500}
-              step={625}
+              value={state.velocity}
+              onChange={event => setState({ velocity: parseFloat(event.target.value) })}
+              min={-0.5}
+              max={1}
+              step={0.05}
             />
           </FormField>
         </Col>
@@ -139,7 +139,7 @@ const Color = ({ name, color, includeSample }) =>
       </SpacedRow>
       <SpacedRow>
         <Col style={{ textAlign: 'center' }}>
-          <Dots size={`${state.size}px`} duration={state.duration} color={state.color.value} />
+          <Dots size={`${state.size}px`} velocity={state.velocity} color={state.color.value} />
         </Col>
       </SpacedRow>
     </Grid>
