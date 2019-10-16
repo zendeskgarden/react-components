@@ -20,6 +20,8 @@ import {
 const MultiThumbRange = ({
   min,
   max,
+  minName,
+  maxName,
   minValue,
   maxValue,
   disabled,
@@ -29,7 +31,7 @@ const MultiThumbRange = ({
 }) => {
   const [isMinThumbFocused, setIsMinThumbFocused] = useState(false);
   const [isMaxThumbFocused, setIsMaxThumbFocused] = useState(false);
-  const [railWidthPx, setRailWidthPx] = useState(0);
+  const [railWidth, setRailWidth] = useState(0);
   const [isMousedDown, setIsMousedDown] = useState(false);
   const trackRailRef = useRef();
   const minThumbRef = useRef();
@@ -43,7 +45,7 @@ const MultiThumbRange = ({
    */
   const onWindowResize = useCallback(
     debounce(() => {
-      setRailWidthPx(trackRailRef.current.getBoundingClientRect().width);
+      setRailWidth(trackRailRef.current.getBoundingClientRect().width);
     }, 100),
     []
   );
@@ -59,7 +61,7 @@ const MultiThumbRange = ({
   }, [onWindowResize]);
 
   const calculateMinPosition = useCallback(
-    minDistancePx => {
+    minDistance => {
       let boundedMinValue = minValue;
 
       if (boundedMinValue < min) {
@@ -70,13 +72,13 @@ const MultiThumbRange = ({
         boundedMinValue = max;
       }
 
-      return ((boundedMinValue - min) / (max - min)) * (railWidthPx - minDistancePx);
+      return ((boundedMinValue - min) / (max - min)) * (railWidth - minDistance);
     },
-    [max, maxValue, min, minValue, railWidthPx]
+    [max, maxValue, min, minValue, railWidth]
   );
 
   const calculateMaxPosition = useCallback(
-    minDistancePx => {
+    minDistance => {
       let boundedMaxValue = maxValue;
 
       if (boundedMaxValue > max) {
@@ -87,11 +89,9 @@ const MultiThumbRange = ({
         boundedMaxValue = min;
       }
 
-      return (
-        ((boundedMaxValue - min) / (max - min)) * (railWidthPx - minDistancePx) + minDistancePx
-      );
+      return ((boundedMaxValue - min) / (max - min)) * (railWidth - minDistance) + minDistance;
     },
-    [max, maxValue, min, minValue, railWidthPx]
+    [max, maxValue, min, minValue, railWidth]
   );
 
   /**
@@ -276,18 +276,18 @@ const MultiThumbRange = ({
   };
 
   // This may be increased to enforce separation between thumbs
-  const MIN_DISTANCE_PX = 0;
+  const MIN_DISTANCE = 0;
 
-  const minPositionPx = calculateMinPosition(MIN_DISTANCE_PX);
-  const maxPositionPx = calculateMaxPosition(MIN_DISTANCE_PX);
-  const sliderBackgroundSizePx = Math.abs(maxPositionPx) - Math.abs(minPositionPx);
+  const minPosition = calculateMinPosition(MIN_DISTANCE);
+  const maxPosition = calculateMaxPosition(MIN_DISTANCE);
+  const sliderBackgroundSize = Math.abs(maxPosition) - Math.abs(minPosition);
 
   return (
     <StyledSlider aria-disabled={disabled}>
       <StyledSliderTrack
         aria-disabled={disabled}
-        backgroundSize={sliderBackgroundSizePx}
-        backgroundPosition={rtl ? railWidthPx - maxPositionPx : minPositionPx}
+        backgroundSize={sliderBackgroundSize}
+        backgroundPosition={rtl ? railWidth - maxPosition : minPosition}
       >
         <StyledSliderTrackRail ref={trackRailRef}>
           <StyledSliderThumb
@@ -297,10 +297,12 @@ const MultiThumbRange = ({
             aria-valuemax={maxValue}
             aria-valuenow={minValue}
             aria-valuetext={minValue}
+            name={minName}
             value={minValue}
             isFocused={isMinThumbFocused}
-            position={minPositionPx}
+            position={minPosition}
             ref={minThumbRef}
+            onChange={onChange}
             onKeyDown={e => onKeyDown('min')(e)}
             onFocus={() => {
               setIsMinThumbFocused(true);
@@ -324,9 +326,11 @@ const MultiThumbRange = ({
             aria-valuemax={max}
             aria-valuenow={maxValue}
             aria-valuetext={maxValue}
+            name={maxName}
             value={maxValue}
             isFocused={isMaxThumbFocused}
-            position={maxPositionPx}
+            position={maxPosition}
+            onChange={onChange}
             onKeyDown={e => onKeyDown('max')(e)}
             ref={maxThumbRef}
             onFocus={() => {
@@ -354,6 +358,8 @@ MultiThumbRange.propTypes = {
   disabled: PropTypes.bool,
   min: PropTypes.number,
   max: PropTypes.number,
+  minName: PropTypes.string,
+  maxName: PropTypes.string,
   minValue: PropTypes.number,
   maxValue: PropTypes.number,
   step: PropTypes.number,
