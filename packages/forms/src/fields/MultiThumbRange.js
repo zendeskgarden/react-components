@@ -282,18 +282,13 @@ const MultiThumbRange = ({
   const maxPositionPx = calculateMaxPosition(MIN_DISTANCE_PX);
   const sliderBackgroundSizePx = Math.abs(maxPositionPx) - Math.abs(minPositionPx);
 
-  const trackStyle = {
-    backgroundSize: `${sliderBackgroundSizePx}px`,
-    backgroundPosition: `${rtl ? railWidthPx - maxPositionPx : minPositionPx}px`
-  };
-
-  const positionKey = rtl ? 'right' : 'left';
-  const minThumbStyle = { [positionKey]: `${minPositionPx}px` };
-  const maxThumbStyle = { [positionKey]: `${maxPositionPx}px` };
-
   return (
     <StyledSlider aria-disabled={disabled}>
-      <StyledSliderTrack style={trackStyle} aria-disabled={disabled}>
+      <StyledSliderTrack
+        aria-disabled={disabled}
+        backgroundSize={sliderBackgroundSizePx}
+        backgroundPosition={rtl ? railWidthPx - maxPositionPx : minPositionPx}
+      >
         <StyledSliderTrackRail ref={trackRailRef}>
           <StyledSliderThumb
             role="slider"
@@ -302,8 +297,9 @@ const MultiThumbRange = ({
             aria-valuemax={maxValue}
             aria-valuenow={minValue}
             aria-valuetext={minValue}
+            value={minValue}
             isFocused={isMinThumbFocused}
-            style={minThumbStyle}
+            position={minPositionPx}
             ref={minThumbRef}
             onKeyDown={e => onKeyDown('min')(e)}
             onFocus={() => {
@@ -328,8 +324,9 @@ const MultiThumbRange = ({
             aria-valuemax={max}
             aria-valuenow={maxValue}
             aria-valuetext={maxValue}
+            value={maxValue}
             isFocused={isMaxThumbFocused}
-            style={maxThumbStyle}
+            position={maxPositionPx}
             onKeyDown={e => onKeyDown('max')(e)}
             ref={maxThumbRef}
             onFocus={() => {

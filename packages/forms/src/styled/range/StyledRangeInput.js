@@ -149,7 +149,7 @@ const sizeStyles = props => {
     ${StyledMessage} + &,
     & + ${StyledHint},
     & + ${StyledMessage} {
-      margin-top: ${math(`${props.theme.space.base} * ${props.isCompact ? '1px' : '2px'}`)};
+      margin-top: ${math(`${props.theme.space.base} * 2px`)};
     }
     /* stylelint-enable */
 
@@ -231,7 +231,6 @@ export const StyledRangeInput = styled.input.attrs({
 `;
 
 StyledRangeInput.propTypes = {
-  isCompact: PropTypes.bool,
   backgroundSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   theme: PropTypes.object
 };

@@ -65,6 +65,7 @@ export const StyledSliderThumb = styled.input.attrs({
   appearance: none;
   position: absolute;
   top: 50%;
+  ${props => (props.theme.rtl ? 'right' : 'left')}: ${props => math(`${props.position} * 1px`)};
   z-index: 1;
   border: ${props => props.theme.borders.md};
   border-radius: 100%;
@@ -84,6 +85,7 @@ export const StyledSliderThumb = styled.input.attrs({
 `;
 
 StyledSliderThumb.propTypes = {
+  position: PropTypes.number,
   theme: PropTypes.object
 };
 

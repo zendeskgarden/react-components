@@ -37,7 +37,7 @@ export const StyledSlider = styled.div.attrs({
   ${StyledMessage} + &,
   & + ${StyledHint},
   & + ${StyledMessage} {
-    margin-top: ${props => math(`${props.theme.space.base} * ${props.isCompact ? '1px' : '2px'}`)};
+    margin-top: ${props => math(`${props.theme.space.base} * 2px`)};
   }
   /* stylelint-enable */
 
@@ -45,7 +45,6 @@ export const StyledSlider = styled.div.attrs({
 `;
 
 StyledSlider.propTypes = {
-  isCompact: PropTypes.bool,
   theme: PropTypes.object
 };
 

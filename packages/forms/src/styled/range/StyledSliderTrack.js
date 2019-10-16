@@ -30,6 +30,8 @@ const colorStyles = props => {
 
 const sizeStyles = props => {
   const height = math(`${props.theme.space.base} * 1.5px`);
+  const backgroundPosition = math(`${props.backgroundPosition} * 1px`);
+  const backgroundSize = math(`${props.backgroundSize} * 1px`);
   const borderRadius = height;
   const marginTop = math(`${height} / -2`);
   const padding = math(`${props.theme.space.base} * 2.5px`);
@@ -37,6 +39,8 @@ const sizeStyles = props => {
   return css`
     margin-top: ${marginTop};
     border-radius: ${borderRadius};
+    background-position: ${backgroundPosition};
+    background-size: ${backgroundSize};
     padding: 0 ${padding};
   `;
 };
@@ -60,6 +64,8 @@ export const StyledSliderTrack = styled.div.attrs({
 `;
 
 StyledSliderTrack.propTypes = {
+  backgroundSize: PropTypes.number,
+  backgroundPosition: PropTypes.number,
   theme: PropTypes.object
 };
 
