@@ -78,7 +78,7 @@ const {
   zdColorGreen600,
   zdColorRed600
 } = require('@zendeskgarden/css-variables');
-const { Field: FormField, Label, Range } = require('@zendeskgarden/react-forms/src');
+const { RangeField, Label, Range } = require('@zendeskgarden/react-ranges/src');
 const {
   Dropdown,
   Field,
@@ -208,7 +208,7 @@ const Color = ({ name, color, includeSample }) =>
           </Dropdown>
         </Col>
         <Col md={12}>
-          <FormField>
+          <RangeField>
             <Label>Progress {state.progress}%</Label>
             <Range
               value={state.progress}
@@ -217,7 +217,7 @@ const Color = ({ name, color, includeSample }) =>
               max={100}
               step={1}
             />
-          </FormField>
+          </RangeField>
         </Col>
       </SpacedRow>
       <SpacedRow>

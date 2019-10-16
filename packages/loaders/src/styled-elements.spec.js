@@ -7,28 +7,18 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import {
-  DotsOneCircle,
-  DotsTwoCircle,
-  DotsThreeCircle,
-  SpinnerCircle,
-  StyledSVG
-} from './styled-elements';
+import { DotsCircle, SpinnerCircle, StyledSVG } from './styled-elements';
 
 describe('Loader styled-elements', () => {
-  describe('DotsCircles', () => {
-    const cx = [9, 40, 71];
+  describe('DotsCircle', () => {
+    it('applies transform correctly', () => {
+      const { getByTestId } = render(
+        <svg>
+          <DotsCircle transform="2" data-test-id="circle" />
+        </svg>
+      );
 
-    [DotsOneCircle, DotsTwoCircle, DotsThreeCircle].forEach((Circle, index) => {
-      it(`applies correct cx=${cx[index]} coord`, () => {
-        const { getByTestId } = render(
-          <svg>
-            <Circle data-test-id="circle" />
-          </svg>
-        );
-
-        expect(getByTestId('circle')).toHaveAttribute('cx', `${cx[index]}`);
-      });
+      expect(getByTestId('circle')).toHaveAttribute('transform', '2');
     });
   });
 
@@ -54,28 +44,26 @@ describe('Loader styled-elements', () => {
   });
 
   describe('StyledSVG', () => {
-    const props = { 'data-garden-id': 'StyledSVG' };
-
     it('applies font-size if provided', () => {
-      const { container } = render(<StyledSVG fontSize="12px" {...props} />);
+      const { container } = render(<StyledSVG fontSize="12px" />);
 
       expect(container.firstChild).toHaveStyleRule('font-size', '12px');
     });
 
     it('defaults font-size to inherit if not provided', () => {
-      const { container } = render(<StyledSVG {...props} />);
+      const { container } = render(<StyledSVG />);
 
       expect(container.firstChild).toHaveStyleRule('font-size', 'inherit');
     });
 
     it('applies color if provided', () => {
-      const { container } = render(<StyledSVG color="red" {...props} />);
+      const { container } = render(<StyledSVG color="red" />);
 
       expect(container.firstChild).toHaveStyleRule('color', 'red');
     });
 
     it('defaults color to inherit if not provided', () => {
-      const { container } = render(<StyledSVG {...props} />);
+      const { container } = render(<StyledSVG />);
 
       expect(container.firstChild).toHaveStyleRule('color', 'inherit');
     });
@@ -84,7 +72,7 @@ describe('Loader styled-elements', () => {
       const width = '2em';
       const height = '4em';
 
-      const { container } = render(<StyledSVG width={width} height={height} {...props} />);
+      const { container } = render(<StyledSVG width={width} height={height} />);
 
       expect(container.firstChild).toHaveAttribute('width', width);
       expect(container.firstChild).toHaveAttribute('height', height);
