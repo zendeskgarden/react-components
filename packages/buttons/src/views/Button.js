@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import ButtonStyles from '@zendeskgarden/css-buttons';
-import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
+import { useKeyboardFocus } from '@zendeskgarden/container-keyboardfocus';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'buttons.button';
@@ -55,19 +55,19 @@ export const StyledButton = styled.button.attrs(props => ({
 /**
  * Accepts all `<button>` props
  */
-const Button = React.forwardRef(({ focused, ...other }, ref) => (
-  <KeyboardFocusContainer>
-    {({ getFocusProps, keyboardFocused }) => (
-      <StyledButton
-        {...getFocusProps({
-          ref,
-          ...other,
-          focused: focused || keyboardFocused
-        })}
-      />
-    )}
-  </KeyboardFocusContainer>
-));
+const Button = React.forwardRef(({ focused, ...other }, ref) => {
+  const { getFocusProps, keyboardFocused } = useKeyboardFocus();
+
+  return (
+    <StyledButton
+      {...getFocusProps({
+        ref,
+        ...other,
+        focused: focused || keyboardFocused
+      })}
+    />
+  );
+});
 
 Button.propTypes = {
   /** Apply danger styling */
