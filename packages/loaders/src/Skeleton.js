@@ -85,7 +85,6 @@ const StyledSkeleton = styled.div.attrs({
 
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
-/* eslint-enable */
 
 /**
  * Loader used to create Skeleton objects
