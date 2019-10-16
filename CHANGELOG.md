@@ -12,6 +12,14 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v6.9.0 (2019-10-16)
+
+#### :seedling: Internal
+* `buttons`, `chrome`, `forms`
+  * [#489](https://github.com/zendeskgarden/react-components/pull/489) chore(internal): upgrade @zendeskgarden/container-keyboardfocus ([@austin94](https://github.com/austin94))
+* `buttons`, `chrome`
+  * [#482](https://github.com/zendeskgarden/react-components/pull/482) feat(buttons|chrome): upgrade to useKeyboardFocus() hook ([@austin94](https://github.com/austin94))
+
 ## v6.8.1 (2019-10-11)
 
 #### :bug: Bug Fix
