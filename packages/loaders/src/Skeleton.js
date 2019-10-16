@@ -8,7 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes, css } from 'styled-components';
-import { rgba } from 'polished';
+import rgba from 'polished/lib/color/rgba';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import {
   zdColorGrey800,
