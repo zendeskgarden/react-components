@@ -17,7 +17,6 @@ to install.
 
 | Package                                                        | Version                                                             | Dependencies                                                                           |
 | -------------------------------------------------------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| [`@zendeskgarden/react-autocomplete`](packages/autocomplete)   | [![npm version][autocomplete npm version]][autocomplete npm link]   | [![Dependency Status][autocomplete dependency status]][autocomplete dependency link]   |
 | [`@zendeskgarden/react-avatars`](packages/avatars)             | [![npm version][avatars npm version]][avatars npm link]             | [![Dependency Status][avatars dependency status]][avatars dependency link]             |
 | [`@zendeskgarden/react-breadcrumbs`](packages/breadcrumbs)     | [![npm version][breadcrumbs npm version]][breadcrumbs npm link]     | [![Dependency Status][breadcrumbs dependency status]][breadcrumbs dependency link]     |
 | [`@zendeskgarden/react-buttons`](packages/buttons)             | [![npm version][buttons npm version]][buttons npm link]             | [![Dependency Status][buttons dependency status]][buttons dependency link]             |
@@ -30,7 +29,6 @@ to install.
 | [`@zendeskgarden/react-modals`](packages/modals)               | [![npm version][modals npm version]][modals npm link]               | [![Dependency Status][modals dependency status]][modals dependency link]               |
 | [`@zendeskgarden/react-notifications`](packages/notifications) | [![npm version][notifications npm version]][notifications npm link] | [![Dependency Status][notifications dependency status]][notifications dependency link] |
 | [`@zendeskgarden/react-pagination`](packages/pagination)       | [![npm version][pagination npm version]][pagination npm link]       | [![Dependency Status][pagination dependency status]][pagination dependency link]       |
-| [`@zendeskgarden/react-ranges`](packages/ranges)               | [![npm version][ranges npm version]][ranges npm link]               | [![Dependency Status][ranges dependency status]][ranges dependency link]               |
 | [`@zendeskgarden/react-selection`](packages/selection)         | [![npm version][selection npm version]][selection npm link]         | [![Dependency Status][selection dependency status]][selection dependency link]         |
 | [`@zendeskgarden/react-tabs`](packages/tabs)                   | [![npm version][tabs npm version]][tabs npm link]                   | [![Dependency Status][tabs dependency status]][tabs dependency link]                   |
 | [`@zendeskgarden/react-tables`](packages/tables)               | [![npm version][tables npm version]][tables npm link]               | [![Dependency Status][tables dependency status]][tables dependency link]               |
@@ -40,10 +38,6 @@ to install.
 | [`@zendeskgarden/react-typography`](packages/typography)       | [![npm version][typography npm version]][typography npm link]       | [![Dependency Status][typography dependency status]][typography dependency link]       |
 | [`@zendeskgarden/react-utilities`](packages/utilities)         | [![npm version][utilities npm version]][utilities npm link]         | [![Dependency Status][utilities dependency status]][utilities dependency link]         |
 
-[autocomplete npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-autocomplete.svg?style=flat-square
-[autocomplete npm link]: https://www.npmjs.com/package/@zendeskgarden/react-autocomplete
-[autocomplete dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/autocomplete&style=flat-square
-[autocomplete dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/autocomplete
 [avatars npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-avatars.svg?style=flat-square
 [avatars npm link]: https://www.npmjs.com/package/@zendeskgarden/react-avatars
 [avatars dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/avatars&style=flat-square
@@ -92,10 +86,6 @@ to install.
 [pagination npm link]: https://www.npmjs.com/package/@zendeskgarden/react-pagination
 [pagination dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/pagination&style=flat-square
 [pagination dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/pagination
-[ranges npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-ranges.svg?style=flat-square
-[ranges npm link]: https://www.npmjs.com/package/@zendeskgarden/react-ranges
-[ranges dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/ranges&style=flat-square
-[ranges dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/ranges
 [selection npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-selection.svg?style=flat-square
 [selection npm link]: https://www.npmjs.com/package/@zendeskgarden/react-selection
 [selection dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/selection&style=flat-square

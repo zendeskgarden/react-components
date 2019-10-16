@@ -1865,16 +1865,6 @@
     "@zendeskgarden/react-selection" "^6.0.0"
     classnames "^2.2.5"
 
-"@zendeskgarden/react-ranges@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-ranges/-/react-ranges-6.0.0.tgz#46e2ba3d4babc8f97453eb0919c61bcc2005b5fc"
-  integrity sha512-MNpRIsXfYcF6gNtvgZoBKZRXoOXfORm3PkH173EIQuQZBkZBXTwsAjhdO2px90Rth0RjAWMcSz4QifofItfqoA==
-  dependencies:
-    "@zendeskgarden/react-selection" "^6.0.0"
-    "@zendeskgarden/react-utilities" "^6.0.0"
-    classnames "^2.2.5"
-    lodash.debounce "^4.0.8"
-
 "@zendeskgarden/react-selection@^6.0.0":
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/react-selection/-/react-selection-6.0.0.tgz#a2198f0b05e60f1f1f8a021256b5ac9795f515c4"
@@ -6515,11 +6505,6 @@ lodash._reinterpolate@~3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
   integrity sha1-DM8tiRZq8Ds2Y8eWU4t1rG4RTZ0=
-
-lodash.debounce@^4.0.8:
-  version "4.0.8"
-  resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
-  integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
 
 lodash.memoize@^4.1.2:
   version "4.1.2"
