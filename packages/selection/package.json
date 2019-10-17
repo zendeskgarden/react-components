@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "dom-helpers": "^3.3.1"
+    "dom-helpers": "^5.0.0"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^6.0.0",
