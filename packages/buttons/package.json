@@ -21,7 +21,6 @@
   "dependencies": {
     "@zendeskgarden/container-buttongroup": "^0.2.0",
     "@zendeskgarden/container-keyboardfocus": "^0.2.6",
-    "@zendeskgarden/react-selection": "^6.5.0",
     "@zendeskgarden/react-utilities": "^6.7.1",
     "classnames": "^2.2.5",
     "dom-helpers": "^3.3.1"
