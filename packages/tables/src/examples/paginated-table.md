@@ -73,7 +73,7 @@ const getPagedData = (data, currentPage, pageSize) => {
   <Pagination
     totalPages={Math.floor(data.length / state.pageSize)}
     currentPage={state.currentPage}
-    onStateChange={setState}
+    onChange={currentPage => setState({ currentPage })}
   />
 </div>;
 ```

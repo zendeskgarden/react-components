@@ -19,12 +19,12 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendeskgarden/container-tabs": "^0.2.5",
+    "@zendeskgarden/container-tabs": "^0.3.1",
     "@zendeskgarden/container-utilities": "^0.3.0",
     "classnames": "^2.2.5"
   },
   "peerDependencies": {
-    "@zendeskgarden/react-theming": "^6.0.0",
+    "@zendeskgarden/react-theming": "^6.0.0 || ^7.0.0",
     "prop-types": "^15.6.1",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
