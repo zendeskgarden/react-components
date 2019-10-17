@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { default as ButtonGroupContainer } from './containers/ButtonGroupContainer';
 export { default as ButtonGroup } from './elements/ButtonGroup';
 export { default as Anchor } from './views/Anchor';
 export { default as Button } from './views/Button';

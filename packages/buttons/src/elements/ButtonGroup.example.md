@@ -4,7 +4,8 @@ All `Button` components require a unique `key`.
 All elements proxy the props of their native DOM representations.
 
 If this abstraction is not able to handle your use-case use the
-[ButtonGroupContainer](#buttongroupcontainer) component with our presentation components.
+[useButtonGroup()](https://www.npmjs.com/package/@zendeskgarden/container-buttongroup)
+hook with our presentation components.
 
 ```jsx static
 <ButtonGroup>

@@ -6,7 +6,6 @@
  */
 
 export { default as Breadcrumb } from './elements/Breadcrumb';
-export { default as BreadcrumbContainer } from './containers/BreadcrumbContainer';
 export { default as BreadcrumbView } from './views/BreadcrumbView';
 export { default as List } from './views/List';
 export { default as Item } from './views/Item';

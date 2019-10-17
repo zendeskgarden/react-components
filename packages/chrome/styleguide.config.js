@@ -45,10 +45,6 @@ module.exports = {
           ]
         }
       ]
-    },
-    {
-      name: 'Containers',
-      components: '../../packages/chrome/src/containers/[A-Z]*.js'
     }
   ]
 };

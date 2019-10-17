@@ -26,10 +26,6 @@ module.exports = {
       ]
     },
     {
-      name: 'Containers',
-      components: '../../packages/buttons/src/containers/[A-Z]*.js'
-    },
-    {
       name: 'Views',
       sections: [
         {
