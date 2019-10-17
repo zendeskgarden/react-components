@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { cloneElement } from 'react';
+import React, { cloneElement, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useTooltip } from '@zendeskgarden/container-tooltip';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { isRtl, withTheme, getDocument } from '@zendeskgarden/react-theming';
-import { Manager, Popper, Target } from 'react-popper';
+import { Manager, Popper, Reference } from 'react-popper';
 
 import { getPopperPlacement, getRtlPopperPlacement } from '../utils/gardenPlacements';
 import TooltipView from '../views/TooltipView';
@@ -23,13 +23,21 @@ import LightTooltip from '../views/LightTooltip';
  * due to constraints in our arrow css. We must ensure that the container
  * of the tooltip can retain it's relative positioning. Without this
  * container Popper would apply absolute positioning.
+ *
+ * This wrapper also includes an opacity transition. It allows Popper to
+ * re-position the tooltip without having a visible shift. The transition
+ * is fast enough that it should not be perceptible.
  */
 const TooltipWrapper = styled.div`
-  z-index: ${props => props.zIndex};
-
   &[aria-hidden='true'] {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
   }
+
+  /* stylelint-disable-next-line time-min-milliseconds */
+  transition: opacity 10ms;
+  opacity: 1;
+  z-index: ${props => props.zIndex};
 `;
 
 const SIZE = {
@@ -68,66 +76,66 @@ const Tooltip = ({
   initialIsVisible,
   ...otherProps
 }) => {
+  const scheduleUpdateRef = useRef();
   const { isVisible, getTooltipProps, getTriggerProps, openTooltip, closeTooltip } = useTooltip({
     id,
     delayMilliseconds,
     isVisible: initialIsVisible
   });
 
+  /**
+   * Recalculate popper placement when open to allow animations to complete.
+   **/
+  useEffect(() => {
+    if (isVisible) {
+      scheduleUpdateRef.current && scheduleUpdateRef.current();
+    }
+  }, [isVisible]);
+
   const popperPlacement = isRtl(otherProps)
     ? getRtlPopperPlacement(placement)
     : getPopperPlacement(placement);
 
   return (
-    <Manager tag={false}>
-      <>
-        <Target>
-          {({ targetProps }) => {
-            const triggerElement = cloneElement(trigger, getTriggerProps(trigger.props));
+    <Manager>
+      <Reference>
+        {({ ref }) => {
+          const triggerElement = cloneElement(trigger, getTriggerProps(trigger.props));
 
-            return <TriggerWrapper ref={targetProps.ref}>{triggerElement}</TriggerWrapper>;
-          }}
-        </Target>
-        <Popper
-          placement={popperPlacement}
-          eventsEnabled={eventsEnabled}
-          modifiers={popperModifiers}
-        >
-          {({ popperProps }) => {
-            const { onFocus, onBlur, ...otherTooltipProps } = otherProps;
-            const tooltipProps = {
-              arrow,
-              placement: popperProps['data-placement'],
-              size,
-              onFocus: composeEventHandlers(onFocus, () => {
-                openTooltip();
-              }),
-              onBlur: composeEventHandlers(onBlur, () => {
-                closeTooltip(0);
-              }),
-              ...otherTooltipProps
-            };
-            const TooltipElem = type === TYPE.LIGHT ? LightTooltip : TooltipView;
+          return <TriggerWrapper ref={ref}>{triggerElement}</TriggerWrapper>;
+        }}
+      </Reference>
+      <Popper placement={popperPlacement} eventsEnabled={eventsEnabled} modifiers={popperModifiers}>
+        {({ ref, style, scheduleUpdate, placement: currentPlacement }) => {
+          scheduleUpdateRef.current = scheduleUpdate;
+          const { onFocus, onBlur, ...otherTooltipProps } = otherProps;
+          const tooltipProps = {
+            arrow,
+            placement: currentPlacement,
+            size,
+            onFocus: composeEventHandlers(onFocus, () => {
+              openTooltip();
+            }),
+            onBlur: composeEventHandlers(onBlur, () => {
+              closeTooltip(0);
+            }),
+            ...otherTooltipProps
+          };
+          const TooltipElem = type === TYPE.LIGHT ? LightTooltip : TooltipView;
 
-            const tooltip = (
-              <TooltipWrapper
-                ref={popperProps.ref}
-                style={popperProps.style}
-                zIndex={zIndex}
-                aria-hidden={!isVisible}
-              >
-                <TooltipElem {...getTooltipProps(tooltipProps)}>{children}</TooltipElem>
-              </TooltipWrapper>
-            );
+          const tooltip = (
+            <TooltipWrapper ref={ref} style={style} zIndex={zIndex} aria-hidden={!isVisible}>
+              <TooltipElem {...getTooltipProps(tooltipProps)}>{children}</TooltipElem>
+            </TooltipWrapper>
+          );
 
-            if (appendToBody) {
-              return createPortal(tooltip, getDocument(otherProps).body);
-            }
+          if (appendToBody) {
+            return createPortal(tooltip, getDocument(otherProps).body);
+          }
 
-            return tooltip;
-          }}
-        </Popper>
-      </>
+          return tooltip;
+        }}
+      </Popper>
     </Manager>
   );
 };

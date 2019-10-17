@@ -24,7 +24,7 @@
     "@zendeskgarden/container-utilities": "^0.3.0",
     "classnames": "^2.2.5",
     "downshift": "^3.2.7",
-    "react-popper": "^1.3.3"
+    "react-popper": "^1.3.4"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^6.0.0",
