@@ -10,11 +10,11 @@ import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import { useModal } from '@zendeskgarden/container-modal';
 import { hasType } from '@zendeskgarden/react-utilities';
-import isWindow from 'dom-helpers/query/isWindow';
+import isWindow from 'dom-helpers/isWindow';
 import ownerDocument from 'dom-helpers/ownerDocument';
 import ownerWindow from 'dom-helpers/ownerWindow';
-import css from 'dom-helpers/style';
-import getScrollbarSize from 'dom-helpers/util/scrollbarSize';
+import css from 'dom-helpers/css';
+import getScrollbarSize from 'dom-helpers/scrollbarSize';
 
 import ModalView from '../views/ModalView';
 import Backdrop from '../views/Backdrop';

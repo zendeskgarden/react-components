@@ -8,7 +8,7 @@
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import scrollbarSize from 'dom-helpers/util/scrollbarSize';
+import scrollbarSize from 'dom-helpers/scrollbarSize';
 import TableStyles from '@zendeskgarden/css-tables';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 
