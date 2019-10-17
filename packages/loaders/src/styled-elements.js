@@ -7,19 +7,42 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { retrieveTheme } from '@zendeskgarden/react-theming';
 
-export const DotsCircle = styled.circle.attrs(props => ({
-  cx: 9,
-  cy: 9,
-  r: 9,
-  transform: props.transform
+import { dotOneKeyframes, dotTwoKeyframes, dotThreeKeyframes } from './utils/animations';
+
+const DotsCircle = styled.circle.attrs(() => ({
+  cy: 36,
+  r: 9
 }))``;
 
-DotsCircle.propTypes = {
-  transform: PropTypes.string
-};
+export const DotsOneCircle = styled(DotsCircle).attrs(() => ({
+  cx: 9
+}))`
+  animation: ${({ duration }) =>
+    css`
+      ${dotOneKeyframes} ${duration}ms linear infinite
+    `};
+`;
+
+export const DotsTwoCircle = styled(DotsCircle).attrs(() => ({
+  cx: 40
+}))`
+  animation: ${({ duration }) =>
+    css`
+      ${dotTwoKeyframes} ${duration}ms linear infinite
+    `};
+`;
+
+export const DotsThreeCircle = styled(DotsCircle).attrs(() => ({
+  cx: 71
+}))`
+  animation: ${({ duration }) =>
+    css`
+      ${dotThreeKeyframes} ${duration}ms linear infinite
+    `};
+`;
 
 export const SpinnerCircle = styled.circle.attrs(props => ({
   cx: 40,
