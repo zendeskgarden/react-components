@@ -24,7 +24,7 @@
     "@zendeskgarden/react-utilities": "^6.7.1",
     "classnames": "^2.2.5",
     "dom-helpers": "^5.1.0",
-    "tabbable": "^1.1.2"
+    "tabbable": "^4.0.0"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^6.0.0",
