@@ -12,6 +12,100 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v7.0.0 (2019-10-17)
+
+#### :boom: Breaking Change
+* `buttons`, `chrome`, `modals`, `pagination`, `selection`, `tabs`, `tooltips`
+  * [#486](https://github.com/zendeskgarden/react-components/pull/486) chore(internal): deprecated react-selection and migrate Tabs and Pagination components BREAKING ([@austin94](https://github.com/austin94))
+* `breadcrumbs`, `buttons`, `chrome`, `modals`, `pagination`, `tabs`, `tooltips`
+  * [#485](https://github.com/zendeskgarden/react-components/pull/485) chore(internal): remove all deprecated render-prop containers BREAKING ([@austin94](https://github.com/austin94))
+* `autocomplete`, `checkboxes`, `menus`, `radios`, `ranges`, `select`, `textfields`, `toggles`, `utilities`
+  * [#484](https://github.com/zendeskgarden/react-components/pull/484)  chore(internal): remove all deprecated packages BREAKING ([@austin94](https://github.com/austin94))
+* `loaders`
+  * [#491](https://github.com/zendeskgarden/react-components/pull/491) feat(loaders): deprecate ScheduleContainer BREAKING ([@austin94](https://github.com/austin94))
+
+#### :seedling: Internal
+* `.template`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `selection`, `tables`, `tabs`, `tags`, `tooltips`, `typography`
+  * [#495](https://github.com/zendeskgarden/react-components/pull/495) chore(deps): upgrade react-theming peerDependencies to allow v7 ([@austin94](https://github.com/austin94))
+* Other
+  * [#493](https://github.com/zendeskgarden/react-components/pull/493) chore(deps): bump lodash.template from 4.4.0 to 4.5.0 in /examples/codesandbox/garden-create-react-app ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#494](https://github.com/zendeskgarden/react-components/pull/494) chore(deps): bump mixin-deep from 1.3.1 to 1.3.2 in /examples/codesandbox/garden-create-react-app ([@dependabot[bot]](https://github.com/apps/dependabot))
+* `modals`
+  * [#475](https://github.com/zendeskgarden/react-components/pull/475) fix(deps): update dependency tabbable to v4 ([@renovate[bot]](https://github.com/apps/renovate))
+* `loaders`
+  * [#473](https://github.com/zendeskgarden/react-components/pull/473) fix(deps): update dependency polished to v3 ([@renovate[bot]](https://github.com/apps/renovate))
+* `datepickers`, `dropdowns`, `tooltips`
+  * [#487](https://github.com/zendeskgarden/react-components/pull/487) chore(internal): update react-popper dependencies ([@austin94](https://github.com/austin94))
+* `buttons`, `modals`, `selection`, `tables`
+  * [#490](https://github.com/zendeskgarden/react-components/pull/490) chore(deps): update dom-helpers ([@hzhu](https://github.com/hzhu))
+
+### Breaking Changes
+
+#### `react-loaders`
+
+* The `Dots` and `Spinner` components no longer accept a `velocity` prop
+  * To customize the speed of the animation use the `duration` prop to provide the time in MS.
+
+#### `react-pagination`
+
+* The `focusedKey` prop is no longer accepted
+  * This state is no longer controllable
+* The `onStateChange` prop is no longer accepted
+  * Use the `onChange` prop to receive `currentPage` updates.
+
+#### `react-tabs`
+
+* The `selectedKey` prop has been renamed to `selectedItem`
+  * This API now aligns with other components
+* All `<TabPanel>` components now require an `item` prop instead of a `key` prop
+  * Previously we used the `key` attribute to uniquely identify each tab
+  * This created confusion as `key` is also a reserved prop name in React
+* The `onStateChange` prop is no longer valid
+  * Use the `onChange` prop to receive `selectedItem` updates
+
+#### Removal of deprecated packages
+
+The following deprecated packages have been removed from the repository and will not be upgraded to `v7`:
+
+* `@zendeskgarden/react-autocomplete`
+  * Migrate to the `@zendeskgarden/react-dropdowns` package
+* `@zendeskgarden/react-checkboxes`
+  * Migrate to the `@zendeskgarden/react-forms` package
+* `@zendeskgarden/react-menus`
+* Migrate to the `@zendeskgarden/react-dropdowns` package
+* `@zendeskgarden/react-radios`
+  * Migrate to the `@zendeskgarden/react-forms` package
+* `@zendeskgarden/react-ranges`
+  * Migrate to the `@zendeskgarden/react-forms` package
+* `@zendeskgarden/react-select`
+  * Migrate to the `@zendeskgarden/react-dropdowns` package
+* `@zendeskgarden/react-textfields`
+  * Migrate to the `@zendeskgarden/react-forms` package
+* `@zendeskgarden/react-toggles`
+  * Migrate to the `@zendeskgarden/react-forms` package
+
+#### Removal of deprecated Render-Prop Containers
+
+In previous versions we have included render-prop containers for
+the common UX patterns provided in our components. To help make these
+assets more flexible, we have created a new repository [react-containers](https://github.com/zendeskgarden/react-containers).
+
+In `v7` all render-prop containers (`*Container`) has been moved to standalone packages.
+These containers are now available as standard React Hooks as well as render-props.
+
+### Migration Steps
+
+* Upgrade all Garden React dependencies to their latest `v6.x` version
+* Check your console and testing environments to see if any deprecation warnings can be seen
+* Remove any usages of deprecated packages and containers
+* Upgrade all Garden React dependencies to their latest `v7.x` version
+* Update any `react-tabs`, `react-pagination`, and `react-loaders` usages affected by the breaking changes listed above
+
+For this breaking change we were able to allow an open range for our peer dependency of `react-theming` to allow `v6` and `v7` versions.
+
+This allows you to upgrade each package individually if necessary, ending with `react-theming`.
+If you have any questions about this process please open an issue.
+
 ## v6.9.0 (2019-10-16)
 
 #### :seedling: Internal
