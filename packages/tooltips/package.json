@@ -22,7 +22,7 @@
     "@zendeskgarden/container-tooltip": "^0.2.4",
     "@zendeskgarden/container-utilities": "^0.3.0",
     "classnames": "^2.2.5",
-    "react-popper": "^0.10.4"
+    "react-popper": "^1.0.0"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^6.0.0",
