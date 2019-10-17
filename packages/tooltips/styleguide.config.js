@@ -20,10 +20,6 @@ module.exports = {
       components: '../../packages/tooltips/src/elements/[A-Z]*.js'
     },
     {
-      name: 'Containers',
-      components: '../../packages/tooltips/src/containers/[A-Z]*.js'
-    },
-    {
       name: 'Views',
       components: '../../packages/tooltips/src/views/[A-Z]*.js',
       sections: [

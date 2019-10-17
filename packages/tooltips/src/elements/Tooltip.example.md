@@ -1,4 +1,6 @@
-The `Tooltip` component acts as a high-abstraction API over the `TooltipContainer` component.
+The `Tooltip` component acts as a high-abstraction API over the
+[useTooltip()](https://www.npmjs.com/package/@zendeskgarden/container-tooltip)
+hook.
 
 All props passed to the root element are proxied into the visible tooltip.
 

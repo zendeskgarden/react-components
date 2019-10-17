@@ -106,8 +106,9 @@ const onModalClose = () => setState({ isModalVisible: false });
 
 ### Content Focus Jail
 
-The `Modal` component uses the `FocusJailContainer` internally to limit focus
-and keyboard navigation to the Modal content.
+The `Modal` component uses the [useFocusJail()](https://www.npmjs.com/package/@zendeskgarden/container-focusjail)
+hook internally to limit focus and keyboard navigation
+to the Modal content.
 
 ```jsx
 const { Button } = require('@zendeskgarden/react-buttons/src');

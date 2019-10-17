@@ -7,7 +7,8 @@ The `Tabs` component requires the following structure.
 All elements proxy the props of their native DOM representations.
 
 If this abstraction is not able to handle your use-case use the
-[TabsContainer](#tabscontainer) component with our presentation components.
+[useTabs()](https://www.npmjs.com/package/@zendeskgarden/container-tabs)
+hook with our presentation components.
 
 ```jsx static
 <Tabs>

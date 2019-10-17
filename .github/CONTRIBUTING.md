@@ -28,9 +28,6 @@ includes:
 
 <!-- markdownlint-enable -->
 
-For an overview of our component architecture and APIs, view our [API
-documentation](../API.md).
-
 ## Versioning Workflow
 
 Garden follows [semantic versioning](https://semver.org/). We release
