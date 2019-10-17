@@ -29,7 +29,6 @@ to install.
 | [`@zendeskgarden/react-modals`](packages/modals)               | [![npm version][modals npm version]][modals npm link]               | [![Dependency Status][modals dependency status]][modals dependency link]               |
 | [`@zendeskgarden/react-notifications`](packages/notifications) | [![npm version][notifications npm version]][notifications npm link] | [![Dependency Status][notifications dependency status]][notifications dependency link] |
 | [`@zendeskgarden/react-pagination`](packages/pagination)       | [![npm version][pagination npm version]][pagination npm link]       | [![Dependency Status][pagination dependency status]][pagination dependency link]       |
-| [`@zendeskgarden/react-selection`](packages/selection)         | [![npm version][selection npm version]][selection npm link]         | [![Dependency Status][selection dependency status]][selection dependency link]         |
 | [`@zendeskgarden/react-tabs`](packages/tabs)                   | [![npm version][tabs npm version]][tabs npm link]                   | [![Dependency Status][tabs dependency status]][tabs dependency link]                   |
 | [`@zendeskgarden/react-tables`](packages/tables)               | [![npm version][tables npm version]][tables npm link]               | [![Dependency Status][tables dependency status]][tables dependency link]               |
 | [`@zendeskgarden/react-tags`](packages/tags)                   | [![npm version][tags npm version]][tags npm link]                   | [![Dependency Status][tags dependency status]][tags dependency link]                   |
@@ -86,10 +85,6 @@ to install.
 [pagination npm link]: https://www.npmjs.com/package/@zendeskgarden/react-pagination
 [pagination dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/pagination&style=flat-square
 [pagination dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/pagination
-[selection npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-selection.svg?style=flat-square
-[selection npm link]: https://www.npmjs.com/package/@zendeskgarden/react-selection
-[selection dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/selection&style=flat-square
-[selection dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/selection
 [tabs npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-tabs.svg?style=flat-square
 [tabs npm link]: https://www.npmjs.com/package/@zendeskgarden/react-tabs
 [tabs dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/tabs&style=flat-square

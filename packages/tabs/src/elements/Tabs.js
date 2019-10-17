@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children, cloneElement, isValidElement } from 'react';
+import React, { Children, cloneElement, isValidElement, useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { ControlledComponent } from '@zendeskgarden/react-selection';
-import { TabsContainer } from '@zendeskgarden/container-tabs';
+import { useTabs } from '@zendeskgarden/container-tabs';
+import { getControlledValue } from '@zendeskgarden/container-utilities';
 import { isRtl, withTheme } from '@zendeskgarden/react-theming';
 
 import TabsView from '../views/TabsView';
@@ -18,136 +18,125 @@ import Tab from '../views/Tab';
 /**
  * High-level abstraction for basic Tabs implementations.
  */
-class Tabs extends ControlledComponent {
-  static propTypes = {
-    children: PropTypes.any,
-    /**
-     * Toggles vertical selection mode of Tabs
-     */
-    vertical: PropTypes.bool,
-    /**
-     * Currently selected tab to display
-     */
-    selectedKey: PropTypes.any,
-    /**
-     * @param {Object} newState
-     * @param {Any} newState.selectedKey - The newly selected key
-     */
-    onStateChange: PropTypes.func,
-    /**
-     * Callback for when a tab has been selected by keyboard or mouse
-     * @param {String} selectedKey - The key of the selected tab
-     */
-    onChange: PropTypes.func
-  };
+function Tabs({
+  vertical,
+  children,
+  onChange,
+  selectedItem: controlledSelectedItem,
+  ...otherProps
+}) {
+  const [internalSelectedItem, setSelectedItem] = useState();
+  const firstItemRef = useRef();
+  const selectedItem = getControlledValue(controlledSelectedItem, internalSelectedItem);
 
-  static defaultProps = {
-    vertical: false
-  };
+  const { getTabListProps, getTabPanelProps, getTabProps, focusedItem } = useTabs({
+    rtl: isRtl(otherProps),
+    vertical,
+    selectedItem,
+    onSelect: item => {
+      if (onChange) {
+        onChange(item);
+      } else {
+        setSelectedItem(item);
+      }
+    }
+  });
 
-  constructor(...args) {
-    super(...args);
-
-    this.state = {
-      selectedKey: undefined
-    };
-
-    this.firstKey = undefined;
-  }
-
-  componentDidMount() {
+  useEffect(() => {
     /**
      * In an uncontrolled state we want to always display the first tab
      */
-    if (!this.isControlledProp('selectedKey') && typeof this.firstKey !== 'undefined') {
-      this.setControlledState({ selectedKey: this.firstKey });
+    if (controlledSelectedItem === undefined && typeof firstItemRef.current !== undefined) {
+      setSelectedItem(firstItemRef.current);
     }
-  }
+    // This should only run after the first mount of the component
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  render() {
-    const { vertical, children, onChange, ...otherProps } = this.props;
-    const { selectedKey } = this.getControlledState();
-
-    return (
-      <TabsContainer
-        rtl={isRtl(otherProps)}
-        vertical={vertical}
-        selectedItem={selectedKey}
-        onSelect={item => {
-          if (onChange) {
-            onChange(item);
-          } else {
-            this.setControlledState({ selectedKey: item });
+  return (
+    <TabsView vertical={vertical} {...otherProps}>
+      <TabList {...getTabListProps()}>
+        {Children.map(children, (child, index) => {
+          if (!isValidElement(child)) {
+            return child;
           }
-        }}
-      >
-        {({ getTabListProps, getTabPanelProps, getTabProps, focusedItem, selectedItem }) => (
-          <TabsView vertical={vertical} {...otherProps}>
-            <TabList {...getTabListProps()}>
-              {Children.map(children, (child, index) => {
-                if (!isValidElement(child)) {
-                  return child;
-                }
 
-                const { label, disabled, tabProps } = child.props;
-                const key = child.key;
+          const { label, disabled, item, tabProps } = child.props;
 
-                if (disabled) {
-                  return <Tab disabled>{label}</Tab>;
-                }
+          if (disabled) {
+            return <Tab disabled>{label}</Tab>;
+          }
 
-                if (typeof this.firstKey === 'undefined') {
-                  this.firstKey = key;
-                }
+          if (firstItemRef.current === undefined) {
+            firstItemRef.current = item;
+          }
 
-                const focusRef = React.createRef();
+          const focusRef = React.createRef();
 
-                return (
-                  <Tab
-                    {...getTabProps({
-                      key,
-                      index,
-                      item: key,
-                      focusRef,
-                      ref: focusRef,
-                      selected: key === selectedItem,
-                      focused: key === focusedItem,
-                      ...tabProps
-                    })}
-                  >
-                    {label}
-                  </Tab>
-                );
+          return (
+            <Tab
+              {...getTabProps({
+                key: child.key,
+                index,
+                item,
+                focusRef,
+                ref: focusRef,
+                selected: item === selectedItem,
+                focused: item === focusedItem,
+                ...tabProps
               })}
-            </TabList>
-            {Children.map(children, (child, index) => {
-              if (!isValidElement(child)) {
-                return child;
-              }
+            >
+              {label}
+            </Tab>
+          );
+        })}
+      </TabList>
+      {Children.map(children, (child, index) => {
+        if (!isValidElement(child)) {
+          return child;
+        }
 
-              if (child.props.disabled) {
-                return null;
-              }
+        if (child.props.disabled) {
+          return null;
+        }
 
-              // Don't want to duplicate tabProps in the TabPanel
-              const { tabProps, ...other } = child.props;
+        // Don't want to duplicate tabProps in the TabPanel
+        const { tabProps, item, ...other } = child.props;
 
-              return cloneElement(
-                child,
-                getTabPanelProps({
-                  key: child.key,
-                  index,
-                  item: child.key,
-                  'aria-hidden': selectedItem !== child.key,
-                  ...other
-                })
-              );
-            })}
-          </TabsView>
-        )}
-      </TabsContainer>
-    );
-  }
+        return cloneElement(
+          child,
+          getTabPanelProps({
+            key: child.key,
+            index,
+            item,
+            'aria-hidden': selectedItem !== item,
+            ...other
+          })
+        );
+      })}
+    </TabsView>
+  );
 }
+
+Tabs.propTypes = {
+  children: PropTypes.any,
+  /**
+   * Toggles vertical selection mode of Tabs
+   */
+  vertical: PropTypes.bool,
+  /**
+   * Currently selected tab to display
+   */
+  selectedItem: PropTypes.any,
+  /**
+   * Callback for when a tab has been selected by keyboard or mouse
+   * @param {String} selectedItem - The item of the selected tab
+   */
+  onChange: PropTypes.func
+};
+
+Tabs.defaultProps = {
+  vertical: false
+};
 
 export default withTheme(Tabs);
