@@ -8,4 +8,13 @@
 const withCSS = require('@zeit/next-css');
 
 /* Without CSS Modules, with PostCSS */
-module.exports = withCSS();
+module.exports = withCSS({
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/u,
+      use: ['@svgr/webpack']
+    });
+
+    return config;
+  }
+});
