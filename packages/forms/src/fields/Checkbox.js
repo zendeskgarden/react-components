@@ -7,49 +7,26 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useKeyboardFocus } from '@zendeskgarden/container-keyboardfocus';
-import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { FieldContext } from './common/Field';
 import useFieldContext from '../utils/useFieldContext';
 import { CheckboxContext } from '../utils/useCheckboxContext';
-import { StyledField, StyledCheckInput } from '../styled';
+import { StyledCheckInput } from '../styled';
 
 /**
  * Accepts all `<input type="checkbox" />` props
  */
 const Checkbox = React.forwardRef(({ children, ...props }, ref) => {
-  const { getLabelProps, ...fieldCtx } = useFieldContext();
-  const { getFocusProps, keyboardFocused } = useKeyboardFocus();
-
-  /**
-   * Due to us applying keyboard-only focus events to 2 separate elements (the input and label)
-   * we must apply the original `onMouseDown` event to the `onMouseUp` event of the label.
-   *
-   * By passing the original props within `getFocusProps` we are able to allow
-   * `event.preventDefault()` to still prevent chained events as expected.
-   */
-  const { onMouseDown: onFocusMouseDown, ...keyboardFocusedProps } = getFocusProps(props);
-
-  const modifiedFieldCtx = {
-    getLabelProps: ({ onMouseUp, ...other }) =>
-      getLabelProps({ onMouseUp: composeEventHandlers(onMouseUp, onFocusMouseDown), ...other }),
-    ...fieldCtx
-  };
+  const { getInputProps, ...fieldContext } = useFieldContext();
 
   return (
-    <FieldContext.Provider value={modifiedFieldCtx}>
-      <CheckboxContext.Provider value={{ isFocused: keyboardFocused }}>
-        <StyledField>
-          <StyledCheckInput
-            {...modifiedFieldCtx.getInputProps({
-              ref,
-              ...keyboardFocusedProps
-            })}
-          />
-          {children}
-        </StyledField>
-      </CheckboxContext.Provider>
-    </FieldContext.Provider>
+    <CheckboxContext.Provider value={fieldContext}>
+      <StyledCheckInput
+        {...getInputProps({
+          ref,
+          ...props
+        })}
+      />
+      {children}
+    </CheckboxContext.Provider>
   );
 });
 

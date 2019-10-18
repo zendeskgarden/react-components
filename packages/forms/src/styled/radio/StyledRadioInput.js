@@ -50,7 +50,7 @@ const colorStyles = props => {
       border-color: ${hoverBorderColor};
     }
 
-    &:focus ~ ${StyledRadioLabel}::before {
+    &[data-garden-focus-visible] ~ ${StyledRadioLabel}::before {
       border-color: ${focusBorderColor};
       box-shadow: ${boxShadow};
     }

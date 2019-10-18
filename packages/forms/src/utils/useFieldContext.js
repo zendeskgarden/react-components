@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useContext } from 'react';
-import { FieldContext } from '../fields/common/Field';
+import { createContext, useContext } from 'react';
+
+export const FieldContext = createContext(undefined);
 
 /**
  * Retrieve Field component context

@@ -5,23 +5,28 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { createContext } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useField } from '@zendeskgarden/container-field';
+import { useFocusVisible } from '@zendeskgarden/container-focusvisible';
+import { FieldContext } from '../../utils/useFieldContext';
 import { StyledField } from '../../styled';
-
-export const FieldContext = createContext(undefined);
 
 /**
  * Provides accessibility attributes to child form fields. Accepts all `<div>`
  * attributes and events.
  */
 function Field({ id, children, ...other }) {
+  const scope = useRef();
   const fieldProps = useField(id);
+
+  useFocusVisible({ scope });
 
   return (
     <FieldContext.Provider value={fieldProps}>
-      <StyledField {...other}>{children}</StyledField>
+      <StyledField {...other} ref={scope}>
+        {children}
+      </StyledField>
     </FieldContext.Provider>
   );
 }
