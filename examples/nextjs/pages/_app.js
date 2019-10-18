@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import App, { Container } from 'next/app';
+import App from 'next/app';
 import Head from 'next/head';
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 
@@ -31,14 +31,14 @@ export default class GardenApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <Container>
+      <>
         <Head>
           <title>My page</title>
         </Head>
         <ThemeProvider>
           <Component {...pageProps} />
         </ThemeProvider>
-      </Container>
+      </>
     );
   }
 }

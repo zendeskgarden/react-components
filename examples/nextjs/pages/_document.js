@@ -8,13 +8,13 @@
 import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
-import { IdManager } from '@zendeskgarden/react-selection';
+import { setIdCounter } from '@zendeskgarden/container-utilities';
 import { resetIdCounter } from '@zendeskgarden/react-dropdowns';
 
 export default class GardenDocument extends Document {
   static getInitialProps({ renderPage }) {
     /** For server rendered environments only */
-    IdManager.setIdCounter(0);
+    setIdCounter(0);
     resetIdCounter();
 
     const sheet = new ServerStyleSheet();
