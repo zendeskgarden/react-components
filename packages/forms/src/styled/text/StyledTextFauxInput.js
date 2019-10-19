@@ -20,7 +20,7 @@ export const StyledTextFauxInput = styled(StyledTextInput).attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 }))`
-  display: ${props => props.mediaLayout && 'flex'};
+  display: ${props => (props.mediaLayout ? 'inline-flex' : 'inline-block')};
   align-items: ${props => props.mediaLayout && 'baseline'};
   cursor: ${props => (props.mediaLayout ? 'text' : 'default')};
 

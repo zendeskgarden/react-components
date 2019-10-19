@@ -13,12 +13,13 @@ import { FieldContext } from '../../utils/useFieldContext';
 import { StyledField } from '../../styled';
 
 /**
- * Provides accessibility attributes to child form fields. Accepts all `<div>`
+ * Provides layout and ID context for child components. Accepts all `<div>`
  * attributes and events.
  */
 function Field({ id, children, ...other }) {
   const scope = useRef();
-  const fieldProps = useField(id);
+  const getMessageProps = props => ({ role: 'alert', ...props });
+  const fieldProps = { ...useField(id), getMessageProps };
 
   useFocusVisible({ scope });
 
@@ -32,11 +33,8 @@ function Field({ id, children, ...other }) {
 }
 
 Field.propTypes = {
-  /**
-   * The ID that is used as the base for accessiblity attributes
-   */
-  id: PropTypes.string,
-  children: PropTypes.node
+  /** Prefix for generated label, input, and hint IDs */
+  id: PropTypes.string
 };
 
 export default Field;

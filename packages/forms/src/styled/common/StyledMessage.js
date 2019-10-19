@@ -40,8 +40,7 @@ const COMPONENT_ID = 'forms.input_message';
 
 export const StyledMessage = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  role: 'alert'
+  'data-garden-version': PACKAGE_VERSION
 })`
   direction: ${props => props.theme.rtl && 'rtl'};
   display: inline-block;

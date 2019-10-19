@@ -17,6 +17,7 @@ import {
   StyledToggleMessage,
   StyledMessageIcon
 } from '../../styled';
+import useFieldContext from '../../utils/useFieldContext';
 
 const VALIDATION = {
   SUCCESS: 'success',
@@ -28,6 +29,7 @@ const VALIDATION = {
  * Accepts all native `<div />` props
  */
 function Message(props) {
+  const { getMessageProps } = useFieldContext();
   const checkboxCtx = useCheckboxContext();
   const radioCtx = useRadioContext();
   const toggleCtx = useToggleContext();
@@ -45,7 +47,7 @@ function Message(props) {
   }
 
   return (
-    <MessageComponent {...props}>
+    <MessageComponent {...getMessageProps(props)}>
       {props.validation && <StyledMessageIcon validation={props.validation} />}
       {props.children}
     </MessageComponent>

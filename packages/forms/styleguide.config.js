@@ -23,9 +23,14 @@ module.exports = {
       name: 'Examples',
       sections: [
         {
-          name: 'Text inputs',
-          content: '../../packages/forms/examples/text-input.md'
-        },
+          name: 'Basic',
+          content: '../../packages/forms/examples/basic.md'
+        }
+      ]
+    },
+    {
+      name: 'Examples',
+      sections: [
         {
           name: 'Checkboxes',
           content: '../../packages/forms/examples/checkbox.md'
@@ -45,14 +50,6 @@ module.exports = {
         {
           name: 'Toggle',
           content: '../../packages/forms/examples/toggle.md'
-        },
-        {
-          name: 'Faux input',
-          content: '../../packages/forms/examples/faux-input.md'
-        },
-        {
-          name: 'Media input',
-          content: '../../packages/forms/examples/media-input.md'
         }
       ]
     },

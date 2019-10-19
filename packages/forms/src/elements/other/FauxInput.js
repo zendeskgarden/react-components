@@ -43,9 +43,9 @@ FauxInput.propTypes = {
   isBare: PropTypes.bool,
   /** Applies inset `box-shadow` styling on focus */
   focusInset: PropTypes.bool,
-  /** Applies flex layout to support MediaFigure components */
-  mediaLayout: PropTypes.bool,
   validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR]),
+  /** @ignore */
+  mediaLayout: PropTypes.bool,
   /** @ignore */
   onFocus: PropTypes.func,
   /** @ignore */

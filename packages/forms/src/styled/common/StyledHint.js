@@ -19,6 +19,7 @@ export const StyledHint = styled.div.attrs({
 })`
   direction: ${props => props.theme.rtl && 'rtl'};
   display: block;
+  vertical-align: middle; /* support hint inline with input layout */
   line-height: ${props =>
     stripUnit(math(`${props.theme.space.base * 5} / ${props.theme.fontSizes.md}`))};
   color: ${props => getColor('neutralHue', 600, props.theme)};

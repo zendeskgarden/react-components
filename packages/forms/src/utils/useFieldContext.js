@@ -16,9 +16,7 @@ const useFieldContext = () => {
   const fieldContext = useContext(FieldContext);
 
   if (!fieldContext) {
-    throw new Error(
-      'This component must be rendered within a `Field` component to receive accessibility attributes.'
-    );
+    throw new Error('This component must be rendered within a `Field` element.');
   }
 
   return fieldContext;
