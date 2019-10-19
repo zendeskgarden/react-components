@@ -57,21 +57,8 @@ module.exports = {
       ]
     },
     {
-      name: 'Components',
-      sections: [
-        {
-          name: 'Common',
-          components: '../../packages/forms/src/fields/common/[A-Z]*.js'
-        },
-        {
-          name: 'Inputs',
-          components: '../../packages/forms/src/fields/[A-Z]*.js'
-        },
-        {
-          name: 'Other',
-          components: '../../packages/forms/src/fields/other/[A-Z]*.js'
-        }
-      ]
+      name: 'Elements',
+      components: '../../packages/forms/src/elements/**/[A-Z]*.js'
     }
   ]
 };
