@@ -15,15 +15,18 @@ import { StyledToggleInput } from '../styled';
  * Accepts all `<input type="checkbox" />` props
  */
 const Toggle = React.forwardRef(({ children, ...props }, ref) => {
-  const { getInputProps, ...fieldContext } = useFieldContext();
+  const { getInputProps } = useFieldContext();
 
   return (
-    <ToggleContext.Provider value={fieldContext}>
+    <ToggleContext.Provider value={{}}>
       <StyledToggleInput
-        {...getInputProps({
-          ref,
-          ...props
-        })}
+        {...getInputProps(
+          {
+            ref,
+            ...props
+          },
+          { isDescribed: true }
+        )}
       />
       {children}
     </ToggleContext.Provider>

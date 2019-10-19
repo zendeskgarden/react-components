@@ -30,7 +30,7 @@ const FauxInput = React.forwardRef(({ onFocus, onBlur, ...props }, ref) => {
     <StyledTextFauxInput
       onFocus={onFocusHandler}
       onBlur={onBlurHandler}
-      focused={isFocused}
+      data-garden-focus-visible={isFocused}
       ref={ref}
       {...props}
     />
@@ -46,8 +46,6 @@ FauxInput.propTypes = {
   /** Applies flex layout to support MediaFigure components */
   mediaLayout: PropTypes.bool,
   validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR]),
-  /** @ignore */
-  focused: PropTypes.bool,
   /** @ignore */
   onFocus: PropTypes.func,
   /** @ignore */

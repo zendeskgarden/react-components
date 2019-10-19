@@ -15,15 +15,18 @@ import { StyledCheckInput } from '../styled';
  * Accepts all `<input type="checkbox" />` props
  */
 const Checkbox = React.forwardRef(({ children, ...props }, ref) => {
-  const { getInputProps, ...fieldContext } = useFieldContext();
+  const { getInputProps } = useFieldContext();
 
   return (
-    <CheckboxContext.Provider value={fieldContext}>
+    <CheckboxContext.Provider value={{}}>
       <StyledCheckInput
-        {...getInputProps({
-          ref,
-          ...props
-        })}
+        {...getInputProps(
+          {
+            ref,
+            ...props
+          },
+          { isDescribed: true }
+        )}
       />
       {children}
     </CheckboxContext.Provider>

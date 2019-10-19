@@ -100,7 +100,7 @@ const colorStyles = props => {
       `
         box-shadow: ${thumbFocusBoxShadow};
       `,
-      ':focus'
+      '[data-garden-focus-visible="true"]'
     )}
 
     ${thumbStyles(

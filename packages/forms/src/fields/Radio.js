@@ -15,15 +15,18 @@ import { StyledRadioInput } from '../styled';
  * Accepts all `<input type="radio" />` props
  */
 const Radio = React.forwardRef(({ children, ...props }, ref) => {
-  const { getInputProps, ...fieldContext } = useFieldContext();
+  const { getInputProps } = useFieldContext();
 
   return (
-    <RadioContext.Provider value={fieldContext}>
+    <RadioContext.Provider value={{}}>
       <StyledRadioInput
-        {...getInputProps({
-          ref,
-          ...props
-        })}
+        {...getInputProps(
+          {
+            ref,
+            ...props
+          },
+          { isDescribed: true }
+        )}
       />
       {children}
     </RadioContext.Provider>

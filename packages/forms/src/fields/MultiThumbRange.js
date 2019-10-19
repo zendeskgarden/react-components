@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
 import { withTheme, isRtl, getDocument } from '@zendeskgarden/react-theming';
+import useFieldContext from '../utils/useFieldContext';
 import {
   StyledSlider,
   StyledSliderTrack,
@@ -36,6 +37,7 @@ const MultiThumbRange = ({
   const trackRailRef = useRef();
   const minThumbRef = useRef();
   const maxThumbRef = useRef();
+  const { getInputProps } = useFieldContext();
 
   const themedDocument = getDocument(otherProps);
   const rtl = isRtl(otherProps);
@@ -291,33 +293,35 @@ const MultiThumbRange = ({
       >
         <StyledSliderTrackRail ref={trackRailRef}>
           <StyledSliderThumb
-            role="slider"
-            disabled={disabled}
-            aria-valuemin={min}
-            aria-valuemax={maxValue}
-            aria-valuenow={minValue}
-            aria-valuetext={minValue}
-            name={minName}
-            value={minValue}
-            isFocused={isMinThumbFocused}
-            position={minPosition}
-            ref={minThumbRef}
-            onChange={onChange}
-            onKeyDown={e => onKeyDown('min')(e)}
-            onFocus={() => {
-              setIsMinThumbFocused(true);
-            }}
-            onBlur={() => {
-              setIsMinThumbFocused(false);
-            }}
-            onMouseDown={e => {
-              setIsMousedDown(true);
+            {...getInputProps({
+              role: 'slider',
+              disabled,
+              'aria-valuemin': min,
+              'aria-valuemax': maxValue,
+              'aria-valuenow': minValue,
+              'aria-valuetext': minValue,
+              name: minName,
+              value: minValue,
+              isFocused: isMinThumbFocused,
+              position: minPosition,
+              ref: minThumbRef,
+              onChange,
+              onKeyDown: e => onKeyDown('min')(e),
+              onFocus: () => {
+                setIsMinThumbFocused(true);
+              },
+              onBlur: () => {
+                setIsMinThumbFocused(false);
+              },
+              onMouseDown: e => {
+                setIsMousedDown(true);
 
-              e.preventDefault();
-              e.stopPropagation();
+                e.preventDefault();
+                e.stopPropagation();
 
-              minThumbRef.current.focus();
-            }}
+                minThumbRef.current.focus();
+              }
+            })}
           />
           <StyledSliderThumb
             role="slider"

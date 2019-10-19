@@ -31,7 +31,7 @@ const colorStyles = props => {
     box-shadow: ${boxShadow};
     background-color: ${backgroundColor};
 
-    &:focus {
+    &[data-garden-focus-visible='true'] {
       box-shadow: ${focusBoxShadow};
     }
 

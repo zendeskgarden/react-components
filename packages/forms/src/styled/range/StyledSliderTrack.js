@@ -22,7 +22,7 @@ const colorStyles = props => {
     background-color: ${backgroundColor};
     background-image: linear-gradient(${backgroundImageColor}, ${backgroundImageColor});
 
-    &[aria-disabled] {
+    &[aria-disabled='true'] {
       background-image: linear-gradient(${disabledBackgroundColor}, ${disabledBackgroundColor});
     }
   `;

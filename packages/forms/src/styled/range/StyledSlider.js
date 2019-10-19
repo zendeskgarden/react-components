@@ -27,7 +27,7 @@ export const StyledSlider = styled.div.attrs({
   height: ${props =>
     math(`(${props.theme.space.base} * 5px) + (${props.theme.shadowWidths.md} * 2)`)};
 
-  &[aria-disabled] {
+  &[aria-disabled='true'] {
     cursor: default;
   }
 

@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import { composeEventHandlers, useCombinedRefs } from '@zendeskgarden/container-utilities';
 import useFieldContext from '../../utils/useFieldContext';
 import { StyledTextMediaInput, StyledTextMediaFigure } from '../../styled';
 import FauxInput from './FauxInput';
@@ -16,46 +16,38 @@ import VALIDATION from '../../utils/validation';
 /**
  * Accepts all `<input />` props.
  */
-const MediaInput = React.forwardRef(
-  ({ start, end, disabled, isCompact, ...props }, forwardedRef) => {
-    const { getInputProps } = useFieldContext();
-    const inputRef = useRef(undefined);
+const MediaInput = React.forwardRef(({ start, end, disabled, isCompact, ...props }, ref) => {
+  const { getInputProps } = useFieldContext();
+  const inputRef = useCombinedRefs(ref);
 
-    const { onClick, ...other } = props;
+  const { onClick, ...other } = props;
 
-    const onFauxInputClickHandler = composeEventHandlers(onClick, () => {
-      inputRef.current && inputRef.current.focus();
-    });
+  const onFauxInputClickHandler = composeEventHandlers(onClick, () => {
+    inputRef.current && inputRef.current.focus();
+  });
 
-    return (
-      <FauxInput
-        tabIndex={null}
-        onClick={onFauxInputClickHandler}
-        disabled={disabled}
-        isCompact={isCompact}
-        mediaLayout
-        {...other}
-      >
-        {start && <StyledTextMediaFigure isCompact={isCompact}>{start}</StyledTextMediaFigure>}
-        <StyledTextMediaInput
-          {...getInputProps({
-            disabled,
-            isCompact,
-            ref: ref => {
-              inputRef.current = ref;
-
-              if (forwardedRef) {
-                forwardedRef(ref);
-              }
-            },
-            ...props
-          })}
-        />
-        {end && <StyledTextMediaFigure isCompact={isCompact}>{end}</StyledTextMediaFigure>}
-      </FauxInput>
-    );
-  }
-);
+  return (
+    <FauxInput
+      tabIndex={null}
+      onClick={onFauxInputClickHandler}
+      disabled={disabled}
+      isCompact={isCompact}
+      mediaLayout
+      {...other}
+    >
+      {start && <StyledTextMediaFigure isCompact={isCompact}>{start}</StyledTextMediaFigure>}
+      <StyledTextMediaInput
+        {...getInputProps({
+          disabled,
+          isCompact,
+          ref: inputRef,
+          ...props
+        })}
+      />
+      {end && <StyledTextMediaFigure isCompact={isCompact}>{end}</StyledTextMediaFigure>}
+    </FauxInput>
+  );
+});
 
 MediaInput.propTypes = {
   isCompact: PropTypes.bool,

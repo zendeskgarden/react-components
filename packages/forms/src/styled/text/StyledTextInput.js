@@ -71,14 +71,15 @@ const colorStyles = props => {
       border-color: ${hoverBorderColor};
     }
 
-    &:focus {
+    &:focus,
+    &[data-garden-focus-visible='true'] {
       border-color: ${focusBorderColor};
       box-shadow: ${!props.isBare && boxShadow};
     }
 
     &:disabled,
     /* apply to faux input */
-    &[aria-disabled] {
+    &[aria-disabled='true'] {
       border-color: ${disabledBorderColor};
       background-color: ${!props.isBare && disabledBackgroundColor};
       color: ${disabledForegroundColor};
