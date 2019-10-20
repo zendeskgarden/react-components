@@ -1,28 +1,3 @@
-```jsx
-<form>
-  <div role="group" aria-label="Uncontrolled Usage Example">
-    <Field>
-      <Radio name="options" value="option-1">
-        <Label>Option 1</Label>
-        <Hint>Example hint</Hint>
-      </Radio>
-    </Field>
-    <Field>
-      <Radio name="options" value="option-2" disabled>
-        <Label>Option 2</Label>
-        <Hint>Disabled option</Hint>
-      </Radio>
-    </Field>
-    <Field>
-      <Radio name="options" value="option-3">
-        <Label>Option 3</Label>
-        <Hint>Example hint</Hint>
-      </Radio>
-    </Field>
-  </div>
-</form>
-```
-
 ### Controlled Usage
 
 ```jsx

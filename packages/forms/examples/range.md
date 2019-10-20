@@ -1,15 +1,3 @@
-```jsx
-const { zdSpacingXs } = require('@zendeskgarden/css-variables');
-
-const StyledHint = styled(Hint)``;
-
-<Field>
-  <Label>Default Range</Label>
-  <StyledHint>Supports all native props</StyledHint>
-  <Range />
-</Field>;
-```
-
 ### Controlled Example
 
 ```jsx

@@ -14,15 +14,26 @@ import { StyledCheckInput } from '../styled';
 /**
  * Accepts all `<input type="checkbox" />` props
  */
-const Checkbox = React.forwardRef(({ children, ...props }, ref) => {
+const Checkbox = React.forwardRef(({ indeterminate, children, ...props }, ref) => {
   const { getInputProps } = useFieldContext();
+  const inputRef = inputElement => {
+    inputElement && (inputElement.indeterminate = indeterminate);
+
+    if (ref) {
+      if (typeof ref === 'function') {
+        ref(inputRef);
+      } else {
+        ref.current = inputRef;
+      }
+    }
+  };
 
   return (
     <CheckboxContext.Provider value={{}}>
       <StyledCheckInput
         {...getInputProps(
           {
-            ref,
+            ref: inputRef,
             ...props
           },
           { isDescribed: true }
@@ -34,6 +45,7 @@ const Checkbox = React.forwardRef(({ children, ...props }, ref) => {
 });
 
 Checkbox.propTypes = {
+  indeterminate: PropTypes.bool,
   children: PropTypes.node
 };
 

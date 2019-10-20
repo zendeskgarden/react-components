@@ -56,6 +56,7 @@ const colorStyles = props => {
   const indeterminateBackgroundImage = encodeURIComponent(dashSvg(props));
   const indeterminateActiveBorderColor = getColor('primaryHue', SHADE + 100, props.theme);
   const indeterminateActiveBackgroundColor = indeterminateActiveBorderColor;
+  const indeterminateDisabledBackgroundColor = getColor('neutralHue', SHADE - 400, props.theme);
 
   return css`
     &:checked ~ ${StyledCheckLabel}::before {
@@ -68,11 +69,17 @@ const colorStyles = props => {
       background-image: url('data:image/svg+xml;charset=utf-8,${indeterminateBackgroundImage}');
     }
 
-    /* stylelint-disable-next-line selector-max-specificity */
+    /* stylelint-disable selector-max-specificity */
     &:enabled:indeterminate ~ ${StyledCheckLabel}:active::before {
       border-color: ${indeterminateActiveBorderColor};
       background-color: ${indeterminateActiveBackgroundColor};
     }
+
+    &:disabled:indeterminate ~ ${StyledCheckLabel}::before {
+      border-color: transparent;
+      background-color: ${indeterminateDisabledBackgroundColor};
+    }
+    /* stylelint-enable selector-max-specificity */
   `;
 };
 

@@ -1,3 +1,5 @@
+### Text inputs
+
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
 const {
@@ -37,6 +39,14 @@ const StyledMessage = styled(Message)`
     <Col size="5">
       <Well recessed style={{ width: 300 }}>
         <Field>
+          <Toggle
+            checked={state.regular}
+            onChange={event => setState({ regular: event.target.checked })}
+          >
+            <Label>Regular weight (label)</Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-xs">
           <Toggle checked={state.hint} onChange={event => setState({ hint: event.target.checked })}>
             <Label>Hint</Label>
           </Toggle>
@@ -82,9 +92,7 @@ const StyledMessage = styled(Message)`
         >
           <SelectField className="u-mt-xs">
             <SelectLabel>Validation</SelectLabel>
-            <Select disabled={!state.message} small>
-              {state.validation || 'none'}
-            </Select>
+            <Select small>{state.validation || 'none'}</Select>
           </SelectField>
           <Menu small>
             <Item value="">none</Item>
@@ -99,14 +107,14 @@ const StyledMessage = styled(Message)`
             onChange={event => setState({ inline: event.target.checked })}
           >
             <Label>Inline</Label>
-            <Hint>See code for inline layout styling overrides</Hint>
+            <Hint>See example code for inline styling overrides</Hint>
           </Toggle>
         </Field>
       </Well>
     </Col>
     <Col>
       <StyledField>
-        <Label>Input</Label>
+        <Label isRegular={state.regular}>Input</Label>
         {state.hint && <StyledHint>Hint</StyledHint>}
         <Input
           disabled={state.disabled}
@@ -120,7 +128,7 @@ const StyledMessage = styled(Message)`
         {state.message && <StyledMessage validation={state.validation}>Message</StyledMessage>}
       </StyledField>
       <StyledField className="u-mt-sm">
-        <Label>Textarea</Label>
+        <Label isRegular={state.regular}>Textarea</Label>
         {state.hint && <StyledHint>Hint</StyledHint>}
         <Textarea
           disabled={state.disabled}
@@ -135,7 +143,7 @@ const StyledMessage = styled(Message)`
         {state.message && <StyledMessage validation={state.validation}>Message</StyledMessage>}
       </StyledField>
       <StyledField className="u-mt-sm">
-        <Label>MediaInput</Label>
+        <Label isRegular={state.regular}>MediaInput</Label>
         {state.hint && <StyledHint>Hint</StyledHint>}
         <MediaInput
           disabled={state.disabled}
@@ -151,7 +159,7 @@ const StyledMessage = styled(Message)`
         {state.message && <StyledMessage validation={state.validation}>Message</StyledMessage>}
       </StyledField>
       <StyledField className="u-mt-sm">
-        <Label>FauxInput</Label>
+        <Label isRegular={state.regular}>FauxInput</Label>
         {state.hint && <StyledHint>Hint</StyledHint>}
         <FauxInput
           disabled={state.disabled}
@@ -165,6 +173,232 @@ const StyledMessage = styled(Message)`
         </FauxInput>
         {state.message && <StyledMessage validation={state.validation}>Message</StyledMessage>}
       </StyledField>
+    </Col>
+  </Row>
+</Grid>;
+```
+
+### Radio, Checkbox, and Toggle inputs
+
+The `Label`-as-child component layout for Garden checkbox inputs allows
+custom styling to be applied to the label's `::before` psuedo-element and
+keeps the native `input` intact. A label `hidden` prop may be applied when
+the default layout is not desired (consider [iOS-style
+switches](https://developer.apple.com/design/human-interface-guidelines/ios/controls/switches/)
+where text precedes the control). In these cases, the associated `Label`
+remains accessible to VoiceOver and must be populated with descriptive text.
+
+```jsx
+const { Well } = require('@zendeskgarden/react-notifications/src');
+const {
+  Dropdown,
+  Select,
+  Field: SelectField,
+  Label: SelectLabel,
+  Menu,
+  Item
+} = require('@zendeskgarden/react-dropdowns/src');
+
+initialState = {
+  hidden: false,
+  hint: true,
+  message: true,
+  indeterminate: false
+};
+
+<Grid>
+  <Row>
+    <Col size="7">
+      <Well recessed style={{ width: 360 }}>
+        <Field>
+          <Toggle
+            checked={state.indeterminate}
+            onChange={event => setState({ indeterminate: event.target.checked })}
+          >
+            <Label>Indeterminate (checkbox)</Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-xs">
+          <Toggle
+            checked={state.regular}
+            onChange={event => setState({ regular: event.target.checked })}
+          >
+            <Label>Regular weight (label)</Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-xs">
+          <Toggle
+            checked={state.hidden}
+            onChange={event => setState({ hidden: event.target.checked })}
+          >
+            <Label>Hidden (label)</Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-xs">
+          <Toggle onChange={event => setState({ disabled: event.target.checked })}>
+            <Label>Disabled</Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-xs">
+          <Toggle checked={state.hint} onChange={event => setState({ hint: event.target.checked })}>
+            <Label>Hint</Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-xs">
+          <Toggle
+            checked={state.message}
+            onChange={event => setState({ message: event.target.checked })}
+          >
+            <Label>Message</Label>
+          </Toggle>
+        </Field>
+        <Dropdown
+          selectedItem={state.validation}
+          onSelect={validation =>
+            validation === '' ? setState({ validation: null }) : setState({ validation })
+          }
+        >
+          <SelectField className="u-mt-xs">
+            <SelectLabel>Validation</SelectLabel>
+            <Select disabled={!state.message} small>
+              {state.validation || 'none'}
+            </Select>
+          </SelectField>
+          <Menu small>
+            <Item value="">none</Item>
+            <Item value="success">success</Item>
+            <Item value="warning">warning</Item>
+            <Item value="error">error</Item>
+          </Menu>
+        </Dropdown>
+      </Well>
+    </Col>
+    <Col>
+      <Field>
+        <Checkbox disabled={state.disabled} indeterminate={state.indeterminate}>
+          <Label hidden={state.hidden} isRegular={state.regular}>
+            Checkbox
+          </Label>
+          {state.hint && <Hint>Hint</Hint>}
+          {state.message && <Message validation={state.validation}>Message</Message>}
+        </Checkbox>
+      </Field>
+      <div className="u-mt-sm">
+        <Field>
+          <Radio disabled={state.disabled} name="example">
+            <Label hidden={state.hidden} isRegular={state.regular}>
+              Radio
+            </Label>
+            {state.hint && <Hint>Hint</Hint>}
+            {state.message && <Message validation={state.validation}>Message</Message>}
+          </Radio>
+        </Field>
+        <Field className="u-mt-xxs">
+          <Radio disabled={state.disabled} name="example">
+            <Label hidden={state.hidden} isRegular={state.regular}>
+              Radio
+            </Label>
+            {state.hint && <Hint>Hint</Hint>}
+            {state.message && <Message validation={state.validation}>Message</Message>}
+          </Radio>
+        </Field>
+      </div>
+      <Field className="u-mt-sm">
+        <Toggle disabled={state.disabled}>
+          <Label hidden={state.hidden} isRegular={state.regular}>
+            Toggle
+          </Label>
+          {state.hint && <Hint>Hint</Hint>}
+          {state.message && <Message validation={state.validation}>Message</Message>}
+        </Toggle>
+      </Field>
+    </Col>
+  </Row>
+</Grid>;
+```
+
+### Range inputs
+
+```jsx
+const { Well } = require('@zendeskgarden/react-notifications/src');
+const {
+  Dropdown,
+  Select,
+  Field: SelectField,
+  Label: SelectLabel,
+  Menu,
+  Item
+} = require('@zendeskgarden/react-dropdowns/src');
+
+initialState = {
+  hint: true,
+  message: true,
+  minValue: 0,
+  maxValue: 100
+};
+
+<Grid>
+  <Row>
+    <Col>
+      <Well recessed style={{ width: 300 }}>
+        <Field>
+          <Toggle onChange={event => setState({ disabled: event.target.checked })}>
+            <Label>Disabled</Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-xs">
+          <Toggle checked={state.hint} onChange={event => setState({ hint: event.target.checked })}>
+            <Label>Hint</Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-xs">
+          <Toggle
+            checked={state.message}
+            onChange={event => setState({ message: event.target.checked })}
+          >
+            <Label>Message</Label>
+          </Toggle>
+        </Field>
+        <Dropdown
+          selectedItem={state.validation}
+          onSelect={validation =>
+            validation === '' ? setState({ validation: null }) : setState({ validation })
+          }
+        >
+          <SelectField className="u-mt-xs">
+            <SelectLabel>Validation</SelectLabel>
+            <Select disabled={!state.message} small>
+              {state.validation || 'none'}
+            </Select>
+          </SelectField>
+          <Menu small>
+            <Item value="">none</Item>
+            <Item value="success">success</Item>
+            <Item value="warning">warning</Item>
+            <Item value="error">error</Item>
+          </Menu>
+        </Dropdown>
+      </Well>
+    </Col>
+    <Col>
+      <Field>
+        <Label>Range</Label>
+        {state.hint && <Hint>Hint</Hint>}
+        <Range disabled={state.disabled} step={10} />
+        {state.message && <Message validation={state.validation}>Message</Message>}
+      </Field>
+      <Field className="u-mt-sm">
+        <Label>MultiThumbRange</Label>
+        {state.hint && <Hint>Hint</Hint>}
+        <MultiThumbRange
+          disabled={state.disabled}
+          minValue={state.minValue}
+          maxValue={state.maxValue}
+          step={10}
+          onChange={({ minValue, maxValue }) => setState({ minValue, maxValue })}
+        />
+        {state.message && <Message validation={state.validation}>Message</Message>}
+      </Field>
     </Col>
   </Row>
 </Grid>;
