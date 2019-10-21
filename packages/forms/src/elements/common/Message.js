@@ -43,7 +43,7 @@ const Message = React.forwardRef(({ validation, children, ...props }, ref) => {
   }
 
   return (
-    <MessageComponent ref={ref} {...getMessageProps(props)}>
+    <MessageComponent ref={ref} {...getMessageProps({ validation, ...props })}>
       {validation && <StyledMessageIcon validation={validation} />}
       {children}
     </MessageComponent>

@@ -16,10 +16,6 @@ module.exports = {
       content: '../../packages/forms/README.md'
     },
     {
-      name: 'Introduction',
-      content: '../../packages/forms/examples/introduction.md'
-    },
-    {
       name: 'Examples',
       sections: [
         {
