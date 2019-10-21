@@ -23,7 +23,7 @@ initialState = {
   totalPages={25}
   pagePadding={3}
   currentPage={state.currentPage}
-  onStateChange={setState}
+  onChange={currentPage => setState({ currentPage })}
 />;
 ```
 
@@ -46,7 +46,7 @@ const transformPageProps = (pageType, props) => {
 <Pagination
   totalPages={25}
   currentPage={state.currentPage}
-  onStateChange={setState}
+  onChange={currentPage => setState({ currentPage })}
   transformPageProps={transformPageProps}
 />;
 ```

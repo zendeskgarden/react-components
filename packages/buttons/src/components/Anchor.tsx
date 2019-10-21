@@ -7,7 +7,7 @@
 
 import React, { AnchorHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
+import { useKeyboardFocus } from '@zendeskgarden/container-keyboardfocus';
 import { StyledAnchor, StyledExternalIcon } from '../styled';
 
 interface IAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -26,22 +26,22 @@ interface IAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 const Anchor: React.FunctionComponent<
   IAnchorProps & React.RefAttributes<HTMLAnchorElement>
 > = React.forwardRef<HTMLAnchorElement, IAnchorProps>(
-  ({ children, external, ...buttonProps }, ref) => (
-    <KeyboardFocusContainer>
-      {({ getFocusProps, keyboardFocused }: any) => (
-        <StyledAnchor
-          {...getFocusProps({
-            ref,
-            ...buttonProps,
-            focused: keyboardFocused
-          })}
-        >
-          {children}
-          {external && <StyledExternalIcon />}
-        </StyledAnchor>
-      )}
-    </KeyboardFocusContainer>
-  )
+  ({ children, external, ...buttonProps }, ref) => {
+    const { getFocusProps, keyboardFocused } = useKeyboardFocus();
+
+    return (
+      <StyledAnchor
+        {...getFocusProps({
+          ref,
+          ...buttonProps,
+          focused: keyboardFocused
+        })}
+      >
+        {children}
+        {external && <StyledExternalIcon />}
+      </StyledAnchor>
+    );
+  }
 );
 
 Anchor.propTypes = {

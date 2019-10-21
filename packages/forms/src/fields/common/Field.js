@@ -8,17 +8,24 @@
 import React, { createContext } from 'react';
 import PropTypes from 'prop-types';
 import { useField } from '@zendeskgarden/container-field';
+import { StyledField } from '../../styled';
 
 export const FieldContext = createContext(undefined);
 
 /**
  * Provides accessibility attributes to child form fields.
- * Does not render a corresponding DOM element.
+ * Accepts all `<div>` props.
  */
-function Field({ id, children }) {
+function Field({ id, children, inline, ...other }) {
   const fieldProps = useField(id);
 
-  return <FieldContext.Provider value={fieldProps}>{children}</FieldContext.Provider>;
+  return (
+    <FieldContext.Provider value={fieldProps}>
+      <StyledField inline={inline} {...other}>
+        {children}
+      </StyledField>
+    </FieldContext.Provider>
+  );
 }
 
 Field.propTypes = {
@@ -26,7 +33,8 @@ Field.propTypes = {
    * The ID that is used as the base for accessiblity attributes
    */
   id: PropTypes.string,
-  children: PropTypes.node
+  children: PropTypes.node,
+  inline: PropTypes.bool
 };
 
 export default Field;

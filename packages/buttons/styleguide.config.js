@@ -34,7 +34,12 @@ module.exports = {
         {
           name: 'Button',
           content: '../../packages/buttons/examples/button.md'
-        },
+        }
+      ]
+    },
+    {
+      name: 'Views',
+      sections: [
         {
           name: 'Anchor',
           content: '../../packages/buttons/examples/anchor.md'

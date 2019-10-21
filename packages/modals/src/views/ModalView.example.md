@@ -1,5 +1,6 @@
 This is a visual only example. For an accessible, complete implementation
-[use the ModalContainer](#modalcontainer) component.
+use the [useModal()](https://www.npmjs.com/package/@zendeskgarden/container-modal)
+hook.
 
 ```jsx
 const { Button } = require('@zendeskgarden/react-buttons/src');

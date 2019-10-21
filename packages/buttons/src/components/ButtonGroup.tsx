@@ -78,7 +78,9 @@ const ButtonGroup: React.FunctionComponent<IButtonGroupProps> = ({
 
   return (
     <ButtonGroupContext.Provider value={true}>
-      <StyledButtonGroup {...getGroupProps(otherProps)}>{renderButtons()}</StyledButtonGroup>
+      <StyledButtonGroup {...(getGroupProps(otherProps) as any)}>
+        {renderButtons()}
+      </StyledButtonGroup>
     </ButtonGroupContext.Provider>
   );
 };

@@ -5,6 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+/* eslint-disable default-param-last */
+
 /**
  * This checks that a component is the same type of instance of another component
  * @param {Object} react component object

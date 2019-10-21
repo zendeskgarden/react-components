@@ -5,8 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { default as FocusJailContainer } from './containers/FocusJailContainer';
-export { default as ModalContainer } from './containers/ModalContainer';
 export { default as Modal } from './elements/Modal';
 export { default as Backdrop } from './views/Backdrop';
 export { default as Body } from './views/Body';

@@ -8,8 +8,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import hasType from './hasType';
-import Button from '../../../buttons/src/components/Button';
-import Hint from '../../../ranges/src/views/Hint';
+
+const Button = () => <button>test</button>;
+
+Button.hasType = () => Button;
+
+const Example = props => <div {...props} />;
 
 describe('hasType', () => {
   describe('if hasType is provided', () => {
@@ -18,7 +22,7 @@ describe('hasType', () => {
     });
 
     it('returns false otherwise', () => {
-      expect(hasType(<Hint>hint</Hint>, Button)).toBe(false);
+      expect(hasType(<Example>hint</Example>, Button)).toBe(undefined);
     });
 
     it('returns false if provided a falsy value', () => {
@@ -36,11 +40,11 @@ describe('hasType', () => {
     });
 
     it('returns false otherwise', () => {
-      const StyledHint = styled(Hint)`
+      const StyledHint = styled(Example)`
         text-align: right;
       `;
 
-      expect(hasType(<StyledHint>styled hint</StyledHint>, Button)).toBe(false);
+      expect(hasType(<StyledHint>styled hint</StyledHint>, Button)).toBe(undefined);
     });
   });
 });

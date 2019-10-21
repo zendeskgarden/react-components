@@ -15,10 +15,10 @@ import TabPanel from '../views/TabPanel';
 describe('Tabs', () => {
   const BasicExample = props => (
     <Tabs data-test-id="container" {...props}>
-      <TabPanel label={<span data-test-id="tab">Tab 1</span>} key="tab-1" data-test-id="panel">
+      <TabPanel label={<span data-test-id="tab">Tab 1</span>} item="tab-1" data-test-id="panel">
         Tab 1 content
       </TabPanel>
-      <TabPanel label={<span data-test-id="tab">Tab 2</span>} key="tab-2" data-test-id="panel">
+      <TabPanel label={<span data-test-id="tab">Tab 2</span>} item="tab-2" data-test-id="panel">
         Tab 2 content
       </TabPanel>
     </Tabs>
@@ -47,10 +47,10 @@ describe('Tabs', () => {
     });
 
     it('applies focused styling to currently focused tab', () => {
-      const { getAllByTestId, getByRole } = render(<BasicExample />);
+      const { getAllByTestId } = render(<BasicExample />);
       const tab = getAllByTestId('tab')[0];
 
-      fireEvent.focus(getByRole('tablist'));
+      fireEvent.focus(tab);
 
       expect(tab.parentElement).toHaveClass('is-focused');
     });
@@ -58,7 +58,7 @@ describe('Tabs', () => {
     it('applies disabled styling if provided', () => {
       const { getAllByTestId } = render(
         <Tabs>
-          <TabPanel label={<span data-test-id="tab">Tab 1</span>} key="tab-1">
+          <TabPanel label={<span data-test-id="tab">Tab 1</span>} item="tab-1">
             Tab 1 content
           </TabPanel>
           <TabPanel disabled label={<span data-test-id="tab">Tab 2</span>}>
@@ -73,7 +73,7 @@ describe('Tabs', () => {
     it('applies custom props if provided', () => {
       const { getByTestId } = render(
         <Tabs>
-          <TabPanel key="custom" tabProps={{ 'data-test-id': 'custom-tab' }}>
+          <TabPanel item="custom" tabProps={{ 'data-test-id': 'custom-tab' }}>
             Custom Tab
           </TabPanel>
         </Tabs>
@@ -90,7 +90,7 @@ describe('Tabs', () => {
   });
 
   describe('TabPanel', () => {
-    it('throws if no key is provided to TabPanel', () => {
+    it('throws if no item is provided to TabPanel', () => {
       const originalError = console.error;
 
       console.error = jest.fn();
@@ -101,18 +101,16 @@ describe('Tabs', () => {
             <TabPanel>Invalid panel</TabPanel>
           </Tabs>
         );
-      }).toThrow(
-        '"key" must be defined within getTabProps regardless of being used within a .map()'
-      );
+      }).toThrow('Accessibility Error: You must provide an "item" option to "getTabProps()"');
 
       console.error = originalError;
     });
 
-    it('does not throw if a key is provided to TabPanel', () => {
+    it('does not throw if a item is provided to TabPanel', () => {
       expect(() => {
         render(
           <Tabs>
-            <TabPanel key="valid-panel">Valid panel</TabPanel>
+            <TabPanel item="valid-panel">Valid panel</TabPanel>
           </Tabs>
         );
       }).not.toThrow();

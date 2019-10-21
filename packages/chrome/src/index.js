@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { default as AccordionContainer } from './containers/AccordionContainer';
 export { default as Chrome } from './views/Chrome';
 export { default as Body } from './views/body/Body';
 export { default as Content } from './views/body/Content';
