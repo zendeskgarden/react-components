@@ -25,31 +25,10 @@ module.exports = {
         {
           name: 'Basic',
           content: '../../packages/forms/examples/basic.md'
-        }
-      ]
-    },
-    {
-      name: 'Examples',
-      sections: [
-        {
-          name: 'Checkboxes',
-          content: '../../packages/forms/examples/checkbox.md'
         },
         {
-          name: 'Radio',
-          content: '../../packages/forms/examples/radio.md'
-        },
-        {
-          name: 'Range',
-          content: '../../packages/forms/examples/range.md'
-        },
-        {
-          name: 'Multi-Thumb Range',
-          content: '../../packages/forms/examples/multi-thumb-range.md'
-        },
-        {
-          name: 'Toggle',
-          content: '../../packages/forms/examples/toggle.md'
+          name: 'Advanced',
+          content: '../../packages/forms/examples/advanced.md'
         }
       ]
     },

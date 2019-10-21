@@ -10,8 +10,8 @@ const {
   Menu,
   Item
 } = require('@zendeskgarden/react-dropdowns/src');
-const SearchIcon = require('@zendeskgarden/svg-icons/src/16/search-stroke.svg').default;
-const ShieldIcon = require('@zendeskgarden/svg-icons/src/16/shield-stroke.svg').default;
+const StartIcon = require('@zendeskgarden/svg-icons/src/16/search-stroke.svg').default;
+const EndIcon = require('@zendeskgarden/svg-icons/src/16/shield-stroke.svg').default;
 
 initialState = {
   hint: true,
@@ -153,8 +153,8 @@ const StyledMessage = styled(Message)`
           placeholder="placeholder"
           validation={state.validation}
           style={state.inline ? { width: 'auto', margin: 0 } : {}}
-          start={<SearchIcon />}
-          end={<ShieldIcon />}
+          start={<StartIcon />}
+          end={<EndIcon />}
         />
         {state.message && <StyledMessage validation={state.validation}>Message</StyledMessage>}
       </StyledField>
