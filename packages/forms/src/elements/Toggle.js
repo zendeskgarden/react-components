@@ -12,7 +12,7 @@ import { StyledToggleInput } from '../styled';
 
 /**
  * Must be rendered within a `<Field>` element; accepts all
- * `<input type="checkbox" />` attributes and events.
+ * `<input type="checkbox">` attributes and events.
  */
 const Toggle = React.forwardRef(({ children, ...props }, ref) => {
   const { getInputProps } = useFieldContext();

@@ -14,9 +14,10 @@ import useToggleContext from '../../utils/useToggleContext';
 import { StyledLabel, StyledCheckLabel, StyledRadioLabel, StyledToggleLabel } from '../../styled';
 
 /**
- * Accepts all `<label>` props.
+ * Must be rendered within a `<Field>` element; accepts all `<label>` attributes
+ * and events.
  */
-function Label(props) {
+const Label = React.forwardRef((props, ref) => {
   const { getLabelProps } = useFieldContext();
   const checkboxCtx = useCheckboxContext();
   const radioCtx = useRadioContext();
@@ -34,16 +35,11 @@ function Label(props) {
     LabelComponent = StyledLabel;
   }
 
-  return React.createElement(
-    LabelComponent,
-    getLabelProps({
-      ...props
-    })
-  );
-}
+  return <LabelComponent ref={ref} {...getLabelProps(props)} />;
+});
 
 Label.propTypes = {
-  /* style using regular font weight */
+  /** Style using regular (non-bold) font weight */
   isRegular: PropTypes.bool
 };
 

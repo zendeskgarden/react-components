@@ -13,9 +13,10 @@ import useToggleContext from '../../utils/useToggleContext';
 import { StyledHint, StyledCheckHint, StyledRadioHint, StyledToggleHint } from '../../styled';
 
 /**
- * Accepts all `<div>` props.
+ * Must be rendered within a `<Field>` element; accepts all `<div>` attributes
+ * and events.
  */
-function Hint(props) {
+const Hint = React.forwardRef((props, ref) => {
   const { getHintProps } = useFieldContext();
   const checkboxCtx = useCheckboxContext();
   const radioCtx = useRadioContext();
@@ -33,7 +34,7 @@ function Hint(props) {
     HintComponent = StyledHint;
   }
 
-  return React.createElement(HintComponent, getHintProps(props));
-}
+  return <HintComponent ref={ref} {...getHintProps(props)} />;
+});
 
 export default Hint;

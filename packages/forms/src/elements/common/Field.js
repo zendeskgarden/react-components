@@ -5,19 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useField } from '@zendeskgarden/container-field';
 import { useFocusVisible } from '@zendeskgarden/container-focusvisible';
+import { useCombinedRefs } from '@zendeskgarden/container-utilities';
 import { FieldContext } from '../../utils/useFieldContext';
 import { StyledField } from '../../styled';
 
 /**
- * Provides layout and ID context for child components. Accepts all `<div>`
+ * Provides layout and ID context for child components; accepts all `<div>`
  * attributes and events.
  */
-function Field({ id, children, ...other }) {
-  const scope = useRef();
+const Field = React.forwardRef(({ id, ...other }, ref) => {
+  const scope = useCombinedRefs(ref);
   const getMessageProps = props => ({ role: 'alert', ...props });
   const fieldProps = { ...useField(id), getMessageProps };
 
@@ -25,12 +26,10 @@ function Field({ id, children, ...other }) {
 
   return (
     <FieldContext.Provider value={fieldProps}>
-      <StyledField {...other} ref={scope}>
-        {children}
-      </StyledField>
+      <StyledField {...other} ref={scope} />
     </FieldContext.Provider>
   );
-}
+});
 
 Field.propTypes = {
   /** Prefix for generated label, input, and hint IDs */

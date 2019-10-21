@@ -18,17 +18,13 @@ import {
   StyledMessageIcon
 } from '../../styled';
 import useFieldContext from '../../utils/useFieldContext';
-
-const VALIDATION = {
-  SUCCESS: 'success',
-  WARNING: 'warning',
-  ERROR: 'error'
-};
+import VALIDATION from '../../utils/validation';
 
 /**
- * Accepts all native `<div />` props
+ * Must be rendered within a `<Field>` element; accepts all `<div>` attributes
+ * and events.
  */
-function Message(props) {
+const Message = React.forwardRef(({ validation, children, ...props }, ref) => {
   const { getMessageProps } = useFieldContext();
   const checkboxCtx = useCheckboxContext();
   const radioCtx = useRadioContext();
@@ -47,12 +43,12 @@ function Message(props) {
   }
 
   return (
-    <MessageComponent {...getMessageProps(props)}>
-      {props.validation && <StyledMessageIcon validation={props.validation} />}
-      {props.children}
+    <MessageComponent ref={ref} {...getMessageProps(props)}>
+      {validation && <StyledMessageIcon validation={validation} />}
+      {children}
     </MessageComponent>
   );
-}
+});
 
 Message.propTypes = {
   validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
