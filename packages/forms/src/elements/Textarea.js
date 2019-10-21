@@ -12,7 +12,8 @@ import { StyledTextarea } from '../styled';
 import VALIDATION from '../utils/validation';
 
 /**
- * Accepts all `<textarea />` props
+ * Must be rendered within a `<Field>` element; accepts all
+ * `<textarea />` attributes and events.
  */
 const Textarea = React.forwardRef((props, ref) => {
   const { getInputProps } = useFieldContext();
@@ -31,11 +32,14 @@ const Textarea = React.forwardRef((props, ref) => {
 });
 
 Textarea.propTypes = {
+  /** Apply compact styling */
   isCompact: PropTypes.bool,
+  /** Remove borders and padding */
   isBare: PropTypes.bool,
-  isResizable: PropTypes.bool,
-  /** Applies inset `box-shadow` styling on focus */
+  /** Apply inset `box-shadow` styling on focus */
   focusInset: PropTypes.bool,
+  /** Display a mechanism for vertical resize */
+  isResizable: PropTypes.bool,
   validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
 };
 

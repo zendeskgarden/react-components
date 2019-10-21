@@ -12,10 +12,10 @@ import useFieldContext from '../utils/useFieldContext';
 import { StyledRangeInput } from '../styled';
 
 /**
- * Accepts all `<input [type="range"]>` props.
- * Must be rendered within a `<Field>` component.
+ * Must be rendered within a `<Field>` element; accepts all
+ * `<input type="range">` attributes and events.
  */
-const Range = React.forwardRef(({ min, max, step, ...otherProps }, ref) => {
+const Range = React.forwardRef(({ min, max, step, ...props }, ref) => {
   const [backgroundSize, setBackgroundSize] = useState(0);
   const rangeRef = useCombinedRefs(ref);
   const { getInputProps } = useFieldContext();
@@ -33,7 +33,8 @@ const Range = React.forwardRef(({ min, max, step, ...otherProps }, ref) => {
 
       setBackgroundSize(`${percentage}%`);
     },
-    [max, min]
+    /* eslint-disable-next-line react-hooks/exhaustive-deps */
+    [max, min, step]
   );
 
   useEffect(() => {
@@ -49,8 +50,8 @@ const Range = React.forwardRef(({ min, max, step, ...otherProps }, ref) => {
           max,
           step,
           backgroundSize,
-          ...otherProps,
-          onChange: composeEventHandlers(otherProps.onChange, event => {
+          ...props,
+          onChange: composeEventHandlers(props.onChange, event => {
             updateBackgroundWidthFromInput(event.target);
           })
         },
@@ -61,9 +62,13 @@ const Range = React.forwardRef(({ min, max, step, ...otherProps }, ref) => {
 });
 
 Range.propTypes = {
+  /** @ignore */
   min: PropTypes.number,
+  /** @ignore */
   max: PropTypes.number,
+  /** @ignore */
   step: PropTypes.number,
+  /** @ignore */
   onChange: PropTypes.func
 };
 

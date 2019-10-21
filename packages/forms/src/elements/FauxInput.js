@@ -8,14 +8,14 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { StyledTextFauxInput } from '../../styled';
-import VALIDATION from '../../utils/validation';
+import { StyledTextFauxInput } from '../styled';
+import VALIDATION from '../utils/validation';
 
 /**
- * Provides input styling for use in non-input scenarios.
- * Accepts all `<div>` props.
+ * Provides styling without native input backing; accepts all `<div>`
+ * attributes and events.
  */
-const FauxInput = React.forwardRef(({ onFocus, onBlur, ...props }, ref) => {
+const FauxInput = React.forwardRef(({ onFocus, onBlur, disabled, ...props }, ref) => {
   const [isFocused, setIsFocused] = useState(false);
 
   const onFocusHandler = composeEventHandlers(onFocus, () => {
@@ -30,7 +30,8 @@ const FauxInput = React.forwardRef(({ onFocus, onBlur, ...props }, ref) => {
     <StyledTextFauxInput
       onFocus={onFocusHandler}
       onBlur={onBlurHandler}
-      data-garden-focus-visible={isFocused}
+      isFocused={isFocused}
+      isDisabled={disabled}
       ref={ref}
       {...props}
     />
@@ -38,14 +39,15 @@ const FauxInput = React.forwardRef(({ onFocus, onBlur, ...props }, ref) => {
 });
 
 FauxInput.propTypes = {
+  /** Apply compact styling */
   isCompact: PropTypes.bool,
-  /** Removes all borders and styling */
+  /** Remove borders and padding */
   isBare: PropTypes.bool,
-  /** Applies inset `box-shadow` styling on focus */
+  /** Apply inset `box-shadow` styling on focus */
   focusInset: PropTypes.bool,
+  /** Apply disabled styling */
+  disabled: PropTypes.bool,
   validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR]),
-  /** @ignore */
-  mediaLayout: PropTypes.bool,
   /** @ignore */
   onFocus: PropTypes.func,
   /** @ignore */

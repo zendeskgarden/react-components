@@ -6,13 +6,13 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import useFieldContext from '../utils/useFieldContext';
 import { ToggleContext } from '../utils/useToggleContext';
 import { StyledToggleInput } from '../styled';
 
 /**
- * Accepts all `<input type="checkbox" />` props
+ * Must be rendered within a `<Field>` element; accepts all
+ * `<input type="checkbox" />` attributes and events.
  */
 const Toggle = React.forwardRef(({ children, ...props }, ref) => {
   const { getInputProps } = useFieldContext();
@@ -32,9 +32,5 @@ const Toggle = React.forwardRef(({ children, ...props }, ref) => {
     </ToggleContext.Provider>
   );
 });
-
-Toggle.propTypes = {
-  children: PropTypes.node
-};
 
 export default Toggle;

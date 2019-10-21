@@ -6,13 +6,13 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import useFieldContext from '../utils/useFieldContext';
 import { RadioContext } from '../utils/useRadioContext';
 import { StyledRadioInput } from '../styled';
 
 /**
- * Accepts all `<input type="radio" />` props
+ * Must be rendered within a `<Field>` element; accepts all
+ * `<input type="radio">` attributes and events.
  */
 const Radio = React.forwardRef(({ children, ...props }, ref) => {
   const { getInputProps } = useFieldContext();
@@ -32,9 +32,5 @@ const Radio = React.forwardRef(({ children, ...props }, ref) => {
     </RadioContext.Provider>
   );
 });
-
-Radio.propTypes = {
-  children: PropTypes.node
-};
 
 export default Radio;

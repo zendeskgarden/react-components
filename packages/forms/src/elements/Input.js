@@ -12,8 +12,8 @@ import { StyledTextInput } from '../styled';
 import VALIDATION from '../utils/validation';
 
 /**
- * Accepts all `<input />` props.
- * Must be rendered within a `<Field>` component.
+ * Must be rendered within a `<Field>` element; accepts all `<input>`
+ * attributes and events.
  */
 const Input = React.forwardRef((props, ref) => {
   const { getInputProps } = useFieldContext();
@@ -32,10 +32,11 @@ const Input = React.forwardRef((props, ref) => {
 });
 
 Input.propTypes = {
+  /** Apply compact styling */
   isCompact: PropTypes.bool,
-  /** Removes all borders and styling */
+  /** Remove borders and padding */
   isBare: PropTypes.bool,
-  /** Applies inset `box-shadow` styling on focus */
+  /** Apply inset `box-shadow` styling on focus */
   focusInset: PropTypes.bool,
   validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
 };

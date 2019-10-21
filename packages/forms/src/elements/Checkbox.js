@@ -12,7 +12,8 @@ import { CheckboxContext } from '../utils/useCheckboxContext';
 import { StyledCheckInput } from '../styled';
 
 /**
- * Accepts all `<input type="checkbox" />` props
+ * Must be rendered within a `<Field>` element; accepts all
+ * `<input type="checkbox">` attributes and events.
  */
 const Checkbox = React.forwardRef(({ indeterminate, children, ...props }, ref) => {
   const { getInputProps } = useFieldContext();
@@ -45,8 +46,12 @@ const Checkbox = React.forwardRef(({ indeterminate, children, ...props }, ref) =
 });
 
 Checkbox.propTypes = {
-  indeterminate: PropTypes.bool,
-  children: PropTypes.node
+  /**
+   * Set
+   * [indeterminate](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes)
+   * checkbox state
+   */
+  indeterminate: PropTypes.bool
 };
 
 export default Checkbox;

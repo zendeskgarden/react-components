@@ -103,7 +103,7 @@ const StyledMessage = styled(Message)`
         </Dropdown>
         <Field className="u-mt-xs">
           <Toggle
-            checked={state.inline}
+            checked={!!state.inline}
             onChange={event => setState({ inline: event.target.checked })}
           >
             <Label>Inline</Label>
@@ -152,7 +152,7 @@ const StyledMessage = styled(Message)`
           isCompact={state.compact}
           placeholder="placeholder"
           validation={state.validation}
-          style={state.inline ? { width: 'auto', margin: 0 } : {}}
+          wrapperProps={{ style: state.inline ? { width: 'auto', margin: 0 } : {} }}
           start={<StartIcon />}
           end={<EndIcon />}
         />
@@ -334,7 +334,8 @@ initialState = {
   hint: true,
   message: true,
   minValue: 0,
-  maxValue: 100
+  maxValue: 100,
+  step: 10
 };
 
 <Grid>
@@ -378,13 +379,25 @@ initialState = {
             <Item value="error">error</Item>
           </Menu>
         </Dropdown>
+        <Dropdown selectedItem={state.step} onSelect={step => setState({ step })}>
+          <SelectField className="u-mt-xs">
+            <SelectLabel>Step</SelectLabel>
+            <Select small>{state.step}</Select>
+          </SelectField>
+          <Menu small>
+            <Item value={1}>1</Item>
+            <Item value={5}>5</Item>
+            <Item value={10}>10</Item>
+            <Item value={50}>50</Item>
+          </Menu>
+        </Dropdown>
       </Well>
     </Col>
     <Col>
       <Field>
         <Label>Range</Label>
         {state.hint && <Hint>Hint</Hint>}
-        <Range disabled={state.disabled} step={10} />
+        <Range disabled={state.disabled} step={state.step} />
         {state.message && <Message validation={state.validation}>Message</Message>}
       </Field>
       <Field className="u-mt-sm">
@@ -394,7 +407,7 @@ initialState = {
           disabled={state.disabled}
           minValue={state.minValue}
           maxValue={state.maxValue}
-          step={10}
+          step={state.step}
           onChange={({ minValue, maxValue }) => setState({ minValue, maxValue })}
         />
         {state.message && <Message validation={state.validation}>Message</Message>}

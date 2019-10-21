@@ -18,6 +18,10 @@ import {
   StyledSliderThumb
 } from '../styled';
 
+/**
+ * Must be rendered within a `<Field>` element; accepts all `<div>` attributes
+ * and events.
+ */
 const MultiThumbRange = ({
   min,
   max,
@@ -28,7 +32,7 @@ const MultiThumbRange = ({
   disabled,
   step,
   onChange,
-  ...otherProps
+  ...props
 }) => {
   const [isMinThumbFocused, setIsMinThumbFocused] = useState(false);
   const [isMaxThumbFocused, setIsMaxThumbFocused] = useState(false);
@@ -39,8 +43,8 @@ const MultiThumbRange = ({
   const maxThumbRef = useRef();
   const { getInputProps } = useFieldContext();
 
-  const themedDocument = getDocument(otherProps);
-  const rtl = isRtl(otherProps);
+  const themedDocument = getDocument(props);
+  const rtl = isRtl(props);
 
   /**
    * The window resize event is debounced to reduce unnecessary renders
@@ -359,14 +363,27 @@ const MultiThumbRange = ({
 };
 
 MultiThumbRange.propTypes = {
-  disabled: PropTypes.bool,
+  /** The minimum permitted value */
   min: PropTypes.number,
+  /** The maximum permitted value */
   max: PropTypes.number,
-  minName: PropTypes.string,
-  maxName: PropTypes.string,
+  /** The minimum thumb input value */
   minValue: PropTypes.number,
+  /** The maximum thumb input value */
   maxValue: PropTypes.number,
+  /**
+   * The minimum thumb input name – paired with `minValue` on form submission
+   */
+  minName: PropTypes.string,
+  /**
+   * The maximum thumb input name – paired with `maxValue` on form submission
+   */
+  maxName: PropTypes.string,
+  /** The stepping interval */
   step: PropTypes.number,
+  /** Apply disabled styling */
+  disabled: PropTypes.bool,
+  /** Handler for processing change events */
   onChange: PropTypes.func
 };
 
