@@ -47,7 +47,7 @@ export const StyledButton = styled.button.attrs(props => ({
     [ButtonStyles['is-hovered']]: props.hovered,
     [ButtonStyles['is-selected']]: props.selected
   }),
-  type: 'button'
+  type: props.type || 'button'
 }))`
   ${props => retrieveTheme(COMPONENT_ID, props)};
 `;
