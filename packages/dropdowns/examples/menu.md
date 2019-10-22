@@ -2,7 +2,7 @@
 
 ```jsx
 const { Button } = require('@zendeskgarden/react-buttons/src');
-const { IconButton, Icon } = require('@zendeskgarden/react-buttons/src');
+const { IconButton } = require('@zendeskgarden/react-buttons/src');
 const SettingsIcon = require('@zendeskgarden/svg-icons/src/16/gear-stroke.svg').default;
 
 <Grid>
@@ -23,9 +23,7 @@ const SettingsIcon = require('@zendeskgarden/svg-icons/src/16/gear-stroke.svg').
       <Dropdown onSelect={item => alert(item)}>
         <Trigger>
           <IconButton aria-label="Settings" title="Settings">
-            <Icon>
-              <SettingsIcon />
-            </Icon>
+            <SettingsIcon />
           </IconButton>
         </Trigger>
         <Menu placement="end" arrow>

@@ -21,7 +21,7 @@ our standard `Tag` component.
 
 ```js
 const debounce = require('lodash.debounce');
-const { Tag, Close } = require('@zendeskgarden/react-tags/src');
+const { Tag } = require('@zendeskgarden/react-tags/src');
 
 const options = [
   'Aster',
@@ -124,7 +124,7 @@ function ExampleAutocomplete() {
           small
           renderItem={({ value, removeValue }) => (
             <Tag>
-              {value} <Close onClick={() => removeValue()} />
+              {value} <Tag.Close onClick={() => removeValue()} />
             </Tag>
           )}
         />
