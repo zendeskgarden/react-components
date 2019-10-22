@@ -1,6 +1,6 @@
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
-const { Checkbox, Field, Input, Label, Range } = require('@zendeskgarden/react-forms/src');
+const { Toggle, Field, Input, Label, Range } = require('@zendeskgarden/react-forms/src');
 const {
   Dropdown,
   Select,

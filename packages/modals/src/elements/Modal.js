@@ -9,6 +9,7 @@ import React, { Children, cloneElement, isValidElement, useEffect } from 'react'
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import { useModal } from '@zendeskgarden/container-modal';
+import { useCombinedRefs } from '@zendeskgarden/container-utilities';
 import { hasType } from '@zendeskgarden/react-utilities';
 import isWindow from 'dom-helpers/isWindow';
 import ownerDocument from 'dom-helpers/ownerDocument';
@@ -21,8 +22,6 @@ import Backdrop from '../views/Backdrop';
 import Body from '../views/Body';
 import Close from '../views/Close';
 import Header from '../views/Header';
-
-import useCombinedRefs from '../utils/useCombinedRefs';
 
 const isOverflowing = element => {
   const doc = ownerDocument(element);
