@@ -247,10 +247,12 @@ LF:9
 LH:9
 BRDA:28,0,0,43
 BRDA:28,0,1,40
-BRDA:66,1,0,26
-BRDA:66,1,1,24
-BRF:4
-BRH:4
+BRDA:50,1,0,43
+BRDA:50,1,1,43
+BRDA:66,2,0,26
+BRDA:66,2,1,24
+BRF:6
+BRH:6
 end_of_record
 TN:
 SF:/home/travis/build/zendeskgarden/react-components/packages/buttons/src/views/button-group/ButtonGroupView.js
