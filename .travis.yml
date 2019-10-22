@@ -3,6 +3,7 @@ language: node_js
 branches:
   only:
     - master
+    - v6
 
 cache:
   yarn: true
@@ -22,21 +23,13 @@ script:
   - yarn bundlesize --config bundlesize.config.js
   - yarn test:all --coverage --runInBand
 
-after_success: yarn coveralls < demo/coverage/lcov.info
-
 before_deploy:
   - export NODE_DEBUG=gh-pages
   - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 
 deploy:
   - provider: script
-    script: utils/travis/publish-gh-pages.sh
-    skip_cleanup: true
-    on:
-      branch: master
-
-  - provider: script
     script: yarn lerna publish from-git --no-verify-access --yes
     skip_cleanup: true
     on:
-      branch: master
+      branch: v6
