@@ -7,86 +7,57 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import StyledTextInput from './StyledTextInput';
+import { PALETTE } from '@zendeskgarden/react-theming';
+import { StyledTextInput } from './StyledTextInput';
 
 describe('StyledTextInput', () => {
-  it('renders default styling correctly', () => {
+  it('renders the expected element', () => {
     const { container } = render(<StyledTextInput />);
 
-    expect(container.firstChild).toHaveClass('c-txt__input');
+    expect(container.firstChild.nodeName).toBe('INPUT');
   });
 
-  it('renders small styling correctly', () => {
-    const { container } = render(<StyledTextInput small />);
+  it('renders compact styling if provided', () => {
+    const { container } = render(<StyledTextInput isCompact />);
 
-    expect(container.firstChild).toHaveClass('c-txt__input--sm');
+    expect(container.firstChild).toHaveStyleRule('min-height', '32px');
   });
 
-  it('renders tag layout styling correctly', () => {
-    const { container } = render(<StyledTextInput tagLayout />);
+  it('renders bare styling if provided', () => {
+    const { container } = render(<StyledTextInput isBare />);
 
-    expect(container.firstChild).toHaveClass('c-txt__input--tag');
+    expect(container.firstChild).toHaveStyleRule('border', 'none');
   });
 
-  it('renders select layout styling correctly', () => {
-    const { container } = render(<StyledTextInput select />);
-
-    expect(container.firstChild).toHaveClass('c-txt__input--select');
-  });
-
-  it('renders media layout styling correctly', () => {
-    const { container } = render(<StyledTextInput mediaLayout />);
-
-    expect(container.firstChild).toHaveClass('c-txt__input--media');
-  });
-
-  it('renders bare styling correctly', () => {
-    const { container } = render(<StyledTextInput bare />);
-
-    expect(container.firstChild).toHaveClass('c-txt__input--bare');
-  });
-
-  it('renders focus inset styling correctly', () => {
-    const { container } = render(<StyledTextInput focusInset />);
-
-    expect(container.firstChild).toHaveClass('c-txt__input--focus-inset');
-  });
-
-  it('renders disabled styling correctly', () => {
+  it('renders expected disabled styling', () => {
     const { container } = render(<StyledTextInput disabled />);
 
-    expect(container.firstChild).toHaveClass('is-disabled');
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[800]);
   });
 
-  it('renders focused styling correctly', () => {
-    const { container } = render(<StyledTextInput focused />);
-
-    expect(container.firstChild).toHaveClass('is-focused');
-  });
-
-  it('renders hovered styling correctly', () => {
-    const { container } = render(<StyledTextInput hovered />);
-
-    expect(container.firstChild).toHaveClass('is-hovered');
-  });
-
-  it('renders open styling correctly', () => {
-    const { container } = render(<StyledTextInput open />);
-
-    expect(container.firstChild).toHaveClass('is-open');
-  });
-
-  ['success', 'warning', 'error'].forEach(validation => {
-    it(`renders ${validation} validation styling correctly`, () => {
-      const { container } = render(<StyledTextInput validation={validation} />);
-
-      expect(container.firstChild).toHaveClass(`c-txt__input--${validation}`);
-    });
-  });
-
-  it('renders RTL styling correctly', () => {
+  it('renders expected RTL styling', () => {
     const { container } = renderRtl(<StyledTextInput />);
 
-    expect(container.firstChild).toHaveClass('is-rtl');
+    expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
+  });
+
+  describe('Validation', () => {
+    it('renders "success" styling if provided', () => {
+      const { container } = render(<StyledTextInput validation="success" />);
+
+      expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.green[600]);
+    });
+
+    it('renders "warning" styling if provided', () => {
+      const { container } = render(<StyledTextInput validation="warning" />);
+
+      expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.yellow[600]);
+    });
+
+    it('renders "error" styling if provided', () => {
+      const { container } = render(<StyledTextInput validation="error" />);
+
+      expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.red[600]);
+    });
   });
 });
