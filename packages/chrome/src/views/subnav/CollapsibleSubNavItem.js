@@ -5,14 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import ChromeStyles from '@zendeskgarden/css-chrome';
 import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { useAccordion } from '@zendeskgarden/container-accordion';
+import { getControlledValue } from '@zendeskgarden/container-utilities';
 
-import AccordionContainer from '../../containers/AccordionContainer';
 import SubNavItem from './SubNavItem';
 
 const COMPONENT_ID = 'chrome.collapsible_sub_nav_item';
@@ -51,8 +52,29 @@ StyledSubNavPanel.propTypes = {
 /**
  * Accepts all `<button>` props
  */
-const CollapsibleSubNavItem = ({ header, children, expanded, onChange, ...other }) => {
+const CollapsibleSubNavItem = ({
+  header,
+  children,
+  expanded: controlledExpanded,
+  onChange,
+  ...other
+}) => {
   const panelRef = useRef(undefined);
+  const [internalExpanded, setInternalExpanded] = useState(controlledExpanded);
+  const expanded = getControlledValue(controlledExpanded, internalExpanded);
+
+  const { getHeaderProps, getTriggerProps, getPanelProps } = useAccordion({
+    expandedSections: expanded ? [0] : [],
+    onChange: updatedSections => {
+      const isExpanded = updatedSections.length !== 0;
+
+      if (onChange) {
+        onChange(isExpanded);
+      } else {
+        setInternalExpanded(isExpanded);
+      }
+    }
+  });
 
   useEffect(() => {
     if (expanded && panelRef.current) {
@@ -61,35 +83,30 @@ const CollapsibleSubNavItem = ({ header, children, expanded, onChange, ...other 
   }, [expanded]);
 
   return (
-    <AccordionContainer
-      expanded={expanded}
-      onStateChange={newState => {
-        onChange && onChange(newState.expanded);
-      }}
-    >
-      {({ getHeadingProps, getHeadingButtonProps, getPanelProps }) => (
-        <div>
-          <div {...getHeadingProps({ headingLevel: 2 })}>
-            <StyledSubNavItemHeader
-              {...getHeadingButtonProps({
-                expanded,
-                ...other
-              })}
-            >
-              {header}
-            </StyledSubNavItemHeader>
-          </div>
-          <StyledSubNavPanel
-            {...getPanelProps({
-              isHidden: !expanded,
-              ref: panelRef
-            })}
-          >
-            {children}
-          </StyledSubNavPanel>
-        </div>
-      )}
-    </AccordionContainer>
+    <div>
+      <div {...getHeaderProps({ ariaLevel: 2 })}>
+        <StyledSubNavItemHeader
+          {...getTriggerProps({
+            expanded,
+            index: 0,
+            role: null,
+            tabIndex: null,
+            ...other
+          })}
+        >
+          {header}
+        </StyledSubNavItemHeader>
+      </div>
+      <StyledSubNavPanel
+        {...getPanelProps({
+          index: 0,
+          isHidden: !expanded,
+          ref: panelRef
+        })}
+      >
+        {children}
+      </StyledSubNavPanel>
+    </div>
   );
 };
 

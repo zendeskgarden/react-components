@@ -90,7 +90,7 @@ function ExampleAutocomplete() {
         <Label>Autocomplete with debounce</Label>
         <Hint>This example includes basic debounce logic using Hooks</Hint>
         <Autocomplete>
-          <span aria-label="Garden emoji" role="image">
+          <span aria-label="Garden emoji" role="img">
             🌱
           </span>
           <span>{selectedItem}</span>

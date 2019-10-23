@@ -1,32 +1,30 @@
 {
-  "extends": ["config:base", "schedule:weekends"],
+  "extends": ["config:base"],
   "rebaseStalePrs": true,
   "packageRules": [
     {
-      "depTypeList": ["peerDependencies", "dependencies"],
-      "enabled": false
-    },
-    {
-      "packagePatterns": ["^@zendeskgarden/react"],
-      "groupName": "lerna-internal",
-      "enabled": false
+      "paths": ["package.json"],
+      "minor": {
+        "groupName": "non-major shared dependencies",
+        "groupSlug": "shared-minor-patch"
+      }
     },
     {
       "paths": ["packages/**"],
-      "groupName": "react-packages",
       "minor": {
-        "groupName": "all package non-major dependencies",
-        "groupSlug": "lerna-packages-minor-patch"
+        "groupName": "non-major package dependencies",
+        "groupSlug": "packages-minor-patch"
       }
     },
     {
-      "paths": ["package.json"],
-      "minor": {
-        "groupName": "all development non-major dependencies",
-        "groupSlug": "dev-minor-patch"
-      }
+      "packagePatterns": ["^@zendeskgarden/react"],
+      "enabled": false
+    },
+    {
+      "depTypeList": ["peerDependencies"],
+      "enabled": false
     }
   ],
-  "labels": ["PR: Internal :seedling:"],
-  "reviewers": ["ryanseddon", "jzempel", "austin94"]
+  "schedule": ["on Thursday every 4 weeks of the year starting on the 3rd week"],
+  "labels": ["PR: Internal :seedling:"]
 }

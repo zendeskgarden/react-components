@@ -20,6 +20,7 @@ script:
   - yarn lint
   - yarn tsc
   - yarn format
+  - yarn bundlesize --config bundlesize.config.js
   - yarn test:all --coverage --runInBand
 
 after_success: yarn coveralls < demo/coverage/lcov.info

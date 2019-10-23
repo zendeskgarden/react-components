@@ -7,7 +7,7 @@
 
 import React, { useContext, ButtonHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
+import { useKeyboardFocus } from '@zendeskgarden/container-keyboardfocus';
 import { StyledButton } from '../styled';
 import { ButtonGroupContext } from './ButtonGroup';
 
@@ -40,21 +40,18 @@ const Button: React.FunctionComponent<
   IButtonProps & React.RefAttributes<HTMLButtonElement>
 > = React.forwardRef<HTMLButtonElement, IButtonProps>(({ focused, ...other }, ref) => {
   const focusInset = other.focusInset || useContext(ButtonGroupContext);
+  const { getFocusProps, keyboardFocused } = useKeyboardFocus();
 
   return (
-    <KeyboardFocusContainer>
-      {({ getFocusProps, keyboardFocused }: any) => (
-        <StyledButton
-          {...getFocusProps({
-            ref,
-            tabIndex: null,
-            ...other,
-            focused: focused || keyboardFocused,
-            focusInset
-          })}
-        />
-      )}
-    </KeyboardFocusContainer>
+    <StyledButton
+      {...getFocusProps({
+        ref,
+        tabIndex: null,
+        ...other,
+        focused: focused || keyboardFocused,
+        focusInset
+      })}
+    />
   );
 });
 

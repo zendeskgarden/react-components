@@ -36,8 +36,6 @@ to install.
 | [`@zendeskgarden/react-modals`](packages/modals)               | [![npm version][modals npm version]][modals npm link]               | [![npm version][modals size bundle]][modals size link]               | [![Dependency Status][modals dependency status]][modals dependency link]               |
 | [`@zendeskgarden/react-notifications`](packages/notifications) | [![npm version][notifications npm version]][notifications npm link] | [![npm version][notifications size bundle]][notifications size link] | [![Dependency Status][notifications dependency status]][notifications dependency link] |
 | [`@zendeskgarden/react-pagination`](packages/pagination)       | [![npm version][pagination npm version]][pagination npm link]       | [![npm version][pagination size bundle]][pagination size link]       | [![Dependency Status][pagination dependency status]][pagination dependency link]       |
-| [`@zendeskgarden/react-ranges`](packages/ranges)               | [![npm version][ranges npm version]][ranges npm link]               | [![npm version][ranges size bundle]][ranges size link]               | [![Dependency Status][ranges dependency status]][ranges dependency link]               |
-| [`@zendeskgarden/react-selection`](packages/selection)         | [![npm version][selection npm version]][selection npm link]         | [![npm version][selection size bundle]][selection size link]         | [![Dependency Status][selection dependency status]][selection dependency link]         |
 | [`@zendeskgarden/react-tabs`](packages/tabs)                   | [![npm version][tabs npm version]][tabs npm link]                   | [![npm version][tabs size bundle]][tabs size link]                   | [![Dependency Status][tabs dependency status]][tabs dependency link]                   |
 | [`@zendeskgarden/react-tables`](packages/tables)               | [![npm version][tables npm version]][tables npm link]               | [![npm version][tables size bundle]][tables size link]               | [![Dependency Status][tables dependency status]][tables dependency link]               |
 | [`@zendeskgarden/react-tags`](packages/tags)                   | [![npm version][tags npm version]][tags npm link]                   | [![npm version][tags size bundle]][tags size link]                   | [![Dependency Status][tags dependency status]][tags dependency link]                   |
@@ -118,18 +116,6 @@ to install.
 [pagination size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-pagination
 [pagination dependency status]: https://flat.badgen.net/david/dep/zendeskgarden/react-components/packages/pagination
 [pagination dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/pagination
-[ranges npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-ranges
-[ranges npm link]: https://www.npmjs.com/package/@zendeskgarden/react-ranges
-[ranges size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-ranges
-[ranges size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-ranges
-[ranges dependency status]: https://flat.badgen.net/david/dep/zendeskgarden/react-components/packages/ranges
-[ranges dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/ranges
-[selection npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-selection
-[selection npm link]: https://www.npmjs.com/package/@zendeskgarden/react-selection
-[selection size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-selection
-[selection size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-selection
-[selection dependency status]: https://flat.badgen.net/david/dep/zendeskgarden/react-components/packages/selection
-[selection dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/selection
 [tabs npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-tabs
 [tabs npm link]: https://www.npmjs.com/package/@zendeskgarden/react-tabs
 [tabs size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-tabs

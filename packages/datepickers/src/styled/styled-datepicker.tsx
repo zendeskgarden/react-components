@@ -43,7 +43,10 @@ export const StyledHeader = styled.div<{ isSmall: boolean }>`
   ${props => retrieveComponentStyles('datepickers.header', props)};
 `;
 
-export const StyledHeaderPaddle = styled.div<{ isSmall: boolean; isHidden?: boolean }>`
+export const StyledHeaderPaddle = styled.div<{
+  isSmall: boolean;
+  isHidden?: boolean;
+}>`
   width: ${retrieveSpacing};
   height: ${retrieveSpacing};
   display: flex;
@@ -183,7 +186,7 @@ export const StyledDay = styled.div<IStyledDayProps>`
   border-radius: 50%;
   font-size: ${props => (props.small ? DEFAULT_THEME.fontSizes.sm : DEFAULT_THEME.fontSizes.md)};
   font-weight: ${props =>
-    props.isToday && !props.isDisabled ? DEFAULT_THEME.fontWeights.bold : 'inherit'};
+    props.isToday && !props.isDisabled ? DEFAULT_THEME.fontWeights.semibold : 'inherit'};
   line-height: ${DEFAULT_THEME.lineHeights.md};
   color: ${retrieveStyledDayColor};
   background-color: ${retrieveBackgroundColor};

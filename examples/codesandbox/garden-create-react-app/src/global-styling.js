@@ -11,6 +11,5 @@ import '@zendeskgarden/react-modals/dist/styles.css';
 import '@zendeskgarden/react-tags/dist/styles.css';
 import '@zendeskgarden/react-notifications/dist/styles.css';
 import '@zendeskgarden/react-pagination/dist/styles.css';
-import '@zendeskgarden/react-ranges/dist/styles.css';
 import '@zendeskgarden/react-tabs/dist/styles.css';
 import '@zendeskgarden/react-tables/dist/styles.css';

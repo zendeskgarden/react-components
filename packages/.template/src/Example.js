@@ -8,7 +8,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'example.component_id';
 
@@ -18,7 +18,7 @@ const Example = styled.div.attrs({
   className: props =>
     classNames('example-class', {
       // RTL
-      'example-rtl-class': isRtl(props),
+      'example-rtl-class': props.theme.rtl,
 
       // Styles
       'example-cool-class': props.coolProp
@@ -30,7 +30,7 @@ const Example = styled.div.attrs({
     color: #00f;
   }
 
-  direction: ${props => (isRtl(props) ? 'rtl' : 'ltr')};
+  direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

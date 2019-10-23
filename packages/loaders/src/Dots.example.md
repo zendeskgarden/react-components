@@ -102,7 +102,7 @@ const Color = ({ name, color, includeSample }) =>
         </Col>
         <Col md={6}>
           <FormField>
-            <Label>Duration {state.duration}</Label>
+            <Label>Duration {state.duration}ms</Label>
             <Range
               value={state.duration}
               onChange={event => setState({ duration: parseFloat(event.target.value) })}

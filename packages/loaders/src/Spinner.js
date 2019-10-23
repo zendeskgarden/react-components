@@ -78,8 +78,8 @@ export default function Spinner({
       {...other}
     >
       <SpinnerCircle
-        strokeDasharray={`${dasharrayValue} 250`}
-        strokeWidth={strokeWidthValue}
+        dasharrayValue={dasharrayValue}
+        strokeWidthValue={strokeWidthValue}
         transform={`rotate(${rotationValue}, ${WIDTH / 2}, ${HEIGHT / 2})`}
       />
     </StyledSVG>

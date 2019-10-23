@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { default as PaginationContainer } from './containers/PaginationContainer';
 export { default as Pagination } from './elements/Pagination';
 export { default as Gap } from './views/Gap';
 export { default as NextPage } from './views/NextPage';

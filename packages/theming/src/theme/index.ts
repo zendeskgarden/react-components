@@ -101,7 +101,7 @@ const lineHeights = {
   xxxl: `${BASE * 11}px`
 };
 
-const palette = PALETTE;
+const palette = { ...PALETTE };
 
 /* Exclude product palette from the theme */
 delete palette.product;

@@ -57,13 +57,12 @@ export const SpinnerCircle = styled.circle.attrs(props => ({
 }))``;
 
 SpinnerCircle.propTypes = {
-  dasharrayValue: PropTypes.string,
-  strokeWidthValue: PropTypes.string,
+  dasharrayValue: PropTypes.number,
+  strokeWidthValue: PropTypes.number,
   transform: PropTypes.string
 };
 
 const StyledSvg = styled.svg.attrs(props => ({
-  'data-garden-id': ({ dataGardenId }) => dataGardenId,
   'data-garden-version': PACKAGE_VERSION,
   xmlns: 'http://www.w3.org/2000/svg',
   width: props.width,

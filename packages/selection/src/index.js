@@ -13,3 +13,13 @@ export { default as composeEventHandlers } from './utils/composeEventHandlers';
 export { default as ControlledComponent } from './utils/ControlledComponent';
 export { default as IdManager } from './utils/IdManager';
 export { default as SingleSelectionModel } from './utils/SingleSelectionModel';
+
+if (process.env.NODE_ENV !== 'production') {
+  /* eslint-disable no-console */
+  console.warn(
+    'Deprecation Warning: The `@zendeskgarden/react-selection` package has been deprecated. ' +
+      'It will be removed in an upcoming major release. Migrate to the ' +
+      '`@zendeskgarden/container-selection` package to continue receiving updates.'
+  );
+  /* eslint-enable */
+}

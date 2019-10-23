@@ -12,14 +12,16 @@ import CollapsibleSubNavItem from './CollapsibleSubNavItem';
 
 describe('CollapsibleSubNavItem', () => {
   it('renders default styling', () => {
-    const { queryByRole } = render(
+    const { container } = render(
       <CollapsibleSubNavItem label="Header">
         <p>Content</p>
       </CollapsibleSubNavItem>
     );
 
-    expect(queryByRole('region')).toHaveClass('c-chrome__subnav__panel');
-    expect(queryByRole('heading').firstChild).toHaveClass('c-chrome__subnav__item--header');
+    expect(container.querySelector('[role="region"]')).toHaveClass('c-chrome__subnav__panel');
+    expect(container.querySelector('[role="heading"]').firstChild).toHaveClass(
+      'c-chrome__subnav__item--header'
+    );
   });
 
   it('calls onChange with expanded state if header is clicked', () => {

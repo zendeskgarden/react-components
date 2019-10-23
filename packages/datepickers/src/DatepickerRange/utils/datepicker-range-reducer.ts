@@ -125,7 +125,7 @@ export const datepickerRangeReducer = ({
         }
       }
 
-      return { ...state, previewDate, isStartFocused: true };
+      return { ...state, previewDate, isStartFocused: true, isEndFocused: false };
     }
     case 'END_FOCUS': {
       let previewDate = state.previewDate;
@@ -141,7 +141,7 @@ export const datepickerRangeReducer = ({
         }
       }
 
-      return { ...state, previewDate, isEndFocused: true };
+      return { ...state, previewDate, isEndFocused: true, isStartFocused: false };
     }
     case 'START_BLUR': {
       let parsedDate;
