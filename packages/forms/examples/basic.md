@@ -40,7 +40,7 @@ const StyledMessage = styled(Message)`
       <Well recessed style={{ width: 300 }}>
         <Field>
           <Toggle
-            checked={state.regular}
+            checked={!!state.regular}
             onChange={event => setState({ regular: event.target.checked })}
           >
             <Label>Regular weight (label)</Label>
@@ -220,7 +220,7 @@ initialState = {
         </Field>
         <Field className="u-mt-xs">
           <Toggle
-            checked={state.regular}
+            checked={!!state.regular}
             onChange={event => setState({ regular: event.target.checked })}
           >
             <Label>Regular weight (label)</Label>
