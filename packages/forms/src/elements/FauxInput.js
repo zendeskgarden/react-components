@@ -32,6 +32,7 @@ const FauxInput = React.forwardRef(({ onFocus, onBlur, disabled, ...props }, ref
       onBlur={onBlurHandler}
       isFocused={isFocused}
       isDisabled={disabled}
+      tabIndex={disabled ? null : 0}
       ref={ref}
       {...props}
     />

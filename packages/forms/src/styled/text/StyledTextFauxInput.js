@@ -15,7 +15,6 @@ const COMPONENT_ID = 'forms.faux_input';
 
 export const StyledTextFauxInput = styled(StyledTextInput).attrs(props => ({
   as: 'div',
-  tabIndex: props.isDisabled ? null : 0,
   'aria-disabled': props.isDisabled,
   'data-garden-focus-visible': props.isFocused,
   'data-garden-id': COMPONENT_ID,
