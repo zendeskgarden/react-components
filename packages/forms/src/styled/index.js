@@ -5,6 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+export { default as StyledField } from './StyledField';
+
 /**
  * Text styles
  */
@@ -43,3 +45,8 @@ export { default as StyledToggleLabel } from './toggle/StyledToggleLabel';
 export { default as StyledToggleHint } from './toggle/StyledToggleHint';
 export { default as StyledToggleInput } from './toggle/StyledToggleInput';
 export { default as StyledToggleMessage } from './toggle/StyledToggleMessage';
+
+/**
+ * Range styles
+ */
+export { default as StyledRangeSingleThumb } from './range/StyledRangeSingleThumb';

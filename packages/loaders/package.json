@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "6.2.0",
+  "version": "7.0.0",
   "main": "./dist/index.js",
   "files": [
     "dist"
@@ -24,14 +24,14 @@
     "polished": "^3.4.1"
   },
   "peerDependencies": {
-    "@zendeskgarden/react-theming": "^6.0.0",
+    "@zendeskgarden/react-theming": "^6.0.0 || ^7.0.0",
     "prop-types": "^15.6.1",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "@zendeskgarden/react-theming": "^6.2.0"
+    "@zendeskgarden/react-theming": "^7.0.0"
   },
   "keywords": [
     "components",
@@ -43,5 +43,6 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenLoaders",
+  "zendeskgarden:max_size": "9.75 kB",
   "zendeskgarden:src": "src/index.js"
 }

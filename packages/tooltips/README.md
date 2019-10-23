@@ -35,25 +35,9 @@ import { Tooltip } from '@zendeskgarden/react-tooltips';
 </ThemeProvider>;
 ```
 
-### TooltipContainer
-
-Advanced tooltip usages.
-
-```jsx static
-<TooltipContainer
-  trigger={({ getTriggerProps }) => (
-    <button {...getTriggerProps()}>Hover or Focus to trigger tooltip</button>
-  )}
->
-  {({ getTooltipProps, placement }) => (
-    <LightTooltip {...getTooltipProps({ placement })}>Example tooltip content</LightTooltip>
-  )}
-</TooltipContainer>
-```
-
 ### RTL Locale Layouts
 
-The `Tooltip` and `TooltipContainer` components automatically handle RTL layouts based on
+The `Tooltip` component automatically handles RTL layouts based on
 their parent [ThemeProvider](https://zendeskgarden.github.io/react-components/theming/#themeprovider).
 
 #### English (LTR) Placements

@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "6.2.0",
+  "version": "7.0.0",
   "main": "./dist/index.js",
   "files": [
     "dist"
@@ -38,5 +38,6 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenTheming",
+  "zendeskgarden:max_size": "7 kB",
   "zendeskgarden:src": "src/index.ts"
 }

@@ -20,10 +20,6 @@ module.exports = {
       components: '../../packages/breadcrumbs/src/elements/[A-Z]*.js'
     },
     {
-      name: 'Containers',
-      components: '../../packages/breadcrumbs/src/containers/[A-Z]*.js'
-    },
-    {
       name: 'Views',
       components: '../../packages/breadcrumbs/src/views/[A-Z]*.js'
     }

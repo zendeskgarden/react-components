@@ -6,6 +6,7 @@
  */
 
 export { default as Dots } from './Dots';
+export { default as Progress } from './Progress';
 export { default as Skeleton } from './Skeleton';
 export { default as Spinner } from './Spinner';
 export { default as Inline } from './Inline';

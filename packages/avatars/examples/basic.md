@@ -17,8 +17,7 @@ const {
   Menu,
   Item
 } = require('@zendeskgarden/react-dropdowns/src');
-const { Radio, Field, Input, Label } = require('@zendeskgarden/react-forms/src');
-const { Range, RangeField, Label: RangeLabel } = require('@zendeskgarden/react-ranges/src');
+const { Radio, Field, Input, Label, Range } = require('@zendeskgarden/react-forms/src');
 const { LG } = require('@zendeskgarden/react-typography/src');
 
 const UserIcon = require('@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg').default;
@@ -82,14 +81,14 @@ initialState = {
             <Label>Available</Label>
           </Radio>
         </Field>
-        <RangeField>
-          <RangeLabel>Badge</RangeLabel>
+        <Field>
+          <Label>Badge</Label>
           <Range
             max={10}
             onChange={event => setState({ badge: parseInt(event.target.value, 10) })}
             value={state.badge}
           />
-        </RangeField>
+        </Field>
         <Field>
           <Label>Surface</Label>
           <Input

@@ -6,7 +6,7 @@ ellipsis based on the available container width.
 
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
-const { Toggle, Field, Input, Label, FauxInput } = require('@zendeskgarden/react-forms/src');
+const { Toggle, Field, Input, Label, FauxInput, Range } = require('@zendeskgarden/react-forms/src');
 const {
   Dropdown,
   Select,
@@ -16,7 +16,6 @@ const {
   Item
 } = require('@zendeskgarden/react-dropdowns/src');
 const { Ellipsis } = require('@zendeskgarden/react-typography/src');
-const { Range } = require('@zendeskgarden/react-ranges/src');
 const { Code } = require('@zendeskgarden/react-typography/src');
 
 initialState = {
@@ -90,11 +89,13 @@ const tags = [
           </Tag>
         ))}
       </FauxInput>
-      <Range
-        onChange={event => setState({ width: event.target.value })}
-        style={{ marginTop: 8 }}
-        value={state.width}
-      />
+      <Field>
+        <Range
+          onChange={event => setState({ width: event.target.value })}
+          style={{ marginTop: 8 }}
+          value={state.width}
+        />
+      </Field>
     </Col>
   </Row>
 </Grid>;

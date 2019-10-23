@@ -7,7 +7,7 @@
 
 import React, { useContext, ButtonHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { KeyboardFocusContainer } from '@zendeskgarden/react-selection';
+import { useKeyboardFocus } from '@zendeskgarden/container-keyboardfocus';
 import { StyledIconButton, StyledIcon } from '../styled';
 import { ButtonGroupContext } from './ButtonGroup';
 
@@ -37,23 +37,20 @@ const IconButton: React.FunctionComponent<
 > = React.forwardRef<HTMLButtonElement, IIconButtonProps>(
   ({ children, focused, rotated, ...buttonProps }, ref) => {
     const focusInset = buttonProps.focusInset || useContext(ButtonGroupContext);
+    const { getFocusProps, keyboardFocused } = useKeyboardFocus();
 
     return (
-      <KeyboardFocusContainer>
-        {({ getFocusProps, keyboardFocused }: any) => (
-          <StyledIconButton
-            {...getFocusProps({
-              ref,
-              tabIndex: null,
-              ...buttonProps,
-              focused: focused || keyboardFocused,
-              focusInset
-            })}
-          >
-            <StyledIcon rotated={rotated}>{children}</StyledIcon>
-          </StyledIconButton>
-        )}
-      </KeyboardFocusContainer>
+      <StyledIconButton
+        {...getFocusProps({
+          ref,
+          tabIndex: null,
+          ...buttonProps,
+          focused: focused || keyboardFocused,
+          focusInset
+        })}
+      >
+        <StyledIcon rotated={rotated}>{children}</StyledIcon>
+      </StyledIconButton>
     );
   }
 );

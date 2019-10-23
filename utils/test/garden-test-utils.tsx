@@ -9,6 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import glob from 'glob';
 import { render, configure } from '@testing-library/react';
+// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
 import { ThemeProvider, DEFAULT_THEME } from '../../packages/theming/src';
 

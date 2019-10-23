@@ -37,8 +37,8 @@ describe('Loader styled-elements', () => {
       const { getByTestId } = render(
         <svg>
           <SpinnerCircle
-            strokeWidthValue="25px"
-            dasharrayValue="30"
+            strokeWidthValue={25}
+            dasharrayValue={30}
             transform="2"
             data-test-id="circle"
           />
@@ -47,7 +47,7 @@ describe('Loader styled-elements', () => {
 
       const circle = getByTestId('circle');
 
-      expect(circle).toHaveAttribute('stroke-width', '25px');
+      expect(circle).toHaveAttribute('stroke-width', '25');
       expect(circle).toHaveAttribute('stroke-dasharray', '30 250');
       expect(circle).toHaveAttribute('transform', '2');
     });

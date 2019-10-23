@@ -30,19 +30,23 @@ module.exports = {
     },
     {
       name: 'Examples',
-      content: '../../packages/dropdowns/src/examples/examples.md',
+      content: '../../packages/dropdowns/examples/examples.md',
       sections: [
         {
           name: 'Menu usage',
-          content: '../../packages/dropdowns/src/examples/menu.md'
+          content: '../../packages/dropdowns/examples/menu.md'
         },
         {
           name: 'Select usage',
-          content: '../../packages/dropdowns/src/examples/select.md'
+          content: '../../packages/dropdowns/examples/select.md'
         },
         {
           name: 'Autocomplete usage',
-          content: '../../packages/dropdowns/src/examples/autocomplete.md'
+          content: '../../packages/dropdowns/examples/autocomplete.md'
+        },
+        {
+          name: 'Multiselect usage',
+          content: '../../packages/dropdowns/examples/multiselect.md'
         }
       ]
     },
@@ -52,7 +56,8 @@ module.exports = {
         '../../packages/dropdowns/src/Dropdown/Dropdown.tsx',
         '../../packages/dropdowns/src/Trigger/Trigger.tsx',
         '../../packages/dropdowns/src/Select/Select.tsx',
-        '../../packages/dropdowns/src/Autocomplete/Autocomplete.tsx'
+        '../../packages/dropdowns/src/Autocomplete/Autocomplete.tsx',
+        '../../packages/dropdowns/src/Multiselect/Multiselect.tsx'
       ],
       sections: [
         {

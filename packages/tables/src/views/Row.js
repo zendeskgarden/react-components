@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import TableStyles from '@zendeskgarden/css-tables';
 import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import { composeEventHandlers } from '@zendeskgarden/react-selection';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 
 const COMPONENT_ID = 'tables.row';
 

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 /**
  * Copyright Zendesk, Inc.
  *
@@ -8,7 +7,7 @@
 
 import React, { HTMLProps } from 'react';
 import PropTypes from 'prop-types';
-import { composeEventHandlers } from '@zendeskgarden/container-selection';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import useDropdownContext from '../utils/useDropdownContext';
 import useFieldContext from '../utils/useFieldContext';
 import { StyledLabel } from '../styled';

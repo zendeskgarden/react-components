@@ -19,6 +19,10 @@ const TabPanel = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION,
   className: TabStyles['c-tab__panel']
 })`
+  :focus {
+    outline: none;
+  }
+
   ${props => retrieveComponentStyles('tabs.tab_panel', props)};
 `;
 

@@ -25,7 +25,7 @@ const BasicExample = () => (
 
 describe('Breadcrumb', () => {
   describe('BreadcrumbView', () => {
-    it('receives BreadcrumbContainer props', () => {
+    it('receives useBreadcrumb() props', () => {
       const { getByTestId } = render(<BasicExample />);
 
       expect(getByTestId('breadcrumb').parentElement).toHaveAttribute(
@@ -34,7 +34,7 @@ describe('Breadcrumb', () => {
       );
     });
 
-    it('does not receive BreadcrumbContainer `role` prop', () => {
+    it('does not receive useBreadcrumb() `role` prop', () => {
       const { getByTestId } = render(<BasicExample />);
 
       expect(getByTestId('breadcrumb').parentElement).not.toHaveAttribute('role');

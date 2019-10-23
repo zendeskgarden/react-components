@@ -6,7 +6,7 @@
  */
 
 import PropTypes from 'prop-types';
-import scrollTo from 'dom-helpers/util/scrollTo';
+import scrollTo from 'dom-helpers/scrollTo';
 import { isRtl, withTheme, getDocument } from '@zendeskgarden/react-theming';
 
 import ControlledComponent from '../utils/ControlledComponent';

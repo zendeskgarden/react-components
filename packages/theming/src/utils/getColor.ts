@@ -5,6 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+/* eslint-disable default-param-last */
+
 import DEFAULT_THEME from '../theme';
 import darken from 'polished/lib/color/darken';
 import lighten from 'polished/lib/color/lighten';
