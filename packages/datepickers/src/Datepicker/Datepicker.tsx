@@ -13,7 +13,7 @@ import isSameDay from 'date-fns/isSameDay';
 import isValid from 'date-fns/isValid';
 import isBefore from 'date-fns/isBefore';
 import parse from 'date-fns/parse';
-import { isRtl, withTheme } from '@zendeskgarden/react-theming';
+import { withTheme, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
 
 import { StyledMenu } from '../styled';
@@ -191,7 +191,7 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
     dispatch({ type: 'CONTROLLED_LOCALE_CHANGE' });
   }, [locale]);
 
-  const popperPlacement = isRtl(props)
+  const popperPlacement = props.theme.rtl
     ? getRtlPopperPlacement(placement!)
     : getPopperPlacement(placement!);
 
@@ -272,7 +272,7 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
                     placement={currentPlacement as any}
                     data-test-id="datepicker-menu"
                     data-test-open={state.isOpen}
-                    data-test-rtl={isRtl(props)}
+                    data-test-rtl={props.theme.rtl}
                   >
                     <Calendar
                       small={small}
@@ -330,7 +330,8 @@ Datepicker.defaultProps = {
   animate: true,
   eventsEnabled: true,
   zIndex: 1000,
-  locale: 'en-US'
+  locale: 'en-US',
+  theme: DEFAULT_THEME
 };
 
 export default withTheme(Datepicker) as FunctionComponent<IDatepickerProps>;

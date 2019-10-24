@@ -8,7 +8,7 @@
 import React, { HTMLProps } from 'react';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import MenuStyles from '@zendeskgarden/css-menus';
 import ArrowStyles from '@zendeskgarden/css-arrows';
 import { POPPER_PLACEMENT } from '../Datepicker/utils/garden-placements';
@@ -129,6 +129,10 @@ interface IStyledMenuWrapperProps {
 const StyledMenuWrapper = styled.div<IStyledMenuWrapperProps>`
   ${retrieveMenuMargin};
 `;
+
+StyledMenuWrapper.defaultProps = {
+  theme: DEFAULT_THEME
+};
 
 interface IStyledMaxHeightWrapper extends HTMLProps<HTMLDivElement> {
   maxHeight?: string;
