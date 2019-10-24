@@ -24,7 +24,7 @@ Standard tooltip usages.
  */
 import '@zendeskgarden/react-tooltips/dist/styles.css';
 
-import { ThemingProvider } from '@zendeskgarden/react-theming';
+import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 
 /**

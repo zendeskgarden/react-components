@@ -70,7 +70,7 @@ LightTooltip.propTypes = {
 
 LightTooltip.defaultProps = {
   arrow: true,
-  size: SIZE.LARGE
+  size: SIZE.SMALL
 };
 
 /** @component */
