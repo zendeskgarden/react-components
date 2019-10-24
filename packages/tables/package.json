@@ -31,10 +31,10 @@
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "@zendeskgarden/css-tables": "4.0.13",
-    "@zendeskgarden/css-variables": "6.3.8",
+    "@zendeskgarden/css-tables": "4.0.15",
+    "@zendeskgarden/css-variables": "6.4.1",
     "@zendeskgarden/react-theming": "^7.0.0",
-    "@zendeskgarden/svg-icons": "6.4.0",
+    "@zendeskgarden/svg-icons": "6.7.0",
     "react-beautiful-dnd": "11.0.5",
     "react-window": "1.8.5"
   },
