@@ -11,7 +11,7 @@ import classNames from 'classnames';
 import { retrieveComponentStyles, isRtl, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import MenuStyles from '@zendeskgarden/css-menus';
 import ArrowStyles from '@zendeskgarden/css-arrows';
-import { POPPER_PLACEMENT } from '../Datepicker/utils/garden-placements';
+import { POPPER_PLACEMENT } from '../elements/Datepicker/utils/garden-placements';
 
 const COMPONENT_ID = 'dropdowns.menu';
 
@@ -64,7 +64,7 @@ interface IStyledMenuViewProps extends HTMLProps<HTMLUListElement> {
  * Accepts all `<ul>` props
  */
 const StyledMenuView = styled.ul.attrs<IStyledMenuViewProps>(props => ({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': (props as any['data-garden-id']) || COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(MenuStyles['c-menu'], {
     // Size
@@ -161,7 +161,7 @@ interface IStyledMenuProps extends HTMLProps<HTMLUListElement> {
   maxHeight?: string;
 }
 
-export const StyledMenu = React.forwardRef<any, IStyledMenuProps>(
+const StyledMenu = React.forwardRef<any, IStyledMenuProps>(
   ({ arrow, placement, maxHeight, children, ...other }, ref) => {
     return (
       <StyledMenuWrapper arrow={arrow} placement={placement}>
@@ -172,3 +172,5 @@ export const StyledMenu = React.forwardRef<any, IStyledMenuProps>(
     );
   }
 );
+
+export default StyledMenu;

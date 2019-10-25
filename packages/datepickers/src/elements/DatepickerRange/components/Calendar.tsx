@@ -8,7 +8,7 @@
 import React, { HTMLProps } from 'react';
 import addMonths from 'date-fns/addMonths';
 
-import { StyledRangeCalendar } from '../../styled';
+import { StyledRangeCalendar } from '../../../styled';
 import useDatepickerRangeContext from '../utils/useDatepickerRangeContext';
 import Month from './Month';
 

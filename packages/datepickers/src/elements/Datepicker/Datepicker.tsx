@@ -16,7 +16,7 @@ import parse from 'date-fns/parse';
 import { withTheme, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
 
-import { StyledMenu } from '../styled';
+import { StyledMenu } from '../../styled';
 import {
   getRtlPopperPlacement,
   getPopperPlacement,

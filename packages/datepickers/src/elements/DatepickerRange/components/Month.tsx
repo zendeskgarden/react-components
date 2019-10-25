@@ -32,8 +32,8 @@ import {
   StyledHeader,
   StyledHeaderLabel,
   StyledHighlight
-} from '../../styled';
-import { getStartOfWeek } from '../../utils/calendar-utils';
+} from '../../../styled';
+import { getStartOfWeek } from '../../../utils/calendar-utils';
 import { DatepickerRangeAction } from '../utils/datepicker-range-reducer';
 
 const Month: React.FunctionComponent<{
@@ -127,7 +127,7 @@ const Month: React.FunctionComponent<{
       return (
         <StyledCalendarItem key={`day-${itemsIndex}`} isSmall={small}>
           <StyledDay
-            small={small!}
+            isSmall={small!}
             isPreviousMonth
             isDisabled
             data-test-id="day"
@@ -220,7 +220,7 @@ const Month: React.FunctionComponent<{
           isPreviousMonth={isPreviousMonth}
           isSelected={!isInvalidDateRange && isSelected}
           isDisabled={isDisabled}
-          small={small!}
+          isSmall={small!}
           onClick={() => {
             if (!isDisabled) {
               dispatch({ type: 'CLICK_DATE', value: date });

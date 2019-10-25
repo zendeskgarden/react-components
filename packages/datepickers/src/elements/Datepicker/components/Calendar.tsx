@@ -23,9 +23,9 @@ import {
   StyledCalendarItem,
   StyledDayLabel,
   StyledDay
-} from '../../styled';
+} from '../../../styled';
 import useDatepickerContext from '../utils/useDatepickerContext';
-import { getStartOfWeek } from '../../utils/calendar-utils';
+import { getStartOfWeek } from '../../../utils/calendar-utils';
 import MonthSelector from './MonthSelector';
 
 interface ICalendarProps {
@@ -112,7 +112,7 @@ const Calendar: React.FunctionComponent<ICalendarProps> = ({
           isPreviousMonth={isPreviousMonth}
           isSelected={isSelected}
           isDisabled={isDisabled}
-          small={small!}
+          isSmall={small!}
           onClick={() => {
             if (!isDisabled) {
               dispatch({ type: 'SELECT_DATE', value: date });
