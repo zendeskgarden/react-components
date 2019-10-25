@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'datepickers.datepicker';
 
@@ -18,7 +18,7 @@ const StyledDatepicker = styled.div.attrs({
   background-color: ${props => props.theme.colors.background};
   padding: ${props =>
     `${props.isSmall ? props.theme.space.base * 4 : props.theme.space.base * 5}px`};
-  color: ${props => getColor('neutralHue', 600, props.theme)};
+  color: ${props => props.theme.colors.foreground};
 
   direction: ${props => props.theme.rtl && 'rtl'};
 
