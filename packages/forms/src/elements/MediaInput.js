@@ -57,7 +57,6 @@ const MediaInput = React.forwardRef(
         <StyledTextMediaInput
           {...getInputProps({
             disabled,
-            isCompact,
             ref: inputRef,
             ...props
           })}

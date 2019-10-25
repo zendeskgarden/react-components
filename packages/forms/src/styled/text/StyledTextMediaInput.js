@@ -9,7 +9,6 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledTextInput } from './StyledTextInput';
-import VALIDATION from '../../utils/validation';
 
 const COMPONENT_ID = 'forms.media_input';
 
@@ -24,9 +23,6 @@ export const StyledTextMediaInput = styled(StyledTextInput).attrs({
 `;
 
 StyledTextMediaInput.propTypes = {
-  isCompact: PropTypes.bool,
-  focusInset: PropTypes.bool,
-  validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR]),
   theme: PropTypes.object
 };
 

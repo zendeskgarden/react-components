@@ -7,12 +7,25 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import StyledTextMediaInput from './StyledTextMediaInput';
+import { PALETTE } from '@zendeskgarden/react-theming';
+import { StyledTextMediaInput } from './StyledTextMediaInput';
 
 describe('StyledTextMediaInput', () => {
+  it('renders the expected element', () => {
+    const { container } = render(<StyledTextMediaInput />);
+
+    expect(container.firstChild.nodeName).toBe('INPUT');
+  });
+
   it('renders default styling correctly', () => {
     const { container } = render(<StyledTextMediaInput />);
 
-    expect(container.firstChild).toHaveClass('c-txt__input--media__body');
+    expect(container.firstChild).toHaveStyleRule('border', 'none');
+  });
+
+  it('renders expected disabled styling', () => {
+    const { container } = render(<StyledTextMediaInput disabled />);
+
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[800]);
   });
 });
