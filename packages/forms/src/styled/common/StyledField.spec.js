@@ -7,26 +7,18 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import StyledField from './StyledField';
+import { StyledField } from './StyledField';
 
 describe('StyledField', () => {
-  it('renders default styling correctly', () => {
+  it('renders the expected element', () => {
     const { container } = render(<StyledField />);
 
-    expect(container.firstChild).toHaveClass('c-txt');
-    expect(container.firstChild).toHaveClass('c-range');
+    expect(container.firstChild.nodeName).toBe('DIV');
   });
 
-  it('renders inline styling correctly', () => {
-    const { container } = render(<StyledField inline />);
-
-    expect(container.firstChild).toHaveClass('c-txt--inline');
-    expect(container.firstChild).toHaveClass('c-range--inline');
-  });
-
-  it('renders RTL styling correctly', () => {
+  it('renders expected RTL styling', () => {
     const { container } = renderRtl(<StyledField />);
 
-    expect(container.firstChild).toHaveClass('is-rtl');
+    expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });
 });

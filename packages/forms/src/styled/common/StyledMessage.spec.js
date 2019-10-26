@@ -7,26 +7,39 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { StyledMessage } from './StyledMessage';
 
 describe('StyledMessage', () => {
-  it('renders default styling correctly', () => {
+  it('renders the expected element', () => {
     const { container } = render(<StyledMessage />);
 
-    expect(container.firstChild).toHaveClass('c-txt__message');
+    expect(container.firstChild.nodeName).toBe('DIV');
   });
 
-  ['success', 'warning', 'error'].forEach(validation => {
-    it(`renders ${validation} validation styling correctly`, () => {
-      const { container } = render(<StyledMessage validation={validation} />);
-
-      expect(container.firstChild).toHaveClass(`c-txt__message--${validation}`);
-    });
-  });
-
-  it('renders RTL styling correctly', () => {
+  it('renders expected RTL styling', () => {
     const { container } = renderRtl(<StyledMessage />);
 
-    expect(container.firstChild).toHaveClass('is-rtl');
+    expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
+  });
+
+  describe('Validation', () => {
+    it('renders "success" styling if provided', () => {
+      const { container } = render(<StyledMessage validation="success" />);
+
+      expect(container.firstChild).toHaveStyleRule('color', PALETTE.green[600]);
+    });
+
+    it('renders "warning" styling if provided', () => {
+      const { container } = render(<StyledMessage validation="warning" />);
+
+      expect(container.firstChild).toHaveStyleRule('color', PALETTE.yellow[700]);
+    });
+
+    it('renders "error" styling if provided', () => {
+      const { container } = render(<StyledMessage validation="error" />);
+
+      expect(container.firstChild).toHaveStyleRule('color', PALETTE.red[600]);
+    });
   });
 });

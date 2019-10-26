@@ -10,21 +10,15 @@ import { render, renderRtl } from 'garden-test-utils';
 import { StyledHint } from './StyledHint';
 
 describe('StyledHint', () => {
-  it('renders default styling correctly', () => {
+  it('renders the expected element', () => {
     const { container } = render(<StyledHint />);
 
-    expect(container.firstChild).toHaveClass('c-txt__hint');
+    expect(container.firstChild.nodeName).toBe('DIV');
   });
 
-  it('renders small styling correctly', () => {
-    const { container } = render(<StyledHint small />);
-
-    expect(container.firstChild).toHaveClass('c-txt__hint--sm');
-  });
-
-  it('renders RTL styling correctly', () => {
+  it('renders expected RTL styling', () => {
     const { container } = renderRtl(<StyledHint />);
 
-    expect(container.firstChild).toHaveClass('is-rtl');
+    expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });
 });

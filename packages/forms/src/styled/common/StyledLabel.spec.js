@@ -7,30 +7,28 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledLabel } from './StyledLabel';
 
 describe('StyledLabel', () => {
-  it('renders default styling correctly', () => {
+  it('renders the expected element', () => {
     const { container } = render(<StyledLabel />);
 
-    expect(container.firstChild).toHaveClass('c-txt__label');
+    expect(container.firstChild.nodeName).toBe('LABEL');
   });
 
-  it('renders regular styling correctly', () => {
-    const { container } = render(<StyledLabel regular />);
+  it('renders regular font weight styling if provided', () => {
+    const { container } = render(<StyledLabel isRegular />);
 
-    expect(container.firstChild).toHaveClass('c-txt__label--regular');
+    expect(container.firstChild).toHaveStyleRule(
+      'font-weight',
+      `${DEFAULT_THEME.fontWeights.regular}`
+    );
   });
 
-  it('renders small styling correctly', () => {
-    const { container } = render(<StyledLabel small />);
-
-    expect(container.firstChild).toHaveClass('c-txt__label--sm');
-  });
-
-  it('renders RTL styling correctly', () => {
+  it('renders expected RTL styling', () => {
     const { container } = renderRtl(<StyledLabel />);
 
-    expect(container.firstChild).toHaveClass('is-rtl');
+    expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });
 });
