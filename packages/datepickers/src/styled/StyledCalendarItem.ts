@@ -5,23 +5,41 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-
-import { retrieveSpacing } from './utils';
 
 const COMPONENT_ID = 'datepickers.calendar_item';
 
-const StyledCalendarItem = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID
-})<{
+export const retrieveSizeStyles = ({
+  isSmall,
+  theme
+}: IStyledCalendarItemProps & ThemeProps<DefaultTheme>) => {
+  let size;
+
+  if (isSmall) {
+    size = `${theme.space.base * 8}px`;
+  } else {
+    size = `${theme.space.base * 10}px`;
+  }
+
+  return css`
+    width: ${size};
+    height: ${size};
+  `;
+};
+
+interface IStyledCalendarItemProps {
   isSmall?: boolean;
-}>`
+}
+
+export const StyledCalendarItem = styled.div.attrs({
+  'data-garden-id': COMPONENT_ID
+})<IStyledCalendarItemProps>`
   display: inline-block;
   position: relative;
-  width: ${retrieveSpacing};
-  height: ${retrieveSpacing};
   vertical-align: top;
+
+  ${retrieveSizeStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
@@ -29,5 +47,3 @@ const StyledCalendarItem = styled.div.attrs({
 StyledCalendarItem.defaultProps = {
   theme: DEFAULT_THEME
 };
-
-export default StyledCalendarItem;

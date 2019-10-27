@@ -5,21 +5,29 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'datepickers.datepicker';
 
-const StyledDatepicker = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID
-})<{
-  isSmall: boolean;
-}>`
-  background-color: ${props => props.theme.colors.background};
-  padding: ${props =>
-    `${props.isSmall ? props.theme.space.base * 4 : props.theme.space.base * 5}px`};
-  color: ${props => props.theme.colors.foreground};
+const retrievePadding = ({ isSmall, theme }: IStyledDatepickerProps & ThemeProps<DefaultTheme>) => {
+  if (isSmall) {
+    return `${theme.space.base * 4}px`;
+  }
 
+  return `${theme.space.base * 5}px`;
+};
+
+interface IStyledDatepickerProps {
+  isSmall: boolean;
+}
+
+export const StyledDatepicker = styled.div.attrs({
+  'data-garden-id': COMPONENT_ID
+})<IStyledDatepickerProps>`
+  background-color: ${props => props.theme.colors.background};
+  padding: ${retrievePadding};
+  color: ${props => props.theme.colors.foreground};
   direction: ${props => props.theme.rtl && 'rtl'};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
@@ -28,5 +36,3 @@ const StyledDatepicker = styled.div.attrs({
 StyledDatepicker.defaultProps = {
   theme: DEFAULT_THEME
 };
-
-export default StyledDatepicker;

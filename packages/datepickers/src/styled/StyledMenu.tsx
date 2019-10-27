@@ -161,7 +161,7 @@ interface IStyledMenuProps extends HTMLProps<HTMLUListElement> {
   maxHeight?: string;
 }
 
-const StyledMenu = React.forwardRef<any, IStyledMenuProps>(
+export const StyledMenu = React.forwardRef<any, IStyledMenuProps>(
   ({ arrow, placement, maxHeight, children, ...other }, ref) => {
     return (
       <StyledMenuWrapper arrow={arrow} placement={placement}>
@@ -172,5 +172,3 @@ const StyledMenu = React.forwardRef<any, IStyledMenuProps>(
     );
   }
 );
-
-export default StyledMenu;

@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps } from 'styled-components';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 interface IStyledDayProps extends ThemeProps<DefaultTheme> {
@@ -16,43 +16,36 @@ interface IStyledDayProps extends ThemeProps<DefaultTheme> {
   isSmall: boolean;
 }
 
-const retrieveStyledDayColor = ({
-  isDisabled,
+const retrieveStyledDayColors = ({
   isSelected,
+  isDisabled,
   isToday,
   isPreviousMonth,
   theme
 }: IStyledDayProps) => {
-  if (isDisabled) {
-    return getColor('neutralHue', 400, theme);
-  }
+  let backgroundColor = 'inherit';
+  let color = getColor('primaryHue', 600, theme);
 
   if (isSelected && !isDisabled) {
-    return theme.colors.background;
+    backgroundColor = getColor('primaryHue', 600, theme)!;
+    color = theme.colors.background;
+  } else if (isDisabled) {
+    color = getColor('neutralHue', 400, theme);
+  } else if (isToday) {
+    color = 'inherit';
+  } else if (isPreviousMonth) {
+    color = getColor('neutralHue', 600, theme);
   }
 
-  if (isToday) {
-    return 'inherit';
-  }
-
-  if (isPreviousMonth) {
-    return getColor('neutralHue', 600, theme);
-  }
-
-  return getColor('primaryHue', 600, theme);
-};
-
-const retrieveBackgroundColor = ({ isSelected, isDisabled, theme }: IStyledDayProps) => {
-  if (isSelected && !isDisabled) {
-    return getColor('primaryHue', 600, theme);
-  }
-
-  return 'inherit';
+  return css`
+    background-color: ${backgroundColor};
+    color: ${color};
+  `;
 };
 
 const COMPONENT_ID = 'datepickers.day';
 
-const StyledDay = styled.div.attrs({
+export const StyledDay = styled.div.attrs({
   'data-garden-id': COMPONENT_ID
 })<IStyledDayProps>`
   display: flex;
@@ -60,13 +53,11 @@ const StyledDay = styled.div.attrs({
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background-color: ${retrieveBackgroundColor};
   cursor: ${props => (props.isDisabled ? 'inherit' : 'pointer')};
+
   width: 100%;
   height: 100%;
   line-height: ${props => props.theme.lineHeights.md};
-  color: ${retrieveStyledDayColor};
-
   font-size: ${props => (props.isSmall ? props.theme.fontSizes.sm : props.theme.fontSizes.md)};
   font-weight: ${props =>
     props.isToday && !props.isDisabled ? props.theme.fontWeights.semibold : 'inherit'};
@@ -86,11 +77,11 @@ const StyledDay = styled.div.attrs({
   }
   `}
 
+  ${retrieveStyledDayColors}
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledDay.defaultProps = {
   theme: DEFAULT_THEME
 };
-
-export default StyledDay;

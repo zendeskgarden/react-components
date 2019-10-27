@@ -10,7 +10,7 @@ import { getColor, DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden
 
 const COMPONENT_ID = 'datepickers.highlight';
 
-const StyledHighlight = styled.div.attrs({
+export const StyledHighlight = styled.div.attrs({
   'data-garden-id': COMPONENT_ID
 })<{
   isHighlighted: boolean;
@@ -44,5 +44,3 @@ const StyledHighlight = styled.div.attrs({
 StyledHighlight.defaultProps = {
   theme: DEFAULT_THEME
 };
-
-export default StyledHighlight;

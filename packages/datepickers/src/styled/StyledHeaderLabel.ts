@@ -8,19 +8,18 @@
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-import { boldedStyling } from './utils';
-
 const COMPONENT_ID = 'datepickers.header_label';
 
-const StyledHeaderLabel = styled.div.attrs({
+export const StyledHeaderLabel = styled.div.attrs({
   'data-garden-id': COMPONENT_ID
 })<{ isSmall: boolean }>`
   display: flex;
   flex-grow: 1;
   align-items: center;
   justify-content: center;
-
-  ${boldedStyling};
+  line-height: ${props => props.theme.lineHeights.md};
+  font-size: ${props => (props.isSmall ? props.theme.fontSizes.sm : props.theme.fontSizes.md)};
+  font-weight: ${props => props.theme.fontWeights.semibold};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
@@ -28,5 +27,3 @@ const StyledHeaderLabel = styled.div.attrs({
 StyledHeaderLabel.defaultProps = {
   theme: DEFAULT_THEME
 };
-
-export default StyledHeaderLabel;

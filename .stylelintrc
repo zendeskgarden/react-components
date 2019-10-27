@@ -10,6 +10,6 @@
     "keyframes-name-pattern": null,
     "value-keyword-case": ["lower", { ignoreKeywords: ['dummyValue'] }],
     "block-no-empty": null,
-    "number-leading-zero": null,
+    "number-leading-zero": null
   }
 }

@@ -6,12 +6,12 @@
  */
 
 import styled from 'styled-components';
-import StyledDatepicker from './StyledDatepicker';
+import { StyledDatepicker } from './StyledDatepicker';
 import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'datepickers.range_calendar';
 
-const StyledRangeCalendar = styled.div.attrs({
+export const StyledRangeCalendar = styled.div.attrs({
   'data-garden-id': COMPONENT_ID
 })`
   display: flex;
@@ -21,10 +21,12 @@ const StyledRangeCalendar = styled.div.attrs({
     padding: 0;
   }
 
-  /* stylelint-disable-next-line */
-  ${StyledDatepicker}:${props => (props.theme.rtl ? 'last-of-type' : 'first-of-type')} {
-    margin-right: ${props => `${props.theme.space.base * 5}px`};
-  }
+  ${props =>
+    props.theme.rtl
+      ? `${/* sc-selector */ StyledDatepicker}:last-of-type {margin-right: ${props.theme.space
+          .base * 5}px}`
+      : `${/* sc-selector */ StyledDatepicker}:first-of-type {margin-right: ${props.theme.space
+          .base * 5}px}`}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
@@ -32,5 +34,3 @@ const StyledRangeCalendar = styled.div.attrs({
 StyledRangeCalendar.defaultProps = {
   theme: DEFAULT_THEME
 };
-
-export default StyledRangeCalendar;

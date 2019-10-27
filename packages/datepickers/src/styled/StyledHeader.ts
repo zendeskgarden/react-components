@@ -5,19 +5,29 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import math from 'polished/lib/math/math';
 
-import { retrieveSpacing } from './utils';
+const retrieveSize = ({ isSmall, theme }: { isSmall?: boolean } & ThemeProps<DefaultTheme>) => {
+  let width = theme.space.base * 70;
+
+  if (isSmall) {
+    width = theme.space.base * 56;
+  }
+
+  return css`
+    width: ${width}px;
+  `;
+};
 
 const COMPONENT_ID = 'datepickers.header';
 
-const StyledHeader = styled.div.attrs({
+export const StyledHeader = styled.div.attrs({
   'data-garden-id': COMPONENT_ID
 })<{ isSmall: boolean }>`
   display: flex;
-  width: ${props => math(`${retrieveSpacing(props)} * 7`)};
+
+  ${retrieveSize}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
@@ -25,5 +35,3 @@ const StyledHeader = styled.div.attrs({
 StyledHeader.defaultProps = {
   theme: DEFAULT_THEME
 };
-
-export default StyledHeader;

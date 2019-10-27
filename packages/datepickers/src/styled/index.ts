@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { default as StyledMenu } from './StyledMenu';
-export { default as StyledDatepicker } from './StyledDatepicker';
-export { default as StyledRangeCalendar } from './StyledRangeCalendar';
-export { default as StyledHeader } from './StyledHeader';
-export { default as StyledHeaderPaddle } from './StyledHeaderPaddle';
-export { default as StyledHeaderLabel } from './StyledHeaderLabel';
-export { default as StyledCalendar } from './StyledCalendar';
-export { default as StyledCalendarItem } from './StyledCalendarItem';
-export { default as StyledDayLabel } from './StyledDayLabel';
-export { default as StyledHighlight } from './StyledHighlight';
-export { default as StyledDay } from './StyledDay';
+export { StyledMenu } from './StyledMenu';
+export { StyledDatepicker } from './StyledDatepicker';
+export { StyledRangeCalendar } from './StyledRangeCalendar';
+export { StyledHeader } from './StyledHeader';
+export { StyledHeaderPaddle } from './StyledHeaderPaddle';
+export { StyledHeaderLabel } from './StyledHeaderLabel';
+export { StyledCalendar } from './StyledCalendar';
+export { StyledCalendarItem } from './StyledCalendarItem';
+export { StyledDayLabel } from './StyledDayLabel';
+export { StyledHighlight } from './StyledHighlight';
+export { StyledDay } from './StyledDay';
