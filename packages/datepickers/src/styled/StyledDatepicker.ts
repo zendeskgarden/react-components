@@ -14,11 +14,13 @@ const retrievePadding = ({
   isCompact,
   theme
 }: IStyledDatepickerProps & ThemeProps<DefaultTheme>) => {
+  let value = theme.space.base * 5;
+
   if (isCompact) {
-    return `${theme.space.base * 4}px`;
+    value = theme.space.base * 4;
   }
 
-  return `${theme.space.base * 5}px`;
+  return `padding: ${value}px;`;
 };
 
 interface IStyledDatepickerProps {
@@ -29,9 +31,10 @@ export const StyledDatepicker = styled.div.attrs({
   'data-garden-id': COMPONENT_ID
 })<IStyledDatepickerProps>`
   background-color: ${props => props.theme.colors.background};
-  padding: ${retrievePadding};
   color: ${props => props.theme.colors.foreground};
   direction: ${props => props.theme.rtl && 'rtl'};
+
+  ${retrievePadding}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
