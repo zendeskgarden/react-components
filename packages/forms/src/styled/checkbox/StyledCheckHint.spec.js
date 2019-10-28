@@ -6,19 +6,13 @@
  */
 
 import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
-import StyledCheckHint from './StyledCheckHint';
+import { render } from 'garden-test-utils';
+import { StyledCheckHint } from './StyledCheckHint';
 
 describe('StyledCheckHint', () => {
-  it('renders default styling correctly', () => {
+  it('renders the expected element', () => {
     const { container } = render(<StyledCheckHint />);
 
-    expect(container.firstChild).toHaveClass('c-chk__hint');
-  });
-
-  it('renders RTL styling correctly', () => {
-    const { container } = renderRtl(<StyledCheckHint />);
-
-    expect(container.firstChild).toHaveClass('is-rtl');
+    expect(container.firstChild.nodeName).toBe('DIV');
   });
 });

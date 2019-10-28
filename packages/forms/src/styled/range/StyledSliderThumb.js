@@ -90,5 +90,6 @@ StyledSliderThumb.propTypes = {
 };
 
 StyledSliderThumb.defaultProps = {
+  position: 0,
   theme: DEFAULT_THEME
 };

@@ -70,5 +70,7 @@ StyledSliderTrack.propTypes = {
 };
 
 StyledSliderTrack.defaultProps = {
+  backgroundSize: 0,
+  backgroundPosition: 0,
   theme: DEFAULT_THEME
 };

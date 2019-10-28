@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
+import { render, renderRtl } from 'garden-test-utils';
 import { StyledRadioLabel } from './StyledRadioLabel';
 
 describe('StyledRadioLabel', () => {
@@ -20,5 +20,11 @@ describe('StyledRadioLabel', () => {
     const { container } = render(<StyledRadioLabel hidden />);
 
     expect(container.firstChild).toHaveStyleRule('padding-left', '16px', { modifier: '[hidden]' });
+  });
+
+  it('renders expected RTL styling', () => {
+    const { container } = renderRtl(<StyledRadioLabel />);
+
+    expect(container.firstChild).toHaveStyleRule('padding-right', '24px');
   });
 });

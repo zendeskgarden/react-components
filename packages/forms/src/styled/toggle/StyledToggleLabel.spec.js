@@ -7,18 +7,18 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { StyledRadioMessage } from './StyledRadioMessage';
+import { StyledToggleLabel } from './StyledToggleLabel';
 
-describe('StyledRadioMessage', () => {
+describe('StyledToggleLabel', () => {
   it('renders the expected element', () => {
-    const { container } = render(<StyledRadioMessage />);
+    const { container } = render(<StyledToggleLabel />);
 
-    expect(container.firstChild.nodeName).toBe('DIV');
+    expect(container.firstChild.nodeName).toBe('LABEL');
   });
 
   it('renders expected RTL styling', () => {
-    const { container } = renderRtl(<StyledRadioMessage />);
+    const { container } = renderRtl(<StyledToggleLabel />);
 
-    expect(container.firstChild).toHaveStyleRule('padding-right', '24px');
+    expect(container.firstChild).toHaveStyleRule('padding-right', '48px');
   });
 });

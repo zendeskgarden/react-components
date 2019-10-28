@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
+import { render, renderRtl } from 'garden-test-utils';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { StyledRadioInput } from './StyledRadioInput';
 import { StyledRadioLabel } from './StyledRadioLabel';
@@ -32,6 +32,14 @@ describe('StyledRadioInput', () => {
 
     expect(container.firstChild).toHaveStyleRule('background-color', PALETTE.grey[200], {
       modifier: `:disabled ~ ${StyledRadioLabel}::before`
+    });
+  });
+
+  it('renders expected RTL styling', () => {
+    const { container } = renderRtl(<StyledRadioInput />);
+
+    expect(container.firstChild).toHaveStyleRule('right', '0', {
+      modifier: `& ~ ${StyledRadioLabel}::before`
     });
   });
 });

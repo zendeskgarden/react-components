@@ -9,6 +9,7 @@ import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { StyledMessage } from './StyledMessage';
+import { StyledLabel } from './StyledLabel';
 
 describe('StyledMessage', () => {
   it('renders the expected element', () => {
@@ -40,6 +41,19 @@ describe('StyledMessage', () => {
       const { container } = render(<StyledMessage validation="error" />);
 
       expect(container.firstChild).toHaveStyleRule('color', PALETTE.red[600]);
+    });
+  });
+
+  it('renders with expected margin if placed adjacent to a label', () => {
+    const { getByTestId } = render(
+      <StyledLabel>
+        <StyledMessage data-test-id="message" />
+      </StyledLabel>
+    );
+    const message = getByTestId('message');
+
+    expect(message).toHaveStyleRule('margin-top', '4px', {
+      modifier: `${StyledLabel} + &`
     });
   });
 });

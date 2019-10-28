@@ -10,7 +10,7 @@ import math from 'polished/lib/math/math';
 import PropTypes from 'prop-types';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledCheckInput } from '../checkbox/StyledCheckInput';
-import { StyledCheckLabel } from '../checkbox/StyledCheckLabel';
+import { StyledToggleLabel } from './StyledToggleLabel';
 
 const COMPONENT_ID = 'forms.checkbox';
 
@@ -32,16 +32,16 @@ const colorStyles = props => {
   const activeBackgroundColor = getColor('neutralHue', SHADE, props.theme);
 
   return css`
-    & ~ ${StyledCheckLabel}::before {
+    & ~ ${StyledToggleLabel}::before {
       background-color: ${backgroundColor};
     }
 
-    & ~ ${StyledCheckLabel}::before,
-    &:checked ~ ${StyledCheckLabel}::before {
+    & ~ ${StyledToggleLabel}::before,
+    &:checked ~ ${StyledToggleLabel}::before {
       background-image: url('data:image/svg+xml;charset=utf-8,${backgroundImage}');
     }
 
-    & ~ ${StyledCheckLabel}:active::before {
+    & ~ ${StyledToggleLabel}:active::before {
       background-color: ${activeBackgroundColor};
     }
   `;
@@ -55,14 +55,14 @@ const sizeStyles = props => {
   const width = math(`${props.theme.space.base} * 10px`);
 
   return css`
-    & ~ ${StyledCheckLabel}::before {
+    & ~ ${StyledToggleLabel}::before {
       background-position: ${backgroundPosition};
       background-size: ${backgroundSize};
       width: ${width};
       height: ${height};
     }
 
-    &:checked ~ ${StyledCheckLabel}::before {
+    &:checked ~ ${StyledToggleLabel}::before {
       background-position: ${checkedBackgroundPosition};
     }
   `;
@@ -72,7 +72,7 @@ export const StyledToggleInput = styled(StyledCheckInput).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  & ~ ${StyledCheckLabel}::before {
+  & ~ ${StyledToggleLabel}::before {
     top: 0;
     /* prettier-ignore */
     transition:

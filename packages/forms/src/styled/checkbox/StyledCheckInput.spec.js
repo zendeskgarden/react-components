@@ -7,13 +7,13 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import StyledCheckInput from './StyledCheckInput';
+import { StyledCheckInput } from './StyledCheckInput';
 
 describe('StyledCheckInput', () => {
   it('renders default styling and attributes correctly', () => {
     const { container } = render(<StyledCheckInput />);
 
-    expect(container.firstChild).toHaveClass('c-chk__input');
+    expect(container.firstChild.nodeName).toBe('INPUT');
     expect(container.firstChild).toHaveAttribute('type', 'checkbox');
   });
 });

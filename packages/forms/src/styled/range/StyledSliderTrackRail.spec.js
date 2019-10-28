@@ -7,18 +7,18 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { StyledRadioMessage } from './StyledRadioMessage';
+import { StyledSliderTrackRail } from './StyledSliderTrackRail';
 
-describe('StyledRadioMessage', () => {
+describe('StyledSliderTrackRail', () => {
   it('renders the expected element', () => {
-    const { container } = render(<StyledRadioMessage />);
+    const { container } = render(<StyledSliderTrackRail />);
 
     expect(container.firstChild.nodeName).toBe('DIV');
   });
 
   it('renders expected RTL styling', () => {
-    const { container } = renderRtl(<StyledRadioMessage />);
+    const { container } = renderRtl(<StyledSliderTrackRail />);
 
-    expect(container.firstChild).toHaveStyleRule('padding-right', '24px');
+    expect(container.firstChild).toHaveStyleRule('margin', '0 -10px 0 10px');
   });
 });
