@@ -40,42 +40,41 @@ const retrieveStyledDayColors = ({
   return css`
     background-color: ${backgroundColor};
     color: ${color};
+
+    ${!isSelected &&
+      !isDisabled &&
+      `
+      :hover {
+        background-color: ${getColor('primaryHue', 600, theme, 0.08)};
+        color: ${getColor('primaryHue', 800, theme)};
+      }
+
+      :active {
+        background-color: ${getColor('primaryHue', 600, theme, 0.2)};
+        color: ${getColor('primaryHue', 800, theme)};
+      }
+  `}
   `;
 };
 
 const COMPONENT_ID = 'datepickers.day';
 
-export const StyledDay = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID
-})<IStyledDayProps>`
+export const StyledDay = styled.div.attrs<IStyledDayProps>(props => ({
+  'data-garden-id': COMPONENT_ID,
+  'aria-disabled': props.isDisabled ? 'true' : 'false'
+}))<IStyledDayProps>`
   display: flex;
   position: absolute;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   cursor: ${props => (props.isDisabled ? 'inherit' : 'pointer')};
-
   width: 100%;
   height: 100%;
   line-height: ${props => props.theme.lineHeights.md};
   font-size: ${props => (props.isCompact ? props.theme.fontSizes.sm : props.theme.fontSizes.md)};
   font-weight: ${props =>
     props.isToday && !props.isDisabled ? props.theme.fontWeights.semibold : 'inherit'};
-
-  ${props =>
-    !props.isSelected &&
-    !props.isDisabled &&
-    `
-  :hover {
-    background-color: ${getColor('primaryHue', 600, props.theme, 0.08)};
-    color: ${getColor('primaryHue', 800, props.theme)};
-  }
-
-  :active {
-    background-color: ${getColor('primaryHue', 600, props.theme, 0.2)};
-    color: ${getColor('primaryHue', 800, props.theme)};
-  }
-  `}
 
   ${retrieveStyledDayColors}
 

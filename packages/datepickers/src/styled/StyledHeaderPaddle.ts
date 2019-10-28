@@ -24,6 +24,22 @@ const retrieveSizing = ({
   `;
 };
 
+const retrieveColor = ({ theme }: ThemeProps<DefaultTheme>) => {
+  return css`
+    :hover {
+      background-color: ${getColor('primaryHue', 600, theme, 0.08)};
+      color: ${theme.colors.foreground};
+    }
+
+    :active {
+      background-color: ${getColor('primaryHue', 600, theme, 0.2)};
+      color: ${theme.colors.foreground};
+    }
+
+    color: ${getColor('neutralHue', 600, theme)};
+  `;
+};
+
 const COMPONENT_ID = 'datepickers.header_paddle';
 
 export const StyledHeaderPaddle = styled.div.attrs({
@@ -42,17 +58,7 @@ export const StyledHeaderPaddle = styled.div.attrs({
 
   ${/* sc-block */ retrieveSizing}
 
-  :hover {
-    background-color: ${props => getColor('primaryHue', 600, props.theme, 0.08)};
-    color: ${props => props.theme.colors.foreground};
-  }
-
-  :active {
-    background-color: ${props => getColor('primaryHue', 600, props.theme, 0.2)};
-    color: ${props => props.theme.colors.foreground};
-  }
-
-  color: ${props => getColor('neutralHue', 600, props.theme)};
+  ${retrieveColor}
 
   * {
     width: ${props => `${props.theme.space.base * 4}px`};

@@ -30,11 +30,12 @@ interface IStyledDatepickerProps {
 export const StyledDatepicker = styled.div.attrs({
   'data-garden-id': COMPONENT_ID
 })<IStyledDatepickerProps>`
-  background-color: ${props => props.theme.colors.background};
-  color: ${props => props.theme.colors.foreground};
   direction: ${props => props.theme.rtl && 'rtl'};
 
   ${retrievePadding}
+
+  background-color: ${props => props.theme.colors.background};
+  color: ${props => props.theme.colors.foreground};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
