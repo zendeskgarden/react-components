@@ -54,7 +54,7 @@ const retrieveMenuMargin = ({
 };
 
 interface IStyledMenuViewProps extends HTMLProps<HTMLUListElement> {
-  small?: boolean;
+  isCompact?: boolean;
   placement?: POPPER_PLACEMENT;
   animate?: boolean;
   arrow?: boolean;
@@ -68,7 +68,7 @@ const StyledMenuView = styled.ul.attrs<IStyledMenuViewProps>(props => ({
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(MenuStyles['c-menu'], {
     // Size
-    [MenuStyles['c-menu--sm']]: props.small,
+    [MenuStyles['c-menu--sm']]: props.isCompact,
 
     // Placement
     [MenuStyles['c-menu--up']]:
@@ -155,7 +155,7 @@ interface IStyledMenuProps extends HTMLProps<HTMLUListElement> {
    */
   placement?: POPPER_PLACEMENT;
   animate?: boolean;
-  small?: boolean;
+  isCompact?: boolean;
   hidden?: boolean;
   arrow?: boolean;
   maxHeight?: string;

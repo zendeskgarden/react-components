@@ -8,10 +8,10 @@
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const retrieveSize = ({ isSmall, theme }: { isSmall?: boolean } & ThemeProps<DefaultTheme>) => {
+const retrieveSize = ({ isCompact, theme }: { isCompact?: boolean } & ThemeProps<DefaultTheme>) => {
   let width = theme.space.base * 70;
 
-  if (isSmall) {
+  if (isCompact) {
     width = theme.space.base * 56;
   }
 
@@ -24,7 +24,7 @@ const COMPONENT_ID = 'datepickers.header';
 
 export const StyledHeader = styled.div.attrs({
   'data-garden-id': COMPONENT_ID
-})<{ isSmall: boolean }>`
+})<{ isCompact: boolean }>`
   display: flex;
 
   ${retrieveSize}

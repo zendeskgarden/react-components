@@ -23,8 +23,8 @@ describe('StyledMenuView', () => {
     expect(container.querySelector('ul')).toHaveClass('is-rtl');
   });
 
-  it('renders small styling correctly', () => {
-    const { container } = render(<StyledMenu small />);
+  it('renders compact styling correctly', () => {
+    const { container } = render(<StyledMenu isCompact />);
 
     expect(container.querySelector('ul')).toHaveClass('c-menu--sm');
   });

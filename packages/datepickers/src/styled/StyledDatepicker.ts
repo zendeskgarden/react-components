@@ -10,8 +10,11 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'datepickers.datepicker';
 
-const retrievePadding = ({ isSmall, theme }: IStyledDatepickerProps & ThemeProps<DefaultTheme>) => {
-  if (isSmall) {
+const retrievePadding = ({
+  isCompact,
+  theme
+}: IStyledDatepickerProps & ThemeProps<DefaultTheme>) => {
+  if (isCompact) {
     return `${theme.space.base * 4}px`;
   }
 
@@ -19,7 +22,7 @@ const retrievePadding = ({ isSmall, theme }: IStyledDatepickerProps & ThemeProps
 };
 
 interface IStyledDatepickerProps {
-  isSmall: boolean;
+  isCompact: boolean;
 }
 
 export const StyledDatepicker = styled.div.attrs({

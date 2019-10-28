@@ -13,7 +13,7 @@ interface IStyledDayProps extends ThemeProps<DefaultTheme> {
   isToday?: boolean;
   isDisabled?: boolean;
   isSelected?: boolean;
-  isSmall: boolean;
+  isCompact: boolean;
 }
 
 const retrieveStyledDayColors = ({
@@ -58,7 +58,7 @@ export const StyledDay = styled.div.attrs({
   width: 100%;
   height: 100%;
   line-height: ${props => props.theme.lineHeights.md};
-  font-size: ${props => (props.isSmall ? props.theme.fontSizes.sm : props.theme.fontSizes.md)};
+  font-size: ${props => (props.isCompact ? props.theme.fontSizes.sm : props.theme.fontSizes.md)};
   font-weight: ${props =>
     props.isToday && !props.isDisabled ? props.theme.fontWeights.semibold : 'inherit'};
 

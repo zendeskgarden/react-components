@@ -12,7 +12,7 @@ export interface IDatepickerRangeContext {
   state: IDatepickerRangeState;
   dispatch: React.Dispatch<DatepickerRangeAction>;
   locale?: string;
-  small?: boolean;
+  isCompact?: boolean;
   minValue?: Date;
   maxValue?: Date;
   startValue?: Date;

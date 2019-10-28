@@ -80,7 +80,7 @@ export interface IDatepickerProps {
   /**
    * Show compact styling
    */
-  small?: boolean;
+  isCompact?: boolean;
   /**
    * Override default date parsing. Receives a localized input value and returns a `Date` object.
    */
@@ -128,7 +128,7 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
     animate,
     refKey,
     value,
-    small,
+    isCompact,
     onChange,
     formatDate,
     minValue,
@@ -275,7 +275,7 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
                     data-test-rtl={props.theme.rtl}
                   >
                     <Calendar
-                      small={small}
+                      isCompact={isCompact}
                       value={value}
                       minValue={minValue}
                       maxValue={maxValue}
@@ -299,7 +299,7 @@ Datepicker.propTypes = {
   locale: PropTypes.any,
   minValue: PropTypes.any,
   maxValue: PropTypes.any,
-  small: PropTypes.bool,
+  isCompact: PropTypes.bool,
   customParseDate: PropTypes.any,
   refKey: PropTypes.string,
   placement: PropTypes.oneOf([
