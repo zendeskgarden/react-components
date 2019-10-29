@@ -17,7 +17,6 @@ export const StyledHeaderLabel = styled.div.attrs({
   flex-grow: 1;
   align-items: center;
   justify-content: center;
-  line-height: ${props => props.theme.lineHeights.md};
   font-size: ${props => (props.isCompact ? props.theme.fontSizes.sm : props.theme.fontSizes.md)};
   font-weight: ${props => props.theme.fontWeights.semibold};
 

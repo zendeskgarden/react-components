@@ -64,7 +64,7 @@ interface IStyledMenuViewProps extends HTMLProps<HTMLUListElement> {
  * Accepts all `<ul>` props
  */
 const StyledMenuView = styled.ul.attrs<IStyledMenuViewProps>(props => ({
-  'data-garden-id': (props as any['data-garden-id']) || COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(MenuStyles['c-menu'], {
     // Size

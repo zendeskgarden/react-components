@@ -60,7 +60,7 @@ export const StyledHeaderPaddle = styled.div.attrs({
 
   ${retrieveColor}
 
-  * {
+  svg {
     width: ${props => `${props.theme.space.base * 4}px`};
     height: ${props => `${props.theme.space.base * 4}px`};
   }

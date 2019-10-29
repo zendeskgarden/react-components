@@ -19,14 +19,12 @@ export const StyledRangeCalendar = styled.div.attrs({
 
   ${StyledDatepicker} {
     padding: 0;
-  }
 
-  ${props =>
-    props.theme.rtl
-      ? `${/* sc-selector */ StyledDatepicker}:last-of-type {margin-right: ${props.theme.space
-          .base * 5}px}`
-      : `${/* sc-selector */ StyledDatepicker}:first-of-type {margin-right: ${props.theme.space
-          .base * 5}px}`}
+    ${props =>
+      props.theme.rtl
+        ? `&:last-of-type {margin-right: ${props.theme.space.base * 5}px}`
+        : `&:first-of-type {margin-right: ${props.theme.space.base * 5}px}`}
+  }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

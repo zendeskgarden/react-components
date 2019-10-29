@@ -18,7 +18,6 @@ export const StyledDayLabel = styled.div.attrs({
   justify-content: center;
   width: 100%;
   height: 100%;
-  line-height: ${props => props.theme.lineHeights.md};
   font-size: ${props => (props.isCompact ? props.theme.fontSizes.sm : props.theme.fontSizes.md)};
   font-weight: ${props => props.theme.fontWeights.semibold};
 

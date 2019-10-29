@@ -71,7 +71,6 @@ export const StyledDay = styled.div.attrs<IStyledDayProps>(props => ({
   cursor: ${props => (props.isDisabled ? 'inherit' : 'pointer')};
   width: 100%;
   height: 100%;
-  line-height: ${props => props.theme.lineHeights.md};
   font-size: ${props => (props.isCompact ? props.theme.fontSizes.sm : props.theme.fontSizes.md)};
   font-weight: ${props =>
     props.isToday && !props.isDisabled ? props.theme.fontWeights.semibold : 'inherit'};
