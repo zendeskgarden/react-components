@@ -9,15 +9,40 @@ import React from 'react';
 import { render } from 'garden-test-utils';
 import { Field, Checkbox, Radio, Toggle, Label } from '../../';
 
-describe('Hint', () => {
-  it('renders text label by default', () => {
+describe('Label', () => {
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef();
+    const { getByTestId } = render(
+      <Field>
+        <Label data-test-id="label" ref={ref}>
+          Test
+        </Label>
+      </Field>
+    );
+
+    expect(getByTestId('label')).toBe(ref.current);
+  });
+
+  it('throws if rendered without a Field parent', () => {
+    /* eslint-disable no-console */
+    const consoleError = console.error;
+
+    try {
+      console.error = jest.fn();
+      expect(() => render(<Label />)).toThrow();
+    } finally {
+      console.error = consoleError;
+    }
+  });
+
+  it('renders input label within a Field component', () => {
     const { getByTestId } = render(
       <Field>
         <Label data-test-id="label">Test</Label>
       </Field>
     );
 
-    expect(getByTestId('label')).toHaveAttribute('data-garden-id', 'forms.text_label');
+    expect(getByTestId('label')).toHaveAttribute('data-garden-id', 'forms.input_label');
   });
 
   it('renders checkbox label if within a Checkbox component', () => {

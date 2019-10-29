@@ -9,15 +9,40 @@ import React from 'react';
 import { render } from 'garden-test-utils';
 import { Field, Checkbox, Radio, Toggle, Message } from '../../';
 
-describe('Hint', () => {
-  it('renders text label by default', () => {
+describe('Message', () => {
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef();
+    const { getByTestId } = render(
+      <Field>
+        <Message data-test-id="message" ref={ref}>
+          Test
+        </Message>
+      </Field>
+    );
+
+    expect(getByTestId('message')).toBe(ref.current);
+  });
+
+  it('throws if rendered without a Field parent', () => {
+    /* eslint-disable no-console */
+    const consoleError = console.error;
+
+    try {
+      console.error = jest.fn();
+      expect(() => render(<Message />)).toThrow();
+    } finally {
+      console.error = consoleError;
+    }
+  });
+
+  it('renders input message within a Field component', () => {
     const { getByTestId } = render(
       <Field>
         <Message data-test-id="message">Test</Message>
       </Field>
     );
 
-    expect(getByTestId('message')).toHaveAttribute('data-garden-id', 'forms.text_message');
+    expect(getByTestId('message')).toHaveAttribute('data-garden-id', 'forms.input_message');
   });
 
   it('renders checkbox message if within a Checkbox component', () => {
@@ -54,5 +79,21 @@ describe('Hint', () => {
     );
 
     expect(getByTestId('message')).toHaveAttribute('data-garden-id', 'forms.radio_message');
+  });
+
+  describe('Validation', () => {
+    ['success', 'warning', 'error'].forEach(validation => {
+      it(`renders expected ${validation} component`, () => {
+        const { getByTestId } = render(
+          <Field>
+            <Message data-test-id="message" validation={validation}>
+              Test
+            </Message>
+          </Field>
+        );
+
+        expect(getByTestId('message').firstChild.nodeName).toBe('svg');
+      });
+    });
   });
 });

@@ -17,22 +17,22 @@ import { StyledField } from '../../styled';
  * Provides layout and ID context for child components; accepts all `<div>`
  * attributes and events.
  */
-const Field = React.forwardRef(({ id, ...other }, ref) => {
+const Field = React.forwardRef((props, ref) => {
   const scope = useCombinedRefs(ref);
-  const getMessageProps = props => ({ role: 'alert', ...props });
-  const fieldProps = { ...useField(id), getMessageProps };
+  const getMessageProps = messageProps => ({ role: 'alert', ...messageProps });
+  const fieldProps = { ...useField(props.id), getMessageProps };
 
   useFocusVisible({ scope });
 
   return (
     <FieldContext.Provider value={fieldProps}>
-      <StyledField {...other} ref={scope} />
+      <StyledField {...props} ref={scope} />
     </FieldContext.Provider>
   );
 });
 
 Field.propTypes = {
-  /** Prefix for generated label, input, and hint IDs */
+  /** Field ID and prefix for generated label, input, and hint IDs */
   id: PropTypes.string
 };
 

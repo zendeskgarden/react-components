@@ -10,14 +10,39 @@ import { render } from 'garden-test-utils';
 import { Field, Checkbox, Radio, Toggle, Hint } from '../../';
 
 describe('Hint', () => {
-  it('renders text hint by default', () => {
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef();
+    const { getByTestId } = render(
+      <Field>
+        <Hint data-test-id="hint" ref={ref}>
+          Test
+        </Hint>
+      </Field>
+    );
+
+    expect(getByTestId('hint')).toBe(ref.current);
+  });
+
+  it('throws if rendered without a Field parent', () => {
+    /* eslint-disable no-console */
+    const consoleError = console.error;
+
+    try {
+      console.error = jest.fn();
+      expect(() => render(<Hint />)).toThrow();
+    } finally {
+      console.error = consoleError;
+    }
+  });
+
+  it('renders input hint within a Field component', () => {
     const { getByTestId } = render(
       <Field>
         <Hint data-test-id="hint">Test</Hint>
       </Field>
     );
 
-    expect(getByTestId('hint')).toHaveAttribute('data-garden-id', 'forms.text_hint');
+    expect(getByTestId('hint')).toHaveAttribute('data-garden-id', 'forms.input_hint');
   });
 
   it('renders checkbox hint if within a Checkbox component', () => {
