@@ -32,14 +32,14 @@ import {
   StyledHeader,
   StyledHeaderLabel,
   StyledHighlight
-} from '../../styled';
-import { getStartOfWeek } from '../../utils/calendar-utils';
+} from '../../../styled';
+import { getStartOfWeek } from '../../../utils/calendar-utils';
 import { DatepickerRangeAction } from '../utils/datepicker-range-reducer';
 
 const Month: React.FunctionComponent<{
   locale?: string;
   displayDate: Date;
-  small?: boolean;
+  isCompact?: boolean;
   isPreviousHidden?: boolean;
   isNextHidden?: boolean;
   dispatch: React.Dispatch<DatepickerRangeAction>;
@@ -52,7 +52,7 @@ const Month: React.FunctionComponent<{
 }> = ({
   locale,
   displayDate,
-  small,
+  isCompact,
   isPreviousHidden,
   isNextHidden,
   dispatch,
@@ -111,8 +111,8 @@ const Month: React.FunctionComponent<{
       const formattedDayLabel = dayLabelFormatter(date);
 
       return (
-        <StyledCalendarItem key={`day-label-${formattedDayLabel}`} isSmall={small}>
-          <StyledDayLabel isSmall={small!}>{formattedDayLabel}</StyledDayLabel>
+        <StyledCalendarItem key={`day-label-${formattedDayLabel}`} isCompact={isCompact}>
+          <StyledDayLabel isCompact={isCompact!}>{formattedDayLabel}</StyledDayLabel>
         </StyledCalendarItem>
       );
     }
@@ -125,9 +125,9 @@ const Month: React.FunctionComponent<{
 
     if (isPreviousMonth) {
       return (
-        <StyledCalendarItem key={`day-${itemsIndex}`} isSmall={small}>
+        <StyledCalendarItem key={`day-${itemsIndex}`} isCompact={isCompact}>
           <StyledDay
-            small={small!}
+            isCompact={isCompact!}
             isPreviousMonth
             isDisabled
             data-test-id="day"
@@ -205,7 +205,7 @@ const Month: React.FunctionComponent<{
     }
 
     return (
-      <StyledCalendarItem key={`day-${itemsIndex}`} isSmall={small}>
+      <StyledCalendarItem key={`day-${itemsIndex}`} isCompact={isCompact}>
         <StyledHighlight
           isHighlighted={!isInvalidDateRange && isHighlighted}
           isStart={!isInvalidDateRange && isHighlightStart}
@@ -220,7 +220,7 @@ const Month: React.FunctionComponent<{
           isPreviousMonth={isPreviousMonth}
           isSelected={!isInvalidDateRange && isSelected}
           isDisabled={isDisabled}
-          small={small!}
+          isCompact={isCompact!}
           onClick={() => {
             if (!isDisabled) {
               dispatch({ type: 'CLICK_DATE', value: date });
@@ -246,7 +246,7 @@ const Month: React.FunctionComponent<{
 
   return (
     <StyledDatepicker
-      isSmall={small!}
+      isCompact={isCompact!}
       data-test-id="calendar-wrapper"
       onMouseDown={e => {
         /** Stop focus from escaping input */
@@ -254,9 +254,9 @@ const Month: React.FunctionComponent<{
         e.preventDefault();
       }}
     >
-      <StyledHeader isSmall={small!}>
+      <StyledHeader isCompact={isCompact!}>
         <StyledHeaderPaddle
-          isSmall={small!}
+          isCompact={isCompact!}
           onClick={() => {
             dispatch({
               type: 'PREVIEW_PREVIOUS_MONTH'
@@ -267,11 +267,11 @@ const Month: React.FunctionComponent<{
         >
           <ChevronLeftStrokeIcon />
         </StyledHeaderPaddle>
-        <StyledHeaderLabel isSmall={small!} data-test-id="month-display">
+        <StyledHeaderLabel isCompact={isCompact!} data-test-id="month-display">
           {headerLabelFormatter(displayDate)}
         </StyledHeaderLabel>
         <StyledHeaderPaddle
-          isSmall={small!}
+          isCompact={isCompact!}
           isHidden={isNextHidden}
           onClick={() => {
             dispatch({
@@ -284,7 +284,7 @@ const Month: React.FunctionComponent<{
         </StyledHeaderPaddle>
       </StyledHeader>
       <StyledCalendar
-        isSmall={small!}
+        isCompact={isCompact!}
         data-test-id="calendar-internal-wrapper"
         onMouseLeave={() => {
           dispatch({ type: 'HOVER_DATE', value: undefined });

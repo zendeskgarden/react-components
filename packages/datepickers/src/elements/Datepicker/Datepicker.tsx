@@ -13,10 +13,10 @@ import isSameDay from 'date-fns/isSameDay';
 import isValid from 'date-fns/isValid';
 import isBefore from 'date-fns/isBefore';
 import parse from 'date-fns/parse';
-import { isRtl, withTheme } from '@zendeskgarden/react-theming';
+import { withTheme, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
 
-import { StyledMenu } from '../styled';
+import { StyledMenu } from '../../styled';
 import {
   getRtlPopperPlacement,
   getPopperPlacement,
@@ -80,7 +80,7 @@ export interface IDatepickerProps {
   /**
    * Show compact styling
    */
-  small?: boolean;
+  isCompact?: boolean;
   /**
    * Override default date parsing. Receives a localized input value and returns a `Date` object.
    */
@@ -128,7 +128,7 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
     animate,
     refKey,
     value,
-    small,
+    isCompact,
     onChange,
     formatDate,
     minValue,
@@ -191,7 +191,7 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
     dispatch({ type: 'CONTROLLED_LOCALE_CHANGE' });
   }, [locale]);
 
-  const popperPlacement = isRtl(props)
+  const popperPlacement = props.theme.rtl
     ? getRtlPopperPlacement(placement!)
     : getPopperPlacement(placement!);
 
@@ -272,10 +272,10 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
                     placement={currentPlacement as any}
                     data-test-id="datepicker-menu"
                     data-test-open={state.isOpen}
-                    data-test-rtl={isRtl(props)}
+                    data-test-rtl={props.theme.rtl}
                   >
                     <Calendar
-                      small={small}
+                      isCompact={isCompact}
                       value={value}
                       minValue={minValue}
                       maxValue={maxValue}
@@ -299,7 +299,7 @@ Datepicker.propTypes = {
   locale: PropTypes.any,
   minValue: PropTypes.any,
   maxValue: PropTypes.any,
-  small: PropTypes.bool,
+  isCompact: PropTypes.bool,
   customParseDate: PropTypes.any,
   refKey: PropTypes.string,
   placement: PropTypes.oneOf([
@@ -330,7 +330,8 @@ Datepicker.defaultProps = {
   animate: true,
   eventsEnabled: true,
   zIndex: 1000,
-  locale: 'en-US'
+  locale: 'en-US',
+  theme: DEFAULT_THEME
 };
 
 export default withTheme(Datepicker) as FunctionComponent<IDatepickerProps>;

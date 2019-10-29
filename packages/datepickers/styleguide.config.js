@@ -61,8 +61,8 @@ module.exports = {
     {
       name: 'Components',
       components: [
-        '../../packages/datepickers/src/Datepicker/[A-Z]*.{ts,tsx}',
-        '../../packages/datepickers/src/DatepickerRange/[A-Z]*.{ts,tsx}'
+        '../../packages/datepickers/src/elements/Datepicker/[A-Z]*.{ts,tsx}',
+        '../../packages/datepickers/src/elements/DatepickerRange/[A-Z]*.{ts,tsx}'
       ]
     }
   ]

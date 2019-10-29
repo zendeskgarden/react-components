@@ -14,7 +14,7 @@
     "format:ts": "prettier --loglevel warn --write 'packages/**/!(dist|umd)/*.{ts,tsx}' && prettier --loglevel warn --write utils/**/*.{ts,tsx}",
     "postinstall": "lerna bootstrap",
     "lint": "yarn lint:css && yarn lint:js && yarn lint:markdown",
-    "lint:css": "stylelint \"packages/*/src/**/*.js\" \"!packages/*/src/**/*.spec.js\" && stylelint \"utils/**/*.js\"",
+    "lint:css": "stylelint \"packages/*/src/**/*.{js,ts,tsx}\" \"!packages/*/src/**/*.spec.{js,ts,tsx}\" && stylelint \"utils/**/*.{js,ts,tsx}\"",
     "lint:js": "eslint packages/*/src/ utils/ --ext js,ts,tsx --max-warnings 0",
     "lint:markdown": "markdownlint DEVELOPMENT.md README.md VERSIONING.md packages/*/src/**/*.md packages/*/src/*.md packages/*/README.md",
     "new": "utils/scripts/create-package.js",

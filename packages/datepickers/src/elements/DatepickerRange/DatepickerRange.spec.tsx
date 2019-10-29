@@ -360,8 +360,8 @@ describe('DatepickerRange', () => {
       expect(monthDisplays[1]).toHaveTextContent('April 2019');
     });
 
-    it('renders small styling correctly', () => {
-      const { getAllByTestId, rerender } = render(<Example small />);
+    it('renders compact styling correctly', () => {
+      const { getAllByTestId, rerender } = render(<Example isCompact />);
       const calendarWrappers = getAllByTestId('calendar-wrapper');
 
       expect(calendarWrappers[0]).toHaveStyleRule('padding', '16px');

@@ -6,7 +6,7 @@
  */
 
 import React, { useCallback } from 'react';
-import { StyledHeader, StyledHeaderPaddle, StyledHeaderLabel } from '../../styled';
+import { StyledHeader, StyledHeaderPaddle, StyledHeaderLabel } from '../../../styled';
 import useDatepickerContext from '../utils/useDatepickerContext';
 
 import ChevronLeftStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
@@ -14,10 +14,10 @@ import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-righ
 
 interface IMonthSelectorProps {
   locale?: string;
-  small: boolean;
+  isCompact: boolean;
 }
 
-const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({ locale, small }) => {
+const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({ locale, isCompact }) => {
   const { state, dispatch } = useDatepickerContext();
 
   const headerLabelFormatter = useCallback(
@@ -33,9 +33,9 @@ const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({ locale, s
   );
 
   return (
-    <StyledHeader isSmall={small}>
+    <StyledHeader isCompact={isCompact}>
       <StyledHeaderPaddle
-        isSmall={small}
+        isCompact={isCompact}
         onClick={() => {
           dispatch({
             type: 'PREVIEW_PREVIOUS_MONTH'
@@ -45,11 +45,11 @@ const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({ locale, s
       >
         <ChevronLeftStrokeIcon />
       </StyledHeaderPaddle>
-      <StyledHeaderLabel isSmall={small} data-test-id="month-display">
+      <StyledHeaderLabel isCompact={isCompact} data-test-id="month-display">
         {headerLabelFormatter(state.previewDate)}
       </StyledHeaderLabel>
       <StyledHeaderPaddle
-        isSmall={small}
+        isCompact={isCompact}
         onClick={() => {
           dispatch({
             type: 'PREVIEW_NEXT_MONTH'

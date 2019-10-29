@@ -7,8 +7,8 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { POPPER_PLACEMENT } from '../Datepicker/utils/garden-placements';
-import { StyledMenu } from './styled-menu';
+import { POPPER_PLACEMENT } from '../elements/Datepicker/utils/garden-placements';
+import { StyledMenu } from './StyledMenu';
 
 describe('StyledMenuView', () => {
   it('renders default styling correctly', () => {
@@ -23,8 +23,8 @@ describe('StyledMenuView', () => {
     expect(container.querySelector('ul')).toHaveClass('is-rtl');
   });
 
-  it('renders small styling correctly', () => {
-    const { container } = render(<StyledMenu small />);
+  it('renders compact styling correctly', () => {
+    const { container } = render(<StyledMenu isCompact />);
 
     expect(container.querySelector('ul')).toHaveClass('c-menu--sm');
   });
