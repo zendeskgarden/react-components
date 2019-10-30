@@ -1,5 +1,9 @@
 # v7.0.0
 
+NOTE: many style-related COMPONENT_IDs were renamed for consistency based
+on the CSS-in-JS restructure. All component-level theming customizations
+should be re-checked for ID naming accuracy.
+
 ## @zendeskgarden/react-autocomplete
 
 - removed; see `@zendeskgarden/react-dropdowns`
@@ -26,13 +30,23 @@
 
 ## @zendeskgarden/react-forms
 
-- modified theming COMPONENT_IDs for alignment with `data-garden-id`
-  - previously `forms.check_input`; currently `forms.checkbox`
-  - previously `forms.text_area`; currently `forms.textarea`
-  - previously `forms.text_input`; currently `forms.input`
-  - previously `forms.text_hint`; currently `forms.input_hint`
-  - previously `forms.text_message`; currently `forms.input_message`
-  - previously `forms.text_media_input`; currently `forms.media_input`
+- no longer packages a `styles.css` dist; CSS is self-contained
+- ALL
+  - removed irrelevant state and layout styling props (focused, hovered, mediaLayout, open, select, tagLayout)
+- Checkbox
+  - Add `indeterminate` prop (previously obfuscated under `Label`)
+- Input, Textarea, FauxInput
+  - `bare` -> `isBare`
+  - `small` -> `isCompact`
+- Textarea
+  - `resizable` -> `isResizable`
+- Field
+  - removed `inline` (effectively, useless) prop; inline layout is demonstrated within the examples
+- Hint
+  - removed `small` prop; all field layouts respond to `isCompact` placed on the input component
+- Label
+  - `regular` -> `isRegular`
+  - removed remaining props – attributes should be applied to the corresponding `<input>` component (checked, disabled, indeterminate)
 
 ## @zendeskgarden/react-loaders
 
