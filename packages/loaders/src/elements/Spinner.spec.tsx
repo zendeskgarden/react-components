@@ -16,9 +16,9 @@ const DEFAULT_DATE = new Date(2019, 1, 5, 1, 1, 1);
 
 describe('Spinner', () => {
   beforeEach(() => {
-    clearTimeout.mockClear();
-    global.cancelAnimationFrame = jest.fn();
-    global.requestAnimationFrame = jest.fn();
+    (clearTimeout as jest.Mock).mockClear();
+    (global as any).cancelAnimationFrame = jest.fn();
+    (global as any).requestAnimationFrame = jest.fn();
     mockDate.set(DEFAULT_DATE);
   });
 
@@ -52,45 +52,41 @@ describe('Spinner', () => {
         jest.runOnlyPendingTimers();
       });
 
-      expect(container.firstChild.firstChild).toMatchInlineSnapshot(
-        `
-<circle
-  class=""
-  cx="40"
-  cy="40"
-  fill="none"
-  r="34"
-  stroke="currentColor"
-  stroke-dasharray="0 250"
-  stroke-linecap="round"
-  stroke-width="6"
-  transform="rotate(-90, 40, 40)"
-/>
-`
-      );
+      expect(container.firstChild!.firstChild).toMatchInlineSnapshot(`
+        <circle
+          class=""
+          cx="40"
+          cy="40"
+          fill="none"
+          r="34"
+          stroke="currentColor"
+          stroke-dasharray="0 250"
+          stroke-linecap="round"
+          stroke-width="6"
+          transform="rotate(-90, 40, 40)"
+        />
+      `);
 
       act(() => {
         // move time forward 1 second
         mockDate.set(DEFAULT_DATE.setSeconds(2));
-        requestAnimationFrame.mock.calls[0][0]();
+        (requestAnimationFrame as jest.Mock).mock.calls[0][0]();
       });
 
-      expect(container.firstChild.firstChild).toMatchInlineSnapshot(
-        `
-<circle
-  class="styled-elements__SpinnerCircle-sc-19dhio6-4 glGYSu"
-  cx="40"
-  cy="40"
-  fill="none"
-  r="34"
-  stroke="currentColor"
-  stroke-dasharray="33.04 250"
-  stroke-linecap="round"
-  stroke-width="5"
-  transform="rotate(186.6, 40, 40)"
-/>
-`
-      );
+      expect(container.firstChild!.firstChild).toMatchInlineSnapshot(`
+        <circle
+          class="sc-htoDjs bZzhDu"
+          cx="40"
+          cy="40"
+          fill="none"
+          r="34"
+          stroke="currentColor"
+          stroke-dasharray="33.04 250"
+          stroke-linecap="round"
+          stroke-width="5"
+          transform="rotate(186.6, 40, 40)"
+        />
+      `);
     });
   });
 });

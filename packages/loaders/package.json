@@ -19,7 +19,7 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendeskgarden/container-schedule": "^1.0.0",
+    "@zendeskgarden/container-schedule": "^1.2.0",
     "classnames": "^2.2.5",
     "polished": "^3.4.1"
   },
@@ -44,5 +44,5 @@
   },
   "zendeskgarden:library": "GardenLoaders",
   "zendeskgarden:max_size": "9.75 kB",
-  "zendeskgarden:src": "src/index.js"
+  "zendeskgarden:src": "src/index.ts"
 }

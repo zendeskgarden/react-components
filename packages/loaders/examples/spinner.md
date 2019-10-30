@@ -1,4 +1,4 @@
-The `<Dots />` component includes several accessibility
+The `<Spinner />` component includes several accessibility
 and usability features:
 
 - Inherits the `font-size` and `color` properties
@@ -10,13 +10,12 @@ and usability features:
 ### Basic Usage
 
 ```jsx
-<Dots color={PALETTE.blue[500]} size="48px" />
+<Spinner color={PALETTE.blue[500]} size="48px" />
 ```
 
 ### Advanced Usage
 
 ```jsx
-const { zdColorBlue500, zdColorGrey500 } = require('@zendeskgarden/css-variables');
 const { Field: FormField, Label, Range } = require('@zendeskgarden/react-forms/src');
 const {
   Dropdown,
@@ -103,7 +102,10 @@ const Color = ({ name, color, includeSample }) =>
         </Col>
         <Col md={6}>
           <FormField>
-            <Label>Duration {state.duration}ms</Label>
+            <Label>
+              Duration {state.duration}
+              ms
+            </Label>
             <Range
               value={state.duration}
               onChange={event => setState({ duration: parseFloat(event.target.value) })}
@@ -137,7 +139,7 @@ const Color = ({ name, color, includeSample }) =>
       </SpacedRow>
       <SpacedRow>
         <Col style={{ textAlign: 'center' }}>
-          <Dots size={`${state.size}px`} duration={state.duration} color={state.color.value} />
+          <Spinner size={`${state.size}px`} color={state.color.value} duration={state.duration} />
         </Col>
       </SpacedRow>
     </Grid>
