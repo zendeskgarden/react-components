@@ -12,6 +12,23 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v7.0.2 (2019-10-30)
+
+#### :seedling: Internal
+* Other
+  * [#501](https://github.com/zendeskgarden/react-components/pull/501) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `avatars`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `tooltips`
+  * [#502](https://github.com/zendeskgarden/react-components/pull/502) fix(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
+## v7.0.1 (2019-10-22)
+
+#### :bug: Bug Fix
+* `buttons`
+  * [#498](https://github.com/zendeskgarden/react-components/pull/498) fix(buttons): allow buttons to control type attribute ([@austin94](https://github.com/austin94))
+
+#### :memo: Documentation
+* [#496](https://github.com/zendeskgarden/react-components/pull/496) chore(internal): upgrade Garden examples to v7 ([@austin94](https://github.com/austin94))
+
 ## v7.0.0 (2019-10-17)
 
 #### :boom: Breaking Change
