@@ -8,19 +8,12 @@
 import React from 'react';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
 import { render, renderRtl, fireEvent } from 'garden-test-utils';
-import Field from './common/Field';
 import MultiThumbRange from './MultiThumbRange';
 
 jest.mock('lodash.debounce');
 import debounce from 'lodash.debounce';
 
 describe('MultiThumbRange', () => {
-  const Example = props => (
-    <Field>
-      <MultiThumbRange {...props} data-test-id="range" />
-    </Field>
-  );
-
   let originalGetBoundingClientRect;
 
   beforeEach(() => {
@@ -37,24 +30,12 @@ describe('MultiThumbRange', () => {
   });
 
   describe('Slider', () => {
-    it('shows correct styling when disabled', () => {
-      const { getByTestId } = render(<Example disabled />);
-
-      expect(getByTestId('slider')).toHaveClass('is-disabled');
-    });
-
-    it('shows correct styling when in RTL mode', () => {
-      const { getByTestId } = renderRtl(<Example />);
-
-      expect(getByTestId('slider')).toHaveClass('is-rtl');
-    });
-
     it('removes document event listeners on unmount', () => {
       const originalRemoveEventListener = window.removeEventListener;
 
       window.removeEventListener = jest.fn();
 
-      const { unmount } = render(<Example />);
+      const { unmount } = render(<MultiThumbRange />);
 
       unmount();
 
@@ -68,7 +49,7 @@ describe('MultiThumbRange', () => {
     it('positioning style is applied correctly', () => {
       const { getByTestId } = render(
         <div style={{ width: 500 }}>
-          <Example minValue={15} maxValue={75} />
+          <MultiThumbRange minValue={15} maxValue={75} />
         </div>
       );
 
@@ -78,7 +59,7 @@ describe('MultiThumbRange', () => {
     it('positioning style is applied correctly when in RTL mode', () => {
       const { getByTestId } = renderRtl(
         <div style={{ width: 500 }}>
-          <Example minValue={15} maxValue={75} />
+          <MultiThumbRange minValue={15} maxValue={75} />
         </div>
       );
 
@@ -88,7 +69,7 @@ describe('MultiThumbRange', () => {
 
   describe('Min Thumb', () => {
     it('applies correct accessibility values', () => {
-      const { getAllByTestId } = render(<Example minValue={15} maxValue={75} />);
+      const { getAllByTestId } = render(<MultiThumbRange minValue={15} maxValue={75} />);
       const thumb = getAllByTestId('thumb')[0];
 
       expect(thumb).toHaveAttribute('role', 'slider');
@@ -100,21 +81,21 @@ describe('MultiThumbRange', () => {
     });
 
     it('removes thumb from tab order when disabled', () => {
-      const { getAllByTestId } = render(<Example disabled minValue={15} maxValue={75} />);
+      const { getAllByTestId } = render(<MultiThumbRange disabled minValue={15} maxValue={75} />);
       const thumb = getAllByTestId('thumb')[0];
 
-      expect(thumb).toHaveAttribute('tabIndex', '-1');
+      expect(thumb).not.toHaveAttribute('tabIndex');
     });
 
     it('applies correct style', () => {
-      const { getAllByTestId } = render(<Example minValue={15} maxValue={75} />);
+      const { getAllByTestId } = render(<MultiThumbRange minValue={15} maxValue={75} />);
       const thumb = getAllByTestId('thumb')[0];
 
       expect(thumb).toHaveStyle('left: 15px');
     });
 
     it('applies correct style when in RTL mode', () => {
-      const { getAllByTestId } = renderRtl(<Example minValue={15} maxValue={75} />);
+      const { getAllByTestId } = renderRtl(<MultiThumbRange minValue={15} maxValue={75} />);
       const thumb = getAllByTestId('thumb')[0];
 
       expect(thumb).toHaveStyle('right: 15px');
@@ -129,7 +110,7 @@ describe('MultiThumbRange', () => {
 
       it('decrements minValue on LEFT key', () => {
         const { getAllByTestId } = render(
-          <Example minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
 
         fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.LEFT });
@@ -138,7 +119,7 @@ describe('MultiThumbRange', () => {
 
       it('decrements minValue on DOWN key', () => {
         const { getAllByTestId } = render(
-          <Example minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
 
         fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.DOWN });
@@ -147,7 +128,7 @@ describe('MultiThumbRange', () => {
 
       it('increments minValue on RIGHT key', () => {
         const { getAllByTestId } = render(
-          <Example minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
 
         fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.RIGHT });
@@ -156,7 +137,7 @@ describe('MultiThumbRange', () => {
 
       it('increments minValue on UP key', () => {
         const { getAllByTestId } = render(
-          <Example minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
 
         fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.UP });
@@ -165,7 +146,7 @@ describe('MultiThumbRange', () => {
 
       it('sets minValue to min on HOME key', () => {
         const { getAllByTestId } = render(
-          <Example minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
 
         fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.HOME });
@@ -174,7 +155,7 @@ describe('MultiThumbRange', () => {
 
       it('sets minValue to maxValue on END key', () => {
         const { getAllByTestId } = render(
-          <Example minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
 
         fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.END });
@@ -191,7 +172,7 @@ describe('MultiThumbRange', () => {
 
       it('increments minValue on LEFT key', () => {
         const { getAllByTestId } = renderRtl(
-          <Example minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
 
         fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.LEFT });
@@ -200,7 +181,7 @@ describe('MultiThumbRange', () => {
 
       it('decrements minValue on RIGHT key', () => {
         const { getAllByTestId } = renderRtl(
-          <Example minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
 
         fireEvent.keyDown(getAllByTestId('thumb')[0], { keyCode: KEY_CODES.RIGHT });
@@ -218,7 +199,7 @@ describe('MultiThumbRange', () => {
       describe('document mousemove event', () => {
         it('updates minValue on drag', () => {
           const { container, getAllByTestId } = render(
-            <Example minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+            <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
           );
           const thumb = getAllByTestId('thumb')[0];
 
@@ -237,7 +218,7 @@ describe('MultiThumbRange', () => {
 
         it('updates minValue on drag in RTL mode', () => {
           const { container, getAllByTestId } = renderRtl(
-            <Example minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+            <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
           );
           const thumb = getAllByTestId('thumb')[0];
 
@@ -254,7 +235,7 @@ describe('MultiThumbRange', () => {
 
         it('does not update minValue when disabled', () => {
           const { container, getAllByTestId } = renderRtl(
-            <Example disabled minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+            <MultiThumbRange disabled minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
           );
           const thumb = getAllByTestId('thumb')[0];
 
@@ -275,7 +256,7 @@ describe('MultiThumbRange', () => {
 
   describe('Max Thumb', () => {
     it('applies correct accessibility values', () => {
-      const { getAllByTestId } = render(<Example minValue={15} maxValue={75} />);
+      const { getAllByTestId } = render(<MultiThumbRange minValue={15} maxValue={75} />);
       const thumb = getAllByTestId('thumb')[1];
 
       expect(thumb).toHaveAttribute('role', 'slider');
@@ -287,21 +268,21 @@ describe('MultiThumbRange', () => {
     });
 
     it('removes thumb from tab order when disabled', () => {
-      const { getAllByTestId } = render(<Example disabled minValue={15} maxValue={75} />);
+      const { getAllByTestId } = render(<MultiThumbRange disabled minValue={15} maxValue={75} />);
       const thumb = getAllByTestId('thumb')[1];
 
-      expect(thumb).toHaveAttribute('tabindex', '-1');
+      expect(thumb).not.toHaveAttribute('tabindex');
     });
 
     it('applies correct style', () => {
-      const { getAllByTestId } = render(<Example minValue={15} maxValue={75} />);
+      const { getAllByTestId } = render(<MultiThumbRange minValue={15} maxValue={75} />);
       const thumb = getAllByTestId('thumb')[1];
 
       expect(thumb).toHaveStyle('left: 75px');
     });
 
     it('applies correct style when in RTL mode', () => {
-      const { getAllByTestId } = renderRtl(<Example minValue={15} maxValue={75} />);
+      const { getAllByTestId } = renderRtl(<MultiThumbRange minValue={15} maxValue={75} />);
       const thumb = getAllByTestId('thumb')[1];
 
       expect(thumb).toHaveStyle('right: 75px');
@@ -316,7 +297,7 @@ describe('MultiThumbRange', () => {
 
       it('decrements maxValue on LEFT key', () => {
         const { getAllByTestId } = render(
-          <Example minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
         const maxThumb = getAllByTestId('thumb')[1];
 
@@ -326,7 +307,7 @@ describe('MultiThumbRange', () => {
 
       it('decrements maxValue on DOWN key', () => {
         const { getAllByTestId } = render(
-          <Example minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
         const maxThumb = getAllByTestId('thumb')[1];
 
@@ -336,7 +317,7 @@ describe('MultiThumbRange', () => {
 
       it('increments maxValue on RIGHT key', () => {
         const { getAllByTestId } = render(
-          <Example minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
         const maxThumb = getAllByTestId('thumb')[1];
 
@@ -346,7 +327,7 @@ describe('MultiThumbRange', () => {
 
       it('increments maxValue on UP key', () => {
         const { getAllByTestId } = render(
-          <Example minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
         const maxThumb = getAllByTestId('thumb')[1];
 
@@ -356,7 +337,7 @@ describe('MultiThumbRange', () => {
 
       it('sets maxValue to minValue on HOME key', () => {
         const { getAllByTestId } = render(
-          <Example minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
         const maxThumb = getAllByTestId('thumb')[1];
 
@@ -366,7 +347,7 @@ describe('MultiThumbRange', () => {
 
       it('sets maxValue to max on END key', () => {
         const { getAllByTestId } = render(
-          <Example minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
         const maxThumb = getAllByTestId('thumb')[1];
 
@@ -384,7 +365,7 @@ describe('MultiThumbRange', () => {
 
       it('increments maxValue on LEFT key', () => {
         const { getAllByTestId } = renderRtl(
-          <Example minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
         const maxThumb = getAllByTestId('thumb')[1];
 
@@ -394,7 +375,7 @@ describe('MultiThumbRange', () => {
 
       it('decrements maxValue on RIGHT key', () => {
         const { getAllByTestId } = renderRtl(
-          <Example minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+          <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
         );
         const maxThumb = getAllByTestId('thumb')[1];
 
@@ -413,7 +394,7 @@ describe('MultiThumbRange', () => {
       describe('document mousemove event', () => {
         it('updates maxValue on drag', () => {
           const { container, getAllByTestId } = render(
-            <Example minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+            <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
           );
           const thumb = getAllByTestId('thumb')[1];
 
@@ -432,7 +413,7 @@ describe('MultiThumbRange', () => {
 
         it('updates maxValue on drag in RTL mode', () => {
           const { container, getAllByTestId } = renderRtl(
-            <Example minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+            <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
           );
           const thumb = getAllByTestId('thumb')[1];
 
@@ -449,7 +430,7 @@ describe('MultiThumbRange', () => {
 
         it('does not update maxValue when disabled', () => {
           const { container, getAllByTestId } = renderRtl(
-            <Example disabled minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+            <MultiThumbRange disabled minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
           );
           const thumb = getAllByTestId('thumb')[1];
 

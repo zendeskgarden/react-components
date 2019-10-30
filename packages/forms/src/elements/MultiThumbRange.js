@@ -18,8 +18,7 @@ import {
 } from '../styled';
 
 /**
- * Must be rendered within a `<Field>` element; accepts all `<div>` attributes
- * and events.
+ * Accepts all `<div>` attributes and events.
  */
 const MultiThumbRange = ({ min, max, minValue, maxValue, disabled, step, onChange, ...props }) => {
   const [isMinThumbFocused, setIsMinThumbFocused] = useState(false);

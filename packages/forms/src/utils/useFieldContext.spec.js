@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /**
  * Copyright Zendesk, Inc.
  *
@@ -19,6 +18,7 @@ describe('useFieldContext', () => {
   };
 
   it('throws if called outside of Field component', () => {
+    /* eslint-disable no-console */
     const originalError = console.error;
 
     console.error = jest.fn();
