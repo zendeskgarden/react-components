@@ -39,7 +39,7 @@ const colorStyles = props => {
       background-color: ${activeBackgroundColor};
     }
 
-    &:disabled {
+    &[aria-disabled='true'] {
       border-color: ${disabledBorderColor};
       box-shadow: none;
       background-color: ${disabledBackgroundColor};
@@ -58,10 +58,11 @@ const sizeStyles = props => {
   `;
 };
 
-export const StyledSliderThumb = styled.input.attrs({
+export const StyledSliderThumb = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+  'data-garden-version': PACKAGE_VERSION,
+  'aria-disabled': props.isDisabled
+}))`
   appearance: none;
   position: absolute;
   top: 50%;
@@ -86,6 +87,7 @@ export const StyledSliderThumb = styled.input.attrs({
 
 StyledSliderThumb.propTypes = {
   position: PropTypes.number,
+  isDisabled: PropTypes.bool,
   theme: PropTypes.object
 };
 

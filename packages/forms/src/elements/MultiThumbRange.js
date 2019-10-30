@@ -10,7 +10,6 @@ import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
 import { withTheme, isRtl, getDocument } from '@zendeskgarden/react-theming';
-import useFieldContext from '../utils/useFieldContext';
 import {
   StyledSlider,
   StyledSliderTrack,
@@ -22,20 +21,7 @@ import {
  * Must be rendered within a `<Field>` element; accepts all `<div>` attributes
  * and events.
  */
-const MultiThumbRange = ({
-  min,
-  max,
-  minName,
-  maxName,
-  minValue,
-  maxValue,
-  defaultMinValue,
-  defaultMaxValue,
-  disabled,
-  step,
-  onChange,
-  ...props
-}) => {
+const MultiThumbRange = ({ min, max, minValue, maxValue, disabled, step, onChange, ...props }) => {
   const [isMinThumbFocused, setIsMinThumbFocused] = useState(false);
   const [isMaxThumbFocused, setIsMaxThumbFocused] = useState(false);
   const [railWidth, setRailWidth] = useState(0);
@@ -43,7 +29,6 @@ const MultiThumbRange = ({
   const trackRailRef = useRef();
   const minThumbRef = useRef();
   const maxThumbRef = useRef();
-  const { getInputProps } = useFieldContext();
 
   const themedDocument = getDocument(props);
   const rtl = isRtl(props);
@@ -291,61 +276,53 @@ const MultiThumbRange = ({
   const sliderBackgroundSize = Math.abs(maxPosition) - Math.abs(minPosition);
 
   return (
-    <StyledSlider aria-disabled={disabled} data-test-id="slider">
+    <StyledSlider data-test-id="slider" isDisabled={disabled}>
       <StyledSliderTrack
-        aria-disabled={disabled}
         backgroundSize={sliderBackgroundSize}
         backgroundPosition={rtl ? railWidth - maxPosition : minPosition}
         data-test-id="track"
+        isDisabled={disabled}
       >
         <StyledSliderTrackRail data-test-id="rail" ref={trackRailRef}>
           <StyledSliderThumb
-            {...getInputProps({
-              role: 'slider',
-              disabled,
-              'aria-valuemin': min,
-              'aria-valuemax': maxValue,
-              'aria-valuenow': minValue,
-              'aria-valuetext': minValue,
-              'data-test-id': 'thumb',
-              name: minName,
-              value: minValue,
-              defaultValue: defaultMinValue,
-              isFocused: isMinThumbFocused,
-              position: minPosition,
-              ref: minThumbRef,
-              onChange,
-              onKeyDown: e => onKeyDown('min')(e),
-              onFocus: () => {
-                setIsMinThumbFocused(true);
-              },
-              onBlur: () => {
-                setIsMinThumbFocused(false);
-              },
-              onMouseDown: e => {
-                setIsMousedDown(true);
+            role="slider"
+            tabIndex={disabled ? null : 0}
+            aria-valuemin={min}
+            aria-valuemax={maxValue}
+            aria-valuenow={minValue}
+            aria-valuetext={minValue}
+            data-test-id="thumb"
+            isFocused={isMinThumbFocused}
+            isDisabled={disabled}
+            position={minPosition}
+            ref={minThumbRef}
+            onKeyDown={e => onKeyDown('min')(e)}
+            onFocus={() => {
+              setIsMinThumbFocused(true);
+            }}
+            onBlur={() => {
+              setIsMinThumbFocused(false);
+            }}
+            onMouseDown={e => {
+              setIsMousedDown(true);
 
-                e.preventDefault();
-                e.stopPropagation();
+              e.preventDefault();
+              e.stopPropagation();
 
-                minThumbRef.current.focus();
-              }
-            })}
+              minThumbRef.current.focus();
+            }}
           />
           <StyledSliderThumb
             role="slider"
-            disabled={disabled}
+            tabIndex={disabled ? null : 0}
             aria-valuemin={minValue}
             aria-valuemax={max}
             aria-valuenow={maxValue}
             aria-valuetext={maxValue}
             data-test-id="thumb"
-            name={maxName}
-            value={maxValue}
-            defaultValue={defaultMaxValue}
             isFocused={isMaxThumbFocused}
+            isDisabled={disabled}
             position={maxPosition}
-            onChange={onChange}
             onKeyDown={e => onKeyDown('max')(e)}
             ref={maxThumbRef}
             onFocus={() => {
@@ -378,18 +355,6 @@ MultiThumbRange.propTypes = {
   minValue: PropTypes.number,
   /** The maximum thumb input value */
   maxValue: PropTypes.number,
-  /** The default (uncontrolled) minimum thumb input value */
-  defaultMinValue: PropTypes.number,
-  /** The default (uncontrolled) maximum thumb input value */
-  defaultMaxValue: PropTypes.number,
-  /**
-   * The minimum thumb input name – paired with `minValue` on form submission
-   */
-  minName: PropTypes.string,
-  /**
-   * The maximum thumb input name – paired with `maxValue` on form submission
-   */
-  maxName: PropTypes.string,
   /** The stepping interval */
   step: PropTypes.number,
   /** Apply disabled styling */

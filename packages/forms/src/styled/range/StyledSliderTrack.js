@@ -45,10 +45,11 @@ const sizeStyles = props => {
   `;
 };
 
-export const StyledSliderTrack = styled.div.attrs({
+export const StyledSliderTrack = styled.div.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+  'data-garden-version': PACKAGE_VERSION,
+  'aria-disabled': props.isDisabled
+}))`
   position: absolute;
   top: 50%;
   box-sizing: border-box;
@@ -66,6 +67,7 @@ export const StyledSliderTrack = styled.div.attrs({
 StyledSliderTrack.propTypes = {
   backgroundSize: PropTypes.number,
   backgroundPosition: PropTypes.number,
+  isDisabled: PropTypes.bool,
   theme: PropTypes.object
 };
 
