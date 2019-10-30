@@ -48,7 +48,7 @@ describe('ButtonGroup', () => {
     expect(lastButton).toHaveAttribute('aria-pressed', 'true');
   });
 
-  it('applies focused styling to currently focused tab', () => {
+  it('applies focused attributes to currently focused tab', () => {
     const { getAllByTestId } = render(<BasicExample />);
     const [, button] = getAllByTestId('button');
 

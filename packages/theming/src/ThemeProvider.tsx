@@ -5,16 +5,31 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { ThemeProvider, DefaultTheme, ThemeProps } from 'styled-components';
+import { useFocusVisible } from '@zendeskgarden/container-focusvisible';
+import { getControlledValue } from '@zendeskgarden/container-utilities';
 import DEFAULT_THEME from './theme';
 
-const GardenThemeProvider: React.FunctionComponent<ThemeProps<DefaultTheme>> & {
-  defaultProps: Partial<ThemeProps<DefaultTheme>>;
-} = ({ theme, children, ...other }) => {
+interface IGardenThemeProviderProps extends Partial<ThemeProps<DefaultTheme>> {
+  focusVisibleRef?: React.RefObject<HTMLElement>;
+}
+
+const GardenThemeProvider: React.FunctionComponent<IGardenThemeProviderProps> = ({
+  theme,
+  focusVisibleRef,
+  children,
+  ...other
+}) => {
+  const scopeRef = useRef<HTMLDivElement>(null);
+  const relativeDocument = getControlledValue(theme!.document || document);
+  const controlledScopeRef = getControlledValue(focusVisibleRef, scopeRef);
+
+  useFocusVisible({ scope: controlledScopeRef, relativeDocument });
+
   return (
-    <ThemeProvider theme={theme} {...other}>
-      {children as any}
+    <ThemeProvider theme={theme!} {...other}>
+      {focusVisibleRef ? (children as any) : <div ref={scopeRef}>{children as any}</div>}
     </ThemeProvider>
   );
 };

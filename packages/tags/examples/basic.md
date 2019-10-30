@@ -114,24 +114,15 @@ initialState = {
             </Label>
           </Toggle>
         </Field>
-        <Field>
-          <Toggle
-            checked={state.focused}
-            onChange={event => setState({ focused: event.target.checked })}
-          >
-            <Label style={{ marginTop: 8 }}>Focused</Label>
-          </Toggle>
-        </Field>
       </Well>
     </Col>
     <Col alignSelf="center">
       <Tag
-        focused={state.focused}
         hue={state.hue === 'default' ? null : state.hue}
         pill={state.shape === 'pill'}
         round={state.shape === 'round'}
         size={state.size}
-        onClick={() => setState({ focused: true })}
+        tabIndex={0}
       >
         {state.avatar && (
           <Tag.Avatar>

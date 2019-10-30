@@ -57,14 +57,19 @@ button props.
 
 ### States
 
+Garden elements use `data` attributes provided by our `<ThemeProvider>`
+to apply focused styling. This allows us to mimic the functionality of the
+[:focus-visible](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible)
+pseudo-class.
+
 ```jsx
 <Grid>
   <Row>
     <Col md>
-      <Button focused>Focused Default</Button>
+      <Button data-garden-focus-visible>Focused Default</Button>
     </Col>
     <Col md>
-      <Button focused focusInset>
+      <Button data-garden-focus-visible focusInset>
         Inset Focused Default
       </Button>
     </Col>
@@ -75,12 +80,12 @@ button props.
   <br />
   <Row>
     <Col md>
-      <Button focused basic>
+      <Button data-garden-focus-visible basic>
         Focused Basic
       </Button>
     </Col>
     <Col md>
-      <Button focused focusInset basic>
+      <Button data-garden-focus-visible focusInset basic>
         Inset Focused Basic
       </Button>
     </Col>
@@ -93,12 +98,12 @@ button props.
   <br />
   <Row>
     <Col md>
-      <Button focused danger>
+      <Button data-garden-focus-visible danger>
         Focused Danger Default
       </Button>
     </Col>
     <Col md>
-      <Button focused focusInset danger>
+      <Button data-garden-focus-visible focusInset danger>
         Inset Focused Default Danger
       </Button>
     </Col>
@@ -111,12 +116,12 @@ button props.
   <br />
   <Row>
     <Col md>
-      <Button focused primary>
+      <Button data-garden-focus-visible primary>
         Focused Primary
       </Button>
     </Col>
     <Col md>
-      <Button focused focusInset primary>
+      <Button data-garden-focus-visible focusInset primary>
         Inset Focused Primary
       </Button>
     </Col>
@@ -129,12 +134,12 @@ button props.
   <br />
   <Row>
     <Col md>
-      <Button focused primary danger>
+      <Button data-garden-focus-visible primary danger>
         Focused Primary Danger
       </Button>
     </Col>
     <Col md>
-      <Button focused focusInset primary danger>
+      <Button data-garden-focus-visible focusInset primary danger>
         Inset Focused Primary Danger
       </Button>
     </Col>
@@ -147,12 +152,12 @@ button props.
   <br />
   <Row>
     <Col md>
-      <Button focused link>
+      <Button data-garden-focus-visible link>
         Focused Link
       </Button>
     </Col>
     <Col md>
-      <Button focused danger link>
+      <Button data-garden-focus-visible danger link>
         Focused Danger Link
       </Button>
     </Col>
