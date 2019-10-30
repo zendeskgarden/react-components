@@ -10,36 +10,34 @@ import { render, fireEvent } from 'garden-test-utils';
 import FauxInput from './FauxInput';
 
 describe('FauxInput', () => {
-  it('applies hovered styling on mouseenter event', () => {
+  it('renders the expected element', () => {
     const { container } = render(<FauxInput />);
 
-    expect(container.firstChild).not.toHaveClass('is-hovered');
-
-    fireEvent.mouseEnter(container.firstChild);
-
-    expect(container.firstChild).toHaveClass('is-hovered');
+    expect(container.firstChild.nodeName).toBe('DIV');
+    expect(container.firstChild.getAttribute('tabIndex')).toBe('0');
   });
 
-  it('removes hovered styling on mouseleave event', () => {
-    const { container } = render(<FauxInput />);
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef();
+    const { container } = render(<FauxInput ref={ref} />);
 
-    fireEvent.mouseEnter(container.firstChild);
+    expect(container.firstChild).toBe(ref.current);
+  });
 
-    expect(container.firstChild).toHaveClass('is-hovered');
+  it('renders expected disabled tabindex', () => {
+    const { container } = render(<FauxInput disabled />);
 
-    fireEvent.mouseLeave(container.firstChild);
-
-    expect(container.firstChild).not.toHaveClass('is-hovered');
+    expect(container.firstChild.getAttribute('tabIndex')).toBeNull();
   });
 
   it('applies focused styling on focus event', () => {
     const { container } = render(<FauxInput />);
 
-    expect(container.firstChild).not.toHaveClass('is-focused');
+    expect(container.firstChild.getAttribute('data-garden-focus-visible')).toBe('false');
 
     fireEvent.focus(container.firstChild);
 
-    expect(container.firstChild).toHaveClass('is-focused');
+    expect(container.firstChild.getAttribute('data-garden-focus-visible')).toBe('true');
   });
 
   it('removes focused styling on blur event', () => {
@@ -47,10 +45,10 @@ describe('FauxInput', () => {
 
     fireEvent.focus(container.firstChild);
 
-    expect(container.firstChild).toHaveClass('is-focused');
+    expect(container.firstChild.getAttribute('data-garden-focus-visible')).toBe('true');
 
     fireEvent.blur(container.firstChild);
 
-    expect(container.firstChild).not.toHaveClass('is-focused');
+    expect(container.firstChild.getAttribute('data-garden-focus-visible')).toBe('false');
   });
 });

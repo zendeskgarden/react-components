@@ -9,7 +9,6 @@ import React from 'react';
 import { render } from 'garden-test-utils';
 import Input from './Input';
 import Field from './common/Field';
-import Label from './common/Label';
 
 describe('Input', () => {
   it('is rendered as an input', () => {
@@ -22,23 +21,26 @@ describe('Input', () => {
     expect(getByTestId('input').nodeName).toBe('INPUT');
   });
 
-  it('receives correct accessibility attributes', () => {
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef();
     const { getByTestId } = render(
       <Field>
-        <Label data-test-id="label">Label</Label>
-        <Input data-test-id="input" />
+        <Input data-test-id="input" ref={ref} />
       </Field>
     );
 
-    const labelNode = getByTestId('label');
-    const labelId = labelNode.getAttribute('id');
-    const labelFor = labelNode.getAttribute('for');
+    expect(getByTestId('input')).toBe(ref.current);
+  });
 
-    const inputNode = getByTestId('input');
-    const inputId = inputNode.getAttribute('id');
-    const inputLabeledBy = inputNode.getAttribute('aria-labelledby');
+  it('throws if rendered without a Field parent', () => {
+    /* eslint-disable no-console */
+    const consoleError = console.error;
 
-    expect(labelId).toBe(inputLabeledBy);
-    expect(labelFor).toBe(inputId);
+    try {
+      console.error = jest.fn();
+      expect(() => render(<Input />)).toThrow();
+    } finally {
+      console.error = consoleError;
+    }
   });
 });

@@ -24,9 +24,7 @@ describe('StyledRangeInput', () => {
   it('renders expected background-size styling', () => {
     const { container } = render(<StyledRangeInput backgroundSize="50%" />);
 
-    expect(container.firstChild).toHaveStyleRule('background-size', '50%', {
-      modifier: '::-webkit-slider-runnable-track'
-    });
+    expect(container.firstChild.style.backgroundSize).toBe('50%');
   });
 
   it('renders disabled styling as expected', () => {

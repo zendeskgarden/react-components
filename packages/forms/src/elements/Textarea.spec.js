@@ -9,7 +9,6 @@ import React from 'react';
 import { render } from 'garden-test-utils';
 import Textarea from './Textarea';
 import Field from './common/Field';
-import Label from './common/Label';
 
 describe('Textarea', () => {
   it('is rendered as a textarea', () => {
@@ -22,23 +21,26 @@ describe('Textarea', () => {
     expect(getByTestId('textarea').nodeName).toBe('TEXTAREA');
   });
 
-  it('receives correct accessibility attributes', () => {
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef();
     const { getByTestId } = render(
       <Field>
-        <Label data-test-id="label">Label</Label>
-        <Textarea data-test-id="textarea" />
+        <Textarea data-test-id="textarea" ref={ref} />
       </Field>
     );
 
-    const labelNode = getByTestId('label');
-    const labelId = labelNode.getAttribute('id');
-    const labelFor = labelNode.getAttribute('for');
+    expect(getByTestId('textarea')).toBe(ref.current);
+  });
 
-    const textareaNode = getByTestId('textarea');
-    const textareaId = textareaNode.getAttribute('id');
-    const textareaLabeledBy = textareaNode.getAttribute('aria-labelledby');
+  it('throws if rendered without a Field parent', () => {
+    /* eslint-disable no-console */
+    const consoleError = console.error;
 
-    expect(labelId).toBe(textareaLabeledBy);
-    expect(labelFor).toBe(textareaId);
+    try {
+      console.error = jest.fn();
+      expect(() => render(<Textarea />)).toThrow();
+    } finally {
+      console.error = consoleError;
+    }
   });
 });

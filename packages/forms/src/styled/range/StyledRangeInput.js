@@ -47,13 +47,13 @@ const trackStyles = (styles, modifier) => {
   `;
 };
 
-const trackLowerStyles = styles => {
+const trackLowerStyles = (styles, modifier) => {
   return `
-    &::-moz-range-progress {
+    &${modifier || ''}::-moz-range-progress {
       ${styles}
     }
 
-    &::-ms-fill-lower {
+    &${modifier || ''}::-ms-fill-lower {
       ${styles}
     }
   `;
@@ -173,15 +173,17 @@ const sizeStyles = props => {
   `;
 };
 
-export const StyledRangeInput = styled.input.attrs({
+export const StyledRangeInput = styled.input.attrs(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  type: 'range'
-})`
+  type: 'range',
+  style: {
+    backgroundSize: props.backgroundSize
+  }
+}))`
   appearance: none;
   direction: ${props => props.theme.rtl && 'rtl'};
   margin: 0; /* reset for WebKit & Firefox */
-  background-color: inherit;
   cursor: pointer;
   padding: 0; /* reset for IE */
   width: 100%;
@@ -192,12 +194,17 @@ export const StyledRangeInput = styled.input.attrs({
       appearance: none;
       border-color: transparent; /* reset for IE */
       background-repeat: repeat-y;
-      background-size: ${props.backgroundSize}; /* provide means for styling WebKit lower range */
+      background-size: 0;
       background-position: ${props.theme.rtl ? '100% 100%' : '0% 0%'};
       width: 99.8%; /* fix for IE which cuts off the upper track's border radius */
       color: transparent; /* reset for IE */
       box-sizing: border-box; /* reset for IE */
     `)}
+
+  &::-webkit-slider-container,
+  &::-webkit-slider-runnable-track {
+    background-size: inherit; /* provide means for styling WebKit lower range */
+  }
 
   ${props => sizeStyles(props)};
 

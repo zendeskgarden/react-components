@@ -8,7 +8,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import Field from '../fields/common/Field';
+import Field from '../elements/common/Field';
 import useFieldContext from '../utils/useFieldContext';
 
 describe('useFieldContext', () => {

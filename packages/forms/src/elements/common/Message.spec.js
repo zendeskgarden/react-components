@@ -36,13 +36,14 @@ describe('Message', () => {
   });
 
   it('renders input message within a Field component', () => {
-    const { getByTestId } = render(
+    const { getByTestId, getByRole } = render(
       <Field>
         <Message data-test-id="message">Test</Message>
       </Field>
     );
 
     expect(getByTestId('message')).toHaveAttribute('data-garden-id', 'forms.input_message');
+    expect(getByRole('alert')).toBe(getByTestId('message'));
   });
 
   it('renders checkbox message if within a Checkbox component', () => {

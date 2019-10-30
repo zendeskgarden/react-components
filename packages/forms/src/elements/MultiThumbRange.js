@@ -29,6 +29,8 @@ const MultiThumbRange = ({
   maxName,
   minValue,
   maxValue,
+  defaultMinValue,
+  defaultMaxValue,
   disabled,
   step,
   onChange,
@@ -289,13 +291,14 @@ const MultiThumbRange = ({
   const sliderBackgroundSize = Math.abs(maxPosition) - Math.abs(minPosition);
 
   return (
-    <StyledSlider aria-disabled={disabled}>
+    <StyledSlider aria-disabled={disabled} data-test-id="slider">
       <StyledSliderTrack
         aria-disabled={disabled}
         backgroundSize={sliderBackgroundSize}
         backgroundPosition={rtl ? railWidth - maxPosition : minPosition}
+        data-test-id="track"
       >
-        <StyledSliderTrackRail ref={trackRailRef}>
+        <StyledSliderTrackRail data-test-id="rail" ref={trackRailRef}>
           <StyledSliderThumb
             {...getInputProps({
               role: 'slider',
@@ -304,8 +307,10 @@ const MultiThumbRange = ({
               'aria-valuemax': maxValue,
               'aria-valuenow': minValue,
               'aria-valuetext': minValue,
+              'data-test-id': 'thumb',
               name: minName,
               value: minValue,
+              defaultValue: defaultMinValue,
               isFocused: isMinThumbFocused,
               position: minPosition,
               ref: minThumbRef,
@@ -334,8 +339,10 @@ const MultiThumbRange = ({
             aria-valuemax={max}
             aria-valuenow={maxValue}
             aria-valuetext={maxValue}
+            data-test-id="thumb"
             name={maxName}
             value={maxValue}
+            defaultValue={defaultMaxValue}
             isFocused={isMaxThumbFocused}
             position={maxPosition}
             onChange={onChange}
@@ -371,6 +378,10 @@ MultiThumbRange.propTypes = {
   minValue: PropTypes.number,
   /** The maximum thumb input value */
   maxValue: PropTypes.number,
+  /** The default (uncontrolled) minimum thumb input value */
+  defaultMinValue: PropTypes.number,
+  /** The default (uncontrolled) maximum thumb input value */
+  defaultMaxValue: PropTypes.number,
   /**
    * The minimum thumb input name – paired with `minValue` on form submission
    */

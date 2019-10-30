@@ -7,7 +7,6 @@
 
 import React from 'react';
 import { render, fireEvent } from 'garden-test-utils';
-
 import Field from './common/Field';
 import Range from './Range';
 
@@ -18,13 +17,42 @@ describe('Range', () => {
     </Field>
   );
 
+  it('is rendered as an input of type range', () => {
+    const { getByTestId } = render(<BasicExample />);
+    const range = getByTestId('range');
+
+    expect(range.nodeName).toBe('INPUT');
+    expect(range).toHaveAttribute('type', 'range');
+  });
+
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef();
+    const { getByTestId } = render(
+      <Field>
+        <Range data-test-id="range" ref={ref} />
+      </Field>
+    );
+
+    expect(getByTestId('range')).toBe(ref.current);
+  });
+
+  it('throws if rendered without a Field parent', () => {
+    /* eslint-disable no-console */
+    const consoleError = console.error;
+
+    try {
+      console.error = jest.fn();
+      expect(() => render(<Range />)).toThrow();
+    } finally {
+      console.error = consoleError;
+    }
+  });
+
   describe('BackgroundSize', () => {
     it('applies backgroundSize equivalent to the input value', () => {
       const { getByTestId } = render(<BasicExample />);
 
-      expect(getByTestId('range')).toHaveStyleRule('background-size', '25%', {
-        modifier: '&&'
-      });
+      expect(getByTestId('range').style.backgroundSize).toBe('25%');
     });
 
     it('defaults to max of 100 if max is less than min', () => {
@@ -34,9 +62,7 @@ describe('Range', () => {
         </Field>
       );
 
-      expect(getByTestId('range')).toHaveStyleRule('background-size', '25%', {
-        modifier: '&&'
-      });
+      expect(getByTestId('range').style.backgroundSize).toBe('25%');
     });
 
     it('updates backgroundSize after onChange event', () => {
@@ -48,37 +74,11 @@ describe('Range', () => {
 
       const range = getByTestId('range');
 
-      expect(range).toHaveStyleRule('background-size', '25%', {
-        modifier: '&&'
-      });
+      expect(getByTestId('range').style.backgroundSize).toBe('25%');
 
       fireEvent.change(range, { target: { value: 85 } });
 
-      expect(range).toHaveStyleRule('background-size', '85%', {
-        modifier: '&&'
-      });
-    });
-  });
-
-  describe('onFocus()', () => {
-    it('it applies focus visualization to Range', () => {
-      const { getByTestId } = render(<BasicExample />);
-      const range = getByTestId('range');
-
-      fireEvent.focus(range);
-
-      expect(range).toHaveClass('is-focused');
-    });
-  });
-
-  describe('onBlur()', () => {
-    it('it removes focus visualization of Range', () => {
-      const { container } = render(<BasicExample />);
-
-      fireEvent.focus(container.firstChild);
-      fireEvent.blur(container.firstChild);
-
-      expect(container.firstChild).not.toHaveClass('is-focused');
+      expect(getByTestId('range').style.backgroundSize).toBe('85%');
     });
   });
 });

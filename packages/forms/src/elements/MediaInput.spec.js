@@ -20,6 +20,39 @@ const Example = props => (
 );
 
 describe('MediaInput', () => {
+  it('is rendered as an input', () => {
+    const { getByTestId } = render(
+      <Field>
+        <MediaInput data-test-id="input" />
+      </Field>
+    );
+
+    expect(getByTestId('input').nodeName).toBe('INPUT');
+  });
+
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef();
+    const { getByTestId } = render(
+      <Field>
+        <MediaInput data-test-id="input" ref={ref} />
+      </Field>
+    );
+
+    expect(getByTestId('input')).toBe(ref.current);
+  });
+
+  it('throws if rendered without a Field parent', () => {
+    /* eslint-disable no-console */
+    const consoleError = console.error;
+
+    try {
+      console.error = jest.fn();
+      expect(() => render(<MediaInput />)).toThrow();
+    } finally {
+      console.error = consoleError;
+    }
+  });
+
   it('focuses internal input when FauxInput wrapper is clicked', () => {
     const { container } = render(<Example />);
     const input = container.querySelector('input');
@@ -42,10 +75,13 @@ describe('MediaInput', () => {
   });
 
   it('applies disabled styling if provided', () => {
-    const { getByTestId } = render(<Example data-test-id="input" disabled />);
-    const input = getByTestId('input');
+    const { container, getByTestId } = render(
+      <Field>
+        <MediaInput data-test-id="input" disabled />
+      </Field>
+    );
 
-    expect(input).toHaveClass('is-disabled');
-    expect(input).toHaveAttribute('disabled');
+    expect(container.firstChild.firstChild).toHaveAttribute('aria-disabled');
+    expect(getByTestId('input')).toHaveAttribute('disabled');
   });
 });

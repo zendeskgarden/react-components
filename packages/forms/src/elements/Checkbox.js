@@ -19,14 +19,17 @@ const Checkbox = React.forwardRef(({ indeterminate, children, ...props }, ref) =
   const { getInputProps } = useFieldContext();
   const inputRef = inputElement => {
     inputElement && (inputElement.indeterminate = indeterminate);
-
-    if (ref) {
-      if (typeof ref === 'function') {
-        ref(inputRef);
-      } else {
-        ref.current = inputRef;
+  };
+  const combinedRef = inputElement => {
+    [inputRef, ref].forEach(targetRef => {
+      if (targetRef) {
+        if (typeof targetRef === 'function') {
+          targetRef(inputElement);
+        } else {
+          targetRef.current = inputElement;
+        }
       }
-    }
+    });
   };
 
   return (
@@ -34,7 +37,7 @@ const Checkbox = React.forwardRef(({ indeterminate, children, ...props }, ref) =
       <StyledCheckInput
         {...getInputProps(
           {
-            ref: inputRef,
+            ref: combinedRef,
             ...props
           },
           { isDescribed: true }
