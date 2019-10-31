@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { PALETTE } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 import { StyledRadioInput } from './StyledRadioInput';
 import { StyledRadioLabel } from './StyledRadioLabel';
 
@@ -22,7 +22,7 @@ describe('StyledRadioInput', () => {
   it('renders expected checked styling', () => {
     const { container } = render(<StyledRadioInput defaultChecked />);
 
-    expect(container.firstChild).toHaveStyleRule('background-color', PALETTE.blue[600], {
+    expect(container.firstChild).toHaveStyleRule('background-color', getColor('primaryHue', 600), {
       modifier: `:checked ~ ${StyledRadioLabel}::before`
     });
   });
@@ -30,7 +30,7 @@ describe('StyledRadioInput', () => {
   it('renders expected disabled styling', () => {
     const { container } = render(<StyledRadioInput disabled />);
 
-    expect(container.firstChild).toHaveStyleRule('background-color', PALETTE.grey[200], {
+    expect(container.firstChild).toHaveStyleRule('background-color', getColor('neutralHue', 200), {
       modifier: `:disabled ~ ${StyledRadioLabel}::before`
     });
   });

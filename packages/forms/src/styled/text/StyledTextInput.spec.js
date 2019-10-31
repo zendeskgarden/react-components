@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { PALETTE } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 import { StyledTextInput } from './StyledTextInput';
 
 describe('StyledTextInput', () => {
@@ -32,7 +32,7 @@ describe('StyledTextInput', () => {
   it('renders expected disabled styling', () => {
     const { container } = render(<StyledTextInput disabled />);
 
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[800]);
+    expect(container.firstChild).toHaveStyleRule('color', getColor('neutralHue', 800));
   });
 
   it('renders expected RTL styling', () => {
@@ -45,19 +45,19 @@ describe('StyledTextInput', () => {
     it('renders "success" styling if provided', () => {
       const { container } = render(<StyledTextInput validation="success" />);
 
-      expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.green[600]);
+      expect(container.firstChild).toHaveStyleRule('border-color', getColor('successHue', 600));
     });
 
     it('renders "warning" styling if provided', () => {
       const { container } = render(<StyledTextInput validation="warning" />);
 
-      expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.yellow[600]);
+      expect(container.firstChild).toHaveStyleRule('border-color', getColor('warningHue', 600));
     });
 
     it('renders "error" styling if provided', () => {
       const { container } = render(<StyledTextInput validation="error" />);
 
-      expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.red[600]);
+      expect(container.firstChild).toHaveStyleRule('border-color', getColor('dangerHue', 600));
     });
   });
 });

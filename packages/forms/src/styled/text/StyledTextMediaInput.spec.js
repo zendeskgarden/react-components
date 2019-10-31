@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { PALETTE } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 import { StyledTextMediaInput } from './StyledTextMediaInput';
 
 describe('StyledTextMediaInput', () => {
@@ -26,6 +26,6 @@ describe('StyledTextMediaInput', () => {
   it('renders expected disabled styling', () => {
     const { container } = render(<StyledTextMediaInput disabled />);
 
-    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[800]);
+    expect(container.firstChild).toHaveStyleRule('color', getColor('neutralHue', 800));
   });
 });
