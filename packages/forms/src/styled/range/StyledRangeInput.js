@@ -184,6 +184,7 @@ export const StyledRangeInput = styled.input.attrs(props => ({
   appearance: none;
   direction: ${props => props.theme.rtl && 'rtl'};
   margin: 0; /* reset for WebKit & Firefox */
+  background-color: inherit; /* reset for Firefox (disabled) */
   cursor: pointer;
   padding: 0; /* reset for IE */
   width: 100%;
