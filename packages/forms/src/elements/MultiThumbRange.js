@@ -9,7 +9,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
-import { withTheme, isRtl, getDocument } from '@zendeskgarden/react-theming';
+import { withTheme, DEFAULT_THEME, getDocument } from '@zendeskgarden/react-theming';
 import {
   StyledSlider,
   StyledSliderTrack,
@@ -20,7 +20,17 @@ import {
 /**
  * Accepts all `<div>` attributes and events.
  */
-const MultiThumbRange = ({ min, max, minValue, maxValue, disabled, step, onChange, ...props }) => {
+const MultiThumbRange = ({
+  min,
+  max,
+  minValue,
+  maxValue,
+  disabled,
+  step,
+  onChange,
+  theme,
+  ...props
+}) => {
   const [isMinThumbFocused, setIsMinThumbFocused] = useState(false);
   const [isMaxThumbFocused, setIsMaxThumbFocused] = useState(false);
   const [railWidth, setRailWidth] = useState(0);
@@ -28,9 +38,6 @@ const MultiThumbRange = ({ min, max, minValue, maxValue, disabled, step, onChang
   const trackRailRef = useRef();
   const minThumbRef = useRef();
   const maxThumbRef = useRef();
-
-  const themedDocument = getDocument(props);
-  const rtl = isRtl(props);
 
   /**
    * The window resize event is debounced to reduce unnecessary renders
@@ -145,9 +152,9 @@ const MultiThumbRange = ({ min, max, minValue, maxValue, disabled, step, onChang
       const trackOffsetRight = trackOffsetLeft + trackRailRef.current.getBoundingClientRect().width;
       const trackWidth = trackRailRef.current.getBoundingClientRect().width;
 
-      let diffX = e.pageX - (rtl ? trackOffsetRight : trackOffsetLeft);
+      let diffX = e.pageX - (theme.rtl ? trackOffsetRight : trackOffsetLeft);
 
-      if (rtl) {
+      if (theme.rtl) {
         diffX *= -1;
       }
 
@@ -162,17 +169,21 @@ const MultiThumbRange = ({ min, max, minValue, maxValue, disabled, step, onChang
         updateMaxThumbSlider(newValue);
       }
     },
-    [isMinThumbFocused, max, min, rtl, step, updateMaxThumbSlider, updateMinThumbSlider]
+    [isMinThumbFocused, max, min, theme, step, updateMaxThumbSlider, updateMinThumbSlider]
   );
 
   const removeDragEvents = useCallback(() => {
+    const themedDocument = getDocument({ theme });
+
     themedDocument.removeEventListener('mousemove', onDocumentMouseMove);
     themedDocument.removeEventListener('mouseup', removeDragEvents);
 
     setIsMousedDown(false);
-  }, [onDocumentMouseMove, themedDocument]);
+  }, [onDocumentMouseMove, theme]);
 
   useEffect(() => {
+    const themedDocument = getDocument({ theme });
+
     if (isMousedDown) {
       themedDocument.addEventListener('mousemove', onDocumentMouseMove);
       themedDocument.addEventListener('mouseup', removeDragEvents);
@@ -184,7 +195,7 @@ const MultiThumbRange = ({ min, max, minValue, maxValue, disabled, step, onChang
         themedDocument.removeEventListener('mouseup', removeDragEvents);
       }
     };
-  }, [isMousedDown, onDocumentMouseMove, removeDragEvents, themedDocument]);
+  }, [isMousedDown, onDocumentMouseMove, removeDragEvents, theme]);
 
   const onKeyDown = type => e => {
     const isMinThumb = type === 'min';
@@ -208,7 +219,7 @@ const MultiThumbRange = ({ min, max, minValue, maxValue, disabled, step, onChang
 
     switch (e.keyCode) {
       case KEY_CODES.LEFT:
-        if (rtl) {
+        if (theme.rtl) {
           incrementThumb();
         } else {
           decrementThumb();
@@ -223,7 +234,7 @@ const MultiThumbRange = ({ min, max, minValue, maxValue, disabled, step, onChang
         break;
 
       case KEY_CODES.RIGHT:
-        if (rtl) {
+        if (theme.rtl) {
           decrementThumb();
         } else {
           incrementThumb();
@@ -275,10 +286,10 @@ const MultiThumbRange = ({ min, max, minValue, maxValue, disabled, step, onChang
   const sliderBackgroundSize = Math.abs(maxPosition) - Math.abs(minPosition);
 
   return (
-    <StyledSlider data-test-id="slider" isDisabled={disabled}>
+    <StyledSlider data-test-id="slider" isDisabled={disabled} {...props}>
       <StyledSliderTrack
         backgroundSize={sliderBackgroundSize}
-        backgroundPosition={rtl ? railWidth - maxPosition : minPosition}
+        backgroundPosition={theme.rtl ? railWidth - maxPosition : minPosition}
         data-test-id="track"
         isDisabled={disabled}
       >
@@ -359,7 +370,9 @@ MultiThumbRange.propTypes = {
   /** Apply disabled styling */
   disabled: PropTypes.bool,
   /** Handler for processing change events */
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  /** @ignore */
+  theme: PropTypes.object
 };
 
 MultiThumbRange.defaultProps = {
@@ -367,7 +380,8 @@ MultiThumbRange.defaultProps = {
   max: 100,
   minValue: 0,
   maxValue: 100,
-  step: 1
+  step: 1,
+  theme: DEFAULT_THEME
 };
 
 /** @component */

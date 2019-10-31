@@ -18,8 +18,8 @@ export { default as Radio } from './elements/Radio';
 export { default as Range } from './elements/Range';
 export { default as Textarea } from './elements/Textarea';
 export { default as Toggle } from './elements/Toggle';
+export { default as MultiThumbRange } from './elements/MultiThumbRange';
 
 /** Other */
 export { default as FauxInput } from './elements/FauxInput';
 export { default as MediaInput } from './elements/MediaInput';
-export { default as MultiThumbRange } from './elements/MultiThumbRange';
