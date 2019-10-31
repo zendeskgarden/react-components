@@ -46,7 +46,7 @@ export interface IDatepickerRangeProps {
   /**
    * Show compact styling
    */
-  small?: boolean;
+  isCompact?: boolean;
 }
 
 const DatepickerRange = (props: PropsWithChildren<IDatepickerRangeProps>) => {
@@ -106,7 +106,7 @@ const DatepickerRange = (props: PropsWithChildren<IDatepickerRangeProps>) => {
       value={{
         state,
         dispatch,
-        small: props.small,
+        isCompact: props.isCompact,
         locale: props.locale,
         minValue: props.minValue,
         maxValue: props.maxValue,
@@ -135,12 +135,12 @@ DatepickerRange.propTypes = {
   onChange: PropTypes.func,
   formatDate: PropTypes.func,
   customParseDate: PropTypes.func,
-  small: PropTypes.bool
+  isCompact: PropTypes.bool
 };
 
 DatepickerRange.defaultProps = {
   locale: 'en-US',
-  small: false
+  isCompact: false
 };
 
 export default DatepickerRange;

@@ -7,7 +7,7 @@ initialState = {
 
 <Field>
   <Label>Compact datepicker</Label>
-  <Datepicker value={state.value} onChange={newDate => setState({ value: newDate })} small>
+  <Datepicker value={state.value} onChange={newDate => setState({ value: newDate })} isCompact>
     <Input small />
   </Datepicker>
 </Field>;

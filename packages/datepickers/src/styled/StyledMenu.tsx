@@ -8,10 +8,10 @@
 import React, { HTMLProps } from 'react';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import MenuStyles from '@zendeskgarden/css-menus';
 import ArrowStyles from '@zendeskgarden/css-arrows';
-import { POPPER_PLACEMENT } from '../Datepicker/utils/garden-placements';
+import { POPPER_PLACEMENT } from '../elements/Datepicker/utils/garden-placements';
 
 const COMPONENT_ID = 'dropdowns.menu';
 
@@ -54,7 +54,7 @@ const retrieveMenuMargin = ({
 };
 
 interface IStyledMenuViewProps extends HTMLProps<HTMLUListElement> {
-  small?: boolean;
+  isCompact?: boolean;
   placement?: POPPER_PLACEMENT;
   animate?: boolean;
   arrow?: boolean;
@@ -68,7 +68,7 @@ const StyledMenuView = styled.ul.attrs<IStyledMenuViewProps>(props => ({
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(MenuStyles['c-menu'], {
     // Size
-    [MenuStyles['c-menu--sm']]: props.small,
+    [MenuStyles['c-menu--sm']]: props.isCompact,
 
     // Placement
     [MenuStyles['c-menu--up']]:
@@ -130,6 +130,10 @@ const StyledMenuWrapper = styled.div<IStyledMenuWrapperProps>`
   ${retrieveMenuMargin};
 `;
 
+StyledMenuWrapper.defaultProps = {
+  theme: DEFAULT_THEME
+};
+
 interface IStyledMaxHeightWrapper extends HTMLProps<HTMLDivElement> {
   maxHeight?: string;
   height?: string;
@@ -151,7 +155,7 @@ interface IStyledMenuProps extends HTMLProps<HTMLUListElement> {
    */
   placement?: POPPER_PLACEMENT;
   animate?: boolean;
-  small?: boolean;
+  isCompact?: boolean;
   hidden?: boolean;
   arrow?: boolean;
   maxHeight?: string;

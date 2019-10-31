@@ -21,12 +21,13 @@ should be re-checked for ID naming accuracy.
 - removed `ButtonGroupView`; use new `SplitButton` component instead
 - removed `Icon`; just use `IconButton` with a `rotated` prop
 - `ButtonGroup` now expects a `selectedItem` prop instead of `selectedKey`
-- `ButtonGroup` now uses an `onSelect` callback replacing the `onStateChange`, it passes `selectedItem` directly rather than nesting it in an object
+- `ButtonGroup` now uses an `onSelect` callback replacing the `onStateChange`,
+  it passes `selectedItem` directly rather than nesting it in an object
 - `ButtonGroup` now requires it's children to contain a `value` prop which is returned when selected
 
-## @zendeskgarden/react-checkboxes
+## @zendeskgarden/react-datepickers
 
-- removed; see `@zendeskgarden/react-forms`
+- `Datepicker` and `DatepickerRange` `small` prop is renamed to `isCompact`
 
 ## @zendeskgarden/react-forms
 
@@ -53,18 +54,6 @@ should be re-checked for ID naming accuracy.
 - `<Dots />` loader no longer has the `velocity` prop
   - Use `duration` instead which accepts `ms` defaults to 1250ms
 
-## @zendeskgarden/react-menus
-
-- removed; see `@zendeskgarden/react-dropdowns`
-
-## @zendeskgarden/react-radios
-
-- removed; see `@zendeskgarden/react-forms`
-
-## @zendeskgarden/react-select
-
-- removed; see `@zendeskgarden/react-forms`
-
 ## @zendesk/react-tags
 
 - no longer packages a `styles.css` dist; CSS is self-contained
@@ -90,10 +79,6 @@ should be re-checked for ID naming accuracy.
 - custom `document` object
   - previously `<ThemeProvider document={doc}>`
   - currently `<ThemeProvider theme={{ ...DEFAULT_THEME, document: doc }}>`
-
-## @zendeskgarden/react-toggles
-
-- removed; see `@zendeskgarden/react-forms`
 
 ## @zendeskgarden/react-typography
 

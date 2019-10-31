@@ -3,6 +3,7 @@ node_modules
 *.log
 .changelog
 .vscode
+.netlify
 
 # Package specific
 packages/**/dist

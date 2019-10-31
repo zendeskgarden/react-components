@@ -23,16 +23,16 @@ import {
   StyledCalendarItem,
   StyledDayLabel,
   StyledDay
-} from '../../styled';
+} from '../../../styled';
 import useDatepickerContext from '../utils/useDatepickerContext';
-import { getStartOfWeek } from '../../utils/calendar-utils';
+import { getStartOfWeek } from '../../../utils/calendar-utils';
 import MonthSelector from './MonthSelector';
 
 interface ICalendarProps {
   value?: Date;
   minValue?: Date;
   maxValue?: Date;
-  small?: boolean;
+  isCompact?: boolean;
   locale?: string;
 }
 
@@ -40,7 +40,7 @@ const Calendar: React.FunctionComponent<ICalendarProps> = ({
   value,
   minValue,
   maxValue,
-  small,
+  isCompact,
   locale
 }) => {
   const { state, dispatch } = useDatepickerContext();
@@ -71,8 +71,8 @@ const Calendar: React.FunctionComponent<ICalendarProps> = ({
       const formattedDayLabel = dayLabelFormatter(date);
 
       return (
-        <StyledCalendarItem key={`day-label-${formattedDayLabel}`} isSmall={small}>
-          <StyledDayLabel isSmall={small!}>{formattedDayLabel}</StyledDayLabel>
+        <StyledCalendarItem key={`day-label-${formattedDayLabel}`} isCompact={isCompact}>
+          <StyledDayLabel isCompact={isCompact!}>{formattedDayLabel}</StyledDayLabel>
         </StyledCalendarItem>
       );
     }
@@ -106,13 +106,13 @@ const Calendar: React.FunctionComponent<ICalendarProps> = ({
     }
 
     return (
-      <StyledCalendarItem key={`day-${itemsIndex}`} isSmall={small}>
+      <StyledCalendarItem key={`day-${itemsIndex}`} isCompact={isCompact}>
         <StyledDay
           isToday={isCurrentDate}
           isPreviousMonth={isPreviousMonth}
           isSelected={isSelected}
           isDisabled={isDisabled}
-          small={small!}
+          isCompact={isCompact!}
           onClick={() => {
             if (!isDisabled) {
               dispatch({ type: 'SELECT_DATE', value: date });
@@ -132,15 +132,15 @@ const Calendar: React.FunctionComponent<ICalendarProps> = ({
 
   return (
     <StyledDatepicker
-      isSmall={small!}
+      isCompact={isCompact!}
       data-test-id="calendar-wrapper"
       onMouseDown={e => {
         /** Stop focus from escaping input */
         e.preventDefault();
       }}
     >
-      <MonthSelector locale={locale} small={small!} />
-      <StyledCalendar isSmall={small!}>
+      <MonthSelector locale={locale} isCompact={isCompact!} />
+      <StyledCalendar isCompact={isCompact!}>
         {dayLabels}
         {items}
       </StyledCalendar>

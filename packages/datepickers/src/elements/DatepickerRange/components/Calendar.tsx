@@ -8,7 +8,7 @@
 import React, { HTMLProps } from 'react';
 import addMonths from 'date-fns/addMonths';
 
-import { StyledRangeCalendar } from '../../styled';
+import { StyledRangeCalendar } from '../../../styled';
 import useDatepickerRangeContext from '../utils/useDatepickerRangeContext';
 import Month from './Month';
 
@@ -17,7 +17,7 @@ const Calendar: React.FunctionComponent<HTMLProps<HTMLDivElement>> = props => {
     state,
     dispatch,
     locale,
-    small,
+    isCompact,
     minValue,
     maxValue,
     startValue,
@@ -35,7 +35,7 @@ const Calendar: React.FunctionComponent<HTMLProps<HTMLDivElement>> = props => {
       <Month
         locale={locale}
         displayDate={state.previewDate}
-        small={small}
+        isCompact={isCompact}
         isNextHidden
         dispatch={dispatch}
         minValue={minValue}
@@ -48,7 +48,7 @@ const Calendar: React.FunctionComponent<HTMLProps<HTMLDivElement>> = props => {
       <Month
         locale={locale}
         displayDate={addMonths(state.previewDate, 1)}
-        small={small}
+        isCompact={isCompact}
         isPreviousHidden
         dispatch={dispatch}
         minValue={minValue}
