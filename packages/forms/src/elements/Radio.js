@@ -20,13 +20,10 @@ const Radio = React.forwardRef(({ children, ...props }, ref) => {
   return (
     <RadioContext.Provider value={{}}>
       <StyledRadioInput
-        {...getInputProps(
-          {
-            ref,
-            ...props
-          },
-          { isDescribed: true }
-        )}
+        {...getInputProps({
+          ref,
+          ...props
+        })}
       />
       {children}
     </RadioContext.Provider>

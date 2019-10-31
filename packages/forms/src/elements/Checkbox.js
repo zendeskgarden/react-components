@@ -35,13 +35,10 @@ const Checkbox = React.forwardRef(({ indeterminate, children, ...props }, ref) =
   return (
     <CheckboxContext.Provider value={{}}>
       <StyledCheckInput
-        {...getInputProps(
-          {
-            ref: combinedRef,
-            ...props
-          },
-          { isDescribed: true }
-        )}
+        {...getInputProps({
+          ref: combinedRef,
+          ...props
+        })}
       />
       {children}
     </CheckboxContext.Provider>

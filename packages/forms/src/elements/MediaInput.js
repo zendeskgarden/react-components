@@ -55,11 +55,14 @@ const MediaInput = React.forwardRef(
       >
         {start && <StyledTextMediaFigure isCompact={isCompact}>{start}</StyledTextMediaFigure>}
         <StyledTextMediaInput
-          {...getInputProps({
-            disabled,
-            ref: inputRef,
-            ...props
-          })}
+          {...getInputProps(
+            {
+              disabled,
+              ref: inputRef,
+              ...props
+            },
+            { isDescribed: true }
+          )}
         />
         {end && <StyledTextMediaFigure isCompact={isCompact}>{end}</StyledTextMediaFigure>}
       </FauxInput>

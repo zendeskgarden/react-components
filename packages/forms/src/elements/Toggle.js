@@ -20,13 +20,10 @@ const Toggle = React.forwardRef(({ children, ...props }, ref) => {
   return (
     <ToggleContext.Provider value={{}}>
       <StyledToggleInput
-        {...getInputProps(
-          {
-            ref,
-            ...props
-          },
-          { isDescribed: true }
-        )}
+        {...getInputProps({
+          ref,
+          ...props
+        })}
       />
       {children}
     </ToggleContext.Provider>

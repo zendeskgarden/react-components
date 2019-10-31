@@ -76,7 +76,7 @@ const getTextValidation = (value, minimum = 10) =>
       {getTextMessage(state.mediaInputValue, 5)}
     </Message>
   </Field>
-  <div className="u-mt">
+  <div className="u-mt" role="group" aria-label="controlled radio">
     <Field>
       <Label>Controlled radio</Label>
     </Field>

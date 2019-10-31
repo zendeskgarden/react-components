@@ -283,7 +283,7 @@ initialState = {
           {state.message && <Message validation={state.validation}>Message</Message>}
         </Checkbox>
       </Field>
-      <div className="u-mt-sm">
+      <div className="u-mt-sm" role="group" aria-label="radio">
         <Field>
           <Radio disabled={state.disabled} name="example">
             <Label hidden={state.hidden} isRegular={state.regular}>
