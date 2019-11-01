@@ -58,7 +58,7 @@ button props.
 ### States
 
 Garden elements use `data` attributes provided by our `<ThemeProvider>`
-to apply focused styling. This allows us to mimic the functionality of the
+to apply focused styling. This allows Garden to mimic the functionality of the
 [:focus-visible](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible)
 pseudo-class.
 
