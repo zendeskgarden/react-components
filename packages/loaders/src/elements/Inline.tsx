@@ -7,7 +7,17 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyledInlineTypingIndicator } from '../styled';
+import { StyledInlineTypingSVG, StyledCircle, IStyledTypingSvgProps } from '../styled';
+
+const InlineTypingIndicator: React.FC<IStyledTypingSvgProps> = props => {
+  return (
+    <StyledInlineTypingSVG {...props}>
+      <StyledCircle cx="14" />
+      <StyledCircle cx="8" />
+      <StyledCircle cx="2" />
+    </StyledInlineTypingSVG>
+  );
+};
 
 interface IInlineProps extends React.HTMLAttributes<SVGSVGElement> {
   /* Width of the loader in px */
@@ -19,7 +29,7 @@ interface IInlineProps extends React.HTMLAttributes<SVGSVGElement> {
  * All other props are spread onto the root `<svg>` element
  */
 const Inline: React.FC<IInlineProps> = ({ size, color, ...other }) => {
-  return <StyledInlineTypingIndicator size={size!} color={color!} {...other} />;
+  return <InlineTypingIndicator size={size!} color={color!} {...other} />;
 };
 
 Inline.propTypes = {

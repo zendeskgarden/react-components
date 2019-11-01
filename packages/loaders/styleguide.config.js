@@ -54,7 +54,7 @@ module.exports = {
       ]
     },
     {
-      name: 'Components',
+      name: 'Elements',
       components: '../../packages/loaders/src/elements/[A-Z]*.{ts,tsx}'
     }
   ]

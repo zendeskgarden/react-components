@@ -80,7 +80,7 @@ const retrieveSkeletonGradient = ({
     background-image: linear-gradient(
       ${theme.rtl ? '-45deg' : '45deg'},
       transparent,
-      ${dark ? getColor('kale', 700, theme, 0.4) : rgba(theme.colors.background, 0.6)},
+      ${dark ? getColor('chromeHue', 700, theme, 0.4) : rgba(theme.colors.background, 0.6)},
       transparent
     );
     /* stylelint-enable */
@@ -94,7 +94,7 @@ export const StyledSkeleton = styled.div.attrs({
   display: inline-block;
   position: relative;
   animation: ${fadeInAnimation} 750ms linear;
-  border-radius: ${props => props.theme.space.base}px;
+  border-radius: ${props => props.theme.borderRadii.md};
   width: ${props => props.customWidth};
   height: ${props => props.customHeight};
   overflow: hidden;

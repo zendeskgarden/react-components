@@ -21,18 +21,18 @@ const PULSE_ANIMATION = keyframes`
   }
 `;
 
-const StyledCircle = styled.circle.attrs({
+export const StyledCircle = styled.circle.attrs({
   fill: 'currentColor',
   cy: 2,
   r: 2
 })``;
 
-interface IStyledTypingSvgProps extends React.HTMLAttributes<SVGSVGElement> {
+export interface IStyledTypingSvgProps extends React.HTMLAttributes<SVGSVGElement> {
   size: number;
   color: string;
 }
 
-const StyledInlineTypingSVG = styled.svg.attrs<IStyledTypingSvgProps>(props => ({
+export const StyledInlineTypingSVG = styled.svg.attrs<IStyledTypingSvgProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   viewBox: '0 0 16 4',
@@ -65,14 +65,4 @@ const StyledInlineTypingSVG = styled.svg.attrs<IStyledTypingSvgProps>(props => (
 
 StyledInlineTypingSVG.defaultProps = {
   theme: DEFAULT_THEME
-};
-
-export const StyledInlineTypingIndicator: React.FC<IStyledTypingSvgProps> = props => {
-  return (
-    <StyledInlineTypingSVG {...props}>
-      <StyledCircle cx="14" />
-      <StyledCircle cx="8" />
-      <StyledCircle cx="2" />
-    </StyledInlineTypingSVG>
-  );
 };
