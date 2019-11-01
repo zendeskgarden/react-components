@@ -7,6 +7,8 @@
 
 import styled, { keyframes, css, ThemeProps, DefaultTheme } from 'styled-components';
 import rgba from 'polished/lib/color/rgba';
+import math from 'polished/lib/math/math';
+import stripUnit from 'polished/lib/helpers/stripUnit';
 import { DEFAULT_THEME, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'loaders.skeleton';
@@ -98,7 +100,8 @@ export const StyledSkeleton = styled.div.attrs({
   width: ${props => props.customWidth};
   height: ${props => props.customHeight};
   overflow: hidden;
-  line-height: 0.6;
+  line-height: ${props =>
+    math(`${stripUnit(props.theme.fontSizes.sm)} / ${props.theme.space.base * 5}`)};
 
   ${retrieveSkeletonBackgroundColor}
 
