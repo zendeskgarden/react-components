@@ -13,15 +13,15 @@ interface ISkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
   width?: string;
   height?: string;
   /** Apply styling for use with dark backgrounds */
-  dark?: boolean;
+  isDark?: boolean;
 }
 
 /**
  * Loader used to create Skeleton objects
  */
-const Skeleton: React.FC<ISkeletonProps> = ({ width, height, dark, ...other }) => {
+const Skeleton: React.FC<ISkeletonProps> = ({ width, height, isDark, ...other }) => {
   return (
-    <StyledSkeleton dark={dark} customWidth={width} customHeight={height} {...other}>
+    <StyledSkeleton isDark={isDark} customWidth={width} customHeight={height} {...other}>
       &nbsp;
     </StyledSkeleton>
   );
@@ -30,7 +30,7 @@ const Skeleton: React.FC<ISkeletonProps> = ({ width, height, dark, ...other }) =
 Skeleton.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
-  dark: PropTypes.bool
+  isDark: PropTypes.bool
 };
 
 Skeleton.defaultProps = {

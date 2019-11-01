@@ -24,7 +24,7 @@ describe('Skeleton', () => {
   });
 
   it('applies dark mode correctly', () => {
-    const { container } = render(<Skeleton dark />);
+    const { container } = render(<Skeleton isDark />);
 
     expect(container.firstChild).toHaveStyleRule('background-color', 'rgba(255,255,255,0.2)');
     expect(container.firstChild).toHaveStyleRule(
