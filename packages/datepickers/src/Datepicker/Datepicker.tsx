@@ -94,8 +94,6 @@ export interface IDatepickerProps {
    * @default bottom-start
    **/
   placement?: GARDEN_PLACEMENT;
-  /** Display an arrow to the reference element */
-  arrow?: boolean;
   /**
    * Passes options to [Popper.JS Instance](https://github.com/FezVrasta/popper.js/blob/master/docs/_includes/popper-documentation.md#new-popperreference-popper-options)
    */
@@ -316,7 +314,6 @@ Datepicker.propTypes = {
     'start-top',
     'start-bottom'
   ]),
-  arrow: PropTypes.bool,
   popperModifiers: PropTypes.any,
   animate: PropTypes.bool,
   eventsEnabled: PropTypes.bool,
