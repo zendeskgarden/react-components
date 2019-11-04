@@ -186,7 +186,8 @@ keeps the native `input` intact. A label `hidden` prop may be applied when
 the default layout is not desired (consider [iOS-style
 switches](https://developer.apple.com/design/human-interface-guidelines/ios/controls/switches/)
 where text precedes the control). In these cases, the associated `Label`
-remains accessible to VoiceOver and must be populated with descriptive text.
+remains accessible to screen readers and must be populated with descriptive
+text.
 
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');

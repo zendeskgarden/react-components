@@ -1,4 +1,4 @@
-# v7.0.0
+# v8.0.0
 
 NOTE: many style-related COMPONENT_IDs were renamed for consistency based
 on the CSS-in-JS restructure. All component-level theming customizations
