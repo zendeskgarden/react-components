@@ -51,17 +51,6 @@ Any object or value can be provided.
 const { Button } = require('@zendeskgarden/react-buttons/src');
 const { zdColorGrey200 } = require('@zendeskgarden/css-variables');
 const GroupIcon = require('@zendeskgarden/svg-icons/src/16/user-group-stroke.svg').default;
-const ClipboardSvg = require('@zendeskgarden/svg-icons/src/12/clipboard-list-stroke.svg').default;
-const BoxSvg = require('@zendeskgarden/svg-icons/src/12/box-3d-stroke.svg').default;
-const DatabaseSvg = require('@zendeskgarden/svg-icons/src/12/database-stroke.svg').default;
-
-const StyledItemWrapper = styled.div`
-  display: flex;
-
-  li:not(:last-child) {
-    border-right: 1px solid ${zdColorGrey200};
-  }
-`;
 
 initialState = {
   isOpen: false
@@ -104,18 +93,6 @@ initialState = {
         <ItemMeta>Meta info</ItemMeta>
       </MediaBody>
     </MediaItem>
-    <Separator />
-    <StyledItemWrapper>
-      <Item value="clipboard-action" title="Clipboard action">
-        <ClipboardSvg />
-      </Item>
-      <Item value="box-action" title="Box action">
-        <BoxSvg />
-      </Item>
-      <Item value="database-action" title="Database action">
-        <DatabaseSvg />
-      </Item>
-    </StyledItemWrapper>
   </Menu>
 </Dropdown>;
 ```
