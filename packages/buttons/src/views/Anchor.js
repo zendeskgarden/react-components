@@ -25,7 +25,6 @@ export const StyledAnchor = styled.a.attrs(props => ({
 
     // States
     [ButtonStyles['is-active']]: props.active,
-    [ButtonStyles['is-disabled']]: props.disabled,
     [ButtonStyles['is-focused']]: props.focused,
     [ButtonStyles['is-hovered']]: props.hovered,
     [ButtonStyles['is-selected']]: props.selected
@@ -83,7 +82,6 @@ const Anchor = React.forwardRef((props, ref) => {
 Anchor.propTypes = {
   /** Apply danger styling */
   danger: PropTypes.bool,
-  disabled: PropTypes.bool,
   focused: PropTypes.bool,
   hovered: PropTypes.bool,
   active: PropTypes.bool,
