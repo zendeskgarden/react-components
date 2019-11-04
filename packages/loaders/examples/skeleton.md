@@ -18,13 +18,13 @@ const StyledCol = styled(Col)`
   <Row alignItems="start">
     <StyledCol md={8} isDarkMode={state.isDarkMode}>
       <XXXL>
-        {state.isLoading ? <Skeleton dark={state.isDarkMode} /> : 'There. You see Lord Vader.'}
+        {state.isLoading ? <Skeleton isDark={state.isDarkMode} /> : 'There. You see Lord Vader.'}
       </XXXL>
       {state.isLoading && (
         <MD>
-          <Skeleton dark={state.isDarkMode} />
-          <Skeleton dark={state.isDarkMode} />
-          <Skeleton dark={state.isDarkMode} />
+          <Skeleton isDark={state.isDarkMode} />
+          <Skeleton isDark={state.isDarkMode} />
+          <Skeleton isDark={state.isDarkMode} />
         </MD>
       )}
       {!state.isLoading && (

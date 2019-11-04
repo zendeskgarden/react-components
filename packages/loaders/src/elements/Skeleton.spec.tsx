@@ -16,7 +16,7 @@ describe('Skeleton', () => {
     expect(container.firstChild).toHaveStyleRule('background-color', 'rgba(47,57,65,0.1)');
     expect(container.firstChild).toHaveStyleRule(
       'background-image',
-      'linear-gradient(45deg,transparent,rgba(255,255,255,0.6),transparent)',
+      'linear-gradient( 45deg, transparent, rgba(255,255,255,0.6), transparent )',
       {
         modifier: '&::before'
       }
@@ -24,12 +24,12 @@ describe('Skeleton', () => {
   });
 
   it('applies dark mode correctly', () => {
-    const { container } = render(<Skeleton dark />);
+    const { container } = render(<Skeleton isDark />);
 
     expect(container.firstChild).toHaveStyleRule('background-color', 'rgba(255,255,255,0.2)');
     expect(container.firstChild).toHaveStyleRule(
       'background-image',
-      'linear-gradient(45deg,transparent,rgba(3,54,61,0.4),transparent)',
+      'linear-gradient( 45deg, transparent, rgba(3,54,61,0.4), transparent )',
       {
         modifier: '&::before'
       }
@@ -56,7 +56,7 @@ describe('Skeleton', () => {
     });
     expect(container.firstChild).toHaveStyleRule(
       'background-image',
-      'linear-gradient(-45deg,transparent,rgba(255,255,255,0.6),transparent)',
+      'linear-gradient( -45deg, transparent, rgba(255,255,255,0.6), transparent )',
       {
         modifier: '&::before'
       }

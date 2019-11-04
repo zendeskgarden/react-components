@@ -5,18 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import glob from 'glob';
 import { render, configure } from '@testing-library/react';
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
 import { ThemeProvider, DEFAULT_THEME } from '../../packages/theming/src';
 
 configure({ testIdAttribute: 'data-test-id' });
 
 const LtrProvider: React.FunctionComponent = ({ children }) => {
-  return <ThemeProvider>{children}</ThemeProvider>;
+  const bodyRef = useRef(document.body);
+
+  return <ThemeProvider focusVisibleRef={bodyRef}>{children}</ThemeProvider>;
 };
 
 LtrProvider.propTypes = {
@@ -24,7 +24,13 @@ LtrProvider.propTypes = {
 };
 
 const RtlProvider: React.FunctionComponent = ({ children }) => {
-  return <ThemeProvider theme={{ ...DEFAULT_THEME, rtl: true }}>{children}</ThemeProvider>;
+  const bodyRef = useRef(document.body);
+
+  return (
+    <ThemeProvider theme={{ ...DEFAULT_THEME, rtl: true }} focusVisibleRef={bodyRef}>
+      {children}
+    </ThemeProvider>
+  );
 };
 
 RtlProvider.propTypes = {

@@ -5,7 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export const STROKE_WIDTH_FRAMES = {
+type AnimationPoints = Record<number, number>;
+
+export const STROKE_WIDTH_FRAMES: AnimationPoints = {
   0: 6,
   14: 5,
   26: 4,
@@ -17,7 +19,7 @@ export const STROKE_WIDTH_FRAMES = {
   91: 6
 };
 
-export const ROTATION_FRAMES = {
+export const ROTATION_FRAMES: AnimationPoints = {
   0: -90,
   8: -81,
   36: -30,
@@ -45,7 +47,7 @@ export const ROTATION_FRAMES = {
   99: 270
 };
 
-export const DASHARRAY_FRAMES = {
+export const DASHARRAY_FRAMES: AnimationPoints = {
   0: 0,
   13: 2,
   26: 13,

@@ -20,6 +20,8 @@
   },
   "types": "dist/typings/index.d.ts",
   "dependencies": {
+    "@zendeskgarden/container-focusvisible": "^0.2.0",
+    "@zendeskgarden/container-utilities": "^0.3.0",
     "polished": "^3.4.1"
   },
   "peerDependencies": {
@@ -38,6 +40,6 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenTheming",
-  "zendeskgarden:max_size": "7 kB",
+  "zendeskgarden:max_size": "9 kB",
   "zendeskgarden:src": "src/index.ts"
 }

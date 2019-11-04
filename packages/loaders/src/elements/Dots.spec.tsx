@@ -16,10 +16,10 @@ const DEFAULT_DATE = new Date(2019, 1, 5, 1, 1, 1);
 
 describe('Dots', () => {
   beforeEach(() => {
-    clearTimeout.mockClear();
-    global.cancelAnimationFrame = jest.fn();
-    global.requestAnimationFrame = jest.fn();
-    global.document.elementFromPoint = jest.fn();
+    (clearTimeout as jest.Mock).mockClear();
+    (global as any).cancelAnimationFrame = jest.fn();
+    (global as any).requestAnimationFrame = jest.fn();
+    (global as any).document.elementFromPoint = jest.fn();
     mockDate.set(DEFAULT_DATE);
   });
 
@@ -96,7 +96,7 @@ describe('Dots', () => {
       act(() => {
         // move time forward 1 second
         mockDate.set(DEFAULT_DATE.setSeconds(2));
-        requestAnimationFrame.mock.calls[0][0]();
+        (requestAnimationFrame as jest.Mock).mock.calls[0][0]();
       });
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
@@ -104,19 +104,19 @@ describe('Dots', () => {
           fill="currentColor"
         >
           <circle
-            class="styled-elements__DotsCircle-sc-19dhio6-0 styled-elements__DotsOneCircle-sc-19dhio6-1 iNpQBP"
+            class="sc-bdVaJa sc-bwzfXH ASSBy"
             cx="9"
             cy="36"
             r="9"
           />
           <circle
-            class="styled-elements__DotsCircle-sc-19dhio6-0 styled-elements__DotsTwoCircle-sc-19dhio6-2 bbNrxJ"
+            class="sc-bdVaJa sc-htpNat yBsjz"
             cx="40"
             cy="36"
             r="9"
           />
           <circle
-            class="styled-elements__DotsCircle-sc-19dhio6-0 styled-elements__DotsThreeCircle-sc-19dhio6-3 jkSUgg"
+            class="sc-bdVaJa sc-bxivhb eQgpbI"
             cx="71"
             cy="36"
             r="9"
@@ -125,8 +125,8 @@ describe('Dots', () => {
       `);
     });
 
-    it('updates animation after request animation frame with negative bound velocity', () => {
-      const { container } = render(<Dots velocity={-1.1} />);
+    it('updates animation after request animation frame with slower duration', () => {
+      const { container } = render(<Dots duration={1125} />);
 
       act(() => {
         jest.runOnlyPendingTimers();
@@ -134,18 +134,18 @@ describe('Dots', () => {
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
         .c0 {
-          -webkit-animation: dMEWJg 1250ms linear infinite;
-          animation: dMEWJg 1250ms linear infinite;
+          -webkit-animation: dMEWJg 1125ms linear infinite;
+          animation: dMEWJg 1125ms linear infinite;
         }
 
         .c1 {
-          -webkit-animation: hiIgQS 1250ms linear infinite;
-          animation: hiIgQS 1250ms linear infinite;
+          -webkit-animation: hiIgQS 1125ms linear infinite;
+          animation: hiIgQS 1125ms linear infinite;
         }
 
         .c2 {
-          -webkit-animation: jfCXbz 1250ms linear infinite;
-          animation: jfCXbz 1250ms linear infinite;
+          -webkit-animation: jfCXbz 1125ms linear infinite;
+          animation: jfCXbz 1125ms linear infinite;
         }
 
         <g
@@ -175,7 +175,7 @@ describe('Dots', () => {
       act(() => {
         // move time forward 1 second
         mockDate.set(DEFAULT_DATE.setSeconds(2));
-        requestAnimationFrame.mock.calls[0][0]();
+        (requestAnimationFrame as jest.Mock).mock.calls[0][0]();
       });
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
@@ -183,19 +183,19 @@ describe('Dots', () => {
           fill="currentColor"
         >
           <circle
-            class="styled-elements__DotsCircle-sc-19dhio6-0 styled-elements__DotsOneCircle-sc-19dhio6-1 iNpQBP"
+            class="sc-bdVaJa sc-bwzfXH fLTDGj"
             cx="9"
             cy="36"
             r="9"
           />
           <circle
-            class="styled-elements__DotsCircle-sc-19dhio6-0 styled-elements__DotsTwoCircle-sc-19dhio6-2 bbNrxJ"
+            class="sc-bdVaJa sc-htpNat kPGrdX"
             cx="40"
             cy="36"
             r="9"
           />
           <circle
-            class="styled-elements__DotsCircle-sc-19dhio6-0 styled-elements__DotsThreeCircle-sc-19dhio6-3 jkSUgg"
+            class="sc-bdVaJa sc-bxivhb hGBsiB"
             cx="71"
             cy="36"
             r="9"
@@ -204,8 +204,8 @@ describe('Dots', () => {
       `);
     });
 
-    it('updates animation after request animation frame with positive bound velocity', () => {
-      const { container } = render(<Dots velocity={1.1} />);
+    it('updates animation after request animation frame with increased duration', () => {
+      const { container } = render(<Dots duration={1375} />);
 
       act(() => {
         jest.runOnlyPendingTimers();
@@ -213,18 +213,18 @@ describe('Dots', () => {
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
         .c0 {
-          -webkit-animation: dMEWJg 1250ms linear infinite;
-          animation: dMEWJg 1250ms linear infinite;
+          -webkit-animation: dMEWJg 1375ms linear infinite;
+          animation: dMEWJg 1375ms linear infinite;
         }
 
         .c1 {
-          -webkit-animation: hiIgQS 1250ms linear infinite;
-          animation: hiIgQS 1250ms linear infinite;
+          -webkit-animation: hiIgQS 1375ms linear infinite;
+          animation: hiIgQS 1375ms linear infinite;
         }
 
         .c2 {
-          -webkit-animation: jfCXbz 1250ms linear infinite;
-          animation: jfCXbz 1250ms linear infinite;
+          -webkit-animation: jfCXbz 1375ms linear infinite;
+          animation: jfCXbz 1375ms linear infinite;
         }
 
         <g
@@ -254,7 +254,7 @@ describe('Dots', () => {
       act(() => {
         // move time forward 1 second
         mockDate.set(DEFAULT_DATE.setSeconds(2));
-        requestAnimationFrame.mock.calls[0][0]();
+        (requestAnimationFrame as jest.Mock).mock.calls[0][0]();
       });
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
@@ -262,19 +262,19 @@ describe('Dots', () => {
           fill="currentColor"
         >
           <circle
-            class="styled-elements__DotsCircle-sc-19dhio6-0 styled-elements__DotsOneCircle-sc-19dhio6-1 iNpQBP"
+            class="sc-bdVaJa sc-bwzfXH eUUNyX"
             cx="9"
             cy="36"
             r="9"
           />
           <circle
-            class="styled-elements__DotsCircle-sc-19dhio6-0 styled-elements__DotsTwoCircle-sc-19dhio6-2 bbNrxJ"
+            class="sc-bdVaJa sc-htpNat gYiuXr"
             cx="40"
             cy="36"
             r="9"
           />
           <circle
-            class="styled-elements__DotsCircle-sc-19dhio6-0 styled-elements__DotsThreeCircle-sc-19dhio6-3 jkSUgg"
+            class="sc-bdVaJa sc-bxivhb iRhcNm"
             cx="71"
             cy="36"
             r="9"

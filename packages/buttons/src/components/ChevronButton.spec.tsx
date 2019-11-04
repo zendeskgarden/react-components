@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { render, fireEvent } from 'garden-test-utils';
+import { render } from 'garden-test-utils';
 import ChevronButton from './ChevronButton';
 
 describe('ChevronButton', () => {
@@ -20,19 +20,5 @@ describe('ChevronButton', () => {
     const { container } = render(<ChevronButton rotated />);
 
     expect(container.querySelector('svg')).toHaveStyleRule('transform', 'rotate(+180deg)');
-  });
-
-  it('does not render focused styling if focused by mouse', () => {
-    const { container } = render(<ChevronButton />);
-
-    fireEvent.click(container.firstChild as any);
-    expect(container.firstChild).not.toHaveClass('focus-visible');
-  });
-
-  it('renders focused styling if focused by keyboard', () => {
-    const { container } = render(<ChevronButton />);
-
-    fireEvent.focus(container.firstChild as any);
-    expect(container.firstChild).toHaveClass('focus-visible');
   });
 });

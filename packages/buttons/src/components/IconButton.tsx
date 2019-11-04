@@ -7,7 +7,6 @@
 
 import React, { useContext, ButtonHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { useKeyboardFocus } from '@zendeskgarden/container-keyboardfocus';
 import { StyledIconButton, StyledIcon } from '../styled';
 import { ButtonGroupContext } from './ButtonGroup';
 
@@ -23,8 +22,6 @@ interface IIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   pill?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** @ignore */
-  focused?: boolean;
   /** Rotates icon 180 degrees */
   rotated?: boolean;
 }
@@ -35,20 +32,11 @@ interface IIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const IconButton: React.FunctionComponent<
   IIconButtonProps & React.RefAttributes<HTMLButtonElement>
 > = React.forwardRef<HTMLButtonElement, IIconButtonProps>(
-  ({ children, focused, rotated, ...buttonProps }, ref) => {
-    const focusInset = buttonProps.focusInset || useContext(ButtonGroupContext);
-    const { getFocusProps, keyboardFocused } = useKeyboardFocus();
+  ({ children, rotated, ...otherProps }, ref) => {
+    const focusInset = otherProps.focusInset || useContext(ButtonGroupContext);
 
     return (
-      <StyledIconButton
-        {...getFocusProps({
-          ref,
-          tabIndex: null,
-          ...buttonProps,
-          focused: focused || keyboardFocused,
-          focusInset
-        })}
-      >
+      <StyledIconButton ref={ref} {...otherProps} focusInset={focusInset}>
         <StyledIcon rotated={rotated}>{children}</StyledIcon>
       </StyledIconButton>
     );
@@ -62,7 +50,6 @@ IconButton.propTypes = {
   basic: PropTypes.bool,
   pill: PropTypes.bool,
   focusInset: PropTypes.bool,
-  focused: PropTypes.bool,
   rotated: PropTypes.bool
 };
 

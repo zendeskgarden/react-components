@@ -36,7 +36,7 @@ const ButtonGroup: React.FunctionComponent<IButtonGroupProps> = ({
   selectedItem: controlledSelectedItem,
   ...otherProps
 }) => {
-  const { selectedItem, focusedItem, getButtonProps, getGroupProps } = useButtonGroup({
+  const { selectedItem, getButtonProps, getGroupProps } = useButtonGroup({
     selectedItem: controlledSelectedItem,
     defaultSelectedIndex: 0,
     onSelect
@@ -66,7 +66,6 @@ const ButtonGroup: React.FunctionComponent<IButtonGroupProps> = ({
             item: value,
             focusRef: createRef(),
             selected: value === selectedItem,
-            focused: value === focusedItem,
             ...child.props
           })
         );

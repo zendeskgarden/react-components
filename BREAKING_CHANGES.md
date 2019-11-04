@@ -53,6 +53,7 @@ should be re-checked for ID naming accuracy.
 
 - `<Dots />` loader no longer has the `velocity` prop
   - Use `duration` instead which accepts `ms` defaults to 1250ms
+- `<Skeleton />` loader has renamed `dark` prop to `isDark`
 
 ## @zendesk/react-tags
 
