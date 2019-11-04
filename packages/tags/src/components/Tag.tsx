@@ -31,7 +31,6 @@ interface ITagProps extends HTMLAttributes<HTMLDivElement> {
     | 'purple';
   pill?: boolean;
   round?: boolean;
-  focused?: boolean;
 }
 
 /**

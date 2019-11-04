@@ -78,7 +78,7 @@ const tags = [
     <Col>
       <FauxInput small tagLayout style={{ overflow: 'hidden', width: `${state.width}%` }}>
         {tags.map((tag, index) => (
-          <Tag key={index} pill={state.pill} size={state.size} style={{ margin: 2 }}>
+          <Tag key={index} pill={state.pill} size={state.size} style={{ margin: 2 }} tabIndex={0}>
             {state.avatar && (
               <Tag.Avatar>
                 <img alt="" src={`images/avatar-${(index % 7) + 1}.png`} />

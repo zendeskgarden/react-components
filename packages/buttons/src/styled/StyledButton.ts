@@ -9,7 +9,6 @@ import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import em from 'polished/lib/helpers/em';
 import math from 'polished/lib/math/math';
 import rgba from 'polished/lib/color/rgba';
-import classNames from 'classnames';
 import {
   DEFAULT_THEME,
   getColor,
@@ -100,7 +99,7 @@ const colorStyles = (
         background-color: ${hoverColor};
       }
 
-      &.focus-visible {
+      &[data-garden-focus-visible] {
         box-shadow: ${boxShadow};
       }
 
@@ -125,7 +124,7 @@ const colorStyles = (
         color: ${hoverColor};
       }
 
-      &.focus-visible {
+      &[data-garden-focus-visible] {
         box-shadow: ${boxShadow};
       }
 
@@ -246,7 +245,6 @@ const sizeStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
 export interface IStyledButtonProps {
   basic?: boolean;
   danger?: boolean;
-  focused?: boolean;
   focusInset?: boolean;
   link?: boolean;
   primary?: boolean;
@@ -260,12 +258,11 @@ export interface IStyledButtonProps {
 /**
  * Accepts all `<button>` props
  */
-export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
+export const StyledButton = styled.button.attrs<IStyledButtonProps>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: classNames(props.className, { 'focus-visible': props.focused }),
   type: 'button'
-}))<IStyledButtonProps>`
+})<IStyledButtonProps>`
   display: ${props => (props.link ? 'inline' : 'inline-block')};
   /* prettier-ignore */
   transition:
@@ -307,7 +304,7 @@ export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
     outline: none;
   }
 
-  &.focus-visible {
+  &[data-garden-focus-visible] {
     text-decoration: ${props => (props.link ? 'underline' : 'none')}; /* <a> element reset */
   }
 

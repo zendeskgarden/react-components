@@ -61,20 +61,6 @@ describe('StyledTag', () => {
     });
   });
 
-  describe('state', () => {
-    it('renders focused styling if provided', () => {
-      const { container } = render(<StyledTag focused />);
-
-      expect(container.firstChild).toHaveStyleRule('box-shadow');
-    });
-
-    it('does not render focused styling if not provided', () => {
-      const { container } = render(<StyledTag />);
-
-      expect(container.firstChild).not.toHaveStyleRule('box-shadow');
-    });
-  });
-
   describe('hue', () => {
     it('renders using a default neutral hue', () => {
       const { container } = render(<StyledTag />);

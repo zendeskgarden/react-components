@@ -9,7 +9,6 @@ import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import math from 'polished/lib/math/math';
 import readableColor from 'polished/lib/color/readableColor';
 import stripUnit from 'polished/lib/helpers/stripUnit';
-import classNames from 'classnames';
 import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledAvatar } from './StyledAvatar';
 import { StyledClose } from './StyledClose';
@@ -52,7 +51,7 @@ const colorStyles = (props: IStyledTagProps & ThemeProps<DefaultTheme>) => {
       color: ${foregroundColor}; /* <a> element reset */
     }
 
-    &.focus-visible {
+    &[data-garden-focus-visible] {
       box-shadow: ${props.theme.shadows.sm(boxShadowColor!)};
     }
 
@@ -151,14 +150,12 @@ interface IStyledTagProps {
   size?: 'small' | 'medium' | 'large';
   pill?: boolean;
   round?: boolean;
-  focused?: boolean;
 }
 
-export const StyledTag = styled.div.attrs<IStyledTagProps>(props => ({
+export const StyledTag = styled.div.attrs<IStyledTagProps>({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: classNames(props.className, { 'focus-visible': props.focused })
-}))<IStyledTagProps>`
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledTagProps>`
   display: inline-flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -193,7 +190,7 @@ export const StyledTag = styled.div.attrs<IStyledTagProps>(props => ({
     cursor: pointer;
   }
 
-  &.focus-visible {
+  &[data-garden-focus-visible] {
     text-decoration: none;
   }
 

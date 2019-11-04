@@ -7,7 +7,6 @@
 
 import React, { useContext, ButtonHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { useKeyboardFocus } from '@zendeskgarden/container-keyboardfocus';
 import { StyledButton } from '../styled';
 import { ButtonGroupContext } from './ButtonGroup';
 
@@ -27,8 +26,6 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   pill?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** @ignore */
-  focused?: boolean;
   /** @ignore prop used by `ButtonGroup` */
   selected?: boolean;
 }
@@ -38,21 +35,10 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
  */
 const Button: React.FunctionComponent<
   IButtonProps & React.RefAttributes<HTMLButtonElement>
-> = React.forwardRef<HTMLButtonElement, IButtonProps>(({ focused, ...other }, ref) => {
-  const focusInset = other.focusInset || useContext(ButtonGroupContext);
-  const { getFocusProps, keyboardFocused } = useKeyboardFocus();
+> = React.forwardRef<HTMLButtonElement, IButtonProps>((props, ref) => {
+  const focusInset = props.focusInset || useContext(ButtonGroupContext);
 
-  return (
-    <StyledButton
-      {...getFocusProps({
-        ref,
-        tabIndex: null,
-        ...other,
-        focused: focused || keyboardFocused,
-        focusInset
-      })}
-    />
-  );
+  return <StyledButton ref={ref} focusInset={focusInset} {...props} />;
 });
 
 Button.propTypes = {
@@ -64,7 +50,6 @@ Button.propTypes = {
   link: PropTypes.bool,
   pill: PropTypes.bool,
   focusInset: PropTypes.bool,
-  focused: PropTypes.bool,
   selected: PropTypes.bool
 };
 
