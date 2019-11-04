@@ -8,7 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import Progress from './Progress';
-import { zdColorGreen600 } from '@zendeskgarden/css-variables';
+import { PALETTE } from '@zendeskgarden/react-theming';
 
 describe('Progress', () => {
   describe('without a value', () => {
@@ -79,7 +79,7 @@ describe('Progress', () => {
     it('renders a blue progress bar by default', () => {
       const { getByRole } = render(<Progress value={42} />);
 
-      expect(getByRole('progressbar')).toHaveStyleRule('color', zdColorGreen600);
+      expect(getByRole('progressbar')).toHaveStyleRule('color', PALETTE.green[600]);
     });
   });
 

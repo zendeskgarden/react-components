@@ -30,7 +30,7 @@ export const useCSSSVGAnimation = () => {
 
     const result = document.elementFromPoint(1, 1) === svg;
 
-    svg.parentNode.removeChild(svg);
+    svg.parentNode!.removeChild(svg);
 
     setAnimateSVG(result);
   }, []);

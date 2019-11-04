@@ -43,22 +43,20 @@
 ### Colors
 
 ```jsx
-const { zdColorGrey600, zdColorBlue600, zdColorRed600 } = require('@zendeskgarden/css-variables');
-
 <Grid>
   <Row>
     <Col>
-      <Progress value={10} color={zdColorGrey600} />
+      <Progress value={10} color={PALETTE.grey[600]} />
     </Col>
   </Row>
   <Row>
     <Col>
-      <Progress value={40} color={zdColorBlue600} />
+      <Progress value={40} color={PALETTE.blue[600]} />
     </Col>
   </Row>
   <Row>
     <Col>
-      <Progress value={80} color={zdColorRed600} />
+      <Progress value={80} color={PALETTE.red[600]} />
     </Col>
   </Row>
   <Row>
@@ -66,18 +64,12 @@ const { zdColorGrey600, zdColorBlue600, zdColorRed600 } = require('@zendeskgarde
       <Progress value={100} />
     </Col>
   </Row>
-</Grid>;
+</Grid>
 ```
 
 ### Advanced Usage
 
 ```jsx
-const {
-  zdColorBlue600,
-  zdColorGrey600,
-  zdColorGreen600,
-  zdColorRed600
-} = require('@zendeskgarden/css-variables');
 const { Field: FormField, Label, Range } = require('@zendeskgarden/react-forms/src');
 const {
   Dropdown,
@@ -91,19 +83,19 @@ const {
 const colors = [
   {
     label: 'Default',
-    value: zdColorGreen600
+    value: PALETTE.green[600]
   },
   {
     label: 'GREY-600',
-    value: zdColorGrey600
+    value: PALETTE.grey[600]
   },
   {
     label: 'BLUE-600',
-    value: zdColorBlue600
+    value: PALETTE.blue[600]
   },
   {
     label: 'RED-600',
-    value: zdColorRed600
+    value: PALETTE.red[600]
   }
 ];
 
