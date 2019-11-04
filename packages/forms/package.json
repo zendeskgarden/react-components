@@ -20,7 +20,6 @@
   },
   "dependencies": {
     "@zendeskgarden/container-field": "^1.0.3",
-    "@zendeskgarden/container-focusvisible": "^0.2.0",
     "@zendeskgarden/container-utilities": "^0.3.0",
     "lodash.debounce": "^4.0.8",
     "polished": "^3.4.1"
