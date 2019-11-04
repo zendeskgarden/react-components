@@ -10,29 +10,12 @@ import styled from 'styled-components';
 import classNames from 'classnames';
 import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
 import MenuStyles from '@zendeskgarden/css-menus';
-import ArrowStyles from '@zendeskgarden/css-arrows';
 import { POPPER_PLACEMENT } from '../Datepicker/utils/garden-placements';
 
 const COMPONENT_ID = 'dropdowns.menu';
 
-const shouldShowArrow = ({
-  arrow,
-  placement
-}: {
-  arrow?: boolean;
-  placement?: POPPER_PLACEMENT;
-}) => {
-  return arrow && placement;
-};
-
-const retrieveMenuMargin = ({
-  arrow,
-  placement
-}: {
-  arrow?: boolean;
-  placement?: POPPER_PLACEMENT;
-}) => {
-  const marginAmount = shouldShowArrow({ arrow, placement }) ? '8px' : '4px';
+const retrieveMenuMargin = ({ placement }: { placement?: POPPER_PLACEMENT }) => {
+  const marginAmount = '4px';
 
   if (placement === 'bottom' || placement === 'bottom-start' || placement === 'bottom-end') {
     return `margin-top: ${marginAmount};`;
@@ -57,7 +40,6 @@ interface IStyledMenuViewProps extends HTMLProps<HTMLUListElement> {
   small?: boolean;
   placement?: POPPER_PLACEMENT;
   animate?: boolean;
-  arrow?: boolean;
 }
 
 /**
@@ -90,21 +72,6 @@ const StyledMenuView = styled.ul.attrs<IStyledMenuViewProps>(props => ({
     [MenuStyles['is-open']]: props.animate,
     [MenuStyles['is-hidden']]: props.hidden,
 
-    // Arrows
-    [ArrowStyles['c-arrow']]: shouldShowArrow({ arrow: props.arrow, placement: props.placement }),
-    [ArrowStyles['c-arrow--r']]: props.placement === 'left',
-    [ArrowStyles['c-arrow--rt']]: props.placement === 'left-start',
-    [ArrowStyles['c-arrow--rb']]: props.placement === 'left-end',
-    [ArrowStyles['c-arrow--b']]: props.placement === 'top',
-    [ArrowStyles['c-arrow--bl']]: props.placement === 'top-start',
-    [ArrowStyles['c-arrow--br']]: props.placement === 'top-end',
-    [ArrowStyles['c-arrow--l']]: props.placement === 'right',
-    [ArrowStyles['c-arrow--lt']]: props.placement === 'right-start',
-    [ArrowStyles['c-arrow--lb']]: props.placement === 'right-end',
-    [ArrowStyles['c-arrow--t']]: props.placement === 'bottom',
-    [ArrowStyles['c-arrow--tl']]: props.placement === 'bottom-start',
-    [ArrowStyles['c-arrow--tr']]: props.placement === 'bottom-end',
-
     // RTL
     [MenuStyles['is-rtl']]: isRtl(props)
   })
@@ -122,7 +89,6 @@ const StyledMenuView = styled.ul.attrs<IStyledMenuViewProps>(props => ({
 ` as React.FunctionComponent<IStyledMenuViewProps>;
 
 interface IStyledMenuWrapperProps {
-  arrow?: boolean;
   placement?: POPPER_PLACEMENT;
 }
 
@@ -153,15 +119,14 @@ interface IStyledMenuProps extends HTMLProps<HTMLUListElement> {
   animate?: boolean;
   small?: boolean;
   hidden?: boolean;
-  arrow?: boolean;
   maxHeight?: string;
 }
 
 export const StyledMenu = React.forwardRef<any, IStyledMenuProps>(
-  ({ arrow, placement, maxHeight, children, ...other }, ref) => {
+  ({ placement, maxHeight, children, ...other }, ref) => {
     return (
-      <StyledMenuWrapper arrow={arrow} placement={placement}>
-        <StyledMenuView ref={ref} arrow={arrow} placement={placement} {...other}>
+      <StyledMenuWrapper placement={placement}>
+        <StyledMenuView ref={ref} placement={placement} {...other}>
           <StyledMaxHeightWrapper maxHeight={maxHeight}>{children}</StyledMaxHeightWrapper>
         </StyledMenuView>
       </StyledMenuWrapper>
