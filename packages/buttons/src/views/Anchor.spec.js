@@ -46,12 +46,6 @@ describe('Anchor', () => {
       expect(container.firstChild).toHaveClass('is-active');
     });
 
-    it('renders disabled styling if provided', () => {
-      const { container } = render(<Anchor disabled />);
-
-      expect(container.firstChild).toHaveClass('is-disabled');
-    });
-
     it('renders focused styling if provided', () => {
       const { container } = render(<Anchor focused />);
 
