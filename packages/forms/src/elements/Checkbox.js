@@ -9,7 +9,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useCombinedRefs } from '@zendeskgarden/container-utilities';
 import useFieldContext from '../utils/useFieldContext';
-import { CheckboxContext } from '../utils/useCheckboxContext';
+import { InputContext } from '../utils/useInputContext';
 import { StyledCheckInput } from '../styled';
 
 /**
@@ -25,7 +25,7 @@ const Checkbox = React.forwardRef(({ indeterminate, children, ...props }, ref) =
   }, [indeterminate, inputRef]);
 
   return (
-    <CheckboxContext.Provider value={{}}>
+    <InputContext.Provider value={'checkbox'}>
       <StyledCheckInput
         {...getInputProps({
           ref: inputRef,
@@ -33,7 +33,7 @@ const Checkbox = React.forwardRef(({ indeterminate, children, ...props }, ref) =
         })}
       />
       {children}
-    </CheckboxContext.Provider>
+    </InputContext.Provider>
   );
 });
 

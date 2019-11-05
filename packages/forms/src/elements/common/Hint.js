@@ -7,9 +7,7 @@
 
 import React from 'react';
 import useFieldContext from '../../utils/useFieldContext';
-import useCheckboxContext from '../../utils/useCheckboxContext';
-import useRadioContext from '../../utils/useRadioContext';
-import useToggleContext from '../../utils/useToggleContext';
+import useInputContext from '../../utils/useInputContext';
 import { StyledHint, StyledCheckHint, StyledRadioHint, StyledToggleHint } from '../../styled';
 
 /**
@@ -18,17 +16,15 @@ import { StyledHint, StyledCheckHint, StyledRadioHint, StyledToggleHint } from '
  */
 const Hint = React.forwardRef((props, ref) => {
   const { getHintProps } = useFieldContext();
-  const checkboxCtx = useCheckboxContext();
-  const radioCtx = useRadioContext();
-  const toggleCtx = useToggleContext();
+  const type = useInputContext();
 
   let HintComponent;
 
-  if (checkboxCtx) {
+  if (type === 'checkbox') {
     HintComponent = StyledCheckHint;
-  } else if (radioCtx) {
+  } else if (type === 'radio') {
     HintComponent = StyledRadioHint;
-  } else if (toggleCtx) {
+  } else if (type === 'toggle') {
     HintComponent = StyledToggleHint;
   } else {
     HintComponent = StyledHint;

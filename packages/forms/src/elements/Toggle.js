@@ -7,7 +7,7 @@
 
 import React from 'react';
 import useFieldContext from '../utils/useFieldContext';
-import { ToggleContext } from '../utils/useToggleContext';
+import { InputContext } from '../utils/useInputContext';
 import { StyledToggleInput } from '../styled';
 
 /**
@@ -18,7 +18,7 @@ const Toggle = React.forwardRef(({ children, ...props }, ref) => {
   const { getInputProps } = useFieldContext();
 
   return (
-    <ToggleContext.Provider value={{}}>
+    <InputContext.Provider value={'toggle'}>
       <StyledToggleInput
         {...getInputProps({
           ref,
@@ -26,7 +26,7 @@ const Toggle = React.forwardRef(({ children, ...props }, ref) => {
         })}
       />
       {children}
-    </ToggleContext.Provider>
+    </InputContext.Provider>
   );
 });
 

@@ -7,7 +7,7 @@
 
 import React from 'react';
 import useFieldContext from '../utils/useFieldContext';
-import { RadioContext } from '../utils/useRadioContext';
+import { InputContext } from '../utils/useInputContext';
 import { StyledRadioInput } from '../styled';
 
 /**
@@ -18,7 +18,7 @@ const Radio = React.forwardRef(({ children, ...props }, ref) => {
   const { getInputProps } = useFieldContext();
 
   return (
-    <RadioContext.Provider value={{}}>
+    <InputContext.Provider value={'radio'}>
       <StyledRadioInput
         {...getInputProps({
           ref,
@@ -26,7 +26,7 @@ const Radio = React.forwardRef(({ children, ...props }, ref) => {
         })}
       />
       {children}
-    </RadioContext.Provider>
+    </InputContext.Provider>
   );
 });
 

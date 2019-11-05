@@ -7,13 +7,13 @@
 
 import { createContext, useContext } from 'react';
 
-export const ToggleContext = createContext(undefined);
+export const InputContext = createContext(undefined);
 
 /**
- * Retrieve Toggle component context
+ * Retrieve input component context
  */
-const useToggleContext = () => {
-  return useContext(ToggleContext);
+const useInputContext = () => {
+  return useContext(InputContext);
 };
 
-export default useToggleContext;
+export default useInputContext;

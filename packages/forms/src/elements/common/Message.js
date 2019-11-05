@@ -7,9 +7,8 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import useCheckboxContext from '../../utils/useCheckboxContext';
-import useRadioContext from '../../utils/useRadioContext';
-import useToggleContext from '../../utils/useToggleContext';
+import useFieldContext from '../../utils/useFieldContext';
+import useInputContext from '../../utils/useInputContext';
 import {
   StyledMessage,
   StyledCheckMessage,
@@ -17,7 +16,6 @@ import {
   StyledToggleMessage,
   StyledMessageIcon
 } from '../../styled';
-import useFieldContext from '../../utils/useFieldContext';
 import VALIDATION from '../../utils/validation';
 
 /**
@@ -26,17 +24,15 @@ import VALIDATION from '../../utils/validation';
  */
 const Message = React.forwardRef(({ validation, children, ...props }, ref) => {
   const { getMessageProps } = useFieldContext();
-  const checkboxCtx = useCheckboxContext();
-  const radioCtx = useRadioContext();
-  const toggleCtx = useToggleContext();
+  const type = useInputContext();
 
   let MessageComponent;
 
-  if (checkboxCtx) {
+  if (type === 'checkbox') {
     MessageComponent = StyledCheckMessage;
-  } else if (radioCtx) {
+  } else if (type === 'radio') {
     MessageComponent = StyledRadioMessage;
-  } else if (toggleCtx) {
+  } else if (type === 'toggle') {
     MessageComponent = StyledToggleMessage;
   } else {
     MessageComponent = StyledMessage;

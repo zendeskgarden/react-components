@@ -8,9 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import useFieldContext from '../../utils/useFieldContext';
-import useCheckboxContext from '../../utils/useCheckboxContext';
-import useRadioContext from '../../utils/useRadioContext';
-import useToggleContext from '../../utils/useToggleContext';
+import useInputContext from '../../utils/useInputContext';
 import { StyledLabel, StyledCheckLabel, StyledRadioLabel, StyledToggleLabel } from '../../styled';
 
 /**
@@ -19,17 +17,15 @@ import { StyledLabel, StyledCheckLabel, StyledRadioLabel, StyledToggleLabel } fr
  */
 const Label = React.forwardRef((props, ref) => {
   const { getLabelProps } = useFieldContext();
-  const checkboxCtx = useCheckboxContext();
-  const radioCtx = useRadioContext();
-  const toggleCtx = useToggleContext();
+  const type = useInputContext();
 
   let LabelComponent;
 
-  if (checkboxCtx) {
+  if (type === 'checkbox') {
     LabelComponent = StyledCheckLabel;
-  } else if (radioCtx) {
+  } else if (type === 'radio') {
     LabelComponent = StyledRadioLabel;
-  } else if (toggleCtx) {
+  } else if (type === 'toggle') {
     LabelComponent = StyledToggleLabel;
   } else {
     LabelComponent = StyledLabel;
