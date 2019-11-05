@@ -16,7 +16,7 @@ import { StyledLabel } from './StyledLabel';
 
 const validationStyles = props => {
   const rtl = props.theme.rtl;
-  const padding = math(`${props.theme.space.base} * 5px`);
+  const padding = math(`${props.theme.space.base} * 2px + ${props.theme.iconSizes.md}`);
   let color;
 
   if (props.validation === VALIDATION.ERROR) {
