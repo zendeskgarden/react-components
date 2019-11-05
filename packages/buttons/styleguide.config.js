@@ -54,8 +54,8 @@ module.exports = {
       ]
     },
     {
-      name: 'Components',
-      components: '../../packages/buttons/src/components/*.{ts,tsx}'
+      name: 'Elements',
+      components: '../../packages/buttons/src/elements/*.{ts,tsx}'
     }
   ]
 };
