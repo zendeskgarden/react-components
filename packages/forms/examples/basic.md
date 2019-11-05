@@ -25,13 +25,18 @@ const StyledField = styled(Field)`
 
 const StyledHint = styled(Hint)`
   display: ${state.inline && 'inline'};
-  margin: ${props => state.inline && `0 ${props.theme.space.sm}`};
+  margin-${props => (props.theme.rtl ? 'left' : 'right')}:
+    ${props => state.inline && props.theme.space.sm};
+`;
+
+const StyledLabel = styled(Label)`
+  margin-${props => (props.theme.rtl ? 'left' : 'right')}:
+    ${props => state.inline && props.theme.space.sm};
 `;
 
 const StyledMessage = styled(Message)`
-  && {
-    margin: ${props => state.inline && `0 ${props.theme.space.sm}`};
-  }
+  margin-${props => (props.theme.rtl ? 'right' : 'left')}:
+    ${props => state.inline && props.theme.space.sm};
 `;
 
 <Grid>
@@ -43,7 +48,7 @@ const StyledMessage = styled(Message)`
             checked={!!state.regular}
             onChange={event => setState({ regular: event.target.checked })}
           >
-            <Label>Regular weight (label)</Label>
+            <Label>Regular weight label</Label>
           </Toggle>
         </Field>
         <Field className="u-mt-xs">
@@ -72,8 +77,13 @@ const StyledMessage = styled(Message)`
           </Toggle>
         </Field>
         <Field className="u-mt-xs">
+          <Toggle onChange={event => setState({ placeholder: event.target.checked })}>
+            <Label>Placeholder</Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-xs">
           <Toggle onChange={event => setState({ resizable: event.target.checked })}>
-            <Label>Resizable (textarea)</Label>
+            <Label>Resizable textarea</Label>
           </Toggle>
         </Field>
         <Field className="u-mt-xs">
@@ -114,21 +124,21 @@ const StyledMessage = styled(Message)`
     </Col>
     <Col>
       <StyledField>
-        <Label isRegular={state.regular}>Input</Label>
+        <StyledLabel isRegular={state.regular}>Input</StyledLabel>
         {state.hint && <StyledHint>Hint</StyledHint>}
         <Input
           disabled={state.disabled}
           focusInset={state.focusInset}
           isBare={state.bare}
           isCompact={state.compact}
-          placeholder="placeholder"
+          placeholder={state.placeholder && 'placeholder'}
           validation={state.validation}
           style={state.inline ? { width: 'auto', margin: 0 } : {}}
         />
         {state.message && <StyledMessage validation={state.validation}>Message</StyledMessage>}
       </StyledField>
       <StyledField className="u-mt-sm">
-        <Label isRegular={state.regular}>Textarea</Label>
+        <StyledLabel isRegular={state.regular}>Textarea</StyledLabel>
         {state.hint && <StyledHint>Hint</StyledHint>}
         <Textarea
           disabled={state.disabled}
@@ -136,21 +146,21 @@ const StyledMessage = styled(Message)`
           isBare={state.bare}
           isCompact={state.compact}
           isResizable={state.resizable}
-          placeholder="placeholder"
+          placeholder={state.placeholder && 'placeholder'}
           validation={state.validation}
           style={state.inline ? { width: 'auto', margin: 0 } : {}}
         />
         {state.message && <StyledMessage validation={state.validation}>Message</StyledMessage>}
       </StyledField>
       <StyledField className="u-mt-sm">
-        <Label isRegular={state.regular}>MediaInput</Label>
+        <StyledLabel isRegular={state.regular}>MediaInput</StyledLabel>
         {state.hint && <StyledHint>Hint</StyledHint>}
         <MediaInput
           disabled={state.disabled}
           focusInset={state.focusInset}
           isBare={state.bare}
           isCompact={state.compact}
-          placeholder="placeholder"
+          placeholder={state.placeholder && 'placeholder'}
           validation={state.validation}
           wrapperProps={{ style: state.inline ? { width: 'auto', margin: 0 } : {} }}
           start={<StartIcon />}
@@ -159,7 +169,7 @@ const StyledMessage = styled(Message)`
         {state.message && <StyledMessage validation={state.validation}>Message</StyledMessage>}
       </StyledField>
       <StyledField className="u-mt-sm">
-        <Label isRegular={state.regular}>FauxInput</Label>
+        <StyledLabel isRegular={state.regular}>FauxInput</StyledLabel>
         {state.hint && <StyledHint>Hint</StyledHint>}
         <FauxInput
           disabled={state.disabled}
@@ -169,7 +179,7 @@ const StyledMessage = styled(Message)`
           validation={state.validation}
           style={state.inline ? { width: 'auto', margin: 0 } : {}}
         >
-          placeholder
+          {state.placeholder && 'placeholder'}
         </FauxInput>
         {state.message && <StyledMessage validation={state.validation}>Message</StyledMessage>}
       </StyledField>
@@ -216,7 +226,7 @@ initialState = {
             checked={state.indeterminate}
             onChange={event => setState({ indeterminate: event.target.checked })}
           >
-            <Label>Indeterminate (checkbox)</Label>
+            <Label>Indeterminate checkbox</Label>
           </Toggle>
         </Field>
         <Field className="u-mt-xs">
@@ -224,7 +234,7 @@ initialState = {
             checked={!!state.regular}
             onChange={event => setState({ regular: event.target.checked })}
           >
-            <Label>Regular weight (label)</Label>
+            <Label>Regular weight label</Label>
           </Toggle>
         </Field>
         <Field className="u-mt-xs">
@@ -232,7 +242,7 @@ initialState = {
             checked={state.hidden}
             onChange={event => setState({ hidden: event.target.checked })}
           >
-            <Label>Hidden (label)</Label>
+            <Label>Hidden label</Label>
           </Toggle>
         </Field>
         <Field className="u-mt-xs">
