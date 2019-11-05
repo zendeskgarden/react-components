@@ -111,8 +111,8 @@ const Menu: React.FunctionComponent<IMenuProps> = props => {
             popperReferenceElementRef.current.getBoundingClientRect
           ) {
             computedStyle = {
-              ...menuStyle,
-              width: popperReferenceElementRef.current.getBoundingClientRect().width
+              width: popperReferenceElementRef.current.getBoundingClientRect().width,
+              ...menuStyle
             };
           }
 
