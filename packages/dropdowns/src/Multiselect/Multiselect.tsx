@@ -9,6 +9,7 @@ import React, { useRef, useEffect, useState, useMemo, useCallback } from 'react'
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
 import { useSelection } from '@zendeskgarden/container-selection';
+import { KEY_CODES, useCombinedRefs } from '@zendeskgarden/container-utilities';
 import { isRtl, withTheme } from '@zendeskgarden/react-theming';
 import {
   StyledMultiselectInput,
@@ -19,7 +20,6 @@ import {
 } from '../styled';
 import useDropdownContext from '../utils/useDropdownContext';
 import useFieldContext from '../utils/useFieldContext';
-import { KEY_CODES } from '@zendeskgarden/container-utilities';
 import { REMOVE_ITEM_STATE_TYPE } from '../Dropdown/Dropdown';
 
 interface IMultiselectProps {
@@ -41,271 +41,277 @@ interface IMultiselectProps {
   maxItems?: number;
   renderShowMore?: (index: number) => string;
   renderItem: (options: { value: any; removeValue: () => void }) => React.ReactElement;
+  inputRef?: React.Ref<HTMLInputElement>;
 }
 
 /**
  * Applies state and a11y attributes to its children. Must be nested within a `<Field>` component.
  */
-const Multiselect: React.FunctionComponent<IMultiselectProps> = ({
-  renderItem,
-  placeholder,
-  maxItems,
-  renderShowMore,
-  ...props
-}) => {
-  const {
-    popperReferenceElementRef,
-    selectedItems = [],
-    containsMultiselectRef,
-    downshift: {
-      getToggleButtonProps,
-      getInputProps,
-      isOpen,
-      closeMenu,
-      inputValue,
-      setState: setDownshiftState,
-      itemToString
-    }
-  } = useDropdownContext();
-  const { isLabelHovered } = useFieldContext();
-  const inputRef = useRef<HTMLInputElement>(null);
-  const triggerRef = useRef<HTMLElement>(null);
-  const blurTimeoutRef = useRef<number | undefined>();
-  const previousIsOpenRef = useRef<boolean | undefined>(undefined);
-  const [isFocused, setIsFocused] = useState(false);
-  const [focusedItem, setFocusedItem] = useState(undefined);
-
-  const { getContainerProps, getItemProps } = useSelection({
-    rtl: isRtl(props),
-    focusedItem,
-    selectedItem: undefined,
-    onFocus: (item: any) => {
-      setFocusedItem(item);
-    }
-  });
-
-  useEffect(() => {
-    containsMultiselectRef.current = true;
-    const tempRef = blurTimeoutRef;
-
-    return () => {
-      clearTimeout(tempRef.current);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    // Focus internal input when Menu is opened
-    if (isOpen && !previousIsOpenRef.current) {
-      inputRef.current && inputRef.current.focus();
-    }
-    previousIsOpenRef.current = isOpen;
-  }, [isOpen]);
-
-  /**
-   * Close menu when an item becomes focused
-   */
-  useEffect(() => {
-    if (focusedItem !== undefined && isOpen) {
-      closeMenu();
-    }
-  }, [focusedItem, isOpen, closeMenu]);
-
-  const selectProps = getToggleButtonProps({
-    tabIndex: -1,
-    onKeyDown: e => {
-      if (isOpen) {
-        (e.nativeEvent as any).preventDownshiftDefault = true;
-      } else if (!inputValue && e.keyCode === KEY_CODES.HOME) {
-        setFocusedItem(selectedItems[0]);
-        e.preventDefault();
+const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps>(
+  (
+    { renderItem, placeholder, maxItems, renderShowMore, inputRef: externalInputRef, ...props },
+    ref
+  ) => {
+    const {
+      popperReferenceElementRef,
+      selectedItems = [],
+      containsMultiselectRef,
+      downshift: {
+        getToggleButtonProps,
+        getInputProps,
+        isOpen,
+        closeMenu,
+        inputValue,
+        setState: setDownshiftState,
+        itemToString
       }
-    },
-    onFocus: () => {
-      setIsFocused(true);
-    },
-    onBlur: (e: React.FocusEvent<HTMLElement>) => {
-      const currentTarget = e.currentTarget;
+    } = useDropdownContext();
+    const { isLabelHovered } = useFieldContext();
+    const inputRef = useCombinedRefs<HTMLInputElement>(externalInputRef);
+    const triggerRef = useCombinedRefs<HTMLDivElement>(popperReferenceElementRef, ref);
+    const blurTimeoutRef = useRef<number | undefined>();
+    const previousIsOpenRef = useRef<boolean | undefined>(undefined);
+    const [isFocused, setIsFocused] = useState(false);
+    const [focusedItem, setFocusedItem] = useState(undefined);
 
-      blurTimeoutRef.current = (setTimeout(() => {
-        if (!currentTarget.contains(document.activeElement)) {
-          setIsFocused(false);
-        }
-      }, 0) as unknown) as number;
-    },
-    ...props
-  });
+    const { getContainerProps, getItemProps } = useSelection({
+      rtl: isRtl(props),
+      focusedItem,
+      selectedItem: undefined,
+      onFocus: (item: any) => {
+        setFocusedItem(item);
+      }
+    });
 
-  const renderSelectableItem = useCallback(
-    (item, index) => {
-      const removeValue = () => {
-        (setDownshiftState as any)({
-          type: REMOVE_ITEM_STATE_TYPE,
-          selectedItem: item
-        });
-        inputRef.current && inputRef.current.focus();
+    useEffect(() => {
+      containsMultiselectRef.current = true;
+      const tempRef = blurTimeoutRef;
+
+      return () => {
+        clearTimeout(tempRef.current);
       };
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
-      const renderedItem = renderItem({ value: item, removeValue });
-      const focusRef = React.createRef();
+    useEffect(() => {
+      // Focus internal input when Menu is opened
+      if (isOpen && !previousIsOpenRef.current) {
+        inputRef.current && inputRef.current.focus();
+      }
+      previousIsOpenRef.current = isOpen;
+    }, [isOpen, inputRef]);
 
-      const clonedChild = React.cloneElement(
-        renderedItem,
-        getItemProps({
-          item,
-          focusRef,
-          onKeyDown: (e: KeyboardEvent) => {
-            if (e.keyCode === KEY_CODES.DELETE || e.keyCode === KEY_CODES.BACKSPACE) {
-              e.preventDefault();
-              removeValue();
-            }
+    /**
+     * Close menu when an item becomes focused
+     */
+    useEffect(() => {
+      if (focusedItem !== undefined && isOpen) {
+        closeMenu();
+      }
+    }, [focusedItem, isOpen, closeMenu]);
 
-            if (e.keyCode === KEY_CODES.END && !inputValue) {
-              inputRef.current && inputRef.current.focus();
-              e.preventDefault();
-            }
+    const selectProps = getToggleButtonProps({
+      tabIndex: -1,
+      onKeyDown: e => {
+        if (isOpen) {
+          (e.nativeEvent as any).preventDownshiftDefault = true;
+        } else if (!inputValue && e.keyCode === KEY_CODES.HOME) {
+          setFocusedItem(selectedItems[0]);
+          e.preventDefault();
+        }
+      },
+      onFocus: () => {
+        setIsFocused(true);
+      },
+      onBlur: (e: React.FocusEvent<HTMLElement>) => {
+        const currentTarget = e.currentTarget;
 
-            if (isRtl(props)) {
-              if (e.keyCode === KEY_CODES.RIGHT && index === 0) {
+        blurTimeoutRef.current = (setTimeout(() => {
+          if (!currentTarget.contains(document.activeElement)) {
+            setIsFocused(false);
+          }
+        }, 0) as unknown) as number;
+      },
+      ...props
+    });
+
+    const renderSelectableItem = useCallback(
+      (item, index) => {
+        const removeValue = () => {
+          (setDownshiftState as any)({
+            type: REMOVE_ITEM_STATE_TYPE,
+            selectedItem: item
+          });
+          inputRef.current && inputRef.current.focus();
+        };
+
+        const renderedItem = renderItem({ value: item, removeValue });
+        const focusRef = React.createRef();
+
+        const clonedChild = React.cloneElement(
+          renderedItem,
+          getItemProps({
+            item,
+            focusRef,
+            onKeyDown: (e: KeyboardEvent) => {
+              if (e.keyCode === KEY_CODES.DELETE || e.keyCode === KEY_CODES.BACKSPACE) {
                 e.preventDefault();
+                removeValue();
               }
 
-              if (e.keyCode === KEY_CODES.LEFT && index === selectedItems.length - 1) {
-                e.preventDefault();
+              if (e.keyCode === KEY_CODES.END && !inputValue) {
                 inputRef.current && inputRef.current.focus();
-              }
-            } else {
-              if (e.keyCode === KEY_CODES.LEFT && index === 0) {
                 e.preventDefault();
               }
 
-              if (e.keyCode === KEY_CODES.RIGHT && index === selectedItems.length - 1) {
-                e.preventDefault();
-                inputRef.current && inputRef.current.focus();
+              if (isRtl(props)) {
+                if (e.keyCode === KEY_CODES.RIGHT && index === 0) {
+                  e.preventDefault();
+                }
+
+                if (e.keyCode === KEY_CODES.LEFT && index === selectedItems.length - 1) {
+                  e.preventDefault();
+                  inputRef.current && inputRef.current.focus();
+                }
+              } else {
+                if (e.keyCode === KEY_CODES.LEFT && index === 0) {
+                  e.preventDefault();
+                }
+
+                if (e.keyCode === KEY_CODES.RIGHT && index === selectedItems.length - 1) {
+                  e.preventDefault();
+                  inputRef.current && inputRef.current.focus();
+                }
               }
-            }
-          },
-          onClick: (e: MouseEvent) => {
-            (e as any).nativeEvent.preventDownshiftDefault = true;
-          },
-          tabIndex: -1
-        })
-      );
+            },
+            onClick: (e: MouseEvent) => {
+              (e as any).nativeEvent.preventDownshiftDefault = true;
+            },
+            tabIndex: -1
+          })
+        );
 
-      const key = `${itemToString(item)}-${index}`;
+        const key = `${itemToString(item)}-${index}`;
 
-      return <StyledItemWrapper key={key}>{clonedChild}</StyledItemWrapper>;
-    },
-    [getItemProps, inputValue, renderItem, setDownshiftState, itemToString, selectedItems, props]
-  );
+        return <StyledItemWrapper key={key}>{clonedChild}</StyledItemWrapper>;
+      },
+      [
+        getItemProps,
+        inputValue,
+        renderItem,
+        setDownshiftState,
+        itemToString,
+        selectedItems,
+        props,
+        inputRef
+      ]
+    );
 
-  const items = useMemo(() => {
-    const itemValues = selectedItems || [];
-    const output = [];
+    const items = useMemo(() => {
+      const itemValues = selectedItems || [];
+      const output = [];
 
-    for (let x = 0; x < itemValues.length; x++) {
-      const item = itemValues[x];
+      for (let x = 0; x < itemValues.length; x++) {
+        const item = itemValues[x];
 
-      if (x < maxItems!) {
-        if (props.disabled) {
-          const renderedItem = renderItem({ value: item, removeValue: () => {} });
+        if (x < maxItems!) {
+          if (props.disabled) {
+            const renderedItem = renderItem({ value: item, removeValue: () => {} });
 
-          output.push(<StyledItemWrapper key={x}>{renderedItem}</StyledItemWrapper>);
+            output.push(<StyledItemWrapper key={x}>{renderedItem}</StyledItemWrapper>);
+          } else {
+            output.push(renderSelectableItem(item, x));
+          }
+        } else if ((!isFocused && !inputValue) || props.disabled) {
+          output.push(
+            <StyledMoreAnchor key="more-anchor">
+              {renderShowMore
+                ? renderShowMore(itemValues.length - x)
+                : `+ ${itemValues.length - x} more`}
+            </StyledMoreAnchor>
+          );
+          break;
         } else {
           output.push(renderSelectableItem(item, x));
         }
-      } else if ((!isFocused && !inputValue) || props.disabled) {
-        output.push(
-          <StyledMoreAnchor key="more-anchor">
-            {renderShowMore
-              ? renderShowMore(itemValues.length - x)
-              : `+ ${itemValues.length - x} more`}
-          </StyledMoreAnchor>
-        );
-        break;
-      } else {
-        output.push(renderSelectableItem(item, x));
       }
-    }
 
-    return output;
-  }, [
-    isFocused,
-    props.disabled,
-    renderSelectableItem,
-    selectedItems,
-    renderItem,
-    inputValue,
-    maxItems,
-    renderShowMore
-  ]);
+      return output;
+    }, [
+      isFocused,
+      props.disabled,
+      renderSelectableItem,
+      selectedItems,
+      renderItem,
+      inputValue,
+      maxItems,
+      renderShowMore
+    ]);
 
-  return (
-    <Reference>
-      {({ ref: popperReference }) => (
-        <StyledSelect
-          {...getContainerProps({
-            ...selectProps,
-            tagLayout: true,
-            hovered: isLabelHovered && !isOpen,
-            focused: isOpen ? true : isFocused,
-            open: isOpen,
-            ref: (selectRef: any) => {
-              // Pass ref to popperJS for positioning
-              popperReference(selectRef);
+    return (
+      <Reference>
+        {({ ref: popperReference }) => (
+          <StyledSelect
+            {...getContainerProps({
+              ...selectProps,
+              tagLayout: true,
+              hovered: isLabelHovered && !isOpen,
+              focused: isOpen ? true : isFocused,
+              open: isOpen,
+              ref: (selectRef: any) => {
+                // Pass ref to popperJS for positioning
+                popperReference(selectRef);
 
-              // Store ref locally to return focus on close
-              (triggerRef as any).current = selectRef;
-
-              // Apply Select ref to global Dropdown context
-              popperReferenceElementRef.current = selectRef;
-            }
-          })}
-        >
-          {items}
-          <StyledMultiselectInput
-            {...(getInputProps({
-              disabled: props.disabled,
-              onFocus: () => {
-                setFocusedItem(undefined);
-              },
-              onClick: (e: MouseEvent) => {
-                if (inputValue && inputValue.length > 0 && isOpen) {
-                  (e as any).nativeEvent.preventDownshiftDefault = true;
-                }
-              },
-              onKeyDown: (e: KeyboardEvent) => {
-                if (!inputValue) {
-                  if (isRtl(props) && e.keyCode === KEY_CODES.RIGHT && selectedItems.length > 0) {
-                    setFocusedItem(selectedItems[selectedItems.length - 1]);
-                  } else if (
-                    !isRtl(props) &&
-                    e.keyCode === KEY_CODES.LEFT &&
-                    selectedItems.length > 0
-                  ) {
-                    setFocusedItem(selectedItems[selectedItems.length - 1]);
-                  } else if (e.keyCode === KEY_CODES.BACKSPACE && selectedItems.length > 0) {
-                    (setDownshiftState as any)({
-                      type: REMOVE_ITEM_STATE_TYPE,
-                      selectedItem: selectedItems[selectedItems.length - 1]
-                    });
+                // Apply Select ref to global Dropdown context
+                (triggerRef as React.MutableRefObject<any>).current = selectRef;
+              }
+            })}
+          >
+            {items}
+            <StyledMultiselectInput
+              {...(getInputProps({
+                disabled: props.disabled,
+                onFocus: () => {
+                  setFocusedItem(undefined);
+                },
+                onClick: (e: MouseEvent) => {
+                  if (inputValue && inputValue.length > 0 && isOpen) {
                     (e as any).nativeEvent.preventDownshiftDefault = true;
-                    e.preventDefault();
-                    e.stopPropagation();
                   }
-                }
-              },
-              isVisible: isFocused || inputValue || selectedItems.length === 0,
-              isSmall: props.small,
-              ref: inputRef,
-              placeholder: selectedItems.length === 0 ? placeholder : undefined
-            }) as any)}
-          />
-        </StyledSelect>
-      )}
-    </Reference>
-  );
-};
+                },
+                onKeyDown: (e: KeyboardEvent) => {
+                  if (!inputValue) {
+                    if (isRtl(props) && e.keyCode === KEY_CODES.RIGHT && selectedItems.length > 0) {
+                      setFocusedItem(selectedItems[selectedItems.length - 1]);
+                    } else if (
+                      !isRtl(props) &&
+                      e.keyCode === KEY_CODES.LEFT &&
+                      selectedItems.length > 0
+                    ) {
+                      setFocusedItem(selectedItems[selectedItems.length - 1]);
+                    } else if (e.keyCode === KEY_CODES.BACKSPACE && selectedItems.length > 0) {
+                      (setDownshiftState as any)({
+                        type: REMOVE_ITEM_STATE_TYPE,
+                        selectedItem: selectedItems[selectedItems.length - 1]
+                      });
+                      (e as any).nativeEvent.preventDownshiftDefault = true;
+                      e.preventDefault();
+                      e.stopPropagation();
+                    }
+                  }
+                },
+                isVisible: isFocused || inputValue || selectedItems.length === 0,
+                isSmall: props.small,
+                ref: inputRef,
+                placeholder: selectedItems.length === 0 ? placeholder : undefined
+              }) as any)}
+            />
+          </StyledSelect>
+        )}
+      </Reference>
+    );
+  }
+);
 
 Multiselect.propTypes = {
   /** Applies flex layout to support MediaFigure components */
