@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>31/31</span>
+        <span class='fraction'>32/32</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>31/31</span>
+        <span class='fraction'>32/32</span>
       </div>
     </div>
     <p class="quiet">
@@ -172,7 +172,11 @@
 <a name='L124'></a><a href='#L124'>124</a>
 <a name='L125'></a><a href='#L125'>125</a>
 <a name='L126'></a><a href='#L126'>126</a>
-<a name='L127'></a><a href='#L127'>127</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L127'></a><a href='#L127'>127</a>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a>
+<a name='L130'></a><a href='#L130'>130</a>
+<a name='L131'></a><a href='#L131'>131</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -185,6 +189,8 @@
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -208,6 +214,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -279,6 +286,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -308,6 +316,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
+import { useCombinedRefs } from '@zendeskgarden/container-utilities';
 import { StyledInput, StyledSelect, VALIDATION } from '../styled';
 import useDropdownContext from '../utils/useDropdownContext';
 import useFieldContext from '../utils/useFieldContext';
@@ -328,82 +337,85 @@ interface IAutocompleteProps {
   /** Displays select open state */
   open?: boolean;
   validation?: VALIDATION;
+  inputRef?: React.Ref&lt;HTMLInputElement&gt;;
 }
 &nbsp;
 /**
  * Applies state and a11y attributes to its children. Must be nested within a `&lt;Field&gt;` component.
  */
-const Autocomplete: React.FunctionComponent&lt;IAutocompleteProps&gt; = ({ children, ...props }) =&gt; {
-  const {
-    popperReferenceElementRef,
-    downshift: { getToggleButtonProps, getInputProps, isOpen }
-  } = useDropdownContext();
-  const { isLabelHovered } = useFieldContext();
-  const inputRef = useRef&lt;HTMLInputElement&gt;(null);
-  const triggerRef = useRef&lt;HTMLElement&gt;(null);
-  const previousIsOpenRef = useRef&lt;boolean | undefined&gt;(undefined);
-  const [isFocused, setIsFocused] = useState(false);
+const Autocomplete = React.forwardRef&lt;HTMLDivElement, IAutocompleteProps&gt;(
+  ({ children, inputRef: controlledInputRef, ...props }, ref) =&gt; {
+    const {
+      popperReferenceElementRef,
+      downshift: { getToggleButtonProps, getInputProps, isOpen }
+    } = useDropdownContext();
+    const { isLabelHovered } = useFieldContext();
+    const inputRef = useCombinedRefs&lt;HTMLInputElement&gt;(controlledInputRef);
+    const triggerRef = useCombinedRefs&lt;HTMLDivElement&gt;(ref);
+    const previousIsOpenRef = useRef&lt;boolean | undefined&gt;(undefined);
+    const [isFocused, setIsFocused] = useState(false);
 &nbsp;
-  useEffect(() =&gt; {
-    // Focus internal input when Menu is opened
-    if (isOpen &amp;&amp; !previousIsOpenRef.current) {
-      inputRef.current &amp;&amp; inputRef.current.focus();
-    }
-&nbsp;
-    // Focus trigger when Menu is closed
-    if (!isOpen &amp;&amp; previousIsOpenRef.current) {
-      triggerRef.current &amp;&amp; triggerRef.current.focus();
-    }
-    previousIsOpenRef.current = isOpen;
-  }, [isOpen]);
-&nbsp;
-  const selectProps = getToggleButtonProps({
-    onKeyDown: e =&gt; {
-      if (isOpen) {
-        (e.nativeEvent as any).preventDownshiftDefault = true;
+    useEffect(() =&gt; {
+      // Focus internal input when Menu is opened
+      if (isOpen &amp;&amp; !previousIsOpenRef.current) {
+        inputRef.current &amp;&amp; inputRef.current.focus();
       }
-    },
-    ...props
-  });
 &nbsp;
-  return (
-    &lt;Reference&gt;
-      {({ ref: popperReference }) =&gt; (
-        &lt;StyledSelect
-          hovered={isLabelHovered &amp;&amp; !isOpen}
-          focused={isOpen ? true : isFocused}
-          open={isOpen}
-          ref={selectRef =&gt; {
-            // Pass ref to popperJS for positioning
-            popperReference(selectRef);
+      // Focus trigger when Menu is closed
+      if (!isOpen &amp;&amp; previousIsOpenRef.current) {
+        triggerRef.current &amp;&amp; triggerRef.current.focus();
+      }
+      previousIsOpenRef.current = isOpen;
+    }, [isOpen, inputRef, triggerRef]);
 &nbsp;
-            // Store ref locally to return focus on close
-            (triggerRef as any).current = selectRef;
+    const selectProps = getToggleButtonProps({
+      onKeyDown: e =&gt; {
+        if (isOpen) {
+          (e.nativeEvent as any).preventDownshiftDefault = true;
+        }
+      },
+      ...props
+    });
 &nbsp;
-            // Apply Select ref to global Dropdown context
-            popperReferenceElementRef.current = selectRef;
-          }}
-          {...selectProps}
-        &gt;
-          {!isOpen &amp;&amp; children}
-          &lt;StyledInput
-            {...getInputProps({
-              isHidden: !isOpen,
-              disabled: props.disabled,
-              onFocus: () =&gt; {
-                setIsFocused(true);
-              },
-              onBlur: () =&gt; {
-                setIsFocused(false);
-              },
-              ref: inputRef
-            } as any)}
-          /&gt;
-        &lt;/StyledSelect&gt;
-      )}
-    &lt;/Reference&gt;
-  );
-};
+    return (
+      &lt;Reference&gt;
+        {({ ref: popperReference }) =&gt; (
+          &lt;StyledSelect
+            hovered={isLabelHovered &amp;&amp; !isOpen}
+            focused={isOpen ? true : isFocused}
+            open={isOpen}
+            ref={selectRef =&gt; {
+              // Pass ref to popperJS for positioning
+              popperReference(selectRef);
+&nbsp;
+              // Store ref locally to return focus on close
+              (triggerRef as any).current = selectRef;
+&nbsp;
+              // Apply Select ref to global Dropdown context
+              popperReferenceElementRef.current = selectRef;
+            }}
+            {...selectProps}
+          &gt;
+            {!isOpen &amp;&amp; children}
+            &lt;StyledInput
+              {...getInputProps({
+                isHidden: !isOpen,
+                disabled: props.disabled,
+                onFocus: () =&gt; {
+                  setIsFocused(true);
+                },
+                onBlur: () =&gt; {
+                  setIsFocused(false);
+                },
+                ref: inputRef
+              } as any)}
+            /&gt;
+          &lt;/StyledSelect&gt;
+        )}
+      &lt;/Reference&gt;
+    );
+  }
+);
 &nbsp;
 Autocomplete.propTypes = {
   /** Allows flush spacing of Tab elements */
@@ -423,14 +435,14 @@ Autocomplete.propTypes = {
   validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
 };
 &nbsp;
-export default Autocomplete;
+export default Autocomplete as React.FunctionComponent&lt;IAutocompleteProps&gt;;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Nov 04 2019 17:59:56 GMT+0000 (Coordinated Universal Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 05 2019 19:33:23 GMT+0000 (Coordinated Universal Time)
 </div>
 </div>
 <script src="../../../prettify.js"></script>
