@@ -32,6 +32,19 @@ module.exports = {
       name: 'Examples',
       sections: [
         {
+          name: 'Basic',
+          content: '../../packages/buttons/examples/basic.md'
+        }
+      ]
+    },
+    {
+      name: 'Elements',
+      components: '../../packages/buttons/src/elements/*.{ts,tsx}'
+    },
+    {
+      name: 'Snippets',
+      sections: [
+        {
           name: 'Button',
           content: '../../packages/buttons/examples/button.md'
         },
@@ -52,10 +65,6 @@ module.exports = {
           content: '../../packages/buttons/examples/button-group.md'
         }
       ]
-    },
-    {
-      name: 'Elements',
-      components: '../../packages/buttons/src/elements/*.{ts,tsx}'
     }
   ]
 };
