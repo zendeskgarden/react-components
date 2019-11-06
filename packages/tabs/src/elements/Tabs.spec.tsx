@@ -9,16 +9,23 @@
 import React from 'react';
 import { render, fireEvent } from 'garden-test-utils';
 
-import Tabs from './Tabs';
-import TabPanel from '../views/TabPanel';
+import { Tabs, ITabsProps, TabList, TabPanel, Tab } from '../';
 
 describe('Tabs', () => {
-  const BasicExample = props => (
+  const BasicExample = (props: ITabsProps) => (
     <Tabs data-test-id="container" {...props}>
-      <TabPanel label={<span data-test-id="tab">Tab 1</span>} item="tab-1" data-test-id="panel">
+      <TabList>
+        <Tab item="tab-1" data-test-id="tab">
+          Tab 1
+        </Tab>
+        <Tab item="tab-2" data-test-id="tab">
+          Tab 2
+        </Tab>
+      </TabList>
+      <TabPanel item="tab-1" data-test-id="panel">
         Tab 1 content
       </TabPanel>
-      <TabPanel label={<span data-test-id="tab">Tab 2</span>} item="tab-2" data-test-id="panel">
+      <TabPanel item="tab-2" data-test-id="panel">
         Tab 2 content
       </TabPanel>
     </Tabs>
@@ -31,9 +38,18 @@ describe('Tabs', () => {
   });
 
   it('renders vertical mode if provided', () => {
-    const { getByTestId } = render(<BasicExample vertical />);
+    const { getByTestId } = render(<BasicExample isVertical />);
 
     expect(getByTestId('container')).toHaveClass('c-tab--block');
+  });
+
+  it('calls onChange with correct item on selection', () => {
+    const onChangeSpy = jest.fn();
+
+    const { getAllByTestId } = render(<BasicExample onChange={onChangeSpy} />);
+
+    fireEvent.click(getAllByTestId('tab')[1]);
+    expect(onChangeSpy).toHaveBeenCalledWith('tab-2');
   });
 
   describe('Tab', () => {
@@ -43,7 +59,7 @@ describe('Tabs', () => {
 
       fireEvent.click(tab);
 
-      expect(tab.parentElement).toHaveClass('is-selected');
+      expect(tab).toHaveClass('is-selected');
     });
 
     it('applies focused styling to currently focused tab', () => {
@@ -52,30 +68,36 @@ describe('Tabs', () => {
 
       fireEvent.focus(tab);
 
-      expect(tab.parentElement).toHaveClass('is-focused');
+      expect(tab).toHaveClass('is-focused');
     });
 
     it('applies disabled styling if provided', () => {
       const { getAllByTestId } = render(
         <Tabs>
-          <TabPanel label={<span data-test-id="tab">Tab 1</span>} item="tab-1">
-            Tab 1 content
-          </TabPanel>
-          <TabPanel disabled label={<span data-test-id="tab">Tab 2</span>}>
-            Disabled tab
-          </TabPanel>
+          <TabList>
+            <Tab data-test-id="tab" item="tab-1">
+              Tab 1
+            </Tab>
+            <Tab data-test-id="tab" disabled>
+              Disabled Tab
+            </Tab>
+          </TabList>
+          <TabPanel item="tab-1">Tab 1 content</TabPanel>
         </Tabs>
       );
 
-      expect(getAllByTestId('tab')[1].parentElement).toHaveClass('is-disabled');
+      expect(getAllByTestId('tab')[1]).toHaveClass('is-disabled');
     });
 
     it('applies custom props if provided', () => {
       const { getByTestId } = render(
         <Tabs>
-          <TabPanel item="custom" tabProps={{ 'data-test-id': 'custom-tab' }}>
-            Custom Tab
-          </TabPanel>
+          <TabList>
+            <Tab item="custom" data-test-id="custom-tab">
+              Custom Tab
+            </Tab>
+          </TabList>
+          <TabPanel item="custom">Custom Tab content</TabPanel>
         </Tabs>
       );
 
@@ -85,7 +107,7 @@ describe('Tabs', () => {
     it('selected first tab if in uncontrolled state', () => {
       const { getAllByTestId } = render(<BasicExample />);
 
-      expect(getAllByTestId('tab')[0].parentElement).toHaveClass('is-selected');
+      expect(getAllByTestId('tab')[0]).toHaveClass('is-selected');
     });
   });
 
@@ -98,6 +120,9 @@ describe('Tabs', () => {
       expect(() => {
         render(
           <Tabs>
+            <TabList>
+              <Tab>Invalid panel</Tab>
+            </TabList>
             <TabPanel>Invalid panel</TabPanel>
           </Tabs>
         );
@@ -110,6 +135,9 @@ describe('Tabs', () => {
       expect(() => {
         render(
           <Tabs>
+            <TabList>
+              <Tab item="valid-panel">Panel</Tab>
+            </TabList>
             <TabPanel item="valid-panel">Valid panel</TabPanel>
           </Tabs>
         );

@@ -8,12 +8,10 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 
-import TabPanel from './TabPanel';
+import { Tab } from '../';
 
-describe('TabPanel', () => {
-  it('renders default styling', () => {
-    const { container } = render(<TabPanel />);
-
-    expect(container.firstChild).toHaveClass('c-tab__panel');
+describe('Tab', () => {
+  it('is able to render without parent Tabs component', () => {
+    expect(() => render(<Tab>Content</Tab>)).not.toThrow();
   });
 });

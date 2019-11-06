@@ -9,33 +9,38 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import TabStyles from '@zendeskgarden/css-tabs';
-import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tabs.tabs_view';
+
+interface IStyledTabsProps {
+  /**
+   * Displays vertical TabList styling
+   */
+  isVertical?: boolean;
+}
 
 /**
  * Accepts all `<div>` props
  */
-const TabsView = styled.div.attrs(props => ({
+export const StyledTabs = styled.div.attrs<IStyledTabsProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(TabStyles['c-tab'], {
     // Vertical layout
-    [TabStyles['c-tab--block']]: props.vertical,
+    [TabStyles['c-tab--block']]: props.isVertical,
 
     // RTL
-    [TabStyles['is-rtl']]: isRtl(props)
+    [TabStyles['is-rtl']]: props.theme.rtl
   })
-}))`
+}))<IStyledTabsProps>`
   ${props => retrieveComponentStyles('tabs.tabs', props)};
 `;
 
-TabsView.propTypes = {
-  /**
-   * Displays vertical TabList styling
-   */
-  vertical: PropTypes.bool
+StyledTabs.propTypes = {
+  isVertical: PropTypes.bool
 };
 
-/** @component */
-export default TabsView;
+StyledTabs.defaultProps = {
+  theme: DEFAULT_THEME
+};
