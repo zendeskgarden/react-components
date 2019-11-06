@@ -12,6 +12,26 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v7.1.0 (2019-11-06)
+
+#### :rocket: New Feature
+* `dropdowns`
+  * [#511](https://github.com/zendeskgarden/react-components/pull/511) feat(dropdowns): add inputRef prop to Autocomplete and Multiselect ([@austin94](https://github.com/austin94))
+
+#### :bug: Bug Fix
+* `datepickers`, `dropdowns`
+  * [#513](https://github.com/zendeskgarden/react-components/pull/513) fix(build): correct TS usages of react-popper ([@austin94](https://github.com/austin94))
+* `dropdowns`
+  * [#512](https://github.com/zendeskgarden/react-components/pull/512) fix(dropdowns): allow inline style to override Menu width ([@austin94](https://github.com/austin94))
+* `datepickers`
+  * [#492](https://github.com/zendeskgarden/react-components/pull/492) chore(datepicker): remove invalid arrow prop ([@austin94](https://github.com/austin94))
+* `buttons`
+  * [#510](https://github.com/zendeskgarden/react-components/pull/510) fix(buttons): remove invalid disabled prop from Anchor ([@austin94](https://github.com/austin94))
+
+#### :memo: Documentation
+* `dropdowns`
+  * [#509](https://github.com/zendeskgarden/react-components/pull/509) chore(docs): remove invalid advanced dropdown example ([@austin94](https://github.com/austin94))
+
 ## v7.0.2 (2019-10-30)
 
 #### :seedling: Internal
