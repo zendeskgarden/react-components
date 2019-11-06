@@ -18,7 +18,7 @@ const Toggle = React.forwardRef(({ children, ...props }, ref) => {
   const { getInputProps } = useFieldContext();
 
   return (
-    <InputContext.Provider value={'toggle'}>
+    <InputContext.Provider value="toggle">
       <StyledToggleInput
         {...getInputProps({
           ref,

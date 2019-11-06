@@ -18,7 +18,7 @@ const Radio = React.forwardRef(({ children, ...props }, ref) => {
   const { getInputProps } = useFieldContext();
 
   return (
-    <InputContext.Provider value={'radio'}>
+    <InputContext.Provider value="radio">
       <StyledRadioInput
         {...getInputProps({
           ref,
