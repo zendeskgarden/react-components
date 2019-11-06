@@ -5,17 +5,41 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
+import styled, { css } from 'styled-components';
+import React, { Children } from 'react';
+import PropTypes from 'prop-types';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
-/**
- * Accepts all `<div>` props
- */
-const StyledMediaFigure = styled.div.attrs({
-  className: TextStyles['c-txt__input--media__figure']
+const sizeStyles = props => {
+  const size = props.isCompact ? props.theme.iconSizes.sm : props.theme.iconSizes.md;
+
+  return css`
+    width: ${size};
+    height: ${size};
+  `;
+};
+
+const COMPONENT_ID = 'forms.media_figure';
+
+/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+export const StyledTextMediaFigure = styled(({ children, isCompact, ...props }) =>
+  React.cloneElement(Children.only(children), props)
+).attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
 })`
-  ${props => retrieveComponentStyles('forms.media_figure', props)};
+  color: ${props => getColor('neutralHue', 400, props.theme)};
+
+  ${props => sizeStyles(props)}
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-export default StyledMediaFigure;
+StyledTextMediaFigure.propTypes = {
+  isCompact: PropTypes.bool,
+  theme: PropTypes.object
+};
+
+StyledTextMediaFigure.defaultProps = {
+  theme: DEFAULT_THEME
+};

@@ -6,13 +6,19 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
-import StyledRadioMessage from './StyledRadioMessage';
+import { render, renderRtl } from 'garden-test-utils';
+import { StyledRadioMessage } from './StyledRadioMessage';
 
 describe('StyledRadioMessage', () => {
-  it('renders default styling correctly', () => {
+  it('renders the expected element', () => {
     const { container } = render(<StyledRadioMessage />);
 
-    expect(container.firstChild).toHaveClass('c-chk__message--radio');
+    expect(container.firstChild.nodeName).toBe('DIV');
+  });
+
+  it('renders expected RTL styling', () => {
+    const { container } = renderRtl(<StyledRadioMessage />);
+
+    expect(container.firstChild).toHaveStyleRule('padding-right', '24px');
   });
 });

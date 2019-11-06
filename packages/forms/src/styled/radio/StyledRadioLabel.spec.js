@@ -6,13 +6,25 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
-import StyledRadioLabel from './StyledRadioLabel';
+import { render, renderRtl } from 'garden-test-utils';
+import { StyledRadioLabel } from './StyledRadioLabel';
 
 describe('StyledRadioLabel', () => {
-  it('renders default styling correctly', () => {
+  it('renders the expected element', () => {
     const { container } = render(<StyledRadioLabel />);
 
-    expect(container.firstChild).toHaveClass('c-chk__label--radio');
+    expect(container.firstChild.nodeName).toBe('LABEL');
+  });
+
+  it('renders expected hidden styling', () => {
+    const { container } = render(<StyledRadioLabel hidden />);
+
+    expect(container.firstChild).toHaveStyleRule('padding-left', '16px', { modifier: '[hidden]' });
+  });
+
+  it('renders expected RTL styling', () => {
+    const { container } = renderRtl(<StyledRadioLabel />);
+
+    expect(container.firstChild).toHaveStyleRule('padding-right', '24px');
   });
 });

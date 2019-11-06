@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /**
  * Copyright Zendesk, Inc.
  *
@@ -8,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import Field from '../fields/common/Field';
+import Field from '../elements/common/Field';
 import useFieldContext from '../utils/useFieldContext';
 
 describe('useFieldContext', () => {
@@ -19,6 +18,7 @@ describe('useFieldContext', () => {
   };
 
   it('throws if called outside of Field component', () => {
+    /* eslint-disable no-console */
     const originalError = console.error;
 
     console.error = jest.fn();

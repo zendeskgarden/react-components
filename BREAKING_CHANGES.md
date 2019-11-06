@@ -1,4 +1,8 @@
-# v7.0.0
+# v8.0.0
+
+NOTE: many style-related COMPONENT_IDs were renamed for consistency based
+on the CSS-in-JS restructure. All component-level theming customizations
+should be re-checked for ID naming accuracy.
 
 ## @zendeskgarden/react-autocomplete
 
@@ -24,6 +28,26 @@
 ## @zendeskgarden/react-datepickers
 
 - `Datepicker` and `DatepickerRange` `small` prop is renamed to `isCompact`
+
+## @zendeskgarden/react-forms
+
+- no longer packages a `styles.css` dist; CSS is self-contained
+- ALL
+  - removed irrelevant state and layout styling props (focused, hovered, mediaLayout, open, select, tagLayout)
+- Checkbox
+  - Add `indeterminate` prop (previously obfuscated under `Label`)
+- Input, Textarea, FauxInput
+  - `bare` -> `isBare`
+  - `small` -> `isCompact`
+- Textarea
+  - `resizable` -> `isResizable`
+- Field
+  - removed `inline` (effectively, useless) prop; inline layout is demonstrated within the examples
+- Hint
+  - removed `small` prop; all field layouts respond to `isCompact` placed on the input component
+- Label
+  - `regular` -> `isRegular`
+  - removed remaining props – attributes should be applied to the corresponding `<input>` component (checked, disabled, indeterminate)
 
 ## @zendeskgarden/react-loaders
 

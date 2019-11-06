@@ -6,13 +6,19 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
-import StyledToggleMessage from './StyledToggleMessage';
+import { render, renderRtl } from 'garden-test-utils';
+import { StyledToggleMessage } from './StyledToggleMessage';
 
 describe('StyledToggleMessage', () => {
   it('renders default styling correctly', () => {
     const { container } = render(<StyledToggleMessage />);
 
-    expect(container.firstChild).toHaveClass('c-chk__message--toggle');
+    expect(container.firstChild).toHaveStyleRule('padding-left', '48px');
+  });
+
+  it('renders expected RTL styling', () => {
+    const { container } = renderRtl(<StyledToggleMessage />);
+
+    expect(container.firstChild).toHaveStyleRule('padding-right', '48px');
   });
 });

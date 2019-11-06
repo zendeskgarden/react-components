@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useContext } from 'react';
-import { FieldContext } from '../fields/common/Field';
+import { createContext, useContext } from 'react';
+
+export const FieldContext = createContext(undefined);
 
 /**
  * Retrieve Field component context
@@ -15,9 +16,7 @@ const useFieldContext = () => {
   const fieldContext = useContext(FieldContext);
 
   if (!fieldContext) {
-    throw new Error(
-      'This component must be rendered within a `Field` component to receive accessibility attributes.'
-    );
+    throw new Error('This component must be rendered within a `Field` element.');
   }
 
   return fieldContext;
