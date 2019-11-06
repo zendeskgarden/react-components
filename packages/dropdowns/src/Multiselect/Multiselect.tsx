@@ -260,7 +260,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps>(
               open: isOpen,
               ref: (selectRef: any) => {
                 // Pass ref to popperJS for positioning
-                popperReference(selectRef);
+                (popperReference as any)(selectRef);
 
                 // Apply Select ref to global Dropdown context
                 (triggerRef as React.MutableRefObject<any>).current = selectRef;

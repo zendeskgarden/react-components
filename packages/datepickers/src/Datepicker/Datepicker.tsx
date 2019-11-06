@@ -204,7 +204,7 @@ const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
           {({ ref }) => {
             return React.cloneElement(React.Children.only(children as any), {
               [refKey!]: (refValue: HTMLElement) => {
-                ref(refValue);
+                (ref as any)(refValue);
                 (inputRef as any).current = refValue;
               },
               onMouseDown: () => {
