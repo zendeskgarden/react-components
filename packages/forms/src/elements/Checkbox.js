@@ -5,9 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { useCombinedRefs } from '@zendeskgarden/container-utilities';
 import useFieldContext from '../utils/useFieldContext';
 import { InputContext } from '../utils/useInputContext';
 import { StyledCheckInput } from '../styled';
@@ -18,17 +17,26 @@ import { StyledCheckInput } from '../styled';
  */
 const Checkbox = React.forwardRef(({ indeterminate, children, ...props }, ref) => {
   const { getInputProps } = useFieldContext();
-  const inputRef = useCombinedRefs(ref);
-
-  useEffect(() => {
-    inputRef.current.indeterminate = indeterminate;
-  }, [indeterminate, inputRef]);
+  const inputRef = inputElement => {
+    inputElement && (inputElement.indeterminate = indeterminate);
+  };
+  const combinedRef = inputElement => {
+    [inputRef, ref].forEach(targetRef => {
+      if (targetRef) {
+        if (typeof targetRef === 'function') {
+          targetRef(inputElement);
+        } else {
+          targetRef.current = inputElement;
+        }
+      }
+    });
+  };
 
   return (
     <InputContext.Provider value={'checkbox'}>
       <StyledCheckInput
         {...getInputProps({
-          ref: inputRef,
+          ref: combinedRef,
           ...props
         })}
       />
