@@ -86,6 +86,12 @@ const fontWeights = {
   black: 900
 };
 
+const iconSizes = {
+  sm: '12px',
+  md: '16px',
+  lg: '26px'
+};
+
 const lineHeights = {
   sm: `${BASE * 4}px`,
   md: `${BASE * 5}px`,
@@ -136,6 +142,7 @@ const DEFAULT_THEME: DefaultTheme = {
   fonts,
   fontSizes,
   fontWeights,
+  iconSizes,
   lineHeights,
   palette,
   rtl: false,

@@ -7,12 +7,28 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import StyledTextMediaFigure from './StyledTextMediaFigure';
+import { StyledTextMediaFigure } from './StyledTextMediaFigure';
+import TestIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
 
 describe('StyledTextMediaFigure', () => {
-  it('renders default styling correctly', () => {
-    const { container } = render(<StyledTextMediaFigure />);
+  it('renders the expected element', () => {
+    const { container } = render(
+      <StyledTextMediaFigure>
+        <TestIcon />
+      </StyledTextMediaFigure>
+    );
 
-    expect(container.firstChild).toHaveClass('c-txt__input--media__figure');
+    expect(container.firstChild.nodeName).toBe('svg');
+    expect(container.firstChild).toHaveStyleRule('width', '16px');
+  });
+
+  it('renders compact styling if provided', () => {
+    const { container } = render(
+      <StyledTextMediaFigure isCompact>
+        <TestIcon />
+      </StyledTextMediaFigure>
+    );
+
+    expect(container.firstChild).toHaveStyleRule('width', '12px');
   });
 });

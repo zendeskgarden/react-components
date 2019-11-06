@@ -5,29 +5,43 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import styled, { css } from 'styled-components';
+import math from 'polished/lib/math/math';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import StyledCheckLabel from '../checkboxes/StyledCheckLabel';
-import CheckboxStyles from '@zendeskgarden/css-forms/dist/checkbox.css';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { StyledCheckLabel } from '../checkbox/StyledCheckLabel';
 
-/**
- * Accepts all `<label>` props
- */
-const StyledToggleLabel = styled(StyledCheckLabel).attrs(props => ({
-  className: classNames(props.className, CheckboxStyles['c-chk__label--toggle'])
-}))`
-  ${props => retrieveComponentStyles('forms.toggle_label', props)};
+const COMPONENT_ID = 'forms.toggle_label';
+
+const sizeStyles = props => {
+  const size = math(`${props.theme.space.base} * 10px`); /* from StyledToggleInput */
+  const padding = math(`${size} + (${props.theme.space.base} * 2px)`);
+
+  return css`
+    /* stylelint-disable property-no-unknown */
+    padding-${props.theme.rtl ? 'right' : 'left'}: ${padding};
+
+    &[hidden] {
+      padding-${props.theme.rtl ? 'right' : 'left'}: ${size};
+    }
+    /* stylelint-enable property-no-unknown */
+  `;
+};
+
+export const StyledToggleLabel = styled(StyledCheckLabel).attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})`
+  ${props => sizeStyles(props)};
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledToggleLabel.propTypes = {
-  regular: PropTypes.bool,
-  checked: PropTypes.bool,
-  hidden: PropTypes.bool,
-  hovered: PropTypes.bool,
-  focused: PropTypes.bool,
-  disabled: PropTypes.bool
+  isRegular: PropTypes.bool,
+  theme: PropTypes.object
 };
 
-export default StyledToggleLabel;
+StyledToggleLabel.defaultProps = {
+  theme: DEFAULT_THEME
+};

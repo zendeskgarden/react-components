@@ -6,13 +6,19 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
-import StyledToggleLabel from './StyledToggleLabel';
+import { render, renderRtl } from 'garden-test-utils';
+import { StyledToggleLabel } from './StyledToggleLabel';
 
 describe('StyledToggleLabel', () => {
-  it('renders default styling correctly', () => {
+  it('renders the expected element', () => {
     const { container } = render(<StyledToggleLabel />);
 
-    expect(container.firstChild).toHaveClass('c-chk__label--toggle');
+    expect(container.firstChild.nodeName).toBe('LABEL');
+  });
+
+  it('renders expected RTL styling', () => {
+    const { container } = renderRtl(<StyledToggleLabel />);
+
+    expect(container.firstChild).toHaveStyleRule('padding-right', '48px');
   });
 });

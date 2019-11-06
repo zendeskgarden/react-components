@@ -6,13 +6,19 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
-import StyledToggleHint from './StyledToggleHint';
+import { render, renderRtl } from 'garden-test-utils';
+import { StyledToggleHint } from './StyledToggleHint';
 
 describe('StyledToggleHint', () => {
   it('renders default styling correctly', () => {
     const { container } = render(<StyledToggleHint />);
 
-    expect(container.firstChild).toHaveClass('c-chk__hint--toggle');
+    expect(container.firstChild).toHaveStyleRule('padding-left', '48px');
+  });
+
+  it('renders expected RTL styling', () => {
+    const { container } = renderRtl(<StyledToggleHint />);
+
+    expect(container.firstChild).toHaveStyleRule('padding-right', '48px');
   });
 });

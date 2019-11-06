@@ -5,48 +5,53 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { default as StyledField } from './StyledField';
+/**
+ * Common styles
+ */
+export * from './common/StyledField';
+export * from './common/StyledHint';
+export * from './common/StyledLabel';
+export * from './common/StyledMessage';
+export * from './common/StyledMessageIcon';
 
 /**
  * Text styles
  */
-export { default as StyledTextLabel } from './text/StyledTextLabel';
-export { default as StyledTextHint } from './text/StyledTextHint';
-export { default as StyledTextInput } from './text/StyledTextInput';
-export { default as StyledTextarea } from './text/StyledTextarea';
-export { default as StyledTextMessage } from './text/StyledTextMessage';
-export { default as StyledTextFauxInput } from './text/StyledTextFauxInput';
-export { default as StyledTextMediaInput } from './text/StyledTextMediaInput';
-export { default as StyledTextMediaFigure } from './text/StyledTextMediaFigure';
+export * from './text/StyledTextInput';
+export * from './text/StyledTextarea';
+export * from './text/StyledTextFauxInput';
+export * from './text/StyledTextMediaInput';
+export * from './text/StyledTextMediaFigure';
 
 /**
  * Checkbox styles
  */
-export { default as StyledCheck } from './checkboxes/StyledCheck';
-export { default as StyledCheckLabel } from './checkboxes/StyledCheckLabel';
-export { default as StyledCheckHint } from './checkboxes/StyledCheckHint';
-export { default as StyledCheckInput } from './checkboxes/StyledCheckInput';
-export { default as StyledCheckMessage } from './checkboxes/StyledCheckMessage';
+export * from './checkbox/StyledCheckLabel';
+export * from './checkbox/StyledCheckHint';
+export * from './checkbox/StyledCheckInput';
+export * from './checkbox/StyledCheckMessage';
 
 /**
  * Radio styles
  */
-export { default as StyledRadio } from './radio/StyledRadio';
-export { default as StyledRadioLabel } from './radio/StyledRadioLabel';
-export { default as StyledRadioHint } from './radio/StyledRadioHint';
-export { default as StyledRadioInput } from './radio/StyledRadioInput';
-export { default as StyledRadioMessage } from './radio/StyledRadioMessage';
+export * from './radio/StyledRadioLabel';
+export * from './radio/StyledRadioHint';
+export * from './radio/StyledRadioInput';
+export * from './radio/StyledRadioMessage';
 
 /**
  * Toggle styles
  */
-export { default as StyledToggle } from './toggle/StyledToggle';
-export { default as StyledToggleLabel } from './toggle/StyledToggleLabel';
-export { default as StyledToggleHint } from './toggle/StyledToggleHint';
-export { default as StyledToggleInput } from './toggle/StyledToggleInput';
-export { default as StyledToggleMessage } from './toggle/StyledToggleMessage';
+export * from './toggle/StyledToggleLabel';
+export * from './toggle/StyledToggleHint';
+export * from './toggle/StyledToggleInput';
+export * from './toggle/StyledToggleMessage';
 
 /**
  * Range styles
  */
-export { default as StyledRangeSingleThumb } from './range/StyledRangeSingleThumb';
+export * from './range/StyledRangeInput';
+export * from './range/StyledSlider';
+export * from './range/StyledSliderThumb';
+export * from './range/StyledSliderTrack';
+export * from './range/StyledSliderTrackRail';
