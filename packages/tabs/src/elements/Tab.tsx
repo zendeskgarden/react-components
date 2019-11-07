@@ -33,7 +33,6 @@ const Tab: React.FC<ITabProps> = ({ disabled, item, ...otherProps }) => {
         item,
         focusRef,
         index: tabsPropGetters.tabIndexRef.current++,
-        ref: focusRef,
         isSelected: item === tabsPropGetters.selectedItem,
         isFocused: item === tabsPropGetters.focusedItem,
         ...otherProps
