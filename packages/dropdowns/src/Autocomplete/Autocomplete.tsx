@@ -8,6 +8,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
+import { useCombinedRefs } from '@zendeskgarden/container-utilities';
 import { StyledInput, StyledSelect, VALIDATION } from '../styled';
 import useDropdownContext from '../utils/useDropdownContext';
 import useFieldContext from '../utils/useFieldContext';
@@ -28,82 +29,85 @@ interface IAutocompleteProps {
   /** Displays select open state */
   open?: boolean;
   validation?: VALIDATION;
+  inputRef?: React.Ref<HTMLInputElement>;
 }
 
 /**
  * Applies state and a11y attributes to its children. Must be nested within a `<Field>` component.
  */
-const Autocomplete: React.FunctionComponent<IAutocompleteProps> = ({ children, ...props }) => {
-  const {
-    popperReferenceElementRef,
-    downshift: { getToggleButtonProps, getInputProps, isOpen }
-  } = useDropdownContext();
-  const { isLabelHovered } = useFieldContext();
-  const inputRef = useRef<HTMLInputElement>(null);
-  const triggerRef = useRef<HTMLElement>(null);
-  const previousIsOpenRef = useRef<boolean | undefined>(undefined);
-  const [isFocused, setIsFocused] = useState(false);
+const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
+  ({ children, inputRef: controlledInputRef, ...props }, ref) => {
+    const {
+      popperReferenceElementRef,
+      downshift: { getToggleButtonProps, getInputProps, isOpen }
+    } = useDropdownContext();
+    const { isLabelHovered } = useFieldContext();
+    const inputRef = useCombinedRefs<HTMLInputElement>(controlledInputRef);
+    const triggerRef = useCombinedRefs<HTMLDivElement>(ref);
+    const previousIsOpenRef = useRef<boolean | undefined>(undefined);
+    const [isFocused, setIsFocused] = useState(false);
 
-  useEffect(() => {
-    // Focus internal input when Menu is opened
-    if (isOpen && !previousIsOpenRef.current) {
-      inputRef.current && inputRef.current.focus();
-    }
-
-    // Focus trigger when Menu is closed
-    if (!isOpen && previousIsOpenRef.current) {
-      triggerRef.current && triggerRef.current.focus();
-    }
-    previousIsOpenRef.current = isOpen;
-  }, [isOpen]);
-
-  const selectProps = getToggleButtonProps({
-    onKeyDown: e => {
-      if (isOpen) {
-        (e.nativeEvent as any).preventDownshiftDefault = true;
+    useEffect(() => {
+      // Focus internal input when Menu is opened
+      if (isOpen && !previousIsOpenRef.current) {
+        inputRef.current && inputRef.current.focus();
       }
-    },
-    ...props
-  });
 
-  return (
-    <Reference>
-      {({ ref: popperReference }) => (
-        <StyledSelect
-          hovered={isLabelHovered && !isOpen}
-          focused={isOpen ? true : isFocused}
-          open={isOpen}
-          ref={selectRef => {
-            // Pass ref to popperJS for positioning
-            popperReference(selectRef);
+      // Focus trigger when Menu is closed
+      if (!isOpen && previousIsOpenRef.current) {
+        triggerRef.current && triggerRef.current.focus();
+      }
+      previousIsOpenRef.current = isOpen;
+    }, [isOpen, inputRef, triggerRef]);
 
-            // Store ref locally to return focus on close
-            (triggerRef as any).current = selectRef;
+    const selectProps = getToggleButtonProps({
+      onKeyDown: e => {
+        if (isOpen) {
+          (e.nativeEvent as any).preventDownshiftDefault = true;
+        }
+      },
+      ...props
+    });
 
-            // Apply Select ref to global Dropdown context
-            popperReferenceElementRef.current = selectRef;
-          }}
-          {...selectProps}
-        >
-          {!isOpen && children}
-          <StyledInput
-            {...getInputProps({
-              isHidden: !isOpen,
-              disabled: props.disabled,
-              onFocus: () => {
-                setIsFocused(true);
-              },
-              onBlur: () => {
-                setIsFocused(false);
-              },
-              ref: inputRef
-            } as any)}
-          />
-        </StyledSelect>
-      )}
-    </Reference>
-  );
-};
+    return (
+      <Reference>
+        {({ ref: popperReference }) => (
+          <StyledSelect
+            hovered={isLabelHovered && !isOpen}
+            focused={isOpen ? true : isFocused}
+            open={isOpen}
+            ref={selectRef => {
+              // Pass ref to popperJS for positioning
+              (popperReference as any)(selectRef);
+
+              // Store ref locally to return focus on close
+              (triggerRef as any).current = selectRef;
+
+              // Apply Select ref to global Dropdown context
+              popperReferenceElementRef.current = selectRef;
+            }}
+            {...selectProps}
+          >
+            {!isOpen && children}
+            <StyledInput
+              {...getInputProps({
+                isHidden: !isOpen,
+                disabled: props.disabled,
+                onFocus: () => {
+                  setIsFocused(true);
+                },
+                onBlur: () => {
+                  setIsFocused(false);
+                },
+                ref: inputRef
+              } as any)}
+            />
+          </StyledSelect>
+        )}
+      </Reference>
+    );
+  }
+);
 
 Autocomplete.propTypes = {
   /** Allows flush spacing of Tab elements */
@@ -123,4 +127,4 @@ Autocomplete.propTypes = {
   validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
 };
 
-export default Autocomplete;
+export default Autocomplete as React.FunctionComponent<IAutocompleteProps>;
