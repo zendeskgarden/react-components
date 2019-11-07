@@ -104,13 +104,13 @@ initialState = {
       <Row>
         <Col>
           <Button
-            primary={state.primary}
-            danger={state.danger}
-            pill={state.pill}
-            basic={state.basic}
+            isPrimary={state.primary}
+            isDanger={state.danger}
+            isPill={state.pill}
+            isBasic={state.basic}
             focusInset={state.focusInset}
-            link={state.link}
-            stretched={state.stretched}
+            isLink={state.link}
+            isStretched={state.stretched}
             disabled={state.disabled}
             size={state.size}
           >
@@ -122,13 +122,13 @@ initialState = {
         <Col>
           <ButtonGroup>
             <Button
-              primary={state.primary}
-              danger={state.danger}
-              pill={state.pill}
-              basic={state.basic}
+              isPrimary={state.primary}
+              isDanger={state.danger}
+              isPill={state.pill}
+              isBasic={state.basic}
               focusInset={state.focusInset}
-              link={state.link}
-              stretched={state.stretched}
+              isLink={state.link}
+              isStretched={state.stretched}
               disabled={state.disabled}
               size={state.size}
               value="one"
@@ -136,13 +136,13 @@ initialState = {
               {state.text || '\u00A0'}
             </Button>
             <Button
-              primary={state.primary}
-              danger={state.danger}
-              pill={state.pill}
-              basic={state.basic}
+              isPrimary={state.primary}
+              isDanger={state.danger}
+              isPill={state.pill}
+              isBasic={state.basic}
               focusInset={state.focusInset}
-              link={state.link}
-              stretched={state.stretched}
+              isLink={state.link}
+              isStretched={state.stretched}
               disabled={state.disabled}
               size={state.size}
               value="two"
@@ -150,13 +150,13 @@ initialState = {
               {state.text || '\u00A0'}
             </Button>
             <Button
-              primary={state.primary}
-              danger={state.danger}
-              pill={state.pill}
-              basic={state.basic}
+              isPrimary={state.primary}
+              isDanger={state.danger}
+              isPill={state.pill}
+              isBasic={state.basic}
               focusInset={state.focusInset}
-              link={state.link}
-              stretched={state.stretched}
+              isLink={state.link}
+              isStretched={state.stretched}
               disabled={state.disabled}
               size={state.size}
               value="three"

@@ -12,18 +12,18 @@ import ChevronDownIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke
 
 interface IChevronButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Apply danger styling */
-  danger?: boolean;
+  isDanger?: boolean;
   size?: 'small' | 'medium' | 'large';
   /** Applies primary button styling */
-  primary?: boolean;
+  isPrimary?: boolean;
   /** Applies basic button styling */
-  basic?: boolean;
+  isBasic?: boolean;
   /** Applies pill styling */
-  pill?: boolean;
+  isPill?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
   /** Rotates icon 180 degrees */
-  rotated?: boolean;
+  isRotated?: boolean;
 }
 
 /**
@@ -38,18 +38,18 @@ const ChevronButton: React.FunctionComponent<
 ));
 
 ChevronButton.propTypes = {
-  danger: PropTypes.bool,
+  isDanger: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  primary: PropTypes.bool,
-  basic: PropTypes.bool,
-  pill: PropTypes.bool,
+  isPrimary: PropTypes.bool,
+  isBasic: PropTypes.bool,
+  isPill: PropTypes.bool,
   focusInset: PropTypes.bool,
-  rotated: PropTypes.bool
+  isRotated: PropTypes.bool
 };
 
 ChevronButton.defaultProps = {
-  basic: false,
-  pill: false,
+  isBasic: false,
+  isPill: false,
   size: 'medium'
 };
 

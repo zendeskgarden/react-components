@@ -12,18 +12,18 @@ import { ButtonGroupContext } from './ButtonGroup';
 
 interface IIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Apply danger styling */
-  danger?: boolean;
+  isDanger?: boolean;
   size?: 'small' | 'medium' | 'large';
   /** Applies primary button styling */
-  primary?: boolean;
+  isPrimary?: boolean;
   /** Applies basic button styling */
-  basic?: boolean;
+  isBasic?: boolean;
   /** Applies pill styling */
-  pill?: boolean;
+  isPill?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
   /** Rotates icon 180 degrees */
-  rotated?: boolean;
+  isRotated?: boolean;
 }
 
 /**
@@ -32,30 +32,30 @@ interface IIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const IconButton: React.FunctionComponent<
   IIconButtonProps & React.RefAttributes<HTMLButtonElement>
 > = React.forwardRef<HTMLButtonElement, IIconButtonProps>(
-  ({ children, rotated, ...otherProps }, ref) => {
+  ({ children, isRotated, ...otherProps }, ref) => {
     const focusInset = otherProps.focusInset || useContext(ButtonGroupContext);
 
     return (
       <StyledIconButton ref={ref} {...otherProps} focusInset={focusInset}>
-        <StyledIcon rotated={rotated}>{children}</StyledIcon>
+        <StyledIcon isRotated={isRotated}>{children}</StyledIcon>
       </StyledIconButton>
     );
   }
 );
 
 IconButton.propTypes = {
-  danger: PropTypes.bool,
+  isDanger: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  primary: PropTypes.bool,
-  basic: PropTypes.bool,
-  pill: PropTypes.bool,
+  isPrimary: PropTypes.bool,
+  isBasic: PropTypes.bool,
+  isPill: PropTypes.bool,
   focusInset: PropTypes.bool,
-  rotated: PropTypes.bool
+  isRotated: PropTypes.bool
 };
 
 IconButton.defaultProps = {
-  pill: true,
-  basic: true,
+  isPill: true,
+  isBasic: true,
   size: 'medium'
 };
 

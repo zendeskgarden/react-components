@@ -11,7 +11,7 @@ import Anchor from './Anchor';
 
 describe('Anchor', () => {
   it('renders external SVG if provided', () => {
-    const { container } = render(<Anchor external />);
+    const { container } = render(<Anchor isExternal />);
 
     expect(container.querySelector('svg')).not.toBeNull();
   });

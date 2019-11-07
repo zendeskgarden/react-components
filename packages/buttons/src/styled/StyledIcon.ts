@@ -7,22 +7,22 @@
 
 import styled from 'styled-components';
 import React, { Children } from 'react';
-import { DEFAULT_THEME, isRtl, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'buttons.icon';
 
 interface IStyledIconProps {
-  rotated: boolean;
+  isRotated: boolean;
 }
 
 /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-export const StyledIcon = styled(({ children, rotated, ...props }) =>
+export const StyledIcon = styled(({ children, isRotated, ...props }) =>
   React.cloneElement(Children.only(children), props)
 ).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledIconProps>`
-  transform: ${props => props.rotated && `rotate(${isRtl(props) ? '-' : '+'}180deg)`};
+  transform: ${props => props.isRotated && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`};
   transition: transform 0.25s ease-in-out;
   margin-top: -2px;
   vertical-align: middle;

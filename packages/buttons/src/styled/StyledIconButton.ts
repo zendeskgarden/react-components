@@ -18,7 +18,7 @@ const iconButtonStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) 
   const size = math(`${lineHeight} * 1px`);
 
   return css`
-    border: ${props.basic && 'none'};
+    border: ${props.isBasic && 'none'};
     padding: 0;
     width: ${size};
     min-width: auto;

@@ -24,13 +24,13 @@ describe('StyledButton', () => {
   });
 
   it('renders basic styling if provided', () => {
-    const { container } = render(<StyledButton basic />);
+    const { container } = render(<StyledButton isBasic />);
 
     expect(container.firstChild).toHaveStyleRule('background-color', 'transparent');
   });
 
   it('renders danger styling if provided', () => {
-    const { container } = render(<StyledButton danger />);
+    const { container } = render(<StyledButton isDanger />);
 
     expect(container.firstChild).toHaveStyleRule('color', getColor('dangerHue'));
   });
@@ -42,31 +42,31 @@ describe('StyledButton', () => {
   });
 
   it('renders link styling if provided', () => {
-    const { container } = render(<StyledButton link />);
+    const { container } = render(<StyledButton isLink />);
 
     expect(container.firstChild).toHaveStyleRule('display', 'inline');
   });
 
   it('renders primary styling if provided', () => {
-    const { container } = render(<StyledButton primary />);
+    const { container } = render(<StyledButton isPrimary />);
 
     expect(container.firstChild).toHaveStyleRule('background-color', getColor('primaryHue'));
   });
 
   it('renders pill styling if provided', () => {
-    const { container } = render(<StyledButton pill />);
+    const { container } = render(<StyledButton isPill />);
 
     expect(container.firstChild).toHaveStyleRule('border-radius', '100px');
   });
 
   it('renders selected styling if provided', () => {
-    const { container } = render(<StyledButton selected />);
+    const { container } = render(<StyledButton isSelected />);
 
     expect(container.firstChild).toHaveStyleRule('background-color', getColor('primaryHue'));
   });
 
   it('renders stretched styling if provided', () => {
-    const { container } = render(<StyledButton stretched />);
+    const { container } = render(<StyledButton isStretched />);
 
     expect(container.firstChild).toHaveStyleRule('width', '100%');
   });
