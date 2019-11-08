@@ -235,6 +235,7 @@ export const StyledAvatar = styled.figure.attrs({
   & > img {
     box-sizing: inherit;
     vertical-align: bottom;
+    object-fit: cover;
   }
 
   & > svg {
