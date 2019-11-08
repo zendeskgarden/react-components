@@ -34,37 +34,16 @@ module.exports = {
         {
           name: 'Basic',
           content: '../../packages/buttons/examples/basic.md'
+        },
+        {
+          name: 'Advanced',
+          content: '../../packages/buttons/examples/advanced.md'
         }
       ]
     },
     {
       name: 'Elements',
       components: '../../packages/buttons/src/elements/*.{ts,tsx}'
-    },
-    {
-      name: 'Snippets',
-      sections: [
-        {
-          name: 'Button',
-          content: '../../packages/buttons/examples/button.md'
-        },
-        {
-          name: 'Anchor',
-          content: '../../packages/buttons/examples/anchor.md'
-        },
-        {
-          name: 'Icon Button',
-          content: '../../packages/buttons/examples/icon-button.md'
-        },
-        {
-          name: 'Split Button',
-          content: '../../packages/buttons/examples/split-button.md'
-        },
-        {
-          name: 'Button Group',
-          content: '../../packages/buttons/examples/button-group.md'
-        }
-      ]
     }
   ]
 };

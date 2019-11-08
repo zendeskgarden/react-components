@@ -38,7 +38,7 @@ const Button: React.FunctionComponent<
 > = React.forwardRef<HTMLButtonElement, IButtonProps>((props, ref) => {
   const focusInset = props.focusInset || useContext(ButtonGroupContext);
 
-  return <StyledButton ref={ref} focusInset={focusInset} {...props} />;
+  return <StyledButton ref={ref} {...props} focusInset={focusInset} />;
 });
 
 Button.propTypes = {

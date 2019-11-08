@@ -314,7 +314,7 @@ export const StyledButton = styled.button.attrs<IStyledButtonProps>({
     text-decoration: ${props => (props.isLink ? 'underline' : 'none')}; /* <a> element reset */
   }
 
-  /* Color (default, isPrimary, isBasic, & isDanger) styling */
+  /* Color (default, primary, basic, & danger) styling */
   ${props => colorStyles(props)};
 
   &:disabled {

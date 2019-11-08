@@ -65,7 +65,7 @@ const ButtonGroup: React.FunctionComponent<IButtonGroupProps> = ({
             key: value,
             item: value,
             focusRef: createRef(),
-            selected: value === selectedItem,
+            isSelected: value === selectedItem,
             ...child.props
           })
         );

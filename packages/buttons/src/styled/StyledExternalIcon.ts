@@ -21,6 +21,7 @@ export const StyledExternalIcon = styled(NewWindowIcon).attrs({
   transform: ${props => props.theme.rtl && 'scaleX(-1)'};
   margin-bottom: -0.085em;
   padding-left: 0.25em;
+  box-sizing: content-box;
   width: 0.85em;
   height: 0.85em;
 
