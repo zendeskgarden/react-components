@@ -127,7 +127,7 @@ props and should only be used for navigating to a resource. If you need a
 
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
-const { Toggle, Field, Label } = require('@zendeskgarden/react-forms/src');
+const { Toggle, Field, Input, Label } = require('@zendeskgarden/react-forms/src');
 const {
   Dropdown,
   Select,
@@ -158,13 +158,22 @@ const Typography = ({ size, children, ...props }) => {
 
 initialState = {
   danger: false,
-  size: 'MD'
+  size: 'MD',
+  text: 'Test Anchor'
 };
 
 <Grid>
-  <Row>
+  <Row alignItems="center">
     <Col>
       <Well recessed style={{ width: 300 }}>
+        <Field>
+          <Label>Text</Label>
+          <Input
+            small
+            value={state.text}
+            onChange={event => setState({ text: event.target.value })}
+          />
+        </Field>
         <Field className="u-mt-xs">
           <Toggle
             checked={state.external}
@@ -199,35 +208,14 @@ initialState = {
     </Col>
     <Col>
       <Typography as="p" size={state.size}>
-        Veggies es bonus vobis, proinde vos{' '}
         <Anchor
           href={state.external ? 'https://www.zendesk.com' : null}
           isDanger={state.danger}
           isExternal={state.external}
           target={state.external ? '_blank' : null}
         >
-          postulo
-        </Anchor>{' '}
-        essum magis. Dandelion{' '}
-        <Anchor
-          href={state.external ? 'https://www.zendesk.com' : null}
-          isDanger={state.danger}
-          isExternal={state.external}
-          target={state.external ? '_blank' : null}
-        >
-          zucchini burdock yarrow
-        </Anchor>{' '}
-        chickpea dandelion sorrel courgette turnip greens tigernut soybean radish artichoke wattle
-        seed{' '}
-        <Anchor
-          href={state.external ? 'https://www.zendesk.com' : null}
-          isDanger={state.danger}
-          isExternal={state.external}
-          target={state.external ? '_blank' : null}
-        >
-          endive groundnut broccoli
-        </Anchor>{' '}
-        arugula.
+          {state.text}
+        </Anchor>
       </Typography>
     </Col>
   </Row>
@@ -259,7 +247,7 @@ initialState = {
   <Row alignItems="center">
     <Col>
       <Well recessed style={{ width: 300 }}>
-        <Field className="u-mt-xs">
+        <Field>
           <Toggle
             checked={state.primary}
             onChange={event => setState({ primary: event.target.checked })}
@@ -355,6 +343,14 @@ initialState = {
 
 ### Groups
 
+While split buttons are visually similar to button groups, it is important to
+note that keyboard navigation is different for accessibility purposes. The
+button group applies `role="group"` to the containing element and handles
+keyboard navigation using the tab-to; cursor-through paradigm (a user tabs to
+the group and uses arrow keys to navigate within the group). Because the
+split button is a visual treatment for two separate buttons, a user simply
+tabs to navigate between the primary and secondary actions.
+
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
 const { Toggle, Field, Label } = require('@zendeskgarden/react-forms/src');
@@ -376,7 +372,7 @@ initialState = {
   <Row alignItems="center">
     <Col>
       <Well recessed style={{ width: 300 }}>
-        <Field className="u-mt-xs">
+        <Field>
           <Toggle
             checked={state.primary}
             onChange={event => setState({ primary: event.target.checked })}
