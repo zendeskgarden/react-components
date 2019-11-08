@@ -18,8 +18,16 @@ should be re-checked for ID naming accuracy.
 ## @zendeskgarden/react-buttons
 
 - no longer packages a `styles.css` dist; CSS is self-contained
+- prop renames:
+  - `basic` -> `isBasic`
+  - `danger` -> `isDanger`
+  - `external` -> `isExternal`
+  - `link` -> `isLink`
+  - `pill` -> `isPill`
+  - `primary` -> `isPrimary`
+  - `stretched` -> `isStretched`
 - removed `ButtonGroupView`; use new `SplitButton` component instead
-- removed `Icon`; just use `IconButton` with a `rotated` prop
+- removed `Icon`; just use `IconButton` with an `isRotated` prop
 - `ButtonGroup` now expects a `selectedItem` prop instead of `selectedKey`
 - `ButtonGroup` now uses an `onSelect` callback replacing the `onStateChange`,
   it passes `selectedItem` directly rather than nesting it in an object

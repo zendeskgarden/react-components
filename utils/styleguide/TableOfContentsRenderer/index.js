@@ -74,7 +74,7 @@ class TableOfContents extends Component {
           <TableOfContentsChildrenWrapper>{children}</TableOfContentsChildrenWrapper>
           <ThemeProvider>
             <RTLContainer>
-              <ChangelogButton link onClick={() => this.setState({ isChangelogModalOpen: true })}>
+              <ChangelogButton isLink onClick={() => this.setState({ isChangelogModalOpen: true })}>
                 View Changelog
               </ChangelogButton>
               {isChangelogModalOpen && (

@@ -123,7 +123,7 @@ initialState = {
 
 The `Anchor` component is a styled `<a>` tag. It accepts all standard anchor
 props and should only be used for navigating to a resource. If you need a
-`<button>` that has anchor styling, use the `<Button link>anchor-styled button</Button>` component.
+`<button>` that has anchor styling, use the `<Button isLink>anchor-styled button</Button>` component.
 
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');

@@ -171,7 +171,7 @@ const theme = {
 <ThemeProvider theme={theme}>
   <>
     <Button>Using material blue</Button>
-    <Button danger>Using material deep orange</Button>
+    <Button isDanger>Using material deep orange</Button>
   </>
 </ThemeProvider>;
 ```
