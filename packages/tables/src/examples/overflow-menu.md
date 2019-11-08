@@ -56,7 +56,7 @@ const OverflowMenu = () => (
       <HeaderCell width="25%">Requested</HeaderCell>
       <HeaderCell width="25%">Type</HeaderCell>
       <HeaderCell menu>
-        <OverflowMenu isHeader />
+        <OverflowMenu />
       </HeaderCell>
     </HeaderRow>
   </Head>
