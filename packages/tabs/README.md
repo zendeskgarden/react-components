@@ -21,27 +21,24 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 import '@zendeskgarden/react-tabs/dist/styles.css';
 
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Tabs, TabPanel } from '@zendeskgarden/react-tabs';
+import { Tabs, TabList, Tab, TabPanel } from '@zendeskgarden/react-tabs';
 
-initialState = { selectedKey: 'tab-1' };
+initialState = { selectedItem: 'tab-1' };
 
 /**
  * Place a `ThemeProvider` at the root of your React application
  */
 <ThemeProvider>
-  <Tabs selectedKey={state.selected} onChange={selectedKey => setState({ selectedKey })}>
-    <TabPanel label="Tab 1" key="tab-1">
-      Tab 1 content
-    </TabPanel>
-    <TabPanel label="Tab 2" key="tab-2">
-      Tab 2 content
-    </TabPanel>
-    <TabPanel label="Disabled Tab" disabled>
-      Disabled content
-    </TabPanel>
-    <TabPanel label="Tab 3" key="tab-3">
-      Tab 3 content
-    </TabPanel>
+  <Tabs selectedItem={state.selectedItem} onChange={selectedItem => setState({ selectedItem })}>
+    <TabList>
+      <Tab item="tab-1">Tab 1</Tab>
+      <Tab item="tab-2">Tab 2</Tab>
+      <Tab disabled>Disabled Tab</Tab>
+      <Tab item="tab-3">Tab 3</Tab>
+    </TabList>
+    <TabPanel item="tab-1">Tab 1 content</TabPanel>
+    <TabPanel item="tab-2">Tab 2 content</TabPanel>
+    <TabPanel item="tab-3">Tab 3 content</TabPanel>
   </Tabs>
 </ThemeProvider>;
 ```

@@ -13,25 +13,33 @@ import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tabs.tab';
 
+interface IStyledTabProps {
+  isHovered?: boolean;
+  isFocused?: boolean;
+  isActive?: boolean;
+  disabled?: boolean;
+  isSelected?: boolean;
+}
+
 /**
  * Accepts all `<div>` props
  */
-const Tab = styled.div.attrs(props => ({
+export const StyledTab = styled.div.attrs<IStyledTabProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(TabStyles['c-tab__list__item'], {
     // Visual states
-    [TabStyles['is-hovered']]: props.hovered,
-    [TabStyles['is-focused']]: props.focused,
-    [TabStyles['is-active']]: props.active,
+    [TabStyles['is-hovered']]: props.isHovered,
+    [TabStyles['is-focused']]: props.isFocused,
+    [TabStyles['is-active']]: props.isActive,
     [TabStyles['is-disabled']]: props.disabled,
-    [TabStyles['is-selected']]: props.selected
+    [TabStyles['is-selected']]: props.isSelected
   })
-}))`
+}))<IStyledTabProps>`
   /** This removes focus styling when not needed. Mimics :focus-visible */
   &&& {
     ${props =>
-      !props.focused &&
+      !props.isFocused &&
       `
       :before {
         box-shadow: none;
@@ -42,13 +50,10 @@ const Tab = styled.div.attrs(props => ({
   ${props => retrieveComponentStyles('tabs.tab', props)};
 `;
 
-Tab.propTypes = {
-  hovered: PropTypes.bool,
-  focused: PropTypes.bool,
-  active: PropTypes.bool,
+StyledTab.propTypes = {
+  isHovered: PropTypes.bool,
+  isFocused: PropTypes.bool,
+  isActive: PropTypes.bool,
   disabled: PropTypes.bool,
-  selected: PropTypes.bool
+  isSelected: PropTypes.bool
 };
-
-/** @component */
-export default Tab;

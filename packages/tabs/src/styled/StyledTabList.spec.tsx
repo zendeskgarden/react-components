@@ -8,11 +8,11 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 
-import TabList from './TabList';
+import { StyledTabList } from './StyledTabList';
 
 describe('TabList', () => {
   it('renders default styling', () => {
-    const { container } = render(<TabList />);
+    const { container } = render(<StyledTabList />);
 
     expect(container.firstChild).toHaveClass('c-tab__list');
   });
