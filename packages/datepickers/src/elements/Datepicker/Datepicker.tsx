@@ -95,8 +95,6 @@ export interface IDatepickerProps {
    * @default bottom-start
    **/
   placement?: GARDEN_PLACEMENT;
-  /** Display an arrow to the reference element */
-  arrow?: boolean;
   /**
    * Passes options to [Popper.JS Instance](https://github.com/FezVrasta/popper.js/blob/master/docs/_includes/popper-documentation.md#new-popperreference-popper-options)
    */
@@ -207,7 +205,7 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
           {({ ref }) => {
             return React.cloneElement(React.Children.only(children as any), {
               [refKey!]: (refValue: HTMLElement) => {
-                ref(refValue);
+                (ref as any)(refValue);
                 (inputRef as any).current = refValue;
               },
               onMouseDown: () => {
@@ -317,7 +315,6 @@ Datepicker.propTypes = {
     'start-top',
     'start-bottom'
   ]),
-  arrow: PropTypes.bool,
   popperModifiers: PropTypes.any,
   animate: PropTypes.bool,
   eventsEnabled: PropTypes.bool,

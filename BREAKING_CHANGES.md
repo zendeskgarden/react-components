@@ -63,6 +63,24 @@ should be re-checked for ID naming accuracy.
   - Use `duration` instead which accepts `ms` defaults to 1250ms
 - `<Skeleton />` loader has renamed `dark` prop to `isDark`
 
+## @zendesk/react-tabs
+
+- no longer packages a `styles.css` dist; CSS is self-contained
+- new required structure for `Tabs` component
+```jsx
+<Tabs>
+  <TabList>
+    <Tab item="tab-1">Tab 1</Tab>
+  </TabList>
+  <TabPanel item="tab-1">
+    Content
+  </TabPanel>
+</Tabs>
+```
+- `vertical` prop has been renamed to `isVertical`
+- All styling props have been removed
+  - `hovered`, `active`, `focused`, and `selected`
+
 ## @zendesk/react-tags
 
 - no longer packages a `styles.css` dist; CSS is self-contained

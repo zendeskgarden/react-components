@@ -8,41 +8,41 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 
-import Tab from './Tab';
+import { StyledTab } from './StyledTab';
 
 describe('Tab', () => {
   it('renders default styling', () => {
-    const { container } = render(<Tab />);
+    const { container } = render(<StyledTab />);
 
     expect(container.firstChild).toHaveClass('c-tab__list__item');
   });
 
   it('renders hovered styling', () => {
-    const { container } = render(<Tab hovered />);
+    const { container } = render(<StyledTab isHovered />);
 
     expect(container.firstChild).toHaveClass('is-hovered');
   });
 
   it('renders focused styling', () => {
-    const { container } = render(<Tab focused />);
+    const { container } = render(<StyledTab isFocused />);
 
     expect(container.firstChild).toHaveClass('is-focused');
   });
 
   it('renders active styling', () => {
-    const { container } = render(<Tab active />);
+    const { container } = render(<StyledTab isActive />);
 
     expect(container.firstChild).toHaveClass('is-active');
   });
 
   it('renders disabled styling', () => {
-    const { container } = render(<Tab disabled />);
+    const { container } = render(<StyledTab disabled />);
 
     expect(container.firstChild).toHaveClass('is-disabled');
   });
 
   it('renders selected styling', () => {
-    const { container } = render(<Tab selected />);
+    const { container } = render(<StyledTab isSelected />);
 
     expect(container.firstChild).toHaveClass('is-selected');
   });

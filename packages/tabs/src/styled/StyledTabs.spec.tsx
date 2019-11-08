@@ -8,23 +8,23 @@
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
 
-import TabsView from './TabsView';
+import { StyledTabs } from './StyledTabs';
 
 describe('TabsView', () => {
   it('renders default styling', () => {
-    const { container } = render(<TabsView />);
+    const { container } = render(<StyledTabs />);
 
     expect(container.firstChild).toHaveClass('c-tab');
   });
 
   it('renders RTL styling', () => {
-    const { container } = renderRtl(<TabsView />);
+    const { container } = renderRtl(<StyledTabs />);
 
     expect(container.firstChild).toHaveClass('is-rtl');
   });
 
   it('renders vertical styling', () => {
-    const { container } = render(<TabsView vertical />);
+    const { container } = render(<StyledTabs isVertical />);
 
     expect(container.firstChild).toHaveClass('c-tab--block');
   });

@@ -14,7 +14,7 @@ const COMPONENT_ID = 'tabs.tablist';
 /**
  * Accepts all `<div>` props
  */
-const TabList = styled.div.attrs({
+export const StyledTabList = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: TabStyles['c-tab__list']
@@ -25,6 +25,3 @@ const TabList = styled.div.attrs({
 
   ${props => retrieveComponentStyles('tabs.tab_list', props)};
 `;
-
-/** @component */
-export default TabList;

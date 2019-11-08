@@ -14,7 +14,7 @@ const COMPONENT_ID = 'tabs.tabpanel';
 /**
  * Accepts all `<div>` props
  */
-const TabPanel = styled.div.attrs({
+export const StyledTabPanel = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: TabStyles['c-tab__panel']
@@ -25,6 +25,3 @@ const TabPanel = styled.div.attrs({
 
   ${props => retrieveComponentStyles('tabs.tab_panel', props)};
 `;
-
-/** @component */
-export default TabPanel;
