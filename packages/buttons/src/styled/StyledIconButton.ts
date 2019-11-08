@@ -21,7 +21,6 @@ const iconButtonStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) 
     border: ${props.isBasic && 'none'};
     padding: 0;
     width: ${size};
-    min-width: auto;
     height: ${size};
   `;
 };

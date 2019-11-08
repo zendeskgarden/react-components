@@ -213,24 +213,17 @@ const sizeStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
     `;
   } else {
     let fontSize;
-    let minWidth;
     const lineHeight = getLineHeight(props);
     const padding = props.theme.space.base * 7;
 
     if (props.size === 'small') {
       fontSize = props.theme.fontSizes.sm;
-      minWidth = props.theme.space.base * 25;
-    } else if (props.size === 'large') {
-      fontSize = props.theme.fontSizes.md;
-      minWidth = props.theme.space.base * 35;
     } else {
       fontSize = props.theme.fontSizes.md;
-      minWidth = props.theme.space.base * 30;
     }
 
     retVal = css`
       padding: 0 ${em(math(`${padding} - ${props.theme.borderWidths.sm}`), fontSize)};
-      min-width: ${!props.isStretched && `${minWidth}px`};
       line-height: ${math(`${lineHeight} - (${props.theme.borderWidths.sm} * 2)`)};
       font-size: ${fontSize};
     `;
