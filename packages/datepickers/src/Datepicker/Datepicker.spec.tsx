@@ -154,6 +154,20 @@ describe('Datepicker', () => {
       expect(input).toHaveValue('January 28, 2019');
     });
 
+    it('updates input value when controlled value is updated', () => {
+      const { getByTestId, rerender } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+      const input = getByTestId('input');
+
+      expect(input).toHaveValue('February 5, 2019');
+
+      rerender(<Example value={addDays(DEFAULT_DATE, 1)} onChange={onChangeSpy} />);
+
+      expect(onChangeSpy).not.toHaveBeenCalled();
+      expect(input).toHaveValue('February 6, 2019');
+    });
+
     it('does not select date if before minDate', () => {
       const { getByTestId, getAllByTestId } = render(
         <Example
