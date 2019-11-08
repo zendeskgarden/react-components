@@ -43,8 +43,8 @@ module.exports = {
       ]
     },
     {
-      name: 'Components',
-      components: '../../packages/avatars/src/components/Avatar.tsx'
+      name: 'Elements',
+      components: '../../packages/avatars/src/elements/Avatar.tsx'
     }
   ]
 };
