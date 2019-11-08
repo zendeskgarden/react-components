@@ -32,6 +32,7 @@ should be re-checked for ID naming accuracy.
 - `ButtonGroup` now uses an `onSelect` callback replacing the `onStateChange`,
   it passes `selectedItem` directly rather than nesting it in an object
 - `ButtonGroup` now requires it's children to contain a `value` prop which is returned when selected
+- removed `min-width` CSS per design intent
 
 ## @zendeskgarden/react-datepickers
 
@@ -67,16 +68,16 @@ should be re-checked for ID naming accuracy.
 
 - no longer packages a `styles.css` dist; CSS is self-contained
 - new required structure for `Tabs` component
+
 ```jsx
 <Tabs>
   <TabList>
     <Tab item="tab-1">Tab 1</Tab>
   </TabList>
-  <TabPanel item="tab-1">
-    Content
-  </TabPanel>
+  <TabPanel item="tab-1">Content</TabPanel>
 </Tabs>
 ```
+
 - `vertical` prop has been renamed to `isVertical`
 - All styling props have been removed
   - `hovered`, `active`, `focused`, and `selected`
