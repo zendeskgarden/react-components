@@ -59,16 +59,16 @@ should be re-checked for ID naming accuracy.
 
 - no longer packages a `styles.css` dist; CSS is self-contained
 - new required structure for `Tabs` component
+
 ```jsx
 <Tabs>
   <TabList>
     <Tab item="tab-1">Tab 1</Tab>
   </TabList>
-  <TabPanel item="tab-1">
-    Content
-  </TabPanel>
+  <TabPanel item="tab-1">Content</TabPanel>
 </Tabs>
 ```
+
 - `vertical` prop has been renamed to `isVertical`
 - All styling props have been removed
   - `hovered`, `active`, `focused`, and `selected`
@@ -104,3 +104,4 @@ should be re-checked for ID naming accuracy.
 - rename `Code` hue prop
   - previously `<Code type="red">`
   - currently `<Code hue="red">`
+- rename `monospace` -> `isMonospace` prop
