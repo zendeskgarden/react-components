@@ -119,8 +119,8 @@ initialState = {
     <Col alignSelf="center">
       <Tag
         hue={state.hue === 'default' ? null : state.hue}
-        pill={state.shape === 'pill'}
-        round={state.shape === 'round'}
+        isPill={state.shape === 'pill'}
+        isRound={state.shape === 'round'}
         size={state.size}
         tabIndex={0}
       >

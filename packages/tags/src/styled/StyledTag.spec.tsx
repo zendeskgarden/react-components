@@ -30,13 +30,13 @@ describe('StyledTag', () => {
   });
 
   it('renders pill styling if provided', () => {
-    const { container } = render(<StyledTag pill />);
+    const { container } = render(<StyledTag isPill />);
 
     expect(container.firstChild).toHaveStyleRule('border-radius', '100px');
   });
 
   it('renders round styling if provided', () => {
-    const { container } = render(<StyledTag round />);
+    const { container } = render(<StyledTag isRound />);
 
     expect(container.firstChild).toHaveStyleRule('border-radius', '50%');
   });

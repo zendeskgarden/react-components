@@ -59,16 +59,16 @@ should be re-checked for ID naming accuracy.
 
 - no longer packages a `styles.css` dist; CSS is self-contained
 - new required structure for `Tabs` component
+
 ```jsx
 <Tabs>
   <TabList>
     <Tab item="tab-1">Tab 1</Tab>
   </TabList>
-  <TabPanel item="tab-1">
-    Content
-  </TabPanel>
+  <TabPanel item="tab-1">Content</TabPanel>
 </Tabs>
 ```
+
 - `vertical` prop has been renamed to `isVertical`
 - All styling props have been removed
   - `hovered`, `active`, `focused`, and `selected`
@@ -79,8 +79,11 @@ should be re-checked for ID naming accuracy.
 - removed child component exports
   - previously `Avatar`; currently `Tag.Avatar`
   - previously `Close`; currently `Tag.Close`
-- rename `type` -> `hue` prop
-  - previously `<Tag type="blue" />`; currently `<Tag hue="blue" />`
+- prop renames:
+  - `pill` -> `isPill`
+  - `round` -> `isRound`
+  - `type` -> `hue` prop
+    - previously `<Tag type="blue" />`; currently `<Tag hue="blue" />`
 
 ## @zendeskgarden/react-textfields
 
