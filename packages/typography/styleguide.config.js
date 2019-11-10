@@ -50,11 +50,11 @@ module.exports = {
       ]
     },
     {
-      name: 'Components',
+      name: 'Elements',
       components: [
-        '../../packages/typography/src/components/*.{ts,tsx}',
-        '../../packages/typography/src/components/lists/OrderedList.tsx',
-        '../../packages/typography/src/components/lists/UnorderedList.tsx'
+        '../../packages/typography/src/elements/*.{ts,tsx}',
+        '../../packages/typography/src/elements/lists/OrderedList.tsx',
+        '../../packages/typography/src/elements/lists/UnorderedList.tsx'
       ]
     }
   ]

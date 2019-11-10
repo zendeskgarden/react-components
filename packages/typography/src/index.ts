@@ -5,13 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { default as SM } from './components/SM';
-export { default as MD } from './components/MD';
-export { default as LG } from './components/LG';
-export { default as XL } from './components/XL';
-export { default as XXL } from './components/XXL';
-export { default as XXXL } from './components/XXXL';
-export { default as Code } from './components/Code';
-export { default as Ellipsis } from './components/Ellipsis';
-export { default as OrderedList } from './components/lists/OrderedList';
-export { default as UnorderedList } from './components/lists/UnorderedList';
+export { default as SM } from './elements/SM';
+export { default as MD } from './elements/MD';
+export { default as LG } from './elements/LG';
+export { default as XL } from './elements/XL';
+export { default as XXL } from './elements/XXL';
+export { default as XXXL } from './elements/XXXL';
+export { default as Code } from './elements/Code';
+export { default as Ellipsis } from './elements/Ellipsis';
+export { default as OrderedList } from './elements/lists/OrderedList';
+export { default as UnorderedList } from './elements/lists/UnorderedList';
