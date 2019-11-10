@@ -7,7 +7,7 @@
 
 /* eslint-disable default-param-last */
 
-import DEFAULT_THEME from '../theme';
+import DEFAULT_THEME from '../elements/theme';
 import darken from 'polished/lib/color/darken';
 import lighten from 'polished/lib/color/lighten';
 import rgba from 'polished/lib/color/rgba';
