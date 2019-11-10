@@ -329,6 +329,7 @@ initialState = {
       <LG className="u-mt u-mb-xs">Chevron button</LG>
       <ChevronButton
         aria-label="chevron"
+        isBasic={state.primary}
         isPrimary={state.primary}
         isDanger={state.danger}
         isRotated={state.rotated}
