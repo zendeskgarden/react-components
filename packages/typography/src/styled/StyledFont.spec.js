@@ -12,7 +12,7 @@ import { StyledFont } from './StyledFont';
 
 describe('StyledFont', () => {
   it('renders monospace if specified', () => {
-    const { container } = render(<StyledFont monospace />);
+    const { container } = render(<StyledFont isMonospace />);
 
     expect(container.firstChild).toHaveStyleRule('font-family', /monospace/u);
   });
@@ -48,16 +48,34 @@ describe('StyledFont', () => {
       expect(container.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.xl);
     });
 
+    it('does not render monospace at extra-large size', () => {
+      const { container } = render(<StyledFont isMonospace size="xl" />);
+
+      expect(container.firstChild).not.toHaveStyleRule('font-family', /monospace/u);
+    });
+
     it('renders extra extra-large size', () => {
       const { container } = render(<StyledFont size="xxl" />);
 
       expect(container.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.xxl);
     });
 
+    it('does not render monospace at extra extra-large size', () => {
+      const { container } = render(<StyledFont isMonospace size="xxl" />);
+
+      expect(container.firstChild).not.toHaveStyleRule('font-family', /monospace/u);
+    });
+
     it('renders extra extra extra-large size', () => {
       const { container } = render(<StyledFont size="xxxl" />);
 
       expect(container.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.xxxl);
+    });
+
+    it('does not render monospace at extra extra extra-large size', () => {
+      const { container } = render(<StyledFont isMonospace size="xxxl" />);
+
+      expect(container.firstChild).not.toHaveStyleRule('font-family', /monospace/u);
     });
   });
 });

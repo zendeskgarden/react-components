@@ -6,6 +6,7 @@
  */
 
 import React, { HTMLAttributes } from 'react';
+import PropTypes from 'prop-types';
 import { StyledEllipsis } from '../styled';
 
 interface IEllipsisProps extends HTMLAttributes<HTMLSpanElement> {
@@ -19,7 +20,8 @@ interface IEllipsisProps extends HTMLAttributes<HTMLSpanElement> {
 
 /**
  * A component that automatically includes a native `title` attribute and any
- * text-overflow styling. All other props are spread onto the element.
+ * text-overflow styling. Accepts all standard attributes and events for the
+ * provided `tag`.
  */
 const Ellipsis: React.FunctionComponent<
   IEllipsisProps & React.RefAttributes<HTMLDivElement>
@@ -38,6 +40,11 @@ const Ellipsis: React.FunctionComponent<
     </StyledEllipsis>
   );
 });
+
+Ellipsis.propTypes = {
+  title: PropTypes.string,
+  tag: PropTypes.any
+};
 
 Ellipsis.defaultProps = {
   tag: 'div'

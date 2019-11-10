@@ -11,7 +11,7 @@ import LG from './LG';
 
 describe('LG', () => {
   it('applies monospace styling if provided', () => {
-    const { container } = render(<LG monospace />);
+    const { container } = render(<LG isMonospace />);
 
     expect(container.firstChild).toHaveStyleRule(
       'font-family',

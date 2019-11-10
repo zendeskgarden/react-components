@@ -62,13 +62,18 @@ const Typography = ({ size, children, ...props }) => {
       </Well>
     </Col>
     <Col>
-      <Typography as="p" monospace={state.monospace} size={state.size} style={{ marginTop: 0 }}>
+      <Typography as="p" isMonospace={state.monospace} size={state.size} style={{ marginTop: 0 }}>
         Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth
         tatsoi tomatillo melon azuki bean garlic. Parsley shallot courgette tatsoi pea sprouts fava
         bean collard greens dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut
         soko zucchini.
       </Typography>
-      <Typography as="p" monospace={state.monospace} size={state.size} style={{ marginBottom: 0 }}>
+      <Typography
+        as="p"
+        isMonospace={state.monospace}
+        size={state.size}
+        style={{ marginBottom: 0 }}
+      >
         Grumpy wizards make toxic brew for the evil Queen and Jack.
       </Typography>
     </Col>

@@ -43,7 +43,7 @@ export const StyledCode = styled(StyledFont).attrs({
 
 StyledCode.defaultProps = {
   theme: DEFAULT_THEME,
-  monospace: true,
+  isMonospace: true,
   hue: 'neutralHue',
   size: 'md'
 };

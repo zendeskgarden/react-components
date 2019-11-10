@@ -11,7 +11,7 @@ import SM from './SM';
 
 describe('SM', () => {
   it('applies monospace styling if provided', () => {
-    const { container } = render(<SM monospace />);
+    const { container } = render(<SM isMonospace />);
 
     expect(container.firstChild).toHaveStyleRule(
       'font-family',

@@ -6,6 +6,7 @@
  */
 
 import React, { HTMLAttributes } from 'react';
+import PropTypes from 'prop-types';
 import { StyledCode } from '../styled';
 
 export interface ICodeProps extends HTMLAttributes<HTMLDivElement> {
@@ -14,7 +15,7 @@ export interface ICodeProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Accepts all `<code>` props
+ * Accepts all `<code>` attributes and events
  */
 const Code: React.FunctionComponent<
   ICodeProps & React.RefAttributes<HTMLDivElement>
@@ -31,6 +32,11 @@ const Code: React.FunctionComponent<
 
   return <StyledCode ref={ref} size={_size} hue={hue} {...other} />;
 });
+
+Code.propTypes = {
+  hue: PropTypes.oneOf(['grey', 'red', 'green', 'yellow']),
+  size: PropTypes.oneOf(['small', 'medium', 'large'])
+};
 
 Code.defaultProps = {
   hue: 'grey',

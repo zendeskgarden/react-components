@@ -6,23 +6,26 @@
  */
 
 import React, { HTMLAttributes } from 'react';
+import PropTypes from 'prop-types';
 import { StyledFont } from '../styled';
 
 interface IXLProps extends HTMLAttributes<HTMLDivElement> {
   /** Any valid DOM element for the styled component */
   tag?: any;
-  /** Render monospace font */
-  monospace?: boolean;
 }
 
 /**
- * Accepts all standard props relating to provided `tag`
+ * Accepts all standard attributes and events for the provided `tag`
  */
 const XL: React.FunctionComponent<
   IXLProps & React.RefAttributes<HTMLDivElement>
 > = React.forwardRef<HTMLDivElement, IXLProps>(({ tag, ...other }, ref) => (
   <StyledFont as={tag} ref={ref} size="xl" {...other} />
 ));
+
+XL.propTypes = {
+  tag: PropTypes.any
+};
 
 XL.defaultProps = {
   tag: 'div'

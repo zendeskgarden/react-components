@@ -11,7 +11,7 @@ import MD from './MD';
 
 describe('MD', () => {
   it('applies monospace styling if provided', () => {
-    const { container } = render(<MD monospace />);
+    const { container } = render(<MD isMonospace />);
 
     expect(container.firstChild).toHaveStyleRule(
       'font-family',
