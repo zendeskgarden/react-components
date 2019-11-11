@@ -40,7 +40,7 @@ describe('Tabs', () => {
   it('renders vertical mode if provided', () => {
     const { getByTestId } = render(<BasicExample isVertical />);
 
-    expect(getByTestId('container')).toHaveClass('c-tab--block');
+    expect(getByTestId('container')).toHaveStyleRule('display', 'table');
   });
 
   it('calls onChange with correct item on selection', () => {
@@ -59,16 +59,7 @@ describe('Tabs', () => {
 
       fireEvent.click(tab);
 
-      expect(tab).toHaveClass('is-selected');
-    });
-
-    it('applies focused styling to currently focused tab', () => {
-      const { getAllByTestId } = render(<BasicExample />);
-      const tab = getAllByTestId('tab')[0];
-
-      fireEvent.focus(tab);
-
-      expect(tab).toHaveClass('is-focused');
+      expect(tab).toHaveAttribute('aria-selected', 'true');
     });
 
     it('applies disabled styling if provided', () => {
@@ -86,7 +77,7 @@ describe('Tabs', () => {
         </Tabs>
       );
 
-      expect(getAllByTestId('tab')[1]).toHaveClass('is-disabled');
+      expect(getAllByTestId('tab')[1]).toHaveAttribute('aria-disabled', 'true');
     });
 
     it('applies custom props if provided', () => {
@@ -107,7 +98,7 @@ describe('Tabs', () => {
     it('selected first tab if in uncontrolled state', () => {
       const { getAllByTestId } = render(<BasicExample />);
 
-      expect(getAllByTestId('tab')[0]).toHaveClass('is-selected');
+      expect(getAllByTestId('tab')[0]).toHaveAttribute('aria-selected', 'true');
     });
   });
 
