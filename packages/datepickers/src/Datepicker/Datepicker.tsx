@@ -8,10 +8,6 @@
 import React, { useRef, useEffect, useReducer, useCallback, FunctionComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Manager, Popper, Reference } from 'react-popper';
-import isSameDay from 'date-fns/isSameDay';
-import isValid from 'date-fns/isValid';
-import isBefore from 'date-fns/isBefore';
-import parse from 'date-fns/parse';
 import { isRtl, withTheme } from '@zendeskgarden/react-theming';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
 
@@ -24,32 +20,6 @@ import {
 import Calendar from './components/Calendar';
 import { datepickerReducer, retrieveInitialState } from './utils/datepicker-reducer';
 import { DatepickerContext } from './utils/useDatepickerContext';
-
-/**
- * Parse string input value using current locale and date formats
- */
-function parseInputValue({ inputValue }: { inputValue: string }): Date {
-  const MINIMUM_DATE = new Date(1001, 0, 0);
-  let tryParseDate = parse(inputValue, 'P', new Date());
-
-  if (isValid(tryParseDate) && !isBefore(tryParseDate, MINIMUM_DATE)) {
-    return tryParseDate;
-  }
-
-  tryParseDate = parse(inputValue, 'PP', new Date());
-
-  if (isValid(tryParseDate) && !isBefore(tryParseDate, MINIMUM_DATE)) {
-    return tryParseDate;
-  }
-
-  tryParseDate = parse(inputValue, 'PPP', new Date());
-
-  if (isValid(tryParseDate) && !isBefore(tryParseDate, MINIMUM_DATE)) {
-    return tryParseDate;
-  }
-
-  return new Date(NaN);
-}
 
 export interface IDatepickerProps {
   /**
@@ -133,12 +103,10 @@ const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
     locale,
     customParseDate
   } = props;
-  const memoizedReducer = useCallback(datepickerReducer({ value, formatDate, locale }), [
-    value,
-    formatDate,
-    locale,
-    onChange
-  ]);
+  const memoizedReducer = useCallback(
+    datepickerReducer({ value, formatDate, locale, customParseDate, onChange }),
+    [value, formatDate, locale, onChange, customParseDate]
+  );
   const [state, dispatch] = useReducer(memoizedReducer, retrieveInitialState(props));
   const scheduleUpdateRef = useRef<(() => void) | undefined>(undefined);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -161,28 +129,6 @@ const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
   useEffect(() => {
     dispatch({ type: 'CONTROLLED_VALUE_CHANGE', value });
   }, [value]);
-
-  /**
-   * Trigger `onChange` side-effect when input value becomes a valid date
-   */
-  useEffect(() => {
-    if (customParseDate) {
-      const parsedDate = customParseDate(state.inputValue);
-
-      if (parsedDate && !isSameDay(parsedDate, value!)) {
-        onChange && onChange(parsedDate);
-      }
-
-      return;
-    }
-    const parsedInputValue = parseInputValue({
-      inputValue: state.inputValue
-    });
-
-    if (isValid(parsedInputValue) && !isSameDay(parsedInputValue, value!)) {
-      onChange && onChange(parsedInputValue);
-    }
-  }, [state.inputValue, formatDate, locale, onChange, value, customParseDate]);
 
   useEffect(() => {
     dispatch({ type: 'CONTROLLED_LOCALE_CHANGE' });

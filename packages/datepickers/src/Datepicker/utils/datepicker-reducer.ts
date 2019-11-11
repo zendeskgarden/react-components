@@ -9,11 +9,51 @@ import addMonths from 'date-fns/addMonths';
 import subMonths from 'date-fns/subMonths';
 import isValid from 'date-fns/isValid';
 import { IDatepickerProps } from '../Datepicker';
+import parse from 'date-fns/parse';
+import isBefore from 'date-fns/isBefore';
+import isSameDay from 'date-fns/isSameDay';
 
 export interface IDatepickerState {
   isOpen: boolean;
   previewDate: Date;
   inputValue: string;
+  // currentDate?: Date;
+}
+
+/**
+ * Parse string input value using current locale and date formats
+ */
+function parseInputValue({
+  inputValue,
+  customParseDate
+}: {
+  inputValue: string;
+  customParseDate?: (inputValue: string) => Date;
+}): Date {
+  if (customParseDate) {
+    return customParseDate(inputValue);
+  }
+
+  const MINIMUM_DATE = new Date(1001, 0, 0);
+  let tryParseDate = parse(inputValue, 'P', new Date());
+
+  if (isValid(tryParseDate) && !isBefore(tryParseDate, MINIMUM_DATE)) {
+    return tryParseDate;
+  }
+
+  tryParseDate = parse(inputValue, 'PP', new Date());
+
+  if (isValid(tryParseDate) && !isBefore(tryParseDate, MINIMUM_DATE)) {
+    return tryParseDate;
+  }
+
+  tryParseDate = parse(inputValue, 'PPP', new Date());
+
+  if (isValid(tryParseDate) && !isBefore(tryParseDate, MINIMUM_DATE)) {
+    return tryParseDate;
+  }
+
+  return new Date(NaN);
 }
 
 /**
@@ -56,11 +96,15 @@ export type DatepickerAction =
 export const datepickerReducer = ({
   value,
   formatDate,
-  locale
+  locale,
+  customParseDate,
+  onChange
 }: {
   value?: Date;
   formatDate?: (date: Date) => string;
   locale: any;
+  customParseDate?: (inputValue: string) => Date;
+  onChange?: (date: Date) => void;
 }) => (state: IDatepickerState, action: DatepickerAction): IDatepickerState => {
   switch (action.type) {
     case 'OPEN':
@@ -81,10 +125,24 @@ export const datepickerReducer = ({
       return { ...state, previewDate };
     }
     case 'MANUALLY_UPDATE_INPUT': {
-      return { ...state, isOpen: true, inputValue: action.value };
+      const inputValue = action.value;
+      const currentDate = parseInputValue({ inputValue, customParseDate });
+
+      if (currentDate && isValid(currentDate) && !isSameDay(value!, currentDate)) {
+        onChange && onChange(currentDate);
+      }
+
+      return { ...state, isOpen: true, inputValue };
     }
     case 'CONTROLLED_VALUE_CHANGE': {
-      return { ...state, previewDate: action.value || new Date() };
+      const previewDate = action.value || new Date();
+      const inputValue = formatInputValue({ date: action.value, locale, formatDate });
+
+      if (action.value && isValid(action.value) && !isSameDay(value!, action.value)) {
+        onChange && onChange(action.value);
+      }
+
+      return { ...state, previewDate, inputValue };
     }
     case 'CONTROLLED_LOCALE_CHANGE': {
       const inputValue = formatInputValue({ date: value, locale, formatDate });
@@ -93,6 +151,10 @@ export const datepickerReducer = ({
     }
     case 'SELECT_DATE': {
       const inputValue = formatInputValue({ date: action.value, locale, formatDate });
+
+      if (action.value && isValid(action.value) && !isSameDay(value!, action.value)) {
+        onChange && onChange(action.value);
+      }
 
       return { ...state, isOpen: false, inputValue };
     }
