@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
+import { renderRtl } from 'garden-test-utils';
 import XL from './XL';
 
 describe('XL', () => {
