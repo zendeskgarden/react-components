@@ -12,22 +12,22 @@ import { ButtonGroupContext } from './ButtonGroup';
 
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Apply danger styling */
-  danger?: boolean;
+  isDanger?: boolean;
   size?: 'small' | 'medium' | 'large';
   /** Stretch the button to its container width */
-  stretched?: boolean;
+  isStretched?: boolean;
   /** Applies primary button styling */
-  primary?: boolean;
+  isPrimary?: boolean;
   /** Applies basic button styling */
-  basic?: boolean;
+  isBasic?: boolean;
   /** Applies link (anchor) button styling */
-  link?: boolean;
+  isLink?: boolean;
   /** Applies pill styling */
-  pill?: boolean;
+  isPill?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
   /** @ignore prop used by `ButtonGroup` */
-  selected?: boolean;
+  isSelected?: boolean;
 }
 
 /**
@@ -38,19 +38,19 @@ const Button: React.FunctionComponent<
 > = React.forwardRef<HTMLButtonElement, IButtonProps>((props, ref) => {
   const focusInset = props.focusInset || useContext(ButtonGroupContext);
 
-  return <StyledButton ref={ref} focusInset={focusInset} {...props} />;
+  return <StyledButton ref={ref} {...props} focusInset={focusInset} />;
 });
 
 Button.propTypes = {
-  danger: PropTypes.bool,
+  isDanger: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  stretched: PropTypes.bool,
-  primary: PropTypes.bool,
-  basic: PropTypes.bool,
-  link: PropTypes.bool,
-  pill: PropTypes.bool,
+  isStretched: PropTypes.bool,
+  isPrimary: PropTypes.bool,
+  isBasic: PropTypes.bool,
+  isLink: PropTypes.bool,
+  isPill: PropTypes.bool,
   focusInset: PropTypes.bool,
-  selected: PropTypes.bool
+  isSelected: PropTypes.bool
 };
 
 Button.defaultProps = {

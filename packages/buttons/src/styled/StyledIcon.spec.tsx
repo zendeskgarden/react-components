@@ -33,7 +33,7 @@ describe('StyledIcon', () => {
 
   it('renders  styling if provided', () => {
     const { container } = render(
-      <StyledIcon rotated>
+      <StyledIcon isRotated>
         <TestIcon />
       </StyledIcon>
     );
@@ -43,7 +43,7 @@ describe('StyledIcon', () => {
 
   it('renders expected RTL styling', () => {
     const { container } = renderRtl(
-      <StyledIcon rotated>
+      <StyledIcon isRotated>
         <TestIcon />
       </StyledIcon>
     );

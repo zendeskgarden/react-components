@@ -11,9 +11,9 @@ import { StyledAnchor, StyledExternalIcon } from '../styled';
 
 interface IAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   /** Apply danger styling */
-  danger?: boolean;
+  isDanger?: boolean;
   /** Used when the anchor navigates to an external resource */
-  external?: boolean;
+  isExternal?: boolean;
 }
 
 /**
@@ -25,19 +25,19 @@ interface IAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 const Anchor: React.FunctionComponent<
   IAnchorProps & React.RefAttributes<HTMLAnchorElement>
 > = React.forwardRef<HTMLAnchorElement, IAnchorProps>(
-  ({ children, external, ...otherProps }, ref) => {
+  ({ children, isExternal, ...otherProps }, ref) => {
     return (
       <StyledAnchor ref={ref} {...(otherProps as any)}>
         {children}
-        {external && <StyledExternalIcon />}
+        {isExternal && <StyledExternalIcon />}
       </StyledAnchor>
     );
   }
 );
 
 Anchor.propTypes = {
-  danger: PropTypes.bool,
-  external: PropTypes.bool
+  isDanger: PropTypes.bool,
+  isExternal: PropTypes.bool
 };
 
 /** @component */

@@ -36,7 +36,7 @@ const StyledCol = styled(Col)`
       )}
     </StyledCol>
     <StyledCol md={4}>
-      <Button stretched onClick={() => setState({ isLoading: !state.isLoading })}>
+      <Button isStretched onClick={() => setState({ isLoading: !state.isLoading })}>
         Toggle Skeleton Loaders
       </Button>
       <br />

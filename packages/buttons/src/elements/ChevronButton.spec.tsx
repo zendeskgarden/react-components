@@ -17,7 +17,7 @@ describe('ChevronButton', () => {
   });
 
   it('rotates icon if prop is provided', () => {
-    const { container } = render(<ChevronButton rotated />);
+    const { container } = render(<ChevronButton isRotated />);
 
     expect(container.querySelector('svg')).toHaveStyleRule('transform', 'rotate(+180deg)');
   });
