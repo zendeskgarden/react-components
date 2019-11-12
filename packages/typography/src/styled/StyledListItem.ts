@@ -63,8 +63,7 @@ export const StyledOrderedListItemContent = styled(StyledFont)<IStyledOrderedLis
 
 StyledOrderedListItemContent.defaultProps = {
   theme: DEFAULT_THEME,
-  space: 'medium',
-  monospace: false
+  space: 'medium'
 };
 
 const UNORDERED_ID = 'typography.unordered_list_item';

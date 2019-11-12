@@ -107,3 +107,4 @@ should be re-checked for ID naming accuracy.
 - rename `Code` hue prop
   - previously `<Code type="red">`
   - currently `<Code hue="red">`
+- rename `monospace` -> `isMonospace` prop

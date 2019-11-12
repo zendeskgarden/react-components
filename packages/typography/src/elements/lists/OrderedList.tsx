@@ -6,6 +6,7 @@
  */
 
 import React, { HTMLAttributes } from 'react';
+import PropTypes from 'prop-types';
 import OrderedListItem from './OrderedListItem';
 import { OrderedListContext } from '../../utils/useOrderedListContext';
 import { StyledOrderedList } from '../../styled';
@@ -22,7 +23,7 @@ interface IOrderedListProps extends HTMLAttributes<HTMLOListElement> {
 }
 
 /**
- * Accepts all `ol` props
+ * Accepts all `ol` attributes and events
  */
 const OrderedList = React.forwardRef<HTMLOListElement, IOrderedListProps>(
   ({ size, type, ...other }, ref) => {
@@ -33,6 +34,18 @@ const OrderedList = React.forwardRef<HTMLOListElement, IOrderedListProps>(
     );
   }
 );
+
+OrderedList.propTypes = {
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  type: PropTypes.oneOf([
+    'decimal',
+    'decimal-leading-zero',
+    'lower-alpha',
+    'lower-roman',
+    'upper-alpha',
+    'upper-roman'
+  ])
+};
 
 OrderedList.defaultProps = {
   size: 'medium',

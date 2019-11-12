@@ -6,6 +6,7 @@
  */
 
 import React, { HTMLAttributes } from 'react';
+import PropTypes from 'prop-types';
 import UnorderedListItem from './UnorderedListItem';
 import { UnorderedListContext } from '../../utils/useUnorderedListContext';
 import { StyledUnorderedList } from '../../styled';
@@ -16,7 +17,7 @@ interface IUnorderedListProps extends HTMLAttributes<HTMLUListElement> {
 }
 
 /**
- * Accepts all `ul` props
+ * Accepts all `ul` attributes and events
  */
 const UnorderedList = React.forwardRef<HTMLUListElement, IUnorderedListProps>(
   ({ size, type, ...other }, ref) => (
@@ -25,6 +26,11 @@ const UnorderedList = React.forwardRef<HTMLUListElement, IUnorderedListProps>(
     </UnorderedListContext.Provider>
   )
 );
+
+UnorderedList.propTypes = {
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  type: PropTypes.oneOf(['circle', 'disc', 'square'])
+};
 
 UnorderedList.defaultProps = {
   size: 'medium',

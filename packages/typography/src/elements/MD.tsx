@@ -6,17 +6,18 @@
  */
 
 import React, { HTMLAttributes } from 'react';
+import PropTypes from 'prop-types';
 import { StyledFont } from '../styled';
 
 interface IMDProps extends HTMLAttributes<HTMLDivElement> {
   /** Any valid DOM element for the styled component */
   tag?: any;
   /** Render monospace font */
-  monospace?: boolean;
+  isMonospace?: boolean;
 }
 
 /**
- * Accepts all standard props relating to provided `tag`
+ * Accepts all standard attributes and events for the provided `tag`
  */
 const MD: React.FunctionComponent<
   IMDProps & React.RefAttributes<HTMLDivElement>
@@ -24,9 +25,13 @@ const MD: React.FunctionComponent<
   <StyledFont as={tag} ref={ref} size="md" {...other} />
 ));
 
+MD.propTypes = {
+  tag: PropTypes.any,
+  isMonospace: PropTypes.bool
+};
+
 MD.defaultProps = {
-  tag: 'div',
-  monospace: false
+  tag: 'div'
 };
 
 /** @component */

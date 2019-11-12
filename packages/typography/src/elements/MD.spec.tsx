@@ -7,11 +7,11 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import SM from './SM';
+import MD from './MD';
 
-describe('SM', () => {
+describe('MD', () => {
   it('applies monospace styling if provided', () => {
-    const { container } = render(<SM monospace />);
+    const { container } = render(<MD isMonospace />);
 
     expect(container.firstChild).toHaveStyleRule(
       'font-family',
@@ -20,7 +20,7 @@ describe('SM', () => {
   });
 
   it('applies correct styling with RTL locale', () => {
-    const { container } = renderRtl(<SM />);
+    const { container } = renderRtl(<MD />);
 
     expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });

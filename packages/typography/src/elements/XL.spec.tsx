@@ -6,19 +6,10 @@
  */
 
 import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
+import { renderRtl } from 'garden-test-utils';
 import XL from './XL';
 
 describe('XL', () => {
-  it('does not apply monospace styling if provided', () => {
-    const { container } = render(<XL monospace>Hello world</XL>);
-
-    expect(container.firstChild).not.toHaveStyleRule(
-      'font-family',
-      expect.stringContaining('monospace')
-    );
-  });
-
   it('applies correct styling with RTL locale', () => {
     const { container } = renderRtl(<XL>Hello world</XL>);
 

@@ -13,7 +13,7 @@ const COMPONENT_ID = 'typography.font';
 
 const fontStyles = (props: IStyledFontProps & ThemeProps<DefaultTheme>) => {
   const lineHeight = props.theme.lineHeights[props.size!];
-  const monospace = props.monospace && ['sm', 'md', 'lg'].indexOf(props.size!) !== -1;
+  const monospace = props.isMonospace && ['sm', 'md', 'lg'].indexOf(props.size!) !== -1;
   const fontFamily = monospace && props.theme.fonts.mono;
   const fontSize = monospace
     ? math(`${props.theme.fontSizes[props.size!]} - 1px`)
@@ -29,7 +29,7 @@ const fontStyles = (props: IStyledFontProps & ThemeProps<DefaultTheme>) => {
 };
 
 export interface IStyledFontProps {
-  monospace?: boolean;
+  isMonospace?: boolean;
   size?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl';
 }
 
@@ -43,6 +43,5 @@ export const StyledFont = styled.div.attrs({
 
 StyledFont.defaultProps = {
   theme: DEFAULT_THEME,
-  size: 'md',
-  monospace: false
+  size: 'md'
 };
