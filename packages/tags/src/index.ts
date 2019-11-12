@@ -5,4 +5,4 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { default as Tag } from './components/Tag';
+export { default as Tag } from './elements/Tag';

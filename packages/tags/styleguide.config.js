@@ -42,8 +42,8 @@ module.exports = {
       ]
     },
     {
-      name: 'Components',
-      components: '../../packages/tags/src/components/Tag.{ts,tsx}'
+      name: 'Elements',
+      components: '../../packages/tags/src/elements/Tag.{ts,tsx}'
     }
   ]
 };

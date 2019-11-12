@@ -91,14 +91,14 @@ const sizeStyles = (props: IStyledTagProps & ThemeProps<DefaultTheme>) => {
 
   let avatarBorderRadius = props.size === 'large' ? math(`${borderRadius} - 1`) : borderRadius;
   const avatarMargin = (height - avatarSize) / 2;
-  const avatarTextMargin = props.round ? avatarMargin : avatarMargin * 2;
+  const avatarTextMargin = props.isRound ? avatarMargin : avatarMargin * 2;
 
-  if (props.round) {
+  if (props.isRound) {
     borderRadius = '50%';
     padding = 0;
     minWidth = height;
     avatarBorderRadius = '50%';
-  } else if (props.pill) {
+  } else if (props.isPill) {
     borderRadius = '100px';
     avatarBorderRadius = '50%';
 
@@ -148,8 +148,8 @@ const sizeStyles = (props: IStyledTagProps & ThemeProps<DefaultTheme>) => {
 interface IStyledTagProps {
   hue?: string;
   size?: 'small' | 'medium' | 'large';
-  pill?: boolean;
-  round?: boolean;
+  isPill?: boolean;
+  isRound?: boolean;
 }
 
 export const StyledTag = styled.div.attrs<IStyledTagProps>({
@@ -159,7 +159,7 @@ export const StyledTag = styled.div.attrs<IStyledTagProps>({
   display: inline-flex;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: ${props => (props.round || props.pill) && 'center'};
+  justify-content: ${props => (props.isRound || props.isPill) && 'center'};
   transition: box-shadow 0.1s ease-in-out;
   border: 0; /* <button> element reset */
   max-width: 100%;
@@ -198,17 +198,17 @@ export const StyledTag = styled.div.attrs<IStyledTagProps>({
 
   & > * {
     overflow: hidden;
-    text-align: ${props => props.round && 'center'};
+    text-align: ${props => props.isRound && 'center'};
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
   & ${StyledAvatar} {
-    display: ${props => (props.round || props.size === 'small') && 'none'};
+    display: ${props => (props.isRound || props.size === 'small') && 'none'};
   }
 
   & ${StyledClose} {
-    display: ${props => props.round && 'none'};
+    display: ${props => props.isRound && 'none'};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

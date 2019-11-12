@@ -6,6 +6,7 @@
  */
 
 import React, { HTMLAttributes } from 'react';
+import PropTypes from 'prop-types';
 import { StyledTag, StyledAvatar } from '../styled';
 import Close from './Close';
 
@@ -29,12 +30,12 @@ interface ITagProps extends HTMLAttributes<HTMLDivElement> {
     | 'azure'
     | 'royal'
     | 'purple';
-  pill?: boolean;
-  round?: boolean;
+  isPill?: boolean;
+  isRound?: boolean;
 }
 
 /**
- * Accepts all `<div>` props.
+ * Accepts all `<div>` attributes and events.
  *
  * **Accessibility warning:** the `Tag.Close` component includes a default
  * English `aria-label`. If you are localizing your application you must
@@ -43,6 +44,31 @@ interface ITagProps extends HTMLAttributes<HTMLDivElement> {
 const Tag = React.forwardRef<HTMLDivElement, ITagProps>(({ size, hue, ...otherProps }, ref) => (
   <StyledTag ref={ref} size={size} hue={hue} {...otherProps} />
 ));
+
+Tag.propTypes = {
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  hue: PropTypes.oneOf([
+    'grey',
+    'blue',
+    'kale',
+    'red',
+    'green',
+    'yellow',
+    'fuschia',
+    'pink',
+    'crimson',
+    'orange',
+    'lemon',
+    'lime',
+    'mint',
+    'teal',
+    'azure',
+    'royal',
+    'purple'
+  ]),
+  isPill: PropTypes.bool,
+  isRound: PropTypes.bool
+};
 
 Tag.defaultProps = {
   size: 'medium',
