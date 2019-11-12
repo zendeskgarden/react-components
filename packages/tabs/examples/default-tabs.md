@@ -43,6 +43,7 @@ tabs = ['Tab 1', 'Tab 2', 'Tab 3'];
 
 initialState = {
   isVertical: true,
+  isDisabled: false,
   selectedItem: tabs[0]
 };
 
@@ -55,9 +56,15 @@ initialState = {
             checked={state.isVertical}
             onChange={e => setState({ isVertical: e.target.checked })}
           >
-            <Label>
-              Enable <Code>isVertical</Code>
-            </Label>
+            <Label>Vertical</Label>
+          </Toggle>
+        </Field>
+        <Field>
+          <Toggle
+            checked={state.isDisabled}
+            onChange={e => setState({ isDisabled: e.target.checked })}
+          >
+            <Label>Disabled</Label>
           </Toggle>
         </Field>
       </Well>
@@ -70,7 +77,7 @@ initialState = {
       >
         <TabList>
           {tabs.map(tab => (
-            <Tab key={tab} item={tab}>
+            <Tab key={tab} item={tab} disabled={state.isDisabled && tab === 'Tab 2'}>
               {tab}
             </Tab>
           ))}

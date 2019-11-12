@@ -11,6 +11,9 @@ import { StyledTabPanel } from '../styled';
 import { useTabsContext } from '../utils/useTabsContext';
 
 interface ITabPanelProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * A value to uniquely identity a TabPanel. Provided to the `onChange` event.
+   */
   item?: any;
 }
 

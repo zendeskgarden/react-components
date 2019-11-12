@@ -12,6 +12,9 @@ import { useTabsContext } from '../utils/useTabsContext';
 
 interface ITabProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
+  /**
+   * A value to uniquely identity a Tab. Provided to the `onChange` event.
+   */
   item?: any;
 }
 

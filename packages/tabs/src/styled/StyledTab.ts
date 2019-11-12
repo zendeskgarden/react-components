@@ -7,6 +7,7 @@
 
 import styled, { DefaultTheme, css, ThemeProps } from 'styled-components';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import stripUnit from 'polished/lib/helpers/stripUnit';
 
 const COMPONENT_ID = 'tabs.tab';
 
@@ -18,36 +19,31 @@ interface IStyledTabProps {
 /**
  * A high specificity is needed to apply the border-color in vertical orientations
  */
-const colorStyles = ({ theme, isSelected }: IStyledTabProps & ThemeProps<DefaultTheme>) => css`
-  color: ${isSelected ? getColor('primaryHue', 600, theme) : 'inherit'};
+const colorStyles = ({ theme, isSelected }: IStyledTabProps & ThemeProps<DefaultTheme>) => {
+  const selectedColor = getColor('primaryHue', 600, theme);
 
-  &&& {
-    border-color: ${isSelected && 'currentColor'};
-  }
+  return css`
+    color: ${isSelected ? selectedColor : 'inherit'};
 
-  &:hover {
-    color: ${props => getColor('primaryHue', 600, props.theme)};
-  }
+    &&& {
+      border-color: ${isSelected && 'currentColor'};
+    }
 
-  &:focus {
-    outline: none;
-    text-decoration: none;
-  }
+    &:hover {
+      color: ${selectedColor};
+    }
 
-  &:active {
-    border-color: currentColor;
-    color: ${props => getColor('primaryHue', 600, props.theme)};
-  }
+    &:active {
+      border-color: currentColor;
+      color: ${selectedColor};
+    }
 
-  &::before {
-    transition: box-shadow 0.1s ease-in-out;
-    content: '';
-  }
-
-  &:active::before {
-    box-shadow: none;
-  }
-`;
+    &[aria-disabled='true'] {
+      border-color: transparent;
+      color: ${props => getColor('neutralHue', 400, props.theme)};
+    }
+  `;
+};
 
 const focusStyles = ({ theme }: ThemeProps<DefaultTheme>) => css`
   &[data-garden-focus-visible] {
@@ -66,6 +62,17 @@ const focusStyles = ({ theme }: ThemeProps<DefaultTheme>) => css`
   }
 `;
 
+const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const paddingTop = theme.space.base * 2.5;
+  const paddingHorizontal = theme.space.base * 7;
+  const paddingBottom =
+    paddingTop - stripUnit(theme.borderWidths.md) - stripUnit(theme.borderWidths.sm);
+
+  return css`
+    padding: ${paddingTop}px ${paddingHorizontal}px ${paddingBottom}px;
+  `;
+};
+
 /**
  * Accepts all `<div>` props
  */
@@ -80,8 +87,6 @@ export const StyledTab = styled.div.attrs<IStyledTabProps>(props => ({
   border-bottom: ${props => props.theme.borderStyles.solid} transparent;
   border-width: ${props => props.theme.borderWidths.md};
   cursor: pointer;
-  padding: ${props => props.theme.space.base * 2.5}px ${props => props.theme.space.base * 7}px
-    ${props => props.theme.space.base * 1.5}px;
   overflow: hidden;
   vertical-align: top;
   user-select: none;
@@ -89,13 +94,26 @@ export const StyledTab = styled.div.attrs<IStyledTabProps>(props => ({
   text-decoration: none;
   text-overflow: ellipsis;
 
+  ${sizeStyles}
   ${colorStyles}
   ${focusStyles}
 
+  &:focus {
+    outline: none;
+    text-decoration: none;
+  }
+
+  &::before {
+    transition: box-shadow 0.1s ease-in-out;
+    content: '';
+  }
+
+  &:active::before {
+    box-shadow: none;
+  }
+
   &[aria-disabled='true'] {
-    border-color: transparent;
     cursor: default;
-    color: ${props => getColor('neutralHue', 400, props.theme)};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

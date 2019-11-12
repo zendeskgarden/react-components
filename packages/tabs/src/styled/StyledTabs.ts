@@ -33,11 +33,15 @@ const verticalStyling = ({ theme }: ThemeProps<DefaultTheme>) => {
     ${StyledTab} {
       display: block;
       margin-bottom: ${theme.space.base * 5}px;
+      margin-left: ${theme.rtl && '0'};
+      border-left: ${theme.rtl && '0'};
+      border-right-style: ${theme.rtl && theme.borderStyles.solid};
       border-bottom-style: none;
-      border-left-style: ${theme.borderStyles.solid};
-      border-left-color: transparent;
+      border-left-style: ${!theme.rtl && theme.borderStyles.solid};
+      border-right-color: ${theme.rtl && 'transparent'};
+      border-left-color: ${!theme.rtl && 'transparent'};
       padding: ${theme.space.base}px ${theme.space.base * 2}px;
-      text-align: left;
+      text-align: ${theme.rtl ? 'right' : 'left'};
 
       &:last-of-type {
         margin-bottom: 0;
@@ -48,26 +52,12 @@ const verticalStyling = ({ theme }: ThemeProps<DefaultTheme>) => {
         right: ${theme.space.base}px;
         left: ${theme.space.base}px;
       }
-
-      ${theme.rtl &&
-        `
-        margin-left: 0;
-        border-left: 0;
-        border-right-style: ${theme.borderStyles.solid};
-        border-right-color: transparent;
-        text-align: right;
-      `}
     }
 
     ${StyledTabPanel} {
-      margin-left: ${theme.space.base * 8}px;
-      width: 100%;
+      /* stylelint-disable-next-line property-no-unknown */
+      margin-${theme.rtl ? 'right' : 'left'}: ${theme.space.base * 8}px;
       vertical-align: top;
-
-      ${theme.rtl &&
-        `
-        margin-right: ${theme.space.base * 8}px;
-      `}
     }
   `;
 };
