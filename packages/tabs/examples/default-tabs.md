@@ -16,24 +16,6 @@ a matching `item` prop.
 </Tabs>
 ```
 
-### Default Usage
-
-```jsx
-<Tabs>
-  <TabList>
-    <Tab item="tab-1">Tab 1</Tab>
-    <Tab item="tab-2">Tab 2</Tab>
-    <Tab disabled>Disabled content</Tab>
-    <Tab item="tab-3">Tab 3</Tab>
-  </TabList>
-  <TabPanel item="tab-1">Tab 1 content</TabPanel>
-  <TabPanel item="tab-2">Tab 2 content</TabPanel>
-  <TabPanel item="tab-3">Tab 3 content</TabPanel>
-</Tabs>
-```
-
-### Advanced Usage
-
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
 const { Code } = require('@zendeskgarden/react-typography/src');
@@ -47,26 +29,30 @@ initialState = {
   selectedItem: tabs[0]
 };
 
+const StyledSpacedField = styled(Field)`
+  margin-bottom: ${props => props.theme.space.sm};
+`;
+
 <Grid>
   <Row>
     <Col md={4}>
       <Well recessed>
-        <Field>
+        <StyledSpacedField>
           <Toggle
             checked={state.isVertical}
             onChange={e => setState({ isVertical: e.target.checked })}
           >
             <Label>Vertical</Label>
           </Toggle>
-        </Field>
-        <Field>
+        </StyledSpacedField>
+        <StyledSpacedField>
           <Toggle
             checked={state.isDisabled}
             onChange={e => setState({ isDisabled: e.target.checked })}
           >
             <Label>Disabled</Label>
           </Toggle>
-        </Field>
+        </StyledSpacedField>
       </Well>
     </Col>
     <Col md={8}>

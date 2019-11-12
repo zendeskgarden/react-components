@@ -38,29 +38,20 @@ const colorStyles = ({ theme, isSelected }: IStyledTabProps & ThemeProps<Default
       color: ${selectedColor};
     }
 
+    &[data-garden-focus-visible] {
+      color: ${getColor('primaryHue', 600, theme)};
+    }
+
+    &[data-garden-focus-visible]::before {
+      box-shadow: inset ${theme.shadows.sm(getColor('primaryHue', 600, theme, 0.35)!)};
+    }
+
     &[aria-disabled='true'] {
       border-color: transparent;
       color: ${props => getColor('neutralHue', 400, props.theme)};
     }
   `;
 };
-
-const focusStyles = ({ theme }: ThemeProps<DefaultTheme>) => css`
-  &[data-garden-focus-visible] {
-    color: ${getColor('primaryHue', 600, theme)};
-  }
-
-  &[data-garden-focus-visible]::before {
-    position: absolute;
-    top: ${theme.space.base * 2.5}px;
-    right: ${theme.space.base * 6}px;
-    left: ${theme.space.base * 6}px;
-    border-radius: ${theme.borderRadii.md};
-    box-shadow: inset ${theme.shadows.sm(getColor('primaryHue', 600, theme, 0.35)!)};
-    height: ${theme.space.base * 5}px;
-    pointer-events: none;
-  }
-`;
 
 const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const paddingTop = theme.space.base * 2.5;
@@ -96,11 +87,20 @@ export const StyledTab = styled.div.attrs<IStyledTabProps>(props => ({
 
   ${sizeStyles}
   ${colorStyles}
-  ${focusStyles}
 
   &:focus {
     outline: none;
     text-decoration: none;
+  }
+
+  &[data-garden-focus-visible]::before {
+    position: absolute;
+    top: ${props => props.theme.space.base * 2.5}px;
+    right: ${props => props.theme.space.base * 6}px;
+    left: ${props => props.theme.space.base * 6}px;
+    border-radius: ${props => props.theme.borderRadii.md};
+    height: ${props => props.theme.space.base * 5}px;
+    pointer-events: none;
   }
 
   &::before {
