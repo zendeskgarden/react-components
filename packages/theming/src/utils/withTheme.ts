@@ -6,7 +6,7 @@
  */
 
 import { withTheme as styledWithTheme } from 'styled-components';
-import DEFAULT_THEME from '../theme';
+import DEFAULT_THEME from '../elements/theme';
 
 /** @component */
 export default function withTheme(WrappedComponent: any) {

@@ -29,7 +29,7 @@ module.exports = {
       content: '../../packages/theming/README.md'
     },
     {
-      name: 'Components',
+      name: 'Elements',
       sections: [
         {
           name: 'ThemeProvider',

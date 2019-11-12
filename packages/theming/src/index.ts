@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { default as ThemeProvider } from './ThemeProvider';
-export { default as DEFAULT_THEME } from './theme';
-export { default as PALETTE } from './palette';
+export { default as ThemeProvider } from './elements/ThemeProvider';
+export { default as DEFAULT_THEME } from './elements/theme';
+export { default as PALETTE } from './elements/palette';
 export { default as isRtl } from './utils/isRtl';
 export { default as retrieveComponentStyles } from './utils/retrieveComponentStyles';
 export { default as withTheme } from './utils/withTheme';

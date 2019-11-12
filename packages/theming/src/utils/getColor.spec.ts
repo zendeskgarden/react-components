@@ -6,8 +6,8 @@
  */
 
 import getColor from './getColor';
-import PALETTE from '../palette';
-import DEFAULT_THEME from '../theme';
+import PALETTE from '../elements/palette';
+import DEFAULT_THEME from '../elements/theme';
 import { darken, lighten, rgba } from 'polished';
 
 const DEFAULT_SHADE = 600;

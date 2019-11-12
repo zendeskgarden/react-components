@@ -9,7 +9,7 @@ import React from 'react';
 import { ThemeProps, DefaultTheme } from 'styled-components';
 import { render, renderRtl } from 'garden-test-utils';
 import withTheme from './withTheme';
-import DEFAULT_THEME from '../theme';
+import DEFAULT_THEME from '../elements/theme';
 
 const Example: React.FunctionComponent<ThemeProps<DefaultTheme>> = ({ theme: { rtl } }) => {
   return <div data-rtl={rtl ? rtl : false}>test</div>;

@@ -122,9 +122,13 @@ The `fonts` section of the theme contains two CSS `font-family` stacks:
 The `fontSizes` and `lineHeights` objects work together to define the basis
 for Garden's
 [typography](https://garden.zendesk.com/react-components/typography/) system.
-Note that `fontSizes` contains a `mono` child object with definitions for
-monospace font sizing – slightly reduced so monospace x-height is
+Garden reduces monospace equivalents by one pixel so that x-height is
 proportional with the surrounding system font.
+
+### Icon sizes
+
+The `iconSizes` object corresponds with the small, medium and large icons
+provided by Garden's [svg-icons](https://github.com/zendeskgarden/svg-icons).
 
 ### Palette
 

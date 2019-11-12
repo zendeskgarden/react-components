@@ -7,7 +7,7 @@
 
 /* eslint-disable default-param-last */
 
-import DEFAULT_THEME from '../theme';
+import DEFAULT_THEME from '../elements/theme';
 import darken from 'polished/lib/color/darken';
 import lighten from 'polished/lib/color/lighten';
 import rgba from 'polished/lib/color/rgba';
@@ -30,8 +30,6 @@ const adjust = (color: string, expected: number, actual: number) => {
  * Get the palette color for the given hue, shade, and theme.
  *
  * @param {string|Object} hue A `theme.palette` hue or one of the following `theme.colors` keys:
- *  - `'background'` = `theme.colors.background`
- *  - `'foreground'` = `theme.colors.foreground`
  *  - `'primaryHue'` = `theme.colors.primaryHue`
  *  - `'dangerHue'` = `theme.colors.dangerHue`
  *  - `'warningHue'` = `theme.colors.warningHue`
