@@ -122,8 +122,8 @@ The `fonts` section of the theme contains two CSS `font-family` stacks:
 The `fontSizes` and `lineHeights` objects work together to define the basis
 for Garden's
 [typography](https://garden.zendesk.com/react-components/typography/) system.
-Garden pixel reduces monospace equivalents so that x-height is proportional
-with the surrounding system font.
+Garden reduces monospace equivalents by one pixel so that x-height is
+proportional with the surrounding system font.
 
 ### Icon sizes
 
