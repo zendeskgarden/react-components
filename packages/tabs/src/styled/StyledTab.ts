@@ -80,7 +80,6 @@ export const StyledTab = styled.div.attrs<IStyledTabProps>(props => ({
   vertical-align: top; /* [2] */
   user-select: none;
   text-align: center;
-  text-decoration: none; /* [3] */
   text-overflow: ellipsis; /* [1] */
 
   ${sizeStyles}
