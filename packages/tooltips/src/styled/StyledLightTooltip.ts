@@ -6,7 +6,6 @@
  */
 
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import TooltipStyles from '@zendeskgarden/css-tooltips';
 import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
