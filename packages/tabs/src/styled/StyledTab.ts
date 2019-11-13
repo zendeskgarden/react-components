@@ -64,6 +64,7 @@ const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
 /**
  * 1. Text truncation (requires `max-width`).
  * 2. Overflow compensation.
+ * 3. Override default anchor styling
  */
 export const StyledTab = styled.div.attrs<IStyledTabProps>(props => ({
   'data-garden-id': COMPONENT_ID,
@@ -80,6 +81,7 @@ export const StyledTab = styled.div.attrs<IStyledTabProps>(props => ({
   vertical-align: top; /* [2] */
   user-select: none;
   text-align: center;
+  text-decoration: none; /* [3] */
   text-overflow: ellipsis; /* [1] */
 
   ${sizeStyles}
