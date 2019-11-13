@@ -24,7 +24,7 @@ const { Field, Label, Toggle } = require('@zendeskgarden/react-forms/src');
 tabs = ['Tab 1', 'Tab 2', 'Tab 3'];
 
 initialState = {
-  isVertical: true,
+  isVertical: false,
   isDisabled: false,
   selectedItem: tabs[0]
 };

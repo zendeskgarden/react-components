@@ -11,18 +11,18 @@ import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden
 const COMPONENT_ID = 'tabs.tablist';
 
 /**
- * Accepts all `<div>` props
+ * 1. List element reset.
  */
 export const StyledTabList = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
   display: block;
-  margin-top: 0;
+  margin-top: 0; /* [1] */
   margin-bottom: ${props => props.theme.space.base * 5}px;
   border-bottom: ${props => props.theme.borderWidths.sm} ${props => props.theme.borderStyles.solid}
     ${props => getColor('neutralHue', 300, props.theme)};
-  padding: 0;
+  padding: 0; /* [1] */
   line-height: ${props => props.theme.space.base * 5}px;
   white-space: nowrap;
   color: ${props => getColor('neutralHue', 600, props.theme)};

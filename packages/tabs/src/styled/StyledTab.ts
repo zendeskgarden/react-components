@@ -17,17 +17,14 @@ interface IStyledTabProps {
 }
 
 /**
- * A high specificity is needed to apply the border-color in vertical orientations
+ * 1. A high specificity is needed to apply the border-color in vertical orientations
  */
 const colorStyles = ({ theme, isSelected }: IStyledTabProps & ThemeProps<DefaultTheme>) => {
   const selectedColor = getColor('primaryHue', 600, theme);
 
   return css`
+    border-color: ${isSelected && 'currentColor !important'}; /* [1] */
     color: ${isSelected ? selectedColor : 'inherit'};
-
-    &&& {
-      border-color: ${isSelected && 'currentColor'};
-    }
 
     &:hover {
       color: ${selectedColor};
@@ -39,7 +36,7 @@ const colorStyles = ({ theme, isSelected }: IStyledTabProps & ThemeProps<Default
     }
 
     &[data-garden-focus-visible] {
-      color: ${getColor('primaryHue', 600, theme)};
+      color: ${selectedColor};
     }
 
     &[data-garden-focus-visible]::before {
@@ -65,7 +62,8 @@ const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
 };
 
 /**
- * Accepts all `<div>` props
+ * 1. Text truncation (requires `max-width`).
+ * 2. Overflow compensation.
  */
 export const StyledTab = styled.div.attrs<IStyledTabProps>(props => ({
   'data-garden-id': COMPONENT_ID,
@@ -78,12 +76,12 @@ export const StyledTab = styled.div.attrs<IStyledTabProps>(props => ({
   border-bottom: ${props => props.theme.borderStyles.solid} transparent;
   border-width: ${props => props.theme.borderWidths.md};
   cursor: pointer;
-  overflow: hidden;
-  vertical-align: top;
+  overflow: hidden; /* [1] */
+  vertical-align: top; /* [2] */
   user-select: none;
   text-align: center;
-  text-decoration: none;
-  text-overflow: ellipsis;
+  text-decoration: none; /* [3] */
+  text-overflow: ellipsis; /* [1] */
 
   ${sizeStyles}
   ${colorStyles}

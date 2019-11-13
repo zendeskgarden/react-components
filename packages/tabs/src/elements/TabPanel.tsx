@@ -12,7 +12,7 @@ import { useTabsContext } from '../utils/useTabsContext';
 
 interface ITabPanelProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * A value to uniquely identity a TabPanel. Provided to the `onChange` event.
+   * A value used to match a `TabPanel` with its associated Tab.
    */
   item?: any;
 }

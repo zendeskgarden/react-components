@@ -35,11 +35,11 @@ const verticalStyling = ({ theme }: ThemeProps<DefaultTheme>) => {
       margin-bottom: ${theme.space.base * 5}px;
       margin-left: ${theme.rtl && '0'};
       border-left: ${theme.rtl && '0'};
-      border-right-style: ${theme.rtl && theme.borderStyles.solid};
       border-bottom-style: none;
-      border-left-style: ${!theme.rtl && theme.borderStyles.solid};
-      border-right-color: ${theme.rtl && 'transparent'};
-      border-left-color: ${!theme.rtl && 'transparent'};
+      /* stylelint-disable property-case, property-no-unknown */
+      border-${theme.rtl ? 'right' : 'left'}-style: ${theme.borderStyles.solid};
+      border-${theme.rtl ? 'right' : 'left'}-color: transparent;
+      /* stylelint-enable property-case, property-no-unknown */
       padding: ${theme.space.base}px ${theme.space.base * 2}px;
       text-align: ${theme.rtl ? 'right' : 'left'};
 
