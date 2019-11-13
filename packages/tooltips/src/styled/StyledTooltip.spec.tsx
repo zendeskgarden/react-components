@@ -7,25 +7,26 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import TooltipView from './TooltipView';
+import { StyledTooltip, TOOLTIP_SIZE } from './StyledTooltip';
+import { POPPER_PLACEMENT } from '../utils/gardenPlacements';
 
 describe('TooltipView', () => {
   it('renders default styling correctly', () => {
-    const { container } = render(<TooltipView />);
+    const { container } = render(<StyledTooltip />);
 
     expect(container.firstChild).toHaveClass('c-tooltip');
   });
 
   it('renders RTL styling correctly', () => {
-    const { container } = renderRtl(<TooltipView />);
+    const { container } = renderRtl(<StyledTooltip />);
 
     expect(container.firstChild).toHaveClass('is-rtl');
   });
 
   describe('Sizing', () => {
-    ['medium', 'large', 'extra-large'].forEach(size => {
+    (['medium', 'large', 'extra-large'] as TOOLTIP_SIZE[]).forEach(size => {
       it(`renders ${size} size correctly`, () => {
-        const { container } = render(<TooltipView size={size} />);
+        const { container } = render(<StyledTooltip size={size} />);
 
         expect(container.firstChild).toHaveClass(`c-tooltip--${size}`);
       });
@@ -33,7 +34,7 @@ describe('TooltipView', () => {
   });
 
   describe('Placement', () => {
-    [
+    ([
       'top',
       'top-start',
       'top-end',
@@ -46,8 +47,8 @@ describe('TooltipView', () => {
       'left',
       'left-start',
       'left-end'
-    ].forEach(placement => {
-      const classes = {
+    ] as POPPER_PLACEMENT[]).forEach(placement => {
+      const classes: Partial<Record<POPPER_PLACEMENT, string>> = {
         top: 'b',
         'top-start': 'bl',
         'top-end': 'br',
@@ -63,14 +64,14 @@ describe('TooltipView', () => {
       };
 
       it(`renders ${placement} placement correctly`, () => {
-        const { container } = render(<TooltipView placement={placement} />);
+        const { container } = render(<StyledTooltip placement={placement} />);
 
         expect(container.firstChild).toHaveClass(`c-arrow--${classes[placement]}`);
       });
     });
 
     it('does not render arrow styling if disabled', () => {
-      const { container } = render(<TooltipView arrow={false} placement="top" />);
+      const { container } = render(<StyledTooltip showArrow={false} placement="top" />);
 
       expect(container.firstChild).not.toHaveClass('c-arrow');
     });

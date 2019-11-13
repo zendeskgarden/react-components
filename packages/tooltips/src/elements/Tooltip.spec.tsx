@@ -8,23 +8,30 @@
 import React from 'react';
 import { render, fireEvent, act } from 'garden-test-utils';
 
-import Tooltip from './Tooltip';
+import Tooltip, { ITooltipProps } from './Tooltip';
 
 jest.useFakeTimers();
 
 describe('Tooltip', () => {
-  const BasicExample = ({ placement, size, type } = {}) => (
+  const BasicExample = ({ placement, size, type, ...other }: Partial<ITooltipProps>) => (
     <Tooltip
       placement={placement}
       size={size}
       type={type}
-      trigger={<button data-test-id="trigger">Trigger</button>}
+      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+      labore et dolore magna aliqua."
       data-test-id="tooltip"
+      {...other}
     >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-      labore et dolore magna aliqua.
+      <button data-test-id="trigger">Trigger</button>
     </Tooltip>
   );
+
+  it('renders tooltip within appendToNode prop', () => {
+    const { getByTestId } = render(<BasicExample appendToNode={document.body} />);
+
+    expect(getByTestId('tooltip').parentElement!.parentElement!.tagName).toBe('BODY');
+  });
 
   describe('Types', () => {
     it('renders light tooltip if provided', () => {

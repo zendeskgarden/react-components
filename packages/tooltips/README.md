@@ -31,7 +31,9 @@ import { Tooltip } from '@zendeskgarden/react-tooltips';
  * Place a `ThemeProvider` at the root of your React application
  */
 <ThemeProvider>
-  <Tooltip trigger={<button>Trigger top placement</button>}>This is a small tooltip</Tooltip>
+  <Tooltip content="This is a small tooltip">
+    <button>Trigger top placement</button>
+  </Tooltip>
 </ThemeProvider>;
 ```
 
