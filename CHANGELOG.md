@@ -12,6 +12,18 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v7.1.1 (2019-11-13)
+
+#### :bug: Bug Fix
+* `datepickers`
+  * [#517](https://github.com/zendeskgarden/react-components/pull/517) fix(datepickers): allow controlled value to update internal state ([@austin94](https://github.com/austin94))
+* `forms`
+  * [#516](https://github.com/zendeskgarden/react-components/pull/516) fix(forms): allow MultiThumbRange to position correctly in Edge and IE11 ([@austin94](https://github.com/austin94))
+
+#### :memo: Documentation
+* `tables`
+  * [#518](https://github.com/zendeskgarden/react-components/pull/518) chore(docs): remove invalid prop from table docs ([@austin94](https://github.com/austin94))
+
 ## v7.1.0 (2019-11-06)
 
 #### :rocket: New Feature
