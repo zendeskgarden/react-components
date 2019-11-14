@@ -16,24 +16,6 @@ a matching `item` prop.
 </Tabs>
 ```
 
-### Default Usage
-
-```jsx
-<Tabs>
-  <TabList>
-    <Tab item="tab-1">Tab 1</Tab>
-    <Tab item="tab-2">Tab 2</Tab>
-    <Tab disabled>Disabled content</Tab>
-    <Tab item="tab-3">Tab 3</Tab>
-  </TabList>
-  <TabPanel item="tab-1">Tab 1 content</TabPanel>
-  <TabPanel item="tab-2">Tab 2 content</TabPanel>
-  <TabPanel item="tab-3">Tab 3 content</TabPanel>
-</Tabs>
-```
-
-### Advanced Usage
-
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
 const { Code } = require('@zendeskgarden/react-typography/src');
@@ -42,24 +24,35 @@ const { Field, Label, Toggle } = require('@zendeskgarden/react-forms/src');
 tabs = ['Tab 1', 'Tab 2', 'Tab 3'];
 
 initialState = {
-  isVertical: true,
+  isVertical: false,
+  isDisabled: false,
   selectedItem: tabs[0]
 };
+
+const StyledSpacedField = styled(Field)`
+  margin-bottom: ${props => props.theme.space.sm};
+`;
 
 <Grid>
   <Row>
     <Col md={4}>
       <Well recessed>
-        <Field>
+        <StyledSpacedField>
           <Toggle
             checked={state.isVertical}
             onChange={e => setState({ isVertical: e.target.checked })}
           >
-            <Label>
-              Enable <Code>isVertical</Code>
-            </Label>
+            <Label>Vertical</Label>
           </Toggle>
-        </Field>
+        </StyledSpacedField>
+        <StyledSpacedField>
+          <Toggle
+            checked={state.isDisabled}
+            onChange={e => setState({ isDisabled: e.target.checked })}
+          >
+            <Label>Disabled</Label>
+          </Toggle>
+        </StyledSpacedField>
       </Well>
     </Col>
     <Col md={8}>
@@ -70,7 +63,7 @@ initialState = {
       >
         <TabList>
           {tabs.map(tab => (
-            <Tab key={tab} item={tab}>
+            <Tab key={tab} item={tab} disabled={state.isDisabled && tab === 'Tab 2'}>
               {tab}
             </Tab>
           ))}

@@ -11,6 +11,9 @@ import { StyledTabPanel } from '../styled';
 import { useTabsContext } from '../utils/useTabsContext';
 
 interface ITabPanelProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * A value used to match a `TabPanel` with its associated Tab.
+   */
   item?: any;
 }
 
