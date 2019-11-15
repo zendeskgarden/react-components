@@ -13,6 +13,7 @@ import { useTooltip } from '@zendeskgarden/container-tooltip';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { withTheme, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { Manager, Popper, Reference } from 'react-popper';
+import { Modifiers } from 'popper.js';
 
 import {
   getPopperPlacement,
@@ -63,7 +64,7 @@ export interface ITooltipProps
    **/
   placement?: GARDEN_PLACEMENT;
   /** Passes options to [Popper.JS Instance](https://github.com/FezVrasta/popper.js/blob/master/docs/_includes/popper-documentation.md#new-popperreference-popper-options) */
-  popperModifiers?: any;
+  popperModifiers?: Modifiers;
   size?: TOOLTIP_SIZE;
   type?: TOOLTIP_TYPE;
   /** The z-index of the popper.js placement container */
@@ -117,7 +118,7 @@ const Tooltip: React.FC<ITooltipProps> = ({
    * It is much more common to want the parent viewport to determine
    * the overflow boundary.
    */
-  const modifiers = {
+  const modifiers: Modifiers = {
     preventOverflow: {
       boundariesElement: 'viewport'
     },
@@ -182,7 +183,7 @@ Tooltip.propTypes = {
   delayMilliseconds: PropTypes.number,
   eventsEnabled: PropTypes.bool,
   id: PropTypes.string,
-  content: PropTypes.any.isRequired,
+  content: PropTypes.node.isRequired,
   placement: PropTypes.oneOf([
     'auto',
     'top',
@@ -198,7 +199,7 @@ Tooltip.propTypes = {
     'start-top',
     'start-bottom'
   ]),
-  popperModifiers: PropTypes.object,
+  popperModifiers: PropTypes.any,
   size: PropTypes.oneOf(['small', 'medium', 'large', 'extra-large']),
   type: PropTypes.oneOf(['light', 'dark']),
   zIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
