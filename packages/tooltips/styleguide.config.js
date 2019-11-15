@@ -34,10 +34,6 @@ module.exports = {
         {
           name: 'Default',
           content: '../../packages/tooltips/examples/default.md'
-        },
-        {
-          name: 'Boundary detection',
-          content: '../../packages/tooltips/examples/boundary-detection.md'
         }
       ]
     },

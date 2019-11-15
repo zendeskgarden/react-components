@@ -17,12 +17,12 @@ const COMPONENT_ID = 'tooltip.tooltip';
 
 export type TOOLTIP_SIZE = 'small' | 'medium' | 'large' | 'extra-large';
 
-const shouldShowArrow = ({ showArrow: arrow, placement }: IStyledTooltipProps) => {
-  return arrow && placement;
+const shouldShowArrow = ({ hasArrow, placement }: IStyledTooltipProps) => {
+  return hasArrow && placement;
 };
 
-const retrieveTooltipMargin = ({ showArrow, size }: IStyledTooltipProps) => {
-  if (showArrow) {
+const retrieveTooltipMargin = ({ hasArrow, size }: IStyledTooltipProps) => {
+  if (hasArrow) {
     if (size === 'large') {
       return 'margin: 8px;';
     } else if (size === 'extra-large') {
@@ -34,7 +34,7 @@ const retrieveTooltipMargin = ({ showArrow, size }: IStyledTooltipProps) => {
 };
 
 export interface IStyledTooltipProps {
-  showArrow?: boolean;
+  hasArrow?: boolean;
   size?: TOOLTIP_SIZE;
   /** All valid [Popper.JS Placements](https://popper.js.org/popper-documentation.html#Popper.placements) */
   placement?: POPPER_PLACEMENT;
@@ -77,6 +77,6 @@ export const StyledTooltip = styled.div.attrs<IStyledTooltipProps>(props => ({
 `;
 
 StyledTooltip.defaultProps = {
-  showArrow: true,
+  hasArrow: true,
   size: 'small'
 };

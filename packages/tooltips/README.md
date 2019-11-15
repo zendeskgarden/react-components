@@ -12,7 +12,7 @@ npm install @zendeskgarden/react-tooltips
 npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
 ```
 
-## Usages
+## Usage
 
 ### TooltipElement
 

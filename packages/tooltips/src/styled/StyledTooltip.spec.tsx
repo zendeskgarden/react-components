@@ -71,7 +71,7 @@ describe('TooltipView', () => {
     });
 
     it('does not render arrow styling if disabled', () => {
-      const { container } = render(<StyledTooltip showArrow={false} placement="top" />);
+      const { container } = render(<StyledTooltip hasArrow={false} placement="top" />);
 
       expect(container.firstChild).not.toHaveClass('c-arrow');
     });

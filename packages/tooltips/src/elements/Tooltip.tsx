@@ -50,7 +50,7 @@ export interface ITooltipProps
     React.HTMLAttributes<HTMLDivElement> {
   /** Appends the tooltip to the body element */
   appendToNode?: Element;
-  showArrow?: boolean;
+  hasArrow?: boolean;
   /** Milliseconds of delay before open/close of tooltip is initiated */
   delayMilliseconds?: number;
   /** Whether Popper.js should update based on DOM resize events */
@@ -83,14 +83,14 @@ const Tooltip: React.FC<ITooltipProps> = ({
   eventsEnabled,
   popperModifiers,
   children,
-  showArrow,
+  hasArrow,
   size,
   type,
   appendToNode,
   zIndex,
   ...otherProps
 }) => {
-  const scheduleUpdateRef = useRef<any>();
+  const scheduleUpdateRef = useRef<() => void>();
   const { isVisible, getTooltipProps, getTriggerProps, openTooltip, closeTooltip } = useTooltip({
     id,
     delayMilliseconds,
@@ -112,6 +112,18 @@ const Tooltip: React.FC<ITooltipProps> = ({
 
   const singleChild = React.Children.only(children);
 
+  /**
+   * By default PopperJS treats an overflow container as it's boundary.
+   * It is much more common to want the parent viewport to determine
+   * the overflow boundary.
+   */
+  const modifiers = {
+    preventOverflow: {
+      boundariesElement: 'viewport'
+    },
+    ...popperModifiers
+  };
+
   return (
     <Manager>
       <Reference>
@@ -125,7 +137,7 @@ const Tooltip: React.FC<ITooltipProps> = ({
       <Popper
         placement={popperPlacement}
         eventsEnabled={isVisible && eventsEnabled}
-        modifiers={popperModifiers}
+        modifiers={modifiers}
       >
         {({ ref, style, scheduleUpdate, placement: currentPlacement }) => {
           scheduleUpdateRef.current = scheduleUpdate;
@@ -133,7 +145,7 @@ const Tooltip: React.FC<ITooltipProps> = ({
           const { onFocus, onBlur, ...otherTooltipProps } = otherProps;
 
           const tooltipProps = {
-            showArrow,
+            hasArrow,
             placement: currentPlacement,
             size,
             onFocus: composeEventHandlers(onFocus, () => {
@@ -166,7 +178,7 @@ const Tooltip: React.FC<ITooltipProps> = ({
 
 Tooltip.propTypes = {
   appendToNode: PropTypes.any,
-  showArrow: PropTypes.bool,
+  hasArrow: PropTypes.bool,
   delayMilliseconds: PropTypes.number,
   eventsEnabled: PropTypes.bool,
   id: PropTypes.string,
@@ -195,7 +207,7 @@ Tooltip.propTypes = {
 };
 
 Tooltip.defaultProps = {
-  showArrow: true,
+  hasArrow: true,
   eventsEnabled: true,
   type: 'dark',
   placement: 'top',

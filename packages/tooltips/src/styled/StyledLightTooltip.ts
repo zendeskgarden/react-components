@@ -26,6 +26,6 @@ export const StyledLightTooltip = styled(StyledTooltip).attrs(props => ({
 `;
 
 StyledLightTooltip.defaultProps = {
-  showArrow: true,
+  hasArrow: true,
   size: 'large'
 };
