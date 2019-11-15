@@ -5,6 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { default as Col } from './views/Col';
-export { default as Grid } from './views/Grid';
-export { default as Row } from './views/Row';
+export * from './StyledCol';
+export * from './StyledGrid';
+export * from './StyledRow';

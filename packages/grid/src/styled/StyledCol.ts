@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
@@ -13,7 +12,11 @@ import GridStyles from '@zendeskgarden/css-grid';
 
 const COMPONENT_ID = 'grid.col';
 
-const retrieveNumberedClass = (className, number, classes) => {
+const retrieveNumberedClass = (
+  className: string,
+  number: number | boolean | string | undefined,
+  classes: Array<any>
+) => {
   if (typeof number === 'boolean') {
     classes.push(GridStyles[className]);
   } else if (typeof number !== 'undefined') {
@@ -33,8 +36,8 @@ const retrieveColClassNames = ({
   offsetMd,
   offsetLg,
   offsetXl
-} = {}) => {
-  const output = [];
+}: IStyledColProps) => {
+  const output: Array<any> = [];
 
   retrieveNumberedClass('col', size, output);
   retrieveNumberedClass('col-xs', xs, output);
@@ -55,10 +58,34 @@ const retrieveColClassNames = ({
   return output;
 };
 
+export interface IStyledColProps {
+  /** Sizing for all breakpoints. */
+  size?: number | string | boolean;
+  /** Sizing for extra small breakpoints. */
+  xs?: number | string | boolean;
+  /** Sizing for small breakpoints. */
+  sm?: number | string | boolean;
+  /** Sizing for medium breakpoints. */
+  md?: number | string | boolean;
+  /** Sizing for large breakpoints. */
+  lg?: number | string | boolean;
+  /** Sizing for extra large breakpoints. */
+  xl?: number | string | boolean;
+  offsetXs?: number | string | boolean;
+  offsetSm?: number | string | boolean;
+  offsetMd?: number | string | boolean;
+  offsetLg?: number | string | boolean;
+  offsetXl?: number | string | boolean;
+  /** Use flexbox alignment utilities to horizontally align */
+  alignSelf?: 'start' | 'center' | 'end';
+  justifyContent?: 'start' | 'center' | 'end' | 'around' | 'between';
+  order?: any;
+}
+
 /**
  * Accepts all `<div>` props
  */
-const Col = styled.div.attrs(props => ({
+export const StyledCol = styled.div.attrs<IStyledColProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(...retrieveColClassNames(props), {
@@ -69,30 +96,3 @@ const Col = styled.div.attrs(props => ({
 }))`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-Col.propTypes = {
-  /** Sizing for all breakpoints. */
-  size: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]),
-  /** Sizing for extra small breakpoints. */
-  xs: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]),
-  /** Sizing for small breakpoints. */
-  sm: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]),
-  /** Sizing for medium breakpoints. */
-  md: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]),
-  /** Sizing for large breakpoints. */
-  lg: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]),
-  /** Sizing for extra large breakpoints. */
-  xl: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]),
-  offsetXs: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]),
-  offsetSm: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]),
-  offsetMd: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]),
-  offsetLg: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]),
-  offsetXl: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]),
-  /** Use flexbox alignment utilities to horizontally align */
-  alignSelf: PropTypes.oneOf(['start', 'center', 'end']),
-  justifyContent: PropTypes.oneOf(['start', 'center', 'end', 'around', 'between']),
-  order: PropTypes.any
-};
-
-/** @component */
-export default Col;
