@@ -8,7 +8,7 @@ tooltip element.
 ```jsx
 const { Button } = require('@zendeskgarden/react-buttons/src');
 const { Well } = require('@zendeskgarden/react-notifications/src');
-const { Field, Label, Toggle } = require('@zendeskgarden/react-forms/src');
+const { Field, Label, Toggle, Range } = require('@zendeskgarden/react-forms/src');
 const {
   Dropdown,
   Select,
@@ -24,10 +24,11 @@ const StyledSpacer = styled.div`
 
 <State
   initialState={{
-  placement: 'top',
-  hasArrow: true,
-  type: 'dark'
-}}
+    placement: 'top',
+    hasArrow: true,
+    type: 'dark',
+    delayMS: 500
+  }}
 >
   {(state, setState) => (
     <Grid>
@@ -62,6 +63,18 @@ const StyledSpacer = styled.div`
             </StyledSpacer>
             <StyledSpacer>
               <Field>
+                <Label>Delay ({state.delayMS} ms)</Label>
+                <Range
+                  step={50}
+                  min={100}
+                  max={10000}
+                  value={state.delayMS}
+                  onChange={event => setState({ delayMS: event.target.value })}
+                />
+              </Field>
+            </StyledSpacer>
+            <StyledSpacer>
+              <Field>
                 <Toggle
                   checked={state.hasArrow}
                   onChange={e => setState({ hasArrow: e.target.checked })}
@@ -77,6 +90,7 @@ const StyledSpacer = styled.div`
             content="This is a small tooltip"
             hasArrow={state.hasArrow}
             placement={state.placement}
+            delayMilliseconds={state.delayMS}
             initialIsVisible
           >
             <Button>Default tooltip</Button>
@@ -97,6 +111,7 @@ const StyledSpacer = styled.div`
             placement={state.placement}
             type="light"
             initialIsVisible
+            delayMilliseconds={state.delayMS}
           >
             <Button>Light tooltip</Button>
           </Tooltip>

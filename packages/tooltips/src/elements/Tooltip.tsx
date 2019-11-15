@@ -115,12 +115,12 @@ const Tooltip: React.FC<ITooltipProps> = ({
 
   /**
    * By default PopperJS treats an overflow container as it's boundary.
-   * It is much more common to want the parent viewport to determine
+   * It is much more common to want the parent window to determine
    * the overflow boundary.
    */
   const modifiers: Modifiers = {
     preventOverflow: {
-      boundariesElement: 'viewport'
+      boundariesElement: 'window'
     },
     ...popperModifiers
   };
