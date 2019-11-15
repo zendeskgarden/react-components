@@ -59,32 +59,22 @@ const retrieveColClassNames = ({
 };
 
 export interface IStyledColProps {
-  /** Sizing for all breakpoints. */
-  size?: number | string | boolean;
-  /** Sizing for extra small breakpoints. */
+  size?: number | string;
   xs?: number | string | boolean;
-  /** Sizing for small breakpoints. */
   sm?: number | string | boolean;
-  /** Sizing for medium breakpoints. */
   md?: number | string | boolean;
-  /** Sizing for large breakpoints. */
   lg?: number | string | boolean;
-  /** Sizing for extra large breakpoints. */
   xl?: number | string | boolean;
   offsetXs?: number | string | boolean;
   offsetSm?: number | string | boolean;
   offsetMd?: number | string | boolean;
   offsetLg?: number | string | boolean;
   offsetXl?: number | string | boolean;
-  /** Use flexbox alignment utilities to horizontally align */
   alignSelf?: 'start' | 'center' | 'end';
   justifyContent?: 'start' | 'center' | 'end' | 'around' | 'between';
   order?: any;
 }
 
-/**
- * Accepts all `<div>` props
- */
 export const StyledCol = styled.div.attrs<IStyledColProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,

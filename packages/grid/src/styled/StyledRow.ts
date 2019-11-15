@@ -13,29 +13,19 @@ import GridStyles from '@zendeskgarden/css-grid';
 const COMPONENT_ID = 'grid.row';
 
 export interface IStyledRowProps {
-  /** Enables margin for rows and padding for columns  */
-  gutters?: boolean;
-  /** Use flexbox alignment utilities to vertically align content */
+  isCollapsed?: boolean;
   alignItems?: 'start' | 'center' | 'end';
-  /** Use flexbox justify utilities to justify content */
   justifyContent?: 'start' | 'center' | 'end' | 'around' | 'between';
 }
 
-/**
- * Accepts all `<div>` props
- */
 export const StyledRow = styled.div.attrs<IStyledRowProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(GridStyles.row, {
-    [GridStyles['no-gutters']]: !props.gutters,
+    [GridStyles['no-gutters']]: props.isCollapsed,
     [GridStyles[`align-items-${props.alignItems}`]]: props.alignItems,
     [GridStyles[`justify-content-${props.justifyContent}`]]: props.justifyContent
   })
 }))<IStyledRowProps>`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledRow.defaultProps = {
-  gutters: true
-};

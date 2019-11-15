@@ -17,10 +17,6 @@ export interface IStyledGridProps {
   isDebug?: boolean;
 }
 
-/**
- * Implemented with the [Bootstrap v4 Flexbox Grid](http://getbootstrap.com/docs/4.0/layout/overview/).
- * Accepts all `<div>` props.
- */
 export const StyledGrid = styled.div.attrs<IStyledGridProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
@@ -38,7 +34,3 @@ export const StyledGrid = styled.div.attrs<IStyledGridProps>(props => ({
 }))<IStyledGridProps>`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledGrid.defaultProps = {
-  isFluid: true
-};
