@@ -7,12 +7,12 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import LightTooltip from './LightTooltip';
+import { StyledTitle } from './StyledTitle';
 
-describe('LightTooltip', () => {
+describe('Title', () => {
   it('renders default styling correctly', () => {
-    const { container } = render(<LightTooltip />);
+    const { container } = render(<StyledTitle />);
 
-    expect(container.firstChild).toHaveClass('c-tooltip--light');
+    expect(container.firstChild).toHaveClass('c-tooltip__title');
   });
 });

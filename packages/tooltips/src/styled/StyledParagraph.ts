@@ -14,13 +14,10 @@ const COMPONENT_ID = 'tooltip.paragraph';
 /**
  * Accepts all `<div>` props
  */
-const Paragraph = styled.div.attrs({
+export const StyledParagraph = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: TooltipStyles['c-tooltip__paragraph']
 })`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-/** @component */
-export default Paragraph;

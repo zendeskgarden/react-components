@@ -14,13 +14,10 @@ const COMPONENT_ID = 'tooltip.title';
 /**
  * Accepts all `<div>` props
  */
-const Title = styled.div.attrs({
+export const StyledTitle = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: TooltipStyles['c-tooltip__title']
 })`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-/** @component */
-export default Title;
