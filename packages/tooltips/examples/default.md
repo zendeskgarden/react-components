@@ -53,7 +53,7 @@ const StyledSpacer = styled.div`
                   <Item value="bottom-start">bottom-start</Item>
                   <Item value="bottom-end">bottom-end</Item>
                   <Item value="end">end</Item>
-                  <Item value="end-start">end-start</Item>
+                  <Item value="end-top">end-top</Item>
                   <Item value="end-bottom">end-bottom</Item>
                   <Item value="start">start</Item>
                   <Item value="start-top">start-top</Item>
@@ -69,7 +69,7 @@ const StyledSpacer = styled.div`
                   min={100}
                   max={10000}
                   value={state.delayMS}
-                  onChange={event => setState({ delayMS: event.target.value })}
+                  onChange={event => setState({ delayMS: parseInt(event.target.value) })}
                 />
               </Field>
             </StyledSpacer>

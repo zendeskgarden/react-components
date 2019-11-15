@@ -56,7 +56,8 @@ should be re-checked for ID naming accuracy.
   - removed `small` prop; all field layouts respond to `isCompact` placed on the input component
 - Label
   - `regular` -> `isRegular`
-  - removed remaining props – attributes should be applied to the corresponding `<input>` component (checked, disabled, indeterminate)
+  - removed remaining props – attributes should be applied to the corresponding `<input>`
+    component (checked, disabled, indeterminate)
 
 ## @zendeskgarden/react-grid
 

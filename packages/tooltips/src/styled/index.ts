@@ -9,3 +9,4 @@ export { StyledLightTooltip } from './StyledLightTooltip';
 export { StyledParagraph } from './StyledParagraph';
 export { StyledTitle } from './StyledTitle';
 export { StyledTooltip, TOOLTIP_SIZE } from './StyledTooltip';
+export { StyledTooltipWrapper } from './StyledTooltipWrapper';

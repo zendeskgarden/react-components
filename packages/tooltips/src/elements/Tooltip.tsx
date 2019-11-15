@@ -8,7 +8,7 @@
 import React, { cloneElement, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
+import { ThemeProps, DefaultTheme } from 'styled-components';
 import { useTooltip } from '@zendeskgarden/container-tooltip';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { withTheme, DEFAULT_THEME } from '@zendeskgarden/react-theming';
@@ -20,29 +20,7 @@ import {
   getRtlPopperPlacement,
   GARDEN_PLACEMENT
 } from '../utils/gardenPlacements';
-import { StyledTooltip, StyledLightTooltip, TOOLTIP_SIZE } from '../styled';
-
-/**
- * This container must provide a wrapper for the provided tooltip
- * due to constraints in our arrow css. We must ensure that the container
- * of the tooltip can retain it's relative positioning. Without this
- * container Popper would apply absolute positioning.
- *
- * This wrapper also includes an opacity transition. It allows Popper to
- * re-position the tooltip without having a visible shift. The transition
- * is fast enough that it should not be perceptible.
- */
-const TooltipWrapper = styled.div<{ zIndex?: number | string }>`
-  &[aria-hidden='true'] {
-    visibility: hidden;
-    opacity: 0;
-  }
-
-  /* stylelint-disable-next-line time-min-milliseconds */
-  transition: opacity 10ms;
-  opacity: 1;
-  z-index: ${props => props.zIndex};
-`;
+import { StyledTooltipWrapper, StyledTooltip, StyledLightTooltip, TOOLTIP_SIZE } from '../styled';
 
 type TOOLTIP_TYPE = 'light' | 'dark';
 
@@ -161,9 +139,9 @@ const Tooltip: React.FC<ITooltipProps> = ({
           const TooltipElem = type === 'light' ? StyledLightTooltip : StyledTooltip;
 
           const tooltip = (
-            <TooltipWrapper ref={ref} style={style} zIndex={zIndex} aria-hidden={!isVisible}>
+            <StyledTooltipWrapper ref={ref} style={style} zIndex={zIndex} aria-hidden={!isVisible}>
               <TooltipElem {...(getTooltipProps(tooltipProps) as any)}>{content}</TooltipElem>
-            </TooltipWrapper>
+            </StyledTooltipWrapper>
           );
 
           if (appendToNode) {

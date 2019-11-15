@@ -92,12 +92,6 @@ class TableOfContents extends Component {
               <Spacer height="20px" />
               <Tooltip
                 placement="end"
-                popperModifiers={{
-                  preventOverflow: {
-                    boundariesElement: 'viewport'
-                  },
-                  hide: { enabled: false }
-                }}
                 appendToNode={document.body}
                 type="light"
                 size="extra-large"
