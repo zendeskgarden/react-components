@@ -11,7 +11,7 @@ import { StyledGrid } from './StyledGrid';
 
 describe('StyledGrid', () => {
   it('renders default styling', () => {
-    const { container, debug } = render(<StyledGrid />);
+    const { container } = render(<StyledGrid />);
 
     expect(container.firstChild).toHaveClass('container');
   });
