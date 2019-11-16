@@ -16,16 +16,20 @@ export interface IStyledRowProps {
   isCollapsed?: boolean;
   alignItems?: 'start' | 'center' | 'end';
   justifyContent?: 'start' | 'center' | 'end' | 'around' | 'between';
+  gutters?: false | 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 }
 
 export const StyledRow = styled.div.attrs<IStyledRowProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: classNames(GridStyles.row, {
+  className: classNames({
     [GridStyles['no-gutters']]: props.isCollapsed,
     [GridStyles[`align-items-${props.alignItems}`]]: props.alignItems,
     [GridStyles[`justify-content-${props.justifyContent}`]]: props.justifyContent
   })
 }))<IStyledRowProps>`
+  display: flex;
+  flex-wrap: wrap;
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

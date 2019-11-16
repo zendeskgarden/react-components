@@ -20,7 +20,8 @@
   },
   "types": "./dist/typings/index.d.ts",
   "dependencies": {
-    "classnames": "^2.2.5"
+    "classnames": "^2.2.5",
+    "polished": "^3.4.1"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^6.0.0 || ^7.0.0",
