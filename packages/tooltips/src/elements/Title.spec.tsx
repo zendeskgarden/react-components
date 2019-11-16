@@ -7,12 +7,13 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import Paragraph from './Paragraph';
 
-describe('Paragraph', () => {
-  it('renders default styling correctly', () => {
-    const { container } = render(<Paragraph />);
+import Title from './Title';
 
-    expect(container.firstChild).toHaveClass('c-tooltip__paragraph');
+describe('Title', () => {
+  it('applies custom attributes if provided', () => {
+    const { container } = render(<Title data-test-id="title" />);
+
+    expect(container.firstChild).toHaveAttribute('data-test-id', 'title');
   });
 });

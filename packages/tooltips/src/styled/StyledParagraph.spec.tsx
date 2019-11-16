@@ -7,12 +7,12 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import Title from './Title';
+import { StyledParagraph } from './StyledParagraph';
 
-describe('Title', () => {
+describe('Paragraph', () => {
   it('renders default styling correctly', () => {
-    const { container } = render(<Title />);
+    const { container } = render(<StyledParagraph />);
 
-    expect(container.firstChild).toHaveClass('c-tooltip__title');
+    expect(container.firstChild).toHaveClass('c-tooltip__paragraph');
   });
 });
