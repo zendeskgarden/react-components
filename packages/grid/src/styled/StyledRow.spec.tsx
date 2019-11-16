@@ -16,7 +16,7 @@ describe('StyledRow', () => {
     expect(container.firstChild).toHaveClass('row');
   });
 
-  it('renders without gutters if provided', () => {
+  it('renders collapsed if provided', () => {
     const { container } = render(<StyledRow isCollapsed={true} />);
 
     expect(container.firstChild).toHaveClass('no-gutters');
