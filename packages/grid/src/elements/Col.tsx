@@ -8,6 +8,7 @@
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledCol } from '../styled';
+import useGridContext from '../utils/useGridContext';
 
 export interface IColProps extends HTMLAttributes<HTMLDivElement> {
   /** Sizing for all breakpoints. */
@@ -36,9 +37,11 @@ export interface IColProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * Accepts all `<div>` attributes and events
  */
-export const Col = React.forwardRef<HTMLDivElement, IColProps>((props, ref) => (
-  <StyledCol ref={ref} {...props} />
-));
+export const Col = React.forwardRef<HTMLDivElement, IColProps>((props, ref) => {
+  const { gutters, debug } = useGridContext();
+
+  return <StyledCol gutters={gutters} isDebug={debug} ref={ref} {...props} />;
+});
 
 Col.propTypes = {
   size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),

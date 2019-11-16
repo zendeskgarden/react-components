@@ -5,10 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import math from 'polished/lib/math/math';
 import classNames from 'classnames';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 import GridStyles from '@zendeskgarden/css-grid';
+import { GRID_GUTTERS } from '../utils/useGridContext';
 
 const COMPONENT_ID = 'grid.col';
 
@@ -58,7 +60,27 @@ const retrieveColClassNames = ({
   return output;
 };
 
-export interface IStyledColProps {
+const colorStyles = (props: IStyledColProps) => {
+  const borderColor = getColor('primaryHue', 400, props.theme, 0.35);
+  const backgroundColor = getColor('primaryHue', 200, props.theme, 0.35);
+
+  return css`
+    border: ${props.theme.borders.sm} ${borderColor};
+    background-clip: content-box;
+    background-color: ${backgroundColor};
+  `;
+};
+
+const sizeStyles = (props: IStyledColProps) => {
+  const padding = props.gutters ? math(`${props.theme.space[props.gutters!]} / 2`) : 0;
+
+  return css`
+    padding-right: ${padding};
+    padding-left: ${padding};
+  `;
+};
+
+export interface IStyledColProps extends ThemeProps<DefaultTheme> {
   size?: number | string;
   xs?: number | string | boolean;
   sm?: number | string | boolean;
@@ -73,6 +95,8 @@ export interface IStyledColProps {
   alignSelf?: 'start' | 'center' | 'end';
   justifyContent?: 'start' | 'center' | 'end' | 'around' | 'between';
   order?: any;
+  gutters?: GRID_GUTTERS;
+  isDebug?: boolean;
 }
 
 export const StyledCol = styled.div.attrs<IStyledColProps>(props => ({
@@ -84,5 +108,10 @@ export const StyledCol = styled.div.attrs<IStyledColProps>(props => ({
     [GridStyles[`order-${props.order}`]]: props.order
   })
 }))<IStyledColProps>`
+  box-sizing: inherit;
+
+  ${props => sizeStyles(props)};
+  ${props => props.isDebug && colorStyles(props)};
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

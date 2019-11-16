@@ -7,6 +7,7 @@
 
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
+import { GridContext, GRID_GUTTERS } from '../utils/useGridContext';
 import { StyledGrid } from '../styled';
 
 export interface IGridProps extends HTMLAttributes<HTMLDivElement> {
@@ -14,13 +15,17 @@ export interface IGridProps extends HTMLAttributes<HTMLDivElement> {
   isFluid?: boolean;
   /** Highlight row/col layout */
   isDebug?: boolean;
+  /** Gutter spacing */
+  gutters?: GRID_GUTTERS;
 }
 
 /**
  * Accepts all `<div>` attributes and events
  */
-export const Grid = React.forwardRef<HTMLDivElement, IGridProps>((props, ref) => (
-  <StyledGrid ref={ref} {...props} />
+export const Grid = React.forwardRef<HTMLDivElement, IGridProps>(({ isDebug, ...props }, ref) => (
+  <GridContext.Provider value={{ gutters: props.gutters!, debug: isDebug }}>
+    <StyledGrid ref={ref} {...props} />
+  </GridContext.Provider>
 ));
 
 Grid.propTypes = {
@@ -29,7 +34,8 @@ Grid.propTypes = {
 };
 
 Grid.defaultProps = {
-  isFluid: true
+  isFluid: true,
+  gutters: 'md'
 };
 
 export default Grid;

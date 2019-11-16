@@ -27,10 +27,4 @@ describe('StyledGrid', () => {
 
     expect(container.firstChild).toHaveClass('container-fluid');
   });
-
-  it('renders debug styling if provided', () => {
-    const { container } = render(<StyledGrid isDebug />);
-
-    expect(container.firstChild).toHaveClass('is-debug');
-  });
 });

@@ -7,6 +7,7 @@
 
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
+import useGridContext from '../utils/useGridContext';
 import { StyledRow } from '../styled';
 
 export interface IRowProps extends HTMLAttributes<HTMLDivElement> {
@@ -21,9 +22,11 @@ export interface IRowProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * Accepts all `<div>` attributes and events
  */
-export const Row = React.forwardRef<HTMLDivElement, IRowProps>((props, ref) => (
-  <StyledRow ref={ref} {...props} />
-));
+export const Row = React.forwardRef<HTMLDivElement, IRowProps>((props, ref) => {
+  const { gutters, debug } = useGridContext();
+
+  return <StyledRow gutters={gutters} isDebug={debug} ref={ref} {...props} />;
+});
 
 Row.propTypes = {
   isCollapsed: PropTypes.bool,
