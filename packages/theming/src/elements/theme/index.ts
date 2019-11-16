@@ -30,7 +30,7 @@ const borders = {
 };
 
 const breakpoints = {
-  xs: 0,
+  xs: '0px',
   sm: `${BASE * 144}px`,
   md: `${BASE * 192}px`,
   lg: `${BASE * 248}px`,

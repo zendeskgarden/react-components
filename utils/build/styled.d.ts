@@ -30,7 +30,7 @@ declare module 'styled-components' {
       md: string;
     };
     breakpoints: {
-      xs: number;
+      xs: string;
       sm: string;
       md: string;
       lg: string;

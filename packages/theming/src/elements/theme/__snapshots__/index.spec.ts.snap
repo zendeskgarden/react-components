@@ -22,7 +22,7 @@ Object {
     "md": "768px",
     "sm": "576px",
     "xl": "1200px",
-    "xs": 0,
+    "xs": "0px",
   },
   "colors": Object {
     "background": "#fff",
