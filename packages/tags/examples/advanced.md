@@ -20,7 +20,10 @@ const { Code } = require('@zendeskgarden/react-typography/src');
 
 initialState = {
   size: 'medium',
-  width: 100
+  width: 100,
+  pill: false,
+  avatar: false,
+  close: false
 };
 
 const tags = [

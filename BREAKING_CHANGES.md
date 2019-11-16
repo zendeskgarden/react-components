@@ -58,6 +58,15 @@ should be re-checked for ID naming accuracy.
   - `regular` -> `isRegular`
   - removed remaining props – attributes should be applied to the corresponding `<input>` component (checked, disabled, indeterminate)
 
+## @zendeskgarden/react-grid
+
+- Prop renames:
+  - Grid `debug` -> `isDebug`
+  - Grid `fluid` -> `isFluid`
+  - Row `gutters` -> `isCollapsed`
+    - Note: boolean logic is reversed for API clarity, but default layout without any prop specified remains the same.
+    - Previously `<Grid gutters={false} />`; currently `<Grid isCollapsed />`
+
 ## @zendeskgarden/react-loaders
 
 - `<Dots />` loader no longer has the `velocity` prop
@@ -110,6 +119,24 @@ should be re-checked for ID naming accuracy.
 - custom `document` object
   - previously `<ThemeProvider document={doc}>`
   - currently `<ThemeProvider theme={{ ...DEFAULT_THEME, document: doc }}>`
+
+## @zendeskgarden/react-tooltips
+
+- Removed exports
+  - LightTooltip
+  - TooltipView
+  - GARDEN_PLACEMENTS
+  - POPPER_PLACEMENTS
+  - getPopperPlacement
+  - getRtlPopperPlacement
+- rename `arrow` prop to `hasArrow`
+- `appendToBody` prop is now `appendToNode`
+  - You must now pass the HTML element which you would like the tooltip to append to
+- Tooltip `trigger` prop is removed
+  - Tooltip `children` now accepts a single element which acts as the triggering element
+- Tooltip `content` prop now accepts Tooltip content (previous `children`)
+- The Tooltip trigger no longer has a wrapping `<div>` element
+  - An optional `refKey` prop has been added for retrieving the ref from the triggering element
 
 ## @zendeskgarden/react-typography
 

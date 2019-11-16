@@ -6,26 +6,18 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import TooltipStyles from '@zendeskgarden/css-tooltips';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'tabs.tabpanel';
+const COMPONENT_ID = 'tooltip.paragraph';
 
 /**
  * Accepts all `<div>` props
  */
-export const StyledTabPanel = styled.div.attrs({
+export const StyledParagraph = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
+  'data-garden-version': PACKAGE_VERSION,
+  className: TooltipStyles['c-tooltip__paragraph']
 })`
-  display: block;
-
-  &[aria-hidden='true'] {
-    display: none;
-  }
-
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-StyledTabPanel.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -98,37 +98,37 @@ class TableOfContents extends Component {
                   },
                   hide: { enabled: false }
                 }}
-                appendToBody
+                appendToNode={document.body}
                 type="light"
                 size="extra-large"
                 style={{ fontFamily: DEFAULT_THEME.fonts.system }}
-                trigger={
-                  <div style={{ marginBottom: 20 }}>
-                    <Field>
-                      <Toggle
-                        checked={isRtl}
-                        onChange={() => {
-                          if (isRtl) {
-                            location.search = '';
-                          } else {
-                            location.search = '?isRtl';
-                          }
-                        }}
-                      >
-                        <Label>RTL Locale</Label>
-                      </Toggle>
-                    </Field>
-                  </div>
+                content={
+                  <>
+                    <Title>RTL in Garden</Title>
+                    <p>
+                      All Garden components are RTL locale aware when used with the{' '}
+                      <Code>{'<ThemeProvider />'}</Code> component.
+                    </p>
+                    <p>
+                      <Anchor href="../theming">View Garden Theming Package</Anchor>
+                    </p>
+                  </>
                 }
               >
-                <Title>RTL in Garden</Title>
-                <p>
-                  All Garden components are RTL locale aware when used with the{' '}
-                  <Code>{'<ThemeProvider />'}</Code> component.
-                </p>
-                <p>
-                  <Anchor href="../theming">View Garden Theming Package</Anchor>
-                </p>
+                <Field style={{ marginBottom: 20 }}>
+                  <Toggle
+                    checked={isRtl}
+                    onChange={() => {
+                      if (isRtl) {
+                        location.search = '';
+                      } else {
+                        location.search = '?isRtl';
+                      }
+                    }}
+                  >
+                    <Label>RTL Locale</Label>
+                  </Toggle>
+                </Field>
               </Tooltip>
             </RTLContainer>
           </ThemeProvider>

@@ -23,7 +23,9 @@ initialState = {
   hue: 'default',
   shape: 'default',
   size: 'medium',
-  text: 'Test Tag'
+  text: 'Test Tag',
+  avatar: false,
+  close: false
 };
 
 <Grid>

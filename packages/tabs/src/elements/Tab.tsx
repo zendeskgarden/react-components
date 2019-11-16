@@ -12,6 +12,9 @@ import { useTabsContext } from '../utils/useTabsContext';
 
 interface ITabProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
+  /**
+   * A value to uniquely identify a Tab. Provided to the `onChange` event.
+   */
   item?: any;
 }
 
@@ -34,7 +37,6 @@ const Tab: React.FC<ITabProps> = ({ disabled, item, ...otherProps }) => {
         focusRef,
         index: tabsPropGetters.tabIndexRef.current++,
         isSelected: item === tabsPropGetters.selectedItem,
-        isFocused: item === tabsPropGetters.focusedItem,
         ...otherProps
       })}
     />
