@@ -7,30 +7,29 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
+import { StyledGrid } from './StyledGrid';
 
-import Grid from './Grid';
-
-describe('Grid', () => {
+describe('StyledGrid', () => {
   it('renders default styling', () => {
-    const { container } = render(<Grid />);
-
-    expect(container.firstChild).toHaveClass('container-fluid');
-  });
-
-  it('renders RTL styling if provided', () => {
-    const { container } = renderRtl(<Grid />);
-
-    expect(container.firstChild).toHaveClass('is-rtl');
-  });
-
-  it('disables fluid styling if provided', () => {
-    const { container } = render(<Grid fluid={false} />);
+    const { container, debug } = render(<StyledGrid />);
 
     expect(container.firstChild).toHaveClass('container');
   });
 
+  it('renders RTL styling if provided', () => {
+    const { container } = renderRtl(<StyledGrid />);
+
+    expect(container.firstChild).toHaveClass('is-rtl');
+  });
+
+  it('renders fluid styling if provided', () => {
+    const { container } = render(<StyledGrid isFluid={true} />);
+
+    expect(container.firstChild).toHaveClass('container-fluid');
+  });
+
   it('renders debug styling if provided', () => {
-    const { container } = render(<Grid debug />);
+    const { container } = render(<StyledGrid isDebug />);
 
     expect(container.firstChild).toHaveClass('is-debug');
   });

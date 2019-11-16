@@ -83,6 +83,6 @@ export const StyledCol = styled.div.attrs<IStyledColProps>(props => ({
     [GridStyles[`justify-content-${props.justifyContent}`]]: props.justifyContent,
     [GridStyles[`order-${props.order}`]]: props.order
   })
-}))`
+}))<IStyledColProps>`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
