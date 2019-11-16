@@ -17,6 +17,13 @@ Object {
     "md": "3px solid",
     "sm": "1px solid",
   },
+  "breakpoints": Object {
+    "lg": "992px",
+    "md": "768px",
+    "sm": "576px",
+    "xl": "1200px",
+    "xs": 0,
+  },
   "colors": Object {
     "background": "#fff",
     "base": "light",

@@ -95,6 +95,13 @@ const theme = {
 </ThemeProvider>;
 ```
 
+### Breakpoints
+
+Themed `breakpoints` define minimum dimensions a which layout will change
+based on media queries, adapting to various screen sizes. These values
+are used in Garden's responsive
+[grid](https://garden.zendesk.com/react-components/grid/).
+
 ### Document
 
 A `document` object may be added to the theme and will be used to support
