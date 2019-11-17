@@ -11,10 +11,9 @@ import useGridContext from '../utils/useGridContext';
 import { StyledRow } from '../styled';
 
 export interface IRowProps extends HTMLAttributes<HTMLDivElement> {
-  /** Remove grid gutter spacing */
-  isCollapsed?: boolean;
+  alignContent?: 'start' | 'center' | 'end' | 'around' | 'between' | 'stretch';
   /** Use flexbox alignment utilities to vertically align content */
-  alignItems?: 'start' | 'center' | 'end';
+  alignItems?: 'start' | 'center' | 'end' | 'baseline' | 'stretch';
   /** Use flexbox justify utilities to justify content */
   justifyContent?: 'start' | 'center' | 'end' | 'around' | 'between';
 }
@@ -23,14 +22,14 @@ export interface IRowProps extends HTMLAttributes<HTMLDivElement> {
  * Accepts all `<div>` attributes and events
  */
 export const Row = React.forwardRef<HTMLDivElement, IRowProps>((props, ref) => {
-  const { gutters, debug } = useGridContext();
+  const { gutters } = useGridContext();
 
-  return <StyledRow gutters={gutters} isDebug={debug} ref={ref} {...props} />;
+  return <StyledRow gutters={gutters} ref={ref} {...props} />;
 });
 
 Row.propTypes = {
-  isCollapsed: PropTypes.bool,
-  alignItems: PropTypes.oneOf(['start', 'center', 'end']),
+  alignContent: PropTypes.oneOf(['start', 'center', 'end', 'around', 'between', 'stretch']),
+  alignItems: PropTypes.oneOf(['start', 'center', 'end', 'baseline', 'stretch']),
   justifyContent: PropTypes.oneOf(['start', 'center', 'end', 'around', 'between'])
 };
 

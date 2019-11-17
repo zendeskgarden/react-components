@@ -23,24 +23,33 @@ export interface IColProps extends HTMLAttributes<HTMLDivElement> {
   lg?: number | string | boolean;
   /** Sizing for extra large breakpoints. */
   xl?: number | string | boolean;
-  offsetXs?: number | string | boolean;
-  offsetSm?: number | string | boolean;
-  offsetMd?: number | string | boolean;
-  offsetLg?: number | string | boolean;
-  offsetXl?: number | string | boolean;
+  offset?: number | string;
+  offsetXs?: number | string;
+  offsetSm?: number | string;
+  offsetMd?: number | string;
+  offsetLg?: number | string;
+  offsetXl?: number | string;
   /** Use flexbox alignment utilities to horizontally align */
-  alignSelf?: 'start' | 'center' | 'end';
-  justifyContent?: 'start' | 'center' | 'end' | 'around' | 'between';
+  alignSelf?: 'start' | 'center' | 'end' | 'baseline' | 'stretch';
   order?: any;
 }
 
 /**
  * Accepts all `<div>` attributes and events
  */
-export const Col = React.forwardRef<HTMLDivElement, IColProps>((props, ref) => {
-  const { gutters, debug } = useGridContext();
+export const Col = React.forwardRef<HTMLDivElement, IColProps>(({ size, ...props }, ref) => {
+  const { columns, gutters, debug } = useGridContext();
 
-  return <StyledCol gutters={gutters} isDebug={debug} ref={ref} {...props} />;
+  return (
+    <StyledCol
+      basis={size}
+      columns={columns}
+      gutters={gutters}
+      isDebug={debug}
+      ref={ref}
+      {...props}
+    />
+  );
 });
 
 Col.propTypes = {
@@ -50,13 +59,13 @@ Col.propTypes = {
   md: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]),
   lg: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]),
   xl: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]),
-  offsetXs: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]),
-  offsetSm: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]),
-  offsetMd: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]),
-  offsetLg: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]),
-  offsetXl: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]),
-  alignSelf: PropTypes.oneOf(['start', 'center', 'end']),
-  justifyContent: PropTypes.oneOf(['start', 'center', 'end', 'around', 'between']),
+  offset: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  offsetXs: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  offsetSm: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  offsetMd: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  offsetLg: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  offsetXl: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  alignSelf: PropTypes.oneOf(['start', 'center', 'end', 'baseline', 'stretch']),
   order: PropTypes.any
 };
 

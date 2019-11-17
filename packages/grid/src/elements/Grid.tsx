@@ -11,30 +11,32 @@ import { GridContext, GRID_GUTTERS } from '../utils/useGridContext';
 import { StyledGrid } from '../styled';
 
 export interface IGridProps extends HTMLAttributes<HTMLDivElement> {
-  /** Enable fluid-width grid layout */
-  isFluid?: boolean;
-  /** Highlight row/col layout */
-  isDebug?: boolean;
-  /** Gutter spacing */
+  columns?: number | string;
+  /** Column gutter sizing or `false` to collapse */
   gutters?: GRID_GUTTERS;
+  /** Highlight column layout */
+  isDebug?: boolean;
 }
 
 /**
  * Accepts all `<div>` attributes and events
  */
-export const Grid = React.forwardRef<HTMLDivElement, IGridProps>(({ isDebug, ...props }, ref) => (
-  <GridContext.Provider value={{ gutters: props.gutters!, debug: isDebug }}>
-    <StyledGrid ref={ref} {...props} />
-  </GridContext.Provider>
-));
+export const Grid = React.forwardRef<HTMLDivElement, IGridProps>(
+  ({ columns, isDebug, ...props }, ref) => (
+    <GridContext.Provider value={{ columns, gutters: props.gutters!, debug: isDebug }}>
+      <StyledGrid ref={ref} {...props} />
+    </GridContext.Provider>
+  )
+);
 
 Grid.propTypes = {
-  isFluid: PropTypes.bool,
+  columns: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  gutters: PropTypes.oneOf([false, 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl']),
   isDebug: PropTypes.bool
 };
 
 Grid.defaultProps = {
-  isFluid: true,
+  columns: 12,
   gutters: 'md'
 };
 

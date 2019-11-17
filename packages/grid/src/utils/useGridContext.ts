@@ -10,6 +10,7 @@ import { createContext, useContext } from 'react';
 export type GRID_GUTTERS = false | 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
 interface IGridContext {
+  columns?: number | string;
   gutters?: GRID_GUTTERS;
   debug?: boolean;
 }

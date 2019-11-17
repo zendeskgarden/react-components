@@ -21,10 +21,4 @@ describe('StyledGrid', () => {
 
     expect(container.firstChild).toHaveClass('is-rtl');
   });
-
-  it('renders fluid styling if provided', () => {
-    const { container } = render(<StyledGrid isFluid={true} />);
-
-    expect(container.firstChild).toHaveClass('container-fluid');
-  });
 });

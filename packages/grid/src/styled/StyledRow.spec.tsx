@@ -16,12 +16,6 @@ describe('StyledRow', () => {
     expect(container.firstChild).toHaveClass('row');
   });
 
-  it('renders collapsed if provided', () => {
-    const { container } = render(<StyledRow isCollapsed={true} />);
-
-    expect(container.firstChild).toHaveClass('no-gutters');
-  });
-
   describe('Align Items', () => {
     it('renders start alignment if provided', () => {
       const { container } = render(<StyledRow alignItems="start" />);

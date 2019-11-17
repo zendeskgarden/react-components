@@ -20,7 +20,6 @@
   },
   "types": "./dist/typings/index.d.ts",
   "dependencies": {
-    "classnames": "^2.2.5",
     "polished": "^3.4.1"
   },
   "peerDependencies": {
@@ -31,7 +30,6 @@
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "@zendeskgarden/css-grid": "0.1.34",
     "@zendeskgarden/react-theming": "^7.0.0"
   },
   "keywords": [

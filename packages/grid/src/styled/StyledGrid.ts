@@ -13,7 +13,6 @@ import { GRID_GUTTERS } from '../utils/useGridContext';
 const COMPONENT_ID = 'grid.grid';
 
 export interface IStyledGridProps extends ThemeProps<DefaultTheme> {
-  isFluid?: boolean;
   gutters?: GRID_GUTTERS;
 }
 

@@ -17,8 +17,8 @@ describe('StyledCol', () => {
   });
 
   describe('Sizing', () => {
-    it('renders size if provided', () => {
-      const { container } = render(<StyledCol size="4" />);
+    it('renders basis if provided', () => {
+      const { container } = render(<StyledCol basis="4" />);
 
       expect(container.firstChild).toHaveClass('col-4');
     });
@@ -103,38 +103,6 @@ describe('StyledCol', () => {
       const { container } = render(<StyledCol alignSelf="end" />);
 
       expect(container.firstChild).toHaveClass('align-self-end');
-    });
-  });
-
-  describe('Justify Content', () => {
-    it('renders start justify content if provided', () => {
-      const { container } = render(<StyledCol justifyContent="start" />);
-
-      expect(container.firstChild).toHaveClass('justify-content-start');
-    });
-
-    it('renders center justify content if provided', () => {
-      const { container } = render(<StyledCol justifyContent="center" />);
-
-      expect(container.firstChild).toHaveClass('justify-content-center');
-    });
-
-    it('renders end justify content if provided', () => {
-      const { container } = render(<StyledCol justifyContent="end" />);
-
-      expect(container.firstChild).toHaveClass('justify-content-end');
-    });
-
-    it('renders around justify content if provided', () => {
-      const { container } = render(<StyledCol justifyContent="around" />);
-
-      expect(container.firstChild).toHaveClass('justify-content-around');
-    });
-
-    it('renders between justify content if provided', () => {
-      const { container } = render(<StyledCol justifyContent="between" />);
-
-      expect(container.firstChild).toHaveClass('justify-content-between');
     });
   });
 
