@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { StyledTabPanel } from '../styled';
 import { useTabsContext } from '../utils/useTabsContext';
 
-interface ITabPanelProps extends HTMLAttributes<HTMLDivElement> {
+export interface ITabPanelProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * A value used to match a `TabPanel` with its associated Tab.
    */
@@ -20,25 +20,26 @@ interface ITabPanelProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * Accepts all `<div>` props
  */
-const TabPanel: React.FC<ITabPanelProps> = ({ item, ...otherProps }) => {
-  const tabsPropGetters = useTabsContext();
+export const TabPanel = React.forwardRef<HTMLDivElement, ITabPanelProps>(
+  ({ item, ...otherProps }, ref) => {
+    const tabsPropGetters = useTabsContext();
 
-  if (!tabsPropGetters) {
-    return <StyledTabPanel {...otherProps} />;
+    if (!tabsPropGetters) {
+      return <StyledTabPanel ref={ref} {...otherProps} />;
+    }
+
+    return (
+      <StyledTabPanel
+        {...tabsPropGetters.getTabPanelProps({
+          item,
+          ref,
+          index: tabsPropGetters.tabPanelIndexRef.current++,
+          'aria-hidden': tabsPropGetters.selectedItem !== item,
+          ...otherProps
+        })}
+      />
+    );
   }
-
-  return (
-    <StyledTabPanel
-      {...tabsPropGetters.getTabPanelProps({
-        item,
-        index: tabsPropGetters.tabPanelIndexRef.current++,
-        'aria-hidden': tabsPropGetters.selectedItem !== item,
-        ...otherProps
-      })}
-    />
-  );
-};
+);
 
 TabPanel.propTypes = { item: PropTypes.any };
-
-export default TabPanel;

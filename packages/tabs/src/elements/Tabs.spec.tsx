@@ -52,6 +52,20 @@ describe('Tabs', () => {
     expect(onChangeSpy).toHaveBeenCalledWith('tab-2');
   });
 
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(
+      <Tabs ref={ref}>
+        <TabList>
+          <Tab item="tab-1">Tab 1</Tab>
+        </TabList>
+        <TabPanel item="tab-1">Tab 1 content</TabPanel>
+      </Tabs>
+    );
+
+    expect(container.firstChild).toBe(ref.current);
+  });
+
   describe('Tab', () => {
     it('applies selected styling to currently selected tab', () => {
       const { getAllByTestId } = render(<BasicExample />);
