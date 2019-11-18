@@ -123,13 +123,21 @@ Row.propTypes = {
   alignItemsLg: PropTypes.oneOf(ARRAY_ALIGN_ITEMS),
   alignItemsXl: PropTypes.oneOf(ARRAY_ALIGN_ITEMS),
   direction: PropTypes.oneOf(ARRAY_DIRECTION),
+  directionXs: PropTypes.oneOf(ARRAY_DIRECTION),
+  directionSm: PropTypes.oneOf(ARRAY_DIRECTION),
+  directionMd: PropTypes.oneOf(ARRAY_DIRECTION),
+  directionLg: PropTypes.oneOf(ARRAY_DIRECTION),
+  directionXl: PropTypes.oneOf(ARRAY_DIRECTION),
   justifyContent: PropTypes.oneOf(ARRAY_JUSTIFY_CONTENT),
   justifyContentXs: PropTypes.oneOf(ARRAY_JUSTIFY_CONTENT),
   justifyContentSm: PropTypes.oneOf(ARRAY_JUSTIFY_CONTENT),
   justifyContentMd: PropTypes.oneOf(ARRAY_JUSTIFY_CONTENT),
   justifyContentLg: PropTypes.oneOf(ARRAY_JUSTIFY_CONTENT),
   justifyContentXl: PropTypes.oneOf(ARRAY_JUSTIFY_CONTENT),
-  wrap: PropTypes.oneOf(ARRAY_WRAP)
+  wrap: PropTypes.oneOf(ARRAY_WRAP),
+  wrapXs: PropTypes.oneOf(ARRAY_WRAP),
+  wrapSm: PropTypes.oneOf(ARRAY_WRAP),
+  wrapMd: PropTypes.oneOf(ARRAY_WRAP),
+  wrapLg: PropTypes.oneOf(ARRAY_WRAP),
+  wrapXl: PropTypes.oneOf(ARRAY_WRAP)
 };
-
-export default Row;

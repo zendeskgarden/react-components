@@ -97,5 +97,3 @@ Col.propTypes = {
   offsetLg: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   offsetXl: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
-
-export default Col;

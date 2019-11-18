@@ -41,5 +41,3 @@ Grid.defaultProps = {
   columns: 12,
   gutters: 'md'
 };
-
-export default Grid;
