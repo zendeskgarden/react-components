@@ -7,12 +7,14 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import math from 'polished/lib/math/math';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import {
   TYPE_ALIGN_CONTENT,
   TYPE_ALIGN_ITEMS,
+  TYPE_DIRECTION,
   TYPE_JUSTIFY_CONTENT,
-  TYPE_SPACE
+  TYPE_SPACE,
+  TYPE_WRAP
 } from '../utils/types';
 
 const COMPONENT_ID = 'grid.row';
@@ -20,7 +22,9 @@ const COMPONENT_ID = 'grid.row';
 const flexStyles = (
   alignContent: TYPE_ALIGN_CONTENT | undefined,
   alignItems: TYPE_ALIGN_ITEMS | undefined,
-  justifyContent: TYPE_JUSTIFY_CONTENT | undefined
+  direction: TYPE_DIRECTION | undefined,
+  justifyContent: TYPE_JUSTIFY_CONTENT | undefined,
+  wrap: TYPE_WRAP | undefined
 ) => {
   let flexAlignContent;
   let flexAlignItems;
@@ -49,6 +53,8 @@ const flexStyles = (
   }
 
   return css`
+    flex-direction: ${direction};
+    flex-wrap: ${wrap};
     align-content: ${flexAlignContent};
     align-items: ${flexAlignItems};
     justify-content: ${flexJustifyContent};
@@ -59,11 +65,13 @@ const mediaStyles = (
   minWidth: string,
   alignContent: TYPE_ALIGN_CONTENT | undefined,
   alignItems: TYPE_ALIGN_ITEMS | undefined,
-  justifyContent: TYPE_JUSTIFY_CONTENT | undefined
+  direction: TYPE_DIRECTION | undefined,
+  justifyContent: TYPE_JUSTIFY_CONTENT | undefined,
+  wrap: TYPE_WRAP | undefined
 ) => {
   return css`
     @media (min-width: ${minWidth}) {
-      ${flexStyles(alignContent, alignItems, justifyContent)};
+      ${flexStyles(alignContent, alignItems, direction, justifyContent, wrap)};
     }
   `;
 };
@@ -91,12 +99,24 @@ export interface IStyledRowProps extends ThemeProps<DefaultTheme> {
   alignItemsMd?: TYPE_ALIGN_ITEMS;
   alignItemsLg?: TYPE_ALIGN_ITEMS;
   alignItemsXl?: TYPE_ALIGN_ITEMS;
+  direction?: TYPE_DIRECTION;
+  directionXs?: TYPE_DIRECTION;
+  directionSm?: TYPE_DIRECTION;
+  directionMd?: TYPE_DIRECTION;
+  directionLg?: TYPE_DIRECTION;
+  directionXl?: TYPE_DIRECTION;
   justifyContent?: TYPE_JUSTIFY_CONTENT;
   justifyContentXs?: TYPE_JUSTIFY_CONTENT;
   justifyContentSm?: TYPE_JUSTIFY_CONTENT;
   justifyContentMd?: TYPE_JUSTIFY_CONTENT;
   justifyContentLg?: TYPE_JUSTIFY_CONTENT;
   justifyContentXl?: TYPE_JUSTIFY_CONTENT;
+  wrap?: TYPE_WRAP;
+  wrapXs?: TYPE_WRAP;
+  wrapSm?: TYPE_WRAP;
+  wrapMd?: TYPE_WRAP;
+  wrapLg?: TYPE_WRAP;
+  wrapXl?: TYPE_WRAP;
 }
 
 export const StyledRow = styled.div.attrs<IStyledRowProps>({
@@ -104,10 +124,16 @@ export const StyledRow = styled.div.attrs<IStyledRowProps>({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledRowProps>`
   display: flex;
-  flex-wrap: wrap;
   box-sizing: inherit;
 
-  ${props => flexStyles(props.alignContent, props.alignItems, props.justifyContent)}
+  ${props =>
+    flexStyles(
+      props.alignContent,
+      props.alignItems,
+      props.direction,
+      props.justifyContent,
+      props.wrap
+    )}
   ${props => sizeStyles(props)};
 
   ${props =>
@@ -115,7 +141,9 @@ export const StyledRow = styled.div.attrs<IStyledRowProps>({
       props.theme.breakpoints.xs,
       props.alignContentXs,
       props.alignItemsXs,
-      props.justifyContentXs
+      props.directionXs,
+      props.justifyContentXs,
+      props.wrapXs
     )};
 
   ${props =>
@@ -123,7 +151,9 @@ export const StyledRow = styled.div.attrs<IStyledRowProps>({
       props.theme.breakpoints.sm,
       props.alignContentSm,
       props.alignItemsSm,
-      props.justifyContentSm
+      props.directionSm,
+      props.justifyContentSm,
+      props.wrapSm
     )};
 
   ${props =>
@@ -131,7 +161,9 @@ export const StyledRow = styled.div.attrs<IStyledRowProps>({
       props.theme.breakpoints.md,
       props.alignContentMd,
       props.alignItemsMd,
-      props.justifyContentMd
+      props.directionMd,
+      props.justifyContentMd,
+      props.wrapMd
     )};
 
   ${props =>
@@ -139,7 +171,9 @@ export const StyledRow = styled.div.attrs<IStyledRowProps>({
       props.theme.breakpoints.lg,
       props.alignContentLg,
       props.alignItemsLg,
-      props.justifyContentLg
+      props.directionLg,
+      props.justifyContentLg,
+      props.wrapLg
     )};
 
   ${props =>
@@ -147,8 +181,15 @@ export const StyledRow = styled.div.attrs<IStyledRowProps>({
       props.theme.breakpoints.xl,
       props.alignContentXl,
       props.alignItemsXl,
-      props.justifyContentXl
+      props.directionXl,
+      props.justifyContentXl,
+      props.wrapXl
     )};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledRow.defaultProps = {
+  wrap: 'wrap',
+  theme: DEFAULT_THEME
+};

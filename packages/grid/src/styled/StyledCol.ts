@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import math from 'polished/lib/math/math';
-import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { TYPE_ALIGN_SELF, TYPE_NUMBER, TYPE_SPACE } from '../utils/types';
 
 const COMPONENT_ID = 'grid.col';
@@ -139,3 +139,7 @@ export const StyledCol = styled.div.attrs<IStyledColProps>({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledCol.defaultProps = {
+  theme: DEFAULT_THEME
+};

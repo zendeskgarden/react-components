@@ -34,6 +34,14 @@ export const ARRAY_ALIGN_SELF: Array<TYPE_ALIGN_SELF> = [
   'stretch'
 ];
 
+export type TYPE_DIRECTION = 'row' | 'row-reverse' | 'column' | 'column-reverse';
+export const ARRAY_DIRECTION: Array<TYPE_DIRECTION> = [
+  'row',
+  'row-reverse',
+  'column',
+  'column-reverse'
+];
+
 export type TYPE_JUSTIFY_CONTENT = 'start' | 'end' | 'center' | 'between' | 'around';
 export const ARRAY_JUSTIFY_CONTENT: Array<TYPE_JUSTIFY_CONTENT> = [
   'start',
@@ -47,3 +55,6 @@ export type TYPE_NUMBER = number | string;
 
 export type TYPE_SPACE = false | 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 export const ARRAY_SPACE: Array<TYPE_SPACE> = ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
+
+export type TYPE_WRAP = 'nowrap' | 'wrap' | 'wrap-reverse';
+export const ARRAY_WRAP: Array<TYPE_WRAP> = ['nowrap', 'wrap', 'wrap-reverse'];
