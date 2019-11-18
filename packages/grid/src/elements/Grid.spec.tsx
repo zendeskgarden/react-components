@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import Grid from './Grid';
+import { Grid } from './Grid';
 
 describe('Grid', () => {
   it('is rendered as a div', () => {

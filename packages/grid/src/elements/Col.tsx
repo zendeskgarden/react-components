@@ -56,5 +56,3 @@ Col.propTypes = {
   justifyContent: PropTypes.oneOf(['start', 'center', 'end', 'around', 'between']),
   order: PropTypes.any
 };
-
-export default Col;

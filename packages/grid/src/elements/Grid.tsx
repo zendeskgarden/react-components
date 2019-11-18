@@ -31,5 +31,3 @@ Grid.propTypes = {
 Grid.defaultProps = {
   isFluid: true
 };
-
-export default Grid;

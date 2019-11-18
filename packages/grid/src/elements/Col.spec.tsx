@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import Col from './Col';
+import { Col } from './Col';
 
 describe('Col', () => {
   it('is rendered as a div', () => {

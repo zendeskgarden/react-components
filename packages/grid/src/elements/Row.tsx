@@ -30,5 +30,3 @@ Row.propTypes = {
   alignItems: PropTypes.oneOf(['start', 'center', 'end']),
   justifyContent: PropTypes.oneOf(['start', 'center', 'end', 'around', 'between'])
 };
-
-export default Row;

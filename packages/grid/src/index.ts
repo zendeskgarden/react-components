@@ -5,6 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { default as Col } from './elements/Col';
-export { default as Grid } from './elements/Grid';
-export { default as Row } from './elements/Row';
+export { Col } from './elements/Col';
+export { Grid } from './elements/Grid';
+export { Row } from './elements/Row';
