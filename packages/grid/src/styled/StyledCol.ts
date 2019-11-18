@@ -25,6 +25,7 @@ const flexStyles = (
   basis: TYPE_NUMBER | boolean | undefined,
   alignSelf: TYPE_ALIGN_SELF | undefined,
   offset: TYPE_NUMBER | undefined,
+  order: TYPE_NUMBER | undefined,
   props: IStyledColProps
 ) => {
   const margin = offset && `${math(`${offset} / ${props.columns} * 100`)}%`;
@@ -46,12 +47,23 @@ const flexStyles = (
     width = '100%';
   }
 
+  let flexOrder;
+
+  if (order === 'first') {
+    flexOrder = -1;
+  } else if (order === 'last') {
+    flexOrder = math(`${props.columns} + 1`);
+  } else {
+    flexOrder = order;
+  }
+
   return css`
     /* stylelint-disable declaration-block-no-redundant-longhand-properties */
     flex-basis: ${flexBasis};
     flex-grow: ${!basis && '1'};
     flex-shrink: ${basis && '0'};
     align-self: ${alignSelf === 'start' || alignSelf === 'end' ? `flex-${alignSelf}` : alignSelf};
+    order: ${flexOrder};
     /* stylelint-disable-next-line property-no-unknown */
     margin-${props.theme.rtl ? 'right' : 'left'}: ${margin};
     width: ${width};
@@ -64,11 +76,12 @@ const mediaStyles = (
   basis: TYPE_NUMBER | boolean,
   alignSelf: TYPE_ALIGN_SELF | undefined,
   offset: TYPE_NUMBER | undefined,
+  order: TYPE_NUMBER | undefined,
   props: IStyledColProps
 ) => {
   return css`
     @media (min-width: ${minWidth}) {
-      ${flexStyles(basis, alignSelf, offset, props)};
+      ${flexStyles(basis, alignSelf, offset, order, props)};
     }
   `;
 };
@@ -103,6 +116,12 @@ export interface IStyledColProps extends ThemeProps<DefaultTheme> {
   offsetMd?: TYPE_NUMBER;
   offsetLg?: TYPE_NUMBER;
   offsetXl?: TYPE_NUMBER;
+  order?: TYPE_NUMBER;
+  orderXs?: TYPE_NUMBER;
+  orderSm?: TYPE_NUMBER;
+  orderMd?: TYPE_NUMBER;
+  orderLg?: TYPE_NUMBER;
+  orderXl?: TYPE_NUMBER;
   isDebug?: boolean;
 }
 
@@ -113,29 +132,64 @@ export const StyledCol = styled.div.attrs<IStyledColProps>({
   box-sizing: inherit;
   position: relative;
 
-  ${props => flexStyles(props.basis || false, props.alignSelf, props.offset, props)};
+  ${props => flexStyles(props.basis || false, props.alignSelf, props.offset, props.order, props)};
   ${props => sizeStyles(props)};
   ${props => props.isDebug && colorStyles(props)};
 
   ${props =>
     props.xs &&
-    mediaStyles(props.theme.breakpoints.xs, props.xs, props.alignSelfXs, props.offsetXs, props)};
+    mediaStyles(
+      props.theme.breakpoints.xs,
+      props.xs,
+      props.alignSelfXs,
+      props.offsetXs,
+      props.orderXs,
+      props
+    )};
 
   ${props =>
     props.sm &&
-    mediaStyles(props.theme.breakpoints.sm, props.sm, props.alignSelfSm, props.offsetSm, props)};
+    mediaStyles(
+      props.theme.breakpoints.sm,
+      props.sm,
+      props.alignSelfSm,
+      props.offsetSm,
+      props.orderSm,
+      props
+    )};
 
   ${props =>
     props.md &&
-    mediaStyles(props.theme.breakpoints.md, props.md, props.alignSelfMd, props.offsetMd, props)};
+    mediaStyles(
+      props.theme.breakpoints.md,
+      props.md,
+      props.alignSelfMd,
+      props.offsetMd,
+      props.orderMd,
+      props
+    )};
 
   ${props =>
     props.lg &&
-    mediaStyles(props.theme.breakpoints.lg, props.lg, props.alignSelfLg, props.offsetLg, props)};
+    mediaStyles(
+      props.theme.breakpoints.lg,
+      props.lg,
+      props.alignSelfLg,
+      props.offsetLg,
+      props.orderLg,
+      props
+    )};
 
   ${props =>
     props.xl &&
-    mediaStyles(props.theme.breakpoints.xl, props.xl, props.alignSelfXl, props.offsetXl, props)};
+    mediaStyles(
+      props.theme.breakpoints.xl,
+      props.xl,
+      props.alignSelfXl,
+      props.offsetXl,
+      props.orderXl,
+      props
+    )};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

@@ -32,15 +32,15 @@ export interface IColProps extends HTMLAttributes<HTMLDivElement> {
    * vertical alignment, for all screen sizes
    */
   alignSelf?: TYPE_ALIGN_SELF;
-  /** Applies the `align-self flex item property for extra-small screen sizes */
+  /** Applies the `align-self` flex item property for extra-small screen sizes */
   alignSelfXs?: TYPE_ALIGN_SELF;
-  /** Applies the `align-self flex item property for small screen sizes */
+  /** Applies the `align-self` flex item property for small screen sizes */
   alignSelfSm?: TYPE_ALIGN_SELF;
-  /** Applies the `align-self flex item property for medium screen sizes */
+  /** Applies the `align-self` flex item property for medium screen sizes */
   alignSelfMd?: TYPE_ALIGN_SELF;
-  /** Applies the `align-self flex item property for large screen sizes */
+  /** Applies the `align-self` flex item property for large screen sizes */
   alignSelfLg?: TYPE_ALIGN_SELF;
-  /** Applies the `align-self flex item property for extra-large screen sizes */
+  /** Applies the `align-self` flex item property for extra-large screen sizes */
   alignSelfXl?: TYPE_ALIGN_SELF;
   /**
    * Determine the offset, relative to the total number of `columns` in the
@@ -57,6 +57,22 @@ export interface IColProps extends HTMLAttributes<HTMLDivElement> {
   offsetLg?: TYPE_NUMBER;
   /** Determine the offset for extra-large screen sizes */
   offsetXl?: TYPE_NUMBER;
+  /**
+   * Determine the `order` flex item property for all screen sizes. Note that
+   * order modification can introduce accessibility problems by producing
+   * confusing tab ordering. Rely on semantic DOM ordering whenever possible.
+   */
+  order?: TYPE_NUMBER;
+  /** Determine the `order` flex item property for extra-small screen sizes */
+  orderXs?: TYPE_NUMBER;
+  /** Determine the `order` flex item property for small screen sizes */
+  orderSm?: TYPE_NUMBER;
+  /** Determine the `order` flex item property for medium screen sizes */
+  orderMd?: TYPE_NUMBER;
+  /** Determine the `order` flex item property for large screen sizes */
+  orderLg?: TYPE_NUMBER;
+  /** Determine the `order` flex item property for extra-large screen sizes */
+  orderXl?: TYPE_NUMBER;
 }
 
 /**
@@ -95,5 +111,11 @@ Col.propTypes = {
   offsetSm: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   offsetMd: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   offsetLg: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  offsetXl: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+  offsetXl: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  order: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  orderXs: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  orderSm: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  orderMd: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  orderLg: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  orderXl: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };

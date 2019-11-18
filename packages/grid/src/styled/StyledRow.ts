@@ -53,8 +53,7 @@ const flexStyles = (
   }
 
   return css`
-    flex-direction: ${direction};
-    flex-wrap: ${wrap};
+    flex-flow: ${direction} ${wrap};
     align-content: ${flexAlignContent};
     align-items: ${flexAlignItems};
     justify-content: ${flexJustifyContent};
