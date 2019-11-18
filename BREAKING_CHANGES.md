@@ -58,6 +58,15 @@ should be re-checked for ID naming accuracy.
   - `regular` -> `isRegular`
   - removed remaining props – attributes should be applied to the corresponding `<input>` component (checked, disabled, indeterminate)
 
+## @zendeskgarden/react-grid
+
+- Prop renames:
+  - Grid `debug` -> `isDebug`
+  - Grid `fluid` -> `isFluid`
+  - Row `gutters` -> `isCollapsed`
+    - Note: boolean logic is reversed for API clarity, but default layout without any prop specified remains the same.
+    - Previously `<Grid gutters={false} />`; currently `<Grid isCollapsed />`
+
 ## @zendeskgarden/react-loaders
 
 - `<Dots />` loader no longer has the `velocity` prop

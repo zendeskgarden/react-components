@@ -1,7 +1,7 @@
 ### Auto-Layout Equal-Width Columns
 
 ```jsx
-<Grid debug>
+<Grid isDebug>
   <Row>
     <Col>1 of 2</Col>
     <Col>2 of 2</Col>
@@ -17,7 +17,7 @@
 ### Setting One Column Width
 
 ```jsx
-<Grid debug>
+<Grid isDebug>
   <Row>
     <Col>1 of 3</Col>
     <Col size={6}>2 of 3 (wider)</Col>
@@ -34,7 +34,7 @@
 ### Variable Width Content
 
 ```jsx
-<Grid debug>
+<Grid isDebug>
   <Row justifyContent="center" style={{ marginBottom: 8 }}>
     <Col lg={2}>1 of 3</Col>
     <Col md="auto">Variable width content</Col>
@@ -51,7 +51,7 @@
 ### Responsive Layouts
 
 ```jsx
-<Grid debug>
+<Grid isDebug>
   <Row>
     <Col>col</Col>
     <Col>col</Col>
@@ -68,7 +68,7 @@
 ### Stacked to Horizontal
 
 ```jsx
-<Grid debug>
+<Grid isDebug>
   <Row>
     <Col sm={8}>col[sm=8]</Col>
     <Col sm={4}>col[sm=4]</Col>
@@ -84,7 +84,7 @@
 ### Mix and Match
 
 ```jsx
-<Grid debug>
+<Grid isDebug>
   <p>Stack the columns on mobile by making one full-width and the other half-width</p>
   <Row>
     <Col size={12} md={8}>
@@ -117,7 +117,7 @@
 ### Vertical Alignment
 
 ```jsx
-<Grid debug>
+<Grid isDebug>
   <Row
     alignItems="start"
     style={{ minHeight: '4em', backgroundColor: 'rgba(255,0,0,.1)', marginBottom: 8 }}
@@ -146,7 +146,7 @@
 ```
 
 ```jsx
-<Grid debug>
+<Grid isDebug>
   <Row style={{ minHeight: '4em', backgroundColor: 'rgba(255,0,0,.1)', marginBottom: 8 }}>
     <Col alignSelf="start">One of three columns</Col>
     <Col alignSelf="center">One of three columns</Col>
@@ -158,7 +158,7 @@
 ### Horizontal Alignment
 
 ```jsx
-<Grid debug>
+<Grid isDebug>
   <Row justifyContent="start">
     <Col size={4}>One of 2 columns</Col>
     <Col size={4}>One of 2 columns</Col>
