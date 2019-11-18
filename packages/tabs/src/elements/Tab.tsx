@@ -28,7 +28,7 @@ export const Tab = React.forwardRef<HTMLDivElement, ITabProps>(
     const focusRef = useCombinedRefs(ref);
 
     if (disabled || !tabsPropGetters) {
-      return <StyledTab disabled={disabled} ref={ref} {...otherProps} />;
+      return <StyledTab disabled={disabled} ref={focusRef} {...otherProps} />;
     }
 
     return (
