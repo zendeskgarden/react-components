@@ -10,6 +10,7 @@ import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden
 import stripUnit from 'polished/lib/helpers/stripUnit';
 
 import { StyledTooltip, IStyledTooltipProps } from './StyledTooltip';
+import { StyledTitle } from './StyledTitle';
 
 const COMPONENT_ID = 'tooltip.light_tooltip';
 
@@ -37,7 +38,11 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
     box-shadow: 0 ${theme.space.base * 3}px ${theme.space.base * 5}px 0
       ${getColor('chromeHue', 600, theme, 0.15)};
     background-color: ${theme.colors.background};
-    color: ${theme.colors.foreground};
+    color: ${getColor('neutralHue', 700, theme)};
+
+    ${StyledTitle} {
+      color: ${theme.colors.foreground};
+    }
   `;
 };
 
