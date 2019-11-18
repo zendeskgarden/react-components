@@ -105,18 +105,4 @@ describe('StyledCol', () => {
       expect(container.firstChild).toHaveClass('align-self-end');
     });
   });
-
-  describe('Order', () => {
-    it('renders pseudo order if provided', () => {
-      const { container } = render(<StyledCol order="first" />);
-
-      expect(container.firstChild).toHaveClass('order-first');
-    });
-
-    it('renders string based order if provided', () => {
-      const { container } = render(<StyledCol order="md-12" />);
-
-      expect(container.firstChild).toHaveClass('order-md-12');
-    });
-  });
 });

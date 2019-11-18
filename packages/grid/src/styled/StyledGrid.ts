@@ -8,12 +8,12 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import math from 'polished/lib/math/math';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { GRID_GUTTERS } from '../utils/useGridContext';
+import { TYPE_SPACE } from '../utils/types';
 
 const COMPONENT_ID = 'grid.grid';
 
 export interface IStyledGridProps extends ThemeProps<DefaultTheme> {
-  gutters?: GRID_GUTTERS;
+  gutters?: TYPE_SPACE;
 }
 
 const sizeStyles = (props: IStyledGridProps) => {

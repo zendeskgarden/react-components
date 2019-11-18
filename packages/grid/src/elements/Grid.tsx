@@ -7,19 +7,21 @@
 
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { GridContext, GRID_GUTTERS } from '../utils/useGridContext';
+import { TYPE_NUMBER, TYPE_SPACE } from '../utils/types';
+import { GridContext } from '../utils/useGridContext';
 import { StyledGrid } from '../styled';
 
 export interface IGridProps extends HTMLAttributes<HTMLDivElement> {
-  columns?: number | string;
-  /** Column gutter sizing or `false` to collapse */
-  gutters?: GRID_GUTTERS;
-  /** Highlight column layout */
+  /** Customize the number of individual columns that this grid can contain */
+  columns?: TYPE_NUMBER;
+  /** Customize column gutter width or specify `false` to collapse */
+  gutters?: TYPE_SPACE;
+  /** Highlight columns to debug layout */
   isDebug?: boolean;
 }
 
 /**
- * Accepts all `<div>` attributes and events
+ * Grid container; accepts all `<div>` attributes and events
  */
 export const Grid = React.forwardRef<HTMLDivElement, IGridProps>(
   ({ columns, isDebug, ...props }, ref) => (

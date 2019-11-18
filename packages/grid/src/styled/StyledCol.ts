@@ -8,7 +8,7 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import math from 'polished/lib/math/math';
 import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
-import { GRID_GUTTERS } from '../utils/useGridContext';
+import { TYPE_ALIGN_SELF, TYPE_NUMBER, TYPE_SPACE } from '../utils/types';
 
 const COMPONENT_ID = 'grid.col';
 
@@ -21,60 +21,88 @@ const colorStyles = (props: IStyledColProps) => {
   `;
 };
 
-const sizeStyles = (props: IStyledColProps) => {
-  const margin = props.offset && `${math(`${props.offset} / ${props.columns} * 100`)}%`;
-  const padding = props.gutters ? math(`${props.theme.space[props.gutters!]} / 2`) : 0;
+const flexStyles = (
+  basis: TYPE_NUMBER | boolean | undefined,
+  alignSelf: TYPE_ALIGN_SELF | undefined,
+  offset: TYPE_NUMBER | undefined,
+  props: IStyledColProps
+) => {
+  const margin = offset && `${math(`${offset} / ${props.columns} * 100`)}%`;
   let flexBasis;
-  let width;
   let maxWidth;
+  let width;
 
-  if (props.basis) {
-    if (props.basis === 'auto') {
-      flexBasis = 'auto';
-      width = 'auto';
-      maxWidth = '100%';
-    } else {
-      flexBasis = `${math(`${props.basis} / ${props.columns} * 100`)}%`;
-      width = '100%';
-      maxWidth = flexBasis;
-    }
-  } else {
+  if (typeof basis === 'boolean') {
     flexBasis = 0;
-    width = '100%';
     maxWidth = '100%';
+    width = '100%';
+  } else if (basis === 'auto') {
+    flexBasis = 'auto';
+    maxWidth = '100%';
+    width = 'auto';
+  } else {
+    flexBasis = `${math(`${basis} / ${props.columns} * 100`)}%`;
+    maxWidth = flexBasis;
+    width = '100%';
   }
 
   return css`
     /* stylelint-disable declaration-block-no-redundant-longhand-properties */
     flex-basis: ${flexBasis};
-    flex-grow: ${!props.basis && '1'};
-    flex-shrink: ${props.basis && '0'};
+    flex-grow: ${!basis && '1'};
+    flex-shrink: ${basis && '0'};
+    align-self: ${alignSelf === 'start' || alignSelf === 'end' ? `flex-${alignSelf}` : alignSelf};
     /* stylelint-disable-next-line property-no-unknown */
     margin-${props.theme.rtl ? 'right' : 'left'}: ${margin};
-    padding-right: ${padding};
-    padding-left: ${padding};
     width: ${width};
     max-width: ${maxWidth};
   `;
 };
 
+const mediaStyles = (
+  minWidth: string,
+  basis: TYPE_NUMBER | boolean,
+  alignSelf: TYPE_ALIGN_SELF | undefined,
+  offset: TYPE_NUMBER | undefined,
+  props: IStyledColProps
+) => {
+  return css`
+    @media (min-width: ${minWidth}) {
+      ${flexStyles(basis, alignSelf, offset, props)};
+    }
+  `;
+};
+
+const sizeStyles = (props: IStyledColProps) => {
+  const padding = props.gutters ? math(`${props.theme.space[props.gutters!]} / 2`) : 0;
+
+  return css`
+    padding-right: ${padding};
+    padding-left: ${padding};
+  `;
+};
+
 export interface IStyledColProps extends ThemeProps<DefaultTheme> {
-  columns?: number | string;
-  gutters?: GRID_GUTTERS;
-  basis?: number | string;
-  xs?: number | string | boolean;
-  sm?: number | string | boolean;
-  md?: number | string | boolean;
-  lg?: number | string | boolean;
-  xl?: number | string | boolean;
-  offset?: number | string;
-  offsetXs?: number | string;
-  offsetSm?: number | string;
-  offsetMd?: number | string;
-  offsetLg?: number | string;
-  offsetXl?: number | string;
-  alignSelf?: 'start' | 'center' | 'end' | 'baseline' | 'stretch';
-  order?: any;
+  columns?: TYPE_NUMBER;
+  gutters?: TYPE_SPACE;
+  basis?: TYPE_NUMBER;
+  xs?: TYPE_NUMBER | boolean;
+  sm?: TYPE_NUMBER | boolean;
+  md?: TYPE_NUMBER | boolean;
+  lg?: TYPE_NUMBER | boolean;
+  xl?: TYPE_NUMBER | boolean;
+  alignSelf?: TYPE_ALIGN_SELF;
+  alignSelfXs?: TYPE_ALIGN_SELF;
+  alignSelfSm?: TYPE_ALIGN_SELF;
+  alignSelfMd?: TYPE_ALIGN_SELF;
+  alignSelfLg?: TYPE_ALIGN_SELF;
+  alignSelfXl?: TYPE_ALIGN_SELF;
+  offset?: TYPE_NUMBER;
+  offsetXs?: TYPE_NUMBER;
+  offsetSm?: TYPE_NUMBER;
+  offsetMd?: TYPE_NUMBER;
+  offsetLg?: TYPE_NUMBER;
+  offsetXl?: TYPE_NUMBER;
   isDebug?: boolean;
 }
 
@@ -85,8 +113,29 @@ export const StyledCol = styled.div.attrs<IStyledColProps>({
   box-sizing: inherit;
   position: relative;
 
+  ${props => flexStyles(props.basis || false, props.alignSelf, props.offset, props)};
   ${props => sizeStyles(props)};
   ${props => props.isDebug && colorStyles(props)};
+
+  ${props =>
+    props.xs &&
+    mediaStyles(props.theme.breakpoints.xs, props.xs, props.alignSelfXs, props.offsetXs, props)};
+
+  ${props =>
+    props.sm &&
+    mediaStyles(props.theme.breakpoints.sm, props.sm, props.alignSelfSm, props.offsetSm, props)};
+
+  ${props =>
+    props.md &&
+    mediaStyles(props.theme.breakpoints.md, props.md, props.alignSelfMd, props.offsetMd, props)};
+
+  ${props =>
+    props.lg &&
+    mediaStyles(props.theme.breakpoints.lg, props.lg, props.alignSelfLg, props.offsetLg, props)};
+
+  ${props =>
+    props.xl &&
+    mediaStyles(props.theme.breakpoints.xl, props.xl, props.alignSelfXl, props.offsetXl, props)};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

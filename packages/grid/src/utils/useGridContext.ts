@@ -6,12 +6,11 @@
  */
 
 import { createContext, useContext } from 'react';
-
-export type GRID_GUTTERS = false | 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+import { TYPE_NUMBER, TYPE_SPACE } from './types';
 
 interface IGridContext {
-  columns?: number | string;
-  gutters?: GRID_GUTTERS;
+  columns?: TYPE_NUMBER;
+  gutters?: TYPE_SPACE;
   debug?: boolean;
 }
 
