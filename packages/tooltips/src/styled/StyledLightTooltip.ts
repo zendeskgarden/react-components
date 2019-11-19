@@ -32,11 +32,15 @@ const arrowStyles = ({ theme, size }: IStyledTooltipProps & ThemeProps<DefaultTh
 };
 
 const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const boxShadow = theme.shadows.lg(
+    `${theme.space.base * 3}px`,
+    `${theme.space.base * 5}px`,
+    getColor('chromeHue', 600, theme, 0.15)!
+  );
+
   return css`
-    border: ${theme.borderWidths.sm} ${theme.borderStyles.solid}
-      ${getColor('neutralHue', 300, theme)};
-    box-shadow: 0 ${theme.space.base * 3}px ${theme.space.base * 5}px 0
-      ${getColor('chromeHue', 600, theme, 0.15)};
+    border: ${theme.borders.sm} ${getColor('neutralHue', 300, theme)};
+    box-shadow: ${boxShadow};
     background-color: ${theme.colors.background};
     color: ${getColor('neutralHue', 700, theme)};
 

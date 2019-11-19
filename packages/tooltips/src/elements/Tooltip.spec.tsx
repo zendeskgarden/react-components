@@ -64,7 +64,7 @@ describe('Tooltip', () => {
       expect(getByTestId('tooltip')).toHaveAttribute('aria-hidden', 'false');
     });
 
-    it('closes tooltip if content is blured', () => {
+    it('closes tooltip if content is blurred', () => {
       const { getByTestId } = renderRtl(<BasicExample />);
 
       act(() => {

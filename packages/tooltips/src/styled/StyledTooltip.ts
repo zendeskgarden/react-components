@@ -37,16 +37,18 @@ const sizeStyles = ({ theme, size, hasArrow }: IStyledTooltipProps & ThemeProps<
   let fontSize = theme.fontSizes.sm;
   let titleDisplay;
   let paragraphMarginTop;
+  let wordWrap;
 
   if (size !== 'small') {
     borderRadius = theme.borderRadii.md;
     overflowWrap = 'break-word';
     whiteSpace = 'normal';
+    wordWrap = 'break-word';
   }
 
   if (size === 'extra-large') {
     padding = `${theme.space.base * 10}px`;
-    maxWidth = '460px';
+    maxWidth = `${theme.space.base * 115}px`;
     lineHeight = (theme.space.base * 5) / stripUnit(theme.fontSizes.md);
     paragraphMarginTop = `${theme.space.base * 2.5}px`;
   } else if (size === 'large') {
@@ -56,7 +58,7 @@ const sizeStyles = ({ theme, size, hasArrow }: IStyledTooltipProps & ThemeProps<
     paragraphMarginTop = `${theme.space.base * 2}px`;
   } else if (size === 'medium') {
     padding = 'padding: 1em';
-    maxWidth = '140px';
+    maxWidth = `${theme.space.base * 3}px`;
     lineHeight = (theme.space.base * 4) / stripUnit(theme.fontSizes.sm);
   }
 
@@ -79,10 +81,10 @@ const sizeStyles = ({ theme, size, hasArrow }: IStyledTooltipProps & ThemeProps<
     padding: ${padding};
     max-width: ${maxWidth};
     line-height: ${lineHeight};
+    word-wrap: ${wordWrap};
     white-space: ${whiteSpace};
     /*  Manipulate arrow sizing (which is based on ems). */
     font-size: ${fontSize};
-    font-weight: ${theme.fontWeights.regular};
     overflow-wrap: ${overflowWrap};
 
     ${StyledParagraph} {
@@ -95,12 +97,19 @@ const sizeStyles = ({ theme, size, hasArrow }: IStyledTooltipProps & ThemeProps<
   `;
 };
 
-const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => css`
-  box-shadow: 0 ${theme.space.base}px ${theme.space.base * 2}px 0
-    ${getColor('chromeHue', 600, theme, 0.15)};
-  background-color: ${getColor('chromeHue', 700, theme)};
-  color: ${theme.colors.background};
-`;
+const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const boxShadow = theme.shadows.lg(
+    `${theme.space.base}px`,
+    `${theme.space.base * 2}px`,
+    getColor('chromeHue', 600, theme, 0.15)!
+  );
+
+  return css`
+    box-shadow: ${boxShadow};
+    background-color: ${getColor('chromeHue', 700, theme)};
+    color: ${theme.colors.background};
+  `;
+};
 
 /**
  * Accepts all `<div>` props
@@ -113,14 +122,16 @@ export const StyledTooltip = styled.div.attrs<IStyledTooltipProps>(props => ({
   display: inline-block;
   box-sizing: border-box;
   direction: ${props => props.theme.rtl && 'rtl'};
+  font-weight: ${props => props.theme.fontWeights.regular};
 
-  ${colorStyles};
   ${sizeStyles};
   ${arrowStyles};
 
   &[aria-hidden='true'] {
     display: none;
   }
+
+  ${colorStyles};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

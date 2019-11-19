@@ -13,7 +13,7 @@ const COMPONENT_ID = 'tooltip.title';
 /**
  * Accepts all `<div>` props
  */
-export const StyledTitle = styled.div.attrs({
+export const StyledTitle = styled.strong.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

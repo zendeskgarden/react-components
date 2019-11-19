@@ -10,10 +10,10 @@ import styled from 'styled-components';
 /**
  * This wrapper allows the StyledTooltip to retain it's relative positioning.
  * Without this container Popper would apply absolute positioning directly to
- * the StyledTooltip which impacts our arrow styling.
+ * the StyledTooltip which impacts arrow styling.
  *
  * 1. This wrapper also includes an opacity transition. It allows Popper to
- * re-position the tooltip without having a visible shift. The transition
+ * reposition the tooltip without having a visible shift. The transition
  * is fast enough that it should not be perceptible.
  */
 export const StyledTooltipWrapper = styled.div<{ zIndex?: number | string }>`
