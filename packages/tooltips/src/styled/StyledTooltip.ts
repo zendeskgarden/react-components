@@ -68,8 +68,8 @@ const sizeStyles = ({
     paragraphMarginTop = `${theme.space.base * 2}px`;
     arrowFontSize = theme.fontSizes.sm;
   } else if (size === 'medium') {
-    padding = 'padding: 1em';
-    maxWidth = `${theme.space.base * 3}px`;
+    padding = '1em';
+    maxWidth = `${theme.space.base * 35}px`;
     lineHeight = (theme.space.base * 4) / stripUnit(theme.fontSizes.sm);
   }
 

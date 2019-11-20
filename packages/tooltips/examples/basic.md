@@ -25,10 +25,11 @@ const StyledSpacer = styled.div`
 <State
   initialState={{
     placement: 'top',
+    size: 'default',
     hasArrow: true,
     type: 'dark',
     delayMS: 500,
-    isVisible: undefined
+    isVisible: false
   }}
 >
   {(state, setState) => (
@@ -59,6 +60,21 @@ const StyledSpacer = styled.div`
                   <Item value="start">start</Item>
                   <Item value="start-top">start-top</Item>
                   <Item value="start-bottom">start-bottom</Item>
+                </Menu>
+              </Dropdown>
+            </StyledSpacer>
+            <StyledSpacer>
+              <Dropdown selectedItem={state.size} onSelect={size => setState({ size })}>
+                <SelectField>
+                  <SelectLabel>Size</SelectLabel>
+                  <Select small>{state.size}</Select>
+                </SelectField>
+                <Menu small>
+                  <Item value="default">default</Item>
+                  <Item value="small">small</Item>
+                  <Item value="medium">medium</Item>
+                  <Item value="large">large</Item>
+                  <Item value="extra-large">extra-large</Item>
                 </Menu>
               </Dropdown>
             </StyledSpacer>
@@ -101,6 +117,7 @@ const StyledSpacer = styled.div`
             content="This is a small tooltip"
             hasArrow={state.hasArrow}
             placement={state.placement}
+            size={state.size === 'default' ? undefined : state.size}
             delayMilliseconds={state.delayMS}
             initialIsVisible
             isVisible={state.isVisible ? true : undefined}
@@ -121,6 +138,7 @@ const StyledSpacer = styled.div`
             }
             hasArrow={state.hasArrow}
             placement={state.placement}
+            size={state.size === 'default' ? undefined : state.size}
             type="light"
             initialIsVisible
             isVisible={state.isVisible ? true : undefined}
