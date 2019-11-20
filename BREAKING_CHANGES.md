@@ -4,6 +4,13 @@ NOTE: many style-related COMPONENT_IDs were renamed for consistency based
 on the CSS-in-JS restructure. All component-level theming customizations
 should be re-checked for ID naming accuracy.
 
+## @zendeskgarden/react-breadcrumbs
+
+- The `<Item>` component has been removed. The `<Breadcrumb>` component determines the last
+  breadcrumb item and applies styling to each item. Instead of passing `<Item>` components as
+  children to `<Breadcrumb>`, consumers can now pass in inline elements of their choice. For example,
+  a child of `<Breadcrumb>` can be a `<span>` or a component that renders an `<a>`.
+
 ## @zendeskgarden/react-autocomplete
 
 - removed; see `@zendeskgarden/react-dropdowns`
@@ -56,8 +63,8 @@ should be re-checked for ID naming accuracy.
   - removed `small` prop; all field layouts respond to `isCompact` placed on the input component
 - Label
   - `regular` -> `isRegular`
-  - removed remaining props – attributes should be applied to the corresponding `<input>`
-    component (checked, disabled, indeterminate)
+  - removed remaining props – attributes should be applied to the corresponding `<input>` component
+    (checked, disabled, indeterminate)
 
 ## @zendeskgarden/react-grid
 
@@ -65,7 +72,8 @@ should be re-checked for ID naming accuracy.
   - Grid `debug` -> `isDebug`
   - Grid `fluid` -> `isFluid`
   - Row `gutters` -> `isCollapsed`
-    - Note: boolean logic is reversed for API clarity, but default layout without any prop specified remains the same.
+    - Note: boolean logic is reversed for API clarity, but default layout without any prop
+      specified remains the same.
     - Previously `<Grid gutters={false} />`; currently `<Grid isCollapsed />`
 
 ## @zendeskgarden/react-loaders
