@@ -57,19 +57,19 @@ const sizeStyles = ({
 
   if (size === 'extra-large') {
     padding = `${theme.space.base * 10}px`;
-    maxWidth = `${theme.space.base * 115}px`;
+    maxWidth = `460px`;
     lineHeight = (theme.space.base * 5) / stripUnit(theme.fontSizes.md);
     paragraphMarginTop = `${theme.space.base * 2.5}px`;
     arrowFontSize = `${theme.space.base * 4}px`;
   } else if (size === 'large') {
     padding = `${theme.space.base * 5}px`;
-    maxWidth = `${theme.space.base * 67.5}px`;
+    maxWidth = `270px`;
     lineHeight = (theme.space.base * 5) / stripUnit(theme.fontSizes.md);
     paragraphMarginTop = `${theme.space.base * 2}px`;
     arrowFontSize = theme.fontSizes.sm;
   } else if (size === 'medium') {
     padding = '1em';
-    maxWidth = `${theme.space.base * 35}px`;
+    maxWidth = `140px`;
     lineHeight = (theme.space.base * 4) / stripUnit(theme.fontSizes.sm);
   }
 
