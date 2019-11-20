@@ -27,7 +27,8 @@ const StyledSpacer = styled.div`
     placement: 'top',
     hasArrow: true,
     type: 'dark',
-    delayMS: 500
+    delayMS: 500,
+    isVisible: undefined
   }}
 >
   {(state, setState) => (
@@ -83,6 +84,16 @@ const StyledSpacer = styled.div`
                 </Toggle>
               </Field>
             </StyledSpacer>
+            <StyledSpacer>
+              <Field>
+                <Toggle
+                  checked={state.isVisible}
+                  onChange={e => setState({ isVisible: e.target.checked })}
+                >
+                  <Label>Force visibility</Label>
+                </Toggle>
+              </Field>
+            </StyledSpacer>
           </Well>
         </Col>
         <Col md={4} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -92,6 +103,7 @@ const StyledSpacer = styled.div`
             placement={state.placement}
             delayMilliseconds={state.delayMS}
             initialIsVisible
+            isVisible={state.isVisible ? true : undefined}
           >
             <Button>Default tooltip</Button>
           </Tooltip>
@@ -111,6 +123,7 @@ const StyledSpacer = styled.div`
             placement={state.placement}
             type="light"
             initialIsVisible
+            isVisible={state.isVisible ? true : undefined}
             delayMilliseconds={state.delayMS}
           >
             <Button>Light tooltip</Button>

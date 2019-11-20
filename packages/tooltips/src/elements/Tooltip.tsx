@@ -10,7 +10,7 @@ import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import { ThemeProps, DefaultTheme } from 'styled-components';
 import { useTooltip } from '@zendeskgarden/container-tooltip';
-import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import { composeEventHandlers, getControlledValue } from '@zendeskgarden/container-utilities';
 import { withTheme, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { Manager, Popper, Reference } from 'react-popper';
 import { Modifiers } from 'popper.js';
@@ -20,9 +20,7 @@ import {
   getRtlPopperPlacement,
   GARDEN_PLACEMENT
 } from '../utils/gardenPlacements';
-import { StyledTooltipWrapper, StyledTooltip, StyledLightTooltip, TOOLTIP_SIZE } from '../styled';
-
-type TOOLTIP_TYPE = 'light' | 'dark';
+import { StyledTooltipWrapper, StyledTooltip, TOOLTIP_SIZE, TOOLTIP_TYPE } from '../styled';
 
 export interface ITooltipProps
   extends Partial<ThemeProps<DefaultTheme>>,
@@ -48,6 +46,8 @@ export interface ITooltipProps
   /** The z-index of the popper.js placement container */
   zIndex?: number | string;
   initialIsVisible?: boolean;
+  /** Control visibility state of the Tooltip */
+  isVisible?: boolean;
   children: React.ReactElement;
   refKey?: string;
 }
@@ -67,6 +67,7 @@ const Tooltip: React.FC<ITooltipProps> = ({
   type,
   appendToNode,
   zIndex,
+  isVisible: externalIsVisible,
   ...otherProps
 }) => {
   const scheduleUpdateRef = useRef<() => void>();
@@ -76,14 +77,16 @@ const Tooltip: React.FC<ITooltipProps> = ({
     isVisible: initialIsVisible
   });
 
+  const controlledIsVisible = getControlledValue(externalIsVisible, isVisible);
+
   /**
    * Recalculate popper placement when open to allow animations to complete.
    **/
   useEffect(() => {
-    if (isVisible) {
+    if (controlledIsVisible) {
       scheduleUpdateRef.current && scheduleUpdateRef.current();
     }
-  }, [isVisible]);
+  }, [controlledIsVisible]);
 
   const popperPlacement = otherProps.theme!.rtl
     ? getRtlPopperPlacement(placement!)
@@ -115,7 +118,7 @@ const Tooltip: React.FC<ITooltipProps> = ({
       </Reference>
       <Popper
         placement={popperPlacement}
-        eventsEnabled={isVisible && eventsEnabled}
+        eventsEnabled={controlledIsVisible && eventsEnabled}
         modifiers={modifiers}
       >
         {({ ref, style, scheduleUpdate, placement: currentPlacement }) => {
@@ -123,24 +126,39 @@ const Tooltip: React.FC<ITooltipProps> = ({
 
           const { onFocus, onBlur, ...otherTooltipProps } = otherProps;
 
+          let computedSize: TOOLTIP_SIZE | undefined = size;
+
+          if (computedSize === undefined) {
+            if (type === 'dark') {
+              computedSize = 'small';
+            } else {
+              computedSize = 'large';
+            }
+          }
+
           const tooltipProps = {
             hasArrow,
             placement: currentPlacement,
-            size,
+            size: computedSize,
             onFocus: composeEventHandlers(onFocus, () => {
               openTooltip();
             }),
             onBlur: composeEventHandlers(onBlur, () => {
               closeTooltip(0);
             }),
+            'aria-hidden': !controlledIsVisible,
+            type,
             ...otherTooltipProps
           };
 
-          const TooltipElem = type === 'light' ? StyledLightTooltip : StyledTooltip;
-
           const tooltip = (
-            <StyledTooltipWrapper ref={ref} style={style} zIndex={zIndex} aria-hidden={!isVisible}>
-              <TooltipElem {...(getTooltipProps(tooltipProps) as any)}>{content}</TooltipElem>
+            <StyledTooltipWrapper
+              ref={ref}
+              style={style}
+              zIndex={zIndex}
+              aria-hidden={!controlledIsVisible}
+            >
+              <StyledTooltip {...(getTooltipProps(tooltipProps) as any)}>{content}</StyledTooltip>
             </StyledTooltipWrapper>
           );
 

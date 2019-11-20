@@ -8,17 +8,8 @@
 import { css, ThemeProps, DefaultTheme } from 'styled-components';
 import math from 'polished/lib/math/math';
 import stripUnit from 'polished/lib/helpers/stripUnit';
-import { IStyledTooltipProps } from './StyledTooltip';
 
-export const arrowStyles = ({
-  theme,
-  hasArrow,
-  size
-}: IStyledTooltipProps & ThemeProps<DefaultTheme>) => {
-  if (!hasArrow) {
-    return '';
-  }
-
+export const arrowStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const arrowSize = `${stripUnit(theme.fontSizes.sm) / stripUnit(theme.fontSizes.md)}em`;
   const arrowTransform = 'rotate(45deg)';
   const arrowPosition = math(`${arrowSize} / -2`);
@@ -27,14 +18,6 @@ export const arrowStyles = ({
   const leftClipPath = 'polygon(0 100%, 100% 100%, 100% calc(100% - 1px), 1px 0, 0 0)';
   const rightClipPath = 'polygon(100% 0, 100% 100%, calc(100% - 1px) 100%, 0 1px, 0 0)';
   const topClipPath = 'polygon(100% 0, 100% 1px, 1px 100%, 0 100%, 0 0)';
-
-  let arrowFontSize = `${theme.space.base * 1.75}px`;
-
-  if (size === 'extra-large') {
-    arrowFontSize = `${theme.space.base * 4}px`;
-  } else if (size === 'large') {
-    arrowFontSize = theme.fontSizes.sm;
-  }
 
   return css`
     /* Set base positioning for an arrow */
@@ -71,7 +54,6 @@ export const arrowStyles = ({
       box-sizing: inherit;
       width: ${arrowSize};
       height: ${arrowSize};
-      font-size: ${arrowFontSize};
       content: '';
     }
 
