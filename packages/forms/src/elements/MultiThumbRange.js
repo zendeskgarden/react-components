@@ -148,7 +148,7 @@ const MultiThumbRange = ({
         return;
       }
 
-      const trackOffsetLeft = trackRailRef.current.getBoundingClientRect().x;
+      const trackOffsetLeft = trackRailRef.current.getBoundingClientRect().left;
       const trackOffsetRight = trackOffsetLeft + trackRailRef.current.getBoundingClientRect().width;
       const trackWidth = trackRailRef.current.getBoundingClientRect().width;
 
