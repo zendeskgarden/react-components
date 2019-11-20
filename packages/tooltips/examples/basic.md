@@ -80,18 +80,6 @@ const StyledSpacer = styled.div`
             </StyledSpacer>
             <StyledSpacer>
               <Field>
-                <Label>Delay ({state.delayMS} ms)</Label>
-                <Range
-                  step={50}
-                  min={100}
-                  max={10000}
-                  value={state.delayMS}
-                  onChange={event => setState({ delayMS: parseInt(event.target.value) })}
-                />
-              </Field>
-            </StyledSpacer>
-            <StyledSpacer>
-              <Field>
                 <Toggle
                   checked={state.hasArrow}
                   onChange={e => setState({ hasArrow: e.target.checked })}
@@ -108,6 +96,19 @@ const StyledSpacer = styled.div`
                 >
                   <Label>Force visibility</Label>
                 </Toggle>
+              </Field>
+            </StyledSpacer>
+            <StyledSpacer>
+              <Field>
+                <Label>Delay ({state.delayMS} ms)</Label>
+                <Range
+                  step={50}
+                  min={100}
+                  max={1000}
+                  value={state.delayMS}
+                  disabled={state.isVisible}
+                  onChange={event => setState({ delayMS: parseInt(event.target.value) })}
+                />
               </Field>
             </StyledSpacer>
           </Well>
