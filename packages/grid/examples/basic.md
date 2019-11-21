@@ -1,3 +1,154 @@
+```jsx
+const { Well } = require('@zendeskgarden/react-notifications/src');
+const { Toggle, Field, Input, Label, Range } = require('@zendeskgarden/react-forms/src');
+const {
+  Dropdown,
+  Select,
+  Field: SelectField,
+  Label: SelectLabel,
+  Menu,
+  Item
+} = require('@zendeskgarden/react-dropdowns/src');
+
+initialState = {
+  alignItems: 'default',
+  debug: true,
+  columns: 12,
+  gutters: 'md',
+  justifyContent: 'default',
+  offset: 0,
+  size: 0,
+  wrap: 'default'
+};
+
+<Grid>
+  <Row>
+    <Col>
+      <Well recessed style={{ width: 180 }}>
+        <Field>
+          <Toggle
+            checked={state.debug}
+            onChange={event => setState({ debug: event.target.checked })}
+          >
+            <Label>Debug</Label>
+          </Toggle>
+        </Field>
+        <Dropdown selectedItem={state.columns} onSelect={columns => setState({ columns })}>
+          <SelectField className="u-mt-xs">
+            <SelectLabel>Columns</SelectLabel>
+            <Select small>{state.columns}</Select>
+          </SelectField>
+          <Menu small>
+            <Item value={4}>4</Item>
+            <Item value={8}>8</Item>
+            <Item value={12}>12</Item>
+            <Item value={16}>16</Item>
+            <Item value={24}>24</Item>
+          </Menu>
+        </Dropdown>
+        <Dropdown selectedItem={state.gutters} onSelect={gutters => setState({ gutters })}>
+          <SelectField className="u-mt-xs">
+            <SelectLabel>Gutters</SelectLabel>
+            <Select small>{state.gutters}</Select>
+          </SelectField>
+          <Menu small>
+            <Item value={false}>none</Item>
+            <Item value="xs">xs</Item>
+            <Item value="sm">sm</Item>
+            <Item value="md">md</Item>
+            <Item value="lg">lg</Item>
+            <Item value="xl">xl</Item>
+          </Menu>
+        </Dropdown>
+        <Field className="u-mt-xs">
+          <Label>Size ({state.size.toString() === '0' ? 'none' : state.size})</Label>
+          <Range
+            max={state.columns}
+            onChange={event => setState({ size: event.target.value })}
+            value={state.size}
+          />
+        </Field>
+        <Dropdown
+          selectedItem={state.justifyContent}
+          onSelect={justifyContent => setState({ justifyContent })}
+        >
+          <SelectField className="u-mt-xs">
+            <SelectLabel>Justify content</SelectLabel>
+            <Select small>{state.justifyContent}</Select>
+          </SelectField>
+          <Menu small>
+            <Item value="default">default</Item>
+            <Item value="start">start</Item>
+            <Item value="end">end</Item>
+            <Item value="center">center</Item>
+            <Item value="between">between</Item>
+            <Item value="around">around</Item>
+          </Menu>
+        </Dropdown>
+        <Dropdown selectedItem={state.alignItems} onSelect={alignItems => setState({ alignItems })}>
+          <SelectField className="u-mt-xs">
+            <SelectLabel>Align items</SelectLabel>
+            <Select small>{state.alignItems}</Select>
+          </SelectField>
+          <Menu small>
+            <Item value="default">default</Item>
+            <Item value="start">start</Item>
+            <Item value="end">end</Item>
+            <Item value="center">center</Item>
+            <Item value="baseline">baseline</Item>
+            <Item value="stretch">stretch</Item>
+          </Menu>
+        </Dropdown>
+        <Dropdown selectedItem={state.wrap} onSelect={wrap => setState({ wrap })}>
+          <SelectField className="u-mt-xs">
+            <SelectLabel>Wrap</SelectLabel>
+            <Select small>{state.wrap}</Select>
+          </SelectField>
+          <Menu small>
+            <Item value="default">default</Item>
+            <Item value="wrap">wrap</Item>
+            <Item value="nowrap">nowrap</Item>
+            <Item value="wrap-reverse">wrap-reverse</Item>
+          </Menu>
+        </Dropdown>
+        <Field className="u-mt-xs">
+          <Label>Offset ({state.offset.toString() === '0' ? 'none' : state.offset})</Label>
+          <Range
+            max={state.columns - 1}
+            onChange={event => setState({ offset: event.target.value })}
+            value={state.offset}
+          />
+        </Field>
+      </Well>
+    </Col>
+    <Col size="8">
+      <div className="u-mt">
+        <Grid columns={state.columns} gutters={state.gutters} isDebug={state.debug}>
+          <Row
+            alignItems={state.alignItems === 'default' ? undefined : state.alignItems}
+            justifyContent={state.justifyContent === 'default' ? undefined : state.justifyContent}
+            wrap={state.wrap === 'default' ? undefined : state.wrap}
+            style={{ height: '50%' }}
+          >
+            {Array(state.columns)
+              .fill()
+              .map((_, index) => (
+                <Col
+                  key={index}
+                  offset={index === 0 && state.offset > 0 ? state.offset : undefined}
+                  size={state.size > 0 ? state.size : undefined}
+                >
+                  <div style={{ height: `${1 + 0.4 * index}em` }}>{`${index + 1}`}</div>
+                </Col>
+              ))}
+          </Row>
+        </Grid>
+      </div>
+    </Col>
+  </Row>
+</Grid>;
+```
+
 ### Auto-Layout Equal-Width Columns
 
 ```jsx
