@@ -12,6 +12,7 @@ const {
 
 initialState = {
   alignItems: 'default',
+  breakpoint: 'default',
   debug: true,
   columns: 12,
   gutters: 'md',
@@ -71,7 +72,7 @@ initialState = {
           </Menu>
         </Dropdown>
         <Field className="u-mt-xs">
-          <Label>Size ({state.size.toString() === '0' ? 'none' : state.size})</Label>
+          <Label>Size ({state.size.toString() === '0' ? 'none' : state.size}) *</Label>
           <Range
             max={state.columns}
             onChange={event => setState({ size: event.target.value })}
@@ -83,7 +84,7 @@ initialState = {
           onSelect={justifyContent => setState({ justifyContent })}
         >
           <SelectField className="u-mt-xs">
-            <SelectLabel>Justify content</SelectLabel>
+            <SelectLabel>Justify content *</SelectLabel>
             <Select small>{state.justifyContent}</Select>
           </SelectField>
           <Menu small>
@@ -97,7 +98,7 @@ initialState = {
         </Dropdown>
         <Dropdown selectedItem={state.alignItems} onSelect={alignItems => setState({ alignItems })}>
           <SelectField className="u-mt-xs">
-            <SelectLabel>Align items</SelectLabel>
+            <SelectLabel>Align items *</SelectLabel>
             <Select small>{state.alignItems}</Select>
           </SelectField>
           <Menu small>
@@ -111,7 +112,7 @@ initialState = {
         </Dropdown>
         <Dropdown selectedItem={state.wrap} onSelect={wrap => setState({ wrap })}>
           <SelectField className="u-mt-xs">
-            <SelectLabel>Wrap</SelectLabel>
+            <SelectLabel>Wrap *</SelectLabel>
             <Select small>{state.wrap}</Select>
           </SelectField>
           <Menu small>
@@ -122,13 +123,28 @@ initialState = {
           </Menu>
         </Dropdown>
         <Field className="u-mt-xs">
-          <Label>Offset ({state.offset.toString() === '0' ? 'none' : state.offset})</Label>
+          <Label>Offset ({state.offset.toString() === '0' ? 'none' : state.offset}) *</Label>
           <Range
-            max={state.columns - 1}
+            disabled={state.columns - (state.size || 1) <= 0}
+            max={state.columns - (state.size || 1)}
             onChange={event => setState({ offset: event.target.value })}
             value={state.offset}
           />
         </Field>
+        <Dropdown selectedItem={state.breakpoint} onSelect={breakpoint => setState({ breakpoint })}>
+          <SelectField className="u-mt-xs">
+            <SelectLabel>Breakpoint</SelectLabel>
+            <Select small>{state.breakpoint}</Select>
+          </SelectField>
+          <Menu small>
+            <Item value="default">default (none)</Item>
+            <Item value="xs">xs (>= 0px)</Item>
+            <Item value="sm">sm (>= 576px)</Item>
+            <Item value="md">md (>= 768px)</Item>
+            <Item value="lg">lg (>= 992px)</Item>
+            <Item value="xl">xl (>= 1200px)</Item>
+          </Menu>
+        </Dropdown>
       </Well>
     </Col>
     <Col size="8">
@@ -139,20 +155,130 @@ initialState = {
             .map((_, index) => (
               <Row
                 key={index}
-                alignItems={state.alignItems === 'default' ? undefined : state.alignItems}
-                justifyContent={
-                  state.justifyContent === 'default' ? undefined : state.justifyContent
+                alignItems={
+                  state.breakpoint === 'default' && state.alignItems !== 'default'
+                    ? state.alignItems
+                    : undefined
                 }
-                wrap={state.wrap === 'default' ? undefined : state.wrap}
-                style={{ height: '50%' }}
+                alignItemsXs={
+                  state.breakpoint === 'xs' && state.alignItems !== 'default'
+                    ? state.alignItems
+                    : undefined
+                }
+                alignItemsSm={
+                  state.breakpoint === 'sm' && state.alignItems !== 'default'
+                    ? state.alignItems
+                    : undefined
+                }
+                alignItemsMd={
+                  state.breakpoint === 'md' && state.alignItems !== 'default'
+                    ? state.alignItems
+                    : undefined
+                }
+                alignItemsLg={
+                  state.breakpoint === 'lg' && state.alignItems !== 'default'
+                    ? state.alignItems
+                    : undefined
+                }
+                alignItemsXl={
+                  state.breakpoint === 'xl' && state.alignItems !== 'default'
+                    ? state.alignItems
+                    : undefined
+                }
+                justifyContent={
+                  state.breakpoint === 'default' && state.justifyContent !== 'default'
+                    ? state.justifyContent
+                    : undefined
+                }
+                justifyContentXs={
+                  state.breakpoint === 'xs' && state.justifyContent !== 'default'
+                    ? state.justifyContent
+                    : undefined
+                }
+                justifyContentSm={
+                  state.breakpoint === 'sm' && state.justifyContent !== 'default'
+                    ? state.justifyContent
+                    : undefined
+                }
+                justifyContentMd={
+                  state.breakpoint === 'md' && state.justifyContent !== 'default'
+                    ? state.justifyContent
+                    : undefined
+                }
+                justifyContentLg={
+                  state.breakpoint === 'lg' && state.justifyContent !== 'default'
+                    ? state.justifyContent
+                    : undefined
+                }
+                justifyContentXl={
+                  state.breakpoint === 'xl' && state.justifyContent !== 'default'
+                    ? state.justifyContent
+                    : undefined
+                }
+                wrap={
+                  state.breakpoint === 'default' && state.wrap !== 'default'
+                    ? state.wrap
+                    : undefined
+                }
+                wrapXs={
+                  state.breakpoint === 'xs' && state.wrap !== 'default' ? state.wrap : undefined
+                }
+                wrapSm={
+                  state.breakpoint === 'sm' && state.wrap !== 'default' ? state.wrap : undefined
+                }
+                wrapMd={
+                  state.breakpoint === 'md' && state.wrap !== 'default' ? state.wrap : undefined
+                }
+                wrapLg={
+                  state.breakpoint === 'lg' && state.wrap !== 'default' ? state.wrap : undefined
+                }
+                wrapXl={
+                  state.breakpoint === 'xl' && state.wrap !== 'default' ? state.wrap : undefined
+                }
               >
                 {Array(state.columns)
                   .fill()
                   .map((_, index) => (
                     <Col
                       key={index}
-                      offset={index === 0 && state.offset > 0 ? state.offset : undefined}
-                      size={state.size > 0 ? state.size : undefined}
+                      offset={
+                        index === 0 && (state.breakpoint === 'default' && state.offset > 0)
+                          ? state.offset
+                          : undefined
+                      }
+                      offsetXs={
+                        index === 0 && (state.breakpoint === 'xs' && state.offset > 0)
+                          ? state.offset
+                          : undefined
+                      }
+                      offsetSm={
+                        index === 0 && (state.breakpoint === 'sm' && state.offset > 0)
+                          ? state.offset
+                          : undefined
+                      }
+                      offsetMd={
+                        index === 0 && (state.breakpoint === 'md' && state.offset > 0)
+                          ? state.offset
+                          : undefined
+                      }
+                      offsetLg={
+                        index === 0 && (state.breakpoint === 'lg' && state.offset > 0)
+                          ? state.offset
+                          : undefined
+                      }
+                      offsetXl={
+                        index === 0 && (state.breakpoint === 'xl' && state.offset > 0)
+                          ? state.offset
+                          : undefined
+                      }
+                      size={
+                        state.breakpoint === 'default' && state.size > 0 ? state.size : undefined
+                      }
+                      xs={state.breakpoint === 'xs' && state.size > 0 ? state.size : undefined}
+                      sm={state.breakpoint === 'sm' && state.size > 0 ? state.size : undefined}
+                      md={state.breakpoint === 'md' && state.size > 0 ? state.size : undefined}
+                      lg={state.breakpoint === 'lg' && state.size > 0 ? state.size : undefined}
+                      xl={state.breakpoint === 'xl' && state.size > 0 ? state.size : undefined}
                     >
                       <div style={{ height: `${1 + 0.5 * index}em` }}>{`${index + 1}`}</div>
                     </Col>
