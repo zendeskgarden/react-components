@@ -30,7 +30,7 @@
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "@zendeskgarden/css-breadcrumbs": "0.2.18",
+    "@zendeskgarden/css-breadcrumbs": "0.2.20",
     "@zendeskgarden/react-theming": "^7.0.0",
     "@zendeskgarden/react-utilities": "^7.0.0"
   },
