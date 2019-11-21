@@ -175,7 +175,7 @@ const Month: React.FunctionComponent<{
     const isHighlightStart = (isHighlighted && startValue && isSameDay(date, startValue)) || false;
 
     const isHighlightEnd =
-      (isHighlighted && (endValue && isSameDay(date, endValue))) ||
+      (isHighlighted && endValue && isSameDay(date, endValue)) ||
       (hoverDate && isSameDay(date, hoverDate) && !isBefore(date, endValue!)) ||
       false;
 
