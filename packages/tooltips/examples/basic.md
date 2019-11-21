@@ -24,6 +24,7 @@ const StyledSpacer = styled.div`
 
 const retrieveTooltipContent = (size, type) => {
   const shortValue = 'Lorem ipsum dolor';
+  const mediumValue = 'Lorem ipsum dolor sit amet, consect.';
   const longValue =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt' +
     ' ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ' +
@@ -39,6 +40,8 @@ const retrieveTooltipContent = (size, type) => {
 
   if (size === 'extra-large' || size === 'large') {
     return longValue;
+  } else if (size === 'medium') {
+    return mediumValue;
   }
 
   return shortValue;
