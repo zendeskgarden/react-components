@@ -7,10 +7,20 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import math from 'polished/lib/math/math';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { TYPE_ALIGN_ITEMS, TYPE_JUSTIFY_CONTENT, TYPE_SPACE, TYPE_WRAP } from '../utils/types';
 
 const COMPONENT_ID = 'grid.row';
+
+const colorStyles = (props: IStyledRowProps) => {
+  const borderColor = getColor(props.theme.palette.mint, 600, props.theme, 0.5);
+  const borderWidth = props.theme.borderWidths.sm;
+
+  return css`
+    box-shadow: inset 0 ${borderWidth} 0 0 ${borderColor},
+      inset 0 -${borderWidth} 0 0 ${borderColor};
+  `;
+};
 
 const flexStyles = (
   alignItems: TYPE_ALIGN_ITEMS | undefined,
@@ -83,6 +93,7 @@ export interface IStyledRowProps extends ThemeProps<DefaultTheme> {
   wrapMd?: TYPE_WRAP;
   wrapLg?: TYPE_WRAP;
   wrapXl?: TYPE_WRAP;
+  isDebug?: boolean;
 }
 
 export const StyledRow = styled.div.attrs<IStyledRowProps>({
@@ -94,6 +105,7 @@ export const StyledRow = styled.div.attrs<IStyledRowProps>({
 
   ${props => flexStyles(props.alignItems, props.justifyContent, props.wrap)}
   ${props => sizeStyles(props)};
+  ${props => props.isDebug && colorStyles(props)};
 
   ${props =>
     mediaStyles(

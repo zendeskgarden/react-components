@@ -13,7 +13,7 @@ import { TYPE_ALIGN_SELF, TYPE_NUMBER, TYPE_SPACE } from '../utils/types';
 const COMPONENT_ID = 'grid.col';
 
 const colorStyles = (props: IStyledColProps) => {
-  const backgroundColor = getColor('dangerHue', 300, props.theme, 0.35);
+  const backgroundColor = getColor('primaryHue', 600, props.theme, 0.1);
 
   return css`
     background-clip: content-box;

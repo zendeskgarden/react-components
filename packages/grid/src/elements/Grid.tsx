@@ -26,7 +26,7 @@ export interface IGridProps extends HTMLAttributes<HTMLDivElement> {
 export const Grid = React.forwardRef<HTMLDivElement, IGridProps>(
   ({ columns, isDebug, ...props }, ref) => (
     <GridContext.Provider value={{ columns, gutters: props.gutters!, debug: isDebug }}>
-      <StyledGrid ref={ref} {...props} />
+      <StyledGrid isDebug={isDebug} ref={ref} {...props} />
     </GridContext.Provider>
   )
 );

@@ -16,6 +16,7 @@ initialState = {
   columns: 12,
   gutters: 'md',
   justifyContent: 'default',
+  rows: 1,
   offset: 0,
   size: 0,
   wrap: 'default'
@@ -32,6 +33,15 @@ initialState = {
           >
             <Label>Debug</Label>
           </Toggle>
+        </Field>
+        <Field className="u-mt-xs">
+          <Label>Rows ({state.rows})</Label>
+          <Range
+            min={1}
+            max={10}
+            onChange={event => setState({ rows: parseInt(event.target.value, 10) })}
+            value={state.rows}
+          />
         </Field>
         <Dropdown selectedItem={state.columns} onSelect={columns => setState({ columns })}>
           <SelectField className="u-mt-xs">
@@ -124,24 +134,31 @@ initialState = {
     <Col size="8">
       <div className="u-mt">
         <Grid columns={state.columns} gutters={state.gutters} isDebug={state.debug}>
-          <Row
-            alignItems={state.alignItems === 'default' ? undefined : state.alignItems}
-            justifyContent={state.justifyContent === 'default' ? undefined : state.justifyContent}
-            wrap={state.wrap === 'default' ? undefined : state.wrap}
-            style={{ height: '50%' }}
-          >
-            {Array(state.columns)
-              .fill()
-              .map((_, index) => (
-                <Col
-                  key={index}
-                  offset={index === 0 && state.offset > 0 ? state.offset : undefined}
-                  size={state.size > 0 ? state.size : undefined}
-                >
-                  <div style={{ height: `${1 + 0.4 * index}em` }}>{`${index + 1}`}</div>
-                </Col>
-              ))}
-          </Row>
+          {Array(state.rows)
+            .fill()
+            .map((_, index) => (
+              <Row
+                key={index}
+                alignItems={state.alignItems === 'default' ? undefined : state.alignItems}
+                justifyContent={
+                  state.justifyContent === 'default' ? undefined : state.justifyContent
+                }
+                wrap={state.wrap === 'default' ? undefined : state.wrap}
+                style={{ height: '50%' }}
+              >
+                {Array(state.columns)
+                  .fill()
+                  .map((_, index) => (
+                    <Col
+                      key={index}
+                      offset={index === 0 && state.offset > 0 ? state.offset : undefined}
+                      size={state.size > 0 ? state.size : undefined}
+                    >
+                      <div style={{ height: `${1 + 0.5 * index}em` }}>{`${index + 1}`}</div>
+                    </Col>
+                  ))}
+              </Row>
+            ))}
         </Grid>
       </div>
     </Col>
