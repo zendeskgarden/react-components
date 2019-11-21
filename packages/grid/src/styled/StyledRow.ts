@@ -17,7 +17,9 @@ const colorStyles = (props: IStyledRowProps) => {
   const borderWidth = props.theme.borderWidths.sm;
 
   return css`
-    box-shadow: inset 0 ${borderWidth} 0 0 ${borderColor},
+    /* prettier-ignore */
+    box-shadow:
+      inset 0 ${borderWidth} 0 0 ${borderColor},
       inset 0 -${borderWidth} 0 0 ${borderColor};
   `;
 };

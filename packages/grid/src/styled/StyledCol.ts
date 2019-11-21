@@ -30,19 +30,23 @@ const flexStyles = (
 ) => {
   const margin = offset && `${math(`${offset} / ${props.columns} * 100`)}%`;
   let flexBasis;
+  let grow;
   let maxWidth;
   let width;
 
   if (typeof basis === 'boolean') {
     flexBasis = 0;
+    grow = 1;
     maxWidth = '100%';
     width = '100%';
   } else if (basis === 'auto') {
     flexBasis = 'auto';
+    grow = 0;
     maxWidth = '100%';
     width = 'auto';
   } else {
     flexBasis = `${math(`${basis} / ${props.columns} * 100`)}%`;
+    grow = 0;
     maxWidth = flexBasis;
     width = '100%';
   }
@@ -60,8 +64,8 @@ const flexStyles = (
   return css`
     /* stylelint-disable declaration-block-no-redundant-longhand-properties */
     flex-basis: ${flexBasis};
-    flex-grow: ${!basis && '1'};
-    flex-shrink: ${basis && '0'};
+    flex-grow: ${grow};
+    flex-shrink: ${basis && 0};
     align-self: ${alignSelf === 'start' || alignSelf === 'end' ? `flex-${alignSelf}` : alignSelf};
     order: ${flexOrder};
     /* stylelint-disable-next-line property-no-unknown */

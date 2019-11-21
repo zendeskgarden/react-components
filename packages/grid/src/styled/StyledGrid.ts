@@ -17,8 +17,12 @@ const colorStyles = (props: IStyledGridProps) => {
   const borderWidth = math(`${props.theme.borderWidths.sm} * 2`);
 
   return css`
-    box-shadow: inset ${borderWidth} 0 0 0 ${borderColor},
-      inset -${borderWidth} 0 0 0 ${borderColor};
+    /* prettier-ignore */
+    box-shadow:
+      inset 0 ${borderWidth} 0 0 ${borderColor},
+      inset -${borderWidth} 0 0 0 ${borderColor},
+      inset 0 -${borderWidth} 0 0 ${borderColor},
+      inset ${borderWidth} 0 0 0 ${borderColor};
   `;
 };
 
