@@ -3,9 +3,9 @@
 This package includes components relating to layout grids in the
 [Garden Design System](https://zendeskgarden.github.io/).
 
-The `Grid` component is inspired by the [Bootstrap Flexbox
-Grid](https://getbootstrap.com/docs/4.3/layout/grid/). With Garden, all of
-the features are dynamic (base on props) – including the number of grid
+The `Grid` component is inspired by the Bootstrap flexbox
+[grid](https://getbootstrap.com/docs/4.3/layout/grid/). With Garden, all of
+the features are dynamic (based on props) – including the number of grid
 columns and gutter width. The result is an incredibly powerful grid system
 that will be immediately familiar to users of Bootstrap.
 
