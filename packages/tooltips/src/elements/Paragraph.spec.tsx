@@ -16,4 +16,11 @@ describe('Paragraph', () => {
 
     expect(container.firstChild).toHaveAttribute('data-test-id', 'paragraph');
   });
+
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(<Paragraph ref={ref} />);
+
+    expect(container.firstChild).toBe(ref.current);
+  });
 });

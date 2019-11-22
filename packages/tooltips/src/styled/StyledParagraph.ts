@@ -6,8 +6,7 @@
  */
 
 import styled from 'styled-components';
-import TooltipStyles from '@zendeskgarden/css-tooltips';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tooltip.paragraph';
 
@@ -16,8 +15,13 @@ const COMPONENT_ID = 'tooltip.paragraph';
  */
 export const StyledParagraph = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: TooltipStyles['c-tooltip__paragraph']
+  'data-garden-version': PACKAGE_VERSION
 })`
+  margin: 0;
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledParagraph.defaultProps = {
+  theme: DEFAULT_THEME
+};

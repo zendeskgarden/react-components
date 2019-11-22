@@ -6,18 +6,24 @@
  */
 
 import styled from 'styled-components';
-import TooltipStyles from '@zendeskgarden/css-tooltips';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tooltip.title';
 
 /**
  * Accepts all `<div>` props
  */
-export const StyledTitle = styled.div.attrs({
+export const StyledTitle = styled.strong.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: TooltipStyles['c-tooltip__title']
+  'data-garden-version': PACKAGE_VERSION
 })`
+  display: none;
+  margin: 0;
+  font-weight: ${props => props.theme.fontWeights.semibold};
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledTitle.defaultProps = {
+  theme: DEFAULT_THEME
+};
