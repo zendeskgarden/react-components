@@ -1,3 +1,23 @@
+The following example provides controls that can be used to manipulate basic
+element properties and view their affect upon the grid. In most cases, a
+property control will apply to all elements (`Row` and `Col`) in question (one
+exception is the "Offset" control which is only applied to the first `Col` in
+every `Row`). While this is effective for a basic example, it doesn't come
+close to demonstrating the full extent of grid functionality as properties
+may be customized on a per-`Row` and per-`Col` basis. Be sure to explore the
+[advanced](#advanced) examples below for added detail around `Grid`
+capabilities.
+
+Several of the controls are marked as being connected to responsive
+properties. A responsive grid property has variants that apply to supported
+[theming](https://zendeskgarden.github.io/react-components/theming/#default_theme)
+breakpoints (`xs`, `sm`, `md`, `lg`, and `xl`) – see element props for
+details. When a "Breakpoint" is selected below, all of the associated
+properties will be set to operate against that screen size. Again, while this
+simplifies the basic demo, it hardly shows the power of the fully responsive
+grid framework where `Row` and `Col` elements can set independent responsive
+properties at multiple breakpoints.
+
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
 const { Toggle, Field, Input, Label, Range } = require('@zendeskgarden/react-forms/src');
@@ -72,10 +92,13 @@ initialState = {
           </Menu>
         </Dropdown>
         <Field className="u-mt-xs">
-          <Label>Size ({state.size.toString() === '0' ? 'none' : state.size}) *</Label>
+          <Label>
+            Size ({state.size === 0 ? 'none' : state.size === -1 ? 'auto' : state.size}) *
+          </Label>
           <Range
+            min={-1}
             max={state.columns}
-            onChange={event => setState({ size: event.target.value })}
+            onChange={event => setState({ size: parseInt(event.target.value, 10) })}
             value={state.size}
           />
         </Field>
@@ -125,8 +148,8 @@ initialState = {
         <Field className="u-mt-xs">
           <Label>Offset ({state.offset.toString() === '0' ? 'none' : state.offset}) *</Label>
           <Range
-            disabled={state.columns - (state.size || 1) <= 0}
-            max={state.columns - (state.size || 1)}
+            disabled={state.columns - (state.size > 0 ? state.size : 1) <= 0}
+            max={state.columns - (state.size > 0 ? state.size : 1)}
             onChange={event => setState({ offset: event.target.value })}
             value={state.offset}
           />
@@ -276,13 +299,47 @@ initialState = {
                           : undefined
                       }
                       size={
-                        state.breakpoint === 'default' && state.size > 0 ? state.size : undefined
+                        state.breakpoint === 'default' && state.size > 0
+                          ? state.size
+                          : state.size === -1
+                          ? 'auto'
+                          : undefined
                       }
-                      xs={state.breakpoint === 'xs' && state.size > 0 ? state.size : undefined}
-                      sm={state.breakpoint === 'sm' && state.size > 0 ? state.size : undefined}
-                      md={state.breakpoint === 'md' && state.size > 0 ? state.size : undefined}
-                      lg={state.breakpoint === 'lg' && state.size > 0 ? state.size : undefined}
-                      xl={state.breakpoint === 'xl' && state.size > 0 ? state.size : undefined}
+                      xs={
+                        state.breakpoint === 'xs' && state.size > 0
+                          ? state.size
+                          : state.size === -1
+                          ? 'auto'
+                          : undefined
+                      }
+                      sm={
+                        state.breakpoint === 'sm' && state.size > 0
+                          ? state.size
+                          : state.size === -1
+                          ? 'auto'
+                          : undefined
+                      }
+                      md={
+                        state.breakpoint === 'md' && state.size > 0
+                          ? state.size
+                          : state.size === -1
+                          ? 'auto'
+                          : undefined
+                      }
+                      lg={
+                        state.breakpoint === 'lg' && state.size > 0
+                          ? state.size
+                          : state.size === -1
+                          ? 'auto'
+                          : undefined
+                      }
+                      xl={
+                        state.breakpoint === 'xl' && state.size > 0
+                          ? state.size
+                          : state.size === -1
+                          ? 'auto'
+                          : undefined
+                      }
                     >
                       <div style={{ height: `${1 + 0.5 * index}em` }}>{`${index + 1}`}</div>
                     </Col>
@@ -295,3 +352,7 @@ initialState = {
   </Row>
 </Grid>;
 ```
+
+<!-- markdownlint-disable -->
+
+_\* controls a responsive property based on the selected breakpoint_

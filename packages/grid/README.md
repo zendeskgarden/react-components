@@ -3,10 +3,11 @@
 This package includes components relating to layout grids in the
 [Garden Design System](https://zendeskgarden.github.io/).
 
-The `Grid` component is an implementation over the
-[Bootstrap v4 Flexbox Grid](http://getbootstrap.com/docs/4.0/layout/overview/).
-Their documentation is a great resource to explore all of the unique customizations
-available within this package.
+The `Grid` component is inspired by the [Bootstrap Flexbox
+Grid](https://getbootstrap.com/docs/4.3/layout/grid/). With Garden, all of
+the features are dynamic (base on props) – including the number of grid
+columns and gutter width. The result is an incredibly powerful grid system
+that will be immediately familiar to users of Bootstrap.
 
 ## Installation
 
@@ -20,11 +21,6 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 ## Usage
 
 ```jsx static
-/**
- * Include grid styling at the root of your application
- */
-import '@zendeskgarden/react-grid/dist/styles.css';
-
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 

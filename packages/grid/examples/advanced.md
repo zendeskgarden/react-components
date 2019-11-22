@@ -1,4 +1,4 @@
-The following sections link to corresponding Bootstrap examples to
+The following sections link to corresponding Bootstrap examples and
 demonstrate how advanced grid layouts can be achieved using Garden.
 
 ### Auto-layout columns
