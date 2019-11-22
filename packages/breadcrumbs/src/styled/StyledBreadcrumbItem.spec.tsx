@@ -7,17 +7,17 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import Item from './Item';
+import { StyledBreadcrumbItem } from './StyledBreadcrumbItem';
 
-describe('Item', () => {
+describe('StyledBreadcrumbItem', () => {
   it('renders default styling', () => {
-    const { container } = render(<Item />);
+    const { container } = render(<StyledBreadcrumbItem />);
 
     expect(container.firstChild).toHaveClass('c-breadcrumb__item');
   });
 
   it('renders current styling', () => {
-    const { container } = render(<Item current />);
+    const { container } = render(<StyledBreadcrumbItem isCurrent />);
 
     expect(container.firstChild).toHaveClass('is-current');
   });

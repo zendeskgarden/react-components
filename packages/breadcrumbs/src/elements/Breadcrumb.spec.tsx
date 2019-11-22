@@ -8,8 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 
-import Breadcrumb from './Breadcrumb';
-import Item from '../views/Item';
+import { Breadcrumb } from './Breadcrumb';
 
 const BasicExample = () => (
   <Breadcrumb data-test-id="breadcrumb">
@@ -19,25 +18,29 @@ const BasicExample = () => (
     <a data-test-id="item" href="/#">
       Two
     </a>
-    <Item data-test-id="item">Three</Item>
+    <span data-test-id="item">Three</span>
   </Breadcrumb>
 );
 
 describe('Breadcrumb', () => {
-  describe('BreadcrumbView', () => {
+  describe('Breadcrumb', () => {
     it('receives useBreadcrumb() props', () => {
       const { getByTestId } = render(<BasicExample />);
 
-      expect(getByTestId('breadcrumb').parentElement).toHaveAttribute(
-        'aria-label',
-        'Breadcrumb navigation'
-      );
+      expect(getByTestId('breadcrumb')).toHaveAttribute('aria-label', 'Breadcrumb navigation');
     });
 
     it('does not receive useBreadcrumb() `role` prop', () => {
       const { getByTestId } = render(<BasicExample />);
 
       expect(getByTestId('breadcrumb').parentElement).not.toHaveAttribute('role');
+    });
+
+    it('passes ref to underlying DOM element', () => {
+      const ref = React.createRef<HTMLDivElement>();
+      const { container } = render(<Breadcrumb ref={ref} />);
+
+      expect(container.firstChild).toBe(ref.current);
     });
   });
 
@@ -64,14 +67,16 @@ describe('Breadcrumb', () => {
   describe('Item', () => {
     it('receives current styling if last', () => {
       const { getAllByTestId } = render(<BasicExample />);
+      const items = getAllByTestId('item');
+      const lastItemIndex = items.length - 1;
 
-      expect(getAllByTestId('item')[2]).toHaveClass('is-current');
-    });
-
-    it('does not receive current styling if not last', () => {
-      const { getAllByTestId } = render(<BasicExample />);
-
-      expect(getAllByTestId('item')[0]).not.toHaveClass('is-current');
+      items.forEach((item, i) => {
+        if (i === lastItemIndex) {
+          expect(item.parentElement).toHaveClass('is-current');
+        } else {
+          expect(item.parentElement).not.toHaveClass('is-current');
+        }
+      });
     });
   });
 });

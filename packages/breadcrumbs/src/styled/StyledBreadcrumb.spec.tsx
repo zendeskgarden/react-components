@@ -7,17 +7,17 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import List from './List';
+import { StyledBreadcrumb } from './StyledBreadcrumb';
 
-describe('List', () => {
+describe('StyledBreadcrumb', () => {
   it('renders default styling correctly', () => {
-    const { container } = render(<List />);
+    const { container } = render(<StyledBreadcrumb />);
 
     expect(container.firstChild).toHaveClass('c-breadcrumb');
   });
 
   it('renders RTL styling correctly', () => {
-    const { container } = renderRtl(<List />);
+    const { container } = renderRtl(<StyledBreadcrumb />);
 
     expect(container.firstChild).toHaveClass('is-rtl');
   });
