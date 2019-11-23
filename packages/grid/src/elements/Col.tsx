@@ -83,10 +83,10 @@ export const Col = React.forwardRef<HTMLDivElement, IColProps>(({ size, ...props
 
   return (
     <StyledCol
-      basis={size}
+      sizeAll={size}
       columns={columns}
       gutters={gutters}
-      isDebug={debug}
+      debug={debug}
       ref={ref}
       {...props}
     />

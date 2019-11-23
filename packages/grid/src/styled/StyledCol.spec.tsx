@@ -18,7 +18,7 @@ describe('StyledCol', () => {
 
   describe('Sizing', () => {
     it('renders basis if provided', () => {
-      const { container } = render(<StyledCol basis="4" />);
+      const { container } = render(<StyledCol sizeAll="4" />);
 
       expect(container.firstChild).toHaveClass('col-4');
     });

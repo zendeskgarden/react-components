@@ -6,7 +6,7 @@ demonstrate how advanced grid layouts can be achieved using Garden.
 #### [Equal-width](https://getbootstrap.com/docs/4.3/layout/grid/#equal-width)
 
 ```jsx
-<Grid isDebug>
+<Grid debug>
   <Row>
     <Col>1 of 2</Col>
     <Col>2 of 2</Col>
@@ -22,7 +22,7 @@ demonstrate how advanced grid layouts can be achieved using Garden.
 #### [Setting One Column Width](https://getbootstrap.com/docs/4.3/layout/grid/#setting-one-column-width)
 
 ```jsx
-<Grid isDebug>
+<Grid debug>
   <Row>
     <Col>1 of 3</Col>
     <Col size={6}>2 of 3 (wider)</Col>
@@ -39,7 +39,7 @@ demonstrate how advanced grid layouts can be achieved using Garden.
 #### [Variable Width Content](https://getbootstrap.com/docs/4.3/layout/grid/#variable-width-content)
 
 ```jsx
-<Grid isDebug>
+<Grid debug>
   <Row justifyContentMd="center">
     <Col lg={2}>1 of 3</Col>
     <Col md="auto">Variable width content</Col>
@@ -56,7 +56,7 @@ demonstrate how advanced grid layouts can be achieved using Garden.
 #### [Equal-width multi-row](https://getbootstrap.com/docs/4.3/layout/grid/#equal-width-multi-row)
 
 ```jsx
-<Grid isDebug>
+<Grid debug>
   <Row>
     <Col>Col</Col>
     <Col>Col</Col>
@@ -72,7 +72,7 @@ demonstrate how advanced grid layouts can be achieved using Garden.
 #### [All breakpoints](https://getbootstrap.com/docs/4.3/layout/grid/#all-breakpoints)
 
 ```jsx
-<Grid isDebug>
+<Grid debug>
   <Row>
     <Col>Col</Col>
     <Col>Col</Col>
@@ -89,7 +89,7 @@ demonstrate how advanced grid layouts can be achieved using Garden.
 #### [Stacked to horizontal](https://getbootstrap.com/docs/4.3/layout/grid/#stacked-to-horizontal)
 
 ```jsx
-<Grid isDebug>
+<Grid debug>
   <Row>
     <Col sm={8}>Col[sm=8]</Col>
     <Col sm={4}>Col[sm=4]</Col>
@@ -105,7 +105,7 @@ demonstrate how advanced grid layouts can be achieved using Garden.
 #### [Mix and match](https://getbootstrap.com/docs/4.3/layout/grid/#mix-and-match)
 
 ```jsx
-<Grid isDebug>
+<Grid debug>
   <p>Stack the columns on mobile by making one full-width and the other half-width</p>
   <Row>
     <Col size={12} md={8}>
@@ -140,7 +140,7 @@ demonstrate how advanced grid layouts can be achieved using Garden.
 #### [Vertical alignment](https://getbootstrap.com/docs/4.3/layout/grid/#vertical-alignment)
 
 ```jsx
-<Grid isDebug>
+<Grid debug>
   <Row alignItems="start" style={{ minHeight: '3em' }}>
     <Col>One of three columns</Col>
     <Col>One of three columns</Col>
@@ -160,7 +160,7 @@ demonstrate how advanced grid layouts can be achieved using Garden.
 ```
 
 ```jsx
-<Grid isDebug>
+<Grid debug>
   <Row style={{ minHeight: '3em' }}>
     <Col alignSelf="start">One of three columns</Col>
     <Col alignSelf="center">One of three columns</Col>
@@ -172,7 +172,7 @@ demonstrate how advanced grid layouts can be achieved using Garden.
 #### [Horizontal alignment](https://getbootstrap.com/docs/4.3/layout/grid/#horizontal-alignment)
 
 ```jsx
-<Grid isDebug>
+<Grid debug>
   <Row justifyContent="start">
     <Col size={4}>One of two columns</Col>
     <Col size={4}>One of two columns</Col>
@@ -199,7 +199,7 @@ demonstrate how advanced grid layouts can be achieved using Garden.
 #### [No gutters](https://getbootstrap.com/docs/4.3/layout/grid/#no-gutters)
 
 ```jsx
-<Grid gutters={false} isDebug>
+<Grid gutters={false} debug>
   <Row>
     <Col size={12} sm={6} md={8}>
       Col[size=12][sm=6][md=8]
@@ -214,7 +214,7 @@ demonstrate how advanced grid layouts can be achieved using Garden.
 #### [Column wrapping](https://getbootstrap.com/docs/4.3/layout/grid/#column-wrapping)
 
 ```jsx
-<Grid isDebug>
+<Grid debug>
   <Row>
     <Col size={9}>Col[size=9]</Col>
     <Col size={4}>
@@ -229,7 +229,7 @@ demonstrate how advanced grid layouts can be achieved using Garden.
 #### [Column breaks](https://getbootstrap.com/docs/4.3/layout/grid/#column-breaks)
 
 ```jsx
-<Grid isDebug>
+<Grid debug>
   <Row>
     <Col size={6} sm={3}>
       Col[size=6][sm=3]
@@ -251,7 +251,7 @@ demonstrate how advanced grid layouts can be achieved using Garden.
 ### [Reordering](https://getbootstrap.com/docs/4.3/layout/grid/#order-classes)
 
 ```jsx
-<Grid isDebug>
+<Grid debug>
   <Row>
     <Col>First, but unordered</Col>
     <Col order="12">Second, but last</Col>
@@ -269,7 +269,7 @@ demonstrate how advanced grid layouts can be achieved using Garden.
 
 ```jsx
 <>
-  <Grid isDebug>
+  <Grid debug>
     <Row>
       <Col md={4}>Col[md=4]</Col>
       <Col md={4} offsetMd={4}>
@@ -290,7 +290,7 @@ demonstrate how advanced grid layouts can be achieved using Garden.
       </Col>
     </Row>
   </Grid>
-  <Grid isDebug className="u-mt">
+  <Grid debug className="u-mt">
     <Row>
       <Col sm={5} md={6}>
         Col[sm=5][md=6]
@@ -314,7 +314,7 @@ demonstrate how advanced grid layouts can be achieved using Garden.
 ### [Nesting](https://getbootstrap.com/docs/4.3/layout/grid/#nesting)
 
 ```jsx
-<Grid isDebug>
+<Grid debug>
   <Row>
     <Col sm={9}>
       Level 1: Col[sm=9]

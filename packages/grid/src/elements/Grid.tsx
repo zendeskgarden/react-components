@@ -17,16 +17,16 @@ export interface IGridProps extends HTMLAttributes<HTMLDivElement> {
   /** Customize column gutter width or specify `false` to collapse */
   gutters?: TYPE_SPACE;
   /** Highlight columns to debug layout */
-  isDebug?: boolean;
+  debug?: boolean;
 }
 
 /**
  * Grid container; accepts all `<div>` attributes and events
  */
 export const Grid = React.forwardRef<HTMLDivElement, IGridProps>(
-  ({ columns, isDebug, ...props }, ref) => (
-    <GridContext.Provider value={{ columns, gutters: props.gutters!, debug: isDebug }}>
-      <StyledGrid isDebug={isDebug} ref={ref} {...props} />
+  ({ columns, debug, ...props }, ref) => (
+    <GridContext.Provider value={{ columns, gutters: props.gutters!, debug }}>
+      <StyledGrid debug={debug} ref={ref} {...props} />
     </GridContext.Provider>
   )
 );
@@ -34,7 +34,7 @@ export const Grid = React.forwardRef<HTMLDivElement, IGridProps>(
 Grid.propTypes = {
   columns: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   gutters: PropTypes.oneOf([false, 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl']),
-  isDebug: PropTypes.bool
+  debug: PropTypes.bool
 };
 
 Grid.defaultProps = {

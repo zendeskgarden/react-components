@@ -89,13 +89,13 @@ export interface IStyledRowProps extends ThemeProps<DefaultTheme> {
   justifyContentMd?: TYPE_JUSTIFY_CONTENT;
   justifyContentLg?: TYPE_JUSTIFY_CONTENT;
   justifyContentXl?: TYPE_JUSTIFY_CONTENT;
-  wrap?: TYPE_WRAP;
+  wrapAll?: TYPE_WRAP;
   wrapXs?: TYPE_WRAP;
   wrapSm?: TYPE_WRAP;
   wrapMd?: TYPE_WRAP;
   wrapLg?: TYPE_WRAP;
   wrapXl?: TYPE_WRAP;
-  isDebug?: boolean;
+  debug?: boolean;
 }
 
 export const StyledRow = styled.div.attrs<IStyledRowProps>({
@@ -105,9 +105,9 @@ export const StyledRow = styled.div.attrs<IStyledRowProps>({
   display: flex;
   box-sizing: inherit;
 
-  ${props => flexStyles(props.alignItems, props.justifyContent, props.wrap)}
+  ${props => flexStyles(props.alignItems, props.justifyContent, props.wrapAll)}
   ${props => sizeStyles(props)};
-  ${props => props.isDebug && colorStyles(props)};
+  ${props => props.debug && colorStyles(props)};
 
   ${props =>
     mediaStyles(
@@ -153,6 +153,6 @@ export const StyledRow = styled.div.attrs<IStyledRowProps>({
 `;
 
 StyledRow.defaultProps = {
-  wrap: 'wrap',
+  wrapAll: 'wrap',
   theme: DEFAULT_THEME
 };

@@ -22,7 +22,7 @@ const colorStyles = (props: IStyledColProps) => {
 };
 
 const flexStyles = (
-  basis: TYPE_NUMBER | boolean | undefined,
+  size: TYPE_NUMBER | boolean | undefined,
   alignSelf: TYPE_ALIGN_SELF | undefined,
   offset: TYPE_NUMBER | undefined,
   order: TYPE_NUMBER | undefined,
@@ -30,23 +30,23 @@ const flexStyles = (
 ) => {
   const margin = offset && `${math(`${offset} / ${props.columns} * 100`)}%`;
   let flexBasis;
-  let grow;
+  let flexGrow;
   let maxWidth;
   let width;
 
-  if (typeof basis === 'boolean') {
+  if (typeof size === 'boolean') {
     flexBasis = 0;
-    grow = 1;
+    flexGrow = 1;
     maxWidth = '100%';
     width = '100%';
-  } else if (basis === 'auto') {
+  } else if (size === 'auto') {
     flexBasis = 'auto';
-    grow = 0;
+    flexGrow = 0;
     maxWidth = '100%';
     width = 'auto';
   } else {
-    flexBasis = `${math(`${basis} / ${props.columns} * 100`)}%`;
-    grow = 0;
+    flexBasis = `${math(`${size} / ${props.columns} * 100`)}%`;
+    flexGrow = 0;
     maxWidth = flexBasis;
     width = '100%';
   }
@@ -64,8 +64,8 @@ const flexStyles = (
   return css`
     /* stylelint-disable declaration-block-no-redundant-longhand-properties */
     flex-basis: ${flexBasis};
-    flex-grow: ${grow};
-    flex-shrink: ${basis && 0};
+    flex-grow: ${flexGrow};
+    flex-shrink: ${size && 0};
     align-self: ${alignSelf === 'start' || alignSelf === 'end' ? `flex-${alignSelf}` : alignSelf};
     order: ${flexOrder};
     /* stylelint-disable-next-line property-no-unknown */
@@ -77,7 +77,7 @@ const flexStyles = (
 
 const mediaStyles = (
   minWidth: string,
-  basis: TYPE_NUMBER | boolean,
+  size: TYPE_NUMBER | boolean,
   alignSelf: TYPE_ALIGN_SELF | undefined,
   offset: TYPE_NUMBER | undefined,
   order: TYPE_NUMBER | undefined,
@@ -85,7 +85,7 @@ const mediaStyles = (
 ) => {
   return css`
     @media (min-width: ${minWidth}) {
-      ${flexStyles(basis, alignSelf, offset, order, props)};
+      ${flexStyles(size, alignSelf, offset, order, props)};
     }
   `;
 };
@@ -102,7 +102,7 @@ const sizeStyles = (props: IStyledColProps) => {
 export interface IStyledColProps extends ThemeProps<DefaultTheme> {
   columns?: TYPE_NUMBER;
   gutters?: TYPE_SPACE;
-  basis?: TYPE_NUMBER;
+  sizeAll?: TYPE_NUMBER;
   xs?: TYPE_NUMBER | boolean;
   sm?: TYPE_NUMBER | boolean;
   md?: TYPE_NUMBER | boolean;
@@ -126,7 +126,7 @@ export interface IStyledColProps extends ThemeProps<DefaultTheme> {
   orderMd?: TYPE_NUMBER;
   orderLg?: TYPE_NUMBER;
   orderXl?: TYPE_NUMBER;
-  isDebug?: boolean;
+  debug?: boolean;
 }
 
 export const StyledCol = styled.div.attrs<IStyledColProps>({
@@ -136,9 +136,9 @@ export const StyledCol = styled.div.attrs<IStyledColProps>({
   box-sizing: inherit;
   position: relative;
 
-  ${props => flexStyles(props.basis || false, props.alignSelf, props.offset, props.order, props)};
+  ${props => flexStyles(props.sizeAll || false, props.alignSelf, props.offset, props.order, props)};
   ${props => sizeStyles(props)};
-  ${props => props.isDebug && colorStyles(props)};
+  ${props => props.debug && colorStyles(props)};
 
   ${props =>
     props.xs &&

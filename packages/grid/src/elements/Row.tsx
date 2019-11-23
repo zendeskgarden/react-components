@@ -69,10 +69,10 @@ export interface IRowProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * Accepts all `<div>` attributes and events
  */
-export const Row = React.forwardRef<HTMLDivElement, IRowProps>((props, ref) => {
+export const Row = React.forwardRef<HTMLDivElement, IRowProps>(({ wrap, ...props }, ref) => {
   const { gutters, debug } = useGridContext();
 
-  return <StyledRow gutters={gutters} isDebug={debug} ref={ref} {...props} />;
+  return <StyledRow gutters={gutters} debug={debug} wrapAll={wrap} ref={ref} {...props} />;
 });
 
 Row.propTypes = {

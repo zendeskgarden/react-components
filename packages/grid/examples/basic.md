@@ -175,7 +175,7 @@ initialState = {
         <Grid
           columns={state.columns}
           gutters={state.gutters === 'none' ? false : state.gutters}
-          isDebug={state.debug}
+          debug={state.debug}
         >
           {Array(state.rows)
             .fill()

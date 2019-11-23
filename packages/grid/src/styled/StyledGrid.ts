@@ -37,7 +37,7 @@ const sizeStyles = (props: IStyledGridProps) => {
 
 export interface IStyledGridProps extends ThemeProps<DefaultTheme> {
   gutters?: TYPE_SPACE;
-  isDebug?: boolean;
+  debug?: boolean;
 }
 
 export const StyledGrid = styled.div.attrs<IStyledGridProps>({
@@ -51,7 +51,7 @@ export const StyledGrid = styled.div.attrs<IStyledGridProps>({
   box-sizing: border-box;
 
   ${props => sizeStyles(props)};
-  ${props => props.isDebug && colorStyles(props)};
+  ${props => props.debug && colorStyles(props)};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

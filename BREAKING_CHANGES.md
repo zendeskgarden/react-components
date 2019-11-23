@@ -56,7 +56,8 @@ should be re-checked for ID naming accuracy.
   - removed `small` prop; all field layouts respond to `isCompact` placed on the input component
 - Label
   - `regular` -> `isRegular`
-  - removed remaining props – attributes should be applied to the corresponding `<input>` component (checked, disabled, indeterminate)
+  - removed remaining props – attributes should be applied to the
+    corresponding `<input>` component (checked, disabled, indeterminate)
 
 ## @zendeskgarden/react-grid
 
@@ -66,7 +67,6 @@ should be re-checked for ID naming accuracy.
       breakpoint. If you need these four `max-width` CSS properties across the
       small, medium, large, and extra-large breakpoints, either use Bootstrap's
       `.container` or add them to your application.
-  - Grid `debug` -> `isDebug`
   - Removed Row `gutters`; use `<Grid gutters={false}>` instead
   - Removed invalid Col `justifyContent`; use Row `justifyContent` for alignment
 
@@ -76,6 +76,7 @@ New features/fixes include:
 - Ability to set number of columns (default = 12)
 - Added Col `offset` and fixed RTL across all offsets
 - Added Row `alignContent` prop
+- Most Row/Col props accept responsive variants for targeting screen size breakpoints
 
 ## @zendeskgarden/react-loaders
 
