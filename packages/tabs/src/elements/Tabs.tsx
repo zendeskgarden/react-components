@@ -34,43 +34,41 @@ export interface ITabsProps extends Partial<ThemeProps<DefaultTheme>> {
 /**
  * High-level abstraction for basic Tabs implementations.
  */
-const Tabs: React.FC<ITabsProps> = ({
-  isVertical,
-  children,
-  onChange,
-  selectedItem: controlledSelectedItem,
-  theme,
-  ...otherProps
-}) => {
-  const [internalSelectedItem, setSelectedItem] = useState();
-  const tabIndexRef = useRef<number>(0);
-  const tabPanelIndexRef = useRef<number>(0);
-  const selectedItem = getControlledValue(controlledSelectedItem, internalSelectedItem);
+const Tabs = React.forwardRef<HTMLDivElement, ITabsProps>(
+  (
+    { isVertical, children, onChange, selectedItem: controlledSelectedItem, theme, ...otherProps },
+    ref
+  ) => {
+    const [internalSelectedItem, setSelectedItem] = useState();
+    const tabIndexRef = useRef<number>(0);
+    const tabPanelIndexRef = useRef<number>(0);
+    const selectedItem = getControlledValue(controlledSelectedItem, internalSelectedItem);
 
-  const tabPropGetters = useTabs({
-    rtl: theme!.rtl,
-    vertical: isVertical,
-    selectedItem,
-    defaultSelectedIndex: 0,
-    onSelect: item => {
-      if (onChange) {
-        onChange(item);
-      } else {
-        setSelectedItem(item);
+    const tabPropGetters = useTabs({
+      rtl: theme!.rtl,
+      vertical: isVertical,
+      selectedItem,
+      defaultSelectedIndex: 0,
+      onSelect: item => {
+        if (onChange) {
+          onChange(item);
+        } else {
+          setSelectedItem(item);
+        }
       }
-    }
-  });
+    });
 
-  const tabsContextValue = { ...tabPropGetters, tabIndexRef, tabPanelIndexRef };
+    const tabsContextValue = { ...tabPropGetters, tabIndexRef, tabPanelIndexRef };
 
-  return (
-    <TabsContext.Provider value={tabsContextValue}>
-      <StyledTabs isVertical={isVertical} {...otherProps}>
-        {children}
-      </StyledTabs>
-    </TabsContext.Provider>
-  );
-};
+    return (
+      <TabsContext.Provider value={tabsContextValue}>
+        <StyledTabs isVertical={isVertical} {...otherProps} ref={ref}>
+          {children}
+        </StyledTabs>
+      </TabsContext.Provider>
+    );
+  }
+);
 
 Tabs.propTypes = {
   isVertical: PropTypes.bool,
@@ -84,4 +82,4 @@ Tabs.defaultProps = {
 };
 
 /** @component */
-export default withTheme(Tabs) as React.FC<ITabsProps>;
+export default withTheme(Tabs) as React.FC<ITabsProps & React.RefAttributes<HTMLDivElement>>;

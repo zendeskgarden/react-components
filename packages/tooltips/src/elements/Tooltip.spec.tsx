@@ -6,7 +6,8 @@
  */
 
 import React from 'react';
-import { render, fireEvent, act } from 'garden-test-utils';
+import { render, fireEvent, act, renderRtl } from 'garden-test-utils';
+import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 import Tooltip, { ITooltipProps } from './Tooltip';
 
@@ -33,6 +34,55 @@ describe('Tooltip', () => {
     expect(getByTestId('tooltip').parentElement!.parentElement!.tagName).toBe('BODY');
   });
 
+  it('renders tooltip with RTL styling if provided', () => {
+    const { getByTestId } = renderRtl(<BasicExample />);
+
+    act(() => {
+      fireEvent.focus(getByTestId('trigger'));
+      jest.runOnlyPendingTimers();
+    });
+
+    expect(getByTestId('tooltip')).toHaveStyleRule('direction', 'rtl');
+  });
+
+  describe('Focusable Tooltip Content', () => {
+    it('remains visible if tooltip content is focused', () => {
+      const { getByTestId } = renderRtl(<BasicExample />);
+
+      act(() => {
+        fireEvent.focus(getByTestId('trigger'));
+        jest.runOnlyPendingTimers();
+      });
+
+      expect(getByTestId('tooltip')).toHaveAttribute('aria-hidden', 'false');
+
+      act(() => {
+        fireEvent.focus(getByTestId('tooltip'));
+        jest.runOnlyPendingTimers();
+      });
+
+      expect(getByTestId('tooltip')).toHaveAttribute('aria-hidden', 'false');
+    });
+
+    it('closes tooltip if content is blurred', () => {
+      const { getByTestId } = renderRtl(<BasicExample />);
+
+      act(() => {
+        fireEvent.focus(getByTestId('trigger'));
+        jest.runOnlyPendingTimers();
+      });
+
+      expect(getByTestId('tooltip')).toHaveAttribute('aria-hidden', 'false');
+
+      act(() => {
+        fireEvent.blur(getByTestId('tooltip'));
+        jest.runOnlyPendingTimers();
+      });
+
+      expect(getByTestId('tooltip')).toHaveAttribute('aria-hidden', 'true');
+    });
+  });
+
   describe('Types', () => {
     it('renders light tooltip if provided', () => {
       const { getByTestId } = render(<BasicExample type="light" />);
@@ -42,10 +92,10 @@ describe('Tooltip', () => {
         jest.runOnlyPendingTimers();
       });
 
-      const tooltip = getByTestId('tooltip');
-
-      expect(tooltip).toBeInTheDocument();
-      expect(tooltip).toHaveClass('c-tooltip--light');
+      expect(getByTestId('tooltip')).toHaveStyleRule(
+        'color',
+        getColor('neutralHue', 700, DEFAULT_THEME)
+      );
     });
 
     it('renders dark tooltip if provided', () => {
@@ -56,10 +106,7 @@ describe('Tooltip', () => {
         jest.runOnlyPendingTimers();
       });
 
-      const tooltip = getByTestId('tooltip');
-
-      expect(tooltip).toBeInTheDocument();
-      expect(tooltip).not.toHaveClass('c-tooltip--light');
+      expect(getByTestId('tooltip')).toHaveStyleRule('color', DEFAULT_THEME.colors.background);
     });
   });
 });

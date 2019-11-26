@@ -21,7 +21,7 @@ describe('MultiThumbRange', () => {
 
     originalGetBoundingClientRect = Element.prototype.getBoundingClientRect;
     Element.prototype.getBoundingClientRect = jest.fn(() => {
-      return { width: 100, height: 10, top: 0, left: 0, bottom: 0, right: 0, x: 20 };
+      return { width: 100, height: 10, top: 0, left: 20, bottom: 0, right: 0 };
     });
   });
 

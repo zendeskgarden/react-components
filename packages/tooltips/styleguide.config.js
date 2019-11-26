@@ -32,8 +32,8 @@ module.exports = {
       name: 'Examples',
       sections: [
         {
-          name: 'Default',
-          content: '../../packages/tooltips/examples/default.md'
+          name: 'Basic',
+          content: '../../packages/tooltips/examples/basic.md'
         }
       ]
     },

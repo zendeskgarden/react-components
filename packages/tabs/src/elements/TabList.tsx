@@ -12,14 +12,14 @@ import { useTabsContext } from '../utils/useTabsContext';
 /**
  * Accepts all `<div>` props
  */
-const TabList: React.FC<HTMLAttributes<HTMLDivElement>> = props => {
-  const tabsPropGetters = useTabsContext();
+export const TabList = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  (props, ref) => {
+    const tabsPropGetters = useTabsContext();
 
-  if (!tabsPropGetters) {
-    return <StyledTabList {...props} />;
+    if (!tabsPropGetters) {
+      return <StyledTabList ref={ref} {...props} />;
+    }
+
+    return <StyledTabList {...(tabsPropGetters.getTabListProps({ ref, ...props }) as any)} />;
   }
-
-  return <StyledTabList {...(tabsPropGetters.getTabListProps(props) as any)} />;
-};
-
-export default TabList;
+);

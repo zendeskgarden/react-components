@@ -14,4 +14,11 @@ describe('Tab', () => {
   it('is able to render without parent Tabs component', () => {
     expect(() => render(<Tab>Content</Tab>)).not.toThrow();
   });
+
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(<Tab ref={ref} />);
+
+    expect(container.firstChild).toBe(ref.current);
+  });
 });
