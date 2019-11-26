@@ -12,6 +12,19 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v7.1.2 (2019-11-26)
+
+#### :seedling: Internal
+* Other
+  * [#537](https://github.com/zendeskgarden/react-components/pull/537) chore(deps): update dependency chalk to v3 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#538](https://github.com/zendeskgarden/react-components/pull/538) chore(deps): update dependency commander to v4 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#539](https://github.com/zendeskgarden/react-components/pull/539) chore(deps): update dependency eslint-plugin-jest to v23 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#543](https://github.com/zendeskgarden/react-components/pull/543) chore(deps): update dependency core-js to v3.4.2 ([@renovate[bot]](https://github.com/apps/renovate))
+* `datepickers`, `dropdowns`
+  * [#534](https://github.com/zendeskgarden/react-components/pull/534) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `avatars`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `tooltips`
+  * [#535](https://github.com/zendeskgarden/react-components/pull/535) fix(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v7.1.1 (2019-11-13)
 
 #### :bug: Bug Fix
