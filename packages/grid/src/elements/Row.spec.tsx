@@ -8,6 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import { Row } from './Row';
+import { Grid } from './Grid';
 
 describe('Row', () => {
   it('is rendered as a div', () => {
@@ -21,5 +22,15 @@ describe('Row', () => {
     const { container } = render(<Row ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
+  });
+
+  it('renders gutters provided by the containing Grid', () => {
+    const { getByTestId } = render(
+      <Grid gutters={false}>
+        <Row data-test-id="test" />
+      </Grid>
+    );
+
+    expect(getByTestId('test')).toHaveStyleRule('margin-left', '-0');
   });
 });

@@ -195,5 +195,17 @@ describe('StyledCol', () => {
         });
       });
     });
+
+    it('renders flex order first', () => {
+      const { container } = render(<StyledCol order="first" />);
+
+      expect(container.firstChild).toHaveStyleRule('order', '-1');
+    });
+
+    it('renders flex order last', () => {
+      const { container } = render(<StyledCol order="last" />);
+
+      expect(container.firstChild).toHaveStyleRule('order', '13');
+    });
   });
 });

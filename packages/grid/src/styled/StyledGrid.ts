@@ -19,10 +19,8 @@ const colorStyles = (props: IStyledGridProps) => {
   return css`
     /* prettier-ignore */
     box-shadow:
-      inset 0 ${borderWidth} 0 0 ${borderColor},
-      inset -${borderWidth} 0 0 0 ${borderColor},
-      inset 0 -${borderWidth} 0 0 ${borderColor},
-      inset ${borderWidth} 0 0 0 ${borderColor};
+      -${borderWidth} 0 0 0 ${borderColor},
+      ${borderWidth} 0 0 0 ${borderColor};
   `;
 };
 
