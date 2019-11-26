@@ -44,7 +44,7 @@ const flexStyles = (
     flexGrow = 0;
     maxWidth = '100%';
     width = 'auto';
-  } else {
+  } else if (size !== undefined) {
     flexBasis = `${math(`${size} / ${props.columns} * 100`)}%`;
     flexGrow = 0;
     maxWidth = flexBasis;
@@ -77,7 +77,7 @@ const flexStyles = (
 
 const mediaStyles = (
   minWidth: string,
-  size: TYPE_NUMBER | boolean,
+  size: TYPE_NUMBER | boolean | undefined,
   alignSelf: TYPE_ALIGN_SELF | undefined,
   offset: TYPE_NUMBER | undefined,
   order: TYPE_NUMBER | undefined,
@@ -141,7 +141,6 @@ export const StyledCol = styled.div.attrs<IStyledColProps>({
   ${props => props.debug && colorStyles(props)};
 
   ${props =>
-    props.xs &&
     mediaStyles(
       props.theme.breakpoints.xs,
       props.xs,
@@ -152,7 +151,6 @@ export const StyledCol = styled.div.attrs<IStyledColProps>({
     )};
 
   ${props =>
-    props.sm &&
     mediaStyles(
       props.theme.breakpoints.sm,
       props.sm,
@@ -163,7 +161,6 @@ export const StyledCol = styled.div.attrs<IStyledColProps>({
     )};
 
   ${props =>
-    props.md &&
     mediaStyles(
       props.theme.breakpoints.md,
       props.md,
@@ -174,7 +171,6 @@ export const StyledCol = styled.div.attrs<IStyledColProps>({
     )};
 
   ${props =>
-    props.lg &&
     mediaStyles(
       props.theme.breakpoints.lg,
       props.lg,
@@ -185,7 +181,6 @@ export const StyledCol = styled.div.attrs<IStyledColProps>({
     )};
 
   ${props =>
-    props.xl &&
     mediaStyles(
       props.theme.breakpoints.xl,
       props.xl,
@@ -199,5 +194,6 @@ export const StyledCol = styled.div.attrs<IStyledColProps>({
 `;
 
 StyledCol.defaultProps = {
+  columns: 12,
   theme: DEFAULT_THEME
 };

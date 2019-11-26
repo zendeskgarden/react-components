@@ -7,7 +7,7 @@
 
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { TYPE_NUMBER, TYPE_SPACE } from '../utils/types';
+import { TYPE_NUMBER, TYPE_SPACE, ARRAY_SPACE } from '../utils/types';
 import { GridContext } from '../utils/useGridContext';
 import { StyledGrid } from '../styled';
 
@@ -33,7 +33,7 @@ export const Grid = React.forwardRef<HTMLDivElement, IGridProps>(
 
 Grid.propTypes = {
   columns: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  gutters: PropTypes.oneOf([false, 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl']),
+  gutters: PropTypes.oneOf(ARRAY_SPACE),
   debug: PropTypes.bool
 };
 

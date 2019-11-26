@@ -5,16 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export type TYPE_ALIGN_CONTENT = 'start' | 'end' | 'center' | 'between' | 'around' | 'stretch';
-export const ARRAY_ALIGN_CONTENT: Array<TYPE_ALIGN_CONTENT> = [
-  'start',
-  'end',
-  'center',
-  'between',
-  'around',
-  'stretch'
-];
-
 export type TYPE_ALIGN_ITEMS = 'start' | 'end' | 'center' | 'baseline' | 'stretch';
 export const ARRAY_ALIGN_ITEMS: Array<TYPE_ALIGN_ITEMS> = [
   'start',
@@ -54,7 +44,7 @@ export const ARRAY_JUSTIFY_CONTENT: Array<TYPE_JUSTIFY_CONTENT> = [
 export type TYPE_NUMBER = number | string;
 
 export type TYPE_SPACE = false | 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
-export const ARRAY_SPACE: Array<TYPE_SPACE> = ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
+export const ARRAY_SPACE: Array<TYPE_SPACE> = [false, 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
 
 export type TYPE_WRAP = 'nowrap' | 'wrap' | 'wrap-reverse';
 export const ARRAY_WRAP: Array<TYPE_WRAP> = ['nowrap', 'wrap', 'wrap-reverse'];

@@ -6,103 +6,194 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
+import math from 'polished/lib/math/math';
+import { render, renderRtl } from 'garden-test-utils';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming/src';
+import { ARRAY_ALIGN_SELF, ARRAY_SPACE } from '../utils/types';
 import { StyledCol } from './StyledCol';
 
 describe('StyledCol', () => {
   it('renders default styling', () => {
     const { container } = render(<StyledCol />);
 
-    expect(container.firstChild).toHaveClass('col');
+    expect(container.firstChild).toHaveStyleRule('position', 'relative');
+    expect(container.firstChild).not.toHaveStyleRule('background-color'); /* debug = false */
+  });
+
+  it('renders debug styling if provided', () => {
+    const { container } = render(<StyledCol debug />);
+
+    expect(container.firstChild).toHaveStyleRule('background-color', expect.any(String));
+  });
+
+  describe('Columns', () => {
+    it('renders 12 columns by default', () => {
+      const { container } = render(<StyledCol sizeAll={1} />);
+
+      expect(container.firstChild).toHaveStyleRule('max-width', `${(1 / 12) * 100}%`);
+    });
+
+    [4, 8, 16, 24].forEach(columns => {
+      it(`renders ${columns} columns if specified`, () => {
+        const { container } = render(<StyledCol sizeAll={1} columns={columns} />);
+
+        expect(container.firstChild).toHaveStyleRule('max-width', `${(1 / columns) * 100}%`);
+      });
+    });
+  });
+
+  describe('Gutters', () => {
+    ARRAY_SPACE.forEach(size => {
+      if (size) {
+        it(`renders ${size} gutters`, () => {
+          const { container } = render(<StyledCol gutters={size} />);
+          const padding = math(`${DEFAULT_THEME.space[size]} / 2`);
+
+          expect(container.firstChild).toHaveStyleRule('padding-right', padding);
+          expect(container.firstChild).toHaveStyleRule('padding-left', padding);
+        });
+      } else {
+        it('collapses gutters', () => {
+          const { container } = render(<StyledCol gutters={false} />);
+
+          expect(container.firstChild).toHaveStyleRule('padding-right', '0');
+          expect(container.firstChild).toHaveStyleRule('padding-left', '0');
+        });
+      }
+    });
   });
 
   describe('Sizing', () => {
-    it('renders basis if provided', () => {
-      const { container } = render(<StyledCol sizeAll="4" />);
+    it('renders default width', () => {
+      const { container } = render(<StyledCol />);
 
-      expect(container.firstChild).toHaveClass('col-4');
+      expect(container.firstChild).toHaveStyleRule('flex-basis', '0');
     });
 
-    it('renders xs if provided', () => {
-      const { container } = render(<StyledCol xs="6" />);
+    it('renders auto width', () => {
+      const { container } = render(<StyledCol sizeAll="auto" />);
 
-      expect(container.firstChild).toHaveClass('col-xs-6');
+      expect(container.firstChild).toHaveStyleRule('width', 'auto');
     });
 
-    it('renders sm if provided', () => {
-      const { container } = render(<StyledCol sm />);
+    [1, 2, 3, 5, 8].forEach(size => {
+      it(`renders ${size}/12 width`, () => {
+        const { container } = render(<StyledCol sizeAll={size} />);
 
-      expect(container.firstChild).toHaveClass('col-sm');
-    });
+        expect(container.firstChild).toHaveStyleRule('max-width', `${(size / 12) * 100}%`);
+      });
 
-    it('renders md if provided', () => {
-      const { container } = render(<StyledCol md="6" />);
+      describe('Responsively', () => {
+        Object.keys(DEFAULT_THEME.breakpoints).forEach(breakpoint => {
+          it(`renders ${breakpoint}=${size} width`, () => {
+            const props = { [breakpoint]: size };
+            const { container } = render(<StyledCol {...props} />);
+            const minWidth = (DEFAULT_THEME.breakpoints as any)[breakpoint];
 
-      expect(container.firstChild).toHaveClass('col-md-6');
-    });
-
-    it('renders lg if provided', () => {
-      const { container } = render(<StyledCol lg="6" />);
-
-      expect(container.firstChild).toHaveClass('col-lg-6');
-    });
-
-    it('renders xl if provided', () => {
-      const { container } = render(<StyledCol xl="6" />);
-
-      expect(container.firstChild).toHaveClass('col-xl-6');
-    });
-  });
-
-  describe('Offsets', () => {
-    it('renders offsetXs if provided', () => {
-      const { container } = render(<StyledCol offsetXs="6" />);
-
-      expect(container.firstChild).toHaveClass('offset-xs-6');
-    });
-
-    it('renders offsetSm if provided', () => {
-      const { container } = render(<StyledCol offsetSm="6" />);
-
-      expect(container.firstChild).toHaveClass('offset-sm-6');
-    });
-
-    it('renders offsetMd if provided', () => {
-      const { container } = render(<StyledCol offsetMd="6" />);
-
-      expect(container.firstChild).toHaveClass('offset-md-6');
-    });
-
-    it('renders offsetLg if provided', () => {
-      const { container } = render(<StyledCol offsetLg="6" />);
-
-      expect(container.firstChild).toHaveClass('offset-lg-6');
-    });
-
-    it('renders offsetXl if provided', () => {
-      const { container } = render(<StyledCol offsetXl="6" />);
-
-      expect(container.firstChild).toHaveClass('offset-xl-6');
+            expect(container.firstChild).toHaveStyleRule('max-width', `${(size / 12) * 100}%`, {
+              media: `(min-width: ${minWidth})`
+            });
+          });
+        });
+      });
     });
   });
 
   describe('Align Self', () => {
-    it('renders start self alignment if provided', () => {
-      const { container } = render(<StyledCol alignSelf="start" />);
+    ARRAY_ALIGN_SELF.forEach(alignSelf => {
+      it(`renders ${alignSelf} flex alignment`, () => {
+        const { container } = render(<StyledCol alignSelf={alignSelf} />);
 
-      expect(container.firstChild).toHaveClass('align-self-start');
+        expect(container.firstChild).toHaveStyleRule(
+          'align-self',
+          expect.stringContaining(alignSelf)
+        );
+      });
+
+      describe('Responsively', () => {
+        Object.keys(DEFAULT_THEME.breakpoints).forEach(breakpoint => {
+          const key = `alignSelf${breakpoint[0].toUpperCase()}${breakpoint.substring(1)}`;
+
+          it(`renders ${key}=${alignSelf} flex alignment`, () => {
+            const props = { [key]: alignSelf };
+            const { container } = render(<StyledCol {...props} />);
+            const minWidth = (DEFAULT_THEME.breakpoints as any)[breakpoint];
+
+            expect(container.firstChild).toHaveStyleRule(
+              'align-self',
+              expect.stringContaining(alignSelf),
+              {
+                media: `(min-width: ${minWidth})`
+              }
+            );
+          });
+        });
+      });
     });
+  });
 
-    it('renders center self alignment if provided', () => {
-      const { container } = render(<StyledCol alignSelf="center" />);
+  describe('Offsets', () => {
+    [1, 2, 3, 5, 8].forEach(offset => {
+      it(`renders ${offset}/12 offset`, () => {
+        const { container } = render(<StyledCol offset={offset} />);
 
-      expect(container.firstChild).toHaveClass('align-self-center');
+        expect(container.firstChild).toHaveStyleRule('margin-left', `${(offset / 12) * 100}%`);
+      });
+
+      it(`renders ${offset}/12 RTL offset`, () => {
+        const { container } = renderRtl(<StyledCol offset={offset} />);
+
+        expect(container.firstChild).toHaveStyleRule('margin-right', `${(offset / 12) * 100}%`);
+      });
+
+      describe('Responsively', () => {
+        Object.keys(DEFAULT_THEME.breakpoints).forEach(breakpoint => {
+          const key = `offset${breakpoint[0].toUpperCase()}${breakpoint.substring(1)}`;
+
+          it(`renders ${key}=${offset} offset`, () => {
+            const props = { [key]: offset };
+            const { container } = render(<StyledCol {...props} />);
+            const minWidth = (DEFAULT_THEME.breakpoints as any)[breakpoint];
+
+            expect(container.firstChild).toHaveStyleRule('margin-left', `${(offset / 12) * 100}%`, {
+              media: `(min-width: ${minWidth})`
+            });
+          });
+        });
+      });
     });
+  });
 
-    it('renders end self alignment if provided', () => {
-      const { container } = render(<StyledCol alignSelf="end" />);
+  describe('Order', () => {
+    [1, 2, 3, 5, 8].forEach(order => {
+      it(`renders flex order ${order}`, () => {
+        const { container } = render(<StyledCol order={order} />);
 
-      expect(container.firstChild).toHaveClass('align-self-end');
+        expect(container.firstChild).toHaveStyleRule(
+          'order',
+          expect.stringContaining(order.toString())
+        );
+      });
+
+      describe('Responsively', () => {
+        Object.keys(DEFAULT_THEME.breakpoints).forEach(breakpoint => {
+          const key = `order${breakpoint[0].toUpperCase()}${breakpoint.substring(1)}`;
+
+          it(`renders ${key}=${order} flex order`, () => {
+            const props = { [key]: order };
+            const { container } = render(<StyledCol {...props} />);
+            const minWidth = (DEFAULT_THEME.breakpoints as any)[breakpoint];
+
+            expect(container.firstChild).toHaveStyleRule(
+              'order',
+              expect.stringContaining(order.toString()),
+              {
+                media: `(min-width: ${minWidth})`
+              }
+            );
+          });
+        });
+      });
     });
   });
 });

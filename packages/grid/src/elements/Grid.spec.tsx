@@ -22,10 +22,4 @@ describe('Grid', () => {
 
     expect(container.firstChild).toBe(ref.current);
   });
-
-  it('renders fluid by default', () => {
-    const { container } = render(<Grid />);
-
-    expect(container.firstChild).toHaveClass('container-fluid');
-  });
 });
