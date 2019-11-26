@@ -10,7 +10,7 @@ import math from 'polished/lib/math/math';
 import { render } from 'garden-test-utils';
 import { ARRAY_SPACE, ARRAY_ALIGN_ITEMS, ARRAY_JUSTIFY_CONTENT, ARRAY_WRAP } from '../utils/types';
 import { StyledRow } from './StyledRow';
-import { DEFAULT_THEME, DefaultTheme } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 describe('StyledRow', () => {
   it('renders default styling', () => {
