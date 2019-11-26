@@ -12,11 +12,11 @@ Several of the controls are marked as being connected to responsive
 properties. A responsive grid property has variants that apply to supported
 [theming](https://zendeskgarden.github.io/react-components/theming/#default_theme)
 breakpoints (`xs`, `sm`, `md`, `lg`, and `xl`) – see element props for
-details. When a "Breakpoint" is selected below, all of the associated
-properties will be set to operate against that screen size. Again, while this
-simplifies the basic demo, it hardly shows the power of the fully responsive
-grid framework where `Row` and `Col` elements can set independent responsive
-properties at multiple breakpoints.
+details. When a "Viewport breakpoint" is selected below, all of the
+associated properties will be set to operate against that screen size. Again,
+while this simplifies the basic demo, it hardly shows the power of the fully
+responsive grid framework where `Row` and `Col` elements can set independent
+responsive properties at multiple breakpoints.
 
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
@@ -156,7 +156,7 @@ initialState = {
         </Field>
         <Dropdown selectedItem={state.breakpoint} onSelect={breakpoint => setState({ breakpoint })}>
           <SelectField className="u-mt-xs">
-            <SelectLabel>Breakpoint</SelectLabel>
+            <SelectLabel>Viewport breakpoint</SelectLabel>
             <Select small>{state.breakpoint}</Select>
           </SelectField>
           <Menu small>
@@ -169,6 +169,9 @@ initialState = {
           </Menu>
         </Dropdown>
       </Well>
+      <p>
+        * controls a responsive property based on the selected breakpoint (minimum viewport width)
+      </p>
     </Col>
     <Col size="8">
       <div className="u-mt">
@@ -352,7 +355,3 @@ initialState = {
   </Row>
 </Grid>;
 ```
-
-<!-- markdownlint-disable -->
-
-_\* controls a responsive property based on the selected breakpoint_
