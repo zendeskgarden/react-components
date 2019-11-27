@@ -112,4 +112,14 @@ describe('Modal', () => {
       expect(onCloseSpy).toHaveBeenCalled();
     });
   });
+
+  describe('appendToNode', () => {
+    it('should append the backdrop to the supplied element', () => {
+      const div = document.createElement('div');
+
+      render(<BasicExample appendToNode={div} />);
+
+      expect(div.firstChild.getAttribute('data-test-id')).toBe('backdrop');
+    });
+  });
 });
