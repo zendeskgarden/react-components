@@ -46,7 +46,7 @@ const isOverflowing = element => {
  * High-level abstraction for basic Modal implementations. Accepts all `<div>` props.
  */
 const Modal = React.forwardRef(
-  ({ backdropProps, children, onClose, center, animate, id, ...modalProps }, ref) => {
+  ({ backdropProps, children, onClose, center, animate, id, appendToNode, ...modalProps }, ref) => {
     const modalRef = useCombinedRefs(ref);
 
     const {
@@ -103,7 +103,7 @@ const Modal = React.forwardRef(
           })}
         </ModalView>
       </Backdrop>,
-      document.body
+      appendToNode
     );
   }
 );
@@ -133,6 +133,10 @@ Modal.propTypes = {
    */
   onClose: PropTypes.func,
   /**
+   * The DOM element where the modal will be rendered to
+   **/
+  appendToNode: PropTypes.instanceOf(Element),
+  /**
    * The root ID to use for descendants. A unique ID is created if none is provided.
    **/
   id: PropTypes.string
@@ -140,7 +144,8 @@ Modal.propTypes = {
 
 Modal.defaultProps = {
   animate: true,
-  center: true
+  center: true,
+  appendToNode: document.body
 };
 
 /** @component */
