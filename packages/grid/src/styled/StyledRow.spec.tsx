@@ -8,9 +8,9 @@
 import React from 'react';
 import math from 'polished/lib/math/math';
 import { render } from 'garden-test-utils';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { ARRAY_SPACE, ARRAY_ALIGN_ITEMS, ARRAY_JUSTIFY_CONTENT, ARRAY_WRAP } from '../utils/types';
 import { StyledRow } from './StyledRow';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 describe('StyledRow', () => {
   it('renders default styling', () => {

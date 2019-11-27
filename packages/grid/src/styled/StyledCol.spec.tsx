@@ -8,7 +8,7 @@
 import React from 'react';
 import math from 'polished/lib/math/math';
 import { render, renderRtl } from 'garden-test-utils';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming/src';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { ARRAY_ALIGN_SELF, ARRAY_SPACE } from '../utils/types';
 import { StyledCol } from './StyledCol';
 
