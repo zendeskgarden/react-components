@@ -38,7 +38,6 @@ const flexStyles = (
     flexBasis = 0;
     flexGrow = 1;
     maxWidth = '100%';
-    width = '100%';
   } else if (size === 'auto') {
     flexBasis = 'auto';
     flexGrow = 0;
@@ -48,7 +47,6 @@ const flexStyles = (
     flexBasis = `${math(`${size} / ${props.columns} * 100`)}%`;
     flexGrow = 0;
     maxWidth = flexBasis;
-    width = '100%';
   }
 
   let flexOrder;
@@ -133,10 +131,20 @@ export const StyledCol = styled.div.attrs<IStyledColProps>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledColProps>`
-  box-sizing: inherit;
+  box-sizing: border-box;
   position: relative;
+  width: 100%;
 
-  ${props => flexStyles(props.sizeAll || false, props.alignSelf, props.offset, props.order, props)};
+  ${props =>
+    flexStyles(
+      !props.sizeAll && (props.xs || props.sm || props.md || props.lg || props.xl)
+        ? undefined
+        : props.sizeAll || false,
+      props.alignSelf,
+      props.offset,
+      props.order,
+      props
+    )};
   ${props => sizeStyles(props)};
   ${props => props.debug && colorStyles(props)};
 

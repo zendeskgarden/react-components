@@ -69,13 +69,13 @@ const { MD } = require('@zendeskgarden/react-typography/src');
 
 <Grid debug>
   <Row justifyContentMd="center">
-    <Col lg={2}>
+    <Col xs lg={2}>
       <MD>1 of 3</MD>
     </Col>
     <Col md="auto">
       <MD>Variable width content</MD>
     </Col>
-    <Col lg={2}>
+    <Col xs lg={2}>
       <MD>3 of 3</MD>
     </Col>
   </Row>
@@ -86,7 +86,7 @@ const { MD } = require('@zendeskgarden/react-typography/src');
     <Col md="auto">
       <MD>Variable width content</MD>
     </Col>
-    <Col lg={2}>
+    <Col xs lg={2}>
       <MD>3 of 3</MD>
     </Col>
   </Row>

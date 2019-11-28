@@ -103,7 +103,7 @@ export const StyledRow = styled.div.attrs<IStyledRowProps>({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledRowProps>`
   display: flex;
-  box-sizing: inherit;
+  box-sizing: border-box;
 
   ${props => flexStyles(props.alignItems, props.justifyContent, props.wrapAll)}
   ${props => sizeStyles(props)};
