@@ -7,19 +7,19 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { zdColorKale700 } from '@zendeskgarden/css-variables';
-import ZendeskLogo from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
+import { zdColorGreen400 } from '@zendeskgarden/css-variables';
+import GardenLogo from '@zendeskgarden/svg-icons/src/26/garden.svg';
 
 const LogoWrapper = styled.div`
   text-align: center;
-  color: ${zdColorKale700};
+  color: ${zdColorGreen400};
 `;
 
 const LogoRenderer = () => (
   <div role="navigation">
     <a href="/" aria-label="Garden Homepage">
       <LogoWrapper>
-        <ZendeskLogo />
+        <GardenLogo />
       </LogoWrapper>
     </a>
   </div>
