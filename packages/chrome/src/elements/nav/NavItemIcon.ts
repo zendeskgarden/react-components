@@ -14,6 +14,7 @@ const COMPONENT_ID = 'chrome.nav_item_icon';
  * Applies styling directly to child component
  **/
 export const NavItemIcon = React.forwardRef<any, HTMLAttributes<any>>(({ children }, ref) => {
+  /** This styling logic will be moved to the `styled` directory in the CSS-in-JS PR */
   return React.cloneElement(Children.only(children as any), {
     'data-garden-id': COMPONENT_ID,
     'data-garden-version': PACKAGE_VERSION,

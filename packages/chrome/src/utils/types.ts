@@ -6,3 +6,13 @@
  */
 
 export type PRODUCT = 'chat' | 'connect' | 'explore' | 'guide' | 'message' | 'support' | 'talk';
+
+export const PRODUCTS: PRODUCT[] = [
+  'chat',
+  'connect',
+  'explore',
+  'guide',
+  'message',
+  'support',
+  'talk'
+];

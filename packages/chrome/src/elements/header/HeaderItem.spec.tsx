@@ -8,7 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import { HeaderItem } from './HeaderItem';
-import { PRODUCT } from '../../utils/types';
+import { PRODUCTS } from '../../utils/types';
 
 describe('HeaderItem', () => {
   it('renders default styling', () => {
@@ -69,9 +69,9 @@ describe('HeaderItem', () => {
   });
 
   describe('Products', () => {
-    ['chat', 'connect', 'explore', 'guide', 'message', 'support', 'talk'].forEach(product => {
+    PRODUCTS.forEach(product => {
       it(`renders ${product} styling if provided`, () => {
-        const { container } = render(<HeaderItem product={product as PRODUCT} />);
+        const { container } = render(<HeaderItem product={product} />);
 
         expect(container.firstChild).toHaveClass(`c-chrome__body__header__item--logo--${product}`);
       });

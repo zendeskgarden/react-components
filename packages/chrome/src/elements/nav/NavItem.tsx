@@ -9,6 +9,7 @@ import React, { ButtonHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { useKeyboardFocus } from '@zendeskgarden/container-keyboardfocus';
 import { StyledNavItem, IStyledNavItemProps } from '../../styled';
+import { PRODUCTS } from '../../utils/types';
 
 /**
  * Accepts all `<button>` attributes and events
@@ -34,7 +35,7 @@ export const NavItem = React.forwardRef<
 });
 
 NavItem.propTypes = {
-  product: PropTypes.oneOf(['chat', 'connect', 'explore', 'guide', 'message', 'support', 'talk']),
+  product: PropTypes.oneOf(PRODUCTS),
   hasLogo: PropTypes.bool,
   hasBrandmark: PropTypes.bool,
   isCurrent: PropTypes.bool,

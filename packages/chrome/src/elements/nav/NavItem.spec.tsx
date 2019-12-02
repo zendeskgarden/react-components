@@ -8,7 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import { NavItem } from './NavItem';
-import { PRODUCT } from '../../utils/types';
+import { PRODUCTS } from '../../utils/types';
 
 describe('NavItem', () => {
   it('renders default styling', () => {
@@ -63,9 +63,9 @@ describe('NavItem', () => {
   });
 
   describe('Products', () => {
-    ['chat', 'connect', 'explore', 'guide', 'message', 'support', 'talk'].forEach(product => {
+    PRODUCTS.forEach(product => {
       it(`renders ${product} styling if provided`, () => {
-        const { container } = render(<NavItem product={product as PRODUCT} />);
+        const { container } = render(<NavItem product={product} />);
 
         expect(container.firstChild).toHaveClass(`c-chrome__nav__item--logo--${product}`);
       });

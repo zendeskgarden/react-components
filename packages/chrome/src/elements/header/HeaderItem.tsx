@@ -9,6 +9,7 @@ import React, { ButtonHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { useKeyboardFocus } from '@zendeskgarden/container-keyboardfocus';
 import { StyledHeaderItem, IStyledHeaderItemProps } from '../../styled/header/StyledHeaderItem';
+import { PRODUCTS } from '../../utils/types';
 
 /**
  * Accepts all `<button>` props
@@ -34,7 +35,7 @@ HeaderItem.propTypes = {
   maxX: PropTypes.bool,
   maxY: PropTypes.bool,
   isRound: PropTypes.bool,
-  product: PropTypes.oneOf(['chat', 'connect', 'explore', 'guide', 'message', 'support', 'talk']),
+  product: PropTypes.oneOf(PRODUCTS),
   hasLogo: PropTypes.bool,
   isHovered: PropTypes.bool,
   isFocused: PropTypes.bool,

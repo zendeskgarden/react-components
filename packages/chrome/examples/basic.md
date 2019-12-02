@@ -1,18 +1,16 @@
 ### Basic Usage
 
 Due to the wide variety of routing strategies within React, the `Chrome` component doesn't
-provide any opinionated navigation solutions.
-
-The `NavItem` and `SubNavItem` components are `button` elements that accept all native attributes
-and events. If you are using a routing library like [react-router](https://github.com/ReactTraining/react-router),
+provide any opinionated navigation solutions. The `NavItem` and `SubNavItem` components are
+`button` elements that accept all native attributes and events. If you are using a routing
+library like [react-router](https://github.com/ReactTraining/react-router),
 you can programmatically trigger navigation with the `onClick` events.
 
 #### Custom Nav Colors
 
-The default `Nav` component is styled with a Zendesk branded palette. For white-labeling purposes
-a custom `background-color` style may be applied along with the `isLight` or `isDark` props.
-
-This demo uses the [PolishedJS getLuminance()](https://polished.js.org/docs/#getluminance)
+The default `Nav` component is styled with a Zendesk branded palette. For white-labeling
+purposes a custom `background-color` style may be applied along with the `isLight` or `isDark`
+props. This demo uses the [PolishedJS readableColor()](https://polished.js.org/docs/#readablecolor)
 utility to determine which props to enable.
 
 ```jsx
@@ -81,7 +79,7 @@ const StyledSpacer = styled.div`
   initialState={{
     currentNavItem: 'home',
     currentSubnavItem: 'item-1',
-    expanded: true,
+    expanded: false,
     showCollapsed: false,
     product: PRODUCTS[0],
     color: PALETTE.kale[700],
@@ -97,9 +95,9 @@ const StyledSpacer = styled.div`
             <Dropdown selectedItem={state.product} onSelect={product => setState({ product })}>
               <DropdownField>
                 <DropdownLabel>Product</DropdownLabel>
-                <Select>{state.product}</Select>
+                <Select small>{state.product}</Select>
               </DropdownField>
-              <Menu>
+              <Menu small>
                 {PRODUCTS.map(product => (
                   <Item key={product} value={product}>
                     {product}
@@ -125,6 +123,7 @@ const StyledSpacer = styled.div`
               <Input
                 type="color"
                 value={state.color}
+                isCompact
                 onChange={e => {
                   const colorLuminance = e.target.value ? getLuminance(e.target.value) : undefined;
 
@@ -132,7 +131,7 @@ const StyledSpacer = styled.div`
                   let isDark = state.isDark;
 
                   if (colorLuminance) {
-                    if (colorLuminance >= 0.25) {
+                    if (colorLuminance > 0.179) {
                       isLight = true;
                       isDark = false;
                     } else {
@@ -150,25 +149,8 @@ const StyledSpacer = styled.div`
               />
             </Field>
             <StyledSpacer />
-            <Field>
-              <Toggle
-                checked={state.isLight}
-                onChange={event => setState({ isLight: event.target.checked })}
-              >
-                <Label style={{ marginTop: 8 }}>Light nav</Label>
-              </Toggle>
-            </Field>
-            <StyledSpacer />
-            <Field>
-              <Toggle
-                checked={state.isDark}
-                onChange={event => setState({ isDark: event.target.checked })}
-              >
-                <Label style={{ marginTop: 8 }}>Dark nav</Label>
-              </Toggle>
-            </Field>
-            <StyledSpacer />
             <Button
+              size="small"
               onClick={() => setState({ color: PALETTE.kale[700], isLight: false, isDark: false })}
             >
               Reset colors
@@ -306,49 +288,35 @@ const StyledSpacer = styled.div`
               <Content>
                 <Main style={{ padding: 28 }}>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut aliquam purus sit amet. Cum
-                    sociis natoque penatibus et magnis. Semper auctor neque vitae tempus. Id cursus
-                    metus aliquam eleifend mi. Nibh cras pulvinar mattis nunc sed. Semper quis
-                    lectus nulla at volutpat diam. Sit amet mauris commodo quis imperdiet massa
-                    tincidunt nunc pulvinar. Sollicitudin aliquam ultrices sagittis orci. Id nibh
-                    tortor id aliquet lectus proin nibh nisl condimentum. Sagittis aliquam malesuada
-                    bibendum arcu. Risus commodo viverra maecenas accumsan lacus vel. Mauris in
-                    aliquam sem fringilla ut morbi tincidunt. Lacus suspendisse faucibus interdum
-                    posuere lorem ipsum dolor sit. Eget dolor morbi non arcu risus quis.
+                    Beetroot water spinach okra water chestnut ricebean pea catsear courgette summer
+                    purslane. Water spinach arugula pea tatsoi aubergine spring onion bush tomato
+                    kale radicchio turnip chicory salsify pea sprouts fava bean. Dandelion zucchini
+                    burdock yarrow chickpea dandelion sorrel courgette turnip greens tigernut
+                    soybean radish artichoke wattle seed endive groundnut broccoli arugula.
                   </p>
                   <p>
-                    Mauris in aliquam sem fringilla ut morbi. Sit amet est placerat in egestas erat
-                    imperdiet. Amet venenatis urna cursus eget nunc. Gravida in fermentum et
-                    sollicitudin ac orci phasellus egestas tellus. Vitae tortor condimentum lacinia
-                    quis vel eros. Eget lorem dolor sed viverra ipsum nunc. Orci a scelerisque purus
-                    semper eget. Nisl pretium fusce id velit ut tortor pretium viverra. Scelerisque
-                    felis imperdiet proin fermentum leo vel. Facilisis volutpat est velit egestas
-                    dui id. Dolor sed viverra ipsum nunc aliquet bibendum enim facilisis. Malesuada
-                    fames ac turpis egestas integer eget aliquet. Nisl pretium fusce id velit ut
-                    tortor. Convallis convallis tellus id interdum. Ultrices sagittis orci a
-                    scelerisque purus semper.
+                    Pea horseradish azuki bean lettuce avocado asparagus okra. Kohlrabi radish okra
+                    azuki bean corn fava bean mustard tigernut jícama green bean celtuce collard
+                    greens avocado quandong fennel gumbo black-eyed pea. Grape silver beet
+                    watercress potato tigernut corn groundnut. Chickweed okra pea winter purslane
+                    coriander yarrow sweet pepper radish garlic brussels sprout groundnut summer
+                    purslane earthnut pea tomato spring onion azuki bean gourd. Gumbo kakadu plum
+                    komatsuna black-eyed pea green bean zucchini gourd winter purslane silver beet
+                    rock melon radish asparagus spinach.
                   </p>
                   <p>
-                    Dignissim convallis aenean et tortor. Diam maecenas sed enim ut sem viverra
-                    aliquet. Dolor purus non enim praesent elementum facilisis. Porttitor eget dolor
-                    morbi non arcu risus quis varius. Feugiat pretium nibh ipsum consequat nisl vel
-                    pretium lectus quam. Cursus euismod quis viverra nibh. Orci eu lobortis
-                    elementum nibh tellus molestie nunc non blandit. Velit sed ullamcorper morbi
-                    tincidunt. Aliquam id diam maecenas ultricies mi. Suspendisse potenti nullam ac
-                    tortor vitae purus faucibus ornare suspendisse. Blandit aliquam etiam erat velit
-                    scelerisque in dictum non consectetur. Tempor nec feugiat nisl pretium. Ac orci
-                    phasellus egestas tellus rutrum tellus. Viverra maecenas accumsan lacus vel
-                    facilisis volutpat est.
+                    Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear
+                    garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed
+                    kombu beetroot horseradish carrot squash brussels sprout chard.
                   </p>
                 </Main>
               </Content>
               <Footer>
                 <FooterItem>
-                  <Button basic>Cancel</Button>
+                  <Button isBasic>Cancel</Button>
                 </FooterItem>
                 <FooterItem>
-                  <Button primary>Save</Button>
+                  <Button isPrimary>Save</Button>
                 </FooterItem>
               </Footer>
             </Body>

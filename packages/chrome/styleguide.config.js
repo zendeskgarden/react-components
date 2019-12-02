@@ -47,10 +47,18 @@ module.exports = {
     },
     {
       name: 'Elements',
+      components: [
+        '../../packages/chrome/src/elements/[A-Z]*.{ts,tsx}',
+        '../../packages/chrome/src/elements/body/[A-Z]*.{ts,tsx}'
+      ],
       sections: [
         {
-          name: 'Chrome',
-          components: '../../packages/chrome/src/elements/[A-Z]*.{ts,tsx}'
+          name: 'Footer',
+          components: '../../packages/chrome/src/elements/footer/[A-Z]*.{ts,tsx}'
+        },
+        {
+          name: 'Header',
+          components: '../../packages/chrome/src/elements/header/[A-Z]*.{ts,tsx}'
         },
         {
           name: 'Nav',
@@ -59,20 +67,6 @@ module.exports = {
         {
           name: 'SubNav',
           components: '../../packages/chrome/src/elements/subnav/[A-Z]*.{ts,tsx}'
-        },
-        {
-          name: 'Body',
-          components: '../../packages/chrome/src/elements/body/[A-Z]*.{ts,tsx}',
-          sections: [
-            {
-              name: 'Header',
-              components: '../../packages/chrome/src/elements/header/[A-Z]*.{ts,tsx}'
-            },
-            {
-              name: 'Footer',
-              components: '../../packages/chrome/src/elements/footer/[A-Z]*.{ts,tsx}'
-            }
-          ]
         }
       ]
     }
