@@ -8,7 +8,7 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import math from 'polished/lib/math/math';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { TYPE_ALIGN_SELF, TYPE_NUMBER, TYPE_SPACE } from '../utils/types';
+import { ALIGN_SELF, NUMBER, SPACE } from '../utils/types';
 
 const COMPONENT_ID = 'grid.col';
 
@@ -22,10 +22,10 @@ const colorStyles = (props: IStyledColProps) => {
 };
 
 const flexStyles = (
-  size: TYPE_NUMBER | boolean | undefined,
-  alignSelf: TYPE_ALIGN_SELF | undefined,
-  offset: TYPE_NUMBER | undefined,
-  order: TYPE_NUMBER | undefined,
+  size: NUMBER | boolean | undefined,
+  alignSelf: ALIGN_SELF | undefined,
+  offset: NUMBER | undefined,
+  order: NUMBER | undefined,
   props: IStyledColProps
 ) => {
   const margin = offset && `${math(`${offset} / ${props.columns} * 100`)}%`;
@@ -75,10 +75,10 @@ const flexStyles = (
 
 const mediaStyles = (
   minWidth: string,
-  size: TYPE_NUMBER | boolean | undefined,
-  alignSelf: TYPE_ALIGN_SELF | undefined,
-  offset: TYPE_NUMBER | undefined,
-  order: TYPE_NUMBER | undefined,
+  size: NUMBER | boolean | undefined,
+  alignSelf: ALIGN_SELF | undefined,
+  offset: NUMBER | undefined,
+  order: NUMBER | undefined,
   props: IStyledColProps
 ) => {
   return css`
@@ -98,32 +98,32 @@ const sizeStyles = (props: IStyledColProps) => {
 };
 
 export interface IStyledColProps extends ThemeProps<DefaultTheme> {
-  columns?: TYPE_NUMBER;
-  gutters?: TYPE_SPACE;
-  sizeAll?: TYPE_NUMBER;
-  xs?: TYPE_NUMBER | boolean;
-  sm?: TYPE_NUMBER | boolean;
-  md?: TYPE_NUMBER | boolean;
-  lg?: TYPE_NUMBER | boolean;
-  xl?: TYPE_NUMBER | boolean;
-  alignSelf?: TYPE_ALIGN_SELF;
-  alignSelfXs?: TYPE_ALIGN_SELF;
-  alignSelfSm?: TYPE_ALIGN_SELF;
-  alignSelfMd?: TYPE_ALIGN_SELF;
-  alignSelfLg?: TYPE_ALIGN_SELF;
-  alignSelfXl?: TYPE_ALIGN_SELF;
-  offset?: TYPE_NUMBER;
-  offsetXs?: TYPE_NUMBER;
-  offsetSm?: TYPE_NUMBER;
-  offsetMd?: TYPE_NUMBER;
-  offsetLg?: TYPE_NUMBER;
-  offsetXl?: TYPE_NUMBER;
-  order?: TYPE_NUMBER;
-  orderXs?: TYPE_NUMBER;
-  orderSm?: TYPE_NUMBER;
-  orderMd?: TYPE_NUMBER;
-  orderLg?: TYPE_NUMBER;
-  orderXl?: TYPE_NUMBER;
+  columns?: NUMBER;
+  gutters?: SPACE;
+  sizeAll?: NUMBER;
+  xs?: NUMBER | boolean;
+  sm?: NUMBER | boolean;
+  md?: NUMBER | boolean;
+  lg?: NUMBER | boolean;
+  xl?: NUMBER | boolean;
+  alignSelf?: ALIGN_SELF;
+  alignSelfXs?: ALIGN_SELF;
+  alignSelfSm?: ALIGN_SELF;
+  alignSelfMd?: ALIGN_SELF;
+  alignSelfLg?: ALIGN_SELF;
+  alignSelfXl?: ALIGN_SELF;
+  offset?: NUMBER;
+  offsetXs?: NUMBER;
+  offsetSm?: NUMBER;
+  offsetMd?: NUMBER;
+  offsetLg?: NUMBER;
+  offsetXl?: NUMBER;
+  order?: NUMBER;
+  orderXs?: NUMBER;
+  orderSm?: NUMBER;
+  orderMd?: NUMBER;
+  orderLg?: NUMBER;
+  orderXl?: NUMBER;
   debug?: boolean;
 }
 

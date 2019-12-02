@@ -8,9 +8,9 @@
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import {
-  TYPE_ALIGN_ITEMS,
-  TYPE_JUSTIFY_CONTENT,
-  TYPE_WRAP,
+  ALIGN_ITEMS,
+  JUSTIFY_CONTENT,
+  WRAP,
   ARRAY_ALIGN_ITEMS,
   ARRAY_JUSTIFY_CONTENT,
   ARRAY_WRAP
@@ -23,47 +23,47 @@ export interface IRowProps extends HTMLAttributes<HTMLDivElement> {
    * Applies the `align-items` flex container property, affecting vertical `Col`
    * alignment, for all screen sizes
    */
-  alignItems?: TYPE_ALIGN_ITEMS;
+  alignItems?: ALIGN_ITEMS;
   /** Applies the `align-items` flex container property for extra-small screen sizes */
-  alignItemsXs?: TYPE_ALIGN_ITEMS;
+  alignItemsXs?: ALIGN_ITEMS;
   /** Applies the `align-items` flex container property for small screen sizes */
-  alignItemsSm?: TYPE_ALIGN_ITEMS;
+  alignItemsSm?: ALIGN_ITEMS;
   /** Applies the `align-items` flex container property for medium screen sizes */
-  alignItemsMd?: TYPE_ALIGN_ITEMS;
+  alignItemsMd?: ALIGN_ITEMS;
   /** Applies the `align-items` flex container property for large screen sizes */
-  alignItemsLg?: TYPE_ALIGN_ITEMS;
+  alignItemsLg?: ALIGN_ITEMS;
   /** Applies the `align-items` flex container property for extra-large screen sizes */
-  alignItemsXl?: TYPE_ALIGN_ITEMS;
+  alignItemsXl?: ALIGN_ITEMS;
   /**
    * Applies the `justify-content` flex container property, affecting horizontal
    * `Col` distribution, for all screen sizes
    */
-  justifyContent?: TYPE_JUSTIFY_CONTENT;
+  justifyContent?: JUSTIFY_CONTENT;
   /** Applies the `justify-content` flex container property for extra-small screen sizes */
-  justifyContentXs?: TYPE_JUSTIFY_CONTENT;
+  justifyContentXs?: JUSTIFY_CONTENT;
   /** Applies the `justify-content` flex container property for small screen sizes */
-  justifyContentSm?: TYPE_JUSTIFY_CONTENT;
+  justifyContentSm?: JUSTIFY_CONTENT;
   /** Applies the `justify-content` flex container property for medium screen sizes */
-  justifyContentMd?: TYPE_JUSTIFY_CONTENT;
+  justifyContentMd?: JUSTIFY_CONTENT;
   /** Applies the `justify-content` flex container property for large screen sizes */
-  justifyContentLg?: TYPE_JUSTIFY_CONTENT;
+  justifyContentLg?: JUSTIFY_CONTENT;
   /** Applies the `justify-content` flex container property for extra-large screen sizes */
-  justifyContentXl?: TYPE_JUSTIFY_CONTENT;
+  justifyContentXl?: JUSTIFY_CONTENT;
   /**
    * Applies the `flex-wrap` container property, affecting `Col` wrapping, for
    * all screens
    */
-  wrap?: TYPE_WRAP;
+  wrap?: WRAP;
   /** Applies the `flex-wrap` container property for extra-small screens */
-  wrapXs?: TYPE_WRAP;
+  wrapXs?: WRAP;
   /** Applies the `flex-wrap` container property for small screens */
-  wrapSm?: TYPE_WRAP;
+  wrapSm?: WRAP;
   /** Applies the `flex-wrap` container property for medium screens */
-  wrapMd?: TYPE_WRAP;
+  wrapMd?: WRAP;
   /** Applies the `flex-wrap` container property for large screens */
-  wrapLg?: TYPE_WRAP;
+  wrapLg?: WRAP;
   /** Applies the `flex-wrap` container property for extra-large screens */
-  wrapXl?: TYPE_WRAP;
+  wrapXl?: WRAP;
 }
 
 /**

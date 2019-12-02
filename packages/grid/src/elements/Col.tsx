@@ -7,7 +7,7 @@
 
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { TYPE_ALIGN_SELF, TYPE_NUMBER, ARRAY_ALIGN_SELF } from '../utils/types';
+import { ALIGN_SELF, NUMBER, ARRAY_ALIGN_SELF } from '../utils/types';
 import { StyledCol } from '../styled';
 import useGridContext from '../utils/useGridContext';
 
@@ -16,63 +16,63 @@ export interface IColProps extends HTMLAttributes<HTMLDivElement> {
    * Determine the size, relative to the total number of `columns` in the grid,
    * for all screen sizes
    */
-  size?: TYPE_NUMBER;
+  size?: NUMBER;
   /** Determine the size for extra-small screen sizes */
-  xs?: TYPE_NUMBER | boolean;
+  xs?: NUMBER | boolean;
   /** Determine the size for small screen sizes */
-  sm?: TYPE_NUMBER | boolean;
+  sm?: NUMBER | boolean;
   /** Determine the size for medium screen sizes */
-  md?: TYPE_NUMBER | boolean;
+  md?: NUMBER | boolean;
   /** Determine the size for large screen sizes */
-  lg?: TYPE_NUMBER | boolean;
+  lg?: NUMBER | boolean;
   /** Determine the size for extra-large screen sizes */
-  xl?: TYPE_NUMBER | boolean;
+  xl?: NUMBER | boolean;
   /**
    * Applies the `align-self` flex item property, overriding `Row alignItems`
    * vertical alignment, for all screen sizes
    */
-  alignSelf?: TYPE_ALIGN_SELF;
+  alignSelf?: ALIGN_SELF;
   /** Applies the `align-self` flex item property for extra-small screen sizes */
-  alignSelfXs?: TYPE_ALIGN_SELF;
+  alignSelfXs?: ALIGN_SELF;
   /** Applies the `align-self` flex item property for small screen sizes */
-  alignSelfSm?: TYPE_ALIGN_SELF;
+  alignSelfSm?: ALIGN_SELF;
   /** Applies the `align-self` flex item property for medium screen sizes */
-  alignSelfMd?: TYPE_ALIGN_SELF;
+  alignSelfMd?: ALIGN_SELF;
   /** Applies the `align-self` flex item property for large screen sizes */
-  alignSelfLg?: TYPE_ALIGN_SELF;
+  alignSelfLg?: ALIGN_SELF;
   /** Applies the `align-self` flex item property for extra-large screen sizes */
-  alignSelfXl?: TYPE_ALIGN_SELF;
+  alignSelfXl?: ALIGN_SELF;
   /**
    * Determine the offset, relative to the total number of `columns` in the
    * grid, for all screen sizes
    */
-  offset?: TYPE_NUMBER;
+  offset?: NUMBER;
   /** Determine the offset for extra-small screen sizes */
-  offsetXs?: TYPE_NUMBER;
+  offsetXs?: NUMBER;
   /** Determine the offset for small screen sizes */
-  offsetSm?: TYPE_NUMBER;
+  offsetSm?: NUMBER;
   /** Determine the offset for medium screen sizes */
-  offsetMd?: TYPE_NUMBER;
+  offsetMd?: NUMBER;
   /** Determine the offset for large screen sizes */
-  offsetLg?: TYPE_NUMBER;
+  offsetLg?: NUMBER;
   /** Determine the offset for extra-large screen sizes */
-  offsetXl?: TYPE_NUMBER;
+  offsetXl?: NUMBER;
   /**
    * Determine the `order` flex item property for all screen sizes. Note that
    * order modification can introduce accessibility problems by producing
    * confusing tab ordering. Rely on semantic DOM ordering whenever possible.
    */
-  order?: TYPE_NUMBER;
+  order?: NUMBER;
   /** Determine the `order` flex item property for extra-small screen sizes */
-  orderXs?: TYPE_NUMBER;
+  orderXs?: NUMBER;
   /** Determine the `order` flex item property for small screen sizes */
-  orderSm?: TYPE_NUMBER;
+  orderSm?: NUMBER;
   /** Determine the `order` flex item property for medium screen sizes */
-  orderMd?: TYPE_NUMBER;
+  orderMd?: NUMBER;
   /** Determine the `order` flex item property for large screen sizes */
-  orderLg?: TYPE_NUMBER;
+  orderLg?: NUMBER;
   /** Determine the `order` flex item property for extra-large screen sizes */
-  orderXl?: TYPE_NUMBER;
+  orderXl?: NUMBER;
 }
 
 /**

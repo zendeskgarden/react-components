@@ -8,7 +8,7 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import math from 'polished/lib/math/math';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
-import { TYPE_ALIGN_ITEMS, TYPE_JUSTIFY_CONTENT, TYPE_SPACE, TYPE_WRAP } from '../utils/types';
+import { ALIGN_ITEMS, JUSTIFY_CONTENT, SPACE, WRAP } from '../utils/types';
 
 const COMPONENT_ID = 'grid.row';
 
@@ -25,9 +25,9 @@ const colorStyles = (props: IStyledRowProps) => {
 };
 
 const flexStyles = (
-  alignItems: TYPE_ALIGN_ITEMS | undefined,
-  justifyContent: TYPE_JUSTIFY_CONTENT | undefined,
-  wrap: TYPE_WRAP | undefined
+  alignItems: ALIGN_ITEMS | undefined,
+  justifyContent: JUSTIFY_CONTENT | undefined,
+  wrap: WRAP | undefined
 ) => {
   let flexAlignItems;
   let flexJustifyContent;
@@ -55,9 +55,9 @@ const flexStyles = (
 
 const mediaStyles = (
   minWidth: string,
-  alignItems: TYPE_ALIGN_ITEMS | undefined,
-  justifyContent: TYPE_JUSTIFY_CONTENT | undefined,
-  wrap: TYPE_WRAP | undefined
+  alignItems: ALIGN_ITEMS | undefined,
+  justifyContent: JUSTIFY_CONTENT | undefined,
+  wrap: WRAP | undefined
 ) => {
   return css`
     @media (min-width: ${minWidth}) {
@@ -76,25 +76,25 @@ const sizeStyles = (props: IStyledRowProps) => {
 };
 
 export interface IStyledRowProps extends ThemeProps<DefaultTheme> {
-  gutters?: TYPE_SPACE;
-  alignItems?: TYPE_ALIGN_ITEMS;
-  alignItemsXs?: TYPE_ALIGN_ITEMS;
-  alignItemsSm?: TYPE_ALIGN_ITEMS;
-  alignItemsMd?: TYPE_ALIGN_ITEMS;
-  alignItemsLg?: TYPE_ALIGN_ITEMS;
-  alignItemsXl?: TYPE_ALIGN_ITEMS;
-  justifyContent?: TYPE_JUSTIFY_CONTENT;
-  justifyContentXs?: TYPE_JUSTIFY_CONTENT;
-  justifyContentSm?: TYPE_JUSTIFY_CONTENT;
-  justifyContentMd?: TYPE_JUSTIFY_CONTENT;
-  justifyContentLg?: TYPE_JUSTIFY_CONTENT;
-  justifyContentXl?: TYPE_JUSTIFY_CONTENT;
-  wrapAll?: TYPE_WRAP;
-  wrapXs?: TYPE_WRAP;
-  wrapSm?: TYPE_WRAP;
-  wrapMd?: TYPE_WRAP;
-  wrapLg?: TYPE_WRAP;
-  wrapXl?: TYPE_WRAP;
+  gutters?: SPACE;
+  alignItems?: ALIGN_ITEMS;
+  alignItemsXs?: ALIGN_ITEMS;
+  alignItemsSm?: ALIGN_ITEMS;
+  alignItemsMd?: ALIGN_ITEMS;
+  alignItemsLg?: ALIGN_ITEMS;
+  alignItemsXl?: ALIGN_ITEMS;
+  justifyContent?: JUSTIFY_CONTENT;
+  justifyContentXs?: JUSTIFY_CONTENT;
+  justifyContentSm?: JUSTIFY_CONTENT;
+  justifyContentMd?: JUSTIFY_CONTENT;
+  justifyContentLg?: JUSTIFY_CONTENT;
+  justifyContentXl?: JUSTIFY_CONTENT;
+  wrapAll?: WRAP;
+  wrapXs?: WRAP;
+  wrapSm?: WRAP;
+  wrapMd?: WRAP;
+  wrapLg?: WRAP;
+  wrapXl?: WRAP;
   debug?: boolean;
 }
 

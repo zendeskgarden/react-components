@@ -7,15 +7,15 @@
 
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { TYPE_NUMBER, TYPE_SPACE, ARRAY_SPACE } from '../utils/types';
+import { NUMBER, SPACE, ARRAY_SPACE } from '../utils/types';
 import { GridContext } from '../utils/useGridContext';
 import { StyledGrid } from '../styled';
 
 export interface IGridProps extends HTMLAttributes<HTMLDivElement> {
   /** Customize the number of individual columns that this grid can contain */
-  columns?: TYPE_NUMBER;
+  columns?: NUMBER;
   /** Customize column gutter width or specify `false` to collapse */
-  gutters?: TYPE_SPACE;
+  gutters?: SPACE;
   /** Highlight columns to debug layout */
   debug?: boolean;
 }

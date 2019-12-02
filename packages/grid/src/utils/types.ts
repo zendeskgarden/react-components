@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export type TYPE_ALIGN_ITEMS = 'start' | 'end' | 'center' | 'baseline' | 'stretch';
-export const ARRAY_ALIGN_ITEMS: Array<TYPE_ALIGN_ITEMS> = [
+export type ALIGN_ITEMS = 'start' | 'end' | 'center' | 'baseline' | 'stretch';
+export const ARRAY_ALIGN_ITEMS: Array<ALIGN_ITEMS> = [
   'start',
   'end',
   'center',
@@ -14,8 +14,8 @@ export const ARRAY_ALIGN_ITEMS: Array<TYPE_ALIGN_ITEMS> = [
   'stretch'
 ];
 
-export type TYPE_ALIGN_SELF = 'auto' | TYPE_ALIGN_ITEMS;
-export const ARRAY_ALIGN_SELF: Array<TYPE_ALIGN_SELF> = [
+export type ALIGN_SELF = 'auto' | ALIGN_ITEMS;
+export const ARRAY_ALIGN_SELF: Array<ALIGN_SELF> = [
   'auto',
   'start',
   'end',
@@ -24,16 +24,11 @@ export const ARRAY_ALIGN_SELF: Array<TYPE_ALIGN_SELF> = [
   'stretch'
 ];
 
-export type TYPE_DIRECTION = 'row' | 'row-reverse' | 'column' | 'column-reverse';
-export const ARRAY_DIRECTION: Array<TYPE_DIRECTION> = [
-  'row',
-  'row-reverse',
-  'column',
-  'column-reverse'
-];
+export type DIRECTION = 'row' | 'row-reverse' | 'column' | 'column-reverse';
+export const ARRAY_DIRECTION: Array<DIRECTION> = ['row', 'row-reverse', 'column', 'column-reverse'];
 
-export type TYPE_JUSTIFY_CONTENT = 'start' | 'end' | 'center' | 'between' | 'around';
-export const ARRAY_JUSTIFY_CONTENT: Array<TYPE_JUSTIFY_CONTENT> = [
+export type JUSTIFY_CONTENT = 'start' | 'end' | 'center' | 'between' | 'around';
+export const ARRAY_JUSTIFY_CONTENT: Array<JUSTIFY_CONTENT> = [
   'start',
   'end',
   'center',
@@ -41,10 +36,10 @@ export const ARRAY_JUSTIFY_CONTENT: Array<TYPE_JUSTIFY_CONTENT> = [
   'around'
 ];
 
-export type TYPE_NUMBER = number | string;
+export type NUMBER = number | string;
 
-export type TYPE_SPACE = false | 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
-export const ARRAY_SPACE: Array<TYPE_SPACE> = [false, 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
+export type SPACE = false | 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+export const ARRAY_SPACE: Array<SPACE> = [false, 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
 
-export type TYPE_WRAP = 'nowrap' | 'wrap' | 'wrap-reverse';
-export const ARRAY_WRAP: Array<TYPE_WRAP> = ['nowrap', 'wrap', 'wrap-reverse'];
+export type WRAP = 'nowrap' | 'wrap' | 'wrap-reverse';
+export const ARRAY_WRAP: Array<WRAP> = ['nowrap', 'wrap', 'wrap-reverse'];
