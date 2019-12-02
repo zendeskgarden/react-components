@@ -36,7 +36,7 @@ export const ARRAY_JUSTIFY_CONTENT: Array<JUSTIFY_CONTENT> = [
   'around'
 ];
 
-export type NUMBER = number | string;
+export type GRID_NUMBER = number | string;
 
 export type SPACE = false | 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 export const ARRAY_SPACE: Array<SPACE> = [false, 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'];

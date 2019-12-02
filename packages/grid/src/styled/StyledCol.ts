@@ -8,7 +8,7 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import math from 'polished/lib/math/math';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { ALIGN_SELF, NUMBER, SPACE } from '../utils/types';
+import { ALIGN_SELF, GRID_NUMBER, SPACE } from '../utils/types';
 
 const COMPONENT_ID = 'grid.col';
 
@@ -22,10 +22,10 @@ const colorStyles = (props: IStyledColProps) => {
 };
 
 const flexStyles = (
-  size: NUMBER | boolean | undefined,
+  size: GRID_NUMBER | boolean | undefined,
   alignSelf: ALIGN_SELF | undefined,
-  offset: NUMBER | undefined,
-  order: NUMBER | undefined,
+  offset: GRID_NUMBER | undefined,
+  order: GRID_NUMBER | undefined,
   props: IStyledColProps
 ) => {
   const margin = offset && `${math(`${offset} / ${props.columns} * 100`)}%`;
@@ -75,10 +75,10 @@ const flexStyles = (
 
 const mediaStyles = (
   minWidth: string,
-  size: NUMBER | boolean | undefined,
+  size: GRID_NUMBER | boolean | undefined,
   alignSelf: ALIGN_SELF | undefined,
-  offset: NUMBER | undefined,
-  order: NUMBER | undefined,
+  offset: GRID_NUMBER | undefined,
+  order: GRID_NUMBER | undefined,
   props: IStyledColProps
 ) => {
   return css`
@@ -98,32 +98,32 @@ const sizeStyles = (props: IStyledColProps) => {
 };
 
 export interface IStyledColProps extends ThemeProps<DefaultTheme> {
-  columns?: NUMBER;
+  columns?: GRID_NUMBER;
   gutters?: SPACE;
-  sizeAll?: NUMBER;
-  xs?: NUMBER | boolean;
-  sm?: NUMBER | boolean;
-  md?: NUMBER | boolean;
-  lg?: NUMBER | boolean;
-  xl?: NUMBER | boolean;
+  sizeAll?: GRID_NUMBER;
+  xs?: GRID_NUMBER | boolean;
+  sm?: GRID_NUMBER | boolean;
+  md?: GRID_NUMBER | boolean;
+  lg?: GRID_NUMBER | boolean;
+  xl?: GRID_NUMBER | boolean;
   alignSelf?: ALIGN_SELF;
   alignSelfXs?: ALIGN_SELF;
   alignSelfSm?: ALIGN_SELF;
   alignSelfMd?: ALIGN_SELF;
   alignSelfLg?: ALIGN_SELF;
   alignSelfXl?: ALIGN_SELF;
-  offset?: NUMBER;
-  offsetXs?: NUMBER;
-  offsetSm?: NUMBER;
-  offsetMd?: NUMBER;
-  offsetLg?: NUMBER;
-  offsetXl?: NUMBER;
-  order?: NUMBER;
-  orderXs?: NUMBER;
-  orderSm?: NUMBER;
-  orderMd?: NUMBER;
-  orderLg?: NUMBER;
-  orderXl?: NUMBER;
+  offset?: GRID_NUMBER;
+  offsetXs?: GRID_NUMBER;
+  offsetSm?: GRID_NUMBER;
+  offsetMd?: GRID_NUMBER;
+  offsetLg?: GRID_NUMBER;
+  offsetXl?: GRID_NUMBER;
+  order?: GRID_NUMBER;
+  orderXs?: GRID_NUMBER;
+  orderSm?: GRID_NUMBER;
+  orderMd?: GRID_NUMBER;
+  orderLg?: GRID_NUMBER;
+  orderXl?: GRID_NUMBER;
   debug?: boolean;
 }
 

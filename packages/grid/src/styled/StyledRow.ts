@@ -24,11 +24,7 @@ const colorStyles = (props: IStyledRowProps) => {
   `;
 };
 
-const flexStyles = (
-  alignItems: ALIGN_ITEMS | undefined,
-  justifyContent: JUSTIFY_CONTENT | undefined,
-  wrap: WRAP | undefined
-) => {
+const flexStyles = (alignItems?: ALIGN_ITEMS, justifyContent?: JUSTIFY_CONTENT, wrap?: WRAP) => {
   let flexAlignItems;
   let flexJustifyContent;
 
@@ -55,9 +51,9 @@ const flexStyles = (
 
 const mediaStyles = (
   minWidth: string,
-  alignItems: ALIGN_ITEMS | undefined,
-  justifyContent: JUSTIFY_CONTENT | undefined,
-  wrap: WRAP | undefined
+  alignItems?: ALIGN_ITEMS,
+  justifyContent?: JUSTIFY_CONTENT,
+  wrap?: WRAP
 ) => {
   return css`
     @media (min-width: ${minWidth}) {

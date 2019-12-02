@@ -7,7 +7,7 @@
 
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { ALIGN_SELF, NUMBER, ARRAY_ALIGN_SELF } from '../utils/types';
+import { ALIGN_SELF, GRID_NUMBER, ARRAY_ALIGN_SELF } from '../utils/types';
 import { StyledCol } from '../styled';
 import useGridContext from '../utils/useGridContext';
 
@@ -16,17 +16,17 @@ export interface IColProps extends HTMLAttributes<HTMLDivElement> {
    * Determine the size, relative to the total number of `columns` in the grid,
    * for all screen sizes
    */
-  size?: NUMBER;
+  size?: GRID_NUMBER;
   /** Determine the size for extra-small screen sizes */
-  xs?: NUMBER | boolean;
+  xs?: GRID_NUMBER | boolean;
   /** Determine the size for small screen sizes */
-  sm?: NUMBER | boolean;
+  sm?: GRID_NUMBER | boolean;
   /** Determine the size for medium screen sizes */
-  md?: NUMBER | boolean;
+  md?: GRID_NUMBER | boolean;
   /** Determine the size for large screen sizes */
-  lg?: NUMBER | boolean;
+  lg?: GRID_NUMBER | boolean;
   /** Determine the size for extra-large screen sizes */
-  xl?: NUMBER | boolean;
+  xl?: GRID_NUMBER | boolean;
   /**
    * Applies the `align-self` flex item property, overriding `Row alignItems`
    * vertical alignment, for all screen sizes
@@ -46,33 +46,33 @@ export interface IColProps extends HTMLAttributes<HTMLDivElement> {
    * Determine the offset, relative to the total number of `columns` in the
    * grid, for all screen sizes
    */
-  offset?: NUMBER;
+  offset?: GRID_NUMBER;
   /** Determine the offset for extra-small screen sizes */
-  offsetXs?: NUMBER;
+  offsetXs?: GRID_NUMBER;
   /** Determine the offset for small screen sizes */
-  offsetSm?: NUMBER;
+  offsetSm?: GRID_NUMBER;
   /** Determine the offset for medium screen sizes */
-  offsetMd?: NUMBER;
+  offsetMd?: GRID_NUMBER;
   /** Determine the offset for large screen sizes */
-  offsetLg?: NUMBER;
+  offsetLg?: GRID_NUMBER;
   /** Determine the offset for extra-large screen sizes */
-  offsetXl?: NUMBER;
+  offsetXl?: GRID_NUMBER;
   /**
    * Determine the `order` flex item property for all screen sizes. Note that
    * order modification can introduce accessibility problems by producing
    * confusing tab ordering. Rely on semantic DOM ordering whenever possible.
    */
-  order?: NUMBER;
+  order?: GRID_NUMBER;
   /** Determine the `order` flex item property for extra-small screen sizes */
-  orderXs?: NUMBER;
+  orderXs?: GRID_NUMBER;
   /** Determine the `order` flex item property for small screen sizes */
-  orderSm?: NUMBER;
+  orderSm?: GRID_NUMBER;
   /** Determine the `order` flex item property for medium screen sizes */
-  orderMd?: NUMBER;
+  orderMd?: GRID_NUMBER;
   /** Determine the `order` flex item property for large screen sizes */
-  orderLg?: NUMBER;
+  orderLg?: GRID_NUMBER;
   /** Determine the `order` flex item property for extra-large screen sizes */
-  orderXl?: NUMBER;
+  orderXl?: GRID_NUMBER;
 }
 
 /**
