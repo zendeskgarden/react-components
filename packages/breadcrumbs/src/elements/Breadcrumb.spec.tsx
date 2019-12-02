@@ -7,6 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
+import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 import { Breadcrumb } from './Breadcrumb';
 
@@ -72,9 +73,12 @@ describe('Breadcrumb', () => {
 
       items.forEach((item, i) => {
         if (i === lastItemIndex) {
-          expect(item.parentElement).toHaveClass('is-current');
+          expect(item.parentElement).toHaveStyleRule(
+            'color',
+            getColor(DEFAULT_THEME.colors.neutralHue, 600)
+          );
         } else {
-          expect(item.parentElement).not.toHaveClass('is-current');
+          expect(item.parentElement).toHaveStyleRule('color', 'inherit');
         }
       });
     });

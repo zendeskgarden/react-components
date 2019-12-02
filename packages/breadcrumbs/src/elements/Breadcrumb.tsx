@@ -7,8 +7,12 @@
 
 import React, { Children, cloneElement, HTMLAttributes } from 'react';
 import { useBreadcrumb } from '@zendeskgarden/container-breadcrumb';
-
-import { StyledBreadcrumb, StyledBreadcrumbItem } from '../styled';
+import {
+  StyledBreadcrumb,
+  StyledBreadcrumbItem,
+  StyledCenteredBreadcrumbItem,
+  StyledChevronIcon
+} from '../styled';
 
 export const Breadcrumb = React.forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
   (props, ref) => {
@@ -27,7 +31,14 @@ export const Breadcrumb = React.forwardRef<HTMLElement, HTMLAttributes<HTMLEleme
         );
       }
 
-      return <StyledBreadcrumbItem>{child}</StyledBreadcrumbItem>;
+      return (
+        <>
+          <StyledBreadcrumbItem>{child}</StyledBreadcrumbItem>
+          <StyledCenteredBreadcrumbItem>
+            <StyledChevronIcon />
+          </StyledCenteredBreadcrumbItem>
+        </>
+      );
     });
 
     return (
