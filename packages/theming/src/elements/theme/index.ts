@@ -29,6 +29,14 @@ const borders = {
   md: `${borderWidths.md} ${borderStyles.solid}`
 };
 
+const breakpoints = {
+  xs: '0px',
+  sm: `${BASE * 144}px`,
+  md: `${BASE * 192}px`,
+  lg: `${BASE * 248}px`,
+  xl: `${BASE * 300}px`
+};
+
 const colors = {
   background: PALETTE.white,
   foreground: PALETTE.grey[800],
@@ -134,6 +142,7 @@ const DEFAULT_THEME: DefaultTheme = {
   borderRadii,
   borderStyles,
   borderWidths,
+  breakpoints,
   colors: {
     base: 'light',
     ...colors

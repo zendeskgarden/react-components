@@ -29,6 +29,13 @@ declare module 'styled-components' {
       sm: string;
       md: string;
     };
+    breakpoints: {
+      xs: string;
+      sm: string;
+      md: string;
+      lg: string;
+      xl: string;
+    };
     colors: {
       base: 'light' | 'dark';
       background: string;

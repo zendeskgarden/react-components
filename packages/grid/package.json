@@ -20,7 +20,7 @@
   },
   "types": "./dist/typings/index.d.ts",
   "dependencies": {
-    "classnames": "^2.2.5"
+    "polished": "^3.4.1"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^6.0.0 || ^7.0.0",
@@ -30,7 +30,6 @@
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "@zendeskgarden/css-grid": "0.1.34",
     "@zendeskgarden/react-theming": "^7.0.0"
   },
   "keywords": [
@@ -43,6 +42,6 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenGrid",
-  "zendeskgarden:max_size": "7.5 kB",
+  "zendeskgarden:max_size": "5 kB",
   "zendeskgarden:src": "src/index.ts"
 }

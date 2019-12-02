@@ -63,18 +63,27 @@ should be re-checked for ID naming accuracy.
   - removed `small` prop; all field layouts respond to `isCompact` placed on the input component
 - Label
   - `regular` -> `isRegular`
-  - removed remaining props – attributes should be applied to the corresponding `<input>` component
+  - removed remaining props – attributes should be applied to the corresponding `<input>` component
     (checked, disabled, indeterminate)
 
 ## @zendeskgarden/react-grid
 
-- Prop renames:
-  - Grid `debug` -> `isDebug`
-  - Grid `fluid` -> `isFluid`
-  - Row `gutters` -> `isCollapsed`
-    - Note: boolean logic is reversed for API clarity, but default layout without any prop
-      specified remains the same.
-    - Previously `<Grid gutters={false} />`; currently `<Grid isCollapsed />`
+- Prop modifications:
+  - Removed Grid `fluid` (which defaults to `true`)
+    - Garden does not have an opinion re: non-fluid maximum container widths per
+      breakpoint. If you need these four `max-width` CSS properties across the
+      small, medium, large, and extra-large breakpoints, either use Bootstrap's
+      `.container` or add them to your application.
+  - Removed Row `gutters`; use `<Grid gutters={false}>` instead
+  - Removed invalid Col `justifyContent`; use Row `justifyContent` for alignment
+
+New features/fixes include:
+
+- Ability to resize gutters (default = 20px)
+- Ability to set number of columns (default = 12)
+- Added Col `offset` and fixed RTL across all offsets
+- Added Row `alignContent` prop
+- Most Row/Col props accept responsive variants for targeting screen size breakpoints
 
 ## @zendeskgarden/react-loaders
 

@@ -34,6 +34,10 @@ module.exports = {
         {
           name: 'Basic',
           content: '../../packages/grid/examples/basic.md'
+        },
+        {
+          name: 'Advanced',
+          content: '../../packages/grid/examples/advanced.md'
         }
       ]
     },
