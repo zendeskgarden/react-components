@@ -7,7 +7,7 @@
 
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { ALIGN_SELF, GRID_NUMBER, ARRAY_ALIGN_SELF } from '../utils/types';
+import { ALIGN_SELF, GRID_NUMBER, BREAKPOINT, ARRAY_ALIGN_SELF } from '../utils/types';
 import { StyledCol } from '../styled';
 import useGridContext from '../utils/useGridContext';
 
@@ -18,15 +18,15 @@ export interface IColProps extends HTMLAttributes<HTMLDivElement> {
    */
   size?: GRID_NUMBER;
   /** Determine the size for extra-small screen sizes */
-  xs?: GRID_NUMBER | boolean;
+  xs?: BREAKPOINT;
   /** Determine the size for small screen sizes */
-  sm?: GRID_NUMBER | boolean;
+  sm?: BREAKPOINT;
   /** Determine the size for medium screen sizes */
-  md?: GRID_NUMBER | boolean;
+  md?: BREAKPOINT;
   /** Determine the size for large screen sizes */
-  lg?: GRID_NUMBER | boolean;
+  lg?: BREAKPOINT;
   /** Determine the size for extra-large screen sizes */
-  xl?: GRID_NUMBER | boolean;
+  xl?: BREAKPOINT;
   /**
    * Applies the `align-self` flex item property, overriding `Row alignItems`
    * vertical alignment, for all screen sizes

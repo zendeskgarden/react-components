@@ -8,7 +8,7 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import math from 'polished/lib/math/math';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { ALIGN_SELF, GRID_NUMBER, SPACE } from '../utils/types';
+import { ALIGN_SELF, BREAKPOINT, GRID_NUMBER, SPACE } from '../utils/types';
 
 const COMPONENT_ID = 'grid.col';
 
@@ -22,7 +22,7 @@ const colorStyles = (props: IStyledColProps) => {
 };
 
 const flexStyles = (
-  size: GRID_NUMBER | boolean | undefined,
+  size: BREAKPOINT | undefined,
   alignSelf: ALIGN_SELF | undefined,
   offset: GRID_NUMBER | undefined,
   order: GRID_NUMBER | undefined,
@@ -75,7 +75,7 @@ const flexStyles = (
 
 const mediaStyles = (
   minWidth: string,
-  size: GRID_NUMBER | boolean | undefined,
+  size: BREAKPOINT | undefined,
   alignSelf: ALIGN_SELF | undefined,
   offset: GRID_NUMBER | undefined,
   order: GRID_NUMBER | undefined,
@@ -101,11 +101,11 @@ export interface IStyledColProps extends ThemeProps<DefaultTheme> {
   columns?: GRID_NUMBER;
   gutters?: SPACE;
   sizeAll?: GRID_NUMBER;
-  xs?: GRID_NUMBER | boolean;
-  sm?: GRID_NUMBER | boolean;
-  md?: GRID_NUMBER | boolean;
-  lg?: GRID_NUMBER | boolean;
-  xl?: GRID_NUMBER | boolean;
+  xs?: BREAKPOINT;
+  sm?: BREAKPOINT;
+  md?: BREAKPOINT;
+  lg?: BREAKPOINT;
+  xl?: BREAKPOINT;
   alignSelf?: ALIGN_SELF;
   alignSelfXs?: ALIGN_SELF;
   alignSelfSm?: ALIGN_SELF;
