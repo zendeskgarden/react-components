@@ -272,32 +272,32 @@ initialState = {
                     <Col
                       key={index}
                       offset={
-                        index === 0 && (state.breakpoint === 'default' && state.offset > 0)
+                        index === 0 && state.breakpoint === 'default' && state.offset > 0
                           ? state.offset
                           : undefined
                       }
                       offsetXs={
-                        index === 0 && (state.breakpoint === 'xs' && state.offset > 0)
+                        index === 0 && state.breakpoint === 'xs' && state.offset > 0
                           ? state.offset
                           : undefined
                       }
                       offsetSm={
-                        index === 0 && (state.breakpoint === 'sm' && state.offset > 0)
+                        index === 0 && state.breakpoint === 'sm' && state.offset > 0
                           ? state.offset
                           : undefined
                       }
                       offsetMd={
-                        index === 0 && (state.breakpoint === 'md' && state.offset > 0)
+                        index === 0 && state.breakpoint === 'md' && state.offset > 0
                           ? state.offset
                           : undefined
                       }
                       offsetLg={
-                        index === 0 && (state.breakpoint === 'lg' && state.offset > 0)
+                        index === 0 && state.breakpoint === 'lg' && state.offset > 0
                           ? state.offset
                           : undefined
                       }
                       offsetXl={
-                        index === 0 && (state.breakpoint === 'xl' && state.offset > 0)
+                        index === 0 && state.breakpoint === 'xl' && state.offset > 0
                           ? state.offset
                           : undefined
                       }

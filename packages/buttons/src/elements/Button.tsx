@@ -33,13 +33,14 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 /**
  * Accepts all `<button>` props
  */
-const Button: React.FunctionComponent<
-  IButtonProps & React.RefAttributes<HTMLButtonElement>
-> = React.forwardRef<HTMLButtonElement, IButtonProps>((props, ref) => {
-  const focusInset = props.focusInset || useContext(ButtonGroupContext);
+const Button: React.FunctionComponent<IButtonProps &
+  React.RefAttributes<HTMLButtonElement>> = React.forwardRef<HTMLButtonElement, IButtonProps>(
+  (props, ref) => {
+    const focusInset = props.focusInset || useContext(ButtonGroupContext);
 
-  return <StyledButton ref={ref} {...props} focusInset={focusInset} />;
-});
+    return <StyledButton ref={ref} {...props} focusInset={focusInset} />;
+  }
+);
 
 Button.propTypes = {
   isDanger: PropTypes.bool,
