@@ -80,6 +80,8 @@ const StyledSpacer = styled.div`
     currentNavItem: 'home',
     currentSubnavItem: 'item-1',
     expanded: false,
+    subnav: true,
+    sidebar: false,
     showCollapsed: false,
     product: PRODUCTS[0],
     color: PALETTE.kale[700],
@@ -89,9 +91,9 @@ const StyledSpacer = styled.div`
 >
   {(state, setState) => (
     <Grid>
-      <Row>
-        <Col md={6} alignSelf="start">
-          <Well recessed>
+      <Well recessed>
+        <Row>
+          <Col md={6} alignSelf="start">
             <Dropdown selectedItem={state.product} onSelect={product => setState({ product })}>
               <DropdownField>
                 <DropdownLabel>Product</DropdownLabel>
@@ -106,18 +108,39 @@ const StyledSpacer = styled.div`
               </Menu>
             </Dropdown>
             <StyledSpacer />
-            <Field>
-              <Toggle
-                checked={state.expanded}
-                onChange={event => setState({ expanded: event.target.checked })}
-              >
-                <Label>Expanded</Label>
-              </Toggle>
-            </Field>
-          </Well>
-        </Col>
-        <Col md={6}>
-          <Well recessed>
+            <Row>
+              <Col alignSelf="start">
+                <Field>
+                  <Toggle
+                    checked={state.expanded}
+                    onChange={event => setState({ expanded: event.target.checked })}
+                  >
+                    <Label>Expanded</Label>
+                  </Toggle>
+                </Field>
+              </Col>
+              <Col alignSelf="start">
+                <Field>
+                  <Toggle
+                    checked={state.subnav}
+                    onChange={event => setState({ subnav: event.target.checked })}
+                  >
+                    <Label>Show subnav</Label>
+                  </Toggle>
+                </Field>
+                <StyledSpacer />
+                <Field>
+                  <Toggle
+                    checked={state.sidebar}
+                    onChange={event => setState({ sidebar: event.target.checked })}
+                  >
+                    <Label>Show sidebar</Label>
+                  </Toggle>
+                </Field>
+              </Col>
+            </Row>
+          </Col>
+          <Col md={6} alignSelf="start">
             <Field>
               <Label>Custom Color </Label>
               <Input
@@ -155,9 +178,10 @@ const StyledSpacer = styled.div`
             >
               Reset colors
             </Button>
-          </Well>
-        </Col>
-      </Row>
+          </Col>
+        </Row>
+      </Well>
+      <StyledSpacer />
       <Row>
         <Col>
           <Chrome style={{ height: 500 }}>
@@ -220,56 +244,58 @@ const StyledSpacer = styled.div`
                 <NavItemText>&copy;Zendesk</NavItemText>
               </NavItem>
             </StyledNav>
-            <SubNav>
-              <SubNavItem
-                isCurrent={state.currentSubnavItem === 'item-1'}
-                onClick={() => setState({ currentSubnavItem: 'item-1' })}
-                href="#/"
-              >
-                <SubNavItemText>Subnav 1</SubNavItemText>
-              </SubNavItem>
-              <SubNavItem
-                isCurrent={state.currentSubnavItem === 'item-2'}
-                onClick={() => setState({ currentSubnavItem: 'item-2' })}
-                href="#/"
-              >
-                <SubNavItemText>Subnav 2</SubNavItemText>
-              </SubNavItem>
-              <CollapsibleSubNavItem
-                header="Collapsible Item"
-                isExpanded={state.showCollapsed}
-                onChange={showCollapsed => setState({ showCollapsed })}
-              >
+            {state.subnav && (
+              <SubNav>
                 <SubNavItem
-                  isCurrent={state.currentSubnavItem === 'collapsed-item-1'}
-                  onClick={() => setState({ currentSubnavItem: 'collapsed-item-1' })}
+                  isCurrent={state.currentSubnavItem === 'item-1'}
+                  onClick={() => setState({ currentSubnavItem: 'item-1' })}
                   href="#/"
                 >
-                  <SubNavItemText>Item 1</SubNavItemText>
+                  <SubNavItemText>Subnav 1</SubNavItemText>
                 </SubNavItem>
                 <SubNavItem
-                  isCurrent={state.currentSubnavItem === 'collapsed-item-2'}
-                  onClick={() => setState({ currentSubnavItem: 'collapsed-item-2' })}
+                  isCurrent={state.currentSubnavItem === 'item-2'}
+                  onClick={() => setState({ currentSubnavItem: 'item-2' })}
                   href="#/"
                 >
-                  <SubNavItemText>Item 2</SubNavItemText>
+                  <SubNavItemText>Subnav 2</SubNavItemText>
                 </SubNavItem>
+                <CollapsibleSubNavItem
+                  header="Collapsible Item"
+                  isExpanded={state.showCollapsed}
+                  onChange={showCollapsed => setState({ showCollapsed })}
+                >
+                  <SubNavItem
+                    isCurrent={state.currentSubnavItem === 'collapsed-item-1'}
+                    onClick={() => setState({ currentSubnavItem: 'collapsed-item-1' })}
+                    href="#/"
+                  >
+                    <SubNavItemText>Item 1</SubNavItemText>
+                  </SubNavItem>
+                  <SubNavItem
+                    isCurrent={state.currentSubnavItem === 'collapsed-item-2'}
+                    onClick={() => setState({ currentSubnavItem: 'collapsed-item-2' })}
+                    href="#/"
+                  >
+                    <SubNavItemText>Item 2</SubNavItemText>
+                  </SubNavItem>
+                  <SubNavItem
+                    isCurrent={state.currentSubnavItem === 'collapsed-item-3'}
+                    onClick={() => setState({ currentSubnavItem: 'collapsed-item-3' })}
+                    href="#/"
+                  >
+                    <SubNavItemText>Item 3</SubNavItemText>
+                  </SubNavItem>
+                </CollapsibleSubNavItem>
                 <SubNavItem
-                  isCurrent={state.currentSubnavItem === 'collapsed-item-3'}
-                  onClick={() => setState({ currentSubnavItem: 'collapsed-item-3' })}
+                  isCurrent={state.currentSubnavItem === 'item-3'}
+                  onClick={() => setState({ currentSubnavItem: 'item-3' })}
                   href="#/"
                 >
-                  <SubNavItemText>Item 3</SubNavItemText>
+                  <SubNavItemText>Subnav 3</SubNavItemText>
                 </SubNavItem>
-              </CollapsibleSubNavItem>
-              <SubNavItem
-                isCurrent={state.currentSubnavItem === 'item-3'}
-                onClick={() => setState({ currentSubnavItem: 'item-3' })}
-                href="#/"
-              >
-                <SubNavItemText>Subnav 3</SubNavItemText>
-              </SubNavItem>
-            </SubNav>
+              </SubNav>
+            )}
             <Body hasFooter>
               <Header>
                 <HeaderItem>
@@ -286,7 +312,23 @@ const StyledSpacer = styled.div`
                 </HeaderItem>
               </Header>
               <Content>
+                {state.sidebar && (
+                  <Sidebar style={{ padding: 28 }}>
+                    <h2>Example Sidebar</h2>
+                    <p>
+                      Beetroot water spinach okra water chestnut ricebean pea catsear courgette
+                      summer purslane. Water spinach arugula pea tatsoi aubergine spring onion bush
+                      tomato kale radicchio turnip chicory salsify pea sprouts fava bean.
+                    </p>
+                    <p>
+                      Dandelion zucchini burdock yarrow chickpea dandelion sorrel courgette turnip
+                      greens tigernut soybean radish artichoke wattle seed endive groundnut broccoli
+                      arugula.
+                    </p>
+                  </Sidebar>
+                )}
                 <Main style={{ padding: 28 }}>
+                  <h2>Main Content</h2>
                   <p>
                     Beetroot water spinach okra water chestnut ricebean pea catsear courgette summer
                     purslane. Water spinach arugula pea tatsoi aubergine spring onion bush tomato

@@ -10,55 +10,50 @@ initialState = {
   standalone: true
 };
 
-<Grid>
-  <Row>
-    <Col md={3} alignSelf="start">
-      <Well recessed>
-        <Field>
-          <Toggle
-            checked={state.standalone}
-            onChange={event => setState({ standalone: event.target.checked })}
-          >
-            <Label>Standalone</Label>
-          </Toggle>
-        </Field>
-      </Well>
-    </Col>
-    <Col md={9}>
-      <Chrome style={{ height: 200 }}>
-        <Body>
-          <Header isStandalone={state.standalone}>
-            <HeaderItem hasLogo product="support">
-              <HeaderItemIcon>
-                <SupportIcon />
-              </HeaderItemIcon>
-              <HeaderItemText>Zendesk Support</HeaderItemText>
-            </HeaderItem>
-            <HeaderItemWrapper maxX>
-              <span>Example flex-grow content</span>
-            </HeaderItemWrapper>
-            <HeaderItem>
-              <HeaderItemIcon>
-                <HelpIcon />
-              </HeaderItemIcon>
-              <HeaderItemText>Help Center</HeaderItemText>
-            </HeaderItem>
-            <HeaderItem>
-              <HeaderItemIcon>
-                <MenuTrayIcon />
-              </HeaderItemIcon>
-              <HeaderItemText isClipped>Products</HeaderItemText>
-            </HeaderItem>
-            <HeaderItem isRound>
-              <HeaderItemIcon>
-                <PersonIcon />
-              </HeaderItemIcon>
-              <HeaderItemText isClipped>User</HeaderItemText>
-            </HeaderItem>
-          </Header>
-        </Body>
-      </Chrome>
-    </Col>
-  </Row>
-</Grid>;
+<>
+  <Well recessed>
+    <Field>
+      <Toggle
+        checked={state.standalone}
+        onChange={event => setState({ standalone: event.target.checked })}
+      >
+        <Label>Standalone</Label>
+      </Toggle>
+    </Field>
+  </Well>
+  <br />
+  <Chrome style={{ height: 200 }}>
+    <Body>
+      <Header isStandalone={state.standalone}>
+        <HeaderItem hasLogo product="support">
+          <HeaderItemIcon>
+            <SupportIcon />
+          </HeaderItemIcon>
+          <HeaderItemText>Zendesk Support</HeaderItemText>
+        </HeaderItem>
+        <HeaderItemWrapper maxX>
+          <span>Example flex-grow content</span>
+        </HeaderItemWrapper>
+        <HeaderItem>
+          <HeaderItemIcon>
+            <HelpIcon />
+          </HeaderItemIcon>
+          <HeaderItemText>Help Center</HeaderItemText>
+        </HeaderItem>
+        <HeaderItem>
+          <HeaderItemIcon>
+            <MenuTrayIcon />
+          </HeaderItemIcon>
+          <HeaderItemText isClipped>Products</HeaderItemText>
+        </HeaderItem>
+        <HeaderItem isRound>
+          <HeaderItemIcon>
+            <PersonIcon />
+          </HeaderItemIcon>
+          <HeaderItemText isClipped>User</HeaderItemText>
+        </HeaderItem>
+      </Header>
+    </Body>
+  </Chrome>
+</>;
 ```

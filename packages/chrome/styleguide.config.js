@@ -36,12 +36,8 @@ module.exports = {
           content: '../../packages/chrome/examples/basic.md'
         },
         {
-          name: 'Header',
+          name: 'Standalone header',
           content: '../../packages/chrome/examples/header.md'
-        },
-        {
-          name: 'Sidebar',
-          content: '../../packages/chrome/examples/sidebar.md'
         }
       ]
     },
