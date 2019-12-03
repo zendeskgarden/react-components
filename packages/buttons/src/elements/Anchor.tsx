@@ -22,9 +22,8 @@ interface IAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
  * @component
  * @name Anchor
  */
-const Anchor: React.FunctionComponent<
-  IAnchorProps & React.RefAttributes<HTMLAnchorElement>
-> = React.forwardRef<HTMLAnchorElement, IAnchorProps>(
+const Anchor: React.FunctionComponent<IAnchorProps &
+  React.RefAttributes<HTMLAnchorElement>> = React.forwardRef<HTMLAnchorElement, IAnchorProps>(
   ({ children, isExternal, ...otherProps }, ref) => {
     return (
       <StyledAnchor ref={ref} {...(otherProps as any)}>
