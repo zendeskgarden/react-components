@@ -7,29 +7,29 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import Well from './Well';
+import { StyledWell } from './StyledWell';
 
-describe('Well', () => {
+describe('StyledWell', () => {
   it('renders default well styling', () => {
-    const { container } = render(<Well />);
+    const { container } = render(<StyledWell />);
 
     expect(container.firstChild).toHaveClass('c-callout');
   });
 
   it('renders with RTL styling if applied', () => {
-    const { container } = renderRtl(<Well />);
+    const { container } = renderRtl(<StyledWell />);
 
     expect(container.firstChild).toHaveClass('is-rtl');
   });
 
   it('renders recessed styling correctly', () => {
-    const { container } = render(<Well recessed />);
+    const { container } = render(<StyledWell isRecessed />);
 
     expect(container.firstChild).toHaveClass('c-callout--recessed');
   });
 
   it('renders floating styling correctly', () => {
-    const { container } = render(<Well floating />);
+    const { container } = render(<StyledWell isFloating />);
 
     expect(container.firstChild).toHaveClass('c-callout--dialog');
   });

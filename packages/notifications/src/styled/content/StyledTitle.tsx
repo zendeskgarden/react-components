@@ -15,13 +15,10 @@ const COMPONENT_ID = 'notifications.title';
 /**
  * Used for Notification titles. Supports all `<div>` props
  */
-const Title = styled.div.attrs({
+export const StyledTitle = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(CalloutStyles['c-callout__title'])
 })`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-/** @component */
-export default Title;

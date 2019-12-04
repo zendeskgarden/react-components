@@ -7,12 +7,13 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import Title from './Title';
+import { Title } from './Title';
 
 describe('Title', () => {
-  it('renders with title styling', () => {
-    const { container } = render(<Title />);
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { container } = render(<Title ref={ref} />);
 
-    expect(container.firstChild).toHaveClass('c-callout__title');
+    expect(container.firstChild).toBe(ref.current);
   });
 });

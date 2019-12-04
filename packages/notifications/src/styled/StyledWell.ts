@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import CalloutStyles from '@zendeskgarden/css-callouts';
@@ -13,10 +12,15 @@ import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'notifications.well';
 
+export interface IStyledWellProps {
+  isRecessed?: boolean;
+  isFloating?: boolean;
+}
+
 /**
  * Supports all `<div>` props
  */
-const Well = styled.div.attrs(props => ({
+export const StyledWell = styled.div.attrs<IStyledWellProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(CalloutStyles['c-callout'], {
@@ -24,17 +28,9 @@ const Well = styled.div.attrs(props => ({
     [CalloutStyles['is-rtl']]: isRtl(props),
 
     // Styles
-    [CalloutStyles['c-callout--recessed']]: props.recessed,
-    [CalloutStyles['c-callout--dialog']]: props.floating
+    [CalloutStyles['c-callout--recessed']]: props.isRecessed,
+    [CalloutStyles['c-callout--dialog']]: props.isFloating
   })
-}))`
+}))<IStyledWellProps>`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-Well.propTypes = {
-  recessed: PropTypes.bool,
-  floating: PropTypes.bool
-};
-
-/** @component */
-export default Well;

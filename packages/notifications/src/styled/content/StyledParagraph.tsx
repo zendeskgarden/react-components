@@ -15,13 +15,10 @@ const COMPONENT_ID = 'notifications.paragraph';
 /**
  * Used for multi-line Notification content. Supports all `<div>` props
  */
-const Paragraph = styled.div.attrs({
+export const StyledParagraph = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(CalloutStyles['c-callout__paragraph'])
 })`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-/** @component */
-export default Paragraph;
