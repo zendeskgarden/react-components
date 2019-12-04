@@ -6,19 +6,20 @@
  */
 
 import styled from 'styled-components';
-import classNames from 'classnames';
-import BreadcrumbStyles from '@zendeskgarden/css-breadcrumbs';
-import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'breadcrumbs.list';
 
-export const StyledBreadcrumb = styled.ol.attrs(props => ({
+/**
+ * 1. <ol> reset.
+ */
+export const StyledBreadcrumb = styled.ol.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: classNames(BreadcrumbStyles['c-breadcrumb'], {
-    // RTL
-    [BreadcrumbStyles['is-rtl']]: isRtl(props)
-  })
-}))`
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  'data-garden-version': PACKAGE_VERSION
+})`
+  display: flex;
+  margin: 0; /* [1] */
+  padding: 0; /* [1] */
+  list-style: none; /* [1] */
+  font-size: ${props => props.theme.fontSizes.md};
+  direction: ${props => props.theme.rtl && 'rtl'};
 `;

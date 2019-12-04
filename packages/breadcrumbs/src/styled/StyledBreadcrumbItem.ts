@@ -5,10 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import classNames from 'classnames';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import BreadcrumbStyles from '@zendeskgarden/css-breadcrumbs';
+import styled, { css } from 'styled-components';
+import stripUnit from 'polished/lib/helpers/stripUnit';
+import { getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'breadcrumbs.item';
 
@@ -16,13 +15,36 @@ export interface IStyledBreadcrumbItemProps {
   isCurrent?: boolean;
 }
 
-export const StyledBreadcrumbItem = styled.li.attrs<IStyledBreadcrumbItemProps>(props => ({
+/**
+ * These CSS pseudo-classes are used to match the equivalent of :any-link, which
+ * is not used here because it is not currently supported in Microsoft Edge.
+ */
+const linkStyles = ({ isCurrent }: IStyledBreadcrumbItemProps) => css`
+  & > :link,
+  & > :visited {
+    white-space: inherit;
+  }
+
+  ${isCurrent &&
+    `
+      & > :link,
+      & > :visited,
+      & > :link:hover,
+      & > :visited:hover,
+      & > :link:focus,
+      & > :visited:focus {
+        color: inherit;
+      }
+    `}
+`;
+
+export const StyledBreadcrumbItem = styled.li.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: classNames(BreadcrumbStyles['c-breadcrumb__item'], {
-    // State
-    [BreadcrumbStyles['is-current']]: props.isCurrent
-  })
-}))<IStyledBreadcrumbItemProps>`
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledBreadcrumbItemProps>`
+  line-height: ${props => (props.theme.space.base * 5) / stripUnit(props.theme.fontSizes.md)};
+  white-space: nowrap;
+  color: ${props => (props.isCurrent ? getColor(props.theme.colors.neutralHue, 600) : 'inherit')};
+  font-size: inherit;
+  ${linkStyles};
 `;

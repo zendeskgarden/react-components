@@ -6,4 +6,6 @@
  */
 
 export { StyledBreadcrumb } from './StyledBreadcrumb';
+export { StyledChevronIcon } from './StyledChevronIcon';
 export { StyledBreadcrumbItem } from './StyledBreadcrumbItem';
+export { StyledCenteredBreadcrumbItem } from './StyledCenteredBreadcrumbItem';
