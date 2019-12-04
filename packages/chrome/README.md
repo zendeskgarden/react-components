@@ -25,14 +25,14 @@ import ConnectIcon from '@zendeskgarden/icons/src/26/relationshape-connect.svg';
 
 <ThemeProvider>
   <Chrome>
-    <Nav expanded>
-      <NavItem logo product="connect" title="Zendesk Connect">
+    <Nav isExpanded>
+      <NavItem hasLogo product="connect" title="Zendesk Connect">
         <NavItemIcon>
           <ConnectIcon />
         </NavItemIcon>
         <NavItemText>Zendesk Connect</NavItemText>
       </NavItem>
-      <NavItem current>
+      <NavItem isCurrent>
         <NavItemIcon>
           <HomeIcon />
         </NavItemIcon>
@@ -40,7 +40,7 @@ import ConnectIcon from '@zendeskgarden/icons/src/26/relationshape-connect.svg';
       </NavItem>
     </Nav>
     <SubNav>
-      <SubNavItem current>
+      <SubNavItem isCurrent>
         <SubNavItemText>Subnav 1</SubNavItemText>
       </SubNavItem>
       ...
