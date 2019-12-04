@@ -24,3 +24,4 @@ declare module '@zendeskgarden/css-menus';
 declare module '@zendeskgarden/css-forms';
 declare module '@zendeskgarden/css-arrows';
 declare module '@zendeskgarden/css-breadcrumbs';
+declare module '@zendeskgarden/css-chrome';
