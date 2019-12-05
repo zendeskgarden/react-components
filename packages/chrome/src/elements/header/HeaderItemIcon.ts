@@ -5,20 +5,26 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children, HTMLAttributes } from 'react';
-import ChromeStyles from '@zendeskgarden/css-chrome';
+import React, { Children } from 'react';
+import styled from 'styled-components';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.header_item_icon';
 
 /**
  * Applies styling directly to child component
  **/
-export const HeaderItemIcon = React.forwardRef<any, HTMLAttributes<any>>(({ children }, ref) => {
-  /** This styling logic will be moved to the `styled` directory in the CSS-in-JS PR */
-  return React.cloneElement(Children.only(children as any), {
-    'data-garden-id': COMPONENT_ID,
-    'data-garden-version': PACKAGE_VERSION,
-    ref,
-    className: ChromeStyles['c-chrome__body__header__item__icon']
-  });
-});
+export const HeaderItemIcon = styled(({ children, ...props }) =>
+  React.cloneElement(Children.only(children), props)
+).attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})`
+  transition: transform 0.25s ease-in-out;
+  margin: 0 3px;
+  width: ${props => props.theme.iconSizes.md};
+  min-width: ${props => props.theme.iconSizes.md};
+  height: ${props => props.theme.iconSizes.md};
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+`;

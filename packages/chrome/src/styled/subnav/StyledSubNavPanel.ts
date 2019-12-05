@@ -5,10 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import classNames from 'classnames';
-import ChromeStyles from '@zendeskgarden/css-chrome';
+import styled, { css } from 'styled-components';
 import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { StyledSubNavItem } from './StyledSubNavItem';
 
 const PANEL_COMPONENT_ID = 'chrome.collapsible_sub_nav_item_panel';
 
@@ -16,13 +15,29 @@ interface IStyledSubNavPanelProps {
   isHidden?: boolean;
 }
 
+const hiddenStyling = css`
+  visibility: hidden;
+  max-height: 0 !important; /* stylelint-disable-line */
+  overflow: hidden;
+`;
+
 /** Accepts all `<div>` props */
-export const StyledSubNavPanel = styled.div.attrs<IStyledSubNavPanelProps>(props => ({
+export const StyledSubNavPanel = styled.div.attrs<IStyledSubNavPanelProps>({
   'data-garden-id': PANEL_COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: classNames(ChromeStyles['c-chrome__subnav__panel'], {
-    [ChromeStyles['is-hidden']]: props.isHidden
-  })
-}))<IStyledSubNavPanelProps>`
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledSubNavPanelProps>`
+  /* stylelint-disable-next-line max-line-length */
+  transition: max-height 0.25s cubic-bezier(0.15, 0.85, 0.35, 1.2), 0.25s visibility 0s linear;
+  height: auto;
+  max-height: 100%;
+
+  ${props => props.isHidden && hiddenStyling}
+
+  ${StyledSubNavItem} {
+    padding-right: ${props => props.theme.rtl && `${props.theme.space.base * 5}px`};
+    padding-left: ${props =>
+      props.theme.rtl ? props.theme.space.base * 2 : props.theme.space.base * 5}px;
+  }
+
   ${props => retrieveComponentStyles(PANEL_COMPONENT_ID, props)};
 `;

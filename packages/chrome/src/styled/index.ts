@@ -22,5 +22,9 @@ export { StyledNavItemText, IStyledNavItemTextProps } from './nav/StyledNavItemT
 export { StyledSubNav } from './subnav/StyledSubNav';
 export { StyledSubNavItem, IStyledSubNavItemProps } from './subnav/StyledSubNavItem';
 export { StyledSubNavItemText, IStyledSubNavItemTextProps } from './subnav/StyledSubNavItemText';
-export { StyledSubNavItemHeader, IStyledSubNavItemHeader } from './subnav/StyledSubNavItemHeader';
+export {
+  StyledSubNavItemHeader,
+  IStyledSubNavItemHeaderProps
+} from './subnav/StyledSubNavItemHeader';
+export { StyledSubNavItemIconWrapper, StyledSubNavItemIcon } from './subnav/StyledSubNavItemIcon';
 export { StyledSubNavPanel } from './subnav/StyledSubNavPanel';

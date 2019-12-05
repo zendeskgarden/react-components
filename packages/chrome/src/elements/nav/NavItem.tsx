@@ -7,7 +7,6 @@
 
 import React, { ButtonHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { useKeyboardFocus } from '@zendeskgarden/container-keyboardfocus';
 import { StyledNavItem, IStyledNavItemProps } from '../../styled';
 import { PRODUCTS } from '../../utils/types';
 
@@ -17,29 +16,19 @@ import { PRODUCTS } from '../../utils/types';
 export const NavItem = React.forwardRef<
   HTMLButtonElement,
   IStyledNavItemProps & ButtonHTMLAttributes<HTMLButtonElement>
->(({ hasLogo, hasBrandmark, isFocused, ...other }, ref) => {
-  const { getFocusProps, keyboardFocused } = useKeyboardFocus();
-
-  return (
-    <StyledNavItem
-      {...getFocusProps({
-        tabIndex: hasLogo || hasBrandmark ? -1 : 0,
-        isFocused: isFocused || keyboardFocused,
-        hasLogo: hasLogo || hasBrandmark,
-        hasBrandmark,
-        ref,
-        ...other
-      })}
-    />
-  );
-});
+>(({ hasLogo, hasBrandmark, ...other }, ref) => (
+  <StyledNavItem
+    tabIndex={hasLogo || hasBrandmark ? -1 : 0}
+    hasLogo={hasLogo || hasBrandmark}
+    hasBrandmark={hasBrandmark}
+    ref={ref}
+    {...other}
+  />
+));
 
 NavItem.propTypes = {
   product: PropTypes.oneOf(PRODUCTS),
   hasLogo: PropTypes.bool,
   hasBrandmark: PropTypes.bool,
-  isCurrent: PropTypes.bool,
-  isHovered: PropTypes.bool,
-  isFocused: PropTypes.bool,
-  isActive: PropTypes.bool
+  isCurrent: PropTypes.bool
 };

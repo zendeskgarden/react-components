@@ -6,9 +6,8 @@
  */
 
 import styled from 'styled-components';
-import classNames from 'classnames';
 import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import ChromeStyles from '@zendeskgarden/css-chrome';
+import stripUnit from 'polished/lib/helpers/stripUnit';
 
 const COMPONENT_ID = 'chrome.subnav_item_text';
 
@@ -20,12 +19,15 @@ export interface IStyledSubNavItemTextProps {
   isWrapped?: boolean;
 }
 
-export const StyledSubNavItemText = styled.span.attrs<IStyledSubNavItemTextProps>(props => ({
+export const StyledSubNavItemText = styled.span.attrs<IStyledSubNavItemTextProps>({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: classNames(ChromeStyles['c-chrome__subnav__item__text'], {
-    [ChromeStyles['c-chrome__subnav__item__text--wrap']]: props.isWrapped
-  })
-}))<IStyledSubNavItemTextProps>`
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledSubNavItemTextProps>`
+  margin: 5px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: ${props => (props.theme.space.base * 5) / stripUnit(props.theme.fontSizes.md)};
+  white-space: ${props => (props.isWrapped ? 'normal' : 'nowrap')};
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

@@ -7,37 +7,42 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { Nav } from './Nav';
 
 describe('Nav', () => {
-  it('renders default styling', () => {
-    const { container } = render(<Nav />);
-
-    expect(container.firstChild).toHaveClass('c-chrome__nav');
-  });
-
-  it('renders expanded styling if provided', () => {
-    const { container } = render(<Nav isExpanded />);
-
-    expect(container.firstChild).toHaveClass('c-chrome__nav--expanded');
-  });
-
-  it('renders dark styling if provided', () => {
-    const { container } = render(<Nav isDark />);
-
-    expect(container.firstChild).toHaveClass('c-chrome__nav--dark');
-  });
-
-  it('renders light styling if provided', () => {
-    const { container } = render(<Nav isLight />);
-
-    expect(container.firstChild).toHaveClass('c-chrome__nav--light');
-  });
-
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
     const { container } = render(<Nav ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
+  });
+
+  it('renders correct width if collapsed', () => {
+    const { container } = render(<Nav />);
+
+    expect(container.firstChild).toHaveStyleRule('width', '60px');
+  });
+
+  it('renders correct width if expanded', () => {
+    const { container } = render(<Nav isExpanded />);
+
+    expect(container.firstChild).toHaveStyleRule('width', '200px');
+  });
+
+  describe('BackgroundColor', () => {
+    it('applies light styling if color is below luminance threshold', () => {
+      const { container } = render(<Nav backgroundColor={PALETTE.green[100]} />);
+
+      expect(container.firstChild).toHaveAttribute('data-test-light', 'true');
+      expect(container.firstChild).toHaveAttribute('data-test-dark', 'false');
+    });
+
+    it('applies dark styling if color is above luminance threshold', () => {
+      const { container } = render(<Nav backgroundColor={PALETTE.green[800]} />);
+
+      expect(container.firstChild).toHaveAttribute('data-test-light', 'false');
+      expect(container.firstChild).toHaveAttribute('data-test-dark', 'true');
+    });
   });
 });

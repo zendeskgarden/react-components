@@ -5,20 +5,26 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children, HTMLAttributes } from 'react';
-import ChromeStyles from '@zendeskgarden/css-chrome';
+import React, { Children } from 'react';
+import styled from 'styled-components';
+import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.nav_item_icon';
 
 /**
  * Applies styling directly to child component
  **/
-export const NavItemIcon = React.forwardRef<any, HTMLAttributes<any>>(({ children }, ref) => {
-  /** This styling logic will be moved to the `styled` directory in the CSS-in-JS PR */
-  return React.cloneElement(Children.only(children as any), {
-    'data-garden-id': COMPONENT_ID,
-    'data-garden-version': PACKAGE_VERSION,
-    ref,
-    className: ChromeStyles['c-chrome__nav__item__icon']
-  });
-});
+export const NavItemIcon = styled(({ children, ...props }) =>
+  React.cloneElement(Children.only(children), props)
+).attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})`
+  align-self: flex-start;
+  order: 0;
+  border-radius: ${props => props.theme.borderRadii.md};
+  width: ${props => props.theme.iconSizes.lg};
+  height: ${props => props.theme.iconSizes.lg};
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+`;

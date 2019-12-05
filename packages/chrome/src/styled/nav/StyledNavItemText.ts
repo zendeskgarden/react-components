@@ -6,9 +6,8 @@
  */
 
 import styled from 'styled-components';
-import classNames from 'classnames';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import ChromeStyles from '@zendeskgarden/css-chrome';
+import stripUnit from 'polished/lib/helpers/stripUnit';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.nav_item_text';
 
@@ -19,12 +18,22 @@ export interface IStyledNavItemTextProps {
   isWrapped?: boolean;
 }
 
-export const StyledNavItemText = styled.span.attrs<IStyledNavItemTextProps>(props => ({
+export const StyledNavItemText = styled.span.attrs<IStyledNavItemTextProps>(() => ({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: classNames(ChromeStyles['c-chrome__nav__item__text'], {
-    [ChromeStyles['c-chrome__nav__item__text--wrap']]: props.isWrapped
-  })
+  'data-garden-version': PACKAGE_VERSION
 }))<IStyledNavItemTextProps>`
+  position: absolute;
+  order: 1;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  line-height: ${props => (props.theme.space.base * 5) / stripUnit(props.theme.fontSizes.md)};
+  white-space: ${props => (props.isWrapped ? 'normal' : 'nowrap')};
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledNavItemText.defaultProps = {
+  theme: DEFAULT_THEME
+};

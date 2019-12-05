@@ -23,7 +23,8 @@
     "@zendeskgarden/container-accordion": "^0.3.1",
     "@zendeskgarden/container-keyboardfocus": "^0.2.6",
     "@zendeskgarden/container-utilities": "^0.3.0",
-    "classnames": "^2.2.5"
+    "classnames": "^2.2.5",
+    "polished": "^3.4.2"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^6.0.0 || ^7.0.0",
@@ -33,11 +34,8 @@
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "@zendeskgarden/css-chrome": "4.1.16",
-    "@zendeskgarden/css-variables": "6.4.1",
     "@zendeskgarden/react-theming": "^7.0.0",
-    "@zendeskgarden/svg-icons": "6.7.0",
-    "polished": "3.4.2"
+    "@zendeskgarden/svg-icons": "6.7.0"
   },
   "keywords": [
     "components",

@@ -7,40 +7,11 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { HeaderItem } from './HeaderItem';
-import { PRODUCTS } from '../../utils/types';
+import { PRODUCTS, PRODUCT } from '../../utils/types';
 
 describe('HeaderItem', () => {
-  it('renders default styling', () => {
-    const { container } = render(<HeaderItem />);
-
-    expect(container.firstChild).toHaveClass('c-chrome__body__header__item');
-  });
-
-  it('renders maxX styling if provided', () => {
-    const { container } = render(<HeaderItem maxX />);
-
-    expect(container.firstChild).toHaveClass('c-chrome__body__header__item--max-x');
-  });
-
-  it('renders maxY styling if provided', () => {
-    const { container } = render(<HeaderItem maxY />);
-
-    expect(container.firstChild).toHaveClass('c-chrome__body__header__item--max-y');
-  });
-
-  it('renders logo styling if provided', () => {
-    const { container } = render(<HeaderItem hasLogo />);
-
-    expect(container.firstChild).toHaveClass('c-chrome__body__header__item--logo');
-  });
-
-  it('renders round styling if provided', () => {
-    const { container } = render(<HeaderItem isRound />);
-
-    expect(container.firstChild).toHaveClass('c-chrome__body__header__item--round');
-  });
-
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLButtonElement>();
     const { container } = render(<HeaderItem ref={ref} />);
@@ -48,33 +19,29 @@ describe('HeaderItem', () => {
     expect(container.firstChild).toBe(ref.current);
   });
 
-  describe('States', () => {
-    it('renders active styling if provided', () => {
-      const { container } = render(<HeaderItem isActive />);
-
-      expect(container.firstChild).toHaveClass('is-active');
-    });
-
-    it('renders focused styling if provided', () => {
-      const { container } = render(<HeaderItem isFocused />);
-
-      expect(container.firstChild).toHaveClass('is-focused');
-    });
-
-    it('renders hovered styling if provided', () => {
-      const { container } = render(<HeaderItem isHovered />);
-
-      expect(container.firstChild).toHaveClass('is-hovered');
-    });
-  });
-
   describe('Products', () => {
-    PRODUCTS.forEach(product => {
-      it(`renders ${product} styling if provided`, () => {
-        const { container } = render(<HeaderItem product={product} />);
+    const VALID_COLOR_MAP: Record<PRODUCT, string> = {
+      chat: PALETTE.product.chat,
+      connect: PALETTE.product.connect,
+      explore: PALETTE.product.explore,
+      guide: PALETTE.product.guide,
+      message: PALETTE.product.message,
+      support: PALETTE.product.support,
+      talk: PALETTE.product.talk
+    };
 
-        expect(container.firstChild).toHaveClass(`c-chrome__body__header__item--logo--${product}`);
+    PRODUCTS.forEach(product => {
+      it(`renders correct ${product} color if provided`, () => {
+        const { container } = render(<HeaderItem hasLogo product={product} />);
+
+        expect(container.firstChild).toHaveStyleRule('color', VALID_COLOR_MAP[product]);
       });
+    });
+
+    it('renders correct color if no product is provided', () => {
+      const { container } = render(<HeaderItem hasLogo />);
+
+      expect(container.firstChild).toHaveStyleRule('color', 'inherit');
     });
   });
 });

@@ -6,15 +6,25 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import ChromeStyles from '@zendeskgarden/css-chrome';
+import stripUnit from 'polished/lib/helpers/stripUnit';
+import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.content';
 
 export const StyledContent = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: ChromeStyles['c-chrome__body__content']
+  'data-garden-version': PACKAGE_VERSION
 })`
+  display: flex;
+  height: ${props => `calc(100% - ${props.theme.space.base * 33}px)`};
+  line-height: ${props =>
+    stripUnit(props.theme.lineHeights.md) / stripUnit(props.theme.fontSizes.md)};
+  color: ${props => props.theme.colors.foreground};
+  font-size: ${props => getColor('neutralHue', 800, props.theme)};
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledContent.defaultProps = {
+  theme: DEFAULT_THEME
+};

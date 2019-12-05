@@ -10,12 +10,6 @@ import { render } from 'garden-test-utils';
 import { SubNav } from './SubNav';
 
 describe('SubNav', () => {
-  it('renders default styling', () => {
-    const { container } = render(<SubNav />);
-
-    expect(container.firstChild).toHaveClass('c-chrome__subnav');
-  });
-
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
     const { container } = render(<SubNav ref={ref} />);
