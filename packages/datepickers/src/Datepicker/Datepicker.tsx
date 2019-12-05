@@ -142,7 +142,7 @@ const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
     onChange
   ]);
   const [state, dispatch] = useReducer(memoizedReducer, retrieveInitialState(props));
-  const scheduleUpdateRef = useRef<(() => void) | undefined>(undefined);
+  const scheduleUpdateRef = useRef<() => void | undefined>(undefined as any);
   const inputRef = useRef<HTMLInputElement>(null);
   const isInputMouseDownRef = useRef(false);
 
@@ -206,7 +206,7 @@ const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
           {({ ref }) => {
             return React.cloneElement(React.Children.only(children as any), {
               [refKey!]: (refValue: HTMLElement) => {
-                ref(refValue);
+                (ref as any)(refValue);
                 (inputRef as any).current = refValue;
               },
               onMouseDown: () => {
