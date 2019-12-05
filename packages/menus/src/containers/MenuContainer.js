@@ -144,7 +144,7 @@ class MenuContainer extends ControlledComponent {
 
     this.state = {
       isOpen: false,
-      id: IdManager.generateId('garden-menu-container'),
+      id: IdManager.generateId('garden-menu-container-deprecated'),
       focusedKey: undefined,
       selectedKey: undefined,
       focusOnOpen: undefined,

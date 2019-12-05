@@ -32,7 +32,7 @@ export default class FieldContainer extends ControlledComponent {
     super(...args);
 
     this.state = {
-      id: IdManager.generateId('garden-field-container')
+      id: IdManager.generateId('garden-field-container-deprecated')
     };
   }
 

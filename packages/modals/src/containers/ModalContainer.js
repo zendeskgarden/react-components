@@ -44,7 +44,7 @@ export default class ModalContainer extends ControlledComponent {
   };
 
   state = {
-    id: IdManager.generateId('garden-modal-container')
+    id: IdManager.generateId('garden-modal-container-deprecated')
   };
 
   // eslint-disable-next-line class-methods-use-this

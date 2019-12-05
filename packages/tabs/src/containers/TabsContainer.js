@@ -63,7 +63,7 @@ export default class TabsContainer extends ControlledComponent {
     this.state = {
       focusedKey: undefined,
       selectedKey: undefined,
-      id: IdManager.generateId('garden-tabs-container')
+      id: IdManager.generateId('garden-tabs-container-deprecated')
     };
   }
 

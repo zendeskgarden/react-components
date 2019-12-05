@@ -47,7 +47,7 @@ export default class PaginationContainer extends ControlledComponent {
     this.state = {
       focusedKey: undefined,
       selectedKey: undefined,
-      id: IdManager.generateId('garden-pagination-container')
+      id: IdManager.generateId('garden-pagination-container-deprecated')
     };
   }
 
