@@ -2552,10 +2552,10 @@
   resolved "https://registry.yarnpkg.com/@zendeskgarden/stylelint-config/-/stylelint-config-12.0.0.tgz#2dbb94b3f822c708562ac5d2e7a29d2e562f86f7"
   integrity sha512-iRRgA8/VpwGcFW+JcxBtORKG+zWb6UqZdDpKn4R0UbbpO5Q3h/Ux1DS+gaSbWw/Rxwq+xr5Acvc4mzfbCkqexw==
 
-"@zendeskgarden/svg-icons@5.3.1":
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-5.3.1.tgz#05afe5af49b5e4227f9d8451ca143e6f3b9dff38"
-  integrity sha512-lSgFnyxsOjt712I0AjsPC79FXof6QjCpu6hhm0/61WPsgpGg8K/hySB7JjndCQg1Z2CUJf4+SQPD1hJ6AZMYVA==
+"@zendeskgarden/svg-icons@6.8.1":
+  version "6.8.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-6.8.1.tgz#a2aa55d78d96102360ccfc5dbb164e70bac1cbcb"
+  integrity sha512-nNWPs65H9e6PHv7VgRRF3gmZW79C8frwzbaFLSTypaO8aQCrG52FxVOCuCVjJ8zVyejv1nsF8kRMVok8DkCaxA==
 
 "@zkochan/cmd-shim@^3.1.0":
   version "3.1.0"

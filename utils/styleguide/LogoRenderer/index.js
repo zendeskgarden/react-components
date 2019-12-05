@@ -8,18 +8,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import { PALETTE } from '../../../packages/theming/src';
-import ZendeskLogo from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
+import GardenLogo from '@zendeskgarden/svg-icons/src/26/garden.svg';
 
 const LogoWrapper = styled.div`
   text-align: center;
-  color: ${PALETTE.kale[700]};
+  color: ${PALETTE.green[400]};
 `;
 
 const LogoRenderer = () => (
   <div role="navigation">
     <a href="/" aria-label="Garden Homepage">
       <LogoWrapper>
-        <ZendeskLogo />
+        <GardenLogo />
       </LogoWrapper>
     </a>
   </div>

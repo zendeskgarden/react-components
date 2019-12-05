@@ -112,4 +112,26 @@ describe('Modal', () => {
       expect(onCloseSpy).toHaveBeenCalled();
     });
   });
+
+  describe('appendToNode', () => {
+    it('should append the backdrop to the supplied element', () => {
+      const { getByTestId, rerender } = render(
+        <>
+          <div data-test-id="portal"></div>
+          <BasicExample />
+        </>
+      );
+
+      const portalInstance = getByTestId('portal');
+
+      rerender(
+        <>
+          <div data-test-id="portal"></div>
+          <BasicExample appendToNode={portalInstance} />
+        </>
+      );
+
+      expect(portalInstance.firstChild).toHaveAttribute('data-test-id', 'backdrop');
+    });
+  });
 });

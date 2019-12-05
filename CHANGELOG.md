@@ -12,6 +12,37 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v7.1.3 (2019-11-27)
+
+#### :rocket: New Feature
+* `modals`
+  * [#547](https://github.com/zendeskgarden/react-components/pull/547) Allow the portal container to be passed in as a prop ([@luis-almeida](https://github.com/luis-almeida))
+
+## v7.1.2 (2019-11-26)
+
+#### :seedling: Internal
+* Other
+  * [#537](https://github.com/zendeskgarden/react-components/pull/537) chore(deps): update dependency chalk to v3 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#538](https://github.com/zendeskgarden/react-components/pull/538) chore(deps): update dependency commander to v4 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#539](https://github.com/zendeskgarden/react-components/pull/539) chore(deps): update dependency eslint-plugin-jest to v23 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#543](https://github.com/zendeskgarden/react-components/pull/543) chore(deps): update dependency core-js to v3.4.2 ([@renovate[bot]](https://github.com/apps/renovate))
+* `datepickers`, `dropdowns`
+  * [#534](https://github.com/zendeskgarden/react-components/pull/534) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `avatars`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `tooltips`
+  * [#535](https://github.com/zendeskgarden/react-components/pull/535) fix(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
+## v7.1.1 (2019-11-13)
+
+#### :bug: Bug Fix
+* `datepickers`
+  * [#517](https://github.com/zendeskgarden/react-components/pull/517) fix(datepickers): allow controlled value to update internal state ([@austin94](https://github.com/austin94))
+* `forms`
+  * [#516](https://github.com/zendeskgarden/react-components/pull/516) fix(forms): allow MultiThumbRange to position correctly in Edge and IE11 ([@austin94](https://github.com/austin94))
+
+#### :memo: Documentation
+* `tables`
+  * [#518](https://github.com/zendeskgarden/react-components/pull/518) chore(docs): remove invalid prop from table docs ([@austin94](https://github.com/austin94))
+
 ## v7.1.0 (2019-11-06)
 
 #### :rocket: New Feature
