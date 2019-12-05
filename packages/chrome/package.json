@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "6.9.0",
+  "version": "6.9.2",
   "main": "./dist/index.js",
   "files": [
     "dist"
@@ -22,7 +22,7 @@
     "@zendeskgarden/container-accordion": "^0.2.0",
     "@zendeskgarden/container-keyboardfocus": "^0.2.6",
     "@zendeskgarden/container-utilities": "^0.3.0",
-    "@zendeskgarden/react-selection": "^6.5.0",
+    "@zendeskgarden/react-selection": "^6.9.2",
     "classnames": "^2.2.5"
   },
   "peerDependencies": {

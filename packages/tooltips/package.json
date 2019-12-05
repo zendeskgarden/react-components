@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "6.7.1",
+  "version": "6.9.2",
   "main": "./dist/index.js",
   "files": [
     "dist"
@@ -21,7 +21,7 @@
   "dependencies": {
     "@zendeskgarden/container-tooltip": "^0.2.4",
     "@zendeskgarden/container-utilities": "^0.3.0",
-    "@zendeskgarden/react-selection": "^6.5.0",
+    "@zendeskgarden/react-selection": "^6.9.2",
     "classnames": "^2.2.5",
     "react-popper": "^0.10.4"
   },
