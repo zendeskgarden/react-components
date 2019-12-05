@@ -13,3 +13,4 @@ package-lock.json
 demo/**/*
 !demo/index.html
 !demo/index.svg
+.netlify

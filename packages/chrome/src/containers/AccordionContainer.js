@@ -46,7 +46,7 @@ export default class AccordionContainer extends ControlledComponent {
 
     this.state = {
       expanded: false,
-      id: IdManager.generateId('garden-accordion-container')
+      id: IdManager.generateId('garden-accordion-container-deprecated')
     };
   }
 

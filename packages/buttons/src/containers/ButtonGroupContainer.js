@@ -53,7 +53,7 @@ export default class ButtonGroupContainer extends ControlledComponent {
     this.state = {
       focusedKey: undefined,
       selectedKey: undefined,
-      id: IdManager.generateId('garden-button-group-container')
+      id: IdManager.generateId('garden-button-group-container-deprecated')
     };
   }
 

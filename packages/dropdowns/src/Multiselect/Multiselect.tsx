@@ -252,7 +252,7 @@ const Multiselect: React.FunctionComponent<IMultiselectProps> = ({
             open: isOpen,
             ref: (selectRef: any) => {
               // Pass ref to popperJS for positioning
-              popperReference(selectRef);
+              (popperReference as any)(selectRef);
 
               // Store ref locally to return focus on close
               (triggerRef as any).current = selectRef;

@@ -75,7 +75,7 @@ const Autocomplete: React.FunctionComponent<IAutocompleteProps> = ({ children, .
           open={isOpen}
           ref={selectRef => {
             // Pass ref to popperJS for positioning
-            popperReference(selectRef);
+            (popperReference as any)(selectRef);
 
             // Store ref locally to return focus on close
             (triggerRef as any).current = selectRef;
