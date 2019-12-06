@@ -18,6 +18,7 @@
     "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
+  "types": "dist/typings/index.d.ts",
   "typings": "./index.d.ts",
   "dependencies": {
     "classnames": "^2.2.5"

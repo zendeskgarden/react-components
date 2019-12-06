@@ -1,40 +1,68 @@
-**Accessibility Warning:** All usages of `<Close />` must contain an `aria-label`
-or other assistive technique to have discernible text.
+### Alert
+
+All usages of `<Close />` must contain an `aria-label` or other assistive technique to have
+discernible text.
 
 ```jsx
-const initialState = {
-  type: 'success'
-};
+const { Field, Label, Radio } = require('@zendeskgarden/react-forms/src');
+const { MD } = require('@zendeskgarden/react-typography/src');
+
+const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1);
+
+const initialState = { type: 'success' };
 
 <Grid>
   <Row>
-    <Col size={12}>
-      <Alert type="success">
-        <Title>Success Alert</Title>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna.
-        <Close onClick={() => alert('closing alert')} aria-label="Close Alert" />
-      </Alert>
+    <Col>
+      <Well isRecessed>
+        <div role="group" aria-label="alert types radio">
+          <MD style={{ color: '#2f3941', fontWeight: 600 }}>Alert Types</MD>
+          <Field>
+            <Radio
+              name="alert-type"
+              value="success"
+              checked={state.type === 'success'}
+              onChange={event => setState({ type: event.target.value })}
+            >
+              <Label isRegular>Success</Label>
+            </Radio>
+          </Field>
+          <Field>
+            <Radio
+              name="alert-type"
+              value="error"
+              checked={state.type === 'error'}
+              onChange={event => setState({ type: event.target.value })}
+            >
+              <Label isRegular>Error</Label>
+            </Radio>
+          </Field>
+          <Field>
+            <Radio
+              name="alert-type"
+              value="warning"
+              checked={state.type === 'warning'}
+              onChange={event => setState({ type: event.target.value })}
+            >
+              <Label isRegular>Warning</Label>
+            </Radio>
+          </Field>
+          <Field>
+            <Radio
+              name="alert-type"
+              value="info"
+              checked={state.type === 'info'}
+              onChange={event => setState({ type: event.target.value })}
+            >
+              <Label isRegular>Info</Label>
+            </Radio>
+          </Field>
+        </div>
+      </Well>
     </Col>
-    <Col size={12}>
-      <Alert type="warning">
-        <Title>Warning Alert</Title>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna.
-        <Close onClick={() => alert('closing alert')} aria-label="Close Alert" />
-      </Alert>
-    </Col>
-    <Col size={12}>
-      <Alert type="error">
-        <Title>Error Alert</Title>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna.
-        <Close onClick={() => alert('closing alert')} aria-label="Close Alert" />
-      </Alert>
-    </Col>
-    <Col size={12}>
-      <Alert type="info">
-        <Title>Info Alert</Title>
+    <Col>
+      <Alert type={state.type}>
+        <Title>{capitalize(state.type)} Alert</Title>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore magna.
         <Close onClick={() => alert('closing alert')} aria-label="Close Alert" />
@@ -44,34 +72,74 @@ const initialState = {
 </Grid>;
 ```
 
-**Accessibility Warning:** All usages of `<Close />` must contain an `aria-label`
-or other assistive technique to have discernible text.
+### Notification
+
+The `<Paragraph>` component should be used to wrap multi-line content within a `<Notification>`.
+Otherwise, no wrapper is necessary. Usage of `<Close />` must contain an `aria-label` or other
+assistive technique to have discernible text.
 
 ```jsx
+const { Field, Label, Radio } = require('@zendeskgarden/react-forms/src');
+const { MD } = require('@zendeskgarden/react-typography/src');
+
+const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1);
+
+const initialState = {
+  type: 'success',
+  isMultiLine: true
+};
+
 <Grid>
   <Row>
     <Col size={12}>
-      <Notification>
-        <Title>Notification: Standard (Multi-line)</Title>
-        <Paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </Paragraph>
-        <Close onClick={() => alert('closing notification')} aria-label="Close Notification" />
-      </Notification>
+      <Well isRecessed>
+        <div role="group" aria-label="alert types radio">
+          <MD style={{ color: '#2f3941', fontWeight: 600 }}>Notification Types</MD>
+          <Field>
+            <Radio
+              name="notification-type"
+              value="success"
+              checked={state.type === 'success'}
+              onChange={event => setState({ type: event.target.value })}
+            >
+              <Label isRegular>Success</Label>
+            </Radio>
+          </Field>
+          <Field>
+            <Radio
+              name="notification-type"
+              value="error"
+              checked={state.type === 'error'}
+              onChange={event => setState({ type: event.target.value })}
+            >
+              <Label isRegular>Error</Label>
+            </Radio>
+          </Field>
+          <Field>
+            <Radio
+              name="notification-type"
+              value="warning"
+              checked={state.type === 'warning'}
+              onChange={event => setState({ type: event.target.value })}
+            >
+              <Label isRegular>Warning</Label>
+            </Radio>
+          </Field>
+          <Field>
+            <Radio
+              name="notification-type"
+              value="info"
+              checked={state.type === 'info'}
+              onChange={event => setState({ type: event.target.value })}
+            >
+              <Label isRegular>Info</Label>
+            </Radio>
+          </Field>
+        </div>
+      </Well>
     </Col>
     <Col size={12}>
-      <Notification type="success">
-        <Title>Success Notification</Title>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna.
-        <Close onClick={() => alert('closing notification')} aria-label="Close Notification" />
-      </Notification>
-    </Col>
-    <Col size={12}>
-      <Notification type="warning">
+      <Notification type={state.type}>
         <Title>Warning Notification</Title>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore magna.
@@ -79,36 +147,68 @@ or other assistive technique to have discernible text.
       </Notification>
     </Col>
     <Col size={12}>
-      <Notification type="error">
-        <Title>Error Notification</Title>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna.
-        <Close onClick={() => alert('closing notification')} aria-label="Close Notification" />
-      </Notification>
-    </Col>
-    <Col size={12}>
-      <Notification type="info">
-        <Title>Info Notification</Title>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna.
+      <Notification type={state.type}>
+        <Title>
+          Notification: {capitalize(state.type)} {state.isMultiLine ? '(Multi-line)' : ''}
+        </Title>
+        {state.isMultiLine ? (
+          <Paragraph>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          </Paragraph>
+        ) : (
+          `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+          incididunt ut labore et dolore magna.`
+        )}
         <Close onClick={() => alert('closing notification')} aria-label="Close Notification" />
       </Notification>
     </Col>
   </Row>
-</Grid>
+</Grid>;
 ```
 
-The `<Paragraph>` component should be used to wrap multi-line content within a `<Well>`. Otherwise,
-no wrapper is necessary.
+## Well
 
-Default wells
+The `<Paragraph>` component should be used to wrap multi-line content within a `<Well>`.
+Otherwise, no wrapper is necessary.
 
 ```jsx
+const { Field, Label, Radio, Toggle } = require('@zendeskgarden/react-forms/src');
+
+const initialState = {
+  isFloating: false,
+  isRecessed: false
+};
+
 <Grid>
   <Row>
     <Col>
-      <Well>
-        <Title>Well: Standard (Multi-line)</Title>
+      <Well isRecessed>
+        <Field>
+          <Toggle
+            checked={state.isFloating}
+            onChange={event => setState({ isFloating: event.target.checked })}
+          >
+            <Label>Floating</Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-xs">
+          <Toggle
+            checked={state.isRecessed}
+            onChange={event => setState({ isRecessed: event.target.checked })}
+          >
+            <Label>Recessed</Label>
+          </Toggle>
+        </Field>
+      </Well>
+    </Col>
+  </Row>
+  <Row className="u-mt-xs">
+    <Col>
+      <Well isRecessed={state.isRecessed} isFloating={state.isFloating}>
+        <Title>Well (Multi-line)</Title>
         <Paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
@@ -120,44 +220,11 @@ Default wells
   </Row>
   <Row>
     <Col md>
-      <Well>
-        <Title>Well: Standard (One-line)</Title>
-        Lorem ipsum dolor sit amet, consectetur adipiscing.
-      </Well>
-    </Col>
-    <Col md>
-      <Well recessed>
-        <Title>Recessed Well: Standard (One-line)</Title>
+      <Well isRecessed={state.isRecessed} isFloating={state.isFloating}>
+        <Title>Well (One-line)</Title>
         Lorem ipsum dolor sit amet, consectetur adipiscing.
       </Well>
     </Col>
   </Row>
-</Grid>
-```
-
-You can also use a floating `Well` to emphasize content
-
-```jsx
-<Grid>
-  <Row>
-    <Col size={12}>
-      <Well isFloating>
-        <Title>Floating Well: Standard (Multi-line)</Title>
-        <Paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </Paragraph>
-      </Well>
-    </Col>
-    <Col size={12}>
-      <Well isFloating>
-        <Title>Floating Well: Standard (One-line)</Title>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua.
-      </Well>
-    </Col>
-  </Row>
-</Grid>
+</Grid>;
 ```
