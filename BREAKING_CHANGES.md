@@ -120,7 +120,21 @@ New features/fixes include:
 
 - removed; see `@zendeskgarden/container-selection`
 
-## @zendesk/react-tabs
+## @zendeskgarden/react-tables
+
+- no longer packages a `styles.css` dist; CSS is self-contained
+- All components now use standard `<table>` styling
+- Removed all `focused`, `active`, and `hovered` states from components
+- Component props renames:
+  - `Cell`
+    - `minimum` -> `isMinimum`
+    - `truncate` -> `isTruncated`
+    - `menu` -> `hasOverflow`
+  - `Row`
+    - `striped` -> `isStriped`
+    - `selected` -> `isSelected`
+
+## @zendeskgarden/react-tabs
 
 - no longer packages a `styles.css` dist; CSS is self-contained
 - new required structure for `Tabs` component
