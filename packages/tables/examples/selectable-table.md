@@ -65,7 +65,7 @@ const isSelectAllChecked = (selectedRows, rows) => {
   </Head>
   <Body>
     {state.rows.map(row => (
-      <Row key={row.id} selected={state.selectedRows[row.id]}>
+      <Row key={row.id} isSelected={state.selectedRows[row.id]}>
         <Cell isMinimum>
           <Field>
             <Checkbox
