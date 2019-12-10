@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledAlert, IStyledAlertProps } from '../styled';
 import { VALIDATION } from '../utils/types';
@@ -13,9 +13,10 @@ import { VALIDATION } from '../utils/types';
 /**
  * Supports all `<div>` props
  */
-export const Alert = React.forwardRef<HTMLDivElement, IStyledAlertProps>((props, ref) => (
-  <StyledAlert ref={ref} {...props} />
-));
+export const Alert = React.forwardRef<
+  HTMLDivElement,
+  IStyledAlertProps & HTMLAttributes<HTMLDivElement>
+>((props, ref) => <StyledAlert ref={ref} {...props} />);
 
 Alert.propTypes = {
   type: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR, VALIDATION.INFO])
