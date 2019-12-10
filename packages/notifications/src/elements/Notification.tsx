@@ -8,7 +8,7 @@
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledNotification, IStyledNotificationProps } from '../styled';
-import { VALIDATION } from '../utils/types';
+import { ARRAY_VALIDATION_TYPES } from '../utils/types';
 
 /**
  * Supports all `<div>` props
@@ -19,5 +19,5 @@ export const Notification = React.forwardRef<
 >((props, ref) => <StyledNotification ref={ref} {...props} />);
 
 Notification.propTypes = {
-  type: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR, VALIDATION.INFO])
+  type: PropTypes.oneOf(ARRAY_VALIDATION_TYPES)
 };

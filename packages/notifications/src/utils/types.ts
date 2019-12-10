@@ -6,10 +6,9 @@
  */
 
 export type VALIDATION_TYPES = 'success' | 'warning' | 'error' | 'info';
-
-export enum VALIDATION {
-  SUCCESS = 'success',
-  WARNING = 'warning',
-  ERROR = 'error',
-  INFO = 'info'
-}
+export const ARRAY_VALIDATION_TYPES: Array<VALIDATION_TYPES> = [
+  'success',
+  'warning',
+  'error',
+  'info'
+];

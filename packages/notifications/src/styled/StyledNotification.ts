@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import CalloutStyles from '@zendeskgarden/css-callouts';
 import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
-import { VALIDATION, VALIDATION_TYPES } from '../utils/types';
+import { VALIDATION_TYPES, ARRAY_VALIDATION_TYPES } from '../utils/types';
 
 const COMPONENT_ID = 'notifications.notification';
 
@@ -29,15 +29,15 @@ export const StyledNotification = styled.div.attrs<IStyledNotificationProps>(pro
     [CalloutStyles['is-rtl']]: isRtl(props),
 
     // Validation types
-    [CalloutStyles['c-callout--success']]: props.type === VALIDATION.SUCCESS,
-    [CalloutStyles['c-callout--warning']]: props.type === VALIDATION.WARNING,
-    [CalloutStyles['c-callout--error']]: props.type === VALIDATION.ERROR,
-    [CalloutStyles['c-callout--info']]: props.type === VALIDATION.INFO
+    [CalloutStyles['c-callout--success']]: props.type === 'success',
+    [CalloutStyles['c-callout--warning']]: props.type === 'warning',
+    [CalloutStyles['c-callout--error']]: props.type === 'error',
+    [CalloutStyles['c-callout--info']]: props.type === 'info'
   })
 }))<IStyledNotificationProps>`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledNotification.propTypes = {
-  type: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR, VALIDATION.INFO])
+  type: PropTypes.oneOf(ARRAY_VALIDATION_TYPES)
 };

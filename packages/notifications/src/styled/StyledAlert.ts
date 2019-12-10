@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import classNames from 'classnames';
 import CalloutStyles from '@zendeskgarden/css-callouts';
 import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
-import { VALIDATION, VALIDATION_TYPES } from '../utils/types';
+import { VALIDATION_TYPES } from '../utils/types';
 
 const COMPONENT_ID = 'notifications.alert';
 
@@ -28,13 +28,13 @@ export const StyledAlert = styled.div.attrs<IStyledAlertProps>(props => ({
     [CalloutStyles['is-rtl']]: isRtl(props),
 
     // Styles
-    [CalloutStyles['c-callout--recessed']]: props.type === VALIDATION.INFO,
+    [CalloutStyles['c-callout--recessed']]: props.type === 'info',
 
     // Validation types
-    [CalloutStyles['c-callout--success']]: props.type === VALIDATION.SUCCESS,
-    [CalloutStyles['c-callout--warning']]: props.type === VALIDATION.WARNING,
-    [CalloutStyles['c-callout--error']]: props.type === VALIDATION.ERROR,
-    [CalloutStyles['c-callout--info']]: props.type === VALIDATION.INFO
+    [CalloutStyles['c-callout--success']]: props.type === 'success',
+    [CalloutStyles['c-callout--warning']]: props.type === 'warning',
+    [CalloutStyles['c-callout--error']]: props.type === 'error',
+    [CalloutStyles['c-callout--info']]: props.type === 'info'
   })
 }))<IStyledAlertProps>`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
