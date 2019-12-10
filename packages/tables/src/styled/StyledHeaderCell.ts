@@ -11,7 +11,8 @@ import { StyledCell } from './StyledCell';
 
 const COMPONENT_ID = 'tables.header_cell';
 
-export const StyledHeaderCell = styled(StyledCell.withComponent('th')).attrs({
+export const StyledHeaderCell = styled(StyledCell).attrs({
+  as: 'th',
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

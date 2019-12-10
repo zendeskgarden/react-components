@@ -18,6 +18,10 @@ export const Table = React.forwardRef<
   IStyledTableProps & HTMLAttributes<HTMLTableElement>
 >((props, ref) => <StyledTable ref={ref} {...props} />);
 
+Table.defaultProps = {
+  size: 'medium'
+};
+
 Table.propTypes = {
-  size: PropTypes.oneOf(['small', 'large'])
+  size: PropTypes.oneOf(['small', 'medium', 'large'])
 };

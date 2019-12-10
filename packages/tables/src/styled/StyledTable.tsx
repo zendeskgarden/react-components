@@ -12,7 +12,7 @@ import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tables.table';
 
-type SIZE = 'small' | 'large';
+type SIZE = 'small' | 'medium' | 'large';
 
 export interface IStyledTableProps {
   size?: SIZE;

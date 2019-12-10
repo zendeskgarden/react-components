@@ -39,6 +39,7 @@ const isSelectAllChecked = (selectedRows, rows) => {
       <HeaderCell isMinimum>
         <Field>
           <Checkbox
+            indeterminate={isSelectAllIndeterminate(state.selectedRows, state.rows)}
             checked={isSelectAllChecked(state.selectedRows, state.rows)}
             onChange={e => {
               if (e.target.checked) {
@@ -54,9 +55,7 @@ const isSelectAllChecked = (selectedRows, rows) => {
               }
             }}
           >
-            <Label hidden indeterminate={isSelectAllIndeterminate(state.selectedRows, state.rows)}>
-              Select all tickets
-            </Label>
+            <Label hidden>Select all tickets</Label>
           </Checkbox>
         </Field>
       </HeaderCell>
