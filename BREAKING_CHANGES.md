@@ -6,7 +6,7 @@ should be re-checked for ID naming accuracy.
 
 ## @zendeskgarden/react-notifications
 
-- Boolean props for this package is updated to align with `isBoolean` naming. The following are
+- Boolean props for this package are updated to align with `isBoolean` naming. The following are
   prop name changes for the `<Well>` component:
 
   - `floating` -> `isFloating`
