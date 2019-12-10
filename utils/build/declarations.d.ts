@@ -11,7 +11,6 @@ declare const PACKAGE_VERSION: string;
 /** React packages */
 declare module '@zendeskgarden/container-focusvisible';
 declare module '@zendeskgarden/container-keyboardfocus';
-declare module '@zendeskgarden/react-selection';
 declare module '@zendeskgarden/react-utilities';
 
 /** Files */
