@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { getColor } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { StyledTag } from './StyledTag';
 
 describe('StyledTag', () => {
@@ -78,14 +78,14 @@ describe('StyledTag', () => {
 
     it('renders a dark foreground on a light background', () => {
       const { container } = render(<StyledTag hue="white" />);
-      const color = getColor('foreground');
+      const color = DEFAULT_THEME.colors.foreground;
 
       expect(container.firstChild).toHaveStyleRule('color', color);
     });
 
     it('renders a light foreground on a dark background', () => {
       const { container } = render(<StyledTag hue="black" />);
-      const color = getColor('background');
+      const color = DEFAULT_THEME.colors.background;
 
       expect(container.firstChild).toHaveStyleRule('color', color);
     });

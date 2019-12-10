@@ -32,8 +32,8 @@ const colorStyles = (props: IStyledTagProps & ThemeProps<DefaultTheme>) => {
     } else {
       foregroundColor = readableColor(
         backgroundColor!,
-        getColor('foreground', 600 /* DEFAULT_SHADE */, props.theme),
-        getColor('background', 600 /* DEFAULT_SHADE */, props.theme)
+        props.theme.colors.foreground,
+        props.theme.colors.background
       );
     }
   } else {
