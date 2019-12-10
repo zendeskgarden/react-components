@@ -79,7 +79,8 @@ Otherwise, no wrapper is necessary. Usage of `<Close />` must contain an `aria-l
 assistive technique to have discernible text.
 
 ```jsx
-const { Field, Label, Radio } = require('@zendeskgarden/react-forms/src');
+const { Field, Label, Radio, Toggle } = require('@zendeskgarden/react-forms/src');
+
 const { MD } = require('@zendeskgarden/react-typography/src');
 
 const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1);
@@ -138,13 +139,17 @@ const initialState = {
         </div>
       </Well>
     </Col>
-    <Col size={12}>
-      <Notification type={state.type}>
-        <Title>Warning Notification</Title>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna.
-        <Close onClick={() => alert('closing notification')} aria-label="Close Notification" />
-      </Notification>
+    <Col>
+      <Well isRecessed>
+        <Field>
+          <Toggle
+            checked={state.isMultiLine}
+            onChange={event => setState({ isMultiLine: event.target.checked })}
+          >
+            <Label>Multi-line</Label>
+          </Toggle>
+        </Field>
+      </Well>
     </Col>
     <Col size={12}>
       <Notification type={state.type}>
@@ -179,7 +184,8 @@ const { Field, Label, Radio, Toggle } = require('@zendeskgarden/react-forms/src'
 
 const initialState = {
   isFloating: false,
-  isRecessed: false
+  isRecessed: false,
+  isMultiLine: false
 };
 
 <Grid>
@@ -202,6 +208,14 @@ const initialState = {
             <Label>Recessed</Label>
           </Toggle>
         </Field>
+        <Field className="u-mt-xs">
+          <Toggle
+            checked={state.isMultiLine}
+            onChange={event => setState({ isMultiLine: event.target.checked })}
+          >
+            <Label>Multi-line</Label>
+          </Toggle>
+        </Field>
       </Well>
     </Col>
   </Row>
@@ -209,20 +223,16 @@ const initialState = {
     <Col>
       <Well isRecessed={state.isRecessed} isFloating={state.isFloating}>
         <Title>Well (Multi-line)</Title>
-        <Paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </Paragraph>
-      </Well>
-    </Col>
-  </Row>
-  <Row>
-    <Col md>
-      <Well isRecessed={state.isRecessed} isFloating={state.isFloating}>
-        <Title>Well (One-line)</Title>
-        Lorem ipsum dolor sit amet, consectetur adipiscing.
+        {state.isMultiLine ? (
+          <Paragraph>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          </Paragraph>
+        ) : (
+          'Lorem ipsum dolor sit amet, consectetur adipiscing.'
+        )}
       </Well>
     </Col>
   </Row>
