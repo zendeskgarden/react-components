@@ -116,6 +116,10 @@ New features/fixes include:
   - Use `duration` instead which accepts `ms` defaults to 1250ms
 - `<Skeleton />` loader has renamed `dark` prop to `isDark`
 
+## @zendeskgarden/react-selection
+
+- removed; see `@zendeskgarden/container-selection`
+
 ## @zendesk/react-tabs
 
 - no longer packages a `styles.css` dist; CSS is self-contained
