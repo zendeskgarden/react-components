@@ -46,7 +46,7 @@ initialState = {
 <Grid>
   <Row>
     <Col>
-      <Well recessed style={{ width: 180 }}>
+      <Well isRecessed style={{ width: 180 }}>
         <Field>
           <Toggle
             checked={state.debug}

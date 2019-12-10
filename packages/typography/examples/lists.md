@@ -63,7 +63,7 @@ const NestedList = ({ level = 0, ...props }) => {
 <Grid>
   <Row>
     <Col>
-      <Well recessed style={{ width: 300 }}>
+      <Well isRecessed style={{ width: 300 }}>
         <Field>
           <Toggle
             checked={state.ordered}

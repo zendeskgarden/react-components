@@ -17,7 +17,7 @@ initialState = {
 <Grid>
   <Row>
     <Col>
-      <Well recessed style={{ width: 300 }}>
+      <Well isRecessed style={{ width: 300 }}>
         <Dropdown selectedItem={state.hue} onSelect={hue => setState({ hue })}>
           <Field>
             <Label>Hue</Label>

@@ -38,7 +38,7 @@ const StyledSpacedField = styled(Field)`
     <Grid>
       <Row>
         <Col md={4}>
-          <Well recessed>
+          <Well isRecessed>
             <StyledSpacedField>
               <Toggle
                 checked={state.isVertical}

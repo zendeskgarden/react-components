@@ -91,7 +91,7 @@ const StyledSpacer = styled.div`
 >
   {(state, setState) => (
     <Grid>
-      <Well recessed>
+      <Well isRecessed>
         <Row>
           <Col md={6} alignSelf="start">
             <Dropdown selectedItem={state.product} onSelect={product => setState({ product })}>

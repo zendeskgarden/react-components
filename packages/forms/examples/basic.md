@@ -42,7 +42,7 @@ const StyledMessage = styled(Message)`
 <Grid>
   <Row>
     <Col size="5">
-      <Well recessed style={{ width: 300 }}>
+      <Well isRecessed style={{ width: 300 }}>
         <Field>
           <Toggle
             checked={!!state.regular}
@@ -220,7 +220,7 @@ initialState = {
 <Grid>
   <Row>
     <Col size="7">
-      <Well recessed style={{ width: 360 }}>
+      <Well isRecessed style={{ width: 360 }}>
         <Field>
           <Toggle
             checked={state.indeterminate}
@@ -352,7 +352,7 @@ initialState = {
 <Grid>
   <Row>
     <Col>
-      <Well recessed style={{ width: 300 }}>
+      <Well isRecessed style={{ width: 300 }}>
         <Field>
           <Toggle onChange={event => setState({ disabled: event.target.checked })}>
             <Label>Disabled</Label>

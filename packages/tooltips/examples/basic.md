@@ -60,7 +60,7 @@ const retrieveTooltipContent = (size, type) => {
     <Grid>
       <Row>
         <Col md={5}>
-          <Well recessed>
+          <Well isRecessed>
             <StyledSpacer>
               <Dropdown
                 selectedItem={state.placement}
