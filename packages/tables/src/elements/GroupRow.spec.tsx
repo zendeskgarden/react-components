@@ -8,13 +8,35 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 
+import { Table } from './Table';
+import { Body } from './Body';
 import { GroupRow } from './GroupRow';
 
 describe('GroupRow', () => {
-  it('applies default styling by default', () => {
-    const { container } = render(<GroupRow />);
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<HTMLTableRowElement>();
+    const { getByTestId } = render(
+      <Table>
+        <Body>
+          <GroupRow data-test-id="groupRow" ref={ref} />
+        </Body>
+      </Table>
+    );
 
-    expect(container.firstChild).toHaveClass('c-table__row');
-    expect(container.firstChild).toHaveClass('c-table__row--group');
+    expect(getByTestId('groupRow')).toBe(ref.current);
+  });
+
+  it('applies default styling by default', () => {
+    const { getByTestId } = render(
+      <Table>
+        <Body>
+          <GroupRow data-test-id="groupRow" />
+        </Body>
+      </Table>
+    );
+    const groupRow = getByTestId('groupRow');
+
+    expect(groupRow).toHaveClass('c-table__row');
+    expect(groupRow).toHaveClass('c-table__row--group');
   });
 });

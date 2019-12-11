@@ -8,13 +8,35 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 
+import { Table } from './Table';
+import { Head } from './Head';
 import { HeaderRow } from './HeaderRow';
 
 describe('HeaderRow', () => {
-  it('applies default styling by default', () => {
-    const { container } = render(<HeaderRow />);
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<HTMLTableRowElement>();
+    const { getByTestId } = render(
+      <Table>
+        <Head>
+          <HeaderRow data-test-id="headerRow" ref={ref} />
+        </Head>
+      </Table>
+    );
 
-    expect(container.firstChild).toHaveClass('c-table__row');
-    expect(container.firstChild).toHaveClass('c-table__row--header');
+    expect(getByTestId('headerRow')).toBe(ref.current);
+  });
+
+  it('applies default styling by default', () => {
+    const { getByTestId } = render(
+      <Table>
+        <Head>
+          <HeaderRow data-test-id="headerRow" />
+        </Head>
+      </Table>
+    );
+    const headerRow = getByTestId('headerRow');
+
+    expect(headerRow).toHaveClass('c-table__row');
+    expect(headerRow).toHaveClass('c-table__row--header');
   });
 });

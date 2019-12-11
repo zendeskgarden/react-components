@@ -8,38 +8,96 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 
+import { Table } from './Table';
+import { Head } from './Head';
+import { HeaderRow } from './HeaderRow';
 import { SortableCell } from './SortableCell';
 
 describe('SortableCell', () => {
-  it('applies default styling', () => {
-    const { getByTestId } = render(<SortableCell data-test-id="button" />);
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<HTMLButtonElement>();
+    const { getByTestId } = render(
+      <Table>
+        <Head>
+          <HeaderRow>
+            <SortableCell data-test-id="sortable" ref={ref} />
+          </HeaderRow>
+        </Head>
+      </Table>
+    );
 
-    expect(getByTestId('button')).toHaveClass('c-table__row__cell__sortable');
+    expect(getByTestId('sortable')).toBe(ref.current);
+  });
+
+  it('applies default styling', () => {
+    const { getByTestId } = render(
+      <Table>
+        <Head>
+          <HeaderRow>
+            <SortableCell data-test-id="sortable" />
+          </HeaderRow>
+        </Head>
+      </Table>
+    );
+
+    expect(getByTestId('sortable')).toHaveClass('c-table__row__cell__sortable');
   });
 
   it('applies focused styling if provided', () => {
-    const { getByTestId } = render(<SortableCell isFocused data-test-id="button" />);
+    const { getByTestId } = render(
+      <Table>
+        <Head>
+          <HeaderRow>
+            <SortableCell data-test-id="sortable" isFocused />
+          </HeaderRow>
+        </Head>
+      </Table>
+    );
 
-    expect(getByTestId('button')).toHaveClass('is-focused');
+    expect(getByTestId('sortable')).toHaveClass('is-focused');
   });
 
   it('applies active styling if provided', () => {
-    const { getByTestId } = render(<SortableCell isActive data-test-id="button" />);
+    const { getByTestId } = render(
+      <Table>
+        <Head>
+          <HeaderRow>
+            <SortableCell data-test-id="sortable" isActive />
+          </HeaderRow>
+        </Head>
+      </Table>
+    );
 
-    expect(getByTestId('button')).toHaveClass('is-active');
+    expect(getByTestId('sortable')).toHaveClass('is-active');
   });
 
   describe('sorting', () => {
     it('applies ascending props when applied', () => {
-      const { getByTestId } = render(<SortableCell sort="asc" data-test-id="button" />);
+      const { getByTestId } = render(
+        <Table>
+          <Head>
+            <HeaderRow>
+              <SortableCell data-test-id="sortable" sort="asc" />
+            </HeaderRow>
+          </Head>
+        </Table>
+      );
 
-      expect(getByTestId('button')).toHaveClass('is-ascending');
+      expect(getByTestId('sortable')).toHaveClass('is-ascending');
     });
 
     it('applies descending props when applied', () => {
-      const { getByTestId } = render(<SortableCell sort="desc" data-test-id="button" />);
+      const { getByTestId } = render(
+        <Table>
+          <Head>
+            <HeaderRow>
+              <SortableCell data-test-id="sortable" sort="desc" />
+            </HeaderRow>
+          </Head>
+        </Table>
+      );
 
-      expect(getByTestId('button')).toHaveClass('is-descending');
+      expect(getByTestId('sortable')).toHaveClass('is-descending');
     });
   });
 });

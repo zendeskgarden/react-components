@@ -11,6 +11,13 @@ import { render, renderRtl } from 'garden-test-utils';
 import { Table } from './Table';
 
 describe('Table', () => {
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<HTMLTableElement>();
+    const { container } = render(<Table ref={ref} />);
+
+    expect(container.firstChild).toBe(ref.current);
+  });
+
   it('renders default styling', () => {
     const { container } = render(<Table />);
 

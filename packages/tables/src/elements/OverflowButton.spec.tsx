@@ -11,6 +11,13 @@ import { render, fireEvent } from 'garden-test-utils';
 import { OverflowButton } from './OverflowButton';
 
 describe('OverflowButton', () => {
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<HTMLButtonElement>();
+    const { container } = render(<OverflowButton ref={ref} />);
+
+    expect(container.firstChild).toBe(ref.current);
+  });
+
   it('applies default styling by default', () => {
     const { container } = render(<OverflowButton />);
 

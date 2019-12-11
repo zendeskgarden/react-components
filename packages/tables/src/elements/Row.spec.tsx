@@ -8,55 +8,114 @@
 import React from 'react';
 import { render, fireEvent } from 'garden-test-utils';
 
+import { Table } from './Table';
+import { Body } from './Body';
 import { Row } from './Row';
 
 describe('Row', () => {
-  it('applies default styling by default', () => {
-    const { container } = render(<Row />);
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<HTMLTableRowElement>();
+    const { getByTestId } = render(
+      <Table>
+        <Body>
+          <Row data-test-id="row" ref={ref} />
+        </Body>
+      </Table>
+    );
 
-    expect(container.firstChild).toHaveClass('c-table__row');
+    expect(getByTestId('row')).toBe(ref.current);
+  });
+
+  it('applies default styling by default', () => {
+    const { getByTestId } = render(
+      <Table>
+        <Body>
+          <Row data-test-id="row" />
+        </Body>
+      </Table>
+    );
+
+    expect(getByTestId('row')).toHaveClass('c-table__row');
   });
 
   it('applies hovered styling if provided', () => {
-    const { container } = render(<Row isHovered />);
+    const { getByTestId } = render(
+      <Table>
+        <Body>
+          <Row data-test-id="row" isHovered />
+        </Body>
+      </Table>
+    );
 
-    expect(container.firstChild).toHaveClass('is-hovered');
+    expect(getByTestId('row')).toHaveClass('is-hovered');
   });
 
   it('applies selected styling if provided', () => {
-    const { container } = render(<Row isSelected />);
+    const { getByTestId } = render(
+      <Table>
+        <Body>
+          <Row data-test-id="row" isSelected />
+        </Body>
+      </Table>
+    );
 
-    expect(container.firstChild).toHaveClass('is-selected');
+    expect(getByTestId('row')).toHaveClass('is-selected');
   });
 
   it('applies focused styling if provided', () => {
-    const { container } = render(<Row isFocused />);
+    const { getByTestId } = render(
+      <Table>
+        <Body>
+          <Row data-test-id="row" isFocused />
+        </Body>
+      </Table>
+    );
 
-    expect(container.firstChild).toHaveClass('is-focused');
+    expect(getByTestId('row')).toHaveClass('is-focused');
   });
 
   it('applies striped styling if provided', () => {
-    const { container } = render(<Row isStriped />);
+    const { getByTestId } = render(
+      <Table>
+        <Body>
+          <Row data-test-id="row" isStriped />
+        </Body>
+      </Table>
+    );
 
-    expect(container.firstChild).toHaveClass('c-table__row--stripe');
+    expect(getByTestId('row')).toHaveClass('c-table__row--stripe');
   });
 
   describe('onFocus', () => {
     it('applies focused state', () => {
-      const { container } = render(<Row />);
+      const { getByTestId } = render(
+        <Table>
+          <Body>
+            <Row data-test-id="row" />
+          </Body>
+        </Table>
+      );
+      const row = getByTestId('row');
 
-      fireEvent.focus(container.firstElementChild!);
-      expect(container.firstChild).toHaveClass('is-focused');
+      fireEvent.focus(row);
+      expect(row).toHaveClass('is-focused');
     });
   });
 
   describe('onBlur', () => {
     it('removes focused state', () => {
-      const { container } = render(<Row />);
+      const { getByTestId } = render(
+        <Table>
+          <Body>
+            <Row data-test-id="row" />
+          </Body>
+        </Table>
+      );
+      const row = getByTestId('row');
 
-      fireEvent.focus(container.firstElementChild!);
-      fireEvent.blur(container.firstElementChild!);
-      expect(container.firstChild).not.toHaveClass('is-focused');
+      fireEvent.focus(row);
+      fireEvent.blur(row);
+      expect(row).not.toHaveClass('is-focused');
     });
   });
 });
