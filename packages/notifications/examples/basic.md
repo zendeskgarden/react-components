@@ -127,7 +127,7 @@ const initialState = {
 
 <Grid>
   <Row>
-    <Col size={12}>
+    <Col md={4}>
       <Well isRecessed>
         <div role="group" aria-label="alert types radio">
           <StyledMd>Alert Types</StyledMd>
@@ -172,21 +172,17 @@ const initialState = {
             </Radio>
           </Field>
         </div>
-      </Well>
-    </Col>
-    <Col>
-      <Well isRecessed>
-        <Field>
+        <Field className="u-mt-xs">
           <Toggle
             checked={state.isMultiLine}
             onChange={event => setState({ isMultiLine: event.target.checked })}
           >
-            <Label>Multi-line</Label>
+            <Label>Show Multi-line</Label>
           </Toggle>
         </Field>
       </Well>
     </Col>
-    <Col size={12}>
+    <Col md={8}>
       <Notification type={state.type}>
         <Title>
           Notification: {notificationTitles[state.type]} {state.isMultiLine ? '(Multi-line)' : ''}
@@ -225,7 +221,7 @@ const initialState = {
 
 <Grid>
   <Row>
-    <Col>
+    <Col md={4}>
       <Well isRecessed>
         <Field>
           <Toggle
@@ -248,14 +244,12 @@ const initialState = {
             checked={state.isMultiLine}
             onChange={event => setState({ isMultiLine: event.target.checked })}
           >
-            <Label>Multi-line</Label>
+            <Label>Show Multi-line</Label>
           </Toggle>
         </Field>
       </Well>
     </Col>
-  </Row>
-  <Row className="u-mt-xs">
-    <Col>
+    <Col md={8}>
       <Well isRecessed={state.isRecessed} isFloating={state.isFloating}>
         <Title>Well (Multi-line)</Title>
         {state.isMultiLine ? (
