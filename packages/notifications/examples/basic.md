@@ -13,7 +13,7 @@ const initialState = { type: 'success' };
 
 <Grid>
   <Row>
-    <Col>
+    <Col md={4}>
       <Well isRecessed>
         <div role="group" aria-label="alert types radio">
           <MD style={{ color: '#2f3941', fontWeight: 600 }}>Alert Types</MD>
@@ -60,7 +60,7 @@ const initialState = { type: 'success' };
         </div>
       </Well>
     </Col>
-    <Col>
+    <Col md={8}>
       <Alert type={state.type}>
         <Title>{capitalize(state.type)} Alert</Title>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
