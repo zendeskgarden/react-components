@@ -1,6 +1,11 @@
 ```jsx
-const { XL } = require('@zendeskgarden/react-typography/src');
 const { Field, Checkbox, Label } = require('@zendeskgarden/react-forms/src');
+
+const StyledCaption = styled(Caption)`
+  line-height: ${props => props.theme.lineHeights.xl};
+  font-size: ${props => props.theme.fontSizes.xl};
+  margin-bottom: ${props => props.theme.space.sm};
+`;
 
 const data = [];
 
@@ -31,9 +36,7 @@ const isSelectAllChecked = (selectedRows, rows) => {
 };
 
 <Table>
-  <XL tag={Caption} style={{ marginBottom: DEFAULT_THEME.space.sm }}>
-    Selectable Ticket View
-  </XL>
+  <StyledCaption>Selectable Ticket View</StyledCaption>
   <Head>
     <HeaderRow>
       <HeaderCell isMinimum>

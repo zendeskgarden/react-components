@@ -5,7 +5,11 @@ To ensure that your table is read correctly by assistive technologies
 follow the [W3C Grid accessibility pattern](https://www.w3.org/TR/wai-aria-practices/#grid).
 
 ```jsx
-const { XL } = require('@zendeskgarden/react-typography/src');
+const StyledCaption = styled(Caption)`
+  line-height: ${props => props.theme.lineHeights.xl};
+  font-size: ${props => props.theme.fontSizes.xl};
+  margin-bottom: ${props => props.theme.space.sm};
+`;
 
 const rowData = [];
 
@@ -26,9 +30,7 @@ const StyledScrollableContainer = styled.div`
 
 <div role="grid" aria-rowcount={rowData.length} aria-labelledby="caption">
   <Table role="presentation">
-    <XL tag={Caption} style={{ marginBottom: DEFAULT_THEME.space.sm }} id="caption">
-      Your Scrollable Tickets
-    </XL>
+    <StyledCaption id="caption">Your Scrollable Tickets</StyledCaption>
     <Head>
       <HeaderRow role="row">
         <HeaderCell isTruncated role="columnheader">

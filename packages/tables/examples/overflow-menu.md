@@ -10,7 +10,12 @@ or other assistive technique to have discernible text.
 
 ```jsx
 const { Dropdown, Trigger, Menu, Item } = require('@zendeskgarden/react-dropdowns/src');
-const { XL } = require('@zendeskgarden/react-typography/src');
+
+const StyledCaption = styled(Caption)`
+  line-height: ${props => props.theme.lineHeights.xl};
+  font-size: ${props => props.theme.fontSizes.xl};
+  margin-bottom: ${props => props.theme.space.sm};
+`;
 
 const OverflowMenu = () => (
   <Dropdown onSelect={selectedKey => alert(selectedKey)}>
@@ -45,9 +50,7 @@ const OverflowMenu = () => (
 );
 
 <Table>
-  <XL tag={Caption} style={{ marginBottom: DEFAULT_THEME.space.sm }}>
-    Overflow Menus
-  </XL>
+  <StyledCaption>Overflow Menus</StyledCaption>
   <Head>
     <HeaderRow>
       <HeaderCell>Subject</HeaderCell>

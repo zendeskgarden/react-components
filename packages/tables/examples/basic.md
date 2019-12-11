@@ -13,12 +13,12 @@ const {
   Item
 } = require('@zendeskgarden/react-dropdowns/src');
 const { Field: FormsField, Toggle, Label: ToggleLabel } = require('@zendeskgarden/react-forms/src');
-const { XL } = require('@zendeskgarden/react-typography/src');
 
 initialState = {
   rowSize: 'default',
   isStriped: false,
   isGrouped: false,
+  showCaption: true,
   data: [
     {
       content: (
@@ -73,6 +73,12 @@ const StyledSpacer = styled.div`
   margin-bottom: ${props => props.theme.space.sm};
 `;
 
+const StyledCaption = styled(Caption)`
+  line-height: ${props => props.theme.lineHeights.xl};
+  font-size: ${props => props.theme.fontSizes.xl};
+  margin-bottom: ${props => props.theme.space.sm};
+`;
+
 <Layout.Grid>
   <Well recessed>
     <Layout.Row>
@@ -112,15 +118,23 @@ const StyledSpacer = styled.div`
           </Toggle>
         </FormsField>
       </Layout.Col>
+      <Layout.Col>
+        <FormsField>
+          <Toggle
+            checked={state.showCaption}
+            onChange={e => setState({ showCaption: e.target.checked })}
+          >
+            <ToggleLabel>Show caption</ToggleLabel>
+          </Toggle>
+        </FormsField>
+      </Layout.Col>
     </Layout.Row>
   </Well>
   <StyledSpacer />
   <Layout.Row>
     <Layout.Col>
       <Table size={state.rowSize === 'default' ? undefined : state.rowSize}>
-        <XL tag={Caption} style={{ marginBottom: DEFAULT_THEME.space.sm }}>
-          Your Unsolved Tickets
-        </XL>
+        {state.showCaption && <StyledCaption>Your Unsolved Tickets</StyledCaption>}
         <Head>
           <HeaderRow>
             <HeaderCell>Subject</HeaderCell>

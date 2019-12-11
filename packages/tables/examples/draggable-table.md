@@ -13,7 +13,6 @@ for auto layouts.
 ```jsx
 const { DragDropContext, Droppable, Draggable } = require('react-beautiful-dnd');
 const GripIcon = require('@zendeskgarden/svg-icons/src/12/grip.svg').default;
-const { XL } = require('@zendeskgarden/react-typography/src');
 
 const DraggableRow = styled(Row)`
   ${props =>
@@ -24,6 +23,12 @@ const DraggableRow = styled(Row)`
     }
   `
       : ''};
+`;
+
+const StyledCaption = styled(Caption)`
+  line-height: ${props => props.theme.lineHeights.xl};
+  font-size: ${props => props.theme.fontSizes.xl};
+  margin-bottom: ${props => props.theme.space.sm};
 `;
 
 class DraggableCell extends React.Component {
@@ -145,9 +150,7 @@ class DraggableExample extends React.Component {
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <Table>
-          <XL tag={Caption} style={{ marginBottom: DEFAULT_THEME.space.sm }}>
-            Your Unsolved Tickets
-          </XL>
+          <StyledCaption>Your Unsolved Tickets</StyledCaption>
           <Head>
             <HeaderRow>
               <HeaderCell isMinimum />
