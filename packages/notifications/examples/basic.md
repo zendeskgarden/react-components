@@ -7,7 +7,12 @@ discernible text.
 const { Field, Label, Radio } = require('@zendeskgarden/react-forms/src');
 const { MD } = require('@zendeskgarden/react-typography/src');
 
-const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1);
+const alertTitles = {
+  success: 'Success Alert',
+  error: 'Error Alert',
+  warning: 'Warning Alert',
+  info: 'Info Alert'
+};
 
 const initialState = { type: 'success' };
 
@@ -62,7 +67,7 @@ const initialState = { type: 'success' };
     </Col>
     <Col md={8}>
       <Alert type={state.type}>
-        <Title>{capitalize(state.type)} Alert</Title>
+        <Title>{alertTitles[state.type]}</Title>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore magna.
         <Close onClick={() => alert('closing alert')} aria-label="Close Alert" />
@@ -83,7 +88,12 @@ const { Field, Label, Radio, Toggle } = require('@zendeskgarden/react-forms/src'
 
 const { MD } = require('@zendeskgarden/react-typography/src');
 
-const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1);
+const notificationTitles = {
+  success: 'Success',
+  error: 'Error',
+  warning: 'Warning',
+  info: 'Info'
+};
 
 const initialState = {
   type: 'success',
@@ -154,7 +164,7 @@ const initialState = {
     <Col size={12}>
       <Notification type={state.type}>
         <Title>
-          Notification: {capitalize(state.type)} {state.isMultiLine ? '(Multi-line)' : ''}
+          Notification: {notificationTitles[state.type]} {state.isMultiLine ? '(Multi-line)' : ''}
         </Title>
         {state.isMultiLine ? (
           <Paragraph>
