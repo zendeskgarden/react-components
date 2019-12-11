@@ -7,6 +7,13 @@ discernible text.
 const { Field, Label, Radio } = require('@zendeskgarden/react-forms/src');
 const { MD } = require('@zendeskgarden/react-typography/src');
 
+const StyledMd = styled(MD)`
+  ${props => `
+    color: ${props.theme.colors.foreground};
+    font-weight: ${props.theme.fontWeights.semibold}
+  `}
+`;
+
 const alertTitles = {
   success: 'Success Alert',
   error: 'Error Alert',
@@ -21,7 +28,7 @@ const initialState = { type: 'success' };
     <Col md={4}>
       <Well isRecessed>
         <div role="group" aria-label="alert types radio">
-          <MD style={{ color: '#2f3941', fontWeight: 600 }}>Alert Types</MD>
+          <StyledMd>Alert Types</StyledMd>
           <Field>
             <Radio
               name="alert-type"
@@ -88,6 +95,13 @@ const { Field, Label, Radio, Toggle } = require('@zendeskgarden/react-forms/src'
 
 const { MD } = require('@zendeskgarden/react-typography/src');
 
+const StyledMd = styled(MD)`
+  ${props => `
+    color: ${props.theme.colors.foreground};
+    font-weight: ${props.theme.fontWeights.semibold}
+  `}
+`;
+
 const notificationTitles = {
   success: 'Success',
   error: 'Error',
@@ -105,7 +119,7 @@ const initialState = {
     <Col size={12}>
       <Well isRecessed>
         <div role="group" aria-label="alert types radio">
-          <MD style={{ color: '#2f3941', fontWeight: 600 }}>Notification Types</MD>
+          <StyledMd>Alert Types</StyledMd>
           <Field>
             <Radio
               name="notification-type"
