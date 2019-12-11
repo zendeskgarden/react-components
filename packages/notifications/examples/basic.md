@@ -4,7 +4,7 @@ All usages of `<Close />` must contain an `aria-label` or other assistive techni
 discernible text.
 
 ```jsx
-const { Field, Label, Radio } = require('@zendeskgarden/react-forms/src');
+const { Field, Label, Radio, Toggle } = require('@zendeskgarden/react-forms/src');
 const { MD } = require('@zendeskgarden/react-typography/src');
 
 const StyledMd = styled(MD)`
@@ -21,7 +21,7 @@ const alertTitles = {
   info: 'Info Alert'
 };
 
-const initialState = { type: 'success' };
+const initialState = { type: 'success', showClose: false };
 
 <Grid>
   <Row>
@@ -70,6 +70,15 @@ const initialState = { type: 'success' };
             </Radio>
           </Field>
         </div>
+
+        <Field className="u-mt-xs">
+          <Toggle
+            checked={state.showClose}
+            onChange={event => setState({ showClose: event.target.checked })}
+          >
+            <Label>Show Close</Label>
+          </Toggle>
+        </Field>
       </Well>
     </Col>
     <Col md={8}>
@@ -77,7 +86,9 @@ const initialState = { type: 'success' };
         <Title>{alertTitles[state.type]}</Title>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore magna.
-        <Close onClick={() => alert('closing alert')} aria-label="Close Alert" />
+        {state.showClose && (
+          <Close onClick={() => alert('closing alert')} aria-label="Close Alert" />
+        )}
       </Alert>
     </Col>
   </Row>
