@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export type VALIDATION_TYPES = 'success' | 'warning' | 'error' | 'info';
-export const ARRAY_VALIDATION_TYPES: Array<VALIDATION_TYPES> = [
+export type VALIDATION_TYPE = 'success' | 'warning' | 'error' | 'info';
+export const ARRAY_VALIDATION_TYPE: Array<VALIDATION_TYPE> = [
   'success',
   'warning',
   'error',

@@ -8,7 +8,7 @@
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledAlert, IStyledAlertProps } from '../styled';
-import { ARRAY_VALIDATION_TYPES } from '../utils/types';
+import { ARRAY_VALIDATION_TYPE } from '../utils/types';
 
 /**
  * Supports all `<div>` props
@@ -19,5 +19,5 @@ export const Alert = React.forwardRef<
 >((props, ref) => <StyledAlert ref={ref} {...props} />);
 
 Alert.propTypes = {
-  type: PropTypes.oneOf(ARRAY_VALIDATION_TYPES)
+  type: PropTypes.oneOf(ARRAY_VALIDATION_TYPE)
 };

@@ -195,8 +195,8 @@ const initialState = {
             leone bologi leek soko chicory celtuce parsley jícama salsify black-eyed pea quandong.
           </Paragraph>
         ) : (
-          `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna.`
+          `Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon
+           amaranth tatsoi tomatillo melon.`
         )}
         <Close onClick={() => alert('closing notification')} aria-label="Close Notification" />
       </Notification>
@@ -260,7 +260,8 @@ const initialState = {
             leone bologi leek soko chicory celtuce parsley jícama salsify black-eyed pea quandong.
           </Paragraph>
         ) : (
-          'Nori grape silver beets broccoli kombu beet greens.'
+          `Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon
+          amaranth tatsoi tomatillo melon.`
         )}
       </Well>
     </Col>

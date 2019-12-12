@@ -9,12 +9,12 @@ import styled from 'styled-components';
 import classNames from 'classnames';
 import CalloutStyles from '@zendeskgarden/css-callouts';
 import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
-import { VALIDATION_TYPES } from '../utils/types';
+import { VALIDATION_TYPE } from '../utils/types';
 
 const COMPONENT_ID = 'notifications.alert';
 
 export interface IStyledAlertProps {
-  type?: VALIDATION_TYPES;
+  type?: VALIDATION_TYPE;
 }
 
 /**

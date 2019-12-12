@@ -10,12 +10,12 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import CalloutStyles from '@zendeskgarden/css-callouts';
 import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
-import { VALIDATION_TYPES, ARRAY_VALIDATION_TYPES } from '../utils/types';
+import { VALIDATION_TYPE, ARRAY_VALIDATION_TYPE } from '../utils/types';
 
 const COMPONENT_ID = 'notifications.notification';
 
 export interface IStyledNotificationProps {
-  type?: VALIDATION_TYPES;
+  type?: VALIDATION_TYPE;
 }
 
 /**
@@ -39,5 +39,5 @@ export const StyledNotification = styled.div.attrs<IStyledNotificationProps>(pro
 `;
 
 StyledNotification.propTypes = {
-  type: PropTypes.oneOf(ARRAY_VALIDATION_TYPES)
+  type: PropTypes.oneOf(ARRAY_VALIDATION_TYPE)
 };
