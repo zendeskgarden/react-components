@@ -21,7 +21,7 @@ const alertTitles = {
   info: 'Info Alert'
 };
 
-const initialState = { type: 'success', showClose: false };
+const initialState = { type: 'success', showClose: true };
 
 <Grid>
   <Row>
@@ -84,8 +84,8 @@ const initialState = { type: 'success', showClose: false };
     <Col md={8}>
       <Alert type={state.type}>
         <Title>{alertTitles[state.type]}</Title>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna.
+        Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth
+        tatsoi tomatillo melon.
         {state.showClose && (
           <Close onClick={() => alert('closing alert')} aria-label="Close Alert" />
         )}
@@ -189,10 +189,10 @@ const initialState = {
         </Title>
         {state.isMultiLine ? (
           <Paragraph>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery.
+            Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea lettuce
+            lettuce water chestnut eggplant winter purslane fennel azuki bean earthnut pea sierra
+            leone bologi leek soko chicory celtuce parsley jícama salsify black-eyed pea quandong.
           </Paragraph>
         ) : (
           `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -254,13 +254,13 @@ const initialState = {
         <Title>Well (Multi-line)</Title>
         {state.isMultiLine ? (
           <Paragraph>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery.
+            Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea lettuce
+            lettuce water chestnut eggplant winter purslane fennel azuki bean earthnut pea sierra
+            leone bologi leek soko chicory celtuce parsley jícama salsify black-eyed pea quandong.
           </Paragraph>
         ) : (
-          'Lorem ipsum dolor sit amet, consectetur adipiscing.'
+          'Nori grape silver beets broccoli kombu beet greens.'
         )}
       </Well>
     </Col>
