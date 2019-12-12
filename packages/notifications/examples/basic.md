@@ -122,7 +122,7 @@ const notificationTitles = {
 
 const initialState = {
   type: 'success',
-  isMultiLine: true
+  isMultiLine: false
 };
 
 <Grid>
@@ -251,7 +251,7 @@ const initialState = {
     </Col>
     <Col md={8}>
       <Well isRecessed={state.isRecessed} isFloating={state.isFloating}>
-        <Title>Well (Multi-line)</Title>
+        <Title>Well {state.isMultiLine && '(Multi-line)'}</Title>
         {state.isMultiLine ? (
           <Paragraph>
             Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery.
