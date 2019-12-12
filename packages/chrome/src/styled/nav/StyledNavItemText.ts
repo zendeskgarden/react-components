@@ -18,10 +18,10 @@ export interface IStyledNavItemTextProps {
   isWrapped?: boolean;
 }
 
-export const StyledNavItemText = styled.span.attrs<IStyledNavItemTextProps>(() => ({
+export const StyledNavItemText = styled.span.attrs<IStyledNavItemTextProps>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-}))<IStyledNavItemTextProps>`
+})<IStyledNavItemTextProps>`
   position: absolute;
   order: 1;
   clip: rect(1px, 1px, 1px, 1px);

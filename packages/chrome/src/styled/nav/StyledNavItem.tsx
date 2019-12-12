@@ -6,6 +6,7 @@
  */
 
 import styled from 'styled-components';
+import rgba from 'polished/lib/color/rgba';
 import {
   retrieveComponentStyles,
   getColor,
@@ -116,16 +117,16 @@ export const StyledNavItem = styled.button.attrs<IStyledNavItemProps>(props => (
 
   &:hover {
     background-color: ${props =>
-      !props.hasLogo && !props.isCurrent && getColor('black', 600, props.theme, 0.1)};
+      !props.hasLogo && !props.isCurrent && rgba(props.theme.palette.black as string, 0.1)};
   }
 
   &:active {
-    background-color: ${props => !props.hasLogo && getColor('white', 600, props.theme, 0.1)};
+    background-color: ${props => !props.hasLogo && rgba(props.theme.palette.white as string, 0.1)};
   }
 
   &[data-garden-focus-visible] {
     box-shadow: ${props =>
-      !props.hasLogo && `inset 0 0 0 3px ${getColor('white', 600, props.theme, 0.2)}`};
+      !props.hasLogo && `inset 0 0 0 3px ${rgba(props.theme.palette.white as string, 0.2)}`};
   }
 
   &:focus,

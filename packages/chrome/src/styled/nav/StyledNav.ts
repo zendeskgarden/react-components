@@ -7,6 +7,7 @@
 
 import styled, { ThemeProps, css, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import rgba from 'polished/lib/color/rgba';
 import { StyledNavItem } from './StyledNavItem';
 import { NavItemIcon } from '../../elements/nav/NavItemIcon';
 import { StyledNavItemText } from './StyledNavItemText';
@@ -54,11 +55,11 @@ const expandedStyles = (props: ThemeProps<DefaultTheme>) => css`
 const darkStyles = (props: ThemeProps<DefaultTheme>) => css`
   /* stylelint-disable */
   ${StyledNavItem}:not([data-garden-logo='true']):active {
-    background-color: ${getColor('black', 600, props.theme, 0.1)};
+    background-color: ${rgba(props.theme.palette.black as string, 0.1)};
   }
 
   ${StyledNavItem}:not([data-garden-logo='true'])[data-garden-current='true'] {
-    background-color: ${getColor('white', 600, props.theme, 0.3)};
+    background-color: ${rgba(props.theme.palette.white as string, 0.3)};
   }
 
   /* prettier-ignore */
@@ -71,15 +72,15 @@ const darkStyles = (props: ThemeProps<DefaultTheme>) => css`
 const lightStyles = (props: ThemeProps<DefaultTheme>) => css`
   /* stylelint-disable */
   ${StyledNavItem}:not([data-garden-logo='true'])[data-garden-focus-visible] {
-    box-shadow: inset 0 0 0 3px ${getColor('black', 600, props.theme, 0.2)};
+    box-shadow: inset 0 0 0 3px ${rgba(props.theme.palette.black as string, 0.2)};
   }
 
   ${StyledNavItem}:not([data-garden-logo='true']):active {
-    background-color: ${getColor('black', 600, props.theme, 0.1)};
+    background-color: ${rgba(props.theme.palette.black as string, 0.1)};
   }
 
   ${StyledNavItem}:not([data-garden-logo='true'])[data-garden-current='true'] {
-    background-color: ${getColor('black', 600, props.theme, 0.3)};
+    background-color: ${rgba(props.theme.palette.black as string, 0.3)};
   }
 
   /* prettier-ignore */
@@ -101,7 +102,7 @@ export const StyledNav = styled.nav.attrs<IStyledNavProps>({
   order: -1;
   background-color: ${props => {
     if (props.isDark) {
-      return getColor('black', 600, props.theme);
+      return props.theme.palette.black;
     }
 
     if (props.isLight) {

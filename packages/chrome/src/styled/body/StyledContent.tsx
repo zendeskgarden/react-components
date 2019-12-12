@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import stripUnit from 'polished/lib/helpers/stripUnit';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.content';
 
@@ -20,7 +20,7 @@ export const StyledContent = styled.div.attrs({
   line-height: ${props =>
     stripUnit(props.theme.lineHeights.md) / stripUnit(props.theme.fontSizes.md)};
   color: ${props => props.theme.colors.foreground};
-  font-size: ${props => getColor('neutralHue', 800, props.theme)};
+  font-size: ${props => props.theme.fontSizes.md};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

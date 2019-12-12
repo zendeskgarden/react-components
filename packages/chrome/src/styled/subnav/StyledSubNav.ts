@@ -19,7 +19,7 @@ export const StyledSubNav = styled.nav.attrs({
   order: 0;
   background-color: ${props => getColor('chromeHue', 800, props.theme)};
   padding: ${props => `${props.theme.space.base * 6}px ${props.theme.space.base * 5}px`};
-  min-width: ${props => props.theme.space.base * 55}px;
+  min-width: 220px;
   color: ${props => props.theme.colors.background};
   font-size: ${props => props.theme.fontSizes.md};
 

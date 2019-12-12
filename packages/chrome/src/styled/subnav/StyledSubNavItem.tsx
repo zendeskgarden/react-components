@@ -6,7 +6,8 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import rgba from 'polished/lib/color/rgba';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.subnav_item';
 
@@ -38,7 +39,7 @@ export const StyledSubNavItem = styled.button.attrs<IStyledSubNavItemProps>(prop
   border-radius: ${props => props.theme.borderRadii.md};
   box-sizing: border-box;
   background: transparent; /* [2] */
-  background-color: ${props => props.isCurrent && getColor('white', 600, props.theme, 0.1)};
+  background-color: ${props => props.isCurrent && rgba(props.theme.palette.white as string, 0.1)};
   cursor: ${props => (props.isCurrent ? 'default' : 'pointer')}; /* [2] */
   padding: ${props => `0 ${props.theme.space.base * 2}px`};
   width: 100%; /* [2] */
@@ -64,15 +65,15 @@ export const StyledSubNavItem = styled.button.attrs<IStyledSubNavItemProps>(prop
   }
 
   &[data-garden-focus-visible] {
-    box-shadow: ${props => props.theme.shadows.md(getColor('white', 600, props.theme, 0.2)!)};
+    box-shadow: ${props => props.theme.shadows.md(rgba(props.theme.palette.white as string, 0.2))};
   }
 
   &:not([data-garden-current='true']):hover {
-    background-color: ${props => getColor('black', 600, props.theme, 0.1)};
+    background-color: ${props => rgba(props.theme.palette.black as string, 0.1)};
   }
 
   &:not([data-garden-header='true']):active {
-    background-color: ${props => getColor('white', 600, props.theme, 0.03)};
+    background-color: ${props => rgba(props.theme.palette.white as string, 0.03)};
   }
 
   &:active:focus {
