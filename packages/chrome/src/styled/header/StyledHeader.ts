@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledHeaderItem } from './StyledHeaderItem';
+import { StyledLogoHeaderItem } from './StyledLogoHeaderItem';
 
 const COMPONENT_ID = 'chrome.header';
 
@@ -38,7 +38,7 @@ export const StyledHeader = styled.header.attrs<IStyledHeaderProps>({
   ${props =>
     props.isStandalone &&
     `
-    ${StyledHeaderItem}[data-garden-logo='true'] {
+    ${StyledLogoHeaderItem} {
       display: inline-flex;
     }
   `}

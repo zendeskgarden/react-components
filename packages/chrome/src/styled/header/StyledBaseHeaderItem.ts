@@ -1,0 +1,68 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import styled from 'styled-components';
+import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import stripUnit from 'polished/lib/helpers/stripUnit';
+
+const COMPONENT_ID = 'chrome.base_header_item';
+
+export interface IStyledBaseHeaderItemProps {
+  /**
+   * Horizontally maximize a flex item in the header to take as much space as possible (i.e. breadcrumb container)
+   **/
+  maxX?: boolean;
+  /**
+   * Vertically maximize the height for a header item (i.e. contains a search input)
+   **/
+  maxY?: boolean;
+  /**
+   * Round the border radius for a header item (i.e. user icon)
+   **/
+  isRound?: boolean;
+}
+
+export const StyledBaseHeaderItem = styled.div.attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledBaseHeaderItemProps>`
+  display: inline-flex;
+  position: relative;
+  flex: ${props => props.maxX && '1'};
+  align-items: center;
+  justify-content: ${props => (props.maxX ? 'start' : 'center')};
+  order: 1;
+  transition: box-shadow 0.1s ease-in-out, color 0.1s ease-in-out;
+  z-index: 0; /* [1] */
+  margin: ${props => `0 ${props.theme.space.base * 3}px`};
+  border: none; /* [2] */
+  border-radius: ${props => {
+    if (props.isRound) {
+      return '100%';
+    }
+
+    if (props.maxY) {
+      return '0';
+    }
+
+    return props.theme.borderRadii.md;
+  }};
+  background: transparent; /* [2] */
+  padding: 0 3px;
+  min-width: 30px;
+  height: ${props => (props.maxY ? '100%' : '30px')};
+  line-height: ${props => 30 / stripUnit(props.theme.fontSizes.md)};
+  white-space: nowrap;
+  color: inherit;
+  font-size: inherit; /* [2] */
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+`;
+
+StyledBaseHeaderItem.defaultProps = {
+  theme: DEFAULT_THEME
+};

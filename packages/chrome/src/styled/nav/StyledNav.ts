@@ -8,7 +8,7 @@
 import styled, { ThemeProps, css, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import rgba from 'polished/lib/color/rgba';
-import { StyledNavItem } from './StyledNavItem';
+import { StyledNavItem, StyledLogoNavItem, StyledBrandmarkNavItem } from '..';
 import { NavItemIcon } from '../../elements/nav/NavItemIcon';
 import { StyledNavItemText } from './StyledNavItemText';
 
@@ -31,7 +31,7 @@ export interface IStyledNavProps {
 
 const expandedStyles = (props: ThemeProps<DefaultTheme>) => css`
   /* stylelint-disable */
-  ${StyledNavItem}:not([data-garden-logo='true']) {
+  ${StyledNavItem} {
     justify-content: start;
     text-align: inherit;
   }
@@ -41,7 +41,7 @@ const expandedStyles = (props: ThemeProps<DefaultTheme>) => css`
     margin: 0 ${34 / props.theme.space.base}px;
   }
 
-  & > :not([data-garden-logo='true']) ${StyledNavItemText} {
+  & > :not(${StyledLogoNavItem}):not(${StyledBrandmarkNavItem}) ${StyledNavItemText} {
     position: static;
     flex: 1;
     clip: auto;
@@ -54,16 +54,16 @@ const expandedStyles = (props: ThemeProps<DefaultTheme>) => css`
 
 const darkStyles = (props: ThemeProps<DefaultTheme>) => css`
   /* stylelint-disable */
-  ${StyledNavItem}:not([data-garden-logo='true']):active {
+  ${StyledNavItem}:active {
     background-color: ${rgba(props.theme.palette.black as string, 0.1)};
   }
 
-  ${StyledNavItem}:not([data-garden-logo='true'])[data-garden-current='true'] {
+  ${StyledNavItem}[data-garden-current='true'] {
     background-color: ${rgba(props.theme.palette.white as string, 0.3)};
   }
 
   /* prettier-ignore */
-  ${StyledNavItem}[data-garden-logo='true'] {
+  ${StyledLogoNavItem} {
     color: ${props.theme.colors.background};
   }
   /* stylelint-enable */
@@ -71,20 +71,20 @@ const darkStyles = (props: ThemeProps<DefaultTheme>) => css`
 
 const lightStyles = (props: ThemeProps<DefaultTheme>) => css`
   /* stylelint-disable */
-  ${StyledNavItem}:not([data-garden-logo='true'])[data-garden-focus-visible] {
+  ${StyledNavItem}[data-garden-focus-visible] {
     box-shadow: inset 0 0 0 3px ${rgba(props.theme.palette.black as string, 0.2)};
   }
 
-  ${StyledNavItem}:not([data-garden-logo='true']):active {
+  ${StyledNavItem}:active {
     background-color: ${rgba(props.theme.palette.black as string, 0.1)};
   }
 
-  ${StyledNavItem}:not([data-garden-logo='true'])[data-garden-current='true'] {
+  ${StyledNavItem}[data-garden-current='true'] {
     background-color: ${rgba(props.theme.palette.black as string, 0.3)};
   }
 
   /* prettier-ignore */
-  ${StyledNavItem}[data-garden-logo='true'] {
+  ${StyledLogoNavItem} {
     color: ${getColor('neutralHue', 800, props.theme)};
     fill: ${getColor('neutralHue', 800, props.theme)};
   }
