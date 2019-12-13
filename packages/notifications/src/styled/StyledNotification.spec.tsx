@@ -7,36 +7,36 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import Alert from './Alert';
+import { StyledNotification } from './StyledNotification';
 
-describe('Alert', () => {
+describe('StyledNotification', () => {
   describe('validation', () => {
     it('should render with RTL styling if applied', () => {
-      const { container } = renderRtl(<Alert type="success" />);
+      const { container } = renderRtl(<StyledNotification />);
 
       expect(container.firstChild).toHaveClass('is-rtl');
     });
 
     it('should render success styling correctly', () => {
-      const { container } = render(<Alert type="success" />);
+      const { container } = render(<StyledNotification type="success" />);
 
       expect(container.firstChild).toHaveClass('c-callout--success');
     });
 
     it('should render warning styling correctly', () => {
-      const { container } = render(<Alert type="warning" />);
+      const { container } = render(<StyledNotification type="warning" />);
 
       expect(container.firstChild).toHaveClass('c-callout--warning');
     });
 
     it('should render error styling correctly', () => {
-      const { container } = render(<Alert type="error" />);
+      const { container } = render(<StyledNotification type="error" />);
 
       expect(container.firstChild).toHaveClass('c-callout--error');
     });
 
     it('should render info styling correctly', () => {
-      const { container } = render(<Alert type="info" />);
+      const { container } = render(<StyledNotification type="info" />);
 
       expect(container.firstChild).toHaveClass('c-callout--info');
     });

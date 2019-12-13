@@ -25,3 +25,4 @@ declare module '@zendeskgarden/css-arrows';
 declare module '@zendeskgarden/css-breadcrumbs';
 declare module '@zendeskgarden/css-chrome';
 declare module '@zendeskgarden/css-tables';
+declare module '@zendeskgarden/css-callouts';

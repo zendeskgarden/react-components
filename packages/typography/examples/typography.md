@@ -35,7 +35,7 @@ const Typography = ({ size, children, ...props }) => {
 <Grid>
   <Row>
     <Col>
-      <Well recessed style={{ width: 300 }}>
+      <Well isRecessed style={{ width: 300 }}>
         <Dropdown selectedItem={state.size} onSelect={size => setState({ size })}>
           <SelectField>
             <SelectLabel>Size</SelectLabel>

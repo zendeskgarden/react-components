@@ -7,12 +7,12 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import Paragraph from './Paragraph';
+import { StyledTitle } from './StyledTitle';
 
-describe('Paragraph', () => {
-  it('renders paragraph styling', () => {
-    const { container } = render(<Paragraph />);
+describe('StyledTitle', () => {
+  it('renders with title styling', () => {
+    const { container } = render(<StyledTitle />);
 
-    expect(container.firstChild).toHaveClass('c-callout__paragraph');
+    expect(container.firstChild).toHaveClass('c-callout__title');
   });
 });

@@ -11,7 +11,7 @@ initialState = {
 };
 
 <>
-  <Well recessed>
+  <Well isRecessed>
     <Field>
       <Toggle
         checked={state.standalone}

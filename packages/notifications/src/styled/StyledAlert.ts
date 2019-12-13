@@ -5,18 +5,22 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import CalloutStyles from '@zendeskgarden/css-callouts';
 import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
+import { VALIDATION_TYPE } from '../utils/types';
 
-const COMPONENT_ID = 'notifications.well';
+const COMPONENT_ID = 'notifications.alert';
+
+export interface IStyledAlertProps {
+  type?: VALIDATION_TYPE;
+}
 
 /**
  * Supports all `<div>` props
  */
-const Well = styled.div.attrs(props => ({
+export const StyledAlert = styled.div.attrs<IStyledAlertProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(CalloutStyles['c-callout'], {
@@ -24,17 +28,14 @@ const Well = styled.div.attrs(props => ({
     [CalloutStyles['is-rtl']]: isRtl(props),
 
     // Styles
-    [CalloutStyles['c-callout--recessed']]: props.recessed,
-    [CalloutStyles['c-callout--dialog']]: props.floating
+    [CalloutStyles['c-callout--recessed']]: props.type === 'info',
+
+    // Validation types
+    [CalloutStyles['c-callout--success']]: props.type === 'success',
+    [CalloutStyles['c-callout--warning']]: props.type === 'warning',
+    [CalloutStyles['c-callout--error']]: props.type === 'error',
+    [CalloutStyles['c-callout--info']]: props.type === 'info'
   })
-}))`
+}))<IStyledAlertProps>`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
-
-Well.propTypes = {
-  recessed: PropTypes.bool,
-  floating: PropTypes.bool
-};
-
-/** @component */
-export default Well;

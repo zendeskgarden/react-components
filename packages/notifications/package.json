@@ -18,7 +18,7 @@
     "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
-  "typings": "./index.d.ts",
+  "types": "dist/typings/index.d.ts",
   "dependencies": {
     "classnames": "^2.2.5"
   },
@@ -44,5 +44,5 @@
   },
   "zendeskgarden:library": "GardenNotifications",
   "zendeskgarden:max_size": "3 kB",
-  "zendeskgarden:src": "src/index.js"
+  "zendeskgarden:src": "src/index.ts"
 }

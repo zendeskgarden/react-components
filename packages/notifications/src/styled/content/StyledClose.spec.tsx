@@ -7,24 +7,24 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import Close from './Close';
+import { StyledClose } from './StyledClose';
 
-describe('Close', () => {
+describe('StyledClose', () => {
   it('renders default close styling', () => {
-    const { container } = render(<Close />);
+    const { container } = render(<StyledClose />);
 
     expect(container.firstChild).toHaveClass('c-callout__close');
   });
 
   describe('state', () => {
     it('renders focused styling correctly', () => {
-      const { container } = render(<Close focused />);
+      const { container } = render(<StyledClose isFocused />);
 
       expect(container.firstChild).toHaveClass('is-focused');
     });
 
     it('renders hovered styling correctly', () => {
-      const { container } = render(<Close hovered />);
+      const { container } = render(<StyledClose isHovered />);
 
       expect(container.firstChild).toHaveClass('is-hovered');
     });

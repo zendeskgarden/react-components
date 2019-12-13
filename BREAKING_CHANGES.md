@@ -4,6 +4,14 @@ NOTE: many style-related COMPONENT_IDs were renamed for consistency based
 on the CSS-in-JS restructure. All component-level theming customizations
 should be re-checked for ID naming accuracy.
 
+## @zendeskgarden/react-notifications
+
+- Boolean props for this package are updated to align with `isBoolean` naming. The following are
+  prop name changes for the `<Well>` component:
+
+  - `floating` -> `isFloating`
+  - `recessed` -> `isRecessed`
+
 ## @zendeskgarden/react-breadcrumbs
 
 - The `<Item>` component has been removed. The `<Breadcrumb>` component determines the last
