@@ -7,15 +7,30 @@
 
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { StyledBody, IStyledBodyProps } from '../../styled';
+import { StyledBody } from '../../styled';
+import { BodyContext } from '../../utils/useBodyContext';
+
+interface IBodyProps {
+  /**
+   * Prepare the body content height to allow space for a footer component
+   **/
+  hasFooter?: boolean;
+}
 
 /**
  * Accepts all `<div>` attributes and events
  */
-export const Body = React.forwardRef<
-  HTMLDivElement,
-  IStyledBodyProps & HTMLAttributes<HTMLDivElement>
->((props, ref) => <StyledBody ref={ref} {...props} />);
+export const Body = React.forwardRef<HTMLDivElement, IBodyProps & HTMLAttributes<HTMLDivElement>>(
+  ({ hasFooter, ...props }, ref) => {
+    const bodyContextValue = { hasFooter: !!hasFooter };
+
+    return (
+      <BodyContext.Provider value={bodyContextValue}>
+        <StyledBody ref={ref} {...props} />
+      </BodyContext.Provider>
+    );
+  }
+);
 
 Body.propTypes = {
   hasFooter: PropTypes.bool

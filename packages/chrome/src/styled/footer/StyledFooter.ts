@@ -10,9 +10,6 @@ import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden
 
 const COMPONENT_ID = 'chrome.footer';
 
-/**
- * Accepts all `<footer>` props. _Remember to set the_ `hasFooter` _prop on the parent_ `<Body>`.
- */
 export const StyledFooter = styled.footer.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION

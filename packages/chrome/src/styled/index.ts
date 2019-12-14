@@ -6,7 +6,7 @@
  */
 
 export { StyledChrome } from './StyledChrome';
-export { StyledBody, IStyledBodyProps } from './body/StyledBody';
+export { StyledBody } from './body/StyledBody';
 export { StyledContent } from './body/StyledContent';
 export { StyledMain } from './body/StyledMain';
 export { StyledSidebar } from './body/StyledSidebar';

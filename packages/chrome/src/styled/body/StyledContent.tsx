@@ -11,12 +11,19 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'chrome.content';
 
+interface IStyledContentProps {
+  hasFooter?: boolean;
+}
+
 export const StyledContent = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+})<IStyledContentProps>`
   display: flex;
-  height: ${props => `calc(100% - ${props.theme.space.base * 33}px)`};
+  height: ${props =>
+    props.hasFooter
+      ? `calc(100% - ${props.theme.space.base * 33}px)`
+      : `calc(100% - ${props.theme.space.base * 13}px)`};
   line-height: ${props =>
     stripUnit(props.theme.lineHeights.md) / stripUnit(props.theme.fontSizes.md)};
   color: ${props => props.theme.colors.foreground};
