@@ -16,6 +16,7 @@ export interface IStyledNavItemTextProps {
    * Wrap overflow text instead of truncating long strings with an ellipsis
    **/
   isWrapped?: boolean;
+  isExpanded?: boolean;
 }
 
 export const StyledNavItemText = styled.span.attrs<IStyledNavItemTextProps>({
@@ -25,6 +26,7 @@ export const StyledNavItemText = styled.span.attrs<IStyledNavItemTextProps>({
   position: absolute;
   order: 1;
   clip: rect(1px, 1px, 1px, 1px);
+  margin: ${props => props.isExpanded && `0 ${34 / props.theme.space.base}px`};
   width: 1px;
   height: 1px;
   overflow: hidden;

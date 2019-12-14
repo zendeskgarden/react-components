@@ -15,6 +15,7 @@ import {
   IStyledLogoNavItemProps
 } from '../../styled';
 import { PRODUCTS } from '../../utils/types';
+import { useNavContext } from '../../utils/useNavContext';
 
 interface INavItemProps extends IStyledLogoNavItemProps, IStyledNavItemProps, HTMLAttributes<any> {
   hasLogo?: boolean;
@@ -26,15 +27,17 @@ interface INavItemProps extends IStyledLogoNavItemProps, IStyledNavItemProps, HT
  */
 export const NavItem = React.forwardRef<any, INavItemProps>(
   ({ hasLogo, hasBrandmark, ...other }, ref) => {
+    const { isExpanded } = useNavContext();
+
     if (hasLogo) {
-      return <StyledLogoNavItem ref={ref} {...other} />;
+      return <StyledLogoNavItem ref={ref} isExpanded={isExpanded} {...other} />;
     }
 
     if (hasBrandmark) {
-      return <StyledBrandmarkNavItem ref={ref} {...other} />;
+      return <StyledBrandmarkNavItem ref={ref} isExpanded={isExpanded} {...other} />;
     }
 
-    return <StyledNavItem tabIndex={0} ref={ref} {...other} />;
+    return <StyledNavItem tabIndex={0} ref={ref} isExpanded={isExpanded} {...other} />;
   }
 );
 

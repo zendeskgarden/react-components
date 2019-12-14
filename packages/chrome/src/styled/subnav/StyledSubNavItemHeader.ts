@@ -22,9 +22,9 @@ export const StyledSubNavItemHeader = styled(StyledSubNavItem).attrs<IStyledSubN
   'data-garden-header': 'true'
 })<IStyledSubNavItemHeaderProps>`
   position: relative;
-  padding-right: ${props =>
-    props.theme.rtl ? props.theme.space.base * 4 : props.theme.space.base * 7}px;
-  padding-left: ${props => props.theme.rtl && `${props.theme.space.base * 7}px`};
+  /* stylelint-disable-next-line property-no-unknown */
+  padding-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
+  props.theme.space.base * 7}px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

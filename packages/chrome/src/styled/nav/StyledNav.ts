@@ -8,9 +8,7 @@
 import styled, { ThemeProps, css, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import rgba from 'polished/lib/color/rgba';
-import { StyledNavItem, StyledLogoNavItem, StyledBrandmarkNavItem } from '..';
-import { NavItemIcon } from '../../elements/nav/NavItemIcon';
-import { StyledNavItemText } from './StyledNavItemText';
+import { StyledNavItem, StyledLogoNavItem } from '..';
 
 const COMPONENT_ID = 'chrome.nav';
 
@@ -28,29 +26,6 @@ export interface IStyledNavProps {
    **/
   isLight?: boolean;
 }
-
-const expandedStyles = (props: ThemeProps<DefaultTheme>) => css`
-  /* stylelint-disable */
-  ${StyledNavItem} {
-    justify-content: start;
-    text-align: inherit;
-  }
-
-  ${NavItemIcon},
-  ${StyledNavItemText} {
-    margin: 0 ${34 / props.theme.space.base}px;
-  }
-
-  & > :not(${StyledLogoNavItem}):not(${StyledBrandmarkNavItem}) ${StyledNavItemText} {
-    position: static;
-    flex: 1;
-    clip: auto;
-    width: auto;
-    height: auto;
-    text-overflow: ellipsis;
-  }
-  /* stylelint-enable */
-`;
 
 const darkStyles = (props: ThemeProps<DefaultTheme>) => css`
   /* stylelint-disable */
@@ -72,7 +47,7 @@ const darkStyles = (props: ThemeProps<DefaultTheme>) => css`
 const lightStyles = (props: ThemeProps<DefaultTheme>) => css`
   /* stylelint-disable */
   ${StyledNavItem}[data-garden-focus-visible] {
-    box-shadow: inset 0 0 0 3px ${rgba(props.theme.palette.black as string, 0.2)};
+    box-shadow: inset ${props.theme.shadows.md(rgba(props.theme.palette.black as string, 0.2))};
   }
 
   ${StyledNavItem}:active {
@@ -117,7 +92,6 @@ export const StyledNav = styled.nav.attrs<IStyledNavProps>({
     props.isLight ? getColor('neutralHue', 800, props.theme) : props.theme.colors.background};
   font-size: ${props => props.theme.fontSizes.md};
 
-  ${props => props.isExpanded && expandedStyles}
   ${props => props.isDark && darkStyles}
   ${props => props.isLight && lightStyles}
 
