@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { PRODUCT } from '../../utils/types';
 import { StyledBaseNavItem } from '../';
-import { PALETTE, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { PALETTE, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.logo_nav_item';
 
@@ -17,9 +17,19 @@ export interface IStyledLogoNavItemProps {
    * Applies product-specific color palette
    **/
   product?: PRODUCT;
+  isDark?: boolean;
+  isLight?: boolean;
 }
 
-const retrieveProductColor = (props: IStyledLogoNavItemProps) => {
+const retrieveProductColor = (props: IStyledLogoNavItemProps & ThemeProps<DefaultTheme>) => {
+  if (props.isDark) {
+    return props.theme.colors.background;
+  }
+
+  if (props.isLight) {
+    return getColor('neutralHue', 800, props.theme);
+  }
+
   switch (props.product) {
     case 'chat':
       return PALETTE.product.chat;
@@ -48,7 +58,8 @@ export const StyledLogoNavItem = styled(StyledBaseNavItem).attrs({
   opacity: 1;
   cursor: default;
   color: ${retrieveProductColor};
-  fill: ${props => props.theme.colors.background};
+  fill: ${props =>
+    props.isLight ? getColor('neutralHue', 800, props.theme) : props.theme.colors.background};
 `;
 
 StyledLogoNavItem.defaultProps = {

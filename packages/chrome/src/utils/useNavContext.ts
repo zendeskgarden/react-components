@@ -9,9 +9,15 @@ import React, { useContext } from 'react';
 
 interface INavContext {
   isExpanded: boolean;
+  isLight: boolean;
+  isDark: boolean;
 }
 
-export const NavContext = React.createContext<INavContext>({ isExpanded: false });
+export const NavContext = React.createContext<INavContext>({
+  isExpanded: false,
+  isLight: false,
+  isDark: false
+});
 
 export const useNavContext = () => {
   return useContext(NavContext);

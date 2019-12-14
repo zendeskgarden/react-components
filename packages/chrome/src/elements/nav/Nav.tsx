@@ -7,7 +7,7 @@
 
 import React, { HTMLAttributes, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import getLuminance from 'polished/lib/color/getLuminance';
+import readableColor from 'polished/lib/color/readableColor';
 import { NavContext } from '../../utils/useNavContext';
 import { StyledNav, IStyledNavProps } from '../../styled';
 
@@ -27,24 +27,22 @@ export const Nav = React.forwardRef<HTMLElement, INavProps>(
         return false;
       }
 
+      const LIGHT_VALUE = 'white';
+
       /**
        * We are unable to use the `readableColor()` utility
        * as some styling logic requires boolean logic.
        */
-      const colorLuminance = getLuminance(backgroundColor);
+      const accessibleColor = readableColor(backgroundColor, LIGHT_VALUE);
 
-      if (colorLuminance && colorLuminance > 0.179) {
-        return true;
-      }
-
-      return false;
+      return accessibleColor === LIGHT_VALUE;
     }, [backgroundColor]);
 
     const isLight = backgroundColor ? isLightComputed : false;
     const isDark = backgroundColor ? !isLightComputed : false;
 
     return (
-      <NavContext.Provider value={{ isExpanded: !!props.isExpanded }}>
+      <NavContext.Provider value={{ isExpanded: !!props.isExpanded, isLight, isDark }}>
         <StyledNav
           ref={ref}
           {...props}

@@ -20,6 +20,8 @@ export interface IStyledNavItemProps {
    **/
   isCurrent?: boolean;
   isExpanded?: boolean;
+  isDark?: boolean;
+  isLight?: boolean;
 }
 
 /**
@@ -35,7 +37,21 @@ export const StyledNavItem = styled(StyledBaseNavItem).attrs<IStyledNavItemProps
   justify-content: ${props => props.isExpanded && 'start'};
   order: 1;
   opacity: ${props => (props.isCurrent ? 1 : 0.6)};
-  background-color: ${props => props.isCurrent && getColor('chromeHue', 400, props.theme)};
+  background-color: ${props => {
+    if (props.isCurrent) {
+      if (props.isDark) {
+        return rgba(props.theme.palette.white as string, 0.3);
+      }
+
+      if (props.isLight) {
+        return rgba(props.theme.palette.black as string, 0.3);
+      }
+
+      return getColor('chromeHue', 400, props.theme);
+    }
+
+    return undefined;
+  }};
   cursor: ${props => (props.isCurrent ? 'default' : 'pointer')};
   text-align: ${props => props.isExpanded && 'inherit'};
 
@@ -49,12 +65,20 @@ export const StyledNavItem = styled(StyledBaseNavItem).attrs<IStyledNavItemProps
   }
 
   &:active {
-    background-color: ${props => rgba(props.theme.palette.white as string, 0.1)};
+    background-color: ${props => {
+      if (props.isDark) {
+        return rgba(props.theme.palette.black as string, 0.1);
+      }
+
+      return rgba(props.theme.palette.white as string, 0.1);
+    }};
   }
 
   &[data-garden-focus-visible] {
     box-shadow: ${props =>
-      `inset ${props.theme.shadows.md(rgba(props.theme.palette.white as string, 0.2))}`};
+      `inset ${props.theme.shadows.md(
+        rgba((props.isLight ? props.theme.palette.black : props.theme.palette.white) as string, 0.2)
+      )}`};
   }
 
   &:focus,
