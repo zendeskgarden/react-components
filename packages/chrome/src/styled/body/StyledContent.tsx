@@ -8,6 +8,8 @@
 import styled from 'styled-components';
 import stripUnit from 'polished/lib/helpers/stripUnit';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getHeaderHeight } from '../header/StyledHeader';
+import { getFooterHeight } from '../footer/StyledFooter';
 
 const COMPONENT_ID = 'chrome.content';
 
@@ -22,8 +24,8 @@ export const StyledContent = styled.div.attrs({
   display: flex;
   height: ${props =>
     props.hasFooter
-      ? `calc(100% - ${props.theme.space.base * 33}px)`
-      : `calc(100% - ${props.theme.space.base * 13}px)`};
+      ? `calc(100% - calc(${getHeaderHeight(props)} + ${getFooterHeight(props)}))`
+      : `calc(100% - ${getHeaderHeight(props)})`};
   line-height: ${props =>
     stripUnit(props.theme.lineHeights.md) / stripUnit(props.theme.fontSizes.md)};
   color: ${props => props.theme.colors.foreground};

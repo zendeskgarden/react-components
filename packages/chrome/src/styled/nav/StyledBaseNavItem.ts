@@ -5,10 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getNavWidth } from './StyledNav';
 
 const COMPONENT_ID = 'chrome.base_nav_item';
+
+export const getNavItemHeight = (props: ThemeProps<DefaultTheme>) => {
+  return `${props.theme.space.base * 13}px`;
+};
 
 export const StyledBaseNavItem = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
@@ -24,8 +29,11 @@ export const StyledBaseNavItem = styled.div.attrs({
   border: none; /* [1] */
   box-sizing: border-box;
   background: transparent; /* [1] */
-  padding: 13px 8.5px;
-  min-height: ${props => props.theme.space.base * 13}px;
+  padding: ${props =>
+    `calc(calc(${getNavItemHeight(props)} - ${
+      props.theme.iconSizes.lg
+    }) / 2) calc(calc(${getNavWidth(props)} - ${props.theme.iconSizes.lg}) / 4)`};
+  min-height: ${getNavItemHeight};
   text-decoration: none; /* [2] */
   color: inherit; /* [2] */
   font-size: inherit; /* [1] */

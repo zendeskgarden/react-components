@@ -18,6 +18,10 @@ export interface IStyledSubNavItemProps {
   isCurrent?: boolean;
 }
 
+export const getSubNavItemHeight = () => {
+  return '30px';
+};
+
 /**
  * 1. Anchor reset
  * 2. Button reset
@@ -43,7 +47,7 @@ export const StyledSubNavItem = styled.button.attrs<IStyledSubNavItemProps>(prop
   cursor: ${props => (props.isCurrent ? 'default' : 'pointer')}; /* [2] */
   padding: ${props => `0 ${props.theme.space.base * 2}px`};
   width: 100%; /* [2] */
-  min-height: 30px;
+  min-height: ${getSubNavItemHeight};
   text-align: inherit; /* [2] */
   font-size: inherit; /* [2] */
 

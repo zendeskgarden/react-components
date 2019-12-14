@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledLogoHeaderItem } from './StyledLogoHeaderItem';
+import { getNavItemHeight } from '../nav/StyledBaseNavItem';
 
 const COMPONENT_ID = 'chrome.header';
 
@@ -15,6 +16,10 @@ export interface IStyledHeaderProps {
   /** Display logo for standlone usage  */
   isStandalone?: boolean;
 }
+
+export const getHeaderHeight = (props: ThemeProps<DefaultTheme>) => {
+  return getNavItemHeight(props);
+};
 
 export const StyledHeader = styled.header.attrs<IStyledHeaderProps>({
   'data-garden-id': COMPONENT_ID,
@@ -31,7 +36,7 @@ export const StyledHeader = styled.header.attrs<IStyledHeaderProps>({
     props.theme.shadows.lg('0', '10px', getColor('chromeHue', 600, props.theme, 0.15)!)};
   background-color: ${props => props.theme.colors.background};
   padding: 0 ${props => props.theme.space.base}px;
-  height: ${props => props.theme.space.base * 13}px;
+  height: ${getHeaderHeight};
   color: ${props => getColor('neutralHue', 600, props.theme)};
   font-size: ${props => props.theme.fontSizes.md};
 

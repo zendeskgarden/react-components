@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.nav';
@@ -24,6 +24,14 @@ export interface IStyledNavProps {
    **/
   isLight?: boolean;
 }
+
+export const getNavWidth = (props: ThemeProps<DefaultTheme>) => {
+  return `${props.theme.space.base * 15}px`;
+};
+
+export const getExpandedNavWidth = (props: ThemeProps<DefaultTheme>) => {
+  return `${props.theme.space.base * 50}px`;
+};
 
 export const StyledNav = styled.nav.attrs<IStyledNavProps>({
   'data-garden-id': COMPONENT_ID,
@@ -45,8 +53,7 @@ export const StyledNav = styled.nav.attrs<IStyledNavProps>({
 
     return getColor('chromeHue', 700, props.theme);
   }};
-  width: ${props =>
-    props.isExpanded ? props.theme.space.base * 50 : props.theme.space.base * 15}px;
+  width: ${props => (props.isExpanded ? getExpandedNavWidth : getNavWidth)};
   color: ${props =>
     props.isLight ? getColor('neutralHue', 800, props.theme) : props.theme.colors.background};
   font-size: ${props => props.theme.fontSizes.md};
