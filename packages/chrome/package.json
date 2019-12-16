@@ -46,6 +46,6 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenChrome",
-  "zendeskgarden:max_size": "12.75 kB",
+  "zendeskgarden:max_size": "13.50 kB",
   "zendeskgarden:src": "src/index.ts"
 }
