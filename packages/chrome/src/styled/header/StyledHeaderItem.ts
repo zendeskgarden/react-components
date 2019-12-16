@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { HeaderItemIcon } from '../../elements/header/HeaderItemIcon';
+import { StyledHeaderItemIcon } from './StyledHeaderItemIcon';
 import { StyledBaseHeaderItem, IStyledBaseHeaderItemProps } from './StyledBaseHeaderItem';
 import { StyledHeaderItemText } from './StyledHeaderItemText';
 
@@ -42,9 +42,9 @@ export const StyledHeaderItem = styled(StyledBaseHeaderItem).attrs({
   }
 
   /* prettier-ignore */
-  &:hover ${/* sc-selector */ HeaderItemIcon},
+  &:hover ${/* sc-selector */ StyledHeaderItemIcon},
   &:hover ${/* sc-selector */ StyledHeaderItemText},
-  &:active ${/* sc-selector */ HeaderItemIcon},
+  &:active ${/* sc-selector */ StyledHeaderItemIcon},
   &:active ${/* sc-selector */ StyledHeaderItemText} {
     color: ${props => getColor('chromeHue', 700, props.theme)};
   }
@@ -78,7 +78,7 @@ export const StyledHeaderItem = styled(StyledBaseHeaderItem).attrs({
   ${props =>
     props.isRound &&
     `
-    ${HeaderItemIcon} {
+    ${StyledHeaderItemIcon} {
       border-radius: 100px;
     }
   `}

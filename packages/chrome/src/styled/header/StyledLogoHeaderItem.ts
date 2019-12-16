@@ -13,7 +13,7 @@ import {
   DEFAULT_THEME
 } from '@zendeskgarden/react-theming';
 import { PRODUCT } from '../../utils/types';
-import { HeaderItemIcon } from '../../elements/header/HeaderItemIcon';
+import { StyledHeaderItemIcon } from './StyledHeaderItemIcon';
 import { StyledBaseHeaderItem } from './StyledBaseHeaderItem';
 import { StyledHeaderItemText } from './StyledHeaderItemText';
 
@@ -79,7 +79,7 @@ export const StyledLogoHeaderItem = styled(StyledBaseHeaderItem)<IStyledLogoHead
     color: ${props => retrieveProductColor(props)}; /* [3] */
   }
 
-  ${HeaderItemIcon} {
+  ${StyledHeaderItemIcon} {
     margin: 0;
     width: ${props => props.theme.iconSizes.lg};
     height: ${props => props.theme.iconSizes.lg};

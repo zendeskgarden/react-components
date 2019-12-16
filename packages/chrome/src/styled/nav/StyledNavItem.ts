@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import rgba from 'polished/lib/color/rgba';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledBaseNavItem } from './StyledBaseNavItem';
-import { NavItemIcon } from '../../elements/nav/NavItemIcon';
+import { StyledNavItemIcon } from './StyledNavItemIcon';
 
 const COMPONENT_ID = 'chrome.nav_item';
 
@@ -89,7 +89,7 @@ export const StyledNavItem = styled(StyledBaseNavItem).attrs<IStyledNavItemProps
   ${props =>
     props.isExpanded &&
     `
-    ${NavItemIcon} {
+    ${StyledNavItemIcon} {
       margin: 0 ${34 / props.theme.space.base}px;
     }
   `}

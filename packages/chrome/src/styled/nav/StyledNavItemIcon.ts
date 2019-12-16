@@ -5,18 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children } from 'react';
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.nav_item_icon';
 
 /**
  * Applies styling directly to child component
  **/
-export const NavItemIcon = styled(({ children, ...props }) =>
-  React.cloneElement(Children.only(children), props)
-).attrs({
+export const StyledNavItemIcon = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
@@ -28,3 +25,7 @@ export const NavItemIcon = styled(({ children, ...props }) =>
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledNavItemIcon.defaultProps = {
+  theme: DEFAULT_THEME
+};
