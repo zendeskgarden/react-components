@@ -22,7 +22,8 @@
   "dependencies": {
     "@zendeskgarden/container-utilities": "^0.3.0",
     "classnames": "^2.2.5",
-    "dom-helpers": "^5.1.0"
+    "dom-helpers": "^5.1.0",
+    "polished": "^3.4.2"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^6.0.0 || ^7.0.0",
@@ -32,8 +33,6 @@
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "@zendeskgarden/css-tables": "4.0.15",
-    "@zendeskgarden/css-variables": "6.4.1",
     "@zendeskgarden/react-theming": "^8.0.0-next.0",
     "@zendeskgarden/svg-icons": "6.7.0",
     "react-beautiful-dnd": "12.1.1",

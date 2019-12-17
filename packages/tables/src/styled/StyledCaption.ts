@@ -6,15 +6,20 @@
  */
 
 import styled from 'styled-components';
-import TableStyles from '@zendeskgarden/css-tables';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tables.caption';
 
 export const StyledCaption = styled.caption.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: TableStyles['c-table__caption']
+  'data-garden-version': PACKAGE_VERSION
 })`
+  display: table-caption;
+  text-align: ${props => (props.theme.rtl ? 'right' : 'left')};
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledCaption.defaultProps = {
+  theme: DEFAULT_THEME
+};

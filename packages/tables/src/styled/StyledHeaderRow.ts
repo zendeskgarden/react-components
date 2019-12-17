@@ -5,17 +5,42 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import classNames from 'classnames';
-import TableStyles from '@zendeskgarden/css-tables';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import styled, { ThemeProps, DefaultTheme } from 'styled-components';
+import stripUnit from 'polished/lib/helpers/stripUnit';
+import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { StyledBaseRow, IStyledRowProps } from './StyledRow';
+import { StyledOverflowButton } from './StyledOverflowButton';
 
 const COMPONENT_ID = 'tables.header_row';
 
-export const StyledHeaderRow = styled.tr.attrs({
+const getHeaderRowHeight = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
+  if (props.size === 'large') {
+    return `${props.theme.space.base * 18}px`;
+  } else if (props.size === 'small') {
+    return `${props.theme.space.base * 10}px`;
+  }
+
+  return `${props.theme.space.base * 12}px`;
+};
+
+export const StyledHeaderRow = styled(StyledBaseRow).attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: classNames(TableStyles['c-table__row'], TableStyles['c-table__row--header'])
+  'data-garden-version': PACKAGE_VERSION
 })`
+  border-bottom-color: ${props => getColor('neutralHue', 300, props.theme)};
+  height: ${getHeaderRowHeight};
+  vertical-align: bottom;
+  font-weight: ${props => props.theme.fontWeights.semibold};
+
+  ${StyledOverflowButton} {
+    opacity: 1;
+    margin-top: 0;
+    margin-bottom: calc(${props => stripUnit(getHeaderRowHeight(props)) / 2} - 1em);
+  }
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledHeaderRow.defaultProps = {
+  theme: DEFAULT_THEME
+};

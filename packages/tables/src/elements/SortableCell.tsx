@@ -7,7 +7,15 @@
 
 import React, { ButtonHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { StyledHeaderCell, StyledSortableButton, IStyledSortableButtonProps } from '../styled';
+import SortStrokeIcon from '@zendeskgarden/svg-icons/src/12/sort-stroke.svg';
+import SortFillIcon from '@zendeskgarden/svg-icons/src/12/sort-fill.svg';
+import {
+  StyledHeaderCell,
+  StyledSortableButton,
+  StyledSortableStrokeIconWrapper,
+  StyledSortableFillIconWrapper,
+  IStyledSortableButtonProps
+} from '../styled';
 
 interface ISortableCellProps extends IStyledSortableButtonProps {
   cellProps?: any;
@@ -19,7 +27,7 @@ interface ISortableCellProps extends IStyledSortableButtonProps {
 export const SortableCell = React.forwardRef<
   HTMLButtonElement,
   ISortableCellProps & ButtonHTMLAttributes<HTMLButtonElement>
->(({ sort, cellProps, width, ...otherProps }, ref) => {
+>(({ sort, cellProps, width, children, ...otherProps }, ref) => {
   let ariaSortValue = 'none';
 
   if (sort === 'asc') {
@@ -28,17 +36,25 @@ export const SortableCell = React.forwardRef<
     ariaSortValue = 'descending';
   }
 
+  const SortIcon = sort === undefined ? SortStrokeIcon : SortFillIcon;
+
   return (
     <StyledHeaderCell aria-sort={ariaSortValue} width={width} {...cellProps}>
-      <StyledSortableButton sort={sort} ref={ref} {...otherProps} />
+      <StyledSortableButton sort={sort} ref={ref} {...otherProps}>
+        {children}
+        <StyledSortableStrokeIconWrapper>
+          <SortIcon />
+        </StyledSortableStrokeIconWrapper>
+        <StyledSortableFillIconWrapper>
+          <SortFillIcon />
+        </StyledSortableFillIconWrapper>
+      </StyledSortableButton>
     </StyledHeaderCell>
   );
 });
 
 SortableCell.propTypes = {
   sort: PropTypes.oneOf(['asc', 'desc']),
-  isFocused: PropTypes.bool,
-  isActive: PropTypes.bool,
   cellProps: PropTypes.any,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };

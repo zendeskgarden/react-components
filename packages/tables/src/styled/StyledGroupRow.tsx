@@ -6,16 +6,28 @@
  */
 
 import styled from 'styled-components';
-import classNames from 'classnames';
-import TableStyles from '@zendeskgarden/css-tables';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { StyledBaseRow } from './StyledRow';
+import { StyledCell } from './StyledCell';
 
 const COMPONENT_ID = 'tables.group_row';
 
-export const StyledGroupRow = styled.tr.attrs({
+export const StyledGroupRow = styled(StyledBaseRow).attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: classNames(TableStyles['c-table__row'], TableStyles['c-table__row--group'])
+  'data-garden-version': PACKAGE_VERSION
 })`
+  background-color: ${props => getColor('neutralHue', 100, props.theme)};
+  height: ${props => props.theme.space.base * 8}px;
+  line-height: ${props => props.theme.space.base * 4}px;
+  font-size: ${props => props.theme.fontSizes.sm};
+
+  ${StyledCell} {
+    padding: 6px 10px;
+  }
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledGroupRow.defaultProps = {
+  theme: DEFAULT_THEME
+};

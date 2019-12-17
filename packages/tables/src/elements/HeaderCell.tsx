@@ -9,14 +9,19 @@ import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 
 import { StyledHeaderCell, IStyledCellProps } from '../styled';
+import { useTableContext } from '../utils/useTableContext';
 
 /**
  * Accepts all `<th>` attributes and events
  */
 export const HeaderCell = React.forwardRef<
   HTMLTableHeaderCellElement,
-  IStyledCellProps & HTMLAttributes<HTMLTableHeaderCellElement>
->((props, ref) => <StyledHeaderCell ref={ref} {...props} />);
+  Omit<IStyledCellProps, 'size'> & HTMLAttributes<HTMLTableHeaderCellElement>
+>((props, ref) => {
+  const { size } = useTableContext();
+
+  return <StyledHeaderCell ref={ref} size={size} {...props} />;
+});
 
 HeaderCell.propTypes = {
   isMinimum: PropTypes.bool,

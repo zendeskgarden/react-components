@@ -25,18 +25,4 @@ describe('HeaderRow', () => {
 
     expect(getByTestId('headerRow')).toBe(ref.current);
   });
-
-  it('applies default styling by default', () => {
-    const { getByTestId } = render(
-      <Table>
-        <Head>
-          <HeaderRow data-test-id="headerRow" />
-        </Head>
-      </Table>
-    );
-    const headerRow = getByTestId('headerRow');
-
-    expect(headerRow).toHaveClass('c-table__row');
-    expect(headerRow).toHaveClass('c-table__row--header');
-  });
 });

@@ -7,10 +7,15 @@
 
 import React, { HTMLAttributes } from 'react';
 import { StyledHeaderRow } from '../styled';
+import { useTableContext } from '../utils/useTableContext';
 
 /**
  * Accepts all `<tr>` attributes and events
  */
 export const HeaderRow = React.forwardRef<HTMLTableRowElement, HTMLAttributes<HTMLTableRowElement>>(
-  (props, ref) => <StyledHeaderRow ref={ref} {...props} />
+  (props, ref) => {
+    const { size } = useTableContext();
+
+    return <StyledHeaderRow ref={ref} size={size} {...props} />;
+  }
 );

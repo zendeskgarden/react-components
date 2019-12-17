@@ -6,29 +6,37 @@
  */
 
 import styled from 'styled-components';
-import classNames from 'classnames';
-import TableStyles from '@zendeskgarden/css-tables';
-import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tables.table';
 
-type SIZE = 'small' | 'medium' | 'large';
+export type SIZE = 'small' | 'medium' | 'large';
 
 export interface IStyledTableProps {
   size?: SIZE;
 }
 
-export const StyledTable = styled.table.attrs<IStyledTableProps>(props => ({
+/**
+ * 1. <table> reset
+ * 2. <th> reset
+ */
+export const StyledTable = styled.table.attrs<IStyledTableProps>({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: classNames(TableStyles['c-table'], {
-    // Sizing
-    [TableStyles['c-table--sm']]: props.size === 'small',
-    [TableStyles['c-table--lg']]: props.size === 'large',
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledTableProps>`
+  display: table;
+  border: none; /* [1] */
+  width: 100%; /* [1] */
+  table-layout: fixed; /* [1] */
+  border-collapse: collapse; /* [1] */
+  border-spacing: 0; /* [1] */
+  line-height: ${props => props.theme.space.base * 5}px;
+  font-size: ${props => props.theme.fontSizes.md};
+  direction: ${props => props.theme.rtl && 'rtl'};
 
-    // RTL
-    [TableStyles['is-rtl']]: isRtl(props)
-  })
-}))<IStyledTableProps>`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledTable.defaultProps = {
+  theme: DEFAULT_THEME
+};

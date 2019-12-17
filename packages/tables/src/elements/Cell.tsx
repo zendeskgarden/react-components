@@ -9,14 +9,19 @@ import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 
 import { StyledCell, IStyledCellProps } from '../styled';
+import { useTableContext } from '../utils/useTableContext';
 
 /**
  * Accepts all `<td>` attributes and events
  */
 export const Cell = React.forwardRef<
   HTMLTableCellElement,
-  IStyledCellProps & HTMLAttributes<HTMLTableCellElement>
->((props, ref) => <StyledCell ref={ref} {...props} />);
+  Omit<IStyledCellProps, 'size'> & HTMLAttributes<HTMLTableCellElement>
+>((props, ref) => {
+  const { size } = useTableContext();
+
+  return <StyledCell ref={ref} size={size} {...props} />;
+});
 
 Cell.propTypes = {
   isMinimum: PropTypes.bool,

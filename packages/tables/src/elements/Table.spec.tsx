@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
+import { render } from 'garden-test-utils';
 
 import { Table } from './Table';
 
@@ -16,30 +16,5 @@ describe('Table', () => {
     const { container } = render(<Table ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
-  });
-
-  it('renders default styling', () => {
-    const { container } = render(<Table />);
-
-    expect(container.firstChild).toHaveClass('c-table');
-  });
-
-  it('renders RTL styling if provided', () => {
-    const { container } = renderRtl(<Table />);
-
-    expect(container.firstChild).toHaveClass('is-rtl');
-  });
-
-  it('renders sizing correctly if provided', () => {
-    const classes: Record<string, string> = {
-      small: 'sm',
-      large: 'lg'
-    };
-
-    ['small', 'large'].forEach(size => {
-      const { container } = render(<Table size={size as any} />);
-
-      expect(container.firstChild).toHaveClass(`c-table--${classes[size]}`);
-    });
   });
 });

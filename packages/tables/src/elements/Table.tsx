@@ -7,8 +7,8 @@
 
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-
 import { StyledTable, IStyledTableProps } from '../styled';
+import { TableContext } from '../utils/useTableContext';
 
 /**
  * Accepts all `<table>` attributes and events
@@ -16,7 +16,15 @@ import { StyledTable, IStyledTableProps } from '../styled';
 export const Table = React.forwardRef<
   HTMLTableElement,
   IStyledTableProps & HTMLAttributes<HTMLTableElement>
->((props, ref) => <StyledTable ref={ref} {...props} />);
+>((props, ref) => {
+  const tableContextValue = { size: props.size! };
+
+  return (
+    <TableContext.Provider value={tableContextValue}>
+      <StyledTable ref={ref} {...props} />
+    </TableContext.Provider>
+  );
+});
 
 Table.defaultProps = {
   size: 'medium'
