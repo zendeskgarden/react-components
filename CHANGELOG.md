@@ -12,6 +12,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v7.1.4 (2019-12-17)
+
+#### :seedling: Internal
+* chore: force-publish all packages to ensure valid `latest` tag in NPM
+* [#549](https://github.com/zendeskgarden/react-components/pull/549) chore: apply garden logo to demo pages ([@jzempel](https://github.com/jzempel))
+
 ## v7.1.3 (2019-11-27)
 
 #### :rocket: New Feature
