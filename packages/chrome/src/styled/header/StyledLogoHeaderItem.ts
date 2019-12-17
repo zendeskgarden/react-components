@@ -15,7 +15,8 @@ import {
 import { PRODUCT } from '../../utils/types';
 import { StyledHeaderItemIcon } from './StyledHeaderItemIcon';
 import { StyledBaseHeaderItem } from './StyledBaseHeaderItem';
-import { StyledHeaderItemText } from './StyledHeaderItemText';
+import { StyledHeaderItemText, clippedStyling } from './StyledHeaderItemText';
+import { getNavWidth } from '../nav/StyledNav';
 
 const COMPONENT_ID = 'chrome.header_item';
 
@@ -47,36 +48,28 @@ const retrieveProductColor = (props: IStyledLogoHeaderItemProps) => {
   }
 };
 
+/**
+ * 1. Anchor reset
+ */
 export const StyledLogoHeaderItem = styled(StyledBaseHeaderItem)<IStyledLogoHeaderItemProps>`
-  display: ${props => (props.theme.rtl ? 'inline-flex' : 'none')};
+  display: none;
   order: 0;
-  margin-right: auto;
-  margin-left: ${props => `-${props.theme.space.base}px`};
+  margin-right: ${props => (props.theme.rtl ? `-${props.theme.space.base}px` : 'auto')};
+  margin-left: ${props => (props.theme.rtl ? 'auto' : `-${props.theme.space.base}px`)};
   /* stylelint-disable-next-line property-no-unknown */
   border-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
   `${props.theme.borders.sm} ${getColor('neutralHue', 300, props.theme)}`};
   border-radius: 0;
   padding: 0;
-  width: ${props => props.theme.space.base * 15}px;
+  width: ${props => getNavWidth(props)};
   height: 100%;
   overflow: hidden;
   fill: ${props => getColor('chromeHue', 700, props.theme)};
+  text-decoration: none; /* [1] */
+  color: ${props => retrieveProductColor(props)}; /* [1] */
 
   ${StyledHeaderItemText} {
-    position: absolute;
-    margin: 0;
-    clip: rect(1px, 1px, 1px, 1px);
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-
-  &,
-  &:hover,
-  &:focus {
-    text-decoration: none; /* [3] */
-    color: ${props => retrieveProductColor(props)}; /* [3] */
+    ${clippedStyling}
   }
 
   ${StyledHeaderItemIcon} {

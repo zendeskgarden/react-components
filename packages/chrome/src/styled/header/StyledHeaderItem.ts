@@ -5,18 +5,34 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import math from 'polished/lib/math/math';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledHeaderItemIcon } from './StyledHeaderItemIcon';
-import { StyledBaseHeaderItem, IStyledBaseHeaderItemProps } from './StyledBaseHeaderItem';
+import {
+  StyledBaseHeaderItem,
+  IStyledBaseHeaderItemProps,
+  getHeaderItemSize
+} from './StyledBaseHeaderItem';
 import { StyledHeaderItemText } from './StyledHeaderItemText';
 
 const COMPONENT_ID = 'chrome.header_item';
 
+const imgStyles = (props: ThemeProps<DefaultTheme>) => {
+  const size = math(`${getHeaderItemSize(props)} - ${props.theme.space.base * 2}`);
+
+  return css`
+    img {
+      margin: 0;
+      border-radius: ${math(`${props.theme.borderRadii.md} - 1`)};
+      width: ${size};
+      height: ${size};
+    }
+  `;
+};
+
 /**
- * 1. Reset the stacking context for embedded menus.
- * 2. Button element reset.
- * 3. Anchor reset.
+ * 1. Anchor reset.
  */
 export const StyledHeaderItem = styled(StyledBaseHeaderItem).attrs({
   'data-garden-id': COMPONENT_ID,
@@ -25,12 +41,12 @@ export const StyledHeaderItem = styled(StyledBaseHeaderItem).attrs({
 })<IStyledBaseHeaderItemProps>`
   &:hover,
   &:focus {
-    text-decoration: none; /* [3] */
-    color: inherit; /* [3] */
+    text-decoration: none; /* [1] */
+    color: inherit; /* [1] */
   }
 
   &:focus {
-    outline: none; /* [3] */
+    outline: none; /* [1] */
   }
 
   &[data-garden-focus-visible] {
@@ -54,26 +70,21 @@ export const StyledHeaderItem = styled(StyledBaseHeaderItem).attrs({
     `
       &[data-garden-focus-visible] {
         box-shadow: inset ${props.theme.shadows.lg(
-          '3px',
+          props.theme.shadowWidths.md,
           '0',
           getColor('chromeHue', 400, props.theme, 0.35)!
         )},
-        3px 0 0 0 ${getColor('chromeHue', 400, props.theme, 0.35)},
+        ${props.theme.shadowWidths.md} 0 0 0 ${getColor('chromeHue', 400, props.theme, 0.35)},
         inset ${props.theme.shadows.lg(
-          '-3px',
+          `-${props.theme.shadowWidths.md}`,
           '0',
           getColor('chromeHue', 400, props.theme, 0.35)!
         )},
-        -3px 0 0 0 ${getColor('chromeHue', 400, props.theme, 0.35)};
+        -${props.theme.shadowWidths.md} 0 0 0 ${getColor('chromeHue', 400, props.theme, 0.35)};
       }
   `}
 
-  img {
-    margin: 0;
-    border-radius: 3px;
-    width: ${props => props.theme.fontSizes.xl};
-    height: ${props => props.theme.fontSizes.xl};
-  }
+  ${imgStyles}
 
   ${props =>
     props.isRound &&

@@ -6,7 +6,6 @@
  */
 
 import styled, { css } from 'styled-components';
-import stripUnit from 'polished/lib/helpers/stripUnit';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.header_item_text';
@@ -18,7 +17,7 @@ export interface IStyledHeaderItemTextProps {
   isClipped?: boolean;
 }
 
-const clippedStyling = css`
+export const clippedStyling = css`
   position: absolute;
   margin: 0;
   clip: rect(1px, 1px, 1px, 1px);
@@ -32,7 +31,7 @@ export const StyledHeaderItemText = styled.span.attrs<IStyledHeaderItemTextProps
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledHeaderItemTextProps>`
-  margin: 0 ${props => stripUnit(props.theme.borderRadii.md) - 1}px;
+  margin: 0 3px;
 
   ${props => props.isClipped && clippedStyling}
 

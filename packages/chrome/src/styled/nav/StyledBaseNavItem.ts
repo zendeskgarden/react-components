@@ -15,6 +15,10 @@ export const getNavItemHeight = (props: ThemeProps<DefaultTheme>) => {
   return `${props.theme.space.base * 13}px`;
 };
 
+/**
+ * 1. Button reset.
+ * 2. Anchor reset.
+ */
 export const StyledBaseNavItem = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION

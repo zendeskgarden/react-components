@@ -29,10 +29,6 @@ export const Nav = React.forwardRef<HTMLElement, INavProps>(
 
       const LIGHT_VALUE = 'white';
 
-      /**
-       * We are unable to use the `readableColor()` utility
-       * as some styling logic requires boolean logic.
-       */
       const accessibleColor = readableColor(backgroundColor, LIGHT_VALUE);
 
       return accessibleColor === LIGHT_VALUE;

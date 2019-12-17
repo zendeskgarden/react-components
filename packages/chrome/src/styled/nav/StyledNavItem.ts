@@ -24,8 +24,7 @@ export interface IStyledNavItemProps {
 }
 
 /**
- * 1. Button reset.
- * 2. Anchor reset.
+ * 1. Anchor reset
  */
 export const StyledNavItem = styled(StyledBaseNavItem).attrs<IStyledNavItemProps>(props => ({
   'data-garden-id': COMPONENT_ID,
@@ -55,7 +54,7 @@ export const StyledNavItem = styled(StyledBaseNavItem).attrs<IStyledNavItemProps
   text-align: ${props => props.isExpanded && 'inherit'};
 
   &:focus {
-    outline: none; /* [2] */
+    outline: none; /* [1] */
   }
 
   &:hover {
@@ -82,8 +81,8 @@ export const StyledNavItem = styled(StyledBaseNavItem).attrs<IStyledNavItemProps
 
   &:focus,
   &:hover {
-    text-decoration: none; /* [2] */
-    color: inherit; /* [2] */
+    text-decoration: none; /* [1] */
+    color: inherit; /* [1] */
   }
 
   ${props =>

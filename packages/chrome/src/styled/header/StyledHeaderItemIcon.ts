@@ -6,7 +6,6 @@
  */
 
 import styled from 'styled-components';
-import math from 'polished/lib/math/math';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.header_item_icon';
@@ -19,7 +18,7 @@ export const StyledHeaderItemIcon = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   transition: transform 0.25s ease-in-out;
-  margin: 0 ${props => math(`${props.theme.borderRadii.md} - 1`)};
+  margin: 0 3px;
   width: ${props => props.theme.iconSizes.md};
   min-width: ${props => props.theme.iconSizes.md};
   height: ${props => props.theme.iconSizes.md};
