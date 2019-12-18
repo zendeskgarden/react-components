@@ -7,6 +7,7 @@
 
 import styled from 'styled-components';
 import rgba from 'polished/lib/color/rgba';
+import math from 'polished/lib/math/math';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledBaseNavItem } from './StyledBaseNavItem';
 import { StyledNavItemIcon } from './StyledNavItemIcon';
@@ -89,7 +90,7 @@ export const StyledNavItem = styled(StyledBaseNavItem).attrs({
     props.isExpanded &&
     `
     ${StyledNavItemIcon} {
-      margin: 0 calc(calc(${getNavWidth(props)} - ${props.theme.iconSizes.lg}) / 4);
+      margin: 0 ${math(`(${getNavWidth(props)} - ${props.theme.iconSizes.lg}) / 4`)};
     }
   `}
 

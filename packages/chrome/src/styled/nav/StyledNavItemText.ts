@@ -7,6 +7,7 @@
 
 import styled from 'styled-components';
 import stripUnit from 'polished/lib/helpers/stripUnit';
+import math from 'polished/lib/math/math';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledNavItem } from './StyledNavItem';
 import { getNavWidth } from './StyledNav';
@@ -29,7 +30,7 @@ export const StyledNavItemText = styled.span.attrs<IStyledNavItemTextProps>({
   order: 1;
   clip: rect(1px, 1px, 1px, 1px);
   margin: ${props =>
-    props.isExpanded && `0 calc(calc(${getNavWidth} - ${props.theme.iconSizes.lg}) / 4);`};
+    props.isExpanded && `0 ${math(`(${getNavWidth(props)} - ${props.theme.iconSizes.lg}) / 4`)}`};
   width: 1px;
   height: 1px;
   overflow: hidden;

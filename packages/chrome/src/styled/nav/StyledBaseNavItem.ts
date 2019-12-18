@@ -5,7 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import math from 'polished/lib/math/math';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { getNavWidth } from './StyledNav';
 
@@ -13,6 +14,16 @@ const COMPONENT_ID = 'chrome.base_nav_item';
 
 export const getNavItemHeight = (props: ThemeProps<DefaultTheme>) => {
   return `${props.theme.space.base * 13}px`;
+};
+
+const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
+  const verticalPadding = math(`(${getNavItemHeight(props)} - ${props.theme.iconSizes.lg}) / 2`);
+  const horizontalPadding = math(`(${getNavWidth(props)} - ${props.theme.iconSizes.lg}) / 4`);
+
+  return css`
+    padding: ${verticalPadding} ${horizontalPadding};
+    min-height: ${getNavItemHeight};
+  `;
 };
 
 /**
@@ -33,14 +44,11 @@ export const StyledBaseNavItem = styled.div.attrs({
   border: none; /* [1] */
   box-sizing: border-box;
   background: transparent; /* [1] */
-  padding: ${props =>
-    `calc(calc(${getNavItemHeight(props)} - ${
-      props.theme.iconSizes.lg
-    }) / 2) calc(calc(${getNavWidth(props)} - ${props.theme.iconSizes.lg}) / 4)`};
-  min-height: ${getNavItemHeight};
   text-decoration: none; /* [2] */
   color: inherit; /* [2] */
   font-size: inherit; /* [1] */
+
+  ${props => sizeStyles(props)}
 `;
 
 StyledBaseNavItem.defaultProps = {

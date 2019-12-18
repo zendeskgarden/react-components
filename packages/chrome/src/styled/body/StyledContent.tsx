@@ -7,6 +7,7 @@
 
 import styled from 'styled-components';
 import stripUnit from 'polished/lib/helpers/stripUnit';
+import math from 'polished/lib/math/math';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { getHeaderHeight } from '../header/StyledHeader';
 import { getFooterHeight } from '../footer/StyledFooter';
@@ -24,7 +25,7 @@ export const StyledContent = styled.div.attrs({
   display: flex;
   height: ${props =>
     props.hasFooter
-      ? `calc(100% - calc(${getHeaderHeight(props)} + ${getFooterHeight(props)}))`
+      ? `calc(100% - ${math(`${getHeaderHeight(props)} + ${getFooterHeight(props)}`)})`
       : `calc(100% - ${getHeaderHeight(props)})`};
   line-height: ${props =>
     stripUnit(props.theme.lineHeights.md) / stripUnit(props.theme.fontSizes.md)};
