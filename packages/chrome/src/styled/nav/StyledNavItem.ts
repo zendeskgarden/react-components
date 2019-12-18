@@ -10,6 +10,7 @@ import rgba from 'polished/lib/color/rgba';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledBaseNavItem } from './StyledBaseNavItem';
 import { StyledNavItemIcon } from './StyledNavItemIcon';
+import { getNavWidth } from './StyledNav';
 
 const COMPONENT_ID = 'chrome.nav_item';
 
@@ -26,12 +27,11 @@ export interface IStyledNavItemProps {
 /**
  * 1. Anchor reset
  */
-export const StyledNavItem = styled(StyledBaseNavItem).attrs<IStyledNavItemProps>(props => ({
+export const StyledNavItem = styled(StyledBaseNavItem).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  'data-garden-current': !!props.isCurrent,
   as: 'button'
-}))<IStyledNavItemProps>`
+})<IStyledNavItemProps>`
   justify-content: ${props => props.isExpanded && 'start'};
   order: 1;
   opacity: ${props => (props.isCurrent ? 1 : 0.6)};
@@ -89,7 +89,7 @@ export const StyledNavItem = styled(StyledBaseNavItem).attrs<IStyledNavItemProps
     props.isExpanded &&
     `
     ${StyledNavItemIcon} {
-      margin: 0 ${34 / props.theme.space.base}px;
+      margin: 0 calc(calc(${getNavWidth(props)} - ${props.theme.iconSizes.lg}) / 4);
     }
   `}
 

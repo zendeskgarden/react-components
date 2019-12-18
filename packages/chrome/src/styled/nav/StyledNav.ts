@@ -29,8 +29,8 @@ export const getNavWidth = (props: ThemeProps<DefaultTheme>) => {
   return `${props.theme.space.base * 15}px`;
 };
 
-export const getExpandedNavWidth = (props: ThemeProps<DefaultTheme>) => {
-  return `${props.theme.space.base * 50}px`;
+export const getExpandedNavWidth = () => {
+  return `200px`;
 };
 
 export const StyledNav = styled.nav.attrs<IStyledNavProps>({

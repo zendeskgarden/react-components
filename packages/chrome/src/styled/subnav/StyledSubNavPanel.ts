@@ -35,7 +35,7 @@ export const StyledSubNavPanel = styled.div.attrs<IStyledSubNavPanelProps>({
 
   ${StyledSubNavItem} {
     /* stylelint-disable-next-line property-no-unknown */
-    padding-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
+    padding-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
   `${props.theme.space.base * 5}px`};
   }
 

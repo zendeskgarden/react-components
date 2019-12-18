@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import rgba from 'polished/lib/color/rgba';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
@@ -18,26 +18,25 @@ export interface IStyledSubNavItemProps {
   isCurrent?: boolean;
 }
 
-export const getSubNavItemHeight = () => {
-  return '30px';
+export const getSubNavItemHeight = (props: ThemeProps<DefaultTheme>) => {
+  return `${props.theme.space.base * 7.5}px`;
 };
 
 /**
  * 1. Anchor reset
  * 2. Button reset
  */
-export const StyledSubNavItem = styled.button.attrs<IStyledSubNavItemProps>(props => ({
+export const StyledSubNavItem = styled.button.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  'data-garden-current': !!props.isCurrent
-}))<IStyledSubNavItemProps>`
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledSubNavItemProps>`
   display: flex;
   align-items: center;
   /* prettier-ignore */
   transition: box-shadow 0.1s ease-in-out,
     background-color 0.1s ease-in-out,
     opacity 0.1s ease-in-out;
-  opacity: 0.6;
+  opacity: ${props => (props.isCurrent ? '1' : '0.6')};
   margin-top: ${props => props.theme.space.base * 2}px;
   border: none; /* [2] */
   border-radius: ${props => props.theme.borderRadii.md};
@@ -62,18 +61,18 @@ export const StyledSubNavItem = styled.button.attrs<IStyledSubNavItemProps>(prop
     outline: none; /* [1] */
   }
 
-  &:hover,
-  &[data-garden-focus-visible],
-  &[data-garden-current='true'] {
-    opacity: 1;
+  &:hover {
+    background-color: ${props =>
+      !props.isCurrent && rgba(props.theme.palette.black as string, 0.1)};
   }
 
   &[data-garden-focus-visible] {
     box-shadow: ${props => props.theme.shadows.md(rgba(props.theme.palette.white as string, 0.2))};
   }
 
-  &:not([data-garden-current='true']):hover {
-    background-color: ${props => rgba(props.theme.palette.black as string, 0.1)};
+  &:hover,
+  &[data-garden-focus-visible] {
+    opacity: ${props => props.isCurrent && '1'};
   }
 
   &:not([data-garden-header='true']):active {

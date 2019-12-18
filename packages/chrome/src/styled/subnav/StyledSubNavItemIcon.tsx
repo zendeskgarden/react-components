@@ -10,6 +10,7 @@ import styled, { ThemeProps } from 'styled-components';
 import ChevronDownStrokeIcon from '@zendeskgarden/svg-icons/src/12/chevron-down-stroke.svg';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { IStyledSubNavItemHeaderProps } from './StyledSubNavItemHeader';
+import { getSubNavItemHeight } from './StyledSubNavItem';
 
 const COMPONENT_ID = 'chrome.collapsible_sub_nav_item_icon';
 
@@ -39,16 +40,12 @@ export const StyledSubNavItemIconWrapper = styled.div.attrs({
   align-items: center;
   justify-content: center;
   width: ${props => props.theme.space.base * 7}px;
-  height: 30px;
+  height: ${getSubNavItemHeight};
 
   ${StyledSubNavItemIcon} {
     transform: ${props => {
       if (props.isExpanded) {
-        if (props.theme.rtl) {
-          return 'rotate(-180deg)';
-        }
-
-        return 'rotate(180deg)';
+        return `rotate(${props.theme.rtl && '-'}180deg)`;
       }
 
       return undefined;

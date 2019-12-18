@@ -5,7 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import math from 'polished/lib/math/math';
 import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import stripUnit from 'polished/lib/helpers/stripUnit';
 import { getSubNavItemHeight } from './StyledSubNavItem';
@@ -20,19 +21,26 @@ export interface IStyledSubNavItemTextProps {
   isWrapped?: boolean;
 }
 
-export const getSubNavItemTextLightHeight = (props: ThemeProps<DefaultTheme>) => {
-  return (props.theme.space.base * 5) / stripUnit(props.theme.fontSizes.md);
+const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
+  const baseLineHeight = props.theme.space.base * 5;
+  const verticalMargin = math(`(${getSubNavItemHeight(props)} - ${baseLineHeight}) / 2`);
+  const lineHeight = baseLineHeight / stripUnit(props.theme.fontSizes.md);
+
+  return css`
+    margin: ${verticalMargin} 0;
+    line-height: ${lineHeight};
+  `;
 };
 
 export const StyledSubNavItemText = styled.span.attrs<IStyledSubNavItemTextProps>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledSubNavItemTextProps>`
-  margin: calc(calc(${getSubNavItemHeight} - 20px) / 2) 0;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: ${getSubNavItemTextLightHeight};
   white-space: ${props => (props.isWrapped ? 'normal' : 'nowrap')};
+
+  ${props => sizeStyles(props)}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

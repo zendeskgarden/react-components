@@ -9,6 +9,7 @@ import styled from 'styled-components';
 import stripUnit from 'polished/lib/helpers/stripUnit';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledNavItem } from './StyledNavItem';
+import { getNavWidth } from './StyledNav';
 
 const COMPONENT_ID = 'chrome.nav_item_text';
 
@@ -27,7 +28,8 @@ export const StyledNavItemText = styled.span.attrs<IStyledNavItemTextProps>({
   position: absolute;
   order: 1;
   clip: rect(1px, 1px, 1px, 1px);
-  margin: ${props => props.isExpanded && `0 ${34 / props.theme.space.base}px`};
+  margin: ${props =>
+    props.isExpanded && `0 calc(calc(${getNavWidth} - ${props.theme.iconSizes.lg}) / 4);`};
   width: 1px;
   height: 1px;
   overflow: hidden;
