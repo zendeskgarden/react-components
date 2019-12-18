@@ -50,7 +50,7 @@
     "@zendeskgarden/css-bedrock": "7.0.32",
     "@zendeskgarden/css-variables": "6.4.2",
     "@zendeskgarden/eslint-config": "10.0.0",
-    "@zendeskgarden/stylelint-config": "11.0.0",
+    "@zendeskgarden/stylelint-config": "12.0.0",
     "@zendeskgarden/svg-icons": "6.8.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.3",
@@ -114,7 +114,7 @@
     "rimraf": "3.0.0",
     "simple-git": "1.126.0",
     "styled-components": "4.4.1",
-    "stylelint": "11.1.1",
+    "stylelint": "12.0.0",
     "stylelint-config-styled-components": "0.1.1",
     "stylelint-order": "3.1.1",
     "stylelint-processor-styled-components": "1.8.0",
@@ -129,6 +129,7 @@
     "webpack-node-externals": "1.7.2"
   },
   "resolutions": {
-    "@types/react": "16.9.11"
+    "@types/react": "16.9.11",
+    "@types/vfile-message": "1.0.1"
   }
 }
