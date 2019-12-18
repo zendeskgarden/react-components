@@ -6,39 +6,29 @@
  */
 
 import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
-import { StyledAlert } from './StyledAlert';
+import { css } from 'styled-components';
+import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { render } from 'garden-test-utils';
+import { VALIDATION_TYPE } from '../utils/types';
+import { StyledAlert, StyledTitle } from '../styled';
 
 describe('StyledAlert', () => {
-  describe('validation', () => {
-    it('should render with RTL styling if applied', () => {
-      const { container } = renderRtl(<StyledAlert type="success" />);
+  it(`should render the styling correctly for a Notification's title`, () => {
+    const validationHues: Record<VALIDATION_TYPE, string> = {
+      success: 'successHue',
+      error: 'dangerHue',
+      warning: 'warningHue',
+      info: 'neutralHue'
+    };
 
-      expect(container.firstChild).toHaveClass('is-rtl');
-    });
+    Object.values(validationHues).forEach(hue => {
+      const { container } = render(<StyledAlert hue={hue} />);
 
-    it('should render success styling correctly', () => {
-      const { container } = render(<StyledAlert type="success" />);
-
-      expect(container.firstChild).toHaveClass('c-callout--success');
-    });
-
-    it('should render warning styling correctly', () => {
-      const { container } = render(<StyledAlert type="warning" />);
-
-      expect(container.firstChild).toHaveClass('c-callout--warning');
-    });
-
-    it('should render error styling correctly', () => {
-      const { container } = render(<StyledAlert type="error" />);
-
-      expect(container.firstChild).toHaveClass('c-callout--error');
-    });
-
-    it('should render info styling correctly', () => {
-      const { container } = render(<StyledAlert type="info" />);
-
-      expect(container.firstChild).toHaveClass('c-callout--info');
+      expect(container.firstChild).toHaveStyleRule('color', getColor(hue, 800, DEFAULT_THEME), {
+        modifier: css`
+          ${StyledTitle}
+        ` as any
+      });
     });
   });
 });

@@ -12,7 +12,7 @@ import { Alert } from './Alert';
 describe('Alert', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
-    const { container } = render(<Alert ref={ref} />);
+    const { container } = render(<Alert type="success" ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
   });

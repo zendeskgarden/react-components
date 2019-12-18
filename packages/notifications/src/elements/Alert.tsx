@@ -7,17 +7,37 @@
 
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { StyledAlert, IStyledAlertProps } from '../styled';
-import { ARRAY_VALIDATION_TYPE } from '../utils/types';
+import { StyledAlert, StyledIcon } from '../styled';
+import { validationIcons, validationHues } from '../utils/icons';
+import { ARRAY_VALIDATION_TYPE, VALIDATION_HUE } from '../utils/types';
+import { NotificationsContext } from '../utils/useNotificationsContext';
+
+export interface IAlertProps {
+  /** One of: success, warning, error, info */
+  type: 'success' | 'warning' | 'error' | 'info';
+}
 
 /**
  * Supports all `<div>` props
  */
-export const Alert = React.forwardRef<
-  HTMLDivElement,
-  IStyledAlertProps & HTMLAttributes<HTMLDivElement>
->((props, ref) => <StyledAlert ref={ref} {...props} />);
+export const Alert = React.forwardRef<HTMLDivElement, IAlertProps & HTMLAttributes<HTMLDivElement>>(
+  (props, ref) => {
+    const hue = validationHues[props.type];
+    const Icon = validationIcons[props.type] as any;
+
+    return (
+      <NotificationsContext.Provider value={hue as VALIDATION_HUE}>
+        <StyledAlert ref={ref} hue={hue} {...props}>
+          <StyledIcon hue={hue}>
+            <Icon />
+          </StyledIcon>
+          {props.children}
+        </StyledAlert>
+      </NotificationsContext.Provider>
+    );
+  }
+);
 
 Alert.propTypes = {
-  type: PropTypes.oneOf(ARRAY_VALIDATION_TYPE)
+  type: PropTypes.oneOf(ARRAY_VALIDATION_TYPE).isRequired
 };

@@ -5,36 +5,61 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import CalloutStyles from '@zendeskgarden/css-callouts';
-import { retrieveComponentStyles, isRtl, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { VALIDATION_TYPE, ARRAY_VALIDATION_TYPE } from '../utils/types';
+import { StyledTitle } from './content/StyledTitle';
+import { StyledBase } from './StyledBase';
 
 const COMPONENT_ID = 'notifications.notification';
 
 export interface IStyledNotificationProps {
+  /** One of: success, warning, error, info */
   type?: VALIDATION_TYPE;
 }
+
+const colorStyles = (props: IStyledNotificationProps & ThemeProps<DefaultTheme>) => {
+  const { type, theme } = props;
+  const { colors } = theme;
+  const { successHue, dangerHue, warningHue, foreground } = colors;
+
+  let color;
+
+  switch (type) {
+    case 'success':
+      color = getColor(successHue, 600, theme);
+      break;
+    case 'error':
+      color = getColor(dangerHue, 600, theme);
+      break;
+    case 'warning':
+      color = getColor(warningHue, 700, theme);
+      break;
+    case 'info':
+      color = foreground;
+      break;
+    default:
+      color = 'inherit';
+      break;
+  }
+
+  return css`
+    ${StyledTitle} {
+      color: ${color};
+    }
+  `;
+};
 
 /**
  * Supports all `<div>` props
  */
-export const StyledNotification = styled.div.attrs<IStyledNotificationProps>(props => ({
+export const StyledNotification = styled(StyledBase).attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: classNames(CalloutStyles['c-callout'], CalloutStyles['c-callout--dialog'], {
-    // RTL
-    [CalloutStyles['is-rtl']]: isRtl(props),
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledNotificationProps>`
+  ${colorStyles}
 
-    // Validation types
-    [CalloutStyles['c-callout--success']]: props.type === 'success',
-    [CalloutStyles['c-callout--warning']]: props.type === 'warning',
-    [CalloutStyles['c-callout--error']]: props.type === 'error',
-    [CalloutStyles['c-callout--info']]: props.type === 'info'
-  })
-}))<IStyledNotificationProps>`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
