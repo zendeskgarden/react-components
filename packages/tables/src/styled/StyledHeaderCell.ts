@@ -64,6 +64,7 @@ export const StyledHeaderCell = styled(StyledCell).attrs({
 
     return undefined;
   }};
+  font-weight: inherit;
 
   ${props => sizeStyles(props)}
   ${props => props.isTruncated && truncatedStyling}
