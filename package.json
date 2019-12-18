@@ -129,7 +129,6 @@
     "webpack-node-externals": "1.7.2"
   },
   "resolutions": {
-    "@types/react": "16.9.11",
-    "@types/vfile-message": "1.0.1"
+    "@types/react": "16.9.11"
   }
 }
