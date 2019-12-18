@@ -8,20 +8,24 @@
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'chrome.main';
+const COMPONENT_ID = 'chrome.header_item_icon';
 
-export const StyledMain = styled.main.attrs({
+/**
+ * Applies styling directly to child component
+ **/
+export const StyledHeaderItemIcon = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  flex: 1;
-  order: 1;
-  background-color: ${props => props.theme.colors.background};
-  overflow: auto;
+  transition: transform 0.25s ease-in-out;
+  margin: 0 3px;
+  width: ${props => props.theme.iconSizes.md};
+  min-width: ${props => props.theme.iconSizes.md};
+  height: ${props => props.theme.iconSizes.md};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledMain.defaultProps = {
+StyledHeaderItemIcon.defaultProps = {
   theme: DEFAULT_THEME
 };

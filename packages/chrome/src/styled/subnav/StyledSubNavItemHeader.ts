@@ -6,26 +6,29 @@
  */
 
 import styled from 'styled-components';
-import classNames from 'classnames';
-import ChromeStyles from '@zendeskgarden/css-chrome';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 import { StyledSubNavItem, IStyledSubNavItemProps } from '../../styled';
 
 const COMPONENT_ID = 'chrome.collapsible_sub_nav_item';
 
-export interface IStyledSubNavItemHeader extends IStyledSubNavItemProps {
+export interface IStyledSubNavItemHeaderProps extends IStyledSubNavItemProps {
   isExpanded?: boolean;
 }
 
-export const StyledSubNavItemHeader = styled(StyledSubNavItem).attrs<IStyledSubNavItemHeader>(
-  props => ({
-    'data-garden-id': COMPONENT_ID,
-    'data-garden-version': PACKAGE_VERSION,
-    className: classNames(props.className, ChromeStyles['c-chrome__subnav__item--header'], {
-      [ChromeStyles['is-expanded']]: props.isExpanded
-    })
-  })
-)<IStyledSubNavItemHeader>`
+export const StyledSubNavItemHeader = styled(StyledSubNavItem).attrs<IStyledSubNavItemHeaderProps>({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION,
+  'data-garden-header': 'true'
+})<IStyledSubNavItemHeaderProps>`
+  position: relative;
+  /* stylelint-disable-next-line property-no-unknown */
+  padding-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
+  props.theme.space.base * 7}px;
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledSubNavItemHeader.defaultProps = {
+  theme: DEFAULT_THEME
+};

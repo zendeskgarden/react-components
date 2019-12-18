@@ -5,41 +5,64 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes } from 'react';
+import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { useKeyboardFocus } from '@zendeskgarden/container-keyboardfocus';
-import { StyledNavItem, IStyledNavItemProps } from '../../styled';
-import { PRODUCTS } from '../../utils/types';
+import { StyledNavItem, StyledLogoNavItem, StyledBrandmarkNavItem } from '../../styled';
+import { PRODUCT, PRODUCTS } from '../../utils/types';
+import { useNavContext } from '../../utils/useNavContext';
+
+interface INavItemProps extends HTMLAttributes<any> {
+  /**
+   * Applies product-specific color palette
+   **/
+  product?: PRODUCT;
+  /**
+   * Indicate which item is current in the nav
+   **/
+  isCurrent?: boolean;
+  hasLogo?: boolean;
+  hasBrandmark?: boolean;
+}
 
 /**
  * Accepts all `<button>` attributes and events
  */
-export const NavItem = React.forwardRef<
-  HTMLButtonElement,
-  IStyledNavItemProps & ButtonHTMLAttributes<HTMLButtonElement>
->(({ hasLogo, hasBrandmark, isFocused, ...other }, ref) => {
-  const { getFocusProps, keyboardFocused } = useKeyboardFocus();
+export const NavItem = React.forwardRef<any, INavItemProps>(
+  ({ hasLogo, hasBrandmark, product, ...other }, ref) => {
+    const { isExpanded, isDark, isLight } = useNavContext();
 
-  return (
-    <StyledNavItem
-      {...getFocusProps({
-        tabIndex: hasLogo || hasBrandmark ? -1 : 0,
-        isFocused: isFocused || keyboardFocused,
-        hasLogo: hasLogo || hasBrandmark,
-        hasBrandmark,
-        ref,
-        ...other
-      })}
-    />
-  );
-});
+    if (hasLogo) {
+      return (
+        <StyledLogoNavItem
+          ref={ref}
+          isDark={isDark}
+          isLight={isLight}
+          product={product}
+          {...other}
+        />
+      );
+    }
+
+    if (hasBrandmark) {
+      return <StyledBrandmarkNavItem ref={ref} {...other} />;
+    }
+
+    return (
+      <StyledNavItem
+        tabIndex={0}
+        ref={ref}
+        isExpanded={isExpanded}
+        isDark={isDark}
+        isLight={isLight}
+        {...other}
+      />
+    );
+  }
+);
 
 NavItem.propTypes = {
   product: PropTypes.oneOf(PRODUCTS),
   hasLogo: PropTypes.bool,
   hasBrandmark: PropTypes.bool,
-  isCurrent: PropTypes.bool,
-  isHovered: PropTypes.bool,
-  isFocused: PropTypes.bool,
-  isActive: PropTypes.bool
+  isCurrent: PropTypes.bool
 };

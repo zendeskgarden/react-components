@@ -8,20 +8,24 @@
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'chrome.main';
+const COMPONENT_ID = 'chrome.nav_item_icon';
 
-export const StyledMain = styled.main.attrs({
+/**
+ * Applies styling directly to child component
+ **/
+export const StyledNavItemIcon = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  flex: 1;
-  order: 1;
-  background-color: ${props => props.theme.colors.background};
-  overflow: auto;
+  align-self: flex-start;
+  order: 0;
+  border-radius: ${props => props.theme.borderRadii.md};
+  width: ${props => props.theme.iconSizes.lg};
+  height: ${props => props.theme.iconSizes.lg};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledMain.defaultProps = {
+StyledNavItemIcon.defaultProps = {
   theme: DEFAULT_THEME
 };

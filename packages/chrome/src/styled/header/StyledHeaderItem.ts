@@ -5,64 +5,98 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import classNames from 'classnames';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import ChromeStyles from '@zendeskgarden/css-chrome';
-import { PRODUCT } from '../../utils/types';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import math from 'polished/lib/math/math';
+import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { StyledHeaderItemIcon } from './StyledHeaderItemIcon';
+import {
+  StyledBaseHeaderItem,
+  IStyledBaseHeaderItemProps,
+  getHeaderItemSize
+} from './StyledBaseHeaderItem';
+import { StyledHeaderItemText } from './StyledHeaderItemText';
 
 const COMPONENT_ID = 'chrome.header_item';
 
-export interface IStyledHeaderItemProps {
-  /**
-   * Horizontally maximize a flex item in the header to take as much space as possible (i.e. breadcrumb container)
-   **/
-  maxX?: boolean;
-  /**
-   * Vertically maximize the height for a header item (i.e. contains a search input)
-   **/
-  maxY?: boolean;
-  /**
-   * Style the product logo shown as the first item in the header
-   **/
-  hasLogo?: boolean;
-  /**
-   * Round the border radius for a header item (i.e. user icon)
-   **/
-  isRound?: boolean;
-  /**
-   * Applies product-specific color palette
-   **/
-  product?: PRODUCT;
-  isHovered?: boolean;
-  isFocused?: boolean;
-  isActive?: boolean;
-}
+const imgStyles = (props: ThemeProps<DefaultTheme>) => {
+  const size = math(`${getHeaderItemSize(props)} - ${props.theme.space.base * 2}`);
 
-export const StyledHeaderItem = styled.button.attrs<IStyledHeaderItemProps>(props => ({
+  return css`
+    img {
+      margin: 0;
+      border-radius: ${math(`${props.theme.borderRadii.md} - 1`)};
+      width: ${size};
+      height: ${size};
+    }
+  `;
+};
+
+/**
+ * 1. Anchor reset.
+ */
+export const StyledHeaderItem = styled(StyledBaseHeaderItem).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: classNames(ChromeStyles['c-chrome__body__header__item'], {
-    // Styling
-    [ChromeStyles['c-chrome__body__header__item--max-x']]: props.maxX,
-    [ChromeStyles['c-chrome__body__header__item--max-y']]: props.maxY,
-    [ChromeStyles['c-chrome__body__header__item--logo']]: props.hasLogo,
-    [ChromeStyles['c-chrome__body__header__item--round']]: props.isRound,
+  as: 'button'
+})<IStyledBaseHeaderItemProps>`
+  &:hover,
+  &:focus {
+    text-decoration: none; /* [1] */
+    color: inherit; /* [1] */
+  }
 
-    // Products
-    [ChromeStyles['c-chrome__body__header__item--logo--chat']]: props.product === 'chat',
-    [ChromeStyles['c-chrome__body__header__item--logo--connect']]: props.product === 'connect',
-    [ChromeStyles['c-chrome__body__header__item--logo--explore']]: props.product === 'explore',
-    [ChromeStyles['c-chrome__body__header__item--logo--guide']]: props.product === 'guide',
-    [ChromeStyles['c-chrome__body__header__item--logo--message']]: props.product === 'message',
-    [ChromeStyles['c-chrome__body__header__item--logo--support']]: props.product === 'support',
-    [ChromeStyles['c-chrome__body__header__item--logo--talk']]: props.product === 'talk',
+  &:focus {
+    outline: none; /* [1] */
+  }
 
-    // State
-    [ChromeStyles['is-hovered']]: props.isHovered,
-    [ChromeStyles['is-focused']]: props.isFocused,
-    [ChromeStyles['is-active']]: props.isActive
-  })
-}))<IStyledHeaderItemProps>`
+  &[data-garden-focus-visible] {
+    box-shadow: ${props => props.theme.shadows.md(getColor('chromeHue', 400, props.theme, 0.35)!)};
+  }
+
+  &[data-garden-focus-visible]:active {
+    box-shadow: none;
+  }
+
+  /* prettier-ignore */
+  &:hover ${/* sc-selector */ StyledHeaderItemIcon},
+  &:hover ${/* sc-selector */ StyledHeaderItemText},
+  &:active ${/* sc-selector */ StyledHeaderItemIcon},
+  &:active ${/* sc-selector */ StyledHeaderItemText} {
+    color: ${props => getColor('chromeHue', 700, props.theme)};
+  }
+
+  ${props =>
+    props.maxY &&
+    `
+      &[data-garden-focus-visible] {
+        box-shadow: inset ${props.theme.shadows.lg(
+          props.theme.shadowWidths.md,
+          '0',
+          getColor('chromeHue', 400, props.theme, 0.35)!
+        )},
+        ${props.theme.shadowWidths.md} 0 0 0 ${getColor('chromeHue', 400, props.theme, 0.35)},
+        inset ${props.theme.shadows.lg(
+          `-${props.theme.shadowWidths.md}`,
+          '0',
+          getColor('chromeHue', 400, props.theme, 0.35)!
+        )},
+        -${props.theme.shadowWidths.md} 0 0 0 ${getColor('chromeHue', 400, props.theme, 0.35)};
+      }
+  `}
+
+  ${imgStyles}
+
+  ${props =>
+    props.isRound &&
+    `
+    ${StyledHeaderItemIcon} {
+      border-radius: 100px;
+    }
+  `}
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledHeaderItem.defaultProps = {
+  theme: DEFAULT_THEME
+};

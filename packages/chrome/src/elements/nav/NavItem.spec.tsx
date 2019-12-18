@@ -8,27 +8,10 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import { NavItem } from './NavItem';
-import { PRODUCTS } from '../../utils/types';
+import { PRODUCT, PRODUCTS } from '../../utils/types';
+import { PALETTE } from '@zendeskgarden/react-theming';
 
 describe('NavItem', () => {
-  it('renders default styling', () => {
-    const { container } = render(<NavItem />);
-
-    expect(container.firstChild).toHaveClass('c-chrome__nav__item');
-  });
-
-  it('renders logo styling if provided', () => {
-    const { container } = render(<NavItem hasLogo />);
-
-    expect(container.firstChild).toHaveClass('c-chrome__nav__item--logo');
-  });
-
-  it('renders brandmark styling if provided', () => {
-    const { container } = render(<NavItem hasBrandmark />);
-
-    expect(container.firstChild).toHaveClass('c-chrome__nav__item--brandmark');
-  });
-
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLButtonElement>();
     const { container } = render(<NavItem ref={ref} />);
@@ -36,39 +19,59 @@ describe('NavItem', () => {
     expect(container.firstChild).toBe(ref.current);
   });
 
-  describe('States', () => {
-    it('renders current styling if provided', () => {
-      const { container } = render(<NavItem isCurrent />);
+  it('renders correct order if used as brandmark', () => {
+    const { container } = render(<NavItem hasBrandmark />);
 
-      expect(container.firstChild).toHaveClass('is-current');
-    });
+    expect(container.firstChild).toHaveStyleRule('order', '1');
+  });
 
-    it('renders focused styling if provided', () => {
-      const { container } = render(<NavItem isFocused />);
+  it('renders correct order if used as logo', () => {
+    const { container } = render(<NavItem hasLogo />);
 
-      expect(container.firstChild).toHaveClass('is-focused');
-    });
+    expect(container.firstChild).toHaveStyleRule('order', '0');
+  });
 
-    it('renders hovered styling if provided', () => {
-      const { container } = render(<NavItem isHovered />);
+  it('renders correct opacity if used as brandmark', () => {
+    const { container } = render(<NavItem hasBrandmark />);
 
-      expect(container.firstChild).toHaveClass('is-hovered');
-    });
+    expect(container.firstChild).toHaveStyleRule('opacity', '0.3');
+  });
 
-    it('renders active styling if provided', () => {
-      const { container } = render(<NavItem isActive />);
+  it('renders correct opacity if used as logo', () => {
+    const { container } = render(<NavItem hasLogo />);
 
-      expect(container.firstChild).toHaveClass('is-active');
-    });
+    expect(container.firstChild).toHaveStyleRule('opacity', '1');
+  });
+
+  it('renders correct opacity if current', () => {
+    const { container } = render(<NavItem isCurrent />);
+
+    expect(container.firstChild).toHaveStyleRule('opacity', '1');
   });
 
   describe('Products', () => {
-    PRODUCTS.forEach(product => {
-      it(`renders ${product} styling if provided`, () => {
-        const { container } = render(<NavItem product={product} />);
+    const VALID_COLOR_MAP: Record<PRODUCT, string> = {
+      chat: PALETTE.product.chat,
+      connect: PALETTE.product.connect,
+      explore: PALETTE.product.explore,
+      guide: PALETTE.product.guide,
+      message: PALETTE.product.message,
+      support: PALETTE.product.support,
+      talk: PALETTE.product.talk
+    };
 
-        expect(container.firstChild).toHaveClass(`c-chrome__nav__item--logo--${product}`);
+    PRODUCTS.forEach(product => {
+      it(`renders correct ${product} color if provided`, () => {
+        const { container } = render(<NavItem hasLogo product={product} />);
+
+        expect(container.firstChild).toHaveStyleRule('color', VALID_COLOR_MAP[product]);
       });
+    });
+
+    it('renders correct color if no product is provided', () => {
+      const { container } = render(<NavItem hasLogo />);
+
+      expect(container.firstChild).toHaveStyleRule('color', 'inherit');
     });
   });
 });

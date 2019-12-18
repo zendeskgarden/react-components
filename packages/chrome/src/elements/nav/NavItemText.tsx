@@ -8,14 +8,19 @@
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledNavItemText, IStyledNavItemTextProps } from '../../styled';
+import { useNavContext } from '../../utils/useNavContext';
 
 /**
  * Accepts all `<span>` attributes and events
  */
 export const NavItemText = React.forwardRef<
   HTMLElement,
-  IStyledNavItemTextProps & HTMLAttributes<HTMLElement>
->((props, ref) => <StyledNavItemText ref={ref} {...props} />);
+  Omit<IStyledNavItemTextProps, 'isExpanded'> & HTMLAttributes<HTMLElement>
+>((props, ref) => {
+  const { isExpanded } = useNavContext();
+
+  return <StyledNavItemText ref={ref} isExpanded={isExpanded} {...props} />;
+});
 
 NavItemText.propTypes = {
   isWrapped: PropTypes.bool

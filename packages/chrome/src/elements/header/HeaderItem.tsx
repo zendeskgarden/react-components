@@ -5,39 +5,40 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes } from 'react';
+import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { useKeyboardFocus } from '@zendeskgarden/container-keyboardfocus';
-import { StyledHeaderItem, IStyledHeaderItemProps } from '../../styled/header/StyledHeaderItem';
+import {
+  StyledHeaderItem,
+  StyledLogoHeaderItem,
+  IStyledBaseHeaderItemProps,
+  IStyledLogoHeaderItemProps
+} from '../../styled';
 import { PRODUCTS } from '../../utils/types';
+
+interface IHeadItemProps
+  extends IStyledBaseHeaderItemProps,
+    IStyledLogoHeaderItemProps,
+    HTMLAttributes<HTMLElement> {
+  hasLogo?: boolean;
+}
 
 /**
  * Accepts all `<button>` props
  */
-export const HeaderItem = React.forwardRef<
-  HTMLButtonElement,
-  IStyledHeaderItemProps & ButtonHTMLAttributes<HTMLButtonElement>
->(({ isFocused, ...other }, ref) => {
-  const { getFocusProps, keyboardFocused } = useKeyboardFocus();
+export const HeaderItem = React.forwardRef<any, IHeadItemProps>(
+  ({ hasLogo, product, ...other }, ref) => {
+    if (hasLogo) {
+      return <StyledLogoHeaderItem ref={ref} product={product} {...other} />;
+    }
 
-  return (
-    <StyledHeaderItem
-      {...getFocusProps({
-        ...other,
-        ref,
-        isFocused: isFocused || keyboardFocused
-      })}
-    />
-  );
-});
+    return <StyledHeaderItem ref={ref} {...other} />;
+  }
+);
 
 HeaderItem.propTypes = {
   maxX: PropTypes.bool,
   maxY: PropTypes.bool,
   isRound: PropTypes.bool,
   product: PropTypes.oneOf(PRODUCTS),
-  hasLogo: PropTypes.bool,
-  isHovered: PropTypes.bool,
-  isFocused: PropTypes.bool,
-  isActive: PropTypes.bool
+  hasLogo: PropTypes.bool
 };

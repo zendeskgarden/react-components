@@ -7,10 +7,15 @@
 
 import React, { HTMLAttributes } from 'react';
 import { StyledContent } from '../../styled';
+import { useBodyContext } from '../../utils/useBodyContext';
 
 /**
  * Accepts all `<div>` attributes and events
  */
 export const Content = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  (props, ref) => <StyledContent ref={ref} {...props} />
+  (props, ref) => {
+    const { hasFooter } = useBodyContext();
+
+    return <StyledContent ref={ref} hasFooter={hasFooter} {...props} />;
+  }
 );

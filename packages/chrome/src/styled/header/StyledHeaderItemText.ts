@@ -5,10 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import classNames from 'classnames';
-import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import ChromeStyles from '@zendeskgarden/css-chrome';
+import styled, { css } from 'styled-components';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.header_item_text';
 
@@ -19,12 +17,27 @@ export interface IStyledHeaderItemTextProps {
   isClipped?: boolean;
 }
 
-export const StyledHeaderItemText = styled.span.attrs<IStyledHeaderItemTextProps>(props => ({
+export const clippedStyling = css`
+  position: absolute;
+  margin: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+`;
+
+export const StyledHeaderItemText = styled.span.attrs<IStyledHeaderItemTextProps>({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: classNames(ChromeStyles['c-chrome__body__header__item__text'], {
-    [ChromeStyles['is-clipped']]: props.isClipped
-  })
-}))<IStyledHeaderItemTextProps>`
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledHeaderItemTextProps>`
+  margin: 0 3px;
+
+  ${props => props.isClipped && clippedStyling}
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledHeaderItemText.defaultProps = {
+  theme: DEFAULT_THEME
+};
