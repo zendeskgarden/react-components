@@ -93,7 +93,7 @@
     "jest-enzyme": "7.1.2",
     "jest-styled-components": "6.3.4",
     "lerna": "3.19.0",
-    "lerna-changelog": "0.8.3",
+    "lerna-changelog": "1.0.0",
     "lint-staged": "9.5.0",
     "live-server": "1.2.1",
     "markdown-loader": "5.1.0",
