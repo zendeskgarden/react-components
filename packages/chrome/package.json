@@ -32,10 +32,10 @@
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "@zendeskgarden/css-chrome": "4.1.17",
-    "@zendeskgarden/css-variables": "6.4.2",
+    "@zendeskgarden/css-chrome": "4.1.18",
+    "@zendeskgarden/css-variables": "6.4.3",
     "@zendeskgarden/react-theming": "^7.1.4",
-    "@zendeskgarden/svg-icons": "6.8.1"
+    "@zendeskgarden/svg-icons": "6.9.0"
   },
   "keywords": [
     "components",

@@ -36,10 +36,10 @@
   "devDependencies": {
     "@types/lodash.debounce": "4.0.6",
     "@zendeskgarden/css-arrows": "3.1.1",
-    "@zendeskgarden/css-forms": "7.0.17",
-    "@zendeskgarden/css-menus": "9.0.17",
+    "@zendeskgarden/css-forms": "7.0.18",
+    "@zendeskgarden/css-menus": "9.0.18",
     "@zendeskgarden/react-theming": "^7.1.4",
-    "@zendeskgarden/svg-icons": "6.8.1",
+    "@zendeskgarden/svg-icons": "6.9.0",
     "lodash.debounce": "4.0.8"
   },
   "keywords": [

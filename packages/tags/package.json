@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@zendeskgarden/container-utilities": "0.3.0",
-    "@zendeskgarden/css-tags": "5.1.12",
+    "@zendeskgarden/css-tags": "5.1.13",
     "@zendeskgarden/react-theming": "^7.1.4"
   },
   "keywords": [
