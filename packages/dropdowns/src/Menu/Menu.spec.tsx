@@ -57,7 +57,9 @@ describe('Menu', () => {
         right: 0,
         x: 0,
         y: 0,
-        toJSON: () => {}
+        toJSON: () => {
+          return undefined;
+        }
       };
     });
 
