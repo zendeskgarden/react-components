@@ -1,5 +1,5 @@
 {
-  "version": "7.1.0",
+  "version": "7.1.4",
   "npmClient": "yarn",
   "npmClientArgs": ["--no-lockfile"],
   "changelog": {
@@ -23,10 +23,13 @@
   ],
   "command": {
     "publish": {
-      "registry": "https://registry.npmjs.org/"
+      "registry": "https://registry.npmjs.org/",
+      "distTag": "next",
+      "preDistTag": "next"
     },
     "version": {
-      "allowBranch": "master",
+      "allowBranch": "next",
+      "preid": "next",
       "message": "chore(release): publish"
     }
   }
