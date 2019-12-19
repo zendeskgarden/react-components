@@ -34,7 +34,7 @@
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "@zendeskgarden/css-menus": "9.0.17",
+    "@zendeskgarden/css-menus": "9.0.18",
     "@zendeskgarden/react-theming": "^8.0.0-next.0",
     "@zendeskgarden/svg-icons": "6.9.0"
   },
