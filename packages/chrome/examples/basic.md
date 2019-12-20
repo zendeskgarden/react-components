@@ -147,10 +147,7 @@ const StyledSpacer = styled.div`
               />
             </Field>
             <StyledSpacer />
-            <Button
-              size="small"
-              onClick={() => setState({ color: PALETTE.kale[700] })}
-            >
+            <Button size="small" onClick={() => setState({ color: PALETTE.kale[700] })}>
               Reset colors
             </Button>
           </Col>
