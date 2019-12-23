@@ -8,7 +8,7 @@
 import { css } from 'styled-components';
 import math from 'polished/lib/math/math';
 
-type POSITION =
+export type POSITION =
   | 'top'
   | 'top-left'
   | 'top-right'
