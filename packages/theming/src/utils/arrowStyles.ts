@@ -22,7 +22,7 @@ type POSITION =
   | 'left-top'
   | 'left-bottom';
 
-const positionStyles = (size: string, position: POSITION) => {
+const positionStyles = (position: POSITION, size: string) => {
   const offset = math(`${size} / -2`);
   let clipPath;
   let positionCss;
@@ -81,17 +81,47 @@ const positionStyles = (size: string, position: POSITION) => {
 
     &::before,
     &::after {
-      ${positionCss} /* [3] */;
+      ${positionCss} /* [3] */
     }
   `;
 };
 
-const arrowStyles = (size: string, position: POSITION) => {
+/**
+ * CSS for an arrow at the given position and with the given size. The arrow is
+ * positioned via `::before` and `::after` pseudo-elements and inherits the
+ * base element's border, background, and box-shadow.
+ *
+ * IMPORTANT: the element that receives arrow styling must be wrapped in a
+ * positioned box (i.e. `relative`, `absolute`, `fixed`) that has a `z-index`
+ * greater than or equal to zero. Without this the arrow cannot properly
+ * display inherited border or box-shadow styling.
+ *
+ * @param {string} position One of:
+ *  - `'top'`
+ *  - `'top-left'`
+ *  - `'top-right'`
+ *  - `'right'`
+ *  - `'right-top'`
+ *  - `'right-bottom'`
+ *  - `'bottom'`
+ *  - `'bottom-left'`
+ *  - `'bottom-right'`
+ *  - `'left'`
+ *  - `'left-top'`
+ *  - `'left-bottom'`
+ * @param {string} [size='6px'] Distance from the base (hypotenuse) to point
+ *  (right angle) of the arrow expressed as a CSS dimension.
+ *
+ * @component
+ */
+export default function arrowStyles(position: POSITION, size = '6px') {
+  const squareSize = math(`${size} * 2 / sqrt(2)`);
+
   /**
    * 1. Set base positioning for an element with an arrow.
    * 2. Allow any border inherited by `::after` to show through.
-   * 3. Styling and z-index positioning for arrow ::after. Border styling and
-   *    box-shadow will be automatically inherited from the parent element.
+   * 3. Border styling and box-shadow will be automatically inherited from the
+   *    parent element.
    * 4. Apply shared offset and sizing properties to ::before and ::after.
    */
   return css`
@@ -119,13 +149,11 @@ const arrowStyles = (size: string, position: POSITION) => {
       transform: rotate(45deg);
       background-color: inherit;
       box-sizing: inherit;
-      width: ${size};
-      height: ${size};
+      width: ${squareSize};
+      height: ${squareSize};
       content: '';
     }
 
-    ${positionStyles(size, position)};
+    ${positionStyles(position, squareSize)};
   `;
-};
-
-export default arrowStyles;
+}
