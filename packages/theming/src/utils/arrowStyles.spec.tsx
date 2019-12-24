@@ -14,14 +14,19 @@ import arrowStyles, { POSITION as ARROW_POSITION } from './arrowStyles';
 interface IStyledDivProps extends ThemeProps<DefaultTheme> {
   arrowPosition: ARROW_POSITION;
   arrowSize?: string;
+  arrowOffset?: string;
 }
 
 const StyledDiv = styled.div<IStyledDivProps>`
-  ${props => arrowStyles(props.arrowPosition, props.arrowSize)}
+  ${props => arrowStyles(props.arrowPosition, props.arrowSize, props.arrowOffset)}
 `;
 
 const getArrowSize = (size = '6px') => {
   return math(`${size} * 2 / sqrt(2)`);
+};
+
+const getArrowOffset = (offset: string, size?: string) => {
+  return math(`${getArrowSize(size)} / -2 - ${offset}`);
 };
 
 describe('arrowStyles', () => {
@@ -39,7 +44,7 @@ describe('arrowStyles', () => {
   });
 
   describe('size', () => {
-    const SIZE = ['2px', '4px', '6px', '8px', '10px'];
+    const SIZE = ['2px', '4px', '6px', '8px', '10px', '1em'];
 
     SIZE.forEach(size => {
       it(`renders with ${size} size`, () => {
@@ -48,6 +53,19 @@ describe('arrowStyles', () => {
 
         expect(container.firstChild).toHaveStyleRule('width', value, { modifier: '::before' });
         expect(container.firstChild).toHaveStyleRule('height', value, { modifier: '::after' });
+      });
+    });
+  });
+
+  describe('offset', () => {
+    const OFFSET = ['-1px', '0', '1px', '2px', '4px'];
+
+    OFFSET.forEach(offset => {
+      it(`renders with ${offset} offset`, () => {
+        const { container } = render(<StyledDiv arrowPosition="top" arrowOffset={offset} />);
+        const value = getArrowOffset(offset);
+
+        expect(container.firstChild).toHaveStyleRule('top', value, { modifier: '::before' });
       });
     });
   });
