@@ -13,6 +13,7 @@ const {
 initialState = {
   border: true,
   boxShadow: true,
+  offset: 0,
   position: 'bottom',
   size: 6
 };
@@ -23,7 +24,7 @@ const StyledDiv = styled.div`
   border: ${state.border && `${DEFAULT_THEME.borders.sm} ${getColor('primaryHue')}`};
   background-color: ${getColor('primaryHue', 200)};
 
-  ${arrowStyles(state.position, `${state.size}px`)};
+  ${arrowStyles(state.position, `${state.size}px`, `${state.offset}px`)};
 `;
 
 <Grid>
@@ -73,6 +74,15 @@ const StyledDiv = styled.div`
             min={2}
             onChange={event => setState({ size: parseInt(event.target.value, 10) })}
             value={state.size}
+          />
+        </Field>
+        <Field className="u-mt-xs">
+          <Label>Offset ({state.offset}px)</Label>
+          <Range
+            max={4}
+            min={-4}
+            onChange={event => setState({ offset: parseInt(event.target.value, 10) })}
+            value={state.offset}
           />
         </Field>
       </Well>

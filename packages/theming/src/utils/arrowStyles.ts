@@ -22,8 +22,9 @@ export type POSITION =
   | 'left-top'
   | 'left-bottom';
 
-const positionStyles = (position: POSITION, size: string) => {
-  const offset = math(`${size} / -2`);
+const positionStyles = (position: POSITION, size: string, offset: string) => {
+  const margin = math(`${size} / -2`);
+  const placement = math(`${margin} - ${offset}`);
   let clipPath;
   let positionCss;
   let propertyRadius: string;
@@ -32,28 +33,28 @@ const positionStyles = (position: POSITION, size: string) => {
     propertyRadius = 'border-bottom-right-radius';
     clipPath = 'polygon(100% 0, 100% 1px, 1px 100%, 0 100%, 0 0)';
     positionCss = css`
-      top: ${offset};
+      top: ${placement};
       right: ${position === 'top-right' && size};
       left: ${position === 'top' ? '50%' : position === 'top-left' && size};
-      margin-left: ${position === 'top' && offset};
+      margin-left: ${position === 'top' && margin};
     `;
   } else if (position.startsWith('right')) {
     propertyRadius = 'border-bottom-left-radius';
     clipPath = 'polygon(100% 0, 100% 100%, calc(100% - 1px) 100%, 0 1px, 0 0)';
     positionCss = css`
       top: ${position === 'right' ? '50%' : position === 'right-top' && size};
-      right: ${offset};
+      right: ${placement};
       bottom: ${position === 'right-bottom' && size};
-      margin-top: ${position === 'right' && offset};
+      margin-top: ${position === 'right' && margin};
     `;
   } else if (position.startsWith('bottom')) {
     propertyRadius = 'border-top-left-radius';
     clipPath = 'polygon(100% 0, calc(100% - 1px) 0, 0 calc(100% - 1px), 0 100%, 100% 100%)';
     positionCss = css`
       right: ${position === 'bottom-right' && size};
-      bottom: ${offset};
+      bottom: ${placement};
       left: ${position === 'bottom' ? '50%' : position === 'bottom-left' && size};
-      margin-left: ${position === 'bottom' && offset};
+      margin-left: ${position === 'bottom' && margin};
     `;
   } else if (position.startsWith('left')) {
     propertyRadius = 'border-top-right-radius';
@@ -61,8 +62,8 @@ const positionStyles = (position: POSITION, size: string) => {
     positionCss = css`
       top: ${position === 'left' ? '50%' : position === 'left-top' && size};
       bottom: ${size};
-      left: ${offset};
-      margin-top: ${position === 'left' && offset};
+      left: ${placement};
+      margin-top: ${position === 'left' && margin};
     `;
   }
 
@@ -111,10 +112,12 @@ const positionStyles = (position: POSITION, size: string) => {
  *  - `'left-bottom'`
  * @param {string} [size='6px'] Distance from the base (hypotenuse) to point
  *  (right angle) of the arrow expressed as a CSS dimension.
+ * @param {string} [offset='0'] Tweak arrow positioning by adjusting with
+ *  either a positive (pull the arrow out) or negative (push the arrow in) value.
  *
  * @component
  */
-export default function arrowStyles(position: POSITION, size = '6px') {
+export default function arrowStyles(position: POSITION, size = '6px', offset = '0') {
   const squareSize = math(`${size} * 2 / sqrt(2)`);
 
   /**
@@ -154,6 +157,6 @@ export default function arrowStyles(position: POSITION, size = '6px') {
       content: '';
     }
 
-    ${positionStyles(position, squareSize)};
+    ${positionStyles(position, squareSize, offset)};
   `;
 }
