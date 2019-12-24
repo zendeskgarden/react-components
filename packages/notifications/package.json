@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "7.0.2",
+  "version": "8.0.0-next.0",
   "main": "./dist/index.js",
   "files": [
     "dist"
@@ -18,7 +18,7 @@
     "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
-  "typings": "./index.d.ts",
+  "types": "dist/typings/index.d.ts",
   "dependencies": {
     "classnames": "^2.2.5"
   },
@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@zendeskgarden/css-callouts": "3.3.13",
-    "@zendeskgarden/react-theming": "^7.0.0"
+    "@zendeskgarden/react-theming": "^8.0.0-next.0"
   },
   "keywords": [
     "components",
@@ -44,5 +44,5 @@
   },
   "zendeskgarden:library": "GardenNotifications",
   "zendeskgarden:max_size": "3 kB",
-  "zendeskgarden:src": "src/index.js"
+  "zendeskgarden:src": "src/index.ts"
 }

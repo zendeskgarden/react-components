@@ -10,18 +10,6 @@ import { render } from 'garden-test-utils';
 import { SubNavItemText } from './SubNavItemText';
 
 describe('SubNavItemText', () => {
-  it('renders default styling', () => {
-    const { container } = render(<SubNavItemText />);
-
-    expect(container.firstChild).toHaveClass('c-chrome__subnav__item__text');
-  });
-
-  it('renders wrap styling if provided', () => {
-    const { container } = render(<SubNavItemText isWrapped />);
-
-    expect(container.firstChild).toHaveClass('c-chrome__subnav__item__text--wrap');
-  });
-
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
     const { container } = render(<SubNavItemText ref={ref} />);

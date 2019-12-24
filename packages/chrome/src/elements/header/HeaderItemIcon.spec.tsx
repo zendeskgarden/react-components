@@ -10,21 +10,11 @@ import { render } from 'garden-test-utils';
 import { HeaderItemIcon } from './HeaderItemIcon';
 
 describe('HeaderItemIcon', () => {
-  it('renders default styling', () => {
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<SVGSVGElement>();
     const { container } = render(
       <HeaderItemIcon>
-        <svg>test</svg>
-      </HeaderItemIcon>
-    );
-
-    expect(container.firstChild).toHaveClass('c-chrome__body__header__item__icon');
-  });
-
-  it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
-    const { container } = render(
-      <HeaderItemIcon ref={ref}>
-        <svg>test</svg>
+        <svg ref={ref}>test</svg>
       </HeaderItemIcon>
     );
 

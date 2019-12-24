@@ -20,7 +20,7 @@ initialState = {
 <Grid>
   <Row alignItems="center">
     <Col>
-      <Well recessed style={{ width: 300 }}>
+      <Well isRecessed style={{ width: 300 }}>
         <Field>
           <Label>Text</Label>
           <Input
@@ -165,7 +165,7 @@ initialState = {
 <Grid>
   <Row alignItems="center">
     <Col>
-      <Well recessed style={{ width: 300 }}>
+      <Well isRecessed style={{ width: 300 }}>
         <Field>
           <Label>Text</Label>
           <Input
@@ -246,7 +246,7 @@ initialState = {
 <Grid>
   <Row alignItems="center">
     <Col>
-      <Well recessed style={{ width: 300 }}>
+      <Well isRecessed style={{ width: 300 }}>
         <Field>
           <Toggle
             checked={state.primary}
@@ -372,7 +372,7 @@ initialState = {
 <Grid>
   <Row alignItems="center">
     <Col>
-      <Well recessed style={{ width: 300 }}>
+      <Well isRecessed style={{ width: 300 }}>
         <Field>
           <Toggle
             checked={state.primary}

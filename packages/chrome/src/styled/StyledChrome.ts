@@ -6,19 +6,27 @@
  */
 
 import styled from 'styled-components';
-import classNames from 'classnames';
-import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
-import ChromeStyles from '@zendeskgarden/css-chrome';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.chrome';
 
-export const StyledChrome = styled.div.attrs(props => ({
+/**
+ * 1. Prevent "bounce" overscroll.
+ */
+export const StyledChrome = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: classNames(ChromeStyles['c-chrome'], {
-    // RTL
-    [ChromeStyles['is-rtl']]: isRtl(props)
-  })
-}))`
+  'data-garden-version': PACKAGE_VERSION
+})`
+  display: flex;
+  margin: 0;
+  height: 100vh;
+  overflow-y: hidden; /* [1] */
+  font-family: ${props => props.theme.fonts.system};
+  direction: ${props => props.theme.rtl && 'rtl'};
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledChrome.defaultProps = {
+  theme: DEFAULT_THEME
+};

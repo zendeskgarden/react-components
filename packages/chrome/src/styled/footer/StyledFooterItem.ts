@@ -6,8 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import ChromeStyles from '@zendeskgarden/css-chrome';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.footer_item';
 
@@ -16,8 +15,13 @@ const COMPONENT_ID = 'chrome.footer_item';
  */
 export const StyledFooterItem = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: ChromeStyles['c-chrome__body__footer__item']
+  'data-garden-version': PACKAGE_VERSION
 })`
+  margin: ${props => `0 ${props.theme.space.base}px`};
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledFooterItem.defaultProps = {
+  theme: DEFAULT_THEME
+};

@@ -5,10 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import classNames from 'classnames';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import ChromeStyles from '@zendeskgarden/css-chrome';
+import styled, { ThemeProps, DefaultTheme } from 'styled-components';
+import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.nav';
 
@@ -27,17 +25,42 @@ export interface IStyledNavProps {
   isLight?: boolean;
 }
 
-export const StyledNav = styled.nav.attrs<IStyledNavProps>(props => ({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: classNames(ChromeStyles['c-chrome__nav'], {
-    // State
-    [ChromeStyles['c-chrome__nav--expanded']]: props.isExpanded,
+export const getNavWidth = (props: ThemeProps<DefaultTheme>) => {
+  return `${props.theme.space.base * 15}px`;
+};
 
-    // Colors
-    [ChromeStyles['c-chrome__nav--dark']]: props.isDark,
-    [ChromeStyles['c-chrome__nav--light']]: props.isLight
-  })
-}))<IStyledNavProps>`
+export const getExpandedNavWidth = () => {
+  return `200px`;
+};
+
+export const StyledNav = styled.nav.attrs<IStyledNavProps>({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledNavProps>`
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  flex-shrink: 0;
+  order: -1;
+  background-color: ${props => {
+    if (props.isDark) {
+      return props.theme.palette.black;
+    }
+
+    if (props.isLight) {
+      return props.theme.colors.background;
+    }
+
+    return getColor('chromeHue', 700, props.theme);
+  }};
+  width: ${props => (props.isExpanded ? getExpandedNavWidth : getNavWidth)};
+  color: ${props =>
+    props.isLight ? getColor('neutralHue', 800, props.theme) : props.theme.colors.background};
+  font-size: ${props => props.theme.fontSizes.md};
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledNav.defaultProps = {
+  theme: DEFAULT_THEME
+};

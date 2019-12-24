@@ -6,23 +6,11 @@
  */
 
 import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
+import { render } from 'garden-test-utils';
 
 import { Chrome } from './Chrome';
 
 describe('Chrome', () => {
-  it('renders default styling', () => {
-    const { container } = render(<Chrome />);
-
-    expect(container.firstChild).toHaveClass('c-chrome');
-  });
-
-  it('renders RTL styling', () => {
-    const { container } = renderRtl(<Chrome />);
-
-    expect(container.firstChild).toHaveClass('is-rtl');
-  });
-
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
     const { container } = render(<Chrome ref={ref} />);

@@ -11,7 +11,7 @@ initialState = {
 };
 
 <>
-  <Well recessed>
+  <Well isRecessed>
     <Field>
       <Toggle
         checked={state.standalone}
@@ -48,7 +48,7 @@ initialState = {
         </HeaderItem>
         <HeaderItem isRound>
           <HeaderItemIcon>
-            <PersonIcon />
+            <img alt="User avatar" src="images/avatar-30.png" />
           </HeaderItemIcon>
           <HeaderItemText isClipped>User</HeaderItemText>
         </HeaderItem>

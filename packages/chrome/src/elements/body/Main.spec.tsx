@@ -10,12 +10,6 @@ import { render } from 'garden-test-utils';
 import { Main } from './Main';
 
 describe('Main', () => {
-  it('renders default styling', () => {
-    const { container } = render(<Main />);
-
-    expect(container.firstChild).toHaveClass('c-chrome__body__content__main');
-  });
-
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
     const { container } = render(<Main ref={ref} />);

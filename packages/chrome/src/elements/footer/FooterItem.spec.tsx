@@ -10,12 +10,6 @@ import { render } from 'garden-test-utils';
 import { FooterItem } from './FooterItem';
 
 describe('FooterItem', () => {
-  it('renders default styling', () => {
-    const { container } = render(<FooterItem />);
-
-    expect(container.firstChild).toHaveClass('c-chrome__body__footer__item');
-  });
-
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
     const { container } = render(<FooterItem ref={ref} />);

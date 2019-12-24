@@ -8,35 +8,20 @@
 import React, { useEffect, useRef, useState, ButtonHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { useAccordion } from '@zendeskgarden/container-accordion';
-import { useKeyboardFocus } from '@zendeskgarden/container-keyboardfocus';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
-import { StyledSubNavItemHeader, StyledSubNavPanel, IStyledSubNavItemHeader } from '../../styled';
+import {
+  StyledSubNavItemHeader,
+  StyledSubNavPanel,
+  StyledSubNavItemIconWrapper,
+  StyledSubNavItemIcon
+} from '../../styled';
 
 export interface ICollapsibleSubNavItemProps
   extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onChange'> {
   header?: React.ReactNode;
   isExpanded?: boolean;
   onChange?: (isExpanded: boolean) => void;
-  isHovered?: boolean;
-  isFocused?: boolean;
 }
-
-const SubNavItemHeader = React.forwardRef<
-  HTMLButtonElement,
-  IStyledSubNavItemHeader & ButtonHTMLAttributes<HTMLButtonElement>
->(({ isFocused, ...other }, ref) => {
-  const { getFocusProps, keyboardFocused } = useKeyboardFocus();
-
-  return (
-    <StyledSubNavItemHeader
-      {...getFocusProps({
-        isFocused: isFocused || keyboardFocused,
-        ref,
-        ...other
-      })}
-    />
-  );
-});
 
 /**
  * Accepts all `<button>` props
@@ -69,7 +54,7 @@ export const CollapsibleSubNavItem = React.forwardRef<HTMLDivElement, ICollapsib
     return (
       <div ref={ref}>
         <div {...getHeaderProps({ ariaLevel: 2 })}>
-          <SubNavItemHeader
+          <StyledSubNavItemHeader
             {...getTriggerProps({
               isExpanded: expanded,
               index: 0,
@@ -78,8 +63,13 @@ export const CollapsibleSubNavItem = React.forwardRef<HTMLDivElement, ICollapsib
               ...other
             })}
           >
-            {header}
-          </SubNavItemHeader>
+            <>
+              {header}
+              <StyledSubNavItemIconWrapper isExpanded={expanded}>
+                <StyledSubNavItemIcon />
+              </StyledSubNavItemIconWrapper>
+            </>
+          </StyledSubNavItemHeader>
         </div>
         <StyledSubNavPanel
           {...getPanelProps({
@@ -98,8 +88,6 @@ export const CollapsibleSubNavItem = React.forwardRef<HTMLDivElement, ICollapsib
 CollapsibleSubNavItem.propTypes = {
   header: PropTypes.any,
   isExpanded: PropTypes.bool,
-  isHovered: PropTypes.bool,
-  isFocused: PropTypes.bool,
   onChange: PropTypes.func,
   children: PropTypes.node
 };

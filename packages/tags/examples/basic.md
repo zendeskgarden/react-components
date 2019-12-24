@@ -31,7 +31,7 @@ initialState = {
 <Grid>
   <Row>
     <Col>
-      <Well recessed style={{ width: 300 }}>
+      <Well isRecessed style={{ width: 300 }}>
         <Field>
           <Label>Text</Label>
           <Input

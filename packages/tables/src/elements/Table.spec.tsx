@@ -1,0 +1,45 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import React from 'react';
+import { render, renderRtl } from 'garden-test-utils';
+
+import { Table } from './Table';
+
+describe('Table', () => {
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<HTMLTableElement>();
+    const { container } = render(<Table ref={ref} />);
+
+    expect(container.firstChild).toBe(ref.current);
+  });
+
+  it('renders default styling', () => {
+    const { container } = render(<Table />);
+
+    expect(container.firstChild).toHaveClass('c-table');
+  });
+
+  it('renders RTL styling if provided', () => {
+    const { container } = renderRtl(<Table />);
+
+    expect(container.firstChild).toHaveClass('is-rtl');
+  });
+
+  it('renders sizing correctly if provided', () => {
+    const classes: Record<string, string> = {
+      small: 'sm',
+      large: 'lg'
+    };
+
+    ['small', 'large'].forEach(size => {
+      const { container } = render(<Table size={size as any} />);
+
+      expect(container.firstChild).toHaveClass(`c-table--${classes[size]}`);
+    });
+  });
+});

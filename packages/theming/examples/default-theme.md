@@ -236,7 +236,7 @@ const replacer = (key, value) => {
   return retVal;
 };
 
-<Well recessed>
+<Well isRecessed>
   <StyledTheme>{JSON.stringify(DEFAULT_THEME, replacer, '  ')}</StyledTheme>
 </Well>;
 ```

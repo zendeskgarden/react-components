@@ -4,6 +4,14 @@ NOTE: many style-related COMPONENT_IDs were renamed for consistency based
 on the CSS-in-JS restructure. All component-level theming customizations
 should be re-checked for ID naming accuracy.
 
+## @zendeskgarden/react-notifications
+
+- Boolean props for this package are updated to align with `isBoolean` naming. The following are
+  prop name changes for the `<Well>` component:
+
+  - `floating` -> `isFloating`
+  - `recessed` -> `isRecessed`
+
 ## @zendeskgarden/react-breadcrumbs
 
 - The `<Item>` component has been removed. The `<Breadcrumb>` component determines the last
@@ -45,6 +53,9 @@ should be re-checked for ID naming accuracy.
 
 - No longer packages a `styles.css` dist; CSS is self-contained
 - All irrelevant state and layout styling props (focused, hovered, etc.) have been removed
+- The `Nav` component no longer takes a `dark` or `light` prop. Use the `backgroundColor` prop
+  to apply a custom color and the component will dynamically change its styling to create
+  an accessible contrast level
 - Prop renames:
   - `Header`
     - `standalone` -> `isStandalone`
@@ -55,8 +66,6 @@ should be re-checked for ID naming accuracy.
     - `clipped` -> `isClipped`
   - `Nav`
     - `expanded` -> `isExpanded`
-    - `dark` -> `isDark`
-    - `light` -> `isLight`
   - `NavItem`
     - `logo` -> `hasLogo`
     - `brandmark` -> `hasBrandmark`
@@ -120,7 +129,21 @@ New features/fixes include:
 
 - removed; see `@zendeskgarden/container-selection`
 
-## @zendesk/react-tabs
+## @zendeskgarden/react-tables
+
+- no longer packages a `styles.css` dist; CSS is self-contained
+- All components now use standard `<table>` styling
+- Removed all `focused`, `active`, and `hovered` states from components
+- Component props renames:
+  - `Cell`
+    - `minimum` -> `isMinimum`
+    - `truncate` -> `isTruncated`
+    - `menu` -> `hasOverflow`
+  - `Row`
+    - `striped` -> `isStriped`
+    - `selected` -> `isSelected`
+
+## @zendeskgarden/react-tabs
 
 - no longer packages a `styles.css` dist; CSS is self-contained
 - new required structure for `Tabs` component

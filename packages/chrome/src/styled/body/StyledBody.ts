@@ -6,25 +6,22 @@
  */
 
 import styled from 'styled-components';
-import classNames from 'classnames';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import ChromeStyles from '@zendeskgarden/css-chrome';
+import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.body';
 
-export interface IStyledBodyProps {
-  /**
-   * Prepare the body content height to allow space for a footer component
-   **/
-  hasFooter?: boolean;
-}
-
-export const StyledBody = styled.div.attrs<IStyledBodyProps>(props => ({
+export const StyledBody = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: classNames(ChromeStyles['c-chrome__body'], {
-    [ChromeStyles['c-chrome__body--footer']]: props.hasFooter
-  })
-}))<IStyledBodyProps>`
+  'data-garden-version': PACKAGE_VERSION
+})`
+  flex: 1;
+  order: 1;
+  background-color: ${props => getColor('neutralHue', 100, props.theme)};
+  min-width: 0;
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledBody.defaultProps = {
+  theme: DEFAULT_THEME
+};

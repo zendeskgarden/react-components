@@ -9,9 +9,9 @@ you can programmatically trigger navigation with the `onClick` events.
 #### Custom Nav Colors
 
 The default `Nav` component is styled with a Zendesk branded palette. For white-labeling
-purposes a custom `background-color` style may be applied along with the `isLight` or `isDark`
-props. This demo uses the [PolishedJS readableColor()](https://polished.js.org/docs/#readablecolor)
-utility to determine which props to enable.
+purposes a custom `backgroundColor` prop may be applied. The `Chrome` component uses the
+[PolishedJS getLuminance()](https://polished.js.org/docs/#getluminance)
+utility to modify its colors to maintain accessible contrast levels.
 
 ```jsx
 const { getLuminance } = require('polished');
@@ -65,12 +65,6 @@ const ProductIcon = ({ product }) => {
   return <ZendeskIcon />;
 };
 
-const StyledNav = styled(Nav).attrs(props => ({
-  style: {
-    backgroundColor: props.backgroundColor
-  }
-}))``;
-
 const StyledSpacer = styled.div`
   margin-bottom: ${props => props.theme.space.sm};
 `;
@@ -84,14 +78,12 @@ const StyledSpacer = styled.div`
     sidebar: false,
     showCollapsed: false,
     product: PRODUCTS[0],
-    color: PALETTE.kale[700],
-    isLight: false,
-    isDark: false
+    color: PALETTE.kale[700]
   }}
 >
   {(state, setState) => (
     <Grid>
-      <Well recessed>
+      <Well isRecessed>
         <Row>
           <Col md={6} alignSelf="start">
             <Dropdown selectedItem={state.product} onSelect={product => setState({ product })}>
@@ -147,35 +139,15 @@ const StyledSpacer = styled.div`
                 type="color"
                 value={state.color}
                 isCompact
-                onChange={e => {
-                  const colorLuminance = e.target.value ? getLuminance(e.target.value) : undefined;
-
-                  let isLight = state.isLight;
-                  let isDark = state.isDark;
-
-                  if (colorLuminance) {
-                    if (colorLuminance > 0.179) {
-                      isLight = true;
-                      isDark = false;
-                    } else {
-                      isLight = false;
-                      isDark = true;
-                    }
-                  }
-
+                onChange={e =>
                   setState({
-                    color: e.target.value,
-                    isLight,
-                    isDark
-                  });
-                }}
+                    color: e.target.value
+                  })
+                }
               />
             </Field>
             <StyledSpacer />
-            <Button
-              size="small"
-              onClick={() => setState({ color: PALETTE.kale[700], isLight: false, isDark: false })}
-            >
+            <Button size="small" onClick={() => setState({ color: PALETTE.kale[700] })}>
               Reset colors
             </Button>
           </Col>
@@ -185,11 +157,9 @@ const StyledSpacer = styled.div`
       <Row>
         <Col>
           <Chrome style={{ height: 500 }}>
-            <StyledNav
+            <Nav
               isExpanded={state.expanded}
-              backgroundColor={state.color}
-              isDark={state.isDark}
-              isLight={state.isLight}
+              backgroundColor={state.color === PALETTE.kale[700] ? undefined : state.color}
             >
               <NavItem hasLogo product={state.product} title="Zendesk">
                 <NavItemIcon>
@@ -243,7 +213,7 @@ const StyledSpacer = styled.div`
                 </NavItemIcon>
                 <NavItemText>&copy;Zendesk</NavItemText>
               </NavItem>
-            </StyledNav>
+            </Nav>
             {state.subnav && (
               <SubNav>
                 <SubNavItem

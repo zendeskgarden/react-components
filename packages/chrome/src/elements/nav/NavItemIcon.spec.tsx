@@ -10,21 +10,11 @@ import { render } from 'garden-test-utils';
 import { NavItemIcon } from './NavItemIcon';
 
 describe('NavItemIcon', () => {
-  it('renders default styling', () => {
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<SVGSVGElement>();
     const { container } = render(
       <NavItemIcon>
-        <svg>test</svg>
-      </NavItemIcon>
-    );
-
-    expect(container.firstChild).toHaveClass('c-chrome__nav__item__icon');
-  });
-
-  it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
-    const { container } = render(
-      <NavItemIcon ref={ref}>
-        <svg>test</svg>
+        <svg ref={ref}>test</svg>
       </NavItemIcon>
     );
 
