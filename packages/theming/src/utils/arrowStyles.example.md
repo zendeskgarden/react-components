@@ -30,7 +30,7 @@ const StyledDiv = styled.div`
 <Grid>
   <Row>
     <Col>
-      <Well recessed style={{ width: 300 }}>
+      <Well isRecessed style={{ width: 300 }}>
         <Dropdown selectedItem={state.position} onSelect={position => setState({ position })}>
           <SelectField>
             <SelectLabel>Position</SelectLabel>
