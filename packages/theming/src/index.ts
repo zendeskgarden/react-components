@@ -13,5 +13,6 @@ export { default as retrieveComponentStyles } from './utils/retrieveComponentSty
 export { default as withTheme } from './utils/withTheme';
 export { default as getDocument } from './utils/getDocument';
 export { default as getColor } from './utils/getColor';
-export { default as arrowStyles, POSITION as ARROW_POSITION } from './utils/arrowStyles';
+export { default as getLineHeight } from './utils/getLineHeight';
+export { default as arrowStyles, ARROW_POSITION } from './utils/arrowStyles';
 export { DefaultTheme } from 'styled-components';

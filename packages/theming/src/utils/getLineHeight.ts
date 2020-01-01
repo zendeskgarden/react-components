@@ -18,12 +18,13 @@ import stripUnit from 'polished/lib/helpers/stripUnit';
 export default function getLineHeight(height: string | number, fontSize: string | number) {
   const [heightValue, heightUnit] = stripUnit(height, true /* unitReturn */);
   const [fontSizeValue, fontSizeUnit] = stripUnit(fontSize, true /* unitReturn */);
+  const PIXELS = 'px';
 
-  if (heightUnit && heightUnit !== 'px') {
+  if (heightUnit && heightUnit !== PIXELS) {
     throw new Error(`Unexpected \`height\` with '${heightUnit}' units.`);
   }
 
-  if (fontSizeUnit && fontSizeUnit !== 'px') {
+  if (fontSizeUnit && fontSizeUnit !== PIXELS) {
     throw new Error(`Unexpected \`fontSize\` with '${fontSizeUnit}' units.`);
   }
 

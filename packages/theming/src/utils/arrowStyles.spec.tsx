@@ -9,7 +9,7 @@ import React from 'react';
 import { render } from 'garden-test-utils';
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import math from 'polished/lib/math/math';
-import arrowStyles, { POSITION as ARROW_POSITION } from './arrowStyles';
+import arrowStyles, { ARROW_POSITION } from './arrowStyles';
 
 interface IStyledDivProps extends ThemeProps<DefaultTheme> {
   arrowPosition: ARROW_POSITION;

@@ -8,7 +8,7 @@
 import { css } from 'styled-components';
 import math from 'polished/lib/math/math';
 
-export type POSITION =
+export type ARROW_POSITION =
   | 'top'
   | 'top-left'
   | 'top-right'
@@ -22,7 +22,7 @@ export type POSITION =
   | 'left-top'
   | 'left-bottom';
 
-const positionStyles = (position: POSITION, size: string, offset: string) => {
+const positionStyles = (position: ARROW_POSITION, size: string, offset: string) => {
   const margin = math(`${size} / -2`);
   const placement = math(`${margin} - ${offset}`);
   let clipPath;
@@ -117,7 +117,7 @@ const positionStyles = (position: POSITION, size: string, offset: string) => {
  *
  * @component
  */
-export default function arrowStyles(position: POSITION, size = '6px', offset = '0') {
+export default function arrowStyles(position: ARROW_POSITION, size = '6px', offset = '0') {
   const squareSize = math(`${size} * 2 / sqrt(2)`);
 
   /**
