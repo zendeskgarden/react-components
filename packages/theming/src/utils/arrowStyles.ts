@@ -115,7 +115,7 @@ const positionStyles = (position: ARROW_POSITION, size: string, inset: string) =
  *
  * IMPORTANT: the element that receives arrow styling must be wrapped in a
  * positioned box (i.e. `relative`, `absolute`, `fixed`) that has a `z-index`
- * greater than or equal to zero. Without this the arrow cannot properly
+ * greater than or equal to zero. Without this, the arrow cannot properly
  * display inherited border or box-shadow styling.
  *
  * @param {string} position One of:
