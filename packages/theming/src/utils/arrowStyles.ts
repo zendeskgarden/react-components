@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { css } from 'styled-components';
+import { css, keyframes } from 'styled-components';
 import math from 'polished/lib/math/math';
 
 export type ARROW_POSITION =
@@ -22,9 +22,30 @@ export type ARROW_POSITION =
   | 'left-top'
   | 'left-bottom';
 
-const positionStyles = (position: ARROW_POSITION, size: string, offset: string) => {
+export type ARROW_OPTIONS = {
+  size?: string;
+  inset?: string;
+  animationModifier?: string;
+};
+
+const animationStyles = (position: ARROW_POSITION, modifier: string) => {
+  const property = position.split('-')[0];
+  const animationName = keyframes`
+    0%, 66% {
+      ${property}: 2px;
+    }
+  `;
+
+  return css`
+    &${modifier}::before, &${modifier}::after {
+      animation: 0.3s ease-in-out ${animationName};
+    }
+  `;
+};
+
+const positionStyles = (position: ARROW_POSITION, size: string, inset: string) => {
   const margin = math(`${size} / -2`);
-  const placement = math(`${margin} - ${offset}`);
+  const placement = math(`${margin} - ${inset}`);
   let clipPath;
   let positionCss;
   let propertyRadius: string;
@@ -110,14 +131,18 @@ const positionStyles = (position: ARROW_POSITION, size: string, offset: string) 
  *  - `'left'`
  *  - `'left-top'`
  *  - `'left-bottom'`
- * @param {string} [size='6px'] Distance from the base (hypotenuse) to point
+ * @param {string} [options.size='6px'] Distance from the base (hypotenuse) to point
  *  (right angle) of the arrow expressed as a CSS dimension.
- * @param {string} [offset='0'] Tweak arrow positioning by adjusting with
+ * @param {string} [options.inset='0'] Tweak arrow positioning by adjusting with
  *  either a positive (pull the arrow out) or negative (push the arrow in) value.
+ * @param {string} [options.animationModifier] A CSS class or attribute selector
+ *  which, when applied, animates the arrow's appearance.
  *
  * @component
  */
-export default function arrowStyles(position: ARROW_POSITION, size = '6px', offset = '0') {
+export default function arrowStyles(position: ARROW_POSITION, options: ARROW_OPTIONS) {
+  const size = options.size || '6px';
+  const inset = options.inset || '0';
   const squareSize = math(`${size} * 2 / sqrt(2)`);
 
   /**
@@ -125,7 +150,7 @@ export default function arrowStyles(position: ARROW_POSITION, size = '6px', offs
    * 2. Allow any border inherited by `::after` to show through.
    * 3. Border styling and box-shadow will be automatically inherited from the
    *    parent element.
-   * 4. Apply shared offset and sizing properties to ::before and ::after.
+   * 4. Apply shared sizing properties to ::before and ::after.
    */
   return css`
     position: relative; /* [1] */
@@ -157,6 +182,7 @@ export default function arrowStyles(position: ARROW_POSITION, size = '6px', offs
       content: '';
     }
 
-    ${positionStyles(position, squareSize, offset)};
+    ${positionStyles(position, squareSize, inset)};
+    ${options.animationModifier && animationStyles(position, options.animationModifier)};
   `;
 }

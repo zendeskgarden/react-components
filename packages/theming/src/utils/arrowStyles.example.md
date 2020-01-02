@@ -11,9 +11,10 @@ const {
 } = require('@zendeskgarden/react-dropdowns/src');
 
 initialState = {
+  animate: false,
   border: true,
   boxShadow: true,
-  offset: 0,
+  inset: 0,
   position: 'bottom',
   size: 6
 };
@@ -24,7 +25,11 @@ const StyledDiv = styled.div`
   border: ${state.border && `${DEFAULT_THEME.borders.sm} ${getColor('primaryHue')}`};
   background-color: ${getColor('primaryHue', 200)};
 
-  ${arrowStyles(state.position, `${state.size}px`, `${state.offset}px`)};
+  ${arrowStyles(state.position, {
+    size: `${state.size}px`,
+    inset: `${state.inset}px`,
+    animationModifier: '[data-garden-animate="true"]'
+  })};
 `;
 
 <Grid>
@@ -67,6 +72,14 @@ const StyledDiv = styled.div`
             <Label>Border</Label>
           </Toggle>
         </Field>
+        <Field className="u-mt-xs">
+          <Toggle
+            checked={state.animate}
+            onChange={event => setState({ animate: event.target.checked })}
+          >
+            <Label>Animate</Label>
+          </Toggle>
+        </Field>
         <Field className="u-mt-sm">
           <Label>Size ({state.size}px)</Label>
           <Range
@@ -77,19 +90,19 @@ const StyledDiv = styled.div`
           />
         </Field>
         <Field className="u-mt-xs">
-          <Label>Offset ({state.offset}px)</Label>
+          <Label>Inset ({state.inset}px)</Label>
           <Range
             max={4}
             min={-4}
-            onChange={event => setState({ offset: parseInt(event.target.value, 10) })}
-            value={state.offset}
+            onChange={event => setState({ inset: parseInt(event.target.value, 10) })}
+            value={state.inset}
           />
         </Field>
       </Well>
     </Col>
     <Col>
       <div className="u-m-xxl" style={{ position: 'relative', zIndex: 0 }}>
-        <StyledDiv className="u-p-xxl"></StyledDiv>
+        <StyledDiv className="u-p-xxl" data-garden-animate={state.animate}></StyledDiv>
       </div>
     </Col>
   </Row>

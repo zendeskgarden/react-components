@@ -14,22 +14,40 @@ import arrowStyles, { ARROW_POSITION } from './arrowStyles';
 interface IStyledDivProps extends ThemeProps<DefaultTheme> {
   arrowPosition: ARROW_POSITION;
   arrowSize?: string;
-  arrowOffset?: string;
+  arrowInset?: string;
+  arrowAnimationModifier?: string;
 }
 
 const StyledDiv = styled.div<IStyledDivProps>`
-  ${props => arrowStyles(props.arrowPosition, props.arrowSize, props.arrowOffset)}
+  ${props =>
+    arrowStyles(props.arrowPosition, {
+      size: props.arrowSize,
+      inset: props.arrowInset,
+      animationModifier: props.arrowAnimationModifier
+    })}
 `;
 
 const getArrowSize = (size = '6px') => {
   return math(`${size} * 2 / sqrt(2)`);
 };
 
-const getArrowOffset = (offset: string, size?: string) => {
-  return math(`${getArrowSize(size)} / -2 - ${offset}`);
+const getArrowInset = (inset: string, size?: string) => {
+  return math(`${getArrowSize(size)} / -2 - ${inset}`);
 };
 
 describe('arrowStyles', () => {
+  it('renders with animation', () => {
+    const { container } = render(
+      <StyledDiv arrowPosition="top" arrowAnimationModifier=".animate" />
+    );
+
+    expect(container.firstChild).toHaveStyleRule(
+      'animation',
+      expect.stringContaining('ease-in-out'),
+      { modifier: '&.animate::before' }
+    );
+  });
+
   describe('position', () => {
     const POSITION: Array<ARROW_POSITION> = ['top', 'right', 'bottom', 'left'];
 
@@ -57,13 +75,13 @@ describe('arrowStyles', () => {
     });
   });
 
-  describe('offset', () => {
-    const OFFSET = ['-1px', '0', '1px', '2px', '4px'];
+  describe('inset', () => {
+    const INSET = ['-1px', '0', '1px', '2px', '4px'];
 
-    OFFSET.forEach(offset => {
-      it(`renders with ${offset} offset`, () => {
-        const { container } = render(<StyledDiv arrowPosition="top" arrowOffset={offset} />);
-        const value = getArrowOffset(offset);
+    INSET.forEach(inset => {
+      it(`renders with ${inset} inset`, () => {
+        const { container } = render(<StyledDiv arrowPosition="top" arrowInset={inset} />);
+        const value = getArrowInset(inset);
 
         expect(container.firstChild).toHaveStyleRule('top', value, { modifier: '::before' });
       });
