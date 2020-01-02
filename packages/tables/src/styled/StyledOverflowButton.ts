@@ -20,9 +20,7 @@ export interface IStyledOverflowButtonProps {
   size: SIZE;
 }
 
-const getOverflowButtonSize = () => {
-  return '2em';
-};
+const OVERFLOW_BUTTON_SIZE = '2em';
 
 const colorStyles = (props: IStyledOverflowButtonProps & ThemeProps<DefaultTheme>) => {
   const baseColor =
@@ -69,7 +67,7 @@ export const StyledOverflowButton = styled.button.attrs<IStyledOverflowButtonPro
   cursor: pointer;
   padding: 0; /* [1] */
   width: 100%;
-  height: ${getOverflowButtonSize};
+  height: ${OVERFLOW_BUTTON_SIZE};
   text-decoration: none; /* [2] */
   font-size: inherit; /* [1] */
 
@@ -89,8 +87,8 @@ export const StyledOverflowButtonIconWrapper = styled.div`
   transform: rotate(90deg);
   transition: opacity 0.25s ease-in-out, background-color 0.1s ease-in-out;
 
-  width: ${getOverflowButtonSize};
-  height: ${getOverflowButtonSize};
+  width: ${OVERFLOW_BUTTON_SIZE};
+  height: ${OVERFLOW_BUTTON_SIZE};
 
   &:hover {
     opacity: 1;

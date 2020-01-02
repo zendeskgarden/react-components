@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import stripUnit from 'polished/lib/helpers/stripUnit';
+import math from 'polished/lib/math/math';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledBaseRow, IStyledRowProps } from './StyledRow';
 import { StyledOverflowButton } from './StyledOverflowButton';
@@ -35,7 +35,7 @@ export const StyledHeaderRow = styled(StyledBaseRow).attrs({
   ${StyledOverflowButton} {
     opacity: 1;
     margin-top: 0;
-    margin-bottom: calc(${props => stripUnit(getHeaderRowHeight(props)) / 2} - 1em);
+    margin-bottom: calc(${props => math(`${getHeaderRowHeight(props)} / 2`)} - 1em);
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
