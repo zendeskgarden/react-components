@@ -6,9 +6,12 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import math from 'polished/lib/math/math';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledCell, IStyledCellProps } from './StyledCell';
 import { StyledOverflowButton } from './StyledOverflowButton';
+import { getRowHeight } from './StyledRow';
+import { getLineHeight } from './StyledTable';
 
 const COMPONENT_ID = 'tables.header_cell';
 
@@ -21,30 +24,15 @@ const truncatedStyling = css`
 `;
 
 const sizeStyles = (props: IStyledCellProps & ThemeProps<DefaultTheme>) => {
-  let paddingTop = undefined;
-  let paddingBottom = undefined;
+  let paddingVertical = undefined;
 
   if (!props.hasOverflow) {
-    if (props.size === 'large') {
-      paddingTop = props.theme.fontSizes.xxl;
-    }
-
-    paddingTop = props.theme.fontSizes.md;
-  }
-
-  if (!props.hasOverflow) {
-    if (props.size === 'large') {
-      paddingBottom = props.theme.fontSizes.xxl;
-    } else if (props.size === 'small') {
-      paddingBottom = props.theme.fontSizes.xs;
-    }
-
-    paddingBottom = props.theme.fontSizes.md;
+    paddingVertical = math(`(${getRowHeight(props)} - ${getLineHeight(props)}) / 2`);
   }
 
   return css`
-    padding-top: ${paddingTop};
-    padding-bottom: ${paddingBottom};
+    padding-top: ${paddingVertical};
+    padding-bottom: ${paddingVertical};
   `;
 };
 

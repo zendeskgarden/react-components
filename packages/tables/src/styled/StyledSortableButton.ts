@@ -6,6 +6,7 @@
  */
 
 import styled from 'styled-components';
+import math from 'polished/lib/math/math';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tables.sortable';
@@ -20,8 +21,9 @@ const StyledBaseIconWrapper = styled.div`
   left: ${props => props.theme.rtl && '0'};
   align-items: center;
   justify-content: center;
+  transition: color 0.25s ease-in-out, opacity 0.25s ease-in-out;
   opacity: 0;
-  width: ${props => props.theme.fontSizes.md};
+  width: ${props => props.theme.iconSizes.sm};
   height: 100%;
   color: inherit;
   fill: inherit;
@@ -61,7 +63,8 @@ export const StyledSortableButton = styled.button.attrs<IStyledSortableButtonPro
   cursor: pointer;
   padding: 0; /* [1] */
   /* stylelint-disable-next-line property-no-unknown */
-  padding-${props => (props.theme.rtl ? 'left' : 'right')}: ${props => props.theme.iconSizes.md};
+  padding-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
+  math(`${props.theme.space.base} + ${props.theme.iconSizes.sm}`)};
   width: ${props => props.width};
   text-decoration: none; /* [2] */
   color: inherit;

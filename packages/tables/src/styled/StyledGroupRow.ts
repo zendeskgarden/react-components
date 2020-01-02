@@ -5,25 +5,36 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+import math from 'polished/lib/math/math';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
-import { StyledBaseRow } from './StyledRow';
+import { StyledBaseRow, IStyledRowProps } from './StyledRow';
 import { StyledCell } from './StyledCell';
+import { getLineHeight } from './StyledTable';
 
 const COMPONENT_ID = 'tables.group_row';
+
+const sizeStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
+  const height = `${props.theme.space.base * 8}px`;
+  const lineHeight = getLineHeight(props);
+
+  return css`
+    height: ${height};
+    line-height: ${lineHeight};
+    font-size: ${props.theme.fontSizes.sm};
+
+    ${StyledCell} {
+      padding: ${math(`(${height} - ${lineHeight}) / 2`)} ${props.theme.space.base * 3}px;
+    }
+  `;
+};
 
 export const StyledGroupRow = styled(StyledBaseRow).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
   background-color: ${props => getColor('neutralHue', 100, props.theme)};
-  height: ${props => props.theme.space.base * 8}px;
-  line-height: ${props => props.theme.space.base * 4}px;
-  font-size: ${props => props.theme.fontSizes.sm};
-
-  ${StyledCell} {
-    padding: 6px 10px;
-  }
+  ${props => sizeStyles(props)}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

@@ -6,8 +6,10 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import math from 'polished/lib/math/math';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { SIZE } from './StyledTable';
+import { SIZE, getLineHeight } from './StyledTable';
+import { getRowHeight } from './StyledRow';
 
 const COMPONENT_ID = 'tables.cell';
 
@@ -31,7 +33,7 @@ const truncatedStyling = css`
 
 const sizeStyling = (props: IStyledCellProps & ThemeProps<DefaultTheme>) => {
   let padding = `${props.theme.fontSizes.xs} ${props.theme.fontSizes.sm}`;
-  let verticalPadding;
+  const verticalPadding = math(`(${getRowHeight(props)} - ${getLineHeight(props)}) / 2`);
   let rightPadding;
   let width = props.width;
   let height;
@@ -40,10 +42,6 @@ const sizeStyling = (props: IStyledCellProps & ThemeProps<DefaultTheme>) => {
     padding = '0';
     width = '2em';
     height = 'inherit';
-  } else if (props.size === 'large') {
-    verticalPadding = props.theme.fontSizes.xl;
-  } else if (props.size === 'small') {
-    verticalPadding = '6px';
   }
 
   if (props.isMinimum) {

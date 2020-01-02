@@ -80,7 +80,7 @@ const StyledCaption = styled(Caption)`
 `;
 
 <Layout.Grid>
-  <Well recessed>
+  <Well isRecessed>
     <Layout.Row>
       <Layout.Col md>
         <Dropdown selectedItem={state.rowSize} onSelect={rowSize => setState({ rowSize })}>

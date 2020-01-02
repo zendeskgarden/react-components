@@ -28,12 +28,11 @@ export const StyledBaseRow = styled.tr<IStyledRowProps>`
   border-bottom: ${props =>
     `${props.theme.borders.sm} ${getColor('neutralHue', 200, props.theme)}`};
   background-color: ${props => props.isStriped && getColor('neutralHue', 100, props.theme)};
-  height: ${props => props.theme.space.base * 10}px;
   vertical-align: top;
   box-sizing: border-box;
 `;
 
-export const getRowHeight = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
+export const getRowHeight = (props: { size: SIZE } & ThemeProps<DefaultTheme>) => {
   if (props.size === 'large') {
     return `${props.theme.space.base * 16}px`;
   } else if (props.size === 'small') {

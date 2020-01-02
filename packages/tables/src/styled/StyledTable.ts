@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tables.table';
@@ -15,6 +15,10 @@ export type SIZE = 'small' | 'medium' | 'large';
 export interface IStyledTableProps {
   size?: SIZE;
 }
+
+export const getLineHeight = (props: ThemeProps<DefaultTheme>) => {
+  return `${props.theme.space.base * 5}px`;
+};
 
 /**
  * 1. <table> reset
@@ -30,7 +34,8 @@ export const StyledTable = styled.table.attrs<IStyledTableProps>({
   table-layout: fixed; /* [1] */
   border-collapse: collapse; /* [1] */
   border-spacing: 0; /* [1] */
-  line-height: ${props => props.theme.space.base * 5}px;
+  line-height: ${props => getLineHeight(props)};
+  color: ${props => props.theme.colors.foreground};
   font-size: ${props => props.theme.fontSizes.md};
   direction: ${props => props.theme.rtl && 'rtl'};
 
