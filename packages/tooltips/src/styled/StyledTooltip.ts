@@ -7,13 +7,16 @@
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import stripUnit from 'polished/lib/helpers/stripUnit';
-import math from 'polished/lib/math/math';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  arrowStyles,
+  retrieveComponentStyles,
+  getColor,
+  DEFAULT_THEME
+} from '@zendeskgarden/react-theming';
 
-import { POPPER_PLACEMENT } from '../utils/gardenPlacements';
+import { POPPER_PLACEMENT, getArrowPosition } from '../utils/gardenPlacements';
 import { StyledParagraph } from './StyledParagraph';
 import { StyledTitle } from './StyledTitle';
-import { arrowStyles } from './arrow-styles';
 
 const COMPONENT_ID = 'tooltip.tooltip';
 
@@ -32,8 +35,9 @@ export interface IStyledTooltipProps {
 const sizeStyles = ({
   theme,
   size,
-  hasArrow,
-  type
+  type,
+  placement,
+  hasArrow
 }: IStyledTooltipProps & ThemeProps<DefaultTheme>) => {
   let margin = `${theme.space.base * 1.5}px`;
   let borderRadius = theme.borderRadii.sm;
@@ -46,7 +50,6 @@ const sizeStyles = ({
   let titleDisplay;
   let paragraphMarginTop;
   let wordWrap;
-  let arrowFontSize = `${theme.space.base * 1.75}px`;
 
   if (size !== 'small') {
     borderRadius = theme.borderRadii.md;
@@ -60,21 +63,15 @@ const sizeStyles = ({
     maxWidth = `460px`;
     lineHeight = (theme.space.base * 5) / stripUnit(theme.fontSizes.md);
     paragraphMarginTop = `${theme.space.base * 2.5}px`;
-    arrowFontSize = `${theme.space.base * 4}px`;
   } else if (size === 'large') {
     padding = `${theme.space.base * 5}px`;
     maxWidth = `270px`;
     lineHeight = (theme.space.base * 5) / stripUnit(theme.fontSizes.md);
     paragraphMarginTop = `${theme.space.base * 2}px`;
-    arrowFontSize = theme.fontSizes.sm;
   } else if (size === 'medium') {
     padding = '1em';
     maxWidth = `140px`;
     lineHeight = (theme.space.base * 4) / stripUnit(theme.fontSizes.sm);
-  }
-
-  if (type === 'light') {
-    arrowFontSize = math(`${arrowFontSize} + 2px`);
   }
 
   if (size === 'extra-large' || size === 'large') {
@@ -82,11 +79,23 @@ const sizeStyles = ({
     titleDisplay = 'block';
   }
 
+  let arrowSize;
+  let arrowInset;
+
   if (hasArrow) {
-    if (size === 'large') {
-      margin = `${theme.space.base * 2}px`;
-    } else if (size === 'extra-large') {
-      margin = `${theme.space.base * 3}px`;
+    if (size === 'small' || size === 'medium') {
+      arrowSize = margin;
+      arrowInset = type === 'dark' ? '-1px' : '0';
+    } else {
+      arrowInset = type === 'dark' ? '-2px' : '-1px';
+
+      if (size === 'large') {
+        margin = `${theme.space.base * 2}px`;
+        arrowSize = margin;
+      } else if (size === 'extra-large') {
+        margin = `${theme.space.base * 3}px`;
+        arrowSize = `${theme.space.base * 2.5}px`;
+      }
     }
   }
 
@@ -98,9 +107,10 @@ const sizeStyles = ({
     line-height: ${lineHeight};
     word-wrap: ${wordWrap};
     white-space: ${whiteSpace};
-    /*  Manipulate arrow sizing (which is based on ems). */
     font-size: ${fontSize};
     overflow-wrap: ${overflowWrap};
+
+    ${hasArrow && arrowStyles(getArrowPosition(placement), { size: arrowSize, inset: arrowInset })};
 
     ${StyledParagraph} {
       margin-top: ${paragraphMarginTop};
@@ -108,11 +118,6 @@ const sizeStyles = ({
 
     ${StyledTitle} {
       display: ${titleDisplay};
-    }
-
-    &::before,
-    &::after {
-      font-size: ${arrowFontSize};
     }
   `;
 };
@@ -155,18 +160,16 @@ const colorStyles = ({ theme, type }: IStyledTooltipProps & ThemeProps<DefaultTh
 /**
  * Accepts all `<div>` props
  */
-export const StyledTooltip = styled.div.attrs<IStyledTooltipProps>(props => ({
+export const StyledTooltip = styled.div.attrs<IStyledTooltipProps>({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  'data-placement': props.placement
-}))<IStyledTooltipProps>`
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledTooltipProps>`
   display: inline-block;
   box-sizing: border-box;
   direction: ${props => props.theme.rtl && 'rtl'};
   font-weight: ${props => props.theme.fontWeights.regular};
 
   ${props => sizeStyles(props)};
-  ${props => props.hasArrow && arrowStyles(props)};
 
   &[aria-hidden='true'] {
     display: none;
