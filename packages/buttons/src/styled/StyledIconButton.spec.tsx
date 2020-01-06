@@ -10,6 +10,7 @@ import { css } from 'styled-components';
 import { render } from 'garden-test-utils';
 import { StyledIconButton } from './StyledIconButton';
 import { StyledIcon } from './StyledIcon';
+import { PALETTE } from '@zendeskgarden/react-theming';
 
 describe('StyledIconButton', () => {
   it('renders the expected element', () => {
@@ -22,6 +23,12 @@ describe('StyledIconButton', () => {
     const { container } = render(<StyledIconButton />);
 
     expect(container.firstChild).toHaveStyleRule('padding', '0');
+  });
+
+  it('renders basic color styling', () => {
+    const { container } = render(<StyledIconButton isBasic />);
+
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[600]);
   });
 
   describe('Sizes', () => {

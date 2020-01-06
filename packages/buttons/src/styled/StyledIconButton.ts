@@ -7,11 +7,30 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledButton, getLineHeight, IStyledButtonProps } from './StyledButton';
 import { StyledIcon } from './StyledIcon';
 
 const COMPONENT_ID = 'buttons.icon_button';
+
+const iconColorStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
+  const shade = 600;
+  const baseColor = getColor('neutralHue', shade, props.theme);
+  const hoverColor = getColor('neutralHue', shade + 100, props.theme);
+  const activeColor = getColor('neutralHue', shade + 200, props.theme);
+
+  return css`
+    color: ${baseColor};
+
+    &:hover {
+      color: ${hoverColor};
+    }
+
+    &:active {
+      color: ${activeColor};
+    }
+  `;
+};
 
 const iconButtonStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   const lineHeight = getLineHeight(props);
@@ -22,6 +41,8 @@ const iconButtonStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) 
     padding: 0;
     width: ${size};
     height: ${size};
+
+    ${props.isBasic && !(props.isPrimary || props.disabled) && iconColorStyles(props)};
   `;
 };
 
