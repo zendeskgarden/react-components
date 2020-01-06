@@ -6,8 +6,7 @@
  */
 
 import styled, { css } from 'styled-components';
-import stripUnit from 'polished/lib/helpers/stripUnit';
-import { getColor } from '@zendeskgarden/react-theming';
+import { getColor, getLineHeight } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'breadcrumbs.item';
 
@@ -42,7 +41,7 @@ export const StyledBreadcrumbItem = styled.li.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledBreadcrumbItemProps>`
-  line-height: ${props => (props.theme.space.base * 5) / stripUnit(props.theme.fontSizes.md)};
+  line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
   white-space: nowrap;
   color: ${props => (props.isCurrent ? getColor(props.theme.colors.neutralHue, 600) : 'inherit')};
   font-size: inherit;

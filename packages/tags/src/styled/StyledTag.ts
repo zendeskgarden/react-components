@@ -8,8 +8,12 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import math from 'polished/lib/math/math';
 import readableColor from 'polished/lib/color/readableColor';
-import stripUnit from 'polished/lib/helpers/stripUnit';
-import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import {
+  DEFAULT_THEME,
+  getColor,
+  retrieveComponentStyles,
+  getLineHeight
+} from '@zendeskgarden/react-theming';
 import { StyledAvatar } from './StyledAvatar';
 import { StyledClose } from './StyledClose';
 
@@ -117,7 +121,7 @@ const sizeStyles = (props: IStyledTagProps & ThemeProps<DefaultTheme>) => {
     padding: 0 ${math(`${padding} * 1px`)};
     min-width: ${minWidth && math(`${minWidth} * 1px`)};
     height: ${math(`${height} * 1px`)};
-    line-height: ${math(`${height} / ${stripUnit(fontSize)}`)};
+    line-height: ${getLineHeight(height, fontSize)};
     font-size: ${fontSize};
 
     & > * {
