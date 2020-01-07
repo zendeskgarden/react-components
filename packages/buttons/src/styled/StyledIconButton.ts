@@ -8,7 +8,7 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
-import { StyledButton, getLineHeight, IStyledButtonProps } from './StyledButton';
+import { StyledButton, getHeight, IStyledButtonProps } from './StyledButton';
 import { StyledIcon } from './StyledIcon';
 
 const COMPONENT_ID = 'buttons.icon_button';
@@ -33,14 +33,10 @@ const iconColorStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) =
 };
 
 const iconButtonStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
-  const lineHeight = getLineHeight(props);
-  const size = math(`${lineHeight} * 1px`);
-
   return css`
     border: ${props.isBasic && 'none'};
     padding: 0;
-    width: ${size};
-    height: ${size};
+    width: ${getHeight(props)};
 
     ${props.isBasic && !(props.isPrimary || props.disabled) && iconColorStyles(props)};
   `;

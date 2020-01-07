@@ -6,8 +6,11 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import stripUnit from 'polished/lib/helpers/stripUnit';
+import {
+  DEFAULT_THEME,
+  retrieveComponentStyles,
+  getLineHeight
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.base_header_item';
 
@@ -36,7 +39,7 @@ const sizeStyles = (props: IStyledBaseHeaderItemProps & ThemeProps<DefaultTheme>
     padding: 0 3px;
     min-width: ${size}px;
     height: ${props.maxY ? '100%' : `${size}px`};
-    line-height: ${size / stripUnit(props.theme.fontSizes.md)};
+    line-height: ${getLineHeight(size, props.theme.fontSizes.md)};
   `;
 };
 
