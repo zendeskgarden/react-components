@@ -32,14 +32,14 @@ const getBorderRadius = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) =
   return props.theme.borderRadii.md;
 };
 
-export const getLineHeight = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
+export const getHeight = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   if (props.size === SIZE.SMALL) {
-    return props.theme.space.base * 8;
+    return `${props.theme.space.base * 8}px`;
   } else if (props.size === SIZE.LARGE) {
-    return props.theme.space.base * 12;
+    return `${props.theme.space.base * 12}px`;
   }
 
-  return props.theme.space.base * 10;
+  return `${props.theme.space.base * 10}px`;
 };
 
 const colorStyles = (
@@ -146,7 +146,6 @@ const groupStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   const isPrimary = props.isPrimary;
   const rtl = props.theme.rtl;
   const lightBorderColor = props.theme.colors.background;
-  const lineHeight = getLineHeight(props);
 
   return css`
     position: relative;
@@ -156,7 +155,6 @@ const groupStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
     border-bottom-width: ${isPrimary && 0};
     border-right-color: ${isPrimary && lightBorderColor};
     border-left-color: ${isPrimary && lightBorderColor};
-    line-height: ${isPrimary && math(`${lineHeight} * 1px`)};
 
     &:hover,
     &:active {
@@ -169,7 +167,6 @@ const groupStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
       border-bottom-width: 0;
       border-right-color: ${lightBorderColor};
       border-left-color: ${lightBorderColor};
-      line-height: ${math(`${lineHeight} * 1px`)};
     }
 
     /* stylelint-disable property-no-unknown, property-case */
@@ -212,9 +209,10 @@ const sizeStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
       font-size: inherit;
     `;
   } else {
-    let fontSize;
-    const lineHeight = getLineHeight(props);
+    const height = getHeight(props);
+    const lineHeight = math(`${height} - (${props.theme.borderWidths.sm} * 2)`);
     const padding = props.theme.space.base * 7;
+    let fontSize;
 
     if (props.size === 'small') {
       fontSize = props.theme.fontSizes.sm;
@@ -224,7 +222,8 @@ const sizeStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
 
     retVal = css`
       padding: 0 ${em(math(`${padding} - ${props.theme.borderWidths.sm}`), fontSize)};
-      line-height: ${math(`${lineHeight} - (${props.theme.borderWidths.sm} * 2)`)};
+      height: ${height};
+      line-height: ${lineHeight};
       font-size: ${fontSize};
     `;
   }

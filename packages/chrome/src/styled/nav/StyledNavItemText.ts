@@ -6,9 +6,12 @@
  */
 
 import styled from 'styled-components';
-import stripUnit from 'polished/lib/helpers/stripUnit';
 import math from 'polished/lib/math/math';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  getLineHeight
+} from '@zendeskgarden/react-theming';
 import { StyledNavItem } from './StyledNavItem';
 import { getNavWidth } from './StyledNav';
 
@@ -34,7 +37,7 @@ export const StyledNavItemText = styled.span.attrs<IStyledNavItemTextProps>({
   width: 1px;
   height: 1px;
   overflow: hidden;
-  line-height: ${props => (props.theme.space.base * 5) / stripUnit(props.theme.fontSizes.md)};
+  line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
   white-space: ${props => (props.isWrapped ? 'normal' : 'nowrap')};
 
   ${props =>

@@ -7,8 +7,7 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import math from 'polished/lib/math/math';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
-import stripUnit from 'polished/lib/helpers/stripUnit';
+import { retrieveComponentStyles, getLineHeight } from '@zendeskgarden/react-theming';
 import { getSubNavItemHeight } from './StyledSubNavItem';
 
 const COMPONENT_ID = 'chrome.subnav_item_text';
@@ -24,7 +23,7 @@ export interface IStyledSubNavItemTextProps {
 const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   const baseLineHeight = props.theme.space.base * 5;
   const verticalMargin = math(`(${getSubNavItemHeight(props)} - ${baseLineHeight}) / 2`);
-  const lineHeight = baseLineHeight / stripUnit(props.theme.fontSizes.md);
+  const lineHeight = getLineHeight(baseLineHeight, props.theme.fontSizes.md);
 
   return css`
     margin: ${verticalMargin} 0;
