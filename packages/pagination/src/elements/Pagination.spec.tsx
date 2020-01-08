@@ -9,12 +9,16 @@ import React from 'react';
 import { render, fireEvent } from 'garden-test-utils';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
 
-import Pagination from './Pagination';
+import Pagination, { IPaginationProps, PAGE_TYPE } from './Pagination';
 
 describe('Pagination', () => {
-  let onChange;
+  let onChange: jest.Mock;
 
-  const BasicExample = ({ currentPage = 1, totalPages = 5, ...other } = {}) => (
+  const BasicExample = ({
+    currentPage = 1,
+    totalPages = 5,
+    ...other
+  }: Partial<IPaginationProps> = {}) => (
     <Pagination totalPages={totalPages} currentPage={currentPage} onChange={onChange} {...other} />
   );
 
@@ -23,7 +27,7 @@ describe('Pagination', () => {
   });
 
   describe('transformPageProps', () => {
-    let transformPageProps;
+    let transformPageProps: any;
 
     beforeEach(() => {
       transformPageProps = jest.fn((pageType, props) => props);
@@ -51,7 +55,7 @@ describe('Pagination', () => {
     it('applies transformed props if transform is supplied', () => {
       const CUSTOM_PROP_VALUE = 'custom-prop';
 
-      transformPageProps = (type, props) => {
+      transformPageProps = (type: PAGE_TYPE, props: any) => {
         props['data-test-id'] = CUSTOM_PROP_VALUE;
 
         return props;
@@ -61,7 +65,7 @@ describe('Pagination', () => {
         <BasicExample currentPage={1} totalPages={10} transformPageProps={transformPageProps} />
       );
 
-      [...container.firstChild.children].forEach(child => {
+      [...container.firstElementChild!.children].forEach(child => {
         expect(child).toHaveAttribute('data-test-id', CUSTOM_PROP_VALUE);
       });
     });
@@ -71,32 +75,32 @@ describe('Pagination', () => {
     it('is visible if currentPage is first page', () => {
       const { container } = render(<BasicExample currentPage={1} />);
 
-      expect(container.firstChild.children[0]).toHaveAttribute('hidden');
+      expect(container.firstElementChild!.children[0]).toHaveAttribute('hidden');
     });
 
     it('is visible otherwise', () => {
       const { container } = render(<BasicExample currentPage={2} />);
 
-      expect(container.firstChild.children[0]).not.toHaveAttribute('hidden');
+      expect(container.firstElementChild!.children[0]).not.toHaveAttribute('hidden');
     });
 
     it('decrements currentPage when selected', () => {
       const { container } = render(<BasicExample currentPage={3} />);
 
-      fireEvent.click(container.firstChild.children[0]);
+      fireEvent.click(container.firstElementChild!.children[0]);
       expect(onChange).toHaveBeenCalledWith(2);
     });
 
     it('focuses first page when visibility is lost', () => {
       const { container } = render(<Pagination totalPages={5} currentPage={2} />);
 
-      const previousPage = container.firstChild.children[0];
+      const previousPage = container.firstElementChild!.children[0];
 
       fireEvent.focus(previousPage);
       fireEvent.keyDown(previousPage, { keyCode: KEY_CODES.ENTER });
 
-      expect(container.firstChild.children[1]).toHaveClass('is-focused');
-      expect(container.firstChild.children[2]).toHaveClass('is-current');
+      expect(container.firstElementChild!.children[1]).toHaveClass('is-focused');
+      expect(container.firstElementChild!.children[2]).toHaveClass('is-current');
     });
   });
 
@@ -105,7 +109,7 @@ describe('Pagination', () => {
       const { container } = render(<BasicExample currentPage={5} totalPages={5} />);
 
       expect(
-        container.firstChild.children[container.firstChild.children.length - 1]
+        container.firstElementChild!.children[container.firstElementChild!.children.length - 1]
       ).toHaveAttribute('hidden');
     });
 
@@ -113,14 +117,16 @@ describe('Pagination', () => {
       const { container } = render(<BasicExample currentPage={2} totalPages={5} />);
 
       expect(
-        container.firstChild.children[container.firstChild.children.length - 1]
+        container.firstElementChild!.children[container.firstElementChild!.children.length - 1]
       ).not.toHaveAttribute('hidden');
     });
 
     it('decrements currentPage when selected', () => {
       const { container } = render(<BasicExample currentPage={3} totalPages={5} />);
 
-      fireEvent.click(container.firstChild.children[container.firstChild.children.length - 1]);
+      fireEvent.click(
+        container.firstElementChild!.children[container.firstElementChild!.children.length - 1]
+      );
 
       expect(onChange).toHaveBeenCalledWith(4);
     });
@@ -129,7 +135,7 @@ describe('Pagination', () => {
       const { container } = render(
         <Pagination totalPages={5} currentPage={4} onChange={onChange} />
       );
-      const paginationWrapper = container.firstChild;
+      const paginationWrapper = container.firstElementChild!;
       const nextPage = paginationWrapper.children[paginationWrapper.children.length - 1];
 
       fireEvent.focus(nextPage);
@@ -158,7 +164,7 @@ describe('Pagination', () => {
 
     it('hides front gap when currentPage is within padding range', () => {
       const { container } = render(<BasicExample currentPage={1} totalPages={25} />);
-      const children = container.firstChild.children;
+      const children = container.firstElementChild!.children;
 
       expect(children[0]).toHaveClass('c-pagination__page--previous');
       expect(children[1]).toHaveClass('c-pagination__page');
@@ -175,7 +181,7 @@ describe('Pagination', () => {
 
     it('hides back gap when currentPage is within padding range', () => {
       const { container } = render(<BasicExample currentPage={25} totalPages={25} />);
-      const children = container.firstChild.children;
+      const children = container.firstElementChild!.children;
 
       expect(children[0]).toHaveClass('c-pagination__page--previous');
       expect(children[1]).toHaveClass('c-pagination__page');
@@ -192,7 +198,7 @@ describe('Pagination', () => {
 
     it('displays both gaps if not within padding range and totalPages is greater than padding limit', () => {
       const { container } = render(<BasicExample currentPage={15} totalPages={25} />);
-      const children = container.firstChild.children;
+      const children = container.firstElementChild!.children;
 
       expect(children[0]).toHaveClass('c-pagination__page--previous');
       expect(children[1]).toHaveClass('c-pagination__page');
@@ -209,7 +215,7 @@ describe('Pagination', () => {
 
     it('displays no gaps if less than padding limit', () => {
       const { container } = render(<BasicExample currentPage={1} totalPages={5} />);
-      const children = container.firstChild.children;
+      const children = container.firstElementChild!.children;
 
       expect(children[0]).toHaveClass('c-pagination__page--previous');
       expect(children[1]).toHaveClass('c-pagination__page');

@@ -7,11 +7,11 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import PreviousPage from './PreviousPage';
+import { StyledPreviousPage } from './StyledPreviousPage';
 
-describe('PreviousPage', () => {
+describe('StyledPreviousPage', () => {
   it('renders default styling', () => {
-    const { container } = render(<PreviousPage />);
+    const { container } = render(<StyledPreviousPage />);
 
     expect(container.firstChild).toHaveClass('c-pagination__page--previous');
   });

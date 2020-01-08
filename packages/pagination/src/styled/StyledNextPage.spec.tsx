@@ -8,12 +8,12 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 
-import Gap from './Gap';
+import { StyledNextPage } from './StyledNextPage';
 
-describe('Gap', () => {
+describe('StyledNextPage', () => {
   it('renders default styling', () => {
-    const { container } = render(<Gap />);
+    const { container } = render(<StyledNextPage />);
 
-    expect(container.firstChild).toHaveClass('c-pagination__page--gap');
+    expect(container.firstChild).toHaveClass('c-pagination__page--next');
   });
 });

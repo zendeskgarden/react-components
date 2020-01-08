@@ -8,35 +8,35 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 
-import Page from './Page';
+import { StyledPage } from './StyledPage';
 
-describe('Page', () => {
+describe('StyledPage', () => {
   it('renders default styling', () => {
-    const { container } = render(<Page />);
+    const { container } = render(<StyledPage />);
 
     expect(container.firstChild).toHaveClass('c-pagination__page');
   });
 
   it('renders current styling if provided', () => {
-    const { container } = render(<Page current />);
+    const { container } = render(<StyledPage isCurrent />);
 
     expect(container.firstChild).toHaveClass('is-current');
   });
 
   it('renders focused styling if provided', () => {
-    const { container } = render(<Page focused />);
+    const { container } = render(<StyledPage isFocused />);
 
     expect(container.firstChild).toHaveClass('is-focused');
   });
 
   it('renders hovered styling if provided', () => {
-    const { container } = render(<Page hovered />);
+    const { container } = render(<StyledPage isHovered />);
 
     expect(container.firstChild).toHaveClass('is-hovered');
   });
 
   it('renders hidden styling if provided', () => {
-    const { container } = render(<Page hidden />);
+    const { container } = render(<StyledPage isHidden />);
 
     expect(container.firstChild).toHaveClass('is-hidden');
   });

@@ -18,8 +18,9 @@
     "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
+  "types": "dist/typings/index.d.ts",
   "dependencies": {
-    "@zendeskgarden/container-pagination": "^0.1.10",
+    "@zendeskgarden/container-pagination": "^0.2.4",
     "@zendeskgarden/container-utilities": "^0.3.0",
     "classnames": "^2.2.5"
   },
@@ -45,5 +46,5 @@
   },
   "zendeskgarden:library": "GardenPagination",
   "zendeskgarden:max_size": "12 kB",
-  "zendeskgarden:src": "src/index.js"
+  "zendeskgarden:src": "src/index.ts"
 }
