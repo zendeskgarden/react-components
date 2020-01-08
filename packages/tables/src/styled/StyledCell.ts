@@ -48,9 +48,10 @@ const sizeStyling = (props: IStyledCellProps & ThemeProps<DefaultTheme>) => {
   if (props.isMinimum) {
     if (props.theme.rtl) {
       rightPadding = `${props.theme.space.base * 3}px`;
+    } else {
+      rightPadding = '0';
     }
 
-    rightPadding = '0';
     width = '1em';
   }
 

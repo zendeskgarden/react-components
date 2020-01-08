@@ -20,7 +20,6 @@ const StyledBaseIconWrapper = styled.div`
   ${props => (props.theme.rtl ? 'left' : 'right')}: 0;
   align-items: center;
   justify-content: center;
-  transition: color 0.25s ease-in-out, opacity 0.25s ease-in-out;
   opacity: 0;
   width: ${props => props.theme.iconSizes.sm};
   height: 100%;
@@ -56,7 +55,6 @@ export const StyledSortableButton = styled.button.attrs<IStyledSortableButtonPro
   type: 'button'
 })<IStyledSortableButtonProps>`
   position: relative;
-  transition: color 0.25s ease-in-out, opacity 0.25s ease-in-out;
   border: none; /* [1] */
   background-color: transparent; /* [1] */
   cursor: pointer;
