@@ -33,36 +33,28 @@ const truncatedStyling = css`
 
 const sizeStyling = (props: IStyledCellProps & ThemeProps<DefaultTheme>) => {
   let verticalPadding = math(`(${getRowHeight(props)} - ${getLineHeight(props)}) / 2`);
-  let padding = `${verticalPadding} ${props.theme.space.base * 3}px`;
-  let rightPadding;
+  let horizontalPadding = `${props.theme.space.base * 3}px`;
   let width = props.width;
   let height;
 
   if (props.hasOverflow) {
-    padding = '0';
     width = '2em';
     height = 'inherit';
     verticalPadding = '0';
+    horizontalPadding = '0';
   }
 
   if (props.isMinimum) {
-    if (props.theme.rtl) {
-      rightPadding = `${props.theme.space.base * 3}px`;
-    } else {
-      rightPadding = '0';
-    }
-
     width = '1em';
   }
 
   return css`
-    padding: ${padding};
-    /* stylelint-disable declaration-block-no-redundant-longhand-properties */
+    /* stylelint-disable declaration-block-no-redundant-longhand-properties, property-no-unknown, max-line-length */
     padding-top: ${verticalPadding};
-    padding-right: ${rightPadding};
     padding-bottom: ${verticalPadding};
-    padding-left: ${props.theme.rtl && '0'};
-    /* stylelint-enable declaration-block-no-redundant-longhand-properties */
+    padding-${props.theme.rtl ? 'right' : 'left'}: ${horizontalPadding};
+    padding-${props.theme.rtl ? 'left' : 'right'}: 0;
+    /* stylelint-enable declaration-block-no-redundant-longhand-properties, property-no-unknown, max-line-length */
     width: ${width};
     height: ${height};
   `;
