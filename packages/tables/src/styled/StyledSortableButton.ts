@@ -17,8 +17,7 @@ const StyledBaseIconWrapper = styled.div`
   display: flex;
   position: absolute;
   top: 0;
-  right: ${props => (props.theme.rtl ? 'auto' : '0')};
-  left: ${props => props.theme.rtl && '0'};
+  ${props => (props.theme.rtl ? 'left' : 'right')}: 0;
   align-items: center;
   justify-content: center;
   transition: color 0.25s ease-in-out, opacity 0.25s ease-in-out;

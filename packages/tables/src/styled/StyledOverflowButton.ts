@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, css, DefaultTheme } from 'styled-components';
-import stripUnit from 'polished/lib/helpers/stripUnit';
+import math from 'polished/lib/math/math';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { getRowHeight } from './StyledRow';
 import { SIZE } from './StyledTable';
@@ -60,7 +60,7 @@ export const StyledOverflowButton = styled.button.attrs<IStyledOverflowButtonPro
   transition: opacity 0.25s ease-in-out, background-color 0.1s ease-in-out;
   opacity: ${props => (props.isHovered || props.isFocused || props.isActive ? '1' : '0')};
   z-index: ${props => (props.isActive ? '1' : '0')};
-  margin-top: calc(${props => stripUnit(getRowHeight(props)) / 2} - 1em);
+  margin-top: calc(${props => math(`${getRowHeight(props)} / 2`)} - 1em);
   border: none; /* [1] */
   border-radius: 50%;
   background-color: transparent; /* [1] */

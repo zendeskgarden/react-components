@@ -96,7 +96,6 @@ const StyledCaption = styled(Caption)`
         </Dropdown>
       </Layout.Col>
     </Layout.Row>
-
     <Layout.Row>
       <Layout.Col>
         <FormsField>

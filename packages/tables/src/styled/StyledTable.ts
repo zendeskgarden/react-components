@@ -22,7 +22,6 @@ export const getLineHeight = (props: ThemeProps<DefaultTheme>) => {
 
 /**
  * 1. <table> reset
- * 2. <th> reset
  */
 export const StyledTable = styled.table.attrs<IStyledTableProps>({
   'data-garden-id': COMPONENT_ID,

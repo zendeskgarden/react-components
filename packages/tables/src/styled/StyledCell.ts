@@ -32,8 +32,8 @@ const truncatedStyling = css`
 `;
 
 const sizeStyling = (props: IStyledCellProps & ThemeProps<DefaultTheme>) => {
-  let padding = `${props.theme.fontSizes.xs} ${props.theme.fontSizes.sm}`;
-  const verticalPadding = math(`(${getRowHeight(props)} - ${getLineHeight(props)}) / 2`);
+  let verticalPadding = math(`(${getRowHeight(props)} - ${getLineHeight(props)}) / 2`);
+  let padding = `${verticalPadding} ${props.theme.space.base * 3}px`;
   let rightPadding;
   let width = props.width;
   let height;
@@ -42,6 +42,7 @@ const sizeStyling = (props: IStyledCellProps & ThemeProps<DefaultTheme>) => {
     padding = '0';
     width = '2em';
     height = 'inherit';
+    verticalPadding = '0';
   }
 
   if (props.isMinimum) {
