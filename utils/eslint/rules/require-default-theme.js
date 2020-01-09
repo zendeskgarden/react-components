@@ -29,6 +29,12 @@ function isStyledComponent(node) {
   return false;
 }
 
+/**
+ * The `require-default-theme` rule requires that all styled-component usages include
+ * a default `theme` value.
+ *
+ * This ensures that all components are able to render without a parent `ThemeProvider`.
+ */
 module.exports = {
   meta: {
     fixable: 'code',
