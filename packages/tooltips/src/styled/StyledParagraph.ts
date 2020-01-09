@@ -11,9 +11,9 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 const COMPONENT_ID = 'tooltip.paragraph';
 
 /**
- * Accepts all `<div>` props
+ * Accepts all `<p>` props
  */
-export const StyledParagraph = styled.div.attrs({
+export const StyledParagraph = styled.p.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
