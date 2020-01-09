@@ -7,11 +7,11 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled, { DEFAULT_THEME } from 'styled-components';
+import styled from 'styled-components';
 import classNames from 'classnames';
 import ModalStyles from '@zendeskgarden/css-modals';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.close';
 
