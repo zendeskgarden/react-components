@@ -7,7 +7,7 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { DEFAULT_THEME } from 'styled-components';
 import classNames from 'classnames';
 import ModalStyles from '@zendeskgarden/css-modals';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
@@ -26,6 +26,10 @@ const StyledClose = styled.button.attrs(props => ({
 }))`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledClose.defaultProps = {
+  theme: DEFAULT_THEME
+};
 
 /**
  * Used to close a Modal. Supports all `<button>` props.

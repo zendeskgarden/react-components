@@ -69,6 +69,7 @@
     "eslint": "6.6.0",
     "eslint-config-prettier": "6.7.0",
     "eslint-loader": "3.0.2",
+    "eslint-plugin-garden-local": "file:./utils/eslint",
     "eslint-plugin-jest": "23.0.4",
     "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-notice": "0.8.9",

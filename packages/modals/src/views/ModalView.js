@@ -8,7 +8,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import ModalStyles from '@zendeskgarden/css-modals';
 
 const COMPONENT_ID = 'modals.modal_view';
@@ -36,6 +36,10 @@ const ModalView = styled.div.attrs(props => ({
 ModalView.propTypes = {
   large: PropTypes.bool,
   animate: PropTypes.bool
+};
+
+ModalView.defaultProps = {
+  theme: DEFAULT_THEME
 };
 
 /** @component */

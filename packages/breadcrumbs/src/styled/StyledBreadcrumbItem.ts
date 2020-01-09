@@ -6,7 +6,7 @@
  */
 
 import styled, { css } from 'styled-components';
-import { getColor, getLineHeight } from '@zendeskgarden/react-theming';
+import { getColor, getLineHeight, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'breadcrumbs.item';
 
@@ -47,3 +47,7 @@ export const StyledBreadcrumbItem = styled.li.attrs({
   font-size: inherit;
   ${linkStyles};
 `;
+
+StyledBreadcrumbItem.defaultProps = {
+  theme: DEFAULT_THEME
+};
