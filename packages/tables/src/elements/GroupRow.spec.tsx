@@ -25,18 +25,4 @@ describe('GroupRow', () => {
 
     expect(getByTestId('groupRow')).toBe(ref.current);
   });
-
-  it('applies default styling by default', () => {
-    const { getByTestId } = render(
-      <Table>
-        <Body>
-          <GroupRow data-test-id="groupRow" />
-        </Body>
-      </Table>
-    );
-    const groupRow = getByTestId('groupRow');
-
-    expect(groupRow).toHaveClass('c-table__row');
-    expect(groupRow).toHaveClass('c-table__row--group');
-  });
 });

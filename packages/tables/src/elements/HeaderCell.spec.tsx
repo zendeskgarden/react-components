@@ -9,23 +9,23 @@ import React from 'react';
 import { render } from 'garden-test-utils';
 
 import { Table } from './Table';
-import { Body } from './Body';
-import { Row } from './Row';
-import { Cell } from './Cell';
+import { Head } from './Head';
+import { HeaderRow } from './HeaderRow';
+import { HeaderCell } from './HeaderCell';
 
-describe('Cell', () => {
+describe('HeaderCell', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLTableCellElement>();
+    const ref = React.createRef<HTMLTableHeaderCellElement>();
     const { getByTestId } = render(
       <Table>
-        <Body>
-          <Row>
-            <Cell data-test-id="cell" ref={ref} />
-          </Row>
-        </Body>
+        <Head>
+          <HeaderRow>
+            <HeaderCell data-test-id="headerCell" ref={ref} />
+          </HeaderRow>
+        </Head>
       </Table>
     );
 
-    expect(getByTestId('cell')).toBe(ref.current);
+    expect(getByTestId('headerCell')).toBe(ref.current);
   });
 });

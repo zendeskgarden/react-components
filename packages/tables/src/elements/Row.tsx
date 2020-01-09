@@ -8,17 +8,18 @@
 import React, { useState, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-
 import { StyledRow, IStyledRowProps } from '../styled';
+import { useTableContext } from '../utils/useTableContext';
 
 /**
  * Accepts all `<tr>` props
  */
 export const Row = React.forwardRef<
   HTMLTableRowElement,
-  IStyledRowProps & HTMLAttributes<HTMLTableRowElement>
+  Omit<IStyledRowProps, 'size'> & HTMLAttributes<HTMLTableRowElement>
 >(({ onFocus, onBlur, isFocused: focused, ...otherProps }, ref) => {
   const [isFocused, setIsFocused] = useState(false);
+  const { size } = useTableContext();
 
   return (
     <StyledRow
@@ -28,6 +29,7 @@ export const Row = React.forwardRef<
       onBlur={composeEventHandlers(onBlur, () => {
         setIsFocused(false);
       })}
+      size={size}
       isFocused={typeof focused === 'undefined' ? isFocused : focused}
       ref={ref}
       {...otherProps}

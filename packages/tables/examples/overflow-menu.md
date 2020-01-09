@@ -9,7 +9,16 @@ to apply manual positioning against the `Dropdown` to ensure a standard look and
 or other assistive technique to have discernible text.
 
 ```jsx
-const { Dropdown, Trigger, Menu, Item } = require('@zendeskgarden/react-dropdowns/src');
+const {
+  Dropdown,
+  Trigger,
+  Menu,
+  Item,
+  Field,
+  Label,
+  Select
+} = require('@zendeskgarden/react-dropdowns/src');
+const { Well } = require('@zendeskgarden/react-notifications/src');
 
 const StyledCaption = styled(Caption)`
   line-height: ${props => props.theme.lineHeights.xl};
@@ -49,65 +58,97 @@ const OverflowMenu = () => (
   </Dropdown>
 );
 
-<Table>
-  <StyledCaption>Overflow Menus</StyledCaption>
-  <Head>
-    <HeaderRow>
-      <HeaderCell>Subject</HeaderCell>
-      <HeaderCell>Requester</HeaderCell>
-      <HeaderCell>Requested</HeaderCell>
-      <HeaderCell>Type</HeaderCell>
-      <HeaderCell hasOverflow>
-        <OverflowMenu />
-      </HeaderCell>
-    </HeaderRow>
-  </Head>
-  <Body>
-    <Row>
-      <Cell>Where are my shoes?</Cell>
-      <Cell>John Smith</Cell>
-      <Cell>15 minutes ago</Cell>
-      <Cell>Ticket</Cell>
-      <Cell hasOverflow>
-        <OverflowMenu />
-      </Cell>
-    </Row>
-    <Row>
-      <Cell>Was charged twice</Cell>
-      <Cell>Jane Doe</Cell>
-      <Cell>25 minutes ago</Cell>
-      <Cell>Call</Cell>
-      <Cell hasOverflow>
-        <OverflowMenu />
-      </Cell>
-    </Row>
-    <Row>
-      <Cell>Ticket 1</Cell>
-      <Cell>Unknown</Cell>
-      <Cell>2 months ago</Cell>
-      <Cell>Ticket</Cell>
-      <Cell hasOverflow>
-        <OverflowMenu />
-      </Cell>
-    </Row>
-    <Row>
-      <Cell>Ticket 2</Cell>
-      <Cell>Unknown</Cell>
-      <Cell>2 months ago</Cell>
-      <Cell>Ticket</Cell>
-      <Cell hasOverflow>
-        <OverflowMenu />
-      </Cell>
-    </Row>
-    <Row>
-      <Cell>Ticket 3</Cell>
-      <Cell>Unknown</Cell>
-      <Cell>2 months ago</Cell>
-      <Cell>Ticket</Cell>
-      <Cell hasOverflow>
-        <OverflowMenu />
-      </Cell>
-    </Row>
-  </Body>
-</Table>;
+const StyledSpacer = styled.div`
+  margin-bottom: ${props => props.theme.space.sm};
+`;
+
+initialState = {
+  rowSize: 'default'
+};
+
+<Layout.Grid>
+  <Layout.Row>
+    <Layout.Col>
+      <Well isRecessed>
+        <Dropdown selectedItem={state.rowSize} onSelect={rowSize => setState({ rowSize })}>
+          <Field>
+            <Label>Row Size</Label>
+            <Select small>{state.rowSize}</Select>
+          </Field>
+          <Menu small>
+            <Item value="small">small</Item>
+            <Item value="default">default</Item>
+            <Item value="large">large</Item>
+          </Menu>
+        </Dropdown>
+      </Well>
+    </Layout.Col>
+  </Layout.Row>
+  <StyledSpacer />
+  <Layout.Row>
+    <Layout.Col>
+      <Table size={state.rowSize === 'default' ? undefined : state.rowSize}>
+        <StyledCaption>Overflow Menus</StyledCaption>
+        <Head>
+          <HeaderRow>
+            <HeaderCell>Subject</HeaderCell>
+            <HeaderCell>Requester</HeaderCell>
+            <HeaderCell>Requested</HeaderCell>
+            <HeaderCell>Type</HeaderCell>
+            <HeaderCell hasOverflow>
+              <OverflowMenu />
+            </HeaderCell>
+          </HeaderRow>
+        </Head>
+        <Body>
+          <Row>
+            <Cell>Where are my shoes?</Cell>
+            <Cell>John Smith</Cell>
+            <Cell>15 minutes ago</Cell>
+            <Cell>Ticket</Cell>
+            <Cell hasOverflow>
+              <OverflowMenu />
+            </Cell>
+          </Row>
+          <Row>
+            <Cell>Was charged twice</Cell>
+            <Cell>Jane Doe</Cell>
+            <Cell>25 minutes ago</Cell>
+            <Cell>Call</Cell>
+            <Cell hasOverflow>
+              <OverflowMenu />
+            </Cell>
+          </Row>
+          <Row>
+            <Cell>Ticket 1</Cell>
+            <Cell>Unknown</Cell>
+            <Cell>2 months ago</Cell>
+            <Cell>Ticket</Cell>
+            <Cell hasOverflow>
+              <OverflowMenu />
+            </Cell>
+          </Row>
+          <Row>
+            <Cell>Ticket 2</Cell>
+            <Cell>Unknown</Cell>
+            <Cell>2 months ago</Cell>
+            <Cell>Ticket</Cell>
+            <Cell hasOverflow>
+              <OverflowMenu />
+            </Cell>
+          </Row>
+          <Row>
+            <Cell>Ticket 3</Cell>
+            <Cell>Unknown</Cell>
+            <Cell>2 months ago</Cell>
+            <Cell>Ticket</Cell>
+            <Cell hasOverflow>
+              <OverflowMenu />
+            </Cell>
+          </Row>
+        </Body>
+      </Table>
+    </Layout.Col>
+  </Layout.Row>
+</Layout.Grid>;
 ```

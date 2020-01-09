@@ -22,14 +22,4 @@ describe('Caption', () => {
 
     expect(getByTestId('caption')).toBe(ref.current);
   });
-
-  it('renders default styling', () => {
-    const { getByTestId } = render(
-      <Table>
-        <Caption data-test-id="caption" />
-      </Table>
-    );
-
-    expect(getByTestId('caption')).toHaveClass('c-table__caption');
-  });
 });

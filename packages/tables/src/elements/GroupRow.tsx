@@ -7,10 +7,15 @@
 
 import React, { HTMLAttributes } from 'react';
 import { StyledGroupRow } from '../styled';
+import { useTableContext } from '../utils/useTableContext';
 
 /**
  * Accepts all `<tr>` attributes and events
  */
 export const GroupRow = React.forwardRef<HTMLTableRowElement, HTMLAttributes<HTMLTableRowElement>>(
-  (props, ref) => <StyledGroupRow ref={ref} {...props} />
+  (props, ref) => {
+    const { size } = useTableContext();
+
+    return <StyledGroupRow ref={ref} size={size} {...props} />;
+  }
 );

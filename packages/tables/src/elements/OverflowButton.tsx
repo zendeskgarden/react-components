@@ -7,17 +7,24 @@
 
 import React, { ButtonHTMLAttributes, useState } from 'react';
 import PropTypes from 'prop-types';
-import { StyledOverflowButton, IStyledOverflowButtonProps } from '../styled';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import OverflowStrokeIcon from '@zendeskgarden/svg-icons/src/16/overflow-stroke.svg';
+import {
+  StyledOverflowButton,
+  IStyledOverflowButtonProps,
+  StyledOverflowButtonIconWrapper
+} from '../styled';
+import { useTableContext } from '../utils/useTableContext';
 
 /**
  * Accepts all `<button>` props
  */
 export const OverflowButton = React.forwardRef<
   HTMLButtonElement,
-  IStyledOverflowButtonProps & ButtonHTMLAttributes<HTMLButtonElement>
+  Omit<IStyledOverflowButtonProps, 'size'> & ButtonHTMLAttributes<HTMLButtonElement>
 >(({ onFocus, onBlur, isFocused: focused, ...other }, ref) => {
   const [isFocused, setIsFocused] = useState(false);
+  const { size } = useTableContext();
 
   return (
     <StyledOverflowButton
@@ -27,11 +34,14 @@ export const OverflowButton = React.forwardRef<
       onBlur={composeEventHandlers(onBlur, () => {
         setIsFocused(false);
       })}
+      size={size}
       isFocused={typeof focused === 'undefined' ? isFocused : focused}
       ref={ref}
       {...other}
     >
-      &nbsp;
+      <StyledOverflowButtonIconWrapper>
+        <OverflowStrokeIcon />
+      </StyledOverflowButtonIconWrapper>
     </StyledOverflowButton>
   );
 });

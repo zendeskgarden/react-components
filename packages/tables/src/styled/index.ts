@@ -13,6 +13,15 @@ export { StyledCell, IStyledCellProps } from './StyledCell';
 export { StyledGroupRow } from './StyledGroupRow';
 export { StyledTable, IStyledTableProps } from './StyledTable';
 export { StyledHeaderCell } from './StyledHeaderCell';
-export { StyledSortableButton, IStyledSortableButtonProps } from './StyledSortableButton';
-export { StyledOverflowButton, IStyledOverflowButtonProps } from './StyledOverflowButton';
+export {
+  StyledSortableButton,
+  StyledSortableFillIconWrapper,
+  StyledSortableStrokeIconWrapper,
+  IStyledSortableButtonProps
+} from './StyledSortableButton';
+export {
+  StyledOverflowButton,
+  StyledOverflowButtonIconWrapper,
+  IStyledOverflowButtonProps
+} from './StyledOverflowButton';
 export { StyledRow, IStyledRowProps } from './StyledRow';
