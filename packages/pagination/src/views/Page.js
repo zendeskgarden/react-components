@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import PaginationStyles from '@zendeskgarden/css-pagination';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'pagination.page';
 
@@ -44,6 +44,10 @@ Page.propTypes = {
   focused: PropTypes.bool,
   hovered: PropTypes.bool,
   hidden: PropTypes.bool
+};
+
+Page.defaultProps = {
+  theme: DEFAULT_THEME
 };
 
 /** @component */
