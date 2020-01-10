@@ -156,11 +156,11 @@ const StyledSpacer = styled.div`
       <StyledSpacer />
       <Row>
         <Col>
-          <Chrome style={{ height: 500 }}>
-            <Nav
-              isExpanded={state.expanded}
-              backgroundColor={state.color === PALETTE.kale[700] ? undefined : state.color}
-            >
+          <Chrome
+            style={{ height: 500 }}
+            hue={state.color === PALETTE.kale[700] ? undefined : state.color}
+          >
+            <Nav isExpanded={state.expanded}>
               <NavItem hasLogo product={state.product} title="Zendesk">
                 <NavItemIcon>
                   <ProductIcon product={state.product} />

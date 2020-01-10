@@ -8,54 +8,52 @@
 import React, { HTMLAttributes, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import readableColor from 'polished/lib/color/readableColor';
+import { useChromeContext } from '../../utils/useChromeContext';
 import { NavContext } from '../../utils/useNavContext';
-import { StyledNav, IStyledNavProps } from '../../styled';
+import { StyledNav } from '../../styled';
 
-interface INavProps
-  extends Omit<Omit<IStyledNavProps, 'isLight'>, 'isDark'>,
-    HTMLAttributes<HTMLElement> {
-  backgroundColor?: string;
+interface INavProps extends HTMLAttributes<HTMLElement> {
+  /**
+   * Expand navigation area to include item text
+   **/
+  isExpanded?: boolean;
 }
 
 /**
  * Accepts all `<nav>` attributes and events
  */
-export const Nav = React.forwardRef<HTMLElement, INavProps>(
-  ({ backgroundColor, style, ...props }, ref) => {
-    const isLightComputed = useMemo(() => {
-      if (!backgroundColor) {
-        return false;
-      }
+export const Nav = React.forwardRef<HTMLElement, INavProps>(({ style, ...props }, ref) => {
+  const { hue } = useChromeContext();
+  const isLightComputed = useMemo(() => {
+    if (!hue) {
+      return false;
+    }
 
-      const LIGHT_VALUE = 'white';
+    const LIGHT_VALUE = 'white';
+    const accessibleColor = readableColor(hue, LIGHT_VALUE);
 
-      const accessibleColor = readableColor(backgroundColor, LIGHT_VALUE);
+    return accessibleColor === LIGHT_VALUE;
+  }, [hue]);
 
-      return accessibleColor === LIGHT_VALUE;
-    }, [backgroundColor]);
+  const isLight = hue ? isLightComputed : false;
+  const isDark = hue ? !isLightComputed : false;
 
-    const isLight = backgroundColor ? isLightComputed : false;
-    const isDark = backgroundColor ? !isLightComputed : false;
+  const navContextValue = { isExpanded: !!props.isExpanded, isLight, isDark };
 
-    const navContextValue = { isExpanded: !!props.isExpanded, isLight, isDark };
-
-    return (
-      <NavContext.Provider value={navContextValue}>
-        <StyledNav
-          ref={ref}
-          {...props}
-          isLight={isLight}
-          isDark={isDark}
-          data-test-light={isLight}
-          data-test-dark={isDark}
-          style={{ ...style, backgroundColor }}
-        />
-      </NavContext.Provider>
-    );
-  }
-);
+  return (
+    <NavContext.Provider value={navContextValue}>
+      <StyledNav
+        ref={ref}
+        {...props}
+        hue={hue}
+        data-test-light={isLight}
+        data-test-dark={isDark}
+        style={{ ...style }}
+      />
+    </NavContext.Provider>
+  );
+});
 
 Nav.propTypes = {
-  isExpanded: PropTypes.bool,
-  backgroundColor: PropTypes.string
+  isExpanded: PropTypes.bool
 };

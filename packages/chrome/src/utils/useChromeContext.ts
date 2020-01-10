@@ -7,14 +7,14 @@
 
 import React, { useContext } from 'react';
 
-interface INavContext {
-  isExpanded: boolean;
+interface IChromeContext {
+  hue?: string;
 }
 
-export const NavContext = React.createContext<INavContext>({
-  isExpanded: false
+export const ChromeContext = React.createContext<IChromeContext>({
+  hue: 'chromeHue'
 });
 
-export const useNavContext = () => {
-  return useContext(NavContext);
+export const useChromeContext = () => {
+  return useContext(ChromeContext);
 };

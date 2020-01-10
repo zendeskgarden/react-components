@@ -5,31 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import readableColor from 'polished/lib/color/readableColor';
+import { PALETTE, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { PRODUCT } from '../../utils/types';
 import { StyledBaseNavItem } from '../';
-import { PALETTE, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { getBackgroundColor } from './StyledNav';
 
 const COMPONENT_ID = 'chrome.logo_nav_item';
 
-export interface IStyledLogoNavItemProps {
-  /**
-   * Applies product-specific color palette
-   **/
-  product?: PRODUCT;
-  isDark?: boolean;
-  isLight?: boolean;
-}
-
-const retrieveProductColor = (props: IStyledLogoNavItemProps & ThemeProps<DefaultTheme>) => {
-  if (props.isDark) {
-    return props.theme.colors.background;
-  }
-
-  if (props.isLight) {
-    return getColor('neutralHue', 800, props.theme);
-  }
-
+const retrieveProductColor = (props: IStyledLogoNavItemProps) => {
   switch (props.product) {
     case 'chat':
       return PALETTE.product.chat;
@@ -50,6 +35,25 @@ const retrieveProductColor = (props: IStyledLogoNavItemProps & ThemeProps<Defaul
   }
 };
 
+const colorStyles = (props: IStyledLogoNavItemProps) => {
+  const backgroundColor = getBackgroundColor(props);
+  const foregroundColor = readableColor(
+    backgroundColor!,
+    props.theme.colors.foreground,
+    props.theme.colors.background
+  );
+
+  return css`
+    color: ${props.hue ? foregroundColor : retrieveProductColor(props)};
+    fill: ${foregroundColor};
+  `;
+};
+
+export interface IStyledLogoNavItemProps extends ThemeProps<DefaultTheme> {
+  product?: PRODUCT;
+  hue?: string;
+}
+
 export const StyledLogoNavItem = styled(StyledBaseNavItem).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
@@ -57,9 +61,8 @@ export const StyledLogoNavItem = styled(StyledBaseNavItem).attrs({
   order: 0;
   opacity: 1;
   cursor: default;
-  color: ${retrieveProductColor};
-  fill: ${props =>
-    props.isLight ? getColor('neutralHue', 800, props.theme) : props.theme.colors.background};
+
+  ${props => colorStyles(props)};
 `;
 
 StyledLogoNavItem.defaultProps = {

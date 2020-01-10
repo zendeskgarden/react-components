@@ -5,24 +5,47 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import rgba from 'polished/lib/color/rgba';
 import math from 'polished/lib/math/math';
+import readableColor from 'polished/lib/color/readableColor';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledBaseNavItem } from './StyledBaseNavItem';
 import { StyledNavItemIcon } from './StyledNavItemIcon';
-import { getNavWidth } from './StyledNav';
+import { getNavWidth, getBackgroundColor } from './StyledNav';
 
 const COMPONENT_ID = 'chrome.nav_item';
 
-export interface IStyledNavItemProps {
-  /**
-   * Indicate which item is current in the nav
-   **/
+const colorStyles = (props: IStyledNavItemProps) => {
+  const white = props.theme.palette.white as string;
+  const black = props.theme.palette.black as string;
+  const backgroundColor = readableColor(getBackgroundColor(props)!, black, white);
+
+  return css`
+    opacity: ${props.isCurrent ? 1 : 0.6};
+    background-color: ${props.isCurrent &&
+      (props.hue ? rgba(backgroundColor, 0.3) : getColor('chromeHue', 400, props.theme))};
+
+    &:hover {
+      opacity: 1;
+      background-color: ${!props.isCurrent && rgba(black, 0.1)};
+    }
+
+    &[data-garden-focus-visible] {
+      opacity: 1;
+      box-shadow: inset ${props.theme.shadows.md(rgba(backgroundColor, 0.2))};
+    }
+
+    &:active {
+      background-color: ${rgba(white, 0.1)};
+    }
+  `;
+};
+
+export interface IStyledNavItemProps extends ThemeProps<DefaultTheme> {
   isCurrent?: boolean;
   isExpanded?: boolean;
-  isDark?: boolean;
-  isLight?: boolean;
+  hue?: string;
 }
 
 /**
@@ -35,56 +58,20 @@ export const StyledNavItem = styled(StyledBaseNavItem).attrs({
 })<IStyledNavItemProps>`
   justify-content: ${props => props.isExpanded && 'start'};
   order: 1;
-  opacity: ${props => (props.isCurrent ? 1 : 0.6)};
-  background-color: ${props => {
-    if (props.isCurrent) {
-      if (props.isDark) {
-        return rgba(props.theme.palette.white as string, 0.3);
-      }
-
-      if (props.isLight) {
-        return rgba(props.theme.palette.black as string, 0.3);
-      }
-
-      return getColor('chromeHue', 400, props.theme);
-    }
-
-    return undefined;
-  }};
   cursor: ${props => (props.isCurrent ? 'default' : 'pointer')};
   text-align: ${props => props.isExpanded && 'inherit'};
+
+  &:hover,
+  &:focus {
+    text-decoration: none; /* [1] */
+    color: inherit; /* [1] */
+  }
 
   &:focus {
     outline: none; /* [1] */
   }
 
-  &:hover {
-    background-color: ${props =>
-      !props.isCurrent && rgba(props.theme.palette.black as string, 0.1)};
-  }
-
-  &:active {
-    background-color: ${props => {
-      if (props.isDark) {
-        return rgba(props.theme.palette.black as string, 0.1);
-      }
-
-      return rgba(props.theme.palette.white as string, 0.1);
-    }};
-  }
-
-  &[data-garden-focus-visible] {
-    box-shadow: ${props =>
-      `inset ${props.theme.shadows.md(
-        rgba((props.isLight ? props.theme.palette.black : props.theme.palette.white) as string, 0.2)
-      )}`};
-  }
-
-  &:focus,
-  &:hover {
-    text-decoration: none; /* [1] */
-    color: inherit; /* [1] */
-  }
+  ${props => colorStyles(props)};
 
   ${props =>
     props.isExpanded &&

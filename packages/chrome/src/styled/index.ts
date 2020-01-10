@@ -19,7 +19,7 @@ export { StyledHeaderItemIcon } from './header/StyledHeaderItemIcon';
 export { StyledLogoHeaderItem, IStyledLogoHeaderItemProps } from './header/StyledLogoHeaderItem';
 export { StyledHeaderItemText, IStyledHeaderItemTextProps } from './header/StyledHeaderItemText';
 export { StyledHeaderItemWrapper } from './header/StyledHeaderItemWrapper';
-export { StyledNav, IStyledNavProps } from './nav/StyledNav';
+export { StyledNav } from './nav/StyledNav';
 export { StyledBaseNavItem } from './nav/StyledBaseNavItem';
 export { StyledLogoNavItem, IStyledLogoNavItemProps } from './nav/StyledLogoNavItem';
 export { StyledBrandmarkNavItem } from './nav/StyledBrandmarkNavItem';

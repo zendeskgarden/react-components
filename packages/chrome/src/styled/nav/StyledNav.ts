@@ -5,32 +5,41 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import readableColor from 'polished/lib/color/readableColor';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.nav';
 
-export interface IStyledNavProps {
-  /**
-   * Expand navigation area to include item text
-   **/
+interface IStyledNavProps extends ThemeProps<DefaultTheme> {
   isExpanded?: boolean;
-  /**
-   * Apply dark styling
-   **/
-  isDark?: boolean;
-  /**
-   * Apply light styling
-   **/
-  isLight?: boolean;
+  hue?: string;
 }
 
-export const getNavWidth = (props: ThemeProps<DefaultTheme>) => {
+export const getBackgroundColor = (props: IStyledNavProps) => {
+  return getColor(props.hue || 'chromeHue', 700, props.theme);
+};
+
+export const getNavWidth = (props: IStyledNavProps) => {
   return `${props.theme.space.base * 15}px`;
 };
 
 export const getExpandedNavWidth = () => {
   return `200px`;
+};
+
+const colorStyles = (props: IStyledNavProps) => {
+  const backgroundColor = getBackgroundColor(props);
+  const foregroundColor = readableColor(
+    backgroundColor!,
+    props.theme.colors.foreground,
+    props.theme.colors.background
+  );
+
+  return css`
+    background-color: ${backgroundColor};
+    color: ${foregroundColor};
+  `;
 };
 
 export const StyledNav = styled.nav.attrs<IStyledNavProps>({
@@ -42,21 +51,10 @@ export const StyledNav = styled.nav.attrs<IStyledNavProps>({
   flex-direction: column;
   flex-shrink: 0;
   order: -1;
-  background-color: ${props => {
-    if (props.isDark) {
-      return props.theme.palette.black;
-    }
-
-    if (props.isLight) {
-      return props.theme.colors.background;
-    }
-
-    return getColor('chromeHue', 700, props.theme);
-  }};
   width: ${props => (props.isExpanded ? getExpandedNavWidth : getNavWidth)};
-  color: ${props =>
-    props.isLight ? getColor('neutralHue', 800, props.theme) : props.theme.colors.background};
   font-size: ${props => props.theme.fontSizes.md};
+
+  ${props => colorStyles(props)};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
