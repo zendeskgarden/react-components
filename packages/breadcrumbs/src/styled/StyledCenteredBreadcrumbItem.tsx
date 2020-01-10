@@ -6,6 +6,7 @@
  */
 
 import styled from 'styled-components';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledBreadcrumbItem } from './index';
 
 export const StyledCenteredBreadcrumbItem = styled(StyledBreadcrumbItem).attrs({
@@ -14,3 +15,7 @@ export const StyledCenteredBreadcrumbItem = styled(StyledBreadcrumbItem).attrs({
   display: flex;
   align-items: center;
 `;
+
+StyledCenteredBreadcrumbItem.defaultProps = {
+  theme: DEFAULT_THEME
+};

@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import classNames from 'classnames';
 import PaginationStyles from '@zendeskgarden/css-pagination';
-import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'pagination.pagination_view';
 
@@ -35,6 +35,10 @@ const PaginationView = styled.ul.attrs(props => ({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+PaginationView.defaultProps = {
+  theme: DEFAULT_THEME
+};
 
 /** @component */
 export default PaginationView;

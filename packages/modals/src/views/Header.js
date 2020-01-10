@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import ModalStyles from '@zendeskgarden/css-modals';
 
 const COMPONENT_ID = 'modals.header';
@@ -25,6 +25,10 @@ const Header = styled.div.attrs(props => ({
 }))`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+Header.defaultProps = {
+  theme: DEFAULT_THEME
+};
 
 Header.hasType = () => Header;
 

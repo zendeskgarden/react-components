@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styled from 'styled-components';
 import PaginationStyles from '@zendeskgarden/css-pagination';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 import Page from './Page';
 const COMPONENT_ID = 'pagination.gap';
@@ -30,6 +30,10 @@ Gap.propTypes = {
   focused: PropTypes.bool,
   hovered: PropTypes.bool,
   hidden: PropTypes.bool
+};
+
+Gap.defaultProps = {
+  theme: DEFAULT_THEME
 };
 
 /** @component */

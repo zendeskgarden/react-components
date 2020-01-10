@@ -21,7 +21,7 @@
     "PACKAGE_VERSION": true,
     "COMPONENT_IDS": true
   },
-  "plugins": ["prettier", "react", "jest", "jsx-a11y", "react-hooks", "@typescript-eslint"],
+  "plugins": ["prettier", "react", "jest", "jsx-a11y", "react-hooks", "@typescript-eslint", "garden-local"],
   "env": {
     "es6": true,
     "browser": true,
@@ -48,13 +48,15 @@
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/camelcase": "off",
     "@typescript-eslint/interface-name-prefix": ["error", "always"],
-    "@typescript-eslint/no-non-null-assertion": "off"
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "garden-local/require-default-theme": "error"
   },
   "overrides": [
     {
-      "files": ["*.{ts,tsx}", "*.spec.{js,ts,tsx}"],
+      "files": ["*.{ts,tsx}", "*.spec.{js,ts,tsx}", "utils/**/*.{js,ts,tsx}"],
       "rules": {
-        "react/prop-types": "off"
+        "react/prop-types": "off",
+        "garden-local/require-default-theme": "off"
       }
     }
   ]
