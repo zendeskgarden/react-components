@@ -49,7 +49,7 @@
     "@typescript-eslint/camelcase": "off",
     "@typescript-eslint/interface-name-prefix": ["error", "always"],
     "@typescript-eslint/no-non-null-assertion": "off",
-    "garden-local/require-default-theme": "warn"
+    "garden-local/require-default-theme": "error"
   },
   "overrides": [
     {
