@@ -127,7 +127,7 @@ New features/fixes include:
 
 ## @zendeskgarden/react-pagination
 
-- All `View` components are not longer exported
+- All `View` components are no longer exported
 - Removed the following components:
   - `Gap`
   - `NextPage`
