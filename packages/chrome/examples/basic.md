@@ -8,10 +8,11 @@ you can programmatically trigger navigation with the `onClick` events.
 
 #### Custom Nav Colors
 
-The default `Nav` component is styled with a Zendesk branded palette. For white-labeling
-purposes a custom `backgroundColor` prop may be applied. The `Chrome` component uses the
-[PolishedJS getLuminance()](https://polished.js.org/docs/#getluminance)
-utility to modify its colors to maintain accessible contrast levels.
+The `Nav` and `SubNav` components are styled with a Zendesk branded palette. For
+white-labeling purposes a custom `hue` prop may be applied. The `Chrome`
+component uses the
+[PolishedJS readableColor()](https://polished.js.org/docs/#readablecolor)
+utility to modify colors to maintain accessible contrast levels.
 
 ```jsx
 const { getLuminance } = require('polished');
@@ -78,7 +79,7 @@ const StyledSpacer = styled.div`
     sidebar: false,
     showCollapsed: false,
     product: PRODUCTS[0],
-    color: PALETTE.kale[700]
+    hue: PALETTE.kale[700]
   }}
 >
   {(state, setState) => (
@@ -134,21 +135,21 @@ const StyledSpacer = styled.div`
           </Col>
           <Col md={6} alignSelf="start">
             <Field>
-              <Label>Custom Color </Label>
+              <Label>Hue</Label>
               <Input
                 type="color"
-                value={state.color}
+                value={state.hue}
                 isCompact
                 onChange={e =>
                   setState({
-                    color: e.target.value
+                    hue: e.target.value
                   })
                 }
               />
             </Field>
             <StyledSpacer />
-            <Button size="small" onClick={() => setState({ color: PALETTE.kale[700] })}>
-              Reset colors
+            <Button size="small" onClick={() => setState({ hue: PALETTE.kale[700] })}>
+              Reset hue
             </Button>
           </Col>
         </Row>
@@ -158,7 +159,7 @@ const StyledSpacer = styled.div`
         <Col>
           <Chrome
             style={{ height: 500 }}
-            hue={state.color === PALETTE.kale[700] ? undefined : state.color}
+            hue={state.hue === PALETTE.kale[700] ? undefined : state.hue}
           >
             <Nav isExpanded={state.expanded}>
               <NavItem hasLogo product={state.product} title="Zendesk">
