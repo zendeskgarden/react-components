@@ -5,20 +5,45 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import rgba from 'polished/lib/color/rgba';
+import readableColor from 'polished/lib/color/readableColor';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getBackgroundColor } from './StyledSubNav';
 
 const COMPONENT_ID = 'chrome.subnav_item';
 
-export interface IStyledSubNavItemProps {
-  /**
-   * Indicate which item is current in the nav
-   **/
+const colorStyles = (props: IStyledSubNavItemProps) => {
+  const black = props.theme.palette.black as string;
+  const white = props.theme.palette.white as string;
+  const backgroundColor = readableColor(getBackgroundColor(props)!, white, black);
+  const hoverBackgroundColor = backgroundColor === black ? white : black;
+
+  return css`
+    opacity: ${props.isCurrent ? '1' : '0.6'};
+    background-color: ${props.isCurrent && rgba(backgroundColor, 0.1)};
+
+    &:hover {
+      opacity: 1;
+      background-color: ${!props.isCurrent && rgba(hoverBackgroundColor, 0.1)};
+    }
+
+    &[data-garden-focus-visible] {
+      opacity: 1;
+      box-shadow: ${props.theme.shadows.md(rgba(backgroundColor, 0.2))};
+    }
+
+    &:not([data-garden-header='true']):active {
+      background-color: ${rgba(backgroundColor, 0.03)};
+    }
+  `;
+};
+
+export interface IStyledSubNavItemProps extends ThemeProps<DefaultTheme> {
   isCurrent?: boolean;
 }
 
-export const getSubNavItemHeight = (props: ThemeProps<DefaultTheme>) => {
+export const getSubNavItemHeight = (props: IStyledSubNavItemProps) => {
   return `${props.theme.space.base * 7.5}px`;
 };
 
@@ -36,13 +61,11 @@ export const StyledSubNavItem = styled.button.attrs({
   transition: box-shadow 0.1s ease-in-out,
     background-color 0.1s ease-in-out,
     opacity 0.1s ease-in-out;
-  opacity: ${props => (props.isCurrent ? '1' : '0.6')};
   margin-top: ${props => props.theme.space.base * 2}px;
   border: none; /* [2] */
   border-radius: ${props => props.theme.borderRadii.md};
   box-sizing: border-box;
   background: transparent; /* [2] */
-  background-color: ${props => props.isCurrent && rgba(props.theme.palette.white as string, 0.1)};
   cursor: ${props => (props.isCurrent ? 'default' : 'pointer')}; /* [2] */
   padding: ${props => `0 ${props.theme.space.base * 2}px`};
   width: 100%; /* [2] */
@@ -61,27 +84,7 @@ export const StyledSubNavItem = styled.button.attrs({
     outline: none; /* [1] */
   }
 
-  &:hover {
-    background-color: ${props =>
-      !props.isCurrent && rgba(props.theme.palette.black as string, 0.1)};
-  }
-
-  &[data-garden-focus-visible] {
-    box-shadow: ${props => props.theme.shadows.md(rgba(props.theme.palette.white as string, 0.2))};
-  }
-
-  &:hover,
-  &[data-garden-focus-visible] {
-    opacity: ${props => props.isCurrent && '1'};
-  }
-
-  &:not([data-garden-header='true']):active {
-    background-color: ${props => rgba(props.theme.palette.white as string, 0.03)};
-  }
-
-  &:active:focus {
-    box-shadow: none;
-  }
+  ${props => colorStyles(props)};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

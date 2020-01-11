@@ -17,9 +17,10 @@ import { getNavWidth, getBackgroundColor } from './StyledNav';
 const COMPONENT_ID = 'chrome.nav_item';
 
 const colorStyles = (props: IStyledNavItemProps) => {
-  const white = props.theme.palette.white as string;
   const black = props.theme.palette.black as string;
+  const white = props.theme.palette.white as string;
   const backgroundColor = readableColor(getBackgroundColor(props)!, black, white);
+  const hoverBackgroundColor = backgroundColor === black ? white : black;
 
   return css`
     opacity: ${props.isCurrent ? 1 : 0.6};
@@ -28,7 +29,7 @@ const colorStyles = (props: IStyledNavItemProps) => {
 
     &:hover {
       opacity: 1;
-      background-color: ${!props.isCurrent && rgba(black, 0.1)};
+      background-color: ${!props.isCurrent && rgba(hoverBackgroundColor, 0.1)};
     }
 
     &[data-garden-focus-visible] {
@@ -37,12 +38,12 @@ const colorStyles = (props: IStyledNavItemProps) => {
     }
 
     &:active {
-      background-color: ${rgba(white, 0.1)};
+      background-color: ${rgba(backgroundColor, 0.1)};
     }
   `;
 };
 
-export interface IStyledNavItemProps extends ThemeProps<DefaultTheme> {
+interface IStyledNavItemProps extends ThemeProps<DefaultTheme> {
   isCurrent?: boolean;
   isExpanded?: boolean;
   hue?: string;

@@ -7,14 +7,18 @@
 
 import React, { ButtonHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { StyledSubNavItem, IStyledSubNavItemProps } from '../../styled';
+import { StyledSubNavItem } from '../../styled';
+
+interface ISubNavItemProps {
+  isCurrent?: boolean;
+}
 
 /**
  * Accepts all `<button>` props
  */
 export const SubNavItem = React.forwardRef<
   HTMLButtonElement,
-  IStyledSubNavItemProps & ButtonHTMLAttributes<HTMLButtonElement>
+  ISubNavItemProps & ButtonHTMLAttributes<HTMLButtonElement>
 >((props, ref) => <StyledSubNavItem ref={ref} {...props} />);
 
 SubNavItem.propTypes = {

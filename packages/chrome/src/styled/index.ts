@@ -23,7 +23,7 @@ export { StyledNav } from './nav/StyledNav';
 export { StyledBaseNavItem } from './nav/StyledBaseNavItem';
 export { StyledLogoNavItem, IStyledLogoNavItemProps } from './nav/StyledLogoNavItem';
 export { StyledBrandmarkNavItem } from './nav/StyledBrandmarkNavItem';
-export { StyledNavItem, IStyledNavItemProps } from './nav/StyledNavItem';
+export { StyledNavItem } from './nav/StyledNavItem';
 export { StyledNavItemIcon } from './nav/StyledNavItemIcon';
 export { StyledNavItemText, IStyledNavItemTextProps } from './nav/StyledNavItemText';
 export { StyledSubNav } from './subnav/StyledSubNav';
