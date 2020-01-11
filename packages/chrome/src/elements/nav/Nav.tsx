@@ -5,9 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, useMemo } from 'react';
+import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import readableColor from 'polished/lib/color/readableColor';
 import { useChromeContext } from '../../utils/useChromeContext';
 import { NavContext } from '../../utils/useNavContext';
 import { StyledNav } from '../../styled';
@@ -22,23 +21,9 @@ interface INavProps extends HTMLAttributes<HTMLElement> {
 /**
  * Accepts all `<nav>` attributes and events
  */
-export const Nav = React.forwardRef<HTMLElement, INavProps>(({ style, ...props }, ref) => {
-  const { hue } = useChromeContext();
-  const isLightComputed = useMemo(() => {
-    if (!hue) {
-      return false;
-    }
-
-    const LIGHT_VALUE = 'white';
-    const accessibleColor = readableColor(hue, LIGHT_VALUE);
-
-    return accessibleColor === LIGHT_VALUE;
-  }, [hue]);
-
-  const isLight = hue ? isLightComputed : false;
-  const isDark = hue ? !isLightComputed : false;
-
-  const navContextValue = { isExpanded: !!props.isExpanded, isLight, isDark };
+export const Nav = React.forwardRef<HTMLElement, INavProps>((props, ref) => {
+  const { hue, isLight, isDark } = useChromeContext();
+  const navContextValue = { isExpanded: !!props.isExpanded };
 
   return (
     <NavContext.Provider value={navContextValue}>
@@ -46,9 +31,10 @@ export const Nav = React.forwardRef<HTMLElement, INavProps>(({ style, ...props }
         ref={ref}
         {...props}
         hue={hue}
+        isLight={isLight}
+        isDark={isDark}
         data-test-light={isLight}
         data-test-dark={isDark}
-        style={{ ...style }}
       />
     </NavContext.Provider>
   );

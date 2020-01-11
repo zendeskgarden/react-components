@@ -8,37 +8,50 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import rgba from 'polished/lib/color/rgba';
 import math from 'polished/lib/math/math';
-import readableColor from 'polished/lib/color/readableColor';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledBaseNavItem } from './StyledBaseNavItem';
 import { StyledNavItemIcon } from './StyledNavItemIcon';
-import { getNavWidth, getBackgroundColor } from './StyledNav';
+import { getNavWidth } from './StyledNav';
 
 const COMPONENT_ID = 'chrome.nav_item';
 
 const colorStyles = (props: IStyledNavItemProps) => {
-  const black = props.theme.palette.black as string;
-  const white = props.theme.palette.white as string;
-  const backgroundColor = readableColor(getBackgroundColor(props)!, black, white);
-  const hoverBackgroundColor = backgroundColor === black ? white : black;
+  const BLACK = props.theme.palette.black as string;
+  const WHITE = props.theme.palette.white as string;
+  let backgroundColor;
+  let hoverBackgroundColor;
+
+  if (props.isCurrent) {
+    if (props.isLight) {
+      backgroundColor = rgba(BLACK, 0.3);
+    } else if (props.isDark) {
+      backgroundColor = rgba(WHITE, 0.3);
+    } else {
+      backgroundColor = getColor(props.hue, 400, props.theme);
+    }
+  } else {
+    hoverBackgroundColor = rgba(props.isLight ? WHITE : BLACK, 0.1);
+  }
+
+  const activeBackgroundColor = rgba(props.isLight ? BLACK : WHITE, 0.1);
+  const boxShadowColor = rgba(props.isLight ? BLACK : WHITE, 0.2);
 
   return css`
     opacity: ${props.isCurrent ? 1 : 0.6};
-    background-color: ${props.isCurrent &&
-      (props.hue ? rgba(backgroundColor, 0.3) : getColor('chromeHue', 400, props.theme))};
+    background-color: ${backgroundColor};
 
     &:hover {
       opacity: 1;
-      background-color: ${!props.isCurrent && rgba(hoverBackgroundColor, 0.1)};
+      background-color: ${hoverBackgroundColor};
     }
 
     &[data-garden-focus-visible] {
       opacity: 1;
-      box-shadow: inset ${props.theme.shadows.md(rgba(backgroundColor, 0.2))};
+      box-shadow: inset ${props.theme.shadows.md(boxShadowColor)};
     }
 
     &:active {
-      background-color: ${rgba(backgroundColor, 0.1)};
+      background-color: ${activeBackgroundColor};
     }
   `;
 };
@@ -46,7 +59,9 @@ const colorStyles = (props: IStyledNavItemProps) => {
 interface IStyledNavItemProps extends ThemeProps<DefaultTheme> {
   isCurrent?: boolean;
   isExpanded?: boolean;
-  hue?: string;
+  isDark?: boolean;
+  isLight?: boolean;
+  hue: string;
 }
 
 /**

@@ -36,18 +36,36 @@ interface INavItemProps extends HTMLAttributes<any> {
  */
 export const NavItem = React.forwardRef<any, INavItemProps>(
   ({ hasLogo, hasBrandmark, product, ...other }, ref) => {
-    const { hue } = useChromeContext();
+    const { hue, isLight, isDark } = useChromeContext();
     const { isExpanded } = useNavContext();
 
     if (hasLogo) {
-      return <StyledLogoNavItem ref={ref} hue={hue} product={product} {...other} />;
+      return (
+        <StyledLogoNavItem
+          ref={ref}
+          isDark={isDark}
+          isLight={isLight}
+          product={product}
+          {...other}
+        />
+      );
     }
 
     if (hasBrandmark) {
       return <StyledBrandmarkNavItem ref={ref} {...other} />;
     }
 
-    return <StyledNavItem tabIndex={0} ref={ref} hue={hue} isExpanded={isExpanded} {...other} />;
+    return (
+      <StyledNavItem
+        tabIndex={0}
+        ref={ref}
+        isExpanded={isExpanded}
+        hue={hue}
+        isDark={isDark}
+        isLight={isLight}
+        {...other}
+      />
+    );
   }
 );
 

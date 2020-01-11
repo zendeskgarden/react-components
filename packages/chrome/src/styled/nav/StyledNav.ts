@@ -6,40 +6,36 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import readableColor from 'polished/lib/color/readableColor';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.nav';
 
-interface IStyledNavProps extends ThemeProps<DefaultTheme> {
-  isExpanded?: boolean;
-  hue?: string;
-}
-
-export const getBackgroundColor = (props: IStyledNavProps) => {
-  return getColor(props.hue || 'chromeHue', 700, props.theme);
-};
-
-export const getNavWidth = (props: IStyledNavProps) => {
-  return `${props.theme.space.base * 15}px`;
-};
-
-export const getExpandedNavWidth = () => {
-  return `200px`;
-};
-
 const colorStyles = (props: IStyledNavProps) => {
-  const backgroundColor = getBackgroundColor(props);
-  const foregroundColor = readableColor(
-    backgroundColor!,
-    props.theme.colors.foreground,
-    props.theme.colors.background
-  );
+  const shade = props.isDark || props.isLight ? 600 : 700;
+  const backgroundColor = getColor(props.hue, shade, props.theme);
+  const foregroundColor = props.isLight
+    ? props.theme.colors.foreground
+    : props.theme.colors.background;
 
   return css`
     background-color: ${backgroundColor};
     color: ${foregroundColor};
   `;
+};
+
+interface IStyledNavProps extends ThemeProps<DefaultTheme> {
+  hue: string;
+  isDark?: boolean;
+  isLight?: boolean;
+  isExpanded?: boolean;
+}
+
+export const getNavWidth = (props: ThemeProps<DefaultTheme>) => {
+  return `${props.theme.space.base * 15}px`;
+};
+
+export const getExpandedNavWidth = () => {
+  return `200px`;
 };
 
 export const StyledNav = styled.nav.attrs<IStyledNavProps>({

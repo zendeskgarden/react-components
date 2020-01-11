@@ -8,7 +8,9 @@
 import React, { useContext } from 'react';
 
 interface IChromeContext {
-  hue?: string;
+  hue: string;
+  isLight?: boolean;
+  isDark?: boolean;
 }
 
 export const ChromeContext = React.createContext<IChromeContext>({

@@ -6,16 +6,14 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import readableColor from 'polished/lib/color/readableColor';
 import { PALETTE, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { PRODUCT } from '../../utils/types';
 import { StyledBaseNavItem } from '../';
-import { getBackgroundColor } from './StyledNav';
 
 const COMPONENT_ID = 'chrome.logo_nav_item';
 
-const retrieveProductColor = (props: IStyledLogoNavItemProps) => {
-  switch (props.product) {
+const retrieveProductColor = (product: string | undefined) => {
+  switch (product) {
     case 'chat':
       return PALETTE.product.chat;
     case 'connect':
@@ -36,22 +34,19 @@ const retrieveProductColor = (props: IStyledLogoNavItemProps) => {
 };
 
 const colorStyles = (props: IStyledLogoNavItemProps) => {
-  const backgroundColor = getBackgroundColor(props);
-  const foregroundColor = readableColor(
-    backgroundColor!,
-    props.theme.colors.foreground,
-    props.theme.colors.background
-  );
+  const fillColor = props.isLight ? props.theme.colors.foreground : props.theme.colors.background;
+  const color = props.isLight || props.isDark ? fillColor : retrieveProductColor(props.product);
 
   return css`
-    color: ${props.hue ? foregroundColor : retrieveProductColor(props)};
-    fill: ${foregroundColor};
+    color: ${color};
+    fill: ${fillColor};
   `;
 };
 
 export interface IStyledLogoNavItemProps extends ThemeProps<DefaultTheme> {
   product?: PRODUCT;
-  hue?: string;
+  isDark?: boolean;
+  isLight?: boolean;
 }
 
 export const StyledLogoNavItem = styled(StyledBaseNavItem).attrs({
