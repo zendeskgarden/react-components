@@ -27,15 +27,7 @@ export const Nav = React.forwardRef<HTMLElement, INavProps>((props, ref) => {
 
   return (
     <NavContext.Provider value={navContextValue}>
-      <StyledNav
-        ref={ref}
-        {...props}
-        hue={hue}
-        isLight={isLight}
-        isDark={isDark}
-        data-test-light={isLight}
-        data-test-dark={isDark}
-      />
+      <StyledNav ref={ref} {...props} hue={hue} isLight={isLight} isDark={isDark} />
     </NavContext.Provider>
   );
 });

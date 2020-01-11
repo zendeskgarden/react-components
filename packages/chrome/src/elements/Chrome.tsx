@@ -35,15 +35,13 @@ const Chrome = React.forwardRef<HTMLDivElement, IChromeProps & ThemeProps<Defaul
       return false;
     }, [hue, theme]);
 
-    const chromeContextValue = {
-      hue: hue || 'chromeHue',
-      isLight: hue ? isLightMemoized : false,
-      isDark: hue ? !isLightMemoized : false
-    };
+    const isLight = hue ? isLightMemoized : false;
+    const isDark = hue ? !isLightMemoized : false;
+    const chromeContextValue = { hue: hue || 'chromeHue', isLight, isDark };
 
     return (
       <ChromeContext.Provider value={chromeContextValue}>
-        <StyledChrome ref={ref} {...props} />
+        <StyledChrome ref={ref} {...props} data-test-light={isLight} data-test-dark={isDark} />
       </ChromeContext.Provider>
     );
   }
