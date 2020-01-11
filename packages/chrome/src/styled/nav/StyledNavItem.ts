@@ -18,40 +18,40 @@ const COMPONENT_ID = 'chrome.nav_item';
 const colorStyles = (props: IStyledNavItemProps) => {
   const BLACK = props.theme.palette.black as string;
   const WHITE = props.theme.palette.white as string;
-  let backgroundColor;
-  let hoverBackgroundColor;
+  let currentColor;
+  let hoverColor;
 
   if (props.isCurrent) {
     if (props.isLight) {
-      backgroundColor = rgba(BLACK, 0.3);
+      currentColor = rgba(BLACK, 0.3);
     } else if (props.isDark) {
-      backgroundColor = rgba(WHITE, 0.3);
+      currentColor = rgba(WHITE, 0.3);
     } else {
-      backgroundColor = getColor(props.hue, 400, props.theme);
+      currentColor = getColor(props.hue, 400, props.theme);
     }
   } else {
-    hoverBackgroundColor = rgba(props.isLight ? WHITE : BLACK, 0.1);
+    hoverColor = rgba(props.isLight ? WHITE : BLACK, 0.1);
   }
 
-  const activeBackgroundColor = rgba(props.isLight ? BLACK : WHITE, 0.1);
-  const boxShadowColor = rgba(props.isLight ? BLACK : WHITE, 0.2);
+  const activeColor = rgba(props.isLight ? BLACK : WHITE, 0.1);
+  const focusColor = rgba(props.isLight ? BLACK : WHITE, 0.2);
 
   return css`
     opacity: ${props.isCurrent ? 1 : 0.6};
-    background-color: ${backgroundColor};
+    background-color: ${currentColor};
 
     &:hover {
       opacity: 1;
-      background-color: ${hoverBackgroundColor};
+      background-color: ${hoverColor};
     }
 
     &[data-garden-focus-visible] {
       opacity: 1;
-      box-shadow: inset ${props.theme.shadows.md(boxShadowColor)};
+      box-shadow: inset ${props.theme.shadows.md(focusColor)};
     }
 
     &:active {
-      background-color: ${activeBackgroundColor};
+      background-color: ${activeColor};
     }
   `;
 };

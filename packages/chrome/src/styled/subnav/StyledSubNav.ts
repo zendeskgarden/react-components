@@ -6,23 +6,24 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import readableColor from 'polished/lib/color/readableColor';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledSubNavItem } from './StyledSubNavItem';
 
 const COMPONENT_ID = 'chrome.subnav';
 
-export const getBackgroundColor = (props: IStyledSubNavProps) => {
-  return getColor(props.hue || 'chromeHue', 800, props.theme);
-};
-
 const colorStyles = (props: IStyledSubNavProps) => {
-  const backgroundColor = getBackgroundColor(props);
-  const foregroundColor = readableColor(
-    backgroundColor!,
-    props.theme.colors.foreground,
-    props.theme.colors.background
-  );
+  let shade;
+
+  if (props.isLight) {
+    shade = 500;
+  } else {
+    shade = props.isDark ? 700 : 800;
+  }
+
+  const backgroundColor = getColor(props.hue, shade, props.theme);
+  const foregroundColor = props.isLight
+    ? props.theme.colors.foreground
+    : props.theme.colors.background;
 
   return css`
     background-color: ${backgroundColor};
@@ -31,7 +32,9 @@ const colorStyles = (props: IStyledSubNavProps) => {
 };
 
 interface IStyledSubNavProps extends ThemeProps<DefaultTheme> {
-  hue?: string;
+  hue: string;
+  isDark?: boolean;
+  isLight?: boolean;
 }
 
 export const StyledSubNav = styled.nav.attrs({

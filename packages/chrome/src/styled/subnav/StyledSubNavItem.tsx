@@ -7,40 +7,53 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import rgba from 'polished/lib/color/rgba';
-import readableColor from 'polished/lib/color/readableColor';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { getBackgroundColor } from './StyledSubNav';
 
 const COMPONENT_ID = 'chrome.subnav_item';
 
 const colorStyles = (props: IStyledSubNavItemProps) => {
-  const black = props.theme.palette.black as string;
-  const white = props.theme.palette.white as string;
-  const backgroundColor = readableColor(getBackgroundColor(props)!, white, black);
-  const hoverBackgroundColor = backgroundColor === black ? white : black;
+  const BLACK = props.theme.palette.black as string;
+  const WHITE = props.theme.palette.white as string;
+  let currentColor;
+  let hoverColor;
+
+  if (props.isCurrent) {
+    if (props.isLight) {
+      currentColor = rgba(BLACK, 0.1);
+    } else {
+      currentColor = rgba(WHITE, 0.1);
+    }
+  } else {
+    hoverColor = rgba(props.isLight ? WHITE : BLACK, 0.1);
+  }
+
+  const activeColor = rgba(props.isLight ? BLACK : WHITE, 0.03);
+  const focusColor = rgba(props.isLight ? BLACK : WHITE, 0.2);
 
   return css`
     opacity: ${props.isCurrent ? '1' : '0.6'};
-    background-color: ${props.isCurrent && rgba(backgroundColor, 0.1)};
+    background-color: ${currentColor};
 
     &:hover {
       opacity: 1;
-      background-color: ${!props.isCurrent && rgba(hoverBackgroundColor, 0.1)};
+      background-color: ${hoverColor};
     }
 
     &[data-garden-focus-visible] {
       opacity: 1;
-      box-shadow: ${props.theme.shadows.md(rgba(backgroundColor, 0.2))};
+      box-shadow: ${props.theme.shadows.md(focusColor)};
     }
 
     &:not([data-garden-header='true']):active {
-      background-color: ${rgba(backgroundColor, 0.03)};
+      background-color: ${activeColor};
     }
   `;
 };
 
 export interface IStyledSubNavItemProps extends ThemeProps<DefaultTheme> {
   isCurrent?: boolean;
+  isDark?: boolean;
+  isLight?: boolean;
 }
 
 export const getSubNavItemHeight = (props: IStyledSubNavItemProps) => {
