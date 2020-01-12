@@ -8,9 +8,9 @@ you can programmatically trigger navigation with the `onClick` events.
 
 #### Custom Nav Colors
 
-The `Nav` and `SubNav` components are styled with a Zendesk branded palette. For
-white-labeling purposes a custom `hue` prop may be applied. The `Chrome`
-component uses the
+By default, the `Nav` and `SubNav` components are styled with a Zendesk
+branded palette. For white-labeling purposes a custom `hue` prop may be
+applied. The `Chrome` component uses the
 [PolishedJS readableColor()](https://polished.js.org/docs/#readablecolor)
 utility to modify colors to maintain accessible contrast levels.
 
