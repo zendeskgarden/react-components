@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import classNames from 'classnames';
 import CalloutStyles from '@zendeskgarden/css-callouts';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'notifications.close';
 
@@ -32,3 +32,7 @@ export const StyledClose = styled.button.attrs<IStyledCloseProps>(props => ({
 }))<IStyledCloseProps>`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledClose.defaultProps = {
+  theme: DEFAULT_THEME
+};

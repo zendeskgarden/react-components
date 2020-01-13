@@ -23,7 +23,7 @@ function isStyledComponent(node) {
   }
 
   if (node.type === 'Identifier' && node.name) {
-    return node.name === 'styled' || node.name === 'css';
+    return node.name === 'styled';
   }
 
   return false;

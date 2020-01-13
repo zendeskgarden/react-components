@@ -31,6 +31,10 @@ export const StyledDotsCircleOne = styled(StyledDotsCircle).attrs({
     `};
 `;
 
+StyledDotsCircleOne.defaultProps = {
+  theme: DEFAULT_THEME
+};
+
 export const StyledDotsCircleTwo = styled(StyledDotsCircle).attrs(() => ({
   cx: 40
 }))<IStyledDotProps>`
@@ -40,6 +44,10 @@ export const StyledDotsCircleTwo = styled(StyledDotsCircle).attrs(() => ({
     `};
 `;
 
+StyledDotsCircleTwo.defaultProps = {
+  theme: DEFAULT_THEME
+};
+
 export const StyledDotsCircleThree = styled(StyledDotsCircle).attrs(() => ({
   cx: 71
 }))<IStyledDotProps>`
@@ -48,3 +56,7 @@ export const StyledDotsCircleThree = styled(StyledDotsCircle).attrs(() => ({
       ${dotThreeKeyframes} ${duration}ms linear infinite
     `};
 `;
+
+StyledDotsCircleThree.defaultProps = {
+  theme: DEFAULT_THEME
+};

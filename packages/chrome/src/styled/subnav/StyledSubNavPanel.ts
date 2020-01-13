@@ -6,7 +6,7 @@
  */
 
 import styled, { css } from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledSubNavItem } from './StyledSubNavItem';
 
 const PANEL_COMPONENT_ID = 'chrome.collapsible_sub_nav_item_panel';
@@ -41,3 +41,7 @@ export const StyledSubNavPanel = styled.div.attrs<IStyledSubNavPanelProps>({
 
   ${props => retrieveComponentStyles(PANEL_COMPONENT_ID, props)};
 `;
+
+StyledSubNavPanel.defaultProps = {
+  theme: DEFAULT_THEME
+};

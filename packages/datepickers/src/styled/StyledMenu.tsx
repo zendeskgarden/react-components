@@ -115,6 +115,10 @@ const StyledMaxHeightWrapper = styled.div<IStyledMaxHeightWrapper>`
 `}
 `;
 
+StyledMaxHeightWrapper.defaultProps = {
+  theme: DEFAULT_THEME
+};
+
 interface IStyledMenuProps extends HTMLProps<HTMLUListElement> {
   /**
    * All valid [Popper.JS Placements](https://popper.js.org/popper-documentation.html#Popper.placements)

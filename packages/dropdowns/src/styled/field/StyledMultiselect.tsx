@@ -6,12 +6,16 @@
  */
 
 import styled from 'styled-components';
-import { PALETTE } from '@zendeskgarden/react-theming';
+import { PALETTE, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledInput } from '../field/StyledInput';
 
 export const StyledItemWrapper = styled.div`
   margin: 2px;
 `;
+
+StyledItemWrapper.defaultProps = {
+  theme: DEFAULT_THEME
+};
 
 export const StyledMultiselectInput = styled(StyledInput)<{
   isSmall: boolean;
@@ -40,6 +44,10 @@ export const StyledMultiselectInput = styled(StyledInput)<{
 `}
 `;
 
+StyledMultiselectInput.defaultProps = {
+  theme: DEFAULT_THEME
+};
+
 export const StyledMoreAnchor = styled.div`
   display: flex;
   align-items: center;
@@ -64,3 +72,7 @@ export const StyledMoreAnchor = styled.div`
     text-decoration: underline;
   }
 `;
+
+StyledMoreAnchor.defaultProps = {
+  theme: DEFAULT_THEME
+};

@@ -7,7 +7,11 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import math from 'polished/lib/math/math';
-import { retrieveComponentStyles, getLineHeight } from '@zendeskgarden/react-theming';
+import {
+  retrieveComponentStyles,
+  getLineHeight,
+  DEFAULT_THEME
+} from '@zendeskgarden/react-theming';
 import { getSubNavItemHeight } from './StyledSubNavItem';
 
 const COMPONENT_ID = 'chrome.subnav_item_text';
@@ -43,3 +47,7 @@ export const StyledSubNavItemText = styled.span.attrs<IStyledSubNavItemTextProps
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledSubNavItemText.defaultProps = {
+  theme: DEFAULT_THEME
+};

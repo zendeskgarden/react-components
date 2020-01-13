@@ -7,7 +7,7 @@
 
 import className from 'classnames';
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import MenuStyles from '@zendeskgarden/css-menus';
 
 import { StyledItem } from '../../';
@@ -30,3 +30,7 @@ export const StyledHeaderItem = styled(StyledItem).attrs<IStyledHeaderItemProps>
 }))<IStyledHeaderItemProps>`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledHeaderItem.defaultProps = {
+  theme: DEFAULT_THEME
+};

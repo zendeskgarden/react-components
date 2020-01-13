@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import classNames from 'classnames';
 import CalloutStyles from '@zendeskgarden/css-callouts';
-import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { VALIDATION_TYPE } from '../utils/types';
 
 const COMPONENT_ID = 'notifications.alert';
@@ -39,3 +39,7 @@ export const StyledAlert = styled.div.attrs<IStyledAlertProps>(props => ({
 }))<IStyledAlertProps>`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledAlert.defaultProps = {
+  theme: DEFAULT_THEME
+};

@@ -32,6 +32,10 @@ export const StyledBaseRow = styled.tr<IStyledRowProps>`
   box-sizing: border-box;
 `;
 
+StyledBaseRow.defaultProps = {
+  theme: DEFAULT_THEME
+};
+
 export const getRowHeight = (props: { size: SIZE } & ThemeProps<DefaultTheme>) => {
   if (props.size === 'large') {
     return `${props.theme.space.base * 16}px`;

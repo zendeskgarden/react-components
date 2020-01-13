@@ -55,7 +55,11 @@
     {
       "files": ["*.{ts,tsx}", "*.spec.{js,ts,tsx}", "utils/**/*.{js,ts,tsx}"],
       "rules": {
-        "react/prop-types": "off",
+        "react/prop-types": "off"
+      }
+    },    {
+      "files": ["*.spec.{js,ts,tsx}", "utils/**/*.{js,ts,tsx}"],
+      "rules": {
         "garden-local/require-default-theme": "off"
       }
     }

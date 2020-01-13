@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import CalloutStyles from '@zendeskgarden/css-callouts';
-import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { VALIDATION_TYPE, ARRAY_VALIDATION_TYPE } from '../utils/types';
 
 const COMPONENT_ID = 'notifications.notification';
@@ -40,4 +40,8 @@ export const StyledNotification = styled.div.attrs<IStyledNotificationProps>(pro
 
 StyledNotification.propTypes = {
   type: PropTypes.oneOf(ARRAY_VALIDATION_TYPE)
+};
+
+StyledNotification.defaultProps = {
+  theme: DEFAULT_THEME
 };

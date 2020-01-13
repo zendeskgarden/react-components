@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 
 const COMPONENT_ID = 'dropdowns.field';
@@ -31,3 +31,7 @@ export const StyledField = styled.div.attrs<IStyledFieldProps>(props => ({
 }))<IStyledFieldProps>`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledField.defaultProps = {
+  theme: DEFAULT_THEME
+};

@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, isRtl, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 import { VALIDATION } from '../';
 
@@ -71,3 +71,7 @@ export const StyledSelect = styled.div.attrs<IStyledSelectProps>(props => ({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledSelect.defaultProps = {
+  theme: DEFAULT_THEME
+};
