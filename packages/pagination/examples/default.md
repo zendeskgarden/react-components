@@ -48,5 +48,6 @@ const transformPageProps = (pageType, props) => {
   currentPage={state.currentPage}
   onChange={currentPage => setState({ currentPage })}
   transformPageProps={transformPageProps}
+  data-test-id="parent-pagination-element"
 />;
 ```

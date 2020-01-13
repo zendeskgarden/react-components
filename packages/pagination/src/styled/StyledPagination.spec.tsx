@@ -7,17 +7,17 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import PaginationView from './PaginationView';
+import { StyledPagination } from './StyledPagination';
 
-describe('PaginationView', () => {
+describe('StyledPagination', () => {
   it('renders default styling', () => {
-    const { container } = render(<PaginationView />);
+    const { container } = render(<StyledPagination />);
 
     expect(container.firstChild).toHaveClass('c-pagination');
   });
 
   it('renders RTL styling', () => {
-    const { container } = renderRtl(<PaginationView />);
+    const { container } = renderRtl(<StyledPagination />);
 
     expect(container.firstChild).toHaveClass('is-rtl');
   });

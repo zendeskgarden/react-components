@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import PaginationStyles from '@zendeskgarden/css-pagination';
@@ -13,20 +12,25 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'pagination.page';
 
-/**
- * Accepts all `<li>` props
- */
-const Page = styled.li.attrs(props => ({
+export interface IPageProps {
+  isCurrent?: boolean;
+  isFocused?: boolean;
+  isHovered?: boolean;
+  isHidden?: boolean;
+}
+
+export const StyledPage = styled.li.attrs<IPageProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(PaginationStyles['c-pagination__page'], {
     // States
-    [PaginationStyles['is-current']]: props.current,
-    [PaginationStyles['is-focused']]: props.focused,
-    [PaginationStyles['is-hovered']]: props.hovered,
-    [PaginationStyles['is-hidden']]: props.hidden
-  })
-}))`
+    [PaginationStyles['is-current']]: props.isCurrent,
+    [PaginationStyles['is-focused']]: props.isFocused,
+    [PaginationStyles['is-hovered']]: props.isHovered,
+    [PaginationStyles['is-hidden']]: props.isHidden
+  }),
+  hidden: props.hidden || props.isHidden
+}))<IPageProps>`
   /**
    * Due to the efficient rendering of content within React some
    * pages are not re-rendered with a state change. This can lead
@@ -39,16 +43,6 @@ const Page = styled.li.attrs(props => ({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-Page.propTypes = {
-  current: PropTypes.bool,
-  focused: PropTypes.bool,
-  hovered: PropTypes.bool,
-  hidden: PropTypes.bool
-};
-
-Page.defaultProps = {
+StyledPage.defaultProps = {
   theme: DEFAULT_THEME
 };
-
-/** @component */
-export default Page;
