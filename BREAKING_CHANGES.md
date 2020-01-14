@@ -4,21 +4,6 @@ NOTE: many style-related COMPONENT_IDs were renamed for consistency based
 on the CSS-in-JS restructure. All component-level theming customizations
 should be re-checked for ID naming accuracy.
 
-## @zendeskgarden/react-notifications
-
-- Boolean props for this package are updated to align with `isBoolean` naming. The following are
-  prop name changes for the `<Well>` component:
-
-  - `floating` -> `isFloating`
-  - `recessed` -> `isRecessed`
-
-## @zendeskgarden/react-breadcrumbs
-
-- The `<Item>` component has been removed. The `<Breadcrumb>` component determines the last
-  breadcrumb item and applies styling to each item. Instead of passing `<Item>` components as
-  children to `<Breadcrumb>`, consumers can now pass in inline elements of their choice. For example,
-  a child of `<Breadcrumb>` can be a `<span>` or a component that renders an `<a>`.
-
 ## @zendeskgarden/react-autocomplete
 
 - removed; see `@zendeskgarden/react-dropdowns`
@@ -29,6 +14,13 @@ should be re-checked for ID naming accuracy.
 - removed child `Text` export
   - previously `Text`; currently `Avatar.Text`
 - FEATURES: `surfaceColor`, `backgroundColor`, and `foregroundColor` props to ease color control
+
+## @zendeskgarden/react-breadcrumbs
+
+- The `<Item>` component has been removed. The `<Breadcrumb>` component determines the last
+  breadcrumb item and applies styling to each item. Instead of passing `<Item>` components as
+  children to `<Breadcrumb>`, consumers can now pass in inline elements of their choice. For example,
+  a child of `<Breadcrumb>` can be a `<span>` or a component that renders an `<a>`.
 
 ## @zendeskgarden/react-buttons
 
@@ -124,6 +116,14 @@ New features/fixes include:
 - `<Dots />` loader no longer has the `velocity` prop
   - Use `duration` instead which accepts `ms` defaults to 1250ms
 - `<Skeleton />` loader has renamed `dark` prop to `isDark`
+
+## @zendeskgarden/react-notifications
+
+- Boolean props for this package are updated to align with `isBoolean` naming. The following are
+  prop name changes for the `<Well>` component:
+
+  - `floating` -> `isFloating`
+  - `recessed` -> `isRecessed`
 
 ## @zendeskgarden/react-pagination
 
