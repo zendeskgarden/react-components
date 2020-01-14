@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledButton } from './StyledButton';
 
 const COMPONENT_ID = 'buttons.anchor';
@@ -26,3 +26,7 @@ export const StyledAnchor = styled(StyledButton).attrs(props => ({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledAnchor.defaultProps = {
+  theme: DEFAULT_THEME
+};

@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledButton, getHeight, IStyledButtonProps } from './StyledButton';
 import { StyledIcon } from './StyledIcon';
 
@@ -69,3 +69,7 @@ export const StyledIconButton = styled(StyledButton).attrs(() => ({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledIconButton.defaultProps = {
+  theme: DEFAULT_THEME
+};

@@ -7,7 +7,7 @@
 
 import classNames from 'classnames';
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import MenuStyles from '@zendeskgarden/css-menus';
 
 import { StyledItem } from '../';
@@ -24,3 +24,7 @@ export const StyledNextItem = styled(StyledItem).attrs(props => ({
 }))`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledNextItem.defaultProps = {
+  theme: DEFAULT_THEME
+};

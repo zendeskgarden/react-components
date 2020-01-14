@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import MenuStyles from '@zendeskgarden/css-menus';
 
 const COMPONENT_ID = 'dropdowns.item_meta';
@@ -21,3 +21,7 @@ export const StyledItemMeta = styled.span.attrs({
 })`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledItemMeta.defaultProps = {
+  theme: DEFAULT_THEME
+};

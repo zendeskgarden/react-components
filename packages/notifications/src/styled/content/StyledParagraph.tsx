@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import classNames from 'classnames';
 import CalloutStyles from '@zendeskgarden/css-callouts';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'notifications.paragraph';
 
@@ -22,3 +22,7 @@ export const StyledParagraph = styled.div.attrs({
 })`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledParagraph.defaultProps = {
+  theme: DEFAULT_THEME
+};

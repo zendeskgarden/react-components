@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import classNames from 'classnames';
 import CalloutStyles from '@zendeskgarden/css-callouts';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'notifications.title';
 
@@ -22,3 +22,7 @@ export const StyledTitle = styled.div.attrs({
 })`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledTitle.defaultProps = {
+  theme: DEFAULT_THEME
+};

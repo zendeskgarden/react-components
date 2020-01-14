@@ -217,6 +217,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
 
         if (x < maxItems!) {
           if (props.disabled) {
+            /* eslint-disable-next-line @typescript-eslint/no-empty-function */
             const renderedItem = renderItem({ value: item, removeValue: () => {} });
 
             output.push(<StyledItemWrapper key={x}>{renderedItem}</StyledItemWrapper>);

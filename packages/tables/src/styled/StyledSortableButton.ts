@@ -27,6 +27,10 @@ const StyledBaseIconWrapper = styled.div`
   fill: inherit;
 `;
 
+StyledBaseIconWrapper.defaultProps = {
+  theme: DEFAULT_THEME
+};
+
 export const StyledSortableStrokeIconWrapper = styled(StyledBaseIconWrapper)``;
 
 StyledSortableStrokeIconWrapper.defaultProps = {

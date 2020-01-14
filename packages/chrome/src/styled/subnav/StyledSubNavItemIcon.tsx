@@ -28,6 +28,10 @@ export const StyledSubNavItemIcon = styled(FilteredChevronDownStrokeIcon)`
   height: ${props => props.theme.iconSizes.sm};
 `;
 
+StyledSubNavItemIcon.defaultProps = {
+  theme: DEFAULT_THEME
+};
+
 export const StyledSubNavItemIconWrapper = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
