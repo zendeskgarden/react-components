@@ -45,9 +45,9 @@ should be re-checked for ID naming accuracy.
 
 - No longer packages a `styles.css` dist; CSS is self-contained
 - All irrelevant state and layout styling props (focused, hovered, etc.) have been removed
-- The `Nav` component no longer takes a `dark` or `light` prop. Use the `backgroundColor` prop
-  to apply a custom color and the component will dynamically change its styling to create
-  an accessible contrast level
+- The `Nav` component no longer takes a `dark` or `light` prop. Use the `Chrome` component
+  `hue` prop to apply a custom color. The component will dynamically change navigation
+  styling to create an accessible contrast level
 - Prop renames:
   - `Header`
     - `standalone` -> `isStandalone`

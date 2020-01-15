@@ -7,15 +7,19 @@
 
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { StyledWell, IStyledWellProps } from '../styled';
+import { StyledWell } from '../styled';
+
+interface IWellProps {
+  isRecessed?: boolean;
+  isFloating?: boolean;
+}
 
 /**
  * Supports all `<div>` props
  */
-export const Well = React.forwardRef<
-  HTMLDivElement,
-  IStyledWellProps & HTMLAttributes<HTMLDivElement>
->((props, ref) => <StyledWell ref={ref} {...props} />);
+export const Well = React.forwardRef<HTMLDivElement, IWellProps & HTMLAttributes<HTMLDivElement>>(
+  (props, ref) => <StyledWell ref={ref} {...props} />
+);
 
 Well.propTypes = {
   isRecessed: PropTypes.bool,

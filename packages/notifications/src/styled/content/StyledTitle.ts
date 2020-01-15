@@ -6,20 +6,20 @@
  */
 
 import styled from 'styled-components';
-import classNames from 'classnames';
-import CalloutStyles from '@zendeskgarden/css-callouts';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'notifications.title';
 
 /**
- * Used for Notification titles. Supports all `<div>` props
+ * 1. Reset for <h1>, etc.
  */
 export const StyledTitle = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: classNames(CalloutStyles['c-callout__title'])
+  'data-garden-version': PACKAGE_VERSION
 })`
+  margin: 0; /* [1] */
+  color: ${props => props.theme.colors.foreground};
+  font-weight: ${props => props.theme.fontWeights.semibold};
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

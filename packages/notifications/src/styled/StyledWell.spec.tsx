@@ -7,30 +7,34 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { StyledWell } from './StyledWell';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { StyledWell } from '../styled';
 
 describe('StyledWell', () => {
-  it('renders default well styling', () => {
-    const { container } = render(<StyledWell />);
-
-    expect(container.firstChild).toHaveClass('c-callout');
-  });
-
-  it('renders with RTL styling if applied', () => {
+  it('should render with the correct styling for RTL writing systems', () => {
     const { container } = renderRtl(<StyledWell />);
 
-    expect(container.firstChild).toHaveClass('is-rtl');
+    expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
+  });
+
+  it('should render with the correct styling for LTR writing systems', () => {
+    const { container } = render(<StyledWell />);
+
+    expect(container.firstChild).not.toHaveStyleRule('direction');
+  });
+
+  it('renders non-recessed styling correctly', () => {
+    const { container } = render(<StyledWell />);
+
+    expect(container.firstChild).not.toHaveStyleRule('background-color');
   });
 
   it('renders recessed styling correctly', () => {
     const { container } = render(<StyledWell isRecessed />);
 
-    expect(container.firstChild).toHaveClass('c-callout--recessed');
-  });
-
-  it('renders floating styling correctly', () => {
-    const { container } = render(<StyledWell isFloating />);
-
-    expect(container.firstChild).toHaveClass('c-callout--dialog');
+    expect(container.firstChild).toHaveStyleRule(
+      'background-color',
+      DEFAULT_THEME.palette.grey[100]
+    );
   });
 });

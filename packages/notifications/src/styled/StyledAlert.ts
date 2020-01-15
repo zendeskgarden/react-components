@@ -5,38 +5,31 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import classNames from 'classnames';
-import CalloutStyles from '@zendeskgarden/css-callouts';
-import { retrieveComponentStyles, isRtl, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { VALIDATION_TYPE } from '../utils/types';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { StyledTitle } from './content/StyledTitle';
+import { StyledBase } from './StyledBase';
 
 const COMPONENT_ID = 'notifications.alert';
 
 export interface IStyledAlertProps {
-  type?: VALIDATION_TYPE;
+  hue?: string;
 }
+
+const colorStyles = (props: IStyledAlertProps & ThemeProps<DefaultTheme>) => css`
+  ${StyledTitle} {
+    color: ${props.hue && getColor(props.hue, 800, props.theme)};
+  }
+`;
 
 /**
  * Supports all `<div>` props
  */
-export const StyledAlert = styled.div.attrs<IStyledAlertProps>(props => ({
+export const StyledAlert = styled(StyledBase).attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: classNames(CalloutStyles['c-callout'], {
-    // RTL
-    [CalloutStyles['is-rtl']]: isRtl(props),
-
-    // Styles
-    [CalloutStyles['c-callout--recessed']]: props.type === 'info',
-
-    // Validation types
-    [CalloutStyles['c-callout--success']]: props.type === 'success',
-    [CalloutStyles['c-callout--warning']]: props.type === 'warning',
-    [CalloutStyles['c-callout--error']]: props.type === 'error',
-    [CalloutStyles['c-callout--info']]: props.type === 'info'
-  })
-}))<IStyledAlertProps>`
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledAlertProps>`
+  ${colorStyles}
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

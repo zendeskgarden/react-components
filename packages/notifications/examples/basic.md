@@ -121,7 +121,7 @@ const notificationTitles = {
 };
 
 const initialState = {
-  type: 'success',
+  type: undefined,
   isMultiLine: false
 };
 
@@ -129,8 +129,18 @@ const initialState = {
   <Row>
     <Col md={4}>
       <Well isRecessed>
-        <div role="group" aria-label="alert types radio">
-          <StyledMd>Alert Types</StyledMd>
+        <div role="group" aria-label="notification types radio">
+          <StyledMd>Notification Types</StyledMd>
+          <Field>
+            <Radio
+              name="notification-type"
+              value={undefined}
+              checked={state.type === undefined}
+              onChange={event => setState({ type: undefined })}
+            >
+              <Label isRegular>Default</Label>
+            </Radio>
+          </Field>
           <Field>
             <Radio
               name="notification-type"
@@ -185,7 +195,8 @@ const initialState = {
     <Col md={8}>
       <Notification type={state.type}>
         <Title>
-          Notification: {notificationTitles[state.type]} {state.isMultiLine ? '(Multi-line)' : ''}
+          Notification{notificationTitles[state.type] ? `: ${notificationTitles[state.type]}` : ''}
+          {state.isMultiLine ? ' (Multi-line)' : ''}
         </Title>
         {state.isMultiLine ? (
           <Paragraph>

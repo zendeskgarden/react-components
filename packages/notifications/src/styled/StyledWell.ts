@@ -6,33 +6,26 @@
  */
 
 import styled from 'styled-components';
-import classNames from 'classnames';
-import CalloutStyles from '@zendeskgarden/css-callouts';
-import { retrieveComponentStyles, isRtl, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { StyledBase } from './StyledBase';
 
 const COMPONENT_ID = 'notifications.well';
 
 export interface IStyledWellProps {
   isRecessed?: boolean;
-  isFloating?: boolean;
 }
 
 /**
  * Supports all `<div>` props
  */
-export const StyledWell = styled.div.attrs<IStyledWellProps>(props => ({
+export const StyledWell = styled(StyledBase).attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: classNames(CalloutStyles['c-callout'], {
-    // RTL
-    [CalloutStyles['is-rtl']]: isRtl(props),
-
-    // Styles
-    [CalloutStyles['c-callout--recessed']]: props.isRecessed,
-    [CalloutStyles['c-callout--dialog']]: props.isFloating
-  })
-}))<IStyledWellProps>`
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledWellProps>`
+  background-color: ${props => props.isRecessed && getColor('neutralHue', 100, props.theme)};
+  padding: ${props => `${props.theme.space.base * 5}px ${props.theme.space.base * 10}px`};
+  color: ${props => getColor('neutralHue', 600, props.theme)}
+    ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledWell.defaultProps = {

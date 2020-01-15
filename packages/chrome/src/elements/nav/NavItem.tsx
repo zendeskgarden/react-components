@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import { StyledNavItem, StyledLogoNavItem, StyledBrandmarkNavItem } from '../../styled';
 import { PRODUCT, PRODUCTS } from '../../utils/types';
 import { useNavContext } from '../../utils/useNavContext';
+import { useChromeContext } from '../../utils/useChromeContext';
 
 interface INavItemProps extends HTMLAttributes<any> {
   /**
@@ -20,7 +21,13 @@ interface INavItemProps extends HTMLAttributes<any> {
    * Indicate which item is current in the nav
    **/
   isCurrent?: boolean;
+  /**
+   * Indicate that the item contains a product logo
+   */
   hasLogo?: boolean;
+  /**
+   * Indicate that the item contains the company brandmark
+   */
   hasBrandmark?: boolean;
 }
 
@@ -29,7 +36,8 @@ interface INavItemProps extends HTMLAttributes<any> {
  */
 export const NavItem = React.forwardRef<any, INavItemProps>(
   ({ hasLogo, hasBrandmark, product, ...other }, ref) => {
-    const { isExpanded, isDark, isLight } = useNavContext();
+    const { hue, isLight, isDark } = useChromeContext();
+    const { isExpanded } = useNavContext();
 
     if (hasLogo) {
       return (
@@ -52,6 +60,7 @@ export const NavItem = React.forwardRef<any, INavItemProps>(
         tabIndex={0}
         ref={ref}
         isExpanded={isExpanded}
+        hue={hue}
         isDark={isDark}
         isLight={isLight}
         {...other}

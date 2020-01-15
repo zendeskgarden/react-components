@@ -6,20 +6,18 @@
  */
 
 import styled from 'styled-components';
-import classNames from 'classnames';
-import CalloutStyles from '@zendeskgarden/css-callouts';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'notifications.paragraph';
 
 /**
- * Used for multi-line Notification content. Supports all `<div>` props
+ * Used for multi-line Notification content. Supports all `<p>` props
  */
-export const StyledParagraph = styled.div.attrs({
+export const StyledParagraph = styled.p.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: classNames(CalloutStyles['c-callout__paragraph'])
+  'data-garden-version': PACKAGE_VERSION
 })`
+  margin: ${props => props.theme.space.base * 2}px 0 0;
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
