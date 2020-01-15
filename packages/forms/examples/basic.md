@@ -41,8 +41,8 @@ const StyledMessage = styled(Message)`
 
 <Grid>
   <Row>
-    <Col size="5">
-      <Well isRecessed style={{ width: 300 }}>
+    <Col alignSelf="start" size="5">
+      <Well isRecessed>
         <Field>
           <Toggle
             checked={!!state.regular}
