@@ -55,7 +55,11 @@ const colorStyles = (props: IStyledTagProps & ThemeProps<DefaultTheme>) => {
       color: ${foregroundColor}; /* <a> element reset */
     }
 
-    &[data-garden-focus-visible] {
+    /**
+     * Tags show their focus state regardless of
+     * whether it was performed by a mouse or keyboard.
+     **/
+    &:focus {
       box-shadow: ${props.theme.shadows.sm(boxShadowColor!)};
     }
 

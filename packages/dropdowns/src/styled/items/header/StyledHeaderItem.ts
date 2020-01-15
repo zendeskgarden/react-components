@@ -15,6 +15,7 @@ import { StyledItem } from '../../';
 const COMPONENT_ID = 'dropdowns.header_item';
 
 export interface IStyledHeaderItemProps {
+  /** Applies icon styling */
   containsIcon?: boolean;
 }
 

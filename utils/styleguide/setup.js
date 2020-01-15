@@ -24,11 +24,7 @@ global.DEFAULT_THEME = DEFAULT_THEME;
 global.PALETTE = PALETTE;
 global.ThemeProvider = ThemeProvider;
 global.Grid = Grid;
-global.Row = styled(Row).attrs({
-  alignItems: 'center'
-})`
-  /* stylelint-disable-line block-no-empty */
-`;
+global.Row = Row;
 global.Col = styled(Col)`
   margin-top: 4px;
   margin-bottom: 4px;

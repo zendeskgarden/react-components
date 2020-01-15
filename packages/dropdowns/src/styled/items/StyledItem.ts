@@ -13,9 +13,9 @@ import MenuStyles from '@zendeskgarden/css-menus';
 const COMPONENT_ID = 'dropdowns.item';
 
 export interface IStyledItemProps {
-  active?: boolean;
-  focused?: boolean;
-  hovered?: boolean;
+  isActive?: boolean;
+  isFocused?: boolean;
+  isHovered?: boolean;
   disabled?: boolean;
   checked?: boolean;
 }
@@ -28,16 +28,16 @@ export const StyledItem = styled.li.attrs<IStyledItemProps>(props => ({
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(MenuStyles['c-menu__item'], {
     // State
-    [MenuStyles['is-active']]: props.active,
-    [MenuStyles['is-focused']]: props.focused,
-    [MenuStyles['is-hovered']]: props.hovered,
+    [MenuStyles['is-active']]: props.isActive,
+    [MenuStyles['is-focused']]: props.isFocused,
+    [MenuStyles['is-hovered']]: props.isHovered,
     [MenuStyles['is-disabled']]: props.disabled,
     [MenuStyles['is-checked']]: props.checked
   })
 }))<IStyledItemProps>`
   /* stylelint-disable */
   ${props =>
-    !props.focused &&
+    !props.isFocused &&
     `&&&:hover {
       background-color: inherit;
     }

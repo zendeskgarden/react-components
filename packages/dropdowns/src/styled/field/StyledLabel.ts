@@ -13,8 +13,8 @@ import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 const COMPONENT_ID = 'dropdowns.label';
 
 export interface IStyledLabel {
-  regular?: boolean;
-  small?: boolean;
+  isRegular?: boolean;
+  isCompact?: boolean;
 }
 
 /**
@@ -24,8 +24,8 @@ export const StyledLabel = styled.label.attrs<IStyledLabel>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(TextStyles['c-txt__label'], {
-    [TextStyles['c-txt__label--regular']]: props.regular,
-    [TextStyles['c-txt__label--sm']]: props.small,
+    [TextStyles['c-txt__label--regular']]: props.isRegular,
+    [TextStyles['c-txt__label--sm']]: props.isCompact,
 
     // RTL
     [TextStyles['is-rtl']]: isRtl(props)

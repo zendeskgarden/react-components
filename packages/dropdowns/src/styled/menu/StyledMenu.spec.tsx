@@ -24,14 +24,14 @@ describe('StyledMenuView', () => {
   });
 
   it('renders small styling correctly', () => {
-    const { container } = render(<StyledMenu small />);
+    const { container } = render(<StyledMenu isCompact />);
 
     expect(container.querySelector('ul')).toHaveClass('c-menu--sm');
   });
 
   describe('Renders', () => {
     it('renders animation styling correctly', () => {
-      const { container } = render(<StyledMenu animate />);
+      const { container } = render(<StyledMenu isAnimated />);
 
       expect(container.querySelector('ul')).toHaveClass('is-open');
     });
@@ -80,7 +80,7 @@ describe('StyledMenuView', () => {
   });
 
   it('renders hidden styling if provided', () => {
-    const { container } = render(<StyledMenu hidden />);
+    const { container } = render(<StyledMenu isHidden />);
 
     expect(container.querySelector('ul')).toHaveClass('is-hidden');
   });
@@ -93,7 +93,7 @@ describe('StyledMenuView', () => {
     });
 
     it('renders otherwise', () => {
-      const { container } = render(<StyledMenu arrow placement="right" />);
+      const { container } = render(<StyledMenu hasArrow placement="right" />);
 
       expect(container.querySelector('ul')).toHaveClass('c-arrow');
     });
@@ -117,7 +117,7 @@ describe('StyledMenuView', () => {
 
     it('renders correct arrow placement if provided', () => {
       Object.keys(arrowClasses).forEach((placement: any) => {
-        const { container } = render(<StyledMenu arrow placement={placement} />);
+        const { container } = render(<StyledMenu hasArrow placement={placement} />);
 
         expect(container.querySelector('ul')).toHaveClass(arrowClasses[placement]);
       });
@@ -126,13 +126,13 @@ describe('StyledMenuView', () => {
 
   describe('Animation', () => {
     it('should be enabled if animation is provided', () => {
-      const { container } = render(<StyledMenu animate />);
+      const { container } = render(<StyledMenu isAnimated />);
 
       expect(container.querySelector('ul')).toHaveClass('is-open');
     });
 
     it('should be disabled in animation is disabled', () => {
-      const { container } = render(<StyledMenu animate={false} />);
+      const { container } = render(<StyledMenu isAnimated={false} />);
 
       expect(container.querySelector('ul')).not.toHaveClass('is-open');
     });

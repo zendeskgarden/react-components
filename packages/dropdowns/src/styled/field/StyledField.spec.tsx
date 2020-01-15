@@ -23,7 +23,7 @@ describe('StyledField', () => {
   });
 
   it('renders inline styling', () => {
-    const { container } = render(<StyledField inline />);
+    const { container } = render(<StyledField isInline />);
 
     expect(container.firstChild).toHaveClass('c-txt--inline');
   });

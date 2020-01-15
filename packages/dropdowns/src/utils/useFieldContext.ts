@@ -5,8 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useContext } from 'react';
-import { FieldContext } from '../Fields/Field';
+import React, { useContext } from 'react';
+
+export interface IFieldContext {
+  isLabelHovered: boolean;
+  setIsLabelHovered: (isHovered: boolean) => void;
+}
+
+export const FieldContext = React.createContext<IFieldContext | undefined>(undefined);
 
 /**
  * Retrieve Field component context

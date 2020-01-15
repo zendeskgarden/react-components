@@ -146,9 +146,9 @@ const retrieveTooltipContent = (size, type) => {
             )}
           </Well>
         </Col>
-        <Col md={6}>
+        <Col md={7} alignSelf="center">
           <Row>
-            <Col md={6} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Col md={6} style={{ textAlign: 'center' }}>
               <Tooltip
                 content={
                   <>
@@ -165,7 +165,7 @@ const retrieveTooltipContent = (size, type) => {
                 <Button>Default tooltip</Button>
               </Tooltip>
             </Col>
-            <Col md={6} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Col md={6} style={{ textAlign: 'center' }}>
               <Tooltip
                 content={
                   <>

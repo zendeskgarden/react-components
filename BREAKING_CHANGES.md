@@ -71,6 +71,30 @@ should be re-checked for ID naming accuracy.
 
 - `Datepicker` and `DatepickerRange` `small` prop is renamed to `isCompact`
 
+## @zendeskgarden/react-dropdowns
+
+- The following boolean props have been renamed:
+  - `Autocomplete`, `Multiselect`, `Select`
+    - `small` -> `isCompact`
+    - `isBare` -> `isBare`
+    - `focused` -> `isFocused`
+    - `hovered` -> `isHovered`
+    - `open` -> `isOpen`
+  - `Hint`
+    - `small` -> `isCompact`
+  - `Label`
+    - `regular` -> `isRegular`
+    - `small` -> `isCompact`
+  - `AddItem`, `HeaderItem`, `Item`, `MediaItem`, `NextItem`, `PreviousItem`
+    - `active` -> `isActive`
+    - `focused` -> `isFocused`
+    - `hovered` -> `isHovered`
+  - `Menu`
+    - `animate` -> `isAnimated`
+    - `small` -> `isCompact`
+    - `hidden` -> `isHidden`
+    - `arrow` -> `hasArrow`
+
 ## @zendeskgarden/react-forms
 
 - no longer packages a `styles.css` dist; CSS is self-contained
@@ -116,6 +140,21 @@ New features/fixes include:
 - `<Dots />` loader no longer has the `velocity` prop
   - Use `duration` instead which accepts `ms` defaults to 1250ms
 - `<Skeleton />` loader has renamed `dark` prop to `isDark`
+
+## @zendeskgarden/react-modals
+
+- Boolean props for this package are updated to align with `isBoolean` naming. The following are
+  prop name changes for the `<Modal>` component:
+
+  - `animate` -> `isAnimated`
+  - `center` -> `isCentered`
+  - `large` -> `isLarge`
+
+- `<Close>` no longer accepts the `focused` and `hovered` props. The styling for these states are
+  included with the component, and focusvisible is used.
+
+- The `<Backdrop>` and `<ModalView>` components are no longer supported and cannot be used. The
+  abstraction for these components are now built into `<Modal>`.
 
 ## @zendeskgarden/react-notifications
 
