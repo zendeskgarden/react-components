@@ -79,14 +79,16 @@ initialState = {
       </Well>
     </Col>
     <Col alignSelf="center">
-      <Pagination
-        className="u-mv-xl"
-        totalPages={state.totalPages}
-        currentPage={state.currentPage}
-        pagePadding={state.pagePadding}
-        pageGap={state.pageGap}
-        onChange={currentPage => setState({ currentPage })}
-      />
+      <nav aria-label="Basic pagination">
+        <Pagination
+          className="u-mv-xl"
+          totalPages={state.totalPages}
+          currentPage={state.currentPage}
+          pagePadding={state.pagePadding}
+          pageGap={state.pageGap}
+          onChange={currentPage => setState({ currentPage })}
+        />
+      </nav>
     </Col>
   </Row>
 </Grid>;

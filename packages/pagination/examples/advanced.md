@@ -49,13 +49,15 @@ const transformPageProps = (pageType, props) => {
       </Well>
     </Col>
     <Col alignSelf="center">
-      <Pagination
-        totalPages={11}
-        currentPage={state.currentPage}
-        onChange={currentPage => setState({ currentPage })}
-        transformPageProps={transformPageProps}
-        data-test-id="pagination"
-      />
+      <nav aria-label="Advanced pagination">
+        <Pagination
+          totalPages={11}
+          currentPage={state.currentPage}
+          onChange={currentPage => setState({ currentPage })}
+          transformPageProps={transformPageProps}
+          data-test-id="pagination"
+        />
+      </nav>
     </Col>
   </Row>
 </Grid>;
