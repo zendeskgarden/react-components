@@ -93,14 +93,13 @@ describe('Pagination', () => {
 
     it('focuses first page when visibility is lost', () => {
       const { container } = render(<Pagination totalPages={5} currentPage={2} />);
-
       const previousPage = container.firstElementChild!.children[0];
 
       fireEvent.focus(previousPage);
       fireEvent.keyDown(previousPage, { keyCode: KEY_CODES.ENTER });
 
-      expect(container.firstElementChild!.children[1]).toHaveClass('is-focused');
-      expect(container.firstElementChild!.children[2]).toHaveClass('is-current');
+      expect(container.firstElementChild!.children[1]).toHaveAttribute('tabindex', '0');
+      expect(container.firstElementChild!.children[2]).toHaveAttribute('aria-current', 'true');
     });
   });
 
@@ -162,68 +161,96 @@ describe('Pagination', () => {
       expect(onChange).toHaveBeenCalledWith(2);
     });
 
+    const transformPageProps = (pageType: PAGE_TYPE, props: any) => {
+      props[`data-test-${pageType}`] = true;
+
+      return props;
+    };
+
     it('hides front gap when currentPage is within padding range', () => {
-      const { container } = render(<BasicExample currentPage={1} totalPages={25} />);
+      const { container } = render(
+        <BasicExample currentPage={1} totalPages={25} transformPageProps={transformPageProps} />
+      );
       const children = container.firstElementChild!.children;
 
-      expect(children[0]).toHaveClass('c-pagination__page--previous');
-      expect(children[1]).toHaveClass('c-pagination__page');
-      expect(children[2]).toHaveClass('c-pagination__page');
-      expect(children[3]).toHaveClass('c-pagination__page');
-      expect(children[4]).toHaveClass('c-pagination__page');
-      expect(children[5]).toHaveClass('c-pagination__page');
-      expect(children[6]).toHaveClass('c-pagination__page');
-      expect(children[7]).toHaveClass('c-pagination__page');
-      expect(children[8]).toHaveClass('c-pagination__page--gap');
-      expect(children[9]).toHaveClass('c-pagination__page');
-      expect(children[10]).toHaveClass('c-pagination__page--next');
+      expect(children[0]).toHaveAttribute('data-test-previous');
+      expect(children[1]).toHaveAttribute('data-test-page');
+      expect(children[2]).toHaveAttribute('data-test-page');
+      expect(children[3]).toHaveAttribute('data-test-page');
+      expect(children[4]).toHaveAttribute('data-test-page');
+      expect(children[5]).toHaveAttribute('data-test-page');
+      expect(children[6]).toHaveAttribute('data-test-page');
+      expect(children[7]).toHaveAttribute('data-test-page');
+      expect(children[8]).toHaveAttribute('data-test-gap');
+      expect(children[9]).toHaveAttribute('data-test-page');
+      expect(children[10]).toHaveAttribute('data-test-next');
     });
 
     it('hides back gap when currentPage is within padding range', () => {
-      const { container } = render(<BasicExample currentPage={25} totalPages={25} />);
+      const { container } = render(
+        <BasicExample currentPage={25} totalPages={25} transformPageProps={transformPageProps} />
+      );
       const children = container.firstElementChild!.children;
 
-      expect(children[0]).toHaveClass('c-pagination__page--previous');
-      expect(children[1]).toHaveClass('c-pagination__page');
-      expect(children[2]).toHaveClass('c-pagination__page--gap');
-      expect(children[3]).toHaveClass('c-pagination__page');
-      expect(children[4]).toHaveClass('c-pagination__page');
-      expect(children[5]).toHaveClass('c-pagination__page');
-      expect(children[6]).toHaveClass('c-pagination__page');
-      expect(children[7]).toHaveClass('c-pagination__page');
-      expect(children[8]).toHaveClass('c-pagination__page');
-      expect(children[9]).toHaveClass('c-pagination__page');
-      expect(children[10]).toHaveClass('c-pagination__page--next');
+      expect(children[0]).toHaveAttribute('data-test-previous');
+      expect(children[1]).toHaveAttribute('data-test-page');
+      expect(children[2]).toHaveAttribute('data-test-gap');
+      expect(children[3]).toHaveAttribute('data-test-page');
+      expect(children[4]).toHaveAttribute('data-test-page');
+      expect(children[5]).toHaveAttribute('data-test-page');
+      expect(children[6]).toHaveAttribute('data-test-page');
+      expect(children[7]).toHaveAttribute('data-test-page');
+      expect(children[8]).toHaveAttribute('data-test-page');
+      expect(children[9]).toHaveAttribute('data-test-page');
+      expect(children[10]).toHaveAttribute('data-test-next');
     });
 
     it('displays both gaps if not within padding range and totalPages is greater than padding limit', () => {
-      const { container } = render(<BasicExample currentPage={15} totalPages={25} />);
+      const { container } = render(
+        <BasicExample currentPage={15} totalPages={25} transformPageProps={transformPageProps} />
+      );
       const children = container.firstElementChild!.children;
 
-      expect(children[0]).toHaveClass('c-pagination__page--previous');
-      expect(children[1]).toHaveClass('c-pagination__page');
-      expect(children[2]).toHaveClass('c-pagination__page--gap');
-      expect(children[3]).toHaveClass('c-pagination__page');
-      expect(children[4]).toHaveClass('c-pagination__page');
-      expect(children[5]).toHaveClass('c-pagination__page');
-      expect(children[6]).toHaveClass('c-pagination__page');
-      expect(children[7]).toHaveClass('c-pagination__page');
-      expect(children[8]).toHaveClass('c-pagination__page--gap');
-      expect(children[9]).toHaveClass('c-pagination__page');
-      expect(children[10]).toHaveClass('c-pagination__page--next');
+      expect(children[0]).toHaveAttribute('data-test-previous');
+      expect(children[1]).toHaveAttribute('data-test-page');
+      expect(children[2]).toHaveAttribute('data-test-gap');
+      expect(children[3]).toHaveAttribute('data-test-page');
+      expect(children[4]).toHaveAttribute('data-test-page');
+      expect(children[5]).toHaveAttribute('data-test-page');
+      expect(children[6]).toHaveAttribute('data-test-page');
+      expect(children[7]).toHaveAttribute('data-test-page');
+      expect(children[8]).toHaveAttribute('data-test-gap');
+      expect(children[9]).toHaveAttribute('data-test-page');
+      expect(children[10]).toHaveAttribute('data-test-next');
     });
 
     it('displays no gaps if less than padding limit', () => {
-      const { container } = render(<BasicExample currentPage={1} totalPages={5} />);
+      const { container } = render(
+        <BasicExample currentPage={1} totalPages={9} transformPageProps={transformPageProps} />
+      );
       const children = container.firstElementChild!.children;
 
-      expect(children[0]).toHaveClass('c-pagination__page--previous');
-      expect(children[1]).toHaveClass('c-pagination__page');
-      expect(children[2]).toHaveClass('c-pagination__page');
-      expect(children[3]).toHaveClass('c-pagination__page');
-      expect(children[4]).toHaveClass('c-pagination__page');
-      expect(children[5]).toHaveClass('c-pagination__page');
-      expect(children[6]).toHaveClass('c-pagination__page--next');
+      expect(children[0]).toHaveAttribute('data-test-previous');
+      expect(children[1]).toHaveAttribute('data-test-page');
+      expect(children[2]).toHaveAttribute('data-test-page');
+      expect(children[3]).toHaveAttribute('data-test-page');
+      expect(children[4]).toHaveAttribute('data-test-page');
+      expect(children[5]).toHaveAttribute('data-test-page');
+      expect(children[6]).toHaveAttribute('data-test-page');
+      expect(children[7]).toHaveAttribute('data-test-page');
+      expect(children[8]).toHaveAttribute('data-test-page');
+      expect(children[9]).toHaveAttribute('data-test-page');
+      expect(children[10]).toHaveAttribute('data-test-next');
+    });
+
+    it('displays previous and next with zero total pages', () => {
+      const { container } = render(
+        <BasicExample totalPages={0} transformPageProps={transformPageProps} />
+      );
+      const children = container.firstElementChild!.children;
+
+      expect(children[0]).toHaveAttribute('data-test-previous');
+      expect(children[1]).toHaveAttribute('data-test-next');
     });
   });
 });

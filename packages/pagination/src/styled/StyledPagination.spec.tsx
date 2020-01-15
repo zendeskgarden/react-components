@@ -10,15 +10,21 @@ import { render, renderRtl } from 'garden-test-utils';
 import { StyledPagination } from './StyledPagination';
 
 describe('StyledPagination', () => {
+  it('renders the expected element', () => {
+    const { container } = render(<StyledPagination />);
+
+    expect(container.firstChild!.nodeName).toBe('UL');
+  });
+
   it('renders default styling', () => {
     const { container } = render(<StyledPagination />);
 
-    expect(container.firstChild).toHaveClass('c-pagination');
+    expect(container.firstChild).toHaveStyleRule('display', 'flex');
   });
 
   it('renders RTL styling', () => {
     const { container } = renderRtl(<StyledPagination />);
 
-    expect(container.firstChild).toHaveClass('is-rtl');
+    expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });
 });

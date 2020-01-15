@@ -7,18 +7,18 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { StyledGap } from './StyledGap';
+import { StyledNavigation } from './StyledNavigation';
 
-describe('StyledGap', () => {
+describe('StyledNavigation', () => {
   it('renders the expected element', () => {
-    const { container } = render(<StyledGap />);
+    const { container } = render(<StyledNavigation />);
 
     expect(container.firstChild!.nodeName).toBe('LI');
   });
 
   it('renders default styling', () => {
-    const { container } = render(<StyledGap />);
+    const { container } = render(<StyledNavigation />);
 
-    expect(container.firstChild).toHaveStyleRule('cursor', 'default');
+    expect(container.firstChild).toHaveStyleRule('display', 'flex');
   });
 });

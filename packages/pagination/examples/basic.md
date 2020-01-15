@@ -73,6 +73,7 @@ initialState = {
             <Item value={0}>0</Item>
             <Item value={1}>1</Item>
             <Item value={2}>2</Item>
+            <Item value={3}>3</Item>
           </Menu>
         </Dropdown>
       </Well>

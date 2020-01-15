@@ -18,8 +18,8 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   const fontSize = math(`${props.theme.fontSizes.md} + ${shift}`);
 
   return css`
-    margin-top = ${marginTop};
-    font-size = ${fontSize};
+    margin-top: ${marginTop};
+    font-size: ${fontSize};
   `;
 };
 

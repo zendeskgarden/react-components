@@ -88,6 +88,7 @@ export const StyledPage = styled.li.attrs({
   box-sizing: border-box;
   display: inline-block;
   transition: box-shadow 0.1s ease-in-out, color 0.25s ease-in-out;
+  visibility: ${props => props.hidden && 'hidden'};
   margin-left: ${props => `${props.theme.space.base}px`};
   border-radius: ${props => props.theme.borderRadii.md};
   cursor: pointer;
@@ -111,10 +112,6 @@ export const StyledPage = styled.li.attrs({
   }
 
   ${props => colorStyles(props)};
-
-  &[hidden] {
-    visibility: hidden;
-  }
 
   &${props => (props.theme.rtl ? ':last-of-type' : ':first-of-type')} {
     margin-left: 0;

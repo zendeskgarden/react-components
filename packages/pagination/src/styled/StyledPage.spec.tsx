@@ -9,17 +9,34 @@ import React from 'react';
 import { render } from 'garden-test-utils';
 
 import { StyledPage } from './StyledPage';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 describe('StyledPage', () => {
+  it('renders the expected element', () => {
+    const { container } = render(<StyledPage />);
+
+    expect(container.firstChild!.nodeName).toBe('LI');
+  });
+
   it('renders default styling', () => {
     const { container } = render(<StyledPage />);
 
-    expect(container.firstChild).toHaveClass('c-pagination__page');
+    expect(container.firstChild).toHaveStyleRule('display', 'inline-block');
   });
 
   it('renders hidden styling if provided', () => {
     const { container } = render(<StyledPage hidden />);
 
-    expect(container.firstChild).toHaveClass('is-hidden');
+    expect(container.firstChild).toHaveStyleRule('visibility', 'hidden');
+  });
+
+  it('renders expected current styling', () => {
+    const { container } = render(<StyledPage aria-current="true" />);
+
+    expect(container.firstChild).toHaveStyleRule(
+      'font-weight',
+      DEFAULT_THEME.fontWeights.semibold.toString(),
+      { modifier: "[aria-current='true']" }
+    );
   });
 });
