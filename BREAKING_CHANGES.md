@@ -166,6 +166,7 @@ New features/fixes include:
 
 ## @zendeskgarden/react-pagination
 
+- no longer packages a `styles.css` dist; CSS is self-contained
 - All `View` components are no longer exported
 - Removed the following components:
   - `Gap`
