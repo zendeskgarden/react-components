@@ -36,8 +36,8 @@ module.exports = {
           content: '../../packages/pagination/examples/basic.md'
         },
         {
-          name: 'Default usage',
-          content: '../../packages/pagination/examples/default.md'
+          name: 'Advanced',
+          content: '../../packages/pagination/examples/advanced.md'
         }
       ]
     },

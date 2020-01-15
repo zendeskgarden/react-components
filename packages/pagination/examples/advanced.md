@@ -1,32 +1,3 @@
-### Default Usage
-
-```jsx
-initialState = {
-  currentPage: 1
-};
-
-<Pagination
-  totalPages={25}
-  currentPage={state.currentPage}
-  onChange={currentPage => setState({ currentPage })}
-/>;
-```
-
-### Custom Page Padding
-
-```jsx
-initialState = {
-  currentPage: 15
-};
-
-<Pagination
-  totalPages={25}
-  pagePadding={3}
-  currentPage={state.currentPage}
-  onChange={currentPage => setState({ currentPage })}
-/>;
-```
-
 ### Custom Page Props
 
 There may be a need to apply custom styling, props, and QA attributes to each actionable page.

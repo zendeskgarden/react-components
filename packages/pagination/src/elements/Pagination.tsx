@@ -120,7 +120,7 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
     };
 
     const renderPreviousPage = (rtl: boolean) => {
-      const isFirstPageSelected = currentPage === 1;
+      const isFirstPageSelected = totalPages > 0 && currentPage === 1;
       const focusRef = React.createRef();
 
       return (
@@ -170,6 +170,10 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
         </StyledNavigation>
       );
     };
+
+    const createGap = (pageIndex: number) => (
+      <StyledGap {...getTransformedProps('gap', { key: `gap-${pageIndex}` })}>…</StyledGap>
+    );
 
     const createPage = (pageIndex: number) => {
       const focusRef = React.createRef();
@@ -236,9 +240,7 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
         // Handle start gap
         if (pageIndex === GAP) {
           if (minimum > GAP + 1 && currentPage > GAP + PADDING + 1) {
-            pages.push(
-              <StyledGap {...getTransformedProps('gap', { key: `gap-${pageIndex}` })}>…</StyledGap>
-            );
+            pages.push(createGap(pageIndex));
           } else {
             pages.push(createPage(pageIndex));
           }
@@ -249,9 +251,7 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
         // Handle end gap
         if (pageIndex === totalPages - GAP + 1) {
           if (maximum < totalPages - GAP && currentPage < totalPages - GAP - PADDING) {
-            pages.push(
-              <StyledGap {...getTransformedProps('gap', { key: `gap-${pageIndex}` })}>…</StyledGap>
-            );
+            pages.push(createGap(pageIndex));
           } else {
             pages.push(createPage(pageIndex));
           }
@@ -266,7 +266,7 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
     return (
       <StyledPagination {...getContainerProps({ role: null, ...otherProps })} ref={ref}>
         {renderPreviousPage(otherProps.theme.rtl)}
-        {renderPages()}
+        {totalPages > 0 && renderPages()}
         {renderNextPage(otherProps.theme.rtl)}
       </StyledPagination>
     );
