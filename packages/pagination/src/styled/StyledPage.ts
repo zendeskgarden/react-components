@@ -18,12 +18,15 @@ const COMPONENT_ID = 'pagination.page';
 
 const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const foregroundColor = getColor('neutralHue', 600, props.theme);
-  const hoverForegroundColor = getColor('neutralHue', 800, props.theme);
-  const hoverBackgroundColor = getColor('neutralHue', 600, props.theme, 0.15);
+  const hoverForegroundColor = getColor('neutralHue', 700, props.theme);
+  const hoverBackgroundColor = getColor('primaryHue', 600, props.theme, 0.08);
   const boxShadowColor = getColor('primaryHue', 600, props.theme, 0.35);
-  const activeBackgroundColor = getColor('neutralHue', 600, props.theme, 0.25);
-  const currentForegroundColor = hoverForegroundColor;
+  const activeForegroundColor = getColor('neutralHue', 800, props.theme);
+  const activeBackgroundColor = getColor('primaryHue', 600, props.theme, 0.2);
+  const currentForegroundColor = activeForegroundColor;
   const currentBackgroundColor = hoverBackgroundColor;
+  const currentHoverBackgroundColor = getColor('primaryHue', 600, props.theme, 0.16);
+  const currentActiveBackgroundColor = getColor('primaryHue', 600, props.theme, 0.28);
 
   return css`
     color: ${foregroundColor};
@@ -39,11 +42,20 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
 
     &:active {
       background-color: ${activeBackgroundColor};
+      color: ${activeForegroundColor};
     }
 
     &[aria-current='true'] {
       background-color: ${currentBackgroundColor};
       color: ${currentForegroundColor};
+    }
+
+    &[aria-current='true']:hover {
+      background-color: ${currentHoverBackgroundColor};
+    }
+
+    &[aria-current='true']:active {
+      background-color: ${currentActiveBackgroundColor};
     }
   `;
 };
