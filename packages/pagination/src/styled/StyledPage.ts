@@ -116,7 +116,7 @@ export const StyledPage = styled.li.attrs({
     visibility: hidden;
   }
 
-  &${props => (props.theme.rtl ? ':first-of-type' : ':last-of-type')} {
+  &${props => (props.theme.rtl ? ':last-of-type' : ':first-of-type')} {
     margin-left: 0;
   }
 

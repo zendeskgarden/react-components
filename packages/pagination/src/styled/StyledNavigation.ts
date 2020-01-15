@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledPage } from './StyledPage';
 
 const COMPONENT_ID = 'pagination.navigation';
@@ -18,12 +18,6 @@ export const StyledNavigation = styled(StyledPage).attrs({
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-
-  &[data-garden-focus-visible] {
-    box-shadow: none;
-    background-color: ${props => getColor('primaryHue', 600, props.theme, 0.08)};
-  }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

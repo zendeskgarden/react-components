@@ -117,26 +117,21 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
       const isFirstPageSelected = currentPage === 1;
       const focusRef = React.createRef();
 
-      // The PreviousPage element should be hidden when first page is selected
-      if (isFirstPageSelected) {
-        return (
-          <StyledNavigation {...getTransformedProps('previous', { hidden: true })}>
-            {rtl ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </StyledNavigation>
-        );
-      }
-
       return (
         <StyledNavigation
           {...getTransformedProps(
             'previous',
-            getPreviousPageProps({
-              key: PREVIOUS_KEY,
-              isFocused: focusedItem === PREVIOUS_KEY,
-              item: PREVIOUS_KEY,
-              ref: focusRef,
-              focusRef
-            })
+            // The PreviousPage element should be hidden when first page is selected
+            isFirstPageSelected
+              ? { hidden: true }
+              : getPreviousPageProps({
+                  role: null,
+                  key: PREVIOUS_KEY,
+                  isFocused: focusedItem === PREVIOUS_KEY,
+                  item: PREVIOUS_KEY,
+                  ref: focusRef,
+                  focusRef
+                })
           )}
         >
           {rtl ? <ChevronRightIcon /> : <ChevronLeftIcon />}
@@ -148,26 +143,21 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
       const isLastPageSelected = currentPage === totalPages;
       const focusRef = React.createRef();
 
-      // The NextPage element should be hidden when the last page is selected
-      if (isLastPageSelected) {
-        return (
-          <StyledNavigation {...getTransformedProps('next', { hidden: true })}>
-            {rtl ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </StyledNavigation>
-        );
-      }
-
       return (
         <StyledNavigation
           {...getTransformedProps(
             'next',
-            getNextPageProps({
-              item: NEXT_KEY,
-              key: NEXT_KEY,
-              isFocused: focusedItem === NEXT_KEY,
-              ref: focusRef,
-              focusRef
-            })
+            // The NextPage element should be hidden when the last page is selected
+            isLastPageSelected
+              ? { hidden: true }
+              : getNextPageProps({
+                  role: null,
+                  item: NEXT_KEY,
+                  key: NEXT_KEY,
+                  isFocused: focusedItem === NEXT_KEY,
+                  ref: focusRef,
+                  focusRef
+                })
           )}
         >
           {rtl ? <ChevronLeftIcon /> : <ChevronRightIcon />}
@@ -183,7 +173,7 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
           {...getTransformedProps(
             'page',
             getPageProps({
-              selectedAriaKey: 'aria-current',
+              role: null,
               key: pageIndex,
               item: pageIndex,
               page: pageIndex,
@@ -261,7 +251,7 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
     };
 
     return (
-      <StyledPagination {...getContainerProps(otherProps)} ref={ref}>
+      <StyledPagination {...getContainerProps({ role: null, ...otherProps })} ref={ref}>
         {renderPreviousPage(otherProps.theme.rtl)}
         {renderPages()}
         {renderNextPage(otherProps.theme.rtl)}
