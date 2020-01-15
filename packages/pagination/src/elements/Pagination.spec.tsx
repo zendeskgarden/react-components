@@ -253,4 +253,116 @@ describe('Pagination', () => {
       expect(children[1]).toHaveAttribute('data-test-next');
     });
   });
+
+  describe('Padding', () => {
+    const transformPageProps = (pageType: PAGE_TYPE, props: any) => {
+      props[`data-test-${pageType}`] = true;
+
+      return props;
+    };
+
+    it('renders as expected with reduced page padding', () => {
+      const { container } = render(
+        <BasicExample
+          totalPages={9}
+          currentPage={5}
+          pagePadding={1}
+          transformPageProps={transformPageProps}
+        />
+      );
+      const children = container.firstElementChild!.children;
+
+      expect(children[0]).toHaveAttribute('data-test-previous');
+      expect(children[1]).toHaveAttribute('data-test-page');
+      expect(children[2]).toHaveAttribute('data-test-gap');
+      expect(children[3]).toHaveAttribute('data-test-page');
+      expect(children[4]).toHaveAttribute('data-test-page');
+      expect(children[5]).toHaveAttribute('data-test-page');
+      expect(children[6]).toHaveAttribute('data-test-gap');
+      expect(children[7]).toHaveAttribute('data-test-page');
+      expect(children[8]).toHaveAttribute('data-test-next');
+    });
+
+    it('renders as expected with expanded page padding', () => {
+      const { container } = render(
+        <BasicExample
+          totalPages={20}
+          currentPage={10}
+          pagePadding={3}
+          transformPageProps={transformPageProps}
+        />
+      );
+      const children = container.firstElementChild!.children;
+
+      expect(children[0]).toHaveAttribute('data-test-previous');
+      expect(children[1]).toHaveAttribute('data-test-page');
+      expect(children[2]).toHaveAttribute('data-test-gap');
+      expect(children[3]).toHaveAttribute('data-test-page');
+      expect(children[4]).toHaveAttribute('data-test-page');
+      expect(children[5]).toHaveAttribute('data-test-page');
+      expect(children[6]).toHaveAttribute('data-test-page');
+      expect(children[7]).toHaveAttribute('data-test-page');
+      expect(children[8]).toHaveAttribute('data-test-page');
+      expect(children[9]).toHaveAttribute('data-test-page');
+      expect(children[10]).toHaveAttribute('data-test-gap');
+      expect(children[11]).toHaveAttribute('data-test-page');
+      expect(children[12]).toHaveAttribute('data-test-next');
+    });
+  });
+
+  describe('Gap', () => {
+    const transformPageProps = (pageType: PAGE_TYPE, props: any) => {
+      props[`data-test-${pageType}`] = true;
+
+      return props;
+    };
+
+    it('renders as expected with greater gap positioning', () => {
+      const { container } = render(
+        <BasicExample
+          totalPages={20}
+          currentPage={10}
+          pageGap={3}
+          transformPageProps={transformPageProps}
+        />
+      );
+      const children = container.firstElementChild!.children;
+
+      expect(children[0]).toHaveAttribute('data-test-previous');
+      expect(children[1]).toHaveAttribute('data-test-page');
+      expect(children[2]).toHaveAttribute('data-test-page');
+      expect(children[3]).toHaveAttribute('data-test-gap');
+      expect(children[4]).toHaveAttribute('data-test-page');
+      expect(children[5]).toHaveAttribute('data-test-page');
+      expect(children[6]).toHaveAttribute('data-test-page');
+      expect(children[7]).toHaveAttribute('data-test-page');
+      expect(children[8]).toHaveAttribute('data-test-page');
+      expect(children[9]).toHaveAttribute('data-test-gap');
+      expect(children[10]).toHaveAttribute('data-test-page');
+      expect(children[11]).toHaveAttribute('data-test-page');
+      expect(children[12]).toHaveAttribute('data-test-next');
+    });
+
+    it('renders with lesser gap positioning', () => {
+      const { container } = render(
+        <BasicExample
+          totalPages={9}
+          currentPage={5}
+          pageGap={1}
+          transformPageProps={transformPageProps}
+        />
+      );
+      const children = container.firstElementChild!.children;
+
+      expect(children[0]).toHaveAttribute('data-test-previous');
+      expect(children[1]).toHaveAttribute('data-test-gap');
+      expect(children[2]).toHaveAttribute('data-test-page');
+      expect(children[3]).toHaveAttribute('data-test-page');
+      expect(children[4]).toHaveAttribute('data-test-page');
+      expect(children[5]).toHaveAttribute('data-test-page');
+      expect(children[6]).toHaveAttribute('data-test-page');
+      expect(children[7]).toHaveAttribute('data-test-gap');
+      expect(children[8]).toHaveAttribute('data-test-next');
+    });
+  });
 });
