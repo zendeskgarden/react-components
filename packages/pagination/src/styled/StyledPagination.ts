@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'pagination.pagination_view';
 
@@ -24,6 +24,7 @@ export const StyledPagination = styled.ul.attrs({
   margin-top: 0; /* [1] */
   padding: 0; /* [1] */
   white-space: nowrap; /* [2] */
+  color: ${props => getColor('neutralHue', 600, props.theme)};
 
   :focus {
     outline: none;

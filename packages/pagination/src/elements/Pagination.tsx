@@ -232,7 +232,9 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
 
         // Render Gap and determine next starting pageIndex
         if (pageIndex < currentPage) {
-          pages.push(<StyledGap {...getTransformedProps('gap', { key: `gap-${pageIndex}` })} />);
+          pages.push(
+            <StyledGap {...getTransformedProps('gap', { key: `gap-${pageIndex}` })}>…</StyledGap>
+          );
 
           if (currentPage >= totalPages - pagePadding! - 2) {
             pageIndex = totalPages - pagePadding! * 2 - 3;
@@ -240,7 +242,9 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
             pageIndex = currentPage - pagePadding! - 1;
           }
         } else {
-          pages.push(<StyledGap {...getTransformedProps('gap', { key: `gap-${pageIndex}` })} />);
+          pages.push(
+            <StyledGap {...getTransformedProps('gap', { key: `gap-${pageIndex}` })}>…</StyledGap>
+          );
           pageIndex = totalPages - 1;
         }
       }
