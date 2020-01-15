@@ -8,10 +8,16 @@
 import React from 'react';
 import { render, fireEvent } from 'garden-test-utils';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
-
-import Pagination, { IPaginationProps, PAGE_TYPE } from './Pagination';
+import { default as Pagination, IPaginationProps, PAGE_TYPE } from './Pagination';
 
 describe('Pagination', () => {
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<HTMLUListElement>();
+    const { container } = render(<Pagination totalPages={0} currentPage={0} ref={ref} />);
+
+    expect(container.firstChild).toBe(ref.current);
+  });
+
   let onChange: jest.Mock;
 
   const BasicExample = ({

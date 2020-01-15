@@ -291,6 +291,6 @@ Pagination.defaultProps = {
   pageGap: 2
 };
 
-export default withTheme(Pagination) as React.ForwardRefExoticComponent<
+export default withTheme(Pagination) as React.FC<
   IPaginationProps & React.RefAttributes<HTMLUListElement>
 >;
