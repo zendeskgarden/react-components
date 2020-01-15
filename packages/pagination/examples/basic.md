@@ -17,8 +17,8 @@ initialState = {
 
 <Grid>
   <Row>
-    <Col>
-      <Well isRecessed>
+    <Col size="auto">
+      <Well isRecessed style={{ width: 200 }}>
         <Dropdown
           selectedItem={state.totalPages}
           onSelect={totalPages => setState({ totalPages, currentPage: 1 })}
@@ -28,8 +28,10 @@ initialState = {
             <Select small>{state.totalPages}</Select>
           </Field>
           <Menu small>
+            <Item value={0}>0</Item>
             <Item value={3}>3</Item>
             <Item value={5}>5</Item>
+            <Item value={7}>7</Item>
             <Item value={10}>10</Item>
             <Item value={25}>25</Item>
             <Item value={50}>50</Item>
