@@ -5,32 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import { PALETTE, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { PRODUCT } from '../../utils/types';
 import { StyledBaseNavItem } from '../';
-import { PALETTE, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.logo_nav_item';
 
-export interface IStyledLogoNavItemProps {
-  /**
-   * Applies product-specific color palette
-   **/
-  product?: PRODUCT;
-  isDark?: boolean;
-  isLight?: boolean;
-}
-
-const retrieveProductColor = (props: IStyledLogoNavItemProps & ThemeProps<DefaultTheme>) => {
-  if (props.isDark) {
-    return props.theme.colors.background;
-  }
-
-  if (props.isLight) {
-    return getColor('neutralHue', 800, props.theme);
-  }
-
-  switch (props.product) {
+const retrieveProductColor = (product: string | undefined) => {
+  switch (product) {
     case 'chat':
       return PALETTE.product.chat;
     case 'connect':
@@ -50,6 +33,22 @@ const retrieveProductColor = (props: IStyledLogoNavItemProps & ThemeProps<Defaul
   }
 };
 
+const colorStyles = (props: IStyledLogoNavItemProps) => {
+  const fillColor = props.isLight ? props.theme.colors.foreground : props.theme.colors.background;
+  const color = props.isLight || props.isDark ? fillColor : retrieveProductColor(props.product);
+
+  return css`
+    color: ${color};
+    fill: ${fillColor};
+  `;
+};
+
+export interface IStyledLogoNavItemProps extends ThemeProps<DefaultTheme> {
+  product?: PRODUCT;
+  isDark?: boolean;
+  isLight?: boolean;
+}
+
 export const StyledLogoNavItem = styled(StyledBaseNavItem).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
@@ -57,9 +56,8 @@ export const StyledLogoNavItem = styled(StyledBaseNavItem).attrs({
   order: 0;
   opacity: 1;
   cursor: default;
-  color: ${retrieveProductColor};
-  fill: ${props =>
-    props.isLight ? getColor('neutralHue', 800, props.theme) : props.theme.colors.background};
+
+  ${props => colorStyles(props)};
 `;
 
 StyledLogoNavItem.defaultProps = {

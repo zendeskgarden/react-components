@@ -7,7 +7,6 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { PALETTE } from '@zendeskgarden/react-theming';
 import { Nav } from './Nav';
 
 describe('Nav', () => {
@@ -28,21 +27,5 @@ describe('Nav', () => {
     const { container } = render(<Nav isExpanded />);
 
     expect(container.firstChild).toHaveStyleRule('width', '200px');
-  });
-
-  describe('BackgroundColor', () => {
-    it('applies light styling if color is below luminance threshold', () => {
-      const { container } = render(<Nav backgroundColor={PALETTE.green[100]} />);
-
-      expect(container.firstChild).toHaveAttribute('data-test-light', 'true');
-      expect(container.firstChild).toHaveAttribute('data-test-dark', 'false');
-    });
-
-    it('applies dark styling if color is above luminance threshold', () => {
-      const { container } = render(<Nav backgroundColor={PALETTE.green[800]} />);
-
-      expect(container.firstChild).toHaveAttribute('data-test-light', 'false');
-      expect(container.firstChild).toHaveAttribute('data-test-dark', 'true');
-    });
   });
 });

@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { Chrome } from './elements/Chrome';
+export { default as Chrome } from './elements/Chrome';
 export { Body } from './elements/body/Body';
 export { Content } from './elements/body/Content';
 export { Main } from './elements/body/Main';

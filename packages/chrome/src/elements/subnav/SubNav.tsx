@@ -7,10 +7,13 @@
 
 import React, { HTMLAttributes } from 'react';
 import { StyledSubNav } from '../../styled';
+import { useChromeContext } from '../../utils/useChromeContext';
 
 /**
  * Accepts all `<nav>` attributes and events
  */
-export const SubNav = React.forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => (
-  <StyledSubNav ref={ref} {...props} />
-));
+export const SubNav = React.forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
+  const { hue, isLight, isDark } = useChromeContext();
+
+  return <StyledSubNav ref={ref} hue={hue} isLight={isLight} isDark={isDark} {...props} />;
+});

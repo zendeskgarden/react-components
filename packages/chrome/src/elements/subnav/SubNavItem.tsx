@@ -7,15 +7,24 @@
 
 import React, { ButtonHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { StyledSubNavItem, IStyledSubNavItemProps } from '../../styled';
+import { StyledSubNavItem } from '../../styled';
+import { useChromeContext } from '../../utils/useChromeContext';
+
+interface ISubNavItemProps {
+  isCurrent?: boolean;
+}
 
 /**
  * Accepts all `<button>` props
  */
 export const SubNavItem = React.forwardRef<
   HTMLButtonElement,
-  IStyledSubNavItemProps & ButtonHTMLAttributes<HTMLButtonElement>
->((props, ref) => <StyledSubNavItem ref={ref} {...props} />);
+  ISubNavItemProps & ButtonHTMLAttributes<HTMLButtonElement>
+>((props, ref) => {
+  const { isDark, isLight } = useChromeContext();
+
+  return <StyledSubNavItem ref={ref} isDark={isDark} isLight={isLight} {...props} />;
+});
 
 SubNavItem.propTypes = {
   isCurrent: PropTypes.bool

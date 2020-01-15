@@ -5,24 +5,29 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.nav';
 
-export interface IStyledNavProps {
-  /**
-   * Expand navigation area to include item text
-   **/
-  isExpanded?: boolean;
-  /**
-   * Apply dark styling
-   **/
+const colorStyles = (props: IStyledNavProps) => {
+  const shade = props.isDark || props.isLight ? 600 : 700;
+  const backgroundColor = getColor(props.hue, shade, props.theme);
+  const foregroundColor = props.isLight
+    ? props.theme.colors.foreground
+    : props.theme.colors.background;
+
+  return css`
+    background-color: ${backgroundColor};
+    color: ${foregroundColor};
+  `;
+};
+
+interface IStyledNavProps extends ThemeProps<DefaultTheme> {
+  hue: string;
   isDark?: boolean;
-  /**
-   * Apply light styling
-   **/
   isLight?: boolean;
+  isExpanded?: boolean;
 }
 
 export const getNavWidth = (props: ThemeProps<DefaultTheme>) => {
@@ -42,21 +47,10 @@ export const StyledNav = styled.nav.attrs<IStyledNavProps>({
   flex-direction: column;
   flex-shrink: 0;
   order: -1;
-  background-color: ${props => {
-    if (props.isDark) {
-      return props.theme.palette.black;
-    }
-
-    if (props.isLight) {
-      return props.theme.colors.background;
-    }
-
-    return getColor('chromeHue', 700, props.theme);
-  }};
   width: ${props => (props.isExpanded ? getExpandedNavWidth : getNavWidth)};
-  color: ${props =>
-    props.isLight ? getColor('neutralHue', 800, props.theme) : props.theme.colors.background};
   font-size: ${props => props.theme.fontSizes.md};
+
+  ${props => colorStyles(props)};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
