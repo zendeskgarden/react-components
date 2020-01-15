@@ -11,8 +11,9 @@ const {
 
 initialState = {
   currentPage: 1,
-  totalPages: 10,
-  pagePadding: 2
+  totalPages: 11,
+  pagePadding: 2,
+  pageGap: 2
 };
 
 <Grid>
@@ -60,6 +61,20 @@ initialState = {
             <Item value={5}>5</Item>
           </Menu>
         </Dropdown>
+        <Dropdown
+          selectedItem={state.pageGap}
+          onSelect={pageGap => setState({ pageGap, currentPage: 1 })}
+        >
+          <Field className="u-mt-xs">
+            <Label>Page gap</Label>
+            <Select small>{state.pageGap}</Select>
+          </Field>
+          <Menu small>
+            <Item value={0}>0</Item>
+            <Item value={1}>1</Item>
+            <Item value={2}>2</Item>
+          </Menu>
+        </Dropdown>
       </Well>
     </Col>
     <Col alignSelf="center">
@@ -68,6 +83,7 @@ initialState = {
         totalPages={state.totalPages}
         currentPage={state.currentPage}
         pagePadding={state.pagePadding}
+        pageGap={state.pageGap}
         onChange={currentPage => setState({ currentPage })}
       />
     </Col>

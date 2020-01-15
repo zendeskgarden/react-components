@@ -31,10 +31,15 @@ export interface IPaginationProps extends Omit<HTMLAttributes<HTMLUListElement>,
    */
   totalPages: number;
   /**
-   * The number of pages to pad the currentPage with
-   * when determining the Gap placement
+   * The number of pages to pad the current page with when page gaps are
+   * displayed
    */
   pagePadding?: number;
+  /**
+   * Position for the leading and trailing gap indicator, if needed based on
+   * current and total pages
+   */
+  pageGap?: number;
   /**
    * @param {Any} currentPage - The newly selected page
    */
@@ -55,6 +60,7 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
       transformPageProps,
       totalPages,
       pagePadding,
+      pageGap,
       onChange,
       ...otherProps
     },
@@ -194,7 +200,8 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
      */
     const renderPages = () => {
       const pages = [];
-      const GAP = 2;
+      const PADDING = pagePadding!;
+      const GAP = pageGap!;
 
       for (let pageIndex = 1; pageIndex <= totalPages; pageIndex++) {
         // Always display current, first, and last pages
@@ -206,15 +213,15 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
         let minimum;
         let maximum;
 
-        if (currentPage <= GAP + pagePadding!) {
+        if (currentPage <= GAP + PADDING) {
           minimum = GAP + 1;
-          maximum = minimum + pagePadding! * 2;
-        } else if (currentPage >= totalPages - GAP - pagePadding!) {
+          maximum = minimum + PADDING * 2;
+        } else if (currentPage >= totalPages - GAP - PADDING) {
           maximum = totalPages - GAP;
-          minimum = maximum - pagePadding! * 2;
+          minimum = maximum - PADDING * 2;
         } else {
-          minimum = currentPage - pagePadding!;
-          maximum = currentPage + pagePadding!;
+          minimum = currentPage - PADDING;
+          maximum = currentPage + PADDING;
         }
 
         // Display padded window of pages
@@ -228,7 +235,7 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
 
         // Handle start gap
         if (pageIndex === GAP) {
-          if (minimum > GAP + 1 && currentPage > GAP + pagePadding! + 1) {
+          if (minimum > GAP + 1 && currentPage > GAP + PADDING + 1) {
             pages.push(
               <StyledGap {...getTransformedProps('gap', { key: `gap-${pageIndex}` })}>…</StyledGap>
             );
@@ -241,7 +248,7 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
 
         // Handle end gap
         if (pageIndex === totalPages - GAP + 1) {
-          if (maximum < totalPages - GAP && currentPage < totalPages - GAP - pagePadding!) {
+          if (maximum < totalPages - GAP && currentPage < totalPages - GAP - PADDING) {
             pages.push(
               <StyledGap {...getTransformedProps('gap', { key: `gap-${pageIndex}` })}>…</StyledGap>
             );
@@ -270,12 +277,14 @@ Pagination.propTypes = {
   currentPage: PropTypes.number.isRequired,
   totalPages: PropTypes.number.isRequired,
   pagePadding: PropTypes.number,
+  pageGap: PropTypes.number,
   onChange: PropTypes.func,
   transformPageProps: PropTypes.func
 };
 
 Pagination.defaultProps = {
-  pagePadding: 2
+  pagePadding: 2,
+  pageGap: 2
 };
 
 export default withTheme(Pagination) as React.ForwardRefExoticComponent<
