@@ -6,18 +6,21 @@
  */
 
 import React, { HTMLAttributes } from 'react';
-import PropTypes from 'prop-types';
-import { StyledClose, IStyledCloseProps } from '../../styled';
+import { StyledClose } from '../../styled';
+import { useNotificationsContext } from '../../utils/useNotificationsContext';
+import XStrokeIcon from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
 
 /**
  * Used to close a Notification. Supports all `<button>` props
  */
-export const Close = React.forwardRef<
-  HTMLButtonElement,
-  IStyledCloseProps & HTMLAttributes<HTMLButtonElement>
->((props, ref) => <StyledClose ref={ref} {...props} />);
+export const Close = React.forwardRef<HTMLButtonElement, HTMLAttributes<HTMLButtonElement>>(
+  (props, ref) => {
+    const hue = useNotificationsContext();
 
-Close.propTypes = {
-  isFocused: PropTypes.bool,
-  isHovered: PropTypes.bool
-};
+    return (
+      <StyledClose ref={ref} hue={hue} {...props}>
+        <XStrokeIcon />
+      </StyledClose>
+    );
+  }
+);
