@@ -134,6 +134,7 @@ New features/fixes include:
   - `Page`
   - `PaginationView`
   - `PreviousPage`
+- Added `pageGap` prop for modifying gap display positioning
 
 ## @zendeskgarden/react-selection
 

@@ -27,7 +27,7 @@ initialState = {
  */
 <ThemeProvider>
   <Pagination
-    totalPages={10}
+    totalPages={11}
     currentPage={state.currentPage}
     onChange={currentPage => setState({ currentPage })}
   />

@@ -41,13 +41,17 @@ export interface IPaginationProps extends Omit<HTMLAttributes<HTMLUListElement>,
    */
   pageGap?: number;
   /**
-   * @param {Any} currentPage - The newly selected page
+   * @param {Any} currentPage - The currently selected page
    */
-  onChange?: (updatedCurrentPage: number) => void;
+  onChange?: (currentPage: number) => void;
   /**
-   * Allows custom props to be applied to each page element. Useful for QA attributes and localization.
+   * Apply localized labels, test attributes, etc. to individual pages.
+   *
+   * @param {PAGE_TYPE} pageType - the type of the page to transform props for;
+   *  one of: `'previous'`, `'gap'`, `'page'`, `'next'`
+   * @param {Any} props - default page props to transform
    */
-  transformPageProps?: (pageTypes: PAGE_TYPE, props: any) => any;
+  transformPageProps?: (pageType: PAGE_TYPE, props: any) => any;
 }
 
 /**

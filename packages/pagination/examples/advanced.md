@@ -1,24 +1,61 @@
-### Custom Page Props
-
-There may be a need to apply custom styling, props, and QA attributes to each actionable page.
-This is possible with the `transformPageProps` prop. It provides the page type as well as the
-default props for you to modify.
+Use `transformPageProps` to apply localized labels, test attributes, etc. to
+individual pages. This function prop provides access to the `pageType` and
+default props for each page.
 
 ```jsx
+const { Well } = require('@zendeskgarden/react-notifications/src');
+const { MD, Code, UnorderedList } = require('@zendeskgarden/react-typography/src');
+
 initialState = {
   currentPage: 1
 };
 
 const transformPageProps = (pageType, props) => {
   props['data-test-id'] = pageType;
+
+  switch (pageType) {
+    case 'previous':
+      props['aria-label'] = 'Página anterior';
+      break;
+
+    case 'page':
+      if (props['aria-current']) {
+        props['aria-label'] = `Página actual, página # ${props.key}`;
+      } else {
+        props['aria-label'] = `Página ${props.key}`;
+      }
+      break;
+
+    case 'next':
+      props['aria-label'] = 'Siguiente página';
+      break;
+  }
+
   return props;
 };
 
-<Pagination
-  totalPages={25}
-  currentPage={state.currentPage}
-  onChange={currentPage => setState({ currentPage })}
-  transformPageProps={transformPageProps}
-  data-test-id="parent-pagination-element"
-/>;
+<>
+  <Well isRecessed className="u-mb-lg">
+    <MD className="u-mb-xs">
+      Use <Code>transformPageProps</Code> to:
+    </MD>
+    <UnorderedList>
+      <UnorderedList.Item>
+        Add <Code>data-test-id</Code> attributes to each page
+      </UnorderedList.Item>
+      <UnorderedList.Item>
+        Replace default <Code>aria-label</Code> page attributes with localized text
+      </UnorderedList.Item>
+    </UnorderedList>
+    <MD className="u-mt-xs">Expand the code block for details.</MD>
+  </Well>
+
+  <Pagination
+    totalPages={11}
+    currentPage={state.currentPage}
+    onChange={currentPage => setState({ currentPage })}
+    transformPageProps={transformPageProps}
+    data-test-id="pagination-container"
+  />
+</>;
 ```
