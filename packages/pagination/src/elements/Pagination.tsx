@@ -194,57 +194,62 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
      */
     const renderPages = () => {
       const pages = [];
+      const GAP = 2;
 
       for (let pageIndex = 1; pageIndex <= totalPages; pageIndex++) {
-        // Always display the current page
-        if (pageIndex === currentPage) {
+        // Always display current, first, and last pages
+        if (pageIndex === currentPage || pageIndex < GAP || pageIndex > totalPages - GAP + 1) {
           pages.push(createPage(pageIndex));
           continue;
         }
 
-        // Always display the first and last page
-        if (pageIndex === 1 || pageIndex === totalPages) {
-          pages.push(createPage(pageIndex));
-          continue;
+        let minimum;
+        let maximum;
+
+        if (currentPage <= GAP + pagePadding!) {
+          minimum = GAP + 1;
+          maximum = minimum + pagePadding! * 2;
+        } else if (currentPage >= totalPages - GAP - pagePadding!) {
+          maximum = totalPages - GAP;
+          minimum = maximum - pagePadding! * 2;
+        } else {
+          minimum = currentPage - pagePadding!;
+          maximum = currentPage + pagePadding!;
         }
 
-        // Display pages used for padding around the current page
-        if (pageIndex >= currentPage - pagePadding! && pageIndex <= currentPage + pagePadding) {
-          pages.push(createPage(pageIndex));
-          continue;
-        }
-
-        // Handle case where front gap should not be displayed
-        if (currentPage <= pagePadding! + 3 && pageIndex <= pagePadding! * 2 + 3) {
-          pages.push(createPage(pageIndex));
-          continue;
-        }
-
-        // Handle case where back gap should not be displayed
+        // Display padded window of pages
         if (
-          currentPage >= totalPages - pagePadding! - 2 &&
-          pageIndex >= totalPages - pagePadding! * 2 - 4
+          (pageIndex >= minimum && pageIndex <= currentPage) ||
+          (pageIndex >= currentPage && pageIndex <= maximum)
         ) {
           pages.push(createPage(pageIndex));
           continue;
         }
 
-        // Render Gap and determine next starting pageIndex
-        if (pageIndex < currentPage) {
-          pages.push(
-            <StyledGap {...getTransformedProps('gap', { key: `gap-${pageIndex}` })}>…</StyledGap>
-          );
-
-          if (currentPage >= totalPages - pagePadding! - 2) {
-            pageIndex = totalPages - pagePadding! * 2 - 3;
+        // Handle start gap
+        if (pageIndex === GAP) {
+          if (minimum > GAP + 1 && currentPage > GAP + pagePadding! + 1) {
+            pages.push(
+              <StyledGap {...getTransformedProps('gap', { key: `gap-${pageIndex}` })}>…</StyledGap>
+            );
           } else {
-            pageIndex = currentPage - pagePadding! - 1;
+            pages.push(createPage(pageIndex));
           }
-        } else {
-          pages.push(
-            <StyledGap {...getTransformedProps('gap', { key: `gap-${pageIndex}` })}>…</StyledGap>
-          );
-          pageIndex = totalPages - 1;
+
+          continue;
+        }
+
+        // Handle end gap
+        if (pageIndex === totalPages - GAP + 1) {
+          if (maximum < totalPages - GAP && currentPage < totalPages - GAP - pagePadding!) {
+            pages.push(
+              <StyledGap {...getTransformedProps('gap', { key: `gap-${pageIndex}` })}>…</StyledGap>
+            );
+          } else {
+            pages.push(createPage(pageIndex));
+          }
+
+          continue;
         }
       }
 

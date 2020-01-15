@@ -32,7 +32,9 @@ initialState = {
             <Item value={3}>3</Item>
             <Item value={5}>5</Item>
             <Item value={7}>7</Item>
+            <Item value={9}>9</Item>
             <Item value={10}>10</Item>
+            <Item value={11}>11</Item>
             <Item value={25}>25</Item>
             <Item value={50}>50</Item>
             <Item value={100}>100</Item>
@@ -45,11 +47,12 @@ initialState = {
           selectedItem={state.pagePadding}
           onSelect={pagePadding => setState({ pagePadding, currentPage: 1 })}
         >
-          <Field>
+          <Field className="u-mt-xs">
             <Label>Page padding</Label>
             <Select small>{state.pagePadding}</Select>
           </Field>
           <Menu small>
+            <Item value={0}>0</Item>
             <Item value={1}>1</Item>
             <Item value={2}>2</Item>
             <Item value={3}>3</Item>
