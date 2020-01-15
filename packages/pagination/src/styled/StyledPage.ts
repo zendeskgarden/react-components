@@ -31,6 +31,8 @@ export const StyledPage = styled.li.attrs<IPageProps>(props => ({
   }),
   hidden: props.hidden || props.isHidden
 }))<IPageProps>`
+  box-sizing: border-box;
+
   /**
    * Due to the efficient rendering of content within React some
    * pages are not re-rendered with a state change. This can lead

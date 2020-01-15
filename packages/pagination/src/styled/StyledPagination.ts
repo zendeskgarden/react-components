@@ -6,25 +6,24 @@
  */
 
 import styled from 'styled-components';
-import classNames from 'classnames';
-import PaginationStyles from '@zendeskgarden/css-pagination';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'pagination.pagination_view';
 
-export const StyledPagination = styled.ul.attrs(props => ({
+/**
+ * 1. List reset.
+ * 2. Text truncation.
+ */
+export const StyledPagination = styled.ul.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: classNames(PaginationStyles['c-pagination'], {
-    // RTL
-    [PaginationStyles['is-rtl']]: props.theme.rtl
-  })
-}))`
-  *,
-  ::before,
-  ::after {
-    box-sizing: border-box;
-  }
+  'data-garden-version': PACKAGE_VERSION
+})`
+  direction: ${props => props.theme.rtl && 'rtl'};
+  display: flex;
+  justify-content: center;
+  margin-top: 0; /* [1] */
+  padding: 0; /* [1] */
+  white-space: nowrap; /* [2] */
 
   :focus {
     outline: none;
