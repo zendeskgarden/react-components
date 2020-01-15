@@ -37,7 +37,8 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
       box-shadow: inset ${props.theme.shadows.md(boxShadowColor!)};
     }
 
-    &:active {
+    &:active,
+    &[data-garden-focus-visible]:active {
       background-color: ${activeBackgroundColor};
       color: ${activeForegroundColor};
     }

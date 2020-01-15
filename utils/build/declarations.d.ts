@@ -22,8 +22,3 @@ declare module '*.md';
 declare module '@zendeskgarden/css-menus';
 declare module '@zendeskgarden/css-forms';
 declare module '@zendeskgarden/css-arrows';
-declare module '@zendeskgarden/css-breadcrumbs';
-declare module '@zendeskgarden/css-chrome';
-declare module '@zendeskgarden/css-tables';
-declare module '@zendeskgarden/css-callouts';
-declare module '@zendeskgarden/css-pagination';

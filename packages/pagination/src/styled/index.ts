@@ -8,5 +8,4 @@
 export { StyledPagination } from './StyledPagination';
 export { StyledPage } from './StyledPage';
 export { StyledGap } from './StyledGap';
-export { StyledNextPage } from './StyledNextPage';
-export { StyledPreviousPage } from './StyledPreviousPage';
+export { StyledNavigation } from './StyledNavigation';

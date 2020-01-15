@@ -22,7 +22,6 @@
   "dependencies": {
     "@zendeskgarden/container-pagination": "^0.2.4",
     "@zendeskgarden/container-utilities": "^0.3.0",
-    "classnames": "^2.2.5",
     "polished": "^3.4.2"
   },
   "peerDependencies": {
@@ -33,7 +32,6 @@
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "@zendeskgarden/css-pagination": "4.0.17",
     "@zendeskgarden/react-theming": "^8.0.0-next.0"
   },
   "keywords": [
