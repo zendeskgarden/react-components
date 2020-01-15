@@ -15,11 +15,6 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 ## Usage
 
 ```jsx static
-/**
- * Include pagination styling at the root of your application
- */
-import '@zendeskgarden/react-pagination/dist/styles.css';
-
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Pagination } from '@zendeskgarden/react-pagination';
 
@@ -31,6 +26,10 @@ initialState = {
  * Place a `ThemeProvider` at the root of your React application
  */
 <ThemeProvider>
-  <Pagination totalPages={25} currentPage={state.currentPage} onStateChange={setState} />
+  <Pagination
+    totalPages={10}
+    currentPage={state.currentPage}
+    onChange={currentPage => setState({ currentPage })}
+  />
 </ThemeProvider>;
 ```
