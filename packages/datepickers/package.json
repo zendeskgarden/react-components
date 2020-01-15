@@ -48,6 +48,6 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenDatepickers",
-  "zendeskgarden:max_size": "36 kB",
+  "zendeskgarden:max_size": "31.6 kB",
   "zendeskgarden:src": "src/index.ts"
 }
