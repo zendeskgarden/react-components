@@ -5,41 +5,109 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import classNames from 'classnames';
-import PaginationStyles from '@zendeskgarden/css-pagination';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import math from 'polished/lib/math/math';
+import {
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  getLineHeight,
+  getColor
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'pagination.page';
 
-export interface IPageProps {
-  isCurrent?: boolean;
-  isFocused?: boolean;
-  isHovered?: boolean;
-  isHidden?: boolean;
-}
+const colorStyles = (props: ThemeProps<DefaultTheme>) => {
+  const foregroundColor = getColor('neutralHue', 600, props.theme);
+  const hoverForegroundColor = getColor('neutralHue', 800, props.theme);
+  const hoverBackgroundColor = getColor('neutralHue', 600, props.theme, 0.15);
+  const boxShadowColor = getColor('primaryHue', 600, props.theme, 0.35);
+  const activeBackgroundColor = getColor('neutralHue', 600, props.theme, 0.25);
+  const currentForegroundColor = hoverForegroundColor;
+  const currentBackgroundColor = hoverBackgroundColor;
 
-export const StyledPage = styled.li.attrs<IPageProps>(props => ({
+  return css`
+    color: ${foregroundColor};
+
+    &:hover {
+      background-color: ${hoverBackgroundColor};
+      color: ${hoverForegroundColor};
+    }
+
+    &[data-garden-focus-visible] {
+      box-shadow: inset ${props.theme.shadows.md(boxShadowColor!)};
+    }
+
+    &:active {
+      background-color: ${activeBackgroundColor};
+    }
+
+    &[aria-current='true'] {
+      background-color: ${currentBackgroundColor};
+      color: ${currentForegroundColor};
+    }
+  `;
+};
+
+const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
+  const fontSize = props.theme.fontSizes.md;
+  const height = `${props.theme.space.base * 8}px`;
+  const lineHeight = getLineHeight(height, fontSize);
+  const padding = `${props.theme.space.base * 1.5}px`;
+
+  return css`
+    padding: 0 ${padding};
+    min-width: ${height};
+    max-width: ${math(`${height} * 2`)}; /* [1] */
+    height: ${height};
+    line-height: ${lineHeight};
+    font-size: ${fontSize};
+
+    &[aria-current='true'] {
+      max-width: none;
+    }
+  `;
+};
+
+/**
+ * 1. Text truncation.
+ */
+export const StyledPage = styled.li.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: classNames(PaginationStyles['c-pagination__page'], {
-    // States
-    [PaginationStyles['is-current']]: props.isCurrent,
-    [PaginationStyles['is-focused']]: props.isFocused,
-    [PaginationStyles['is-hovered']]: props.isHovered,
-    [PaginationStyles['is-hidden']]: props.isHidden
-  }),
-  hidden: props.hidden || props.isHidden
-}))<IPageProps>`
+  'data-garden-version': PACKAGE_VERSION
+})`
   box-sizing: border-box;
+  display: inline-block;
+  transition: box-shadow 0.1s ease-in-out, color 0.25s ease-in-out;
+  margin-left: ${props => `${props.theme.space.base}px`};
+  border-radius: ${props => props.theme.borderRadii.md};
+  cursor: pointer;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  user-select: none;
 
-  /**
-   * Due to the efficient rendering of content within React some
-   * pages are not re-rendered with a state change. This can lead
-   * to some awkward transitions if they are not disabled.
-   */
-  && {
-    transition: none;
+  ${props => sizeStyles(props)};
+
+  &:hover {
+    transition: background-color 0.25s ease-in-out;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &[aria-current='true'] {
+    font-weight: ${props => props.theme.fontWeights.semibold};
+  }
+
+  ${props => colorStyles(props)};
+
+  &[hidden] {
+    visibility: hidden;
+  }
+
+  &${props => (props.theme.rtl ? ':first-of-type' : ':last-of-type')} {
+    margin-left: 0;
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

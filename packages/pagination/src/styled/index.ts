@@ -6,7 +6,7 @@
  */
 
 export { StyledPagination } from './StyledPagination';
-export { StyledPage, IPageProps } from './StyledPage';
+export { StyledPage } from './StyledPage';
 export { StyledGap } from './StyledGap';
 export { StyledNextPage } from './StyledNextPage';
 export { StyledPreviousPage } from './StyledPreviousPage';
