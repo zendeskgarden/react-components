@@ -123,7 +123,7 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
 
       // The PreviousPage element should be hidden when first page is selected
       if (isFirstPageSelected) {
-        return <StyledPreviousPage hidden />;
+        return <StyledPreviousPage {...getTransformedProps('previous', { hidden: true })} />;
       }
 
       return (
@@ -148,7 +148,7 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
 
       // The NextPage element should be hidden when the last page is selected
       if (isLastPageSelected) {
-        return <StyledNextPage hidden />;
+        return <StyledNextPage {...getTransformedProps('next', { hidden: true })} />;
       }
 
       return (
