@@ -41,7 +41,7 @@ const StyledMessage = styled(Message)`
 
 <Grid>
   <Row>
-    <Col alignSelf="start" size="5">
+    <Col size="5">
       <Well isRecessed>
         <Field>
           <Toggle
