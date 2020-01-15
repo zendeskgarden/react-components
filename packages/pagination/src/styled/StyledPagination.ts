@@ -21,7 +21,7 @@ export const StyledPagination = styled.ul.attrs({
   direction: ${props => props.theme.rtl && 'rtl'};
   display: flex;
   justify-content: center;
-  margin-top: 0; /* [1] */
+  margin: 0; /* [1] */
   padding: 0; /* [1] */
   white-space: nowrap; /* [2] */
   color: ${props => getColor('neutralHue', 600, props.theme)};

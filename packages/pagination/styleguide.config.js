@@ -32,6 +32,10 @@ module.exports = {
       name: 'Examples',
       sections: [
         {
+          name: 'Basic',
+          content: '../../packages/pagination/examples/basic.md'
+        },
+        {
           name: 'Default usage',
           content: '../../packages/pagination/examples/default.md'
         }

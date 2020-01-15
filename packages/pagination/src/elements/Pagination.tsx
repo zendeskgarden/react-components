@@ -177,6 +177,7 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
               key: pageIndex,
               item: pageIndex,
               page: pageIndex,
+              title: pageIndex.toString(),
               current: currentPage === pageIndex,
               ref: focusRef,
               focusRef
