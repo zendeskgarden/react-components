@@ -21,7 +21,7 @@
   "dependencies": {
     "@zendeskgarden/container-field": "^1.0.3",
     "@zendeskgarden/container-keyboardfocus": "^0.3.0",
-    "@zendeskgarden/container-utilities": "^0.3.0",
+    "@zendeskgarden/container-utilities": "^0.4.0",
     "classnames": "^2.2.5",
     "lodash.debounce": "^4.0.8"
   },

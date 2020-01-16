@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@zendeskgarden/container-pagination": "^0.2.0",
-    "@zendeskgarden/container-utilities": "^0.3.0",
+    "@zendeskgarden/container-utilities": "^0.4.0",
     "classnames": "^2.2.5"
   },
   "peerDependencies": {
