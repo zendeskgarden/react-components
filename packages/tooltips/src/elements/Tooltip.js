@@ -105,7 +105,11 @@ const Tooltip = ({
           return <TriggerWrapper ref={ref}>{triggerElement}</TriggerWrapper>;
         }}
       </Reference>
-      <Popper placement={popperPlacement} eventsEnabled={eventsEnabled} modifiers={popperModifiers}>
+      <Popper
+        placement={popperPlacement}
+        eventsEnabled={isVisible && eventsEnabled}
+        modifiers={popperModifiers}
+      >
         {({ ref, style, scheduleUpdate, placement: currentPlacement }) => {
           scheduleUpdateRef.current = scheduleUpdate;
           const { onFocus, onBlur, ...otherTooltipProps } = otherProps;
@@ -124,7 +128,12 @@ const Tooltip = ({
           const TooltipElem = type === TYPE.LIGHT ? LightTooltip : TooltipView;
 
           const tooltip = (
-            <TooltipWrapper ref={ref} style={style} zIndex={zIndex} aria-hidden={!isVisible}>
+            <TooltipWrapper
+              ref={isVisible && ref}
+              style={style}
+              zIndex={zIndex}
+              aria-hidden={!isVisible}
+            >
               <TooltipElem {...getTooltipProps(tooltipProps)}>{children}</TooltipElem>
             </TooltipWrapper>
           );
