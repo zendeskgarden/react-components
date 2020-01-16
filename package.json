@@ -85,7 +85,7 @@
     "handlebars": "4.7.2",
     "handlebars-helpers": "0.10.0",
     "html-loader": "0.5.5",
-    "husky": "3.1.0",
+    "husky": "4.0.10",
     "identity-obj-proxy": "3.0.0",
     "inquirer": "7.0.3",
     "inquirer-autocomplete-prompt": "1.0.1",
