@@ -23,13 +23,13 @@ describe('StyledLabel', () => {
   });
 
   it('renders small styling', () => {
-    const { container } = render(<StyledLabel small />);
+    const { container } = render(<StyledLabel isSmall />);
 
     expect(container.firstChild).toHaveClass('c-txt__label--sm');
   });
 
   it('renders regular styling', () => {
-    const { container } = render(<StyledLabel regular />);
+    const { container } = render(<StyledLabel isRegular />);
 
     expect(container.firstChild).toHaveClass('c-txt__label--regular');
   });

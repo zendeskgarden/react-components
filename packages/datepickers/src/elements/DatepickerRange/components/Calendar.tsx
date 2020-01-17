@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLProps } from 'react';
+import React, { HTMLAttributes } from 'react';
 import addMonths from 'date-fns/addMonths';
 
 import { StyledRangeCalendar } from '../../../styled';
 import useDatepickerRangeContext from '../utils/useDatepickerRangeContext';
 import Month from './Month';
 
-const Calendar: React.FunctionComponent<HTMLProps<HTMLDivElement>> = props => {
+const Calendar: React.FunctionComponent<HTMLAttributes<HTMLDivElement>> = props => {
   const {
     state,
     dispatch,

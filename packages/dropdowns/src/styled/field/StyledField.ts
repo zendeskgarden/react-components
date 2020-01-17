@@ -13,7 +13,7 @@ import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 const COMPONENT_ID = 'dropdowns.field';
 
 export interface IStyledFieldProps {
-  inline?: boolean;
+  isInline?: boolean;
 }
 
 /**
@@ -23,7 +23,7 @@ export const StyledField = styled.div.attrs<IStyledFieldProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(TextStyles['c-txt'], {
-    [TextStyles['c-txt--inline']]: props.inline,
+    [TextStyles['c-txt--inline']]: props.isInline,
 
     // RTL
     [TextStyles['is-rtl']]: isRtl(props)

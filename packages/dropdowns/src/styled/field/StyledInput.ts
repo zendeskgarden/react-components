@@ -8,7 +8,7 @@
 import classNames from 'classnames';
 import styled, { css } from 'styled-components';
 import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
-import { HTMLProps } from 'react';
+import { HTMLAttributes } from 'react';
 
 const hiddenStyling = css`
   position: absolute;
@@ -25,7 +25,7 @@ const hiddenStyling = css`
   font-size: inherit;
 `;
 
-export interface IStyledInputProps extends HTMLProps<HTMLInputElement> {
+export interface IStyledInputProps extends HTMLAttributes<HTMLInputElement> {
   isHidden?: boolean;
 }
 

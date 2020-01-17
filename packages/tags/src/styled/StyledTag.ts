@@ -55,7 +55,7 @@ const colorStyles = (props: IStyledTagProps & ThemeProps<DefaultTheme>) => {
       color: ${foregroundColor}; /* <a> element reset */
     }
 
-    &[data-garden-focus-visible] {
+    &:focus {
       box-shadow: ${props.theme.shadows.sm(boxShadowColor!)};
     }
 

@@ -17,10 +17,12 @@ StyledItemWrapper.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-export const StyledMultiselectInput = styled(StyledInput)<{
+interface IStyledMultiselectInputProps {
   isSmall: boolean;
   isVisible: boolean;
-}>`
+}
+
+export const StyledMultiselectInput = styled(StyledInput)<IStyledMultiselectInputProps>`
   && {
     flex-basis: 60px;
     flex-grow: 1;

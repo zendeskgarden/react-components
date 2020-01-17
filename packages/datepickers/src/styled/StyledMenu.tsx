@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLProps } from 'react';
+import React, { HTMLAttributes } from 'react';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import { retrieveComponentStyles, isRtl, DEFAULT_THEME } from '@zendeskgarden/react-theming';
@@ -36,7 +36,7 @@ const retrieveMenuMargin = ({ placement }: { placement?: POPPER_PLACEMENT }) => 
   return '';
 };
 
-interface IStyledMenuViewProps extends HTMLProps<HTMLUListElement> {
+interface IStyledMenuViewProps extends HTMLAttributes<HTMLUListElement> {
   isCompact?: boolean;
   placement?: POPPER_PLACEMENT;
   animate?: boolean;
@@ -86,7 +86,11 @@ const StyledMenuView = styled.ul.attrs<IStyledMenuViewProps>(props => ({
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
-` as React.FunctionComponent<IStyledMenuViewProps>;
+`;
+
+StyledMenuView.defaultProps = {
+  theme: DEFAULT_THEME
+};
 
 interface IStyledMenuWrapperProps {
   placement?: POPPER_PLACEMENT;
@@ -100,7 +104,7 @@ StyledMenuWrapper.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-interface IStyledMaxHeightWrapper extends HTMLProps<HTMLDivElement> {
+interface IStyledMaxHeightWrapper extends HTMLAttributes<HTMLDivElement> {
   maxHeight?: string;
   height?: string;
 }
@@ -119,7 +123,7 @@ StyledMaxHeightWrapper.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-interface IStyledMenuProps extends HTMLProps<HTMLUListElement> {
+interface IStyledMenuProps extends HTMLAttributes<HTMLUListElement> {
   /**
    * All valid [Popper.JS Placements](https://popper.js.org/popper-documentation.html#Popper.placements)
    */

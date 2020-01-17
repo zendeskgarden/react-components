@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { PropsWithChildren, HTMLProps, useCallback } from 'react';
+import React, { PropsWithChildren, HTMLAttributes, useCallback } from 'react';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
 import useDatepickerRangeContext from '../utils/useDatepickerRangeContext';
 
-const End = (props: PropsWithChildren<HTMLProps<HTMLInputElement>>) => {
+const End = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>) => {
   const { state, dispatch, endInputRef } = useDatepickerRangeContext();
 
   const onChangeCallback = useCallback(

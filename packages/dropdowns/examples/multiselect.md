@@ -121,7 +121,7 @@ function ExampleAutocomplete() {
         <Label>Multiselect with debounce</Label>
         <Hint>This example includes basic debounce logic</Hint>
         <Multiselect
-          small
+          isSmall
           renderItem={({ value, removeValue }) => (
             <Tag>
               {value} <Tag.Close onClick={() => removeValue()} />
@@ -129,7 +129,7 @@ function ExampleAutocomplete() {
           )}
         />
       </Field>
-      <Menu small>{renderOptions()}</Menu>
+      <Menu isSmall>{renderOptions()}</Menu>
     </Dropdown>
   );
 }
