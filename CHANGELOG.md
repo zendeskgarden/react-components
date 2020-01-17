@@ -12,6 +12,35 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v7.1.5 (2020-01-17)
+
+#### :bug: Bug Fix
+* `tooltips`
+  * [#593](https://github.com/zendeskgarden/react-components/pull/593) fix(tooltips): improve tooltip rendering performance ([@austin94](https://github.com/austin94))
+    * Tooltips now render efficiently when used in large (500+) numbers
+
+#### :seedling: Internal
+* Other
+  * [#590](https://github.com/zendeskgarden/react-components/pull/590) chore(deps): update dependency stylelint-order to v4 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#589](https://github.com/zendeskgarden/react-components/pull/589) chore(deps): update dependency stylelint to v13 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#592](https://github.com/zendeskgarden/react-components/pull/592) chore(deps): update dependency typescript to v3.7.5 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#585](https://github.com/zendeskgarden/react-components/pull/585) chore(deps): update dependency @svgr/webpack to v5 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#586](https://github.com/zendeskgarden/react-components/pull/586) chore(deps): update dependency husky to v4 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#571](https://github.com/zendeskgarden/react-components/pull/571) chore(deps): bump handlebars from 4.1.2 to 4.5.3 in /examples/codesandbox/garden-create-react-app ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#568](https://github.com/zendeskgarden/react-components/pull/568) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#567](https://github.com/zendeskgarden/react-components/pull/567) chore(deps): update dependency lerna-changelog to v1 ([@renovate[bot]](https://github.com/apps/renovate))
+* `dropdowns`
+  * [#591](https://github.com/zendeskgarden/react-components/pull/591) fix(deps): update dependency downshift to v4 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#565](https://github.com/zendeskgarden/react-components/pull/565) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `chrome`, `datepickers`, `dropdowns`, `forms`, `modals`, `pagination`, `tables`, `tabs`, `tags`, `tooltips`
+  * [#584](https://github.com/zendeskgarden/react-components/pull/584) fix(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `forms`
+  * [#583](https://github.com/zendeskgarden/react-components/pull/583) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `avatars`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `tooltips`
+  * [#564](https://github.com/zendeskgarden/react-components/pull/564) chore(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `datepickers`
+  * [#536](https://github.com/zendeskgarden/react-components/pull/536) chore(deps): update dependency @zendeskgarden/stylelint-config to v12 ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v7.1.4 (2019-12-17)
 
 #### :seedling: Internal
