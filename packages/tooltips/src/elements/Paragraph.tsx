@@ -9,10 +9,11 @@ import React, { HTMLAttributes } from 'react';
 import { StyledParagraph } from '../styled';
 
 /**
- * Accepts all `<div>` props
+ * Accepts all `<p>` props
  */
-export const Paragraph = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  (props, ref) => <StyledParagraph ref={ref} {...props} />
-);
+export const Paragraph = React.forwardRef<
+  HTMLParagraphElement,
+  HTMLAttributes<HTMLParagraphElement>
+>((props, ref) => <StyledParagraph ref={ref} {...props} />);
 
 export default Paragraph;
