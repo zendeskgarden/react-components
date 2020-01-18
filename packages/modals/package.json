@@ -19,6 +19,7 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
+    "@zendeskgarden/container-focusvisible": "^0.3.0",
     "@zendeskgarden/container-modal": "^0.4.0",
     "@zendeskgarden/container-utilities": "^0.3.0",
     "@zendeskgarden/react-utilities": "^8.0.0-next.0",
