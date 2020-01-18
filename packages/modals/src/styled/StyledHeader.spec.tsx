@@ -7,17 +7,17 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import Header from './Header';
+import { StyledHeader } from './StyledHeader';
 
-describe('Header', () => {
+describe('StyledHeader', () => {
   it('renders default styling', () => {
-    const { container } = render(<Header />);
+    const { container } = render(<StyledHeader />);
 
     expect(container.firstChild).toHaveClass('c-dialog__header');
   });
 
   it('renders danger styling if provided', () => {
-    const { container } = render(<Header danger />);
+    const { container } = render(<StyledHeader isDanger />);
 
     expect(container.firstChild).toHaveClass('c-dialog__header--danger');
   });

@@ -9,22 +9,16 @@ import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import ModalStyles from '@zendeskgarden/css-modals';
 
-const COMPONENT_ID = 'modals.footer_item';
+const COMPONENT_ID = 'modals.footer';
 
-/**
- * Accepts all `<span>` props
- */
-const FooterItem = styled.span.attrs({
+export const StyledFooter = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: ModalStyles['c-dialog__footer__item']
+  className: ModalStyles['c-dialog__footer']
 })`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-FooterItem.defaultProps = {
+StyledFooter.defaultProps = {
   theme: DEFAULT_THEME
 };
-
-/** @component */
-export default FooterItem;

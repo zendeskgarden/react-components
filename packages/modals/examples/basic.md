@@ -9,9 +9,9 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
 
 initialState = {
   isModalVisible: false,
-  danger: false,
-  large: false,
-  animate: true
+  isDanger: false,
+  isLarge: false,
+  isAnimated: true
 };
 
 const onModalClose = () => setState({ isModalVisible: false });
@@ -24,9 +24,9 @@ const onModalClose = () => setState({ isModalVisible: false });
           onClick={() =>
             setState({
               isModalVisible: true,
-              danger: false,
-              large: false,
-              animate: true
+              isDanger: false,
+              isLarge: false,
+              isAnimated: true
             })
           }
         >
@@ -35,13 +35,13 @@ const onModalClose = () => setState({ isModalVisible: false });
       </Col>
       <Col md>
         <Button
-          danger
+          isDanger
           onClick={() =>
             setState({
               isModalVisible: true,
-              danger: true,
-              large: false,
-              animate: true
+              isDanger: true,
+              isLarge: false,
+              isAnimated: true
             })
           }
         >
@@ -53,9 +53,9 @@ const onModalClose = () => setState({ isModalVisible: false });
           onClick={() =>
             setState({
               isModalVisible: true,
-              danger: false,
-              large: true,
-              animate: true
+              isDanger: false,
+              isLarge: true,
+              isAnimated: true
             })
           }
         >
@@ -67,9 +67,9 @@ const onModalClose = () => setState({ isModalVisible: false });
           onClick={() =>
             setState({
               isModalVisible: true,
-              danger: false,
-              large: false,
-              animate: false
+              isDanger: false,
+              isLarge: false,
+              isAnimated: false
             })
           }
         >
@@ -79,12 +79,12 @@ const onModalClose = () => setState({ isModalVisible: false });
     </Row>
   </Grid>
   {state.isModalVisible && (
-    <Modal onClose={onModalClose} large={state.large} animate={state.animate}>
-      <Header danger={state.danger}>Example Header</Header>
+    <Modal onClose={onModalClose} isLarge={state.isLarge} isAnimated={state.isAnimated}>
+      <Header isDanger={state.isDanger}>Example Header</Header>
       <Body>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat.
+        Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya es
+        black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea lettuce lettuce water
+        chestnut eggplant winter purslane fennel azuki.
       </Body>
       <Footer>
         <FooterItem>
@@ -93,7 +93,7 @@ const onModalClose = () => setState({ isModalVisible: false });
           </Button>
         </FooterItem>
         <FooterItem>
-          <Button onClick={onModalClose} primary danger={state.danger}>
+          <Button onClick={onModalClose} isPrimary isDanger={state.isDanger}>
             Confirm
           </Button>
         </FooterItem>
@@ -149,7 +149,7 @@ const onModalClose = () => setState({ isModalVisible: false });
           </Button>
         </FooterItem>
         <FooterItem>
-          <Button primary onClick={onModalClose}>
+          <Button isPrimary onClick={onModalClose}>
             Confirm
           </Button>
         </FooterItem>
@@ -199,13 +199,13 @@ const onModalClose = () => setState({ isModalVisible: false });
     >
       <Header>{state.width} Header</Header>
       <Body>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-        galley of type and scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-        passages, and more recently with desktop publishing software like Aldus PageMaker including
-        versions of Lorem Ipsum.
+        Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth pea
+        water spinach avocado daikon napa cabbage asparagus winter purslane kale. Celery potato
+        desert raisin horseradish spinach carrot soko. Lotus root water spinach fennel kombu maize
+        bamboo shoot green bean swiss chard seakale pumpkin onion chickpea gram corn pea. Brussels
+        sprout coriander water chestnut gourd swiss chard wakame kohlrabi beetroot kale watercress.
+        Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.
+        Nori grape silver kombu.
       </Body>
       <Close aria-label="Close modal" />
     </Modal>

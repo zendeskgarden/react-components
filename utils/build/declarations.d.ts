@@ -27,3 +27,4 @@ declare module '@zendeskgarden/css-chrome';
 declare module '@zendeskgarden/css-tables';
 declare module '@zendeskgarden/css-callouts';
 declare module '@zendeskgarden/css-pagination';
+declare module '@zendeskgarden/css-modals';

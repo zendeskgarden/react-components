@@ -9,27 +9,27 @@ import React from 'react';
 import { render, fireEvent } from 'garden-test-utils';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
 
-import Modal from './Modal';
-import Body from '../views/Body';
-import Footer from '../views/Footer';
-import Header from '../views/Header';
-import Close from '../views/Close';
+import { Modal, IModalProps } from './Modal';
+import { Body } from './Body';
+import { Footer } from './Footer';
+import { Header } from './Header';
+import { Close } from './Close';
 
 describe('Modal', () => {
   const MODAL_ID = 'TEST_ID';
-  let onCloseSpy;
+  let onCloseSpy: jest.Mock;
 
-  const BasicExample = props => (
+  const BasicExample = (props: IModalProps) => (
     <Modal
       {...props}
       id={MODAL_ID}
       data-test-id="modal"
-      backdropProps={{ 'data-test-id': 'backdrop' }}
+      backdropProps={{ 'data-test-id': 'backdrop' } as any}
     >
       <Header data-test-id="header">Example Header</Header>
       <Body data-test-id="body">Body content</Body>
       <Footer data-test-id="footer">
-        <button onClick={props.onClose}>Confirm</button>
+        <button onClick={props.onClose as any}>Confirm</button>
       </Footer>
       <Close data-test-id="close" />
     </Modal>
@@ -66,7 +66,7 @@ describe('Modal', () => {
     expect(getByTestId('backdrop')).not.toBe(null);
   });
 
-  it('applies modal props to ModalView element', () => {
+  it('applies modal props to StyledModal element', () => {
     const { getByTestId } = render(<BasicExample />);
 
     expect(getByTestId('modal')).toHaveAttribute('aria-modal', 'true');

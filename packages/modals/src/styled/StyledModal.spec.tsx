@@ -7,29 +7,29 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import ModalView from './ModalView';
+import { StyledModal } from './StyledModal';
 
-describe('ModalView', () => {
+describe('StyledModal', () => {
   it('renders default styling', () => {
-    const { container } = render(<ModalView />);
+    const { container } = render(<StyledModal />);
 
     expect(container.firstChild).toHaveClass('c-dialog');
   });
 
   it('renders RTL styling if provided', () => {
-    const { container } = renderRtl(<ModalView />);
+    const { container } = renderRtl(<StyledModal />);
 
     expect(container.firstChild).toHaveClass('is-rtl');
   });
 
   it('renders large styling if provided', () => {
-    const { container } = render(<ModalView large />);
+    const { container } = render(<StyledModal isLarge />);
 
     expect(container.firstChild).toHaveClass('c-dialog--large');
   });
 
   it('renders animate styling if provided', () => {
-    const { container } = render(<ModalView animate />);
+    const { container } = render(<StyledModal isAnimated />);
 
     expect(container.firstChild).toHaveClass('is-open');
   });

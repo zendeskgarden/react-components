@@ -13,34 +13,36 @@ import ModalStyles from '@zendeskgarden/css-modals';
 
 const COMPONENT_ID = 'modals.modal_view';
 
+export interface IStyledModalProps {
+  isLarge?: boolean;
+  isAnimated?: boolean;
+}
+
 /**
  * Accepts all `<div>` props
  */
-const ModalView = styled.div.attrs(props => ({
+export const StyledModal = styled.div.attrs<IStyledModalProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(ModalStyles['c-dialog'], {
     // Sizing
-    [ModalStyles['c-dialog--large']]: props.large,
+    [ModalStyles['c-dialog--large']]: props.isLarge,
 
     // States
-    [ModalStyles['is-open']]: props.animate,
+    [ModalStyles['is-open']]: props.isAnimated,
 
     // RTL
     [ModalStyles['is-rtl']]: isRtl(props)
   })
-}))`
+}))<IStyledModalProps>`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-ModalView.propTypes = {
-  large: PropTypes.bool,
-  animate: PropTypes.bool
+StyledModal.propTypes = {
+  isLarge: PropTypes.bool,
+  isAnimated: PropTypes.bool
 };
 
-ModalView.defaultProps = {
+StyledModal.defaultProps = {
   theme: DEFAULT_THEME
 };
-
-/** @component */
-export default ModalView;

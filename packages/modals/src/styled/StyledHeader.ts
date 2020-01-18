@@ -6,25 +6,30 @@
  */
 
 import styled from 'styled-components';
+import classNames from 'classnames';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import ModalStyles from '@zendeskgarden/css-modals';
 
-const COMPONENT_ID = 'modals.footer';
+const COMPONENT_ID = 'modals.header';
 
-/**
- * Accepts all `<div>` props
- */
-const Footer = styled.div.attrs({
+export interface IStyledHeaderProps {
+  /**
+   * Enable danger header styling
+   */
+  isDanger?: boolean;
+}
+
+export const StyledHeader = styled.div.attrs<IStyledHeaderProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: ModalStyles['c-dialog__footer']
-})`
+  className: classNames(ModalStyles['c-dialog__header'], {
+    // Danger styling
+    [ModalStyles['c-dialog__header--danger']]: props.isDanger
+  })
+}))<IStyledHeaderProps>`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-Footer.defaultProps = {
+StyledHeader.defaultProps = {
   theme: DEFAULT_THEME
 };
-
-/** @component */
-export default Footer;
