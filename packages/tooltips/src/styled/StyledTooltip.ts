@@ -167,6 +167,7 @@ export const StyledTooltip = styled.div.attrs<IStyledTooltipProps>({
   display: inline-block;
   box-sizing: border-box;
   direction: ${props => props.theme.rtl && 'rtl'};
+  text-align: ${props => (props.theme.rtl ? 'right' : 'left')};
   font-weight: ${props => props.theme.fontWeights.regular};
 
   ${props => sizeStyles(props)};
