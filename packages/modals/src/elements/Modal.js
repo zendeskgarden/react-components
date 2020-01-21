@@ -9,6 +9,7 @@ import React, { Children, cloneElement, isValidElement, useEffect } from 'react'
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import { useModal } from '@zendeskgarden/container-modal';
+import { useFocusVisible } from '@zendeskgarden/container-focusvisible';
 import { useCombinedRefs } from '@zendeskgarden/container-utilities';
 import { hasType } from '@zendeskgarden/react-utilities';
 import isWindow from 'dom-helpers/isWindow';
@@ -55,6 +56,8 @@ const Modal = React.forwardRef(
       getContentProps,
       getCloseProps
     } = useModal({ id, onClose, modalRef });
+
+    useFocusVisible({ scope: modalRef });
 
     useEffect(() => {
       const bodyElement = document.querySelector('body');
