@@ -14,7 +14,7 @@ const COMPONENT_ID = 'dropdowns.label';
 
 export interface IStyledLabel {
   isRegular?: boolean;
-  isSmall?: boolean;
+  isCompact?: boolean;
 }
 
 /**
@@ -25,7 +25,7 @@ export const StyledLabel = styled.label.attrs<IStyledLabel>(props => ({
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(TextStyles['c-txt__label'], {
     [TextStyles['c-txt__label--regular']]: props.isRegular,
-    [TextStyles['c-txt__label--sm']]: props.isSmall,
+    [TextStyles['c-txt__label--sm']]: props.isCompact,
 
     // RTL
     [TextStyles['is-rtl']]: isRtl(props)

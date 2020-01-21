@@ -14,7 +14,7 @@ import { StyledLabel } from '../../styled';
 
 interface ILabelProps extends HTMLAttributes<HTMLLabelElement> {
   isRegular?: boolean;
-  isSmall?: boolean;
+  isCompact?: boolean;
 }
 
 /**
@@ -43,7 +43,7 @@ const Label = React.forwardRef<HTMLLabelElement, ILabelProps>(
 
 Label.propTypes = {
   isRegular: PropTypes.bool,
-  isSmall: PropTypes.bool
+  isCompact: PropTypes.bool
 };
 
 export default Label;

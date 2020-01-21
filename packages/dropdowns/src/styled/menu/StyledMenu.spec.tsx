@@ -24,7 +24,7 @@ describe('StyledMenuView', () => {
   });
 
   it('renders small styling correctly', () => {
-    const { container } = render(<StyledMenu isSmall />);
+    const { container } = render(<StyledMenu isCompact />);
 
     expect(container.querySelector('ul')).toHaveClass('c-menu--sm');
   });

@@ -18,7 +18,7 @@ interface IAutocompleteProps {
   tagLayout?: boolean;
   /** Applies flex layout to support MediaFigure components */
   mediaLayout?: boolean;
-  isSmall?: boolean;
+  isCompact?: boolean;
   /** Removes all borders and styling */
   isBare?: boolean;
   disabled?: boolean;
@@ -114,7 +114,7 @@ Autocomplete.propTypes = {
   tagLayout: PropTypes.bool,
   /** Applies flex layout to support MediaFigure components */
   mediaLayout: PropTypes.bool,
-  isSmall: PropTypes.bool,
+  isCompact: PropTypes.bool,
   /** Removes all borders and styling */
   isBare: PropTypes.bool,
   disabled: PropTypes.bool,

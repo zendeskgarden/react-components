@@ -32,7 +32,7 @@ interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
    **/
   placement?: GARDEN_PLACEMENT;
   isAnimated?: boolean;
-  isSmall?: boolean;
+  isCompact?: boolean;
   isHidden?: boolean;
   hasArrow?: boolean;
   maxHeight?: string;
@@ -155,7 +155,7 @@ Menu.propTypes = {
     'start-bottom'
   ]),
   isAnimated: PropTypes.bool,
-  isSmall: PropTypes.bool,
+  isCompact: PropTypes.bool,
   isHidden: PropTypes.bool,
   hasArrow: PropTypes.bool,
   maxHeight: PropTypes.string

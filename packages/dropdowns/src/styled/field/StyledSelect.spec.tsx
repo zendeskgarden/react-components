@@ -25,7 +25,7 @@ describe('StyledSelect', () => {
   });
 
   it('renders small styling', () => {
-    const { container } = render(<StyledSelect isSmall />);
+    const { container } = render(<StyledSelect isCompact />);
 
     expect(container.firstChild).toHaveClass('c-txt__input--sm');
   });

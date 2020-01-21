@@ -13,7 +13,7 @@ import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 const COMPONENT_ID = 'dropdowns.hint';
 
 export interface IStyledHintProps {
-  isSmall?: boolean;
+  isCompact?: boolean;
 }
 
 /**
@@ -23,7 +23,7 @@ export const StyledHint = styled.div.attrs<IStyledHintProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(TextStyles['c-txt__hint'], {
-    [TextStyles['c-txt__hint--sm']]: props.isSmall,
+    [TextStyles['c-txt__hint--sm']]: props.isCompact,
 
     // RTL
     [TextStyles['is-rtl']]: isRtl(props)

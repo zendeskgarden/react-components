@@ -23,7 +23,7 @@ describe('StyledHint', () => {
   });
 
   it('renders small styling', () => {
-    const { container } = render(<StyledHint isSmall />);
+    const { container } = render(<StyledHint isCompact />);
 
     expect(container.firstChild).toHaveClass('c-txt__hint--sm');
   });

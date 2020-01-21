@@ -19,7 +19,7 @@ const isInvalid = (validation?: VALIDATION) => {
 
 export interface IStyledSelectProps {
   validation?: VALIDATION;
-  isSmall?: boolean;
+  isCompact?: boolean;
   /** Allows flush spacing of Tab elements */
   tagLayout?: boolean;
   /** Applies flex layout to support MediaFigure components */
@@ -40,7 +40,7 @@ export const StyledSelect = styled.div.attrs<IStyledSelectProps>(props => ({
   'data-garden-version': PACKAGE_VERSION,
   'aria-invalid': isInvalid(props.validation),
   className: classNames(TextStyles['c-txt__input'], TextStyles['c-txt__input--select'], {
-    [TextStyles['c-txt__input--sm']]: props.isSmall,
+    [TextStyles['c-txt__input--sm']]: props.isCompact,
 
     // Unable to use `tag` prop due to it being a valid, non-boolean prop
     [TextStyles['c-txt__input--tag']]: props.tagLayout,

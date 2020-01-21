@@ -23,7 +23,7 @@ describe('StyledLabel', () => {
   });
 
   it('renders small styling', () => {
-    const { container } = render(<StyledLabel isSmall />);
+    const { container } = render(<StyledLabel isCompact />);
 
     expect(container.firstChild).toHaveClass('c-txt__label--sm');
   });

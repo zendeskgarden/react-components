@@ -18,7 +18,7 @@ StyledItemWrapper.defaultProps = {
 };
 
 interface IStyledMultiselectInputProps {
-  isSmall: boolean;
+  isCompact: boolean;
   isVisible: boolean;
 }
 
@@ -29,7 +29,7 @@ export const StyledMultiselectInput = styled(StyledInput)<IStyledMultiselectInpu
     margin: 2px;
     width: inherit;
     min-width: 60px;
-    line-height: ${props => (props.isSmall ? 20 / 14 : 32 / 14)};
+    line-height: ${props => (props.isCompact ? 20 / 14 : 32 / 14)};
   }
 
   ${props =>

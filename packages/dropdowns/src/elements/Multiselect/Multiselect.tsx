@@ -26,7 +26,7 @@ import { REMOVE_ITEM_STATE_TYPE } from '../Dropdown/Dropdown';
 interface IMultiselectProps {
   /** Applies flex layout to support MediaFigure components */
   mediaLayout?: boolean;
-  isSmall?: boolean;
+  isCompact?: boolean;
   /** Removes all borders and styling */
   isBare?: boolean;
   disabled?: boolean;
@@ -307,7 +307,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
                   }
                 },
                 isVisible: isFocused || inputValue || selectedItems.length === 0,
-                isSmall: props.isSmall,
+                isCompact: props.isCompact,
                 ref: inputRef,
                 placeholder: selectedItems.length === 0 ? placeholder : undefined
               }) as any)}
@@ -322,7 +322,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
 Multiselect.propTypes = {
   /** Applies flex layout to support MediaFigure components */
   mediaLayout: PropTypes.bool,
-  isSmall: PropTypes.bool,
+  isCompact: PropTypes.bool,
   /** Removes all borders and styling */
   isBare: PropTypes.bool,
   disabled: PropTypes.bool,

@@ -19,7 +19,7 @@ const Hint = StyledHint as React.FunctionComponent<
 Hint.displayName = 'Hint';
 
 Hint.propTypes = {
-  isSmall: PropTypes.bool
+  isCompact: PropTypes.bool
 };
 
 export default Hint;
