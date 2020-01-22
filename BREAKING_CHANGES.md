@@ -75,23 +75,23 @@ should be re-checked for ID naming accuracy.
 
 - The following boolean props have been renamed:
   - `Autocomplete`, `Multiselect`, `Select`
-    - `small` -> `isSmall`
+    - `small` -> `isCompact`
     - `isBare` -> `isBare`
     - `focused` -> `isFocused`
     - `hovered` -> `isHovered`
     - `open` -> `isOpen`
   - `Hint`
-    - `small` -> `isSmall`
+    - `small` -> `isCompact`
   - `Label`
     - `regular` -> `isRegular`
-    - `small` -> `isSmall`
+    - `small` -> `isCompact`
   - `AddItem`, `HeaderItem`, `Item`, `MediaItem`, `NextItem`, `PreviousItem`
     - `active` -> `isActive`
     - `focused` -> `isFocused`
     - `hovered` -> `isHovered`
   - `Menu`
     - `animate` -> `isAnimated`
-    - `small` -> `isSmall`
+    - `small` -> `isCompact`
     - `hidden` -> `isHidden`
     - `arrow` -> `hasArrow`
 
