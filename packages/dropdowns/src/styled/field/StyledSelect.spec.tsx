@@ -25,7 +25,7 @@ describe('StyledSelect', () => {
   });
 
   it('renders small styling', () => {
-    const { container } = render(<StyledSelect small />);
+    const { container } = render(<StyledSelect isCompact />);
 
     expect(container.firstChild).toHaveClass('c-txt__input--sm');
   });
@@ -43,7 +43,7 @@ describe('StyledSelect', () => {
   });
 
   it('renders bare styling', () => {
-    const { container } = render(<StyledSelect bare />);
+    const { container } = render(<StyledSelect isBare />);
 
     expect(container.firstChild).toHaveClass('c-txt__input--bare');
   });
@@ -62,19 +62,19 @@ describe('StyledSelect', () => {
     });
 
     it('renders focused inset styling', () => {
-      const { container } = render(<StyledSelect focused />);
+      const { container } = render(<StyledSelect isFocused />);
 
       expect(container.firstChild).toHaveClass('is-focused');
     });
 
     it('renders hovered inset styling', () => {
-      const { container } = render(<StyledSelect hovered />);
+      const { container } = render(<StyledSelect isHovered />);
 
       expect(container.firstChild).toHaveClass('is-hovered');
     });
 
     it('renders open inset styling', () => {
-      const { container } = render(<StyledSelect open />);
+      const { container } = render(<StyledSelect isOpen />);
 
       expect(container.firstChild).toHaveClass('is-open');
     });

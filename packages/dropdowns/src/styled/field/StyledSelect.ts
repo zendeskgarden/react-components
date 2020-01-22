@@ -19,20 +19,20 @@ const isInvalid = (validation?: VALIDATION) => {
 
 export interface IStyledSelectProps {
   validation?: VALIDATION;
-  small?: boolean;
+  isCompact?: boolean;
   /** Allows flush spacing of Tab elements */
   tagLayout?: boolean;
   /** Applies flex layout to support MediaFigure components */
   mediaLayout?: boolean;
   /** Removes all borders and styling */
-  bare?: boolean;
+  isBare?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
   disabled?: boolean;
-  focused?: boolean;
-  hovered?: boolean;
+  isFocused?: boolean;
+  isHovered?: boolean;
   /** Displays select open state */
-  open?: boolean;
+  isOpen?: boolean;
 }
 
 export const StyledSelect = styled.div.attrs<IStyledSelectProps>(props => ({
@@ -40,20 +40,20 @@ export const StyledSelect = styled.div.attrs<IStyledSelectProps>(props => ({
   'data-garden-version': PACKAGE_VERSION,
   'aria-invalid': isInvalid(props.validation),
   className: classNames(TextStyles['c-txt__input'], TextStyles['c-txt__input--select'], {
-    [TextStyles['c-txt__input--sm']]: props.small,
+    [TextStyles['c-txt__input--sm']]: props.isCompact,
 
     // Unable to use `tag` prop due to it being a valid, non-boolean prop
     [TextStyles['c-txt__input--tag']]: props.tagLayout,
 
     // Unable to use `media` prop due to it being a valid, non-boolean prop
     [TextStyles['c-txt__input--media']]: props.mediaLayout,
-    [TextStyles['c-txt__input--bare']]: props.bare,
+    [TextStyles['c-txt__input--bare']]: props.isBare,
     [TextStyles['c-txt__input--focus-inset']]: props.focusInset,
 
     [TextStyles['is-disabled']]: props.disabled,
-    [TextStyles['is-focused']]: props.focused,
-    [TextStyles['is-hovered']]: props.hovered,
-    [TextStyles['is-open']]: props.open,
+    [TextStyles['is-focused']]: props.isFocused,
+    [TextStyles['is-hovered']]: props.isHovered,
+    [TextStyles['is-open']]: props.isOpen,
 
     [TextStyles['c-txt__input--success']]: props.validation === VALIDATION.SUCCESS,
     [TextStyles['c-txt__input--warning']]: props.validation === VALIDATION.WARNING,

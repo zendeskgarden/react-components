@@ -71,6 +71,30 @@ should be re-checked for ID naming accuracy.
 
 - `Datepicker` and `DatepickerRange` `small` prop is renamed to `isCompact`
 
+## @zendeskgarden/react-dropdowns
+
+- The following boolean props have been renamed:
+  - `Autocomplete`, `Multiselect`, `Select`
+    - `small` -> `isCompact`
+    - `isBare` -> `isBare`
+    - `focused` -> `isFocused`
+    - `hovered` -> `isHovered`
+    - `open` -> `isOpen`
+  - `Hint`
+    - `small` -> `isCompact`
+  - `Label`
+    - `regular` -> `isRegular`
+    - `small` -> `isCompact`
+  - `AddItem`, `HeaderItem`, `Item`, `MediaItem`, `NextItem`, `PreviousItem`
+    - `active` -> `isActive`
+    - `focused` -> `isFocused`
+    - `hovered` -> `isHovered`
+  - `Menu`
+    - `animate` -> `isAnimated`
+    - `small` -> `isCompact`
+    - `hidden` -> `isHidden`
+    - `arrow` -> `hasArrow`
+
 ## @zendeskgarden/react-forms
 
 - no longer packages a `styles.css` dist; CSS is self-contained

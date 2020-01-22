@@ -17,19 +17,19 @@ describe('StyledItem', () => {
   });
 
   it('renders active styling', () => {
-    const { container } = render(<StyledItem active />);
+    const { container } = render(<StyledItem isActive />);
 
     expect(container.firstChild).toHaveClass('is-active');
   });
 
   it('renders focused styling', () => {
-    const { container } = render(<StyledItem focused />);
+    const { container } = render(<StyledItem isFocused />);
 
     expect(container.firstChild).toHaveClass('is-focused');
   });
 
   it('renders hovered styling', () => {
-    const { container } = render(<StyledItem hovered />);
+    const { container } = render(<StyledItem isHovered />);
 
     expect(container.firstChild).toHaveClass('is-hovered');
   });

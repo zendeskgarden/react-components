@@ -17,17 +17,19 @@ StyledItemWrapper.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-export const StyledMultiselectInput = styled(StyledInput)<{
-  isSmall: boolean;
+interface IStyledMultiselectInputProps {
+  isCompact: boolean;
   isVisible: boolean;
-}>`
+}
+
+export const StyledMultiselectInput = styled(StyledInput)<IStyledMultiselectInputProps>`
   && {
     flex-basis: 60px;
     flex-grow: 1;
     margin: 2px;
     width: inherit;
     min-width: 60px;
-    line-height: ${props => (props.isSmall ? 20 / 14 : 32 / 14)};
+    line-height: ${props => (props.isCompact ? 20 / 14 : 32 / 14)};
   }
 
   ${props =>
