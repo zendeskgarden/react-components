@@ -15,11 +15,11 @@ export interface IModalContext {
 
 export const ModalsContext = createContext<IModalContext | undefined>(undefined);
 
-export const useModalsContext = () => {
+export const useModalContext = () => {
   const context = useContext(ModalsContext);
 
   if (context === undefined) {
-    throw new Error('useModalsContext must be used within a ModalsContext.Provider');
+    throw new Error('useModalContext must be used within a ModalsContext.Provider');
   }
 
   return context;

@@ -129,8 +129,8 @@ New features/fixes include:
 - `<Close>` no longer accepts the `focused` and `hovered` props. The styling for these states are
   included with the component, and focusvisible is used.
 
-- The `<Backdrop>` and `<ModalView>` components are deprecated. The abstraction for these
-  components are now built into `<Modal>`.
+- The `<Backdrop>` and `<ModalView>` components are no longer supported and cannot be used. The
+  abstraction for these components are now built into `<Modal>`.
 
 ## @zendeskgarden/react-notifications
 

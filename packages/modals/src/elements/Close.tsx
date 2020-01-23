@@ -7,14 +7,14 @@
 
 import React from 'react';
 import { StyledClose } from '../styled';
-import { useModalsContext } from '../utils/useModalContext';
+import { useModalContext } from '../utils/useModalContext';
 
 /**
  * Used to close a Modal. Accepts all `<button>` props.
  */
 export const Close = React.forwardRef<HTMLButtonElement, React.HTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
-    const { getCloseProps } = useModalsContext();
+    const { getCloseProps } = useModalContext();
 
     return <StyledClose ref={ref} {...getCloseProps(props)} />;
   }
