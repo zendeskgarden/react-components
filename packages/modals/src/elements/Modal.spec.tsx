@@ -29,7 +29,7 @@ describe('Modal', () => {
       <Header data-test-id="header">Example Header</Header>
       <Body data-test-id="body">Body content</Body>
       <Footer data-test-id="footer">
-        <button onClick={props.onClose as any}>Confirm</button>
+        <button onClick={() => props.onClose}>Confirm</button>
       </Footer>
       <Close data-test-id="close" />
     </Modal>
