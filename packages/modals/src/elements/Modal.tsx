@@ -50,7 +50,7 @@ export interface IModalProps {
    */
   onClose?: (event: KeyboardEvent | MouseEvent) => void;
   /**
-   * Center modal
+   * Center the modal on the backdrop
    */
   isCentered?: boolean;
   /**
