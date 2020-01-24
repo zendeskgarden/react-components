@@ -7,30 +7,29 @@
 
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import ModalStyles from '@zendeskgarden/css-modals';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'modals.header';
+const COMPONENT_ID = 'modals.close';
+
+export interface IStyledCloseProps {
+  hovered?: boolean;
+}
 
 /**
- * Accepts all `<div>` props
+ * Supports all `<button>` props.
  */
-const Header = styled.div.attrs(props => ({
+export const StyledClose = styled.button.attrs<IStyledCloseProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: classNames(ModalStyles['c-dialog__header'], {
-    // Danger styling
-    [ModalStyles['c-dialog__header--danger']]: props.danger
+  className: classNames(ModalStyles['c-dialog__close'], {
+    // State
+    [ModalStyles['is-hovered']]: props.hovered
   })
-}))`
+}))<IStyledCloseProps>`
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-Header.defaultProps = {
+StyledClose.defaultProps = {
   theme: DEFAULT_THEME
 };
-
-Header.hasType = () => Header;
-
-/** @component */
-export default Header;

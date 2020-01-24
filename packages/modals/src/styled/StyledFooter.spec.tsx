@@ -7,11 +7,11 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import Footer from './Footer';
+import { StyledFooter } from './StyledFooter';
 
-describe('Footer', () => {
+describe('StyledFooter', () => {
   it('renders default styling', () => {
-    const { container } = render(<Footer />);
+    const { container } = render(<StyledFooter />);
 
     expect(container.firstChild).toHaveClass('c-dialog__footer');
   });

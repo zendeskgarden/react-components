@@ -7,11 +7,11 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import Body from './Body';
+import { StyledBody } from './StyledBody';
 
-describe('Body', () => {
+describe('StyledBody', () => {
   it('renders default styling', () => {
-    const { container } = render(<Body />);
+    const { container } = render(<StyledBody />);
 
     expect(container.firstChild).toHaveClass('c-dialog__body');
   });

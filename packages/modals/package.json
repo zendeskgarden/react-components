@@ -18,11 +18,11 @@
     "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
+  "types": "dist/typings/index.d.ts",
   "dependencies": {
     "@zendeskgarden/container-focusvisible": "^0.3.0",
-    "@zendeskgarden/container-modal": "^0.4.0",
-    "@zendeskgarden/container-utilities": "^0.3.0",
-    "@zendeskgarden/react-utilities": "^8.0.0-next.0",
+    "@zendeskgarden/container-modal": "^0.6.0",
+    "@zendeskgarden/container-utilities": "^0.4.0",
     "classnames": "^2.2.5",
     "dom-helpers": "^5.1.0"
   },
@@ -48,5 +48,5 @@
   },
   "zendeskgarden:library": "GardenModals",
   "zendeskgarden:max_size": "14 kB",
-  "zendeskgarden:src": "src/index.js"
+  "zendeskgarden:src": "src/index.ts"
 }

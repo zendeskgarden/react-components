@@ -13,35 +13,35 @@ import ModalStyles from '@zendeskgarden/css-modals';
 
 const COMPONENT_ID = 'modals.backdrop';
 
+export interface IStyledBackdropProps {
+  isCentered?: boolean;
+  isAnimated?: boolean;
+}
+
 /**
  * Accepts all `<div>` props
  */
-const Backdrop = styled.div.attrs(props => ({
+export const StyledBackdrop = styled.div.attrs<IStyledBackdropProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: classNames(ModalStyles['l-backdrop'], {
-    [ModalStyles['l-backdrop--center']]: props.center,
-    [ModalStyles['is-visible']]: props.animate,
+    [ModalStyles['l-backdrop--center']]: props.isCentered,
+    [ModalStyles['is-visible']]: props.isAnimated,
 
     // RTL
     [ModalStyles['is-rtl']]: isRtl(props)
   })
-}))`
+}))<IStyledBackdropProps>`
   font-family: ${props => props.theme.fonts.system};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-Backdrop.defaultProps = {
+StyledBackdrop.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-Backdrop.propTypes = {
-  center: PropTypes.bool,
-  animate: PropTypes.bool,
-  /** @ignore */
-  theme: PropTypes.object
+StyledBackdrop.propTypes = {
+  isCentered: PropTypes.bool,
+  isAnimated: PropTypes.bool
 };
-
-/** @component */
-export default Backdrop;

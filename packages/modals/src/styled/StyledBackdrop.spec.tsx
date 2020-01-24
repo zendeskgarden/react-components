@@ -7,29 +7,29 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import Backdrop from './Backdrop';
+import { StyledBackdrop } from './StyledBackdrop';
 
-describe('Backdrop', () => {
+describe('StyledBackdrop', () => {
   it('renders default styling', () => {
-    const { container } = render(<Backdrop />);
+    const { container } = render(<StyledBackdrop />);
 
     expect(container.firstChild).toHaveClass('l-backdrop');
   });
 
   it('renders RTL styling', () => {
-    const { container } = renderRtl(<Backdrop />);
+    const { container } = renderRtl(<StyledBackdrop />);
 
     expect(container.firstChild).toHaveClass('is-rtl');
   });
 
   it('renders center styling if provided', () => {
-    const { container } = render(<Backdrop center />);
+    const { container } = render(<StyledBackdrop isCentered />);
 
     expect(container.firstChild).toHaveClass('l-backdrop--center');
   });
 
   it('renders animation styling if provided', () => {
-    const { container } = render(<Backdrop animate />);
+    const { container } = render(<StyledBackdrop isAnimated />);
 
     expect(container.firstChild).toHaveClass('is-visible');
   });
