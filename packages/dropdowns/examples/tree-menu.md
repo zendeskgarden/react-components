@@ -28,7 +28,6 @@ const renderItems = () => {
   return (
     <>
       <HeaderItem>General Settings</HeaderItem>
-      <Separator />
       <Item value="profile">Profile</Item>
       <Item value="settings">Settings</Item>
       <Item value="user-images">User Images</Item>

@@ -26,7 +26,6 @@ initialState = {
   </Trigger>
   <Menu placement="end" hasArrow>
     <HeaderItem>Header Item</HeaderItem>
-    <Separator />
     <Item value="profile">Option 1</Item>
     <Item value="settings">Option 2</Item>
     <Item disabled>Disabled item</Item>

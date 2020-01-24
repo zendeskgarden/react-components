@@ -7,28 +7,28 @@
 
 import React, { useEffect, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-
-import { StyledItem } from '../../../styled';
+import SelectedSvg from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
+import { StyledItem, StyledItemIcon } from '../../../styled';
 import useDropdownContext from '../../../utils/useDropdownContext';
 import useMenuContext from '../../../utils/useMenuContext';
 
 export interface IItemProps extends HTMLAttributes<HTMLLIElement> {
-  /* The value that is returned through Dropdown during selection */
+  /**
+   * The value that is returned through Dropdown during selection
+   */
   value?: any;
-  /* Used to optionally change the root element that is rendered */
+  /**
+   * @ignore
+   */
   component?: any;
-  isActive?: boolean;
-  isFocused?: boolean;
-  isHovered?: boolean;
   disabled?: boolean;
-  checked?: boolean;
 }
 
 /**
  * Accepts all `<li>` props
  */
 export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
-  ({ value, disabled, component = StyledItem, ...props }, ref) => {
+  ({ value, disabled, component = StyledItem, children, ...props }, ref) => {
     const {
       selectedItems,
       downshift: {
@@ -40,7 +40,8 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
         itemToString
       }
     } = useDropdownContext();
-    const { itemIndexRef } = useMenuContext();
+    const { itemIndexRef, isCompact } = useMenuContext();
+    const Component = component;
 
     if ((value === undefined || value === null) && !disabled) {
       throw new Error('All Item components require a `value` prop');
@@ -67,36 +68,41 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
     }, [currentIndex, disabled, isOpen, isSelected, selectedItems, setHighlightedIndex]);
 
     if (disabled) {
-      return React.createElement(component, {
-        disabled,
-        ...props
-      });
+      return (
+        <Component ref={ref} disabled={disabled} isCompact={isCompact} {...props}>
+          {children}
+        </Component>
+      );
     }
 
     // Only increment current item index if the `Item` is not disabled
     itemIndexRef.current++;
 
-    return React.createElement(
-      component,
-      getItemProps({
-        item: value,
-        isFocused,
-        checked: isSelected,
-        ref,
-        ...props
-      })
+    return (
+      <Component
+        {...getItemProps({
+          item: value,
+          isFocused,
+          ref,
+          isCompact,
+          'data-garden-is-focused': isFocused,
+          'data-garden-is-selected': isSelected,
+          ...props
+        } as any)}
+      >
+        {isSelected && (
+          <StyledItemIcon isCompact={isCompact} isVisible={isSelected}>
+            <SelectedSvg />
+          </StyledItemIcon>
+        )}
+        {children}
+      </Component>
     );
   }
 );
 
 Item.propTypes = {
-  // The value that is returned through Dropdown during selection
   value: PropTypes.any,
-  // Used to optionally change the root element that is rendered
   component: PropTypes.any,
-  isActive: PropTypes.bool,
-  isFocused: PropTypes.bool,
-  isHovered: PropTypes.bool,
-  disabled: PropTypes.bool,
-  checked: PropTypes.bool
+  disabled: PropTypes.bool
 };

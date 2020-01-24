@@ -18,9 +18,6 @@ export const MediaItem = React.forwardRef<HTMLLIElement, IItemProps>((props, ref
 ));
 
 MediaItem.propTypes = {
-  isActive: PropTypes.bool,
-  isFocused: PropTypes.bool,
-  isHovered: PropTypes.bool,
-  disabled: PropTypes.bool,
-  checked: PropTypes.bool
+  value: PropTypes.any,
+  disabled: PropTypes.bool
 };

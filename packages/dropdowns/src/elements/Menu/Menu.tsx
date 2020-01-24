@@ -50,6 +50,7 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
     maxHeight,
     style: menuStyle,
     zIndex,
+    isCompact,
     ...otherProps
   } = props;
   const {
@@ -82,7 +83,7 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
     : getPopperPlacement(placement!);
 
   return (
-    <MenuContext.Provider value={{ itemIndexRef }}>
+    <MenuContext.Provider value={{ itemIndexRef, isCompact }}>
       <Popper
         placement={popperPlacement as any}
         modifiers={popperModifiers}
@@ -119,6 +120,7 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
                   placement: currentPlacement,
                   isAnimated: isOpen && isAnimated, // Triggers animation start when open
                   style: computedStyle,
+                  isCompact,
                   ...otherProps
                 } as any)}
               />

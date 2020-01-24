@@ -7,21 +7,34 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import AddSvg from '@zendeskgarden/svg-icons/src/16/plus-stroke.svg';
 import { Item, IItemProps } from './Item';
-import { StyledAddItem } from '../../../styled';
+import { StyledAddItem, StyledItemIcon } from '../../../styled';
+import useMenuContext from '../../../utils/useMenuContext';
+
+const AddItemComponent = React.forwardRef<HTMLLIElement, IItemProps>(
+  ({ children, ...props }, ref) => {
+    const { isCompact } = useMenuContext();
+
+    return (
+      <StyledAddItem ref={ref} {...props}>
+        <StyledItemIcon isCompact={isCompact} isVisible={true}>
+          <AddSvg />
+        </StyledItemIcon>
+        {children}
+      </StyledAddItem>
+    );
+  }
+);
 
 /**
  * Accepts all `<li>` props
  */
-export const AddItem = React.forwardRef<HTMLLIElement, IItemProps>((props, ref) => (
-  <Item component={StyledAddItem} ref={ref} {...props} />
-));
+export const AddItem = React.forwardRef<HTMLLIElement, Omit<IItemProps, 'component'>>(
+  (props, ref) => <Item component={AddItemComponent} ref={ref} {...props} />
+);
 
 AddItem.propTypes = {
   value: PropTypes.any,
-  isActive: PropTypes.bool,
-  isFocused: PropTypes.bool,
-  isHovered: PropTypes.bool,
   disabled: PropTypes.bool
 };

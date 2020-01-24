@@ -22,12 +22,10 @@ export { HeaderItem } from './elements/Menu/Items/HeaderItem';
 export { Item } from './elements/Menu/Items/Item';
 export { ItemMeta } from './elements/Menu/Items/ItemMeta';
 export { MediaBody } from './elements/Menu/Items/MediaBody';
-export { default as MediaFigure } from './elements/Menu/Items/MediaFigure';
+export { MediaFigure } from './elements/Menu/Items/MediaFigure';
 export { MediaItem } from './elements/Menu/Items/MediaItem';
 export { NextItem } from './elements/Menu/Items/NextItem';
 export { PreviousItem } from './elements/Menu/Items/PreviousItem';
 export { GARDEN_PLACEMENT, POPPER_PLACEMENT } from './utils/garden-placements';
 
 export { resetIdCounter } from 'downshift';
-
-export * from './styled';

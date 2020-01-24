@@ -26,9 +26,8 @@ describe('PreviousItem', () => {
 
     const previousItem = getByTestId('previous-item');
 
-    expect(previousItem).toHaveAttribute('disabled');
+    expect(previousItem).toHaveAttribute('aria-disabled', 'true');
     expect(previousItem).not.toHaveAttribute('aria-expanded');
-    expect(previousItem).toHaveClass('is-disabled');
   });
 
   it('applies additional properties correctly', () => {

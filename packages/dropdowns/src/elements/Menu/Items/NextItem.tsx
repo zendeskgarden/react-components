@@ -9,35 +9,47 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Item, IItemProps } from './Item';
-import { StyledNextItem } from '../../../styled';
+import { StyledNextItem, StyledItemIcon, StyledNextIcon } from '../../../styled';
 import useDropdownContext from '../../../utils/useDropdownContext';
 import useMenuContext from '../../../utils/useMenuContext';
+
+const NextItemComponent = React.forwardRef<HTMLLIElement, IItemProps>(
+  ({ children, ...props }, ref) => {
+    const { isCompact } = useMenuContext();
+
+    return (
+      <StyledNextItem ref={ref} {...props}>
+        <StyledItemIcon isCompact={isCompact} isVisible={true}>
+          <StyledNextIcon />
+        </StyledItemIcon>
+        {children}
+      </StyledNextItem>
+    );
+  }
+);
 
 /**
  * Accepts all `<li>` props
  */
-export const NextItem = React.forwardRef<HTMLLIElement, IItemProps>(
+export const NextItem = React.forwardRef<HTMLLIElement, Omit<IItemProps, 'component'>>(
   ({ value, disabled, ...props }, ref) => {
     const { nextItemsHashRef } = useDropdownContext();
     const { itemIndexRef } = useMenuContext();
 
     if (disabled) {
-      return <Item component={StyledNextItem} disabled {...props} />;
+      return <Item component={NextItemComponent} disabled {...props} />;
     }
 
     // Include current index in global Dropdown context
     (nextItemsHashRef.current as any)[value] = itemIndexRef.current;
 
     return (
-      <Item component={StyledNextItem} aria-expanded={true} value={value} ref={ref} {...props} />
+      <Item component={NextItemComponent} aria-expanded={true} value={value} ref={ref} {...props} />
     );
   }
 );
 
 NextItem.propTypes = {
   value: PropTypes.any,
-  disabled: PropTypes.bool,
-  isActive: PropTypes.bool,
-  isFocused: PropTypes.bool,
-  isHovered: PropTypes.bool
+  disabled: PropTypes.bool
 };
