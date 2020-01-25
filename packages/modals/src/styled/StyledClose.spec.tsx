@@ -6,21 +6,21 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
+import { render, renderRtl } from 'garden-test-utils';
 import { StyledClose } from './StyledClose';
 
 describe('StyledClose', () => {
-  it('renders default Styledclose styling', () => {
+  it('renders default styling', () => {
     const { container } = render(<StyledClose />);
 
-    expect(container.firstChild).toHaveClass('c-dialog__close');
+    expect(container.firstChild).toHaveStyleRule('top', '10px');
+    expect(container.firstChild).toHaveStyleRule('right', '20px');
   });
 
-  describe('state', () => {
-    it('renders hovered styling correctly if provided', () => {
-      const { container } = render(<StyledClose hovered />);
+  it('renders RTL styling if provided', () => {
+    const { container } = renderRtl(<StyledClose />);
 
-      expect(container.firstChild).toHaveClass('is-hovered');
-    });
+    expect(container.firstChild).toHaveStyleRule('top', '10px');
+    expect(container.firstChild).toHaveStyleRule('left', '20px');
   });
 });

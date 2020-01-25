@@ -8,6 +8,7 @@
 import React from 'react';
 import { StyledClose } from '../styled';
 import { useModalContext } from '../utils/useModalContext';
+import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 
 /**
  * Used to close a Modal. Accepts all `<button>` props.
@@ -16,6 +17,10 @@ export const Close = React.forwardRef<HTMLButtonElement, React.HTMLAttributes<HT
   (props, ref) => {
     const { getCloseProps } = useModalContext();
 
-    return <StyledClose ref={ref} {...getCloseProps(props)} />;
+    return (
+      <StyledClose ref={ref} {...getCloseProps(props)}>
+        <XStrokeIcon />
+      </StyledClose>
+    );
   }
 );

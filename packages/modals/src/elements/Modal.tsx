@@ -128,7 +128,9 @@ export const Modal = React.forwardRef<HTMLDivElement, IModalProps & HTMLAttribut
         <StyledBackdrop
           {...(getBackdropProps({ isCentered, isAnimated, ...backdropProps }) as any)}
         >
-          <StyledModal {...(getModalProps({ isAnimated, ref: modalRef, ...modalProps }) as any)}>
+          <StyledModal
+            {...(getModalProps({ isCentered, isAnimated, ref: modalRef, ...modalProps }) as any)}
+          >
             {children}
           </StyledModal>
         </StyledBackdrop>

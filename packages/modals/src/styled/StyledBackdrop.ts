@@ -6,10 +6,8 @@
  */
 
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import classNames from 'classnames';
-import { DEFAULT_THEME, retrieveComponentStyles, isRtl } from '@zendeskgarden/react-theming';
-import ModalStyles from '@zendeskgarden/css-modals';
+import styled, { css, keyframes } from 'styled-components';
+import { getColor, DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.backdrop';
 
@@ -18,21 +16,46 @@ export interface IStyledBackdropProps {
   isAnimated?: boolean;
 }
 
-/**
- * Accepts all `<div>` props
- */
-export const StyledBackdrop = styled.div.attrs<IStyledBackdropProps>(props => ({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: classNames(ModalStyles['l-backdrop'], {
-    [ModalStyles['l-backdrop--center']]: props.isCentered,
-    [ModalStyles['is-visible']]: props.isAnimated,
+const animationStyles = () => {
+  const animationName = keyframes`
+    0% {
+      opacity: 0;
+    }
 
-    // RTL
-    [ModalStyles['is-rtl']]: isRtl(props)
-  })
-}))<IStyledBackdropProps>`
+    to {
+      opacity: 1;
+    }
+  `;
+
+  return css`
+    animation-name: ${animationName};
+    animation-duration: 0.15s;
+    animation-timing-function: ease-in;
+  `;
+};
+
+/**
+ * 1. Smooth iOS scrolling.
+ */
+export const StyledBackdrop = styled.div.attrs<IStyledBackdropProps>({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledBackdropProps>`
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  align-items: ${props => props.isCentered && 'center'};
+  justify-content: ${props => props.isCentered && 'center'};
+  z-index: 400;
+  background-color: ${props => getColor('neutralHue', 800, props.theme, 0.85)};
+  overflow: auto;
+  -webkit-overflow-scrolling: touch; /* [1] */
   font-family: ${props => props.theme.fonts.system};
+  direction: ${props => props.theme.rtl && 'rtl'};
+  ${props => props.isAnimated && animationStyles()}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

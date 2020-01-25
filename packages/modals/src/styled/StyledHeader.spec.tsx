@@ -13,12 +13,12 @@ describe('StyledHeader', () => {
   it('renders default styling', () => {
     const { container } = render(<StyledHeader />);
 
-    expect(container.firstChild).toHaveClass('c-dialog__header');
+    expect(container.firstChild).toHaveStyleRule('color', '#2f3941');
   });
 
   it('renders danger styling if provided', () => {
     const { container } = render(<StyledHeader isDanger />);
 
-    expect(container.firstChild).toHaveClass('c-dialog__header--danger');
+    expect(container.firstChild).toHaveStyleRule('color', '#cc3340');
   });
 });

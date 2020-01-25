@@ -6,13 +6,35 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
+import { render, renderRtl } from 'garden-test-utils';
 import { StyledFooterItem } from './StyledFooterItem';
 
 describe('StyledFooterItem', () => {
   it('renders default styling', () => {
     const { container } = render(<StyledFooterItem />);
 
-    expect(container.firstChild).toHaveClass('c-dialog__footer__item');
+    expect(container.firstChild).toHaveStyleRule('margin-left', '20px');
+
+    expect(container.firstChild).toHaveStyleRule('margin', '0', {
+      modifier: ':first-child'
+    });
+
+    expect(container.firstChild).not.toHaveStyleRule('margin', '0', {
+      modifier: ':last-child'
+    });
+  });
+
+  it('renders RTL styling if provided', () => {
+    const { container } = renderRtl(<StyledFooterItem />);
+
+    expect(container.firstChild).toHaveStyleRule('margin-left', '20px');
+
+    expect(container.firstChild).not.toHaveStyleRule('margin', '0', {
+      modifier: ':first-child'
+    });
+
+    expect(container.firstChild).toHaveStyleRule('margin', '0', {
+      modifier: ':last-child'
+    });
   });
 });

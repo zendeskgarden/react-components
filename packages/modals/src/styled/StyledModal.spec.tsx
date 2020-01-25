@@ -8,29 +8,53 @@
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
 import { StyledModal } from './StyledModal';
+import { StyledFooter } from './StyledFooter';
 
 describe('StyledModal', () => {
   it('renders default styling', () => {
     const { container } = render(<StyledModal />);
 
-    expect(container.firstChild).toHaveClass('c-dialog');
+    expect(container.firstChild).toHaveStyleRule('width', '542px');
+    expect(container.firstChild).toHaveStyleRule('margin', '48px');
+    expect(container.firstChild).not.toHaveStyleRule('direction');
+    expect(container.firstChild).not.toHaveStyleRule('animation-duration', '0.3s');
+    expect(container.firstChild).not.toHaveStyleRule('animation-timing-function', 'ease-in-out');
   });
 
   it('renders RTL styling if provided', () => {
     const { container } = renderRtl(<StyledModal />);
 
-    expect(container.firstChild).toHaveClass('is-rtl');
+    expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });
 
   it('renders large styling if provided', () => {
     const { container } = render(<StyledModal isLarge />);
 
-    expect(container.firstChild).toHaveClass('c-dialog--large');
+    expect(container.firstChild).toHaveStyleRule('width', '800px');
+  });
+
+  it('renders centered styling if provided', () => {
+    const { container } = render(<StyledModal isCentered />);
+
+    expect(container.firstChild).toHaveStyleRule('margin', '0');
   });
 
   it('renders animate styling if provided', () => {
     const { container } = render(<StyledModal isAnimated />);
 
-    expect(container.firstChild).toHaveClass('is-open');
+    expect(container.firstChild).toHaveStyleRule('animation-duration', '0.3s');
+    expect(container.firstChild).toHaveStyleRule('animation-timing-function', 'ease-in-out');
+  });
+
+  it('renders large styling for footer if provided', () => {
+    const { container } = render(<StyledModal isLarge />);
+
+    expect(container.firstChild).toHaveStyleRule('border', '1px solid #e9ebed', {
+      modifier: `${StyledFooter}`
+    });
+
+    expect(container.firstChild).toHaveStyleRule('padding', '32px 40px', {
+      modifier: `${StyledFooter}`
+    });
   });
 });
