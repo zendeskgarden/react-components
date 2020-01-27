@@ -20,9 +20,9 @@
   },
   "types": "dist/typings/index.d.ts",
   "dependencies": {
-    "@zendeskgarden/container-pagination": "^0.2.4",
+    "@zendeskgarden/container-pagination": "^0.2.6",
     "@zendeskgarden/container-utilities": "^0.3.0",
-    "classnames": "^2.2.5"
+    "polished": "^3.4.2"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^6.0.0 || ^7.0.0",
@@ -32,7 +32,6 @@
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "@zendeskgarden/css-pagination": "4.0.17",
     "@zendeskgarden/react-theming": "^8.0.0-next.0"
   },
   "keywords": [
@@ -45,6 +44,6 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenPagination",
-  "zendeskgarden:max_size": "12 kB",
+  "zendeskgarden:max_size": "8 kB",
   "zendeskgarden:src": "src/index.ts"
 }

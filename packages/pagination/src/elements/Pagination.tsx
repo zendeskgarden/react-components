@@ -8,17 +8,13 @@
 import React, { useState, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProps, DefaultTheme } from 'styled-components';
-import { withTheme, isRtl } from '@zendeskgarden/react-theming';
+import ChevronLeftIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
+import ChevronRightIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
+import { withTheme } from '@zendeskgarden/react-theming';
 import { usePagination } from '@zendeskgarden/container-pagination';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
 
-import {
-  StyledPagination,
-  StyledPage,
-  StyledGap,
-  StyledNextPage,
-  StyledPreviousPage
-} from '../styled';
+import { StyledPagination, StyledPage, StyledGap, StyledNavigation } from '../styled';
 
 const PREVIOUS_KEY = 'previous';
 const NEXT_KEY = 'next';
@@ -35,18 +31,27 @@ export interface IPaginationProps extends Omit<HTMLAttributes<HTMLUListElement>,
    */
   totalPages: number;
   /**
-   * The number of pages to pad the currentPage with
-   * when determining the Gap placement
+   * The number of pages to pad the current page with when page gaps are
+   * displayed
    */
   pagePadding?: number;
   /**
-   * @param {Any} currentPage - The newly selected page
+   * Position for the leading and trailing gap indicator, if needed based on
+   * current and total pages
    */
-  onChange?: (updatedCurrentPage: number) => void;
+  pageGap?: number;
   /**
-   * Allows custom props to be applied to each page element. Useful for QA attributes and localization.
+   * @param {Any} currentPage - The currently selected page
    */
-  transformPageProps?: (pageTypes: PAGE_TYPE, props: any) => any;
+  onChange?: (currentPage: number) => void;
+  /**
+   * Apply localized labels, test attributes, etc. to individual pages.
+   *
+   * @param {PAGE_TYPE} pageType - the type of the page to transform props for;
+   *  one of: `'previous'`, `'gap'`, `'page'`, `'next'`
+   * @param {Any} props - default page props to transform
+   */
+  transformPageProps?: (pageType: PAGE_TYPE, props: any) => any;
 }
 
 /**
@@ -59,6 +64,7 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
       transformPageProps,
       totalPages,
       pagePadding,
+      pageGap,
       onChange,
       ...otherProps
     },
@@ -74,7 +80,7 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
       getPreviousPageProps,
       getNextPageProps
     } = usePagination({
-      rtl: isRtl(otherProps),
+      rtl: otherProps.theme.rtl,
       focusedItem,
       selectedItem: currentPage,
       onFocus: item => {
@@ -117,55 +123,61 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
       return props;
     };
 
-    const renderPreviousPage = () => {
-      const isFirstPageSelected = currentPage === 1;
+    const renderPreviousPage = (rtl: boolean) => {
+      const isFirstPageSelected = totalPages > 0 && currentPage === 1;
       const focusRef = React.createRef();
 
-      // The PreviousPage element should be hidden when first page is selected
-      if (isFirstPageSelected) {
-        return <StyledPreviousPage {...getTransformedProps('previous', { isHidden: true })} />;
-      }
-
       return (
-        <StyledPreviousPage
+        <StyledNavigation
           {...getTransformedProps(
             'previous',
-            getPreviousPageProps({
-              key: PREVIOUS_KEY,
-              isFocused: focusedItem === PREVIOUS_KEY,
-              item: PREVIOUS_KEY,
-              ref: focusRef,
-              focusRef
-            })
+            // The PreviousPage element should be hidden when first page is selected
+            isFirstPageSelected
+              ? { hidden: true }
+              : getPreviousPageProps({
+                  role: null,
+                  key: PREVIOUS_KEY,
+                  isFocused: focusedItem === PREVIOUS_KEY,
+                  item: PREVIOUS_KEY,
+                  ref: focusRef,
+                  focusRef
+                })
           )}
-        />
+        >
+          {rtl ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+        </StyledNavigation>
       );
     };
 
-    const renderNextPage = () => {
+    const renderNextPage = (rtl: boolean) => {
       const isLastPageSelected = currentPage === totalPages;
       const focusRef = React.createRef();
 
-      // The NextPage element should be hidden when the last page is selected
-      if (isLastPageSelected) {
-        return <StyledNextPage isHidden />;
-      }
-
       return (
-        <StyledNextPage
+        <StyledNavigation
           {...getTransformedProps(
             'next',
-            getNextPageProps({
-              item: NEXT_KEY,
-              key: NEXT_KEY,
-              isFocused: focusedItem === NEXT_KEY,
-              ref: focusRef,
-              focusRef
-            })
+            // The NextPage element should be hidden when the last page is selected
+            isLastPageSelected
+              ? { hidden: true }
+              : getNextPageProps({
+                  role: null,
+                  item: NEXT_KEY,
+                  key: NEXT_KEY,
+                  isFocused: focusedItem === NEXT_KEY,
+                  ref: focusRef,
+                  focusRef
+                })
           )}
-        />
+        >
+          {rtl ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+        </StyledNavigation>
       );
     };
+
+    const createGap = (pageIndex: number) => (
+      <StyledGap {...getTransformedProps('gap', { key: `gap-${pageIndex}` })}>…</StyledGap>
+    );
 
     const createPage = (pageIndex: number) => {
       const focusRef = React.createRef();
@@ -175,11 +187,12 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
           {...getTransformedProps(
             'page',
             getPageProps({
-              isCurrent: currentPage === pageIndex,
-              isFocused: focusedItem === pageIndex,
+              role: null,
               key: pageIndex,
               item: pageIndex,
               page: pageIndex,
+              title: pageIndex.toString(),
+              current: currentPage === pageIndex,
               ref: focusRef,
               focusRef
             })
@@ -195,53 +208,59 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
      */
     const renderPages = () => {
       const pages = [];
+      const PADDING = pagePadding!;
+      const GAP = pageGap!;
 
       for (let pageIndex = 1; pageIndex <= totalPages; pageIndex++) {
-        // Always display the current page
-        if (pageIndex === currentPage) {
+        // Always display current, first, and last pages
+        if (pageIndex === currentPage || pageIndex < GAP || pageIndex > totalPages - GAP + 1) {
           pages.push(createPage(pageIndex));
           continue;
         }
 
-        // Always display the first and last page
-        if (pageIndex === 1 || pageIndex === totalPages) {
-          pages.push(createPage(pageIndex));
-          continue;
+        let minimum;
+        let maximum;
+
+        if (currentPage <= GAP + PADDING) {
+          minimum = GAP + 1;
+          maximum = minimum + PADDING * 2;
+        } else if (currentPage >= totalPages - GAP - PADDING) {
+          maximum = totalPages - GAP;
+          minimum = maximum - PADDING * 2;
+        } else {
+          minimum = currentPage - PADDING;
+          maximum = currentPage + PADDING;
         }
 
-        // Display pages used for padding around the current page
-        if (pageIndex >= currentPage - pagePadding! && pageIndex <= currentPage + pagePadding) {
-          pages.push(createPage(pageIndex));
-          continue;
-        }
-
-        // Handle case where front gap should not be displayed
-        if (currentPage <= pagePadding! + 3 && pageIndex <= pagePadding! * 2 + 3) {
-          pages.push(createPage(pageIndex));
-          continue;
-        }
-
-        // Handle case where back gap should not be displayed
+        // Display padded window of pages
         if (
-          currentPage >= totalPages - pagePadding! - 2 &&
-          pageIndex >= totalPages - pagePadding! * 2 - 4
+          (pageIndex >= minimum && pageIndex <= currentPage) ||
+          (pageIndex >= currentPage && pageIndex <= maximum)
         ) {
           pages.push(createPage(pageIndex));
           continue;
         }
 
-        // Render Gap and determine next starting pageIndex
-        if (pageIndex < currentPage) {
-          pages.push(<StyledGap {...getTransformedProps('gap', { key: `gap-${pageIndex}` })} />);
-
-          if (currentPage >= totalPages - pagePadding! - 2) {
-            pageIndex = totalPages - pagePadding! * 2 - 3;
+        // Handle start gap
+        if (pageIndex === GAP) {
+          if (minimum > GAP + 1 && currentPage > GAP + PADDING + 1) {
+            pages.push(createGap(pageIndex));
           } else {
-            pageIndex = currentPage - pagePadding! - 1;
+            pages.push(createPage(pageIndex));
           }
-        } else {
-          pages.push(<StyledGap {...getTransformedProps('gap', { key: `gap-${pageIndex}` })} />);
-          pageIndex = totalPages - 1;
+
+          continue;
+        }
+
+        // Handle end gap
+        if (pageIndex === totalPages - GAP + 1) {
+          if (maximum < totalPages - GAP && currentPage < totalPages - GAP - PADDING) {
+            pages.push(createGap(pageIndex));
+          } else {
+            pages.push(createPage(pageIndex));
+          }
+
+          continue;
         }
       }
 
@@ -249,10 +268,10 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
     };
 
     return (
-      <StyledPagination {...getContainerProps(otherProps)} ref={ref}>
-        {renderPreviousPage()}
-        {renderPages()}
-        {renderNextPage()}
+      <StyledPagination {...getContainerProps({ role: null, ...otherProps })} ref={ref}>
+        {renderPreviousPage(otherProps.theme.rtl)}
+        {totalPages > 0 && renderPages()}
+        {renderNextPage(otherProps.theme.rtl)}
       </StyledPagination>
     );
   }
@@ -262,14 +281,16 @@ Pagination.propTypes = {
   currentPage: PropTypes.number.isRequired,
   totalPages: PropTypes.number.isRequired,
   pagePadding: PropTypes.number,
+  pageGap: PropTypes.number,
   onChange: PropTypes.func,
   transformPageProps: PropTypes.func
 };
 
 Pagination.defaultProps = {
-  pagePadding: 2
+  pagePadding: 2,
+  pageGap: 2
 };
 
-export default withTheme(Pagination) as React.ForwardRefExoticComponent<
+export default withTheme(Pagination) as React.FC<
   IPaginationProps & React.RefAttributes<HTMLUListElement>
 >;

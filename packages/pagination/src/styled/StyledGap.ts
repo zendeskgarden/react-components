@@ -5,19 +5,37 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import classNames from 'classnames';
-import styled from 'styled-components';
-import PaginationStyles from '@zendeskgarden/css-pagination';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import math from 'polished/lib/math/math';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-
 import { StyledPage } from './StyledPage';
+
 const COMPONENT_ID = 'pagination.gap';
 
-export const StyledGap = styled(StyledPage).attrs(props => ({
+const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
+  const shift = 2;
+  const marginTop = `-${shift}px`;
+  const fontSize = math(`${props.theme.fontSizes.md} + ${shift}`);
+
+  return css`
+    margin-top: ${marginTop};
+    font-size: ${fontSize};
+  `;
+};
+
+export const StyledGap = styled(StyledPage).attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: classNames(props.className, PaginationStyles['c-pagination__page--gap'])
-}))`
+  'data-garden-version': PACKAGE_VERSION
+})`
+  cursor: default;
+
+  ${props => sizeStyles(props)};
+
+  &:hover {
+    background-color: transparent;
+    color: inherit;
+  }
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
