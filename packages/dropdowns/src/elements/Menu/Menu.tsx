@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, CSSProperties, HTMLAttributes } from 'react';
+import React, { useRef, useEffect, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProps, DefaultTheme } from 'styled-components';
 import { Popper } from 'react-popper';
