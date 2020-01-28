@@ -90,9 +90,9 @@ initialState = {
         <Dropdown selectedItem={state.size} onSelect={size => setState({ size })}>
           <SelectField className="u-mt-xs">
             <SelectLabel>Size</SelectLabel>
-            <Select small>{state.size}</Select>
+            <Select isCompact>{state.size}</Select>
           </SelectField>
-          <Menu small>
+          <Menu isCompact>
             <Item value="small">small</Item>
             <Item value="medium">medium</Item>
             <Item value="large">large</Item>
@@ -193,9 +193,9 @@ initialState = {
         <Dropdown selectedItem={state.size} onSelect={size => setState({ size })}>
           <SelectField className="u-mt-xs">
             <SelectLabel>Size</SelectLabel>
-            <Select small>{state.size}</Select>
+            <Select isCompact>{state.size}</Select>
           </SelectField>
-          <Menu small>
+          <Menu isCompact>
             <Item value="SM">SM</Item>
             <Item value="MD">MD</Item>
             <Item value="LG">LG</Item>
@@ -290,9 +290,9 @@ initialState = {
         <Dropdown selectedItem={state.size} onSelect={size => setState({ size })}>
           <SelectField className="u-mt-xs">
             <SelectLabel>Size</SelectLabel>
-            <Select small>{state.size}</Select>
+            <Select isCompact>{state.size}</Select>
           </SelectField>
-          <Menu small>
+          <Menu isCompact>
             <Item value="small">small</Item>
             <Item value="medium">medium</Item>
             <Item value="large">large</Item>
@@ -405,9 +405,9 @@ initialState = {
         <Dropdown selectedItem={state.size} onSelect={size => setState({ size })}>
           <SelectField className="u-mt-xs">
             <SelectLabel>Size</SelectLabel>
-            <Select small>{state.size}</Select>
+            <Select isCompact>{state.size}</Select>
           </SelectField>
-          <Menu small>
+          <Menu isCompact>
             <Item value="small">small</Item>
             <Item value="medium">medium</Item>
             <Item value="large">large</Item>

@@ -26,9 +26,9 @@ initialState = {
         >
           <Field>
             <Label>Total pages</Label>
-            <Select small>{state.totalPages}</Select>
+            <Select isCompact>{state.totalPages}</Select>
           </Field>
-          <Menu small>
+          <Menu isCompact>
             <Item value={0}>0</Item>
             <Item value={3}>3</Item>
             <Item value={5}>5</Item>
@@ -50,9 +50,9 @@ initialState = {
         >
           <Field className="u-mt-xs">
             <Label>Page padding</Label>
-            <Select small>{state.pagePadding}</Select>
+            <Select isCompact>{state.pagePadding}</Select>
           </Field>
-          <Menu small>
+          <Menu isCompact>
             <Item value={0}>0</Item>
             <Item value={1}>1</Item>
             <Item value={2}>2</Item>
@@ -67,9 +67,9 @@ initialState = {
         >
           <Field className="u-mt-xs">
             <Label>Page gap</Label>
-            <Select small>{state.pageGap}</Select>
+            <Select isCompact>{state.pageGap}</Select>
           </Field>
-          <Menu small>
+          <Menu isCompact>
             <Item value={0}>0</Item>
             <Item value={1}>1</Item>
             <Item value={2}>2</Item>

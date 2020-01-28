@@ -63,7 +63,7 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
         <Trigger>
           <Button>Default menu</Button>
         </Trigger>
-        <Menu arrow>
+        <Menu hasArrow>
           <MediaItem value="linden">
             <MediaFigure>
               <Avatar
@@ -117,7 +117,7 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
         <Trigger>
           <Button>Small menu</Button>
         </Trigger>
-        <Menu arrow small>
+        <Menu hasArrow isCompact>
           <MediaItem value="clove">
             <MediaFigure>
               <Avatar

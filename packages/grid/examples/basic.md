@@ -67,9 +67,9 @@ initialState = {
         <Dropdown selectedItem={state.columns} onSelect={columns => setState({ columns })}>
           <SelectField className="u-mt-xs">
             <SelectLabel>Columns</SelectLabel>
-            <Select small>{state.columns}</Select>
+            <Select isCompact>{state.columns}</Select>
           </SelectField>
-          <Menu small>
+          <Menu isCompact>
             <Item value={4}>4</Item>
             <Item value={8}>8</Item>
             <Item value={12}>12</Item>
@@ -108,9 +108,9 @@ initialState = {
         >
           <SelectField className="u-mt-xs">
             <SelectLabel>Justify content *</SelectLabel>
-            <Select small>{state.justifyContent}</Select>
+            <Select isCompact>{state.justifyContent}</Select>
           </SelectField>
-          <Menu small>
+          <Menu isCompact>
             <Item value="default">default</Item>
             <Item value="start">start</Item>
             <Item value="end">end</Item>
@@ -136,9 +136,9 @@ initialState = {
         <Dropdown selectedItem={state.wrap} onSelect={wrap => setState({ wrap })}>
           <SelectField className="u-mt-xs">
             <SelectLabel>Wrap *</SelectLabel>
-            <Select small>{state.wrap}</Select>
+            <Select isCompact>{state.wrap}</Select>
           </SelectField>
-          <Menu small>
+          <Menu isCompact>
             <Item value="default">default</Item>
             <Item value="wrap">wrap</Item>
             <Item value="nowrap">nowrap</Item>
@@ -157,9 +157,9 @@ initialState = {
         <Dropdown selectedItem={state.breakpoint} onSelect={breakpoint => setState({ breakpoint })}>
           <SelectField className="u-mt-xs">
             <SelectLabel>Viewport breakpoint</SelectLabel>
-            <Select small>{state.breakpoint}</Select>
+            <Select isCompact>{state.breakpoint}</Select>
           </SelectField>
-          <Menu small>
+          <Menu isCompact>
             <Item value="default">default (none)</Item>
             <Item value="xs">xs (>= 0px)</Item>
             <Item value="sm">sm (>= 576px)</Item>

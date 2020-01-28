@@ -86,9 +86,9 @@ const StyledCaption = styled(Caption)`
         <Dropdown selectedItem={state.rowSize} onSelect={rowSize => setState({ rowSize })}>
           <Field>
             <Label>Row Size</Label>
-            <Select small>{state.rowSize}</Select>
+            <Select isCompact>{state.rowSize}</Select>
           </Field>
-          <Menu small>
+          <Menu isCompact>
             <Item value="small">small</Item>
             <Item value="default">default</Item>
             <Item value="large">large</Item>

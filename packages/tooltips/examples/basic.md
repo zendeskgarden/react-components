@@ -68,9 +68,9 @@ const retrieveTooltipContent = (size, type) => {
               >
                 <SelectField>
                   <SelectLabel>Placement</SelectLabel>
-                  <Select small>{state.placement}</Select>
+                  <Select isCompact>{state.placement}</Select>
                 </SelectField>
-                <Menu small>
+                <Menu isCompact>
                   <Item value="auto">auto</Item>
                   <Item value="top">top</Item>
                   <Item value="top-start">top-start</Item>
@@ -91,9 +91,9 @@ const retrieveTooltipContent = (size, type) => {
               <Dropdown selectedItem={state.size} onSelect={size => setState({ size })}>
                 <SelectField>
                   <SelectLabel>Size</SelectLabel>
-                  <Select small>{state.size}</Select>
+                  <Select isCompact>{state.size}</Select>
                 </SelectField>
-                <Menu small>
+                <Menu isCompact>
                   <Item value="default">default</Item>
                   <Item value="small">small</Item>
                   <Item value="medium">medium</Item>

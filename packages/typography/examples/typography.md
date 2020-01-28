@@ -39,9 +39,9 @@ const Typography = ({ size, children, ...props }) => {
         <Dropdown selectedItem={state.size} onSelect={size => setState({ size })}>
           <SelectField>
             <SelectLabel>Size</SelectLabel>
-            <Select small>{state.size}</Select>
+            <Select isCompact>{state.size}</Select>
           </SelectField>
-          <Menu small>
+          <Menu isCompact>
             <Item value="SM">SM</Item>
             <Item value="MD">MD</Item>
             <Item value="LG">LG</Item>
