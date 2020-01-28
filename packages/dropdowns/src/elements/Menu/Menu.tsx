@@ -63,6 +63,8 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
   const scheduleUpdateRef = useRef<(() => void) | undefined>(undefined);
 
   useEffect(() => {
+    let timeout: number;
+
     /**
      * Recalculate popper placement while open to allow animations to complete.
      * This must be ran every render to allow for the number of items to change
@@ -70,7 +72,15 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
      **/
     if (isOpen) {
       scheduleUpdateRef.current && scheduleUpdateRef.current();
+
+      timeout = (setTimeout(() => {
+        scheduleUpdateRef.current && scheduleUpdateRef.current();
+      }, 100) as unknown) as number;
     }
+
+    return () => {
+      clearTimeout(timeout);
+    };
   });
 
   // Reset Downshift refs on every render
