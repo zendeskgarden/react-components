@@ -18,15 +18,15 @@ interface IStyledItemIconProps {
 const getSizeStyles = (props: IStyledItemIconProps & ThemeProps<DefaultTheme>) => {
   return css`
     width: ${getItemPaddingHorizontal(props)};
-    height: calc(${props.theme.lineHeights.md} + ${math(`${getItemPaddingVertical(props)} * 2`)});
+    height: calc(${props.theme.space.base * 5}px + ${math(`${getItemPaddingVertical(props)} * 2`)});
   `;
 };
 
 const getIconSizeStyles = (props: IStyledItemIconProps & ThemeProps<DefaultTheme>) => {
-  let size = `${props.theme.space.base * 4}px`;
+  let size = props.theme.iconSizes.md;
 
   if (props.isCompact) {
-    size = `${props.theme.space.base * 3}px`;
+    size = props.theme.iconSizes.sm;
   }
 
   return css`

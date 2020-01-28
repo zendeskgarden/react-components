@@ -17,7 +17,7 @@ export const StyledSeparator = styled.li.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   role: 'separator'
-})`
+} as any)`
   display: block;
   margin: ${props => props.theme.space.base}px 0;
   border-bottom: ${props =>

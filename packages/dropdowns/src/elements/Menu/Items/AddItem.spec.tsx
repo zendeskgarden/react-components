@@ -31,4 +31,23 @@ describe('AddItem', () => {
 
     expect(onSelectSpy.mock.calls[0][0]).toBe('add-item');
   });
+
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<HTMLLIElement>();
+
+    const { getByTestId } = render(
+      <Dropdown>
+        <Trigger>
+          <button data-test-id="trigger">Test</button>
+        </Trigger>
+        <Menu>
+          <AddItem value="add-item" data-test-id="add-item" ref={ref}>
+            Add Item
+          </AddItem>
+        </Menu>
+      </Dropdown>
+    );
+
+    expect(getByTestId('add-item')).toBe(ref.current);
+  });
 });

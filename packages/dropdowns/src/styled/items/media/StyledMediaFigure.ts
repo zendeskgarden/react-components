@@ -38,7 +38,7 @@ export const StyledMediaFigure = styled(
   'data-garden-version': PACKAGE_VERSION
 })<IStyledMediaFigureProps>`
   float: ${props => (props.theme.rtl ? 'right' : 'left')};
-  margin-top: ${props => (props.isCompact ? '0' : '1px')};
+  margin-top: ${props => !props.isCompact && '1px'};
   /* stylelint-disable-next-line property-no-unknown */
   margin-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
   props.isCompact ? props.theme.space.base : props.theme.space.base * 2}px;

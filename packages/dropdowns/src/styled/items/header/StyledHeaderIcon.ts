@@ -18,10 +18,10 @@ interface IStyledHeaderIcon {
 
 const getIconSize = (props: IStyledHeaderIcon & ThemeProps<DefaultTheme>) => {
   if (props.isCompact) {
-    return `${props.theme.space.base * 3}px`;
+    return props.theme.iconSizes.sm;
   }
 
-  return `${props.theme.space.base * 4}px`;
+  return props.theme.iconSizes.md;
 };
 
 export const StyledHeaderIcon = styled.div.attrs({

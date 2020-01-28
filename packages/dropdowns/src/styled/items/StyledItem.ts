@@ -19,10 +19,10 @@ export interface IStyledItemProps {
 
 export const getItemPaddingVertical = (props: IStyledItemProps & ThemeProps<DefaultTheme>) => {
   if (props.isCompact) {
-    return '6px';
+    return `${props.theme.space.base * 1.5}px`;
   }
 
-  return '10px';
+  return `${props.theme.space.base * 2.5}px`;
 };
 
 export const getItemPaddingHorizontal = (props: IStyledItemProps & ThemeProps<DefaultTheme>) => {
@@ -63,8 +63,6 @@ export const StyledItem = styled.li.attrs<IStyledItemProps>(props => ({
   word-wrap: break-word;
   user-select: none;
 
-  ${props => getColorStyles(props)}
-
   &:first-child {
     margin-top: ${props => props.theme.space.base * 2}px;
   }
@@ -76,6 +74,8 @@ export const StyledItem = styled.li.attrs<IStyledItemProps>(props => ({
   &:focus {
     outline: none;
   }
+
+  ${props => getColorStyles(props)}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

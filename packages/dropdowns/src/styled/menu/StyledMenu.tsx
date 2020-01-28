@@ -6,7 +6,7 @@
  */
 
 import React, { HTMLAttributes } from 'react';
-import styled, { keyframes, css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { keyframes, css, ThemeProps, DefaultTheme, CSSProperties } from 'styled-components';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
@@ -16,46 +16,6 @@ import {
 import { POPPER_PLACEMENT, getArrowPosition } from '../../utils/garden-placements';
 
 const COMPONENT_ID = 'dropdowns.menu';
-
-const ANIMATE_UP_KEYFRAME = keyframes`
-  0% {
-    margin-bottom: -${DEFAULT_THEME.space.base * 5}px;
-  }
-
-  100% {
-    margin-bottom: 0;
-  }
-`;
-
-const ANIMATE_RIGHT_KEYFRAME = keyframes`
-  0% {
-    margin-left: -${DEFAULT_THEME.space.base * 5}px;
-  }
-
-  100% {
-    margin-left: 0;
-  }
-`;
-
-const ANIMATE_DOWN_KEYFRAME = keyframes`
-  0% {
-    margin-top: -${DEFAULT_THEME.space.base * 5}px;
-  }
-
-  100% {
-    margin-top: 0;
-  }
-`;
-
-const ANIMATE_LEFT_KEYFRAME = keyframes`
-  0% {
-    margin-right: -${DEFAULT_THEME.space.base}px;
-  }
-
-  100% {
-    margin-right: 0;
-  }
-`;
 
 const shouldShowArrow = ({
   hasArrow,
@@ -76,30 +36,23 @@ const retrieveMenuMargin = ({
 }) => {
   const marginAmount = shouldShowArrow({ hasArrow, placement }) ? '8px' : '4px';
 
-  switch (placement) {
-    case 'bottom':
-    case 'bottom-start':
-    case 'bottom-end':
-      return `margin-top: ${marginAmount};`;
-    case 'top':
-    case 'top-start':
-    case 'top-end':
-      return `margin-bottom: ${marginAmount};`;
-    case 'left':
-    case 'left-start':
-    case 'left-end':
-      return `margin-right: ${marginAmount};`;
-    case 'right':
-    case 'right-start':
-    case 'right-end':
-      return `margin-left: ${marginAmount};`;
-    default:
-      return '';
+  if (!placement) {
+    return '';
   }
+
+  if (placement.startsWith('bottom')) {
+    return `margin-top: ${marginAmount};`;
+  } else if (placement.startsWith('top')) {
+    return `margin-bottom: ${marginAmount};`;
+  } else if (placement.startsWith('left')) {
+    return `margin-right: ${marginAmount};`;
+  }
+
+  return `margin-left: ${marginAmount};`;
 };
 
 const getArrowStyles = (props: IStyledMenuViewProps & ThemeProps<DefaultTheme>) => {
-  if (!props.hasArrow || !props.placement || props.isHidden) {
+  if (!props.hasArrow || !props.placement) {
     return undefined;
   }
 
@@ -110,37 +63,33 @@ const getArrowStyles = (props: IStyledMenuViewProps & ThemeProps<DefaultTheme>) 
 };
 
 const getAnimationStyles = (props: IStyledMenuViewProps & ThemeProps<DefaultTheme>) => {
-  if (!props.isAnimated) {
+  if (!props.isAnimated || !props.placement) {
     return undefined;
   }
 
-  let animation = undefined;
+  let animationKey;
 
-  if (
-    props.placement === 'top' ||
-    props.placement === 'top-start' ||
-    props.placement === 'top-end'
-  ) {
-    animation = ANIMATE_UP_KEYFRAME;
-  } else if (
-    props.placement === 'right' ||
-    props.placement === 'right-start' ||
-    props.placement === 'right-end'
-  ) {
-    animation = ANIMATE_RIGHT_KEYFRAME;
-  } else if (
-    props.placement === 'bottom' ||
-    props.placement === 'bottom-start' ||
-    props.placement === 'bottom-end'
-  ) {
-    animation = ANIMATE_DOWN_KEYFRAME;
-  } else if (
-    props.placement === 'left' ||
-    props.placement === 'left-start' ||
-    props.placement === 'left-end'
-  ) {
-    animation = ANIMATE_LEFT_KEYFRAME;
+  if (props.placement.startsWith('top')) {
+    animationKey = 'bottom';
+  } else if (props.placement.startsWith('right')) {
+    animationKey = 'left';
+  } else if (props.placement.startsWith('bottom')) {
+    animationKey = 'top';
+  } else if (props.placement.startsWith('left')) {
+    animationKey = 'right';
   }
+
+  const animation = keyframes`
+    /* stylelint-disable property-no-unknown */
+    0% {
+      margin-${animationKey}: -${props.theme.space.base * 5}px;
+    }
+
+    100% {
+      margin-${animationKey}: 0;
+    }
+    /* stylelint-enable property-no-unknown */
+  `;
 
   return css`
     animation: ${animation} 0.2s cubic-bezier(0.15, 0.85, 0.35, 1.2);
@@ -167,11 +116,8 @@ const StyledMenuView = styled.ul.attrs<IStyledMenuViewProps>(props => ({
   'data-garden-version': PACKAGE_VERSION,
   className: props.isAnimated && 'is-animated'
 }))<IStyledMenuViewProps>`
-  display: ${props => props.isHidden && 'inline-block'};
+  display: inline-block;
   position: relative; /* [1] */
-  transition: ${props => props.isHidden && 'opacity .2s ease-in-out, .2s visibility 0s linear'};
-  visibility: ${props => props.isHidden && 'hidden'};
-  opacity: ${props => props.isHidden && '0'};
   margin: 0; /* [2] */
   box-sizing: border-box;
   border: ${props => `${props.theme.borders.sm} ${getColor('neutralHue', 300, props.theme)}`};
@@ -209,9 +155,16 @@ StyledMenuView.defaultProps = {
 interface IStyledMenuWrapperProps {
   hasArrow?: boolean;
   placement?: POPPER_PLACEMENT;
+  isHidden?: boolean;
+  zIndex?: number;
 }
 
 const StyledMenuWrapper = styled.div<IStyledMenuWrapperProps>`
+  transition: ${props => props.isHidden && 'opacity .2s ease-in-out, .2s visibility 0s linear'};
+  visibility: ${props => props.isHidden && 'hidden'};
+  opacity: ${props => props.isHidden && '0'};
+  z-index: ${props => props.zIndex};
+
   ${retrieveMenuMargin};
 `;
 
@@ -246,12 +199,21 @@ export interface IStyledMenuProps extends HTMLAttributes<HTMLUListElement> {
   isHidden?: boolean;
   hasArrow?: boolean;
   maxHeight?: string;
+  zIndex?: number;
+  wrapperStyle?: CSSProperties;
 }
 
 export const StyledMenu = React.forwardRef<HTMLDivElement, IStyledMenuProps>(
-  ({ hasArrow, placement, maxHeight, children, ...other }, ref) => {
+  ({ hasArrow, placement, maxHeight, children, wrapperStyle, isHidden, zIndex, ...other }, ref) => {
     return (
-      <StyledMenuWrapper ref={ref} hasArrow={hasArrow} placement={placement}>
+      <StyledMenuWrapper
+        ref={ref}
+        hasArrow={hasArrow}
+        placement={placement}
+        style={wrapperStyle}
+        isHidden={isHidden}
+        zIndex={zIndex}
+      >
         <StyledMenuView hasArrow={hasArrow} placement={placement} {...other}>
           <StyledMaxHeightWrapper maxHeight={maxHeight}>{children}</StyledMaxHeightWrapper>
         </StyledMenuView>

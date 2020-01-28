@@ -25,7 +25,6 @@ interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
   popperModifiers?: Modifiers;
   eventsEnabled?: boolean;
   zIndex?: number;
-  style?: CSSProperties;
   /**
    * These placements differ from the default naming of Popper.JS placements to help
    * assist with RTL layouts.
@@ -33,7 +32,6 @@ interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
   placement?: GARDEN_PLACEMENT;
   isAnimated?: boolean;
   isCompact?: boolean;
-  isHidden?: boolean;
   hasArrow?: boolean;
   maxHeight?: string;
 }
@@ -63,8 +61,6 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
   const scheduleUpdateRef = useRef<(() => void) | undefined>(undefined);
 
   useEffect(() => {
-    let timeout: number;
-
     /**
      * Recalculate popper placement while open to allow animations to complete.
      * This must be ran every render to allow for the number of items to change
@@ -72,15 +68,7 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
      **/
     if (isOpen) {
       scheduleUpdateRef.current && scheduleUpdateRef.current();
-
-      timeout = (setTimeout(() => {
-        scheduleUpdateRef.current && scheduleUpdateRef.current();
-      }, 100) as unknown) as number;
     }
-
-    return () => {
-      clearTimeout(timeout);
-    };
   });
 
   // Reset Downshift refs on every render
@@ -116,25 +104,21 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
             };
           }
 
-          let popperStyle = { ...style, zIndex };
-
-          if (!isOpen) {
-            popperStyle = { ...style, zIndex: -1, visibility: 'hidden' };
-          }
-
           return (
-            <div ref={ref} style={popperStyle}>
-              <StyledMenu
-                {...getMenuProps({
-                  maxHeight,
-                  placement: currentPlacement,
-                  isAnimated: isOpen && isAnimated, // Triggers animation start when open
-                  style: computedStyle,
-                  isCompact,
-                  ...otherProps
-                } as any)}
-              />
-            </div>
+            <StyledMenu
+              {...getMenuProps({
+                maxHeight,
+                placement: currentPlacement,
+                isAnimated: isOpen && isAnimated, // Triggers animation start when open
+                style: computedStyle,
+                isCompact,
+                isHidden: !isOpen,
+                ref,
+                wrapperStyle: style,
+                zIndex,
+                ...otherProps
+              } as any)}
+            />
           );
         }}
       </Popper>
@@ -168,7 +152,6 @@ Menu.propTypes = {
   ]),
   isAnimated: PropTypes.bool,
   isCompact: PropTypes.bool,
-  isHidden: PropTypes.bool,
   hasArrow: PropTypes.bool,
   maxHeight: PropTypes.string
 };

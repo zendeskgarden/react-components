@@ -93,3 +93,9 @@ via the `downshiftProps` prop.
 Downshift provides several advanced customization features that can be very helpful when
 customizing this component. The [stateReducer](https://github.com/downshift-js/downshift#statereducer)
 pattern is a common customization strategy.
+
+### Server Side Rendering
+
+If you are using server side rendering you may need to [configure specific Downshift settings](https://github.com/downshift-js/downshift#resetidcounter).
+This package re-exports the Downshift `resetIdCunter` utility. It allows reseting the internal id
+counter which is used to generate unique ids for Downshift.

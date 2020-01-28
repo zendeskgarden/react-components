@@ -57,6 +57,25 @@ describe('Item', () => {
     console.error = originalError;
   });
 
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<HTMLLIElement>();
+
+    const { getByTestId } = render(
+      <Dropdown>
+        <Trigger>
+          <button>Test</button>
+        </Trigger>
+        <Menu>
+          <Item value="item-1" data-test-id="item" ref={ref}>
+            Item 1
+          </Item>
+        </Menu>
+      </Dropdown>
+    );
+
+    expect(getByTestId('item')).toBe(ref.current);
+  });
+
   it('highlights first selected index on open', () => {
     const { getByTestId, getAllByTestId } = render(
       <Dropdown selectedItem="item-2">

@@ -11,9 +11,6 @@ import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden
 
 const COMPONENT_ID = 'dropdowns.next_item_icon';
 
-/**
- * Accepts all `<li>` props
- */
 export const StyledNextIcon = styled(NextIconSvg).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION

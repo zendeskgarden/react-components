@@ -47,4 +47,23 @@ describe('PreviousItem', () => {
 
     expect(previousItem).toHaveAttribute('aria-expanded', 'true');
   });
+
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<HTMLLIElement>();
+
+    const { getByTestId } = render(
+      <Dropdown>
+        <Trigger>
+          <button>Test</button>
+        </Trigger>
+        <Menu>
+          <PreviousItem value="item-1" data-test-id="previous-item" ref={ref}>
+            Item 1
+          </PreviousItem>
+        </Menu>
+      </Dropdown>
+    );
+
+    expect(getByTestId('previous-item')).toBe(ref.current);
+  });
 });

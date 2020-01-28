@@ -15,7 +15,7 @@ export { default as Hint } from './elements/Fields/Hint';
 export { default as Label } from './elements/Fields/Label';
 export { default as Message } from './elements/Fields/Message';
 export { default as Menu } from './elements/Menu/Menu';
-export { default as Separator } from './elements/Menu/Separator';
+export { Separator } from './elements/Menu/Separator';
 export { AddItem } from './elements/Menu/Items/AddItem';
 export { HeaderIcon } from './elements/Menu/Items/HeaderIcon';
 export { HeaderItem } from './elements/Menu/Items/HeaderItem';
