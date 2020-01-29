@@ -10,9 +10,7 @@ import { render } from 'garden-test-utils';
 import { Dropdown, Trigger, Menu, HeaderItem, HeaderIcon } from '../../..';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const ExampleSvg = React.forwardRef<SVGSVGElement, {}>((props, ref) => (
-  <svg ref={ref} {...props} />
-));
+const ExampleSvg = () => <svg />;
 
 describe('HeaderIcon', () => {
   it('passes ref to underlying DOM element', () => {
@@ -21,7 +19,7 @@ describe('HeaderIcon', () => {
     const { getByTestId } = render(
       <Dropdown>
         <Trigger>
-          <button data-test-id="trigger">Test</button>
+          <button>Test</button>
         </Trigger>
         <Menu>
           <HeaderItem>
@@ -41,7 +39,7 @@ describe('HeaderIcon', () => {
     const { getByTestId } = render(
       <Dropdown>
         <Trigger>
-          <button data-test-id="trigger">Test</button>
+          <button>Test</button>
         </Trigger>
         <Menu>
           <HeaderItem>
@@ -63,7 +61,7 @@ describe('HeaderIcon', () => {
     const { getByTestId } = render(
       <Dropdown>
         <Trigger>
-          <button data-test-id="trigger">Test</button>
+          <button>Test</button>
         </Trigger>
         <Menu isCompact>
           <HeaderItem>

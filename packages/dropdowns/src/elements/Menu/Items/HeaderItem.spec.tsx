@@ -79,7 +79,7 @@ describe('HeaderItem', () => {
     );
     const headerItem = getByTestId('header-item');
 
-    expect(headerItem).toHaveStyleRule('padding-left', undefined);
-    expect(headerItem).toHaveStyleRule('padding-right', undefined);
+    expect(headerItem).not.toHaveStyleRule('padding-left');
+    expect(headerItem).not.toHaveStyleRule('padding-right');
   });
 });
