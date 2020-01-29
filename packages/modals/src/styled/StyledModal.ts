@@ -91,7 +91,7 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
   }
 
   /* stylelint-disable-next-line */
-  @media (max-width: 699px) {
+  @media (max-width: ${props => (props.isLarge ? '799px' : '699px')}) {
     right: ${props => props.theme.rtl && props.theme.space.base * 6}px;
     left: ${props => (props.theme.rtl ? 'auto' : `${props.theme.space.base * 6}px`)};
   }
