@@ -157,10 +157,12 @@ interface IStyledMenuWrapperProps {
   placement?: POPPER_PLACEMENT;
   isHidden?: boolean;
   zIndex?: number;
+  isAnimated?: boolean;
 }
 
 const StyledMenuWrapper = styled.div<IStyledMenuWrapperProps>`
-  transition: ${props => props.isHidden && 'opacity .2s ease-in-out, .2s visibility 0s linear'};
+  transition: ${props =>
+    props.isHidden && props.isAnimated && 'opacity .2s ease-in-out, .2s visibility 0s linear'};
   visibility: ${props => props.isHidden && 'hidden'};
   opacity: ${props => props.isHidden && '0'};
   z-index: ${props => props.zIndex};
@@ -204,7 +206,20 @@ export interface IStyledMenuProps extends HTMLAttributes<HTMLUListElement> {
 }
 
 export const StyledMenu = React.forwardRef<HTMLDivElement, IStyledMenuProps>(
-  ({ hasArrow, placement, maxHeight, children, wrapperStyle, isHidden, zIndex, ...other }, ref) => {
+  (
+    {
+      hasArrow,
+      placement,
+      maxHeight,
+      children,
+      wrapperStyle,
+      isHidden,
+      zIndex,
+      isAnimated,
+      ...other
+    },
+    ref
+  ) => {
     return (
       <StyledMenuWrapper
         ref={ref}
@@ -212,9 +227,15 @@ export const StyledMenu = React.forwardRef<HTMLDivElement, IStyledMenuProps>(
         placement={placement}
         style={wrapperStyle}
         isHidden={isHidden}
+        isAnimated={isAnimated}
         zIndex={zIndex}
       >
-        <StyledMenuView hasArrow={hasArrow} placement={placement} {...other}>
+        <StyledMenuView
+          hasArrow={hasArrow}
+          placement={placement}
+          isAnimated={isAnimated}
+          {...other}
+        >
           <StyledMaxHeightWrapper maxHeight={maxHeight}>{children}</StyledMaxHeightWrapper>
         </StyledMenuView>
       </StyledMenuWrapper>
