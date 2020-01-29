@@ -97,5 +97,5 @@ pattern is a common customization strategy.
 ### Server Side Rendering
 
 If you are using server side rendering you may need to [configure specific Downshift settings](https://github.com/downshift-js/downshift#resetidcounter).
-This package re-exports the Downshift `resetIdCounter` utility. It allows reseting the internal id
+This package re-exports the Downshift `resetIdCounter` utility. It allows resetting the internal id
 counter which is used to generate unique ids for Downshift.
