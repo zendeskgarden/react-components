@@ -19,7 +19,7 @@ export const StyledAddItem = styled(StyledItem).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  color: ${props => getColor('primaryHue', 600, props.theme)};
+  color: ${props => !props.disabled && getColor('primaryHue', 600, props.theme)};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

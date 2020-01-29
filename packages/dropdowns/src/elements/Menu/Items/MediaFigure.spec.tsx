@@ -16,7 +16,7 @@ describe('MediaFigure', () => {
     const { getByTestId } = render(
       <Dropdown>
         <Trigger>
-          <button data-test-id="trigger">Test</button>
+          <button>Test</button>
         </Trigger>
         <Menu>
           <MediaItem value="image">

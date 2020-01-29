@@ -13,6 +13,7 @@ import { getItemPaddingHorizontal, getItemPaddingVertical } from './StyledItem';
 interface IStyledItemIconProps {
   isCompact?: boolean;
   isVisible?: boolean;
+  isDisabled?: boolean;
 }
 
 const getSizeStyles = (props: IStyledItemIconProps & ThemeProps<DefaultTheme>) => {
@@ -44,7 +45,7 @@ export const StyledItemIcon = styled.div<IStyledItemIconProps>`
   justify-content: center;
   transition: opacity 0.1s ease-in-out;
   opacity: ${props => (props.isVisible ? '1' : '0')};
-  color: ${props => getColor('primaryHue', 600, props.theme)};
+  color: ${props => (props.isDisabled ? 'inherit' : getColor('primaryHue', 600, props.theme))};
 
   ${props => getSizeStyles(props)};
 

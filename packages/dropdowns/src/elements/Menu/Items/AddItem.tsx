@@ -12,13 +12,13 @@ import { Item, IItemProps } from './Item';
 import { StyledAddItem, StyledItemIcon } from '../../../styled';
 import useMenuContext from '../../../utils/useMenuContext';
 
-const AddItemComponent = React.forwardRef<HTMLLIElement, IItemProps>(
-  ({ children, ...props }, ref) => {
+const AddItemComponent = React.forwardRef<HTMLDivElement, IItemProps>(
+  ({ children, disabled, ...props }, ref) => {
     const { isCompact } = useMenuContext();
 
     return (
-      <StyledAddItem ref={ref} {...props}>
-        <StyledItemIcon isCompact={isCompact} isVisible={true}>
+      <StyledAddItem ref={ref} disabled={disabled} {...props}>
+        <StyledItemIcon isCompact={isCompact} isVisible={true} isDisabled={disabled}>
           <AddSvg />
         </StyledItemIcon>
         {children}
@@ -28,9 +28,9 @@ const AddItemComponent = React.forwardRef<HTMLLIElement, IItemProps>(
 );
 
 /**
- * Accepts all `<li>` props
+ * Accepts all `<div>` props
  */
-export const AddItem = React.forwardRef<HTMLLIElement, Omit<IItemProps, 'component'>>(
+export const AddItem = React.forwardRef<HTMLDivElement, Omit<IItemProps, 'component'>>(
   (props, ref) => <Item component={AddItemComponent} ref={ref} {...props} />
 );
 

@@ -17,10 +17,11 @@ const StyledSpacer = styled.div`
 
 initialState = {
   isOpen: false,
-  placement: 'end',
+  placement: 'top',
   hasArrow: true,
   isAnimated: true,
   isCompact: false,
+  isDiabled: false,
   forceIsOpen: false
 };
 
@@ -75,6 +76,15 @@ initialState = {
         <StyledSpacer />
         <FormField>
           <Toggle
+            checked={state.isDisabled}
+            onChange={e => setState({ isDisabled: e.target.checked })}
+          >
+            <FormLabel>Disable items</FormLabel>
+          </Toggle>
+        </FormField>
+        <StyledSpacer />
+        <FormField>
+          <Toggle
             checked={state.forceIsOpen}
             onChange={e => setState({ forceIsOpen: e.target.checked })}
           >
@@ -91,10 +101,9 @@ initialState = {
             setState({ isOpen: changes.isOpen });
           }
         }}
-        onSelect={item => alert(item)}
       >
         <Trigger>
-          <Button active={state.isOpen}>Advanced Layout</Button>
+          <Button>Advanced Layout</Button>
         </Trigger>
         <Menu
           placement={state.placement}
@@ -108,11 +117,14 @@ initialState = {
             </HeaderIcon>
             Header Item
           </HeaderItem>
-          <Item value="profile">Option 1</Item>
-          <Item value="settings">Option 2</Item>
-          <Item disabled>Disabled item</Item>
+          <Item value="profile" disabled={state.isDisabled}>
+            Option 1
+          </Item>
+          <Item value="settings" disabled={state.isDisabled}>
+            Option 2<ItemMeta>Optional meta</ItemMeta>
+          </Item>
           <Separator />
-          <MediaItem value="image">
+          <MediaItem value="image" disabled={state.isDisabled}>
             <MediaFigure>
               <img src="images/amir.png" alt="Example Avatar" />
             </MediaFigure>
@@ -121,7 +133,7 @@ initialState = {
               <ItemMeta>Meta info</ItemMeta>
             </MediaBody>
           </MediaItem>
-          <MediaItem value="icon">
+          <MediaItem value="icon" disabled={state.isDisabled}>
             <MediaFigure>
               <GroupIcon />
             </MediaFigure>
@@ -131,7 +143,9 @@ initialState = {
             </MediaBody>
           </MediaItem>
           <Separator />
-          <AddItem value="add-item">Add Item</AddItem>
+          <AddItem value="add-item" disabled={state.isDisabled}>
+            Add Item
+          </AddItem>
         </Menu>
       </Dropdown>
     </Col>

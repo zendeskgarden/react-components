@@ -33,7 +33,7 @@ describe('MediaItem', () => {
   });
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLLIElement>();
+    const ref = React.createRef<HTMLDivElement>();
 
     const { getByTestId } = render(
       <Dropdown>

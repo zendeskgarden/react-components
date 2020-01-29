@@ -12,7 +12,7 @@ import { StyledItem, StyledItemIcon } from '../../../styled';
 import useDropdownContext from '../../../utils/useDropdownContext';
 import useMenuContext from '../../../utils/useMenuContext';
 
-export interface IItemProps extends HTMLAttributes<HTMLLIElement> {
+export interface IItemProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * The value that is returned through Dropdown during selection
    */
@@ -25,9 +25,9 @@ export interface IItemProps extends HTMLAttributes<HTMLLIElement> {
 }
 
 /**
- * Accepts all `<li>` props
+ * Accepts all `<div>` props
  */
-export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
+export const Item = React.forwardRef<HTMLDivElement, IItemProps>(
   ({ value, disabled, component = StyledItem, children, ...props }, ref) => {
     const {
       selectedItems,
@@ -70,6 +70,11 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
     if (disabled) {
       return (
         <Component ref={ref} disabled={disabled} isCompact={isCompact} {...props}>
+          {isSelected && (
+            <StyledItemIcon isCompact={isCompact} isVisible={isSelected} isDisabled={disabled}>
+              <SelectedSvg />
+            </StyledItemIcon>
+          )}
           {children}
         </Component>
       );

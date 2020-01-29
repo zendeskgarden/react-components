@@ -7,16 +7,16 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { Dropdown, Trigger, Menu, Item, Separator } from '../../..';
+import { Dropdown, Trigger, Menu, Item, Separator } from '../../';
 
 describe('Separator', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLLIElement>();
+    const ref = React.createRef<HTMLDivElement>();
 
     const { getByTestId } = render(
       <Dropdown>
         <Trigger>
-          <button data-test-id="trigger">Test</button>
+          <button>Test</button>
         </Trigger>
         <Menu>
           <Item value="item-1">Item 1</Item>

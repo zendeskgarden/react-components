@@ -12,12 +12,12 @@ import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 describe('HeaderItem', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLLIElement>();
+    const ref = React.createRef<HTMLDivElement>();
 
     const { getByTestId } = render(
       <Dropdown>
         <Trigger>
-          <button data-test-id="trigger">Test</button>
+          <button>Test</button>
         </Trigger>
         <Menu>
           <HeaderItem data-test-id="header-item" ref={ref}>
@@ -34,7 +34,7 @@ describe('HeaderItem', () => {
     const { getByTestId } = render(
       <Dropdown>
         <Trigger>
-          <button data-test-id="trigger">Test</button>
+          <button>Test</button>
         </Trigger>
         <Menu>
           <HeaderItem data-test-id="header-item">Header Item</HeaderItem>
@@ -51,7 +51,7 @@ describe('HeaderItem', () => {
     const { getByTestId } = render(
       <Dropdown>
         <Trigger>
-          <button data-test-id="trigger">Test</button>
+          <button>Test</button>
         </Trigger>
         <Menu isCompact>
           <HeaderItem data-test-id="header-item">Header Item</HeaderItem>
@@ -68,7 +68,7 @@ describe('HeaderItem', () => {
     const { getByTestId } = render(
       <Dropdown>
         <Trigger>
-          <button data-test-id="trigger">Test</button>
+          <button>Test</button>
         </Trigger>
         <Menu>
           <HeaderItem containsIcon data-test-id="header-item">

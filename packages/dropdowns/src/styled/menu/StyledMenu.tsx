@@ -7,6 +7,7 @@
 
 import React, { HTMLAttributes } from 'react';
 import styled, { keyframes, css, ThemeProps, DefaultTheme, CSSProperties } from 'styled-components';
+import math from 'polished/lib/math/math';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
@@ -27,6 +28,10 @@ const shouldShowArrow = ({
   return hasArrow && placement;
 };
 
+const getArrowSize = (props: ThemeProps<DefaultTheme>) => {
+  return `${props.theme.space.base * 2}px`;
+};
+
 const retrieveMenuMargin = ({
   hasArrow,
   placement,
@@ -35,13 +40,15 @@ const retrieveMenuMargin = ({
   hasArrow?: boolean;
   placement?: POPPER_PLACEMENT;
 } & ThemeProps<DefaultTheme>) => {
-  const marginAmount = shouldShowArrow({ hasArrow, placement })
-    ? `${theme.space.base * 2}px`
-    : `${theme.space.base}px`;
-
   if (!placement) {
     return '';
   }
+
+  let marginAmount = shouldShowArrow({ hasArrow, placement })
+    ? getArrowSize({ theme })
+    : `${theme.space.base}px`;
+
+  marginAmount = math(`${marginAmount} - ${math(`${theme.borderWidths.sm} * 2`)}`);
 
   if (placement.startsWith('bottom')) {
     return `margin-top: ${marginAmount};`;
@@ -59,10 +66,8 @@ const getArrowStyles = (props: IStyledMenuViewProps & ThemeProps<DefaultTheme>) 
     return undefined;
   }
 
-  const arrowSize = `${props.theme.space.base * 2}px`;
-
   return arrowStyles(getArrowPosition(props.placement), {
-    size: arrowSize,
+    size: getArrowSize(props),
     animationModifier: '.is-animated'
   });
 };
@@ -101,7 +106,7 @@ const getAnimationStyles = (props: IStyledMenuViewProps & ThemeProps<DefaultThem
   `;
 };
 
-interface IStyledMenuViewProps extends HTMLAttributes<HTMLUListElement> {
+interface IStyledMenuViewProps {
   isCompact?: boolean;
   isAnimated?: boolean;
   isHidden?: boolean;
@@ -116,7 +121,7 @@ interface IStyledMenuViewProps extends HTMLAttributes<HTMLUListElement> {
  * 4. Opt out of browser default list padding.
  * 5. Prevent controlling item whitespace inheritance.
  */
-const StyledMenuView = styled.ul.attrs<IStyledMenuViewProps>(props => ({
+const StyledMenuView = styled.div.attrs<IStyledMenuViewProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: props.isAnimated && 'is-animated'
@@ -196,7 +201,7 @@ StyledMaxHeightWrapper.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-export interface IStyledMenuProps extends HTMLAttributes<HTMLUListElement> {
+export interface IStyledMenuProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * All valid [Popper.JS Placements](https://popper.js.org/popper-documentation.html#Popper.placements)
    */

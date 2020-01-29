@@ -13,7 +13,7 @@ const COMPONENT_ID = 'dropdowns.separator';
 /**
  * Accepts all `<li>` props
  */
-export const StyledSeparator = styled.li.attrs({
+export const StyledSeparator = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   role: 'separator'

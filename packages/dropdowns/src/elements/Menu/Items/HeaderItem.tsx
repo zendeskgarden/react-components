@@ -10,11 +10,11 @@ import { StyledHeaderItem, IStyledHeaderItemProps } from '../../../styled';
 import useMenuContext from '../../../utils/useMenuContext';
 
 /**
- * Accepts all `<li>` props
+ * Accepts all `<div>` props
  */
 export const HeaderItem = React.forwardRef<
-  HTMLLIElement,
-  IStyledHeaderItemProps & HTMLAttributes<HTMLLIElement>
+  HTMLDivElement,
+  IStyledHeaderItemProps & HTMLAttributes<HTMLDivElement>
 >((props, ref) => {
   const { isCompact } = useMenuContext();
 
