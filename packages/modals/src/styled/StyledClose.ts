@@ -35,7 +35,7 @@ export const StyledClose = styled.button.attrs<IStyledCloseProps>({
   height: ${props => props.theme.space.base * 10}px;
   overflow: hidden;
   text-decoration: none;
-  color: ${getColor('neutralHue', 600)};
+  color: ${props => getColor('neutralHue', 600, props.theme)};
   font-size: 0;
   user-select: none;
 

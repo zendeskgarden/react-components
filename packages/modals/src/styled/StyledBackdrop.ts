@@ -16,23 +16,21 @@ export interface IStyledBackdropProps {
   isAnimated?: boolean;
 }
 
-const animationStyles = () => {
-  const animationName = keyframes`
-    0% {
-      opacity: 0;
-    }
+const animationName = keyframes`
+  0% {
+    opacity: 0;
+  }
 
-    to {
-      opacity: 1;
-    }
-  `;
+  to {
+    opacity: 1;
+  }
+`;
 
-  return css`
-    animation-name: ${animationName};
-    animation-duration: 0.15s;
-    animation-timing-function: ease-in;
-  `;
-};
+const animationStyles = css`
+  animation-name: ${animationName};
+  animation-duration: 0.15s;
+  animation-timing-function: ease-in;
+`;
 
 /**
  * 1. Smooth iOS scrolling.
@@ -55,7 +53,7 @@ export const StyledBackdrop = styled.div.attrs<IStyledBackdropProps>({
   -webkit-overflow-scrolling: touch; /* [1] */
   font-family: ${props => props.theme.fonts.system};
   direction: ${props => props.theme.rtl && 'rtl'};
-  ${props => props.isAnimated && animationStyles()}
+  ${props => props.isAnimated && animationStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

@@ -18,28 +18,26 @@ export interface IStyledModalProps {
   isAnimated?: boolean;
 }
 
-const animationStyles = () => {
-  const animationName = keyframes`
-    0% {
-      transform: scale(0);
-      opacity: 0;
-    }
+const animationName = keyframes`
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
 
-    50% {
-      transform: scale(1.05);
-    }
+  50% {
+    transform: scale(1.05);
+  }
 
-    to {
-      opacity: 1;
-    }
-  `;
+  to {
+    opacity: 1;
+  }
+`;
 
-  return css`
-    animation-name: ${animationName};
-    animation-duration: 0.3s;
-    animation-timing-function: ease-in-out;
-  `;
-};
+const animationStyles = css`
+  animation-name: ${animationName};
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+`;
 
 const boxShadow = (props: ThemeProps<DefaultTheme>) => {
   const { theme } = props;
@@ -106,7 +104,7 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
   }
 
   ${props => props.isLarge && largeFooterStyles()}
-  ${props => props.isAnimated && animationStyles()}
+  ${props => props.isAnimated && animationStyles}
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
