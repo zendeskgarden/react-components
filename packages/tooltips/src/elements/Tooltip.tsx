@@ -153,7 +153,7 @@ const Tooltip: React.FC<ITooltipProps> = ({
 
           const tooltip = (
             <StyledTooltipWrapper
-              ref={ref}
+              ref={controlledIsVisible && ref}
               style={style}
               zIndex={zIndex}
               aria-hidden={!controlledIsVisible}
