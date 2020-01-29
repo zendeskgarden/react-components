@@ -60,6 +60,14 @@ describe('Modal', () => {
     });
   });
 
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<HTMLDivElement>();
+
+    const { getByTestId } = render(<Modal ref={ref} data-test-id="modal"></Modal>);
+
+    expect(getByTestId('modal')).toBe(ref.current);
+  });
+
   it('applies backdropProps to Backdrop element', () => {
     const { getByTestId } = render(<BasicExample />);
 
