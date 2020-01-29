@@ -29,12 +29,15 @@ const shouldShowArrow = ({
 
 const retrieveMenuMargin = ({
   hasArrow,
-  placement
+  placement,
+  theme
 }: {
   hasArrow?: boolean;
   placement?: POPPER_PLACEMENT;
-}) => {
-  const marginAmount = shouldShowArrow({ hasArrow, placement }) ? '8px' : '4px';
+} & ThemeProps<DefaultTheme>) => {
+  const marginAmount = shouldShowArrow({ hasArrow, placement })
+    ? `${theme.space.base * 2}px`
+    : `${theme.space.base}px`;
 
   if (!placement) {
     return '';
@@ -167,7 +170,7 @@ const StyledMenuWrapper = styled.div<IStyledMenuWrapperProps>`
   opacity: ${props => props.isHidden && '0'};
   z-index: ${props => props.zIndex};
 
-  ${retrieveMenuMargin};
+  ${props => retrieveMenuMargin(props)};
 `;
 
 StyledMenuWrapper.defaultProps = {

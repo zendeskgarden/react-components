@@ -8,6 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import { Dropdown, Trigger, Menu, HeaderItem, HeaderIcon } from '../../..';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const ExampleSvg = React.forwardRef<SVGSVGElement, {}>((props, ref) => (
   <svg ref={ref} {...props} />
@@ -34,5 +35,49 @@ describe('HeaderIcon', () => {
     );
 
     expect(getByTestId('header-icon')).toBe(ref.current);
+  });
+
+  it('applies correct default size to provided SVG', () => {
+    const { getByTestId } = render(
+      <Dropdown>
+        <Trigger>
+          <button data-test-id="trigger">Test</button>
+        </Trigger>
+        <Menu>
+          <HeaderItem>
+            <HeaderIcon data-test-id="header-icon">
+              <ExampleSvg />
+            </HeaderIcon>
+            Header Item
+          </HeaderItem>
+        </Menu>
+      </Dropdown>
+    );
+
+    expect(getByTestId('header-icon')).toHaveStyleRule('width', DEFAULT_THEME.iconSizes.md, {
+      modifier: '& > *'
+    });
+  });
+
+  it('applies correct compact size to provided SVG', () => {
+    const { getByTestId } = render(
+      <Dropdown>
+        <Trigger>
+          <button data-test-id="trigger">Test</button>
+        </Trigger>
+        <Menu isCompact>
+          <HeaderItem>
+            <HeaderIcon data-test-id="header-icon">
+              <ExampleSvg />
+            </HeaderIcon>
+            Header Item
+          </HeaderItem>
+        </Menu>
+      </Dropdown>
+    );
+
+    expect(getByTestId('header-icon')).toHaveStyleRule('width', DEFAULT_THEME.iconSizes.sm, {
+      modifier: '& > *'
+    });
   });
 });

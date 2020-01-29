@@ -6,16 +6,17 @@
  */
 
 import React, { HTMLAttributes } from 'react';
-import { StyledHeaderItem } from '../../../styled';
+import { StyledHeaderItem, IStyledHeaderItemProps } from '../../../styled';
 import useMenuContext from '../../../utils/useMenuContext';
 
 /**
  * Accepts all `<li>` props
  */
-export const HeaderItem = React.forwardRef<HTMLLIElement, HTMLAttributes<HTMLLIElement>>(
-  (props, ref) => {
-    const { isCompact } = useMenuContext();
+export const HeaderItem = React.forwardRef<
+  HTMLLIElement,
+  IStyledHeaderItemProps & HTMLAttributes<HTMLLIElement>
+>((props, ref) => {
+  const { isCompact } = useMenuContext();
 
-    return <StyledHeaderItem ref={ref} isCompact={isCompact} {...props} />;
-  }
-);
+  return <StyledHeaderItem ref={ref} isCompact={isCompact} {...props} />;
+});

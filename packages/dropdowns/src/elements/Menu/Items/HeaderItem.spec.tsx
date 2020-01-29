@@ -8,6 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import { Dropdown, Trigger, Menu, HeaderItem } from '../../..';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 describe('HeaderItem', () => {
   it('passes ref to underlying DOM element', () => {
@@ -27,5 +28,58 @@ describe('HeaderItem', () => {
     );
 
     expect(getByTestId('header-item')).toBe(ref.current);
+  });
+
+  it('applies correct default horizontal padding', () => {
+    const { getByTestId } = render(
+      <Dropdown>
+        <Trigger>
+          <button data-test-id="trigger">Test</button>
+        </Trigger>
+        <Menu>
+          <HeaderItem data-test-id="header-item">Header Item</HeaderItem>
+        </Menu>
+      </Dropdown>
+    );
+    const headerItem = getByTestId('header-item');
+
+    expect(headerItem).toHaveStyleRule('padding-left', `${DEFAULT_THEME.space.base * 4}px`);
+    expect(headerItem).toHaveStyleRule('padding-right', `${DEFAULT_THEME.space.base * 4}px`);
+  });
+
+  it('applies correct compact horizontal padding', () => {
+    const { getByTestId } = render(
+      <Dropdown>
+        <Trigger>
+          <button data-test-id="trigger">Test</button>
+        </Trigger>
+        <Menu isCompact>
+          <HeaderItem data-test-id="header-item">Header Item</HeaderItem>
+        </Menu>
+      </Dropdown>
+    );
+    const headerItem = getByTestId('header-item');
+
+    expect(headerItem).toHaveStyleRule('padding-left', `${DEFAULT_THEME.space.base * 3}px`);
+    expect(headerItem).toHaveStyleRule('padding-right', `${DEFAULT_THEME.space.base * 3}px`);
+  });
+
+  it('applies no horizontal padding when HeaderItem contains an icon', () => {
+    const { getByTestId } = render(
+      <Dropdown>
+        <Trigger>
+          <button data-test-id="trigger">Test</button>
+        </Trigger>
+        <Menu>
+          <HeaderItem containsIcon data-test-id="header-item">
+            Header Item
+          </HeaderItem>
+        </Menu>
+      </Dropdown>
+    );
+    const headerItem = getByTestId('header-item');
+
+    expect(headerItem).toHaveStyleRule('padding-left', undefined);
+    expect(headerItem).toHaveStyleRule('padding-right', undefined);
   });
 });
