@@ -6,10 +6,11 @@
  */
 
 import styled from 'styled-components';
+import math from 'polished/lib/math/math';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-import { getMediaFigureSize } from './StyledMediaFigure';
-import { StyledItem } from '../StyledItem';
+import { getMediaFigureSize, getMediaFigureMarginTop } from './StyledMediaFigure';
+import { StyledItem, getItemPaddingVertical } from '../StyledItem';
 import { StyledItemIcon } from '../StyledItemIcon';
 
 const COMPONENT_ID = 'dropdowns.media_item';
@@ -21,13 +22,18 @@ export interface IStyledMediaItem {
 /**
  * Accepts all `<li>` props
  */
-export const StyledMediaItem = styled(StyledItem).attrs<IStyledMediaItem>(props => ({
+export const StyledMediaItem = styled(StyledItem).attrs<IStyledMediaItem>({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  'data-compact': props.isCompact
-}))<IStyledMediaItem>`
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledMediaItem>`
   ${StyledItemIcon} {
-    height: ${props => !props.isCompact && `calc(${getMediaFigureSize(props)} + 22px)`};
+    height: ${props =>
+      !props.isCompact &&
+      math(
+        `${getMediaFigureSize(props)} + ${math(`${getItemPaddingVertical(props)} * 2`)} + ${math(
+          `${getMediaFigureMarginTop(props)} * 2`
+        )}`
+      )};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

@@ -59,7 +59,7 @@ export const StyledItem = styled.li.attrs<IStyledItemProps>(props => ({
   cursor: ${props => (props.disabled ? 'default' : 'pointer')};
   padding: ${props => `${getItemPaddingVertical(props)} ${getItemPaddingHorizontal(props)}`};
   text-decoration: none;
-  line-height: ${props => props.theme.lineHeights.md};
+  line-height: ${props => props.theme.space.base * 5}px;
   word-wrap: break-word;
   user-select: none;
 

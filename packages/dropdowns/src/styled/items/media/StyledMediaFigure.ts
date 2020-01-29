@@ -23,6 +23,16 @@ export const getMediaFigureSize = (props: IStyledMediaFigureProps & ThemeProps<D
   return `${props.theme.space.base * 8}px`;
 };
 
+export const getMediaFigureMarginTop = (
+  props: IStyledMediaFigureProps & ThemeProps<DefaultTheme>
+) => {
+  if (props.isCompact) {
+    return undefined;
+  }
+
+  return '1px';
+};
+
 export const StyledMediaFigure = styled(
   /* eslint-disable @typescript-eslint/no-unused-vars */
   ({
@@ -38,7 +48,7 @@ export const StyledMediaFigure = styled(
   'data-garden-version': PACKAGE_VERSION
 })<IStyledMediaFigureProps>`
   float: ${props => (props.theme.rtl ? 'right' : 'left')};
-  margin-top: ${props => !props.isCompact && '1px'};
+  margin-top: ${props => getMediaFigureMarginTop(props)};
   /* stylelint-disable-next-line property-no-unknown */
   margin-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
   props.isCompact ? props.theme.space.base : props.theme.space.base * 2}px;
