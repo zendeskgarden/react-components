@@ -6,17 +6,9 @@
  */
 
 import React from 'react';
-import styled from 'styled-components';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import AlertErrorStrokeIcon from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
 import { useModalContext } from '../utils/useModalContext';
-import { StyledHeader, IStyledHeaderProps } from '../styled';
-
-const StyledIcon = styled(AlertErrorStrokeIcon)`
-  position: absolute;
-  top: ${props => props.theme.space.base * 5.5}px;
-  ${props => (props.theme.rtl ? 'right' : 'left')}: ${props => `${props.theme.space.base * 4}px`};
-`;
+import { StyledIcon, StyledHeader, IStyledHeaderProps } from '../styled';
 
 /**
  * Accepts all `<div>` props

@@ -11,4 +11,5 @@ export { StyledClose, IStyledCloseProps } from './StyledClose';
 export { StyledFooter } from './StyledFooter';
 export { StyledFooterItem } from './StyledFooterItem';
 export { StyledHeader, IStyledHeaderProps } from './StyledHeader';
+export { StyledIcon } from './StyledIcon';
 export { StyledModal, IStyledModalProps } from './StyledModal';
