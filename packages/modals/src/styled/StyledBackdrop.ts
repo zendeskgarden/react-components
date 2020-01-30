@@ -26,12 +26,6 @@ const animationName = keyframes`
   }
 `;
 
-const animationStyles = css`
-  animation-name: ${animationName};
-  animation-duration: 0.15s;
-  animation-timing-function: ease-in;
-`;
-
 /**
  * 1. Smooth iOS scrolling.
  */
@@ -53,7 +47,11 @@ export const StyledBackdrop = styled.div.attrs<IStyledBackdropProps>({
   -webkit-overflow-scrolling: touch; /* [1] */
   font-family: ${props => props.theme.fonts.system};
   direction: ${props => props.theme.rtl && 'rtl'};
-  ${props => props.isAnimated && animationStyles}
+  animation: ${props =>
+    props.isAnimated &&
+    css`
+      ${animationName} 0.15s ease-in
+    `};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

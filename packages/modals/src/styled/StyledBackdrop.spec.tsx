@@ -32,11 +32,4 @@ describe('StyledBackdrop', () => {
     expect(container.firstChild).toHaveStyleRule('align-items', 'center');
     expect(container.firstChild).toHaveStyleRule('justify-content', 'center');
   });
-
-  it('renders animation styling if provided', () => {
-    const { container } = render(<StyledBackdrop isAnimated />);
-
-    expect(container.firstChild).toHaveStyleRule('animation-duration', '0.15s');
-    expect(container.firstChild).toHaveStyleRule('animation-timing-function', 'ease-in');
-  });
 });
