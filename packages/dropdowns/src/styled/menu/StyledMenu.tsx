@@ -173,6 +173,7 @@ const StyledMenuWrapper = styled.div<IStyledMenuWrapperProps>`
   visibility: ${props => props.isHidden && 'hidden'};
   opacity: ${props => props.isHidden && '0'};
   z-index: ${props => props.zIndex};
+  line-height: 0;
 
   ${props => retrieveMenuMargin(props)};
 `;
