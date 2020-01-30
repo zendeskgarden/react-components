@@ -6,21 +6,29 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.footer';
 
-export const StyledFooter = styled.div.attrs({
+interface IStyledFooter {
+  isLarge?: boolean;
+}
+
+export const StyledFooter = styled.div.attrs<IStyledFooter>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+})<IStyledFooter>`
   display: flex;
   flex-shrink: 0;
   align-items: center;
   justify-content: flex-end;
+  border-top: ${props =>
+    props.isLarge && `${props.theme.borders.sm} ${getColor('neutralHue', 200, props.theme)}`};
   padding: ${props =>
-    `${props.theme.space.base * 5}px ${props.theme.space.base * 10}px ${props.theme.space.base *
-      8}px`};
+    props.isLarge
+      ? `${props.theme.space.base * 8}px ${props.theme.space.base * 10}px`
+      : `${props.theme.space.base * 5}px ${props.theme.space.base * 10}px ${props.theme.space.base *
+          8}px`};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

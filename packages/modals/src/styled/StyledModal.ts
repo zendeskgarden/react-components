@@ -8,7 +8,6 @@
 import PropTypes from 'prop-types';
 import styled, { css, keyframes, ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledFooter } from '../styled';
 
 const COMPONENT_ID = 'modals.modal';
 
@@ -48,13 +47,6 @@ const boxShadow = (props: ThemeProps<DefaultTheme>) => {
 
   return shadows.lg(offsetY, blurRadius, color as string);
 };
-
-const largeFooterStyles = () => css`
-  ${StyledFooter} {
-    border-top: ${props => `${props.theme.borders.sm} ${getColor('neutralHue', 200)}`};
-    padding: ${props => `${props.theme.space.base * 8}px ${props.theme.space.base * 10}px`};
-  }
-`;
 
 /**
  * 1. IE11 centering hack.
@@ -103,7 +95,6 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
     transform: ${props => props.isCentered && 'translate(50%, 50%)'}; /* [1] */
   }
 
-  ${props => props.isLarge && largeFooterStyles()}
   ${props => props.isAnimated && animationStyles}
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

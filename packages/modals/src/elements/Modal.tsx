@@ -76,7 +76,17 @@ export interface IModalProps {
  */
 export const Modal = React.forwardRef<HTMLDivElement, IModalProps & HTMLAttributes<HTMLDivElement>>(
   (
-    { backdropProps, children, onClose, isCentered, isAnimated, id, appendToNode, ...modalProps },
+    {
+      backdropProps,
+      children,
+      onClose,
+      isLarge,
+      isCentered,
+      isAnimated,
+      id,
+      appendToNode,
+      ...modalProps
+    },
     ref
   ) => {
     const modalRef = useCombinedRefs(ref);
@@ -118,6 +128,7 @@ export const Modal = React.forwardRef<HTMLDivElement, IModalProps & HTMLAttribut
     }, []);
 
     const value = {
+      isLarge,
       getTitleProps,
       getContentProps,
       getCloseProps
@@ -129,7 +140,13 @@ export const Modal = React.forwardRef<HTMLDivElement, IModalProps & HTMLAttribut
           {...(getBackdropProps({ isCentered, isAnimated, ...backdropProps }) as any)}
         >
           <StyledModal
-            {...(getModalProps({ isCentered, isAnimated, ref: modalRef, ...modalProps }) as any)}
+            {...(getModalProps({
+              isCentered,
+              isAnimated,
+              isLarge,
+              ref: modalRef,
+              ...modalProps
+            }) as any)}
           >
             {children}
           </StyledModal>

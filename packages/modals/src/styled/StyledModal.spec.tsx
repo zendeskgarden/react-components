@@ -46,21 +46,4 @@ describe('StyledModal', () => {
     expect(container.firstChild).toHaveStyleRule('animation-duration', '0.3s');
     expect(container.firstChild).toHaveStyleRule('animation-timing-function', 'ease-in-out');
   });
-
-  it('renders large styling for footer if provided', () => {
-    const { container } = render(<StyledModal isLarge />);
-    const { colors, palette, borders } = DEFAULT_THEME;
-
-    expect(container.firstChild).toHaveStyleRule(
-      'border-top',
-      `${borders.sm} ${palette[colors.neutralHue][200]}`,
-      {
-        modifier: `${StyledFooter}`
-      }
-    );
-
-    expect(container.firstChild).toHaveStyleRule('padding', '32px 40px', {
-      modifier: `${StyledFooter}`
-    });
-  });
 });
