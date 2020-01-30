@@ -65,9 +65,7 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
   position: fixed;
   flex-direction: column;
   margin: ${props => (props.isCentered ? '0' : `${props.theme.space.base * 12}px`)};
-  border: ${props => `${props.theme.borders.sm} ${getColor('neutralHue', 300)}`};
   border-radius: ${props => props.theme.borderRadii.md};
-  border-color: transparent;
   box-shadow: ${boxShadow};
   background-color: ${props => props.theme.colors.background};
   min-height: 60px;
