@@ -51,7 +51,7 @@ const boxShadow = (props: ThemeProps<DefaultTheme>) => {
 
 const largeFooterStyles = () => css`
   ${StyledFooter} {
-    border: ${props => `${props.theme.borders.sm} ${getColor('neutralHue', 200)}`};
+    border-top: ${props => `${props.theme.borders.sm} ${getColor('neutralHue', 200)}`};
     padding: ${props => `${props.theme.space.base * 8}px ${props.theme.space.base * 10}px`};
   }
 `;

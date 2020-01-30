@@ -9,6 +9,7 @@ import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
 import { StyledModal } from './StyledModal';
 import { StyledFooter } from './StyledFooter';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 describe('StyledModal', () => {
   it('renders default styling', () => {
@@ -48,10 +49,15 @@ describe('StyledModal', () => {
 
   it('renders large styling for footer if provided', () => {
     const { container } = render(<StyledModal isLarge />);
+    const { colors, palette, borders } = DEFAULT_THEME;
 
-    expect(container.firstChild).toHaveStyleRule('border', '1px solid #e9ebed', {
-      modifier: `${StyledFooter}`
-    });
+    expect(container.firstChild).toHaveStyleRule(
+      'border-top',
+      `${borders.sm} ${palette[colors.neutralHue][200]}`,
+      {
+        modifier: `${StyledFooter}`
+      }
+    );
 
     expect(container.firstChild).toHaveStyleRule('padding', '32px 40px', {
       modifier: `${StyledFooter}`
