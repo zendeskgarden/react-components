@@ -74,7 +74,7 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
   background-color: ${props => props.theme.colors.background};
   width: ${props => (props.isLarge ? '800px' : '542px')};
   min-height: 60px;
-  max-height: calc(100vh - 96px);
+  max-height: calc(100vh - ${props => props.theme.space.base * 24}px);
   overflow: auto;
   direction: ${props => props.theme.rtl && 'rtl'};
 
