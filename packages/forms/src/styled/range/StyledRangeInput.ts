@@ -68,11 +68,14 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
     getColor('neutralHue', SHADE + 200, props.theme, 0.24)!
   );
   const thumbActiveBackgroundColor = getColor('primaryHue', SHADE + 100, props.theme);
+  const thumbActiveBorderColor = thumbBorderColor;
   const thumbDisabledBackgroundColor = getColor('neutralHue', SHADE - 300, props.theme);
   const thumbDisabledBorderColor = thumbDisabledBackgroundColor;
   const thumbFocusBoxShadow = props.theme.shadows.md(
     getColor('primaryHue', SHADE, props.theme, 0.35)!
   );
+  const thumbHoverBackgroundColor = getColor('primaryHue', SHADE + 100, props.theme);
+  const thumbHoverBorderColor = thumbHoverBackgroundColor;
   const trackBackgroundColor = getColor('neutralHue', SHADE - 400, props.theme);
   const trackLowerBackgroundColor = thumbBackgroundColor;
   const trackBackgroundImage = `linear-gradient(${trackLowerBackgroundColor}, ${trackLowerBackgroundColor})`;
@@ -97,6 +100,17 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
 
     ${thumbStyles(
       `
+        transition:
+          border-color .25s ease-in-out,
+          background-color .25s ease-in-out;
+        border-color: ${thumbHoverBorderColor};
+        background-color: ${thumbHoverBackgroundColor};
+      `,
+      ':hover'
+    )}
+
+    ${thumbStyles(
+      `
         box-shadow: ${thumbFocusBoxShadow};
       `,
       '[data-garden-focus-visible="true"]'
@@ -104,6 +118,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
 
     ${thumbStyles(
       `
+        border-color: ${thumbActiveBorderColor};
         background-color: ${thumbActiveBackgroundColor}
       `,
       ':active'
@@ -215,6 +230,7 @@ export const StyledRangeInput = styled.input.attrs<IStyledRangeInputProps>(props
   ${props =>
     thumbStyles(`
       appearance: none;
+      transition: box-shadow .1s ease-in-out;
       border: ${props.theme.borders.md};
       border-radius: 100%;
       box-sizing: border-box;
