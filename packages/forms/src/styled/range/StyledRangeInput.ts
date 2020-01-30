@@ -74,7 +74,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const thumbFocusBoxShadow = props.theme.shadows.md(
     getColor('primaryHue', SHADE, props.theme, 0.35)!
   );
-  const thumbHoverBackgroundColor = getColor('primaryHue', SHADE + 100, props.theme);
+  const thumbHoverBackgroundColor = thumbActiveBackgroundColor;
   const thumbHoverBorderColor = thumbHoverBackgroundColor;
   const trackBackgroundColor = getColor('neutralHue', SHADE - 400, props.theme);
   const trackLowerBackgroundColor = thumbBackgroundColor;

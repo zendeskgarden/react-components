@@ -26,6 +26,9 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
     getColor('neutralHue', SHADE + 200, props.theme, 0.24)!
   );
   const activeBackgroundColor = getColor('primaryHue', SHADE + 100, props.theme);
+  const activeBorderColor = borderColor;
+  const hoverBackgroundColor = activeBackgroundColor;
+  const hoverBorderColor = hoverBackgroundColor;
   const focusBoxShadow = props.theme.shadows.md(getColor('primaryHue', SHADE, props.theme, 0.35)!);
   const disabledBackgroundColor = getColor('neutralHue', SHADE - 300, props.theme);
   const disabledBorderColor = disabledBackgroundColor;
@@ -39,7 +42,13 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
       box-shadow: ${focusBoxShadow};
     }
 
+    &:hover {
+      border-color: ${hoverBorderColor};
+      background-color: ${hoverBackgroundColor};
+    }
+
     &:active {
+      border-color: ${activeBorderColor};
       background-color: ${activeBackgroundColor};
     }
 
@@ -71,6 +80,11 @@ export const StyledSliderThumb = styled.div.attrs<IStyledSliderThumbProps>(props
   position: absolute;
   top: 50%;
   ${props => (props.theme.rtl ? 'right' : 'left')}: ${props => math(`${props.position} * 1px`)};
+  /* prettier-ignore */
+  transition:
+    border-color 0.25s ease-in-out,
+    box-shadow 0.1s ease-in-out,
+    background-color 0.25s ease-in-out;
   z-index: 1;
   border: ${props => props.theme.borders.md};
   border-radius: 100%;
