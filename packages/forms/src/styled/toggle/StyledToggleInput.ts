@@ -28,7 +28,10 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
 
   const backgroundColor = getColor('neutralHue', SHADE - 100, props.theme);
   const backgroundImage = encodeURIComponent(markSvg(props));
-  const activeBackgroundColor = getColor('neutralHue', SHADE, props.theme);
+  const hoverBackgroundColor = getColor('neutralHue', SHADE, props.theme);
+  const activeBackgroundColor = getColor('neutralHue', SHADE + 100, props.theme);
+  const checkedHoverBackgroundColor = getColor('primaryHue', SHADE + 100, props.theme);
+  const checkedActiveBackgroundColor = getColor('primaryHue', SHADE + 200, props.theme);
 
   return css`
     & ~ ${StyledToggleLabel}::before {
@@ -40,9 +43,23 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
       background-image: url('data:image/svg+xml;charset=utf-8,${backgroundImage}');
     }
 
-    & ~ ${StyledToggleLabel}:active::before {
+    /* stylelint-disable selector-max-specificity */
+    &:enabled ~ ${StyledToggleLabel}:hover::before {
+      background-color: ${hoverBackgroundColor};
+    }
+
+    &:enabled ~ ${StyledToggleLabel}:active::before {
       background-color: ${activeBackgroundColor};
     }
+
+    &:enabled:checked ~ ${StyledToggleLabel}:hover::before {
+      background-color: ${checkedHoverBackgroundColor};
+    }
+
+    &:enabled:checked ~ ${StyledToggleLabel}:active::before {
+      background-color: ${checkedActiveBackgroundColor};
+    }
+    /* stylelint-enable selector-max-specificity */
   `;
 };
 
