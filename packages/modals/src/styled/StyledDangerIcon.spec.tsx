@@ -7,18 +7,18 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { StyledIcon } from './StyledIcon';
+import { StyledDangerIcon } from './StyledDangerIcon';
 
-describe('StyledIcon', () => {
+describe('StyledDangerIcon', () => {
   it('renders default styling', () => {
-    const { container } = render(<StyledIcon />);
+    const { container } = render(<StyledDangerIcon />);
 
     expect(container.firstChild).toHaveStyleRule('left', '16px');
     expect(container.firstChild).toHaveStyleRule('right');
   });
 
   it('renders RTL styling if provided', () => {
-    const { container } = renderRtl(<StyledIcon />);
+    const { container } = renderRtl(<StyledDangerIcon />);
 
     expect(container.firstChild).toHaveStyleRule('right', '16px');
     expect(container.firstChild).toHaveStyleRule('left');

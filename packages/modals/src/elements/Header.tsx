@@ -6,9 +6,8 @@
  */
 
 import React from 'react';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { useModalContext } from '../utils/useModalContext';
-import { StyledIcon, StyledHeader, IStyledHeaderProps } from '../styled';
+import { StyledDangerIcon, StyledHeader, IStyledHeaderProps } from '../styled';
 
 /**
  * Accepts all `<div>` props
@@ -21,12 +20,8 @@ export const Header = React.forwardRef<
 
   return (
     <StyledHeader ref={ref} {...getTitleProps(props)}>
-      {props.isDanger && <StyledIcon />}
+      {props.isDanger && <StyledDangerIcon />}
       {props.children}
     </StyledHeader>
   );
 });
-
-StyledIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};
