@@ -15,7 +15,7 @@ describe('StyledModal', () => {
   it('renders default styling', () => {
     const { container } = render(<StyledModal />);
 
-    expect(container.firstChild).toHaveStyleRule('width', '542px');
+    expect(container.firstChild).toHaveStyleRule('width', '544px');
     expect(container.firstChild).toHaveStyleRule('margin', '48px');
     expect(container.firstChild).not.toHaveStyleRule('direction');
     expect(container.firstChild).not.toHaveStyleRule('animation-duration', '0.3s');

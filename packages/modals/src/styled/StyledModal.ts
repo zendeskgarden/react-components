@@ -72,7 +72,7 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
   border-color: transparent;
   box-shadow: ${boxShadow};
   background-color: ${props => props.theme.colors.background};
-  width: ${props => (props.isLarge ? '800px' : '542px')};
+  width: ${props => (props.isLarge ? '800px' : '544px')};
   min-height: 60px;
   max-height: calc(100vh - ${props => props.theme.space.base * 24}px);
   overflow: auto;
