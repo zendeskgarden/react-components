@@ -8,8 +8,6 @@
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
 import { StyledModal } from './StyledModal';
-import { StyledFooter } from './StyledFooter';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 describe('StyledModal', () => {
   it('renders default styling', () => {
@@ -38,12 +36,5 @@ describe('StyledModal', () => {
     const { container } = render(<StyledModal isCentered />);
 
     expect(container.firstChild).toHaveStyleRule('margin', '0');
-  });
-
-  it('renders animate styling if provided', () => {
-    const { container } = render(<StyledModal isAnimated />);
-
-    expect(container.firstChild).toHaveStyleRule('animation-duration', '0.3s');
-    expect(container.firstChild).toHaveStyleRule('animation-timing-function', 'ease-in-out');
   });
 });

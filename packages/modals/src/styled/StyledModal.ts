@@ -32,12 +32,6 @@ const animationName = keyframes`
   }
 `;
 
-const animationStyles = css`
-  animation-name: ${animationName};
-  animation-duration: 0.3s;
-  animation-timing-function: ease-in-out;
-`;
-
 const boxShadow = (props: ThemeProps<DefaultTheme>) => {
   const { theme } = props;
   const { space, shadows } = theme;
@@ -67,6 +61,12 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
   width: ${props => (props.isLarge ? '800px' : '544px')};
   min-height: 60px;
   max-height: calc(100vh - ${props => props.theme.space.base * 24}px);
+  animation: ${props =>
+    props.isAnimated &&
+    css`
+      ${animationName} 0.3s ease-in-out
+    `};
+  animation-delay: 0.01s;
   overflow: auto;
   direction: ${props => props.theme.rtl && 'rtl'};
 
@@ -95,7 +95,6 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
     transform: ${props => props.isCentered && 'translate(50%, 50%)'}; /* [1] */
   }
 
-  ${props => props.isAnimated && animationStyles}
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
