@@ -11,12 +11,16 @@ import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden
 
 const COMPONENT_ID = 'dropdowns.next_item_icon';
 
+interface IStyledNextIconProps {
+  isDisabled?: boolean;
+}
+
 export const StyledNextIcon = styled(NextIconSvg).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+})<IStyledNextIconProps>`
   transform: ${props => props.theme.rtl && 'rotate(180deg)'};
-  color: ${props => getColor('neutralHue', 600, props.theme)};
+  color: ${props => (props.isDisabled ? 'inherit' : getColor('neutralHue', 600, props.theme))};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

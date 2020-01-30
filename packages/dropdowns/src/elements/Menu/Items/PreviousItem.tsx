@@ -14,13 +14,13 @@ import useDropdownContext from '../../../utils/useDropdownContext';
 import useMenuContext from '../../../utils/useMenuContext';
 
 const PreviousItemComponent = React.forwardRef<HTMLDivElement, IItemProps>(
-  ({ children, ...props }, ref) => {
+  ({ children, disabled, ...props }, ref) => {
     const { isCompact } = useMenuContext();
 
     return (
-      <StyledPreviousItem ref={ref} {...props}>
-        <StyledItemIcon isCompact={isCompact} isVisible={true}>
-          <StyledPreviousIcon />
+      <StyledPreviousItem ref={ref} disabled={disabled} {...props}>
+        <StyledItemIcon isCompact={isCompact} isDisabled={disabled} isVisible={true}>
+          <StyledPreviousIcon isDisabled={disabled} />
         </StyledItemIcon>
         {children}
       </StyledPreviousItem>
@@ -36,17 +36,16 @@ export const PreviousItem = React.forwardRef<HTMLDivElement, Omit<IItemProps, 'c
     const { previousIndexRef } = useDropdownContext();
     const { itemIndexRef } = useMenuContext();
 
-    if (disabled) {
-      return <Item component={PreviousItemComponent} disabled {...props} ref={ref} />;
+    if (!disabled) {
+      previousIndexRef.current = itemIndexRef.current;
     }
-
-    previousIndexRef.current = itemIndexRef.current;
 
     return (
       <Item
         component={PreviousItemComponent}
         aria-expanded={true}
         value={value}
+        disabled={disabled}
         {...props}
         ref={ref}
       />

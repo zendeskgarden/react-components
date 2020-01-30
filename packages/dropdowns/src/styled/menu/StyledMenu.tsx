@@ -7,7 +7,6 @@
 
 import React, { HTMLAttributes } from 'react';
 import styled, { keyframes, css, ThemeProps, DefaultTheme, CSSProperties } from 'styled-components';
-import math from 'polished/lib/math/math';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
@@ -44,11 +43,9 @@ const retrieveMenuMargin = ({
     return '';
   }
 
-  let marginAmount = shouldShowArrow({ hasArrow, placement })
-    ? getArrowSize({ theme })
+  const marginAmount = shouldShowArrow({ hasArrow, placement })
+    ? `${theme.space.base * 2}px`
     : `${theme.space.base}px`;
-
-  marginAmount = math(`${marginAmount} - ${math(`${theme.borderWidths.sm} * 2`)}`);
 
   if (placement.startsWith('bottom')) {
     return `margin-top: ${marginAmount};`;
