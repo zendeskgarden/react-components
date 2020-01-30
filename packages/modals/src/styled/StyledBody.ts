@@ -7,7 +7,6 @@
 
 import styled from 'styled-components';
 import {
-  getColor,
   getLineHeight,
   retrieveComponentStyles,
   DEFAULT_THEME

@@ -27,6 +27,7 @@ export const StyledHeader = styled.div.attrs<IStyledHeaderProps>({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledHeaderProps>`
   display: block;
+  position: ${props => props.isDanger && 'relative'};
   margin: 0;
   border-bottom: ${props => props.theme.borders.sm} ${getColor('neutralHue', 200)};
   padding: ${props => `${props.theme.space.base * 5}px ${props.theme.space.base * 10}px`};
