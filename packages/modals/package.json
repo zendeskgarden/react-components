@@ -45,6 +45,6 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenModals",
-  "zendeskgarden:max_size": "14 kB",
+  "zendeskgarden:max_size": "9 kB",
   "zendeskgarden:src": "src/index.ts"
 }
