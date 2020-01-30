@@ -31,7 +31,8 @@ export const StyledHeader = styled.div.attrs<IStyledHeaderProps>({
   border-bottom: ${props => props.theme.borders.sm} ${getColor('neutralHue', 200)};
   padding: ${props => `${props.theme.space.base * 5}px ${props.theme.space.base * 10}px`};
   line-height: ${props => getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
-  color: ${props => (props.isDanger ? getColor('dangerHue', 600) : getColor('neutralHue', 800))};
+  color: ${props =>
+    props.isDanger ? getColor('dangerHue', 600, props.theme) : props.theme.colors.foreground};
   font-size: ${props => props.theme.fontSizes.md};
   font-weight: ${props => props.theme.fontWeights.semibold};
 

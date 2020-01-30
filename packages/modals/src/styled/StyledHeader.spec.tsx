@@ -8,17 +8,21 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import { StyledHeader } from './StyledHeader';
+import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 describe('StyledHeader', () => {
   it('renders default styling', () => {
     const { container } = render(<StyledHeader />);
 
-    expect(container.firstChild).toHaveStyleRule('color', '#2f3941');
+    expect(container.firstChild).toHaveStyleRule('color', DEFAULT_THEME.colors.foreground);
   });
 
   it('renders danger styling if provided', () => {
     const { container } = render(<StyledHeader isDanger />);
 
-    expect(container.firstChild).toHaveStyleRule('color', '#cc3340');
+    expect(container.firstChild).toHaveStyleRule(
+      'color',
+      getColor('dangerHue', 600, DEFAULT_THEME)
+    );
   });
 });
