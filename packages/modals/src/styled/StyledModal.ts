@@ -42,6 +42,18 @@ const boxShadow = (props: ThemeProps<DefaultTheme>) => {
   return shadows.lg(offsetY, blurRadius, color as string);
 };
 
+const sizeStyles = (props: IStyledModalProps & ThemeProps<DefaultTheme>) => {
+  const defaultWidth = 544;
+  const largeWidth = 800;
+
+  return css`
+    width: ${props.isLarge ? `${largeWidth}px` : `${defaultWidth}px`};
+    @media (max-width: ${props.isLarge ? `${largeWidth - 1}px` : props.theme.breakpoints.md}) {
+      ${props.theme.rtl ? 'right' : 'left'}: ${props.theme.space.base * 6}px;
+    }
+  `;
+};
+
 /**
  * 1. IE11 centering hack.
  */
@@ -58,7 +70,6 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
   border-color: transparent;
   box-shadow: ${boxShadow};
   background-color: ${props => props.theme.colors.background};
-  width: ${props => (props.isLarge ? '800px' : '544px')};
   min-height: 60px;
   max-height: calc(100vh - ${props => props.theme.space.base * 24}px);
   animation: ${props =>
@@ -69,6 +80,7 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
   animation-delay: 0.01s;
   overflow: auto;
   direction: ${props => props.theme.rtl && 'rtl'};
+  ${sizeStyles}
 
   &:focus {
     outline: none;
@@ -80,12 +92,6 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
     bottom: auto;
     margin-bottom: ${props => props.theme.space.base * 6}px;
     max-height: none;
-  }
-
-  /* stylelint-disable-next-line */
-  @media (max-width: ${props => (props.isLarge ? '799px' : '699px')}) {
-    right: ${props => props.theme.rtl && props.theme.space.base * 6}px;
-    left: ${props => (props.theme.rtl ? 'auto' : `${props.theme.space.base * 6}px`)};
   }
 
   /* stylelint-disable-next-line */
