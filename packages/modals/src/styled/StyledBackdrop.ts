@@ -21,7 +21,7 @@ const animationName = keyframes`
     opacity: 0;
   }
 
-  to {
+  100% {
     opacity: 1;
   }
 `;
