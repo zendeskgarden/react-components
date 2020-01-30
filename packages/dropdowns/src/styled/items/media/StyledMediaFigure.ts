@@ -51,7 +51,7 @@ export const StyledMediaFigure = styled(
   margin-top: ${props => getMediaFigureMarginTop(props)};
   /* stylelint-disable-next-line property-no-unknown */
   margin-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
-  props.isCompact ? props.theme.space.base : props.theme.space.base * 2}px;
+  props.isCompact ? props.theme.space.base * 1.5 : props.theme.space.base * 2}px;
   width: ${props => getMediaFigureSize(props)};
   height: ${props => getMediaFigureSize(props)};
 

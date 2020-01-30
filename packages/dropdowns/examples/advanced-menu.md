@@ -17,7 +17,7 @@ const StyledSpacer = styled.div`
 
 initialState = {
   isOpen: false,
-  placement: 'top',
+  placement: 'end',
   hasArrow: true,
   isAnimated: true,
   isCompact: false,
