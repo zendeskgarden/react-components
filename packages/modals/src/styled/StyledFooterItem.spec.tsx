@@ -14,27 +14,13 @@ describe('StyledFooterItem', () => {
     const { container } = render(<StyledFooterItem />);
 
     expect(container.firstChild).toHaveStyleRule('margin-left', '20px');
-
-    expect(container.firstChild).toHaveStyleRule('margin', '0', {
-      modifier: ':first-child'
-    });
-
-    expect(container.firstChild).not.toHaveStyleRule('margin', '0', {
-      modifier: ':last-child'
-    });
+    expect(container.firstChild).not.toHaveStyleRule('margin-right');
   });
 
   it('renders RTL styling if provided', () => {
     const { container } = renderRtl(<StyledFooterItem />);
 
-    expect(container.firstChild).toHaveStyleRule('margin-left', '20px');
-
-    expect(container.firstChild).not.toHaveStyleRule('margin', '0', {
-      modifier: ':first-child'
-    });
-
-    expect(container.firstChild).toHaveStyleRule('margin', '0', {
-      modifier: ':last-child'
-    });
+    expect(container.firstChild).toHaveStyleRule('margin-right', '20px');
+    expect(container.firstChild).not.toHaveStyleRule('margin-left');
   });
 });
