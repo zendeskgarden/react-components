@@ -8,7 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import { StyledFooter } from './StyledFooter';
-import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 describe('StyledFooter', () => {
   it('renders default styling', () => {
