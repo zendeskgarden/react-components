@@ -52,12 +52,16 @@ export const Item = React.forwardRef<HTMLDivElement, IItemProps>(
     let isSelected: boolean;
 
     // Calculate selection if provided value is an `object`
-    if (selectedItems) {
-      isSelected = selectedItems.some(item => {
-        return itemToString(item) === itemToString(value);
-      });
+    if (value) {
+      if (selectedItems) {
+        isSelected = selectedItems.some(item => {
+          return itemToString(item) === itemToString(value);
+        });
+      } else {
+        isSelected = itemToString(selectedItem) === itemToString(value);
+      }
     } else {
-      isSelected = itemToString(selectedItem) === itemToString(value);
+      isSelected = false;
     }
 
     useEffect(() => {
