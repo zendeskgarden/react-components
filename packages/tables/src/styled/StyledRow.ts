@@ -49,16 +49,18 @@ export const getRowHeight = (props: { size: SIZE } & ThemeProps<DefaultTheme>) =
 const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
   let backgroundColor = undefined;
   let borderColor = undefined;
-  const hoveredBackgroundColor = getColor('primaryHue', 100, props.theme);
+  const hoveredBackgroundColor = getColor('primaryHue', 600, props.theme, 0.08);
+  const hoveredBorderColor = getColor('primaryHue', 200, props.theme);
   const boxShadow = `inset ${props.theme.rtl ? '-' : ''}${
     props.theme.shadowWidths.md
   } 0 0 0 ${getColor('primaryHue', 600, props.theme)}`;
 
   if (props.isSelected || (props as any)['aria-selected']) {
-    backgroundColor = getColor('primaryHue', 200, props.theme);
+    backgroundColor = getColor('primaryHue', 600, props.theme, 0.2);
     borderColor = getColor('primaryHue', 300, props.theme);
   } else if (props.isHovered) {
     backgroundColor = hoveredBackgroundColor;
+    borderColor = hoveredBorderColor;
   }
 
   return css`
@@ -66,6 +68,7 @@ const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
     background-color: ${backgroundColor};
 
     &:hover {
+      border-bottom-color: ${hoveredBorderColor};
       background-color: ${hoveredBackgroundColor};
 
       ${StyledOverflowButton} {
@@ -77,16 +80,13 @@ const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
       outline: none;
     }
 
-    &:focus ${StyledCell}:first-of-type {
-      box-shadow: ${boxShadow};
-    }
-
-    ${props.isFocused &&
-      `
     ${StyledCell}:first-of-type {
-      box-shadow: ${boxShadow};
+      box-shadow: ${props.isFocused && boxShadow};
+
+      &:focus {
+        box-shadow: ${boxShadow};
+      }
     }
-  `}
   `;
 };
 
