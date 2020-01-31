@@ -47,13 +47,13 @@ export const getRowHeight = (props: { size: SIZE } & ThemeProps<DefaultTheme>) =
 };
 
 const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
-  let backgroundColor = undefined;
-  let borderColor = undefined;
-  const hoveredBackgroundColor = getColor('primaryHue', 600, props.theme, 0.08);
-  const hoveredBorderColor = getColor('primaryHue', 200, props.theme);
   const boxShadow = `inset ${props.theme.rtl ? '-' : ''}${
     props.theme.shadowWidths.md
   } 0 0 0 ${getColor('primaryHue', 600, props.theme)}`;
+  const hoveredBackgroundColor = getColor('primaryHue', 600, props.theme, 0.08);
+  const hoveredBorderColor = getColor('primaryHue', 200, props.theme);
+  let backgroundColor = undefined;
+  let borderColor = undefined;
 
   if (props.isSelected || (props as any)['aria-selected']) {
     backgroundColor = getColor('primaryHue', 600, props.theme, 0.2);

@@ -23,26 +23,40 @@ export interface IStyledOverflowButtonProps {
 const OVERFLOW_BUTTON_SIZE = '2em';
 
 const colorStyles = (props: IStyledOverflowButtonProps & ThemeProps<DefaultTheme>) => {
-  const baseColor =
-    props.isHovered || props.isActive || props.isFocused
-      ? getColor('neutralHue', 800, props.theme)
-      : getColor('neutralHue', 600, props.theme);
+  const boxShadow = props.theme.shadows.md(getColor('primaryHue', 600, props.theme, 0.35)!);
+  const hoverBackgroundColor = getColor('primaryHue', 600, props.theme, 0.08);
+  const hoverForegroundColor = getColor('neutralHue', 700, props.theme);
+  const activeBackgroundColor = getColor('primaryHue', 600, props.theme, 0.2);
+  const activeForegroundColor = getColor('neutralHue', 800, props.theme);
+  let foregroundColor;
+
+  if (props.isHovered) {
+    foregroundColor = hoverForegroundColor;
+  } else if (props.isActive) {
+    foregroundColor = activeForegroundColor;
+  } else {
+    foregroundColor = getColor('neutralHue', 600, props.theme);
+  }
 
   return css`
-    color: ${baseColor};
+    color: ${foregroundColor};
+
+    &:hover {
+      background-color: ${hoverBackgroundColor};
+      color: ${hoverForegroundColor};
+    }
+
+    &:active {
+      background-color: ${activeBackgroundColor};
+      color: ${activeForegroundColor};
+    }
 
     &:focus {
       outline: none;
     }
 
-    &:active,
-    &:hover {
-      opacity: 1;
-      color: ${getColor('neutralHue', 800, props.theme)};
-    }
-
     &[data-garden-focus-visible] {
-      background-color: ${getColor('neutralHue', 600, props.theme, 0.35)};
+      box-shadow: inset ${boxShadow};
     }
   `;
 };
@@ -72,6 +86,10 @@ export const StyledOverflowButton = styled.button.attrs<IStyledOverflowButtonPro
   font-size: inherit; /* [1] */
 
   ${props => colorStyles(props)}
+
+  &[aria-expanded='true'] {
+    opacity: 1;
+  }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
