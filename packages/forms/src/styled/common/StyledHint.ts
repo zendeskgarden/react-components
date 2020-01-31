@@ -6,9 +6,12 @@
  */
 
 import styled from 'styled-components';
-import math from 'polished/lib/math/math';
-import stripUnit from 'polished/lib/helpers/stripUnit';
-import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  getColor,
+  getLineHeight,
+  retrieveComponentStyles,
+  DEFAULT_THEME
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.input_hint';
 
@@ -19,8 +22,7 @@ export const StyledHint = styled.div.attrs({
   direction: ${props => props.theme.rtl && 'rtl'};
   display: block;
   vertical-align: middle; /* support hint inline with input layout */
-  line-height: ${props =>
-    stripUnit(math(`${props.theme.space.base * 5} / ${props.theme.fontSizes.md}`))};
+  line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
   color: ${props => getColor('neutralHue', 600, props.theme)};
   font-size: ${props => props.theme.fontSizes.md};
 

@@ -6,9 +6,11 @@
  */
 
 import styled from 'styled-components';
-import math from 'polished/lib/math/math';
-import stripUnit from 'polished/lib/helpers/stripUnit';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  getLineHeight
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.input_label';
 
@@ -22,8 +24,7 @@ export const StyledLabel = styled.label.attrs({
 })<IStyledLabelProps>`
   direction: ${props => props.theme.rtl && 'rtl'};
   vertical-align: middle; /* support label inline with input layout */
-  line-height: ${props =>
-    stripUnit(math(`${props.theme.space.base * 5} / ${props.theme.fontSizes.md}`))};
+  line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
   color: ${props => props.theme.colors.foreground};
   font-size: ${props => props.theme.fontSizes.md};
   font-weight: ${props =>

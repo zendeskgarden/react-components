@@ -7,8 +7,12 @@
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import math from 'polished/lib/math/math';
-import stripUnit from 'polished/lib/helpers/stripUnit';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import {
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  getColor,
+  getLineHeight
+} from '@zendeskgarden/react-theming';
 import { VALIDATION } from '../../utils/validation';
 import { StyledMessageIcon } from './StyledMessageIcon';
 import { StyledLabel } from './StyledLabel';
@@ -49,8 +53,7 @@ export const StyledMessage = styled.div.attrs({
   display: inline-block;
   position: relative;
   vertical-align: middle; /* support message inline with input layout */
-  line-height: ${props =>
-    stripUnit(math(`${props.theme.iconSizes.md} / ${props.theme.fontSizes.sm}`))};
+  line-height: ${props => getLineHeight(props.theme.iconSizes.md, props.theme.fontSizes.sm)};
   font-size: ${props => props.theme.fontSizes.sm};
 
   ${props => validationStyles(props)};
