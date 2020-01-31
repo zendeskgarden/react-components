@@ -6,20 +6,23 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import MenuStyles from '@zendeskgarden/css-menus';
+import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.separator';
 
 /**
  * Accepts all `<li>` props
  */
-export const StyledSeparator = styled.li.attrs({
+export const StyledSeparator = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  role: 'separator',
-  className: MenuStyles['c-menu__separator']
-})`
+  role: 'separator'
+} as any)`
+  display: block;
+  margin: ${props => props.theme.space.base}px 0;
+  border-bottom: ${props =>
+    `${props.theme.borders.sm} ${getColor('neutralHue', 200, props.theme)}`};
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

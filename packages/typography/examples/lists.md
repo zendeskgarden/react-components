@@ -93,9 +93,9 @@ const NestedList = ({ level = 0, ...props }) => {
         <Dropdown selectedItem={state.size} onSelect={size => setState({ size })}>
           <SelectField>
             <SelectLabel>Size</SelectLabel>
-            <Select small>{state.size}</Select>
+            <Select isCompact>{state.size}</Select>
           </SelectField>
-          <Menu small>
+          <Menu isCompact>
             <MenuItem value="small">small</MenuItem>
             <MenuItem value="medium">medium (default)</MenuItem>
             <MenuItem value="large">large</MenuItem>

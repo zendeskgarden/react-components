@@ -9,6 +9,7 @@ import React, { useContext, MutableRefObject } from 'react';
 
 export interface IMenuContext {
   itemIndexRef: MutableRefObject<number>;
+  isCompact?: boolean;
 }
 
 export const MenuContext = React.createContext<IMenuContext | undefined>(undefined);

@@ -5,52 +5,152 @@ All `Items` require a `value` prop that is provided with the `onSelect` callback
 Any object or value can be provided.
 
 ```jsx
+const { Well } = require('@zendeskgarden/react-notifications/src');
+const { Toggle, Field: FormField, Label: FormLabel } = require('@zendeskgarden/react-forms/src');
 const { Button } = require('@zendeskgarden/react-buttons/src');
 const GroupIcon = require('@zendeskgarden/svg-icons/src/16/user-group-stroke.svg').default;
+const ClipboardIcon = require('@zendeskgarden/svg-icons/src/16/clipboard-list-stroke.svg').default;
+
+const StyledSpacer = styled.div`
+  margin-top: ${props => props.theme.space.xs};
+`;
 
 initialState = {
-  isOpen: false
+  isOpen: false,
+  placement: 'end',
+  hasArrow: true,
+  isAnimated: true,
+  isCompact: false,
+  isDiabled: false,
+  forceIsOpen: false
 };
 
-<Dropdown
-  isOpen={state.isOpen}
-  onStateChange={changes => {
-    if (Object.prototype.hasOwnProperty.call(changes, 'isOpen')) {
-      setState({ isOpen: changes.isOpen });
-    }
-  }}
-  onSelect={item => alert(item)}
->
-  <Trigger>
-    <Button active={state.isOpen}>Advanced Layout</Button>
-  </Trigger>
-  <Menu placement="end" hasArrow>
-    <HeaderItem>Header Item</HeaderItem>
-    <Separator />
-    <Item value="profile">Option 1</Item>
-    <Item value="settings">Option 2</Item>
-    <Item disabled>Disabled item</Item>
-    <Separator />
-    <MediaItem value="image">
-      <MediaFigure>
-        <img src="images/amir.png" alt="Example Avatar" />
-      </MediaFigure>
-      <MediaBody>
-        Image Media Item
-        <ItemMeta>Meta info</ItemMeta>
-      </MediaBody>
-    </MediaItem>
-    <MediaItem value="icon">
-      <MediaFigure>
-        <GroupIcon />
-      </MediaFigure>
-      <MediaBody>
-        Icon Media Item
-        <ItemMeta>Meta info</ItemMeta>
-      </MediaBody>
-    </MediaItem>
-  </Menu>
-</Dropdown>;
+<Grid>
+  <Row alignItems="center">
+    <Col size={4}>
+      <Well isRecessed>
+        <Dropdown selectedItem={state.placement} onSelect={placement => setState({ placement })}>
+          <Field>
+            <Label>Placement</Label>
+            <Select isCompact>{state.placement}</Select>
+          </Field>
+          <Menu isCompact>
+            <Item value="top">top</Item>
+            <Item value="top-start">top-start</Item>
+            <Item value="top-end">top-end</Item>
+            <Item value="end">end</Item>
+            <Item value="end-top">end-top</Item>
+            <Item value="end-bottom">end-bottom</Item>
+            <Item value="bottom">bottom</Item>
+            <Item value="bottom-start">bottom-start</Item>
+            <Item value="bottom-end">bottom-end</Item>
+            <Item value="start">start</Item>
+            <Item value="start-top">start-top</Item>
+            <Item value="start-bottom">start-bottom</Item>
+          </Menu>
+        </Dropdown>
+        <StyledSpacer />
+        <FormField>
+          <Toggle checked={state.hasArrow} onChange={e => setState({ hasArrow: e.target.checked })}>
+            <FormLabel>Has arrow</FormLabel>
+          </Toggle>
+        </FormField>
+        <StyledSpacer />
+        <FormField>
+          <Toggle
+            checked={state.isAnimated}
+            onChange={e => setState({ isAnimated: e.target.checked })}
+          >
+            <FormLabel>Animated</FormLabel>
+          </Toggle>
+        </FormField>
+        <StyledSpacer />
+        <FormField>
+          <Toggle
+            checked={state.isCompact}
+            onChange={e => setState({ isCompact: e.target.checked })}
+          >
+            <FormLabel>Compact</FormLabel>
+          </Toggle>
+        </FormField>
+        <StyledSpacer />
+        <FormField>
+          <Toggle
+            checked={state.isDisabled}
+            onChange={e => setState({ isDisabled: e.target.checked })}
+          >
+            <FormLabel>Disable items</FormLabel>
+          </Toggle>
+        </FormField>
+        <StyledSpacer />
+        <FormField>
+          <Toggle
+            checked={state.forceIsOpen}
+            onChange={e => setState({ forceIsOpen: e.target.checked })}
+          >
+            <FormLabel>Force open</FormLabel>
+          </Toggle>
+        </FormField>
+      </Well>
+    </Col>
+    <Col size={8} style={{ textAlign: 'center' }}>
+      <Dropdown
+        isOpen={state.forceIsOpen || state.isOpen}
+        onStateChange={changes => {
+          if (Object.prototype.hasOwnProperty.call(changes, 'isOpen')) {
+            setState({ isOpen: changes.isOpen });
+          }
+        }}
+      >
+        <Trigger>
+          <Button>Advanced Layout</Button>
+        </Trigger>
+        <Menu
+          placement={state.placement}
+          hasArrow={state.hasArrow}
+          isCompact={state.isCompact}
+          isAnimated={state.isAnimated}
+        >
+          <HeaderItem containsIcon>
+            <HeaderIcon>
+              <ClipboardIcon />
+            </HeaderIcon>
+            Header Item
+          </HeaderItem>
+          <Item value="profile" disabled={state.isDisabled}>
+            Option 1
+          </Item>
+          <Item value="settings" disabled={state.isDisabled}>
+            Option 2<ItemMeta>Optional meta</ItemMeta>
+          </Item>
+          <Separator />
+          <MediaItem value="image" disabled={state.isDisabled}>
+            <MediaFigure>
+              <img src="images/amir.png" alt="Example Avatar" />
+            </MediaFigure>
+            <MediaBody>
+              Image Media Item
+              <ItemMeta>Meta info</ItemMeta>
+            </MediaBody>
+          </MediaItem>
+          <MediaItem value="icon" disabled={state.isDisabled}>
+            <MediaFigure>
+              <GroupIcon />
+            </MediaFigure>
+            <MediaBody>
+              Icon Media Item
+              <ItemMeta>Meta info</ItemMeta>
+            </MediaBody>
+          </MediaItem>
+          <Separator />
+          <AddItem value="add-item" disabled={state.isDisabled}>
+            Add Item
+          </AddItem>
+        </Menu>
+      </Dropdown>
+    </Col>
+  </Row>
+</Grid>;
 ```
 
 ## Async Loading

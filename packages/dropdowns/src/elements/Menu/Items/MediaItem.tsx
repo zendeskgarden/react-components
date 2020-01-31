@@ -11,16 +11,13 @@ import { Item, IItemProps } from './Item';
 import { StyledMediaItem } from '../../../styled';
 
 /**
- * Accepts all `<li>` props
+ * Accepts all `<div>` props
  */
-export const MediaItem = React.forwardRef<HTMLLIElement, IItemProps>((props, ref) => (
+export const MediaItem = React.forwardRef<HTMLDivElement, IItemProps>((props, ref) => (
   <Item component={StyledMediaItem} ref={ref} {...props} />
 ));
 
 MediaItem.propTypes = {
-  isActive: PropTypes.bool,
-  isFocused: PropTypes.bool,
-  isHovered: PropTypes.bool,
-  disabled: PropTypes.bool,
-  checked: PropTypes.bool
+  value: PropTypes.any,
+  disabled: PropTypes.bool
 };

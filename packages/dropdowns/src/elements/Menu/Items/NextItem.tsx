@@ -9,35 +9,52 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Item, IItemProps } from './Item';
-import { StyledNextItem } from '../../../styled';
+import { StyledNextItem, StyledItemIcon, StyledNextIcon } from '../../../styled';
 import useDropdownContext from '../../../utils/useDropdownContext';
 import useMenuContext from '../../../utils/useMenuContext';
 
+const NextItemComponent = React.forwardRef<HTMLDivElement, IItemProps>(
+  ({ children, disabled, ...props }, ref) => {
+    const { isCompact } = useMenuContext();
+
+    return (
+      <StyledNextItem ref={ref} disabled={disabled} {...props}>
+        <StyledItemIcon isCompact={isCompact} isDisabled={disabled} isVisible={true}>
+          <StyledNextIcon isDisabled={disabled} />
+        </StyledItemIcon>
+        {children}
+      </StyledNextItem>
+    );
+  }
+);
+
 /**
- * Accepts all `<li>` props
+ * Accepts all `<div>` props
  */
-export const NextItem = React.forwardRef<HTMLLIElement, IItemProps>(
+export const NextItem = React.forwardRef<HTMLDivElement, Omit<IItemProps, 'component'>>(
   ({ value, disabled, ...props }, ref) => {
     const { nextItemsHashRef } = useDropdownContext();
     const { itemIndexRef } = useMenuContext();
 
-    if (disabled) {
-      return <Item component={StyledNextItem} disabled {...props} />;
+    if (!disabled) {
+      // Include current index in global Dropdown context
+      (nextItemsHashRef.current as any)[value] = itemIndexRef.current;
     }
 
-    // Include current index in global Dropdown context
-    (nextItemsHashRef.current as any)[value] = itemIndexRef.current;
-
     return (
-      <Item component={StyledNextItem} aria-expanded={true} value={value} ref={ref} {...props} />
+      <Item
+        component={NextItemComponent}
+        aria-expanded={true}
+        disabled={disabled}
+        value={value}
+        ref={ref}
+        {...props}
+      />
     );
   }
 );
 
 NextItem.propTypes = {
   value: PropTypes.any,
-  disabled: PropTypes.bool,
-  isActive: PropTypes.bool,
-  isFocused: PropTypes.bool,
-  isHovered: PropTypes.bool
+  disabled: PropTypes.bool
 };

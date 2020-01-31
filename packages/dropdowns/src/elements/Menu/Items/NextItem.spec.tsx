@@ -26,9 +26,7 @@ describe('NextItem', () => {
 
     const nextItem = getByTestId('next-item');
 
-    expect(nextItem).toHaveAttribute('disabled');
-    expect(nextItem).not.toHaveAttribute('aria-expanded');
-    expect(nextItem).toHaveClass('is-disabled');
+    expect(nextItem).toHaveAttribute('aria-disabled', 'true');
   });
 
   it('applies additional properties correctly', () => {
@@ -47,5 +45,24 @@ describe('NextItem', () => {
     const nextItem = getByTestId('next-item');
 
     expect(nextItem).toHaveAttribute('aria-expanded', 'true');
+  });
+
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<HTMLDivElement>();
+
+    const { getByTestId } = render(
+      <Dropdown>
+        <Trigger>
+          <button>Test</button>
+        </Trigger>
+        <Menu>
+          <NextItem value="item-1" data-test-id="next-item" ref={ref}>
+            Item 1
+          </NextItem>
+        </Menu>
+      </Dropdown>
+    );
+
+    expect(getByTestId('next-item')).toBe(ref.current);
   });
 });

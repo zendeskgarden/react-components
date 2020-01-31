@@ -9,29 +9,43 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Item, IItemProps } from './Item';
-import { StyledPreviousItem } from '../../../styled';
+import { StyledPreviousItem, StyledItemIcon, StyledPreviousIcon } from '../../../styled';
 import useDropdownContext from '../../../utils/useDropdownContext';
 import useMenuContext from '../../../utils/useMenuContext';
 
+const PreviousItemComponent = React.forwardRef<HTMLDivElement, IItemProps>(
+  ({ children, disabled, ...props }, ref) => {
+    const { isCompact } = useMenuContext();
+
+    return (
+      <StyledPreviousItem ref={ref} disabled={disabled} {...props}>
+        <StyledItemIcon isCompact={isCompact} isDisabled={disabled} isVisible={true}>
+          <StyledPreviousIcon isDisabled={disabled} />
+        </StyledItemIcon>
+        {children}
+      </StyledPreviousItem>
+    );
+  }
+);
+
 /**
- * Accepts all `<li>` props
+ * Accepts all `<div>` props
  */
-export const PreviousItem = React.forwardRef<HTMLLIElement, IItemProps>(
+export const PreviousItem = React.forwardRef<HTMLDivElement, Omit<IItemProps, 'component'>>(
   ({ value, disabled, ...props }, ref) => {
     const { previousIndexRef } = useDropdownContext();
     const { itemIndexRef } = useMenuContext();
 
-    if (disabled) {
-      return <Item component={StyledPreviousItem} disabled {...props} ref={ref} />;
+    if (!disabled) {
+      previousIndexRef.current = itemIndexRef.current;
     }
-
-    previousIndexRef.current = itemIndexRef.current;
 
     return (
       <Item
-        component={StyledPreviousItem}
+        component={PreviousItemComponent}
         aria-expanded={true}
         value={value}
+        disabled={disabled}
         {...props}
         ref={ref}
       />
@@ -41,8 +55,5 @@ export const PreviousItem = React.forwardRef<HTMLLIElement, IItemProps>(
 
 PreviousItem.propTypes = {
   value: PropTypes.any,
-  disabled: PropTypes.bool,
-  isActive: PropTypes.bool,
-  isFocused: PropTypes.bool,
-  isHovered: PropTypes.bool
+  disabled: PropTypes.bool
 };

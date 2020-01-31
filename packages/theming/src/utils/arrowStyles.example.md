@@ -39,9 +39,9 @@ const StyledDiv = styled.div`
         <Dropdown selectedItem={state.position} onSelect={position => setState({ position })}>
           <SelectField>
             <SelectLabel>Position</SelectLabel>
-            <Select small>{state.position}</Select>
+            <Select isCompact>{state.position}</Select>
           </SelectField>
-          <Menu small>
+          <Menu isCompact>
             <Item value="top-left">top-left</Item>
             <Item value="top">top</Item>
             <Item value="top-right">top-right</Item>

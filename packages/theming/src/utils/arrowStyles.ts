@@ -140,7 +140,7 @@ const positionStyles = (position: ARROW_POSITION, size: string, inset: string) =
  *
  * @component
  */
-export default function arrowStyles(position: ARROW_POSITION, options: ARROW_OPTIONS) {
+export default function arrowStyles(position: ARROW_POSITION, options: ARROW_OPTIONS = {}) {
   const size = options.size || '6px';
   const inset = options.inset || '0';
   const squareSize = math(`${size} * 2 / sqrt(2)`);

@@ -24,6 +24,7 @@
     "@zendeskgarden/container-utilities": "^0.3.0",
     "classnames": "^2.2.5",
     "downshift": "^3.2.7",
+    "polished": "^3.4.2",
     "react-popper": "^1.3.4"
   },
   "peerDependencies": {
@@ -35,9 +36,7 @@
   },
   "devDependencies": {
     "@types/lodash.debounce": "4.0.6",
-    "@zendeskgarden/css-arrows": "3.1.1",
     "@zendeskgarden/css-forms": "7.0.18",
-    "@zendeskgarden/css-menus": "9.0.18",
     "@zendeskgarden/react-theming": "^8.0.0-next.0",
     "@zendeskgarden/svg-icons": "6.9.0",
     "lodash.debounce": "4.0.8"
@@ -52,6 +51,6 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenDropdowns",
-  "zendeskgarden:max_size": "35 kB",
+  "zendeskgarden:max_size": "36 kB",
   "zendeskgarden:src": "src/index.ts"
 }

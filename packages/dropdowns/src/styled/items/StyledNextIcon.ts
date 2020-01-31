@@ -6,29 +6,25 @@
  */
 
 import styled from 'styled-components';
+import NextIconSvg from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'dropdowns.item_meta';
+const COMPONENT_ID = 'dropdowns.next_item_icon';
 
-interface IStyledItemMetaProps {
-  isCompact?: boolean;
+interface IStyledNextIconProps {
+  isDisabled?: boolean;
 }
 
-/**
- * Accepts all `<span>` props
- */
-export const StyledItemMeta = styled.span.attrs({
+export const StyledNextIcon = styled(NextIconSvg).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledItemMetaProps>`
-  display: ${props => (props.isCompact ? 'none' : 'block')};
-  line-height: ${props => props.theme.space.base * 4}px;
-  color: ${props => getColor('neutralHue', 600, props.theme)};
-  font-size: ${props => props.theme.fontSizes.sm};
+})<IStyledNextIconProps>`
+  transform: ${props => props.theme.rtl && 'rotate(180deg)'};
+  color: ${props => (props.isDisabled ? 'inherit' : getColor('neutralHue', 600, props.theme))};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledItemMeta.defaultProps = {
+StyledNextIcon.defaultProps = {
   theme: DEFAULT_THEME
 };
