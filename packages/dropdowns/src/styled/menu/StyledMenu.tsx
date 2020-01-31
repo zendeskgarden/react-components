@@ -169,9 +169,7 @@ interface IStyledMenuWrapperProps {
 
 /**
  * 1. PopperJS requires a non-zero font-size to perform
- * its initial placement correctly. This font-size value
- * affects the content of the arrow styling ::before/::after
- * elements.
+ * its initial placement correctly.
  */
 const StyledMenuWrapper = styled.div<IStyledMenuWrapperProps>`
   transition: ${props =>
