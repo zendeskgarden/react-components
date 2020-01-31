@@ -108,6 +108,5 @@ export const Item = React.forwardRef<HTMLDivElement, IItemProps>(
 
 Item.propTypes = {
   value: PropTypes.any,
-  component: PropTypes.any,
   disabled: PropTypes.bool
 };

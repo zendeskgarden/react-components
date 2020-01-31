@@ -6,16 +6,18 @@
  */
 
 import React, { HTMLAttributes } from 'react';
-import { StyledHeaderItem, IStyledHeaderItemProps } from '../../../styled';
+import { StyledHeaderItem } from '../../../styled';
 import useMenuContext from '../../../utils/useMenuContext';
+
+interface IHeaderItemProps extends HTMLAttributes<HTMLDivElement> {
+  /** Applies icon styling */
+  containsIcon?: boolean;
+}
 
 /**
  * Accepts all `<div>` props
  */
-export const HeaderItem = React.forwardRef<
-  HTMLDivElement,
-  IStyledHeaderItemProps & HTMLAttributes<HTMLDivElement>
->((props, ref) => {
+export const HeaderItem = React.forwardRef<HTMLDivElement, IHeaderItemProps>((props, ref) => {
   const { isCompact } = useMenuContext();
 
   return <StyledHeaderItem ref={ref} isCompact={isCompact} {...props} />;

@@ -8,13 +8,14 @@
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-import { StyledItem, IStyledItemProps } from '../../';
+import { StyledItem } from '../../';
 
 const COMPONENT_ID = 'dropdowns.header_item';
 
-export interface IStyledHeaderItemProps extends IStyledItemProps {
+export interface IStyledHeaderItemProps {
   /** Applies icon styling */
   containsIcon?: boolean;
+  isCompact?: boolean;
 }
 
 const getHorizontalPadding = (props: IStyledHeaderItemProps & ThemeProps<DefaultTheme>) => {
