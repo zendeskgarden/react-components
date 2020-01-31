@@ -9,8 +9,12 @@ import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import em from 'polished/lib/helpers/em';
 import math from 'polished/lib/math/math';
 import rgba from 'polished/lib/color/rgba';
-import stripUnit from 'polished/lib/helpers/stripUnit';
-import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  retrieveComponentStyles,
+  getColor,
+  getLineHeight,
+  DEFAULT_THEME
+} from '@zendeskgarden/react-theming';
 import { VALIDATION } from '../../utils/validation';
 import { StyledTextMediaFigure } from './StyledTextMediaFigure';
 import { StyledHint } from '../common/StyledHint';
@@ -124,7 +128,7 @@ const sizeStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) => 
   return css`
     padding: ${padding};
     min-height: ${props.isBare ? '1em' : height};
-    line-height: ${stripUnit(math(`${lineHeight} / ${fontSize}`))};
+    line-height: ${getLineHeight(lineHeight, fontSize)};
     font-size: ${fontSize};
 
     &::-ms-browse {
