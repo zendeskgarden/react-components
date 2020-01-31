@@ -35,7 +35,9 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const boxShadow = props.theme.shadows.md(rgba(focusBorderColor!, 0.35));
   const checkedBorderColor = focusBorderColor;
   const checkedBackgroundColor = checkedBorderColor;
-  const checkedActiveBorderColor = getColor('primaryHue', SHADE + 100, props.theme);
+  const checkedHoverBorderColor = getColor('primaryHue', SHADE + 100, props.theme);
+  const checkedHoverBackgroundColor = checkedHoverBorderColor;
+  const checkedActiveBorderColor = getColor('primaryHue', SHADE + 200, props.theme);
   const checkedActiveBackgroundColor = checkedActiveBorderColor;
   const disabledBackgroundColor = getColor('neutralHue', SHADE - 400, props.theme);
   const backgroundImage = encodeURIComponent(radioSvg(props));
@@ -70,11 +72,17 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
       background-color: ${checkedBackgroundColor};
     }
 
-    /* stylelint-disable-next-line selector-max-specificity */
+    /* stylelint-disable selector-max-specificity */
+    &:enabled:checked ~ ${StyledRadioLabel}:hover::before {
+      border-color: ${checkedHoverBorderColor};
+      background-color: ${checkedHoverBackgroundColor};
+    }
+
     &:enabled:checked ~ ${StyledRadioLabel}:active::before {
       border-color: ${checkedActiveBorderColor};
       background-color: ${checkedActiveBackgroundColor};
     }
+    /* stylelint-enable selector-max-specificity */
 
     &:disabled ~ ${StyledRadioLabel}::before {
       border-color: transparent;
