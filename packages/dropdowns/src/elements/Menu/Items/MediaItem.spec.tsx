@@ -31,4 +31,23 @@ describe('MediaItem', () => {
 
     expect(onSelectSpy.mock.calls[0][0]).toBe('media-item');
   });
+
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<HTMLDivElement>();
+
+    const { getByTestId } = render(
+      <Dropdown>
+        <Trigger>
+          <button>Test</button>
+        </Trigger>
+        <Menu>
+          <MediaItem value="item-1" data-test-id="media-item" ref={ref}>
+            Item 1
+          </MediaItem>
+        </Menu>
+      </Dropdown>
+    );
+
+    expect(getByTestId('media-item')).toBe(ref.current);
+  });
 });

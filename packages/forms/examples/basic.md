@@ -102,9 +102,9 @@ const StyledMessage = styled(Message)`
         >
           <SelectField className="u-mt-xs">
             <SelectLabel>Validation</SelectLabel>
-            <Select small>{state.validation || 'none'}</Select>
+            <Select isCompact>{state.validation || 'none'}</Select>
           </SelectField>
-          <Menu small>
+          <Menu isCompact>
             <Item value="">none</Item>
             <Item value="success">success</Item>
             <Item value="warning">warning</Item>
@@ -271,11 +271,11 @@ initialState = {
         >
           <SelectField className="u-mt-xs">
             <SelectLabel>Validation</SelectLabel>
-            <Select disabled={!state.message} small>
+            <Select disabled={!state.message} isCompact>
               {state.validation || 'none'}
             </Select>
           </SelectField>
-          <Menu small>
+          <Menu isCompact>
             <Item value="">none</Item>
             <Item value="success">success</Item>
             <Item value="warning">warning</Item>
@@ -379,11 +379,11 @@ initialState = {
         >
           <SelectField className="u-mt-xs">
             <SelectLabel>Validation</SelectLabel>
-            <Select disabled={!state.message} small>
+            <Select disabled={!state.message} isCompact>
               {state.validation || 'none'}
             </Select>
           </SelectField>
-          <Menu small>
+          <Menu isCompact>
             <Item value="">none</Item>
             <Item value="success">success</Item>
             <Item value="warning">warning</Item>
@@ -393,9 +393,9 @@ initialState = {
         <Dropdown selectedItem={state.step} onSelect={step => setState({ step })}>
           <SelectField className="u-mt-xs">
             <SelectLabel>Step</SelectLabel>
-            <Select small>{state.step}</Select>
+            <Select isCompact>{state.step}</Select>
           </SelectField>
-          <Menu small>
+          <Menu isCompact>
             <Item value={1}>1</Item>
             <Item value={5}>5</Item>
             <Item value={10}>10</Item>

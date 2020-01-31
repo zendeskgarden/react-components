@@ -90,9 +90,9 @@ const StyledSpacer = styled.div`
             <Dropdown selectedItem={state.product} onSelect={product => setState({ product })}>
               <DropdownField>
                 <DropdownLabel>Product</DropdownLabel>
-                <Select small>{state.product}</Select>
+                <Select isCompact>{state.product}</Select>
               </DropdownField>
-              <Menu small>
+              <Menu isCompact>
                 {PRODUCTS.map(product => (
                   <Item key={product} value={product}>
                     {product}

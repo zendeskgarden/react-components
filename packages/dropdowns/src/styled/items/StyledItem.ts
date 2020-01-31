@@ -5,46 +5,79 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import classNames from 'classnames';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import MenuStyles from '@zendeskgarden/css-menus';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.item';
 
 export interface IStyledItemProps {
-  isActive?: boolean;
   isFocused?: boolean;
-  isHovered?: boolean;
+  isCompact?: boolean;
   disabled?: boolean;
   checked?: boolean;
 }
 
+export const getItemPaddingVertical = (props: IStyledItemProps & ThemeProps<DefaultTheme>) => {
+  if (props.isCompact) {
+    return `${props.theme.space.base * 1.5}px`;
+  }
+
+  return `${props.theme.space.base * 2.5}px`;
+};
+
+export const getItemPaddingHorizontal = (props: IStyledItemProps & ThemeProps<DefaultTheme>) => {
+  if (props.isCompact) {
+    return `${props.theme.space.base * 6}px`;
+  }
+
+  return `${props.theme.space.base * 8}px`;
+};
+
+const getColorStyles = (props: IStyledItemProps & ThemeProps<DefaultTheme>) => {
+  return css`
+    background-color: ${props.isFocused &&
+      !props.disabled &&
+      getColor('primaryHue', 600, props.theme, 0.08)};
+    color: ${props.disabled
+      ? getColor('neutralHue', 400, props.theme)
+      : props.theme.colors.foreground};
+  `;
+};
+
 /**
- * Accepts all `<li>` props
- */
-export const StyledItem = styled.li.attrs<IStyledItemProps>(props => ({
+ * 1. Allows an item to contain a positioned sub-menu.
+ * 2. Reset stacking context for sub-menu css-arrows.
+ **/
+export const StyledItem = styled.div.attrs<IStyledItemProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: classNames(MenuStyles['c-menu__item'], {
-    // State
-    [MenuStyles['is-active']]: props.isActive,
-    [MenuStyles['is-focused']]: props.isFocused,
-    [MenuStyles['is-hovered']]: props.isHovered,
-    [MenuStyles['is-disabled']]: props.disabled,
-    [MenuStyles['is-checked']]: props.checked
-  })
+  'aria-disabled': props.disabled
 }))<IStyledItemProps>`
-  /* stylelint-disable */
-  ${props =>
-    !props.isFocused &&
-    `&&&:hover {
-      background-color: inherit;
-    }
-  `};
+  display: block;
+  position: relative; /* [1] */
+  z-index: 0; /* [2] */
+  cursor: ${props => (props.disabled ? 'default' : 'pointer')};
+  padding: ${props => `${getItemPaddingVertical(props)} ${getItemPaddingHorizontal(props)}`};
+  text-decoration: none;
+  line-height: ${props => props.theme.space.base * 5}px;
+  word-wrap: break-word;
+  user-select: none;
+
+  &:first-child {
+    margin-top: ${props => props.theme.space.base * 2}px;
+  }
+
+  &:last-child {
+    margin-bottom: ${props => props.theme.space.base * 2}px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  ${props => getColorStyles(props)}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
-  /* stylelint-enable */
 `;
 
 StyledItem.defaultProps = {

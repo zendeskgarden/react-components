@@ -28,7 +28,6 @@ const renderItems = () => {
   return (
     <>
       <HeaderItem>General Settings</HeaderItem>
-      <Separator />
       <Item value="profile">Profile</Item>
       <Item value="settings">Settings</Item>
       <Item value="user-images">User Images</Item>
@@ -66,7 +65,7 @@ const renderItems = () => {
   <Trigger>
     <Button>Tree Layout</Button>
   </Trigger>
-  <Menu placement="end" hasArrow style={{ width: 200, height: 270 }}>
+  <Menu placement="end" hasArrow style={{ width: 200, height: 258 }}>
     {renderItems()}
   </Menu>
 </Dropdown>;

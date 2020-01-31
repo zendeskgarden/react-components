@@ -38,9 +38,9 @@ initialState = {
         <Dropdown selectedItem={state.size} onSelect={size => setState({ size })}>
           <SelectField>
             <SelectLabel>Size</SelectLabel>
-            <Select small>{state.size}</Select>
+            <Select isCompact>{state.size}</Select>
           </SelectField>
-          <Menu small>
+          <Menu isCompact>
             <Item value="extrasmall">extrasmall</Item>
             <Item value="small">small</Item>
             <Item value="medium">medium</Item>

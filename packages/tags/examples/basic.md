@@ -43,9 +43,9 @@ initialState = {
         <Dropdown selectedItem={state.hue} onSelect={hue => setState({ hue })}>
           <SelectField>
             <SelectLabel>Hue</SelectLabel>
-            <Select small>{state.hue}</Select>
+            <Select isCompact>{state.hue}</Select>
           </SelectField>
-          <Menu small maxHeight="240px">
+          <Menu isCompact maxHeight="240px">
             <Item value="default">default</Item>
             <Item value="grey">grey</Item>
             <Item value="blue">blue</Item>
@@ -69,9 +69,9 @@ initialState = {
         <Dropdown selectedItem={state.size} onSelect={size => setState({ size })}>
           <SelectField>
             <SelectLabel>Size</SelectLabel>
-            <Select small>{state.size}</Select>
+            <Select isCompact>{state.size}</Select>
           </SelectField>
-          <Menu small>
+          <Menu isCompact>
             <Item value="small">small</Item>
             <Item value="medium">medium</Item>
             <Item value="large">large</Item>
@@ -88,9 +88,9 @@ initialState = {
         >
           <SelectField>
             <SelectLabel>Shape</SelectLabel>
-            <Select small>{state.shape}</Select>
+            <Select isCompact>{state.shape}</Select>
           </SelectField>
-          <Menu small>
+          <Menu isCompact>
             <Item value="default">default</Item>
             <Item value="pill">pill</Item>
             <Item value="round">round</Item>

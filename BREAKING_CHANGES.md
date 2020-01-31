@@ -86,9 +86,9 @@ should be re-checked for ID naming accuracy.
     - `regular` -> `isRegular`
     - `small` -> `isCompact`
   - `AddItem`, `HeaderItem`, `Item`, `MediaItem`, `NextItem`, `PreviousItem`
-    - `active` -> `isActive`
-    - `focused` -> `isFocused`
-    - `hovered` -> `isHovered`
+    - `active` -> Removed
+    - `focused` -> Removed
+    - `hovered` -> Removed
   - `Menu`
     - `animate` -> `isAnimated`
     - `small` -> `isCompact`

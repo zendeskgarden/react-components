@@ -57,6 +57,25 @@ describe('Item', () => {
     console.error = originalError;
   });
 
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<HTMLDivElement>();
+
+    const { getByTestId } = render(
+      <Dropdown>
+        <Trigger>
+          <button>Test</button>
+        </Trigger>
+        <Menu>
+          <Item value="item-1" data-test-id="item" ref={ref}>
+            Item 1
+          </Item>
+        </Menu>
+      </Dropdown>
+    );
+
+    expect(getByTestId('item')).toBe(ref.current);
+  });
+
   it('highlights first selected index on open', () => {
     const { getByTestId, getAllByTestId } = render(
       <Dropdown selectedItem="item-2">
@@ -102,7 +121,7 @@ describe('Item', () => {
 
       fireEvent.click(trigger);
       fireEvent.keyDown(trigger, { key: 'ArrowDown', keyCode: '40' });
-      expect(getAllByTestId('item')[0]).toHaveClass('is-focused');
+      expect(getAllByTestId('item')[0]).toHaveAttribute('data-garden-is-focused', 'true');
     });
 
     describe('Single selection', () => {
@@ -124,7 +143,7 @@ describe('Item', () => {
         );
 
         fireEvent.click(getByTestId('trigger'));
-        expect(getAllByTestId('item')[0]).toHaveClass('is-checked');
+        expect(getAllByTestId('item')[0]).toHaveAttribute('data-garden-is-selected', 'true');
       });
 
       it('applies selected treatment if single item is selected and value is an object', () => {
@@ -148,7 +167,7 @@ describe('Item', () => {
         );
 
         fireEvent.click(getByTestId('trigger'));
-        expect(getAllByTestId('item')[0]).toHaveClass('is-checked');
+        expect(getAllByTestId('item')[0]).toHaveAttribute('data-garden-is-selected', 'true');
       });
     });
 
@@ -176,9 +195,9 @@ describe('Item', () => {
         fireEvent.click(getByTestId('trigger'));
         const items = getAllByTestId('item');
 
-        expect(items[0]).toHaveClass('is-checked');
-        expect(items[1]).toHaveClass('is-checked');
-        expect(items[2]).not.toHaveClass('is-checked');
+        expect(items[0]).toHaveAttribute('data-garden-is-selected', 'true');
+        expect(items[1]).toHaveAttribute('data-garden-is-selected', 'true');
+        expect(items[2]).toHaveAttribute('data-garden-is-selected', 'false');
       });
 
       it('applies selected treatment if single item is selected and value is an object', () => {
@@ -207,9 +226,9 @@ describe('Item', () => {
         fireEvent.click(getByTestId('trigger'));
         const items = getAllByTestId('item');
 
-        expect(items[0]).toHaveClass('is-checked');
-        expect(items[1]).toHaveClass('is-checked');
-        expect(items[2]).not.toHaveClass('is-checked');
+        expect(items[0]).toHaveAttribute('data-garden-is-selected', 'true');
+        expect(items[1]).toHaveAttribute('data-garden-is-selected', 'true');
+        expect(items[2]).toHaveAttribute('data-garden-is-selected', 'false');
       });
     });
   });
