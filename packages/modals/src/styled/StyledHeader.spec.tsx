@@ -8,7 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import { StyledHeader } from './StyledHeader';
-import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 
 describe('StyledHeader', () => {
   it('renders default styling', () => {
@@ -20,9 +20,6 @@ describe('StyledHeader', () => {
   it('renders danger styling if provided', () => {
     const { container } = render(<StyledHeader isDanger />);
 
-    expect(container.firstChild).toHaveStyleRule(
-      'color',
-      getColor('dangerHue', 600, DEFAULT_THEME)
-    );
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.red[600]);
   });
 });
