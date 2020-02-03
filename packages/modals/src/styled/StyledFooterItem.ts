@@ -21,8 +21,9 @@ export const StyledFooterItem = styled.span.attrs({
   min-width: 0;
 
   &:first-child {
-    margin-right: ${props => props.theme.rtl && 0};
-    margin-left: 0;
+    /* stylelint-disable property-no-unknown */
+    margin-${props => (props.theme.rtl ? 'right' : 'left')}: 0;
+    /* stylelint-enable property-no-unknown */
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
