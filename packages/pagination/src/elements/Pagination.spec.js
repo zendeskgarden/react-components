@@ -68,7 +68,7 @@ describe('Pagination', () => {
   });
 
   describe('Previous Page', () => {
-    it('is visible if currentPage is first page', () => {
+    it('is not visible if currentPage is first page', () => {
       const { container } = render(<BasicExample currentPage={1} />);
 
       expect(container.firstChild.children[0]).toHaveAttribute('hidden');
@@ -88,21 +88,20 @@ describe('Pagination', () => {
     });
 
     it('focuses first page when visibility is lost', () => {
-      const { container } = render(<Pagination totalPages={5} currentPage={2} />);
-      const paginationWrapper = container.firstChild;
-
+      const { container } = render(
+        <Pagination totalPages={5} currentPage={2} onChange={onChange} />
+      );
       const previousPage = container.firstChild.children[0];
 
       fireEvent.focus(previousPage);
       fireEvent.keyDown(previousPage, { keyCode: KEY_CODES.ENTER });
 
-      expect(container.firstChild.children[1]).toHaveClass('is-focused');
-      expect(container.firstChild.children[2]).toHaveClass('is-current');
+      expect(container.firstChild.children[1]).toHaveFocus();
     });
   });
 
   describe('Next Page', () => {
-    it('is visible if currentPage is final page', () => {
+    it('is not visible if currentPage is final page', () => {
       const { container } = render(<BasicExample currentPage={5} totalPages={5} />);
 
       expect(
@@ -136,7 +135,9 @@ describe('Pagination', () => {
       fireEvent.focus(nextPage);
       fireEvent.keyDown(nextPage, { keyCode: KEY_CODES.ENTER });
 
-      expect(onChange).toHaveBeenCalledWith(5);
+      const finalPageElement = paginationWrapper.children[paginationWrapper.children.length - 2];
+
+      expect(finalPageElement).toHaveFocus();
     });
   });
 
