@@ -88,7 +88,7 @@ const onModalClose = () => setState({ isModalVisible: false });
       </Body>
       <Footer>
         <FooterItem>
-          <Button onClick={onModalClose} basic>
+          <Button onClick={onModalClose} isBasic>
             Cancel
           </Button>
         </FooterItem>
@@ -124,12 +124,11 @@ const onModalClose = () => setState({ isModalVisible: false });
   <Button onClick={() => setState({ isModalVisible: true })}>Open Modal</Button>
   {state.isModalVisible && (
     <Modal onClose={onModalClose}>
-      <Header>Focus Jail Container</Header>
+      <Header>Focus will be locked in this modal</Header>
       <Body>
         <Field>
           <Label>Input 1</Label>
           <Input
-            placeholder="Focus will be locked in this modal"
             ref={ref => {
               setTimeout(() => {
                 ref && ref.focus();
@@ -137,14 +136,14 @@ const onModalClose = () => setState({ isModalVisible: false });
             }}
           />
         </Field>
-        <Field>
+        <Field className="u-mt">
           <Label>Input 2</Label>
-          <Input placeholder="Focus will be locked in this modal" />
+          <Input />
         </Field>
       </Body>
       <Footer>
         <FooterItem>
-          <Button onClick={onModalClose} basic>
+          <Button onClick={onModalClose} isBasic>
             Cancel
           </Button>
         </FooterItem>

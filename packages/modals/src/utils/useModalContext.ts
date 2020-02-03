@@ -8,6 +8,7 @@
 import { createContext, useContext, HTMLAttributes } from 'react';
 
 export interface IModalContext {
+  isLarge?: boolean;
   getTitleProps: <T>(options?: T) => T & HTMLAttributes<HTMLDivElement>;
   getContentProps: <T>(options?: T) => T & HTMLAttributes<HTMLDivElement>;
   getCloseProps: <T>(options?: T) => T & HTMLAttributes<HTMLButtonElement>;

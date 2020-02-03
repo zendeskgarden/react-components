@@ -7,10 +7,15 @@
 
 import React from 'react';
 import { StyledFooter } from '../styled';
+import { useModalContext } from '../utils/useModalContext';
 
 /**
  * Accepts all `<div>` props
  */
 export const Footer = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  (props, ref) => <StyledFooter ref={ref} {...props} />
+  (props, ref) => {
+    const { isLarge } = useModalContext();
+
+    return <StyledFooter ref={ref} isLarge={isLarge} {...props} />;
+  }
 );

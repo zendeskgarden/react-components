@@ -6,9 +6,7 @@
  */
 
 import styled from 'styled-components';
-import classNames from 'classnames';
-import ModalStyles from '@zendeskgarden/css-modals';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.close';
 
@@ -17,16 +15,46 @@ export interface IStyledCloseProps {
 }
 
 /**
- * Supports all `<button>` props.
+ * 1. Remove dotted outline from Firefox on focus.
  */
-export const StyledClose = styled.button.attrs<IStyledCloseProps>(props => ({
+export const StyledClose = styled.button.attrs<IStyledCloseProps>({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: classNames(ModalStyles['c-dialog__close'], {
-    // State
-    [ModalStyles['is-hovered']]: props.hovered
-  })
-}))<IStyledCloseProps>`
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledCloseProps>`
+  display: block;
+  position: absolute;
+  top: ${props => props.theme.space.base * 2.5}px;
+  ${props => (props.theme.rtl ? 'left' : 'right')}: ${props => `${props.theme.space.base * 5}px`};
+  transition: background-color 0.1s ease-in-out;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+  width: ${props => props.theme.space.base * 10}px;
+  height: ${props => props.theme.space.base * 10}px;
+  overflow: hidden;
+  text-decoration: none;
+  color: ${props => getColor('neutralHue', 600, props.theme)};
+  font-size: 0;
+  user-select: none;
+
+  &[data-garden-focus-visible] {
+    background-color: ${props => getColor('neutralHue', 600, props.theme, 0.15)};
+  }
+
+  &::-moz-focus-inner {
+    border: 0; /* [1] */
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    color: ${props => getColor('neutralHue', 800, props.theme)};
+  }
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
