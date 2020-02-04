@@ -11,6 +11,7 @@ import { zdColorBlue600 } from '@zendeskgarden/css-variables';
 
 export const StyledItemWrapper = styled.div`
   margin: 2px;
+  max-width: 100%;
 `;
 
 export const StyledMultiselectInput = styled(StyledInput)<{
