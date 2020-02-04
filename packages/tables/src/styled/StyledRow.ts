@@ -47,18 +47,28 @@ export const getRowHeight = (props: { size: SIZE } & ThemeProps<DefaultTheme>) =
 };
 
 const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
-  let backgroundColor = undefined;
-  let borderColor = undefined;
-  const hoveredBackgroundColor = getColor('primaryHue', 100, props.theme);
   const boxShadow = `inset ${props.theme.rtl ? '-' : ''}${
     props.theme.shadowWidths.md
   } 0 0 0 ${getColor('primaryHue', 600, props.theme)}`;
+  const hoveredBackgroundColor = getColor('primaryHue', 600, props.theme, 0.08);
+  const hoveredBorderColor = getColor('primaryHue', 200, props.theme);
+  const selectedBackgroundColor = getColor('primaryHue', 600, props.theme, 0.2);
+  const selectedBorderColor = getColor('primaryHue', 300, props.theme);
+  const hoveredSelectedBackgroundColor = getColor('primaryHue', 600, props.theme, 0.28);
+  let backgroundColor = undefined;
+  let borderColor = undefined;
 
-  if (props.isSelected || (props as any)['aria-selected']) {
-    backgroundColor = getColor('primaryHue', 200, props.theme);
-    borderColor = getColor('primaryHue', 300, props.theme);
+  if (props.isSelected) {
+    if (props.isHovered) {
+      backgroundColor = hoveredSelectedBackgroundColor;
+    } else {
+      backgroundColor = selectedBackgroundColor;
+    }
+
+    borderColor = selectedBorderColor;
   } else if (props.isHovered) {
     backgroundColor = hoveredBackgroundColor;
+    borderColor = hoveredBorderColor;
   }
 
   return css`
@@ -66,7 +76,10 @@ const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
     background-color: ${backgroundColor};
 
     &:hover {
-      background-color: ${hoveredBackgroundColor};
+      border-bottom-color: ${props.isSelected ? selectedBorderColor : hoveredBorderColor};
+      background-color: ${props.isSelected
+        ? hoveredSelectedBackgroundColor
+        : hoveredBackgroundColor};
 
       ${StyledOverflowButton} {
         opacity: 1;
@@ -77,16 +90,13 @@ const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
       outline: none;
     }
 
-    &:focus ${StyledCell}:first-of-type {
-      box-shadow: ${boxShadow};
-    }
-
-    ${props.isFocused &&
-      `
     ${StyledCell}:first-of-type {
-      box-shadow: ${boxShadow};
+      box-shadow: ${props.isFocused && boxShadow};
+
+      &:focus {
+        box-shadow: ${boxShadow};
+      }
     }
-  `}
   `;
 };
 
