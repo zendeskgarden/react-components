@@ -6,16 +6,26 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import ModalStyles from '@zendeskgarden/css-modals';
+import {
+  getLineHeight,
+  retrieveComponentStyles,
+  DEFAULT_THEME
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.body';
 
 export const StyledBody = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: ModalStyles['c-dialog__body']
+  'data-garden-version': PACKAGE_VERSION
 })`
+  display: block;
+  margin: 0;
+  padding: ${props => `${props.theme.space.base * 5}px ${props.theme.space.base * 10}px`};
+  height: 100%;
+  overflow: auto;
+  line-height: ${props => getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
+  color: ${props => props.theme.colors.foreground};
+  font-size: ${props => props.theme.fontSizes.md};
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

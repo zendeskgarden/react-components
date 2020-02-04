@@ -13,24 +13,23 @@ describe('StyledBackdrop', () => {
   it('renders default styling', () => {
     const { container } = render(<StyledBackdrop />);
 
-    expect(container.firstChild).toHaveClass('l-backdrop');
+    expect(container.firstChild).not.toHaveStyleRule('direction');
+    expect(container.firstChild).not.toHaveStyleRule('align-items');
+    expect(container.firstChild).not.toHaveStyleRule('justify-content');
+    expect(container.firstChild).not.toHaveStyleRule('animation-duration', '0.15s');
+    expect(container.firstChild).not.toHaveStyleRule('animation-timing-function', 'ease-in');
   });
 
   it('renders RTL styling', () => {
     const { container } = renderRtl(<StyledBackdrop />);
 
-    expect(container.firstChild).toHaveClass('is-rtl');
+    expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });
 
   it('renders center styling if provided', () => {
     const { container } = render(<StyledBackdrop isCentered />);
 
-    expect(container.firstChild).toHaveClass('l-backdrop--center');
-  });
-
-  it('renders animation styling if provided', () => {
-    const { container } = render(<StyledBackdrop isAnimated />);
-
-    expect(container.firstChild).toHaveClass('is-visible');
+    expect(container.firstChild).toHaveStyleRule('align-items', 'center');
+    expect(container.firstChild).toHaveStyleRule('justify-content', 'center');
   });
 });

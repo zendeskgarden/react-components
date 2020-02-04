@@ -7,15 +7,25 @@
 
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import ModalStyles from '@zendeskgarden/css-modals';
 
 const COMPONENT_ID = 'modals.footer_item';
 
 export const StyledFooterItem = styled.span.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: ModalStyles['c-dialog__footer__item']
+  'data-garden-version': PACKAGE_VERSION
 })`
+  display: flex;
+  /* stylelint-disable property-no-unknown */
+  margin-${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.space.base * 5}px;
+  /* stylelint-enable property-no-unknown */
+  min-width: 0;
+
+  &:first-child {
+    /* stylelint-disable property-no-unknown */
+    margin-${props => (props.theme.rtl ? 'right' : 'left')}: 0;
+    /* stylelint-enable property-no-unknown */
+  }
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

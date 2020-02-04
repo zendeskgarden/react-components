@@ -6,8 +6,8 @@
  */
 
 import React from 'react';
-import { StyledHeader, IStyledHeaderProps } from '../styled';
 import { useModalContext } from '../utils/useModalContext';
+import { StyledDangerIcon, StyledHeader, IStyledHeaderProps } from '../styled';
 
 /**
  * Accepts all `<div>` props
@@ -18,5 +18,10 @@ export const Header = React.forwardRef<
 >((props, ref) => {
   const { getTitleProps } = useModalContext();
 
-  return <StyledHeader ref={ref} {...getTitleProps(props)} />;
+  return (
+    <StyledHeader ref={ref} {...getTitleProps(props)}>
+      {props.isDanger && <StyledDangerIcon />}
+      {props.children}
+    </StyledHeader>
+  );
 });
