@@ -12,6 +12,14 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v7.1.6 (2020-02-04)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#607](https://github.com/zendeskgarden/react-components/pull/607) fix(dropdowns): overflow in Multiselect items ([@sunesimonsen](https://github.com/sunesimonsen))
+* `pagination`
+  * [#608](https://github.com/zendeskgarden/react-components/pull/608) fix(build): correct failing tests ([@austin94](https://github.com/austin94))
+
 ## v7.1.5 (2020-01-17)
 
 #### :bug: Bug Fix
