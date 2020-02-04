@@ -59,7 +59,7 @@ const ScrollableCell = styled(Cell).attrs({ role: 'cell' })``;
   <FixedSizeList
     height={500}
     itemCount={rowData.length}
-    itemSize={35}
+    itemSize={40}
     width="100%"
     outerElementType={ScrollableTable}
     innerElementType={ScrollableBody}

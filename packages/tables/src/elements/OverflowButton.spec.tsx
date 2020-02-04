@@ -7,9 +7,7 @@
 
 import React from 'react';
 import { render, fireEvent } from 'garden-test-utils';
-
 import { OverflowButton } from './OverflowButton';
-import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 describe('OverflowButton', () => {
   it('passes ref to underlying DOM element', () => {
@@ -24,10 +22,7 @@ describe('OverflowButton', () => {
       const { container } = render(<OverflowButton />);
 
       fireEvent.focus(container.firstElementChild!);
-      expect(container.firstElementChild).toHaveStyleRule(
-        'color',
-        getColor('neutralHue', 800, DEFAULT_THEME)
-      );
+      expect(container.firstElementChild).toHaveStyleRule('box-shadow');
     });
   });
 
@@ -37,10 +32,7 @@ describe('OverflowButton', () => {
 
       fireEvent.focus(container.firstElementChild!);
       fireEvent.blur(container.firstElementChild!);
-      expect(container.firstElementChild).toHaveStyleRule(
-        'color',
-        getColor('neutralHue', 600, DEFAULT_THEME)
-      );
+      expect(container.firstElementChild).not.toHaveStyleRule('box-shadow');
     });
   });
 });
