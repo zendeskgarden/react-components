@@ -52,6 +52,8 @@ const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
   } 0 0 0 ${getColor('primaryHue', 600, props.theme)}`;
   const hoveredBackgroundColor = getColor('primaryHue', 600, props.theme, 0.08);
   const hoveredBorderColor = getColor('primaryHue', 200, props.theme);
+  const selectedBackgroundColor = getColor('primaryHue', 600, props.theme, 0.2);
+  const selectedBorderColor = getColor('primaryHue', 300, props.theme);
   const hoveredSelectedBackgroundColor = getColor('primaryHue', 600, props.theme, 0.28);
   let backgroundColor = undefined;
   let borderColor = undefined;
@@ -60,10 +62,10 @@ const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
     if (props.isHovered) {
       backgroundColor = hoveredSelectedBackgroundColor;
     } else {
-      backgroundColor = getColor('primaryHue', 600, props.theme, 0.2);
+      backgroundColor = selectedBackgroundColor;
     }
 
-    borderColor = getColor('primaryHue', 300, props.theme);
+    borderColor = selectedBorderColor;
   } else if (props.isHovered) {
     backgroundColor = hoveredBackgroundColor;
     borderColor = hoveredBorderColor;
@@ -74,7 +76,7 @@ const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
     background-color: ${backgroundColor};
 
     &:hover {
-      border-bottom-color: ${hoveredBorderColor};
+      border-bottom-color: ${props.isSelected ? selectedBorderColor : hoveredBorderColor};
       background-color: ${props.isSelected
         ? hoveredSelectedBackgroundColor
         : hoveredBackgroundColor};
