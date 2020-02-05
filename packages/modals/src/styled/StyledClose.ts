@@ -5,22 +5,42 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+import rgba from 'polished/lib/color/rgba';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.close';
 
-export interface IStyledCloseProps {
-  hovered?: boolean;
-}
+const colorStyles = (props: ThemeProps<DefaultTheme>) => {
+  const baseColor = getColor('primaryHue' as string, 600, props.theme);
+
+  return css`
+    background-color: transparent;
+    color: ${getColor('neutralHue' as string, 600, props.theme)};
+
+    &:hover {
+      background-color: ${rgba(baseColor as string, 0.08)};
+      color: ${getColor('neutralHue' as string, 700, props.theme)};
+    }
+
+    &[data-garden-focus-visible] {
+      box-shadow: ${props.theme.shadows.md(rgba(baseColor as string, 0.35))};
+    }
+
+    &:active {
+      background-color: ${rgba(baseColor as string, 0.2)};
+      color: ${getColor('neutralHue' as string, 800, props.theme)};
+    }
+  `;
+};
 
 /**
  * 1. Remove dotted outline from Firefox on focus.
  */
-export const StyledClose = styled.button.attrs<IStyledCloseProps>({
+export const StyledClose = styled.button.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledCloseProps>`
+})`
   display: block;
   position: absolute;
   top: ${props => props.theme.space.base * 2.5}px;
@@ -35,13 +55,8 @@ export const StyledClose = styled.button.attrs<IStyledCloseProps>({
   height: ${props => props.theme.space.base * 10}px;
   overflow: hidden;
   text-decoration: none;
-  color: ${props => getColor('neutralHue', 600, props.theme)};
   font-size: 0;
   user-select: none;
-
-  &[data-garden-focus-visible] {
-    background-color: ${props => getColor('neutralHue', 600, props.theme, 0.15)};
-  }
 
   &::-moz-focus-inner {
     border: 0; /* [1] */
@@ -51,10 +66,7 @@ export const StyledClose = styled.button.attrs<IStyledCloseProps>({
     outline: none;
   }
 
-  &:hover {
-    color: ${props => getColor('neutralHue', 800, props.theme)};
-  }
-
+  ${props => colorStyles(props)}
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
