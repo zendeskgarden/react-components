@@ -22,7 +22,7 @@ import { Example } from '@zendeskgarden/react-{{component}}';
  * Place a `ThemeProvider` at the root of your React application
  */
 <ThemeProvider>
-  <Example>Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi...</Example>;
+  <Example>Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi...</Example>
 </ThemeProvider>;
 ```
 

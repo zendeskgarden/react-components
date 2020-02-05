@@ -32,7 +32,7 @@ const colorStyles = (props: IStyledExampleProps) => {
 };
 
 const sizeStyles = (props: IStyledExampleProps) => {
-  const size = `${props.theme.space.base * (props.isCompact ? 5 : 10)}px`;
+  const size = `${props.theme.space.base * (props.isCompact ? 30 : 50)}px`;
   const padding = `${props.theme.space.base * (props.isCompact ? 4 : 5)}px`;
 
   return css`
