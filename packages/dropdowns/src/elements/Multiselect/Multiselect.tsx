@@ -14,11 +14,11 @@ import { KEY_CODES, useCombinedRefs } from '@zendeskgarden/container-utilities';
 import { isRtl, withTheme } from '@zendeskgarden/react-theming';
 import {
   StyledMultiselectInput,
-  StyledSelect,
   StyledItemWrapper,
   StyledMoreAnchor,
-  VALIDATION
+  StyledMultiSelect
 } from '../../styled';
+import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 import { REMOVE_ITEM_STATE_TYPE } from '../Dropdown/Dropdown';
@@ -30,10 +30,8 @@ interface IMultiselectProps {
   /** Removes all borders and styling */
   isBare?: boolean;
   disabled?: boolean;
-  isFocused?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  isHovered?: boolean;
   /** Displays select open state */
   isOpen?: boolean;
   placeholder?: string;
@@ -112,7 +110,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
     }, [focusedItem, isOpen, closeMenu]);
 
     const selectProps = getToggleButtonProps({
-      tabIndex: -1,
+      tabIndex: props.disabled ? undefined : -1,
       onKeyDown: e => {
         if (isOpen) {
           (e.nativeEvent as any).preventDownshiftDefault = true;
@@ -257,7 +255,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
     return (
       <Reference>
         {({ ref: popperReference }) => (
-          <StyledSelect
+          <StyledMultiSelect
             {...getContainerProps({
               ...selectProps,
               tagLayout: true,
@@ -312,7 +310,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
                 placeholder: selectedItems.length === 0 ? placeholder : undefined
               }) as any)}
             />
-          </StyledSelect>
+          </StyledMultiSelect>
         )}
       </Reference>
     );
@@ -326,15 +324,13 @@ Multiselect.propTypes = {
   /** Removes all borders and styling */
   isBare: PropTypes.bool,
   disabled: PropTypes.bool,
-  isFocused: PropTypes.bool,
   /** Applies inset `box-shadow` styling on focus */
   focusInset: PropTypes.bool,
-  isHovered: PropTypes.bool,
   /** Displays select open state */
   isOpen: PropTypes.bool,
   renderItem: PropTypes.func.isRequired,
   maxItems: PropTypes.number,
-  validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
+  validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };
 
 Multiselect.defaultProps = {

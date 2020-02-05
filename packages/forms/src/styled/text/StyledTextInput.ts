@@ -61,8 +61,19 @@ const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) =>
   const disabledBorderColor = getColor('neutralHue', SHADE - 400, props.theme);
   const disabledForegroundColor = getColor('neutralHue', SHADE - 200, props.theme);
 
+  let controlledBorderColor = borderColor;
+
+  if (props.isFocused) {
+    controlledBorderColor = focusBorderColor;
+  }
+
+  if (props.isHovered) {
+    controlledBorderColor = hoverBorderColor;
+  }
+
   return css`
-    border-color: ${borderColor};
+    border-color: ${controlledBorderColor};
+    box-shadow: ${!props.isBare && props.isFocused && boxShadow};
     background-color: ${props.isBare ? 'transparent' : props.theme.colors.background};
     color: ${props.theme.colors.foreground};
 
@@ -191,6 +202,8 @@ const sizeStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) => 
 export interface IStyledTextInputProps {
   isCompact?: boolean;
   isBare?: boolean;
+  isHovered?: boolean;
+  isFocused?: boolean;
   focusInset?: boolean;
   validation?: VALIDATION;
 }

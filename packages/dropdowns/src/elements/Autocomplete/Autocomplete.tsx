@@ -9,23 +9,20 @@ import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
 import { useCombinedRefs } from '@zendeskgarden/container-utilities';
-import { StyledInput, StyledSelect, VALIDATION } from '../../styled';
+import { StyledInput, SelectWrapper } from '../../styled';
+import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 
 interface IAutocompleteProps {
-  /** Allows flush spacing of Tab elements */
-  tagLayout?: boolean;
   /** Applies flex layout to support MediaFigure components */
   mediaLayout?: boolean;
   isCompact?: boolean;
   /** Removes all borders and styling */
   isBare?: boolean;
   disabled?: boolean;
-  isFocused?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  isHovered?: boolean;
   /** Displays select open state */
   isOpen?: boolean;
   validation?: VALIDATION;
@@ -72,7 +69,7 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
     return (
       <Reference>
         {({ ref: popperReference }) => (
-          <StyledSelect
+          <SelectWrapper
             isHovered={isLabelHovered && !isOpen}
             isFocused={isOpen ? true : isFocused}
             isOpen={isOpen}
@@ -102,7 +99,7 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
                 ref: inputRef
               } as any)}
             />
-          </StyledSelect>
+          </SelectWrapper>
         )}
       </Reference>
     );
@@ -110,21 +107,17 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
 );
 
 Autocomplete.propTypes = {
-  /** Allows flush spacing of Tab elements */
-  tagLayout: PropTypes.bool,
   /** Applies flex layout to support MediaFigure components */
   mediaLayout: PropTypes.bool,
   isCompact: PropTypes.bool,
   /** Removes all borders and styling */
   isBare: PropTypes.bool,
   disabled: PropTypes.bool,
-  isFocused: PropTypes.bool,
   /** Applies inset `box-shadow` styling on focus */
   focusInset: PropTypes.bool,
-  isHovered: PropTypes.bool,
   /** Displays select open state */
   isOpen: PropTypes.bool,
-  validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
+  validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };
 
 export default Autocomplete as React.FunctionComponent<IAutocompleteProps>;

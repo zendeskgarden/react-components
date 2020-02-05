@@ -8,7 +8,8 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
-import { StyledInput, StyledSelect, VALIDATION } from '../../styled';
+import { StyledInput, SelectWrapper } from '../../styled';
+import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 
@@ -21,10 +22,8 @@ interface ISelectProps {
   /** Removes all borders and styling */
   isBare?: boolean;
   disabled?: boolean;
-  isFocused?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  isHovered?: boolean;
   /** Displays select open state */
   isOpen?: boolean;
   validation?: VALIDATION;
@@ -57,16 +56,16 @@ const Select: React.FunctionComponent<ISelectProps> = ({ children, ...props }) =
   }, [isOpen]);
 
   const selectProps = getToggleButtonProps({
-    tabIndex: props.disabled ? -1 : 0,
+    tabIndex: props.disabled ? undefined : 0,
     ...props
   });
 
   return (
     <Reference>
       {({ ref: popperReference }) => (
-        <StyledSelect
+        <SelectWrapper
           isHovered={isLabelHovered && !isOpen}
-          isFocused={isOpen ? isOpen : undefined}
+          isFocused={isOpen}
           isOpen={isOpen}
           {...selectProps}
           ref={selectRef => {
@@ -90,7 +89,7 @@ const Select: React.FunctionComponent<ISelectProps> = ({ children, ...props }) =
               value: ''
             } as any)}
           />
-        </StyledSelect>
+        </SelectWrapper>
       )}
     </Reference>
   );
@@ -105,13 +104,11 @@ Select.propTypes = {
   /** Removes all borders and styling */
   isBare: PropTypes.bool,
   disabled: PropTypes.bool,
-  isFocused: PropTypes.bool,
   /** Applies inset `box-shadow` styling on focus */
   focusInset: PropTypes.bool,
-  isHovered: PropTypes.bool,
   /** Displays select open state */
   isOpen: PropTypes.bool,
-  validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
+  validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };
 
 export default Select;

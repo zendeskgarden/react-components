@@ -23,18 +23,6 @@ describe('Label', () => {
     expect(getByTestId('label')).toBe(ref.current);
   });
 
-  it('throws if rendered without a Field parent', () => {
-    /* eslint-disable no-console */
-    const consoleError = console.error;
-
-    try {
-      console.error = jest.fn();
-      expect(() => render(<Label />)).toThrow();
-    } finally {
-      console.error = consoleError;
-    }
-  });
-
   it('renders input label within a Field component', () => {
     const { getByTestId } = render(
       <Field>

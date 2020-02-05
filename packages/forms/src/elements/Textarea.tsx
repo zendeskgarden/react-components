@@ -28,19 +28,18 @@ export interface ITextareaProps extends TextareaHTMLAttributes<HTMLTextAreaEleme
  * `<textarea />` attributes and events.
  */
 export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>((props, ref) => {
-  const { getInputProps } = useFieldContext();
+  const fieldContext = useFieldContext();
 
-  return (
-    <StyledTextarea
-      {...(getInputProps(
-        {
-          ref,
-          ...props
-        },
-        { isDescribed: true }
-      ) as any)}
-    />
-  );
+  let combinedProps = {
+    ref,
+    ...props
+  };
+
+  if (fieldContext) {
+    combinedProps = fieldContext.getInputProps(combinedProps, { isDescribed: true });
+  }
+
+  return <StyledTextarea {...(combinedProps as any)} />;
 });
 
 Textarea.propTypes = {

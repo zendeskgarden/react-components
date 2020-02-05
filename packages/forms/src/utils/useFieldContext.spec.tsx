@@ -17,21 +17,6 @@ describe('useFieldContext', () => {
     return <div>{context && 'it worked'}</div>;
   };
 
-  it('throws if called outside of Field component', () => {
-    /* eslint-disable no-console */
-    const originalError = console.error;
-
-    console.error = jest.fn();
-
-    const Example = () => <FieldContextConsumer />;
-
-    expect(() => {
-      render(<Example />);
-    }).toThrow();
-
-    console.error = originalError;
-  });
-
   it('does not throw if called within Field component', () => {
     const Example = () => (
       <Field>

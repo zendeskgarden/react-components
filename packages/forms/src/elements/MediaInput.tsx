@@ -48,7 +48,7 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
     },
     ref
   ) => {
-    const { getInputProps } = useFieldContext();
+    const fieldContext = useFieldContext();
     const inputRef = useCombinedRefs(ref);
 
     const { onClick, ...otherWrapperProps } = wrapperProps;
@@ -56,6 +56,16 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
     const onFauxInputClickHandler = composeEventHandlers(onClick, () => {
       inputRef.current && inputRef.current.focus();
     });
+
+    let combinedProps = {
+      disabled,
+      ref: inputRef,
+      ...props
+    };
+
+    if (fieldContext) {
+      combinedProps = fieldContext.getInputProps(combinedProps, { isDescribed: true });
+    }
 
     return (
       <FauxInput
@@ -70,16 +80,7 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
         {...otherWrapperProps}
       >
         {start && <StyledTextMediaFigure isCompact={isCompact}>{start}</StyledTextMediaFigure>}
-        <StyledTextMediaInput
-          {...(getInputProps(
-            {
-              disabled,
-              ref: inputRef,
-              ...props
-            },
-            { isDescribed: true }
-          ) as any)}
-        />
+        <StyledTextMediaInput {...(combinedProps as any)} />
         {end && <StyledTextMediaFigure isCompact={isCompact}>{end}</StyledTextMediaFigure>}
       </FauxInput>
     );

@@ -33,16 +33,4 @@ describe('Toggle', () => {
 
     expect(getByTestId('toggle')).toBe(ref.current);
   });
-
-  it('throws if rendered without a Field parent', () => {
-    /* eslint-disable no-console */
-    const consoleError = console.error;
-
-    try {
-      console.error = jest.fn();
-      expect(() => render(<Toggle />)).toThrow();
-    } finally {
-      console.error = consoleError;
-    }
-  });
 });

@@ -42,18 +42,6 @@ describe('MediaInput', () => {
     expect(getByTestId('input')).toBe(ref.current);
   });
 
-  it('throws if rendered without a Field parent', () => {
-    /* eslint-disable no-console */
-    const consoleError = console.error;
-
-    try {
-      console.error = jest.fn();
-      expect(() => render(<MediaInput />)).toThrow();
-    } finally {
-      console.error = consoleError;
-    }
-  });
-
   it('focuses internal input when FauxInput wrapper is clicked', () => {
     const { container } = render(<Example />);
     const input = container.querySelector('input');

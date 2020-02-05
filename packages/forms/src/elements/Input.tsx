@@ -26,19 +26,18 @@ export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
  * attributes and events.
  */
 export const Input = React.forwardRef<HTMLInputElement, IInputProps>((props, ref) => {
-  const { getInputProps } = useFieldContext();
+  const fieldContext = useFieldContext();
 
-  return (
-    <StyledTextInput
-      {...(getInputProps(
-        {
-          ref,
-          ...props
-        },
-        { isDescribed: true }
-      ) as any)}
-    />
-  );
+  let combinedProps = {
+    ref,
+    ...props
+  };
+
+  if (fieldContext) {
+    combinedProps = fieldContext.getInputProps(combinedProps, { isDescribed: true });
+  }
+
+  return <StyledTextInput {...(combinedProps as any)} />;
 });
 
 Input.propTypes = {

@@ -21,7 +21,7 @@ export interface ILabelProps extends HTMLAttributes<HTMLLabelElement> {
  * and events.
  */
 export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>((props, ref) => {
-  const { getLabelProps } = useFieldContext();
+  const fieldContext = useFieldContext();
   const type = useInputContext();
 
   let LabelComponent;
@@ -36,7 +36,13 @@ export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>((props, ref
     LabelComponent = StyledLabel;
   }
 
-  return <LabelComponent ref={ref} {...(getLabelProps(props) as any)} />;
+  let combinedProps = props;
+
+  if (fieldContext) {
+    combinedProps = fieldContext.getLabelProps(combinedProps);
+  }
+
+  return <LabelComponent ref={ref} {...(combinedProps as any)} />;
 });
 
 Label.propTypes = {

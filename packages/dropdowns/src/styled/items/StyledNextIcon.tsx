@@ -5,6 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import React from 'react';
 import styled from 'styled-components';
 import NextIconSvg from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
@@ -15,10 +16,11 @@ interface IStyledNextIconProps {
   isDisabled?: boolean;
 }
 
-export const StyledNextIcon = styled(NextIconSvg).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledNextIconProps>`
+const NextIconComponent = () => (
+  <NextIconSvg data-garden-id={COMPONENT_ID} data-garden-version={PACKAGE_VERSION} />
+);
+
+export const StyledNextIcon = styled(NextIconComponent)<IStyledNextIconProps>`
   transform: ${props => props.theme.rtl && 'rotate(180deg)'};
   color: ${props => (props.isDisabled ? 'inherit' : getColor('neutralHue', 600, props.theme))};
 

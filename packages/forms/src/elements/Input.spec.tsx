@@ -31,16 +31,4 @@ describe('Input', () => {
 
     expect(getByTestId('input')).toBe(ref.current);
   });
-
-  it('throws if rendered without a Field parent', () => {
-    /* eslint-disable no-console */
-    const consoleError = console.error;
-
-    try {
-      console.error = jest.fn();
-      expect(() => render(<Input />)).toThrow();
-    } finally {
-      console.error = consoleError;
-    }
-  });
 });

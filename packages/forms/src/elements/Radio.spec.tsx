@@ -33,16 +33,4 @@ describe('Radio', () => {
 
     expect(getByTestId('radio')).toBe(ref.current);
   });
-
-  it('throws if rendered without a Field parent', () => {
-    /* eslint-disable no-console */
-    const consoleError = console.error;
-
-    try {
-      console.error = jest.fn();
-      expect(() => render(<Radio />)).toThrow();
-    } finally {
-      console.error = consoleError;
-    }
-  });
 });

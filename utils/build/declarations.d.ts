@@ -20,5 +20,3 @@ declare module '*.md';
 
 /** CSS packages */
 declare module '@zendeskgarden/css-menus';
-declare module '@zendeskgarden/css-forms';
-declare module '@zendeskgarden/css-arrows';

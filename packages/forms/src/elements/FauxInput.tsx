@@ -21,6 +21,8 @@ export interface IFauxInputProps extends HTMLAttributes<HTMLDivElement> {
   /** Apply disabled styling */
   disabled?: boolean;
   validation?: VALIDATION;
+  isFocused?: boolean;
+  isHovered?: boolean;
 }
 
 /**
@@ -28,7 +30,7 @@ export interface IFauxInputProps extends HTMLAttributes<HTMLDivElement> {
  * attributes and events.
  */
 export const FauxInput = React.forwardRef<HTMLDivElement, IFauxInputProps>(
-  ({ onFocus, onBlur, disabled, ...props }, ref) => {
+  ({ onFocus, onBlur, disabled, isFocused: controlledIsFocused, ...props }, ref) => {
     const [isFocused, setIsFocused] = useState(false);
 
     const onFocusHandler = composeEventHandlers(onFocus, () => {
@@ -43,7 +45,10 @@ export const FauxInput = React.forwardRef<HTMLDivElement, IFauxInputProps>(
       <StyledTextFauxInput
         onFocus={onFocusHandler}
         onBlur={onBlurHandler}
-        isFocused={isFocused}
+        isFocused={controlledIsFocused === undefined ? isFocused : controlledIsFocused}
+        data-garden-test-is-focused={
+          controlledIsFocused === undefined ? isFocused : controlledIsFocused
+        }
         isDisabled={disabled}
         tabIndex={disabled ? undefined : 0}
         ref={ref as RefObject<HTMLInputElement>}

@@ -14,14 +14,12 @@ const COMPONENT_ID = 'forms.faux_input';
 interface IStyledTextFauxInputProps extends IStyledTextInputProps {
   mediaLayout?: boolean;
   isDisabled?: boolean;
-  isFocused?: boolean;
 }
 
 export const StyledTextFauxInput = styled(StyledTextInput).attrs<IStyledTextFauxInputProps>(
   props => ({
     as: 'div',
     'aria-disabled': props.isDisabled,
-    'data-garden-focus-visible': props.isFocused,
     'data-garden-id': COMPONENT_ID,
     'data-garden-version': PACKAGE_VERSION
   })

@@ -60,7 +60,7 @@ describe('Select', () => {
       </Dropdown>
     );
 
-    expect(getByTestId('select')).toHaveAttribute('tabindex', '-1');
+    expect(getByTestId('select')).not.toHaveAttribute('tabindex');
   });
 
   it('applies correct styling if open', () => {
@@ -76,8 +76,8 @@ describe('Select', () => {
 
     fireEvent.click(select);
 
-    expect(select).toHaveClass('is-focused');
-    expect(select).toHaveClass('is-open');
+    expect(select).toHaveAttribute('data-garden-is-focused', 'true');
+    expect(select).toHaveAttribute('data-garden-is-open', 'true');
   });
 
   it('applies correct styling if label is hovered', () => {
@@ -92,7 +92,7 @@ describe('Select', () => {
 
     fireEvent.mouseEnter(getByTestId('label'));
 
-    expect(getByTestId('select')).toHaveClass('is-hovered');
+    expect(getByTestId('select')).toHaveAttribute('data-garden-is-hovered', 'true');
   });
 
   describe('Interaction', () => {
@@ -102,7 +102,7 @@ describe('Select', () => {
 
       fireEvent.click(select);
 
-      expect(select).toHaveClass('is-open');
+      expect(select).toHaveAttribute('data-garden-is-open', 'true');
     });
 
     it('opens on down key and highlights first item', () => {
@@ -110,7 +110,7 @@ describe('Select', () => {
       const select = getByTestId('select');
 
       fireEvent.keyDown(select, { key: 'ArrowDown', keyCode: 40 });
-      expect(select).toHaveClass('is-open');
+      expect(select).toHaveAttribute('data-garden-is-open', 'true');
 
       const items = getAllByTestId('item');
 
@@ -122,7 +122,7 @@ describe('Select', () => {
       const select = getByTestId('select');
 
       fireEvent.keyDown(select, { key: 'ArrowUp', keyCode: 38 });
-      expect(select).toHaveClass('is-open');
+      expect(select).toHaveAttribute('data-garden-is-open', 'true');
 
       const items = getAllByTestId('item');
 
@@ -134,7 +134,7 @@ describe('Select', () => {
       const select = getByTestId('select');
 
       fireEvent.click(select);
-      expect(select).toHaveClass('is-open');
+      expect(select).toHaveAttribute('data-garden-is-open', 'true');
 
       fireEvent.keyDown(select, { key: 'Escape', keyCode: 27 });
       expect(select).not.toHaveClass('is-open');

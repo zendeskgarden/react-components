@@ -23,18 +23,6 @@ describe('Hint', () => {
     expect(getByTestId('hint')).toBe(ref.current);
   });
 
-  it('throws if rendered without a Field parent', () => {
-    /* eslint-disable no-console */
-    const consoleError = console.error;
-
-    try {
-      console.error = jest.fn();
-      expect(() => render(<Hint />)).toThrow();
-    } finally {
-      console.error = consoleError;
-    }
-  });
-
   it('renders input hint within a Field component', () => {
     const { getByTestId } = render(
       <Field>

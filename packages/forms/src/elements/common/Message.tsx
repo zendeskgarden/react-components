@@ -28,7 +28,7 @@ export interface IMessageProps extends HTMLAttributes<HTMLDivElement> {
  */
 export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
   ({ validation, children, ...props }, ref) => {
-    const { getMessageProps } = useFieldContext();
+    const fieldContext = useFieldContext();
     const type = useInputContext();
 
     let MessageComponent;
@@ -43,8 +43,14 @@ export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
       MessageComponent = StyledMessage;
     }
 
+    let combinedProps = { validation, ...props };
+
+    if (fieldContext) {
+      combinedProps = fieldContext.getMessageProps(combinedProps);
+    }
+
     return (
-      <MessageComponent ref={ref} {...getMessageProps({ validation, ...props })}>
+      <MessageComponent ref={ref} {...combinedProps}>
         {validation && <StyledMessageIcon validation={validation} />}
         {children}
       </MessageComponent>
