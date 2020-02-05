@@ -9,8 +9,12 @@ import React from 'react';
 import { render, act } from 'garden-test-utils';
 import mockDate from 'mockdate';
 import Dots from './Dots';
+import { useCSSSVGAnimation } from './hooks/useCSSSVGAnimation';
 
 jest.useFakeTimers();
+jest.mock('./hooks/useCSSSVGAnimation', () => ({
+  useCSSSVGAnimation: jest.fn(() => false)
+}));
 
 const DEFAULT_DATE = new Date(2019, 1, 5, 1, 1, 1);
 
@@ -46,6 +50,60 @@ describe('Dots', () => {
   });
 
   describe('Animation', () => {
+    it('relies on svg transition attribute if css svg animation is not supported', () => {
+      useCSSSVGAnimation.mockReturnValue(true);
+      const { container } = render(<Dots data-test-id="dots" />);
+
+      act(() => {
+        jest.runOnlyPendingTimers();
+      });
+
+      expect(container.querySelector('g')).toMatchInlineSnapshot(`
+        .c0 {
+          -webkit-animation: dMEWJg 1250ms linear infinite;
+          animation: dMEWJg 1250ms linear infinite;
+        }
+
+        .c1 {
+          -webkit-animation: hiIgQS 1250ms linear infinite;
+          animation: hiIgQS 1250ms linear infinite;
+        }
+
+        .c2 {
+          -webkit-animation: jfCXbz 1250ms linear infinite;
+          animation: jfCXbz 1250ms linear infinite;
+        }
+
+        <g
+          fill="currentColor"
+        >
+          <circle
+            class="c0"
+            cx="9"
+            cy="36"
+            r="9"
+            transform=""
+          />
+          <circle
+            class="c1"
+            cx="40"
+            cy="36"
+            r="9"
+            transform=""
+          />
+          <circle
+            class="c2"
+            cx="71"
+            cy="36"
+            r="9"
+            transform=""
+          />
+        </g>
+      `);
+
+      useCSSSVGAnimation.mockReset();
+    });
+
     it('updates animation after request animation frame', () => {
       const { container } = render(<Dots data-test-id="dots" />);
 
