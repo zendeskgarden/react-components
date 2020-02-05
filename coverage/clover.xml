@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1580759281439" clover="3.2.0">
-  <project timestamp="1580759281440" name="All files">
+<coverage generated="1580860797461" clover="3.2.0">
+  <project timestamp="1580860797462" name="All files">
     <metrics statements="2760" coveredstatements="2706" conditionals="1277" coveredconditionals="1184" methods="658" coveredmethods="644" elements="4695" coveredelements="4534" complexity="0" loc="2760" ncloc="2760" packages="75" files="230" classes="230"/>
     <package name="avatars.src">
       <metrics statements="17" coveredstatements="17" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
@@ -1612,10 +1612,10 @@
         <line num="9" count="19" type="stmt"/>
         <line num="10" count="19" type="stmt"/>
         <line num="12" count="19" type="stmt"/>
-        <line num="16" count="19" type="stmt"/>
-        <line num="26" count="68" type="cond" truecount="1" falsecount="1"/>
-        <line num="30" count="68" type="cond" truecount="2" falsecount="0"/>
-        <line num="43" count="19" type="stmt"/>
+        <line num="17" count="19" type="stmt"/>
+        <line num="27" count="68" type="cond" truecount="1" falsecount="1"/>
+        <line num="31" count="68" type="cond" truecount="2" falsecount="0"/>
+        <line num="44" count="19" type="stmt"/>
       </file>
       <file name="StyledSelect.ts" path="/home/travis/build/zendeskgarden/react-components/packages/dropdowns/src/styled/field/StyledSelect.ts">
         <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
