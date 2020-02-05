@@ -3,7 +3,7 @@
     "bundlesize --config bundlesize.config.js",
     "stylelint",
     "eslint",
-    "test:all --findRelatedTests",
+    "jest --config=utils/test/jest.config.js --findRelatedTests",
     "prettier --write",
     "git add"
   ],
