@@ -64,7 +64,7 @@ commands are available:
 - `yarn new` to generate a new React component based on a package
   template.
 
-See our [development documentation](../DEVELOPMENT.md) for package
+See our [development documentation](../docs/development.md) for package
 implementation requirements.
 
 ## Pull Request Workflow
