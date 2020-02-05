@@ -1,8 +1,9 @@
 {
   "*.{js,ts,tsx}": [
+    "bundlesize --config bundlesize.config.js",
     "stylelint",
     "eslint",
-    "jest --config=utils/test/jest.config.js --findRelatedTests",
+    "test:all --findRelatedTests",
     "prettier --write",
     "git add"
   ],
@@ -12,6 +13,7 @@
     "git add"
   ],
   "**/package.json": [
+    "bundlesize --config bundlesize.config.js",
     "prettier-package-json --write",
     "git add"
   ]
