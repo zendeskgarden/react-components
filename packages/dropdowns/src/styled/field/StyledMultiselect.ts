@@ -28,7 +28,7 @@ StyledMultiSelect.defaultProps = {
 };
 
 export const StyledItemWrapper = styled.div`
-  margin: 2px;
+  margin: ${props => props.theme.space.base / 2}px;
   max-width: 100%;
 `;
 
@@ -53,7 +53,7 @@ const hiddenStyling = css`
 export const StyledMultiselectInput = styled(StyledInput)<IStyledMultiselectInputProps>`
   flex-basis: ${props => props.theme.space.base * 15}px;
   flex-grow: 1;
-  margin: 2px;
+  margin: ${props => props.theme.space.base / 2}px;
   width: inherit;
   min-width: ${props => props.theme.space.base * 15}px;
   line-height: ${props => (props.isCompact ? 20 / 14 : 32 / 14)};
@@ -68,7 +68,7 @@ StyledMultiselectInput.defaultProps = {
 export const StyledMoreAnchor = styled.div`
   display: flex;
   align-items: center;
-  margin: 2px;
+  margin: ${props => props.theme.space.base / 2}px;
   border: none;
   border-radius: 0;
   background-color: transparent;

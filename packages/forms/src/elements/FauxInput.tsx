@@ -21,7 +21,9 @@ export interface IFauxInputProps extends HTMLAttributes<HTMLDivElement> {
   /** Apply disabled styling */
   disabled?: boolean;
   validation?: VALIDATION;
+  /** Apply focused styling */
   isFocused?: boolean;
+  /** Apply hovered styling */
   isHovered?: boolean;
 }
 
@@ -46,9 +48,7 @@ export const FauxInput = React.forwardRef<HTMLDivElement, IFauxInputProps>(
         onFocus={onFocusHandler}
         onBlur={onBlurHandler}
         isFocused={controlledIsFocused === undefined ? isFocused : controlledIsFocused}
-        data-garden-test-is-focused={
-          controlledIsFocused === undefined ? isFocused : controlledIsFocused
-        }
+        data-test-is-focused={controlledIsFocused === undefined ? isFocused : controlledIsFocused}
         isDisabled={disabled}
         tabIndex={disabled ? undefined : 0}
         ref={ref as RefObject<HTMLInputElement>}

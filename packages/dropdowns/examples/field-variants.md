@@ -40,7 +40,6 @@ initialState = {
   isBare: false,
   focusInset: false,
   disabled: false,
-  placeholder: false,
   message: true,
   validation: 'none'
 };
@@ -95,15 +94,6 @@ initialState = {
         </FormField>
         <StyledSpacer />
         <FormField>
-          <Toggle
-            checked={state.placeholder}
-            onChange={e => setState({ placeholder: e.target.checked })}
-          >
-            <FormLabel>Placeholder</FormLabel>
-          </Toggle>
-        </FormField>
-        <StyledSpacer />
-        <FormField>
           <Toggle checked={state.message} onChange={e => setState({ message: e.target.checked })}>
             <FormLabel>Message</FormLabel>
           </Toggle>
@@ -143,11 +133,12 @@ initialState = {
             isBare={state.isBare}
             focusInset={state.focusInset}
             disabled={state.disabled}
+            validation={state.validation !== 'none' ? state.validation : undefined}
           >
             Example
           </Select>
           {state.message && (
-            <StyledMessage validation={state.validation !== 'none' && state.validation}>
+            <StyledMessage validation={state.validation !== 'none' ? state.validation : undefined}>
               message
             </StyledMessage>
           )}
@@ -166,11 +157,12 @@ initialState = {
             isBare={state.isBare}
             focusInset={state.focusInset}
             disabled={state.disabled}
+            validation={state.validation !== 'none' ? state.validation : undefined}
           >
             Example
           </Autocomplete>
           {state.message && (
-            <StyledMessage validation={state.validation !== 'none' && state.validation}>
+            <StyledMessage validation={state.validation !== 'none' ? state.validation : undefined}>
               message
             </StyledMessage>
           )}
@@ -189,6 +181,7 @@ initialState = {
             isBare={state.isBare}
             focusInset={state.focusInset}
             disabled={state.disabled}
+            validation={state.validation !== 'none' ? state.validation : undefined}
             renderItem={({ value, removeValue }) => (
               <Tag size={state.isCompact ? 'medium' : 'large'} disabled={state.disabled}>
                 <span>{value}</span>
@@ -196,7 +189,7 @@ initialState = {
             )}
           />
           {state.message && (
-            <StyledMessage validation={state.validation !== 'none' && state.validation}>
+            <StyledMessage validation={state.validation !== 'none' ? state.validation : undefined}>
               message
             </StyledMessage>
           )}

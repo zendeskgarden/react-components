@@ -16,8 +16,6 @@ import useFieldContext from '../../utils/useFieldContext';
 interface ISelectProps {
   /** Allows flush spacing of Tab elements */
   tagLayout?: boolean;
-  /** Applies flex layout to support MediaFigure components */
-  mediaLayout?: boolean;
   isCompact?: boolean;
   /** Removes all borders and styling */
   isBare?: boolean;
@@ -98,8 +96,6 @@ const Select: React.FunctionComponent<ISelectProps> = ({ children, ...props }) =
 Select.propTypes = {
   /** Allows flush spacing of Tab elements */
   tagLayout: PropTypes.bool,
-  /** Applies flex layout to support MediaFigure components */
-  mediaLayout: PropTypes.bool,
   isCompact: PropTypes.bool,
   /** Removes all borders and styling */
   isBare: PropTypes.bool,

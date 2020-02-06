@@ -15,7 +15,7 @@ describe('HeaderItem', () => {
     const ref = React.createRef<HTMLDivElement>();
 
     const { getByTestId } = render(
-      <Dropdown>
+      <Dropdown isOpen>
         <Trigger>
           <button>Test</button>
         </Trigger>
@@ -32,7 +32,7 @@ describe('HeaderItem', () => {
 
   it('applies correct default horizontal padding', () => {
     const { getByTestId } = render(
-      <Dropdown>
+      <Dropdown isOpen>
         <Trigger>
           <button>Test</button>
         </Trigger>
@@ -49,7 +49,7 @@ describe('HeaderItem', () => {
 
   it('applies correct compact horizontal padding', () => {
     const { getByTestId } = render(
-      <Dropdown>
+      <Dropdown isOpen>
         <Trigger>
           <button>Test</button>
         </Trigger>
@@ -66,7 +66,7 @@ describe('HeaderItem', () => {
 
   it('applies no horizontal padding when HeaderItem contains an icon', () => {
     const { getByTestId } = render(
-      <Dropdown>
+      <Dropdown isOpen>
         <Trigger>
           <button>Test</button>
         </Trigger>

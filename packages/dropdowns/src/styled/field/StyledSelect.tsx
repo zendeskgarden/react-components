@@ -74,10 +74,7 @@ export interface IStyledSelectProps {
 const StyledSelect = styled(FauxInput).attrs<IStyledSelectProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  'aria-invalid': isInvalid(props.validation),
-  'data-garden-is-open': props.isOpen,
-  'data-garden-is-focused': props.isFocused,
-  'data-garden-is-hovered': props.isHovered
+  'aria-invalid': isInvalid(props.validation)
 }))<IStyledSelectProps>`
   position: relative;
   cursor: ${props => (props.disabled ? 'default' : 'pointer')};
@@ -130,7 +127,13 @@ export const SelectWrapper = React.forwardRef<
   IStyledSelectProps & HTMLAttributes<HTMLDivElement>
 >(({ children, ...props }, ref) => {
   return (
-    <StyledSelect ref={ref} {...props}>
+    <StyledSelect
+      ref={ref}
+      data-test-is-open={props.isOpen}
+      data-test-is-focused={props.isFocused}
+      data-test-is-hovered={props.isHovered}
+      {...props}
+    >
       {children}
       {!props.isBare && (
         <StyledSelectIcon isCompact={props.isCompact}>

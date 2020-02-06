@@ -14,7 +14,7 @@ describe('ItemMeta', () => {
     const ref = React.createRef<HTMLDivElement>();
 
     const { getByTestId } = render(
-      <Dropdown>
+      <Dropdown isOpen>
         <Trigger>
           <button data-test-id="trigger">Test</button>
         </Trigger>

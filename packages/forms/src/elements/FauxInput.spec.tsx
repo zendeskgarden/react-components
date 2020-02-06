@@ -33,11 +33,11 @@ describe('FauxInput', () => {
   it('applies focused styling on focus event', () => {
     const { container } = render(<FauxInput />);
 
-    expect(container.firstElementChild).toHaveAttribute('data-garden-test-is-focused', 'false');
+    expect(container.firstElementChild).toHaveAttribute('data-test-is-focused', 'false');
 
     fireEvent.focus(container.firstElementChild!);
 
-    expect(container.firstElementChild).toHaveAttribute('data-garden-test-is-focused', 'true');
+    expect(container.firstElementChild).toHaveAttribute('data-test-is-focused', 'true');
   });
 
   it('removes focused styling on blur event', () => {
@@ -45,10 +45,10 @@ describe('FauxInput', () => {
 
     fireEvent.focus(container.firstElementChild!);
 
-    expect(container.firstElementChild).toHaveAttribute('data-garden-test-is-focused', 'true');
+    expect(container.firstElementChild).toHaveAttribute('data-test-is-focused', 'true');
 
     fireEvent.blur(container.firstElementChild!);
 
-    expect(container.firstElementChild).toHaveAttribute('data-garden-test-is-focused', 'false');
+    expect(container.firstElementChild).toHaveAttribute('data-test-is-focused', 'false');
   });
 });

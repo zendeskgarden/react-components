@@ -24,8 +24,6 @@ import useFieldContext from '../../utils/useFieldContext';
 import { REMOVE_ITEM_STATE_TYPE } from '../Dropdown/Dropdown';
 
 interface IMultiselectProps {
-  /** Applies flex layout to support MediaFigure components */
-  mediaLayout?: boolean;
   isCompact?: boolean;
   /** Removes all borders and styling */
   isBare?: boolean;
@@ -318,8 +316,6 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
 );
 
 Multiselect.propTypes = {
-  /** Applies flex layout to support MediaFigure components */
-  mediaLayout: PropTypes.bool,
   isCompact: PropTypes.bool,
   /** Removes all borders and styling */
   isBare: PropTypes.bool,

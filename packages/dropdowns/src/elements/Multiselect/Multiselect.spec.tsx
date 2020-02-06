@@ -77,14 +77,14 @@ describe('Multiselect', () => {
       fireEvent.focus(input!);
     });
 
-    expect(multiselect).toHaveAttribute('data-garden-is-focused', 'true');
+    expect(multiselect).toHaveAttribute('data-test-is-focused', 'true');
 
     act(() => {
       fireEvent.blur(multiselect!);
       jest.runOnlyPendingTimers();
     });
 
-    expect(multiselect).toHaveAttribute('data-garden-is-focused', 'false');
+    expect(multiselect).toHaveAttribute('data-test-is-focused', 'false');
   });
 
   it('applies correct styling if open', () => {
@@ -108,8 +108,8 @@ describe('Multiselect', () => {
 
     fireEvent.click(multiselect);
 
-    expect(multiselect).toHaveAttribute('data-garden-is-focused', 'true');
-    expect(multiselect).toHaveAttribute('data-garden-is-open', 'true');
+    expect(multiselect).toHaveAttribute('data-test-is-focused', 'true');
+    expect(multiselect).toHaveAttribute('data-test-is-open', 'true');
   });
 
   it('applies correct styling if label is hovered', () => {
@@ -132,7 +132,7 @@ describe('Multiselect', () => {
 
     fireEvent.mouseEnter(getByTestId('label'));
 
-    expect(getByTestId('multiselect')).toHaveAttribute('data-garden-is-hovered', 'true');
+    expect(getByTestId('multiselect')).toHaveAttribute('data-test-is-hovered', 'true');
   });
 
   describe('Interaction', () => {
@@ -156,7 +156,7 @@ describe('Multiselect', () => {
 
       fireEvent.click(multiselect);
 
-      expect(multiselect).toHaveAttribute('data-garden-is-open', 'true');
+      expect(multiselect).toHaveAttribute('data-test-is-open', 'true');
     });
 
     it('opens on down key and highlights first item', () => {
@@ -179,7 +179,7 @@ describe('Multiselect', () => {
       const multiselect = getByTestId('multiselect');
 
       fireEvent.keyDown(multiselect, { key: 'ArrowDown', keyCode: 40 });
-      expect(multiselect).toHaveAttribute('data-garden-is-open', 'true');
+      expect(multiselect).toHaveAttribute('data-test-is-open', 'true');
 
       const items = getAllByTestId('item');
 
@@ -206,7 +206,7 @@ describe('Multiselect', () => {
       const multiselect = getByTestId('multiselect');
 
       fireEvent.keyDown(multiselect, { key: 'ArrowUp', keyCode: 38 });
-      expect(multiselect).toHaveAttribute('data-garden-is-open', 'true');
+      expect(multiselect).toHaveAttribute('data-test-is-open', 'true');
 
       const items = getAllByTestId('item');
 
@@ -233,10 +233,10 @@ describe('Multiselect', () => {
       const multiselect = getByTestId('multiselect');
 
       fireEvent.click(multiselect);
-      expect(multiselect).toHaveAttribute('data-garden-is-open', 'true');
+      expect(multiselect).toHaveAttribute('data-test-is-open', 'true');
 
       fireEvent.keyDown(multiselect.querySelector('input')!, { key: 'Escape', keyCode: 27 });
-      expect(multiselect).toHaveAttribute('data-garden-is-open', 'false');
+      expect(multiselect).toHaveAttribute('data-test-is-open', 'false');
     });
   });
 

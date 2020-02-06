@@ -15,8 +15,6 @@ import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 
 interface IAutocompleteProps {
-  /** Applies flex layout to support MediaFigure components */
-  mediaLayout?: boolean;
   isCompact?: boolean;
   /** Removes all borders and styling */
   isBare?: boolean;
@@ -107,8 +105,6 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
 );
 
 Autocomplete.propTypes = {
-  /** Applies flex layout to support MediaFigure components */
-  mediaLayout: PropTypes.bool,
   isCompact: PropTypes.bool,
   /** Removes all borders and styling */
   isBare: PropTypes.bool,

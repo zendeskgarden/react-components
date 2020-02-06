@@ -89,13 +89,13 @@ export const Item = React.forwardRef<HTMLDivElement, IItemProps>(
 
     return (
       <Component
+        data-test-is-focused={isFocused}
+        data-test-is-selected={isSelected}
         {...getItemProps({
           item: value,
           isFocused,
           ref,
           isCompact,
-          'data-garden-is-focused': isFocused,
-          'data-garden-is-selected': isSelected,
           ...props
         } as any)}
       >

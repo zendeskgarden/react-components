@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import styled from 'styled-components';
 import NextIconSvg from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
@@ -16,8 +16,12 @@ interface IStyledNextIconProps {
   isDisabled?: boolean;
 }
 
-const NextIconComponent = () => (
-  <NextIconSvg data-garden-id={COMPONENT_ID} data-garden-version={PACKAGE_VERSION} />
+const NextIconComponent: React.FC<HTMLAttributes<SVGSVGElement>> = ({ className }) => (
+  <NextIconSvg
+    data-garden-id={COMPONENT_ID}
+    data-garden-version={PACKAGE_VERSION}
+    className={className}
+  />
 );
 
 export const StyledNextIcon = styled(NextIconComponent)<IStyledNextIconProps>`

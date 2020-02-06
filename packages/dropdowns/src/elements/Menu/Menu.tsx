@@ -49,6 +49,7 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
     style: menuStyle,
     zIndex,
     isCompact,
+    children,
     ...otherProps
   } = props;
   const {
@@ -113,12 +114,14 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
                 style: computedStyle,
                 isCompact,
                 isHidden: !isOpen,
-                ref,
+                ref: isOpen ? ref : undefined,
                 wrapperStyle: style,
                 zIndex,
                 ...otherProps
               } as any)}
-            />
+            >
+              {isOpen && children}
+            </StyledMenu>
           );
         }}
       </Popper>

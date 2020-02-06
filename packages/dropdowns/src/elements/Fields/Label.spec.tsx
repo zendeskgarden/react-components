@@ -24,7 +24,7 @@ describe('Label', () => {
     );
 
     fireEvent.mouseEnter(getByTestId('label'));
-    expect(getByTestId('select')).toHaveAttribute('data-garden-is-hovered', 'true');
+    expect(getByTestId('select')).toHaveAttribute('data-test-is-hovered', 'true');
   });
 
   it('remove hover styling through context with onMouseLeave', () => {
@@ -62,6 +62,6 @@ describe('Label', () => {
     );
 
     fireEvent.click(getByTestId('label'));
-    expect(getByTestId('select')).toHaveAttribute('data-garden-is-open', 'true');
+    expect(getByTestId('select')).toHaveAttribute('data-test-is-open', 'true');
   });
 });

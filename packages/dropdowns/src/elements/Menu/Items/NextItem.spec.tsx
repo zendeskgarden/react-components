@@ -12,7 +12,7 @@ import { Dropdown, Trigger, Menu, NextItem } from '../../..';
 describe('NextItem', () => {
   it('applies disabled properties correctly', () => {
     const { getByTestId } = render(
-      <Dropdown>
+      <Dropdown isOpen>
         <Trigger>
           <button>Test</button>
         </Trigger>
@@ -31,7 +31,7 @@ describe('NextItem', () => {
 
   it('applies additional properties correctly', () => {
     const { getByTestId } = render(
-      <Dropdown>
+      <Dropdown isOpen>
         <Trigger>
           <button>Test</button>
         </Trigger>
@@ -51,7 +51,7 @@ describe('NextItem', () => {
     const ref = React.createRef<HTMLDivElement>();
 
     const { getByTestId } = render(
-      <Dropdown>
+      <Dropdown isOpen>
         <Trigger>
           <button>Test</button>
         </Trigger>
