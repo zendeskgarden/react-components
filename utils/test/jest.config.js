@@ -10,6 +10,7 @@ const { defaults } = require('jest-config');
 
 module.exports = {
   rootDir: '../../',
+  roots: ['<rootDir>', path.resolve(__dirname, 'rootDir')],
   preset: 'ts-jest/presets/js-with-babel',
   modulePathIgnorePatterns: ['./node_modules'],
   transformIgnorePatterns: ['\\/node_modules\\/(?!@zendeskgarden)'],
