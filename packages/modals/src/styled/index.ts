@@ -7,7 +7,7 @@
 
 export { StyledBackdrop, IStyledBackdropProps } from './StyledBackdrop';
 export { StyledBody } from './StyledBody';
-export { StyledClose, IStyledCloseProps } from './StyledClose';
+export { StyledClose } from './StyledClose';
 export { StyledFooter } from './StyledFooter';
 export { StyledFooterItem } from './StyledFooterItem';
 export { StyledHeader, IStyledHeaderProps } from './StyledHeader';
