@@ -190,7 +190,11 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
 
         const key = `${itemToString(item)}-${index}`;
 
-        return <StyledItemWrapper key={key}>{clonedChild}</StyledItemWrapper>;
+        return (
+          <StyledItemWrapper key={key} isCompact={props.isCompact}>
+            {clonedChild}
+          </StyledItemWrapper>
+        );
       },
       [
         getItemProps,
@@ -220,7 +224,11 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
               }
             });
 
-            output.push(<StyledItemWrapper key={x}>{renderedItem}</StyledItemWrapper>);
+            output.push(
+              <StyledItemWrapper key={x} isCompact={props.isCompact}>
+                {renderedItem}
+              </StyledItemWrapper>
+            );
           } else {
             output.push(renderSelectableItem(item, x));
           }
@@ -247,7 +255,8 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
       renderItem,
       inputValue,
       maxItems,
-      renderShowMore
+      renderShowMore,
+      props.isCompact
     ]);
 
     return (

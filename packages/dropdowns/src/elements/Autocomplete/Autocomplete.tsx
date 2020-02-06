@@ -71,6 +71,7 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
             isHovered={isLabelHovered && !isOpen}
             isFocused={isOpen ? true : isFocused}
             isOpen={isOpen}
+            tabIndex={null}
             ref={selectRef => {
               // Pass ref to popperJS for positioning
               (popperReference as any)(selectRef);

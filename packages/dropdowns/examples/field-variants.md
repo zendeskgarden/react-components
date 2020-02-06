@@ -5,7 +5,8 @@ const {
   Toggle,
   Field: FormField,
   Label: FormLabel,
-  Hint: FormHint
+  Hint: FormHint,
+  Range
 } = require('@zendeskgarden/react-forms/src');
 
 const StyledSpacer = styled.div`
@@ -41,6 +42,7 @@ initialState = {
   focusInset: false,
   disabled: false,
   message: true,
+  width: 100,
   validation: 'none'
 };
 
@@ -124,80 +126,103 @@ initialState = {
       </Well>
     </Col>
     <Col size={8}>
-      <Dropdown>
-        <StyledField>
-          <StyledLabel isRegular={state.regularWeightLabel}>Select dropdown</StyledLabel>
-          {state.showHint && <StyledHint>Hint</StyledHint>}
-          <Select
-            isCompact={state.isCompact}
-            isBare={state.isBare}
-            focusInset={state.focusInset}
-            disabled={state.disabled}
-            validation={state.validation !== 'none' ? state.validation : undefined}
-          >
-            Example
-          </Select>
-          {state.message && (
-            <StyledMessage validation={state.validation !== 'none' ? state.validation : undefined}>
-              message
-            </StyledMessage>
-          )}
-        </StyledField>
-        <Menu isCompact={state.isCompact}>
-          <Item disabled>Mock dropdown with no selection logic</Item>
-        </Menu>
-      </Dropdown>
-      <StyledSpacer />
-      <Dropdown>
-        <StyledField>
-          <StyledLabel isRegular={state.regularWeightLabel}>Autocomplete dropdown</StyledLabel>
-          {state.showHint && <StyledHint>Hint</StyledHint>}
-          <Autocomplete
-            isCompact={state.isCompact}
-            isBare={state.isBare}
-            focusInset={state.focusInset}
-            disabled={state.disabled}
-            validation={state.validation !== 'none' ? state.validation : undefined}
-          >
-            Example
-          </Autocomplete>
-          {state.message && (
-            <StyledMessage validation={state.validation !== 'none' ? state.validation : undefined}>
-              message
-            </StyledMessage>
-          )}
-        </StyledField>
-        <Menu isCompact={state.isCompact}>
-          <Item disabled>Mock dropdown with no selection logic</Item>
-        </Menu>
-      </Dropdown>
-      <StyledSpacer />
-      <Dropdown selectedItems={['tag 1', 'tag 2', 'tag 3']}>
-        <StyledField>
-          <StyledLabel isRegular={state.regularWeightLabel}>Multiselect dropdown</StyledLabel>
-          {state.showHint && <StyledHint>Hint</StyledHint>}
-          <Multiselect
-            isCompact={state.isCompact}
-            isBare={state.isBare}
-            focusInset={state.focusInset}
-            disabled={state.disabled}
-            validation={state.validation !== 'none' ? state.validation : undefined}
-            renderItem={({ value, removeValue }) => (
-              <Tag size={state.isCompact ? 'medium' : 'large'} disabled={state.disabled}>
-                <span>{value}</span>
-              </Tag>
+      <div style={{ width: `${state.width}%` }}>
+        <Dropdown>
+          <StyledField>
+            <StyledLabel isRegular={state.regularWeightLabel}>Select dropdown</StyledLabel>
+            {state.showHint && <StyledHint>Hint</StyledHint>}
+            <Select
+              isCompact={state.isCompact}
+              isBare={state.isBare}
+              focusInset={state.focusInset}
+              disabled={state.disabled}
+              validation={state.validation !== 'none' ? state.validation : undefined}
+            >
+              Example
+            </Select>
+            {state.message && (
+              <StyledMessage
+                validation={state.validation !== 'none' ? state.validation : undefined}
+              >
+                message
+              </StyledMessage>
             )}
-          />
-          {state.message && (
-            <StyledMessage validation={state.validation !== 'none' ? state.validation : undefined}>
-              message
-            </StyledMessage>
-          )}
-        </StyledField>
-        <Menu isCompact={state.isCompact}>
-          <Item disabled>Mock dropdown with no selection logic</Item>
-        </Menu>
-      </Dropdown>
+          </StyledField>
+          <Menu isCompact={state.isCompact}>
+            <Item disabled>Mock dropdown with no selection logic</Item>
+          </Menu>
+        </Dropdown>
+        <StyledSpacer />
+        <Dropdown>
+          <StyledField>
+            <StyledLabel isRegular={state.regularWeightLabel}>Autocomplete dropdown</StyledLabel>
+            {state.showHint && <StyledHint>Hint</StyledHint>}
+            <Autocomplete
+              isCompact={state.isCompact}
+              isBare={state.isBare}
+              focusInset={state.focusInset}
+              disabled={state.disabled}
+              validation={state.validation !== 'none' ? state.validation : undefined}
+            >
+              Example
+            </Autocomplete>
+            {state.message && (
+              <StyledMessage
+                validation={state.validation !== 'none' ? state.validation : undefined}
+              >
+                message
+              </StyledMessage>
+            )}
+          </StyledField>
+          <Menu isCompact={state.isCompact}>
+            <Item disabled>Mock dropdown with no selection logic</Item>
+          </Menu>
+        </Dropdown>
+        <StyledSpacer />
+        <Dropdown
+          selectedItems={[
+            'veggies es bonus',
+            'shallot courgette tatsoi',
+            'beet greens corn soko endive'
+          ]}
+        >
+          <StyledField>
+            <StyledLabel isRegular={state.regularWeightLabel}>Multiselect dropdown</StyledLabel>
+            {state.showHint && <StyledHint>Hint</StyledHint>}
+            <Multiselect
+              isCompact={state.isCompact}
+              isBare={state.isBare}
+              focusInset={state.focusInset}
+              disabled={state.disabled}
+              validation={state.validation !== 'none' ? state.validation : undefined}
+              renderItem={({ value, removeValue }) => (
+                <Tag size={state.isCompact ? 'medium' : 'large'} disabled={state.disabled}>
+                  <span>{value}</span>
+                </Tag>
+              )}
+            />
+            {state.message && (
+              <StyledMessage
+                validation={state.validation !== 'none' ? state.validation : undefined}
+              >
+                message
+              </StyledMessage>
+            )}
+          </StyledField>
+          <Menu isCompact={state.isCompact}>
+            <Item disabled>Mock dropdown with no selection logic</Item>
+          </Menu>
+        </Dropdown>
+      </div>
+      <StyledSpacer />
+      <FormField>
+        <Range
+          aria-label="Example width"
+          onChange={event => setState({ width: event.target.value })}
+          style={{ marginTop: 8 }}
+          value={state.width}
+        />
+      </FormField>
     </Col>
   </Row>
 </Grid>;
