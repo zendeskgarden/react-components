@@ -12,15 +12,15 @@ import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden
 const COMPONENT_ID = 'modals.close';
 
 const colorStyles = (props: ThemeProps<DefaultTheme>) => {
-  const baseColor = getColor('primaryHue' as string, 600, props.theme);
+  const baseColor = getColor('primaryHue', 600, props.theme);
 
   return css`
     background-color: transparent;
-    color: ${getColor('neutralHue' as string, 600, props.theme)};
+    color: ${getColor('neutralHue', 600, props.theme)};
 
     &:hover {
       background-color: ${rgba(baseColor as string, 0.08)};
-      color: ${getColor('neutralHue' as string, 700, props.theme)};
+      color: ${getColor('neutralHue', 700, props.theme)};
     }
 
     &[data-garden-focus-visible] {
@@ -33,7 +33,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
         background-color 0.1s ease-in-out,
         color 0.1s ease-in-out;
       background-color: ${rgba(baseColor as string, 0.2)};
-      color: ${getColor('neutralHue' as string, 800, props.theme)};
+      color: ${getColor('neutralHue', 800, props.theme)};
     }
   `;
 };
