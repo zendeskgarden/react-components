@@ -12,6 +12,13 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v7.1.7 (2020-02-06)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#614](https://github.com/zendeskgarden/react-components/pull/614) fix(dropdowns): conditionally render menu items to correct android rendering ([@austin94](https://github.com/austin94))
+  * [#613](https://github.com/zendeskgarden/react-components/pull/613) fix(dropdowns): limit PopperJS computations while dropdowns are closed ([@austin94](https://github.com/austin94))
+
 ## v7.1.6 (2020-02-04)
 
 #### :bug: Bug Fix
