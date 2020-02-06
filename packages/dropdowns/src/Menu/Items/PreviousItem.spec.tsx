@@ -12,7 +12,7 @@ import { Dropdown, Trigger, Menu, PreviousItem } from '../..';
 describe('PreviousItem', () => {
   it('applies disabled properties correctly', () => {
     const { getByTestId } = render(
-      <Dropdown>
+      <Dropdown isOpen>
         <Trigger>
           <button>Test</button>
         </Trigger>
@@ -33,7 +33,7 @@ describe('PreviousItem', () => {
 
   it('applies additional properties correctly', () => {
     const { getByTestId } = render(
-      <Dropdown>
+      <Dropdown isOpen>
         <Trigger>
           <button>Test</button>
         </Trigger>

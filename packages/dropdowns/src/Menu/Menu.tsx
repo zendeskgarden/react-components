@@ -61,6 +61,7 @@ const Menu: React.FunctionComponent<IMenuProps> = props => {
     maxHeight,
     style: menuStyle,
     zIndex,
+    children,
     ...otherProps
   } = props;
   const {
@@ -126,7 +127,7 @@ const Menu: React.FunctionComponent<IMenuProps> = props => {
 
           return (
             /** Conditionally apply the positioning ref to limit the number of Popper calculations */
-            <div ref={isOpen ? undefined : ref} style={popperStyle}>
+            <div ref={isOpen ? ref : undefined} style={popperStyle}>
               <StyledMenu
                 {...getMenuProps({
                   maxHeight,
@@ -135,7 +136,9 @@ const Menu: React.FunctionComponent<IMenuProps> = props => {
                   style: computedStyle,
                   ...otherProps
                 } as any)}
-              />
+              >
+                {isOpen && children}
+              </StyledMenu>
             </div>
           );
         }}

@@ -17,7 +17,7 @@ describe('Item', () => {
     console.error = jest.fn();
 
     const Example = () => (
-      <Dropdown>
+      <Dropdown isOpen>
         <Trigger>
           <button>Test</button>
         </Trigger>
