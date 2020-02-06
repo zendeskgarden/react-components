@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1580861387714" clover="3.2.0">
-  <project timestamp="1580861387714" name="All files">
-    <metrics statements="2760" coveredstatements="2706" conditionals="1277" coveredconditionals="1184" methods="658" coveredmethods="644" elements="4695" coveredelements="4534" complexity="0" loc="2760" ncloc="2760" packages="75" files="230" classes="230"/>
+<coverage generated="1580951948566" clover="3.2.0">
+  <project timestamp="1580951948567" name="All files">
+    <metrics statements="2762" coveredstatements="2708" conditionals="1279" coveredconditionals="1186" methods="658" coveredmethods="644" elements="4699" coveredelements="4538" complexity="0" loc="2762" ncloc="2762" packages="75" files="230" classes="230"/>
     <package name="avatars.src">
       <metrics statements="17" coveredstatements="17" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
       <file name="Avatar.js" path="/home/travis/build/zendeskgarden/react-components/packages/avatars/src/Avatar.js">
@@ -1053,9 +1053,9 @@
       </file>
     </package>
     <package name="dropdowns.src.Dropdown">
-      <metrics statements="68" coveredstatements="66" conditionals="48" coveredconditionals="42" methods="10" coveredmethods="10"/>
+      <metrics statements="69" coveredstatements="67" conditionals="48" coveredconditionals="42" methods="10" coveredmethods="10"/>
       <file name="Dropdown.tsx" path="/home/travis/build/zendeskgarden/react-components/packages/dropdowns/src/Dropdown/Dropdown.tsx">
-        <metrics statements="68" coveredstatements="66" conditionals="48" coveredconditionals="42" methods="10" coveredmethods="10"/>
+        <metrics statements="69" coveredstatements="67" conditionals="48" coveredconditionals="42" methods="10" coveredmethods="10"/>
         <line num="8" count="15" type="stmt"/>
         <line num="9" count="15" type="stmt"/>
         <line num="10" count="15" type="stmt"/>
@@ -1122,6 +1122,7 @@
         <line num="208" count="4" type="stmt"/>
         <line num="210" count="101" type="stmt"/>
         <line num="216" count="198" type="stmt"/>
+        <line num="227" count="198" type="stmt"/>
         <line num="236" count="15" type="stmt"/>
         <line num="247" count="15" type="stmt"/>
       </file>
@@ -1179,9 +1180,9 @@
       </file>
     </package>
     <package name="dropdowns.src.Menu">
-      <metrics statements="35" coveredstatements="35" conditionals="16" coveredconditionals="16" methods="3" coveredmethods="3"/>
+      <metrics statements="36" coveredstatements="36" conditionals="18" coveredconditionals="18" methods="3" coveredmethods="3"/>
       <file name="Menu.tsx" path="/home/travis/build/zendeskgarden/react-components/packages/dropdowns/src/Menu/Menu.tsx">
-        <metrics statements="31" coveredstatements="31" conditionals="16" coveredconditionals="16" methods="3" coveredmethods="3"/>
+        <metrics statements="32" coveredstatements="32" conditionals="18" coveredconditionals="18" methods="3" coveredmethods="3"/>
         <line num="8" count="13" type="stmt"/>
         <line num="16" count="13" type="stmt"/>
         <line num="17" count="13" type="stmt"/>
@@ -1202,17 +1203,18 @@
         <line num="89" count="189" type="stmt"/>
         <line num="91" count="189" type="stmt"/>
         <line num="95" count="189" type="stmt"/>
-        <line num="104" count="265" type="stmt"/>
+        <line num="97" count="189" type="stmt"/>
         <line num="106" count="265" type="stmt"/>
-        <line num="109" count="265" type="cond" truecount="2" falsecount="0"/>
-        <line num="113" count="86" type="stmt"/>
-        <line num="119" count="265" type="stmt"/>
-        <line num="121" count="265" type="cond" truecount="2" falsecount="0"/>
-        <line num="122" count="192" type="stmt"/>
-        <line num="125" count="265" type="stmt"/>
-        <line num="144" count="13" type="stmt"/>
-        <line num="175" count="13" type="stmt"/>
-        <line num="184" count="13" type="stmt"/>
+        <line num="108" count="265" type="stmt"/>
+        <line num="111" count="265" type="cond" truecount="2" falsecount="0"/>
+        <line num="115" count="86" type="stmt"/>
+        <line num="121" count="265" type="stmt"/>
+        <line num="123" count="265" type="cond" truecount="2" falsecount="0"/>
+        <line num="124" count="192" type="stmt"/>
+        <line num="127" count="265" type="stmt"/>
+        <line num="147" count="13" type="stmt"/>
+        <line num="178" count="13" type="stmt"/>
+        <line num="187" count="13" type="stmt"/>
       </file>
       <file name="Separator.ts" path="/home/travis/build/zendeskgarden/react-components/packages/dropdowns/src/Menu/Separator.ts">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
