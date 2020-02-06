@@ -92,8 +92,10 @@ const Menu: React.FunctionComponent<IMenuProps> = props => {
     ? getRtlPopperPlacement(placement!)
     : getPopperPlacement(placement!);
 
+  const menuContextValue = { itemIndexRef };
+
   return (
-    <MenuContext.Provider value={{ itemIndexRef }}>
+    <MenuContext.Provider value={menuContextValue}>
       <Popper
         placement={popperPlacement as any}
         modifiers={popperModifiers}
@@ -123,7 +125,8 @@ const Menu: React.FunctionComponent<IMenuProps> = props => {
           }
 
           return (
-            <div ref={ref} style={popperStyle}>
+            /** Conditionally apply the positioning ref to limit the number of Popper calculations */
+            <div ref={isOpen ? undefined : ref} style={popperStyle}>
               <StyledMenu
                 {...getMenuProps({
                   maxHeight,

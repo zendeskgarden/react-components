@@ -212,22 +212,22 @@ const Dropdown: React.FunctionComponent<IDropdownProps> = props => {
         }}
         {...downshiftProps}
       >
-        {downshift => (
-          <DropdownContext.Provider
-            value={{
-              itemIndexRef,
-              previousItemRef,
-              previousIndexRef,
-              nextItemsHashRef,
-              popperReferenceElementRef,
-              selectedItems,
-              downshift: transformDownshift(downshift),
-              containsMultiselectRef
-            }}
-          >
-            {children}
-          </DropdownContext.Provider>
-        )}
+        {downshift => {
+          const dropdownContext = {
+            itemIndexRef,
+            previousItemRef,
+            previousIndexRef,
+            nextItemsHashRef,
+            popperReferenceElementRef,
+            selectedItems,
+            downshift: transformDownshift(downshift),
+            containsMultiselectRef
+          };
+
+          return (
+            <DropdownContext.Provider value={dropdownContext}>{children}</DropdownContext.Provider>
+          );
+        }}
       </Downshift>
     </Manager>
   );
