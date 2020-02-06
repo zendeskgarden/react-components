@@ -4,6 +4,7 @@
      version bump if this PR is merged. -->
 
 - [ ] **BREAKING CHANGE?** <!-- if so, indicate why under description -->
+                                                                                                                       <!-- 🎗add a PR label 🎗-->
 
 ## Description
 
@@ -21,8 +22,6 @@
 
 - [ ] :ok_hand: design updates are Garden Designer approved (add the
       designer as a reviewer)
-- [ ] :nail_care: view component styling is based on a Garden CSS
-      component
 - [ ] :globe_with_meridians: Styleguidist demo is up-to-date (`yarn start`)
 - [ ] :arrow_left: renders as expected with reversed (RTL) direction
 - [ ] :wheelchair: analyzed via [axe](https://www.deque.com/axe/) and evaluated using VoiceOver
