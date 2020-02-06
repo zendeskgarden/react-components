@@ -28,6 +28,10 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
     }
 
     &:active {
+      /* prettier-ignore */
+      transition:
+        background-color 0.1s ease-in-out,
+        color 0.1s ease-in-out;
       background-color: ${rgba(baseColor as string, 0.2)};
       color: ${getColor('neutralHue' as string, 800, props.theme)};
     }
@@ -45,7 +49,11 @@ export const StyledClose = styled.button.attrs({
   position: absolute;
   top: ${props => props.theme.space.base * 2.5}px;
   ${props => (props.theme.rtl ? 'left' : 'right')}: ${props => `${props.theme.space.base * 5}px`};
-  transition: background-color 0.1s ease-in-out;
+  /* prettier-ignore */
+  transition:
+    box-shadow 0.1s ease-in-out,
+    background-color 0.25s ease-in-out,
+    color 0.25s ease-in-out;
   border: none;
   border-radius: 50%;
   background-color: transparent;
