@@ -6,25 +6,27 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import rgba from 'polished/lib/color/rgba';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.close';
 
 const colorStyles = (props: ThemeProps<DefaultTheme>) => {
-  const baseColor = getColor('primaryHue', 600, props.theme);
+  const backgroundColor = 'primaryHue';
+  const foregroundColor = 'neutralHue';
 
   return css`
     background-color: transparent;
-    color: ${getColor('neutralHue', 600, props.theme)};
+    color: ${getColor(foregroundColor, 600, props.theme)};
 
     &:hover {
-      background-color: ${rgba(baseColor as string, 0.08)};
-      color: ${getColor('neutralHue', 700, props.theme)};
+      background-color: ${getColor(backgroundColor, 600, props.theme, 0.08)};
+      color: ${getColor(foregroundColor, 700, props.theme)};
     }
 
     &[data-garden-focus-visible] {
-      box-shadow: ${props.theme.shadows.md(rgba(baseColor as string, 0.35))};
+      box-shadow: ${props.theme.shadows.md(
+        getColor(backgroundColor, 600, props.theme, 0.35) as string
+      )};
     }
 
     &:active {
@@ -32,8 +34,8 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
       transition:
         background-color 0.1s ease-in-out,
         color 0.1s ease-in-out;
-      background-color: ${rgba(baseColor as string, 0.2)};
-      color: ${getColor('neutralHue', 800, props.theme)};
+      background-color: ${getColor(backgroundColor, 600, props.theme, 0.2)};
+      color: ${getColor(foregroundColor, 800, props.theme)};
     }
   `;
 };
