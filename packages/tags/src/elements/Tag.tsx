@@ -71,8 +71,7 @@ Tag.propTypes = {
 };
 
 Tag.defaultProps = {
-  size: 'medium',
-  hue: 'grey'
+  size: 'medium'
 };
 
 (Tag as any).Avatar = StyledAvatar;
