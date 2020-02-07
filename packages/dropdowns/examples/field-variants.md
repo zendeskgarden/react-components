@@ -183,7 +183,9 @@ initialState = {
           selectedItems={[
             'veggies es bonus',
             'shallot courgette tatsoi',
-            'beet greens corn soko endive'
+            'beet greens corn soko endive',
+            'cauliflower',
+            'turnip yarrow ricebean rutabaga'
           ]}
         >
           <StyledField>

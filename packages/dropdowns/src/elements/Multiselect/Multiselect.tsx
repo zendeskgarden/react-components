@@ -234,7 +234,16 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
           }
         } else if ((!isFocused && !inputValue) || props.disabled) {
           output.push(
-            <StyledMoreAnchor key="more-anchor">
+            <StyledMoreAnchor
+              key="more-anchor"
+              onMouseDown={e => {
+                /**
+                 * Prevent anchor from receiving focus on mouse down.
+                 * This allows the input to receive focus.
+                 **/
+                e.preventDefault();
+              }}
+            >
               {renderShowMore
                 ? renderShowMore(itemValues.length - x)
                 : `+ ${itemValues.length - x} more`}
