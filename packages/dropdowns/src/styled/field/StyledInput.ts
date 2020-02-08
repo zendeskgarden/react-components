@@ -11,17 +11,13 @@ import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const hiddenStyling = css`
   position: absolute;
-  left: -100px;
-  transform: scale(0);
-  opacity: 0;
-  outline: 0;
-  border-width: 0;
-  border-style: initial;
-  border-color: initial;
-  background: 0 center;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
   width: 1px;
-  color: transparent;
-  font-size: inherit;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
 `;
 
 export interface IStyledInputProps {

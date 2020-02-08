@@ -39,21 +39,16 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
     const { isLabelHovered } = useFieldContext();
     const inputRef = useCombinedRefs<HTMLInputElement>(controlledInputRef);
     const triggerRef = useCombinedRefs<HTMLDivElement>(ref);
-    const previousIsOpenRef = useRef<boolean | undefined>(undefined);
+    const previousIsOpenRef = useRef<boolean | undefined>(isOpen);
     const [isFocused, setIsFocused] = useState(false);
 
     useEffect(() => {
-      // Focus internal input when Menu is opened
-      if (isOpen && !previousIsOpenRef.current) {
+      if (isOpen !== previousIsOpenRef.current) {
         inputRef.current && inputRef.current.focus();
       }
 
-      // Focus trigger when Menu is closed
-      if (!isOpen && previousIsOpenRef.current) {
-        triggerRef.current && triggerRef.current.focus();
-      }
       previousIsOpenRef.current = isOpen;
-    }, [isOpen, inputRef, triggerRef]);
+    }, [inputRef, isOpen]);
 
     const selectProps = getToggleButtonProps({
       onKeyDown: e => {

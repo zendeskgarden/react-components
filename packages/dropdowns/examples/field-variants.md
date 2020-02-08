@@ -47,7 +47,7 @@ initialState = {
 };
 
 <Grid>
-  <Row alignItems="center">
+  <Row>
     <Col size={4}>
       <Well isRecessed>
         <FormField>

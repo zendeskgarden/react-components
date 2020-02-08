@@ -6,7 +6,7 @@
  */
 
 import React, { HTMLAttributes } from 'react';
-import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { FauxInput } from '@zendeskgarden/react-forms';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import ChevronSVG from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
@@ -23,17 +23,12 @@ interface IStyledSelectIconProps {
   isCompact?: boolean;
 }
 
-const getIconSizeStyles = (props: IStyledSelectIconProps & ThemeProps<DefaultTheme>) => {
-  let size = `${props.theme.space.base * 10}px`;
-
+const getIconSize = (props: IStyledSelectIconProps & ThemeProps<DefaultTheme>) => {
   if (props.isCompact) {
-    size = `${props.theme.space.base * 8}px`;
+    return `${props.theme.space.base * 8}px`;
   }
 
-  return css`
-    width: ${size};
-    height: ${size};
-  `;
+  return `${props.theme.space.base * 10}px`;
 };
 
 const StyledSelectIcon = styled.div<IStyledSelectIconProps>`
@@ -49,9 +44,9 @@ const StyledSelectIcon = styled.div<IStyledSelectIconProps>`
     transform 0.25s ease-in-out,
     border-color 0.25s ease-in-out,
     box-shadow 0.1s ease-in-out;
+  width: ${props => getIconSize(props)};
+  height: ${props => getIconSize(props)};
   color: ${props => getColor('neutralHue', 600, props.theme)};
-
-  ${props => getIconSizeStyles(props)};
 `;
 
 StyledSelectIcon.defaultProps = {
@@ -80,8 +75,7 @@ const StyledSelect = styled(FauxInput).attrs<IStyledSelectProps>(props => ({
   cursor: ${props => (props.disabled ? 'default' : 'pointer')};
   appearance: none;
   /* stylelint-disable-next-line property-no-unknown */
-  padding-${props => (props.theme.rtl ? 'left' : 'right')}: calc(${props =>
-  (props.theme.space.base * 10) / 14} * 1em);
+  padding-${props => (props.theme.rtl ? 'left' : 'right')}: ${props => getIconSize(props)};
   text-align: ${props => props.theme.rtl && 'right'};
 
   ${StyledSelectIcon} {

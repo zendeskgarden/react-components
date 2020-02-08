@@ -28,13 +28,20 @@ const sizeStyles = (props: IStyledSelectProps & ThemeProps<DefaultTheme>) => {
 };
 
 export const StyledMultiSelect = styled(SelectWrapper)`
-  display: flex;
-  flex-wrap: wrap;
-
   ${props => sizeStyles(props)};
 `;
 
 StyledMultiSelect.defaultProps = {
+  theme: DEFAULT_THEME
+};
+
+export const StyledMultiSelectItemContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+`;
+
+StyledMultiSelectItemContainer.defaultProps = {
   theme: DEFAULT_THEME
 };
 
@@ -59,35 +66,31 @@ interface IStyledMultiselectInputProps {
   isVisible: boolean;
 }
 
-const hiddenStyling = css`
-  opacity: 0;
-  margin: 0;
-  width: 0;
-  min-width: 0;
-  height: 0;
-  min-height: 0;
-`;
-
 export const StyledMultiselectInput = styled(StyledInput)<IStyledMultiselectInputProps>`
   flex-basis: ${props => props.theme.space.base * 15}px;
   flex-grow: 1;
-  margin: ${props => props.theme.space.base / 2}px;
-  width: inherit;
-  min-width: ${props => props.theme.space.base * 15}px;
+  opacity: ${props => props.isHidden && 0};
+  margin: ${props => (props.isHidden ? 0 : props.theme.space.base / 2)}px;
+  width: ${props => (props.isHidden ? 0 : 'inherit')};
+  min-width: ${props => (props.isHidden ? 0 : props.theme.space.base * 15)}px;
+  height: ${props => props.isHidden && 0};
+  min-height: ${props => props.isHidden && 0};
   line-height: ${props =>
     getLineHeight(
       props.isCompact ? props.theme.space.base * 5 : props.theme.space.base * 8,
       props.theme.fontSizes.md
     )};
-
-  ${props => !props.isVisible && hiddenStyling}
 `;
 
 StyledMultiselectInput.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-export const StyledMoreAnchor = styled.div`
+interface IStyledMoreAnchorProps {
+  isCompact?: boolean;
+}
+
+export const StyledMoreAnchor = styled.div<IStyledMoreAnchorProps>`
   display: flex;
   align-items: center;
   margin: ${props => props.theme.space.base / 2}px;
@@ -98,11 +101,14 @@ export const StyledMoreAnchor = styled.div`
   padding: 0;
   min-width: 0;
   min-height: 1em;
+  overflow: hidden;
   vertical-align: baseline;
   text-decoration: none;
   user-select: none;
-  line-height: 1em;
-  white-space: normal;
+  text-overflow: ellipsis;
+  line-height: ${props =>
+    props.isCompact ? '1em' : getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
+  white-space: nowrap;
   color: ${props => getColor('primaryHue', 600, props.theme)};
   font-size: inherit;
   font-weight: inherit;

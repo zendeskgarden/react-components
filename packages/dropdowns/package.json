@@ -50,6 +50,6 @@
     "access": "public"
   },
   "zendeskgarden:library": "GardenDropdowns",
-  "zendeskgarden:max_size": "50 kB",
+  "zendeskgarden:max_size": "52 kB",
   "zendeskgarden:src": "src/index.ts"
 }
