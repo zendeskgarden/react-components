@@ -5,6 +5,7 @@ The following example provides controls that can be used to affect basic
 - `round` tags do not display `Tag.Avatar` or `Tag.Close` components
 - a `Tag.Avatar` is designed to contain one `img` or `svg` child
 - a `Tag.Avatar` is not displayed in `small`-sized tags
+- surround child text with a `span` to control for intended minimum widths, centering, and truncation
 
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
@@ -131,7 +132,7 @@ initialState = {
             <img alt="" src={`images/avatar-${Math.floor(Math.random() * 70 + 1)}.png`} />
           </Tag.Avatar>
         )}
-        {state.text}
+        <span>{state.text}</span>
         {state.close && <Tag.Close onClick={() => alert(`Delete "${state.text}" tag`)} />}
       </Tag>
     </Col>
