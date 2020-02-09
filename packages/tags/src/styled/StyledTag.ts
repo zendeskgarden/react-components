@@ -130,7 +130,7 @@ const sizeStyles = (props: IStyledTagProps & ThemeProps<DefaultTheme>) => {
 
     & > * {
       width: 100%;
-      min-width: ${minWidth ? math(`${minWidth - padding * 2} * 1px`) : '1ch'};
+      min-width: ${minWidth ? `${minWidth - padding * 2}px` : '1ch'};
     }
 
     & ${StyledAvatar} {
