@@ -71,12 +71,9 @@ export const StyledSelect = styled(FauxInput).attrs<IStyledSelectProps>(props =>
   position: relative;
   cursor: ${props => (props.disabled ? 'default' : 'pointer')};
   appearance: none;
-  overflow: hidden;
   /* stylelint-disable-next-line property-no-unknown */
   padding-${props => (props.theme.rtl ? 'left' : 'right')}: ${props => getIconSize(props)};
   text-align: ${props => props.theme.rtl && 'right'};
-  text-overflow: ellipsis;
-  white-space: nowrap;
 
   ${StyledSelectIcon} {
     transform: ${props => {
@@ -113,5 +110,15 @@ export const StyledSelect = styled(FauxInput).attrs<IStyledSelectProps>(props =>
 `;
 
 StyledSelect.defaultProps = {
+  theme: DEFAULT_THEME
+};
+
+export const StyledOverflowWrapper = styled.div`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+
+StyledOverflowWrapper.defaultProps = {
   theme: DEFAULT_THEME
 };

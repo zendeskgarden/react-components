@@ -9,7 +9,7 @@ import React, { useRef, useEffect, HTMLAttributes } from 'react';
 import { useCombinedRefs } from '@zendeskgarden/container-utilities';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
-import { StyledInput, SelectWrapper } from '../../styled';
+import { StyledInput, SelectWrapper, StyledOverflowWrapper } from '../../styled';
 import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
@@ -79,7 +79,7 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
               popperReferenceElementRef.current = selectRef;
             }}
           >
-            {children}
+            <StyledOverflowWrapper>{children}</StyledOverflowWrapper>
             <StyledInput
               {...getInputProps({
                 readOnly: true,

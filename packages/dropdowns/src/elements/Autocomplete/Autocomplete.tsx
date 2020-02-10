@@ -9,7 +9,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
 import { useCombinedRefs } from '@zendeskgarden/container-utilities';
-import { StyledInput, SelectWrapper } from '../../styled';
+import { StyledInput, SelectWrapper, StyledOverflowWrapper } from '../../styled';
 import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
@@ -79,7 +79,7 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
             }}
             {...selectProps}
           >
-            {!isOpen && children}
+            {!isOpen && <StyledOverflowWrapper>{children}</StyledOverflowWrapper>}
             <StyledInput
               {...getInputProps({
                 isHidden: !isOpen,
