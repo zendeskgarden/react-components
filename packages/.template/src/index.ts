@@ -5,10 +5,4 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-/**
- * Mock `scrollTo` implementation
- * @param {*} domNode
- */
-export default function scrollTo(domNode) {
-  return undefined;
-}
+export { Example } from './elements/Example';

@@ -25,14 +25,15 @@ export default class {
   ];
 
   constructor() {
+    // eslint-disable-next-line no-constructor-return
     return {
-      // eslint-disable-next-line no-empty-function
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
       destroy: () => {},
-      // eslint-disable-next-line no-empty-function
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
       scheduleUpdate: () => {},
-      // eslint-disable-next-line no-empty-function
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
       enableEventListeners: () => {},
-      // eslint-disable-next-line no-empty-function
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
       disableEventListeners: () => {}
     };
   }

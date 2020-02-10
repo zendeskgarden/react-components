@@ -1,6 +1,5 @@
-The following example shows how a `Tag` can be used together with an
-[`Ellipsis`](https://zendeskgarden.github.io/react-components/typography/#ellipsis)
-component in order to handle truncation. Use the slider below to change the
+The following example shows how a `Tag` can be used together with a child
+`span` in order to handle truncation. Use the slider below to change the
 width of the text field container. Text within the tags will truncate with an
 ellipsis based on the available container width.
 
@@ -15,7 +14,6 @@ const {
   Menu,
   Item
 } = require('@zendeskgarden/react-dropdowns/src');
-const { Ellipsis } = require('@zendeskgarden/react-typography/src');
 const { Code } = require('@zendeskgarden/react-typography/src');
 
 initialState = {
@@ -79,7 +77,15 @@ const tags = [
       </Well>
     </Col>
     <Col>
-      <FauxInput small tagLayout style={{ overflow: 'hidden', width: `${state.width}%` }}>
+      <FauxInput
+        small
+        tagLayout
+        style={{
+          overflow: 'hidden',
+          width: `${state.width}%`,
+          minWidth: (state.size === 'small' ? 34 : state.size === 'medium' ? 54 : 88) + 36
+        }}
+      >
         {tags.map((tag, index) => (
           <Tag key={index} isPill={state.pill} size={state.size} style={{ margin: 2 }} tabIndex={0}>
             {state.avatar && (
@@ -87,7 +93,7 @@ const tags = [
                 <img alt="" src={`images/avatar-${(index % 7) + 1}.png`} />
               </Tag.Avatar>
             )}
-            <Ellipsis>{tag}</Ellipsis>
+            <span>{tag}</span>
             {state.close && <Tag.Close onClick={() => alert(`Delete "${state.text}" tag`)} />}
           </Tag>
         ))}

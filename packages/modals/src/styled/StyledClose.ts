@@ -5,27 +5,57 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.close';
 
-export interface IStyledCloseProps {
-  hovered?: boolean;
-}
+const colorStyles = (props: ThemeProps<DefaultTheme>) => {
+  const backgroundColor = 'primaryHue';
+  const foregroundColor = 'neutralHue';
+
+  return css`
+    background-color: transparent;
+    color: ${getColor(foregroundColor, 600, props.theme)};
+
+    &:hover {
+      background-color: ${getColor(backgroundColor, 600, props.theme, 0.08)};
+      color: ${getColor(foregroundColor, 700, props.theme)};
+    }
+
+    &[data-garden-focus-visible] {
+      box-shadow: ${props.theme.shadows.md(
+        getColor(backgroundColor, 600, props.theme, 0.35) as string
+      )};
+    }
+
+    &:active {
+      /* prettier-ignore */
+      transition:
+        background-color 0.1s ease-in-out,
+        color 0.1s ease-in-out;
+      background-color: ${getColor(backgroundColor, 600, props.theme, 0.2)};
+      color: ${getColor(foregroundColor, 800, props.theme)};
+    }
+  `;
+};
 
 /**
  * 1. Remove dotted outline from Firefox on focus.
  */
-export const StyledClose = styled.button.attrs<IStyledCloseProps>({
+export const StyledClose = styled.button.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledCloseProps>`
+})`
   display: block;
   position: absolute;
   top: ${props => props.theme.space.base * 2.5}px;
   ${props => (props.theme.rtl ? 'left' : 'right')}: ${props => `${props.theme.space.base * 5}px`};
-  transition: background-color 0.1s ease-in-out;
+  /* prettier-ignore */
+  transition:
+    box-shadow 0.1s ease-in-out,
+    background-color 0.25s ease-in-out,
+    color 0.25s ease-in-out;
   border: none;
   border-radius: 50%;
   background-color: transparent;
@@ -35,13 +65,8 @@ export const StyledClose = styled.button.attrs<IStyledCloseProps>({
   height: ${props => props.theme.space.base * 10}px;
   overflow: hidden;
   text-decoration: none;
-  color: ${props => getColor('neutralHue', 600, props.theme)};
   font-size: 0;
   user-select: none;
-
-  &[data-garden-focus-visible] {
-    background-color: ${props => getColor('neutralHue', 600, props.theme, 0.15)};
-  }
 
   &::-moz-focus-inner {
     border: 0; /* [1] */
@@ -51,10 +76,7 @@ export const StyledClose = styled.button.attrs<IStyledCloseProps>({
     outline: none;
   }
 
-  &:hover {
-    color: ${props => getColor('neutralHue', 800, props.theme)};
-  }
-
+  ${props => colorStyles(props)}
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
