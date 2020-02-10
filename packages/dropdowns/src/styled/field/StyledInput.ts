@@ -27,7 +27,6 @@ export interface IStyledInputProps {
 export const StyledInput = styled(Input).attrs({
   isBare: true
 })<IStyledInputProps>`
-  vertical-align: baseline;
   ${props => props.isHidden && hiddenStyling}
 `;
 

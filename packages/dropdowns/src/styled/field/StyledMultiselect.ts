@@ -28,6 +28,9 @@ const sizeStyles = (props: IStyledSelectProps & ThemeProps<DefaultTheme>) => {
 };
 
 export const StyledMultiSelect = styled(SelectWrapper)`
+  display: inline-flex;
+  flex-wrap: wrap;
+
   ${props => sizeStyles(props)};
 `;
 
@@ -35,51 +38,46 @@ StyledMultiSelect.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-export const StyledMultiSelectItemContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-`;
-
-StyledMultiSelectItemContainer.defaultProps = {
-  theme: DEFAULT_THEME
-};
-
-interface IStyledItemWrapperProps {
-  isCompact?: boolean;
-}
-
-export const StyledItemWrapper = styled.div<IStyledItemWrapperProps>`
+export const StyledItemWrapper = styled.div`
+  display: inline-flex;
+  align-items: center;
   margin: ${props => props.theme.space.base / 2}px;
   max-width: 100%;
-  max-height: ${props =>
-    props.isCompact ? props.theme.space.base * 5 : props.theme.space.base * 8}px;
-  line-height: 0;
 `;
 
 StyledItemWrapper.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-interface IStyledMultiselectInputProps {
+interface IStyledMultiselectInputProps extends ThemeProps<DefaultTheme> {
   isCompact: boolean;
   isVisible: boolean;
 }
 
+const visibleStyling = (props: IStyledMultiselectInputProps) => {
+  const margin = props.isVisible ? `${props.theme.space.base / 2}px` : 0;
+  const minWidth = props.isVisible ? `${props.theme.space.base * 15}px` : 0;
+  let height = '0';
+
+  if (props.isVisible) {
+    height = `${props.theme.space.base * (props.isCompact ? 5 : 8)}px`;
+  }
+
+  return css`
+    opacity: ${!props.isVisible && 0};
+    margin: ${margin};
+    width: ${!props.isVisible && 0};
+    min-width: ${minWidth};
+    height: ${height};
+  `;
+};
+
 export const StyledMultiselectInput = styled(StyledInput)<IStyledMultiselectInputProps>`
   flex-basis: ${props => props.theme.space.base * 15}px;
   flex-grow: 1;
-  opacity: ${props => props.isHidden && 0};
-  margin: ${props => (props.isHidden ? 0 : props.theme.space.base / 2)}px;
-  width: ${props => (props.isHidden ? 0 : 'inherit')};
-  min-width: ${props => (props.isHidden ? 0 : props.theme.space.base * 15)}px;
-  height: ${props => props.isHidden && 0};
-  min-height: ${props => props.isHidden && 0};
-  line-height: ${props =>
-    getLineHeight(
-      props.isCompact ? props.theme.space.base * 5 : props.theme.space.base * 8,
-      props.theme.fontSizes.md
-    )};
+  min-height: 0;
+
+  ${props => visibleStyling(props)};
 `;
 
 StyledMultiselectInput.defaultProps = {
@@ -88,33 +86,25 @@ StyledMultiselectInput.defaultProps = {
 
 interface IStyledMoreAnchorProps {
   isCompact?: boolean;
+  isDisabled?: boolean;
 }
 
 export const StyledMoreAnchor = styled.div<IStyledMoreAnchorProps>`
-  display: flex;
-  align-items: center;
-  margin: ${props => props.theme.space.base / 2}px;
-  border: none;
-  border-radius: 0;
-  background-color: transparent;
-  cursor: pointer;
-  padding: 0;
-  min-width: 0;
-  min-height: 1em;
+  display: inline-block;
+  cursor: ${props => (props.isDisabled ? 'default' : 'pointer')};
   overflow: hidden;
-  vertical-align: baseline;
-  text-decoration: none;
   user-select: none;
   text-overflow: ellipsis;
   line-height: ${props =>
     props.isCompact ? '1em' : getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
   white-space: nowrap;
-  color: ${props => getColor('primaryHue', 600, props.theme)};
-  font-size: inherit;
-  font-weight: inherit;
+  color: ${props =>
+    props.isDisabled
+      ? getColor('neutralHue', 400, props.theme)
+      : getColor('primaryHue', 600, props.theme)};
 
   :hover {
-    text-decoration: underline;
+    text-decoration: ${props => !props.isDisabled && 'underline'};
   }
 `;
 

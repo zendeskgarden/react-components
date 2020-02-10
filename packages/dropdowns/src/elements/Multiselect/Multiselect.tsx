@@ -16,8 +16,7 @@ import {
   StyledMultiselectInput,
   StyledItemWrapper,
   StyledMoreAnchor,
-  StyledMultiSelect,
-  StyledMultiSelectItemContainer
+  StyledMultiSelect
 } from '../../styled';
 import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
@@ -191,11 +190,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
 
         const key = `${itemToString(item)}-${index}`;
 
-        return (
-          <StyledItemWrapper key={key} isCompact={props.isCompact}>
-            {clonedChild}
-          </StyledItemWrapper>
-        );
+        return <StyledItemWrapper key={key}>{clonedChild}</StyledItemWrapper>;
       },
       [
         getItemProps,
@@ -225,31 +220,30 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
               }
             });
 
-            output.push(
-              <StyledItemWrapper key={x} isCompact={props.isCompact}>
-                {renderedItem}
-              </StyledItemWrapper>
-            );
+            output.push(<StyledItemWrapper key={x}>{renderedItem}</StyledItemWrapper>);
           } else {
             output.push(renderSelectableItem(item, x));
           }
         } else if ((!isFocused && !inputValue) || props.disabled) {
           output.push(
-            <StyledMoreAnchor
-              key="more-anchor"
-              isCompact={props.isCompact}
-              onMouseDown={e => {
-                /**
-                 * Prevent anchor from receiving focus on mouse down.
-                 * This allows the input to receive focus.
-                 **/
-                e.preventDefault();
-              }}
-            >
-              {renderShowMore
-                ? renderShowMore(itemValues.length - x)
-                : `+ ${itemValues.length - x} more`}
-            </StyledMoreAnchor>
+            <StyledItemWrapper>
+              <StyledMoreAnchor
+                key="more-anchor"
+                isCompact={props.isCompact}
+                isDisabled={props.disabled}
+                onMouseDown={e => {
+                  /**
+                   * Prevent anchor from receiving focus on mouse down.
+                   * This allows the input to receive focus.
+                   **/
+                  e.preventDefault();
+                }}
+              >
+                {renderShowMore
+                  ? renderShowMore(itemValues.length - x)
+                  : `+ ${itemValues.length - x} more`}
+              </StyledMoreAnchor>
+            </StyledItemWrapper>
           );
           break;
         } else {
@@ -289,51 +283,45 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
               }
             })}
           >
-            <StyledMultiSelectItemContainer>
-              {items}
-              <StyledMultiselectInput
-                {...(getInputProps({
-                  disabled: props.disabled,
-                  onFocus: () => {
-                    setFocusedItem(undefined);
-                  },
-                  onClick: (e: MouseEvent) => {
-                    if (inputValue && inputValue.length > 0 && isOpen) {
+            {items}
+            <StyledMultiselectInput
+              {...(getInputProps({
+                disabled: props.disabled,
+                onFocus: () => {
+                  setFocusedItem(undefined);
+                },
+                onClick: (e: MouseEvent) => {
+                  if (inputValue && inputValue.length > 0 && isOpen) {
+                    (e as any).nativeEvent.preventDownshiftDefault = true;
+                  }
+                },
+                onKeyDown: (e: KeyboardEvent) => {
+                  if (!inputValue) {
+                    if (isRtl(props) && e.keyCode === KEY_CODES.RIGHT && selectedItems.length > 0) {
+                      setFocusedItem(selectedItems[selectedItems.length - 1]);
+                    } else if (
+                      !isRtl(props) &&
+                      e.keyCode === KEY_CODES.LEFT &&
+                      selectedItems.length > 0
+                    ) {
+                      setFocusedItem(selectedItems[selectedItems.length - 1]);
+                    } else if (e.keyCode === KEY_CODES.BACKSPACE && selectedItems.length > 0) {
+                      (setDownshiftState as any)({
+                        type: REMOVE_ITEM_STATE_TYPE,
+                        selectedItem: selectedItems[selectedItems.length - 1]
+                      });
                       (e as any).nativeEvent.preventDownshiftDefault = true;
+                      e.preventDefault();
+                      e.stopPropagation();
                     }
-                  },
-                  onKeyDown: (e: KeyboardEvent) => {
-                    if (!inputValue) {
-                      if (
-                        isRtl(props) &&
-                        e.keyCode === KEY_CODES.RIGHT &&
-                        selectedItems.length > 0
-                      ) {
-                        setFocusedItem(selectedItems[selectedItems.length - 1]);
-                      } else if (
-                        !isRtl(props) &&
-                        e.keyCode === KEY_CODES.LEFT &&
-                        selectedItems.length > 0
-                      ) {
-                        setFocusedItem(selectedItems[selectedItems.length - 1]);
-                      } else if (e.keyCode === KEY_CODES.BACKSPACE && selectedItems.length > 0) {
-                        (setDownshiftState as any)({
-                          type: REMOVE_ITEM_STATE_TYPE,
-                          selectedItem: selectedItems[selectedItems.length - 1]
-                        });
-                        (e as any).nativeEvent.preventDownshiftDefault = true;
-                        e.preventDefault();
-                        e.stopPropagation();
-                      }
-                    }
-                  },
-                  isVisible: isFocused || inputValue || selectedItems.length === 0,
-                  isCompact: props.isCompact,
-                  ref: inputRef,
-                  placeholder: selectedItems.length === 0 ? placeholder : undefined
-                }) as any)}
-              />
-            </StyledMultiSelectItemContainer>
+                  }
+                },
+                isVisible: isFocused || inputValue || selectedItems.length === 0,
+                isCompact: props.isCompact,
+                ref: inputRef,
+                placeholder: selectedItems.length === 0 ? placeholder : undefined
+              }) as any)}
+            />
           </StyledMultiSelect>
         )}
       </Reference>
