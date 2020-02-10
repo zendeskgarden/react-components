@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>26/26</span>
+        <span class='fraction'>25/25</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>26/26</span>
+        <span class='fraction'>25/25</span>
       </div>
     </div>
     <p class="quiet">
@@ -161,9 +161,7 @@
 <a name='L113'></a><a href='#L113'>113</a>
 <a name='L114'></a><a href='#L114'>114</a>
 <a name='L115'></a><a href='#L115'>115</a>
-<a name='L116'></a><a href='#L116'>116</a>
-<a name='L117'></a><a href='#L117'>117</a>
-<a name='L118'></a><a href='#L118'>118</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L116'></a><a href='#L116'>116</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -176,6 +174,7 @@
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -199,6 +198,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -242,26 +242,6 @@
 <span class="cline-any cline-yes">64x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">64x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -280,6 +260,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
  * Copyright Zendesk, Inc.
  *
@@ -287,14 +283,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 &nbsp;
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, HTMLAttributes } from 'react';
+import { useCombinedRefs } from '@zendeskgarden/container-utilities';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
 import { StyledInput, StyledSelect, VALIDATION } from '../styled';
 import useDropdownContext from '../utils/useDropdownContext';
 import useFieldContext from '../utils/useFieldContext';
 &nbsp;
-interface ISelectProps {
+interface ISelectProps extends HTMLAttributes&lt;HTMLDivElement&gt; {
   /** Allows flush spacing of Tab elements */
   tagLayout?: boolean;
   /** Applies flex layout to support MediaFigure components */
@@ -315,68 +312,67 @@ interface ISelectProps {
 /**
  * Applies state and a11y attributes to its children. Must be nested within a `&lt;Field&gt;` component.
  */
-const Select: React.FunctionComponent&lt;ISelectProps&gt; = ({ children, ...props }) =&gt; {
-  const {
-    popperReferenceElementRef,
-    downshift: { getToggleButtonProps, getInputProps, isOpen }
-  } = useDropdownContext();
-  const { isLabelHovered } = useFieldContext();
-  const hiddenInputRef = useRef&lt;HTMLInputElement&gt;(null);
-  const triggerRef = useRef&lt;HTMLElement&gt;(null);
-  const previousIsOpenRef = useRef&lt;boolean | undefined&gt;(undefined);
+export const Select = React.forwardRef&lt;HTMLDivElement, ISelectProps&gt;(
+  ({ children, ...props }, ref) =&gt; {
+    const {
+      popperReferenceElementRef,
+      downshift: { getToggleButtonProps, getInputProps, isOpen }
+    } = useDropdownContext();
+    const { isLabelHovered } = useFieldContext();
+    const triggerRef = useCombinedRefs&lt;HTMLDivElement&gt;(ref, popperReferenceElementRef);
+    const hiddenInputRef = useRef&lt;HTMLInputElement&gt;(null);
+    const previousIsOpenRef = useRef&lt;boolean | undefined&gt;(undefined);
 &nbsp;
-  useEffect(() =&gt; {
-    // Focus internal input when Menu is opened
-    if (isOpen &amp;&amp; !previousIsOpenRef.current) {
-      hiddenInputRef.current &amp;&amp; hiddenInputRef.current.focus();
-    }
+    useEffect(() =&gt; {
+      // Focus internal input when Menu is opened
+      if (isOpen &amp;&amp; !previousIsOpenRef.current) {
+        hiddenInputRef.current &amp;&amp; hiddenInputRef.current.focus();
+      }
 &nbsp;
-    // Focus trigger when Menu is closed
-    if (!isOpen &amp;&amp; previousIsOpenRef.current) {
-      triggerRef.current &amp;&amp; triggerRef.current.focus();
-    }
-    previousIsOpenRef.current = isOpen;
-  }, [isOpen]);
+      // Focus trigger when Menu is closed
+      if (!isOpen &amp;&amp; previousIsOpenRef.current) {
+        triggerRef.current &amp;&amp; triggerRef.current.focus();
+      }
+      previousIsOpenRef.current = isOpen;
+    }, [isOpen, triggerRef]);
 &nbsp;
-  const selectProps = getToggleButtonProps({
-    tabIndex: props.disabled ? -1 : 0,
-    ...props
-  });
+    const selectProps = getToggleButtonProps({
+      tabIndex: props.disabled ? -1 : 0,
+      ...props
+    } as any);
 &nbsp;
-  return (
-    &lt;Reference&gt;
-      {({ ref: popperReference }) =&gt; (
-        &lt;StyledSelect
-          hovered={isLabelHovered &amp;&amp; !isOpen}
-          focused={isOpen ? isOpen : undefined}
-          open={isOpen}
-          {...selectProps}
-          ref={selectRef =&gt; {
-            // Pass ref to popperJS for positioning
-            (popperReference as any)(selectRef);
+    return (
+      &lt;Reference&gt;
+        {({ ref: popperReference }) =&gt; (
+          &lt;StyledSelect
+            hovered={isLabelHovered &amp;&amp; !isOpen}
+            focused={isOpen ? isOpen : undefined}
+            open={isOpen}
+            {...selectProps}
+            ref={selectRef =&gt; {
+              // Pass ref to popperJS for positioning
+              (popperReference as any)(selectRef);
 &nbsp;
-            // Store ref locally to return focus on close
-            (triggerRef.current as any) = selectRef;
-&nbsp;
-            // Apply Select ref to global Dropdown context
-            popperReferenceElementRef.current = selectRef;
-          }}
-        &gt;
-          {children}
-          &lt;StyledInput
-            {...getInputProps({
-              readOnly: true,
-              isHidden: true,
-              tabIndex: -1,
-              ref: hiddenInputRef,
-              value: ''
-            } as any)}
-          /&gt;
-        &lt;/StyledSelect&gt;
-      )}
-    &lt;/Reference&gt;
-  );
-};
+              // Store ref locally to return focus on close
+              (triggerRef.current as any) = selectRef;
+            }}
+          &gt;
+            {children}
+            &lt;StyledInput
+              {...getInputProps({
+                readOnly: true,
+                isHidden: true,
+                tabIndex: -1,
+                ref: hiddenInputRef,
+                value: ''
+              } as any)}
+            /&gt;
+          &lt;/StyledSelect&gt;
+        )}
+      &lt;/Reference&gt;
+    );
+  }
+);
 &nbsp;
 Select.propTypes = {
   /** Allows flush spacing of Tab elements */
@@ -395,15 +391,13 @@ Select.propTypes = {
   open: PropTypes.bool,
   validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
 };
-&nbsp;
-export default Select;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Feb 10 2020 16:55:33 GMT+0000 (Coordinated Universal Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Feb 10 2020 18:56:47 GMT+0000 (Coordinated Universal Time)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

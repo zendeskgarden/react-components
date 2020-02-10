@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1581353733867" clover="3.2.0">
-  <project timestamp="1581353733867" name="All files">
-    <metrics statements="2762" coveredstatements="2697" conditionals="1281" coveredconditionals="1189" methods="658" coveredmethods="642" elements="4701" coveredelements="4528" complexity="0" loc="2762" ncloc="2762" packages="75" files="230" classes="230"/>
+<coverage generated="1581361008021" clover="3.2.0">
+  <project timestamp="1581361008021" name="All files">
+    <metrics statements="2761" coveredstatements="2696" conditionals="1281" coveredconditionals="1189" methods="658" coveredmethods="642" elements="4700" coveredelements="4527" complexity="0" loc="2761" ncloc="2761" packages="75" files="230" classes="230"/>
     <package name="avatars.src">
       <metrics statements="17" coveredstatements="17" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
       <file name="Avatar.js" path="/home/travis/build/zendeskgarden/react-components/packages/avatars/src/Avatar.js">
@@ -1464,35 +1464,34 @@
       </file>
     </package>
     <package name="dropdowns.src.Select">
-      <metrics statements="26" coveredstatements="26" conditionals="18" coveredconditionals="18" methods="4" coveredmethods="4"/>
+      <metrics statements="25" coveredstatements="25" conditionals="18" coveredconditionals="18" methods="4" coveredmethods="4"/>
       <file name="Select.tsx" path="/home/travis/build/zendeskgarden/react-components/packages/dropdowns/src/Select/Select.tsx">
-        <metrics statements="26" coveredstatements="26" conditionals="18" coveredconditionals="18" methods="4" coveredmethods="4"/>
+        <metrics statements="25" coveredstatements="25" conditionals="18" coveredconditionals="18" methods="4" coveredmethods="4"/>
         <line num="8" count="12" type="stmt"/>
         <line num="9" count="12" type="stmt"/>
         <line num="10" count="12" type="stmt"/>
         <line num="11" count="12" type="stmt"/>
         <line num="12" count="12" type="stmt"/>
         <line num="13" count="12" type="stmt"/>
-        <line num="36" count="12" type="stmt"/>
-        <line num="40" count="32" type="stmt"/>
-        <line num="41" count="32" type="stmt"/>
+        <line num="14" count="12" type="stmt"/>
+        <line num="37" count="12" type="stmt"/>
         <line num="42" count="32" type="stmt"/>
         <line num="43" count="32" type="stmt"/>
         <line num="44" count="32" type="stmt"/>
+        <line num="45" count="32" type="stmt"/>
         <line num="46" count="32" type="stmt"/>
-        <line num="48" count="24" type="cond" truecount="4" falsecount="0"/>
-        <line num="49" count="9" type="cond" truecount="2" falsecount="0"/>
-        <line num="53" count="24" type="cond" truecount="4" falsecount="0"/>
-        <line num="54" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="56" count="24" type="stmt"/>
-        <line num="59" count="32" type="stmt"/>
-        <line num="64" count="32" type="stmt"/>
-        <line num="67" count="32" type="stmt"/>
-        <line num="74" count="64" type="stmt"/>
-        <line num="77" count="64" type="stmt"/>
-        <line num="80" count="64" type="stmt"/>
+        <line num="48" count="32" type="stmt"/>
+        <line num="50" count="24" type="cond" truecount="4" falsecount="0"/>
+        <line num="51" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="55" count="24" type="cond" truecount="4" falsecount="0"/>
+        <line num="56" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="58" count="24" type="stmt"/>
+        <line num="61" count="32" type="stmt"/>
+        <line num="66" count="32" type="stmt"/>
+        <line num="69" count="32" type="stmt"/>
+        <line num="76" count="64" type="stmt"/>
+        <line num="79" count="64" type="stmt"/>
         <line num="99" count="12" type="stmt"/>
-        <line num="117" count="12" type="stmt"/>
       </file>
     </package>
     <package name="dropdowns.src.Trigger">
