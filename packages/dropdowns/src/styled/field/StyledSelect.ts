@@ -5,7 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps } from 'styled-components';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import math from 'polished/lib/math/math';
 import { FauxInput } from '@zendeskgarden/react-forms';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { VALIDATION } from '../../utils/validation';
@@ -50,6 +51,22 @@ StyledSelectIcon.defaultProps = {
   theme: DEFAULT_THEME
 };
 
+const sizeStyles = (props: IStyledSelectProps & ThemeProps<DefaultTheme>) => {
+  const tagMargin = `${props.theme.space.base}px`;
+  const tagBorderWidth = math(`${props.theme.borderWidths.sm} * 2`);
+  let tagMinimumWidth = `${props.theme.space.base * 22.5}px`;
+  let selectPadding = `${props.theme.space.base * 12}px`;
+
+  if (props.isCompact) {
+    tagMinimumWidth = `${props.theme.space.base * 13.5}px`;
+    selectPadding = `${props.theme.space.base * 10}px`;
+  }
+
+  return css`
+    min-width: ${math(`${tagMinimumWidth} + ${selectPadding} + ${tagMargin} + ${tagBorderWidth}`)};
+  `;
+};
+
 export interface IStyledSelectProps {
   /** Displays select open state */
   isOpen?: boolean;
@@ -74,6 +91,8 @@ export const StyledSelect = styled(FauxInput).attrs<IStyledSelectProps>(props =>
   /* stylelint-disable-next-line property-no-unknown */
   padding-${props => (props.theme.rtl ? 'left' : 'right')}: ${props => getIconSize(props)};
   text-align: ${props => props.theme.rtl && 'right'};
+
+  ${props => sizeStyles(props)};
 
   ${StyledSelectIcon} {
     transform: ${props => {
