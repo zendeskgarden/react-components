@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">6.25% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>16/16</span>
+        <span class='fraction'>1/16</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,21 +30,21 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/2</span>
+        <span class='fraction'>0/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">6.25% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>16/16</span>
+        <span class='fraction'>1/16</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -97,32 +97,32 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">17x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
  * Copyright Zendesk, Inc.
@@ -136,32 +136,32 @@ import { useEffect, useState } from 'react';
 /**
  * Adapted from https://eprev.org/2017/01/05/how-to-detect-if-css-transforms-are-supported-on-svg/
  */
-export const useCSSSVGAnimation = () =&gt; {
-  const [canAnimateSVG, setAnimateSVG] = useState(true);
+export const useCSSSVGAnimation = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+  const [canAnimateSVG, setAnimateSVG] = <span class="cstat-no" title="statement not covered" >useState(true);</span>
 &nbsp;
-  useEffect(() =&gt; {
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+    const svg = <span class="cstat-no" title="statement not covered" >document.createElementNS('http://www.w3.org/2000/svg', 'svg');</span>
+    const rect = <span class="cstat-no" title="statement not covered" >document.createElementNS('http://www.w3.org/2000/svg', 'rect');</span>
 &nbsp;
-    svg.setAttribute('viewBox', '0 0 2 2');
-    svg.setAttribute('style', 'position: fixed; top: 0; left: 0; width: 2px; height: 2px;');
+<span class="cstat-no" title="statement not covered" >    svg.setAttribute('viewBox', '0 0 2 2');</span>
+<span class="cstat-no" title="statement not covered" >    svg.setAttribute('style', 'position: fixed; top: 0; left: 0; width: 2px; height: 2px;');</span>
 &nbsp;
-    rect.setAttribute('style', 'transform: translate(1px, 1px);');
-    rect.setAttribute('width', '1');
-    rect.setAttribute('height', '1');
+<span class="cstat-no" title="statement not covered" >    rect.setAttribute('style', 'transform: translate(1px, 1px);');</span>
+<span class="cstat-no" title="statement not covered" >    rect.setAttribute('width', '1');</span>
+<span class="cstat-no" title="statement not covered" >    rect.setAttribute('height', '1');</span>
 &nbsp;
-    svg.appendChild(rect);
+<span class="cstat-no" title="statement not covered" >    svg.appendChild(rect);</span>
 &nbsp;
-    document.body.appendChild(svg);
+<span class="cstat-no" title="statement not covered" >    document.body.appendChild(svg);</span>
 &nbsp;
-    const result = document.elementFromPoint(1, 1) === svg;
+    const result = <span class="cstat-no" title="statement not covered" >document.elementFromPoint(1, 1) === svg;</span>
 &nbsp;
-    svg.parentNode.removeChild(svg);
+<span class="cstat-no" title="statement not covered" >    svg.parentNode.removeChild(svg);</span>
 &nbsp;
-    setAnimateSVG(result);
+<span class="cstat-no" title="statement not covered" >    setAnimateSVG(result);</span>
   }, []);
 &nbsp;
-  return canAnimateSVG;
+<span class="cstat-no" title="statement not covered" >  return canAnimateSVG;</span>
 };
 &nbsp;</pre></td></tr>
 </table></pre>
@@ -169,7 +169,7 @@ export const useCSSSVGAnimation = () =&gt; {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 06 2020 18:08:45 GMT+0000 (Coordinated Universal Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Feb 10 2020 16:55:33 GMT+0000 (Coordinated Universal Time)
 </div>
 </div>
 <script src="../../../prettify.js"></script>
