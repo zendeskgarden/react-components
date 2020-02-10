@@ -28,8 +28,8 @@ export default function Dots({
   delayMS = 750,
   ...other
 }) {
-  const { delayComplete } = useSchedule({ duration, delayMS });
   const noAnimatedSVGSupport = useCSSSVGAnimation();
+  const { delayComplete } = useSchedule({ duration, delayMS, loop: noAnimatedSVGSupport });
   const dotOne = useRef(null);
   const dotTwo = useRef(null);
   const dotThree = useRef(null);
