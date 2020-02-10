@@ -12,6 +12,14 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v7.1.8 (2020-02-10)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#618](https://github.com/zendeskgarden/react-components/pull/618) fix(dropdowns): allow forwardRef usage of Select component ([@austin94](https://github.com/austin94))
+* `loaders`
+  * [#609](https://github.com/zendeskgarden/react-components/pull/609) perf(loaders): prevent rerender for dots ([@li-kai](https://github.com/li-kai))
+
 ## v7.1.7 (2020-02-06)
 
 #### :bug: Bug Fix
