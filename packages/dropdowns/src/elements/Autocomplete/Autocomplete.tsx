@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, HTMLAttributes, KeyboardEvent } from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
 import { useCombinedRefs } from '@zendeskgarden/container-utilities';
@@ -14,7 +14,7 @@ import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 
-interface IAutocompleteProps {
+interface IAutocompleteProps extends HTMLAttributes<HTMLDivElement> {
   isCompact?: boolean;
   /** Removes all borders and styling */
   isBare?: boolean;
@@ -51,13 +51,13 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
     }, [inputRef, isOpen]);
 
     const selectProps = getToggleButtonProps({
-      onKeyDown: e => {
+      onKeyDown: (e: KeyboardEvent<HTMLDivElement>) => {
         if (isOpen) {
           (e.nativeEvent as any).preventDownshiftDefault = true;
         }
       },
       ...props
-    });
+    } as any);
 
     return (
       <Reference>
@@ -112,4 +112,6 @@ Autocomplete.propTypes = {
   validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };
 
-export default Autocomplete as React.FunctionComponent<IAutocompleteProps>;
+export default Autocomplete as React.FunctionComponent<
+  IAutocompleteProps & React.RefAttributes<HTMLDivElement>
+>;

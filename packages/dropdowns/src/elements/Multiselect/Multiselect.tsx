@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, useState, useMemo, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useMemo, useCallback, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { DefaultTheme, ThemeProps } from 'styled-components';
 import { Reference } from 'react-popper';
@@ -23,7 +23,7 @@ import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 import { REMOVE_ITEM_STATE_TYPE } from '../Dropdown/Dropdown';
 
-interface IMultiselectProps {
+interface IMultiselectProps extends HTMLAttributes<HTMLDivElement> {
   isCompact?: boolean;
   /** Removes all borders and styling */
   isBare?: boolean;
@@ -109,7 +109,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
 
     const selectProps = getToggleButtonProps({
       tabIndex: props.disabled ? undefined : -1,
-      onKeyDown: e => {
+      onKeyDown: (e: React.KeyboardEvent<HTMLElement>) => {
         if (isOpen) {
           (e.nativeEvent as any).preventDownshiftDefault = true;
         } else if (!inputValue && e.keyCode === KEY_CODES.HOME) {
@@ -130,7 +130,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
         }, 0) as unknown) as number;
       },
       ...props
-    });
+    } as any);
 
     const renderSelectableItem = useCallback(
       (item, index) => {
@@ -347,4 +347,6 @@ Multiselect.defaultProps = {
 };
 
 /* @component */
-export default withTheme(Multiselect) as React.FunctionComponent<IMultiselectProps>;
+export default withTheme(Multiselect) as React.FunctionComponent<
+  IMultiselectProps & React.RefAttributes<HTMLDivElement>
+>;

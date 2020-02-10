@@ -31,6 +31,33 @@ const ExampleWrapper: React.FC<IDropdownProps> = ({ children, ...other }) => (
 );
 
 describe('Multiselect', () => {
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<HTMLDivElement>();
+
+    const { getByTestId } = render(
+      <Dropdown>
+        <Field>
+          <Multiselect
+            data-test-id="multiselect"
+            ref={ref}
+            renderItem={({ value, removeValue }) => (
+              <div data-test-id="tag">
+                {value}
+                <button data-test-id="remove" onClick={() => removeValue()} tabIndex={-1}>
+                  Remove
+                </button>
+              </div>
+            )}
+          >
+            Test
+          </Multiselect>
+        </Field>
+      </Dropdown>
+    );
+
+    expect(getByTestId('multiselect')).toBe(ref.current);
+  });
+
   it('focuses internal input when opened', () => {
     const { getByTestId } = render(
       <ExampleWrapper>

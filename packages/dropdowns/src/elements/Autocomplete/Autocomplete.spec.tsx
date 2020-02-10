@@ -29,6 +29,22 @@ const ExampleAutocomplete = () => (
 );
 
 describe('Autocomplete', () => {
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<HTMLDivElement>();
+
+    const { getByTestId } = render(
+      <Dropdown>
+        <Field>
+          <Autocomplete data-test-id="autocomplete" ref={ref}>
+            Test
+          </Autocomplete>
+        </Field>
+      </Dropdown>
+    );
+
+    expect(getByTestId('autocomplete')).toBe(ref.current);
+  });
+
   it('focuses internal input when opened', () => {
     const { getByTestId } = render(<ExampleAutocomplete />);
 
