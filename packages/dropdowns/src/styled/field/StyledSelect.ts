@@ -5,12 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
 import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { FauxInput } from '@zendeskgarden/react-forms';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
-import ChevronSVG from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
-import CompactChevronSVG from '@zendeskgarden/svg-icons/src/12/chevron-down-stroke.svg';
 import { VALIDATION } from '../../utils/validation';
 
 const COMPONENT_ID = 'dropdowns.select';
@@ -31,7 +28,7 @@ const getIconSize = (props: IStyledSelectIconProps & ThemeProps<DefaultTheme>) =
   return `${props.theme.space.base * 10}px`;
 };
 
-const StyledSelectIcon = styled.div<IStyledSelectIconProps>`
+export const StyledSelectIcon = styled.div<IStyledSelectIconProps>`
   display: flex;
   position: absolute;
   top: 0;
@@ -66,7 +63,7 @@ export interface IStyledSelectProps {
   validation?: VALIDATION;
 }
 
-const StyledSelect = styled(FauxInput).attrs<IStyledSelectProps>(props => ({
+export const StyledSelect = styled(FauxInput).attrs<IStyledSelectProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   'aria-invalid': isInvalid(props.validation)
@@ -74,9 +71,12 @@ const StyledSelect = styled(FauxInput).attrs<IStyledSelectProps>(props => ({
   position: relative;
   cursor: ${props => (props.disabled ? 'default' : 'pointer')};
   appearance: none;
+  overflow: hidden;
   /* stylelint-disable-next-line property-no-unknown */
   padding-${props => (props.theme.rtl ? 'left' : 'right')}: ${props => getIconSize(props)};
   text-align: ${props => props.theme.rtl && 'right'};
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
   ${StyledSelectIcon} {
     transform: ${props => {
@@ -115,25 +115,3 @@ const StyledSelect = styled(FauxInput).attrs<IStyledSelectProps>(props => ({
 StyledSelect.defaultProps = {
   theme: DEFAULT_THEME
 };
-
-export const SelectWrapper = React.forwardRef<
-  HTMLDivElement,
-  IStyledSelectProps & HTMLAttributes<HTMLDivElement>
->(({ children, ...props }, ref) => {
-  return (
-    <StyledSelect
-      ref={ref}
-      data-test-is-open={props.isOpen}
-      data-test-is-focused={props.isFocused}
-      data-test-is-hovered={props.isHovered}
-      {...props}
-    >
-      {children}
-      {!props.isBare && (
-        <StyledSelectIcon isCompact={props.isCompact}>
-          {props.isCompact ? <CompactChevronSVG /> : <ChevronSVG />}
-        </StyledSelectIcon>
-      )}
-    </StyledSelect>
-  );
-});

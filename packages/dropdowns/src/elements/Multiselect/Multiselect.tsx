@@ -226,9 +226,8 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
           }
         } else if ((!isFocused && !inputValue) || props.disabled) {
           output.push(
-            <StyledItemWrapper>
+            <StyledItemWrapper key="more-anchor">
               <StyledMoreAnchor
-                key="more-anchor"
                 isCompact={props.isCompact}
                 isDisabled={props.disabled}
                 onMouseDown={e => {

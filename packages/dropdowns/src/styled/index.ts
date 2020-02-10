@@ -23,3 +23,4 @@ export * from './items/media/StyledMediaBody';
 export * from './items/media/StyledMediaFigure';
 export * from './items/media/StyledMediaItem';
 export * from './field/StyledSelect';
+export * from './field/SelectWrapper';

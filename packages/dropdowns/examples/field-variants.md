@@ -138,7 +138,7 @@ initialState = {
               disabled={state.disabled}
               validation={state.validation !== 'none' ? state.validation : undefined}
             >
-              Example
+              Veggies es bonus vobis
             </Select>
             {state.message && (
               <StyledMessage
@@ -164,7 +164,7 @@ initialState = {
               disabled={state.disabled}
               validation={state.validation !== 'none' ? state.validation : undefined}
             >
-              Example
+              Veggies es bonus vobis
             </Autocomplete>
             {state.message && (
               <StyledMessage

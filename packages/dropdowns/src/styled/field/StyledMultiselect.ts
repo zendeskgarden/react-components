@@ -9,7 +9,8 @@ import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, getLineHeight, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import stripUnit from 'polished/lib/helpers/stripUnit';
 import { StyledInput } from './StyledInput';
-import { SelectWrapper, IStyledSelectProps } from './StyledSelect';
+import { IStyledSelectProps } from './StyledSelect';
+import { SelectWrapper } from './SelectWrapper';
 
 const sizeStyles = (props: IStyledSelectProps & ThemeProps<DefaultTheme>) => {
   const tagHeight = props.isCompact ? 20 : 32;
