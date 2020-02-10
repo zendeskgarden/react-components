@@ -18,7 +18,7 @@ export const StyledRangeCalendar = styled.div.attrs({
   overflow: auto;
 
   ${StyledDatepicker} {
-    padding: 0;
+    margin: 0;
 
     ${props =>
       props.theme.rtl

@@ -15,8 +15,4 @@ declare module '@zendeskgarden/react-utilities';
 
 /** Files */
 declare module '*.svg';
-declare module '*.css';
 declare module '*.md';
-
-/** CSS packages */
-declare module '@zendeskgarden/css-menus';

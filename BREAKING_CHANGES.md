@@ -70,6 +70,7 @@ should be re-checked for ID naming accuracy.
 ## @zendeskgarden/react-datepickers
 
 - `Datepicker` and `DatepickerRange` `small` prop is renamed to `isCompact`
+- `Datepicker` prop `animated` is renamed to `isAnimated`
 
 ## @zendeskgarden/react-dropdowns
 

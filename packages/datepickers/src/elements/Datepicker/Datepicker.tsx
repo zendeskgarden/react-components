@@ -16,7 +16,8 @@ import { StyledMenu } from '../../styled';
 import {
   getRtlPopperPlacement,
   getPopperPlacement,
-  GARDEN_PLACEMENT
+  GARDEN_PLACEMENT,
+  POPPER_PLACEMENT
 } from './utils/garden-placements';
 import Calendar from './components/Calendar';
 import { datepickerReducer, retrieveInitialState } from './utils/datepicker-reducer';
@@ -73,7 +74,7 @@ export interface IDatepickerProps {
    * Show open animations
    * @default true
    */
-  animate?: boolean;
+  isAnimated?: boolean;
   /**
    * Allow dropdown to reposition during browser resize events
    * @default true
@@ -93,7 +94,7 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
     popperModifiers,
     eventsEnabled,
     zIndex,
-    animate,
+    isAnimated,
     refKey,
     value,
     isCompact,
@@ -192,45 +193,39 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
             });
           }}
         </Reference>
-        {state.isOpen && (
-          <Popper
-            placement={popperPlacement as any}
-            modifiers={popperModifiers}
-            // Disable position updating on scroll events while menu is closed
-            eventsEnabled={state.isOpen && eventsEnabled}
-          >
-            {({ ref, style, scheduleUpdate, placement: currentPlacement }) => {
-              scheduleUpdateRef.current = scheduleUpdate;
 
-              const popperStyle = { ...style, zIndex };
+        <Popper
+          placement={popperPlacement as any}
+          modifiers={popperModifiers}
+          // Disable position updating on scroll events while menu is closed
+          eventsEnabled={state.isOpen && eventsEnabled}
+        >
+          {({ ref, style, scheduleUpdate, placement: currentPlacement }) => {
+            scheduleUpdateRef.current = scheduleUpdate;
 
-              return (
-                <div
-                  ref={ref}
-                  style={popperStyle}
-                  data-garden-id="datepickers.datepicker"
-                  date-garden-version={PACKAGE_VERSION}
-                >
-                  <StyledMenu
-                    animate={state.isOpen && animate}
-                    placement={currentPlacement as any}
-                    data-test-id="datepicker-menu"
-                    data-test-open={state.isOpen}
-                    data-test-rtl={props.theme.rtl}
-                  >
-                    <Calendar
-                      isCompact={isCompact}
-                      value={value}
-                      minValue={minValue}
-                      maxValue={maxValue}
-                      locale={locale}
-                    />
-                  </StyledMenu>
-                </div>
-              );
-            }}
-          </Popper>
-        )}
+            return (
+              <StyledMenu
+                ref={state.isOpen ? ref : undefined}
+                style={style}
+                isHidden={!state.isOpen}
+                isAnimated={isAnimated}
+                placement={currentPlacement as POPPER_PLACEMENT}
+                zIndex={zIndex}
+                data-test-id="datepicker-menu"
+                data-test-open={state.isOpen}
+                data-test-rtl={props.theme.rtl}
+              >
+                <Calendar
+                  isCompact={isCompact}
+                  value={value}
+                  minValue={minValue}
+                  maxValue={maxValue}
+                  locale={locale}
+                />
+              </StyledMenu>
+            );
+          }}
+        </Popper>
       </Manager>
     </DatepickerContext.Provider>
   );
@@ -262,7 +257,7 @@ Datepicker.propTypes = {
     'start-bottom'
   ]),
   popperModifiers: PropTypes.any,
-  animate: PropTypes.bool,
+  isAnimated: PropTypes.bool,
   eventsEnabled: PropTypes.bool,
   zIndex: PropTypes.number
 };
@@ -270,7 +265,7 @@ Datepicker.propTypes = {
 Datepicker.defaultProps = {
   placement: 'bottom-start',
   refKey: 'ref',
-  animate: true,
+  isAnimated: true,
   eventsEnabled: true,
   zIndex: 1000,
   locale: 'en-US',
