@@ -16,4 +16,22 @@ describe('Notification', () => {
 
     expect(container.firstChild).toBe(ref.current);
   });
+
+  it('has a default role attribute', () => {
+    const { container } = render(<Notification type="success" />);
+
+    expect(container.firstChild).toHaveAttribute('role', 'status');
+  });
+
+  it('can have its role attribute modified', () => {
+    const { container } = render(<Notification type="error" role="alert" />);
+
+    expect(container.firstChild).toHaveAttribute('role', 'alert');
+  });
+
+  it('can have its role attribute removed', () => {
+    const { container } = render(<Notification role={null as any} />);
+
+    expect(container.firstChild).not.toHaveAttribute('role');
+  });
 });

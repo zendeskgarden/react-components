@@ -25,10 +25,11 @@ const colorStyles = (props: IStyledAlertProps & ThemeProps<DefaultTheme>) => css
 /**
  * Supports all `<div>` props
  */
-export const StyledAlert = styled(StyledBase).attrs({
+export const StyledAlert = styled(StyledBase).attrs(props => ({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledAlertProps>`
+  'data-garden-version': PACKAGE_VERSION,
+  role: props.role === undefined ? 'alert' : props.role
+}))<IStyledAlertProps>`
   ${colorStyles}
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
