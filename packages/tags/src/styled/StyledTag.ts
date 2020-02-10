@@ -122,33 +122,34 @@ const sizeStyles = (props: IStyledTagProps & ThemeProps<DefaultTheme>) => {
 
   return css`
     border-radius: ${borderRadius};
-    padding: 0 ${math(`${padding} * 1px`)};
-    min-width: ${minWidth && math(`${minWidth} * 1px`)};
-    height: ${math(`${height} * 1px`)};
+    padding: 0 ${padding}px;
+    min-width: ${minWidth ? `${minWidth}px` : `calc(${padding * 2}px + 1ch)`};
+    height: ${height}px;
     line-height: ${getLineHeight(height, fontSize)};
     font-size: ${fontSize};
 
     & > * {
-      min-width: ${minWidth ? math(`${minWidth - padding * 2} * 1px`) : '2em'};
+      width: 100%;
+      min-width: ${minWidth ? `${minWidth - padding * 2}px` : '1ch'};
     }
 
     & ${StyledAvatar} {
       /* stylelint-disable-next-line property-no-unknown */
-      margin-${props.theme.rtl ? 'right' : 'left'}: ${math(`${padding - avatarMargin} * -1px`)};
+      margin-${props.theme.rtl ? 'right' : 'left'}: -${padding - avatarMargin}px;
       /* stylelint-disable-next-line property-no-unknown */
-      margin-${props.theme.rtl ? 'left' : 'right'}: ${math(`${avatarTextMargin} * 1px`)};
+      margin-${props.theme.rtl ? 'left' : 'right'}: ${avatarTextMargin}px;
       border-radius: ${avatarBorderRadius};
-      width: ${math(`${avatarSize} * 1px`)};
-      min-width: ${math(`${avatarSize} * 1px`)}; /* prevent flex shrink */
-      height: ${math(`${avatarSize} * 1px`)};
+      width: ${avatarSize}px;
+      min-width: ${avatarSize}px; /* prevent flex shrink */
+      height: ${avatarSize}px;
     }
 
     & ${StyledClose} {
       /* stylelint-disable-next-line property-no-unknown */
-      margin-${props.theme.rtl ? 'left' : 'right'}: ${math(`${padding} * -1px`)};
+      margin-${props.theme.rtl ? 'left' : 'right'}: -${padding}px;
       border-radius: ${borderRadius};
-      width: ${math(`${height} * 1px`)};
-      height: ${math(`${height} * 1px`)};
+      width: ${height}px;
+      height: ${height}px;
     }
   `;
 };
@@ -167,8 +168,9 @@ export const StyledTag = styled.div.attrs<IStyledTagProps>({
   display: inline-flex;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: ${props => (props.isRound || props.isPill) && 'center'};
+  justify-content: ${props => props.isRound && 'center'};
   transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
   border: 0; /* <button> element reset */
   max-width: 100%;
   overflow: hidden;
@@ -206,7 +208,7 @@ export const StyledTag = styled.div.attrs<IStyledTagProps>({
 
   & > * {
     overflow: hidden;
-    text-align: ${props => props.isRound && 'center'};
+    text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
