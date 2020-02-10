@@ -9,7 +9,7 @@ export { default as Dropdown } from './elements/Dropdown/Dropdown';
 export { default as Trigger } from './elements/Trigger/Trigger';
 export { default as Autocomplete } from './elements/Autocomplete/Autocomplete';
 export { default as Multiselect } from './elements/Multiselect/Multiselect';
-export { default as Select } from './elements/Select/Select';
+export { Select } from './elements/Select/Select';
 export { Field } from './elements/Fields/Field';
 export { Hint } from './elements/Fields/Hint';
 export { Label } from './elements/Fields/Label';

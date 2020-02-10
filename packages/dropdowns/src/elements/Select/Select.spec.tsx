@@ -29,6 +29,22 @@ const ExampleSelect = () => (
 );
 
 describe('Select', () => {
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<HTMLDivElement>();
+
+    const { getByTestId } = render(
+      <Dropdown>
+        <Field>
+          <Select data-test-id="select" ref={ref}>
+            Test
+          </Select>
+        </Field>
+      </Dropdown>
+    );
+
+    expect(getByTestId('select')).toBe(ref.current);
+  });
+
   it('focuses internal input when opened', () => {
     const { getByTestId } = render(<ExampleSelect />);
 
