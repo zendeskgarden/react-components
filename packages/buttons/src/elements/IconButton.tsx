@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useContext, ButtonHTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledIconButton, StyledIcon } from '../styled';
-import { ButtonGroupContext } from './ButtonGroup';
+import { useSplitButtonContext } from '../utils/useSplitButtonContext';
 
 interface IIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Apply danger styling */
@@ -32,7 +32,7 @@ interface IIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const IconButton: React.FunctionComponent<IIconButtonProps &
   React.RefAttributes<HTMLButtonElement>> = React.forwardRef<HTMLButtonElement, IIconButtonProps>(
   ({ children, isRotated, ...otherProps }, ref) => {
-    const focusInset = otherProps.focusInset || useContext(ButtonGroupContext);
+    const focusInset = otherProps.focusInset || useSplitButtonContext();
 
     return (
       <StyledIconButton ref={ref} {...otherProps} focusInset={focusInset}>

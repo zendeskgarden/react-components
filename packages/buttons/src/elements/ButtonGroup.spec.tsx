@@ -23,7 +23,7 @@ describe('ButtonGroup', () => {
   );
 
   /* eslint-disable no-console */
-  it('throws if key is not provided to button', () => {
+  it('throws if value is not provided to button', () => {
     const originalError = console.error;
 
     console.error = jest.fn();
@@ -34,7 +34,7 @@ describe('ButtonGroup', () => {
           <Button>Invalid Button</Button>
         </ButtonGroup>
       );
-    }).toThrow('"value" prop must be provided to Button');
+    }).toThrow('"value" prop must be provided to Button when used within a ButtonGroup');
 
     console.error = originalError;
   });

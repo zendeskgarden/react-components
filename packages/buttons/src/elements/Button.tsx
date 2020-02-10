@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useContext, ButtonHTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledButton } from '../styled';
-import { ButtonGroupContext } from './ButtonGroup';
+import { useButtonGroupContext } from '../utils/useButtonGroupContext';
+import { useSplitButtonContext } from '../utils/useSplitButtonContext';
 
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Apply danger styling */
@@ -36,9 +37,28 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const Button: React.FunctionComponent<IButtonProps &
   React.RefAttributes<HTMLButtonElement>> = React.forwardRef<HTMLButtonElement, IButtonProps>(
   (props, ref) => {
-    const focusInset = props.focusInset || useContext(ButtonGroupContext);
+    const buttonGroupContext = useButtonGroupContext();
+    const splitButtonContext = useSplitButtonContext();
 
-    return <StyledButton ref={ref} {...props} focusInset={focusInset} />;
+    let computedProps = {
+      ...props,
+      focusInset: props.focusInset || buttonGroupContext !== undefined || splitButtonContext
+    };
+
+    if (buttonGroupContext && !props.disabled) {
+      if (!props.value) {
+        throw new Error('"value" prop must be provided to Button when used within a ButtonGroup');
+      }
+
+      computedProps = buttonGroupContext.getButtonProps({
+        item: props.value,
+        focusRef: React.createRef(),
+        isSelected: props.value === buttonGroupContext.selectedItem,
+        ...computedProps
+      });
+    }
+
+    return <StyledButton ref={ref} {...computedProps} {...computedProps} />;
   }
 );
 
