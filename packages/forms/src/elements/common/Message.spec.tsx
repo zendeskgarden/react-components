@@ -24,18 +24,6 @@ describe('Message', () => {
     expect(getByTestId('message')).toBe(ref.current);
   });
 
-  it('throws if rendered without a Field parent', () => {
-    /* eslint-disable no-console */
-    const consoleError = console.error;
-
-    try {
-      console.error = jest.fn();
-      expect(() => render(<Message />)).toThrow();
-    } finally {
-      console.error = consoleError;
-    }
-  });
-
   it('renders input message within a Field component', () => {
     const { getByTestId, getByRole } = render(
       <Field>

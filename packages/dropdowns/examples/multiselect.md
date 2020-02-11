@@ -10,7 +10,8 @@ our standard `Tag` component.
     <Multiselect
       renderItem={({ value, removeValue }) => (
         <Tag size="large">
-          {value} <Close onClick={() => removeValue()} />
+          <span>{value}</span>
+          <Close onClick={() => removeValue()} />
         </Tag>
       )}
     />
@@ -124,7 +125,8 @@ function ExampleAutocomplete() {
           isCompact
           renderItem={({ value, removeValue }) => (
             <Tag>
-              {value} <Tag.Close onClick={() => removeValue()} />
+              <span>{value}</span>
+              <Tag.Close onClick={() => removeValue()} />
             </Tag>
           )}
         />

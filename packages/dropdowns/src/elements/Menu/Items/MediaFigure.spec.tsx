@@ -14,7 +14,7 @@ describe('MediaFigure', () => {
     const ref = React.createRef<HTMLImageElement>();
 
     const { getByTestId } = render(
-      <Dropdown>
+      <Dropdown isOpen>
         <Trigger>
           <button>Test</button>
         </Trigger>

@@ -5,27 +5,22 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, HTMLAttributes, KeyboardEvent } from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
 import { useCombinedRefs } from '@zendeskgarden/container-utilities';
-import { StyledInput, StyledSelect, VALIDATION } from '../../styled';
+import { StyledInput, SelectWrapper, StyledOverflowWrapper } from '../../styled';
+import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 
-interface IAutocompleteProps {
-  /** Allows flush spacing of Tab elements */
-  tagLayout?: boolean;
-  /** Applies flex layout to support MediaFigure components */
-  mediaLayout?: boolean;
+interface IAutocompleteProps extends HTMLAttributes<HTMLDivElement> {
   isCompact?: boolean;
   /** Removes all borders and styling */
   isBare?: boolean;
   disabled?: boolean;
-  isFocused?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  isHovered?: boolean;
   /** Displays select open state */
   isOpen?: boolean;
   validation?: VALIDATION;
@@ -44,38 +39,34 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
     const { isLabelHovered } = useFieldContext();
     const inputRef = useCombinedRefs<HTMLInputElement>(controlledInputRef);
     const triggerRef = useCombinedRefs<HTMLDivElement>(ref);
-    const previousIsOpenRef = useRef<boolean | undefined>(undefined);
+    const previousIsOpenRef = useRef<boolean | undefined>(isOpen);
     const [isFocused, setIsFocused] = useState(false);
 
     useEffect(() => {
-      // Focus internal input when Menu is opened
-      if (isOpen && !previousIsOpenRef.current) {
+      if (isOpen !== previousIsOpenRef.current) {
         inputRef.current && inputRef.current.focus();
       }
 
-      // Focus trigger when Menu is closed
-      if (!isOpen && previousIsOpenRef.current) {
-        triggerRef.current && triggerRef.current.focus();
-      }
       previousIsOpenRef.current = isOpen;
-    }, [isOpen, inputRef, triggerRef]);
+    }, [inputRef, isOpen]);
 
     const selectProps = getToggleButtonProps({
-      onKeyDown: e => {
+      onKeyDown: (e: KeyboardEvent<HTMLDivElement>) => {
         if (isOpen) {
           (e.nativeEvent as any).preventDownshiftDefault = true;
         }
       },
       ...props
-    });
+    } as any);
 
     return (
       <Reference>
         {({ ref: popperReference }) => (
-          <StyledSelect
+          <SelectWrapper
             isHovered={isLabelHovered && !isOpen}
             isFocused={isOpen ? true : isFocused}
             isOpen={isOpen}
+            tabIndex={null}
             ref={selectRef => {
               // Pass ref to popperJS for positioning
               (popperReference as any)(selectRef);
@@ -88,7 +79,7 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
             }}
             {...selectProps}
           >
-            {!isOpen && children}
+            {!isOpen && <StyledOverflowWrapper>{children}</StyledOverflowWrapper>}
             <StyledInput
               {...getInputProps({
                 isHidden: !isOpen,
@@ -102,7 +93,7 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
                 ref: inputRef
               } as any)}
             />
-          </StyledSelect>
+          </SelectWrapper>
         )}
       </Reference>
     );
@@ -110,21 +101,17 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
 );
 
 Autocomplete.propTypes = {
-  /** Allows flush spacing of Tab elements */
-  tagLayout: PropTypes.bool,
-  /** Applies flex layout to support MediaFigure components */
-  mediaLayout: PropTypes.bool,
   isCompact: PropTypes.bool,
   /** Removes all borders and styling */
   isBare: PropTypes.bool,
   disabled: PropTypes.bool,
-  isFocused: PropTypes.bool,
   /** Applies inset `box-shadow` styling on focus */
   focusInset: PropTypes.bool,
-  isHovered: PropTypes.bool,
   /** Displays select open state */
   isOpen: PropTypes.bool,
-  validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
+  validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };
 
-export default Autocomplete as React.FunctionComponent<IAutocompleteProps>;
+export default Autocomplete as React.FunctionComponent<
+  IAutocompleteProps & React.RefAttributes<HTMLDivElement>
+>;

@@ -34,18 +34,6 @@ describe('Checkbox', () => {
     expect(getByTestId('checkbox')).toBe(ref.current);
   });
 
-  it('throws if rendered without a Field parent', () => {
-    /* eslint-disable no-console */
-    const consoleError = console.error;
-
-    try {
-      console.error = jest.fn();
-      expect(() => render(<Checkbox />)).toThrow();
-    } finally {
-      console.error = consoleError;
-    }
-  });
-
   it('sets the indeterminate state on the underlying checkbox node', () => {
     const { getByTestId } = render(
       <Field>

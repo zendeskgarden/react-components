@@ -5,35 +5,31 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import classNames from 'classnames';
 import styled, { css } from 'styled-components';
-import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
-import { HTMLAttributes } from 'react';
+import { Input } from '@zendeskgarden/react-forms';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const hiddenStyling = css`
   position: absolute;
-  left: -100px;
-  transform: scale(0);
-  opacity: 0;
-  outline: 0;
-  border-width: 0;
-  border-style: initial;
-  border-color: initial;
-  background: 0 center;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
   width: 1px;
-  color: transparent;
-  font-size: inherit;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
 `;
 
-export interface IStyledInputProps extends HTMLAttributes<HTMLInputElement> {
+export interface IStyledInputProps {
   isHidden?: boolean;
 }
 
-export const StyledInput = styled.input.attrs({
-  className: classNames(TextStyles['c-txt__input'], TextStyles['c-txt__input--bare'])
+export const StyledInput = styled(Input).attrs({
+  isBare: true
 })<IStyledInputProps>`
-  && {
-    vertical-align: baseline;
-    ${props => props.isHidden && hiddenStyling}
-  }
-` as React.FunctionComponent<IStyledInputProps>;
+  ${props => props.isHidden && hiddenStyling}
+`;
+
+StyledInput.defaultProps = {
+  theme: DEFAULT_THEME
+};

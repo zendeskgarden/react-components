@@ -29,6 +29,22 @@ const ExampleAutocomplete = () => (
 );
 
 describe('Autocomplete', () => {
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<HTMLDivElement>();
+
+    const { getByTestId } = render(
+      <Dropdown>
+        <Field>
+          <Autocomplete data-test-id="autocomplete" ref={ref}>
+            Test
+          </Autocomplete>
+        </Field>
+      </Dropdown>
+    );
+
+    expect(getByTestId('autocomplete')).toBe(ref.current);
+  });
+
   it('focuses internal input when opened', () => {
     const { getByTestId } = render(<ExampleAutocomplete />);
 
@@ -44,9 +60,9 @@ describe('Autocomplete', () => {
     const input = autocomplete.querySelector('input');
 
     fireEvent.focus(input!);
-    expect(autocomplete).toHaveClass('is-focused');
+    expect(autocomplete).toHaveAttribute('data-test-is-focused', 'true');
     fireEvent.blur(input!);
-    expect(autocomplete).not.toHaveClass('is-focused');
+    expect(autocomplete).toHaveAttribute('data-test-is-focused', 'false');
   });
 
   it('applies correct styling if open', () => {
@@ -62,8 +78,8 @@ describe('Autocomplete', () => {
 
     fireEvent.click(autocomplete);
 
-    expect(autocomplete).toHaveClass('is-focused');
-    expect(autocomplete).toHaveClass('is-open');
+    expect(autocomplete).toHaveAttribute('data-test-is-focused', 'true');
+    expect(autocomplete).toHaveAttribute('data-test-is-open', 'true');
   });
 
   it('applies correct styling if label is hovered', () => {
@@ -78,7 +94,7 @@ describe('Autocomplete', () => {
 
     fireEvent.mouseEnter(getByTestId('label'));
 
-    expect(getByTestId('autocomplete')).toHaveClass('is-hovered');
+    expect(getByTestId('autocomplete')).toHaveAttribute('data-test-is-hovered', 'true');
   });
 
   describe('Interaction', () => {
@@ -88,7 +104,7 @@ describe('Autocomplete', () => {
 
       fireEvent.click(autocomplete);
 
-      expect(autocomplete).toHaveClass('is-open');
+      expect(autocomplete).toHaveAttribute('data-test-is-open', 'true');
     });
 
     it('opens on down key and highlights first item', () => {
@@ -96,7 +112,7 @@ describe('Autocomplete', () => {
       const autocomplete = getByTestId('autocomplete');
 
       fireEvent.keyDown(autocomplete, { key: 'ArrowDown', keyCode: 40 });
-      expect(autocomplete).toHaveClass('is-open');
+      expect(autocomplete).toHaveAttribute('data-test-is-open', 'true');
 
       const items = getAllByTestId('item');
 
@@ -108,7 +124,7 @@ describe('Autocomplete', () => {
       const autocomplete = getByTestId('autocomplete');
 
       fireEvent.keyDown(autocomplete, { key: 'ArrowUp', keyCode: 38 });
-      expect(autocomplete).toHaveClass('is-open');
+      expect(autocomplete).toHaveAttribute('data-test-is-open', 'true');
 
       const items = getAllByTestId('item');
 
@@ -120,7 +136,7 @@ describe('Autocomplete', () => {
       const autocomplete = getByTestId('autocomplete');
 
       fireEvent.click(autocomplete);
-      expect(autocomplete).toHaveClass('is-open');
+      expect(autocomplete).toHaveAttribute('data-test-is-open', 'true');
 
       fireEvent.keyDown(autocomplete.querySelector('input')!, { key: 'Escape', keyCode: 27 });
       expect(autocomplete).not.toHaveClass('is-open');

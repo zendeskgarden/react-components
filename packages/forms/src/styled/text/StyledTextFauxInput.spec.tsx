@@ -36,12 +36,6 @@ describe('StyledTextInput', () => {
     expect(container.firstChild).toHaveStyleRule('border', 'none');
   });
 
-  it('renders focused styling if provided', () => {
-    const { container } = render(<StyledTextFauxInput isFocused />);
-
-    expect(container.firstChild).toHaveAttribute('data-garden-focus-visible');
-  });
-
   it('renders expected disabled styling', () => {
     const { container } = render(<StyledTextFauxInput isDisabled />);
 

@@ -18,7 +18,7 @@ export const Range = React.forwardRef<HTMLInputElement, InputHTMLAttributes<HTML
   ({ min, max, step, ...props }, ref) => {
     const [backgroundSize, setBackgroundSize] = useState('0');
     const rangeRef = useCombinedRefs(ref);
-    const { getInputProps } = useFieldContext();
+    const fieldContext = useFieldContext();
 
     const updateBackgroundWidthFromInput = useCallback(
       (rangeTarget: HTMLInputElement) => {
@@ -43,27 +43,23 @@ export const Range = React.forwardRef<HTMLInputElement, InputHTMLAttributes<HTML
       updateBackgroundWidthFromInput(rangeRef.current!);
     }, [rangeRef, updateBackgroundWidthFromInput]);
 
-    return (
-      <StyledRangeInput
-        {...(getInputProps(
-          {
-            ref: rangeRef,
-            min,
-            max,
-            step,
-            backgroundSize,
-            ...props,
-            onChange: composeEventHandlers(
-              props.onChange,
-              (event: ChangeEvent<HTMLInputElement>) => {
-                updateBackgroundWidthFromInput(event.target);
-              }
-            )
-          },
-          { isDescribed: true }
-        ) as any)}
-      />
-    );
+    let combinedProps = {
+      ref: rangeRef,
+      min,
+      max,
+      step,
+      backgroundSize,
+      ...props,
+      onChange: composeEventHandlers(props.onChange, (event: ChangeEvent<HTMLInputElement>) => {
+        updateBackgroundWidthFromInput(event.target);
+      })
+    };
+
+    if (fieldContext) {
+      combinedProps = fieldContext.getInputProps(combinedProps, { isDescribed: true });
+    }
+
+    return <StyledRangeInput {...(combinedProps as any)} />;
   }
 );
 

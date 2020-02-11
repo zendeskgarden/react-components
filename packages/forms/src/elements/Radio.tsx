@@ -16,16 +16,20 @@ import { StyledRadioInput } from '../styled';
  */
 export const Radio = React.forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement>>(
   ({ children, ...props }, ref) => {
-    const { getInputProps } = useFieldContext();
+    const fieldContext = useFieldContext();
+
+    let combinedProps = {
+      ref,
+      ...props
+    };
+
+    if (fieldContext) {
+      combinedProps = fieldContext.getInputProps(combinedProps);
+    }
 
     return (
       <InputContext.Provider value="radio">
-        <StyledRadioInput
-          {...(getInputProps({
-            ref,
-            ...props
-          }) as any)}
-        />
+        <StyledRadioInput {...(combinedProps as any)} />
         {children}
       </InputContext.Provider>
     );

@@ -17,7 +17,7 @@ describe('HeaderIcon', () => {
     const ref = React.createRef<HTMLDivElement>();
 
     const { getByTestId } = render(
-      <Dropdown>
+      <Dropdown isOpen>
         <Trigger>
           <button>Test</button>
         </Trigger>
@@ -37,7 +37,7 @@ describe('HeaderIcon', () => {
 
   it('applies correct default size to provided SVG', () => {
     const { getByTestId } = render(
-      <Dropdown>
+      <Dropdown isOpen>
         <Trigger>
           <button>Test</button>
         </Trigger>
@@ -59,7 +59,7 @@ describe('HeaderIcon', () => {
 
   it('applies correct compact size to provided SVG', () => {
     const { getByTestId } = render(
-      <Dropdown>
+      <Dropdown isOpen>
         <Trigger>
           <button>Test</button>
         </Trigger>

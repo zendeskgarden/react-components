@@ -36,18 +36,6 @@ describe('Range', () => {
     expect(getByTestId('range')).toBe(ref.current);
   });
 
-  it('throws if rendered without a Field parent', () => {
-    /* eslint-disable no-console */
-    const consoleError = console.error;
-
-    try {
-      console.error = jest.fn();
-      expect(() => render(<Range />)).toThrow();
-    } finally {
-      console.error = consoleError;
-    }
-  });
-
   describe('BackgroundSize', () => {
     it('applies backgroundSize equivalent to the input value', () => {
       const { getByTestId } = render(<BasicExample />);

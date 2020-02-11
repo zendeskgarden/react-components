@@ -17,7 +17,7 @@ describe('Item', () => {
     console.error = jest.fn();
 
     const Example = () => (
-      <Dropdown>
+      <Dropdown isOpen>
         <Trigger>
           <button>Test</button>
         </Trigger>
@@ -61,7 +61,7 @@ describe('Item', () => {
     const ref = React.createRef<HTMLDivElement>();
 
     const { getByTestId } = render(
-      <Dropdown>
+      <Dropdown isOpen>
         <Trigger>
           <button>Test</button>
         </Trigger>
@@ -121,7 +121,7 @@ describe('Item', () => {
 
       fireEvent.click(trigger);
       fireEvent.keyDown(trigger, { key: 'ArrowDown', keyCode: '40' });
-      expect(getAllByTestId('item')[0]).toHaveAttribute('data-garden-is-focused', 'true');
+      expect(getAllByTestId('item')[0]).toHaveAttribute('data-test-is-focused', 'true');
     });
 
     describe('Single selection', () => {
@@ -143,7 +143,7 @@ describe('Item', () => {
         );
 
         fireEvent.click(getByTestId('trigger'));
-        expect(getAllByTestId('item')[0]).toHaveAttribute('data-garden-is-selected', 'true');
+        expect(getAllByTestId('item')[0]).toHaveAttribute('data-test-is-selected', 'true');
       });
 
       it('applies selected treatment if single item is selected and value is an object', () => {
@@ -167,7 +167,7 @@ describe('Item', () => {
         );
 
         fireEvent.click(getByTestId('trigger'));
-        expect(getAllByTestId('item')[0]).toHaveAttribute('data-garden-is-selected', 'true');
+        expect(getAllByTestId('item')[0]).toHaveAttribute('data-test-is-selected', 'true');
       });
     });
 
@@ -195,9 +195,9 @@ describe('Item', () => {
         fireEvent.click(getByTestId('trigger'));
         const items = getAllByTestId('item');
 
-        expect(items[0]).toHaveAttribute('data-garden-is-selected', 'true');
-        expect(items[1]).toHaveAttribute('data-garden-is-selected', 'true');
-        expect(items[2]).toHaveAttribute('data-garden-is-selected', 'false');
+        expect(items[0]).toHaveAttribute('data-test-is-selected', 'true');
+        expect(items[1]).toHaveAttribute('data-test-is-selected', 'true');
+        expect(items[2]).toHaveAttribute('data-test-is-selected', 'false');
       });
 
       it('applies selected treatment if single item is selected and value is an object', () => {
@@ -226,9 +226,9 @@ describe('Item', () => {
         fireEvent.click(getByTestId('trigger'));
         const items = getAllByTestId('item');
 
-        expect(items[0]).toHaveAttribute('data-garden-is-selected', 'true');
-        expect(items[1]).toHaveAttribute('data-garden-is-selected', 'true');
-        expect(items[2]).toHaveAttribute('data-garden-is-selected', 'false');
+        expect(items[0]).toHaveAttribute('data-test-is-selected', 'true');
+        expect(items[1]).toHaveAttribute('data-test-is-selected', 'true');
+        expect(items[2]).toHaveAttribute('data-test-is-selected', 'false');
       });
     });
   });

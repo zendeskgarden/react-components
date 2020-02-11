@@ -59,6 +59,10 @@ module.exports = {
         {
           name: 'Multiselect usage',
           content: '../../packages/dropdowns/examples/multiselect.md'
+        },
+        {
+          name: 'Field variants',
+          content: '../../packages/dropdowns/examples/field-variants.md'
         }
       ]
     },

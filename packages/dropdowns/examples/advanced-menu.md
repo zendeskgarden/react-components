@@ -160,11 +160,16 @@ cause `Downshift` to reapply the required accessibility and interaction attribut
 
 ```jsx
 const { Button } = require('@zendeskgarden/react-buttons/src');
+const { Dots } = require('@zendeskgarden/react-loaders/src');
 
 initialState = {
   isOpen: false,
   isLoading: false
 };
+
+const CenteredItem = styled(Item)`
+  text-align: center;
+`;
 
 <Dropdown
   onSelect={item => alert(item)}
@@ -188,7 +193,9 @@ initialState = {
   </Trigger>
   <Menu placement="end" hasArrow>
     {state.isLoading ? (
-      <Item disabled>Loading...</Item>
+      <CenteredItem disabled>
+        <Dots color={PALETTE.blue[600]} size={DEFAULT_THEME.fontSizes.xxl} delayMS={0} />
+      </CenteredItem>
     ) : (
       <>
         <Item value="option-1">Option 1</Item>

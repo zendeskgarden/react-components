@@ -31,6 +31,33 @@ const ExampleWrapper: React.FC<IDropdownProps> = ({ children, ...other }) => (
 );
 
 describe('Multiselect', () => {
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<HTMLDivElement>();
+
+    const { getByTestId } = render(
+      <Dropdown>
+        <Field>
+          <Multiselect
+            data-test-id="multiselect"
+            ref={ref}
+            renderItem={({ value, removeValue }) => (
+              <div data-test-id="tag">
+                {value}
+                <button data-test-id="remove" onClick={() => removeValue()} tabIndex={-1}>
+                  Remove
+                </button>
+              </div>
+            )}
+          >
+            Test
+          </Multiselect>
+        </Field>
+      </Dropdown>
+    );
+
+    expect(getByTestId('multiselect')).toBe(ref.current);
+  });
+
   it('focuses internal input when opened', () => {
     const { getByTestId } = render(
       <ExampleWrapper>
@@ -77,14 +104,14 @@ describe('Multiselect', () => {
       fireEvent.focus(input!);
     });
 
-    expect(multiselect).toHaveClass('is-focused');
+    expect(multiselect).toHaveAttribute('data-test-is-focused', 'true');
 
     act(() => {
       fireEvent.blur(multiselect!);
       jest.runOnlyPendingTimers();
     });
 
-    expect(multiselect).not.toHaveClass('is-focused');
+    expect(multiselect).toHaveAttribute('data-test-is-focused', 'false');
   });
 
   it('applies correct styling if open', () => {
@@ -108,8 +135,8 @@ describe('Multiselect', () => {
 
     fireEvent.click(multiselect);
 
-    expect(multiselect).toHaveClass('is-focused');
-    expect(multiselect).toHaveClass('is-open');
+    expect(multiselect).toHaveAttribute('data-test-is-focused', 'true');
+    expect(multiselect).toHaveAttribute('data-test-is-open', 'true');
   });
 
   it('applies correct styling if label is hovered', () => {
@@ -132,7 +159,7 @@ describe('Multiselect', () => {
 
     fireEvent.mouseEnter(getByTestId('label'));
 
-    expect(getByTestId('multiselect')).toHaveClass('is-hovered');
+    expect(getByTestId('multiselect')).toHaveAttribute('data-test-is-hovered', 'true');
   });
 
   describe('Interaction', () => {
@@ -156,7 +183,7 @@ describe('Multiselect', () => {
 
       fireEvent.click(multiselect);
 
-      expect(multiselect).toHaveClass('is-open');
+      expect(multiselect).toHaveAttribute('data-test-is-open', 'true');
     });
 
     it('opens on down key and highlights first item', () => {
@@ -179,7 +206,7 @@ describe('Multiselect', () => {
       const multiselect = getByTestId('multiselect');
 
       fireEvent.keyDown(multiselect, { key: 'ArrowDown', keyCode: 40 });
-      expect(multiselect).toHaveClass('is-open');
+      expect(multiselect).toHaveAttribute('data-test-is-open', 'true');
 
       const items = getAllByTestId('item');
 
@@ -206,7 +233,7 @@ describe('Multiselect', () => {
       const multiselect = getByTestId('multiselect');
 
       fireEvent.keyDown(multiselect, { key: 'ArrowUp', keyCode: 38 });
-      expect(multiselect).toHaveClass('is-open');
+      expect(multiselect).toHaveAttribute('data-test-is-open', 'true');
 
       const items = getAllByTestId('item');
 
@@ -233,10 +260,10 @@ describe('Multiselect', () => {
       const multiselect = getByTestId('multiselect');
 
       fireEvent.click(multiselect);
-      expect(multiselect).toHaveClass('is-open');
+      expect(multiselect).toHaveAttribute('data-test-is-open', 'true');
 
       fireEvent.keyDown(multiselect.querySelector('input')!, { key: 'Escape', keyCode: 27 });
-      expect(multiselect).not.toHaveClass('is-open');
+      expect(multiselect).toHaveAttribute('data-test-is-open', 'false');
     });
   });
 

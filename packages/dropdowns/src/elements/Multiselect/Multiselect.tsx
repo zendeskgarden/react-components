@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, useState, useMemo, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useMemo, useCallback, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { DefaultTheme, ThemeProps } from 'styled-components';
 import { Reference } from 'react-popper';
@@ -14,26 +14,22 @@ import { KEY_CODES, useCombinedRefs } from '@zendeskgarden/container-utilities';
 import { isRtl, withTheme } from '@zendeskgarden/react-theming';
 import {
   StyledMultiselectInput,
-  StyledSelect,
   StyledItemWrapper,
   StyledMoreAnchor,
-  VALIDATION
+  StyledMultiSelect
 } from '../../styled';
+import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 import { REMOVE_ITEM_STATE_TYPE } from '../Dropdown/Dropdown';
 
-interface IMultiselectProps {
-  /** Applies flex layout to support MediaFigure components */
-  mediaLayout?: boolean;
+interface IMultiselectProps extends HTMLAttributes<HTMLDivElement> {
   isCompact?: boolean;
   /** Removes all borders and styling */
   isBare?: boolean;
   disabled?: boolean;
-  isFocused?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  isHovered?: boolean;
   /** Displays select open state */
   isOpen?: boolean;
   placeholder?: string;
@@ -112,8 +108,8 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
     }, [focusedItem, isOpen, closeMenu]);
 
     const selectProps = getToggleButtonProps({
-      tabIndex: -1,
-      onKeyDown: e => {
+      tabIndex: props.disabled ? undefined : -1,
+      onKeyDown: (e: React.KeyboardEvent<HTMLElement>) => {
         if (isOpen) {
           (e.nativeEvent as any).preventDownshiftDefault = true;
         } else if (!inputValue && e.keyCode === KEY_CODES.HOME) {
@@ -134,7 +130,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
         }, 0) as unknown) as number;
       },
       ...props
-    });
+    } as any);
 
     const renderSelectableItem = useCallback(
       (item, index) => {
@@ -230,11 +226,23 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
           }
         } else if ((!isFocused && !inputValue) || props.disabled) {
           output.push(
-            <StyledMoreAnchor key="more-anchor">
-              {renderShowMore
-                ? renderShowMore(itemValues.length - x)
-                : `+ ${itemValues.length - x} more`}
-            </StyledMoreAnchor>
+            <StyledItemWrapper key="more-anchor">
+              <StyledMoreAnchor
+                isCompact={props.isCompact}
+                isDisabled={props.disabled}
+                onMouseDown={e => {
+                  /**
+                   * Prevent anchor from receiving focus on mouse down.
+                   * This allows the input to receive focus.
+                   **/
+                  e.preventDefault();
+                }}
+              >
+                {renderShowMore
+                  ? renderShowMore(itemValues.length - x)
+                  : `+ ${itemValues.length - x} more`}
+              </StyledMoreAnchor>
+            </StyledItemWrapper>
           );
           break;
         } else {
@@ -251,13 +259,14 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
       renderItem,
       inputValue,
       maxItems,
-      renderShowMore
+      renderShowMore,
+      props.isCompact
     ]);
 
     return (
       <Reference>
         {({ ref: popperReference }) => (
-          <StyledSelect
+          <StyledMultiSelect
             {...getContainerProps({
               ...selectProps,
               tagLayout: true,
@@ -312,7 +321,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
                 placeholder: selectedItems.length === 0 ? placeholder : undefined
               }) as any)}
             />
-          </StyledSelect>
+          </StyledMultiSelect>
         )}
       </Reference>
     );
@@ -320,21 +329,17 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
 );
 
 Multiselect.propTypes = {
-  /** Applies flex layout to support MediaFigure components */
-  mediaLayout: PropTypes.bool,
   isCompact: PropTypes.bool,
   /** Removes all borders and styling */
   isBare: PropTypes.bool,
   disabled: PropTypes.bool,
-  isFocused: PropTypes.bool,
   /** Applies inset `box-shadow` styling on focus */
   focusInset: PropTypes.bool,
-  isHovered: PropTypes.bool,
   /** Displays select open state */
   isOpen: PropTypes.bool,
   renderItem: PropTypes.func.isRequired,
   maxItems: PropTypes.number,
-  validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
+  validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };
 
 Multiselect.defaultProps = {
@@ -342,4 +347,6 @@ Multiselect.defaultProps = {
 };
 
 /* @component */
-export default withTheme(Multiselect) as React.FunctionComponent<IMultiselectProps>;
+export default withTheme(Multiselect) as React.FunctionComponent<
+  IMultiselectProps & React.RefAttributes<HTMLDivElement>
+>;

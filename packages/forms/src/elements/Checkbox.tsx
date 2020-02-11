@@ -25,10 +25,12 @@ export interface ICheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
  */
 export const Checkbox = React.forwardRef<HTMLInputElement, ICheckboxProps>(
   ({ indeterminate, children, ...props }, ref) => {
-    const { getInputProps } = useFieldContext();
+    const fieldContext = useFieldContext();
+
     const inputRef = (inputElement: HTMLInputElement) => {
       inputElement && ((inputElement as any).indeterminate = indeterminate);
     };
+
     const combinedRef = (inputElement: HTMLInputElement) => {
       [inputRef, ref].forEach(targetRef => {
         if (targetRef) {
@@ -41,14 +43,18 @@ export const Checkbox = React.forwardRef<HTMLInputElement, ICheckboxProps>(
       });
     };
 
+    let combinedProps = {
+      ref: combinedRef,
+      ...props
+    };
+
+    if (fieldContext) {
+      combinedProps = fieldContext.getInputProps(combinedProps);
+    }
+
     return (
       <InputContext.Provider value="checkbox">
-        <StyledCheckInput
-          {...(getInputProps({
-            ref: combinedRef,
-            ...props
-          }) as any)}
-        />
+        <StyledCheckInput {...(combinedProps as any)} />
         {children}
       </InputContext.Provider>
     );

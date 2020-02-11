@@ -77,14 +77,14 @@ should be re-checked for ID naming accuracy.
   - `Autocomplete`, `Multiselect`, `Select`
     - `small` -> `isCompact`
     - `isBare` -> `isBare`
-    - `focused` -> `isFocused`
-    - `hovered` -> `isHovered`
+    - `focused` -> removed
+    - `hovered` -> removed
     - `open` -> `isOpen`
   - `Hint`
-    - `small` -> `isCompact`
+    - `small` -> removed
   - `Label`
     - `regular` -> `isRegular`
-    - `small` -> `isCompact`
+    - `small` -> removed
   - `AddItem`, `HeaderItem`, `Item`, `MediaItem`, `NextItem`, `PreviousItem`
     - `active` -> Removed
     - `focused` -> Removed

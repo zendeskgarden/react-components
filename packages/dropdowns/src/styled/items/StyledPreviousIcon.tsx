@@ -5,6 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import React, { HTMLAttributes } from 'react';
 import styled from 'styled-components';
 import PreviousIconSvg from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
@@ -15,10 +16,15 @@ interface IStyledPreviousIconProps {
   isDisabled?: boolean;
 }
 
-export const StyledPreviousIcon = styled(PreviousIconSvg).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledPreviousIconProps>`
+const PreviousIconComponent: React.FC<HTMLAttributes<SVGSVGElement>> = ({ className }) => (
+  <PreviousIconSvg
+    data-garden-id={COMPONENT_ID}
+    data-garden-version={PACKAGE_VERSION}
+    className={className}
+  />
+);
+
+export const StyledPreviousIcon = styled(PreviousIconComponent)<IStyledPreviousIconProps>`
   transform: ${props => props.theme.rtl && 'rotate(180deg)'};
   color: ${props => (props.isDisabled ? 'inherit' : getColor('neutralHue', 600, props.theme))};
 

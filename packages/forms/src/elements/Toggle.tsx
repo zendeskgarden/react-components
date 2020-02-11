@@ -16,16 +16,20 @@ import { StyledToggleInput } from '../styled';
  */
 export const Toggle = React.forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement>>(
   ({ children, ...props }, ref) => {
-    const { getInputProps } = useFieldContext();
+    const fieldContext = useFieldContext();
+
+    let combinedProps = {
+      ref,
+      ...props
+    };
+
+    if (fieldContext) {
+      combinedProps = fieldContext.getInputProps(combinedProps);
+    }
 
     return (
       <InputContext.Provider value="toggle">
-        <StyledToggleInput
-          {...(getInputProps({
-            ref,
-            ...props
-          }) as any)}
-        />
+        <StyledToggleInput {...(combinedProps as any)} />
         {children}
       </InputContext.Provider>
     );

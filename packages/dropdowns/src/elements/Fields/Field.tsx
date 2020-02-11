@@ -6,19 +6,14 @@
  */
 
 import React, { useState, HTMLAttributes } from 'react';
-import PropTypes from 'prop-types';
-import { StyledField } from '../../styled';
+import { Field as FormField } from '@zendeskgarden/react-forms';
 import useDropdownContext from '../../utils/useDropdownContext';
 import { FieldContext } from '../../utils/useFieldContext';
-
-interface IFieldProps extends HTMLAttributes<HTMLDivElement> {
-  inline?: boolean;
-}
 
 /**
  * Accepts all `<div>` props
  */
-const Field: React.FunctionComponent<IFieldProps> = props => {
+export const Field: React.FunctionComponent<HTMLAttributes<HTMLDivElement>> = props => {
   const {
     downshift: { getRootProps }
   } = useDropdownContext();
@@ -26,13 +21,7 @@ const Field: React.FunctionComponent<IFieldProps> = props => {
 
   return (
     <FieldContext.Provider value={{ isLabelHovered, setIsLabelHovered }}>
-      <StyledField {...getRootProps({ ...props, refKey: 'ref' })} />
+      <FormField {...getRootProps({ ...props, refKey: 'ref' })} />
     </FieldContext.Provider>
   );
 };
-
-Field.propTypes = {
-  inline: PropTypes.bool
-};
-
-export default Field;

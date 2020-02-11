@@ -16,7 +16,7 @@ import { StyledHint, StyledCheckHint, StyledRadioHint, StyledToggleHint } from '
  */
 export const Hint = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
-    const { getHintProps } = useFieldContext();
+    const fieldContext = useFieldContext();
     const type = useInputContext();
 
     let HintComponent;
@@ -31,6 +31,12 @@ export const Hint = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEleme
       HintComponent = StyledHint;
     }
 
-    return <HintComponent ref={ref} {...(getHintProps(props) as any)} />;
+    let combinedProps = props;
+
+    if (fieldContext) {
+      combinedProps = fieldContext.getHintProps(combinedProps);
+    }
+
+    return <HintComponent ref={ref} {...(combinedProps as any)} />;
   }
 );
