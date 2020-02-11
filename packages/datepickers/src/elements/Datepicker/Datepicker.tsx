@@ -191,7 +191,7 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
           }}
         </Reference>
         <Popper
-          placement={popperPlacement as any}
+          placement={popperPlacement}
           modifiers={popperModifiers}
           // Disable position updating on scroll events while menu is closed
           eventsEnabled={state.isOpen && eventsEnabled}
