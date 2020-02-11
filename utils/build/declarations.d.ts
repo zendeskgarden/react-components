@@ -8,8 +8,5 @@
 /* Globals */
 declare const PACKAGE_VERSION: string;
 
-/** React packages */
-declare module '@zendeskgarden/react-utilities';
-
 /** Files */
 declare module '*.svg';
