@@ -190,7 +190,6 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
             });
           }}
         </Reference>
-
         <Popper
           placement={popperPlacement as any}
           modifiers={popperModifiers}
