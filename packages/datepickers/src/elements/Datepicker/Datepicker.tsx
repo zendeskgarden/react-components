@@ -140,13 +140,10 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
     ? getRtlPopperPlacement(placement!)
     : getPopperPlacement(placement!);
 
+  const contextValue = { state, dispatch };
+
   return (
-    <DatepickerContext.Provider
-      value={{
-        state,
-        dispatch
-      }}
-    >
+    <DatepickerContext.Provider value={contextValue}>
       <Manager>
         <Reference>
           {({ ref }) => {
@@ -205,7 +202,7 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
 
             return (
               <StyledMenu
-                ref={state.isOpen ? ref : undefined}
+                ref={ref}
                 style={style}
                 isHidden={!state.isOpen}
                 isAnimated={isAnimated}
