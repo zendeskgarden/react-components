@@ -7,7 +7,7 @@
 
 import React, { HTMLAttributes } from 'react';
 import { StyledButtonGroup } from '../styled';
-import { ButtonGroupContext } from './ButtonGroup';
+import { SplitButtonContext } from '../utils/useSplitButtonContext';
 
 /**
  * High-level abstraction for basic SplitButton implementations.
@@ -16,9 +16,9 @@ const SplitButton: React.FunctionComponent<HTMLAttributes<HTMLDivElement>> = ({
   children,
   ...other
 }) => (
-  <ButtonGroupContext.Provider value={true}>
+  <SplitButtonContext.Provider value={true}>
     <StyledButtonGroup {...other}>{children}</StyledButtonGroup>
-  </ButtonGroupContext.Provider>
+  </SplitButtonContext.Provider>
 );
 
 /** @component */

@@ -5,22 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  Children,
-  cloneElement,
-  isValidElement,
-  createContext,
-  createRef,
-  HTMLAttributes
-} from 'react';
+import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { hasType } from '@zendeskgarden/react-utilities';
 import { useButtonGroup } from '@zendeskgarden/container-buttongroup';
 
 import { StyledButtonGroup } from '../styled';
-import Button from './Button';
-
-export const ButtonGroupContext = createContext<boolean | undefined>(undefined);
+import { ButtonGroupContext } from '../utils/useButtonGroupContext';
 
 interface IButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
   selectedItem?: any;
@@ -42,44 +32,11 @@ const ButtonGroup: React.FunctionComponent<IButtonGroupProps> = ({
     onSelect
   });
 
-  const renderButtons = () => {
-    return Children.map(children, child => {
-      if (!isValidElement(child)) {
-        return child;
-      }
-
-      if (hasType(child, Button)) {
-        if (child.props.disabled) {
-          return child;
-        }
-
-        const value = (child.props as any).value;
-
-        if (!value) {
-          throw new Error('"value" prop must be provided to Button');
-        }
-
-        return cloneElement(
-          child,
-          getButtonProps({
-            key: value,
-            item: value,
-            focusRef: createRef(),
-            isSelected: value === selectedItem,
-            ...child.props
-          })
-        );
-      }
-
-      return child;
-    });
-  };
+  const contextValue = { selectedItem, getButtonProps };
 
   return (
-    <ButtonGroupContext.Provider value={true}>
-      <StyledButtonGroup {...(getGroupProps(otherProps) as any)}>
-        {renderButtons()}
-      </StyledButtonGroup>
+    <ButtonGroupContext.Provider value={contextValue}>
+      <StyledButtonGroup {...(getGroupProps(otherProps) as any)}>{children}</StyledButtonGroup>
     </ButtonGroupContext.Provider>
   );
 };

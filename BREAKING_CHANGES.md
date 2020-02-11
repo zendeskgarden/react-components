@@ -265,3 +265,8 @@ New features/fixes include:
   - previously `<Code type="red">`
   - currently `<Code hue="red">`
 - rename `monospace` -> `isMonospace` prop
+
+## @zendeskgarden/conatiner-utilities
+
+- This package has been deprecated and will be removed in a future major release
+- Migrate to `@zendeskgarden/container-utilities` to continue receiving updates

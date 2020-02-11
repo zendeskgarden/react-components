@@ -42,7 +42,6 @@ to install.
 | [`@zendeskgarden/react-theming`](packages/theming)             | [![npm version][theming npm version]][theming npm link]             | [![npm version][theming size bundle]][theming size link]             | [![Dependency Status][theming dependency status]][theming dependency link]             |
 | [`@zendeskgarden/react-tooltips`](packages/tooltips)           | [![npm version][tooltips npm version]][tooltips npm link]           | [![npm version][tooltips size bundle]][tooltips size link]           | [![Dependency Status][tooltips dependency status]][tooltips dependency link]           |
 | [`@zendeskgarden/react-typography`](packages/typography)       | [![npm version][typography npm version]][typography npm link]       | [![npm version][typography size bundle]][typography size link]       | [![Dependency Status][typography dependency status]][typography dependency link]       |
-| [`@zendeskgarden/react-utilities`](packages/utilities)         | [![npm version][utilities npm version]][utilities npm link]         | [![npm version][utilities size bundle]][utilities size link]         | [![Dependency Status][utilities dependency status]][utilities dependency link]         |
 
 [avatars npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-avatars
 [avatars npm link]: https://www.npmjs.com/package/@zendeskgarden/react-avatars
@@ -152,12 +151,6 @@ to install.
 [typography size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-typography
 [typography dependency status]: https://flat.badgen.net/david/dep/zendeskgarden/react-components/packages/typography
 [typography dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/typography
-[utilities npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-utilities
-[utilities npm link]: https://www.npmjs.com/package/@zendeskgarden/react-utilities
-[utilities size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-utilities
-[utilities size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-utilities
-[utilities dependency status]: https://flat.badgen.net/david/dep/zendeskgarden/react-components/packages/utilities
-[utilities dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/utilities
 
 ## Usage
 
