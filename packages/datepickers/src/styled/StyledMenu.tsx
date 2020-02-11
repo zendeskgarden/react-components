@@ -129,6 +129,10 @@ interface IStyledMenuWrapperProps {
   placement?: POPPER_PLACEMENT;
 }
 
+/**
+ * 1. PopperJS requires a non-zero font-size to perform
+ * its initial placement correctly.
+ **/
 const StyledMenuWrapper = styled.div<IStyledMenuWrapperProps>`
   transition: ${props =>
     props.isHidden && props.isAnimated && 'opacity .2s ease-in-out, .2s visibility 0s linear'};
