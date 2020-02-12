@@ -254,6 +254,7 @@ New features/fixes include:
 - rename `arrow` prop to `hasArrow`
 - `appendToBody` prop is now `appendToNode`
   - You must now pass the HTML element which you would like the tooltip to append to
+- `delayMilliseconds` prop is now `delayMS`
 - Tooltip `trigger` prop is removed
   - Tooltip `children` now accepts a single element which acts as the triggering element
 - Tooltip `content` prop now accepts Tooltip content (previous `children`)
