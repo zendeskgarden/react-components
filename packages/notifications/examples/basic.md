@@ -1,5 +1,7 @@
 ### Alert
 
+`<Alert>` components have an `role="alert"` by default and are announced by assistive
+technologies when they appear. The `role` attribute may be modified or removed if desired.
 All usages of `<Close />` must contain an `aria-label` or other assistive technique to have
 discernible text.
 
@@ -96,6 +98,9 @@ const initialState = { type: 'success', showClose: true };
 ```
 
 ### Notification
+
+`<Notification>` components have an `role="status"` by default and are announced by assistive
+technologies when they appear. The `role` attribute may be modified or removed if desired.
 
 The `<Paragraph>` component should be used to wrap multi-line content within a `<Notification>`.
 Otherwise, no wrapper is necessary. Usage of `<Close />` must contain an `aria-label` or other
