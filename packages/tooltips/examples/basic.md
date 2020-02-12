@@ -159,7 +159,7 @@ const retrieveTooltipContent = (size, type) => {
                 hasArrow={state.hasArrow}
                 placement={state.placement}
                 size={state.size === 'default' ? undefined : state.size}
-                delayMilliseconds={state.delayMS}
+                delayMS={state.delayMS}
                 isVisible={state.isVisible ? true : undefined}
               >
                 <Button>Default tooltip</Button>
@@ -178,7 +178,7 @@ const retrieveTooltipContent = (size, type) => {
                 size={state.size === 'default' ? undefined : state.size}
                 type="light"
                 isVisible={state.isVisible ? true : undefined}
-                delayMilliseconds={state.delayMS}
+                delayMS={state.delayMS}
               >
                 <Button>Light tooltip</Button>
               </Tooltip>

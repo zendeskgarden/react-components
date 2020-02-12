@@ -29,7 +29,7 @@ export interface ITooltipProps
   appendToNode?: Element;
   hasArrow?: boolean;
   /** Milliseconds of delay before open/close of tooltip is initiated */
-  delayMilliseconds?: number;
+  delayMS?: number;
   /** Whether Popper.js should update based on DOM resize events */
   eventsEnabled?: boolean;
   id?: string;
@@ -54,7 +54,7 @@ export interface ITooltipProps
 
 const Tooltip: React.FC<ITooltipProps> = ({
   id,
-  delayMilliseconds,
+  delayMS,
   initialIsVisible,
   content,
   refKey,
@@ -73,7 +73,7 @@ const Tooltip: React.FC<ITooltipProps> = ({
   const scheduleUpdateRef = useRef<() => void>();
   const { isVisible, getTooltipProps, getTriggerProps, openTooltip, closeTooltip } = useTooltip({
     id,
-    delayMilliseconds,
+    delayMilliseconds: delayMS,
     isVisible: initialIsVisible
   });
 
@@ -176,7 +176,7 @@ const Tooltip: React.FC<ITooltipProps> = ({
 Tooltip.propTypes = {
   appendToNode: PropTypes.any,
   hasArrow: PropTypes.bool,
-  delayMilliseconds: PropTypes.number,
+  delayMS: PropTypes.number,
   eventsEnabled: PropTypes.bool,
   id: PropTypes.string,
   content: PropTypes.node.isRequired,
@@ -208,7 +208,7 @@ Tooltip.defaultProps = {
   eventsEnabled: true,
   type: 'dark',
   placement: 'top',
-  delayMilliseconds: 500,
+  delayMS: 500,
   refKey: 'ref',
   theme: DEFAULT_THEME
 };
