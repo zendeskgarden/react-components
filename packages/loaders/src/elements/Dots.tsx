@@ -40,8 +40,8 @@ interface IDotsProps extends React.HTMLAttributes<SVGSVGElement> {
 }
 
 const Dots: React.FC<IDotsProps> = ({ size, color, duration, delayMS, ...other }) => {
-  const { delayComplete } = useSchedule({ duration, delayMS });
   const noAnimatedSVGSupport = useCSSSVGAnimation();
+  const { delayComplete } = useSchedule({ duration, delayMS, loop: noAnimatedSVGSupport });
   const dotOne = useRef<SVGCircleElement>(null);
   const dotTwo = useRef<SVGCircleElement>(null);
   const dotThree = useRef<SVGCircleElement>(null);
