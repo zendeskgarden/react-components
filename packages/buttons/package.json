@@ -19,8 +19,8 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendeskgarden/container-buttongroup": "^0.2.0",
-    "@zendeskgarden/container-keyboardfocus": "^0.3.0",
+    "@zendeskgarden/container-buttongroup": "^0.3.0",
+    "@zendeskgarden/container-keyboardfocus": "^0.4.0",
     "@zendeskgarden/react-utilities": "^7.1.4",
     "classnames": "^2.2.5"
   },
