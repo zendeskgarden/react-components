@@ -234,7 +234,7 @@ describe('Datepicker', () => {
       fireEvent.click(input);
       fireEvent.blur(input);
 
-      expect(queryByTestId('datepicker-menu')).toBeNull();
+      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
     });
 
     it('opens datepicker when correct keys are used', () => {
@@ -266,12 +266,12 @@ describe('Datepicker', () => {
       fireEvent.click(input);
       fireEvent.keyDown(input, { keyCode: KEY_CODES.ESCAPE });
 
-      expect(queryByTestId('datepicker-menu')).toBeNull();
+      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
 
       fireEvent.mouseDown(getByTestId('input'));
       fireEvent.click(input);
       fireEvent.keyDown(input, { keyCode: KEY_CODES.ENTER });
-      expect(queryByTestId('datepicker-menu')).toBeNull();
+      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
     });
 
     it('leaves datepicker open if calendar is moused down', () => {

@@ -20,7 +20,7 @@ const retrievePadding = ({
     value = theme.space.base * 4;
   }
 
-  return `padding: ${value}px;`;
+  return `margin: ${value}px;`;
 };
 
 interface IStyledDatepickerProps {

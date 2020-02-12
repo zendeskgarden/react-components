@@ -364,9 +364,9 @@ describe('DatepickerRange', () => {
       const { getAllByTestId, rerender } = render(<Example isCompact />);
       const calendarWrappers = getAllByTestId('calendar-wrapper');
 
-      expect(calendarWrappers[0]).toHaveStyleRule('padding', '16px');
+      expect(calendarWrappers[0]).toHaveStyleRule('margin', '16px');
       rerender(<Example />);
-      expect(calendarWrappers[0]).toHaveStyleRule('padding', '20px');
+      expect(calendarWrappers[0]).toHaveStyleRule('margin', '20px');
     });
   });
 
