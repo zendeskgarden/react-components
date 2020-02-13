@@ -41,7 +41,7 @@ const StyledMessage = styled(Message)`
 
 <Grid>
   <Row>
-    <Col size="5">
+    <Col>
       <Well isRecessed>
         <Field>
           <Toggle
@@ -219,7 +219,7 @@ initialState = {
 
 <Grid>
   <Row>
-    <Col size="7">
+    <Col>
       <Well isRecessed style={{ width: 360 }}>
         <Field>
           <Toggle

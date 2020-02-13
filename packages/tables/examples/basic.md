@@ -15,7 +15,7 @@ const {
 const { Field: FormsField, Toggle, Label: ToggleLabel } = require('@zendeskgarden/react-forms/src');
 
 initialState = {
-  rowSize: 'default',
+  rowSize: 'medium',
   isStriped: false,
   isGrouped: false,
   showCaption: true,
@@ -90,7 +90,7 @@ const StyledCaption = styled(Caption)`
           </Field>
           <Menu isCompact>
             <Item value="small">small</Item>
-            <Item value="default">default</Item>
+            <Item value="medium">medium</Item>
             <Item value="large">large</Item>
           </Menu>
         </Dropdown>
@@ -132,7 +132,7 @@ const StyledCaption = styled(Caption)`
   <StyledSpacer />
   <Layout.Row>
     <Layout.Col>
-      <Table size={state.rowSize === 'default' ? undefined : state.rowSize}>
+      <Table size={state.rowSize}>
         {state.showCaption && <StyledCaption>Your Unsolved Tickets</StyledCaption>}
         <Head>
           <HeaderRow>
