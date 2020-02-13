@@ -9,7 +9,8 @@
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
   "version": "8.0.0-next.0",
-  "main": "./dist/index.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "files": [
     "dist"
   ],
@@ -30,7 +31,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "zendeskgarden:library": "GardenUtilities",
-  "zendeskgarden:max_size": "1 kB",
   "zendeskgarden:src": "src/index.js"
 }
