@@ -19,6 +19,7 @@
     "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
+  "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "dependencies": {
     "@zendeskgarden/container-buttongroup": "^0.3.0",

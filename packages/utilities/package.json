@@ -19,6 +19,7 @@
     "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
+  "sideEffects": false,
   "devDependencies": {
     "@zendeskgarden/react-theming": "^8.0.0-next.0"
   },

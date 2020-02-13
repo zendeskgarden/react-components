@@ -19,7 +19,8 @@
     "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
-  "types": "./dist/typings/index.d.ts",
+  "sideEffects": false,
+  "types": "dist/typings/index.d.ts",
   "dependencies": {
     "polished": "^3.4.4"
   },
