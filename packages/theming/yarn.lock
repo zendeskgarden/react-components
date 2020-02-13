@@ -9,12 +9,12 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@zendeskgarden/container-focusvisible@0.4.0":
+"@zendeskgarden/container-focusvisible@^0.4.0":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-focusvisible/-/container-focusvisible-0.4.0.tgz#a9fec810f17dca474c935f25ba24b1adbd6cafb6"
   integrity sha512-6Vhcg99gBwJYlIkoHXO/3dp7mCNrsmfc85617ovol3pR0ak3iqhktvsCTY0sYj+/x8rVB4LKfaeCbkGiWgYzfQ==
 
-"@zendeskgarden/container-utilities@0.5.0":
+"@zendeskgarden/container-utilities@^0.5.0":
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.5.0.tgz#68885c7ca1dd128cf58a38e6c7a1ba7cd0cd010f"
   integrity sha512-B2RzugpIKWcOQB1eqrOg2/acjQiYJrOprFbifOaEoV84qMqoP1piw4Gwwxx/n0SiNCLrNflzdWubvU9wyvhS/A==
