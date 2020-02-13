@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import math from 'polished/lib/math/math';
+import { math } from 'polished';
 import { DEFAULT_THEME, isRtl, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledFont } from './StyledFont';
 

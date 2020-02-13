@@ -6,7 +6,7 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import stripUnit from 'polished/lib/helpers/stripUnit';
+import { stripUnit } from 'polished';
 import {
   arrowStyles,
   retrieveComponentStyles,

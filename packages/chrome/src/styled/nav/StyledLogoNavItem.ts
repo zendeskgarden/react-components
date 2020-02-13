@@ -8,7 +8,7 @@
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { PALETTE, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { PRODUCT } from '../../utils/types';
-import { StyledBaseNavItem } from '../';
+import { StyledBaseNavItem } from './StyledBaseNavItem';
 
 const COMPONENT_ID = 'chrome.logo_nav_item';
 

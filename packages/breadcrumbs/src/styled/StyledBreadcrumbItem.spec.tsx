@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import stripUnit from 'polished/lib/helpers/stripUnit';
+import { stripUnit } from 'polished';
 import { render } from 'garden-test-utils';
 import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledBreadcrumbItem } from './StyledBreadcrumbItem';

@@ -6,7 +6,7 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import math from 'polished/lib/math/math';
+import { math } from 'polished';
 import { FauxInput } from '@zendeskgarden/react-forms';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { VALIDATION } from '../../utils/validation';

@@ -6,7 +6,7 @@
  */
 
 import { css, keyframes } from 'styled-components';
-import math from 'polished/lib/math/math';
+import { math } from 'polished';
 
 export type ARROW_POSITION =
   | 'top'

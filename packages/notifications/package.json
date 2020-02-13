@@ -9,7 +9,8 @@
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
   "version": "8.0.0-next.0",
-  "main": "./dist/index.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "files": [
     "dist"
   ],
@@ -18,6 +19,7 @@
     "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
+  "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^6.0.0 || ^7.0.0",
@@ -27,7 +29,8 @@
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "@zendeskgarden/react-theming": "^8.0.0-next.0"
+    "@zendeskgarden/react-theming": "^8.0.0-next.0",
+    "@zendeskgarden/svg-icons": "6.10.0"
   },
   "keywords": [
     "components",
@@ -38,7 +41,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "zendeskgarden:library": "GardenNotifications",
-  "zendeskgarden:max_size": "3.5 kB",
   "zendeskgarden:src": "src/index.ts"
 }
