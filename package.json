@@ -3,7 +3,7 @@
   "name": "@zendeskgarden/react-components",
   "version": "0.0.0",
   "scripts": {
-    "build": "lerna run build --stream --concurrency 3",
+    "build": "lerna run build --stream",
     "build:analyze": "ANALYZE_BUNDLE=true yarn build:single",
     "build:demo": "lerna run build:demo --stream",
     "build:single": "utils/scripts/scoped-npm-command.js --script build",

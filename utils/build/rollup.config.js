@@ -19,6 +19,7 @@ import license from 'rollup-plugin-license';
 import cleanup from 'rollup-plugin-cleanup';
 import del from 'rollup-plugin-delete';
 import svgr from '@svgr/rollup';
+import tsc from 'typescript';
 
 const pkg = require(path.resolve('./package.json'));
 const babelOptions = require(path.resolve('../../babel.config.js'));
@@ -56,8 +57,10 @@ export default [
       svgr({ svgoConfig: path.resolve('../../.svgo.yml') }),
       isTSPackage &&
         typescript({
+          check: false,
           tsconfig: 'tsconfig.build.json',
-          useTsconfigDeclarationDir: true
+          useTsconfigDeclarationDir: true,
+          typescript: tsc
         }),
       babel({
         babelrc: false,
