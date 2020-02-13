@@ -39,7 +39,7 @@
     "@zendeskgarden/css-forms": "7.0.18",
     "@zendeskgarden/css-menus": "9.0.18",
     "@zendeskgarden/react-theming": "^7.1.4",
-    "@zendeskgarden/svg-icons": "6.9.0",
+    "@zendeskgarden/svg-icons": "6.10.0",
     "lodash.debounce": "4.0.8"
   },
   "keywords": [

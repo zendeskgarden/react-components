@@ -34,7 +34,7 @@
     "@zendeskgarden/css-tables": "4.0.17",
     "@zendeskgarden/css-variables": "6.4.3",
     "@zendeskgarden/react-theming": "^7.1.4",
-    "@zendeskgarden/svg-icons": "6.9.0",
+    "@zendeskgarden/svg-icons": "6.10.0",
     "react-beautiful-dnd": "11.0.5",
     "react-window": "1.8.5"
   },
