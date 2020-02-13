@@ -5,6 +5,7 @@ All `Items` require a `value` prop that is provided with the `onSelect` callback
 Any object or value can be provided.
 
 ```jsx
+const { Avatar } = require('@zendeskgarden/react-avatars/src');
 const { Well } = require('@zendeskgarden/react-notifications/src');
 const { Toggle, Field: FormField, Label: FormLabel } = require('@zendeskgarden/react-forms/src');
 const { Button } = require('@zendeskgarden/react-buttons/src');
@@ -140,6 +141,17 @@ initialState = {
             <MediaBody>
               Icon Media Item
               <ItemMeta>Meta info</ItemMeta>
+            </MediaBody>
+          </MediaItem>
+          <MediaItem value="avatar" disabled={state.isDisabled}>
+            <MediaFigure>
+              <Avatar size={state.isCompact ? 'extrasmall' : 'small'} status="available">
+                <img alt="Sage" src="images/avatar-48.png" />
+              </Avatar>
+            </MediaFigure>
+            <MediaBody>
+              Sage
+              <ItemMeta>sage@zendesk.garden</ItemMeta>
             </MediaBody>
           </MediaItem>
           <Separator />

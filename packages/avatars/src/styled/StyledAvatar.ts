@@ -84,7 +84,7 @@ const badgeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
     min-width: ${minWidth};
     max-width: 2em;
     height: ${height};
-    box-sizing: content-box;
+    box-sizing: content-box !important; /* stylelint-disable-line */
     overflow: hidden;
     text-align: center;
     text-overflow: ellipsis;
