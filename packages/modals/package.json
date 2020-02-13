@@ -20,9 +20,9 @@
   },
   "types": "dist/typings/index.d.ts",
   "dependencies": {
-    "@zendeskgarden/container-focusvisible": "^0.3.0",
-    "@zendeskgarden/container-modal": "^0.6.0",
-    "@zendeskgarden/container-utilities": "^0.4.0",
+    "@zendeskgarden/container-focusvisible": "^0.4.0",
+    "@zendeskgarden/container-modal": "^0.7.0",
+    "@zendeskgarden/container-utilities": "^0.5.0",
     "dom-helpers": "^5.1.0"
   },
   "peerDependencies": {

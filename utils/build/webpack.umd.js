@@ -7,7 +7,7 @@
 
 const path = require('path');
 const merge = require('webpack-merge');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const baseConfig = require('./webpack.base');
 const packageManifest = require(path.resolve('package.json'));
 
@@ -19,8 +19,9 @@ module.exports = merge(baseConfig, {
     libraryTarget: 'umd'
   },
   optimization: {
+    minimize: true,
     minimizer: [
-      new UglifyJsPlugin({
+      new TerserPlugin({
         cache: true,
         parallel: true,
         sourceMap: true

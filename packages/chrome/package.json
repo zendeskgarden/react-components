@@ -20,9 +20,9 @@
   },
   "types": "dist/typings/index.d.ts",
   "dependencies": {
-    "@zendeskgarden/container-accordion": "^0.3.1",
-    "@zendeskgarden/container-keyboardfocus": "^0.2.6",
-    "@zendeskgarden/container-utilities": "^0.3.0",
+    "@zendeskgarden/container-accordion": "^0.5.0",
+    "@zendeskgarden/container-keyboardfocus": "^0.4.0",
+    "@zendeskgarden/container-utilities": "^0.5.0",
     "polished": "^3.4.2"
   },
   "peerDependencies": {

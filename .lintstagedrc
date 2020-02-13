@@ -3,16 +3,13 @@
     "stylelint",
     "eslint",
     "jest --config=utils/test/jest.config.js --findRelatedTests",
-    "prettier --write",
-    "git add"
+    "prettier --write"
   ],
   "!(*CHANGELOG).md": [
     "markdownlint",
-    "prettier --write",
-    "git add"
+    "prettier --write"
   ],
   "**/package.json": [
-    "prettier-package-json --write",
-    "git add"
+    "prettier-package-json --write"
   ]
 }
