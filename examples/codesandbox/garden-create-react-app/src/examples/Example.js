@@ -1,31 +1,25 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import {
-  zdSpacing,
-  zdSpacingSm,
-  zdSpacingXl,
-  zdFontWeightSemibold,
-  zdColorBlue600
-} from '@zendeskgarden/css-variables';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { XXL, MD } from '@zendeskgarden/react-typography';
 import { Button, Anchor } from '@zendeskgarden/react-buttons';
 import { Dots } from '@zendeskgarden/react-loaders';
 import { Dropdown, Trigger, Menu, Item } from '@zendeskgarden/react-dropdowns';
 
 const Header = styled(XXL)`
-  margin-bottom: ${zdSpacing};
+  margin-bottom: ${props => props.theme.space.md};
 `;
 
 const Paragraph = styled.p`
-  margin-bottom: ${zdSpacingSm};
+  margin-bottom: ${props => props.theme.space.sm};
 `;
 
 const Strong = styled.strong`
-  font-weight: ${zdFontWeightSemibold};
+  font-weight: ${props => props.theme.fontWeights.semibold};
 `;
 
 const CodeExample = styled.div`
-  margin-top: ${zdSpacingXl};
+  margin-top: ${props => props.theme.space.xl};
   text-align: center;
 `;
 
@@ -37,11 +31,17 @@ export default class Example extends Component {
         <MD>
           <Paragraph>
             This CodeSandbox is an example codebase of the{' '}
-            <Anchor href="https://garden.zendesk.com/react-components">
+            <Anchor
+              href="https://garden.zendesk.com/react-components"
+              isExternal
+            >
               Garden react-components
             </Anchor>{' '}
             using the{' '}
-            <Anchor href="https://github.com/facebook/create-react-app">
+            <Anchor
+              href="https://github.com/facebook/create-react-app"
+              isExternal
+            >
               create-react-app
             </Anchor>{' '}
             template.
@@ -63,7 +63,7 @@ export default class Example extends Component {
           </Dropdown>
         </CodeExample>
         <CodeExample>
-          <Dots color={zdColorBlue600} size={40} />
+          <Dots color={PALETTE.blue[600]} size={40} />
         </CodeExample>
       </>
     );
