@@ -6,7 +6,7 @@
  */
 
 import styled, { keyframes, css, ThemeProps, DefaultTheme } from 'styled-components';
-import rgba from 'polished/lib/color/rgba';
+import { rgba } from 'polished';
 import {
   DEFAULT_THEME,
   retrieveComponentStyles,

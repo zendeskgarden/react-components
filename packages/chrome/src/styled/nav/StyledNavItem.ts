@@ -6,8 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import rgba from 'polished/lib/color/rgba';
-import math from 'polished/lib/math/math';
+import { rgba, math } from 'polished';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledBaseNavItem } from './StyledBaseNavItem';
 import { StyledNavItemIcon } from './StyledNavItemIcon';

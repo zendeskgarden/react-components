@@ -6,7 +6,7 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import math from 'polished/lib/math/math';
+import { math } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
@@ -17,7 +17,7 @@ import { VALIDATION } from '../../utils/validation';
 import { StyledMessageIcon } from './StyledMessageIcon';
 import { StyledLabel } from './StyledLabel';
 
-interface IStyledMessageProps {
+export interface IStyledMessageProps {
   validation?: VALIDATION;
 }
 

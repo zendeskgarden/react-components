@@ -8,7 +8,7 @@
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-import { StyledItem } from '../../';
+import { StyledItem } from '../StyledItem';
 
 const COMPONENT_ID = 'dropdowns.header_item';
 

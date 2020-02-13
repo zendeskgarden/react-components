@@ -7,7 +7,7 @@
 
 import React, { HTMLAttributes } from 'react';
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import em from 'polished/lib/helpers/em';
+import { em } from 'polished';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/12/chevron-right-stroke.svg';
 

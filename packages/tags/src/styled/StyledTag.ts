@@ -6,8 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import math from 'polished/lib/math/math';
-import readableColor from 'polished/lib/color/readableColor';
+import { math, readableColor } from 'polished';
 import {
   DEFAULT_THEME,
   getColor,

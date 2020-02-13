@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-import { StyledSubNavItem, IStyledSubNavItemProps } from '../../styled';
+import { StyledSubNavItem, IStyledSubNavItemProps } from './StyledSubNavItem';
 
 const COMPONENT_ID = 'chrome.collapsible_sub_nav_item';
 

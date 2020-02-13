@@ -6,8 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import math from 'polished/lib/math/math';
-import rgba from 'polished/lib/color/rgba';
+import { math, rgba } from 'polished';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledRadioLabel } from './StyledRadioLabel';
 

@@ -14,7 +14,7 @@ import {
 
 const COMPONENT_ID = 'forms.input_label';
 
-interface IStyledLabelProps {
+export interface IStyledLabelProps {
   isRegular?: boolean;
 }
 

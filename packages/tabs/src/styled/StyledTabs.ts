@@ -7,7 +7,8 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledTab, StyledTabPanel } from '../styled';
+import { StyledTab } from './StyledTab';
+import { StyledTabPanel } from './StyledTabPanel';
 import { StyledTabList } from './StyledTabList';
 
 const COMPONENT_ID = 'tabs.tabs';

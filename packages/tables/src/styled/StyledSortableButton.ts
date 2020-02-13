@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import math from 'polished/lib/math/math';
+import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tables.sortable';

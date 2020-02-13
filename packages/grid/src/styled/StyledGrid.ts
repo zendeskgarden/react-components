@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import math from 'polished/lib/math/math';
+import { math } from 'polished';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { SPACE } from '../utils/types';
 

@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import math from 'polished/lib/math/math';
+import { math } from 'polished';
 import {
   retrieveComponentStyles,
   getLineHeight,

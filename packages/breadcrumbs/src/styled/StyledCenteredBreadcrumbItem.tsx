@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledBreadcrumbItem } from './index';
+import { StyledBreadcrumbItem } from './StyledBreadcrumbItem';
 
 export const StyledCenteredBreadcrumbItem = styled(StyledBreadcrumbItem).attrs({
   'aria-hidden': true

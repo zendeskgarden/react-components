@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledBaseNavItem } from '..';
+import { StyledBaseNavItem } from './StyledBaseNavItem';
 
 const COMPONENT_ID = 'chrome.brandmark_nav_item';
 
