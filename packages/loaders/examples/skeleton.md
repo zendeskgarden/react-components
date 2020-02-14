@@ -9,7 +9,7 @@ initialState = {
 };
 
 const StyledCol = styled(Col)`
-  background-color: ${props => (props.isDarkMode ? PALETTE.grey[800] : PALETTE.white)};
+  background-color: ${props => (props.isDarkMode ? PALETTE.kale[700] : PALETTE.white)};
   color: ${props => (props.isDarkMode ? PALETTE.white : PALETTE.black)};
   padding: 18px;
 `;
