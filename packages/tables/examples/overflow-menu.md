@@ -63,7 +63,7 @@ const StyledSpacer = styled.div`
 `;
 
 initialState = {
-  rowSize: 'default'
+  rowSize: 'medium'
 };
 
 <Layout.Grid>
@@ -77,7 +77,7 @@ initialState = {
           </Field>
           <Menu isCompact>
             <Item value="small">small</Item>
-            <Item value="default">default</Item>
+            <Item value="medium">medium</Item>
             <Item value="large">large</Item>
           </Menu>
         </Dropdown>
@@ -87,7 +87,7 @@ initialState = {
   <StyledSpacer />
   <Layout.Row>
     <Layout.Col>
-      <Table size={state.rowSize === 'default' ? undefined : state.rowSize}>
+      <Table size={state.rowSize}>
         <StyledCaption>Overflow Menus</StyledCaption>
         <Head>
           <HeaderRow>

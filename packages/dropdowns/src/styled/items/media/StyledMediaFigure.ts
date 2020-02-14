@@ -49,9 +49,9 @@ export const StyledMediaFigure = styled(
 })<IStyledMediaFigureProps>`
   float: ${props => (props.theme.rtl ? 'right' : 'left')};
   margin-top: ${props => getMediaFigureMarginTop(props)};
-  /* stylelint-disable-next-line property-no-unknown */
+  /* stylelint-disable-next-line property-no-unknown,declaration-no-important */
   margin-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
-  props.isCompact ? props.theme.space.base * 1.5 : props.theme.space.base * 2}px;
+  props.isCompact ? props.theme.space.base * 1.5 : props.theme.space.base * 2}px !important;
   width: ${props => getMediaFigureSize(props)};
   height: ${props => getMediaFigureSize(props)};
 

@@ -22,12 +22,13 @@ import {
 import { MenuContext } from '../../utils/useMenuContext';
 
 interface IMenuProps extends HTMLAttributes<HTMLDivElement> {
+  /** See Popper [documentation](https://popper.js.org/docs/v2/modifiers/) for details */
   popperModifiers?: Modifiers;
   eventsEnabled?: boolean;
   zIndex?: number;
   /**
-   * These placements differ from the default naming of Popper.JS placements to help
-   * assist with RTL layouts.
+   * These placements differ from the default naming of Popper placements to
+   * accommodate RTL layouts
    **/
   placement?: GARDEN_PLACEMENT;
   isAnimated?: boolean;

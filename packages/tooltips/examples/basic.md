@@ -161,6 +161,7 @@ const retrieveTooltipContent = (size, type) => {
                 size={state.size === 'default' ? undefined : state.size}
                 delayMS={state.delayMS}
                 isVisible={state.isVisible ? true : undefined}
+                zIndex={1}
               >
                 <Button>Default tooltip</Button>
               </Tooltip>
@@ -179,6 +180,7 @@ const retrieveTooltipContent = (size, type) => {
                 type="light"
                 isVisible={state.isVisible ? true : undefined}
                 delayMS={state.delayMS}
+                zIndex={1}
               >
                 <Button>Light tooltip</Button>
               </Tooltip>

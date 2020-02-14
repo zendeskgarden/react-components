@@ -15,11 +15,6 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 ## Basic Example
 
 ```jsx static
-/**
- * Include dropdowns styling *once* at the root of your application
- */
-import '@zendeskgarden/react-dropdowns/dist/styles.css';
-
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Dropdown, Menu, Item, Trigger } from '@zendeskgarden/react-dropdowns';
 

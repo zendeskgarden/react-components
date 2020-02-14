@@ -40,7 +40,7 @@ const isOverflowing = (element: Element) => {
 
 export interface IModalProps {
   /**
-   * Props to spread onto backdrop element
+   * HTML attributes to spread onto backdrop element
    */
   backdropProps?: HTMLAttributes<HTMLDivElement>;
   /**

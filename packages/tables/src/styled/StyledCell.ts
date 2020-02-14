@@ -14,11 +14,16 @@ import { getRowHeight } from './style-utils';
 const COMPONENT_ID = 'tables.cell';
 
 export interface IStyledCellProps {
-  /** Applies minimum size styling */
+  /**
+   * Applies minimum fixed width styling (e.g. for cells that contain
+   * checkboxes or icons)
+   */
   isMinimum?: boolean;
   /** Applies truncated text styling */
   isTruncated?: boolean;
-  /** Applies overflow styling */
+  /**
+   * Styling for a cell that contains an `OverflowButton`
+   */
   hasOverflow?: boolean;
   /** The width of the cell */
   width?: string | number;
