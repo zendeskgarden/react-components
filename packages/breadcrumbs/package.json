@@ -19,7 +19,7 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendeskgarden/container-breadcrumb": "^0.4.0",
+    "@zendeskgarden/container-breadcrumb": "^0.4.1",
     "classnames": "^2.2.5"
   },
   "peerDependencies": {
