@@ -9,25 +9,25 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@zendeskgarden/container-accordion@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-accordion/-/container-accordion-0.5.0.tgz#acfc59e6ae0c9e6967413cad9f85e40e71c7ed6e"
-  integrity sha512-n0za0IkZAIWFLRZl5WLC2jt9K2r547MQ2/yeoBMbsEPZ8I6eBTNtiPKn/YLVjAHEPojHGkQRoE2MJngW7vxg8Q==
+"@zendeskgarden/container-accordion@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-accordion/-/container-accordion-0.5.1.tgz#4e05b70fa86ded3ddfaea806924e39c982f873f5"
+  integrity sha512-AVSnimncX1DXBltIS+ArIODwBR1aNVgfPwMJE0ixgLnSfoiGzXLLYK2D+oC/cSkEQ02ik+kq68Ohnow8SDICfA==
   dependencies:
-    "@zendeskgarden/container-utilities" "^0.5.0"
+    "@zendeskgarden/container-utilities" "^0.5.1"
     react-uid "^2.2.0"
 
-"@zendeskgarden/container-keyboardfocus@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-keyboardfocus/-/container-keyboardfocus-0.4.0.tgz#1bf8a1932264bef3ec7af5d227e667865faba16e"
-  integrity sha512-njIoWY8WPZVqhqhk9582Z9OUnGRdXof4E4JnzpehBDbzeEhrwQMc7MDmSHEkr124Op6U8yIiLoL8FAsBScfkDQ==
+"@zendeskgarden/container-keyboardfocus@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-keyboardfocus/-/container-keyboardfocus-0.4.1.tgz#70c932ece615d4c3dafcb650c66361cd0377ec07"
+  integrity sha512-B6/Wat0QLL6JDeK85CPVayldkb3yCj5lQbqc9XfqAFVNrE4NbF6pG90bS1dCuv9rrGZwR67NPrd8XZyBuNwSoQ==
   dependencies:
-    "@zendeskgarden/container-utilities" "^0.5.0"
+    "@zendeskgarden/container-utilities" "^0.5.1"
 
-"@zendeskgarden/container-utilities@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.5.0.tgz#68885c7ca1dd128cf58a38e6c7a1ba7cd0cd010f"
-  integrity sha512-B2RzugpIKWcOQB1eqrOg2/acjQiYJrOprFbifOaEoV84qMqoP1piw4Gwwxx/n0SiNCLrNflzdWubvU9wyvhS/A==
+"@zendeskgarden/container-utilities@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.5.1.tgz#738dc99dbe4a98809fdc015e5a8e000997725876"
+  integrity sha512-+nswWqFEiWHkuQeYSdftJ5c3Xy48IHPKb23qktIeEl+ZibMXzWVytdg91zOerI/HGJizNJ0gKmq+0A/4//eiQQ==
 
 "@zendeskgarden/svg-icons@6.9.0":
   version "6.9.0"

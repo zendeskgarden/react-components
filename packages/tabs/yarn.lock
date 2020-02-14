@@ -9,25 +9,25 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@zendeskgarden/container-selection@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-selection/-/container-selection-1.3.0.tgz#5836623f11017efdb6f87420af283ca5e600caba"
-  integrity sha512-qvnZflEMvwPoqakWdSuExFxUY6vAUsF5WApMySs4qBeS9aeBV9j2S1IeQsaxLLg+jV+LLcKLNlPPymxFt4V1CA==
+"@zendeskgarden/container-selection@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-selection/-/container-selection-1.3.1.tgz#352325712f615d084fd1762cb75051ff8d8e8e21"
+  integrity sha512-haJUyehKOAVapTfZKiMosuChxKp18URO8XH7Jr+Nwsbxujrhe2G7bX4i3rwGRaWk6BTpR5v+mcFnOY8IrrIJRQ==
   dependencies:
-    "@zendeskgarden/container-utilities" "^0.5.0"
+    "@zendeskgarden/container-utilities" "^0.5.1"
 
-"@zendeskgarden/container-tabs@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-tabs/-/container-tabs-0.5.0.tgz#a5a3a42ac4209af946ff5867e28062f6d8902549"
-  integrity sha512-j5Pxi5DQOc21DInfRbhi/XhiuzpkQ0AogBcbXDV7x+B/4Af81nsUWIXTcgkx/OvpNCTp2H0OiyS91wv+BLJqFw==
+"@zendeskgarden/container-tabs@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-tabs/-/container-tabs-0.5.1.tgz#fff5eb8796db021b0a3137a0eb28d60756054701"
+  integrity sha512-2nGLrJjt7VglUg9BlKlNw81SjzdcbF01zaNR367t9b8Pza2YmJp/OoM1VlBEmRTBnTe8r8Kz5CC+CYTMwZRw3w==
   dependencies:
-    "@zendeskgarden/container-selection" "^1.3.0"
+    "@zendeskgarden/container-selection" "^1.3.1"
     react-uid "^2.2.0"
 
-"@zendeskgarden/container-utilities@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.5.0.tgz#68885c7ca1dd128cf58a38e6c7a1ba7cd0cd010f"
-  integrity sha512-B2RzugpIKWcOQB1eqrOg2/acjQiYJrOprFbifOaEoV84qMqoP1piw4Gwwxx/n0SiNCLrNflzdWubvU9wyvhS/A==
+"@zendeskgarden/container-utilities@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.5.1.tgz#738dc99dbe4a98809fdc015e5a8e000997725876"
+  integrity sha512-+nswWqFEiWHkuQeYSdftJ5c3Xy48IHPKb23qktIeEl+ZibMXzWVytdg91zOerI/HGJizNJ0gKmq+0A/4//eiQQ==
 
 polished@^3.4.4:
   version "3.4.4"

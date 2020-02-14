@@ -9,24 +9,24 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@zendeskgarden/container-pagination@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-pagination/-/container-pagination-0.3.0.tgz#75f2d87297eab1a0006f1af3a97742d200b7aa46"
-  integrity sha512-DxCBAHD4IZuUmWx3Zb9I3VciXOIRtvN7t1fByu01zc8MsvQ3t3PvUQ1oBcexALST81kJo61vD/Y56Xp0nWVf7Q==
+"@zendeskgarden/container-pagination@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-pagination/-/container-pagination-0.3.1.tgz#08fc46deac7555b03f79d1c593b95285905de702"
+  integrity sha512-vxUJ0z1KgQSdYb81fvAb4T3iw99c0pdx2H8f8IyxphV0Othxfqp0YdzUpo2seEHhN9sAr5AH+DDjpvRi79ZBFQ==
   dependencies:
-    "@zendeskgarden/container-selection" "^1.3.0"
+    "@zendeskgarden/container-selection" "^1.3.1"
 
-"@zendeskgarden/container-selection@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-selection/-/container-selection-1.3.0.tgz#5836623f11017efdb6f87420af283ca5e600caba"
-  integrity sha512-qvnZflEMvwPoqakWdSuExFxUY6vAUsF5WApMySs4qBeS9aeBV9j2S1IeQsaxLLg+jV+LLcKLNlPPymxFt4V1CA==
+"@zendeskgarden/container-selection@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-selection/-/container-selection-1.3.1.tgz#352325712f615d084fd1762cb75051ff8d8e8e21"
+  integrity sha512-haJUyehKOAVapTfZKiMosuChxKp18URO8XH7Jr+Nwsbxujrhe2G7bX4i3rwGRaWk6BTpR5v+mcFnOY8IrrIJRQ==
   dependencies:
-    "@zendeskgarden/container-utilities" "^0.5.0"
+    "@zendeskgarden/container-utilities" "^0.5.1"
 
-"@zendeskgarden/container-utilities@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.5.0.tgz#68885c7ca1dd128cf58a38e6c7a1ba7cd0cd010f"
-  integrity sha512-B2RzugpIKWcOQB1eqrOg2/acjQiYJrOprFbifOaEoV84qMqoP1piw4Gwwxx/n0SiNCLrNflzdWubvU9wyvhS/A==
+"@zendeskgarden/container-utilities@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.5.1.tgz#738dc99dbe4a98809fdc015e5a8e000997725876"
+  integrity sha512-+nswWqFEiWHkuQeYSdftJ5c3Xy48IHPKb23qktIeEl+ZibMXzWVytdg91zOerI/HGJizNJ0gKmq+0A/4//eiQQ==
 
 "@zendeskgarden/svg-icons@6.10.0":
   version "6.10.0"
