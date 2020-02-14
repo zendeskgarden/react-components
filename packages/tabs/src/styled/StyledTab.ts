@@ -7,7 +7,7 @@
 
 import styled, { DefaultTheme, css, ThemeProps } from 'styled-components';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import stripUnit from 'polished/lib/helpers/stripUnit';
+import { stripUnit } from 'polished';
 
 const COMPONENT_ID = 'tabs.tab';
 

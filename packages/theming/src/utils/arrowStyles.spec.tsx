@@ -8,7 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import math from 'polished/lib/math/math';
+import { math } from 'polished';
 import arrowStyles, { ARROW_POSITION } from './arrowStyles';
 
 interface IStyledDivProps extends ThemeProps<DefaultTheme> {

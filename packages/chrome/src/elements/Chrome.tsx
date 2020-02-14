@@ -8,7 +8,7 @@
 import React, { HTMLAttributes, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProps, DefaultTheme } from 'styled-components';
-import readableColor from 'polished/lib/color/readableColor';
+import { readableColor } from 'polished';
 import { withTheme, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { ChromeContext } from '../utils/useChromeContext';
 import { StyledChrome } from '../styled';

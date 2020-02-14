@@ -10,6 +10,7 @@ import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden
 import { SIZE } from './StyledTable';
 import { StyledCell } from './StyledCell';
 import { StyledOverflowButton } from './StyledOverflowButton';
+import { getRowHeight } from './style-utils';
 
 const COMPONENT_ID = 'tables.row';
 
@@ -34,16 +35,6 @@ export const StyledBaseRow = styled.tr<IStyledRowProps>`
 
 StyledBaseRow.defaultProps = {
   theme: DEFAULT_THEME
-};
-
-export const getRowHeight = (props: { size: SIZE } & ThemeProps<DefaultTheme>) => {
-  if (props.size === 'large') {
-    return `${props.theme.space.base * 16}px`;
-  } else if (props.size === 'small') {
-    return `${props.theme.space.base * 8}px`;
-  }
-
-  return `${props.theme.space.base * 10}px`;
 };
 
 const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {

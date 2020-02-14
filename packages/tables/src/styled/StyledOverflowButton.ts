@@ -6,10 +6,10 @@
  */
 
 import styled, { ThemeProps, css, DefaultTheme } from 'styled-components';
-import math from 'polished/lib/math/math';
+import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
-import { getRowHeight } from './StyledRow';
 import { SIZE } from './StyledTable';
+import { getRowHeight } from './style-utils';
 
 const COMPONENT_ID = 'tables.overflow_button';
 

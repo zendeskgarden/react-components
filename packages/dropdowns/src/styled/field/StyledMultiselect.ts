@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, getLineHeight, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import stripUnit from 'polished/lib/helpers/stripUnit';
+import { stripUnit } from 'polished';
 import { StyledInput } from './StyledInput';
 import { IStyledSelectProps } from './StyledSelect';
 import { SelectWrapper } from './SelectWrapper';
