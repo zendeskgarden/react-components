@@ -15,11 +15,6 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 ## Usage
 
 ```jsx static
-/**
- * Include tables styling at the root of your application
- */
-import '@zendeskgarden/react-tables/dist/styles.css';
-
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import {
   Table,

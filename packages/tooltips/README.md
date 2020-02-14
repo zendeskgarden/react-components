@@ -19,11 +19,6 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 Standard tooltip usages.
 
 ```jsx static
-/**
- * Include tooltip styling at the root of your application
- */
-import '@zendeskgarden/react-tooltips/dist/styles.css';
-
 import { ThemingProvider } from '@zendeskgarden/react-theming';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 

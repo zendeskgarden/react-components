@@ -177,9 +177,6 @@ npm install styled-components @zendeskgarden/react-theming prop-types
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 
-/** Globally include scoped button styling */
-import '@zendeskgarden/react-buttons/dist/styles.css';
-
 /** Include a ThemeProvider at the root of your app */
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 
