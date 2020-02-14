@@ -9,10 +9,10 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@zendeskgarden/container-schedule@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-schedule/-/container-schedule-1.3.0.tgz#aa59648b6cc8d0f2e96f34eba61b13ddba29ffa5"
-  integrity sha512-VJEkopH+rOBCdL9lie9gl5pnkIj2Nq6PhQ2OiCzGSlVAEejYIcGyfu6PffCx0tOWPwuo2sd/gNg1tMoa2t55og==
+"@zendeskgarden/container-schedule@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-schedule/-/container-schedule-1.3.1.tgz#1991e9d2392a70b4ba0b6b6d376e149c9eda7e08"
+  integrity sha512-/9d/T+wZP2YPK56FzCUTVNzxKD3DF/uEQr+moRuDb+XXNwdOnCmBa7gWoSHfv0B3Nipsagwu0W5X56HVycHx5Q==
 
 polished@^3.4.4:
   version "3.4.4"

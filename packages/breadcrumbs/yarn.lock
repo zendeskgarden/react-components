@@ -9,10 +9,10 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@zendeskgarden/container-breadcrumb@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-breadcrumb/-/container-breadcrumb-0.4.0.tgz#763f1ec1c0c31485a56373a4e318b230f4628ce3"
-  integrity sha512-RSbJhDYroZiLGfgGzESXhR2bPQxtGkjKUkV1wfase+prw6HHMHUe0JKDU7MpW+Dq54diH9goRSknkH8KIW/c0g==
+"@zendeskgarden/container-breadcrumb@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-breadcrumb/-/container-breadcrumb-0.4.1.tgz#8e7cc8c6810498964c8df09e4ab7a4315aef0a6c"
+  integrity sha512-2qhaI8+YpiMWYLZGh+d1OihWgbXgcyZW47HDXz9rcVrwb+6k8tsEJQirWT/ZgR9UeUlbkMqzn/LdjnbCbWIugg==
 
 "@zendeskgarden/svg-icons@6.10.0":
   version "6.10.0"

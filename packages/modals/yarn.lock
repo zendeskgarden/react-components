@@ -9,33 +9,33 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@zendeskgarden/container-focusjail@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-focusjail/-/container-focusjail-1.3.0.tgz#3209a35c880d99e2d7257dc1655cdc949940ca77"
-  integrity sha512-1mcwE+sMbkqNPZO2dUXdZwDmegOIay/rrnGrRziMMZ5s+8n1sGq/ZnE2M9jedMj5R2mwtcQJfkpz6Cy/SAkt8g==
+"@zendeskgarden/container-focusjail@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-focusjail/-/container-focusjail-1.3.1.tgz#b7b8debc41e23db5502d0fa3d8665939c466d067"
+  integrity sha512-RHWgZHyAtMmfL9+2rRtNXYet6J55FFxleK1nVUdX1QEx6UL/2uYL+0ZX011TRYPJjuNczRTfhByO2iNE+Mm9nw==
   dependencies:
-    "@zendeskgarden/container-utilities" "^0.5.0"
+    "@zendeskgarden/container-utilities" "^0.5.1"
     dom-helpers "^5.1.0"
     tabbable "^4.0.0"
 
-"@zendeskgarden/container-focusvisible@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-focusvisible/-/container-focusvisible-0.4.0.tgz#a9fec810f17dca474c935f25ba24b1adbd6cafb6"
-  integrity sha512-6Vhcg99gBwJYlIkoHXO/3dp7mCNrsmfc85617ovol3pR0ak3iqhktvsCTY0sYj+/x8rVB4LKfaeCbkGiWgYzfQ==
+"@zendeskgarden/container-focusvisible@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-focusvisible/-/container-focusvisible-0.4.1.tgz#87d013163297c3ceffc5b5c99240477c563a7c13"
+  integrity sha512-8gG4WGPxvz9aZ2vk7Yqfp2LVvfMOA6OhiF0alT4B0ds5SMO3JF1B0GMhRReR/nA97TS8TPHmWlw+QusQTWsq3A==
 
-"@zendeskgarden/container-modal@^0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-modal/-/container-modal-0.7.0.tgz#58051b16ba7bbf73ce99f008e5cffa3733dc7727"
-  integrity sha512-IWtRV65RPAtsMwgaySejEBd8DbNUxBZEVlgZBBJqx6dJjZ/RmRuJYjsKEAEHENbs7vihAPVCFLDgkHW8YdUY1g==
+"@zendeskgarden/container-modal@^0.7.1":
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-modal/-/container-modal-0.7.1.tgz#213dcb7539f2b5e652a81be58fa52c129c974b03"
+  integrity sha512-xTM47vOUQhOUD0RlMAZPfz7qie60LbA8iiaE70CPEwvFB4C/2q/T3O/4yKfdLwWaoaMA/C2HgdK9xmyFq5UKdw==
   dependencies:
-    "@zendeskgarden/container-focusjail" "^1.3.0"
-    "@zendeskgarden/container-utilities" "^0.5.0"
+    "@zendeskgarden/container-focusjail" "^1.3.1"
+    "@zendeskgarden/container-utilities" "^0.5.1"
     react-uid "^2.2.0"
 
-"@zendeskgarden/container-utilities@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.5.0.tgz#68885c7ca1dd128cf58a38e6c7a1ba7cd0cd010f"
-  integrity sha512-B2RzugpIKWcOQB1eqrOg2/acjQiYJrOprFbifOaEoV84qMqoP1piw4Gwwxx/n0SiNCLrNflzdWubvU9wyvhS/A==
+"@zendeskgarden/container-utilities@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.5.1.tgz#738dc99dbe4a98809fdc015e5a8e000997725876"
+  integrity sha512-+nswWqFEiWHkuQeYSdftJ5c3Xy48IHPKb23qktIeEl+ZibMXzWVytdg91zOerI/HGJizNJ0gKmq+0A/4//eiQQ==
 
 "@zendeskgarden/svg-icons@6.10.0":
   version "6.10.0"
