@@ -12,6 +12,19 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v7.1.9 (2020-02-14)
+
+#### :bug: Bug Fix
+* `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `loaders`, `modals`, `pagination`, `tables`, `tabs`, `tags`, `tooltips`
+  * [#629](https://github.com/zendeskgarden/react-components/pull/629) fix(deps): ensure all garden container packages support ie11 ([@austin94](https://github.com/austin94))
+  * [#623](https://github.com/zendeskgarden/react-components/pull/623) fix(build): move from uglify to terser for UMD builds ([@austin94](https://github.com/austin94))
+
+#### :seedling: Internal
+* `buttons`, `chrome`, `datepickers`, `dropdowns`, `tables`
+  * [#625](https://github.com/zendeskgarden/react-components/pull/625) chore(deps): update dependency @zendeskgarden/svg-icons to v6.10.0 ([@renovate[bot]](https://github.com/apps/renovate))
+* Other
+  * [#626](https://github.com/zendeskgarden/react-components/pull/626) chore(deps): update dependency husky to v4.2.3 ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v7.1.8 (2020-02-10)
 
 #### :bug: Bug Fix
