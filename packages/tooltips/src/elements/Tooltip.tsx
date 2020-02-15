@@ -30,22 +30,22 @@ export interface ITooltipProps
   hasArrow?: boolean;
   /** Milliseconds of delay before open/close of tooltip is initiated */
   delayMS?: number;
-  /** Whether Popper.js should update based on DOM resize events */
+  /** Whether Popper should update based on DOM resize events */
   eventsEnabled?: boolean;
   id?: string;
   content: React.ReactNode;
   /**
-   * These placements differ from the default naming of Popper.JS placements to help
+   * These placements differ from the default naming of Popper placements to help
    * assist with RTL layouts.
    **/
   placement?: GARDEN_PLACEMENT;
-  /** Passes options to [Popper.JS Instance](https://github.com/FezVrasta/popper.js/blob/master/docs/_includes/popper-documentation.md#new-popperreference-popper-options) */
+  /** See Popper [documentation](https://popper.js.org/docs/v2/modifiers/) for details */
   popperModifiers?: Modifiers;
   size?: TOOLTIP_SIZE;
   type?: TOOLTIP_TYPE;
-  /** The z-index of the popper.js placement container */
   zIndex?: number | string;
-  initialIsVisible?: boolean;
+  /** Determine visibility on initial render */
+  isInitialVisible?: boolean;
   /** Control visibility state of the Tooltip */
   isVisible?: boolean;
   children: React.ReactElement;
@@ -55,7 +55,7 @@ export interface ITooltipProps
 const Tooltip: React.FC<ITooltipProps> = ({
   id,
   delayMS,
-  initialIsVisible,
+  isInitialVisible,
   content,
   refKey,
   placement,
@@ -74,7 +74,7 @@ const Tooltip: React.FC<ITooltipProps> = ({
   const { isVisible, getTooltipProps, getTriggerProps, openTooltip, closeTooltip } = useTooltip({
     id,
     delayMilliseconds: delayMS,
-    isVisible: initialIsVisible
+    isVisible: isInitialVisible
   });
 
   const controlledIsVisible = getControlledValue(externalIsVisible, isVisible);
@@ -199,7 +199,7 @@ Tooltip.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large', 'extra-large']),
   type: PropTypes.oneOf(['light', 'dark']),
   zIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  initialIsVisible: PropTypes.bool,
+  isInitialVisible: PropTypes.bool,
   refKey: PropTypes.string
 };
 
