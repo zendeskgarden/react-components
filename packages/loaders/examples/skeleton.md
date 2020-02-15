@@ -18,13 +18,13 @@ const StyledCol = styled(Col)`
   <Row alignItems="start">
     <StyledCol md={8} isDarkMode={state.isDarkMode}>
       <XXXL>
-        {state.isLoading ? <Skeleton isDark={state.isDarkMode} /> : 'There. You see Lord Vader.'}
+        {state.isLoading ? <Skeleton isLight={state.isDarkMode} /> : 'There. You see Lord Vader.'}
       </XXXL>
       {state.isLoading && (
         <MD>
-          <Skeleton isDark={state.isDarkMode} />
-          <Skeleton isDark={state.isDarkMode} />
-          <Skeleton isDark={state.isDarkMode} />
+          <Skeleton isLight={state.isDarkMode} />
+          <Skeleton isLight={state.isDarkMode} />
+          <Skeleton isLight={state.isDarkMode} />
         </MD>
       )}
       {!state.isLoading && (
@@ -46,7 +46,7 @@ const StyledCol = styled(Col)`
           checked={state.isDarkMode}
           onChange={e => setState({ isDarkMode: e.target.checked })}
         >
-          <Label>Enable Dark Styling</Label>
+          <Label>Dark mode</Label>
         </Checkbox>
       </Field>
     </StyledCol>

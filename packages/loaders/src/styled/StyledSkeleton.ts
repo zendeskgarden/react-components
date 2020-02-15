@@ -40,9 +40,9 @@ const skeletonRtlAnimation = keyframes`
 
 const retrieveSkeletonBackgroundColor = ({
   theme,
-  isDark
+  isLight
 }: IStyledSkeletonProps & ThemeProps<DefaultTheme>) => {
-  if (isDark) {
+  if (isLight) {
     return css`
       background-color: ${rgba(theme.colors.background, 0.2)};
     `;
@@ -56,7 +56,7 @@ const retrieveSkeletonBackgroundColor = ({
 interface IStyledSkeletonProps {
   width?: string;
   height?: string;
-  isDark?: boolean;
+  isLight?: boolean;
   customWidth?: string;
   customHeight?: string;
 }
@@ -77,7 +77,7 @@ const retrieveSkeletonAnimation = ({ theme }: ThemeProps<DefaultTheme>) => {
 
 const retrieveSkeletonGradient = ({
   theme,
-  isDark
+  isLight
 }: IStyledSkeletonProps & ThemeProps<DefaultTheme>) => {
   // Disabling stylelint due to conflicts with prettier and linear-gradient formatting
   return css`
@@ -85,7 +85,7 @@ const retrieveSkeletonGradient = ({
     background-image: linear-gradient(
       ${theme.rtl ? '-45deg' : '45deg'},
       transparent,
-      ${isDark ? getColor('chromeHue', 700, theme, 0.4) : rgba(theme.colors.background, 0.6)},
+      ${isLight ? getColor('chromeHue', 700, theme, 0.4) : rgba(theme.colors.background, 0.6)},
       transparent
     );
     /* stylelint-enable */

@@ -140,7 +140,7 @@ New features/fixes include:
 
 - `<Dots />` loader no longer has the `velocity` prop
   - Use `duration` instead which accepts `ms` defaults to 1250ms
-- `<Skeleton />` loader has renamed `dark` prop to `isDark`
+- `<Skeleton />` loader has renamed `dark` prop to `isLight`
 
 ## @zendeskgarden/react-modals
 
