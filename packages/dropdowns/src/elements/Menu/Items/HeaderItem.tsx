@@ -11,7 +11,7 @@ import useMenuContext from '../../../utils/useMenuContext';
 
 interface IHeaderItemProps extends HTMLAttributes<HTMLDivElement> {
   /** Applies icon styling */
-  containsIcon?: boolean;
+  hasIcon?: boolean;
 }
 
 /**

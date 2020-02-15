@@ -71,7 +71,7 @@ describe('HeaderItem', () => {
           <button>Test</button>
         </Trigger>
         <Menu>
-          <HeaderItem containsIcon data-test-id="header-item">
+          <HeaderItem hasIcon data-test-id="header-item">
             Header Item
           </HeaderItem>
         </Menu>
