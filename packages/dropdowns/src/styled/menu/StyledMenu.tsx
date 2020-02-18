@@ -70,38 +70,59 @@ const getArrowStyles = (props: IStyledMenuViewProps & ThemeProps<DefaultTheme>) 
   });
 };
 
-const getAnimationStyles = (props: IStyledMenuViewProps & ThemeProps<DefaultTheme>) => {
+const getAnimationStyles = (props: IStyledMenuAnimation & ThemeProps<DefaultTheme>) => {
   if (!props.isAnimated || !props.placement) {
     return undefined;
   }
 
-  let animationKey;
+  let translateKey;
+  let translateDirection = '';
 
   if (props.placement.startsWith('top')) {
-    animationKey = 'bottom';
+    translateKey = 'translateY';
   } else if (props.placement.startsWith('right')) {
-    animationKey = 'left';
+    translateKey = 'translateX';
+    translateDirection = '-';
   } else if (props.placement.startsWith('bottom')) {
-    animationKey = 'top';
+    translateKey = 'translateY';
+    translateDirection = '-';
   } else if (props.placement.startsWith('left')) {
-    animationKey = 'right';
+    translateKey = 'translateX';
   }
 
   const animation = keyframes`
-    /* stylelint-disable property-no-unknown */
+    /* stylelint-disable property-no-unknown, function-name-case */
     0% {
-      margin-${animationKey}: -${props.theme.space.base * 5}px;
+      transform: ${translateKey}(${translateDirection}${props.theme.space.base * 5}px);
     }
 
     100% {
-      margin-${animationKey}: 0;
+      transform: ${translateKey}(0);
     }
-    /* stylelint-enable property-no-unknown */
+    /* stylelint-enable property-no-unknown, function-name-case */
   `;
 
   return css`
     animation: ${animation} 0.2s cubic-bezier(0.15, 0.85, 0.35, 1.2);
   `;
+};
+
+interface IStyledMenuAnimation {
+  isAnimated?: boolean;
+  placement?: POPPER_PLACEMENT;
+}
+
+/**
+ * The Menu animation must be applied to a wrapping element
+ * to ensure that the transform property doesn't disrupt the
+ * stacking context necessary for arrow styling.
+ */
+const StyledMenuAnimation = styled.div<IStyledMenuAnimation>`
+  ${props => getAnimationStyles(props)};
+`;
+
+StyledMenuAnimation.defaultProps = {
+  theme: DEFAULT_THEME
 };
 
 interface IStyledMenuViewProps {
@@ -146,7 +167,6 @@ const StyledMenuView = styled.div.attrs<IStyledMenuViewProps>(props => ({
   font-weight: ${props => props.theme.fontWeights.regular};
   direction: ${props => props.theme.rtl && 'rtl'};
 
-  ${props => getAnimationStyles(props)};
   ${props => getArrowStyles(props)};
 
   :focus {
@@ -243,14 +263,16 @@ export const StyledMenu = React.forwardRef<HTMLDivElement, IStyledMenuProps>(
         isAnimated={isAnimated}
         zIndex={zIndex}
       >
-        <StyledMenuView
-          hasArrow={hasArrow}
-          placement={placement}
-          isAnimated={isAnimated}
-          {...other}
-        >
-          <StyledMaxHeightWrapper maxHeight={maxHeight}>{children}</StyledMaxHeightWrapper>
-        </StyledMenuView>
+        <StyledMenuAnimation placement={placement} isAnimated={isAnimated}>
+          <StyledMenuView
+            hasArrow={hasArrow}
+            placement={placement}
+            isAnimated={isAnimated}
+            {...other}
+          >
+            <StyledMaxHeightWrapper maxHeight={maxHeight}>{children}</StyledMaxHeightWrapper>
+          </StyledMenuView>
+        </StyledMenuAnimation>
       </StyledMenuWrapper>
     );
   }
