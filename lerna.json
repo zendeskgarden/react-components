@@ -1,9 +1,7 @@
 {
   "version": "6.9.2",
   "npmClient": "yarn",
-  "npmClientArgs": [
-    "--no-lockfile"
-  ],
+  "npmClientArgs": ["--no-lockfile"],
   "changelog": {
     "repo": "zendeskgarden/react-components",
     "cacheDir": ".changelog",
@@ -25,10 +23,13 @@
   ],
   "command": {
     "publish": {
-      "registry": "https://registry.npmjs.org/"
+      "registry": "https://registry.npmjs.org/",
+      "distTag": "v6",
+      "preDistTag": "v6"
     },
     "version": {
       "allowBranch": "v6",
+      "preid": "v6",
       "message": "chore(release): publish"
     }
   }
