@@ -17,18 +17,15 @@
     "*.spec.js",
     "*.spec.ts",
     "*.spec.tsx",
+    ".size-snapshot.json",
     "**/__snapshots__/**",
     "styleguide.config.js"
   ],
   "command": {
     "publish": {
-      "registry": "https://registry.npmjs.org/",
-      "distTag": "next",
-      "preDistTag": "next"
+      "registry": "https://registry.npmjs.org/"
     },
     "version": {
-      "allowBranch": "next",
-      "preid": "next",
       "message": "chore(release): publish"
     }
   }
