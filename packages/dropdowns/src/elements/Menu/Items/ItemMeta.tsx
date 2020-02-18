@@ -8,6 +8,7 @@
 import React, { HTMLAttributes } from 'react';
 import { StyledItemMeta } from '../../../styled';
 import useMenuContext from '../../../utils/useMenuContext';
+import useItemContext from '../../../utils/useItemContext';
 
 /**
  * Accepts all `<div>` props
@@ -15,7 +16,8 @@ import useMenuContext from '../../../utils/useMenuContext';
 export const ItemMeta = React.forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>>(
   (props, ref) => {
     const { isCompact } = useMenuContext();
+    const { isDisabled } = useItemContext();
 
-    return <StyledItemMeta ref={ref} isCompact={isCompact} {...props} />;
+    return <StyledItemMeta ref={ref} isCompact={isCompact} isDisabled={isDisabled} {...props} />;
   }
 );

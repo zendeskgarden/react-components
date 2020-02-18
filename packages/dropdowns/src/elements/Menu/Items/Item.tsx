@@ -11,6 +11,7 @@ import SelectedSvg from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
 import { StyledItem, StyledItemIcon } from '../../../styled';
 import useDropdownContext from '../../../utils/useDropdownContext';
 import useMenuContext from '../../../utils/useMenuContext';
+import { ItemContext } from '../../../utils/useItemContext';
 
 export interface IItemProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -73,14 +74,16 @@ export const Item = React.forwardRef<HTMLDivElement, IItemProps>(
 
     if (disabled) {
       return (
-        <Component ref={ref} disabled={disabled} isCompact={isCompact} {...props}>
-          {isSelected && (
-            <StyledItemIcon isCompact={isCompact} isVisible={isSelected} isDisabled={disabled}>
-              <SelectedSvg />
-            </StyledItemIcon>
-          )}
-          {children}
-        </Component>
+        <ItemContext.Provider value={{ isDisabled: disabled }}>
+          <Component ref={ref} disabled={disabled} isCompact={isCompact} {...props}>
+            {isSelected && (
+              <StyledItemIcon isCompact={isCompact} isVisible={isSelected} isDisabled={disabled}>
+                <SelectedSvg />
+              </StyledItemIcon>
+            )}
+            {children}
+          </Component>
+        </ItemContext.Provider>
       );
     }
 
@@ -88,24 +91,26 @@ export const Item = React.forwardRef<HTMLDivElement, IItemProps>(
     itemIndexRef.current++;
 
     return (
-      <Component
-        data-test-is-focused={isFocused}
-        data-test-is-selected={isSelected}
-        {...getItemProps({
-          item: value,
-          isFocused,
-          ref,
-          isCompact,
-          ...props
-        } as any)}
-      >
-        {isSelected && (
-          <StyledItemIcon isCompact={isCompact} isVisible={isSelected}>
-            <SelectedSvg />
-          </StyledItemIcon>
-        )}
-        {children}
-      </Component>
+      <ItemContext.Provider value={{ isDisabled: disabled }}>
+        <Component
+          data-test-is-focused={isFocused}
+          data-test-is-selected={isSelected}
+          {...getItemProps({
+            item: value,
+            isFocused,
+            ref,
+            isCompact,
+            ...props
+          } as any)}
+        >
+          {isSelected && (
+            <StyledItemIcon isCompact={isCompact} isVisible={isSelected}>
+              <SelectedSvg />
+            </StyledItemIcon>
+          )}
+          {children}
+        </Component>
+      </ItemContext.Provider>
     );
   }
 );

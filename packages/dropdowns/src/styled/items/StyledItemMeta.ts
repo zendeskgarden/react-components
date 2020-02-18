@@ -12,6 +12,7 @@ const COMPONENT_ID = 'dropdowns.item_meta';
 
 interface IStyledItemMetaProps {
   isCompact?: boolean;
+  isDisabled?: boolean;
 }
 
 /**
@@ -23,7 +24,7 @@ export const StyledItemMeta = styled.span.attrs({
 })<IStyledItemMetaProps>`
   display: ${props => (props.isCompact ? 'none' : 'block')};
   line-height: ${props => props.theme.space.base * 4}px;
-  color: ${props => getColor('neutralHue', 600, props.theme)};
+  color: ${props => getColor('neutralHue', props.isDisabled ? 400 : 600, props.theme)};
   font-size: ${props => props.theme.fontSizes.sm};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
