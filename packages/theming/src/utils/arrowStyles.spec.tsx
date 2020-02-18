@@ -32,7 +32,7 @@ const getArrowSize = (size = '6px') => {
 };
 
 const getArrowInset = (inset: string, size?: string) => {
-  return math(`${getArrowSize(size)} / -2 - ${inset}`);
+  return math(`${getArrowSize(size)} / -2 + ${inset}`);
 };
 
 describe('arrowStyles', () => {

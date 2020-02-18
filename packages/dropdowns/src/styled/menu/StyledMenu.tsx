@@ -65,7 +65,7 @@ const getArrowStyles = (props: IStyledMenuViewProps & ThemeProps<DefaultTheme>) 
 
   return arrowStyles(getArrowPosition(props.placement), {
     size: getArrowSize(props),
-    inset: '-1px',
+    inset: '1px',
     animationModifier: '.is-animated'
   });
 };

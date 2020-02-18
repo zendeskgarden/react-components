@@ -1,5 +1,3 @@
-# v8.0.0
-
 NOTE: many style-related COMPONENT_IDs were renamed for consistency based
 on the CSS-in-JS restructure. All component-level theming customizations
 should be re-checked for ID naming accuracy.
@@ -90,6 +88,8 @@ should be re-checked for ID naming accuracy.
     - `active` -> Removed
     - `focused` -> Removed
     - `hovered` -> Removed
+  - `HeaderItem`
+    - `containsIcon` -> `hasIcon`
   - `Menu`
     - `animate` -> `isAnimated`
     - `small` -> `isCompact`
@@ -140,7 +140,7 @@ New features/fixes include:
 
 - `<Dots />` loader no longer has the `velocity` prop
   - Use `duration` instead which accepts `ms` defaults to 1250ms
-- `<Skeleton />` loader has renamed `dark` prop to `isDark`
+- `<Skeleton />` loader has renamed `dark` prop to `isLight`
 
 ## @zendeskgarden/react-modals
 
@@ -255,6 +255,7 @@ New features/fixes include:
 - `appendToBody` prop is now `appendToNode`
   - You must now pass the HTML element which you would like the tooltip to append to
 - `delayMilliseconds` prop is now `delayMS`
+- `initialIsVisible` prop is now `isInitialVisible`
 - Tooltip `trigger` prop is removed
   - Tooltip `children` now accepts a single element which acts as the triggering element
 - Tooltip `content` prop now accepts Tooltip content (previous `children`)

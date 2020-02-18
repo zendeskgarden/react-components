@@ -45,7 +45,7 @@ const animationStyles = (position: ARROW_POSITION, modifier: string) => {
 
 const positionStyles = (position: ARROW_POSITION, size: string, inset: string) => {
   const margin = math(`${size} / -2`);
-  const placement = math(`${margin} - ${inset}`);
+  const placement = math(`${margin} + ${inset}`);
   let clipPath;
   let positionCss;
   let propertyRadius: string;
@@ -134,7 +134,7 @@ const positionStyles = (position: ARROW_POSITION, size: string, inset: string) =
  * @param {string} [options.size='6px'] Distance from the base (hypotenuse) to point
  *  (right angle) of the arrow expressed as a CSS dimension.
  * @param {string} [options.inset='0'] Tweak arrow positioning by adjusting with
- *  either a positive (pull the arrow out) or negative (push the arrow in) value.
+ *  either a positive (push the arrow in) or negative (pull the arrow out) value.
  * @param {string} [options.animationModifier] A CSS class or attribute selector
  *  which, when applied, animates the arrow's appearance.
  *

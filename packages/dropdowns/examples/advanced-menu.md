@@ -112,7 +112,7 @@ initialState = {
           isCompact={state.isCompact}
           isAnimated={state.isAnimated}
         >
-          <HeaderItem containsIcon>
+          <HeaderItem hasIcon>
             <HeaderIcon>
               <ClipboardIcon />
             </HeaderIcon>
