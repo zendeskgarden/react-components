@@ -26,6 +26,7 @@
       "registry": "https://registry.npmjs.org/"
     },
     "version": {
+      "allowBranch": "master",
       "message": "chore(release): publish"
     }
   }
