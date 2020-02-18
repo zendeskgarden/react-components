@@ -3,7 +3,6 @@ language: node_js
 branches:
   only:
     - master
-    - next
 
 cache:
   yarn: true
@@ -39,4 +38,4 @@ deploy:
     script: yarn lerna publish from-git --no-verify-access --yes
     skip_cleanup: true
     on:
-      branch: next
+      branch: master
