@@ -1,7 +1,9 @@
 {
-  "version": "7.1.9",
+  "version": "7.1.10",
   "npmClient": "yarn",
-  "npmClientArgs": ["--no-lockfile"],
+  "npmClientArgs": [
+    "--no-lockfile"
+  ],
   "changelog": {
     "repo": "zendeskgarden/react-components",
     "cacheDir": ".changelog",
