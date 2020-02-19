@@ -12,6 +12,15 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v7.1.10 (2020-02-18)
+
+#### :bug: Bug Fix
+* `.template`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `selection`, `tables`, `tabs`, `tags`, `tooltips`, `typography`
+  * [#640](https://github.com/zendeskgarden/react-components/pull/640) feat(build): allow all packages to consume v8 theming ([@austin94](https://github.com/austin94))
+
+#### :seedling: Internal
+* [#638](https://github.com/zendeskgarden/react-components/pull/638) chore(build): allow lerna publish ([@austin94](https://github.com/austin94))
+
 ## v7.1.9 (2020-02-14)
 
 #### :bug: Bug Fix
