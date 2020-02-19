@@ -2,17 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import {
   Chrome,
-  Nav,
-  NavItem,
-  NavItemIcon,
-  NavItemText,
   Body,
+  Header,
+  HeaderItem,
+  HeaderItemIcon,
+  HeaderItemText,
   Content,
   Main
 } from '@zendeskgarden/react-chrome';
+import { PALETTE } from '@zendeskgarden/react-theming';
 
-import { ReactComponent as ZendeskIcon } from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
-import { ReactComponent as HomeIcon } from '@zendeskgarden/svg-icons/src/26/home-fill.svg';
+import { ReactComponent as ProductIcon } from '@zendeskgarden/svg-icons/src/26/garden.svg';
 
 const PaddedMain = styled(Main)`
   padding: ${props => props.theme.space.lg};
@@ -20,27 +20,15 @@ const PaddedMain = styled(Main)`
 
 const ExampleWrapper = ({ children }) => (
   <Chrome>
-    <Nav isExpanded>
-      <NavItem hasLogo title="Zendesk Garden Code Sample">
-        <NavItemIcon>
-          <ZendeskIcon />
-        </NavItemIcon>
-        <NavItemText>Zendesk Connect</NavItemText>
-      </NavItem>
-      <NavItem title="Home" isCurrent>
-        <NavItemIcon>
-          <HomeIcon />
-        </NavItemIcon>
-        <NavItemText>Home</NavItemText>
-      </NavItem>
-      <NavItem hasBrandmark title="&copy;Zendesk">
-        <NavItemIcon>
-          <ZendeskIcon />
-        </NavItemIcon>
-        <NavItemText>&copy;Zendesk</NavItemText>
-      </NavItem>
-    </Nav>
     <Body>
+      <Header isStandalone>
+        <HeaderItem hasLogo style={{ color: PALETTE.green[400] }}>
+          <HeaderItemIcon>
+            <ProductIcon />
+          </HeaderItemIcon>
+          <HeaderItemText>Zendesk Garden</HeaderItemText>
+        </HeaderItem>
+      </Header>
       <Content>
         <PaddedMain>{children}</PaddedMain>
       </Content>

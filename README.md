@@ -11,11 +11,10 @@
 
 > :seedling: Garden is a design system for Zendesk
 
-Garden React provides consistent behavior for Garden components.
+Garden React provides consistent styling and behavior for Garden components.
 React components are maintained following a multi-package approach where
-components are packaged and published individually, but combined under
-this single repository. Components rely on [Garden
-CSS](https://github.com/zendeskgarden/css-components) for styling.
+components are packaged and published individually, but combined under this
+single repository.
 
 ## Installation
 
@@ -24,24 +23,24 @@ to install.
 
 | Package                                                        | Version                                                             | Size                                                                 | Dependencies                                                                           |
 | -------------------------------------------------------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| [`@zendeskgarden/react-avatars`](packages/avatars)             | [![npm version][avatars npm version]][avatars npm link]             | [![npm version][avatars size bundle]][avatars size link]             | [![Dependency Status][avatars dependency status]][avatars dependency link]             |
-| [`@zendeskgarden/react-breadcrumbs`](packages/breadcrumbs)     | [![npm version][breadcrumbs npm version]][breadcrumbs npm link]     | [![npm version][breadcrumbs size bundle]][breadcrumbs size link]     | [![Dependency Status][breadcrumbs dependency status]][breadcrumbs dependency link]     |
-| [`@zendeskgarden/react-buttons`](packages/buttons)             | [![npm version][buttons npm version]][buttons npm link]             | [![npm version][buttons size bundle]][buttons size link]             | [![Dependency Status][buttons dependency status]][buttons dependency link]             |
-| [`@zendeskgarden/react-chrome`](packages/chrome)               | [![npm version][chrome npm version]][chrome npm link]               | [![npm version][chrome size bundle]][chrome size link]               | [![Dependency Status][chrome dependency status]][chrome dependency link]               |
-| [`@zendeskgarden/react-datepickers`](packages/datepickers)     | [![npm version][datepickers npm version]][datepickers npm link]     | [![npm version][datepickers size bundle]][datepickers size link]     | [![Dependency Status][datepickers dependency status]][datepickers dependency link]     |
-| [`@zendeskgarden/react-dropdowns`](packages/dropdowns)         | [![npm version][dropdowns npm version]][dropdowns npm link]         | [![npm version][dropdowns size bundle]][dropdowns size link]         | [![Dependency Status][dropdowns dependency status]][dropdowns dependency link]         |
-| [`@zendeskgarden/react-forms`](packages/forms)                 | [![npm version][forms npm version]][forms npm link]                 | [![npm version][forms size bundle]][forms size link]                 | [![Dependency Status][forms dependency status]][forms dependency link]                 |
-| [`@zendeskgarden/react-grid`](packages/grid)                   | [![npm version][grid npm version]][grid npm link]                   | [![npm version][grid size bundle]][grid size link]                   | [![Dependency Status][grid dependency status]][grid dependency link]                   |
-| [`@zendeskgarden/react-loaders`](packages/loaders)             | [![npm version][loaders npm version]][loaders npm link]             | [![npm version][loaders size bundle]][loaders size link]             | [![Dependency Status][loaders dependency status]][loaders dependency link]             |
-| [`@zendeskgarden/react-modals`](packages/modals)               | [![npm version][modals npm version]][modals npm link]               | [![npm version][modals size bundle]][modals size link]               | [![Dependency Status][modals dependency status]][modals dependency link]               |
-| [`@zendeskgarden/react-notifications`](packages/notifications) | [![npm version][notifications npm version]][notifications npm link] | [![npm version][notifications size bundle]][notifications size link] | [![Dependency Status][notifications dependency status]][notifications dependency link] |
-| [`@zendeskgarden/react-pagination`](packages/pagination)       | [![npm version][pagination npm version]][pagination npm link]       | [![npm version][pagination size bundle]][pagination size link]       | [![Dependency Status][pagination dependency status]][pagination dependency link]       |
-| [`@zendeskgarden/react-tabs`](packages/tabs)                   | [![npm version][tabs npm version]][tabs npm link]                   | [![npm version][tabs size bundle]][tabs size link]                   | [![Dependency Status][tabs dependency status]][tabs dependency link]                   |
-| [`@zendeskgarden/react-tables`](packages/tables)               | [![npm version][tables npm version]][tables npm link]               | [![npm version][tables size bundle]][tables size link]               | [![Dependency Status][tables dependency status]][tables dependency link]               |
-| [`@zendeskgarden/react-tags`](packages/tags)                   | [![npm version][tags npm version]][tags npm link]                   | [![npm version][tags size bundle]][tags size link]                   | [![Dependency Status][tags dependency status]][tags dependency link]                   |
-| [`@zendeskgarden/react-theming`](packages/theming)             | [![npm version][theming npm version]][theming npm link]             | [![npm version][theming size bundle]][theming size link]             | [![Dependency Status][theming dependency status]][theming dependency link]             |
-| [`@zendeskgarden/react-tooltips`](packages/tooltips)           | [![npm version][tooltips npm version]][tooltips npm link]           | [![npm version][tooltips size bundle]][tooltips size link]           | [![Dependency Status][tooltips dependency status]][tooltips dependency link]           |
-| [`@zendeskgarden/react-typography`](packages/typography)       | [![npm version][typography npm version]][typography npm link]       | [![npm version][typography size bundle]][typography size link]       | [![Dependency Status][typography dependency status]][typography dependency link]       |
+| [`@zendeskgarden/react-avatars`](packages/avatars)             | [![npm version][avatars npm version]][avatars npm link]             | [![Bundle Size][avatars size bundle]][avatars size link]             | [![Dependency Status][avatars dependency status]][avatars dependency link]             |
+| [`@zendeskgarden/react-breadcrumbs`](packages/breadcrumbs)     | [![npm version][breadcrumbs npm version]][breadcrumbs npm link]     | [![Bundle Size][breadcrumbs size bundle]][breadcrumbs size link]     | [![Dependency Status][breadcrumbs dependency status]][breadcrumbs dependency link]     |
+| [`@zendeskgarden/react-buttons`](packages/buttons)             | [![npm version][buttons npm version]][buttons npm link]             | [![Bundle Size][buttons size bundle]][buttons size link]             | [![Dependency Status][buttons dependency status]][buttons dependency link]             |
+| [`@zendeskgarden/react-chrome`](packages/chrome)               | [![npm version][chrome npm version]][chrome npm link]               | [![Bundle Size][chrome size bundle]][chrome size link]               | [![Dependency Status][chrome dependency status]][chrome dependency link]               |
+| [`@zendeskgarden/react-datepickers`](packages/datepickers)     | [![npm version][datepickers npm version]][datepickers npm link]     | [![Bundle Size][datepickers size bundle]][datepickers size link]     | [![Dependency Status][datepickers dependency status]][datepickers dependency link]     |
+| [`@zendeskgarden/react-dropdowns`](packages/dropdowns)         | [![npm version][dropdowns npm version]][dropdowns npm link]         | [![Bundle Size][dropdowns size bundle]][dropdowns size link]         | [![Dependency Status][dropdowns dependency status]][dropdowns dependency link]         |
+| [`@zendeskgarden/react-forms`](packages/forms)                 | [![npm version][forms npm version]][forms npm link]                 | [![Bundle Size][forms size bundle]][forms size link]                 | [![Dependency Status][forms dependency status]][forms dependency link]                 |
+| [`@zendeskgarden/react-grid`](packages/grid)                   | [![npm version][grid npm version]][grid npm link]                   | [![Bundle Size][grid size bundle]][grid size link]                   | [![Dependency Status][grid dependency status]][grid dependency link]                   |
+| [`@zendeskgarden/react-loaders`](packages/loaders)             | [![npm version][loaders npm version]][loaders npm link]             | [![Bundle Size][loaders size bundle]][loaders size link]             | [![Dependency Status][loaders dependency status]][loaders dependency link]             |
+| [`@zendeskgarden/react-modals`](packages/modals)               | [![npm version][modals npm version]][modals npm link]               | [![Bundle Size][modals size bundle]][modals size link]               | [![Dependency Status][modals dependency status]][modals dependency link]               |
+| [`@zendeskgarden/react-notifications`](packages/notifications) | [![npm version][notifications npm version]][notifications npm link] | [![Bundle Size][notifications size bundle]][notifications size link] | [![Dependency Status][notifications dependency status]][notifications dependency link] |
+| [`@zendeskgarden/react-pagination`](packages/pagination)       | [![npm version][pagination npm version]][pagination npm link]       | [![Bundle Size][pagination size bundle]][pagination size link]       | [![Dependency Status][pagination dependency status]][pagination dependency link]       |
+| [`@zendeskgarden/react-tabs`](packages/tabs)                   | [![npm version][tabs npm version]][tabs npm link]                   | [![Bundle Size][tabs size bundle]][tabs size link]                   | [![Dependency Status][tabs dependency status]][tabs dependency link]                   |
+| [`@zendeskgarden/react-tables`](packages/tables)               | [![npm version][tables npm version]][tables npm link]               | [![Bundle Size][tables size bundle]][tables size link]               | [![Dependency Status][tables dependency status]][tables dependency link]               |
+| [`@zendeskgarden/react-tags`](packages/tags)                   | [![npm version][tags npm version]][tags npm link]                   | [![Bundle Size][tags size bundle]][tags size link]                   | [![Dependency Status][tags dependency status]][tags dependency link]                   |
+| [`@zendeskgarden/react-theming`](packages/theming)             | [![npm version][theming npm version]][theming npm link]             | [![Bundle Size][theming size bundle]][theming size link]             | [![Dependency Status][theming dependency status]][theming dependency link]             |
+| [`@zendeskgarden/react-tooltips`](packages/tooltips)           | [![npm version][tooltips npm version]][tooltips npm link]           | [![Bundle Size][tooltips size bundle]][tooltips size link]           | [![Dependency Status][tooltips dependency status]][tooltips dependency link]           |
+| [`@zendeskgarden/react-typography`](packages/typography)       | [![npm version][typography npm version]][typography npm link]       | [![Bundle Size][typography size bundle]][typography size link]       | [![Dependency Status][typography dependency status]][typography dependency link]       |
 
 [avatars npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-avatars
 [avatars npm link]: https://www.npmjs.com/package/@zendeskgarden/react-avatars
@@ -154,51 +153,38 @@ to install.
 
 ## Usage
 
-Our packages are easily consumable with
-[create-react-app](https://github.com/facebook/create-react-app)
-and standard webpack configs. All packages follow a similar installation process.
-Below is an example of consuming our
-[react-buttons](https://www.npmjs.com/package/@zendeskgarden/react-buttons)
-package.
+Garden React packages are ready to use in a
+[create-react-app](https://github.com/facebook/create-react-app) environment
+or together with standard Rollup or webpack build configurations.
 
-### Install dependencies
-
-```sh
-# Install garden package
-npm install @zendeskgarden/react-buttons
-
-# Install peer dependencies
-npm install styled-components @zendeskgarden/react-theming prop-types
-```
-
-### Include global styling and `ThemeProvider`
+Here is a simple example to get you started:
 
 ```jsx
-import React, { Component } from 'react';
-import { render } from 'react-dom';
-
-/** Include a ThemeProvider at the root of your app */
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-
-/** Consume throughout app */
 import { Button } from '@zendeskgarden/react-buttons';
 
-class App extends Component {
-  render() {
-    return (
-      <ThemeProvider>
-        <Button>Example Garden Button</Button>
-      </ThemeProvider>
-    );
-  }
-}
+const App = () => (
+  /* Include a ThemeProvider wrapper at the root of your app */
+  <ThemeProvider>
+    <Button>Example Garden button</Button>
+  </ThemeProvider>
+);
 
-render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
-Try out Garden React components in a mock product environment.
+Check out more Garden React components in this sandbox IDE:
 
-[![Edit Garden Create-React-App](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/zendeskgarden/react-components/tree/master/examples/codesandbox/garden-create-react-app)
+[![Edit Garden CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/zendeskgarden/react-components/tree/master/examples/codesandbox/garden-create-react-app)
+
+## Documentation
+
+See Garden's [documentation website](https://garden.zendesk.com/) or click
+the links below to learn more.
+
+- [Migrate to v8](docs/migration.md#v8)
 
 ## Contribution
 
@@ -217,6 +203,6 @@ conduct](.github/CODE_OF_CONDUCT.md). Please participate accordingly.
 
 ## License
 
-Copyright 2019 Zendesk
+Copyright 2020 Zendesk
 
 Licensed under the [Apache License, Version 2.0](LICENSE.md)
