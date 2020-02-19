@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { zdSpacingLg } from '@zendeskgarden/css-variables';
 import {
   Chrome,
   Nav,
@@ -16,25 +15,25 @@ import { ReactComponent as ZendeskIcon } from '@zendeskgarden/svg-icons/src/26/z
 import { ReactComponent as HomeIcon } from '@zendeskgarden/svg-icons/src/26/home-fill.svg';
 
 const PaddedMain = styled(Main)`
-  padding: ${zdSpacingLg};
+  padding: ${props => props.theme.space.lg};
 `;
 
 const ExampleWrapper = ({ children }) => (
   <Chrome>
-    <Nav expanded>
-      <NavItem logo title="Zendesk Garden Code Sample">
+    <Nav isExpanded>
+      <NavItem hasLogo title="Zendesk Garden Code Sample">
         <NavItemIcon>
           <ZendeskIcon />
         </NavItemIcon>
         <NavItemText>Zendesk Connect</NavItemText>
       </NavItem>
-      <NavItem title="Home" current>
+      <NavItem title="Home" isCurrent>
         <NavItemIcon>
           <HomeIcon />
         </NavItemIcon>
         <NavItemText>Home</NavItemText>
       </NavItem>
-      <NavItem brandmark title="&copy;Zendesk">
+      <NavItem hasBrandmark title="&copy;Zendesk">
         <NavItemIcon>
           <ZendeskIcon />
         </NavItemIcon>
