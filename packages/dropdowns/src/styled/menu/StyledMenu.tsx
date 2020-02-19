@@ -5,164 +5,274 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLProps } from 'react';
-import styled from 'styled-components';
-import classNames from 'classnames';
-import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
-import MenuStyles from '@zendeskgarden/css-menus';
-import ArrowStyles from '@zendeskgarden/css-arrows';
-import { POPPER_PLACEMENT } from '../../utils/garden-placements';
+import React, { HTMLAttributes } from 'react';
+import styled, { keyframes, css, ThemeProps, DefaultTheme, CSSProperties } from 'styled-components';
+import {
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  getColor,
+  arrowStyles
+} from '@zendeskgarden/react-theming';
+import { POPPER_PLACEMENT, getArrowPosition } from '../../utils/garden-placements';
 
 const COMPONENT_ID = 'dropdowns.menu';
 
 const shouldShowArrow = ({
-  arrow,
+  hasArrow,
   placement
 }: {
-  arrow?: boolean;
+  hasArrow?: boolean;
   placement?: POPPER_PLACEMENT;
 }) => {
-  return arrow && placement;
+  return hasArrow && placement;
+};
+
+const getArrowSize = (props: ThemeProps<DefaultTheme>) => {
+  return `${props.theme.space.base * 2}px`;
 };
 
 const retrieveMenuMargin = ({
-  arrow,
-  placement
+  hasArrow,
+  placement,
+  theme
 }: {
-  arrow?: boolean;
+  hasArrow?: boolean;
   placement?: POPPER_PLACEMENT;
-}) => {
-  const marginAmount = shouldShowArrow({ arrow, placement }) ? '8px' : '4px';
+} & ThemeProps<DefaultTheme>) => {
+  if (!placement) {
+    return '';
+  }
 
-  if (placement === 'bottom' || placement === 'bottom-start' || placement === 'bottom-end') {
+  const marginAmount = shouldShowArrow({ hasArrow, placement })
+    ? `${theme.space.base * 2}px`
+    : `${theme.space.base}px`;
+
+  if (placement.startsWith('bottom')) {
     return `margin-top: ${marginAmount};`;
-  }
-
-  if (placement === 'top' || placement === 'top-start' || placement === 'top-end') {
+  } else if (placement.startsWith('top')) {
     return `margin-bottom: ${marginAmount};`;
-  }
-
-  if (placement === 'left' || placement === 'left-start' || placement === 'left-end') {
+  } else if (placement.startsWith('left')) {
     return `margin-right: ${marginAmount};`;
   }
 
-  if (placement === 'right' || placement === 'right-start' || placement === 'right-end') {
-    return `margin-left: ${marginAmount};`;
-  }
-
-  return '';
+  return `margin-left: ${marginAmount};`;
 };
 
-interface IStyledMenuViewProps extends HTMLProps<HTMLUListElement> {
-  small?: boolean;
+const getArrowStyles = (props: IStyledMenuViewProps & ThemeProps<DefaultTheme>) => {
+  if (!props.hasArrow || !props.placement) {
+    return undefined;
+  }
+
+  return arrowStyles(getArrowPosition(props.placement), {
+    size: getArrowSize(props),
+    inset: '1px',
+    animationModifier: '.is-animated'
+  });
+};
+
+const getAnimationStyles = (props: IStyledMenuAnimation & ThemeProps<DefaultTheme>) => {
+  if (!props.isAnimated || !props.placement) {
+    return undefined;
+  }
+
+  let translateKey;
+  let translateDirection = '';
+
+  if (props.placement.startsWith('top')) {
+    translateKey = 'translateY';
+  } else if (props.placement.startsWith('right')) {
+    translateKey = 'translateX';
+    translateDirection = '-';
+  } else if (props.placement.startsWith('bottom')) {
+    translateKey = 'translateY';
+    translateDirection = '-';
+  } else if (props.placement.startsWith('left')) {
+    translateKey = 'translateX';
+  }
+
+  const animation = keyframes`
+    /* stylelint-disable property-no-unknown, function-name-case */
+    0% {
+      transform: ${translateKey}(${translateDirection}${props.theme.space.base * 5}px);
+    }
+
+    100% {
+      transform: ${translateKey}(0);
+    }
+    /* stylelint-enable property-no-unknown, function-name-case */
+  `;
+
+  return css`
+    animation: ${animation} 0.2s cubic-bezier(0.15, 0.85, 0.35, 1.2);
+  `;
+};
+
+interface IStyledMenuAnimation {
+  isAnimated?: boolean;
   placement?: POPPER_PLACEMENT;
-  animate?: boolean;
-  arrow?: boolean;
 }
 
 /**
- * Accepts all `<ul>` props
+ * The Menu animation must be applied to a wrapping element
+ * to ensure that the transform property doesn't disrupt the
+ * stacking context necessary for arrow styling.
  */
-const StyledMenuView = styled.ul.attrs<IStyledMenuViewProps>(props => ({
+const StyledMenuAnimation = styled.div<IStyledMenuAnimation>`
+  ${props => getAnimationStyles(props)};
+`;
+
+StyledMenuAnimation.defaultProps = {
+  theme: DEFAULT_THEME
+};
+
+interface IStyledMenuViewProps {
+  isCompact?: boolean;
+  isAnimated?: boolean;
+  isHidden?: boolean;
+  hasArrow?: boolean;
+  placement?: POPPER_PLACEMENT;
+}
+
+/**
+ * 1. Positioned relative to controlling item.
+ * 2. Opt out of browser default list margin.
+ * 3. Prevent controlling item cursor inheritance.
+ * 4. Opt out of browser default list padding.
+ * 5. Prevent controlling item whitespace inheritance.
+ */
+const StyledMenuView = styled.div.attrs<IStyledMenuViewProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: classNames(MenuStyles['c-menu'], {
-    // Size
-    [MenuStyles['c-menu--sm']]: props.small,
-
-    // Placement
-    [MenuStyles['c-menu--up']]:
-      props.placement === 'top' || props.placement === 'top-start' || props.placement === 'top-end',
-    [MenuStyles['c-menu--right']]:
-      props.placement === 'right' ||
-      props.placement === 'right-start' ||
-      props.placement === 'right-end',
-    [MenuStyles['c-menu--left']]:
-      props.placement === 'left' ||
-      props.placement === 'left-start' ||
-      props.placement === 'left-end',
-    [MenuStyles['c-menu--down']]:
-      props.placement === 'bottom' ||
-      props.placement === 'bottom-start' ||
-      props.placement === 'bottom-end',
-
-    // State
-    [MenuStyles['is-open']]: props.animate,
-    [MenuStyles['is-hidden']]: props.hidden,
-
-    // Arrows
-    [ArrowStyles['c-arrow']]: shouldShowArrow({ arrow: props.arrow, placement: props.placement }),
-    [ArrowStyles['c-arrow--r']]: props.placement === 'left',
-    [ArrowStyles['c-arrow--rt']]: props.placement === 'left-start',
-    [ArrowStyles['c-arrow--rb']]: props.placement === 'left-end',
-    [ArrowStyles['c-arrow--b']]: props.placement === 'top',
-    [ArrowStyles['c-arrow--bl']]: props.placement === 'top-start',
-    [ArrowStyles['c-arrow--br']]: props.placement === 'top-end',
-    [ArrowStyles['c-arrow--l']]: props.placement === 'right',
-    [ArrowStyles['c-arrow--lt']]: props.placement === 'right-start',
-    [ArrowStyles['c-arrow--lb']]: props.placement === 'right-end',
-    [ArrowStyles['c-arrow--t']]: props.placement === 'bottom',
-    [ArrowStyles['c-arrow--tl']]: props.placement === 'bottom-start',
-    [ArrowStyles['c-arrow--tr']]: props.placement === 'bottom-end',
-
-    // RTL
-    [MenuStyles['is-rtl']]: isRtl(props)
-  })
+  className: props.isAnimated && 'is-animated'
 }))<IStyledMenuViewProps>`
-  && {
-    position: relative;
-  }
+  display: inline-block;
+  position: relative; /* [1] */
+  margin: 0; /* [2] */
+  box-sizing: border-box;
+  border: ${props => `${props.theme.borders.sm} ${getColor('neutralHue', 300, props.theme)}`};
+  border-radius: ${props => props.theme.borderRadii.md};
+  box-shadow: ${props =>
+    props.theme.shadows.lg(
+      `${props.theme.space.base * 5}px`,
+      '30px',
+      getColor('chromeHue', 600, props.theme, 0.15)!
+    )};
+  background-color: ${props => props.theme.colors.background};
+  cursor: default; /* [3] */
+  padding: 0; /* [4] */
+  min-width: 180px;
+  text-align: ${props => (props.theme.rtl ? 'right' : 'left')};
+  white-space: normal; /* [5] */
+  font-size: ${props => props.theme.fontSizes.md};
+  font-weight: ${props => props.theme.fontWeights.regular};
+  direction: ${props => props.theme.rtl && 'rtl'};
+
+  ${props => getArrowStyles(props)};
 
   :focus {
     outline: none;
   }
 
-  ${props => retrieveTheme(COMPONENT_ID, props)};
-` as React.FunctionComponent<IStyledMenuViewProps>;
-
-interface IStyledMenuWrapperProps {
-  arrow?: boolean;
-  placement?: POPPER_PLACEMENT;
-}
-
-const StyledMenuWrapper = styled.div<IStyledMenuWrapperProps>`
-  ${retrieveMenuMargin};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-interface IStyledMaxHeightWrapper extends HTMLProps<HTMLDivElement> {
+StyledMenuView.defaultProps = {
+  theme: DEFAULT_THEME
+};
+
+interface IStyledMenuWrapperProps {
+  hasArrow?: boolean;
+  placement?: POPPER_PLACEMENT;
+  isHidden?: boolean;
+  zIndex?: number;
+  isAnimated?: boolean;
+}
+
+/**
+ * 1. PopperJS requires a non-zero font-size to perform
+ * its initial placement correctly.
+ */
+const StyledMenuWrapper = styled.div<IStyledMenuWrapperProps>`
+  transition: ${props =>
+    props.isHidden && props.isAnimated && 'opacity .2s ease-in-out, .2s visibility 0s linear'};
+  visibility: ${props => props.isHidden && 'hidden'};
+  opacity: ${props => props.isHidden && '0'};
+  z-index: ${props => props.zIndex};
+  font-size: 0.01px; /* [1] */
+
+  ${props => retrieveMenuMargin(props)};
+`;
+
+StyledMenuWrapper.defaultProps = {
+  theme: DEFAULT_THEME
+};
+
+interface IStyledMaxHeightWrapper {
   maxHeight?: string;
-  height?: string;
 }
 
 const StyledMaxHeightWrapper = styled.div<IStyledMaxHeightWrapper>`
   ${props =>
     props.maxHeight &&
-    !props.height &&
     `
   overflow-y: auto;
   max-height: ${props.maxHeight};
 `}
 `;
 
-export interface IStyledMenuProps extends HTMLProps<HTMLUListElement> {
+StyledMaxHeightWrapper.defaultProps = {
+  theme: DEFAULT_THEME
+};
+
+export interface IStyledMenuProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * All valid [Popper.JS Placements](https://popper.js.org/popper-documentation.html#Popper.placements)
    */
   placement?: POPPER_PLACEMENT;
-  animate?: boolean;
-  small?: boolean;
-  hidden?: boolean;
-  arrow?: boolean;
+  isAnimated?: boolean;
+  isCompact?: boolean;
+  isHidden?: boolean;
+  hasArrow?: boolean;
   maxHeight?: string;
+  zIndex?: number;
+  wrapperStyle?: CSSProperties;
 }
 
-export const StyledMenu = React.forwardRef<any, IStyledMenuProps>(
-  ({ arrow, placement, maxHeight, children, ...other }, ref) => {
+export const StyledMenu = React.forwardRef<HTMLDivElement, IStyledMenuProps>(
+  (
+    {
+      hasArrow,
+      placement,
+      maxHeight,
+      children,
+      wrapperStyle,
+      isHidden,
+      zIndex,
+      isAnimated,
+      ...other
+    },
+    ref
+  ) => {
     return (
-      <StyledMenuWrapper arrow={arrow} placement={placement}>
-        <StyledMenuView ref={ref} arrow={arrow} placement={placement} {...other}>
-          <StyledMaxHeightWrapper maxHeight={maxHeight}>{children}</StyledMaxHeightWrapper>
-        </StyledMenuView>
+      <StyledMenuWrapper
+        ref={ref}
+        hasArrow={hasArrow}
+        placement={placement}
+        style={wrapperStyle}
+        isHidden={isHidden}
+        isAnimated={isAnimated}
+        zIndex={zIndex}
+      >
+        <StyledMenuAnimation placement={placement} isAnimated={isAnimated}>
+          <StyledMenuView
+            hasArrow={hasArrow}
+            placement={placement}
+            isAnimated={isAnimated}
+            {...other}
+          >
+            <StyledMaxHeightWrapper maxHeight={maxHeight}>{children}</StyledMaxHeightWrapper>
+          </StyledMenuView>
+        </StyledMenuAnimation>
       </StyledMenuWrapper>
     );
   }

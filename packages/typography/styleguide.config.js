@@ -5,11 +5,24 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+const path = require('path');
+const reactDocgenTypescript = require('react-docgen-typescript');
+const reactDocgen = require('react-docgen');
+
 /**
  * Package specific styleguide configuration
  * https://github.com/styleguidist/react-styleguidist/blob/master/docs/Configuration.md
  */
 module.exports = {
+  propsParser: reactDocgenTypescript.withCustomConfig(
+    path.resolve(__dirname, '../../tsconfig.json'),
+    {
+      propFilter: props => {
+        return props.parent.fileName.indexOf('node_modules') === -1;
+      }
+    }
+  ).parse,
+  resolver: reactDocgen.resolver.findAllComponentDefinitions,
   sections: [
     {
       name: '',
@@ -19,24 +32,29 @@ module.exports = {
       name: 'Examples',
       sections: [
         {
+          name: 'Typography',
+          content: '../../packages/typography/examples/typography.md'
+        },
+        {
+          name: 'Ellipsis',
+          content: '../../packages/typography/examples/ellipsis.md'
+        },
+        {
+          name: 'Code',
+          content: '../../packages/typography/examples/code.md'
+        },
+        {
           name: 'Lists',
-          content: '../../packages/typography/examples/list.md'
+          content: '../../packages/typography/examples/lists.md'
         }
       ]
     },
     {
-      name: 'Components',
+      name: 'Elements',
       components: [
-        '../../packages/typography/src/views/SM.js',
-        '../../packages/typography/src/views/MD.js',
-        '../../packages/typography/src/views/LG.js',
-        '../../packages/typography/src/views/XL.js',
-        '../../packages/typography/src/views/XXL.js',
-        '../../packages/typography/src/views/XXXL.js',
-        '../../packages/typography/src/views/Code.js',
-        '../../packages/typography/src/views/Ellipsis.js',
-        '../../packages/typography/src/views/lists/OrderedList.js',
-        '../../packages/typography/src/views/lists/UnorderedList.js'
+        '../../packages/typography/src/elements/*.{ts,tsx}',
+        '../../packages/typography/src/elements/lists/OrderedList.tsx',
+        '../../packages/typography/src/elements/lists/UnorderedList.tsx'
       ]
     }
   ]

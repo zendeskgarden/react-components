@@ -8,8 +8,9 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "7.1.9",
-  "main": "./dist/index.js",
+  "version": "8.0.1-next.0",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "files": [
     "dist"
   ],
@@ -18,24 +19,24 @@
     "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
+  "sideEffects": false,
+  "types": "dist/typings/index.d.ts",
   "dependencies": {
     "@zendeskgarden/container-accordion": "^0.5.1",
     "@zendeskgarden/container-keyboardfocus": "^0.4.1",
     "@zendeskgarden/container-utilities": "^0.5.1",
-    "classnames": "^2.2.5"
+    "polished": "^3.4.4"
   },
   "peerDependencies": {
-    "@zendeskgarden/react-theming": "^6.0.0 || ^7.0.0",
+    "@zendeskgarden/react-theming": "^7.0.0 || ^8.0.0",
     "prop-types": "^15.6.1",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "@zendeskgarden/css-chrome": "4.1.18",
-    "@zendeskgarden/css-variables": "6.4.3",
-    "@zendeskgarden/react-theming": "^7.1.4",
-    "@zendeskgarden/svg-icons": "6.10.0"
+    "@zendeskgarden/react-theming": "^8.0.1-next.0",
+    "@zendeskgarden/svg-icons": "6.9.0"
   },
   "keywords": [
     "components",
@@ -46,7 +47,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "zendeskgarden:library": "GardenChrome",
-  "zendeskgarden:max_size": "12.75 kB",
-  "zendeskgarden:src": "src/index.js"
+  "zendeskgarden:src": "src/index.ts"
 }

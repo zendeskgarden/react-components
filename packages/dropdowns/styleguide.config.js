@@ -34,11 +34,23 @@ module.exports = {
       sections: [
         {
           name: 'Menu usage',
-          content: '../../packages/dropdowns/examples/menu.md'
+          content: '../../packages/dropdowns/examples/basic-menu.md'
+        },
+        {
+          name: 'Advanced Menu usage',
+          content: '../../packages/dropdowns/examples/advanced-menu.md'
+        },
+        {
+          name: 'Tree Menu usage',
+          content: '../../packages/dropdowns/examples/tree-menu.md'
         },
         {
           name: 'Select usage',
-          content: '../../packages/dropdowns/examples/select.md'
+          content: '../../packages/dropdowns/examples/basic-select.md'
+        },
+        {
+          name: 'Advanced Select usage',
+          content: '../../packages/dropdowns/examples/advanced-select.md'
         },
         {
           name: 'Autocomplete usage',
@@ -47,30 +59,34 @@ module.exports = {
         {
           name: 'Multiselect usage',
           content: '../../packages/dropdowns/examples/multiselect.md'
+        },
+        {
+          name: 'Field variants',
+          content: '../../packages/dropdowns/examples/field-variants.md'
         }
       ]
     },
     {
-      name: 'Components',
+      name: 'Elements',
       components: [
-        '../../packages/dropdowns/src/Dropdown/Dropdown.tsx',
-        '../../packages/dropdowns/src/Trigger/Trigger.tsx',
-        '../../packages/dropdowns/src/Select/Select.tsx',
-        '../../packages/dropdowns/src/Autocomplete/Autocomplete.tsx',
-        '../../packages/dropdowns/src/Multiselect/Multiselect.tsx'
+        '../../packages/dropdowns/src/elements/Dropdown/Dropdown.tsx',
+        '../../packages/dropdowns/src/elements/Trigger/Trigger.tsx',
+        '../../packages/dropdowns/src/elements/Select/Select.tsx',
+        '../../packages/dropdowns/src/elements/Autocomplete/Autocomplete.tsx',
+        '../../packages/dropdowns/src/elements/Multiselect/Multiselect.tsx'
       ],
       sections: [
         {
           name: 'Fields',
-          components: '../../packages/dropdowns/src/Fields/[A-Z]*.{tsx,ts}'
+          components: '../../packages/dropdowns/src/elements/Fields/[A-Z]*.{tsx,ts}'
         },
         {
           name: 'Menu',
-          components: '../../packages/dropdowns/src/Menu/[A-Z]*.{tsx,ts}',
+          components: '../../packages/dropdowns/src/elements/Menu/[A-Z]*.{tsx,ts}',
           sections: [
             {
               name: 'Items',
-              components: '../../packages/dropdowns/src/Menu/Items/[A-Z]*.{tsx,ts}'
+              components: '../../packages/dropdowns/src/elements/Menu/Items/[A-Z]*.{tsx,ts}'
             }
           ]
         }

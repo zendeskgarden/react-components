@@ -1,7 +1,6 @@
 # @zendeskgarden/react-chrome [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-chrome.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-chrome)
 
-Collection of elements, render prop containers, and presentation components
-relating to the Chrome component within the Garden Design System
+Collection of elements relating to the Chrome component within the Garden Design System
 
 ## Installation
 
@@ -15,25 +14,20 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 ## Usages
 
 ```jsx static
-/**
- * Include chrome styling at the root of your application
- */
-import '@zendeskgarden/react-chrome/dist/styles.css';
-
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Chrome, Nav, NavItem, ... } from '@zendeskgarden/react-chrome';
 import ConnectIcon from '@zendeskgarden/icons/src/26/relationshape-connect.svg';
 
 <ThemeProvider>
   <Chrome>
-    <Nav expanded>
-      <NavItem logo product="connect" title="Zendesk Connect">
+    <Nav isExpanded>
+      <NavItem hasLogo product="connect" title="Zendesk Connect">
         <NavItemIcon>
           <ConnectIcon />
         </NavItemIcon>
         <NavItemText>Zendesk Connect</NavItemText>
       </NavItem>
-      <NavItem current>
+      <NavItem isCurrent>
         <NavItemIcon>
           <HomeIcon />
         </NavItemIcon>
@@ -41,7 +35,7 @@ import ConnectIcon from '@zendeskgarden/icons/src/26/relationshape-connect.svg';
       </NavItem>
     </Nav>
     <SubNav>
-      <SubNavItem current>
+      <SubNavItem isCurrent>
         <SubNavItemText>Subnav 1</SubNavItemText>
       </SubNavItem>
       ...

@@ -5,29 +5,27 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { default as Dropdown } from './Dropdown/Dropdown';
-export { default as Trigger } from './Trigger/Trigger';
-export { default as Autocomplete } from './Autocomplete/Autocomplete';
-export { default as Multiselect } from './Multiselect/Multiselect';
-export { Select } from './Select/Select';
-export { default as Field } from './Fields/Field';
-export { default as Hint } from './Fields/Hint';
-export { default as Label } from './Fields/Label';
-export { default as Message } from './Fields/Message';
-export { default as Menu } from './Menu/Menu';
-export { default as Separator } from './Menu/Separator';
-export { default as AddItem } from './Menu/Items/AddItem';
-export { default as HeaderIcon } from './Menu/Items/HeaderIcon';
-export { default as HeaderItem } from './Menu/Items/HeaderItem';
-export { default as Item } from './Menu/Items/Item';
-export { default as ItemMeta } from './Menu/Items/ItemMeta';
-export { default as MediaBody } from './Menu/Items/MediaBody';
-export { default as MediaFigure } from './Menu/Items/MediaFigure';
-export { default as MediaItem } from './Menu/Items/MediaItem';
-export { default as NextItem } from './Menu/Items/NextItem';
-export { default as PreviousItem } from './Menu/Items/PreviousItem';
+export { default as Dropdown } from './elements/Dropdown/Dropdown';
+export { default as Trigger } from './elements/Trigger/Trigger';
+export { default as Autocomplete } from './elements/Autocomplete/Autocomplete';
+export { default as Multiselect } from './elements/Multiselect/Multiselect';
+export { Select } from './elements/Select/Select';
+export { Field } from './elements/Fields/Field';
+export { Hint } from './elements/Fields/Hint';
+export { Label } from './elements/Fields/Label';
+export { Message } from './elements/Fields/Message';
+export { default as Menu } from './elements/Menu/Menu';
+export { Separator } from './elements/Menu/Separator';
+export { AddItem } from './elements/Menu/Items/AddItem';
+export { HeaderIcon } from './elements/Menu/Items/HeaderIcon';
+export { HeaderItem } from './elements/Menu/Items/HeaderItem';
+export { Item } from './elements/Menu/Items/Item';
+export { ItemMeta } from './elements/Menu/Items/ItemMeta';
+export { MediaBody } from './elements/Menu/Items/MediaBody';
+export { MediaFigure } from './elements/Menu/Items/MediaFigure';
+export { MediaItem } from './elements/Menu/Items/MediaItem';
+export { NextItem } from './elements/Menu/Items/NextItem';
+export { PreviousItem } from './elements/Menu/Items/PreviousItem';
 export { GARDEN_PLACEMENT, POPPER_PLACEMENT } from './utils/garden-placements';
 
 export { resetIdCounter } from 'downshift';
-
-export * from './styled';

@@ -1,0 +1,385 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import React from 'react';
+import { render, renderRtl, fireEvent } from 'garden-test-utils';
+import { addDays, subDays } from 'date-fns';
+import mockDate from 'mockdate';
+import { KEY_CODES } from '@zendeskgarden/container-utilities';
+import Datepicker, { IDatepickerProps } from './Datepicker';
+
+const DEFAULT_DATE = new Date(2019, 1, 5);
+
+const Example = (props: IDatepickerProps) => (
+  <Datepicker {...props}>
+    <input data-test-id="input" />
+  </Datepicker>
+);
+
+describe('Datepicker', () => {
+  let onChangeSpy: (date: Date) => void;
+
+  beforeEach(() => {
+    onChangeSpy = jest.fn();
+    mockDate.set(DEFAULT_DATE);
+  });
+
+  afterEach(() => {
+    mockDate.reset();
+  });
+
+  describe('Calendar display', () => {
+    it('displays dates with correct previous styling', () => {
+      const { getByTestId, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
+
+      fireEvent.mouseDown(getByTestId('input'));
+      fireEvent.click(getByTestId('input'));
+      const days = getAllByTestId('day');
+
+      for (let x = 0; x < days.length; x++) {
+        if (x <= 4) {
+          expect(days[x]).toHaveAttribute('data-test-previous', 'true');
+        } else if (x >= 33) {
+          expect(days[x]).toHaveAttribute('data-test-previous', 'true');
+        } else {
+          expect(days[x]).toHaveAttribute('data-test-previous', 'false');
+        }
+      }
+    });
+
+    it('displays dates with selected and today styling', () => {
+      const { getByTestId, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
+
+      fireEvent.mouseDown(getByTestId('input'));
+      fireEvent.click(getByTestId('input'));
+      const days = getAllByTestId('day');
+
+      expect(days[9]).toHaveAttribute('data-test-selected', 'true');
+      expect(days[9]).toHaveAttribute('data-test-today', 'true');
+    });
+
+    it('displays disabled styling for minimum and maximum values', () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example
+          value={DEFAULT_DATE}
+          minValue={subDays(DEFAULT_DATE, 2)}
+          maxValue={addDays(DEFAULT_DATE, 2)}
+        />
+      );
+
+      fireEvent.mouseDown(getByTestId('input'));
+      fireEvent.click(getByTestId('input'));
+      const days = getAllByTestId('day');
+
+      for (let x = 0; x < days.length; x++) {
+        const element = days[x];
+
+        if (x <= 6) {
+          expect(element).toHaveAttribute('data-test-disabled', 'true');
+        } else if (x > 11) {
+          expect(element).toHaveAttribute('data-test-disabled', 'true');
+        } else {
+          expect(element).toHaveAttribute('data-test-disabled', 'false');
+        }
+      }
+    });
+
+    it('displays selected month in correct format', () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
+
+      fireEvent.mouseDown(getByTestId('input'));
+      fireEvent.click(getByTestId('input'));
+
+      expect(getByTestId('month-display')).toHaveTextContent('February 2019');
+    });
+
+    it('displays previous month if previous paddle is clicked', () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
+
+      fireEvent.mouseDown(getByTestId('input'));
+      fireEvent.click(getByTestId('input'));
+      fireEvent.click(getByTestId('previous-month'));
+
+      expect(getByTestId('month-display')).toHaveTextContent('January 2019');
+    });
+
+    it('displays next month if next paddle is clicked', () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
+
+      fireEvent.mouseDown(getByTestId('input'));
+      fireEvent.click(getByTestId('input'));
+      fireEvent.click(getByTestId('next-month'));
+
+      expect(getByTestId('month-display')).toHaveTextContent('March 2019');
+    });
+
+    it('displays current month if no value is provided', () => {
+      const { getByTestId } = render(<Example />);
+
+      fireEvent.mouseDown(getByTestId('input'));
+      fireEvent.click(getByTestId('input'));
+
+      expect(getByTestId('month-display')).toHaveTextContent('February 2019');
+    });
+  });
+
+  describe('Calendar selection', () => {
+    it('calls onChange when date is selected', () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      fireEvent.mouseDown(getByTestId('input'));
+      fireEvent.click(getByTestId('input'));
+      fireEvent.click(getAllByTestId('day')[1]);
+
+      expect(onChangeSpy).toHaveBeenCalledWith(new Date(2019, 0, 28));
+    });
+
+    it('updates input value when date is selected', () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      const input = getByTestId('input');
+
+      fireEvent.mouseDown(input);
+      fireEvent.click(input);
+      fireEvent.click(getAllByTestId('day')[1]);
+
+      expect(input).toHaveValue('January 28, 2019');
+    });
+
+    it('updates input value when controlled value is updated', () => {
+      const { getByTestId, rerender } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+      const input = getByTestId('input');
+
+      expect(input).toHaveValue('February 5, 2019');
+
+      rerender(<Example value={addDays(DEFAULT_DATE, 1)} onChange={onChangeSpy} />);
+
+      expect(onChangeSpy).not.toHaveBeenCalled();
+      expect(input).toHaveValue('February 6, 2019');
+    });
+
+    it('does not select date if before minDate', () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example
+          value={DEFAULT_DATE}
+          onChange={onChangeSpy}
+          minValue={subDays(DEFAULT_DATE, 2)}
+          maxValue={addDays(DEFAULT_DATE, 2)}
+        />
+      );
+
+      fireEvent.mouseDown(getByTestId('input'));
+      fireEvent.click(getByTestId('input'));
+      const days = getAllByTestId('day');
+
+      fireEvent.click(days[0]);
+      fireEvent.click(days[days.length - 1]);
+
+      expect(onChangeSpy).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('Input', () => {
+    it('displays provided value', () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+
+      expect(getByTestId('input')).toHaveValue('February 5, 2019');
+    });
+
+    it('displays empty string if no value provided', () => {
+      const { getByTestId } = render(<Example onChange={onChangeSpy} />);
+
+      expect(getByTestId('input')).toHaveValue('');
+    });
+
+    it('opens datepicker on focus', () => {
+      const { getByTestId, queryByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      fireEvent.mouseDown(getByTestId('input'));
+      fireEvent.click(getByTestId('input'));
+
+      expect(queryByTestId('datepicker-menu')).not.toBeNull();
+    });
+
+    it('opens datepicker on click', () => {
+      const { getByTestId, queryByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      fireEvent.mouseDown(getByTestId('input'));
+      fireEvent.click(getByTestId('input'));
+
+      expect(queryByTestId('datepicker-menu')).not.toBeNull();
+    });
+
+    it('closes datepicker on blur', () => {
+      const { getByTestId, queryByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+      const input = getByTestId('input');
+
+      fireEvent.mouseDown(getByTestId('input'));
+      fireEvent.click(input);
+      fireEvent.blur(input);
+
+      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+    });
+
+    it('opens datepicker when correct keys are used', () => {
+      const { getByTestId, queryByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+      const input = getByTestId('input');
+
+      fireEvent.keyDown(input, { keyCode: KEY_CODES.UP });
+      expect(queryByTestId('datepicker-menu')).not.toBeNull();
+      fireEvent.blur(input);
+
+      fireEvent.keyDown(input, { keyCode: KEY_CODES.DOWN });
+      expect(queryByTestId('datepicker-menu')).not.toBeNull();
+      fireEvent.blur(input);
+
+      fireEvent.keyDown(input, { keyCode: KEY_CODES.SPACE });
+      expect(queryByTestId('datepicker-menu')).not.toBeNull();
+      fireEvent.blur(input);
+    });
+
+    it('closes datepicker when correct keys are used', () => {
+      const { getByTestId, queryByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+      const input = getByTestId('input');
+
+      fireEvent.mouseDown(getByTestId('input'));
+      fireEvent.click(input);
+      fireEvent.keyDown(input, { keyCode: KEY_CODES.ESCAPE });
+
+      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+
+      fireEvent.mouseDown(getByTestId('input'));
+      fireEvent.click(input);
+      fireEvent.keyDown(input, { keyCode: KEY_CODES.ENTER });
+      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+    });
+
+    it('leaves datepicker open if calendar is moused down', () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const input = getByTestId('input');
+
+      fireEvent.mouseDown(getByTestId('input'));
+      fireEvent.click(input);
+      fireEvent.mouseDown(getByTestId('calendar-wrapper'));
+
+      expect(getByTestId('datepicker-menu')).not.toBeNull();
+    });
+
+    it('calls onChange with provided date if manually added in short format', () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const input = getByTestId('input');
+
+      fireEvent.change(input, { target: { value: '1/4/2019' } });
+
+      expect(onChangeSpy).toHaveBeenCalledWith(new Date(2019, 0, 4));
+    });
+
+    it('calls onChange with provided date if manually added in medium format', () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const input = getByTestId('input');
+
+      fireEvent.change(input, { target: { value: 'Jan 4, 2019' } });
+
+      expect(onChangeSpy).toHaveBeenCalledWith(new Date(2019, 0, 4));
+    });
+
+    it('calls onChange with provided date if manually added in long format', () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const input = getByTestId('input');
+
+      fireEvent.change(input, { target: { value: 'January 4th, 2019' } });
+
+      expect(onChangeSpy).toHaveBeenCalledWith(new Date(2019, 0, 4));
+    });
+
+    it('does not call onChange with provided date if invalid', () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const input = getByTestId('input');
+
+      fireEvent.change(input, { target: { value: 'invalid date' } });
+
+      expect(onChangeSpy).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('customParseDate()', () => {
+    it('uses customParseDate to determine date validitiy if provided', () => {
+      const MOCK_DATE = new Date(2019, 0, 1);
+      const customParseDateSpy: (input: string) => Date = jest.fn().mockReturnValue(MOCK_DATE);
+      const { getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} customParseDate={customParseDateSpy} />
+      );
+      const input = getByTestId('input');
+
+      fireEvent.change(input, { target: { value: 'invalid date' } });
+
+      expect(customParseDateSpy).toHaveBeenCalled();
+      expect(onChangeSpy).toHaveBeenCalledWith(MOCK_DATE);
+    });
+
+    it('does not call onChange if parsed date is the current value', () => {
+      const customParseDateSpy: (input: string) => Date = jest.fn().mockReturnValue(DEFAULT_DATE);
+      const { getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} customParseDate={customParseDateSpy} />
+      );
+      const input = getByTestId('input');
+
+      fireEvent.change(input, { target: { value: 'invalid date' } });
+
+      expect(customParseDateSpy).toHaveBeenCalled();
+      expect(onChangeSpy).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('formatDate()', () => {
+    it('uses custom formatDate method if provided', () => {
+      const FORMATTED_DATE = 'test';
+      const { getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} formatDate={() => FORMATTED_DATE} />
+      );
+      const input = getByTestId('input');
+
+      expect(input).toHaveValue(FORMATTED_DATE);
+    });
+  });
+
+  describe('Popper', () => {
+    it('applies LTR classes by default', () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
+
+      fireEvent.mouseDown(getByTestId('input'));
+      fireEvent.click(getByTestId('input'));
+
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-rtl', 'false');
+    });
+
+    it('applies RTL classes if provided', () => {
+      const { getByTestId } = renderRtl(<Example value={DEFAULT_DATE} />);
+
+      fireEvent.mouseDown(getByTestId('input'));
+      fireEvent.click(getByTestId('input'));
+
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-rtl', 'true');
+    });
+  });
+});

@@ -3,6 +3,14 @@
 This package includes modules relating to utilities in the
 [Garden Design System](https://zendeskgarden.github.io/).
 
+## DEPRECATION WARNING
+
+This package has been deprecated in favor of the API provided in the
+[@zendeskgarden/container-utilities](https://github.com/zendeskgarden/react-containers/tree/master/packages/utilities)
+package.
+
+This package will stop receiving updates in a future major release.
+
 ## Installation
 
 ```sh

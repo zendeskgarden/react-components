@@ -8,7 +8,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import hasType from './hasType';
-import Button from '../../../buttons/src/views/Button';
+
+const Button = () => <button>test</button>;
+
+Button.hasType = () => Button;
 
 const Example = props => <div {...props} />;
 

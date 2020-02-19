@@ -5,8 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useContext } from 'react';
-import { MenuContext } from '../Menu/Menu';
+import React, { useContext, MutableRefObject } from 'react';
+
+export interface IMenuContext {
+  itemIndexRef: MutableRefObject<number>;
+  isCompact?: boolean;
+}
+
+export const MenuContext = React.createContext<IMenuContext | undefined>(undefined);
 
 /**
  * Retrieve Menu component context

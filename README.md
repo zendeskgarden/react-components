@@ -1,6 +1,13 @@
-# Garden React Components [![Build Status](https://img.shields.io/travis/zendeskgarden/react-components/master.svg?style=flat-square)](https://travis-ci.org/zendeskgarden/react-components) [![Dependency Status](https://img.shields.io/david/dev/zendeskgarden/react-components.svg?style=flat-square)](https://david-dm.org/zendeskgarden/react-components?type=dev) [![Coverage Status](https://img.shields.io/coveralls/github/zendeskgarden/react-components/master.svg?style=flat-square)](https://coveralls.io/github/zendeskgarden/react-components) <!-- markdownlint-disable -->
+# Garden React Components [![Build Status][build status badge]][build status link] [![Dependency Status][dependency status badge]][dependency status link] [![Coverage Status][coverage status badge]][coverage status link]<!-- markdownlint-disable -->
 
 <!-- markdownlint-enable -->
+
+[build status badge]: https://flat.badgen.net/travis/zendeskgarden/react-components/master
+[build status link]: https://travis-ci.org/zendeskgarden/react-components
+[dependency status badge]: https://flat.badgen.net/david/dev/zendeskgarden/react-components
+[dependency status link]: https://david-dm.org/zendeskgarden/react-components?type=dev
+[coverage status badge]: https://flat.badgen.net/coveralls/c/github/zendeskgarden/react-components/master
+[coverage status link]: https://coveralls.io/github/zendeskgarden/react-components
 
 > :seedling: Garden is a design system for Zendesk
 
@@ -15,104 +22,135 @@ CSS](https://github.com/zendeskgarden/css-components) for styling.
 See the individual package README for the React component you would like
 to install.
 
-| Package                                                        | Version                                                             | Dependencies                                                                           |
-| -------------------------------------------------------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| [`@zendeskgarden/react-avatars`](packages/avatars)             | [![npm version][avatars npm version]][avatars npm link]             | [![Dependency Status][avatars dependency status]][avatars dependency link]             |
-| [`@zendeskgarden/react-breadcrumbs`](packages/breadcrumbs)     | [![npm version][breadcrumbs npm version]][breadcrumbs npm link]     | [![Dependency Status][breadcrumbs dependency status]][breadcrumbs dependency link]     |
-| [`@zendeskgarden/react-buttons`](packages/buttons)             | [![npm version][buttons npm version]][buttons npm link]             | [![Dependency Status][buttons dependency status]][buttons dependency link]             |
-| [`@zendeskgarden/react-chrome`](packages/chrome)               | [![npm version][chrome npm version]][chrome npm link]               | [![Dependency Status][chrome dependency status]][chrome dependency link]               |
-| [`@zendeskgarden/react-datepickers`](packages/datepickers)     | [![npm version][datepickers npm version]][datepickers npm link]     | [![Dependency Status][datepickers dependency status]][datepickers dependency link]     |
-| [`@zendeskgarden/react-dropdowns`](packages/dropdowns)         | [![npm version][dropdowns npm version]][dropdowns npm link]         | [![Dependency Status][dropdowns dependency status]][dropdowns dependency link]         |
-| [`@zendeskgarden/react-forms`](packages/forms)                 | [![npm version][forms npm version]][forms npm link]                 | [![Dependency Status][forms dependency status]][forms dependency link]                 |
-| [`@zendeskgarden/react-grid`](packages/grid)                   | [![npm version][grid npm version]][grid npm link]                   | [![Dependency Status][grid dependency status]][grid dependency link]                   |
-| [`@zendeskgarden/react-loaders`](packages/loaders)             | [![npm version][loaders npm version]][loaders npm link]             | [![Dependency Status][loaders dependency status]][loaders dependency link]             |
-| [`@zendeskgarden/react-modals`](packages/modals)               | [![npm version][modals npm version]][modals npm link]               | [![Dependency Status][modals dependency status]][modals dependency link]               |
-| [`@zendeskgarden/react-notifications`](packages/notifications) | [![npm version][notifications npm version]][notifications npm link] | [![Dependency Status][notifications dependency status]][notifications dependency link] |
-| [`@zendeskgarden/react-pagination`](packages/pagination)       | [![npm version][pagination npm version]][pagination npm link]       | [![Dependency Status][pagination dependency status]][pagination dependency link]       |
-| [`@zendeskgarden/react-tabs`](packages/tabs)                   | [![npm version][tabs npm version]][tabs npm link]                   | [![Dependency Status][tabs dependency status]][tabs dependency link]                   |
-| [`@zendeskgarden/react-tables`](packages/tables)               | [![npm version][tables npm version]][tables npm link]               | [![Dependency Status][tables dependency status]][tables dependency link]               |
-| [`@zendeskgarden/react-tags`](packages/tags)                   | [![npm version][tags npm version]][tags npm link]                   | [![Dependency Status][tags dependency status]][tags dependency link]                   |
-| [`@zendeskgarden/react-theming`](packages/theming)             | [![npm version][theming npm version]][theming npm link]             | [![Dependency Status][theming dependency status]][theming dependency link]             |
-| [`@zendeskgarden/react-tooltips`](packages/tooltips)           | [![npm version][tooltips npm version]][tooltips npm link]           | [![Dependency Status][tooltips dependency status]][tooltips dependency link]           |
-| [`@zendeskgarden/react-typography`](packages/typography)       | [![npm version][typography npm version]][typography npm link]       | [![Dependency Status][typography dependency status]][typography dependency link]       |
-| [`@zendeskgarden/react-utilities`](packages/utilities)         | [![npm version][utilities npm version]][utilities npm link]         | [![Dependency Status][utilities dependency status]][utilities dependency link]         |
+| Package                                                        | Version                                                             | Size                                                                 | Dependencies                                                                           |
+| -------------------------------------------------------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| [`@zendeskgarden/react-avatars`](packages/avatars)             | [![npm version][avatars npm version]][avatars npm link]             | [![npm version][avatars size bundle]][avatars size link]             | [![Dependency Status][avatars dependency status]][avatars dependency link]             |
+| [`@zendeskgarden/react-breadcrumbs`](packages/breadcrumbs)     | [![npm version][breadcrumbs npm version]][breadcrumbs npm link]     | [![npm version][breadcrumbs size bundle]][breadcrumbs size link]     | [![Dependency Status][breadcrumbs dependency status]][breadcrumbs dependency link]     |
+| [`@zendeskgarden/react-buttons`](packages/buttons)             | [![npm version][buttons npm version]][buttons npm link]             | [![npm version][buttons size bundle]][buttons size link]             | [![Dependency Status][buttons dependency status]][buttons dependency link]             |
+| [`@zendeskgarden/react-chrome`](packages/chrome)               | [![npm version][chrome npm version]][chrome npm link]               | [![npm version][chrome size bundle]][chrome size link]               | [![Dependency Status][chrome dependency status]][chrome dependency link]               |
+| [`@zendeskgarden/react-datepickers`](packages/datepickers)     | [![npm version][datepickers npm version]][datepickers npm link]     | [![npm version][datepickers size bundle]][datepickers size link]     | [![Dependency Status][datepickers dependency status]][datepickers dependency link]     |
+| [`@zendeskgarden/react-dropdowns`](packages/dropdowns)         | [![npm version][dropdowns npm version]][dropdowns npm link]         | [![npm version][dropdowns size bundle]][dropdowns size link]         | [![Dependency Status][dropdowns dependency status]][dropdowns dependency link]         |
+| [`@zendeskgarden/react-forms`](packages/forms)                 | [![npm version][forms npm version]][forms npm link]                 | [![npm version][forms size bundle]][forms size link]                 | [![Dependency Status][forms dependency status]][forms dependency link]                 |
+| [`@zendeskgarden/react-grid`](packages/grid)                   | [![npm version][grid npm version]][grid npm link]                   | [![npm version][grid size bundle]][grid size link]                   | [![Dependency Status][grid dependency status]][grid dependency link]                   |
+| [`@zendeskgarden/react-loaders`](packages/loaders)             | [![npm version][loaders npm version]][loaders npm link]             | [![npm version][loaders size bundle]][loaders size link]             | [![Dependency Status][loaders dependency status]][loaders dependency link]             |
+| [`@zendeskgarden/react-modals`](packages/modals)               | [![npm version][modals npm version]][modals npm link]               | [![npm version][modals size bundle]][modals size link]               | [![Dependency Status][modals dependency status]][modals dependency link]               |
+| [`@zendeskgarden/react-notifications`](packages/notifications) | [![npm version][notifications npm version]][notifications npm link] | [![npm version][notifications size bundle]][notifications size link] | [![Dependency Status][notifications dependency status]][notifications dependency link] |
+| [`@zendeskgarden/react-pagination`](packages/pagination)       | [![npm version][pagination npm version]][pagination npm link]       | [![npm version][pagination size bundle]][pagination size link]       | [![Dependency Status][pagination dependency status]][pagination dependency link]       |
+| [`@zendeskgarden/react-tabs`](packages/tabs)                   | [![npm version][tabs npm version]][tabs npm link]                   | [![npm version][tabs size bundle]][tabs size link]                   | [![Dependency Status][tabs dependency status]][tabs dependency link]                   |
+| [`@zendeskgarden/react-tables`](packages/tables)               | [![npm version][tables npm version]][tables npm link]               | [![npm version][tables size bundle]][tables size link]               | [![Dependency Status][tables dependency status]][tables dependency link]               |
+| [`@zendeskgarden/react-tags`](packages/tags)                   | [![npm version][tags npm version]][tags npm link]                   | [![npm version][tags size bundle]][tags size link]                   | [![Dependency Status][tags dependency status]][tags dependency link]                   |
+| [`@zendeskgarden/react-theming`](packages/theming)             | [![npm version][theming npm version]][theming npm link]             | [![npm version][theming size bundle]][theming size link]             | [![Dependency Status][theming dependency status]][theming dependency link]             |
+| [`@zendeskgarden/react-tooltips`](packages/tooltips)           | [![npm version][tooltips npm version]][tooltips npm link]           | [![npm version][tooltips size bundle]][tooltips size link]           | [![Dependency Status][tooltips dependency status]][tooltips dependency link]           |
+| [`@zendeskgarden/react-typography`](packages/typography)       | [![npm version][typography npm version]][typography npm link]       | [![npm version][typography size bundle]][typography size link]       | [![Dependency Status][typography dependency status]][typography dependency link]       |
 
-[avatars npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-avatars.svg?style=flat-square
+[avatars npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-avatars
 [avatars npm link]: https://www.npmjs.com/package/@zendeskgarden/react-avatars
-[avatars dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/avatars&style=flat-square
+[avatars size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-avatars
+[avatars size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-avatars
+[avatars dependency status]: https://flat.badgen.net/david/dep/zendeskgarden/react-components/packages/avatars
 [avatars dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/avatars
-[breadcrumbs npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-breadcrumbs.svg?style=flat-square
+[breadcrumbs npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-breadcrumbs
 [breadcrumbs npm link]: https://www.npmjs.com/package/@zendeskgarden/react-breadcrumbs
-[breadcrumbs dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/breadcrumbs&style=flat-square
+[breadcrumbs size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-breadcrumbs
+[breadcrumbs size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-breadcrumbs
+[breadcrumbs dependency status]: https://flat.badgen.net/david/dep/zendeskgarden/react-components/packages/breadcrumbs
 [breadcrumbs dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/breadcrumbs
-[buttons npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-buttons.svg?style=flat-square
+[buttons npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-buttons
 [buttons npm link]: https://www.npmjs.com/package/@zendeskgarden/react-buttons
-[buttons dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/buttons&style=flat-square
+[buttons size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-buttons
+[buttons size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-buttons
+[buttons dependency status]: https://flat.badgen.net/david/dep/zendeskgarden/react-components/packages/buttons
 [buttons dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/buttons
-[chrome npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-chrome.svg?style=flat-square
+[chrome npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-chrome
 [chrome npm link]: https://www.npmjs.com/package/@zendeskgarden/react-chrome
-[chrome dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/chrome&style=flat-square
+[chrome size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-chrome
+[chrome size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-chrome
+[chrome dependency status]: https://flat.badgen.net/david/dep/zendeskgarden/react-components/packages/chrome
 [chrome dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/chrome
-[datepickers npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-datepickers.svg?style=flat-square
+[datepickers npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-datepickers
 [datepickers npm link]: https://www.npmjs.com/package/@zendeskgarden/react-datepickers
-[datepickers dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/datepickers&style=flat-square
+[datepickers size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-datepickers
+[datepickers size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-datepickers
+[datepickers dependency status]: https://flat.badgen.net/david/dep/zendeskgarden/react-components/packages/datepickers
 [datepickers dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/datepickers
-[dropdowns npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-dropdowns.svg?style=flat-square
+[dropdowns npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-dropdowns
 [dropdowns npm link]: https://www.npmjs.com/package/@zendeskgarden/react-dropdowns
-[dropdowns dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/dropdowns&style=flat-square
+[dropdowns size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-dropdowns
+[dropdowns size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-dropdowns
+[dropdowns dependency status]: https://flat.badgen.net/david/dep/zendeskgarden/react-components/packages/dropdowns
 [dropdowns dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/dropdowns
-[forms npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-forms.svg?style=flat-square
+[forms npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-forms
 [forms npm link]: https://www.npmjs.com/package/@zendeskgarden/react-forms
-[forms dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/forms&style=flat-square
+[forms size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-forms
+[forms size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-forms
+[forms dependency status]: https://flat.badgen.net/david/dep/zendeskgarden/react-components/packages/forms
 [forms dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/forms
-[grid npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-grid.svg?style=flat-square
+[grid npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-grid
 [grid npm link]: https://www.npmjs.com/package/@zendeskgarden/react-grid
-[grid dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/grid&style=flat-square
+[grid size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-grid
+[grid size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-grid
+[grid dependency status]: https://flat.badgen.net/david/dep/zendeskgarden/react-components/packages/grid
 [grid dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/grid
-[loaders npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-loaders.svg?style=flat-square
+[loaders npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-loaders
 [loaders npm link]: https://www.npmjs.com/package/@zendeskgarden/react-loaders
-[loaders dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/loaders&style=flat-square
+[loaders size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-loaders
+[loaders size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-loaders
+[loaders dependency status]: https://flat.badgen.net/david/dep/zendeskgarden/react-components/packages/loaders
 [loaders dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/loaders
-[modals npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-modals.svg?style=flat-square
+[modals npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-modals
 [modals npm link]: https://www.npmjs.com/package/@zendeskgarden/react-modals
-[modals dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/modals&style=flat-square
+[modals size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-modals
+[modals size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-modals
+[modals dependency status]: https://flat.badgen.net/david/dep/zendeskgarden/react-components/packages/modals
 [modals dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/modals
-[notifications npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-notifications.svg?style=flat-square
+[notifications npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-notifications
 [notifications npm link]: https://www.npmjs.com/package/@zendeskgarden/react-notifications
-[notifications dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/notifications&style=flat-square
+[notifications size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-notifications
+[notifications size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-notifications
+[notifications dependency status]: https://flat.badgen.net/david/dep/zendeskgarden/react-components/packages/notifications
 [notifications dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/notifications
-[pagination npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-pagination.svg?style=flat-square
+[pagination npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-pagination
 [pagination npm link]: https://www.npmjs.com/package/@zendeskgarden/react-pagination
-[pagination dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/pagination&style=flat-square
+[pagination size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-pagination
+[pagination size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-pagination
+[pagination dependency status]: https://flat.badgen.net/david/dep/zendeskgarden/react-components/packages/pagination
 [pagination dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/pagination
-[tabs npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-tabs.svg?style=flat-square
+[tabs npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-tabs
 [tabs npm link]: https://www.npmjs.com/package/@zendeskgarden/react-tabs
-[tabs dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/tabs&style=flat-square
+[tabs size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-tabs
+[tabs size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-tabs
+[tabs dependency status]: https://flat.badgen.net/david/dep/zendeskgarden/react-components/packages/tabs
 [tabs dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/tabs
-[tables npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-tables.svg?style=flat-square
+[tables npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-tables
 [tables npm link]: https://www.npmjs.com/package/@zendeskgarden/react-tables
-[tables dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/tables&style=flat-square
+[tables size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-tables
+[tables size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-tables
+[tables dependency status]: https://flat.badgen.net/david/dep/zendeskgarden/react-components/packages/tables
 [tables dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/tables
-[tags npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-tags.svg?style=flat-square
+[tags npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-tags
 [tags npm link]: https://www.npmjs.com/package/@zendeskgarden/react-tags
-[tags dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/tags&style=flat-square
+[tags size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-tags
+[tags size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-tags
+[tags dependency status]: https://flat.badgen.net/david/dep/zendeskgarden/react-components/packages/tags
 [tags dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/tags
-[theming npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-theming.svg?style=flat-square
+[theming npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-theming
 [theming npm link]: https://www.npmjs.com/package/@zendeskgarden/react-theming
-[theming dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/theming&style=flat-square
+[theming size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-theming
+[theming size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-theming
+[theming dependency status]: https://flat.badgen.net/david/dep/zendeskgarden/react-components/packages/theming
 [theming dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/theming
-[tooltips npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-tooltips.svg?style=flat-square
+[tooltips npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-tooltips
 [tooltips npm link]: https://www.npmjs.com/package/@zendeskgarden/react-tooltips
-[tooltips dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/tooltips&style=flat-square
+[tooltips size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-tooltips
+[tooltips size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-tooltips
+[tooltips dependency status]: https://flat.badgen.net/david/dep/zendeskgarden/react-components/packages/tooltips
 [tooltips dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/tooltips
-[typography npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-typography.svg?style=flat-square
+[typography npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-typography
 [typography npm link]: https://www.npmjs.com/package/@zendeskgarden/react-typography
-[typography dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/typography&style=flat-square
+[typography size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-typography
+[typography size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-typography
+[typography dependency status]: https://flat.badgen.net/david/dep/zendeskgarden/react-components/packages/typography
 [typography dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/typography
-[utilities npm version]: https://img.shields.io/npm/v/@zendeskgarden/react-utilities.svg?style=flat-square
-[utilities npm link]: https://www.npmjs.com/package/@zendeskgarden/react-utilities
-[utilities dependency status]: https://img.shields.io/david/zendeskgarden/react-components.svg?path=packages/utilities&style=flat-square
-[utilities dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/utilities
 
 ## Usage
 
@@ -138,9 +176,6 @@ npm install styled-components @zendeskgarden/react-theming prop-types
 ```jsx
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-
-/** Globally include scoped button styling */
-import '@zendeskgarden/react-buttons/dist/styles.css';
 
 /** Include a ThemeProvider at the root of your app */
 import { ThemeProvider } from '@zendeskgarden/react-theming';

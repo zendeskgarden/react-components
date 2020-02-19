@@ -7,12 +7,12 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { zdColorGreen400 } from '@zendeskgarden/css-variables';
+import { PALETTE } from '../../../packages/theming/src';
 import GardenLogo from '@zendeskgarden/svg-icons/src/26/garden.svg';
 
 const LogoWrapper = styled.div`
   text-align: center;
-  color: ${zdColorGreen400};
+  color: ${PALETTE.green[400]};
 `;
 
 const LogoRenderer = () => (
