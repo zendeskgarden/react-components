@@ -8,8 +8,9 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "7.1.5",
-  "main": "./dist/index.js",
+  "version": "8.0.1-next.0",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "files": [
     "dist"
   ],
@@ -18,19 +19,20 @@
     "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
+  "sideEffects": false,
+  "types": "dist/typings/index.d.ts",
   "dependencies": {
-    "classnames": "^2.2.5"
+    "polished": "^3.4.4"
   },
   "peerDependencies": {
-    "@zendeskgarden/react-theming": "^6.0.0 || ^7.0.0",
+    "@zendeskgarden/react-theming": "^7.0.0 || ^8.0.0",
     "prop-types": "^15.6.1",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "@zendeskgarden/css-grid": "0.1.36",
-    "@zendeskgarden/react-theming": "^7.1.4"
+    "@zendeskgarden/react-theming": "^8.0.1-next.0"
   },
   "keywords": [
     "components",
@@ -41,7 +43,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "zendeskgarden:library": "GardenGrid",
-  "zendeskgarden:max_size": "7.5 kB",
-  "zendeskgarden:src": "src/index.js"
+  "zendeskgarden:src": "src/index.ts"
 }

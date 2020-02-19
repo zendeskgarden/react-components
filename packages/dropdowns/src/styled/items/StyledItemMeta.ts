@@ -6,18 +6,30 @@
  */
 
 import styled from 'styled-components';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
-import MenuStyles from '@zendeskgarden/css-menus';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.item_meta';
+
+interface IStyledItemMetaProps {
+  isCompact?: boolean;
+  isDisabled?: boolean;
+}
 
 /**
  * Accepts all `<span>` props
  */
 export const StyledItemMeta = styled.span.attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: MenuStyles['c-menu__item__meta']
-})`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledItemMetaProps>`
+  display: ${props => (props.isCompact ? 'none' : 'block')};
+  line-height: ${props => props.theme.space.base * 4}px;
+  color: ${props => getColor('neutralHue', props.isDisabled ? 400 : 600, props.theme)};
+  font-size: ${props => props.theme.fontSizes.sm};
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledItemMeta.defaultProps = {
+  theme: DEFAULT_THEME
+};

@@ -7,25 +7,10 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const {
-  zdColorBlue600,
-  zdColorGrey100,
-  zdColorKale400,
-  zdColorRed600,
-  zdFontSizeMd
-} = require('@zendeskgarden/css-variables');
+const { DEFAULT_THEME, PALETTE } = require(path.resolve('../../packages/theming'));
 const packageManifest = require(path.resolve('package.json'));
 const customStyleguideConfig = require(path.resolve('styleguide.config.js'));
 const babelOptions = require(path.resolve('../../babel.config.js'));
-const exec = require('child_process').execSync;
-
-const COMPONENT_IDS = exec('"../../utils/scripts/get-cids.sh"', (error, stdout) => {
-  if (error !== null) {
-    throw new Error(`exec error: ${error}`);
-  }
-
-  return stdout;
-});
 const basePathName = path.basename(path.resolve('./'));
 const googleTrackingId = 'UA-970836-25';
 const capitalizePackageName = basePathName.charAt(0).toUpperCase() + basePathName.slice(1);
@@ -39,18 +24,22 @@ const defaultStyleguideConfig = {
   usageMode: 'expand',
   theme: {
     color: {
-      link: zdColorBlue600,
-      linkHover: zdColorBlue600,
-      codeBackground: zdColorGrey100,
-      sidebarBackground: zdColorGrey100,
-      name: zdColorKale400,
-      type: zdColorRed600
+      linkHover: PALETTE.blue[600],
+      base: 'inherit',
+      baseBackground: 'inherit',
+      codeBackground: 'inherit',
+      sidebarBackground: PALETTE.kale[100],
+      name: PALETTE.kale[400],
+      type: PALETTE.red[600]
+    },
+    fontFamily: {
+      base: DEFAULT_THEME.fonts.system
     }
   },
   styles: {
     StyleGuide: {
       '@global body': {
-        fontSize: zdFontSizeMd
+        fontSize: DEFAULT_THEME.fontSizes.md
       }
     }
   },
@@ -115,6 +104,12 @@ const defaultStyleguideConfig = {
             }
           })();
         </script>`
+      ],
+      links: [
+        {
+          rel: 'stylesheet',
+          href: 'https://zendeskgarden.github.io/css-components/utilities/index.css'
+        }
       ]
     }
   },
@@ -124,12 +119,7 @@ const defaultStyleguideConfig = {
     },
     objectAssign: 'Object.assign'
   },
-  require: [
-    'core-js',
-    path.resolve(__dirname, 'setup.js'),
-    path.resolve(__dirname, 'styles.css'),
-    'github-markdown-css'
-  ],
+  require: ['core-js', path.resolve(__dirname, 'setup.js'), 'github-markdown-css'],
   getExampleFilename(componentPath) {
     return componentPath.replace(/\.(jsx?|tsx?)?$/u, '.example.md');
   },
@@ -151,11 +141,15 @@ const defaultStyleguideConfig = {
     return 'Unknown import';
   },
   styleguideComponents: {
+    StyleGuideRenderer: path.resolve(__dirname, 'StyleGuideRenderer'),
     Wrapper: path.resolve(__dirname, 'Wrapper'),
     TableOfContentsRenderer: path.resolve(__dirname, 'TableOfContentsRenderer'),
     LogoRenderer: path.resolve(__dirname, 'LogoRenderer'),
+    LinkRenderer: path.resolve(__dirname, 'LinkRenderer'),
     TableRenderer: path.resolve(__dirname, 'TableRenderer'),
     ArgumentsRenderer: path.resolve(__dirname, 'ArgumentsRenderer'),
+    ExamplePlaceholderRenderer: path.resolve(__dirname, 'ExamplePlaceholderRenderer'),
+    'Markdown/Pre': path.resolve(__dirname, 'Pre'),
     'slots/CodeTabButton': path.resolve(__dirname, 'CodeTabButton')
   },
   webpackConfig: {
@@ -230,8 +224,7 @@ const defaultStyleguideConfig = {
     plugins: [
       new webpack.DefinePlugin({
         BASE_PATH_NAME: JSON.stringify(basePathName),
-        PACKAGE_VERSION: JSON.stringify(packageManifest.version),
-        COMPONENT_IDS: JSON.stringify(COMPONENT_IDS.toString('utf8'))
+        PACKAGE_VERSION: JSON.stringify(packageManifest.version)
       })
     ],
     resolve: {

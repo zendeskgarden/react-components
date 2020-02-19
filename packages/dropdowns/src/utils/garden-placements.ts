@@ -1,3 +1,5 @@
+import { ARROW_POSITION } from '@zendeskgarden/react-theming';
+
 /**
  * Copyright Zendesk, Inc.
  *
@@ -85,4 +87,27 @@ export function getRtlPopperPlacement(gardenPlacement: GARDEN_PLACEMENT): POPPER
     default:
       return popperPlacement;
   }
+}
+
+/**
+ * Convert Popper.JS placement to corresponding arrow position
+ * @param {String} popperPlacement
+ */
+export function getArrowPosition(popperPlacement: POPPER_PLACEMENT) {
+  const arrowPositionMappings: Partial<Record<POPPER_PLACEMENT, ARROW_POSITION>> = {
+    top: 'bottom',
+    'top-start': 'bottom-left',
+    'top-end': 'bottom-right',
+    right: 'left',
+    'right-start': 'left-top',
+    'right-end': 'left-bottom',
+    bottom: 'top',
+    'bottom-start': 'top-left',
+    'bottom-end': 'top-right',
+    left: 'right',
+    'left-start': 'right-top',
+    'left-end': 'right-bottom'
+  };
+
+  return arrowPositionMappings[popperPlacement] || 'top';
 }

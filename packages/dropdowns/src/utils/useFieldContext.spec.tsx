@@ -8,8 +8,8 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import Dropdown from '../Dropdown/Dropdown';
-import Field from '../Fields/Field';
+import Dropdown from '../elements/Dropdown/Dropdown';
+import { Field } from '../elements/Fields/Field';
 import useFieldContext from './useFieldContext';
 
 describe('useFieldContext', () => {

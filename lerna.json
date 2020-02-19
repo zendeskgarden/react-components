@@ -1,9 +1,6 @@
 {
-  "version": "7.1.9",
+  "version": "8.0.1-next.0",
   "npmClient": "yarn",
-  "npmClientArgs": [
-    "--no-lockfile"
-  ],
   "changelog": {
     "repo": "zendeskgarden/react-components",
     "cacheDir": ".changelog",
@@ -20,6 +17,7 @@
     "*.spec.js",
     "*.spec.ts",
     "*.spec.tsx",
+    ".size-snapshot.json",
     "**/__snapshots__/**",
     "styleguide.config.js"
   ],

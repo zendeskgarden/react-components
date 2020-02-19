@@ -5,69 +5,139 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import classNames from 'classnames';
-import { retrieveTheme, isRtl } from '@zendeskgarden/react-theming';
-import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
-import { VALIDATION } from '../';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import { math } from 'polished';
+import { FauxInput } from '@zendeskgarden/react-forms';
+import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { VALIDATION } from '../../utils/validation';
 
 const COMPONENT_ID = 'dropdowns.select';
 
 const isInvalid = (validation?: VALIDATION) => {
-  return validation === VALIDATION.WARNING || validation === VALIDATION.ERROR;
+  return validation === 'warning' || validation === 'error';
+};
+
+interface IStyledSelectIconProps {
+  isCompact?: boolean;
+}
+
+const getIconSize = (props: IStyledSelectIconProps & ThemeProps<DefaultTheme>) => {
+  if (props.isCompact) {
+    return `${props.theme.space.base * 8}px`;
+  }
+
+  return `${props.theme.space.base * 10}px`;
+};
+
+export const StyledSelectIcon = styled.div<IStyledSelectIconProps>`
+  display: flex;
+  position: absolute;
+  top: 0;
+  /* stylelint-disable-next-line property-no-unknown */
+  ${props => (props.theme.rtl ? 'left' : 'right')}: 0;
+  align-items: center;
+  justify-content: center;
+  /* prettier-ignore */
+  transition: color 0.25s ease-in-out,
+    transform 0.25s ease-in-out,
+    border-color 0.25s ease-in-out,
+    box-shadow 0.1s ease-in-out;
+  width: ${props => getIconSize(props)};
+  height: ${props => getIconSize(props)};
+  color: ${props => getColor('neutralHue', 600, props.theme)};
+`;
+
+StyledSelectIcon.defaultProps = {
+  theme: DEFAULT_THEME
+};
+
+const sizeStyles = (props: IStyledSelectProps & ThemeProps<DefaultTheme>) => {
+  const tagMargin = `${props.theme.space.base}px`;
+  const tagBorderWidth = math(`${props.theme.borderWidths.sm} * 2`);
+  let tagMinimumWidth = `${props.theme.space.base * 22.5}px`;
+  let selectPadding = `${props.theme.space.base * 12}px`;
+
+  if (props.isCompact) {
+    tagMinimumWidth = `${props.theme.space.base * 13.5}px`;
+    selectPadding = `${props.theme.space.base * 10}px`;
+  }
+
+  return css`
+    min-width: ${math(`${tagMinimumWidth} + ${selectPadding} + ${tagMargin} + ${tagBorderWidth}`)};
+  `;
 };
 
 export interface IStyledSelectProps {
-  validation?: VALIDATION;
-  small?: boolean;
-  /** Allows flush spacing of Tab elements */
-  tagLayout?: boolean;
-  /** Applies flex layout to support MediaFigure components */
-  mediaLayout?: boolean;
-  /** Removes all borders and styling */
-  bare?: boolean;
+  /** Displays select open state */
+  isOpen?: boolean;
+  isCompact?: boolean;
+  isBare?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
   disabled?: boolean;
-  focused?: boolean;
-  hovered?: boolean;
-  /** Displays select open state */
-  open?: boolean;
+  isFocused?: boolean;
+  isHovered?: boolean;
+  validation?: VALIDATION;
 }
 
-export const StyledSelect = styled.div.attrs<IStyledSelectProps>(props => ({
+export const StyledSelect = styled(FauxInput).attrs<IStyledSelectProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  'aria-invalid': isInvalid(props.validation),
-  className: classNames(TextStyles['c-txt__input'], TextStyles['c-txt__input--select'], {
-    [TextStyles['c-txt__input--sm']]: props.small,
-
-    // Unable to use `tag` prop due to it being a valid, non-boolean prop
-    [TextStyles['c-txt__input--tag']]: props.tagLayout,
-
-    // Unable to use `media` prop due to it being a valid, non-boolean prop
-    [TextStyles['c-txt__input--media']]: props.mediaLayout,
-    [TextStyles['c-txt__input--bare']]: props.bare,
-    [TextStyles['c-txt__input--focus-inset']]: props.focusInset,
-
-    [TextStyles['is-disabled']]: props.disabled,
-    [TextStyles['is-focused']]: props.focused,
-    [TextStyles['is-hovered']]: props.hovered,
-    [TextStyles['is-open']]: props.open,
-
-    [TextStyles['c-txt__input--success']]: props.validation === VALIDATION.SUCCESS,
-    [TextStyles['c-txt__input--warning']]: props.validation === VALIDATION.WARNING,
-    [TextStyles['c-txt__input--error']]: props.validation === VALIDATION.ERROR,
-
-    // RTL
-    [TextStyles['is-rtl']]: isRtl(props)
-  })
+  'aria-invalid': isInvalid(props.validation)
 }))<IStyledSelectProps>`
-  cursor: default;
+  position: relative;
+  cursor: ${props => (props.disabled ? 'default' : 'pointer')};
+  appearance: none;
+  /* stylelint-disable-next-line property-no-unknown */
+  padding-${props => (props.theme.rtl ? 'left' : 'right')}: ${props => getIconSize(props)};
+  text-align: ${props => props.theme.rtl && 'right'};
 
-  && {
-    appearance: none;
+  ${props => sizeStyles(props)};
+
+  ${StyledSelectIcon} {
+    transform: ${props => {
+      if (!props.isOpen) {
+        return undefined;
+      }
+
+      if (props.theme.rtl) {
+        return 'rotate(-180deg) translateY(-1px)';
+      }
+
+      return 'rotate(180deg) translateY(-1px)';
+    }};
+    color: ${props => {
+      if (props.disabled) {
+        return getColor('neutralHue', 400, props.theme);
+      }
+
+      if (props.isHovered) {
+        return getColor('neutralHue', 700, props.theme);
+      }
+
+      return getColor('neutralHue', 600, props.theme);
+    }};
   }
 
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  :hover {
+    ${StyledSelectIcon} {
+      color: ${props => !props.disabled && getColor('neutralHue', 700, props.theme)};
+    }
+  }
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledSelect.defaultProps = {
+  theme: DEFAULT_THEME
+};
+
+export const StyledOverflowWrapper = styled.div`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+
+StyledOverflowWrapper.defaultProps = {
+  theme: DEFAULT_THEME
+};

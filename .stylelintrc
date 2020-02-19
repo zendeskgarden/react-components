@@ -5,10 +5,12 @@
     "stylelint-config-styled-components"
   ],
   "rules": {
+    "declaration-colon-newline-after": null,
     "declaration-empty-line-before": null,
     "keyframes-name-pattern": null,
     "value-keyword-case": ["lower", { ignoreKeywords: ['dummyValue'] }],
     "block-no-empty": null,
-    "number-leading-zero": null
+    "number-leading-zero": null,
+    "selector-type-no-unknown": null
   }
 }

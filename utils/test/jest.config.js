@@ -10,6 +10,7 @@ const { defaults } = require('jest-config');
 
 module.exports = {
   rootDir: '../../',
+  roots: ['<rootDir>', path.resolve(__dirname, 'rootDir')],
   preset: 'ts-jest/presets/js-with-babel',
   modulePathIgnorePatterns: ['./node_modules'],
   transformIgnorePatterns: ['\\/node_modules\\/(?!@zendeskgarden)'],
@@ -21,7 +22,6 @@ module.exports = {
     }
   },
   moduleFileExtensions: [...defaults.moduleFileExtensions],
-  snapshotSerializers: ['enzyme-to-json/serializer'],
   setupFilesAfterEnv: ['<rootDir>/utils/test/jest.setup.js'],
   moduleNameMapper: {
     '\\.(css)$': 'identity-obj-proxy',
@@ -31,7 +31,7 @@ module.exports = {
   },
   collectCoverageFrom: [
     '<rootDir>/packages/*/src/**/*.{js,jsx,ts,tsx}',
-    '!<rootDir>/packages/*/src/index.js',
+    '!<rootDir>/packages/*/src/index.{js,jsx,ts,tsx}',
     '!<rootDir>/packages/.template',
     '!**/node_modules/**',
     '!**/vendor/**'

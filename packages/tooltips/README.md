@@ -12,18 +12,13 @@ npm install @zendeskgarden/react-tooltips
 npm install react react-dom prop-types styled-components @zendeskgarden/react-theming
 ```
 
-## Usages
+## Usage
 
 ### TooltipElement
 
 Standard tooltip usages.
 
 ```jsx static
-/**
- * Include tooltip styling at the root of your application
- */
-import '@zendeskgarden/react-tooltips/dist/styles.css';
-
 import { ThemingProvider } from '@zendeskgarden/react-theming';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 
@@ -31,7 +26,9 @@ import { Tooltip } from '@zendeskgarden/react-tooltips';
  * Place a `ThemeProvider` at the root of your React application
  */
 <ThemeProvider>
-  <Tooltip trigger={<button>Trigger top placement</button>}>This is a small tooltip</Tooltip>
+  <Tooltip content="This is a small tooltip">
+    <button>Trigger top placement</button>
+  </Tooltip>
 </ThemeProvider>;
 ```
 

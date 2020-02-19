@@ -5,22 +5,25 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import classNames from 'classnames';
 import styled from 'styled-components';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
-import MenuStyles from '@zendeskgarden/css-menus';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-import { StyledItem } from '../';
+import { StyledItem } from './StyledItem';
 
 const COMPONENT_ID = 'dropdowns.previous_item';
 
 /**
  * Accepts all `<li>` props
  */
-export const StyledPreviousItem = styled(StyledItem).attrs(props => ({
+export const StyledPreviousItem = styled(StyledItem).attrs({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: classNames(props.className, MenuStyles['c-menu__item--previous'])
-}))`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  'data-garden-version': PACKAGE_VERSION
+})`
+  font-weight: ${props => props.theme.fontWeights.semibold};
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledPreviousItem.defaultProps = {
+  theme: DEFAULT_THEME
+};

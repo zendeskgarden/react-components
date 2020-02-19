@@ -11,8 +11,9 @@ import styled from 'styled-components';
 import TableOfContentsRenderer from 'react-styleguidist/lib/rsg-components/TableOfContents/TableOfContentsRenderer';
 
 import { Button, Anchor } from '../../../packages/buttons/src';
-import { ThemeProvider } from '../../../packages/theming/src';
+import { DEFAULT_THEME, ThemeProvider } from '../../../packages/theming/src';
 import { Tooltip, Title } from '../../../packages/tooltips/src';
+import { Code } from '../../../packages/typography/src';
 import { Field, Toggle, Label } from '../../../packages/forms/src';
 import ChangelogModal from './Changelog';
 import Spacer from './Spacer';
@@ -73,11 +74,7 @@ class TableOfContents extends Component {
           <TableOfContentsChildrenWrapper>{children}</TableOfContentsChildrenWrapper>
           <ThemeProvider>
             <RTLContainer>
-              <ChangelogButton
-                link
-                size="small"
-                onClick={() => this.setState({ isChangelogModalOpen: true })}
-              >
+              <ChangelogButton isLink onClick={() => this.setState({ isChangelogModalOpen: true })}>
                 View Changelog
               </ChangelogButton>
               {isChangelogModalOpen && (
@@ -95,42 +92,37 @@ class TableOfContents extends Component {
               <Spacer height="20px" />
               <Tooltip
                 placement="end"
-                popperModifiers={{
-                  preventOverflow: {
-                    boundariesElement: 'viewport'
-                  },
-                  hide: { enabled: false }
-                }}
-                appendToBody
+                appendToNode={document.body}
                 type="light"
                 size="extra-large"
-                trigger={
-                  <div>
-                    <Field>
-                      <Toggle
-                        checked={isRtl}
-                        onChange={() => {
-                          if (isRtl) {
-                            location.search = '';
-                          } else {
-                            location.search = '?isRtl';
-                          }
-                        }}
-                      >
-                        <Label>RTL Locale</Label>
-                      </Toggle>
-                    </Field>
-                  </div>
+                style={{ fontFamily: DEFAULT_THEME.fonts.system }}
+                content={
+                  <>
+                    <Title>RTL in Garden</Title>
+                    <p>
+                      All Garden components are RTL locale aware when used with the{' '}
+                      <Code>{'<ThemeProvider />'}</Code> component.
+                    </p>
+                    <p>
+                      <Anchor href="../theming">View Garden Theming Package</Anchor>
+                    </p>
+                  </>
                 }
               >
-                <Title>RTL in Garden</Title>
-                <p>
-                  All Garden components are RTL locale aware when used with the{' '}
-                  {'<ThemeProvider />'} component.
-                </p>
-                <p>
-                  <Anchor href="../theming">View Garden Theming Package</Anchor>
-                </p>
+                <Field style={{ marginBottom: 20 }}>
+                  <Toggle
+                    checked={isRtl}
+                    onChange={() => {
+                      if (isRtl) {
+                        location.search = '';
+                      } else {
+                        location.search = '?isRtl';
+                      }
+                    }}
+                  >
+                    <Label>RTL Locale</Label>
+                  </Toggle>
+                </Field>
               </Tooltip>
             </RTLContainer>
           </ThemeProvider>

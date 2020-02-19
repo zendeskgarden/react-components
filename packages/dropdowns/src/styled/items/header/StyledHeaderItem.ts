@@ -5,28 +5,46 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import className from 'classnames';
-import styled from 'styled-components';
-import { retrieveTheme } from '@zendeskgarden/react-theming';
-import MenuStyles from '@zendeskgarden/css-menus';
+import styled, { ThemeProps, DefaultTheme } from 'styled-components';
+import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-import { StyledItem } from '../../';
+import { StyledItem } from '../StyledItem';
 
 const COMPONENT_ID = 'dropdowns.header_item';
 
 export interface IStyledHeaderItemProps {
-  containsIcon?: boolean;
+  /** Applies icon styling */
+  hasIcon?: boolean;
+  isCompact?: boolean;
 }
+
+const getHorizontalPadding = (props: IStyledHeaderItemProps & ThemeProps<DefaultTheme>) => {
+  if (props.hasIcon) {
+    return undefined;
+  }
+
+  if (props.isCompact) {
+    return `${props.theme.space.base * 3}px`;
+  }
+
+  return `${props.theme.space.base * 4}px`;
+};
 
 /**
  * Accepts all `<li>` props
  */
-export const StyledHeaderItem = styled(StyledItem).attrs<IStyledHeaderItemProps>(props => ({
+export const StyledHeaderItem = styled(StyledItem).attrs<IStyledHeaderItemProps>({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: className(props.className, MenuStyles['c-menu__item--header'], {
-    [MenuStyles['c-menu__item--header--icon']]: props.containsIcon
-  })
-}))<IStyledHeaderItemProps>`
-  ${props => retrieveTheme(COMPONENT_ID, props)};
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledHeaderItemProps>`
+  cursor: default;
+  padding-right: ${props => getHorizontalPadding(props)};
+  padding-left: ${props => getHorizontalPadding(props)};
+  font-weight: ${props => props.theme.fontWeights.semibold};
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledHeaderItem.defaultProps = {
+  theme: DEFAULT_THEME
+};

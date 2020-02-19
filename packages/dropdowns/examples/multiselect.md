@@ -22,7 +22,7 @@ our standard `Tag` component.
 
 ```js
 const debounce = require('lodash.debounce');
-const { Tag, Close } = require('@zendeskgarden/react-tags/src');
+const { Tag } = require('@zendeskgarden/react-tags/src');
 
 const options = [
   'Aster',
@@ -122,16 +122,16 @@ function ExampleAutocomplete() {
         <Label>Multiselect with debounce</Label>
         <Hint>This example includes basic debounce logic</Hint>
         <Multiselect
-          small
+          isCompact
           renderItem={({ value, removeValue }) => (
             <Tag>
               <span>{value}</span>
-              <Close onClick={() => removeValue()} />
+              <Tag.Close onClick={() => removeValue()} />
             </Tag>
           )}
         />
       </Field>
-      <Menu small>{renderOptions()}</Menu>
+      <Menu isCompact>{renderOptions()}</Menu>
     </Dropdown>
   );
 }

@@ -7,7 +7,6 @@ node_modules
 
 # Package specific
 packages/**/dist
-packages/**/yarn.lock
 package-lock.json
 
 # Demo specific

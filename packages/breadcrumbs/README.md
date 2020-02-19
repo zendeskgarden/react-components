@@ -15,13 +15,8 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 ## Usage
 
 ```jsx static
-/**
- * Include breadcrumbs styling at the root of your application
- */
-import '@zendeskgarden/react-breadcrumbs/dist/styles.css';
-
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Breadcrumb, Item } from '@zendeskgarden/react-breadcrumbs';
+import { Breadcrumb } from '@zendeskgarden/react-breadcrumbs';
 import { Anchor } from '@zendeskgarden/react-buttons';
 
 /**
@@ -31,7 +26,7 @@ import { Anchor } from '@zendeskgarden/react-buttons';
   <Breadcrumb>
     <Anchor href="/">Root</Anchor>
     <Anchor href="..">Parent</Anchor>
-    <Item>Self</Item>
+    <span>Self</span>
   </Breadcrumb>
 </ThemeProvider>;
 ```

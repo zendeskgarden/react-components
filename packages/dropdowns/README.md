@@ -15,11 +15,6 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 ## Basic Example
 
 ```jsx static
-/**
- * Include dropdowns styling *once* at the root of your application
- */
-import '@zendeskgarden/react-dropdowns/dist/styles.css';
-
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Dropdown, Menu, Item, Trigger } from '@zendeskgarden/react-dropdowns';
 
@@ -93,3 +88,9 @@ via the `downshiftProps` prop.
 Downshift provides several advanced customization features that can be very helpful when
 customizing this component. The [stateReducer](https://github.com/downshift-js/downshift#statereducer)
 pattern is a common customization strategy.
+
+### Server Side Rendering
+
+If you are using server side rendering you may need to [configure specific Downshift settings](https://github.com/downshift-js/downshift#resetidcounter).
+This package re-exports the Downshift `resetIdCounter` utility. It allows resetting the internal id
+counter which is used to generate unique ids for Downshift.
