@@ -10,9 +10,8 @@ features every two weeks, and breaking changes once per quarter.
 Garden distributes packages under a
 [fixed](https://github.com/lerna/lerna#fixedlocked-mode-default) (common
 major) version number. Each package may be individually upgraded, but it is
-best practice to keep dependencies up-to-date. All versions are recorded in the
-[changelog](https://github.com/zendeskgarden/react-components/blob/master/CHANGELOG.MD)
-upon release.
+best practice to keep dependencies up-to-date. All versions are recorded in
+the [changelog](/CHANGELOG.md) upon release.
 
 While it's feasible to backport bug fixes to previous major versions, this
 should be avoided whenever possible. The core Garden team reviews backport

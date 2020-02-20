@@ -154,8 +154,8 @@ to install.
 ## Usage
 
 Garden React packages are ready to use in a
-[create-react-app](https://github.com/facebook/create-react-app) environment
-or together with standard Rollup or webpack build configurations.
+[Create React App](https://create-react-app.dev/) environment or together
+with standard Rollup or webpack build configurations.
 
 Here is a simple example to get you started:
 
@@ -184,7 +184,8 @@ Check out more Garden React components in this sandbox IDE:
 See Garden's [documentation website](https://garden.zendesk.com/) or click
 the links below to learn more.
 
-- [Migrate to v8](docs/migration.md#v8)
+- [Versioning](docs/versioning.md) policy
+- Major release [migration](docs/migration.md) instructions
 
 ## Contribution
 
