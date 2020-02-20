@@ -19,3 +19,5 @@ export const Content = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEl
     return <StyledContent ref={ref} hasFooter={hasFooter} {...props} />;
   }
 );
+
+Content.displayName = 'Content';

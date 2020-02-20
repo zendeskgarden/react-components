@@ -24,6 +24,8 @@ const SM: React.FunctionComponent<ISMProps &
   ({ tag, ...other }, ref) => <StyledFont as={tag} ref={ref} size="sm" {...other} />
 );
 
+SM.displayName = 'SM';
+
 SM.propTypes = {
   tag: PropTypes.any,
   isMonospace: PropTypes.bool

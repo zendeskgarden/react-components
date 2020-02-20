@@ -39,6 +39,8 @@ const ChevronButton: React.FunctionComponent<IChevronButtonProps &
   </IconButton>
 ));
 
+ChevronButton.displayName = 'ChevronButton';
+
 ChevronButton.propTypes = {
   isDanger: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'medium', 'large']),

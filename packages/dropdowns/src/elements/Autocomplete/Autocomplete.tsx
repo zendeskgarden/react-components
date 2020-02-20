@@ -100,6 +100,8 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
   }
 );
 
+Autocomplete.displayName = 'Autocomplete';
+
 Autocomplete.propTypes = {
   isCompact: PropTypes.bool,
   /** Removes all borders and styling */

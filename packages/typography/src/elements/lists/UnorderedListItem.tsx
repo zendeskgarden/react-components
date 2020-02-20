@@ -23,5 +23,7 @@ const UnorderedListItem: React.FunctionComponent<HTMLAttributes<HTMLLIElement> &
   );
 });
 
+UnorderedListItem.displayName = 'UnorderedListItem';
+
 /** @component */
 export default UnorderedListItem;

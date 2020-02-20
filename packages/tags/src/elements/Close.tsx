@@ -18,5 +18,7 @@ const Close = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((
   </StyledClose>
 ));
 
+Close.displayName = 'Close';
+
 /** @component */
 export default Close;

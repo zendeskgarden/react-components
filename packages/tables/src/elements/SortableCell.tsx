@@ -53,6 +53,8 @@ export const SortableCell = React.forwardRef<
   );
 });
 
+SortableCell.displayName = 'SortableCell';
+
 SortableCell.propTypes = {
   sort: PropTypes.oneOf(['asc', 'desc']),
   cellProps: PropTypes.any,

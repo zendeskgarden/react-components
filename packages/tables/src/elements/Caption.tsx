@@ -15,3 +15,5 @@ export const Caption = React.forwardRef<
   HTMLTableCaptionElement,
   HTMLAttributes<HTMLTableCaptionElement>
 >((props, ref) => <StyledCaption ref={ref} {...props} />);
+
+Caption.displayName = 'Caption';

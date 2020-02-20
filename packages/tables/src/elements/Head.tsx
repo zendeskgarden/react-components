@@ -15,3 +15,5 @@ export const Head = React.forwardRef<
   HTMLTableSectionElement,
   HTMLAttributes<HTMLTableSectionElement>
 >((props, ref) => <StyledHead ref={ref} {...props} />);
+
+Head.displayName = 'Head';

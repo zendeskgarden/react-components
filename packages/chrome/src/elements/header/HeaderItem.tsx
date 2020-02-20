@@ -35,6 +35,8 @@ export const HeaderItem = React.forwardRef<any, IHeadItemProps>(
   }
 );
 
+HeaderItem.displayName = 'HeaderItem';
+
 HeaderItem.propTypes = {
   maxX: PropTypes.bool,
   maxY: PropTypes.bool,

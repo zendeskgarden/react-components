@@ -19,3 +19,5 @@ export const MediaBody = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDiv
     return <StyledMediaBody ref={ref} isCompact={isCompact} {...props} />;
   }
 );
+
+MediaBody.displayName = 'MediaBody';

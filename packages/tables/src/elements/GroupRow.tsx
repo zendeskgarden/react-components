@@ -19,3 +19,5 @@ export const GroupRow = React.forwardRef<HTMLTableRowElement, HTMLAttributes<HTM
     return <StyledGroupRow ref={ref} size={size} {...props} />;
   }
 );
+
+GroupRow.displayName = 'GroupRow';

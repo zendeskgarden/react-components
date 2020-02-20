@@ -19,3 +19,5 @@ export const HeaderIcon = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDi
     return <StyledHeaderIcon ref={ref} isCompact={isCompact} {...props} />;
   }
 );
+
+HeaderIcon.displayName = 'HeaderIcon';

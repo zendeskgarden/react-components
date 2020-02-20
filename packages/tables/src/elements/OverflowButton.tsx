@@ -46,6 +46,8 @@ export const OverflowButton = React.forwardRef<
   );
 });
 
+OverflowButton.displayName = 'OverflowButton';
+
 OverflowButton.propTypes = {
   isHovered: PropTypes.bool,
   isActive: PropTypes.bool,

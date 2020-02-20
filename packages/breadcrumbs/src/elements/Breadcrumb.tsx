@@ -48,3 +48,5 @@ export const Breadcrumb = React.forwardRef<HTMLElement, HTMLAttributes<HTMLEleme
     );
   }
 );
+
+Breadcrumb.displayName = 'Breadcrumb';

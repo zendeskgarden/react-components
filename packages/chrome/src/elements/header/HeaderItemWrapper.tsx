@@ -14,3 +14,5 @@ import { StyledHeaderItemWrapper } from '../../styled';
 export const HeaderItemWrapper = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => <StyledHeaderItemWrapper ref={ref} {...props} />
 );
+
+HeaderItemWrapper.displayName = 'HeaderItemWrapper';

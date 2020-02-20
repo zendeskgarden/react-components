@@ -93,6 +93,8 @@ export const Col = React.forwardRef<HTMLDivElement, IColProps>(({ size, ...props
   );
 });
 
+Col.displayName = 'Col';
+
 Col.propTypes = {
   size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   xs: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]),

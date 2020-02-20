@@ -28,6 +28,8 @@ const NextItemComponent = React.forwardRef<HTMLDivElement, IItemProps>(
   }
 );
 
+NextItemComponent.displayName = 'NextItemComponent';
+
 /**
  * Accepts all `<div>` props
  */
@@ -53,6 +55,8 @@ export const NextItem = React.forwardRef<HTMLDivElement, Omit<IItemProps, 'compo
     );
   }
 );
+
+NextItem.displayName = 'NextItem';
 
 NextItem.propTypes = {
   value: PropTypes.any,

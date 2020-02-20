@@ -21,6 +21,8 @@ export const Message = React.forwardRef<HTMLDivElement, IMessageProps>((props, r
   <FormMessage ref={ref} {...props} />
 ));
 
+Message.displayName = 'Message';
+
 Message.propTypes = {
   validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };

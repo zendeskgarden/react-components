@@ -40,3 +40,5 @@ export const Hint = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEleme
     return <HintComponent ref={ref} {...(combinedProps as any)} />;
   }
 );
+
+Hint.displayName = 'Hint';

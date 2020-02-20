@@ -22,6 +22,8 @@ const XXXL: React.FunctionComponent<IXXXLProps &
   ({ tag, ...other }, ref) => <StyledFont as={tag} ref={ref} size="xxxl" {...other} />
 );
 
+XXXL.displayName = 'XXXL';
+
 XXXL.propTypes = {
   tag: PropTypes.any
 };

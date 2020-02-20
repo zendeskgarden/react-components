@@ -31,6 +31,8 @@ export const Grid = React.forwardRef<HTMLDivElement, IGridProps>(
   )
 );
 
+Grid.displayName = 'Grid';
+
 Grid.propTypes = {
   columns: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   gutters: PropTypes.oneOf(ARRAY_SPACE),

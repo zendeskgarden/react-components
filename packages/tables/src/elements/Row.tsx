@@ -37,6 +37,8 @@ export const Row = React.forwardRef<
   );
 });
 
+Row.displayName = 'Row';
+
 Row.propTypes = {
   isStriped: PropTypes.bool,
   isFocused: PropTypes.bool,

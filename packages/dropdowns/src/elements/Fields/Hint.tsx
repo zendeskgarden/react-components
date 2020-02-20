@@ -14,3 +14,5 @@ import { Hint as FormHint } from '@zendeskgarden/react-forms';
 export const Hint = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => <FormHint ref={ref} {...props} />
 );
+
+Hint.displayName = 'Hint';

@@ -96,6 +96,8 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
   }
 );
 
+Select.displayName = 'Select';
+
 Select.propTypes = {
   /** Allows flush spacing of Tab elements */
   tagLayout: PropTypes.bool,

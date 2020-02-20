@@ -32,6 +32,8 @@ export const Nav = React.forwardRef<HTMLElement, INavProps>((props, ref) => {
   );
 });
 
+Nav.displayName = 'Nav';
+
 Nav.propTypes = {
   isExpanded: PropTypes.bool
 };

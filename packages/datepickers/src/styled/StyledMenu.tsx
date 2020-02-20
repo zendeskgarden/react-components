@@ -180,3 +180,5 @@ export const StyledMenu = React.forwardRef<HTMLDivElement, IStyledMenuProps>(
     );
   }
 );
+
+StyledMenu.displayName = 'StyledMenu';

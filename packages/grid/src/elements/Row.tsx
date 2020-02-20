@@ -75,6 +75,8 @@ export const Row = React.forwardRef<HTMLDivElement, IRowProps>(({ wrap, ...props
   return <StyledRow gutters={gutters} debug={debug} wrapAll={wrap} ref={ref} {...props} />;
 });
 
+Row.displayName = 'Row';
+
 Row.propTypes = {
   alignItems: PropTypes.oneOf(ARRAY_ALIGN_ITEMS),
   alignItemsXs: PropTypes.oneOf(ARRAY_ALIGN_ITEMS),

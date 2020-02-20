@@ -58,6 +58,8 @@ export const FauxInput = React.forwardRef<HTMLDivElement, IFauxInputProps>(
   }
 );
 
+FauxInput.displayName = 'FauxInput';
+
 FauxInput.propTypes = {
   isCompact: PropTypes.bool,
   isBare: PropTypes.bool,

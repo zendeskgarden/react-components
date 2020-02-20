@@ -15,4 +15,6 @@ export const Title = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
   (props, ref) => <StyledTitle ref={ref} {...props} />
 );
 
+Title.displayName = 'Title';
+
 export default Title;

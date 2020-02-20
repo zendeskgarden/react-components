@@ -35,6 +35,8 @@ export const Notification = React.forwardRef<
   );
 });
 
+Notification.displayName = 'Notification';
+
 Notification.propTypes = {
   type: PropTypes.oneOf(ARRAY_VALIDATION_TYPE)
 };

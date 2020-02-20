@@ -19,3 +19,5 @@ export const Footer = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTML
     return <StyledFooter ref={ref} isLarge={isLarge} {...props} />;
   }
 );
+
+Footer.displayName = 'Footer';

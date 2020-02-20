@@ -24,6 +24,8 @@ const LG: React.FunctionComponent<ILGProps &
   ({ tag, ...other }, ref) => <StyledFont as={tag} ref={ref} size="lg" {...other} />
 );
 
+LG.displayName = 'LG';
+
 LG.propTypes = {
   tag: PropTypes.any,
   isMonospace: PropTypes.bool

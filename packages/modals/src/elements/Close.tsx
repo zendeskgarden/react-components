@@ -24,3 +24,5 @@ export const Close = React.forwardRef<HTMLButtonElement, React.HTMLAttributes<HT
     );
   }
 );
+
+Close.displayName = 'Close';

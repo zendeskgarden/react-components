@@ -17,6 +17,8 @@ export const SubNavItemText = React.forwardRef<
   IStyledSubNavItemTextProps & HTMLAttributes<HTMLElement>
 >((props, ref) => <StyledSubNavItemText ref={ref} {...props} />);
 
+SubNavItemText.displayName = 'SubNavItemText';
+
 SubNavItemText.propTypes = {
   isWrapped: PropTypes.bool
 };

@@ -26,6 +26,8 @@ export const Table = React.forwardRef<
   );
 });
 
+Table.displayName = 'Table';
+
 Table.defaultProps = {
   size: 'medium'
 };

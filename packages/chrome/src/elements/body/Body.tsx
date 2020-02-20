@@ -32,6 +32,8 @@ export const Body = React.forwardRef<HTMLDivElement, IBodyProps & HTMLAttributes
   }
 );
 
+Body.displayName = 'Body';
+
 Body.propTypes = {
   hasFooter: PropTypes.bool
 };

@@ -42,6 +42,8 @@ const IconButton: React.FunctionComponent<IIconButtonProps &
   }
 );
 
+IconButton.displayName = 'IconButton';
+
 IconButton.propTypes = {
   isDanger: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'medium', 'large']),

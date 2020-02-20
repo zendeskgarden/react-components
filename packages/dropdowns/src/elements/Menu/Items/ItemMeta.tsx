@@ -21,3 +21,5 @@ export const ItemMeta = React.forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpa
     return <StyledItemMeta ref={ref} isCompact={isCompact} isDisabled={isDisabled} {...props} />;
   }
 );
+
+ItemMeta.displayName = 'ItemMeta';

@@ -14,3 +14,5 @@ import { StyledSidebar } from '../../styled';
 export const Sidebar = React.forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => (
   <StyledSidebar ref={ref} {...props} />
 ));
+
+Sidebar.displayName = 'Sidebar';

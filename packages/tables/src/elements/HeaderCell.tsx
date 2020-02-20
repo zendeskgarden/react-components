@@ -23,6 +23,8 @@ export const HeaderCell = React.forwardRef<
   return <StyledHeaderCell ref={ref} size={size} {...props} />;
 });
 
+HeaderCell.displayName = 'HeaderCell';
+
 HeaderCell.propTypes = {
   isMinimum: PropTypes.bool,
   isTruncated: PropTypes.bool,

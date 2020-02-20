@@ -15,3 +15,5 @@ export const Body = React.forwardRef<
   HTMLTableSectionElement,
   HTMLAttributes<HTMLTableSectionElement>
 >((props, ref) => <StyledBody ref={ref} {...props} />);
+
+Body.displayName = 'Body';

@@ -16,4 +16,6 @@ export const Paragraph = React.forwardRef<
   HTMLAttributes<HTMLParagraphElement>
 >((props, ref) => <StyledParagraph ref={ref} {...props} />);
 
+Paragraph.displayName = 'Paragraph';
+
 export default Paragraph;

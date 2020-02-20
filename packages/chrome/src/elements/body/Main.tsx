@@ -14,3 +14,5 @@ import { StyledMain } from '../../styled';
 export const Main = React.forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => (
   <StyledMain ref={ref} {...props} />
 ));
+
+Main.displayName = 'Main';
