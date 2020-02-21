@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.4.5", "@babel/runtime@^7.6.3":
+"@babel/runtime@^7.1.2", "@babel/runtime@^7.4.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.8.4":
   version "7.8.4"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.4.tgz#d79f5a2040f7caa24d53e563aad49cbc05581308"
   integrity sha512-neAp3zt80trRVBI1x0azq6c57aNBqYZH8KhMm3TaB7wEI5Q4A2SHfBHE8w9gOhI/lrqxtEbXZgQIrHP+wvSGwQ==
@@ -21,6 +21,21 @@
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.149.tgz#1342d63d948c6062838fbf961012f74d4e638440"
   integrity sha512-ijGqzZt/b7BfzcK9vTrS6MFljQRPn5BFWOx8oE0GYxribu6uV+aA9zZuXI1zc/etK9E8nrgdoF2+LgUw7+9tJQ==
 
+"@zendeskgarden/container-field@^1.3.1":
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-field/-/container-field-1.3.2.tgz#6f0fb5a33d0220360375b6c201c8a3d9dce3044c"
+  integrity sha512-AX+/xZMQTUkOQGpDQEtAsbhBGY9Mg1g9R11FsMJyCSSBQzsYeaPkamDnWLXSW9vsFJplKkxGEGG1KHh4BnvgGA==
+  dependencies:
+    "@babel/runtime" "^7.8.4"
+    react-uid "^2.2.0"
+
+"@zendeskgarden/container-focusvisible@^0.4.1":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-focusvisible/-/container-focusvisible-0.4.2.tgz#f1fe2f9e33c8af1fc838fac6dabc5ec0e93cfe9c"
+  integrity sha512-UlT1Wq2vWci3xUk4BGZnKLtEJtDf1OACMtCa0kTSL7Lk40qD+rM3BIiay0GYOfeDKQ+Ar/mk32GPqcYzpa/tbA==
+  dependencies:
+    "@babel/runtime" "^7.8.4"
+
 "@zendeskgarden/container-selection@^1.3.1":
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-selection/-/container-selection-1.3.1.tgz#352325712f615d084fd1762cb75051ff8d8e8e21"
@@ -32,6 +47,24 @@
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.5.1.tgz#738dc99dbe4a98809fdc015e5a8e000997725876"
   integrity sha512-+nswWqFEiWHkuQeYSdftJ5c3Xy48IHPKb23qktIeEl+ZibMXzWVytdg91zOerI/HGJizNJ0gKmq+0A/4//eiQQ==
+
+"@zendeskgarden/react-forms@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-forms/-/react-forms-8.0.0.tgz#329f537724dee099dd37c594ccd05c292fa58255"
+  integrity sha512-FCcon6ePawtUfvfUWKRMtpEOB1i2OzeSXNH9kmmgoWd8W2AyafB9ehAVZStuNATDodbwWs/CCpC5dzAMDxC83g==
+  dependencies:
+    "@zendeskgarden/container-field" "^1.3.1"
+    "@zendeskgarden/container-utilities" "^0.5.1"
+    polished "^3.4.4"
+
+"@zendeskgarden/react-theming@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.0.0.tgz#ab60dbbd9d22e1bd2e9849c9e65e321f00b2e90e"
+  integrity sha512-/AwsVwSy0v5CDbIfBS/xQsSwdOma+RMMQZaN8TneKXFcCkVWn6EPdNgAVwfmHl61sJMI5Y+McK9gMYo+ngWISA==
+  dependencies:
+    "@zendeskgarden/container-focusvisible" "^0.4.1"
+    "@zendeskgarden/container-utilities" "^0.5.1"
+    polished "^3.4.4"
 
 "@zendeskgarden/svg-icons@6.10.0":
   version "6.10.0"
@@ -70,10 +103,10 @@ define-properties@^1.1.2, define-properties@^1.1.3:
   dependencies:
     object-keys "^1.0.12"
 
-downshift@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/downshift/-/downshift-4.1.0.tgz#a16c67ea965fd7c310c5f7872276e109a4de1704"
-  integrity sha512-GODZOZC65a8n8YD/S/87hR2t5PJfqZ7+lwEBJsNi/AJnhImfle+CFD/ZPde4l+nB8QNHfn0GbE1W9djEFOj1yQ==
+downshift@^5.0.0:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/downshift/-/downshift-5.0.3.tgz#4912e1deeda89c6f78b2af765f6700722f00918d"
+  integrity sha512-J6cfEcv0qbCUuI4yUhdoj08aJ025MxjLe+GkQ53eY5iC1NrjMj+FgjGkA0dGsyHm5JzVuKTJFd5wQNWOvsLP0g==
   dependencies:
     "@babel/runtime" "^7.4.5"
     compute-scroll-into-view "^1.0.9"
@@ -242,6 +275,11 @@ react-popper@^1.3.4:
     prop-types "^15.6.1"
     typed-styles "^0.0.7"
     warning "^4.0.2"
+
+react-uid@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/react-uid/-/react-uid-2.2.0.tgz#0f77e1e0594fbf29fc4fe528cc9aa415c5bf9159"
+  integrity sha512-z+g5+hFOQ08hCfrGcJ1PNs+cmvH8Uq2CVzCmPeWBsUi5A4W4NWXR5jouledzy3oSKGMU9HOzf8zFuGi15TXJoQ==
 
 regenerator-runtime@^0.13.2:
   version "0.13.3"
