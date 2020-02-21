@@ -38,7 +38,7 @@ existing package, the basic layout will follow this structure (.e.g. under `/pac
 The entire Garden React codebase is statically type-checked using
 [TypeScript](https://www.typescriptlang.org/). See the [API](api.md)
 documentation for in-depth treatment of Garden's Container-View-Element
-architecture.
+architecture, along with rules that apply to each component type.
 
 ## Package examples
 

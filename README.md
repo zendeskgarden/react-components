@@ -186,6 +186,8 @@ the links below to learn more.
 
 - [Versioning](docs/versioning.md) policy
 - Major release [migration](docs/migration.md) instructions
+- Component [API](docs/api.md)
+- [Development](docs/development.md) guidelines
 
 ## Contribution
 
