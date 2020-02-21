@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">64% </span>
+                <span class="strong">60.38% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>32/50</span>
+                <span class='fraction'>32/53</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">51.52% </span>
+                <span class="strong">48.48% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>17/33</span>
+                <span class='fraction'>16/33</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">63.27% </span>
+                <span class="strong">59.62% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>31/49</span>
+                <span class='fraction'>31/52</span>
             </div>
         
             
@@ -236,7 +236,10 @@
 <a name='L177'></a><a href='#L177'>177</a>
 <a name='L178'></a><a href='#L178'>178</a>
 <a name='L179'></a><a href='#L179'>179</a>
-<a name='L180'></a><a href='#L180'>180</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L180'></a><a href='#L180'>180</a>
+<a name='L181'></a><a href='#L181'>181</a>
+<a name='L182'></a><a href='#L182'>182</a>
+<a name='L183'></a><a href='#L183'>183</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -279,7 +282,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -457,28 +463,31 @@ const getAnimationStyles = (props: IStyledMenuViewProps &amp; ThemeProps&lt;Defa
     return undefined;
   }
 &nbsp;
-  let animationKey;
+  let translateKey;
+  let translateDirection = <span class="cstat-no" title="statement not covered" >'';</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  if (props.placement.startsWith('top')) {</span>
-<span class="cstat-no" title="statement not covered" >    animationKey = 'bottom';</span>
+<span class="cstat-no" title="statement not covered" >    translateKey = 'translateY';</span>
   } else <span class="cstat-no" title="statement not covered" >if (props.placement.startsWith('right')) {</span>
-<span class="cstat-no" title="statement not covered" >    animationKey = 'left';</span>
+<span class="cstat-no" title="statement not covered" >    translateKey = 'translateX';</span>
+<span class="cstat-no" title="statement not covered" >    translateDirection = '-';</span>
   } else <span class="cstat-no" title="statement not covered" >if (props.placement.startsWith('bottom')) {</span>
-<span class="cstat-no" title="statement not covered" >    animationKey = 'top';</span>
+<span class="cstat-no" title="statement not covered" >    translateKey = 'translateY';</span>
+<span class="cstat-no" title="statement not covered" >    translateDirection = '-';</span>
   } else <span class="cstat-no" title="statement not covered" >if (props.placement.startsWith('left')) {</span>
-<span class="cstat-no" title="statement not covered" >    animationKey = 'right';</span>
+<span class="cstat-no" title="statement not covered" >    translateKey = 'translateX';</span>
   }
 &nbsp;
   const animation = <span class="cstat-no" title="statement not covered" >keyframes`</span>
-    /* stylelint-disable property-no-unknown */
+    /* stylelint-disable property-no-unknown, function-name-case */
     0% {
-      margin-${animationKey}: -${props.theme.space.base * 5}px;
+      transform: ${translateKey}(${translateDirection}${props.theme.space.base * 5}px);
     }
 &nbsp;
     100% {
-      margin-${animationKey}: 0;
+      transform: ${translateKey}(0);
     }
-    /* stylelint-enable property-no-unknown */
+    /* stylelint-enable property-no-unknown, function-name-case */
   `;
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  return css`</span>
@@ -552,7 +561,7 @@ interface IStyledMenuWrapperProps {
  **/
 const StyledMenuWrapper = styled.div&lt;IStyledMenuWrapperProps&gt;`
   transition: ${props =&gt;
-    props.isHidden &amp;&amp; props.isAnimated &amp;&amp; 'opacity .2s ease-in-out, .2s visibility 0s linear'};
+    props.isHidden &amp;&amp; props.isAnimated &amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >'opacity .2s ease-in-out, .2s visibility 0s linear'}</span>;
   visibility: ${props =&gt; props.isHidden &amp;&amp; 'hidden'};
   opacity: ${props =&gt; props.isHidden &amp;&amp; '0'};
   z-index: ${props =&gt; props.zIndex};
@@ -601,7 +610,7 @@ export const StyledMenu = React.forwardRef&lt;HTMLDivElement, IStyledMenuProps&g
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Feb 20 2020 21:36:49 GMT+0000 (Coordinated Universal Time)
+                at Fri Feb 21 2020 00:36:53 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

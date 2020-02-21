@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1582234610318" clover="3.2.0">
-  <project timestamp="1582234610318" name="All files">
-    <metrics statements="5202" coveredstatements="5036" conditionals="2118" coveredconditionals="1841" methods="1127" coveredmethods="1109" elements="8447" coveredelements="7986" complexity="0" loc="5202" ncloc="5202" packages="89" files="339" classes="339"/>
+<coverage generated="1582245414429" clover="3.2.0">
+  <project timestamp="1582245414429" name="All files">
+    <metrics statements="5205" coveredstatements="5036" conditionals="2120" coveredconditionals="1842" methods="1127" coveredmethods="1109" elements="8452" coveredelements="7987" complexity="0" loc="5205" ncloc="5205" packages="89" files="339" classes="339"/>
     <package name="avatars.src.elements">
       <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="Avatar.tsx" path="/home/travis/build/zendeskgarden/react-components/packages/avatars/src/elements/Avatar.tsx">
@@ -1224,9 +1224,9 @@
       </file>
     </package>
     <package name="datepickers.src.elements.Datepicker">
-      <metrics statements="47" coveredstatements="45" conditionals="17" coveredconditionals="16" methods="14" coveredmethods="12"/>
+      <metrics statements="47" coveredstatements="45" conditionals="19" coveredconditionals="18" methods="14" coveredmethods="12"/>
       <file name="Datepicker.tsx" path="/home/travis/build/zendeskgarden/react-components/packages/datepickers/src/elements/Datepicker/Datepicker.tsx">
-        <metrics statements="47" coveredstatements="45" conditionals="17" coveredconditionals="16" methods="14" coveredmethods="12"/>
+        <metrics statements="47" coveredstatements="45" conditionals="19" coveredconditionals="18" methods="14" coveredmethods="12"/>
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
@@ -1745,7 +1745,7 @@
       </file>
     </package>
     <package name="datepickers.src.styled">
-      <metrics statements="185" coveredstatements="163" conditionals="90" coveredconditionals="68" methods="54" coveredmethods="54"/>
+      <metrics statements="188" coveredstatements="163" conditionals="90" coveredconditionals="67" methods="54" coveredmethods="54"/>
       <file name="StyledCalendar.ts" path="/home/travis/build/zendeskgarden/react-components/packages/datepickers/src/styled/StyledCalendar.ts">
         <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="8" count="4" type="stmt"/>
@@ -1891,7 +1891,7 @@
         <line num="73" count="4" type="stmt"/>
       </file>
       <file name="StyledMenu.tsx" path="/home/travis/build/zendeskgarden/react-components/packages/datepickers/src/styled/StyledMenu.tsx">
-        <metrics statements="49" coveredstatements="31" conditionals="33" coveredconditionals="17" methods="19" coveredmethods="19"/>
+        <metrics statements="52" coveredstatements="31" conditionals="33" coveredconditionals="16" methods="19" coveredmethods="19"/>
         <line num="8" count="4" type="stmt"/>
         <line num="9" count="4" type="stmt"/>
         <line num="10" count="4" type="stmt"/>
@@ -1910,37 +1910,40 @@
         <line num="38" count="4" type="stmt"/>
         <line num="39" count="95" type="cond" truecount="3" falsecount="1"/>
         <line num="40" count="95" type="stmt"/>
-        <line num="45" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="47" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="49" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="46" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="48" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="49" count="0" type="stmt"/>
         <line num="50" count="0" type="stmt"/>
         <line num="51" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="52" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="54" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="55" count="0" type="stmt"/>
-        <line num="67" count="0" type="stmt"/>
-        <line num="85" count="95" type="stmt"/>
-        <line num="94" count="95" type="stmt"/>
-        <line num="95" count="95" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="88" count="95" type="stmt"/>
         <line num="97" count="95" type="stmt"/>
-        <line num="102" count="95" type="stmt"/>
-        <line num="106" count="95" type="cond" truecount="2" falsecount="0"/>
-        <line num="108" count="95" type="stmt"/>
-        <line num="109" count="95" type="stmt"/>
-        <line num="110" count="95" type="cond" truecount="2" falsecount="0"/>
+        <line num="98" count="95" type="stmt"/>
+        <line num="100" count="95" type="stmt"/>
+        <line num="105" count="95" type="stmt"/>
+        <line num="109" count="95" type="cond" truecount="2" falsecount="0"/>
+        <line num="111" count="95" type="stmt"/>
         <line num="112" count="95" type="stmt"/>
-        <line num="118" count="95" type="stmt"/>
-        <line num="121" count="4" type="stmt"/>
-        <line num="136" count="4" type="stmt"/>
-        <line num="138" count="95" type="cond" truecount="3" falsecount="0"/>
-        <line num="139" count="95" type="cond" truecount="2" falsecount="0"/>
-        <line num="140" count="95" type="cond" truecount="2" falsecount="0"/>
-        <line num="141" count="95" type="stmt"/>
+        <line num="113" count="95" type="cond" truecount="2" falsecount="0"/>
+        <line num="115" count="95" type="stmt"/>
+        <line num="121" count="95" type="stmt"/>
+        <line num="124" count="4" type="stmt"/>
+        <line num="139" count="4" type="stmt"/>
+        <line num="141" count="95" type="cond" truecount="2" falsecount="1"/>
+        <line num="142" count="95" type="cond" truecount="2" falsecount="0"/>
+        <line num="143" count="95" type="cond" truecount="2" falsecount="0"/>
         <line num="144" count="95" type="stmt"/>
-        <line num="147" count="4" type="stmt"/>
-        <line num="162" count="4" type="stmt"/>
-        <line num="164" count="95" type="stmt"/>
+        <line num="147" count="95" type="stmt"/>
+        <line num="150" count="4" type="stmt"/>
+        <line num="165" count="4" type="stmt"/>
+        <line num="167" count="95" type="stmt"/>
       </file>
       <file name="StyledRangeCalendar.ts" path="/home/travis/build/zendeskgarden/react-components/packages/datepickers/src/styled/StyledRangeCalendar.ts">
         <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
