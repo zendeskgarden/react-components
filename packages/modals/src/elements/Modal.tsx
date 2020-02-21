@@ -157,6 +157,8 @@ export const Modal = React.forwardRef<HTMLDivElement, IModalProps & HTMLAttribut
   }
 );
 
+Modal.displayName = 'Modal';
+
 Modal.propTypes = {
   children: PropTypes.any,
   backdropProps: PropTypes.object,
