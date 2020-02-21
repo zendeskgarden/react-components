@@ -204,7 +204,7 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
                 ref={ref}
                 style={style}
                 isHidden={!state.isOpen}
-                isAnimated={isAnimated}
+                isAnimated={isAnimated && state.isOpen}
                 placement={currentPlacement as POPPER_PLACEMENT}
                 zIndex={zIndex}
                 data-test-id="datepicker-menu"

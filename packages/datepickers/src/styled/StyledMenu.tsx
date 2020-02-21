@@ -40,28 +40,31 @@ const getAnimationStyles = (props: IStyledMenuViewProps & ThemeProps<DefaultThem
     return undefined;
   }
 
-  let animationKey;
+  let translateKey;
+  let translateDirection = '';
 
   if (props.placement.startsWith('top')) {
-    animationKey = 'bottom';
+    translateKey = 'translateY';
   } else if (props.placement.startsWith('right')) {
-    animationKey = 'left';
+    translateKey = 'translateX';
+    translateDirection = '-';
   } else if (props.placement.startsWith('bottom')) {
-    animationKey = 'top';
+    translateKey = 'translateY';
+    translateDirection = '-';
   } else if (props.placement.startsWith('left')) {
-    animationKey = 'right';
+    translateKey = 'translateX';
   }
 
   const animation = keyframes`
-    /* stylelint-disable property-no-unknown */
+    /* stylelint-disable property-no-unknown, function-name-case */
     0% {
-      margin-${animationKey}: -${props.theme.space.base * 5}px;
+      transform: ${translateKey}(${translateDirection}${props.theme.space.base * 5}px);
     }
 
     100% {
-      margin-${animationKey}: 0;
+      transform: ${translateKey}(0);
     }
-    /* stylelint-enable property-no-unknown */
+    /* stylelint-enable property-no-unknown, function-name-case */
   `;
 
   return css`
