@@ -53,6 +53,8 @@ const Trigger: React.FunctionComponent<ITriggerProps> = ({ children, refKey, ...
     return React.cloneElement(React.Children.only(children as any), {
       ...getToggleButtonProps({
         ...rootProps,
+        // Trigger usages do no include an associated label
+        'aria-labelledby': undefined,
         ...triggerProps,
         ...(children as any).props
       }),
