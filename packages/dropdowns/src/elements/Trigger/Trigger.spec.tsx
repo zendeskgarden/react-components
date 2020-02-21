@@ -49,6 +49,13 @@ describe('Trigger', () => {
     expect(document.activeElement).toEqual(trigger);
   });
 
+  it('remove invalid aria-labelledby', () => {
+    const { getByTestId } = render(<ExampleMenu />);
+    const trigger = getByTestId('trigger');
+
+    expect(trigger).not.toHaveAttribute('aria-labelledby');
+  });
+
   describe('Interaction', () => {
     it('opens on click', () => {
       const { getByTestId } = render(<ExampleMenu />);
