@@ -23,3 +23,5 @@ export const TabList = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEl
     return <StyledTabList {...(tabsPropGetters.getTabListProps({ ref, ...props }) as any)} />;
   }
 );
+
+TabList.displayName = 'TabList';

@@ -42,6 +42,8 @@ const Ellipsis: React.FunctionComponent<IEllipsisProps &
   }
 );
 
+Ellipsis.displayName = 'Ellipsis';
+
 Ellipsis.propTypes = {
   title: PropTypes.string,
   tag: PropTypes.any

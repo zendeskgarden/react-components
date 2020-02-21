@@ -24,6 +24,8 @@ const MD: React.FunctionComponent<IMDProps &
   ({ tag, ...other }, ref) => <StyledFont as={tag} ref={ref} size="md" {...other} />
 );
 
+MD.displayName = 'MD';
+
 MD.propTypes = {
   tag: PropTypes.any,
   isMonospace: PropTypes.bool

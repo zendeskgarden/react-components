@@ -17,3 +17,5 @@ export const SubNav = React.forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>
 
   return <StyledSubNav ref={ref} hue={hue} isLight={isLight} isDark={isDark} {...props} />;
 });
+
+SubNav.displayName = 'SubNav';

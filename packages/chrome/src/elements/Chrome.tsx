@@ -47,6 +47,8 @@ const Chrome = React.forwardRef<HTMLDivElement, IChromeProps & ThemeProps<Defaul
   }
 );
 
+Chrome.displayName = 'Chrome';
+
 Chrome.propTypes = {
   hue: PropTypes.string
 };

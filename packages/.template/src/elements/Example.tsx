@@ -21,6 +21,8 @@ export const Example = React.forwardRef<HTMLDivElement, IExampleProps>((props, r
   <StyledExample ref={ref} {...props} />
 ));
 
+Example.displayName = 'Example';
+
 Example.propTypes = {
   isCompact: PropTypes.bool
 };

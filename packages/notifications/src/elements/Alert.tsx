@@ -38,6 +38,8 @@ export const Alert = React.forwardRef<HTMLDivElement, IAlertProps & HTMLAttribut
   }
 );
 
+Alert.displayName = 'Alert';
+
 Alert.propTypes = {
   type: PropTypes.oneOf(ARRAY_VALIDATION_TYPE).isRequired
 };

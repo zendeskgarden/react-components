@@ -19,3 +19,5 @@ export const Body = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEleme
     return <StyledBody ref={ref} {...getContentProps(props)} />;
   }
 );
+
+Body.displayName = 'Body';

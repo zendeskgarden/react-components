@@ -17,6 +17,8 @@ export const MediaItem = React.forwardRef<HTMLDivElement, IItemProps>((props, re
   <Item component={StyledMediaItem} ref={ref} {...props} />
 ));
 
+MediaItem.displayName = 'MediaItem';
+
 MediaItem.propTypes = {
   value: PropTypes.any,
   disabled: PropTypes.bool

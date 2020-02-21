@@ -17,6 +17,8 @@ export const Header = React.forwardRef<
   IStyledHeaderProps & HTMLAttributes<HTMLElement>
 >((props, ref) => <StyledHeader ref={ref} {...props} />);
 
+Header.displayName = 'Header';
+
 Header.propTypes = {
   isStandalone: PropTypes.bool
 };

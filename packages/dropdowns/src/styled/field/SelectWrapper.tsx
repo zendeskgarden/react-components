@@ -31,3 +31,5 @@ export const SelectWrapper = React.forwardRef<
     </StyledSelect>
   );
 });
+
+SelectWrapper.displayName = 'SelectWrapper';

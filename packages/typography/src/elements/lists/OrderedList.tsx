@@ -35,6 +35,8 @@ const OrderedList = React.forwardRef<HTMLOListElement, IOrderedListProps>(
   }
 );
 
+OrderedList.displayName = 'OrderedList';
+
 OrderedList.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   type: PropTypes.oneOf([

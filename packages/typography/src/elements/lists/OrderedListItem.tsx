@@ -23,5 +23,7 @@ const OrderedListItem: React.FunctionComponent<HTMLAttributes<HTMLLIElement> &
   );
 });
 
+OrderedListItem.displayName = 'OrderedListItem';
+
 /** @component */
 export default OrderedListItem;

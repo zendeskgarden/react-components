@@ -34,6 +34,8 @@ const Code: React.FunctionComponent<ICodeProps &
   }
 );
 
+Code.displayName = 'Code';
+
 Code.propTypes = {
   hue: PropTypes.oneOf(['grey', 'red', 'green', 'yellow']),
   size: PropTypes.oneOf(['small', 'medium', 'large'])

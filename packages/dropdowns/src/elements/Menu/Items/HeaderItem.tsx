@@ -22,3 +22,5 @@ export const HeaderItem = React.forwardRef<HTMLDivElement, IHeaderItemProps>((pr
 
   return <StyledHeaderItem ref={ref} isCompact={isCompact} {...props} />;
 });
+
+HeaderItem.displayName = 'HeaderItem';

@@ -27,12 +27,16 @@ const AddItemComponent = React.forwardRef<HTMLDivElement, IItemProps>(
   }
 );
 
+AddItemComponent.displayName = 'AddItemComponent';
+
 /**
  * Accepts all `<div>` props
  */
 export const AddItem = React.forwardRef<HTMLDivElement, Omit<IItemProps, 'component'>>(
   (props, ref) => <Item component={AddItemComponent} ref={ref} {...props} />
 );
+
+AddItem.displayName = 'AddItem';
 
 AddItem.propTypes = {
   value: PropTypes.any,

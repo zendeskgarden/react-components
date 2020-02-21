@@ -27,6 +27,8 @@ const UnorderedList = React.forwardRef<HTMLUListElement, IUnorderedListProps>(
   )
 );
 
+UnorderedList.displayName = 'UnorderedList';
+
 UnorderedList.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   type: PropTypes.oneOf(['circle', 'disc', 'square'])

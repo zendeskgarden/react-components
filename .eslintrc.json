@@ -12,16 +12,15 @@
   ],
   "settings": {
     "react": {
-      "version": "16.4.2"
+      "version": "detect"
     }
   },
   "globals": {
     "jest": true,
     "BASE_PATH_NAME": true,
-    "PACKAGE_VERSION": true,
-    "COMPONENT_IDS": true
+    "PACKAGE_VERSION": true
   },
-  "plugins": ["prettier", "react", "jest", "jsx-a11y", "react-hooks", "@typescript-eslint", "garden-local"],
+  "plugins": ["react-hooks", "garden-local"],
   "env": {
     "es6": true,
     "browser": true,
@@ -31,22 +30,15 @@
     "prettier/prettier": "error",
     "sort-imports": "off",
     "valid-jsdoc": "off",
-    "no-invalid-this": "off",
     "no-unused-expressions": ["error", { "allowShortCircuit": true }],
     "no-irregular-whitespace": ["error", { "skipTemplates": true }],
     "prefer-named-capture-group": "off",
-    "react/jsx-key": "off",
-    "react/display-name": "off",
-    "react/no-unsafe": ["error", { "checkAliases": true }],
     "react/prop-types": ["error", { "ignore": ["children"] }],
-    "jsx-a11y/label-has-for": "off",
-    "jest/no-disabled-tests": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/camelcase": ["error", { "properties": "never" }],
     "@typescript-eslint/interface-name-prefix": ["error", "always"],
     "@typescript-eslint/no-non-null-assertion": "off",
     "garden-local/require-default-theme": "error"
@@ -60,7 +52,8 @@
     },    {
       "files": ["*.spec.{js,ts,tsx}", "utils/**/*.{js,ts,tsx}"],
       "rules": {
-        "garden-local/require-default-theme": "off"
+        "garden-local/require-default-theme": "off",
+        "@typescript-eslint/no-var-requires": "off"
       }
     }
   ]

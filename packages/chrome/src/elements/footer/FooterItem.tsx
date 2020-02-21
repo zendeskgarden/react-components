@@ -14,3 +14,5 @@ import { StyledFooterItem } from '../../styled';
 export const FooterItem = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => <StyledFooterItem ref={ref} {...props} />
 );
+
+FooterItem.displayName = 'FooterItem';

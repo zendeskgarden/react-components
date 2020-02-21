@@ -45,6 +45,8 @@ export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>((props, ref
   return <LabelComponent ref={ref} {...(combinedProps as any)} />;
 });
 
+Label.displayName = 'Label';
+
 Label.propTypes = {
   isRegular: PropTypes.bool
 };

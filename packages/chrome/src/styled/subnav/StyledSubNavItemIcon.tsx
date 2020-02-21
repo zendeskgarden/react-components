@@ -23,6 +23,8 @@ const FilteredChevronDownStrokeIcon = React.forwardRef<
 ));
 /* eslint-enable @typescript-eslint/no-unused-vars */
 
+FilteredChevronDownStrokeIcon.displayName = 'FilteredChevronDownStrokeIcon';
+
 export const StyledSubNavItemIcon = styled(FilteredChevronDownStrokeIcon)`
   width: ${props => props.theme.iconSizes.sm};
   height: ${props => props.theme.iconSizes.sm};

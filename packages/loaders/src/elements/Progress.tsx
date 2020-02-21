@@ -40,6 +40,8 @@ const Progress = React.forwardRef<HTMLDivElement, IProgressProps>(
   }
 );
 
+Progress.displayName = 'Progress';
+
 Progress.propTypes = {
   color: PropTypes.string,
   value: PropTypes.number.isRequired,

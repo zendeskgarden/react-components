@@ -26,6 +26,8 @@ export const SubNavItem = React.forwardRef<
   return <StyledSubNavItem ref={ref} isDark={isDark} isLight={isLight} {...props} />;
 });
 
+SubNavItem.displayName = 'SubNavItem';
+
 SubNavItem.propTypes = {
   isCurrent: PropTypes.bool
 };

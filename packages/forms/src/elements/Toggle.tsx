@@ -35,3 +35,5 @@ export const Toggle = React.forwardRef<HTMLInputElement, InputHTMLAttributes<HTM
     );
   }
 );
+
+Toggle.displayName = 'Toggle';

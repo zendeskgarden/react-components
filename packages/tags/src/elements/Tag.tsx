@@ -45,6 +45,8 @@ const Tag = React.forwardRef<HTMLDivElement, ITagProps>(({ size, hue, ...otherPr
   <StyledTag ref={ref} size={size} hue={hue} {...otherProps} />
 ));
 
+Tag.displayName = 'Tag';
+
 Tag.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   hue: PropTypes.oneOf([

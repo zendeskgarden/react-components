@@ -63,6 +63,8 @@ const Avatar: React.FunctionComponent<IAvatarProps> = React.forwardRef<HTMLEleme
   }
 );
 
+Avatar.displayName = 'Avatar';
+
 Avatar.propTypes = {
   backgroundColor: PropTypes.string,
   foregroundColor: PropTypes.string,

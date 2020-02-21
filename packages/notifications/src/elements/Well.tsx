@@ -21,6 +21,8 @@ export const Well = React.forwardRef<HTMLDivElement, IWellProps & HTMLAttributes
   (props, ref) => <StyledWell ref={ref} {...props} />
 );
 
+Well.displayName = 'Well';
+
 Well.propTypes = {
   isRecessed: PropTypes.bool,
   isFloating: PropTypes.bool

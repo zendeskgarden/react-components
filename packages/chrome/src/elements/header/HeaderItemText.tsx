@@ -17,6 +17,8 @@ export const HeaderItemText = React.forwardRef<
   IStyledHeaderItemTextProps & HTMLAttributes<HTMLElement>
 >((props, ref) => <StyledHeaderItemText ref={ref} {...props} />);
 
+HeaderItemText.displayName = 'HeaderItemText';
+
 HeaderItemText.propTypes = {
   isClipped: PropTypes.bool
 };

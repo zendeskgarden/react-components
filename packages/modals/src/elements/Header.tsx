@@ -25,3 +25,5 @@ export const Header = React.forwardRef<
     </StyledHeader>
   );
 });
+
+Header.displayName = 'Header';

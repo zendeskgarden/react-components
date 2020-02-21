@@ -14,3 +14,5 @@ import { StyledFooter } from '../../styled';
 export const Footer = React.forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => (
   <StyledFooter ref={ref} {...props} />
 ));
+
+Footer.displayName = 'Footer';

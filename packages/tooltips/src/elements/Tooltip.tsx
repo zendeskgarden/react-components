@@ -173,6 +173,8 @@ const Tooltip: React.FC<ITooltipProps> = ({
   );
 };
 
+Tooltip.displayName = 'Tooltip';
+
 Tooltip.propTypes = {
   appendToNode: PropTypes.any,
   hasArrow: PropTypes.bool,

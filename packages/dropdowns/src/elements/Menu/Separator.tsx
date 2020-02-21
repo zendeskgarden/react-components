@@ -14,3 +14,5 @@ import { StyledSeparator } from '../../styled';
 export const Separator = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => <StyledSeparator ref={ref} {...props} />
 );
+
+Separator.displayName = 'Separator';

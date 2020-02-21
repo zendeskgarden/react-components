@@ -23,6 +23,8 @@ export const Cell = React.forwardRef<
   return <StyledCell ref={ref} size={size} {...props} />;
 });
 
+Cell.displayName = 'Cell';
+
 Cell.propTypes = {
   isMinimum: PropTypes.bool,
   isTruncated: PropTypes.bool,
