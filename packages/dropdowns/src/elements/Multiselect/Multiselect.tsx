@@ -228,6 +228,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
           output.push(
             <StyledItemWrapper key="more-anchor">
               <StyledMoreAnchor
+                data-test-id="show-more"
                 isCompact={props.isCompact}
                 isDisabled={props.disabled}
                 onMouseDown={e => {

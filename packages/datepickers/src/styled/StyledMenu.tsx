@@ -12,6 +12,10 @@ import { POPPER_PLACEMENT } from '../elements/Datepicker/utils/garden-placements
 
 const COMPONENT_ID = 'dropdowns.menu';
 
+/**
+ * Unable to mock due to PopperJS mocking limitations
+ */
+/* istanbul ignore next */
 const retrieveMenuMargin = ({
   placement,
   theme
@@ -35,6 +39,10 @@ const retrieveMenuMargin = ({
   return `margin-left: ${marginAmount};`;
 };
 
+/**
+ * Unable to mock due to PopperJS mocking limitations
+ */
+/* istanbul ignore next */
 const getAnimationStyles = (props: IStyledMenuViewProps & ThemeProps<DefaultTheme>) => {
   if (!props.isAnimated || !props.placement) {
     return undefined;
