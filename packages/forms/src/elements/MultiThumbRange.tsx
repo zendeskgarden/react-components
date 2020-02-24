@@ -17,7 +17,7 @@ import React, {
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
-import { withTheme, DEFAULT_THEME, getDocument } from '@zendeskgarden/react-theming';
+import { withTheme, useDocument, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import {
   StyledSlider,
   StyledSliderTrack,
@@ -57,6 +57,7 @@ const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>
   theme,
   ...props
 }) => {
+  const themedDocument = useDocument(theme);
   const [isMinThumbFocused, setIsMinThumbFocused] = useState(false);
   const [railWidth, setRailWidth] = useState(0);
   const [isMousedDown, setIsMousedDown] = useState(false);
@@ -201,29 +202,27 @@ const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>
   );
 
   const removeDragEvents = useCallback(() => {
-    const themedDocument = getDocument({ theme });
-
-    themedDocument.removeEventListener('mousemove', onDocumentMouseMove);
-    themedDocument.removeEventListener('mouseup', removeDragEvents);
+    if (themedDocument) {
+      themedDocument.removeEventListener('mousemove', onDocumentMouseMove);
+      themedDocument.removeEventListener('mouseup', removeDragEvents);
+    }
 
     setIsMousedDown(false);
-  }, [onDocumentMouseMove, theme]);
+  }, [onDocumentMouseMove, themedDocument]);
 
   useEffect(() => {
-    const themedDocument = getDocument({ theme });
-
-    if (isMousedDown) {
+    if (isMousedDown && themedDocument) {
       themedDocument.addEventListener('mousemove', onDocumentMouseMove);
       themedDocument.addEventListener('mouseup', removeDragEvents);
     }
 
     return () => {
-      if (isMousedDown) {
+      if (isMousedDown && themedDocument) {
         themedDocument.removeEventListener('mousemove', onDocumentMouseMove);
         themedDocument.removeEventListener('mouseup', removeDragEvents);
       }
     };
-  }, [isMousedDown, onDocumentMouseMove, removeDragEvents, theme]);
+  }, [isMousedDown, onDocumentMouseMove, removeDragEvents, themedDocument]);
 
   const onKeyDown = (type: 'min' | 'max') => (e: KeyboardEvent<HTMLDivElement>) => {
     const isMinThumb = type === 'min';

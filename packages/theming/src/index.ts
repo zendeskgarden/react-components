@@ -19,4 +19,5 @@ export { default as getDocument } from './utils/getDocument';
 export { default as getColor } from './utils/getColor';
 export { default as getLineHeight } from './utils/getLineHeight';
 export { default as arrowStyles, ARROW_POSITION } from './utils/arrowStyles';
+export { useDocument } from './utils/useDocument';
 export { DefaultTheme } from 'styled-components';
