@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, HTMLAttributes } from 'react';
+import React, { useRef, useEffect, HTMLAttributes, useState } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProps, DefaultTheme } from 'styled-components';
 import { Popper } from 'react-popper';
@@ -73,6 +73,21 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
     }
   });
 
+  const [isVisible, setVisible] = useState(isOpen);
+
+  useEffect(() => {
+    let timeout: any;
+
+    if (isOpen) {
+      setVisible(true);
+    } else {
+      // Match the duration of the menu fade out transition.
+      timeout = setTimeout(() => setVisible(false), 200);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [isOpen]);
+
   // Reset Downshift refs on every render
   itemIndexRef.current = 0;
   nextItemsHashRef.current = {};
@@ -111,7 +126,7 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
               {...getMenuProps({
                 maxHeight,
                 placement: currentPlacement,
-                isAnimated: isOpen && isAnimated, // Triggers animation start when open
+                isAnimated: isVisible && isAnimated, // Triggers animation start when open,
                 style: computedStyle,
                 isCompact,
                 isHidden: !isOpen,
@@ -121,7 +136,7 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
                 ...otherProps
               } as any)}
             >
-              {isOpen && children}
+              {isVisible && children}
             </StyledMenu>
           );
         }}

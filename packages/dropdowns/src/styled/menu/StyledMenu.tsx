@@ -65,7 +65,7 @@ const getArrowStyles = (props: IStyledMenuViewProps & ThemeProps<DefaultTheme>) 
 
   return arrowStyles(getArrowPosition(props.placement), {
     size: getArrowSize(props),
-    inset: '1px',
+    inset: '2px',
     animationModifier: '.is-animated'
   });
 };
@@ -131,10 +131,12 @@ interface IStyledMenuViewProps {
   isHidden?: boolean;
   hasArrow?: boolean;
   placement?: POPPER_PLACEMENT;
+  maxHeight?: string;
 }
 
 /**
- * 1. Positioned relative to controlling item.
+ * 1. Override arrow parent positioning to ensure arrow is visible beyond block
+ *    overflow boundaries.
  * 2. Opt out of browser default list margin.
  * 3. Prevent controlling item cursor inheritance.
  * 4. Opt out of browser default list padding.
@@ -146,7 +148,8 @@ const StyledMenuView = styled.div.attrs<IStyledMenuViewProps>(props => ({
   className: props.isAnimated && 'is-animated'
 }))<IStyledMenuViewProps>`
   display: inline-block;
-  position: relative; /* [1] */
+  /* stylelint-disable-next-line declaration-no-important */
+  position: static !important; /* [1] */
   margin: 0; /* [2] */
   box-sizing: border-box;
   border: ${props => `${props.theme.borders.sm} ${getColor('neutralHue', 300, props.theme)}`};
@@ -161,11 +164,13 @@ const StyledMenuView = styled.div.attrs<IStyledMenuViewProps>(props => ({
   cursor: default; /* [3] */
   padding: 0; /* [4] */
   min-width: 180px;
+  max-height: ${props => props.maxHeight};
   text-align: ${props => (props.theme.rtl ? 'right' : 'left')};
   white-space: normal; /* [5] */
   font-size: ${props => props.theme.fontSizes.md};
   font-weight: ${props => props.theme.fontWeights.regular};
   direction: ${props => props.theme.rtl && 'rtl'};
+  overflow-y: auto;
 
   ${props => getArrowStyles(props)};
 
@@ -204,23 +209,6 @@ const StyledMenuWrapper = styled.div<IStyledMenuWrapperProps>`
 `;
 
 StyledMenuWrapper.defaultProps = {
-  theme: DEFAULT_THEME
-};
-
-interface IStyledMaxHeightWrapper {
-  maxHeight?: string;
-}
-
-const StyledMaxHeightWrapper = styled.div<IStyledMaxHeightWrapper>`
-  ${props =>
-    props.maxHeight &&
-    `
-  overflow-y: auto;
-  max-height: ${props.maxHeight};
-`}
-`;
-
-StyledMaxHeightWrapper.defaultProps = {
   theme: DEFAULT_THEME
 };
 
@@ -268,9 +256,10 @@ export const StyledMenu = React.forwardRef<HTMLDivElement, IStyledMenuProps>(
             hasArrow={hasArrow}
             placement={placement}
             isAnimated={isAnimated}
+            maxHeight={maxHeight}
             {...other}
           >
-            <StyledMaxHeightWrapper maxHeight={maxHeight}>{children}</StyledMaxHeightWrapper>
+            {children}
           </StyledMenuView>
         </StyledMenuAnimation>
       </StyledMenuWrapper>
