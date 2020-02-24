@@ -17,6 +17,18 @@ describe('OverflowButton', () => {
     expect(container.firstChild).toBe(ref.current);
   });
 
+  it('applies isHovered styling', () => {
+    const { container } = render(<OverflowButton isHovered />);
+
+    expect(container.firstElementChild).toHaveStyleRule('opacity', '1');
+  });
+
+  it('applies isActive styling', () => {
+    const { container } = render(<OverflowButton isActive />);
+
+    expect(container.firstElementChild).toHaveStyleRule('z-index', '1');
+  });
+
   describe('onFocus', () => {
     it('applies focused state', () => {
       const { container } = render(<OverflowButton />);

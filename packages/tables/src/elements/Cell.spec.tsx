@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
+import { render, renderRtl } from 'garden-test-utils';
 
 import { Table } from './Table';
 import { Body } from './Body';
@@ -27,5 +27,74 @@ describe('Cell', () => {
     );
 
     expect(getByTestId('cell')).toBe(ref.current);
+  });
+
+  it('applies isMinimum styling', () => {
+    const { getByTestId } = render(
+      <Table>
+        <Body>
+          <Row>
+            <Cell data-test-id="cell" isMinimum />
+          </Row>
+        </Body>
+      </Table>
+    );
+
+    expect(getByTestId('cell')).toHaveStyle(`
+      box-sizing: content-box;
+      width: 1em;
+    `);
+  });
+
+  it('applies isTruncated styling', () => {
+    const { getByTestId } = render(
+      <Table>
+        <Body>
+          <Row>
+            <Cell data-test-id="cell" isTruncated />
+          </Row>
+        </Body>
+      </Table>
+    );
+
+    expect(getByTestId('cell')).toHaveStyle(`
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    `);
+  });
+
+  it('applies hasOverflow styling', () => {
+    const { getByTestId } = render(
+      <Table>
+        <Body>
+          <Row>
+            <Cell data-test-id="cell" hasOverflow />
+          </Row>
+        </Body>
+      </Table>
+    );
+
+    expect(getByTestId('cell')).toHaveStyle(`
+      width: 2em;
+      height: inherit;
+    `);
+  });
+
+  it('applies RTL styling', () => {
+    const { getByTestId } = renderRtl(
+      <Table>
+        <Body>
+          <Row>
+            <Cell data-test-id="cell" />
+          </Row>
+        </Body>
+      </Table>
+    );
+
+    expect(getByTestId('cell')).toHaveStyle(`
+      padding-right: 12px;
+      padding-left: 0;
+    `);
   });
 });

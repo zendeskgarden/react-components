@@ -97,6 +97,22 @@ describe('Item', () => {
     expect(getAllByTestId('item')[1]).toHaveAttribute('aria-selected', 'true');
   });
 
+  it('applies correct icon styling when isCompact', () => {
+    const { getByTestId } = render(
+      <Dropdown selectedItem="item-1">
+        <Trigger>
+          <button data-test-id="trigger">Test</button>
+        </Trigger>
+        <Menu isCompact>
+          <Item value="item-1">Item 1</Item>
+        </Menu>
+      </Dropdown>
+    );
+
+    fireEvent.click(getByTestId('trigger'));
+    expect(getByTestId('item-icon')).toHaveStyleRule('width', '12px', { modifier: '& > *' });
+  });
+
   describe('States', () => {
     it('applies focus treatment if item is currently highlighted', () => {
       const { getByTestId, getAllByTestId } = render(

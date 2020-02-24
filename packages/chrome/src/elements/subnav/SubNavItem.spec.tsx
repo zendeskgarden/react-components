@@ -7,6 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
+import Chrome from '../Chrome';
 import { SubNavItem } from './SubNavItem';
 
 describe('SubNavItem', () => {
@@ -15,5 +16,39 @@ describe('SubNavItem', () => {
     const { container } = render(<SubNavItem ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
+  });
+
+  it('renders isCurrent styling', () => {
+    const { container } = render(<SubNavItem isCurrent />);
+
+    expect(container.firstChild).toHaveStyle(`
+      cursor: default;
+      opacity: 1;
+    `);
+  });
+
+  it('renders dark hue styling', () => {
+    const hue = 'red';
+    const { container } = render(
+      <Chrome hue={hue}>
+        <SubNavItem isCurrent />
+      </Chrome>
+    );
+
+    expect(container.firstChild!.firstChild).toHaveStyleRule(
+      'background-color',
+      'rgba(255,255,255,0.1)'
+    );
+  });
+
+  it('renders light hue styling', () => {
+    const hue = '#CECEF6';
+    const { container } = render(
+      <Chrome hue={hue}>
+        <SubNavItem isCurrent />
+      </Chrome>
+    );
+
+    expect(container.firstChild!.firstChild).toHaveStyleRule('background-color', 'rgba(0,0,0,0.1)');
   });
 });

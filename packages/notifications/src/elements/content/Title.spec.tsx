@@ -6,8 +6,12 @@
  */
 
 import React from 'react';
+import { css } from 'styled-components';
 import { render } from 'garden-test-utils';
+import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { Notification } from '../Notification';
 import { Title } from './Title';
+import { StyledTitle } from '../../styled';
 
 describe('Title', () => {
   it('passes ref to underlying DOM element', () => {
@@ -15,5 +19,89 @@ describe('Title', () => {
     const { container } = render(<Title ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
+  });
+
+  describe('Types', () => {
+    it('renders default styling', () => {
+      const { container } = render(
+        <Notification>
+          <Title>title</Title>
+        </Notification>
+      );
+
+      expect(container.firstChild).toHaveStyleRule('color', 'inherit', {
+        modifier: css`
+          ${StyledTitle}
+        ` as any
+      });
+    });
+
+    it('renders success styling', () => {
+      const { container } = render(
+        <Notification type="success">
+          <Title>title</Title>
+        </Notification>
+      );
+
+      expect(container.firstChild).toHaveStyleRule(
+        'color',
+        getColor('successHue', 600, DEFAULT_THEME),
+        {
+          modifier: css`
+            ${StyledTitle}
+          ` as any
+        }
+      );
+    });
+
+    it('renders error styling', () => {
+      const { container } = render(
+        <Notification type="error">
+          <Title>title</Title>
+        </Notification>
+      );
+
+      expect(container.firstChild).toHaveStyleRule(
+        'color',
+        getColor('dangerHue', 600, DEFAULT_THEME),
+        {
+          modifier: css`
+            ${StyledTitle}
+          ` as any
+        }
+      );
+    });
+
+    it('renders warning styling', () => {
+      const { container } = render(
+        <Notification type="warning">
+          <Title>title</Title>
+        </Notification>
+      );
+
+      expect(container.firstChild).toHaveStyleRule(
+        'color',
+        getColor('warningHue', 700, DEFAULT_THEME),
+        {
+          modifier: css`
+            ${StyledTitle}
+          ` as any
+        }
+      );
+    });
+
+    it('renders info styling', () => {
+      const { container } = render(
+        <Notification type="info">
+          <Title>title</Title>
+        </Notification>
+      );
+
+      expect(container.firstChild).toHaveStyleRule('color', DEFAULT_THEME.colors.foreground, {
+        modifier: css`
+          ${StyledTitle}
+        ` as any
+      });
+    });
   });
 });

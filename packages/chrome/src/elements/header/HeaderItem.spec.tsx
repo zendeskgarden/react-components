@@ -19,6 +19,30 @@ describe('HeaderItem', () => {
     expect(container.firstChild).toBe(ref.current);
   });
 
+  it('renders maxX styling', () => {
+    const { container } = render(<HeaderItem maxX />);
+
+    expect(container.firstChild).toHaveStyle(`
+      flex: 1;
+      justify-content: start;
+    `);
+  });
+
+  it('renders maxY styling', () => {
+    const { container } = render(<HeaderItem maxY />);
+
+    expect(container.firstChild).toHaveStyle(`
+      height: 100%;
+      border-radius: 0;
+    `);
+  });
+
+  it('renders isRound styling', () => {
+    const { container } = render(<HeaderItem isRound />);
+
+    expect(container.firstChild).toHaveStyleRule('border-radius', '100%');
+  });
+
   describe('Products', () => {
     const VALID_COLOR_MAP: Record<PRODUCT, string> = {
       chat: PALETTE.product.chat,

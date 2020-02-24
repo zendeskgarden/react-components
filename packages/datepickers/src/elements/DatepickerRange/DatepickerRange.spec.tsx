@@ -6,7 +6,12 @@
  */
 
 import React from 'react';
-import { render, fireEvent, getAllByTestId as globalGetAllByTestId } from 'garden-test-utils';
+import {
+  render,
+  fireEvent,
+  getAllByTestId as globalGetAllByTestId,
+  renderRtl
+} from 'garden-test-utils';
 import { addDays, subDays, addMonths, subMonths } from 'date-fns';
 import mockDate from 'mockdate';
 import DatepickerRange, { IDatepickerRangeProps } from './DatepickerRange';
@@ -88,6 +93,45 @@ describe('DatepickerRange', () => {
 
     it('displays highlighted days correctly if both values are provided', () => {
       const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const firstMonthHighlights = globalGetAllByTestId(calendarWrappers[0], 'highlight');
+
+      for (let x = 0; x < firstMonthHighlights.length; x++) {
+        const highlight = firstMonthHighlights[x];
+
+        if (x < 4) {
+          expect(highlight).toHaveAttribute('data-test-highlighted', 'false');
+        } else {
+          expect(highlight).toHaveAttribute('data-test-highlighted', 'true');
+        }
+
+        if (x === 4) {
+          expect(highlight).toHaveAttribute('data-test-start', 'true');
+        }
+      }
+
+      const secondMonthHighlights = globalGetAllByTestId(calendarWrappers[1], 'highlight');
+
+      for (let x = 0; x < secondMonthHighlights.length; x++) {
+        const highlight = secondMonthHighlights[x];
+
+        if (x < 5) {
+          expect(highlight).toHaveAttribute('data-test-highlighted', 'true');
+        } else {
+          expect(highlight).toHaveAttribute('data-test-highlighted', 'false');
+        }
+
+        if (x === 4) {
+          expect(highlight).toHaveAttribute('data-test-end', 'true');
+        }
+      }
+    });
+
+    it('displays highlighted days correctly if both values are provided in RTL mode', () => {
+      const { getAllByTestId } = renderRtl(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
