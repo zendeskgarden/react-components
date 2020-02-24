@@ -244,6 +244,7 @@ const defaultStyleguideConfig = {
         '@zendeskgarden/react-modals': path.resolve('..', 'modals'),
         '@zendeskgarden/react-notifications': path.resolve('..', 'notifications'),
         '@zendeskgarden/react-pagination': path.resolve('..', 'pagination'),
+        '@zendeskgarden/react-stepper': path.resolve('..', 'stepper'),
         '@zendeskgarden/react-tables': path.resolve('..', 'tables'),
         '@zendeskgarden/react-tabs': path.resolve('..', 'tabs'),
         '@zendeskgarden/react-tags': path.resolve('..', 'tags'),

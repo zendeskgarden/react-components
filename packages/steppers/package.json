@@ -1,0 +1,49 @@
+{
+  "name": "@zendeskgarden/react-steppers",
+  "description": "Components related to steppers in the Garden Design System",
+  "license": "Apache-2.0",
+  "author": "Zendesk Garden <garden@zendesk.com>",
+  "homepage": "https://garden.zendesk.com/",
+  "repository": "https://github.com/zendeskgarden/react-components",
+  "bugs": {
+    "url": "https://github.com/zendeskgarden/react-components/issues"
+  },
+  "version": "0.0.0",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "../../utils/scripts/build.sh",
+    "build:demo": "../../utils/scripts/build-demo.sh",
+    "start": "../../utils/scripts/start.sh"
+  },
+  "sideEffects": false,
+  "types": "dist/typings/index.d.ts",
+  "dependencies": {
+    "polished": "^3.4.4"
+  },
+  "peerDependencies": {
+    "@zendeskgarden/react-theming": "^6.0.0 || ^7.0.0",
+    "prop-types": "^15.6.1",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "styled-components": "^4.2.0"
+  },
+  "devDependencies": {
+    "@zendeskgarden/react-theming": "^8.0.0-next.0",
+    "@zendeskgarden/svg-icons": "6.10.0"
+  },
+  "keywords": [
+    "components",
+    "garden",
+    "react",
+    "steppers",
+    "zendesk"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "zendeskgarden:src": "src/index.ts"
+}
