@@ -30,10 +30,6 @@ interface IStyledMenuViewProps {
 /**
  * 1. Override arrow parent positioning to ensure arrow is visible beyond block
  *    overflow boundaries.
- * 2. Opt out of browser default list margin.
- * 3. Prevent controlling item cursor inheritance.
- * 4. Opt out of browser default list padding.
- * 5. Prevent controlling item whitespace inheritance.
  */
 const StyledMenuView = styled.div.attrs<IStyledMenuViewProps>(props => ({
   'data-garden-id': COMPONENT_ID,
@@ -44,7 +40,7 @@ const StyledMenuView = styled.div.attrs<IStyledMenuViewProps>(props => ({
     menuStyles(getMenuPosition(props.placement), {
       theme: props.theme,
       animationModifier: props.isAnimated ? '.is-animated' : undefined
-    })}
+    })};
 
   /* stylelint-disable-next-line declaration-no-important */
   position: static !important; /* [1] */
@@ -58,7 +54,7 @@ const StyledMenuView = styled.div.attrs<IStyledMenuViewProps>(props => ({
       size: `${props.theme.space.base * 2}px`,
       inset: '2px',
       animationModifier: props.isAnimated ? '.is-animated' : undefined
-    })}
+    })};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
@@ -75,10 +71,6 @@ interface IStyledMenuWrapperProps {
   isAnimated?: boolean;
 }
 
-/**
- * 1. PopperJS requires a non-zero font-size to perform
- * its initial placement correctly.
- */
 const StyledMenuWrapper = styled.div.attrs<IStyledMenuWrapperProps>(props => ({
   className: props.isAnimated && 'is-animated'
 }))<IStyledMenuWrapperProps>`
@@ -88,7 +80,7 @@ const StyledMenuWrapper = styled.div.attrs<IStyledMenuWrapperProps>(props => ({
       margin: `${props.theme.space.base * (props.hasArrow ? 2 : 1)}px`,
       zIndex: props.zIndex,
       animationModifier: props.isAnimated ? '.is-animated' : undefined
-    })}
+    })};
 `;
 
 StyledMenuWrapper.defaultProps = {

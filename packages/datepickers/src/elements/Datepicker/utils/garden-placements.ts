@@ -5,6 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { MENU_POSITION } from '@zendeskgarden/react-theming';
+
 type SHARED_PLACEMENT =
   | 'auto'
   | 'top'
@@ -85,4 +87,12 @@ export function getRtlPopperPlacement(gardenPlacement: GARDEN_PLACEMENT): POPPER
     default:
       return popperPlacement;
   }
+}
+
+/**
+ * Convert Popper.JS placement to corresponding menu position
+ * @param {String} popperPlacement
+ */
+export function getMenuPosition(popperPlacement?: POPPER_PLACEMENT) {
+  return (popperPlacement ? popperPlacement.split('-')[0] : 'bottom') as MENU_POSITION;
 }

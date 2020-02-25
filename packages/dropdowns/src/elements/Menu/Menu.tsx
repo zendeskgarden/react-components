@@ -80,13 +80,15 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
 
     if (isOpen) {
       setVisible(true);
-    } else {
+    } else if (isAnimated) {
       // Match the duration of the menu fade out transition.
       timeout = setTimeout(() => setVisible(false), 200);
+    } else {
+      setVisible(false);
     }
 
     return () => clearTimeout(timeout);
-  }, [isOpen]);
+  }, [isOpen, isAnimated]);
 
   // Reset Downshift refs on every render
   itemIndexRef.current = 0;
@@ -126,7 +128,7 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
               {...getMenuProps({
                 maxHeight,
                 placement: currentPlacement,
-                isAnimated: isVisible && isAnimated, // Triggers animation start when open,
+                isAnimated: isAnimated && (isOpen || isVisible),
                 style: computedStyle,
                 isCompact,
                 isHidden: !isOpen,

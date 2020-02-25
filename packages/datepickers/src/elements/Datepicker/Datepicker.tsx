@@ -5,7 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, useReducer, useCallback, FunctionComponent } from 'react';
+import React, {
+  useRef,
+  useEffect,
+  useReducer,
+  useCallback,
+  FunctionComponent,
+  useState
+} from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProps, DefaultTheme } from 'styled-components';
 import { Manager, Popper, Reference } from 'react-popper';
@@ -125,6 +132,23 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
     }
   });
 
+  const [isVisible, setVisible] = useState(state.isOpen);
+
+  useEffect(() => {
+    let timeout: any;
+
+    if (state.isOpen) {
+      setVisible(true);
+    } else if (isAnimated) {
+      // Match the duration of the menu fade out transition.
+      timeout = setTimeout(() => setVisible(false), 200);
+    } else {
+      setVisible(false);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [state.isOpen, isAnimated]);
+
   /**
    * Dispatch update to reducer when controlled value is changed
    */
@@ -204,7 +228,7 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
                 ref={ref}
                 style={style}
                 isHidden={!state.isOpen}
-                isAnimated={isAnimated && state.isOpen}
+                isAnimated={isAnimated && (state.isOpen || isVisible)}
                 placement={currentPlacement as POPPER_PLACEMENT}
                 zIndex={zIndex}
                 data-test-id="datepicker-menu"
