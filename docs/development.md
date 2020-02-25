@@ -1,27 +1,27 @@
 # Garden Development
 
 You're here because you want to get into the codebase. That's great. This
-guide will help you dig into the sensational Garden dirt. If you haven't
-already, please see the [contribution](/.github/CONTRIBUTING.md)
-documentation for a project overview along with versioning, development, and
-PR workflows.
+guide will help you dig in. If you haven't already, please see the
+[contribution](/.github/CONTRIBUTING.md) documentation for a project overview
+along with versioning, development, and PR workflows.
 
 ## Package creation
 
 One of the best ways to get familiar with Garden's package structure is to
 create your own. Garden makes this simple by providing a `yarn new` command.
-Upon running `yarn new` you'll be prompted to enter a name (e.g. `test`). The
-new package will be generated under `/packages` and you can view the results
-by running the `yarn start` command (e.g. `yarn start --scope @zendeskgarden/react-test`).
+This command will prompt you to enter a name (e.g. `test`). The new package
+will be generated under `/packages` and you can view the results by running
+the `yarn start` command (e.g. `yarn start --scope @zendeskgarden/react-test`).
 
 Unless you are a member of the core team, it is unlikely that we'll accept
 brand new package PRs. However, a new package provides the simplified sandbox
-for exploring further component development concepts.
+for exploring further component development concepts. In the mean time,
+please open an [issue](https://github.com/zendeskgarden/react-components/issues/new)
+to discuss the addition of a new component package.
 
 ## Package structure
 
-Whether you're starting with a newly generated package or are digging into an
-existing package, the basic layout will follow this structure (.e.g. under `/packages/test`):
+All packages follow this basic structure (.e.g. under `/packages/test`):
 
 <!-- markdownlint-disable -->
 
@@ -35,7 +35,7 @@ existing package, the basic layout will follow this structure (.e.g. under `/pac
 
 <!-- markdownlint-enable -->
 
-The entire Garden React codebase is statically type-checked using
+The Garden React codebase is statically type-checked using
 [TypeScript](https://www.typescriptlang.org/). See the [API](api.md)
 documentation for in-depth treatment of Garden's Container-View-Element
 architecture, along with rules that apply to each component type.
@@ -62,9 +62,9 @@ or common interactions with other Garden components.
 
 The Garden `react-components` repo is strongly tested – holding steady at
 ~95% [coverage](https://coveralls.io/github/zendeskgarden/react-components).
-DOM testing is implemented using the popular and pragmatic [React Testing
-Library](https://testing-library.com/react). [Jest](https://jestjs.io/) is
-the underlying framework (`describe` - `it` - `expect` API) and test runner.
+DOM testing is implemented using [React Testing
+Library](https://testing-library.com/react) while [Jest](https://jestjs.io/)
+is the underlying API (`describe` - `it` - `expect`) and test runner.
 
 All exported elements must be tested, but should be limited to the surface
 area exposed by the component (in other words, don't re-test imported
@@ -98,15 +98,9 @@ dependencies include:
   - `styled-components`
 
 When additional dependencies are required, they can be installed with the
-`lerna add` command (e.g. add `lodash.debounce` to the `test` package):
-
-```sh
-yarn lerna add lodash.debounce --scope @zendeskgarden/react-test
-```
-
-Direct (non-peer) dependencies must be locked to the latest version (i.e. no
-range specifier). The [Renovate](https://renovatebot.com) bot will keep these
-dependencies up-to-date over time.
+[`lerna add`](https://github.com/lerna/lerna/tree/master/commands/add#readme).
+The [Renovate](https://renovatebot.com) bot will keep these dependencies
+up-to-date over time.
 
 ## Package build
 
