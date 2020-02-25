@@ -27,27 +27,17 @@ export default class Example extends Component {
   render() {
     return (
       <>
-        <Header tag="h1">Zendesk Garden Code Sample</Header>
+        <Header tag="h1">Zendesk Garden sandbox</Header>
         <MD>
           <Paragraph>
-            This CodeSandbox is an example codebase of the{' '}
+            This sandbox is built with{' '}
             <Anchor
               href="https://garden.zendesk.com/react-components"
               isExternal
             >
               Garden react-components
-            </Anchor>{' '}
-            using the{' '}
-            <Anchor
-              href="https://github.com/facebook/create-react-app"
-              isExternal
-            >
-              create-react-app
-            </Anchor>{' '}
-            template.
-          </Paragraph>
-          <Paragraph>
-            To edit this example, modify the{' '}
+            </Anchor>
+            . To edit this example, modify the{' '}
             <Strong>examples/Example.js</Strong> file.
           </Paragraph>
         </MD>

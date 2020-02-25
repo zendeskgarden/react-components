@@ -17,7 +17,7 @@ includes:
 - `├── package.json` – the top-level "project" package that contains
   the dependencies and scripts needed to manage the multi-package repo.
   _This package will never be published to the registry._
-- `└─── packages/` – the folder that contains individual `@zendeskgarden`
+- `└── packages/` – the folder that contains individual `@zendeskgarden`
   packages which are published to the registry.<br>
   &nbsp;&nbsp;&nbsp;&nbsp;`├── .template/` – a special template package
   referenced by `yarn new` to generate a component.<br>
@@ -38,8 +38,8 @@ The [pull request workflow](#pull-request-workflow) along with the [PR
 template](PULL_REQUEST_TEMPLATE.md) will help us determine how to
 version your contributions.
 
-All changes are recorded in applicable package CHANGELOG files after
-your PR is merged.
+All changes are recorded in the [changelog](/CHANGELOG.md) after your PR is
+merged.
 
 ## Development Workflow
 
@@ -64,7 +64,7 @@ commands are available:
 - `yarn new` to generate a new React component based on a package
   template.
 
-See our [development documentation](../docs/development.md) for package
+See Garden's [development documentation](/docs/development.md) for package
 implementation requirements.
 
 ## Pull Request Workflow
@@ -96,4 +96,4 @@ implementation requirements.
 ## License
 
 By contributing to Garden, you agree that your contributions will be
-licensed under the [Apache License, Version 2.0](LICENSE.md).
+licensed under the [Apache License, Version 2.0](/LICENSE.md).
