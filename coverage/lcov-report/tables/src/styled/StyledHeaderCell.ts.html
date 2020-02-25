@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.67% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>22/24</span>
+                <span class='fraction'>24/24</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/8</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.67% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>22/24</span>
+                <span class='fraction'>24/24</span>
             </div>
         
             
@@ -148,13 +148,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -166,22 +166,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
@@ -215,7 +215,7 @@ const truncatedStyling = css`
 const sizeStyles = (props: IStyledCellProps &amp; ThemeProps&lt;DefaultTheme&gt;) =&gt; {
   let paddingVertical = undefined;
 &nbsp;
-  <span class="missing-if-branch" title="else path not taken" >E</span>if (!props.hasOverflow) {
+  if (!props.hasOverflow) {
     paddingVertical = math(`(${getRowHeight(props)} - ${getLineHeight(props)}) / 2`);
   }
 &nbsp;
@@ -231,20 +231,20 @@ export const StyledHeaderCell = styled(StyledCell).attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   text-align: ${props =&gt; {
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (!props.hasOverflow) {
-      <span class="missing-if-branch" title="if path not taken" >I</span>if (props.theme.rtl) {
-<span class="cstat-no" title="statement not covered" >        return 'right';</span>
+    if (!props.hasOverflow) {
+      if (props.theme.rtl) {
+        return 'right';
       }
 &nbsp;
       return 'left';
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return undefined;</span>
+    return undefined;
   }};
   font-weight: inherit;
 &nbsp;
   ${props =&gt; sizeStyles(props)}
-  ${props =&gt; props.isTruncated &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >truncatedStyling}</span>
+  ${props =&gt; props.isTruncated &amp;&amp; truncatedStyling}
 &nbsp;
   ${props =&gt; retrieveComponentStyles(COMPONENT_ID, props)};
 `;
@@ -259,7 +259,7 @@ StyledHeaderCell.defaultProps = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Feb 25 2020 18:51:06 GMT+0000 (Coordinated Universal Time)
+                at Tue Feb 25 2020 21:05:30 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

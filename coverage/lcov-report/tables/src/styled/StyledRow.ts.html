@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">81.25% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>26/32</span>
+                <span class='fraction'>32/32</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">43.75% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>7/16</span>
+                <span class='fraction'>16/16</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">81.25% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>26/32</span>
+                <span class='fraction'>32/32</span>
             </div>
         
             
@@ -194,8 +194,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -205,31 +205,31 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -265,9 +265,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
@@ -303,7 +303,7 @@ export const StyledBaseRow = styled.tr&lt;IStyledRowProps&gt;`
   transition: background-color 0.1s ease-in-out;
   border-bottom: ${props =&gt;
     `${props.theme.borders.sm} ${getColor('neutralHue', 200, props.theme)}`};
-  background-color: ${props =&gt; props.isStriped &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >getColor('neutralHue', 100, props.theme)}</span>;
+  background-color: ${props =&gt; props.isStriped &amp;&amp; getColor('neutralHue', 100, props.theme)};
   vertical-align: top;
   box-sizing: border-box;
 `;
@@ -313,7 +313,7 @@ StyledBaseRow.defaultProps = {
 };
 &nbsp;
 const colorStyles = (props: IStyledRowProps &amp; ThemeProps&lt;DefaultTheme&gt;) =&gt; {
-  const boxShadow = `inset ${props.theme.rtl ? <span class="branch-0 cbranch-no" title="branch not covered" >'-' </span>: ''}${
+  const boxShadow = `inset ${props.theme.rtl ? '-' : ''}${
     props.theme.shadowWidths.md
   } 0 0 0 ${getColor('primaryHue', 600, props.theme)}`;
   const hoveredBackgroundColor = getColor('primaryHue', 600, props.theme, 0.08);
@@ -324,17 +324,17 @@ const colorStyles = (props: IStyledRowProps &amp; ThemeProps&lt;DefaultTheme&gt;
   let backgroundColor = undefined;
   let borderColor = undefined;
 &nbsp;
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (props.isSelected) {
-<span class="cstat-no" title="statement not covered" >    if (props.isHovered) {</span>
-<span class="cstat-no" title="statement not covered" >      backgroundColor = hoveredSelectedBackgroundColor;</span>
+  if (props.isSelected) {
+    if (props.isHovered) {
+      backgroundColor = hoveredSelectedBackgroundColor;
     } else {
-<span class="cstat-no" title="statement not covered" >      backgroundColor = selectedBackgroundColor;</span>
+      backgroundColor = selectedBackgroundColor;
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    borderColor = selectedBorderColor;</span>
-  } else <span class="missing-if-branch" title="if path not taken" >I</span>if (props.isHovered) {
-<span class="cstat-no" title="statement not covered" >    backgroundColor = hoveredBackgroundColor;</span>
-<span class="cstat-no" title="statement not covered" >    borderColor = hoveredBorderColor;</span>
+    borderColor = selectedBorderColor;
+  } else if (props.isHovered) {
+    backgroundColor = hoveredBackgroundColor;
+    borderColor = hoveredBorderColor;
   }
 &nbsp;
   return css`
@@ -342,9 +342,9 @@ const colorStyles = (props: IStyledRowProps &amp; ThemeProps&lt;DefaultTheme&gt;
     background-color: ${backgroundColor};
 &nbsp;
     &amp;:hover {
-      border-bottom-color: ${props.isSelected ? <span class="branch-0 cbranch-no" title="branch not covered" >selectedBorderColor </span>: hoveredBorderColor};
+      border-bottom-color: ${props.isSelected ? selectedBorderColor : hoveredBorderColor};
       background-color: ${props.isSelected
-        ? <span class="branch-0 cbranch-no" title="branch not covered" >hoveredSelectedBackgroundColor</span>
+        ? hoveredSelectedBackgroundColor
         : hoveredBackgroundColor};
 &nbsp;
       ${StyledOverflowButton} {
@@ -357,7 +357,7 @@ const colorStyles = (props: IStyledRowProps &amp; ThemeProps&lt;DefaultTheme&gt;
     }
 &nbsp;
     ${StyledCell}:first-of-type {
-      box-shadow: ${props.isFocused &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >boxShadow}</span>;
+      box-shadow: ${props.isFocused &amp;&amp; boxShadow};
 &nbsp;
       &amp;:focus {
         box-shadow: ${boxShadow};
@@ -388,7 +388,7 @@ StyledRow.defaultProps = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Feb 25 2020 18:51:06 GMT+0000 (Coordinated Universal Time)
+                at Tue Feb 25 2020 21:05:30 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>
