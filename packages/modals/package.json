@@ -22,8 +22,8 @@
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "dependencies": {
-    "@zendeskgarden/container-focusvisible": "^0.4.1",
-    "@zendeskgarden/container-modal": "^0.7.1",
+    "@zendeskgarden/container-focusvisible": "^0.4.2",
+    "@zendeskgarden/container-modal": "^0.7.3",
     "@zendeskgarden/container-utilities": "^0.5.1",
     "dom-helpers": "^5.1.0"
   },
