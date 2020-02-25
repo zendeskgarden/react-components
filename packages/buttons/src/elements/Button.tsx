@@ -78,7 +78,5 @@ Button.defaultProps = {
   size: 'medium'
 };
 
-(Button as any).hasType = () => Button;
-
 /** @component */
 export default Button;

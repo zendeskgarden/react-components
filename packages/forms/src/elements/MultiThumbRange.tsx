@@ -295,9 +295,6 @@ const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>
 
         keyIntercepted = true;
         break;
-
-      default:
-        break;
     }
 
     if (keyIntercepted) {

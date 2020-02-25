@@ -38,7 +38,9 @@ export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>(
 
     return <FormLabel ref={ref} {...labelProps} />;
   }
-) as React.FunctionComponent<ILabelProps>;
+);
+
+Label.displayName = 'Label';
 
 Label.propTypes = {
   isRegular: PropTypes.bool

@@ -10,6 +10,22 @@ import { render, fireEvent } from 'garden-test-utils';
 import { Dropdown, Menu, Item, Field, Label, Select } from '../..';
 
 describe('Label', () => {
+  it('passes ref to underlying DOM element', () => {
+    const ref = React.createRef<HTMLLabelElement>();
+
+    const { getByTestId } = render(
+      <Dropdown isOpen>
+        <Field>
+          <Label data-test-id="label" ref={ref}>
+            Label
+          </Label>
+        </Field>
+      </Dropdown>
+    );
+
+    expect(getByTestId('label')).toBe(ref.current);
+  });
+
   it('applies hover styling through context with onMouseEnter', () => {
     const { getByTestId } = render(
       <Dropdown>

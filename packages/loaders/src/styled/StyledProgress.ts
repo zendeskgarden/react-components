@@ -16,10 +16,8 @@ const sizeToHeight = (size: SIZE, theme: DefaultTheme) => {
       return theme.space.base / 2;
     case 'medium':
       return theme.space.base * 1.5;
-    case 'large':
-      return theme.space.base * 3;
     default:
-      throw new Error('invalid size');
+      return theme.space.base * 3;
   }
 };
 

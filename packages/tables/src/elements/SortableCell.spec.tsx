@@ -28,4 +28,32 @@ describe('SortableCell', () => {
 
     expect(getByTestId('sortable')).toBe(ref.current);
   });
+
+  it('applies correct accessibility value when asc', () => {
+    const { getByTestId } = render(
+      <Table>
+        <Head>
+          <HeaderRow>
+            <SortableCell data-test-id="sortable" sort="asc" />
+          </HeaderRow>
+        </Head>
+      </Table>
+    );
+
+    expect(getByTestId('sortable').parentElement).toHaveAttribute('aria-sort', 'ascending');
+  });
+
+  it('applies correct accessibility value when desc', () => {
+    const { getByTestId } = render(
+      <Table>
+        <Head>
+          <HeaderRow>
+            <SortableCell data-test-id="sortable" sort="desc" />
+          </HeaderRow>
+        </Head>
+      </Table>
+    );
+
+    expect(getByTestId('sortable').parentElement).toHaveAttribute('aria-sort', 'descending');
+  });
 });

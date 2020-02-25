@@ -36,10 +36,6 @@ describe('withTheme', () => {
     expect(container.firstChild).toHaveAttribute('data-rtl', 'true');
   });
 
-  it('sets defaultProps if theme is missing', () => {
-    expect(Div.defaultProps!.theme).toBe(DEFAULT_THEME);
-  });
-
   it('applies the default theme, if missing, to the wrapped component', () => {
     const { container } = render(<NoThemedExample />);
 

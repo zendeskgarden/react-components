@@ -15,7 +15,6 @@ import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilit
 import { DropdownContext } from '../../utils/useDropdownContext';
 
 export const REMOVE_ITEM_STATE_TYPE = 'REMOVE_ITEM';
-export const TAB_SELECT_ITEM_STATE_TYPE = 'TAB_ITEM';
 
 export interface IDropdownProps {
   isOpen?: boolean;
@@ -183,16 +182,6 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
               };
             case Downshift.stateChangeTypes.keyDownEnter:
             case Downshift.stateChangeTypes.clickItem:
-            case TAB_SELECT_ITEM_STATE_TYPE as any: {
-              const updatedState = { ...changes, inputValue: '' };
-
-              if (containsMultiselectRef.current) {
-                updatedState.isOpen = true;
-                updatedState.highlightedIndex = _state.highlightedIndex;
-              }
-
-              return updatedState;
-            }
             case REMOVE_ITEM_STATE_TYPE as any:
               return { ...changes, isOpen: false };
             default:

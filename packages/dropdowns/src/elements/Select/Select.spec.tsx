@@ -6,8 +6,10 @@
  */
 
 import React from 'react';
-import { render, fireEvent } from 'garden-test-utils';
+import { css } from 'styled-components';
+import { render, fireEvent, renderRtl } from 'garden-test-utils';
 import { Dropdown, Select, Field, Menu, Item, Label } from '../..';
+import { StyledSelectIcon } from '../../styled';
 
 const ExampleSelect = () => (
   <Dropdown>
@@ -109,6 +111,62 @@ describe('Select', () => {
     fireEvent.mouseEnter(getByTestId('label'));
 
     expect(getByTestId('select')).toHaveAttribute('data-test-is-hovered', 'true');
+  });
+
+  it('applies correct styling when compact', () => {
+    const { getByTestId } = render(
+      <Dropdown>
+        <Field>
+          <Select isCompact>Test</Select>
+        </Field>
+      </Dropdown>
+    );
+
+    expect(getByTestId('select-icon')).toHaveStyleRule('width', '32px');
+  });
+
+  it('applies correct icon styling when open', () => {
+    const { getByTestId } = render(
+      <Dropdown>
+        <Field>
+          <Select data-test-id="select" isCompact>
+            Test
+          </Select>
+        </Field>
+      </Dropdown>
+    );
+
+    const select = getByTestId('select');
+
+    fireEvent.click(select);
+
+    expect(select).toHaveStyleRule('transform', 'rotate(180deg) translateY(-1px)', {
+      modifier: css`
+        ${StyledSelectIcon}
+      ` as any
+    });
+  });
+
+  it('applies correct icon styling when open in RTL', () => {
+    const { getByTestId } = renderRtl(
+      <Dropdown>
+        <Field>
+          <Select data-test-id="select" isCompact>
+            Test
+          </Select>
+        </Field>
+      </Dropdown>
+    );
+
+    const select = getByTestId('select');
+
+    fireEvent.click(select);
+
+    expect(select).toHaveStyleRule('transform', 'rotate(-180deg) translateY(-1px)', {
+      modifier: css`
+        ${StyledSelectIcon}
+      ` as any
+    });
   });
 
   describe('Interaction', () => {

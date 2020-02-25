@@ -17,6 +17,10 @@ import { POPPER_PLACEMENT, getArrowPosition } from '../../utils/garden-placement
 
 const COMPONENT_ID = 'dropdowns.menu';
 
+/**
+ * Unable to mock due to PopperJS mocking limitations
+ */
+/* istanbul ignore next */
 const shouldShowArrow = ({
   hasArrow,
   placement
@@ -27,10 +31,18 @@ const shouldShowArrow = ({
   return hasArrow && placement;
 };
 
+/**
+ * Unable to mock due to PopperJS mocking limitations
+ */
+/* istanbul ignore next */
 const getArrowSize = (props: ThemeProps<DefaultTheme>) => {
   return `${props.theme.space.base * 2}px`;
 };
 
+/**
+ * Unable to mock due to PopperJS mocking limitations
+ */
+/* istanbul ignore next */
 const retrieveMenuMargin = ({
   hasArrow,
   placement,
@@ -58,6 +70,10 @@ const retrieveMenuMargin = ({
   return `margin-left: ${marginAmount};`;
 };
 
+/**
+ * Unable to mock due to PopperJS mocking limitations
+ */
+/* istanbul ignore next */
 const getArrowStyles = (props: IStyledMenuViewProps & ThemeProps<DefaultTheme>) => {
   if (!props.hasArrow || !props.placement) {
     return undefined;
@@ -70,6 +86,10 @@ const getArrowStyles = (props: IStyledMenuViewProps & ThemeProps<DefaultTheme>) 
   });
 };
 
+/**
+ * Unable to mock due to PopperJS mocking limitations
+ */
+/* istanbul ignore next */
 const getAnimationStyles = (props: IStyledMenuAnimation & ThemeProps<DefaultTheme>) => {
   if (!props.isAnimated || !props.placement) {
     return undefined;

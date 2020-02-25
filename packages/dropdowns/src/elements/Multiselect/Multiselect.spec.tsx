@@ -265,6 +265,59 @@ describe('Multiselect', () => {
       fireEvent.keyDown(multiselect.querySelector('input')!, { key: 'Escape', keyCode: 27 });
       expect(multiselect).toHaveAttribute('data-test-is-open', 'false');
     });
+
+    it('closes when clicked with current inputValue', () => {
+      const { getByTestId } = render(
+        <ExampleWrapper>
+          <Label data-test-id="label">Label</Label>
+          <Multiselect
+            data-test-id="multiselect"
+            renderItem={({ value, removeValue }) => (
+              <div data-test-id="tag">
+                {value}
+                <button data-test-id="remove" onClick={() => removeValue()} tabIndex={-1}>
+                  Remove
+                </button>
+              </div>
+            )}
+          />
+        </ExampleWrapper>
+      );
+      const multiselect = getByTestId('multiselect');
+      const input = multiselect.querySelector('input');
+
+      fireEvent.click(multiselect);
+      fireEvent.change(input!, { target: { value: 'test' } });
+      fireEvent.click(input!);
+
+      expect(multiselect).toHaveAttribute('data-test-is-open', 'true');
+    });
+
+    it('closes on tag focus', () => {
+      const { getByTestId, getAllByTestId } = render(
+        <ExampleWrapper selectedItems={['item-1', 'item-2', 'item-3']}>
+          <Label data-test-id="label">Label</Label>
+          <Multiselect
+            data-test-id="multiselect"
+            renderItem={({ value, removeValue }) => (
+              <div data-test-id="tag">
+                {value}
+                <button data-test-id="remove" onClick={() => removeValue()} tabIndex={-1}>
+                  Remove
+                </button>
+              </div>
+            )}
+          />
+        </ExampleWrapper>
+      );
+      const multiselect = getByTestId('multiselect');
+
+      fireEvent.click(multiselect);
+      expect(multiselect).toHaveAttribute('data-test-is-open', 'true');
+
+      fireEvent.focus(getAllByTestId('tag')[0]);
+      expect(multiselect).toHaveAttribute('data-test-is-open', 'false');
+    });
   });
 
   describe('Tags', () => {
@@ -346,6 +399,28 @@ describe('Multiselect', () => {
       expect(multiselect.textContent).toContain('custom show more 44');
     });
 
+    it('renders closed menu when show more anchor is clicked', () => {
+      const items = [];
+
+      for (let x = 0; x < 50; x++) {
+        items.push(`item-${x}`);
+      }
+
+      const { getByTestId } = render(
+        <ExampleWrapper selectedItems={items}>
+          <Multiselect
+            renderShowMore={num => `custom show more ${num}`}
+            data-test-id="multiselect"
+            renderItem={({ value }) => <div data-test-id="tag">{value}</div>}
+          />
+        </ExampleWrapper>
+      );
+
+      fireEvent.mouseDown(getByTestId('show-more'));
+
+      expect(getByTestId('multiselect')).toHaveAttribute('data-test-is-open', 'false');
+    });
+
     it('limits number of visible tags when disabled', () => {
       const items = [];
 
@@ -398,6 +473,30 @@ describe('Multiselect', () => {
       fireEvent.click(removes[0]);
 
       expect(onSelectSpy).toHaveBeenCalledWith(['item-2', 'item-3']);
+    });
+
+    it('does not remove tag when disabled', () => {
+      const onSelectSpy = jest.fn();
+      const { getByTestId } = render(
+        <ExampleWrapper selectedItems={['item-1']} onSelect={onSelectSpy}>
+          <Multiselect
+            disabled
+            data-test-id="multiselect"
+            renderItem={({ value, removeValue }) => (
+              <div data-test-id="tag">
+                {value}
+                <button data-test-id="remove" onClick={() => removeValue()} tabIndex={-1}>
+                  Remove
+                </button>
+              </div>
+            )}
+          />
+        </ExampleWrapper>
+      );
+
+      fireEvent.click(getByTestId('remove'));
+
+      expect(onSelectSpy).not.toHaveBeenCalled();
     });
 
     it('focuses last tag on left arrow keydown with no input value', () => {
