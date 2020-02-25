@@ -6,124 +6,17 @@
  */
 
 import React, { HTMLAttributes } from 'react';
-import styled, { keyframes, css, ThemeProps, DefaultTheme, CSSProperties } from 'styled-components';
+import styled, { CSSProperties } from 'styled-components';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
-  getColor,
-  arrowStyles
+  arrowStyles,
+  menuStyles,
+  menuPopperStyles
 } from '@zendeskgarden/react-theming';
-import { POPPER_PLACEMENT, getArrowPosition } from '../../utils/garden-placements';
+import { POPPER_PLACEMENT, getArrowPosition, getMenuPosition } from '../../utils/garden-placements';
 
 const COMPONENT_ID = 'dropdowns.menu';
-
-const shouldShowArrow = ({
-  hasArrow,
-  placement
-}: {
-  hasArrow?: boolean;
-  placement?: POPPER_PLACEMENT;
-}) => {
-  return hasArrow && placement;
-};
-
-const getArrowSize = (props: ThemeProps<DefaultTheme>) => {
-  return `${props.theme.space.base * 2}px`;
-};
-
-const retrieveMenuMargin = ({
-  hasArrow,
-  placement,
-  theme
-}: {
-  hasArrow?: boolean;
-  placement?: POPPER_PLACEMENT;
-} & ThemeProps<DefaultTheme>) => {
-  if (!placement) {
-    return '';
-  }
-
-  const marginAmount = shouldShowArrow({ hasArrow, placement })
-    ? `${theme.space.base * 2}px`
-    : `${theme.space.base}px`;
-
-  if (placement.startsWith('bottom')) {
-    return `margin-top: ${marginAmount};`;
-  } else if (placement.startsWith('top')) {
-    return `margin-bottom: ${marginAmount};`;
-  } else if (placement.startsWith('left')) {
-    return `margin-right: ${marginAmount};`;
-  }
-
-  return `margin-left: ${marginAmount};`;
-};
-
-const getArrowStyles = (props: IStyledMenuViewProps & ThemeProps<DefaultTheme>) => {
-  if (!props.hasArrow || !props.placement) {
-    return undefined;
-  }
-
-  return arrowStyles(getArrowPosition(props.placement), {
-    size: getArrowSize(props),
-    inset: '2px',
-    animationModifier: '.is-animated'
-  });
-};
-
-const getAnimationStyles = (props: IStyledMenuAnimation & ThemeProps<DefaultTheme>) => {
-  if (!props.isAnimated || !props.placement) {
-    return undefined;
-  }
-
-  let translateKey;
-  let translateDirection = '';
-
-  if (props.placement.startsWith('top')) {
-    translateKey = 'translateY';
-  } else if (props.placement.startsWith('right')) {
-    translateKey = 'translateX';
-    translateDirection = '-';
-  } else if (props.placement.startsWith('bottom')) {
-    translateKey = 'translateY';
-    translateDirection = '-';
-  } else if (props.placement.startsWith('left')) {
-    translateKey = 'translateX';
-  }
-
-  const animation = keyframes`
-    /* stylelint-disable property-no-unknown, function-name-case */
-    0% {
-      transform: ${translateKey}(${translateDirection}${props.theme.space.base * 5}px);
-    }
-
-    100% {
-      transform: ${translateKey}(0);
-    }
-    /* stylelint-enable property-no-unknown, function-name-case */
-  `;
-
-  return css`
-    animation: ${animation} 0.2s cubic-bezier(0.15, 0.85, 0.35, 1.2);
-  `;
-};
-
-interface IStyledMenuAnimation {
-  isAnimated?: boolean;
-  placement?: POPPER_PLACEMENT;
-}
-
-/**
- * The Menu animation must be applied to a wrapping element
- * to ensure that the transform property doesn't disrupt the
- * stacking context necessary for arrow styling.
- */
-const StyledMenuAnimation = styled.div<IStyledMenuAnimation>`
-  ${props => getAnimationStyles(props)};
-`;
-
-StyledMenuAnimation.defaultProps = {
-  theme: DEFAULT_THEME
-};
 
 interface IStyledMenuViewProps {
   isCompact?: boolean;
@@ -147,36 +40,25 @@ const StyledMenuView = styled.div.attrs<IStyledMenuViewProps>(props => ({
   'data-garden-version': PACKAGE_VERSION,
   className: props.isAnimated && 'is-animated'
 }))<IStyledMenuViewProps>`
-  display: inline-block;
+  ${props =>
+    menuStyles(getMenuPosition(props.placement), {
+      theme: props.theme,
+      animationModifier: props.isAnimated ? '.is-animated' : undefined
+    })}
+
   /* stylelint-disable-next-line declaration-no-important */
   position: static !important; /* [1] */
-  margin: 0; /* [2] */
-  box-sizing: border-box;
-  border: ${props => `${props.theme.borders.sm} ${getColor('neutralHue', 300, props.theme)}`};
-  border-radius: ${props => props.theme.borderRadii.md};
-  box-shadow: ${props =>
-    props.theme.shadows.lg(
-      `${props.theme.space.base * 5}px`,
-      '30px',
-      getColor('chromeHue', 600, props.theme, 0.15)!
-    )};
-  background-color: ${props => props.theme.colors.background};
-  cursor: default; /* [3] */
-  padding: 0; /* [4] */
   min-width: 180px;
   max-height: ${props => props.maxHeight};
-  text-align: ${props => (props.theme.rtl ? 'right' : 'left')};
-  white-space: normal; /* [5] */
-  font-size: ${props => props.theme.fontSizes.md};
-  font-weight: ${props => props.theme.fontWeights.regular};
-  direction: ${props => props.theme.rtl && 'rtl'};
   overflow-y: auto;
 
-  ${props => getArrowStyles(props)};
-
-  :focus {
-    outline: none;
-  }
+  ${props =>
+    props.hasArrow &&
+    arrowStyles(getArrowPosition(props.placement), {
+      size: `${props.theme.space.base * 2}px`,
+      inset: '2px',
+      animationModifier: props.isAnimated ? '.is-animated' : undefined
+    })}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
@@ -197,15 +79,16 @@ interface IStyledMenuWrapperProps {
  * 1. PopperJS requires a non-zero font-size to perform
  * its initial placement correctly.
  */
-const StyledMenuWrapper = styled.div<IStyledMenuWrapperProps>`
-  transition: ${props =>
-    props.isHidden && props.isAnimated && 'opacity .2s ease-in-out, .2s visibility 0s linear'};
-  visibility: ${props => props.isHidden && 'hidden'};
-  opacity: ${props => props.isHidden && '0'};
-  z-index: ${props => props.zIndex};
-  font-size: 0.01px; /* [1] */
-
-  ${props => retrieveMenuMargin(props)};
+const StyledMenuWrapper = styled.div.attrs<IStyledMenuWrapperProps>(props => ({
+  className: props.isAnimated && 'is-animated'
+}))<IStyledMenuWrapperProps>`
+  ${props =>
+    menuPopperStyles(getMenuPosition(props.placement), {
+      hidden: props.isHidden,
+      margin: `${props.theme.space.base * (props.hasArrow ? 2 : 1)}px`,
+      zIndex: props.zIndex,
+      animationModifier: props.isAnimated ? '.is-animated' : undefined
+    })}
 `;
 
 StyledMenuWrapper.defaultProps = {
@@ -251,17 +134,15 @@ export const StyledMenu = React.forwardRef<HTMLDivElement, IStyledMenuProps>(
         isAnimated={isAnimated}
         zIndex={zIndex}
       >
-        <StyledMenuAnimation placement={placement} isAnimated={isAnimated}>
-          <StyledMenuView
-            hasArrow={hasArrow}
-            placement={placement}
-            isAnimated={isAnimated}
-            maxHeight={maxHeight}
-            {...other}
-          >
-            {children}
-          </StyledMenuView>
-        </StyledMenuAnimation>
+        <StyledMenuView
+          hasArrow={hasArrow}
+          placement={placement}
+          isAnimated={isAnimated}
+          maxHeight={maxHeight}
+          {...other}
+        >
+          {children}
+        </StyledMenuView>
       </StyledMenuWrapper>
     );
   }

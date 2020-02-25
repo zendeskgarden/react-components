@@ -30,9 +30,13 @@ export type ARROW_OPTIONS = {
 
 const animationStyles = (position: ARROW_POSITION, modifier: string) => {
   const property = position.split('-')[0];
+  /**
+   * 1. Prevent bleed-through on revised stacking context (i.e. parent transform)
+   */
   const animationName = keyframes`
     0%, 66% {
       ${property}: 2px;
+      border: transparent; /* [1] */
     }
   `;
 

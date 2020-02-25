@@ -1,12 +1,12 @@
 ```jsx
 const StyledMenu = styled.div`
-  ${menuStyles('bottom', {
+  ${menuStyles('top', {
     animationModifier: '[data-garden-animate="true"]'
   })};
 
   padding: 100px;
 
-  ${arrowStyles('top', {
+  ${arrowStyles('bottom', {
     animationModifier: '[data-garden-animate="true"]'
   })};
 `;
@@ -18,12 +18,12 @@ initialState = {
 <PopperManager>
   <PopperReference>
     {({ ref }) => (
-      <button type="button" ref={ref} onClick={event => setState({ animate: !state.animate })}>
+      <button type="button" ref={ref} onClick={event => setState({ animate: true })}>
         Reference element
       </button>
     )}
   </PopperReference>
-  <Popper placement="bottom">
+  <Popper placement="top">
     {({ ref, style, placement, arrowProps }) => (
       <div ref={ref} style={style}>
         <StyledMenu data-garden-animate={state.animate}>Menu</StyledMenu>

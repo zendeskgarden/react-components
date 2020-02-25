@@ -15,27 +15,34 @@ export type MENU_OPTIONS = {
   animationModifier?: string;
 };
 
+export type MENU_POPPER_OPTIONS = {
+  hidden?: boolean;
+  margin?: string;
+  zIndex?: number;
+  animationModifier?: string;
+};
+
 const animationStyles = (position: MENU_POSITION, options: MENU_OPTIONS) => {
   const theme = options.theme || DEFAULT_THEME;
-  let property;
+  let transformFunction;
+  let translateValue = `${theme.space.base * 5}px`;
 
   if (position === 'top') {
-    property = 'bottom';
+    transformFunction = 'translateY';
   } else if (position === 'right') {
-    property = 'left';
+    transformFunction = 'translateX';
+    translateValue = `-${translateValue}`;
   } else if (position === 'bottom') {
-    property = 'top';
+    transformFunction = 'translateY';
+    translateValue = `-${translateValue}`;
   } else {
-    property = 'right';
+    transformFunction = 'translateX';
   }
 
   const animationName = keyframes`
     0% {
-      ${property}: ${theme.space.base * -5}px;
-    }
-
-    100% {
-      ${property}: 0;
+      /* stylelint-disable-next-line function-name-case */
+      transform: ${transformFunction}(${translateValue});
     }
   `;
 
@@ -47,7 +54,16 @@ const animationStyles = (position: MENU_POSITION, options: MENU_OPTIONS) => {
 };
 
 /**
- * CSS for a menu.
+ * CSS for a menu at the given position.
+ *
+ * @param {string} position One of:
+ *  - `'top'`
+ *  - `'right'`
+ *  - `'bottom'`
+ *  - `'left'`
+ * @param {Object} [options.theme=`DEFAULT_THEME`] Context theme object.
+ * @param {string} [options.animationModifier] A CSS class or attribute selector
+ *  which, when applied, animates the menu's appearance.
  */
 export default function menuStyles(position: MENU_POSITION, options: MENU_OPTIONS = {}) {
   const theme = options.theme || DEFAULT_THEME;
@@ -84,5 +100,47 @@ export default function menuStyles(position: MENU_POSITION, options: MENU_OPTION
     }
 
     ${options.animationModifier && animationStyles(position, options)};
+  `;
+}
+
+/**
+ * CSS for a Popper menu wrapper.
+ *
+ * @param {string} position One of:
+ *  - `'top'`
+ *  - `'right'`
+ *  - `'bottom'`
+ *  - `'left'`
+ * @param {Object} [options.theme=`DEFAULT_THEME`] Context theme object.
+ * @param {boolean} [options.hidden] Determine whether the menu is hidden.
+ * @param {string} [options.margin] Amount of margin between menu and trigger.
+ * @param {number} [options.zIndex] The menu wrapper's z-index.
+ * @param {string} [options.animationModifier] A CSS class or attribute selector
+ *  which, when applied, animates the menu when hidden.
+ */
+export function menuPopperStyles(position: MENU_POSITION, options: MENU_POPPER_OPTIONS = {}) {
+  const transition = 'opacity 0.2s ease-in-out, 0.2s visibility 0s linear';
+  let marginProperty;
+
+  if (position === 'top') {
+    marginProperty = 'margin-bottom';
+  } else if (position === 'right') {
+    marginProperty = 'margin-left';
+  } else if (position === 'bottom') {
+    marginProperty = 'margin-top';
+  } else {
+    marginProperty = 'margin-right';
+  }
+
+  /**
+   * 1. Popper requires a non-zero font-size to calculate initial placement.
+   */
+  return css`
+    transition: ${options.animationModifier && transition};
+    visibility: ${options.hidden && 'hidden'};
+    opacity: ${options.hidden && '0'};
+    z-index: ${options.zIndex};
+    ${marginProperty}: ${options.margin};
+    font-size: 0.01px; /* [1] */
   `;
 }
