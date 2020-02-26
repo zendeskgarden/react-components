@@ -31,7 +31,7 @@ interface IStyledMenuViewProps {
  * 1. Override arrow parent positioning to ensure arrow is visible beyond block
  *    overflow boundaries.
  */
-const StyledMenuView = styled.div.attrs<IStyledMenuViewProps>(props => ({
+const StyledMenuView = styled.ul.attrs<IStyledMenuViewProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   className: props.isAnimated && 'is-animated'
@@ -87,7 +87,7 @@ StyledMenuWrapper.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-export interface IStyledMenuProps extends HTMLAttributes<HTMLDivElement> {
+export interface IStyledMenuProps extends HTMLAttributes<HTMLUListElement> {
   /**
    * All valid [Popper.JS Placements](https://popper.js.org/popper-documentation.html#Popper.placements)
    */

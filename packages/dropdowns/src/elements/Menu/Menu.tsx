@@ -21,7 +21,7 @@ import {
 } from '../../utils/garden-placements';
 import { MenuContext } from '../../utils/useMenuContext';
 
-interface IMenuProps extends HTMLAttributes<HTMLDivElement> {
+interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
   /** See Popper [documentation](https://popper.js.org/docs/v2/modifiers/) for details */
   popperModifiers?: Modifiers;
   eventsEnabled?: boolean;

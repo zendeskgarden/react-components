@@ -9,9 +9,9 @@ import React, { HTMLAttributes } from 'react';
 import { StyledSeparator } from '../../styled';
 
 /**
- * Accepts all `<div>` props
+ * Accepts all `<li>` props
  */
-export const Separator = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+export const Separator = React.forwardRef<HTMLLIElement, HTMLAttributes<HTMLLIElement>>(
   (props, ref) => <StyledSeparator ref={ref} {...props} />
 );
 
