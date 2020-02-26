@@ -13,7 +13,7 @@ import useDropdownContext from '../../../utils/useDropdownContext';
 import useMenuContext from '../../../utils/useMenuContext';
 import { ItemContext } from '../../../utils/useItemContext';
 
-export interface IItemProps extends HTMLAttributes<HTMLDivElement> {
+export interface IItemProps extends HTMLAttributes<HTMLLIElement> {
   /**
    * The value that is returned through Dropdown during selection
    */
@@ -26,9 +26,9 @@ export interface IItemProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Accepts all `<div>` props
+ * Accepts all `<li>` props
  */
-export const Item = React.forwardRef<HTMLDivElement, IItemProps>(
+export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
   ({ value, disabled, component = StyledItem, children, ...props }, ref) => {
     const {
       selectedItems,

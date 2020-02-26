@@ -58,7 +58,7 @@ describe('Item', () => {
   });
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = React.createRef<HTMLLIElement>();
 
     const { getByTestId } = render(
       <Dropdown isOpen>

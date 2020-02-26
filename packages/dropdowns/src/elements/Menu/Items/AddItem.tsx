@@ -12,7 +12,7 @@ import { Item, IItemProps } from './Item';
 import { StyledAddItem, StyledItemIcon } from '../../../styled';
 import useMenuContext from '../../../utils/useMenuContext';
 
-const AddItemComponent = React.forwardRef<HTMLDivElement, IItemProps>(
+const AddItemComponent = React.forwardRef<HTMLLIElement, IItemProps>(
   ({ children, disabled, ...props }, ref) => {
     const { isCompact } = useMenuContext();
 
@@ -30,9 +30,9 @@ const AddItemComponent = React.forwardRef<HTMLDivElement, IItemProps>(
 AddItemComponent.displayName = 'AddItemComponent';
 
 /**
- * Accepts all `<div>` props
+ * Accepts all `<li>` props
  */
-export const AddItem = React.forwardRef<HTMLDivElement, Omit<IItemProps, 'component'>>(
+export const AddItem = React.forwardRef<HTMLLIElement, Omit<IItemProps, 'component'>>(
   (props, ref) => <Item component={AddItemComponent} ref={ref} {...props} />
 );
 
