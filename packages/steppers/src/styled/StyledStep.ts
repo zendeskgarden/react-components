@@ -19,10 +19,8 @@ export const StyledStep = styled.div.attrs<IStyledStep>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledStep>`
-  display: ${props => props.isHorizontal && 'flex'};
-  flex-direction: ${props => props.isHorizontal && 'column'};
-  align-items: ${props => props.isHorizontal && 'center'};
-  text-align: ${props => props.isHorizontal && 'center'};
+  position: ${props => props.isHorizontal && 'relative'};
+  flex-grow: ${props => props.isHorizontal && '1'};
 
   &:not(:last-of-type) ${StyledStepContent} {
     border-left: ${props => props.theme.borders.sm};

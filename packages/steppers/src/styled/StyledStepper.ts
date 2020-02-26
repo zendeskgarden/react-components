@@ -19,8 +19,6 @@ export const StyledStepper = styled.div.attrs<IStyledStepper>({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledStepper>`
   display: ${props => props.isHorizontal && 'flex'};
-  justify-content: space-between;
-  padding-bottom: ${props => props.isHorizontal && `${props.theme.space.base * 6}px`};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

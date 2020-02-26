@@ -9,8 +9,11 @@ import styled from 'styled-components';
 import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 export const StyledLine = styled.div`
-  flex-grow: 1;
-  margin-top: ${props => props.theme.space.base * 3}px;
+  display: block;
+  position: absolute;
+  top: ${props => props.theme.space.base * 3}px;
+  right: calc(50% + 20px);
+  left: calc(-50% + 20px);
   border-top: ${props => props.theme.borders.sm};
   border-color: ${props => getColor('neutralHue', 300, props.theme)};
 `;

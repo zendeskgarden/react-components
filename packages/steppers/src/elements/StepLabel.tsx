@@ -31,7 +31,7 @@ export const StepLabel = React.forwardRef<
       <StyledIcon isActive={isActive} isHorizontal={isHorizontal}>
         {isCompleted ? <CheckCircleStrokeIcon /> : stepIcon}
       </StyledIcon>
-      {props.children}
+      <span>{props.children}</span>
     </StyledLabel>
   );
 });
