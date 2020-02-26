@@ -55,3 +55,11 @@ export * from './range/StyledSlider';
 export * from './range/StyledSliderThumb';
 export * from './range/StyledSliderTrack';
 export * from './range/StyledSliderTrackRail';
+
+/**
+ * Tile styles
+ */
+export * from './tiles/StyledTile';
+export * from './tiles/StyledTileDescription';
+export * from './tiles/StyledTileIcon';
+export * from './tiles/StyledTileLabel';

@@ -38,12 +38,20 @@ module.exports = {
         {
           name: 'Advanced',
           content: '../../packages/forms/examples/advanced.md'
+        },
+        {
+          name: 'Tiles',
+          content: '../../packages/forms/examples/tiles.md'
         }
       ]
     },
     {
       name: 'Elements',
-      components: '../../packages/forms/src/elements/**/[A-Z]*.{ts,tsx}'
+      components: [
+        '../../packages/forms/src/elements/[A-Z]*.{ts,tsx}',
+        '../../packages/forms/src/elements/common/[A-Z]*.{ts,tsx}',
+        '../../packages/forms/src/elements/tiles/[A-Z]*.{ts,tsx}'
+      ]
     }
   ]
 };
