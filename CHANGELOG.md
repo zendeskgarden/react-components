@@ -12,6 +12,31 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.0.1 (2020-02-26)
+
+#### :bug: Bug Fix
+* `datepickers`
+  * [#646](https://github.com/zendeskgarden/react-components/pull/646) fix(datepickers): ensure animation is positioned correctly ([@austin94](https://github.com/austin94))
+
+#### :memo: Documentation
+* `modals`
+  * [#652](https://github.com/zendeskgarden/react-components/pull/652) docs(modals): include a11y note on restoring focus ([@hzhu](https://github.com/hzhu))
+* Other
+  * [#648](https://github.com/zendeskgarden/react-components/pull/648) chore: update documentation for v8 ([@jzempel](https://github.com/jzempel))
+  * [#643](https://github.com/zendeskgarden/react-components/pull/643) chore(docs): update v7 documentation link ([@austin94](https://github.com/austin94))
+  * [#642](https://github.com/zendeskgarden/react-components/pull/642) chore(docs): add link to v7 docs ([@austin94](https://github.com/austin94))
+  * [#641](https://github.com/zendeskgarden/react-components/pull/641) feat(examples): migrate create-react-app example to v8 ([@austin94](https://github.com/austin94))
+
+#### :seedling: Internal
+* `avatars`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `loaders`, `modals`, `notifications`, `tables`, `tags`, `theming`, `tooltips`
+  * [#649](https://github.com/zendeskgarden/react-components/pull/649) chore(all): increase test coverage ([@austin94](https://github.com/austin94))
+* `modals`
+  * [#650](https://github.com/zendeskgarden/react-components/pull/650) chore(modals): update container dependencies ([@hzhu](https://github.com/hzhu))
+* `dropdowns`
+  * [#628](https://github.com/zendeskgarden/react-components/pull/628) fix(deps): update dependency downshift to v5 ([@renovate[bot]](https://github.com/apps/renovate))
+* `.template`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `tables`, `tabs`, `tags`, `tooltips`, `typography`
+  * [#645](https://github.com/zendeskgarden/react-components/pull/645) chore(lint): update eslint rules ([@austin94](https://github.com/austin94))
+
 ## v8.0.0 (2020-02-18)
 
 #### :boom: Breaking Change
