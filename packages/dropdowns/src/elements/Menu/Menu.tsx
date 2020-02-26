@@ -138,7 +138,7 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
                 ...otherProps
               } as any)}
             >
-              {isVisible && children}
+              {(isOpen || isVisible) && children}
             </StyledMenu>
           );
         }}

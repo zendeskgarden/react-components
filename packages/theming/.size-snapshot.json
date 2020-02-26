@@ -1,13 +1,13 @@
 {
   "dist/index.cjs.js": {
-    "bundled": 20023,
-    "minified": 12856,
-    "gzipped": 4662
+    "bundled": 19917,
+    "minified": 12797,
+    "gzipped": 4649
   },
   "dist/index.esm.js": {
-    "bundled": 19217,
-    "minified": 12117,
-    "gzipped": 4554,
+    "bundled": 19111,
+    "minified": 12058,
+    "gzipped": 4541,
     "treeshaked": {
       "rollup": {
         "code": 3391,
