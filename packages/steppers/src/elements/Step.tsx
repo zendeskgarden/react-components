@@ -22,7 +22,7 @@ export const Step = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDi
     return (
       <StepContext.Provider value={stepContextValue}>
         <StyledStep ref={ref} isHorizontal={isHorizontal} {...props}>
-          {stepIndexRef.current > 0 && isHorizontal && <StyledLine />}
+          {isHorizontal && <StyledLine data-test-id="step-line" />}
           {props.children}
         </StyledStep>
       </StepContext.Provider>

@@ -8,6 +8,7 @@
 import styled from 'styled-components';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledStepContent } from './StyledStepContent';
+import { StyledLine } from './StyledLine';
 
 const COMPONENT_ID = 'steppers.step';
 
@@ -20,10 +21,14 @@ export const StyledStep = styled.div.attrs<IStyledStep>({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledStep>`
   position: ${props => props.isHorizontal && 'relative'};
-  flex-grow: ${props => props.isHorizontal && '1'};
+  flex: ${props => props.isHorizontal && '1'};
+
+  &:${props => (props.theme.rtl ? 'last-of-type' : 'first-of-type')} ${StyledLine} {
+    display: none;
+  }
 
   &:not(:last-of-type) ${StyledStepContent} {
-    border-left: ${props => props.theme.borders.sm};
+    border-${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.borders.sm};
     border-color: ${props => getColor('neutralHue', 300, props.theme)};
   }
 

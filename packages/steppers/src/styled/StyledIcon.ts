@@ -27,7 +27,9 @@ export const StyledIcon = styled.div.attrs<IStyledIcon>({
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: ${props => !props.isHorizontal && `${props.theme.space.base * 3}px`};
+  margin-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
+  !props.isHorizontal && `${props.theme.space.base * 3}px`};
+  margin-bottom: ${props => props.isHorizontal && props.theme.space.base}px;
   border-radius: 100%;
   background: ${props =>
     props.isActive

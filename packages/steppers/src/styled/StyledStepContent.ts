@@ -10,14 +10,13 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'steppers.step_content';
 
-// has an isHidden prop
 export const StyledStepContent = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
   margin: ${props =>
-    `${props.theme.space.base * 2}px 0 ${props.theme.space.base * 2}px ${props.theme.space.base *
-      3}px`};
+    `${props.theme.space.base * 2}px ${props.theme.rtl ? props.theme.space.base * 3 : '0'}px ${props
+      .theme.space.base * 2}px ${props.theme.rtl ? '0' : props.theme.space.base * 3}px`};
   padding: ${props => props.theme.space.base * 4}px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
