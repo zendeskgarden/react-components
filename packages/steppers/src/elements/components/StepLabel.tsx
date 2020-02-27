@@ -8,8 +8,8 @@
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import CheckCircleStrokeIcon from '@zendeskgarden/svg-icons/src/16/check-sm-stroke.svg';
-import { StyledIcon, StyledLabel } from '../styled';
-import { useStepContext, useStepperContext } from '../utils';
+import { StyledIcon, StyledLabel } from '../../styled';
+import { useStepContext, useStepperContext } from '../../utils';
 
 interface IStepLabel {
   icon?: React.ReactNode;

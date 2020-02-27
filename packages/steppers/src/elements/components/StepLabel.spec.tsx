@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { Stepper } from './Stepper';
+import { Stepper } from '../Stepper';
 import { Step } from './Step';
 import { StepLabel } from './StepLabel';
 

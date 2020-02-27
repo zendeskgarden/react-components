@@ -6,6 +6,3 @@
  */
 
 export { Stepper } from './elements/Stepper';
-export { Step } from './elements/Step';
-export { StepLabel } from './elements/StepLabel';
-export { StepContent } from './elements/StepContent';

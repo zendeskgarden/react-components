@@ -39,7 +39,7 @@ module.exports = {
     },
     {
       name: 'Elements',
-      components: '../../packages/steppers/src/elements/**/[A-Z]*.{ts,tsx}'
+      components: '../../packages/steppers/src/elements/[A-Z]*.{ts,tsx}'
     }
   ]
 };

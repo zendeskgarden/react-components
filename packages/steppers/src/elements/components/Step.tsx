@@ -6,8 +6,8 @@
  */
 
 import React, { useRef } from 'react';
-import { StyledStep, StyledLine } from '../styled';
-import { StepContext, useStepperContext } from '../utils';
+import { StyledStep, StyledLine } from '../../styled';
+import { StepContext, useStepperContext } from '../../utils';
 
 export const Step = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {

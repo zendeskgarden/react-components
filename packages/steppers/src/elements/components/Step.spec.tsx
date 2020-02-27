@@ -6,8 +6,8 @@
  */
 
 import React from 'react';
-import { render, prettyDOM } from 'garden-test-utils';
-import { Stepper } from './Stepper';
+import { render } from 'garden-test-utils';
+import { Stepper } from '../Stepper';
 import { Step } from './Step';
 
 describe('Step', () => {

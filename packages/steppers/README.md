@@ -23,25 +23,25 @@ import { Stepper, Step, StepLabel, StepContent } from '@zendeskgarden/react-step
  */
 <ThemeProvider>
   <Stepper activeIndex={1}>
-    <Step>
-      <StepLabel>Brussels</StepLabel>
-      <StepContent>
+    <Stepper.Step>
+      <Stepper.StepLabel>Brussels</Stepper.Label>
+      <Stepper.StepContent>
         Brussels sprout coriander water chestnut gourd swiss chard wakame kohlrabi radish artichoke.
-      </StepContent>
-    </Step>
-    <Step>
+      </Stepper.Content>
+    </Stepper.Step>
+    <Stepper.Step>
       }>
-      <StepLabel>Beetroot</StepLabel>
-      <StepContent>
+      <Stepper.StepLabel>Beetroot</Stepper.Label>
+      <Stepper.StepContent>
         Beetroot carrot watercress. Corn amaranth salsify bunya nuts nori azuki bean turnip greens.
-      </StepContent>
-    </Step>
-    <Step>
-      <StepLabel>Turnip</StepLabel>
-      <StepContent>
+      </Stepper.Content>
+    </Stepper.Step>
+    <Stepper.Step>
+      <Stepper.StepLabel>Turnip</Stepper.Label>
+      <Stepper.StepContent>
         Turnip chicory salsify pea sprouts fava bean. Dandelion zucchini burdock yarrow chickpea.
-      </StepContent>
-    </Step>
+      </Stepper.Content>
+    </Stepper.Step>
   </Stepper>
 </ThemeProvider>;
 ```

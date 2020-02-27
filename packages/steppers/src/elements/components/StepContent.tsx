@@ -6,8 +6,8 @@
  */
 
 import React, { HTMLAttributes } from 'react';
-import { StyledStepContent } from '../styled';
-import { useStepContext, useStepperContext } from '../utils';
+import { StyledStepContent } from '../../styled';
+import { useStepContext, useStepperContext } from '../../utils';
 
 /**
  * Supports all `<div>` props

@@ -180,14 +180,14 @@ const BasicExample = () => {
             {steps.map(step => {
               const { icon: Icon, label, longLabel, content } = step;
               return (
-                <Step key={step.id}>
-                  <StepLabel icon={isCustomIcon && <Icon />}>
+                <Stepper.Step key={step.id}>
+                  <Stepper.Label icon={isCustomIcon && <Icon />}>
                     {isLongLabel ? longLabel : label}
-                  </StepLabel>
-                  <StepContent>
+                  </Stepper.Label>
+                  <Stepper.Content>
                     <span>{content}</span>
-                  </StepContent>
-                </Step>
+                  </Stepper.Content>
+                </Stepper.Step>
               );
             })}
           </Stepper>
