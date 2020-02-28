@@ -109,4 +109,45 @@ describe('Tooltip', () => {
       expect(getByTestId('tooltip')).toHaveStyleRule('color', DEFAULT_THEME.colors.background);
     });
   });
+
+  describe('Sizes', () => {
+    it('renders extra-large tooltip', () => {
+      const { getByTestId } = render(<BasicExample size="extra-large" />);
+
+      act(() => {
+        fireEvent.focus(getByTestId('trigger'));
+        jest.runOnlyPendingTimers();
+      });
+
+      const tooltip = getByTestId('tooltip');
+
+      expect(tooltip).toHaveStyleRule('max-width', '460px');
+    });
+
+    it('renders large tooltip', () => {
+      const { getByTestId } = render(<BasicExample size="large" />);
+
+      act(() => {
+        fireEvent.focus(getByTestId('trigger'));
+        jest.runOnlyPendingTimers();
+      });
+
+      const tooltip = getByTestId('tooltip');
+
+      expect(tooltip).toHaveStyleRule('max-width', '270px');
+    });
+
+    it('renders medium tooltip', () => {
+      const { getByTestId } = render(<BasicExample size="medium" />);
+
+      act(() => {
+        fireEvent.focus(getByTestId('trigger'));
+        jest.runOnlyPendingTimers();
+      });
+
+      const tooltip = getByTestId('tooltip');
+
+      expect(tooltip).toHaveStyleRule('max-width', '140px');
+    });
+  });
 });

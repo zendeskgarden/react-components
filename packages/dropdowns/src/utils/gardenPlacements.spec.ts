@@ -5,11 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { ARROW_POSITION } from '@zendeskgarden/react-theming';
 import {
   GARDEN_PLACEMENT,
   POPPER_PLACEMENT,
   getPopperPlacement,
-  getRtlPopperPlacement
+  getRtlPopperPlacement,
+  getArrowPosition
 } from './garden-placements';
 
 const GARDEN_PLACEMENT_VALUES: GARDEN_PLACEMENT[] = [
@@ -74,6 +76,32 @@ describe('Garden Placement Utilities', () => {
       GARDEN_PLACEMENT_VALUES.forEach(gardenPlacement => {
         expect(getRtlPopperPlacement(gardenPlacement)).toBe(
           RTL_PLACEMENT_MAPPINGS[gardenPlacement]
+        );
+      });
+    });
+  });
+
+  describe('getArrowPosition()', () => {
+    it('provides correct mapping between Popper.JS placement and arrow position', () => {
+      const ARROW_POSITION_MAPPINGS: Record<POPPER_PLACEMENT, ARROW_POSITION> = {
+        auto: 'top',
+        top: 'bottom',
+        'top-start': 'bottom-left',
+        'top-end': 'bottom-right',
+        right: 'left',
+        'right-start': 'left-top',
+        'right-end': 'left-bottom',
+        bottom: 'top',
+        'bottom-start': 'top-left',
+        'bottom-end': 'top-right',
+        left: 'right',
+        'left-start': 'right-top',
+        'left-end': 'right-bottom'
+      };
+
+      Object.keys(ARROW_POSITION_MAPPINGS).forEach(popperPlacement => {
+        expect(getArrowPosition(popperPlacement as POPPER_PLACEMENT)).toBe(
+          ARROW_POSITION_MAPPINGS[popperPlacement as POPPER_PLACEMENT]
         );
       });
     });

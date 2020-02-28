@@ -39,4 +39,15 @@ describe('getLineHeight', () => {
 
     console.error = originalError;
   });
+
+  it('throws if called with non-matching value units', () => {
+    /* eslint-disable no-console */
+    const originalError = console.error;
+
+    console.error = jest.fn();
+
+    expect(() => getLineHeight('2px', '1em')).toThrow();
+
+    console.error = originalError;
+  });
 });

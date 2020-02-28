@@ -137,10 +137,6 @@ export const datepickerReducer = ({
       const previewDate = action.value || new Date();
       const inputValue = formatInputValue({ date: action.value, locale, formatDate });
 
-      if (action.value && isValid(action.value) && !isSameDay(value!, action.value)) {
-        onChange && onChange(action.value);
-      }
-
       return { ...state, previewDate, inputValue };
     }
     case 'CONTROLLED_LOCALE_CHANGE': {

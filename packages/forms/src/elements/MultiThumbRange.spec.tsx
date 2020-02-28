@@ -106,6 +106,27 @@ describe('MultiThumbRange', () => {
       expect(thumb).toHaveStyle('left: 15px');
     });
 
+    it('applies correct style if minValue is less than min', () => {
+      const { getAllByTestId } = render(<MultiThumbRange minValue={10} min={15} />);
+      const thumb = getAllByTestId('thumb')[0];
+
+      expect(thumb).toHaveStyle('left: 0');
+    });
+
+    it('applies correct style if minValue is greater than maxValue', () => {
+      const { getAllByTestId } = render(<MultiThumbRange minValue={90} maxValue={80} />);
+      const thumb = getAllByTestId('thumb')[0];
+
+      expect(thumb).toHaveStyle('left: 80px');
+    });
+
+    it('applies correct style if minValue is greater than max', () => {
+      const { getAllByTestId } = render(<MultiThumbRange minValue={90} max={80} />);
+      const thumb = getAllByTestId('thumb')[0];
+
+      expect(thumb).toHaveStyle('left: 100px');
+    });
+
     it('applies correct style when in RTL mode', () => {
       const { getAllByTestId } = renderRtl(<MultiThumbRange minValue={15} maxValue={75} />);
       const thumb = getAllByTestId('thumb')[0];
@@ -291,6 +312,27 @@ describe('MultiThumbRange', () => {
       const thumb = getAllByTestId('thumb')[1];
 
       expect(thumb).toHaveStyle('left: 75px');
+    });
+
+    it('applies correct style if maxValue is greater than max', () => {
+      const { getAllByTestId } = render(<MultiThumbRange maxValue={75} max={70} />);
+      const thumb = getAllByTestId('thumb')[1];
+
+      expect(thumb).toHaveStyle('left: 100px');
+    });
+
+    it('applies correct style if maxValue is less than minValue', () => {
+      const { getAllByTestId } = render(<MultiThumbRange minValue={50} maxValue={40} />);
+      const thumb = getAllByTestId('thumb')[1];
+
+      expect(thumb).toHaveStyle('left: 50px');
+    });
+
+    it('applies correct style if maxValue is less than min', () => {
+      const { getAllByTestId } = render(<MultiThumbRange maxValue={10} min={15} />);
+      const thumb = getAllByTestId('thumb')[0];
+
+      expect(thumb).toHaveStyle('left: 0');
     });
 
     it('applies correct style when in RTL mode', () => {

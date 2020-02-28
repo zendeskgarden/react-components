@@ -1,128 +1,113 @@
-# Garden React Development
+# Garden Development
 
-This is a multi-package repo which uses [Lerna](https://lernajs.io/) to
-manage shared and cross-package dependencies.
+You're here because you want to get into the codebase. That's great. This
+guide will help you dig in. If you haven't already, please see the
+[contribution](/.github/CONTRIBUTING.md) documentation for a project overview
+along with versioning, development, and PR workflows.
 
-For further contribution guidelines view our [contribution
-documentation](.github/CONTRIBUTING.md).
+## Package creation
 
-All packages must be implemented following the requirements listed below.
+One of the best ways to get familiar with Garden's package structure is to
+create your own. Garden makes this simple by providing a `yarn new` command.
+This command will prompt you to enter a name (e.g. `test`). The new package
+will be generated under `/packages` and you can view the results by running
+the `yarn start` command (e.g. `yarn start --scope @zendeskgarden/react-test`).
 
-## Creating New Packages
+Unless you are a member of the core team, it is unlikely that we'll accept
+brand new package PRs. However, a new package provides the simplified sandbox
+for exploring further component development concepts. In the mean time,
+please open an [issue](https://github.com/zendeskgarden/react-components/issues/new)
+to discuss the addition of a new component package.
 
-We have abstracted the creation of packages into the `yarn new` command. When
-prompted, provide a base name for your package (i.e. if provided "example"
-the command will create the `@zendeskgarden/react-example` package in the
-`packages/example` path).
+## Package structure
 
-### Dependencies
+All packages follow this basic structure (.e.g. under `/packages/test`):
 
-All dependencies required by a package must be kept in it's specific
-`package.json`. The `lerna add` command can help automate this.
+<!-- markdownlint-disable -->
 
-```sh
-# Adds the css-buttons package to the local react-buttons package
-yarn lerna add @zendeskgarden/css-buttons --scope @zendeskgarden/react-buttons
-```
+- `├── examples/` – visual component examples and generated documentation
+- `├── src/` – component source code and spec tests<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`├── elements/` – high abstraction components that wrap interaction behavior and visual styling<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`├── styled/` – view-level [styled-components](https://styled-components.com/) that contain theme based CSS<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`└── index.ts` – public-facing component exports for this package
+- `├── package.json` – configuration for the package published to the registry
+- `├── README.md` – essential package description, install, and usage instructions
 
-### Documentation
+<!-- markdownlint-enable -->
 
-Documentation is generated for each package using
-[react-styleguidist](https://react-styleguidist.js.org/).
+The Garden React codebase is statically type-checked using
+[TypeScript](https://www.typescriptlang.org/). See the [API](api.md)
+documentation for in-depth treatment of Garden's Container-View-Element
+architecture, along with rules that apply to each component type.
 
-A shared, global config (including webpack modifications) can be found at
-[utils/styleguide/styleguide.base.config.js](utils/styleguide/styleguide.base.config.js).
+## Package examples
 
-Each package can override the global config with its local
-`styleguide.config.js` file. The most common use case for this is creating a
-sidebar layout custom to the packages directory structure.
+Package example documentation is generated via [React
+Styleguidist](https://react-styleguidist.js.org/). Run `yarn start` to build
+and serve package documentation in development mode (with hot reloading). The
+[global configuration](/utils/styleguide/styleguide.base.config.js) is
+extended by a package-local `styleguide.config.js` which determines section
+structure and content for each package page.
 
-To include examples with your code include a markdown file. `FooComponent.js`
-would be documented with `FooComponent.example.md`.
+In general, an example page includes:
 
-To start the documentation in development mode use the `yarn start` command.
+- the package README
+- a "knobs" style example that toggles various visual component states
+- API prop sheets for all public element exports
 
-```sh
-# Prompts for an individual package
-yarn start
+Include additional example files to demonstrate complex component behaviors
+or common interactions with other Garden components.
 
-# Starts the individual package immediately
-yarn start --scope @zendeskgarden/react-buttons
-```
+## Package testing
 
-## Component Requirements
+The Garden `react-components` repo is strongly tested – holding steady at
+~95% [coverage](https://coveralls.io/github/zendeskgarden/react-components).
+DOM testing is implemented using [React Testing
+Library](https://testing-library.com/react) while [Jest](https://jestjs.io/)
+is the underlying API (`describe` - `it` - `expect`) and test runner.
 
-### Elements
+All exported elements must be tested, but should be limited to the surface
+area exposed by the component (in other words, don't re-test imported
+`react-containers`). All styled views may also benefit from testing –
+asserting that various options affect one or two notable CSS values in
+question.
 
-All elements must
+In cases where DOM structure or state would be unwieldy to determine,
+`data-test-*` attributes can be added in complex components to aid with
+testing. These attributes will be removed from published components during
+the build process.
 
-- Be implemented with associated `Container` and `View` components
-- Provide `uncontrolled` and `controlled` state management if necessary
-  - Be implemented with the `ControlledComponent` state abstractions if necessary
-- Create an abstraction to benefit a majority of use cases
+### Linting and formatting
 
-### Containers
+All JS/TS, CSS, and Markdown files are linted using eslint, stylelint, and
+markdownlint respectively. Additionally, prettier is used to format all
+JS/TS, and package.json files.
 
-All containers must
+## Package dependencies
 
-- Be implemented using the [render prop
-  pattern](https://reactjs.org/docs/render-props.html)
-- Provide `uncontrolled` and `controlled` state management if necessary
-  - Be implemented with the `ControlledComponent` state abstractions if necessary
-- Provide the minimum number of events and attributes to implement the
-  appropriate [W3C WAI-ARIA Design
-  Pattern](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
-- Only use events and attributes that work with **ANY** DOM element (within reason)
+Garden attempts to keep package dependencies to a minimum. Typical package
+dependencies include:
 
-### Views
+- Dependencies
+  - `polished`
+- Peer dependencies
+  - `@zendeskgarden/react-theming`
+  - `prop-types`
+  - `react`
+  - `react-dom`
+  - `styled-components`
 
-All view component styling must be based on an existing Garden
-designer-approved CSS component. Please see the [Garden CSS
-Components](https://github.com/zendeskgarden/css-components) repo for
-details.
+When additional dependencies are required, they can be installed with the
+[`lerna add`](https://github.com/lerna/lerna/tree/master/commands/add#readme).
+The [Renovate](https://renovatebot.com) bot will keep these dependencies
+up-to-date over time.
 
-In addition all views must
+## Package build
 
-- Be created using (or extending) a
-  [styled-components](https://www.styled-components.com/) primitive
-- Use the `retrieveComponentStyles` utility to allow dynamic theming
-- Provide the following analytics attributes:
-  - `data-garden-id="unique-component-id"` - this should match the ID
-    provided to `retrieveComponentStyles`
-  - `data-garden-version="packageVersion"` - provided by `package.json`
-  - (these attributes allow us to view current Garden usage across the
-    Zendesk product suite)
-- Provide `propTypes` for any custom visualizations you have provided
+Garden packages are built using [Rollup](https://rollupjs.org/). Package distribution files include:
 
-## Building Components
+- CommonJS bundle (the package [`main`](https://docs.npmjs.com/files/package.json#main) entry)
+- ES module bundle (the package `module` entry)
+- type definitions
 
-The packages are built using webpack which creates several artifacts:
-
-- `styles.css`
-  - Each package has a single, minified, and scoped (css-modules) stylesheet
-    that includes all CSS consumed in the package
-- `commonjs` bundle
-  - Used by the majority of consumers
-  - All dependencies are `external` and not included in the bundle
-- `umd` bundle
-  - Can be consumed in browser with a standard `<script>` tag
-  - All dependencies are bundled to allow easy consumption
-
-## Testing Components
-
-All `Element` and `Container` components must only test the surface area that
-they are implementing. (i.e. Since `TabsContainer` is implemented with the
-`SelectionContainer` it does not need to test all keyboard navigation).
-
-These tests should be implemented with standard assertions using the Enzyme
-shallow renderer when possible.
-
-All `View` components must test all visual combinations using snapshot tests.
-
-## Linting and Formatting Components
-
-All JS, CSS (in styled-components), and Markdown files are linted
-respectively with eslint, stylelint, and markdownlint.
-
-Additionally, prettier is used to format all JS, Markdown, and package.json
-files.
+Run a full repo build using `yarn build` or a package-scoped build with `yarn build --scope @zendeskgarden/react-[package]`.

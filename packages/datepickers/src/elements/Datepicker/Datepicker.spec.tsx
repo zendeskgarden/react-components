@@ -15,10 +15,17 @@ import Datepicker, { IDatepickerProps } from './Datepicker';
 const DEFAULT_DATE = new Date(2019, 1, 5);
 
 const Example = (props: IDatepickerProps) => (
-  <Datepicker {...props}>
-    <input data-test-id="input" />
-  </Datepicker>
+  <>
+    <label data-test-id="label" htmlFor="input">
+      Label
+    </label>
+    <Datepicker {...props}>
+      <input data-test-id="input" id="input" />
+    </Datepicker>
+  </>
 );
+
+jest.useFakeTimers();
 
 describe('Datepicker', () => {
   let onChangeSpy: (date: Date) => void;
@@ -210,7 +217,7 @@ describe('Datepicker', () => {
       fireEvent.mouseDown(getByTestId('input'));
       fireEvent.click(getByTestId('input'));
 
-      expect(queryByTestId('datepicker-menu')).not.toBeNull();
+      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
     });
 
     it('opens datepicker on click', () => {
@@ -221,7 +228,19 @@ describe('Datepicker', () => {
       fireEvent.mouseDown(getByTestId('input'));
       fireEvent.click(getByTestId('input'));
 
-      expect(queryByTestId('datepicker-menu')).not.toBeNull();
+      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+    });
+
+    it('leaves datepicker closed on label click', () => {
+      const { getByTestId, queryByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      fireEvent.mouseUp(getByTestId('input'));
+      jest.runOnlyPendingTimers();
+      fireEvent.click(getByTestId('input'));
+
+      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
     });
 
     it('closes datepicker on blur', () => {
@@ -244,15 +263,15 @@ describe('Datepicker', () => {
       const input = getByTestId('input');
 
       fireEvent.keyDown(input, { keyCode: KEY_CODES.UP });
-      expect(queryByTestId('datepicker-menu')).not.toBeNull();
+      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
       fireEvent.blur(input);
 
       fireEvent.keyDown(input, { keyCode: KEY_CODES.DOWN });
-      expect(queryByTestId('datepicker-menu')).not.toBeNull();
+      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
       fireEvent.blur(input);
 
       fireEvent.keyDown(input, { keyCode: KEY_CODES.SPACE });
-      expect(queryByTestId('datepicker-menu')).not.toBeNull();
+      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
       fireEvent.blur(input);
     });
 
@@ -282,7 +301,7 @@ describe('Datepicker', () => {
       fireEvent.click(input);
       fireEvent.mouseDown(getByTestId('calendar-wrapper'));
 
-      expect(getByTestId('datepicker-menu')).not.toBeNull();
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
     });
 
     it('calls onChange with provided date if manually added in short format', () => {
@@ -319,6 +338,18 @@ describe('Datepicker', () => {
       fireEvent.change(input, { target: { value: 'invalid date' } });
 
       expect(onChangeSpy).not.toHaveBeenCalled();
+    });
+
+    it('updates input value when controlled value is changed', () => {
+      const { getByTestId, rerender } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      expect(getByTestId('input')).toHaveValue('February 5, 2019');
+
+      rerender(<Example value={addDays(DEFAULT_DATE, 1)} onChange={onChangeSpy} />);
+
+      expect(getByTestId('input')).toHaveValue('February 6, 2019');
     });
   });
 

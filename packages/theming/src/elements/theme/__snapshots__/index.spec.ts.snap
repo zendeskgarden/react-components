@@ -209,9 +209,9 @@ Object {
     "sm": "2px",
   },
   "shadows": Object {
-    "lg": [Function],
-    "md": [Function],
-    "sm": [Function],
+    "lg": "0 0 0 0 black",
+    "md": "0 0 0 3px black",
+    "sm": "0 0 0 2px black",
   },
   "space": Object {
     "base": 4,

@@ -9,7 +9,14 @@ import DEFAULT_THEME from '.';
 
 describe('DEFAULT_THEME', () => {
   it('matches snapshot', () => {
-    expect(DEFAULT_THEME).toMatchSnapshot();
+    expect({
+      ...DEFAULT_THEME,
+      shadows: {
+        sm: DEFAULT_THEME.shadows.sm('black'),
+        md: DEFAULT_THEME.shadows.md('black'),
+        lg: DEFAULT_THEME.shadows.lg('0', '0', 'black')
+      }
+    }).toMatchSnapshot();
   });
 
   it('does not include `PALETTE.product`', () => {

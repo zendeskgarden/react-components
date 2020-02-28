@@ -29,10 +29,24 @@ describe('StyledTag', () => {
     expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });
 
-  it('renders pill styling if provided', () => {
-    const { container } = render(<StyledTag isPill />);
+  describe('Pill', () => {
+    it('renders pill styling', () => {
+      const { container } = render(<StyledTag isPill />);
 
-    expect(container.firstChild).toHaveStyleRule('border-radius', '100px');
+      expect(container.firstChild).toHaveStyleRule('border-radius', '100px');
+    });
+
+    it('renders small styling', () => {
+      const { container } = render(<StyledTag isPill size="small" />);
+
+      expect(container.firstChild).toHaveStyleRule('min-width', '24px');
+    });
+
+    it('renders large styling', () => {
+      const { container } = render(<StyledTag isPill size="large" />);
+
+      expect(container.firstChild).toHaveStyleRule('min-width', '48px');
+    });
   });
 
   it('renders round styling if provided', () => {

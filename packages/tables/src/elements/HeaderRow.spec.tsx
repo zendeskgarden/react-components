@@ -25,4 +25,30 @@ describe('HeaderRow', () => {
 
     expect(getByTestId('headerRow')).toBe(ref.current);
   });
+
+  describe('Size', () => {
+    it('renders small size styling', () => {
+      const { getByTestId } = render(
+        <Table size="small">
+          <Head>
+            <HeaderRow data-test-id="headerRow" />
+          </Head>
+        </Table>
+      );
+
+      expect(getByTestId('headerRow')).toHaveStyleRule('height', '40px');
+    });
+
+    it('renders large size styling', () => {
+      const { getByTestId } = render(
+        <Table size="large">
+          <Head>
+            <HeaderRow data-test-id="headerRow" />
+          </Head>
+        </Table>
+      );
+
+      expect(getByTestId('headerRow')).toHaveStyleRule('height', '72px');
+    });
+  });
 });

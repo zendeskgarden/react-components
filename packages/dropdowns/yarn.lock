@@ -70,10 +70,10 @@ define-properties@^1.1.2, define-properties@^1.1.3:
   dependencies:
     object-keys "^1.0.12"
 
-downshift@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/downshift/-/downshift-4.1.0.tgz#a16c67ea965fd7c310c5f7872276e109a4de1704"
-  integrity sha512-GODZOZC65a8n8YD/S/87hR2t5PJfqZ7+lwEBJsNi/AJnhImfle+CFD/ZPde4l+nB8QNHfn0GbE1W9djEFOj1yQ==
+downshift@^5.0.0:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/downshift/-/downshift-5.0.3.tgz#4912e1deeda89c6f78b2af765f6700722f00918d"
+  integrity sha512-J6cfEcv0qbCUuI4yUhdoj08aJ025MxjLe+GkQ53eY5iC1NrjMj+FgjGkA0dGsyHm5JzVuKTJFd5wQNWOvsLP0g==
   dependencies:
     "@babel/runtime" "^7.4.5"
     compute-scroll-into-view "^1.0.9"
