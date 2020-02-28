@@ -7,12 +7,7 @@
 
 import React, { HTMLAttributes } from 'react';
 import styled from 'styled-components';
-import {
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  menuStyles,
-  menuPopperStyles
-} from '@zendeskgarden/react-theming';
+import { retrieveComponentStyles, DEFAULT_THEME, menuStyles } from '@zendeskgarden/react-theming';
 import { POPPER_PLACEMENT, getMenuPosition } from '../elements/Datepicker/utils/garden-placements';
 
 const COMPONENT_ID = 'dropdowns.menu';
@@ -28,12 +23,6 @@ const StyledMenuView = styled.div.attrs<IStyledMenuViewProps>(props => ({
   'data-garden-version': PACKAGE_VERSION,
   className: props.isAnimated && 'is-animated'
 }))<IStyledMenuViewProps>`
-  ${props =>
-    menuStyles(getMenuPosition(props.placement), {
-      theme: props.theme,
-      animationModifier: props.isAnimated ? '.is-animated' : undefined
-    })};
-
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
@@ -52,10 +41,11 @@ const StyledMenuWrapper = styled.div.attrs<IStyledMenuWrapperProps>(props => ({
   className: props.isAnimated && 'is-animated'
 }))<IStyledMenuWrapperProps>`
   ${props =>
-    menuPopperStyles(getMenuPosition(props.placement), {
+    menuStyles(getMenuPosition(props.placement), {
       hidden: props.isHidden,
       margin: `${props.theme.space.base}px`,
       zIndex: props.zIndex,
+      childSelector: `${StyledMenuView}`,
       animationModifier: props.isAnimated ? '.is-animated' : undefined
     })};
 `;

@@ -11,8 +11,7 @@ import {
   retrieveComponentStyles,
   DEFAULT_THEME,
   arrowStyles,
-  menuStyles,
-  menuPopperStyles
+  menuStyles
 } from '@zendeskgarden/react-theming';
 import { POPPER_PLACEMENT, getArrowPosition, getMenuPosition } from '../../utils/garden-placements';
 
@@ -36,12 +35,6 @@ const StyledMenuView = styled.ul.attrs<IStyledMenuViewProps>(props => ({
   'data-garden-version': PACKAGE_VERSION,
   className: props.isAnimated && 'is-animated'
 }))<IStyledMenuViewProps>`
-  ${props =>
-    menuStyles(getMenuPosition(props.placement), {
-      theme: props.theme,
-      animationModifier: props.isAnimated ? '.is-animated' : undefined
-    })};
-
   /* stylelint-disable-next-line declaration-no-important */
   position: static !important; /* [1] */
   min-width: 180px;
@@ -75,10 +68,11 @@ const StyledMenuWrapper = styled.div.attrs<IStyledMenuWrapperProps>(props => ({
   className: props.isAnimated && 'is-animated'
 }))<IStyledMenuWrapperProps>`
   ${props =>
-    menuPopperStyles(getMenuPosition(props.placement), {
+    menuStyles(getMenuPosition(props.placement), {
       hidden: props.isHidden,
       margin: `${props.theme.space.base * (props.hasArrow ? 2 : 1)}px`,
       zIndex: props.zIndex,
+      childSelector: `${StyledMenuView}`,
       animationModifier: props.isAnimated ? '.is-animated' : undefined
     })};
 `;

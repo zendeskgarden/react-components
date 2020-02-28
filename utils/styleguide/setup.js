@@ -14,11 +14,6 @@
 import styled from 'styled-components';
 global.styled = styled;
 
-import { Manager, Reference, Popper } from 'react-popper';
-global.PopperManager = Manager;
-global.PopperReference = Reference;
-global.Popper = Popper;
-
 // Styleguide components
 import State from './State';
 import { DEFAULT_THEME, PALETTE, ThemeProvider } from '../../packages/theming/src';
