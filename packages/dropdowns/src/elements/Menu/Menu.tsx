@@ -12,7 +12,7 @@ import { Popper } from 'react-popper';
 import { Modifiers } from 'popper.js';
 import { withTheme, isRtl } from '@zendeskgarden/react-theming';
 
-import { StyledMenu } from '../../styled/index';
+import { StyledMenu, StyledMenuWrapper } from '../../styled/index';
 import useDropdownContext from '../../utils/useDropdownContext';
 import {
   GARDEN_PLACEMENT,
@@ -123,7 +123,32 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
             };
           }
 
+          const menuProps = getMenuProps({
+            placement: currentPlacement,
+            isAnimated: isAnimated && (isOpen || isVisible),
+            ...otherProps
+          } as any);
+
           return (
+            <StyledMenuWrapper
+              ref={isOpen ? ref : undefined}
+              hasArrow={menuProps.hasArrow}
+              placement={menuProps.placement}
+              style={style}
+              isHidden={!isOpen}
+              isAnimated={menuProps.isAnimated}
+              zIndex={zIndex}
+            >
+              <StyledMenu
+                isCompact={isCompact}
+                maxHeight={maxHeight}
+                style={computedStyle}
+                {...menuProps}
+              >
+                {(isOpen || isVisible) && children}
+              </StyledMenu>
+            </StyledMenuWrapper>
+            /*
             <StyledMenu
               {...getMenuProps({
                 maxHeight,
@@ -140,6 +165,7 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
             >
               {(isOpen || isVisible) && children}
             </StyledMenu>
+            */
           );
         }}
       </Popper>
