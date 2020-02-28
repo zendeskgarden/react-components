@@ -18,8 +18,6 @@ import { ThemeProps, DefaultTheme } from 'styled-components';
 import { Manager, Popper, Reference } from 'react-popper';
 import { withTheme, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
-
-import { StyledMenu } from '../../styled';
 import {
   getRtlPopperPlacement,
   getPopperPlacement,
@@ -29,6 +27,7 @@ import {
 import Calendar from './components/Calendar';
 import { datepickerReducer, retrieveInitialState } from './utils/datepicker-reducer';
 import { DatepickerContext } from './utils/useDatepickerContext';
+import { StyledMenu, StyledMenuWrapper } from '../../styled';
 
 export interface IDatepickerProps {
   /**
@@ -224,6 +223,28 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
             scheduleUpdateRef.current = scheduleUpdate;
 
             return (
+              <StyledMenuWrapper
+                ref={ref}
+                style={style}
+                isHidden={!state.isOpen}
+                isAnimated={isAnimated && (state.isOpen || isVisible)}
+                placement={currentPlacement as POPPER_PLACEMENT}
+                zIndex={zIndex}
+                data-test-id="datepicker-menu"
+                data-test-open={state.isOpen}
+                data-test-rtl={props.theme.rtl}
+              >
+                <StyledMenu>
+                  <Calendar
+                    isCompact={isCompact}
+                    value={value}
+                    minValue={minValue}
+                    maxValue={maxValue}
+                    locale={locale}
+                  />
+                </StyledMenu>
+              </StyledMenuWrapper>
+              /*
               <StyledMenu
                 ref={ref}
                 style={style}
@@ -243,6 +264,7 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
                   locale={locale}
                 />
               </StyledMenu>
+              */
             );
           }}
         </Popper>

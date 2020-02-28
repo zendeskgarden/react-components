@@ -6,6 +6,7 @@
  */
 
 export { StyledMenu } from './StyledMenu';
+export { StyledMenuWrapper } from './StyledMenuWrapper';
 export { StyledDatepicker } from './StyledDatepicker';
 export { StyledRangeCalendar } from './StyledRangeCalendar';
 export { StyledHeader } from './StyledHeader';
