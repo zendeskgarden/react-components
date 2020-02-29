@@ -7,6 +7,7 @@
 
 import React, {
   useRef,
+  forwardRef,
   HTMLAttributes,
   ForwardRefExoticComponent,
   PropsWithoutRef,
@@ -15,8 +16,8 @@ import React, {
 import { StyledStepper } from '../styled';
 import { StepperContext } from '../utils';
 import { Step } from './components/Step';
-import { StepContent } from './components/StepContent';
 import { StepLabel } from './components/StepLabel';
+import { StepContent } from './components/StepContent';
 
 interface IStaticStepperExport<T, P>
   extends ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> {
@@ -38,7 +39,7 @@ interface IStepperProps extends HTMLAttributes<HTMLDivElement> {
  *  - `Stepper.StepContent`
  */
 // eslint-disable-next-line react/display-name
-export const Stepper = React.forwardRef<HTMLDivElement, IStepperProps>(
+export const Stepper = forwardRef<HTMLDivElement, IStepperProps>(
   ({ isHorizontal, activeIndex, ...props }, ref) => {
     const currentIndexRef = useRef(0);
     const stepperContext = { isHorizontal, activeIndex, currentIndexRef };
