@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ARROW_POSITION } from '@zendeskgarden/react-theming';
+import { ARROW_POSITION, MENU_POSITION } from '@zendeskgarden/react-theming';
 import {
   GARDEN_PLACEMENT,
   POPPER_PLACEMENT,
   getPopperPlacement,
   getRtlPopperPlacement,
-  getArrowPosition
+  getArrowPosition,
+  getMenuPosition
 } from './garden-placements';
 
 const GARDEN_PLACEMENT_VALUES: GARDEN_PLACEMENT[] = [
@@ -102,6 +103,32 @@ describe('Garden Placement Utilities', () => {
       Object.keys(ARROW_POSITION_MAPPINGS).forEach(popperPlacement => {
         expect(getArrowPosition(popperPlacement as POPPER_PLACEMENT)).toBe(
           ARROW_POSITION_MAPPINGS[popperPlacement as POPPER_PLACEMENT]
+        );
+      });
+    });
+  });
+
+  describe('getMenuPosition()', () => {
+    it('provides correct mapping between Popper.JS placement and menu position', () => {
+      const MENU_POSITION_MAPPINGS: Record<POPPER_PLACEMENT, MENU_POSITION> = {
+        auto: 'bottom',
+        top: 'top',
+        'top-start': 'top',
+        'top-end': 'top',
+        right: 'right',
+        'right-start': 'right',
+        'right-end': 'right',
+        bottom: 'bottom',
+        'bottom-start': 'bottom',
+        'bottom-end': 'bottom',
+        left: 'left',
+        'left-start': 'left',
+        'left-end': 'left'
+      };
+
+      Object.keys(MENU_POSITION_MAPPINGS).forEach(popperPlacement => {
+        expect(getMenuPosition(popperPlacement as POPPER_PLACEMENT)).toBe(
+          MENU_POSITION_MAPPINGS[popperPlacement as POPPER_PLACEMENT]
         );
       });
     });

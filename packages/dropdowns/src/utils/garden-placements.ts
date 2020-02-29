@@ -94,7 +94,8 @@ export function getRtlPopperPlacement(gardenPlacement: GARDEN_PLACEMENT): POPPER
  * @param {String} popperPlacement
  */
 export function getArrowPosition(popperPlacement?: POPPER_PLACEMENT) {
-  const arrowPositionMappings: Partial<Record<POPPER_PLACEMENT, ARROW_POSITION>> = {
+  const arrowPositionMappings: Record<POPPER_PLACEMENT, ARROW_POSITION> = {
+    auto: 'top',
     top: 'bottom',
     'top-start': 'bottom-left',
     'top-end': 'bottom-right',
@@ -117,5 +118,9 @@ export function getArrowPosition(popperPlacement?: POPPER_PLACEMENT) {
  * @param {String} popperPlacement
  */
 export function getMenuPosition(popperPlacement?: POPPER_PLACEMENT) {
+  if (popperPlacement === 'auto') {
+    return 'bottom' as MENU_POSITION;
+  }
+
   return (popperPlacement ? popperPlacement.split('-')[0] : 'bottom') as MENU_POSITION;
 }
