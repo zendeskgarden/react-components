@@ -20,37 +20,3 @@ export const StyledMenu = styled.div.attrs({
 StyledMenu.defaultProps = {
   theme: DEFAULT_THEME
 };
-
-/*
-interface IStyledMenuProps extends HTMLAttributes<HTMLDivElement> {
-  /**
-   * All valid [Popper.JS Placements](https://popper.js.org/popper-documentation.html#Popper.placements)
-   *
-  placement?: POPPER_PLACEMENT;
-  isAnimated?: boolean;
-  isCompact?: boolean;
-  isHidden?: boolean;
-  zIndex?: number;
-}
-
-export const StyledMenu = React.forwardRef<HTMLDivElement, IStyledMenuProps>(
-  ({ placement, children, isHidden, isAnimated, zIndex, ...other }, ref) => {
-    return (
-      <StyledMenuWrapper
-        placement={placement}
-        isHidden={isHidden}
-        isAnimated={isAnimated}
-        zIndex={zIndex}
-        ref={ref}
-        {...other}
-      >
-        <StyledMenuView placement={placement} isAnimated={isAnimated}>
-          {children}
-        </StyledMenuView>
-      </StyledMenuWrapper>
-    );
-  }
-);
-
-StyledMenu.displayName = 'StyledMenu';
-*/
