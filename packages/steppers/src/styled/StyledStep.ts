@@ -28,6 +28,7 @@ export const StyledStep = styled.div.attrs<IStyledStep>({
   }
 
   &:not(:last-of-type) ${StyledStepContent} {
+    /* stylelint-disable-next-line property-no-unknown */
     border-${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.borders.sm};
     border-color: ${props => getColor('neutralHue', 300, props.theme)};
   }

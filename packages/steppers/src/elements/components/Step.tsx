@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useRef, useEffect } from 'react';
+import React, { forwardRef, useRef } from 'react';
 import { StyledStep, StyledLine } from '../../styled';
 import { StepContext, useStepperContext } from '../../utils';
 
@@ -14,10 +14,6 @@ export const Step = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEleme
     const { currentIndexRef, isHorizontal } = useStepperContext();
     const stepIndexRef = useRef(currentIndexRef.current++);
     const stepContextValue = { currentStepIndex: stepIndexRef.current };
-
-    useEffect(() => {
-      currentIndexRef.current = 0;
-    }, [currentIndexRef]);
 
     return (
       <StepContext.Provider value={stepContextValue}>
