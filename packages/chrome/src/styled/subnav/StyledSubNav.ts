@@ -21,9 +21,7 @@ const colorStyles = (props: IStyledSubNavProps) => {
   }
 
   const backgroundColor = getColor(props.hue, shade, props.theme);
-  const foregroundColor = props.isLight
-    ? props.theme.colors.foreground
-    : props.theme.colors.background;
+  const foregroundColor = props.isLight ? props.theme.palette.grey[800] : props.theme.palette.white;
 
   return css`
     background-color: ${backgroundColor};

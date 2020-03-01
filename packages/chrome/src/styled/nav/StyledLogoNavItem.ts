@@ -34,7 +34,7 @@ const retrieveProductColor = (product: string | undefined) => {
 };
 
 const colorStyles = (props: IStyledLogoNavItemProps) => {
-  const fillColor = props.isLight ? props.theme.colors.foreground : props.theme.colors.background;
+  const fillColor = props.isLight ? props.theme.palette.grey[800] : props.theme.palette.white;
   const color = props.isLight || props.isDark ? fillColor : retrieveProductColor(props.product);
 
   return css`
