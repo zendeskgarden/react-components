@@ -26,6 +26,7 @@ export const StyledHeader = styled.header.attrs<IStyledHeaderProps>({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledHeaderProps>`
   display: flex;
+  position: ${props => props.isStandalone && 'relative'};
   align-items: center;
   justify-content: flex-end;
   box-sizing: border-box;
