@@ -23,8 +23,12 @@ export const StyledStep = styled.div.attrs<IStyledStep>({
   position: ${props => props.isHorizontal && 'relative'};
   flex: ${props => props.isHorizontal && '1'};
 
-  &:${props => (props.theme.rtl ? 'last-of-type' : 'first-of-type')} ${StyledLine} {
-    display: none;
+  &:last-of-type ${StyledLine} {
+    display: ${props => props.theme.rtl && 'none'};
+  }
+
+  &:first-of-type ${StyledLine} {
+    display: ${props => !props.theme.rtl && 'none'};
   }
 
   &:not(:last-of-type) ${StyledStepContent} {

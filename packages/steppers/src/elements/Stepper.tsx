@@ -27,7 +27,9 @@ interface IStaticStepperExport<T, P>
 }
 
 interface IStepperProps extends HTMLAttributes<HTMLDivElement> {
+  /** Displays the Stepper in a horizontal layout */
   isHorizontal: boolean;
+  /** Used to show the current step and compute completed steps */
   activeIndex: number;
 }
 

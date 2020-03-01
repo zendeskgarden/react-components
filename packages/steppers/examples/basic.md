@@ -21,6 +21,10 @@ const LightningBoltStrokeIcon = require('@zendeskgarden/svg-icons/src/12/lightni
   .default;
 const SearchStrokeIcon = require('@zendeskgarden/svg-icons/src/12/search-stroke.svg').default;
 
+const StyledHorizontalContent = styled.div`
+  padding: 18px 0px;
+`;
+
 const allSteps = [
   {
     id: 'stepper-step-1',
@@ -147,59 +151,61 @@ const BasicExample = () => {
 
   return (
     <Grid>
+      <Well isRecessed>
       <Row>
-        <Col>
-          <Well isRecessed style={{ width: 300 }}>
-            <Field className="u-mt-xs">
-              <Toggle checked={isHorizontal} onChange={event => setIsHorizontal(!isHorizontal)}>
-                <Label>Horizontal layout</Label>
-              </Toggle>
-            </Field>
-            <Field className="u-mt">
-              <Toggle checked={isLongLabel} onChange={event => setIsLongLabel(!isLongLabel)}>
-                <Label>Long labels</Label>
-              </Toggle>
-            </Field>
-            <Field className="u-mt">
-              <Toggle checked={isCustomIcon} onChange={event => setIsCustomIcon(!isCustomIcon)}>
-                <Label>Custom icons</Label>
-              </Toggle>
-            </Field>
-            <Dropdown
-              selectedItem={numberOfSteps}
-              onSelect={steps => {
-                setNumberOfSteps(Number(steps));
-                setActiveIndex(0);
-              }}
-            >
-              <SelectField className="u-mt">
-                <SelectLabel>Number of Steps</SelectLabel>
-                <Select isCompact>{numberOfSteps}</Select>
-              </SelectField>
-              <Menu isCompact>
-                <Item value="3">3</Item>
-                <Item value="5">5</Item>
-                <Item value="10">10</Item>
-              </Menu>
-            </Dropdown>
-            <Field className="u-mt">
-              <Label>
-                {activeIndex === numberOfSteps
-                  ? 'Steps Completed'
-                  : `Active Step: ${activeIndex + 1}`}
-              </Label>
-              <Range
-                value={activeIndex}
-                max={numberOfSteps}
-                onChange={event => {
-                  const nextActiveIndex = parseInt(event.target.value, 10);
-                  setActiveIndex(nextActiveIndex);
+            <Col>
+              <Field className="u-mt-xs">
+                <Toggle checked={isHorizontal} onChange={event => setIsHorizontal(!isHorizontal)}>
+                  <Label>Horizontal layout</Label>
+                </Toggle>
+              </Field>
+              <Field className="u-mt">
+                <Toggle checked={isLongLabel} onChange={event => setIsLongLabel(!isLongLabel)}>
+                  <Label>Long labels</Label>
+                </Toggle>
+              </Field>
+              <Field className="u-mt">
+                <Toggle checked={isCustomIcon} onChange={event => setIsCustomIcon(!isCustomIcon)}>
+                  <Label>Custom icons</Label>
+                </Toggle>
+              </Field>
+            </Col>
+            <Col>
+              <Dropdown
+                selectedItem={numberOfSteps}
+                onSelect={steps => {
+                  setNumberOfSteps(Number(steps));
+                  setActiveIndex(0);
                 }}
-              />
-            </Field>
-          </Well>
-        </Col>
+              >
+                <SelectField>
+                  <SelectLabel>Number of Steps</SelectLabel>
+                  <Select isCompact>{numberOfSteps}</Select>
+                </SelectField>
+                <Menu isCompact>
+                  <Item value="3">3</Item>
+                  <Item value="5">5</Item>
+                  <Item value="10">10</Item>
+                </Menu>
+              </Dropdown>
+              <Field className="u-mt">
+                <Label>
+                  {activeIndex === numberOfSteps
+                    ? 'Steps Completed'
+                    : `Active Step: ${activeIndex + 1}`}
+                </Label>
+                <Range
+                  value={activeIndex}
+                  max={numberOfSteps}
+                  onChange={event => {
+                    const nextActiveIndex = parseInt(event.target.value, 10);
+                    setActiveIndex(nextActiveIndex);
+                  }}
+                />
+              </Field>
+            </Col>
       </Row>
+      </Well>
       <Row className="u-mt">
         <Col>
           <Stepper activeIndex={activeIndex} isHorizontal={isHorizontal}>
@@ -217,12 +223,14 @@ const BasicExample = () => {
               );
             })}
           </Stepper>
-          <div style={{ padding: '18px' }}>
-            {steps.map(
-              (step, index) =>
-                isHorizontal && index === activeIndex && <span key={step.id}>{step.content}</span>
-            )}
-          </div>
+          {isHorizontal && (
+            <StyledHorizontalContent>
+              {steps.map(
+                (step, index) =>
+                  isHorizontal && index === activeIndex && <span key={step.id}>{step.content}</span>
+              )}
+            </StyledHorizontalContent>
+          )}
         </Col>
       </Row>
     </Grid>
