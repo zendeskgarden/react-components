@@ -14,6 +14,7 @@ export const StyledLine = styled.div`
   top: ${props => props.theme.space.base * 3}px;
   right: calc(50% + 20px);
   left: calc(-50% + 20px);
+  flex: 1;
   border-top: ${props => props.theme.borders.sm};
   border-color: ${props => getColor('neutralHue', 300, props.theme)};
 `;

@@ -20,6 +20,13 @@ interface IStyledIcon {
   isHorizontal?: boolean;
 }
 
+export const StyledIconFlexContainer = styled.div`
+  display: flex;
+  flex-basis: 100%;
+  justify-content: center;
+  width: 100%;
+`;
+
 export const StyledIcon = styled.div.attrs<IStyledIcon>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
@@ -45,6 +52,10 @@ export const StyledIcon = styled.div.attrs<IStyledIcon>({
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
+
+StyledIconFlexContainer.defaultProps = {
+  theme: DEFAULT_THEME
+};
 
 StyledIcon.defaultProps = {
   theme: DEFAULT_THEME
