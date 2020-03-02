@@ -131,7 +131,7 @@ describe('Tiles', () => {
 
     it('applies isVertical styling', () => {
       const { getByTestId } = render(
-        <Tiles name="example" isVertical>
+        <Tiles name="example" isStacked>
           <Tiles.Tile>
             <Tiles.Icon data-test-id="icon">
               <svg />
@@ -186,7 +186,7 @@ describe('Tiles', () => {
 
     it('applies isVertical styling', () => {
       const { getByText } = render(
-        <Tiles name="example" isVertical>
+        <Tiles name="example" isStacked>
           <Tiles.Tile>
             <Tiles.Label>label</Tiles.Label>
           </Tiles.Tile>
@@ -195,20 +195,20 @@ describe('Tiles', () => {
 
       expect(getByText('label')).toHaveStyle(`
         margin-top: 0;
-        margin-left: 48px;
+        margin-left: 52px;
       `);
     });
 
     it('applies RTL styling', () => {
       const { getByText } = renderRtl(
-        <Tiles name="example" isVertical>
+        <Tiles name="example" isStacked>
           <Tiles.Tile>
             <Tiles.Label>label</Tiles.Label>
           </Tiles.Tile>
         </Tiles>
       );
 
-      expect(getByText('label')).toHaveStyleRule('margin-right', '48px');
+      expect(getByText('label')).toHaveStyleRule('margin-right', '52px');
     });
   });
 
@@ -228,26 +228,26 @@ describe('Tiles', () => {
 
     it('applies isVertical styling', () => {
       const { getByText } = render(
-        <Tiles name="example" isVertical>
+        <Tiles name="example" isStacked>
           <Tiles.Tile>
             <Tiles.Description>description</Tiles.Description>
           </Tiles.Tile>
         </Tiles>
       );
 
-      expect(getByText('description')).toHaveStyleRule('margin-left', '48px');
+      expect(getByText('description')).toHaveStyleRule('margin-left', '52px');
     });
 
     it('applies RTL styling', () => {
       const { getByText } = renderRtl(
-        <Tiles name="example" isVertical>
+        <Tiles name="example" isStacked>
           <Tiles.Tile>
             <Tiles.Description>description</Tiles.Description>
           </Tiles.Tile>
         </Tiles>
       );
 
-      expect(getByText('description')).toHaveStyleRule('margin-right', '48px');
+      expect(getByText('description')).toHaveStyleRule('margin-right', '52px');
     });
   });
 });

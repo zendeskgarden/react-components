@@ -11,7 +11,7 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 const COMPONENT_ID = 'forms.tile_label';
 
 interface IStyledTileLabelProps {
-  isVertical?: boolean;
+  isStacked?: boolean;
 }
 
 export const StyledTileLabel = styled.span.attrs({
@@ -19,9 +19,9 @@ export const StyledTileLabel = styled.span.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledTileLabelProps>`
   display: block;
-  margin-top: ${props => (props.isVertical ? 0 : props.theme.space.base * 2)}px;
+  margin-top: ${props => (props.isStacked ? 0 : props.theme.space.base * 2)}px;
   overflow: hidden;
-  text-align: ${props => !props.isVertical && 'center'};
+  text-align: ${props => !props.isStacked && 'center'};
   text-overflow: ellipsis;
   line-height: ${props => props.theme.space.base * 5}px;
   white-space: nowrap;
@@ -29,7 +29,7 @@ export const StyledTileLabel = styled.span.attrs({
   font-weight: ${props => props.theme.fontWeights.semibold};
   /* stylelint-disable-next-line property-no-unknown */
   margin-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
-  props.isVertical && props.theme.space.base * 12}px;
+  props.isStacked && props.theme.space.base * 13}px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

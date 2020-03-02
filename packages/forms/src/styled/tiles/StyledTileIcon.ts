@@ -12,7 +12,7 @@ import { math } from 'polished';
 const COMPONENT_ID = 'forms.tile_icon';
 
 interface IStyledTileIconProps {
-  isVertical?: boolean;
+  isStacked?: boolean;
 }
 
 const sizeStyles = (props: IStyledTileIconProps & ThemeProps<DefaultTheme>) => {
@@ -31,7 +31,7 @@ export const StyledTileIcon = styled.span.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledTileIconProps>`
   display: block;
-  position: ${props => props.isVertical && 'absolute'};
+  position: ${props => props.isStacked && 'absolute'};
   top: ${props => props.theme.space.base * 6}px;
   text-align: center;
   line-height: 0;

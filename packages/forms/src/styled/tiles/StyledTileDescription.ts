@@ -11,7 +11,7 @@ import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-the
 const COMPONENT_ID = 'forms.tile_description';
 
 interface IStyledTileDescriptionProps {
-  isVertical?: boolean;
+  isStacked?: boolean;
 }
 
 export const StyledTileDescription = styled.span.attrs({
@@ -20,12 +20,12 @@ export const StyledTileDescription = styled.span.attrs({
 })<IStyledTileDescriptionProps>`
   display: block;
   margin-top: ${props => props.theme.space.base}px;
-  text-align: ${props => !props.isVertical && 'center'};
+  text-align: ${props => !props.isStacked && 'center'};
   line-height: ${props => props.theme.space.base * 4}px;
   font-size: ${props => props.theme.fontSizes.sm};
   /* stylelint-disable-next-line property-no-unknown */
   margin-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
-  props.isVertical && props.theme.space.base * 12}px;
+  props.isStacked && props.theme.space.base * 13}px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

@@ -29,7 +29,7 @@ const items = [
 ];
 
 initialState = {
-  isVertical: false,
+  isStacked: false,
   disabled: false
 };
 
@@ -40,10 +40,10 @@ initialState = {
         <Col>
           <Field>
             <Toggle
-              checked={!!state.isVertical}
-              onChange={event => setState({ isVertical: event.target.checked })}
+              checked={!!state.isStacked}
+              onChange={event => setState({ isStacked: event.target.checked })}
             >
-              <Label>Vertical</Label>
+              <Label>Stacked</Label>
             </Toggle>
           </Field>
         </Col>
@@ -60,11 +60,11 @@ initialState = {
       </Row>
     </Grid>
   </Well>
-  <Tiles name="example" aria-label="Example radio group selection" isVertical={state.isVertical}>
+  <Tiles name="example" aria-label="Example radio group selection" isStacked={state.isStacked}>
     <Grid>
       <Row>
         {items.map(item =>
-          state.isVertical ? (
+          state.isStacked ? (
             <Col key={item.value} sm={12}>
               <Tiles.Tile value={item.value} disabled={state.disabled}>
                 <Tiles.Icon>{item.icon}</Tiles.Icon>

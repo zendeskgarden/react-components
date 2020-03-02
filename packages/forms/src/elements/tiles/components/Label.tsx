@@ -29,7 +29,7 @@ export const Label = React.forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanEl
       <StyledTileLabel
         ref={ref}
         title={title}
-        isVertical={tilesContext && tilesContext.isVertical}
+        isStacked={tilesContext && tilesContext.isStacked}
         {...props}
       />
     );
