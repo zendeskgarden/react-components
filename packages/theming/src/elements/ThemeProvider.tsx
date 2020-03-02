@@ -10,6 +10,7 @@ import { ThemeProvider, DefaultTheme, ThemeProps } from 'styled-components';
 import { useFocusVisible } from '@zendeskgarden/container-focusvisible';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
 import DEFAULT_THEME from './theme';
+import { useDocument } from '../utils/useDocument';
 
 interface IGardenThemeProviderProps extends Partial<ThemeProps<DefaultTheme>> {
   focusVisibleRef?: React.RefObject<HTMLElement>;
@@ -22,7 +23,7 @@ const GardenThemeProvider: React.FunctionComponent<IGardenThemeProviderProps> = 
   ...other
 }) => {
   const scopeRef = useRef<HTMLDivElement>(null);
-  const relativeDocument = getControlledValue(theme!.document || document);
+  const relativeDocument = useDocument(theme);
   const controlledScopeRef = getControlledValue(focusVisibleRef, scopeRef);
 
   useFocusVisible({ scope: controlledScopeRef, relativeDocument });
