@@ -123,6 +123,13 @@ export const StyledTile = styled.label.attrs<IStyledTileProps>(props => ({
 }))<IStyledTileProps>`
   display: block;
   position: relative;
+  /* prettier-ignore */
+  transition:
+    border-color .25s ease-in-out,
+    box-shadow .1s ease-in-out,
+    background-color .25s ease-in-out,
+    background-image .25s ease-in-out,
+    color .25s ease-in-out;
   border-radius: ${props => props.theme.borderRadii.md};
   padding: ${props => props.theme.space.base * 5}px;
   direction: ${props => props.theme.rtl && 'rtl'};
