@@ -9,15 +9,15 @@ import React, { HTMLAttributes } from 'react';
 import { StyledHeaderItem } from '../../../styled';
 import useMenuContext from '../../../utils/useMenuContext';
 
-interface IHeaderItemProps extends HTMLAttributes<HTMLDivElement> {
+interface IHeaderItemProps extends HTMLAttributes<HTMLLIElement> {
   /** Applies icon styling */
   hasIcon?: boolean;
 }
 
 /**
- * Accepts all `<div>` props
+ * Accepts all `<li>` props
  */
-export const HeaderItem = React.forwardRef<HTMLDivElement, IHeaderItemProps>((props, ref) => {
+export const HeaderItem = React.forwardRef<HTMLLIElement, IHeaderItemProps>((props, ref) => {
   const { isCompact } = useMenuContext();
 
   return <StyledHeaderItem ref={ref} isCompact={isCompact} {...props} />;

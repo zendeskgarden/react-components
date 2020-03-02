@@ -5,14 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, useReducer, useCallback, FunctionComponent } from 'react';
+import React, {
+  useRef,
+  useEffect,
+  useReducer,
+  useCallback,
+  FunctionComponent,
+  useState
+} from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProps, DefaultTheme } from 'styled-components';
 import { Manager, Popper, Reference } from 'react-popper';
 import { withTheme, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
-
-import { StyledMenu } from '../../styled';
 import {
   getRtlPopperPlacement,
   getPopperPlacement,
@@ -22,6 +27,7 @@ import {
 import Calendar from './components/Calendar';
 import { datepickerReducer, retrieveInitialState } from './utils/datepicker-reducer';
 import { DatepickerContext } from './utils/useDatepickerContext';
+import { StyledMenu, StyledMenuWrapper } from '../../styled';
 
 export interface IDatepickerProps {
   /**
@@ -125,6 +131,23 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
     }
   });
 
+  const [isVisible, setVisible] = useState(state.isOpen);
+
+  useEffect(() => {
+    let timeout: any;
+
+    if (state.isOpen) {
+      setVisible(true);
+    } else if (isAnimated) {
+      // Match the duration of the menu fade out transition.
+      timeout = setTimeout(() => setVisible(false), 200);
+    } else {
+      setVisible(false);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [state.isOpen, isAnimated]);
+
   /**
    * Dispatch update to reducer when controlled value is changed
    */
@@ -200,25 +223,27 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
             scheduleUpdateRef.current = scheduleUpdate;
 
             return (
-              <StyledMenu
+              <StyledMenuWrapper
                 ref={ref}
                 style={style}
                 isHidden={!state.isOpen}
-                isAnimated={isAnimated && state.isOpen}
+                isAnimated={isAnimated && (state.isOpen || isVisible)}
                 placement={currentPlacement as POPPER_PLACEMENT}
                 zIndex={zIndex}
                 data-test-id="datepicker-menu"
                 data-test-open={state.isOpen}
                 data-test-rtl={props.theme.rtl}
               >
-                <Calendar
-                  isCompact={isCompact}
-                  value={value}
-                  minValue={minValue}
-                  maxValue={maxValue}
-                  locale={locale}
-                />
-              </StyledMenu>
+                <StyledMenu>
+                  <Calendar
+                    isCompact={isCompact}
+                    value={value}
+                    minValue={minValue}
+                    maxValue={maxValue}
+                    locale={locale}
+                  />
+                </StyledMenu>
+              </StyledMenuWrapper>
             );
           }}
         </Popper>

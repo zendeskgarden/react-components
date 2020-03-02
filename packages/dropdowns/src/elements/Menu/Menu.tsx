@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, HTMLAttributes } from 'react';
+import React, { useRef, useEffect, HTMLAttributes, useState } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProps, DefaultTheme } from 'styled-components';
 import { Popper } from 'react-popper';
 import { Modifiers } from 'popper.js';
 import { withTheme, isRtl } from '@zendeskgarden/react-theming';
 
-import { StyledMenu } from '../../styled/index';
+import { StyledMenu, StyledMenuWrapper } from '../../styled/index';
 import useDropdownContext from '../../utils/useDropdownContext';
 import {
   GARDEN_PLACEMENT,
@@ -21,7 +21,7 @@ import {
 } from '../../utils/garden-placements';
 import { MenuContext } from '../../utils/useMenuContext';
 
-interface IMenuProps extends HTMLAttributes<HTMLDivElement> {
+interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
   /** See Popper [documentation](https://popper.js.org/docs/v2/modifiers/) for details */
   popperModifiers?: Modifiers;
   eventsEnabled?: boolean;
@@ -73,6 +73,23 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
     }
   });
 
+  const [isVisible, setVisible] = useState(isOpen);
+
+  useEffect(() => {
+    let timeout: any;
+
+    if (isOpen) {
+      setVisible(true);
+    } else if (isAnimated) {
+      // Match the duration of the menu fade out transition.
+      timeout = setTimeout(() => setVisible(false), 200);
+    } else {
+      setVisible(false);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [isOpen, isAnimated]);
+
   // Reset Downshift refs on every render
   itemIndexRef.current = 0;
   nextItemsHashRef.current = {};
@@ -106,23 +123,31 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
             };
           }
 
+          const menuProps = getMenuProps({
+            placement: currentPlacement,
+            isAnimated: isAnimated && (isOpen || isVisible),
+            ...otherProps
+          } as any);
+
           return (
-            <StyledMenu
-              {...getMenuProps({
-                maxHeight,
-                placement: currentPlacement,
-                isAnimated: isOpen && isAnimated, // Triggers animation start when open
-                style: computedStyle,
-                isCompact,
-                isHidden: !isOpen,
-                ref: isOpen ? ref : undefined,
-                wrapperStyle: style,
-                zIndex,
-                ...otherProps
-              } as any)}
+            <StyledMenuWrapper
+              ref={isOpen ? ref : undefined}
+              hasArrow={menuProps.hasArrow}
+              placement={menuProps.placement}
+              style={style}
+              isHidden={!isOpen}
+              isAnimated={menuProps.isAnimated}
+              zIndex={zIndex}
             >
-              {isOpen && children}
-            </StyledMenu>
+              <StyledMenu
+                isCompact={isCompact}
+                maxHeight={maxHeight}
+                style={computedStyle}
+                {...menuProps}
+              >
+                {(isOpen || isVisible) && children}
+              </StyledMenu>
+            </StyledMenuWrapper>
           );
         }}
       </Popper>
