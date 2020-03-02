@@ -53,6 +53,9 @@ initialState = {
           <HeaderItemText isClipped>User</HeaderItemText>
         </HeaderItem>
       </Header>
+      <Content>
+        <Main />
+      </Content>
     </Body>
   </Chrome>
 </>;
