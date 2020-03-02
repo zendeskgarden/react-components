@@ -67,6 +67,7 @@ ensuring the details live up to expectations.
 - The view component `defaultProps` must contain `theme: DEFAULT_THEME` for
   cases when the component might be used outside the context of a
   `<ThemeProvider>`.
+- With the exception of embedded icons, view components do not return JSX.
 
 ## Element components
 

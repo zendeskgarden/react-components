@@ -13,7 +13,7 @@ import { StyledPreviousItem, StyledItemIcon, StyledPreviousIcon } from '../../..
 import useDropdownContext from '../../../utils/useDropdownContext';
 import useMenuContext from '../../../utils/useMenuContext';
 
-const PreviousItemComponent = React.forwardRef<HTMLDivElement, IItemProps>(
+const PreviousItemComponent = React.forwardRef<HTMLLIElement, IItemProps>(
   ({ children, disabled, ...props }, ref) => {
     const { isCompact } = useMenuContext();
 
@@ -31,9 +31,9 @@ const PreviousItemComponent = React.forwardRef<HTMLDivElement, IItemProps>(
 PreviousItemComponent.displayName = 'PreviousItemComponent';
 
 /**
- * Accepts all `<div>` props
+ * Accepts all `<li>` props
  */
-export const PreviousItem = React.forwardRef<HTMLDivElement, Omit<IItemProps, 'component'>>(
+export const PreviousItem = React.forwardRef<HTMLLIElement, Omit<IItemProps, 'component'>>(
   ({ value, disabled, ...props }, ref) => {
     const { previousIndexRef } = useDropdownContext();
     const { itemIndexRef } = useMenuContext();

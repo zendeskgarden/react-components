@@ -1,11 +1,11 @@
-import { ARROW_POSITION } from '@zendeskgarden/react-theming';
-
 /**
  * Copyright Zendesk, Inc.
  *
  * Use of this source code is governed under the Apache License, Version 2.0
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
+
+import { ARROW_POSITION, MENU_POSITION } from '@zendeskgarden/react-theming';
 
 type SHARED_PLACEMENT =
   | 'auto'
@@ -93,8 +93,9 @@ export function getRtlPopperPlacement(gardenPlacement: GARDEN_PLACEMENT): POPPER
  * Convert Popper.JS placement to corresponding arrow position
  * @param {String} popperPlacement
  */
-export function getArrowPosition(popperPlacement: POPPER_PLACEMENT) {
-  const arrowPositionMappings: Partial<Record<POPPER_PLACEMENT, ARROW_POSITION>> = {
+export function getArrowPosition(popperPlacement?: POPPER_PLACEMENT) {
+  const arrowPositionMappings: Record<POPPER_PLACEMENT, ARROW_POSITION> = {
+    auto: 'top',
     top: 'bottom',
     'top-start': 'bottom-left',
     'top-end': 'bottom-right',
@@ -109,5 +110,17 @@ export function getArrowPosition(popperPlacement: POPPER_PLACEMENT) {
     'left-end': 'right-bottom'
   };
 
-  return arrowPositionMappings[popperPlacement] || 'top';
+  return (popperPlacement ? arrowPositionMappings[popperPlacement] : 'top') as ARROW_POSITION;
+}
+
+/**
+ * Convert Popper.JS placement to corresponding menu position
+ * @param {String} popperPlacement
+ */
+export function getMenuPosition(popperPlacement?: POPPER_PLACEMENT) {
+  if (popperPlacement === 'auto') {
+    return 'bottom' as MENU_POSITION;
+  }
+
+  return (popperPlacement ? popperPlacement.split('-')[0] : 'bottom') as MENU_POSITION;
 }

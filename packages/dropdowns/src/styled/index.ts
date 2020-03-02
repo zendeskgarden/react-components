@@ -8,6 +8,7 @@
 export * from './field/StyledInput';
 export * from './field/StyledMultiselect';
 export * from './menu/StyledMenu';
+export * from './menu/StyledMenuWrapper';
 export * from './menu/StyledSeparator';
 export * from './items/StyledAddItem';
 export * from './items/StyledItem';
