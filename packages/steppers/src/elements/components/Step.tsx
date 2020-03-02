@@ -5,25 +5,23 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useRef } from 'react';
+import React, { forwardRef, useRef, HTMLAttributes } from 'react';
 import { StyledStep, StyledLine } from '../../styled';
 import { StepContext, useStepperContext } from '../../utils';
 
-export const Step = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  (props, ref) => {
-    const { currentIndexRef, isHorizontal } = useStepperContext();
-    const stepIndexRef = useRef(currentIndexRef.current++);
-    const stepContextValue = { currentStepIndex: stepIndexRef.current };
+export const Step = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
+  const { currentIndexRef, isHorizontal } = useStepperContext();
+  const stepIndexRef = useRef(currentIndexRef.current++);
+  const stepContextValue = { currentStepIndex: stepIndexRef.current };
 
-    return (
-      <StepContext.Provider value={stepContextValue}>
-        <StyledStep ref={ref} isHorizontal={isHorizontal} {...props}>
-          {isHorizontal && <StyledLine data-test-id="step-line" />}
-          {props.children}
-        </StyledStep>
-      </StepContext.Provider>
-    );
-  }
-);
+  return (
+    <StepContext.Provider value={stepContextValue}>
+      <StyledStep ref={ref} isHorizontal={isHorizontal} {...props}>
+        {isHorizontal && <StyledLine data-test-id="step-line" />}
+        {props.children}
+      </StyledStep>
+    </StepContext.Provider>
+  );
+});
 
 Step.displayName = 'Step';

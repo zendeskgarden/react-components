@@ -23,22 +23,28 @@ describe('Step', () => {
   });
 
   it('renders a step line before each step in a horizontal stepper', () => {
-    const { getByTestId } = render(
+    const steps = [1, 2, 3];
+    const { queryAllByTestId } = render(
       <Stepper activeIndex={0} isHorizontal>
-        <Step />
+        {steps.map(step => (
+          <Step key={step} />
+        ))}
       </Stepper>
     );
 
-    expect(getByTestId('step-line')).toBeTruthy();
+    expect(queryAllByTestId('step-line').length).toBe(steps.length);
   });
 
   it('does not render a step line before each step in a vertical stepper', () => {
-    const { queryByTestId } = render(
+    const steps = [1, 2, 3];
+    const { queryAllByTestId } = render(
       <Stepper activeIndex={0} isHorizontal={false}>
-        <Step />
+        {steps.map(step => (
+          <Step key={step} />
+        ))}
       </Stepper>
     );
 
-    expect(queryByTestId('step-line')).toBeNull();
+    expect(queryAllByTestId('step-line').length).toBe(0);
   });
 });

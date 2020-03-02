@@ -12,8 +12,8 @@ export const StyledLine = styled.div`
   display: block;
   position: absolute;
   top: ${props => props.theme.space.base * 3}px;
-  right: calc(50% + 20px);
-  left: calc(-50% + 20px);
+  right: ${props => `calc(50% + ${props.theme.space.base * 4}px)`};
+  left: ${props => `calc(-50% + ${props.theme.space.base * 4}px)`};
   flex: 1;
   border-top: ${props => props.theme.borders.sm};
   border-color: ${props => getColor('neutralHue', 300, props.theme)};

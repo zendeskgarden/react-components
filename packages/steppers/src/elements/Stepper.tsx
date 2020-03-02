@@ -22,15 +22,15 @@ import { StepContent } from './components/StepContent';
 interface IStaticStepperExport<T, P>
   extends ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> {
   Step: typeof Step;
-  Content: typeof StepContent;
   Label: typeof StepLabel;
+  Content: typeof StepContent;
 }
 
 interface IStepperProps extends HTMLAttributes<HTMLDivElement> {
-  /** Displays the Stepper in a horizontal layout */
-  isHorizontal: boolean;
   /** Used to show the current step and compute completed steps */
   activeIndex: number;
+  /** Displays the Stepper in a horizontal layout */
+  isHorizontal: boolean;
 }
 
 /**
@@ -67,6 +67,6 @@ Stepper.Content = StepContent;
 Stepper.displayName = 'Stepper';
 
 Stepper.defaultProps = {
-  isHorizontal: false,
-  activeIndex: 0
+  activeIndex: 0,
+  isHorizontal: false
 };

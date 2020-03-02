@@ -11,13 +11,10 @@ import { useCombinedRefs } from '@zendeskgarden/container-utilities';
 import { StyledStepContent } from '../../styled';
 import { useStepContext, useStepperContext } from '../../utils';
 
-/**
- * Supports all `<div>` props
- */
 export const StepContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
     const contentRef = useCombinedRefs<HTMLDivElement>(ref);
-    const { isHorizontal, activeIndex } = useStepperContext();
+    const { activeIndex, isHorizontal } = useStepperContext();
     const { currentStepIndex } = useStepContext();
     const isActive = currentStepIndex === activeIndex;
     const isVertical = isHorizontal === false;
@@ -37,7 +34,7 @@ export const StepContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
             transitionStatus={status}
             {...props}
           >
-            <div>{props.children}</div>
+            {isActive ? props.children : <div>{props.children}</div>}
           </StyledStepContent>
         )}
       </Transition>

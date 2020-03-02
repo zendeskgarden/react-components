@@ -13,12 +13,12 @@ describe('StyledStepContent', () => {
   it('renders default styling correctly', () => {
     const { container } = render(<StyledStepContent />);
 
-    expect(container.firstChild).toHaveStyleRule('margin', '8px 0px 8px 12px');
+    expect(container.firstChild).toHaveStyleRule('margin', '6px 0px 6px 12px');
   });
 
   it('renders RTL styling correctly', () => {
     const { container } = renderRtl(<StyledStepContent />);
 
-    expect(container.firstChild).toHaveStyleRule('margin', '8px 12px 8px 0px');
+    expect(container.firstChild).toHaveStyleRule('margin', '6px 12px 6px 0px');
   });
 });

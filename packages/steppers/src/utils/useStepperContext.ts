@@ -8,8 +8,8 @@
 import { createContext, useContext } from 'react';
 
 export interface IStepperContext {
-  isHorizontal: boolean;
   activeIndex: number;
+  isHorizontal: boolean;
   currentIndexRef: React.MutableRefObject<number>;
 }
 
