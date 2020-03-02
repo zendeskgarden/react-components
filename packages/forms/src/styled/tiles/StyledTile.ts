@@ -131,6 +131,7 @@ export const StyledTile = styled.label.attrs<IStyledTileProps>(props => ({
     background-image .25s ease-in-out,
     color .25s ease-in-out;
   border-radius: ${props => props.theme.borderRadii.md};
+  cursor: ${props => !props.isDisabled && 'pointer'};
   padding: ${props => props.theme.space.base * 5}px;
   direction: ${props => props.theme.rtl && 'rtl'};
 
