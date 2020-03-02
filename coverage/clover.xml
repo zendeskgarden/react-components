@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1582830112397" clover="3.2.0">
-  <project timestamp="1582830112398" name="All files">
-    <metrics statements="5225" coveredstatements="5215" conditionals="2056" coveredconditionals="1933" methods="1119" coveredmethods="1116" elements="8400" coveredelements="8264" complexity="0" loc="5225" ncloc="5225" packages="89" files="339" classes="339"/>
+<coverage generated="1583171429188" clover="3.2.0">
+  <project timestamp="1583171429189" name="All files">
+    <metrics statements="5226" coveredstatements="5216" conditionals="2058" coveredconditionals="1934" methods="1120" coveredmethods="1117" elements="8404" coveredelements="8267" complexity="0" loc="5226" ncloc="5226" packages="89" files="339" classes="339"/>
     <package name="avatars.src.elements">
       <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="Avatar.tsx" path="/home/travis/build/zendeskgarden/react-components/packages/avatars/src/elements/Avatar.tsx">
@@ -835,7 +835,7 @@
       </file>
     </package>
     <package name="chrome.src.styled.header">
-      <metrics statements="106" coveredstatements="106" conditionals="34" coveredconditionals="28" methods="40" coveredmethods="40"/>
+      <metrics statements="107" coveredstatements="107" conditionals="36" coveredconditionals="29" methods="41" coveredmethods="41"/>
       <file name="StyledBaseHeaderItem.ts" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/styled/header/StyledBaseHeaderItem.ts">
         <metrics statements="19" coveredstatements="19" conditionals="10" coveredconditionals="10" methods="7" coveredmethods="7"/>
         <line num="8" count="20" type="stmt"/>
@@ -859,7 +859,7 @@
         <line num="86" count="20" type="stmt"/>
       </file>
       <file name="StyledHeader.ts" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/styled/header/StyledHeader.ts">
-        <metrics statements="17" coveredstatements="17" conditionals="4" coveredconditionals="2" methods="9" coveredmethods="9"/>
+        <metrics statements="18" coveredstatements="18" conditionals="6" coveredconditionals="3" methods="10" coveredmethods="10"/>
         <line num="8" count="20" type="stmt"/>
         <line num="9" count="20" type="stmt"/>
         <line num="10" count="20" type="stmt"/>
@@ -868,15 +868,16 @@
         <line num="20" count="20" type="stmt"/>
         <line num="21" count="2" type="stmt"/>
         <line num="24" count="20" type="stmt"/>
-        <line num="33" count="1" type="stmt"/>
-        <line num="35" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="37" count="1" type="stmt"/>
+        <line num="29" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="36" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="38" count="1" type="stmt"/>
-        <line num="40" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
         <line num="41" count="1" type="stmt"/>
-        <line num="44" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="51" count="1" type="stmt"/>
-        <line num="54" count="20" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="45" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="55" count="20" type="stmt"/>
       </file>
       <file name="StyledHeaderItem.ts" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/styled/header/StyledHeaderItem.ts">
         <metrics statements="17" coveredstatements="17" conditionals="4" coveredconditionals="4" methods="6" coveredmethods="6"/>
@@ -1024,18 +1025,18 @@
         <line num="13" count="20" type="stmt"/>
         <line num="14" count="4" type="cond" truecount="3" falsecount="1"/>
         <line num="15" count="4" type="stmt"/>
-        <line num="16" count="4" type="stmt"/>
-        <line num="20" count="4" type="stmt"/>
-        <line num="33" count="20" type="stmt"/>
-        <line num="34" count="31" type="stmt"/>
-        <line num="37" count="20" type="stmt"/>
-        <line num="38" count="2" type="stmt"/>
-        <line num="41" count="20" type="stmt"/>
-        <line num="50" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="31" count="20" type="stmt"/>
+        <line num="32" count="31" type="stmt"/>
+        <line num="35" count="20" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="39" count="20" type="stmt"/>
+        <line num="48" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="49" count="4" type="stmt"/>
         <line num="51" count="4" type="stmt"/>
         <line num="53" count="4" type="stmt"/>
-        <line num="55" count="4" type="stmt"/>
-        <line num="58" count="20" type="stmt"/>
+        <line num="56" count="20" type="stmt"/>
       </file>
       <file name="StyledNavItem.ts" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/styled/nav/StyledNavItem.ts">
         <metrics statements="28" coveredstatements="28" conditionals="22" coveredconditionals="22" methods="7" coveredmethods="7"/>
@@ -1110,14 +1111,14 @@
         <line num="18" count="1" type="stmt"/>
         <line num="20" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="23" count="3" type="stmt"/>
-        <line num="24" count="3" type="stmt"/>
-        <line num="28" count="3" type="stmt"/>
-        <line num="40" count="20" type="stmt"/>
+        <line num="24" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="26" count="3" type="stmt"/>
+        <line num="38" count="20" type="stmt"/>
+        <line num="44" count="3" type="stmt"/>
         <line num="46" count="3" type="stmt"/>
         <line num="48" count="3" type="stmt"/>
-        <line num="50" count="3" type="stmt"/>
-        <line num="56" count="3" type="stmt"/>
-        <line num="59" count="20" type="stmt"/>
+        <line num="54" count="3" type="stmt"/>
+        <line num="57" count="20" type="stmt"/>
       </file>
       <file name="StyledSubNavItem.tsx" path="/home/travis/build/zendeskgarden/react-components/packages/chrome/src/styled/subnav/StyledSubNavItem.tsx">
         <metrics statements="25" coveredstatements="25" conditionals="14" coveredconditionals="13" methods="8" coveredmethods="8"/>
