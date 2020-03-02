@@ -148,24 +148,6 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
                 {(isOpen || isVisible) && children}
               </StyledMenu>
             </StyledMenuWrapper>
-            /*
-            <StyledMenu
-              {...getMenuProps({
-                maxHeight,
-                placement: currentPlacement,
-                isAnimated: isAnimated && (isOpen || isVisible),
-                style: computedStyle,
-                isCompact,
-                isHidden: !isOpen,
-                ref: isOpen ? ref : undefined,
-                wrapperStyle: style,
-                zIndex,
-                ...otherProps
-              } as any)}
-            >
-              {(isOpen || isVisible) && children}
-            </StyledMenu>
-            */
           );
         }}
       </Popper>

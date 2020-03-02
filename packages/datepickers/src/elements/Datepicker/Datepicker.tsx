@@ -244,27 +244,6 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
                   />
                 </StyledMenu>
               </StyledMenuWrapper>
-              /*
-              <StyledMenu
-                ref={ref}
-                style={style}
-                isHidden={!state.isOpen}
-                isAnimated={isAnimated && (state.isOpen || isVisible)}
-                placement={currentPlacement as POPPER_PLACEMENT}
-                zIndex={zIndex}
-                data-test-id="datepicker-menu"
-                data-test-open={state.isOpen}
-                data-test-rtl={props.theme.rtl}
-              >
-                <Calendar
-                  isCompact={isCompact}
-                  value={value}
-                  minValue={minValue}
-                  maxValue={maxValue}
-                  locale={locale}
-                />
-              </StyledMenu>
-              */
             );
           }}
         </Popper>
