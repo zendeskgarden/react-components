@@ -43,6 +43,28 @@ describe('Range', () => {
       expect(getByTestId('range').style.backgroundSize).toBe('25%');
     });
 
+    it('applies correct backgroundSize for a controlled component', () => {
+      const ControlledExample = () => {
+        const [value, setValue] = React.useState(25);
+
+        return (
+          <>
+            <Field>
+              <Range min={0} max={100} value={value} data-test-id="range" />
+            </Field>
+            <button onClick={() => setValue(50)}>Set value to 50</button>
+          </>
+        );
+      };
+      const { getByTestId, getByRole } = render(<ControlledExample />);
+
+      expect(getByTestId('range').style.backgroundSize).toBe('25%');
+      const button = getByRole('button');
+
+      fireEvent.click(button);
+      expect(getByTestId('range').style.backgroundSize).toBe('50%');
+    });
+
     it('defaults to max of 100 if max is less than min', () => {
       const { getByTestId } = render(
         <Field>

@@ -41,7 +41,7 @@ export const Range = React.forwardRef<HTMLInputElement, InputHTMLAttributes<HTML
 
     useEffect(() => {
       updateBackgroundWidthFromInput(rangeRef.current!);
-    }, [rangeRef, updateBackgroundWidthFromInput]);
+    }, [rangeRef, updateBackgroundWidthFromInput, props.value]);
 
     let combinedProps = {
       ref: rangeRef,
