@@ -5,8 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import { math } from 'polished';
+import {
+  DEFAULT_THEME,
+  retrieveComponentStyles,
+  getLineHeight
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.tile_description';
 
@@ -14,18 +19,35 @@ interface IStyledTileDescriptionProps {
   isStacked?: boolean;
 }
 
+const sizeStyles = (props: IStyledTileDescriptionProps & ThemeProps<DefaultTheme>) => {
+  let marginDirection = 'left';
+  let marginValue;
+
+  if (props.theme.rtl) {
+    marginDirection = 'right';
+  }
+
+  if (props.isStacked) {
+    marginValue = math(`(${props.theme.iconSizes.md} * 2) + ${props.theme.space.base * 5}px`);
+  }
+
+  return css`
+    margin-top: ${props.theme.space.base}px;
+    /* stylelint-disable-next-line property-no-unknown */
+    margin-${marginDirection}: ${marginValue};
+  `;
+};
+
 export const StyledTileDescription = styled.span.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledTileDescriptionProps>`
   display: block;
-  margin-top: ${props => props.theme.space.base}px;
   text-align: ${props => !props.isStacked && 'center'};
-  line-height: ${props => props.theme.space.base * 4}px;
+  line-height: ${props => getLineHeight(props.theme.space.base * 4, props.theme.fontSizes.sm)};
   font-size: ${props => props.theme.fontSizes.sm};
-  /* stylelint-disable-next-line property-no-unknown */
-  margin-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
-  props.isStacked && props.theme.space.base * 13}px;
+
+  ${props => sizeStyles(props)};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

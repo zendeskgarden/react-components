@@ -145,7 +145,7 @@ describe('Tiles', () => {
 
     it('applies RTL styling', () => {
       const { getByTestId } = renderRtl(
-        <Tiles name="example">
+        <Tiles name="example" isStacked>
           <Tiles.Tile>
             <Tiles.Icon data-test-id="icon">
               <svg />

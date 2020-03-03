@@ -17,8 +17,25 @@ interface IStyledTileIconProps {
 
 const sizeStyles = (props: IStyledTileIconProps & ThemeProps<DefaultTheme>) => {
   const iconSize = math(`${props.theme.iconSizes.md} * 2`);
+  let position;
+  let top;
+  let horizontalValue;
+
+  if (props.isStacked) {
+    position = 'absolute';
+    top = `${props.theme.space.base * 6}px`;
+    horizontalValue = `left: ${props.theme.space.base * 5}px`;
+
+    if (props.theme.rtl) {
+      horizontalValue = `right: ${props.theme.space.base * 5}px`;
+    }
+  }
 
   return css`
+    position: ${position};
+    top: ${top};
+    ${horizontalValue};
+
     & > * {
       width: ${iconSize};
       height: ${iconSize};
@@ -31,11 +48,8 @@ export const StyledTileIcon = styled.span.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledTileIconProps>`
   display: block;
-  position: ${props => props.isStacked && 'absolute'};
-  top: ${props => props.theme.space.base * 6}px;
   text-align: center;
   line-height: 0;
-  ${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.space.base * 5}px;
 
   ${props => sizeStyles(props)};
 

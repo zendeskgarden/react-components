@@ -1,6 +1,79 @@
 The `Tiles` component is implemented using the [W3C Radio Group pattern](https://www.w3.org/TR/wai-aria-practices/#radiobutton).
 Each `Tile` may be treated as an individual radio input.
 
+### Components
+
+- `Tiles.Tile` Accepts all `div` attributes and the following props:
+  - [`value`] The value of the `input`
+  - [`disabled`] Whether the `Tile` is disabled
+- `Tiles.Label` Accepts all `span` attributes
+- `Tiles.Description` Accepts all `span` attributes
+
+### Layout
+
+The `Tiles` component provides no layout or responsive styling. For a responsive layout
+we use our [@zendeskgarden/react-grid package](https://garden.zendesk.com/react-components/grid/)
+in the examples below.
+
+```jsx
+const DocumentIcon = require('@zendeskgarden/svg-icons/src/16/file-document-stroke.svg').default;
+const ImageIcon = require('@zendeskgarden/svg-icons/src/16/file-image-stroke.svg').default;
+const PresentationIcon = require('@zendeskgarden/svg-icons/src/16/file-presentation-stroke.svg')
+  .default;
+const SpreadsheetIcon = require('@zendeskgarden/svg-icons/src/16/file-spreadsheet-stroke.svg')
+  .default;
+const FolderOpenIcon = require('@zendeskgarden/svg-icons/src/16/folder-open-stroke.svg').default;
+
+<Tiles name="basic-example" aria-label="Example radio group selection" isStacked={state.isStacked}>
+  <Grid>
+    <Row>
+      <Col lg={3} md={4} sm={6}>
+        <Tiles.Tile value="document">
+          <Tiles.Icon>
+            <DocumentIcon />
+          </Tiles.Icon>
+          <Tiles.Label>Document</Tiles.Label>
+        </Tiles.Tile>
+      </Col>
+      <Col lg={3} md={4} sm={6}>
+        <Tiles.Tile value="image">
+          <Tiles.Icon>
+            <ImageIcon />
+          </Tiles.Icon>
+          <Tiles.Label>Image</Tiles.Label>
+        </Tiles.Tile>
+      </Col>
+      <Col lg={3} md={4} sm={6}>
+        <Tiles.Tile value="presentation">
+          <Tiles.Icon>
+            <PresentationIcon />
+          </Tiles.Icon>
+          <Tiles.Label>Presentation</Tiles.Label>
+        </Tiles.Tile>
+      </Col>
+      <Col lg={3} md={4} sm={6}>
+        <Tiles.Tile value="spreadsheet">
+          <Tiles.Icon>
+            <SpreadsheetIcon />
+          </Tiles.Icon>
+          <Tiles.Label>Spreadsheet</Tiles.Label>
+        </Tiles.Tile>
+      </Col>
+      <Col lg={3} md={4} sm={6}>
+        <Tiles.Tile value="folder">
+          <Tiles.Icon>
+            <FolderOpenIcon />
+          </Tiles.Icon>
+          <Tiles.Label>Folder</Tiles.Label>
+        </Tiles.Tile>
+      </Col>
+    </Row>
+  </Grid>
+</Tiles>;
+```
+
+### Advanced Usage
+
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
 const ChevronIcon = require('@zendeskgarden/svg-icons/src/16/chevron-box-stroke.svg').default;
@@ -13,7 +86,7 @@ const NumberIcon = require('@zendeskgarden/svg-icons/src/16/number-stroke.svg').
 const DecimalIcon = require('@zendeskgarden/svg-icons/src/16/decimal-stroke.svg').default;
 const CalendarIcon = require('@zendeskgarden/svg-icons/src/16/calendar-stroke.svg').default;
 const CreditCardIcon = require('@zendeskgarden/svg-icons/src/16/credit-card-stroke.svg').default;
-const AsterickIcon = require('@zendeskgarden/svg-icons/src/16/asterisk-stroke.svg').default;
+const AsteriskIcon = require('@zendeskgarden/svg-icons/src/16/asterisk-stroke.svg').default;
 
 const items = [
   { value: 'dropdown', label: 'Dropdown', icon: <ChevronIcon /> },
@@ -25,7 +98,7 @@ const items = [
   { value: 'decimal', label: 'Decimal', icon: <DecimalIcon /> },
   { value: 'date', label: 'Date', icon: <CalendarIcon /> },
   { value: 'credit-card', label: 'Credit card', icon: <CreditCardIcon /> },
-  { value: 'wildcard', label: 'Wildcard', icon: <AsterickIcon /> }
+  { value: 'wildcard', label: 'Wildcard', icon: <AsteriskIcon /> }
 ];
 
 initialState = {

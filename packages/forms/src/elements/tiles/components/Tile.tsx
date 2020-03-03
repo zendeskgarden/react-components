@@ -13,7 +13,7 @@ import { StyledTile, StyledTileInput } from '../../../styled';
 interface ITileProps {
   /** The value of the input */
   value?: string;
-  /** Whether the radio is disabled */
+  /** Whether the tile is disabled */
   disabled?: boolean;
 }
 
@@ -59,7 +59,7 @@ export const Tile = React.forwardRef<
 
           /**
            * The focus-visible attribute provided by `react-theming` is
-           * unable to persit to the `<label>`. This manually applies focus
+           * unable to persist to the `<label>`. This manually applies focus
            * after the data attribute has been set.
            */
           setTimeout(() => {
