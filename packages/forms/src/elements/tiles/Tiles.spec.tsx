@@ -57,47 +57,69 @@ describe('Tiles', () => {
     });
 
     it('applies correct a11y values when disabled', () => {
-      const { getByTestId, container } = render(
+      const { getByTestId, getByLabelText } = render(
         <Tiles name="example">
-          <Tiles.Tile data-test-id="tile" disabled />
+          <Tiles.Tile data-test-id="tile" disabled>
+            <Tiles.Label>label</Tiles.Label>
+          </Tiles.Tile>
         </Tiles>
       );
 
       expect(getByTestId('tile')).toHaveAttribute('aria-disabled', 'true');
-      expect(container.querySelector('input')).toBeDisabled();
+      expect(getByLabelText('label')).toBeDisabled();
     });
 
-    it('checks input when tile is selected', () => {
-      const { container } = render(
+    it('checks input when tile is controlled', () => {
+      const { getByLabelText } = render(
         <Tiles name="example" value="item-1">
-          <Tiles.Tile disabled value="item-1" />
+          <Tiles.Tile disabled value="item-1">
+            <Tiles.Label>label</Tiles.Label>
+          </Tiles.Tile>
         </Tiles>
       );
 
-      expect(container.querySelector('input')).toBeChecked();
+      expect(getByLabelText('label')).toBeChecked();
+    });
+
+    it('checks input when tile is uncontrolled', () => {
+      const { getByLabelText, getByText } = render(
+        <Tiles name="example">
+          <Tiles.Tile value="item-1">
+            <Tiles.Label>label</Tiles.Label>
+          </Tiles.Tile>
+        </Tiles>
+      );
+
+      fireEvent.click(getByText('label'));
+
+      expect(getByLabelText('label')).toBeChecked();
     });
 
     it('attempts to apply focus-visible styling on focus', () => {
-      const { getByTestId, container } = render(
+      const { getByTestId, getByLabelText } = render(
         <Tiles name="example" value="item-1">
-          <Tiles.Tile data-test-id="tile" disabled value="item-1" />
+          <Tiles.Tile data-test-id="tile" disabled value="item-1">
+            <Tiles.Label>label</Tiles.Label>
+          </Tiles.Tile>
         </Tiles>
       );
 
-      fireEvent.focus(container.querySelector('input')!);
+      fireEvent.focus(getByLabelText('label'));
       jest.runOnlyPendingTimers();
 
       expect(getByTestId('tile')).toHaveAttribute('data-test-is-focused', 'false');
     });
 
     it('removes focus styling on blur', () => {
-      const { getByTestId, container } = render(
+      const { getByTestId, getByLabelText } = render(
         <Tiles name="example" value="item-1">
-          <Tiles.Tile data-test-id="tile" disabled value="item-1" />
+          <Tiles.Tile data-test-id="tile" disabled value="item-1">
+            <Tiles.Label>label</Tiles.Label>
+          </Tiles.Tile>
         </Tiles>
       );
 
-      fireEvent.blur(container.querySelector('input')!);
+      fireEvent.blur(getByLabelText('label'));
 
       expect(getByTestId('tile')).toHaveAttribute('data-test-is-focused', 'false');
     });
