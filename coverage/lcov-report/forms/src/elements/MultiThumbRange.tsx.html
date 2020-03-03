@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90.41% </span>
+                <span class="strong">88.61% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>66/73</span>
+                <span class='fraction'>70/79</span>
             </div>
         
             
@@ -452,8 +452,7 @@
 <a name='L393'></a><a href='#L393'>393</a>
 <a name='L394'></a><a href='#L394'>394</a>
 <a name='L395'></a><a href='#L395'>395</a>
-<a name='L396'></a><a href='#L396'>396</a>
-<a name='L397'></a><a href='#L397'>397</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L396'></a><a href='#L396'>396</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -512,6 +511,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">85x</span>
 <span class="cline-any cline-yes">85x</span>
 <span class="cline-any cline-yes">85x</span>
 <span class="cline-any cline-yes">85x</span>
@@ -657,23 +657,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">85x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">85x</span>
-<span class="cline-any cline-yes">46x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-yes">85x</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">46x</span>
-<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-yes">85x</span>
+<span class="cline-any cline-yes">85x</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -868,7 +866,7 @@ import React, {
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
-import { withTheme, DEFAULT_THEME, getDocument } from '@zendeskgarden/react-theming';
+import { withTheme, useDocument, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import {
   StyledSlider,
   StyledSliderTrack,
@@ -908,6 +906,7 @@ const MultiThumbRange: React.FC&lt;IMultiThumbRangeProps &amp; ThemeProps&lt;Def
   theme,
   ...props
 }) =&gt; {
+  const themedDocument = useDocument(theme);
   const [isMinThumbFocused, setIsMinThumbFocused] = useState(false);
   const [railWidth, setRailWidth] = useState(0);
   const [isMousedDown, setIsMousedDown] = useState(false);
@@ -1052,29 +1051,27 @@ const MultiThumbRange: React.FC&lt;IMultiThumbRangeProps &amp; ThemeProps&lt;Def
   );
 &nbsp;
   const removeDragEvents = useCallback(<span class="fstat-no" title="function not covered" >() =</span>&gt; {
-    const themedDocument = <span class="cstat-no" title="statement not covered" >getDocument({ theme });</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >    themedDocument.removeEventListener('mousemove', onDocumentMouseMove);</span>
-<span class="cstat-no" title="statement not covered" >    themedDocument.removeEventListener('mouseup', removeDragEvents);</span>
+<span class="cstat-no" title="statement not covered" >    if (themedDocument) {</span>
+<span class="cstat-no" title="statement not covered" >      themedDocument.removeEventListener('mousemove', onDocumentMouseMove);</span>
+<span class="cstat-no" title="statement not covered" >      themedDocument.removeEventListener('mouseup', removeDragEvents);</span>
+    }
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    setIsMousedDown(false);</span>
-  }, [onDocumentMouseMove, theme]);
+  }, [onDocumentMouseMove, themedDocument]);
 &nbsp;
   useEffect(() =&gt; {
-    const themedDocument = getDocument({ theme });
-&nbsp;
-    if (isMousedDown) {
+    if (isMousedDown &amp;&amp; themedDocument) {
       themedDocument.addEventListener('mousemove', onDocumentMouseMove);
       themedDocument.addEventListener('mouseup', removeDragEvents);
     }
 &nbsp;
     return () =&gt; {
-      if (isMousedDown) {
+      if (isMousedDown &amp;&amp; themedDocument) {
         themedDocument.removeEventListener('mousemove', onDocumentMouseMove);
         themedDocument.removeEventListener('mouseup', removeDragEvents);
       }
     };
-  }, [isMousedDown, onDocumentMouseMove, removeDragEvents, theme]);
+  }, [isMousedDown, onDocumentMouseMove, removeDragEvents, themedDocument]);
 &nbsp;
   const onKeyDown = (type: 'min' | 'max') =&gt; (e: KeyboardEvent&lt;HTMLDivElement&gt;) =&gt; {
     const isMinThumb = type === 'min';
@@ -1252,7 +1249,7 @@ export default withTheme(MultiThumbRange) as FunctionComponent&lt;IMultiThumbRan
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Mar 02 2020 18:08:54 GMT+0000 (Coordinated Universal Time)
+                at Mon Mar 02 2020 23:40:17 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

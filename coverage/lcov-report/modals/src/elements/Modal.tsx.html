@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">97.73% </span>
+                <span class="strong">97.92% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>43/44</span>
+                <span class='fraction'>47/48</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>6/8</span>
+                <span class='fraction'>8/10</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">97.73% </span>
+                <span class="strong">97.92% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>43/44</span>
+                <span class='fraction'>47/48</span>
             </div>
         
             
@@ -234,7 +234,20 @@
 <a name='L175'></a><a href='#L175'>175</a>
 <a name='L176'></a><a href='#L176'>176</a>
 <a name='L177'></a><a href='#L177'>177</a>
-<a name='L178'></a><a href='#L178'>178</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L178'></a><a href='#L178'>178</a>
+<a name='L179'></a><a href='#L179'>179</a>
+<a name='L180'></a><a href='#L180'>180</a>
+<a name='L181'></a><a href='#L181'>181</a>
+<a name='L182'></a><a href='#L182'>182</a>
+<a name='L183'></a><a href='#L183'>183</a>
+<a name='L184'></a><a href='#L184'>184</a>
+<a name='L185'></a><a href='#L185'>185</a>
+<a name='L186'></a><a href='#L186'>186</a>
+<a name='L187'></a><a href='#L187'>187</a>
+<a name='L188'></a><a href='#L188'>188</a>
+<a name='L189'></a><a href='#L189'>189</a>
+<a name='L190'></a><a href='#L190'>190</a>
+<a name='L191'></a><a href='#L191'>191</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -242,6 +255,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
@@ -311,6 +326,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -326,6 +346,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">38x</span>
+<span class="cline-any cline-yes">38x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -338,6 +359,10 @@
 <span class="cline-any cline-yes">38x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">38x</span>
+<span class="cline-any cline-yes">36x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -393,6 +418,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
@@ -420,7 +446,9 @@
 &nbsp;
 import React, { useEffect, HTMLAttributes } from 'react';
 import { createPortal } from 'react-dom';
+import { ThemeProps, DefaultTheme } from 'styled-components';
 import PropTypes from 'prop-types';
+import { useDocument, withTheme } from '@zendeskgarden/react-theming';
 import { useModal } from '@zendeskgarden/container-modal';
 import { useFocusVisible } from '@zendeskgarden/container-focusvisible';
 import { useCombinedRefs } from '@zendeskgarden/container-utilities';
@@ -487,88 +515,99 @@ export interface IModalProps {
 /**
  * High-level abstraction for basic Modal implementations. Accepts all `&lt;div&gt;` props.
  */
-export const Modal = React.forwardRef&lt;HTMLDivElement, IModalProps &amp; HTMLAttributes&lt;HTMLDivElement&gt;&gt;(
-  (
-    {
-      backdropProps,
-      children,
-      onClose,
-      isLarge,
-      isCentered,
-      isAnimated,
-      id,
-      appendToNode,
-      ...modalProps
-    },
-    ref
-  ) =&gt; {
-    const modalRef = useCombinedRefs(ref);
+export const Modal = withTheme(
+  React.forwardRef&lt;
+    HTMLDivElement,
+    IModalProps &amp; ThemeProps&lt;DefaultTheme&gt; &amp; HTMLAttributes&lt;HTMLDivElement&gt;
+  &gt;(
+    (
+      {
+        backdropProps,
+        children,
+        onClose,
+        isLarge,
+        isCentered,
+        isAnimated,
+        id,
+        appendToNode,
+        theme,
+        ...modalProps
+      },
+      ref
+    ) =&gt; {
+      const modalRef = useCombinedRefs(ref);
+      const environment = useDocument(theme);
 &nbsp;
-    const {
-      getBackdropProps,
-      getModalProps,
-      getTitleProps,
-      getContentProps,
-      getCloseProps
-    } = useModal({ id, onClose, modalRef });
+      const {
+        getBackdropProps,
+        getModalProps,
+        getTitleProps,
+        getContentProps,
+        getCloseProps
+      } = useModal({ id, onClose, modalRef });
 &nbsp;
-    useFocusVisible({ scope: modalRef });
+      useFocusVisible({ scope: modalRef });
 &nbsp;
-    useEffect(() =&gt; {
-      const bodyElement = document.querySelector('body');
-      let previousBodyPaddingRight: string;
-&nbsp;
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (bodyElement) {
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (isOverflowing(bodyElement)) {
-          const scrollbarSize = getScrollbarSize();
-          const bodyPaddingRight = parseInt(css(bodyElement, 'paddingRight') || '0', 10);
-&nbsp;
-          previousBodyPaddingRight = bodyElement.style.paddingRight;
-          bodyElement.style.paddingRight = `${bodyPaddingRight + scrollbarSize}px`;
+      useEffect(() =&gt; {
+        if (!environment) {
+          return undefined;
         }
 &nbsp;
-        const previousBodyOverflow = bodyElement.style.overflow;
+        const bodyElement = environment.querySelector('body');
+        let previousBodyPaddingRight: string;
 &nbsp;
-        bodyElement.style.overflow = 'hidden';
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (bodyElement) {
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (isOverflowing(bodyElement)) {
+            const scrollbarSize = getScrollbarSize();
+            const bodyPaddingRight = parseInt(css(bodyElement, 'paddingRight') || '0', 10);
 &nbsp;
-        return () =&gt; {
-          bodyElement.style.overflow = previousBodyOverflow;
-          bodyElement.style.paddingRight = previousBodyPaddingRight;
-        };
-      }
+            previousBodyPaddingRight = bodyElement.style.paddingRight;
+            bodyElement.style.paddingRight = `${bodyPaddingRight + scrollbarSize}px`;
+          }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      return undefined;</span>
-    }, []);
+          const previousBodyOverflow = bodyElement.style.overflow;
 &nbsp;
-    const value = {
-      isLarge,
-      getTitleProps,
-      getContentProps,
-      getCloseProps
-    };
+          bodyElement.style.overflow = 'hidden';
 &nbsp;
-    return createPortal(
-      &lt;ModalsContext.Provider value={value}&gt;
-        &lt;StyledBackdrop
-          {...(getBackdropProps({ isCentered, isAnimated, ...backdropProps }) as any)}
-        &gt;
-          &lt;StyledModal
-            {...(getModalProps({
-              isCentered,
-              isAnimated,
-              isLarge,
-              ref: modalRef,
-              ...modalProps
-            }) as any)}
+          return () =&gt; {
+            bodyElement.style.overflow = previousBodyOverflow;
+            bodyElement.style.paddingRight = previousBodyPaddingRight;
+          };
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return undefined;</span>
+      }, [environment]);
+&nbsp;
+      const value = {
+        isLarge,
+        getTitleProps,
+        getContentProps,
+        getCloseProps
+      };
+&nbsp;
+      return createPortal(
+        &lt;ModalsContext.Provider value={value}&gt;
+          &lt;StyledBackdrop
+            {...(getBackdropProps({ isCentered, isAnimated, ...backdropProps }) as any)}
           &gt;
-            {children}
-          &lt;/StyledModal&gt;
-        &lt;/StyledBackdrop&gt;
-      &lt;/ModalsContext.Provider&gt;,
-      appendToNode!
-    );
-  }
-);
+            &lt;StyledModal
+              {...(getModalProps({
+                isCentered,
+                isAnimated,
+                isLarge,
+                ref: modalRef,
+                ...modalProps
+              }) as any)}
+            &gt;
+              {children}
+            &lt;/StyledModal&gt;
+          &lt;/StyledBackdrop&gt;
+        &lt;/ModalsContext.Provider&gt;,
+        appendToNode!
+      );
+    }
+  )
+) as React.FC&lt;IModalProps &amp; HTMLAttributes&lt;HTMLDivElement&gt; &amp; React.RefAttributes&lt;HTMLDivElement&gt;&gt;;
 &nbsp;
 Modal.displayName = 'Modal';
 &nbsp;
@@ -595,7 +634,7 @@ Modal.defaultProps = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Mar 02 2020 18:08:54 GMT+0000 (Coordinated Universal Time)
+                at Mon Mar 02 2020 23:40:17 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>
