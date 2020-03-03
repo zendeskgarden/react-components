@@ -20,6 +20,9 @@ export { Textarea, ITextareaProps } from './elements/Textarea';
 export { Toggle } from './elements/Toggle';
 export { default as MultiThumbRange, IMultiThumbRangeProps } from './elements/MultiThumbRange';
 
+/** Tiles */
+export { Tiles } from './elements/tiles/Tiles';
+
 /** Other */
 export { FauxInput, IFauxInputProps } from './elements/FauxInput';
 export { MediaInput, IMediaInputProps } from './elements/MediaInput';
