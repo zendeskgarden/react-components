@@ -71,6 +71,14 @@ export interface IModalProps {
    * Enable large modal styling
    */
   isLarge?: boolean;
+  /**
+   * Determines whether to apply keyboard focus on the modal on mount
+   */
+  focusOnMount?: boolean;
+  /**
+   * Determines whether to return keyboard focus to the element that triggered the modal
+   */
+  restoreFocus?: boolean;
 }
 
 /**
@@ -92,6 +100,8 @@ export const Modal = withTheme(
         id,
         appendToNode,
         theme,
+        focusOnMount,
+        restoreFocus,
         ...modalProps
       },
       ref
@@ -105,7 +115,13 @@ export const Modal = withTheme(
         getTitleProps,
         getContentProps,
         getCloseProps
-      } = useModal({ id, onClose, modalRef });
+      } = useModal({
+        id,
+        onClose,
+        modalRef,
+        focusOnMount,
+        restoreFocus
+      });
 
       useFocusVisible({ scope: modalRef });
 
@@ -178,6 +194,8 @@ Modal.propTypes = {
   isLarge: PropTypes.bool,
   isAnimated: PropTypes.bool,
   isCentered: PropTypes.bool,
+  focusOnMount: PropTypes.bool,
+  restoreFocus: PropTypes.bool,
   onClose: PropTypes.func,
   appendToNode: PropTypes.any,
   id: PropTypes.string
