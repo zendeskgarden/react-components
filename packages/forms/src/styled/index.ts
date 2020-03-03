@@ -62,4 +62,5 @@ export * from './range/StyledSliderTrackRail';
 export * from './tiles/StyledTile';
 export * from './tiles/StyledTileDescription';
 export * from './tiles/StyledTileIcon';
+export * from './tiles/StyledTileInput';
 export * from './tiles/StyledTileLabel';
