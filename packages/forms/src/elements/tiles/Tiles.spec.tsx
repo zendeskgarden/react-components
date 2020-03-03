@@ -131,7 +131,7 @@ describe('Tiles', () => {
 
     it('applies isVertical styling', () => {
       const { getByTestId } = render(
-        <Tiles name="example" isStacked>
+        <Tiles name="example" isCentered={false}>
           <Tiles.Tile>
             <Tiles.Icon data-test-id="icon">
               <svg />
@@ -145,7 +145,7 @@ describe('Tiles', () => {
 
     it('applies RTL styling', () => {
       const { getByTestId } = renderRtl(
-        <Tiles name="example" isStacked>
+        <Tiles name="example" isCentered={false}>
           <Tiles.Tile>
             <Tiles.Icon data-test-id="icon">
               <svg />
@@ -186,7 +186,7 @@ describe('Tiles', () => {
 
     it('applies isVertical styling', () => {
       const { getByText } = render(
-        <Tiles name="example" isStacked>
+        <Tiles name="example" isCentered={false}>
           <Tiles.Tile>
             <Tiles.Label>label</Tiles.Label>
           </Tiles.Tile>
@@ -201,7 +201,7 @@ describe('Tiles', () => {
 
     it('applies RTL styling', () => {
       const { getByText } = renderRtl(
-        <Tiles name="example" isStacked>
+        <Tiles name="example" isCentered={false}>
           <Tiles.Tile>
             <Tiles.Label>label</Tiles.Label>
           </Tiles.Tile>
@@ -228,7 +228,7 @@ describe('Tiles', () => {
 
     it('applies isVertical styling', () => {
       const { getByText } = render(
-        <Tiles name="example" isStacked>
+        <Tiles name="example" isCentered={false}>
           <Tiles.Tile>
             <Tiles.Description>description</Tiles.Description>
           </Tiles.Tile>
@@ -240,7 +240,7 @@ describe('Tiles', () => {
 
     it('applies RTL styling', () => {
       const { getByText } = renderRtl(
-        <Tiles name="example" isStacked>
+        <Tiles name="example" isCentered={false}>
           <Tiles.Tile>
             <Tiles.Description>description</Tiles.Description>
           </Tiles.Tile>

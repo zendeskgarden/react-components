@@ -11,7 +11,7 @@ interface ITilesContext {
   value?: string;
   onChange?: ChangeEventHandler<HTMLInputElement>;
   name: string;
-  isStacked?: boolean;
+  isCentered?: boolean;
 }
 
 export const TilesContext = createContext<ITilesContext | undefined>(undefined);

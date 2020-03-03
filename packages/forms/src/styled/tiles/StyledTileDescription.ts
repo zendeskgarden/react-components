@@ -16,7 +16,7 @@ import {
 const COMPONENT_ID = 'forms.tile_description';
 
 interface IStyledTileDescriptionProps {
-  isStacked?: boolean;
+  isCentered?: boolean;
 }
 
 const sizeStyles = (props: IStyledTileDescriptionProps & ThemeProps<DefaultTheme>) => {
@@ -27,7 +27,7 @@ const sizeStyles = (props: IStyledTileDescriptionProps & ThemeProps<DefaultTheme
     marginDirection = 'right';
   }
 
-  if (props.isStacked) {
+  if (!props.isCentered) {
     marginValue = math(`(${props.theme.iconSizes.md} * 2) + ${props.theme.space.base * 5}px`);
   }
 
@@ -43,7 +43,7 @@ export const StyledTileDescription = styled.span.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledTileDescriptionProps>`
   display: block;
-  text-align: ${props => !props.isStacked && 'center'};
+  text-align: ${props => props.isCentered && 'center'};
   line-height: ${props => getLineHeight(props.theme.space.base * 4, props.theme.fontSizes.sm)};
   font-size: ${props => props.theme.fontSizes.sm};
 

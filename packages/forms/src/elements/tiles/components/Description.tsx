@@ -19,7 +19,7 @@ export const Description = React.forwardRef<HTMLSpanElement, HTMLAttributes<HTML
     return (
       <StyledTileDescription
         ref={ref}
-        isStacked={tilesContext && tilesContext.isStacked}
+        isCentered={tilesContext && tilesContext.isCentered}
         {...props}
       />
     );

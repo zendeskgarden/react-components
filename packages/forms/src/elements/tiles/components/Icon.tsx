@@ -16,7 +16,9 @@ export const Icon = React.forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanEle
   (props, ref) => {
     const tileContext = useTilesContext();
 
-    return <StyledTileIcon ref={ref} isStacked={tileContext && tileContext.isStacked} {...props} />;
+    return (
+      <StyledTileIcon ref={ref} isCentered={tileContext && tileContext.isCentered} {...props} />
+    );
   }
 );
 

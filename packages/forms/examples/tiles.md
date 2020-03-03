@@ -6,6 +6,7 @@ Each `Tile` may be treated as an individual radio input.
 - `Tiles.Tile` Accepts all `div` attributes and the following props:
   - [`value`] The value of the `input`
   - [`disabled`] Whether the `Tile` is disabled
+- `Tiles.Icon` Accepts all `span` attributes
 - `Tiles.Label` Accepts all `span` attributes
 - `Tiles.Description` Accepts all `span` attributes
 
@@ -24,7 +25,7 @@ const SpreadsheetIcon = require('@zendeskgarden/svg-icons/src/16/file-spreadshee
   .default;
 const FolderOpenIcon = require('@zendeskgarden/svg-icons/src/16/folder-open-stroke.svg').default;
 
-<Tiles name="basic-example" aria-label="Example radio group selection" isStacked={state.isStacked}>
+<Tiles name="basic-example" aria-label="Example radio group selection">
   <Grid>
     <Row>
       <Col lg={3} md={4} sm={6}>
@@ -102,7 +103,7 @@ const items = [
 ];
 
 initialState = {
-  isStacked: false,
+  isCentered: true,
   disabled: false
 };
 
@@ -113,10 +114,10 @@ initialState = {
         <Col>
           <Field>
             <Toggle
-              checked={!!state.isStacked}
-              onChange={event => setState({ isStacked: event.target.checked })}
+              checked={!!state.isCentered}
+              onChange={event => setState({ isCentered: event.target.checked })}
             >
-              <Label>Stacked</Label>
+              <Label>Centered</Label>
             </Toggle>
           </Field>
         </Col>
@@ -133,11 +134,11 @@ initialState = {
       </Row>
     </Grid>
   </Well>
-  <Tiles name="example" aria-label="Example radio group selection" isStacked={state.isStacked}>
+  <Tiles name="example" aria-label="Example radio group selection" isCentered={state.isCentered}>
     <Grid>
       <Row>
         {items.map(item =>
-          state.isStacked ? (
+          !state.isCentered ? (
             <Col key={item.value} sm={12}>
               <Tiles.Tile value={item.value} disabled={state.disabled}>
                 <Tiles.Icon>{item.icon}</Tiles.Icon>

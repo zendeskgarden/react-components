@@ -12,7 +12,7 @@ import { math } from 'polished';
 const COMPONENT_ID = 'forms.tile_icon';
 
 interface IStyledTileIconProps {
-  isStacked?: boolean;
+  isCentered?: boolean;
 }
 
 const sizeStyles = (props: IStyledTileIconProps & ThemeProps<DefaultTheme>) => {
@@ -21,7 +21,7 @@ const sizeStyles = (props: IStyledTileIconProps & ThemeProps<DefaultTheme>) => {
   let top;
   let horizontalValue;
 
-  if (props.isStacked) {
+  if (!props.isCentered) {
     position = 'absolute';
     top = `${props.theme.space.base * 6}px`;
     horizontalValue = `left: ${props.theme.space.base * 5}px`;

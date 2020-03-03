@@ -30,7 +30,7 @@ interface ITilesProps extends HTMLAttributes<HTMLDivElement> {
   /** The name used to reference the value of the control. */
   name: string;
   /** Displays the tiles in their vertical arrangement */
-  isStacked?: boolean;
+  isCentered?: boolean;
 }
 
 interface IStaticTilesExport<T, P>
@@ -46,7 +46,7 @@ interface IStaticTilesExport<T, P>
  * Accepts all `<div>` attributes
  */
 export const Tiles = React.forwardRef<HTMLDivElement, ITilesProps>(
-  ({ onChange, value: controlledValue, isStacked, ...props }, ref) => {
+  ({ onChange, value: controlledValue, isCentered, ...props }, ref) => {
     const [value, setValue] = useState(controlledValue);
 
     const handleOnChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
@@ -61,7 +61,7 @@ export const Tiles = React.forwardRef<HTMLDivElement, ITilesProps>(
     );
 
     const selectedValue = getControlledValue(controlledValue, value);
-    const tileContext = { onChange: handleOnChange, value: selectedValue, name, isStacked };
+    const tileContext = { onChange: handleOnChange, value: selectedValue, name, isCentered };
 
     return (
       <TilesContext.Provider value={tileContext}>
@@ -83,9 +83,9 @@ Tiles.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
   name: PropTypes.string.isRequired,
-  isStacked: PropTypes.bool
+  isCentered: PropTypes.bool
 };
 
 Tiles.defaultProps = {
-  isStacked: false
+  isCentered: true
 };

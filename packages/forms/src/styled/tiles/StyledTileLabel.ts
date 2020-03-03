@@ -16,7 +16,7 @@ import {
 const COMPONENT_ID = 'forms.tile_label';
 
 interface IStyledTileLabelProps {
-  isStacked?: boolean;
+  isCentered?: boolean;
 }
 
 const sizeStyles = (props: IStyledTileLabelProps & ThemeProps<DefaultTheme>) => {
@@ -28,7 +28,7 @@ const sizeStyles = (props: IStyledTileLabelProps & ThemeProps<DefaultTheme>) => 
     marginDirection = 'right';
   }
 
-  if (props.isStacked) {
+  if (!props.isCentered) {
     marginValue = math(`(${props.theme.iconSizes.md} * 2) + ${props.theme.space.base * 5}px`);
     marginTop = '0';
   }
@@ -46,7 +46,7 @@ export const StyledTileLabel = styled.span.attrs({
 })<IStyledTileLabelProps>`
   display: block;
   overflow: hidden;
-  text-align: ${props => !props.isStacked && 'center'};
+  text-align: ${props => props.isCentered && 'center'};
   text-overflow: ellipsis;
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
   white-space: nowrap;
