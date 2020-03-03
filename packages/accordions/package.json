@@ -1,6 +1,6 @@
 {
-  "name": "@zendeskgarden/react-steppers",
-  "description": "Components related to steppers in the Garden Design System",
+  "name": "@zendeskgarden/react-accordions",
+  "description": "Components related to accordions in the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
   "homepage": "https://garden.zendesk.com/",
@@ -39,10 +39,10 @@
     "@zendeskgarden/svg-icons": "6.10.0"
   },
   "keywords": [
+    "accordions",
     "components",
     "garden",
     "react",
-    "steppers",
     "zendesk"
   ],
   "publishConfig": {

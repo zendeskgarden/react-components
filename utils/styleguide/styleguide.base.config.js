@@ -232,6 +232,7 @@ const defaultStyleguideConfig = {
       alias: {
         'package.json': path.resolve('package.json'),
         'CHANGELOG.md': path.resolve('CHANGELOG.md'),
+        '@zendeskgarden/react-accordions': path.resolve('..', 'accordions'),
         '@zendeskgarden/react-avatars': path.resolve('..', 'avatars'),
         '@zendeskgarden/react-breadcrumbs': path.resolve('..', 'breadcrumbs'),
         '@zendeskgarden/react-buttons': path.resolve('..', 'buttons'),
@@ -244,7 +245,6 @@ const defaultStyleguideConfig = {
         '@zendeskgarden/react-modals': path.resolve('..', 'modals'),
         '@zendeskgarden/react-notifications': path.resolve('..', 'notifications'),
         '@zendeskgarden/react-pagination': path.resolve('..', 'pagination'),
-        '@zendeskgarden/react-stepper': path.resolve('..', 'stepper'),
         '@zendeskgarden/react-tables': path.resolve('..', 'tables'),
         '@zendeskgarden/react-tabs': path.resolve('..', 'tabs'),
         '@zendeskgarden/react-tags': path.resolve('..', 'tags'),

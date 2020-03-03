@@ -26,20 +26,20 @@ module.exports = {
   sections: [
     {
       name: '',
-      content: '../../packages/steppers/README.md'
+      content: '../../packages/accordions/README.md'
     },
     {
       name: 'Examples',
       sections: [
         {
           name: 'Basic',
-          content: '../../packages/steppers/examples/basic.md'
+          content: '../../packages/accordions/examples/basic.md'
         }
       ]
     },
     {
       name: 'Elements',
-      components: '../../packages/steppers/src/elements/[A-Z]*.{ts,tsx}'
+      components: '../../packages/accordions/src/elements/[A-Z]*.{ts,tsx}'
     }
   ]
 };
