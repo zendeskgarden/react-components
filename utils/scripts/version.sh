@@ -22,7 +22,7 @@ yarn lint
 yarn test:all
 
 echo "INFO: Prompt for new version..."
-yarn lerna version
+yarn lerna version --force-publish
 
 echo "INFO: Retrieve recent git tags..."
 current_tag=$(git describe --abbrev=0 --tags)
