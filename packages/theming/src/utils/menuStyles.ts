@@ -6,7 +6,8 @@
  */
 
 import { css, DefaultTheme, keyframes } from 'styled-components';
-import { getColor, DEFAULT_THEME } from '..';
+import getColor from './getColor';
+import DEFAULT_THEME from '../elements/theme';
 
 export type MENU_POSITION = 'top' | 'right' | 'bottom' | 'left';
 
