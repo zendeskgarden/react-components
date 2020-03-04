@@ -12,6 +12,35 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.1.0 (2020-03-04)
+
+#### Upgrade Instructions
+
+This release includes several server-side rendering fixes throughout our packages. To ensure all packages have their required
+utilities upgrade to `@zendeskgarden/react-theming@v8.1.0` first.
+
+#### :rocket: New Feature
+* `forms`
+  * [#654](https://github.com/zendeskgarden/react-components/pull/654) feat(forms): introduce new Tiles component ([@austin94](https://github.com/austin94))
+* `.template`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#651](https://github.com/zendeskgarden/react-components/pull/651) fix(all): allow server side rendering for all packages ([@austin94](https://github.com/austin94))
+* `datepickers`, `dropdowns`, `theming`
+  * [#655](https://github.com/zendeskgarden/react-components/pull/655) feat: add utility for menu styles ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `modals`
+  * [#662](https://github.com/zendeskgarden/react-components/pull/662) feat(modal): update Modal prop type for appendToNode to any ([@austin94](https://github.com/austin94))
+* `forms`
+  * [#659](https://github.com/zendeskgarden/react-components/pull/659) fix(forms): allow controlled range to render background-size ([@hzhu](https://github.com/hzhu))
+* `datepickers`, `dropdowns`, `theming`
+  * [#655](https://github.com/zendeskgarden/react-components/pull/655) feat: add utility for menu styles ([@jzempel](https://github.com/jzempel))
+* `chrome`
+  * [#657](https://github.com/zendeskgarden/react-components/pull/657) fix(chrome): box-shadow and color styling ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `typography`
+  * [#653](https://github.com/zendeskgarden/react-components/pull/653) chore(markdown): include package examples in lint:markdown ([@hzhu](https://github.com/hzhu))
+
 ## v8.0.1 (2020-02-26)
 
 #### :bug: Bug Fix
