@@ -12,6 +12,15 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v7.1.11 (2020-03-04)
+
+#### :bug: Bug Fix
+* `modals`
+  * [#661](https://github.com/zendeskgarden/react-components/pull/661) fix: Update Modal's prop type for appendToNode to be PropType.any ([@AlexRobinson-](https://github.com/AlexRobinson-))
+
+#### :memo: Documentation
+* [#644](https://github.com/zendeskgarden/react-components/pull/644) chore(docs): add link to v6 documentation ([@austin94](https://github.com/austin94))
+
 ## v7.1.10 (2020-02-18)
 
 #### :bug: Bug Fix
