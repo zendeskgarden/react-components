@@ -6,7 +6,6 @@
  */
 
 import React, { forwardRef, useEffect, HTMLAttributes } from 'react';
-import { Transition } from 'react-transition-group';
 import { useCombinedRefs } from '@zendeskgarden/container-utilities';
 import { StyledStepContent } from '../../styled';
 import { useStepContext, useStepperContext } from '../../utils';
@@ -26,18 +25,9 @@ export const StepContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
     }, [isActive, contentRef]);
 
     return isVertical ? (
-      <Transition in={isActive} timeout={500}>
-        {status => (
-          <StyledStepContent
-            ref={contentRef}
-            isActive={isActive}
-            transitionStatus={status}
-            {...props}
-          >
-            {isActive ? props.children : <div>{props.children}</div>}
-          </StyledStepContent>
-        )}
-      </Transition>
+      <StyledStepContent ref={contentRef} isActive={isActive} {...props}>
+        {isActive ? props.children : <div>{props.children}</div>}
+      </StyledStepContent>
     ) : null;
   }
 );
