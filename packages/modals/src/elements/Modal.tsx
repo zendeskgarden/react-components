@@ -179,7 +179,7 @@ Modal.propTypes = {
   isAnimated: PropTypes.bool,
   isCentered: PropTypes.bool,
   onClose: PropTypes.func,
-  appendToNode: PropTypes.instanceOf(Element),
+  appendToNode: PropTypes.any,
   id: PropTypes.string
 };
 
