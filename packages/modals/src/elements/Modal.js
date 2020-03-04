@@ -135,7 +135,7 @@ Modal.propTypes = {
   /**
    * The DOM element where the modal will be rendered to
    **/
-  appendToNode: PropTypes.instanceOf(Element),
+  appendToNode: PropTypes.any,
   /**
    * The root ID to use for descendants. A unique ID is created if none is provided.
    **/
