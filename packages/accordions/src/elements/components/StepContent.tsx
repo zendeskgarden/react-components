@@ -16,7 +16,6 @@ export const StepContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
     const { activeIndex, isHorizontal } = useStepperContext();
     const { currentStepIndex } = useStepContext();
     const isActive = currentStepIndex === activeIndex;
-    const isVertical = isHorizontal === false;
 
     useEffect(() => {
       if (isActive && contentRef.current) {
@@ -24,7 +23,7 @@ export const StepContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
       }
     }, [isActive, contentRef]);
 
-    return isVertical ? (
+    return isHorizontal === false ? (
       <StyledStepContent ref={contentRef} isActive={isActive} {...props}>
         {isActive ? props.children : <div>{props.children}</div>}
       </StyledStepContent>

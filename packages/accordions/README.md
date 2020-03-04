@@ -16,7 +16,7 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 
 ```jsx static
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Stepper, Step, StepLabel, StepContent } from '@zendeskgarden/react-accordions';
+import { Stepper, Step, Label, Content } from '@zendeskgarden/react-accordions';
 
 /**
  * Place a `ThemeProvider` at the root of your React application
@@ -24,21 +24,21 @@ import { Stepper, Step, StepLabel, StepContent } from '@zendeskgarden/react-acco
 <ThemeProvider>
   <Stepper activeIndex={1}>
     <Stepper.Step>
-      <Stepper.StepLabel>Brussels</Stepper.Label>
-      <Stepper.StepContent>
+      <Stepper.Label>Brussels</Stepper.Label>
+      <Stepper.Content>
         Brussels sprout coriander water chestnut gourd swiss chard wakame kohlrabi radish artichoke.
       </Stepper.Content>
     </Stepper.Step>
     <Stepper.Step>
       }>
-      <Stepper.StepLabel>Beetroot</Stepper.Label>
-      <Stepper.StepContent>
+      <Stepper.Label>Beetroot</Stepper.Label>
+      <Stepper.Content>
         Beetroot carrot watercress. Corn amaranth salsify bunya nuts nori azuki bean turnip greens.
       </Stepper.Content>
     </Stepper.Step>
     <Stepper.Step>
-      <Stepper.StepLabel>Turnip</Stepper.Label>
-      <Stepper.StepContent>
+      <Stepper.Label>Turnip</Stepper.Label>
+      <Stepper.Content>
         Turnip chicory salsify pea sprouts fava bean. Dandelion zucchini burdock yarrow chickpea.
       </Stepper.Content>
     </Stepper.Step>

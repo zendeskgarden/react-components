@@ -7,6 +7,7 @@
 
 import React, {
   useRef,
+  useEffect,
   forwardRef,
   HTMLAttributes,
   ForwardRefExoticComponent,
@@ -30,7 +31,7 @@ interface IStepperProps extends HTMLAttributes<HTMLDivElement> {
   /** Used to show the current step and compute completed steps */
   activeIndex: number;
   /** Displays the Stepper in a horizontal layout */
-  isHorizontal: boolean;
+  isHorizontal?: boolean;
 }
 
 /**
@@ -44,13 +45,11 @@ interface IStepperProps extends HTMLAttributes<HTMLDivElement> {
 export const Stepper = forwardRef<HTMLDivElement, IStepperProps>(
   ({ isHorizontal, activeIndex, ...props }, ref) => {
     const currentIndexRef = useRef(0);
-    const stepperContext = { isHorizontal, activeIndex, currentIndexRef };
+    const stepperContext = { isHorizontal: isHorizontal || false, activeIndex, currentIndexRef };
 
-    React.useEffect(() => {
-      return () => {
-        currentIndexRef.current = 0;
-      };
-    }, [props.children]);
+    useEffect(() => {
+      currentIndexRef.current = 0;
+    });
 
     return (
       <StepperContext.Provider value={stepperContext}>
