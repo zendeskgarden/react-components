@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1583344934398" clover="3.2.0">
-  <project timestamp="1583344934398" name="All files">
-    <metrics statements="5437" coveredstatements="5424" conditionals="2144" coveredconditionals="2007" methods="1143" coveredmethods="1140" elements="8724" coveredelements="8571" complexity="0" loc="5437" ncloc="5437" packages="92" files="354" classes="354"/>
+<coverage generated="1583349828344" clover="3.2.0">
+  <project timestamp="1583349828344" name="All files">
+    <metrics statements="5438" coveredstatements="5425" conditionals="2144" coveredconditionals="2007" methods="1143" coveredmethods="1140" elements="8725" coveredelements="8572" complexity="0" loc="5438" ncloc="5438" packages="92" files="354" classes="354"/>
     <package name="avatars.src.elements">
       <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="Avatar.tsx" path="/home/travis/build/zendeskgarden/react-components/packages/avatars/src/elements/Avatar.tsx">
@@ -6123,7 +6123,7 @@
       </file>
     </package>
     <package name="theming.src.utils">
-      <metrics statements="122" coveredstatements="122" conditionals="132" coveredconditionals="114" methods="17" coveredmethods="17"/>
+      <metrics statements="123" coveredstatements="123" conditionals="132" coveredconditionals="114" methods="17" coveredmethods="17"/>
       <file name="arrowStyles.ts" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/utils/arrowStyles.ts">
         <metrics statements="31" coveredstatements="31" conditionals="45" coveredconditionals="28" methods="3" coveredmethods="3"/>
         <line num="8" count="196" type="stmt"/>
@@ -6214,36 +6214,37 @@
         <line num="12" count="733" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="menuStyles.ts" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/utils/menuStyles.ts">
-        <metrics statements="29" coveredstatements="29" conditionals="33" coveredconditionals="32" methods="3" coveredmethods="3"/>
+        <metrics statements="30" coveredstatements="30" conditionals="33" coveredconditionals="32" methods="3" coveredmethods="3"/>
         <line num="8" count="196" type="stmt"/>
         <line num="9" count="196" type="stmt"/>
-        <line num="22" count="196" type="stmt"/>
-        <line num="23" count="250" type="cond" truecount="2" falsecount="0"/>
-        <line num="24" count="250" type="stmt"/>
-        <line num="27" count="250" type="cond" truecount="2" falsecount="0"/>
-        <line num="28" count="2" type="stmt"/>
-        <line num="29" count="248" type="cond" truecount="2" falsecount="0"/>
-        <line num="30" count="1" type="stmt"/>
+        <line num="10" count="196" type="stmt"/>
+        <line num="23" count="196" type="stmt"/>
+        <line num="24" count="250" type="cond" truecount="2" falsecount="0"/>
+        <line num="25" count="250" type="stmt"/>
+        <line num="28" count="250" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="30" count="248" type="cond" truecount="2" falsecount="0"/>
         <line num="31" count="1" type="stmt"/>
-        <line num="32" count="247" type="cond" truecount="2" falsecount="0"/>
-        <line num="33" count="246" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="33" count="247" type="cond" truecount="2" falsecount="0"/>
         <line num="34" count="246" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
-        <line num="39" count="250" type="stmt"/>
-        <line num="46" count="250" type="stmt"/>
-        <line num="53" count="196" type="stmt"/>
-        <line num="54" count="269" type="stmt"/>
-        <line num="56" count="269" type="stmt"/>
-        <line num="82" count="196" type="cond" truecount="0" falsecount="1"/>
-        <line num="83" count="491" type="cond" truecount="2" falsecount="0"/>
-        <line num="86" count="491" type="cond" truecount="2" falsecount="0"/>
-        <line num="87" count="10" type="stmt"/>
-        <line num="88" count="481" type="cond" truecount="2" falsecount="0"/>
-        <line num="89" count="1" type="stmt"/>
-        <line num="90" count="480" type="cond" truecount="2" falsecount="0"/>
-        <line num="91" count="479" type="stmt"/>
-        <line num="93" count="1" type="stmt"/>
-        <line num="103" count="491" type="stmt"/>
+        <line num="35" count="246" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="40" count="250" type="stmt"/>
+        <line num="47" count="250" type="stmt"/>
+        <line num="54" count="196" type="stmt"/>
+        <line num="55" count="269" type="stmt"/>
+        <line num="57" count="269" type="stmt"/>
+        <line num="83" count="196" type="cond" truecount="0" falsecount="1"/>
+        <line num="84" count="491" type="cond" truecount="2" falsecount="0"/>
+        <line num="87" count="491" type="cond" truecount="2" falsecount="0"/>
+        <line num="88" count="10" type="stmt"/>
+        <line num="89" count="481" type="cond" truecount="2" falsecount="0"/>
+        <line num="90" count="1" type="stmt"/>
+        <line num="91" count="480" type="cond" truecount="2" falsecount="0"/>
+        <line num="92" count="479" type="stmt"/>
+        <line num="94" count="1" type="stmt"/>
+        <line num="104" count="491" type="stmt"/>
       </file>
       <file name="retrieveComponentStyles.ts" path="/home/travis/build/zendeskgarden/react-components/packages/theming/src/utils/retrieveComponentStyles.ts">
         <metrics statements="8" coveredstatements="8" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
