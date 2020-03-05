@@ -18,14 +18,16 @@ export const StepContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
     const isActive = currentStepIndex === activeIndex;
 
     useEffect(() => {
-      if (isActive && contentRef.current) {
-        contentRef.current.style.maxHeight = `${contentRef.current.scrollHeight}px`;
+      if (contentRef.current) {
+        const child = contentRef.current.children[0] as any;
+
+        child.style.height = `${child.scrollHeight}px`;
       }
-    }, [isActive, contentRef]);
+    }, [contentRef]);
 
     return isHorizontal === false ? (
       <StyledContent ref={contentRef} isActive={isActive} {...props}>
-        {isActive ? props.children : <div>{props.children}</div>}
+        <div>{props.children}</div>
       </StyledContent>
     ) : null;
   }
