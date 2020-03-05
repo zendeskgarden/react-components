@@ -7,17 +7,17 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { StyledStepContent } from './StyledStepContent';
+import { StyledContent } from './StyledContent';
 
-describe('StyledStepContent', () => {
+describe('StyledContent', () => {
   it('renders default styling correctly', () => {
-    const { container } = render(<StyledStepContent />);
+    const { container } = render(<StyledContent />);
 
     expect(container.firstChild).toHaveStyleRule('margin', '6px 0px 6px 12px');
   });
 
   it('renders RTL styling correctly', () => {
-    const { container } = renderRtl(<StyledStepContent />);
+    const { container } = renderRtl(<StyledContent />);
 
     expect(container.firstChild).toHaveStyleRule('margin', '6px 12px 6px 0px');
   });

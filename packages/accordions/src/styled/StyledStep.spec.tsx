@@ -10,7 +10,7 @@ import { css } from 'styled-components';
 import { render, renderRtl } from 'garden-test-utils';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledStep } from './StyledStep';
-import { StyledStepContent } from './StyledStepContent';
+import { StyledContent } from './StyledContent';
 import { StyledLine } from './StyledLine';
 
 describe('StyledStep', () => {
@@ -28,21 +28,21 @@ describe('StyledStep', () => {
     expect(container.firstChild).toHaveStyleRule('flex', '1');
   });
 
-  describe('StyledStepContent', () => {
+  describe('StyledContent', () => {
     it('renders styling correctly', () => {
       const { container } = render(<StyledStep />);
 
       expect(container.firstChild).toHaveStyleRule('border-left', DEFAULT_THEME.borders.sm, {
         /* prettier-ignore */
         modifier: css`
-          &:not(:last-of-type) ${StyledStepContent}
+          &:not(:last-of-type) ${StyledContent}
         ` as any
       });
 
       expect(container.firstChild).not.toHaveStyleRule('border-right', DEFAULT_THEME.borders.sm, {
         /* prettier-ignore */
         modifier: css`
-          &:not(:last-of-type) ${StyledStepContent}
+          &:not(:last-of-type) ${StyledContent}
         ` as any
       });
     });
@@ -53,14 +53,14 @@ describe('StyledStep', () => {
       expect(container.firstChild).toHaveStyleRule('border-right', DEFAULT_THEME.borders.sm, {
         /* prettier-ignore */
         modifier: css`
-          &:not(:last-of-type) ${StyledStepContent}
+          &:not(:last-of-type) ${StyledContent}
         ` as any
       });
 
       expect(container.firstChild).not.toHaveStyleRule('border-left', DEFAULT_THEME.borders.sm, {
         /* prettier-ignore */
         modifier: css`
-          &:not(:last-of-type) ${StyledStepContent}
+          &:not(:last-of-type) ${StyledContent}
         ` as any
       });
     });

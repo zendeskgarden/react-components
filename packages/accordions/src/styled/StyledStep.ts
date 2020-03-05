@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledStepContent } from './StyledStepContent';
+import { StyledContent } from './StyledContent';
 import { StyledLine } from './StyledLine';
 
 const COMPONENT_ID = 'steppers.step';
@@ -33,7 +33,7 @@ export const StyledStep = styled.div.attrs<IStyledStep>({
     display: ${props => !props.theme.rtl && 'none'};
   }
 
-  &:not(:last-of-type) ${StyledStepContent} {
+  &:not(:last-of-type) ${StyledContent} {
     /* stylelint-disable-next-line property-no-unknown */
     border-${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.borders.sm};
     border-color: ${props => getColor('neutralHue', 300, props.theme)};

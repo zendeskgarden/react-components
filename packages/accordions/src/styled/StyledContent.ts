@@ -10,7 +10,7 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'steppers.step_content';
 
-export interface IStyledStepContent {
+export interface IStyledContent {
   isActive?: boolean;
 }
 
@@ -21,10 +21,10 @@ const inactiveStyling = css`
   }
 `;
 
-export const StyledStepContent = styled.div.attrs<IStyledStepContent>({
+export const StyledContent = styled.div.attrs<IStyledContent>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledStepContent>`
+})<IStyledContent>`
   /* stylelint-disable-next-line max-line-length */
   transition: max-height 0.25s cubic-bezier(0.15, 0.85, 0.35, 1.2), 0.25s visibility 0s linear;
   visibility: visible;
@@ -42,6 +42,6 @@ export const StyledStepContent = styled.div.attrs<IStyledStepContent>({
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledStepContent.defaultProps = {
+StyledContent.defaultProps = {
   theme: DEFAULT_THEME
 };
