@@ -14,7 +14,7 @@ describe('Step', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
     const { getByTestId } = render(
-      <Stepper activeIndex={0} isHorizontal>
+      <Stepper>
         <Step data-test-id="step" ref={ref} />
       </Stepper>
     );
@@ -25,7 +25,7 @@ describe('Step', () => {
   it('renders a step line before each step in a horizontal stepper', () => {
     const steps = [1, 2, 3];
     const { queryAllByTestId } = render(
-      <Stepper activeIndex={0} isHorizontal>
+      <Stepper isHorizontal>
         {steps.map(step => (
           <Step key={step} />
         ))}
@@ -38,7 +38,7 @@ describe('Step', () => {
   it('does not render a step line before each step in a vertical stepper', () => {
     const steps = [1, 2, 3];
     const { queryAllByTestId } = render(
-      <Stepper activeIndex={0} isHorizontal={false}>
+      <Stepper activeIndex={0}>
         {steps.map(step => (
           <Step key={step} />
         ))}

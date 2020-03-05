@@ -16,7 +16,7 @@ export interface IStyledContent {
 
 const inactiveStyling = css`
   & > div {
-    transition: height 0.25s ease-in;
+    transition: height 0.25s ease-in-out;
     height: 0 !important; /* stylelint-disable-line */
   }
 `;
@@ -32,7 +32,7 @@ export const StyledContent = styled.div.attrs<IStyledContent>({
   padding: ${props => props.theme.space.base * 4}px;
 
   & > div {
-    transition: height 0.25s ease-out;
+    transition: height 0.25s ease-in-out;
     overflow: hidden;
   }
   ${props => !props.isActive && inactiveStyling}

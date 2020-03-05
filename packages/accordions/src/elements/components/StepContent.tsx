@@ -18,12 +18,12 @@ export const StepContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
     const isActive = currentStepIndex === activeIndex;
 
     useEffect(() => {
-      if (contentRef.current) {
+      if (contentRef.current && isHorizontal === false) {
         const child = contentRef.current.children[0] as any;
 
         child.style.height = `${child.scrollHeight}px`;
       }
-    }, [contentRef]);
+    }, [contentRef, isHorizontal]);
 
     return isHorizontal === false ? (
       <StyledContent ref={contentRef} isActive={isActive} {...props}>

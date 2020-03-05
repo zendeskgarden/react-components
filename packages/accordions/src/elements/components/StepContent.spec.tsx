@@ -15,7 +15,7 @@ describe('StepContent', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
     const { getByTestId } = render(
-      <Stepper activeIndex={0} isHorizontal={false}>
+      <Stepper>
         <Step>
           <StepContent ref={ref} data-test-id="step-content" />
         </Step>
@@ -27,7 +27,7 @@ describe('StepContent', () => {
 
   it('renders null for a horizontal Stepper', () => {
     const { queryByText } = render(
-      <Stepper activeIndex={0} isHorizontal>
+      <Stepper isHorizontal>
         <Step>
           <StepContent>Some content</StepContent>
         </Step>
@@ -39,7 +39,7 @@ describe('StepContent', () => {
 
   it('renders StepContent for a vertical Stepper', () => {
     const { queryByText } = render(
-      <Stepper activeIndex={0} isHorizontal={false}>
+      <Stepper>
         <Step>
           <StepContent>Some content</StepContent>
         </Step>

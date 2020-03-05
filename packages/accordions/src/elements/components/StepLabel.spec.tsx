@@ -15,7 +15,7 @@ describe('StepLabel', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
     const { getByTestId } = render(
-      <Stepper activeIndex={0} isHorizontal>
+      <Stepper>
         <Step>
           <StepLabel ref={ref} data-test-id="step-label" />
         </Step>

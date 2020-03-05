@@ -22,7 +22,7 @@ import { Stepper, Step, Label, Content } from '@zendeskgarden/react-accordions';
  * Place a `ThemeProvider` at the root of your React application
  */
 <ThemeProvider>
-  <Stepper activeIndex={1}>
+  <Stepper>
     <Stepper.Step>
       <Stepper.Label>Brussels</Stepper.Label>
       <Stepper.Content>

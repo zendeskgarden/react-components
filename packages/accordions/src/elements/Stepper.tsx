@@ -29,7 +29,7 @@ interface IStaticStepperExport<T, P>
 
 interface IStepperProps extends HTMLAttributes<HTMLDivElement> {
   /** Used to show the current step and compute completed steps */
-  activeIndex: number;
+  activeIndex?: number;
   /** Displays the Stepper in a horizontal layout */
   isHorizontal?: boolean;
 }
@@ -45,7 +45,11 @@ interface IStepperProps extends HTMLAttributes<HTMLDivElement> {
 export const Stepper = forwardRef<HTMLDivElement, IStepperProps>(
   ({ isHorizontal, activeIndex, ...props }, ref) => {
     const currentIndexRef = useRef(0);
-    const stepperContext = { isHorizontal: isHorizontal || false, activeIndex, currentIndexRef };
+    const stepperContext = {
+      isHorizontal: isHorizontal || false,
+      activeIndex: activeIndex || 0,
+      currentIndexRef
+    };
 
     useEffect(() => {
       currentIndexRef.current = 0;

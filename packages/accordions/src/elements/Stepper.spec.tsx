@@ -12,7 +12,7 @@ import { Stepper } from './Stepper';
 describe('Stepper', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
-    const { container } = render(<Stepper ref={ref} activeIndex={0} isHorizontal />);
+    const { container } = render(<Stepper ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
   });
