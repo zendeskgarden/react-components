@@ -23,7 +23,7 @@
   "types": "dist/typings/index.d.ts",
   "dependencies": {
     "@zendeskgarden/container-focusvisible": "^0.4.3",
-    "@zendeskgarden/container-modal": "^0.7.3",
+    "@zendeskgarden/container-modal": "^0.8.0",
     "@zendeskgarden/container-utilities": "^0.5.1",
     "dom-helpers": "^5.1.0"
   },

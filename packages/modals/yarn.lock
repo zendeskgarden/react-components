@@ -19,17 +19,17 @@
     dom-helpers "^5.1.0"
     tabbable "^4.0.0"
 
-"@zendeskgarden/container-focusvisible@^0.4.1", "@zendeskgarden/container-focusvisible@^0.4.3":
+"@zendeskgarden/container-focusvisible@^0.4.3":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-focusvisible/-/container-focusvisible-0.4.3.tgz#9e2c1d882ecf9adc91f6e84eaca997fc9019f67a"
   integrity sha512-4NpwhFzhRXE230mtaGUsvmwh6LxB1Cky/LJuX7ZYZkwEgjgaLO1m0qLOiRfEa4jJ2yKrsk2f+OOuyFwy7QIAcw==
   dependencies:
     "@babel/runtime" "^7.8.4"
 
-"@zendeskgarden/container-modal@^0.7.3":
-  version "0.7.3"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-modal/-/container-modal-0.7.3.tgz#f861f0b8bf7164f50e104ee2b10da0d3d850fa43"
-  integrity sha512-tozmOXvWIla3OHU+gzTtaCo7bbv3evhXgbRdxXXP/IJY869WhuRsP1RJhMGubo8ybrtglPcHNff4F2xr6Tqfag==
+"@zendeskgarden/container-modal@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-modal/-/container-modal-0.8.0.tgz#622b8cc42676a97098ec40dc9074c7d2fbcfd096"
+  integrity sha512-S4AgzRNMxTmDsVKDMSJDwLXn1Xp1GosFrpaQPOA9brhJyEAlTON7lZUyaisdQvUM3s6HQ1H+lI3bR3dtaGpDIQ==
   dependencies:
     "@babel/runtime" "^7.8.4"
     "@zendeskgarden/container-focusjail" "^1.4.0"
@@ -48,15 +48,6 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
 
-"@zendeskgarden/react-theming@^8.0.1":
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.0.1.tgz#0279fd3a8ee11d6dfc8da87451cc3cca629ab24c"
-  integrity sha512-Mp7MGgnwd7IEEmhTH+3vLvaaNFi5SbJyWbf0poTLqtbiAgvah7slGHnYsb8y5aZGPQ8eew+jemhJ5ZY0kV5gAA==
-  dependencies:
-    "@zendeskgarden/container-focusvisible" "^0.4.1"
-    "@zendeskgarden/container-utilities" "^0.5.1"
-    polished "^3.4.4"
-
 "@zendeskgarden/svg-icons@6.10.0":
   version "6.10.0"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-6.10.0.tgz#cb50b0f93a70cd11b79cf83526c122a1fcf053f0"
@@ -74,13 +65,6 @@ dom-helpers@^5.1.0:
   dependencies:
     "@babel/runtime" "^7.6.3"
     csstype "^2.6.7"
-
-polished@^3.4.4:
-  version "3.4.4"
-  resolved "https://registry.yarnpkg.com/polished/-/polished-3.4.4.tgz#ac8cd6e704887398f3b802718f9d389b9ea4307b"
-  integrity sha512-x9PKeExyI9AhWrJP3Q57I1k7GInujjiVBJMPFmycj9hX1yCOo/X9eu9eZwxgOziiXge3WbFQ5XOmkzunOntBSA==
-  dependencies:
-    "@babel/runtime" "^7.6.3"
 
 react-uid@^2.2.0:
   version "2.2.0"
