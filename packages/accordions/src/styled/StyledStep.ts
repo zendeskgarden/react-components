@@ -22,6 +22,8 @@ export const StyledStep = styled.div.attrs<IStyledStep>({
 })<IStyledStep>`
   position: ${props => props.isHorizontal && 'relative'};
   flex: ${props => props.isHorizontal && '1'};
+  padding: ${props => `0 ${props.theme.space.base * 3}px`};
+  min-width: ${props => props.theme.space.base * 15}px;
 
   &:last-of-type ${StyledLine} {
     display: ${props => props.theme.rtl && 'none'};
