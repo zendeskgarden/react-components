@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1583356828409" clover="3.2.0">
-  <project timestamp="1583356828409" name="All files">
+<coverage generated="1583437880198" clover="3.2.0">
+  <project timestamp="1583437880198" name="All files">
     <metrics statements="5438" coveredstatements="5425" conditionals="2144" coveredconditionals="2007" methods="1143" coveredmethods="1140" elements="8725" coveredelements="8572" complexity="0" loc="5438" ncloc="5438" packages="92" files="354" classes="354"/>
     <package name="avatars.src.elements">
       <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
@@ -4759,32 +4759,32 @@
         <line num="37" count="18" type="stmt"/>
         <line num="38" count="18" type="stmt"/>
         <line num="40" count="18" type="stmt"/>
-        <line num="79" count="7" type="stmt"/>
-        <line num="99" count="38" type="stmt"/>
-        <line num="100" count="38" type="stmt"/>
-        <line num="108" count="38" type="stmt"/>
+        <line num="87" count="7" type="stmt"/>
+        <line num="109" count="38" type="stmt"/>
         <line num="110" count="38" type="stmt"/>
-        <line num="112" count="38" type="stmt"/>
-        <line num="113" count="36" type="cond" truecount="2" falsecount="0"/>
-        <line num="114" count="18" type="stmt"/>
-        <line num="117" count="18" type="stmt"/>
-        <line num="120" count="18" type="cond" truecount="1" falsecount="1"/>
-        <line num="121" count="18" type="cond" truecount="1" falsecount="1"/>
-        <line num="122" count="18" type="stmt"/>
-        <line num="123" count="18" type="cond" truecount="2" falsecount="0"/>
-        <line num="125" count="18" type="stmt"/>
-        <line num="126" count="18" type="stmt"/>
-        <line num="129" count="18" type="stmt"/>
-        <line num="131" count="18" type="stmt"/>
+        <line num="118" count="38" type="stmt"/>
+        <line num="126" count="38" type="stmt"/>
+        <line num="128" count="38" type="stmt"/>
+        <line num="129" count="36" type="cond" truecount="2" falsecount="0"/>
+        <line num="130" count="18" type="stmt"/>
         <line num="133" count="18" type="stmt"/>
-        <line num="134" count="18" type="stmt"/>
-        <line num="135" count="18" type="stmt"/>
-        <line num="139" count="0" type="stmt"/>
-        <line num="142" count="38" type="stmt"/>
-        <line num="149" count="38" type="stmt"/>
-        <line num="173" count="7" type="stmt"/>
-        <line num="175" count="7" type="stmt"/>
-        <line num="186" count="7" type="stmt"/>
+        <line num="136" count="18" type="cond" truecount="1" falsecount="1"/>
+        <line num="137" count="18" type="cond" truecount="1" falsecount="1"/>
+        <line num="138" count="18" type="stmt"/>
+        <line num="139" count="18" type="cond" truecount="2" falsecount="0"/>
+        <line num="141" count="18" type="stmt"/>
+        <line num="142" count="18" type="stmt"/>
+        <line num="145" count="18" type="stmt"/>
+        <line num="147" count="18" type="stmt"/>
+        <line num="149" count="18" type="stmt"/>
+        <line num="150" count="18" type="stmt"/>
+        <line num="151" count="18" type="stmt"/>
+        <line num="155" count="0" type="stmt"/>
+        <line num="158" count="38" type="stmt"/>
+        <line num="165" count="38" type="stmt"/>
+        <line num="189" count="7" type="stmt"/>
+        <line num="191" count="7" type="stmt"/>
+        <line num="204" count="7" type="stmt"/>
       </file>
     </package>
     <package name="modals.src.styled">
