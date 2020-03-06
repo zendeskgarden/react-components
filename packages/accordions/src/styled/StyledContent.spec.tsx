@@ -14,11 +14,13 @@ describe('StyledContent', () => {
     const { container } = render(<StyledContent />);
 
     expect(container.firstChild).toHaveStyleRule('margin', '6px 0px 6px 12px');
+    expect(container.firstChild).toHaveStyleRule('padding', '16px 0px 16px 24px');
   });
 
   it('renders RTL styling correctly', () => {
     const { container } = renderRtl(<StyledContent />);
 
     expect(container.firstChild).toHaveStyleRule('margin', '6px 12px 6px 0px');
+    expect(container.firstChild).toHaveStyleRule('padding', '16px 24px 16px 0px');
   });
 });

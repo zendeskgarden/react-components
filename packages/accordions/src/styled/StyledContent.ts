@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css } from 'styled-components';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'steppers.step_content';
@@ -21,20 +21,32 @@ const inactiveStyling = css`
   }
 `;
 
+const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
+  const { rtl, space } = props.theme;
+  const padding = space.base * 4;
+  const paddingRight = rtl ? space.base * 6 : '0';
+  const paddingLeft = rtl ? '0' : space.base * 6;
+  const margin = space.base * 1.5;
+  const marginRight = rtl ? space.base * 3 : '0';
+  const marginLeft = rtl ? '0' : space.base * 3;
+
+  return css`
+    margin: ${margin}px ${marginRight}px ${margin}px ${marginLeft}px;
+    padding: ${padding}px ${paddingRight}px ${padding}px ${paddingLeft}px;
+  `;
+};
+
 export const StyledContent = styled.div.attrs<IStyledContent>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledContent>`
-  margin: ${props =>
-    `${props.theme.space.base * 1.5}px ${
-      props.theme.rtl ? props.theme.space.base * 3 : '0'
-    }px ${props.theme.space.base * 1.5}px ${props.theme.rtl ? '0' : props.theme.space.base * 3}px`};
-  padding: ${props => props.theme.space.base * 4}px;
-
   & > div {
     transition: height 0.25s ease-in-out;
     overflow: hidden;
   }
+
+  ${sizeStyles}
+
   ${props => !props.isActive && inactiveStyling}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
