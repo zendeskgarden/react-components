@@ -1,4 +1,7 @@
-# @zendeskgarden/react-{{component}} [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-{{component}}.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-{{component}})
+# @zendeskgarden/react-{{component}} [![npm version][npm version badge]][npm version link]
+
+[npm version badge]: https://flat.badgen.net/npm/v/@zendeskgarden/react-{{component}}
+[npm version link]: https://www.npmjs.com/package/@zendeskgarden/react-{{component}}
 
 This package includes components related to {{component}} in the
 [Garden Design System](https://zendeskgarden.github.io/).

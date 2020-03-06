@@ -1,4 +1,7 @@
-# @zendeskgarden/react-datepickers [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-datepickers.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-datepickers)
+# @zendeskgarden/react-datepickers [![npm version][npm version badge]][npm version link]
+
+[npm version badge]: https://flat.badgen.net/npm/v/@zendeskgarden/react-datepickers
+[npm version link]: https://www.npmjs.com/package/@zendeskgarden/react-datepickers
 
 This package includes components relating to datepickers in the
 [Garden Design System](https://zendeskgarden.github.io/).

@@ -1,4 +1,7 @@
-# @zendeskgarden/react-chrome [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-chrome.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-chrome)
+# @zendeskgarden/react-chrome [![npm version][npm version badge]][npm version link]
+
+[npm version badge]: https://flat.badgen.net/npm/v/@zendeskgarden/react-chrome
+[npm version link]: https://www.npmjs.com/package/@zendeskgarden/react-chrome
 
 Collection of elements relating to the Chrome component within the Garden Design System
 
