@@ -46,7 +46,7 @@ jobs:
       NODE_DEBUG: gh-pages
     steps:
       - *attach_workspace
-      - run: yarn build:demo
+      - run: yarn lerna run build:demo --concurrency=2
       - run: utils/scripts/gh-pages.js
 
   publish:
