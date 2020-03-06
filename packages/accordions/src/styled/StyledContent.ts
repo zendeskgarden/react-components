@@ -10,17 +10,6 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'steppers.step_content';
 
-export interface IStyledContent {
-  isActive?: boolean;
-}
-
-const inactiveStyling = css`
-  & > div {
-    transition: height 0.25s ease-in-out;
-    height: 0 !important; /* stylelint-disable-line */
-  }
-`;
-
 const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   const { rtl, space } = props.theme;
   const padding = space.base * 4;
@@ -36,18 +25,11 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledContent = styled.div.attrs<IStyledContent>({
+export const StyledContent = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledContent>`
-  & > div {
-    transition: height 0.25s ease-in-out;
-    overflow: hidden;
-  }
-
+})`
   ${sizeStyles}
-
-  ${props => !props.isActive && inactiveStyling}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

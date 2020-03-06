@@ -7,7 +7,7 @@
 
 import React, { forwardRef, useEffect, HTMLAttributes } from 'react';
 import { useCombinedRefs } from '@zendeskgarden/container-utilities';
-import { StyledContent } from '../../styled';
+import { StyledContent, StyledInnerContent } from '../../styled';
 import { useStepContext, useStepperContext } from '../../utils';
 
 export const StepContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
@@ -26,8 +26,8 @@ export const StepContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
     }, [contentRef, isHorizontal]);
 
     return isHorizontal === false ? (
-      <StyledContent ref={contentRef} isActive={isActive} {...props}>
-        <div>{props.children}</div>
+      <StyledContent ref={contentRef} {...props}>
+        <StyledInnerContent isActive={isActive}>{props.children}</StyledInnerContent>
       </StyledContent>
     ) : null;
   }

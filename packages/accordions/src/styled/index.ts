@@ -7,6 +7,7 @@
 
 export * from './StyledStep';
 export * from './StyledContent';
+export * from './StyledInnerContent';
 export * from './StyledLine';
 export * from './StyledStepper';
 export * from './StyledIcon';
