@@ -25,7 +25,7 @@ jobs:
           steps:
             - run: yarn --frozen-lockfile --ignore-scripts
             - run: yarn lerna bootstrap
-            - run: yarn lerna run build
+            - run: yarn lerna run build --concurrency=2
       - persist_to_workspace:
           root: *workspace_root
           paths: .
