@@ -46,8 +46,8 @@ export const Stepper = forwardRef<HTMLDivElement, IStepperProps>(
   ({ isHorizontal, activeIndex, ...props }, ref) => {
     const currentIndexRef = useRef(0);
     const stepperContext = {
-      isHorizontal: isHorizontal || false,
-      activeIndex: activeIndex || 0,
+      isHorizontal: isHorizontal!,
+      activeIndex: activeIndex!,
       currentIndexRef
     };
 

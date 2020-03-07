@@ -32,7 +32,7 @@ const LightningBoltStrokeIcon = require('@zendeskgarden/svg-icons/src/12/lightni
 const SearchStrokeIcon = require('@zendeskgarden/svg-icons/src/12/search-stroke.svg').default;
 
 const StyledHorizontalContent = styled.div`
-  padding: 18px 0;
+  padding: ${props => `${props.theme.space.base * 6}px 0`};
 `;
 
 const allSteps = [

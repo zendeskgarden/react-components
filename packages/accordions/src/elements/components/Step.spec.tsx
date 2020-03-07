@@ -32,7 +32,7 @@ describe('Step', () => {
       </Stepper>
     );
 
-    expect(queryAllByTestId('step-line').length).toBe(steps.length);
+    expect(queryAllByTestId('step-line')).toHaveLength(steps.length);
   });
 
   it('does not render a step line before each step in a vertical stepper', () => {
@@ -45,6 +45,6 @@ describe('Step', () => {
       </Stepper>
     );
 
-    expect(queryAllByTestId('step-line').length).toBe(0);
+    expect(queryAllByTestId('step-line')).toHaveLength(0);
   });
 });
