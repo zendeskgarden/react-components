@@ -39,6 +39,6 @@ describe('StyledIcon', () => {
     const { container } = render(<StyledIcon isActive isHorizontal />);
 
     expect(container.firstChild).not.toHaveStyleRule('margin-right');
-    expect(container.firstChild).toHaveStyleRule('margin-bottom', `${DEFAULT_THEME.space.base}px`);
+    expect(container.firstChild).toHaveStyleRule('margin-bottom', '8px');
   });
 });

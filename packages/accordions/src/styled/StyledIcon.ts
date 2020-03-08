@@ -34,10 +34,11 @@ export const StyledIcon = styled.div.attrs<IStyledIcon>({
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
   /* stylelint-disable-next-line property-no-unknown */
   margin-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
   !props.isHorizontal && `${props.theme.space.base * 3}px`};
-  margin-bottom: ${props => props.isHorizontal && props.theme.space.base}px;
+  margin-bottom: ${props => props.isHorizontal && props.theme.space.base * 2}px;
   border-radius: 100%;
   background: ${props =>
     props.isActive

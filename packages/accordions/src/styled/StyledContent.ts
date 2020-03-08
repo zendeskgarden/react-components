@@ -15,12 +15,11 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   const padding = space.base * 4;
   const paddingRight = rtl ? space.base * 6 : '0';
   const paddingLeft = rtl ? '0' : space.base * 6;
-  const margin = space.base * 1.5;
   const marginRight = rtl ? space.base * 3 : '0';
   const marginLeft = rtl ? '0' : space.base * 3;
 
   return css`
-    margin: ${margin}px ${marginRight}px ${margin}px ${marginLeft}px;
+    margin: ${space.base}px ${marginRight}px ${space.base}px ${marginLeft}px;
     padding: ${padding}px ${paddingRight}px ${padding}px ${paddingLeft}px;
   `;
 };
