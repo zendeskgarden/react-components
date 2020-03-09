@@ -4,8 +4,9 @@ orbs:
 
 references:
   executor: &executor
-    name: node/default
-    tag: erbium
+    executor:
+      name: node/default
+      tag: erbium
 
   workspace_root: &workspace_root ~/project
 
