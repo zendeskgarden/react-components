@@ -1,4 +1,7 @@
-# @zendeskgarden/react-accordions [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-accordions.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-accordions)
+# @zendeskgarden/react-accordions [![npm version][npm version badge]][npm version link]
+
+[npm version badge]: https://flat.badgen.net/npm/v/@zendeskgarden/react-accordions
+[npm version link]: https://www.npmjs.com/package/@zendeskgarden/react-accordions
 
 This package includes components related to accordions in the
 [Garden Design System](https://zendeskgarden.github.io/).
@@ -16,7 +19,7 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 
 ```jsx static
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Stepper, Step, Label, Content } from '@zendeskgarden/react-accordions';
+import { Stepper } from '@zendeskgarden/react-accordions';
 
 /**
  * Place a `ThemeProvider` at the root of your React application

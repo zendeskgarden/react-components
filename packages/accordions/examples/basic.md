@@ -1,12 +1,8 @@
 ### Steppers
 
-The `Stepper` component accepts an `activeIndex` prop and determines the current step and computes
-the completed steps. The `activeIndex` can be used to help communicate to assistive devices in
-which step the user is currently on using
-[ARIA live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions).
-
-For a horizontal `Stepper`, consumers should render step content outside of the `Stepper` component
-instead of using `Stepper.Content`.
+Features that implement a Stepper can use [ARIA live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
+to communicate what step the user is on. For a horizontal `Stepper`, render step content outside of
+the `Stepper` component instead of using `Stepper.Content`.
 
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
