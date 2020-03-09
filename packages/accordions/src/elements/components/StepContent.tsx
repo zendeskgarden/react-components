@@ -26,7 +26,7 @@ export const StepContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
     }, [contentRef, isHorizontal]);
 
     return isHorizontal === false ? (
-      <StyledContent ref={contentRef} {...props}>
+      <StyledContent ref={contentRef} isActive={isActive} {...props}>
         <StyledInnerContent isActive={isActive}>{props.children}</StyledInnerContent>
       </StyledContent>
     ) : null;
