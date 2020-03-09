@@ -1,6 +1,6 @@
 ### Steppers
 
-Features that implement a Stepper can use [ARIA live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
+Stepper implementations can use [ARIA live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
 to communicate what step the user is on. For a horizontal `Stepper`, render step content outside of
 the `Stepper` component instead of using `Stepper.Content`.
 
@@ -36,11 +36,11 @@ const allSteps = [
     id: 'stepper-step-1',
     icon: StarStrokeIcon,
     label: 'Veggies Es',
-    longLabel: 'Veggies Es Bonus Vobis Proinde',
-    content: `Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon
-    amaranth tatsoi tomatillo melon azuki bean garlic. Gumbo beet greens corn soko endive gumbo
-    gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra
-    wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.`
+    longLabel: 'Veggies Es Vobis Sweetpotatotomatillo',
+    content: `Veggies es vobis, sweetpotatotomatillo vos postulo essum magis kohlrabi welsh
+    onion daikon amaranth tatsoi tomatillo melon azuki bean garlic. Gumbo beet greens corn soko
+    endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens
+    dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.`
   },
   {
     id: 'stepper-step-2',
