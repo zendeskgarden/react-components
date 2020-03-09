@@ -1,4 +1,7 @@
-# @zendeskgarden/react-notifications [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-notifications.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-notifications)
+# @zendeskgarden/react-notifications [![npm version][npm version badge]][npm version link]
+
+[npm version badge]: https://flat.badgen.net/npm/v/@zendeskgarden/react-notifications
+[npm version link]: https://www.npmjs.com/package/@zendeskgarden/react-notifications
 
 This package includes several varieties of notifications and wells within
 the [Garden Design System](https://zendeskgarden.github.io/).

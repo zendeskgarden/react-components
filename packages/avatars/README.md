@@ -1,4 +1,7 @@
-# @zendeskgarden/react-avatars [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-avatars.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-avatars)
+# @zendeskgarden/react-avatars [![npm version][npm version badge]][npm version link]
+
+[npm version badge]: https://flat.badgen.net/npm/v/@zendeskgarden/react-avatars
+[npm version link]: https://www.npmjs.com/package/@zendeskgarden/react-avatars
 
 This package includes components relating to avatars in the
 [Garden Design System](https://zendeskgarden.github.io/).

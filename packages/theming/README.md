@@ -1,4 +1,7 @@
-# @zendeskgarden/react-theming [![npm version](https://img.shields.io/npm/v/@zendeskgarden/react-theming.svg?style=flat-square)](https://www.npmjs.com/package/@zendeskgarden/react-theming)
+# @zendeskgarden/react-theming [![npm version][npm version badge]][npm version link]
+
+[npm version badge]: https://flat.badgen.net/npm/v/@zendeskgarden/react-theming
+[npm version link]: https://www.npmjs.com/package/@zendeskgarden/react-theming
 
 The Theming package includes several utility components relating to theming
 and RTL capabilities in the [Garden Design System](https://zendeskgarden.github.io/).
