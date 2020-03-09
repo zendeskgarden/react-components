@@ -3,7 +3,7 @@ orbs:
   node: circleci/node@1.1.6
 
 references:
-  executor:
+  executor: &executor
     name: node/default
     tag: erbium
 
