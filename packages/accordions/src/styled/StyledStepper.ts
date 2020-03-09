@@ -14,11 +14,17 @@ export interface IStyledStepper {
   isHorizontal?: boolean;
 }
 
-export const StyledStepper = styled.div.attrs<IStyledStepper>({
+/**
+ * 1. <ol> reset.
+ */
+export const StyledStepper = styled.ol.attrs<IStyledStepper>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledStepper>`
   display: ${props => props.isHorizontal && 'flex'};
+  margin: 0; /* [1] */
+  padding: 0; /* [1] */
+  list-style: none; /* [1] */
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

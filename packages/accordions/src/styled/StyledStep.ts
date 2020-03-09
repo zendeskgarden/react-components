@@ -16,7 +16,7 @@ export interface IStyledStep {
   isHorizontal?: boolean;
 }
 
-export const StyledStep = styled.div.attrs<IStyledStep>({
+export const StyledStep = styled.li.attrs<IStyledStep>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledStep>`

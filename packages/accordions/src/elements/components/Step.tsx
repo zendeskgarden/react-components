@@ -9,7 +9,7 @@ import React, { forwardRef, useRef, HTMLAttributes } from 'react';
 import { StyledStep, StyledLine } from '../../styled';
 import { StepContext, useStepperContext } from '../../utils';
 
-export const Step = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
+export const Step = forwardRef<HTMLLIElement, HTMLAttributes<HTMLLIElement>>((props, ref) => {
   const { currentIndexRef, isHorizontal } = useStepperContext();
   const stepIndexRef = useRef(currentIndexRef.current++);
   const stepContextValue = { currentStepIndex: stepIndexRef.current };

@@ -27,7 +27,7 @@ interface IStaticStepperExport<T, P>
   Content: typeof StepContent;
 }
 
-interface IStepperProps extends HTMLAttributes<HTMLDivElement> {
+interface IStepperProps extends HTMLAttributes<HTMLOListElement> {
   /** Used to show the current step and compute completed steps */
   activeIndex?: number;
   /** Displays the Stepper in a horizontal layout */
@@ -35,14 +35,14 @@ interface IStepperProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * Accepts all `<div>` attributes and events. Also accepts static properties:
+ * Accepts all `<ol>` attributes and events. Also accepts sub-components:
 
  *  - `Stepper.Step`
  *  - `Stepper.StepLabel`
  *  - `Stepper.StepContent`
  */
 // eslint-disable-next-line react/display-name
-export const Stepper = forwardRef<HTMLDivElement, IStepperProps>(
+export const Stepper = forwardRef<HTMLOListElement, IStepperProps>(
   ({ isHorizontal, activeIndex, ...props }, ref) => {
     const currentIndexRef = useRef(0);
     const stepperContext = {
