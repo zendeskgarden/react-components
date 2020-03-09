@@ -9,11 +9,6 @@ references:
     attach_workspace:
       at: *workspace_root
 
-  filters_tags: &filters_tags
-    filters:
-      tags:
-        only: /.*/
-
 jobs:
   build:
     executor: node/default
@@ -25,7 +20,7 @@ jobs:
           steps:
             - run: yarn --frozen-lockfile --ignore-scripts
             - run: yarn lerna bootstrap
-            - run: yarn lerna run build --concurrency=2
+            - run: yarn lerna run build --concurrency=2 # prevent out-of-memory
       - persist_to_workspace:
           root: *workspace_root
           paths: .
@@ -46,7 +41,7 @@ jobs:
       NODE_DEBUG: gh-pages
     steps:
       - *attach_workspace
-      - run: yarn lerna run build:demo --concurrency=2
+      - run: yarn lerna run build:demo --concurrency=2 # prevent out-of-memory
       - run: utils/scripts/gh-pages.js
 
   publish:
@@ -59,12 +54,10 @@ jobs:
 workflows:
   main:
     jobs:
-      - build:
-          <<: *filters_tags
+      - build
       - test:
           requires:
             - build
-          <<: *filters_tags
       - deploy:
           requires:
             - test
