@@ -3,6 +3,10 @@ orbs:
   node: circleci/node@1.1.6
 
 references:
+  executor:
+    name: node/default
+    tag: erbium
+
   workspace_root: &workspace_root ~/project
 
   attach_workspace: &attach_workspace
@@ -11,7 +15,7 @@ references:
 
 jobs:
   build:
-    executor: node/default
+    <<: *executor
     steps:
       - checkout
       - node/with-cache:
@@ -26,7 +30,7 @@ jobs:
           paths: .
 
   test:
-    executor: node/default
+    <<: *executor
     steps:
       - *attach_workspace
       - run: yarn lint
@@ -36,7 +40,7 @@ jobs:
       - run: '[ $COVERALLS_REPO_TOKEN ] && yarn coveralls < demo/coverage/lcov.info || true'
 
   deploy:
-    executor: node/default
+    <<: *executor
     environment:
       NODE_DEBUG: gh-pages
     steps:
@@ -45,7 +49,7 @@ jobs:
       - run: utils/scripts/gh-pages.js
 
   publish:
-    executor: node/default
+    <<: *executor
     steps:
       - *attach_workspace
       - run: npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
