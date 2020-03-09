@@ -16,9 +16,9 @@ describe('StepLabel', () => {
     const ref = React.createRef<HTMLDivElement>();
     const { getByTestId } = render(
       <Stepper>
-        <Step>
-          <StepLabel ref={ref} data-test-id="step-label" />
-        </Step>
+        <Stepper.Step>
+          <Stepper.Label ref={ref} data-test-id="step-label" />
+        </Stepper.Step>
       </Stepper>
     );
 

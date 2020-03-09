@@ -8,17 +8,15 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import { Stepper } from '../Stepper';
-import { Step } from './Step';
-import { StepContent } from './StepContent';
 
 describe('StepContent', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
     const { getByTestId } = render(
       <Stepper>
-        <Step>
-          <StepContent ref={ref} data-test-id="step-content" />
-        </Step>
+        <Stepper.Step>
+          <Stepper.Content ref={ref} data-test-id="step-content" />
+        </Stepper.Step>
       </Stepper>
     );
 
@@ -28,9 +26,9 @@ describe('StepContent', () => {
   it('renders null for a horizontal Stepper', () => {
     const { queryByText } = render(
       <Stepper isHorizontal>
-        <Step>
-          <StepContent>Some content</StepContent>
-        </Step>
+        <Stepper.Step>
+          <Stepper.Content>Some content</Stepper.Content>
+        </Stepper.Step>
       </Stepper>
     );
 
@@ -40,9 +38,9 @@ describe('StepContent', () => {
   it('renders StepContent for a vertical Stepper', () => {
     const { queryByText } = render(
       <Stepper>
-        <Step>
-          <StepContent>Some content</StepContent>
-        </Step>
+        <Stepper.Step>
+          <Stepper.Content>Some content</Stepper.Content>
+        </Stepper.Step>
       </Stepper>
     );
 

@@ -8,14 +8,13 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import { Stepper } from '../Stepper';
-import { Step } from './Step';
 
 describe('Step', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLLIElement>();
     const { getByTestId } = render(
       <Stepper>
-        <Step data-test-id="step" ref={ref} />
+        <Stepper.Step data-test-id="step" ref={ref} />
       </Stepper>
     );
 
@@ -27,7 +26,7 @@ describe('Step', () => {
     const { queryAllByTestId } = render(
       <Stepper isHorizontal>
         {steps.map(step => (
-          <Step key={step} />
+          <Stepper.Step key={step} />
         ))}
       </Stepper>
     );
@@ -40,7 +39,7 @@ describe('Step', () => {
     const { queryAllByTestId } = render(
       <Stepper activeIndex={0}>
         {steps.map(step => (
-          <Step key={step} />
+          <Stepper.Step key={step} />
         ))}
       </Stepper>
     );
