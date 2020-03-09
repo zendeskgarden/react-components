@@ -62,9 +62,6 @@ workflows:
           requires:
             - test
           context: maintainer
-          filters:
-            branches:
-              only: master
       - publish:
           requires:
             - test
