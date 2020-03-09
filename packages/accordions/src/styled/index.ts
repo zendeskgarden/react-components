@@ -12,3 +12,4 @@ export * from './StyledLine';
 export * from './StyledStepper';
 export * from './StyledIcon';
 export * from './StyledLabel';
+export * from './StyledLabelText';

@@ -19,7 +19,6 @@ describe('StyledStep', () => {
 
     expect(container.firstChild).not.toHaveStyleRule('position');
     expect(container.firstChild).not.toHaveStyleRule('flex');
-    expect(container.firstChild).not.toHaveStyleRule('padding');
     expect(container.firstChild).not.toHaveStyleRule('min-width');
   });
 
@@ -28,7 +27,6 @@ describe('StyledStep', () => {
 
     expect(container.firstChild).toHaveStyleRule('position', 'relative');
     expect(container.firstChild).toHaveStyleRule('flex', '1');
-    expect(container.firstChild).toHaveStyleRule('padding', '0 12px');
     expect(container.firstChild).toHaveStyleRule('min-width', '60px');
   });
 
