@@ -9,7 +9,7 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@zendeskgarden/container-focusvisible@^0.4.1":
+"@zendeskgarden/container-focusvisible@^0.4.3":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-focusvisible/-/container-focusvisible-0.4.3.tgz#9e2c1d882ecf9adc91f6e84eaca997fc9019f67a"
   integrity sha512-4NpwhFzhRXE230mtaGUsvmwh6LxB1Cky/LJuX7ZYZkwEgjgaLO1m0qLOiRfEa4jJ2yKrsk2f+OOuyFwy7QIAcw==
@@ -23,12 +23,12 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
 
-"@zendeskgarden/react-theming@^8.0.1":
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.0.1.tgz#0279fd3a8ee11d6dfc8da87451cc3cca629ab24c"
-  integrity sha512-Mp7MGgnwd7IEEmhTH+3vLvaaNFi5SbJyWbf0poTLqtbiAgvah7slGHnYsb8y5aZGPQ8eew+jemhJ5ZY0kV5gAA==
+"@zendeskgarden/react-theming@^8.1.1":
+  version "8.1.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.1.1.tgz#a114a8403484fa02b995ffe6aebf1a6d59eed3b6"
+  integrity sha512-GHpoYU1ibGRdf6BFRHmXwrtJZN9qbKCyo0v2GjjsI5mMH3VtUSYHxi3K817eqWkEv8cGk6n3jBXo8aRp0r3xDg==
   dependencies:
-    "@zendeskgarden/container-focusvisible" "^0.4.1"
+    "@zendeskgarden/container-focusvisible" "^0.4.3"
     "@zendeskgarden/container-utilities" "^0.5.1"
     polished "^3.4.4"
 
