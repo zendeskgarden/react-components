@@ -13,11 +13,18 @@ describe('StyledLabelText', () => {
   it('renders default styles', () => {
     const { container } = render(<StyledLabelText />);
 
+    expect(container.firstChild).not.toHaveStyleRule('display');
     expect(container.firstChild).not.toHaveStyleRule('padding');
   });
   it('renders the horizontal style', () => {
     const { container } = render(<StyledLabelText isHorizontal />);
 
     expect(container.firstChild).toHaveStyleRule('padding', '0 12px');
+  });
+
+  it('renders hidden label styling', () => {
+    const { container } = render(<StyledLabelText isHidden />);
+
+    expect(container.firstChild).toHaveStyleRule('display', 'none');
   });
 });

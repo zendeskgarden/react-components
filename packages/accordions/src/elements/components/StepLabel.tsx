@@ -13,6 +13,7 @@ import { useStepContext, useStepperContext } from '../../utils';
 
 interface IStepLabel {
   icon?: React.ReactNode;
+  isHidden?: boolean;
 }
 
 export const StepLabel = forwardRef<HTMLDivElement, IStepLabel & HTMLAttributes<HTMLDivElement>>(
@@ -36,7 +37,9 @@ export const StepLabel = forwardRef<HTMLDivElement, IStepLabel & HTMLAttributes<
         ) : (
           styledIcon
         )}
-        <StyledLabelText isHorizontal={isHorizontal}>{props.children}</StyledLabelText>
+        <StyledLabelText isHidden={props.isHidden} isHorizontal={isHorizontal}>
+          {props.children}
+        </StyledLabelText>
       </StyledLabel>
     );
   }
@@ -45,5 +48,6 @@ export const StepLabel = forwardRef<HTMLDivElement, IStepLabel & HTMLAttributes<
 StepLabel.displayName = 'StepLabel';
 
 StepLabel.propTypes = {
-  icon: PropTypes.node
+  icon: PropTypes.node,
+  isHidden: PropTypes.bool
 };

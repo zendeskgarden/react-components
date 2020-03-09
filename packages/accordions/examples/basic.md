@@ -152,6 +152,7 @@ const allSteps = [
 const BasicExample = () => {
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [isLongLabel, setIsLongLabel] = React.useState(false);
+  const [isHiddenLabels, setIsHiddenLabels] = React.useState(false);
   const [isHorizontal, setIsHorizontal] = React.useState(false);
   const [isCustomIcon, setIsCustomIcon] = React.useState(false);
   const [numberOfSteps, setNumberOfSteps] = React.useState(5);
@@ -162,7 +163,7 @@ const BasicExample = () => {
       <Well isRecessed>
         <Row>
           <Col>
-            <Field className="u-mt-xs">
+            <Field>
               <Toggle checked={isHorizontal} onChange={event => setIsHorizontal(!isHorizontal)}>
                 <Label>Horizontal layout</Label>
               </Toggle>
@@ -170,6 +171,14 @@ const BasicExample = () => {
             <Field className="u-mt">
               <Toggle checked={isLongLabel} onChange={event => setIsLongLabel(!isLongLabel)}>
                 <Label>Long labels</Label>
+              </Toggle>
+            </Field>
+            <Field className="u-mt">
+              <Toggle
+                checked={isHiddenLabels}
+                onChange={event => setIsHiddenLabels(!isHiddenLabels)}
+              >
+                <Label>Hidden labels</Label>
               </Toggle>
             </Field>
             <Field className="u-mt">
@@ -221,7 +230,7 @@ const BasicExample = () => {
               const { id, label, longLabel, content, icon: Icon } = step;
               return (
                 <Stepper.Step key={id}>
-                  <Stepper.Label icon={isCustomIcon && <Icon />}>
+                  <Stepper.Label isHidden={isHiddenLabels} icon={isCustomIcon && <Icon />}>
                     {isLongLabel ? longLabel : label}
                   </Stepper.Label>
                   <Stepper.Content>{content}</Stepper.Content>

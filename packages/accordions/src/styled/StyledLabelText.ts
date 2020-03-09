@@ -9,10 +9,12 @@ import styled from 'styled-components';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 interface IStyledLabelTextProps {
+  isHidden?: boolean;
   isHorizontal?: boolean;
 }
 
 export const StyledLabelText = styled.div<IStyledLabelTextProps>`
+  display: ${props => props.isHidden && 'none'};
   padding: ${props => props.isHorizontal && `0 ${props.theme.space.base * 3}px`};
 `;
 
