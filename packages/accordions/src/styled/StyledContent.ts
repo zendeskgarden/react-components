@@ -34,6 +34,8 @@ export const StyledContent = styled.div.attrs<IStyledContent>({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledContent>`
   ${sizeStyles}
+  min-width: 120px;
+  word-break: break-word;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

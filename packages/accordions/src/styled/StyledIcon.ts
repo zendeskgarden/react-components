@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
   getColor,
   getLineHeight,
@@ -27,12 +27,24 @@ export const StyledIconFlexContainer = styled.div`
   width: 100%;
 `;
 
+const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
+  const size = `${props.theme.space.base * 6}px`;
+
+  return css`
+    width: ${size};
+    min-width: ${size};
+    height: ${size};
+    min-height: ${size};
+  `;
+};
+
 export const StyledIcon = styled.div.attrs<IStyledIcon>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledIcon>`
   display: flex;
   align-items: center;
+  align-self: ${props => !props.isHorizontal && 'self-start'};
   justify-content: center;
   transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
   /* stylelint-disable-next-line property-no-unknown */
@@ -44,12 +56,12 @@ export const StyledIcon = styled.div.attrs<IStyledIcon>({
     props.isActive
       ? getColor('neutralHue', 600, props.theme)
       : getColor('neutralHue', 200, props.theme)};
-  width: ${props => props.theme.space.base * 6}px;
-  height: ${props => props.theme.space.base * 6}px;
   line-height: ${props => getLineHeight(props.theme.lineHeights.lg, props.theme.fontSizes.sm)};
   color: ${props =>
     props.isActive ? props.theme.colors.background : getColor('neutralHue', 800, props.theme)};
   font-size: ${props => props.theme.fontSizes.sm};
+
+  ${sizeStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

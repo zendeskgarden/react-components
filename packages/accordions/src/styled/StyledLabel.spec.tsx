@@ -17,9 +17,9 @@ describe('StyledLabel', () => {
     expect(container.firstChild).not.toHaveStyleRule('flex');
     expect(container.firstChild).not.toHaveStyleRule('flex-direction');
     expect(container.firstChild).not.toHaveStyleRule('font-weight');
+    expect(container.firstChild).not.toHaveStyleRule('text-align');
     expect(container.firstChild).toHaveStyleRule('display', 'flex');
     expect(container.firstChild).toHaveStyleRule('align-items', 'center');
-    expect(container.firstChild).toHaveStyleRule('text-align', 'center');
     expect(container.firstChild).toHaveStyleRule(
       'color',
       getColor('neutralHue', 600, DEFAULT_THEME)
@@ -32,6 +32,7 @@ describe('StyledLabel', () => {
     expect(container.firstChild).not.toHaveStyleRule('display');
     expect(container.firstChild).toHaveStyleRule('flex', '1');
     expect(container.firstChild).toHaveStyleRule('flex-direction', 'column');
+    expect(container.firstChild).toHaveStyleRule('text-align', 'center');
   });
 
   it('renders styles for active label', () => {

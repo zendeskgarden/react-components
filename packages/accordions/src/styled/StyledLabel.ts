@@ -28,7 +28,7 @@ export const StyledLabel = styled.div.attrs<IStyledLabelProps>({
   flex: ${props => props.isHorizontal && '1'};
   flex-direction: ${props => (props.isHorizontal ? 'column' : 'row')};
   align-items: center;
-  text-align: center;
+  text-align: ${props => props.isHorizontal && 'center'};
   line-height: ${props => getLineHeight(props.theme.lineHeights.lg, props.theme.fontSizes.md)};
   color: ${props =>
     props.isActive
