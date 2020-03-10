@@ -25,9 +25,7 @@ export const StyledLabel = styled.div.attrs<IStyledLabelProps>({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledLabelProps>`
   display: ${props => !props.isHorizontal && 'flex'};
-  flex: ${props => props.isHorizontal && '1'};
-  flex-direction: ${props => (props.isHorizontal ? 'column' : 'row')};
-  align-items: center;
+  align-items: ${props => !props.isHorizontal && 'center'};
   text-align: ${props => props.isHorizontal && 'center'};
   line-height: ${props => getLineHeight(props.theme.lineHeights.lg, props.theme.fontSizes.md)};
   color: ${props =>

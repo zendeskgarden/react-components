@@ -14,8 +14,6 @@ describe('StyledLabel', () => {
   it('renders default styles', () => {
     const { container } = render(<StyledLabel />);
 
-    expect(container.firstChild).not.toHaveStyleRule('flex');
-    expect(container.firstChild).not.toHaveStyleRule('flex-direction');
     expect(container.firstChild).not.toHaveStyleRule('font-weight');
     expect(container.firstChild).not.toHaveStyleRule('text-align');
     expect(container.firstChild).toHaveStyleRule('display', 'flex');
@@ -30,8 +28,8 @@ describe('StyledLabel', () => {
     const { container } = render(<StyledLabel isHorizontal />);
 
     expect(container.firstChild).not.toHaveStyleRule('display');
-    expect(container.firstChild).toHaveStyleRule('flex', '1');
-    expect(container.firstChild).toHaveStyleRule('flex-direction', 'column');
+    expect(container.firstChild).not.toHaveStyleRule('flex');
+    expect(container.firstChild).not.toHaveStyleRule('align-items');
     expect(container.firstChild).toHaveStyleRule('text-align', 'center');
   });
 
