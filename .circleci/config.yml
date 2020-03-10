@@ -6,7 +6,7 @@ references:
   executor: &executor
     executor:
       name: node/default
-      tag: erbium # keep in sync with .nvmrc
+      tag: lts
 
   workspace_root: &workspace_root ~/project
 
@@ -67,9 +67,6 @@ workflows:
           requires:
             - test
           context: maintainer
-          filters:
-            branches:
-              only: master
       - publish:
           requires:
             - test
