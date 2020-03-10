@@ -17,6 +17,13 @@
       }
     },
     {
+      "paths": ["examples/**"],
+      "minor": {
+        "groupName": "non-major example dependencies",
+        "groupSlug": "examples-minor-patch"
+      }
+    },
+    {
       "packagePatterns": ["^@zendeskgarden/react"],
       "enabled": false
     },
