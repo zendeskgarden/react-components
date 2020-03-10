@@ -27,7 +27,7 @@ export const StyledLabel = styled.div.attrs<IStyledLabelProps>({
   display: ${props => !props.isHorizontal && 'flex'};
   align-items: ${props => !props.isHorizontal && 'center'};
   text-align: ${props => props.isHorizontal && 'center'};
-  line-height: ${props => getLineHeight(props.theme.lineHeights.lg, props.theme.fontSizes.md)};
+  line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
   color: ${props =>
     props.isActive
       ? getColor('neutralHue', 800, props.theme)

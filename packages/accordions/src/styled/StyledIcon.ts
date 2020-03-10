@@ -31,7 +31,7 @@ const sizeStyles = (props: IStyledIcon & ThemeProps<DefaultTheme>) => {
   const size = `${props.theme.space.base * 6}px`;
 
   return css`
-    margin-bottom: ${props.isHorizontal && props.theme.space.base * 2}px;
+    margin-bottom: ${props.isHorizontal && `${props.theme.space.base * 2}px`};
     /* stylelint-disable-next-line property-no-unknown */
     margin-${props.theme.rtl ? 'left' : 'right'}: ${!props.isHorizontal &&
     `${props.theme.space.base * 3}px`};
@@ -39,7 +39,19 @@ const sizeStyles = (props: IStyledIcon & ThemeProps<DefaultTheme>) => {
     min-width: ${size};
     height: ${size};
     min-height: ${size};
+    line-height: ${getLineHeight(size, props.theme.fontSizes.sm)};
     font-size: ${props.theme.fontSizes.sm};
+  `;
+};
+
+const colorStyles = (props: IStyledIcon & ThemeProps<DefaultTheme>) => {
+  return css`
+    background: ${props.isActive
+      ? getColor('neutralHue', 600, props.theme)
+      : getColor('neutralHue', 200, props.theme)};
+    color: ${props.isActive
+      ? props.theme.colors.background
+      : getColor('neutralHue', 800, props.theme)};
   `;
 };
 
@@ -53,14 +65,7 @@ export const StyledIcon = styled.div.attrs<IStyledIcon>({
   justify-content: center;
   transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
   border-radius: 100%;
-  background: ${props =>
-    props.isActive
-      ? getColor('neutralHue', 600, props.theme)
-      : getColor('neutralHue', 200, props.theme)};
-  line-height: ${props => getLineHeight(props.theme.lineHeights.lg, props.theme.fontSizes.sm)};
-  color: ${props =>
-    props.isActive ? props.theme.colors.background : getColor('neutralHue', 800, props.theme)};
-
+  ${colorStyles}
   ${sizeStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
