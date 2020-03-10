@@ -1,7 +1,6 @@
 {
   "extends": ["config:base"],
   "rebaseStalePrs": true,
-  "ignoreDeps": ["react-docgen-typescript"],
   "packageRules": [
     {
       "paths": ["package.json"],
