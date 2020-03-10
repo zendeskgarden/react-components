@@ -15,6 +15,9 @@ interface IStyledLabelTextProps {
   isHorizontal?: boolean;
 }
 
+/**
+ * 1. Targets IE11.
+ */
 export const StyledLabelText = styled.div.attrs<IStyledLabelTextProps>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
@@ -23,6 +26,7 @@ export const StyledLabelText = styled.div.attrs<IStyledLabelTextProps>({
   padding: ${props => props.isHorizontal && `0 ${props.theme.space.base * 3}px`};
   word-break: ${props => props.isHorizontal && 'break-word'};
   overflow-wrap: ${props => props.isHorizontal && 'break-word'};
+  word-wrap: ${props => props.isHorizontal && 'break-word'}; /* [1] */
 `;
 
 StyledLabelText.defaultProps = {
