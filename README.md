@@ -177,7 +177,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 Check out more Garden React components in this sandbox IDE:
 
-[![Edit Garden CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/zendeskgarden/react-components/tree/master/examples/codesandbox/garden-create-react-app)
+[![Edit Garden CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/zendeskgarden/react-components/tree/master/examples/codesandbox)
 
 ## Documentation
 
