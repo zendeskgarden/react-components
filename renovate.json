@@ -1,7 +1,6 @@
 {
   "extends": ["config:base"],
   "rebaseStalePrs": true,
-  "ignoreDeps": ["react-docgen-typescript"],
   "packageRules": [
     {
       "paths": ["package.json"],
@@ -15,6 +14,13 @@
       "minor": {
         "groupName": "non-major package dependencies",
         "groupSlug": "packages-minor-patch"
+      }
+    },
+    {
+      "paths": ["examples/**"],
+      "minor": {
+        "groupName": "non-major example dependencies",
+        "groupSlug": "examples-minor-patch"
       }
     },
     {
