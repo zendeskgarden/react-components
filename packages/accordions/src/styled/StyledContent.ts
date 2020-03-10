@@ -8,7 +8,7 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'steppers.step_content';
+const COMPONENT_ID = 'accordions.step_content';
 
 interface IStyledContent {
   isActive?: boolean;

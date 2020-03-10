@@ -13,7 +13,7 @@ import {
   DEFAULT_THEME
 } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'steppers.step_label';
+const COMPONENT_ID = 'accordions.step_label';
 
 interface IStyledLabelProps {
   isActive?: boolean;

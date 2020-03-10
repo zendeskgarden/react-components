@@ -10,7 +10,7 @@ import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden
 import { StyledContent } from './StyledContent';
 import { StyledLine } from './StyledLine';
 
-const COMPONENT_ID = 'steppers.step';
+const COMPONENT_ID = 'accordions.step';
 
 export interface IStyledStep {
   isHorizontal?: boolean;

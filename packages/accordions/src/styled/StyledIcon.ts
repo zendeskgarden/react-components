@@ -13,7 +13,7 @@ import {
   DEFAULT_THEME
 } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'steppers.icon';
+const COMPONENT_ID = 'accordions.step_icon';
 
 interface IStyledIcon {
   isActive?: boolean;

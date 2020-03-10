@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'steppers.stepper';
+const COMPONENT_ID = 'accordions.stepper';
 
 export interface IStyledStepper {
   isHorizontal?: boolean;

@@ -8,7 +8,12 @@
 import styled from 'styled-components';
 import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-export const StyledLine = styled.div`
+const COMPONENT_ID = 'accordions.step_line';
+
+export const StyledLine = styled.div.attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})`
   display: block;
   position: absolute;
   top: ${props => props.theme.space.base * 3}px;

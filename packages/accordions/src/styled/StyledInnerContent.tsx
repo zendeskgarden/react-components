@@ -8,7 +8,7 @@
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'steppers.step_inner_content';
+const COMPONENT_ID = 'accordions.step_inner_content';
 
 export interface IStyledInnerContent {
   isActive?: boolean;
