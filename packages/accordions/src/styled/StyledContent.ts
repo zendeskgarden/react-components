@@ -34,7 +34,7 @@ export const StyledContent = styled.div.attrs<IStyledContent>({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledContent>`
   ${sizeStyles}
-  min-width: 120px;
+  min-width: ${props => props.theme.space.base * 30}px;
   word-break: break-word;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
