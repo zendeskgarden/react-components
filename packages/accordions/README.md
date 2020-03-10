@@ -33,7 +33,6 @@ import { Stepper } from '@zendeskgarden/react-accordions';
       </Stepper.Content>
     </Stepper.Step>
     <Stepper.Step>
-      }>
       <Stepper.Label>Beetroot</Stepper.Label>
       <Stepper.Content>
         Beetroot carrot watercress. Corn amaranth salsify bunya nuts nori azuki bean turnip greens.

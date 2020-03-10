@@ -27,14 +27,19 @@ export const StyledIconFlexContainer = styled.div`
   width: 100%;
 `;
 
-const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledIcon & ThemeProps<DefaultTheme>) => {
   const size = `${props.theme.space.base * 6}px`;
 
   return css`
+    margin-bottom: ${props.isHorizontal && props.theme.space.base * 2}px;
+    /* stylelint-disable-next-line property-no-unknown */
+    margin-${props.theme.rtl ? 'left' : 'right'}: ${!props.isHorizontal &&
+    `${props.theme.space.base * 3}px`};
     width: ${size};
     min-width: ${size};
     height: ${size};
     min-height: ${size};
+    font-size: ${props.theme.fontSizes.sm};
   `;
 };
 
@@ -47,10 +52,6 @@ export const StyledIcon = styled.div.attrs<IStyledIcon>({
   align-self: ${props => !props.isHorizontal && 'self-start'};
   justify-content: center;
   transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
-  /* stylelint-disable-next-line property-no-unknown */
-  margin-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
-  !props.isHorizontal && `${props.theme.space.base * 3}px`};
-  margin-bottom: ${props => props.isHorizontal && props.theme.space.base * 2}px;
   border-radius: 100%;
   background: ${props =>
     props.isActive
@@ -59,7 +60,6 @@ export const StyledIcon = styled.div.attrs<IStyledIcon>({
   line-height: ${props => getLineHeight(props.theme.lineHeights.lg, props.theme.fontSizes.sm)};
   color: ${props =>
     props.isActive ? props.theme.colors.background : getColor('neutralHue', 800, props.theme)};
-  font-size: ${props => props.theme.fontSizes.sm};
 
   ${sizeStyles}
 
