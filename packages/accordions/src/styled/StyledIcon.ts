@@ -29,6 +29,7 @@ export const StyledIconFlexContainer = styled.div`
 
 const sizeStyles = (props: IStyledIcon & ThemeProps<DefaultTheme>) => {
   const size = `${props.theme.space.base * 6}px`;
+  const fontSize = props.theme.fontSizes.sm;
 
   return css`
     margin-bottom: ${props.isHorizontal && `${props.theme.space.base * 2}px`};
@@ -39,8 +40,8 @@ const sizeStyles = (props: IStyledIcon & ThemeProps<DefaultTheme>) => {
     min-width: ${size};
     height: ${size};
     min-height: ${size};
-    line-height: ${getLineHeight(size, props.theme.fontSizes.sm)};
-    font-size: ${props.theme.fontSizes.sm};
+    line-height: ${getLineHeight(size, fontSize)};
+    font-size: ${fontSize};
   `;
 };
 
@@ -65,8 +66,8 @@ export const StyledIcon = styled.div.attrs<IStyledIcon>({
   justify-content: center;
   transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
   border-radius: 100%;
-  ${colorStyles}
   ${sizeStyles}
+  ${colorStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
