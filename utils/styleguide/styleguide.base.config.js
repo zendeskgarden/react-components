@@ -232,6 +232,7 @@ const defaultStyleguideConfig = {
       alias: {
         'package.json': path.resolve('package.json'),
         'CHANGELOG.md': path.resolve('CHANGELOG.md'),
+        '@zendeskgarden/react-accordions': path.resolve('..', 'accordions'),
         '@zendeskgarden/react-avatars': path.resolve('..', 'avatars'),
         '@zendeskgarden/react-breadcrumbs': path.resolve('..', 'breadcrumbs'),
         '@zendeskgarden/react-buttons': path.resolve('..', 'buttons'),

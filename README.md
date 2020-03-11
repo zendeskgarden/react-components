@@ -23,6 +23,7 @@ to install.
 
 | Package                                                        | Version                                                             | Size                                                                 | Dependencies                                                                           |
 | -------------------------------------------------------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| [`@zendeskgarden/react-accordions`](packages/accordions)       | [![npm version][accordions npm version]][accordions npm link]       | [![Bundle Size][accordions size bundle]][accordions size link]       | [![Dependency Status][accordions dependency status]][accordions dependency link]       |
 | [`@zendeskgarden/react-avatars`](packages/avatars)             | [![npm version][avatars npm version]][avatars npm link]             | [![Bundle Size][avatars size bundle]][avatars size link]             | [![Dependency Status][avatars dependency status]][avatars dependency link]             |
 | [`@zendeskgarden/react-breadcrumbs`](packages/breadcrumbs)     | [![npm version][breadcrumbs npm version]][breadcrumbs npm link]     | [![Bundle Size][breadcrumbs size bundle]][breadcrumbs size link]     | [![Dependency Status][breadcrumbs dependency status]][breadcrumbs dependency link]     |
 | [`@zendeskgarden/react-buttons`](packages/buttons)             | [![npm version][buttons npm version]][buttons npm link]             | [![Bundle Size][buttons size bundle]][buttons size link]             | [![Dependency Status][buttons dependency status]][buttons dependency link]             |
@@ -42,6 +43,12 @@ to install.
 | [`@zendeskgarden/react-tooltips`](packages/tooltips)           | [![npm version][tooltips npm version]][tooltips npm link]           | [![Bundle Size][tooltips size bundle]][tooltips size link]           | [![Dependency Status][tooltips dependency status]][tooltips dependency link]           |
 | [`@zendeskgarden/react-typography`](packages/typography)       | [![npm version][typography npm version]][typography npm link]       | [![Bundle Size][typography size bundle]][typography size link]       | [![Dependency Status][typography dependency status]][typography dependency link]       |
 
+[accordions npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-accordions
+[accordions npm link]: https://www.npmjs.com/package/@zendeskgarden/react-accordions
+[accordions size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-accordions
+[accordions size link]: https://bundlephobia.com/result?p=@zendeskgarden/react-accordions
+[accordions dependency status]: https://flat.badgen.net/david/dep/zendeskgarden/react-components/packages/accordions
+[accordions dependency link]: https://david-dm.org/zendeskgarden/react-components?path=packages/accordions
 [avatars npm version]: https://flat.badgen.net/npm/v/@zendeskgarden/react-avatars
 [avatars npm link]: https://www.npmjs.com/package/@zendeskgarden/react-avatars
 [avatars size bundle]: https://flat.badgen.net/bundlephobia/minzip/@zendeskgarden/react-avatars
