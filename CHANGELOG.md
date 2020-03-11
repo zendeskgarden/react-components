@@ -11,6 +11,24 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+
+## v8.2.0 (2020-03-11)
+
+#### :rocket: New Feature
+* `accordions`
+  * [#658](https://github.com/zendeskgarden/react-components/pull/658) feat(accordions): introduce new Stepper component ([@hzhu](https://github.com/hzhu))
+
+#### :bug: Bug Fix
+* Other
+  * [#665](https://github.com/zendeskgarden/react-components/pull/665) chore: fix CircleCI config ([@jzempel](https://github.com/jzempel))
+* `modals`
+  * [#663](https://github.com/zendeskgarden/react-components/pull/663) fix(modals): include useModal args as props ([@hzhu](https://github.com/hzhu))
+
+#### :seedling: Internal
+* Other
+  * [#666](https://github.com/zendeskgarden/react-components/pull/666) chore: add /examples to renovate configuration ([@jzempel](https://github.com/jzempel))
+* `.template`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`, `utilities`
+  * [#664](https://github.com/zendeskgarden/react-components/pull/664) chore: update to use CircleCI ([@jzempel](https://github.com/jzempel))
 Extra `patch` release to correct broken build in `v8` release.
 
 
