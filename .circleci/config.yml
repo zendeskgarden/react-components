@@ -14,6 +14,11 @@ references:
     attach_workspace:
       at: *workspace_root
 
+  persist_to_workspace: &persist_to_workspace
+    persist_to_workspace:
+      root: *workspace_root
+      paths: .
+
 jobs:
   build:
     <<: *executor
@@ -26,9 +31,7 @@ jobs:
             - run: yarn --frozen-lockfile --ignore-scripts
             - run: yarn lerna bootstrap
             - run: yarn lerna run build --concurrency=2 # prevent out-of-memory
-      - persist_to_workspace:
-          root: *workspace_root
-          paths: .
+      - *persist_to_workspace
 
   test:
     <<: *executor
@@ -39,6 +42,7 @@ jobs:
       - run: yarn tsc
       - run: yarn test:all --coverage --runInBand
       - run: '[ $COVERALLS_REPO_TOKEN ] && yarn coveralls < demo/coverage/lcov.info || true'
+      - *persist_to_workspace
 
   deploy:
     <<: *executor
@@ -47,8 +51,6 @@ jobs:
     steps:
       - *attach_workspace
       - run: yarn lerna run build:demo --concurrency=2 # prevent out-of-memory
-      - run: git config user.email 'sayhi@circleci.com'
-      - run: git config user.name 'CircleCI'
       - run: utils/scripts/gh-pages.js
 
   publish:
