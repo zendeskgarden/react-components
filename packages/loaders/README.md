@@ -1,7 +1,4 @@
-# @zendeskgarden/react-loaders [![npm version][npm version badge]][npm version link]
-
-[npm version badge]: https://flat.badgen.net/npm/v/@zendeskgarden/react-loaders
-[npm version link]: https://www.npmjs.com/package/@zendeskgarden/react-loaders
+# @zendeskgarden/react-loaders [![npm version](https://flat.badgen.net/npm/v/@zendeskgarden/react-loaders)](https://www.npmjs.com/package/@zendeskgarden/react-loaders)
 
 This package includes components relating to loaders in the
 [Garden Design System](https://zendeskgarden.github.io/).

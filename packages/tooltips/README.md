@@ -1,7 +1,4 @@
-# @zendeskgarden/react-tooltips [![npm version][npm version badge]][npm version link]
-
-[npm version badge]: https://flat.badgen.net/npm/v/@zendeskgarden/react-tooltips
-[npm version link]: https://www.npmjs.com/package/@zendeskgarden/react-tooltips
+# @zendeskgarden/react-tooltips [![npm version](https://flat.badgen.net/npm/v/@zendeskgarden/react-tooltips)](https://www.npmjs.com/package/@zendeskgarden/react-tooltips)
 
 This package includes presentation components and render prop containers relating to Tooltips
 in the Garden Design System.

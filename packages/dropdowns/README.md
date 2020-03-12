@@ -1,7 +1,4 @@
-# @zendeskgarden/react-dropdowns [![npm version][npm version badge]][npm version link]
-
-[npm version badge]: https://flat.badgen.net/npm/v/@zendeskgarden/react-dropdowns
-[npm version link]: https://www.npmjs.com/package/@zendeskgarden/react-dropdowns
+# @zendeskgarden/react-dropdowns [![npm version](https://flat.badgen.net/npm/v/@zendeskgarden/react-dropdowns)](https://www.npmjs.com/package/@zendeskgarden/react-dropdowns)
 
 This package includes components relating to dropdowns in the
 [Garden Design System](https://zendeskgarden.github.io/).

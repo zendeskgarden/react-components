@@ -1,7 +1,4 @@
-# @zendeskgarden/react-tabs [![npm version][npm version badge]][npm version link]
-
-[npm version badge]: https://flat.badgen.net/npm/v/@zendeskgarden/react-tabs
-[npm version link]: https://www.npmjs.com/package/@zendeskgarden/react-tabs
+# @zendeskgarden/react-tabs [![npm version](https://flat.badgen.net/npm/v/@zendeskgarden/react-tabs)](https://www.npmjs.com/package/@zendeskgarden/react-tabs)
 
 This package includes several varieties of Tabs relating to
 the [Garden Design System](https://zendeskgarden.github.io/).

@@ -1,7 +1,4 @@
-# @zendeskgarden/react-pagination [![npm version][npm version badge]][npm version link]
-
-[npm version badge]: https://flat.badgen.net/npm/v/@zendeskgarden/react-pagination
-[npm version link]: https://www.npmjs.com/package/@zendeskgarden/react-pagination
+# @zendeskgarden/react-pagination [![npm version](https://flat.badgen.net/npm/v/@zendeskgarden/react-pagination)](https://www.npmjs.com/package/@zendeskgarden/react-pagination)
 
 This package includes components relating to pagination in the
 [Garden Design System](https://zendeskgarden.github.io/).

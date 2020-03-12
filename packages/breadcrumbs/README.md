@@ -1,7 +1,4 @@
-# @zendeskgarden/react-breadcrumbs [![npm version][npm version badge]][npm version link]
-
-[npm version badge]: https://flat.badgen.net/npm/v/@zendeskgarden/react-breadcrumbs
-[npm version link]: https://www.npmjs.com/package/@zendeskgarden/react-breadcrumbs
+# @zendeskgarden/react-breadcrumbs [![npm version](https://flat.badgen.net/npm/v/@zendeskgarden/react-breadcrumbs)](https://www.npmjs.com/package/@zendeskgarden/react-breadcrumbs)
 
 This package includes components relating to breadcrumbs in the
 [Garden Design System](https://zendeskgarden.github.io/).

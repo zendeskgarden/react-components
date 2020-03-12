@@ -1,7 +1,4 @@
-# @zendeskgarden/react-typography [![npm version][npm version badge]][npm version link]
-
-[npm version badge]: https://flat.badgen.net/npm/v/@zendeskgarden/react-typography
-[npm version link]: https://www.npmjs.com/package/@zendeskgarden/react-typography
+# @zendeskgarden/react-typography [![npm version](https://flat.badgen.net/npm/v/@zendeskgarden/react-typography)](https://www.npmjs.com/package/@zendeskgarden/react-typography)
 
 This package includes components relating to typography in the
 [Garden Design System](https://zendeskgarden.github.io/).

@@ -1,7 +1,4 @@
-# @zendeskgarden/react-utilities [![npm version][npm version badge]][npm version link]
-
-[npm version badge]: https://flat.badgen.net/npm/v/@zendeskgarden/react-utilities
-[npm version link]: https://www.npmjs.com/package/@zendeskgarden/react-utilities
+# @zendeskgarden/react-utilities [![npm version](https://flat.badgen.net/npm/v/@zendeskgarden/react-utilities)](https://www.npmjs.com/package/@zendeskgarden/react-utilities)
 
 This package includes modules relating to utilities in the
 [Garden Design System](https://zendeskgarden.github.io/).

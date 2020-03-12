@@ -4,7 +4,7 @@ context with other Garden components.
 ### Chrome header
 
 Use an `extrasmall` avatar within a Chrome `HeaderItem` in order to provide a
-user profile menu. Remember to add the `round` prop to the header item so
+user profile menu. Remember to add the `isRound` prop to the header item so
 that the keyboard focus ring is properly styled. Status may be added to this
 avatar without impacting the height of the header. See the code for details.
 
@@ -27,7 +27,7 @@ const GridIcon = require('@zendeskgarden/svg-icons/src/16/grid-2x2-stroke.svg').
           <GridIcon />
         </HeaderItemIcon>
       </HeaderItem>
-      <HeaderItem as="button" round>
+      <HeaderItem as="button" isRound>
         <Avatar size="extrasmall">
           <img alt="Example User" src={`images/avatar-${Math.floor(Math.random() * 70 + 1)}.png`} />
         </Avatar>
