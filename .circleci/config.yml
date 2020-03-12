@@ -47,8 +47,6 @@ jobs:
     steps:
       - *attach_workspace
       - run: yarn lerna run build:demo --concurrency=2 # prevent out-of-memory
-      - run: git config user.email 'sayhi@circleci.com'
-      - run: git config user.name 'CircleCI'
       - run: utils/scripts/gh-pages.js
 
   publish:
