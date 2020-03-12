@@ -93,6 +93,7 @@
     "lerna": "3.20.2",
     "lerna-changelog": "1.0.0",
     "lint-staged": "10.0.7",
+    "live-server": "1.2.1",
     "markdown-loader": "5.1.0",
     "markdownlint-cli": "0.22.0",
     "micromatch": "4.0.2",
