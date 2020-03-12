@@ -1,7 +1,4 @@
-# @zendeskgarden/react-grid [![npm version][npm version badge]][npm version link]
-
-[npm version badge]: https://flat.badgen.net/npm/v/@zendeskgarden/react-grid
-[npm version link]: https://www.npmjs.com/package/@zendeskgarden/react-grid
+# @zendeskgarden/react-grid [![npm version](https://flat.badgen.net/npm/v/@zendeskgarden/react-grid)](https://www.npmjs.com/package/@zendeskgarden/react-grid)
 
 This package includes components relating to layout grids in the
 [Garden Design System](https://zendeskgarden.github.io/).

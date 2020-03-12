@@ -1,7 +1,4 @@
-# @zendeskgarden/react-tables [![npm version][npm version badge]][npm version link]
-
-[npm version badge]: https://flat.badgen.net/npm/v/@zendeskgarden/react-tables
-[npm version link]: https://www.npmjs.com/package/@zendeskgarden/react-tables
+# @zendeskgarden/react-tables [![npm version](https://flat.badgen.net/npm/v/@zendeskgarden/react-tables)](https://www.npmjs.com/package/@zendeskgarden/react-tables)
 
 This package includes components relating to tables in the
 [Garden Design System](https://zendeskgarden.github.io/).

@@ -1,7 +1,4 @@
-# @zendeskgarden/react-buttons [![npm version][npm version badge]][npm version link]
-
-[npm version badge]: https://flat.badgen.net/npm/v/@zendeskgarden/react-buttons
-[npm version link]: https://www.npmjs.com/package/@zendeskgarden/react-buttons
+# @zendeskgarden/react-buttons [![npm version](https://flat.badgen.net/npm/v/@zendeskgarden/react-buttons)](https://www.npmjs.com/package/@zendeskgarden/react-buttons)
 
 This package includes components relating to buttons in the
 [Garden Design System](https://zendeskgarden.github.io/).

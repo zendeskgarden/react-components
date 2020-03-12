@@ -1,7 +1,4 @@
-# @zendeskgarden/react-accordions [![npm version][npm version badge]][npm version link]
-
-[npm version badge]: https://flat.badgen.net/npm/v/@zendeskgarden/react-accordions
-[npm version link]: https://www.npmjs.com/package/@zendeskgarden/react-accordions
+# @zendeskgarden/react-accordions [![npm version](https://flat.badgen.net/npm/v/@zendeskgarden/react-accordions)](https://www.npmjs.com/package/@zendeskgarden/react-accordions)
 
 This package includes components related to accordions in the
 [Garden Design System](https://zendeskgarden.github.io/).

@@ -1,7 +1,4 @@
-# @zendeskgarden/react-modals [![npm version][npm version badge]][npm version link]
-
-[npm version badge]: https://flat.badgen.net/npm/v/@zendeskgarden/react-modals
-[npm version link]: https://www.npmjs.com/package/@zendeskgarden/react-modals
+# @zendeskgarden/react-modals [![npm version](https://flat.badgen.net/npm/v/@zendeskgarden/react-modals)](https://www.npmjs.com/package/@zendeskgarden/react-modals)
 
 This package includes components relating to modals in the
 [Garden Design System](https://zendeskgarden.github.io/).

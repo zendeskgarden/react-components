@@ -1,7 +1,4 @@
-# @zendeskgarden/react-tags [![npm version][npm version badge]][npm version link]
-
-[npm version badge]: https://flat.badgen.net/npm/v/@zendeskgarden/react-tags
-[npm version link]: https://www.npmjs.com/package/@zendeskgarden/react-tags
+# @zendeskgarden/react-tags [![npm version](https://flat.badgen.net/npm/v/@zendeskgarden/react-tags)](https://www.npmjs.com/package/@zendeskgarden/react-tags)
 
 This package includes components relating to tags in the
 [Garden Design System](https://zendeskgarden.github.io/).
