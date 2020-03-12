@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@zendeskgarden/react-theming": "^8.2.0",
-    "@zendeskgarden/svg-icons": "6.10.0",
+    "@zendeskgarden/svg-icons": "6.13.1",
     "react-beautiful-dnd": "12.2.0",
     "react-window": "1.8.5"
   },
