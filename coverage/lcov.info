@@ -948,8 +948,8 @@ DA:57,3
 DA:64,3
 LF:11
 LH:11
-BRDA:35,0,0,6
-BRDA:35,0,1,6
+BRDA:38,0,0,6
+BRDA:38,0,1,6
 BRF:2
 BRH:2
 end_of_record
