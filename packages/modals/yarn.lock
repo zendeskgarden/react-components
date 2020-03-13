@@ -48,10 +48,19 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
 
-"@zendeskgarden/svg-icons@6.10.0":
-  version "6.10.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-6.10.0.tgz#cb50b0f93a70cd11b79cf83526c122a1fcf053f0"
-  integrity sha512-lytNS9gsuiIPX5cmAP/L+DUZH9UdVyvUmaUoPsq1e+b82hVcA2sUj6S82WTtDeh/Kzu897duENiNRkthdt4Cow==
+"@zendeskgarden/react-theming@^8.2.0":
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.2.0.tgz#77c300f9ff9d2ea866571246f69d9005607dd7db"
+  integrity sha512-t7GvHPFym4eksIXLjW/zZv1XTqdi88G8M8w1X9vQDggZh1XeIPxAezEGQT/rnS0Yk0o7xYCPWjsqPmutG1/gtw==
+  dependencies:
+    "@zendeskgarden/container-focusvisible" "^0.4.3"
+    "@zendeskgarden/container-utilities" "^0.5.1"
+    polished "^3.4.4"
+
+"@zendeskgarden/svg-icons@6.13.1":
+  version "6.13.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-6.13.1.tgz#7e4e6844dae773bc0e1f59e6c01098cdf93a2b96"
+  integrity sha512-MWqWsjWOYm76Rtv/jgfKDv6Y4K6QeqVjLZh9KN19yH/j/P+1RVwERK8HzJUHxRqvj6DGAe+RZxor9N4B+/kXzA==
 
 csstype@^2.6.7:
   version "2.6.8"
@@ -65,6 +74,13 @@ dom-helpers@^5.1.0:
   dependencies:
     "@babel/runtime" "^7.6.3"
     csstype "^2.6.7"
+
+polished@^3.4.4:
+  version "3.4.4"
+  resolved "https://registry.yarnpkg.com/polished/-/polished-3.4.4.tgz#ac8cd6e704887398f3b802718f9d389b9ea4307b"
+  integrity sha512-x9PKeExyI9AhWrJP3Q57I1k7GInujjiVBJMPFmycj9hX1yCOo/X9eu9eZwxgOziiXge3WbFQ5XOmkzunOntBSA==
+  dependencies:
+    "@babel/runtime" "^7.6.3"
 
 react-uid@^2.2.0:
   version "2.2.0"
