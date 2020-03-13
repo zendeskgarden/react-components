@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { render, renderRtl, fireEvent } from 'garden-test-utils';
+import { render, renderRtl, fireEvent, act } from 'garden-test-utils';
 import { addDays, subDays } from 'date-fns';
 import mockDate from 'mockdate';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
@@ -236,9 +236,11 @@ describe('Datepicker', () => {
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      fireEvent.mouseUp(getByTestId('input'));
-      jest.runOnlyPendingTimers();
-      fireEvent.click(getByTestId('input'));
+      act(() => {
+        fireEvent.mouseUp(getByTestId('input'));
+        jest.runOnlyPendingTimers();
+        fireEvent.click(getByTestId('input'));
+      });
 
       expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
     });
