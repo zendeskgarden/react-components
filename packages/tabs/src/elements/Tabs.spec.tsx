@@ -131,7 +131,7 @@ describe('Tabs', () => {
             <TabPanel>Invalid panel</TabPanel>
           </Tabs>
         );
-      }).toThrow('Accessibility Error: You must provide an "item" option to "getTabProps()"');
+      }).toThrow('Accessibility Error: You must provide an "item" option to "getTabPanelProps()"');
 
       console.error = originalError;
     });
