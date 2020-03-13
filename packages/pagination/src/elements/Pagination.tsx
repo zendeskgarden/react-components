@@ -70,7 +70,7 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
     },
     ref
   ) => {
-    const [focusedItem, setFocusedItem] = useState();
+    const [focusedItem, setFocusedItem] = useState<number | string>();
     const [internalCurrentPage, setCurrentPage] = useState(1);
     const currentPage = getControlledValue(controlledCurrentPage, internalCurrentPage);
 
