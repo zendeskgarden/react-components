@@ -27,7 +27,6 @@
     "polished": "^3.4.4"
   },
   "peerDependencies": {
-    "prop-types": "^15.6.1",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "styled-components": "^4.2.0"
