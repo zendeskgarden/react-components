@@ -13,6 +13,7 @@ const PALETTE = {
     support: '#78a300',
     message: '#37b8af',
     explore: '#30aabc',
+    gather: '#e7afa2',
     guide: '#eb4962',
     connect: '#eb6651',
     chat: '#f79a3e',
