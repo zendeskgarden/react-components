@@ -8,7 +8,7 @@
 import 'styled-components';
 
 declare module 'styled-components' {
-  export type Hue = Record<number | string, string> | string;
+  type Hue = Record<number | string, string> | string;
 
   /* eslint-disable-next-line @typescript-eslint/interface-name-prefix */
   export interface DefaultTheme {
