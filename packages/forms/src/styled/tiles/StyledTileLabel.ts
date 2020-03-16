@@ -45,11 +45,8 @@ export const StyledTileLabel = styled.span.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledTileLabelProps>`
   display: block;
-  overflow: hidden;
   text-align: ${props => props.isCentered && 'center'};
-  text-overflow: ellipsis;
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
-  white-space: nowrap;
   font-size: ${props => props.theme.fontSizes.md};
   font-weight: ${props => props.theme.fontWeights.semibold};
 

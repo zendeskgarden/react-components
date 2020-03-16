@@ -8,6 +8,7 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { rgba } from 'polished';
+import { StyledTileIcon } from './StyledTileIcon';
 
 const COMPONENT_ID = 'forms.tile';
 
@@ -20,13 +21,13 @@ interface IStyledTileProps {
 const colorStyles = (props: IStyledTileProps & ThemeProps<DefaultTheme>) => {
   const SHADE = 600;
 
+  const iconColor = getColor('neutralHue', SHADE, props.theme);
+  const color = getColor('neutralHue', SHADE + 200, props.theme);
   const borderColor = getColor('neutralHue', SHADE - 300, props.theme);
-  const hoverColor = getColor('neutralHue', SHADE + 100, props.theme);
   const hoverBackgroundColor = getColor('primaryHue', SHADE, props.theme, 0.08);
   const hoverBorderColor = getColor('primaryHue', SHADE - 200, props.theme);
   const focusBorderColor = getColor('primaryHue', SHADE, props.theme);
   const focusBoxShadow = props.theme.shadows.md(rgba(focusBorderColor!, 0.35));
-  const activeColor = getColor('neutralHue', SHADE + 200, props.theme);
   const activeBackgroundColor = getColor('primaryHue', SHADE, props.theme, 0.2);
   const activeBorderColor = focusBorderColor;
   const disabledBackgroundColor = getColor('neutralHue', SHADE - 500, props.theme);
@@ -44,7 +45,11 @@ const colorStyles = (props: IStyledTileProps & ThemeProps<DefaultTheme>) => {
     border: ${props.theme.borders.sm} ${getColor('neutralHue', SHADE - 300, props.theme)};
     border-color: ${borderColor};
     background-color: ${props.theme.colors.background};
-    color: ${getColor('neutralHue', SHADE, props.theme)};
+    color: ${color};
+
+    ${StyledTileIcon} {
+      color: ${iconColor};
+    }
 
     &:focus {
       outline: none;
@@ -53,7 +58,11 @@ const colorStyles = (props: IStyledTileProps & ThemeProps<DefaultTheme>) => {
     &:hover:not([aria-disabled='true']) {
       border-color: ${hoverBorderColor};
       background-color: ${hoverBackgroundColor};
-      color: ${hoverColor};
+
+      /* stylelint-disable-next-line selector-max-specificity */
+      ${StyledTileIcon} {
+        color: ${color};
+      }
     }
 
     &[data-garden-focus-visible='true'] {
@@ -64,13 +73,21 @@ const colorStyles = (props: IStyledTileProps & ThemeProps<DefaultTheme>) => {
     &:active:not([aria-disabled='true']) {
       border-color: ${activeBorderColor};
       background-color: ${activeBackgroundColor};
-      color: ${activeColor};
+
+      /* stylelint-disable-next-line selector-max-specificity */
+      ${StyledTileIcon} {
+        color: ${color};
+      }
     }
 
     &[data-garden-selected='true'] {
       border-color: ${selectedBorderColor};
       background-color: ${selectedBackgroundColor};
       color: ${props.theme.colors.background};
+
+      ${StyledTileIcon} {
+        color: ${props.theme.colors.background};
+      }
     }
 
     /* stylelint-disable selector-max-specificity */
@@ -78,12 +95,20 @@ const colorStyles = (props: IStyledTileProps & ThemeProps<DefaultTheme>) => {
       border-color: ${selectedHoverBorderColor};
       background-color: ${selectedHoverBackgroundColor};
       color: ${props.theme.colors.background};
+
+      ${StyledTileIcon} {
+        color: ${props.theme.colors.background};
+      }
     }
 
     &[data-garden-selected='true']:not([aria-disabled='true']):active {
       border-color: ${selectedActiveBorderColor};
       background-color: ${selectedActiveBackgroundColor};
       color: ${props.theme.colors.background};
+
+      ${StyledTileIcon} {
+        color: ${props.theme.colors.background};
+      }
     }
     /* stylelint-enable selector-max-specificity */
 
@@ -91,11 +116,21 @@ const colorStyles = (props: IStyledTileProps & ThemeProps<DefaultTheme>) => {
       border-color: ${disabledBorderColor};
       background-color: ${disabledBackgroundColor};
       color: ${disabledColor};
+
+      /* stylelint-disable-next-line selector-max-specificity */
+      ${StyledTileIcon} {
+        color: ${disabledColor};
+      }
     }
 
     &[data-garden-selected='true'][aria-disabled='true'] {
       background-color: ${selectedDisabledBackgroundColor};
       color: ${disabledColor};
+
+      /* stylelint-disable-next-line selector-max-specificity */
+      ${StyledTileIcon} {
+        color: ${disabledColor};
+      }
     }
   `;
 };
