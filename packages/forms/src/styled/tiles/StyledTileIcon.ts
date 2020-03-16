@@ -48,6 +48,7 @@ export const StyledTileIcon = styled.span.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledTileIconProps>`
   display: block;
+  transition: color 0.25s ease-in-out;
   text-align: center;
   line-height: 0;
 
