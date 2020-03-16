@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1584383777445" clover="3.2.0">
-  <project timestamp="1584383777445" name="All files">
+<coverage generated="1584390572530" clover="3.2.0">
+  <project timestamp="1584390572530" name="All files">
     <metrics statements="5609" coveredstatements="5594" conditionals="2216" coveredconditionals="2073" methods="1186" coveredmethods="1183" elements="9011" coveredelements="8850" complexity="0" loc="5609" ncloc="5609" packages="96" files="370" classes="370"/>
     <package name="accordions.src.elements">
       <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -6393,33 +6393,33 @@
         <metrics statements="29" coveredstatements="29" conditionals="29" coveredconditionals="29" methods="4" coveredmethods="4"/>
         <line num="10" count="207" type="stmt"/>
         <line num="11" count="207" type="stmt"/>
-        <line num="14" count="207" type="stmt"/>
         <line num="16" count="207" type="stmt"/>
-        <line num="17" count="25" type="cond" truecount="2" falsecount="0"/>
-        <line num="19" count="9" type="stmt"/>
-        <line num="21" count="9" type="cond" truecount="2" falsecount="0"/>
-        <line num="24" count="16" type="stmt"/>
-        <line num="43" count="207" type="stmt"/>
-        <line num="51" count="92815" type="cond" truecount="2" falsecount="0"/>
-        <line num="52" count="1" type="stmt"/>
-        <line num="55" count="92814" type="cond" truecount="4" falsecount="0"/>
-        <line num="56" count="92814" type="cond" truecount="4" falsecount="0"/>
-        <line num="60" count="92814" type="cond" truecount="2" falsecount="0"/>
-        <line num="61" count="92811" type="cond" truecount="2" falsecount="0"/>
-        <line num="63" count="3" type="stmt"/>
-        <line num="66" count="92814" type="cond" truecount="2" falsecount="0"/>
-        <line num="68" count="92799" type="stmt"/>
-        <line num="71" count="92814" type="cond" truecount="2" falsecount="0"/>
-        <line num="72" count="92794" type="stmt"/>
-        <line num="74" count="92794" type="cond" truecount="2" falsecount="0"/>
-        <line num="75" count="5" type="stmt"/>
-        <line num="76" count="28" type="stmt"/>
-        <line num="79" count="23" type="cond" truecount="2" falsecount="0"/>
-        <line num="82" count="5" type="stmt"/>
-        <line num="85" count="20" type="stmt"/>
-        <line num="88" count="92814" type="cond" truecount="2" falsecount="0"/>
-        <line num="89" count="35016" type="stmt"/>
-        <line num="92" count="92814" type="stmt"/>
+        <line num="18" count="207" type="stmt"/>
+        <line num="19" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="9" type="stmt"/>
+        <line num="23" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="26" count="16" type="stmt"/>
+        <line num="45" count="207" type="stmt"/>
+        <line num="53" count="92815" type="cond" truecount="2" falsecount="0"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="57" count="92814" type="cond" truecount="4" falsecount="0"/>
+        <line num="58" count="92814" type="cond" truecount="4" falsecount="0"/>
+        <line num="62" count="92814" type="cond" truecount="2" falsecount="0"/>
+        <line num="63" count="92811" type="cond" truecount="2" falsecount="0"/>
+        <line num="65" count="3" type="stmt"/>
+        <line num="68" count="92814" type="cond" truecount="2" falsecount="0"/>
+        <line num="70" count="92799" type="stmt"/>
+        <line num="73" count="92814" type="cond" truecount="2" falsecount="0"/>
+        <line num="74" count="92794" type="stmt"/>
+        <line num="76" count="92794" type="cond" truecount="2" falsecount="0"/>
+        <line num="77" count="5" type="stmt"/>
+        <line num="78" count="28" type="stmt"/>
+        <line num="81" count="23" type="cond" truecount="2" falsecount="0"/>
+        <line num="84" count="5" type="stmt"/>
+        <line num="87" count="20" type="stmt"/>
+        <line num="90" count="92814" type="cond" truecount="2" falsecount="0"/>
+        <line num="91" count="35016" type="stmt"/>
+        <line num="94" count="92814" type="stmt"/>
       </file>
       <file name="getDocument.ts" path="/home/circleci/project/packages/theming/src/utils/getDocument.ts">
         <metrics statements="2" coveredstatements="2" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
