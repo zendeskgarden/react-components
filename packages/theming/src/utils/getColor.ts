@@ -9,7 +9,9 @@
 
 import DEFAULT_THEME from '../elements/theme';
 import { darken, lighten, rgba } from 'polished';
-import { DefaultTheme, Hue } from 'styled-components';
+import { DefaultTheme } from 'styled-components';
+
+type Hue = Record<number | string, string> | string;
 
 const DEFAULT_SHADE = 600;
 
