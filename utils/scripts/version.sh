@@ -49,7 +49,7 @@ echo "$changelog" | node utils/scripts/update-changelog.js
 
 echo "INFO: Committing changelog..."
 git add CHANGELOG.md
-git commit -m "Add $current_tag to CHANGELOG.md [skip ci]" --no-verify --quiet
+git commit -m "chore: add $current_tag to CHANGELOG.md [skip ci]" --no-verify --quiet
 
 echo "INFO: Pushing updates..."
 git push origin master
