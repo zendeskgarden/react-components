@@ -13,7 +13,7 @@ set -e
 
 echo "INFO: Pulling recent changes..."
 git pull
-git fetch --tags
+git fetch --tags --prune --prune-tags
 
 echo "INFO: Validating environment..."
 yarn install
