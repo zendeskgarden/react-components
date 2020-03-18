@@ -29,7 +29,7 @@ current_tag=$(git describe --abbrev=0 --tags)
 previous_tag=$(git describe --abbrev=0 --tags $current_tag^)
 
 echo "INFO: Generating changelog..."
-temp_changelog_path="CHANGELOG.temp"
+temp_changelog_path="CHANGELOG.temp.md"
 GITHUB_AUTH=$GITHUB_AUTH node node_modules/.bin/lerna-changelog --tag-from $previous_tag --tag-to $current_tag > $temp_changelog_path
 
 echo "INFO: Allowing changelog edits..."
