@@ -12,6 +12,34 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.3.0 (2020-03-18)
+
+#### :rocket: New Feature
+* `theming`
+  * [#676](https://github.com/zendeskgarden/react-components/pull/676) feat(theming): add gather product color ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `forms`
+  * [#679](https://github.com/zendeskgarden/react-components/pull/679) fix(tiles): update Tiles label wrapping and Icon colors ([@austin94](https://github.com/austin94))
+* `theming`
+  * [#678](https://github.com/zendeskgarden/react-components/pull/678) fix(theming): remove Hue usage to allow TS projects to build ([@austin94](https://github.com/austin94))
+* `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`, `utilities`
+  * [#667](https://github.com/zendeskgarden/react-components/pull/667) chore: fix CircleCI deploy ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `tables`
+  * [#671](https://github.com/zendeskgarden/react-components/pull/671) chore(deps): update dependency react-beautiful-dnd to v13 ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`
+  * [#669](https://github.com/zendeskgarden/react-components/pull/669) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `datepickers`
+  * [#675](https://github.com/zendeskgarden/react-components/pull/675) chore(deps): update dependency @testing-library/react to v10 ([@renovate[bot]](https://github.com/apps/renovate))
+* Other
+  * [#673](https://github.com/zendeskgarden/react-components/pull/673) chore(deps): update dependency rollup to v2 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#670](https://github.com/zendeskgarden/react-components/pull/670) chore(deps): update dependency github-markdown-css to v4 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#674](https://github.com/zendeskgarden/react-components/pull/674) chore: update gh-pages deploy ([@jzempel](https://github.com/jzempel))
+* `accordions`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `modals`, `notifications`, `pagination`, `tables`, `tags`
+  * [#668](https://github.com/zendeskgarden/react-components/pull/668) chore(deps): update dependency @zendeskgarden/svg-icons to v6.13.1 ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v8.2.0 (2020-03-11)
 
 #### :rocket: New Feature
