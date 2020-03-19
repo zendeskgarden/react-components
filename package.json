@@ -8,7 +8,7 @@
     "build:demo": "lerna run build:demo --stream",
     "build:single": "utils/scripts/scoped-npm-command.js --script build",
     "format": "prettier-package-json --write && yarn format:package_json --write && yarn format:js --write && yarn format:md --write",
-    "format:js": "prettier '{packages,utils}/**/!(dist|typings)/*.{js,ts,tsx}'",
+    "format:js": "prettier \"{packages,utils}/**/!(dist|typings)/*.{js,ts,tsx}\"",
     "format:md": "prettier --loglevel warn 'packages/**/!(dist)/!(CHANGELOG)*.md'",
     "format:package_json": "lerna exec -- prettier-package-json",
     "postinstall": "lerna bootstrap",
