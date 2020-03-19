@@ -15,7 +15,8 @@ const {
   Menu,
   Item
 } = require('@zendeskgarden/react-dropdowns/src');
-const StarStrokeIcon = require('@zendeskgarden/svg-icons/src/12/star-stroke.svg').default; const SmileyStrokeIcon = require('@zendeskgarden/svg-icons/src/12/smiley-stroke.svg').default;
+const StarStrokeIcon = require('@zendeskgarden/svg-icons/src/12/star-stroke.svg').default;
+const SmileyStrokeIcon = require('@zendeskgarden/svg-icons/src/12/smiley-stroke.svg').default;
 const HomeStrokeIcon = require('@zendeskgarden/svg-icons/src/12/home-stroke.svg').default;
 const HeartStrokeIcon = require('@zendeskgarden/svg-icons/src/12/heart-stroke.svg').default;
 const GlobeStrokeIcon = require('@zendeskgarden/svg-icons/src/12/globe-stroke.svg').default;
