@@ -13,7 +13,7 @@
     "format:package_json": "lerna exec -- prettier-package-json",
     "postinstall": "lerna bootstrap",
     "lint": "yarn lint:css && yarn lint:js && yarn lint:md",
-    "lint:css": "stylelint \"{packages,utils}/*/src/**/*.{js,ts,tsx}\" \"!packages/*/src/**/*.spec.{js,ts,tsx}\"",
+    "lint:css": "stylelint '{packages,utils}/**/*.{js,ts,tsx}' '!packages/**/*.spec.{js,ts,tsx}' '!packages/**/dist/**'",
     "lint:js": "eslint packages/*/src/ utils/ --ext js,ts,tsx --max-warnings 0",
     "lint:md": "markdownlint README.md docs/*.md packages/*/examples/*.md packages/*/src/**/*.md packages/*/README.md",
     "new": "utils/scripts/create-package.js",
