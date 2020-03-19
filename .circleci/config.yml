@@ -37,7 +37,6 @@ jobs:
     <<: *executor
     steps:
       - *attach_workspace
-      - run: yarn lint
       - run: yarn prettier-package-json --list-different
       - run: yarn format:package_json --list-different
       - run: yarn format:js --check
