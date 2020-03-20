@@ -5,7 +5,7 @@ ellipsis based on the available container width.
 
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
-const { Toggle, Field, Input, Label, FauxInput, Range } = require('@zendeskgarden/react-forms/src');
+const { Toggle, Field, Label, FauxInput, Range } = require('@zendeskgarden/react-forms/src');
 const {
   Dropdown,
   Select,
@@ -105,6 +105,45 @@ const tags = [
           value={state.width}
         />
       </Field>
+    </Col>
+  </Row>
+</Grid>;
+```
+
+Generally, the color of a Garden `Tag` is determined by setting the `hue`
+prop to one of the available theming
+[palette](https://garden.zendesk.com/react-components/theming/#palette)
+primary or secondary hue values (`grey`, `blue`, `red`, `yellow`, `green`,
+`kale`, etc). However, the `hue` prop is flexible and can accept any valid
+[CSS color value](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value).
+The `Tag` component uses the [PolishedJS
+readableColor()](https://polished.js.org/docs/#readablecolor) utility to
+maintain accessible foreground/background contrast levels.
+
+```jsx
+const { Well } = require('@zendeskgarden/react-notifications/src');
+const { Field, Input, Label } = require('@zendeskgarden/react-forms/src');
+
+<Grid>
+  <Row>
+    <Col>
+      <Well isRecessed style={{ width: 300 }}>
+        <Field>
+          <Label>Hue</Label>
+          <Input
+            isCompact
+            type="color"
+            value={state.hue}
+            onChange={e => setState({ hue: e.target.value })}
+          />
+        </Field>
+      </Well>
+    </Col>
+    <Col alignSelf="center">
+      <Tag hue={state.hue} tabIndex={0}>
+        Custom Hue
+        <Tag.Close onClick={() => alert('Delete tag')} />
+      </Tag>
     </Col>
   </Row>
 </Grid>;

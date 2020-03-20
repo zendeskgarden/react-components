@@ -12,24 +12,12 @@ import Close from './Close';
 
 interface ITagProps extends HTMLAttributes<HTMLDivElement> {
   size?: 'small' | 'medium' | 'large';
-  hue?:
-    | 'grey'
-    | 'blue'
-    | 'kale'
-    | 'red'
-    | 'green'
-    | 'yellow'
-    | 'fuschia'
-    | 'pink'
-    | 'crimson'
-    | 'orange'
-    | 'lemon'
-    | 'lime'
-    | 'mint'
-    | 'teal'
-    | 'azure'
-    | 'royal'
-    | 'purple';
+  /**
+   * Apply a custom tag hue – typically constrained to a
+   * [palette](https://garden.zendesk.com/react-components/theming/#palette)
+   * hue, but with the ability to override using any hex value.
+   */
+  hue?: string;
   isPill?: boolean;
   isRound?: boolean;
 }
@@ -49,25 +37,7 @@ Tag.displayName = 'Tag';
 
 Tag.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  hue: PropTypes.oneOf([
-    'grey',
-    'blue',
-    'kale',
-    'red',
-    'green',
-    'yellow',
-    'fuschia',
-    'pink',
-    'crimson',
-    'orange',
-    'lemon',
-    'lime',
-    'mint',
-    'teal',
-    'azure',
-    'royal',
-    'purple'
-  ]),
+  hue: PropTypes.string,
   isPill: PropTypes.bool,
   isRound: PropTypes.bool
 };

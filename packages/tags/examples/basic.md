@@ -42,7 +42,7 @@ initialState = {
           />
         </Field>
         <Dropdown selectedItem={state.hue} onSelect={hue => setState({ hue })}>
-          <SelectField>
+          <SelectField className="u-mt-xs">
             <SelectLabel>Hue</SelectLabel>
             <Select isCompact>{state.hue}</Select>
           </SelectField>
@@ -68,7 +68,7 @@ initialState = {
           </Menu>
         </Dropdown>
         <Dropdown selectedItem={state.size} onSelect={size => setState({ size })}>
-          <SelectField>
+          <SelectField className="u-mt-xs">
             <SelectLabel>Size</SelectLabel>
             <Select isCompact>{state.size}</Select>
           </SelectField>
@@ -87,7 +87,7 @@ initialState = {
             })
           }
         >
-          <SelectField>
+          <SelectField className="u-mt-xs">
             <SelectLabel>Shape</SelectLabel>
             <Select isCompact>{state.shape}</Select>
           </SelectField>
@@ -97,7 +97,7 @@ initialState = {
             <Item value="round">round</Item>
           </Menu>
         </Dropdown>
-        <Field>
+        <Field className="u-mt-xs">
           <Toggle
             checked={state.avatar}
             onChange={event => setState({ avatar: event.target.checked })}
@@ -107,7 +107,7 @@ initialState = {
             </Label>
           </Toggle>
         </Field>
-        <Field>
+        <Field className="u-mt-xs">
           <Toggle
             checked={state.close}
             onChange={event => setState({ close: event.target.checked })}
