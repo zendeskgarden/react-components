@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1584657323824" clover="3.2.0">
-  <project timestamp="1584657323825" name="All files">
+<coverage generated="1584723439169" clover="3.2.0">
+  <project timestamp="1584723439169" name="All files">
     <metrics statements="5610" coveredstatements="5595" conditionals="2216" coveredconditionals="2073" methods="1186" coveredmethods="1183" elements="9012" coveredelements="8851" complexity="0" loc="5610" ncloc="5610" packages="96" files="370" classes="370"/>
     <package name="accordions.src.elements">
       <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -6190,14 +6190,14 @@
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
-        <line num="44" count="1" type="stmt"/>
-        <line num="45" count="19" type="stmt"/>
-        <line num="48" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="33" count="19" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
         <line num="50" count="1" type="stmt"/>
-        <line num="75" count="1" type="stmt"/>
-        <line num="79" count="1" type="stmt"/>
-        <line num="80" count="1" type="stmt"/>
-        <line num="83" count="1" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
       </file>
     </package>
     <package name="tags.src.styled">
