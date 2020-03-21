@@ -37,10 +37,7 @@ jobs:
     steps:
       - *attach_workspace
       - run: yarn lint
-      - run: yarn prettier-package-json --list-different
-      - run: yarn format:package_json --list-different
-      - run: yarn format:js --check
-      - run: yarn format:md --check
+      - run: yarn format:all
       - run: yarn tsc
       - run: yarn test:all --coverage --runInBand
       - run: '[ $COVERALLS_REPO_TOKEN ] && yarn coveralls < demo/coverage/lcov.info || true'
