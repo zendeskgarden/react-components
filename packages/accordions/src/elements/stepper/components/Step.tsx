@@ -6,8 +6,8 @@
  */
 
 import React, { forwardRef, useRef, HTMLAttributes } from 'react';
-import { StyledStep, StyledLine } from '../../styled';
-import { StepContext, useStepperContext } from '../../utils';
+import { StyledStep, StyledLine } from '../../../styled';
+import { StepContext, useStepperContext } from '../../../utils';
 
 export const Step = forwardRef<HTMLLIElement, HTMLAttributes<HTMLLIElement>>((props, ref) => {
   const { currentIndexRef, isHorizontal } = useStepperContext();

@@ -8,15 +8,15 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import CheckCircleStrokeIcon from '@zendeskgarden/svg-icons/src/16/check-sm-stroke.svg';
-import { StyledLabel, StyledLabelText, StyledIcon, StyledIconFlexContainer } from '../../styled';
-import { useStepContext, useStepperContext } from '../../utils';
+import { StyledLabel, StyledLabelText, StyledIcon, StyledIconFlexContainer } from '../../../styled';
+import { useStepContext, useStepperContext } from '../../../utils';
 
-interface IStepLabel {
+interface ILabel {
   icon?: React.ReactNode;
   isHidden?: boolean;
 }
 
-export const StepLabel = forwardRef<HTMLDivElement, IStepLabel & HTMLAttributes<HTMLDivElement>>(
+export const Label = forwardRef<HTMLDivElement, ILabel & HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
     const { currentStepIndex } = useStepContext();
     const { activeIndex, isHorizontal } = useStepperContext();
@@ -45,9 +45,9 @@ export const StepLabel = forwardRef<HTMLDivElement, IStepLabel & HTMLAttributes<
   }
 );
 
-StepLabel.displayName = 'StepLabel';
+Label.displayName = 'Label';
 
-StepLabel.propTypes = {
+Label.propTypes = {
   icon: PropTypes.node,
   isHidden: PropTypes.bool
 };

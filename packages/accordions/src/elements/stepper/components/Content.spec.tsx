@@ -9,7 +9,7 @@ import React from 'react';
 import { render } from 'garden-test-utils';
 import { Stepper } from '../Stepper';
 
-describe('StepContent', () => {
+describe('Content', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
     const { getByTestId } = render(
@@ -35,7 +35,7 @@ describe('StepContent', () => {
     expect(queryByText('Some content')).toBeNull();
   });
 
-  it('renders StepContent for a vertical Stepper', () => {
+  it('renders Content for a vertical Stepper', () => {
     const { queryByText } = render(
       <Stepper>
         <Stepper.Step>
