@@ -1,6 +1,13 @@
-# Garden React Components [![Build Status](https://img.shields.io/travis/zendeskgarden/react-components/master.svg?style=flat-square)](https://travis-ci.org/zendeskgarden/react-components) [![Dependency Status](https://img.shields.io/david/dev/zendeskgarden/react-components.svg?style=flat-square)](https://david-dm.org/zendeskgarden/react-components?type=dev) [![Coverage Status](https://img.shields.io/coveralls/github/zendeskgarden/react-components/master.svg?style=flat-square)](https://coveralls.io/github/zendeskgarden/react-components) <!-- markdownlint-disable -->
+# Garden React Components [![Build Status][build status badge]][build status link] [![Dependency Status][dependency status badge]][dependency status link] [![Coverage Status][coverage status badge]][coverage status link]<!-- markdownlint-disable -->
 
 <!-- markdownlint-enable -->
+
+[build status badge]: https://flat.badgen.net/circleci/github/zendeskgarden/react-components/v6?label=build
+[build status link]: https://circleci.com/gh/zendeskgarden/react-components/tree/v6
+[dependency status badge]: https://flat.badgen.net/david/dev/zendeskgarden/react-components?label=dependencies
+[dependency status link]: https://david-dm.org/zendeskgarden/react-components?type=dev
+[coverage status badge]: https://flat.badgen.net/coveralls/c/github/zendeskgarden/react-components/v6
+[coverage status link]: https://coveralls.io/github/zendeskgarden/react-components?branch=v6
 
 > :seedling: Garden is a design system for Zendesk
 
