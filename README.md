@@ -2,8 +2,8 @@
 
 <!-- markdownlint-enable -->
 
-[build status badge]: https://flat.badgen.net/circleci/github/zendeskgarden/react-containers/master?label=build
-[build status link]: https://circleci.com/gh/zendeskgarden/react-containers/tree/master
+[build status badge]: https://flat.badgen.net/circleci/github/zendeskgarden/react-components/master?label=build
+[build status link]: https://circleci.com/gh/zendeskgarden/react-components/tree/master
 [dependency status badge]: https://flat.badgen.net/david/dev/zendeskgarden/react-components?label=dependencies
 [dependency status link]: https://david-dm.org/zendeskgarden/react-components?type=dev
 [coverage status badge]: https://flat.badgen.net/coveralls/c/github/zendeskgarden/react-components/master
