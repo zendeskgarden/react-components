@@ -39,7 +39,6 @@ jobs:
       - run: yarn lint
       - run: yarn format:all
       - run: yarn tsc
-      - run: yarn bundlesize --config bundlesize.config.js
       - run: yarn test:all --coverage --runInBand
       - run: '[ $COVERALLS_REPO_TOKEN ] && yarn coveralls < demo/coverage/lcov.info || true'
       - *persist_to_workspace
