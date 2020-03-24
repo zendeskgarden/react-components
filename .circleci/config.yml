@@ -1,0 +1,82 @@
+version: 2.1
+orbs:
+  node: circleci/node@1.1.6
+
+references:
+  executor: &executor
+    executor:
+      name: node/default
+      tag: lts
+
+  workspace_root: &workspace_root ~/project
+
+  attach_workspace: &attach_workspace
+    attach_workspace:
+      at: *workspace_root
+
+  persist_to_workspace: &persist_to_workspace
+    persist_to_workspace:
+      root: *workspace_root
+      paths: .
+
+jobs:
+  build:
+    <<: *executor
+    steps:
+      - checkout
+      - node/with-cache:
+          cache-key: yarn.lock
+          steps:
+            - run: yarn --frozen-lockfile --ignore-scripts
+            - run: yarn lerna bootstrap
+            - run: yarn lerna run build --concurrency=2 # prevent out-of-memory
+      - *persist_to_workspace
+
+  test:
+    <<: *executor
+    steps:
+      - *attach_workspace
+      - run: yarn lint
+      - run: yarn format:all
+      - run: yarn tsc
+      - run: yarn test:all --coverage --runInBand
+      - run: '[ $COVERALLS_REPO_TOKEN ] && yarn coveralls < demo/coverage/lcov.info || true'
+      - *persist_to_workspace
+
+  deploy:
+    <<: *executor
+    environment:
+      NODE_DEBUG: gh-pages
+    steps:
+      - *attach_workspace
+      - run: yarn lerna run build:demo --concurrency=2 # prevent out-of-memory
+      - run: utils/scripts/gh-pages.js
+
+  publish:
+    <<: *executor
+    steps:
+      - *attach_workspace
+      - run: npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+      - run: yarn lerna publish from-git --ignore-scripts --no-verify-access --yes
+
+workflows:
+  main:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+      - deploy:
+          requires:
+            - test
+          context: maintainer
+          filters:
+            branches:
+              only: master
+      - publish:
+          requires:
+            - test
+          context: maintainer
+          filters:
+            branches:
+              only: v7
