@@ -5,4 +5,4 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { Stepper } from './elements/Stepper';
+export { Stepper } from './elements/stepper/Stepper';

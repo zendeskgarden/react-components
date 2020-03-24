@@ -9,7 +9,7 @@ import React from 'react';
 import { render } from 'garden-test-utils';
 import { Stepper } from '../Stepper';
 
-describe('StepLabel', () => {
+describe('Label', () => {
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
     const { getByTestId } = render(

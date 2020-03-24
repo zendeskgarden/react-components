@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export * from './StyledStep';
-export * from './StyledContent';
-export * from './StyledInnerContent';
-export * from './StyledLine';
-export * from './StyledStepper';
-export * from './StyledIcon';
-export * from './StyledLabel';
-export * from './StyledLabelText';
+export * from './stepper/StyledStep';
+export * from './stepper/StyledContent';
+export * from './stepper/StyledInnerContent';
+export * from './stepper/StyledLine';
+export * from './stepper/StyledStepper';
+export * from './stepper/StyledIcon';
+export * from './stepper/StyledLabel';
+export * from './stepper/StyledLabelText';

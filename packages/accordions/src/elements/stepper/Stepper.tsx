@@ -14,17 +14,17 @@ import React, {
   PropsWithoutRef,
   RefAttributes
 } from 'react';
-import { StyledStepper } from '../styled';
-import { StepperContext } from '../utils';
+import { StyledStepper } from '../../styled';
+import { StepperContext } from '../../utils';
 import { Step } from './components/Step';
-import { StepLabel } from './components/StepLabel';
-import { StepContent } from './components/StepContent';
+import { Label } from './components/Label';
+import { Content } from './components/Content';
 
 interface IStaticStepperExport<T, P>
   extends ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> {
   Step: typeof Step;
-  Label: typeof StepLabel;
-  Content: typeof StepContent;
+  Label: typeof Label;
+  Content: typeof Content;
 }
 
 interface IStepperProps extends HTMLAttributes<HTMLOListElement> {
@@ -38,8 +38,8 @@ interface IStepperProps extends HTMLAttributes<HTMLOListElement> {
  * Accepts all `<ol>` attributes and events. Also accepts sub-components:
 
  *  - `Stepper.Step`
- *  - `Stepper.StepLabel`
- *  - `Stepper.StepContent`
+ *  - `Stepper.Label`
+ *  - `Stepper.Content`
  */
 // eslint-disable-next-line react/display-name
 export const Stepper = forwardRef<HTMLOListElement, IStepperProps>(
@@ -64,8 +64,8 @@ export const Stepper = forwardRef<HTMLOListElement, IStepperProps>(
 ) as IStaticStepperExport<HTMLDivElement, IStepperProps>;
 
 Stepper.Step = Step;
-Stepper.Label = StepLabel;
-Stepper.Content = StepContent;
+Stepper.Label = Label;
+Stepper.Content = Content;
 
 Stepper.displayName = 'Stepper';
 

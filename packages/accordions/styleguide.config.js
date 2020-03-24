@@ -39,7 +39,7 @@ module.exports = {
     },
     {
       name: 'Elements',
-      components: '../../packages/accordions/src/elements/[A-Z]*.{ts,tsx}'
+      components: ['../../packages/accordions/src/elements/stepper/[A-Z]*.{ts,tsx}']
     }
   ]
 };
