@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1584982367575" clover="3.2.0">
-  <project timestamp="1584982367575" name="All files">
-    <metrics statements="5610" coveredstatements="5595" conditionals="2216" coveredconditionals="2073" methods="1186" coveredmethods="1183" elements="9012" coveredelements="8851" complexity="0" loc="5610" ncloc="5610" packages="96" files="370" classes="370"/>
-    <package name="accordions.src.elements">
+<coverage generated="1585068372612" clover="3.2.0">
+  <project timestamp="1585068372612" name="All files">
+    <metrics statements="5610" coveredstatements="5595" conditionals="2216" coveredconditionals="2073" methods="1186" coveredmethods="1183" elements="9012" coveredelements="8851" complexity="0" loc="5610" ncloc="5610" packages="97" files="370" classes="370"/>
+    <package name="accordions.src.elements.stepper">
       <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-      <file name="Stepper.tsx" path="/home/circleci/project/packages/accordions/src/elements/Stepper.tsx">
+      <file name="Stepper.tsx" path="/home/circleci/project/packages/accordions/src/elements/stepper/Stepper.tsx">
         <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="8" count="4" type="stmt"/>
         <line num="17" count="4" type="stmt"/>
@@ -25,39 +25,27 @@
         <line num="72" count="4" type="stmt"/>
       </file>
     </package>
-    <package name="accordions.src.elements.components">
+    <package name="accordions.src.elements.stepper.components">
       <metrics statements="40" coveredstatements="40" conditionals="14" coveredconditionals="12" methods="4" coveredmethods="4"/>
-      <file name="Step.tsx" path="/home/circleci/project/packages/accordions/src/elements/components/Step.tsx">
-        <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="8" count="4" type="stmt"/>
-        <line num="9" count="4" type="stmt"/>
-        <line num="10" count="4" type="stmt"/>
-        <line num="12" count="4" type="stmt"/>
-        <line num="13" count="11" type="stmt"/>
-        <line num="14" count="11" type="stmt"/>
-        <line num="15" count="11" type="stmt"/>
-        <line num="17" count="11" type="stmt"/>
-        <line num="27" count="4" type="stmt"/>
-      </file>
-      <file name="StepContent.tsx" path="/home/circleci/project/packages/accordions/src/elements/components/StepContent.tsx">
+      <file name="Content.tsx" path="/home/circleci/project/packages/accordions/src/elements/stepper/components/Content.tsx">
         <metrics statements="15" coveredstatements="15" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="2"/>
         <line num="8" count="4" type="stmt"/>
         <line num="9" count="4" type="stmt"/>
         <line num="10" count="4" type="stmt"/>
         <line num="11" count="4" type="stmt"/>
         <line num="13" count="4" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
         <line num="15" count="3" type="stmt"/>
         <line num="16" count="3" type="stmt"/>
         <line num="17" count="3" type="stmt"/>
-        <line num="18" count="3" type="stmt"/>
-        <line num="20" count="3" type="stmt"/>
-        <line num="21" count="3" type="cond" truecount="4" falsecount="0"/>
-        <line num="22" count="2" type="stmt"/>
-        <line num="24" count="2" type="stmt"/>
-        <line num="28" count="3" type="stmt"/>
-        <line num="36" count="4" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="20" count="3" type="cond" truecount="4" falsecount="0"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="27" count="3" type="stmt"/>
+        <line num="34" count="4" type="stmt"/>
       </file>
-      <file name="StepLabel.tsx" path="/home/circleci/project/packages/accordions/src/elements/components/StepLabel.tsx">
+      <file name="Label.tsx" path="/home/circleci/project/packages/accordions/src/elements/stepper/components/Label.tsx">
         <metrics statements="16" coveredstatements="16" conditionals="6" coveredconditionals="4" methods="1" coveredmethods="1"/>
         <line num="8" count="4" type="stmt"/>
         <line num="9" count="4" type="stmt"/>
@@ -76,10 +64,36 @@
         <line num="48" count="4" type="stmt"/>
         <line num="50" count="4" type="stmt"/>
       </file>
+      <file name="Step.tsx" path="/home/circleci/project/packages/accordions/src/elements/stepper/components/Step.tsx">
+        <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="13" count="11" type="stmt"/>
+        <line num="14" count="11" type="stmt"/>
+        <line num="15" count="11" type="stmt"/>
+        <line num="17" count="11" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
+      </file>
     </package>
     <package name="accordions.src.styled">
-      <metrics statements="98" coveredstatements="98" conditionals="54" coveredconditionals="52" methods="35" coveredmethods="35"/>
-      <file name="StyledContent.ts" path="/home/circleci/project/packages/accordions/src/styled/StyledContent.ts">
+      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="/home/circleci/project/packages/accordions/src/styled/index.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="accordions.src.styled.stepper">
+      <metrics statements="90" coveredstatements="90" conditionals="54" coveredconditionals="52" methods="35" coveredmethods="35"/>
+      <file name="StyledContent.ts" path="/home/circleci/project/packages/accordions/src/styled/stepper/StyledContent.ts">
         <metrics statements="16" coveredstatements="16" conditionals="10" coveredconditionals="10" methods="3" coveredmethods="3"/>
         <line num="8" count="6" type="stmt"/>
         <line num="9" count="6" type="stmt"/>
@@ -98,7 +112,7 @@
         <line num="40" count="4" type="stmt"/>
         <line num="43" count="6" type="stmt"/>
       </file>
-      <file name="StyledIcon.ts" path="/home/circleci/project/packages/accordions/src/styled/StyledIcon.ts">
+      <file name="StyledIcon.ts" path="/home/circleci/project/packages/accordions/src/styled/stepper/StyledIcon.ts">
         <metrics statements="15" coveredstatements="15" conditionals="12" coveredconditionals="11" methods="4" coveredmethods="4"/>
         <line num="8" count="5" type="stmt"/>
         <line num="9" count="5" type="stmt"/>
@@ -116,7 +130,7 @@
         <line num="75" count="5" type="stmt"/>
         <line num="79" count="5" type="stmt"/>
       </file>
-      <file name="StyledInnerContent.tsx" path="/home/circleci/project/packages/accordions/src/styled/StyledInnerContent.tsx">
+      <file name="StyledInnerContent.tsx" path="/home/circleci/project/packages/accordions/src/styled/stepper/StyledInnerContent.tsx">
         <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
         <line num="8" count="4" type="stmt"/>
         <line num="9" count="4" type="stmt"/>
@@ -126,7 +140,7 @@
         <line num="25" count="2" type="stmt"/>
         <line num="28" count="4" type="stmt"/>
       </file>
-      <file name="StyledLabel.ts" path="/home/circleci/project/packages/accordions/src/styled/StyledLabel.ts">
+      <file name="StyledLabel.ts" path="/home/circleci/project/packages/accordions/src/styled/stepper/StyledLabel.ts">
         <metrics statements="12" coveredstatements="12" conditionals="10" coveredconditionals="10" methods="7" coveredmethods="7"/>
         <line num="8" count="5" type="stmt"/>
         <line num="9" count="5" type="stmt"/>
@@ -141,7 +155,7 @@
         <line num="36" count="4" type="stmt"/>
         <line num="39" count="5" type="stmt"/>
       </file>
-      <file name="StyledLabelText.ts" path="/home/circleci/project/packages/accordions/src/styled/StyledLabelText.ts">
+      <file name="StyledLabelText.ts" path="/home/circleci/project/packages/accordions/src/styled/stepper/StyledLabelText.ts">
         <metrics statements="8" coveredstatements="8" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
         <line num="8" count="5" type="stmt"/>
         <line num="9" count="5" type="stmt"/>
@@ -152,7 +166,7 @@
         <line num="24" count="4" type="cond" truecount="2" falsecount="0"/>
         <line num="27" count="5" type="stmt"/>
       </file>
-      <file name="StyledLine.ts" path="/home/circleci/project/packages/accordions/src/styled/StyledLine.ts">
+      <file name="StyledLine.ts" path="/home/circleci/project/packages/accordions/src/styled/stepper/StyledLine.ts">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
         <line num="8" count="5" type="stmt"/>
         <line num="9" count="5" type="stmt"/>
@@ -165,7 +179,7 @@
         <line num="24" count="4" type="stmt"/>
         <line num="27" count="5" type="stmt"/>
       </file>
-      <file name="StyledStep.ts" path="/home/circleci/project/packages/accordions/src/styled/StyledStep.ts">
+      <file name="StyledStep.ts" path="/home/circleci/project/packages/accordions/src/styled/stepper/StyledStep.ts">
         <metrics statements="15" coveredstatements="15" conditionals="12" coveredconditionals="12" methods="9" coveredmethods="9"/>
         <line num="8" count="5" type="stmt"/>
         <line num="9" count="5" type="stmt"/>
@@ -183,7 +197,7 @@
         <line num="41" count="17" type="stmt"/>
         <line num="44" count="5" type="stmt"/>
       </file>
-      <file name="StyledStepper.ts" path="/home/circleci/project/packages/accordions/src/styled/StyledStepper.ts">
+      <file name="StyledStepper.ts" path="/home/circleci/project/packages/accordions/src/styled/stepper/StyledStepper.ts">
         <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="8" count="5" type="stmt"/>
         <line num="9" count="5" type="stmt"/>
@@ -192,17 +206,6 @@
         <line num="24" count="10" type="cond" truecount="2" falsecount="0"/>
         <line num="29" count="10" type="stmt"/>
         <line num="32" count="5" type="stmt"/>
-      </file>
-      <file name="index.ts" path="/home/circleci/project/packages/accordions/src/styled/index.ts">
-        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="8" count="4" type="stmt"/>
-        <line num="9" count="4" type="stmt"/>
-        <line num="10" count="4" type="stmt"/>
-        <line num="11" count="4" type="stmt"/>
-        <line num="12" count="4" type="stmt"/>
-        <line num="13" count="4" type="stmt"/>
-        <line num="14" count="4" type="stmt"/>
-        <line num="15" count="4" type="stmt"/>
       </file>
     </package>
     <package name="accordions.src.utils">

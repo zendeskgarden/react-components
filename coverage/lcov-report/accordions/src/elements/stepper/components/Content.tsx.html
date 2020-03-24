@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for accordions/src/styled/StyledStepper.ts</title>
+    <title>Code coverage report for accordions/src/elements/stepper/components/Content.tsx</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../../prettify.css" />
-    <link rel="stylesheet" href="../../../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.png" />
+    <link rel="stylesheet" href="../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../../sort-arrow-sprite.png);
+            background-image: url(../../../../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">accordions/src/styled</a> StyledStepper.ts</h1>
+        <h1><a href="../../../../../index.html">All files</a> / <a href="index.html">accordions/src/elements/stepper/components</a> Content.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>15/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>15/15</span>
             </div>
         
             
@@ -98,33 +98,33 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
  * Copyright Zendesk, Inc.
  *
@@ -132,33 +132,33 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 &nbsp;
-import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import React, { forwardRef, useEffect, HTMLAttributes } from 'react';
+import { useCombinedRefs } from '@zendeskgarden/container-utilities';
+import { StyledContent, StyledInnerContent } from '../../../styled';
+import { useStepContext, useStepperContext } from '../../../utils';
 &nbsp;
-const COMPONENT_ID = 'accordions.stepper';
+export const Content = forwardRef&lt;HTMLDivElement, HTMLAttributes&lt;HTMLDivElement&gt;&gt;((props, ref) =&gt; {
+  const contentRef = useCombinedRefs&lt;HTMLDivElement&gt;(ref);
+  const { activeIndex, isHorizontal } = useStepperContext();
+  const { currentStepIndex } = useStepContext();
+  const isActive = currentStepIndex === activeIndex;
 &nbsp;
-export interface IStyledStepper {
-  isHorizontal?: boolean;
-}
+  useEffect(() =&gt; {
+    if (contentRef.current &amp;&amp; isHorizontal === false) {
+      const child = contentRef.current.children[0] as any;
 &nbsp;
-/**
- * 1. &lt;ol&gt; reset.
- */
-export const StyledStepper = styled.ol.attrs&lt;IStyledStepper&gt;({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})&lt;IStyledStepper&gt;`
-  display: ${props =&gt; props.isHorizontal &amp;&amp; 'flex'};
-  margin: 0; /* [1] */
-  padding: 0; /* [1] */
-  list-style: none; /* [1] */
+      child.style.height = `${child.scrollHeight}px`;
+    }
+  }, [contentRef, isHorizontal]);
 &nbsp;
-  ${props =&gt; retrieveComponentStyles(COMPONENT_ID, props)};
-`;
+  return isHorizontal === false ? (
+    &lt;StyledContent ref={contentRef} isActive={isActive} {...props}&gt;
+      &lt;StyledInnerContent isActive={isActive}&gt;{props.children}&lt;/StyledInnerContent&gt;
+    &lt;/StyledContent&gt;
+  ) : null;
+});
 &nbsp;
-StyledStepper.defaultProps = {
-  theme: DEFAULT_THEME
-};
+Content.displayName = 'Content';
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -166,17 +166,17 @@ StyledStepper.defaultProps = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Mar 23 2020 16:52:47 GMT+0000 (Coordinated Universal Time)
+                at Tue Mar 24 2020 16:46:12 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
-        <script src="../../../prettify.js"></script>
+        <script src="../../../../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../../../sorter.js"></script>
-        <script src="../../../block-navigation.js"></script>
+        <script src="../../../../../sorter.js"></script>
+        <script src="../../../../../block-navigation.js"></script>
     </body>
 </html>
     
