@@ -12,6 +12,18 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v6.9.3 (2020-03-25)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#684](https://github.com/zendeskgarden/react-components/pull/684) fix(dropdowns): conditionally apply popper ref to Menu ([@davidlimcheng](https://github.com/davidlimcheng))
+
+#### :seedling: Internal
+* Other
+  * [#687](https://github.com/zendeskgarden/react-components/pull/687) chore: configure CircleCI for v6 branch ([@jzempel](https://github.com/jzempel))
+* `datepickers`
+  * [#637](https://github.com/zendeskgarden/react-components/pull/637) fix(build): allow lerna to publish under non-latest tag ([@austin94](https://github.com/austin94))
+
 ## v6.9.2 (2019-12-05)
 
 #### :bug: Bug Fix
