@@ -12,6 +12,23 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.4.0 (2020-03-25)
+
+#### :rocket: New Feature
+* `tags`
+  * [#682](https://github.com/zendeskgarden/react-components/pull/682) feat(tags): allow flexible tag hue ([@jzempel](https://github.com/jzempel))
+
+#### :memo: Documentation
+* [#688](https://github.com/zendeskgarden/react-components/pull/688) fix: correct build status badge links ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `accordions`
+  * [#685](https://github.com/zendeskgarden/react-components/pull/685) chore(steppers): reorganize directory structure ([@hzhu](https://github.com/hzhu))
+* Other
+  * [#683](https://github.com/zendeskgarden/react-components/pull/683) fix: use default CircleCI node_modules cache ([@jzempel](https://github.com/jzempel))
+  * [#681](https://github.com/zendeskgarden/react-components/pull/681) chore: update `format` commands for CI ([@jzempel](https://github.com/jzempel))
+  * [#680](https://github.com/zendeskgarden/react-components/pull/680) chore: sync local tags with remote ([@jzempel](https://github.com/jzempel))
+
 ## v8.3.0 (2020-03-18)
 
 #### :rocket: New Feature
