@@ -3,10 +3,11 @@ context with other Garden components.
 
 ### Chrome header
 
-Use an `extrasmall` avatar within a Chrome `HeaderItem` in order to provide a
-user profile menu. Remember to add the `isRound` prop to the header item so
-that the keyboard focus ring is properly styled. Status may be added to this
-avatar without impacting the height of the header. See the code for details.
+Use an `extrasmall` avatar within a Chrome `HeaderItem` in order to
+provide a user profile menu. Remember to add the `isRound` prop to the header
+item so that the keyboard focus ring is properly styled. Status may be added
+to this avatar without impacting the height of the header. See the code for
+details.
 
 ```jsx
 const {
@@ -67,7 +68,7 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
           <MediaItem value="linden">
             <MediaFigure>
               <Avatar
-                size="small"
+                size="extraextrasmall"
                 status="away"
                 surfaceColor={state.highlightedItem === 0 ? PALETTE.blue[100] : undefined}
               >
@@ -82,7 +83,7 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
           <MediaItem value="reed">
             <MediaFigure>
               <Avatar
-                size="small"
+                size="extraextrasmall"
                 status="available"
                 surfaceColor={state.highlightedItem === 1 ? PALETTE.blue[100] : undefined}
               >
@@ -97,7 +98,7 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
           <MediaItem value="sage">
             <MediaFigure>
               <Avatar
-                size="small"
+                size="extraextrasmall"
                 badge="3"
                 surfaceColor={state.highlightedItem === 2 ? PALETTE.blue[100] : undefined}
               >
@@ -121,7 +122,7 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
           <MediaItem value="clove">
             <MediaFigure>
               <Avatar
-                size="extrasmall"
+                size="extraextrasmall"
                 status="away"
                 surfaceColor={state.highlightedItem === 0 ? PALETTE.blue[100] : undefined}
               >
@@ -136,7 +137,7 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
           <MediaItem value="fennel">
             <MediaFigure>
               <Avatar
-                size="extrasmall"
+                size="extraextrasmall"
                 status="available"
                 surfaceColor={state.highlightedItem === 1 ? PALETTE.blue[100] : undefined}
               >
@@ -151,7 +152,7 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
           <MediaItem value="rue">
             <MediaFigure>
               <Avatar
-                size="extrasmall"
+                size="extraextrasmall"
                 badge="1"
                 surfaceColor={state.highlightedItem === 2 ? PALETTE.blue[100] : undefined}
               >

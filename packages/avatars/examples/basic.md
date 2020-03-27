@@ -5,7 +5,8 @@ the `backgroundColor` of the `<Avatar>` must be set to override the browser's
 may be set to alter the color of the child `<svg>` or `<Avatar.Text>`. Note
 that a `surfaceColor` (default "white") prop should be used on `<Avatar>`
 components to ensure internal status rings blend with current background
-color.
+color. The `<Avatar.Text>` content does not display for extra extra small
+sized avatars.
 
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
@@ -41,7 +42,7 @@ initialState = {
             <Select isCompact>{state.size}</Select>
           </SelectField>
           <Menu isCompact>
-            <Item value="doubleextrasmall">doubleextrasmall</Item>
+            <Item value="extraextrasmall">extraextrasmall</Item>
             <Item value="extrasmall">extrasmall</Item>
             <Item value="small">small</Item>
             <Item value="medium">medium</Item>
