@@ -21,6 +21,7 @@ const badgeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
   let minWidth = '0';
   let height = '0';
   let fontSize = '0';
+  let borderWidth = props.theme.shadowWidths.sm;
 
   if (props.status === 'active') {
     position = math(`${props.theme.space.base} * -1px`);
@@ -34,6 +35,11 @@ const badgeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
     } else if (props.size === 'extrasmall') {
       height = math(`${props.theme.space.base} * 2px`);
       minWidth = height;
+    } else if (props.size === 'doubleextrasmall') {
+      position = math(`${position} + 1`);
+      height = `${props.theme.space.base + 1}px`;
+      minWidth = height;
+      borderWidth = math(`${borderWidth} - 1`);
     } else {
       fontSize = props.theme.fontSizes.xs;
       height = math(`${props.theme.space.base} * 5px`);
@@ -50,6 +56,10 @@ const badgeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
       height = math(`${props.theme.space.base} * 2.5px`);
     } else if (props.size === 'extrasmall') {
       height = math(`${props.theme.space.base} * 2px`);
+    } else if (props.size === 'doubleextrasmall') {
+      position = math(`${position} + 1`);
+      height = `${props.theme.space.base + 1}px`;
+      borderWidth = math(`${borderWidth} - 1`);
     } else {
       height = math(`${props.theme.space.base} * 3px`);
     }
@@ -69,7 +79,7 @@ const badgeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
     }
   `;
   const opacity = props.status === 'active' || props.status === 'available' ? 1 : 0;
-  const border = `${props.theme.shadowWidths.sm} ${props.theme.borderStyles.solid}`;
+  const border = `${borderWidth} ${props.theme.borderStyles.solid}`;
 
   return css`
     display: inline-block;
@@ -144,27 +154,38 @@ const colorStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
 };
 
 const sizeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
+  let boxShadow;
   let borderRadius;
   let size;
   let fontSize;
   let svgSize;
 
-  if (props.size === 'extrasmall') {
+  if (props.size === 'doubleextrasmall') {
+    boxShadow = `0 0 0 ${math(`${props.theme.shadowWidths.sm} - 1`)}`;
+    borderRadius = props.isSystem ? math(`${props.theme.borderRadii.md} - 1`) : '50%';
+    size = `${props.theme.space.base * 4}px`;
+    fontSize = 0;
+    svgSize = `${props.theme.space.base * 3}px`;
+  } else if (props.size === 'extrasmall') {
+    boxShadow = `inset 0 0 0 ${props.theme.shadowWidths.sm}`;
     borderRadius = props.isSystem ? math(`${props.theme.borderRadii.md} - 1`) : '50%';
     size = math(`${props.theme.space.base} * 6px`);
     fontSize = props.theme.fontSizes.sm;
     svgSize = math(`${props.theme.space.base} * 3px`);
   } else if (props.size === 'small') {
+    boxShadow = `inset 0 0 0 ${props.theme.shadowWidths.sm}`;
     borderRadius = props.isSystem ? math(`${props.theme.borderRadii.md} - 1`) : '50%';
     size = math(`${props.theme.space.base} * 8px`);
     fontSize = props.theme.fontSizes.md;
     svgSize = math(`${props.theme.space.base} * 3px`);
   } else if (props.size === 'large') {
+    boxShadow = `inset 0 0 0 ${props.theme.shadowWidths.sm}`;
     borderRadius = props.isSystem ? math(`${props.theme.borderRadii.md} + 1`) : '50%';
     size = math(`${props.theme.space.base} * 12px`);
     fontSize = props.theme.fontSizes.xl;
     svgSize = math(`${props.theme.space.base} * 6px`);
   } else {
+    boxShadow = `inset 0 0 0 ${props.theme.shadowWidths.sm}`;
     borderRadius = props.isSystem ? props.theme.borderRadii.md : '50%';
     size = math(`${props.theme.space.base} * 10px`);
     fontSize = props.theme.fontSizes.lg;
@@ -175,6 +196,10 @@ const sizeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
     border-radius: ${borderRadius};
     width: ${size};
     height: ${size};
+
+    ::before {
+      box-shadow: ${boxShadow};
+    }
 
     & > svg {
       font-size: ${svgSize};
@@ -192,7 +217,7 @@ export interface IStyledAvatarProps {
   foregroundColor?: string;
   surfaceColor?: string;
   isSystem?: boolean;
-  size?: 'extrasmall' | 'small' | 'medium' | 'large';
+  size?: 'doubleextrasmall' | 'extrasmall' | 'small' | 'medium' | 'large';
   status?: 'available' | 'active' | 'away';
 }
 
@@ -221,7 +246,6 @@ export const StyledAvatar = styled.figure.attrs({
     top: 0;
     left: 0;
     transition: box-shadow ${TRANSITION_DURATION}s ease-in-out;
-    box-shadow: ${props => `inset 0 0 0 ${props.theme.shadowWidths.sm}`};
     content: '';
   }
 

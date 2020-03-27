@@ -18,7 +18,7 @@ interface IAvatarProps extends HTMLAttributes<HTMLElement> {
   surfaceColor?: string;
   /** Applies system styling */
   isSystem?: boolean;
-  size?: 'extrasmall' | 'small' | 'medium' | 'large';
+  size?: 'doubleextrasmall' | 'extrasmall' | 'small' | 'medium' | 'large';
   status?: 'available' | 'away';
   badge?: string | number;
 }
@@ -71,7 +71,7 @@ Avatar.propTypes = {
   surfaceColor: PropTypes.string,
   isSystem: PropTypes.bool,
   badge: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  size: PropTypes.oneOf(['extrasmall', 'small', 'medium', 'large']),
+  size: PropTypes.oneOf(['doubleextrasmall', 'extrasmall', 'small', 'medium', 'large']),
   status: PropTypes.oneOf(['available', 'away'])
 };
 

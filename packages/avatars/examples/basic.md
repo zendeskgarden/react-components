@@ -41,20 +41,20 @@ initialState = {
             <Select isCompact>{state.size}</Select>
           </SelectField>
           <Menu isCompact>
+            <Item value="doubleextrasmall">doubleextrasmall</Item>
             <Item value="extrasmall">extrasmall</Item>
             <Item value="small">small</Item>
             <Item value="medium">medium</Item>
             <Item value="large">large</Item>
           </Menu>
         </Dropdown>
-        <Field>
+        <Field className="u-mt-xs">
           <Label>Status</Label>
         </Field>
         <Field>
           <Radio
             checked={!state.status}
             name="status"
-            small
             value={undefined}
             onChange={event => setState({ status: event.target.value })}
           >
@@ -64,7 +64,6 @@ initialState = {
         <Field>
           <Radio
             name="status"
-            small
             value="away"
             onChange={event => setState({ status: event.target.value })}
           >
@@ -74,14 +73,13 @@ initialState = {
         <Field>
           <Radio
             name="status"
-            small
             value="available"
             onChange={event => setState({ status: event.target.value })}
           >
             <Label>Available</Label>
           </Radio>
         </Field>
-        <Field>
+        <Field className="u-mt-xs">
           <Label>Badge</Label>
           <Range
             max={10}
@@ -89,28 +87,28 @@ initialState = {
             value={state.badge}
           />
         </Field>
-        <Field>
+        <Field className="u-mt-xs">
           <Label>Surface</Label>
           <Input
-            small
+            isCompact
             type="color"
             value={state.surfaceColor}
             onChange={event => setState({ surfaceColor: event.target.value })}
           />
         </Field>
-        <Field>
+        <Field className="u-mt-xs">
           <Label>Background</Label>
           <Input
-            small
+            isCompact
             type="color"
             value={state.backgroundColor}
             onChange={event => setState({ backgroundColor: event.target.value })}
           />
         </Field>
-        <Field>
+        <Field className="u-mt-xs">
           <Label>Foreground</Label>
           <Input
-            small
+            isCompact
             type="color"
             value={state.foregroundColor}
             onChange={event => setState({ foregroundColor: event.target.value })}
