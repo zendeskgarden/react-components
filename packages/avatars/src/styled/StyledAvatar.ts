@@ -35,7 +35,7 @@ const badgeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
     } else if (props.size === 'extrasmall') {
       height = `${props.theme.space.base * 2}px`;
       minWidth = height;
-    } else if (props.size === 'doubleextrasmall') {
+    } else if (props.size === 'extraextrasmall') {
       position = math(`${position} + 1`);
       height = `${props.theme.space.base + 1}px`;
       minWidth = height;
@@ -56,7 +56,7 @@ const badgeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
       height = `${props.theme.space.base * 2.5}px`;
     } else if (props.size === 'extrasmall') {
       height = `${props.theme.space.base * 2}px`;
-    } else if (props.size === 'doubleextrasmall') {
+    } else if (props.size === 'extraextrasmall') {
       position = math(`${position} + 1`);
       height = `${props.theme.space.base + 1}px`;
       borderWidth = math(`${borderWidth} - 1`);
@@ -160,7 +160,7 @@ const sizeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
   let fontSize;
   let svgSize;
 
-  if (props.size === 'doubleextrasmall') {
+  if (props.size === 'extraextrasmall') {
     boxShadow = `0 0 0 ${math(`${props.theme.shadowWidths.sm} - 1`)}`;
     borderRadius = props.isSystem ? math(`${props.theme.borderRadii.md} - 1`) : '50%';
     size = `${props.theme.space.base * 4}px`;
@@ -217,7 +217,7 @@ export interface IStyledAvatarProps {
   foregroundColor?: string;
   surfaceColor?: string;
   isSystem?: boolean;
-  size?: 'doubleextrasmall' | 'extrasmall' | 'small' | 'medium' | 'large';
+  size?: 'extraextrasmall' | 'extrasmall' | 'small' | 'medium' | 'large';
   status?: 'available' | 'active' | 'away';
 }
 
