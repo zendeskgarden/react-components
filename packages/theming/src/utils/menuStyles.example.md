@@ -36,11 +36,13 @@ const StyledMenu = styled.div`
 `;
 
 const StyledWrapper = styled.div`
-  ${menuStyles(state.position, {
-    hidden: state.hidden,
-    margin: '8px',
-    animationModifier: '[data-garden-animate="true"]'
-  })};
+  ${props =>
+    menuStyles(state.position, {
+      theme: props.theme,
+      hidden: state.hidden,
+      margin: '8px',
+      animationModifier: '[data-garden-animate="true"]'
+    })};
 `;
 
 const TOP = {
