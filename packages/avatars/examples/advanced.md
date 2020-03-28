@@ -68,7 +68,7 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
           <MediaItem value="linden">
             <MediaFigure>
               <Avatar
-                size="extraextrasmall"
+                size="small"
                 status="away"
                 surfaceColor={state.highlightedItem === 0 ? PALETTE.blue[100] : undefined}
               >
@@ -83,7 +83,7 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
           <MediaItem value="reed">
             <MediaFigure>
               <Avatar
-                size="extraextrasmall"
+                size="small"
                 status="available"
                 surfaceColor={state.highlightedItem === 1 ? PALETTE.blue[100] : undefined}
               >
@@ -98,7 +98,7 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
           <MediaItem value="sage">
             <MediaFigure>
               <Avatar
-                size="extraextrasmall"
+                size="small"
                 badge="3"
                 surfaceColor={state.highlightedItem === 2 ? PALETTE.blue[100] : undefined}
               >
@@ -122,7 +122,7 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
           <MediaItem value="clove">
             <MediaFigure>
               <Avatar
-                size="extraextrasmall"
+                size="extrasmall"
                 status="away"
                 surfaceColor={state.highlightedItem === 0 ? PALETTE.blue[100] : undefined}
               >
@@ -137,7 +137,7 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
           <MediaItem value="fennel">
             <MediaFigure>
               <Avatar
-                size="extraextrasmall"
+                size="extrasmall"
                 status="available"
                 surfaceColor={state.highlightedItem === 1 ? PALETTE.blue[100] : undefined}
               >
@@ -152,7 +152,7 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
           <MediaItem value="rue">
             <MediaFigure>
               <Avatar
-                size="extraextrasmall"
+                size="extrasmall"
                 badge="1"
                 surfaceColor={state.highlightedItem === 2 ? PALETTE.blue[100] : undefined}
               >
