@@ -83,7 +83,8 @@ export interface IStyledSelectProps {
 export const StyledSelect = styled(FauxInput).attrs<IStyledSelectProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  'aria-invalid': isInvalid(props.validation)
+  'aria-invalid': isInvalid(props.validation),
+  theme: props.theme
 }))<IStyledSelectProps>`
   position: relative;
   cursor: ${props => (props.disabled ? 'default' : 'pointer')};
