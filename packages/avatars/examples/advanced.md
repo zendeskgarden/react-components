@@ -3,11 +3,10 @@ context with other Garden components.
 
 ### Chrome header
 
-Use an `extrasmall` avatar within a Chrome `HeaderItem` in order to
-provide a user profile menu. Remember to add the `isRound` prop to the header
-item so that the keyboard focus ring is properly styled. Status may be added
-to this avatar without impacting the height of the header. See the code for
-details.
+Use an `extrasmall` avatar within a Chrome `HeaderItem` in order to provide a
+user profile menu. Remember to add the `isRound` prop to the header item so
+that the keyboard focus ring is properly styled. Status may be added to this
+avatar without impacting the height of the header. See the code for details.
 
 ```jsx
 const {
