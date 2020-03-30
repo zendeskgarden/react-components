@@ -23,6 +23,7 @@ export const StyledMenuWrapper = styled.div.attrs<IStyledMenuWrapperProps>(props
 }))<IStyledMenuWrapperProps>`
   ${props =>
     menuStyles(getMenuPosition(props.placement), {
+      theme: props.theme,
       hidden: props.isHidden,
       margin: `${props.theme.space.base}px`,
       zIndex: props.zIndex,

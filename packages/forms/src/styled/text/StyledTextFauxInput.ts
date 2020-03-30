@@ -28,6 +28,10 @@ export const StyledTextFauxInput = styled(StyledTextInput).attrs<IStyledTextFaux
   align-items: ${props => props.mediaLayout && 'baseline'};
   cursor: ${props => (props.mediaLayout && !props.isDisabled ? 'text' : 'default')};
 
+  & > ${StyledTextInput} {
+    vertical-align: ${props => !props.mediaLayout && 'baseline'};
+  }
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

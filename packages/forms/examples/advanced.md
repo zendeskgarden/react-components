@@ -8,6 +8,7 @@ const EndIcon = require('@zendeskgarden/svg-icons/src/16/filter-stroke.svg').def
 
 initialState = {
   inputValue: '',
+  fauxInputValue: '',
   mediaInputValue: '',
   textareaValue: '',
   checkboxChecked: false,
@@ -74,6 +75,20 @@ const getTextValidation = (value, minimum = 10) =>
     />
     <Message validation={getTextValidation(state.mediaInputValue, 5)}>
       {getTextMessage(state.mediaInputValue, 5)}
+    </Message>
+  </Field>
+  <Field className="u-mt">
+    <Label>Controlled faux input</Label>
+    <Hint>Entry must contain at least 3 characters</Hint>
+    <FauxInput>
+      <Input
+        isBare
+        value={state.fauxInputValue}
+        onChange={event => setState({ fauxInputValue: event.target.value })}
+      />
+    </FauxInput>
+    <Message validation={getTextValidation(state.fauxInputValue, 3)}>
+      {getTextMessage(state.fauxInputValue, 3)}
     </Message>
   </Field>
   <div className="u-mt" role="group" aria-label="controlled radio">
