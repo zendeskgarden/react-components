@@ -12,16 +12,6 @@ import { StyledRadioLabel } from './StyledRadioLabel';
 
 const COMPONENT_ID = 'forms.radio';
 
-const radioSvg = (props: ThemeProps<DefaultTheme>) => {
-  const color = props.theme.colors.background;
-
-  return `
-    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12">
-      <circle cx="6" cy="6" r="2" fill="${color}"/>
-    </svg>
-  `;
-};
-
 const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const SHADE = 600;
 
@@ -39,7 +29,6 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const checkedActiveBorderColor = getColor('primaryHue', SHADE + 200, props.theme);
   const checkedActiveBackgroundColor = checkedActiveBorderColor;
   const disabledBackgroundColor = getColor('neutralHue', SHADE - 400, props.theme);
-  const backgroundImage = encodeURIComponent(radioSvg(props));
 
   return css`
     & ~ ${StyledRadioLabel}::before {
@@ -63,12 +52,13 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
     }
 
     &:checked ~ ${StyledRadioLabel}::before {
-      background-image: url('data:image/svg+xml;charset=utf-8,${backgroundImage}');
-    }
-
-    &:checked ~ ${StyledRadioLabel}::before {
       border-color: ${checkedBorderColor};
       background-color: ${checkedBackgroundColor};
+    }
+
+    /* stylelint-disable-next-line selector-type-case */
+    &:checked ~ ${StyledRadioLabel} > svg {
+      opacity: 1;
     }
 
     /* stylelint-disable selector-max-specificity */
@@ -123,7 +113,6 @@ export const StyledRadioInput = styled.input.attrs({
       border-color .25s ease-in-out,
       box-shadow .1s ease-in-out,
       background-color .25s ease-in-out,
-      background-image .25s ease-in-out,
       color .25s ease-in-out;
     border: ${props => props.theme.borders.sm};
     border-radius: 50%;
@@ -143,7 +132,6 @@ export const StyledRadioInput = styled.input.attrs({
     transition:
       border-color 0.1s ease-in-out,
       background-color 0.1s ease-in-out,
-      background-image 0.1s ease-in-out,
       color 0.1s ease-in-out;
   }
 

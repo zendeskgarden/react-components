@@ -38,6 +38,7 @@ export * from './radio/StyledRadioLabel';
 export * from './radio/StyledRadioHint';
 export * from './radio/StyledRadioInput';
 export * from './radio/StyledRadioMessage';
+export * from './radio/StyledRadioSvg';
 
 /**
  * Toggle styles

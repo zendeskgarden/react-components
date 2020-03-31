@@ -9,7 +9,13 @@ import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import useFieldContext from '../../utils/useFieldContext';
 import useInputContext from '../../utils/useInputContext';
-import { StyledLabel, StyledCheckLabel, StyledRadioLabel, StyledToggleLabel } from '../../styled';
+import {
+  StyledLabel,
+  StyledCheckLabel,
+  StyledRadioLabel,
+  StyledToggleLabel,
+  StyledRadioSvg
+} from '../../styled';
 
 export interface ILabelProps extends HTMLAttributes<HTMLLabelElement> {
   /** Style using regular (non-bold) font weight */
@@ -40,6 +46,15 @@ export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>((props, ref
 
   if (fieldContext) {
     combinedProps = fieldContext.getLabelProps(combinedProps);
+  }
+
+  if (type === 'radio') {
+    return (
+      <StyledRadioLabel ref={ref} {...(combinedProps as any)}>
+        <StyledRadioSvg />
+        {props.children}
+      </StyledRadioLabel>
+    );
   }
 
   return <LabelComponent ref={ref} {...(combinedProps as any)} />;
