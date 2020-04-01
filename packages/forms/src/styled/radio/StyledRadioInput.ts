@@ -16,6 +16,8 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const SHADE = 600;
 
   const borderColor = getColor('neutralHue', SHADE - 300, props.theme);
+  const backgroundColor = props.theme.colors.background;
+  const iconColor = backgroundColor;
   const hoverBackgroundColor = getColor('primaryHue', SHADE, props.theme, 0.08);
   const hoverBorderColor = getColor('primaryHue', SHADE - 200, props.theme);
   const focusBorderColor = getColor('primaryHue', SHADE, props.theme);
@@ -33,7 +35,11 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   return css`
     & ~ ${StyledRadioLabel}::before {
       border-color: ${borderColor};
-      background-color: ${props.theme.colors.background};
+      background-color: ${backgroundColor};
+    }
+
+    & ~ ${StyledRadioLabel} > svg {
+      color: ${iconColor};
     }
 
     & ~ ${StyledRadioLabel}:hover::before {
@@ -76,9 +82,12 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
 };
 
 const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
-  const lineHeight = math(`${props.theme.space.base} * 5px`); /* from StyledLabel */
-  const size = math(`${props.theme.space.base} * 4px`);
+  const lineHeight = `${props.theme.space.base * 5}px`; /* from StyledLabel */
+  const size = `${props.theme.space.base * 4}px`;
   const top = math(`(${lineHeight} - ${size}) / 2`);
+  const iconSize = props.theme.iconSizes.sm;
+  const iconPosition = math(`(${size} - ${iconSize}) / 2`);
+  const iconTop = math(`${iconPosition} + ${top}`);
 
   return css`
     & ~ ${StyledRadioLabel}::before {
@@ -87,6 +96,13 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
       width: ${size};
       height: ${size};
       box-sizing: border-box;
+    }
+
+    & ~ ${StyledRadioLabel} > svg {
+      top: ${iconTop};
+      ${props.theme.rtl ? 'right' : 'left'}: ${iconPosition};
+      width: ${iconSize};
+      height: ${iconSize};
     }
   `;
 };
@@ -114,6 +130,10 @@ export const StyledRadioInput = styled.input.attrs({
     background-repeat: no-repeat;
     background-position: center;
     content: '';
+  }
+
+  & ~ ${StyledRadioLabel} > svg {
+    position: absolute;
   }
 
   ${props => sizeStyles(props)};

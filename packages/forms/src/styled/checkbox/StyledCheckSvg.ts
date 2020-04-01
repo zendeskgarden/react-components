@@ -17,14 +17,9 @@ export const StyledCheckSvg = styled(CheckIcon).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  position: absolute;
-  top: ${props => props.theme.space.base}px;
-  ${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.space.base / 2}px;
   transition: opacity 0.25 ease-in-out;
   opacity: 0;
-  color: ${props => props.theme.colors.background};
 
-  /* stylelint-disable selector-type-case */
   ${StyledCheckInput}:checked ~ ${StyledCheckLabel} > & {
     opacity: 1;
   }
@@ -32,7 +27,6 @@ export const StyledCheckSvg = styled(CheckIcon).attrs({
   ${StyledCheckInput}:indeterminate ~ ${StyledCheckLabel} > & {
     opacity: 0;
   }
-  /* stylelint-enable selector-type-case */
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

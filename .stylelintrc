@@ -11,6 +11,7 @@
     "value-keyword-case": ["lower", { ignoreKeywords: ['dummyValue'] }],
     "block-no-empty": null,
     "number-leading-zero": null,
+    "selector-type-case": null,
     "selector-type-no-unknown": null
   }
 }
