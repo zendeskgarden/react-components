@@ -56,11 +56,6 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
       background-color: ${checkedBackgroundColor};
     }
 
-    /* stylelint-disable-next-line selector-type-case */
-    &:checked ~ ${StyledRadioLabel} > svg {
-      opacity: 1;
-    }
-
     /* stylelint-disable selector-max-specificity */
     &:enabled:checked ~ ${StyledRadioLabel}:hover::before {
       border-color: ${checkedHoverBorderColor};

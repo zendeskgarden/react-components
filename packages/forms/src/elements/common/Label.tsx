@@ -16,7 +16,8 @@ import {
   StyledDashSvg,
   StyledRadioLabel,
   StyledRadioSvg,
-  StyledToggleLabel
+  StyledToggleLabel,
+  StyledToggleSvg
 } from '../../styled';
 
 export interface ILabelProps extends HTMLAttributes<HTMLLabelElement> {
@@ -31,18 +32,6 @@ export interface ILabelProps extends HTMLAttributes<HTMLLabelElement> {
 export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>((props, ref) => {
   const fieldContext = useFieldContext();
   const type = useInputContext();
-
-  let LabelComponent;
-
-  if (type === 'checkbox') {
-    LabelComponent = StyledCheckLabel;
-  } else if (type === 'radio') {
-    LabelComponent = StyledRadioLabel;
-  } else if (type === 'toggle') {
-    LabelComponent = StyledToggleLabel;
-  } else {
-    LabelComponent = StyledLabel;
-  }
 
   let combinedProps = props;
 
@@ -65,9 +54,16 @@ export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>((props, ref
         {props.children}
       </StyledCheckLabel>
     );
+  } else if (type === 'toggle') {
+    return (
+      <StyledToggleLabel ref={ref} {...(combinedProps as any)}>
+        <StyledToggleSvg />
+        {props.children}
+      </StyledToggleLabel>
+    );
   }
 
-  return <LabelComponent ref={ref} {...(combinedProps as any)} />;
+  return <StyledLabel ref={ref} {...(combinedProps as any)} />;
 });
 
 Label.displayName = 'Label';

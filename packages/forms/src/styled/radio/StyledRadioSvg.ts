@@ -8,6 +8,8 @@
 import styled from 'styled-components';
 import CircleIcon from '@zendeskgarden/svg-icons/src/12/circle-fill.svg';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { StyledRadioInput } from './StyledRadioInput';
+import { StyledRadioLabel } from './StyledRadioLabel';
 
 const COMPONENT_ID = 'forms.radio_svg';
 
@@ -22,6 +24,11 @@ export const StyledRadioSvg = styled(CircleIcon).attrs({
   transition: opacity 0.25 ease-in-out;
   opacity: 0;
   color: ${props => props.theme.colors.background};
+
+  /* stylelint-disable-next-line selector-type-case */
+  ${StyledRadioInput}:checked ~ ${StyledRadioLabel} > & {
+    opacity: 1;
+  }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

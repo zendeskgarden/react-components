@@ -49,6 +49,7 @@ export * from './toggle/StyledToggleLabel';
 export * from './toggle/StyledToggleHint';
 export * from './toggle/StyledToggleInput';
 export * from './toggle/StyledToggleMessage';
+export * from './toggle/StyledToggleSvg';
 
 /**
  * Range styles

@@ -22,32 +22,12 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const indeterminateDisabledBackgroundColor = getColor('neutralHue', SHADE - 400, props.theme);
 
   return css`
-    /* stylelint-disable selector-max-specificity */
-    &:checked ~ ${StyledCheckLabel} {
-      & > [data-garden-check] {
-        opacity: 1;
-      }
-
-      & > [data-garden-dash] {
-        opacity: 0;
-      }
-    }
-
     &:indeterminate ~ ${StyledCheckLabel}::before {
       border-color: ${indeterminateBorderColor};
       background-color: ${indeterminateBackgroundColor};
     }
 
-    &:indeterminate ~ ${StyledCheckLabel} {
-      & > [data-garden-dash] {
-        opacity: 1;
-      }
-
-      & > [data-garden-check] {
-        opacity: 0;
-      }
-    }
-
+    /* stylelint-disable selector-max-specificity */
     &:enabled:indeterminate ~ ${StyledCheckLabel}:active::before {
       border-color: ${indeterminateActiveBorderColor};
       background-color: ${indeterminateActiveBackgroundColor};
