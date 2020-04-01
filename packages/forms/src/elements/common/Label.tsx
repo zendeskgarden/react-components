@@ -12,9 +12,11 @@ import useInputContext from '../../utils/useInputContext';
 import {
   StyledLabel,
   StyledCheckLabel,
+  StyledCheckSvg,
+  StyledDashSvg,
   StyledRadioLabel,
-  StyledToggleLabel,
-  StyledRadioSvg
+  StyledRadioSvg,
+  StyledToggleLabel
 } from '../../styled';
 
 export interface ILabelProps extends HTMLAttributes<HTMLLabelElement> {
@@ -54,6 +56,14 @@ export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>((props, ref
         <StyledRadioSvg />
         {props.children}
       </StyledRadioLabel>
+    );
+  } else if (type === 'checkbox') {
+    return (
+      <StyledCheckLabel ref={ref} {...(combinedProps as any)}>
+        <StyledCheckSvg />
+        <StyledDashSvg />
+        {props.children}
+      </StyledCheckLabel>
     );
   }
 

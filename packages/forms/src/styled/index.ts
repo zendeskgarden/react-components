@@ -30,6 +30,8 @@ export * from './checkbox/StyledCheckLabel';
 export * from './checkbox/StyledCheckHint';
 export * from './checkbox/StyledCheckInput';
 export * from './checkbox/StyledCheckMessage';
+export * from './checkbox/StyledCheckSvg';
+export * from './checkbox/StyledDashSvg';
 
 /**
  * Radio styles
