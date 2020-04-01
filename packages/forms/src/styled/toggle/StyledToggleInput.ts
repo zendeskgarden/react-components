@@ -40,7 +40,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
 const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   const height = `${props.theme.space.base * 5}px`;
   const width = `${props.theme.space.base * 10}px`;
-  const iconSize = props.theme.fontSizes.md;
+  const iconSize = props.theme.iconSizes.md;
   const iconPosition = math(`(${height} - ${iconSize}) / 2`);
   const checkedIconPosition = math(`${width} - ${iconSize} - ${iconPosition}`);
 
