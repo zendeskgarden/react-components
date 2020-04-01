@@ -6,27 +6,20 @@
  */
 
 import styled from 'styled-components';
-import CircleIcon from './icon.svg';
+import CircleIcon from '@zendeskgarden/svg-icons/src/16/circle-fill.svg';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledRadioInput } from './StyledRadioInput';
-import { StyledRadioLabel } from './StyledRadioLabel';
 
-const COMPONENT_ID = 'forms.radio_svg';
+const COMPONENT_ID = 'forms.toggle_svg';
 
-export const StyledRadioSvg = styled(CircleIcon).attrs({
+export const StyledToggleSvg = styled(CircleIcon).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  transition: opacity 0.25 ease-in-out;
-  opacity: 0;
-
-  ${StyledRadioInput}:checked ~ ${StyledRadioLabel} > & {
-    opacity: 1;
-  }
+  transition: all 0.15s ease-in-out;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledRadioSvg.defaultProps = {
+StyledToggleSvg.defaultProps = {
   theme: DEFAULT_THEME
 };
