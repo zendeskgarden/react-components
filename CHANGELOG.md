@@ -12,6 +12,16 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.4.1 (2020-04-01)
+
+#### :rocket: New Feature
+* `avatars`
+  * [#689](https://github.com/zendeskgarden/react-components/pull/689) feat(avatars): add XXS avatar size ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `datepickers`, `dropdowns`, `forms`, `theming`
+  * [#690](https://github.com/zendeskgarden/react-components/pull/690) fix(dropdowns, datepickers): restore menu theming and prevent autocomplete pixel nudge ([@jzempel](https://github.com/jzempel))
+
 ## v8.4.0 (2020-03-25)
 
 #### :rocket: New Feature
