@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import CircleIcon from './icon.svg';
+import CircleIcon from '@zendeskgarden/svg-icons/src/12/circle-sm-fill.svg';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledRadioInput } from './StyledRadioInput';
 import { StyledRadioLabel } from './StyledRadioLabel';

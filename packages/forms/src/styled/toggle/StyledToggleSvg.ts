@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import CircleIcon from './icon.svg';
+import CircleIcon from '@zendeskgarden/svg-icons/src/16/circle-sm-fill.svg';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.toggle_svg';
