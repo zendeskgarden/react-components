@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>28/28</span>
+                <span class='fraction'>24/24</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>28/28</span>
+                <span class='fraction'>24/24</span>
             </div>
         
             
@@ -147,19 +147,7 @@
 <a name='L88'></a><a href='#L88'>88</a>
 <a name='L89'></a><a href='#L89'>89</a>
 <a name='L90'></a><a href='#L90'>90</a>
-<a name='L91'></a><a href='#L91'>91</a>
-<a name='L92'></a><a href='#L92'>92</a>
-<a name='L93'></a><a href='#L93'>93</a>
-<a name='L94'></a><a href='#L94'>94</a>
-<a name='L95'></a><a href='#L95'>95</a>
-<a name='L96'></a><a href='#L96'>96</a>
-<a name='L97'></a><a href='#L97'>97</a>
-<a name='L98'></a><a href='#L98'>98</a>
-<a name='L99'></a><a href='#L99'>99</a>
-<a name='L100'></a><a href='#L100'>100</a>
-<a name='L101'></a><a href='#L101'>101</a>
-<a name='L102'></a><a href='#L102'>102</a>
-<a name='L103'></a><a href='#L103'>103</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L91'></a><a href='#L91'>91</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -178,26 +166,10 @@
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">38x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -235,8 +207,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">38x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">38x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -274,34 +250,18 @@ import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden
 import { StyledCheckInput } from '../checkbox/StyledCheckInput';
 import { StyledToggleLabel } from './StyledToggleLabel';
 &nbsp;
-const COMPONENT_ID = 'forms.checkbox';
-&nbsp;
-const markSvg = (props: ThemeProps&lt;DefaultTheme&gt;) =&gt; {
-  const color = props.theme.colors.background;
-&nbsp;
-  return `
-    &lt;svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"&gt;
-      &lt;circle cx="8" cy="8" r="7" fill="${color}"/&gt;
-    &lt;/svg&gt;
-  `;
-};
+const COMPONENT_ID = 'forms.toggle';
 &nbsp;
 const colorStyles = (props: ThemeProps&lt;DefaultTheme&gt;) =&gt; {
   const SHADE = 600;
 &nbsp;
   const backgroundColor = getColor('neutralHue', SHADE - 100, props.theme);
-  const backgroundImage = encodeURIComponent(markSvg(props));
   const hoverBackgroundColor = getColor('neutralHue', SHADE, props.theme);
   const activeBackgroundColor = getColor('neutralHue', SHADE + 100, props.theme);
 &nbsp;
   return css`
     &amp; ~ ${StyledToggleLabel}::before {
       background-color: ${backgroundColor};
-    }
-&nbsp;
-    &amp; ~ ${StyledToggleLabel}::before,
-    &amp;:checked ~ ${StyledToggleLabel}::before {
-      background-image: url('data:image/svg+xml;charset=utf-8,${backgroundImage}');
     }
 &nbsp;
     /* stylelint-disable selector-max-specificity */
@@ -317,22 +277,27 @@ const colorStyles = (props: ThemeProps&lt;DefaultTheme&gt;) =&gt; {
 };
 &nbsp;
 const sizeStyles = (props: ThemeProps&lt;DefaultTheme&gt;) =&gt; {
-  const backgroundPosition = props.theme.rtl ? '90%' : '10%';
-  const checkedBackgroundPosition = props.theme.rtl ? '10%' : '90%';
-  const backgroundSize = props.theme.fontSizes.md;
-  const height = math(`${props.theme.space.base} * 5px`);
-  const width = math(`${props.theme.space.base} * 10px`);
+  const height = `${props.theme.space.base * 5}px`;
+  const width = `${props.theme.space.base * 10}px`;
+  const iconSize = props.theme.iconSizes.md;
+  const iconPosition = math(`(${height} - ${iconSize}) / 2`);
+  const checkedIconPosition = math(`${width} - ${iconSize} - ${iconPosition}`);
 &nbsp;
   return css`
     &amp; ~ ${StyledToggleLabel}::before {
-      background-position: ${backgroundPosition};
-      background-size: ${backgroundSize};
       width: ${width};
       height: ${height};
     }
 &nbsp;
-    &amp;:checked ~ ${StyledToggleLabel}::before {
-      background-position: ${checkedBackgroundPosition};
+    &amp; ~ ${StyledToggleLabel} &gt; svg {
+      top: ${iconPosition};
+      ${props.theme.rtl ? 'right' : 'left'}: ${iconPosition};
+      width: ${iconSize};
+      height: ${iconSize};
+    }
+&nbsp;
+    &amp;:checked ~ ${StyledToggleLabel} &gt; svg {
+      ${props.theme.rtl ? 'right' : 'left'}: ${checkedIconPosition};
     }
   `;
 };
@@ -347,7 +312,6 @@ export const StyledToggleInput = styled(StyledCheckInput).attrs({
     transition:
       box-shadow .1s ease-in-out,
       background-color .15s ease-in-out,
-      background-position .15s ease-in-out,
       color .25s ease-in-out;
     border: none;
     border-radius: 100px;
@@ -370,7 +334,7 @@ StyledToggleInput.defaultProps = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Apr 01 2020 20:28:31 GMT+0000 (Coordinated Universal Time)
+                at Fri Apr 03 2020 16:54:38 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>

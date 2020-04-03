@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1585772912070" clover="3.2.0">
-  <project timestamp="1585772912070" name="All files">
-    <metrics statements="5630" coveredstatements="5615" conditionals="2226" coveredconditionals="2080" methods="1186" coveredmethods="1183" elements="9042" coveredelements="8878" complexity="0" loc="5630" ncloc="5630" packages="97" files="370" classes="370"/>
+<coverage generated="1585932878458" clover="3.2.0">
+  <project timestamp="1585932878458" name="All files">
+    <metrics statements="5656" coveredstatements="5641" conditionals="2228" coveredconditionals="2082" methods="1186" coveredmethods="1183" elements="9070" coveredelements="8906" complexity="0" loc="5656" ncloc="5656" packages="97" files="374" classes="374"/>
     <package name="accordions.src.elements.stepper">
       <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="Stepper.tsx" path="/home/circleci/project/packages/accordions/src/elements/stepper/Stepper.tsx">
@@ -3553,7 +3553,7 @@
       </file>
     </package>
     <package name="forms.src.elements.common">
-      <metrics statements="71" coveredstatements="71" conditionals="26" coveredconditionals="23" methods="5" coveredmethods="5"/>
+      <metrics statements="70" coveredstatements="70" conditionals="26" coveredconditionals="23" methods="5" coveredmethods="5"/>
       <file name="Field.tsx" path="/home/circleci/project/packages/forms/src/elements/common/Field.tsx">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="8" count="34" type="stmt"/>
@@ -3590,28 +3590,27 @@
         <line num="44" count="28" type="stmt"/>
       </file>
       <file name="Label.tsx" path="/home/circleci/project/packages/forms/src/elements/common/Label.tsx">
-        <metrics statements="21" coveredstatements="21" conditionals="8" coveredconditionals="7" methods="1" coveredmethods="1"/>
+        <metrics statements="20" coveredstatements="20" conditionals="8" coveredconditionals="7" methods="1" coveredmethods="1"/>
         <line num="8" count="28" type="stmt"/>
         <line num="9" count="28" type="stmt"/>
         <line num="10" count="28" type="stmt"/>
         <line num="11" count="28" type="stmt"/>
         <line num="12" count="28" type="stmt"/>
-        <line num="23" count="28" type="stmt"/>
-        <line num="24" count="35" type="stmt"/>
-        <line num="25" count="35" type="stmt"/>
-        <line num="29" count="35" type="cond" truecount="2" falsecount="0"/>
-        <line num="30" count="1" type="stmt"/>
-        <line num="31" count="34" type="cond" truecount="2" falsecount="0"/>
-        <line num="32" count="1" type="stmt"/>
-        <line num="33" count="33" type="cond" truecount="2" falsecount="0"/>
-        <line num="34" count="1" type="stmt"/>
-        <line num="36" count="32" type="stmt"/>
+        <line num="32" count="28" type="stmt"/>
+        <line num="33" count="35" type="stmt"/>
+        <line num="34" count="35" type="stmt"/>
+        <line num="36" count="35" type="stmt"/>
+        <line num="38" count="35" type="cond" truecount="1" falsecount="1"/>
         <line num="39" count="35" type="stmt"/>
-        <line num="41" count="35" type="cond" truecount="1" falsecount="1"/>
-        <line num="42" count="35" type="stmt"/>
-        <line num="45" count="35" type="stmt"/>
-        <line num="48" count="28" type="stmt"/>
-        <line num="50" count="28" type="stmt"/>
+        <line num="42" count="35" type="cond" truecount="2" falsecount="0"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="49" count="34" type="cond" truecount="2" falsecount="0"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="57" count="33" type="cond" truecount="2" falsecount="0"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="66" count="32" type="stmt"/>
+        <line num="69" count="28" type="stmt"/>
+        <line num="71" count="28" type="stmt"/>
       </file>
       <file name="Message.tsx" path="/home/circleci/project/packages/forms/src/elements/common/Message.tsx">
         <metrics statements="21" coveredstatements="21" conditionals="10" coveredconditionals="9" methods="1" coveredmethods="1"/>
@@ -3729,9 +3728,9 @@
       </file>
     </package>
     <package name="forms.src.styled">
-      <metrics statements="32" coveredstatements="32" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="36" coveredstatements="36" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.ts" path="/home/circleci/project/packages/forms/src/styled/index.ts">
-        <metrics statements="32" coveredstatements="32" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="36" coveredstatements="36" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="11" count="37" type="stmt"/>
         <line num="12" count="37" type="stmt"/>
         <line num="13" count="37" type="stmt"/>
@@ -3746,28 +3745,32 @@
         <line num="30" count="37" type="stmt"/>
         <line num="31" count="37" type="stmt"/>
         <line num="32" count="37" type="stmt"/>
-        <line num="37" count="37" type="stmt"/>
-        <line num="38" count="37" type="stmt"/>
+        <line num="33" count="37" type="stmt"/>
+        <line num="34" count="37" type="stmt"/>
         <line num="39" count="37" type="stmt"/>
         <line num="40" count="37" type="stmt"/>
-        <line num="45" count="37" type="stmt"/>
-        <line num="46" count="37" type="stmt"/>
-        <line num="47" count="37" type="stmt"/>
+        <line num="41" count="37" type="stmt"/>
+        <line num="42" count="37" type="stmt"/>
+        <line num="43" count="37" type="stmt"/>
         <line num="48" count="37" type="stmt"/>
-        <line num="53" count="37" type="stmt"/>
-        <line num="54" count="37" type="stmt"/>
-        <line num="55" count="37" type="stmt"/>
-        <line num="56" count="37" type="stmt"/>
+        <line num="49" count="37" type="stmt"/>
+        <line num="50" count="37" type="stmt"/>
+        <line num="51" count="37" type="stmt"/>
+        <line num="52" count="37" type="stmt"/>
         <line num="57" count="37" type="stmt"/>
-        <line num="62" count="37" type="stmt"/>
-        <line num="63" count="37" type="stmt"/>
-        <line num="64" count="37" type="stmt"/>
-        <line num="65" count="37" type="stmt"/>
+        <line num="58" count="37" type="stmt"/>
+        <line num="59" count="37" type="stmt"/>
+        <line num="60" count="37" type="stmt"/>
+        <line num="61" count="37" type="stmt"/>
         <line num="66" count="37" type="stmt"/>
+        <line num="67" count="37" type="stmt"/>
+        <line num="68" count="37" type="stmt"/>
+        <line num="69" count="37" type="stmt"/>
+        <line num="70" count="37" type="stmt"/>
       </file>
     </package>
     <package name="forms.src.styled.checkbox">
-      <metrics statements="47" coveredstatements="47" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="9"/>
+      <metrics statements="57" coveredstatements="57" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="9"/>
       <file name="StyledCheckHint.ts" path="/home/circleci/project/packages/forms/src/styled/checkbox/StyledCheckHint.ts">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="8" count="38" type="stmt"/>
@@ -3779,43 +3782,35 @@
         <line num="21" count="38" type="stmt"/>
       </file>
       <file name="StyledCheckInput.ts" path="/home/circleci/project/packages/forms/src/styled/checkbox/StyledCheckInput.ts">
-        <metrics statements="26" coveredstatements="26" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
-        <line num="8" count="39" type="stmt"/>
-        <line num="9" count="39" type="stmt"/>
-        <line num="10" count="39" type="stmt"/>
-        <line num="11" count="39" type="stmt"/>
-        <line num="13" count="39" type="stmt"/>
-        <line num="15" count="39" type="stmt"/>
-        <line num="16" count="14" type="stmt"/>
-        <line num="18" count="14" type="stmt"/>
-        <line num="32" count="39" type="stmt"/>
-        <line num="33" count="14" type="stmt"/>
-        <line num="35" count="14" type="stmt"/>
-        <line num="49" count="39" type="stmt"/>
-        <line num="50" count="14" type="stmt"/>
-        <line num="52" count="14" type="stmt"/>
-        <line num="53" count="14" type="stmt"/>
-        <line num="54" count="14" type="stmt"/>
-        <line num="55" count="14" type="stmt"/>
-        <line num="56" count="14" type="stmt"/>
-        <line num="57" count="14" type="stmt"/>
-        <line num="58" count="14" type="stmt"/>
-        <line num="60" count="14" type="stmt"/>
-        <line num="85" count="39" type="stmt"/>
-        <line num="92" count="14" type="stmt"/>
-        <line num="95" count="14" type="stmt"/>
-        <line num="97" count="14" type="stmt"/>
-        <line num="100" count="39" type="stmt"/>
-      </file>
-      <file name="StyledCheckLabel.ts" path="/home/circleci/project/packages/forms/src/styled/checkbox/StyledCheckLabel.ts">
-        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <metrics statements="18" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
         <line num="8" count="41" type="stmt"/>
         <line num="9" count="41" type="stmt"/>
         <line num="10" count="41" type="stmt"/>
-        <line num="12" count="41" type="stmt"/>
-        <line num="14" count="41" type="stmt"/>
+        <line num="11" count="41" type="stmt"/>
+        <line num="13" count="41" type="stmt"/>
+        <line num="15" count="41" type="stmt"/>
+        <line num="16" count="14" type="stmt"/>
+        <line num="18" count="14" type="stmt"/>
+        <line num="19" count="14" type="stmt"/>
+        <line num="20" count="14" type="stmt"/>
+        <line num="21" count="14" type="stmt"/>
+        <line num="22" count="14" type="stmt"/>
+        <line num="24" count="14" type="stmt"/>
+        <line num="44" count="41" type="stmt"/>
+        <line num="51" count="14" type="stmt"/>
+        <line num="54" count="14" type="stmt"/>
+        <line num="56" count="14" type="stmt"/>
+        <line num="59" count="41" type="stmt"/>
+      </file>
+      <file name="StyledCheckLabel.ts" path="/home/circleci/project/packages/forms/src/styled/checkbox/StyledCheckLabel.ts">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="8" count="43" type="stmt"/>
+        <line num="9" count="43" type="stmt"/>
+        <line num="10" count="43" type="stmt"/>
+        <line num="12" count="43" type="stmt"/>
+        <line num="14" count="43" type="stmt"/>
         <line num="18" count="5" type="stmt"/>
-        <line num="21" count="41" type="stmt"/>
+        <line num="21" count="43" type="stmt"/>
       </file>
       <file name="StyledCheckMessage.ts" path="/home/circleci/project/packages/forms/src/styled/checkbox/StyledCheckMessage.ts">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -3826,6 +3821,30 @@
         <line num="14" count="38" type="stmt"/>
         <line num="18" count="2" type="stmt"/>
         <line num="21" count="38" type="stmt"/>
+      </file>
+      <file name="StyledCheckSvg.ts" path="/home/circleci/project/packages/forms/src/styled/checkbox/StyledCheckSvg.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="8" count="38" type="stmt"/>
+        <line num="9" count="38" type="stmt"/>
+        <line num="10" count="38" type="stmt"/>
+        <line num="11" count="38" type="stmt"/>
+        <line num="12" count="38" type="stmt"/>
+        <line num="14" count="38" type="stmt"/>
+        <line num="16" count="38" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="34" count="38" type="stmt"/>
+      </file>
+      <file name="StyledDashSvg.ts" path="/home/circleci/project/packages/forms/src/styled/checkbox/StyledDashSvg.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="8" count="38" type="stmt"/>
+        <line num="9" count="38" type="stmt"/>
+        <line num="10" count="38" type="stmt"/>
+        <line num="11" count="38" type="stmt"/>
+        <line num="12" count="38" type="stmt"/>
+        <line num="14" count="38" type="stmt"/>
+        <line num="16" count="38" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="30" count="38" type="stmt"/>
       </file>
     </package>
     <package name="forms.src.styled.common">
@@ -3855,17 +3874,17 @@
       </file>
       <file name="StyledLabel.ts" path="/home/circleci/project/packages/forms/src/styled/common/StyledLabel.ts">
         <metrics statements="11" coveredstatements="11" conditionals="4" coveredconditionals="4" methods="6" coveredmethods="6"/>
-        <line num="8" count="54" type="stmt"/>
-        <line num="9" count="54" type="stmt"/>
-        <line num="15" count="54" type="stmt"/>
-        <line num="21" count="54" type="stmt"/>
+        <line num="8" count="57" type="stmt"/>
+        <line num="9" count="57" type="stmt"/>
+        <line num="15" count="57" type="stmt"/>
+        <line num="21" count="57" type="stmt"/>
         <line num="25" count="47" type="cond" truecount="2" falsecount="0"/>
         <line num="27" count="47" type="stmt"/>
         <line num="28" count="47" type="stmt"/>
         <line num="29" count="47" type="stmt"/>
         <line num="31" count="47" type="cond" truecount="2" falsecount="0"/>
         <line num="33" count="47" type="stmt"/>
-        <line num="36" count="54" type="stmt"/>
+        <line num="36" count="57" type="stmt"/>
       </file>
       <file name="StyledMessage.ts" path="/home/circleci/project/packages/forms/src/styled/common/StyledMessage.ts">
         <metrics statements="26" coveredstatements="26" conditionals="14" coveredconditionals="14" methods="8" coveredmethods="8"/>
@@ -3922,7 +3941,7 @@
       </file>
     </package>
     <package name="forms.src.styled.radio">
-      <metrics statements="71" coveredstatements="71" conditionals="10" coveredconditionals="10" methods="17" coveredmethods="17"/>
+      <metrics statements="81" coveredstatements="81" conditionals="12" coveredconditionals="12" methods="17" coveredmethods="17"/>
       <file name="StyledRadioHint.ts" path="/home/circleci/project/packages/forms/src/styled/radio/StyledRadioHint.ts">
         <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
         <line num="8" count="39" type="stmt"/>
@@ -3937,61 +3956,62 @@
         <line num="26" count="39" type="stmt"/>
       </file>
       <file name="StyledRadioInput.ts" path="/home/circleci/project/packages/forms/src/styled/radio/StyledRadioInput.ts">
-        <metrics statements="38" coveredstatements="38" conditionals="2" coveredconditionals="2" methods="8" coveredmethods="8"/>
-        <line num="8" count="40" type="stmt"/>
-        <line num="9" count="40" type="stmt"/>
-        <line num="10" count="40" type="stmt"/>
-        <line num="11" count="40" type="stmt"/>
-        <line num="13" count="40" type="stmt"/>
-        <line num="15" count="40" type="stmt"/>
-        <line num="16" count="23" type="stmt"/>
-        <line num="18" count="23" type="stmt"/>
-        <line num="25" count="40" type="stmt"/>
-        <line num="26" count="23" type="stmt"/>
-        <line num="28" count="23" type="stmt"/>
-        <line num="29" count="23" type="stmt"/>
-        <line num="30" count="23" type="stmt"/>
-        <line num="31" count="23" type="stmt"/>
-        <line num="32" count="23" type="stmt"/>
-        <line num="33" count="23" type="stmt"/>
-        <line num="34" count="23" type="stmt"/>
-        <line num="35" count="23" type="stmt"/>
-        <line num="36" count="23" type="stmt"/>
-        <line num="37" count="23" type="stmt"/>
-        <line num="38" count="23" type="stmt"/>
-        <line num="39" count="23" type="stmt"/>
-        <line num="40" count="23" type="stmt"/>
-        <line num="41" count="23" type="stmt"/>
-        <line num="42" count="23" type="stmt"/>
-        <line num="44" count="23" type="stmt"/>
-        <line num="93" count="40" type="stmt"/>
-        <line num="94" count="23" type="stmt"/>
-        <line num="95" count="23" type="stmt"/>
-        <line num="96" count="23" type="stmt"/>
-        <line num="98" count="23" type="stmt"/>
-        <line num="109" count="40" type="stmt"/>
-        <line num="120" count="23" type="cond" truecount="2" falsecount="0"/>
-        <line num="128" count="23" type="stmt"/>
-        <line num="135" count="23" type="stmt"/>
-        <line num="150" count="23" type="stmt"/>
-        <line num="156" count="23" type="stmt"/>
-        <line num="159" count="40" type="stmt"/>
-      </file>
-      <file name="StyledRadioLabel.ts" path="/home/circleci/project/packages/forms/src/styled/radio/StyledRadioLabel.ts">
-        <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
+        <metrics statements="39" coveredstatements="39" conditionals="4" coveredconditionals="4" methods="7" coveredmethods="7"/>
         <line num="8" count="43" type="stmt"/>
         <line num="9" count="43" type="stmt"/>
         <line num="10" count="43" type="stmt"/>
         <line num="11" count="43" type="stmt"/>
         <line num="13" count="43" type="stmt"/>
         <line num="15" count="43" type="stmt"/>
+        <line num="16" count="23" type="stmt"/>
+        <line num="18" count="23" type="stmt"/>
+        <line num="19" count="23" type="stmt"/>
+        <line num="20" count="23" type="stmt"/>
+        <line num="21" count="23" type="stmt"/>
+        <line num="22" count="23" type="stmt"/>
+        <line num="23" count="23" type="stmt"/>
+        <line num="24" count="23" type="stmt"/>
+        <line num="25" count="23" type="stmt"/>
+        <line num="26" count="23" type="stmt"/>
+        <line num="27" count="23" type="stmt"/>
+        <line num="28" count="23" type="stmt"/>
+        <line num="29" count="23" type="stmt"/>
+        <line num="30" count="23" type="stmt"/>
+        <line num="31" count="23" type="stmt"/>
+        <line num="32" count="23" type="stmt"/>
+        <line num="33" count="23" type="stmt"/>
+        <line num="35" count="23" type="stmt"/>
+        <line num="84" count="43" type="stmt"/>
+        <line num="85" count="23" type="stmt"/>
+        <line num="86" count="23" type="stmt"/>
+        <line num="87" count="23" type="stmt"/>
+        <line num="88" count="23" type="stmt"/>
+        <line num="89" count="23" type="stmt"/>
+        <line num="90" count="23" type="stmt"/>
+        <line num="92" count="23" type="stmt"/>
+        <line num="110" count="43" type="stmt"/>
+        <line num="121" count="23" type="cond" truecount="2" falsecount="0"/>
+        <line num="128" count="23" type="stmt"/>
+        <line num="139" count="23" type="stmt"/>
+        <line num="153" count="23" type="stmt"/>
+        <line num="159" count="23" type="stmt"/>
+        <line num="162" count="43" type="stmt"/>
+      </file>
+      <file name="StyledRadioLabel.ts" path="/home/circleci/project/packages/forms/src/styled/radio/StyledRadioLabel.ts">
+        <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
+        <line num="8" count="46" type="stmt"/>
+        <line num="9" count="46" type="stmt"/>
+        <line num="10" count="46" type="stmt"/>
+        <line num="11" count="46" type="stmt"/>
+        <line num="13" count="46" type="stmt"/>
+        <line num="15" count="46" type="stmt"/>
         <line num="16" count="9" type="stmt"/>
         <line num="17" count="9" type="stmt"/>
         <line num="19" count="9" type="stmt"/>
-        <line num="30" count="43" type="stmt"/>
+        <line num="30" count="46" type="stmt"/>
         <line num="45" count="9" type="stmt"/>
         <line num="47" count="9" type="stmt"/>
-        <line num="50" count="43" type="stmt"/>
+        <line num="50" count="46" type="stmt"/>
       </file>
       <file name="StyledRadioMessage.ts" path="/home/circleci/project/packages/forms/src/styled/radio/StyledRadioMessage.ts">
         <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
@@ -4005,6 +4025,18 @@
         <line num="21" count="5" type="stmt"/>
         <line num="23" count="5" type="stmt"/>
         <line num="26" count="39" type="stmt"/>
+      </file>
+      <file name="StyledRadioSvg.ts" path="/home/circleci/project/packages/forms/src/styled/radio/StyledRadioSvg.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="8" count="38" type="stmt"/>
+        <line num="9" count="38" type="stmt"/>
+        <line num="10" count="38" type="stmt"/>
+        <line num="11" count="38" type="stmt"/>
+        <line num="12" count="38" type="stmt"/>
+        <line num="14" count="38" type="stmt"/>
+        <line num="16" count="38" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="30" count="38" type="stmt"/>
       </file>
     </package>
     <package name="forms.src.styled.range">
@@ -4304,13 +4336,13 @@
         <line num="42" count="22" type="stmt"/>
         <line num="44" count="22" type="stmt"/>
         <line num="138" count="37" type="stmt"/>
-        <line num="153" count="22" type="stmt"/>
-        <line num="154" count="22" type="cond" truecount="2" falsecount="0"/>
-        <line num="155" count="22" type="stmt"/>
-        <line num="156" count="22" type="cond" truecount="2" falsecount="0"/>
-        <line num="158" count="22" type="stmt"/>
-        <line num="160" count="22" type="stmt"/>
-        <line num="163" count="37" type="stmt"/>
+        <line num="152" count="22" type="stmt"/>
+        <line num="153" count="22" type="cond" truecount="2" falsecount="0"/>
+        <line num="154" count="22" type="stmt"/>
+        <line num="155" count="22" type="cond" truecount="2" falsecount="0"/>
+        <line num="157" count="22" type="stmt"/>
+        <line num="159" count="22" type="stmt"/>
+        <line num="162" count="37" type="stmt"/>
       </file>
       <file name="StyledTileDescription.ts" path="/home/circleci/project/packages/forms/src/styled/tiles/StyledTileDescription.ts">
         <metrics statements="18" coveredstatements="18" conditionals="6" coveredconditionals="6" methods="6" coveredmethods="6"/>
@@ -4386,7 +4418,7 @@
       </file>
     </package>
     <package name="forms.src.styled.toggle">
-      <metrics statements="64" coveredstatements="64" conditionals="14" coveredconditionals="14" methods="17" coveredmethods="17"/>
+      <metrics statements="67" coveredstatements="67" conditionals="14" coveredconditionals="14" methods="17" coveredmethods="17"/>
       <file name="StyledToggleHint.ts" path="/home/circleci/project/packages/forms/src/styled/toggle/StyledToggleHint.ts">
         <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
         <line num="8" count="38" type="stmt"/>
@@ -4401,7 +4433,7 @@
         <line num="26" count="38" type="stmt"/>
       </file>
       <file name="StyledToggleInput.ts" path="/home/circleci/project/packages/forms/src/styled/toggle/StyledToggleInput.ts">
-        <metrics statements="28" coveredstatements="28" conditionals="4" coveredconditionals="4" methods="6" coveredmethods="6"/>
+        <metrics statements="24" coveredstatements="24" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
         <line num="8" count="38" type="stmt"/>
         <line num="9" count="38" type="stmt"/>
         <line num="10" count="38" type="stmt"/>
@@ -4411,25 +4443,21 @@
         <line num="16" count="38" type="stmt"/>
         <line num="17" count="7" type="stmt"/>
         <line num="19" count="7" type="stmt"/>
-        <line num="26" count="38" type="stmt"/>
-        <line num="27" count="7" type="stmt"/>
-        <line num="29" count="7" type="stmt"/>
-        <line num="30" count="7" type="stmt"/>
-        <line num="31" count="7" type="stmt"/>
-        <line num="32" count="7" type="stmt"/>
-        <line num="34" count="7" type="stmt"/>
-        <line num="56" count="38" type="stmt"/>
-        <line num="57" count="7" type="cond" truecount="2" falsecount="0"/>
-        <line num="58" count="7" type="cond" truecount="2" falsecount="0"/>
-        <line num="59" count="7" type="stmt"/>
-        <line num="60" count="7" type="stmt"/>
-        <line num="61" count="7" type="stmt"/>
-        <line num="63" count="7" type="stmt"/>
-        <line num="77" count="38" type="stmt"/>
-        <line num="93" count="7" type="stmt"/>
-        <line num="95" count="7" type="stmt"/>
-        <line num="97" count="7" type="stmt"/>
-        <line num="100" count="38" type="stmt"/>
+        <line num="20" count="7" type="stmt"/>
+        <line num="21" count="7" type="stmt"/>
+        <line num="23" count="7" type="stmt"/>
+        <line num="40" count="38" type="stmt"/>
+        <line num="41" count="7" type="stmt"/>
+        <line num="42" count="7" type="stmt"/>
+        <line num="43" count="7" type="stmt"/>
+        <line num="44" count="7" type="stmt"/>
+        <line num="45" count="7" type="stmt"/>
+        <line num="47" count="7" type="stmt"/>
+        <line num="66" count="38" type="stmt"/>
+        <line num="81" count="7" type="stmt"/>
+        <line num="83" count="7" type="stmt"/>
+        <line num="85" count="7" type="stmt"/>
+        <line num="88" count="38" type="stmt"/>
       </file>
       <file name="StyledToggleLabel.ts" path="/home/circleci/project/packages/forms/src/styled/toggle/StyledToggleLabel.ts">
         <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
@@ -4462,6 +4490,16 @@
         <line num="26" count="3" type="stmt"/>
         <line num="29" count="3" type="stmt"/>
         <line num="32" count="38" type="stmt"/>
+      </file>
+      <file name="StyledToggleSvg.ts" path="/home/circleci/project/packages/forms/src/styled/toggle/StyledToggleSvg.ts">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="8" count="38" type="stmt"/>
+        <line num="9" count="38" type="stmt"/>
+        <line num="10" count="38" type="stmt"/>
+        <line num="12" count="38" type="stmt"/>
+        <line num="14" count="38" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="23" count="38" type="stmt"/>
       </file>
     </package>
     <package name="forms.src.utils">
@@ -6324,70 +6362,70 @@
       <metrics statements="14" coveredstatements="14" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="ThemeProvider.tsx" path="/home/circleci/project/packages/theming/src/elements/ThemeProvider.tsx">
         <metrics statements="14" coveredstatements="14" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="8" count="206" type="stmt"/>
-        <line num="9" count="206" type="stmt"/>
-        <line num="10" count="206" type="stmt"/>
-        <line num="11" count="206" type="stmt"/>
-        <line num="12" count="206" type="stmt"/>
-        <line num="13" count="206" type="stmt"/>
-        <line num="19" count="206" type="stmt"/>
-        <line num="25" count="2389" type="stmt"/>
-        <line num="26" count="2389" type="stmt"/>
-        <line num="27" count="2389" type="stmt"/>
-        <line num="29" count="2389" type="stmt"/>
-        <line num="31" count="2389" type="stmt"/>
-        <line num="38" count="206" type="stmt"/>
-        <line num="43" count="206" type="stmt"/>
+        <line num="8" count="210" type="stmt"/>
+        <line num="9" count="210" type="stmt"/>
+        <line num="10" count="210" type="stmt"/>
+        <line num="11" count="210" type="stmt"/>
+        <line num="12" count="210" type="stmt"/>
+        <line num="13" count="210" type="stmt"/>
+        <line num="19" count="210" type="stmt"/>
+        <line num="25" count="2397" type="stmt"/>
+        <line num="26" count="2397" type="stmt"/>
+        <line num="27" count="2397" type="stmt"/>
+        <line num="29" count="2397" type="stmt"/>
+        <line num="31" count="2397" type="stmt"/>
+        <line num="38" count="210" type="stmt"/>
+        <line num="43" count="210" type="stmt"/>
       </file>
     </package>
     <package name="theming.src.elements.palette">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.ts" path="/home/circleci/project/packages/theming/src/elements/palette/index.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="9" count="209" type="stmt"/>
-        <line num="156" count="209" type="stmt"/>
+        <line num="9" count="213" type="stmt"/>
+        <line num="156" count="213" type="stmt"/>
       </file>
     </package>
     <package name="theming.src.elements.theme">
       <metrics statements="23" coveredstatements="23" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
       <file name="index.ts" path="/home/circleci/project/packages/theming/src/elements/theme/index.ts">
         <metrics statements="23" coveredstatements="23" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="9" count="208" type="stmt"/>
-        <line num="11" count="208" type="stmt"/>
-        <line num="13" count="208" type="stmt"/>
-        <line num="18" count="208" type="stmt"/>
-        <line num="22" count="208" type="stmt"/>
-        <line num="27" count="208" type="stmt"/>
-        <line num="32" count="208" type="stmt"/>
-        <line num="40" count="208" type="stmt"/>
-        <line num="51" count="208" type="stmt"/>
-        <line num="75" count="208" type="stmt"/>
-        <line num="85" count="208" type="stmt"/>
-        <line num="97" count="208" type="stmt"/>
-        <line num="103" count="208" type="stmt"/>
-        <line num="112" count="208" type="stmt"/>
-        <line num="115" count="208" type="stmt"/>
-        <line num="117" count="208" type="stmt"/>
-        <line num="122" count="208" type="stmt"/>
+        <line num="9" count="212" type="stmt"/>
+        <line num="11" count="212" type="stmt"/>
+        <line num="13" count="212" type="stmt"/>
+        <line num="18" count="212" type="stmt"/>
+        <line num="22" count="212" type="stmt"/>
+        <line num="27" count="212" type="stmt"/>
+        <line num="32" count="212" type="stmt"/>
+        <line num="40" count="212" type="stmt"/>
+        <line num="51" count="212" type="stmt"/>
+        <line num="75" count="212" type="stmt"/>
+        <line num="85" count="212" type="stmt"/>
+        <line num="97" count="212" type="stmt"/>
+        <line num="103" count="212" type="stmt"/>
+        <line num="112" count="212" type="stmt"/>
+        <line num="115" count="212" type="stmt"/>
+        <line num="117" count="212" type="stmt"/>
+        <line num="122" count="212" type="stmt"/>
         <line num="123" count="99" type="stmt"/>
         <line num="124" count="1065" type="stmt"/>
         <line num="126" count="771" type="stmt"/>
-        <line num="129" count="208" type="stmt"/>
-        <line num="140" count="208" type="stmt"/>
-        <line num="164" count="208" type="stmt"/>
+        <line num="129" count="212" type="stmt"/>
+        <line num="140" count="212" type="stmt"/>
+        <line num="164" count="212" type="stmt"/>
       </file>
     </package>
     <package name="theming.src.utils">
       <metrics statements="123" coveredstatements="123" conditionals="132" coveredconditionals="112" methods="17" coveredmethods="17"/>
       <file name="arrowStyles.ts" path="/home/circleci/project/packages/theming/src/utils/arrowStyles.ts">
         <metrics statements="31" coveredstatements="31" conditionals="45" coveredconditionals="28" methods="3" coveredmethods="3"/>
-        <line num="8" count="206" type="stmt"/>
-        <line num="9" count="206" type="stmt"/>
-        <line num="31" count="206" type="stmt"/>
+        <line num="8" count="210" type="stmt"/>
+        <line num="9" count="210" type="stmt"/>
+        <line num="31" count="210" type="stmt"/>
         <line num="32" count="1" type="stmt"/>
         <line num="36" count="1" type="stmt"/>
         <line num="43" count="1" type="stmt"/>
-        <line num="50" count="206" type="stmt"/>
+        <line num="50" count="210" type="stmt"/>
         <line num="51" count="43" type="stmt"/>
         <line num="52" count="43" type="stmt"/>
         <line num="57" count="43" type="cond" truecount="2" falsecount="0"/>
@@ -6407,7 +6445,7 @@
         <line num="86" count="1" type="stmt"/>
         <line num="87" count="1" type="stmt"/>
         <line num="102" count="43" type="stmt"/>
-        <line num="147" count="206" type="cond" truecount="0" falsecount="1"/>
+        <line num="147" count="210" type="cond" truecount="0" falsecount="1"/>
         <line num="148" count="43" type="cond" truecount="2" falsecount="0"/>
         <line num="149" count="43" type="cond" truecount="2" falsecount="0"/>
         <line num="150" count="43" type="stmt"/>
@@ -6415,15 +6453,15 @@
       </file>
       <file name="getColor.ts" path="/home/circleci/project/packages/theming/src/utils/getColor.ts">
         <metrics statements="29" coveredstatements="29" conditionals="29" coveredconditionals="29" methods="4" coveredmethods="4"/>
-        <line num="10" count="207" type="stmt"/>
-        <line num="11" count="207" type="stmt"/>
-        <line num="16" count="207" type="stmt"/>
-        <line num="18" count="207" type="stmt"/>
+        <line num="10" count="211" type="stmt"/>
+        <line num="11" count="211" type="stmt"/>
+        <line num="16" count="211" type="stmt"/>
+        <line num="18" count="211" type="stmt"/>
         <line num="19" count="25" type="cond" truecount="2" falsecount="0"/>
         <line num="21" count="9" type="stmt"/>
         <line num="23" count="9" type="cond" truecount="2" falsecount="0"/>
         <line num="26" count="16" type="stmt"/>
-        <line num="45" count="207" type="stmt"/>
+        <line num="45" count="211" type="stmt"/>
         <line num="53" count="92795" type="cond" truecount="2" falsecount="0"/>
         <line num="54" count="1" type="stmt"/>
         <line num="57" count="92794" type="cond" truecount="4" falsecount="0"/>
@@ -6447,13 +6485,13 @@
       </file>
       <file name="getDocument.ts" path="/home/circleci/project/packages/theming/src/utils/getDocument.ts">
         <metrics statements="2" coveredstatements="2" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
-        <line num="11" count="207" type="cond" truecount="1" falsecount="0"/>
+        <line num="11" count="211" type="cond" truecount="1" falsecount="0"/>
         <line num="12" count="4" type="cond" truecount="3" falsecount="0"/>
       </file>
       <file name="getLineHeight.ts" path="/home/circleci/project/packages/theming/src/utils/getLineHeight.ts">
         <metrics statements="10" coveredstatements="10" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1"/>
-        <line num="8" count="207" type="stmt"/>
-        <line num="18" count="207" type="stmt"/>
+        <line num="8" count="211" type="stmt"/>
+        <line num="18" count="211" type="stmt"/>
         <line num="19" count="993" type="stmt"/>
         <line num="20" count="993" type="stmt"/>
         <line num="21" count="993" type="stmt"/>
@@ -6465,15 +6503,15 @@
       </file>
       <file name="isRtl.ts" path="/home/circleci/project/packages/theming/src/utils/isRtl.ts">
         <metrics statements="2" coveredstatements="2" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
-        <line num="11" count="207" type="cond" truecount="1" falsecount="0"/>
+        <line num="11" count="211" type="cond" truecount="1" falsecount="0"/>
         <line num="12" count="733" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="menuStyles.ts" path="/home/circleci/project/packages/theming/src/utils/menuStyles.ts">
         <metrics statements="30" coveredstatements="30" conditionals="33" coveredconditionals="30" methods="3" coveredmethods="3"/>
-        <line num="8" count="206" type="stmt"/>
-        <line num="9" count="206" type="stmt"/>
-        <line num="10" count="206" type="stmt"/>
-        <line num="23" count="206" type="stmt"/>
+        <line num="8" count="210" type="stmt"/>
+        <line num="9" count="210" type="stmt"/>
+        <line num="10" count="210" type="stmt"/>
+        <line num="23" count="210" type="stmt"/>
         <line num="24" count="250" type="cond" truecount="1" falsecount="1"/>
         <line num="25" count="250" type="stmt"/>
         <line num="28" count="250" type="cond" truecount="2" falsecount="0"/>
@@ -6487,10 +6525,10 @@
         <line num="37" count="1" type="stmt"/>
         <line num="40" count="250" type="stmt"/>
         <line num="47" count="250" type="stmt"/>
-        <line num="54" count="206" type="stmt"/>
+        <line num="54" count="210" type="stmt"/>
         <line num="55" count="269" type="stmt"/>
         <line num="57" count="269" type="stmt"/>
-        <line num="83" count="206" type="cond" truecount="0" falsecount="1"/>
+        <line num="83" count="210" type="cond" truecount="0" falsecount="1"/>
         <line num="84" count="491" type="cond" truecount="1" falsecount="1"/>
         <line num="87" count="491" type="cond" truecount="2" falsecount="0"/>
         <line num="88" count="10" type="stmt"/>
@@ -6503,30 +6541,30 @@
       </file>
       <file name="retrieveComponentStyles.ts" path="/home/circleci/project/packages/theming/src/utils/retrieveComponentStyles.ts">
         <metrics statements="8" coveredstatements="8" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
-        <line num="11" count="207" type="stmt"/>
-        <line num="15" count="59413" type="cond" truecount="2" falsecount="0"/>
-        <line num="17" count="59413" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="211" type="stmt"/>
+        <line num="15" count="59421" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="59421" type="cond" truecount="2" falsecount="0"/>
         <line num="18" count="1" type="stmt"/>
-        <line num="21" count="59412" type="stmt"/>
-        <line num="23" count="59412" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="59420" type="stmt"/>
+        <line num="23" count="59420" type="cond" truecount="2" falsecount="0"/>
         <line num="24" count="1" type="stmt"/>
-        <line num="27" count="59411" type="stmt"/>
+        <line num="27" count="59419" type="stmt"/>
       </file>
       <file name="useDocument.ts" path="/home/circleci/project/packages/theming/src/utils/useDocument.ts">
         <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
-        <line num="8" count="207" type="stmt"/>
-        <line num="11" count="207" type="stmt"/>
-        <line num="12" count="2517" type="stmt"/>
-        <line num="17" count="2517" type="stmt"/>
-        <line num="18" count="1241" type="cond" truecount="4" falsecount="0"/>
+        <line num="8" count="211" type="stmt"/>
+        <line num="11" count="211" type="stmt"/>
+        <line num="12" count="2525" type="stmt"/>
+        <line num="17" count="2525" type="stmt"/>
+        <line num="18" count="1245" type="cond" truecount="4" falsecount="0"/>
         <line num="19" count="2" type="stmt"/>
-        <line num="21" count="1239" type="stmt"/>
-        <line num="25" count="2517" type="stmt"/>
+        <line num="21" count="1243" type="stmt"/>
+        <line num="25" count="2525" type="stmt"/>
       </file>
       <file name="withTheme.ts" path="/home/circleci/project/packages/theming/src/utils/withTheme.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="8" count="206" type="stmt"/>
-        <line num="11" count="206" type="stmt"/>
+        <line num="8" count="210" type="stmt"/>
+        <line num="11" count="210" type="stmt"/>
         <line num="12" count="115" type="stmt"/>
       </file>
     </package>
