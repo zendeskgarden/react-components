@@ -23,8 +23,8 @@ describe('StyledToggleInput', () => {
   it('renders expected RTL styling', () => {
     const { container } = renderRtl(<StyledToggleInput />);
 
-    expect(container.firstChild).toHaveStyleRule('background-position', '90%', {
-      modifier: `& ~ ${StyledToggleLabel}::before`
+    expect(container.firstChild).toHaveStyleRule('right', expect.any(String), {
+      modifier: `& ~ ${StyledToggleLabel} > svg`
     });
   });
 });

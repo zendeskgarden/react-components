@@ -30,6 +30,8 @@ export * from './checkbox/StyledCheckLabel';
 export * from './checkbox/StyledCheckHint';
 export * from './checkbox/StyledCheckInput';
 export * from './checkbox/StyledCheckMessage';
+export * from './checkbox/StyledCheckSvg';
+export * from './checkbox/StyledDashSvg';
 
 /**
  * Radio styles
@@ -38,6 +40,7 @@ export * from './radio/StyledRadioLabel';
 export * from './radio/StyledRadioHint';
 export * from './radio/StyledRadioInput';
 export * from './radio/StyledRadioMessage';
+export * from './radio/StyledRadioSvg';
 
 /**
  * Toggle styles
@@ -46,6 +49,7 @@ export * from './toggle/StyledToggleLabel';
 export * from './toggle/StyledToggleHint';
 export * from './toggle/StyledToggleInput';
 export * from './toggle/StyledToggleMessage';
+export * from './toggle/StyledToggleSvg';
 
 /**
  * Range styles

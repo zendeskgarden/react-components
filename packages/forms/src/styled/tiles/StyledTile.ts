@@ -148,7 +148,6 @@ export const StyledTile = styled.label.attrs<IStyledTileProps>(props => ({
     border-color .25s ease-in-out,
     box-shadow .1s ease-in-out,
     background-color .25s ease-in-out,
-    background-image .25s ease-in-out,
     color .25s ease-in-out;
   border-radius: ${props => props.theme.borderRadii.md};
   cursor: ${props => !props.isDisabled && 'pointer'};

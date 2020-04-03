@@ -12,20 +12,12 @@ import { StyledRadioLabel } from './StyledRadioLabel';
 
 const COMPONENT_ID = 'forms.radio';
 
-const radioSvg = (props: ThemeProps<DefaultTheme>) => {
-  const color = props.theme.colors.background;
-
-  return `
-    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12">
-      <circle cx="6" cy="6" r="2" fill="${color}"/>
-    </svg>
-  `;
-};
-
 const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const SHADE = 600;
 
   const borderColor = getColor('neutralHue', SHADE - 300, props.theme);
+  const backgroundColor = props.theme.colors.background;
+  const iconColor = backgroundColor;
   const hoverBackgroundColor = getColor('primaryHue', SHADE, props.theme, 0.08);
   const hoverBorderColor = getColor('primaryHue', SHADE - 200, props.theme);
   const focusBorderColor = getColor('primaryHue', SHADE, props.theme);
@@ -39,12 +31,15 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const checkedActiveBorderColor = getColor('primaryHue', SHADE + 200, props.theme);
   const checkedActiveBackgroundColor = checkedActiveBorderColor;
   const disabledBackgroundColor = getColor('neutralHue', SHADE - 400, props.theme);
-  const backgroundImage = encodeURIComponent(radioSvg(props));
 
   return css`
     & ~ ${StyledRadioLabel}::before {
       border-color: ${borderColor};
-      background-color: ${props.theme.colors.background};
+      background-color: ${backgroundColor};
+    }
+
+    & ~ ${StyledRadioLabel} > svg {
+      color: ${iconColor};
     }
 
     & ~ ${StyledRadioLabel}:hover::before {
@@ -60,10 +55,6 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
     & ~ ${StyledRadioLabel}:active::before {
       border-color: ${activeBorderColor};
       background-color: ${activeBackgroundColor};
-    }
-
-    &:checked ~ ${StyledRadioLabel}::before {
-      background-image: url('data:image/svg+xml;charset=utf-8,${backgroundImage}');
     }
 
     &:checked ~ ${StyledRadioLabel}::before {
@@ -91,9 +82,12 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
 };
 
 const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
-  const lineHeight = math(`${props.theme.space.base} * 5px`); /* from StyledLabel */
-  const size = math(`${props.theme.space.base} * 4px`);
+  const lineHeight = `${props.theme.space.base * 5}px`; /* from StyledLabel */
+  const size = `${props.theme.space.base * 4}px`;
   const top = math(`(${lineHeight} - ${size}) / 2`);
+  const iconSize = props.theme.iconSizes.sm;
+  const iconPosition = math(`(${size} - ${iconSize}) / 2`);
+  const iconTop = math(`${iconPosition} + ${top}`);
 
   return css`
     & ~ ${StyledRadioLabel}::before {
@@ -102,6 +96,13 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
       width: ${size};
       height: ${size};
       box-sizing: border-box;
+    }
+
+    & ~ ${StyledRadioLabel} > svg {
+      top: ${iconTop};
+      ${props.theme.rtl ? 'right' : 'left'}: ${iconPosition};
+      width: ${iconSize};
+      height: ${iconSize};
     }
   `;
 };
@@ -123,13 +124,16 @@ export const StyledRadioInput = styled.input.attrs({
       border-color .25s ease-in-out,
       box-shadow .1s ease-in-out,
       background-color .25s ease-in-out,
-      background-image .25s ease-in-out,
       color .25s ease-in-out;
     border: ${props => props.theme.borders.sm};
     border-radius: 50%;
     background-repeat: no-repeat;
     background-position: center;
     content: '';
+  }
+
+  & ~ ${StyledRadioLabel} > svg {
+    position: absolute;
   }
 
   ${props => sizeStyles(props)};
@@ -143,7 +147,6 @@ export const StyledRadioInput = styled.input.attrs({
     transition:
       border-color 0.1s ease-in-out,
       background-color 0.1s ease-in-out,
-      background-image 0.1s ease-in-out,
       color 0.1s ease-in-out;
   }
 

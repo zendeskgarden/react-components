@@ -12,60 +12,19 @@ import { StyledCheckLabel } from './StyledCheckLabel';
 
 const COMPONENT_ID = 'forms.checkbox';
 
-const checkSvg = (props: ThemeProps<DefaultTheme>) => {
-  const color = props.theme.colors.background;
-
-  return `
-    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12">
-      <path
-        fill="none"
-        stroke="${color}"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M3 6l2 2 4-4"
-      />
-    </svg>
-  `;
-};
-
-const dashSvg = (props: ThemeProps<DefaultTheme>) => {
-  const color = props.theme.colors.background;
-
-  return `
-    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12">
-      <path
-        fill="none"
-        stroke="${color}"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M3 6h6"
-      />
-    </svg>
-  `;
-};
-
 const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const SHADE = 600;
 
-  const backgroundImage = encodeURIComponent(checkSvg(props));
   const indeterminateBorderColor = getColor('primaryHue', SHADE, props.theme);
   const indeterminateBackgroundColor = indeterminateBorderColor;
-  const indeterminateBackgroundImage = encodeURIComponent(dashSvg(props));
   const indeterminateActiveBorderColor = getColor('primaryHue', SHADE + 100, props.theme);
   const indeterminateActiveBackgroundColor = indeterminateActiveBorderColor;
   const indeterminateDisabledBackgroundColor = getColor('neutralHue', SHADE - 400, props.theme);
 
   return css`
-    &:checked ~ ${StyledCheckLabel}::before {
-      background-image: url('data:image/svg+xml;charset=utf-8,${backgroundImage}');
-    }
-
     &:indeterminate ~ ${StyledCheckLabel}::before {
       border-color: ${indeterminateBorderColor};
       background-color: ${indeterminateBackgroundColor};
-      background-image: url('data:image/svg+xml;charset=utf-8,${indeterminateBackgroundImage}');
     }
 
     /* stylelint-disable selector-max-specificity */

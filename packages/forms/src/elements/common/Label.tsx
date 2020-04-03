@@ -9,7 +9,16 @@ import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import useFieldContext from '../../utils/useFieldContext';
 import useInputContext from '../../utils/useInputContext';
-import { StyledLabel, StyledCheckLabel, StyledRadioLabel, StyledToggleLabel } from '../../styled';
+import {
+  StyledLabel,
+  StyledCheckLabel,
+  StyledCheckSvg,
+  StyledDashSvg,
+  StyledRadioLabel,
+  StyledRadioSvg,
+  StyledToggleLabel,
+  StyledToggleSvg
+} from '../../styled';
 
 export interface ILabelProps extends HTMLAttributes<HTMLLabelElement> {
   /** Style using regular (non-bold) font weight */
@@ -24,25 +33,37 @@ export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>((props, ref
   const fieldContext = useFieldContext();
   const type = useInputContext();
 
-  let LabelComponent;
-
-  if (type === 'checkbox') {
-    LabelComponent = StyledCheckLabel;
-  } else if (type === 'radio') {
-    LabelComponent = StyledRadioLabel;
-  } else if (type === 'toggle') {
-    LabelComponent = StyledToggleLabel;
-  } else {
-    LabelComponent = StyledLabel;
-  }
-
   let combinedProps = props;
 
   if (fieldContext) {
     combinedProps = fieldContext.getLabelProps(combinedProps);
   }
 
-  return <LabelComponent ref={ref} {...(combinedProps as any)} />;
+  if (type === 'radio') {
+    return (
+      <StyledRadioLabel ref={ref} {...(combinedProps as any)}>
+        <StyledRadioSvg />
+        {props.children}
+      </StyledRadioLabel>
+    );
+  } else if (type === 'checkbox') {
+    return (
+      <StyledCheckLabel ref={ref} {...(combinedProps as any)}>
+        <StyledCheckSvg />
+        <StyledDashSvg />
+        {props.children}
+      </StyledCheckLabel>
+    );
+  } else if (type === 'toggle') {
+    return (
+      <StyledToggleLabel ref={ref} {...(combinedProps as any)}>
+        <StyledToggleSvg />
+        {props.children}
+      </StyledToggleLabel>
+    );
+  }
+
+  return <StyledLabel ref={ref} {...(combinedProps as any)} />;
 });
 
 Label.displayName = 'Label';
