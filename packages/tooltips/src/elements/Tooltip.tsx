@@ -86,7 +86,7 @@ const Tooltip: React.FC<ITooltipProps> = ({
     if (controlledIsVisible) {
       scheduleUpdateRef.current && scheduleUpdateRef.current();
     }
-  }, [controlledIsVisible]);
+  }, [controlledIsVisible, content]);
 
   const popperPlacement = otherProps.theme!.rtl
     ? getRtlPopperPlacement(placement!)
