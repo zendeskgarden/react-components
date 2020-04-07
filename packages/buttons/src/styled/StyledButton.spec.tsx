@@ -71,6 +71,18 @@ describe('StyledButton', () => {
     expect(container.firstChild).toHaveStyleRule('width', '100%');
   });
 
+  it('renders default type of "button"', () => {
+    const { container } = render(<StyledButton />);
+
+    expect(container.firstChild).toHaveAttribute('type', 'button');
+  });
+
+  it('renders custom type if provided', () => {
+    const { container } = render(<StyledButton type="submit" />);
+
+    expect(container.firstChild).toHaveAttribute('type', 'submit');
+  });
+
   describe('Sizes', () => {
     it('renders small styling if provided', () => {
       const { container } = render(<StyledButton size="small" />);
