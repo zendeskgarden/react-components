@@ -245,11 +245,11 @@ export interface IStyledButtonProps {
 /**
  * Accepts all `<button>` props
  */
-export const StyledButton = styled.button.attrs<IStyledButtonProps>({
+export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  type: 'button'
-})<IStyledButtonProps>`
+  type: props.type || 'button'
+}))<IStyledButtonProps>`
   display: ${props => (props.isLink ? 'inline' : 'inline-block')};
   /* prettier-ignore */
   transition:
