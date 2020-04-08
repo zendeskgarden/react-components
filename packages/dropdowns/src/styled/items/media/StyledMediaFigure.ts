@@ -15,24 +15,6 @@ interface IStyledMediaFigureProps extends HTMLAttributes<HTMLDivElement> {
   isCompact?: boolean;
 }
 
-export const getMediaFigureSize = (props: IStyledMediaFigureProps & ThemeProps<DefaultTheme>) => {
-  if (props.isCompact) {
-    return `${props.theme.space.base * 6}px`;
-  }
-
-  return `${props.theme.space.base * 8}px`;
-};
-
-export const getMediaFigureMarginTop = (
-  props: IStyledMediaFigureProps & ThemeProps<DefaultTheme>
-) => {
-  if (props.isCompact) {
-    return undefined;
-  }
-
-  return '1px';
-};
-
 export const StyledMediaFigure = styled(
   /* eslint-disable @typescript-eslint/no-unused-vars */
   ({
@@ -48,12 +30,9 @@ export const StyledMediaFigure = styled(
   'data-garden-version': PACKAGE_VERSION
 })<IStyledMediaFigureProps>`
   float: ${props => (props.theme.rtl ? 'right' : 'left')};
-  margin-top: ${props => getMediaFigureMarginTop(props)};
-  /* stylelint-disable-next-line property-no-unknown,declaration-no-important */
-  margin-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
-  props.isCompact ? props.theme.space.base * 1.5 : props.theme.space.base * 2}px !important;
-  width: ${props => getMediaFigureSize(props)};
-  height: ${props => getMediaFigureSize(props)};
+  margin-top: ${props => props.theme.space.base * 0.5}px;
+  width: ${props => props.theme.iconSizes.md};
+  height: ${props => props.theme.iconSizes.md};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

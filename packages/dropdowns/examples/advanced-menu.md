@@ -145,7 +145,7 @@ initialState = {
           </MediaItem>
           <MediaItem value="avatar" disabled={state.isDisabled}>
             <MediaFigure>
-              <Avatar size={state.isCompact ? 'extrasmall' : 'small'} status="available">
+              <Avatar size="extraextrasmall" status="available">
                 <img alt="Sage" src="images/avatar-48.png" />
               </Avatar>
             </MediaFigure>

@@ -23,11 +23,7 @@ const getHorizontalPadding = (props: IStyledHeaderItemProps & ThemeProps<Default
     return undefined;
   }
 
-  if (props.isCompact) {
-    return `${props.theme.space.base * 3}px`;
-  }
-
-  return `${props.theme.space.base * 4}px`;
+  return `${props.theme.space.base * 3}px`;
 };
 
 /**

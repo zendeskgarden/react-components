@@ -5,24 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { math } from 'polished';
+import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
-import { getItemPaddingHorizontal } from '../StyledItem';
 
 const COMPONENT_ID = 'dropdowns.header_icon';
 
 interface IStyledHeaderIcon {
   isCompact?: boolean;
 }
-
-const getIconSize = (props: IStyledHeaderIcon & ThemeProps<DefaultTheme>) => {
-  if (props.isCompact) {
-    return props.theme.iconSizes.sm;
-  }
-
-  return props.theme.iconSizes.md;
-};
 
 export const StyledHeaderIcon = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
@@ -34,13 +24,12 @@ export const StyledHeaderIcon = styled.div.attrs({
   bottom: 0;
   align-items: center;
   justify-content: center;
-  ${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
-    `calc(${math(`${getItemPaddingHorizontal(props)} - ${getIconSize(props)}`)} / 2)`};
+  ${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.space.base * 3}px;
   color: ${props => getColor('neutralHue', 600, props.theme)};
 
   & > * {
-    width: ${props => getIconSize(props)};
-    height: ${props => getIconSize(props)};
+    width: ${props => props.theme.iconSizes.md};
+    height: ${props => props.theme.iconSizes.md};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

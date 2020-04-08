@@ -8,7 +8,7 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { getItemPaddingHorizontal, getItemPaddingVertical } from './StyledItem';
+import { getItemPaddingVertical } from './StyledItem';
 
 interface IStyledItemIconProps {
   isCompact?: boolean;
@@ -18,21 +18,8 @@ interface IStyledItemIconProps {
 
 const getSizeStyles = (props: IStyledItemIconProps & ThemeProps<DefaultTheme>) => {
   return css`
-    width: ${getItemPaddingHorizontal(props)};
+    width: ${props.theme.iconSizes.md};
     height: calc(${props.theme.space.base * 5}px + ${math(`${getItemPaddingVertical(props)} * 2`)});
-  `;
-};
-
-const getIconSizeStyles = (props: IStyledItemIconProps & ThemeProps<DefaultTheme>) => {
-  let size = props.theme.iconSizes.md;
-
-  if (props.isCompact) {
-    size = props.theme.iconSizes.sm;
-  }
-
-  return css`
-    width: ${size};
-    height: ${size};
   `;
 };
 
@@ -40,7 +27,7 @@ export const StyledItemIcon = styled.div<IStyledItemIconProps>`
   display: flex;
   position: absolute;
   top: 0;
-  ${props => (props.theme.rtl ? 'right' : 'left')}: 0;
+  ${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.space.base * 3}px;
   align-items: center;
   justify-content: center;
   transition: opacity 0.1s ease-in-out;
@@ -50,7 +37,8 @@ export const StyledItemIcon = styled.div<IStyledItemIconProps>`
   ${props => getSizeStyles(props)};
 
   & > * {
-    ${props => getIconSizeStyles(props)};
+    width: ${props => props.theme.iconSizes.md};
+    height: ${props => props.theme.iconSizes.md};
   }
 `;
 

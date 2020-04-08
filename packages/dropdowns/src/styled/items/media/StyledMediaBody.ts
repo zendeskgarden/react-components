@@ -6,9 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { getMediaFigureSize } from './StyledMediaFigure';
 
 const COMPONENT_ID = 'dropdowns.media_body';
 
@@ -24,10 +22,9 @@ export const StyledMediaBody = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledMediaBodyProps>`
   display: block;
-  margin-top: ${props =>
-    props.isCompact &&
-    math(`${math(`${getMediaFigureSize(props)} - ${props.theme.space.base * 5}px`)} / 2`)};
   overflow: hidden;
+  ${props => (props.theme.rtl ? 'padding-right' : 'padding-left')}: ${props =>
+    props.theme.space.base * 2}px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

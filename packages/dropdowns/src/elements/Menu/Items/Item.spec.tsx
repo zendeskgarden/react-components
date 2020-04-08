@@ -110,7 +110,7 @@ describe('Item', () => {
     );
 
     fireEvent.click(getByTestId('trigger'));
-    expect(getByTestId('item-icon')).toHaveStyleRule('width', '12px', { modifier: '& > *' });
+    expect(getByTestId('item-icon')).toHaveStyleRule('width', '16px', { modifier: '& > *' });
   });
 
   describe('States', () => {
