@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useEffect, HTMLAttributes } from 'react';
+import React, { forwardRef, useCallback, useEffect, HTMLAttributes } from 'react';
 import { useCombinedRefs } from '@zendeskgarden/container-utilities';
+import debounce from 'lodash.debounce';
 import { StyledContent, StyledInnerContent } from '../../../styled';
 import { useStepContext, useStepperContext } from '../../../utils';
 
@@ -16,13 +17,29 @@ export const Content = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>
   const { currentStepIndex } = useStepContext();
   const isActive = currentStepIndex === activeIndex;
 
-  useEffect(() => {
-    if (contentRef.current && isHorizontal === false) {
-      const child = contentRef.current.children[0] as any;
+  const updateMaxHeight = useCallback(
+    debounce(() => {
+      if (contentRef.current) {
+        const child = contentRef.current.children[0] as any;
 
-      child.style.height = `${child.scrollHeight}px`;
+        child.style.maxHeight = `${child.scrollHeight}px`;
+      }
+    }, 100),
+    [contentRef]
+  );
+
+  useEffect(() => {
+    if (isActive && isHorizontal === false) {
+      addEventListener('resize', updateMaxHeight);
+      updateMaxHeight();
+
+      return () => {
+        removeEventListener('resize', updateMaxHeight);
+      };
     }
-  }, [contentRef, isHorizontal]);
+
+    return undefined;
+  }, [isActive, isHorizontal, props.children, updateMaxHeight]);
 
   return isHorizontal === false ? (
     <StyledContent ref={contentRef} isActive={isActive} {...props}>

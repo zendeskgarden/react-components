@@ -18,9 +18,9 @@ export const StyledInnerContent = styled.div.attrs<IStyledInnerContent>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledInnerContent>`
-  transition: height 0.25s ease-in-out;
+  transition: max-height 0.25s ease-in-out;
   overflow: hidden;
-  height: ${props => !props.isActive && '0 !important'}; /* stylelint-disable-line */
+  max-height: ${props => !props.isActive && '0 !important'}; /* stylelint-disable-line */
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
