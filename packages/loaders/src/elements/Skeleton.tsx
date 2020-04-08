@@ -10,9 +10,11 @@ import PropTypes from 'prop-types';
 import { StyledSkeleton } from '../styled';
 
 interface ISkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
+  /** Sets the width as a percentage of the parent element */
   width?: string;
+  /** Sets the height of the loader as a percentage of parent element when not inherited by `line-height`. Default is .6 of `line-height` */
   height?: string;
-  /** Apply light styling for use on dark backgrounds */
+  /** Inverts the loader color for use on dark backgrounds */
   isLight?: boolean;
 }
 
