@@ -21,20 +21,19 @@ const COMPONENT_ID = 'loaders.dots';
 
 interface IDotsProps extends React.HTMLAttributes<SVGSVGElement> {
   /**
-   * Size of the loader. Can inherit from `font-size` styling.
+   * Sets the `height` and `width` in pixels. Inherits the parent `font-size` by default
    **/
   size?: string | number;
   /**
-   * Color of the loader. Can inherit from `color` styling.
+   * Sets the fill `color`. Inherits the parent font `color` by default
    **/
   color?: string;
   /**
-   * Duration (ms) of the animation. Default is 1250ms.
+   * Sets the speed of the loading animation in milliseconds
    **/
   duration?: number;
   /**
-   * Delay in MS to begin loader rendering. This helps prevent
-   * quick flashes of the loader during normal loading times.
+   * Delays showing the loader to prevent a quick render flash during normal loading times. Time is in milliseconds
    **/
   delayMS?: number;
 }
