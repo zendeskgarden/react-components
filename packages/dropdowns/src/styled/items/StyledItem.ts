@@ -36,8 +36,8 @@ export const getItemPaddingHorizontal = (props: IStyledItemProps & ThemeProps<De
 const getColorStyles = (props: IStyledItemProps & ThemeProps<DefaultTheme>) => {
   return css`
     background-color: ${props.isFocused &&
-      !props.disabled &&
-      getColor('primaryHue', 600, props.theme, 0.08)};
+    !props.disabled &&
+    getColor('primaryHue', 600, props.theme, 0.08)};
     color: ${props.disabled
       ? getColor('neutralHue', 400, props.theme)
       : props.theme.colors.foreground};

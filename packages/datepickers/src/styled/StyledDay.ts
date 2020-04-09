@@ -42,8 +42,8 @@ const retrieveStyledDayColors = ({
     color: ${color};
 
     ${!isSelected &&
-      !isDisabled &&
-      `
+    !isDisabled &&
+    `
       :hover {
         background-color: ${getColor('primaryHue', 600, theme, 0.08)};
         color: ${getColor('primaryHue', 800, theme)};

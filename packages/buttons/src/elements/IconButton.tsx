@@ -29,8 +29,9 @@ interface IIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 /**
  * Accepts all `<button>` props
  */
-const IconButton: React.FunctionComponent<IIconButtonProps &
-  React.RefAttributes<HTMLButtonElement>> = React.forwardRef<HTMLButtonElement, IIconButtonProps>(
+const IconButton: React.FunctionComponent<
+  IIconButtonProps & React.RefAttributes<HTMLButtonElement>
+> = React.forwardRef<HTMLButtonElement, IIconButtonProps>(
   ({ children, isRotated, ...otherProps }, ref) => {
     const focusInset = useSplitButtonContext();
 

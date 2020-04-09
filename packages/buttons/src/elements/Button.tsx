@@ -34,33 +34,32 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 /**
  * Accepts all `<button>` props
  */
-const Button: React.FunctionComponent<IButtonProps &
-  React.RefAttributes<HTMLButtonElement>> = React.forwardRef<HTMLButtonElement, IButtonProps>(
-  (props, ref) => {
-    const buttonGroupContext = useButtonGroupContext();
-    const splitButtonContext = useSplitButtonContext();
+const Button: React.FunctionComponent<
+  IButtonProps & React.RefAttributes<HTMLButtonElement>
+> = React.forwardRef<HTMLButtonElement, IButtonProps>((props, ref) => {
+  const buttonGroupContext = useButtonGroupContext();
+  const splitButtonContext = useSplitButtonContext();
 
-    let computedProps = {
-      ...props,
-      focusInset: props.focusInset || buttonGroupContext !== undefined || splitButtonContext
-    };
+  let computedProps = {
+    ...props,
+    focusInset: props.focusInset || buttonGroupContext !== undefined || splitButtonContext
+  };
 
-    if (buttonGroupContext && !props.disabled) {
-      if (!props.value) {
-        throw new Error('"value" prop must be provided to Button when used within a ButtonGroup');
-      }
-
-      computedProps = buttonGroupContext.getButtonProps({
-        item: props.value,
-        focusRef: React.createRef(),
-        isSelected: props.value === buttonGroupContext.selectedItem,
-        ...computedProps
-      });
+  if (buttonGroupContext && !props.disabled) {
+    if (!props.value) {
+      throw new Error('"value" prop must be provided to Button when used within a ButtonGroup');
     }
 
-    return <StyledButton ref={ref} {...computedProps} {...computedProps} />;
+    computedProps = buttonGroupContext.getButtonProps({
+      item: props.value,
+      focusRef: React.createRef(),
+      isSelected: props.value === buttonGroupContext.selectedItem,
+      ...computedProps
+    });
   }
-);
+
+  return <StyledButton ref={ref} {...computedProps} {...computedProps} />;
+});
 
 Button.propTypes = {
   isDanger: PropTypes.bool,

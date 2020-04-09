@@ -107,7 +107,7 @@ const positionStyles = (position: ARROW_POSITION, size: string, inset: string) =
 
     &::before,
     &::after {
-      ${positionCss} /* [3] */
+      ${positionCss}/* [3] */
     }
   `;
 };

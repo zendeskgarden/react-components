@@ -29,11 +29,9 @@ interface IChevronButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 /**
  * An `IconButton` with an embedded chevron icon
  */
-const ChevronButton: React.FunctionComponent<IChevronButtonProps &
-  React.RefAttributes<HTMLButtonElement>> = React.forwardRef<
-  HTMLButtonElement,
-  IChevronButtonProps
->(({ ...buttonProps }, ref) => (
+const ChevronButton: React.FunctionComponent<
+  IChevronButtonProps & React.RefAttributes<HTMLButtonElement>
+> = React.forwardRef<HTMLButtonElement, IChevronButtonProps>(({ ...buttonProps }, ref) => (
   <IconButton ref={ref} {...buttonProps}>
     <ChevronDownIcon />
   </IconButton>

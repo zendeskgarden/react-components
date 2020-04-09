@@ -95,11 +95,7 @@ const startLerna = (scope, script) => {
 };
 
 gardenSplashScreen();
-program
-  .version('0.0.1')
-  .option('--scope [scope]')
-  .option('--script [script]')
-  .parse(process.argv);
+program.version('0.0.1').option('--scope [scope]').option('--script [script]').parse(process.argv);
 
 if (program.scope) {
   startLerna(program.scope, program.script);

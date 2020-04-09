@@ -52,14 +52,7 @@ export { customRtlRender as renderRtl };
  * @param {*} files
  */
 function defaultFileMapper(files: string[]) {
-  return files
-    .map(entry =>
-      entry
-        .replace(/\.js$/u, '')
-        .split('/')
-        .pop()
-    )
-    .sort();
+  return files.map(entry => entry.replace(/\.js$/u, '').split('/').pop()).sort();
 }
 
 /**
