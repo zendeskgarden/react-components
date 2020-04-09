@@ -50,12 +50,7 @@ function ExampleAutocomplete() {
   const filterMatchingOptionsRef = React.useRef(
     debounce(value => {
       const matchingOptions = options.filter(option => {
-        return (
-          option
-            .trim()
-            .toLowerCase()
-            .indexOf(value.trim().toLowerCase()) !== -1
-        );
+        return option.trim().toLowerCase().indexOf(value.trim().toLowerCase()) !== -1;
       });
 
       setMatchingOptions(matchingOptions);

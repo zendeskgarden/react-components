@@ -27,8 +27,9 @@ export const StyledFooter = styled.div.attrs<IStyledFooter>({
   padding: ${props =>
     props.isLarge
       ? `${props.theme.space.base * 8}px ${props.theme.space.base * 10}px`
-      : `${props.theme.space.base * 5}px ${props.theme.space.base * 10}px ${props.theme.space.base *
-          8}px`};
+      : `${props.theme.space.base * 5}px ${props.theme.space.base * 10}px ${
+          props.theme.space.base * 8
+        }px`};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

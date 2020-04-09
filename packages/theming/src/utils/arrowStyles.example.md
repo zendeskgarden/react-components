@@ -21,7 +21,7 @@ initialState = {
 
 const StyledDiv = styled.div`
   box-shadow: ${state.boxShadow &&
-    DEFAULT_THEME.shadows.lg('8px', '12px', getColor('chromeHue', 600, DEFAULT_THEME, 0.15))};
+  DEFAULT_THEME.shadows.lg('8px', '12px', getColor('chromeHue', 600, DEFAULT_THEME, 0.15))};
   border: ${state.border && `${DEFAULT_THEME.borders.sm} ${getColor('primaryHue')}`};
   background-color: ${getColor('primaryHue', 200)};
 

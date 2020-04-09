@@ -25,7 +25,7 @@ const linkStyles = ({ isCurrent }: IStyledBreadcrumbItemProps) => css`
   }
 
   ${isCurrent &&
-    `
+  `
       & > :link,
       & > :visited,
       & > :link:hover,

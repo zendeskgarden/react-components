@@ -105,9 +105,9 @@ const badgeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
     content: ${content};
 
     ${props.status === 'active' &&
-      css`
-        animation: ${animation} ${TRANSITION_DURATION * 1.5}s ease-in-out;
-      `}
+    css`
+      animation: ${animation} ${TRANSITION_DURATION * 1.5}s ease-in-out;
+    `}
   `;
 };
 
