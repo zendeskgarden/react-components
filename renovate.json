@@ -5,6 +5,7 @@
   "packageRules": [
     {
       "paths": ["package.json"],
+      "rangeStrategy": "replace",
       "minor": {
         "groupName": "non-major shared dependencies",
         "groupSlug": "shared-minor-patch"
