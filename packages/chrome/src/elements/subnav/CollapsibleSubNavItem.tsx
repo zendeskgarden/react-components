@@ -31,11 +31,12 @@ export const CollapsibleSubNavItem = React.forwardRef<HTMLDivElement, ICollapsib
     const panelRef = useRef<HTMLDivElement>();
     const [internalExpanded, setInternalExpanded] = useState(controlledExpanded);
     const expanded = getControlledValue(controlledExpanded, internalExpanded);
+    const expandedSections = expanded ? [0] : [];
 
     const { getHeaderProps, getTriggerProps, getPanelProps } = useAccordion({
-      expandedSections: expanded ? [0] : [],
-      onChange: updatedSections => {
-        const isExpanded = updatedSections.length !== 0;
+      expandedSections,
+      onChange: () => {
+        const isExpanded = expandedSections.length === 0;
 
         if (onChange) {
           onChange(isExpanded);
