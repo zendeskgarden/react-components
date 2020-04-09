@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1586462653654" clover="3.2.0">
-  <project timestamp="1586462653654" name="All files">
+<coverage generated="1586470527285" clover="3.2.0">
+  <project timestamp="1586470527286" name="All files">
     <metrics statements="5656" coveredstatements="5641" conditionals="2230" coveredconditionals="2084" methods="1187" coveredmethods="1184" elements="9073" coveredelements="8909" complexity="0" loc="5656" ncloc="5656" packages="97" files="374" classes="374"/>
     <package name="accordions.src.elements.stepper">
       <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -4714,24 +4714,24 @@
         <line num="11" count="1" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="14" type="stmt"/>
         <line num="43" count="14" type="stmt"/>
         <line num="44" count="14" type="stmt"/>
         <line num="45" count="14" type="stmt"/>
         <line num="46" count="14" type="stmt"/>
-        <line num="47" count="14" type="stmt"/>
-        <line num="49" count="14" type="stmt"/>
-        <line num="50" count="12" type="cond" truecount="4" falsecount="0"/>
-        <line num="51" count="1" type="stmt"/>
+        <line num="48" count="14" type="stmt"/>
+        <line num="49" count="12" type="cond" truecount="4" falsecount="0"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="56" count="1" type="stmt"/>
         <line num="57" count="1" type="stmt"/>
         <line num="58" count="1" type="stmt"/>
-        <line num="59" count="1" type="stmt"/>
-        <line num="63" count="14" type="cond" truecount="4" falsecount="0"/>
-        <line num="64" count="6" type="stmt"/>
-        <line num="67" count="8" type="stmt"/>
-        <line num="85" count="1" type="stmt"/>
-        <line num="92" count="1" type="stmt"/>
-        <line num="100" count="1" type="stmt"/>
+        <line num="62" count="14" type="cond" truecount="4" falsecount="0"/>
+        <line num="63" count="6" type="stmt"/>
+        <line num="66" count="8" type="stmt"/>
+        <line num="84" count="1" type="stmt"/>
+        <line num="91" count="1" type="stmt"/>
+        <line num="99" count="1" type="stmt"/>
       </file>
       <file name="Inline.tsx" path="/home/circleci/project/packages/loaders/src/elements/Inline.tsx">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
