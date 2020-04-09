@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { stripUnit } from 'polished';
+import { getValueAndUnit } from 'polished';
 
 /**
  * Get unitless line height based on the given pixel-valued height and font size.
@@ -16,8 +16,8 @@ import { stripUnit } from 'polished';
  * @component
  */
 export default function getLineHeight(height: string | number, fontSize: string | number) {
-  const [heightValue, heightUnit] = stripUnit(height, true /* unitReturn */);
-  const [fontSizeValue, fontSizeUnit] = stripUnit(fontSize, true /* unitReturn */);
+  const [heightValue, heightUnit] = getValueAndUnit(height.toString());
+  const [fontSizeValue, fontSizeUnit] = getValueAndUnit(fontSize.toString());
   const PIXELS = 'px';
 
   if (heightUnit && heightUnit !== PIXELS) {
@@ -28,5 +28,5 @@ export default function getLineHeight(height: string | number, fontSize: string 
     throw new Error(`Unexpected \`fontSize\` with '${fontSizeUnit}' units.`);
   }
 
-  return heightValue / fontSizeValue;
+  return (heightValue as number) / (fontSizeValue as number);
 }
