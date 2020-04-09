@@ -31,7 +31,7 @@
     "prop-types": "^15.6.1",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.2.0 || ^5.0.0"
   },
   "devDependencies": {
     "@types/lodash.debounce": "4.0.6",
