@@ -12,6 +12,29 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.5.0 (2020-04-09)
+
+#### :bug: Bug Fix
+* `tooltips`
+  * [#697](https://github.com/zendeskgarden/react-components/pull/697) fix(tooltips): ensure updated content triggers new position ([@austin94](https://github.com/austin94))
+* `buttons`
+  * [#696](https://github.com/zendeskgarden/react-components/pull/696) feat(buttons): allow custom Button type ([@austin94](https://github.com/austin94))
+* `accordions`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `modals`, `notifications`, `pagination`, `tables`, `tags`
+  * [#691](https://github.com/zendeskgarden/react-components/pull/691) fix(forms): replace encoded background images with inline SVGs ([@jzempel](https://github.com/jzempel))
+
+#### :memo: Documentation
+* `loaders`
+  * [#699](https://github.com/zendeskgarden/react-components/pull/699) chore(loaders): update Dots API descriptions ([@rossmoody](https://github.com/rossmoody))
+
+#### :seedling: Internal
+* Other
+  * [#720](https://github.com/zendeskgarden/react-components/pull/720) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#719](https://github.com/zendeskgarden/react-components/pull/719) chore(renovate): allow open ranges for dev dependencies ([@austin94](https://github.com/austin94))
+  * [#718](https://github.com/zendeskgarden/react-components/pull/718) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#709](https://github.com/zendeskgarden/react-components/pull/709) chore(deps): update dependency rollup-plugin-license to v2 ([@renovate[bot]](https://github.com/apps/renovate))
+* `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `dropdowns`, `forms`, `grid`, `loaders`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#694](https://github.com/zendeskgarden/react-components/pull/694) chore(theming): upgrade polished and remove deprecated stripUnit usages ([@austin94](https://github.com/austin94))
+
 ## v8.4.1 (2020-04-01)
 
 #### :rocket: New Feature
