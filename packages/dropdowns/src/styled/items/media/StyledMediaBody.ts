@@ -23,8 +23,9 @@ export const StyledMediaBody = styled.div.attrs({
 })<IStyledMediaBodyProps>`
   display: block;
   overflow: hidden;
-  ${props => (props.theme.rtl ? 'padding-right' : 'padding-left')}: ${props =>
-    props.theme.space.base * 2}px;
+  /* stylelint-disable-next-line property-no-unknown */
+  padding-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
+  props.theme.space.base * 2}px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
