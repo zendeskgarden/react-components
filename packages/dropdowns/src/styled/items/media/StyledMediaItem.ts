@@ -7,9 +7,7 @@
 
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-
 import { StyledItem } from '../StyledItem';
-import { StyledItemIcon } from '../StyledItemIcon';
 
 const COMPONENT_ID = 'dropdowns.media_item';
 
@@ -24,8 +22,6 @@ export const StyledMediaItem = styled(StyledItem).attrs<IStyledMediaItem>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledMediaItem>`
-  ${StyledItemIcon}
-
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
