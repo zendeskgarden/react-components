@@ -6,7 +6,6 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { math } from 'polished';
 import {
   retrieveComponentStyles,
   DEFAULT_THEME,
@@ -17,6 +16,7 @@ import {
 const COMPONENT_ID = 'pagination.page';
 
 const colorStyles = (props: ThemeProps<DefaultTheme>) => {
+  const defaultColor = getColor('neutralHue', 600, props.theme);
   const hoverForegroundColor = getColor('neutralHue', 700, props.theme);
   const hoverBackgroundColor = getColor('primaryHue', 600, props.theme, 0.08);
   const boxShadowColor = getColor('primaryHue', 600, props.theme, 0.35);
@@ -28,6 +28,8 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const currentActiveBackgroundColor = getColor('primaryHue', 600, props.theme, 0.28);
 
   return css`
+    color: ${defaultColor};
+
     &:hover {
       background-color: ${hoverBackgroundColor};
       color: ${hoverForegroundColor};
@@ -55,6 +57,12 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
     &[aria-current='true']:active {
       background-color: ${currentActiveBackgroundColor};
     }
+
+    :disabled,
+    [aria-disabled='true'] {
+      background-color: transparent;
+      color: ${getColor('grey', 300, props.theme)};
+    }
   `;
 };
 
@@ -66,22 +74,13 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
 
   return css`
     padding: 0 ${padding};
-    min-width: ${height};
-    max-width: ${math(`${height} * 2`)}; /* [1] */
     height: ${height};
     line-height: ${lineHeight};
     font-size: ${fontSize};
-
-    &[aria-current='true'] {
-      max-width: none;
-    }
   `;
 };
 
-/**
- * 1. Text truncation.
- */
-export const StyledPage = styled.li.attrs({
+export const StyledPageBase = styled.li.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
@@ -89,9 +88,8 @@ export const StyledPage = styled.li.attrs({
   display: inline-block;
   transition: box-shadow 0.1s ease-in-out, color 0.25s ease-in-out;
   visibility: ${props => props.hidden && 'hidden'};
-  margin-left: ${props => `${props.theme.space.base}px`};
   border-radius: ${props => props.theme.borderRadii.md};
-  cursor: pointer;
+  cursor: ${props => !(props as any).disabled && 'pointer'};
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -113,13 +111,9 @@ export const StyledPage = styled.li.attrs({
 
   ${props => colorStyles(props)};
 
-  &${props => (props.theme.rtl ? ':last-of-type' : ':first-of-type')} {
-    margin-left: 0;
-  }
-
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
-StyledPage.defaultProps = {
+StyledPageBase.defaultProps = {
   theme: DEFAULT_THEME
 };

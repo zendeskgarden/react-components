@@ -14,7 +14,7 @@ import { withTheme } from '@zendeskgarden/react-theming';
 import { usePagination } from '@zendeskgarden/container-pagination';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
 
-import { StyledPagination, StyledPage, StyledGap, StyledNavigation } from '../styled';
+import { StyledPagination, StyledPage, StyledGap, StyledNavigation } from '../../styled';
 
 const PREVIOUS_KEY = 'previous';
 const NEXT_KEY = 'next';

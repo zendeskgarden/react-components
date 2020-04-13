@@ -14,6 +14,8 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 
 ## Usage
 
+### Offset Pagination
+
 ```jsx static
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Pagination } from '@zendeskgarden/react-pagination';
@@ -31,5 +33,24 @@ initialState = {
     currentPage={state.currentPage}
     onChange={currentPage => setState({ currentPage })}
   />
+</ThemeProvider>;
+```
+
+### Cursor Pagination
+
+```jsx static
+import { ThemeProvider } from '@zendeskgarden/react-theming';
+import { CursorPagination } from '@zendeskgarden/react-pagination';
+
+/**
+ * Place a `ThemeProvider` at the root of your React application
+ */
+<ThemeProvider>
+  <CursorPagination aria-label="Cursor pagination">
+    <CursorPagination.First>First</CursorPagination.First>
+    <CursorPagination.Previous>Previous</CursorPagination.Previous>
+    <CursorPagination.Next>Next</CursorPagination.Next>
+    <CursorPagination.Last>Last</CursorPagination.Last>
+  </CursorPagination>
 </ThemeProvider>;
 ```
