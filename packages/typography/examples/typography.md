@@ -11,6 +11,7 @@ const {
 } = require('@zendeskgarden/react-dropdowns/src');
 
 initialState = {
+  bold: false,
   monospace: false,
   size: 'MD'
 };
@@ -50,19 +51,30 @@ const Typography = ({ size, children, ...props }) => {
             <Item value="XXXL">XXXL</Item>
           </Menu>
         </Dropdown>
-        <Field>
+        <Field className="u-mt-xs">
+          <Toggle checked={state.bold} onChange={event => setState({ bold: event.target.checked })}>
+            <Label>Bold</Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-xs">
           <Toggle
             checked={state.monospace}
             disabled={/^X/.test(state.size)}
             onChange={event => setState({ monospace: event.target.checked })}
           >
-            <Label style={{ marginTop: 8 }}>Monospace</Label>
+            <Label>Monospace</Label>
           </Toggle>
         </Field>
       </Well>
     </Col>
     <Col>
-      <Typography as="p" isMonospace={state.monospace} size={state.size} style={{ marginTop: 0 }}>
+      <Typography
+        as="p"
+        isBold={state.bold}
+        isMonospace={state.monospace}
+        size={state.size}
+        style={{ marginTop: 0 }}
+      >
         Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth
         tatsoi tomatillo melon azuki bean garlic. Parsley shallot courgette tatsoi pea sprouts fava
         bean collard greens dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut
@@ -70,6 +82,7 @@ const Typography = ({ size, children, ...props }) => {
       </Typography>
       <Typography
         as="p"
+        isBold={state.bold}
         isMonospace={state.monospace}
         size={state.size}
         style={{ marginBottom: 0 }}

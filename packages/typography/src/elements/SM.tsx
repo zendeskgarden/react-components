@@ -12,6 +12,8 @@ import { StyledFont } from '../styled';
 interface ISMProps extends HTMLAttributes<HTMLDivElement> {
   /** Any valid DOM element for the styled component */
   tag?: any;
+  /** Render bold font */
+  isBold?: boolean;
   /** Render monospace font */
   isMonospace?: boolean;
 }
@@ -29,6 +31,7 @@ SM.displayName = 'SM';
 
 SM.propTypes = {
   tag: PropTypes.any,
+  isBold: PropTypes.bool,
   isMonospace: PropTypes.bool
 };
 

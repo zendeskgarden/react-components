@@ -12,6 +12,8 @@ import { StyledFont } from '../styled';
 interface IXXXLProps extends HTMLAttributes<HTMLDivElement> {
   /** Any valid DOM element for the styled component */
   tag?: any;
+  /** Render bold font */
+  isBold?: boolean;
 }
 
 /**
@@ -26,7 +28,8 @@ const XXXL: React.FunctionComponent<
 XXXL.displayName = 'XXXL';
 
 XXXL.propTypes = {
-  tag: PropTypes.any
+  tag: PropTypes.any,
+  isBold: PropTypes.bool
 };
 
 XXXL.defaultProps = {

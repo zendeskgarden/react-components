@@ -85,7 +85,7 @@ const NestedList = ({ level = 0, ...props }) => {
             onChange={event => setState({ levels: event.target.value })}
           />
         </Field>
-        <Field>
+        <Field className="u-mt-xs">
           <Label>Length</Label>
           <Range
             max={text[0].length}
@@ -95,7 +95,7 @@ const NestedList = ({ level = 0, ...props }) => {
           />
         </Field>
         <Dropdown selectedItem={state.size} onSelect={size => setState({ size })}>
-          <SelectField>
+          <SelectField className="u-mt-xs">
             <SelectLabel>Size</SelectLabel>
             <Select isCompact>{state.size}</Select>
           </SelectField>
@@ -105,7 +105,7 @@ const NestedList = ({ level = 0, ...props }) => {
             <MenuItem value="large">large</MenuItem>
           </Menu>
         </Dropdown>
-        <Field>
+        <Field className="u-mt-xs">
           <Label>Start</Label>
           <Input
             disabled={!state.ordered}

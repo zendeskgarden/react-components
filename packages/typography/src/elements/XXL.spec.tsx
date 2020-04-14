@@ -6,10 +6,20 @@
  */
 
 import React from 'react';
-import { renderRtl } from 'garden-test-utils';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { render, renderRtl } from 'garden-test-utils';
 import XXL from './XXL';
 
 describe('XXL', () => {
+  it('applies bold styling if provided', () => {
+    const { container } = render(<XXL isBold />);
+
+    expect(container.firstChild).toHaveStyleRule(
+      'font-weight',
+      DEFAULT_THEME.fontWeights.semibold.toString()
+    );
+  });
+
   it('applies correct styling with RTL locale', () => {
     const { container } = renderRtl(<XXL>Hello world</XXL>);
 
