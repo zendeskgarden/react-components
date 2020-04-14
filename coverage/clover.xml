@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1586887694747" clover="3.2.0">
-  <project timestamp="1586887694747" name="All files">
+<coverage generated="1586892486733" clover="3.2.0">
+  <project timestamp="1586892486733" name="All files">
     <metrics statements="5748" coveredstatements="5730" conditionals="2248" coveredconditionals="2100" methods="1207" coveredmethods="1203" elements="9203" coveredelements="9033" complexity="0" loc="5748" ncloc="5748" packages="101" files="383" classes="383"/>
     <package name="accordions.src.elements.stepper">
       <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -4749,11 +4749,11 @@
         <line num="10" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="2" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
-        <line num="32" count="2" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
-        <line num="40" count="1" type="stmt"/>
-        <line num="46" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
       </file>
       <file name="Progress.tsx" path="/home/circleci/project/packages/loaders/src/elements/Progress.tsx">
         <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -4761,24 +4761,24 @@
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="23" count="10" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
         <line num="25" count="10" type="stmt"/>
-        <line num="43" count="1" type="stmt"/>
+        <line num="27" count="10" type="stmt"/>
         <line num="45" count="1" type="stmt"/>
-        <line num="51" count="1" type="stmt"/>
-        <line num="57" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
       </file>
       <file name="Skeleton.tsx" path="/home/circleci/project/packages/loaders/src/elements/Skeleton.tsx">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="23" count="5" type="stmt"/>
-        <line num="30" count="1" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="5" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
       </file>
       <file name="Spinner.tsx" path="/home/circleci/project/packages/loaders/src/elements/Spinner.tsx">
         <metrics statements="39" coveredstatements="39" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
@@ -4804,23 +4804,23 @@
         <line num="40" count="1800" type="stmt"/>
         <line num="42" count="342" type="stmt"/>
         <line num="44" count="342" type="stmt"/>
-        <line num="68" count="1" type="stmt"/>
+        <line num="67" count="1" type="stmt"/>
+        <line num="68" count="6" type="stmt"/>
         <line num="69" count="6" type="stmt"/>
         <line num="70" count="6" type="stmt"/>
-        <line num="71" count="6" type="stmt"/>
+        <line num="72" count="6" type="stmt"/>
         <line num="73" count="6" type="stmt"/>
-        <line num="74" count="6" type="stmt"/>
+        <line num="75" count="6" type="stmt"/>
         <line num="76" count="6" type="stmt"/>
         <line num="77" count="6" type="stmt"/>
-        <line num="78" count="6" type="stmt"/>
+        <line num="79" count="6" type="stmt"/>
         <line num="80" count="6" type="stmt"/>
-        <line num="81" count="6" type="stmt"/>
-        <line num="83" count="6" type="cond" truecount="4" falsecount="0"/>
-        <line num="84" count="3" type="stmt"/>
-        <line num="87" count="3" type="stmt"/>
-        <line num="105" count="1" type="stmt"/>
-        <line num="112" count="1" type="stmt"/>
-        <line num="120" count="1" type="stmt"/>
+        <line num="82" count="6" type="cond" truecount="4" falsecount="0"/>
+        <line num="83" count="3" type="stmt"/>
+        <line num="86" count="3" type="stmt"/>
+        <line num="104" count="1" type="stmt"/>
+        <line num="111" count="1" type="stmt"/>
+        <line num="119" count="1" type="stmt"/>
       </file>
     </package>
     <package name="loaders.src.styled">
