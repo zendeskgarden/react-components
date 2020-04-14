@@ -12,13 +12,13 @@ import { useTabsContext } from '../utils/useTabsContext';
 
 export interface ITabPanelProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * A value used to match a `TabPanel` with its associated Tab.
+   * Sets a value used to match a TabPanel with its associated Tab
    */
   item?: any;
 }
 
 /**
- * Accepts all `<div>` props
+ * Accepts all `<div>` props.
  */
 export const TabPanel = React.forwardRef<HTMLDivElement, ITabPanelProps>(
   ({ item, ...otherProps }, ref) => {
