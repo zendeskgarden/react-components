@@ -13,11 +13,11 @@ import { useTabsContext } from '../utils/useTabsContext';
 
 export interface ITabProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * Disables the Tab and prevents user interaction
+   * Disables the `Tab` and prevents user interaction
    */
   disabled?: boolean;
   /**
-   * Sets a value to uniquely identify a Tab. Provided to the `onChange` event
+   * Defines a value to uniquely identify the `Tab`. Provided to the `onChange` event in `Tabs`
    */
   item?: any;
 }

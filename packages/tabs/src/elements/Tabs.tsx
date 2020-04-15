@@ -17,16 +17,16 @@ import { StyledTabs } from '../styled/StyledTabs';
 
 export interface ITabsProps extends Partial<ThemeProps<DefaultTheme>> {
   /**
-   * Displays the contained Tab items in a vertical orientation
+   * Displays the child `Tab` components in a vertical orientation
    */
   isVertical?: boolean;
   /**
-   * Sets the currently selected Tab item to display
+   * Sets the currently selected `Tab` to display
    */
   selectedItem?: any;
   /**
-   * Provides a callback function that returns the `selectedItem` when a tab has been selected by keyboard or mouse
-   * @param {String} selectedItem: The value of the selected Tab item
+   * Provides a callback function that returns the `selectedItem` when a `Tab` has been selected by keyboard or mouse
+   * @param {String} selectedItem: The `item` value of the selected `Tab`
    */
   onChange?: (updatedSelectedItem: any) => void;
 }
