@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>18/18</span>
+                <span class='fraction'>15/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">87.5% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>7/8</span>
+                <span class='fraction'>5/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>18/18</span>
+                <span class='fraction'>14/14</span>
             </div>
         
             
@@ -104,19 +104,7 @@
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
 <a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a>
-<a name='L49'></a><a href='#L49'>49</a>
-<a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L48'></a><a href='#L48'>48</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -142,19 +130,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">22x</span>
-<span class="cline-any cline-yes">203x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">203x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">203x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">22x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -168,6 +143,7 @@
 <span class="cline-any cline-yes">203x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">203x</span>
 <span class="cline-any cline-yes">203x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -185,7 +161,7 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { getItemPaddingHorizontal, getItemPaddingVertical } from './StyledItem';
+import { getItemPaddingVertical } from './StyledItem';
 &nbsp;
 interface IStyledItemIconProps {
   isCompact?: boolean;
@@ -195,21 +171,8 @@ interface IStyledItemIconProps {
 &nbsp;
 const getSizeStyles = (props: IStyledItemIconProps &amp; ThemeProps&lt;DefaultTheme&gt;) =&gt; {
   return css`
-    width: ${getItemPaddingHorizontal(props)};
+    width: ${props.theme.iconSizes.md};
     height: calc(${props.theme.space.base * 5}px + ${math(`${getItemPaddingVertical(props)} * 2`)});
-  `;
-};
-&nbsp;
-const getIconSizeStyles = (props: IStyledItemIconProps &amp; ThemeProps&lt;DefaultTheme&gt;) =&gt; {
-  let size = props.theme.iconSizes.md;
-&nbsp;
-  if (props.isCompact) {
-    size = props.theme.iconSizes.sm;
-  }
-&nbsp;
-  return css`
-    width: ${size};
-    height: ${size};
   `;
 };
 &nbsp;
@@ -217,7 +180,7 @@ export const StyledItemIcon = styled.div&lt;IStyledItemIconProps&gt;`
   display: flex;
   position: absolute;
   top: 0;
-  ${props =&gt; (props.theme.rtl ? 'right' : 'left')}: 0;
+  ${props =&gt; (props.theme.rtl ? 'right' : 'left')}: ${props =&gt; props.theme.space.base * 3}px;
   align-items: center;
   justify-content: center;
   transition: opacity 0.1s ease-in-out;
@@ -227,7 +190,8 @@ export const StyledItemIcon = styled.div&lt;IStyledItemIconProps&gt;`
   ${props =&gt; getSizeStyles(props)};
 &nbsp;
   &amp; &gt; * {
-    ${props =&gt; getIconSizeStyles(props)};
+    width: ${props =&gt; props.theme.iconSizes.md};
+    height: ${props =&gt; props.theme.iconSizes.md};
   }
 `;
 &nbsp;
@@ -241,7 +205,7 @@ StyledItemIcon.defaultProps = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Apr 14 2020 19:28:06 GMT+0000 (Coordinated Universal Time)
+                at Wed Apr 15 2020 16:36:44 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>
