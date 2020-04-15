@@ -21,8 +21,8 @@ export const StyledNextItem = styled(StyledItem).attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   ${StyledItemIcon} {
-    right: ${props => (props.theme.rtl ? 'auto' : '0')};
-    left: ${props => (props.theme.rtl ? '0' : 'auto')};
+    right: ${props => (props.theme.rtl ? 'auto' : `${props.theme.space.base * 3}px`)};
+    left: ${props => (props.theme.rtl ? `${props.theme.space.base * 3}px` : 'auto')};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

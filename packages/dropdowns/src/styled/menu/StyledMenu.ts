@@ -30,7 +30,6 @@ export const StyledMenu = styled.ul.attrs<IStyledMenuProps>(props => ({
 }))<IStyledMenuProps>`
   /* stylelint-disable-next-line declaration-no-important */
   position: static !important; /* [1] */
-  min-width: 180px;
   max-height: ${props => props.maxHeight};
   overflow-y: auto;
 

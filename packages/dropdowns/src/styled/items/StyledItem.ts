@@ -19,18 +19,10 @@ export interface IStyledItemProps {
 
 export const getItemPaddingVertical = (props: IStyledItemProps & ThemeProps<DefaultTheme>) => {
   if (props.isCompact) {
-    return `${props.theme.space.base * 1.5}px`;
+    return `${props.theme.space.base}px`;
   }
 
-  return `${props.theme.space.base * 2.5}px`;
-};
-
-export const getItemPaddingHorizontal = (props: IStyledItemProps & ThemeProps<DefaultTheme>) => {
-  if (props.isCompact) {
-    return `${props.theme.space.base * 6}px`;
-  }
-
-  return `${props.theme.space.base * 8}px`;
+  return `${props.theme.space.base * 2}px`;
 };
 
 const getColorStyles = (props: IStyledItemProps & ThemeProps<DefaultTheme>) => {
@@ -57,18 +49,18 @@ export const StyledItem = styled.li.attrs<IStyledItemProps>(props => ({
   position: relative; /* [1] */
   z-index: 0; /* [2] */
   cursor: ${props => (props.disabled ? 'default' : 'pointer')};
-  padding: ${props => `${getItemPaddingVertical(props)} ${getItemPaddingHorizontal(props)}`};
+  padding: ${props => getItemPaddingVertical(props)} ${props => props.theme.space.base * 9}px;
   text-decoration: none;
   line-height: ${props => props.theme.space.base * 5}px;
   word-wrap: break-word;
   user-select: none;
 
   &:first-child {
-    margin-top: ${props => props.theme.space.base * 2}px;
+    margin-top: ${props => props.theme.space.base}px;
   }
 
   &:last-child {
-    margin-bottom: ${props => props.theme.space.base * 2}px;
+    margin-bottom: ${props => props.theme.space.base}px;
   }
 
   &:focus {

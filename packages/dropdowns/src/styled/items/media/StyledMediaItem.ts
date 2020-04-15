@@ -6,12 +6,8 @@
  */
 
 import styled from 'styled-components';
-import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-
-import { getMediaFigureSize, getMediaFigureMarginTop } from './StyledMediaFigure';
-import { StyledItem, getItemPaddingVertical } from '../StyledItem';
-import { StyledItemIcon } from '../StyledItemIcon';
+import { StyledItem } from '../StyledItem';
 
 const COMPONENT_ID = 'dropdowns.media_item';
 
@@ -26,16 +22,6 @@ export const StyledMediaItem = styled(StyledItem).attrs<IStyledMediaItem>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledMediaItem>`
-  ${StyledItemIcon} {
-    height: ${props =>
-      !props.isCompact &&
-      math(
-        `${getMediaFigureSize(props)} + ${math(`${getItemPaddingVertical(props)} * 2`)} + ${math(
-          `${getMediaFigureMarginTop(props)} * 2`
-        )}`
-      )};
-  }
-
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

@@ -74,7 +74,7 @@ describe('HeaderIcon', () => {
       </Dropdown>
     );
 
-    expect(getByTestId('header-icon')).toHaveStyleRule('width', DEFAULT_THEME.iconSizes.sm, {
+    expect(getByTestId('header-icon')).toHaveStyleRule('width', DEFAULT_THEME.iconSizes.md, {
       modifier: '& > *'
     });
   });

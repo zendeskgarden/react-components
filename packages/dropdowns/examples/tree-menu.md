@@ -65,7 +65,7 @@ const renderItems = () => {
   <Trigger>
     <Button>Tree Layout</Button>
   </Trigger>
-  <Menu placement="end" hasArrow style={{ width: 200, height: 258 }}>
+  <Menu placement="end" hasArrow>
     {renderItems()}
   </Menu>
 </Dropdown>;

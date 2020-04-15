@@ -43,8 +43,8 @@ describe('HeaderItem', () => {
     );
     const headerItem = getByTestId('header-item');
 
-    expect(headerItem).toHaveStyleRule('padding-left', `${DEFAULT_THEME.space.base * 4}px`);
-    expect(headerItem).toHaveStyleRule('padding-right', `${DEFAULT_THEME.space.base * 4}px`);
+    expect(headerItem).toHaveStyleRule('padding-left', `${DEFAULT_THEME.space.base * 3}px`);
+    expect(headerItem).toHaveStyleRule('padding-right', `${DEFAULT_THEME.space.base * 3}px`);
   });
 
   it('applies correct compact horizontal padding', () => {
