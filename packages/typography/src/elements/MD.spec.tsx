@@ -6,10 +6,20 @@
  */
 
 import React from 'react';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { render, renderRtl } from 'garden-test-utils';
 import MD from './MD';
 
 describe('MD', () => {
+  it('applies bold styling if provided', () => {
+    const { container } = render(<MD isBold />);
+
+    expect(container.firstChild).toHaveStyleRule(
+      'font-weight',
+      DEFAULT_THEME.fontWeights.semibold.toString()
+    );
+  });
+
   it('applies monospace styling if provided', () => {
     const { container } = render(<MD isMonospace />);
 

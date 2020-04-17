@@ -31,7 +31,7 @@ initialState = {
           </Menu>
         </Dropdown>
         <Dropdown selectedItem={state.size} onSelect={size => setState({ size })}>
-          <Field>
+          <Field className="u-mt-xs">
             <Label>Size</Label>
             <Select isCompact>{state.size}</Select>
           </Field>

@@ -11,6 +11,15 @@ import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledFont } from './StyledFont';
 
 describe('StyledFont', () => {
+  it('renders bold if specified', () => {
+    const { container } = render(<StyledFont isBold />);
+
+    expect(container.firstChild).toHaveStyleRule(
+      'font-weight',
+      DEFAULT_THEME.fontWeights.semibold.toString()
+    );
+  });
+
   it('renders monospace if specified', () => {
     const { container } = render(<StyledFont isMonospace />);
 

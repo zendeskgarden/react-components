@@ -18,17 +18,22 @@ const fontStyles = (props: IStyledFontProps & ThemeProps<DefaultTheme>) => {
   const fontSize = monospace
     ? math(`${props.theme.fontSizes[props.size!]} - 1px`)
     : props.theme.fontSizes[props.size!];
+  const fontWeight = props.isBold
+    ? props.theme.fontWeights.semibold
+    : props.theme.fontWeights.regular;
   const direction = isRtl(props) ? 'rtl' : 'ltr';
 
   return css`
     line-height: ${lineHeight};
     font-family: ${fontFamily};
     font-size: ${fontSize};
+    font-weight: ${fontWeight};
     direction: ${direction};
   `;
 };
 
 export interface IStyledFontProps {
+  isBold?: boolean;
   isMonospace?: boolean;
   size?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl';
 }
