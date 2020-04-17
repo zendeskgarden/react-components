@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1587141573121" clover="3.2.0">
-  <project timestamp="1587141573121" name="All files">
+<coverage generated="1587165156369" clover="3.2.0">
+  <project timestamp="1587165156369" name="All files">
     <metrics statements="5717" coveredstatements="5699" conditionals="2232" coveredconditionals="2084" methods="1203" coveredmethods="1199" elements="9152" coveredelements="8982" complexity="0" loc="5717" ncloc="5717" packages="101" files="383" classes="383"/>
     <package name="accordions.src.elements.stepper">
       <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -6186,14 +6186,14 @@
         <line num="10" count="4" type="stmt"/>
         <line num="11" count="4" type="stmt"/>
         <line num="12" count="4" type="stmt"/>
-        <line num="25" count="4" type="stmt"/>
-        <line num="27" count="36" type="stmt"/>
-        <line num="28" count="36" type="stmt"/>
-        <line num="30" count="36" type="cond" truecount="4" falsecount="0"/>
-        <line num="31" count="4" type="stmt"/>
-        <line num="34" count="32" type="stmt"/>
-        <line num="48" count="4" type="stmt"/>
-        <line num="50" count="4" type="stmt"/>
+        <line num="28" count="4" type="stmt"/>
+        <line num="30" count="36" type="stmt"/>
+        <line num="31" count="36" type="stmt"/>
+        <line num="33" count="36" type="cond" truecount="4" falsecount="0"/>
+        <line num="34" count="4" type="stmt"/>
+        <line num="37" count="32" type="stmt"/>
+        <line num="51" count="4" type="stmt"/>
+        <line num="53" count="4" type="stmt"/>
       </file>
       <file name="TabList.tsx" path="/home/circleci/project/packages/tabs/src/elements/TabList.tsx">
         <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
