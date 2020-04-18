@@ -50,7 +50,7 @@ jobs:
     steps:
       - *attach_workspace
       - run: yarn lerna run build:demo --concurrency=2 # prevent out-of-memory
-      - run: utils/scripts/gh-pages.js
+      - run: utils/scripts/deploy.js
 
   publish:
     <<: *executor
@@ -70,9 +70,6 @@ workflows:
           requires:
             - test
           context: maintainer
-          filters:
-            branches:
-              only: master
       - publish:
           requires:
             - test
