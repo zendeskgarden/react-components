@@ -24,6 +24,7 @@
     "tag": "utils/scripts/version.sh",
     "test": "yarn test:all --watch",
     "test:all": "jest --config=utils/test/jest.config.js",
+    "test:ci": "yarn lint && yarn format:all && yarn tsc && yarn test:all --coverage",
     "version": "yarn run build && git add -A"
   },
   "devDependencies": {
@@ -78,6 +79,7 @@
     "eslint-plugin-prettier": "3.1.2",
     "eslint-plugin-react": "7.19.0",
     "eslint-plugin-react-hooks": "3.0.0",
+    "execa": "4.0.0",
     "fs-extra": "9.0.0",
     "fuzzy": "0.1.3",
     "get-stdin": "7.0.0",
