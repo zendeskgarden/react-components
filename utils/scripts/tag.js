@@ -29,7 +29,7 @@ const info = (message, spinner) => spinner.info(message).start();
 const changelog = async (tag, spinner) => {
   let retVal;
 
-  info('Generating changelog', spinner);
+  info('Generating changelog...', spinner);
 
   const write = util.promisify(fs.write);
   const open = util.promisify(temp.open);
@@ -76,7 +76,7 @@ const changelog = async (tag, spinner) => {
  * @returns The draft release URL.
  */
 const release = async (tag, markdown, spinner) => {
-  info('Creating release', spinner);
+  info('Creating release...', spinner);
   // await execa('git', ['push', '--follow-tags', '--no-verify', '--atomic', 'origin', 'master']);
 
   const retVal = await garden.githubRelease({ tag, body: markdown, spinner });
@@ -94,7 +94,7 @@ const sync = async (master, spinner) => {
   const branch = await garden.githubBranch(undefined /* path */, spinner);
 
   if (branch === master) {
-    info('Syncing with remote', spinner);
+    info('Syncing with remote...', spinner);
     await execa('git', ['pull']);
     await execa('git', ['fetch', '--tags', '--prune', '--prune-tags']);
   } else {
@@ -108,9 +108,10 @@ const sync = async (master, spinner) => {
  * @param {Ora} spinner Terminal spinner.
  */
 const validate = async spinner => {
-  info('Validating environment', spinner);
-  await execa('yarn', ['install']);
-  await execa('yarn', ['test:ci']);
+  info('Validating environment...', spinner);
+  spinner.stop();
+  await execa('yarn', ['install'], { stdout: process.stdout });
+  await execa('yarn', ['test:ci'], { stdout: process.stdout });
 };
 
 /**
@@ -138,7 +139,7 @@ const version = async (bump, preid, master, spinner) => {
   if (bump) {
     lernaArgs.splice(2, 0, bump);
   } else {
-    info('Commits since current version', spinner);
+    info('Commits since current version:', spinner);
     spinner.stop();
     tag = await execa('git', describeArgs);
 
