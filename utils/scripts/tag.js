@@ -37,36 +37,35 @@ const changelog = async (tag, spinner) => {
   const markdown = await garden.lernaChangelog({ spinner });
   const editor = await execa('git', ['var', 'GIT_EDITOR']);
 
-  await write(fd, markdown, async error => {
+  await write(fd, markdown, error => {
     if (error) {
       throw error;
-    } else {
-      await execa.command(`${editor.stdout} ${path}`);
-
-      const readFile = util.promisify(fs.readFile);
-      const INSERTION_SLUG = '<!-- insert-new-changelog-here -->';
-      const changelogPath = resolve(__dirname, '..', '..', 'CHANGELOG.md');
-      const data = await readFile(changelogPath, 'utf8');
-
-      if (data.includes(INSERTION_SLUG)) {
-        const writeFile = util.promisify(fs.writeFile);
-        const changes = (await readFile(path, 'utf8')).split('\n\n#### Committers')[0];
-
-        retVal = data.replace(INSERTION_SLUG, `${INSERTION_SLUG}\n${changes}`);
-        await writeFile(changelogPath, retVal);
-        await execa('git', [
-          'commit',
-          '-m',
-          `"chore(changelog): add ${tag} [skip ci]"`,
-          '--no-verify',
-          '--quiet',
-          changelogPath
-        ]);
-      } else {
-        throw new Error(`Missing "${INSERTION_SLUG}" in CHANGELOG.md`);
-      }
     }
   });
+  await execa.command(`${editor.stdout} ${path}`);
+
+  const readFile = util.promisify(fs.readFile);
+  const INSERTION_SLUG = '<!-- insert-new-changelog-here -->';
+  const changelogPath = resolve(__dirname, '..', '..', 'CHANGELOG.md');
+  const data = await readFile(changelogPath, 'utf8');
+
+  if (data.includes(INSERTION_SLUG)) {
+    const writeFile = util.promisify(fs.writeFile);
+    const changes = (await readFile(path, 'utf8')).split('\n\n#### Committers')[0];
+
+    retVal = data.replace(INSERTION_SLUG, `${INSERTION_SLUG}\n${changes}`);
+    await writeFile(changelogPath, retVal);
+    await execa('git', [
+      'commit',
+      '-m',
+      `"chore(changelog): add ${tag} [skip ci]"`,
+      '--no-verify',
+      '--quiet',
+      changelogPath
+    ]);
+  } else {
+    throw new Error(`Missing "${INSERTION_SLUG}" in CHANGELOG.md`);
+  }
 
   return retVal;
 };
@@ -176,7 +175,8 @@ program
       // await sync(program.master, spinner);
       // await validate(spinner);
 
-      const tag = await version(bump, program.preid, program.master, spinner);
+      // const tag = await version(bump, program.preid, program.master, spinner);
+      const tag = 'v8.6.0';
       const markdown = await changelog(tag, spinner);
       const url = await release(tag, markdown, spinner);
 
