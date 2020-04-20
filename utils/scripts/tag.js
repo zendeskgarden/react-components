@@ -124,7 +124,14 @@ const validate = async spinner => {
  * @returns New version tag.
  */
 const version = async (bump, preid, master, spinner) => {
-  const lernaArgs = ['lerna', 'version', '--force-publish', '--no-push'];
+  const lernaArgs = [
+    'lerna',
+    'version',
+    '--conventional-commits',
+    '--force-publish',
+    '--no-changelog',
+    '--no-push'
+  ];
   const describeArgs = ['describe', '--abbrev=0', '--tags'];
   let tag;
 
