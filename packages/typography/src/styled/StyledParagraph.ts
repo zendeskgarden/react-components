@@ -18,6 +18,8 @@ export const StyledParagraph = styled.p.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledParagraphProps>`
+  margin: 0;
+  padding: 0;
   direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
 
   & + & {
