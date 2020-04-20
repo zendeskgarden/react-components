@@ -53,7 +53,7 @@ const changelog = async (tag, spinner) => {
         const changes = (await readFile(path, 'utf8')).split('\n\n#### Committers')[0];
 
         retVal = data.replace(INSERTION_SLUG, `${INSERTION_SLUG}\n${changes}`);
-        writeFile(changelogPath, retVal);
+        await writeFile(changelogPath, retVal);
         await execa('git', [
           'commit',
           '-m',
@@ -62,7 +62,6 @@ const changelog = async (tag, spinner) => {
           '--quiet',
           changelogPath
         ]);
-        spinner.stop();
       } else {
         throw new Error(`Missing "${INSERTION_SLUG}" in CHANGELOG.md`);
       }
@@ -174,7 +173,7 @@ program
 
     try {
       spinner.start();
-      await sync(program.master, spinner);
+      // await sync(program.master, spinner);
       // await validate(spinner);
 
       const tag = await version(bump, program.preid, program.master, spinner);
