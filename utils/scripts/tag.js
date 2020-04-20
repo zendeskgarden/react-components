@@ -78,12 +78,12 @@ const changelog = async (tag, spinner) => {
  */
 const release = async (tag, markdown, spinner) => {
   info('Creating release...', spinner);
-  // await execa('git', ['push', '--follow-tags', '--no-verify', '--atomic', 'origin', 'master']);
+  await execa('git', ['push', '--follow-tags', '--no-verify', '--atomic', 'origin', 'master']);
 
   const url = await garden.githubRelease({ tag, body: markdown, spinner });
 
   spinner.succeed(
-    `Tag successfully deployed.\n🎗 Approve the draft release – ${url} – upon notification of a successful ${tag} publish to NPM.`
+    `Success.\n🎗 Approve the draft release – ${url} – upon notification of a successful ${tag} publish to NPM.`
   );
 };
 
@@ -193,24 +193,24 @@ program
 
     try {
       spinner.start();
-      // await sync(program.master, spinner);
-      // await validate(spinner);
+      await sync(program.master, spinner);
+      await validate(spinner);
 
       const tag = await version(bump, program.preid, program.master, spinner);
       const markdown = await changelog(tag, spinner);
 
       spinner.stop();
 
-      const deploy = await inquirer.prompt([
+      const prompt = await inquirer.prompt([
         {
           type: 'confirm',
-          message: `Confirm ${tag} deployment to the ${program.master} branch?`,
+          message: `Confirm ${tag} release to the ${program.master} branch?`,
           name: 'release',
           default: true
         }
       ]);
 
-      if (deploy.release) {
+      if (prompt.release) {
         await release(tag, markdown, spinner);
       } else {
         await rollback(tag, spinner);
