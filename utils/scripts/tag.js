@@ -84,7 +84,9 @@ const release = async (tag, markdown, spinner) => {
   info('Creating a draft release', spinner);
   // await execa('git', ['push', '--follow-tags', '--no-verify', '--atomic', 'origin', 'master']);
 
-  /* return */ await garden.githubRelease({ tag, body: markdown, spinner });
+  const retVal = await garden.githubRelease({ tag, body: markdown, spinner });
+
+  return retVal;
 };
 
 /**
@@ -129,14 +131,14 @@ const validate = async spinner => {
 const version = async (bump, preid, master, spinner) => {
   const lernaArgs = ['lerna', 'version', '--force-publish', '--no-push'];
   const describeArgs = ['describe', '--abbrev=0', '--tags'];
+  let tag;
 
   if (bump) {
     lernaArgs.splice(2, 0, bump);
   } else {
     info('Commits since current version', spinner);
     spinner.stop();
-
-    const tag = await execa('git', describeArgs);
+    tag = await execa('git', describeArgs);
 
     await execa(
       'git',
@@ -156,8 +158,9 @@ const version = async (bump, preid, master, spinner) => {
   }
 
   await execa('yarn', lernaArgs, { stdin: process.stdin, stdout: process.stdout });
+  tag = await execa('git', describeArgs);
 
-  /* return */ (await execa('git', describeArgs)).stdout.toString();
+  return tag.stdout.toString();
 };
 
 program
