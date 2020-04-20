@@ -76,7 +76,7 @@ const changelog = async (tag, spinner) => {
  * @returns The draft release URL.
  */
 const release = async (tag, markdown, spinner) => {
-  info('Creating a draft release', spinner);
+  info('Creating release', spinner);
   // await execa('git', ['push', '--follow-tags', '--no-verify', '--atomic', 'origin', 'master']);
 
   const retVal = await garden.githubRelease({ tag, body: markdown, spinner });
@@ -168,16 +168,15 @@ program
 
     try {
       spinner.start();
-      // await sync(program.master, spinner);
-      // await validate(spinner);
+      await sync(program.master, spinner);
+      await validate(spinner);
 
-      // const tag = await version(bump, program.preid, program.master, spinner);
-      const tag = 'v8.6.0';
+      const tag = await version(bump, program.preid, program.master, spinner);
       const markdown = await changelog(tag, spinner);
       const url = await release(tag, markdown, spinner);
 
       spinner.succeed(
-        `🎗approve the draft release – ${url} – upon notification of a successful ${tag} publish to NPM`
+        `🎗 approve the draft release – ${url} – upon notification of a successful ${tag} publish to NPM`
       );
     } catch (error) {
       spinner.fail(error.message || error);
