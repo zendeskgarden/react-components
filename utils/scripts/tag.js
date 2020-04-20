@@ -55,7 +55,7 @@ const changelog = async (tag, spinner) => {
     await execa('git', [
       'commit',
       '-m',
-      `"chore(changelog): add ${tag} [skip ci]"`,
+      `chore(changelog): add ${tag} [skip ci]`,
       '--no-verify',
       '--quiet',
       changelogPath
