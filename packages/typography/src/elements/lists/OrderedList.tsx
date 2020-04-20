@@ -29,7 +29,7 @@ const OrderedList = React.forwardRef<HTMLOListElement, IOrderedListProps>(
   ({ size, type, ...other }, ref) => {
     return (
       <OrderedListContext.Provider value={{ size: size! }}>
-        <StyledOrderedList ref={ref} listType={type!} {...other} />
+        <StyledOrderedList ref={ref} listType={type} {...other} />
       </OrderedListContext.Provider>
     );
   }
