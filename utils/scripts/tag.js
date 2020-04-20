@@ -37,11 +37,7 @@ const changelog = async (tag, spinner) => {
   const markdown = await garden.lernaChangelog({ spinner });
   const editor = await execa('git', ['var', 'GIT_EDITOR']);
 
-  await write(fd, markdown, error => {
-    if (error) {
-      throw error;
-    }
-  });
+  await write(fd, markdown);
   await execa.command(`${editor.stdout} ${path}`);
 
   const readFile = util.promisify(fs.readFile);
@@ -180,7 +176,7 @@ program
       const markdown = await changelog(tag, spinner);
       const url = await release(tag, markdown, spinner);
 
-      spinner.success(
+      spinner.succeed(
         `🎗approve the draft release – ${url} – upon notification of a successful ${tag} publish to NPM`
       );
     } catch (error) {
