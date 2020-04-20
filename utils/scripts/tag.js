@@ -12,6 +12,7 @@ const execa = require('execa');
 const fs = require('fs');
 const garden = require('@zendeskgarden/scripts');
 const ora = require('ora');
+const inquirer = require('inquirer');
 const resolve = require('path').resolve;
 const temp = require('temp').track();
 const util = require('util');
@@ -79,9 +80,24 @@ const release = async (tag, markdown, spinner) => {
   info('Creating release...', spinner);
   // await execa('git', ['push', '--follow-tags', '--no-verify', '--atomic', 'origin', 'master']);
 
-  const retVal = await garden.githubRelease({ tag, body: markdown, spinner });
+  const url = await garden.githubRelease({ tag, body: markdown, spinner });
 
-  return retVal;
+  spinner.succeed(
+    `Tag successfully deployed.\n🎗 Approve the draft release – ${url} – upon notification of a successful ${tag} publish to NPM.`
+  );
+};
+
+/**
+ * Rollback version tag and changelog updates.
+ *
+ * @param {String} tag The tag to rollback.
+ * @param {Ora} spinner Terminal spinner.
+ */
+const rollback = async (tag, spinner) => {
+  info(`Rolling back ${tag} changes...`, spinner);
+  await execa('git', ['tag', '-d', tag]);
+  // Undo the `version` and the `changelog` commits.
+  await execa('git', ['reset', '--hard', 'HEAD~2']);
 };
 
 /**
@@ -181,11 +197,23 @@ program
 
       const tag = await version(bump, program.preid, program.master, spinner);
       const markdown = await changelog(tag, spinner);
-      const url = await release(tag, markdown, spinner);
 
-      spinner.succeed(
-        `🎗 approve the draft release – ${url} – upon notification of a successful ${tag} publish to NPM`
-      );
+      spinner.stop();
+
+      const deploy = await inquirer.prompt([
+        {
+          type: 'confirm',
+          message: `Confirm ${tag} deployment to the ${program.master} branch?`,
+          name: 'release',
+          default: true
+        }
+      ]);
+
+      if (deploy.release) {
+        await release(tag, markdown, spinner);
+      } else {
+        await rollback(tag, spinner);
+      }
     } catch (error) {
       spinner.fail(error.message || error);
       process.exit(1);
