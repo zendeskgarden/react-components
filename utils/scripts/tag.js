@@ -62,6 +62,7 @@ const changelog = async (tag, spinner) => {
           '--quiet',
           changelogPath
         ]);
+        spinner.stop();
       } else {
         throw new Error(`Missing "${INSERTION_SLUG}" in CHANGELOG.md`);
       }
