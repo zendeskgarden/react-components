@@ -157,15 +157,11 @@ const version = async (bump, preid, master, spinner) => {
   } else {
     info('Commits since current version:', spinner);
     spinner.stop();
-    tag = await execa('git', describeArgs);
+    tag = (await execa('git', describeArgs)).stdout.toString();
 
-    await execa(
-      'git',
-      ['--no-pager', 'log', `${tag.stdout.toString()}..HEAD`, '--no-decorate', '--oneline'],
-      {
-        stdout: process.stdout
-      }
-    );
+    await execa('git', ['--no-pager', 'log', `${tag}..HEAD`, '--no-decorate', '--oneline'], {
+      stdout: process.stdout
+    });
   }
 
   if (preid) {
@@ -177,9 +173,14 @@ const version = async (bump, preid, master, spinner) => {
   }
 
   await execa('yarn', lernaArgs, { stdin: process.stdin, stdout: process.stdout });
-  tag = await execa('git', describeArgs);
 
-  return tag.stdout.toString();
+  const retVal = (await execa('git', describeArgs)).stdout.toString();
+
+  if (retVal === tag) {
+    throw new Error('No version bump');
+  } else {
+    return retVal;
+  }
 };
 
 program
@@ -192,8 +193,8 @@ program
 
     try {
       spinner.start();
-      await sync(program.master, spinner);
-      await validate(spinner);
+      // await sync(program.master, spinner);
+      // await validate(spinner);
 
       const tag = await version(bump, program.preid, program.master, spinner);
       const markdown = await changelog(tag, spinner);
