@@ -12,15 +12,18 @@ import { StyledTab } from '../styled';
 import { useTabsContext } from '../utils/useTabsContext';
 
 export interface ITabProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * Disables the `Tab` and prevents user interaction
+   */
   disabled?: boolean;
   /**
-   * A value to uniquely identify a Tab. Provided to the `onChange` event.
+   * Defines a value to uniquely identify the `Tab`. Provided to the `onChange` event in `Tabs`
    */
   item?: any;
 }
 
 /**
- * Accepts all `<div>` props
+ * Accepts all `<div>` props.
  */
 export const Tab = React.forwardRef<HTMLDivElement, ITabProps>(
   ({ disabled, item, ...otherProps }, ref) => {

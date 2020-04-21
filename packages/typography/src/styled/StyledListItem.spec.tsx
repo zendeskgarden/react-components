@@ -16,7 +16,7 @@ describe('StyledListItem', () => {
   it('renders the expected element', () => {
     const { container } = render(<StyledListItem />);
 
-    expect(container.firstChild.nodeName).toBe('LI');
+    expect(container.firstChild!.nodeName).toBe('LI');
   });
 
   describe('StyledListItemContent', () => {

@@ -13,7 +13,7 @@ describe('StyledOrderedList', () => {
   it('renders the expected element', () => {
     const { container } = render(<StyledOrderedList />);
 
-    expect(container.firstChild.nodeName).toBe('OL');
+    expect(container.firstChild!.nodeName).toBe('OL');
   });
 
   it('renders expected RTL direction', () => {
@@ -65,7 +65,7 @@ describe('StyledUnorderedList', () => {
   it('renders the expected element', () => {
     const { container } = render(<StyledUnorderedList />);
 
-    expect(container.firstChild.nodeName).toBe('UL');
+    expect(container.firstChild!.nodeName).toBe('UL');
   });
 
   it('renders expected RTL direction', () => {
@@ -76,19 +76,19 @@ describe('StyledUnorderedList', () => {
 
   describe('type', () => {
     it('renders a circle list style', () => {
-      const { container } = render(<StyledOrderedList listType="circle" />);
+      const { container } = render(<StyledUnorderedList listType="circle" />);
 
       expect(container.firstChild).toHaveStyleRule('list-style-type', 'circle');
     });
 
     it('renders a disc list style', () => {
-      const { container } = render(<StyledOrderedList listType="disc" />);
+      const { container } = render(<StyledUnorderedList listType="disc" />);
 
       expect(container.firstChild).toHaveStyleRule('list-style-type', 'disc');
     });
 
     it('renders a square list style', () => {
-      const { container } = render(<StyledOrderedList listType="square" />);
+      const { container } = render(<StyledUnorderedList listType="square" />);
 
       expect(container.firstChild).toHaveStyleRule('list-style-type', 'square');
     });

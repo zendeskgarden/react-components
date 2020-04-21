@@ -22,7 +22,7 @@ interface IUnorderedListProps extends HTMLAttributes<HTMLUListElement> {
 const UnorderedList = React.forwardRef<HTMLUListElement, IUnorderedListProps>(
   ({ size, type, ...other }, ref) => (
     <UnorderedListContext.Provider value={{ size: size! }}>
-      <StyledUnorderedList ref={ref} listType={type!} {...other} />
+      <StyledUnorderedList ref={ref} listType={type} {...other} />
     </UnorderedListContext.Provider>
   )
 );

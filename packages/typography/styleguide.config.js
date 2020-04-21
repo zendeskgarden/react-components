@@ -46,6 +46,10 @@ module.exports = {
         {
           name: 'Lists',
           content: '../../packages/typography/examples/lists.md'
+        },
+        {
+          name: 'Paragraph',
+          content: '../../packages/typography/examples/paragraph.md'
         }
       ]
     },
