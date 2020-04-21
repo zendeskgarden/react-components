@@ -34,12 +34,19 @@ module.exports = {
         {
           name: 'Basic',
           content: '../../packages/accordions/examples/basic.md'
+        },
+        {
+          name: 'Advanced',
+          content: '../../packages/accordions/examples/advanced.md'
         }
       ]
     },
     {
       name: 'Elements',
-      components: ['../../packages/accordions/src/elements/stepper/[A-Z]*.{ts,tsx}']
+      components: [
+        '../../packages/accordions/src/elements/accordion/[A-Z]*.{ts,tsx}',
+        '../../packages/accordions/src/elements/stepper/[A-Z]*.{ts,tsx}'
+      ]
     }
   ]
 };
