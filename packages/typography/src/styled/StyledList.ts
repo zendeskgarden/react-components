@@ -8,7 +8,7 @@
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { DEFAULT_THEME, isRtl, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
-const listStyles = (props: { listType: string } & ThemeProps<DefaultTheme>) => {
+const listStyles = (props: { listType?: string } & ThemeProps<DefaultTheme>) => {
   const rtl = isRtl(props);
 
   return css`
@@ -25,7 +25,7 @@ const listStyles = (props: { listType: string } & ThemeProps<DefaultTheme>) => {
 const ORDERED_ID = 'typography.ordered_list';
 
 interface IStyledListProps {
-  listType:
+  listType?:
     | 'decimal'
     | 'decimal-leading-zero'
     | 'lower-alpha'
@@ -49,7 +49,7 @@ StyledOrderedList.defaultProps = {
 const UNORDERED_ID = 'typography.unordered_list';
 
 interface IStyledUnorderedListProps {
-  listType: 'circle' | 'disc' | 'square';
+  listType?: 'circle' | 'disc' | 'square';
 }
 
 export const StyledUnorderedList = styled.ul.attrs({

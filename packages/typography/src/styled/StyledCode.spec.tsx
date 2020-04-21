@@ -14,7 +14,7 @@ describe('StyledCode', () => {
   it('renders the expected element', () => {
     const { container } = render(<StyledCode />);
 
-    expect(container.firstChild.nodeName).toBe('CODE');
+    expect(container.firstChild!.nodeName).toBe('CODE');
   });
 
   it('renders default styling', () => {
