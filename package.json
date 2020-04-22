@@ -17,7 +17,7 @@
     "lint:css": "stylelint '{packages,utils}/**/*.{js,ts,tsx}' '!packages/**/*.spec.{js,ts,tsx}' '!packages/**/dist/**'",
     "lint:js": "eslint packages/*/src/ utils/ --ext js,ts,tsx --max-warnings 0",
     "lint:md": "markdownlint README.md docs/*.md packages/*/examples/*.md packages/*/src/**/*.md packages/*/README.md",
-    "new": "utils/scripts/create-package.js",
+    "new": "utils/scripts/new.js",
     "prepare": "yarn build",
     "start": "utils/scripts/scoped-npm-command.js --script start",
     "start:demo": "yarn build:demo && live-server demo",
