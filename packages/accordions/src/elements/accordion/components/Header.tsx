@@ -28,6 +28,7 @@ export const Header = forwardRef<HTMLDivElement, IHeaderProps>((props, ref) => {
   const {
     level: ariaLevel,
     isCompact,
+    isCollapsible,
     getHeaderProps,
     getTriggerProps,
     expandedSections
@@ -77,6 +78,7 @@ export const Header = forwardRef<HTMLDivElement, IHeaderProps>((props, ref) => {
           isCompact,
           isFocused,
           isExpanded,
+          isCollapsible,
           onClick: composeEventHandlers(onClick, onTriggerClick),
           onFocus: composeEventHandlers(onFocus, onHeaderFocus),
           onBlur: composeEventHandlers(onBlur, () => setIsFocused(false)),
@@ -90,6 +92,7 @@ export const Header = forwardRef<HTMLDivElement, IHeaderProps>((props, ref) => {
           isCompact={isCompact}
           isHovered={isHovered}
           isRotated={isExpanded}
+          isCollapsible={isCollapsible}
           onMouseOver={composeEventHandlers(onMouseOver, () => setIsHovered(true))}
           onMouseOut={composeEventHandlers(onMouseOut, () => setIsHovered(false))}
         >

@@ -7,7 +7,7 @@ const { Well } = require('@zendeskgarden/react-notifications/src');
 const { Toggle, Field, Label } = require('@zendeskgarden/react-forms/src');
 
 const BasicExample = () => {
-  const [isCollapsible, setIsCollapsible] = React.useState(false);
+  const [isCollapsible, setIsCollapsible] = React.useState(true);
   const [isExpandable, setIsExpandable] = React.useState(false);
   const [isBare, setIsBare] = React.useState(false);
   const [isCompact, setIsCompact] = React.useState(false);
@@ -15,7 +15,7 @@ const BasicExample = () => {
   return (
     <Grid>
       <Well isRecessed>
-        <Row style={{ display: 'flex' }}>
+        <Row>
           <Col>
             <Field>
               <Toggle checked={isCollapsible} onChange={event => setIsCollapsible(!isCollapsible)}>

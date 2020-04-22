@@ -4,22 +4,23 @@ The Accordion component is implemented using the [W3C Accordion pattern](https:/
 
 #### Controlled Usage
 
-This advanced example demonstrates
-[controlled component](https://reactjs.org/docs/forms.html#controlled-components)
-usage. It also demonstrates additional header text and menu buttons in the `Accordion.Header`.
+This advanced example demonstrates custom behavior using a
+[controlled](https://reactjs.org/docs/forms.html#controlled-components) `Accordion`
+component. It also demonstrates additional header text and menu buttons in the `Accordion.Header`.
 
 ```jsx
+const { SM } = require('@zendeskgarden/react-typography/src');
 const { Well } = require('@zendeskgarden/react-notifications/src');
 const { Toggle, Field, Label } = require('@zendeskgarden/react-forms/src');
 const { IconButton } = require('@zendeskgarden/react-buttons/src');
 const GearIcon = require('@zendeskgarden/svg-icons/src/16/gear-stroke.svg').default;
 const FolderIcon = require('@zendeskgarden/svg-icons/src/16/folder-open-stroke.svg').default;
 const { Dropdown, Menu, Item, Trigger } = require('@zendeskgarden/react-dropdowns/src');
+const { Button } = require('@zendeskgarden/react-buttons/src');
 
-const StyledHint = styled.span`
-  font-size: ${props => props.theme.fontSizes.sm};
-  font-weight: normal;
-  font-style: italic;
+const StyledSM = styled(SM)`
+  margin-left: ${props => props.theme.space.base}px;
+  font-weight: ${props => props.theme.fontWeights.regular};
 `;
 
 const StyledButtonGroup = styled.div`
@@ -54,7 +55,7 @@ const accordionSections = [
   {
     id: 'section-2',
     header: 'Celery quandong swiss',
-    headerDetail: 'chard chicory earthnut pea potato. Salsify taro catsear',
+    headerDetail: 'chard chicory earthnut pea potato salsify taro catsear',
     panelContent: `Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear
     garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot
     horseradish carrot squash brussels sprout chard. Pea horseradish azuki bean lettuce avocado
@@ -89,29 +90,22 @@ const AdvancedExample = () => {
   const [expandedSections, setExpandedSections] = React.useState([0]);
   const [isBare, setIsBare] = React.useState(false);
   const [isCompact, setIsCompact] = React.useState(false);
-  const [isExpandAll, setIsExpandAll] = React.useState(false);
-  const [isCollapseAll, setIsCollapseAll] = React.useState(false);
-  const onExpandAll = () => {
-    setIsExpandAll(!isExpandAll);
-    setIsCollapseAll(false);
-    setExpandedSections([0, 1, 2, 3, 4]);
-  };
-  const onCollapseAll = () => {
-    setIsCollapseAll(!isCollapseAll);
-    setIsExpandAll(false);
-    setExpandedSections([]);
-  };
+  const isExpandAll = expandedSections.length === 5;
+  const isCollapseAll = expandedSections.length === 0;
+  const onExpandAll = () => setExpandedSections([0, 1, 2, 3, 4]);
+  const onCollapseAll = () => setExpandedSections([]);
   const onChange = index => {
-    setExpandedSections(sections => [index]);
-    setIsExpandAll(false);
-    setIsCollapseAll(false);
+    setExpandedSections(sections =>
+      expandedSections.includes(index)
+        ? sections.filter(section => section !== index)
+        : [...expandedSections, index]
+    );
   };
-
-  const buttonGroup = (
+  const ButtonGroup = ({ isCompact }) => (
     <StyledButtonGroup>
       <Dropdown onSelect={item => alert(item)}>
         <Trigger>
-          <IconButton aria-label="Settings" title="Settings">
+          <IconButton size={isCompact ? 'small' : 'medium'} aria-label="Settings" title="Settings">
             <GearIcon />
           </IconButton>
         </Trigger>
@@ -123,7 +117,7 @@ const AdvancedExample = () => {
       </Dropdown>
       <Dropdown onSelect={item => alert(item)}>
         <Trigger>
-          <IconButton aria-label="Settings" title="Settings">
+          <IconButton size={isCompact ? 'small' : 'medium'} aria-label="Files" title="Files">
             <FolderIcon />
           </IconButton>
         </Trigger>
@@ -142,20 +136,30 @@ const AdvancedExample = () => {
         <Row>
           <Col>
             <Field>
+              <Toggle checked={isCompact} onChange={event => setIsCompact(!isCompact)}>
+                <Label>Compact</Label>
+              </Toggle>
+            </Field>
+            <Field className="u-mt">
               <Toggle checked={isBare} onChange={event => setIsBare(!isBare)}>
                 <Label>Bare</Label>
               </Toggle>
             </Field>
-            <Field className="u-mt">
-              <Toggle checked={isExpandAll} onChange={onExpandAll}>
-                <Label>Expand All</Label>
-              </Toggle>
-            </Field>
-            <Field className="u-mt">
-              <Toggle checked={isCollapseAll} onChange={onCollapseAll}>
-                <Label>Collapse All</Label>
-              </Toggle>
-            </Field>
+            <div>
+              <Button size="small" onClick={onExpandAll} disabled={isExpandAll} className="u-mt">
+                Expand All
+              </Button>
+            </div>
+            <div>
+              <Button
+                size="small"
+                onClick={onCollapseAll}
+                disabled={isCollapseAll}
+                className="u-mt"
+              >
+                Collapse All
+              </Button>
+            </div>
           </Col>
         </Row>
       </Well>
@@ -165,6 +169,7 @@ const AdvancedExample = () => {
             level={3}
             isBare={isBare}
             onChange={onChange}
+            isCompact={isCompact}
             expandedSections={expandedSections}
           >
             {accordionSections.map(section => (
@@ -172,10 +177,9 @@ const AdvancedExample = () => {
                 <Accordion.Header>
                   <Accordion.Label>
                     {section.header}
-                    {'\u00A0'}
-                    <StyledHint>{section.headerDetail}</StyledHint>
+                    <StyledSM forwardedAs="span">{section.headerDetail}</StyledSM>
                   </Accordion.Label>
-                  {buttonGroup}
+                  <ButtonGroup isCompact={isCompact} />
                 </Accordion.Header>
                 <Accordion.Panel>{section.panelContent}</Accordion.Panel>
               </Accordion.Section>

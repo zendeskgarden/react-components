@@ -86,6 +86,7 @@ export const Accordion = forwardRef<HTMLDivElement, IAccordionProps>(
       level,
       isBare,
       isCompact,
+      isCollapsible,
       getPanelProps,
       getHeaderProps,
       getTriggerProps,
@@ -111,7 +112,7 @@ Accordion.displayName = 'Accordion';
 Accordion.defaultProps = {
   isBare: false,
   isCompact: false,
-  isCollapsible: false,
+  isCollapsible: true,
   isExpandable: false,
   expandedSections: undefined,
   onChange: () => undefined

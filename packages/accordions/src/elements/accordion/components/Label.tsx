@@ -7,11 +7,13 @@
 
 import React, { forwardRef, HTMLAttributes } from 'react';
 import { StyledButton } from '../../../styled';
-import { useAccordionContext, useHeaderContext } from '../../../utils';
+import { useAccordionContext, useHeaderContext, useSectionContext } from '../../../utils';
 
 export const Label = forwardRef<HTMLButtonElement, HTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
-    const { isCompact } = useAccordionContext();
+    const sectionIndex = useSectionContext();
+    const { isCompact, isCollapsible, expandedSections } = useAccordionContext();
+    const isExpanded = expandedSections.includes(sectionIndex);
     const { isHovered, otherTriggerProps } = useHeaderContext();
 
     return (
@@ -19,6 +21,8 @@ export const Label = forwardRef<HTMLButtonElement, HTMLAttributes<HTMLButtonElem
         ref={ref}
         isCompact={isCompact}
         isHovered={isHovered}
+        isExpanded={isExpanded}
+        isCollapsible={isCollapsible}
         {...otherTriggerProps}
         {...props}
       />

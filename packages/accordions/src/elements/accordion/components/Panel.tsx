@@ -11,9 +11,9 @@ import { useCombinedRefs } from '@zendeskgarden/container-utilities';
 import { useAccordionContext, useSectionContext } from '../../../utils';
 import { StyledPanel, StyledInnerPanel } from '../../../styled';
 
-export const Panel = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
+export const Panel = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
   const { isCompact, isBare, getPanelProps, expandedSections } = useAccordionContext();
-  const panelRef = useCombinedRefs<HTMLDivElement>(ref);
+  const panelRef = useCombinedRefs<HTMLElement>(ref);
   const index = useSectionContext();
   const isExpanded = expandedSections.includes(index);
   const updateMaxHeight = useCallback(
@@ -38,7 +38,15 @@ export const Panel = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
 
   return (
     <StyledPanel
-      {...getPanelProps({ ref: panelRef, index, isBare, isCompact, isExpanded, ...props })}
+      {...getPanelProps({
+        role: null,
+        ref: panelRef,
+        index,
+        isBare,
+        isCompact,
+        isExpanded,
+        ...props
+      })}
     >
       <StyledInnerPanel isExpanded={isExpanded}>{props.children}</StyledInnerPanel>
     </StyledPanel>

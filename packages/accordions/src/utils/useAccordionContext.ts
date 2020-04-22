@@ -16,6 +16,7 @@ export interface IAccordionContext {
   level: number;
   isCompact?: boolean;
   isBare?: boolean;
+  isCollapsible?: boolean;
 }
 
 export const AccordionContext = createContext<IAccordionContext | undefined>(undefined);

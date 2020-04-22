@@ -39,7 +39,7 @@ const paddingStyles = (props: IStyledPanel & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledPanel = styled.div.attrs<IStyledPanel>({
+export const StyledPanel = styled.section.attrs<IStyledPanel>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledPanel>`

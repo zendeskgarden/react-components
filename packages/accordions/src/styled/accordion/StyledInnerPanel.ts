@@ -14,13 +14,17 @@ export interface IStyledInnerPanel {
   isExpanded?: boolean;
 }
 
+/**
+ * 1. Override the inline max-height style used for animation.
+ */
 export const StyledInnerPanel = styled.div.attrs<IStyledInnerPanel>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledInnerPanel>`
   transition: max-height 0.25s ease-in-out;
+  /* stylelint-disable-next-line declaration-no-important */
+  max-height: ${props => !props.isExpanded && '0 !important'}; /* [1] */
   overflow: hidden;
-  max-height: ${props => !props.isExpanded && '0 !important'}; /* stylelint-disable-line */
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

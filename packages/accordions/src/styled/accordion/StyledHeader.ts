@@ -11,10 +11,9 @@ import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden
 const COMPONENT_ID = 'accordions.header';
 
 export interface IStyledHeader {
-  label?: string;
   isFocused?: boolean;
-  isCompact?: boolean;
   isExpanded?: boolean;
+  isCollapsible?: boolean;
 }
 
 export const StyledHeader = styled.div.attrs<IStyledHeader>({
@@ -25,11 +24,11 @@ export const StyledHeader = styled.div.attrs<IStyledHeader>({
   align-items: center;
   box-shadow: ${props =>
     props.isFocused &&
-    props.theme.shadows.md(getColor('primaryHue', 600, props.theme, 0.35) as string)};
+    `${props.theme.shadows.md(getColor('primaryHue', 600, props.theme, 0.35) as string)} inset`};
   font-size: ${props => props.theme.fontSizes.md};
 
   &:hover {
-    cursor: pointer;
+    cursor: ${props => (props.isCollapsible || !props.isExpanded) && 'pointer'};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

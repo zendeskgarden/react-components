@@ -17,12 +17,13 @@ describe('StyledButton', () => {
     expect(container.firstChild).toHaveStyleRule('padding', '20px');
     expect(container.firstChild).toHaveStyleRule('text-align', 'left');
     expect(container.firstChild).not.toHaveStyleRule('color');
+    expect(container.firstChild).not.toHaveStyleRule('cursor');
   });
 
   it('renders isCompact styling correctly', () => {
     const { container } = render(<StyledButton isCompact />);
 
-    expect(container.firstChild).toHaveStyleRule('padding', '6px 12px');
+    expect(container.firstChild).toHaveStyleRule('padding', '8px 12px');
   });
 
   it('renders RTL styling correctly', () => {
@@ -38,5 +39,9 @@ describe('StyledButton', () => {
       'color',
       getColor('primaryHue', 600, DEFAULT_THEME)
     );
+
+    expect(container.firstChild).toHaveStyleRule('cursor', 'pointer', {
+      modifier: '&:hover'
+    });
   });
 });

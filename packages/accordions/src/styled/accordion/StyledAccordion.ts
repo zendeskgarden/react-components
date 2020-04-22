@@ -7,6 +7,8 @@
 
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { StyledPanel } from './StyledPanel';
+import { StyledSection } from './StyledSection';
 
 const COMPONENT_ID = 'accordions.accordion';
 
@@ -14,6 +16,9 @@ export const StyledAccordion = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
+  & ${StyledSection}:last-child ${StyledPanel} {
+    border: none;
+  }
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

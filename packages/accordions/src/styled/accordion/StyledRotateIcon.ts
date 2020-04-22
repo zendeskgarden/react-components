@@ -6,35 +6,47 @@
  */
 
 import { cloneElement, Children } from 'react';
-import styled from 'styled-components';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'accordions.rotate_icon';
 
 export interface IStyledRotateIcon {
-  isExpanded?: boolean;
   isCompact?: boolean;
 }
 
-/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-export const StyledRotateIcon = styled(({ children, isRotated, isHovered, isCompact, ...props }) =>
-  cloneElement(Children.only(children), props)
+const colorStyles = (props: ThemeProps<DefaultTheme> & any) => {
+  const color = getColor('primaryHue', 600, props.theme);
+  const showColor = props.isCollapsible || !props.isRotated;
+
+  return css`
+    color: ${showColor ? props.isHovered && color : getColor('neutralHue', 400, props.theme)};
+
+    &:hover {
+      color: ${showColor && color};
+    }
+  `;
+};
+
+export const StyledRotateIcon = styled(
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+  ({ children, isRotated, isHovered, isCompact, isCollapsible, ...props }) =>
+    cloneElement(Children.only(children), props)
 ).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledRotateIcon>`
   transform: ${props => props.isRotated && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`};
-  transition: transform 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out, color 0.1s ease-in-out;
   padding: ${props =>
     props.isCompact
       ? `${props.theme.space.base * 1.5}px ${props.theme.space.base * 3}px`
       : `${props.theme.space.base * 5}px`};
+  min-width: ${props => props.theme.space.base * 4}px;
+  min-height: ${props => props.theme.space.base * 4}px;
   vertical-align: middle;
-  color: ${props => props.isHovered && getColor('primaryHue', 600, props.theme)};
 
-  &:hover {
-    color: ${props => getColor('primaryHue', 600, props.theme)};
-  }
+  ${colorStyles}
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

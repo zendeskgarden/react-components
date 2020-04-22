@@ -67,6 +67,13 @@
     "@zendeskgarden/container-utilities" "^0.5.1"
     polished "^3.5.1"
 
+"@zendeskgarden/react-typography@^8.6.0":
+  version "8.6.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-typography/-/react-typography-8.6.0.tgz#23c1d43968505d508aa5fd3833caeaa719ea19bc"
+  integrity sha512-XSpPqZjNRoWgZxIihi1hd6Qzz6oprzG3ujlf+B71oJzQJh+4o4hpsHWdOM38BnwRYlgvZV/CyomdzztyPqpfRg==
+  dependencies:
+    polished "^3.5.1"
+
 "@zendeskgarden/svg-icons@6.15.0":
   version "6.15.0"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-6.15.0.tgz#cb7f890b86d3ffe83e7b6fae83db2f776594d4af"

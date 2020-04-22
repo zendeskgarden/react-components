@@ -22,7 +22,9 @@ describe('StyledHeader', () => {
 
     expect(container.firstChild).toHaveStyleRule(
       'box-shadow',
-      DEFAULT_THEME.shadows.md(getColor('primaryHue', 600, DEFAULT_THEME, 0.35) as string)
+      `${DEFAULT_THEME.shadows.md(
+        getColor('primaryHue', 600, DEFAULT_THEME, 0.35) as string
+      )} inset`
     );
   });
 });
