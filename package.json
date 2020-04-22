@@ -25,6 +25,7 @@
     "test": "yarn test:all --watch",
     "test:all": "jest --config=utils/test/jest.config.js",
     "test:ci": "yarn lint && yarn format:all && yarn tsc && yarn test:all --coverage",
+    "preversion": "yarn test:ci",
     "version": "yarn run build && git add -A"
   },
   "devDependencies": {

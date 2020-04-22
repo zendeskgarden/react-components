@@ -113,21 +113,11 @@ const sync = async (master, spinner) => {
     info('Syncing with remote...', spinner);
     await execa('git', ['pull']);
     await execa('git', ['fetch', '--tags', '--prune', '--prune-tags']);
+    spinner.stop();
+    await execa('yarn', ['install'], { stdout: process.stdout });
   } else {
     throw new Error(`Switch to the ${master} branch`);
   }
-};
-
-/**
- * Validate via package install and CI test.
- *
- * @param {Ora} spinner Terminal spinner.
- */
-const validate = async spinner => {
-  info('Validating environment...', spinner);
-  spinner.stop();
-  await execa('yarn', ['install'], { stdout: process.stdout });
-  await execa('yarn', ['test:ci'], { stdout: process.stdout });
 };
 
 /**
@@ -194,7 +184,6 @@ program
     try {
       spinner.start();
       await sync(program.master, spinner);
-      await validate(spinner);
 
       const tag = await version(bump, program.preid, program.master, spinner);
       const markdown = await changelog(tag, spinner);
