@@ -12,6 +12,27 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.6.0 (2020-04-23)
+
+#### :rocket: New Feature
+* `typography`
+  * [#724](https://github.com/zendeskgarden/react-components/pull/724) feat(typography): add Paragraph component ([@jzempel](https://github.com/jzempel))
+  * [#722](https://github.com/zendeskgarden/react-components/pull/722) feat(typography): add bold option ([@jzempel](https://github.com/jzempel))
+* `pagination`
+  * [#692](https://github.com/zendeskgarden/react-components/pull/692) feat(pagination): create CursorPagination component ([@hzhu](https://github.com/hzhu))
+
+#### :memo: Documentation
+* `tabs`
+  * [#723](https://github.com/zendeskgarden/react-components/pull/723) chore(tabs): update Tabs API descriptions ([@rossmoody](https://github.com/rossmoody))
+* `loaders`
+  * [#700](https://github.com/zendeskgarden/react-components/pull/700) chore(loaders): update remaining Loaders API descriptions ([@rossmoody](https://github.com/rossmoody))
+* `pagination`
+  * [#721](https://github.com/zendeskgarden/react-components/pull/721) fix(pagination): fix styleguidist path ([@hzhu](https://github.com/hzhu))
+
+#### :seedling: Internal
+* `dropdowns`
+  * [#698](https://github.com/zendeskgarden/react-components/pull/698) feat(menu): revise menu spacing ([@rossmoody](https://github.com/rossmoody))
+
 ## v8.5.0 (2020-04-09)
 
 #### :bug: Bug Fix
