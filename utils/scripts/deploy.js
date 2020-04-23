@@ -19,7 +19,7 @@ envalid.cleanEnv(process.env, {
 
 (async () => {
   const branch = await garden.githubBranch();
-  const dir = path.resolve(__dirname, '..', 'demo');
+  const dir = path.resolve(__dirname, '..', '..', 'demo');
   let url;
 
   if (branch === 'master') {
