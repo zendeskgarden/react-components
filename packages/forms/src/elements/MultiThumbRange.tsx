@@ -167,13 +167,10 @@ const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>
     [max, minValue, onRangeValuesChange]
   );
 
-  /**
-   * Calculates the update thumb position based on current mouse position
-   */
-  const onDocumentMouseMove = useCallback(
-    e => {
+  const calculateUpdatedValue = useCallback(
+    (e: React.MouseEvent) => {
       if (!trackRailRef.current) {
-        return;
+        return undefined;
       }
 
       const trackOffsetLeft = trackRailRef.current.getBoundingClientRect().left;
@@ -186,11 +183,21 @@ const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>
         diffX *= -1;
       }
 
-      let newValue =
+      const newValue =
         min! + parseInt(((((max! - min!) * diffX) / trackWidth) as unknown) as string, 10);
 
       // Reduce updated value to align with step size
-      newValue = Math.floor(newValue / step!) * step!;
+      return Math.floor(newValue / step!) * step!;
+    },
+    [max, min, step, theme.rtl]
+  );
+
+  /**
+   * Calculates the update thumb position based on current mouse position
+   */
+  const onDocumentMouseMove = useCallback(
+    e => {
+      const newValue = calculateUpdatedValue(e);
 
       if (isMinThumbFocused) {
         updateMinThumbSlider(newValue);
@@ -198,7 +205,7 @@ const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>
         updateMaxThumbSlider(newValue);
       }
     },
-    [isMinThumbFocused, max, min, theme, step, updateMaxThumbSlider, updateMinThumbSlider]
+    [calculateUpdatedValue, isMinThumbFocused, updateMinThumbSlider, updateMaxThumbSlider]
   );
 
   const removeDragEvents = useCallback(() => {
@@ -209,6 +216,41 @@ const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>
 
     setIsMousedDown(false);
   }, [onDocumentMouseMove, themedDocument]);
+
+  const onTrackMouseDown = useCallback(
+    (e: React.MouseEvent) => {
+      if (e.button !== 0 || disabled) {
+        return;
+      }
+
+      e.preventDefault();
+
+      const valueAtMouseDown = calculateUpdatedValue(e);
+
+      if (valueAtMouseDown === undefined || minValue === undefined || maxValue === undefined) {
+        return;
+      }
+
+      const distanceFromMinThumb = Math.abs(minValue - valueAtMouseDown);
+      const distanceFromMaxThumb = Math.abs(maxValue - valueAtMouseDown);
+
+      if (distanceFromMinThumb <= distanceFromMaxThumb) {
+        minThumbRef.current && minThumbRef.current.focus();
+        updateMinThumbSlider(valueAtMouseDown);
+      } else {
+        maxThumbRef.current && maxThumbRef.current.focus();
+        updateMaxThumbSlider(valueAtMouseDown);
+      }
+    },
+    [
+      calculateUpdatedValue,
+      disabled,
+      maxValue,
+      minValue,
+      updateMaxThumbSlider,
+      updateMinThumbSlider
+    ]
+  );
 
   useEffect(() => {
     if (isMousedDown && themedDocument) {
@@ -316,6 +358,7 @@ const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>
         backgroundPosition={theme.rtl ? railWidth - maxPosition : minPosition}
         data-test-id="track"
         isDisabled={disabled}
+        onMouseDown={onTrackMouseDown}
       >
         <StyledSliderTrackRail data-test-id="rail" ref={trackRailRef}>
           <StyledSliderThumb
