@@ -19,6 +19,7 @@ const isInvalid = (validation?: VALIDATION) => {
 
 interface IStyledSelectIconProps {
   isCompact?: boolean;
+  isBare?: boolean;
 }
 
 const getIconWrapperSize = (props: IStyledSelectIconProps & ThemeProps<DefaultTheme>) => {
@@ -64,7 +65,7 @@ export const StyledStartIcon = styled.div<IStyledSelectIconProps>`
   align-items: center;
   justify-content: center;
   width: ${props => getIconWrapperSize(props)};
-  height: ${props => getIconWrapperSize(props)};
+  height: ${props => (props.isBare ? 'inherit' : getIconWrapperSize(props))};
   color: ${props => getColor('neutralHue', 400, props.theme)};
 
   * {

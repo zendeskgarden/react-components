@@ -82,7 +82,11 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
             }}
             {...selectProps}
           >
-            {start && <StyledStartIcon isCompact={props.isCompact}>{start}</StyledStartIcon>}
+            {start && (
+              <StyledStartIcon isCompact={props.isCompact} isBare={props.isBare}>
+                {start}
+              </StyledStartIcon>
+            )}
             {!isOpen && <StyledOverflowWrapper>{children}</StyledOverflowWrapper>}
             <StyledInput
               {...getInputProps({

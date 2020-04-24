@@ -82,7 +82,11 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
               popperReferenceElementRef.current = selectRef;
             }}
           >
-            {start && <StyledStartIcon isCompact={props.isCompact}>{start}</StyledStartIcon>}
+            {start && (
+              <StyledStartIcon isCompact={props.isCompact} isBare={props.isBare}>
+                {start}
+              </StyledStartIcon>
+            )}
             <StyledOverflowWrapper>{children}</StyledOverflowWrapper>
             <StyledInput
               {...getInputProps({
