@@ -140,7 +140,7 @@ describe('Select', () => {
 
     fireEvent.click(select);
 
-    expect(select).toHaveStyleRule('transform', 'rotate(180deg) translateY(-1px)', {
+    expect(select).toHaveStyleRule('transform', 'rotate(180deg)', {
       modifier: css`
         ${StyledSelectIcon}
       ` as any
@@ -162,10 +162,50 @@ describe('Select', () => {
 
     fireEvent.click(select);
 
-    expect(select).toHaveStyleRule('transform', 'rotate(-180deg) translateY(-1px)', {
+    expect(select).toHaveStyleRule('transform', 'rotate(-180deg)', {
       modifier: css`
         ${StyledSelectIcon}
       ` as any
+    });
+  });
+
+  it('renders start icon if provided', () => {
+    const { getByTestId } = render(
+      <Dropdown>
+        <Field>
+          <Select start={<svg data-test-id="icon" />}>Test</Select>
+        </Field>
+      </Dropdown>
+    );
+
+    const icon = getByTestId('icon');
+
+    expect(icon.parentElement).toHaveStyleRule('width', '16px', {
+      modifier: '*'
+    });
+    expect(icon.parentElement).toHaveStyleRule('height', '16px', {
+      modifier: '*'
+    });
+  });
+
+  it('renders start icon with isCompact styling if provided', () => {
+    const { getByTestId } = render(
+      <Dropdown>
+        <Field>
+          <Select start={<svg data-test-id="icon" />} isCompact>
+            Test
+          </Select>
+        </Field>
+      </Dropdown>
+    );
+
+    const icon = getByTestId('icon');
+
+    expect(icon.parentElement).toHaveStyleRule('width', '12px', {
+      modifier: '*'
+    });
+    expect(icon.parentElement).toHaveStyleRule('height', '12px', {
+      modifier: '*'
     });
   });
 

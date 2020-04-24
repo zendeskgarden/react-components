@@ -9,7 +9,7 @@ import React, { useRef, useEffect, HTMLAttributes } from 'react';
 import { useCombinedRefs } from '@zendeskgarden/container-utilities';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
-import { StyledInput, SelectWrapper, StyledOverflowWrapper } from '../../styled';
+import { StyledInput, SelectWrapper, StyledOverflowWrapper, StyledStartIcon } from '../../styled';
 import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
@@ -26,13 +26,15 @@ interface ISelectProps extends HTMLAttributes<HTMLDivElement> {
   /** Displays select open state */
   isOpen?: boolean;
   validation?: VALIDATION;
+  /** Slot for "start" icon */
+  start?: any;
 }
 
 /**
  * Applies state and a11y attributes to its children. Must be nested within a `<Field>` component.
  */
 export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
-  ({ children, ...props }, ref) => {
+  ({ children, start, ...props }, ref) => {
     const {
       popperReferenceElementRef,
       downshift: { getToggleButtonProps, getInputProps, isOpen }
@@ -67,6 +69,7 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
             isHovered={isLabelHovered && !isOpen}
             isFocused={isOpen}
             isOpen={isOpen}
+            isShowingStart={start}
             {...selectProps}
             ref={selectRef => {
               // Pass ref to popperJS for positioning
@@ -79,6 +82,7 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
               popperReferenceElementRef.current = selectRef;
             }}
           >
+            {start && <StyledStartIcon isCompact={props.isCompact}>{start}</StyledStartIcon>}
             <StyledOverflowWrapper>{children}</StyledOverflowWrapper>
             <StyledInput
               {...getInputProps({

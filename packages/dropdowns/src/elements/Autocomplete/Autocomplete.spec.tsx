@@ -97,6 +97,46 @@ describe('Autocomplete', () => {
     expect(getByTestId('autocomplete')).toHaveAttribute('data-test-is-hovered', 'true');
   });
 
+  it('renders start icon if provided', () => {
+    const { getByTestId } = render(
+      <Dropdown>
+        <Field>
+          <Autocomplete start={<svg data-test-id="icon" />}>Test</Autocomplete>
+        </Field>
+      </Dropdown>
+    );
+
+    const icon = getByTestId('icon');
+
+    expect(icon.parentElement).toHaveStyleRule('width', '16px', {
+      modifier: '*'
+    });
+    expect(icon.parentElement).toHaveStyleRule('height', '16px', {
+      modifier: '*'
+    });
+  });
+
+  it('renders start icon with isCompact styling if provided', () => {
+    const { getByTestId } = render(
+      <Dropdown>
+        <Field>
+          <Autocomplete start={<svg data-test-id="icon" />} isCompact>
+            Test
+          </Autocomplete>
+        </Field>
+      </Dropdown>
+    );
+
+    const icon = getByTestId('icon');
+
+    expect(icon.parentElement).toHaveStyleRule('width', '12px', {
+      modifier: '*'
+    });
+    expect(icon.parentElement).toHaveStyleRule('height', '12px', {
+      modifier: '*'
+    });
+  });
+
   describe('Interaction', () => {
     it('opens on click', () => {
       const { getByTestId } = render(<ExampleAutocomplete />);

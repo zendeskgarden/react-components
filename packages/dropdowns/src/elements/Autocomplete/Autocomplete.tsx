@@ -9,7 +9,7 @@ import React, { useRef, useEffect, useState, HTMLAttributes, KeyboardEvent } fro
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
 import { useCombinedRefs } from '@zendeskgarden/container-utilities';
-import { StyledInput, SelectWrapper, StyledOverflowWrapper } from '../../styled';
+import { StyledInput, SelectWrapper, StyledOverflowWrapper, StyledStartIcon } from '../../styled';
 import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
@@ -25,13 +25,15 @@ interface IAutocompleteProps extends HTMLAttributes<HTMLDivElement> {
   isOpen?: boolean;
   validation?: VALIDATION;
   inputRef?: React.Ref<HTMLInputElement>;
+  /** Slot for "start" icon */
+  start?: any;
 }
 
 /**
  * Applies state and a11y attributes to its children. Must be nested within a `<Field>` component.
  */
 const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
-  ({ children, inputRef: controlledInputRef, ...props }, ref) => {
+  ({ children, inputRef: controlledInputRef, start, ...props }, ref) => {
     const {
       popperReferenceElementRef,
       downshift: { getToggleButtonProps, getInputProps, isOpen }
@@ -67,6 +69,7 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
             isFocused={isOpen ? true : isFocused}
             isOpen={isOpen}
             tabIndex={null}
+            isShowingStart={start}
             ref={selectRef => {
               // Pass ref to popperJS for positioning
               (popperReference as any)(selectRef);
@@ -79,6 +82,7 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
             }}
             {...selectProps}
           >
+            {start && <StyledStartIcon isCompact={props.isCompact}>{start}</StyledStartIcon>}
             {!isOpen && <StyledOverflowWrapper>{children}</StyledOverflowWrapper>}
             <StyledInput
               {...getInputProps({

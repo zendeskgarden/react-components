@@ -8,6 +8,8 @@ const {
   Hint: FormHint,
   Range
 } = require('@zendeskgarden/react-forms/src');
+const GroupIcon = require('@zendeskgarden/svg-icons/src/16/user-group-stroke.svg').default;
+const SearchIcon = require('@zendeskgarden/svg-icons/src/16/search-stroke.svg').default;
 
 const StyledSpacer = styled.div`
   margin-top: ${props => props.theme.space.xs};
@@ -43,7 +45,8 @@ initialState = {
   disabled: false,
   message: true,
   width: 100,
-  validation: 'none'
+  validation: 'none',
+  showStart: false
 };
 
 <Grid>
@@ -101,6 +104,15 @@ initialState = {
           </Toggle>
         </FormField>
         <StyledSpacer />
+        <FormField>
+          <Toggle
+            checked={!!state.showStart}
+            onChange={event => setState({ showStart: event.target.checked })}
+          >
+            <FormLabel>Start Icon</FormLabel>
+          </Toggle>
+        </FormField>
+        <StyledSpacer />
         <Dropdown selectedItem={state.validation} onSelect={validation => setState({ validation })}>
           <Field>
             <Label>Validation</Label>
@@ -137,6 +149,7 @@ initialState = {
               focusInset={state.focusInset}
               disabled={state.disabled}
               validation={state.validation !== 'none' ? state.validation : undefined}
+              start={state.showStart ? <GroupIcon /> : undefined}
             >
               Veggies es bonus vobis
             </Select>
@@ -163,6 +176,7 @@ initialState = {
               focusInset={state.focusInset}
               disabled={state.disabled}
               validation={state.validation !== 'none' ? state.validation : undefined}
+              start={state.showStart ? <SearchIcon /> : undefined}
             >
               Veggies es bonus vobis
             </Autocomplete>
