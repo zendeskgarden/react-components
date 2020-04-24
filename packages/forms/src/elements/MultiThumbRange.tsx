@@ -16,7 +16,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
-import { KEY_CODES } from '@zendeskgarden/container-utilities';
+import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { withTheme, useDocument, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import {
   StyledSlider,
@@ -55,6 +55,7 @@ const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>
   step,
   onChange,
   theme,
+  onMouseDown,
   ...props
 }) => {
   const themedDocument = useDocument(theme);
@@ -351,14 +352,20 @@ const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>
   const maxPosition = calculateMaxPosition(MIN_DISTANCE);
   const sliderBackgroundSize = Math.abs(maxPosition) - Math.abs(minPosition);
 
+  const onSliderMouseDown = composeEventHandlers(onMouseDown, onTrackMouseDown);
+
   return (
-    <StyledSlider data-test-id="slider" isDisabled={disabled} {...props}>
+    <StyledSlider
+      data-test-id="slider"
+      isDisabled={disabled}
+      onMouseDown={onSliderMouseDown}
+      {...props}
+    >
       <StyledSliderTrack
         backgroundSize={sliderBackgroundSize}
         backgroundPosition={theme.rtl ? railWidth - maxPosition : minPosition}
         data-test-id="track"
         isDisabled={disabled}
-        onMouseDown={onTrackMouseDown}
       >
         <StyledSliderTrackRail data-test-id="rail" ref={trackRailRef}>
           <StyledSliderThumb

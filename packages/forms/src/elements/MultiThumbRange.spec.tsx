@@ -79,33 +79,33 @@ describe('MultiThumbRange', () => {
     });
   });
 
-  describe('Track selection', () => {
-    it('updates min value if track is clicked near min thumb', () => {
+  describe('Slider selection', () => {
+    it('updates min value if slider is clicked near min thumb', () => {
       const onChangeSpy = jest.fn();
       const { getByTestId } = render(
         <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
       );
 
-      const track = getByTestId('track');
-      const mouseEvent = createEvent.mouseDown(track);
+      const slider = getByTestId('slider');
+      const mouseEvent = createEvent.mouseDown(slider);
 
       (mouseEvent as any).pageX = 45;
-      fireEvent(track, mouseEvent);
+      fireEvent(slider, mouseEvent);
 
       expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 25, maxValue: 75 });
     });
 
-    it('updates max value if track is clicked near max thumb', () => {
+    it('updates max value if slider is clicked near max thumb', () => {
       const onChangeSpy = jest.fn();
       const { getByTestId } = render(
         <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
       );
 
-      const track = getByTestId('track');
-      const mouseEvent = createEvent.mouseDown(track);
+      const slider = getByTestId('slider');
+      const mouseEvent = createEvent.mouseDown(slider);
 
       (mouseEvent as any).pageX = 100;
-      fireEvent(track, mouseEvent);
+      fireEvent(slider, mouseEvent);
 
       expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 80 });
     });
