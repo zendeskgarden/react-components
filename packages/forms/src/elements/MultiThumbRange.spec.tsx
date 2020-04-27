@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
-import { render, renderRtl, fireEvent } from 'garden-test-utils';
+import { render, renderRtl, fireEvent, createEvent } from 'garden-test-utils';
 import MultiThumbRange from './MultiThumbRange';
 
 jest.mock('lodash.debounce');
@@ -76,6 +76,38 @@ describe('MultiThumbRange', () => {
       );
 
       expect(getByTestId('track')).toHaveStyle('background-size: 60px; background-position: 25px;');
+    });
+  });
+
+  describe('Slider selection', () => {
+    it('updates min value if slider is clicked near min thumb', () => {
+      const onChangeSpy = jest.fn();
+      const { getByTestId } = render(
+        <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+      );
+
+      const slider = getByTestId('slider');
+      const mouseEvent = createEvent.mouseDown(slider);
+
+      (mouseEvent as any).pageX = 45;
+      fireEvent(slider, mouseEvent);
+
+      expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 25, maxValue: 75 });
+    });
+
+    it('updates max value if slider is clicked near max thumb', () => {
+      const onChangeSpy = jest.fn();
+      const { getByTestId } = render(
+        <MultiThumbRange minValue={15} maxValue={75} step={5} onChange={onChangeSpy} />
+      );
+
+      const slider = getByTestId('slider');
+      const mouseEvent = createEvent.mouseDown(slider);
+
+      (mouseEvent as any).pageX = 100;
+      fireEvent(slider, mouseEvent);
+
+      expect(onChangeSpy).toHaveBeenCalledWith({ minValue: 15, maxValue: 80 });
     });
   });
 
