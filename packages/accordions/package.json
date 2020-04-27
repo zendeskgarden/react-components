@@ -24,7 +24,6 @@
   "dependencies": {
     "@zendeskgarden/container-accordion": "^1.0.0",
     "@zendeskgarden/container-utilities": "^0.5.3",
-    "@zendeskgarden/react-typography": "^8.6.0",
     "polished": "^3.5.1"
   },
   "peerDependencies": {

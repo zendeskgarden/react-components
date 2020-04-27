@@ -45,7 +45,9 @@ export const StyledPanel = styled.section.attrs<IStyledPanel>({
 })<IStyledPanel>`
   ${paddingStyles};
   border-bottom: ${props =>
-    `1px solid ${props.isBare ? 'transparent' : getColor('neutralHue', 300, props.theme)}`};
+    `${props.theme.borders.sm} ${
+      props.isBare ? 'transparent' : getColor('neutralHue', 300, props.theme)
+    }`};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

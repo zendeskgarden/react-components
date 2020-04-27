@@ -20,7 +20,6 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
 
 const StyledSM = styled(SM)`
   margin-left: ${props => props.theme.space.base}px;
-  font-weight: ${props => props.theme.fontWeights.regular};
 `;
 
 const StyledButtonGroup = styled.div`
@@ -105,7 +104,12 @@ const AdvancedExample = () => {
     <StyledButtonGroup>
       <Dropdown onSelect={item => alert(item)}>
         <Trigger>
-          <IconButton size={isCompact ? 'small' : 'medium'} aria-label="Settings" title="Settings">
+          <IconButton
+            title="Settings"
+            aria-label="Settings"
+            focusInset={isCompact}
+            size={isCompact ? 'small' : 'medium'}
+          >
             <GearIcon />
           </IconButton>
         </Trigger>
@@ -117,7 +121,12 @@ const AdvancedExample = () => {
       </Dropdown>
       <Dropdown onSelect={item => alert(item)}>
         <Trigger>
-          <IconButton size={isCompact ? 'small' : 'medium'} aria-label="Files" title="Files">
+          <IconButton
+            title="Settings"
+            aria-label="Settings"
+            focusInset={isCompact}
+            size={isCompact ? 'small' : 'medium'}
+          >
             <FolderIcon />
           </IconButton>
         </Trigger>

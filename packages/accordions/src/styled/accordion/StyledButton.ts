@@ -6,7 +6,12 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  getLineHeight,
+  getColor,
+  retrieveComponentStyles,
+  DEFAULT_THEME
+} from '@zendeskgarden/react-theming';
 
 export const COMPONENT_ID = 'accordions.button';
 
@@ -48,6 +53,7 @@ export const StyledButton = styled.button.attrs<IStyledButton>({
       : `${props.theme.space.base * 5}px`};
   width: 100%;
   text-align: ${props => (props.theme.rtl ? 'right' : 'left')};
+  line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
   font-size: ${props => props.theme.fontSizes.md};
   font-weight: ${props => props.theme.fontWeights.semibold};
 

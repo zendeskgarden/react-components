@@ -5,13 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext, HTMLAttributes, MutableRefObject } from 'react';
-
-export interface IAccordionContext {
+import { createContext, useContext, MutableRefObject } from 'react';
+import { IUseAccordionPropGetters } from 'packages/chrome/node_modules/@zendeskgarden/container-accordion/dist/typings';
+export interface IAccordionContext extends IUseAccordionPropGetters {
   expandedSections: number[];
-  getHeaderProps: <T>(options?: T) => T & HTMLAttributes<HTMLDivElement>;
-  getTriggerProps: <T>(options?: T) => T & HTMLAttributes<HTMLDivElement>;
-  getPanelProps: <T>(options?: T) => T & HTMLAttributes<HTMLDivElement>;
   currentIndexRef: MutableRefObject<number>;
   level: number;
   isCompact?: boolean;

@@ -33,7 +33,7 @@ interface IStaticAccordionExport<T, P>
 interface IAccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   /** The `aria-level` used to apply heading rank on accordion headers */
   level: number;
-  /** A controlled prop that determines which sections are expanded */
+  /** Determines which sections are expanded */
   expandedSections?: number[];
   /** Hides the bottom border under each accordion panel */
   isBare?: boolean;
@@ -52,6 +52,7 @@ interface IAccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange
 
  *  - `Accordion.Section`
  *  - `Accordion.Header`
+ *  - `Accordion.Label`
  *  - `Accordion.Panel`
  *
  * Note: The `Accordion.Label` is a sub-component of `Accordion.Header`.

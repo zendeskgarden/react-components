@@ -19,12 +19,7 @@ import ChevronDown from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg
 import { useAccordionContext, useSectionContext, HeaderContext } from '../../../utils';
 import { StyledHeader, StyledRotateIcon, COMPONENT_ID as buttonGardenId } from '../../../styled';
 
-export interface IHeaderProps extends HTMLAttributes<HTMLDivElement> {
-  /** Apply props to the wrapping `Accordion.Header` element */
-  wrapperProps?: any;
-}
-
-export const Header = forwardRef<HTMLDivElement, IHeaderProps>((props, ref) => {
+export const Header = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const {
     level: ariaLevel,
     isCompact,
@@ -33,23 +28,13 @@ export const Header = forwardRef<HTMLDivElement, IHeaderProps>((props, ref) => {
     getTriggerProps,
     expandedSections
   } = useAccordionContext();
-  const {
-    onClick,
-    onFocus,
-    onBlur,
-    onMouseOver,
-    onMouseOut,
-    wrapperProps,
-    children,
-    ...other
-  } = props;
+  const { onClick, onFocus, onBlur, onMouseOver, onMouseOut, children, ...other } = props;
   const sectionIndex = useSectionContext();
   const [isFocused, setIsFocused] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const isExpanded = expandedSections.includes(sectionIndex);
   const { onClick: onTriggerClick, ...otherTriggerProps } = getTriggerProps({
-    index: sectionIndex,
-    ...other
+    index: sectionIndex
   });
   const onHeaderFocus = (e: FocusEvent) => {
     e.persist();
@@ -84,7 +69,7 @@ export const Header = forwardRef<HTMLDivElement, IHeaderProps>((props, ref) => {
           onBlur: composeEventHandlers(onBlur, () => setIsFocused(false)),
           onMouseOver: composeEventHandlers(onMouseOver, () => setIsHovered(true)),
           onMouseOut: composeEventHandlers(onMouseOut, () => setIsHovered(false)),
-          ...wrapperProps
+          ...other
         })}
       >
         {children}
