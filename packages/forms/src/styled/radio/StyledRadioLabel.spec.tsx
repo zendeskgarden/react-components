@@ -20,6 +20,7 @@ describe('StyledRadioLabel', () => {
     const { container } = render(<StyledRadioLabel hidden />);
 
     expect(container.firstChild).toHaveStyleRule('padding-left', '16px', { modifier: '[hidden]' });
+    expect(container.firstChild).toHaveStyleRule('line-height', '20px', { modifier: '[hidden]' });
   });
 
   it('renders expected RTL styling', () => {

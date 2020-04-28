@@ -6,22 +6,21 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledCheckLabel } from '../checkbox/StyledCheckLabel';
 
 const COMPONENT_ID = 'forms.toggle_label';
 
 const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
-  const size = math(`${props.theme.space.base} * 10px`); /* from StyledToggleInput */
-  const padding = math(`${size} + (${props.theme.space.base} * 2px)`);
+  const size = props.theme.space.base * 10; /* from StyledToggleInput */
+  const padding = size + props.theme.space.base * 2;
 
   return css`
     /* stylelint-disable property-no-unknown */
-    padding-${props.theme.rtl ? 'right' : 'left'}: ${padding};
+    padding-${props.theme.rtl ? 'right' : 'left'}: ${padding}px;
 
     &[hidden] {
-      padding-${props.theme.rtl ? 'right' : 'left'}: ${size};
+      padding-${props.theme.rtl ? 'right' : 'left'}: ${size}px;
     }
     /* stylelint-enable property-no-unknown */
   `;
