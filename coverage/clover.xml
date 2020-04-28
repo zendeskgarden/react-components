@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1588102853819" clover="3.2.0">
-  <project timestamp="1588102853819" name="All files">
-    <metrics statements="5757" coveredstatements="5737" conditionals="2253" coveredconditionals="2103" methods="1209" coveredmethods="1205" elements="9219" coveredelements="9045" complexity="0" loc="5757" ncloc="5757" packages="101" files="385" classes="385"/>
+<coverage generated="1588102979593" clover="3.2.0">
+  <project timestamp="1588102979593" name="All files">
+    <metrics statements="5756" coveredstatements="5736" conditionals="2253" coveredconditionals="2103" methods="1209" coveredmethods="1205" elements="9218" coveredelements="9044" complexity="0" loc="5756" ncloc="5756" packages="101" files="385" classes="385"/>
     <package name="accordions.src.elements.stepper">
       <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="Stepper.tsx" path="/home/circleci/project/packages/accordions/src/elements/stepper/Stepper.tsx">
@@ -3996,16 +3996,16 @@
         <line num="8" count="46" type="stmt"/>
         <line num="9" count="46" type="stmt"/>
         <line num="10" count="46" type="stmt"/>
-        <line num="11" count="46" type="stmt"/>
-        <line num="13" count="46" type="stmt"/>
-        <line num="15" count="46" type="stmt"/>
+        <line num="12" count="46" type="stmt"/>
+        <line num="14" count="46" type="stmt"/>
+        <line num="15" count="9" type="stmt"/>
         <line num="16" count="9" type="stmt"/>
         <line num="17" count="9" type="stmt"/>
         <line num="19" count="9" type="stmt"/>
-        <line num="30" count="46" type="stmt"/>
-        <line num="45" count="9" type="stmt"/>
-        <line num="47" count="9" type="stmt"/>
-        <line num="50" count="46" type="stmt"/>
+        <line num="31" count="46" type="stmt"/>
+        <line num="46" count="9" type="stmt"/>
+        <line num="48" count="9" type="stmt"/>
+        <line num="51" count="46" type="stmt"/>
       </file>
       <file name="StyledRadioMessage.ts" path="/home/circleci/project/packages/forms/src/styled/radio/StyledRadioMessage.ts">
         <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
@@ -4412,7 +4412,7 @@
       </file>
     </package>
     <package name="forms.src.styled.toggle">
-      <metrics statements="67" coveredstatements="67" conditionals="14" coveredconditionals="14" methods="17" coveredmethods="17"/>
+      <metrics statements="66" coveredstatements="66" conditionals="14" coveredconditionals="14" methods="17" coveredmethods="17"/>
       <file name="StyledToggleHint.ts" path="/home/circleci/project/packages/forms/src/styled/toggle/StyledToggleHint.ts">
         <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
         <line num="8" count="38" type="stmt"/>
@@ -4454,20 +4454,19 @@
         <line num="88" count="38" type="stmt"/>
       </file>
       <file name="StyledToggleLabel.ts" path="/home/circleci/project/packages/forms/src/styled/toggle/StyledToggleLabel.ts">
-        <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
+        <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
         <line num="8" count="39" type="stmt"/>
         <line num="9" count="39" type="stmt"/>
         <line num="10" count="39" type="stmt"/>
-        <line num="11" count="39" type="stmt"/>
-        <line num="13" count="39" type="stmt"/>
-        <line num="15" count="39" type="stmt"/>
+        <line num="12" count="39" type="stmt"/>
+        <line num="14" count="39" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
         <line num="16" count="3" type="stmt"/>
-        <line num="17" count="3" type="stmt"/>
-        <line num="19" count="3" type="stmt"/>
-        <line num="30" count="39" type="stmt"/>
-        <line num="34" count="3" type="stmt"/>
-        <line num="36" count="3" type="stmt"/>
-        <line num="39" count="39" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="29" count="39" type="stmt"/>
+        <line num="33" count="3" type="stmt"/>
+        <line num="35" count="3" type="stmt"/>
+        <line num="38" count="39" type="stmt"/>
       </file>
       <file name="StyledToggleMessage.ts" path="/home/circleci/project/packages/forms/src/styled/toggle/StyledToggleMessage.ts">
         <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
