@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1588007765615" clover="3.2.0">
-  <project timestamp="1588007765615" name="All files">
+<coverage generated="1588102853819" clover="3.2.0">
+  <project timestamp="1588102853819" name="All files">
     <metrics statements="5757" coveredstatements="5737" conditionals="2253" coveredconditionals="2103" methods="1209" coveredmethods="1205" elements="9219" coveredelements="9045" complexity="0" loc="5757" ncloc="5757" packages="101" files="385" classes="385"/>
     <package name="accordions.src.elements.stepper">
       <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -5429,17 +5429,17 @@
         <line num="8" count="9" type="stmt"/>
         <line num="9" count="9" type="stmt"/>
         <line num="12" count="9" type="stmt"/>
-        <line num="23" count="9" type="stmt"/>
-        <line num="29" count="6" type="stmt"/>
-        <line num="30" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="37" count="6" type="stmt"/>
+        <line num="24" count="9" type="stmt"/>
+        <line num="30" count="6" type="stmt"/>
+        <line num="31" count="6" type="cond" truecount="2" falsecount="0"/>
         <line num="38" count="6" type="stmt"/>
-        <line num="41" count="6" type="stmt"/>
-        <line num="49" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="58" count="6" type="stmt"/>
-        <line num="62" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="65" count="6" type="stmt"/>
-        <line num="68" count="9" type="stmt"/>
+        <line num="39" count="6" type="stmt"/>
+        <line num="42" count="6" type="stmt"/>
+        <line num="50" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="59" count="6" type="stmt"/>
+        <line num="63" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="70" count="6" type="stmt"/>
+        <line num="73" count="9" type="stmt"/>
       </file>
       <file name="StyledParagraph.ts" path="/home/circleci/project/packages/notifications/src/styled/content/StyledParagraph.ts">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
