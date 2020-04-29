@@ -12,6 +12,23 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.7.0 (2020-04-29)
+
+#### :rocket: New Feature
+* `accordions`
+  * [#725](https://github.com/zendeskgarden/react-components/pull/725) feat(accordions): add new accordion component ([@hzhu](https://github.com/hzhu))
+* `forms`
+  * [#727](https://github.com/zendeskgarden/react-components/pull/727) feat(forms): allow multi-thumb range to allow track mouse interaction ([@austin94](https://github.com/austin94))
+
+#### :bug: Bug Fix
+* `forms`
+  * [#729](https://github.com/zendeskgarden/react-components/pull/729) fix(forms): retain line height for hidden radio/checkbox/toggle labels ([@jzempel](https://github.com/jzempel))
+* `notifications`
+  * [#730](https://github.com/zendeskgarden/react-components/pull/730) fix(notifications): restore transition to close button focus & hover styles ([@hzhu](https://github.com/hzhu))
+
+#### :seedling: Internal
+* [#726](https://github.com/zendeskgarden/react-components/pull/726) chore: enhanced scripting workflow ([@jzempel](https://github.com/jzempel))
+
 ## v8.6.0 (2020-04-23)
 
 #### :rocket: New Feature
