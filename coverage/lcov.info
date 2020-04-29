@@ -210,9 +210,9 @@ FN:21,(anonymous_3)
 FN:31,(anonymous_4)
 FN:36,(anonymous_5)
 FNF:4
-FNH:4
+FNH:3
 FNDA:3,(anonymous_2)
-FNDA:1,(anonymous_3)
+FNDA:0,(anonymous_3)
 FNDA:3,(anonymous_4)
 FNDA:2,(anonymous_5)
 DA:8,4
@@ -226,7 +226,7 @@ DA:16,3
 DA:17,3
 DA:18,3
 DA:20,3
-DA:22,1
+DA:22,0
 DA:23,0
 DA:25,0
 DA:31,3
@@ -239,9 +239,9 @@ DA:41,1
 DA:44,3
 DA:51,4
 LF:23
-LH:21
+LH:20
 BRDA:22,0,0,0
-BRDA:22,0,1,1
+BRDA:22,0,1,0
 BRDA:32,1,0,2
 BRDA:32,1,1,1
 BRDA:32,2,0,3
@@ -249,7 +249,7 @@ BRDA:32,2,1,3
 BRDA:45,3,0,2
 BRDA:45,3,1,1
 BRF:8
-BRH:7
+BRH:6
 end_of_record
 TN:
 SF:packages/accordions/src/elements/stepper/components/Label.tsx

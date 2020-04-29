@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1588113275210" clover="3.2.0">
-  <project timestamp="1588113275210" name="All files">
-    <metrics statements="5960" coveredstatements="5933" conditionals="2308" coveredconditionals="2154" methods="1257" coveredmethods="1251" elements="9525" coveredelements="9338" complexity="0" loc="5960" ncloc="5960" packages="104" files="400" classes="400"/>
+<coverage generated="1588202470363" clover="3.2.0">
+  <project timestamp="1588202470363" name="All files">
+    <metrics statements="5960" coveredstatements="5932" conditionals="2308" coveredconditionals="2153" methods="1257" coveredmethods="1250" elements="9525" coveredelements="9335" complexity="0" loc="5960" ncloc="5960" packages="104" files="400" classes="400"/>
     <package name="accordions.src.elements.accordion">
       <metrics statements="22" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
       <file name="Accordion.tsx" path="/home/circleci/project/packages/accordions/src/elements/accordion/Accordion.tsx">
@@ -137,9 +137,9 @@
       </file>
     </package>
     <package name="accordions.src.elements.stepper.components">
-      <metrics statements="48" coveredstatements="46" conditionals="16" coveredconditionals="13" methods="6" coveredmethods="6"/>
+      <metrics statements="48" coveredstatements="45" conditionals="16" coveredconditionals="12" methods="6" coveredmethods="5"/>
       <file name="Content.tsx" path="/home/circleci/project/packages/accordions/src/elements/stepper/components/Content.tsx">
-        <metrics statements="23" coveredstatements="21" conditionals="8" coveredconditionals="7" methods="4" coveredmethods="4"/>
+        <metrics statements="23" coveredstatements="20" conditionals="8" coveredconditionals="6" methods="4" coveredmethods="3"/>
         <line num="8" count="4" type="stmt"/>
         <line num="9" count="4" type="stmt"/>
         <line num="10" count="4" type="stmt"/>
@@ -151,7 +151,7 @@
         <line num="17" count="3" type="stmt"/>
         <line num="18" count="3" type="stmt"/>
         <line num="20" count="3" type="stmt"/>
-        <line num="22" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="22" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="23" count="0" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
         <line num="31" count="3" type="stmt"/>
