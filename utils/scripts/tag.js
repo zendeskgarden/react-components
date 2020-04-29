@@ -78,7 +78,11 @@ const changelog = async (tag, spinner) => {
  */
 const release = async (tag, markdown, spinner) => {
   info('Creating release...', spinner);
-  await execa('git', ['push', '--follow-tags', '--no-verify', '--atomic', 'origin', 'master']);
+
+  const pushArgs = ['push', '--follow-tags', '--no-verify', '--atomic', 'origin'];
+
+  await execa('git', pushArgs.concat('HEAD^:master'));
+  await execa('git', pushArgs.concat('master'));
 
   const url = await garden.githubRelease({ tag, body: markdown, spinner });
 
