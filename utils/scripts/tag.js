@@ -81,6 +81,7 @@ const release = async (tag, markdown, spinner) => {
 
   const pushArgs = ['push', '--follow-tags', '--no-verify', '--atomic', 'origin'];
 
+  // Ensure `version` commit hits CI, triggering npm publish
   await execa('git', pushArgs.concat('HEAD^:master'));
   await execa('git', pushArgs.concat('master'));
 
