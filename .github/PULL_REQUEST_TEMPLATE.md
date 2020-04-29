@@ -2,9 +2,7 @@
      https://conventionalcommits.org/ message. example: "feat(buttons):
      add a muted button component". the title informs the semantic
      version bump if this PR is merged. -->
-
-
-                                                                                                                       <!-- 🎗add a PR label 🎗-->
+                                                                                                                      <!-- 🎗add a PR label 🎗-->
 
 ## Description
 
