@@ -19,9 +19,10 @@ const isInvalid = (validation?: VALIDATION) => {
 
 interface IStyledSelectIconProps {
   isCompact?: boolean;
+  isBare?: boolean;
 }
 
-const getIconSize = (props: IStyledSelectIconProps & ThemeProps<DefaultTheme>) => {
+const getIconWrapperSize = (props: IStyledSelectIconProps & ThemeProps<DefaultTheme>) => {
   if (props.isCompact) {
     return `${props.theme.space.base * 8}px`;
   }
@@ -42,12 +43,38 @@ export const StyledSelectIcon = styled.div<IStyledSelectIconProps>`
     transform 0.25s ease-in-out,
     border-color 0.25s ease-in-out,
     box-shadow 0.1s ease-in-out;
-  width: ${props => getIconSize(props)};
-  height: ${props => getIconSize(props)};
+  width: ${props => getIconWrapperSize(props)};
+  height: ${props => getIconWrapperSize(props)};
   color: ${props => getColor('neutralHue', 600, props.theme)};
 `;
 
 StyledSelectIcon.defaultProps = {
+  theme: DEFAULT_THEME
+};
+
+const getIconSize = (props: IStyledSelectIconProps & ThemeProps<DefaultTheme>) => {
+  return props.isCompact ? props.theme.iconSizes.sm : props.theme.iconSizes.md;
+};
+
+export const StyledStartIcon = styled.div<IStyledSelectIconProps>`
+  display: flex;
+  position: absolute;
+  top: 0;
+  /* stylelint-disable-next-line property-no-unknown */
+  ${props => (props.theme.rtl ? 'right' : 'left')}: 0;
+  align-items: center;
+  justify-content: center;
+  width: ${props => getIconWrapperSize(props)};
+  height: ${props => (props.isBare ? 'inherit' : getIconWrapperSize(props))};
+  color: ${props => getColor('neutralHue', 400, props.theme)};
+
+  * {
+    width: ${props => getIconSize(props)};
+    height: ${props => getIconSize(props)};
+  }
+`;
+
+StyledStartIcon.defaultProps = {
   theme: DEFAULT_THEME
 };
 
@@ -78,6 +105,7 @@ export interface IStyledSelectProps {
   isFocused?: boolean;
   isHovered?: boolean;
   validation?: VALIDATION;
+  isShowingStart?: boolean;
 }
 
 export const StyledSelect = styled(FauxInput).attrs<IStyledSelectProps>(props => ({
@@ -89,9 +117,11 @@ export const StyledSelect = styled(FauxInput).attrs<IStyledSelectProps>(props =>
   position: relative;
   cursor: ${props => (props.disabled ? 'default' : 'pointer')};
   appearance: none;
-  /* stylelint-disable-next-line property-no-unknown */
-  padding-${props => (props.theme.rtl ? 'left' : 'right')}: ${props => getIconSize(props)};
-  text-align: ${props => props.theme.rtl && 'right'};
+  /* stylelint-disable property-no-unknown */
+  padding-${props => (props.theme.rtl ? 'left' : 'right')}: ${props => getIconWrapperSize(props)};
+  padding-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
+  props.isShowingStart && getIconWrapperSize(props)};
+  /* stylelint-enable property-no-unknown */
 
   ${props => sizeStyles(props)};
 
@@ -102,10 +132,10 @@ export const StyledSelect = styled(FauxInput).attrs<IStyledSelectProps>(props =>
       }
 
       if (props.theme.rtl) {
-        return 'rotate(-180deg) translateY(-1px)';
+        return 'rotate(-180deg)';
       }
 
-      return 'rotate(180deg) translateY(-1px)';
+      return 'rotate(180deg)';
     }};
     color: ${props => {
       if (props.disabled) {
