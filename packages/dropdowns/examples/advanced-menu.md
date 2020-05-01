@@ -184,6 +184,7 @@ const CenteredItem = styled(Item)`
 `;
 
 <Dropdown
+  role="menu"
   onSelect={item => alert(item)}
   isOpen={state.isOpen}
   onStateChange={changes => {
