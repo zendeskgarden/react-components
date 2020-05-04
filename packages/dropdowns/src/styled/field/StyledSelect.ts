@@ -37,23 +37,27 @@ export const StyledSelectIcon = styled.div<IStyledSelectIconProps>`
   /* stylelint-disable-next-line property-no-unknown */
   ${props => (props.theme.rtl ? 'left' : 'right')}: 0;
   align-items: center;
-  justify-content: center;
-  /* prettier-ignore */
-  transition: color 0.25s ease-in-out,
-    transform 0.25s ease-in-out,
-    border-color 0.25s ease-in-out,
-    box-shadow 0.1s ease-in-out;
-  width: ${props => getIconWrapperSize(props)};
+  justify-content: ${props => (props.theme.rtl ? 'start' : 'end')};
+  /* stylelint-disable-next-line property-no-unknown */
+  padding-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
+  props.theme.space.base * 3}px;
+  width: ${props => props.theme.iconSizes.md};
   height: ${props => getIconWrapperSize(props)};
   color: ${props => getColor('neutralHue', 600, props.theme)};
+
+  * {
+    /* prettier-ignore */
+    transition: color 0.25s ease-in-out,
+      transform 0.25s ease-in-out,
+      border-color 0.25s ease-in-out,
+      box-shadow 0.1s ease-in-out;
+    width: ${props => props.theme.iconSizes.md};
+    height: ${props => props.theme.iconSizes.md};
+  }
 `;
 
 StyledSelectIcon.defaultProps = {
   theme: DEFAULT_THEME
-};
-
-const getIconSize = (props: IStyledSelectIconProps & ThemeProps<DefaultTheme>) => {
-  return props.isCompact ? props.theme.iconSizes.sm : props.theme.iconSizes.md;
 };
 
 export const StyledStartIcon = styled.div<IStyledSelectIconProps>`
@@ -63,14 +67,18 @@ export const StyledStartIcon = styled.div<IStyledSelectIconProps>`
   /* stylelint-disable-next-line property-no-unknown */
   ${props => (props.theme.rtl ? 'right' : 'left')}: 0;
   align-items: center;
-  justify-content: center;
-  width: ${props => getIconWrapperSize(props)};
+  justify-content: ${props => (props.theme.rtl ? 'end' : 'start')};
+  /* stylelint-disable-next-line property-no-unknown */
+  padding-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
+  props.theme.space.base * 3}px;
+  transition: color 0.25s ease-in-out;
+  width: ${props => props.theme.iconSizes.md};
   height: ${props => (props.isBare ? 'inherit' : getIconWrapperSize(props))};
-  color: ${props => getColor('neutralHue', 400, props.theme)};
+  color: ${props => getColor('neutralHue', 600, props.theme)};
 
   * {
-    width: ${props => getIconSize(props)};
-    height: ${props => getIconSize(props)};
+    width: ${props => props.theme.iconSizes.md};
+    height: ${props => props.theme.iconSizes.md};
   }
 `;
 
@@ -118,14 +126,16 @@ export const StyledSelect = styled(FauxInput).attrs<IStyledSelectProps>(props =>
   cursor: ${props => (props.disabled ? 'default' : 'pointer')};
   appearance: none;
   /* stylelint-disable property-no-unknown */
-  padding-${props => (props.theme.rtl ? 'left' : 'right')}: ${props => getIconWrapperSize(props)};
+  padding-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
+  `${props.theme.space.base * 9}px`};
   padding-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
-  props.isShowingStart && getIconWrapperSize(props)};
+  props.isShowingStart && `${props.theme.space.base * 9}px`};
   /* stylelint-enable property-no-unknown */
 
   ${props => sizeStyles(props)};
 
-  ${StyledSelectIcon} {
+  /* stylelint-disable-next-line */
+  ${StyledSelectIcon} > * {
     transform: ${props => {
       if (!props.isOpen) {
         return undefined;
@@ -148,6 +158,10 @@ export const StyledSelect = styled(FauxInput).attrs<IStyledSelectProps>(props =>
 
       return getColor('neutralHue', 600, props.theme);
     }};
+  }
+
+  ${StyledStartIcon} {
+    color: ${props => props.disabled && getColor('neutralHue', 400, props.theme)};
   }
 
   :hover {

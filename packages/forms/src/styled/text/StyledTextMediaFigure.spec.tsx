@@ -21,14 +21,4 @@ describe('StyledTextMediaFigure', () => {
     expect(container.firstChild!.nodeName).toBe('svg');
     expect(container.firstChild).toHaveStyleRule('width', '16px');
   });
-
-  it('renders compact styling if provided', () => {
-    const { container } = render(
-      <StyledTextMediaFigure isCompact>
-        <TestIcon />
-      </StyledTextMediaFigure>
-    );
-
-    expect(container.firstChild).toHaveStyleRule('width', '12px');
-  });
 });

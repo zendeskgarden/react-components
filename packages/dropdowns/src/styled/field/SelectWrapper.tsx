@@ -7,7 +7,6 @@
 
 import React, { HTMLAttributes } from 'react';
 import ChevronSVG from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
-import CompactChevronSVG from '@zendeskgarden/svg-icons/src/12/chevron-down-stroke.svg';
 import { StyledSelect, StyledSelectIcon, IStyledSelectProps } from './StyledSelect';
 
 export const SelectWrapper = React.forwardRef<
@@ -25,7 +24,7 @@ export const SelectWrapper = React.forwardRef<
       {children}
       {!props.isBare && (
         <StyledSelectIcon isCompact={props.isCompact} data-test-id="select-icon">
-          {props.isCompact ? <CompactChevronSVG /> : <ChevronSVG />}
+          <ChevronSVG />
         </StyledSelectIcon>
       )}
     </StyledSelect>
