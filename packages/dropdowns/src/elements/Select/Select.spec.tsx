@@ -6,10 +6,8 @@
  */
 
 import React from 'react';
-import { css } from 'styled-components';
-import { render, fireEvent, renderRtl } from 'garden-test-utils';
+import { render, fireEvent } from 'garden-test-utils';
 import { Dropdown, Select, Field, Menu, Item, Label } from '../..';
-import { StyledSelectIcon } from '../../styled';
 
 const ExampleSelect = () => (
   <Dropdown>
