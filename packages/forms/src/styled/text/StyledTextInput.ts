@@ -108,15 +108,15 @@ const sizeStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) => 
   let swatchHeight;
 
   if (props.isCompact) {
-    height = math(`${props.theme.space.base} * 8px`);
-    paddingVertical = math(`${props.theme.space.base} * 1.5px`);
+    height = `${props.theme.space.base * 8}px`;
+    paddingVertical = `${props.theme.space.base * 1.5}px`;
     browseFontSize = math(`${props.theme.fontSizes.sm} - 1`);
-    swatchHeight = math(`${props.theme.space.base} * 6px`);
+    swatchHeight = `${props.theme.space.base * 6}px`;
   } else {
-    height = math(`${props.theme.space.base} * 10px`);
-    paddingVertical = math(`${props.theme.space.base} * 2.5px`);
+    height = `${props.theme.space.base * 10}px`;
+    paddingVertical = `${props.theme.space.base * 2.5}px`;
     browseFontSize = props.theme.fontSizes.sm;
-    swatchHeight = math(`${props.theme.space.base} * 7px`);
+    swatchHeight = `${props.theme.space.base * 7}px`;
   }
 
   const lineHeight = math(
@@ -129,8 +129,8 @@ const sizeStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) => 
   const swatchMarginHorizontal = math(
     `${paddingVertical} + ${swatchMarginVertical} - ${paddingHorizontal}`
   );
-  const figureMarginFirst = `auto ${math(`${paddingHorizontal} * 1 / 2`)} auto 0`;
-  const figureMarginLast = `auto 0 auto ${math(`${paddingHorizontal} * 1 / 2`)}`;
+  const figureMarginFirst = `auto ${props.theme.space.base * 1.5}px auto 0`;
+  const figureMarginLast = `auto 0 auto ${props.theme.space.base * 1.5}px`;
 
   return css`
     padding: ${padding};
