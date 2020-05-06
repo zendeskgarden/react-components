@@ -79,9 +79,9 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
         mediaLayout
         {...otherWrapperProps}
       >
-        {start && <StyledTextMediaFigure isCompact={isCompact}>{start}</StyledTextMediaFigure>}
+        {start && <StyledTextMediaFigure isDisabled={disabled}>{start}</StyledTextMediaFigure>}
         <StyledTextMediaInput {...(combinedProps as any)} />
-        {end && <StyledTextMediaFigure isCompact={isCompact}>{end}</StyledTextMediaFigure>}
+        {end && <StyledTextMediaFigure isDisabled={disabled}>{end}</StyledTextMediaFigure>}
       </FauxInput>
     );
   }

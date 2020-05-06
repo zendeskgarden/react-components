@@ -6,10 +6,8 @@
  */
 
 import React from 'react';
-import { css } from 'styled-components';
-import { render, fireEvent, renderRtl } from 'garden-test-utils';
+import { render, fireEvent } from 'garden-test-utils';
 import { Dropdown, Select, Field, Menu, Item, Label } from '../..';
-import { StyledSelectIcon } from '../../styled';
 
 const ExampleSelect = () => (
   <Dropdown>
@@ -122,51 +120,7 @@ describe('Select', () => {
       </Dropdown>
     );
 
-    expect(getByTestId('select-icon')).toHaveStyleRule('width', '32px');
-  });
-
-  it('applies correct icon styling when open', () => {
-    const { getByTestId } = render(
-      <Dropdown>
-        <Field>
-          <Select data-test-id="select" isCompact>
-            Test
-          </Select>
-        </Field>
-      </Dropdown>
-    );
-
-    const select = getByTestId('select');
-
-    fireEvent.click(select);
-
-    expect(select).toHaveStyleRule('transform', 'rotate(180deg)', {
-      modifier: css`
-        ${StyledSelectIcon}
-      ` as any
-    });
-  });
-
-  it('applies correct icon styling when open in RTL', () => {
-    const { getByTestId } = renderRtl(
-      <Dropdown>
-        <Field>
-          <Select data-test-id="select" isCompact>
-            Test
-          </Select>
-        </Field>
-      </Dropdown>
-    );
-
-    const select = getByTestId('select');
-
-    fireEvent.click(select);
-
-    expect(select).toHaveStyleRule('transform', 'rotate(-180deg)', {
-      modifier: css`
-        ${StyledSelectIcon}
-      ` as any
-    });
+    expect(getByTestId('select-icon')).toHaveStyleRule('width', '16px');
   });
 
   it('renders start icon if provided', () => {
@@ -184,27 +138,6 @@ describe('Select', () => {
       modifier: '*'
     });
     expect(icon.parentElement).toHaveStyleRule('height', '16px', {
-      modifier: '*'
-    });
-  });
-
-  it('renders start icon with isCompact styling if provided', () => {
-    const { getByTestId } = render(
-      <Dropdown>
-        <Field>
-          <Select start={<svg data-test-id="icon" />} isCompact>
-            Test
-          </Select>
-        </Field>
-      </Dropdown>
-    );
-
-    const icon = getByTestId('icon');
-
-    expect(icon.parentElement).toHaveStyleRule('width', '12px', {
-      modifier: '*'
-    });
-    expect(icon.parentElement).toHaveStyleRule('height', '12px', {
       modifier: '*'
     });
   });

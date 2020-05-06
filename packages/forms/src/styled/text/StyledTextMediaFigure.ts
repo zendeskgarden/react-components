@@ -10,7 +10,7 @@ import React, { Children } from 'react';
 import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 const sizeStyles = (props: IStyledTextMediaFigureProps & ThemeProps<DefaultTheme>) => {
-  const size = props.isCompact ? props.theme.iconSizes.sm : props.theme.iconSizes.md;
+  const size = props.theme.iconSizes.md;
 
   return css`
     width: ${size};
@@ -21,17 +21,17 @@ const sizeStyles = (props: IStyledTextMediaFigureProps & ThemeProps<DefaultTheme
 const COMPONENT_ID = 'forms.media_figure';
 
 interface IStyledTextMediaFigureProps {
-  isCompact?: boolean;
+  isDisabled?: boolean;
 }
 
 /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-export const StyledTextMediaFigure = styled(({ children, isCompact, ...props }) =>
+export const StyledTextMediaFigure = styled(({ children, isDisabled, ...props }) =>
   React.cloneElement(Children.only(children), props)
 ).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledTextMediaFigureProps>`
-  color: ${props => getColor('neutralHue', 400, props.theme)};
+  color: ${props => getColor('neutralHue', props.isDisabled ? 400 : 600, props.theme)};
 
   ${props => sizeStyles(props)}
 

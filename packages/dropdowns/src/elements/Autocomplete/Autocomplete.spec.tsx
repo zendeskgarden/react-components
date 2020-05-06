@@ -116,27 +116,6 @@ describe('Autocomplete', () => {
     });
   });
 
-  it('renders start icon with isCompact styling if provided', () => {
-    const { getByTestId } = render(
-      <Dropdown>
-        <Field>
-          <Autocomplete start={<svg data-test-id="icon" />} isCompact>
-            Test
-          </Autocomplete>
-        </Field>
-      </Dropdown>
-    );
-
-    const icon = getByTestId('icon');
-
-    expect(icon.parentElement).toHaveStyleRule('width', '12px', {
-      modifier: '*'
-    });
-    expect(icon.parentElement).toHaveStyleRule('height', '12px', {
-      modifier: '*'
-    });
-  });
-
   describe('Interaction', () => {
     it('opens on click', () => {
       const { getByTestId } = render(<ExampleAutocomplete />);
