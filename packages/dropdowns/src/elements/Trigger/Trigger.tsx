@@ -63,9 +63,12 @@ const Trigger: React.FunctionComponent<ITriggerProps> = ({ children, refKey, ...
       'aria-owns': null
     };
 
-    // Some ARIA attributes from Downshift's `getMenuProps` props are overwritten depending on
-    // whether the dropdown renders a `role="menu"` or `role="listbox"`. This override is intended
-    // to align a11y with examples demonstrated in WAI ARIA 1.1.
+    /**
+     * Some ARIA attributes from Downshift's `getMenuProps` props are overwritten depending on
+     * whether the dropdown renders a `role="menu"` or `role="listbox"`. This override is intended
+     * to align a11y with examples demonstrated in WAI ARIA 1.1.
+     */
+
     const toggleButtonProps = role === 'listbox' ? listboxToggleProps : menuToggleProps;
 
     /**

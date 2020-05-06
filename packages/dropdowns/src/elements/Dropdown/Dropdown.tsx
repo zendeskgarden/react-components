@@ -33,7 +33,7 @@ export interface IDropdownProps {
   ) => void;
   downshiftProps?: object;
   /* Determines whether the Dropdown implementation uses listbox or menu ARIA attributes */
-  role?: 'listbox' | 'menu';
+  role?: 'listbox' | 'menu' | undefined;
 }
 
 /**
@@ -52,7 +52,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
     onStateChange,
     onInputValueChange,
     downshiftProps,
-    role = 'listbox'
+    role
   } = props;
   // Refs used to handle custom Garden keyboard nav
   const itemIndexRef = useRef<number>(0);
@@ -213,6 +213,10 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
       </Downshift>
     </Manager>
   );
+};
+
+Dropdown.defaultProps = {
+  role: 'listbox'
 };
 
 Dropdown.propTypes = {

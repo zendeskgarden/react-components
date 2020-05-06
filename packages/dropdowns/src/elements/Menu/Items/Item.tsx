@@ -88,11 +88,6 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
       );
     }
 
-    const menuItemProps = {
-      role: 'menuitem',
-      'aria-selected': null
-    };
-
     // Only increment current item index if the `Item` is not disabled
     itemIndexRef.current++;
 
@@ -106,7 +101,10 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
             isFocused,
             ref,
             isCompact,
-            ...(role === 'menu' && menuItemProps),
+            ...(role === 'menu' && {
+              role: 'menuitem',
+              'aria-selected': null
+            }),
             ...props
           } as any)}
         >

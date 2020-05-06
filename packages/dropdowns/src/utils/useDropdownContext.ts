@@ -17,7 +17,7 @@ export interface IDropdownContext {
   selectedItems?: any[];
   downshift: ControllerStateAndHelpers<any>;
   containsMultiselectRef: React.MutableRefObject<boolean>;
-  role: 'listbox' | 'menu';
+  role: 'listbox' | 'menu' | undefined;
 }
 
 export const DropdownContext = React.createContext<IDropdownContext | undefined>(undefined);
