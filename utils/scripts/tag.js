@@ -11,6 +11,7 @@ const program = require('commander');
 const execa = require('execa');
 const fs = require('fs');
 const garden = require('@zendeskgarden/scripts');
+const lernaConfig = require('../../lerna.json');
 const ora = require('ora');
 const inquirer = require('inquirer');
 const resolve = require('path').resolve;
@@ -181,7 +182,7 @@ const version = async (bump, preid, master, spinner) => {
 program
   .description('Tag and publish a new version for react-components packages')
   .arguments('[version]')
-  .option('-m, --master <master>', 'Master branch name', 'master')
+  .option('-m, --master <master>', 'Master branch name', lernaConfig.command.version.allowBranch)
   .option('-p, --preid <preid>', 'Prerelease identifier')
   .action(async bump => {
     const spinner = ora();
@@ -211,7 +212,7 @@ program
       }
     } catch (error) {
       spinner.fail(error.message || error);
-      process.exit(1);
+      process.exitCode = 1;
     } finally {
       spinner.stop();
     }
