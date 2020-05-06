@@ -12,6 +12,21 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.8.0 (2020-05-06)
+
+#### :rocket: New Feature
+* `dropdowns`, `forms`
+  * [#733](https://github.com/zendeskgarden/react-components/pull/733) feat(forms/dropdowns): improve start icon sizing ([@austin94](https://github.com/austin94))
+* `dropdowns`
+  * [#728](https://github.com/zendeskgarden/react-components/pull/728) feat(dropdowns): add start slot to autocomplete and select components ([@austin94](https://github.com/austin94))
+
+#### :bug: Bug Fix
+* `breadcrumbs`
+  * [#735](https://github.com/zendeskgarden/react-components/pull/735) fix(breadcrumbs): change chevron color from black to grey-600 ([@li-kai](https://github.com/li-kai))
+
+#### :seedling: Internal
+* [#731](https://github.com/zendeskgarden/react-components/pull/731) chore(scripts): ensure version commit hits CI, triggering npm publish ([@jzempel](https://github.com/jzempel))
+
 ## v8.7.0 (2020-04-29)
 
 #### :rocket: New Feature
