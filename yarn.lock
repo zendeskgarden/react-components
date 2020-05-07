@@ -3449,10 +3449,10 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
-"@zendeskgarden/css-bedrock@7.0.35":
-  version "7.0.35"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/css-bedrock/-/css-bedrock-7.0.35.tgz#2059150d2c8a6ab24fa1469f3b3326ad04a2aa33"
-  integrity sha512-vB73g+ww4Mz/x2w46SygacATBd818C9/HVv5dhrpZRh4m+CEcooDV4bcs0/MTMx1LFXkVOAfBkgM/kPJe1rhdw==
+"@zendeskgarden/css-bedrock@8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/css-bedrock/-/css-bedrock-8.0.0.tgz#129a106133c63b8f95a2efb6512dccd48576c59b"
+  integrity sha512-VRdVAUX2+Nb8rxYtIqSmIR4m3dSellfoTKUpTsv6QAaZjfIg0Jltig4yrLe/7zrESEYMjHDO2rDG/kMgDZ8TSQ==
   dependencies:
     "@zendeskgarden/css-variables" "^6.4.5"
     normalize.css "^8.0.0"
