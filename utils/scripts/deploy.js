@@ -18,28 +18,34 @@ envalid.cleanEnv(process.env, {
 });
 
 (async () => {
-  const branch = await garden.githubBranch();
-  const dir = path.resolve(__dirname, '..', '..', 'demo');
-  let url;
+  try {
+    const branch = await garden.githubBranch();
+    const dir = path.resolve(__dirname, '..', '..', 'demo');
+    let url;
 
-  if (branch === 'master') {
-    url = await garden.githubPages({ dir });
-  } else {
-    const repository = await garden.githubRepository();
-    const commit = await garden.githubCommit();
-    const message = `https://github.com/${repository.owner}/${repository.repo}/commit/${commit}`;
-    const command = async () => {
-      const result = await garden.netlifyDeploy({
-        dir,
-        message
-      });
+    if (branch === 'master') {
+      url = await garden.githubPages({ dir });
+    } else {
+      const repository = await garden.githubRepository();
+      const commit = await garden.githubCommit();
+      const message = `https://github.com/${repository.owner}/${repository.repo}/commit/${commit}`;
+      const command = async () => {
+        const result = await garden.netlifyDeploy({
+          dir,
+          message
+        });
 
-      return result;
-    };
+        return result;
+      };
 
-    url = await garden.githubDeploy({ command });
+      url = await garden.githubDeploy({ command });
+    }
+
+    /* eslint-disable-next-line no-console */
+    console.log(`Deployed to ${url}`);
+  } catch (error) {
+    /* eslint-disable-next-line no-console */
+    console.error(error);
+    process.exitCode = 1;
   }
-
-  /* eslint-disable-next-line no-console */
-  console.log(`Deployed to ${url}`);
 })();

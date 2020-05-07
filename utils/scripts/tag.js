@@ -11,6 +11,7 @@ const program = require('commander');
 const execa = require('execa');
 const fs = require('fs');
 const garden = require('@zendeskgarden/scripts');
+const lernaConfig = require('../../lerna.json');
 const ora = require('ora');
 const inquirer = require('inquirer');
 const resolve = require('path').resolve;
@@ -25,7 +26,7 @@ const info = (message, spinner) => spinner.info(message).start();
  * @param {String} tag The tag changes are being generated for.
  * @param {Ora} spinner Terminal spinner.
  *
- * @returns Updated changelog markdown.
+ * @returns Changelog markdown for release.
  */
 const changelog = async (tag, spinner) => {
   let retVal;
@@ -47,11 +48,15 @@ const changelog = async (tag, spinner) => {
   const data = await readFile(changelogPath, 'utf8');
 
   if (data.includes(INSERTION_SLUG)) {
-    const writeFile = util.promisify(fs.writeFile);
-    const changes = (await readFile(path, 'utf8')).split('\n\n#### Committers')[0];
+    retVal = await readFile(path, 'utf8');
 
-    retVal = data.replace(INSERTION_SLUG, `${INSERTION_SLUG}\n${changes}`);
-    await writeFile(changelogPath, retVal);
+    const writeFile = util.promisify(fs.writeFile);
+    const changes = data.replace(
+      INSERTION_SLUG,
+      `${INSERTION_SLUG}\n${retVal.split('\n\n#### Committers')[0]}`
+    );
+
+    await writeFile(changelogPath, changes);
     await execa('git', [
       'commit',
       '-m',
@@ -181,7 +186,7 @@ const version = async (bump, preid, master, spinner) => {
 program
   .description('Tag and publish a new version for react-components packages')
   .arguments('[version]')
-  .option('-m, --master <master>', 'Master branch name', 'master')
+  .option('-m, --master <master>', 'Master branch name', lernaConfig.command.version.allowBranch)
   .option('-p, --preid <preid>', 'Prerelease identifier')
   .action(async bump => {
     const spinner = ora();
@@ -211,7 +216,7 @@ program
       }
     } catch (error) {
       spinner.fail(error.message || error);
-      process.exit(1);
+      process.exitCode = 1;
     } finally {
       spinner.stop();
     }
