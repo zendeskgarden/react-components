@@ -26,7 +26,7 @@ const info = (message, spinner) => spinner.info(message).start();
  * @param {String} tag The tag changes are being generated for.
  * @param {Ora} spinner Terminal spinner.
  *
- * @returns Updated changelog markdown.
+ * @returns Changelog markdown for release.
  */
 const changelog = async (tag, spinner) => {
   let retVal;
@@ -48,11 +48,15 @@ const changelog = async (tag, spinner) => {
   const data = await readFile(changelogPath, 'utf8');
 
   if (data.includes(INSERTION_SLUG)) {
-    const writeFile = util.promisify(fs.writeFile);
-    const changes = (await readFile(path, 'utf8')).split('\n\n#### Committers')[0];
+    retVal = await readFile(path, 'utf8');
 
-    retVal = data.replace(INSERTION_SLUG, `${INSERTION_SLUG}\n${changes}`);
-    await writeFile(changelogPath, retVal);
+    const writeFile = util.promisify(fs.writeFile);
+    const changes = data.replace(
+      INSERTION_SLUG,
+      `${INSERTION_SLUG}\n${retVal.split('\n\n#### Committers')[0]}`
+    );
+
+    await writeFile(changelogPath, changes);
     await execa('git', [
       'commit',
       '-m',
