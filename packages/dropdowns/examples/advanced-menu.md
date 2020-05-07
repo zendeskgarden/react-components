@@ -96,6 +96,7 @@ initialState = {
     </Col>
     <Col size={8} style={{ textAlign: 'center' }}>
       <Dropdown
+        role="menu"
         isOpen={state.forceIsOpen || state.isOpen}
         onStateChange={changes => {
           if (Object.prototype.hasOwnProperty.call(changes, 'isOpen')) {
