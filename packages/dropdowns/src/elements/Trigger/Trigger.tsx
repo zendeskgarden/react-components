@@ -21,7 +21,7 @@ interface ITriggerProps extends HTMLAttributes<HTMLElement> {
  */
 const Trigger: React.FunctionComponent<ITriggerProps> = ({ children, refKey, ...triggerProps }) => {
   const {
-    role,
+    hasMenuRef,
     downshift: { getRootProps, getToggleButtonProps, getInputProps, isOpen }
   } = useDropdownContext();
   const hiddenInputRef = useRef<HTMLInputElement>(null);
@@ -40,7 +40,11 @@ const Trigger: React.FunctionComponent<ITriggerProps> = ({ children, refKey, ...
     }
 
     previousIsOpenRef.current = isOpen;
-  }, [isOpen]);
+
+    if (hasMenuRef.current === false) {
+      hasMenuRef.current = true;
+    }
+  }, [isOpen, hasMenuRef]);
 
   const renderChildren = (popperRef: any) => {
     // Destructuring the `ref` argument lets us share it with PopperJS
@@ -69,7 +73,7 @@ const Trigger: React.FunctionComponent<ITriggerProps> = ({ children, refKey, ...
      * to align a11y with examples demonstrated in WAI ARIA 1.1.
      */
 
-    const toggleButtonProps = role === 'listbox' ? listboxToggleProps : menuToggleProps;
+    const toggleButtonProps = hasMenuRef.current ? menuToggleProps : listboxToggleProps;
 
     /**
      * Clone immediate child and provide:

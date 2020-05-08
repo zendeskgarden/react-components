@@ -75,7 +75,7 @@ describe('Trigger', () => {
 
       const items = getAllByTestId('item');
 
-      expect(items[0]).toHaveAttribute('aria-selected', 'true');
+      expect(items[0]).toHaveAttribute('data-test-is-focused', 'true');
     });
 
     it('opens on down key and highlights last item', () => {
@@ -87,7 +87,7 @@ describe('Trigger', () => {
 
       const items = getAllByTestId('item');
 
-      expect(items[items.length - 1]).toHaveAttribute('aria-selected', 'true');
+      expect(items[items.length - 1]).toHaveAttribute('data-test-is-focused', 'true');
     });
 
     it('closes on escape key', () => {

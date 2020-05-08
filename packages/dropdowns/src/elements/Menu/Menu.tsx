@@ -54,7 +54,7 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
     ...otherProps
   } = props;
   const {
-    role,
+    hasMenuRef,
     itemIndexRef,
     previousIndexRef,
     nextItemsHashRef,
@@ -125,7 +125,7 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
           }
 
           const menuProps = getMenuProps({
-            role, // Overrides `role` attribute from Downshift with `listbox` or `menu` from Dropdown context.
+            role: hasMenuRef.current ? 'menu' : 'listbox',
             placement: currentPlacement,
             isAnimated: isAnimated && (isOpen || isVisible),
             ...otherProps

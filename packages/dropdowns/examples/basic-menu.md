@@ -6,7 +6,7 @@ const SettingsIcon = require('@zendeskgarden/svg-icons/src/16/gear-stroke.svg').
 <Grid>
   <Row>
     <Col md>
-      <Dropdown role="menu" onSelect={item => alert(item)}>
+      <Dropdown onSelect={item => alert(item)}>
         <Trigger>
           <Button>Default Menu</Button>
         </Trigger>
@@ -18,7 +18,7 @@ const SettingsIcon = require('@zendeskgarden/svg-icons/src/16/gear-stroke.svg').
       </Dropdown>
     </Col>
     <Col md>
-      <Dropdown role="menu" onSelect={item => alert(item)}>
+      <Dropdown onSelect={item => alert(item)}>
         <Trigger>
           <IconButton aria-label="Settings" title="Settings">
             <SettingsIcon />

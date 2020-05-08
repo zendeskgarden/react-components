@@ -32,8 +32,6 @@ export interface IDropdownProps {
     stateAndHelpers: ControllerStateAndHelpers<any>
   ) => void;
   downshiftProps?: object;
-  /* Determines whether the Dropdown implementation uses listbox or menu ARIA attributes */
-  role?: 'listbox' | 'menu' | undefined;
 }
 
 /**
@@ -51,8 +49,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
     onSelect,
     onStateChange,
     onInputValueChange,
-    downshiftProps,
-    role
+    downshiftProps
   } = props;
   // Refs used to handle custom Garden keyboard nav
   const itemIndexRef = useRef<number>(0);
@@ -60,6 +57,9 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
   const previousIndexRef = useRef<number | undefined>(undefined);
   const nextItemsHashRef = useRef<object>({});
   const containsMultiselectRef = useRef(false);
+
+  // Ref used to determine ARIA attributes for menu dropdowns
+  const hasMenuRef = useRef(false);
 
   // Used to inform Menu (Popper) that a full-width menu is needed
   const popperReferenceElementRef = useRef<any>(null);
@@ -196,7 +196,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
         {downshift => (
           <DropdownContext.Provider
             value={{
-              role,
+              hasMenuRef,
               itemIndexRef,
               previousItemRef,
               previousIndexRef,
@@ -213,10 +213,6 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
       </Downshift>
     </Manager>
   );
-};
-
-Dropdown.defaultProps = {
-  role: 'listbox'
 };
 
 Dropdown.propTypes = {

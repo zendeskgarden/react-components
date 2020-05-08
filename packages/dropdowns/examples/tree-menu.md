@@ -38,7 +38,6 @@ const renderItems = () => {
 };
 
 <Dropdown
-  role="menu"
   isOpen={state.isOpen}
   onStateChange={(changes, stateAndHelpers) => {
     const updatedState = {};

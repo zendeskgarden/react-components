@@ -94,7 +94,7 @@ describe('Item', () => {
     );
 
     fireEvent.click(getByTestId('trigger'));
-    expect(getAllByTestId('item')[1]).toHaveAttribute('aria-selected', 'true');
+    expect(getAllByTestId('item')[1]).toHaveAttribute('data-test-is-focused', 'true');
   });
 
   it('applies correct icon styling when isCompact', () => {
