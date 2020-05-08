@@ -2,6 +2,12 @@
   "extends": ["config:base"],
   "rebaseStalePrs": true,
   "ignoreDeps": ["react-docgen-typescript"],
+  "schedule": ["on Thursday every 4 weeks of the year starting on the 3rd week"],
+  "labels": ["PR: Internal :seedling:"],
+  "postUpgradeTasks": {
+    "commands": ["yarn format", "yarn install"],
+    "fileFilters": ["yarn.lock", "**/*.{js,ts,tsx,md,json}"]
+  },
   "packageRules": [
     {
       "paths": ["package.json"],
@@ -33,7 +39,5 @@
       "depTypeList": ["peerDependencies"],
       "enabled": false
     }
-  ],
-  "schedule": ["on Thursday every 4 weeks of the year starting on the 3rd week"],
-  "labels": ["PR: Internal :seedling:"]
+  ]
 }
