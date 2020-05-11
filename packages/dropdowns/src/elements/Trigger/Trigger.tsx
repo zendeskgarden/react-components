@@ -40,11 +40,13 @@ const Trigger: React.FunctionComponent<ITriggerProps> = ({ children, refKey, ...
     }
 
     previousIsOpenRef.current = isOpen;
+  }, [isOpen, hasMenuRef]);
 
+  useEffect(() => {
     if (hasMenuRef.current === false) {
       hasMenuRef.current = true;
     }
-  }, [isOpen, hasMenuRef]);
+  }, [hasMenuRef]);
 
   const renderChildren = (popperRef: any) => {
     // Destructuring the `ref` argument lets us share it with PopperJS
