@@ -12,15 +12,17 @@ import { DEFAULT_THEME, isRtl, retrieveComponentStyles } from '@zendeskgarden/re
 const COMPONENT_ID = 'typography.font';
 
 const fontStyles = (props: IStyledFontProps & ThemeProps<DefaultTheme>) => {
-  const lineHeight = props.theme.lineHeights[props.size!];
-  const monospace = props.isMonospace && ['sm', 'md', 'lg'].indexOf(props.size!) !== -1;
+  const lineHeight = props.size !== 'inherit' && props.theme.lineHeights[props.size!];
+  const monospace = props.isMonospace && ['sm', 'md', 'lg', 'inherit'].indexOf(props.size!) !== -1;
   const fontFamily = monospace && props.theme.fonts.mono;
-  const fontSize = monospace
-    ? math(`${props.theme.fontSizes[props.size!]} - 1px`)
-    : props.theme.fontSizes[props.size!];
+  const fontSize =
+    props.size !== 'inherit' &&
+    (monospace
+      ? math(`${props.theme.fontSizes[props.size!]} - 1px`)
+      : props.theme.fontSizes[props.size!]);
   const fontWeight = props.isBold
     ? props.theme.fontWeights.semibold
-    : props.theme.fontWeights.regular;
+    : props.size !== 'inherit' && props.theme.fontWeights.regular;
   const direction = isRtl(props) ? 'rtl' : 'ltr';
 
   return css`
@@ -35,7 +37,7 @@ const fontStyles = (props: IStyledFontProps & ThemeProps<DefaultTheme>) => {
 export interface IStyledFontProps {
   isBold?: boolean;
   isMonospace?: boolean;
-  size?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl';
+  size?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl' | 'inherit';
 }
 
 export const StyledFont = styled.div.attrs({

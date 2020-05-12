@@ -25,7 +25,7 @@ const colorStyles = (props: IStyledCodeProps & ThemeProps<DefaultTheme>) => {
 
 interface IStyledCodeProps extends IStyledFontProps {
   hue?: string;
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'md' | 'lg' | 'inherit';
 }
 
 export const StyledCode = styled(StyledFont).attrs({
