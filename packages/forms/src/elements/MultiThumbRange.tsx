@@ -69,6 +69,7 @@ const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>
   /**
    * The window resize event is debounced to reduce unnecessary renders
    */
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const onWindowResize = useCallback(
     debounce(() => {
       if (trackRailRef.current) {

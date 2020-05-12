@@ -16,6 +16,7 @@ export const Panel = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props
   const panelRef = useCombinedRefs<HTMLElement>(ref);
   const index = useSectionContext();
   const isExpanded = expandedSections.includes(index);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const updateMaxHeight = useCallback(
     debounce(() => {
       if (panelRef.current) {
