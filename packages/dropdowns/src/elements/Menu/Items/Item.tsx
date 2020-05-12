@@ -32,6 +32,7 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
   ({ value, disabled, component = StyledItem, children, ...props }, ref) => {
     const {
       selectedItems,
+      hasMenuRef,
       downshift: {
         isOpen,
         selectedItem,
@@ -100,6 +101,10 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
             isFocused,
             ref,
             isCompact,
+            ...(hasMenuRef.current && {
+              role: 'menuitem',
+              'aria-selected': null
+            }),
             ...props
           } as any)}
         >

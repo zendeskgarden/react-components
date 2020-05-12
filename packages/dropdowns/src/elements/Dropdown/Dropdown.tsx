@@ -58,6 +58,9 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
   const nextItemsHashRef = useRef<object>({});
   const containsMultiselectRef = useRef(false);
 
+  // Ref used to determine ARIA attributes for menu dropdowns
+  const hasMenuRef = useRef(false);
+
   // Used to inform Menu (Popper) that a full-width menu is needed
   const popperReferenceElementRef = useRef<any>(null);
 
@@ -193,6 +196,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
         {downshift => (
           <DropdownContext.Provider
             value={{
+              hasMenuRef,
               itemIndexRef,
               previousItemRef,
               previousIndexRef,

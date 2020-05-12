@@ -54,6 +54,7 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
     ...otherProps
   } = props;
   const {
+    hasMenuRef,
     itemIndexRef,
     previousIndexRef,
     nextItemsHashRef,
@@ -124,6 +125,7 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
           }
 
           const menuProps = getMenuProps({
+            role: hasMenuRef.current ? 'menu' : 'listbox',
             placement: currentPlacement,
             isAnimated: isAnimated && (isOpen || isVisible),
             ...otherProps
