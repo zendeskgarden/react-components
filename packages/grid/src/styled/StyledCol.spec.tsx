@@ -9,7 +9,7 @@ import React from 'react';
 import { math } from 'polished';
 import { render, renderRtl } from 'garden-test-utils';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { ARRAY_ALIGN_SELF, ARRAY_SPACE } from '../utils/types';
+import { ARRAY_ALIGN_SELF, ARRAY_SPACE, ARRAY_TEXT_ALIGN } from '../utils/types';
 import { StyledCol } from './StyledCol';
 
 describe('StyledCol', () => {
@@ -128,6 +128,54 @@ describe('StyledCol', () => {
             );
           });
         });
+      });
+    });
+  });
+
+  describe('Text Align', () => {
+    ARRAY_TEXT_ALIGN.forEach(textAlign => {
+      let expected: any;
+
+      if (textAlign === 'start') {
+        expected = 'left';
+      } else if (textAlign === 'end') {
+        expected = 'right';
+      } else {
+        expected = textAlign;
+      }
+
+      it(`renders ${textAlign} text alignment`, () => {
+        const { container } = render(<StyledCol textAlign={textAlign} />);
+
+        expect(container.firstChild).toHaveStyleRule('text-align', expected);
+      });
+
+      describe('Responsively', () => {
+        Object.keys(DEFAULT_THEME.breakpoints).forEach(breakpoint => {
+          const key = `textAlign${breakpoint[0].toUpperCase()}${breakpoint.substring(1)}`;
+
+          it(`renders ${key}=${textAlign} text alignment`, () => {
+            const props = { [key]: textAlign };
+            const { container } = render(<StyledCol {...props} />);
+            const minWidth = (DEFAULT_THEME.breakpoints as any)[breakpoint];
+
+            expect(container.firstChild).toHaveStyleRule('text-align', expected, {
+              media: `(min-width: ${minWidth})`
+            });
+          });
+        });
+      });
+
+      it(`renders ${textAlign} RTL text alignment`, () => {
+        const { container } = renderRtl(<StyledCol textAlign={textAlign} />);
+
+        if (textAlign === 'start') {
+          expected = 'right';
+        } else if (textAlign === 'end') {
+          expected = 'left';
+        }
+
+        expect(container.firstChild).toHaveStyleRule('text-align', expected);
       });
     });
   });
