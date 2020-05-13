@@ -7,7 +7,14 @@
 
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { ALIGN_SELF, GRID_NUMBER, BREAKPOINT, ARRAY_ALIGN_SELF } from '../utils/types';
+import {
+  ALIGN_SELF,
+  ARRAY_ALIGN_SELF,
+  GRID_NUMBER,
+  BREAKPOINT,
+  TEXT_ALIGN,
+  ARRAY_TEXT_ALIGN
+} from '../utils/types';
 import { StyledCol } from '../styled';
 import useGridContext from '../utils/useGridContext';
 
@@ -42,6 +49,20 @@ export interface IColProps extends HTMLAttributes<HTMLDivElement> {
   alignSelfLg?: ALIGN_SELF;
   /** Applies the `align-self` flex item property for extra-large screen sizes */
   alignSelfXl?: ALIGN_SELF;
+  /**
+   * Applies the RTL-aware `text-align` property for all screen sizes
+   */
+  textAlign?: TEXT_ALIGN;
+  /** Determine the text alignment for extra-small screen sizes */
+  textAlignXs?: TEXT_ALIGN;
+  /** Determine the text alignment for small screen sizes */
+  textAlignSm?: TEXT_ALIGN;
+  /** Determine the text alignment for medium screen sizes */
+  textAlignMd?: TEXT_ALIGN;
+  /** Determine the text alignment for large screen sizes */
+  textAlignLg?: TEXT_ALIGN;
+  /** Determine the text alignment for extra-large screen sizes */
+  textAlignXl?: TEXT_ALIGN;
   /**
    * Determine the offset, relative to the total number of `columns` in the
    * grid, for all screen sizes
@@ -108,6 +129,12 @@ Col.propTypes = {
   alignSelfMd: PropTypes.oneOf(ARRAY_ALIGN_SELF),
   alignSelfLg: PropTypes.oneOf(ARRAY_ALIGN_SELF),
   alignSelfXl: PropTypes.oneOf(ARRAY_ALIGN_SELF),
+  textAlign: PropTypes.oneOf(ARRAY_TEXT_ALIGN),
+  textAlignXs: PropTypes.oneOf(ARRAY_TEXT_ALIGN),
+  textAlignSm: PropTypes.oneOf(ARRAY_TEXT_ALIGN),
+  textAlignMd: PropTypes.oneOf(ARRAY_TEXT_ALIGN),
+  textAlignLg: PropTypes.oneOf(ARRAY_TEXT_ALIGN),
+  textAlignXl: PropTypes.oneOf(ARRAY_TEXT_ALIGN),
   offset: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   offsetXs: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   offsetSm: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),

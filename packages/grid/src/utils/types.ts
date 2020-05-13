@@ -36,6 +36,9 @@ export const ARRAY_JUSTIFY_CONTENT: Array<JUSTIFY_CONTENT> = [
   'around'
 ];
 
+export type TEXT_ALIGN = 'start' | 'end' | 'center' | 'justify';
+export const ARRAY_TEXT_ALIGN: Array<TEXT_ALIGN> = ['start', 'end', 'center', 'justify'];
+
 export type GRID_NUMBER = number | string;
 export type BREAKPOINT = GRID_NUMBER | boolean;
 
