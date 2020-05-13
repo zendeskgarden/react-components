@@ -197,5 +197,17 @@ describe('Dropdown', () => {
 
       expect(onStateChangeSpy.mock.calls[0][0]).toMatchObject({ inputValue: 'test1' });
     });
+
+    it('calls onInputValueChange with input value when open', () => {
+      const onInputValueChangeSpy = jest.fn();
+
+      const { container } = render(
+        <ExampleDropdown isOpen={true} onInputValueChange={onInputValueChangeSpy} />
+      );
+
+      fireEvent.change(container.querySelector('input')!, { target: { value: 'test' } });
+
+      expect(onInputValueChangeSpy.mock.calls[0][0]).toBe('test');
+    });
   });
 });
