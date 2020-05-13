@@ -50,6 +50,7 @@ export interface IDatepickerRangeProps {
 }
 
 const DatepickerRange = (props: PropsWithChildren<IDatepickerRangeProps>) => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const reducer = useCallback(
     datepickerRangeReducer({
       startValue: props.startValue,
@@ -86,7 +87,7 @@ const DatepickerRange = (props: PropsWithChildren<IDatepickerRangeProps>) => {
     }
 
     previousStartValue.current = props.startValue;
-  }, [props.startValue]);
+  }, [props, props.startValue]);
 
   useEffect(() => {
     dispatch({
@@ -99,7 +100,7 @@ const DatepickerRange = (props: PropsWithChildren<IDatepickerRangeProps>) => {
     }
 
     previousEndValue.current = props.endValue;
-  }, [props.endValue]);
+  }, [props, props.endValue]);
 
   return (
     <DatepickerRangeContext.Provider

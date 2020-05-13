@@ -17,6 +17,7 @@ export const Content = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>
   const { currentStepIndex } = useStepContext();
   const isActive = currentStepIndex === activeIndex;
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const updateMaxHeight = useCallback(
     debounce(() => {
       if (contentRef.current) {
