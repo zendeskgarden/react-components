@@ -134,7 +134,7 @@ describe('StyledCol', () => {
 
   describe('Text Align', () => {
     ARRAY_TEXT_ALIGN.forEach(textAlign => {
-      let expected: any;
+      let expected: string;
 
       if (textAlign === 'start') {
         expected = 'left';
