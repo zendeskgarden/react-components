@@ -23,7 +23,6 @@ describe('StyledIcon', () => {
       getColor('neutralHue', 200, DEFAULT_THEME)
     );
     expect(container.firstChild).toHaveStyleRule('margin-right', '12px');
-    expect(container.firstChild).toHaveStyleRule('align-self', 'self-start');
     expect(container.firstChild).not.toHaveStyleRule('margin-bottom');
   });
   it('renders active color styles', () => {
