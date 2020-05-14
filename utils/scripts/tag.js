@@ -41,12 +41,8 @@ const changelog = async (tag, spinner) => {
 
   await write(fd, markdown);
   spinner.stop();
-
-  try {
-    await execa.command(`${editor.stdout} ${path}`, { stdio: 'inherit' });
-  } finally {
-    spinner.start();
-  }
+  await execa.command(`${editor.stdout} ${path}`, { stdio: 'inherit' });
+  spinner.start();
 
   const readFile = util.promisify(fs.readFile);
   const INSERTION_SLUG = '<!-- insert-new-changelog-here -->';
