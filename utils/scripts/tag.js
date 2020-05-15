@@ -40,7 +40,9 @@ const changelog = async (tag, spinner) => {
   const editor = await execa('git', ['var', 'GIT_EDITOR']);
 
   await write(fd, markdown);
-  await execa.command(`${editor.stdout} ${path}`);
+  spinner.stop();
+  await execa.command(`${editor.stdout} ${path}`, { stdio: 'inherit' });
+  spinner.start();
 
   const readFile = util.promisify(fs.readFile);
   const INSERTION_SLUG = '<!-- insert-new-changelog-here -->';
