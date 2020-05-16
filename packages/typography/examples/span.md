@@ -1,3 +1,5 @@
+Spans of text are highlighted in the example below.
+
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
 const { Radio, Field, Label } = require('@zendeskgarden/react-forms/src');
@@ -105,14 +107,22 @@ const Typography = ({ size, children, ...props }) => {
         greens avocado quandong fennel gumbo.
       </Typography>
       {['SM', 'MD', 'LG'].indexOf(state.size) !== -1 && (
-        <Typography as="p" isMonospace size={state.size}>
-          Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea lettuce
-          lettuce
-          <StyledSpan isBold={state.bold}>
-            water chestnut eggplant winter purslane fennel
-          </StyledSpan> azuki bean earthnut pea sierra leone bologi leek soko chicory celtuce parsley
-          jícama salsify.
-        </Typography>
+        <>
+          <Typography as="p" isMonospace size={state.size}>
+            Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea lettuce
+            lettuce
+            <StyledSpan isBold={state.bold}>
+              water chestnut eggplant winter purslane fennel
+            </StyledSpan> azuki bean earthnut pea sierra leone bologi leek soko chicory celtuce parsley
+            jícama salsify.
+          </Typography>
+          <Typography as="p" isBold isMonospace size={state.size}>
+            Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori.
+            Grape wattle
+            <StyledSpan isBold={state.bold}>seed kombu beetroot horseradish</StyledSpan> carrot squash
+            brussels sprout chard.
+          </Typography>
+        </>
       )}
     </Col>
   </Row>
