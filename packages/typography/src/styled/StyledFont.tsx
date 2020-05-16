@@ -15,13 +15,19 @@ const fontStyles = (props: IStyledFontProps & ThemeProps<DefaultTheme>) => {
   const lineHeight = props.size !== 'inherit' && props.theme.lineHeights[props.size!];
   const monospace = props.isMonospace && ['sm', 'md', 'lg', 'inherit'].indexOf(props.size!) !== -1;
   const fontFamily = monospace && props.theme.fonts.mono;
-  const fontSize =
-    props.size !== 'inherit' &&
-    (monospace
-      ? math(`${props.theme.fontSizes[props.size!]} - 1px`)
-      : props.theme.fontSizes[props.size!]);
   const direction = isRtl(props) ? 'rtl' : 'ltr';
+  let fontSize;
   let fontWeight;
+
+  if (monospace) {
+    if (props.size === 'inherit') {
+      fontSize = 'calc(1em - 1px)';
+    } else {
+      fontSize = math(`${props.theme.fontSizes[props.size!]} - 1px`);
+    }
+  } else if (props.size !== 'inherit') {
+    fontSize = props.theme.fontSizes[props.size!];
+  }
 
   if (props.isBold === true) {
     fontWeight = props.theme.fontWeights.semibold;
