@@ -33,6 +33,15 @@ describe('StyledFont', () => {
   });
 
   describe('size', () => {
+    it('renders inherited size', () => {
+      const { container } = render(<StyledFont />);
+
+      expect(container.firstChild).not.toHaveStyleRule('line-height');
+      expect(container.firstChild).not.toHaveStyleRule('font-family');
+      expect(container.firstChild).not.toHaveStyleRule('font-size');
+      expect(container.firstChild).not.toHaveStyleRule('font-weight');
+    });
+
     it('renders small size', () => {
       const { container } = render(<StyledFont size="sm" />);
 

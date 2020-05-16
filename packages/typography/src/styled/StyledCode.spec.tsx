@@ -24,6 +24,12 @@ describe('StyledCode', () => {
   });
 
   describe('size', () => {
+    it('renders inherited size', () => {
+      const { container } = render(<StyledCode />);
+
+      expect(container.firstChild).not.toHaveStyleRule('font-size');
+    });
+
     it('renders small size', () => {
       const { container } = render(<StyledCode size="sm" />);
 

@@ -45,5 +45,5 @@ StyledCode.defaultProps = {
   theme: DEFAULT_THEME,
   isMonospace: true,
   hue: 'neutralHue',
-  size: 'md'
+  size: 'inherit'
 };

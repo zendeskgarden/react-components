@@ -54,5 +54,5 @@ export const StyledFont = styled.div.attrs({
 
 StyledFont.defaultProps = {
   theme: DEFAULT_THEME,
-  size: 'md'
+  size: 'inherit'
 };

@@ -9,7 +9,7 @@ import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledFont } from '../styled';
 
-interface ISpanProps extends HTMLAttributes<HTMLDivElement> {
+interface ISpanProps extends HTMLAttributes<HTMLSpanElement> {
   /** Any valid DOM element for the styled component */
   tag?: any;
   /** Render bold font */
@@ -20,8 +20,8 @@ interface ISpanProps extends HTMLAttributes<HTMLDivElement> {
  * Accepts all standard attributes and events for the provided `tag`
  */
 const Span: React.FunctionComponent<
-  ISpanProps & React.RefAttributes<HTMLDivElement>
-> = React.forwardRef<HTMLDivElement, ISpanProps>(({ tag, ...other }, ref) => (
+  ISpanProps & React.RefAttributes<HTMLSpanElement>
+> = React.forwardRef<HTMLSpanElement, ISpanProps>(({ tag, ...other }, ref) => (
   <StyledFont as={tag} ref={ref} size="inherit" {...other} />
 ));
 
