@@ -20,10 +20,14 @@ const fontStyles = (props: IStyledFontProps & ThemeProps<DefaultTheme>) => {
     (monospace
       ? math(`${props.theme.fontSizes[props.size!]} - 1px`)
       : props.theme.fontSizes[props.size!]);
-  const fontWeight = props.isBold
-    ? props.theme.fontWeights.semibold
-    : props.size !== 'inherit' && props.theme.fontWeights.regular;
   const direction = isRtl(props) ? 'rtl' : 'ltr';
+  let fontWeight;
+
+  if (props.isBold === true) {
+    fontWeight = props.theme.fontWeights.semibold;
+  } else if (props.isBold === false || props.size !== 'inherit') {
+    fontWeight = props.theme.fontWeights.regular;
+  }
 
   return css`
     line-height: ${lineHeight};

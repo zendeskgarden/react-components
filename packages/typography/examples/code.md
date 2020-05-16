@@ -63,11 +63,12 @@ initialState = {
         Soko radicchio bunya nuts gram dulse silver beet parsnip napa cabbage lotus root sea lettuce
         <Code hue={state.hue} size={state.size}>
           brussels
-        </Code> sprout cabbage. Catsear cauliflower garbanzo yarrow salsify chicory garlic bell
-        <Code hue={state.hue} size={state.size}>
-          pepper
-        </Code>{' '}
-        napa cabbage lettuce tomato kale arugula melon sierra leone bologi rutabaga tigernut.
+        </Code> sprout cabbage. Catsear cauliflower garbanzo yarrow salsify chicory <Span isBold>
+          garlic bell
+          <Code hue={state.hue} size={state.size}>
+            pepper
+          </Code> napa cabbage
+        </Span> lettuce tomato kale arugula melon sierra leone bologi rutabaga tigernut.
       </MD>
       <LG className="u-mt">
         Water spinach arugula pea tatsoi aubergine spring onion bush tomato kale radicchio turnip

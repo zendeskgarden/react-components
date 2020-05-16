@@ -40,6 +40,10 @@ module.exports = {
           content: '../../packages/typography/examples/ellipsis.md'
         },
         {
+          name: 'Span',
+          content: '../../packages/typography/examples/span.md'
+        },
+        {
           name: 'Code',
           content: '../../packages/typography/examples/code.md'
         },
