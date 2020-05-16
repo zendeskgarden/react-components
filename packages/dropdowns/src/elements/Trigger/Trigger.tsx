@@ -21,6 +21,7 @@ interface ITriggerProps extends HTMLAttributes<HTMLElement> {
  */
 const Trigger: React.FunctionComponent<ITriggerProps> = ({ children, refKey, ...triggerProps }) => {
   const {
+    hasMenuRef,
     downshift: { getRootProps, getToggleButtonProps, getInputProps, isOpen }
   } = useDropdownContext();
   const hiddenInputRef = useRef<HTMLInputElement>(null);
@@ -39,11 +40,42 @@ const Trigger: React.FunctionComponent<ITriggerProps> = ({ children, refKey, ...
     }
 
     previousIsOpenRef.current = isOpen;
-  }, [isOpen]);
+  }, [isOpen, hasMenuRef]);
+
+  useEffect(() => {
+    if (hasMenuRef.current === false) {
+      hasMenuRef.current = true;
+    }
+  }, [hasMenuRef]);
 
   const renderChildren = (popperRef: any) => {
     // Destructuring the `ref` argument lets us share it with PopperJS
     const { ref: rootPropsRefCallback, ...rootProps } = getRootProps();
+
+    const listboxToggleProps = getToggleButtonProps({
+      ...rootProps,
+      // Trigger usages do not include an role
+      role: null,
+      // Trigger usages do not include an associated label
+      'aria-labelledby': undefined,
+      ...triggerProps,
+      ...(children as any).props
+    });
+
+    const menuToggleProps = {
+      ...listboxToggleProps,
+      'aria-haspopup': 'true',
+      'aria-controls': listboxToggleProps['aria-owns'],
+      'aria-owns': null
+    };
+
+    /**
+     * Some ARIA attributes from Downshift's `getMenuProps` props are overwritten depending on
+     * whether the dropdown renders a `role="menu"` or `role="listbox"`. This override is intended
+     * to align a11y with examples demonstrated in WAI ARIA 1.1.
+     */
+
+    const toggleButtonProps = hasMenuRef.current ? menuToggleProps : listboxToggleProps;
 
     /**
      * Clone immediate child and provide:
@@ -51,13 +83,7 @@ const Trigger: React.FunctionComponent<ITriggerProps> = ({ children, refKey, ...
      * - Ref collector based on `refKey` prop
      */
     return React.cloneElement(React.Children.only(children as any), {
-      ...getToggleButtonProps({
-        ...rootProps,
-        // Trigger usages do no include an associated label
-        'aria-labelledby': undefined,
-        ...triggerProps,
-        ...(children as any).props
-      }),
+      ...toggleButtonProps,
       [refKey!]: (childRef: HTMLElement) => {
         // Pass ref to popperJS for positioning
         popperRef(childRef);

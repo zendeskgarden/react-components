@@ -58,6 +58,9 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
   const nextItemsHashRef = useRef<object>({});
   const containsMultiselectRef = useRef(false);
 
+  // Ref used to determine ARIA attributes for menu dropdowns
+  const hasMenuRef = useRef(false);
+
   // Used to inform Menu (Popper) that a full-width menu is needed
   const popperReferenceElementRef = useRef<any>(null);
 
@@ -130,7 +133,15 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
         highlightedIndex={highlightedIndex}
         selectedItem={selectedItem || null} // Ensures that selectedItem never becomes controlled internally by Downshift
         inputValue={inputValue}
-        onInputValueChange={onInputValueChange}
+        onInputValueChange={(inputVal, stateAndHelpers) => {
+          if (onInputValueChange) {
+            if (stateAndHelpers.isOpen) {
+              onInputValueChange(inputVal, stateAndHelpers);
+            } else {
+              onInputValueChange('', stateAndHelpers);
+            }
+          }
+        }}
         onStateChange={(changes, stateAndHelpers) => {
           if (
             Object.prototype.hasOwnProperty.call(changes, 'selectedItem') &&
@@ -176,6 +187,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
             case Downshift.stateChangeTypes.mouseUp:
             case Downshift.stateChangeTypes.keyDownSpaceButton:
             case Downshift.stateChangeTypes.blurButton:
+            case Downshift.stateChangeTypes.blurInput:
               return {
                 ...changes,
                 inputValue: ''
@@ -183,7 +195,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
             case Downshift.stateChangeTypes.keyDownEnter:
             case Downshift.stateChangeTypes.clickItem:
             case REMOVE_ITEM_STATE_TYPE as any:
-              return { ...changes, isOpen: false };
+              return { ...changes, inputValue: '', isOpen: false };
             default:
               return changes;
           }
@@ -193,6 +205,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
         {downshift => (
           <DropdownContext.Provider
             value={{
+              hasMenuRef,
               itemIndexRef,
               previousItemRef,
               previousIndexRef,

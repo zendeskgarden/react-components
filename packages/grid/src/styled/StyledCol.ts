@@ -8,7 +8,7 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { ALIGN_SELF, BREAKPOINT, GRID_NUMBER, SPACE } from '../utils/types';
+import { ALIGN_SELF, BREAKPOINT, GRID_NUMBER, SPACE, TEXT_ALIGN } from '../utils/types';
 
 const COMPONENT_ID = 'grid.col';
 
@@ -24,6 +24,7 @@ const colorStyles = (props: IStyledColProps) => {
 const flexStyles = (
   size: BREAKPOINT | undefined,
   alignSelf: ALIGN_SELF | undefined,
+  textAlign: TEXT_ALIGN | undefined,
   offset: GRID_NUMBER | undefined,
   order: GRID_NUMBER | undefined,
   props: IStyledColProps
@@ -49,6 +50,16 @@ const flexStyles = (
     maxWidth = flexBasis;
   }
 
+  let horizontalAlign;
+
+  if (textAlign === 'start') {
+    horizontalAlign = props.theme.rtl ? 'right' : 'left';
+  } else if (textAlign === 'end') {
+    horizontalAlign = props.theme.rtl ? 'left' : 'right';
+  } else {
+    horizontalAlign = textAlign;
+  }
+
   let flexOrder;
 
   if (order === 'first') {
@@ -70,6 +81,7 @@ const flexStyles = (
     margin-${props.theme.rtl ? 'right' : 'left'}: ${margin};
     width: ${width};
     max-width: ${maxWidth};
+    text-align: ${horizontalAlign};
   `;
 };
 
@@ -77,13 +89,14 @@ const mediaStyles = (
   minWidth: string,
   size: BREAKPOINT | undefined,
   alignSelf: ALIGN_SELF | undefined,
+  textAlign: TEXT_ALIGN | undefined,
   offset: GRID_NUMBER | undefined,
   order: GRID_NUMBER | undefined,
   props: IStyledColProps
 ) => {
   return css`
     @media (min-width: ${minWidth}) {
-      ${flexStyles(size, alignSelf, offset, order, props)};
+      ${flexStyles(size, alignSelf, textAlign, offset, order, props)};
     }
   `;
 };
@@ -112,6 +125,12 @@ export interface IStyledColProps extends ThemeProps<DefaultTheme> {
   alignSelfMd?: ALIGN_SELF;
   alignSelfLg?: ALIGN_SELF;
   alignSelfXl?: ALIGN_SELF;
+  textAlign?: TEXT_ALIGN;
+  textAlignXs?: TEXT_ALIGN;
+  textAlignSm?: TEXT_ALIGN;
+  textAlignMd?: TEXT_ALIGN;
+  textAlignLg?: TEXT_ALIGN;
+  textAlignXl?: TEXT_ALIGN;
   offset?: GRID_NUMBER;
   offsetXs?: GRID_NUMBER;
   offsetSm?: GRID_NUMBER;
@@ -141,6 +160,7 @@ export const StyledCol = styled.div.attrs<IStyledColProps>({
         ? undefined
         : props.sizeAll || false,
       props.alignSelf,
+      props.textAlign,
       props.offset,
       props.order,
       props
@@ -153,6 +173,7 @@ export const StyledCol = styled.div.attrs<IStyledColProps>({
       props.theme.breakpoints.xs,
       props.xs,
       props.alignSelfXs,
+      props.textAlignXs,
       props.offsetXs,
       props.orderXs,
       props
@@ -163,6 +184,7 @@ export const StyledCol = styled.div.attrs<IStyledColProps>({
       props.theme.breakpoints.sm,
       props.sm,
       props.alignSelfSm,
+      props.textAlignSm,
       props.offsetSm,
       props.orderSm,
       props
@@ -173,6 +195,7 @@ export const StyledCol = styled.div.attrs<IStyledColProps>({
       props.theme.breakpoints.md,
       props.md,
       props.alignSelfMd,
+      props.textAlignMd,
       props.offsetMd,
       props.orderMd,
       props
@@ -183,6 +206,7 @@ export const StyledCol = styled.div.attrs<IStyledColProps>({
       props.theme.breakpoints.lg,
       props.lg,
       props.alignSelfLg,
+      props.textAlignLg,
       props.offsetLg,
       props.orderLg,
       props
@@ -193,6 +217,7 @@ export const StyledCol = styled.div.attrs<IStyledColProps>({
       props.theme.breakpoints.xl,
       props.xl,
       props.alignSelfXl,
+      props.textAlignXl,
       props.offsetXl,
       props.orderXl,
       props

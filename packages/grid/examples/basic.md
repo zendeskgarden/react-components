@@ -38,6 +38,7 @@ initialState = {
   gutters: 'md',
   justifyContent: 'default',
   rows: 1,
+  textAlign: 'default',
   offset: 0,
   size: 0,
   wrap: 'default'
@@ -80,9 +81,9 @@ initialState = {
         <Dropdown selectedItem={state.gutters} onSelect={gutters => setState({ gutters })}>
           <SelectField className="u-mt-xs">
             <SelectLabel>Gutters</SelectLabel>
-            <Select small>{state.gutters}</Select>
+            <Select isCompact>{state.gutters}</Select>
           </SelectField>
-          <Menu small>
+          <Menu isCompact>
             <Item value="none">none</Item>
             <Item value="xs">xs</Item>
             <Item value="sm">sm</Item>
@@ -107,7 +108,7 @@ initialState = {
           onSelect={justifyContent => setState({ justifyContent })}
         >
           <SelectField className="u-mt-xs">
-            <SelectLabel>Justify content *</SelectLabel>
+            <SelectLabel>Justify content (&lt;Row&gt;) *</SelectLabel>
             <Select isCompact>{state.justifyContent}</Select>
           </SelectField>
           <Menu isCompact>
@@ -121,10 +122,10 @@ initialState = {
         </Dropdown>
         <Dropdown selectedItem={state.alignItems} onSelect={alignItems => setState({ alignItems })}>
           <SelectField className="u-mt-xs">
-            <SelectLabel>Align items *</SelectLabel>
-            <Select small>{state.alignItems}</Select>
+            <SelectLabel>Align items (&lt;Row&gt;) *</SelectLabel>
+            <Select isCompact>{state.alignItems}</Select>
           </SelectField>
-          <Menu small>
+          <Menu isCompact>
             <Item value="default">default</Item>
             <Item value="start">start</Item>
             <Item value="end">end</Item>
@@ -135,7 +136,7 @@ initialState = {
         </Dropdown>
         <Dropdown selectedItem={state.wrap} onSelect={wrap => setState({ wrap })}>
           <SelectField className="u-mt-xs">
-            <SelectLabel>Wrap *</SelectLabel>
+            <SelectLabel>Wrap (&lt;Row&gt;) *</SelectLabel>
             <Select isCompact>{state.wrap}</Select>
           </SelectField>
           <Menu isCompact>
@@ -145,8 +146,21 @@ initialState = {
             <Item value="wrap-reverse">wrap-reverse</Item>
           </Menu>
         </Dropdown>
+        <Dropdown selectedItem={state.textAlign} onSelect={textAlign => setState({ textAlign })}>
+          <SelectField className="u-mt-xs">
+            <SelectLabel>Text align (&lt;Col&gt;) *</SelectLabel>
+            <Select isCompact>{state.textAlign}</Select>
+          </SelectField>
+          <Menu isCompact>
+            <Item value="default">default</Item>
+            <Item value="start">start</Item>
+            <Item value="end">end</Item>
+            <Item value="center">center</Item>
+            <Item value="justify">justify</Item>
+          </Menu>
+        </Dropdown>
         <Field className="u-mt-xs">
-          <Label>Offset ({state.offset.toString() === '0' ? 'none' : state.offset}) *</Label>
+          <Label>Col 1 offset ({state.offset.toString() === '0' ? 'none' : state.offset}) *</Label>
           <Range
             disabled={state.columns - (state.size > 0 ? state.size : 1) <= 0}
             max={state.columns - (state.size > 0 ? state.size : 1)}
@@ -341,6 +355,36 @@ initialState = {
                           ? state.size
                           : state.size === -1
                           ? 'auto'
+                          : undefined
+                      }
+                      textAlign={
+                        state.breakpoint === 'default' && state.textAlign !== 'default'
+                          ? state.textAlign
+                          : undefined
+                      }
+                      textAlignXs={
+                        state.breakpoint === 'xs' && state.textAlign !== 'default'
+                          ? state.textAlign
+                          : undefined
+                      }
+                      textAlignSm={
+                        state.breakpoint === 'sm' && state.textAlign !== 'default'
+                          ? state.textAlign
+                          : undefined
+                      }
+                      textAlignMd={
+                        state.breakpoint === 'md' && state.textAlign !== 'default'
+                          ? state.textAlign
+                          : undefined
+                      }
+                      textAlignLg={
+                        state.breakpoint === 'lg' && state.textAlign !== 'default'
+                          ? state.textAlign
+                          : undefined
+                      }
+                      textAlignXl={
+                        state.breakpoint === 'xl' && state.textAlign !== 'default'
+                          ? state.textAlign
                           : undefined
                       }
                     >

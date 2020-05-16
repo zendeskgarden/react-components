@@ -111,6 +111,7 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
     locale,
     customParseDate
   } = props;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const memoizedReducer = useCallback(
     datepickerReducer({ value, formatDate, locale, customParseDate, onChange }),
     [value, formatDate, locale, onChange, customParseDate]

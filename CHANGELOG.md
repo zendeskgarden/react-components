@@ -12,6 +12,30 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.9.0 (2020-05-13)
+
+#### :rocket: New Feature
+* `grid`
+  * [#746](https://github.com/zendeskgarden/react-components/pull/746) feat(grid): add `textAlign` prop to `Col` component ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#747](https://github.com/zendeskgarden/react-components/pull/747) fix(dropdowns): inputValue logic when selected ([@austin94](https://github.com/austin94))
+  * [#734](https://github.com/zendeskgarden/react-components/pull/734) fix(dropdowns): use correct aria attributes for menu dropdown ([@hzhu](https://github.com/hzhu))
+
+#### :seedling: Internal
+* `accordions`, `datepickers`, `forms`
+  * [#739](https://github.com/zendeskgarden/react-components/pull/739) chore(deps): update dependency eslint-plugin-react-hooks to v4 ([@renovate[bot]](https://github.com/apps/renovate))
+* Other
+  * [#740](https://github.com/zendeskgarden/react-components/pull/740) chore(deps): update dependency ts-loader to v7 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#743](https://github.com/zendeskgarden/react-components/pull/743) chore(deps): update @zendeskgarden/scripts ([@jzempel](https://github.com/jzempel))
+  * [#738](https://github.com/zendeskgarden/react-components/pull/738) chore(deps): update dependency @zendeskgarden/css-bedrock to v8 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#736](https://github.com/zendeskgarden/react-components/pull/736) chore: deploy script improvements ([@jzempel](https://github.com/jzempel))
+* `accordions`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `modals`, `notifications`, `pagination`, `tables`, `tags`
+  * [#745](https://github.com/zendeskgarden/react-components/pull/745) chore(build): update yarn.lock file ([@austin94](https://github.com/austin94))
+* `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `loaders`, `pagination`, `tables`, `tabs`, `tooltips`
+  * [#737](https://github.com/zendeskgarden/react-components/pull/737) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v8.8.0 (2020-05-06)
 
 #### :rocket: New Feature
