@@ -16,16 +16,16 @@ interface IStyledContent {
 
 const sizeStyles = (props: IStyledContent & ThemeProps<DefaultTheme>) => {
   const { rtl, space } = props.theme;
-  const paddingTop = space.base * 5;
-  const paddingBottom = props.isActive ? space.base * 14 : space.base * 4;
+  const paddingBottom = props.isActive ? space.base * 8 : space.base * 6;
   const paddingRight = rtl ? space.base * 6 : space.base * 5;
   const paddingLeft = rtl ? space.base * 5 : space.base * 6;
   const marginRight = rtl ? space.base * 3 : '0';
   const marginLeft = rtl ? '0' : space.base * 3;
+  const marginVertical = space.base * 3;
 
   return css`
-    margin: ${space.base}px ${marginRight}px ${space.base}px ${marginLeft}px;
-    padding: ${paddingTop}px ${paddingRight}px ${paddingBottom}px ${paddingLeft}px;
+    margin: ${marginVertical}px ${marginRight}px ${marginVertical}px ${marginLeft}px;
+    padding: 0 ${paddingRight}px ${paddingBottom}px ${paddingLeft}px;
   `;
 };
 

@@ -63,7 +63,6 @@ export const StyledIcon = styled.div.attrs<IStyledIcon>({
 })<IStyledIcon>`
   display: flex;
   align-items: center;
-  align-self: ${props => !props.isHorizontal && 'self-start'};
   justify-content: center;
   transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
   border-radius: 100%;
