@@ -11,7 +11,7 @@ const {
 
 initialState = {
   hue: 'grey',
-  size: 'medium'
+  size: 'inherit'
 };
 
 <Grid>
@@ -36,10 +36,10 @@ initialState = {
             <Select isCompact>{state.size}</Select>
           </Field>
           <Menu isCompact>
+            <Item value="inherit">inherit (default)</Item>
             <Item value="small">small</Item>
-            <Item value="medium">medium (default)</Item>
+            <Item value="medium">medium</Item>
             <Item value="large">large</Item>
-            <Item value="inherit">inherit</Item>
           </Menu>
         </Dropdown>
       </Well>

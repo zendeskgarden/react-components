@@ -11,6 +11,7 @@ import { StyledCode } from '../styled';
 
 export interface ICodeProps extends HTMLAttributes<HTMLDivElement> {
   hue?: 'grey' | 'red' | 'green' | 'yellow';
+  /** By default font size is inherited from surrounding text */
   size?: 'small' | 'medium' | 'large' | 'inherit';
 }
 
@@ -44,7 +45,7 @@ Code.propTypes = {
 
 Code.defaultProps = {
   hue: 'grey',
-  size: 'medium'
+  size: 'inherit'
 };
 
 /** @component */
