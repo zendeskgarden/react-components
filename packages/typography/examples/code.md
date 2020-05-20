@@ -11,7 +11,7 @@ const {
 
 initialState = {
   hue: 'grey',
-  size: 'medium'
+  size: 'inherit'
 };
 
 <Grid>
@@ -36,8 +36,9 @@ initialState = {
             <Select isCompact>{state.size}</Select>
           </Field>
           <Menu isCompact>
+            <Item value="inherit">inherit (default)</Item>
             <Item value="small">small</Item>
-            <Item value="medium">medium (default)</Item>
+            <Item value="medium">medium</Item>
             <Item value="large">large</Item>
           </Menu>
         </Dropdown>
@@ -47,6 +48,39 @@ initialState = {
       <Code hue={state.hue} size={state.size}>
         veggies es bonus vobis
       </Code>
+      <SM className="u-mt">
+        Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth
+        tatsoi tomatillo melon
+        <Code hue={state.hue} size={state.size}>
+          azuki
+        </Code> bean garlic. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens
+        <Code hue={state.hue} size={state.size}>
+          dandelion
+        </Code>{' '}
+        okra wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.
+      </SM>
+      <MD className="u-mt">
+        Soko radicchio bunya nuts gram dulse silver beet parsnip napa cabbage lotus root sea lettuce
+        <Code hue={state.hue} size={state.size}>
+          brussels
+        </Code> sprout cabbage. Catsear cauliflower garbanzo yarrow salsify chicory <Span isBold>
+          garlic bell
+          <Code hue={state.hue} size={state.size}>
+            pepper
+          </Code> napa cabbage
+        </Span> lettuce tomato kale arugula melon sierra leone bologi rutabaga tigernut.
+      </MD>
+      <LG className="u-mt">
+        Water spinach arugula pea tatsoi aubergine spring onion bush tomato kale radicchio turnip
+        chicory salsify pea sprouts
+        <Code hue={state.hue} size={state.size}>
+          fava
+        </Code> bean. Dandelion zucchini burdock yarrow chickpea dandelion sorrel courgette turnip greens
+        <Code hue={state.hue} size={state.size}>
+          tigernut
+        </Code>{' '}
+        soybean radish artichoke wattle seed endive groundnut broccoli arugula.
+      </LG>
     </Col>
   </Row>
 </Grid>;

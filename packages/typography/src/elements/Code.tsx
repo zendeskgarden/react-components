@@ -11,7 +11,8 @@ import { StyledCode } from '../styled';
 
 export interface ICodeProps extends HTMLAttributes<HTMLDivElement> {
   hue?: 'grey' | 'red' | 'green' | 'yellow';
-  size?: 'small' | 'medium' | 'large';
+  /** By default font size is inherited from surrounding text */
+  size?: 'small' | 'medium' | 'large' | 'inherit';
 }
 
 /**
@@ -20,14 +21,16 @@ export interface ICodeProps extends HTMLAttributes<HTMLDivElement> {
 const Code: React.FunctionComponent<
   ICodeProps & React.RefAttributes<HTMLDivElement>
 > = React.forwardRef<HTMLDivElement, ICodeProps>(({ size, hue, ...other }, ref) => {
-  let _size: 'sm' | 'md' | 'lg';
+  let _size: 'sm' | 'md' | 'lg' | 'inherit';
 
   if (size === 'small') {
     _size = 'sm';
   } else if (size === 'medium') {
     _size = 'md';
-  } else {
+  } else if (size === 'large') {
     _size = 'lg';
+  } else {
+    _size = 'inherit';
   }
 
   return <StyledCode ref={ref} size={_size} hue={hue} {...other} />;
@@ -37,12 +40,12 @@ Code.displayName = 'Code';
 
 Code.propTypes = {
   hue: PropTypes.oneOf(['grey', 'red', 'green', 'yellow']),
-  size: PropTypes.oneOf(['small', 'medium', 'large'])
+  size: PropTypes.oneOf(['small', 'medium', 'large', 'inherit'])
 };
 
 Code.defaultProps = {
   hue: 'grey',
-  size: 'medium'
+  size: 'inherit'
 };
 
 /** @component */
