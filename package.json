@@ -7,6 +7,7 @@
     "build:analyze": "ANALYZE_BUNDLE=true yarn build:single",
     "build:demo": "lerna run build:demo --stream",
     "build:single": "utils/scripts/scoped-npm-command.js --script build",
+    "clean": "git clean -Xdf",
     "format": "prettier-package-json --write && yarn format:package_json --write && yarn format:js --write && yarn format:md --write",
     "format:all": "prettier-package-json --list-different && yarn format:package_json --list-different && yarn format:js --check && yarn format:md --check",
     "format:js": "prettier --loglevel warn '{packages,utils}/**/*.{js,ts,tsx}' '!packages/**/dist/**'",
