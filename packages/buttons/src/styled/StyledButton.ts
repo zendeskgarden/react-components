@@ -40,16 +40,6 @@ export const getHeight = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) 
   return `${props.theme.space.base * 10}px`;
 };
 
-const getHorizontalPadding = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
-  if (props.size === SIZE.SMALL) {
-    return `${props.theme.space.base * 3}px`;
-  } else if (props.size === SIZE.LARGE) {
-    return `${props.theme.space.base * 5}px`;
-  }
-
-  return `${props.theme.space.base * 4}px`;
-};
-
 const colorStyles = (
   props: IStyledButtonProps & ThemeProps<DefaultTheme> & HTMLAttributes<HTMLButtonElement>
 ) => {
@@ -219,8 +209,16 @@ const sizeStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   } else {
     const height = getHeight(props);
     const lineHeight = math(`${height} - (${props.theme.borderWidths.sm} * 2)`);
-    const padding = getHorizontalPadding(props);
+    let padding;
     let fontSize;
+
+    if (props.size === 'small') {
+      padding = `${props.theme.space.base * 3}px`;
+    } else if (props.size === 'large') {
+      padding = `${props.theme.space.base * 5}px`;
+    } else {
+      padding = `${props.theme.space.base * 4}px`;
+    }
 
     if (props.size === 'small') {
       fontSize = props.theme.fontSizes.sm;
