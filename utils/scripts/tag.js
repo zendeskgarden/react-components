@@ -126,7 +126,7 @@ const sync = async (master, spinner) => {
     await execa('git', ['pull']);
     await execa('git', ['fetch', '--tags', '--prune', '--prune-tags']);
     spinner.stop();
-    await execa('yarn', ['install'], { stdout: process.stdout });
+    await execa('yarn', ['install', '--force'], { stdout: process.stdout });
   } else {
     throw new Error(`Switch to the ${master} branch`);
   }
