@@ -125,6 +125,7 @@ const sync = async (master, spinner) => {
     info('Syncing with remote...', spinner);
     await execa('git', ['pull']);
     await execa('git', ['fetch', '--tags', '--prune', '--prune-tags']);
+    await execa('yarn', ['clean']);
     spinner.stop();
     await execa('yarn', ['install'], { stdout: process.stdout });
   } else {
