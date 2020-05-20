@@ -12,6 +12,19 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.10.0 (2020-05-20)
+
+#### :rocket: New Feature
+* `typography`
+  * [#750](https://github.com/zendeskgarden/react-components/pull/750) feat(typography): add Span component and allow Code to inherit ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `accordions`
+  * [#748](https://github.com/zendeskgarden/react-components/pull/748) fix(accordions): improve vertical mobile stepper spacing ([@hzhu](https://github.com/hzhu))
+
+#### :seedling: Internal
+* [#749](https://github.com/zendeskgarden/react-components/pull/749) fix(scripts): support terminal-based editors for changelog step in tag sequence ([@jzempel](https://github.com/jzempel))
+
 ## v8.9.0 (2020-05-13)
 
 #### :rocket: New Feature
