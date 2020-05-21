@@ -64,31 +64,5 @@ describe('Range', () => {
       fireEvent.click(button);
       expect(getByTestId('range').style.backgroundSize).toBe('50%');
     });
-
-    it('defaults to max of 100 if max is less than min', () => {
-      const { getByTestId } = render(
-        <Field>
-          <Range min={0} max={-25} value={25} data-test-id="range" />
-        </Field>
-      );
-
-      expect(getByTestId('range').style.backgroundSize).toBe('25%');
-    });
-
-    it('updates backgroundSize after onChange event', () => {
-      const { getByTestId } = render(
-        <Field>
-          <Range min={0} max={-25} value={25} data-test-id="range" />
-        </Field>
-      );
-
-      const range = getByTestId('range');
-
-      expect(getByTestId('range').style.backgroundSize).toBe('25%');
-
-      fireEvent.change(range, { target: { value: 85 } });
-
-      expect(getByTestId('range').style.backgroundSize).toBe('85%');
-    });
   });
 });
