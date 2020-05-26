@@ -147,6 +147,7 @@ const version = async (bump, preid, master, spinner) => {
     'lerna',
     'version',
     '--conventional-commits',
+    '--force-git-tag',
     '--force-publish',
     '--no-changelog',
     '--no-push'
