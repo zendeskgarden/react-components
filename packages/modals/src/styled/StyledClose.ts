@@ -77,6 +77,11 @@ export const StyledClose = styled.button.attrs({
   }
 
   ${props => colorStyles(props)}
+
+  & > svg {
+    vertical-align: middle;
+  }
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 

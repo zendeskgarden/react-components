@@ -7,13 +7,20 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import qs from 'qs';
 
 import { DEFAULT_THEME, ThemeProvider } from '../../../packages/theming/src';
 
 const Wrapper = ({ children }) => {
-  const isRtl = location.search.indexOf('isRtl') !== -1;
+  const parameters = qs.parse(location.search.slice(1));
 
-  return <ThemeProvider theme={{ ...DEFAULT_THEME, rtl: isRtl }}>{children}</ThemeProvider>;
+  if ('bedrock' in parameters) {
+    document.querySelector('link[href$="bedrock/index.css"]').removeAttribute('disabled');
+  }
+
+  return (
+    <ThemeProvider theme={{ ...DEFAULT_THEME, rtl: 'rtl' in parameters }}>{children}</ThemeProvider>
+  );
 };
 
 Wrapper.propTypes = {

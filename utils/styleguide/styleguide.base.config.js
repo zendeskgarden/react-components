@@ -108,6 +108,11 @@ const defaultStyleguideConfig = {
       links: [
         {
           rel: 'stylesheet',
+          href: 'https://zendeskgarden.github.io/css-components/bedrock/index.css',
+          disabled: true
+        },
+        {
+          rel: 'stylesheet',
           href: 'https://zendeskgarden.github.io/css-components/utilities/index.css'
         }
       ]
