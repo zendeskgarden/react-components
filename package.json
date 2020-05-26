@@ -93,7 +93,7 @@
     "inquirer-autocomplete-prompt": "1.0.2",
     "jest": "25.5.4",
     "jest-styled-components": "6.3.4",
-    "lerna": "3.20.2",
+    "lerna": "3.22.0",
     "lint-staged": "10.2.2",
     "live-server": "1.2.1",
     "markdown-loader": "5.1.0",
