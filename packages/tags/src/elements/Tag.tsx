@@ -20,6 +20,8 @@ interface ITagProps extends HTMLAttributes<HTMLDivElement> {
   hue?: string;
   isPill?: boolean;
   isRound?: boolean;
+  /** Style using regular (non-bold) font weight */
+  isRegular?: boolean;
 }
 
 /**
@@ -39,7 +41,8 @@ Tag.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   hue: PropTypes.string,
   isPill: PropTypes.bool,
-  isRound: PropTypes.bool
+  isRound: PropTypes.bool,
+  isRegular: PropTypes.bool
 };
 
 Tag.defaultProps = {
