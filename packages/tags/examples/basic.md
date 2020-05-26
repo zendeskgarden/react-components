@@ -36,7 +36,7 @@ initialState = {
         <Field>
           <Label>Text</Label>
           <Input
-            small
+            isCompact
             value={state.text}
             onChange={event => setState({ text: event.target.value })}
           />
@@ -99,6 +99,14 @@ initialState = {
         </Dropdown>
         <Field className="u-mt-xs">
           <Toggle
+            checked={state.regular}
+            onChange={event => setState({ regular: event.target.checked })}
+          >
+            <Label style={{ marginTop: 8 }}>Regular weight</Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-xs">
+          <Toggle
             checked={state.avatar}
             onChange={event => setState({ avatar: event.target.checked })}
           >
@@ -119,11 +127,12 @@ initialState = {
         </Field>
       </Well>
     </Col>
-    <Col alignSelf="center">
+    <Col alignSelf="center" textAlign="center">
       <Tag
         hue={state.hue === 'default' ? null : state.hue}
         isPill={state.shape === 'pill'}
         isRound={state.shape === 'round'}
+        isRegular={state.regular}
         size={state.size}
         tabIndex={0}
       >

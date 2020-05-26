@@ -213,6 +213,10 @@ export const StyledTag = styled.div.attrs<IStyledTagProps>({
     white-space: nowrap;
   }
 
+  & b {
+    font-weight: ${props => props.theme.fontWeights.semibold};
+  }
+
   & ${StyledAvatar} {
     display: ${props => (props.isRound || props.size === 'small') && 'none'};
   }
