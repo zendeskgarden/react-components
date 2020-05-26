@@ -8,11 +8,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import qs from 'qs';
 import TableOfContentsRenderer from 'react-styleguidist/lib/rsg-components/TableOfContents/TableOfContentsRenderer';
 
 import { Button, Anchor } from '../../../packages/buttons/src';
 import { DEFAULT_THEME, ThemeProvider } from '../../../packages/theming/src';
-import { Tooltip, Title } from '../../../packages/tooltips/src';
+import { Tooltip, Title, Paragraph } from '../../../packages/tooltips/src';
 import { Code } from '../../../packages/typography/src';
 import { Field, Toggle, Label } from '../../../packages/forms/src';
 import ChangelogModal from './Changelog';
@@ -63,7 +64,7 @@ class TableOfContents extends Component {
   };
 
   render() {
-    const isRtl = location.search.indexOf('isRtl') !== -1;
+    const parameters = qs.parse(location.search.slice(1), { strictNullHandling: true });
     const githubPackageUrl = `https://github.com/zendeskgarden/react-components/tree/master/packages/${BASE_PATH_NAME}`;
     const { children, ...other } = this.props;
     const { isChangelogModalOpen } = this.state;
@@ -99,28 +100,65 @@ class TableOfContents extends Component {
                 content={
                   <>
                     <Title>RTL in Garden</Title>
-                    <p>
+                    <Paragraph>
                       All Garden components are RTL locale aware when used with the{' '}
                       <Code>{'<ThemeProvider />'}</Code> component.
-                    </p>
-                    <p>
+                    </Paragraph>
+                    <Paragraph>
                       <Anchor href="../theming">View Garden Theming Package</Anchor>
-                    </p>
+                    </Paragraph>
+                  </>
+                }
+              >
+                <Field>
+                  <Toggle
+                    checked={'rtl' in parameters}
+                    onChange={() => {
+                      if ('rtl' in parameters) {
+                        delete parameters.rtl;
+                      } else {
+                        parameters.rtl = null;
+                      }
+
+                      location.search = qs.stringify(parameters, { strictNullHandling: true });
+                    }}
+                  >
+                    <Label>RTL Locale</Label>
+                  </Toggle>
+                </Field>
+              </Tooltip>
+              <Spacer height="20px" />
+              <Tooltip
+                placement="end"
+                appendToNode={document.body}
+                type="light"
+                size="extra-large"
+                style={{ fontFamily: DEFAULT_THEME.fonts.system }}
+                content={
+                  <>
+                    <Title>Garden Bedrock</Title>
+                    <Paragraph>
+                      <Anchor href="https://zendeskgarden.github.io/css-components/bedrock">
+                        View Garden Bedrock CSS
+                      </Anchor>
+                    </Paragraph>
                   </>
                 }
               >
                 <Field style={{ marginBottom: 20 }}>
                   <Toggle
-                    checked={isRtl}
+                    checked={'bedrock' in parameters}
                     onChange={() => {
-                      if (isRtl) {
-                        location.search = '';
+                      if ('bedrock' in parameters) {
+                        delete parameters.bedrock;
                       } else {
-                        location.search = '?isRtl';
+                        parameters.bedrock = null;
                       }
+
+                      location.search = qs.stringify(parameters, { strictNullHandling: true });
                     }}
                   >
-                    <Label>RTL Locale</Label>
+                    <Label>Bedrock CSS</Label>
                   </Toggle>
                 </Field>
               </Tooltip>
