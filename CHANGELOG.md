@@ -12,6 +12,23 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.11.0 (2020-05-27)
+
+#### :rocket: New Feature
+* `tags`
+  * [#755](https://github.com/zendeskgarden/react-components/pull/755) feat(tags): support mixed weight content ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `modals`
+  * [#754](https://github.com/zendeskgarden/react-components/pull/754) fix(modals): vertically center close button SVG ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `forms`
+  * [#741](https://github.com/zendeskgarden/react-components/pull/741) chore(deps): update jest monorepo to v26 (major) ([@renovate[bot]](https://github.com/apps/renovate))
+* Other
+  * [#753](https://github.com/zendeskgarden/react-components/pull/753) chore(utils): force version tag ([@jzempel](https://github.com/jzempel))
+  * [#752](https://github.com/zendeskgarden/react-components/pull/752) chore(scripts): update tag script to force install ([@jzempel](https://github.com/jzempel))
+
 ## v8.10.0 (2020-05-20)
 
 #### :rocket: New Feature
