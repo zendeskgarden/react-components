@@ -83,7 +83,11 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
             }}
           >
             {start && (
-              <StyledStartIcon isCompact={props.isCompact} isBare={props.isBare}>
+              <StyledStartIcon
+                isCompact={props.isCompact}
+                isBare={props.isBare}
+                disabled={props.disabled}
+              >
                 {start}
               </StyledStartIcon>
             )}
