@@ -139,9 +139,37 @@ const { Field, Input, Label } = require('@zendeskgarden/react-forms/src');
         </Field>
       </Well>
     </Col>
-    <Col alignSelf="center">
+    <Col alignSelf="center" textAlign="center">
       <Tag hue={state.hue} tabIndex={0}>
         Custom Hue
+        <Tag.Close onClick={() => alert('Delete tag')} />
+      </Tag>
+    </Col>
+  </Row>
+</Grid>;
+```
+
+The following examples demonstrates using the `isRegular` prop combined with
+mixed weight content. Check out the code for details.
+
+```jsx
+const { Span } = require('@zendeskgarden/react-typography/src');
+
+<Grid>
+  <Row>
+    <Col textAlign="center">
+      <Tag isRegular tabIndex={0}>
+        <span>
+          <b>Mixed</b> weight
+        </span>
+        <Tag.Close onClick={() => alert('Delete tag')} />
+      </Tag>
+    </Col>
+    <Col textAlign="center">
+      <Tag isRegular hue="royal" tabIndex={0}>
+        <Span>
+          <Span isBold>Category</Span> item
+        </Span>
         <Tag.Close onClick={() => alert('Delete tag')} />
       </Tag>
     </Col>

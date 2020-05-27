@@ -158,6 +158,7 @@ interface IStyledTagProps {
   size?: 'small' | 'medium' | 'large';
   isPill?: boolean;
   isRound?: boolean;
+  isRegular?: boolean;
 }
 
 export const StyledTag = styled.div.attrs<IStyledTagProps>({
@@ -176,7 +177,7 @@ export const StyledTag = styled.div.attrs<IStyledTagProps>({
   vertical-align: middle;
   text-decoration: none; /* <a> element reset */
   white-space: nowrap;
-  font-weight: ${props => props.theme.fontWeights.semibold};
+  font-weight: ${props => !props.isRegular && props.theme.fontWeights.semibold};
   direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
 
   ${props => sizeStyles(props)};
@@ -210,6 +211,10 @@ export const StyledTag = styled.div.attrs<IStyledTagProps>({
     text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  & b {
+    font-weight: ${props => props.theme.fontWeights.semibold};
   }
 
   & ${StyledAvatar} {

@@ -55,6 +55,12 @@ describe('StyledTag', () => {
     expect(container.firstChild).toHaveStyleRule('border-radius', '50%');
   });
 
+  it('renders regular weight styling if provided', () => {
+    const { container } = render(<StyledTag isRegular />);
+
+    expect(container.firstChild).toHaveStyleRule('font-weight', undefined);
+  });
+
   describe('size', () => {
     it('renders small styling if provided', () => {
       const { container } = render(<StyledTag size="small" />);
