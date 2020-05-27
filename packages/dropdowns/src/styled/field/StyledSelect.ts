@@ -49,6 +49,7 @@ const iconStyles = (props: IStyledSelectIconProps & ThemeProps<DefaultTheme>, is
     align-items: center;
     justify-content: ${justifyContent};
     transition: color 0.25s ease-in-out;
+    box-sizing: content-box;
     /* stylelint-disable-next-line property-no-unknown */
     padding-${position}: ${padding};
     width: ${size};
@@ -56,7 +57,7 @@ const iconStyles = (props: IStyledSelectIconProps & ThemeProps<DefaultTheme>, is
     max-height: ${maxHeight};
     color: ${getColor('neutralHue', shade, props.theme)};
 
-    & * {
+    & > * {
       width: ${size};
       height: ${size};
     }
