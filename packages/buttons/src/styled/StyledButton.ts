@@ -209,13 +209,20 @@ const sizeStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   } else {
     const height = getHeight(props);
     const lineHeight = math(`${height} - (${props.theme.borderWidths.sm} * 2)`);
-    const padding = props.theme.space.base * 7;
+    let padding;
     let fontSize;
 
-    if (props.size === 'small') {
+    if (props.size === SIZE.SMALL) {
       fontSize = props.theme.fontSizes.sm;
+      padding = `${props.theme.space.base * 3}px`;
     } else {
       fontSize = props.theme.fontSizes.md;
+
+      if (props.size === SIZE.LARGE) {
+        padding = `${props.theme.space.base * 5}px`;
+      } else {
+        padding = `${props.theme.space.base * 4}px`;
+      }
     }
 
     retVal = css`
