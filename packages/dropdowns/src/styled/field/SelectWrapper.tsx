@@ -23,7 +23,14 @@ export const SelectWrapper = React.forwardRef<
     >
       {children}
       {!props.isBare && (
-        <StyledSelectIcon isCompact={props.isCompact} data-test-id="select-icon">
+        <StyledSelectIcon
+          isOpen={props.isOpen}
+          isCompact={props.isCompact}
+          isHovered={props.isHovered}
+          isFocused={props.isFocused}
+          disabled={props.disabled}
+          data-test-id="select-icon"
+        >
           <ChevronSVG />
         </StyledSelectIcon>
       )}

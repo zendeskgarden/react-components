@@ -83,7 +83,11 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
             {...selectProps}
           >
             {start && (
-              <StyledStartIcon isCompact={props.isCompact} isBare={props.isBare}>
+              <StyledStartIcon
+                isCompact={props.isCompact}
+                isBare={props.isBare}
+                disabled={props.disabled}
+              >
                 {start}
               </StyledStartIcon>
             )}

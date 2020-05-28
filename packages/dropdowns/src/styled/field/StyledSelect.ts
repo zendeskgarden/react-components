@@ -17,72 +17,83 @@ const isInvalid = (validation?: VALIDATION) => {
   return validation === 'warning' || validation === 'error';
 };
 
-interface IStyledSelectIconProps {
-  isCompact?: boolean;
-  isBare?: boolean;
-}
+const iconStyles = (props: IStyledSelectIconProps & ThemeProps<DefaultTheme>, isStart: boolean) => {
+  const maxHeight = `${props.theme.space.base * (props.isCompact ? 8 : 10)}px`;
+  const padding = `${props.theme.space.base * 3}px`;
+  const size = props.theme.iconSizes.md;
+  let position;
+  let justifyContent;
+  let shade;
 
-const getIconWrapperSize = (props: IStyledSelectIconProps & ThemeProps<DefaultTheme>) => {
-  if (props.isCompact) {
-    return `${props.theme.space.base * 8}px`;
+  if (isStart) {
+    position = props.theme.rtl ? 'right' : 'left';
+    justifyContent = props.theme.rtl ? 'end' : 'start';
+  } else {
+    position = props.theme.rtl ? 'left' : 'right';
+    justifyContent = props.theme.rtl ? 'start' : 'end';
   }
 
-  return `${props.theme.space.base * 10}px`;
+  if (props.isHovered || props.isFocused) {
+    shade = 700;
+  } else if (props.disabled) {
+    shade = 400;
+  } else {
+    shade = 600;
+  }
+
+  return css`
+    display: flex;
+    position: absolute;
+    top: 0;
+    ${position}: 0;
+    align-items: center;
+    justify-content: ${justifyContent};
+    transition: color 0.25s ease-in-out;
+    box-sizing: content-box;
+    /* stylelint-disable-next-line property-no-unknown */
+    padding-${position}: ${padding};
+    width: ${size};
+    height: 100%;
+    max-height: ${maxHeight};
+    color: ${getColor('neutralHue', shade, props.theme)};
+
+    & > * {
+      width: ${size};
+      height: ${size};
+    }
+  `;
 };
 
-export const StyledSelectIcon = styled.div<IStyledSelectIconProps>`
-  display: flex;
-  position: absolute;
-  top: 0;
-  /* stylelint-disable-next-line property-no-unknown */
-  ${props => (props.theme.rtl ? 'left' : 'right')}: 0;
-  align-items: center;
-  justify-content: ${props => (props.theme.rtl ? 'start' : 'end')};
-  /* stylelint-disable-next-line property-no-unknown */
-  padding-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
-  props.theme.space.base * 3}px;
-  width: ${props => props.theme.iconSizes.md};
-  height: ${props => getIconWrapperSize(props)};
-  color: ${props => getColor('neutralHue', 600, props.theme)};
+interface IStyledStartIconProps {
+  isCompact?: boolean;
+  isBare?: boolean;
+  disabled?: boolean;
+}
 
-  * {
-    /* prettier-ignore */
-    transition: color 0.25s ease-in-out,
-      transform 0.25s ease-in-out,
-      border-color 0.25s ease-in-out,
-      box-shadow 0.1s ease-in-out;
-    width: ${props => props.theme.iconSizes.md};
-    height: ${props => props.theme.iconSizes.md};
+export const StyledStartIcon = styled.div<IStyledStartIconProps>`
+  ${props => iconStyles(props, true)};
+`;
+
+StyledStartIcon.defaultProps = {
+  theme: DEFAULT_THEME
+};
+
+interface IStyledSelectIconProps extends IStyledStartIconProps {
+  isOpen?: boolean;
+  isHovered?: boolean;
+  isFocused?: boolean;
+}
+
+export const StyledSelectIcon = styled.div<IStyledSelectIconProps>`
+  ${props => iconStyles(props, false)};
+
+  & > svg {
+    transform: ${props => props.isOpen && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`};
+    transition: transform 0.25s ease-in-out;
   }
 `;
 
 StyledSelectIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};
-
-export const StyledStartIcon = styled.div<IStyledSelectIconProps>`
-  display: flex;
-  position: absolute;
-  top: 0;
-  /* stylelint-disable-next-line property-no-unknown */
-  ${props => (props.theme.rtl ? 'right' : 'left')}: 0;
-  align-items: center;
-  justify-content: ${props => (props.theme.rtl ? 'end' : 'start')};
-  /* stylelint-disable-next-line property-no-unknown */
-  padding-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
-  props.theme.space.base * 3}px;
-  transition: color 0.25s ease-in-out;
-  width: ${props => props.theme.iconSizes.md};
-  height: ${props => (props.isBare ? 'inherit' : getIconWrapperSize(props))};
-  color: ${props => getColor('neutralHue', 600, props.theme)};
-
-  * {
-    width: ${props => props.theme.iconSizes.md};
-    height: ${props => props.theme.iconSizes.md};
-  }
-`;
-
-StyledStartIcon.defaultProps = {
   theme: DEFAULT_THEME
 };
 
@@ -134,40 +145,8 @@ export const StyledSelect = styled(FauxInput).attrs<IStyledSelectProps>(props =>
 
   ${props => sizeStyles(props)};
 
-  /* stylelint-disable-next-line */
-  ${StyledSelectIcon} > * {
-    transform: ${props => {
-      if (!props.isOpen) {
-        return undefined;
-      }
-
-      if (props.theme.rtl) {
-        return 'rotate(-180deg)';
-      }
-
-      return 'rotate(180deg)';
-    }};
-    color: ${props => {
-      if (props.disabled) {
-        return getColor('neutralHue', 400, props.theme);
-      }
-
-      if (props.isHovered) {
-        return getColor('neutralHue', 700, props.theme);
-      }
-
-      return getColor('neutralHue', 600, props.theme);
-    }};
-  }
-
-  ${StyledStartIcon} {
-    color: ${props => props.disabled && getColor('neutralHue', 400, props.theme)};
-  }
-
-  :hover {
-    ${StyledSelectIcon} {
-      color: ${props => !props.disabled && getColor('neutralHue', 700, props.theme)};
-    }
+  &:hover ${StyledSelectIcon} {
+    color: ${props => getColor('neutralHue', 700, props.theme)};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

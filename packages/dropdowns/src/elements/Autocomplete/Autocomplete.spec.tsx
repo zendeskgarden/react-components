@@ -109,10 +109,10 @@ describe('Autocomplete', () => {
     const icon = getByTestId('icon');
 
     expect(icon.parentElement).toHaveStyleRule('width', '16px', {
-      modifier: '*'
+      modifier: '& > *'
     });
     expect(icon.parentElement).toHaveStyleRule('height', '16px', {
-      modifier: '*'
+      modifier: '& > *'
     });
   });
 
