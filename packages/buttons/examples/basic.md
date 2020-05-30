@@ -60,6 +60,14 @@ initialState = {
         </Field>
         <Field className="u-mt-xs">
           <Toggle
+            checked={state.pressed}
+            onChange={event => setState({ pressed: event.target.checked })}
+          >
+            <Label>Pressed</Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-xs">
+          <Toggle
             checked={state.focusInset}
             onChange={event => setState({ focusInset: event.target.checked })}
           >
@@ -106,6 +114,7 @@ initialState = {
         isDanger={state.danger}
         isPill={state.pill}
         isBasic={state.basic}
+        aria-pressed={state.pressed}
         focusInset={state.focusInset}
         isLink={state.link}
         isStretched={state.stretched}

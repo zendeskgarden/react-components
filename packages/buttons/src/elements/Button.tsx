@@ -11,7 +11,7 @@ import { StyledButton } from '../styled';
 import { useButtonGroupContext } from '../utils/useButtonGroupContext';
 import { useSplitButtonContext } from '../utils/useSplitButtonContext';
 
-interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Apply danger styling */
   isDanger?: boolean;
   size?: 'small' | 'medium' | 'large';
@@ -58,7 +58,7 @@ const Button: React.FunctionComponent<
     });
   }
 
-  return <StyledButton ref={ref} {...computedProps} {...computedProps} />;
+  return <StyledButton ref={ref} {...computedProps} />;
 });
 
 Button.propTypes = {

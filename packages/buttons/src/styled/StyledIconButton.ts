@@ -26,7 +26,9 @@ const iconColorStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) =
       color: ${hoverColor};
     }
 
-    &:active {
+    &:active,
+    &[aria-pressed='true'],
+    &[aria-pressed='mixed'] {
       color: ${activeColor};
     }
   `;
