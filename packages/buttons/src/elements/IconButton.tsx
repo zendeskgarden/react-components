@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { StyledIconButton, StyledIcon } from '../styled';
 import { useSplitButtonContext } from '../utils/useSplitButtonContext';
 
-interface IIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Apply danger styling */
   isDanger?: boolean;
   size?: 'small' | 'medium' | 'large';

@@ -1,0 +1,45 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import React from 'react';
+import PropTypes from 'prop-types';
+import IconButton, { IIconButtonProps } from './IconButton';
+
+interface IToggleIconButtonProps extends IIconButtonProps {
+  /**
+   * Determine if the icon button is pressed or not. Use `'mixed'` to indicate
+   * whether the toggle controls other elements which do not share the same
+   * value.
+   */
+  isPressed?: boolean | 'mixed';
+}
+
+/**
+ * A `IconButton` with the [ARIA
+ * attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role#Toggle_buttons)
+ * to indicate a pressed state.
+ */
+const ToggleIconButton: React.FunctionComponent<
+  IToggleIconButtonProps & React.RefAttributes<HTMLButtonElement>
+> = React.forwardRef<HTMLButtonElement, IToggleIconButtonProps>(({ ...buttonProps }, ref) => (
+  <IconButton ref={ref} {...buttonProps} />
+));
+
+ToggleIconButton.displayName = 'ChevronButton';
+
+ToggleIconButton.propTypes = {
+  ...IconButton.propTypes,
+  isPressed: PropTypes.bool
+};
+
+ToggleIconButton.defaultProps = {
+  isPill: true,
+  isBasic: true,
+  size: 'medium'
+};
+
+export default ToggleIconButton;

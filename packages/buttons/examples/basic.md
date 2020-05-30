@@ -274,6 +274,14 @@ initialState = {
         </Field>
         <Field className="u-mt-xs">
           <Toggle
+            checked={state.pressed}
+            onChange={event => setState({ pressed: event.target.checked })}
+          >
+            <Label>Pressed</Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-xs">
+          <Toggle
             checked={state.focusInset}
             onChange={event => setState({ focusInset: event.target.checked })}
           >
@@ -316,6 +324,7 @@ initialState = {
         isPrimary={state.primary}
         isDanger={state.danger}
         isRotated={state.rotated}
+        aria-pressed={state.pressed}
         focusInset={state.focusInset}
         disabled={state.disabled}
         size={state.size}
@@ -329,6 +338,7 @@ initialState = {
         isPrimary={state.primary}
         isDanger={state.danger}
         isRotated={state.rotated}
+        aria-pressed={state.pressed}
         focusInset={state.focusInset}
         disabled={state.disabled}
         size={state.size}
@@ -342,6 +352,7 @@ initialState = {
         isPrimary={state.primary}
         isDanger={state.danger}
         isRotated={state.rotated}
+        aria-pressed={state.pressed}
         focusInset={state.focusInset}
         disabled={state.disabled}
         size={state.size}

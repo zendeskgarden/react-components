@@ -7,7 +7,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { default as Button, IButtonProps } from './Button';
+import Button, { IButtonProps } from './Button';
 
 interface IToggleButtonProps extends IButtonProps {
   /**
@@ -36,5 +36,8 @@ ToggleButton.propTypes = {
   isPressed: PropTypes.bool
 };
 
-/** @component */
+ToggleButton.defaultProps = {
+  size: 'medium'
+};
+
 export default ToggleButton;
