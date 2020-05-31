@@ -25,15 +25,17 @@ interface IToggleIconButtonProps extends IIconButtonProps {
  */
 const ToggleIconButton: React.FunctionComponent<
   IToggleIconButtonProps & React.RefAttributes<HTMLButtonElement>
-> = React.forwardRef<HTMLButtonElement, IToggleIconButtonProps>(({ ...buttonProps }, ref) => (
-  <IconButton ref={ref} {...buttonProps} />
-));
+> = React.forwardRef<HTMLButtonElement, IToggleIconButtonProps>(
+  ({ isPressed, ...otherProps }, ref) => (
+    <IconButton aria-pressed={isPressed} ref={ref} {...otherProps} />
+  )
+);
 
 ToggleIconButton.displayName = 'ChevronButton';
 
 ToggleIconButton.propTypes = {
   ...IconButton.propTypes,
-  isPressed: PropTypes.bool
+  isPressed: PropTypes.oneOf([true, false, 'mixed'])
 };
 
 ToggleIconButton.defaultProps = {

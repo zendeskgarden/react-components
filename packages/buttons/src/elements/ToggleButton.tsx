@@ -33,7 +33,7 @@ ToggleButton.displayName = 'ToggleButton';
 
 ToggleButton.propTypes = {
   ...Button.propTypes,
-  isPressed: PropTypes.bool
+  isPressed: PropTypes.oneOf([true, false, 'mixed'])
 };
 
 ToggleButton.defaultProps = {
