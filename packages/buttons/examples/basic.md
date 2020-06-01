@@ -364,24 +364,36 @@ initialState = {
 
 ### Toggle Button
 
-The following example demonstrates a [toggle
+The following example demonstrates a [toggle button and toggle icon
 button](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role#Toggle_buttons).
-Either click or use the keyboard to toggle the button's pressed state.
+Either click or use the keyboard to toggle each button's pressed state.
 
 ```jsx
+const Icon = require('@zendeskgarden/svg-icons/src/16/eye-stroke.svg').default;
+
 initialState = {
-  pressed: false
+  buttonPressed: false,
+  iconButtonPressed: false
 };
 
 <Grid>
   <Row>
     <Col textAlign="center">
       <ToggleButton
-        isPressed={state.pressed}
-        onClick={event => setState({ pressed: !state.pressed })}
+        isPressed={state.buttonPressed}
+        onClick={event => setState({ buttonPressed: !state.buttonPressed })}
       >
         Toggle button
       </ToggleButton>
+    </Col>
+    <Col textAlign="center">
+      <ToggleIconButton
+        aria-label="icon"
+        isPressed={state.iconButtonPressed}
+        onClick={event => setState({ iconButtonPressed: !state.iconButtonPressed })}
+      >
+        <Icon />
+      </ToggleIconButton>
     </Col>
   </Row>
 </Grid>;
