@@ -24,8 +24,6 @@ export const StyledIcon = styled(({ children, isRotated, ...props }) =>
 })<IStyledIconProps>`
   transform: ${props => props.isRotated && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`};
   transition: transform 0.25s ease-in-out;
-  margin-top: -2px;
-  vertical-align: middle;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
