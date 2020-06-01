@@ -204,6 +204,18 @@ const groupStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
+const iconStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
+  const size =
+    props.size === 'large' ? `${props.theme.space.base * 6}px` : props.theme.iconSizes.md;
+
+  return css`
+    width: ${size};
+    min-width: ${size};
+    height: ${size};
+    vertical-align: ${props.isLink && 'middle'};
+  `;
+};
+
 const sizeStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   let retVal;
 
@@ -328,6 +340,10 @@ export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
   }
 
   /* stylelint-disable */
+  & ${StyledIcon} {
+    ${props => iconStyles(props)}
+  }
+
   ${StyledButtonGroup} & {
     ${props => groupStyles(props)};
   }
