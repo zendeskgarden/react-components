@@ -31,7 +31,7 @@ const ToggleIconButton: React.FunctionComponent<
   )
 );
 
-ToggleIconButton.displayName = 'ChevronButton';
+ToggleIconButton.displayName = 'ToggleIconButton';
 
 ToggleIconButton.propTypes = {
   ...IconButton.propTypes,
