@@ -26,7 +26,7 @@ interface IToggleButtonProps extends IButtonProps {
 const ToggleButton: React.FunctionComponent<
   IToggleButtonProps & React.RefAttributes<HTMLButtonElement>
 > = React.forwardRef<HTMLButtonElement, IToggleButtonProps>(({ isPressed, ...otherProps }, ref) => (
-  <Button aria-pressed={isPressed} ref={ref} {...otherProps} />
+  <Button aria-pressed={isPressed === undefined ? false : isPressed} ref={ref} {...otherProps} />
 ));
 
 ToggleButton.displayName = 'ToggleButton';

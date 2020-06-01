@@ -362,6 +362,27 @@ initialState = {
 </Grid>;
 ```
 
+### Toggle Button
+
+```jsx
+initialState = {
+  pressed: false
+};
+
+<Grid>
+  <Row>
+    <Col>
+      <ToggleButton
+        isPressed={state.pressed}
+        onClick={event => setState({ pressed: !state.pressed })}
+      >
+        Toggle button
+      </ToggleButton>
+    </Col>
+  </Row>
+</Grid>;
+```
+
 ### Groups
 
 While split buttons are visually similar to button groups, it is important to
