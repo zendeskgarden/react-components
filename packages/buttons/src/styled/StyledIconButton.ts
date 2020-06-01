@@ -36,6 +36,7 @@ const iconColorStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) =
 
 const iconButtonStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   return css`
+    justify-content: center;
     border: ${props.isBasic && 'none'};
     padding: 0;
     width: ${getHeight(props)};

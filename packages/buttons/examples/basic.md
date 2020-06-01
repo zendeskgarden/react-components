@@ -11,6 +11,8 @@ const {
   Menu,
   Item
 } = require('@zendeskgarden/react-dropdowns/src');
+const SettingsIcon = require('@zendeskgarden/svg-icons/src/16/gear-stroke.svg').default;
+const ChevronDownIcon = require('@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg').default;
 
 initialState = {
   size: 'medium',
@@ -24,7 +26,7 @@ initialState = {
         <Field>
           <Label>Text</Label>
           <Input
-            small
+            isCompact
             value={state.text}
             onChange={event => setState({ text: event.target.value })}
           />
@@ -95,6 +97,28 @@ initialState = {
             <Label>Disabled</Label>
           </Toggle>
         </Field>
+        <Field className="u-mt-xs">
+          <Toggle
+            checked={state.start}
+            onChange={event => setState({ start: event.target.checked })}
+          >
+            <Label>Start icon</Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-xs">
+          <Toggle checked={state.end} onChange={event => setState({ end: event.target.checked })}>
+            <Label>End icon</Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-xs">
+          <Toggle
+            checked={state.rotated}
+            disabled={!(state.start || state.end)}
+            onChange={event => setState({ rotated: event.target.checked })}
+          >
+            <Label>Rotate icons</Label>
+          </Toggle>
+        </Field>
         <Dropdown selectedItem={state.size} onSelect={size => setState({ size })}>
           <SelectField className="u-mt-xs">
             <SelectLabel>Size</SelectLabel>
@@ -120,6 +144,10 @@ initialState = {
         isStretched={state.stretched}
         disabled={state.disabled}
         size={state.size}
+        start={state.start && <SettingsIcon />}
+        end={state.end && <ChevronDownIcon />}
+        isStartRotated={state.rotated}
+        isEndRotated={state.rotated}
       >
         {state.text || '\u00A0'}
       </Button>
@@ -178,7 +206,7 @@ initialState = {
         <Field>
           <Label>Text</Label>
           <Input
-            small
+            isCompact
             value={state.text}
             onChange={event => setState({ text: event.target.value })}
           />

@@ -265,7 +265,7 @@ export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
 }))<IStyledButtonProps>`
   display: ${props => (props.isLink ? 'inline' : 'inline-flex')};
   align-items: ${props => !props.isLink && 'center'};
-  justify-content: ${props => !props.isLink && 'center'};
+  justify-content: ${props => !props.isLink && 'space-between'};
   /* prettier-ignore */
   transition:
     border-color 0.25s ease-in-out,

@@ -7,7 +7,7 @@
 
 import React, { ButtonHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { StyledButton } from '../styled';
+import { StyledButton, StyledIcon } from '../styled';
 import { useButtonGroupContext } from '../utils/useButtonGroupContext';
 import { useSplitButtonContext } from '../utils/useSplitButtonContext';
 
@@ -27,6 +27,14 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isPill?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
+  /** Slot for "start" icon */
+  start?: any;
+  /** Rotates "start" icon 180 degrees */
+  isStartRotated?: boolean;
+  /** Slot for "end" icon */
+  end?: any;
+  /** Rotates "start" icon 180 degrees */
+  isEndRotated?: boolean;
   /** @ignore prop used by `ButtonGroup` */
   isSelected?: boolean;
 }
@@ -36,7 +44,7 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
  */
 const Button: React.FunctionComponent<
   IButtonProps & React.RefAttributes<HTMLButtonElement>
-> = React.forwardRef<HTMLButtonElement, IButtonProps>((props, ref) => {
+> = React.forwardRef<HTMLButtonElement, IButtonProps>(({ start, end, children, ...props }, ref) => {
   const buttonGroupContext = useButtonGroupContext();
   const splitButtonContext = useSplitButtonContext();
 
@@ -58,7 +66,21 @@ const Button: React.FunctionComponent<
     });
   }
 
-  return <StyledButton ref={ref} {...computedProps} />;
+  return (
+    <StyledButton ref={ref} {...computedProps}>
+      {start && (
+        <StyledIcon position="start" isRotated={props.isStartRotated}>
+          {start}
+        </StyledIcon>
+      )}
+      {children}
+      {end && (
+        <StyledIcon position="end" isRotated={props.isEndRotated}>
+          {end}
+        </StyledIcon>
+      )}
+    </StyledButton>
+  );
 });
 
 Button.propTypes = {
