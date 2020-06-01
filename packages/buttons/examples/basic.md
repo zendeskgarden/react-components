@@ -364,6 +364,10 @@ initialState = {
 
 ### Toggle Button
 
+The following example demonstrates a [toggle
+button](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role#Toggle_buttons).
+Either click or use the keyboard to toggle the button's pressed state.
+
 ```jsx
 initialState = {
   pressed: false
@@ -371,7 +375,7 @@ initialState = {
 
 <Grid>
   <Row>
-    <Col>
+    <Col textAlign="center">
       <ToggleButton
         isPressed={state.pressed}
         onClick={event => setState({ pressed: !state.pressed })}
