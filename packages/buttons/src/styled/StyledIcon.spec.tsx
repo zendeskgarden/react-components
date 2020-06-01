@@ -31,7 +31,7 @@ describe('StyledIcon', () => {
     expect(getByTestId('icon')).not.toBeNull();
   });
 
-  it('renders  styling if provided', () => {
+  it('renders rotated styling if provided', () => {
     const { container } = render(
       <StyledIcon isRotated>
         <TestIcon />
