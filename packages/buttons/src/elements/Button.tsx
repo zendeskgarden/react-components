@@ -27,14 +27,6 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isPill?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Slot for "start" icon */
-  start?: any;
-  /** Rotates "start" icon 180 degrees */
-  isStartRotated?: boolean;
-  /** Slot for "end" icon */
-  end?: any;
-  /** Rotates "start" icon 180 degrees */
-  isEndRotated?: boolean;
   /** @ignore prop used by `ButtonGroup` */
   isSelected?: boolean;
 }
@@ -44,7 +36,7 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
  */
 const Button: React.FunctionComponent<
   IButtonProps & React.RefAttributes<HTMLButtonElement>
-> = React.forwardRef<HTMLButtonElement, IButtonProps>(({ start, end, children, ...props }, ref) => {
+> = React.forwardRef<HTMLButtonElement, IButtonProps>((props, ref) => {
   const buttonGroupContext = useButtonGroupContext();
   const splitButtonContext = useSplitButtonContext();
 
@@ -66,21 +58,7 @@ const Button: React.FunctionComponent<
     });
   }
 
-  return (
-    <StyledButton ref={ref} {...computedProps}>
-      {start && (
-        <StyledIcon position="start" isRotated={props.isStartRotated}>
-          {start}
-        </StyledIcon>
-      )}
-      {children}
-      {end && (
-        <StyledIcon position="end" isRotated={props.isEndRotated}>
-          {end}
-        </StyledIcon>
-      )}
-    </StyledButton>
-  );
+  return <StyledButton ref={ref} {...computedProps} />;
 });
 
 Button.propTypes = {
@@ -99,5 +77,21 @@ Button.defaultProps = {
   size: 'medium'
 };
 
+interface IIconProps {
+  isRotated?: boolean;
+  children: any;
+}
+
+const StartIcon = (props: IIconProps) => <StyledIcon position="start" {...props} />;
+const EndIcon = (props: IIconProps) => <StyledIcon position="end" {...props} />;
+
+(Button as any).StartIcon = StartIcon;
+(Button as any).EndIcon = EndIcon;
+
 /** @component */
-export default Button;
+export default Button as React.FunctionComponent<
+  IButtonProps & React.RefAttributes<HTMLButtonElement>
+> & {
+  StartIcon: typeof StartIcon;
+  EndIcon: typeof EndIcon;
+};

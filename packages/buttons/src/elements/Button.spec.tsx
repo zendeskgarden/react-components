@@ -27,7 +27,14 @@ describe('Button', () => {
   describe('Icons', () => {
     it('successfully renders start and end icons', () => {
       const { getByTestId } = render(
-        <Button start={<TestIcon data-test-id="start" />} end={<TestIcon data-test-id="end" />} />
+        <Button>
+          <Button.StartIcon>
+            <TestIcon data-test-id="start" />
+          </Button.StartIcon>
+          <Button.EndIcon>
+            <TestIcon data-test-id="end" />
+          </Button.EndIcon>
+        </Button>
       );
 
       expect(getByTestId('start')).not.toBeNull();
@@ -36,7 +43,11 @@ describe('Button', () => {
 
     it('renders icon rotation', () => {
       const { getByTestId } = render(
-        <Button start={<TestIcon data-test-id="icon" />} isStartRotated />
+        <Button>
+          <Button.StartIcon isRotated>
+            <TestIcon data-test-id="icon" />
+          </Button.StartIcon>
+        </Button>
       );
 
       expect(getByTestId('icon')).toHaveStyleRule('transform', 'rotate(+180deg)');
@@ -44,7 +55,11 @@ describe('Button', () => {
 
     it('renders RTL icon rotation', () => {
       const { getByTestId } = renderRtl(
-        <Button end={<TestIcon data-test-id="icon" />} isEndRotated />
+        <Button>
+          <Button.EndIcon isRotated>
+            <TestIcon data-test-id="icon" />
+          </Button.EndIcon>
+        </Button>
       );
 
       expect(getByTestId('icon')).toHaveStyleRule('transform', 'rotate(-180deg)');

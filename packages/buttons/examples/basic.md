@@ -91,21 +91,24 @@ initialState = {
         </Field>
         <Field className="u-mt-xs">
           <Toggle
-            checked={state.start}
-            onChange={event => setState({ start: event.target.checked })}
+            checked={state.startIcon}
+            onChange={event => setState({ startIcon: event.target.checked })}
           >
             <Label>Start icon</Label>
           </Toggle>
         </Field>
         <Field className="u-mt-xs">
-          <Toggle checked={state.end} onChange={event => setState({ end: event.target.checked })}>
+          <Toggle
+            checked={state.endIcon}
+            onChange={event => setState({ endIcon: event.target.checked })}
+          >
             <Label>End icon</Label>
           </Toggle>
         </Field>
         <Field className="u-mt-xs">
           <Toggle
             checked={state.rotated}
-            disabled={!(state.start || state.end)}
+            disabled={!(state.startIcon || state.endIcon)}
             onChange={event => setState({ rotated: event.target.checked })}
           >
             <Label>Rotate icons</Label>
@@ -135,12 +138,18 @@ initialState = {
         isStretched={state.stretched}
         disabled={state.disabled}
         size={state.size}
-        start={state.start && <SettingsIcon />}
-        end={state.end && <ChevronDownIcon />}
-        isStartRotated={state.rotated}
-        isEndRotated={state.rotated}
       >
+        {state.startIcon && (
+          <Button.StartIcon isRotated={state.rotated}>
+            <SettingsIcon />
+          </Button.StartIcon>
+        )}
         {state.text || '\u00A0'}
+        {state.endIcon && (
+          <Button.EndIcon isRotated={state.rotated}>
+            <ChevronDownIcon />
+          </Button.EndIcon>
+        )}
       </Button>
     </Col>
   </Row>
