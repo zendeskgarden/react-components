@@ -100,10 +100,13 @@ const colorStyles = (
         box-shadow: ${boxShadow};
       }
 
-      &:active,
+      &:active {
+        background-color: ${activeColor};
+      }
+
       &[aria-pressed='true'],
       &[aria-pressed='mixed'] {
-        background-color: ${activeColor};
+        background-color: ${props.isPrimary && activeColor};
       }
 
       &:disabled {
