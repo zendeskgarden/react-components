@@ -27,11 +27,7 @@ const ToggleIconButton: React.FunctionComponent<
   IToggleIconButtonProps & React.RefAttributes<HTMLButtonElement>
 > = React.forwardRef<HTMLButtonElement, IToggleIconButtonProps>(
   ({ isPressed, ...otherProps }, ref) => (
-    <IconButton
-      aria-pressed={isPressed === undefined ? false : isPressed}
-      ref={ref}
-      {...otherProps}
-    />
+    <IconButton aria-pressed={isPressed} ref={ref} {...otherProps} />
   )
 );
 
@@ -45,6 +41,7 @@ ToggleIconButton.propTypes = {
 ToggleIconButton.defaultProps = {
   isPill: true,
   isBasic: true,
+  isPressed: false,
   size: 'medium'
 };
 
