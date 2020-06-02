@@ -209,7 +209,7 @@ const groupStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
 
 const iconStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   const size =
-    props.size === 'large' ? `${props.theme.space.base * 6}px` : props.theme.iconSizes.md;
+    props.size === 'large' ? math(`${props.theme.iconSizes.sm} * 2`) : props.theme.iconSizes.md;
 
   return css`
     width: ${size};
