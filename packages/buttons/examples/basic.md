@@ -24,7 +24,7 @@ initialState = {
         <Field>
           <Label>Text</Label>
           <Input
-            small
+            isCompact
             value={state.text}
             onChange={event => setState({ text: event.target.value })}
           />
@@ -56,14 +56,6 @@ initialState = {
             onChange={event => setState({ basic: event.target.checked })}
           >
             <Label>Basic</Label>
-          </Toggle>
-        </Field>
-        <Field className="u-mt-xs">
-          <Toggle
-            checked={state.pressed}
-            onChange={event => setState({ pressed: event.target.checked })}
-          >
-            <Label>Pressed</Label>
           </Toggle>
         </Field>
         <Field className="u-mt-xs">
@@ -114,7 +106,6 @@ initialState = {
         isDanger={state.danger}
         isPill={state.pill}
         isBasic={state.basic}
-        aria-pressed={state.pressed}
         focusInset={state.focusInset}
         isLink={state.link}
         isStretched={state.stretched}
@@ -178,7 +169,7 @@ initialState = {
         <Field>
           <Label>Text</Label>
           <Input
-            small
+            isCompact
             value={state.text}
             onChange={event => setState({ text: event.target.value })}
           />
@@ -274,14 +265,6 @@ initialState = {
         </Field>
         <Field className="u-mt-xs">
           <Toggle
-            checked={state.pressed}
-            onChange={event => setState({ pressed: event.target.checked })}
-          >
-            <Label>Pressed</Label>
-          </Toggle>
-        </Field>
-        <Field className="u-mt-xs">
-          <Toggle
             checked={state.focusInset}
             onChange={event => setState({ focusInset: event.target.checked })}
           >
@@ -324,7 +307,6 @@ initialState = {
         isPrimary={state.primary}
         isDanger={state.danger}
         isRotated={state.rotated}
-        aria-pressed={state.pressed}
         focusInset={state.focusInset}
         disabled={state.disabled}
         size={state.size}
@@ -338,7 +320,6 @@ initialState = {
         isPrimary={state.primary}
         isDanger={state.danger}
         isRotated={state.rotated}
-        aria-pressed={state.pressed}
         focusInset={state.focusInset}
         disabled={state.disabled}
         size={state.size}
@@ -352,7 +333,6 @@ initialState = {
         isPrimary={state.primary}
         isDanger={state.danger}
         isRotated={state.rotated}
-        aria-pressed={state.pressed}
         focusInset={state.focusInset}
         disabled={state.disabled}
         size={state.size}
@@ -369,6 +349,8 @@ button](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/bu
 Either click or use the keyboard to toggle each button's pressed state.
 
 ```jsx
+const { Well } = require('@zendeskgarden/react-notifications/src');
+const { Toggle, Field, Input, Label } = require('@zendeskgarden/react-forms/src');
 const Icon = require('@zendeskgarden/svg-icons/src/16/eye-stroke.svg').default;
 
 initialState = {
@@ -377,23 +359,71 @@ initialState = {
 };
 
 <Grid>
-  <Row>
-    <Col textAlign="center">
-      <ToggleButton
-        isPressed={state.buttonPressed}
-        onClick={event => setState({ buttonPressed: !state.buttonPressed })}
-      >
-        Toggle button
-      </ToggleButton>
+  <Row alignItems="center">
+    <Col>
+      <Well isRecessed style={{ width: 300 }}>
+        <Field className="u-mt-xs">
+          <Toggle
+            checked={state.primary}
+            onChange={event => setState({ primary: event.target.checked })}
+          >
+            <Label>Primary</Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-xs">
+          <Toggle
+            checked={state.danger}
+            onChange={event => setState({ danger: event.target.checked })}
+          >
+            <Label>Danger</Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-xs">
+          <Toggle
+            checked={state.basic}
+            onChange={event => setState({ basic: event.target.checked })}
+          >
+            <Label>Basic</Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-xs">
+          <Toggle
+            checked={state.disabled}
+            onChange={event => setState({ disabled: event.target.checked })}
+          >
+            <Label>Disabled</Label>
+          </Toggle>
+        </Field>
+      </Well>
     </Col>
-    <Col textAlign="center">
-      <ToggleIconButton
-        aria-label="icon"
-        isPressed={state.iconButtonPressed}
-        onClick={event => setState({ iconButtonPressed: !state.iconButtonPressed })}
-      >
-        <Icon />
-      </ToggleIconButton>
+    <Col>
+      <Row>
+        <Col textAlign="center">
+          <ToggleButton
+            isPrimary={state.primary}
+            isDanger={state.danger}
+            isBasic={state.basic}
+            isPressed={state.buttonPressed}
+            disabled={state.disabled}
+            onClick={event => setState({ buttonPressed: !state.buttonPressed })}
+          >
+            Toggle button
+          </ToggleButton>
+        </Col>
+        <Col textAlign="center">
+          <ToggleIconButton
+            aria-label="icon"
+            isPrimary={state.primary}
+            isDanger={state.danger}
+            isBasic={state.basic}
+            isPressed={state.iconButtonPressed}
+            disabled={state.disabled}
+            onClick={event => setState({ iconButtonPressed: !state.iconButtonPressed })}
+          >
+            <Icon />
+          </ToggleIconButton>
+        </Col>
+      </Row>
     </Col>
   </Row>
 </Grid>;

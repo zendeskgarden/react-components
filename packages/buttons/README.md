@@ -24,7 +24,7 @@ import { Button } from '@zendeskgarden/react-buttons';
 <ThemeProvider>
   <>
     <Button onClick={() => alert('clicked')}>Default</Button>
-    <Button primary danger>
+    <Button isPrimary isDanger>
       Primary danger button
     </Button>
   </>
