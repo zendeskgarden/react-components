@@ -135,7 +135,6 @@ export const StyledSelect = styled(FauxInput).attrs<IStyledSelectProps>(props =>
 }))<IStyledSelectProps>`
   position: relative;
   cursor: ${props => (props.disabled ? 'default' : 'pointer')};
-  appearance: none;
   /* stylelint-disable property-no-unknown */
   padding-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
   `${props.theme.space.base * 9}px`};
