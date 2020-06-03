@@ -77,7 +77,9 @@ const colorStyles = (
         color: ${hoverColor};
       }
 
-      &:active {
+      &:active,
+      &[aria-pressed='true'],
+      &[aria-pressed='mixed'] {
         color: ${activeColor};
       }
 
@@ -102,6 +104,11 @@ const colorStyles = (
         background-color: ${activeColor};
       }
 
+      &[aria-pressed='true'],
+      &[aria-pressed='mixed'] {
+        background-color: ${props.isPrimary && activeColor};
+      }
+
       &:disabled {
         background-color: ${disabledBackgroundColor};
         color: ${disabledForegroundColor};
@@ -123,7 +130,9 @@ const colorStyles = (
         box-shadow: ${boxShadow};
       }
 
-      &:active {
+      &:active,
+      &[aria-pressed='true'],
+      &[aria-pressed='mixed'] {
         border-color: ${!props.isBasic && activeColor};
         background-color: ${rgba(baseColor as string, 0.2)};
         color: ${activeColor};
@@ -302,7 +311,9 @@ export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
     text-decoration: ${props => (props.isLink ? 'underline' : 'none')}; /* <a> element reset */
   }
 
-  &:active {
+  &:active,
+  &[aria-pressed='true'],
+  &[aria-pressed='mixed'] {
     /* prettier-ignore */
     transition:
       border-color 0.1s ease-in-out,
