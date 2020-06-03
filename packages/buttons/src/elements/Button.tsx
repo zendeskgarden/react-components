@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledButton, StyledIcon } from '../styled';
 import { useButtonGroupContext } from '../utils/useButtonGroupContext';
@@ -77,7 +77,7 @@ Button.defaultProps = {
   size: 'medium'
 };
 
-interface IIconProps {
+interface IIconProps extends HTMLAttributes<HTMLElement> {
   isRotated?: boolean;
   children: any;
 }
