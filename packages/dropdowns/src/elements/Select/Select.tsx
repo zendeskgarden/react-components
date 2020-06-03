@@ -57,7 +57,12 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
       previousIsOpenRef.current = isOpen;
     }, [isOpen, triggerRef]);
 
-    const selectProps = getToggleButtonProps({
+    /**
+     * Destructure type out of props so that `type="button"`
+     * is not spread onto the Select Dropdown `div`.
+     */
+    /* eslint-disable @typescript-eslint/no-unused-vars */
+    const { type, ...selectProps } = getToggleButtonProps({
       tabIndex: props.disabled ? undefined : 0,
       ...props
     } as any);
