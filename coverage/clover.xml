@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1590684719502" clover="3.2.0">
-  <project timestamp="1590684719502" name="All files">
+<coverage generated="1591208656637" clover="3.2.0">
+  <project timestamp="1591208656637" name="All files">
     <metrics statements="6002" coveredstatements="5971" conditionals="2355" coveredconditionals="2193" methods="1259" coveredmethods="1251" elements="9616" coveredelements="9415" complexity="0" loc="6002" ncloc="6002" packages="104" files="401" classes="401"/>
     <package name="accordions.src.elements.accordion">
       <metrics statements="22" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
@@ -3014,14 +3014,14 @@
         <line num="54" count="27" type="cond" truecount="4" falsecount="0"/>
         <line num="55" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="57" count="27" type="stmt"/>
-        <line num="60" count="35" type="stmt"/>
         <line num="65" count="35" type="stmt"/>
-        <line num="68" count="35" type="stmt"/>
-        <line num="76" count="70" type="stmt"/>
-        <line num="79" count="70" type="stmt"/>
-        <line num="82" count="70" type="stmt"/>
-        <line num="111" count="20" type="stmt"/>
-        <line num="113" count="20" type="stmt"/>
+        <line num="70" count="35" type="stmt"/>
+        <line num="73" count="35" type="stmt"/>
+        <line num="81" count="70" type="stmt"/>
+        <line num="84" count="70" type="stmt"/>
+        <line num="87" count="70" type="stmt"/>
+        <line num="116" count="20" type="stmt"/>
+        <line num="118" count="20" type="stmt"/>
       </file>
     </package>
     <package name="dropdowns.src.elements.Trigger">
@@ -3191,16 +3191,16 @@
         <line num="111" count="141" type="stmt"/>
         <line num="130" count="141" type="stmt"/>
         <line num="137" count="141" type="cond" truecount="2" falsecount="0"/>
-        <line num="140" count="141" type="cond" truecount="2" falsecount="0"/>
-        <line num="141" count="141" type="stmt"/>
+        <line num="139" count="141" type="cond" truecount="2" falsecount="0"/>
+        <line num="140" count="141" type="stmt"/>
+        <line num="141" count="141" type="cond" truecount="2" falsecount="0"/>
         <line num="142" count="141" type="cond" truecount="2" falsecount="0"/>
-        <line num="143" count="141" type="cond" truecount="2" falsecount="0"/>
-        <line num="146" count="141" type="stmt"/>
-        <line num="149" count="141" type="stmt"/>
-        <line num="152" count="141" type="stmt"/>
-        <line num="155" count="22" type="stmt"/>
-        <line num="159" count="22" type="stmt"/>
-        <line num="165" count="22" type="stmt"/>
+        <line num="145" count="141" type="stmt"/>
+        <line num="148" count="141" type="stmt"/>
+        <line num="151" count="141" type="stmt"/>
+        <line num="154" count="22" type="stmt"/>
+        <line num="158" count="22" type="stmt"/>
+        <line num="164" count="22" type="stmt"/>
       </file>
     </package>
     <package name="dropdowns.src.styled.items">
