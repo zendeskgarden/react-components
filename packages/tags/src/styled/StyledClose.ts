@@ -10,7 +10,7 @@ import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'tags.close';
 
-export const StyledClose = styled.div.attrs<{}>({
+export const StyledClose = styled.div.attrs<unknown>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   'aria-label': 'Press delete to remove'

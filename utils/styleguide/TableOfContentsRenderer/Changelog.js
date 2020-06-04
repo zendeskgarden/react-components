@@ -23,6 +23,7 @@ const Changelog = ({ onClose, name, htmlContent }) => {
   return (
     <ChangelogModal large backdropProps={{ style: { overflow: 'hidden' } }} onClose={onClose}>
       <Header>{name}</Header>
+      {/* eslint-disable-next-line @typescript-eslint/naming-convention */}
       <ChangelogBody dangerouslySetInnerHTML={{ __html: htmlContent }} className="markdown-body" />
       <Close onClick={onClose} />
     </ChangelogModal>

@@ -12,7 +12,7 @@ export interface IDropdownContext {
   itemIndexRef: React.MutableRefObject<number>;
   previousItemRef: React.MutableRefObject<any>;
   previousIndexRef: React.MutableRefObject<any>;
-  nextItemsHashRef: React.MutableRefObject<object>;
+  nextItemsHashRef: React.MutableRefObject<Record<string, unknown>>;
   popperReferenceElementRef: React.MutableRefObject<any>;
   selectedItems?: any[];
   downshift: ControllerStateAndHelpers<any>;
