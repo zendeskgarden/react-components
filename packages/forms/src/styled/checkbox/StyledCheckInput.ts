@@ -41,14 +41,10 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export interface IStyledCheckInput {
-  type: string;
-}
-
-export const StyledCheckInput = styled(StyledRadioInput).attrs<IStyledCheckInput>({
+export const StyledCheckInput = styled(StyledRadioInput).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  type: 'checkbox'
+  type: 'checkbox' as string
 })`
   /* stylelint-disable-next-line */
   & ~ ${StyledCheckLabel}::before {
