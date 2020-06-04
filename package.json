@@ -99,7 +99,7 @@
     "markdown-loader": "5.1.0",
     "markdownlint-cli": "0.23.1",
     "micromatch": "4.0.2",
-    "mockdate": "2.0.5",
+    "mockdate": "3.0.2",
     "ora": "4.0.4",
     "prettier": "2.0.5",
     "prettier-package-json": "2.1.3",
