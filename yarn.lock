@@ -3642,10 +3642,10 @@
     netlify "4.1.7"
     ora "4.0.4"
 
-"@zendeskgarden/stylelint-config@12.0.1":
-  version "12.0.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/stylelint-config/-/stylelint-config-12.0.1.tgz#5c5ac38a5fa6d3be6b47d7613703c2b971d1dedf"
-  integrity sha512-Jy0cvAZ/q8RZ1SLtQndvgRs3sstTKgFAICQ927xltJKm2K9nnXOSWchLKFyI7oSfty8enYCVG+wMXR7qLw+dRg==
+"@zendeskgarden/stylelint-config@13.0.0":
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/stylelint-config/-/stylelint-config-13.0.0.tgz#9cad63a317337b1b3efde45a03b34076c711fc38"
+  integrity sha512-FuLFv3pmTUVVbSMOu1TD8a5ceGuIRdfb0LrY2+Njcpvqf4ZMgNC8g9t3WZ3Dfb1YM5E/2XIuIrgjpKucMAJCHw==
 
 "@zendeskgarden/svg-icons@6.17.0":
   version "6.17.0"
