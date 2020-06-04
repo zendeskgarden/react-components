@@ -49,7 +49,7 @@
     "@types/prop-types": "15.7.3",
     "@types/react": "^16.9.33",
     "@types/react-dom": "^16.9.6",
-    "@types/styled-components": "4.4.3",
+    "@types/styled-components": "5.1.0",
     "@typescript-eslint/eslint-plugin": "2.34.0",
     "@typescript-eslint/parser": "2.34.0",
     "@zendeskgarden/css-bedrock": "8.0.1",
