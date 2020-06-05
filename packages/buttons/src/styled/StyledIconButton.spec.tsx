@@ -58,7 +58,7 @@ describe('StyledIconButton', () => {
       const { container } = render(<StyledIconButton size="large" />);
 
       expect(container.firstChild).toHaveStyleRule('width', '48px');
-      expect(container.firstChild).toHaveStyleRule('width', '24px', {
+      expect(container.firstChild).toHaveStyleRule('width', '16px', {
         modifier: (css`
           ${StyledIcon}
         ` as unknown) as string

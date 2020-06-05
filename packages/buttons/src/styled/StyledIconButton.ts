@@ -8,6 +8,7 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledButton, getHeight, IStyledButtonProps } from './StyledButton';
+import { StyledIcon } from './StyledIcon';
 
 const COMPONENT_ID = 'buttons.icon_button';
 
@@ -43,6 +44,15 @@ const iconButtonStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) 
   `;
 };
 
+const iconStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
+  const size = props.theme.iconSizes.md;
+
+  return css`
+    width: ${size};
+    height: ${size};
+  `;
+};
+
 /**
  * Accepts all `<button>` props
  */
@@ -51,6 +61,10 @@ export const StyledIconButton = styled(StyledButton).attrs(() => ({
   'data-garden-version': PACKAGE_VERSION
 }))`
   ${props => iconButtonStyles(props)};
+
+  & ${StyledIcon} {
+    ${props => iconStyles(props)}
+  }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

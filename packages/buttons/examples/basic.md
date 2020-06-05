@@ -11,7 +11,7 @@ const {
   Menu,
   Item
 } = require('@zendeskgarden/react-dropdowns/src');
-const SettingsIcon = require('@zendeskgarden/svg-icons/src/16/gear-stroke.svg').default;
+const CircleIcon = require('@zendeskgarden/svg-icons/src/16/circle-stroke.svg').default;
 const ChevronDownIcon = require('@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg').default;
 
 initialState = {
@@ -141,7 +141,7 @@ initialState = {
       >
         {state.startIcon && (
           <Button.StartIcon isRotated={state.rotated}>
-            <SettingsIcon />
+            <CircleIcon />
           </Button.StartIcon>
         )}
         {state.text || '\u00A0'}
