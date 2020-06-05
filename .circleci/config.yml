@@ -46,7 +46,7 @@ jobs:
       NODE_DEBUG: gh-pages
     steps:
       - *attach_workspace
-      - run: yarn lerna run build:demo --concurrency=2 # prevent out-of-memory
+      - run: yarn lerna run build:demo --concurrency=1 # prevent out-of-memory
       - run: utils/scripts/deploy.js
 
   publish:
