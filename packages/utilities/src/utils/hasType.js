@@ -13,7 +13,7 @@
  * @param {Function} component to match
  * @return {Boolean} if they match or not
  */
-export default function (a = {}, b) {
+export default function _(a = {}, b) {
   if (!a) return false;
   const { type: component = {} } = a;
   const { target, hasType } = component;
