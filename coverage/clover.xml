@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1591320509770" clover="3.2.0">
-  <project timestamp="1591320509770" name="All files">
+<coverage generated="1591324543872" clover="3.2.0">
+  <project timestamp="1591324543872" name="All files">
     <metrics statements="6019" coveredstatements="5988" conditionals="2357" coveredconditionals="2195" methods="1261" coveredmethods="1253" elements="9637" coveredelements="9436" complexity="0" loc="6019" ncloc="6019" packages="104" files="403" classes="403"/>
     <package name="accordions.src.elements.accordion">
       <metrics statements="22" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
