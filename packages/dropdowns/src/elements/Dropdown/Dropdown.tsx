@@ -31,6 +31,7 @@ export interface IDropdownProps {
     inputValue: string,
     stateAndHelpers: ControllerStateAndHelpers<any>
   ) => void;
+  // eslint-disable-next-line @typescript-eslint/ban-types
   downshiftProps?: object;
 }
 
@@ -55,7 +56,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
   const itemIndexRef = useRef<number>(0);
   const previousItemRef = useRef<number | undefined>(undefined);
   const previousIndexRef = useRef<number | undefined>(undefined);
-  const nextItemsHashRef = useRef<object>({});
+  const nextItemsHashRef = useRef<Record<string, unknown>>({});
   const containsMultiselectRef = useRef(false);
 
   // Ref used to determine ARIA attributes for menu dropdowns

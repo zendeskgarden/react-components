@@ -107,7 +107,12 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
       }
     }, [focusedItem, isOpen, closeMenu]);
 
-    const selectProps = getToggleButtonProps({
+    /**
+     * Destructure type out of props so that `type="button"`
+     * is not spread onto the MultiSelect Dropdown `div`.
+     */
+    /* eslint-disable @typescript-eslint/no-unused-vars */
+    const { type, ...selectProps } = getToggleButtonProps({
       tabIndex: props.disabled ? undefined : -1,
       onKeyDown: (e: React.KeyboardEvent<HTMLElement>) => {
         if (isOpen) {

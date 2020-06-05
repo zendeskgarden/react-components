@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.4.5", "@babel/runtime@^7.6.3":
+"@babel/runtime@^7.1.2", "@babel/runtime@^7.4.5":
   version "7.8.4"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.4.tgz#d79f5a2040f7caa24d53e563aad49cbc05581308"
   integrity sha512-neAp3zt80trRVBI1x0azq6c57aNBqYZH8KhMm3TaB7wEI5Q4A2SHfBHE8w9gOhI/lrqxtEbXZgQIrHP+wvSGwQ==
@@ -62,28 +62,28 @@
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.5.1.tgz#738dc99dbe4a98809fdc015e5a8e000997725876"
   integrity sha512-+nswWqFEiWHkuQeYSdftJ5c3Xy48IHPKb23qktIeEl+ZibMXzWVytdg91zOerI/HGJizNJ0gKmq+0A/4//eiQQ==
 
-"@zendeskgarden/react-forms@^8.4.1":
-  version "8.4.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-forms/-/react-forms-8.4.1.tgz#06555831975a1e8df9a9342058cad506545d8722"
-  integrity sha512-+815DI+9DMMF5m7V4AnQrXH8Ak/RpBqmrbVJJuDQWjhMdXSKaV0AfdCDUbW0YzNQrxgN2v4cmhBNEIdGvmDmGg==
+"@zendeskgarden/react-forms@^8.12.0":
+  version "8.12.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-forms/-/react-forms-8.12.0.tgz#ba48e922286a9eb5f1acf743e8cb00538afb8ade"
+  integrity sha512-Iz0yGofnWR7DMF0c7O9+Xq9qRO/uuYc8IkzDg6DYzL3h9p6lNyz9E71v8uAVbm0WgUIiwoBL/lrx6367ksdm7Q==
   dependencies:
     "@zendeskgarden/container-field" "^1.3.1"
     "@zendeskgarden/container-utilities" "^0.5.1"
-    polished "^3.4.4"
+    polished "^3.5.1"
 
-"@zendeskgarden/react-theming@^8.4.1":
-  version "8.4.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.4.1.tgz#8dd2a165a0146c31cc093e733c544895a0837f4c"
-  integrity sha512-KHTP09GpJQf+5+0ax6ONHwsXDxCsJy3PmWQ9nMv5poAsLzpocVp+E8P3rxwjuK1cnxD13cwtcrZ0MHSIA0E7Vg==
+"@zendeskgarden/react-theming@^8.12.0":
+  version "8.12.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.12.0.tgz#1b3717389b1b77ed4eb8d805dec4679a88279308"
+  integrity sha512-UySD39N8j3u+iDYO06bMCXtrm7yl9yV/PqoSnwXGHuHZrvraotolVxZKCBGS8eOXhobz0Z6OAXF3fQ5l2rLq7g==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^0.4.3"
     "@zendeskgarden/container-utilities" "^0.5.1"
-    polished "^3.4.4"
+    polished "^3.5.1"
 
-"@zendeskgarden/svg-icons@6.15.0":
-  version "6.15.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-6.15.0.tgz#cb7f890b86d3ffe83e7b6fae83db2f776594d4af"
-  integrity sha512-OMkA3pWbwY7fviZFC29ZEBJp/Ue73w+PhbB4bKQLTp6UyK97crHTZzyPhJU/GnhOp1ubOvJii3tlJgYzg4r9KA==
+"@zendeskgarden/svg-icons@6.17.0":
+  version "6.17.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-6.17.0.tgz#400fc11b2ebd3f54b9d2226b370d457d87beb34c"
+  integrity sha512-hLBV2sCA1Z7fSQuFLXT39b/BawtL07UAIzQq1rs/l+m42qAkomW0TqUB+si2AAUzJ9rxUD++fJCd7yaz/F9rlA==
 
 compute-scroll-into-view@^1.0.9:
   version "1.0.13"
@@ -250,13 +250,6 @@ object.assign@^4.1.0:
     function-bind "^1.1.1"
     has-symbols "^1.0.0"
     object-keys "^1.0.11"
-
-polished@^3.4.4:
-  version "3.4.4"
-  resolved "https://registry.yarnpkg.com/polished/-/polished-3.4.4.tgz#ac8cd6e704887398f3b802718f9d389b9ea4307b"
-  integrity sha512-x9PKeExyI9AhWrJP3Q57I1k7GInujjiVBJMPFmycj9hX1yCOo/X9eu9eZwxgOziiXge3WbFQ5XOmkzunOntBSA==
-  dependencies:
-    "@babel/runtime" "^7.6.3"
 
 polished@^3.5.1:
   version "3.5.1"

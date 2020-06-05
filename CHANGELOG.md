@@ -11,6 +11,19 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+## v8.12.0 (2020-06-03)
+
+#### :rocket: New Feature
+
+- `buttons`
+  - [#757](https://github.com/zendeskgarden/react-components/pull/757) feat(buttons): new toggle button components ([@jzempel](https://github.com/jzempel))
+  - [#751](https://github.com/zendeskgarden/react-components/pull/751) feat(buttons): revise button padding ([@rossmoody](https://github.com/rossmoody))
+
+#### :bug: Bug Fix
+
+- `dropdowns`
+  - [#759](https://github.com/zendeskgarden/react-components/pull/759) fix(dropdowns): remove type attribute from div ([@hzhu](https://github.com/hzhu))
+  - [#756](https://github.com/zendeskgarden/react-components/pull/756) fix(dropdowns): prevent icon box-sizing inheritance ([@jzempel](https://github.com/jzempel))
 
 ## v8.11.0 (2020-05-27)
 

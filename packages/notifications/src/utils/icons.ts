@@ -11,7 +11,7 @@ import AlertWarningStrokeIcon from '@zendeskgarden/svg-icons/src/16/alert-warnin
 import InfoStrokeIcon from '@zendeskgarden/svg-icons/src/16/info-stroke.svg';
 import { VALIDATION_TYPE } from './types';
 
-export const validationIcons: Record<VALIDATION_TYPE, object> = {
+export const validationIcons: Record<VALIDATION_TYPE, Record<string, unknown>> = {
   success: CheckCircleStrokeIcon,
   error: AlertErrorStrokeIcon,
   warning: AlertWarningStrokeIcon,

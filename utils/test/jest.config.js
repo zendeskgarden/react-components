@@ -14,7 +14,7 @@ module.exports = {
   preset: 'ts-jest/presets/js-with-babel',
   modulePathIgnorePatterns: ['./node_modules'],
   transformIgnorePatterns: ['\\/node_modules\\/(?!@zendeskgarden)'],
-  resolver: `${__dirname}/jest.resolver.js`,
+  resolver: path.resolve(__dirname, 'jest.resolver.js'),
   globals: {
     PACKAGE_VERSION: 'version',
     'ts-jest': {

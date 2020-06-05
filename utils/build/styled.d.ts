@@ -10,7 +10,6 @@ import 'styled-components';
 declare module 'styled-components' {
   type Hue = Record<number | string, string> | string;
 
-  /* eslint-disable-next-line @typescript-eslint/interface-name-prefix */
   export interface DefaultTheme {
     rtl: boolean;
     document?: any;

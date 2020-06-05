@@ -11,7 +11,7 @@
  * @param {String} argName the name of argument
  * @param {String} customMessage custom message to display
  */
-export default function (argName, customMessage) {
+export default function requiredParam(argName, customMessage) {
   if (customMessage) {
     throw new Error(customMessage);
   }
