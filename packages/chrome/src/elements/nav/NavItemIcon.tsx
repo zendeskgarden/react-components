@@ -10,7 +10,7 @@ import { StyledNavItemIcon } from '../../styled';
 
 export const NavItemIcon: React.FC<HTMLAttributes<any>> = ({ children, ...props }) => {
   // The `forwardRef` API is not needed in this element since we are cloning the provided child.
-  const Element: React.FC<{}> = elementProps =>
+  const Element: React.FC<unknown> = elementProps =>
     React.cloneElement(Children.only(children as any), { ...elementProps, ...props });
 
   return <StyledNavItemIcon as={Element as any} {...props} />;
