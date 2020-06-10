@@ -11,6 +11,36 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+
+## v8.13.0 (2020-06-10)
+
+#### :rocket: New Feature
+* `buttons`
+  * [#758](https://github.com/zendeskgarden/react-components/pull/758) feat(buttons): add support for media button ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `tabs`
+  * [#773](https://github.com/zendeskgarden/react-components/pull/773) fix(tabs): remove tabindex from panel ([@jzempel](https://github.com/jzempel))
+* `dropdowns`
+  * [#772](https://github.com/zendeskgarden/react-components/pull/772) fix(dropdowns): remove type attribute from div ([@hzhu](https://github.com/hzhu))
+
+#### :seedling: Internal
+* Other
+  * [#768](https://github.com/zendeskgarden/react-components/pull/768) chore(deps): update node orb to v3 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#771](https://github.com/zendeskgarden/react-components/pull/771) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#764](https://github.com/zendeskgarden/react-components/pull/764) chore(deps): update dependency @zendeskgarden/eslint-config to v13 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#765](https://github.com/zendeskgarden/react-components/pull/765) chore(deps): update dependency @zendeskgarden/stylelint-config to v13 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#767](https://github.com/zendeskgarden/react-components/pull/767) chore(deps): update dependency mockdate to v3 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#763](https://github.com/zendeskgarden/react-components/pull/763) chore(deps): update dependency @rollup/plugin-node-resolve to v8 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#762](https://github.com/zendeskgarden/react-components/pull/762) chore(deps): update dependency @rollup/plugin-commonjs to v12 ([@renovate[bot]](https://github.com/apps/renovate))
+* `chrome`, `dropdowns`, `notifications`, `tags`
+  * [#769](https://github.com/zendeskgarden/react-components/pull/769) chore(deps): update typescript-eslint monorepo to v3 (major) ([@renovate[bot]](https://github.com/apps/renovate))
+* `utilities`
+  * [#766](https://github.com/zendeskgarden/react-components/pull/766) chore(deps): update dependency eslint to v7 ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`, `utilities`
+  * [#761](https://github.com/zendeskgarden/react-components/pull/761) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `modals`, `notifications`, `pagination`, `tables`, `tags`
+  * [#760](https://github.com/zendeskgarden/react-components/pull/760) chore(deps): update dependency @zendeskgarden/svg-icons to v6.17.0 ([@renovate[bot]](https://github.com/apps/renovate))
 ## v8.12.0 (2020-06-03)
 
 #### :rocket: New Feature
