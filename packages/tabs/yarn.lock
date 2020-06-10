@@ -2,13 +2,6 @@
 # yarn lockfile v1
 
 
-"@babel/runtime@^7.6.3":
-  version "7.8.4"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.4.tgz#d79f5a2040f7caa24d53e563aad49cbc05581308"
-  integrity sha512-neAp3zt80trRVBI1x0azq6c57aNBqYZH8KhMm3TaB7wEI5Q4A2SHfBHE8w9gOhI/lrqxtEbXZgQIrHP+wvSGwQ==
-  dependencies:
-    regenerator-runtime "^0.13.2"
-
 "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7":
   version "7.9.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.9.2.tgz#d90df0583a3a252f09aaa619665367bae518db06"
@@ -23,19 +16,21 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
 
-"@zendeskgarden/container-selection@^1.3.1":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-selection/-/container-selection-1.3.1.tgz#352325712f615d084fd1762cb75051ff8d8e8e21"
-  integrity sha512-haJUyehKOAVapTfZKiMosuChxKp18URO8XH7Jr+Nwsbxujrhe2G7bX4i3rwGRaWk6BTpR5v+mcFnOY8IrrIJRQ==
+"@zendeskgarden/container-selection@^1.3.6":
+  version "1.3.6"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-selection/-/container-selection-1.3.6.tgz#9962eefdb8debf98eb01741d4aaf8e10b80b1efc"
+  integrity sha512-/rTiKejNI44VviyYjLWaPZSljEJ5yp9goRhcxZe1blYE1LklZCA6ftu0UiXIKXtu0nvv5syqleN6o8LfZkwOnw==
   dependencies:
-    "@zendeskgarden/container-utilities" "^0.5.1"
+    "@babel/runtime" "^7.8.4"
+    "@zendeskgarden/container-utilities" "^0.5.4"
 
-"@zendeskgarden/container-tabs@^0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-tabs/-/container-tabs-0.5.1.tgz#fff5eb8796db021b0a3137a0eb28d60756054701"
-  integrity sha512-2nGLrJjt7VglUg9BlKlNw81SjzdcbF01zaNR367t9b8Pza2YmJp/OoM1VlBEmRTBnTe8r8Kz5CC+CYTMwZRw3w==
+"@zendeskgarden/container-tabs@^0.5.6":
+  version "0.5.6"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-tabs/-/container-tabs-0.5.6.tgz#86a54e554d4075d8b2f2c69515b7755ee94254e3"
+  integrity sha512-v7tj5Z7Cc868JeFrisCP/Vd+trS2uu4aOiis1c8CJvXxTw6yt8s2Z3Uvc6TXvVSMa0qWL19lx3yiZTIzJo+1Jw==
   dependencies:
-    "@zendeskgarden/container-selection" "^1.3.1"
+    "@babel/runtime" "^7.8.4"
+    "@zendeskgarden/container-selection" "^1.3.6"
     react-uid "^2.2.0"
 
 "@zendeskgarden/container-utilities@^0.5.1":
@@ -43,21 +38,21 @@
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.5.1.tgz#738dc99dbe4a98809fdc015e5a8e000997725876"
   integrity sha512-+nswWqFEiWHkuQeYSdftJ5c3Xy48IHPKb23qktIeEl+ZibMXzWVytdg91zOerI/HGJizNJ0gKmq+0A/4//eiQQ==
 
-"@zendeskgarden/react-theming@^8.4.1":
-  version "8.4.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.4.1.tgz#8dd2a165a0146c31cc093e733c544895a0837f4c"
-  integrity sha512-KHTP09GpJQf+5+0ax6ONHwsXDxCsJy3PmWQ9nMv5poAsLzpocVp+E8P3rxwjuK1cnxD13cwtcrZ0MHSIA0E7Vg==
+"@zendeskgarden/container-utilities@^0.5.4":
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.5.4.tgz#8550404cafd0aab5ed80f3da0a51d424e8e3facb"
+  integrity sha512-Iz6YZ6va3JIShzKXKjK4TCf168GSX+/XeeBr6o9MTJ4K84lO0F0ZX2GIFuZmacfkBjCXfyNxj4aua/5/1ZXyPg==
+  dependencies:
+    "@babel/runtime" "^7.8.4"
+
+"@zendeskgarden/react-theming@^8.12.0":
+  version "8.12.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.12.0.tgz#1b3717389b1b77ed4eb8d805dec4679a88279308"
+  integrity sha512-UySD39N8j3u+iDYO06bMCXtrm7yl9yV/PqoSnwXGHuHZrvraotolVxZKCBGS8eOXhobz0Z6OAXF3fQ5l2rLq7g==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^0.4.3"
     "@zendeskgarden/container-utilities" "^0.5.1"
-    polished "^3.4.4"
-
-polished@^3.4.4:
-  version "3.4.4"
-  resolved "https://registry.yarnpkg.com/polished/-/polished-3.4.4.tgz#ac8cd6e704887398f3b802718f9d389b9ea4307b"
-  integrity sha512-x9PKeExyI9AhWrJP3Q57I1k7GInujjiVBJMPFmycj9hX1yCOo/X9eu9eZwxgOziiXge3WbFQ5XOmkzunOntBSA==
-  dependencies:
-    "@babel/runtime" "^7.6.3"
+    polished "^3.5.1"
 
 polished@^3.5.1:
   version "3.5.1"
@@ -70,11 +65,6 @@ react-uid@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/react-uid/-/react-uid-2.2.0.tgz#0f77e1e0594fbf29fc4fe528cc9aa415c5bf9159"
   integrity sha512-z+g5+hFOQ08hCfrGcJ1PNs+cmvH8Uq2CVzCmPeWBsUi5A4W4NWXR5jouledzy3oSKGMU9HOzf8zFuGi15TXJoQ==
-
-regenerator-runtime@^0.13.2:
-  version "0.13.3"
-  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.3.tgz#7cf6a77d8f5c6f60eb73c5fc1955b2ceb01e6bf5"
-  integrity sha512-naKIZz2GQ8JWh///G7L3X6LaQUAMp2lvb1rvwwsURe/VXwD6VMfr+/1NuNw3ag8v2kY1aQ/go5SNn79O9JU7yw==
 
 regenerator-runtime@^0.13.4:
   version "0.13.5"
