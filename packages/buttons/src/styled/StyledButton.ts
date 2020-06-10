@@ -207,6 +207,17 @@ const groupStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
+const iconStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
+  const size = props.size === 'small' ? props.theme.iconSizes.sm : props.theme.iconSizes.md;
+
+  return css`
+    width: ${size};
+    min-width: ${size};
+    height: ${size};
+    vertical-align: ${props.isLink && 'middle'};
+  `;
+};
+
 const sizeStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   let retVal;
 
@@ -266,7 +277,9 @@ export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
   'data-garden-version': PACKAGE_VERSION,
   type: props.type || 'button'
 }))<IStyledButtonProps>`
-  display: ${props => (props.isLink ? 'inline' : 'inline-block')};
+  display: ${props => (props.isLink ? 'inline' : 'inline-flex')};
+  align-items: ${props => !props.isLink && 'center'};
+  justify-content: ${props => !props.isLink && 'center'};
   /* prettier-ignore */
   transition:
     border-color 0.25s ease-in-out,
@@ -279,8 +292,6 @@ export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
   cursor: pointer;
   width: ${props => (props.isStretched ? '100%' : '')};
   overflow: hidden;
-  vertical-align: ${props => !props.isLink && 'middle'};
-  text-align: center;
   text-decoration: none; /* <a> element reset */
   text-overflow: ellipsis;
   white-space: ${props => !props.isLink && 'nowrap'};
@@ -331,6 +342,10 @@ export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
   }
 
   /* stylelint-disable */
+  & ${StyledIcon} {
+    ${props => iconStyles(props)}
+  }
+
   ${StyledButtonGroup} & {
     ${props => groupStyles(props)};
   }

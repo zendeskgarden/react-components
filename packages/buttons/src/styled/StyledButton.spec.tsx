@@ -20,7 +20,7 @@ describe('StyledButton', () => {
   it('renders default styling', () => {
     const { container } = render(<StyledButton />);
 
-    expect(container.firstChild).toHaveStyleRule('display', 'inline-block');
+    expect(container.firstChild).toHaveStyleRule('display', 'inline-flex');
   });
 
   it('renders basic styling if provided', () => {

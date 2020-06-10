@@ -31,7 +31,32 @@ import { Button } from '@zendeskgarden/react-buttons';
 </ThemeProvider>;
 ```
 
-### Button Group
+### Media button
+
+```jsx static
+import React, { useState } from 'react';
+import { Button } from '@zendeskgarden/react-buttons';
+import StartIcon from '@zendeskgarden/icons/src/16/shield-stroke.svg';
+import EndIcon from '@zendeskgarden/icons/src/16/chevron-down-stroke.svg';
+
+const MediaButton = ({ children, ...props }) => {
+  const [isRotated, setRotated] = useState(false);
+
+  return (
+    <Button onClick={() => setRotated(!isRotated)} {...props}>
+      <Button.StartIcon>
+        <StartIcon />
+      </Button.StartIcon>
+      {children}
+      <Button.EndIcon isRotated={isRotated}>
+        <EndIcon />
+      </Button.EndIcon>
+    </Button>
+  );
+};
+```
+
+### Button group
 
 ```jsx static
 import React, { useState } from 'react';

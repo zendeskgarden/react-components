@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { StyledButton } from '../styled';
+import { StyledButton, StyledIcon } from '../styled';
 import { useButtonGroupContext } from '../utils/useButtonGroupContext';
 import { useSplitButtonContext } from '../utils/useSplitButtonContext';
 
@@ -77,5 +77,21 @@ Button.defaultProps = {
   size: 'medium'
 };
 
+interface IIconProps extends HTMLAttributes<HTMLElement> {
+  isRotated?: boolean;
+  children: any;
+}
+
+const StartIcon = (props: IIconProps) => <StyledIcon position="start" {...props} />;
+const EndIcon = (props: IIconProps) => <StyledIcon position="end" {...props} />;
+
+(Button as any).StartIcon = StartIcon;
+(Button as any).EndIcon = EndIcon;
+
 /** @component */
-export default Button;
+export default Button as React.FunctionComponent<
+  IButtonProps & React.RefAttributes<HTMLButtonElement>
+> & {
+  StartIcon: typeof StartIcon;
+  EndIcon: typeof EndIcon;
+};

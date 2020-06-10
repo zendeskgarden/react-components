@@ -11,6 +11,8 @@ const {
   Menu,
   Item
 } = require('@zendeskgarden/react-dropdowns/src');
+const CircleIcon = require('@zendeskgarden/svg-icons/src/16/circle-stroke.svg').default;
+const ChevronDownIcon = require('@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg').default;
 
 initialState = {
   size: 'medium',
@@ -87,6 +89,31 @@ initialState = {
             <Label>Disabled</Label>
           </Toggle>
         </Field>
+        <Field className="u-mt-xs">
+          <Toggle
+            checked={state.startIcon}
+            onChange={event => setState({ startIcon: event.target.checked })}
+          >
+            <Label>Start icon</Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-xs">
+          <Toggle
+            checked={state.endIcon}
+            onChange={event => setState({ endIcon: event.target.checked })}
+          >
+            <Label>End icon</Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-xs">
+          <Toggle
+            checked={state.rotated}
+            disabled={!(state.startIcon || state.endIcon)}
+            onChange={event => setState({ rotated: event.target.checked })}
+          >
+            <Label>Rotate icons</Label>
+          </Toggle>
+        </Field>
         <Dropdown selectedItem={state.size} onSelect={size => setState({ size })}>
           <SelectField className="u-mt-xs">
             <SelectLabel>Size</SelectLabel>
@@ -112,7 +139,17 @@ initialState = {
         disabled={state.disabled}
         size={state.size}
       >
+        {state.startIcon && (
+          <Button.StartIcon isRotated={state.rotated}>
+            <CircleIcon />
+          </Button.StartIcon>
+        )}
         {state.text || '\u00A0'}
+        {state.endIcon && (
+          <Button.EndIcon isRotated={state.rotated}>
+            <ChevronDownIcon />
+          </Button.EndIcon>
+        )}
       </Button>
     </Col>
   </Row>

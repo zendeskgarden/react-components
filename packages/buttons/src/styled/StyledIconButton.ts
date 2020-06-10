@@ -6,7 +6,6 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { math } from 'polished';
 import { retrieveComponentStyles, getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledButton, getHeight, IStyledButtonProps } from './StyledButton';
 import { StyledIcon } from './StyledIcon';
@@ -45,10 +44,7 @@ const iconButtonStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) 
 };
 
 const iconStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
-  const size =
-    props.size === 'large'
-      ? math(`${props.theme.space.base * 6} * 1px`)
-      : math(`${props.theme.space.base * 4} * 1px`);
+  const size = props.theme.iconSizes.md;
 
   return css`
     width: ${size};
@@ -65,7 +61,7 @@ export const StyledIconButton = styled(StyledButton).attrs(() => ({
 }))`
   ${props => iconButtonStyles(props)};
 
-  ${StyledIcon} {
+  & ${StyledIcon} {
     ${props => iconStyles(props)}
   }
 

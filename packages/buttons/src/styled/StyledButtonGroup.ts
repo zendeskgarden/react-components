@@ -17,6 +17,7 @@ export const StyledButtonGroup = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
+  display: flex;
   position: relative;
   z-index: 0;
   direction: ${props => props.theme.rtl && 'rtl'};
