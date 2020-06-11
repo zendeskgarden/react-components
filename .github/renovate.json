@@ -2,7 +2,7 @@
   "extends": ["config:base"],
   "rebaseStalePrs": true,
   "ignoreDeps": ["react-docgen-typescript"],
-  "schedule": ["on Thursday every 4 weeks of the year starting on the 3rd week"],
+  "schedule": ["on Monday every 8 weeks of the year starting on the 5th week"],
   "labels": ["PR: Internal :seedling:"],
   "postUpgradeTasks": {
     "commands": ["yarn install", "yarn format"],
