@@ -3,7 +3,6 @@
      add a muted button component". the title informs the semantic
      version bump if this PR is merged. -->
 
-
                                                                                                                       <!-- 🎗add a PR label 🎗-->
 
 ## Description
@@ -24,6 +23,7 @@
       designer as a reviewer)
 - [ ] :globe_with_meridians: Styleguidist demo is up-to-date (`yarn start`)
 - [ ] :arrow_left: renders as expected with reversed (RTL) direction
+- [ ] :metal: renders as expected with Bedrock CSS (`?bedrock`)
 - [ ] :wheelchair: analyzed via [axe](https://www.deque.com/axe/) and evaluated using VoiceOver
 - [ ] :guardsman: includes new unit tests
 - [ ] :memo: tested in Chrome, Firefox, Safari, Edge, and IE11

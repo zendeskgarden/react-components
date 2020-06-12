@@ -105,6 +105,7 @@ export default function menuStyles(position: MENU_POSITION, options: MENU_OPTION
     position: absolute;
     z-index: ${options.zIndex || 0};
     ${marginProperty}: ${options.margin};
+    line-height: 0;
     font-size: 0.01px; /* [1] */
 
     & ${options.childSelector || '> *'} {
