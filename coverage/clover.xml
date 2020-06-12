@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1591995973443" clover="3.2.0">
-  <project timestamp="1591995973443" name="All files">
+<coverage generated="1592004381403" clover="3.2.0">
+  <project timestamp="1592004381403" name="All files">
     <metrics statements="6034" coveredstatements="6003" conditionals="2371" coveredconditionals="2208" methods="1268" coveredmethods="1260" elements="9673" coveredelements="9471" complexity="0" loc="6034" ncloc="6034" packages="104" files="403" classes="403"/>
     <package name="accordions.src.elements.accordion">
       <metrics statements="22" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
@@ -307,11 +307,11 @@
         <line num="31" count="13" type="stmt"/>
         <line num="34" count="12" type="stmt"/>
         <line num="39" count="12" type="cond" truecount="4" falsecount="0"/>
-        <line num="42" count="12" type="stmt"/>
-        <line num="45" count="12" type="stmt"/>
+        <line num="43" count="12" type="stmt"/>
         <line num="46" count="12" type="stmt"/>
-        <line num="51" count="12" type="stmt"/>
-        <line num="54" count="13" type="stmt"/>
+        <line num="47" count="12" type="stmt"/>
+        <line num="52" count="12" type="stmt"/>
+        <line num="55" count="13" type="stmt"/>
       </file>
       <file name="StyledSection.ts" path="/home/circleci/project/packages/accordions/src/styled/accordion/StyledSection.ts">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
