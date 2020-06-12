@@ -38,6 +38,7 @@ export const StyledRotateIcon = styled(
 })<IStyledRotateIcon>`
   transform: ${props => props.isRotated && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`};
   transition: transform 0.25s ease-in-out, color 0.1s ease-in-out;
+  box-sizing: content-box;
   padding: ${props =>
     props.isCompact
       ? `${props.theme.space.base * 1.5}px ${props.theme.space.base * 3}px`
