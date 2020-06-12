@@ -112,7 +112,7 @@ describe('NavItem', () => {
 
       expect(container.firstChild!.firstChild).toHaveStyleRule(
         'background-color',
-        getColor('chromeHue', 400, DEFAULT_THEME)
+        getColor('chromeHue', 500, DEFAULT_THEME)
       );
     });
 

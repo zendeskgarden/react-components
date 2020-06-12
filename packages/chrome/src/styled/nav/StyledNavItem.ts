@@ -26,7 +26,7 @@ const colorStyles = (props: IStyledNavItemProps) => {
     } else if (props.isDark) {
       currentColor = rgba(WHITE, 0.3);
     } else {
-      currentColor = getColor(props.hue, 400, props.theme);
+      currentColor = getColor(props.hue, 500, props.theme);
     }
   } else {
     hoverColor = rgba(props.isLight ? WHITE : BLACK, 0.1);
