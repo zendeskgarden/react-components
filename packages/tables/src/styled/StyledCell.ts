@@ -37,29 +37,29 @@ const truncatedStyling = css`
 `;
 
 const sizeStyling = (props: IStyledCellProps & ThemeProps<DefaultTheme>) => {
-  let verticalPadding = math(`(${getRowHeight(props)} - ${getLineHeight(props)}) / 2`);
-  let horizontalPadding = `${props.theme.space.base * 3}px`;
+  let boxSizing = 'border-box';
+  let paddingVertical;
+  let paddingHorizontal;
   let width = props.width;
   let height;
 
   if (props.hasOverflow) {
+    boxSizing = 'content-box';
     width = '2em';
     height = 'inherit';
-    verticalPadding = '0';
-    horizontalPadding = '0';
+  } else {
+    paddingVertical = math(`(${getRowHeight(props)} - ${getLineHeight(props)}) / 2`);
+    paddingHorizontal = `${props.theme.space.base * 3}px`;
   }
 
   if (props.isMinimum) {
+    boxSizing = 'content-box';
     width = '1em';
   }
 
   return css`
-    /* stylelint-disable declaration-block-no-redundant-longhand-properties, property-no-unknown, max-line-length */
-    padding-top: ${verticalPadding};
-    padding-bottom: ${verticalPadding};
-    padding-${props.theme.rtl ? 'right' : 'left'}: ${horizontalPadding};
-    padding-${props.theme.rtl ? 'left' : 'right'}: 0;
-    /* stylelint-enable declaration-block-no-redundant-longhand-properties, property-no-unknown, max-line-length */
+    box-sizing: ${boxSizing};
+    padding: ${paddingVertical} ${paddingHorizontal};
     width: ${width};
     height: ${height};
   `;
@@ -71,7 +71,6 @@ export const StyledCell = styled.td.attrs<IStyledCellProps>({
 })<IStyledCellProps>`
   display: table-cell;
   transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out;
-  box-sizing: ${props => (props.isMinimum ? 'content-box' : 'border-box')};
 
   ${props => sizeStyling(props)};
   ${props => props.isTruncated && truncatedStyling};

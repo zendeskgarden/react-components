@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
+import { render } from 'garden-test-utils';
 
 import { Table } from './Table';
 import { Body } from './Body';
@@ -78,23 +78,6 @@ describe('Cell', () => {
     expect(getByTestId('cell')).toHaveStyle(`
       width: 2em;
       height: inherit;
-    `);
-  });
-
-  it('applies RTL styling', () => {
-    const { getByTestId } = renderRtl(
-      <Table>
-        <Body>
-          <Row>
-            <Cell data-test-id="cell" />
-          </Row>
-        </Body>
-      </Table>
-    );
-
-    expect(getByTestId('cell')).toHaveStyle(`
-      padding-right: 12px;
-      padding-left: 0;
     `);
   });
 });
