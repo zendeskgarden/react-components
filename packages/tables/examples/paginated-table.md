@@ -59,7 +59,9 @@ const getPagedData = (data, currentPage, pageSize) => {
             </Avatar>
           </Cell>
           <Cell isTruncated>{row.name}</Cell>
-          <Cell isTruncated>{row.description}</Cell>
+          <Cell isTruncated>
+            <span>{row.description}</span>
+          </Cell>
         </Row>
       ))}
     </Body>

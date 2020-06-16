@@ -38,8 +38,7 @@ const truncatedStyling = css`
 
 const sizeStyling = (props: IStyledCellProps & ThemeProps<DefaultTheme>) => {
   let boxSizing = 'border-box';
-  let paddingVertical;
-  let paddingHorizontal;
+  let padding;
   let width = props.width;
   let height;
 
@@ -47,9 +46,14 @@ const sizeStyling = (props: IStyledCellProps & ThemeProps<DefaultTheme>) => {
     boxSizing = 'content-box';
     width = '2em';
     height = 'inherit';
+    padding = props.theme.rtl
+      ? `0 0 0 ${props.theme.space.base}px`
+      : `0 ${props.theme.space.base}px 0 0`;
   } else {
-    paddingVertical = math(`(${getRowHeight(props)} - ${getLineHeight(props)}) / 2`);
-    paddingHorizontal = `${props.theme.space.base * 3}px`;
+    const paddingVertical = math(`(${getRowHeight(props)} - ${getLineHeight(props)}) / 2`);
+    const paddingHorizontal = `${props.theme.space.base * 3}px`;
+
+    padding = `${paddingVertical} ${paddingHorizontal}`;
   }
 
   if (props.isMinimum) {
@@ -59,7 +63,7 @@ const sizeStyling = (props: IStyledCellProps & ThemeProps<DefaultTheme>) => {
 
   return css`
     box-sizing: ${boxSizing};
-    padding: ${paddingVertical} ${paddingHorizontal};
+    padding: ${padding};
     width: ${width};
     height: ${height};
   `;
