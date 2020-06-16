@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>25/25</span>
+                <span class='fraction'>27/27</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>12/12</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>25/25</span>
+                <span class='fraction'>27/27</span>
             </div>
         
             
@@ -141,7 +141,10 @@
 <a name='L82'></a><a href='#L82'>82</a>
 <a name='L83'></a><a href='#L83'>83</a>
 <a name='L84'></a><a href='#L84'>84</a>
-<a name='L85'></a><a href='#L85'>85</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -181,18 +184,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -204,17 +215,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
@@ -264,29 +270,33 @@ const truncatedStyling = css`
 `;
 &nbsp;
 const sizeStyling = (props: IStyledCellProps &amp; ThemeProps&lt;DefaultTheme&gt;) =&gt; {
-  let verticalPadding = math(`(${getRowHeight(props)} - ${getLineHeight(props)}) / 2`);
-  let horizontalPadding = `${props.theme.space.base * 3}px`;
+  let boxSizing = 'border-box';
+  let padding;
   let width = props.width;
   let height;
 &nbsp;
   if (props.hasOverflow) {
+    boxSizing = 'content-box';
     width = '2em';
     height = 'inherit';
-    verticalPadding = '0';
-    horizontalPadding = '0';
+    padding = props.theme.rtl
+      ? `0 0 0 ${props.theme.space.base}px`
+      : `0 ${props.theme.space.base}px 0 0`;
+  } else {
+    const paddingVertical = math(`(${getRowHeight(props)} - ${getLineHeight(props)}) / 2`);
+    const paddingHorizontal = `${props.theme.space.base * 3}px`;
+&nbsp;
+    padding = `${paddingVertical} ${paddingHorizontal}`;
   }
 &nbsp;
   if (props.isMinimum) {
+    boxSizing = 'content-box';
     width = '1em';
   }
 &nbsp;
   return css`
-    /* stylelint-disable declaration-block-no-redundant-longhand-properties, property-no-unknown, max-line-length */
-    padding-top: ${verticalPadding};
-    padding-bottom: ${verticalPadding};
-    padding-${props.theme.rtl ? 'right' : 'left'}: ${horizontalPadding};
-    padding-${props.theme.rtl ? 'left' : 'right'}: 0;
-    /* stylelint-enable declaration-block-no-redundant-longhand-properties, property-no-unknown, max-line-length */
+    box-sizing: ${boxSizing};
+    padding: ${padding};
     width: ${width};
     height: ${height};
   `;
@@ -298,7 +308,6 @@ export const StyledCell = styled.td.attrs&lt;IStyledCellProps&gt;({
 })&lt;IStyledCellProps&gt;`
   display: table-cell;
   transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out;
-  box-sizing: ${props =&gt; (props.isMinimum ? 'content-box' : 'border-box')};
 &nbsp;
   ${props =&gt; sizeStyling(props)};
   ${props =&gt; props.isTruncated &amp;&amp; truncatedStyling};
@@ -316,7 +325,7 @@ StyledCell.defaultProps = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Jun 15 2020 20:26:27 GMT+0000 (Coordinated Universal Time)
+                at Tue Jun 16 2020 23:10:59 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>
