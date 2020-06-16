@@ -86,15 +86,14 @@ describe('Cell', () => {
       <Table>
         <Body>
           <Row>
-            <Cell data-test-id="cell" />
+            <Cell hasOverflow data-test-id="cell" />
           </Row>
         </Body>
       </Table>
     );
 
     expect(getByTestId('cell')).toHaveStyle(`
-      padding-right: 12px;
-      padding-left: 0;
+      padding: 0 0 0 4px;
     `);
   });
 });

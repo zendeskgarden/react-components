@@ -89,7 +89,7 @@ const isSelectAllChecked = (selectedRows, rows) => {
           </Field>
         </Cell>
         <Cell isTruncated title={row.title}>
-          {row.title}
+          <span>{row.title}</span>
         </Cell>
       </Row>
     ))}
