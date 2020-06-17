@@ -12,8 +12,10 @@ import { StyledFont } from '../styled';
 interface ISpanProps extends HTMLAttributes<HTMLSpanElement> {
   /** Any valid DOM element for the styled component */
   tag?: any;
-  /** Render bold font */
+  /** Render bold font; `undefined` = inherited weight, `true` = bolded weight, `false` = regular weight */
   isBold?: boolean;
+  /** Render monospace font */
+  isMonospace?: boolean;
 }
 
 /**
@@ -29,7 +31,8 @@ Span.displayName = 'Span';
 
 Span.propTypes = {
   tag: PropTypes.any,
-  isBold: PropTypes.bool
+  isBold: PropTypes.bool,
+  isMonospace: PropTypes.bool
 };
 
 Span.defaultProps = {

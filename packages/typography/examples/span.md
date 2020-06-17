@@ -2,7 +2,7 @@ Spans of text are highlighted in the example below.
 
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
-const { Radio, Field, Label } = require('@zendeskgarden/react-forms/src');
+const { Radio, Toggle, Field, Label } = require('@zendeskgarden/react-forms/src');
 const {
   Dropdown,
   Select,
@@ -90,21 +90,32 @@ const Typography = ({ size, children, ...props }) => {
             </Radio>
           </Field>
         </div>
+        <Field className="u-mt-xs">
+          <Toggle
+            checked={state.monospace}
+            disabled={/^X/.test(state.size)}
+            onChange={event => setState({ monospace: event.target.checked })}
+          >
+            <Label>Monospace</Label>
+          </Toggle>
+        </Field>
       </Well>
     </Col>
     <Col>
       <Typography as="p" size={state.size}>
         Water spinach arugula pea tatsoi aubergine spring onion bush tomato kale radicchio turnip
         chicory salsify pea sprouts fava bean. Dandelion
-        <StyledSpan isBold={state.bold}>zucchini burdock yarrow chickpea dandelion</StyledSpan> sorrel
-        courgette turnip greens tigernut soybean radish artichoke wattle seed endive groundnut broccoli
-        arugula.
+        <StyledSpan isBold={state.bold} isMonospace={state.monospace}>
+          zucchini burdock yarrow chickpea dandelion
+        </StyledSpan> sorrel courgette turnip greens tigernut soybean radish artichoke wattle seed endive
+        groundnut broccoli arugula.
       </Typography>
       <Typography as="p" isBold size={state.size}>
         Pea horseradish azuki bean lettuce avocado asparagus okra. Kohlrabi radish okra azuki bean
         corn fava bean
-        <StyledSpan isBold={state.bold}>mustard tigernut jícama green bean</StyledSpan> celtuce collard
-        greens avocado quandong fennel gumbo.
+        <StyledSpan isBold={state.bold} isMonospace={state.monospace}>
+          mustard tigernut jícama green bean
+        </StyledSpan> celtuce collard greens avocado quandong fennel gumbo.
       </Typography>
       {['SM', 'MD', 'LG'].indexOf(state.size) !== -1 && (
         <>
