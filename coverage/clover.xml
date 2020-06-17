@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1592349060245" clover="3.2.0">
-  <project timestamp="1592349060246" name="All files">
+<coverage generated="1592366364039" clover="3.2.0">
+  <project timestamp="1592366364039" name="All files">
     <metrics statements="6036" coveredstatements="6005" conditionals="2367" coveredconditionals="2204" methods="1267" coveredmethods="1259" elements="9670" coveredelements="9468" complexity="0" loc="6036" ncloc="6036" packages="104" files="403" classes="403"/>
     <package name="accordions.src.elements.accordion">
       <metrics statements="22" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
@@ -7285,12 +7285,12 @@
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="25" count="4" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
         <line num="30" count="1" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
-        <line num="40" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
       </file>
       <file name="XL.tsx" path="/home/circleci/project/packages/typography/src/elements/XL.tsx">
         <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
