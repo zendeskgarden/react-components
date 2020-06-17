@@ -12,6 +12,29 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.14.0 (2020-06-17)
+
+#### :rocket: New Feature
+* `typography`
+  * [#781](https://github.com/zendeskgarden/react-components/pull/781) feat(typography): add isMonospace prop to Span component ([@jzempel](https://github.com/jzempel))
+* `chrome`, `notifications`, `theming`
+  * [#774](https://github.com/zendeskgarden/react-components/pull/774) feat(theming): update palette to match new brand colors ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `tables`
+  * [#780](https://github.com/zendeskgarden/react-components/pull/780) fix(tables): cell and overflow padding ([@jzempel](https://github.com/jzempel))
+* `accordions`
+  * [#777](https://github.com/zendeskgarden/react-components/pull/777) fix(accordions): correct spacing for rotate icon ([@hzhu](https://github.com/hzhu))
+* `theming`
+  * [#776](https://github.com/zendeskgarden/react-components/pull/776) fix(menus): prevent inherited line-height from affecting positioning ([@jzempel](https://github.com/jzempel))
+
+#### :memo: Documentation
+* `dropdowns`
+  * [#779](https://github.com/zendeskgarden/react-components/pull/779) chore(docs): update Multiselect example to allow IME input ([@austin94](https://github.com/austin94))
+
+#### :seedling: Internal
+* [#775](https://github.com/zendeskgarden/react-components/pull/775) chore: update renovate schedule ([@jzempel](https://github.com/jzempel))
+
 ## v8.13.0 (2020-06-10)
 
 #### :rocket: New Feature
