@@ -16,7 +16,6 @@ describe('StyledCol', () => {
   it('renders default styling', () => {
     const { container } = render(<StyledCol />);
 
-    expect(container.firstChild).toHaveStyleRule('position', 'relative');
     expect(container.firstChild).not.toHaveStyleRule('background-color'); /* debug = false */
   });
 
