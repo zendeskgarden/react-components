@@ -151,7 +151,6 @@ export const StyledCol = styled.div.attrs<IStyledColProps>({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledColProps>`
   box-sizing: border-box;
-  position: relative;
   width: 100%;
 
   ${props =>
