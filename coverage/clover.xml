@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1592433087461" clover="3.2.0">
-  <project timestamp="1592433087461" name="All files">
+<coverage generated="1592581828465" clover="3.2.0">
+  <project timestamp="1592581828465" name="All files">
     <metrics statements="6036" coveredstatements="6005" conditionals="2367" coveredconditionals="2204" methods="1267" coveredmethods="1259" elements="9670" coveredelements="9468" complexity="0" loc="6036" ncloc="6036" packages="104" files="403" classes="403"/>
     <package name="accordions.src.elements.accordion">
       <metrics statements="22" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
@@ -4919,16 +4919,16 @@
         <line num="105" count="182" type="cond" truecount="2" falsecount="0"/>
         <line num="107" count="182" type="stmt"/>
         <line num="149" count="4" type="stmt"/>
-        <line num="158" count="182" type="stmt"/>
-        <line num="168" count="182" type="stmt"/>
-        <line num="169" count="182" type="cond" truecount="2" falsecount="0"/>
-        <line num="172" count="182" type="stmt"/>
-        <line num="183" count="182" type="stmt"/>
-        <line num="194" count="182" type="stmt"/>
-        <line num="205" count="182" type="stmt"/>
-        <line num="216" count="182" type="stmt"/>
-        <line num="226" count="182" type="stmt"/>
-        <line num="229" count="4" type="stmt"/>
+        <line num="157" count="182" type="stmt"/>
+        <line num="167" count="182" type="stmt"/>
+        <line num="168" count="182" type="cond" truecount="2" falsecount="0"/>
+        <line num="171" count="182" type="stmt"/>
+        <line num="182" count="182" type="stmt"/>
+        <line num="193" count="182" type="stmt"/>
+        <line num="204" count="182" type="stmt"/>
+        <line num="215" count="182" type="stmt"/>
+        <line num="225" count="182" type="stmt"/>
+        <line num="228" count="4" type="stmt"/>
       </file>
       <file name="StyledGrid.ts" path="/home/circleci/project/packages/grid/src/styled/StyledGrid.ts">
         <metrics statements="17" coveredstatements="17" conditionals="6" coveredconditionals="6" methods="6" coveredmethods="6"/>
