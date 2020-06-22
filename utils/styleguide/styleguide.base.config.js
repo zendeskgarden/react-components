@@ -64,47 +64,14 @@ const defaultStyleguideConfig = {
         {
           async: '',
           src: `https://www.googletagmanager.com/gtag/js?id=${googleTrackingId}`
-        },
-        {
-          async: '',
-          src:
-            'https://static-staging.zdassets.com/customer_analytics_integration/garden_dev/cai.min.js'
         }
       ],
-      raw: [
-        `<script>
+      raw: `<script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', '${googleTrackingId}');
         </script>`,
-        `<script>
-          (function() {
-            window.analytics = window.analytics || [];
-            window.deferredAnalytics = window.deferredAnalytics || [];
-            if (!analytics.initialized && !analytics.invoked) {
-              analytics.invoked = true;
-              analytics.methods = ['trackSubmit', 'trackClick', 'trackLink', 'trackForm', 'pageview', 'identify', 'reset', 'group', 'track', 'ready', 'alias', 'debug', 'page', 'once', 'off', 'on'];
-              analytics.factory = function(method) {
-                return function() {
-                  var args = Array.prototype.slice.call(arguments);
-                  args.unshift(method);
-                  deferredAnalytics.push(args);
-                  return analytics;
-                };
-              };
-              for (var i = 0; i < analytics.methods.length; i++) {
-                var method = analytics.methods[i];
-                analytics[method] = analytics.factory(method);
-              }
-              analytics.SNIPPET_VERSION = '4.1.0';
-              analytics.page();
-              analytics.identify();
-              analytics.group();
-            }
-          })();
-        </script>`
-      ],
       links: [
         {
           rel: 'stylesheet',
