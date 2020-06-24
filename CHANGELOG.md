@@ -11,6 +11,18 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+## v8.14.1 (2020-06-24)
+
+#### :bug: Bug Fix
+
+- `buttons`
+  - [#785](https://github.com/zendeskgarden/react-components/pull/785) fix(buttons): inline display for button groups ([@jzempel](https://github.com/jzempel))
+- `grid`
+  - [#783](https://github.com/zendeskgarden/react-components/pull/783) fix(grid): remove relative position from col ([@hzhu](https://github.com/hzhu))
+
+#### :seedling: Internal
+
+- [#784](https://github.com/zendeskgarden/react-components/pull/784) chore: remove pendo snippet ([@jzempel](https://github.com/jzempel))
 
 ## v8.14.0 (2020-06-17)
 
