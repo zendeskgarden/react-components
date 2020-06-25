@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  node: circleci/node@1.1.6
+  node: circleci/node@3.0.0
 
 references:
   executor: &executor
@@ -24,12 +24,11 @@ jobs:
     <<: *executor
     steps:
       - checkout
-      - node/with-cache:
-          cache-key: yarn.lock
-          steps:
-            - run: yarn --frozen-lockfile --ignore-scripts
-            - run: yarn lerna bootstrap
-            - run: yarn lerna run build --concurrency=2 # prevent out-of-memory
+      - node/install-packages:
+          pkg-manager: yarn
+          override-ci-command: yarn --frozen-lockfile --ignore-scripts
+      - run: yarn lerna bootstrap
+      - run: yarn lerna run build --concurrency=2 # prevent out-of-memory
       - *persist_to_workspace
 
   test:
@@ -49,7 +48,7 @@ jobs:
       NODE_DEBUG: gh-pages
     steps:
       - *attach_workspace
-      - run: yarn lerna run build:demo --concurrency=2 # prevent out-of-memory
+      - run: yarn lerna run build:demo --concurrency=1 # prevent out-of-memory
       - run: utils/scripts/gh-pages.js
 
   publish:
