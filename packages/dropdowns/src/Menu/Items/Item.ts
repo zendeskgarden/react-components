@@ -7,6 +7,7 @@
 
 import React, { useEffect, HTMLProps } from 'react';
 import PropTypes from 'prop-types';
+import { useCombinedRefs } from '@zendeskgarden/container-utilities';
 
 import { StyledItem } from '../../styled';
 import useDropdownContext from '../../utils/useDropdownContext';
@@ -28,9 +29,10 @@ export interface IItemProps extends HTMLProps<HTMLElement> {
  * Accepts all `<li>` props
  */
 const Item = React.forwardRef<HTMLElement, IItemProps>(
-  ({ value, disabled, component = StyledItem, ...props }, ref) => {
+  ({ value, disabled, component = StyledItem, ...props }, forwardRef) => {
     const {
       selectedItems,
+      itemSearchRegistry,
       downshift: {
         isOpen,
         selectedItem,
@@ -41,6 +43,7 @@ const Item = React.forwardRef<HTMLElement, IItemProps>(
       }
     } = useDropdownContext();
     const { itemIndexRef } = useMenuContext();
+    const itemRef = useCombinedRefs(forwardRef);
 
     if ((value === undefined || value === null) && !disabled) {
       throw new Error('All Item components require a `value` prop');
@@ -49,6 +52,16 @@ const Item = React.forwardRef<HTMLElement, IItemProps>(
     const currentIndex = itemIndexRef.current;
     const isFocused = highlightedIndex === currentIndex;
     let isSelected: boolean;
+
+    useEffect(() => {
+      if (!disabled && itemRef.current) {
+        const itemTextValue = itemRef.current!.innerText;
+
+        if (itemTextValue) {
+          itemSearchRegistry.current[currentIndex] = itemTextValue;
+        }
+      }
+    });
 
     // Calculate selection if provided value is an `object`
     if (selectedItems) {
@@ -82,7 +95,7 @@ const Item = React.forwardRef<HTMLElement, IItemProps>(
         item: value,
         focused: isFocused,
         checked: isSelected,
-        ref,
+        ref: itemRef,
         ...props
       })
     );

@@ -24,6 +24,7 @@ export interface IDropdownContext {
   selectedItems?: any[];
   downshift: ControllerStateAndHelpers<any>;
   containsMultiselectRef: React.MutableRefObject<boolean>;
+  itemSearchRegistry: React.MutableRefObject<string[]>;
 }
 
 export const DropdownContext = React.createContext<IDropdownContext | undefined>(undefined);
@@ -69,6 +70,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps> = props => {
   const previousIndexRef = useRef<number | undefined>(undefined);
   const nextItemsHashRef = useRef<object>({});
   const containsMultiselectRef = useRef(false);
+  const itemSearchRegistry = useRef([]);
 
   // Used to inform Menu (Popper) that a full-width menu is needed
   const popperReferenceElementRef = useRef<any>(null);
@@ -221,7 +223,8 @@ const Dropdown: React.FunctionComponent<IDropdownProps> = props => {
             popperReferenceElementRef,
             selectedItems,
             downshift: transformDownshift(downshift),
-            containsMultiselectRef
+            containsMultiselectRef,
+            itemSearchRegistry
           };
 
           return (
