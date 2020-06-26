@@ -78,9 +78,9 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
       }
 
       // Reset search string after delay
-      searchTimeoutRef.current = (setTimeout(() => {
+      searchTimeoutRef.current = window.setTimeout(() => {
         setSearchString('');
-      }, 500) as unknown) as number;
+      }, 500);
 
       return () => {
         clearTimeout(searchTimeoutRef.current);
