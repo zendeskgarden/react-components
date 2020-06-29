@@ -12,6 +12,15 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v7.2.0 (2020-06-29)
+
+#### :rocket: New Feature
+* `dropdowns`
+  * [#786](https://github.com/zendeskgarden/react-components/pull/786) feat(dropdowns): allow Select to receive alphanumeric selection ([@austin94](https://github.com/austin94))
+
+#### :seedling: Internal
+* [#686](https://github.com/zendeskgarden/react-components/pull/686) chore: configure CircleCI for v7 branch ([@jzempel](https://github.com/jzempel))
+
 ## v7.1.11 (2020-03-04)
 
 #### :bug: Bug Fix
