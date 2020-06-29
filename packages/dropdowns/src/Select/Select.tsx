@@ -44,7 +44,9 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
         getInputProps,
         isOpen,
         highlightedIndex,
-        setHighlightedIndex
+        setHighlightedIndex,
+        selectItemAtIndex,
+        closeMenu
       }
     } = useDropdownContext();
     const { isLabelHovered } = useFieldContext();
@@ -110,6 +112,20 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
 
     const onInputKeyDown = useCallback(
       (e: React.KeyboardEvent) => {
+        if (e.keyCode === KEY_CODES.SPACE) {
+          // Prevent space from closing Menu only if used with existing search value
+          if (searchString) {
+            e.preventDefault();
+            e.stopPropagation();
+          } else if (highlightedIndex !== null && highlightedIndex !== undefined) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            selectItemAtIndex(highlightedIndex);
+            closeMenu();
+          }
+        }
+
         // Only search with alphanumeric keys
         if (
           (e.keyCode < 48 || e.keyCode > 57) &&
@@ -117,12 +133,6 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
           e.keyCode !== KEY_CODES.SPACE
         ) {
           return;
-        }
-
-        // Prevent space from closing Menu
-        if (e.keyCode === KEY_CODES.SPACE) {
-          e.preventDefault();
-          e.stopPropagation();
         }
 
         const character = String.fromCharCode(e.which || e.keyCode);
@@ -133,7 +143,11 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
 
         // Reset starting search index after delay has removed previous values
         if (!searchString) {
-          currentSearchIndexRef.current = highlightedIndex || 0;
+          if (highlightedIndex === null || highlightedIndex === undefined) {
+            currentSearchIndexRef.current = -1;
+          } else {
+            currentSearchIndexRef.current = highlightedIndex;
+          }
         }
 
         const newSearchString = searchString + character;
@@ -154,7 +168,15 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
           setHighlightedIndex(matchingIndex);
         }
       },
-      [searchString, highlightedIndex, itemSearchRegistry, searchItems, setHighlightedIndex]
+      [
+        searchString,
+        searchItems,
+        itemSearchRegistry,
+        highlightedIndex,
+        selectItemAtIndex,
+        closeMenu,
+        setHighlightedIndex
+      ]
     );
 
     const selectProps = getToggleButtonProps({
