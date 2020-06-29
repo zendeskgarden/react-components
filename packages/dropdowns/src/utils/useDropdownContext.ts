@@ -18,6 +18,7 @@ export interface IDropdownContext {
   downshift: ControllerStateAndHelpers<any>;
   containsMultiselectRef: React.MutableRefObject<boolean>;
   hasMenuRef: React.MutableRefObject<boolean>;
+  itemSearchRegistry: React.MutableRefObject<string[]>;
 }
 
 export const DropdownContext = React.createContext<IDropdownContext | undefined>(undefined);
