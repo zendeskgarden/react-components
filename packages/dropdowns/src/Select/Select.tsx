@@ -6,7 +6,7 @@
  */
 
 import React, { useRef, useState, useEffect, useCallback, HTMLAttributes } from 'react';
-import { useCombinedRefs } from '@zendeskgarden/container-utilities';
+import { useCombinedRefs, KEY_CODES } from '@zendeskgarden/container-utilities';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
 import { StyledInput, StyledSelect, VALIDATION } from '../styled';
@@ -111,8 +111,18 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
     const onInputKeyDown = useCallback(
       (e: React.KeyboardEvent) => {
         // Only search with alphanumeric keys
-        if ((e.keyCode < 48 || e.keyCode > 57) && (e.keyCode < 65 || e.keyCode > 90)) {
+        if (
+          (e.keyCode < 48 || e.keyCode > 57) &&
+          (e.keyCode < 65 || e.keyCode > 90) &&
+          e.keyCode !== KEY_CODES.SPACE
+        ) {
           return;
+        }
+
+        // Prevent space from closing Menu
+        if (e.keyCode === KEY_CODES.SPACE) {
+          e.preventDefault();
+          e.stopPropagation();
         }
 
         const character = String.fromCharCode(e.which || e.keyCode);
