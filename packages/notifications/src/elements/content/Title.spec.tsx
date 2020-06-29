@@ -23,17 +23,34 @@ describe('Title', () => {
 
   describe('Types', () => {
     it('renders default styling', () => {
-      const { container } = render(
+      const { container, getByText } = render(
         <Notification>
           <Title>title</Title>
         </Notification>
       );
 
+      expect(getByText('title')).toHaveStyleRule(
+        'font-weight',
+        `${DEFAULT_THEME.fontWeights.semibold}`
+      );
       expect(container.firstChild).toHaveStyleRule('color', 'inherit', {
         modifier: css`
           ${StyledTitle}
         ` as any
       });
+    });
+
+    it('renders isRegular styling', () => {
+      const { getByText } = render(
+        <Notification>
+          <Title isRegular>title</Title>
+        </Notification>
+      );
+
+      expect(getByText('title')).toHaveStyleRule(
+        'font-weight',
+        `${DEFAULT_THEME.fontWeights.regular}`
+      );
     });
 
     it('renders success styling', () => {
