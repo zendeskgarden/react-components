@@ -7,6 +7,7 @@
 
 import React, { useEffect, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
+import { useCombinedRefs } from '@zendeskgarden/container-utilities';
 import SelectedSvg from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
 import { StyledItem, StyledItemIcon } from '../../../styled';
 import useDropdownContext from '../../../utils/useDropdownContext';
@@ -29,10 +30,11 @@ export interface IItemProps extends HTMLAttributes<HTMLLIElement> {
  * Accepts all `<li>` props
  */
 export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
-  ({ value, disabled, component = StyledItem, children, ...props }, ref) => {
+  ({ value, disabled, component = StyledItem, children, ...props }, forwardRef) => {
     const {
       selectedItems,
       hasMenuRef,
+      itemSearchRegistry,
       downshift: {
         isOpen,
         selectedItem,
@@ -43,6 +45,7 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
       }
     } = useDropdownContext();
     const { itemIndexRef, isCompact } = useMenuContext();
+    const itemRef = useCombinedRefs(forwardRef);
     const Component = component;
 
     if ((value === undefined || value === null) && !disabled) {
@@ -52,6 +55,16 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
     const currentIndex = itemIndexRef.current;
     const isFocused = highlightedIndex === currentIndex;
     let isSelected: boolean;
+
+    useEffect(() => {
+      if (!disabled && itemRef.current) {
+        const itemTextValue = itemRef.current!.innerText;
+
+        if (itemTextValue) {
+          itemSearchRegistry.current[currentIndex] = itemTextValue;
+        }
+      }
+    });
 
     // Calculate selection if provided value is an `object`
     if (value) {
@@ -76,7 +89,7 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
     if (disabled) {
       return (
         <ItemContext.Provider value={{ isDisabled: disabled }}>
-          <Component ref={ref} disabled={disabled} isCompact={isCompact} {...props}>
+          <Component ref={itemRef} disabled={disabled} isCompact={isCompact} {...props}>
             {isSelected && (
               <StyledItemIcon isCompact={isCompact} isVisible={isSelected} isDisabled={disabled}>
                 <SelectedSvg />
@@ -99,7 +112,7 @@ export const Item = React.forwardRef<HTMLLIElement, IItemProps>(
           {...getItemProps({
             item: value,
             isFocused,
-            ref,
+            ref: itemRef,
             isCompact,
             ...(hasMenuRef.current && {
               role: 'menuitem',

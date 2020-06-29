@@ -58,6 +58,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
   const previousIndexRef = useRef<number | undefined>(undefined);
   const nextItemsHashRef = useRef<Record<string, unknown>>({});
   const containsMultiselectRef = useRef(false);
+  const itemSearchRegistry = useRef([]);
 
   // Ref used to determine ARIA attributes for menu dropdowns
   const hasMenuRef = useRef(false);
@@ -214,7 +215,8 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
               popperReferenceElementRef,
               selectedItems,
               downshift: transformDownshift(downshift),
-              containsMultiselectRef
+              containsMultiselectRef,
+              itemSearchRegistry
             }}
           >
             {children}

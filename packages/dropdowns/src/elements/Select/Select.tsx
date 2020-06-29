@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, HTMLAttributes } from 'react';
-import { useCombinedRefs } from '@zendeskgarden/container-utilities';
+import React, { useRef, useState, useEffect, useCallback, HTMLAttributes } from 'react';
+import { useCombinedRefs, KEY_CODES } from '@zendeskgarden/container-utilities';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
 import { StyledInput, SelectWrapper, StyledOverflowWrapper, StyledStartIcon } from '../../styled';
@@ -37,12 +37,24 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
   ({ children, start, ...props }, ref) => {
     const {
       popperReferenceElementRef,
-      downshift: { getToggleButtonProps, getInputProps, isOpen }
+      itemSearchRegistry,
+      downshift: {
+        getToggleButtonProps,
+        getInputProps,
+        isOpen,
+        highlightedIndex,
+        setHighlightedIndex,
+        selectItemAtIndex,
+        closeMenu
+      }
     } = useDropdownContext();
     const { isLabelHovered } = useFieldContext();
     const hiddenInputRef = useRef<HTMLInputElement>(null);
     const triggerRef = useCombinedRefs<HTMLDivElement>(ref, popperReferenceElementRef);
     const previousIsOpenRef = useRef<boolean | undefined>(undefined);
+    const [searchString, setSearchString] = useState('');
+    const searchTimeoutRef = useRef<number>();
+    const currentSearchIndexRef = useRef<number>(0);
 
     useEffect(() => {
       // Focus internal input when Menu is opened
@@ -56,6 +68,115 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
       }
       previousIsOpenRef.current = isOpen;
     }, [isOpen, triggerRef]);
+
+    /**
+     * Handle timeouts for clearing search text
+     */
+    useEffect(() => {
+      // Cancel existing timeout if keys are pressed rapidly
+      if (searchTimeoutRef.current) {
+        clearTimeout(searchTimeoutRef.current);
+      }
+
+      // Reset search string after delay
+      searchTimeoutRef.current = window.setTimeout(() => {
+        setSearchString('');
+      }, 500);
+
+      return () => {
+        clearTimeout(searchTimeoutRef.current);
+      };
+    }, [searchString]);
+
+    /**
+     * Search item value registry based around current highlight bounds
+     */
+    const searchItems = useCallback(
+      (searchValue: string, startIndex: number, endIndex: number) => {
+        for (let index = startIndex; index < endIndex; index++) {
+          const itemTextValue = itemSearchRegistry.current[index];
+
+          if (
+            itemTextValue &&
+            itemTextValue.toUpperCase().indexOf(searchValue.toUpperCase()) === 0
+          ) {
+            return index;
+          }
+        }
+
+        return undefined;
+      },
+      [itemSearchRegistry]
+    );
+
+    const onInputKeyDown = useCallback(
+      (e: React.KeyboardEvent) => {
+        if (e.keyCode === KEY_CODES.SPACE) {
+          // Prevent space from closing Menu only if used with existing search value
+          if (searchString) {
+            e.preventDefault();
+            e.stopPropagation();
+          } else if (highlightedIndex !== null && highlightedIndex !== undefined) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            selectItemAtIndex(highlightedIndex);
+            closeMenu();
+          }
+        }
+
+        // Only search with alphanumeric keys
+        if (
+          (e.keyCode < 48 || e.keyCode > 57) &&
+          (e.keyCode < 65 || e.keyCode > 90) &&
+          e.keyCode !== KEY_CODES.SPACE
+        ) {
+          return;
+        }
+
+        const character = String.fromCharCode(e.which || e.keyCode);
+
+        if (!character || character.length === 0) {
+          return;
+        }
+
+        // Reset starting search index after delay has removed previous values
+        if (!searchString) {
+          if (highlightedIndex === null || highlightedIndex === undefined) {
+            currentSearchIndexRef.current = -1;
+          } else {
+            currentSearchIndexRef.current = highlightedIndex;
+          }
+        }
+
+        const newSearchString = searchString + character;
+
+        setSearchString(newSearchString);
+
+        let matchingIndex = searchItems(
+          newSearchString,
+          currentSearchIndexRef.current + 1,
+          itemSearchRegistry.current.length
+        );
+
+        if (matchingIndex === undefined) {
+          matchingIndex = searchItems(newSearchString, 0, currentSearchIndexRef.current);
+        }
+
+        if (matchingIndex !== undefined) {
+          setHighlightedIndex(matchingIndex);
+        }
+      },
+      [
+        searchString,
+        searchItems,
+        itemSearchRegistry,
+        highlightedIndex,
+        selectItemAtIndex,
+        closeMenu,
+        setHighlightedIndex
+      ]
+    );
 
     /**
      * Destructure type out of props so that `type="button"`
@@ -103,7 +224,8 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
                 isHidden: true,
                 tabIndex: -1,
                 ref: hiddenInputRef,
-                value: ''
+                value: '',
+                onKeyDown: onInputKeyDown
               } as any)}
             />
           </SelectWrapper>

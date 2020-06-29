@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, HTMLAttributes } from 'react';
+import React, { useRef, useEffect, useState, useCallback, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
+import { KEY_CODES } from '@zendeskgarden/container-utilities';
 import { StyledInput } from '../../styled';
 import useDropdownContext from '../../utils/useDropdownContext';
 
@@ -22,11 +23,24 @@ interface ITriggerProps extends HTMLAttributes<HTMLElement> {
 const Trigger: React.FunctionComponent<ITriggerProps> = ({ children, refKey, ...triggerProps }) => {
   const {
     hasMenuRef,
-    downshift: { getRootProps, getToggleButtonProps, getInputProps, isOpen }
+    itemSearchRegistry,
+    downshift: {
+      getRootProps,
+      getToggleButtonProps,
+      getInputProps,
+      isOpen,
+      highlightedIndex,
+      closeMenu,
+      selectItemAtIndex,
+      setHighlightedIndex
+    }
   } = useDropdownContext();
   const hiddenInputRef = useRef<HTMLInputElement>(null);
   const triggerRef = useRef<HTMLElement>(null);
   const previousIsOpenRef = useRef<boolean | undefined>(undefined);
+  const [searchString, setSearchString] = useState('');
+  const searchTimeoutRef = useRef<number>();
+  const currentSearchIndexRef = useRef<number>(0);
 
   useEffect(() => {
     // Focus internal input when Menu is opened
@@ -47,6 +61,112 @@ const Trigger: React.FunctionComponent<ITriggerProps> = ({ children, refKey, ...
       hasMenuRef.current = true;
     }
   }, [hasMenuRef]);
+
+  /**
+   * Handle timeouts for clearing search text
+   */
+  useEffect(() => {
+    // Cancel existing timeout if keys are pressed rapidly
+    if (searchTimeoutRef.current) {
+      clearTimeout(searchTimeoutRef.current);
+    }
+
+    // Reset search string after delay
+    searchTimeoutRef.current = window.setTimeout(() => {
+      setSearchString('');
+    }, 500);
+
+    return () => {
+      clearTimeout(searchTimeoutRef.current);
+    };
+  }, [searchString]);
+
+  /**
+   * Search item value registry based around current highlight bounds
+   */
+  const searchItems = useCallback(
+    (searchValue: string, startIndex: number, endIndex: number) => {
+      for (let index = startIndex; index < endIndex; index++) {
+        const itemTextValue = itemSearchRegistry.current[index];
+
+        if (itemTextValue && itemTextValue.toUpperCase().indexOf(searchValue.toUpperCase()) === 0) {
+          return index;
+        }
+      }
+
+      return undefined;
+    },
+    [itemSearchRegistry]
+  );
+
+  const onInputKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (e.keyCode === KEY_CODES.SPACE) {
+        // Prevent space from closing Menu only if used with existing search value
+        if (searchString) {
+          e.preventDefault();
+          e.stopPropagation();
+        } else if (highlightedIndex !== null && highlightedIndex !== undefined) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          selectItemAtIndex(highlightedIndex);
+          closeMenu();
+        }
+      }
+
+      // Only search with alphanumeric keys
+      if (
+        (e.keyCode < 48 || e.keyCode > 57) &&
+        (e.keyCode < 65 || e.keyCode > 90) &&
+        e.keyCode !== KEY_CODES.SPACE
+      ) {
+        return;
+      }
+
+      const character = String.fromCharCode(e.which || e.keyCode);
+
+      if (!character || character.length === 0) {
+        return;
+      }
+
+      // Reset starting search index after delay has removed previous values
+      if (!searchString) {
+        if (highlightedIndex === null || highlightedIndex === undefined) {
+          currentSearchIndexRef.current = -1;
+        } else {
+          currentSearchIndexRef.current = highlightedIndex;
+        }
+      }
+
+      const newSearchString = searchString + character;
+
+      setSearchString(newSearchString);
+
+      let matchingIndex = searchItems(
+        newSearchString,
+        currentSearchIndexRef.current + 1,
+        itemSearchRegistry.current.length
+      );
+
+      if (matchingIndex === undefined) {
+        matchingIndex = searchItems(newSearchString, 0, currentSearchIndexRef.current);
+      }
+
+      if (matchingIndex !== undefined) {
+        setHighlightedIndex(matchingIndex);
+      }
+    },
+    [
+      searchString,
+      searchItems,
+      itemSearchRegistry,
+      highlightedIndex,
+      selectItemAtIndex,
+      closeMenu,
+      setHighlightedIndex
+    ]
+  );
 
   const renderChildren = (popperRef: any) => {
     // Destructuring the `ref` argument lets us share it with PopperJS
@@ -108,7 +228,8 @@ const Trigger: React.FunctionComponent<ITriggerProps> = ({ children, refKey, ...
               isHidden: true,
               tabIndex: -1,
               ref: hiddenInputRef,
-              value: ''
+              value: '',
+              onKeyDown: onInputKeyDown
             } as any)}
           />
         </>
