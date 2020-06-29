@@ -69,6 +69,7 @@ const Menu: React.FunctionComponent<IMenuProps> = props => {
     previousIndexRef,
     nextItemsHashRef,
     popperReferenceElementRef,
+    itemSearchRegistry,
     downshift: { isOpen, getMenuProps }
   } = useDropdownContext();
   const scheduleUpdateRef = useRef<(() => void) | undefined>(undefined);
@@ -88,6 +89,7 @@ const Menu: React.FunctionComponent<IMenuProps> = props => {
   itemIndexRef.current = 0;
   nextItemsHashRef.current = {};
   previousIndexRef.current = undefined;
+  itemSearchRegistry.current = [];
 
   const popperPlacement = isRtl(props)
     ? getRtlPopperPlacement(placement!)
