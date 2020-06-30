@@ -23,7 +23,7 @@ const alertTitles = {
   info: 'Info Alert'
 };
 
-const initialState = { type: 'success', showClose: true };
+const initialState = { type: 'success', showClose: true, isRegular: false };
 
 <Grid>
   <Row>
@@ -81,11 +81,20 @@ const initialState = { type: 'success', showClose: true };
             <Label>Show Close</Label>
           </Toggle>
         </Field>
+
+        <Field className="u-mt-xs">
+          <Toggle
+            checked={state.isRegular}
+            onChange={event => setState({ isRegular: event.target.checked })}
+          >
+            <Label>Regular Weight Title</Label>
+          </Toggle>
+        </Field>
       </Well>
     </Col>
     <Col md={8}>
       <Alert type={state.type}>
-        <Title>{alertTitles[state.type]}</Title>
+        <Title isRegular={state.isRegular}>{alertTitles[state.type]}</Title>
         Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth
         tatsoi tomatillo melon.
         {state.showClose && (
@@ -127,7 +136,8 @@ const notificationTitles = {
 
 const initialState = {
   type: undefined,
-  isMultiLine: false
+  isMultiLine: false,
+  isRegular: false
 };
 
 <Grid>
@@ -195,11 +205,20 @@ const initialState = {
             <Label>Show Multi-line</Label>
           </Toggle>
         </Field>
+
+        <Field className="u-mt-xs">
+          <Toggle
+            checked={state.isRegular}
+            onChange={event => setState({ isRegular: event.target.checked })}
+          >
+            <Label>Regular Weight Title</Label>
+          </Toggle>
+        </Field>
       </Well>
     </Col>
     <Col md={8}>
       <Notification type={state.type}>
-        <Title>
+        <Title isRegular={state.isRegular}>
           Notification{notificationTitles[state.type] ? `: ${notificationTitles[state.type]}` : ''}
           {state.isMultiLine ? ' (Multi-line)' : ''}
         </Title>
@@ -232,7 +251,8 @@ const { Field, Label, Radio, Toggle } = require('@zendeskgarden/react-forms/src'
 const initialState = {
   isFloating: false,
   isRecessed: false,
-  isMultiLine: false
+  isMultiLine: false,
+  isRegular: false
 };
 
 <Grid>
@@ -263,11 +283,19 @@ const initialState = {
             <Label>Show Multi-line</Label>
           </Toggle>
         </Field>
+        <Field className="u-mt-xs">
+          <Toggle
+            checked={state.isRegular}
+            onChange={event => setState({ isRegular: event.target.checked })}
+          >
+            <Label>Regular Weight Title</Label>
+          </Toggle>
+        </Field>
       </Well>
     </Col>
     <Col md={8}>
       <Well isRecessed={state.isRecessed} isFloating={state.isFloating}>
-        <Title>Well {state.isMultiLine && '(Multi-line)'}</Title>
+        <Title isRegular={state.isRegular}>Well {state.isMultiLine && '(Multi-line)'}</Title>
         {state.isMultiLine ? (
           <Paragraph>
             Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery.

@@ -10,16 +10,21 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 
 const COMPONENT_ID = 'notifications.title';
 
+export interface IStyledTitleProps {
+  isRegular?: boolean;
+}
+
 /**
  * 1. Reset for <h1>, etc.
  */
 export const StyledTitle = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+})<IStyledTitleProps>`
   margin: 0; /* [1] */
   color: ${props => props.theme.colors.foreground};
-  font-weight: ${props => props.theme.fontWeights.semibold};
+  font-weight: ${props =>
+    props.isRegular ? props.theme.fontWeights.regular : props.theme.fontWeights.semibold};
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
