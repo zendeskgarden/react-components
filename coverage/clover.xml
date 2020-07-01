@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1593549993269" clover="3.2.0">
-  <project timestamp="1593549993269" name="All files">
+<coverage generated="1593624752119" clover="3.2.0">
+  <project timestamp="1593624752119" name="All files">
     <metrics statements="6130" coveredstatements="6053" conditionals="2449" coveredconditionals="2233" methods="1278" coveredmethods="1266" elements="9857" coveredelements="9552" complexity="0" loc="6130" ncloc="6130" packages="104" files="403" classes="403"/>
     <package name="accordions.src.elements.accordion">
       <metrics statements="22" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
@@ -4409,10 +4409,10 @@
         <line num="16" count="9" type="stmt"/>
         <line num="17" count="9" type="stmt"/>
         <line num="19" count="9" type="stmt"/>
-        <line num="31" count="46" type="stmt"/>
-        <line num="46" count="9" type="stmt"/>
-        <line num="48" count="9" type="stmt"/>
-        <line num="51" count="46" type="stmt"/>
+        <line num="35" count="46" type="stmt"/>
+        <line num="51" count="9" type="stmt"/>
+        <line num="53" count="9" type="stmt"/>
+        <line num="56" count="46" type="stmt"/>
       </file>
       <file name="StyledRadioMessage.ts" path="/home/circleci/project/packages/forms/src/styled/radio/StyledRadioMessage.ts">
         <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
