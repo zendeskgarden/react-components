@@ -28,16 +28,21 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
+/**
+ * 1. Vertical alignment.
+ * 2. CSS Bedrock override.
+ */
 export const StyledRadioLabel = styled(StyledLabel).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  display: inline-block; /* required to display input on hidden label */
+  display: inline-block; /* [1] */
   position: relative;
   cursor: pointer;
   user-select: none;
 
   &[hidden] {
+    display: inline-block; /* [2] */
     vertical-align: top;
     text-indent: -100%;
     font-size: 0;
