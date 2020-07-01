@@ -18,6 +18,20 @@ describe('Chrome', () => {
     expect(container.firstChild).toBe(ref.current);
   });
 
+  it('does not render fluid style on <html> element by default', () => {
+    render(<Chrome />);
+
+    expect(document.querySelector('html')).not.toHaveAttribute('style');
+  });
+
+  it('renders fluid style on <html> element and removes it when Chrome is unmounted', () => {
+    const { unmount } = render(<Chrome isFluid />);
+
+    expect(document.querySelector('html')).toHaveAttribute('style', 'position: fixed;');
+    unmount();
+    expect(document.querySelector('html')).toHaveAttribute('style', '');
+  });
+
   describe('Hue', () => {
     it('applies light styling if hue is below luminance threshold', () => {
       const { container } = render(<Chrome hue={PALETTE.green[100]} />);
