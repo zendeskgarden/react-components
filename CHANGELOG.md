@@ -11,6 +11,19 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+## v8.15.0 (2020-07-01)
+
+#### :rocket: New Feature
+
+- `dropdowns`
+  - [#787](https://github.com/zendeskgarden/react-components/pull/787) feat(dropdowns): allow Select to search with keyboard interaction ([@austin94](https://github.com/austin94))
+- `notifications`
+  - [#788](https://github.com/zendeskgarden/react-components/pull/788) feat(notifications): add support for regular weight title ([@hzhu](https://github.com/hzhu))
+
+#### :bug: Bug Fix
+
+- `forms`
+  - [#789](https://github.com/zendeskgarden/react-components/pull/789) fix(forms): override Bedrock CSS [hidden] styling for radios, checkboxes, and toggles ([@jzempel](https://github.com/jzempel))
 ## v8.14.1 (2020-06-24)
 
 #### :bug: Bug Fix
