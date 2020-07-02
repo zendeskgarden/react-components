@@ -2,11 +2,11 @@
 
 <!-- markdownlint-enable -->
 
-[build status badge]: https://flat.badgen.net/circleci/github/zendeskgarden/react-components/master?label=build
-[build status link]: https://circleci.com/gh/zendeskgarden/react-components/tree/master
+[build status badge]: https://flat.badgen.net/circleci/github/zendeskgarden/react-components/main?label=build
+[build status link]: https://circleci.com/gh/zendeskgarden/react-components/tree/main
 [dependency status badge]: https://flat.badgen.net/david/dev/zendeskgarden/react-components?label=dependencies
 [dependency status link]: https://david-dm.org/zendeskgarden/react-components?type=dev
-[coverage status badge]: https://flat.badgen.net/coveralls/c/github/zendeskgarden/react-components/master
+[coverage status badge]: https://flat.badgen.net/coveralls/c/github/zendeskgarden/react-components/main
 [coverage status link]: https://coveralls.io/github/zendeskgarden/react-components
 
 > :seedling: Garden is a design system for Zendesk
@@ -184,7 +184,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 Check out more Garden React components in this sandbox IDE:
 
-[![Edit Garden CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/zendeskgarden/react-components/tree/master/examples/codesandbox)
+[![Edit Garden CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/zendeskgarden/react-components/tree/main/examples/codesandbox)
 
 ## Documentation
 

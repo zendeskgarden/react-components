@@ -65,7 +65,7 @@ class TableOfContents extends Component {
 
   render() {
     const parameters = qs.parse(location.search.slice(1), { strictNullHandling: true });
-    const githubPackageUrl = `https://github.com/zendeskgarden/react-components/tree/master/packages/${BASE_PATH_NAME}`;
+    const githubPackageUrl = `https://github.com/zendeskgarden/react-components/tree/main/packages/${BASE_PATH_NAME}`;
     const { children, ...other } = this.props;
     const { isChangelogModalOpen } = this.state;
 

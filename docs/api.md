@@ -36,7 +36,7 @@ ensuring the details live up to expectations.
   maintained with the help of `stylelint`.
 - Grouped CSS is important for style maintainablility and must be authored in
   the following order for optimal specificity (see
-  [StyledTag](https://github.com/zendeskgarden/react-components/blob/master/packages/tags/src/styled/StyledTag.ts)
+  [StyledTag](https://github.com/zendeskgarden/react-components/blob/main/packages/tags/src/styled/StyledTag.ts)
   for an ideal example):
   - "Base" properties: display, position, flex, transition, direction, etc
     (anything NOT related to size or color)

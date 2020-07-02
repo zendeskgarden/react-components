@@ -72,4 +72,4 @@ workflows:
           context: maintainer
           filters:
             branches:
-              only: master
+              only: main
