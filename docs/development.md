@@ -98,7 +98,7 @@ dependencies include:
   - `styled-components`
 
 When additional dependencies are required, they can be installed with the
-[`lerna add`](https://github.com/lerna/lerna/tree/master/commands/add#readme).
+[`lerna add`](https://github.com/lerna/lerna/tree/main/commands/add#readme).
 The [Renovate](https://renovatebot.com) bot will keep these dependencies
 up-to-date over time.
 

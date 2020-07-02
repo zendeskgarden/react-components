@@ -89,8 +89,8 @@ const release = async (tag, markdown, spinner) => {
   const pushArgs = ['push', '--follow-tags', '--no-verify', '--atomic', 'origin'];
 
   // Ensure `version` commit hits CI, triggering npm publish
-  await execa('git', pushArgs.concat('HEAD^:master'));
-  await execa('git', pushArgs.concat('master'));
+  await execa('git', pushArgs.concat('HEAD^:main'));
+  await execa('git', pushArgs.concat('main'));
 
   const url = await garden.githubRelease({ tag, body: markdown, spinner });
 
@@ -113,22 +113,22 @@ const rollback = async (tag, spinner) => {
 };
 
 /**
- * Sync local master branch and tags with GitHub remote.
+ * Sync local main branch and tags with GitHub remote.
  *
- * @param {String} master Name for the master branch being used for tagging.
+ * @param {String} main Name for the main branch being used for tagging.
  * @param {Ora} spinner Terminal spinner.
  */
-const sync = async (master, spinner) => {
+const sync = async (main, spinner) => {
   const branch = await garden.githubBranch(undefined /* path */, spinner);
 
-  if (branch === master) {
+  if (branch === main) {
     info('Syncing with remote...', spinner);
     await execa('git', ['pull']);
     await execa('git', ['fetch', '--tags', '--prune', '--prune-tags']);
     spinner.stop();
     await execa('yarn', ['install', '--force'], { stdout: process.stdout });
   } else {
-    throw new Error(`Switch to the ${master} branch`);
+    throw new Error(`Switch to the ${main} branch`);
   }
 };
 
@@ -137,12 +137,12 @@ const sync = async (master, spinner) => {
  *
  * @param {String} bump Semantic or explicit versioning bump.
  * @param {String} preid Prerelease ID as defined by https://semver.org/#spec-item-9.
- * @param {String} master Name for the master branch being used for tagging.
+ * @param {String} main Name for the main branch being used for tagging.
  * @param {Ora} spinner Terminal spinner.
  *
  * @returns New version tag.
  */
-const version = async (bump, preid, master, spinner) => {
+const version = async (bump, preid, main, spinner) => {
   const lernaArgs = [
     'lerna',
     'version',
@@ -171,8 +171,8 @@ const version = async (bump, preid, master, spinner) => {
     lernaArgs.push('--preid', preid);
   }
 
-  if (master) {
-    lernaArgs.push('--allow-branch', master);
+  if (main) {
+    lernaArgs.push('--allow-branch', main);
   }
 
   await execa('yarn', lernaArgs, { stdin: process.stdin, stdout: process.stdout });
@@ -189,16 +189,16 @@ const version = async (bump, preid, master, spinner) => {
 program
   .description('Tag and publish a new version for react-components packages')
   .arguments('[version]')
-  .option('-m, --master <master>', 'Master branch name', lernaConfig.command.version.allowBranch)
+  .option('-m, --main <main>', 'Main branch name', lernaConfig.command.version.allowBranch)
   .option('-p, --preid <preid>', 'Prerelease identifier')
   .action(async bump => {
     const spinner = ora();
 
     try {
       spinner.start();
-      await sync(program.master, spinner);
+      await sync(program.main, spinner);
 
-      const tag = await version(bump, program.preid, program.master, spinner);
+      const tag = await version(bump, program.preid, program.main, spinner);
       const markdown = await changelog(tag, spinner);
 
       spinner.stop();
@@ -206,7 +206,7 @@ program
       const prompt = await inquirer.prompt([
         {
           type: 'confirm',
-          message: `Confirm ${tag} release to the ${program.master} branch?`,
+          message: `Confirm ${tag} release to the ${program.main} branch?`,
           name: 'release',
           default: true
         }

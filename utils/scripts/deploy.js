@@ -23,7 +23,7 @@ envalid.cleanEnv(process.env, {
     const dir = path.resolve(__dirname, '..', '..', 'demo');
     let url;
 
-    if (branch === 'master') {
+    if (branch === 'main') {
       url = await garden.githubPages({ dir });
     } else {
       const repository = await garden.githubRepository();
