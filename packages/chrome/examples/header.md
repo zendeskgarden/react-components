@@ -22,7 +22,7 @@ initialState = {
     </Field>
   </Well>
   <br />
-  <Chrome style={{ height: 200 }}>
+  <Chrome isFluid style={{ height: 200 }}>
     <Body>
       <Header isStandalone={state.standalone}>
         <HeaderItem hasLogo product="support">

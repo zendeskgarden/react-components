@@ -49,17 +49,17 @@ const Chrome = React.forwardRef<HTMLDivElement, IChromeProps & ThemeProps<Defaul
 
       const htmlElement = environment.querySelector('html');
 
-      if (htmlElement && isFluid) {
-        const previousHtmlPosition = htmlElement.style.position;
+      if (!htmlElement || isFluid) return undefined;
 
+      const defaultHtmlPosition = htmlElement.style.position;
+
+      if (!isFluid) {
         htmlElement.style.position = 'fixed';
-
-        return () => {
-          htmlElement.style.position = previousHtmlPosition;
-        };
       }
 
-      return undefined;
+      return () => {
+        htmlElement.style.position = defaultHtmlPosition;
+      };
     }, [environment, isFluid]);
 
     return (

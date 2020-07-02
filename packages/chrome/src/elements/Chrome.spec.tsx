@@ -18,14 +18,14 @@ describe('Chrome', () => {
     expect(container.firstChild).toBe(ref.current);
   });
 
-  it('does not render fluid style on <html> element by default', () => {
-    render(<Chrome />);
+  it('renders fluid html element', () => {
+    render(<Chrome isFluid />);
 
-    expect(document.querySelector('html')).not.toHaveAttribute('style');
+    expect(document.querySelector('html')).toHaveAttribute('style', '');
   });
 
-  it('renders fluid style on <html> element and removes it when Chrome is unmounted', () => {
-    const { unmount } = render(<Chrome isFluid />);
+  it('does not render fluid html element', () => {
+    const { unmount } = render(<Chrome />);
 
     expect(document.querySelector('html')).toHaveAttribute('style', 'position: fixed;');
     unmount();

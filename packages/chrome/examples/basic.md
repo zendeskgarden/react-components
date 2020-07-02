@@ -158,6 +158,7 @@ const StyledSpacer = styled.div`
       <Row>
         <Col>
           <Chrome
+            isFluid
             style={{ height: 500 }}
             hue={state.hue === PALETTE.kale[700] ? undefined : state.hue}
           >
