@@ -43,23 +43,21 @@ const Chrome = React.forwardRef<HTMLDivElement, IChromeProps & ThemeProps<Defaul
     const environment = useDocument(theme);
 
     useEffect(() => {
-      if (!environment) {
-        return undefined;
+      if (environment && !isFluid) {
+        const htmlElement = environment.querySelector('html');
+
+        if (htmlElement) {
+          const defaultHtmlPosition = htmlElement.style.position;
+
+          htmlElement.style.position = 'fixed';
+
+          return () => {
+            htmlElement.style.position = defaultHtmlPosition;
+          };
+        }
       }
 
-      const htmlElement = environment.querySelector('html');
-
-      if (!htmlElement || isFluid) return undefined;
-
-      const defaultHtmlPosition = htmlElement.style.position;
-
-      if (!isFluid) {
-        htmlElement.style.position = 'fixed';
-      }
-
-      return () => {
-        htmlElement.style.position = defaultHtmlPosition;
-      };
+      return undefined;
     }, [environment, isFluid]);
 
     return (
