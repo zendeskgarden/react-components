@@ -5,24 +5,26 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, useMemo } from 'react';
+import React, { HTMLAttributes, useMemo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProps, DefaultTheme } from 'styled-components';
 import { readableColor } from 'polished';
-import { withTheme, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { withTheme, DEFAULT_THEME, getColor, useDocument } from '@zendeskgarden/react-theming';
 import { ChromeContext } from '../utils/useChromeContext';
 import { StyledChrome } from '../styled';
 
 interface IChromeProps extends HTMLAttributes<HTMLDivElement> {
   /** Apply a custom hue to chrome navigation */
   hue?: string;
+  /** Prevent fixed positioning from being applied to the <html> element */
+  isFluid?: boolean;
 }
 
 /**
  * Accepts all `<div>` attributes and events
  */
 const Chrome = React.forwardRef<HTMLDivElement, IChromeProps & ThemeProps<DefaultTheme>>(
-  ({ hue, theme, ...props }, ref) => {
+  ({ hue, theme, isFluid, ...props }, ref) => {
     const isLightMemoized = useMemo(() => {
       if (hue) {
         const backgroundColor = getColor(hue, 600, theme);
@@ -38,6 +40,25 @@ const Chrome = React.forwardRef<HTMLDivElement, IChromeProps & ThemeProps<Defaul
     const isLight = hue ? isLightMemoized : false;
     const isDark = hue ? !isLightMemoized : false;
     const chromeContextValue = { hue: hue || 'chromeHue', isLight, isDark };
+    const environment = useDocument(theme);
+
+    useEffect(() => {
+      if (environment && !isFluid) {
+        const htmlElement = environment.querySelector('html');
+
+        if (htmlElement) {
+          const defaultHtmlPosition = htmlElement.style.position;
+
+          htmlElement.style.position = 'fixed';
+
+          return () => {
+            htmlElement.style.position = defaultHtmlPosition;
+          };
+        }
+      }
+
+      return undefined;
+    }, [environment, isFluid]);
 
     return (
       <ChromeContext.Provider value={chromeContextValue}>
