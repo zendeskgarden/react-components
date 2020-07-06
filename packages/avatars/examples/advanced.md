@@ -19,7 +19,7 @@ const {
 
 const GridIcon = require('@zendeskgarden/svg-icons/src/16/grid-2x2-stroke.svg').default;
 
-<Chrome style={{ height: 'auto' }}>
+<Chrome isFluid style={{ height: 'auto' }}>
   <Body>
     <Header>
       <HeaderItem as="button">
