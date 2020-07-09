@@ -7,7 +7,7 @@
 
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { StyledFont } from '../styled';
+import { StyledFont, StyledIcon } from '../styled';
 
 interface ISpanProps extends HTMLAttributes<HTMLSpanElement> {
   /** Any valid DOM element for the styled component */
@@ -16,6 +16,12 @@ interface ISpanProps extends HTMLAttributes<HTMLSpanElement> {
   isBold?: boolean;
   /** Render monospace font */
   isMonospace?: boolean;
+  /**
+   * Apply a span color – typically constrained to a
+   * [palette](https://garden.zendesk.com/react-components/theming/#palette)
+   * hue, but with the ability to override using any hex value.
+   */
+  hue?: string;
 }
 
 /**
@@ -32,12 +38,30 @@ Span.displayName = 'Span';
 Span.propTypes = {
   tag: PropTypes.any,
   isBold: PropTypes.bool,
-  isMonospace: PropTypes.bool
+  isMonospace: PropTypes.bool,
+  hue: PropTypes.string
 };
 
 Span.defaultProps = {
   tag: 'span'
 };
 
-/** @component */
-export default Span;
+interface IIconProps extends HTMLAttributes<HTMLElement> {
+  children: any;
+}
+
+const StartIcon = (props: IIconProps) => <StyledIcon position="start" {...props} />;
+const Icon = (props: IIconProps) => <StyledIcon {...props} />;
+const EndIcon = (props: IIconProps) => <StyledIcon position="end" {...props} />;
+
+(Span as any).StartIcon = StartIcon;
+(Span as any).Icon = Icon;
+(Span as any).EndIcon = EndIcon;
+
+export default Span as React.FunctionComponent<
+  ISpanProps & React.RefAttributes<HTMLSpanElement>
+> & {
+  StartIcon: typeof StartIcon;
+  Icon: typeof Icon;
+  EndIcon: typeof EndIcon;
+};

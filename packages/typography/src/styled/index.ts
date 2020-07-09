@@ -8,6 +8,7 @@
 export * from './StyledCode';
 export * from './StyledEllipsis';
 export * from './StyledFont';
+export * from './StyledIcon';
 export * from './StyledList';
 export * from './StyledListItem';
 export * from './StyledParagraph';
