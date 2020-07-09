@@ -11,14 +11,6 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
-
-## v8.15.1 (2020-07-08)
-
-#### :bug: Bug Fix
-* `avatars`
-  * [#794](https://github.com/zendeskgarden/react-components/pull/794) fix(avatars): use fluid chrome in avatars example ([@hzhu](https://github.com/hzhu))
-* `chrome`
-  * [#790](https://github.com/zendeskgarden/react-components/pull/790) fix(chrome): add fixed positioning to html element ([@hzhu](https://github.com/hzhu))
 ## v8.15.0 (2020-07-01)
 
 #### :rocket: New Feature
