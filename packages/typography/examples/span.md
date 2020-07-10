@@ -13,17 +13,12 @@ const {
 } = require('@zendeskgarden/react-dropdowns/src');
 const AsteriskIcon = require('@zendeskgarden/svg-icons/src/16/asterisk-stroke.svg').default;
 const AtIcon = require('@zendeskgarden/svg-icons/src/16/at-stroke.svg').default;
-const BoxIcon = require('@zendeskgarden/svg-icons/src/16/box-3d-stroke.svg').default;
 const CircleIcon = require('@zendeskgarden/svg-icons/src/16/circle-full-stroke.svg').default;
 const DashedCircleIcon = require('@zendeskgarden/svg-icons/src/16/circle-stroke.svg').default;
-const GlobeIcon = require('@zendeskgarden/svg-icons/src/16/globe-stroke.svg').default;
-const GridIcon = require('@zendeskgarden/svg-icons/src/16/grid-3x3-stroke.svg').default;
 const HeartIcon = require('@zendeskgarden/svg-icons/src/16/heart-stroke.svg').default;
+const LeafIcon = require('@zendeskgarden/svg-icons/src/16/leaf-stroke.svg').default;
 const NumberIcon = require('@zendeskgarden/svg-icons/src/16/number-stroke.svg').default;
 const PlusIcon = require('@zendeskgarden/svg-icons/src/16/plus-stroke.svg').default;
-const ShapesIcon = require('@zendeskgarden/svg-icons/src/16/shapes-stroke.svg').default;
-const ShieldIcon = require('@zendeskgarden/svg-icons/src/16/shield-stroke.svg').default;
-const SmileyIcon = require('@zendeskgarden/svg-icons/src/16/smiley-stroke.svg').default;
 const StarIcon = require('@zendeskgarden/svg-icons/src/16/star-stroke.svg').default;
 const XIcon = require('@zendeskgarden/svg-icons/src/16/x-stroke.svg').default;
 
@@ -200,21 +195,13 @@ const Typography = ({ size, children, ...props }) => {
           isBold={state.bold}
           isMonospace={state.monospace}
         >
-          {state.startIcon && (
-            <Span.StartIcon>
-              <GlobeIcon />
-            </Span.StartIcon>
-          )}
-          <>zucchini burdock yarrow</> {state.defaultIcon && (
+          zucchini burdock yarrow{' '}
+          {state.defaultIcon && (
             <Span.Icon>
               <NumberIcon />
             </Span.Icon>
-          )} <>chickpea dandelion</>
-          {state.endIcon && (
-            <Span.EndIcon>
-              <GridIcon />
-            </Span.EndIcon>
-          )}
+          )}{' '}
+          chickpea dandelion
         </Span> sorrel courgette turnip greens tigernut soybean radish artichoke wattle seed endive groundnut
         broccoli arugula.
       </Typography>
@@ -226,21 +213,13 @@ const Typography = ({ size, children, ...props }) => {
           isBold={state.bold}
           isMonospace={state.monospace}
         >
-          {state.startIcon && (
-            <Span.StartIcon>
-              <SmileyIcon />
-            </Span.StartIcon>
-          )}
-          <>mustard tigernut</> {state.defaultIcon && (
+          mustard tigernut{' '}
+          {state.defaultIcon && (
             <Span.Icon>
               <XIcon />
             </Span.Icon>
-          )} <>jícama green bean</>
-          {state.endIcon && (
-            <Span.EndIcon>
-              <StarIcon />
-            </Span.EndIcon>
-          )}
+          )}{' '}
+          jícama green bean
         </Span> celtuce collard greens avocado quandong fennel gumbo.
       </Typography>
       {['SM', 'MD', 'LG'].indexOf(state.size) !== -1 && (
@@ -249,21 +228,13 @@ const Typography = ({ size, children, ...props }) => {
             Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea lettuce
             lettuce
             <Span hue={state.hue === 'inherit' ? null : state.hue} isBold={state.bold}>
-              {state.startIcon && (
-                <Span.StartIcon>
-                  <ShapesIcon />
-                </Span.StartIcon>
-              )}
-              <>water chestnut eggplant</> {state.defaultIcon && (
+              water chestnut eggplant{' '}
+              {state.defaultIcon && (
                 <Span.Icon>
                   <PlusIcon />
                 </Span.Icon>
-              )} <>winter purslane fennel</>
-              {state.endIcon && (
-                <Span.EndIcon>
-                  <ShieldIcon />
-                </Span.EndIcon>
-              )}
+              )}{' '}
+              winter purslane fennel
             </Span> azuki bean earthnut pea sierra leone bologi leek soko chicory celtuce parsley jícama
             salsify.
           </Typography>
@@ -271,25 +242,40 @@ const Typography = ({ size, children, ...props }) => {
             Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori.
             Grape wattle
             <Span hue={state.hue === 'inherit' ? null : state.hue} isBold={state.bold}>
-              {state.startIcon && (
-                <Span.StartIcon>
-                  <HeartIcon />
-                </Span.StartIcon>
-              )}
-              <>seed kombu</> {state.defaultIcon && (
+              seed kombu{' '}
+              {state.defaultIcon && (
                 <Span.Icon>
                   <AtIcon />
                 </Span.Icon>
-              )} <>beet horseradish</>
-              {state.endIcon && (
-                <Span.EndIcon>
-                  <BoxIcon />
-                </Span.EndIcon>
-              )}
+              )}{' '}
+              beet horseradish
             </Span> carrot squash brussels sprout chard.
           </Typography>
         </>
       )}
+      <Typography as="p" size={state.size}>
+        <Span
+          hue={state.hue === 'inherit' ? null : state.hue}
+          isBold={state.bold}
+          isMonospace={state.monospace}
+        >
+          {state.startIcon && (
+            <Span.StartIcon>
+              <StarIcon />
+            </Span.StartIcon>
+          )}
+          <>Kale arugula</> {state.defaultIcon && (
+            <Span.Icon>
+              <LeafIcon />
+            </Span.Icon>
+          )} <>napa cabbage</>
+          {state.endIcon && (
+            <Span.EndIcon>
+              <HeartIcon />
+            </Span.EndIcon>
+          )}
+        </Span>
+      </Typography>
     </Col>
   </Row>
 </Grid>;
