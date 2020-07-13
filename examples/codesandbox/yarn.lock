@@ -2636,18 +2636,23 @@
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.5.1.tgz#738dc99dbe4a98809fdc015e5a8e000997725876"
   integrity sha512-+nswWqFEiWHkuQeYSdftJ5c3Xy48IHPKb23qktIeEl+ZibMXzWVytdg91zOerI/HGJizNJ0gKmq+0A/4//eiQQ==
 
-"@zendeskgarden/css-bedrock@^7.0.33":
-  version "7.0.33"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/css-bedrock/-/css-bedrock-7.0.33.tgz#3dc16585a1252aeca3cf091634df91e112411e06"
-  integrity sha512-6qWhpdXTfZoCy3v2GsQh+vbQYeaTELEspjk4vG/kKYQ3hA9igzbXjvpb7P5oXt48UtvBkEcM/94Dgcop3yUnYQ==
+"@zendeskgarden/css-bedrock@^8.0.0":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/css-bedrock/-/css-bedrock-8.0.1.tgz#3810ed52b0542b8976c27e766b57b48720a25d97"
+  integrity sha512-VbtJHzwdTjlpxqexzZTiaNTYQ5/xdQkALp01fDudC9NgL5KueehTi8VW64cYCi1NoCJvGrKXzaey9aSRBYPepA==
   dependencies:
-    "@zendeskgarden/css-variables" "^6.4.3"
+    "@zendeskgarden/css-variables" "^6.4.5"
     normalize.css "^8.0.0"
 
 "@zendeskgarden/css-variables@^6.4.3":
   version "6.4.3"
   resolved "https://registry.yarnpkg.com/@zendeskgarden/css-variables/-/css-variables-6.4.3.tgz#9cdfb0a0d97dc9a92e108b625d29ecc7330627ee"
   integrity sha512-YKxw63ErJKzKmpCcHSqgABuFCakpU3DQFsR1fKm3rLcHVEeXPvjEPLIp73lzG2/YY24psv0/eiSq1VJDEoeReg==
+
+"@zendeskgarden/css-variables@^6.4.5":
+  version "6.4.5"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/css-variables/-/css-variables-6.4.5.tgz#b51a50046f42a11b8d1bfec46e100b02fd6fc1d9"
+  integrity sha512-vX7vDJVQoyYFUshYXXX5QE2fL9M6K2bnxTeB2IVyEIaGRYEi20xjoY6cuO1uAQ7RaIRGCSyZFKgWW+/IrlQMKg==
 
 "@zendeskgarden/react-avatars@^8.0.0":
   version "8.0.0"
