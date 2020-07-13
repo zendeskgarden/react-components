@@ -5,14 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-/*
-  Keyboard visual indicators are separate from hover visual indicators as outlined by the
-  `Accordion.Header` design, so there are no key events associated to mouse events. Ignoring this
-  lint rule is uncommon, but required for Garden's `Accordion.Header`.
-*/
-
-/* eslint-disable jsx-a11y/mouse-events-have-key-events */
-
 import React, { useState, FocusEvent, forwardRef, HTMLAttributes } from 'react';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import ChevronDown from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
