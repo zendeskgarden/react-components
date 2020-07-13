@@ -315,6 +315,10 @@ describe('Multiselect', () => {
       fireEvent.click(multiselect);
       expect(multiselect).toHaveAttribute('data-test-is-open', 'true');
 
+      act(() => {
+        jest.runOnlyPendingTimers();
+      });
+
       fireEvent.focus(getAllByTestId('tag')[0]);
       expect(multiselect).toHaveAttribute('data-test-is-open', 'false');
     });
