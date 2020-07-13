@@ -2924,10 +2924,10 @@
   dependencies:
     "@types/node" ">= 8"
 
-"@rollup/plugin-commonjs@12.0.0":
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/@rollup/plugin-commonjs/-/plugin-commonjs-12.0.0.tgz#e2f308ae6057499e0f413f878fff7c3a0fdc02a1"
-  integrity sha512-8+mDQt1QUmN+4Y9D3yCG8AJNewuTSLYPJVzKKUZ+lGeQrI+bV12Tc5HCyt2WdlnG6ihIL/DPbKRJlB40DX40mw==
+"@rollup/plugin-commonjs@13.0.1":
+  version "13.0.1"
+  resolved "https://registry.yarnpkg.com/@rollup/plugin-commonjs/-/plugin-commonjs-13.0.1.tgz#4fe12144271af724db35bac07b9bf718f22332e0"
+  integrity sha512-4G08+lhTIPxp6g5eDGiwD4BKr3Pf467h+Sfhvd7kztSpZyplQv0dAtcWbGqJ9kV0ovgGo/Z6Hhl1d/q6egkl6Q==
   dependencies:
     "@rollup/pluginutils" "^3.0.8"
     commondir "^1.0.1"
