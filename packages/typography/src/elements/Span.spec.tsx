@@ -6,9 +6,10 @@
  */
 
 import React from 'react';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 import { render, renderRtl } from 'garden-test-utils';
 import Span from './Span';
+import TestIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
 
 describe('Span', () => {
   it('passes ref to underlying DOM element', () => {
@@ -33,9 +34,90 @@ describe('Span', () => {
     );
   });
 
+  it('applies monospace styling if provided', () => {
+    const { container } = render(<Span isMonospace />);
+
+    expect(container.firstChild).toHaveStyleRule('font-family', DEFAULT_THEME.fonts.mono);
+  });
+
+  describe('hue', () => {
+    it('renders the hue provided', () => {
+      [
+        'grey',
+        'blue',
+        'kale',
+        'red',
+        'green',
+        'fuschia',
+        'pink',
+        'crimson',
+        'orange',
+        'lemon',
+        'lime',
+        'mint',
+        'teal',
+        'azure',
+        'royal',
+        'purple'
+      ].forEach(color => {
+        const { container } = render(<Span hue={color as any} />);
+
+        expect(container.firstChild).toHaveStyleRule('color', (PALETTE as any)[color][600]);
+      });
+    });
+
+    it('handles yellow hue with specialized shading', () => {
+      const { container } = render(<Span hue="yellow" />);
+
+      expect(container.firstChild).toHaveStyleRule('color', PALETTE.yellow[700]);
+    });
+  });
+
   it('applies expected styling with RTL locale', () => {
     const { container } = renderRtl(<Span />);
 
     expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
+  });
+
+  describe('Icons', () => {
+    it('successfully renders start and default icons', () => {
+      const { getByTestId } = render(
+        <Span>
+          <Span.StartIcon>
+            <TestIcon data-test-id="start" />
+          </Span.StartIcon>
+          <Span.Icon>
+            <TestIcon data-test-id="default" />
+          </Span.Icon>
+        </Span>
+      );
+
+      expect(getByTestId('start')).not.toBeNull();
+      expect(getByTestId('default')).not.toBeNull();
+    });
+
+    it('renders start icon', () => {
+      const { getByTestId } = render(
+        <Span>
+          <Span.StartIcon>
+            <TestIcon data-test-id="icon" />
+          </Span.StartIcon>
+        </Span>
+      );
+
+      expect(getByTestId('icon')).toHaveStyleRule('margin-right', '8px');
+    });
+
+    it('renders RTL start icon', () => {
+      const { getByTestId } = renderRtl(
+        <Span>
+          <Span.StartIcon>
+            <TestIcon data-test-id="icon" />
+          </Span.StartIcon>
+        </Span>
+      );
+
+      expect(getByTestId('icon')).toHaveStyleRule('margin-left', '8px');
+    });
   });
 });
