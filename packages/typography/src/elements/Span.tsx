@@ -50,18 +50,15 @@ interface IIconProps extends HTMLAttributes<HTMLElement> {
   children: any;
 }
 
-const StartIcon = (props: IIconProps) => <StyledIcon position="start" {...props} />;
+const StartIcon = (props: IIconProps) => <StyledIcon isStart {...props} />;
 const Icon = (props: IIconProps) => <StyledIcon {...props} />;
-const EndIcon = (props: IIconProps) => <StyledIcon position="end" {...props} />;
 
 (Span as any).StartIcon = StartIcon;
 (Span as any).Icon = Icon;
-(Span as any).EndIcon = EndIcon;
 
 export default Span as React.FunctionComponent<
   ISpanProps & React.RefAttributes<HTMLSpanElement>
 > & {
   StartIcon: typeof StartIcon;
   Icon: typeof Icon;
-  EndIcon: typeof EndIcon;
 };

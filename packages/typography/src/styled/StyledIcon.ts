@@ -12,24 +12,19 @@ import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-the
 const COMPONENT_ID = 'typography.icon';
 
 interface IStyledIconProps {
-  position?: 'start' | 'end';
+  isStart?: boolean;
 }
 
 const sizeStyles = (props: IStyledIconProps & ThemeProps<DefaultTheme>) => {
-  let marginProperty;
+  const margin = props.isStart && `${props.theme.space.base * 2}px`;
+  const size = props.theme.iconSizes.md;
 
-  if (props.position === 'start') {
-    marginProperty = `margin-${props.theme.rtl ? 'left' : 'right'}`;
-  } else if (props.position === 'end') {
-    marginProperty = `margin-${props.theme.rtl ? 'right' : 'left'}`;
-  }
-
-  return (
-    marginProperty &&
-    css`
-      ${marginProperty}: ${props.theme.space.base * 2}px;
-    `
-  );
+  return css`
+    /* stylelint-disable-next-line property-no-unknown */
+    margin-${props.theme.rtl ? 'left' : 'right'}: ${margin};
+    width: ${size};
+    height: ${size};
+  `;
 };
 
 export const StyledIcon = styled(({ children, ...props }) =>
