@@ -55,6 +55,12 @@ describe('UnorderedList', () => {
   });
 
   describe('type', () => {
+    it('renders disc styling by default', () => {
+      const { container } = render(<UnorderedList />);
+
+      expect(container.firstChild).toHaveStyleRule('list-style-type', 'disc');
+    });
+
     it('renders disc styling if provided', () => {
       const { container } = render(<UnorderedList type="disc" />);
 
