@@ -128,7 +128,7 @@
     "temp": "0.9.1",
     "ts-jest": "26.1.2",
     "ts-loader": "8.0.0",
-    "typescript": "3.9.6",
+    "typescript": "3.8.3",
     "webpack": "4.43.0"
   },
   "resolutions": {
