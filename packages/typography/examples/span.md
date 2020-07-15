@@ -13,7 +13,9 @@ const {
 } = require('@zendeskgarden/react-dropdowns/src');
 const AsteriskIcon = require('@zendeskgarden/svg-icons/src/16/asterisk-stroke.svg').default;
 const AtIcon = require('@zendeskgarden/svg-icons/src/16/at-stroke.svg').default;
+const CircleIcon = require('@zendeskgarden/svg-icons/src/16/circle-full-stroke.svg').default;
 const DashedCircleIcon = require('@zendeskgarden/svg-icons/src/16/circle-stroke.svg').default;
+const HeartIcon = require('@zendeskgarden/svg-icons/src/16/heart-stroke.svg').default;
 const LeafIcon = require('@zendeskgarden/svg-icons/src/16/leaf-stroke.svg').default;
 const NumberIcon = require('@zendeskgarden/svg-icons/src/16/number-stroke.svg').default;
 const PlusIcon = require('@zendeskgarden/svg-icons/src/16/plus-stroke.svg').default;
@@ -169,7 +171,11 @@ const Typography = ({ size, children, ...props }) => {
             <Span.Icon>
               <AsteriskIcon />
             </Span.Icon>
-          )} <>bonus vobis</>
+          )} <>bonus vobis</> {state.defaultIcon && (
+            <Span.Icon>
+              <CircleIcon />
+            </Span.Icon>
+          )}
         </Span>
       </Typography>
       <Typography as="p" size={state.size}>
@@ -253,7 +259,11 @@ const Typography = ({ size, children, ...props }) => {
             <Span.Icon>
               <LeafIcon />
             </Span.Icon>
-          )} <>napa cabbage</>
+          )} <>napa cabbage</> {state.defaultIcon && (
+            <Span.Icon>
+              <HeartIcon />
+            </Span.Icon>
+          )}
         </Span>
       </Typography>
     </Col>
