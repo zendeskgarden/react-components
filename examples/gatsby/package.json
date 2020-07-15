@@ -20,7 +20,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
-    "@zendeskgarden/css-bedrock": "^7.0.33",
+    "@zendeskgarden/css-bedrock": "^8.0.0",
     "@zendeskgarden/react-buttons": "^8.0.0",
     "@zendeskgarden/react-theming": "^8.0.0",
     "babel-plugin-styled-components": "^1.10.7",

@@ -1,7 +1,9 @@
 {
-  "version": "8.15.0",
+  "version": "8.15.1",
   "npmClient": "yarn",
-  "npmClientArgs": ["--frozen-lockfile"],
+  "npmClientArgs": [
+    "--frozen-lockfile"
+  ],
   "changelog": {
     "repo": "zendeskgarden/react-components",
     "cacheDir": ".changelog",

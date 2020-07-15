@@ -36,7 +36,7 @@ UnorderedList.propTypes = {
 
 UnorderedList.defaultProps = {
   size: 'medium',
-  type: 'circle'
+  type: 'disc'
 };
 
 (UnorderedList as any).Item = UnorderedListItem;
