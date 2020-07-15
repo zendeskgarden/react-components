@@ -12,6 +12,34 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.16.0 (2020-07-15)
+
+#### :rocket: New Feature
+* `typography`
+  * [#796](https://github.com/zendeskgarden/react-components/pull/796) feat(typography): add media components to Span ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `typography`
+  * [#810](https://github.com/zendeskgarden/react-components/pull/810) fix(typography): set UnorderedList type default to "disc" ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* Other
+  * [#808](https://github.com/zendeskgarden/react-components/pull/808) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#809](https://github.com/zendeskgarden/react-components/pull/809) chore(deps): update dependency @rollup/plugin-commonjs to v14 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#803](https://github.com/zendeskgarden/react-components/pull/803) chore(deps): update dependency @zendeskgarden/eslint-config to v14 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#805](https://github.com/zendeskgarden/react-components/pull/805) chore(deps): update dependency ts-loader to v8 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#801](https://github.com/zendeskgarden/react-components/pull/801) chore(deps): update dependency @rollup/plugin-commonjs to v13 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#807](https://github.com/zendeskgarden/react-components/pull/807) chore(examples): update codesandbox package.json ([@hzhu](https://github.com/hzhu))
+  * [#798](https://github.com/zendeskgarden/react-components/pull/798) chore(deps): update node orb to v3.0.1 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#804](https://github.com/zendeskgarden/react-components/pull/804) chore(deps): update dependency rollup-plugin-delete to v2 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#806](https://github.com/zendeskgarden/react-components/pull/806) fix(deps): update dependency @zendeskgarden/css-bedrock to v8 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#802](https://github.com/zendeskgarden/react-components/pull/802) chore(deps): update dependency @types/jest to v26 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#800](https://github.com/zendeskgarden/react-components/pull/800) fix(deps): update dependency react-scripts to v3.4.1 ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `modals`, `notifications`, `pagination`, `tables`, `tags`
+  * [#797](https://github.com/zendeskgarden/react-components/pull/797) chore(deps): update dependency @zendeskgarden/svg-icons to v6.19.0 ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `dropdowns`
+  * [#799](https://github.com/zendeskgarden/react-components/pull/799) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v8.15.1 (2020-07-09)
 
 #### :bug: Bug Fix
