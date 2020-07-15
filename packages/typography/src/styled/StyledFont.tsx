@@ -7,7 +7,12 @@
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { math } from 'polished';
-import { DEFAULT_THEME, isRtl, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import {
+  DEFAULT_THEME,
+  isRtl,
+  retrieveComponentStyles,
+  getColor
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'typography.font';
 
@@ -18,6 +23,7 @@ const fontStyles = (props: IStyledFontProps & ThemeProps<DefaultTheme>) => {
   const direction = isRtl(props) ? 'rtl' : 'ltr';
   let fontSize;
   let fontWeight;
+  let color;
 
   if (monospace) {
     if (props.size === 'inherit') {
@@ -35,8 +41,15 @@ const fontStyles = (props: IStyledFontProps & ThemeProps<DefaultTheme>) => {
     fontWeight = props.theme.fontWeights.regular;
   }
 
+  if (props.hue) {
+    const shade = props.hue === 'yellow' ? 700 : 600;
+
+    color = getColor(props.hue, shade, props.theme);
+  }
+
   return css`
     line-height: ${lineHeight};
+    color: ${color};
     font-family: ${fontFamily};
     font-size: ${fontSize};
     font-weight: ${fontWeight};
@@ -48,6 +61,7 @@ export interface IStyledFontProps {
   isBold?: boolean;
   isMonospace?: boolean;
   size?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl' | 'inherit';
+  hue?: string;
 }
 
 export const StyledFont = styled.div.attrs({

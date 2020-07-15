@@ -2,7 +2,7 @@ Spans of text are highlighted in the example below.
 
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
-const { Radio, Toggle, Field, Label } = require('@zendeskgarden/react-forms/src');
+const { Checkbox, Radio, Toggle, Field, Label } = require('@zendeskgarden/react-forms/src');
 const {
   Dropdown,
   Select,
@@ -11,14 +11,21 @@ const {
   Menu,
   Item
 } = require('@zendeskgarden/react-dropdowns/src');
+const AsteriskIcon = require('@zendeskgarden/svg-icons/src/16/asterisk-stroke.svg').default;
+const AtIcon = require('@zendeskgarden/svg-icons/src/16/at-stroke.svg').default;
+const CircleIcon = require('@zendeskgarden/svg-icons/src/16/circle-full-stroke.svg').default;
+const DashedCircleIcon = require('@zendeskgarden/svg-icons/src/16/circle-stroke.svg').default;
+const HeartIcon = require('@zendeskgarden/svg-icons/src/16/heart-stroke.svg').default;
+const LeafIcon = require('@zendeskgarden/svg-icons/src/16/leaf-stroke.svg').default;
+const NumberIcon = require('@zendeskgarden/svg-icons/src/16/number-stroke.svg').default;
+const PlusIcon = require('@zendeskgarden/svg-icons/src/16/plus-stroke.svg').default;
+const StarIcon = require('@zendeskgarden/svg-icons/src/16/star-stroke.svg').default;
+const XIcon = require('@zendeskgarden/svg-icons/src/16/x-stroke.svg').default;
 
 initialState = {
-  size: 'MD'
+  size: 'MD',
+  hue: 'fuschia'
 };
-
-const StyledSpan = styled(Span)`
-  color: ${p => p.theme.palette.fuschia[400]};
-`;
 
 const Typography = ({ size, children, ...props }) => {
   switch (size) {
@@ -55,6 +62,32 @@ const Typography = ({ size, children, ...props }) => {
             <Item value="XXXL">XXXL</Item>
           </Menu>
         </Dropdown>
+        <Dropdown selectedItem={state.hue} onSelect={hue => setState({ hue })}>
+          <SelectField className="u-mt-xs">
+            <SelectLabel>Hue</SelectLabel>
+            <Select isCompact>{state.hue}</Select>
+          </SelectField>
+          <Menu isCompact maxHeight="240px">
+            <Item value="inherit">inherit</Item>
+            <Item value="grey">grey</Item>
+            <Item value="blue">blue</Item>
+            <Item value="kale">kale</Item>
+            <Item value="red">red</Item>
+            <Item value="green">green</Item>
+            <Item value="yellow">yellow</Item>
+            <Item value="fuschia">fuschia</Item>
+            <Item value="pink">pink</Item>
+            <Item value="crimson">crimson</Item>
+            <Item value="orange">orange</Item>
+            <Item value="lemon">lemon</Item>
+            <Item value="lime">lime</Item>
+            <Item value="mint">mint</Item>
+            <Item value="teal">teal</Item>
+            <Item value="azure">azure</Item>
+            <Item value="royal">royal</Item>
+            <Item value="purple">purple</Item>
+          </Menu>
+        </Dropdown>
         <div className="u-mt-sm" role="group" aria-label="bold">
           <Field>
             <Label>Bold</Label>
@@ -62,11 +95,11 @@ const Typography = ({ size, children, ...props }) => {
           <Field>
             <Radio
               name="bold"
-              value="default"
+              value="inherit"
               checked={state.bold === undefined}
               onChange={event => setState({ bold: undefined })}
             >
-              <Label isRegular>Default</Label>
+              <Label isRegular>Inherit</Label>
             </Radio>
           </Field>
           <Field>
@@ -90,7 +123,28 @@ const Typography = ({ size, children, ...props }) => {
             </Radio>
           </Field>
         </div>
-        <Field className="u-mt-xs">
+        <div className="u-mt-sm" role="group" aria-label="icons">
+          <Field>
+            <Label>Icons</Label>
+          </Field>
+          <Field>
+            <Checkbox
+              checked={state.startIcon}
+              onChange={event => setState({ startIcon: event.target.checked })}
+            >
+              <Label isRegular>Start</Label>
+            </Checkbox>
+          </Field>
+          <Field>
+            <Checkbox
+              checked={state.defaultIcon}
+              onChange={event => setState({ defaultIcon: event.target.checked })}
+            >
+              <Label isRegular>Default</Label>
+            </Checkbox>
+          </Field>
+        </div>
+        <Field className="u-mt-sm">
           <Toggle
             checked={state.monospace}
             disabled={/^X/.test(state.size)}
@@ -103,38 +157,115 @@ const Typography = ({ size, children, ...props }) => {
     </Col>
     <Col>
       <Typography as="p" size={state.size}>
+        <Span
+          hue={state.hue === 'inherit' ? null : state.hue}
+          isBold={state.bold}
+          isMonospace={state.monospace}
+        >
+          {state.startIcon && (
+            <Span.StartIcon>
+              <DashedCircleIcon />
+            </Span.StartIcon>
+          )}
+          <>Veggies es</> {state.defaultIcon && (
+            <Span.Icon>
+              <AsteriskIcon />
+            </Span.Icon>
+          )} <>bonus vobis</> {state.defaultIcon && (
+            <Span.Icon>
+              <CircleIcon />
+            </Span.Icon>
+          )}
+        </Span>
+      </Typography>
+      <Typography as="p" size={state.size}>
         Water spinach arugula pea tatsoi aubergine spring onion bush tomato kale radicchio turnip
         chicory salsify pea sprouts fava bean. Dandelion
-        <StyledSpan isBold={state.bold} isMonospace={state.monospace}>
-          zucchini burdock yarrow chickpea dandelion
-        </StyledSpan> sorrel courgette turnip greens tigernut soybean radish artichoke wattle seed endive
-        groundnut broccoli arugula.
+        <Span
+          hue={state.hue === 'inherit' ? null : state.hue}
+          isBold={state.bold}
+          isMonospace={state.monospace}
+        >
+          zucchini burdock yarrow{' '}
+          {state.defaultIcon && (
+            <Span.Icon>
+              <NumberIcon />
+            </Span.Icon>
+          )}{' '}
+          chickpea dandelion
+        </Span> sorrel courgette turnip greens tigernut soybean radish artichoke wattle seed endive groundnut
+        broccoli arugula.
       </Typography>
       <Typography as="p" isBold size={state.size}>
         Pea horseradish azuki bean lettuce avocado asparagus okra. Kohlrabi radish okra azuki bean
         corn fava bean
-        <StyledSpan isBold={state.bold} isMonospace={state.monospace}>
-          mustard tigernut jícama green bean
-        </StyledSpan> celtuce collard greens avocado quandong fennel gumbo.
+        <Span
+          hue={state.hue === 'inherit' ? null : state.hue}
+          isBold={state.bold}
+          isMonospace={state.monospace}
+        >
+          mustard tigernut{' '}
+          {state.defaultIcon && (
+            <Span.Icon>
+              <XIcon />
+            </Span.Icon>
+          )}{' '}
+          jícama green bean
+        </Span> celtuce collard greens avocado quandong fennel gumbo.
       </Typography>
       {['SM', 'MD', 'LG'].indexOf(state.size) !== -1 && (
         <>
           <Typography as="p" isMonospace size={state.size}>
             Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea lettuce
             lettuce
-            <StyledSpan isBold={state.bold}>
-              water chestnut eggplant winter purslane fennel
-            </StyledSpan> azuki bean earthnut pea sierra leone bologi leek soko chicory celtuce parsley
-            jícama salsify.
+            <Span hue={state.hue === 'inherit' ? null : state.hue} isBold={state.bold}>
+              water chestnut eggplant{' '}
+              {state.defaultIcon && (
+                <Span.Icon>
+                  <PlusIcon />
+                </Span.Icon>
+              )}{' '}
+              winter purslane fennel
+            </Span> azuki bean earthnut pea sierra leone bologi leek soko chicory celtuce parsley jícama
+            salsify.
           </Typography>
           <Typography as="p" isBold isMonospace size={state.size}>
             Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori.
             Grape wattle
-            <StyledSpan isBold={state.bold}>seed kombu beetroot horseradish</StyledSpan> carrot squash
-            brussels sprout chard.
+            <Span hue={state.hue === 'inherit' ? null : state.hue} isBold={state.bold}>
+              seed kombu{' '}
+              {state.defaultIcon && (
+                <Span.Icon>
+                  <AtIcon />
+                </Span.Icon>
+              )}{' '}
+              beet horseradish
+            </Span> carrot squash brussels sprout chard.
           </Typography>
         </>
       )}
+      <Typography as="p" size={state.size}>
+        <Span
+          hue={state.hue === 'inherit' ? null : state.hue}
+          isBold={state.bold}
+          isMonospace={state.monospace}
+        >
+          {state.startIcon && (
+            <Span.StartIcon>
+              <StarIcon />
+            </Span.StartIcon>
+          )}
+          <>Kale arugula</> {state.defaultIcon && (
+            <Span.Icon>
+              <LeafIcon />
+            </Span.Icon>
+          )} <>napa cabbage</> {state.defaultIcon && (
+            <Span.Icon>
+              <HeartIcon />
+            </Span.Icon>
+          )}
+        </Span>
+      </Typography>
     </Col>
   </Row>
 </Grid>;
