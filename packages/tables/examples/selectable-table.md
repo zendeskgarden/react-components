@@ -1,4 +1,5 @@
 ```jsx
+const { KEY_CODES } = require('@zendeskgarden/container-utilities');
 const { Field, Checkbox, Label } = require('@zendeskgarden/react-forms/src');
 
 const StyledCaption = styled(Caption)`
@@ -9,9 +10,10 @@ const StyledCaption = styled(Caption)`
 
 const data = [];
 
-for (let x = 0; x < 5; x++) {
+for (let x = 0; x < 10; x++) {
   data.push({
     id: `row-${x}`,
+    selected: false,
     title: `[${x + 1}] Lorem ipsum dolor sit amet, consectetur adipiscing elit,
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
     ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
@@ -22,17 +24,25 @@ for (let x = 0; x < 5; x++) {
 }
 
 initialState = {
-  selectedRows: {},
-  rows: data
+  rows: data,
+  shiftEnabled: false,
+  focusedRowIndex: undefined
 };
 
-const isSelectAllIndeterminate = (selectedRows, rows) => {
-  const numSelectedRows = Object.keys(selectedRows).length;
+const isSelectAllIndeterminate = rows => {
+  const numSelectedRows = rows.reduce((accumulator, row) => {
+    if (row.selected) {
+      return accumulator + 1;
+    }
+
+    return accumulator;
+  }, 0);
+
   return numSelectedRows > 0 && numSelectedRows < rows.length;
 };
 
-const isSelectAllChecked = (selectedRows, rows) => {
-  return Object.keys(selectedRows).length === rows.length;
+const isSelectAllChecked = rows => {
+  return rows.every(row => row.selected);
 };
 
 <Table>
@@ -42,19 +52,17 @@ const isSelectAllChecked = (selectedRows, rows) => {
       <HeaderCell isMinimum>
         <Field>
           <Checkbox
-            indeterminate={isSelectAllIndeterminate(state.selectedRows, state.rows)}
-            checked={isSelectAllChecked(state.selectedRows, state.rows)}
+            indeterminate={isSelectAllIndeterminate(state.rows)}
+            checked={isSelectAllChecked(state.rows)}
             onChange={e => {
               if (e.target.checked) {
-                const selectedRows = state.rows.reduce((accum, value) => {
-                  accum[value.id] = true;
+                const updatedRows = state.rows.map(row => ({ ...row, selected: true }));
 
-                  return accum;
-                }, {});
-
-                setState({ selectedRows });
+                setState({ rows: updatedRows });
               } else {
-                setState({ selectedRows: {} });
+                const updatedRows = state.rows.map(row => ({ ...row, selected: false }));
+
+                setState({ rows: updatedRows });
               }
             }}
           >
@@ -66,22 +74,52 @@ const isSelectAllChecked = (selectedRows, rows) => {
     </HeaderRow>
   </Head>
   <Body>
-    {state.rows.map(row => (
-      <Row key={row.id} isSelected={state.selectedRows[row.id]}>
+    {state.rows.map((row, index) => (
+      <Row key={row.id} isSelected={row.selected}>
         <Cell isMinimum>
           <Field>
             <Checkbox
-              checked={state.selectedRows[row.id] ? true : false}
+              checked={row.selected ? true : false}
+              onKeyDown={e => {
+                if (e.keyCode === KEY_CODES.SHIFT) {
+                  setState({ shiftEnabled: true });
+                }
+              }}
+              onKeyUp={() => {
+                setState({ shiftEnabled: false });
+              }}
               onChange={e => {
-                const selectedRows = Object.assign({}, state.selectedRows);
+                console.log('onChange', state.shiftEnabled, state.focusedRowIndex);
 
-                if (e.target.checked) {
-                  selectedRows[row.id] = true;
+                const updatedRows = [...state.rows];
+
+                if (state.shiftEnabled && state.focusedRowIndex !== undefined) {
+                  const startIndex = Math.min(state.focusedRowIndex, index);
+                  const endIndex = Math.max(state.focusedRowIndex, index);
+
+                  const isAllChecked = updatedRows
+                    .slice(startIndex, endIndex + 1)
+                    .every(row => row.selected);
+
+                  console.log(isAllChecked);
+
+                  for (let x = startIndex; x <= endIndex; x++) {
+                    if (x === index && isAllChecked) {
+                      updatedRows[x].selected = true;
+                      continue;
+                    }
+
+                    updatedRows[x].selected = !isAllChecked;
+                  }
                 } else {
-                  delete selectedRows[row.id];
+                  if (e.target.checked) {
+                    updatedRows[index].selected = true;
+                  } else {
+                    updatedRows[index].selected = false;
+                  }
                 }
 
-                setState({ selectedRows });
+                setState({ rows: updatedRows, focusedRowIndex: index });
               }}
             >
               <Label hidden>Select ticket</Label>
