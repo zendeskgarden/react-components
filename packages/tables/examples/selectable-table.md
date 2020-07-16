@@ -89,8 +89,6 @@ const isSelectAllChecked = rows => {
                 setState({ shiftEnabled: false });
               }}
               onChange={e => {
-                console.log('onChange', state.shiftEnabled, state.focusedRowIndex);
-
                 const updatedRows = [...state.rows];
 
                 if (state.shiftEnabled && state.focusedRowIndex !== undefined) {
@@ -100,8 +98,6 @@ const isSelectAllChecked = rows => {
                   const isAllChecked = updatedRows
                     .slice(startIndex, endIndex + 1)
                     .every(row => row.selected);
-
-                  console.log(isAllChecked);
 
                   for (let x = startIndex; x <= endIndex; x++) {
                     if (x === index && isAllChecked) {
