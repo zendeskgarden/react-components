@@ -7,6 +7,7 @@
 
 import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import useFieldContext from '../../utils/useFieldContext';
 import useInputContext from '../../utils/useInputContext';
 import {
@@ -37,6 +38,26 @@ export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>((props, ref
 
   if (fieldContext) {
     combinedProps = fieldContext.getLabelProps(combinedProps);
+
+    if (type === undefined) {
+      const { setIsLabelActive, setIsLabelHovered } = fieldContext;
+
+      combinedProps = {
+        ...combinedProps,
+        onMouseUp: composeEventHandlers(props.onMouseUp, () => {
+          setIsLabelActive(false);
+        }),
+        onMouseDown: composeEventHandlers(props.onMouseDown, () => {
+          setIsLabelActive(true);
+        }),
+        onMouseEnter: composeEventHandlers(props.onMouseEnter, () => {
+          setIsLabelHovered(true);
+        }),
+        onMouseLeave: composeEventHandlers(props.onMouseLeave, () => {
+          setIsLabelHovered(false);
+        })
+      };
+    }
   }
 
   if (type === 'radio') {

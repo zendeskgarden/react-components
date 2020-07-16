@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { useState, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { useField } from '@zendeskgarden/container-field';
 import { FieldContext } from '../../utils/useFieldContext';
@@ -21,8 +21,17 @@ export interface IFieldProps extends HTMLAttributes<HTMLDivElement> {
  * attributes and events.
  */
 export const Field = React.forwardRef<HTMLDivElement, IFieldProps>((props, ref) => {
+  const [isLabelActive, setIsLabelActive] = useState(false);
+  const [isLabelHovered, setIsLabelHovered] = useState(false);
   const getMessageProps = (messageProps: any) => ({ role: 'alert', ...messageProps });
-  const fieldProps = { ...useField(props.id), getMessageProps };
+  const fieldProps = {
+    ...useField(props.id),
+    getMessageProps,
+    isLabelActive,
+    setIsLabelActive,
+    isLabelHovered,
+    setIsLabelHovered
+  };
 
   return (
     <FieldContext.Provider value={fieldProps}>

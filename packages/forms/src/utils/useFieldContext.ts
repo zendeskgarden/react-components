@@ -10,6 +10,10 @@ import { IUseFieldPropGetters } from '@zendeskgarden/container-field';
 
 interface IFieldContext extends IUseFieldPropGetters {
   getMessageProps: (messageProps: any) => any;
+  isLabelActive: boolean;
+  isLabelHovered: boolean;
+  setIsLabelHovered: (isLabelHovered: boolean) => void;
+  setIsLabelActive: (isLabelActive: boolean) => void;
 }
 
 export const FieldContext = createContext<IFieldContext | undefined>(undefined);

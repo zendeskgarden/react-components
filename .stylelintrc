@@ -13,5 +13,6 @@
     "number-leading-zero": null,
     "selector-type-case": null,
     "selector-type-no-unknown": null
-  }
+  },
+  ignoreFiles: ["packages/**/*.spec.{js,ts,tsx}"]
 }
