@@ -79,7 +79,7 @@ const isSelectAllChecked = rows => {
         <Cell isMinimum>
           <Field>
             <Checkbox
-              checked={row.selected ? true : false}
+              checked={row.selected}
               onKeyDown={e => {
                 if (e.keyCode === KEY_CODES.SHIFT) {
                   setState({ shiftEnabled: true });
