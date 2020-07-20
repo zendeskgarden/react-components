@@ -1,3 +1,8 @@
+Table rows can be made selectable with the addition of a `Checkbox` component.
+
+This example includes custom keyboard logic that allows users to
+select/deselect multiple rows using the `shift` key.
+
 ```jsx
 const { KEY_CODES } = require('@zendeskgarden/container-utilities');
 const { Field, Checkbox, Label } = require('@zendeskgarden/react-forms/src');
