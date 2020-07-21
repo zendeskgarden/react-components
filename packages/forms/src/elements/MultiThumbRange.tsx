@@ -67,12 +67,7 @@ const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>
   const minThumbRef = useRef<HTMLDivElement>(null);
   const maxThumbRef = useRef<HTMLDivElement>(null);
   const fieldContext = useFieldContext();
-
-  if (fieldContext === undefined) {
-    throw new Error('A MultiThumbRange must be rendered within a form Field component.');
-  }
-
-  const { isLabelHovered, isLabelActive, setIsLabelActive } = fieldContext;
+  const { isLabelHovered, isLabelActive, setIsLabelActive } = fieldContext || {};
 
   /**
    * The window resize event is debounced to reduce unnecessary renders
