@@ -63,7 +63,7 @@ describe('MultiThumbRange', () => {
   });
 
   describe('MultiThumbRange label', () => {
-    test('clicking the label focuses the min thumb', () => {
+    it('clicking the label focuses the min thumb', () => {
       const { getByText, getAllByRole } = render(
         <Field>
           <Label>MultiThumbRange</Label>
@@ -78,7 +78,7 @@ describe('MultiThumbRange', () => {
       expect(minThumb).toHaveFocus();
     });
 
-    test('focus leaves the min thumb when user blurs out of min thumb', () => {
+    it('focus leaves the min thumb when user blurs out of min thumb', () => {
       const { getByText, getAllByRole } = render(
         <Field>
           <Label>MultiThumbRange</Label>
@@ -96,7 +96,7 @@ describe('MultiThumbRange', () => {
       expect(minThumb).not.toHaveFocus();
     });
 
-    test('hovering over the label visually identifies the min thumb', () => {
+    it('hovering over the label visually identifies the min thumb', () => {
       const { getByText, getAllByRole } = render(
         <Field>
           <Label>MultiThumbRange</Label>
@@ -121,7 +121,7 @@ describe('MultiThumbRange', () => {
       });
     });
 
-    test('pressing on the label visually identifies the activated min thumb', () => {
+    it('pressing on the label visually identifies the activated min thumb', () => {
       const { getByText, getAllByRole } = render(
         <Field>
           <Label>MultiThumbRange</Label>
