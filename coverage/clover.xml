@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1595351009615" clover="3.2.0">
-  <project timestamp="1595351009615" name="All files">
+<coverage generated="1595441608981" clover="3.2.0">
+  <project timestamp="1595441608981" name="All files">
     <metrics statements="6224" coveredstatements="6118" conditionals="2487" coveredconditionals="2269" methods="1295" coveredmethods="1276" elements="10006" coveredelements="9663" complexity="0" loc="6224" ncloc="6224" packages="106" files="409" classes="409"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
@@ -2654,45 +2654,45 @@
         <line num="15" count="24" type="stmt"/>
         <line num="17" count="24" type="stmt"/>
         <line num="42" count="24" type="stmt"/>
-        <line num="54" count="119" type="stmt"/>
-        <line num="56" count="119" type="stmt"/>
-        <line num="57" count="119" type="stmt"/>
-        <line num="58" count="119" type="stmt"/>
-        <line num="59" count="119" type="stmt"/>
-        <line num="60" count="119" type="stmt"/>
-        <line num="61" count="119" type="stmt"/>
-        <line num="64" count="119" type="stmt"/>
-        <line num="67" count="119" type="stmt"/>
-        <line num="72" count="119" type="stmt"/>
-        <line num="77" count="262" type="stmt"/>
-        <line num="79" count="26" type="cond" truecount="2" falsecount="0"/>
-        <line num="80" count="26" type="cond" truecount="2" falsecount="0"/>
-        <line num="82" count="26" type="cond" truecount="2" falsecount="0"/>
-        <line num="84" count="19" type="cond" truecount="2" falsecount="0"/>
+        <line num="54" count="120" type="stmt"/>
+        <line num="56" count="120" type="stmt"/>
+        <line num="57" count="120" type="stmt"/>
+        <line num="58" count="120" type="stmt"/>
+        <line num="59" count="120" type="stmt"/>
+        <line num="60" count="120" type="stmt"/>
+        <line num="61" count="120" type="stmt"/>
+        <line num="64" count="120" type="stmt"/>
+        <line num="67" count="120" type="stmt"/>
+        <line num="72" count="120" type="stmt"/>
+        <line num="77" count="268" type="stmt"/>
+        <line num="79" count="29" type="cond" truecount="2" falsecount="0"/>
+        <line num="80" count="29" type="cond" truecount="2" falsecount="0"/>
+        <line num="82" count="29" type="cond" truecount="2" falsecount="0"/>
+        <line num="84" count="22" type="cond" truecount="2" falsecount="0"/>
         <line num="90" count="2" type="stmt"/>
         <line num="91" count="2" type="stmt"/>
         <line num="93" count="2" type="stmt"/>
-        <line num="97" count="19" type="cond" truecount="2" falsecount="0"/>
-        <line num="98" count="2" type="stmt"/>
-        <line num="100" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="101" count="2" type="stmt"/>
-        <line num="102" count="2" type="stmt"/>
-        <line num="104" count="2" type="stmt"/>
+        <line num="97" count="22" type="cond" truecount="2" falsecount="0"/>
+        <line num="98" count="3" type="stmt"/>
+        <line num="100" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="101" count="3" type="stmt"/>
+        <line num="102" count="3" type="stmt"/>
+        <line num="104" count="3" type="stmt"/>
         <line num="107" count="7" type="cond" truecount="2" falsecount="0"/>
         <line num="111" count="2" type="stmt"/>
         <line num="112" count="2" type="stmt"/>
         <line num="114" count="2" type="stmt"/>
-        <line num="121" count="119" type="stmt"/>
-        <line num="122" count="234" type="stmt"/>
-        <line num="123" count="262" type="stmt"/>
-        <line num="125" count="279" type="stmt"/>
-        <line num="130" count="119" type="stmt"/>
-        <line num="139" count="30" type="cond" truecount="2" falsecount="0"/>
+        <line num="121" count="120" type="stmt"/>
+        <line num="122" count="240" type="stmt"/>
+        <line num="123" count="268" type="stmt"/>
+        <line num="125" count="285" type="stmt"/>
+        <line num="130" count="120" type="stmt"/>
+        <line num="139" count="32" type="cond" truecount="2" falsecount="0"/>
         <line num="140" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="141" count="1" type="stmt"/>
         <line num="143" count="0" type="stmt"/>
-        <line num="148" count="104" type="cond" truecount="2" falsecount="0"/>
-        <line num="152" count="13" type="cond" truecount="2" falsecount="0"/>
+        <line num="148" count="109" type="cond" truecount="2" falsecount="0"/>
+        <line num="152" count="14" type="cond" truecount="2" falsecount="0"/>
         <line num="153" count="6" type="stmt"/>
         <line num="154" count="6" type="stmt"/>
         <line num="155" count="13" type="stmt"/>
@@ -2703,14 +2703,14 @@
         <line num="169" count="6" type="stmt"/>
         <line num="170" count="6" type="stmt"/>
         <line num="172" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="174" count="7" type="cond" truecount="2" falsecount="0"/>
-        <line num="178" count="13" type="stmt"/>
-        <line num="181" count="104" type="cond" truecount="2" falsecount="0"/>
-        <line num="187" count="116" type="stmt"/>
+        <line num="174" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="178" count="14" type="stmt"/>
+        <line num="181" count="109" type="cond" truecount="2" falsecount="0"/>
+        <line num="187" count="121" type="stmt"/>
         <line num="193" count="1" type="stmt"/>
         <line num="200" count="9" type="stmt"/>
-        <line num="202" count="106" type="stmt"/>
-        <line num="208" count="234" type="stmt"/>
+        <line num="202" count="111" type="stmt"/>
+        <line num="208" count="240" type="stmt"/>
         <line num="230" count="24" type="stmt"/>
         <line num="241" count="24" type="stmt"/>
       </file>
@@ -2778,32 +2778,32 @@
         <line num="17" count="22" type="stmt"/>
         <line num="22" count="22" type="stmt"/>
         <line num="43" count="22" type="stmt"/>
-        <line num="55" count="250" type="stmt"/>
-        <line num="64" count="250" type="stmt"/>
-        <line num="65" count="250" type="stmt"/>
-        <line num="67" count="250" type="stmt"/>
-        <line num="73" count="249" type="cond" truecount="2" falsecount="0"/>
-        <line num="74" count="135" type="cond" truecount="2" falsecount="0"/>
-        <line num="78" count="250" type="stmt"/>
-        <line num="80" count="250" type="stmt"/>
-        <line num="83" count="166" type="cond" truecount="2" falsecount="0"/>
-        <line num="84" count="71" type="stmt"/>
-        <line num="85" count="95" type="cond" truecount="1" falsecount="1"/>
-        <line num="87" count="95" type="stmt"/>
+        <line num="55" count="257" type="stmt"/>
+        <line num="64" count="257" type="stmt"/>
+        <line num="65" count="257" type="stmt"/>
+        <line num="67" count="257" type="stmt"/>
+        <line num="73" count="256" type="cond" truecount="2" falsecount="0"/>
+        <line num="74" count="139" type="cond" truecount="2" falsecount="0"/>
+        <line num="78" count="257" type="stmt"/>
+        <line num="80" count="257" type="stmt"/>
+        <line num="83" count="169" type="cond" truecount="2" falsecount="0"/>
+        <line num="84" count="72" type="stmt"/>
+        <line num="85" count="97" type="cond" truecount="1" falsecount="1"/>
+        <line num="87" count="97" type="stmt"/>
         <line num="89" count="0" type="stmt"/>
-        <line num="92" count="166" type="stmt"/>
-        <line num="96" count="250" type="stmt"/>
-        <line num="97" count="250" type="stmt"/>
-        <line num="98" count="250" type="stmt"/>
-        <line num="99" count="250" type="stmt"/>
-        <line num="101" count="250" type="stmt"/>
-        <line num="105" count="250" type="stmt"/>
-        <line num="114" count="350" type="stmt"/>
-        <line num="116" count="350" type="stmt"/>
-        <line num="119" count="350" type="cond" truecount="2" falsecount="0"/>
+        <line num="92" count="169" type="stmt"/>
+        <line num="96" count="257" type="stmt"/>
+        <line num="97" count="257" type="stmt"/>
+        <line num="98" count="257" type="stmt"/>
+        <line num="99" count="257" type="stmt"/>
+        <line num="101" count="257" type="stmt"/>
+        <line num="105" count="257" type="stmt"/>
+        <line num="114" count="358" type="stmt"/>
+        <line num="116" count="358" type="stmt"/>
+        <line num="119" count="358" type="cond" truecount="2" falsecount="0"/>
         <line num="123" count="104" type="stmt"/>
-        <line num="129" count="350" type="stmt"/>
-        <line num="136" count="350" type="stmt"/>
+        <line num="129" count="358" type="stmt"/>
+        <line num="136" count="358" type="stmt"/>
         <line num="162" count="22" type="stmt"/>
         <line num="192" count="22" type="stmt"/>
         <line num="201" count="22" type="stmt"/>
@@ -2867,32 +2867,32 @@
         <line num="14" count="21" type="stmt"/>
         <line num="15" count="21" type="stmt"/>
         <line num="32" count="21" type="stmt"/>
-        <line num="46" count="501" type="stmt"/>
-        <line num="47" count="501" type="stmt"/>
-        <line num="48" count="501" type="stmt"/>
-        <line num="49" count="501" type="stmt"/>
-        <line num="51" count="501" type="cond" truecount="5" falsecount="0"/>
+        <line num="46" count="519" type="stmt"/>
+        <line num="47" count="519" type="stmt"/>
+        <line num="48" count="519" type="stmt"/>
+        <line num="49" count="519" type="stmt"/>
+        <line num="51" count="519" type="cond" truecount="5" falsecount="0"/>
         <line num="52" count="2" type="stmt"/>
-        <line num="55" count="499" type="stmt"/>
-        <line num="56" count="499" type="stmt"/>
-        <line num="59" count="499" type="stmt"/>
-        <line num="60" count="499" type="cond" truecount="4" falsecount="0"/>
-        <line num="61" count="497" type="stmt"/>
-        <line num="63" count="497" type="cond" truecount="1" falsecount="1"/>
+        <line num="55" count="517" type="stmt"/>
+        <line num="56" count="517" type="stmt"/>
+        <line num="59" count="517" type="stmt"/>
+        <line num="60" count="517" type="cond" truecount="4" falsecount="0"/>
+        <line num="61" count="515" type="stmt"/>
+        <line num="63" count="515" type="cond" truecount="1" falsecount="1"/>
         <line num="64" count="0" type="stmt"/>
-        <line num="70" count="499" type="cond" truecount="2" falsecount="0"/>
-        <line num="71" count="497" type="cond" truecount="2" falsecount="0"/>
+        <line num="70" count="517" type="cond" truecount="2" falsecount="0"/>
+        <line num="71" count="515" type="cond" truecount="2" falsecount="0"/>
         <line num="72" count="61" type="stmt"/>
         <line num="73" count="131" type="stmt"/>
-        <line num="76" count="436" type="stmt"/>
+        <line num="76" count="454" type="stmt"/>
         <line num="79" count="2" type="stmt"/>
-        <line num="82" count="499" type="stmt"/>
-        <line num="84" count="232" type="cond" truecount="6" falsecount="0"/>
+        <line num="82" count="517" type="stmt"/>
+        <line num="84" count="238" type="cond" truecount="6" falsecount="0"/>
         <line num="85" count="6" type="stmt"/>
-        <line num="89" count="499" type="cond" truecount="2" falsecount="0"/>
+        <line num="89" count="517" type="cond" truecount="2" falsecount="0"/>
         <line num="90" count="2" type="stmt"/>
-        <line num="105" count="497" type="stmt"/>
-        <line num="107" count="497" type="stmt"/>
+        <line num="105" count="515" type="stmt"/>
+        <line num="107" count="515" type="stmt"/>
         <line num="136" count="21" type="stmt"/>
         <line num="138" count="21" type="stmt"/>
       </file>
@@ -2947,17 +2947,17 @@
         <line num="13" count="20" type="stmt"/>
         <line num="14" count="20" type="stmt"/>
         <line num="16" count="20" type="stmt"/>
-        <line num="18" count="107" type="stmt"/>
-        <line num="20" count="107" type="stmt"/>
+        <line num="18" count="119" type="stmt"/>
+        <line num="20" count="119" type="stmt"/>
         <line num="31" count="20" type="stmt"/>
         <line num="36" count="20" type="stmt"/>
-        <line num="38" count="107" type="stmt"/>
-        <line num="39" count="107" type="stmt"/>
-        <line num="41" count="107" type="cond" truecount="2" falsecount="0"/>
-        <line num="43" count="106" type="stmt"/>
-        <line num="46" count="107" type="stmt"/>
-        <line num="59" count="20" type="stmt"/>
-        <line num="61" count="20" type="stmt"/>
+        <line num="41" count="119" type="stmt"/>
+        <line num="42" count="119" type="stmt"/>
+        <line num="44" count="119" type="cond" truecount="2" falsecount="0"/>
+        <line num="46" count="118" type="stmt"/>
+        <line num="49" count="119" type="stmt"/>
+        <line num="62" count="20" type="stmt"/>
+        <line num="64" count="20" type="stmt"/>
       </file>
       <file name="PreviousItem.tsx" path="/home/circleci/project/packages/dropdowns/src/elements/Menu/Items/PreviousItem.tsx">
         <metrics statements="18" coveredstatements="18" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
@@ -3181,37 +3181,37 @@
         <line num="12" count="20" type="stmt"/>
         <line num="13" count="20" type="stmt"/>
         <line num="23" count="20" type="stmt"/>
-        <line num="37" count="125" type="stmt"/>
-        <line num="38" count="125" type="stmt"/>
-        <line num="39" count="125" type="stmt"/>
-        <line num="40" count="125" type="stmt"/>
-        <line num="41" count="125" type="stmt"/>
-        <line num="42" count="125" type="stmt"/>
-        <line num="43" count="125" type="stmt"/>
-        <line num="45" count="125" type="stmt"/>
-        <line num="47" count="91" type="cond" truecount="4" falsecount="0"/>
-        <line num="48" count="49" type="cond" truecount="2" falsecount="0"/>
-        <line num="52" count="91" type="cond" truecount="4" falsecount="0"/>
-        <line num="53" count="11" type="cond" truecount="2" falsecount="0"/>
-        <line num="56" count="91" type="stmt"/>
-        <line num="59" count="125" type="stmt"/>
-        <line num="60" count="53" type="cond" truecount="1" falsecount="1"/>
-        <line num="61" count="53" type="stmt"/>
-        <line num="68" count="125" type="stmt"/>
-        <line num="70" count="54" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="131" type="stmt"/>
+        <line num="38" count="131" type="stmt"/>
+        <line num="39" count="131" type="stmt"/>
+        <line num="40" count="131" type="stmt"/>
+        <line num="41" count="131" type="stmt"/>
+        <line num="42" count="131" type="stmt"/>
+        <line num="43" count="131" type="stmt"/>
+        <line num="45" count="131" type="stmt"/>
+        <line num="47" count="94" type="cond" truecount="4" falsecount="0"/>
+        <line num="48" count="50" type="cond" truecount="2" falsecount="0"/>
+        <line num="52" count="94" type="cond" truecount="4" falsecount="0"/>
+        <line num="53" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="56" count="94" type="stmt"/>
+        <line num="59" count="131" type="stmt"/>
+        <line num="60" count="54" type="cond" truecount="1" falsecount="1"/>
+        <line num="61" count="54" type="stmt"/>
+        <line num="68" count="131" type="stmt"/>
+        <line num="70" count="55" type="cond" truecount="2" falsecount="0"/>
         <line num="71" count="1" type="stmt"/>
-        <line num="75" count="54" type="stmt"/>
+        <line num="75" count="55" type="stmt"/>
         <line num="76" count="0" type="stmt"/>
-        <line num="79" count="54" type="stmt"/>
-        <line num="80" count="54" type="stmt"/>
-        <line num="87" count="125" type="stmt"/>
+        <line num="79" count="55" type="stmt"/>
+        <line num="80" count="55" type="stmt"/>
+        <line num="87" count="131" type="stmt"/>
         <line num="89" count="2" type="stmt"/>
         <line num="90" count="0" type="stmt"/>
         <line num="92" count="0" type="cond" truecount="0" falsecount="4"/>
         <line num="93" count="0" type="stmt"/>
         <line num="97" count="2" type="stmt"/>
-        <line num="102" count="125" type="stmt"/>
-        <line num="104" count="19" type="cond" truecount="2" falsecount="0"/>
+        <line num="102" count="131" type="stmt"/>
+        <line num="104" count="22" type="cond" truecount="2" falsecount="0"/>
         <line num="106" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="107" count="0" type="stmt"/>
         <line num="108" count="0" type="stmt"/>
@@ -3220,8 +3220,8 @@
         <line num="111" count="0" type="stmt"/>
         <line num="113" count="0" type="stmt"/>
         <line num="114" count="0" type="stmt"/>
-        <line num="119" count="19" type="cond" truecount="2" falsecount="0"/>
-        <line num="124" count="18" type="stmt"/>
+        <line num="119" count="22" type="cond" truecount="2" falsecount="0"/>
+        <line num="124" count="21" type="stmt"/>
         <line num="127" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="129" count="1" type="cond" truecount="3" falsecount="1"/>
         <line num="130" count="0" type="stmt"/>
@@ -3236,17 +3236,17 @@
         <line num="153" count="1" type="stmt"/>
         <line num="156" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="157" count="0" type="stmt"/>
-        <line num="171" count="125" type="stmt"/>
-        <line num="173" count="125" type="stmt"/>
-        <line num="175" count="125" type="stmt"/>
-        <line num="185" count="125" type="stmt"/>
-        <line num="198" count="125" type="cond" truecount="2" falsecount="0"/>
-        <line num="205" count="125" type="stmt"/>
-        <line num="209" count="248" type="stmt"/>
-        <line num="212" count="248" type="stmt"/>
-        <line num="215" count="248" type="stmt"/>
-        <line num="220" count="125" type="stmt"/>
-        <line num="223" count="125" type="stmt"/>
+        <line num="171" count="131" type="stmt"/>
+        <line num="173" count="131" type="stmt"/>
+        <line num="175" count="131" type="stmt"/>
+        <line num="185" count="131" type="stmt"/>
+        <line num="198" count="131" type="cond" truecount="2" falsecount="0"/>
+        <line num="205" count="131" type="stmt"/>
+        <line num="209" count="260" type="stmt"/>
+        <line num="212" count="260" type="stmt"/>
+        <line num="215" count="260" type="stmt"/>
+        <line num="220" count="131" type="stmt"/>
+        <line num="223" count="131" type="stmt"/>
         <line num="241" count="20" type="stmt"/>
         <line num="246" count="20" type="stmt"/>
         <line num="250" count="20" type="stmt"/>
@@ -3296,7 +3296,7 @@
         <line num="10" count="22" type="stmt"/>
         <line num="12" count="22" type="stmt"/>
         <line num="27" count="22" type="stmt"/>
-        <line num="30" count="262" type="cond" truecount="2" falsecount="0"/>
+        <line num="30" count="268" type="cond" truecount="2" falsecount="0"/>
         <line num="33" count="22" type="stmt"/>
       </file>
       <file name="StyledMultiselect.ts" path="/home/circleci/project/packages/dropdowns/src/styled/field/StyledMultiselect.ts">
@@ -3411,19 +3411,19 @@
         <line num="9" count="22" type="stmt"/>
         <line num="11" count="22" type="stmt"/>
         <line num="20" count="22" type="stmt"/>
-        <line num="21" count="715" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="745" type="cond" truecount="2" falsecount="0"/>
         <line num="22" count="6" type="stmt"/>
-        <line num="25" count="709" type="stmt"/>
+        <line num="25" count="739" type="stmt"/>
         <line num="28" count="22" type="stmt"/>
-        <line num="29" count="506" type="stmt"/>
-        <line num="43" count="506" type="stmt"/>
-        <line num="51" count="506" type="cond" truecount="2" falsecount="0"/>
-        <line num="52" count="506" type="stmt"/>
-        <line num="54" count="506" type="stmt"/>
-        <line num="59" count="506" type="stmt"/>
-        <line num="63" count="506" type="stmt"/>
-        <line num="70" count="506" type="stmt"/>
-        <line num="72" count="506" type="stmt"/>
+        <line num="29" count="524" type="stmt"/>
+        <line num="43" count="524" type="stmt"/>
+        <line num="51" count="524" type="cond" truecount="2" falsecount="0"/>
+        <line num="52" count="524" type="stmt"/>
+        <line num="54" count="524" type="stmt"/>
+        <line num="59" count="524" type="stmt"/>
+        <line num="63" count="524" type="stmt"/>
+        <line num="70" count="524" type="stmt"/>
+        <line num="72" count="524" type="stmt"/>
         <line num="75" count="22" type="stmt"/>
       </file>
       <file name="StyledItemIcon.ts" path="/home/circleci/project/packages/dropdowns/src/styled/items/StyledItemIcon.ts">
@@ -3433,14 +3433,14 @@
         <line num="10" count="22" type="stmt"/>
         <line num="11" count="22" type="stmt"/>
         <line num="19" count="22" type="stmt"/>
-        <line num="20" count="209" type="stmt"/>
+        <line num="20" count="221" type="stmt"/>
         <line num="26" count="22" type="stmt"/>
-        <line num="30" count="209" type="cond" truecount="2" falsecount="0"/>
-        <line num="34" count="209" type="cond" truecount="1" falsecount="1"/>
-        <line num="35" count="209" type="cond" truecount="2" falsecount="0"/>
-        <line num="37" count="209" type="stmt"/>
-        <line num="40" count="209" type="stmt"/>
-        <line num="41" count="209" type="stmt"/>
+        <line num="30" count="221" type="cond" truecount="2" falsecount="0"/>
+        <line num="34" count="221" type="cond" truecount="1" falsecount="1"/>
+        <line num="35" count="221" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="221" type="stmt"/>
+        <line num="40" count="221" type="stmt"/>
+        <line num="41" count="221" type="stmt"/>
         <line num="45" count="22" type="stmt"/>
       </file>
       <file name="StyledItemMeta.ts" path="/home/circleci/project/packages/dropdowns/src/styled/items/StyledItemMeta.ts">
@@ -3464,11 +3464,11 @@
         <line num="11" count="22" type="stmt"/>
         <line num="13" count="22" type="stmt"/>
         <line num="19" count="22" type="stmt"/>
-        <line num="20" count="107" type="stmt"/>
+        <line num="20" count="119" type="stmt"/>
         <line num="27" count="22" type="stmt"/>
-        <line num="28" count="107" type="cond" truecount="2" falsecount="0"/>
-        <line num="29" count="107" type="cond" truecount="2" falsecount="0"/>
-        <line num="31" count="107" type="stmt"/>
+        <line num="28" count="119" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="119" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="119" type="stmt"/>
         <line num="34" count="22" type="stmt"/>
       </file>
       <file name="StyledNextItem.ts" path="/home/circleci/project/packages/dropdowns/src/styled/items/StyledNextItem.ts">
@@ -3479,9 +3479,9 @@
         <line num="12" count="22" type="stmt"/>
         <line num="14" count="22" type="stmt"/>
         <line num="19" count="22" type="stmt"/>
-        <line num="24" count="107" type="cond" truecount="2" falsecount="0"/>
-        <line num="25" count="107" type="cond" truecount="2" falsecount="0"/>
-        <line num="28" count="107" type="stmt"/>
+        <line num="24" count="119" type="cond" truecount="2" falsecount="0"/>
+        <line num="25" count="119" type="cond" truecount="2" falsecount="0"/>
+        <line num="28" count="119" type="stmt"/>
         <line num="31" count="22" type="stmt"/>
       </file>
       <file name="StyledPreviousIcon.tsx" path="/home/circleci/project/packages/dropdowns/src/styled/items/StyledPreviousIcon.tsx">
@@ -3591,10 +3591,10 @@
         <line num="9" count="22" type="stmt"/>
         <line num="10" count="22" type="stmt"/>
         <line num="12" count="22" type="stmt"/>
-        <line num="26" count="350" type="stmt"/>
-        <line num="33" count="350" type="stmt"/>
-        <line num="37" count="350" type="cond" truecount="1" falsecount="1"/>
-        <line num="44" count="350" type="stmt"/>
+        <line num="26" count="358" type="stmt"/>
+        <line num="33" count="358" type="stmt"/>
+        <line num="37" count="358" type="cond" truecount="1" falsecount="1"/>
+        <line num="44" count="358" type="stmt"/>
         <line num="47" count="22" type="stmt"/>
       </file>
       <file name="StyledMenuWrapper.ts" path="/home/circleci/project/packages/dropdowns/src/styled/menu/StyledMenuWrapper.ts">
@@ -3603,9 +3603,9 @@
         <line num="9" count="22" type="stmt"/>
         <line num="10" count="22" type="stmt"/>
         <line num="12" count="22" type="stmt"/>
-        <line num="22" count="350" type="stmt"/>
-        <line num="28" count="350" type="stmt"/>
-        <line num="36" count="350" type="stmt"/>
+        <line num="22" count="358" type="stmt"/>
+        <line num="28" count="358" type="stmt"/>
+        <line num="36" count="358" type="stmt"/>
         <line num="39" count="22" type="stmt"/>
       </file>
       <file name="StyledSeparator.ts" path="/home/circleci/project/packages/dropdowns/src/styled/menu/StyledSeparator.ts">
@@ -3625,14 +3625,14 @@
       <file name="garden-placements.ts" path="/home/circleci/project/packages/dropdowns/src/utils/garden-placements.ts">
         <metrics statements="30" coveredstatements="30" conditionals="24" coveredconditionals="23" methods="4" coveredmethods="4"/>
         <line num="40" count="23" type="stmt"/>
-        <line num="41" count="276" type="stmt"/>
+        <line num="41" count="283" type="stmt"/>
         <line num="43" count="2" type="stmt"/>
         <line num="45" count="2" type="stmt"/>
         <line num="47" count="2" type="stmt"/>
         <line num="49" count="2" type="stmt"/>
         <line num="51" count="2" type="stmt"/>
         <line num="53" count="2" type="stmt"/>
-        <line num="55" count="264" type="stmt"/>
+        <line num="55" count="271" type="stmt"/>
         <line num="63" count="23" type="stmt"/>
         <line num="64" count="33" type="stmt"/>
         <line num="66" count="33" type="stmt"/>
@@ -3651,19 +3651,19 @@
         <line num="97" count="13" type="stmt"/>
         <line num="113" count="13" type="cond" truecount="1" falsecount="1"/>
         <line num="120" count="23" type="stmt"/>
-        <line num="121" count="363" type="cond" truecount="2" falsecount="0"/>
+        <line num="121" count="371" type="cond" truecount="2" falsecount="0"/>
         <line num="122" count="1" type="stmt"/>
-        <line num="125" count="362" type="cond" truecount="2" falsecount="0"/>
+        <line num="125" count="370" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="useDropdownContext.ts" path="/home/circleci/project/packages/dropdowns/src/utils/useDropdownContext.ts">
         <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="8" count="24" type="stmt"/>
         <line num="24" count="24" type="stmt"/>
         <line num="29" count="24" type="stmt"/>
-        <line num="30" count="1335" type="stmt"/>
-        <line num="32" count="1335" type="cond" truecount="2" falsecount="0"/>
+        <line num="30" count="1378" type="stmt"/>
+        <line num="32" count="1378" type="cond" truecount="2" falsecount="0"/>
         <line num="33" count="2" type="stmt"/>
-        <line num="36" count="1333" type="stmt"/>
+        <line num="36" count="1376" type="stmt"/>
         <line num="39" count="24" type="stmt"/>
       </file>
       <file name="useFieldContext.ts" path="/home/circleci/project/packages/dropdowns/src/utils/useFieldContext.ts">
@@ -3693,10 +3693,10 @@
         <line num="8" count="22" type="stmt"/>
         <line num="15" count="22" type="stmt"/>
         <line num="20" count="22" type="stmt"/>
-        <line num="21" count="848" type="stmt"/>
-        <line num="23" count="848" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="890" type="stmt"/>
+        <line num="23" count="890" type="cond" truecount="2" falsecount="0"/>
         <line num="24" count="2" type="stmt"/>
-        <line num="27" count="846" type="stmt"/>
+        <line num="27" count="888" type="stmt"/>
         <line num="30" count="22" type="stmt"/>
       </file>
     </package>
@@ -3747,11 +3747,11 @@
         <line num="10" count="29" type="stmt"/>
         <line num="11" count="29" type="stmt"/>
         <line num="28" count="29" type="stmt"/>
-        <line num="29" count="265" type="stmt"/>
-        <line num="31" count="265" type="stmt"/>
-        <line num="36" count="265" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="271" type="stmt"/>
+        <line num="31" count="271" type="stmt"/>
+        <line num="36" count="271" type="cond" truecount="2" falsecount="0"/>
         <line num="37" count="140" type="stmt"/>
-        <line num="40" count="265" type="stmt"/>
+        <line num="40" count="271" type="stmt"/>
         <line num="43" count="29" type="stmt"/>
       </file>
       <file name="MediaInput.tsx" path="/home/circleci/project/packages/forms/src/elements/MediaInput.tsx">
@@ -4664,11 +4664,11 @@
         <line num="20" count="41" type="stmt"/>
         <line num="22" count="41" type="stmt"/>
         <line num="24" count="41" type="stmt"/>
-        <line num="25" count="448" type="cond" truecount="2" falsecount="0"/>
+        <line num="25" count="454" type="cond" truecount="2" falsecount="0"/>
         <line num="28" count="41" type="stmt"/>
-        <line num="29" count="448" type="stmt"/>
-        <line num="30" count="448" type="stmt"/>
-        <line num="35" count="448" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="454" type="stmt"/>
+        <line num="30" count="454" type="stmt"/>
+        <line num="35" count="454" type="cond" truecount="2" falsecount="0"/>
         <line num="38" count="6" type="cond" truecount="2" falsecount="0"/>
         <line num="39" count="2" type="stmt"/>
         <line num="40" count="4" type="cond" truecount="2" falsecount="0"/>
@@ -4678,49 +4678,49 @@
         <line num="46" count="6" type="stmt"/>
         <line num="47" count="6" type="stmt"/>
         <line num="48" count="6" type="stmt"/>
-        <line num="50" count="442" type="stmt"/>
-        <line num="51" count="442" type="stmt"/>
-        <line num="52" count="442" type="stmt"/>
-        <line num="55" count="448" type="stmt"/>
-        <line num="58" count="448" type="stmt"/>
-        <line num="59" count="448" type="stmt"/>
-        <line num="60" count="448" type="stmt"/>
-        <line num="62" count="448" type="stmt"/>
-        <line num="64" count="448" type="cond" truecount="2" falsecount="0"/>
+        <line num="50" count="448" type="stmt"/>
+        <line num="51" count="448" type="stmt"/>
+        <line num="52" count="448" type="stmt"/>
+        <line num="55" count="454" type="stmt"/>
+        <line num="58" count="454" type="stmt"/>
+        <line num="59" count="454" type="stmt"/>
+        <line num="60" count="454" type="stmt"/>
+        <line num="62" count="454" type="stmt"/>
+        <line num="64" count="454" type="cond" truecount="2" falsecount="0"/>
         <line num="65" count="73" type="stmt"/>
-        <line num="68" count="448" type="cond" truecount="2" falsecount="0"/>
+        <line num="68" count="454" type="cond" truecount="2" falsecount="0"/>
         <line num="69" count="5" type="stmt"/>
-        <line num="72" count="448" type="stmt"/>
+        <line num="72" count="454" type="stmt"/>
         <line num="102" count="41" type="stmt"/>
-        <line num="103" count="448" type="stmt"/>
-        <line num="104" count="448" type="stmt"/>
-        <line num="110" count="448" type="cond" truecount="2" falsecount="0"/>
+        <line num="103" count="454" type="stmt"/>
+        <line num="104" count="454" type="stmt"/>
+        <line num="110" count="454" type="cond" truecount="2" falsecount="0"/>
         <line num="111" count="3" type="stmt"/>
         <line num="112" count="3" type="stmt"/>
         <line num="113" count="3" type="stmt"/>
         <line num="114" count="3" type="stmt"/>
-        <line num="116" count="445" type="stmt"/>
-        <line num="117" count="445" type="stmt"/>
-        <line num="118" count="445" type="stmt"/>
-        <line num="119" count="445" type="stmt"/>
-        <line num="122" count="448" type="stmt"/>
-        <line num="125" count="448" type="stmt"/>
-        <line num="128" count="448" type="stmt"/>
-        <line num="129" count="448" type="stmt"/>
-        <line num="132" count="448" type="stmt"/>
-        <line num="133" count="448" type="stmt"/>
-        <line num="135" count="448" type="stmt"/>
-        <line num="207" count="448" type="stmt"/>
-        <line num="219" count="448" type="cond" truecount="2" falsecount="0"/>
-        <line num="220" count="448" type="cond" truecount="2" falsecount="0"/>
-        <line num="221" count="448" type="cond" truecount="2" falsecount="0"/>
-        <line num="228" count="448" type="stmt"/>
-        <line num="238" count="448" type="stmt"/>
-        <line num="243" count="448" type="stmt"/>
-        <line num="258" count="448" type="cond" truecount="2" falsecount="0"/>
-        <line num="281" count="448" type="stmt"/>
-        <line num="288" count="448" type="stmt"/>
-        <line num="294" count="448" type="stmt"/>
+        <line num="116" count="451" type="stmt"/>
+        <line num="117" count="451" type="stmt"/>
+        <line num="118" count="451" type="stmt"/>
+        <line num="119" count="451" type="stmt"/>
+        <line num="122" count="454" type="stmt"/>
+        <line num="125" count="454" type="stmt"/>
+        <line num="128" count="454" type="stmt"/>
+        <line num="129" count="454" type="stmt"/>
+        <line num="132" count="454" type="stmt"/>
+        <line num="133" count="454" type="stmt"/>
+        <line num="135" count="454" type="stmt"/>
+        <line num="207" count="454" type="stmt"/>
+        <line num="219" count="454" type="cond" truecount="2" falsecount="0"/>
+        <line num="220" count="454" type="cond" truecount="2" falsecount="0"/>
+        <line num="221" count="454" type="cond" truecount="2" falsecount="0"/>
+        <line num="228" count="454" type="stmt"/>
+        <line num="238" count="454" type="stmt"/>
+        <line num="243" count="454" type="stmt"/>
+        <line num="258" count="454" type="cond" truecount="2" falsecount="0"/>
+        <line num="281" count="454" type="stmt"/>
+        <line num="288" count="454" type="stmt"/>
+        <line num="294" count="454" type="stmt"/>
         <line num="297" count="41" type="stmt"/>
       </file>
       <file name="StyledTextMediaFigure.ts" path="/home/circleci/project/packages/forms/src/styled/text/StyledTextMediaFigure.ts">
@@ -4965,8 +4965,8 @@
         <line num="8" count="34" type="stmt"/>
         <line num="15" count="34" type="stmt"/>
         <line num="20" count="34" type="stmt"/>
-        <line num="21" count="350" type="stmt"/>
-        <line num="23" count="350" type="stmt"/>
+        <line num="21" count="356" type="stmt"/>
+        <line num="23" count="356" type="stmt"/>
         <line num="26" count="34" type="stmt"/>
       </file>
       <file name="useInputContext.ts" path="/home/circleci/project/packages/forms/src/utils/useInputContext.ts">
@@ -6956,11 +6956,11 @@
         <line num="12" count="236" type="stmt"/>
         <line num="13" count="236" type="stmt"/>
         <line num="19" count="236" type="stmt"/>
-        <line num="25" count="2678" type="stmt"/>
-        <line num="26" count="2678" type="stmt"/>
-        <line num="27" count="2678" type="stmt"/>
-        <line num="29" count="2678" type="stmt"/>
-        <line num="31" count="2678" type="stmt"/>
+        <line num="25" count="2680" type="stmt"/>
+        <line num="26" count="2680" type="stmt"/>
+        <line num="27" count="2680" type="stmt"/>
+        <line num="29" count="2680" type="stmt"/>
+        <line num="31" count="2680" type="stmt"/>
         <line num="38" count="236" type="stmt"/>
         <line num="43" count="236" type="stmt"/>
       </file>
@@ -6995,8 +6995,8 @@
         <line num="117" count="239" type="stmt"/>
         <line num="122" count="239" type="stmt"/>
         <line num="123" count="100" type="stmt"/>
-        <line num="124" count="1089" type="stmt"/>
-        <line num="126" count="774" type="stmt"/>
+        <line num="124" count="1095" type="stmt"/>
+        <line num="126" count="782" type="stmt"/>
         <line num="129" count="239" type="stmt"/>
         <line num="140" count="239" type="stmt"/>
         <line num="164" count="239" type="stmt"/>
@@ -7049,26 +7049,26 @@
         <line num="23" count="10" type="cond" truecount="2" falsecount="0"/>
         <line num="26" count="16" type="stmt"/>
         <line num="45" count="237" type="stmt"/>
-        <line num="53" count="93675" type="cond" truecount="2" falsecount="0"/>
+        <line num="53" count="93759" type="cond" truecount="2" falsecount="0"/>
         <line num="54" count="1" type="stmt"/>
-        <line num="57" count="93674" type="cond" truecount="4" falsecount="0"/>
-        <line num="58" count="93674" type="cond" truecount="4" falsecount="0"/>
-        <line num="62" count="93674" type="cond" truecount="2" falsecount="0"/>
-        <line num="63" count="93671" type="cond" truecount="2" falsecount="0"/>
+        <line num="57" count="93758" type="cond" truecount="4" falsecount="0"/>
+        <line num="58" count="93758" type="cond" truecount="4" falsecount="0"/>
+        <line num="62" count="93758" type="cond" truecount="2" falsecount="0"/>
+        <line num="63" count="93755" type="cond" truecount="2" falsecount="0"/>
         <line num="65" count="3" type="stmt"/>
-        <line num="68" count="93674" type="cond" truecount="2" falsecount="0"/>
-        <line num="70" count="93658" type="stmt"/>
-        <line num="73" count="93674" type="cond" truecount="2" falsecount="0"/>
-        <line num="74" count="93653" type="stmt"/>
-        <line num="76" count="93653" type="cond" truecount="2" falsecount="0"/>
+        <line num="68" count="93758" type="cond" truecount="2" falsecount="0"/>
+        <line num="70" count="93742" type="stmt"/>
+        <line num="73" count="93758" type="cond" truecount="2" falsecount="0"/>
+        <line num="74" count="93737" type="stmt"/>
+        <line num="76" count="93737" type="cond" truecount="2" falsecount="0"/>
         <line num="77" count="5" type="stmt"/>
         <line num="78" count="28" type="stmt"/>
         <line num="81" count="23" type="cond" truecount="2" falsecount="0"/>
         <line num="84" count="5" type="stmt"/>
         <line num="87" count="21" type="stmt"/>
-        <line num="90" count="93674" type="cond" truecount="2" falsecount="0"/>
-        <line num="91" count="35183" type="stmt"/>
-        <line num="94" count="93674" type="stmt"/>
+        <line num="90" count="93758" type="cond" truecount="2" falsecount="0"/>
+        <line num="91" count="35193" type="stmt"/>
+        <line num="94" count="93758" type="stmt"/>
       </file>
       <file name="getDocument.ts" path="/home/circleci/project/packages/theming/src/utils/getDocument.ts">
         <metrics statements="2" coveredstatements="2" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
@@ -7079,19 +7079,19 @@
         <metrics statements="10" coveredstatements="10" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1"/>
         <line num="8" count="237" type="stmt"/>
         <line num="18" count="237" type="stmt"/>
-        <line num="19" count="1003" type="stmt"/>
-        <line num="20" count="1003" type="stmt"/>
-        <line num="21" count="1003" type="stmt"/>
-        <line num="23" count="1003" type="cond" truecount="4" falsecount="0"/>
+        <line num="19" count="1009" type="stmt"/>
+        <line num="20" count="1009" type="stmt"/>
+        <line num="21" count="1009" type="stmt"/>
+        <line num="23" count="1009" type="cond" truecount="4" falsecount="0"/>
         <line num="24" count="1" type="stmt"/>
-        <line num="27" count="1002" type="cond" truecount="4" falsecount="0"/>
+        <line num="27" count="1008" type="cond" truecount="4" falsecount="0"/>
         <line num="28" count="1" type="stmt"/>
-        <line num="31" count="1001" type="stmt"/>
+        <line num="31" count="1007" type="stmt"/>
       </file>
       <file name="isRtl.ts" path="/home/circleci/project/packages/theming/src/utils/isRtl.ts">
         <metrics statements="2" coveredstatements="2" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
         <line num="11" count="237" type="cond" truecount="1" falsecount="0"/>
-        <line num="12" count="760" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="773" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="mediaQuery.ts" path="/home/circleci/project/packages/theming/src/utils/mediaQuery.ts">
         <metrics statements="34" coveredstatements="34" conditionals="24" coveredconditionals="22" methods="2" coveredmethods="2"/>
@@ -7136,54 +7136,54 @@
         <line num="9" count="236" type="stmt"/>
         <line num="10" count="236" type="stmt"/>
         <line num="23" count="236" type="stmt"/>
-        <line num="24" count="249" type="cond" truecount="1" falsecount="1"/>
-        <line num="25" count="249" type="stmt"/>
-        <line num="28" count="249" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="255" type="cond" truecount="1" falsecount="1"/>
+        <line num="25" count="255" type="stmt"/>
+        <line num="28" count="255" type="cond" truecount="2" falsecount="0"/>
         <line num="29" count="2" type="stmt"/>
-        <line num="30" count="247" type="cond" truecount="2" falsecount="0"/>
+        <line num="30" count="253" type="cond" truecount="2" falsecount="0"/>
         <line num="31" count="1" type="stmt"/>
         <line num="32" count="1" type="stmt"/>
-        <line num="33" count="246" type="cond" truecount="2" falsecount="0"/>
-        <line num="34" count="245" type="stmt"/>
-        <line num="35" count="245" type="stmt"/>
+        <line num="33" count="252" type="cond" truecount="2" falsecount="0"/>
+        <line num="34" count="251" type="stmt"/>
+        <line num="35" count="251" type="stmt"/>
         <line num="37" count="1" type="stmt"/>
-        <line num="40" count="249" type="stmt"/>
-        <line num="47" count="249" type="stmt"/>
+        <line num="40" count="255" type="stmt"/>
+        <line num="47" count="255" type="stmt"/>
         <line num="54" count="236" type="stmt"/>
-        <line num="55" count="265" type="stmt"/>
-        <line num="57" count="265" type="stmt"/>
+        <line num="55" count="269" type="stmt"/>
+        <line num="57" count="269" type="stmt"/>
         <line num="83" count="236" type="cond" truecount="0" falsecount="1"/>
-        <line num="84" count="488" type="cond" truecount="1" falsecount="1"/>
-        <line num="87" count="488" type="cond" truecount="2" falsecount="0"/>
+        <line num="84" count="496" type="cond" truecount="1" falsecount="1"/>
+        <line num="87" count="496" type="cond" truecount="2" falsecount="0"/>
         <line num="88" count="10" type="stmt"/>
-        <line num="89" count="478" type="cond" truecount="2" falsecount="0"/>
+        <line num="89" count="486" type="cond" truecount="2" falsecount="0"/>
         <line num="90" count="1" type="stmt"/>
-        <line num="91" count="477" type="cond" truecount="2" falsecount="0"/>
-        <line num="92" count="476" type="stmt"/>
+        <line num="91" count="485" type="cond" truecount="2" falsecount="0"/>
+        <line num="92" count="484" type="stmt"/>
         <line num="94" count="1" type="stmt"/>
-        <line num="104" count="488" type="stmt"/>
+        <line num="104" count="496" type="stmt"/>
       </file>
       <file name="retrieveComponentStyles.ts" path="/home/circleci/project/packages/theming/src/utils/retrieveComponentStyles.ts">
         <metrics statements="8" coveredstatements="8" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
         <line num="11" count="237" type="stmt"/>
-        <line num="15" count="60130" type="cond" truecount="2" falsecount="0"/>
-        <line num="17" count="60130" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="60194" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="60194" type="cond" truecount="2" falsecount="0"/>
         <line num="18" count="1" type="stmt"/>
-        <line num="21" count="60129" type="stmt"/>
-        <line num="23" count="60129" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="60193" type="stmt"/>
+        <line num="23" count="60193" type="cond" truecount="2" falsecount="0"/>
         <line num="24" count="1" type="stmt"/>
-        <line num="27" count="60128" type="stmt"/>
+        <line num="27" count="60192" type="stmt"/>
       </file>
       <file name="useDocument.ts" path="/home/circleci/project/packages/theming/src/utils/useDocument.ts">
         <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
         <line num="8" count="237" type="stmt"/>
         <line num="11" count="237" type="stmt"/>
-        <line num="12" count="2839" type="stmt"/>
-        <line num="17" count="2839" type="stmt"/>
-        <line num="18" count="1399" type="cond" truecount="4" falsecount="0"/>
+        <line num="12" count="2841" type="stmt"/>
+        <line num="17" count="2841" type="stmt"/>
+        <line num="18" count="1400" type="cond" truecount="4" falsecount="0"/>
         <line num="19" count="2" type="stmt"/>
-        <line num="21" count="1397" type="stmt"/>
-        <line num="25" count="2839" type="stmt"/>
+        <line num="21" count="1398" type="stmt"/>
+        <line num="25" count="2841" type="stmt"/>
       </file>
       <file name="withTheme.ts" path="/home/circleci/project/packages/theming/src/utils/withTheme.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
