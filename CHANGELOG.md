@@ -12,6 +12,20 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.17.0 (2020-07-22)
+
+#### :rocket: New Feature
+* `theming`
+  * [#814](https://github.com/zendeskgarden/react-components/pull/814) feat(theming): add mediaQuery utility ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#817](https://github.com/zendeskgarden/react-components/pull/817) fix(dropdowns): allow object values for NextItem selection ([@austin94](https://github.com/austin94))
+
+#### :memo: Documentation
+* `tables`
+  * [#811](https://github.com/zendeskgarden/react-components/pull/811) chore(docs): update Table selection example to allow keyboard ([@austin94](https://github.com/austin94))
+
 ## v8.16.0 (2020-07-15)
 
 #### :rocket: New Feature
