@@ -12,6 +12,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v7.2.1 (2020-07-22)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#818](https://github.com/zendeskgarden/react-components/pull/818) fix(dropdowns): allow NextItem to receive an object value ([@austin94](https://github.com/austin94))
+
 ## v7.2.0 (2020-06-29)
 
 #### :rocket: New Feature
