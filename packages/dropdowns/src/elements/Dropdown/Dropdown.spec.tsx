@@ -101,6 +101,35 @@ describe('Dropdown', () => {
       expect(onSelectSpy.mock.calls[0][0]).toBe('next-item-1');
     });
 
+    it('selects next item when provided value is an object', () => {
+      const onSelectSpy = jest.fn();
+      const { container, getByTestId } = render(
+        <Dropdown
+          onSelect={onSelectSpy}
+          downshiftProps={{ itemToString: (item: { value: string }) => (item ? item.value : '') }}
+        >
+          <Trigger>
+            <button data-test-id="trigger">Trigger</button>
+          </Trigger>
+          <Menu data-test-id="menu">
+            <Item value={{ value: 'item-1' }}>Item 1</Item>
+            <NextItem value={{ value: 'next-item-1' }}>Next Item 1</NextItem>
+            <NextItem value={{ value: 'next-item-2' }}>Next Item 2</NextItem>
+          </Menu>
+        </Dropdown>
+      );
+
+      const trigger = getByTestId('trigger');
+      const input = container.querySelector('input');
+
+      fireEvent.click(trigger);
+      fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
+      fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
+      fireEvent.keyDown(input!, { key: 'ArrowRight', keyCode: 39 });
+
+      expect(onSelectSpy.mock.calls[0][0]).toEqual({ value: 'next-item-1' });
+    });
+
     it('opens dropdown on SPACE key', () => {
       const onSelectSpy = jest.fn();
       const { container, getByTestId } = render(<ExampleDropdown onSelect={onSelectSpy} />);

@@ -35,12 +35,15 @@ NextItemComponent.displayName = 'NextItemComponent';
  */
 export const NextItem = React.forwardRef<HTMLLIElement, Omit<IItemProps, 'component'>>(
   ({ value, disabled, ...props }, ref) => {
-    const { nextItemsHashRef } = useDropdownContext();
+    const {
+      nextItemsHashRef,
+      downshift: { itemToString }
+    } = useDropdownContext();
     const { itemIndexRef } = useMenuContext();
 
     if (!disabled) {
       // Include current index in global Dropdown context
-      (nextItemsHashRef.current as any)[value] = itemIndexRef.current;
+      (nextItemsHashRef.current as any)[itemToString(value)] = itemIndexRef.current;
     }
 
     return (
