@@ -17,7 +17,10 @@ import useMenuContext from '../../utils/useMenuContext';
  * Accepts all `<li>` props
  */
 const NextItem = React.forwardRef<HTMLElement, IItemProps>(({ value, disabled, ...props }, ref) => {
-  const { nextItemsHashRef } = useDropdownContext();
+  const {
+    nextItemsHashRef,
+    downshift: { itemToString }
+  } = useDropdownContext();
   const { itemIndexRef } = useMenuContext();
 
   if (disabled) {
@@ -25,7 +28,7 @@ const NextItem = React.forwardRef<HTMLElement, IItemProps>(({ value, disabled, .
   }
 
   // Include current index in global Dropdown context
-  (nextItemsHashRef.current as any)[value] = itemIndexRef.current;
+  (nextItemsHashRef.current as any)[itemToString(value)] = itemIndexRef.current;
 
   return (
     <Item component={StyledNextItem} aria-expanded={true} value={value} ref={ref} {...props} />
