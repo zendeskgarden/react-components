@@ -7,7 +7,6 @@
 
 import React from 'react';
 import { css } from 'styled-components';
-import userEvent from '@testing-library/user-event';
 import { render, renderRtl, fireEvent, createEvent } from 'garden-test-utils';
 import { getColor } from '@zendeskgarden/react-theming';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
@@ -74,7 +73,7 @@ describe('MultiThumbRange', () => {
       const minThumb = getAllByRole('slider')[0];
 
       expect(minThumb).not.toHaveFocus();
-      userEvent.click(label);
+      fireEvent.mouseDown(label);
       expect(minThumb).toHaveFocus();
     });
 
@@ -89,10 +88,10 @@ describe('MultiThumbRange', () => {
       const minThumb = getAllByRole('slider')[0];
 
       expect(minThumb).not.toHaveFocus();
-      userEvent.click(label);
+      fireEvent.mouseDown(label);
       expect(minThumb).toHaveFocus();
 
-      userEvent.tab();
+      minThumb.blur();
       expect(minThumb).not.toHaveFocus();
     });
 
