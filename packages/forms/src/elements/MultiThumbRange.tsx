@@ -67,7 +67,7 @@ const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>
   const minThumbRef = useRef<HTMLDivElement>(null);
   const maxThumbRef = useRef<HTMLDivElement>(null);
   const fieldContext = useFieldContext();
-  const { isLabelHovered, isLabelActive, setIsLabelActive } = fieldContext || {};
+  const { isLabelHovered, isLabelActive, multiThumbRangeRef } = fieldContext || {};
 
   /**
    * The window resize event is debounced to reduce unnecessary renders
@@ -83,10 +83,10 @@ const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>
   );
 
   useEffect(() => {
-    if (isLabelActive && minThumbRef.current) {
-      minThumbRef.current.focus();
+    if (multiThumbRangeRef) {
+      multiThumbRangeRef.current = minThumbRef.current;
     }
-  }, [isLabelActive, setIsLabelActive]);
+  }, [multiThumbRangeRef]);
 
   useEffect(() => {
     onWindowResize();

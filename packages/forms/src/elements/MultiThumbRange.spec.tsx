@@ -73,7 +73,7 @@ describe('MultiThumbRange', () => {
       const minThumb = getAllByRole('slider')[0];
 
       expect(minThumb).not.toHaveFocus();
-      fireEvent.mouseDown(label);
+      fireEvent.click(label);
       expect(minThumb).toHaveFocus();
     });
 
@@ -88,7 +88,7 @@ describe('MultiThumbRange', () => {
       const minThumb = getAllByRole('slider')[0];
 
       expect(minThumb).not.toHaveFocus();
-      fireEvent.mouseDown(label);
+      fireEvent.click(label);
       expect(minThumb).toHaveFocus();
 
       minThumb.blur();
