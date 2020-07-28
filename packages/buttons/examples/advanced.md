@@ -5,7 +5,7 @@ The split button pattern is composed of:
 - `SplitButton` component as a container
 - `Button` component for the main action
 - `ChevronButton` component for the secondary actions
-- `Dropdown/Menu/Trigger` components from [@zendeskgarden/react-dropdowns](https://garden.zendesk.com/react-components/dropdowns/)
+- `Dropdown/Menu/Trigger` components from [@zendeskgarden/react-dropdowns](https://zendeskgarden.github.io/react-components/dropdowns/)
   package for the secondary actions menu
 
 ```jsx

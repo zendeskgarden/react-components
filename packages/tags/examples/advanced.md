@@ -112,7 +112,7 @@ const tags = [
 
 Generally, the color of a Garden `Tag` is determined by setting the `hue`
 prop to one of the available theming
-[palette](https://garden.zendesk.com/react-components/theming/#palette)
+[palette](https://zendeskgarden.github.io/react-components/theming/#palette)
 primary or secondary hue values (`grey`, `blue`, `red`, `yellow`, `green`,
 `kale`, etc). However, the `hue` prop is flexible and can accept any valid
 [CSS color value](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value).

@@ -62,7 +62,7 @@ ensuring the details live up to expectations.
 - The last declaration in any view component is
   `${retrieveComponentStyles(COMPONENT_ID, props)}` which allows an
   implementer to leverage the
-  [`theme`](https://garden.zendesk.com/react-components/theming/)
+  [`theme`](https://zendeskgarden.github.io/react-components/theming/)
   "components" object to override specific component styles.
 - The view component `defaultProps` must contain `theme: DEFAULT_THEME` for
   cases when the component might be used outside the context of a
