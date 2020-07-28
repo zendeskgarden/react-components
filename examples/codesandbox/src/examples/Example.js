@@ -32,7 +32,7 @@ export default class Example extends Component {
           <Paragraph>
             This sandbox is built with{' '}
             <Anchor
-              href="https://garden.zendesk.com/react-components"
+              href="https://zendeskgarden.github.io/react-components"
               isExternal
             >
               Garden react-components

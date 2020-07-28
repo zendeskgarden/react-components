@@ -14,7 +14,7 @@ interface ITagProps extends HTMLAttributes<HTMLDivElement> {
   size?: 'small' | 'medium' | 'large';
   /**
    * Apply a custom tag hue – typically constrained to a
-   * [palette](https://garden.zendesk.com/react-components/theming/#palette)
+   * [palette](https://zendeskgarden.github.io/react-components/theming/#palette)
    * hue, but with the ability to override using any hex value.
    */
   hue?: string;

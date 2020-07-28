@@ -1,5 +1,5 @@
 Overflow menus are achieved by using the `Dropdown` component available in
-the [@zendeskgarden/react-dropdowns](https://garden.zendesk.com/react-components/dropdowns/)
+the [@zendeskgarden/react-dropdowns](https://zendeskgarden.github.io/react-components/dropdowns/)
 package.
 
 Based on `Table` positioning and other implementation specific details you may need

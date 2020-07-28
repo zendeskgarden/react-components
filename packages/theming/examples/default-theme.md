@@ -32,7 +32,7 @@ const theme = {
 Themed `breakpoints` define minimum dimensions at which layout will change
 based on media queries, adapting to various screen sizes. These values are
 used in Garden's responsive
-[grid](https://garden.zendesk.com/react-components/grid/).
+[grid](https://zendeskgarden.github.io/react-components/grid/).
 
 ### Colors
 
@@ -128,7 +128,7 @@ The `fonts` section of the theme contains two CSS `font-family` stacks:
 
 The `fontSizes` and `lineHeights` objects work together to define the basis
 for Garden's
-[typography](https://garden.zendesk.com/react-components/typography/) system.
+[typography](https://zendeskgarden.github.io/react-components/typography/) system.
 Garden reduces monospace equivalents by one pixel so that x-height is
 proportional with the surrounding system font.
 

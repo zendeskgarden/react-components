@@ -13,7 +13,7 @@ Each `Tile` may be treated as an individual radio input.
 ### Layout
 
 The `Tiles` component provides no layout or responsive styling. For a responsive layout
-we use our [@zendeskgarden/react-grid package](https://garden.zendesk.com/react-components/grid/)
+we use our [@zendeskgarden/react-grid package](https://zendeskgarden.github.io/react-components/grid/)
 in the examples below.
 
 ```jsx

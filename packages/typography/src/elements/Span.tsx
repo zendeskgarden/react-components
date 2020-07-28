@@ -18,7 +18,7 @@ interface ISpanProps extends HTMLAttributes<HTMLSpanElement> {
   isMonospace?: boolean;
   /**
    * Apply a span color – typically constrained to a
-   * [palette](https://garden.zendesk.com/react-components/theming/#palette)
+   * [palette](https://zendeskgarden.github.io/react-components/theming/#palette)
    * hue, but with the ability to override using any hex value.
    */
   hue?: string;
