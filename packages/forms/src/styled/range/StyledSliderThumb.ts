@@ -42,12 +42,14 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
       box-shadow: ${focusBoxShadow};
     }
 
-    &:hover {
+    &:hover,
+    &[data-garden-hover='true'] {
       border-color: ${hoverBorderColor};
       background-color: ${hoverBackgroundColor};
     }
 
-    &:active {
+    &:active,
+    &[data-garden-active='true'] {
       border-color: ${activeBorderColor};
       background-color: ${activeBackgroundColor};
     }

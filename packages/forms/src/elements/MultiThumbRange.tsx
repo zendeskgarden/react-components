@@ -25,6 +25,7 @@ import {
   StyledSliderThumb
 } from '../styled';
 import { ThemeProps, DefaultTheme } from 'styled-components';
+import useFieldContext from '../utils/useFieldContext';
 
 export interface IMultiThumbRangeProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   /** The minimum permitted value */
@@ -65,6 +66,8 @@ const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>
   const trackRailRef = useRef<HTMLDivElement>(null);
   const minThumbRef = useRef<HTMLDivElement>(null);
   const maxThumbRef = useRef<HTMLDivElement>(null);
+  const fieldContext = useFieldContext();
+  const { isLabelHovered, isLabelActive, multiThumbRangeRef } = fieldContext || {};
 
   /**
    * The window resize event is debounced to reduce unnecessary renders
@@ -78,6 +81,12 @@ const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>
     }, 100),
     []
   );
+
+  useEffect(() => {
+    if (multiThumbRangeRef) {
+      multiThumbRangeRef.current = minThumbRef.current;
+    }
+  }, [multiThumbRangeRef]);
 
   useEffect(() => {
     onWindowResize();
@@ -395,6 +404,8 @@ const MultiThumbRange: React.FC<IMultiThumbRangeProps & ThemeProps<DefaultTheme>
 
               minThumbRef.current && minThumbRef.current.focus();
             }}
+            data-garden-active={isLabelActive}
+            data-garden-hover={isLabelHovered}
           />
           <StyledSliderThumb
             role="slider"

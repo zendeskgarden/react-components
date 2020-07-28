@@ -6,9 +6,13 @@
  */
 
 import React from 'react';
-import { KEY_CODES } from '@zendeskgarden/container-utilities';
+import { css } from 'styled-components';
 import { render, renderRtl, fireEvent, createEvent } from 'garden-test-utils';
+import { getColor } from '@zendeskgarden/react-theming';
+import { KEY_CODES } from '@zendeskgarden/container-utilities';
 import MultiThumbRange from './MultiThumbRange';
+import { Label } from './common/Label';
+import { Field } from './common/Field';
 
 jest.mock('lodash.debounce');
 import debounce from 'lodash.debounce';
@@ -54,6 +58,95 @@ describe('MultiThumbRange', () => {
       expect(window.removeEventListener).toHaveBeenCalled();
 
       window.removeEventListener = originalRemoveEventListener;
+    });
+  });
+
+  describe('MultiThumbRange label', () => {
+    it('clicking the label focuses the min thumb', () => {
+      const { getByText, getAllByRole } = render(
+        <Field>
+          <Label>MultiThumbRange</Label>
+          <MultiThumbRange />
+        </Field>
+      );
+      const label = getByText('MultiThumbRange');
+      const minThumb = getAllByRole('slider')[0];
+
+      expect(minThumb).not.toHaveFocus();
+      fireEvent.click(label);
+      expect(minThumb).toHaveFocus();
+    });
+
+    it('focus leaves the min thumb when user blurs out of min thumb', () => {
+      const { getByText, getAllByRole } = render(
+        <Field>
+          <Label>MultiThumbRange</Label>
+          <MultiThumbRange />
+        </Field>
+      );
+      const label = getByText('MultiThumbRange');
+      const minThumb = getAllByRole('slider')[0];
+
+      expect(minThumb).not.toHaveFocus();
+      fireEvent.click(label);
+      expect(minThumb).toHaveFocus();
+
+      minThumb.blur();
+      expect(minThumb).not.toHaveFocus();
+    });
+
+    it('hovering over the label visually identifies the min thumb', () => {
+      const { getByText, getAllByRole } = render(
+        <Field>
+          <Label>MultiThumbRange</Label>
+          <MultiThumbRange />
+        </Field>
+      );
+      const label = getByText('MultiThumbRange');
+      const minThumb = getAllByRole('slider')[0];
+
+      expect(minThumb).toHaveStyleRule('border-color', getColor('blue', 600));
+      expect(minThumb).toHaveStyleRule('background-color', getColor('blue', 600));
+
+      fireEvent.mouseEnter(label);
+
+      ['border-color', 'background-color'].forEach(color => {
+        expect(minThumb).toHaveStyleRule(color, getColor('blue', 700), {
+          /* prettier-ignore */
+          modifier: css`
+            &[data-garden-hover='true']
+          ` as any
+        });
+      });
+    });
+
+    it('pressing on the label visually identifies the activated min thumb', () => {
+      const { getByText, getAllByRole } = render(
+        <Field>
+          <Label>MultiThumbRange</Label>
+          <MultiThumbRange />
+        </Field>
+      );
+      const label = getByText('MultiThumbRange');
+      const minThumb = getAllByRole('slider')[0];
+
+      expect(minThumb).toHaveStyleRule('border-color', getColor('blue', 600));
+      expect(minThumb).toHaveStyleRule('background-color', getColor('blue', 600));
+
+      fireEvent.mouseDown(label);
+
+      expect(minThumb).toHaveStyleRule('border-color', getColor('blue', 600), {
+        /* prettier-ignore */
+        modifier: css`
+          &[data-garden-active='true']
+        ` as any
+      });
+      expect(minThumb).toHaveStyleRule('background-color', getColor('blue', 700), {
+        /* prettier-ignore */
+        modifier: css`
+          &[data-garden-active='true']
+        ` as any
+      });
     });
   });
 
