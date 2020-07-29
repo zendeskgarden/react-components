@@ -12,6 +12,14 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.17.1 (2020-07-29)
+
+#### :bug: Bug Fix
+* `buttons`, `forms`, `tables`, `tags`, `theming`, `typography`
+  * [#819](https://github.com/zendeskgarden/react-components/pull/819) fix: swap invalid garden.zendesk.com URLs for zendeskgarden.github.io ([@jzempel](https://github.com/jzempel))
+* `forms`
+  * [#812](https://github.com/zendeskgarden/react-components/pull/812) fix(forms): implement label behavior for multi-thumb range ([@hzhu](https://github.com/hzhu))
+
 ## v8.17.0 (2020-07-22)
 
 #### :rocket: New Feature
