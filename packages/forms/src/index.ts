@@ -18,6 +18,7 @@ export { Radio } from './elements/Radio';
 export { Range } from './elements/Range';
 export { Textarea, ITextareaProps } from './elements/Textarea';
 export { Toggle } from './elements/Toggle';
+export { Select, ISelectProps } from './elements/Select';
 export { default as MultiThumbRange, IMultiThumbRangeProps } from './elements/MultiThumbRange';
 
 /** Tiles */
