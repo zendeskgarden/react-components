@@ -149,6 +149,7 @@ const StyledMessage = styled(Message)`
           placeholder={state.placeholder && 'placeholder'}
           validation={state.validation}
           style={state.inline ? { width: 'auto', margin: 0 } : {}}
+          minRows={3}
         />
         {state.message && <StyledMessage validation={state.validation}>Message</StyledMessage>}
       </StyledField>
