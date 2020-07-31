@@ -67,7 +67,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
         parseStyleValue(computedStyle.paddingBottom) + parseStyleValue(computedStyle.paddingTop);
       const border =
         parseStyleValue(computedStyle.borderTopWidth) +
-        parseStyleValue(computedStyle.borderTopWidth);
+        parseStyleValue(computedStyle.borderBottomWidth);
 
       const innerHeight = shadowTextArea.scrollHeight - padding;
 
