@@ -43,7 +43,7 @@ export const Select = React.forwardRef<HTMLSelectElement, ISelectProps>(
     const { onClick, ...otherWrapperProps } = wrapperProps;
 
     const onFauxInputClickHandler = composeEventHandlers(onClick, () => {
-      selectRef.current && selectRef.current.focus();
+      selectRef.current && selectRef.current.click();
     });
 
     let combinedProps = {
