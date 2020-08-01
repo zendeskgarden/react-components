@@ -15,8 +15,6 @@ import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 
 interface ISelectProps extends HTMLAttributes<HTMLDivElement> {
-  /** Allows flush spacing of Tab elements */
-  tagLayout?: boolean;
   isCompact?: boolean;
   /** Removes all borders and styling */
   isBare?: boolean;
@@ -238,8 +236,6 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
 Select.displayName = 'Select';
 
 Select.propTypes = {
-  /** Allows flush spacing of Tab elements */
-  tagLayout: PropTypes.bool,
   isCompact: PropTypes.bool,
   /** Removes all borders and styling */
   isBare: PropTypes.bool,

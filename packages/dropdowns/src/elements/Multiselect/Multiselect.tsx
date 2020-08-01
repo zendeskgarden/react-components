@@ -275,7 +275,6 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
           <StyledMultiSelect
             {...getContainerProps({
               ...selectProps,
-              tagLayout: true,
               isHovered: isLabelHovered && !isOpen,
               isFocused: isOpen ? true : isFocused,
               isOpen,
