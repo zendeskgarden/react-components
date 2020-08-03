@@ -26,8 +26,18 @@ const Anchor: React.FunctionComponent<
   IAnchorProps & React.RefAttributes<HTMLAnchorElement>
 > = React.forwardRef<HTMLAnchorElement, IAnchorProps>(
   ({ children, isExternal, ...otherProps }, ref) => {
+    let anchorProps: AnchorHTMLAttributes<HTMLAnchorElement> = otherProps;
+
+    if (isExternal) {
+      anchorProps = {
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        ...anchorProps
+      };
+    }
+
     return (
-      <StyledAnchor ref={ref} {...(otherProps as any)}>
+      <StyledAnchor ref={ref} {...(anchorProps as any)}>
         {children}
         {isExternal && <StyledExternalIcon />}
       </StyledAnchor>

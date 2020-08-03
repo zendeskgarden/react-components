@@ -15,4 +15,26 @@ describe('Anchor', () => {
 
     expect(container.querySelector('svg')).not.toBeNull();
   });
+
+  it('renders link security attributes while external', () => {
+    const { getByText } = render(<Anchor isExternal>link</Anchor>);
+
+    const anchor = getByText('link');
+
+    expect(anchor).toHaveAttribute('target', '_blank');
+    expect(anchor).toHaveAttribute('rel', 'noopener noreferrer');
+  });
+
+  it('renders custom link attributes if provided while external', () => {
+    const { getByText } = render(
+      <Anchor isExternal rel="bookmark" target="_parent">
+        link
+      </Anchor>
+    );
+
+    const anchor = getByText('link');
+
+    expect(anchor).toHaveAttribute('target', '_parent');
+    expect(anchor).toHaveAttribute('rel', 'bookmark');
+  });
 });
