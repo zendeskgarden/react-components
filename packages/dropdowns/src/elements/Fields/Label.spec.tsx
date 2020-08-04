@@ -6,7 +6,8 @@
  */
 
 import React from 'react';
-import { render, fireEvent } from 'garden-test-utils';
+import userEvent from '@testing-library/user-event';
+import { render } from 'garden-test-utils';
 import { Dropdown, Menu, Item, Field, Label, Select } from '../..';
 
 describe('Label', () => {
@@ -39,7 +40,8 @@ describe('Label', () => {
       </Dropdown>
     );
 
-    fireEvent.mouseEnter(getByTestId('label'));
+    userEvent.hover(getByTestId('label'));
+
     expect(getByTestId('select')).toHaveAttribute('data-test-is-hovered', 'true');
   });
 
@@ -58,8 +60,8 @@ describe('Label', () => {
 
     const label = getByTestId('label');
 
-    fireEvent.mouseEnter(label);
-    fireEvent.mouseLeave(label);
+    userEvent.hover(label);
+    userEvent.unhover(label);
 
     expect(getByTestId('select')).not.toHaveClass('is-hovered');
   });
@@ -77,7 +79,7 @@ describe('Label', () => {
       </Dropdown>
     );
 
-    fireEvent.click(getByTestId('label'));
+    userEvent.click(getByTestId('label'));
     expect(getByTestId('select')).toHaveAttribute('data-test-is-open', 'true');
   });
 });

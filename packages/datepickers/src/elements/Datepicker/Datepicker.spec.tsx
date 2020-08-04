@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import userEvent from '@testing-library/user-event';
 import { render, renderRtl, fireEvent, act } from 'garden-test-utils';
 import { addDays, subDays } from 'date-fns';
 import mockDate from 'mockdate';
@@ -43,8 +44,7 @@ describe('Datepicker', () => {
     it('displays dates with correct previous styling', () => {
       const { getByTestId, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
 
-      fireEvent.mouseDown(getByTestId('input'));
-      fireEvent.click(getByTestId('input'));
+      userEvent.click(getByTestId('input'));
       const days = getAllByTestId('day');
 
       for (let x = 0; x < days.length; x++) {
@@ -61,8 +61,7 @@ describe('Datepicker', () => {
     it('displays dates with selected and today styling', () => {
       const { getByTestId, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
 
-      fireEvent.mouseDown(getByTestId('input'));
-      fireEvent.click(getByTestId('input'));
+      userEvent.click(getByTestId('input'));
       const days = getAllByTestId('day');
 
       expect(days[9]).toHaveAttribute('data-test-selected', 'true');
@@ -78,8 +77,7 @@ describe('Datepicker', () => {
         />
       );
 
-      fireEvent.mouseDown(getByTestId('input'));
-      fireEvent.click(getByTestId('input'));
+      userEvent.click(getByTestId('input'));
       const days = getAllByTestId('day');
 
       for (let x = 0; x < days.length; x++) {
@@ -98,8 +96,7 @@ describe('Datepicker', () => {
     it('displays selected month in correct format', () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
 
-      fireEvent.mouseDown(getByTestId('input'));
-      fireEvent.click(getByTestId('input'));
+      userEvent.click(getByTestId('input'));
 
       expect(getByTestId('month-display')).toHaveTextContent('February 2019');
     });
@@ -107,9 +104,8 @@ describe('Datepicker', () => {
     it('displays previous month if previous paddle is clicked', () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
 
-      fireEvent.mouseDown(getByTestId('input'));
-      fireEvent.click(getByTestId('input'));
-      fireEvent.click(getByTestId('previous-month'));
+      userEvent.click(getByTestId('input'));
+      userEvent.click(getByTestId('previous-month'));
 
       expect(getByTestId('month-display')).toHaveTextContent('January 2019');
     });
@@ -117,9 +113,8 @@ describe('Datepicker', () => {
     it('displays next month if next paddle is clicked', () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
 
-      fireEvent.mouseDown(getByTestId('input'));
-      fireEvent.click(getByTestId('input'));
-      fireEvent.click(getByTestId('next-month'));
+      userEvent.click(getByTestId('input'));
+      userEvent.click(getByTestId('next-month'));
 
       expect(getByTestId('month-display')).toHaveTextContent('March 2019');
     });
@@ -127,8 +122,7 @@ describe('Datepicker', () => {
     it('displays current month if no value is provided', () => {
       const { getByTestId } = render(<Example />);
 
-      fireEvent.mouseDown(getByTestId('input'));
-      fireEvent.click(getByTestId('input'));
+      userEvent.click(getByTestId('input'));
 
       expect(getByTestId('month-display')).toHaveTextContent('February 2019');
     });
@@ -140,9 +134,8 @@ describe('Datepicker', () => {
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      fireEvent.mouseDown(getByTestId('input'));
-      fireEvent.click(getByTestId('input'));
-      fireEvent.click(getAllByTestId('day')[1]);
+      userEvent.click(getByTestId('input'));
+      userEvent.click(getAllByTestId('day')[1]);
 
       expect(onChangeSpy).toHaveBeenCalledWith(new Date(2019, 0, 28));
     });
@@ -154,9 +147,8 @@ describe('Datepicker', () => {
 
       const input = getByTestId('input');
 
-      fireEvent.mouseDown(input);
-      fireEvent.click(input);
-      fireEvent.click(getAllByTestId('day')[1]);
+      userEvent.click(input);
+      userEvent.click(getAllByTestId('day')[1]);
 
       expect(input).toHaveValue('January 28, 2019');
     });
@@ -185,12 +177,11 @@ describe('Datepicker', () => {
         />
       );
 
-      fireEvent.mouseDown(getByTestId('input'));
-      fireEvent.click(getByTestId('input'));
+      userEvent.click(getByTestId('input'));
       const days = getAllByTestId('day');
 
-      fireEvent.click(days[0]);
-      fireEvent.click(days[days.length - 1]);
+      userEvent.click(days[0]);
+      userEvent.click(days[days.length - 1]);
 
       expect(onChangeSpy).not.toHaveBeenCalled();
     });
@@ -214,8 +205,7 @@ describe('Datepicker', () => {
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      fireEvent.mouseDown(getByTestId('input'));
-      fireEvent.click(getByTestId('input'));
+      userEvent.click(getByTestId('input'));
 
       expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
     });
@@ -225,8 +215,7 @@ describe('Datepicker', () => {
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      fireEvent.mouseDown(getByTestId('input'));
-      fireEvent.click(getByTestId('input'));
+      userEvent.click(getByTestId('input'));
 
       expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
     });
@@ -251,9 +240,8 @@ describe('Datepicker', () => {
       );
       const input = getByTestId('input');
 
-      fireEvent.mouseDown(getByTestId('input'));
-      fireEvent.click(input);
-      fireEvent.blur(input);
+      userEvent.click(input);
+      userEvent.tab();
 
       expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
     });
@@ -266,15 +254,15 @@ describe('Datepicker', () => {
 
       fireEvent.keyDown(input, { keyCode: KEY_CODES.UP });
       expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
-      fireEvent.blur(input);
+      userEvent.tab();
 
       fireEvent.keyDown(input, { keyCode: KEY_CODES.DOWN });
       expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
-      fireEvent.blur(input);
+      userEvent.tab();
 
-      fireEvent.keyDown(input, { keyCode: KEY_CODES.SPACE });
+      userEvent.type(input, ' ');
       expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
-      fireEvent.blur(input);
+      userEvent.tab();
     });
 
     it('closes datepicker when correct keys are used', () => {
@@ -283,15 +271,13 @@ describe('Datepicker', () => {
       );
       const input = getByTestId('input');
 
-      fireEvent.mouseDown(getByTestId('input'));
-      fireEvent.click(input);
+      userEvent.click(input);
       fireEvent.keyDown(input, { keyCode: KEY_CODES.ESCAPE });
 
       expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
 
-      fireEvent.mouseDown(getByTestId('input'));
-      fireEvent.click(input);
-      fireEvent.keyDown(input, { keyCode: KEY_CODES.ENTER });
+      userEvent.click(input);
+      userEvent.type(input, '{enter}');
       expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
     });
 
@@ -299,9 +285,8 @@ describe('Datepicker', () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
       const input = getByTestId('input');
 
-      fireEvent.mouseDown(getByTestId('input'));
-      fireEvent.click(input);
-      fireEvent.mouseDown(getByTestId('calendar-wrapper'));
+      userEvent.click(input);
+      userEvent.click(getByTestId('calendar-wrapper'));
 
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
     });
@@ -310,7 +295,8 @@ describe('Datepicker', () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
       const input = getByTestId('input');
 
-      fireEvent.change(input, { target: { value: '1/4/2019' } });
+      userEvent.clear(input);
+      userEvent.type(input, '1/4/2019');
 
       expect(onChangeSpy).toHaveBeenCalledWith(new Date(2019, 0, 4));
     });
@@ -319,7 +305,8 @@ describe('Datepicker', () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
       const input = getByTestId('input');
 
-      fireEvent.change(input, { target: { value: 'Jan 4, 2019' } });
+      userEvent.clear(input);
+      userEvent.type(input, 'Jan 4, 2019');
 
       expect(onChangeSpy).toHaveBeenCalledWith(new Date(2019, 0, 4));
     });
@@ -328,7 +315,8 @@ describe('Datepicker', () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
       const input = getByTestId('input');
 
-      fireEvent.change(input, { target: { value: 'January 4th, 2019' } });
+      userEvent.clear(input);
+      userEvent.type(input, 'January 4th, 2019');
 
       expect(onChangeSpy).toHaveBeenCalledWith(new Date(2019, 0, 4));
     });
@@ -364,7 +352,8 @@ describe('Datepicker', () => {
       );
       const input = getByTestId('input');
 
-      fireEvent.change(input, { target: { value: 'invalid date' } });
+      userEvent.clear(input);
+      userEvent.type(input, 'invalid date');
 
       expect(customParseDateSpy).toHaveBeenCalled();
       expect(onChangeSpy).toHaveBeenCalledWith(MOCK_DATE);
@@ -377,7 +366,8 @@ describe('Datepicker', () => {
       );
       const input = getByTestId('input');
 
-      fireEvent.change(input, { target: { value: 'invalid date' } });
+      userEvent.clear(input);
+      userEvent.type(input, 'invalid date');
 
       expect(customParseDateSpy).toHaveBeenCalled();
       expect(onChangeSpy).not.toHaveBeenCalled();
@@ -400,8 +390,7 @@ describe('Datepicker', () => {
     it('applies LTR classes by default', () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
 
-      fireEvent.mouseDown(getByTestId('input'));
-      fireEvent.click(getByTestId('input'));
+      userEvent.click(getByTestId('input'));
 
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-rtl', 'false');
     });
@@ -409,8 +398,7 @@ describe('Datepicker', () => {
     it('applies RTL classes if provided', () => {
       const { getByTestId } = renderRtl(<Example value={DEFAULT_DATE} />);
 
-      fireEvent.mouseDown(getByTestId('input'));
-      fireEvent.click(getByTestId('input'));
+      userEvent.click(getByTestId('input'));
 
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-rtl', 'true');
     });

@@ -6,7 +6,8 @@
  */
 
 import React from 'react';
-import { render, fireEvent } from 'garden-test-utils';
+import userEvent from '@testing-library/user-event';
+import { render } from 'garden-test-utils';
 import { Dropdown, Trigger, Menu, MediaItem } from '../../..';
 
 describe('MediaItem', () => {
@@ -26,8 +27,8 @@ describe('MediaItem', () => {
       </Dropdown>
     );
 
-    fireEvent.click(getByTestId('trigger'));
-    fireEvent.click(getByTestId('media-item'));
+    userEvent.click(getByTestId('trigger'));
+    userEvent.click(getByTestId('media-item'));
 
     expect(onSelectSpy.mock.calls[0][0]).toBe('media-item');
   });

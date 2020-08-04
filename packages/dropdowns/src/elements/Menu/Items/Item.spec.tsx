@@ -7,6 +7,7 @@
  */
 
 import React from 'react';
+import userEvent from '@testing-library/user-event';
 import { render, fireEvent } from 'garden-test-utils';
 import { Dropdown, Trigger, Menu, Item } from '../../..';
 
@@ -93,7 +94,7 @@ describe('Item', () => {
       </Dropdown>
     );
 
-    fireEvent.click(getByTestId('trigger'));
+    userEvent.click(getByTestId('trigger'));
     expect(getAllByTestId('item')[1]).toHaveAttribute('data-test-is-focused', 'true');
   });
 
@@ -109,7 +110,7 @@ describe('Item', () => {
       </Dropdown>
     );
 
-    fireEvent.click(getByTestId('trigger'));
+    userEvent.click(getByTestId('trigger'));
     expect(getByTestId('item-icon')).toHaveStyleRule('width', '16px', { modifier: '& > *' });
   });
 
@@ -135,7 +136,7 @@ describe('Item', () => {
       );
       const trigger = getByTestId('trigger');
 
-      fireEvent.click(trigger);
+      userEvent.click(trigger);
       fireEvent.keyDown(trigger, { key: 'ArrowDown', keyCode: '40' });
       expect(getAllByTestId('item')[0]).toHaveAttribute('data-test-is-focused', 'true');
     });
@@ -158,7 +159,7 @@ describe('Item', () => {
           </Dropdown>
         );
 
-        fireEvent.click(getByTestId('trigger'));
+        userEvent.click(getByTestId('trigger'));
         expect(getAllByTestId('item')[0]).toHaveAttribute('data-test-is-selected', 'true');
       });
 
@@ -182,7 +183,7 @@ describe('Item', () => {
           </Dropdown>
         );
 
-        fireEvent.click(getByTestId('trigger'));
+        userEvent.click(getByTestId('trigger'));
         expect(getAllByTestId('item')[0]).toHaveAttribute('data-test-is-selected', 'true');
       });
     });
@@ -208,7 +209,7 @@ describe('Item', () => {
           </Dropdown>
         );
 
-        fireEvent.click(getByTestId('trigger'));
+        userEvent.click(getByTestId('trigger'));
         const items = getAllByTestId('item');
 
         expect(items[0]).toHaveAttribute('data-test-is-selected', 'true');
@@ -239,7 +240,7 @@ describe('Item', () => {
           </Dropdown>
         );
 
-        fireEvent.click(getByTestId('trigger'));
+        userEvent.click(getByTestId('trigger'));
         const items = getAllByTestId('item');
 
         expect(items[0]).toHaveAttribute('data-test-is-selected', 'true');

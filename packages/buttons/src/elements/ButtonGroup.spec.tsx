@@ -6,7 +6,8 @@
  */
 
 import React from 'react';
-import { render, fireEvent } from 'garden-test-utils';
+import userEvent from '@testing-library/user-event';
+import { render } from 'garden-test-utils';
 import ButtonGroup from './ButtonGroup';
 import Button from './Button';
 
@@ -43,7 +44,7 @@ describe('ButtonGroup', () => {
     const { getAllByTestId } = render(<BasicExample />);
     const lastButton = getAllByTestId('button')[1];
 
-    fireEvent.click(lastButton);
+    userEvent.click(lastButton);
 
     expect(lastButton).toHaveAttribute('aria-pressed', 'true');
   });
@@ -52,7 +53,7 @@ describe('ButtonGroup', () => {
     const { getAllByTestId } = render(<BasicExample />);
     const [, button] = getAllByTestId('button');
 
-    fireEvent.focus(button);
+    userEvent.click(button);
 
     expect(button).toHaveAttribute('tabIndex', '0');
   });
@@ -90,7 +91,7 @@ describe('ButtonGroup', () => {
 
     const button = getByTestId('button');
 
-    fireEvent.focus(button);
+    userEvent.click(button);
 
     expect(button).toHaveFocus();
   });

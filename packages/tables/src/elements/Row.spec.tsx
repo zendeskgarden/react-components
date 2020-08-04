@@ -7,7 +7,8 @@
 
 import React from 'react';
 import { css } from 'styled-components';
-import { render, fireEvent } from 'garden-test-utils';
+import userEvent from '@testing-library/user-event';
+import { render } from 'garden-test-utils';
 import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 import { Table } from './Table';
@@ -39,7 +40,7 @@ describe('Row', () => {
     );
     const row = getByTestId('row');
 
-    fireEvent.focus(row);
+    userEvent.click(row);
 
     expect(row).toHaveStyleRule(
       'box-shadow',
@@ -63,8 +64,8 @@ describe('Row', () => {
     );
     const row = getByTestId('row');
 
-    fireEvent.focus(row);
-    fireEvent.blur(row);
+    userEvent.click(row);
+    row.blur();
 
     expect(row).not.toHaveStyleRule(
       'box-shadow',
