@@ -48,12 +48,11 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledBaseProps) => {
 };
 
 const padding = (props: ThemeProps<DefaultTheme>) => {
-  const { space, rtl } = props.theme;
+  const { space } = props.theme;
   const paddingVertical = `${space.base * 5}px`;
-  const paddingRight = rtl ? `${space.base * 12.5}px` : `${space.base * 10}px`;
-  const paddingLeft = rtl ? `${space.base * 10}px` : `${space.base * 12.5}px`;
+  const paddingHorizontal = `${space.base * 10}px`;
 
-  return `${paddingVertical} ${paddingRight} ${paddingVertical} ${paddingLeft}`;
+  return `${paddingVertical} ${paddingHorizontal}`;
 };
 
 export const StyledBase = styled.div`

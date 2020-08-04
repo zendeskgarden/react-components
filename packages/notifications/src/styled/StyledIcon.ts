@@ -13,8 +13,8 @@ export const StyledIcon = styled(({ children, ...props }) =>
   React.cloneElement(Children.only(children), props)
 )`
   position: absolute;
-  right: ${props => props.theme.rtl && `${props.theme.space.base * 6}px`};
-  left: ${props => !props.theme.rtl && `${props.theme.space.base * 6}px`};
+  right: ${props => props.theme.rtl && `${props.theme.space.base * 4}px`};
+  left: ${props => !props.theme.rtl && `${props.theme.space.base * 4}px`};
   margin-top: ${props => props.theme.space.base / 2}px;
   color: ${props =>
     props.hue && getColor(props.hue, props.hue === 'warningHue' ? 700 : 600, props.theme)};

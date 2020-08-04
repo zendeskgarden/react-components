@@ -6,21 +6,9 @@
  */
 
 import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
+import { render } from 'garden-test-utils';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledBase } from './StyledBase';
-
-it('should render the correct styling for RTL writing systems', () => {
-  const { container } = renderRtl(<StyledBase />);
-
-  expect(container.firstChild).toHaveStyleRule('padding', '20px 50px 20px 40px');
-});
-
-it('should render the correct styling for LTR writing systems', () => {
-  const { container } = render(<StyledBase />);
-
-  expect(container.firstChild).toHaveStyleRule('padding', '20px 40px 20px 50px');
-});
 
 it('should renders the correct background, border, and foreground color for a given hue', () => {
   const { colors, palette } = DEFAULT_THEME;

@@ -23,7 +23,6 @@ export const StyledWell = styled(StyledBase).attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledWellProps>`
   background-color: ${props => props.isRecessed && getColor('neutralHue', 100, props.theme)};
-  padding: ${props => `${props.theme.space.base * 5}px ${props.theme.space.base * 10}px`};
   color: ${props => getColor('neutralHue', 600, props.theme)}
     ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
