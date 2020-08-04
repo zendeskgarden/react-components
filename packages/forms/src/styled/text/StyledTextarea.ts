@@ -13,7 +13,18 @@ const COMPONENT_ID = 'forms.textarea';
 
 interface IStyledTextareaProps {
   isResizable?: boolean;
+  isHidden?: boolean;
 }
+
+const hiddenStyles = `
+  visibility: hidden;
+  position: absolute;
+  overflow: hidden;
+  height: 0;
+  top: 0;
+  left: 0;
+  transform: translateZ(0);
+`;
 
 export const StyledTextarea = styled(StyledTextInput).attrs({
   as: 'textarea',
@@ -22,6 +33,7 @@ export const StyledTextarea = styled(StyledTextInput).attrs({
 })<IStyledTextareaProps>`
   resize: ${props => (props.isResizable ? 'vertical' : 'none')};
   overflow: auto;
+  ${props => props.isHidden && hiddenStyles};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
