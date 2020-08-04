@@ -169,6 +169,8 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
             className={props.className}
             ref={shadowTextAreaRef}
             tabIndex={-1}
+            isBare={props.isBare}
+            isCompact={props.isCompact}
             style={style}
           />
         )}
