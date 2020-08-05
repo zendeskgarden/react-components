@@ -11,7 +11,7 @@ import { Textarea } from './Textarea';
 import { Field } from './common/Field';
 
 const { getComputedStyle } = window;
-const originalScrollHeight = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'scrollHeight');
+const originalScrollHeight = Object.getOwnPropertyDescriptor(Element.prototype, 'scrollHeight');
 
 describe('Textarea', () => {
   it('is rendered as a textarea', () => {
@@ -36,7 +36,7 @@ describe('Textarea', () => {
   });
 
   describe('Autoresizing', () => {
-    beforeAll(() => {
+    beforeEach(() => {
       const styles: Partial<CSSStyleDeclaration> = {
         boxSizing: 'border-box',
         paddingBottom: '10px',
@@ -53,10 +53,10 @@ describe('Textarea', () => {
       });
     });
 
-    afterAll(() => {
+    afterEach(() => {
       window.getComputedStyle = getComputedStyle;
 
-      Object.defineProperty(HTMLElement.prototype, 'scrollHeight', originalScrollHeight as any);
+      Object.defineProperty(Element.prototype, 'scrollHeight', originalScrollHeight as any);
     });
 
     it('increases height of textarea as content is updated', () => {
@@ -67,7 +67,7 @@ describe('Textarea', () => {
       );
       const textarea = getByTestId('textarea');
 
-      Object.defineProperty(HTMLElement.prototype, 'scrollHeight', {
+      Object.defineProperty(Element.prototype, 'scrollHeight', {
         configurable: true,
         value: 38
       });
@@ -78,7 +78,7 @@ describe('Textarea', () => {
 
       expect(textarea.style.height).toBe('58px');
 
-      Object.defineProperty(HTMLElement.prototype, 'scrollHeight', {
+      Object.defineProperty(Element.prototype, 'scrollHeight', {
         configurable: true,
         value: 100
       });
@@ -98,7 +98,7 @@ describe('Textarea', () => {
       );
       const textarea = getByTestId('textarea');
 
-      Object.defineProperty(HTMLElement.prototype, 'scrollHeight', {
+      Object.defineProperty(Element.prototype, 'scrollHeight', {
         configurable: true,
         value: 100
       });
@@ -109,7 +109,7 @@ describe('Textarea', () => {
 
       expect(textarea.style.height).toBe('182px');
 
-      Object.defineProperty(HTMLElement.prototype, 'scrollHeight', {
+      Object.defineProperty(Element.prototype, 'scrollHeight', {
         configurable: true,
         value: 38
       });
