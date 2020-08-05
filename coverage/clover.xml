@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1596649308192" clover="3.2.0">
-  <project timestamp="1596649308192" name="All files">
-    <metrics statements="6302" coveredstatements="6194" conditionals="2536" coveredconditionals="2312" methods="1310" coveredmethods="1291" elements="10148" coveredelements="9797" complexity="0" loc="6302" ncloc="6302" packages="106" files="409" classes="409"/>
+<coverage generated="1596651551452" clover="3.2.0">
+  <project timestamp="1596651551453" name="All files">
+    <metrics statements="6302" coveredstatements="6193" conditionals="2536" coveredconditionals="2311" methods="1310" coveredmethods="1290" elements="10148" coveredelements="9794" complexity="0" loc="6302" ncloc="6302" packages="106" files="409" classes="409"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
       <file name="Example.spec.tsx" path="/home/circleci/project/packages/.template/src/elements/Example.spec.tsx">
@@ -78,7 +78,7 @@
       </file>
     </package>
     <package name="accordions.src.elements.accordion.components">
-      <metrics statements="68" coveredstatements="63" conditionals="6" coveredconditionals="3" methods="14" coveredmethods="12"/>
+      <metrics statements="68" coveredstatements="62" conditionals="6" coveredconditionals="2" methods="14" coveredmethods="11"/>
       <file name="Header.tsx" path="/home/circleci/project/packages/accordions/src/elements/accordion/components/Header.tsx">
         <metrics statements="28" coveredstatements="25" conditionals="4" coveredconditionals="2" methods="8" coveredmethods="6"/>
         <line num="8" count="8" type="stmt"/>
@@ -124,7 +124,7 @@
         <line num="33" count="8" type="stmt"/>
       </file>
       <file name="Panel.tsx" path="/home/circleci/project/packages/accordions/src/elements/accordion/components/Panel.tsx">
-        <metrics statements="21" coveredstatements="19" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="4"/>
+        <metrics statements="21" coveredstatements="18" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="3"/>
         <line num="8" count="8" type="stmt"/>
         <line num="9" count="8" type="stmt"/>
         <line num="10" count="8" type="stmt"/>
@@ -136,7 +136,7 @@
         <line num="17" count="1" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
-        <line num="22" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="22" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="23" count="0" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
         <line num="31" count="1" type="stmt"/>
@@ -774,14 +774,14 @@
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
-        <line num="29" count="3" type="stmt"/>
-        <line num="31" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="32" count="3" type="stmt"/>
-        <line num="39" count="3" type="stmt"/>
-        <line num="48" count="1" type="stmt"/>
-        <line num="50" count="1" type="stmt"/>
-        <line num="56" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="33" count="3" type="stmt"/>
+        <line num="35" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="36" count="3" type="stmt"/>
+        <line num="43" count="3" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="60" count="1" type="stmt"/>
       </file>
       <file name="Button.tsx" path="/home/circleci/project/packages/buttons/src/elements/Button.tsx">
         <metrics statements="21" coveredstatements="21" conditionals="9" coveredconditionals="9" methods="3" coveredmethods="3"/>
