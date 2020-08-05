@@ -14,6 +14,16 @@ import TextStyles from '@zendeskgarden/css-forms/dist/text.css';
 
 import StyledTextInput from './StyledTextInput';
 
+const hiddenStyles = `
+  visibility: hidden;
+  position: absolute;
+  overflow: hidden;
+  height: 0;
+  top: 0;
+  left: 0;
+  transform: translateZ(0);
+`;
+
 /**
  * Accepts all `<textarea>` props
  */
@@ -25,6 +35,8 @@ const StyledTextarea = styled(StyledTextInput.withComponent('textarea')).attrs(p
     [TextStyles['is-rtl']]: isRtl(props)
   })
 }))`
+  ${props => props.isHidden && hiddenStyles};
+
   ${props => retrieveTheme('forms.text_area', props)};
 `;
 
@@ -37,6 +49,7 @@ StyledTextarea.propTypes = {
   focusInset: PropTypes.bool,
   hovered: PropTypes.bool,
   resizable: PropTypes.bool,
+  isHidden: PropTypes.bool,
   validation: PropTypes.oneOf([VALIDATION.SUCCESS, VALIDATION.WARNING, VALIDATION.ERROR])
 };
 

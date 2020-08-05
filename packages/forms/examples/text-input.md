@@ -33,7 +33,7 @@ getValidationMessage = value =>
     value={state.textValue}
     onChange={event => setState({ textValue: event.target.value })}
     validation={getValidation(state.textValue)}
-    resizable
+    minRows={2}
   />
   <Message validation={getValidation(state.textValue)}>
     {getValidationMessage(state.textValue)}
