@@ -5,7 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { TextareaHTMLAttributes, useRef, useCallback, useEffect, useState } from 'react';
+import React, {
+  TextareaHTMLAttributes,
+  useRef,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useState
+} from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
 import { useCombinedRefs } from '@zendeskgarden/container-utilities';
@@ -128,13 +135,15 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
 
       window.addEventListener('resize', resizeHandler);
 
-      resizeHandler();
-
       return () => {
         resizeHandler.cancel();
         window.removeEventListener('resize', resizeHandler);
       };
     }, [calculateHeight, isAutoResizable]);
+
+    useLayoutEffect(() => {
+      calculateHeight();
+    });
 
     const computedStyle: React.CSSProperties = {};
 
@@ -184,5 +193,7 @@ Textarea.propTypes = {
   isBare: PropTypes.bool,
   focusInset: PropTypes.bool,
   isResizable: PropTypes.bool,
+  minRows: PropTypes.number,
+  maxRows: PropTypes.number,
   validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };
