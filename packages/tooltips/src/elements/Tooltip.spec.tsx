@@ -6,7 +6,8 @@
  */
 
 import React from 'react';
-import { render, fireEvent, act, renderRtl } from 'garden-test-utils';
+import userEvent from '@testing-library/user-event';
+import { render, act, renderRtl } from 'garden-test-utils';
 import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 
 import Tooltip, { ITooltipProps } from './Tooltip';
@@ -35,32 +36,44 @@ describe('Tooltip', () => {
   });
 
   it('renders tooltip with RTL styling if provided', () => {
-    const { getByTestId } = renderRtl(<BasicExample />);
+    const { getByTestId, getByText } = renderRtl(<BasicExample />);
+
+    expect(getByText('Trigger')).not.toHaveFocus();
 
     act(() => {
-      fireEvent.focus(getByTestId('trigger'));
+      userEvent.tab();
       jest.runOnlyPendingTimers();
     });
 
+    expect(getByText('Trigger')).toHaveFocus();
     expect(getByTestId('tooltip')).toHaveStyleRule('direction', 'rtl');
   });
 
   describe('Focusable Tooltip Content', () => {
     it('remains visible if tooltip content is focused', () => {
-      const { getByTestId } = renderRtl(<BasicExample />);
+      const { getByTestId, getByText } = renderRtl(
+        <Tooltip content={<button>Content CTA</button>} data-test-id="tooltip">
+          <button>Trigger</button>
+        </Tooltip>
+      );
+
+      expect(getByText('Trigger')).not.toHaveFocus();
 
       act(() => {
-        fireEvent.focus(getByTestId('trigger'));
+        userEvent.tab();
         jest.runOnlyPendingTimers();
       });
 
+      expect(getByText('Trigger')).toHaveFocus();
       expect(getByTestId('tooltip')).toHaveAttribute('aria-hidden', 'false');
 
       act(() => {
-        fireEvent.focus(getByTestId('tooltip'));
+        userEvent.tab();
         jest.runOnlyPendingTimers();
       });
 
+      expect(getByText('Trigger')).not.toHaveFocus();
+      expect(getByText('Content CTA')).toHaveFocus();
       expect(getByTestId('tooltip')).toHaveAttribute('aria-hidden', 'false');
     });
 
@@ -68,14 +81,14 @@ describe('Tooltip', () => {
       const { getByTestId } = renderRtl(<BasicExample />);
 
       act(() => {
-        fireEvent.focus(getByTestId('trigger'));
+        userEvent.tab();
         jest.runOnlyPendingTimers();
       });
 
       expect(getByTestId('tooltip')).toHaveAttribute('aria-hidden', 'false');
 
       act(() => {
-        fireEvent.blur(getByTestId('tooltip'));
+        userEvent.tab();
         jest.runOnlyPendingTimers();
       });
 
@@ -88,7 +101,7 @@ describe('Tooltip', () => {
       const { getByTestId } = render(<BasicExample type="light" />);
 
       act(() => {
-        fireEvent.focus(getByTestId('trigger'));
+        userEvent.tab();
         jest.runOnlyPendingTimers();
       });
 
@@ -102,7 +115,7 @@ describe('Tooltip', () => {
       const { getByTestId } = render(<BasicExample type="dark" />);
 
       act(() => {
-        fireEvent.focus(getByTestId('trigger'));
+        userEvent.tab();
         jest.runOnlyPendingTimers();
       });
 
@@ -115,7 +128,7 @@ describe('Tooltip', () => {
       const { getByTestId } = render(<BasicExample size="extra-large" />);
 
       act(() => {
-        fireEvent.focus(getByTestId('trigger'));
+        userEvent.tab();
         jest.runOnlyPendingTimers();
       });
 
@@ -128,7 +141,7 @@ describe('Tooltip', () => {
       const { getByTestId } = render(<BasicExample size="large" />);
 
       act(() => {
-        fireEvent.focus(getByTestId('trigger'));
+        userEvent.tab();
         jest.runOnlyPendingTimers();
       });
 
@@ -141,7 +154,7 @@ describe('Tooltip', () => {
       const { getByTestId } = render(<BasicExample size="medium" />);
 
       act(() => {
-        fireEvent.focus(getByTestId('trigger'));
+        userEvent.tab();
         jest.runOnlyPendingTimers();
       });
 

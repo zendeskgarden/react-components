@@ -6,7 +6,8 @@
  */
 
 import React from 'react';
-import { render, fireEvent } from 'garden-test-utils';
+import userEvent from '@testing-library/user-event';
+import { render } from 'garden-test-utils';
 import { Field, MediaInput } from '..';
 import { IMediaInputProps } from './MediaInput';
 
@@ -46,7 +47,7 @@ describe('MediaInput', () => {
     const { container } = render(<Example />);
     const input = container.querySelector('input');
 
-    fireEvent.click(input!);
+    userEvent.click(input!);
 
     expect(input).toHaveFocus();
   });

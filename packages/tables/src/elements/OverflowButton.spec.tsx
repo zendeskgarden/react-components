@@ -6,7 +6,8 @@
  */
 
 import React from 'react';
-import { render, fireEvent } from 'garden-test-utils';
+import userEvent from '@testing-library/user-event';
+import { render } from 'garden-test-utils';
 import { OverflowButton } from './OverflowButton';
 
 describe('OverflowButton', () => {
@@ -33,7 +34,7 @@ describe('OverflowButton', () => {
     it('applies focused state', () => {
       const { container } = render(<OverflowButton />);
 
-      fireEvent.focus(container.firstElementChild!);
+      userEvent.click(container.firstElementChild!);
       expect(container.firstElementChild).toHaveStyleRule('box-shadow');
     });
   });
@@ -42,8 +43,8 @@ describe('OverflowButton', () => {
     it('removes focused state', () => {
       const { container } = render(<OverflowButton />);
 
-      fireEvent.focus(container.firstElementChild!);
-      fireEvent.blur(container.firstElementChild!);
+      userEvent.click(container.firstElementChild!);
+      userEvent.tab();
       expect(container.firstElementChild).not.toHaveStyleRule('box-shadow');
     });
   });

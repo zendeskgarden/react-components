@@ -6,7 +6,8 @@
  */
 
 import React from 'react';
-import { render, fireEvent } from 'garden-test-utils';
+import userEvent from '@testing-library/user-event';
+import { render } from 'garden-test-utils';
 
 import { CollapsibleSubNavItem } from './CollapsibleSubNavItem';
 
@@ -19,7 +20,7 @@ describe('CollapsibleSubNavItem', () => {
       </CollapsibleSubNavItem>
     );
 
-    fireEvent.click(queryByRole('heading')!.firstChild as any);
+    userEvent.click(queryByRole('heading')!.firstChild as any);
 
     expect(onChangeSpy).toHaveBeenCalledWith(true);
   });
@@ -32,7 +33,7 @@ describe('CollapsibleSubNavItem', () => {
     );
 
     expect(container.querySelector("[role='region']")).toHaveAttribute('aria-hidden', 'true');
-    fireEvent.click(queryByRole('heading')!.firstChild as any);
+    userEvent.click(queryByRole('heading')!.firstChild as any);
     expect(container.querySelector("[role='region']")).toHaveAttribute('aria-hidden', 'false');
   });
 

@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import userEvent from '@testing-library/user-event';
 import { render, fireEvent } from 'garden-test-utils';
 import { Dropdown, Autocomplete, Field, Menu, Item, Label } from '../..';
 
@@ -48,7 +49,7 @@ describe('Autocomplete', () => {
   it('focuses internal input when opened', () => {
     const { getByTestId } = render(<ExampleAutocomplete />);
 
-    fireEvent.click(getByTestId('autocomplete'));
+    userEvent.click(getByTestId('autocomplete'));
 
     expect(document.activeElement!.nodeName).toBe('INPUT');
   });
@@ -57,11 +58,10 @@ describe('Autocomplete', () => {
     const { getByTestId } = render(<ExampleAutocomplete />);
 
     const autocomplete = getByTestId('autocomplete');
-    const input = autocomplete.querySelector('input');
 
-    fireEvent.focus(input!);
+    userEvent.tab();
     expect(autocomplete).toHaveAttribute('data-test-is-focused', 'true');
-    fireEvent.blur(input!);
+    userEvent.tab();
     expect(autocomplete).toHaveAttribute('data-test-is-focused', 'false');
   });
 
@@ -76,7 +76,7 @@ describe('Autocomplete', () => {
 
     const autocomplete = getByTestId('autocomplete');
 
-    fireEvent.click(autocomplete);
+    userEvent.click(autocomplete);
 
     expect(autocomplete).toHaveAttribute('data-test-is-focused', 'true');
     expect(autocomplete).toHaveAttribute('data-test-is-open', 'true');
@@ -92,7 +92,7 @@ describe('Autocomplete', () => {
       </Dropdown>
     );
 
-    fireEvent.mouseEnter(getByTestId('label'));
+    userEvent.hover(getByTestId('label'));
 
     expect(getByTestId('autocomplete')).toHaveAttribute('data-test-is-hovered', 'true');
   });
@@ -121,7 +121,7 @@ describe('Autocomplete', () => {
       const { getByTestId } = render(<ExampleAutocomplete />);
       const autocomplete = getByTestId('autocomplete');
 
-      fireEvent.click(autocomplete);
+      userEvent.click(autocomplete);
 
       expect(autocomplete).toHaveAttribute('data-test-is-open', 'true');
     });
@@ -154,10 +154,10 @@ describe('Autocomplete', () => {
       const { getByTestId } = render(<ExampleAutocomplete />);
       const autocomplete = getByTestId('autocomplete');
 
-      fireEvent.click(autocomplete);
+      userEvent.click(autocomplete);
       expect(autocomplete).toHaveAttribute('data-test-is-open', 'true');
 
-      fireEvent.keyDown(autocomplete.querySelector('input')!, { key: 'Escape', keyCode: 27 });
+      userEvent.type(autocomplete.querySelector('input')!, '{escape}');
       expect(autocomplete).not.toHaveClass('is-open');
     });
   });

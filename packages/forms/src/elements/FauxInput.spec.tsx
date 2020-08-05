@@ -6,7 +6,8 @@
  */
 
 import React from 'react';
-import { render, fireEvent } from 'garden-test-utils';
+import userEvent from '@testing-library/user-event';
+import { render } from 'garden-test-utils';
 import { FauxInput } from './FauxInput';
 
 describe('FauxInput', () => {
@@ -35,7 +36,7 @@ describe('FauxInput', () => {
 
     expect(container.firstElementChild).toHaveAttribute('data-test-is-focused', 'false');
 
-    fireEvent.focus(container.firstElementChild!);
+    userEvent.click(container.firstElementChild!);
 
     expect(container.firstElementChild).toHaveAttribute('data-test-is-focused', 'true');
   });
@@ -43,11 +44,11 @@ describe('FauxInput', () => {
   it('removes focused styling on blur event', () => {
     const { container } = render(<FauxInput />);
 
-    fireEvent.focus(container.firstElementChild!);
+    userEvent.click(container.firstElementChild!);
 
     expect(container.firstElementChild).toHaveAttribute('data-test-is-focused', 'true');
 
-    fireEvent.blur(container.firstElementChild!);
+    userEvent.tab();
 
     expect(container.firstElementChild).toHaveAttribute('data-test-is-focused', 'false');
   });
