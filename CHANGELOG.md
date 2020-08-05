@@ -11,6 +11,24 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+## v8.18.0 (2020-08-05)
+
+#### :rocket: New Feature
+
+- `forms`
+  - [#820](https://github.com/zendeskgarden/react-components/pull/820) feat(forms): allow Textarea to dynamically change height ([@austin94](https://github.com/austin94))
+- `buttons`
+  - [#821](https://github.com/zendeskgarden/react-components/pull/821) feat(buttons): default external links to use safe referrer attributes ([@austin94](https://github.com/austin94))
+
+#### :bug: Bug Fix
+
+- `forms`
+  - [#825](https://github.com/zendeskgarden/react-components/pull/825) fix(forms): ensure Textarea autoresizing is calculated with controlled value ([@austin94](https://github.com/austin94))
+
+#### :memo: Documentation
+
+- `buttons`
+  - [#826](https://github.com/zendeskgarden/react-components/pull/826) chore(buttons): update Anchor isExternal prop docs ([@austin94](https://github.com/austin94))
 
 ## v8.17.1 (2020-07-29)
 
