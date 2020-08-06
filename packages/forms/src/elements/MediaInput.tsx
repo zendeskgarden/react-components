@@ -81,21 +81,21 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
 
     return (
       <FauxInput
-        tabIndex={props.children ? null : props.tabIndex}
+        tabIndex={null}
         onClick={onFauxInputClickHandler}
         disabled={disabled}
+        isFocused={isFocused}
+        isHovered={isHovered || isLabelHovered}
         isCompact={isCompact}
         isBare={isBare}
         focusInset={focusInset}
         validation={validation}
-        isFocused={isFocused}
-        isHovered={isHovered || isLabelHovered}
         mediaLayout
-        {...otherWrapperProps}
         ref={wrapperRef}
+        {...otherWrapperProps}
       >
         {start && <FauxInput.Icon isDisabled={disabled}>{start}</FauxInput.Icon>}
-        {props.children || <StyledTextMediaInput {...(combinedProps as any)} />}
+        <StyledTextMediaInput {...(combinedProps as any)} />
         {end && <FauxInput.Icon isDisabled={disabled}>{end}</FauxInput.Icon>}
       </FauxInput>
     );
