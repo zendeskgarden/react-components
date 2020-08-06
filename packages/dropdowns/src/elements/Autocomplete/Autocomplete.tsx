@@ -8,8 +8,10 @@
 import React, { useRef, useEffect, useState, HTMLAttributes, KeyboardEvent } from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
-import { useCombinedRefs } from '@zendeskgarden/container-utilities';
-import { StyledInput, SelectWrapper, StyledOverflowWrapper, StyledStartIcon } from '../../styled';
+import { composeEventHandlers, useCombinedRefs } from '@zendeskgarden/container-utilities';
+import { FauxInput } from '@zendeskgarden/react-forms';
+import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
+import { StyledInput, StyledOverflowWrapper } from '../../styled';
 import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
@@ -39,6 +41,7 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
       downshift: { getToggleButtonProps, getInputProps, isOpen }
     } = useDropdownContext();
     const { isLabelHovered } = useFieldContext();
+    const [isHovered, setIsHovered] = useState(false);
     const inputRef = useCombinedRefs<HTMLInputElement>(controlledInputRef);
     const triggerRef = useCombinedRefs<HTMLDivElement>(ref);
     const previousIsOpenRef = useRef<boolean | undefined>(isOpen);
@@ -52,6 +55,9 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
       previousIsOpenRef.current = isOpen;
     }, [inputRef, isOpen]);
 
+    const onMouseEnter = composeEventHandlers(props.onMouseEnter, () => setIsHovered(true));
+    const onMouseLeave = composeEventHandlers(props.onMouseLeave, () => setIsHovered(false));
+
     const selectProps = getToggleButtonProps({
       onKeyDown: (e: KeyboardEvent<HTMLDivElement>) => {
         if (isOpen) {
@@ -64,33 +70,28 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
     return (
       <Reference>
         {({ ref: popperReference }) => (
-          <SelectWrapper
+          <FauxInput
+            mediaLayout
+            cursor="pointer"
             isHovered={isLabelHovered && !isOpen}
             isFocused={isOpen ? true : isFocused}
-            isOpen={isOpen}
             tabIndex={null}
-            isShowingStart={start}
+            disabled={props.disabled}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
             ref={selectRef => {
               // Pass ref to popperJS for positioning
               (popperReference as any)(selectRef);
 
               // Store ref locally to return focus on close
-              (triggerRef as any).current = selectRef;
+              (triggerRef.current as any) = selectRef;
 
               // Apply Select ref to global Dropdown context
               popperReferenceElementRef.current = selectRef;
             }}
             {...selectProps}
           >
-            {start && (
-              <StyledStartIcon
-                isCompact={props.isCompact}
-                isBare={props.isBare}
-                disabled={props.disabled}
-              >
-                {start}
-              </StyledStartIcon>
-            )}
+            {start && <FauxInput.Icon isDisabled={props.disabled}>{start}</FauxInput.Icon>}
             {!isOpen && <StyledOverflowWrapper>{children}</StyledOverflowWrapper>}
             <StyledInput
               {...getInputProps({
@@ -105,7 +106,17 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
                 ref: inputRef
               } as any)}
             />
-          </SelectWrapper>
+            {!props.isBare && (
+              <FauxInput.Icon
+                isHovered={isHovered || (isLabelHovered && !isOpen)}
+                isFocused={isOpen}
+                isDisabled={props.disabled}
+                isRotated={isOpen}
+              >
+                <Chevron />
+              </FauxInput.Icon>
+            )}
+          </FauxInput>
         )}
       </Reference>
     );

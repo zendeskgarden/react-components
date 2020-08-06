@@ -6,22 +6,30 @@
  */
 
 import React, { useRef, useState, useEffect, useCallback, HTMLAttributes } from 'react';
-import { useCombinedRefs, KEY_CODES } from '@zendeskgarden/container-utilities';
+import {
+  composeEventHandlers,
+  useCombinedRefs,
+  KEY_CODES
+} from '@zendeskgarden/container-utilities';
+import { FauxInput } from '@zendeskgarden/react-forms';
+import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
-import { StyledInput, SelectWrapper, StyledOverflowWrapper, StyledStartIcon } from '../../styled';
+import { StyledInput, StyledOverflowWrapper } from '../../styled';
 import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 
 interface ISelectProps extends HTMLAttributes<HTMLDivElement> {
+  /** Apply compact styling */
   isCompact?: boolean;
-  /** Removes all borders and styling */
+  /** Remove borders and padding */
   isBare?: boolean;
+  /** Disabled state */
   disabled?: boolean;
-  /** Applies inset `box-shadow` styling on focus */
+  /** Apply inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Displays select open state */
+  /** Display select open state */
   isOpen?: boolean;
   validation?: VALIDATION;
   /** Slot for "start" icon */
@@ -47,6 +55,7 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
       }
     } = useDropdownContext();
     const { isLabelHovered } = useFieldContext();
+    const [isHovered, setIsHovered] = useState(false);
     const hiddenInputRef = useRef<HTMLInputElement>(null);
     const triggerRef = useCombinedRefs<HTMLDivElement>(ref, popperReferenceElementRef);
     const previousIsOpenRef = useRef<boolean | undefined>(undefined);
@@ -176,6 +185,9 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
       ]
     );
 
+    const onMouseEnter = composeEventHandlers(props.onMouseEnter, () => setIsHovered(true));
+    const onMouseLeave = composeEventHandlers(props.onMouseLeave, () => setIsHovered(false));
+
     /**
      * Destructure type out of props so that `type="button"`
      * is not spread onto the Select Dropdown `div`.
@@ -189,11 +201,14 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
     return (
       <Reference>
         {({ ref: popperReference }) => (
-          <SelectWrapper
+          <FauxInput
+            mediaLayout
+            cursor="pointer"
             isHovered={isLabelHovered && !isOpen}
             isFocused={isOpen}
-            isOpen={isOpen}
-            isShowingStart={start}
+            disabled={props.disabled}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
             {...selectProps}
             ref={selectRef => {
               // Pass ref to popperJS for positioning
@@ -206,15 +221,7 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
               popperReferenceElementRef.current = selectRef;
             }}
           >
-            {start && (
-              <StyledStartIcon
-                isCompact={props.isCompact}
-                isBare={props.isBare}
-                disabled={props.disabled}
-              >
-                {start}
-              </StyledStartIcon>
-            )}
+            {start && <FauxInput.Icon isDisabled={props.disabled}>{start}</FauxInput.Icon>}
             <StyledOverflowWrapper>{children}</StyledOverflowWrapper>
             <StyledInput
               {...getInputProps({
@@ -225,8 +232,18 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
                 value: '',
                 onKeyDown: onInputKeyDown
               } as any)}
-            />
-          </SelectWrapper>
+            ></StyledInput>
+            {!props.isBare && (
+              <FauxInput.Icon
+                isHovered={isHovered || (isLabelHovered && !isOpen)}
+                isFocused={isOpen}
+                isDisabled={props.disabled}
+                isRotated={isOpen}
+              >
+                <Chevron />
+              </FauxInput.Icon>
+            )}
+          </FauxInput>
         )}
       </Reference>
     );
@@ -237,12 +254,9 @@ Select.displayName = 'Select';
 
 Select.propTypes = {
   isCompact: PropTypes.bool,
-  /** Removes all borders and styling */
   isBare: PropTypes.bool,
   disabled: PropTypes.bool,
-  /** Applies inset `box-shadow` styling on focus */
   focusInset: PropTypes.bool,
-  /** Displays select open state */
   isOpen: PropTypes.bool,
   validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };

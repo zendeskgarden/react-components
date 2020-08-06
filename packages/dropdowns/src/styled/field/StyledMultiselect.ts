@@ -76,6 +76,7 @@ const visibleStyling = (props: IStyledMultiselectInputProps) => {
 export const StyledMultiselectInput = styled(StyledInput)<IStyledMultiselectInputProps>`
   flex-basis: ${props => props.theme.space.base * 15}px;
   flex-grow: 1;
+  align-self: center;
   min-height: 0;
 
   ${props => visibleStyling(props)};

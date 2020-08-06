@@ -156,6 +156,7 @@ StyledSelect.defaultProps = {
 };
 
 export const StyledOverflowWrapper = styled.div`
+  flex-grow: 1;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
