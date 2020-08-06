@@ -11,11 +11,10 @@ import {
   useCombinedRefs,
   KEY_CODES
 } from '@zendeskgarden/container-utilities';
-import { FauxInput } from '@zendeskgarden/react-forms';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
-import { StyledInput, StyledOverflowWrapper } from '../../styled';
+import { StyledFauxInput, StyledInput, StyledSelect } from '../../styled';
 import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
@@ -201,8 +200,7 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
     return (
       <Reference>
         {({ ref: popperReference }) => (
-          <FauxInput
-            mediaLayout
+          <StyledFauxInput
             cursor="pointer"
             isHovered={isLabelHovered && !isOpen}
             isFocused={isOpen}
@@ -221,8 +219,10 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
               popperReferenceElementRef.current = selectRef;
             }}
           >
-            {start && <FauxInput.Icon isDisabled={props.disabled}>{start}</FauxInput.Icon>}
-            <StyledOverflowWrapper>{children}</StyledOverflowWrapper>
+            {start && (
+              <StyledFauxInput.Icon isDisabled={props.disabled}>{start}</StyledFauxInput.Icon>
+            )}
+            <StyledSelect>{children}</StyledSelect>
             <StyledInput
               {...getInputProps({
                 readOnly: true,
@@ -234,16 +234,16 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
               } as any)}
             ></StyledInput>
             {!props.isBare && (
-              <FauxInput.Icon
+              <StyledFauxInput.Icon
                 isHovered={isHovered || (isLabelHovered && !isOpen)}
                 isFocused={isOpen}
                 isDisabled={props.disabled}
                 isRotated={isOpen}
               >
                 <Chevron />
-              </FauxInput.Icon>
+              </StyledFauxInput.Icon>
             )}
-          </FauxInput>
+          </StyledFauxInput>
         )}
       </Reference>
     );

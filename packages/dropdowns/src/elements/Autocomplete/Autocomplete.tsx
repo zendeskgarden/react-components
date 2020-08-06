@@ -9,9 +9,8 @@ import React, { useRef, useEffect, useState, HTMLAttributes, KeyboardEvent } fro
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
 import { composeEventHandlers, useCombinedRefs } from '@zendeskgarden/container-utilities';
-import { FauxInput } from '@zendeskgarden/react-forms';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
-import { StyledInput, StyledOverflowWrapper } from '../../styled';
+import { StyledFauxInput, StyledInput, StyledSelect } from '../../styled';
 import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
@@ -70,8 +69,7 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
     return (
       <Reference>
         {({ ref: popperReference }) => (
-          <FauxInput
-            mediaLayout
+          <StyledFauxInput
             cursor="pointer"
             isHovered={isLabelHovered && !isOpen}
             isFocused={isOpen ? true : isFocused}
@@ -91,8 +89,10 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
             }}
             {...selectProps}
           >
-            {start && <FauxInput.Icon isDisabled={props.disabled}>{start}</FauxInput.Icon>}
-            {!isOpen && <StyledOverflowWrapper>{children}</StyledOverflowWrapper>}
+            {start && (
+              <StyledFauxInput.Icon isDisabled={props.disabled}>{start}</StyledFauxInput.Icon>
+            )}
+            {!isOpen && <StyledSelect>{children}</StyledSelect>}
             <StyledInput
               {...getInputProps({
                 isHidden: !isOpen,
@@ -107,16 +107,16 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
               } as any)}
             />
             {!props.isBare && (
-              <FauxInput.Icon
+              <StyledFauxInput.Icon
                 isHovered={isHovered || (isLabelHovered && !isOpen)}
                 isFocused={isOpen}
                 isDisabled={props.disabled}
                 isRotated={isOpen}
               >
                 <Chevron />
-              </FauxInput.Icon>
+              </StyledFauxInput.Icon>
             )}
-          </FauxInput>
+          </StyledFauxInput>
         )}
       </Reference>
     );

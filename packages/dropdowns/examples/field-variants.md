@@ -10,6 +10,7 @@ const {
 } = require('@zendeskgarden/react-forms/src');
 const GroupIcon = require('@zendeskgarden/svg-icons/src/16/user-group-stroke.svg').default;
 const SearchIcon = require('@zendeskgarden/svg-icons/src/16/search-stroke.svg').default;
+const TagIcon = require('@zendeskgarden/svg-icons/src/16/tag-stroke.svg').default;
 
 const StyledSpacer = styled.div`
   margin-top: ${props => props.theme.space.xs};
@@ -211,8 +212,10 @@ initialState = {
               focusInset={state.focusInset}
               disabled={state.disabled}
               validation={state.validation !== 'none' ? state.validation : undefined}
+              start={state.showStart ? <TagIcon /> : undefined}
+              maxItems={2}
               renderItem={({ value, removeValue }) => (
-                <Tag size={state.isCompact ? 'medium' : 'large'} disabled={state.disabled}>
+                <Tag>
                   <span>{value}</span>
                 </Tag>
               )}
