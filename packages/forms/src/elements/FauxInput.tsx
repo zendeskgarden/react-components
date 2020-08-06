@@ -8,7 +8,7 @@
 import React, { useState, HTMLAttributes, RefObject } from 'react';
 import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { StyledTextFauxInput } from '../styled';
+import { StyledTextFauxInput, StyledTextMediaFigure } from '../styled';
 import { VALIDATION } from '../utils/validation';
 
 export interface IFauxInputProps extends HTMLAttributes<HTMLDivElement> {
@@ -25,13 +25,17 @@ export interface IFauxInputProps extends HTMLAttributes<HTMLDivElement> {
   isFocused?: boolean;
   /** Apply hovered styling */
   isHovered?: boolean;
+  /** Override mouse [cursor](https://developer.mozilla.org/en-US/docs/Web/CSS/cursor) type */
+  cursor?: string;
 }
 
 /**
  * Provides styling without native input backing; accepts all `<div>`
  * attributes and events.
  */
-export const FauxInput = React.forwardRef<HTMLDivElement, IFauxInputProps>(
+const FauxInput: React.FunctionComponent<
+  IFauxInputProps & React.RefAttributes<HTMLDivElement>
+> = React.forwardRef<HTMLDivElement, IFauxInputProps>(
   ({ onFocus, onBlur, disabled, isFocused: controlledIsFocused, ...props }, ref) => {
     const [isFocused, setIsFocused] = useState(false);
 
@@ -66,4 +70,22 @@ FauxInput.propTypes = {
   focusInset: PropTypes.bool,
   disabled: PropTypes.bool,
   validation: PropTypes.oneOf(['success', 'warning', 'error'])
+};
+
+interface IIconProps extends HTMLAttributes<HTMLElement> {
+  isHovered?: boolean;
+  isFocused?: boolean;
+  isDisabled?: boolean;
+  isRotated?: boolean;
+  children: any;
+}
+
+const Icon = (props: IIconProps) => <StyledTextMediaFigure {...props} />;
+
+(FauxInput as any).Icon = Icon;
+
+export default FauxInput as React.FunctionComponent<
+  IFauxInputProps & React.RefAttributes<HTMLDivElement>
+> & {
+  Icon: typeof Icon;
 };

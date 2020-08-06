@@ -8,8 +8,8 @@
 import React, { InputHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { composeEventHandlers, useCombinedRefs } from '@zendeskgarden/container-utilities';
-import { StyledTextMediaInput, StyledTextMediaFigure } from '../styled';
-import { FauxInput } from './FauxInput';
+import { StyledTextMediaInput } from '../styled';
+import FauxInput from './FauxInput';
 import useFieldContext from '../utils/useFieldContext';
 import { VALIDATION } from '../utils/validation';
 
@@ -27,6 +27,12 @@ export interface IMediaInputProps extends InputHTMLAttributes<HTMLInputElement> 
   validation?: VALIDATION;
   /** Apply props to the wrapping `FauxInput` element */
   wrapperProps?: any;
+  /** Apply ref to the wrapping `FauxInput` element */
+  wrapperRef?: any;
+  /** @ignore */
+  isFocused?: boolean;
+  /** @ignore */
+  isHovered?: boolean;
 }
 
 /**
@@ -43,7 +49,10 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
       isBare,
       focusInset,
       validation,
+      isFocused,
+      isHovered,
       wrapperProps = {},
+      wrapperRef,
       ...props
     },
     ref
@@ -63,25 +72,31 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
       ...props
     };
 
+    let isLabelHovered;
+
     if (fieldContext) {
       combinedProps = fieldContext.getInputProps(combinedProps, { isDescribed: true });
+      isLabelHovered = fieldContext.isLabelHovered;
     }
 
     return (
       <FauxInput
-        tabIndex={null}
+        tabIndex={props.children ? null : props.tabIndex}
         onClick={onFauxInputClickHandler}
         disabled={disabled}
         isCompact={isCompact}
         isBare={isBare}
         focusInset={focusInset}
         validation={validation}
+        isFocused={isFocused}
+        isHovered={isHovered || isLabelHovered}
         mediaLayout
         {...otherWrapperProps}
+        ref={wrapperRef}
       >
-        {start && <StyledTextMediaFigure isDisabled={disabled}>{start}</StyledTextMediaFigure>}
-        <StyledTextMediaInput {...(combinedProps as any)} />
-        {end && <StyledTextMediaFigure isDisabled={disabled}>{end}</StyledTextMediaFigure>}
+        {start && <FauxInput.Icon isDisabled={disabled}>{start}</FauxInput.Icon>}
+        {props.children || <StyledTextMediaInput {...(combinedProps as any)} />}
+        {end && <FauxInput.Icon isDisabled={disabled}>{end}</FauxInput.Icon>}
       </FauxInput>
     );
   }

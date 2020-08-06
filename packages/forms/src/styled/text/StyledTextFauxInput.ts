@@ -14,6 +14,7 @@ const COMPONENT_ID = 'forms.faux_input';
 interface IStyledTextFauxInputProps extends IStyledTextInputProps {
   mediaLayout?: boolean;
   isDisabled?: boolean;
+  cursor?: string;
 }
 
 export const StyledTextFauxInput = styled(StyledTextInput).attrs<IStyledTextFauxInputProps>(
@@ -26,7 +27,17 @@ export const StyledTextFauxInput = styled(StyledTextInput).attrs<IStyledTextFaux
 )<IStyledTextFauxInputProps>`
   display: ${props => (props.mediaLayout ? 'inline-flex' : 'inline-block')};
   align-items: ${props => props.mediaLayout && 'baseline'};
-  cursor: ${props => (props.mediaLayout && !props.isDisabled ? 'text' : 'default')};
+  cursor: ${props => {
+    if (props.isDisabled) {
+      return 'default';
+    } else if (props.cursor) {
+      return props.cursor;
+    } else if (props.mediaLayout) {
+      return 'text';
+    }
+
+    return 'default';
+  }};
 
   & > ${StyledTextInput} {
     vertical-align: ${props => !props.mediaLayout && 'baseline'};

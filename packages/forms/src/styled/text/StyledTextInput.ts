@@ -129,8 +129,9 @@ const sizeStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) => 
   const swatchMarginHorizontal = math(
     `${paddingVertical} + ${swatchMarginVertical} - ${paddingHorizontal}`
   );
-  const figureMarginFirst = `auto ${props.theme.space.base * 2}px auto 0`;
-  const figureMarginLast = `auto 0 auto ${props.theme.space.base * 2}px`;
+  const figureMarginTop = math(`(${lineHeight} - ${props.theme.iconSizes.md}) / 2`);
+  const figureMarginFirst = `${figureMarginTop} ${props.theme.space.base * 2}px auto 0`;
+  const figureMarginLast = `1px 0 auto ${props.theme.space.base * 2}px`;
 
   return css`
     padding: ${padding};

@@ -178,6 +178,7 @@ const StyledMessage = styled(Message)`
           isCompact={state.compact}
           validation={state.validation}
           style={state.inline ? { width: 'auto', margin: 0 } : {}}
+          mediaLayout
         >
           {state.placeholder && 'placeholder'}
         </FauxInput>

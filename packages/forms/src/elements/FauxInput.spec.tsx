@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, fireEvent } from 'garden-test-utils';
-import { FauxInput } from './FauxInput';
+import FauxInput from './FauxInput';
 
 describe('FauxInput', () => {
   it('renders the expected element', () => {
