@@ -196,11 +196,16 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
       ...props
     } as any);
 
+    const isContainerHovered = isLabelHovered && !isOpen;
+
     return (
       <Reference>
         {({ ref: popperReference }) => (
           <StyledFauxInput
-            isHovered={isLabelHovered && !isOpen}
+            data-test-is-open={isOpen}
+            data-test-is-hovered={isContainerHovered}
+            data-test-is-focused={isOpen}
+            isHovered={isContainerHovered}
             isFocused={isOpen}
             {...selectProps}
             ref={selectRef => {
@@ -232,6 +237,7 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
             ></StyledInput>
             {!props.isBare && (
               <StyledFauxInput.EndIcon
+                data-test-id="select-icon"
                 isHovered={isHovered || (isLabelHovered && !isOpen)}
                 isFocused={isOpen}
                 isDisabled={props.disabled}

@@ -295,14 +295,20 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
       props.isCompact
     ]);
 
+    const isContainerHovered = isLabelHovered && !isOpen;
+    const isContainerFocused = isOpen ? true : isFocused;
+
     return (
       <Reference>
         {({ ref: popperReference }) => (
           <StyledFauxInput
+            data-test-is-open={isOpen}
+            data-test-is-hovered={isContainerHovered}
+            data-test-is-focused={isContainerFocused}
             {...getContainerProps({
               ...selectProps,
-              isHovered: isLabelHovered && !isOpen,
-              isFocused: isOpen ? true : isFocused,
+              isHovered: isContainerHovered,
+              isFocused: isContainerFocused,
               ref: (selectRef: any) => {
                 // Pass ref to popperJS for positioning
                 (popperReference as any)(selectRef);

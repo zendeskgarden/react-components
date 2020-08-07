@@ -65,12 +65,18 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
       ...props
     } as any);
 
+    const isContainerHovered = isLabelHovered && !isOpen;
+    const isContainerFocused = isOpen ? true : isFocused;
+
     return (
       <Reference>
         {({ ref: popperReference }) => (
           <StyledFauxInput
-            isHovered={isLabelHovered && !isOpen}
-            isFocused={isOpen ? true : isFocused}
+            data-test-is-open={isOpen}
+            data-test-is-hovered={isContainerHovered}
+            data-test-is-focused={isContainerFocused}
+            isHovered={isContainerHovered}
+            isFocused={isContainerFocused}
             tabIndex={null}
             ref={selectRef => {
               // Pass ref to popperJS for positioning

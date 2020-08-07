@@ -162,6 +162,31 @@ describe('Multiselect', () => {
     expect(getByTestId('multiselect')).toHaveAttribute('data-test-is-hovered', 'true');
   });
 
+  it('renders start icon if provided', () => {
+    const { getByTestId } = render(
+      <ExampleWrapper>
+        <Label data-test-id="label">Label</Label>
+        <Multiselect
+          data-test-id="multiselect"
+          start={<svg data-test-id="icon" />}
+          renderItem={({ value, removeValue }) => (
+            <div data-test-id="tag">
+              {value}
+              <button data-test-id="remove" onClick={() => removeValue()} tabIndex={-1}>
+                Remove
+              </button>
+            </div>
+          )}
+        />
+      </ExampleWrapper>
+    );
+
+    const icon = getByTestId('icon');
+
+    expect(icon).toHaveStyleRule('width', '16px');
+    expect(icon).toHaveStyleRule('height', '16px');
+  });
+
   describe('Interaction', () => {
     it('opens on click', () => {
       const { getByTestId } = render(
