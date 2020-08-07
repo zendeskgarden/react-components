@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import userEvent from '@testing-library/user-event';
 import { render, renderRtl, fireEvent } from 'garden-test-utils';
 import { Dropdown, Trigger, Menu, Item, NextItem, PreviousItem } from '../..';
 import { IDropdownProps } from './Dropdown';
@@ -44,7 +45,7 @@ describe('Dropdown', () => {
       const trigger = getByTestId('trigger');
       const input = container.querySelector('input');
 
-      fireEvent.click(trigger);
+      userEvent.click(trigger);
       fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
       fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
       fireEvent.keyDown(input!, { key: 'ArrowLeft', keyCode: 37 });
@@ -59,7 +60,7 @@ describe('Dropdown', () => {
       const trigger = getByTestId('trigger');
       const input = container.querySelector('input');
 
-      fireEvent.click(trigger);
+      userEvent.click(trigger);
       fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
       fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
       fireEvent.keyDown(input!, { key: 'ArrowRight', keyCode: 39 });
@@ -74,7 +75,7 @@ describe('Dropdown', () => {
       const trigger = getByTestId('trigger');
       const input = container.querySelector('input');
 
-      fireEvent.click(trigger);
+      userEvent.click(trigger);
       fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
       fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
       fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
@@ -91,7 +92,7 @@ describe('Dropdown', () => {
       const trigger = getByTestId('trigger');
       const input = container.querySelector('input');
 
-      fireEvent.click(trigger);
+      userEvent.click(trigger);
       fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
       fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
       fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
@@ -122,7 +123,7 @@ describe('Dropdown', () => {
       const trigger = getByTestId('trigger');
       const input = container.querySelector('input');
 
-      fireEvent.click(trigger);
+      userEvent.click(trigger);
       fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
       fireEvent.keyDown(input!, { key: 'ArrowDown', keyCode: 40 });
       fireEvent.keyDown(input!, { key: 'ArrowRight', keyCode: 39 });
@@ -137,7 +138,7 @@ describe('Dropdown', () => {
       const trigger = getByTestId('trigger');
       const input = container.querySelector('input');
 
-      fireEvent.keyDown(input!, { key: ' ', keyCode: 32 });
+      userEvent.type(input!, '{space}');
       expect(trigger).toHaveAttribute('aria-expanded', 'true');
     });
 
@@ -148,7 +149,7 @@ describe('Dropdown', () => {
       const trigger = getByTestId('trigger');
       const input = container.querySelector('input');
 
-      fireEvent.keyDown(input!, { key: 'Enter', keyCode: 13 });
+      userEvent.type(input!, '{enter}');
       expect(trigger).toHaveAttribute('aria-expanded', 'true');
     });
   });
@@ -160,7 +161,7 @@ describe('Dropdown', () => {
         <ExampleDropdown isOpen={false} onStateChange={onStateChangeSpy} />
       );
 
-      fireEvent.click(getByTestId('trigger'));
+      userEvent.click(getByTestId('trigger'));
       expect(onStateChangeSpy.mock.calls[0][0]).toMatchObject({ isOpen: true });
     });
 
@@ -170,8 +171,8 @@ describe('Dropdown', () => {
         <ExampleDropdown selectedItem="item-1" onSelect={onSelectSpy} />
       );
 
-      fireEvent.click(getByTestId('trigger'));
-      fireEvent.click(getAllByTestId('item')[0]);
+      userEvent.click(getByTestId('trigger'));
+      userEvent.click(getAllByTestId('item')[0]);
       expect(onSelectSpy.mock.calls[0][0]).toBe('previous-item');
     });
 
@@ -181,8 +182,8 @@ describe('Dropdown', () => {
         <ExampleDropdown selectedItems={['item-1', 'item-2']} onSelect={onSelectSpy} />
       );
 
-      fireEvent.click(getByTestId('trigger'));
-      fireEvent.click(getAllByTestId('item')[0]);
+      userEvent.click(getByTestId('trigger'));
+      userEvent.click(getAllByTestId('item')[0]);
       expect(onSelectSpy.mock.calls[0][0]).toEqual(['item-1', 'item-2', 'previous-item']);
     });
 
@@ -195,8 +196,8 @@ describe('Dropdown', () => {
         />
       );
 
-      fireEvent.click(getByTestId('trigger'));
-      fireEvent.click(getAllByTestId('item')[0]);
+      userEvent.click(getByTestId('trigger'));
+      userEvent.click(getAllByTestId('item')[0]);
       expect(onSelectSpy.mock.calls[0][0]).toEqual(['item-1', 'item-2']);
     });
 
@@ -210,7 +211,7 @@ describe('Dropdown', () => {
         />
       );
 
-      fireEvent.click(getByTestId('trigger'));
+      userEvent.click(getByTestId('trigger'));
       fireEvent.keyDown(container.querySelector('input')!, { key: 'ArrowDown', keyCode: 40 });
 
       expect(onStateChangeSpy.mock.calls[1][0]).toMatchObject({ highlightedIndex: 2 });
@@ -222,9 +223,12 @@ describe('Dropdown', () => {
         <ExampleDropdown inputValue="test" onStateChange={onStateChangeSpy} />
       );
 
-      fireEvent.change(container.querySelector('input')!, { target: { value: 'test1' } });
+      container.querySelector('input')!.readOnly = false;
 
-      expect(onStateChangeSpy.mock.calls[0][0]).toMatchObject({ inputValue: 'test1' });
+      userEvent.type(container.querySelector('input')!, 't');
+
+      expect(onStateChangeSpy).toBeCalledTimes(1);
+      expect(onStateChangeSpy.mock.calls[0][0]).toMatchObject({ inputValue: 't' });
     });
 
     it('calls onInputValueChange with input value when open', () => {
@@ -234,9 +238,10 @@ describe('Dropdown', () => {
         <ExampleDropdown isOpen={true} onInputValueChange={onInputValueChangeSpy} />
       );
 
-      fireEvent.change(container.querySelector('input')!, { target: { value: 'test' } });
+      container.querySelector('input')!.readOnly = false;
+      userEvent.type(container.querySelector('input')!, 't');
 
-      expect(onInputValueChangeSpy.mock.calls[0][0]).toBe('test');
+      expect(onInputValueChangeSpy.mock.calls[1][0]).toBe('t');
     });
   });
 });

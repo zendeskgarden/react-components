@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import userEvent from '@testing-library/user-event';
 import { render, fireEvent } from 'garden-test-utils';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
 import { default as Pagination, IPaginationProps, PAGE_TYPE } from './Pagination';
@@ -93,7 +94,7 @@ describe('Pagination', () => {
     it('decrements currentPage when selected', () => {
       const { container } = render(<BasicExample currentPage={3} />);
 
-      fireEvent.click(container.firstElementChild!.children[0]);
+      userEvent.click(container.firstElementChild!.children[0]);
       expect(onChange).toHaveBeenCalledWith(2);
     });
 
@@ -129,7 +130,7 @@ describe('Pagination', () => {
     it('decrements currentPage when selected', () => {
       const { container } = render(<BasicExample currentPage={3} totalPages={5} />);
 
-      fireEvent.click(
+      userEvent.click(
         container.firstElementChild!.children[container.firstElementChild!.children.length - 1]
       );
 
@@ -143,8 +144,8 @@ describe('Pagination', () => {
       const paginationWrapper = container.firstElementChild!;
       const nextPage = paginationWrapper.children[paginationWrapper.children.length - 1];
 
-      fireEvent.focus(nextPage);
-      fireEvent.keyDown(nextPage, { keyCode: KEY_CODES.ENTER });
+      userEvent.click(nextPage);
+      userEvent.type(nextPage, '{enter}');
 
       expect(onChange).toHaveBeenCalledWith(5);
     });
@@ -154,7 +155,7 @@ describe('Pagination', () => {
     it('updates onStateChange with currentPage when selected', () => {
       const { getByText } = render(<BasicExample currentPage={1} totalPages={5} />);
 
-      fireEvent.click(getByText('2'));
+      userEvent.click(getByText('2'));
 
       expect(onChange).toHaveBeenCalledWith(2);
     });
@@ -162,7 +163,7 @@ describe('Pagination', () => {
     it('updates onChange with currentPage when selected', () => {
       const { getByText } = render(<BasicExample currentPage={1} totalPages={5} />);
 
-      fireEvent.click(getByText('2'));
+      userEvent.click(getByText('2'));
 
       expect(onChange).toHaveBeenCalledWith(2);
     });

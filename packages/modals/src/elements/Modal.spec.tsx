@@ -6,8 +6,8 @@
  */
 
 import React from 'react';
-import { render, fireEvent } from 'garden-test-utils';
-import { KEY_CODES } from '@zendeskgarden/container-utilities';
+import userEvent from '@testing-library/user-event';
+import { render } from 'garden-test-utils';
 
 import { Modal, IModalProps } from './Modal';
 import { Body } from './Body';
@@ -102,21 +102,21 @@ describe('Modal', () => {
     it('is triggered by backdrop click', () => {
       const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
 
-      fireEvent.click(getByTestId('backdrop'));
+      userEvent.click(getByTestId('backdrop'));
       expect(onCloseSpy).toHaveBeenCalled();
     });
 
     it('is triggered by Close element click', () => {
       const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
 
-      fireEvent.click(getByTestId('close'));
+      userEvent.click(getByTestId('close'));
       expect(onCloseSpy).toHaveBeenCalled();
     });
 
     it('is triggered by ESC keydown', () => {
       const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
 
-      fireEvent.keyDown(getByTestId('modal'), { keyCode: KEY_CODES.ESCAPE });
+      userEvent.type(getByTestId('modal'), '{esc}');
       expect(onCloseSpy).toHaveBeenCalled();
     });
   });

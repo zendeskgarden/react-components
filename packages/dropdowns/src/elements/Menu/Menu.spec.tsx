@@ -6,7 +6,8 @@
  */
 
 import React from 'react';
-import { render, fireEvent } from 'garden-test-utils';
+import userEvent from '@testing-library/user-event';
+import { render } from 'garden-test-utils';
 import { Dropdown, Field, Select, Trigger, Menu, Item, NextItem } from '../..';
 
 const ExampleMenu = () => (
@@ -41,7 +42,7 @@ describe('Menu', () => {
   it('removes hidden styling if open', () => {
     const { getByTestId } = render(<ExampleMenu />);
 
-    fireEvent.click(getByTestId('trigger'));
+    userEvent.click(getByTestId('trigger'));
 
     expect(getByTestId('menu').parentElement).not.toHaveStyleRule('visibility', 'hidden');
   });
@@ -76,7 +77,7 @@ describe('Menu', () => {
       </Dropdown>
     );
 
-    fireEvent.click(getByTestId('select'));
+    userEvent.click(getByTestId('select'));
 
     expect(getByTestId('menu').style.width).toBe('100px');
   });

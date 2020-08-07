@@ -6,7 +6,8 @@
  */
 
 import React from 'react';
-import { render, fireEvent } from 'garden-test-utils';
+import userEvent from '@testing-library/user-event';
+import { render } from 'garden-test-utils';
 import { Dropdown, Trigger, Menu, AddItem } from '../../..';
 
 describe('AddItem', () => {
@@ -26,8 +27,8 @@ describe('AddItem', () => {
       </Dropdown>
     );
 
-    fireEvent.click(getByTestId('trigger'));
-    fireEvent.click(getByTestId('add-item'));
+    userEvent.click(getByTestId('trigger'));
+    userEvent.click(getByTestId('add-item'));
 
     expect(onSelectSpy.mock.calls[0][0]).toBe('add-item');
   });

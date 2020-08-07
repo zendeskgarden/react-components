@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import userEvent from '@testing-library/user-event';
 import { render, fireEvent, renderRtl } from 'garden-test-utils';
 import { Tiles } from './Tiles';
 
@@ -39,7 +40,7 @@ describe('Tiles', () => {
       </Tiles>
     );
 
-    fireEvent.click(getByText('Item 2'));
+    userEvent.click(getByText('Item 2'));
 
     expect(onChangeSpy).toHaveBeenCalledWith('item-2');
   });
@@ -90,7 +91,7 @@ describe('Tiles', () => {
         </Tiles>
       );
 
-      fireEvent.click(getByText('label'));
+      userEvent.click(getByText('label'));
 
       expect(getByLabelText('label')).toBeChecked();
     });
@@ -104,7 +105,7 @@ describe('Tiles', () => {
         </Tiles>
       );
 
-      fireEvent.focus(getByLabelText('label'));
+      userEvent.click(getByLabelText('label'));
       jest.runOnlyPendingTimers();
 
       expect(getByTestId('tile')).toHaveAttribute('data-test-is-focused', 'false');

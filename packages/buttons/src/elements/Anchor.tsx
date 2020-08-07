@@ -12,7 +12,11 @@ import { StyledAnchor, StyledExternalIcon } from '../styled';
 interface IAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   /** Apply danger styling */
   isDanger?: boolean;
-  /** Used when the anchor navigates to an external resource */
+  /**
+   * Used when the anchor navigates to an external resource. Applies `target="_blank"`
+   * along with `rel="noopener noreferrer"` to ensure safe
+   * [cross-origin destination links](https://web.dev/external-anchors-use-rel-noopener/).
+   **/
   isExternal?: boolean;
 }
 
@@ -26,8 +30,18 @@ const Anchor: React.FunctionComponent<
   IAnchorProps & React.RefAttributes<HTMLAnchorElement>
 > = React.forwardRef<HTMLAnchorElement, IAnchorProps>(
   ({ children, isExternal, ...otherProps }, ref) => {
+    let anchorProps: AnchorHTMLAttributes<HTMLAnchorElement> = otherProps;
+
+    if (isExternal) {
+      anchorProps = {
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        ...anchorProps
+      };
+    }
+
     return (
-      <StyledAnchor ref={ref} {...(otherProps as any)}>
+      <StyledAnchor ref={ref} {...(anchorProps as any)}>
         {children}
         {isExternal && <StyledExternalIcon />}
       </StyledAnchor>

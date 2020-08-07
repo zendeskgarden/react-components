@@ -7,6 +7,7 @@
 
 import React from 'react';
 import { css } from 'styled-components';
+import userEvent from '@testing-library/user-event';
 import { render, renderRtl, fireEvent, createEvent } from 'garden-test-utils';
 import { getColor } from '@zendeskgarden/react-theming';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
@@ -73,7 +74,7 @@ describe('MultiThumbRange', () => {
       const minThumb = getAllByRole('slider')[0];
 
       expect(minThumb).not.toHaveFocus();
-      fireEvent.click(label);
+      userEvent.click(label);
       expect(minThumb).toHaveFocus();
     });
 
@@ -88,10 +89,10 @@ describe('MultiThumbRange', () => {
       const minThumb = getAllByRole('slider')[0];
 
       expect(minThumb).not.toHaveFocus();
-      fireEvent.click(label);
+      userEvent.click(label);
       expect(minThumb).toHaveFocus();
 
-      minThumb.blur();
+      userEvent.tab();
       expect(minThumb).not.toHaveFocus();
     });
 
@@ -108,7 +109,7 @@ describe('MultiThumbRange', () => {
       expect(minThumb).toHaveStyleRule('border-color', getColor('blue', 600));
       expect(minThumb).toHaveStyleRule('background-color', getColor('blue', 600));
 
-      fireEvent.mouseEnter(label);
+      userEvent.hover(label);
 
       ['border-color', 'background-color'].forEach(color => {
         expect(minThumb).toHaveStyleRule(color, getColor('blue', 700), {
@@ -133,7 +134,7 @@ describe('MultiThumbRange', () => {
       expect(minThumb).toHaveStyleRule('border-color', getColor('blue', 600));
       expect(minThumb).toHaveStyleRule('background-color', getColor('blue', 600));
 
-      fireEvent.mouseDown(label);
+      userEvent.click(label);
 
       expect(minThumb).toHaveStyleRule('border-color', getColor('blue', 600), {
         /* prettier-ignore */
@@ -397,8 +398,7 @@ describe('MultiThumbRange', () => {
           );
           const thumb = getAllByTestId('thumb')[0];
 
-          fireEvent.mouseDown(thumb);
-          fireEvent.focus(thumb);
+          userEvent.click(thumb);
 
           const mouseEvent = new MouseEvent('mousemove');
 
@@ -613,7 +613,7 @@ describe('MultiThumbRange', () => {
           );
           const thumb = getAllByTestId('thumb')[1];
 
-          fireEvent.mouseDown(thumb);
+          userEvent.click(thumb);
 
           const mouseEvent = new MouseEvent('mousemove');
 
