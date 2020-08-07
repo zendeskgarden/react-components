@@ -300,7 +300,6 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
       <Reference>
         {({ ref: popperReference }) => (
           <StyledFauxInput
-            cursor="pointer"
             isHovered={isLabelHovered && !isOpen}
             isFocused={isOpen ? true : isFocused}
             disabled={props.disabled}
@@ -316,9 +315,11 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
             {...getContainerProps(selectProps)}
           >
             {start && (
-              <StyledFauxInput.Icon isDisabled={props.disabled}>{start}</StyledFauxInput.Icon>
+              <StyledFauxInput.StartIcon isDisabled={props.disabled}>
+                {start}
+              </StyledFauxInput.StartIcon>
             )}
-            <StyledMultiselectItemsContainer isCompact={props.isCompact}>
+            <StyledMultiselectItemsContainer isBare={props.isBare} isCompact={props.isCompact}>
               {items}
               <StyledMultiselectInput
                 {...(getInputProps({
@@ -364,14 +365,14 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
               />
             </StyledMultiselectItemsContainer>
             {!props.isBare && (
-              <StyledFauxInput.Icon
+              <StyledFauxInput.EndIcon
                 isHovered={isHovered || (isLabelHovered && !isOpen)}
                 isFocused={isOpen}
                 isDisabled={props.disabled}
                 isRotated={isOpen}
               >
                 <Chevron />
-              </StyledFauxInput.Icon>
+              </StyledFauxInput.EndIcon>
             )}
           </StyledFauxInput>
         )}

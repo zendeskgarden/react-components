@@ -70,7 +70,6 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
       <Reference>
         {({ ref: popperReference }) => (
           <StyledFauxInput
-            cursor="pointer"
             isHovered={isLabelHovered && !isOpen}
             isFocused={isOpen ? true : isFocused}
             tabIndex={null}
@@ -82,7 +81,7 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
               (popperReference as any)(selectRef);
 
               // Store ref locally to return focus on close
-              (triggerRef.current as any) = selectRef;
+              (triggerRef as any).current = selectRef;
 
               // Apply Select ref to global Dropdown context
               popperReferenceElementRef.current = selectRef;
@@ -90,7 +89,9 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
             {...selectProps}
           >
             {start && (
-              <StyledFauxInput.Icon isDisabled={props.disabled}>{start}</StyledFauxInput.Icon>
+              <StyledFauxInput.StartIcon isDisabled={props.disabled}>
+                {start}
+              </StyledFauxInput.StartIcon>
             )}
             {!isOpen && <StyledSelect>{children}</StyledSelect>}
             <StyledInput
@@ -107,14 +108,14 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
               } as any)}
             />
             {!props.isBare && (
-              <StyledFauxInput.Icon
+              <StyledFauxInput.EndIcon
                 isHovered={isHovered || (isLabelHovered && !isOpen)}
                 isFocused={isOpen}
                 isDisabled={props.disabled}
                 isRotated={isOpen}
               >
                 <Chevron />
-              </StyledFauxInput.Icon>
+              </StyledFauxInput.EndIcon>
             )}
           </StyledFauxInput>
         )}

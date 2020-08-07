@@ -201,7 +201,6 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
       <Reference>
         {({ ref: popperReference }) => (
           <StyledFauxInput
-            cursor="pointer"
             isHovered={isLabelHovered && !isOpen}
             isFocused={isOpen}
             disabled={props.disabled}
@@ -220,7 +219,9 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
             }}
           >
             {start && (
-              <StyledFauxInput.Icon isDisabled={props.disabled}>{start}</StyledFauxInput.Icon>
+              <StyledFauxInput.StartIcon isDisabled={props.disabled}>
+                {start}
+              </StyledFauxInput.StartIcon>
             )}
             <StyledSelect>{children}</StyledSelect>
             <StyledInput
@@ -234,14 +235,14 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
               } as any)}
             ></StyledInput>
             {!props.isBare && (
-              <StyledFauxInput.Icon
+              <StyledFauxInput.EndIcon
                 isHovered={isHovered || (isLabelHovered && !isOpen)}
                 isFocused={isOpen}
                 isDisabled={props.disabled}
                 isRotated={isOpen}
               >
                 <Chevron />
-              </StyledFauxInput.Icon>
+              </StyledFauxInput.EndIcon>
             )}
           </StyledFauxInput>
         )}

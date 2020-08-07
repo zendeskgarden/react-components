@@ -12,26 +12,35 @@ const COMPONENT_ID = 'dropdowns.multiselect_items_container';
 
 interface IStyledMultiselectItemsContainerProps extends ThemeProps<DefaultTheme> {
   isCompact?: boolean;
+  isBare?: boolean;
 }
 
+/**
+ * 1. Negative margin over standard input padding.
+ * 2. Compensate for horizontal item margins.
+ */
 const sizeStyles = (props: IStyledMultiselectItemsContainerProps) => {
-  const marginVertical = props.isCompact
-    ? `-${props.theme.space.base * 1.5}px`
-    : `-${props.theme.space.base * 2.5}px`;
-  const paddingEnd = props.theme.space.base;
-  const paddingVertical = props.isCompact ? '3px' : '1px';
+  let margin;
+  let padding;
 
-  /**
-   * 1. Minimum height corresponding with a compact input.
-   * 2. Negative margin over standard input padding.
-   * 3. Compensate for horizontal item margins.
-   */
+  if (!props.isBare) {
+    const marginVertical = props.isCompact
+      ? `-${props.theme.space.base * 1.5}px`
+      : `-${props.theme.space.base * 2.5}px`;
+
+    margin = `${marginVertical} 0`; /* [1] */
+
+    const paddingVertical = props.isCompact ? '3px' : '1px';
+    const paddingEnd = `${props.theme.space.base}px`;
+
+    padding = `${paddingVertical} ${props.theme.rtl ? 0 : paddingEnd} ${paddingVertical} ${
+      props.theme.rtl ? paddingEnd : 0
+    }`;
+  }
+
   return css`
-    margin: ${marginVertical} 0; /* [2] */
-    padding-top: ${paddingVertical};
-    padding-bottom: ${paddingVertical};
-    /* stylelint-disable-next-line property-no-unknown */
-    padding-${props.theme.rtl ? 'left' : 'right'}: ${paddingEnd}px; /* [3] */
+    margin: ${margin};
+    padding: ${padding};
   `;
 };
 
