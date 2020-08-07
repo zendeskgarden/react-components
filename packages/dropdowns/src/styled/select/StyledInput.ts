@@ -22,7 +22,7 @@ const hiddenStyling = css`
   white-space: nowrap;
 `;
 
-interface IStyledInputProps {
+export interface IStyledInputProps {
   isHidden?: boolean;
 }
 

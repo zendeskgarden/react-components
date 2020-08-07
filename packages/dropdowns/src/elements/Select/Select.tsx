@@ -184,9 +184,6 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
       ]
     );
 
-    const onMouseEnter = composeEventHandlers(props.onMouseEnter, () => setIsHovered(true));
-    const onMouseLeave = composeEventHandlers(props.onMouseLeave, () => setIsHovered(false));
-
     /**
      * Destructure type out of props so that `type="button"`
      * is not spread onto the Select Dropdown `div`.
@@ -194,6 +191,8 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
     /* eslint-disable @typescript-eslint/no-unused-vars */
     const { type, ...selectProps } = getToggleButtonProps({
       tabIndex: props.disabled ? undefined : 0,
+      onMouseEnter: composeEventHandlers(props.onMouseEnter, () => setIsHovered(true)),
+      onMouseLeave: composeEventHandlers(props.onMouseLeave, () => setIsHovered(false)),
       ...props
     } as any);
 
@@ -203,9 +202,6 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
           <StyledFauxInput
             isHovered={isLabelHovered && !isOpen}
             isFocused={isOpen}
-            disabled={props.disabled}
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
             {...selectProps}
             ref={selectRef => {
               // Pass ref to popperJS for positioning

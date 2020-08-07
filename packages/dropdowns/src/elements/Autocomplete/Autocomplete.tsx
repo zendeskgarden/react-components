@@ -40,10 +40,10 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
       downshift: { getToggleButtonProps, getInputProps, isOpen }
     } = useDropdownContext();
     const { isLabelHovered } = useFieldContext();
-    const [isHovered, setIsHovered] = useState(false);
     const inputRef = useCombinedRefs<HTMLInputElement>(controlledInputRef);
     const triggerRef = useCombinedRefs<HTMLDivElement>(ref);
     const previousIsOpenRef = useRef<boolean | undefined>(isOpen);
+    const [isHovered, setIsHovered] = useState(false);
     const [isFocused, setIsFocused] = useState(false);
 
     useEffect(() => {
@@ -54,15 +54,14 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
       previousIsOpenRef.current = isOpen;
     }, [inputRef, isOpen]);
 
-    const onMouseEnter = composeEventHandlers(props.onMouseEnter, () => setIsHovered(true));
-    const onMouseLeave = composeEventHandlers(props.onMouseLeave, () => setIsHovered(false));
-
     const selectProps = getToggleButtonProps({
       onKeyDown: (e: KeyboardEvent<HTMLDivElement>) => {
         if (isOpen) {
           (e.nativeEvent as any).preventDownshiftDefault = true;
         }
       },
+      onMouseEnter: composeEventHandlers(props.onMouseEnter, () => setIsHovered(true)),
+      onMouseLeave: composeEventHandlers(props.onMouseLeave, () => setIsHovered(false)),
       ...props
     } as any);
 
@@ -73,9 +72,6 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
             isHovered={isLabelHovered && !isOpen}
             isFocused={isOpen ? true : isFocused}
             tabIndex={null}
-            disabled={props.disabled}
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
             ref={selectRef => {
               // Pass ref to popperJS for positioning
               (popperReference as any)(selectRef);

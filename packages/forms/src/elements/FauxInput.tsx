@@ -70,7 +70,7 @@ FauxInput.propTypes = {
   validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };
 
-interface IIconProps extends HTMLAttributes<HTMLElement> {
+export interface IIconProps extends HTMLAttributes<HTMLElement> {
   isHovered?: boolean;
   isFocused?: boolean;
   isDisabled?: boolean;

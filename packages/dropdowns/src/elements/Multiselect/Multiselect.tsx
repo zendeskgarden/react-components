@@ -80,11 +80,11 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
       }
     } = useDropdownContext();
     const { isLabelHovered } = useFieldContext();
-    const [isHovered, setIsHovered] = useState(false);
     const inputRef = useCombinedRefs<HTMLInputElement>(externalInputRef);
     const triggerRef = useCombinedRefs<HTMLDivElement>(popperReferenceElementRef, ref);
     const blurTimeoutRef = useRef<number | undefined>();
     const previousIsOpenRef = useRef<boolean | undefined>(undefined);
+    const [isHovered, setIsHovered] = useState(false);
     const [isFocused, setIsFocused] = useState(false);
     const [focusedItem, setFocusedItem] = useState(undefined);
 
@@ -124,9 +124,6 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
       }
     }, [focusedItem, isOpen, closeMenu]);
 
-    const onMouseEnter = composeEventHandlers(props.onMouseEnter, () => setIsHovered(true));
-    const onMouseLeave = composeEventHandlers(props.onMouseLeave, () => setIsHovered(false));
-
     /**
      * Destructure type out of props so that `type="button"`
      * is not spread onto the MultiSelect Dropdown `div`.
@@ -154,6 +151,8 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
           }
         }, 0) as unknown) as number;
       },
+      onMouseEnter: composeEventHandlers(props.onMouseEnter, () => setIsHovered(true)),
+      onMouseLeave: composeEventHandlers(props.onMouseLeave, () => setIsHovered(false)),
       ...props
     } as any);
 
@@ -300,19 +299,18 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
       <Reference>
         {({ ref: popperReference }) => (
           <StyledFauxInput
-            isHovered={isLabelHovered && !isOpen}
-            isFocused={isOpen ? true : isFocused}
-            disabled={props.disabled}
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
-            ref={selectRef => {
-              // Pass ref to popperJS for positioning
-              (popperReference as any)(selectRef);
+            {...getContainerProps({
+              ...selectProps,
+              isHovered: isLabelHovered && !isOpen,
+              isFocused: isOpen ? true : isFocused,
+              ref: (selectRef: any) => {
+                // Pass ref to popperJS for positioning
+                (popperReference as any)(selectRef);
 
-              // Apply Select ref to global Dropdown context
-              (triggerRef as React.MutableRefObject<any>).current = selectRef;
-            }}
-            {...getContainerProps(selectProps)}
+                // Apply Select ref to global Dropdown context
+                (triggerRef as React.MutableRefObject<any>).current = selectRef;
+              }
+            })}
           >
             {start && (
               <StyledFauxInput.StartIcon isDisabled={props.disabled}>
