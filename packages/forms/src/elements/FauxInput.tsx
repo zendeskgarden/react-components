@@ -25,8 +25,6 @@ export interface IFauxInputProps extends HTMLAttributes<HTMLDivElement> {
   isFocused?: boolean;
   /** Apply hovered styling */
   isHovered?: boolean;
-  /** Override mouse [cursor](https://developer.mozilla.org/en-US/docs/Web/CSS/cursor) type */
-  cursor?: string;
 }
 
 /**
@@ -80,12 +78,15 @@ interface IIconProps extends HTMLAttributes<HTMLElement> {
   children: any;
 }
 
-const Icon = (props: IIconProps) => <StyledTextMediaFigure {...props} />;
+const StartIcon = (props: IIconProps) => <StyledTextMediaFigure position="start" {...props} />;
+const EndIcon = (props: IIconProps) => <StyledTextMediaFigure position="end" {...props} />;
 
-(FauxInput as any).Icon = Icon;
+(FauxInput as any).StartIcon = StartIcon;
+(FauxInput as any).EndIcon = EndIcon;
 
 export default FauxInput as React.FunctionComponent<
   IFauxInputProps & React.RefAttributes<HTMLDivElement>
 > & {
-  Icon: typeof Icon;
+  StartIcon: typeof StartIcon;
+  EndIcon: typeof EndIcon;
 };

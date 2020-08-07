@@ -14,7 +14,6 @@ import {
   DEFAULT_THEME
 } from '@zendeskgarden/react-theming';
 import { VALIDATION } from '../../utils/validation';
-import { StyledTextMediaFigure } from './StyledTextMediaFigure';
 import { StyledHint } from '../common/StyledHint';
 import { StyledLabel } from '../common/StyledLabel';
 import { StyledMessage } from '../common/StyledMessage';
@@ -129,9 +128,6 @@ const sizeStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) => 
   const swatchMarginHorizontal = math(
     `${paddingVertical} + ${swatchMarginVertical} - ${paddingHorizontal}`
   );
-  const figureMarginTop = math(`(${lineHeight} - ${props.theme.iconSizes.md}) / 2`);
-  const figureMarginFirst = `${figureMarginTop} ${props.theme.space.base * 2}px auto 0`;
-  const figureMarginLast = `1px 0 auto ${props.theme.space.base * 2}px`;
 
   return css`
     padding: ${padding};
@@ -183,16 +179,6 @@ const sizeStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) => 
       margin-top: ${math(`${props.theme.space.base} * ${props.isCompact ? '1px' : '2px'}`)};
     }
     /* stylelint-enable */
-
-    & ${StyledTextMediaFigure} {
-      &:first-child {
-        margin: ${props.theme.rtl ? figureMarginLast : figureMarginFirst};
-      }
-
-      &:last-child {
-        margin: ${props.theme.rtl ? figureMarginFirst : figureMarginLast};
-      }
-    }
   `;
 };
 

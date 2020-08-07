@@ -94,9 +94,9 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
         ref={wrapperRef}
         {...otherWrapperProps}
       >
-        {start && <FauxInput.Icon isDisabled={disabled}>{start}</FauxInput.Icon>}
+        {start && <FauxInput.StartIcon isDisabled={disabled}>{start}</FauxInput.StartIcon>}
         <StyledTextMediaInput {...(combinedProps as any)} />
-        {end && <FauxInput.Icon isDisabled={disabled}>{end}</FauxInput.Icon>}
+        {end && <FauxInput.EndIcon isDisabled={disabled}>{end}</FauxInput.EndIcon>}
       </FauxInput>
     );
   }
