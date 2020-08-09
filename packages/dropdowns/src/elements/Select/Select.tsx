@@ -20,23 +20,26 @@ import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 
 interface ISelectProps extends HTMLAttributes<HTMLDivElement> {
-  /** Apply compact styling */
+  /** Applies compact styling */
   isCompact?: boolean;
-  /** Remove borders and padding */
+  /** Removes borders and padding */
   isBare?: boolean;
-  /** Disabled state */
+  /** Indicates that the element is not interactive */
   disabled?: boolean;
-  /** Apply inset `box-shadow` styling on focus */
+  /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Display select open state */
+  /** Indicates that the element's menu is open */
   isOpen?: boolean;
+  /** Defines the element's validation state */
   validation?: VALIDATION;
-  /** Slot for "start" icon */
+  /** Defines the icon rendered in the start position */
   start?: any;
 }
 
 /**
  * Applies state and a11y attributes to its children. Must be nested within a `<Field>` component.
+ *
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
   ({ children, start, ...props }, ref) => {

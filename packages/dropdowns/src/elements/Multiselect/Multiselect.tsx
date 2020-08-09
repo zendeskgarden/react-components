@@ -30,27 +30,36 @@ import useFieldContext from '../../utils/useFieldContext';
 import { REMOVE_ITEM_STATE_TYPE } from '../Dropdown/Dropdown';
 
 interface IMultiselectProps extends HTMLAttributes<HTMLDivElement> {
+  /** Applies compact styling */
   isCompact?: boolean;
-  /** Removes all borders and styling */
+  /** Removes borders and padding */
   isBare?: boolean;
+  /** Indicates that the element is not interactive */
   disabled?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Displays select open state */
+  /** Indicates that the element's menu is open */
   isOpen?: boolean;
+  /** Defines text that appears in the element when no items are selected */
   placeholder?: string;
+  /** Defines the element's validation state */
   validation?: VALIDATION;
-  /** Number of items to show in the collapsed state. Default of 4. */
+  /** Determines the maximum number of items displayed while collapsed */
   maxItems?: number;
+  /** Callback that overrides the "+ N more" text displayed when the total number of items exceeds `maxItems` */
   renderShowMore?: (index: number) => string;
+  /** Callback that renders each item element */
   renderItem: (options: { value: any; removeValue: () => void }) => React.ReactElement;
+  /** Provides DOM access to the underlying input element */
   inputRef?: React.Ref<HTMLInputElement>;
-  /** Slot for "start" icon */
+  /** Defines the icon rendered in the start position */
   start?: any;
 }
 
 /**
  * Applies state and a11y attributes to its children. Must be nested within a `<Field>` component.
+ *
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemeProps<DefaultTheme>>(
   (

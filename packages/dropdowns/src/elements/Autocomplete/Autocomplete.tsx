@@ -16,22 +16,28 @@ import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 
 interface IAutocompleteProps extends HTMLAttributes<HTMLDivElement> {
+  /** Applies compact styling */
   isCompact?: boolean;
-  /** Removes all borders and styling */
+  /** Removes borders and padding */
   isBare?: boolean;
+  /** Indicates that the element is not interactive */
   disabled?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Displays select open state */
+  /** Indicates that the element's menu is open */
   isOpen?: boolean;
+  /** Defines the element's validation state */
   validation?: VALIDATION;
+  /** Provides ref access to the underlying input element */
   inputRef?: React.Ref<HTMLInputElement>;
-  /** Slot for "start" icon */
+  /** Defines the icon rendered in the start position */
   start?: any;
 }
 
 /**
  * Applies state and a11y attributes to its children. Must be nested within a `<Field>` component.
+ *
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
   ({ children, inputRef: controlledInputRef, start, ...props }, ref) => {
