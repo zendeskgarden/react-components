@@ -11,12 +11,12 @@ import { StyledInput } from '../select/StyledInput';
 
 const COMPONENT_ID = 'dropdowns.multiselect_input';
 
-interface IStyledMultiselectInputProps extends ThemeProps<DefaultTheme> {
+interface IStyledMultiselectInputProps {
   isCompact: boolean;
   isVisible: boolean;
 }
 
-const visibleStyling = (props: IStyledMultiselectInputProps) => {
+const visibleStyling = (props: IStyledMultiselectInputProps & ThemeProps<DefaultTheme>) => {
   const margin = props.isVisible ? `${props.theme.space.base / 2}px` : 0;
   const minWidth = props.isVisible ? `${props.theme.space.base * 15}px` : 0;
   let height = '0';

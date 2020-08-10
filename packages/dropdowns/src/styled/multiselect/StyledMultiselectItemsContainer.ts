@@ -10,7 +10,7 @@ import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.multiselect_items_container';
 
-interface IStyledMultiselectItemsContainerProps extends ThemeProps<DefaultTheme> {
+interface IStyledMultiselectItemsContainerProps {
   isCompact?: boolean;
   isBare?: boolean;
 }
@@ -19,7 +19,7 @@ interface IStyledMultiselectItemsContainerProps extends ThemeProps<DefaultTheme>
  * 1. Negative margin over standard input padding.
  * 2. Compensate for horizontal item margins.
  */
-const sizeStyles = (props: IStyledMultiselectItemsContainerProps) => {
+const sizeStyles = (props: IStyledMultiselectItemsContainerProps & ThemeProps<DefaultTheme>) => {
   let margin;
   let padding;
 
