@@ -5,8 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export * from './field/StyledInput';
-export * from './field/StyledMultiselect';
 export * from './menu/StyledMenu';
 export * from './menu/StyledMenuWrapper';
 export * from './menu/StyledSeparator';
@@ -23,5 +21,10 @@ export * from './items/header/StyledHeaderItem';
 export * from './items/media/StyledMediaBody';
 export * from './items/media/StyledMediaFigure';
 export * from './items/media/StyledMediaItem';
-export * from './field/StyledSelect';
-export * from './field/SelectWrapper';
+export * from './select/StyledFauxInput';
+export * from './select/StyledInput';
+export * from './select/StyledSelect';
+export * from './multiselect/StyledMultiselectInput';
+export * from './multiselect/StyledMultiselectItemsContainer';
+export * from './multiselect/StyledMultiselectItemWrapper';
+export * from './multiselect/StyledMultiselectMoreAnchor';

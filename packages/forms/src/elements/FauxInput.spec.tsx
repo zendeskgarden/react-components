@@ -7,7 +7,8 @@
 
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { render } from 'garden-test-utils';
+import { render, renderRtl } from 'garden-test-utils';
+import TestIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
 import { FauxInput } from './FauxInput';
 
 describe('FauxInput', () => {
@@ -51,5 +52,47 @@ describe('FauxInput', () => {
     userEvent.tab();
 
     expect(container.firstElementChild).toHaveAttribute('data-test-is-focused', 'false');
+  });
+
+  describe('Icons', () => {
+    it('successfully renders start and default icons', () => {
+      const { getByTestId } = render(
+        <FauxInput>
+          <FauxInput.StartIcon>
+            <TestIcon data-test-id="start" />
+          </FauxInput.StartIcon>
+          <FauxInput.EndIcon>
+            <TestIcon data-test-id="default" />
+          </FauxInput.EndIcon>
+        </FauxInput>
+      );
+
+      expect(getByTestId('start')).not.toBeNull();
+      expect(getByTestId('default')).not.toBeNull();
+    });
+
+    it('renders start icon', () => {
+      const { getByTestId } = render(
+        <FauxInput>
+          <FauxInput.StartIcon>
+            <TestIcon data-test-id="icon" />
+          </FauxInput.StartIcon>
+        </FauxInput>
+      );
+
+      expect(getByTestId('icon')).toHaveStyleRule('margin', '1px 8px auto 0');
+    });
+
+    it('renders RTL start icon', () => {
+      const { getByTestId } = renderRtl(
+        <FauxInput>
+          <FauxInput.StartIcon>
+            <TestIcon data-test-id="icon" />
+          </FauxInput.StartIcon>
+        </FauxInput>
+      );
+
+      expect(getByTestId('icon')).toHaveStyleRule('margin', '1px 0 auto 8px');
+    });
   });
 });
