@@ -165,14 +165,13 @@ describe('Multiselect', () => {
   it('renders start icon if provided', () => {
     const { getByTestId } = render(
       <ExampleWrapper>
-        <Label data-test-id="label">Label</Label>
+        <Label>Label</Label>
         <Multiselect
-          data-test-id="multiselect"
           start={<svg data-test-id="icon" />}
           renderItem={({ value, removeValue }) => (
-            <div data-test-id="tag">
+            <div>
               {value}
-              <button data-test-id="remove" onClick={() => removeValue()} tabIndex={-1}>
+              <button onClick={() => removeValue()} tabIndex={-1}>
                 Remove
               </button>
             </div>
