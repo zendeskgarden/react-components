@@ -45,16 +45,16 @@ interface IStaticTooltipModalExport<T, P>
   FooterItem: typeof StyledTooltipModalFooterItem;
 }
 
-interface ITooltipModalProps extends HTMLAttributes<HTMLDivElement> {
+export interface ITooltipModalProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * The `HTMLElement` to position the `TooltipModal` relative to.
    */
-  referenceElement: HTMLElement;
+  referenceElement?: HTMLElement;
   /**
    * [Popper.js v2 modifiers](https://popper.js.org/docs/v2/modifiers/)
    * to customize positioning logic.
    */
-  popperModifiers: Array<Partial<Modifier<any, any>>>;
+  popperModifiers?: Array<Partial<Modifier<any, any>>>;
   /**
    * These placements differ from the default naming of Popper placements to help
    * assist with RTL layouts.
@@ -71,7 +71,7 @@ interface ITooltipModalProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * HTML attributes to spread onto backdrop element
    */
-  backdropProps?: HTMLAttributes<HTMLDivElement>;
+  backdropProps?: any;
   /**
    * Determines whether to apply keyboard focus on the modal on mount
    */
@@ -148,23 +148,21 @@ export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>
       ...props
     }) as any;
 
-    return (
+    return referenceElement ? (
       <TooltipModalContext.Provider value={value}>
-        {referenceElement ? (
-          <StyledTooltipModalBackdrop {...(getBackdropProps(backdropProps) as any)}>
-            <StyledTooltipWrapper
-              ref={setPopperElement}
-              style={styles.popper}
-              placement={state?.placement}
-              zIndex={zIndex}
-              {...attributes.popper}
-            >
-              <StyledTooltipModal {...modalProps} />
-            </StyledTooltipWrapper>
-          </StyledTooltipModalBackdrop>
-        ) : null}
+        <StyledTooltipModalBackdrop {...(getBackdropProps(backdropProps) as any)}>
+          <StyledTooltipWrapper
+            ref={setPopperElement}
+            style={styles.popper}
+            placement={state ? state.placement : undefined}
+            zIndex={zIndex}
+            {...attributes.popper}
+          >
+            <StyledTooltipModal {...modalProps} />
+          </StyledTooltipWrapper>
+        </StyledTooltipModalBackdrop>
       </TooltipModalContext.Provider>
-    );
+    ) : null;
   }
 ) as IStaticTooltipModalExport<HTMLDivElement, ITooltipModalProps>;
 
