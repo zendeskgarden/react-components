@@ -9,7 +9,7 @@ import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, renderRtl } from 'garden-test-utils';
 import TestIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
-import FauxInput from './FauxInput';
+import { FauxInput } from './FauxInput';
 
 describe('FauxInput', () => {
   it('renders the expected element', () => {

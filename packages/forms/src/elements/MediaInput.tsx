@@ -9,7 +9,7 @@ import React, { InputHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { composeEventHandlers, useCombinedRefs } from '@zendeskgarden/container-utilities';
 import { StyledTextMediaInput } from '../styled';
-import FauxInput from './FauxInput';
+import { FauxInput } from './FauxInput';
 import useFieldContext from '../utils/useFieldContext';
 import { VALIDATION } from '../utils/validation';
 

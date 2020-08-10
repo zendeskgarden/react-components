@@ -5,11 +5,36 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, HTMLAttributes, RefObject } from 'react';
+import React, {
+  useState,
+  HTMLAttributes,
+  RefObject,
+  ForwardRefExoticComponent,
+  PropsWithoutRef,
+  RefAttributes,
+  forwardRef
+} from 'react';
 import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { StyledTextFauxInput, StyledTextMediaFigure } from '../styled';
 import { VALIDATION } from '../utils/validation';
+
+export interface IIconProps extends HTMLAttributes<HTMLElement> {
+  isHovered?: boolean;
+  isFocused?: boolean;
+  isDisabled?: boolean;
+  isRotated?: boolean;
+  children: any;
+}
+
+const StartIcon = (props: IIconProps) => <StyledTextMediaFigure position="start" {...props} />;
+const EndIcon = (props: IIconProps) => <StyledTextMediaFigure position="end" {...props} />;
+
+export interface IStaticFauxInputExport<T, P>
+  extends ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> {
+  StartIcon: typeof StartIcon;
+  EndIcon: typeof EndIcon;
+}
 
 export interface IFauxInputProps extends HTMLAttributes<HTMLDivElement> {
   /** Apply compact styling */
@@ -31,9 +56,8 @@ export interface IFauxInputProps extends HTMLAttributes<HTMLDivElement> {
  * Provides styling without native input backing; accepts all `<div>`
  * attributes and events.
  */
-const FauxInput: React.FunctionComponent<
-  IFauxInputProps & React.RefAttributes<HTMLDivElement>
-> = React.forwardRef<HTMLDivElement, IFauxInputProps>(
+// eslint-disable-next-line react/display-name
+export const FauxInput = forwardRef<HTMLDivElement, IFauxInputProps>(
   ({ onFocus, onBlur, disabled, isFocused: controlledIsFocused, ...props }, ref) => {
     const [isFocused, setIsFocused] = useState(false);
 
@@ -58,7 +82,10 @@ const FauxInput: React.FunctionComponent<
       />
     );
   }
-);
+) as IStaticFauxInputExport<HTMLDivElement, IFauxInputProps>;
+
+FauxInput.StartIcon = StartIcon;
+FauxInput.EndIcon = EndIcon;
 
 FauxInput.displayName = 'FauxInput';
 
@@ -68,25 +95,4 @@ FauxInput.propTypes = {
   focusInset: PropTypes.bool,
   disabled: PropTypes.bool,
   validation: PropTypes.oneOf(['success', 'warning', 'error'])
-};
-
-export interface IIconProps extends HTMLAttributes<HTMLElement> {
-  isHovered?: boolean;
-  isFocused?: boolean;
-  isDisabled?: boolean;
-  isRotated?: boolean;
-  children: any;
-}
-
-const StartIcon = (props: IIconProps) => <StyledTextMediaFigure position="start" {...props} />;
-const EndIcon = (props: IIconProps) => <StyledTextMediaFigure position="end" {...props} />;
-
-(FauxInput as any).StartIcon = StartIcon;
-(FauxInput as any).EndIcon = EndIcon;
-
-export default FauxInput as React.FunctionComponent<
-  IFauxInputProps & React.RefAttributes<HTMLDivElement>
-> & {
-  StartIcon: typeof StartIcon;
-  EndIcon: typeof EndIcon;
 };
