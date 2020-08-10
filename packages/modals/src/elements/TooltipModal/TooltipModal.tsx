@@ -145,7 +145,6 @@ export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>
       placement: state ? state.placement : 'top',
       hasArrow,
       style,
-      ...attributes.popper,
       ...props
     }) as any;
 
@@ -158,6 +157,7 @@ export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>
               style={styles.popper}
               placement={state?.placement}
               zIndex={zIndex}
+              {...attributes.popper}
             >
               <StyledTooltipModal {...modalProps} />
             </StyledTooltipWrapper>
