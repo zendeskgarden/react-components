@@ -35,6 +35,10 @@ module.exports = {
         {
           name: 'Basic',
           content: '../../packages/modals/examples/basic.md'
+        },
+        {
+          name: 'Tooltip Modal',
+          content: '../../packages/modals/examples/tooltip-modal.md'
         }
       ]
     },

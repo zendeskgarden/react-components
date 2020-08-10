@@ -22,10 +22,13 @@
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "dependencies": {
+    "@popperjs/core": "^2.4.4",
     "@zendeskgarden/container-focusvisible": "^0.4.3",
     "@zendeskgarden/container-modal": "^0.8.0",
     "@zendeskgarden/container-utilities": "^0.5.1",
-    "dom-helpers": "^5.1.0"
+    "dom-helpers": "^5.1.0",
+    "polished": "^3.5.1",
+    "react-popper": "^2.2.3"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^8.1.0",
