@@ -305,7 +305,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
     ]);
 
     const isContainerHovered = isLabelHovered && !isOpen;
-    const isContainerFocused = isOpen ? true : isFocused;
+    const isContainerFocused = isOpen || isFocused;
 
     return (
       <Reference>

@@ -72,7 +72,7 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
     } as any);
 
     const isContainerHovered = isLabelHovered && !isOpen;
-    const isContainerFocused = isOpen ? true : isFocused;
+    const isContainerFocused = isOpen || isFocused;
 
     return (
       <Reference>
