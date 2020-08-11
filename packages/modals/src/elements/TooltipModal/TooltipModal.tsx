@@ -8,8 +8,10 @@
 import React, {
   useState,
   useContext,
-  HTMLAttributes,
   useMemo,
+  useEffect,
+  useRef,
+  HTMLAttributes,
   ForwardRefExoticComponent,
   PropsWithoutRef,
   RefAttributes
@@ -105,6 +107,7 @@ export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>
     ref
   ) => {
     const theme = useContext(ThemeContext);
+    const previousReferenceElementRef = useRef<HTMLElement>();
     const modalRef = useCombinedRefs(ref);
     const [popperElement, setPopperElement] = useState<HTMLDivElement | null>();
     const {
@@ -118,8 +121,17 @@ export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>
       onClose,
       modalRef,
       focusOnMount,
-      restoreFocus
+      /** Handle `restoreFocus` locally to return focus to `referenceElement` */
+      restoreFocus: false
     });
+
+    useEffect(() => {
+      if (!referenceElement && previousReferenceElementRef.current && restoreFocus) {
+        previousReferenceElementRef.current.focus();
+      }
+
+      previousReferenceElementRef.current = referenceElement;
+    }, [referenceElement, restoreFocus]);
 
     const popperPlacement = useMemo(
       () => (theme.rtl ? getRtlPopperPlacement(placement!) : getPopperPlacement(placement!)),
