@@ -12,7 +12,7 @@ import { StyledTextMediaFigure } from './StyledTextMediaFigure';
 
 const COMPONENT_ID = 'forms.faux_input';
 
-interface IStyledTextFauxInputProps extends IStyledTextInputProps {
+export interface IStyledTextFauxInputProps extends IStyledTextInputProps {
   mediaLayout?: boolean;
   isDisabled?: boolean;
 }

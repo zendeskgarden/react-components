@@ -318,10 +318,12 @@ const StyledMessage = styled(Message)`
           isCompact={state.compact}
           validation={state.validation}
           style={state.inline ? { width: 'auto', margin: 0 } : {}}
+          start={<StartIcon />}
         >
           <option>Option one</option>
           <option>Option two</option>
           <option>Option three</option>
+          <option>Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi</option>
         </Select>
         {state.message && <StyledMessage validation={state.validation}>Message</StyledMessage>}
       </StyledField>

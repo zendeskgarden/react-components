@@ -55,6 +55,7 @@ export * from './toggle/StyledToggleSvg';
  * Select styles
  */
 export * from './select/StyledSelect';
+export * from './select/StyledSelectWrapper';
 
 /**
  * Range styles

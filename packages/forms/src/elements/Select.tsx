@@ -7,9 +7,9 @@
 
 import React, { SelectHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { composeEventHandlers, useCombinedRefs } from '@zendeskgarden/container-utilities';
+import { useCombinedRefs } from '@zendeskgarden/container-utilities';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
-import { StyledSelect, StyledTextMediaFigure } from '../styled';
+import { StyledSelect, StyledSelectWrapper } from '../styled';
 import { FauxInput } from './FauxInput';
 import useFieldContext from '../utils/useFieldContext';
 import { VALIDATION } from '../utils/validation';
@@ -33,18 +33,9 @@ export interface ISelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
  * attributes and events.
  */
 export const Select = React.forwardRef<HTMLSelectElement, ISelectProps>(
-  (
-    { start, disabled, isCompact, isBare, focusInset, validation, wrapperProps = {}, ...props },
-    ref
-  ) => {
+  ({ start, disabled, wrapperProps = {}, ...props }, ref) => {
     const fieldContext = useFieldContext();
     const selectRef = useCombinedRefs(ref);
-
-    const { onClick, ...otherWrapperProps } = wrapperProps;
-
-    const onFauxInputClickHandler = composeEventHandlers(onClick, () => {
-      selectRef.current && selectRef.current.click();
-    });
 
     let combinedProps = {
       disabled,
@@ -57,25 +48,15 @@ export const Select = React.forwardRef<HTMLSelectElement, ISelectProps>(
     }
 
     return (
-      <FauxInput
-        tabIndex={null}
-        onClick={onFauxInputClickHandler}
-        disabled={disabled}
-        isCompact={isCompact}
-        isBare={isBare}
-        focusInset={focusInset}
-        validation={validation}
-        mediaLayout
-        {...otherWrapperProps}
-      >
-        {start && <StyledTextMediaFigure isDisabled={disabled}>{start}</StyledTextMediaFigure>}
+      <StyledSelectWrapper {...wrapperProps}>
+        {start && <FauxInput.StartIcon isDisabled={disabled}>{start}</FauxInput.StartIcon>}
         <StyledSelect {...(combinedProps as any)} />
-        {!isBare && (
-          <StyledTextMediaFigure isDisabled={disabled}>
+        {!props.isBare && (
+          <FauxInput.EndIcon isDisabled={disabled}>
             <Chevron />
-          </StyledTextMediaFigure>
+          </FauxInput.EndIcon>
         )}
-      </FauxInput>
+      </StyledSelectWrapper>
     );
   }
 );
