@@ -79,17 +79,8 @@ const Calendar: React.FunctionComponent<ICalendarProps> = ({
     }
   );
 
-  const dayNumberFormatter = useCallback(
-    (number: number) => {
-      const formatter = new Intl.NumberFormat(locale);
-
-      return formatter.format(number);
-    },
-    [locale]
-  );
-
   const items = eachDayOfInterval({ start: startDate, end: endDate }).map((date, itemsIndex) => {
-    const formattedDayLabel = dayNumberFormatter(getDate(date));
+    const formattedDayLabel = getDate(date);
     const isCurrentDate = isToday(date);
     const isPreviousMonth = !isSameMonth(date, state.previewDate);
     const isSelected = value && isSameDay(date, value);
