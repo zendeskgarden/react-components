@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1597102843655" clover="3.2.0">
-  <project timestamp="1597102843655" name="All files">
-    <metrics statements="6304" coveredstatements="6196" conditionals="2539" coveredconditionals="2322" methods="1307" coveredmethods="1286" elements="10150" coveredelements="9804" complexity="0" loc="6304" ncloc="6304" packages="107" files="412" classes="412"/>
+<coverage generated="1597160855563" clover="3.2.0">
+  <project timestamp="1597160855563" name="All files">
+    <metrics statements="6305" coveredstatements="6197" conditionals="2541" coveredconditionals="2324" methods="1308" coveredmethods="1287" elements="10154" coveredelements="9808" complexity="0" loc="6305" ncloc="6305" packages="107" files="412" classes="412"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
       <file name="Example.spec.tsx" path="/home/circleci/project/packages/.template/src/elements/Example.spec.tsx">
@@ -882,7 +882,7 @@
       </file>
     </package>
     <package name="buttons.src.styled">
-      <metrics statements="146" coveredstatements="146" conditionals="136" coveredconditionals="134" methods="43" coveredmethods="43"/>
+      <metrics statements="147" coveredstatements="147" conditionals="138" coveredconditionals="136" methods="44" coveredmethods="44"/>
       <file name="StyledAnchor.ts" path="/home/circleci/project/packages/buttons/src/styled/StyledAnchor.ts">
         <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
         <line num="8" count="9" type="stmt"/>
@@ -895,7 +895,7 @@
         <line num="30" count="9" type="stmt"/>
       </file>
       <file name="StyledButton.ts" path="/home/circleci/project/packages/buttons/src/styled/StyledButton.ts">
-        <metrics statements="80" coveredstatements="80" conditionals="107" coveredconditionals="106" methods="24" coveredmethods="24"/>
+        <metrics statements="81" coveredstatements="81" conditionals="109" coveredconditionals="108" methods="25" coveredmethods="25"/>
         <line num="8" count="12" type="stmt"/>
         <line num="9" count="12" type="stmt"/>
         <line num="10" count="12" type="stmt"/>
@@ -966,6 +966,7 @@
         <line num="293" count="77" type="cond" truecount="2" falsecount="0"/>
         <line num="297" count="77" type="cond" truecount="2" falsecount="0"/>
         <line num="299" count="77" type="cond" truecount="2" falsecount="0"/>
+        <line num="302" count="77" type="cond" truecount="2" falsecount="0"/>
         <line num="305" count="77" type="stmt"/>
         <line num="314" count="77" type="cond" truecount="2" falsecount="0"/>
         <line num="322" count="77" type="cond" truecount="2" falsecount="0"/>
