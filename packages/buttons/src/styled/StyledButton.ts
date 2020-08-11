@@ -299,7 +299,7 @@ export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
   font-weight: ${props => (props.isLink ? 'inherit' : props.theme.fontWeights.regular)};
   -webkit-font-smoothing: subpixel-antialiased;
   box-sizing: border-box;
-  user-select: none;
+  user-select: ${props => !props.isLink && 'none'};
   -webkit-touch-callout: none;
 
   ${props => sizeStyles(props)};
