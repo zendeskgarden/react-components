@@ -8,23 +8,16 @@
 import styled from 'styled-components';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledTextFauxInput } from '../text/StyledTextFauxInput';
-import { StyledTextMediaFigure } from '../text/StyledTextMediaFigure';
 
 const COMPONENT_ID = 'forms.select_wrapper';
 
 export const StyledSelectWrapper = styled(StyledTextFauxInput).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  isBare: true,
-  mediaLayout: true
+  isBare: true
 })`
   position: relative;
   overflow: visible;
-
-  & > ${StyledTextMediaFigure} {
-    position: absolute;
-    pointer-events: none;
-  }
 `;
 
 StyledSelectWrapper.defaultProps = {

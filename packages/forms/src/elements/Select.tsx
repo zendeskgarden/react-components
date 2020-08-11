@@ -21,11 +21,7 @@ export interface ISelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   isBare?: boolean;
   /** Apply inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Slot for "start" icon */
-  start?: any;
   validation?: VALIDATION;
-  /** Apply props to the wrapping `FauxInput` element */
-  wrapperProps?: any;
 }
 
 /**
@@ -33,7 +29,7 @@ export interface ISelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
  * attributes and events.
  */
 export const Select = React.forwardRef<HTMLSelectElement, ISelectProps>(
-  ({ start, disabled, wrapperProps = {}, ...props }, ref) => {
+  ({ disabled, ...props }, ref) => {
     const fieldContext = useFieldContext();
     const selectRef = useCombinedRefs(ref);
 
@@ -48,8 +44,7 @@ export const Select = React.forwardRef<HTMLSelectElement, ISelectProps>(
     }
 
     return (
-      <StyledSelectWrapper {...wrapperProps}>
-        {start && <FauxInput.StartIcon isDisabled={disabled}>{start}</FauxInput.StartIcon>}
+      <StyledSelectWrapper>
         <StyledSelect {...(combinedProps as any)} />
         {!props.isBare && (
           <FauxInput.EndIcon isDisabled={disabled}>
@@ -65,7 +60,5 @@ Select.propTypes = {
   isCompact: PropTypes.bool,
   isBare: PropTypes.bool,
   focusInset: PropTypes.bool,
-  start: PropTypes.node,
-  validation: PropTypes.oneOf(['success', 'warning', 'error']),
-  wrapperProps: PropTypes.object
+  validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };

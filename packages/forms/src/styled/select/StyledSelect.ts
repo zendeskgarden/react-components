@@ -7,11 +7,24 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledTextInput, IStyledTextInputProps } from '../text/StyledTextInput';
 import { StyledTextMediaFigure } from '../text/StyledTextMediaFigure';
 
 const COMPONENT_ID = 'forms.select';
+
+const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) => {
+  const color = getColor('neutralHue', 700, props.theme);
+
+  /* prettier-ignore */
+  return css`
+    &:hover + ${StyledTextMediaFigure},
+    &:focus + ${StyledTextMediaFigure},
+    &[data-garden-focus-visible='true'] + ${StyledTextMediaFigure} {
+      color: ${color};
+    }
+  `;
+};
 
 const sizeStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) => {
   const padding = math(`${props.theme.iconSizes.md} + ${props.theme.space.base * 5}`);
@@ -20,7 +33,7 @@ const sizeStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) => 
 
   return css`
     /* stylelint-disable-next-line property-no-unknown */
-    padding-${props.theme.rtl ? 'left' : 'right'}: ${padding};
+    padding-${props.theme.rtl ? 'left' : 'right'}: ${!props.isBare && padding};
 
     & + ${StyledTextMediaFigure} {
       top: ${iconVerticalPosition};
@@ -41,6 +54,7 @@ export const StyledSelect = styled(StyledTextInput).attrs({
   text-overflow: ellipsis;
 
   ${props => sizeStyles(props)};
+  ${props => colorStyles(props)};
 
   &::-ms-expand {
     display: none; /* [1] */
@@ -55,6 +69,11 @@ export const StyledSelect = styled(StyledTextInput).attrs({
     transition: none;
     text-shadow: 0 0 0 ${props => props.theme.colors.foreground}; /* [1] */
     color: transparent; /* [1] */
+  }
+
+  & + ${StyledTextMediaFigure} {
+    position: absolute;
+    pointer-events: none;
   }
 `;
 

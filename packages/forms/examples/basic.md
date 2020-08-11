@@ -318,7 +318,6 @@ const StyledMessage = styled(Message)`
           isCompact={state.compact}
           validation={state.validation}
           style={state.inline ? { width: 'auto', margin: 0 } : {}}
-          start={<StartIcon />}
         >
           <option>Option one</option>
           <option>Option two</option>
