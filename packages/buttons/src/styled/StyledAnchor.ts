@@ -23,6 +23,7 @@ export const StyledAnchor = styled(StyledButton).attrs(props => ({
   type: undefined
 }))`
   direction: ${props => props.theme.rtl && 'rtl'};
+  user-select: auto;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
