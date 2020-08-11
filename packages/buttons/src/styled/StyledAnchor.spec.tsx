@@ -21,7 +21,6 @@ describe('StyledAnchor', () => {
     const { container } = render(<StyledAnchor />);
 
     expect(container.firstChild).toHaveStyleRule('display', 'inline');
-    expect(container.firstChild).toHaveStyleRule('user-select', 'auto');
   });
 
   it('renders danger styling if provided', () => {

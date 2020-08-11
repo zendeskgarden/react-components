@@ -45,6 +45,7 @@ describe('StyledButton', () => {
     const { container } = render(<StyledButton isLink />);
 
     expect(container.firstChild).toHaveStyleRule('display', 'inline');
+    expect(container.firstChild).not.toHaveStyleRule('user-select');
   });
 
   it('renders primary styling if provided', () => {
