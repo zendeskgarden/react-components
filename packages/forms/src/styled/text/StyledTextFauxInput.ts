@@ -8,6 +8,7 @@
 import styled from 'styled-components';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledTextInput, IStyledTextInputProps } from './StyledTextInput';
+import { StyledTextMediaFigure } from './StyledTextMediaFigure';
 
 const COMPONENT_ID = 'forms.faux_input';
 
@@ -27,9 +28,14 @@ export const StyledTextFauxInput = styled(StyledTextInput).attrs<IStyledTextFaux
   display: ${props => (props.mediaLayout ? 'inline-flex' : 'inline-block')};
   align-items: ${props => props.mediaLayout && 'baseline'};
   cursor: ${props => (props.mediaLayout && !props.isDisabled ? 'text' : 'default')};
+  overflow: hidden;
 
   & > ${StyledTextInput} {
     vertical-align: ${props => !props.mediaLayout && 'baseline'};
+  }
+
+  & > ${StyledTextMediaFigure} {
+    flex-shrink: ${props => props.mediaLayout && '0'};
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};

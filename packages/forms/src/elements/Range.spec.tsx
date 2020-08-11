@@ -6,7 +6,8 @@
  */
 
 import React from 'react';
-import { render, fireEvent } from 'garden-test-utils';
+import userEvent from '@testing-library/user-event';
+import { render } from 'garden-test-utils';
 import { Field } from './common/Field';
 import { Range } from './Range';
 
@@ -61,7 +62,7 @@ describe('Range', () => {
       expect(getByTestId('range').style.backgroundSize).toBe('25%');
       const button = getByRole('button');
 
-      fireEvent.click(button);
+      userEvent.click(button);
       expect(getByTestId('range').style.backgroundSize).toBe('50%');
     });
   });

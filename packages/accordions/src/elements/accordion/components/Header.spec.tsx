@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import userEvent from '@testing-library/user-event';
 import { render, fireEvent } from 'garden-test-utils';
 import { Accordion } from '../Accordion';
 
@@ -51,11 +52,10 @@ describe('Header', () => {
 
     const header = getByRole('heading');
 
-    fireEvent.click(header);
+    userEvent.click(header);
+    userEvent.unhover(header);
     fireEvent.focus(header);
     fireEvent.blur(header);
-    fireEvent.mouseOver(header);
-    fireEvent.mouseOut(header);
 
     expect(onClick).toBeCalledTimes(1);
     expect(onFocus).toBeCalledTimes(1);

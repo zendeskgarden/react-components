@@ -7,7 +7,8 @@
  */
 
 import React from 'react';
-import { render, fireEvent } from 'garden-test-utils';
+import userEvent from '@testing-library/user-event';
+import { render } from 'garden-test-utils';
 
 import { Tabs, ITabsProps, TabList, TabPanel, Tab } from '../';
 
@@ -48,7 +49,7 @@ describe('Tabs', () => {
 
     const { getAllByTestId } = render(<BasicExample onChange={onChangeSpy} />);
 
-    fireEvent.click(getAllByTestId('tab')[1]);
+    userEvent.click(getAllByTestId('tab')[1]);
     expect(onChangeSpy).toHaveBeenCalledWith('tab-2');
   });
 
@@ -71,7 +72,7 @@ describe('Tabs', () => {
       const { getAllByTestId } = render(<BasicExample />);
       const tab = getAllByTestId('tab')[1];
 
-      fireEvent.click(tab);
+      userEvent.click(tab);
 
       expect(tab).toHaveAttribute('aria-selected', 'true');
     });

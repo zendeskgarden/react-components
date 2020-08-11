@@ -6,9 +6,9 @@
  */
 
 import React from 'react';
-import { render, fireEvent } from 'garden-test-utils';
+import userEvent from '@testing-library/user-event';
+import { render } from 'garden-test-utils';
 import mockDate from 'mockdate';
-import { KEY_CODES } from '@zendeskgarden/container-utilities';
 import DatepickerRange, { IDatepickerRangeProps } from '../DatepickerRange';
 
 const DEFAULT_START_VALUE = new Date(2019, 1, 5);
@@ -67,8 +67,9 @@ describe('DatepickerRange', () => {
       );
       const startInput = getByTestId('start');
 
-      fireEvent.change(startInput, { target: { value: '1/4/2019' } });
-      fireEvent.blur(startInput);
+      userEvent.clear(startInput);
+      userEvent.type(startInput, '1/4/2019');
+      userEvent.tab();
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 0, 4),
@@ -86,8 +87,9 @@ describe('DatepickerRange', () => {
       );
       const startInput = getByTestId('start');
 
-      fireEvent.change(startInput, { target: { value: 'Jan 4, 2019' } });
-      fireEvent.blur(startInput);
+      userEvent.clear(startInput);
+      userEvent.type(startInput, 'Jan 4, 2019');
+      userEvent.tab();
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 0, 4),
@@ -105,8 +107,9 @@ describe('DatepickerRange', () => {
       );
       const startInput = getByTestId('start');
 
-      fireEvent.change(startInput, { target: { value: 'January 4th, 2019' } });
-      fireEvent.blur(startInput);
+      userEvent.clear(startInput);
+      userEvent.type(startInput, 'January 4th, 2019');
+      userEvent.tab();
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 0, 4),
@@ -124,8 +127,9 @@ describe('DatepickerRange', () => {
       );
       const startInput = getByTestId('start');
 
-      fireEvent.change(startInput, { target: { value: 'January 4th, 2019' } });
-      fireEvent.keyDown(startInput, { keyCode: KEY_CODES.ENTER });
+      userEvent.clear(startInput);
+      userEvent.type(startInput, 'January 4th, 2019');
+      userEvent.type(startInput, '{enter}');
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 0, 4),
@@ -143,8 +147,9 @@ describe('DatepickerRange', () => {
       );
       const startInput = getByTestId('start');
 
-      fireEvent.change(startInput, { target: { value: 'invalid date' } });
-      fireEvent.blur(startInput);
+      userEvent.clear(startInput);
+      userEvent.type(startInput, 'invalid date');
+      userEvent.tab();
 
       expect(onChangeSpy).not.toHaveBeenCalled();
     });
@@ -163,8 +168,10 @@ describe('DatepickerRange', () => {
           <DatepickerRange.Calendar />
         </DatepickerRange>
       );
+      const startInput = getByTestId('start');
 
-      fireEvent.change(getByTestId('start'), { target: { value: 'hello' } });
+      userEvent.clear(startInput);
+      userEvent.type(startInput, 'hello');
 
       expect(onInputChangeSpy).toHaveBeenCalled();
     });
@@ -184,7 +191,8 @@ describe('DatepickerRange', () => {
         </DatepickerRange>
       );
 
-      fireEvent.blur(getByTestId('start'));
+      userEvent.click(getByTestId('start'));
+      userEvent.tab();
 
       expect(onBlurSpy).toHaveBeenCalled();
     });
@@ -204,7 +212,7 @@ describe('DatepickerRange', () => {
         </DatepickerRange>
       );
 
-      fireEvent.focus(getByTestId('start'));
+      userEvent.click(getByTestId('start'));
 
       expect(onFocusSpy).toHaveBeenCalled();
     });
@@ -224,7 +232,7 @@ describe('DatepickerRange', () => {
         </DatepickerRange>
       );
 
-      fireEvent.keyDown(getByTestId('start'));
+      userEvent.type(getByTestId('start'), 'hello');
 
       expect(onKeyDownSpy).toHaveBeenCalled();
     });

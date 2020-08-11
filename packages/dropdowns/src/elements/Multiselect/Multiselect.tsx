@@ -10,13 +10,19 @@ import PropTypes from 'prop-types';
 import { DefaultTheme, ThemeProps } from 'styled-components';
 import { Reference } from 'react-popper';
 import { useSelection } from '@zendeskgarden/container-selection';
-import { KEY_CODES, useCombinedRefs } from '@zendeskgarden/container-utilities';
-import { isRtl, withTheme } from '@zendeskgarden/react-theming';
 import {
+  KEY_CODES,
+  composeEventHandlers,
+  useCombinedRefs
+} from '@zendeskgarden/container-utilities';
+import { isRtl, withTheme } from '@zendeskgarden/react-theming';
+import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
+import {
+  StyledFauxInput,
   StyledMultiselectInput,
-  StyledItemWrapper,
-  StyledMoreAnchor,
-  StyledMultiSelect
+  StyledMultiselectItemsContainer,
+  StyledMultiselectItemWrapper,
+  StyledMultiselectMoreAnchor
 } from '../../styled';
 import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
@@ -24,29 +30,48 @@ import useFieldContext from '../../utils/useFieldContext';
 import { REMOVE_ITEM_STATE_TYPE } from '../Dropdown/Dropdown';
 
 interface IMultiselectProps extends HTMLAttributes<HTMLDivElement> {
+  /** Applies compact styling */
   isCompact?: boolean;
-  /** Removes all borders and styling */
+  /** Removes borders and padding */
   isBare?: boolean;
+  /** Indicates that the element is not interactive */
   disabled?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Displays select open state */
+  /** Indicates that the element's menu is open */
   isOpen?: boolean;
+  /** Defines text that appears in the element when no items are selected */
   placeholder?: string;
+  /** Defines the element's validation state */
   validation?: VALIDATION;
-  /** Number of items to show in the collapsed state. Default of 4. */
+  /** Determines the maximum number of items displayed while collapsed */
   maxItems?: number;
+  /** Callback that overrides the "+ N more" text displayed when the total number of items exceeds `maxItems` */
   renderShowMore?: (index: number) => string;
+  /** Callback that renders each item element */
   renderItem: (options: { value: any; removeValue: () => void }) => React.ReactElement;
+  /** Provides DOM access to the underlying input element */
   inputRef?: React.Ref<HTMLInputElement>;
+  /** Defines the icon rendered in the start position */
+  start?: any;
 }
 
 /**
  * Applies state and a11y attributes to its children. Must be nested within a `<Field>` component.
+ *
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemeProps<DefaultTheme>>(
   (
-    { renderItem, placeholder, maxItems, renderShowMore, inputRef: externalInputRef, ...props },
+    {
+      renderItem,
+      placeholder,
+      maxItems,
+      renderShowMore,
+      inputRef: externalInputRef,
+      start,
+      ...props
+    },
     ref
   ) => {
     const {
@@ -68,6 +93,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
     const triggerRef = useCombinedRefs<HTMLDivElement>(popperReferenceElementRef, ref);
     const blurTimeoutRef = useRef<number | undefined>();
     const previousIsOpenRef = useRef<boolean | undefined>(undefined);
+    const [isHovered, setIsHovered] = useState(false);
     const [isFocused, setIsFocused] = useState(false);
     const [focusedItem, setFocusedItem] = useState(undefined);
 
@@ -134,6 +160,8 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
           }
         }, 0) as unknown) as number;
       },
+      onMouseEnter: composeEventHandlers(props.onMouseEnter, () => setIsHovered(true)),
+      onMouseLeave: composeEventHandlers(props.onMouseLeave, () => setIsHovered(false)),
       ...props
     } as any);
 
@@ -150,9 +178,8 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
         const renderedItem = renderItem({ value: item, removeValue });
         const focusRef = React.createRef();
 
-        const clonedChild = React.cloneElement(
-          renderedItem,
-          getItemProps({
+        const clonedChild = React.cloneElement(renderedItem, {
+          ...getItemProps({
             item,
             focusRef,
             onKeyDown: (e: React.KeyboardEvent<any>) => {
@@ -190,12 +217,13 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
               (e as any).nativeEvent.preventDownshiftDefault = true;
             },
             tabIndex: -1
-          })
-        );
+          }),
+          size: props.isCompact ? 'medium' : 'large'
+        });
 
         const key = `${itemToString(item)}-${index}`;
 
-        return <StyledItemWrapper key={key}>{clonedChild}</StyledItemWrapper>;
+        return <StyledMultiselectItemWrapper key={key}>{clonedChild}</StyledMultiselectItemWrapper>;
       },
       [
         getItemProps,
@@ -218,21 +246,28 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
 
         if (x < maxItems!) {
           if (props.disabled) {
-            const renderedItem = renderItem({
-              value: item,
-              removeValue: () => {
-                return undefined;
+            const renderedItem = React.cloneElement(
+              renderItem({
+                value: item,
+                removeValue: () => {
+                  return undefined;
+                }
+              }),
+              {
+                size: props.isCompact ? 'medium' : 'large'
               }
-            });
+            );
 
-            output.push(<StyledItemWrapper key={x}>{renderedItem}</StyledItemWrapper>);
+            output.push(
+              <StyledMultiselectItemWrapper key={x}>{renderedItem}</StyledMultiselectItemWrapper>
+            );
           } else {
             output.push(renderSelectableItem(item, x));
           }
         } else if ((!isFocused && !inputValue) || props.disabled) {
           output.push(
-            <StyledItemWrapper key="more-anchor">
-              <StyledMoreAnchor
+            <StyledMultiselectItemWrapper key="more-anchor">
+              <StyledMultiselectMoreAnchor
                 data-test-id="show-more"
                 isCompact={props.isCompact}
                 isDisabled={props.disabled}
@@ -247,8 +282,8 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
                 {renderShowMore
                   ? renderShowMore(itemValues.length - x)
                   : `+ ${itemValues.length - x} more`}
-              </StyledMoreAnchor>
-            </StyledItemWrapper>
+              </StyledMultiselectMoreAnchor>
+            </StyledMultiselectItemWrapper>
           );
           break;
         } else {
@@ -269,16 +304,20 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
       props.isCompact
     ]);
 
+    const isContainerHovered = isLabelHovered && !isOpen;
+    const isContainerFocused = isOpen || isFocused;
+
     return (
       <Reference>
         {({ ref: popperReference }) => (
-          <StyledMultiSelect
+          <StyledFauxInput
+            data-test-is-open={isOpen}
+            data-test-is-hovered={isContainerHovered}
+            data-test-is-focused={isContainerFocused}
             {...getContainerProps({
               ...selectProps,
-              tagLayout: true,
-              isHovered: isLabelHovered && !isOpen,
-              isFocused: isOpen ? true : isFocused,
-              isOpen,
+              isHovered: isContainerHovered,
+              isFocused: isContainerFocused,
               ref: (selectRef: any) => {
                 // Pass ref to popperJS for positioning
                 (popperReference as any)(selectRef);
@@ -288,46 +327,67 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
               }
             })}
           >
-            {items}
-            <StyledMultiselectInput
-              {...(getInputProps({
-                disabled: props.disabled,
-                onFocus: () => {
-                  setFocusedItem(undefined);
-                },
-                onClick: (e: MouseEvent) => {
-                  if (inputValue && inputValue.length > 0 && isOpen) {
-                    (e as any).nativeEvent.preventDownshiftDefault = true;
-                  }
-                },
-                onKeyDown: (e: KeyboardEvent) => {
-                  if (!inputValue) {
-                    if (isRtl(props) && e.keyCode === KEY_CODES.RIGHT && selectedItems.length > 0) {
-                      setFocusedItem(selectedItems[selectedItems.length - 1]);
-                    } else if (
-                      !isRtl(props) &&
-                      e.keyCode === KEY_CODES.LEFT &&
-                      selectedItems.length > 0
-                    ) {
-                      setFocusedItem(selectedItems[selectedItems.length - 1]);
-                    } else if (e.keyCode === KEY_CODES.BACKSPACE && selectedItems.length > 0) {
-                      (setDownshiftState as any)({
-                        type: REMOVE_ITEM_STATE_TYPE,
-                        selectedItem: selectedItems[selectedItems.length - 1]
-                      });
+            {start && (
+              <StyledFauxInput.StartIcon isDisabled={props.disabled}>
+                {start}
+              </StyledFauxInput.StartIcon>
+            )}
+            <StyledMultiselectItemsContainer isBare={props.isBare} isCompact={props.isCompact}>
+              {items}
+              <StyledMultiselectInput
+                {...(getInputProps({
+                  disabled: props.disabled,
+                  onFocus: () => {
+                    setFocusedItem(undefined);
+                  },
+                  onClick: (e: MouseEvent) => {
+                    if (inputValue && inputValue.length > 0 && isOpen) {
                       (e as any).nativeEvent.preventDownshiftDefault = true;
-                      e.preventDefault();
-                      e.stopPropagation();
                     }
-                  }
-                },
-                isVisible: isFocused || inputValue || selectedItems.length === 0,
-                isCompact: props.isCompact,
-                ref: inputRef,
-                placeholder: selectedItems.length === 0 ? placeholder : undefined
-              }) as any)}
-            />
-          </StyledMultiSelect>
+                  },
+                  onKeyDown: (e: KeyboardEvent) => {
+                    if (!inputValue) {
+                      if (
+                        isRtl(props) &&
+                        e.keyCode === KEY_CODES.RIGHT &&
+                        selectedItems.length > 0
+                      ) {
+                        setFocusedItem(selectedItems[selectedItems.length - 1]);
+                      } else if (
+                        !isRtl(props) &&
+                        e.keyCode === KEY_CODES.LEFT &&
+                        selectedItems.length > 0
+                      ) {
+                        setFocusedItem(selectedItems[selectedItems.length - 1]);
+                      } else if (e.keyCode === KEY_CODES.BACKSPACE && selectedItems.length > 0) {
+                        (setDownshiftState as any)({
+                          type: REMOVE_ITEM_STATE_TYPE,
+                          selectedItem: selectedItems[selectedItems.length - 1]
+                        });
+                        (e as any).nativeEvent.preventDownshiftDefault = true;
+                        e.preventDefault();
+                        e.stopPropagation();
+                      }
+                    }
+                  },
+                  isVisible: isFocused || inputValue || selectedItems.length === 0,
+                  isCompact: props.isCompact,
+                  ref: inputRef,
+                  placeholder: selectedItems.length === 0 ? placeholder : undefined
+                }) as any)}
+              />
+            </StyledMultiselectItemsContainer>
+            {!props.isBare && (
+              <StyledFauxInput.EndIcon
+                isHovered={isHovered || (isLabelHovered && !isOpen)}
+                isFocused={isOpen}
+                isDisabled={props.disabled}
+                isRotated={isOpen}
+              >
+                <Chevron />
+              </StyledFauxInput.EndIcon>
+            )}
+          </StyledFauxInput>
         )}
       </Reference>
     );
@@ -336,12 +396,9 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
 
 Multiselect.propTypes = {
   isCompact: PropTypes.bool,
-  /** Removes all borders and styling */
   isBare: PropTypes.bool,
   disabled: PropTypes.bool,
-  /** Applies inset `box-shadow` styling on focus */
   focusInset: PropTypes.bool,
-  /** Displays select open state */
   isOpen: PropTypes.bool,
   renderItem: PropTypes.func.isRequired,
   maxItems: PropTypes.number,

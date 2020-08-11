@@ -6,32 +6,40 @@
  */
 
 import React, { useRef, useState, useEffect, useCallback, HTMLAttributes } from 'react';
-import { useCombinedRefs, KEY_CODES } from '@zendeskgarden/container-utilities';
+import {
+  composeEventHandlers,
+  useCombinedRefs,
+  KEY_CODES
+} from '@zendeskgarden/container-utilities';
+import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
-import { StyledInput, SelectWrapper, StyledOverflowWrapper, StyledStartIcon } from '../../styled';
+import { StyledFauxInput, StyledInput, StyledSelect } from '../../styled';
 import { VALIDATION } from '../../utils/validation';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 
 interface ISelectProps extends HTMLAttributes<HTMLDivElement> {
-  /** Allows flush spacing of Tab elements */
-  tagLayout?: boolean;
+  /** Applies compact styling */
   isCompact?: boolean;
-  /** Removes all borders and styling */
+  /** Removes borders and padding */
   isBare?: boolean;
+  /** Indicates that the element is not interactive */
   disabled?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Displays select open state */
+  /** Indicates that the element's menu is open */
   isOpen?: boolean;
+  /** Defines the element's validation state */
   validation?: VALIDATION;
-  /** Slot for "start" icon */
+  /** Defines the icon rendered in the start position */
   start?: any;
 }
 
 /**
  * Applies state and a11y attributes to its children. Must be nested within a `<Field>` component.
+ *
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
   ({ children, start, ...props }, ref) => {
@@ -49,6 +57,7 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
       }
     } = useDropdownContext();
     const { isLabelHovered } = useFieldContext();
+    const [isHovered, setIsHovered] = useState(false);
     const hiddenInputRef = useRef<HTMLInputElement>(null);
     const triggerRef = useCombinedRefs<HTMLDivElement>(ref, popperReferenceElementRef);
     const previousIsOpenRef = useRef<boolean | undefined>(undefined);
@@ -185,17 +194,22 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
     /* eslint-disable @typescript-eslint/no-unused-vars */
     const { type, ...selectProps } = getToggleButtonProps({
       tabIndex: props.disabled ? undefined : 0,
+      onMouseEnter: composeEventHandlers(props.onMouseEnter, () => setIsHovered(true)),
+      onMouseLeave: composeEventHandlers(props.onMouseLeave, () => setIsHovered(false)),
       ...props
     } as any);
+
+    const isContainerHovered = isLabelHovered && !isOpen;
 
     return (
       <Reference>
         {({ ref: popperReference }) => (
-          <SelectWrapper
-            isHovered={isLabelHovered && !isOpen}
+          <StyledFauxInput
+            data-test-is-open={isOpen}
+            data-test-is-hovered={isContainerHovered}
+            data-test-is-focused={isOpen}
+            isHovered={isContainerHovered}
             isFocused={isOpen}
-            isOpen={isOpen}
-            isShowingStart={start}
             {...selectProps}
             ref={selectRef => {
               // Pass ref to popperJS for positioning
@@ -209,15 +223,11 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
             }}
           >
             {start && (
-              <StyledStartIcon
-                isCompact={props.isCompact}
-                isBare={props.isBare}
-                disabled={props.disabled}
-              >
+              <StyledFauxInput.StartIcon isDisabled={props.disabled}>
                 {start}
-              </StyledStartIcon>
+              </StyledFauxInput.StartIcon>
             )}
-            <StyledOverflowWrapper>{children}</StyledOverflowWrapper>
+            <StyledSelect>{children}</StyledSelect>
             <StyledInput
               {...getInputProps({
                 readOnly: true,
@@ -227,8 +237,19 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
                 value: '',
                 onKeyDown: onInputKeyDown
               } as any)}
-            />
-          </SelectWrapper>
+            ></StyledInput>
+            {!props.isBare && (
+              <StyledFauxInput.EndIcon
+                data-test-id="select-icon"
+                isHovered={isHovered || (isLabelHovered && !isOpen)}
+                isFocused={isOpen}
+                isDisabled={props.disabled}
+                isRotated={isOpen}
+              >
+                <Chevron />
+              </StyledFauxInput.EndIcon>
+            )}
+          </StyledFauxInput>
         )}
       </Reference>
     );
@@ -238,15 +259,10 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
 Select.displayName = 'Select';
 
 Select.propTypes = {
-  /** Allows flush spacing of Tab elements */
-  tagLayout: PropTypes.bool,
   isCompact: PropTypes.bool,
-  /** Removes all borders and styling */
   isBare: PropTypes.bool,
   disabled: PropTypes.bool,
-  /** Applies inset `box-shadow` styling on focus */
   focusInset: PropTypes.bool,
-  /** Displays select open state */
   isOpen: PropTypes.bool,
   validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };

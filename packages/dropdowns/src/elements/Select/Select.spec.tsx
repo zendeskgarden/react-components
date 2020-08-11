@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import userEvent from '@testing-library/user-event';
 import { render, fireEvent } from 'garden-test-utils';
 import { Dropdown, Select, Field, Menu, Item, Label } from '../..';
 
@@ -48,7 +49,7 @@ describe('Select', () => {
   it('focuses internal input when opened', () => {
     const { getByTestId } = render(<ExampleSelect />);
 
-    fireEvent.click(getByTestId('select'));
+    userEvent.click(getByTestId('select'));
 
     expect(document.activeElement!.nodeName).toBe('INPUT');
   });
@@ -58,9 +59,9 @@ describe('Select', () => {
     const select = getByTestId('select');
 
     // Open dropdown
-    fireEvent.click(select);
+    userEvent.click(select);
     // Close dropdown
-    fireEvent.click(select);
+    userEvent.click(select);
 
     expect(document.activeElement).toEqual(select);
   });
@@ -90,7 +91,7 @@ describe('Select', () => {
 
     const select = getByTestId('select');
 
-    fireEvent.click(select);
+    userEvent.click(select);
 
     expect(select).toHaveAttribute('data-test-is-focused', 'true');
     expect(select).toHaveAttribute('data-test-is-open', 'true');
@@ -106,7 +107,7 @@ describe('Select', () => {
       </Dropdown>
     );
 
-    fireEvent.mouseEnter(getByTestId('label'));
+    userEvent.hover(getByTestId('label'));
 
     expect(getByTestId('select')).toHaveAttribute('data-test-is-hovered', 'true');
   });
@@ -134,12 +135,8 @@ describe('Select', () => {
 
     const icon = getByTestId('icon');
 
-    expect(icon.parentElement).toHaveStyleRule('width', '16px', {
-      modifier: '& > *'
-    });
-    expect(icon.parentElement).toHaveStyleRule('height', '16px', {
-      modifier: '& > *'
-    });
+    expect(icon).toHaveStyleRule('width', '16px');
+    expect(icon).toHaveStyleRule('height', '16px');
   });
 
   describe('Interaction', () => {
@@ -147,7 +144,7 @@ describe('Select', () => {
       const { getByTestId } = render(<ExampleSelect />);
       const select = getByTestId('select');
 
-      fireEvent.click(select);
+      userEvent.click(select);
 
       expect(select).toHaveAttribute('data-test-is-open', 'true');
     });
@@ -180,10 +177,10 @@ describe('Select', () => {
       const { getByTestId } = render(<ExampleSelect />);
       const select = getByTestId('select');
 
-      fireEvent.click(select);
+      userEvent.click(select);
       expect(select).toHaveAttribute('data-test-is-open', 'true');
 
-      fireEvent.keyDown(select, { key: 'Escape', keyCode: 27 });
+      userEvent.type(select, '{esc}');
       expect(select).not.toHaveClass('is-open');
     });
   });

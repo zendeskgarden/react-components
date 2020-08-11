@@ -9,7 +9,7 @@ our standard `Tag` component.
     <Label>Example Multiselect</Label>
     <Multiselect
       renderItem={({ value, removeValue }) => (
-        <Tag size="large">
+        <Tag>
           <span>{value}</span>
           <Close onClick={() => removeValue()} />
         </Tag>
@@ -113,7 +113,6 @@ function ExampleAutocomplete() {
         <Label>Multiselect with debounce</Label>
         <Hint>This example includes basic debounce logic</Hint>
         <Multiselect
-          isCompact
           renderItem={({ value, removeValue }) => (
             <Tag>
               <span>{value}</span>
@@ -122,7 +121,7 @@ function ExampleAutocomplete() {
           )}
         />
       </Field>
-      <Menu isCompact>{renderOptions()}</Menu>
+      <Menu>{renderOptions()}</Menu>
     </Dropdown>
   );
 }

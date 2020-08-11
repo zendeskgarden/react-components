@@ -25,5 +25,10 @@ export { default as MultiThumbRange, IMultiThumbRangeProps } from './elements/Mu
 export { Tiles } from './elements/tiles/Tiles';
 
 /** Other */
-export { FauxInput, IFauxInputProps } from './elements/FauxInput';
+export {
+  FauxInput,
+  IFauxInputProps,
+  IStaticFauxInputExport,
+  IIconProps
+} from './elements/FauxInput';
 export { MediaInput, IMediaInputProps } from './elements/MediaInput';

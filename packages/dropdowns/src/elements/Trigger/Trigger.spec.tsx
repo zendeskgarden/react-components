@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import userEvent from '@testing-library/user-event';
 import { render, fireEvent } from 'garden-test-utils';
 import { Dropdown, Trigger, Menu, Item } from '../..';
 
@@ -32,7 +33,7 @@ describe('Trigger', () => {
   it('focuses internal input when opened', () => {
     const { getByTestId } = render(<ExampleMenu />);
 
-    fireEvent.click(getByTestId('trigger'));
+    userEvent.click(getByTestId('trigger'));
 
     expect(document.activeElement!.nodeName).toBe('INPUT');
   });
@@ -42,9 +43,9 @@ describe('Trigger', () => {
     const trigger = getByTestId('trigger');
 
     // Open dropdown
-    fireEvent.click(trigger);
+    userEvent.click(trigger);
     // Close dropdown
-    fireEvent.click(trigger);
+    userEvent.click(trigger);
 
     expect(document.activeElement).toEqual(trigger);
   });
@@ -61,7 +62,7 @@ describe('Trigger', () => {
       const { getByTestId } = render(<ExampleMenu />);
       const trigger = getByTestId('trigger');
 
-      fireEvent.click(trigger);
+      userEvent.click(trigger);
 
       expect(trigger).toHaveAttribute('aria-expanded', 'true');
     });
@@ -94,10 +95,10 @@ describe('Trigger', () => {
       const { getByTestId } = render(<ExampleMenu />);
       const trigger = getByTestId('trigger');
 
-      fireEvent.click(trigger);
+      userEvent.click(trigger);
       expect(trigger).toHaveAttribute('aria-expanded', 'true');
 
-      fireEvent.keyDown(trigger, { key: 'Escape', keyCode: 27 });
+      userEvent.type(trigger, '{esc}');
       expect(trigger).toHaveAttribute('aria-expanded', 'false');
     });
   });
