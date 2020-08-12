@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, renderRtl, act } from 'garden-test-utils';
-import { TooltipModal } from './TooltipModal';
+import { TooltipModal, ITooltipModalProps } from './TooltipModal';
 
 describe('TooltipModal', () => {
   const TOOLTIP_MODAL_ID = 'TEST_ID';
@@ -18,63 +18,62 @@ describe('TooltipModal', () => {
     onCloseSpy = jest.fn();
   });
 
-  describe('Placement', () => {
-    it('renders LTR placement correctly', async () => {
-      const { container, getByTestId, rerender } = render(<div />);
+  const Example = React.forwardRef<HTMLDivElement, ITooltipModalProps>(
+    ({ onClose, ...props }, ref) => {
+      const [isOpen, setIsOpen] = useState(false);
+      const buttonRef = React.useRef<HTMLButtonElement>(null);
 
-      await act(async () => {
-        await rerender(
-          <TooltipModal referenceElement={container} placement="start" data-test-id="modal">
-            <TooltipModal.Title>Title</TooltipModal.Title>
-            <TooltipModal.Body>Content</TooltipModal.Body>
-            <TooltipModal.Footer>
-              <TooltipModal.FooterItem>
-                <button>Finish</button>
-              </TooltipModal.FooterItem>
-            </TooltipModal.Footer>
+      return (
+        <>
+          <button ref={buttonRef} onClick={() => setIsOpen(!isOpen)}>
+            open
+          </button>
+          <TooltipModal
+            ref={ref}
+            onClose={e => {
+              setIsOpen(false);
+              onClose && onClose(e);
+            }}
+            referenceElement={isOpen && buttonRef.current ? buttonRef.current : undefined}
+            {...props}
+          >
+            <TooltipModal.Title>title</TooltipModal.Title>
+            <TooltipModal.Body>body</TooltipModal.Body>
+            <TooltipModal.Footer>footer</TooltipModal.Footer>
             <TooltipModal.Close aria-label="Close" />
           </TooltipModal>
-        );
+        </>
+      );
+    }
+  );
+
+  Example.displayName = 'Example';
+
+  describe('Placement', () => {
+    it('renders LTR placement correctly', async () => {
+      const { getByRole, getByText } = render(<Example placement="start" />);
+
+      await act(async () => {
+        await userEvent.click(getByText('open'));
       });
 
-      expect(getByTestId('modal').parentElement).toHaveAttribute('data-popper-placement', 'left');
+      expect(getByRole('dialog').parentElement).toHaveAttribute('data-popper-placement', 'left');
     });
 
     it('renders RTL placement correctly', async () => {
-      const { container, getByTestId, rerender } = renderRtl(<div />);
+      const { getByRole, getByText } = renderRtl(<Example placement="start" />);
 
       await act(async () => {
-        await rerender(
-          <TooltipModal referenceElement={container} placement="start" data-test-id="modal">
-            <TooltipModal.Title>Title</TooltipModal.Title>
-            <TooltipModal.Body>Content</TooltipModal.Body>
-            <TooltipModal.Footer>
-              <TooltipModal.FooterItem>
-                <button>Finish</button>
-              </TooltipModal.FooterItem>
-            </TooltipModal.Footer>
-            <TooltipModal.Close aria-label="Close" />
-          </TooltipModal>
-        );
+        await userEvent.click(getByText('open'));
       });
 
-      expect(getByTestId('modal').parentElement).toHaveAttribute('data-popper-placement', 'right');
+      expect(getByRole('dialog').parentElement).toHaveAttribute('data-popper-placement', 'right');
     });
   });
 
   describe('Body overflow', () => {
-    it('applies no overflow styling when not positioned', async () => {
-      const { baseElement, rerender } = render(<div />);
-
-      await act(async () => {
-        await rerender(
-          <TooltipModal>
-            <TooltipModal.Title>Title</TooltipModal.Title>
-            <TooltipModal.Body>Content</TooltipModal.Body>
-            <TooltipModal.Close aria-label="Close" />
-          </TooltipModal>
-        );
-      });
+    it('applies no overflow styling when not positioned', () => {
+      const { baseElement } = render(<Example />);
 
       expect(baseElement).not.toHaveStyle({
         overflow: 'hidden'
@@ -82,16 +81,10 @@ describe('TooltipModal', () => {
     });
 
     it('applies overflow hidden styling when positioned', async () => {
-      const { container, baseElement, rerender } = render(<div />);
+      const { baseElement, getByText } = render(<Example />);
 
       await act(async () => {
-        await rerender(
-          <TooltipModal referenceElement={container}>
-            <TooltipModal.Title>Title</TooltipModal.Title>
-            <TooltipModal.Body>Content</TooltipModal.Body>
-            <TooltipModal.Close aria-label="Close" />
-          </TooltipModal>
-        );
+        await userEvent.click(getByText('open'));
       });
 
       expect(baseElement).toHaveStyle({
@@ -100,121 +93,79 @@ describe('TooltipModal', () => {
     });
   });
 
-  it('passes ref to underlying DOM element', async () => {
-    const ref = React.createRef<HTMLDivElement>();
-    const { container, getByTestId, rerender } = render(<div />);
-
-    await act(async () => {
-      await rerender(
-        <TooltipModal referenceElement={container} ref={ref} data-test-id="tooltip-modal" />
-      );
-    });
-
-    expect(getByTestId('tooltip-modal')).toBe(ref.current);
-  });
-
   it('applies backdropProps to Backdrop element', async () => {
-    const { container, getByTestId, rerender } = render(<div />);
+    const { getByTestId, getByText } = renderRtl(
+      <Example backdropProps={{ 'data-test-id': 'backdrop' }} />
+    );
 
     await act(async () => {
-      await rerender(
-        <TooltipModal referenceElement={container} backdropProps={{ 'data-test-id': 'backdrop' }} />
-      );
+      await userEvent.click(getByText('open'));
     });
 
     expect(getByTestId('backdrop')).not.toBeNull();
   });
 
   it('applies title a11y attributes to Title element', async () => {
-    const { container, getByText, rerender } = render(<div />);
+    const { getByText } = renderRtl(<Example id={TOOLTIP_MODAL_ID} />);
 
     await act(async () => {
-      await rerender(
-        <TooltipModal referenceElement={container} id={TOOLTIP_MODAL_ID}>
-          <TooltipModal.Title>title</TooltipModal.Title>
-        </TooltipModal>
-      );
+      await userEvent.click(getByText('open'));
     });
 
     expect(getByText('title')).toHaveAttribute('id', `${TOOLTIP_MODAL_ID}--title`);
   });
 
   it('applies content a11y attributes to Body element', async () => {
-    const { container, getByText, rerender } = render(<div />);
+    const { getByText } = renderRtl(<Example id={TOOLTIP_MODAL_ID} />);
 
     await act(async () => {
-      await rerender(
-        <TooltipModal referenceElement={container} id={TOOLTIP_MODAL_ID}>
-          <TooltipModal.Body>body</TooltipModal.Body>
-        </TooltipModal>
-      );
+      await userEvent.click(getByText('open'));
     });
 
     expect(getByText('body')).toHaveAttribute('id', `${TOOLTIP_MODAL_ID}--content`);
   });
 
   it('applies close a11y attributes to Close element', async () => {
-    const { container, getByRole, rerender } = render(<div />);
+    const { getAllByRole, getByText } = renderRtl(<Example id={TOOLTIP_MODAL_ID} />);
 
     await act(async () => {
-      await rerender(
-        <TooltipModal referenceElement={container}>
-          <TooltipModal.Close />
-        </TooltipModal>
-      );
+      await userEvent.click(getByText('open'));
     });
 
-    expect(getByRole('button')).toHaveAttribute('aria-label', 'Close modal');
+    expect(getAllByRole('button')[1]).toHaveAttribute('aria-label', 'Close');
   });
 
   describe('onClose()', () => {
     it('is triggered by backdrop click', async () => {
-      const { container, getByTestId, rerender } = render(<div />);
+      const { getByTestId, getByText } = render(
+        <Example onClose={onCloseSpy} backdropProps={{ 'data-test-id': 'backdrop' }} />
+      );
 
       await act(async () => {
-        await rerender(
-          <TooltipModal
-            referenceElement={container}
-            backdropProps={{ 'data-test-id': 'backdrop' }}
-            onClose={onCloseSpy}
-          >
-            <TooltipModal.Body>body</TooltipModal.Body>
-          </TooltipModal>
-        );
+        await userEvent.click(getByText('open'));
+        await userEvent.click(getByTestId('backdrop'));
       });
 
-      userEvent.click(getByTestId('backdrop'));
       expect(onCloseSpy).toHaveBeenCalled();
     });
 
     it('is triggered by Close element click', async () => {
-      const { container, getByRole, rerender } = render(<div />);
+      const { getAllByRole, getByText } = render(<Example onClose={onCloseSpy} />);
 
       await act(async () => {
-        await rerender(
-          <TooltipModal referenceElement={container} onClose={onCloseSpy}>
-            <TooltipModal.Close aria-label="Close" />
-          </TooltipModal>
-        );
+        await userEvent.click(getByText('open'));
+        await userEvent.click(getAllByRole('button')[1]);
       });
 
-      userEvent.click(getByRole('button'));
       expect(onCloseSpy).toHaveBeenCalled();
     });
 
     it('is triggered by ESC key', async () => {
-      const { container, getByTestId, rerender } = render(<div />);
+      const { getByRole, getByText } = render(<Example onClose={onCloseSpy} />);
 
       await act(async () => {
-        await rerender(
-          <TooltipModal referenceElement={container} onClose={onCloseSpy} data-test-id="modal">
-            <TooltipModal.Body>body</TooltipModal.Body>
-          </TooltipModal>
-        );
-      });
-
-      act(() => {
-        userEvent.type(getByTestId('modal'), '{esc}');
+        await userEvent.click(getByText('open'));
+        await userEvent.type(getByRole('dialog'), '{esc}');
       });
 
       expect(onCloseSpy).toHaveBeenCalled();
