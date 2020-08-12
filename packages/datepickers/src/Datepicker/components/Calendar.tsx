@@ -17,6 +17,7 @@ import isSameDay from 'date-fns/isSameDay';
 import isSameMonth from 'date-fns/isSameMonth';
 import isBefore from 'date-fns/isBefore';
 import isAfter from 'date-fns/isAfter';
+import getDate from 'date-fns/getDate';
 import {
   StyledDatepicker,
   StyledCalendar,
@@ -78,19 +79,8 @@ const Calendar: React.FunctionComponent<ICalendarProps> = ({
     }
   );
 
-  const dayFormatter = useCallback(
-    date => {
-      const formatter = new Intl.DateTimeFormat(locale, {
-        day: 'numeric'
-      });
-
-      return formatter.format(date);
-    },
-    [locale]
-  );
-
   const items = eachDayOfInterval({ start: startDate, end: endDate }).map((date, itemsIndex) => {
-    const formattedDayLabel = dayFormatter(date);
+    const formattedDayLabel = getDate(date);
     const isCurrentDate = isToday(date);
     const isPreviousMonth = !isSameMonth(date, state.previewDate);
     const isSelected = value && isSameDay(date, value);
