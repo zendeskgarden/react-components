@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import {
   getLineHeight,
   retrieveComponentStyles,
@@ -14,18 +14,22 @@ import {
 
 const COMPONENT_ID = 'modals.tooltip_modal.title';
 
+const sizeStyles = (props: ThemeProps<DefaultTheme>) => `
+  /* stylelint-disable-next-line property-no-unknown */
+  padding-${props.theme.rtl ? 'left' : 'right'}: ${props.theme.space.base * 8}px;
+  line-height: ${getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
+  font-size: ${props.theme.fontSizes.md};
+`;
+
 export const StyledTooltipModalTitle = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
   margin: 0;
-  /* stylelint-disable-next-line property-no-unknown */
-  padding-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
-  props.theme.space.base * 8}px;
-  line-height: ${props => getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
   color: ${props => props.theme.colors.foreground};
-  font-size: ${props => props.theme.fontSizes.md};
   font-weight: ${props => props.theme.fontWeights.semibold};
+
+  ${props => sizeStyles(props)};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

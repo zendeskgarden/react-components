@@ -18,22 +18,25 @@ export interface IStyledTooltipModalProps {
    * All valid [Popper.JS Placements](https://popper.js.org/popper-documentation.html#Popper.placements)
    */
   placement: Placement;
+  isAnimated?: boolean;
 }
 
 /**
  * Accepts all `<div>` props
+ *
+ * 1. Override arrow parent positioning to ensure arrow is visible beyond block
+ *    overflow boundaries.
  */
-export const StyledTooltipModal = styled.div.attrs<IStyledTooltipModalProps>({
+export const StyledTooltipModal = styled.div.attrs<IStyledTooltipModalProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: 'is-animated'
-})<IStyledTooltipModalProps>`
+  className: props.isAnimated && 'is-animated'
+}))<IStyledTooltipModalProps>`
   /* stylelint-disable-next-line declaration-no-important */
   position: static !important; /* [1] */
 
   padding: ${props => props.theme.space.base * 5}px;
   width: 400px;
-  min-height: 150px; /* TODO themify */
 
   ${props =>
     props.hasArrow &&

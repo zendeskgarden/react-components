@@ -12,18 +12,18 @@ import { TooltipModal } from '../elements/TooltipModal/TooltipModal';
 import { useTooltipModalContext } from './useTooltipModalContext';
 
 describe('useTooltipModalContext', () => {
-  const ModalContextConsumer = () => {
+  const TooltipModalContextConsumer = () => {
     const context = useTooltipModalContext();
 
     return <div>{context && 'it worked'}</div>;
   };
 
-  it('throws if called outside of Modal component', () => {
+  it('throws if called outside of TooltipModal component', () => {
     const originalError = console.error;
 
     console.error = jest.fn();
 
-    const Example = () => <ModalContextConsumer />;
+    const Example = () => <TooltipModalContextConsumer />;
 
     expect(() => {
       render(<Example />);
@@ -32,10 +32,10 @@ describe('useTooltipModalContext', () => {
     console.error = originalError;
   });
 
-  it('does not throw if called within Modal component', () => {
+  it('does not throw if called within TooltipModal component', () => {
     const Example = () => (
       <TooltipModal>
-        <ModalContextConsumer />
+        <TooltipModalContextConsumer />
       </TooltipModal>
     );
 

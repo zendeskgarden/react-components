@@ -13,6 +13,7 @@ const StyledProgress = styled(TooltipModal.FooterItem)`
 
 const Example = () => {
   const [hasArrow, setHasArrow] = React.useState(true);
+  const [isAnimated, setIsAnimated] = React.useState(true);
   const [step, setStep] = React.useState();
   const step1Ref = React.useRef();
   const step2Ref = React.useRef();
@@ -50,13 +51,26 @@ const Example = () => {
       <Row className="u-mb-md">
         <Col>
           <Well isRecessed>
-            <Field>
-              <Toggle checked={hasArrow} onChange={e => setHasArrow(e.target.checked)}>
-                <Label>
-                  <Code>hasArrow</Code>
-                </Label>
-              </Toggle>
-            </Field>
+            <Row>
+              <Col>
+                <Field>
+                  <Toggle checked={hasArrow} onChange={e => setHasArrow(e.target.checked)}>
+                    <Label>
+                      <Code>hasArrow</Code>
+                    </Label>
+                  </Toggle>
+                </Field>
+              </Col>
+              <Col>
+                <Field>
+                  <Toggle checked={isAnimated} onChange={e => setIsAnimated(e.target.checked)}>
+                    <Label>
+                      <Code>isAnimated</Code>
+                    </Label>
+                  </Toggle>
+                </Field>
+              </Col>
+            </Row>
           </Well>
         </Col>
       </Row>
@@ -86,9 +100,10 @@ const Example = () => {
         referenceElement={referenceElement}
         placement={placement}
         hasArrow={hasArrow}
+        isAnimated={isAnimated}
         onClose={() => setStep(undefined)}
       >
-        <TooltipModal.Title>Header content</TooltipModal.Title>
+        <TooltipModal.Title>Title for step {step}</TooltipModal.Title>
         <TooltipModal.Body>
           Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea
           sprouts fava bean collard greens dandelion okra wakame tomato. Dandelion cucumber earthnut
@@ -99,9 +114,11 @@ const Example = () => {
             <span>{step} of 4</span>
           </StyledProgress>
           <TooltipModal.FooterItem>
-            <Button size="small" disabled={step === 1} onClick={() => setStep(step - 1)}>
-              Previous
-            </Button>
+            {step > 1 && (
+              <Button size="small" onClick={() => setStep(step - 1)}>
+                Previous
+              </Button>
+            )}
           </TooltipModal.FooterItem>
           <TooltipModal.FooterItem>
             <Button

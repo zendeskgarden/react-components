@@ -21,6 +21,7 @@ import { ThemeContext } from 'styled-components';
 import { usePopper, Modifier } from 'react-popper';
 import { useModal } from '@zendeskgarden/container-modal';
 import { useCombinedRefs } from '@zendeskgarden/container-utilities';
+import { useDocument } from '@zendeskgarden/react-theming';
 import {
   GARDEN_PLACEMENT,
   getRtlPopperPlacement,
@@ -51,7 +52,7 @@ export interface ITooltipModalProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * The `HTMLElement` to position the `TooltipModal` relative to.
    */
-  referenceElement?: HTMLElement;
+  referenceElement?: HTMLElement | null;
   /**
    * [Popper.js v2 modifiers](https://popper.js.org/docs/v2/modifiers/)
    * to customize positioning logic.
@@ -62,7 +63,14 @@ export interface ITooltipModalProps extends HTMLAttributes<HTMLDivElement> {
    * assist with RTL layouts.
    **/
   placement?: GARDEN_PLACEMENT;
+  /**
+   * Whether to display an arrow.
+   */
   hasArrow?: boolean;
+  isAnimated?: boolean;
+  /**
+   * The `z-index` of the positioned element.
+   */
   zIndex?: number;
   /**
    * Callback when a close action has been completed.
@@ -96,6 +104,7 @@ export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>
       placement,
       onClose,
       hasArrow,
+      isAnimated,
       zIndex,
       style,
       backdropProps,
@@ -107,7 +116,8 @@ export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>
     ref
   ) => {
     const theme = useContext(ThemeContext);
-    const previousReferenceElementRef = useRef<HTMLElement>();
+    const environment = useDocument(theme);
+    const previousReferenceElementRef = useRef<HTMLElement | null>();
     const modalRef = useCombinedRefs(ref);
     const [popperElement, setPopperElement] = useState<HTMLDivElement | null>();
     const {
@@ -133,6 +143,26 @@ export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>
       previousReferenceElementRef.current = referenceElement;
     }, [referenceElement, restoreFocus]);
 
+    useEffect(() => {
+      if (!environment) {
+        return undefined;
+      }
+
+      const bodyElement = environment.querySelector('body');
+
+      if (bodyElement && referenceElement) {
+        const previousBodyOverflow = bodyElement.style.overflow;
+
+        bodyElement.style.overflow = 'hidden';
+
+        return () => {
+          bodyElement.style.overflow = previousBodyOverflow;
+        };
+      }
+
+      return undefined;
+    }, [environment, referenceElement]);
+
     const popperPlacement = useMemo(
       () => (theme.rtl ? getRtlPopperPlacement(placement!) : getPopperPlacement(placement!)),
       [placement, theme.rtl]
@@ -156,6 +186,7 @@ export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>
       ref: modalRef,
       placement: state ? state.placement : 'top',
       hasArrow,
+      isAnimated,
       style,
       ...props
     }) as any;
@@ -168,6 +199,7 @@ export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>
             style={styles.popper}
             placement={state ? state.placement : undefined}
             zIndex={zIndex}
+            isAnimated={isAnimated}
             {...attributes.popper}
           >
             <StyledTooltipModal {...modalProps} />

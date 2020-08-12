@@ -10,26 +10,27 @@ import { DEFAULT_THEME, menuStyles } from '@zendeskgarden/react-theming';
 import { getMenuPosition } from '../utils/gardenPlacements';
 import { Placement } from '@popperjs/core';
 
-/**
- * 1. Popper v2 no longer allows margin values to be applied to referenced
- *    elements.
- */
-export const StyledTooltipWrapper = styled.div.attrs({
-  className: 'is-animated'
-})<{
+interface IStyledTooltipWrapperProps {
+  isAnimated?: boolean;
   zIndex?: number;
   placement?: Placement;
-}>`
+}
+
+export const StyledTooltipWrapper = styled.div.attrs<IStyledTooltipWrapperProps>(props => ({
+  className: props.isAnimated && 'is-animated'
+}))<IStyledTooltipWrapperProps>`
   ${props =>
     menuStyles(getMenuPosition(props.placement), {
       theme: props.theme,
       hidden: false,
-      margin: `${props.theme.space.base}px`,
+      /**
+       * Popper v2 no longer allows margin values to be applied to referenced
+       * elements.
+       */
+      margin: '0',
       zIndex: props.zIndex,
       animationModifier: '.is-animated'
     })};
-
-  margin: 0; /* [1] */
 `;
 
 StyledTooltipWrapper.defaultProps = {

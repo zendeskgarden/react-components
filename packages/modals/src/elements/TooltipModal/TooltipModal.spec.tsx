@@ -62,6 +62,44 @@ describe('TooltipModal', () => {
     });
   });
 
+  describe('Body overflow', () => {
+    it('applies no overflow styling when not positioned', async () => {
+      const { baseElement, rerender } = render(<div />);
+
+      await act(async () => {
+        await rerender(
+          <TooltipModal>
+            <TooltipModal.Title>Title</TooltipModal.Title>
+            <TooltipModal.Body>Content</TooltipModal.Body>
+            <TooltipModal.Close aria-label="Close" />
+          </TooltipModal>
+        );
+      });
+
+      expect(baseElement).not.toHaveStyle({
+        overflow: 'hidden'
+      });
+    });
+
+    it('applies overflow hidden styling when positioned', async () => {
+      const { container, baseElement, rerender } = render(<div />);
+
+      await act(async () => {
+        await rerender(
+          <TooltipModal referenceElement={container}>
+            <TooltipModal.Title>Title</TooltipModal.Title>
+            <TooltipModal.Body>Content</TooltipModal.Body>
+            <TooltipModal.Close aria-label="Close" />
+          </TooltipModal>
+        );
+      });
+
+      expect(baseElement).toHaveStyle({
+        overflow: 'hidden'
+      });
+    });
+  });
+
   it('passes ref to underlying DOM element', async () => {
     const ref = React.createRef<HTMLDivElement>();
     const { container, getByTestId, rerender } = render(<div />);
