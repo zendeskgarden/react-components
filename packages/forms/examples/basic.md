@@ -1,10 +1,10 @@
-### Text inputs
+### Text and Select inputs
 
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
 const {
   Dropdown,
-  Select,
+  Select: SelectElement,
   Field: SelectField,
   Label: SelectLabel,
   Menu,
@@ -102,7 +102,7 @@ const StyledMessage = styled(Message)`
         >
           <SelectField className="u-mt-xs">
             <SelectLabel>Validation</SelectLabel>
-            <Select isCompact>{state.validation || 'none'}</Select>
+            <SelectElement isCompact>{state.validation || 'none'}</SelectElement>
           </SelectField>
           <Menu isCompact>
             <Item value="">none</Item>
@@ -154,6 +154,24 @@ const StyledMessage = styled(Message)`
         {state.message && <StyledMessage validation={state.validation}>Message</StyledMessage>}
       </StyledField>
       <StyledField className="u-mt-sm">
+        <StyledLabel isRegular={state.regular}>Select</StyledLabel>
+        {state.hint && <StyledHint>Hint</StyledHint>}
+        <Select
+          disabled={state.disabled}
+          focusInset={state.focusInset}
+          isBare={state.bare}
+          isCompact={state.compact}
+          validation={state.validation}
+          style={state.inline ? { width: 'auto', margin: 0 } : {}}
+        >
+          <option>Option one</option>
+          <option>Option two</option>
+          <option>Option three</option>
+          <option>Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi</option>
+        </Select>
+        {state.message && <StyledMessage validation={state.validation}>Message</StyledMessage>}
+      </StyledField>
+      <StyledField className="u-mt-sm">
         <StyledLabel isRegular={state.regular}>MediaInput</StyledLabel>
         {state.hint && <StyledHint>Hint</StyledHint>}
         <MediaInput
@@ -182,148 +200,6 @@ const StyledMessage = styled(Message)`
         >
           {state.placeholder && 'placeholder'}
         </FauxInput>
-        {state.message && <StyledMessage validation={state.validation}>Message</StyledMessage>}
-      </StyledField>
-    </Col>
-  </Row>
-</Grid>;
-```
-
-### Select (native)
-
-Used in scenarios where the [Dropdown
-Select](https://zendeskgarden.github.io/react-components/dropdowns/#select-usage)
-component is not the right fit.
-
-```jsx
-const { Well } = require('@zendeskgarden/react-notifications/src');
-const {
-  Dropdown,
-  Select: SelectInput,
-  Field: SelectField,
-  Label: SelectLabel,
-  Menu,
-  Item
-} = require('@zendeskgarden/react-dropdowns/src');
-const StartIcon = require('@zendeskgarden/svg-icons/src/16/search-stroke.svg').default;
-const EndIcon = require('@zendeskgarden/svg-icons/src/16/shield-stroke.svg').default;
-
-initialState = {
-  hint: true,
-  message: true
-};
-
-const StyledField = styled(Field)`
-  display: ${state.inline && 'flex'};
-  align-items: ${state.inline && 'center'};
-`;
-
-const StyledHint = styled(Hint)`
-  display: ${state.inline && 'inline'};
-  margin-${props => (props.theme.rtl ? 'left' : 'right')}:
-    ${props => state.inline && props.theme.space.sm};
-`;
-
-const StyledLabel = styled(Label)`
-  margin-${props => (props.theme.rtl ? 'left' : 'right')}:
-    ${props => state.inline && props.theme.space.sm};
-`;
-
-const StyledMessage = styled(Message)`
-  margin-${props => (props.theme.rtl ? 'right' : 'left')}:
-    ${props => state.inline && props.theme.space.sm};
-`;
-
-<Grid>
-  <Row>
-    <Col>
-      <Well isRecessed>
-        <Field>
-          <Toggle
-            checked={!!state.regular}
-            onChange={event => setState({ regular: event.target.checked })}
-          >
-            <Label>Regular weight label</Label>
-          </Toggle>
-        </Field>
-        <Field className="u-mt-xs">
-          <Toggle checked={state.hint} onChange={event => setState({ hint: event.target.checked })}>
-            <Label>Hint</Label>
-          </Toggle>
-        </Field>
-        <Field className="u-mt-xs">
-          <Toggle onChange={event => setState({ compact: event.target.checked })}>
-            <Label>Compact</Label>
-          </Toggle>
-        </Field>
-        <Field className="u-mt-xs">
-          <Toggle onChange={event => setState({ bare: event.target.checked })}>
-            <Label>Bare</Label>
-          </Toggle>
-        </Field>
-        <Field className="u-mt-xs">
-          <Toggle onChange={event => setState({ focusInset: event.target.checked })}>
-            <Label>Focus inset</Label>
-          </Toggle>
-        </Field>
-        <Field className="u-mt-xs">
-          <Toggle onChange={event => setState({ disabled: event.target.checked })}>
-            <Label>Disabled</Label>
-          </Toggle>
-        </Field>
-        <Field className="u-mt-xs">
-          <Toggle
-            checked={state.message}
-            onChange={event => setState({ message: event.target.checked })}
-          >
-            <Label>Message</Label>
-          </Toggle>
-        </Field>
-        <Dropdown
-          selectedItem={state.validation}
-          onSelect={validation =>
-            validation === '' ? setState({ validation: null }) : setState({ validation })
-          }
-        >
-          <SelectField className="u-mt-xs">
-            <SelectLabel>Validation</SelectLabel>
-            <SelectInput isCompact>{state.validation || 'none'}</SelectInput>
-          </SelectField>
-          <Menu isCompact>
-            <Item value="">none</Item>
-            <Item value="success">success</Item>
-            <Item value="warning">warning</Item>
-            <Item value="error">error</Item>
-          </Menu>
-        </Dropdown>
-        <Field className="u-mt-xs">
-          <Toggle
-            checked={!!state.inline}
-            onChange={event => setState({ inline: event.target.checked })}
-          >
-            <Label>Inline</Label>
-            <Hint>See example code for inline styling overrides</Hint>
-          </Toggle>
-        </Field>
-      </Well>
-    </Col>
-    <Col>
-      <StyledField className="u-mt-sm">
-        <StyledLabel isRegular={state.regular}>Select</StyledLabel>
-        {state.hint && <StyledHint>Hint</StyledHint>}
-        <Select
-          disabled={state.disabled}
-          focusInset={state.focusInset}
-          isBare={state.bare}
-          isCompact={state.compact}
-          validation={state.validation}
-          style={state.inline ? { width: 'auto', margin: 0 } : {}}
-        >
-          <option>Option one</option>
-          <option>Option two</option>
-          <option>Option three</option>
-          <option>Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi</option>
-        </Select>
         {state.message && <StyledMessage validation={state.validation}>Message</StyledMessage>}
       </StyledField>
     </Col>

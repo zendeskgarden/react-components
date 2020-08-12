@@ -15,12 +15,13 @@ import useFieldContext from '../utils/useFieldContext';
 import { VALIDATION } from '../utils/validation';
 
 export interface ISelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
-  /** Apply compact styling */
+  /** Applies compact styling */
   isCompact?: boolean;
-  /** Remove borders and padding */
+  /** Removes borders and padding */
   isBare?: boolean;
-  /** Apply inset `box-shadow` styling on focus */
+  /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
+  /** Defines the element's validation state */
   validation?: VALIDATION;
 }
 
