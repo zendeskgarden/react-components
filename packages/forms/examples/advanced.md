@@ -11,6 +11,7 @@ initialState = {
   fauxInputValue: '',
   mediaInputValue: '',
   textareaValue: '',
+  selectValue: 'error',
   checkboxChecked: false,
   toggleChecked: false,
   radioValue: 'error',
@@ -31,6 +32,10 @@ const getRadioMessage = value => (value === 'success' ? 'valid' : 'invalid');
 const getRangeMessage = (value, minimum = 50) =>
   value === 0 ? 'cannot be 0' : value < minimum ? 'less than minimum' : 'valid value';
 
+const getSelectMessage = value => (value === 'success' ? 'valid' : 'invalid');
+
+const getSelectValidation = value => (value.length === 0 ? 'error' : value);
+
 const getTextMessage = (value, minimum = 10) =>
   value.length === 0
     ? 'cannot be blank'
@@ -48,6 +53,7 @@ const getTextValidation = (value, minimum = 10) =>
     <Input
       value={state.inputValue}
       onChange={event => setState({ inputValue: event.target.value })}
+      validation={getTextValidation(state.inputValue)}
     />
     <Message validation={getTextValidation(state.inputValue)}>
       {getTextMessage(state.inputValue)}
@@ -59,10 +65,24 @@ const getTextValidation = (value, minimum = 10) =>
     <Textarea
       value={state.textareaValue}
       onChange={event => setState({ textareaValue: event.target.value })}
+      validation={getTextValidation(state.textareaValue)}
     />
     <Message validation={getTextValidation(state.textareaValue, 20)}>
       {getTextMessage(state.textareaValue, 20)}
     </Message>
+  </Field>
+  <Field className="u-mt">
+    <Label>Controlled select</Label>
+    <Select
+      value={state.selectValue}
+      onChange={event => setState({ selectValue: event.target.value })}
+      validation={getSelectValidation(state.selectValue)}
+    >
+      <option value="error">Error</option>
+      <option value="warning">Warning</option>
+      <option value="success">Success</option>
+    </Select>
+    <Message validation={state.selectValue}>{getSelectMessage(state.selectValue)}</Message>
   </Field>
   <Field className="u-mt">
     <Label>Controlled media input</Label>
@@ -70,6 +90,7 @@ const getTextValidation = (value, minimum = 10) =>
     <MediaInput
       value={state.mediaInputValue}
       onChange={event => setState({ mediaInputValue: event.target.value })}
+      validation={getTextValidation(state.mediaInputValue)}
       start={<StartIcon />}
       end={<EndIcon />}
     />
@@ -80,7 +101,7 @@ const getTextValidation = (value, minimum = 10) =>
   <Field className="u-mt">
     <Label>Controlled faux input</Label>
     <Hint>Entry must contain at least 3 characters</Hint>
-    <FauxInput>
+    <FauxInput validation={getTextValidation(state.fauxInputValue)}>
       <Input
         isBare
         value={state.fauxInputValue}
