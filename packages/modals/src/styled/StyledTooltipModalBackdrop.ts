@@ -23,7 +23,7 @@ export const StyledTooltipModalBackdrop = styled.div.attrs({
   bottom: 0;
   left: 0;
   z-index: 400;
-  overflow: auto;
+  overflow: hidden;
   -webkit-overflow-scrolling: touch; /* [1] */
   font-family: ${props => props.theme.fonts.system};
   direction: ${props => props.theme.rtl && 'rtl'};

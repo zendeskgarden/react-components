@@ -21,7 +21,6 @@ import { ThemeContext } from 'styled-components';
 import { usePopper, Modifier } from 'react-popper';
 import { useModal } from '@zendeskgarden/container-modal';
 import { useCombinedRefs } from '@zendeskgarden/container-utilities';
-import { useDocument } from '@zendeskgarden/react-theming';
 import {
   GARDEN_PLACEMENT,
   getRtlPopperPlacement,
@@ -116,7 +115,6 @@ export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>
     ref
   ) => {
     const theme = useContext(ThemeContext);
-    const environment = useDocument(theme);
     const previousReferenceElementRef = useRef<HTMLElement | null>();
     const modalRef = useCombinedRefs(ref);
     const [popperElement, setPopperElement] = useState<HTMLDivElement | null>();
@@ -142,26 +140,6 @@ export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>
 
       previousReferenceElementRef.current = referenceElement;
     }, [referenceElement, restoreFocus]);
-
-    useEffect(() => {
-      if (!environment) {
-        return undefined;
-      }
-
-      const bodyElement = environment.querySelector('body');
-
-      if (bodyElement && referenceElement) {
-        const previousBodyOverflow = bodyElement.style.overflow;
-
-        bodyElement.style.overflow = 'hidden';
-
-        return () => {
-          bodyElement.style.overflow = previousBodyOverflow;
-        };
-      }
-
-      return undefined;
-    }, [environment, referenceElement]);
 
     const popperPlacement = useMemo(
       () => (theme.rtl ? getRtlPopperPlacement(placement!) : getPopperPlacement(placement!)),

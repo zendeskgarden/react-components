@@ -71,28 +71,6 @@ describe('TooltipModal', () => {
     });
   });
 
-  describe('Body overflow', () => {
-    it('applies no overflow styling when not positioned', () => {
-      const { baseElement } = render(<Example />);
-
-      expect(baseElement).not.toHaveStyle({
-        overflow: 'hidden'
-      });
-    });
-
-    it('applies overflow hidden styling when positioned', async () => {
-      const { baseElement, getByText } = render(<Example />);
-
-      await act(async () => {
-        await userEvent.click(getByText('open'));
-      });
-
-      expect(baseElement).toHaveStyle({
-        overflow: 'hidden'
-      });
-    });
-  });
-
   it('applies backdropProps to Backdrop element', async () => {
     const { getByTestId, getByText } = renderRtl(
       <Example backdropProps={{ 'data-test-id': 'backdrop' }} />
