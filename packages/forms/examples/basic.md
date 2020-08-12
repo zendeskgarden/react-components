@@ -1,10 +1,10 @@
-### Text inputs
+### Text and Select inputs
 
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
 const {
   Dropdown,
-  Select,
+  Select: SelectElement,
   Field: SelectField,
   Label: SelectLabel,
   Menu,
@@ -102,7 +102,7 @@ const StyledMessage = styled(Message)`
         >
           <SelectField className="u-mt-xs">
             <SelectLabel>Validation</SelectLabel>
-            <Select isCompact>{state.validation || 'none'}</Select>
+            <SelectElement isCompact>{state.validation || 'none'}</SelectElement>
           </SelectField>
           <Menu isCompact>
             <Item value="">none</Item>
@@ -151,6 +151,24 @@ const StyledMessage = styled(Message)`
           style={state.inline ? { width: 'auto', margin: 0 } : {}}
           minRows={3}
         />
+        {state.message && <StyledMessage validation={state.validation}>Message</StyledMessage>}
+      </StyledField>
+      <StyledField className="u-mt-sm">
+        <StyledLabel isRegular={state.regular}>Select</StyledLabel>
+        {state.hint && <StyledHint>Hint</StyledHint>}
+        <Select
+          disabled={state.disabled}
+          focusInset={state.focusInset}
+          isBare={state.bare}
+          isCompact={state.compact}
+          validation={state.validation}
+          style={state.inline ? { width: 'auto', margin: 0 } : {}}
+        >
+          <option>Option one</option>
+          <option>Option two</option>
+          <option>Option three</option>
+          <option>Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi</option>
+        </Select>
         {state.message && <StyledMessage validation={state.validation}>Message</StyledMessage>}
       </StyledField>
       <StyledField className="u-mt-sm">

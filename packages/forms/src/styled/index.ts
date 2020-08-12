@@ -52,6 +52,12 @@ export * from './toggle/StyledToggleMessage';
 export * from './toggle/StyledToggleSvg';
 
 /**
+ * Select styles
+ */
+export * from './select/StyledSelect';
+export * from './select/StyledSelectWrapper';
+
+/**
  * Range styles
  */
 export * from './range/StyledRangeInput';
