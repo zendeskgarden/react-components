@@ -40,6 +40,9 @@ export const getHeight = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) 
   return `${props.theme.space.base * 10}px`;
 };
 
+/**
+ * 1. override CSS bedrock
+ */
 const colorStyles = (
   props: IStyledButtonProps & ThemeProps<DefaultTheme> & HTMLAttributes<HTMLButtonElement>
 ) => {
@@ -73,7 +76,9 @@ const colorStyles = (
       background-color: transparent;
       color: ${baseColor};
 
-      &:hover {
+      &:hover,
+      &:focus, /* [1] */
+      &[data-garden-focus-visible] {
         color: ${hoverColor};
       }
 
@@ -270,7 +275,8 @@ export interface IStyledButtonProps {
 }
 
 /**
- * Accepts all `<button>` props
+ * 1. FF <input type="submit"> fix
+ * 2. <a> element reset
  */
 export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
   'data-garden-id': COMPONENT_ID,
@@ -305,21 +311,22 @@ export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
   ${props => sizeStyles(props)};
 
   &::-moz-focus-inner {
-    /* FF <input type="submit"> fix */
+    /* [1] */
     border: 0;
     padding: 0;
   }
 
-  &:hover {
-    text-decoration: ${props => (props.isLink ? 'underline' : 'none')}; /* <a> element reset */
-  }
-
   &:focus {
     outline: none;
+    text-decoration: ${props => props.isLink && 'none'}; /* [2] */
+  }
+
+  &:hover {
+    text-decoration: ${props => (props.isLink ? 'underline' : 'none')}; /* [2] */
   }
 
   &[data-garden-focus-visible] {
-    text-decoration: ${props => (props.isLink ? 'underline' : 'none')}; /* <a> element reset */
+    text-decoration: ${props => (props.isLink ? 'underline' : 'none')}; /* [2] */
   }
 
   &:active,
@@ -330,10 +337,9 @@ export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
       border-color 0.1s ease-in-out,
       background-color 0.1s ease-in-out,
       color 0.1s ease-in-out;
-    text-decoration: ${props => (props.isLink ? 'underline' : 'none')}; /* <a> element reset */
+    text-decoration: ${props => (props.isLink ? 'underline' : 'none')}; /* [2] */
   }
 
-  /* Color (default, primary, basic, & danger) styling */
   ${props => colorStyles(props)};
 
   &:disabled {
