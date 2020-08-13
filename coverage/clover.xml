@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1597278351245" clover="3.2.0">
-  <project timestamp="1597278351245" name="All files">
-    <metrics statements="6345" coveredstatements="6237" conditionals="2553" coveredconditionals="2334" methods="1313" coveredmethods="1292" elements="10211" coveredelements="9863" complexity="0" loc="6345" ncloc="6345" packages="108" files="415" classes="415"/>
+<coverage generated="1597353287541" clover="3.2.0">
+  <project timestamp="1597353287541" name="All files">
+    <metrics statements="6346" coveredstatements="6238" conditionals="2555" coveredconditionals="2336" methods="1314" coveredmethods="1293" elements="10215" coveredelements="9867" complexity="0" loc="6346" ncloc="6346" packages="108" files="415" classes="415"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
       <file name="Example.spec.tsx" path="/home/circleci/project/packages/.template/src/elements/Example.spec.tsx">
@@ -882,7 +882,7 @@
       </file>
     </package>
     <package name="buttons.src.styled">
-      <metrics statements="147" coveredstatements="147" conditionals="138" coveredconditionals="136" methods="44" coveredmethods="44"/>
+      <metrics statements="148" coveredstatements="148" conditionals="140" coveredconditionals="138" methods="45" coveredmethods="45"/>
       <file name="StyledAnchor.ts" path="/home/circleci/project/packages/buttons/src/styled/StyledAnchor.ts">
         <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
         <line num="8" count="9" type="stmt"/>
@@ -895,7 +895,7 @@
         <line num="30" count="9" type="stmt"/>
       </file>
       <file name="StyledButton.ts" path="/home/circleci/project/packages/buttons/src/styled/StyledButton.ts">
-        <metrics statements="81" coveredstatements="81" conditionals="109" coveredconditionals="108" methods="25" coveredmethods="25"/>
+        <metrics statements="82" coveredstatements="82" conditionals="111" coveredconditionals="110" methods="26" coveredmethods="26"/>
         <line num="8" count="12" type="stmt"/>
         <line num="9" count="12" type="stmt"/>
         <line num="10" count="12" type="stmt"/>
@@ -915,68 +915,69 @@
         <line num="36" count="82" type="cond" truecount="2" falsecount="0"/>
         <line num="37" count="3" type="stmt"/>
         <line num="40" count="79" type="stmt"/>
-        <line num="43" count="12" type="stmt"/>
-        <line num="49" count="77" type="cond" truecount="2" falsecount="0"/>
-        <line num="50" count="3" type="stmt"/>
-        <line num="51" count="74" type="cond" truecount="2" falsecount="0"/>
-        <line num="52" count="2" type="stmt"/>
-        <line num="54" count="72" type="stmt"/>
-        <line num="57" count="77" type="stmt"/>
-        <line num="58" count="77" type="stmt"/>
-        <line num="59" count="77" type="stmt"/>
+        <line num="46" count="12" type="stmt"/>
+        <line num="52" count="77" type="cond" truecount="2" falsecount="0"/>
+        <line num="53" count="3" type="stmt"/>
+        <line num="54" count="74" type="cond" truecount="2" falsecount="0"/>
+        <line num="55" count="2" type="stmt"/>
+        <line num="57" count="72" type="stmt"/>
         <line num="60" count="77" type="stmt"/>
         <line num="61" count="77" type="stmt"/>
         <line num="62" count="77" type="stmt"/>
-        <line num="64" count="77" type="cond" truecount="3" falsecount="0"/>
-        <line num="67" count="77" type="stmt"/>
-        <line num="71" count="77" type="cond" truecount="2" falsecount="0"/>
-        <line num="72" count="8" type="stmt"/>
-        <line num="90" count="69" type="cond" truecount="4" falsecount="0"/>
-        <line num="91" count="13" type="stmt"/>
-        <line num="118" count="56" type="stmt"/>
-        <line num="149" count="77" type="stmt"/>
-        <line num="152" count="12" type="stmt"/>
-        <line num="153" count="77" type="stmt"/>
+        <line num="63" count="77" type="stmt"/>
+        <line num="64" count="77" type="stmt"/>
+        <line num="65" count="77" type="stmt"/>
+        <line num="67" count="77" type="cond" truecount="3" falsecount="0"/>
+        <line num="70" count="77" type="stmt"/>
+        <line num="74" count="77" type="cond" truecount="2" falsecount="0"/>
+        <line num="75" count="8" type="stmt"/>
+        <line num="95" count="69" type="cond" truecount="4" falsecount="0"/>
+        <line num="96" count="13" type="stmt"/>
+        <line num="123" count="56" type="stmt"/>
         <line num="154" count="77" type="stmt"/>
-        <line num="155" count="77" type="stmt"/>
-        <line num="157" count="77" type="stmt"/>
-        <line num="210" count="12" type="stmt"/>
-        <line num="211" count="77" type="cond" truecount="2" falsecount="0"/>
-        <line num="213" count="77" type="stmt"/>
-        <line num="221" count="12" type="stmt"/>
-        <line num="224" count="77" type="cond" truecount="2" falsecount="0"/>
-        <line num="225" count="8" type="stmt"/>
-        <line num="230" count="69" type="stmt"/>
-        <line num="231" count="69" type="stmt"/>
-        <line num="235" count="69" type="cond" truecount="2" falsecount="0"/>
-        <line num="236" count="2" type="stmt"/>
-        <line num="237" count="2" type="stmt"/>
-        <line num="239" count="67" type="stmt"/>
-        <line num="241" count="67" type="cond" truecount="2" falsecount="0"/>
+        <line num="157" count="12" type="stmt"/>
+        <line num="158" count="77" type="stmt"/>
+        <line num="159" count="77" type="stmt"/>
+        <line num="160" count="77" type="stmt"/>
+        <line num="162" count="77" type="stmt"/>
+        <line num="215" count="12" type="stmt"/>
+        <line num="216" count="77" type="cond" truecount="2" falsecount="0"/>
+        <line num="218" count="77" type="stmt"/>
+        <line num="226" count="12" type="stmt"/>
+        <line num="229" count="77" type="cond" truecount="2" falsecount="0"/>
+        <line num="230" count="8" type="stmt"/>
+        <line num="235" count="69" type="stmt"/>
+        <line num="236" count="69" type="stmt"/>
+        <line num="240" count="69" type="cond" truecount="2" falsecount="0"/>
+        <line num="241" count="2" type="stmt"/>
         <line num="242" count="2" type="stmt"/>
-        <line num="244" count="65" type="stmt"/>
-        <line num="248" count="69" type="stmt"/>
-        <line num="256" count="77" type="stmt"/>
-        <line num="275" count="77" type="stmt"/>
-        <line num="280" count="77" type="cond" truecount="2" falsecount="0"/>
-        <line num="281" count="77" type="cond" truecount="2" falsecount="0"/>
-        <line num="282" count="77" type="cond" truecount="2" falsecount="0"/>
-        <line num="290" count="77" type="cond" truecount="2" falsecount="0"/>
-        <line num="291" count="77" type="stmt"/>
-        <line num="293" count="77" type="cond" truecount="2" falsecount="0"/>
-        <line num="297" count="77" type="cond" truecount="2" falsecount="0"/>
+        <line num="244" count="67" type="stmt"/>
+        <line num="246" count="67" type="cond" truecount="2" falsecount="0"/>
+        <line num="247" count="2" type="stmt"/>
+        <line num="249" count="65" type="stmt"/>
+        <line num="253" count="69" type="stmt"/>
+        <line num="261" count="77" type="stmt"/>
+        <line num="281" count="77" type="stmt"/>
+        <line num="286" count="77" type="cond" truecount="2" falsecount="0"/>
+        <line num="287" count="77" type="cond" truecount="2" falsecount="0"/>
+        <line num="288" count="77" type="cond" truecount="2" falsecount="0"/>
+        <line num="296" count="77" type="cond" truecount="2" falsecount="0"/>
+        <line num="297" count="77" type="stmt"/>
         <line num="299" count="77" type="cond" truecount="2" falsecount="0"/>
-        <line num="302" count="77" type="cond" truecount="2" falsecount="0"/>
-        <line num="305" count="77" type="stmt"/>
-        <line num="314" count="77" type="cond" truecount="2" falsecount="0"/>
-        <line num="322" count="77" type="cond" truecount="2" falsecount="0"/>
-        <line num="333" count="77" type="cond" truecount="2" falsecount="0"/>
-        <line num="337" count="77" type="stmt"/>
-        <line num="341" count="77" type="cond" truecount="2" falsecount="0"/>
-        <line num="346" count="77" type="stmt"/>
-        <line num="350" count="77" type="stmt"/>
-        <line num="354" count="77" type="stmt"/>
-        <line num="357" count="12" type="stmt"/>
+        <line num="303" count="77" type="cond" truecount="2" falsecount="0"/>
+        <line num="305" count="77" type="cond" truecount="2" falsecount="0"/>
+        <line num="308" count="77" type="cond" truecount="2" falsecount="0"/>
+        <line num="311" count="77" type="stmt"/>
+        <line num="321" count="77" type="cond" truecount="2" falsecount="0"/>
+        <line num="325" count="77" type="cond" truecount="2" falsecount="0"/>
+        <line num="329" count="77" type="cond" truecount="2" falsecount="0"/>
+        <line num="340" count="77" type="cond" truecount="2" falsecount="0"/>
+        <line num="343" count="77" type="stmt"/>
+        <line num="347" count="77" type="cond" truecount="2" falsecount="0"/>
+        <line num="352" count="77" type="stmt"/>
+        <line num="356" count="77" type="stmt"/>
+        <line num="360" count="77" type="stmt"/>
+        <line num="363" count="12" type="stmt"/>
       </file>
       <file name="StyledButtonGroup.ts" path="/home/circleci/project/packages/buttons/src/styled/StyledButtonGroup.ts">
         <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
