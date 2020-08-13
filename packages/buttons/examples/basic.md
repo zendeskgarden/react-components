@@ -246,7 +246,7 @@ initialState = {
     <Col>
       <Typography as="p" size={state.size}>
         <Anchor
-          href={state.external ? 'https://www.zendesk.com' : null}
+          href={state.external ? 'https://www.zendesk.com' : '#!'}
           isDanger={state.danger}
           isExternal={state.external}
           target={state.external ? '_blank' : null}
