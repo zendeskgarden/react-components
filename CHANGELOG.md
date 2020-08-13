@@ -11,6 +11,28 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+
+## v8.19.0 (2020-08-12)
+
+#### :rocket: New Feature
+* `forms`
+  * [#833](https://github.com/zendeskgarden/react-components/pull/833) feat(forms): new native Select component ([@jzempel](https://github.com/jzempel))
+* `dropdowns`, `forms`
+  * [#829](https://github.com/zendeskgarden/react-components/pull/829) feat(forms, dropdowns): use FauxInput as the fundamental styling basis for Select, Autocomplete, and Multiselect ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `datepickers`
+  * [#830](https://github.com/zendeskgarden/react-components/pull/830) fix(datepickers): format day with NumberFormat utility ([@austin94](https://github.com/austin94))
+* `buttons`
+  * [#831](https://github.com/zendeskgarden/react-components/pull/831) fix(buttons): allow user selection on link and anchor buttons ([@jzempel](https://github.com/jzempel))
+* `notifications`
+  * [#823](https://github.com/zendeskgarden/react-components/pull/823) fix(notifications): update notification padding ([@hzhu](https://github.com/hzhu))
+
+#### :seedling: Internal
+* Other
+  * [#827](https://github.com/zendeskgarden/react-components/pull/827) chore(deps): bump elliptic from 6.5.2 to 6.5.3 in /examples/gatsby ([@dependabot[bot]](https://github.com/apps/dependabot))
+* `accordions`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `modals`, `pagination`, `tables`, `tabs`, `tooltips`
+  * [#822](https://github.com/zendeskgarden/react-components/pull/822) chore(tests): add user-event testing library ([@hzhu](https://github.com/hzhu))
 ## v8.18.0 (2020-08-05)
 
 #### :rocket: New Feature
