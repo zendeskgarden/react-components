@@ -12,6 +12,14 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v7.3.1 (2020-08-12)
+
+#### :bug: Bug Fix
+* `datepickers`
+  * [#834](https://github.com/zendeskgarden/react-components/pull/834) fix(datepickers): use gregorian labels for days ([@austin94](https://github.com/austin94))
+* `dropdowns`
+  * [#832](https://github.com/zendeskgarden/react-components/pull/832) fix(dropdowns): update downshift dependency ([@austin94](https://github.com/austin94))
+
 ## v7.3.0 (2020-08-05)
 
 #### :rocket: New Feature
