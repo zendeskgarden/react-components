@@ -44,7 +44,10 @@ module.exports = {
     },
     {
       name: 'Elements',
-      components: '../../packages/modals/src/elements/**/[A-Z]*.{ts,tsx}'
+      components: [
+        '../../packages/modals/src/elements/*/[A-Z]*.{ts,tsx}',
+        '../../packages/modals/src/elements/TooltipModal/TooltipModal.tsx'
+      ]
     }
   ]
 };

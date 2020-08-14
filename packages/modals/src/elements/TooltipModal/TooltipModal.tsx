@@ -149,7 +149,7 @@ export const TooltipModal = React.forwardRef<HTMLDivElement, ITooltipModalProps>
     const { styles, attributes, state } = usePopper(referenceElement, popperElement, {
       placement: popperPlacement,
       modifiers: [
-        { name: 'offset', options: { offset: [0, theme.space.base * 2] } }, // Default Popper offset
+        { name: 'offset', options: { offset: [0, theme.space.base * 3] } }, // Default Popper offset
         ...(popperModifiers || [])
       ]
     });
