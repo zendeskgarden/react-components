@@ -35,12 +35,19 @@ module.exports = {
         {
           name: 'Basic',
           content: '../../packages/modals/examples/basic.md'
+        },
+        {
+          name: 'Tooltip Modal',
+          content: '../../packages/modals/examples/tooltip-modal.md'
         }
       ]
     },
     {
       name: 'Elements',
-      components: '../../packages/modals/src/elements/**/[A-Z]*.{ts,tsx}'
+      components: [
+        '../../packages/modals/src/elements/[A-Z]*.{ts,tsx}',
+        '../../packages/modals/src/elements/TooltipModal/TooltipModal.tsx'
+      ]
     }
   ]
 };
