@@ -26,7 +26,7 @@ describe('Label', () => {
     expect(getByRole('button')).toBe(ref.current);
   });
 
-  it('uses a button with no defaul behavior', () => {
+  it('uses a button with no default behavior', () => {
     const { getByRole } = render(
       <Accordion level={3}>
         <Accordion.Section>
