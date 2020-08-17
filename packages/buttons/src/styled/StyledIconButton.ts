@@ -38,6 +38,7 @@ const iconButtonStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) 
     border: ${props.isBasic && 'none'};
     padding: 0;
     width: ${getHeight(props)};
+    min-width: ${getHeight(props)};
 
     ${props.isBasic && !(props.isPrimary || props.disabled) && iconColorStyles(props)};
   `;
