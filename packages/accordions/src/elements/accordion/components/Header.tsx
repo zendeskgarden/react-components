@@ -26,6 +26,7 @@ export const Header = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>
   const [isHovered, setIsHovered] = useState(false);
   const isExpanded = expandedSections.includes(sectionIndex);
   const { onClick: onTriggerClick, ...otherTriggerProps } = getTriggerProps({
+    type: 'button',
     index: sectionIndex
   });
   const onHeaderFocus = (e: FocusEvent) => {
