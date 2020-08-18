@@ -25,4 +25,18 @@ describe('Label', () => {
 
     expect(getByRole('button')).toBe(ref.current);
   });
+
+  it('uses a button with no default behavior', () => {
+    const { getByRole } = render(
+      <Accordion level={3}>
+        <Accordion.Section>
+          <Accordion.Header>
+            <Accordion.Label>Label Button</Accordion.Label>
+          </Accordion.Header>
+        </Accordion.Section>
+      </Accordion>
+    );
+
+    expect(getByRole('button')).toHaveAttribute('type', 'button');
+  });
 });
