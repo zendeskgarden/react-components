@@ -39,7 +39,7 @@ export interface ITooltipProps
    * assist with RTL layouts.
    **/
   placement?: GARDEN_PLACEMENT;
-  /** See Popper [documentation](https://popper.js.org/docs/v2/modifiers/) for details */
+  /** See Popper [documentation](https://popper.js.org/docs/v1/#modifiers--codeobjectcode) for details */
   popperModifiers?: Modifiers;
   size?: TOOLTIP_SIZE;
   type?: TOOLTIP_TYPE;
