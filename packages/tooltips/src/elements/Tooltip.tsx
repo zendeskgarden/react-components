@@ -39,7 +39,7 @@ export interface ITooltipProps
    * assist with RTL layouts.
    **/
   placement?: GARDEN_PLACEMENT;
-  /** See Popper [documentation](https://popper.js.org/docs/v2/modifiers/) for details */
+  /** See Popper [documentation](https://popper.js.org/docs/v1/#modifiers--codeobjectcode) for details */
   popperModifiers?: Modifiers;
   size?: TOOLTIP_SIZE;
   type?: TOOLTIP_TYPE;
@@ -95,7 +95,7 @@ const Tooltip: React.FC<ITooltipProps> = ({
   const singleChild = React.Children.only(children);
 
   /**
-   * By default PopperJS treats an overflow container as it's boundary.
+   * By default PopperJS treats an overflow container as its boundary.
    * It is much more common to want the parent window to determine
    * the overflow boundary.
    */
