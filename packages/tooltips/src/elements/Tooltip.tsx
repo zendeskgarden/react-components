@@ -95,7 +95,7 @@ const Tooltip: React.FC<ITooltipProps> = ({
   const singleChild = React.Children.only(children);
 
   /**
-   * By default PopperJS treats an overflow container as it's boundary.
+   * By default PopperJS treats an overflow container as its boundary.
    * It is much more common to want the parent window to determine
    * the overflow boundary.
    */
