@@ -24,6 +24,13 @@ export * from './text/StyledTextMediaInput';
 export * from './text/StyledTextMediaFigure';
 
 /**
+ * InputGroup styles
+ */
+export * from './input-group/StyledInputGroup';
+export * from './input-group/StyledPrepend';
+export * from './input-group/StyledAppend';
+
+/**
  * Checkbox styles
  */
 export * from './checkbox/StyledCheckLabel';

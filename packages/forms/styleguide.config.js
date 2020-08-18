@@ -41,6 +41,10 @@ module.exports = {
         {
           name: 'Tiles',
           content: '../../packages/forms/examples/tiles.md'
+        },
+        {
+          name: 'Input Group',
+          content: '../../packages/forms/examples/input-group.md'
         }
       ]
     },
@@ -49,7 +53,8 @@ module.exports = {
       components: [
         '../../packages/forms/src/elements/[A-Z]*.{ts,tsx}',
         '../../packages/forms/src/elements/common/[A-Z]*.{ts,tsx}',
-        '../../packages/forms/src/elements/tiles/[A-Z]*.{ts,tsx}'
+        '../../packages/forms/src/elements/tiles/[A-Z]*.{ts,tsx}',
+        '../../packages/forms/src/elements/input-group/InputGroup.tsx'
       ]
     }
   ]
