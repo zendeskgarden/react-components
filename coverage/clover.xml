@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1597764869398" clover="3.2.0">
-  <project timestamp="1597764869399" name="All files">
+<coverage generated="1597788089641" clover="3.2.0">
+  <project timestamp="1597788089641" name="All files">
     <metrics statements="6499" coveredstatements="6390" conditionals="2590" coveredconditionals="2368" methods="1353" coveredmethods="1331" elements="10442" coveredelements="10089" complexity="0" loc="6499" ncloc="6499" packages="109" files="429" classes="429"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
@@ -7990,11 +7990,11 @@
         <line num="19" count="10" type="cond" truecount="2" falsecount="0"/>
         <line num="20" count="10" type="stmt"/>
         <line num="22" count="10" type="stmt"/>
-        <line num="30" count="17" type="stmt"/>
-        <line num="31" count="12" type="stmt"/>
-        <line num="40" count="10" type="stmt"/>
-        <line num="42" count="10" type="stmt"/>
-        <line num="45" count="17" type="stmt"/>
+        <line num="31" count="17" type="stmt"/>
+        <line num="32" count="12" type="stmt"/>
+        <line num="41" count="10" type="stmt"/>
+        <line num="43" count="10" type="stmt"/>
+        <line num="46" count="17" type="stmt"/>
       </file>
       <file name="StyledList.ts" path="/home/circleci/project/packages/typography/src/styled/StyledList.ts">
         <metrics statements="15" coveredstatements="15" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
