@@ -27,7 +27,8 @@ const sizeStyles = (props: IStyledIconProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledIcon = styled(({ children, ...props }) =>
+/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+export const StyledIcon = styled(({ children, isStart, ...props }) =>
   React.cloneElement(Children.only(children), props)
 ).attrs({
   'data-garden-id': COMPONENT_ID,
