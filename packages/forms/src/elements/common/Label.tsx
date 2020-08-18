@@ -71,6 +71,32 @@ export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>((props, ref
       </StyledRadioLabel>
     );
   } else if (type === 'checkbox') {
+    /**
+     * `onLabelSelect` is a workaround for checkbox label `shift + click` bug in Firefox
+     * See: https://bugzilla.mozilla.org/show_bug.cgi?id=559506
+     */
+    const onLabelSelect = (e: React.KeyboardEvent) => {
+      const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+
+      if (fieldContext && isFirefox) {
+        const inputProps = fieldContext.getInputProps();
+        const input = document.getElementById(inputProps.id as string) as HTMLInputElement;
+
+        if (input && input.type === 'checkbox') {
+          if (e.shiftKey) {
+            input.click();
+            input.checked = true;
+          }
+          input.focus();
+        }
+      }
+    };
+
+    combinedProps = {
+      ...combinedProps,
+      onClick: composeEventHandlers(combinedProps.onClick, onLabelSelect)
+    };
+
     return (
       <StyledCheckLabel ref={ref} {...(combinedProps as any)}>
         <StyledCheckSvg />
