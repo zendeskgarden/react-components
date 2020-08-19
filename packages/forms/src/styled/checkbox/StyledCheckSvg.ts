@@ -19,6 +19,7 @@ export const StyledCheckSvg = styled(CheckIcon).attrs({
 })`
   transition: opacity 0.25 ease-in-out;
   opacity: 0;
+  pointer-events: none;
 
   ${StyledCheckInput}:checked ~ ${StyledCheckLabel} > & {
     opacity: 1;
