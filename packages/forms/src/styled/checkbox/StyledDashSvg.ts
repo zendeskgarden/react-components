@@ -19,6 +19,7 @@ export const StyledDashSvg = styled(DashIcon).attrs({
 })`
   transition: opacity 0.25 ease-in-out;
   opacity: 0;
+  pointer-events: none;
 
   ${StyledCheckInput}:indeterminate ~ ${StyledCheckLabel} > & {
     opacity: 1;
