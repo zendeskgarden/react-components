@@ -12,6 +12,27 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.20.0 (2020-08-19)
+
+#### :rocket: New Feature
+* `modals`
+  * [#828](https://github.com/zendeskgarden/react-components/pull/828) feat(modals): introduce new TooltipModal component ([@austin94](https://github.com/austin94))
+
+#### :bug: Bug Fix
+* `forms`
+  * [#842](https://github.com/zendeskgarden/react-components/pull/842) fix(forms): workaround shift+click checkbox labels on Firefox ([@hzhu](https://github.com/hzhu))
+* `accordions`
+  * [#838](https://github.com/zendeskgarden/react-components/pull/838) fix(accordions): remove default button behavior ([@hzhu](https://github.com/hzhu))
+* `typography`
+  * [#840](https://github.com/zendeskgarden/react-components/pull/840) fix(typography): prevent prop from being added to DOM element ([@jzempel](https://github.com/jzempel))
+* `buttons`
+  * [#837](https://github.com/zendeskgarden/react-components/pull/837) fix(buttons): apply min-width to icon buttons ([@rossmoody](https://github.com/rossmoody))
+  * [#836](https://github.com/zendeskgarden/react-components/pull/836) fix: danger anchor focus color ([@jzempel](https://github.com/jzempel))
+
+#### :memo: Documentation
+* `tooltips`
+  * [#839](https://github.com/zendeskgarden/react-components/pull/839) docs(tooltip) fix errors in tooltip docs ([@StaphSynth](https://github.com/StaphSynth))
+
 ## v8.19.0 (2020-08-12)
 
 #### :rocket: New Feature
