@@ -75,12 +75,15 @@ export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>((props, ref
      * `onLabelSelect` is a workaround for checkbox label `shift + click` bug in Firefox
      * See: https://bugzilla.mozilla.org/show_bug.cgi?id=559506
      */
-    const onLabelSelect = (e: React.KeyboardEvent) => {
+    const onLabelSelect = (e: React.KeyboardEvent<HTMLInputElement>) => {
       const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
 
-      if (fieldContext && isFirefox) {
-        const inputProps = fieldContext.getInputProps();
-        const input = document.getElementById(inputProps.id as string) as HTMLInputElement;
+      if (fieldContext && isFirefox && e.target instanceof Element) {
+        const inputId = e.target.getAttribute('for');
+
+        if (!inputId) return;
+
+        const input = document.getElementById(inputId) as HTMLInputElement | null;
 
         if (input && input.type === 'checkbox') {
           if (e.shiftKey) {
