@@ -8,10 +8,11 @@
 import React, { useCallback, forwardRef, HTMLAttributes } from 'react';
 import debounce from 'lodash.debounce';
 import { useCombinedRefs } from '@zendeskgarden/container-utilities';
-import { useAccordionContext, useSectionContext } from '../../../utils';
+import { useAccordionContext, useSectionContext, enableScroll } from '../../../utils';
 import { StyledPanel, StyledInnerPanel } from '../../../styled';
 
 export const Panel = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
+  const innerPanelRef = React.useRef<HTMLDivElement>(null);
   const { isCompact, isBare, getPanelProps, expandedSections } = useAccordionContext();
   const panelRef = useCombinedRefs<HTMLElement>(ref);
   const index = useSectionContext();
@@ -37,6 +38,23 @@ export const Panel = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props
     };
   }, [isExpanded, updateMaxHeight, props.children]);
 
+  React.useEffect(() => {
+    /**
+     * Scrolling was disabled to prevent Chromium from auto scrolling when height
+     * of a closing panel decreases during animation. That code can be found in
+     * `elements/accordion/Header.tsx`. Scrolling is enabled after the inner panel
+     * height transition ends.
+     */
+    const currentInnerPanelRef = innerPanelRef.current;
+
+    currentInnerPanelRef && currentInnerPanelRef.addEventListener('transitionend', enableScroll);
+
+    return () => {
+      currentInnerPanelRef &&
+        currentInnerPanelRef.removeEventListener('transitionend', enableScroll);
+    };
+  }, []);
+
   return (
     <StyledPanel
       {...getPanelProps({
@@ -49,7 +67,9 @@ export const Panel = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props
         ...props
       })}
     >
-      <StyledInnerPanel isExpanded={isExpanded}>{props.children}</StyledInnerPanel>
+      <StyledInnerPanel ref={innerPanelRef} isExpanded={isExpanded}>
+        {props.children}
+      </StyledInnerPanel>
     </StyledPanel>
   );
 });

@@ -8,7 +8,12 @@
 import React, { useState, FocusEvent, forwardRef, HTMLAttributes } from 'react';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import ChevronDown from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
-import { useAccordionContext, useSectionContext, HeaderContext } from '../../../utils';
+import {
+  useAccordionContext,
+  useSectionContext,
+  HeaderContext,
+  disableScroll
+} from '../../../utils';
 import { StyledHeader, StyledRotateIcon, COMPONENT_ID as buttonGardenId } from '../../../styled';
 
 export const Header = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
@@ -25,7 +30,13 @@ export const Header = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>
   const [isFocused, setIsFocused] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const isExpanded = expandedSections.includes(sectionIndex);
-  const { onClick: onTriggerClick, ...otherTriggerProps } = getTriggerProps({
+  /**
+   *  Pressing the space key on a button triggers the `onTriggerClick` callback.
+   * `onKeyDown` is plucked out and not passed to the Label (button) element
+   * to prevent double invocations of the click event.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { onClick: onTriggerClick, onKeyDown, ...otherTriggerProps } = getTriggerProps({
     type: 'button',
     index: sectionIndex
   });
@@ -57,7 +68,13 @@ export const Header = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>
           isFocused,
           isExpanded,
           isCollapsible,
-          onClick: composeEventHandlers(onClick, onTriggerClick),
+          /**
+           * `onClick` disables scrolling to prevent Chromium from auto scrolling when
+           * height of a closing panel decreases during animation. Scrolling is enabled
+           * after the inner panel height transition ends and can be found in
+           * `elements/accordion/Panel.tsx`.
+           */
+          onClick: composeEventHandlers(onClick, disableScroll, onTriggerClick),
           onFocus: composeEventHandlers(onFocus, onHeaderFocus),
           onBlur: composeEventHandlers(onBlur, () => setIsFocused(false)),
           onMouseOver: composeEventHandlers(onMouseOver, () => setIsHovered(true)),
