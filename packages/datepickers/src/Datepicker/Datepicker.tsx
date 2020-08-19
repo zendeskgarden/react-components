@@ -161,6 +161,11 @@ const Datepicker: React.FunctionComponent<IDatepickerProps> = props => {
                   isInputMouseDownRef.current = false;
                 }, 0);
               },
+              onFocus: () => {
+                if (!state.isOpen) {
+                  dispatch({ type: 'OPEN' });
+                }
+              },
               onClick: () => {
                 /** Ensure click/focus events from associated labels are not triggered */
                 if (isInputMouseDownRef.current && !state.isOpen) {
