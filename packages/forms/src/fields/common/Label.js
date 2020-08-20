@@ -7,6 +7,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import useFieldContext from '../../utils/useFieldContext';
 import useCheckboxContext from '../../utils/useCheckboxContext';
 import useRadioContext from '../../utils/useRadioContext';
@@ -36,6 +37,29 @@ function Label(props) {
     LabelComponent = StyledCheckLabel;
     sharedProps['data-garden-id'] = 'forms.checkbox_label';
     sharedProps.focused = checkboxCtx.isFocused;
+    /**
+     * This is a workaround for checkbox label `shift + click` bug in Firefox
+     * See: https://bugzilla.mozilla.org/show_bug.cgi?id=559506
+     */
+    sharedProps.onClick = e => {
+      const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+
+      if (isFirefox && e.target instanceof Element) {
+        const inputId = e.target.getAttribute('for');
+
+        if (!inputId) return;
+
+        const input = document.getElementById(inputId);
+
+        if (input && input.type === 'checkbox') {
+          if (e.shiftKey) {
+            input.click();
+            input.checked = true;
+          }
+          input.focus();
+        }
+      }
+    };
   } else if (radioCtx) {
     LabelComponent = StyledRadioLabel;
     sharedProps['data-garden-id'] = 'forms.radio_label';
