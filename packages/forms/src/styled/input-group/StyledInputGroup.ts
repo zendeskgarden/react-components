@@ -38,6 +38,7 @@ const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
     ${StyledTextInput} {
       position: relative;
       flex: 1 1 auto;
+      margin-top: 0;
       margin-bottom: 0;
       width: 1px;
       min-width: 0;
