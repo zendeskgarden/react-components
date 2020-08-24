@@ -19,12 +19,12 @@
     }
   },
   "index.cjs.js": {
-    "bundled": 41461,
+    "bundled": 41745,
     "minified": 27464,
     "gzipped": 6579
   },
   "index.esm.js": {
-    "bundled": 40153,
+    "bundled": 40437,
     "minified": 26207,
     "gzipped": 6484,
     "treeshaked": {
