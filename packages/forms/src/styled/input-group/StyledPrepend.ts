@@ -36,7 +36,16 @@ export const StyledPrepend = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   display: flex;
-  z-index: 2;
+  z-index: 1;
+
+  &:hover,
+  &:active {
+    z-index: 2;
+  }
+
+  &:disabled {
+    z-index: -1;
+  }
 
   ${props => borderStyles(props)};
 

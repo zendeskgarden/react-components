@@ -6,7 +6,6 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { math } from 'polished';
 import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledTextInput } from '../text/StyledTextInput';
 import { StyledLabel } from '../common/StyledLabel';
@@ -19,8 +18,11 @@ interface IStyledInputGroupProps {
   isCompact?: boolean;
 }
 
+/**
+ * [1] - Override the default `width: 100%` style
+ */
 const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
-  const topMargin = math(`${props.theme.space.base} * ${props.isCompact ? '1px' : '2px'}`);
+  const topMargin = `${props.theme.space.base * (props.isCompact ? 1 : 2)}px`;
   const startDirection = props.theme.rtl ? 'right' : 'left';
   const endDirection = props.theme.rtl ? 'left' : 'right';
 
@@ -40,7 +42,7 @@ const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
       flex: 1 1 auto;
       margin-top: 0;
       margin-bottom: 0;
-      width: 1px;
+      width: 1px; /* [1] */
       min-width: 0;
     }
 
@@ -64,7 +66,7 @@ export const StyledInputGroup = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledInputGroupProps>`
-  display: flex;
+  display: inline-flex;
   position: relative;
   flex-wrap: wrap;
   align-items: stretch;
