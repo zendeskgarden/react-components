@@ -12,6 +12,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v7.3.2 (2020-08-24)
+
+#### :bug: Bug Fix
+* `forms`
+  * [#844](https://github.com/zendeskgarden/react-components/pull/844) fix(forms): allow checkbox label click for Firefox ([@hzhu](https://github.com/hzhu))
+
 ## v7.3.1 (2020-08-12)
 
 #### :bug: Bug Fix
