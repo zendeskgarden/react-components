@@ -38,12 +38,12 @@ export const StyledPrepend = styled.div.attrs({
   display: flex;
   z-index: 1;
 
-  &:hover,
-  &:active {
+  & > *:hover,
+  & > *:active {
     z-index: 2;
   }
 
-  &:disabled {
+  & > *:disabled {
     z-index: -1;
   }
 

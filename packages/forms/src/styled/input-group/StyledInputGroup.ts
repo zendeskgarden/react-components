@@ -42,7 +42,7 @@ const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
       flex: 1 1 auto;
       margin-top: 0;
       margin-bottom: 0;
-      width: 1px; /* [1] */
+      width: auto; /* [1] */
       min-width: 0;
     }
 
