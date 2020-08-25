@@ -43,154 +43,70 @@ describe('InputGroup', () => {
     });
   });
 
-  describe('InputGroup.Prepend', () => {
-    it('applies correct styling to Prepend elements', () => {
+  describe('InputGroup child items', () => {
+    it('applies correct styling to prepend elements', () => {
       const { getByText } = render(
         <Field>
           <Label>Input</Label>
           <InputGroup>
-            <InputGroup.Prepend>
-              <button>A</button>
-            </InputGroup.Prepend>
-            <InputGroup.Prepend>
-              <button>B</button>
-            </InputGroup.Prepend>
+            <button>A</button>
+            <button>B</button>
             <Input />
           </InputGroup>
         </Field>
       );
 
-      const prependElementA = getByText('A').parentElement;
-      const prependElementB = getByText('B').parentElement;
+      const inputGroupElement = getByText('A').parentElement!;
 
-      expect(prependElementA).toHaveStyleRule('margin-right', '-1px');
-      expect(prependElementB).toHaveStyleRule('margin-right', '-1px');
-
-      expect(prependElementA).toHaveStyleRule('border-top-right-radius', '0', {
-        modifier: '& > *'
-      });
-      expect(prependElementA).toHaveStyleRule('border-bottom-right-radius', '0', {
+      expect(inputGroupElement).toHaveStyleRule('margin-left', '-1px', {
         modifier: '& > *'
       });
 
-      expect(prependElementB).toHaveStyleRule('border-top-left-radius', '0', {
-        modifier: '&:not(:first-child) > *'
+      expect(inputGroupElement).toHaveStyleRule('border-top-right-radius', '0', {
+        modifier: '& > button:first-of-type:not(:last-of-type)'
       });
-      expect(prependElementB).toHaveStyleRule('border-bottom-left-radius', '0', {
-        modifier: '&:not(:first-child) > *'
+      expect(inputGroupElement).toHaveStyleRule('border-bottom-right-radius', '0', {
+        modifier: '& > button:first-of-type:not(:last-of-type)'
+      });
+
+      expect(inputGroupElement).toHaveStyleRule('border-top-left-radius', '0', {
+        modifier: '& > button:last-of-type:not(:first-of-type)'
+      });
+      expect(inputGroupElement).toHaveStyleRule('border-bottom-left-radius', '0', {
+        modifier: '& > button:last-of-type:not(:first-of-type)'
       });
     });
 
-    it('applies correct styling to Prepend elements in RTL mod', () => {
+    it('applies correct styling to prepend elements in RTL mode', () => {
       const { getByText } = renderRtl(
         <Field>
           <Label>Input</Label>
           <InputGroup>
-            <InputGroup.Prepend>
-              <button>A</button>
-            </InputGroup.Prepend>
-            <InputGroup.Prepend>
-              <button>B</button>
-            </InputGroup.Prepend>
+            <button>A</button>
+            <button>B</button>
             <Input />
           </InputGroup>
         </Field>
       );
 
-      const prependElementA = getByText('A').parentElement;
-      const prependElementB = getByText('B').parentElement;
+      const inputGroupElement = getByText('A').parentElement!;
 
-      expect(prependElementA).toHaveStyleRule('margin-left', '-1px');
-      expect(prependElementB).toHaveStyleRule('margin-left', '-1px');
-
-      expect(prependElementA).toHaveStyleRule('border-top-left-radius', '0', {
-        modifier: '& > *'
-      });
-      expect(prependElementA).toHaveStyleRule('border-bottom-left-radius', '0', {
+      expect(inputGroupElement).toHaveStyleRule('margin-right', '-1px', {
         modifier: '& > *'
       });
 
-      expect(prependElementB).toHaveStyleRule('border-top-right-radius', '0', {
-        modifier: '&:not(:first-child) > *'
+      expect(inputGroupElement).toHaveStyleRule('border-top-left-radius', '0', {
+        modifier: '& > button:first-of-type:not(:last-of-type)'
       });
-      expect(prependElementB).toHaveStyleRule('border-bottom-right-radius', '0', {
-        modifier: '&:not(:first-child) > *'
-      });
-    });
-  });
-
-  describe('InputGroup.Append', () => {
-    it('applies correct styling to Append elements', () => {
-      const { getByText } = render(
-        <Field>
-          <Label>Input</Label>
-          <InputGroup>
-            <Input />
-            <InputGroup.Append>
-              <button>A</button>
-            </InputGroup.Append>
-            <InputGroup.Append>
-              <button>B</button>
-            </InputGroup.Append>
-          </InputGroup>
-        </Field>
-      );
-
-      const prependElementA = getByText('A').parentElement;
-      const prependElementB = getByText('B').parentElement;
-
-      expect(prependElementA).toHaveStyleRule('margin-left', '-1px');
-      expect(prependElementB).toHaveStyleRule('margin-left', '-1px');
-
-      expect(prependElementA).toHaveStyleRule('border-top-left-radius', '0', {
-        modifier: '& > *'
-      });
-      expect(prependElementA).toHaveStyleRule('border-bottom-left-radius', '0', {
-        modifier: '& > *'
+      expect(inputGroupElement).toHaveStyleRule('border-bottom-left-radius', '0', {
+        modifier: '& > button:first-of-type:not(:last-of-type)'
       });
 
-      expect(prependElementB).toHaveStyleRule('border-top-right-radius', '0', {
-        modifier: '&:not(:last-child) > *'
+      expect(inputGroupElement).toHaveStyleRule('border-top-right-radius', '0', {
+        modifier: '& > button:last-of-type:not(:first-of-type)'
       });
-      expect(prependElementB).toHaveStyleRule('border-bottom-right-radius', '0', {
-        modifier: '&:not(:last-child) > *'
-      });
-    });
-
-    it('applies correct styling to Append elements in RTL mod', () => {
-      const { getByText } = renderRtl(
-        <Field>
-          <Label>Input</Label>
-          <InputGroup>
-            <Input />
-            <InputGroup.Append>
-              <button>A</button>
-            </InputGroup.Append>
-            <InputGroup.Append>
-              <button>B</button>
-            </InputGroup.Append>
-          </InputGroup>
-        </Field>
-      );
-
-      const prependElementA = getByText('A').parentElement;
-      const prependElementB = getByText('B').parentElement;
-
-      expect(prependElementA).toHaveStyleRule('margin-right', '-1px');
-      expect(prependElementB).toHaveStyleRule('margin-right', '-1px');
-
-      expect(prependElementA).toHaveStyleRule('border-top-right-radius', '0', {
-        modifier: '& > *'
-      });
-      expect(prependElementA).toHaveStyleRule('border-bottom-right-radius', '0', {
-        modifier: '& > *'
-      });
-
-      expect(prependElementB).toHaveStyleRule('border-top-left-radius', '0', {
-        modifier: '&:not(:last-child) > *'
-      });
-      expect(prependElementB).toHaveStyleRule('border-bottom-left-radius', '0', {
-        modifier: '&:not(:last-child) > *'
+      expect(inputGroupElement).toHaveStyleRule('border-bottom-right-radius', '0', {
+        modifier: '& > button:last-of-type:not(:first-of-type)'
       });
     });
   });

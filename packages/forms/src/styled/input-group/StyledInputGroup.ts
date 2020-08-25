@@ -62,17 +62,58 @@ const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
   `;
 };
 
+const itemStyles = (props: ThemeProps<DefaultTheme>) => {
+  return css`
+    /* stylelint-disable property-no-unknown, property-case */
+    & > * {
+      margin-${props.theme.rtl ? 'right' : 'left'}: -${props.theme.borderWidths.sm};
+    }
+
+    & > button {
+      z-index: 1;
+    }
+
+    & > button:hover,
+    & > button:active {
+      z-index: 2;
+    }
+
+    & > button:disabled {
+      z-index: 0;
+      border-top-width: 0;
+      border-bottom-width: 0;
+    }
+
+    & > button:first-of-type:not(:last-of-type) {
+      margin-${props.theme.rtl ? 'right' : 'left'}: 0;
+      border-top-${props.theme.rtl ? 'left' : 'right'}-radius: 0;
+      border-bottom-${props.theme.rtl ? 'left' : 'right'}-radius: 0;
+    }
+
+    & > button:last-of-type:not(:first-of-type) {
+      border-top-${props.theme.rtl ? 'right' : 'left'}-radius: 0;
+      border-bottom-${props.theme.rtl ? 'right' : 'left'}-radius: 0;
+    }
+
+    & > button:not(:first-of-type):not(:last-of-type) {
+      border-radius: 0;
+    }
+    /* stylelint-enable property-no-unknown, property-case */
+  `;
+};
+
 export const StyledInputGroup = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledInputGroupProps>`
   display: inline-flex;
   position: relative;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: stretch;
   width: 100%;
 
   ${props => positionStyles(props)};
+  ${props => itemStyles(props)};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

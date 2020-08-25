@@ -11,45 +11,69 @@ const { Code } = require('@zendeskgarden/react-typography/src');
 const { Button } = require('@zendeskgarden/react-buttons/src');
 
 initialState = {
-  isCompact: false
+  isCompact: false,
+  isDisabled: false
 };
 
 <Grid>
   <Row>
     <Col>
       <Well isRecessed style={{ width: 300 }}>
-        <Field>
-          <Toggle
-            checked={state.isCompact}
-            onChange={event => setState({ isCompact: event.target.checked })}
-          >
-            <Label>
-              <Code>isCompact</Code>
-            </Label>
-          </Toggle>
-        </Field>
+        <Row>
+          <Col>
+            <Field>
+              <Toggle
+                checked={state.isCompact}
+                onChange={event => setState({ isCompact: event.target.checked })}
+              >
+                <Label>
+                  <Code>isCompact</Code>
+                </Label>
+              </Toggle>
+            </Field>
+          </Col>
+          <Col>
+            <Field>
+              <Toggle
+                checked={state.isDisabled}
+                onChange={event => setState({ isDisabled: event.target.checked })}
+              >
+                <Label>
+                  <Code>disabled</Code>
+                </Label>
+              </Toggle>
+            </Field>
+          </Col>
+        </Row>
       </Well>
     </Col>
     <Col>
       <Field>
         <Label>Input Group</Label>
         <InputGroup isCompact={state.isCompact}>
-          <InputGroup.Prepend>
-            <Button focusInset size={state.isCompact ? 'small' : undefined}>
-              A
-            </Button>
-          </InputGroup.Prepend>
-          <InputGroup.Prepend>
-            <Button focusInset size={state.isCompact ? 'small' : undefined}>
-              B
-            </Button>
-          </InputGroup.Prepend>
+          <Button
+            focusInset
+            disabled={state.isDisabled}
+            size={state.isCompact ? 'small' : undefined}
+          >
+            A
+          </Button>
+          <Button
+            focusInset
+            disabled={state.isDisabled}
+            size={state.isCompact ? 'small' : undefined}
+          >
+            B
+          </Button>
           <Input placeholder="Input content" />
-          <InputGroup.Append>
-            <Button focusInset isPrimary size={state.isCompact ? 'small' : undefined}>
-              Copy
-            </Button>
-          </InputGroup.Append>
+          <Button
+            focusInset
+            disabled={state.isDisabled}
+            isPrimary
+            size={state.isCompact ? 'small' : undefined}
+          >
+            Copy
+          </Button>
         </InputGroup>
         <Message>Validation message</Message>
       </Field>
