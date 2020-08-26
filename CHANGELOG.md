@@ -11,6 +11,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+## v8.21.0 (2020-08-26)
+
+#### :rocket: New Feature
+
+- `forms`
+  - [#841](https://github.com/zendeskgarden/react-components/pull/841) feat(forms): introduce InputGroup component ([@austin94](https://github.com/austin94))
 
 ## v8.20.0 (2020-08-19)
 
