@@ -63,17 +63,17 @@ describe('InputGroup', () => {
       });
 
       expect(inputGroupElement).toHaveStyleRule('border-top-right-radius', '0', {
-        modifier: '& > button:first-of-type:not(:last-of-type)'
+        modifier: '& > *:first-child:not(:last-child)'
       });
       expect(inputGroupElement).toHaveStyleRule('border-bottom-right-radius', '0', {
-        modifier: '& > button:first-of-type:not(:last-of-type)'
+        modifier: '& > *:first-child:not(:last-child)'
       });
 
       expect(inputGroupElement).toHaveStyleRule('border-top-left-radius', '0', {
-        modifier: '& > button:last-of-type:not(:first-of-type)'
+        modifier: '& > *:last-child:not(:first-child)'
       });
       expect(inputGroupElement).toHaveStyleRule('border-bottom-left-radius', '0', {
-        modifier: '& > button:last-of-type:not(:first-of-type)'
+        modifier: '& > *:last-child:not(:first-child)'
       });
     });
 
@@ -96,17 +96,17 @@ describe('InputGroup', () => {
       });
 
       expect(inputGroupElement).toHaveStyleRule('border-top-left-radius', '0', {
-        modifier: '& > button:first-of-type:not(:last-of-type)'
+        modifier: '& > *:first-child:not(:last-child)'
       });
       expect(inputGroupElement).toHaveStyleRule('border-bottom-left-radius', '0', {
-        modifier: '& > button:first-of-type:not(:last-of-type)'
+        modifier: '& > *:first-child:not(:last-child)'
       });
 
       expect(inputGroupElement).toHaveStyleRule('border-top-right-radius', '0', {
-        modifier: '& > button:last-of-type:not(:first-of-type)'
+        modifier: '& > *:last-child:not(:first-child)'
       });
       expect(inputGroupElement).toHaveStyleRule('border-bottom-right-radius', '0', {
-        modifier: '& > button:last-of-type:not(:first-of-type)'
+        modifier: '& > *:last-child:not(:first-child)'
       });
     });
   });

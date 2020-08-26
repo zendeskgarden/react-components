@@ -65,7 +65,7 @@ initialState = {
           >
             B
           </Button>
-          <Input placeholder="Input content" />
+          <Input placeholder="Input content" disabled={state.isDisabled} />
           <Button
             focusInset
             disabled={state.isDisabled}
