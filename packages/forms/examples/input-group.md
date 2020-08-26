@@ -1,10 +1,3 @@
-### Components
-
-- `InputGroup` Accepts all `div` attributes and the following props:
-  - [`isCompact`] Apply compact styling
-- `InputGroup.Prepend` Accepts all `div` attributes
-- `InputGroup.Append` Accepts all `div` attributes
-
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
 const { Code } = require('@zendeskgarden/react-typography/src');
