@@ -8,6 +8,7 @@
 import React, { InputHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import useFieldContext from '../utils/useFieldContext';
+import { useInputGroupContext } from '../utils/useInputGroupContext';
 import { StyledTextInput } from '../styled';
 import { VALIDATION } from '../utils/validation';
 
@@ -27,11 +28,20 @@ export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
  */
 export const Input = React.forwardRef<HTMLInputElement, IInputProps>((props, ref) => {
   const fieldContext = useFieldContext();
+  const inputGroupContext = useInputGroupContext();
 
   let combinedProps = {
     ref,
     ...props
   };
+
+  if (inputGroupContext) {
+    combinedProps = {
+      ...combinedProps,
+      isCompact: inputGroupContext.isCompact || combinedProps.isCompact,
+      focusInset: true
+    };
+  }
 
   if (fieldContext) {
     combinedProps = fieldContext.getInputProps(combinedProps, { isDescribed: true });

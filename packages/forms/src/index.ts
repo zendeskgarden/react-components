@@ -24,6 +24,9 @@ export { default as MultiThumbRange, IMultiThumbRangeProps } from './elements/Mu
 /** Tiles */
 export { Tiles } from './elements/tiles/Tiles';
 
+/** Input Group */
+export { InputGroup, IInputGroupProps } from './elements/input-group/InputGroup';
+
 /** Other */
 export {
   FauxInput,
