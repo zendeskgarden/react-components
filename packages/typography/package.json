@@ -22,7 +22,8 @@
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "dependencies": {
-    "polished": "^3.5.1"
+    "polished": "^3.5.1",
+    "prism-react-renderer": "^1.1.1"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^8.1.0",
