@@ -15,10 +15,9 @@ export const StyledCodeBlock = styled.pre.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   margin: 0;
-  overflow: auto;
+  background-color: ${props => getColor('neutralHue', 1000, props.theme)}; /* #151c21 */
   padding: ${props => props.theme.space.base * 3}px;
-  background-color: #151c21;
-  background-color: ${props => getColor('neutralHue', 1000, props.theme)};
+  overflow: auto;
   white-space: pre;
   color: ${props => getColor('neutralHue', 300, props.theme)};
 

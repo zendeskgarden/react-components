@@ -32,13 +32,16 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   };
 
   return css`
+    /* stylelint-disable selector-max-specificity */
     &.builtin,
     &.class-name,
-    &.tag:not(.punctuation):not(.attr-name):not(.attr-value):not(.script) /* [1] */ {
+    &.tag:not(.punctuation):not(.attr-name):not(.attr-value):not(.script) {
+      /* [1] */
       color: ${colors.builtin};
     }
 
-    &.tag.punctuation:not(.attr-value):not(.script):not(.spread) /* [2] */ {
+    &.tag.punctuation:not(.attr-value):not(.script):not(.spread) {
+      /* [2] */
       color: ${colors.punctuation};
     }
 
@@ -54,7 +57,8 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
       color: ${colors.string};
     }
 
-    &.attr-name + .attr-value.punctuation /* [3] */ {
+    &.attr-name + .attr-value.punctuation {
+      /* [3] */
       color: inherit;
     }
 
@@ -86,6 +90,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
     &.comment {
       color: ${colors.comment};
     }
+    /* stylelint-enable selector-max-specificity */
   `;
 };
 

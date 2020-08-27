@@ -47,6 +47,10 @@ module.exports = {
           content: '../../packages/typography/examples/code.md'
         },
         {
+          name: 'CodeBlock',
+          content: '../../packages/typography/examples/codeblock.md'
+        },
+        {
           name: 'Lists',
           content: '../../packages/typography/examples/lists.md'
         },
