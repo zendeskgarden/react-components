@@ -62,7 +62,6 @@ initialState = {
           <Button
             focusInset
             disabled={state.isDisabled}
-            isPrimary
             size={state.isCompact ? 'small' : undefined}
           >
             Copy
