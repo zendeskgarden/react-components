@@ -15,8 +15,9 @@ const {
 } = require('@zendeskgarden/react-forms/src');
 
 const CODE = {
-  bash: `#!/bin/sh
-  
+  bash: `
+#!/bin/sh
+
 # Exports.
 
 export ZSH="$HOME/.oh-my-zsh"
@@ -32,7 +33,8 @@ if [ -f $(brew --prefix nvm)/nvm.sh ]; then
     export NVM_DIR="$HOME/.nvm"
     source $(brew --prefix nvm)/nvm.sh
 fi`,
-  css: `button,
+  css: `
+button,
 .button,
 #button,
 [role='button'] {
@@ -58,8 +60,91 @@ fi`,
   box-sizing: border-box;
   user-select: none;
   -webkit-touch-callout: none;
+
+  @media print {
+    display: none;
+  }
 }`,
-  markup: `<!doctype html>
+  javascript: `
+Prism.languages.markup = {
+  comment: /<!--[\\s\\S]*?-->/,
+  prolog: /<\\?[\\s\\S]+?\\?>/,
+  doctype: {
+    greedy: true
+  },
+  cdata: /<!\\[CDATA\\[[\\s\\S]*?]]>/i,
+  tag: {
+    greedy: true,
+    inside: {
+      tag: {
+        pattern: /^<\\/?[^\\s>\\/]+/i,
+        inside: {
+          punctuation: /^<\\/?/,
+          namespace: /^[^\\s>\\/:]+:/
+        }
+      },
+      'attr-value': {
+        pattern: /=\\s*(?:"[^"]*"|'[^']*'|[^\\s'">=]+)/i,
+        inside: {
+          punctuation: [
+            /^=/,
+            {
+              pattern: /^(\\s*)["']|["']$/,
+              lookbehind: true
+            }
+          ]
+        }
+      },
+      punctuation: /\\/?>/u,
+      'attr-name': {
+        pattern: /[^\\s>\\/]+/,
+        inside: {
+          namespace: /^[^\\s>\\/:]+:/
+        }
+      }
+    }
+  },
+  entity: /&#?[\\da-z]{1,8};/i
+};`,
+  markdown: `
+# Title 1
+## Title 2
+### Title 3
+#### Title 4
+##### Title 5
+###### Title 6
+
+Our product is an extension of our brand and we want it to feel like Zendesk. We use visual design
+to shape what Zendesk looks like, and voice and tone to shape what Zendesk sounds like.
+
+| Voice      | Tone       |
+| ---------- | ---------- |
+| About us   | About them |
+| Consistent | Variable   |
+
+*Italic*
+**Bold**
+**Bold on
+multiple lines**
+*Italic on
+multiple lines too*
+
+* This is
+* an unordered list
+
+1. This is an
+2. ordered list
+
+* *List item in italic*
+* **List item in bold**
+* [List item as a link](http://example.com "This is an example")
+
+> This is a quotation
+>> With another quotation inside
+> _italic here_, __bold there__
+> And a [link](http://example.com)`,
+  markup: `
+<!doctype html>
 <html class="no-js" lang="">
 
 <head>
@@ -103,7 +188,25 @@ fi`,
 </body>
 
 </html>`,
-  tsx: `/**
+  python: `
+def median(pool):
+    '''Statistical median to demonstrate doctest.
+    >>> median([2, 9, 9, 7, 9, 2, 4, 5, 8])
+    7
+    '''
+    copy = sorted(pool)
+    size = len(copy)
+
+    if size % 2 == 1:
+        return copy[(size - 1) / 2]
+    else:
+        return (copy[size/2 - 1] + copy[size/2]) / 2
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()`,
+  tsx: `
+/**
  * Copyright Zendesk, Inc.
  *
  * Use of this source code is governed under the Apache License, Version 2.0
@@ -250,7 +353,8 @@ const Example = () => {
 
 export default Example;
 `,
-  typescript: `import { clean, publish } from 'gh-pages';
+  typescript: `
+import { clean, publish } from 'gh-pages';
 import commander, { Command } from 'commander';
 import { repository as getRepository, token as getToken } from '..';
 import { handleErrorMessage, handleSuccessMessage } from '../../utils';
@@ -331,7 +435,7 @@ export const execute = async (args: IGitHubPagesArgs): Promise<string | undefine
 };
 
 initialState = {
-  code: CODE['tsx'],
+  code: CODE['tsx'].trim(),
   language: 'tsx',
   size: 'medium'
 };
@@ -353,7 +457,7 @@ initialState = {
         </Dropdown>
         <Dropdown
           selectedItem={state.language}
-          onSelect={language => setState({ language, code: CODE[language] })}
+          onSelect={language => setState({ language, code: CODE[language].trim() })}
         >
           <Field className="u-mt-xs">
             <Label>Language</Label>
@@ -363,8 +467,11 @@ initialState = {
             <Item value="tsx">tsx (default)</Item>
             <Item value="bash">bash</Item>
             <Item value="css">css</Item>
+            <Item value="javascript">javascript</Item>
             <Item value="json">json</Item>
+            <Item value="markdown">markdown</Item>
             <Item value="markup">markup</Item>
+            <Item value="python">python</Item>
             <Item value="typescript">typescript</Item>
           </Menu>
         </Dropdown>

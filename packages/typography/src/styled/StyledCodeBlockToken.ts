@@ -40,13 +40,18 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
       color: ${colors.builtin};
     }
 
+    &.doctype,
+    &.prolog,
     &.tag.punctuation:not(.attr-value):not(.script):not(.spread) /* [2] */ {
       color: ${colors.punctuation};
     }
 
     &.attribute.value,
     &.attr-value,
-    &.string {
+    &.atrule,
+    &.cdata,
+    &.string,
+    &.url.content {
       color: ${colors.string};
     }
 
@@ -61,6 +66,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
     &.interpolation,
     &.parameter,
     &.property,
+    &.property-access,
     &.variable {
       color: ${colors.parameter};
     }
@@ -75,6 +81,8 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
     }
 
     &.boolean,
+    &.bold,
+    &.entity,
     &.important,
     &.tag:not(.punctuation):not(.attr-name):not(.attr-value):not(.script):not(.class-name) /* [1] */ {
       color: ${colors.boolean};
@@ -91,10 +99,12 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
       color: ${colors.function};
     }
 
+    &.atrule.rule,
     &.keyword {
       color: ${colors.keyword};
     }
 
+    &.blockquote,
     &.comment,
     &.shebang {
       color: ${colors.comment};
@@ -113,6 +123,14 @@ export const StyledCodeBlockToken = styled.span.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   display: inline-block;
+
+  &.bold {
+    font-weight: ${props => props.theme.fontWeights.semibold};
+  }
+
+  &.italic {
+    font-style: italic;
+  }
 
   ${props => colorStyles(props)};
 
