@@ -27,6 +27,9 @@ export { Tiles } from './elements/tiles/Tiles';
 /** Input Group */
 export { InputGroup, IInputGroupProps } from './elements/input-group/InputGroup';
 
+/** File Upload */
+export { FileUpload, IFileUploadProps } from './elements/FileUpload';
+
 /** Other */
 export {
   FauxInput,

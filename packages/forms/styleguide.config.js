@@ -45,6 +45,10 @@ module.exports = {
         {
           name: 'Input Group',
           content: '../../packages/forms/examples/input-group.md'
+        },
+        {
+          name: 'File Upload',
+          content: '../../packages/forms/examples/file-upload.md'
         }
       ]
     },
