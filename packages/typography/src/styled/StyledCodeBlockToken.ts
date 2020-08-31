@@ -7,6 +7,7 @@
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { StyledCodeBlock } from './StyledCodeBlock';
 
 const COMPONENT_ID = 'typography.codeblock_token';
 
@@ -32,46 +33,21 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   };
 
   return css`
-    /* stylelint-disable selector-max-specificity */
+    /* stylelint-disable selector-max-specificity, max-line-length */
     &.builtin,
     &.class-name,
-    &.tag:not(.punctuation):not(.attr-name):not(.attr-value):not(.script) {
-      /* [1] */
+    &.tag:not(.punctuation):not(.attr-name):not(.attr-value):not(.script) /* [1] */ {
       color: ${colors.builtin};
     }
 
-    &.tag.punctuation:not(.attr-value):not(.script):not(.spread) {
-      /* [2] */
+    &.tag.punctuation:not(.attr-value):not(.script):not(.spread) /* [2] */ {
       color: ${colors.punctuation};
     }
 
-    &.attr-name,
-    &.attr-value.spread,
-    &.interpolation,
-    &.parameter {
-      color: ${colors.parameter};
-    }
-
+    &.attribute.value,
     &.attr-value,
     &.string {
       color: ${colors.string};
-    }
-
-    &.attr-name + .attr-value.punctuation {
-      /* [3] */
-      color: inherit;
-    }
-
-    &.regex {
-      color: ${colors.regex};
-    }
-
-    &.boolean {
-      color: ${colors.boolean};
-    }
-
-    &.number {
-      color: ${colors.number};
     }
 
     &.constant,
@@ -79,7 +55,39 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
       color: ${colors.constant};
     }
 
-    &.function {
+    &.attr-name,
+    &.attr-value.spread,
+    &.environment,
+    &.interpolation,
+    &.parameter,
+    &.property,
+    &.variable {
+      color: ${colors.parameter};
+    }
+
+    &.parameter.punctuation,
+    &.attr-name + .attr-value.punctuation /* [3] */ {
+      color: inherit;
+    }
+
+    &.regex {
+      color: ${colors.regex};
+    }
+
+    &.boolean,
+    &.important,
+    &.tag:not(.punctuation):not(.attr-name):not(.attr-value):not(.script):not(.class-name) /* [1] */ {
+      color: ${colors.boolean};
+    }
+
+    &.number,
+    &.unit {
+      color: ${colors.number};
+    }
+
+    &.assign-left,
+    &.function,
+    &.selector:not(.attribute) {
       color: ${colors.function};
     }
 
@@ -87,10 +95,16 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
       color: ${colors.keyword};
     }
 
-    &.comment {
+    &.comment,
+    &.shebang {
       color: ${colors.comment};
     }
-    /* stylelint-enable selector-max-specificity */
+
+    /* stylelint-disable-next-line */
+    ${StyledCodeBlock}.language-css &.plain {
+      color: ${colors.string};
+    }
+    /* stylelint-enable selector-max-specificity, max-line-length */
   `;
 };
 

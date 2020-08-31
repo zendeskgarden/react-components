@@ -37,7 +37,7 @@ const CodeBlock: React.FunctionComponent<
   }
 
   return (
-    <Highlight Prism={Prism} code={code.trim()} language={language || 'tsx'}>
+    <Highlight Prism={Prism} code={code ? code.trim() : ''} language={language || 'tsx'}>
       {({ className, tokens, getLineProps, getTokenProps }) => (
         <StyledCodeBlock className={className} ref={ref} {...other}>
           {tokens.map((line, lineKey) => (
