@@ -6,7 +6,12 @@
  */
 
 import styled from 'styled-components';
-import { getColor, getLineHeight, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {
+  getColor,
+  getLineHeight,
+  DEFAULT_THEME,
+  retrieveComponentStyles
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.multiselect_more_anchor';
 
@@ -36,6 +41,8 @@ export const StyledMultiselectMoreAnchor = styled.div.attrs({
   :hover {
     text-decoration: ${props => !props.isDisabled && 'underline'};
   }
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledMultiselectMoreAnchor.defaultProps = {

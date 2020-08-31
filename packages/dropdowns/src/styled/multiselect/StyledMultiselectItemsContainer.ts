@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.multiselect_items_container';
 
@@ -54,6 +54,8 @@ export const StyledMultiselectItemsContainer = styled.div.attrs({
   min-width: 0;
 
   ${props => sizeStyles(props)};
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledMultiselectItemsContainer.defaultProps = {
