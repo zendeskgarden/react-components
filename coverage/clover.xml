@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1598983347709" clover="3.2.0">
-  <project timestamp="1598983347709" name="All files">
-    <metrics statements="6548" coveredstatements="6429" conditionals="2625" coveredconditionals="2390" methods="1361" coveredmethods="1338" elements="10534" coveredelements="10157" complexity="0" loc="6548" ncloc="6548" packages="111" files="432" classes="432"/>
+<coverage generated="1598983739743" clover="3.2.0">
+  <project timestamp="1598983739743" name="All files">
+    <metrics statements="6555" coveredstatements="6436" conditionals="2625" coveredconditionals="2390" methods="1368" coveredmethods="1345" elements="10548" coveredelements="10171" complexity="0" loc="6555" ncloc="6555" packages="111" files="432" classes="432"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
       <file name="Example.spec.tsx" path="/home/circleci/project/packages/.template/src/elements/Example.spec.tsx">
@@ -3531,9 +3531,9 @@
       </file>
     </package>
     <package name="dropdowns.src.styled.multiselect">
-      <metrics statements="45" coveredstatements="45" conditionals="32" coveredconditionals="26" methods="11" coveredmethods="11"/>
+      <metrics statements="49" coveredstatements="49" conditionals="32" coveredconditionals="26" methods="15" coveredmethods="15"/>
       <file name="StyledMultiselectInput.ts" path="/home/circleci/project/packages/dropdowns/src/styled/multiselect/StyledMultiselectInput.ts">
-        <metrics statements="15" coveredstatements="15" conditionals="12" coveredconditionals="11" methods="3" coveredmethods="3"/>
+        <metrics statements="16" coveredstatements="16" conditionals="12" coveredconditionals="11" methods="4" coveredmethods="4"/>
         <line num="8" count="22" type="stmt"/>
         <line num="9" count="22" type="stmt"/>
         <line num="10" count="22" type="stmt"/>
@@ -3548,19 +3548,21 @@
         <line num="37" count="22" type="stmt"/>
         <line num="41" count="146" type="stmt"/>
         <line num="46" count="146" type="stmt"/>
-        <line num="49" count="22" type="stmt"/>
+        <line num="48" count="146" type="stmt"/>
+        <line num="51" count="22" type="stmt"/>
       </file>
       <file name="StyledMultiselectItemWrapper.ts" path="/home/circleci/project/packages/dropdowns/src/styled/multiselect/StyledMultiselectItemWrapper.ts">
-        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="8" count="22" type="stmt"/>
         <line num="9" count="22" type="stmt"/>
         <line num="11" count="22" type="stmt"/>
         <line num="13" count="22" type="stmt"/>
         <line num="19" count="414" type="stmt"/>
-        <line num="23" count="22" type="stmt"/>
+        <line num="22" count="414" type="stmt"/>
+        <line num="25" count="22" type="stmt"/>
       </file>
       <file name="StyledMultiselectItemsContainer.ts" path="/home/circleci/project/packages/dropdowns/src/styled/multiselect/StyledMultiselectItemsContainer.ts">
-        <metrics statements="14" coveredstatements="14" conditionals="10" coveredconditionals="7" methods="2" coveredmethods="2"/>
+        <metrics statements="15" coveredstatements="15" conditionals="10" coveredconditionals="7" methods="3" coveredmethods="3"/>
         <line num="8" count="22" type="stmt"/>
         <line num="9" count="22" type="stmt"/>
         <line num="11" count="22" type="stmt"/>
@@ -3574,26 +3576,28 @@
         <line num="41" count="146" type="stmt"/>
         <line num="47" count="22" type="stmt"/>
         <line num="56" count="146" type="stmt"/>
-        <line num="59" count="22" type="stmt"/>
+        <line num="58" count="146" type="stmt"/>
+        <line num="61" count="22" type="stmt"/>
       </file>
       <file name="StyledMultiselectMoreAnchor.ts" path="/home/circleci/project/packages/dropdowns/src/styled/multiselect/StyledMultiselectMoreAnchor.ts">
-        <metrics statements="10" coveredstatements="10" conditionals="10" coveredconditionals="8" methods="5" coveredmethods="5"/>
+        <metrics statements="11" coveredstatements="11" conditionals="10" coveredconditionals="8" methods="6" coveredmethods="6"/>
         <line num="8" count="22" type="stmt"/>
         <line num="9" count="22" type="stmt"/>
-        <line num="11" count="22" type="stmt"/>
-        <line num="18" count="22" type="stmt"/>
-        <line num="23" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="24" count="6" type="cond" truecount="1" falsecount="1"/>
+        <line num="16" count="22" type="stmt"/>
+        <line num="23" count="22" type="stmt"/>
+        <line num="28" count="6" type="cond" truecount="2" falsecount="0"/>
         <line num="29" count="6" type="cond" truecount="1" falsecount="1"/>
-        <line num="32" count="6" type="stmt"/>
-        <line num="37" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="41" count="22" type="stmt"/>
+        <line num="34" count="6" type="cond" truecount="1" falsecount="1"/>
+        <line num="37" count="6" type="stmt"/>
+        <line num="42" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="45" count="6" type="stmt"/>
+        <line num="48" count="22" type="stmt"/>
       </file>
     </package>
     <package name="dropdowns.src.styled.select">
-      <metrics statements="21" coveredstatements="21" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
+      <metrics statements="24" coveredstatements="24" conditionals="6" coveredconditionals="6" methods="6" coveredmethods="6"/>
       <file name="StyledFauxInput.ts" path="/home/circleci/project/packages/dropdowns/src/styled/select/StyledFauxInput.ts">
-        <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
         <line num="8" count="22" type="stmt"/>
         <line num="9" count="22" type="stmt"/>
         <line num="10" count="22" type="stmt"/>
@@ -3601,10 +3605,11 @@
         <line num="14" count="22" type="stmt"/>
         <line num="19" count="225" type="cond" truecount="2" falsecount="0"/>
         <line num="20" count="225" type="cond" truecount="2" falsecount="0"/>
-        <line num="23" count="22" type="stmt"/>
+        <line num="22" count="225" type="stmt"/>
+        <line num="25" count="22" type="stmt"/>
       </file>
       <file name="StyledInput.ts" path="/home/circleci/project/packages/dropdowns/src/styled/select/StyledInput.ts">
-        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="8" count="22" type="stmt"/>
         <line num="9" count="22" type="stmt"/>
         <line num="10" count="22" type="stmt"/>
@@ -3612,15 +3617,17 @@
         <line num="14" count="22" type="stmt"/>
         <line num="29" count="22" type="stmt"/>
         <line num="34" count="363" type="cond" truecount="2" falsecount="0"/>
-        <line num="37" count="22" type="stmt"/>
+        <line num="36" count="363" type="stmt"/>
+        <line num="39" count="22" type="stmt"/>
       </file>
       <file name="StyledSelect.ts" path="/home/circleci/project/packages/dropdowns/src/styled/select/StyledSelect.ts">
-        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="8" count="22" type="stmt"/>
         <line num="9" count="22" type="stmt"/>
         <line num="11" count="22" type="stmt"/>
         <line num="13" count="22" type="stmt"/>
-        <line num="23" count="22" type="stmt"/>
+        <line num="22" count="59" type="stmt"/>
+        <line num="25" count="22" type="stmt"/>
       </file>
     </package>
     <package name="dropdowns.src.utils">
@@ -7574,13 +7581,13 @@
       <file name="retrieveComponentStyles.ts" path="/home/circleci/project/packages/theming/src/utils/retrieveComponentStyles.ts">
         <metrics statements="8" coveredstatements="8" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
         <line num="11" count="246" type="stmt"/>
-        <line num="15" count="119627" type="cond" truecount="2" falsecount="0"/>
-        <line num="17" count="119627" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="120986" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="120986" type="cond" truecount="2" falsecount="0"/>
         <line num="18" count="1" type="stmt"/>
-        <line num="21" count="119626" type="stmt"/>
-        <line num="23" count="119626" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="120985" type="stmt"/>
+        <line num="23" count="120985" type="cond" truecount="2" falsecount="0"/>
         <line num="24" count="1" type="stmt"/>
-        <line num="27" count="119625" type="stmt"/>
+        <line num="27" count="120984" type="stmt"/>
       </file>
       <file name="useDocument.ts" path="/home/circleci/project/packages/theming/src/utils/useDocument.ts">
         <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
