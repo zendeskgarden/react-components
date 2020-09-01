@@ -10,8 +10,9 @@ const {
 } = require('@zendeskgarden/react-dropdowns/src');
 const {
   Textarea,
-  Field: InputField,
-  Label: InputLabel
+  Toggle,
+  Field: FormField,
+  Label: FormLabel
 } = require('@zendeskgarden/react-forms/src');
 
 const CODE = {
@@ -106,6 +107,49 @@ Prism.languages.markup = {
   },
   entity: /&#?[\\da-z]{1,8};/i
 };`,
+  json: `
+{
+  "data": [
+    {
+      "key": "product",
+      "version": 1,
+      "schema": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "product id"
+          },
+          "name": {
+            "type": "string",
+            "description": "product name"
+          }
+        },
+        "required": ["id", "name"]
+      },
+      "created_at": "2018-01-01T10:20:30Z",
+      "updated_at": "2018-01-01T10:20:30Z"
+    },
+    {
+      "key": "user",
+      "version": 2,
+      "schema": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "user id"
+          },
+          "name": {
+            "type": "string",
+            "description": "user name"
+          }
+        },
+        "required": ["id", "name"]
+      },
+      "created_at": "2018-01-01T10:20:30Z",
+      "updated_at": "2018-01-01T10:20:30Z"
+    }
+  ]
+}`,
   markdown: `
 # Title 1
 ## Title 2
@@ -437,6 +481,7 @@ export const execute = async (args: IGitHubPagesArgs): Promise<string | undefine
 initialState = {
   code: CODE['tsx'].trim(),
   language: 'tsx',
+  numbered: false,
   size: 'medium'
 };
 
@@ -444,8 +489,16 @@ initialState = {
   <Row>
     <Col>
       <Well isRecessed>
+        <FormField>
+          <Toggle
+            checked={state.numbered}
+            onChange={event => setState({ numbered: event.target.checked })}
+          >
+            <FormLabel>Numbered</FormLabel>
+          </Toggle>
+        </FormField>
         <Dropdown selectedItem={state.size} onSelect={size => setState({ size })}>
-          <Field>
+          <Field className="u-mt-xs">
             <Label>Size</Label>
             <Select isCompact>{state.size}</Select>
           </Field>
@@ -475,8 +528,8 @@ initialState = {
             <Item value="typescript">typescript</Item>
           </Menu>
         </Dropdown>
-        <InputField className="u-mt-xs">
-          <InputLabel>Code</InputLabel>
+        <FormField className="u-mt-xs">
+          <FormLabel>Code</FormLabel>
           <Textarea
             isCompact
             minRows={4}
@@ -484,13 +537,13 @@ initialState = {
             value={state.code}
             onChange={event => setState({ code: event.target.value })}
           />
-        </InputField>
+        </FormField>
       </Well>
     </Col>
   </Row>
   <Row>
     <Col className="u-mt">
-      <CodeBlock language={state.language} size={state.size}>
+      <CodeBlock language={state.language} isNumbered={state.numbered} size={state.size}>
         {state.code}
       </CodeBlock>
     </Col>

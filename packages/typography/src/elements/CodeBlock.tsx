@@ -9,14 +9,10 @@ import React, { HTMLAttributes } from 'react';
 import Highlight, { Language, Prism } from 'prism-react-renderer';
 import { StyledCodeBlock, StyledCodeBlockLine, StyledCodeBlockToken } from '../styled';
 
-interface IRendererArgs {
-  rows: any;
-  stylesheet: any;
-}
-
 export interface ICodeBlockProps extends HTMLAttributes<HTMLPreElement> {
   language?: Language;
   size?: 'small' | 'medium' | 'large';
+  isNumbered?: boolean;
 }
 
 /**
@@ -24,7 +20,7 @@ export interface ICodeBlockProps extends HTMLAttributes<HTMLPreElement> {
  */
 const CodeBlock: React.FunctionComponent<
   ICodeBlockProps & React.RefAttributes<HTMLPreElement>
-> = React.forwardRef(({ children, language, size, ...other }, ref) => {
+> = React.forwardRef(({ children, isNumbered, language, size, ...other }, ref) => {
   const code = (Array.isArray(children) ? children[0] : children) as string;
   let _size: 'sm' | 'md' | 'lg';
 
@@ -41,7 +37,12 @@ const CodeBlock: React.FunctionComponent<
       {({ className, tokens, getLineProps, getTokenProps }) => (
         <StyledCodeBlock className={className} ref={ref} {...other}>
           {tokens.map((line, lineKey) => (
-            <StyledCodeBlockLine {...getLineProps({ line })} key={lineKey} size={_size}>
+            <StyledCodeBlockLine
+              {...getLineProps({ line })}
+              key={lineKey}
+              isNumbered={isNumbered}
+              size={_size}
+            >
               {line.map((token, tokenKey) => (
                 <StyledCodeBlockToken {...getTokenProps({ token })} key={tokenKey}>
                   {token.empty ? '\n' : token.content}

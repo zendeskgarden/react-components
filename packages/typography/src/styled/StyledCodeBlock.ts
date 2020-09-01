@@ -20,6 +20,7 @@ export const StyledCodeBlock = styled.pre.attrs({
   overflow: auto;
   white-space: pre;
   color: ${props => getColor('neutralHue', 300, props.theme)};
+  counter-reset: linenumber;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
