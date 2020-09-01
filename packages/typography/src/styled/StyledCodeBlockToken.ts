@@ -25,11 +25,11 @@ const colorStyles = (props: IStyledCodeBlockTokenProps & ThemeProps<DefaultTheme
     constant: props.isLight ? palette.azure[400] : palette.blue[500],
     function: props.isLight ? palette.orange['M600' as any] : palette.yellow[300],
     keyword: palette.fuschia['M400' as any],
+    name: props.isLight ? palette.azure[400] : palette.blue[300],
     number: palette.green[300],
-    parameter: props.isLight ? palette.azure[400] : palette.blue[300],
     punctuation: props.isLight ? palette.red[800] : palette.grey[600],
     regex: palette.red[400],
-    string: props.isLight ? palette.red[700] : palette.crimson['M400' as any]
+    value: props.isLight ? palette.red[700] : palette.crimson['M400' as any]
   };
 
   return css`
@@ -52,7 +52,7 @@ const colorStyles = (props: IStyledCodeBlockTokenProps & ThemeProps<DefaultTheme
     &.cdata,
     &.string,
     &.url.content {
-      color: ${colors.string};
+      color: ${colors.value};
     }
 
     &.constant,
@@ -68,7 +68,7 @@ const colorStyles = (props: IStyledCodeBlockTokenProps & ThemeProps<DefaultTheme
     &.property,
     &.property-access,
     &.variable {
-      color: ${colors.parameter};
+      color: ${colors.name};
     }
 
     &.parameter.punctuation,
@@ -112,7 +112,7 @@ const colorStyles = (props: IStyledCodeBlockTokenProps & ThemeProps<DefaultTheme
 
     /* stylelint-disable-next-line */
     ${StyledCodeBlock}.language-css &.plain {
-      color: ${colors.string};
+      color: ${colors.value};
     }
     /* stylelint-enable selector-max-specificity, max-line-length */
   `;
