@@ -12445,7 +12445,7 @@ BRH:0
 end_of_record
 TN:
 SF:packages/pagination/src/elements/CursorPagination/components/Previous.tsx
-FN:13,(anonymous_1)
+FN:15,(anonymous_1)
 FNF:1
 FNH:1
 FNDA:1,(anonymous_1)
@@ -12453,8 +12453,8 @@ DA:8,4
 DA:9,4
 DA:10,4
 DA:12,4
-DA:14,1
-DA:25,4
+DA:16,1
+DA:26,4
 LF:6
 LH:6
 BRF:0
