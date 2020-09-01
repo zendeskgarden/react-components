@@ -6,6 +6,8 @@ accepts any file type or size.
 
 ```jsx
 const { useDropzone } = require('react-dropzone');
+const { Well } = require('@zendeskgarden/react-notifications/src');
+const { Code } = require('@zendeskgarden/react-typography/src');
 const { getColor } = require('@zendeskgarden/react-theming/src');
 const { IconButton } = require('@zendeskgarden/react-buttons/src');
 const { Progress } = require('@zendeskgarden/react-loaders/src');
@@ -93,6 +95,7 @@ const File = React.memo(({ name, onRemove }) => {
 });
 
 const Example = () => {
+  const [isCompact, setIsCompact] = React.useState(false);
   const [files, setFiles] = React.useState(['squash.jpg', 'soybean.pdf']);
 
   const onDrop = React.useCallback(
@@ -117,11 +120,24 @@ const Example = () => {
 
   return (
     <>
+      <Well isRecessed className="u-mb-sm">
+        <Field>
+          <Toggle checked={isCompact} onChange={event => setIsCompact(event.target.checked)}>
+            <Label>
+              <Code>isCompact</Code>
+            </Label>
+          </Toggle>
+        </Field>
+      </Well>
       <Field>
         <Label>File upload</Label>
         <Hint>Works with react-dropzone</Hint>
-        <FileUpload {...getRootProps()} isDragging={isDragActive}>
-          {isDragActive ? <p>Drop files here</p> : <p>Drag files here or click to upload</p>}
+        <FileUpload {...getRootProps()} isDragging={isDragActive} isCompact={isCompact}>
+          {isDragActive ? (
+            <span>Drop files here</span>
+          ) : (
+            <span>Drag files here or click to upload</span>
+          )}
           <Input {...getInputProps()} />
         </FileUpload>
       </Field>

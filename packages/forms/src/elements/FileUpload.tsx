@@ -12,6 +12,8 @@ import { StyledFileUpload } from '../styled';
 export interface IFileUploadProps extends HTMLAttributes<HTMLDivElement> {
   /** Determines whether to apply drag styling */
   isDragging?: boolean;
+  /** Apply compact styling */
+  isCompact?: boolean;
 }
 
 export const FileUpload = React.forwardRef<HTMLDivElement, IFileUploadProps>((props, ref) => {

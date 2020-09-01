@@ -16,10 +16,11 @@ const COMPONENT_ID = 'forms.file_upload';
 
 interface IStyledFileUploadProps {
   isDragging?: boolean;
+  isCompact?: boolean;
 }
 
 const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledFileUploadProps) => {
-  const topMargin = `${props.theme.space.base * 2}px`;
+  const topMargin = `${props.theme.space.base * (props.isCompact ? 1 : 2)}px`;
 
   return css`
     /* stylelint-disable */
@@ -87,6 +88,7 @@ export const StyledFileUpload = styled.div.attrs({
   cursor: pointer;
   padding: ${props => `${props.theme.space.base * 5}px ${props.theme.space.base * 15}px`};
   text-align: center;
+  line-height: ${props => props.theme.lineHeights.md};
   font-size: ${props => props.theme.fontSizes.md};
 
   &:focus {
