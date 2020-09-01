@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { StyledInput } from '../select/StyledInput';
 
 const COMPONENT_ID = 'dropdowns.multiselect_input';
@@ -44,6 +44,8 @@ export const StyledMultiselectInput = styled(StyledInput).attrs({
   min-height: 0;
 
   ${props => visibleStyling(props)};
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledMultiselectInput.defaultProps = {
