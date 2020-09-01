@@ -16,20 +16,20 @@ const COMPONENT_ID = 'typography.codeblock_token';
  * 2. Target opening/closing `<`, `/>`.
  * 3. Override string tokenization of `=` after an attribute name.
  */
-const colorStyles = (props: ThemeProps<DefaultTheme>) => {
+const colorStyles = (props: IStyledCodeBlockTokenProps & ThemeProps<DefaultTheme>) => {
   const palette = props.theme.palette;
   const colors = {
-    boolean: palette.azure[400],
+    boolean: props.isLight ? palette.royal[600] : palette.azure[400],
     builtin: palette.teal[400],
-    comment: palette.mint[400],
-    constant: palette.blue[500],
-    function: palette.yellow[300],
+    comment: props.isLight ? palette.lime[600] : palette.mint[400],
+    constant: props.isLight ? palette.azure[400] : palette.blue[500],
+    function: props.isLight ? palette.orange['M600' as any] : palette.yellow[300],
     keyword: palette.fuschia['M400' as any],
     number: palette.green[300],
-    parameter: palette.blue[300],
-    punctuation: palette.grey[600],
+    parameter: props.isLight ? palette.azure[400] : palette.blue[300],
+    punctuation: props.isLight ? palette.red[800] : palette.grey[600],
     regex: palette.red[400],
-    string: palette.crimson['M400' as any]
+    string: props.isLight ? palette.red[700] : palette.crimson['M400' as any]
   };
 
   return css`
@@ -118,10 +118,14 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
+export interface IStyledCodeBlockTokenProps {
+  isLight?: boolean;
+}
+
 export const StyledCodeBlockToken = styled.span.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+})<IStyledCodeBlockTokenProps>`
   display: inline-block;
 
   &.bold {

@@ -11,9 +11,9 @@ import { StyledFont } from './StyledFont';
 
 const COMPONENT_ID = 'typography.codeblock_code';
 
-const lineNumberStyles = (props: ThemeProps<DefaultTheme>) => {
+const lineNumberStyles = (props: IStyledCodeBlockLineProps & ThemeProps<DefaultTheme>) => {
   const padding = `${props.theme.space.base * 6}px`;
-  const color = getColor('neutralHue', 500, props.theme);
+  const color = getColor('neutralHue', props.isLight ? 600 : 500, props.theme);
 
   return css`
     &::before {
@@ -28,6 +28,7 @@ const lineNumberStyles = (props: ThemeProps<DefaultTheme>) => {
 };
 
 export interface IStyledCodeBlockLineProps {
+  isLight?: boolean;
   isNumbered?: boolean;
 }
 

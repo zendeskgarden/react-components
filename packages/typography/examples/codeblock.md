@@ -481,6 +481,7 @@ export const execute = async (args: IGitHubPagesArgs): Promise<string | undefine
 initialState = {
   code: CODE['tsx'].trim(),
   language: 'tsx',
+  light: false,
   numbered: false,
   size: 'medium'
 };
@@ -490,6 +491,14 @@ initialState = {
     <Col>
       <Well isRecessed>
         <FormField>
+          <Toggle
+            checked={state.light}
+            onChange={event => setState({ light: event.target.checked })}
+          >
+            <FormLabel>Light</FormLabel>
+          </Toggle>
+        </FormField>
+        <FormField className="u-mt-xs">
           <Toggle
             checked={state.numbered}
             onChange={event => setState({ numbered: event.target.checked })}
@@ -543,7 +552,12 @@ initialState = {
   </Row>
   <Row>
     <Col className="u-mt">
-      <CodeBlock language={state.language} isNumbered={state.numbered} size={state.size}>
+      <CodeBlock
+        language={state.language}
+        isLight={state.light}
+        isNumbered={state.numbered}
+        size={state.size}
+      >
         {state.code}
       </CodeBlock>
     </Col>
