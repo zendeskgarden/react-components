@@ -25,8 +25,8 @@ const colorStyles = (props: IStyledCodeBlockTokenProps & ThemeProps<DefaultTheme
     constant: props.isLight ? palette.azure[400] : palette.blue[500],
     function: props.isLight ? palette.orange['M600' as any] : palette.yellow[300],
     keyword: palette.fuschia['M400' as any],
-    name: props.isLight ? palette.azure[400] : palette.blue[300],
-    number: palette.green[300],
+    name: props.isLight ? palette.crimson[400] : palette.blue[300],
+    number: props.isLight ? palette.green[600] : palette.green[300],
     punctuation: props.isLight ? palette.red[800] : palette.grey[600],
     regex: palette.red[400],
     value: props.isLight ? palette.red[700] : palette.crimson['M400' as any]
