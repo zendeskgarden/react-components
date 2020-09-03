@@ -19,21 +19,21 @@
     }
   },
   "index.cjs.js": {
-    "bundled": 131231,
-    "minified": 73980,
-    "gzipped": 16493
+    "bundled": 132266,
+    "minified": 74802,
+    "gzipped": 16577
   },
   "index.esm.js": {
-    "bundled": 130022,
-    "minified": 72822,
-    "gzipped": 16434,
+    "bundled": 130813,
+    "minified": 73399,
+    "gzipped": 16525,
     "treeshaked": {
       "rollup": {
-        "code": 59784,
-        "import_statements": 483
+        "code": 60104,
+        "import_statements": 509
       },
       "webpack": {
-        "code": 62482
+        "code": 63178
       }
     }
   }

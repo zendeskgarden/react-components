@@ -17,7 +17,7 @@ import PropTypes from 'prop-types';
 import { ThemeProps, DefaultTheme } from 'styled-components';
 import { Manager, Popper, Reference } from 'react-popper';
 import { withTheme, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { KEY_CODES } from '@zendeskgarden/container-utilities';
+import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
 import {
   getRtlPopperPlacement,
   getPopperPlacement,
@@ -171,44 +171,52 @@ const Datepicker: React.FunctionComponent<IDatepickerProps & ThemeProps<DefaultT
       <Manager>
         <Reference>
           {({ ref }) => {
-            return React.cloneElement(React.Children.only(children as any), {
+            const childElement = React.Children.only(children as React.ReactElement);
+
+            return React.cloneElement(childElement, {
               [refKey!]: (refValue: HTMLElement) => {
                 (ref as any)(refValue);
                 (inputRef as any).current = refValue;
               },
-              onMouseDown: () => {
+              onMouseDown: composeEventHandlers(childElement.props.onMouseDown, () => {
                 isInputMouseDownRef.current = true;
-              },
-              onMouseUp: () => {
+              }),
+              onMouseUp: composeEventHandlers(childElement.props.onMouseUp, () => {
                 setTimeout(() => {
                   isInputMouseDownRef.current = false;
                 }, 0);
-              },
-              onClick: () => {
+              }),
+              onClick: composeEventHandlers(childElement.props.onClick, () => {
                 /** Ensure click/focus events from associated labels are not triggered */
                 if (isInputMouseDownRef.current && !state.isOpen) {
                   dispatch({ type: 'OPEN' });
                 }
-              },
-              onBlur: () => {
+              }),
+              onBlur: composeEventHandlers(childElement.props.onBlur, () => {
                 dispatch({ type: 'CLOSE' });
-              },
-              onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
-                dispatch({ type: 'MANUALLY_UPDATE_INPUT', value: e.target.value });
-              },
-              onKeyDown: e => {
-                switch (e.keyCode) {
-                  case KEY_CODES.ESCAPE:
-                  case KEY_CODES.ENTER:
-                    dispatch({ type: 'CLOSE' });
-                    break;
-                  case KEY_CODES.UP:
-                  case KEY_CODES.DOWN:
-                  case KEY_CODES.SPACE:
-                    dispatch({ type: 'OPEN' });
-                    break;
+              }),
+              onChange: composeEventHandlers(
+                childElement.props.onChange,
+                (e: React.ChangeEvent<HTMLInputElement>) => {
+                  dispatch({ type: 'MANUALLY_UPDATE_INPUT', value: e.target.value });
                 }
-              },
+              ),
+              onKeyDown: composeEventHandlers(
+                childElement.props.onKeyDown,
+                (e: React.KeyboardEvent<HTMLInputElement>) => {
+                  switch (e.keyCode) {
+                    case KEY_CODES.ESCAPE:
+                    case KEY_CODES.ENTER:
+                      dispatch({ type: 'CLOSE' });
+                      break;
+                    case KEY_CODES.UP:
+                    case KEY_CODES.DOWN:
+                    case KEY_CODES.SPACE:
+                      dispatch({ type: 'OPEN' });
+                      break;
+                  }
+                }
+              ),
               autoComplete: 'off',
               value: state.inputValue
             });
