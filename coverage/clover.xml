@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1599096733204" clover="3.2.0">
-  <project timestamp="1599096733205" name="All files">
-    <metrics statements="6555" coveredstatements="6436" conditionals="2625" coveredconditionals="2390" methods="1368" coveredmethods="1345" elements="10548" coveredelements="10171" complexity="0" loc="6555" ncloc="6555" packages="111" files="432" classes="432"/>
+<coverage generated="1599170261120" clover="3.2.0">
+  <project timestamp="1599170261120" name="All files">
+    <metrics statements="6558" coveredstatements="6439" conditionals="2625" coveredconditionals="2390" methods="1368" coveredmethods="1345" elements="10551" coveredelements="10174" complexity="0" loc="6558" ncloc="6558" packages="111" files="432" classes="432"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
       <file name="Example.spec.tsx" path="/home/circleci/project/packages/.template/src/elements/Example.spec.tsx">
@@ -1871,9 +1871,9 @@
       </file>
     </package>
     <package name="datepickers.src.elements.Datepicker">
-      <metrics statements="55" coveredstatements="54" conditionals="24" coveredconditionals="23" methods="17" coveredmethods="17"/>
+      <metrics statements="56" coveredstatements="55" conditionals="24" coveredconditionals="23" methods="17" coveredmethods="17"/>
       <file name="Datepicker.tsx" path="/home/circleci/project/packages/datepickers/src/elements/Datepicker/Datepicker.tsx">
-        <metrics statements="55" coveredstatements="54" conditionals="24" coveredconditionals="23" methods="17" coveredmethods="17"/>
+        <metrics statements="56" coveredstatements="55" conditionals="24" coveredconditionals="23" methods="17" coveredmethods="17"/>
         <line num="8" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
@@ -1910,25 +1910,26 @@
         <line num="167" count="200" type="stmt"/>
         <line num="169" count="200" type="stmt"/>
         <line num="174" count="197" type="stmt"/>
-        <line num="176" count="394" type="stmt"/>
-        <line num="177" count="394" type="stmt"/>
-        <line num="180" count="30" type="stmt"/>
-        <line num="183" count="31" type="stmt"/>
-        <line num="184" count="31" type="stmt"/>
-        <line num="189" count="31" type="cond" truecount="4" falsecount="0"/>
-        <line num="190" count="24" type="stmt"/>
-        <line num="194" count="3" type="stmt"/>
-        <line num="197" count="67" type="stmt"/>
-        <line num="200" count="73" type="stmt"/>
-        <line num="203" count="2" type="stmt"/>
-        <line num="204" count="2" type="stmt"/>
-        <line num="208" count="9" type="stmt"/>
-        <line num="209" count="9" type="stmt"/>
-        <line num="224" count="197" type="stmt"/>
-        <line num="226" count="197" type="stmt"/>
-        <line num="256" count="1" type="stmt"/>
-        <line num="287" count="1" type="stmt"/>
-        <line num="297" count="1" type="stmt"/>
+        <line num="176" count="197" type="stmt"/>
+        <line num="178" count="394" type="stmt"/>
+        <line num="179" count="394" type="stmt"/>
+        <line num="182" count="30" type="stmt"/>
+        <line num="185" count="31" type="stmt"/>
+        <line num="186" count="31" type="stmt"/>
+        <line num="191" count="31" type="cond" truecount="4" falsecount="0"/>
+        <line num="192" count="24" type="stmt"/>
+        <line num="196" count="3" type="stmt"/>
+        <line num="201" count="67" type="stmt"/>
+        <line num="207" count="73" type="stmt"/>
+        <line num="210" count="2" type="stmt"/>
+        <line num="211" count="2" type="stmt"/>
+        <line num="215" count="9" type="stmt"/>
+        <line num="216" count="9" type="stmt"/>
+        <line num="232" count="197" type="stmt"/>
+        <line num="234" count="197" type="stmt"/>
+        <line num="264" count="1" type="stmt"/>
+        <line num="295" count="1" type="stmt"/>
+        <line num="305" count="1" type="stmt"/>
       </file>
     </package>
     <package name="datepickers.src.elements.Datepicker.components">
@@ -2138,7 +2139,7 @@
       </file>
     </package>
     <package name="datepickers.src.elements.DatepickerRange.components">
-      <metrics statements="131" coveredstatements="131" conditionals="109" coveredconditionals="104" methods="23" coveredmethods="23"/>
+      <metrics statements="133" coveredstatements="133" conditionals="109" coveredconditionals="104" methods="23" coveredmethods="23"/>
       <file name="Calendar.tsx" path="/home/circleci/project/packages/datepickers/src/elements/DatepickerRange/components/Calendar.tsx">
         <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="8" count="3" type="stmt"/>
@@ -2152,7 +2153,7 @@
         <line num="65" count="3" type="stmt"/>
       </file>
       <file name="End.tsx" path="/home/circleci/project/packages/datepickers/src/elements/DatepickerRange/components/End.tsx">
-        <metrics statements="21" coveredstatements="21" conditionals="10" coveredconditionals="10" methods="5" coveredmethods="5"/>
+        <metrics statements="22" coveredstatements="22" conditionals="10" coveredconditionals="10" methods="5" coveredmethods="5"/>
         <line num="8" count="3" type="stmt"/>
         <line num="9" count="3" type="stmt"/>
         <line num="10" count="3" type="stmt"/>
@@ -2173,7 +2174,8 @@
         <line num="47" count="6" type="stmt"/>
         <line num="49" count="6" type="cond" truecount="2" falsecount="0"/>
         <line num="54" count="374" type="stmt"/>
-        <line num="64" count="3" type="stmt"/>
+        <line num="56" count="374" type="stmt"/>
+        <line num="66" count="3" type="stmt"/>
       </file>
       <file name="Month.tsx" path="/home/circleci/project/packages/datepickers/src/elements/DatepickerRange/components/Month.tsx">
         <metrics statements="80" coveredstatements="80" conditionals="89" coveredconditionals="84" methods="12" coveredmethods="12"/>
@@ -2259,7 +2261,7 @@
         <line num="300" count="3" type="stmt"/>
       </file>
       <file name="Start.tsx" path="/home/circleci/project/packages/datepickers/src/elements/DatepickerRange/components/Start.tsx">
-        <metrics statements="21" coveredstatements="21" conditionals="10" coveredconditionals="10" methods="5" coveredmethods="5"/>
+        <metrics statements="22" coveredstatements="22" conditionals="10" coveredconditionals="10" methods="5" coveredmethods="5"/>
         <line num="8" count="3" type="stmt"/>
         <line num="9" count="3" type="stmt"/>
         <line num="10" count="3" type="stmt"/>
@@ -2280,7 +2282,8 @@
         <line num="47" count="6" type="stmt"/>
         <line num="49" count="6" type="cond" truecount="2" falsecount="0"/>
         <line num="54" count="374" type="stmt"/>
-        <line num="64" count="3" type="stmt"/>
+        <line num="56" count="374" type="stmt"/>
+        <line num="66" count="3" type="stmt"/>
       </file>
     </package>
     <package name="datepickers.src.elements.DatepickerRange.utils">
