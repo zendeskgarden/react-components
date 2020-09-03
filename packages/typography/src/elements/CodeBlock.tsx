@@ -19,48 +19,48 @@ export interface ICodeBlockProps extends HTMLAttributes<HTMLPreElement> {
 /**
  * @extends HTMLAttributes<HTMLPreElement>
  */
-const CodeBlock: React.FunctionComponent<
-  ICodeBlockProps & React.RefAttributes<HTMLPreElement>
-> = React.forwardRef(({ children, isLight, isNumbered, language, size, ...other }, ref) => {
-  const code = (Array.isArray(children) ? children[0] : children) as string;
-  let _size: 'sm' | 'md' | 'lg';
+const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
+  ({ children, isLight, isNumbered, language, size, ...other }, ref) => {
+    const code = (Array.isArray(children) ? children[0] : children) as string;
+    let _size: 'sm' | 'md' | 'lg';
 
-  if (size === 'small') {
-    _size = 'sm';
-  } else if (size === 'medium') {
-    _size = 'md';
-  } else {
-    _size = 'lg';
+    if (size === 'small') {
+      _size = 'sm';
+    } else if (size === 'medium') {
+      _size = 'md';
+    } else {
+      _size = 'lg';
+    }
+
+    return (
+      <Highlight Prism={Prism} code={code ? code.trim() : ''} language={language || 'tsx'}>
+        {({ className, tokens, getLineProps, getTokenProps }) => (
+          <StyledCodeBlock className={className} ref={ref} isLight={isLight} {...other}>
+            {tokens.map((line, lineKey) => (
+              <StyledCodeBlockLine
+                {...getLineProps({ line })}
+                key={lineKey}
+                isLight={isLight}
+                isNumbered={isNumbered}
+                size={_size}
+              >
+                {line.map((token, tokenKey) => (
+                  <StyledCodeBlockToken
+                    {...getTokenProps({ token })}
+                    key={tokenKey}
+                    isLight={isLight}
+                  >
+                    {token.empty ? '\n' : token.content}
+                  </StyledCodeBlockToken>
+                ))}
+              </StyledCodeBlockLine>
+            ))}
+          </StyledCodeBlock>
+        )}
+      </Highlight>
+    );
   }
-
-  return (
-    <Highlight Prism={Prism} code={code ? code.trim() : ''} language={language || 'tsx'}>
-      {({ className, tokens, getLineProps, getTokenProps }) => (
-        <StyledCodeBlock className={className} ref={ref} isLight={isLight} {...other}>
-          {tokens.map((line, lineKey) => (
-            <StyledCodeBlockLine
-              {...getLineProps({ line })}
-              key={lineKey}
-              isLight={isLight}
-              isNumbered={isNumbered}
-              size={_size}
-            >
-              {line.map((token, tokenKey) => (
-                <StyledCodeBlockToken
-                  {...getTokenProps({ token })}
-                  key={tokenKey}
-                  isLight={isLight}
-                >
-                  {token.empty ? '\n' : token.content}
-                </StyledCodeBlockToken>
-              ))}
-            </StyledCodeBlockLine>
-          ))}
-        </StyledCodeBlock>
-      )}
-    </Highlight>
-  );
-});
+);
 
 CodeBlock.displayName = 'CodeBlock';
 
