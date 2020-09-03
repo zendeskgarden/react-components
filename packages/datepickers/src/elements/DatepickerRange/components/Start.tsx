@@ -7,7 +7,7 @@
 
 import React, { PropsWithChildren, HTMLAttributes, useCallback } from 'react';
 import useDatepickerRangeContext from '../utils/useDatepickerRangeContext';
-import { KEY_CODES } from '@zendeskgarden/container-utilities';
+import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
 
 const Start = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>) => {
   const { state, dispatch, startInputRef } = useDatepickerRangeContext();
@@ -51,13 +51,15 @@ const Start = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>) => {
     [dispatch, props.children]
   );
 
-  return React.cloneElement(React.Children.only(props.children as any), {
+  const childElement = React.Children.only(props.children as React.ReactElement);
+
+  return React.cloneElement(childElement, {
     value: state.startInputValue,
     ref: startInputRef,
-    onChange: onChangeCallback,
-    onFocus: onFocusCallback,
-    onKeyDown: onKeyDownCallback,
-    onBlur: onBlurCallback
+    onChange: composeEventHandlers(childElement.props.onChange, onChangeCallback),
+    onFocus: composeEventHandlers(childElement.props.onFocus, onFocusCallback),
+    onKeyDown: composeEventHandlers(childElement.props.onKeyDown, onKeyDownCallback),
+    onBlur: composeEventHandlers(childElement.props.onBlur, onBlurCallback)
   });
 };
 
