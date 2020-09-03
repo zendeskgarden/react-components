@@ -10,9 +10,13 @@ import Highlight, { Language, Prism } from 'prism-react-renderer';
 import { StyledCodeBlock, StyledCodeBlockLine, StyledCodeBlockToken } from '../styled';
 
 export interface ICodeBlockProps extends HTMLAttributes<HTMLPreElement> {
+  /** Selects the language used by the Prism tokenizer */
   language?: Language;
+  /** Specifies the font size */
   size?: 'small' | 'medium' | 'large';
+  /** Determines light mode styling */
   isLight?: boolean;
+  /** Determines whether line numbers are displayed */
   isNumbered?: boolean;
 }
 
