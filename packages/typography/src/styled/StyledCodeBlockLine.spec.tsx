@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { render } from 'garden-test-utils';
+import { render, renderRtl } from 'garden-test-utils';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { StyledCodeBlockLine } from './StyledCodeBlockLine';
 
@@ -15,6 +15,12 @@ describe('StyledCodeBlockLine', () => {
     const { container } = render(<StyledCodeBlockLine />);
 
     expect(container.firstChild!.nodeName).toBe('CODE');
+  });
+
+  it('renders expected RTL direction', () => {
+    const { container } = renderRtl(<StyledCodeBlockLine />);
+
+    expect(container.firstChild).toHaveStyleRule('direction', 'ltr');
   });
 
   describe('line numbers', () => {
@@ -30,6 +36,26 @@ describe('StyledCodeBlockLine', () => {
       expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[600], {
         modifier: '&::before'
       });
+    });
+  });
+
+  describe('size', () => {
+    it('renders small size', () => {
+      const { container } = render(<StyledCodeBlockLine size="sm" />);
+
+      expect(container.firstChild).toHaveStyleRule('font-size', '11px');
+    });
+
+    it('renders medium size', () => {
+      const { container } = render(<StyledCodeBlockLine size="md" />);
+
+      expect(container.firstChild).toHaveStyleRule('font-size', '13px');
+    });
+
+    it('renders large size', () => {
+      const { container } = render(<StyledCodeBlockLine size="lg" />);
+
+      expect(container.firstChild).toHaveStyleRule('font-size', '17px');
     });
   });
 });

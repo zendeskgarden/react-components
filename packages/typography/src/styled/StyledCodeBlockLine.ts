@@ -39,6 +39,7 @@ export const StyledCodeBlockLine = styled(StyledFont).attrs({
   isMonospace: true
 })<IStyledCodeBlockLineProps>`
   display: ${props => (props.isNumbered ? 'table-row' : 'block')};
+  direction: ltr;
 
   ${props => props.isNumbered && lineNumberStyles(props)};
 

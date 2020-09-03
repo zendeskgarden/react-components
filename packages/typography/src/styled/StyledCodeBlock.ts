@@ -33,6 +33,7 @@ export const StyledCodeBlock = styled.pre.attrs({
   margin: 0;
   padding: ${props => props.theme.space.base * 3}px;
   overflow: auto;
+  direction: ltr;
   white-space: pre;
   counter-reset: linenumber;
 
