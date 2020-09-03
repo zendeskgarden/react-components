@@ -56,6 +56,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps>(
       popperReferenceElementRef,
       selectedItems = [],
       containsMultiselectRef,
+      previousIndexRef,
       downshift: {
         getToggleButtonProps,
         getInputProps,
@@ -286,11 +287,19 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps>(
                 },
                 onKeyDown: (e: KeyboardEvent) => {
                   if (!inputValue) {
-                    if (isRtl(props) && e.keyCode === KEY_CODES.RIGHT && selectedItems.length > 0) {
+                    if (
+                      isRtl(props) &&
+                      e.keyCode === KEY_CODES.RIGHT &&
+                      (previousIndexRef.current === null ||
+                        previousIndexRef.current === undefined) &&
+                      selectedItems.length > 0
+                    ) {
                       setFocusedItem(selectedItems[selectedItems.length - 1]);
                     } else if (
                       !isRtl(props) &&
                       e.keyCode === KEY_CODES.LEFT &&
+                      (previousIndexRef.current === null ||
+                        previousIndexRef.current === undefined) &&
                       selectedItems.length > 0
                     ) {
                       setFocusedItem(selectedItems[selectedItems.length - 1]);

@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, fireEvent, renderRtl, act } from 'garden-test-utils';
-import { Dropdown, Multiselect, Field, Menu, Item, Label } from '..';
+import { Dropdown, Multiselect, Field, Menu, Item, PreviousItem, Label } from '..';
 import { IDropdownProps } from '../Dropdown/Dropdown';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
 
@@ -390,6 +390,37 @@ describe('Multiselect', () => {
       const input = container.querySelector('input');
 
       fireEvent.focus(input!);
+      fireEvent.keyDown(input!, { key: 'ArrowLeft', keyCode: KEY_CODES.LEFT });
+
+      expect(tags[tags.length - 1]).not.toHaveFocus();
+    });
+
+    it('does not focus last tag on left arrow keydown when previous item is present', () => {
+      const { getAllByTestId, container } = render(
+        <Dropdown selectedItems={['celosia']}>
+          <Field>
+            <Multiselect
+              renderItem={({ value, removeValue }) => (
+                <div data-test-id="tag">
+                  {value}
+                  <button data-test-id="remove" onClick={() => removeValue()} tabIndex={-1}>
+                    Remove
+                  </button>
+                </div>
+              )}
+            />
+          </Field>
+          <Menu>
+            <PreviousItem value="previous">Parent Group</PreviousItem>
+            <Item value="celosia">Celosia</Item>
+          </Menu>
+        </Dropdown>
+      );
+
+      const tags = getAllByTestId('tag');
+      const input = container.querySelector('input');
+
+      fireEvent.click(input!);
       fireEvent.keyDown(input!, { key: 'ArrowLeft', keyCode: KEY_CODES.LEFT });
 
       expect(tags[tags.length - 1]).not.toHaveFocus();
