@@ -7,7 +7,7 @@ accepts any file type or size.
 ```jsx
 const { useDropzone } = require('react-dropzone');
 const { Well } = require('@zendeskgarden/react-notifications/src');
-const { Code } = require('@zendeskgarden/react-typography/src');
+const { Code, Ellipsis, Span } = require('@zendeskgarden/react-typography/src');
 const { getColor } = require('@zendeskgarden/react-theming/src');
 const { IconButton } = require('@zendeskgarden/react-buttons/src');
 const { Progress } = require('@zendeskgarden/react-loaders/src');
@@ -36,16 +36,11 @@ const StyledFile = styled.div`
   flex-wrap: nowrap;
 `;
 
-const StyledFileName = styled.span`
-  display: flex;
-  align-items: center;
+const StyledSpan = styled(Span)`
   flex-grow: 1;
-  padding: 0 ${p => p.theme.space.xs};
-`;
-
-const StyledFileIcon = styled.div`
   display: flex;
   align-items: center;
+  padding-right: ${p => p.theme.space.xs};
 `;
 
 const StyledProgress = styled(Progress)`
@@ -80,10 +75,12 @@ const File = React.memo(({ name, onRemove }) => {
 
   return (
     <StyledFile aria-label="File">
-      <StyledFileIcon>
-        <FileImageStroke />
-      </StyledFileIcon>
-      <StyledFileName aria-label="File name">{name}</StyledFileName>
+      <StyledSpan aria-label="File name">
+        <Span.StartIcon>
+          <FileImageStroke />
+        </Span.StartIcon>
+        {name}
+      </StyledSpan>
       <IconButton size="small" onClick={onRemove} aria-label="Remove file">
         <CloseStroke />
       </IconButton>
@@ -96,6 +93,7 @@ const File = React.memo(({ name, onRemove }) => {
 
 const Example = () => {
   const [isCompact, setIsCompact] = React.useState(false);
+  const [isDisabled, setIsDisabled] = React.useState(false);
   const [files, setFiles] = React.useState(['squash.jpg', 'soybean.pdf']);
 
   const onDrop = React.useCallback(
@@ -116,44 +114,79 @@ const Example = () => {
     [files]
   );
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    disabled: isDisabled
+  });
 
   return (
-    <>
-      <Well isRecessed className="u-mb-sm">
-        <Field>
-          <Toggle checked={isCompact} onChange={event => setIsCompact(event.target.checked)}>
-            <Label>
-              <Code>isCompact</Code>
-            </Label>
-          </Toggle>
-        </Field>
-      </Well>
-      <Field>
-        <Label>File upload</Label>
-        <Hint>Works with react-dropzone</Hint>
-        <FileUpload {...getRootProps()} isDragging={isDragActive} isCompact={isCompact}>
-          {isDragActive ? (
-            <span>Drop files here</span>
-          ) : (
-            <span>Drag files here or click to upload</span>
-          )}
-          <Input {...getInputProps()} />
-        </FileUpload>
-      </Field>
-      <StyledFileWrapper>
-        {files.map((file, index) => (
-          <li key={file}>
-            <File
-              name={file}
-              onRemove={() => {
-                removeFile(index);
-              }}
-            />
-          </li>
-        ))}
-      </StyledFileWrapper>
-    </>
+    <Grid>
+      <Row>
+        <Col>
+          <Well isRecessed className="u-mb-sm">
+            <Row>
+              <Col>
+                <Field>
+                  <Toggle
+                    checked={isCompact}
+                    onChange={event => setIsCompact(event.target.checked)}
+                  >
+                    <Label>
+                      <Code>isCompact</Code>
+                    </Label>
+                  </Toggle>
+                </Field>
+              </Col>
+              <Col>
+                <Field>
+                  <Toggle
+                    checked={isDisabled}
+                    onChange={event => setIsDisabled(event.target.checked)}
+                  >
+                    <Label>
+                      <Code>disabled</Code>
+                    </Label>
+                  </Toggle>
+                </Field>
+              </Col>
+            </Row>
+          </Well>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Field>
+            <Label>File upload</Label>
+            <Hint>Works with react-dropzone</Hint>
+            <FileUpload
+              {...getRootProps()}
+              isDragging={isDragActive}
+              isCompact={isCompact}
+              disabled={isDisabled}
+            >
+              {isDragActive ? (
+                <span>Drop files here</span>
+              ) : (
+                <span>Drag files here or click to upload</span>
+              )}
+              <Input {...getInputProps()} disabled={isDisabled} />
+            </FileUpload>
+          </Field>
+          <StyledFileWrapper>
+            {files.map((file, index) => (
+              <li key={file}>
+                <File
+                  name={file}
+                  onRemove={() => {
+                    removeFile(index);
+                  }}
+                />
+              </li>
+            ))}
+          </StyledFileWrapper>
+        </Col>
+      </Row>
+    </Grid>
   );
 };
 

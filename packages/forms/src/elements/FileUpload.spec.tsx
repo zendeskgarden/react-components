@@ -32,7 +32,7 @@ describe('FileUpload', () => {
   });
 
   it('renders correct styling when isDragging is active', () => {
-    const { container } = renderRtl(<FileUpload isDragging />);
+    const { container } = render(<FileUpload isDragging />);
 
     const activeColor = getColor('primaryHue', 800, DEFAULT_THEME);
     const activeBackgroundColor = rgba(getColor('primaryHue', 600, DEFAULT_THEME) as string, 0.2);

@@ -7,7 +7,12 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { rgba } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import {
+  retrieveComponentStyles,
+  DEFAULT_THEME,
+  getColor,
+  getLineHeight
+} from '@zendeskgarden/react-theming';
 import { StyledLabel } from '../common/StyledLabel';
 import { StyledHint } from '../common/StyledHint';
 import { StyledMessage } from '../common/StyledMessage';
@@ -39,8 +44,8 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledFileUploadProps) =
   const baseColor = getColor('primaryHue', 600, props.theme);
   const hoverColor = getColor('primaryHue', 700, props.theme);
   const activeColor = getColor('primaryHue', 800, props.theme);
-  const disabledBackgroundColor = getColor('primaryHue', 200, props.theme);
-  const disabledForegroundColor = getColor('primaryHue', 400, props.theme);
+  const disabledBackgroundColor = getColor('neutralHue', 200, props.theme);
+  const disabledForegroundColor = getColor('neutralHue', 400, props.theme);
   const boxShadow = `inset ${props.theme.shadows.md(rgba(baseColor as string, 0.35))}`;
 
   return css`
@@ -64,7 +69,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledFileUploadProps) =
       color: ${activeColor};
     }
 
-    &:disabled {
+    &[aria-disabled='true'] {
       border-color: ${disabledForegroundColor};
       background-color: ${disabledBackgroundColor};
       color: ${disabledForegroundColor};
@@ -88,14 +93,15 @@ export const StyledFileUpload = styled.div.attrs({
   cursor: pointer;
   padding: ${props => `${props.theme.space.base * 5}px ${props.theme.space.base * 15}px`};
   text-align: center;
-  line-height: ${props => props.theme.lineHeights.md};
+  line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
   font-size: ${props => props.theme.fontSizes.md};
+  user-select: none;
 
   &:focus {
     outline: none;
   }
 
-  &:disabled {
+  &[aria-disabled='true'] {
     cursor: default;
   }
 
