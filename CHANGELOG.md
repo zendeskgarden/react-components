@@ -12,6 +12,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.21.2 (2020-09-03)
+
+#### :bug: Bug Fix
+* `datepickers`
+  * [#857](https://github.com/zendeskgarden/react-components/pull/857) fix(datepickers): allow event composition on Datepicker inputs ([@austin94](https://github.com/austin94))
+
 ## v8.21.1 (2020-09-02)
 
 #### :bug: Bug Fix
