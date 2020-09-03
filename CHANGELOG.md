@@ -12,6 +12,13 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v7.3.3 (2020-09-03)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#856](https://github.com/zendeskgarden/react-components/pull/856) fix(dropdowns): correct keyboard navigation for nested multiselect me… ([@austin94](https://github.com/austin94))
+  * [#853](https://github.com/zendeskgarden/react-components/pull/853) fix: correct keyboard navigation for nested multiselect menus ([@louisscruz](https://github.com/louisscruz))
+
 ## v7.3.2 (2020-08-24)
 
 #### :bug: Bug Fix
