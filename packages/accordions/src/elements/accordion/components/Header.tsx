@@ -25,7 +25,13 @@ export const Header = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>
   const [isFocused, setIsFocused] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const isExpanded = expandedSections.includes(sectionIndex);
-  const { onClick: onTriggerClick, ...otherTriggerProps } = getTriggerProps({
+  /**
+   *  Pressing the space key on a button triggers the `onTriggerClick` callback.
+   * `onKeyDown` is plucked out and not passed to the Label (button) element
+   * to prevent double invocations of the click event.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { onClick: onTriggerClick, onKeyDown, ...otherTriggerProps } = getTriggerProps({
     type: 'button',
     index: sectionIndex
   });
