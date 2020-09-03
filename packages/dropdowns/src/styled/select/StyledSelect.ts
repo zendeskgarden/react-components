@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.select';
 
@@ -18,6 +18,8 @@ export const StyledSelect = styled.div.attrs({
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledSelect.defaultProps = {

@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { FauxInput } from '@zendeskgarden/react-forms';
 
 const COMPONENT_ID = 'dropdowns.faux_input';
@@ -18,6 +18,8 @@ export const StyledFauxInput = styled(FauxInput).attrs({
 })`
   cursor: ${props => !props.disabled && 'pointer'};
   min-width: ${props => props.theme.space.base * (props.isCompact ? 25 : 36)}px;
+
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledFauxInput.defaultProps = {

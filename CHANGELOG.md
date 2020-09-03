@@ -12,6 +12,27 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.21.1 (2020-09-02)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#851](https://github.com/zendeskgarden/react-components/pull/851) fix(dropdowns): allow internal elements to receive custom component styles ([@austin94](https://github.com/austin94))
+* `pagination`
+  * [#852](https://github.com/zendeskgarden/react-components/pull/852) fix(pagination): fix cursor button type definitions ([@hzhu](https://github.com/hzhu))
+
+#### :memo: Documentation
+* `forms`
+  * [#847](https://github.com/zendeskgarden/react-components/pull/847) chore(docs): remove primary button from input-group docs ([@austin94](https://github.com/austin94))
+
+#### :seedling: Internal
+* [#848](https://github.com/zendeskgarden/react-components/pull/848) chore(ci): ensure all PRs include semantic release label ([@austin94](https://github.com/austin94))
+## v8.21.0 (2020-08-26)
+
+#### :rocket: New Feature
+
+- `forms`
+  - [#841](https://github.com/zendeskgarden/react-components/pull/841) feat(forms): introduce InputGroup component ([@austin94](https://github.com/austin94))
+
 ## v8.20.0 (2020-08-19)
 
 #### :rocket: New Feature
