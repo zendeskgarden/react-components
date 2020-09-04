@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1599172001812" clover="3.2.0">
-  <project timestamp="1599172001812" name="All files">
+<coverage generated="1599180857034" clover="3.2.0">
+  <project timestamp="1599180857034" name="All files">
     <metrics statements="6558" coveredstatements="6439" conditionals="2625" coveredconditionals="2390" methods="1368" coveredmethods="1345" elements="10551" coveredelements="10174" complexity="0" loc="6558" ncloc="6558" packages="111" files="432" classes="432"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
@@ -93,22 +93,22 @@
         <line num="25" count="9" type="stmt"/>
         <line num="26" count="9" type="stmt"/>
         <line num="27" count="9" type="stmt"/>
-        <line num="28" count="9" type="stmt"/>
-        <line num="32" count="9" type="stmt"/>
-        <line num="33" count="1" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
-        <line num="37" count="1" type="stmt"/>
-        <line num="39" count="1" type="cond" truecount="2" falsecount="2"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="45" count="9" type="stmt"/>
-        <line num="50" count="9" type="stmt"/>
-        <line num="62" count="1" type="stmt"/>
-        <line num="63" count="1" type="stmt"/>
-        <line num="64" count="1" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="75" count="0" type="stmt"/>
-        <line num="84" count="8" type="stmt"/>
+        <line num="34" count="9" type="stmt"/>
+        <line num="38" count="9" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="45" count="1" type="cond" truecount="2" falsecount="2"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="51" count="9" type="stmt"/>
+        <line num="56" count="9" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="69" count="1" type="stmt"/>
+        <line num="70" count="1" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="90" count="8" type="stmt"/>
       </file>
       <file name="Label.tsx" path="/home/circleci/project/packages/accordions/src/elements/accordion/components/Label.tsx">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
