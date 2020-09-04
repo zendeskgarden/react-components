@@ -6,6 +6,9 @@
  */
 
 export * from './StyledCode';
+export * from './StyledCodeBlock';
+export * from './StyledCodeBlockLine';
+export * from './StyledCodeBlockToken';
 export * from './StyledEllipsis';
 export * from './StyledFont';
 export * from './StyledIcon';

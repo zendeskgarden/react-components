@@ -12,6 +12,7 @@ export { default as XL } from './elements/XL';
 export { default as XXL } from './elements/XXL';
 export { default as XXXL } from './elements/XXXL';
 export { default as Code } from './elements/Code';
+export { CodeBlock } from './elements/CodeBlock';
 export { default as Span } from './elements/Span';
 export { default as Ellipsis } from './elements/Ellipsis';
 export { default as Paragraph } from './elements/Paragraph';
