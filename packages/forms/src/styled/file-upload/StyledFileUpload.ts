@@ -81,6 +81,7 @@ export const StyledFileUpload = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledFileUploadProps>`
+  box-sizing: content-box;
   direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
   /* prettier-ignore */
   transition:
@@ -92,6 +93,7 @@ export const StyledFileUpload = styled.div.attrs({
   border-radius: ${props => props.theme.borderRadii.md};
   cursor: pointer;
   padding: ${props => `${props.theme.space.base * 5}px ${props.theme.space.base * 15}px`};
+  min-width: 4em;
   text-align: center;
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
   font-size: ${props => props.theme.fontSizes.md};

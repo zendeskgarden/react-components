@@ -51,6 +51,10 @@ const StyledProgress = styled(Progress)`
   margin: 0;
 `;
 
+const StyledEllipsis = styled(Ellipsis)`
+  max-width: 300px;
+`;
+
 const File = React.memo(({ name, onRemove }) => {
   const [uploadProgress, setUploadProgress] = React.useState(0);
 
@@ -79,9 +83,9 @@ const File = React.memo(({ name, onRemove }) => {
         <Span.StartIcon>
           <FileImageStroke />
         </Span.StartIcon>
-        {name}
+        <StyledEllipsis>{name}</StyledEllipsis>
       </StyledSpan>
-      <IconButton size="small" onClick={onRemove} aria-label="Remove file">
+      <IconButton size="small" focusInset onClick={onRemove} aria-label="Remove file">
         <CloseStroke />
       </IconButton>
       {uploadProgress < 100 && (
