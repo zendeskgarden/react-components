@@ -8,7 +8,7 @@
 import React from 'react';
 import { render } from 'garden-test-utils';
 import { PALETTE } from '@zendeskgarden/react-theming';
-import CodeBlock from './CodeBlock';
+import { CodeBlock } from './CodeBlock';
 
 describe('CodeBlock', () => {
   it('passes ref to underlying DOM element', () => {

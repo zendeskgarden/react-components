@@ -23,7 +23,7 @@ export interface ICodeBlockProps extends HTMLAttributes<HTMLPreElement> {
 /**
  * @extends HTMLAttributes<HTMLPreElement>
  */
-const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
+export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
   ({ children, isLight, isNumbered, language, size, ...other }, ref) => {
     const code = (Array.isArray(children) ? children[0] : children) as string;
     let _size: 'sm' | 'md' | 'lg';
@@ -72,5 +72,3 @@ CodeBlock.defaultProps = {
   language: 'tsx',
   size: 'medium'
 };
-
-export default CodeBlock;
