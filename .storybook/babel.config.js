@@ -38,7 +38,7 @@ module.exports = {
           '@zendeskgarden/react-theming': './packages/theming/src',
           '@zendeskgarden/react-tooltips': './packages/tooltips/src',
           '@zendeskgarden/react-typography': './packages/typography/src',
-          '@zendeskgarden/react-utilities': './packages/utilitie/src'
+          '@zendeskgarden/react-utilities': './packages/utilities/src'
         }
       }
     ]
