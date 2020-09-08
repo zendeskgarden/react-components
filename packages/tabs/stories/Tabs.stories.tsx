@@ -45,9 +45,7 @@ export const Default: Story<IStoryProps> = ({ orientation, disabled }) => {
         <Tab item="sugar-maple" disabled={disabled}>
           Sugar Maple
         </Tab>
-        <Tab item="dogwood" disabled={disabled}>
-          Sugar
-        </Tab>
+        <Tab item="dogwood">Sugar</Tab>
       </TabList>
       <TabPanel item="elm">
         Elms are deciduous and semi-deciduous trees comprising the flowering plant genus Ulmus in
