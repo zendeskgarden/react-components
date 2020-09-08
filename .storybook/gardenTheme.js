@@ -12,8 +12,6 @@ export const managerTheme = create({
   base: 'light',
   fontBase: DEFAULT_THEME.fonts.system,
   fontCode: DEFAULT_THEME.fonts.mono,
-  colorSecondary: PALETTE.blue[600],
-  barSelectedColor: PALETTE.blue[600],
   brandTitle: 'React Components / Zendesk Garden',
   brandUrl: 'https://zendeskgarden.github.io/react-components/storybook',
   brandImage: './images/garden.svg'
