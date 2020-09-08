@@ -6,7 +6,7 @@
  */
 
 import { create } from '@storybook/theming/create';
-import { DEFAULT_THEME, PALETTE } from '../packages/theming/src';
+import { DEFAULT_THEME } from '../packages/theming/src';
 
 export const managerTheme = create({
   base: 'light',
