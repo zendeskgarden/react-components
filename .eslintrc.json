@@ -32,6 +32,7 @@
     "valid-jsdoc": "off",
     "no-unused-expressions": ["error", { "allowShortCircuit": true }],
     "no-irregular-whitespace": ["error", { "skipTemplates": true }],
+    "no-duplicate-imports": "off",
     "prefer-named-capture-group": "off",
     "react/prop-types": ["error", { "ignore": ["children"] }],
     "react-hooks/rules-of-hooks": "error",
@@ -58,7 +59,7 @@
       }
     },
     {
-      "files": ["*.spec.{js,ts,tsx}", "utils/**/*.{js,ts,tsx}", "styleguide.config.js"],
+      "files": ["*.spec.{js,ts,tsx}", "utils/**/*.{js,ts,tsx}", ".storybook/**/*.{js,ts,tsx}", "styleguide.config.js"],
       "rules": {
         "garden-local/require-default-theme": "off",
         "@typescript-eslint/no-var-requires": "off"

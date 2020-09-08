@@ -16,7 +16,6 @@
   ],
   "scripts": {
     "build": "../../utils/scripts/build.sh",
-    "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
   "sideEffects": false,

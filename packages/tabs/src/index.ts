@@ -5,7 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { Tab, ITabProps } from './elements/Tab';
+export { Tab } from './elements/Tab';
+export type { ITabProps } from './elements/Tab';
 export { TabList } from './elements/TabList';
-export { TabPanel, ITabPanelProps } from './elements/TabPanel';
-export { default as Tabs, ITabsProps } from './elements/Tabs';
+export { TabPanel } from './elements/TabPanel';
+export type { ITabPanelProps } from './elements/TabPanel';
+export { default as Tabs } from './elements/Tabs';
+export type { ITabsProps } from './elements/Tabs';
