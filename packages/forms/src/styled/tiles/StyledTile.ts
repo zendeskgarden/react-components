@@ -25,8 +25,8 @@ const colorStyles = (props: IStyledTileProps & ThemeProps<DefaultTheme>) => {
   const color = getColor('neutralHue', SHADE + 200, props.theme);
   const borderColor = getColor('neutralHue', SHADE - 300, props.theme);
   const hoverBackgroundColor = getColor('primaryHue', SHADE, props.theme, 0.08);
-  const hoverBorderColor = getColor('primaryHue', SHADE - 200, props.theme);
-  const focusBorderColor = getColor('primaryHue', SHADE, props.theme);
+  const hoverBorderColor = getColor('primaryHue', SHADE, props.theme);
+  const focusBorderColor = hoverBorderColor;
   const focusBoxShadow = props.theme.shadows.md(rgba(focusBorderColor!, 0.35));
   const activeBackgroundColor = getColor('primaryHue', SHADE, props.theme, 0.2);
   const activeBorderColor = focusBorderColor;

@@ -19,8 +19,8 @@ const colorStyles = (props: ThemeProps<DefaultTheme>) => {
   const backgroundColor = props.theme.colors.background;
   const iconColor = backgroundColor;
   const hoverBackgroundColor = getColor('primaryHue', SHADE, props.theme, 0.08);
-  const hoverBorderColor = getColor('primaryHue', SHADE - 200, props.theme);
-  const focusBorderColor = getColor('primaryHue', SHADE, props.theme);
+  const hoverBorderColor = getColor('primaryHue', SHADE, props.theme);
+  const focusBorderColor = hoverBorderColor;
   const activeBackgroundColor = getColor('primaryHue', SHADE, props.theme, 0.2);
   const activeBorderColor = focusBorderColor;
   const boxShadow = props.theme.shadows.md(rgba(focusBorderColor!, 0.35));
