@@ -39,7 +39,7 @@
   "devDependencies": {
     "@types/lodash.debounce": "4.0.6",
     "@zendeskgarden/react-theming": "^8.21.2",
-    "@zendeskgarden/svg-icons": "6.19.0",
+    "@zendeskgarden/svg-icons": "6.22.0",
     "lodash.debounce": "4.0.8"
   },
   "keywords": [
