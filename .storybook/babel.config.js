@@ -5,15 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-const path = require('path');
-const babelOptions = require(path.resolve(__dirname, '../babel.config.js'));
+const storybookBabelConfig = require('@storybook/core/dist/server/common/babel');
 
 module.exports = {
-  ...babelOptions,
   sourceType: 'unambiguous',
-  presets: [...babelOptions.presets, '@babel/preset-typescript'],
+  presets: [...storybookBabelConfig.presets],
   plugins: [
-    ...babelOptions.plugins,
+    ...storybookBabelConfig.plugins,
+    'babel-plugin-styled-components',
     [
       'module-resolver',
       {
@@ -42,5 +41,10 @@ module.exports = {
         }
       }
     ]
-  ]
+  ],
+  env: {
+    production: {
+      plugins: [['react-remove-properties', { properties: [/data-test/u] }]]
+    }
+  }
 };
