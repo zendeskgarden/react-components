@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1599599134950" clover="3.2.0">
-  <project timestamp="1599599134950" name="All files">
+<coverage generated="1599676826175" clover="3.2.0">
+  <project timestamp="1599676826175" name="All files">
     <metrics statements="6652" coveredstatements="6533" conditionals="2673" coveredconditionals="2433" methods="1396" coveredmethods="1373" elements="10721" coveredelements="10339" complexity="0" loc="6652" ncloc="6652" packages="112" files="438" classes="438"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
@@ -7513,26 +7513,26 @@
         <line num="23" count="19" type="cond" truecount="2" falsecount="0"/>
         <line num="26" count="16" type="stmt"/>
         <line num="45" count="251" type="stmt"/>
-        <line num="53" count="183429" type="cond" truecount="2" falsecount="0"/>
+        <line num="53" count="182705" type="cond" truecount="2" falsecount="0"/>
         <line num="54" count="1" type="stmt"/>
-        <line num="57" count="183428" type="cond" truecount="4" falsecount="0"/>
-        <line num="58" count="183428" type="cond" truecount="4" falsecount="0"/>
-        <line num="62" count="183428" type="cond" truecount="2" falsecount="0"/>
-        <line num="63" count="183425" type="cond" truecount="2" falsecount="0"/>
+        <line num="57" count="182704" type="cond" truecount="4" falsecount="0"/>
+        <line num="58" count="182704" type="cond" truecount="4" falsecount="0"/>
+        <line num="62" count="182704" type="cond" truecount="2" falsecount="0"/>
+        <line num="63" count="182701" type="cond" truecount="2" falsecount="0"/>
         <line num="65" count="3" type="stmt"/>
-        <line num="68" count="183428" type="cond" truecount="2" falsecount="0"/>
-        <line num="70" count="183412" type="stmt"/>
-        <line num="73" count="183428" type="cond" truecount="2" falsecount="0"/>
-        <line num="74" count="183407" type="stmt"/>
-        <line num="76" count="183407" type="cond" truecount="2" falsecount="0"/>
+        <line num="68" count="182704" type="cond" truecount="2" falsecount="0"/>
+        <line num="70" count="182688" type="stmt"/>
+        <line num="73" count="182704" type="cond" truecount="2" falsecount="0"/>
+        <line num="74" count="182683" type="stmt"/>
+        <line num="76" count="182683" type="cond" truecount="2" falsecount="0"/>
         <line num="77" count="14" type="stmt"/>
         <line num="78" count="100" type="stmt"/>
         <line num="81" count="86" type="cond" truecount="2" falsecount="0"/>
         <line num="84" count="14" type="stmt"/>
         <line num="87" count="21" type="stmt"/>
-        <line num="90" count="183428" type="cond" truecount="2" falsecount="0"/>
+        <line num="90" count="182704" type="cond" truecount="2" falsecount="0"/>
         <line num="91" count="70783" type="stmt"/>
-        <line num="94" count="183428" type="stmt"/>
+        <line num="94" count="182704" type="stmt"/>
       </file>
       <file name="getDocument.ts" path="/home/circleci/project/packages/theming/src/utils/getDocument.ts">
         <metrics statements="2" coveredstatements="2" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
