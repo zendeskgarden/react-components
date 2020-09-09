@@ -32,7 +32,6 @@
     "valid-jsdoc": "off",
     "no-unused-expressions": ["error", { "allowShortCircuit": true }],
     "no-irregular-whitespace": ["error", { "skipTemplates": true }],
-    "no-duplicate-imports": "off",
     "prefer-named-capture-group": "off",
     "react/prop-types": ["error", { "ignore": ["children"] }],
     "react-hooks/rules-of-hooks": "error",
@@ -56,6 +55,12 @@
       "files": ["*.{ts,tsx}", "*.spec.{js,ts,tsx}", "utils/**/*.{js,ts,tsx}"],
       "rules": {
         "react/prop-types": "off"
+      }
+    },
+    {
+      "files": ["packages/*/src/index.ts"],
+      "rules": {
+        "no-duplicate-imports": "off"
       }
     },
     {
