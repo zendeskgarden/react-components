@@ -35,19 +35,19 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
 
-"@zendeskgarden/react-theming@^8.15.1":
-  version "8.15.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.15.1.tgz#83b4cc08c47cfae41cfc17c9c0141b6fc8fbdd7b"
-  integrity sha512-GvQZxv2zKNtxAgPgyBf4r251vfP/PE6RBQ1DUuMfb2kxi400FGCqAZDQoojPDcoQQ0ZdkhabCIZ8eSHcGHBeZw==
+"@zendeskgarden/react-theming@^8.21.2":
+  version "8.21.2"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.21.2.tgz#1ec29592ce9aa9e23556fc94ceb32de18911ec8e"
+  integrity sha512-TQS0ZvI0WlzckHtFhFx/2hkfEsPArbJQfSgXFhC0WUhk/iiXYahLIlq2Eq/Q7HEUUtQ7RDMi7hTPea74DBJaZw==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^0.4.3"
     "@zendeskgarden/container-utilities" "^0.5.1"
     polished "^3.5.1"
 
-"@zendeskgarden/svg-icons@6.19.0":
-  version "6.19.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-6.19.0.tgz#f5668cdbd010fef9acad2d0ba38a9f30b95360ee"
-  integrity sha512-nHs/riof68ag6fXkljHjybxhDlQnRO02BgJIQwkFpIgis1eKvo1MGPw3ieTz9lubqVenDYRKvd1cNVM28pdl9A==
+"@zendeskgarden/svg-icons@6.22.0":
+  version "6.22.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-6.22.0.tgz#e34b9096933961464db4ed61295d57fc4082a755"
+  integrity sha512-vwHJmue4KtngBxM2RfIn09g8OQLnA0DRhWxjTi6Fxm7KZ95knuxtPVSMoCtP8adNXe9J7Ky9y5gCp77HwsU2Og==
 
 polished@^3.5.1:
   version "3.5.1"
