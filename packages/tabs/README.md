@@ -15,25 +15,30 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 ## Usage
 
 ```jsx
+import React, { useState } from 'react';
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Tabs, TabList, Tab, TabPanel } from '@zendeskgarden/react-tabs';
 
-initialState = { selectedItem: 'tab-1' };
+const Example = () => {
+  const [selectedTab, setSelectedTab] = useState('tab-1');
 
-/**
- * Place a `ThemeProvider` at the root of your React application
- */
-<ThemeProvider>
-  <Tabs selectedItem={state.selectedItem} onChange={selectedItem => setState({ selectedItem })}>
-    <TabList>
-      <Tab item="tab-1">Tab 1</Tab>
-      <Tab item="tab-2">Tab 2</Tab>
-      <Tab disabled>Disabled Tab</Tab>
-      <Tab item="tab-3">Tab 3</Tab>
-    </TabList>
-    <TabPanel item="tab-1">Tab 1 content</TabPanel>
-    <TabPanel item="tab-2">Tab 2 content</TabPanel>
-    <TabPanel item="tab-3">Tab 3 content</TabPanel>
-  </Tabs>
-</ThemeProvider>;
+  /**
+   * Place a `ThemeProvider` at the root of your React application
+   */
+  return (
+    <ThemeProvider>
+      <Tabs selectedItem={selectedTab} onChange={setSelectedTab}>
+        <TabList>
+          <Tab item="tab-1">Tab 1</Tab>
+          <Tab item="tab-2">Tab 2</Tab>
+          <Tab disabled>Disabled Tab</Tab>
+          <Tab item="tab-3">Tab 3</Tab>
+        </TabList>
+        <TabPanel item="tab-1">Tab 1 content</TabPanel>
+        <TabPanel item="tab-2">Tab 2 content</TabPanel>
+        <TabPanel item="tab-3">Tab 3 content</TabPanel>
+      </Tabs>
+    </ThemeProvider>
+  );
+};
 ```
