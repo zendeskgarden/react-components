@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1599769671700" clover="3.2.0">
-  <project timestamp="1599769671701" name="All files">
-    <metrics statements="6652" coveredstatements="6533" conditionals="2673" coveredconditionals="2433" methods="1396" coveredmethods="1373" elements="10721" coveredelements="10339" complexity="0" loc="6652" ncloc="6652" packages="112" files="438" classes="438"/>
+<coverage generated="1599779395661" clover="3.2.0">
+  <project timestamp="1599779395661" name="All files">
+    <metrics statements="6652" coveredstatements="6530" conditionals="2673" coveredconditionals="2431" methods="1396" coveredmethods="1372" elements="10721" coveredelements="10333" complexity="0" loc="6652" ncloc="6652" packages="112" files="438" classes="438"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
       <file name="Example.spec.tsx" path="/home/circleci/project/packages/.template/src/elements/Example.spec.tsx">
@@ -78,9 +78,9 @@
       </file>
     </package>
     <package name="accordions.src.elements.accordion.components">
-      <metrics statements="68" coveredstatements="62" conditionals="6" coveredconditionals="2" methods="14" coveredmethods="11"/>
+      <metrics statements="68" coveredstatements="59" conditionals="6" coveredconditionals="0" methods="14" coveredmethods="10"/>
       <file name="Header.tsx" path="/home/circleci/project/packages/accordions/src/elements/accordion/components/Header.tsx">
-        <metrics statements="28" coveredstatements="25" conditionals="4" coveredconditionals="2" methods="8" coveredmethods="6"/>
+        <metrics statements="28" coveredstatements="22" conditionals="4" coveredconditionals="0" methods="8" coveredmethods="5"/>
         <line num="8" count="8" type="stmt"/>
         <line num="9" count="8" type="stmt"/>
         <line num="10" count="8" type="stmt"/>
@@ -97,9 +97,9 @@
         <line num="38" count="9" type="stmt"/>
         <line num="39" count="1" type="stmt"/>
         <line num="41" count="1" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
-        <line num="43" count="1" type="stmt"/>
-        <line num="45" count="1" type="cond" truecount="2" falsecount="2"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="45" count="0" type="cond" truecount="0" falsecount="4"/>
         <line num="46" count="0" type="stmt"/>
         <line num="51" count="9" type="stmt"/>
         <line num="56" count="9" type="stmt"/>
@@ -1915,7 +1915,7 @@
         <line num="179" count="394" type="stmt"/>
         <line num="182" count="30" type="stmt"/>
         <line num="185" count="31" type="stmt"/>
-        <line num="186" count="31" type="stmt"/>
+        <line num="186" count="13" type="stmt"/>
         <line num="191" count="31" type="cond" truecount="4" falsecount="0"/>
         <line num="192" count="24" type="stmt"/>
         <line num="196" count="3" type="stmt"/>
