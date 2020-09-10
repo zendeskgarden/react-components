@@ -60,10 +60,10 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
 
-"@zendeskgarden/react-theming@^8.21.2":
-  version "8.21.2"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.21.2.tgz#1ec29592ce9aa9e23556fc94ceb32de18911ec8e"
-  integrity sha512-TQS0ZvI0WlzckHtFhFx/2hkfEsPArbJQfSgXFhC0WUhk/iiXYahLIlq2Eq/Q7HEUUtQ7RDMi7hTPea74DBJaZw==
+"@zendeskgarden/react-theming@^8.22.0":
+  version "8.22.0"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.22.0.tgz#5bb3bcdb251b2a45b37288c58168eb5ef2775cd7"
+  integrity sha512-Wjg30Xim8GzQA9W7TeNSO82ER1iCi19wwjhxm99Jf58CgUy3GOTGxXc0IWBnk/05x35X6GW+RqENsU3N8xJjkA==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^0.4.3"
     "@zendeskgarden/container-utilities" "^0.5.1"
@@ -110,6 +110,11 @@ react-fast-compare@^3.0.1:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
   integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
+
+react-merge-refs@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-merge-refs/-/react-merge-refs-1.1.0.tgz#73d88b892c6c68cbb7a66e0800faa374f4c38b06"
+  integrity sha512-alTKsjEL0dKH/ru1Iyn7vliS2QRcBp9zZPGoWxUOvRGWPUYgjo+V01is7p04It6KhgrzhJGnIj9GgX8W4bZoCQ==
 
 react-popper@^2.2.3:
   version "2.2.3"

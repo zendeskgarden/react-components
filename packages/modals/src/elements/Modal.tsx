@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect, HTMLAttributes } from 'react';
+import React, { useEffect, useMemo, useContext, HTMLAttributes, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { ThemeProps, DefaultTheme } from 'styled-components';
+import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
-import { useDocument, withTheme } from '@zendeskgarden/react-theming';
+import { useDocument } from '@zendeskgarden/react-theming';
 import { useModal } from '@zendeskgarden/container-modal';
 import { useFocusVisible } from '@zendeskgarden/container-focusvisible';
-import { useCombinedRefs } from '@zendeskgarden/container-utilities';
+import mergeRefs from 'react-merge-refs';
 import isWindow from 'dom-helpers/isWindow';
 import ownerDocument from 'dom-helpers/ownerDocument';
 import ownerWindow from 'dom-helpers/ownerWindow';
@@ -40,7 +40,7 @@ const isOverflowing = (element: Element) => {
   return marginLeft + doc.body.clientWidth + marginRight < win.innerWidth;
 };
 
-export interface IModalProps {
+export interface IModalProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * HTML attributes to spread onto backdrop element
    */
@@ -84,112 +84,122 @@ export interface IModalProps {
 /**
  * High-level abstraction for basic Modal implementations. Accepts all `<div>` props.
  */
-export const Modal = withTheme(
-  React.forwardRef<
-    HTMLDivElement,
-    IModalProps & ThemeProps<DefaultTheme> & HTMLAttributes<HTMLDivElement>
-  >(
-    (
-      {
-        backdropProps,
-        children,
-        onClose,
-        isLarge,
-        isCentered,
-        isAnimated,
-        id,
-        appendToNode,
-        theme,
-        focusOnMount,
-        restoreFocus,
-        ...modalProps
-      },
-      ref
-    ) => {
-      const modalRef = useCombinedRefs(ref);
-      const environment = useDocument(theme);
+export const Modal = React.forwardRef<HTMLDivElement, IModalProps>(
+  (
+    {
+      backdropProps,
+      children,
+      onClose,
+      isLarge,
+      isCentered,
+      isAnimated,
+      id,
+      appendToNode,
+      focusOnMount,
+      restoreFocus,
+      ...modalProps
+    },
+    ref
+  ) => {
+    const theme = useContext(ThemeContext);
+    const modalRef = useRef<HTMLDivElement>(null);
+    const environment = useDocument(theme);
 
-      const {
-        getBackdropProps,
-        getModalProps,
-        getTitleProps,
-        getContentProps,
-        getCloseProps
-      } = useModal({
-        id,
-        onClose,
-        modalRef,
-        focusOnMount,
-        restoreFocus
-      });
+    const {
+      getBackdropProps,
+      getModalProps,
+      getTitleProps,
+      getContentProps,
+      getCloseProps
+    } = useModal({
+      id,
+      onClose,
+      modalRef,
+      focusOnMount,
+      restoreFocus
+    });
 
-      useFocusVisible({ scope: modalRef });
+    useFocusVisible({ scope: modalRef });
 
-      useEffect(() => {
-        if (!environment) {
-          return undefined;
-        }
-
-        const bodyElement = environment.querySelector('body');
-        let previousBodyPaddingRight: string;
-
-        if (bodyElement) {
-          if (isOverflowing(bodyElement)) {
-            const scrollbarSize = getScrollbarSize();
-            const bodyPaddingRight = parseInt(css(bodyElement, 'paddingRight') || '0', 10);
-
-            previousBodyPaddingRight = bodyElement.style.paddingRight;
-            bodyElement.style.paddingRight = `${bodyPaddingRight + scrollbarSize}px`;
-          }
-
-          const previousBodyOverflow = bodyElement.style.overflow;
-
-          bodyElement.style.overflow = 'hidden';
-
-          return () => {
-            bodyElement.style.overflow = previousBodyOverflow;
-            bodyElement.style.paddingRight = previousBodyPaddingRight;
-          };
-        }
-
+    useEffect(() => {
+      if (!environment) {
         return undefined;
-      }, [environment]);
+      }
 
-      const value = {
-        isLarge,
-        getTitleProps,
-        getContentProps,
-        getCloseProps
-      };
+      const bodyElement = environment.querySelector('body');
+      let previousBodyPaddingRight: string;
 
-      return createPortal(
-        <ModalsContext.Provider value={value}>
-          <StyledBackdrop
-            {...(getBackdropProps({ isCentered, isAnimated, ...backdropProps }) as any)}
-          >
-            <StyledModal
-              {...(getModalProps({
-                isCentered,
-                isAnimated,
-                isLarge,
-                ref: modalRef,
-                ...modalProps
-              }) as any)}
-            >
-              {children}
-            </StyledModal>
-          </StyledBackdrop>
-        </ModalsContext.Provider>,
-        appendToNode!
-      );
+      if (bodyElement) {
+        if (isOverflowing(bodyElement)) {
+          const scrollbarSize = getScrollbarSize();
+          const bodyPaddingRight = parseInt(css(bodyElement, 'paddingRight') || '0', 10);
+
+          previousBodyPaddingRight = bodyElement.style.paddingRight;
+          bodyElement.style.paddingRight = `${bodyPaddingRight + scrollbarSize}px`;
+        }
+
+        const previousBodyOverflow = bodyElement.style.overflow;
+
+        bodyElement.style.overflow = 'hidden';
+
+        return () => {
+          bodyElement.style.overflow = previousBodyOverflow;
+          bodyElement.style.paddingRight = previousBodyPaddingRight;
+        };
+      }
+
+      return undefined;
+    }, [environment]);
+
+    const rootNode = useMemo(() => {
+      if (appendToNode) {
+        return appendToNode;
+      }
+
+      if (environment) {
+        return environment.body;
+      }
+
+      return undefined;
+    }, [appendToNode, environment]);
+
+    const value = {
+      isLarge,
+      getTitleProps,
+      getContentProps,
+      getCloseProps
+    };
+
+    if (!rootNode) {
+      return null;
     }
-  )
-) as React.FC<IModalProps & HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;
+
+    return createPortal(
+      <ModalsContext.Provider value={value}>
+        <StyledBackdrop
+          {...(getBackdropProps({ isCentered, isAnimated, ...backdropProps }) as any)}
+        >
+          <StyledModal
+            {...(getModalProps({
+              isCentered,
+              isAnimated,
+              isLarge,
+              ref: mergeRefs([ref, modalRef]),
+              ...modalProps
+            }) as any)}
+          >
+            {children}
+          </StyledModal>
+        </StyledBackdrop>
+      </ModalsContext.Provider>,
+      rootNode
+    );
+  }
+);
 
 Modal.displayName = 'Modal';
 
 Modal.propTypes = {
-  children: PropTypes.any,
   backdropProps: PropTypes.object,
   isLarge: PropTypes.bool,
   isAnimated: PropTypes.bool,
@@ -203,6 +213,5 @@ Modal.propTypes = {
 
 Modal.defaultProps = {
   isAnimated: true,
-  isCentered: true,
-  appendToNode: document.body
+  isCentered: true
 };
