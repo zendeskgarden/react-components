@@ -12,6 +12,28 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.22.0 (2020-09-09)
+
+#### :rocket: New Feature
+* `forms`
+  * [#850](https://github.com/zendeskgarden/react-components/pull/850) feat(forms): introduce FileUpload component ([@austin94](https://github.com/austin94))
+* `typography`
+  * [#854](https://github.com/zendeskgarden/react-components/pull/854) feat(typography): introduce CodeBlock component ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `forms`
+  * [#875](https://github.com/zendeskgarden/react-components/pull/875) fix(forms, datepickers, dropdowns): bump input border hover color from blue-400 to blue-600 ([@jzempel](https://github.com/jzempel))
+* `accordions`
+  * [#845](https://github.com/zendeskgarden/react-components/pull/845) fix(accordions): prevent double trigger invocation on Firefox ([@hzhu](https://github.com/hzhu))
+
+#### :seedling: Internal
+* `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#860](https://github.com/zendeskgarden/react-components/pull/860) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `modals`, `notifications`, `pagination`, `tables`, `tags`
+  * [#859](https://github.com/zendeskgarden/react-components/pull/859) chore(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`
+  * [#858](https://github.com/zendeskgarden/react-components/pull/858) internal(accordions): update snapshot ([@hzhu](https://github.com/hzhu))
+
 ## v8.21.2 (2020-09-03)
 
 #### :bug: Bug Fix

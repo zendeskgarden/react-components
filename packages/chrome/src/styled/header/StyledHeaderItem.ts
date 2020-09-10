@@ -62,7 +62,8 @@ export const StyledHeaderItem = styled(StyledBaseHeaderItem).attrs({
   &:hover ${/* sc-selector */ StyledHeaderItemText},
   &:active ${/* sc-selector */ StyledHeaderItemIcon},
   &:active ${/* sc-selector */ StyledHeaderItemText} {
-    color: ${props => getColor('chromeHue', 700, props.theme)};
+    color: ${props =>
+    getColor('chromeHue', 700, props.theme)};
   }
 
   ${props =>

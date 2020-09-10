@@ -39,6 +39,11 @@ export * from './checkbox/StyledCheckSvg';
 export * from './checkbox/StyledDashSvg';
 
 /**
+ * FileUpload styles
+ */
+export * from './file-upload/StyledFileUpload';
+
+/**
  * Radio styles
  */
 export * from './radio/StyledRadioLabel';

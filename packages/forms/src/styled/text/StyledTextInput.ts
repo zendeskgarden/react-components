@@ -47,8 +47,8 @@ const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) =>
     focusBorderColor = borderColor;
   } else {
     borderColor = getColor('neutralHue', SHADE - 300, props.theme);
-    hoverBorderColor = getColor('primaryHue', SHADE - 200, props.theme);
-    focusBorderColor = getColor('primaryHue', SHADE, props.theme)!;
+    hoverBorderColor = getColor('primaryHue', SHADE, props.theme);
+    focusBorderColor = hoverBorderColor!;
   }
 
   const boxShadow = `
