@@ -27,7 +27,9 @@ describe('StyledCodeBlockLine', () => {
     it('renders line numbers as expected', () => {
       const { container } = render(<StyledCodeBlockLine isNumbered />);
 
-      expect(container.firstChild).toHaveStyleRule('display', 'table-row');
+      expect(container.firstChild).toHaveStyleRule('display', 'table-cell', {
+        modifier: '&::before'
+      });
     });
 
     it('renders as expected in light mode', () => {
