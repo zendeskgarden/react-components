@@ -12,6 +12,7 @@ import { ThemeProvider, DEFAULT_THEME } from '../packages/theming/src';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*', layout: 'centered' },
+  backgrounds: { disable: true },
   docs: {
     theme: previewTheme
   }
@@ -19,6 +20,8 @@ export const parameters = {
 
 const GlobalPreviewStyling = createGlobalStyle`
   body {
+    background-color: ${p => p.theme.colors.background};
+    color: ${p => p.theme.colors.foreground};
     font-family: ${p => p.theme.fonts.system};
     font-size: ${p => p.theme.fontSizes.md};
   }
@@ -70,8 +73,8 @@ export const globalTypes = {
     toolbar: {
       icon: 'paintbrush',
       items: [
-        { value: 'disabled', title: 'Disabled' },
-        { value: 'enabled', title: 'Enabled' }
+        { value: 'disabled', title: 'Bedrock disabled' },
+        { value: 'enabled', title: 'Bedrock enabled' }
       ]
     }
   }

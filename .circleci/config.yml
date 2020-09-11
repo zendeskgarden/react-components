@@ -46,6 +46,7 @@ jobs:
     steps:
       - *attach_workspace
       - run: yarn build:storybook
+      - run: yarn lerna run build:demo --concurrency=1 # prevent out-of-memory
       - run: utils/scripts/deploy.js
 
   publish:
