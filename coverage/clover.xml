@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1599851761819" clover="3.2.0">
-  <project timestamp="1599851761819" name="All files">
-    <metrics statements="6675" coveredstatements="6532" conditionals="2677" coveredconditionals="2429" methods="1405" coveredmethods="1373" elements="10757" coveredelements="10334" complexity="0" loc="6675" ncloc="6675" packages="112" files="439" classes="439"/>
+<coverage generated="1599861267424" clover="3.2.0">
+  <project timestamp="1599861267425" name="All files">
+    <metrics statements="6685" coveredstatements="6542" conditionals="2683" coveredconditionals="2435" methods="1406" coveredmethods="1374" elements="10774" coveredelements="10351" complexity="0" loc="6685" ncloc="6685" packages="112" files="439" classes="439"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
       <file name="Example.spec.tsx" path="/home/circleci/project/packages/.template/src/elements/Example.spec.tsx">
@@ -5733,7 +5733,7 @@
       </file>
     </package>
     <package name="modals.src.elements">
-      <metrics statements="82" coveredstatements="81" conditionals="12" coveredconditionals="9" methods="9" coveredmethods="9"/>
+      <metrics statements="92" coveredstatements="91" conditionals="18" coveredconditionals="15" methods="10" coveredmethods="10"/>
       <file name="Body.tsx" path="/home/circleci/project/packages/modals/src/elements/Body.tsx">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="8" count="2" type="stmt"/>
@@ -5784,9 +5784,10 @@
         <line num="29" count="2" type="stmt"/>
       </file>
       <file name="Modal.tsx" path="/home/circleci/project/packages/modals/src/elements/Modal.tsx">
-        <metrics statements="48" coveredstatements="47" conditionals="10" coveredconditionals="8" methods="4" coveredmethods="4"/>
+        <metrics statements="58" coveredstatements="57" conditionals="16" coveredconditionals="14" methods="5" coveredmethods="5"/>
         <line num="8" count="7" type="stmt"/>
         <line num="9" count="7" type="stmt"/>
+        <line num="10" count="7" type="stmt"/>
         <line num="11" count="7" type="stmt"/>
         <line num="12" count="7" type="stmt"/>
         <line num="13" count="7" type="stmt"/>
@@ -5808,31 +5809,40 @@
         <line num="38" count="18" type="stmt"/>
         <line num="40" count="18" type="stmt"/>
         <line num="87" count="7" type="stmt"/>
-        <line num="109" count="38" type="stmt"/>
-        <line num="110" count="38" type="stmt"/>
-        <line num="118" count="38" type="stmt"/>
-        <line num="126" count="38" type="stmt"/>
-        <line num="128" count="38" type="stmt"/>
-        <line num="129" count="36" type="cond" truecount="2" falsecount="0"/>
-        <line num="130" count="18" type="stmt"/>
-        <line num="133" count="18" type="stmt"/>
-        <line num="136" count="18" type="cond" truecount="1" falsecount="1"/>
-        <line num="137" count="18" type="cond" truecount="1" falsecount="1"/>
+        <line num="104" count="56" type="stmt"/>
+        <line num="105" count="56" type="stmt"/>
+        <line num="106" count="56" type="stmt"/>
+        <line num="114" count="56" type="stmt"/>
+        <line num="122" count="56" type="stmt"/>
+        <line num="124" count="56" type="stmt"/>
+        <line num="125" count="36" type="cond" truecount="2" falsecount="0"/>
+        <line num="126" count="18" type="stmt"/>
+        <line num="129" count="18" type="stmt"/>
+        <line num="132" count="18" type="cond" truecount="1" falsecount="1"/>
+        <line num="133" count="18" type="cond" truecount="1" falsecount="1"/>
+        <line num="134" count="18" type="stmt"/>
+        <line num="135" count="18" type="cond" truecount="2" falsecount="0"/>
+        <line num="137" count="18" type="stmt"/>
         <line num="138" count="18" type="stmt"/>
-        <line num="139" count="18" type="cond" truecount="2" falsecount="0"/>
         <line num="141" count="18" type="stmt"/>
-        <line num="142" count="18" type="stmt"/>
+        <line num="143" count="18" type="stmt"/>
         <line num="145" count="18" type="stmt"/>
+        <line num="146" count="18" type="stmt"/>
         <line num="147" count="18" type="stmt"/>
-        <line num="149" count="18" type="stmt"/>
-        <line num="150" count="18" type="stmt"/>
-        <line num="151" count="18" type="stmt"/>
-        <line num="155" count="0" type="stmt"/>
-        <line num="158" count="38" type="stmt"/>
-        <line num="165" count="38" type="stmt"/>
-        <line num="189" count="7" type="stmt"/>
-        <line num="191" count="7" type="stmt"/>
-        <line num="204" count="7" type="stmt"/>
+        <line num="151" count="0" type="stmt"/>
+        <line num="154" count="56" type="stmt"/>
+        <line num="155" count="37" type="cond" truecount="2" falsecount="0"/>
+        <line num="156" count="1" type="stmt"/>
+        <line num="159" count="36" type="cond" truecount="2" falsecount="0"/>
+        <line num="160" count="18" type="stmt"/>
+        <line num="163" count="18" type="stmt"/>
+        <line num="166" count="56" type="stmt"/>
+        <line num="173" count="56" type="cond" truecount="2" falsecount="0"/>
+        <line num="174" count="18" type="stmt"/>
+        <line num="177" count="38" type="stmt"/>
+        <line num="200" count="7" type="stmt"/>
+        <line num="202" count="7" type="stmt"/>
+        <line num="214" count="7" type="stmt"/>
       </file>
     </package>
     <package name="modals.src.elements.TooltipModal">
@@ -7667,18 +7677,18 @@
         <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
         <line num="8" count="251" type="stmt"/>
         <line num="11" count="251" type="stmt"/>
-        <line num="12" count="2988" type="stmt"/>
-        <line num="17" count="2988" type="stmt"/>
+        <line num="12" count="3006" type="stmt"/>
+        <line num="17" count="3006" type="stmt"/>
         <line num="18" count="1464" type="cond" truecount="4" falsecount="0"/>
         <line num="19" count="2" type="stmt"/>
         <line num="21" count="1462" type="stmt"/>
-        <line num="25" count="2988" type="stmt"/>
+        <line num="25" count="3006" type="stmt"/>
       </file>
       <file name="withTheme.ts" path="/home/circleci/project/packages/theming/src/utils/withTheme.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="8" count="250" type="stmt"/>
         <line num="11" count="250" type="stmt"/>
-        <line num="12" count="112" type="stmt"/>
+        <line num="12" count="105" type="stmt"/>
       </file>
     </package>
     <package name="tooltips.src.elements">
