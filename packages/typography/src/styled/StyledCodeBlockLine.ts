@@ -30,22 +30,35 @@ const lineNumberStyles = (props: IStyledCodeBlockLineProps & ThemeProps<DefaultT
 export interface IStyledCodeBlockLineProps {
   isLight?: boolean;
   isNumbered?: boolean;
+  size?: 'sm' | 'md' | 'lg';
 }
 
+/**
+ * 1. Fix line display for mobile.
+ * 2. Match parent padding for overflow scroll.
+ */
 export const StyledCodeBlockLine = styled(StyledFont).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   as: 'code',
   isMonospace: true
 })<IStyledCodeBlockLineProps>`
-  display: ${props => (props.isNumbered ? 'table-row' : 'block')};
+  display: table-row;
+  height: ${props => props.theme.lineHeights[props.size!]}; /* [1] */
   direction: ltr;
 
   ${props => props.isNumbered && lineNumberStyles(props)};
+
+  &::after {
+    display: inline-block;
+    width: ${props => props.theme.space.base * 3}px; /* [2] */
+    content: '';
+  }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledCodeBlockLine.defaultProps = {
+  size: 'md',
   theme: DEFAULT_THEME
 };
