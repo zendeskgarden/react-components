@@ -5,17 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProps, DefaultTheme } from 'styled-components';
-import { withTheme, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { ThemeContext } from 'styled-components';
 import { useTabs } from '@zendeskgarden/container-tabs';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
 
 import { TabsContext } from '../utils/useTabsContext';
 import { StyledTabs } from '../styled/StyledTabs';
 
-export interface ITabsProps extends Partial<ThemeProps<DefaultTheme>> {
+export interface ITabsProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Displays child `Tab` components in a vertical orientation
    */
@@ -36,9 +35,10 @@ export interface ITabsProps extends Partial<ThemeProps<DefaultTheme>> {
  */
 const Tabs = React.forwardRef<HTMLDivElement, ITabsProps>(
   (
-    { isVertical, children, onChange, selectedItem: controlledSelectedItem, theme, ...otherProps },
+    { isVertical, children, onChange, selectedItem: controlledSelectedItem, ...otherProps },
     ref
   ) => {
+    const theme = useContext(ThemeContext);
     const [internalSelectedItem, setSelectedItem] = useState();
     const tabIndexRef = useRef<number>(0);
     const tabPanelIndexRef = useRef<number>(0);
@@ -77,9 +77,7 @@ Tabs.propTypes = {
 };
 
 Tabs.defaultProps = {
-  isVertical: false,
-  theme: DEFAULT_THEME
+  isVertical: false
 };
 
-/** @component */
-export default withTheme(Tabs) as React.FC<ITabsProps & React.RefAttributes<HTMLDivElement>>;
+export default Tabs;

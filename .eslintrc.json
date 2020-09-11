@@ -58,7 +58,13 @@
       }
     },
     {
-      "files": ["*.spec.{js,ts,tsx}", "utils/**/*.{js,ts,tsx}", "styleguide.config.js"],
+      "files": ["packages/*/src/index.ts"],
+      "rules": {
+        "no-duplicate-imports": "off"
+      }
+    },
+    {
+      "files": ["*.spec.{js,ts,tsx}", "utils/**/*.{js,ts,tsx}", ".storybook/**/*.{js,ts,tsx}", "styleguide.config.js"],
       "rules": {
         "garden-local/require-default-theme": "off",
         "@typescript-eslint/no-var-requires": "off"
