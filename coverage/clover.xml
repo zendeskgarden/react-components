@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1599848926388" clover="3.2.0">
-  <project timestamp="1599848926389" name="All files">
-    <metrics statements="6653" coveredstatements="6531" conditionals="2671" coveredconditionals="2429" methods="1397" coveredmethods="1373" elements="10721" coveredelements="10333" complexity="0" loc="6653" ncloc="6653" packages="112" files="438" classes="438"/>
+<coverage generated="1599849036660" clover="3.2.0">
+  <project timestamp="1599849036660" name="All files">
+    <metrics statements="6652" coveredstatements="6530" conditionals="2673" coveredconditionals="2431" methods="1396" coveredmethods="1372" elements="10721" coveredelements="10333" complexity="0" loc="6652" ncloc="6652" packages="112" files="438" classes="438"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
       <file name="Example.spec.tsx" path="/home/circleci/project/packages/.template/src/elements/Example.spec.tsx">
@@ -8060,7 +8060,7 @@
       </file>
     </package>
     <package name="typography.src.styled">
-      <metrics statements="165" coveredstatements="165" conditionals="72" coveredconditionals="69" methods="43" coveredmethods="43"/>
+      <metrics statements="164" coveredstatements="164" conditionals="74" coveredconditionals="71" methods="42" coveredmethods="42"/>
       <file name="StyledCode.ts" path="/home/circleci/project/packages/typography/src/styled/StyledCode.ts">
         <metrics statements="15" coveredstatements="15" conditionals="4" coveredconditionals="3" methods="4" coveredmethods="4"/>
         <line num="8" count="18" type="stmt"/>
@@ -8095,7 +8095,7 @@
         <line num="45" count="19" type="stmt"/>
       </file>
       <file name="StyledCodeBlockLine.ts" path="/home/circleci/project/packages/typography/src/styled/StyledCodeBlockLine.ts">
-        <metrics statements="14" coveredstatements="14" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
+        <metrics statements="13" coveredstatements="13" conditionals="6" coveredconditionals="6" methods="4" coveredmethods="4"/>
         <line num="8" count="18" type="stmt"/>
         <line num="9" count="18" type="stmt"/>
         <line num="10" count="18" type="stmt"/>
@@ -8104,12 +8104,11 @@
         <line num="15" count="3" type="stmt"/>
         <line num="16" count="3" type="cond" truecount="2" falsecount="0"/>
         <line num="18" count="3" type="stmt"/>
-        <line num="40" count="18" type="stmt"/>
-        <line num="47" count="15" type="stmt"/>
-        <line num="50" count="15" type="cond" truecount="2" falsecount="0"/>
-        <line num="54" count="15" type="stmt"/>
-        <line num="58" count="15" type="stmt"/>
-        <line num="61" count="18" type="stmt"/>
+        <line num="35" count="18" type="stmt"/>
+        <line num="41" count="15" type="cond" truecount="2" falsecount="0"/>
+        <line num="44" count="15" type="cond" truecount="2" falsecount="0"/>
+        <line num="46" count="15" type="stmt"/>
+        <line num="49" count="18" type="stmt"/>
       </file>
       <file name="StyledCodeBlockToken.ts" path="/home/circleci/project/packages/typography/src/styled/StyledCodeBlockToken.ts">
         <metrics statements="13" coveredstatements="13" conditionals="16" coveredconditionals="16" methods="4" coveredmethods="4"/>
@@ -8150,14 +8149,14 @@
         <line num="23" count="96" type="cond" truecount="2" falsecount="0"/>
         <line num="28" count="96" type="cond" truecount="2" falsecount="0"/>
         <line num="29" count="37" type="cond" truecount="2" falsecount="0"/>
-        <line num="30" count="13" type="stmt"/>
-        <line num="32" count="24" type="stmt"/>
+        <line num="30" count="17" type="stmt"/>
+        <line num="32" count="20" type="stmt"/>
         <line num="34" count="59" type="cond" truecount="2" falsecount="0"/>
         <line num="35" count="21" type="stmt"/>
         <line num="38" count="96" type="cond" truecount="2" falsecount="0"/>
         <line num="39" count="8" type="stmt"/>
         <line num="40" count="88" type="cond" truecount="4" falsecount="0"/>
-        <line num="41" count="39" type="stmt"/>
+        <line num="41" count="35" type="stmt"/>
         <line num="44" count="96" type="cond" truecount="2" falsecount="0"/>
         <line num="45" count="34" type="cond" truecount="2" falsecount="0"/>
         <line num="47" count="34" type="stmt"/>
