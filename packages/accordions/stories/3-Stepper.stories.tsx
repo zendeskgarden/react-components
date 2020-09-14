@@ -224,3 +224,16 @@ Default.args = {
   hiddenLabels: false,
   showLongLabel: false
 };
+
+Default.parameters = {
+  docs: {
+    description: {
+      component: `
+  Stepper implementations can use [ARIA live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
+  to communicate what step the user is on. For a horizontal \`Stepper\`
+  render step content outside of the \`Stepper\` component instead of using
+  \`Stepper.Content\`.
+`
+    }
+  }
+};

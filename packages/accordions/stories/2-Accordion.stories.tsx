@@ -117,6 +117,15 @@ Default.args = {
   isBare: false
 };
 
+Default.parameters = {
+  docs: {
+    description: {
+      component:
+        'The Accordion component is implemented using the [W3C Accordion pattern](https://www.w3.org/TR/wai-aria-practices/#accordion).'
+    }
+  }
+};
+
 const StyledSM = styled(SM)`
   margin-left: ${props => props.theme.space.base}px;
 `;
@@ -292,4 +301,20 @@ export const Advanced: Story<IAdvancedStoryProps> = ({ isBare, isCompact }) => {
 Advanced.args = {
   isCompact: false,
   isBare: false
+};
+
+Advanced.parameters = {
+  docs: {
+    description: {
+      story: `
+  The \`Accordion\` component is implemented using the [W3C Accordion pattern](https://www.w3.org/TR/wai-aria-practices/#accordion).
+
+  #### Controlled usage
+
+  This advanced example demonstrates custom behavior using a controlled
+  \`Accordion\` component. It also demonstrates additional header text
+  and menu buttons in the \`Accordion.Header\`.
+`
+    }
+  }
 };
