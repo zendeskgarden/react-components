@@ -54,7 +54,9 @@ const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) =>
   const boxShadow = `
     ${props.focusInset ? 'inset' : ''}
     ${props.theme.shadows.md(rgba(focusBorderColor, 0.35))}`;
-  const disabledBackgroundColor = getColor('neutralHue', SHADE - 500, props.theme);
+  const readOnlyBackgroundColor = getColor('neutralHue', SHADE - 500, props.theme);
+  const readOnlyBorderColor = getColor('neutralHue', SHADE - 300, props.theme);
+  const disabledBackgroundColor = readOnlyBackgroundColor;
   const disabledBorderColor = getColor('neutralHue', SHADE - 400, props.theme);
   const disabledForegroundColor = getColor('neutralHue', SHADE - 200, props.theme);
 
@@ -86,6 +88,11 @@ const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) =>
     &[data-garden-focus-visible='true'] {
       border-color: ${focusBorderColor};
       box-shadow: ${!props.isBare && boxShadow};
+    }
+
+    &[readonly] {
+      border-color: ${readOnlyBorderColor};
+      background-color: ${readOnlyBackgroundColor};
     }
 
     &:disabled,

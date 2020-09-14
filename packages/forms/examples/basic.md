@@ -72,6 +72,11 @@ const StyledMessage = styled(Message)`
           </Toggle>
         </Field>
         <Field className="u-mt-xs">
+          <Toggle onChange={event => setState({ readOnly: event.target.checked })}>
+            <Label>Read only</Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-xs">
           <Toggle onChange={event => setState({ disabled: event.target.checked })}>
             <Label>Disabled</Label>
           </Toggle>
@@ -132,6 +137,7 @@ const StyledMessage = styled(Message)`
           isBare={state.bare}
           isCompact={state.compact}
           placeholder={state.placeholder && 'placeholder'}
+          readOnly={state.readOnly}
           validation={state.validation}
           style={state.inline ? { width: 'auto', margin: 0 } : {}}
         />
@@ -147,6 +153,7 @@ const StyledMessage = styled(Message)`
           isCompact={state.compact}
           isResizable={state.resizable}
           placeholder={state.placeholder && 'placeholder'}
+          readOnly={state.readOnly}
           validation={state.validation}
           style={state.inline ? { width: 'auto', margin: 0 } : {}}
           minRows={3}
@@ -180,6 +187,7 @@ const StyledMessage = styled(Message)`
           isBare={state.bare}
           isCompact={state.compact}
           placeholder={state.placeholder && 'placeholder'}
+          readOnly={state.readOnly}
           validation={state.validation}
           wrapperProps={{ style: state.inline ? { width: 'auto', margin: 0 } : {} }}
           start={<StartIcon />}
@@ -195,6 +203,7 @@ const StyledMessage = styled(Message)`
           focusInset={state.focusInset}
           isBare={state.bare}
           isCompact={state.compact}
+          readOnly={state.readOnly}
           validation={state.validation}
           style={state.inline ? { width: 'auto', margin: 0 } : {}}
         >
