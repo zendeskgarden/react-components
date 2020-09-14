@@ -488,7 +488,7 @@ describe('Multiselect', () => {
       expect(multiselect).not.toHaveClass('is-open');
     });
 
-    it('removes tag on remove click ', () => {
+    it('removes tag on remove click', () => {
       const onSelectSpy = jest.fn();
       const { container, getAllByTestId } = render(
         <DefaultTagExample onSelect={items => onSelectSpy(items)} />

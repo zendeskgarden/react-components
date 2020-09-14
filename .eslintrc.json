@@ -48,6 +48,7 @@
       }
     ],
     "@typescript-eslint/no-non-null-assertion": "off",
+    "jest/no-conditional-expect": "off",
     "garden-local/require-default-theme": "error"
   },
   "overrides": [
