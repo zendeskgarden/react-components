@@ -52,6 +52,22 @@ describe('MediaInput', () => {
     expect(input).toHaveFocus();
   });
 
+  it('selects readonly text', () => {
+    const value = 'testing';
+    const { getByTestId } = render(
+      <Field>
+        <MediaInput data-test-id="input" readOnly value={value} />
+      </Field>
+    );
+
+    const input = getByTestId('input') as HTMLInputElement;
+
+    userEvent.click(input);
+
+    expect(input.selectionStart).toBe(0);
+    expect(input.selectionEnd).toBe(value.length);
+  });
+
   it('renders start figure if provided', () => {
     const { getByTestId } = render(<Example />);
 
