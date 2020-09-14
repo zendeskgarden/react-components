@@ -54,6 +54,7 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
       isHovered,
       wrapperProps = {},
       wrapperRef,
+      onSelect,
       ...props
     },
     ref
@@ -67,10 +68,17 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
       inputRef.current && inputRef.current.focus();
     });
 
+    const onSelectHandler = readOnly
+      ? composeEventHandlers(onSelect, (event: React.SyntheticEvent<HTMLInputElement>) => {
+          event.currentTarget.select();
+        })
+      : onSelect;
+
     let combinedProps = {
       disabled,
       readOnly,
       ref: inputRef,
+      onSelect: onSelectHandler,
       ...props
     };
 

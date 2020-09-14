@@ -15,7 +15,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
-import { useCombinedRefs } from '@zendeskgarden/container-utilities';
+import { composeEventHandlers, useCombinedRefs } from '@zendeskgarden/container-utilities';
 import useFieldContext from '../utils/useFieldContext';
 import { StyledTextarea } from '../styled';
 import { VALIDATION } from '../utils/validation';
@@ -45,7 +45,7 @@ const parseStyleValue = (value: string) => {
  * `<textarea />` attributes and events.
  */
 export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
-  ({ minRows, maxRows, style, onChange, ...props }, ref) => {
+  ({ minRows, maxRows, style, onChange, onSelect, ...props }, ref) => {
     const fieldContext = useFieldContext();
     const textAreaRef = useCombinedRefs(ref);
     const shadowTextAreaRef = useRef<HTMLInputElement | null>(null);
@@ -152,10 +152,17 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
       computedStyle.overflow = state.overflow ? 'hidden' : undefined;
     }
 
+    const onSelectHandler = props.readOnly
+      ? composeEventHandlers(onSelect, (event: React.SyntheticEvent<HTMLInputElement>) => {
+          event.currentTarget.select();
+        })
+      : onSelect;
+
     let combinedProps = {
       ref: textAreaRef,
       rows: minRows,
       onChange: onChangeHandler,
+      onSelect: onSelectHandler,
       style: {
         ...computedStyle,
         ...style
