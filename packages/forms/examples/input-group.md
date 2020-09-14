@@ -5,39 +5,44 @@ const { Button } = require('@zendeskgarden/react-buttons/src');
 
 initialState = {
   isCompact: false,
-  isDisabled: false
+  isDisabled: false,
+  isReadOnly: false
 };
 
 <Grid>
   <Row>
     <Col>
       <Well isRecessed style={{ width: 300 }}>
-        <Row>
-          <Col>
-            <Field>
-              <Toggle
-                checked={state.isCompact}
-                onChange={event => setState({ isCompact: event.target.checked })}
-              >
-                <Label>
-                  <Code>isCompact</Code>
-                </Label>
-              </Toggle>
-            </Field>
-          </Col>
-          <Col>
-            <Field>
-              <Toggle
-                checked={state.isDisabled}
-                onChange={event => setState({ isDisabled: event.target.checked })}
-              >
-                <Label>
-                  <Code>disabled</Code>
-                </Label>
-              </Toggle>
-            </Field>
-          </Col>
-        </Row>
+        <Field>
+          <Toggle
+            checked={state.isCompact}
+            onChange={event => setState({ isCompact: event.target.checked })}
+          >
+            <Label>
+              <Code>isCompact</Code>
+            </Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-sm">
+          <Toggle
+            checked={state.isReadOnly}
+            onChange={event => setState({ isReadOnly: event.target.checked })}
+          >
+            <Label>
+              <Code>readonly</Code>
+            </Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-sm">
+          <Toggle
+            checked={state.isDisabled}
+            onChange={event => setState({ isDisabled: event.target.checked })}
+          >
+            <Label>
+              <Code>disabled</Code>
+            </Label>
+          </Toggle>
+        </Field>
       </Well>
     </Col>
     <Col>
@@ -58,7 +63,11 @@ initialState = {
           >
             B
           </Button>
-          <Input placeholder="Input content" disabled={state.isDisabled} />
+          <Input
+            placeholder="Input content"
+            readOnly={state.isReadOnly}
+            disabled={state.isDisabled}
+          />
           <Button
             focusInset
             disabled={state.isDisabled}
