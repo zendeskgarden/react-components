@@ -28,6 +28,9 @@ module.exports = {
     }
   },
   webpackFinal: config => {
+    const fileLoaderRule = config.module.rules.find(rule => rule.test.test('.svg'));
+    fileLoaderRule.exclude = /@zendeskgarden\/svg-icons/u;
+
     config.module.rules.push({
       test: /\.tsx?$/u,
       loaders: [
