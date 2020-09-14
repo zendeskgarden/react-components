@@ -90,9 +90,11 @@ const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) =>
       box-shadow: ${!props.isBare && boxShadow};
     }
 
-    &[readonly] {
+    &[readonly],
+    /* apply to faux input */
+    &[aria-readonly='true'] {
       border-color: ${readOnlyBorderColor};
-      background-color: ${readOnlyBackgroundColor};
+      background-color: ${!props.isBare && readOnlyBackgroundColor};
     }
 
     &:disabled,

@@ -48,6 +48,7 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
       isCompact,
       isBare,
       focusInset,
+      readOnly,
       validation,
       isFocused,
       isHovered,
@@ -68,6 +69,7 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
 
     let combinedProps = {
       disabled,
+      readOnly,
       ref: inputRef,
       ...props
     };
@@ -89,6 +91,7 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
         isCompact={isCompact}
         isBare={isBare}
         focusInset={focusInset}
+        readOnly={readOnly}
         validation={validation}
         mediaLayout
         ref={wrapperRef}

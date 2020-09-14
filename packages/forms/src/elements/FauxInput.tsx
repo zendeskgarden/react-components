@@ -45,6 +45,8 @@ export interface IFauxInputProps extends HTMLAttributes<HTMLDivElement> {
   focusInset?: boolean;
   /** Apply disabled styling */
   disabled?: boolean;
+  /** Apply read-only styling */
+  readOnly?: boolean;
   validation?: VALIDATION;
   /** Apply focused styling */
   isFocused?: boolean;
@@ -58,7 +60,7 @@ export interface IFauxInputProps extends HTMLAttributes<HTMLDivElement> {
  */
 // eslint-disable-next-line react/display-name
 export const FauxInput = forwardRef<HTMLDivElement, IFauxInputProps>(
-  ({ onFocus, onBlur, disabled, isFocused: controlledIsFocused, ...props }, ref) => {
+  ({ onFocus, onBlur, disabled, readOnly, isFocused: controlledIsFocused, ...props }, ref) => {
     const [isFocused, setIsFocused] = useState(false);
 
     const onFocusHandler = composeEventHandlers(onFocus, () => {
@@ -75,6 +77,7 @@ export const FauxInput = forwardRef<HTMLDivElement, IFauxInputProps>(
         onBlur={onBlurHandler}
         isFocused={controlledIsFocused === undefined ? isFocused : controlledIsFocused}
         data-test-is-focused={controlledIsFocused === undefined ? isFocused : controlledIsFocused}
+        isReadOnly={readOnly}
         isDisabled={disabled}
         tabIndex={disabled ? undefined : 0}
         ref={ref as RefObject<HTMLInputElement>}
@@ -94,5 +97,6 @@ FauxInput.propTypes = {
   isBare: PropTypes.bool,
   focusInset: PropTypes.bool,
   disabled: PropTypes.bool,
+  readOnly: PropTypes.bool,
   validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };
