@@ -196,8 +196,6 @@ Controlled.parameters = {
   docs: {
     description: {
       story: `
-  #### Controlled usage
-
   This advanced example demonstrates custom behavior using a controlled
   \`Accordion\` component. It also demonstrates additional header text
   and menu buttons in the \`Accordion.Header\`.
