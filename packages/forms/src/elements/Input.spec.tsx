@@ -40,7 +40,6 @@ describe('Input', () => {
         <Input data-test-id="input" readOnly value={value} />
       </Field>
     );
-
     const input = getByTestId('input') as HTMLInputElement;
 
     userEvent.click(input);

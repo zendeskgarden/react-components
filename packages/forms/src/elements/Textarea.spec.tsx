@@ -43,7 +43,6 @@ describe('Textarea', () => {
         <Textarea data-test-id="textarea" readOnly value={value} />
       </Field>
     );
-
     const textarea = getByTestId('textarea') as HTMLTextAreaElement;
 
     userEvent.click(textarea);
