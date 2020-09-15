@@ -80,6 +80,13 @@ const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) =>
       color: ${placeholderColor};
     }
 
+    &[readonly],
+    /* apply to faux input */
+    &[aria-readonly='true'] {
+      border-color: ${readOnlyBorderColor};
+      background-color: ${!props.isBare && readOnlyBackgroundColor};
+    }
+
     &:hover {
       border-color: ${hoverBorderColor};
     }
@@ -88,13 +95,6 @@ const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) =>
     &[data-garden-focus-visible='true'] {
       border-color: ${focusBorderColor};
       box-shadow: ${!props.isBare && boxShadow};
-    }
-
-    &[readonly],
-    /* apply to faux input */
-    &[aria-readonly='true'] {
-      border-color: ${readOnlyBorderColor};
-      background-color: ${!props.isBare && readOnlyBackgroundColor};
     }
 
     &:disabled,
