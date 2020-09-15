@@ -16,7 +16,7 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 
 ### Accordion
 
-```jsx static
+```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Accordion } from '@zendeskgarden/react-accordions';
 
@@ -58,7 +58,7 @@ import { Accordion } from '@zendeskgarden/react-accordions';
 
 ### Stepper
 
-```jsx static
+```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Stepper } from '@zendeskgarden/react-accordions';
 
