@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import userEvent from '@testing-library/user-event';
 import { render, fireEvent, act } from 'garden-test-utils';
 import { Textarea } from './Textarea';
 import { Field } from './common/Field';
@@ -33,6 +34,21 @@ describe('Textarea', () => {
     );
 
     expect(getByTestId('textarea')).toBe(ref.current);
+  });
+
+  it('selects readonly text', () => {
+    const value = 'testing';
+    const { getByTestId } = render(
+      <Field>
+        <Textarea data-test-id="textarea" readOnly value={value} />
+      </Field>
+    );
+    const textarea = getByTestId('textarea') as HTMLTextAreaElement;
+
+    userEvent.click(textarea);
+
+    expect(textarea.selectionStart).toBe(0);
+    expect(textarea.selectionEnd).toBe(value.length);
   });
 
   describe('Autoresizing', () => {

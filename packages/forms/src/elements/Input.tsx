@@ -7,6 +7,7 @@
 
 import React, { InputHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import useFieldContext from '../utils/useFieldContext';
 import { useInputGroupContext } from '../utils/useInputGroupContext';
 import { StyledTextInput } from '../styled';
@@ -26,29 +27,38 @@ export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
  * Must be rendered within a `<Field>` element; accepts all `<input>`
  * attributes and events.
  */
-export const Input = React.forwardRef<HTMLInputElement, IInputProps>((props, ref) => {
-  const fieldContext = useFieldContext();
-  const inputGroupContext = useInputGroupContext();
+export const Input = React.forwardRef<HTMLInputElement, IInputProps>(
+  ({ onSelect, ...props }, ref) => {
+    const fieldContext = useFieldContext();
+    const inputGroupContext = useInputGroupContext();
 
-  let combinedProps = {
-    ref,
-    ...props
-  };
+    const onSelectHandler = props.readOnly
+      ? composeEventHandlers(onSelect, (event: React.SyntheticEvent<HTMLInputElement>) => {
+          event.currentTarget.select();
+        })
+      : onSelect;
 
-  if (inputGroupContext) {
-    combinedProps = {
-      ...combinedProps,
-      isCompact: inputGroupContext.isCompact || combinedProps.isCompact,
-      focusInset: true
+    let combinedProps = {
+      ref,
+      onSelect: onSelectHandler,
+      ...props
     };
-  }
 
-  if (fieldContext) {
-    combinedProps = fieldContext.getInputProps(combinedProps, { isDescribed: true });
-  }
+    if (inputGroupContext) {
+      combinedProps = {
+        ...combinedProps,
+        isCompact: inputGroupContext.isCompact || combinedProps.isCompact,
+        focusInset: true
+      };
+    }
 
-  return <StyledTextInput {...(combinedProps as any)} />;
-});
+    if (fieldContext) {
+      combinedProps = fieldContext.getInputProps(combinedProps, { isDescribed: true });
+    }
+
+    return <StyledTextInput {...(combinedProps as any)} />;
+  }
+);
 
 Input.propTypes = {
   isCompact: PropTypes.bool,

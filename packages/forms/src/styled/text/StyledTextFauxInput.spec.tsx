@@ -36,6 +36,13 @@ describe('StyledTextInput', () => {
     expect(container.firstChild).toHaveStyleRule('border', 'none');
   });
 
+  it('renders expected readonly styling', () => {
+    const { container } = render(<StyledTextFauxInput isReadOnly />);
+
+    expect(container.firstChild).toHaveAttribute('aria-readonly');
+    expect(container.firstChild).toHaveStyleRule('border-color', getColor('neutralHue', 300));
+  });
+
   it('renders expected disabled styling', () => {
     const { container } = render(<StyledTextFauxInput isDisabled />);
 

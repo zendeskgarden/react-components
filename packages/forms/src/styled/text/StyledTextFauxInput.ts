@@ -15,11 +15,13 @@ const COMPONENT_ID = 'forms.faux_input';
 export interface IStyledTextFauxInputProps extends IStyledTextInputProps {
   mediaLayout?: boolean;
   isDisabled?: boolean;
+  isReadOnly?: boolean;
 }
 
 export const StyledTextFauxInput = styled(StyledTextInput).attrs<IStyledTextFauxInputProps>(
   props => ({
     as: 'div',
+    'aria-readonly': props.isReadOnly,
     'aria-disabled': props.isDisabled,
     'data-garden-id': COMPONENT_ID,
     'data-garden-version': PACKAGE_VERSION

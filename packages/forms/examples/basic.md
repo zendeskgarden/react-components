@@ -15,7 +15,8 @@ const EndIcon = require('@zendeskgarden/svg-icons/src/16/shield-stroke.svg').def
 
 initialState = {
   hint: true,
-  message: true
+  message: true,
+  type: 'text'
 };
 
 const StyledField = styled(Field)`
@@ -44,6 +45,14 @@ const StyledMessage = styled(Message)`
     <Col>
       <Well isRecessed>
         <Field>
+          <Label>Value</Label>
+          <Input
+            isCompact
+            value={state.value}
+            onChange={event => setState({ value: event.target.value })}
+          />
+        </Field>
+        <Field className="u-mt-xs">
           <Toggle
             checked={!!state.regular}
             onChange={event => setState({ regular: event.target.checked })}
@@ -72,6 +81,11 @@ const StyledMessage = styled(Message)`
           </Toggle>
         </Field>
         <Field className="u-mt-xs">
+          <Toggle onChange={event => setState({ readOnly: event.target.checked })}>
+            <Label>Read only</Label>
+          </Toggle>
+        </Field>
+        <Field className="u-mt-xs">
           <Toggle onChange={event => setState({ disabled: event.target.checked })}>
             <Label>Disabled</Label>
           </Toggle>
@@ -94,6 +108,33 @@ const StyledMessage = styled(Message)`
             <Label>Message</Label>
           </Toggle>
         </Field>
+        <Dropdown
+          selectedItem={state.type}
+          onSelect={type => (type === '' ? setState({ type: null }) : setState({ type }))}
+        >
+          <SelectField className="u-mt-xs">
+            <SelectLabel>Input type</SelectLabel>
+            <SelectElement isCompact>{state.type || 'none'}</SelectElement>
+          </SelectField>
+          <Menu isCompact>
+            <Item value="">none</Item>
+            <Item value="color">color</Item>
+            <Item value="date">date</Item>
+            <Item value="datetime-local">datetime-local</Item>
+            <Item value="email">email</Item>
+            <Item value="file">file</Item>
+            <Item value="hidden">hidden</Item>
+            <Item value="month">month</Item>
+            <Item value="number">number</Item>
+            <Item value="password">password</Item>
+            <Item value="search">search</Item>
+            <Item value="tel">tel</Item>
+            <Item value="text">text</Item>
+            <Item value="time">time</Item>
+            <Item value="url">url</Item>
+            <Item value="week">week</Item>
+          </Menu>
+        </Dropdown>
         <Dropdown
           selectedItem={state.validation}
           onSelect={validation =>
@@ -132,8 +173,11 @@ const StyledMessage = styled(Message)`
           isBare={state.bare}
           isCompact={state.compact}
           placeholder={state.placeholder && 'placeholder'}
+          readOnly={state.readOnly}
           validation={state.validation}
+          value={state.type === 'file' ? '' : state.value}
           style={state.inline ? { width: 'auto', margin: 0 } : {}}
+          type={state.type}
         />
         {state.message && <StyledMessage validation={state.validation}>Message</StyledMessage>}
       </StyledField>
@@ -147,7 +191,9 @@ const StyledMessage = styled(Message)`
           isCompact={state.compact}
           isResizable={state.resizable}
           placeholder={state.placeholder && 'placeholder'}
+          readOnly={state.readOnly}
           validation={state.validation}
+          value={state.value}
           style={state.inline ? { width: 'auto', margin: 0 } : {}}
           minRows={3}
         />
@@ -180,7 +226,9 @@ const StyledMessage = styled(Message)`
           isBare={state.bare}
           isCompact={state.compact}
           placeholder={state.placeholder && 'placeholder'}
+          readOnly={state.readOnly}
           validation={state.validation}
+          value={state.value}
           wrapperProps={{ style: state.inline ? { width: 'auto', margin: 0 } : {} }}
           start={<StartIcon />}
           end={<EndIcon />}
@@ -195,10 +243,11 @@ const StyledMessage = styled(Message)`
           focusInset={state.focusInset}
           isBare={state.bare}
           isCompact={state.compact}
+          readOnly={state.readOnly}
           validation={state.validation}
           style={state.inline ? { width: 'auto', margin: 0 } : {}}
         >
-          {state.placeholder && 'placeholder'}
+          {state.value}
         </FauxInput>
         {state.message && <StyledMessage validation={state.validation}>Message</StyledMessage>}
       </StyledField>
