@@ -11,6 +11,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+## v8.23.1 (2020-09-16)
+
+#### :bug: Bug Fix
+
+- `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  - [#882](https://github.com/zendeskgarden/react-components/pull/882) fix(build): ensure ts types directory is relative ([@austin94](https://github.com/austin94))
 ## v8.23.0 (2020-09-16)
 
 #### :rocket: New Feature
