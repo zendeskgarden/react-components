@@ -5,7 +5,8 @@
     "declarationDir": "dist/typings",
     "declaration": true,
     "sourceMap": false,
-    "noEmit": false
+    "noEmit": false,
+    "paths": {}
   },
   "include": ["src/**/*"],
   "exclude": ["**/*.spec.tsx", "**/*.spec.ts"]
