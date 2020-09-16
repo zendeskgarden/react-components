@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>15/15</span>
+                <span class='fraction'>18/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>15/15</span>
+                <span class='fraction'>18/18</span>
             </div>
         
             
@@ -115,7 +115,17 @@
 <a name='L56'></a><a href='#L56'>56</a>
 <a name='L57'></a><a href='#L57'>57</a>
 <a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -127,6 +137,7 @@
 <span class="cline-any cline-yes">30x</span>
 <span class="cline-any cline-yes">30x</span>
 <span class="cline-any cline-yes">30x</span>
+<span class="cline-any cline-yes">30x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -144,15 +155,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">30x</span>
-<span class="cline-any cline-yes">372x</span>
-<span class="cline-any cline-yes">372x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">372x</span>
+<span class="cline-any cline-yes">373x</span>
+<span class="cline-any cline-yes">373x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">373x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">373x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">372x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">373x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -160,11 +179,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">372x</span>
-<span class="cline-any cline-yes">234x</span>
+<span class="cline-any cline-yes">373x</span>
+<span class="cline-any cline-yes">235x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">372x</span>
+<span class="cline-any cline-yes">373x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">30x</span>
@@ -182,6 +202,7 @@
 &nbsp;
 import React, { InputHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import useFieldContext from '../utils/useFieldContext';
 import { useInputGroupContext } from '../utils/useInputGroupContext';
 import { StyledTextInput } from '../styled';
@@ -201,29 +222,38 @@ export interface IInputProps extends InputHTMLAttributes&lt;HTMLInputElement&gt;
  * Must be rendered within a `&lt;Field&gt;` element; accepts all `&lt;input&gt;`
  * attributes and events.
  */
-export const Input = React.forwardRef&lt;HTMLInputElement, IInputProps&gt;((props, ref) =&gt; {
-  const fieldContext = useFieldContext();
-  const inputGroupContext = useInputGroupContext();
+export const Input = React.forwardRef&lt;HTMLInputElement, IInputProps&gt;(
+  ({ onSelect, ...props }, ref) =&gt; {
+    const fieldContext = useFieldContext();
+    const inputGroupContext = useInputGroupContext();
 &nbsp;
-  let combinedProps = {
-    ref,
-    ...props
-  };
+    const onSelectHandler = props.readOnly
+      ? composeEventHandlers(onSelect, (event: React.SyntheticEvent&lt;HTMLInputElement&gt;) =&gt; {
+          event.currentTarget.select();
+        })
+      : onSelect;
 &nbsp;
-  if (inputGroupContext) {
-    combinedProps = {
-      ...combinedProps,
-      isCompact: inputGroupContext.isCompact || combinedProps.isCompact,
-      focusInset: true
+    let combinedProps = {
+      ref,
+      onSelect: onSelectHandler,
+      ...props
     };
-  }
 &nbsp;
-  if (fieldContext) {
-    combinedProps = fieldContext.getInputProps(combinedProps, { isDescribed: true });
-  }
+    if (inputGroupContext) {
+      combinedProps = {
+        ...combinedProps,
+        isCompact: inputGroupContext.isCompact || combinedProps.isCompact,
+        focusInset: true
+      };
+    }
 &nbsp;
-  return &lt;StyledTextInput {...(combinedProps as any)} /&gt;;
-});
+    if (fieldContext) {
+      combinedProps = fieldContext.getInputProps(combinedProps, { isDescribed: true });
+    }
+&nbsp;
+    return &lt;StyledTextInput {...(combinedProps as any)} /&gt;;
+  }
+);
 &nbsp;
 Input.propTypes = {
   isCompact: PropTypes.bool,
@@ -238,7 +268,7 @@ Input.propTypes = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Sep 16 2020 18:08:35 GMT+0000 (Coordinated Universal Time)
+                at Wed Sep 16 2020 18:27:10 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>
