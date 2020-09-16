@@ -14,7 +14,7 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 
 ## Usage
 
-```jsx static
+```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Breadcrumb } from '@zendeskgarden/react-breadcrumbs';
 import { Anchor } from '@zendeskgarden/react-buttons';
