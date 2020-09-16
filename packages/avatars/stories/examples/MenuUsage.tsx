@@ -90,7 +90,7 @@ export const MenuUsage: Story = () => {
               <MediaItem value="clove">
                 <MediaFigure>
                   <Avatar
-                    size="extrasmall"
+                    size="extraextrasmall"
                     status="away"
                     surfaceColor={highlightedItem === 0 ? PALETTE.blue[100] : undefined}
                   >
@@ -105,7 +105,7 @@ export const MenuUsage: Story = () => {
               <MediaItem value="fennel">
                 <MediaFigure>
                   <Avatar
-                    size="extrasmall"
+                    size="extraextrasmall"
                     status="available"
                     surfaceColor={highlightedItem === 1 ? PALETTE.blue[100] : undefined}
                   >
@@ -120,7 +120,7 @@ export const MenuUsage: Story = () => {
               <MediaItem value="rue">
                 <MediaFigure>
                   <Avatar
-                    size="extrasmall"
+                    size="extraextrasmall"
                     badge="1"
                     surfaceColor={highlightedItem === 2 ? PALETTE.blue[100] : undefined}
                   >
@@ -141,8 +141,6 @@ export const MenuUsage: Story = () => {
 };
 
 MenuUsage.storyName = 'Menu usage';
-
-MenuUsage.argTypes = {};
 
 MenuUsage.parameters = {
   docs: {

@@ -6,13 +6,25 @@
  */
 
 import React, { useMemo } from 'react';
+import styled from 'styled-components';
 import { Story } from '@storybook/react';
-import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 import { LG } from '@zendeskgarden/react-typography';
 import { Avatar } from '@zendeskgarden/react-avatars';
 import UserIcon from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
 import ZendeskIcon from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
 import { PALETTE } from '@zendeskgarden/react-theming';
+
+const StyledTable = styled.table.attrs<Partial<IStoryProps>>(p => ({
+  style: { backgroundColor: p.surfaceColor }
+}))<Partial<IStoryProps>>`
+  width: 100%;
+  border-spacing: 0;
+`;
+
+const StyledAvatarTd = styled.td`
+  padding: ${p => p.theme.space.xs} 0;
+  text-align: center;
+`;
 
 interface IStoryProps {
   size: 'extraextrasmall' | 'extrasmall' | 'small' | 'medium' | 'large';
@@ -52,115 +64,103 @@ export const Default: Story<IStoryProps> = ({
   }, [status]);
 
   return (
-    <Grid>
-      <Row>
-        <Col size="1">
-          <Row style={{ height: '10%' }}></Row>
-          <Row alignItems="center" style={{ height: '30%' }}>
-            <Col style={{ textAlign: 'center' }}>
-              <LG>Icon</LG>
-            </Col>
-          </Row>
-          <Row alignItems="center" style={{ height: '30%' }}>
-            <Col style={{ textAlign: 'center' }}>
-              <LG>Image</LG>
-            </Col>
-          </Row>
-          <Row alignItems="center" style={{ height: '30%' }}>
-            <Col style={{ textAlign: 'center' }}>
-              <LG>Text</LG>
-            </Col>
-          </Row>
-        </Col>
-        <Col>
-          <Row style={{ marginBottom: '8px' }}>
-            <Col style={{ textAlign: 'center' }}>
-              <LG>Default</LG>
-            </Col>
-            <Col style={{ textAlign: 'center' }}>
-              <LG>System</LG>
-            </Col>
-          </Row>
-          <Row alignItems="center" style={{ backgroundColor: surfaceColor, marginBottom: '8px' }}>
-            <Col style={{ textAlign: 'center' }}>
-              <Avatar
-                size={size}
-                status={computedStatus}
-                badge={computedBadge}
-                surfaceColor={surfaceColor}
-                backgroundColor={backgroundColor}
-                foregroundColor={foregroundColor}
-              >
-                <UserIcon role="img" aria-label="Example SVG" />
-              </Avatar>
-            </Col>
-            <Col style={{ textAlign: 'center' }}>
-              <Avatar
-                size={size}
-                status={computedStatus}
-                badge={computedBadge}
-                surfaceColor={surfaceColor}
-                backgroundColor={backgroundColor}
-                foregroundColor={foregroundColor}
-                isSystem
-              >
-                <ZendeskIcon role="img" aria-label="Zendesk" />
-              </Avatar>
-            </Col>
-          </Row>
-          <Row alignItems="center" style={{ backgroundColor: surfaceColor, marginBottom: '8px' }}>
-            <Col style={{ textAlign: 'center' }}>
-              <Avatar
-                size={size}
-                status={computedStatus}
-                badge={computedBadge}
-                surfaceColor={surfaceColor}
-              >
-                <img alt="" src="images/avatar-3.png" />
-              </Avatar>
-            </Col>
-            <Col style={{ textAlign: 'center' }}>
-              <Avatar
-                size={size}
-                status={computedStatus}
-                badge={computedBadge}
-                surfaceColor={surfaceColor}
-                isSystem
-              >
-                <img alt="" src="images/system.png" />
-              </Avatar>
-            </Col>
-          </Row>
-          <Row alignItems="center" style={{ backgroundColor: surfaceColor, marginBottom: '8px' }}>
-            <Col style={{ textAlign: 'center' }}>
-              <Avatar
-                size={size}
-                status={computedStatus}
-                badge={computedBadge}
-                surfaceColor={surfaceColor}
-                backgroundColor={backgroundColor}
-                foregroundColor={foregroundColor}
-              >
-                <Avatar.Text>G</Avatar.Text>
-              </Avatar>
-            </Col>
-            <Col style={{ textAlign: 'center' }}>
-              <Avatar
-                size={size}
-                status={computedStatus}
-                badge={computedBadge}
-                surfaceColor={surfaceColor}
-                backgroundColor={backgroundColor}
-                foregroundColor={foregroundColor}
-                isSystem
-              >
-                <Avatar.Text>ZD</Avatar.Text>
-              </Avatar>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
-    </Grid>
+    <StyledTable surfaceColor={surfaceColor}>
+      <tr>
+        <td></td>
+        <th scope="col">
+          <LG>Default</LG>
+        </th>
+        <th scope="col">
+          <LG>System</LG>
+        </th>
+      </tr>
+      <tr>
+        <th scope="row">
+          <LG>Icon</LG>
+        </th>
+        <StyledAvatarTd>
+          <Avatar
+            size={size}
+            status={computedStatus}
+            badge={computedBadge}
+            surfaceColor={surfaceColor}
+            backgroundColor={backgroundColor}
+            foregroundColor={foregroundColor}
+          >
+            <UserIcon role="img" aria-label="Example SVG" />
+          </Avatar>
+        </StyledAvatarTd>
+        <StyledAvatarTd>
+          <Avatar
+            size={size}
+            status={computedStatus}
+            badge={computedBadge}
+            surfaceColor={surfaceColor}
+            backgroundColor={backgroundColor}
+            foregroundColor={foregroundColor}
+            isSystem
+          >
+            <ZendeskIcon role="img" aria-label="Zendesk" />
+          </Avatar>
+        </StyledAvatarTd>
+      </tr>
+      <tr>
+        <th scope="row">
+          <LG>Image</LG>
+        </th>
+        <StyledAvatarTd>
+          <Avatar
+            size={size}
+            status={computedStatus}
+            badge={computedBadge}
+            surfaceColor={surfaceColor}
+          >
+            <img alt="" src="images/avatar-3.png" />
+          </Avatar>
+        </StyledAvatarTd>
+        <StyledAvatarTd>
+          <Avatar
+            size={size}
+            status={computedStatus}
+            badge={computedBadge}
+            surfaceColor={surfaceColor}
+            isSystem
+          >
+            <img alt="" src="images/system.png" />
+          </Avatar>
+        </StyledAvatarTd>
+      </tr>
+      <tr>
+        <th scope="row">
+          <LG>Text</LG>
+        </th>
+        <StyledAvatarTd>
+          <Avatar
+            size={size}
+            status={computedStatus}
+            badge={computedBadge}
+            surfaceColor={surfaceColor}
+            backgroundColor={backgroundColor}
+            foregroundColor={foregroundColor}
+          >
+            <Avatar.Text>G</Avatar.Text>
+          </Avatar>
+        </StyledAvatarTd>
+        <StyledAvatarTd>
+          <Avatar
+            size={size}
+            status={computedStatus}
+            badge={computedBadge}
+            surfaceColor={surfaceColor}
+            backgroundColor={backgroundColor}
+            foregroundColor={foregroundColor}
+            isSystem
+          >
+            <Avatar.Text>ZD</Avatar.Text>
+          </Avatar>
+        </StyledAvatarTd>
+      </tr>
+    </StyledTable>
   );
 };
 
@@ -196,6 +196,7 @@ Default.argTypes = {
 
 Default.args = {
   size: 'medium',
+  status: 'none',
   badge: 0,
   surfaceColor: PALETTE.white,
   backgroundColor: PALETTE.kale[800],
@@ -206,8 +207,6 @@ Default.parameters = {
   docs: {
     description: {
       component: `
-  ### Basic
-
   Along with a child \`img\`, avatars also support the display of a single
   child \`svg\` icon or \`Avatar.Text\` component. In both of the latter cases,
   the \`backgroundColor\` of the \`Avatar\` must be set to override the browser's

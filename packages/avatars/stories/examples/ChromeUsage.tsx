@@ -39,8 +39,6 @@ export const ChromeUsage: Story = () => {
 
 ChromeUsage.storyName = 'Chrome usage';
 
-ChromeUsage.argTypes = {};
-
 ChromeUsage.parameters = {
   docs: {
     description: {
