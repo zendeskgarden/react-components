@@ -18,12 +18,12 @@ export const ChromeUsage: Story = () => {
     <Chrome isFluid style={{ height: 'auto' }}>
       <Body>
         <Header>
-          <CustomHeaderItem as="button">
+          <CustomHeaderItem as="button" aria-label="Products">
             <HeaderItemIcon>
               <GridIcon />
             </HeaderItemIcon>
           </CustomHeaderItem>
-          <CustomHeaderItem as="button" isRound>
+          <CustomHeaderItem as="button" isRound aria-label="User profile">
             <Avatar size="extrasmall">
               <img
                 alt="Example User"
