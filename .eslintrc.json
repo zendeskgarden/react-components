@@ -59,7 +59,7 @@
       }
     },
     {
-      "files": ["packages/*/src/index.ts"],
+      "files": ["packages/*/src/index.ts", "packages/**/styled/index.ts"],
       "rules": {
         "no-duplicate-imports": "off"
       }
