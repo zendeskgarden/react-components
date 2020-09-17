@@ -19,6 +19,7 @@
     }
   },
   "index.cjs.js": {
+<<<<<<< HEAD
     "bundled": 42418,
     "minified": 30576,
     "gzipped": 6840
@@ -34,6 +35,23 @@
       },
       "webpack": {
         "code": 25344
+=======
+    "bundled": 54098,
+    "minified": 38754,
+    "gzipped": 7808
+  },
+  "index.esm.js": {
+    "bundled": 50571,
+    "minified": 35651,
+    "gzipped": 7646,
+    "treeshaked": {
+      "rollup": {
+        "code": 28245,
+        "import_statements": 769
+      },
+      "webpack": {
+        "code": 31463
+>>>>>>> feat(modals): introduce drawer modal
       }
     }
   }
