@@ -16,7 +16,7 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 
 ### Dots
 
-```jsx static
+```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Dots } from '@zendeskgarden/react-loaders';
 
@@ -30,7 +30,7 @@ import { Dots } from '@zendeskgarden/react-loaders';
 
 ### Progress
 
-```jsx static
+```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Progress } from '@zendeskgarden/react-loaders';
 
@@ -44,7 +44,7 @@ import { Progress } from '@zendeskgarden/react-loaders';
 
 ### Spinner
 
-```jsx static
+```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Spinner } from '@zendeskgarden/react-loaders';
 

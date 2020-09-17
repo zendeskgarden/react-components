@@ -9,7 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyledSkeleton } from '../styled';
 
-interface ISkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ISkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Sets the width as a percentage of the parent element */
   width?: string;
   /** Sets the height of the loader as a percentage of parent element when not inherited by `line-height`. Default is .6 of `line-height` */

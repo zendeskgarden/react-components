@@ -45,7 +45,7 @@ const computeFrames = (
   }, {});
 };
 
-interface ISpinnerProps extends React.HTMLAttributes<SVGSVGElement> {
+export interface ISpinnerProps extends React.HTMLAttributes<SVGSVGElement> {
   /**
    * Sets the height and width in pixels. Inherits the parent `font-size` by default
    **/

@@ -11,8 +11,5 @@ export { StyledProgressBackground, StyledProgressIndicator } from './StyledProgr
 export { StyledSkeleton } from './StyledSkeleton';
 export { StyledSpinnerCircle } from './StyledSpinnerCircle';
 export { StyledSVG } from './StyledSVG';
-export {
-  StyledCircle,
-  StyledInlineTypingSVG,
-  IStyledTypingSvgProps
-} from './StyledInlineTypingIndicator';
+export { StyledCircle, StyledInlineTypingSVG } from './StyledInlineTypingIndicator';
+export type { IStyledTypingSvgProps } from './StyledInlineTypingIndicator';

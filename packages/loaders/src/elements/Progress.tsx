@@ -11,7 +11,7 @@ import { StyledProgressBackground, StyledProgressIndicator } from '../styled';
 
 const COMPONENT_ID = 'loaders.progress';
 
-interface IProgressProps extends HTMLAttributes<HTMLDivElement> {
+export interface IProgressProps extends HTMLAttributes<HTMLDivElement> {
   /** Sets the progress as a value between 0 and 100 */
   value?: number;
   /** Sets the foreground bar fill color. Defaults to the `successHue` theme value */
