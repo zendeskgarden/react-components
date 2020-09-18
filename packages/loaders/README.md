@@ -28,6 +28,20 @@ import { Dots } from '@zendeskgarden/react-loaders';
 </ThemeProvider>;
 ```
 
+### Inline
+
+```jsx
+import { ThemeProvider } from '@zendeskgarden/react-theming';
+import { Inline } from '@zendeskgarden/react-loaders';
+
+/**
+ * Place a `ThemeProvider` at the root of your React application
+ */
+<ThemeProvider>
+  <Inline />
+</ThemeProvider>;
+```
+
 ### Progress
 
 ```jsx
@@ -39,6 +53,20 @@ import { Progress } from '@zendeskgarden/react-loaders';
  */
 <ThemeProvider>
   <Progress value={40} />
+</ThemeProvider>;
+```
+
+### Skeleton
+
+```jsx
+import { ThemeProvider } from '@zendeskgarden/react-theming';
+import { Skeleton } from '@zendeskgarden/react-loaders';
+
+/**
+ * Place a `ThemeProvider` at the root of your React application
+ */
+<ThemeProvider>
+  <Skeleton />;
 </ThemeProvider>;
 ```
 

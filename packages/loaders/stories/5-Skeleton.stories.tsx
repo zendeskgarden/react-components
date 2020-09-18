@@ -73,7 +73,5 @@ Default.argTypes = {
 
 Default.args = {
   isLoading: true,
-  isLight: false,
-  height: '100%',
-  width: '100%'
+  isLight: false
 };

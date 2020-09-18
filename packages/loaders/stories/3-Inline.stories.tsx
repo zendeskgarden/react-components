@@ -7,7 +7,6 @@
 
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { PALETTE } from '@zendeskgarden/react-theming';
 import { Inline, IInlineProps } from '@zendeskgarden/react-loaders';
 import { Grid, Row, Col } from '@zendeskgarden/react-grid';
 
@@ -36,15 +35,13 @@ export const Default: Story<IInlineProps> = ({ color, size }) => {
 
 Default.argTypes = {
   size: {
-    name: 'size (px)',
     control: { type: 'range', min: 4, max: 160, step: 4 }
   },
   color: { control: 'color' }
 };
 
 Default.args = {
-  size: 32,
-  color: PALETTE.grey[600]
+  size: 32
 };
 
 Default.parameters = {
@@ -52,7 +49,7 @@ Default.parameters = {
     description: {
       component: `
   All areas that contain these loaders must include the
-  [aria-busy="true",aria-live="polite"] attributes for
+  \`[aria-busy="true",aria-live="polite"]\` attributes for
   [an accessible experience](https://www.w3.org/TR/wai-aria-1.0/states_and_properties#aria-busy).
 `
     }

@@ -6,21 +6,15 @@
  */
 
 import React from 'react';
-import styled from 'styled-components';
 import { Story, Meta } from '@storybook/react';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { Dots, IDotsProps } from '@zendeskgarden/react-loaders';
+import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 
 export default {
   title: 'Components/Loaders/Dots',
   component: Dots
 } as Meta;
-
-const StyledExampleWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
 
 interface IDefaultStoryProps extends IDotsProps {
   size: number;
@@ -28,19 +22,21 @@ interface IDefaultStoryProps extends IDotsProps {
 
 export const Default: Story<IDefaultStoryProps> = ({ color, delayMS, duration, size }) => {
   return (
-    <StyledExampleWrapper>
-      <Dots color={color} delayMS={delayMS} duration={duration} size={`${size}px`} />
-    </StyledExampleWrapper>
+    <Grid>
+      <Row>
+        <Col textAlign="center">
+          <Dots color={color} delayMS={delayMS} duration={duration} size={`${size}px`} />
+        </Col>
+      </Row>
+    </Grid>
   );
 };
 
 Default.argTypes = {
   size: {
-    name: 'size (px)',
     control: { type: 'range', min: 30, max: 250, step: 1 }
   },
   duration: {
-    name: 'duration (ms)',
     control: { type: 'range', min: 625, max: 2500, step: 10 }
   },
   color: { control: 'color' }

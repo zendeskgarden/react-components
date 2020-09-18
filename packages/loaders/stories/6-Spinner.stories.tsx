@@ -36,11 +36,9 @@ export const Default: Story<IDefaultStoryProps> = ({ color, size, delayMS, durat
 
 Default.argTypes = {
   size: {
-    name: 'size (px)',
     control: { type: 'range', min: 30, max: 250, step: 1 }
   },
   duration: {
-    name: 'duration (ms)',
     control: { type: 'range', min: 625, max: 2500, step: 10 }
   },
   color: { control: 'color' }
