@@ -6,13 +6,14 @@
  */
 
 import React, { HTMLAttributes } from 'react';
-import { StyledHeaderItemWrapper } from '../../styled';
+import { StyledHeaderItemWrapper, IStyledBaseHeaderItemProps } from '../../styled';
 
 /**
  * Accepts all `<div>` attributes and events
  */
-export const HeaderItemWrapper = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  (props, ref) => <StyledHeaderItemWrapper ref={ref} {...props} />
-);
+export const HeaderItemWrapper = React.forwardRef<
+  HTMLDivElement,
+  IStyledBaseHeaderItemProps & HTMLAttributes<HTMLDivElement>
+>((props, ref) => <StyledHeaderItemWrapper ref={ref} {...props} />);
 
 HeaderItemWrapper.displayName = 'HeaderItemWrapper';
