@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1600296824070" clover="3.2.0">
-  <project timestamp="1600296824071" name="All files">
+<coverage generated="1600708200965" clover="3.2.0">
+  <project timestamp="1600708200965" name="All files">
     <metrics statements="6694" coveredstatements="6551" conditionals="2691" coveredconditionals="2443" methods="1409" coveredmethods="1377" elements="10794" coveredelements="10371" complexity="0" loc="6694" ncloc="6694" packages="112" files="439" classes="439"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
@@ -1096,16 +1096,18 @@
       </file>
     </package>
     <package name="chrome.src.elements">
-      <metrics statements="31" coveredstatements="31" conditionals="14" coveredconditionals="13" methods="4" coveredmethods="4"/>
+      <metrics statements="32" coveredstatements="32" conditionals="14" coveredconditionals="13" methods="4" coveredmethods="4"/>
       <file name="Chrome.tsx" path="/home/circleci/project/packages/chrome/src/elements/Chrome.tsx">
-        <metrics statements="31" coveredstatements="31" conditionals="14" coveredconditionals="13" methods="4" coveredmethods="4"/>
+        <metrics statements="32" coveredstatements="32" conditionals="14" coveredconditionals="13" methods="4" coveredmethods="4"/>
         <line num="8" count="4" type="stmt"/>
         <line num="9" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
         <line num="11" count="4" type="stmt"/>
         <line num="12" count="4" type="stmt"/>
         <line num="13" count="4" type="stmt"/>
         <line num="14" count="4" type="stmt"/>
         <line num="26" count="4" type="stmt"/>
+        <line num="27" count="28" type="stmt"/>
         <line num="28" count="28" type="stmt"/>
         <line num="29" count="14" type="cond" truecount="2" falsecount="0"/>
         <line num="30" count="10" type="stmt"/>
@@ -1126,10 +1128,9 @@
         <line num="55" count="13" type="stmt"/>
         <line num="60" count="15" type="stmt"/>
         <line num="63" count="28" type="stmt"/>
-        <line num="71" count="4" type="stmt"/>
-        <line num="73" count="4" type="stmt"/>
+        <line num="70" count="4" type="stmt"/>
+        <line num="72" count="4" type="stmt"/>
         <line num="77" count="4" type="stmt"/>
-        <line num="82" count="4" type="stmt"/>
       </file>
     </package>
     <package name="chrome.src.elements.body">
@@ -1241,8 +1242,8 @@
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
       </file>
     </package>
     <package name="chrome.src.elements.nav">
@@ -1361,7 +1362,7 @@
       </file>
     </package>
     <package name="chrome.src.styled">
-      <metrics statements="36" coveredstatements="36" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="3"/>
+      <metrics statements="35" coveredstatements="35" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="3"/>
       <file name="StyledChrome.ts" path="/home/circleci/project/packages/chrome/src/styled/StyledChrome.ts">
         <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="3"/>
         <line num="8" count="20" type="stmt"/>
@@ -1374,7 +1375,7 @@
         <line num="30" count="20" type="stmt"/>
       </file>
       <file name="index.ts" path="/home/circleci/project/packages/chrome/src/styled/index.ts">
-        <metrics statements="28" coveredstatements="28" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="27" coveredstatements="27" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="8" count="20" type="stmt"/>
         <line num="9" count="20" type="stmt"/>
         <line num="10" count="20" type="stmt"/>
@@ -1383,26 +1384,25 @@
         <line num="13" count="20" type="stmt"/>
         <line num="14" count="20" type="stmt"/>
         <line num="15" count="20" type="stmt"/>
-        <line num="16" count="20" type="stmt"/>
         <line num="17" count="20" type="stmt"/>
-        <line num="18" count="20" type="stmt"/>
         <line num="19" count="20" type="stmt"/>
         <line num="20" count="20" type="stmt"/>
         <line num="21" count="20" type="stmt"/>
-        <line num="22" count="20" type="stmt"/>
         <line num="23" count="20" type="stmt"/>
-        <line num="24" count="20" type="stmt"/>
         <line num="25" count="20" type="stmt"/>
         <line num="26" count="20" type="stmt"/>
         <line num="27" count="20" type="stmt"/>
         <line num="28" count="20" type="stmt"/>
-        <line num="29" count="20" type="stmt"/>
         <line num="30" count="20" type="stmt"/>
         <line num="31" count="20" type="stmt"/>
         <line num="32" count="20" type="stmt"/>
         <line num="33" count="20" type="stmt"/>
+        <line num="35" count="20" type="stmt"/>
         <line num="36" count="20" type="stmt"/>
-        <line num="37" count="20" type="stmt"/>
+        <line num="38" count="20" type="stmt"/>
+        <line num="40" count="20" type="stmt"/>
+        <line num="42" count="20" type="stmt"/>
+        <line num="43" count="20" type="stmt"/>
       </file>
     </package>
     <package name="chrome.src.styled.body">
@@ -7697,7 +7697,7 @@
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="8" count="250" type="stmt"/>
         <line num="11" count="250" type="stmt"/>
-        <line num="12" count="105" type="stmt"/>
+        <line num="12" count="101" type="stmt"/>
       </file>
     </package>
     <package name="tooltips.src.elements">
