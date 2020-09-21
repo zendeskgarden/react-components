@@ -26,7 +26,6 @@ export const StyledDrawerModal = styled.div.attrs({
 })`
   display: flex;
   position: fixed;
-  right: -10000px;
   flex-direction: column;
   transition: transform 0.25s ease-in-out;
   box-shadow: ${boxShadow};

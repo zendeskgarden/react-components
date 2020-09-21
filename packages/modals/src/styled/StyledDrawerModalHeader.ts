@@ -15,7 +15,7 @@ export const StyledDrawerModalHeader = styled(StyledHeader).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  padding: 20px;
+  padding: ${props => props.theme.space.base * 5}px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

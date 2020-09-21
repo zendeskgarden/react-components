@@ -16,10 +16,8 @@ export const StyledDrawerModalFooter = styled.div.attrs({
 })`
   display: flex;
   flex-shrink: 0;
-  align-items: center;
   justify-content: flex-end;
-  margin-top: auto;
-  border-top: ${props => props.theme.borders.sm} ${getColor('neutralHue', 200)};
+  border-top: ${props => `${props.theme.borders.sm} ${getColor('neutralHue', 200, props.theme)}`};
   padding: ${props => props.theme.space.base * 5}px;
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
