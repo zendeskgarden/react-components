@@ -9,7 +9,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Story, Meta } from '@storybook/react';
 import { Spinner, ISpinnerProps } from '@zendeskgarden/react-loaders';
-import { PALETTE } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 
 export default {
   title: 'Components/Loaders/Spinner',
@@ -20,6 +20,8 @@ const StyledExampleWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  color: ${p => getColor('primaryHue', 500, p.theme)};
+  font-size: ${p => p.theme.space.base * 12}px;
 `;
 
 interface IDefaultStoryProps extends Omit<ISpinnerProps, 'size'> {
@@ -45,9 +47,7 @@ Default.argTypes = {
 };
 
 Default.args = {
-  size: 48,
-  duration: 1250,
-  color: PALETTE.blue[500]
+  duration: 1250
 };
 
 Default.parameters = {

@@ -6,8 +6,9 @@
  */
 
 import React from 'react';
+import styled from 'styled-components';
 import { Story, Meta } from '@storybook/react';
-import { PALETTE } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 import { Dots, IDotsProps } from '@zendeskgarden/react-loaders';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 
@@ -16,19 +17,26 @@ export default {
   component: Dots
 } as Meta;
 
+const StyledExampleWrapper = styled.div`
+  color: ${p => getColor('primaryHue', 500, p.theme)};
+  font-size: ${p => p.theme.space.base * 12}px;
+`;
+
 interface IDefaultStoryProps extends IDotsProps {
   size: number;
 }
 
 export const Default: Story<IDefaultStoryProps> = ({ color, delayMS, duration, size }) => {
   return (
-    <Grid>
-      <Row>
-        <Col textAlign="center">
-          <Dots color={color} delayMS={delayMS} duration={duration} size={`${size}px`} />
-        </Col>
-      </Row>
-    </Grid>
+    <StyledExampleWrapper>
+      <Grid>
+        <Row>
+          <Col textAlign="center">
+            <Dots color={color} delayMS={delayMS} duration={duration} size={`${size}px`} />
+          </Col>
+        </Row>
+      </Grid>
+    </StyledExampleWrapper>
   );
 };
 
@@ -40,12 +48,6 @@ Default.argTypes = {
     control: { type: 'range', min: 625, max: 2500, step: 10 }
   },
   color: { control: 'color' }
-};
-
-Default.args = {
-  size: 48,
-  duration: 1250,
-  color: PALETTE.blue[500]
 };
 
 Default.parameters = {

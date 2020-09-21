@@ -19,7 +19,7 @@ export default {
 
 const StyledExampleWrapper = styled.div<Partial<ISkeletonProps>>`
   background-color: ${props => (props.isLight ? PALETTE.kale[700] : PALETTE.white)};
-  padding: 18px;
+  padding: ${p => p.theme.space.md};
   max-width: 450px;
   color: ${props => (props.isLight ? PALETTE.white : PALETTE.black)};
 `;
@@ -57,9 +57,6 @@ export const Default: Story<IDefaultStoryProps> = ({ isLoading, height, isLight,
 };
 
 Default.argTypes = {
-  isLoading: {
-    name: 'Show loaders'
-  },
   isLight: {
     control: 'boolean'
   },
