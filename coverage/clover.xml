@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1600708200965" clover="3.2.0">
-  <project timestamp="1600708200965" name="All files">
-    <metrics statements="6694" coveredstatements="6551" conditionals="2691" coveredconditionals="2443" methods="1409" coveredmethods="1377" elements="10794" coveredelements="10371" complexity="0" loc="6694" ncloc="6694" packages="112" files="439" classes="439"/>
+<coverage generated="1600793150599" clover="3.2.0">
+  <project timestamp="1600793150600" name="All files">
+    <metrics statements="6692" coveredstatements="6549" conditionals="2691" coveredconditionals="2443" methods="1409" coveredmethods="1377" elements="10792" coveredelements="10369" complexity="0" loc="6692" ncloc="6692" packages="112" files="439" classes="439"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
       <file name="Example.spec.tsx" path="/home/circleci/project/packages/.template/src/elements/Example.spec.tsx">
@@ -5579,7 +5579,7 @@
       </file>
     </package>
     <package name="loaders.src.styled">
-      <metrics statements="100" coveredstatements="100" conditionals="27" coveredconditionals="25" methods="38" coveredmethods="38"/>
+      <metrics statements="98" coveredstatements="98" conditionals="27" coveredconditionals="25" methods="38" coveredmethods="38"/>
       <file name="StyledDots.ts" path="/home/circleci/project/packages/loaders/src/styled/StyledDots.ts">
         <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
         <line num="8" count="9" type="stmt"/>
@@ -5693,7 +5693,7 @@
         <line num="29" count="9" type="stmt"/>
       </file>
       <file name="index.ts" path="/home/circleci/project/packages/loaders/src/styled/index.ts">
-        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="8" count="9" type="stmt"/>
         <line num="9" count="9" type="stmt"/>
         <line num="10" count="9" type="stmt"/>
@@ -5701,8 +5701,6 @@
         <line num="12" count="9" type="stmt"/>
         <line num="13" count="9" type="stmt"/>
         <line num="14" count="9" type="stmt"/>
-        <line num="15" count="9" type="stmt"/>
-        <line num="16" count="9" type="stmt"/>
       </file>
     </package>
     <package name="loaders.src.utils">
