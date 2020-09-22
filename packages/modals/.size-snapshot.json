@@ -1,56 +1,20 @@
-  "dist/index.cjs.js": {
-    "bundled": 25013,
-    "minified": 18007,
-    "gzipped": 4643
-  },
-  "dist/index.esm.js": {
-    "bundled": 24135,
-    "minified": 17194,
-    "gzipped": 4537,
-    "treeshaked": {
-      "rollup": {
-        "code": 14116,
-        "import_statements": 570
-      },
-      "webpack": {
-        "code": 16096
-      }
-    }
-  },
+{
   "index.cjs.js": {
-<<<<<<< HEAD
-    "bundled": 42418,
-    "minified": 30576,
-    "gzipped": 6840
+    "bundled": 54228,
+    "minified": 38700,
+    "gzipped": 7797
   },
   "index.esm.js": {
-    "bundled": 39770,
-    "minified": 28255,
-    "gzipped": 6688,
-    "treeshaked": {
-      "rollup": {
-        "code": 22696,
-        "import_statements": 718
-      },
-      "webpack": {
-    "bundled": 53967
-=======
-    "bundled": 54191,
-    "minified": 38682,
-    "gzipped": 7794
->>>>>>> Support rendering in SSR environments
-  },
-  "index.esm.js": {
-    "bundled": 50658,
-    "minified": 35573,
+    "bundled": 50690,
+    "minified": 35587,
     "gzipped": 7641,
     "treeshaked": {
       "rollup": {
-        "code": 28161,
-        "import_statements": 769
+        "code": 28174,
+        "import_statements": 754
       },
       "webpack": {
-        "code": 31395
+        "code": 31409
       }
     }
   }

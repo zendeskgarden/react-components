@@ -115,7 +115,7 @@ export const DrawerModal = forwardRef<
      */
     const [showDrawer, setShowDrawer] = useState(false);
 
-    useFocusVisible({ scope: showDrawer ? modalRef : createRef() });
+    useFocusVisible({ scope: modalRef, relativeDocument: environment });
 
     const unmountDrawer = useCallback(
       (event: TransitionEvent) => {
