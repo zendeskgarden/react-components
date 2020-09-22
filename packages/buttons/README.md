@@ -14,7 +14,9 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 
 ## Usage
 
-```jsx static
+### Button
+
+```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Button } from '@zendeskgarden/react-buttons';
 
@@ -33,7 +35,7 @@ import { Button } from '@zendeskgarden/react-buttons';
 
 ### Media button
 
-```jsx static
+```jsx
 import React, { useState } from 'react';
 import { Button } from '@zendeskgarden/react-buttons';
 import StartIcon from '@zendeskgarden/icons/src/16/shield-stroke.svg';
@@ -58,7 +60,7 @@ const MediaButton = ({ children, ...props }) => {
 
 ### Button group
 
-```jsx static
+```jsx
 import React, { useState } from 'react';
 import { ButtonGroup, Button } from '@zendeskgarden/react-buttons';
 

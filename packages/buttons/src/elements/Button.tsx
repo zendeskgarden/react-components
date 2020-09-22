@@ -77,7 +77,7 @@ Button.defaultProps = {
   size: 'medium'
 };
 
-interface IIconProps extends HTMLAttributes<HTMLElement> {
+export interface IIconProps extends HTMLAttributes<HTMLElement> {
   isRotated?: boolean;
   children: any;
 }
