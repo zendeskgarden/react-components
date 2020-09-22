@@ -11,6 +11,7 @@ import React, {
   useState,
   useEffect,
   useRef,
+  useMemo,
   useContext,
   useCallback,
   createRef,
@@ -205,11 +206,27 @@ export const DrawerModal = forwardRef<
       return undefined;
     }, [environment, showDrawer]);
 
+    const rootNode = useMemo(() => {
+      if (appendToNode) {
+        return appendToNode;
+      }
+
+      if (environment) {
+        return environment.body;
+      }
+
+      return undefined;
+    }, [appendToNode, environment]);
+
     const value = {
       getTitleProps,
       getContentProps,
       getCloseProps
     };
+
+    if (!rootNode) {
+      return null;
+    }
 
     return showDrawer || isOpen
       ? ReactDOM.createPortal(
@@ -222,7 +239,7 @@ export const DrawerModal = forwardRef<
               />
             </StyledDrawerModalBackdrop>
           </ModalsContext.Provider>,
-          appendToNode!
+          rootNode
         )
       : null;
   }
@@ -247,6 +264,5 @@ DrawerModal.propTypes = {
 };
 
 DrawerModal.defaultProps = {
-  isAnimated: true,
-  appendToNode: document.body
+  isAnimated: true
 };

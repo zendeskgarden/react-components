@@ -18,6 +18,7 @@
     }
   },
   "index.cjs.js": {
+<<<<<<< HEAD
     "bundled": 42418,
     "minified": 30576,
     "gzipped": 6840
@@ -33,18 +34,23 @@
       },
       "webpack": {
     "bundled": 53967
+=======
+    "bundled": 54191,
+    "minified": 38682,
+    "gzipped": 7794
+>>>>>>> Support rendering in SSR environments
   },
   "index.esm.js": {
-    "bundled": 50440,
-    "minified": 35536,
-    "gzipped": 7624,
+    "bundled": 50658,
+    "minified": 35573,
+    "gzipped": 7641,
     "treeshaked": {
       "rollup": {
-        "code": 28130,
+        "code": 28161,
         "import_statements": 769
       },
       "webpack": {
-        "code": 31348
+        "code": 31395
       }
     }
   }
