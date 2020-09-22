@@ -65,10 +65,6 @@ export interface IDrawerModalProps {
    */
   onClose?: (event: TransitionEvent) => void;
   /**
-   * Enable drawer modal animation
-   */
-  isAnimated?: boolean;
-  /**
    * The root ID to use for descendants. A unique ID is created if none is provided.
    **/
   id?: string;
@@ -92,17 +88,7 @@ export const DrawerModal = forwardRef<
   IDrawerModalProps & ThemeProps<DefaultTheme> & HTMLAttributes<HTMLDivElement>
 >(
   (
-    {
-      id,
-      isOpen,
-      onClose,
-      isAnimated,
-      backdropProps,
-      appendToNode,
-      focusOnMount,
-      restoreFocus,
-      ...props
-    },
+    { id, isOpen, onClose, backdropProps, appendToNode, focusOnMount, restoreFocus, ...props },
     ref
   ) => {
     const modalRef = useRef<HTMLDivElement>(null);
@@ -232,7 +218,7 @@ export const DrawerModal = forwardRef<
       ? ReactDOM.createPortal(
           <ModalsContext.Provider value={value}>
             <StyledDrawerModalBackdrop
-              {...(getBackdropProps({ isAnimated, ...backdropProps }) as any)}
+              {...(getBackdropProps({ isAnimated: true, ...backdropProps }) as any)}
             >
               <StyledDrawerModal
                 {...getModalProps({ ref: mergeRefs([ref, modalRef]), ...props } as any)}
@@ -255,14 +241,9 @@ DrawerModal.displayName = 'DrawerModal';
 
 DrawerModal.propTypes = {
   backdropProps: PropTypes.object,
-  isAnimated: PropTypes.bool,
   focusOnMount: PropTypes.bool,
   restoreFocus: PropTypes.bool,
   onClose: PropTypes.func,
   appendToNode: PropTypes.any,
   id: PropTypes.string
-};
-
-DrawerModal.defaultProps = {
-  isAnimated: true
 };
