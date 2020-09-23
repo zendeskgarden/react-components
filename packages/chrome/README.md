@@ -13,7 +13,7 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 
 ## Usages
 
-```jsx static
+```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Chrome, Nav, NavItem, ... } from '@zendeskgarden/react-chrome';
 import ConnectIcon from '@zendeskgarden/icons/src/26/relationshape-connect.svg';

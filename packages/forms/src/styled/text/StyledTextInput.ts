@@ -54,7 +54,9 @@ const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) =>
   const boxShadow = `
     ${props.focusInset ? 'inset' : ''}
     ${props.theme.shadows.md(rgba(focusBorderColor, 0.35))}`;
-  const disabledBackgroundColor = getColor('neutralHue', SHADE - 500, props.theme);
+  const readOnlyBackgroundColor = getColor('neutralHue', SHADE - 500, props.theme);
+  const readOnlyBorderColor = getColor('neutralHue', SHADE - 300, props.theme);
+  const disabledBackgroundColor = readOnlyBackgroundColor;
   const disabledBorderColor = getColor('neutralHue', SHADE - 400, props.theme);
   const disabledForegroundColor = getColor('neutralHue', SHADE - 200, props.theme);
 
@@ -76,6 +78,13 @@ const colorStyles = (props: IStyledTextInputProps & ThemeProps<DefaultTheme>) =>
 
     &::placeholder {
       color: ${placeholderColor};
+    }
+
+    &[readonly],
+    /* apply to faux input */
+    &[aria-readonly='true'] {
+      border-color: ${readOnlyBorderColor};
+      background-color: ${!props.isBare && readOnlyBackgroundColor};
     }
 
     &:hover {

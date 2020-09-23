@@ -48,11 +48,13 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
       isCompact,
       isBare,
       focusInset,
+      readOnly,
       validation,
       isFocused,
       isHovered,
       wrapperProps = {},
       wrapperRef,
+      onSelect,
       ...props
     },
     ref
@@ -66,9 +68,17 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
       inputRef.current && inputRef.current.focus();
     });
 
+    const onSelectHandler = readOnly
+      ? composeEventHandlers(onSelect, (event: React.SyntheticEvent<HTMLInputElement>) => {
+          event.currentTarget.select();
+        })
+      : onSelect;
+
     let combinedProps = {
       disabled,
+      readOnly,
       ref: inputRef,
+      onSelect: onSelectHandler,
       ...props
     };
 
@@ -89,6 +99,7 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
         isCompact={isCompact}
         isBare={isBare}
         focusInset={focusInset}
+        readOnly={readOnly}
         validation={validation}
         mediaLayout
         ref={wrapperRef}

@@ -19,7 +19,7 @@ import { useCSSSVGAnimation } from '../utils/useCSSSVGAnimation';
 
 const COMPONENT_ID = 'loaders.dots';
 
-interface IDotsProps extends React.HTMLAttributes<SVGSVGElement> {
+export interface IDotsProps extends React.HTMLAttributes<SVGSVGElement> {
   /**
    * Sets the height and width in pixels. Inherits the parent `font-size` by default
    **/

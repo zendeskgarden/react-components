@@ -119,7 +119,7 @@ export const Modal = React.forwardRef<HTMLDivElement, IModalProps>(
       restoreFocus
     });
 
-    useFocusVisible({ scope: modalRef });
+    useFocusVisible({ scope: modalRef, relativeDocument: environment });
 
     useEffect(() => {
       if (!environment) {

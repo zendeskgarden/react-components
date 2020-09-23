@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import userEvent from '@testing-library/user-event';
 import { render } from 'garden-test-utils';
 import { Input } from './Input';
 import { Field } from './common/Field';
@@ -30,5 +31,20 @@ describe('Input', () => {
     );
 
     expect(getByTestId('input')).toBe(ref.current);
+  });
+
+  it('selects readonly text', () => {
+    const value = 'testing';
+    const { getByTestId } = render(
+      <Field>
+        <Input data-test-id="input" readOnly value={value} />
+      </Field>
+    );
+    const input = getByTestId('input') as HTMLInputElement;
+
+    userEvent.click(input);
+
+    expect(input.selectionStart).toBe(0);
+    expect(input.selectionEnd).toBe(value.length);
   });
 });

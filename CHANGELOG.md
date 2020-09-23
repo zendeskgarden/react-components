@@ -11,6 +11,50 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+## v8.23.1 (2020-09-16)
+
+#### :bug: Bug Fix
+
+- `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  - [#882](https://github.com/zendeskgarden/react-components/pull/882) fix(build): ensure ts types directory is relative ([@austin94](https://github.com/austin94))
+## v8.23.0 (2020-09-16)
+
+#### :rocket: New Feature
+
+- `forms`
+  - [#879](https://github.com/zendeskgarden/react-components/pull/879) feat(forms): add readonly support for text inputs ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+
+- `modals`
+  - [#876](https://github.com/zendeskgarden/react-components/pull/876) fix(modals): allow Modal to be used in SSR environments ([@austin94](https://github.com/austin94))
+- `typography`
+  - [#877](https://github.com/zendeskgarden/react-components/pull/877) fix(typography): codeblock styling tweaks ([@jzempel](https://github.com/jzempel))
+
+#### :memo: Documentation
+
+- `breadcrumbs`
+  - [#880](https://github.com/zendeskgarden/react-components/pull/880) chore(docs): migrate react-breadcrumbs docs to storybook ([@austin94](https://github.com/austin94))
+- `accordions`, `dropdowns`, `forms`
+  - [#878](https://github.com/zendeskgarden/react-components/pull/878) chore(docs): migrate react-accordions examples to storybook ([@austin94](https://github.com/austin94))
+- `tabs`, `theming`
+  - [#873](https://github.com/zendeskgarden/react-components/pull/873) chore(docs): introduce storybook and migrate react-tabs examples ([@austin94](https://github.com/austin94))
+
+#### :seedling: Internal
+
+- `dropdowns`
+  - [#867](https://github.com/zendeskgarden/react-components/pull/867) chore(deps): update dependency eslint-plugin-jest to v24 ([@renovate[bot]](https://github.com/apps/renovate))
+  - [#872](https://github.com/zendeskgarden/react-components/pull/872) fix(deps): update dependency downshift to v6 ([@renovate[bot]](https://github.com/apps/renovate))
+- Other
+  - [#865](https://github.com/zendeskgarden/react-components/pull/865) chore(deps): update dependency @zendeskgarden/stylelint-config to v14 ([@renovate[bot]](https://github.com/apps/renovate))
+  - [#864](https://github.com/zendeskgarden/react-components/pull/864) chore(deps): update dependency @zendeskgarden/eslint-config to v15 ([@renovate[bot]](https://github.com/apps/renovate))
+  - [#870](https://github.com/zendeskgarden/react-components/pull/870) chore(deps): update node orb to v4 ([@renovate[bot]](https://github.com/apps/renovate))
+  - [#863](https://github.com/zendeskgarden/react-components/pull/863) chore(deps): update dependency @testing-library/react to v11 ([@renovate[bot]](https://github.com/apps/renovate))
+  - [#874](https://github.com/zendeskgarden/react-components/pull/874) chore(deps): bump http-proxy from 1.18.0 to 1.18.1 in /examples/gatsby ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#868](https://github.com/zendeskgarden/react-components/pull/868) chore(deps): update dependency ora to v5 ([@renovate[bot]](https://github.com/apps/renovate))
+  - [#866](https://github.com/zendeskgarden/react-components/pull/866) chore(deps): update dependency commander to v6 ([@renovate[bot]](https://github.com/apps/renovate))
+  - [#862](https://github.com/zendeskgarden/react-components/pull/862) chore(deps): update dependency @rollup/plugin-node-resolve to v9 ([@renovate[bot]](https://github.com/apps/renovate))
+  - [#861](https://github.com/zendeskgarden/react-components/pull/861) chore(deps): update dependency @rollup/plugin-commonjs to v15 ([@renovate[bot]](https://github.com/apps/renovate))
 
 ## v8.22.0 (2020-09-09)
 
