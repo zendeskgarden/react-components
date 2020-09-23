@@ -250,19 +250,19 @@ export const StyledAvatar = styled.figure.attrs({
   }
 
   &::before,
-  & > img {
+  && > img {
     border-radius: inherit;
     width: 100%;
     height: 100%;
   }
 
-  & > img {
+  && > img {
     box-sizing: inherit;
     vertical-align: bottom;
     object-fit: cover;
   }
 
-  & > svg {
+  && > svg {
     width: 1em;
     height: 1em;
   }

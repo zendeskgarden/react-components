@@ -22,7 +22,7 @@ const StyledTable = styled.table.attrs<Partial<IStoryProps>>(p => ({
 `;
 
 const StyledAvatarTd = styled.td`
-  padding: ${p => p.theme.space.xs} 0;
+  padding: ${p => p.theme.space.lg} 0;
   text-align: center;
 `;
 
