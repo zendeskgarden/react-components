@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { ThHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 
 import { StyledHeaderCell, IStyledCellProps } from '../styled';
@@ -16,7 +16,7 @@ import { useTableContext } from '../utils/useTableContext';
  */
 export const HeaderCell = React.forwardRef<
   HTMLTableHeaderCellElement,
-  Omit<IStyledCellProps, 'size'> & HTMLAttributes<HTMLTableHeaderCellElement>
+  Omit<IStyledCellProps, 'size'> & ThHTMLAttributes<HTMLTableHeaderCellElement>
 >((props, ref) => {
   const { size } = useTableContext();
 
