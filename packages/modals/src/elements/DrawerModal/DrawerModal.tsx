@@ -5,16 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-/* eslint-disable */
-
 import React, {
-  useState,
   useEffect,
   useRef,
   useMemo,
   useContext,
-  useCallback,
-  createRef,
   forwardRef,
   RefAttributes,
   HTMLAttributes,
@@ -24,7 +19,8 @@ import React, {
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import mergeRefs from 'react-merge-refs';
-import { ThemeProps, DefaultTheme, ThemeContext } from 'styled-components';
+import { CSSTransition } from 'react-transition-group';
+import { ThemeContext } from 'styled-components';
 import { useModal } from '@zendeskgarden/container-modal';
 import { useDocument } from '@zendeskgarden/react-theming';
 import { useFocusVisible } from '@zendeskgarden/container-focusvisible';
@@ -63,7 +59,7 @@ export interface IDrawerModalProps {
    * Can be triggered from the backdrop and Close icon.
    * @param {Object} event - DOM event that triggered the close action
    */
-  onClose?: (event: TransitionEvent) => void;
+  onClose?: (event: KeyboardEvent | MouseEvent) => void;
   /**
    * The root ID to use for descendants. A unique ID is created if none is provided.
    **/
@@ -80,38 +76,22 @@ export interface IDrawerModalProps {
    * Determines whether to return keyboard focus to the element that triggered the drawer modal
    */
   restoreFocus?: boolean;
-  children?: any;
+  children?: React.ReactNode;
 }
 
 export const DrawerModal = forwardRef<
   HTMLDivElement,
-  IDrawerModalProps & ThemeProps<DefaultTheme> & HTMLAttributes<HTMLDivElement>
+  IDrawerModalProps & HTMLAttributes<HTMLDivElement>
 >(
   (
     { id, isOpen, onClose, backdropProps, appendToNode, focusOnMount, restoreFocus, ...props },
     ref
   ) => {
-    const modalRef = useRef<HTMLDivElement>(null);
+    const modalRef = useRef<HTMLDivElement | null>(null);
     const theme = useContext(ThemeContext);
     const environment = useDocument(theme);
-    const { rtl } = theme;
-    /**
-     * The `showDrawer` local state is synced to `isOpen` prop. The DrawerModal component needs to control
-     * local state in order to know when (CSS transition ends) to unmount the DrawerModal component.
-     */
-    const [showDrawer, setShowDrawer] = useState(false);
 
-    useFocusVisible({ scope: modalRef, relativeDocument: environment });
-
-    const unmountDrawer = useCallback(
-      (event: TransitionEvent) => {
-        if ((event.target as HTMLDivElement).getAttribute('role') === 'dialog') {
-          setShowDrawer(false);
-          onClose && onClose(event);
-        }
-      },
-      [setShowDrawer, onClose]
-    );
+    useFocusVisible({ scope: modalRef, relativeDocument: modalRef.current });
 
     const {
       getTitleProps,
@@ -124,53 +104,9 @@ export const DrawerModal = forwardRef<
       modalRef,
       focusOnMount,
       restoreFocus,
-      onClose: () => {
-        if (modalRef.current) {
-          const { width } = modalRef.current.getBoundingClientRect();
-          modalRef.current.addEventListener('transitionend', unmountDrawer);
-
-          if (rtl) {
-            modalRef.current.style.transform = 'translateX(0px)';
-          } else {
-            modalRef.current.style.right = `-${width}px`;
-            modalRef.current.style.transform = `translateX(${width}px)`;
-          }
-        }
-      }
+      environment,
+      onClose
     });
-
-    useEffect(() => {
-      if (modalRef.current) {
-        const { width } = modalRef.current.getBoundingClientRect();
-
-        if (isOpen) {
-          setShowDrawer(true);
-          modalRef.current.style.right = 'initial';
-
-          if (rtl) {
-            modalRef.current.style.left = `-${width}px`;
-            modalRef.current.style.transform = `translateX(${width}px)`;
-          } else {
-            modalRef.current.style.right = `-${width}px`;
-            modalRef.current.style.transform = `translateX(-${width}px)`;
-          }
-        } else {
-          modalRef.current.addEventListener('transitionend', unmountDrawer);
-
-          if (rtl) {
-            modalRef.current.style.transform = 'translateX(0px)';
-          } else {
-            modalRef.current.style.right = `-${width}px`;
-            modalRef.current.style.transform = `translateX(${width}px)`;
-          }
-
-          return () => {
-            modalRef.current &&
-              modalRef.current.removeEventListener('transitionend', unmountDrawer);
-          };
-        }
-      }
-    }, [isOpen, modalRef.current]);
 
     useEffect(() => {
       if (!environment) {
@@ -179,7 +115,7 @@ export const DrawerModal = forwardRef<
 
       const bodyElement = environment.querySelector('body');
 
-      if (bodyElement && showDrawer) {
+      if (bodyElement && isOpen) {
         const previousBodyOverflow = bodyElement.style.overflow;
 
         bodyElement.style.overflow = 'hidden';
@@ -190,7 +126,7 @@ export const DrawerModal = forwardRef<
       }
 
       return undefined;
-    }, [environment, showDrawer]);
+    }, [environment, isOpen]);
 
     const rootNode = useMemo(() => {
       if (appendToNode) {
@@ -214,20 +150,23 @@ export const DrawerModal = forwardRef<
       return null;
     }
 
-    return showDrawer || isOpen
-      ? ReactDOM.createPortal(
-          <ModalsContext.Provider value={value}>
-            <StyledDrawerModalBackdrop
-              {...(getBackdropProps({ isAnimated: true, ...backdropProps }) as any)}
-            >
-              <StyledDrawerModal
-                {...getModalProps({ ref: mergeRefs([ref, modalRef]), ...props } as any)}
-              />
-            </StyledDrawerModalBackdrop>
-          </ModalsContext.Provider>,
-          rootNode
-        )
-      : null;
+    const modalProps = isOpen
+      ? getModalProps({ ref: mergeRefs([ref, modalRef]), ...props } as any)
+      : props;
+
+    return ReactDOM.createPortal(
+      <ModalsContext.Provider value={value}>
+        <CSSTransition in={isOpen} timeout={250} classNames="drawer-transition" unmountOnExit>
+          <StyledDrawerModal {...modalProps} />
+        </CSSTransition>
+        {isOpen && (
+          <StyledDrawerModalBackdrop
+            {...(getBackdropProps({ isAnimated: true, ...backdropProps }) as any)}
+          />
+        )}
+      </ModalsContext.Provider>,
+      rootNode
+    );
   }
 ) as IStaticDrawerModalExport<HTMLDivElement, IDrawerModalProps>;
 

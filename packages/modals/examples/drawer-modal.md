@@ -12,7 +12,6 @@ const Example = () => {
       <Button onClick={open}>Open Drawer</Button>
       <DrawerModal isOpen={isOpen} onClose={close}>
         <DrawerModal.Header>Example Title</DrawerModal.Header>
-        <DrawerModal.Close />
         <DrawerModal.Body>
           <Paragraph>
             Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth
@@ -59,6 +58,7 @@ const Example = () => {
             </Button>
           </DrawerModal.FooterItem>
         </DrawerModal.Footer>
+        <DrawerModal.Close />
       </DrawerModal>
     </>
   );

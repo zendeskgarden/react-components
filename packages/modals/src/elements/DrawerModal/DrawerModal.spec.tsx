@@ -7,7 +7,7 @@
 
 import React, { useRef, useState, createRef, forwardRef } from 'react';
 import userEvent from '@testing-library/user-event';
-import { act, render, waitFor } from 'garden-test-utils';
+import { render, waitFor } from 'garden-test-utils';
 import { DrawerModal, IDrawerModalProps } from './DrawerModal';
 
 describe('DrawerModal', () => {
@@ -22,7 +22,6 @@ describe('DrawerModal', () => {
         <button ref={buttonRef} onClick={() => setIsOpen(true)}>
           Open Drawer
         </button>
-
         <DrawerModal ref={ref} isOpen={isOpen} onClose={() => setIsOpen(false)} {...props}>
           <DrawerModal.Header>title</DrawerModal.Header>
           <DrawerModal.Close />
@@ -61,12 +60,9 @@ describe('DrawerModal', () => {
 
     userEvent.type(getByRole('dialog'), '{esc}');
 
-    await act(async () => {
-      getByRole('dialog').dispatchEvent(new Event('transitionend')); // simulate DrawerModal transition
-      await waitFor(() => {
-        expect(queryByRole('dialog')).not.toBeInTheDocument();
-        expect(document.body).not.toHaveAttribute('style', 'overflow: hidden;');
-      });
+    await waitFor(() => {
+      expect(queryByRole('dialog')).not.toBeInTheDocument();
+      expect(document.body).not.toHaveAttribute('style', 'overflow: hidden;');
     });
   });
 
@@ -105,7 +101,7 @@ describe('DrawerModal', () => {
   });
 
   it('closes the drawer modal when user clicks the close modal button', async () => {
-    const { getByText, getByLabelText, queryByRole, getByRole } = render(<Example />);
+    const { getByText, getByLabelText, queryByRole } = render(<Example />);
 
     userEvent.click(getByText('Open Drawer'));
 
@@ -113,16 +109,13 @@ describe('DrawerModal', () => {
 
     userEvent.click(getByLabelText('Close modal'));
 
-    await act(async () => {
-      getByRole('dialog').dispatchEvent(new Event('transitionend')); // simulate DrawerModal transition
-      await waitFor(() => {
-        expect(queryByRole('dialog')).not.toBeInTheDocument();
-      });
+    await waitFor(() => {
+      expect(queryByRole('dialog')).not.toBeInTheDocument();
     });
   });
 
   it('closes the drawer modal when user clicks the modal backdrop', async () => {
-    const { getByText, getByRole, queryByRole, getByTestId } = render(
+    const { getByText, queryByRole, getByTestId } = render(
       <Example backdropProps={{ 'data-test-id': 'backdrop' }} />
     );
 
@@ -132,11 +125,8 @@ describe('DrawerModal', () => {
 
     userEvent.click(getByTestId('backdrop'));
 
-    await act(async () => {
-      getByRole('dialog').dispatchEvent(new Event('transitionend')); // simulate DrawerModal transition
-      await waitFor(() => {
-        expect(queryByRole('dialog')).not.toBeInTheDocument();
-      });
+    await waitFor(() => {
+      expect(queryByRole('dialog')).not.toBeInTheDocument();
     });
   });
 
@@ -151,11 +141,8 @@ describe('DrawerModal', () => {
 
     userEvent.type(getByRole('dialog'), '{esc}');
 
-    await act(async () => {
-      getByRole('dialog').dispatchEvent(new Event('transitionend')); // simulate DrawerModal transition
-      await waitFor(() => {
-        expect(queryByRole('dialog')).not.toBeInTheDocument();
-      });
+    await waitFor(() => {
+      expect(queryByRole('dialog')).not.toBeInTheDocument();
     });
   });
 });

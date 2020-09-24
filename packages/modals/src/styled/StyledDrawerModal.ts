@@ -20,18 +20,40 @@ const boxShadow = (props: ThemeProps<DefaultTheme>) => {
   return shadows.lg(offsetY, blurRadius, color as string);
 };
 
+/**
+ * 1. Smooth iOS scrolling.
+ */
 export const StyledDrawerModal = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
   display: flex;
   position: fixed;
+  top: 0;
   flex-direction: column;
-  transition: transform 0.25s ease-in-out;
+  z-index: 500;
   box-shadow: ${boxShadow};
   background: ${props => props.theme.colors.background};
   width: 380px;
   height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch; /* [1] */
+  font-family: ${props => props.theme.fonts.system};
+  direction: ${props => props.theme.rtl && 'rtl'};
+
+  &.drawer-transition-enter {
+    transform: translateX(-380px);
+  }
+
+  &.drawer-transition-enter-active {
+    transform: translateX(0);
+    transition: transform 0.25s ease-in-out;
+  }
+
+  &.drawer-transition-exit-active {
+    transform: translateX(-380px);
+    transition: transform 0.25s ease-in-out;
+  }
 
   &:focus {
     outline: none;
