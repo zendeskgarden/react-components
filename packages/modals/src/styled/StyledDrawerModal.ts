@@ -41,16 +41,16 @@ export const StyledDrawerModal = styled.div.attrs({
   font-family: ${props => props.theme.fonts.system};
   direction: ${props => props.theme.rtl && 'rtl'};
 
-  &.drawer-transition-enter {
+  &.garden-drawer-transition-enter {
     transform: translateX(-380px);
   }
 
-  &.drawer-transition-enter-active {
+  &.garden-drawer-transition-enter-active {
     transform: translateX(0);
     transition: transform 0.25s ease-in-out;
   }
 
-  &.drawer-transition-exit-active {
+  &.garden-drawer-transition-exit-active {
     transform: translateX(-380px);
     transition: transform 0.25s ease-in-out;
   }

@@ -156,7 +156,12 @@ export const DrawerModal = forwardRef<
 
     return ReactDOM.createPortal(
       <ModalsContext.Provider value={value}>
-        <CSSTransition in={isOpen} timeout={250} classNames="drawer-transition" unmountOnExit>
+        <CSSTransition
+          in={isOpen}
+          timeout={250}
+          unmountOnExit
+          classNames="garden-drawer-transition"
+        >
           <StyledDrawerModal {...modalProps} />
         </CSSTransition>
         {isOpen && (
