@@ -45,7 +45,7 @@ interface IStaticDrawerModalExport<T, P>
   FooterItem: typeof StyledDrawerModalFooterItem;
 }
 
-export interface IDrawerModalProps {
+export interface IDrawerModalProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Determines whether the `DrawerModal` is opened or closed
    */
@@ -76,7 +76,6 @@ export interface IDrawerModalProps {
    * Determines whether to return keyboard focus to the element that triggered the drawer modal
    */
   restoreFocus?: boolean;
-  children?: React.ReactNode;
 }
 
 export const DrawerModal = forwardRef<
