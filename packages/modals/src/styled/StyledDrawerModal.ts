@@ -10,6 +10,8 @@ import { getColor, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden
 
 const COMPONENT_ID = 'modals.drawer_modal';
 
+const DRAWER_WIDTH = 380;
+
 const boxShadow = (props: ThemeProps<DefaultTheme>) => {
   const { theme } = props;
   const { space, shadows } = theme;
@@ -30,11 +32,12 @@ export const StyledDrawerModal = styled.div.attrs({
   display: flex;
   position: fixed;
   top: 0;
+  ${props => (props.theme.rtl ? 'left' : 'right')}: 0;
   flex-direction: column;
   z-index: 500;
   box-shadow: ${boxShadow};
   background: ${props => props.theme.colors.background};
-  width: 380px;
+  width: ${DRAWER_WIDTH}px;
   height: 100%;
   overflow: auto;
   -webkit-overflow-scrolling: touch; /* [1] */
@@ -42,7 +45,7 @@ export const StyledDrawerModal = styled.div.attrs({
   direction: ${props => props.theme.rtl && 'rtl'};
 
   &.garden-drawer-transition-enter {
-    transform: translateX(-380px);
+    transform: translateX(${props => (props.theme.rtl ? -DRAWER_WIDTH : DRAWER_WIDTH)}px);
   }
 
   &.garden-drawer-transition-enter-active {
@@ -51,7 +54,7 @@ export const StyledDrawerModal = styled.div.attrs({
   }
 
   &.garden-drawer-transition-exit-active {
-    transform: translateX(-380px);
+    transform: translateX(${props => (props.theme.rtl ? -DRAWER_WIDTH : DRAWER_WIDTH)}px);
     transition: transform 0.25s ease-in-out;
   }
 
