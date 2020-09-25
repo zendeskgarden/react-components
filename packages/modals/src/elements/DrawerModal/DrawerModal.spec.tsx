@@ -7,7 +7,7 @@
 
 import React, { useRef, useState, createRef, forwardRef } from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, waitFor } from 'garden-test-utils';
+import { screen, render, waitFor } from 'garden-test-utils';
 import { DrawerModal, IDrawerModalProps } from './DrawerModal';
 
 describe('DrawerModal', () => {
@@ -50,30 +50,30 @@ describe('DrawerModal', () => {
   it('only locks page scrolling when drawer modal is opened', async () => {
     const { getByText, getByRole, queryByRole } = render(<Example />);
 
-    expect(queryByRole('dialog')).toBeNull();
+    expect(queryByRole('dialog')).not.toBeInTheDocument();
     expect(document.body).not.toHaveAttribute('style', 'overflow: hidden;');
 
     userEvent.click(getByText('Open Drawer'));
 
-    expect(queryByRole('dialog')).not.toBeNull();
+    expect(getByRole('dialog')).toBeInTheDocument();
     expect(document.body).toHaveAttribute('style', 'overflow: hidden;');
 
     userEvent.type(getByRole('dialog'), '{esc}');
 
-    await waitFor(() => {
-      expect(queryByRole('dialog')).not.toBeInTheDocument();
-      expect(document.body).not.toHaveAttribute('style', 'overflow: hidden;');
-    });
+    await waitFor(() => expect(queryByRole('dialog')).not.toBeInTheDocument());
+    expect(document.body).not.toHaveAttribute('style', 'overflow: hidden;');
   });
 
   it('applies backdropProps to Backdrop element', () => {
-    const { getByTestId, getByText } = render(
+    const { getByText, getByTestId, queryByTestId } = render(
       <Example backdropProps={{ 'data-test-id': 'backdrop' }} />
     );
 
+    expect(queryByTestId('backdrop')).not.toBeInTheDocument();
+
     userEvent.click(getByText('Open Drawer'));
 
-    expect(getByTestId('backdrop')).not.toBeNull();
+    expect(getByTestId('backdrop')).toBeInTheDocument();
   });
 
   it('applies title a11y attributes to Title element', () => {
@@ -92,42 +92,30 @@ describe('DrawerModal', () => {
     expect(getByText('body')).toHaveAttribute('id', `${DRAWER_MODAL_ID}--content`);
   });
 
-  it('applies close a11y attributes to Close element', () => {
-    const { getAllByRole, getByText } = render(<Example id={DRAWER_MODAL_ID} />);
-
-    userEvent.click(getByText('Open Drawer'));
-
-    expect(getAllByRole('button')[1]).toHaveAttribute('aria-label', 'Close modal');
-  });
-
   it('closes the drawer modal when user clicks the close modal button', async () => {
-    const { getByText, getByLabelText, queryByRole } = render(<Example />);
+    const { getByText, queryByRole, getByRole } = render(<Example />);
 
     userEvent.click(getByText('Open Drawer'));
 
-    expect(queryByRole('dialog')).toBeInTheDocument();
+    expect(getByRole('dialog')).toBeInTheDocument();
 
-    userEvent.click(getByLabelText('Close modal'));
+    userEvent.click(screen.getByRole('button', { name: /Close modal/iu }));
 
-    await waitFor(() => {
-      expect(queryByRole('dialog')).not.toBeInTheDocument();
-    });
+    await waitFor(() => expect(queryByRole('dialog')).not.toBeInTheDocument());
   });
 
   it('closes the drawer modal when user clicks the modal backdrop', async () => {
-    const { getByText, queryByRole, getByTestId } = render(
+    const { getByText, queryByRole, getByRole, getByTestId } = render(
       <Example backdropProps={{ 'data-test-id': 'backdrop' }} />
     );
 
     userEvent.click(getByText('Open Drawer'));
 
-    expect(queryByRole('dialog')).toBeInTheDocument();
+    expect(getByRole('dialog')).toBeInTheDocument();
 
     userEvent.click(getByTestId('backdrop'));
 
-    await waitFor(() => {
-      expect(queryByRole('dialog')).not.toBeInTheDocument();
-    });
+    await waitFor(() => expect(queryByRole('dialog')).not.toBeInTheDocument());
   });
 
   it('closes the drawer modal when user presses the ESC key', async () => {
@@ -137,12 +125,10 @@ describe('DrawerModal', () => {
 
     userEvent.click(getByText('Open Drawer'));
 
-    expect(queryByRole('dialog')).toBeInTheDocument();
+    expect(getByRole('dialog')).toBeInTheDocument();
 
     userEvent.type(getByRole('dialog'), '{esc}');
 
-    await waitFor(() => {
-      expect(queryByRole('dialog')).not.toBeInTheDocument();
-    });
+    await waitFor(() => expect(queryByRole('dialog')).not.toBeInTheDocument());
   });
 });
