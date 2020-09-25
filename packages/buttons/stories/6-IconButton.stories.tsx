@@ -62,6 +62,9 @@ Default.argTypes = {
   isPill: {
     control: { type: 'boolean' }
   },
+  focusInset: {
+    control: { type: 'boolean' }
+  },
   isRotated: {
     control: { type: 'boolean' }
   }
