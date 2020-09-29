@@ -48,6 +48,8 @@
       }
     ],
     "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-use-before-define": "warn",
+    "no-use-before-define": "off",
     "jest/no-conditional-expect": "off",
     "garden-local/require-default-theme": "error"
   },
@@ -65,7 +67,13 @@
       }
     },
     {
-      "files": ["*.spec.{js,ts,tsx}", "**/stories/**/*", "utils/**/*.{js,ts,tsx}", ".storybook/**/*.{js,ts,tsx}", "styleguide.config.js"],
+      "files": [
+        "*.spec.{js,ts,tsx}",
+        "**/stories/**/*",
+        "utils/**/*.{js,ts,tsx}",
+        ".storybook/**/*.{js,ts,tsx}",
+        "styleguide.config.js"
+      ],
       "rules": {
         "garden-local/require-default-theme": "off",
         "@typescript-eslint/no-var-requires": "off"
