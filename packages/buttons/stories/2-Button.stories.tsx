@@ -23,7 +23,9 @@ export const Default: Story = ({
   isBasic,
   isLink,
   isPill,
-  focusInset
+  focusInset,
+  disabled,
+  buttonText
 }) => (
   <Grid>
     <Row>
@@ -37,37 +39,48 @@ export const Default: Story = ({
           isLink={isLink}
           isPill={isPill}
           focusInset={focusInset}
+          disabled={disabled}
         >
-          Click
+          {buttonText}
         </Button>
       </Col>
     </Row>
   </Grid>
 );
 
+Default.args = {
+  buttonText: 'Test Button'
+};
+
 Default.argTypes = {
   isDanger: {
-    control: { type: 'boolean' }
+    control: 'boolean'
   },
   size: {
     control: { type: 'select', options: ['small', 'medium', 'large'] }
   },
   isStretched: {
-    control: { type: 'boolean' }
+    control: 'boolean'
   },
   isPrimary: {
-    control: { type: 'boolean' }
+    control: 'boolean'
   },
   isBasic: {
-    control: { type: 'boolean' }
+    control: 'boolean'
   },
   isLink: {
-    control: { type: 'boolean' }
+    control: 'boolean'
   },
   isPill: {
-    control: { type: 'boolean' }
+    control: 'boolean'
   },
   focusInset: {
-    control: { type: 'boolean' }
+    control: 'boolean'
+  },
+  disabled: {
+    control: 'boolean'
+  },
+  buttonText: {
+    control: 'text'
   }
 };
