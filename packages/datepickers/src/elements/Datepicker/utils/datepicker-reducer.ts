@@ -27,7 +27,7 @@ function parseInputValue({
   customParseDate
 }: {
   inputValue: string;
-  customParseDate?: (inputValue: string) => Date;
+  customParseDate?: (value: string) => Date;
 }): Date {
   if (customParseDate) {
     return customParseDate(inputValue);
@@ -65,7 +65,7 @@ function formatInputValue({
 }: {
   date?: Date;
   locale: string;
-  formatDate?: (date: Date) => string;
+  formatDate?: (d: Date) => string;
 }) {
   if (!date) {
     return '';
