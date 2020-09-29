@@ -48,7 +48,7 @@
       }
     ],
     "@typescript-eslint/no-non-null-assertion": "off",
-    "@typescript-eslint/no-use-before-define": "warn",
+    "@typescript-eslint/no-use-before-define": "error",
     "no-use-before-define": "off",
     "jest/no-conditional-expect": "off",
     "garden-local/require-default-theme": "error"
