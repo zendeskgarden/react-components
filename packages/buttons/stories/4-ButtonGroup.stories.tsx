@@ -15,7 +15,7 @@ export default {
   component: ButtonGroup
 } as Meta;
 
-export const Default: Story = () => {
+export const Default: Story = ({ disabled, isPrimary, isDanger, size, isPill }) => {
   const [selectedItem, setSelectedItem] = useState('button-1');
 
   return (
@@ -23,14 +23,59 @@ export const Default: Story = () => {
       <Row>
         <Col textAlign="center">
           <ButtonGroup selectedItem={selectedItem} onSelect={setSelectedItem}>
-            <Button value="button-1">Item 1</Button>
-            <Button value="button-2">Item 2</Button>
-            <Button value="button-3">Item 3</Button>
+            <Button
+              value="button-1"
+              isPrimary={isPrimary}
+              isDanger={isDanger}
+              isPill={isPill}
+              disabled={disabled}
+              size={size}
+            >
+              Item 1
+            </Button>
+            <Button
+              value="button-2"
+              isPrimary={isPrimary}
+              isDanger={isDanger}
+              isPill={isPill}
+              disabled={disabled}
+              size={size}
+            >
+              Item 2
+            </Button>
+            <Button
+              value="button-3"
+              isPrimary={isPrimary}
+              isDanger={isDanger}
+              isPill={isPill}
+              disabled={disabled}
+              size={size}
+            >
+              Item 3
+            </Button>
           </ButtonGroup>
         </Col>
       </Row>
     </Grid>
   );
+};
+
+Default.argTypes = {
+  disabled: {
+    control: 'boolean'
+  },
+  isPrimary: {
+    control: 'boolean'
+  },
+  isDanger: {
+    control: 'boolean'
+  },
+  size: {
+    control: { type: 'select', options: ['small', 'medium', 'large'] }
+  },
+  isPill: {
+    control: 'boolean'
+  }
 };
 
 Default.parameters = {

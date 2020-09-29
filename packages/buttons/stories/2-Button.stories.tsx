@@ -53,6 +53,9 @@ Default.args = {
 };
 
 Default.argTypes = {
+  buttonText: {
+    control: 'text'
+  },
   isDanger: {
     control: 'boolean'
   },
@@ -79,8 +82,5 @@ Default.argTypes = {
   },
   disabled: {
     control: 'boolean'
-  },
-  buttonText: {
-    control: 'text'
   }
 };
