@@ -57,7 +57,7 @@
     "@testing-library/user-event": "12.1.4",
     "@types/jest": "26.0.13",
     "@types/prop-types": "15.7.3",
-    "@types/react": "^16.9.33",
+    "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.6",
     "@types/styled-components": "4.4.3",
     "@typescript-eslint/eslint-plugin": "4.3.0",
@@ -146,6 +146,7 @@
     "webpack": "4.44.1"
   },
   "resolutions": {
-    "@types/vfile-message": "1.0.1"
+    "@types/vfile-message": "1.0.1",
+    "@types/react": "16.9.49"
   }
 }
