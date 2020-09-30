@@ -9,7 +9,9 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
-import ChevronDownIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
+import SettingsIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
+import AttachmentIcon from '@zendeskgarden/svg-icons/src/16/paperclip.svg';
+import EmailIcon from '@zendeskgarden/svg-icons/src/16/email-stroke.svg';
 
 export default {
   title: 'Components/Buttons/IconButton',
@@ -17,29 +19,63 @@ export default {
 } as Meta;
 
 export const Default: Story = ({
-  isDanger,
-  size,
   isPrimary,
+  isDanger,
+  focusInset,
   isBasic,
   isPill,
-  focusInset,
-  isRotated
+  isRotated,
+  disabled,
+  size
 }) => (
   <Grid>
     <Row>
       <Col textAlign="center">
         <IconButton
-          title="Settings"
-          aria-label="Settings"
-          isDanger={isDanger}
-          size={size}
+          title="Gear"
+          aria-label="Gear"
           isPrimary={isPrimary}
+          isDanger={isDanger}
+          focusInset={focusInset}
           isBasic={isBasic}
           isPill={isPill}
-          focusInset={focusInset}
           isRotated={isRotated}
+          disabled={disabled}
+          size={size}
         >
-          <ChevronDownIcon />
+          <SettingsIcon />
+        </IconButton>
+      </Col>
+      <Col textAlign="center">
+        <IconButton
+          title="Paperclip"
+          aria-label="Paperclip"
+          isPrimary={isPrimary}
+          isDanger={isDanger}
+          focusInset={focusInset}
+          isBasic={isBasic}
+          isPill={isPill}
+          isRotated={isRotated}
+          disabled={disabled}
+          size={size}
+        >
+          <AttachmentIcon />
+        </IconButton>
+      </Col>
+      <Col textAlign="center">
+        <IconButton
+          title="Email"
+          aria-label="Email"
+          isPrimary={isPrimary}
+          isDanger={isDanger}
+          focusInset={focusInset}
+          size={size}
+          isBasic={isBasic}
+          isPill={isPill}
+          isRotated={isRotated}
+          disabled={disabled}
+        >
+          <EmailIcon />
         </IconButton>
       </Col>
     </Row>
@@ -47,25 +83,28 @@ export const Default: Story = ({
 );
 
 Default.argTypes = {
+  isPrimary: {
+    control: 'boolean'
+  },
   isDanger: {
-    control: { type: 'boolean' }
+    control: 'boolean'
+  },
+  focusInset: {
+    control: 'boolean'
+  },
+  isBasic: {
+    control: 'boolean'
+  },
+  isPill: {
+    control: 'boolean'
+  },
+  isRotated: {
+    control: 'boolean'
+  },
+  disabled: {
+    control: 'boolean'
   },
   size: {
     control: { type: 'select', options: ['small', 'medium', 'large'] }
-  },
-  isPrimary: {
-    control: { type: 'boolean' }
-  },
-  isBasic: {
-    control: { type: 'boolean' }
-  },
-  isPill: {
-    control: { type: 'boolean' }
-  },
-  focusInset: {
-    control: { type: 'boolean' }
-  },
-  isRotated: {
-    control: { type: 'boolean' }
   }
 };

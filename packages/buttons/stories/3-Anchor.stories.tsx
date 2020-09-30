@@ -15,7 +15,7 @@ export default {
   component: Anchor
 } as Meta;
 
-export const Default: Story = ({ isDanger, isExternal, anchorText }) => (
+export const Default: Story = ({ anchorText, isExternal, isDanger }) => (
   <Grid>
     <Row>
       <Col textAlign="center">
@@ -35,11 +35,11 @@ Default.argTypes = {
   anchorText: {
     control: 'text'
   },
-  isDanger: {
-    control: { type: 'boolean' }
-  },
   isExternal: {
-    control: { type: 'boolean' }
+    control: 'boolean'
+  },
+  isDanger: {
+    control: 'boolean'
   }
 };
 

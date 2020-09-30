@@ -22,20 +22,22 @@ export const Default: Story = ({
   isBasic,
   isPill,
   focusInset,
-  isRotated
+  isRotated,
+  disabled
 }) => (
   <Grid>
     <Row>
       <Col textAlign="center">
         <ChevronButton
-          aria-label="Other Options"
-          isDanger={isDanger}
-          size={size}
           isPrimary={isPrimary}
+          isDanger={isDanger}
           isBasic={isBasic}
           isPill={isPill}
           focusInset={focusInset}
           isRotated={isRotated}
+          disabled={disabled}
+          size={size}
+          aria-label="Chevron"
         />
       </Col>
     </Row>
@@ -43,37 +45,28 @@ export const Default: Story = ({
 );
 
 Default.argTypes = {
+  isPrimary: {
+    control: 'boolean'
+  },
   isDanger: {
-    control: {
-      type: 'boolean'
-    }
+    control: 'boolean'
+  },
+  isBasic: {
+    control: 'boolean'
+  },
+  isPill: {
+    control: 'boolean'
+  },
+  focusInset: {
+    control: 'boolean'
+  },
+  isRotated: {
+    control: 'boolean'
+  },
+  disabled: {
+    control: 'boolean'
   },
   size: {
     control: { type: 'select', options: ['small', 'medium', 'large'] }
-  },
-  isPrimary: {
-    control: {
-      type: 'boolean'
-    }
-  },
-  isBasic: {
-    control: {
-      type: 'boolean'
-    }
-  },
-  isPill: {
-    control: {
-      type: 'boolean'
-    }
-  },
-  focusInset: {
-    control: {
-      type: 'boolean'
-    }
-  },
-  isRotated: {
-    control: {
-      type: 'boolean'
-    }
   }
 };

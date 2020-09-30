@@ -62,15 +62,15 @@ const Button: React.FunctionComponent<
 });
 
 Button.propTypes = {
-  isDanger: PropTypes.bool,
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-  isStretched: PropTypes.bool,
   isPrimary: PropTypes.bool,
-  isBasic: PropTypes.bool,
-  isLink: PropTypes.bool,
+  isDanger: PropTypes.bool,
   isPill: PropTypes.bool,
+  isBasic: PropTypes.bool,
   focusInset: PropTypes.bool,
-  isSelected: PropTypes.bool
+  isLink: PropTypes.bool,
+  isStretched: PropTypes.bool,
+  isSelected: PropTypes.bool,
+  size: PropTypes.oneOf(['small', 'medium', 'large'])
 };
 
 Button.defaultProps = {

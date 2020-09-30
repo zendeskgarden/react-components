@@ -16,29 +16,31 @@ export default {
 } as Meta;
 
 export const Default: Story = ({
-  isDanger,
-  size,
-  isStretched,
   isPrimary,
-  isBasic,
-  isLink,
+  isDanger,
   isPill,
+  isBasic,
   focusInset,
-  isPressed
+  isLink,
+  isStretched,
+  isPressed,
+  disabled,
+  size
 }) => (
   <Grid>
     <Row>
       <Col textAlign="center">
         <ToggleButton
-          isDanger={isDanger}
-          size={size}
-          isStretched={isStretched}
           isPrimary={isPrimary}
-          isBasic={isBasic}
-          isLink={isLink}
+          isDanger={isDanger}
           isPill={isPill}
+          isBasic={isBasic}
           focusInset={focusInset}
+          isLink={isLink}
+          isStretched={isStretched}
           isPressed={isPressed}
+          disabled={disabled}
+          size={size}
         >
           Toggle button
         </ToggleButton>
@@ -48,32 +50,35 @@ export const Default: Story = ({
 );
 
 Default.argTypes = {
+  isPrimary: {
+    control: 'boolean'
+  },
   isDanger: {
-    control: { type: 'boolean' }
+    control: 'boolean'
+  },
+  isPill: {
+    control: 'boolean'
+  },
+  isBasic: {
+    control: 'boolean'
+  },
+  focusInset: {
+    control: 'boolean'
+  },
+  isLink: {
+    control: 'boolean'
+  },
+  isStretched: {
+    control: 'boolean'
+  },
+  isPressed: {
+    control: 'boolean'
+  },
+  disabled: {
+    control: 'boolean'
   },
   size: {
     control: { type: 'select', options: ['small', 'medium', 'large'] }
-  },
-  isStretched: {
-    control: { type: 'boolean' }
-  },
-  isPrimary: {
-    control: { type: 'boolean' }
-  },
-  isBasic: {
-    control: { type: 'boolean' }
-  },
-  isLink: {
-    control: { type: 'boolean' }
-  },
-  isPill: {
-    control: { type: 'boolean' }
-  },
-  focusInset: {
-    control: { type: 'boolean' }
-  },
-  isPressed: {
-    control: { type: 'boolean' }
   }
 };
 

@@ -22,7 +22,7 @@ const StyledRow = styled(Row)`
   padding: ${props => props.theme.space.xxl} 0;
 `;
 
-export const Default: Story = () => {
+export const Default: Story = ({ isPrimary, isDanger, isPill, disabled, size }) => {
   const [isOpen, setIsOpen] = useState<boolean | undefined>(false);
 
   return (
@@ -30,13 +30,34 @@ export const Default: Story = () => {
       <StyledRow>
         <Col textAlign="center">
           <SplitButton>
-            <Button onClick={action('onClick')}>Send Flowers</Button>
+            <Button
+              isPrimary={isPrimary}
+              isDanger={isDanger}
+              isPill={isPill}
+              disabled={disabled}
+              size={size}
+              onClick={action('onClick')}
+            >
+              Send Flowers
+            </Button>
             <Dropdown
               onSelect={action('onSelect')}
-              onStateChange={changes => setIsOpen(changes.isOpen)}
+              onStateChange={changes => {
+                if (Object.prototype.hasOwnProperty.call(changes, 'isOpen')) {
+                  setIsOpen(changes.isOpen);
+                }
+              }}
             >
               <Trigger>
-                <ChevronButton isRotated={isOpen} aria-label="Other Flowers" />
+                <ChevronButton
+                  isPrimary={isPrimary}
+                  isDanger={isDanger}
+                  isPill={isPill}
+                  isRotated={isOpen}
+                  disabled={disabled}
+                  size={size}
+                  aria-label="Other Flowers"
+                />
               </Trigger>
               <Menu placement="bottom-end">
                 <Item value="daisy">Send Daisy</Item>
@@ -48,6 +69,24 @@ export const Default: Story = () => {
       </StyledRow>
     </Grid>
   );
+};
+
+Default.argTypes = {
+  isPrimary: {
+    control: 'boolean'
+  },
+  isDanger: {
+    control: 'boolean'
+  },
+  isPill: {
+    control: 'boolean'
+  },
+  disabled: {
+    control: 'boolean'
+  },
+  size: {
+    control: { type: 'select', options: ['small', 'medium', 'large'] }
+  }
 };
 
 Default.parameters = {
@@ -65,7 +104,7 @@ The split button pattern is composed of:
 - \`SplitButton\` component as a container
 - \`Button\` component for the main action
 - \`ChevronButton\` component for the secondary actions
-- \`Dropdown/Menu/Trigger\` components from [@zendeskgarden/react-dropdowns](https://zendeskgarden.github.io/react-components/dropdowns/) package for the secondary actions menu
+- \`Dropdown/Menu/Trigger\` components from [@zendeskgarden/react-dropdowns](https://garden.zendesk.com/components/menu/) package for the secondary actions menu
       `
     }
   }

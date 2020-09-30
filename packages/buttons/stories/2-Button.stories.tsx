@@ -9,6 +9,8 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
+import CircleIcon from '@zendeskgarden/svg-icons/src/16/circle-stroke.svg';
+import ChevronDownIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 
 export default {
   title: 'Components/Buttons/Button',
@@ -16,32 +18,44 @@ export default {
 } as Meta;
 
 export const Default: Story = ({
-  isDanger,
-  size,
-  isStretched,
+  buttonText,
   isPrimary,
-  isBasic,
-  isLink,
+  isDanger,
   isPill,
+  isBasic,
   focusInset,
+  isLink,
+  isStretched,
   disabled,
-  buttonText
+  startIcon,
+  endIcon,
+  size
 }) => (
   <Grid>
     <Row>
       <Col textAlign="center">
         <Button
-          isDanger={isDanger}
-          size={size}
-          isStretched={isStretched}
           isPrimary={isPrimary}
-          isBasic={isBasic}
-          isLink={isLink}
+          isDanger={isDanger}
           isPill={isPill}
+          isBasic={isBasic}
           focusInset={focusInset}
+          isLink={isLink}
+          isStretched={isStretched}
           disabled={disabled}
+          size={size}
         >
+          {startIcon && (
+            <Button.StartIcon>
+              <CircleIcon />
+            </Button.StartIcon>
+          )}
           {buttonText}
+          {endIcon && (
+            <Button.EndIcon>
+              <ChevronDownIcon />
+            </Button.EndIcon>
+          )}
         </Button>
       </Col>
     </Row>
@@ -56,31 +70,37 @@ Default.argTypes = {
   buttonText: {
     control: 'text'
   },
-  isDanger: {
-    control: 'boolean'
-  },
-  size: {
-    control: { type: 'select', options: ['small', 'medium', 'large'] }
-  },
-  isStretched: {
-    control: 'boolean'
-  },
   isPrimary: {
     control: 'boolean'
   },
-  isBasic: {
-    control: 'boolean'
-  },
-  isLink: {
+  isDanger: {
     control: 'boolean'
   },
   isPill: {
     control: 'boolean'
   },
+  isBasic: {
+    control: 'boolean'
+  },
   focusInset: {
+    control: 'boolean'
+  },
+  isLink: {
+    control: 'boolean'
+  },
+  isStretched: {
     control: 'boolean'
   },
   disabled: {
     control: 'boolean'
+  },
+  startIcon: {
+    control: 'boolean'
+  },
+  endIcon: {
+    control: 'boolean'
+  },
+  size: {
+    control: { type: 'select', options: ['small', 'medium', 'large'] }
   }
 };

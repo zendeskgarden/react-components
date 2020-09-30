@@ -52,8 +52,8 @@ const Anchor: React.FunctionComponent<
 Anchor.displayName = 'Anchor';
 
 Anchor.propTypes = {
-  isDanger: PropTypes.bool,
-  isExternal: PropTypes.bool
+  isExternal: PropTypes.bool,
+  isDanger: PropTypes.bool
 };
 
 /** @component */
