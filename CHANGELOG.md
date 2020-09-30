@@ -11,6 +11,30 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+
+## v8.24.0 (2020-09-30)
+
+#### :rocket: New Feature
+* `modals`
+  * [#884](https://github.com/zendeskgarden/react-components/pull/884) feat(modals): introduce drawer modal ([@hzhu](https://github.com/hzhu))
+
+#### :bug: Bug Fix
+* `theming`
+  * [#890](https://github.com/zendeskgarden/react-components/pull/890) fix(theming): update brand spec'd product colors ([@jzempel](https://github.com/jzempel))
+* `tables`
+  * [#888](https://github.com/zendeskgarden/react-components/pull/888) fix(table): revise cell type definition ([@rossmoody](https://github.com/rossmoody))
+* `modals`
+  * [#887](https://github.com/zendeskgarden/react-components/pull/887) fix(modals): provide ref object for focusvisible ([@hzhu](https://github.com/hzhu))
+
+#### :memo: Documentation
+* `loaders`
+  * [#885](https://github.com/zendeskgarden/react-components/pull/885) chore(docs): migrate react-loaders documentation to Storybook ([@austin94](https://github.com/austin94))
+* `chrome`
+  * [#883](https://github.com/zendeskgarden/react-components/pull/883) chore(docs): migrate react-chrome to storybook ([@austin94](https://github.com/austin94))
+
+#### :seedling: Internal
+* `datepickers`
+  * [#871](https://github.com/zendeskgarden/react-components/pull/871) chore(deps): update typescript-eslint monorepo to v4 (major) ([@renovate[bot]](https://github.com/apps/renovate))
 ## v8.23.1 (2020-09-16)
 
 #### :bug: Bug Fix
