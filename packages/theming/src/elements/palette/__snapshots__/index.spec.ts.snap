@@ -93,13 +93,13 @@ Object {
   },
   "product": Object {
     "chat": "#f79a3e",
-    "connect": "#eb6651",
+    "connect": "#ff6224",
     "explore": "#30aabc",
-    "gather": "#e7afa2",
-    "guide": "#eb4962",
+    "gather": "#f6c8be",
+    "guide": "#ff6224",
     "message": "#37b8af",
-    "sell": "#d4ae5e",
-    "support": "#78a300",
+    "sell": "#c38f00",
+    "support": "#00a656",
     "talk": "#efc93d",
   },
   "purple": Object {

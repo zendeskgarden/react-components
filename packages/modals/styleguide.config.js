@@ -39,6 +39,10 @@ module.exports = {
         {
           name: 'Tooltip Modal',
           content: '../../packages/modals/examples/tooltip-modal.md'
+        },
+        {
+          name: 'Drawer Modal',
+          content: '../../packages/modals/examples/drawer-modal.md'
         }
       ]
     },
@@ -46,7 +50,8 @@ module.exports = {
       name: 'Elements',
       components: [
         '../../packages/modals/src/elements/[A-Z]*.{ts,tsx}',
-        '../../packages/modals/src/elements/TooltipModal/TooltipModal.tsx'
+        '../../packages/modals/src/elements/TooltipModal/TooltipModal.tsx',
+        '../../packages/modals/src/elements/DrawerModal/DrawerModal.tsx'
       ]
     }
   ]
