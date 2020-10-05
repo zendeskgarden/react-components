@@ -86,7 +86,7 @@ Default.parameters = {
   docs: {
     description: {
       component: `
-The following example demonstrates a [toggle button and toggle icon button](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role#Toggle_buttons).
+The following example demonstrates a [toggle button](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role#Toggle_buttons).
 Either click or use the keyboard to toggle each button's pressed state.
       `
     }

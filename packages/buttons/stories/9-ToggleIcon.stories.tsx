@@ -9,7 +9,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { ToggleIconButton } from '@zendeskgarden/react-buttons';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
-import Icon from '@zendeskgarden/svg-icons/src/16/eye-stroke.svg';
+import Icon from '@zendeskgarden/svg-icons/src/16/thumbs-up-stroke.svg';
 
 export default {
   title: 'Components/Buttons/ToggleIconButton',
