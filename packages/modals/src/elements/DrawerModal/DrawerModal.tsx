@@ -26,7 +26,7 @@ import { useDocument } from '@zendeskgarden/react-theming';
 import { useFocusVisible } from '@zendeskgarden/container-focusvisible';
 import { ModalsContext } from '../../utils/useModalContext';
 import {
-  StyledDrawerModalBackdrop,
+  StyledBackdrop,
   StyledDrawerModal,
   StyledDrawerModalFooter,
   StyledDrawerModalFooterItem
@@ -164,9 +164,7 @@ export const DrawerModal = forwardRef<
           <StyledDrawerModal {...modalProps} />
         </CSSTransition>
         {isOpen && (
-          <StyledDrawerModalBackdrop
-            {...(getBackdropProps({ isAnimated: true, ...backdropProps }) as any)}
-          />
+          <StyledBackdrop {...(getBackdropProps({ isAnimated: true, ...backdropProps }) as any)} />
         )}
       </ModalsContext.Provider>,
       rootNode
