@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1601491692735" clover="3.2.0">
-  <project timestamp="1601491692735" name="All files">
-    <metrics statements="6837" coveredstatements="6693" conditionals="2715" coveredconditionals="2462" methods="1437" coveredmethods="1405" elements="10989" coveredelements="10560" complexity="0" loc="6837" ncloc="6837" packages="113" files="450" classes="450"/>
+<coverage generated="1602018255215" clover="3.2.0">
+  <project timestamp="1602018255215" name="All files">
+    <metrics statements="6829" coveredstatements="6685" conditionals="2715" coveredconditionals="2462" methods="1436" coveredmethods="1404" elements="10980" coveredelements="10551" complexity="0" loc="6829" ncloc="6829" packages="113" files="449" classes="449"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
       <file name="Example.spec.tsx" path="/home/circleci/project/packages/.template/src/elements/Example.spec.tsx">
@@ -5918,13 +5918,13 @@
         <line num="149" count="11" type="stmt"/>
         <line num="152" count="38" type="stmt"/>
         <line num="156" count="38" type="stmt"/>
+        <line num="175" count="4" type="stmt"/>
+        <line num="176" count="4" type="stmt"/>
         <line num="177" count="4" type="stmt"/>
         <line num="178" count="4" type="stmt"/>
         <line num="179" count="4" type="stmt"/>
-        <line num="180" count="4" type="stmt"/>
         <line num="181" count="4" type="stmt"/>
         <line num="183" count="4" type="stmt"/>
-        <line num="185" count="4" type="stmt"/>
       </file>
       <file name="Header.tsx" path="/home/circleci/project/packages/modals/src/elements/DrawerModal/Header.tsx">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -6010,7 +6010,7 @@
       </file>
     </package>
     <package name="modals.src.styled">
-      <metrics statements="266" coveredstatements="265" conditionals="62" coveredconditionals="56" methods="101" coveredmethods="100"/>
+      <metrics statements="258" coveredstatements="257" conditionals="62" coveredconditionals="56" methods="100" coveredmethods="99"/>
       <file name="StyledBackdrop.ts" path="/home/circleci/project/packages/modals/src/styled/StyledBackdrop.ts">
         <metrics statements="15" coveredstatements="15" conditionals="8" coveredconditionals="8" methods="7" coveredmethods="7"/>
         <line num="8" count="17" type="stmt"/>
@@ -6092,16 +6092,6 @@
         <line num="57" count="30" type="cond" truecount="1" falsecount="1"/>
         <line num="65" count="30" type="stmt"/>
         <line num="68" count="16" type="stmt"/>
-      </file>
-      <file name="StyledDrawerModalBackdrop.ts" path="/home/circleci/project/packages/modals/src/styled/StyledDrawerModalBackdrop.ts">
-        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="8" count="16" type="stmt"/>
-        <line num="9" count="16" type="stmt"/>
-        <line num="10" count="16" type="stmt"/>
-        <line num="12" count="16" type="stmt"/>
-        <line num="14" count="16" type="stmt"/>
-        <line num="20" count="22" type="stmt"/>
-        <line num="23" count="16" type="stmt"/>
       </file>
       <file name="StyledDrawerModalBody.ts" path="/home/circleci/project/packages/modals/src/styled/StyledDrawerModalBody.ts">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -6324,7 +6314,7 @@
         <line num="36" count="16" type="stmt"/>
       </file>
       <file name="index.ts" path="/home/circleci/project/packages/modals/src/styled/index.ts">
-        <metrics statements="23" coveredstatements="23" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="22" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="8" count="16" type="stmt"/>
         <line num="9" count="16" type="stmt"/>
         <line num="10" count="16" type="stmt"/>
@@ -6347,7 +6337,6 @@
         <line num="27" count="16" type="stmt"/>
         <line num="28" count="16" type="stmt"/>
         <line num="29" count="16" type="stmt"/>
-        <line num="30" count="16" type="stmt"/>
       </file>
     </package>
     <package name="modals.src.utils">
@@ -7853,13 +7842,13 @@
       <file name="retrieveComponentStyles.ts" path="/home/circleci/project/packages/theming/src/utils/retrieveComponentStyles.ts">
         <metrics statements="8" coveredstatements="8" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
         <line num="11" count="255" type="stmt"/>
-        <line num="15" count="119779" type="cond" truecount="2" falsecount="0"/>
-        <line num="17" count="119779" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="119757" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="119757" type="cond" truecount="2" falsecount="0"/>
         <line num="18" count="1" type="stmt"/>
-        <line num="21" count="119778" type="stmt"/>
-        <line num="23" count="119778" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="119756" type="stmt"/>
+        <line num="23" count="119756" type="cond" truecount="2" falsecount="0"/>
         <line num="24" count="1" type="stmt"/>
-        <line num="27" count="119777" type="stmt"/>
+        <line num="27" count="119755" type="stmt"/>
       </file>
       <file name="useDocument.ts" path="/home/circleci/project/packages/theming/src/utils/useDocument.ts">
         <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
