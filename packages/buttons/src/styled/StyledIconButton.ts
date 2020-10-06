@@ -46,18 +46,22 @@ const iconButtonStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) 
   `;
 };
 
+/**
+ * 1. Ease opacity transition between embedded icons (i.e. stroke-fill).
+ */
 const iconStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   const size = props.theme.iconSizes.md;
 
   return css`
     width: ${size};
     height: ${size};
+
+    & > svg {
+      transition: opacity 0.15s ease-in-out; /* [1] */
+    }
   `;
 };
 
-/**
- * Accepts all `<button>` props
- */
 export const StyledIconButton = styled(StyledButton).attrs(() => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
@@ -66,10 +70,6 @@ export const StyledIconButton = styled(StyledButton).attrs(() => ({
 
   & ${StyledIcon} {
     ${props => iconStyles(props)}
-
-    & svg {
-      transition: opacity 0.1s ease-in-out;
-    }
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
