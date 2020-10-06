@@ -66,6 +66,10 @@ export const StyledIconButton = styled(StyledButton).attrs(() => ({
 
   & ${StyledIcon} {
     ${props => iconStyles(props)}
+
+    & svg {
+      transition: opacity 0.1s ease-in-out;
+    }
   }
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
