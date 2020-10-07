@@ -388,7 +388,8 @@ Either click or use the keyboard to toggle each button's pressed state.
 ```jsx
 const { Well } = require('@zendeskgarden/react-notifications/src');
 const { Toggle, Field, Input, Label } = require('@zendeskgarden/react-forms/src');
-const Icon = require('@zendeskgarden/svg-icons/src/16/eye-stroke.svg').default;
+const IconStroke = require('@zendeskgarden/svg-icons/src/16/leaf-stroke.svg').default;
+const IconFill = require('@zendeskgarden/svg-icons/src/16/leaf-fill.svg').default;
 
 initialState = {
   buttonPressed: false,
@@ -457,7 +458,10 @@ initialState = {
             disabled={state.disabled}
             onClick={event => setState({ iconButtonPressed: !state.iconButtonPressed })}
           >
-            <Icon />
+            <svg>
+              <IconFill style={{ opacity: state.iconButtonPressed ? 1 : 0 }} />
+              <IconStroke style={{ opacity: state.iconButtonPressed ? 0 : 1 }} />
+            </svg>
           </ToggleIconButton>
         </Col>
       </Row>
