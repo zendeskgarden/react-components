@@ -9,7 +9,8 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { ToggleIconButton } from '@zendeskgarden/react-buttons';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
-import Icon from '@zendeskgarden/svg-icons/src/16/thumbs-up-stroke.svg';
+import IconStroke from '@zendeskgarden/svg-icons/src/16/thumbs-up-stroke.svg';
+import IconFill from '@zendeskgarden/svg-icons/src/16/thumbs-up-fill.svg';
 
 export default {
   title: 'Components/Buttons/ToggleIconButton',
@@ -42,7 +43,10 @@ export const Default: Story = ({
           disabled={disabled}
           size={size}
         >
-          <Icon />
+          <svg>
+            <IconFill style={{ opacity: isPressed ? 1 : 0 }} />
+            <IconStroke style={{ opacity: isPressed ? 0 : 1 }} />
+          </svg>
         </ToggleIconButton>
       </Col>
     </Row>
