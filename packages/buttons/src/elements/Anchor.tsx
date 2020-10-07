@@ -9,7 +9,7 @@ import React, { AnchorHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
 import { StyledAnchor, StyledExternalIcon } from '../styled';
 
-interface IAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface IAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   /** Apply danger styling */
   isDanger?: boolean;
   /**
@@ -52,8 +52,8 @@ const Anchor: React.FunctionComponent<
 Anchor.displayName = 'Anchor';
 
 Anchor.propTypes = {
-  isDanger: PropTypes.bool,
-  isExternal: PropTypes.bool
+  isExternal: PropTypes.bool,
+  isDanger: PropTypes.bool
 };
 
 /** @component */
