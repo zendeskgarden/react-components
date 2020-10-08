@@ -49,6 +49,7 @@ describe('DrawerModal', () => {
 
   it('only locks page scrolling when drawer modal is opened', async () => {
     const { getByText, getByRole, queryByRole } = render(<Example />);
+    const htmlElement = document.querySelector('html');
 
     expect(queryByRole('dialog')).not.toBeInTheDocument();
     expect(document.body).not.toHaveAttribute('style', 'overflow: hidden;');
@@ -57,11 +58,13 @@ describe('DrawerModal', () => {
 
     expect(getByRole('dialog')).toBeInTheDocument();
     expect(document.body).toHaveAttribute('style', 'overflow: hidden;');
+    expect(htmlElement).toHaveAttribute('style', 'overflow-y: hidden;');
 
     userEvent.type(getByRole('dialog'), '{esc}');
 
     await waitFor(() => expect(queryByRole('dialog')).not.toBeInTheDocument());
     expect(document.body).not.toHaveAttribute('style', 'overflow: hidden;');
+    expect(htmlElement).not.toHaveAttribute('style', 'overflow-y: hidden;');
   });
 
   it('applies backdropProps to Backdrop element', () => {

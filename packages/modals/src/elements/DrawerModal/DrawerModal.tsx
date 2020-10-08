@@ -112,19 +112,37 @@ export const DrawerModal = forwardRef<
         return undefined;
       }
 
+      const htmlElement = environment.querySelector('html');
       const bodyElement = environment.querySelector('body');
+      let previousHtmlOverflowY: string;
+      let previousBodyOverflow: string;
 
       if (bodyElement && isOpen) {
-        const previousBodyOverflow = bodyElement.style.overflow;
+        previousBodyOverflow = bodyElement.style.overflow;
 
         bodyElement.style.overflow = 'hidden';
-
-        return () => {
-          bodyElement.style.overflow = previousBodyOverflow;
-        };
       }
 
-      return undefined;
+      if (htmlElement && isOpen) {
+        previousHtmlOverflowY = htmlElement.style.overflowY;
+
+        // Safari treats overflowY differently than other browsers
+        if (navigator.userAgent.indexOf('Safari') > -1) {
+          htmlElement.style.overflowY = 'initial';
+        } else {
+          htmlElement.style.overflowY = 'hidden';
+        }
+      }
+
+      return () => {
+        if (bodyElement) {
+          bodyElement.style.overflow = previousBodyOverflow;
+        }
+
+        if (htmlElement) {
+          htmlElement.style.overflowY = previousHtmlOverflowY;
+        }
+      };
     }, [environment, isOpen]);
 
     const rootNode = useMemo(() => {

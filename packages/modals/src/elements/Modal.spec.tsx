@@ -40,6 +40,12 @@ describe('Modal', () => {
   });
 
   describe('componentDidMount()', () => {
+    it('should disable overflow scrolling for the html element', () => {
+      render(<BasicExample />);
+
+      expect(document.querySelector('html')?.style.overflowY).toBe('hidden');
+    });
+
     it('should disable overflow scrolling for body element', () => {
       const { baseElement } = render(<BasicExample />);
 
@@ -48,12 +54,26 @@ describe('Modal', () => {
   });
 
   describe('componentWillUnmount()', () => {
+    it('should apply previous html overflowY style', () => {
+      const htmlElement = document.querySelector('html');
+
+      if (htmlElement) {
+        htmlElement.style.overflowY = 'scroll';
+
+        const { unmount } = render(<BasicExample />);
+
+        expect(htmlElement.style.overflowY).toBe('hidden');
+        unmount();
+
+        expect(htmlElement.style.overflowY).toBe('scroll');
+      }
+    });
+
     it('should apply previous body overflow style', () => {
       document.body.style.overflow = 'auto';
       const { baseElement, unmount } = render(<BasicExample />);
 
       expect(baseElement.style.overflow).toBe('hidden');
-
       unmount();
 
       expect(baseElement.style.overflow).toBe('auto');

@@ -127,7 +127,10 @@ export const Modal = React.forwardRef<HTMLDivElement, IModalProps>(
       }
 
       const bodyElement = environment.querySelector('body');
+      const htmlElement = environment.querySelector('html');
       let previousBodyPaddingRight: string;
+      let previousBodyOverflow: string;
+      let previousHtmlOverflowY: string;
 
       if (bodyElement) {
         if (isOverflowing(bodyElement)) {
@@ -138,17 +141,32 @@ export const Modal = React.forwardRef<HTMLDivElement, IModalProps>(
           bodyElement.style.paddingRight = `${bodyPaddingRight + scrollbarSize}px`;
         }
 
-        const previousBodyOverflow = bodyElement.style.overflow;
+        previousBodyOverflow = bodyElement.style.overflow;
 
         bodyElement.style.overflow = 'hidden';
-
-        return () => {
-          bodyElement.style.overflow = previousBodyOverflow;
-          bodyElement.style.paddingRight = previousBodyPaddingRight;
-        };
       }
 
-      return undefined;
+      if (htmlElement) {
+        previousHtmlOverflowY = htmlElement.style.overflowY;
+
+        // Safari treats overflowY differently than other browsers
+        if (navigator.userAgent.indexOf('Safari') > -1) {
+          htmlElement.style.overflowY = 'initial';
+        } else {
+          htmlElement.style.overflowY = 'hidden';
+        }
+      }
+
+      return () => {
+        if (bodyElement) {
+          bodyElement.style.overflow = previousBodyOverflow;
+          bodyElement.style.paddingRight = previousBodyPaddingRight;
+        }
+
+        if (htmlElement) {
+          htmlElement.style.overflowY = previousHtmlOverflowY;
+        }
+      };
     }, [environment]);
 
     const rootNode = useMemo(() => {
