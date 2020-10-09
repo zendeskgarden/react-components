@@ -122,7 +122,7 @@ export const DrawerModal = forwardRef<
       }
 
       return () => {
-        if (htmlElement) {
+        if (htmlElement && isOpen) {
           htmlElement.style.overflow = previousHtmlOverflow;
         }
       };
