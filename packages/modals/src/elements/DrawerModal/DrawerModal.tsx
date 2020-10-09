@@ -113,34 +113,17 @@ export const DrawerModal = forwardRef<
       }
 
       const htmlElement = environment.querySelector('html');
-      const bodyElement = environment.querySelector('body');
-      let previousHtmlOverflowY: string;
-      let previousBodyOverflow: string;
-
-      if (bodyElement && isOpen) {
-        previousBodyOverflow = bodyElement.style.overflow;
-
-        bodyElement.style.overflow = 'hidden';
-      }
+      let previousHtmlOverflow: string;
 
       if (htmlElement && isOpen) {
-        previousHtmlOverflowY = htmlElement.style.overflowY;
+        previousHtmlOverflow = htmlElement.style.overflow;
 
-        // Safari treats overflowY differently than other browsers
-        if (navigator.userAgent.indexOf('Safari') > -1) {
-          htmlElement.style.overflowY = 'initial';
-        } else {
-          htmlElement.style.overflowY = 'hidden';
-        }
+        htmlElement.style.overflow = 'hidden';
       }
 
       return () => {
-        if (bodyElement) {
-          bodyElement.style.overflow = previousBodyOverflow;
-        }
-
         if (htmlElement) {
-          htmlElement.style.overflowY = previousHtmlOverflowY;
+          htmlElement.style.overflow = previousHtmlOverflow;
         }
       };
     }, [environment, isOpen]);

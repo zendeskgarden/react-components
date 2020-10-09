@@ -52,19 +52,17 @@ describe('DrawerModal', () => {
     const htmlElement = document.querySelector('html');
 
     expect(queryByRole('dialog')).not.toBeInTheDocument();
-    expect(document.body).not.toHaveAttribute('style', 'overflow: hidden;');
+    expect(htmlElement).not.toHaveAttribute('style', 'overflow: hidden;');
 
     userEvent.click(getByText('Open Drawer'));
 
     expect(getByRole('dialog')).toBeInTheDocument();
-    expect(document.body).toHaveAttribute('style', 'overflow: hidden;');
-    expect(htmlElement).toHaveAttribute('style', 'overflow-y: hidden;');
+    expect(htmlElement).toHaveAttribute('style', 'overflow: hidden;');
 
     userEvent.type(getByRole('dialog'), '{esc}');
 
     await waitFor(() => expect(queryByRole('dialog')).not.toBeInTheDocument());
-    expect(document.body).not.toHaveAttribute('style', 'overflow: hidden;');
-    expect(htmlElement).not.toHaveAttribute('style', 'overflow-y: hidden;');
+    expect(htmlElement).not.toHaveAttribute('style', 'overflow: hidden;');
   });
 
   it('applies backdropProps to Backdrop element', () => {
