@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">98.28% </span>
+                <span class="strong">98.36% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>57/58</span>
+                <span class='fraction'>60/61</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">87.5% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>14/16</span>
+                <span class='fraction'>16/20</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">98.28% </span>
+                <span class="strong">98.36% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>57/58</span>
+                <span class='fraction'>60/61</span>
             </div>
         
             
@@ -274,7 +274,14 @@
 <a name='L215'></a><a href='#L215'>215</a>
 <a name='L216'></a><a href='#L216'>216</a>
 <a name='L217'></a><a href='#L217'>217</a>
-<a name='L218'></a><a href='#L218'>218</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L218'></a><a href='#L218'>218</a>
+<a name='L219'></a><a href='#L219'>219</a>
+<a name='L220'></a><a href='#L220'>220</a>
+<a name='L221'></a><a href='#L221'>221</a>
+<a name='L222'></a><a href='#L222'>222</a>
+<a name='L223'></a><a href='#L223'>223</a>
+<a name='L224'></a><a href='#L224'>224</a>
+<a name='L225'></a><a href='#L225'>225</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -403,23 +410,30 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-yes">18x</span>
-<span class="cline-any cline-yes">18x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">18x</span>
-<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">18x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">18x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">18x</span>
-<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -619,7 +633,9 @@ export const Modal = React.forwardRef&lt;HTMLDivElement, IModalProps&gt;(
         return undefined;
       }
 &nbsp;
+      const htmlElement = environment.querySelector('html');
       const bodyElement = environment.querySelector('body');
+      let previousHtmlOverflow: string;
       let previousBodyPaddingRight: string;
 &nbsp;
       <span class="missing-if-branch" title="else path not taken" >E</span>if (bodyElement) {
@@ -631,12 +647,17 @@ export const Modal = React.forwardRef&lt;HTMLDivElement, IModalProps&gt;(
           bodyElement.style.paddingRight = `${bodyPaddingRight + scrollbarSize}px`;
         }
 &nbsp;
-        const previousBodyOverflow = bodyElement.style.overflow;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (htmlElement) {
+          previousHtmlOverflow = htmlElement.style.overflow;
 &nbsp;
-        bodyElement.style.overflow = 'hidden';
+          htmlElement.style.overflow = 'hidden';
+        }
 &nbsp;
         return () =&gt; {
-          bodyElement.style.overflow = previousBodyOverflow;
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (htmlElement) {
+            htmlElement.style.overflow = previousHtmlOverflow;
+          }
+&nbsp;
           bodyElement.style.paddingRight = previousBodyPaddingRight;
         };
       }
@@ -715,7 +736,7 @@ Modal.defaultProps = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Oct 07 2020 19:19:41 GMT+0000 (Coordinated Universal Time)
+                at Fri Oct 09 2020 20:43:41 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>
