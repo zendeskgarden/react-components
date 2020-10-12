@@ -193,7 +193,7 @@ const sizeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
   }
 
   /**
-   * 1. Ensure width and height are applied when used in combation with
+   * 1. Ensure width and height are applied when used in combination with
    *    Dropdown MediaFigure styling
    */
   return css`
