@@ -11,6 +11,19 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+## v8.24.1 (2020-10-07)
+
+#### :bug: Bug Fix
+
+- `buttons`
+  - [#893](https://github.com/zendeskgarden/react-components/pull/893) fix(buttons): improve stroke/fill icon swap for ToggleIconButton ([@jzempel](https://github.com/jzempel))
+- `modals`
+  - [#892](https://github.com/zendeskgarden/react-components/pull/892) fix(modals): add backdrop transparency to drawer ([@hzhu](https://github.com/hzhu))
+
+#### :memo: Documentation
+
+- `buttons`
+  - [#889](https://github.com/zendeskgarden/react-components/pull/889) chore(docs): migrate react-buttons to storybook ([@hzhu](https://github.com/hzhu))
 
 ## v8.24.0 (2020-09-30)
 

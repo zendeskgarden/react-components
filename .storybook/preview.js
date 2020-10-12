@@ -44,9 +44,10 @@ const withThemeProvider = (Story, context) => {
   return (
     <ThemeProvider theme={{ ...DEFAULT_THEME, rtl }}>
       <GlobalPreviewStyling />
-      <StyledExampleWrapper>
-        <Story />
-      </StyledExampleWrapper>
+      {/* Work-around to get Storybook to play well with CSS transitions that are associated to props.
+      See: https://github.com/storybookjs/storybook/issues/12255 */}
+      {/* eslint-disable-next-line new-cap */}
+      <StyledExampleWrapper>{Story()}</StyledExampleWrapper>
     </ThemeProvider>
   );
 };

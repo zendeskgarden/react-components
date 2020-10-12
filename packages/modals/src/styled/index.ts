@@ -22,7 +22,6 @@ export { StyledTooltipModalFooter } from './StyledTooltipModalFooter';
 export { StyledTooltipModalFooterItem } from './StyledTooltipModalFooterItem';
 export { StyledTooltipModalClose } from './StyledTooltipModalClose';
 export { StyledDrawerModal } from './StyledDrawerModal';
-export { StyledDrawerModalBackdrop } from './StyledDrawerModalBackdrop';
 export { StyledDrawerModalHeader } from './StyledDrawerModalHeader';
 export { StyledDrawerModalClose } from './StyledDrawerModalClose';
 export { StyledDrawerModalBody } from './StyledDrawerModalBody';

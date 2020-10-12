@@ -26,7 +26,7 @@ import { useDocument } from '@zendeskgarden/react-theming';
 import { useFocusVisible } from '@zendeskgarden/container-focusvisible';
 import { ModalsContext } from '../../utils/useModalContext';
 import {
-  StyledDrawerModalBackdrop,
+  StyledBackdrop,
   StyledDrawerModal,
   StyledDrawerModalFooter,
   StyledDrawerModalFooterItem
@@ -112,19 +112,20 @@ export const DrawerModal = forwardRef<
         return undefined;
       }
 
-      const bodyElement = environment.querySelector('body');
+      const htmlElement = environment.querySelector('html');
+      let previousHtmlOverflow: string;
 
-      if (bodyElement && isOpen) {
-        const previousBodyOverflow = bodyElement.style.overflow;
+      if (htmlElement && isOpen) {
+        previousHtmlOverflow = htmlElement.style.overflow;
 
-        bodyElement.style.overflow = 'hidden';
-
-        return () => {
-          bodyElement.style.overflow = previousBodyOverflow;
-        };
+        htmlElement.style.overflow = 'hidden';
       }
 
-      return undefined;
+      return () => {
+        if (htmlElement && isOpen) {
+          htmlElement.style.overflow = previousHtmlOverflow;
+        }
+      };
     }, [environment, isOpen]);
 
     const rootNode = useMemo(() => {
@@ -164,9 +165,7 @@ export const DrawerModal = forwardRef<
           <StyledDrawerModal {...modalProps} />
         </CSSTransition>
         {isOpen && (
-          <StyledDrawerModalBackdrop
-            {...(getBackdropProps({ isAnimated: true, ...backdropProps }) as any)}
-          />
+          <StyledBackdrop {...(getBackdropProps({ isAnimated: true, ...backdropProps }) as any)} />
         )}
       </ModalsContext.Provider>,
       rootNode

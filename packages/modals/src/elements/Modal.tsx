@@ -126,7 +126,9 @@ export const Modal = React.forwardRef<HTMLDivElement, IModalProps>(
         return undefined;
       }
 
+      const htmlElement = environment.querySelector('html');
       const bodyElement = environment.querySelector('body');
+      let previousHtmlOverflow: string;
       let previousBodyPaddingRight: string;
 
       if (bodyElement) {
@@ -138,12 +140,17 @@ export const Modal = React.forwardRef<HTMLDivElement, IModalProps>(
           bodyElement.style.paddingRight = `${bodyPaddingRight + scrollbarSize}px`;
         }
 
-        const previousBodyOverflow = bodyElement.style.overflow;
+        if (htmlElement) {
+          previousHtmlOverflow = htmlElement.style.overflow;
 
-        bodyElement.style.overflow = 'hidden';
+          htmlElement.style.overflow = 'hidden';
+        }
 
         return () => {
-          bodyElement.style.overflow = previousBodyOverflow;
+          if (htmlElement) {
+            htmlElement.style.overflow = previousHtmlOverflow;
+          }
+
           bodyElement.style.paddingRight = previousBodyPaddingRight;
         };
       }

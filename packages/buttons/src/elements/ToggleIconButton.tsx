@@ -9,7 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import IconButton, { IIconButtonProps } from './IconButton';
 
-interface IToggleIconButtonProps extends IIconButtonProps {
+export interface IToggleIconButtonProps extends IIconButtonProps {
   /**
    * Determine if the icon button is pressed or not. Use `'mixed'` to indicate
    * whether the toggle controls other elements which do not share the same
