@@ -15,6 +15,9 @@ interface IStyledMediaFigureProps extends HTMLAttributes<HTMLDivElement> {
   isCompact?: boolean;
 }
 
+/**
+ * 1. Override default Avatar styling
+ */
 export const StyledMediaFigure = styled(
   /* eslint-disable @typescript-eslint/no-unused-vars */
   ({
@@ -31,7 +34,7 @@ export const StyledMediaFigure = styled(
 })<IStyledMediaFigureProps>`
   float: ${props => (props.theme.rtl ? 'right' : 'left')};
   /* stylelint-disable declaration-no-important */
-  margin-top: ${props => props.theme.space.base * 0.5}px !important;
+  margin-top: ${props => props.theme.space.base * 0.5}px !important; /* [1] */
   /* stylelint-enable declaration-no-important */
   width: ${props => props.theme.iconSizes.md};
   height: ${props => props.theme.iconSizes.md};

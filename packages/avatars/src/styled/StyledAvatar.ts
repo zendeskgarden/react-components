@@ -192,11 +192,15 @@ const sizeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
     svgSize = `${props.theme.space.base * 4}px`;
   }
 
+  /**
+   * 1. Ensure width and height are applied when used in combation with
+   *    Dropdown MediaFigure styling
+   */
   return css`
     border-radius: ${borderRadius};
     /* stylelint-disable declaration-no-important */
-    width: ${size} !important;
-    height: ${size} !important;
+    width: ${size} !important; /* [1] */
+    height: ${size} !important; /* [1] */
     /* stylelint-enable declaration-no-important */
 
     ::before {
