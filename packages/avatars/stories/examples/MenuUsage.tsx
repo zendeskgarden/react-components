@@ -27,7 +27,7 @@ export const MenuUsage: Story = () => {
   return (
     <Grid>
       <Row>
-        <Col>
+        <Col textAlign="center">
           <Dropdown onStateChange={changes => setHighlightedItem(changes.highlightedIndex)}>
             <Trigger>
               <Button>Default menu</Button>
@@ -81,7 +81,7 @@ export const MenuUsage: Story = () => {
             </Menu>
           </Dropdown>
         </Col>
-        <Col>
+        <Col textAlign="center">
           <Dropdown onStateChange={changes => setHighlightedItem(changes.highlightedIndex)}>
             <Trigger>
               <Button>Small menu</Button>

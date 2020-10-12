@@ -30,7 +30,9 @@ export const StyledMediaFigure = styled(
   'data-garden-version': PACKAGE_VERSION
 })<IStyledMediaFigureProps>`
   float: ${props => (props.theme.rtl ? 'right' : 'left')};
-  margin-top: ${props => props.theme.space.base * 0.5}px;
+  /* stylelint-disable declaration-no-important */
+  margin-top: ${props => props.theme.space.base * 0.5}px !important;
+  /* stylelint-enable declaration-no-important */
   width: ${props => props.theme.iconSizes.md};
   height: ${props => props.theme.iconSizes.md};
 

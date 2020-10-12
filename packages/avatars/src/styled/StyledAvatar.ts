@@ -194,8 +194,10 @@ const sizeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
 
   return css`
     border-radius: ${borderRadius};
-    width: ${size};
-    height: ${size};
+    /* stylelint-disable declaration-no-important */
+    width: ${size} !important;
+    height: ${size} !important;
+    /* stylelint-enable declaration-no-important */
 
     ::before {
       box-shadow: ${boxShadow};

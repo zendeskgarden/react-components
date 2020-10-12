@@ -53,31 +53,31 @@ describe('StyledAvatar', () => {
     it('renders extraextrasmall', () => {
       const { container } = render(<StyledAvatar size="extraextrasmall" />);
 
-      expect(container.firstChild).toHaveStyleRule('width', '16px');
+      expect(container.firstChild).toHaveStyleRule('width', '16px !important');
     });
 
     it('renders extrasmall', () => {
       const { container } = render(<StyledAvatar size="extrasmall" />);
 
-      expect(container.firstChild).toHaveStyleRule('width', '24px');
+      expect(container.firstChild).toHaveStyleRule('width', '24px !important');
     });
 
     it('renders small', () => {
       const { container } = render(<StyledAvatar size="small" />);
 
-      expect(container.firstChild).toHaveStyleRule('width', '32px');
+      expect(container.firstChild).toHaveStyleRule('width', '32px !important');
     });
 
     it('renders medium', () => {
       const { container } = render(<StyledAvatar size="medium" />);
 
-      expect(container.firstChild).toHaveStyleRule('width', '40px');
+      expect(container.firstChild).toHaveStyleRule('width', '40px !important');
     });
 
     it('renders large', () => {
       const { container } = render(<StyledAvatar size="large" />);
 
-      expect(container.firstChild).toHaveStyleRule('width', '48px');
+      expect(container.firstChild).toHaveStyleRule('width', '48px !important');
     });
   });
 
