@@ -65,101 +65,103 @@ export const Default: Story<IStoryProps> = ({
 
   return (
     <StyledTable surfaceColor={surfaceColor}>
-      <tr>
-        <td></td>
-        <th scope="col">
-          <LG>Default</LG>
-        </th>
-        <th scope="col">
-          <LG>System</LG>
-        </th>
-      </tr>
-      <tr>
-        <th scope="row">
-          <LG>Icon</LG>
-        </th>
-        <StyledAvatarTd>
-          <Avatar
-            size={size}
-            status={computedStatus}
-            badge={computedBadge}
-            surfaceColor={surfaceColor}
-            backgroundColor={backgroundColor}
-            foregroundColor={foregroundColor}
-          >
-            <UserIcon role="img" aria-label="Example SVG" />
-          </Avatar>
-        </StyledAvatarTd>
-        <StyledAvatarTd>
-          <Avatar
-            size={size}
-            status={computedStatus}
-            badge={computedBadge}
-            surfaceColor={surfaceColor}
-            backgroundColor={backgroundColor}
-            foregroundColor={foregroundColor}
-            isSystem
-          >
-            <ZendeskIcon role="img" aria-label="Zendesk" />
-          </Avatar>
-        </StyledAvatarTd>
-      </tr>
-      <tr>
-        <th scope="row">
-          <LG>Image</LG>
-        </th>
-        <StyledAvatarTd>
-          <Avatar
-            size={size}
-            status={computedStatus}
-            badge={computedBadge}
-            surfaceColor={surfaceColor}
-          >
-            <img alt="" src="images/avatar-3.png" />
-          </Avatar>
-        </StyledAvatarTd>
-        <StyledAvatarTd>
-          <Avatar
-            size={size}
-            status={computedStatus}
-            badge={computedBadge}
-            surfaceColor={surfaceColor}
-            isSystem
-          >
-            <img alt="" src="images/system.png" />
-          </Avatar>
-        </StyledAvatarTd>
-      </tr>
-      <tr>
-        <th scope="row">
-          <LG>Text</LG>
-        </th>
-        <StyledAvatarTd>
-          <Avatar
-            size={size}
-            status={computedStatus}
-            badge={computedBadge}
-            surfaceColor={surfaceColor}
-            backgroundColor={backgroundColor}
-            foregroundColor={foregroundColor}
-          >
-            <Avatar.Text>G</Avatar.Text>
-          </Avatar>
-        </StyledAvatarTd>
-        <StyledAvatarTd>
-          <Avatar
-            size={size}
-            status={computedStatus}
-            badge={computedBadge}
-            surfaceColor={surfaceColor}
-            backgroundColor={backgroundColor}
-            foregroundColor={foregroundColor}
-            isSystem
-          >
-            <Avatar.Text>ZD</Avatar.Text>
-          </Avatar>
-        </StyledAvatarTd>
-      </tr>
+      <tbody>
+        <tr>
+          <td></td>
+          <th scope="col">
+            <LG>Default</LG>
+          </th>
+          <th scope="col">
+            <LG>System</LG>
+          </th>
+        </tr>
+        <tr>
+          <th scope="row">
+            <LG>Icon</LG>
+          </th>
+          <StyledAvatarTd>
+            <Avatar
+              size={size}
+              status={computedStatus}
+              badge={computedBadge}
+              surfaceColor={surfaceColor}
+              backgroundColor={backgroundColor}
+              foregroundColor={foregroundColor}
+            >
+              <UserIcon role="img" aria-label="Example SVG" />
+            </Avatar>
+          </StyledAvatarTd>
+          <StyledAvatarTd>
+            <Avatar
+              size={size}
+              status={computedStatus}
+              badge={computedBadge}
+              surfaceColor={surfaceColor}
+              backgroundColor={backgroundColor}
+              foregroundColor={foregroundColor}
+              isSystem
+            >
+              <ZendeskIcon role="img" aria-label="Zendesk" />
+            </Avatar>
+          </StyledAvatarTd>
+        </tr>
+        <tr>
+          <th scope="row">
+            <LG>Image</LG>
+          </th>
+          <StyledAvatarTd>
+            <Avatar
+              size={size}
+              status={computedStatus}
+              badge={computedBadge}
+              surfaceColor={surfaceColor}
+            >
+              <img alt="" src="images/avatar-3.png" />
+            </Avatar>
+          </StyledAvatarTd>
+          <StyledAvatarTd>
+            <Avatar
+              size={size}
+              status={computedStatus}
+              badge={computedBadge}
+              surfaceColor={surfaceColor}
+              isSystem
+            >
+              <img alt="" src="images/system.png" />
+            </Avatar>
+          </StyledAvatarTd>
+        </tr>
+        <tr>
+          <th scope="row">
+            <LG>Text</LG>
+          </th>
+          <StyledAvatarTd>
+            <Avatar
+              size={size}
+              status={computedStatus}
+              badge={computedBadge}
+              surfaceColor={surfaceColor}
+              backgroundColor={backgroundColor}
+              foregroundColor={foregroundColor}
+            >
+              <Avatar.Text>G</Avatar.Text>
+            </Avatar>
+          </StyledAvatarTd>
+          <StyledAvatarTd>
+            <Avatar
+              size={size}
+              status={computedStatus}
+              badge={computedBadge}
+              surfaceColor={surfaceColor}
+              backgroundColor={backgroundColor}
+              foregroundColor={foregroundColor}
+              isSystem
+            >
+              <Avatar.Text>ZD</Avatar.Text>
+            </Avatar>
+          </StyledAvatarTd>
+        </tr>
+      </tbody>
     </StyledTable>
   );
 };
