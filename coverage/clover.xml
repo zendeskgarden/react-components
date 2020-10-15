@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1602778645213" clover="3.2.0">
-  <project timestamp="1602778645213" name="All files">
+<coverage generated="1602782495196" clover="3.2.0">
+  <project timestamp="1602782495196" name="All files">
     <metrics statements="6832" coveredstatements="6688" conditionals="2723" coveredconditionals="2468" methods="1436" coveredmethods="1404" elements="10991" coveredelements="10560" complexity="0" loc="6832" ncloc="6832" packages="113" files="449" classes="449"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
@@ -5758,9 +5758,9 @@
         <line num="10" count="2" type="stmt"/>
         <line num="11" count="2" type="stmt"/>
         <line num="16" count="2" type="stmt"/>
-        <line num="18" count="26" type="stmt"/>
         <line num="20" count="26" type="stmt"/>
-        <line num="28" count="2" type="stmt"/>
+        <line num="22" count="26" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
       </file>
       <file name="Footer.tsx" path="/home/circleci/project/packages/modals/src/elements/Footer.tsx">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -5874,9 +5874,9 @@
         <line num="10" count="4" type="stmt"/>
         <line num="11" count="4" type="stmt"/>
         <line num="16" count="4" type="stmt"/>
-        <line num="18" count="26" type="stmt"/>
         <line num="20" count="26" type="stmt"/>
-        <line num="28" count="4" type="stmt"/>
+        <line num="22" count="26" type="stmt"/>
+        <line num="29" count="4" type="stmt"/>
       </file>
       <file name="DrawerModal.tsx" path="/home/circleci/project/packages/modals/src/elements/DrawerModal/DrawerModal.tsx">
         <metrics statements="48" coveredstatements="47" conditionals="20" coveredconditionals="19" methods="4" coveredmethods="4"/>
@@ -5959,9 +5959,9 @@
         <line num="10" count="5" type="stmt"/>
         <line num="11" count="5" type="stmt"/>
         <line num="16" count="5" type="stmt"/>
-        <line num="18" count="27" type="stmt"/>
         <line num="20" count="27" type="stmt"/>
-        <line num="28" count="5" type="stmt"/>
+        <line num="22" count="27" type="stmt"/>
+        <line num="29" count="5" type="stmt"/>
       </file>
       <file name="Title.tsx" path="/home/circleci/project/packages/modals/src/elements/TooltipModal/Title.tsx">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
