@@ -13,16 +13,17 @@ import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 /**
  * Used to close a TooltipModal. Accepts all `<button>` props.
  */
-export const Close = React.forwardRef<HTMLButtonElement, React.HTMLAttributes<HTMLButtonElement>>(
-  (props, ref) => {
-    const { getCloseProps } = useTooltipModalContext();
+export const Close = React.forwardRef<
+  HTMLButtonElement,
+  React.ButtonHTMLAttributes<HTMLButtonElement>
+>((props, ref) => {
+  const { getCloseProps } = useTooltipModalContext();
 
-    return (
-      <StyledTooltipModalClose ref={ref} {...getCloseProps(props)}>
-        <XStrokeIcon />
-      </StyledTooltipModalClose>
-    );
-  }
-);
+  return (
+    <StyledTooltipModalClose ref={ref} {...getCloseProps(props)}>
+      <XStrokeIcon />
+    </StyledTooltipModalClose>
+  );
+});
 
 Close.displayName = 'TooltipModal.Close';
