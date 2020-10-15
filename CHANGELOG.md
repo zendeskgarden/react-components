@@ -11,6 +11,18 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+
+## v8.24.2 (2020-10-15)
+
+#### :bug: Bug Fix
+* `modals`, `notifications`
+  * [#896](https://github.com/zendeskgarden/react-components/pull/896) fix(modals|notifications): update type definition for button elements ([@hzhu](https://github.com/hzhu))
+* `modals`
+  * [#894](https://github.com/zendeskgarden/react-components/pull/894) fix(modals): prevent html overflow ([@hzhu](https://github.com/hzhu))
+
+#### :memo: Documentation
+* `avatars`, `dropdowns`
+  * [#881](https://github.com/zendeskgarden/react-components/pull/881) chore(docs): migrate react-avatars examples to storybook ([@austingreendev](https://github.com/austingreendev))
 ## v8.24.1 (2020-10-07)
 
 #### :bug: Bug Fix
