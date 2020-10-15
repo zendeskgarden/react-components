@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1602276221764" clover="3.2.0">
-  <project timestamp="1602276221765" name="All files">
+<coverage generated="1602778645213" clover="3.2.0">
+  <project timestamp="1602778645213" name="All files">
     <metrics statements="6832" coveredstatements="6688" conditionals="2723" coveredconditionals="2468" methods="1436" coveredmethods="1404" elements="10991" coveredelements="10560" complexity="0" loc="6832" ncloc="6832" packages="113" files="449" classes="449"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
@@ -694,13 +694,13 @@
         <line num="190" count="16" type="stmt"/>
         <line num="191" count="16" type="stmt"/>
         <line num="192" count="16" type="stmt"/>
-        <line num="195" count="27" type="stmt"/>
-        <line num="227" count="2" type="stmt"/>
-        <line num="240" count="27" type="stmt"/>
-        <line num="241" count="27" type="stmt"/>
-        <line num="271" count="27" type="stmt"/>
-        <line num="274" count="27" type="stmt"/>
-        <line num="277" count="2" type="stmt"/>
+        <line num="199" count="27" type="stmt"/>
+        <line num="233" count="2" type="stmt"/>
+        <line num="246" count="27" type="stmt"/>
+        <line num="247" count="27" type="stmt"/>
+        <line num="277" count="27" type="stmt"/>
+        <line num="280" count="27" type="stmt"/>
+        <line num="283" count="2" type="stmt"/>
       </file>
       <file name="StyledText.ts" path="/home/circleci/project/packages/avatars/src/styled/StyledText.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -3500,14 +3500,14 @@
         <line num="9" count="22" type="stmt"/>
         <line num="10" count="22" type="stmt"/>
         <line num="12" count="22" type="stmt"/>
-        <line num="18" count="22" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
-        <line num="32" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="33" count="2" type="stmt"/>
-        <line num="34" count="2" type="stmt"/>
-        <line num="35" count="2" type="stmt"/>
+        <line num="21" count="22" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="35" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="37" count="2" type="stmt"/>
-        <line num="40" count="22" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="45" count="22" type="stmt"/>
       </file>
       <file name="StyledMediaItem.ts" path="/home/circleci/project/packages/dropdowns/src/styled/items/media/StyledMediaItem.ts">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
