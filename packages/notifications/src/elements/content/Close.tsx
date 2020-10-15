@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import { StyledClose } from '../../styled';
 import { useNotificationsContext } from '../../utils/useNotificationsContext';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
@@ -13,7 +13,7 @@ import XStrokeIcon from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
 /**
  * Used to close a Notification. Supports all `<button>` props
  */
-export const Close = React.forwardRef<HTMLButtonElement, HTMLAttributes<HTMLButtonElement>>(
+export const Close = React.forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
     const hue = useNotificationsContext();
 
