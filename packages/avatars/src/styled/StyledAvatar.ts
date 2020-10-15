@@ -192,10 +192,16 @@ const sizeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
     svgSize = `${props.theme.space.base * 4}px`;
   }
 
+  /**
+   * 1. Ensure width and height are applied when used in combination with
+   *    Dropdown MediaFigure styling
+   */
   return css`
     border-radius: ${borderRadius};
-    width: ${size};
-    height: ${size};
+    /* stylelint-disable declaration-no-important */
+    width: ${size} !important; /* [1] */
+    height: ${size} !important; /* [1] */
+    /* stylelint-enable declaration-no-important */
 
     ::before {
       box-shadow: ${boxShadow};
@@ -250,19 +256,19 @@ export const StyledAvatar = styled.figure.attrs({
   }
 
   &::before,
-  & > img {
+  && > img {
     border-radius: inherit;
     width: 100%;
     height: 100%;
   }
 
-  & > img {
+  && > img {
     box-sizing: inherit;
     vertical-align: bottom;
     object-fit: cover;
   }
 
-  & > svg {
+  && > svg {
     width: 1em;
     height: 1em;
   }
