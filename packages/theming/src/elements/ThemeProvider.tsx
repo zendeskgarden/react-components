@@ -25,7 +25,7 @@ interface IGardenThemeProviderProps extends Partial<ThemeProps<DefaultTheme>> {
    * Assigning `null` (on a nested `ThemeProvider`, for example) prevents the
    * added polyfill and scoping `<div>`.
    */
-  focusVisibleRef?: React.RefObject<HTMLElement>;
+  focusVisibleRef?: React.RefObject<HTMLElement> | null;
 }
 
 const GardenThemeProvider: React.FunctionComponent<IGardenThemeProviderProps> = ({
@@ -36,19 +36,17 @@ const GardenThemeProvider: React.FunctionComponent<IGardenThemeProviderProps> = 
 }) => {
   const scopeRef = useRef<HTMLDivElement>(null);
   const relativeDocument = useDocument(theme);
-  const controlledScopeRef = getControlledValue(
-    focusVisibleRef === null ? React.createRef() : focusVisibleRef,
-    scopeRef
-  );
+  const controlledScopeRef =
+    focusVisibleRef === null ? React.createRef() : getControlledValue(focusVisibleRef, scopeRef);
 
   useFocusVisible({ scope: controlledScopeRef, relativeDocument });
 
   return (
     <ThemeProvider theme={theme!} {...other}>
-      {focusVisibleRef || focusVisibleRef === null ? (
-        (children as any)
-      ) : (
+      {focusVisibleRef === undefined ? (
         <div ref={scopeRef}>{children as any}</div>
+      ) : (
+        (children as any)
       )}
     </ThemeProvider>
   );
@@ -58,5 +56,4 @@ GardenThemeProvider.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-/** @component */
 export default GardenThemeProvider;
