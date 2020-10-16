@@ -5,12 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, HTMLAttributes } from 'react';
+import React, { useState, useContext, HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProps, DefaultTheme } from 'styled-components';
+import { ThemeContext } from 'styled-components';
 import ChevronLeftIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
 import ChevronRightIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
-import { withTheme } from '@zendeskgarden/react-theming';
 import { usePagination } from '@zendeskgarden/container-pagination';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
 
@@ -57,7 +56,7 @@ export interface IPaginationProps extends Omit<HTMLAttributes<HTMLUListElement>,
 /**
  * High-abstraction element for the `Pagination` pattern
  */
-const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemeProps<DefaultTheme>>(
+const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps>(
   (
     {
       currentPage: controlledCurrentPage,
@@ -73,6 +72,7 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
     const [focusedItem, setFocusedItem] = useState<number | string>();
     const [internalCurrentPage, setCurrentPage] = useState(1);
     const currentPage = getControlledValue(controlledCurrentPage, internalCurrentPage);
+    const theme = useContext(ThemeContext);
 
     const {
       getContainerProps,
@@ -80,7 +80,7 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
       getPreviousPageProps,
       getNextPageProps
     } = usePagination({
-      rtl: otherProps.theme.rtl,
+      rtl: theme.rtl,
       focusedItem,
       selectedItem: currentPage,
       onFocus: item => {
@@ -269,9 +269,9 @@ const Pagination = React.forwardRef<HTMLUListElement, IPaginationProps & ThemePr
 
     return (
       <StyledPagination {...getContainerProps({ role: null, ...otherProps })} ref={ref}>
-        {renderPreviousPage(otherProps.theme.rtl)}
+        {renderPreviousPage(theme.rtl)}
         {totalPages > 0 && renderPages()}
-        {renderNextPage(otherProps.theme.rtl)}
+        {renderNextPage(theme.rtl)}
       </StyledPagination>
     );
   }
@@ -291,6 +291,4 @@ Pagination.defaultProps = {
   pageGap: 2
 };
 
-export default withTheme(Pagination) as React.FC<
-  IPaginationProps & React.RefAttributes<HTMLUListElement>
->;
+export default Pagination as React.FC<IPaginationProps & React.RefAttributes<HTMLUListElement>>;
