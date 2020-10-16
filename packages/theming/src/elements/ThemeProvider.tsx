@@ -13,7 +13,19 @@ import DEFAULT_THEME from './theme';
 import { useDocument } from '../utils/useDocument';
 
 interface IGardenThemeProviderProps extends Partial<ThemeProps<DefaultTheme>> {
-  focusVisibleRef?: React.RefObject<HTMLElement>;
+  /**
+   * Provides values for component styling. See styled-components
+   * [`ThemeProvider`](https://styled-components.com/docs/api#themeprovider)
+   * for details.
+   */
+  theme?: DefaultTheme;
+  /**
+   * Provides a reference to the DOM node used to scope a `:focus-visible`
+   * polyfill. If left `undefined`, a scoping `<div>` will be rendered.
+   * Assigning `null` (on a nested `ThemeProvider`, for example) prevents the
+   * added polyfill and scoping `<div>`.
+   */
+  focusVisibleRef?: React.RefObject<HTMLElement> | null;
 }
 
 const GardenThemeProvider: React.FunctionComponent<IGardenThemeProviderProps> = ({
@@ -24,13 +36,18 @@ const GardenThemeProvider: React.FunctionComponent<IGardenThemeProviderProps> = 
 }) => {
   const scopeRef = useRef<HTMLDivElement>(null);
   const relativeDocument = useDocument(theme);
-  const controlledScopeRef = getControlledValue(focusVisibleRef, scopeRef);
+  const controlledScopeRef =
+    focusVisibleRef === null ? React.createRef() : getControlledValue(focusVisibleRef, scopeRef);
 
   useFocusVisible({ scope: controlledScopeRef, relativeDocument });
 
   return (
     <ThemeProvider theme={theme!} {...other}>
-      {focusVisibleRef ? (children as any) : <div ref={scopeRef}>{children as any}</div>}
+      {focusVisibleRef === undefined ? (
+        <div ref={scopeRef}>{children as any}</div>
+      ) : (
+        (children as any)
+      )}
     </ThemeProvider>
   );
 };
@@ -39,5 +56,4 @@ GardenThemeProvider.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-/** @component */
 export default GardenThemeProvider;

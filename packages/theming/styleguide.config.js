@@ -28,7 +28,7 @@ module.exports = {
       content: '../../packages/theming/README.md'
     },
     {
-      name: 'Elements',
+      name: 'Examples',
       sections: [
         {
           name: 'ThemeProvider',
@@ -43,6 +43,10 @@ module.exports = {
           content: '../../packages/theming/examples/default-theme.md'
         }
       ]
+    },
+    {
+      name: 'Elements',
+      components: '../../packages/theming/src/elements/[A-Z]*.{ts,tsx}'
     },
     {
       name: 'Utils',
