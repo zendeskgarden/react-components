@@ -15,17 +15,23 @@ export default {
   component: Ellipsis
 } as Meta;
 
+const TITLE = 'Veggies es bonus vobis, proinde vos postulo essum magis.';
+
 export const Default: Story = ({ title, tag }) => (
   <Grid>
     <Row>
       <Col textAlign="center">
-        <Ellipsis title={title} tag={tag} style={{ width: 150, display: 'inline-block' }}>
+        <Ellipsis title={title || TITLE} tag={tag} style={{ width: 150, display: 'inline-block' }}>
           Veggies es bonus vobis, proinde vos postulo essum magis.
         </Ellipsis>
       </Col>
     </Row>
   </Grid>
 );
+
+Default.args = {
+  title: TITLE
+};
 
 Default.argTypes = {
   title: {
