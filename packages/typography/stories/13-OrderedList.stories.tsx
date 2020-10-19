@@ -20,9 +20,9 @@ export default {
 
 export const Default: Story = ({ size, type }) => (
   <Grid>
-    <Row>
-      <Col textAlign="center">
-        <OrderedList size={size} type={type} style={{ display: 'inline-block' }}>
+    <Row justifyContent="center">
+      <Col size={2}>
+        <OrderedList size={size} type={type}>
           <OrderedList.Item>Garden trowel</OrderedList.Item>
           <OrderedList.Item>Pruning shears</OrderedList.Item>
           <OrderedList.Item>Hand cultivator</OrderedList.Item>
