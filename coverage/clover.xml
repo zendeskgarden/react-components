@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1602870337197" clover="3.2.0">
-  <project timestamp="1602870337198" name="All files">
-    <metrics statements="6832" coveredstatements="6688" conditionals="2725" coveredconditionals="2471" methods="1436" coveredmethods="1404" elements="10993" coveredelements="10563" complexity="0" loc="6832" ncloc="6832" packages="113" files="449" classes="449"/>
+<coverage generated="1603128511163" clover="3.2.0">
+  <project timestamp="1603128511163" name="All files">
+    <metrics statements="6833" coveredstatements="6689" conditionals="2725" coveredconditionals="2471" methods="1436" coveredmethods="1404" elements="10994" coveredelements="10564" complexity="0" loc="6833" ncloc="6833" packages="113" files="449" classes="449"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
       <file name="Example.spec.tsx" path="/home/circleci/project/packages/.template/src/elements/Example.spec.tsx">
@@ -6691,20 +6691,21 @@
       </file>
     </package>
     <package name="pagination.src.elements.Pagination">
-      <metrics statements="81" coveredstatements="81" conditionals="62" coveredconditionals="58" methods="9" coveredmethods="9"/>
+      <metrics statements="82" coveredstatements="82" conditionals="62" coveredconditionals="58" methods="9" coveredmethods="9"/>
       <file name="Pagination.tsx" path="/home/circleci/project/packages/pagination/src/elements/Pagination/Pagination.tsx">
-        <metrics statements="81" coveredstatements="81" conditionals="62" coveredconditionals="58" methods="9" coveredmethods="9"/>
+        <metrics statements="82" coveredstatements="82" conditionals="62" coveredconditionals="58" methods="9" coveredmethods="9"/>
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
-        <line num="20" count="1" type="stmt"/>
-        <line num="60" count="1" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
+        <line num="72" count="43" type="stmt"/>
         <line num="73" count="43" type="stmt"/>
         <line num="74" count="43" type="stmt"/>
         <line num="75" count="43" type="stmt"/>
@@ -7868,7 +7869,7 @@
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="8" count="255" type="stmt"/>
         <line num="11" count="255" type="stmt"/>
-        <line num="12" count="101" type="stmt"/>
+        <line num="12" count="100" type="stmt"/>
       </file>
     </package>
     <package name="tooltips.src.elements">
