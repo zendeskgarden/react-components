@@ -12,10 +12,7 @@ import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 
 export default {
   title: 'Components/Typography/OrderedList',
-  subcomponents: {
-    OrderedList,
-    'OrderedList.Item': OrderedList.Item
-  }
+  component: OrderedList
 } as Meta;
 
 export const Default: Story = ({ size, type }) => (
