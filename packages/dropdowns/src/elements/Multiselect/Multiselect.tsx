@@ -80,6 +80,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
       containsMultiselectRef,
       downshift: {
         getToggleButtonProps,
+        getRootProps,
         getInputProps,
         isOpen,
         closeMenu,
@@ -138,32 +139,39 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
      * is not spread onto the MultiSelect Dropdown `div`.
      */
     /* eslint-disable @typescript-eslint/no-unused-vars */
-    const { type, ...selectProps } = getToggleButtonProps({
-      tabIndex: props.disabled ? undefined : -1,
-      onKeyDown: (e: React.KeyboardEvent<HTMLElement>) => {
-        if (isOpen) {
-          (e.nativeEvent as any).preventDownshiftDefault = true;
-        } else if (!inputValue && e.keyCode === KEY_CODES.HOME) {
-          setFocusedItem(selectedItems[0]);
-          e.preventDefault();
-        }
-      },
-      onFocus: () => {
-        setIsFocused(true);
-      },
-      onBlur: (e: React.FocusEvent<HTMLElement>) => {
-        const currentTarget = e.currentTarget;
-
-        blurTimeoutRef.current = (setTimeout(() => {
-          if (!currentTarget.contains(document.activeElement)) {
-            setIsFocused(false);
+    const { type, ...selectProps } = getToggleButtonProps(
+      getRootProps({
+        tabIndex: props.disabled ? undefined : -1,
+        onKeyDown: (e: React.KeyboardEvent<HTMLElement>) => {
+          if (isOpen) {
+            (e.nativeEvent as any).preventDownshiftDefault = true;
+          } else if (!inputValue && e.keyCode === KEY_CODES.HOME) {
+            setFocusedItem(selectedItems[0]);
+            e.preventDefault();
           }
-        }, 0) as unknown) as number;
-      },
-      onMouseEnter: composeEventHandlers(props.onMouseEnter, () => setIsHovered(true)),
-      onMouseLeave: composeEventHandlers(props.onMouseLeave, () => setIsHovered(false)),
-      ...props
-    } as any);
+        },
+        onFocus: () => {
+          setIsFocused(true);
+        },
+        onBlur: (e: React.FocusEvent<HTMLElement>) => {
+          const currentTarget = e.currentTarget;
+
+          blurTimeoutRef.current = (setTimeout(() => {
+            if (!currentTarget.contains(document.activeElement)) {
+              setIsFocused(false);
+            }
+          }, 0) as unknown) as number;
+        },
+        onMouseEnter: composeEventHandlers(props.onMouseEnter, () => setIsHovered(true)),
+        onMouseLeave: composeEventHandlers(props.onMouseLeave, () => setIsHovered(false)),
+        /**
+         * Ensure that [role="combobox"] is applied directly to the input
+         * for Safari screenreader support
+         */
+        role: null,
+        ...props
+      } as any)
+    );
 
     const renderSelectableItem = useCallback(
       (item, index) => {
@@ -372,6 +380,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
                   },
                   isVisible: isFocused || inputValue || selectedItems.length === 0,
                   isCompact: props.isCompact,
+                  role: 'combobox',
                   ref: inputRef,
                   placeholder: selectedItems.length === 0 ? placeholder : undefined
                 }) as any)}

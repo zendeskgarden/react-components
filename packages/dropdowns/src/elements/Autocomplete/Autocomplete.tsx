@@ -43,7 +43,7 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
   ({ children, inputRef: controlledInputRef, start, ...props }, ref) => {
     const {
       popperReferenceElementRef,
-      downshift: { getToggleButtonProps, getInputProps, isOpen }
+      downshift: { getToggleButtonProps, getInputProps, getRootProps, isOpen }
     } = useDropdownContext();
     const { isLabelHovered } = useFieldContext();
     const inputRef = useCombinedRefs<HTMLInputElement>(controlledInputRef);
@@ -60,16 +60,28 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
       previousIsOpenRef.current = isOpen;
     }, [inputRef, isOpen]);
 
-    const selectProps = getToggleButtonProps({
-      onKeyDown: (e: KeyboardEvent<HTMLDivElement>) => {
-        if (isOpen) {
-          (e.nativeEvent as any).preventDownshiftDefault = true;
-        }
-      },
-      onMouseEnter: composeEventHandlers(props.onMouseEnter, () => setIsHovered(true)),
-      onMouseLeave: composeEventHandlers(props.onMouseLeave, () => setIsHovered(false)),
-      ...props
-    } as any);
+    /**
+     * Destructure type out of props so that `type="button"`
+     * is not spread onto the MultiSelect Dropdown `div`.
+     */
+    /* eslint-disable @typescript-eslint/no-unused-vars */
+    const { type, ...selectProps } = getToggleButtonProps(
+      getRootProps({
+        onKeyDown: (e: KeyboardEvent<HTMLDivElement>) => {
+          if (isOpen) {
+            (e.nativeEvent as any).preventDownshiftDefault = true;
+          }
+        },
+        onMouseEnter: composeEventHandlers(props.onMouseEnter, () => setIsHovered(true)),
+        onMouseLeave: composeEventHandlers(props.onMouseLeave, () => setIsHovered(false)),
+        /**
+         * Ensure that [role="combobox"] is applied directly to the input
+         * for Safari screenreader support
+         */
+        role: null,
+        ...props
+      } as any)
+    );
 
     const isContainerHovered = isLabelHovered && !isOpen;
     const isContainerFocused = isOpen || isFocused;
@@ -84,6 +96,7 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
             isHovered={isContainerHovered}
             isFocused={isContainerFocused}
             tabIndex={null}
+            {...selectProps}
             ref={selectRef => {
               // Pass ref to popperJS for positioning
               (popperReference as any)(selectRef);
@@ -94,7 +107,6 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
               // Apply Select ref to global Dropdown context
               popperReferenceElementRef.current = selectRef;
             }}
-            {...selectProps}
           >
             {start && (
               <StyledFauxInput.StartIcon isDisabled={props.disabled}>
@@ -112,6 +124,7 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
                 onBlur: () => {
                   setIsFocused(false);
                 },
+                role: 'combobox',
                 ref: inputRef
               } as any)}
             />
