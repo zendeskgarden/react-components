@@ -472,7 +472,16 @@
 <a name='L413'></a><a href='#L413'>413</a>
 <a name='L414'></a><a href='#L414'>414</a>
 <a name='L415'></a><a href='#L415'>415</a>
-<a name='L416'></a><a href='#L416'>416</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L416'></a><a href='#L416'>416</a>
+<a name='L417'></a><a href='#L417'>417</a>
+<a name='L418'></a><a href='#L418'>418</a>
+<a name='L419'></a><a href='#L419'>419</a>
+<a name='L420'></a><a href='#L420'>420</a>
+<a name='L421'></a><a href='#L421'>421</a>
+<a name='L422'></a><a href='#L422'>422</a>
+<a name='L423'></a><a href='#L423'>423</a>
+<a name='L424'></a><a href='#L424'>424</a>
+<a name='L425'></a><a href='#L425'>425</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -536,6 +545,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -615,6 +625,7 @@
 <span class="cline-any cline-yes">174x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">26x</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">14x</span>
@@ -636,6 +647,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">29x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -868,6 +885,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">20x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -969,6 +987,7 @@ const Multiselect = React.forwardRef&lt;HTMLDivElement, IMultiselectProps &amp; 
       containsMultiselectRef,
       downshift: {
         getToggleButtonProps,
+        getRootProps,
         getInputProps,
         isOpen,
         closeMenu,
@@ -1027,32 +1046,39 @@ const Multiselect = React.forwardRef&lt;HTMLDivElement, IMultiselectProps &amp; 
      * is not spread onto the MultiSelect Dropdown `div`.
      */
     /* eslint-disable @typescript-eslint/no-unused-vars */
-    const { type, ...selectProps } = getToggleButtonProps({
-      tabIndex: props.disabled ? undefined : -1,
-      onKeyDown: (e: React.KeyboardEvent&lt;HTMLElement&gt;) =&gt; {
-        if (isOpen) {
-          (e.nativeEvent as any).preventDownshiftDefault = true;
-        } else if (!inputValue &amp;&amp; e.keyCode === KEY_CODES.HOME) {
-          setFocusedItem(selectedItems[0]);
-          e.preventDefault();
-        }
-      },
-      onFocus: () =&gt; {
-        setIsFocused(true);
-      },
-      onBlur: (e: React.FocusEvent&lt;HTMLElement&gt;) =&gt; {
-        const currentTarget = e.currentTarget;
-&nbsp;
-        blurTimeoutRef.current = (setTimeout(() =&gt; {
-          if (!currentTarget.contains(document.activeElement)) {
-            setIsFocused(false);
+    const { type, ...selectProps } = getToggleButtonProps(
+      getRootProps({
+        tabIndex: props.disabled ? undefined : -1,
+        onKeyDown: (e: React.KeyboardEvent&lt;HTMLElement&gt;) =&gt; {
+          if (isOpen) {
+            (e.nativeEvent as any).preventDownshiftDefault = true;
+          } else if (!inputValue &amp;&amp; e.keyCode === KEY_CODES.HOME) {
+            setFocusedItem(selectedItems[0]);
+            e.preventDefault();
           }
-        }, 0) as unknown) as number;
-      },
-      onMouseEnter: composeEventHandlers(props.onMouseEnter, () =&gt; setIsHovered(true)),
-      onMouseLeave: composeEventHandlers(props.onMouseLeave, <span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >setIsHovered(false))</span>,
-      ...props
-    } as any);
+        },
+        onFocus: () =&gt; {
+          setIsFocused(true);
+        },
+        onBlur: (e: React.FocusEvent&lt;HTMLElement&gt;) =&gt; {
+          const currentTarget = e.currentTarget;
+&nbsp;
+          blurTimeoutRef.current = (setTimeout(() =&gt; {
+            if (!currentTarget.contains(document.activeElement)) {
+              setIsFocused(false);
+            }
+          }, 0) as unknown) as number;
+        },
+        onMouseEnter: composeEventHandlers(props.onMouseEnter, () =&gt; setIsHovered(true)),
+        onMouseLeave: composeEventHandlers(props.onMouseLeave, <span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >setIsHovered(false))</span>,
+        /**
+         * Ensure that [role="combobox"] is applied directly to the input
+         * for Safari screenreader support
+         */
+        role: null,
+        ...props
+      } as any)
+    );
 &nbsp;
     const renderSelectableItem = useCallback(
       (item, index) =&gt; {
@@ -1261,6 +1287,7 @@ const Multiselect = React.forwardRef&lt;HTMLDivElement, IMultiselectProps &amp; 
                   },
                   isVisible: isFocused || inputValue || selectedItems.length === 0,
                   isCompact: props.isCompact,
+                  role: 'combobox',
                   ref: inputRef,
                   placeholder: selectedItems.length === 0 ? placeholder : undefined
                 }) as any)}
@@ -1309,7 +1336,7 @@ export default withTheme(Multiselect) as React.FunctionComponent&lt;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Oct 20 2020 16:37:44 GMT+0000 (Coordinated Universal Time)
+                at Wed Oct 21 2020 16:29:13 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>

@@ -208,7 +208,20 @@
 <a name='L149'></a><a href='#L149'>149</a>
 <a name='L150'></a><a href='#L150'>150</a>
 <a name='L151'></a><a href='#L151'>151</a>
-<a name='L152'></a><a href='#L152'>152</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L152'></a><a href='#L152'>152</a>
+<a name='L153'></a><a href='#L153'>153</a>
+<a name='L154'></a><a href='#L154'>154</a>
+<a name='L155'></a><a href='#L155'>155</a>
+<a name='L156'></a><a href='#L156'>156</a>
+<a name='L157'></a><a href='#L157'>157</a>
+<a name='L158'></a><a href='#L158'>158</a>
+<a name='L159'></a><a href='#L159'>159</a>
+<a name='L160'></a><a href='#L160'>160</a>
+<a name='L161'></a><a href='#L161'>161</a>
+<a name='L162'></a><a href='#L162'>162</a>
+<a name='L163'></a><a href='#L163'>163</a>
+<a name='L164'></a><a href='#L164'>164</a>
+<a name='L165'></a><a href='#L165'>165</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -270,7 +283,13 @@
 <span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">39x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">7x</span>
@@ -278,6 +297,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -296,14 +321,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">76x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">76x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">76x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">76x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -321,6 +346,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -404,7 +430,7 @@ const Autocomplete = React.forwardRef&lt;HTMLDivElement, IAutocompleteProps&gt;(
   ({ children, inputRef: controlledInputRef, start, ...props }, ref) =&gt; {
     const {
       popperReferenceElementRef,
-      downshift: { getToggleButtonProps, getInputProps, isOpen }
+      downshift: { getToggleButtonProps, getInputProps, getRootProps, isOpen }
     } = useDropdownContext();
     const { isLabelHovered } = useFieldContext();
     const inputRef = useCombinedRefs&lt;HTMLInputElement&gt;(controlledInputRef);
@@ -421,16 +447,28 @@ const Autocomplete = React.forwardRef&lt;HTMLDivElement, IAutocompleteProps&gt;(
       previousIsOpenRef.current = isOpen;
     }, [inputRef, isOpen]);
 &nbsp;
-    const selectProps = getToggleButtonProps({
-      onKeyDown: (e: KeyboardEvent&lt;HTMLDivElement&gt;) =&gt; {
-        if (isOpen) {
-          (e.nativeEvent as any).preventDownshiftDefault = true;
-        }
-      },
-      onMouseEnter: composeEventHandlers(props.onMouseEnter, () =&gt; setIsHovered(true)),
-      onMouseLeave: composeEventHandlers(props.onMouseLeave, <span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >setIsHovered(false))</span>,
-      ...props
-    } as any);
+    /**
+     * Destructure type out of props so that `type="button"`
+     * is not spread onto the MultiSelect Dropdown `div`.
+     */
+    /* eslint-disable @typescript-eslint/no-unused-vars */
+    const { type, ...selectProps } = getToggleButtonProps(
+      getRootProps({
+        onKeyDown: (e: KeyboardEvent&lt;HTMLDivElement&gt;) =&gt; {
+          if (isOpen) {
+            (e.nativeEvent as any).preventDownshiftDefault = true;
+          }
+        },
+        onMouseEnter: composeEventHandlers(props.onMouseEnter, () =&gt; setIsHovered(true)),
+        onMouseLeave: composeEventHandlers(props.onMouseLeave, <span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >setIsHovered(false))</span>,
+        /**
+         * Ensure that [role="combobox"] is applied directly to the input
+         * for Safari screenreader support
+         */
+        role: null,
+        ...props
+      } as any)
+    );
 &nbsp;
     const isContainerHovered = isLabelHovered &amp;&amp; !isOpen;
     const isContainerFocused = isOpen || isFocused;
@@ -445,6 +483,7 @@ const Autocomplete = React.forwardRef&lt;HTMLDivElement, IAutocompleteProps&gt;(
             isHovered={isContainerHovered}
             isFocused={isContainerFocused}
             tabIndex={null}
+            {...selectProps}
             ref={selectRef =&gt; {
               // Pass ref to popperJS for positioning
               (popperReference as any)(selectRef);
@@ -455,7 +494,6 @@ const Autocomplete = React.forwardRef&lt;HTMLDivElement, IAutocompleteProps&gt;(
               // Apply Select ref to global Dropdown context
               popperReferenceElementRef.current = selectRef;
             }}
-            {...selectProps}
           &gt;
             {start &amp;&amp; (
               &lt;StyledFauxInput.StartIcon isDisabled={props.disabled}&gt;
@@ -473,6 +511,7 @@ const Autocomplete = React.forwardRef&lt;HTMLDivElement, IAutocompleteProps&gt;(
                 onBlur: () =&gt; {
                   setIsFocused(false);
                 },
+                role: 'combobox',
                 ref: inputRef
               } as any)}
             /&gt;
@@ -517,7 +556,7 @@ export default Autocomplete as React.FunctionComponent&lt;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Oct 20 2020 16:37:44 GMT+0000 (Coordinated Universal Time)
+                at Wed Oct 21 2020 16:29:13 GMT+0000 (Coordinated Universal Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>
