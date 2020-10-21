@@ -163,7 +163,7 @@ const Trigger: React.FunctionComponent<ITriggerProps> = ({ children, refKey, ...
 
   const renderChildren = (popperRef: any) => {
     // Destructuring the `ref` argument lets us share it with PopperJS
-    const { ref: rootPropsRefCallback, ...rootProps } = getRootProps();
+    const { ref: rootPropsRefCallback, ...rootProps } = getRootProps({ role: null } as any);
 
     /**
      * Clone immediate child and provide:
