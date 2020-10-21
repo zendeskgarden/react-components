@@ -19,9 +19,14 @@ export const Field: React.FunctionComponent<HTMLAttributes<HTMLDivElement>> = pr
   } = useDropdownContext();
   const [isLabelHovered, setIsLabelHovered] = useState<boolean>(false);
 
+  /**
+   * Only apply `rootRef` to allow correct screen-reader navigation in Safari
+   */
+  const { ref } = getRootProps();
+
   return (
     <FieldContext.Provider value={{ isLabelHovered, setIsLabelHovered }}>
-      <FormField {...getRootProps({ ...props, refKey: 'ref' })} />
+      <FormField ref={ref} {...props} />
     </FieldContext.Provider>
   );
 };
