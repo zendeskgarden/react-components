@@ -12,6 +12,26 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.25.0 (2020-10-21)
+
+#### :rocket: New Feature
+* `theming`
+  * [#897](https://github.com/zendeskgarden/react-components/pull/897) feat(theming): provide scoping <div> knock-out for ThemeProvider ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#902](https://github.com/zendeskgarden/react-components/pull/902) fix(dropdowns): support Safari Voiceover commands ([@austingreendev](https://github.com/austingreendev))
+
+#### :memo: Documentation
+* `typography`
+  * [#895](https://github.com/zendeskgarden/react-components/pull/895) chore(docs): migrate react-typography to storybook ([@hzhu](https://github.com/hzhu))
+
+#### :seedling: Internal
+* Other
+  * [#900](https://github.com/zendeskgarden/react-components/pull/900) chore(deps): bump object-path from 0.11.4 to 0.11.5 in /examples/gatsby ([@dependabot[bot]](https://github.com/apps/dependabot))
+* `pagination`
+  * [#898](https://github.com/zendeskgarden/react-components/pull/898) chore(pagination): get theme from context ([@hzhu](https://github.com/hzhu))
+
 ## v8.24.2 (2020-10-15)
 
 #### :bug: Bug Fix
