@@ -12,6 +12,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v7.3.4 (2020-10-21)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#903](https://github.com/zendeskgarden/react-components/pull/903) fix(dropdowns): improve safari voiceover support ([@austingreendev](https://github.com/austingreendev))
+
 ## v7.3.3 (2020-09-03)
 
 #### :bug: Bug Fix
