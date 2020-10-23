@@ -100,7 +100,7 @@ export const StyledSortableButton = styled.button.attrs<IStyledSortableButtonPro
   }
 
   &:hover,
-  &:focus {
+  &[data-garden-focus-visible] {
     text-decoration: none;
     color: ${props => getColor('primaryHue', 600, props.theme)};
 
