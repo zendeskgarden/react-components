@@ -50,7 +50,7 @@ export const StyledClose = styled.button.attrs({
   display: block;
   position: absolute;
   top: ${props => props.theme.space.base * 2.5}px;
-  ${props => (props.theme.rtl ? 'left' : 'right')}: ${props => `${props.theme.space.base * 5}px`};
+  ${props => (props.theme.rtl ? 'left' : 'right')}: ${props => `${props.theme.space.base * 6.5}px`};
   /* prettier-ignore */
   transition:
     box-shadow 0.1s ease-in-out,
