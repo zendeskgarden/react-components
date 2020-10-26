@@ -9,9 +9,13 @@ export { StyledClose } from './content/StyledClose';
 export { StyledParagraph } from './content/StyledParagraph';
 export { StyledTitle } from './content/StyledTitle';
 
-export { StyledAlert, IStyledAlertProps } from './StyledAlert';
-export { StyledNotification, IStyledNotificationProps } from './StyledNotification';
-export { StyledWell, IStyledWellProps } from './StyledWell';
+export { StyledAlert } from './StyledAlert';
+export type { IStyledAlertProps } from './StyledAlert';
+export { StyledNotification } from './StyledNotification';
+export type { IStyledNotificationProps } from './StyledNotification';
+export { StyledWell } from './StyledWell';
+export type { IStyledWellProps } from './StyledWell';
 export { StyledIcon } from './StyledIcon';
 
-export { StyledBase, IStyledBaseProps } from './StyledBase';
+export { StyledBase } from './StyledBase';
+export type { IStyledBaseProps } from './StyledBase';
