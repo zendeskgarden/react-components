@@ -5,9 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { CursorPagination } from '@zendeskgarden/react-pagination';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 
@@ -16,31 +15,53 @@ export default {
   component: CursorPagination
 } as Meta;
 
-export const Default: Story = ({ disabled }) => (
-  <Grid>
-    <Row>
-      <Col textAlign="center">
-        <CursorPagination aria-label="Cursor pagination">
-          <CursorPagination.First onClick={action('onClick')} disabled={disabled}>
-            First
-          </CursorPagination.First>
-          <CursorPagination.Previous onClick={action('onClick')} disabled={disabled}>
-            Previous
-          </CursorPagination.Previous>
-          <CursorPagination.Next onClick={action('onClick')} disabled={disabled}>
-            Next
-          </CursorPagination.Next>
-          <CursorPagination.Last onClick={action('onclick')} disabled={disabled}>
-            Last
-          </CursorPagination.Last>
-        </CursorPagination>
-      </Col>
-    </Row>
-  </Grid>
-);
+export const Default: Story = () => {
+  const [cursor, setCursor] = useState(0);
+
+  const pages = [0, 1, 2, 3, 4];
+
+  const onFirst = () => setCursor(0);
+
+  const onLast = () => setCursor(pages.length - 1);
+
+  const onNext = () => {
+    if (cursor < pages.length - 1) {
+      setCursor(cursor + 1);
+    }
+  };
+
+  const onPrevious = () => {
+    if (cursor > 0) {
+      setCursor(cursor - 1);
+    }
+  };
+
+  return (
+    <Grid>
+      <Row>
+        <Col textAlign="center">
+          <CursorPagination aria-label="Cursor pagination">
+            <CursorPagination.First onClick={onFirst} disabled={cursor === 0}>
+              First
+            </CursorPagination.First>
+            <CursorPagination.Previous onClick={onPrevious} disabled={cursor === 0}>
+              Previous
+            </CursorPagination.Previous>
+            <CursorPagination.Next onClick={onNext} disabled={cursor === pages.length - 1}>
+              Next
+            </CursorPagination.Next>
+            <CursorPagination.Last onClick={onLast} disabled={cursor === pages.length - 1}>
+              Last
+            </CursorPagination.Last>
+          </CursorPagination>
+        </Col>
+      </Row>
+    </Grid>
+  );
+};
 
 Default.argTypes = {
   disabled: {
-    control: { type: 'boolean' }
+    control: { disable: true }
   }
 };
