@@ -5,9 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { Pagination } from '@zendeskgarden/react-pagination';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 
@@ -16,24 +15,27 @@ export default {
   component: Pagination
 } as Meta;
 
-export const Default: Story = ({ currentPage, totalPages, pagePadding, pageGap }) => (
-  <Grid>
-    <Row>
-      <Col textAlign="center">
-        <Pagination
-          totalPages={totalPages}
-          pagePadding={pagePadding}
-          pageGap={pageGap}
-          currentPage={currentPage}
-          onChange={action('onChange')}
-        />
-      </Col>
-    </Row>
-  </Grid>
-);
+export const Default: Story = ({ totalPages, pagePadding, pageGap }) => {
+  const [page, setPage] = useState(1);
+
+  return (
+    <Grid>
+      <Row>
+        <Col textAlign="center">
+          <Pagination
+            totalPages={totalPages}
+            pagePadding={pagePadding}
+            pageGap={pageGap}
+            currentPage={page}
+            onChange={setPage}
+          />
+        </Col>
+      </Row>
+    </Grid>
+  );
+};
 
 Default.args = {
-  currentPage: 1,
   totalPages: 11,
   pagePadding: 2,
   pageGap: 2
@@ -41,7 +43,7 @@ Default.args = {
 
 Default.argTypes = {
   currentPage: {
-    control: { type: 'number' }
+    control: { disable: true }
   },
   totalPages: {
     control: {
