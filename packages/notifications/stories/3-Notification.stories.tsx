@@ -31,7 +31,7 @@ export const Default: Story = ({ type, isRegular }) => (
 );
 
 Default.args = {
-  type: 'success'
+  type: undefined
 };
 
 Default.argTypes = {
@@ -39,6 +39,6 @@ Default.argTypes = {
     control: 'boolean'
   },
   type: {
-    control: { type: 'select', options: ['success', 'warning', 'error', 'info'] }
+    control: { type: 'select', options: [undefined, 'success', 'warning', 'error', 'info'] }
   }
 };
