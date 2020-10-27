@@ -14,13 +14,13 @@ describe('StyledClose', () => {
     const { container } = render(<StyledClose />);
 
     expect(container.firstChild).toHaveStyleRule('top', '10px');
-    expect(container.firstChild).toHaveStyleRule('right', '20px');
+    expect(container.firstChild).toHaveStyleRule('right', '26px');
   });
 
   it('renders RTL styling if provided', () => {
     const { container } = renderRtl(<StyledClose />);
 
     expect(container.firstChild).toHaveStyleRule('top', '10px');
-    expect(container.firstChild).toHaveStyleRule('left', '20px');
+    expect(container.firstChild).toHaveStyleRule('left', '26px');
   });
 });
