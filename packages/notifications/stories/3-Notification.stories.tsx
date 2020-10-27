@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { Notification, Title, Close } from '@zendeskgarden/react-notifications';
+import { Notification, Title, Paragraph, Close } from '@zendeskgarden/react-notifications';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
 
 export default {
@@ -15,15 +15,25 @@ export default {
   component: Notification
 } as Meta;
 
-export const Default: Story = ({ type, isRegular }) => (
+export const Default: Story = ({ type, isRegular, isMultiLine }) => (
   <Grid>
     <Row>
       <Col>
         <Notification type={type}>
-          <Title isRegular={isRegular}>Turnip greens</Title>
-          Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth
-          water
-          <Close aria-label="Close Alert" />
+          <Title isRegular={isRegular}>Nori Grape Beet</Title>
+          {isMultiLine ? (
+            <Paragraph>
+              Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery.
+              Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea
+              lettuce lettuce water chestnut eggplant winter purslane fennel azuki bean earthnut pea
+              sierra leone bologi leek soko chicory celtuce parsley jícama salsify black-eyed pea
+              quandong.
+            </Paragraph>
+          ) : (
+            `Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon
+           amaranth tatsoi tomatillo melon.`
+          )}
+          <Close aria-label="Close Notification" />
         </Notification>
       </Col>
     </Row>
@@ -40,5 +50,8 @@ Default.argTypes = {
   },
   type: {
     control: { type: 'select', options: [undefined, 'success', 'warning', 'error', 'info'] }
+  },
+  isMultiLine: {
+    control: 'boolean'
   }
 };
