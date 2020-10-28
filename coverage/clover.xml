@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1603820237489" clover="3.2.0">
-  <project timestamp="1603820237489" name="All files">
+<coverage generated="1603902525979" clover="3.2.0">
+  <project timestamp="1603902525979" name="All files">
     <metrics statements="6834" coveredstatements="6690" conditionals="2725" coveredconditionals="2471" methods="1436" coveredmethods="1404" elements="10995" coveredelements="10565" complexity="0" loc="6834" ncloc="6834" packages="113" files="449" classes="449"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
@@ -6563,10 +6563,10 @@
         <line num="9" count="8" type="stmt"/>
         <line num="10" count="8" type="stmt"/>
         <line num="12" count="8" type="stmt"/>
-        <line num="13" count="8" type="stmt"/>
         <line num="14" count="8" type="stmt"/>
-        <line num="15" count="8" type="stmt"/>
-        <line num="17" count="8" type="stmt"/>
+        <line num="16" count="8" type="stmt"/>
+        <line num="18" count="8" type="stmt"/>
+        <line num="20" count="8" type="stmt"/>
       </file>
     </package>
     <package name="notifications.src.styled.content">
