@@ -56,7 +56,7 @@ isolation.
     - `pill` -> `isPill`
     - `primary` -> `isPrimary`
     - `stretched` -> `isStretched`
-    - `muted` -> removed
+    - `muted` -> removed (use theming to adjust `primaryHue`)
   - `ButtonGroup`
     - `selectedKey` -> `selectedItem`
     - `onStateChange` -> `onSelect`
