@@ -16,7 +16,7 @@ npm install react react-dom prop-types styled-components @zendeskgarden/react-th
 
 ### Offset Pagination
 
-```jsx static
+```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Pagination } from '@zendeskgarden/react-pagination';
 
@@ -38,7 +38,7 @@ initialState = {
 
 ### Cursor Pagination
 
-```jsx static
+```jsx
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { CursorPagination } from '@zendeskgarden/react-pagination';
 
