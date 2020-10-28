@@ -11,6 +11,26 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+## v8.25.1 (2020-10-28)
+
+#### :bug: Bug Fix
+
+- `modals`
+  - [#907](https://github.com/zendeskgarden/react-components/pull/907) fix(modals): align close button ([@hzhu](https://github.com/hzhu))
+- `tables`
+  - [#904](https://github.com/zendeskgarden/react-components/pull/904) fix(tables): ensure sortable header cells have focus-visible styling ([@austingreendev](https://github.com/austingreendev))
+
+#### :memo: Documentation
+
+- `pagination`
+  - [#905](https://github.com/zendeskgarden/react-components/pull/905) chore(docs): migrate react-pagination examples to storybook ([@hzhu](https://github.com/hzhu))
+- `notifications`
+  - [#908](https://github.com/zendeskgarden/react-components/pull/908) chore(docs): migrate react-notifications examples to storybook ([@hzhu](https://github.com/hzhu))
+
+#### :seedling: Internal
+
+- `buttons`, `dropdowns`, `pagination`, `tabs`
+  - [#906](https://github.com/zendeskgarden/react-components/pull/906) chore: update selection based containers ([@hzhu](https://github.com/hzhu))
 
 ## v8.25.0 (2020-10-21)
 
