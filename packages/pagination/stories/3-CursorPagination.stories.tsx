@@ -18,14 +18,14 @@ export default {
 export const Default: Story = () => {
   const [cursor, setCursor] = useState(0);
 
-  const pages = [0, 1, 2, 3, 4];
+  const pageLength = 4;
 
   const onFirst = () => setCursor(0);
 
-  const onLast = () => setCursor(pages.length - 1);
+  const onLast = () => setCursor(pageLength - 1);
 
   const onNext = () => {
-    if (cursor < pages.length - 1) {
+    if (cursor < pageLength - 1) {
       setCursor(cursor + 1);
     }
   };
@@ -47,10 +47,10 @@ export const Default: Story = () => {
             <CursorPagination.Previous onClick={onPrevious} disabled={cursor === 0}>
               Previous
             </CursorPagination.Previous>
-            <CursorPagination.Next onClick={onNext} disabled={cursor === pages.length - 1}>
+            <CursorPagination.Next onClick={onNext} disabled={cursor === pageLength - 1}>
               Next
             </CursorPagination.Next>
-            <CursorPagination.Last onClick={onLast} disabled={cursor === pages.length - 1}>
+            <CursorPagination.Last onClick={onLast} disabled={cursor === pageLength - 1}>
               Last
             </CursorPagination.Last>
           </CursorPagination>
