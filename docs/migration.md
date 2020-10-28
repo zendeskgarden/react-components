@@ -56,6 +56,7 @@ isolation.
     - `pill` -> `isPill`
     - `primary` -> `isPrimary`
     - `stretched` -> `isStretched`
+    - `muted` -> removed
   - `ButtonGroup`
     - `selectedKey` -> `selectedItem`
     - `onStateChange` -> `onSelect`
@@ -106,7 +107,7 @@ isolation.
 - The following props have been renamed or removed:
   - `Autocomplete`, `MultiSelect`, `Select`
     - `small` -> `isCompact`
-    - `isBare` -> `isBare`
+    - `bare` -> `isBare`
     - `open` -> `isOpen`
     - `focused` -> removed
     - `hovered` -> removed
