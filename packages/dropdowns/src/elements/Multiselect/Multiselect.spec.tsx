@@ -660,7 +660,7 @@ describe('Multiselect', () => {
           </Field>
           <Menu>
             <Item value="apple">Apple</Item>
-            {/* Nested menu's use a PreviousItem */}
+            {/* Nested menu uses a PreviousItem */}
             <PreviousItem value="back">Back</PreviousItem>
           </Menu>
         </Dropdown>
@@ -683,7 +683,7 @@ describe('Multiselect', () => {
             </Field>
             <Menu>
               <Item value="apple">Apple</Item>
-              {/* Nested menu's use a PreviousItem */}
+              {/* Nested menu uses a PreviousItem */}
               <PreviousItem value="back">Back</PreviousItem>
             </Menu>
           </Dropdown>
