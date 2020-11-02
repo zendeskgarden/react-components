@@ -78,6 +78,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
       popperReferenceElementRef,
       selectedItems = [],
       containsMultiselectRef,
+      previousIndexRef,
       downshift: {
         getToggleButtonProps,
         getRootProps,
@@ -358,13 +359,15 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
                       if (
                         isRtl(props) &&
                         e.keyCode === KEY_CODES.RIGHT &&
-                        selectedItems.length > 0
+                        selectedItems.length > 0 &&
+                        previousIndexRef.current === undefined
                       ) {
                         setFocusedItem(selectedItems[selectedItems.length - 1]);
                       } else if (
                         !isRtl(props) &&
                         e.keyCode === KEY_CODES.LEFT &&
-                        selectedItems.length > 0
+                        selectedItems.length > 0 &&
+                        previousIndexRef.current === undefined
                       ) {
                         setFocusedItem(selectedItems[selectedItems.length - 1]);
                       } else if (e.keyCode === KEY_CODES.BACKSPACE && selectedItems.length > 0) {

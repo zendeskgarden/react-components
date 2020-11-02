@@ -8,7 +8,7 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, fireEvent, renderRtl, act } from 'garden-test-utils';
-import { Dropdown, Multiselect, Field, Menu, Item, Label } from '../..';
+import { Dropdown, Multiselect, Field, Menu, Item, Label, PreviousItem } from '../..';
 import { IDropdownProps } from '../Dropdown/Dropdown';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
 
@@ -651,7 +651,51 @@ describe('Multiselect', () => {
       expect(input).toHaveFocus();
     });
 
+    it('focus remains on input when navigating away from nested menu', () => {
+      const { container } = render(
+        <Dropdown selectedItems={['item-1', 'item-2']}>
+          <Field>
+            <Label>Pick Fruits</Label>
+            <Multiselect renderItem={({ value }) => <div>{value}</div>} />
+          </Field>
+          <Menu>
+            <Item value="apple">Apple</Item>
+            {/* Nested menu's use a PreviousItem */}
+            <PreviousItem value="back">Back</PreviousItem>
+          </Menu>
+        </Dropdown>
+      );
+      const input = container.querySelector('input');
+
+      userEvent.click(input!);
+      fireEvent.keyDown(input!, { key: 'ArrowLeft', keyCode: KEY_CODES.LEFT });
+
+      expect(input!).toHaveFocus();
+    });
+
     describe('RTL Layout', () => {
+      it('focus remains on input when navigating away from nested menu in RTL', () => {
+        const { container } = renderRtl(
+          <Dropdown selectedItems={['item-1', 'item-2']}>
+            <Field>
+              <Label>Pick Fruits</Label>
+              <Multiselect renderItem={({ value }) => <div>{value}</div>} />
+            </Field>
+            <Menu>
+              <Item value="apple">Apple</Item>
+              {/* Nested menu's use a PreviousItem */}
+              <PreviousItem value="back">Back</PreviousItem>
+            </Menu>
+          </Dropdown>
+        );
+        const input = container.querySelector('input');
+
+        userEvent.click(input!);
+        fireEvent.keyDown(input!, { key: 'ArrowRight', keyCode: KEY_CODES.RIGHT });
+
+        expect(input!).toHaveFocus();
+      });
+
       it('focuses last tag on right arrow keydown with no input value', () => {
         const { getAllByTestId, container } = renderRtl(<DefaultTagExample />);
         const tags = getAllByTestId('tag');
