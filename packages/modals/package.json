@@ -52,5 +52,8 @@
   "publishConfig": {
     "access": "public"
   },
+  "resolutions": {
+    "@types/react": "16.9.55"
+  },
   "zendeskgarden:src": "src/index.ts"
 }
