@@ -39,11 +39,15 @@ interface IAccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange
   isBare?: boolean;
   /** Determines if panels can be collapsed in an uncontrolled accordion */
   isCollapsible?: boolean;
-  /** Reduces padding on accordion headers and panels */
+  /** Reduces padding on the accordion headers and panels */
   isCompact?: boolean;
-  /** Determines if multiple panels can be expanded at the same time in an uncontrolled accordion */
+  /** Determines if multiple panels can be expanded simultaneously in an uncontrolled accordion*/
   isExpandable?: boolean;
-  /** A callback that is invoked with an accordion section’s index when the expanded state changes */
+  /**
+   * Handles acoordion state expansion changes
+   *
+   * @param {number} index The index being expanded
+   */
   onChange?: (index: number) => void;
 }
 
@@ -56,6 +60,8 @@ interface IAccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange
  *  - `Accordion.Panel`
  *
  * Note: The `Accordion.Label` is a sub-component of `Accordion.Header`.
+ * 
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Accordion = forwardRef<HTMLDivElement, IAccordionProps>(
   (
