@@ -23,6 +23,16 @@ describe('StyledCode', () => {
     expect(container.firstChild).toHaveStyleRule('font-family', /monospace/u);
   });
 
+  it('renders anchor-inherited color', () => {
+    const { getByTestId } = render(
+      <a href="test">
+        <StyledCode data-test-id="test" />
+      </a>
+    );
+
+    expect(getByTestId('test')).toHaveStyleRule('color', 'inherit', { modifier: 'a &' });
+  });
+
   describe('size', () => {
     it('renders inherited size', () => {
       const { container } = render(<StyledCode />);
