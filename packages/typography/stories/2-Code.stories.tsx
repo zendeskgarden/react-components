@@ -9,6 +9,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Code } from '@zendeskgarden/react-typography';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
+import { Anchor } from '@zendeskgarden/react-buttons';
 
 export default {
   title: 'Components/Typography/Code',
@@ -22,6 +23,13 @@ export const Default: Story = ({ hue, size }) => (
         <Code hue={hue} size={size}>
           Veggies es bonus vobis
         </Code>
+      </Col>
+      <Col textAlign="center">
+        <Anchor href="#">
+          <Code hue={hue} size={size}>
+            Anchor &gt; Code
+          </Code>
+        </Anchor>
       </Col>
     </Row>
   </Grid>
