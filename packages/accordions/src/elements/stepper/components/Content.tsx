@@ -12,7 +12,7 @@ import { StyledContent, StyledInnerContent } from '../../../styled';
 import { useStepContext, useStepperContext } from '../../../utils';
 
 /**
- * @extends HTMLDivElement
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Content = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const contentRef = useCombinedRefs<HTMLDivElement>(ref);

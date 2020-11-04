@@ -41,7 +41,7 @@ interface IStepperProps extends HTMLAttributes<HTMLOListElement> {
  *  - `Stepper.Label`
  *  - `Stepper.Content`
  * 
- * @extends HTMLOListElement
+ * @extends OlHTMLAttributes<HTMLOListElement>
  */
 // eslint-disable-next-line react/display-name
 export const Stepper = forwardRef<HTMLOListElement, IStepperProps>(

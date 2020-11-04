@@ -10,7 +10,7 @@ import { StyledStep, StyledLine } from '../../../styled';
 import { StepContext, useStepperContext } from '../../../utils';
 
 /**
- * @extends HTMLLIElement
+ * @extends HTMLAttributes<HTMLLIElement>
  */
 export const Step = forwardRef<HTMLLIElement, HTMLAttributes<HTMLLIElement>>((props, ref) => {
   const { currentIndexRef, isHorizontal } = useStepperContext();

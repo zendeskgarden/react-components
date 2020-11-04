@@ -10,7 +10,7 @@ import { StyledButton } from '../../../styled';
 import { useAccordionContext, useHeaderContext, useSectionContext } from '../../../utils';
 
 /**
- * @extends HTMLButtonElement
+ * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const Label = forwardRef<HTMLButtonElement, HTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {

@@ -12,14 +12,14 @@ import { StyledLabel, StyledLabelText, StyledIcon, StyledIconFlexContainer } fro
 import { useStepContext, useStepperContext } from '../../../utils';
 
 interface ILabel {
-  /** Used as the visual object for the stepper */
+  /** Replaces the Stepper number with an icon */
   icon?: React.ReactNode;
   /** Determines if the label is displayed */
   isHidden?: boolean;
 }
 
 /**
- * @extends HTMLDivElement
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Label = forwardRef<HTMLDivElement, ILabel & HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {

@@ -12,7 +12,7 @@ import { useAccordionContext, useSectionContext } from '../../../utils';
 import { StyledPanel, StyledInnerPanel } from '../../../styled';
 
 /**
- * @extends HTMLElement
+ * @extends HTMLAttributes<HTMLElement>
  */
 export const Panel = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
   const { isCompact, isBare, getPanelProps, expandedSections } = useAccordionContext();

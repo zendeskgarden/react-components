@@ -12,7 +12,7 @@ import { useAccordionContext, useSectionContext, HeaderContext } from '../../../
 import { StyledHeader, StyledRotateIcon, COMPONENT_ID as buttonGardenId } from '../../../styled';
 
 /**
- * @extends HTMLDivElement
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Header = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const {

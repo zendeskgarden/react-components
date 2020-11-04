@@ -10,7 +10,7 @@ import { useAccordionContext, SectionContext } from '../../../utils';
 import { StyledSection } from '../../../styled';
 
 /**
- * @extends HTMLDivElement
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Section = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const { currentIndexRef } = useAccordionContext();
