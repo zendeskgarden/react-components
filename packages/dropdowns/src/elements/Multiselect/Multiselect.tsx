@@ -30,36 +30,45 @@ import useFieldContext from '../../utils/useFieldContext';
 import { REMOVE_ITEM_STATE_TYPE } from '../Dropdown/Dropdown';
 
 interface IMultiselectProps extends HTMLAttributes<HTMLDivElement> {
-  /** Applies compact styling */
+  /** Determines if compact styling is used */
   isCompact?: boolean;
-  /** Removes borders and padding */
+  /** Determines if borders and padding are removed */
   isBare?: boolean;
-  /** Indicates that the element is not interactive */
+  /** Determines if the element is interactive */
   disabled?: boolean;
-  /** Applies inset `box-shadow` styling on focus */
+  /** Determines if the `box-shadow` styling is applied when the element is in focus */
   focusInset?: boolean;
-  /** Indicates that the element's menu is open */
+  /** Determines if the element's menu is open */
   isOpen?: boolean;
-  /** Defines text that appears in the element when no items are selected */
+  /** Sets the placeholder text which appears when no items are selected */
   placeholder?: string;
-  /** Defines the element's validation state */
+  /** Sets the the element's validation state */
   validation?: VALIDATION;
-  /** Determines the maximum number of items displayed while collapsed */
+  /** Sets the maximum number of items displayed when collapsed */
   maxItems?: number;
-  /** Callback that overrides the "+ N more" text displayed when the total number of items exceeds `maxItems` */
+  /**
+   * Handles when more items are shown during expansion, and updates the number value in the "+ NUMBER more" text.
+   * This callback only applies when the total number of items exceeds `maxItems`.
+   *
+   * @param {number} index The index being expanded
+   * @return {string}
+   */
   renderShowMore?: (index: number) => string;
-  /** Callback that renders each item element */
+  /**
+   * Handles rendering for each item
+   *
+   * @param {value: any; removeValue: () => void} options The index being expanded
+   * @return {React.ReactElement}
+   */
   renderItem: (options: { value: any; removeValue: () => void }) => React.ReactElement;
-  /** Provides DOM access to the underlying input element */
+  /** Sets the input reference for DOM access */
   inputRef?: React.Ref<HTMLInputElement>;
-  /** Defines the icon rendered in the start position */
+  /** Sets the icon that is rendered at the start position */
   start?: any;
 }
 
 /**
  * Applies state and a11y attributes to its children. Must be nested within a `<Field>` component.
- *
- * @extends HTMLAttributes<HTMLDivElement>
  */
 const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemeProps<DefaultTheme>>(
   (
@@ -421,7 +430,6 @@ Multiselect.defaultProps = {
   maxItems: 4
 };
 
-/* @component */
 export default withTheme(Multiselect) as React.FunctionComponent<
   IMultiselectProps & React.RefAttributes<HTMLDivElement>
 >;

@@ -22,18 +22,23 @@ import {
 import { MenuContext } from '../../utils/useMenuContext';
 
 interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
-  /** See Popper [documentation](https://popper.js.org/docs/v2/modifiers/) for details */
+  /** Sets the [Popper](https://popper.js.org/docs/v2/modifiers/) modifiers */
   popperModifiers?: Modifiers;
+  /** Determines if events are enabled */
   eventsEnabled?: boolean;
+  /** Sets the z-index */
   zIndex?: number;
-  /**
-   * These placements differ from the default naming of Popper placements to
-   * accommodate RTL layouts
-   **/
+  /** Sets the [Popper](https://popper.js.org/docs/v2/modifiers/) placement. This property differs
+   * from the default Popper placements and accommodates RTL layouts.
+   */
   placement?: GARDEN_PLACEMENT;
+  /** Determines if the menu is animated */
   isAnimated?: boolean;
+  /** Determines if compact styling is used */
   isCompact?: boolean;
+  /** Determines if the menu uses an arrow icon */
   hasArrow?: boolean;
+  /** Sets the maximum height for the menu */
   maxHeight?: string;
 }
 
@@ -197,5 +202,4 @@ Menu.defaultProps = {
   zIndex: 1000
 };
 
-/** @component */
 export default withTheme(Menu) as React.FunctionComponent<IMenuProps>;

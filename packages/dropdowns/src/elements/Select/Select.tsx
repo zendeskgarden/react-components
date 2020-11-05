@@ -20,13 +20,13 @@ import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 
 interface ISelectProps extends HTMLAttributes<HTMLDivElement> {
-  /** Applies compact styling */
+  /** Determines if compact styling is used */
   isCompact?: boolean;
-  /** Removes borders and padding */
+  /** Determines if the borders and padding are removed */
   isBare?: boolean;
-  /** Indicates that the element is not interactive */
+  /** Determines if the element is interactive */
   disabled?: boolean;
-  /** Applies inset `box-shadow` styling on focus */
+  /** DeterminesApplies inset `box-shadow` styling on focus */
   focusInset?: boolean;
   /** Indicates that the element's menu is open */
   isOpen?: boolean;
@@ -38,8 +38,6 @@ interface ISelectProps extends HTMLAttributes<HTMLDivElement> {
 
 /**
  * Applies state and a11y attributes to its children. Must be nested within a `<Field>` component.
- *
- * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
   ({ children, start, ...props }, ref) => {

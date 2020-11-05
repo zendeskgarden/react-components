@@ -17,16 +17,38 @@ import { DropdownContext } from '../../utils/useDropdownContext';
 export const REMOVE_ITEM_STATE_TYPE = 'REMOVE_ITEM';
 
 export interface IDropdownProps {
+  /** Determines if the dropdown is open */
   isOpen?: boolean;
+  /** Sets the selected item for the dropdown */
   selectedItem?: any;
+  /** Sets the selected items for the dropdown */
   selectedItems?: any[];
+  /** Sets the highlighted dropdown index */
   highlightedIndex?: number;
+  /** Sets the input value */
   inputValue?: string;
+  /**
+   * Handles dropdown selection changes
+   *
+   * @param {any} selectedItem The item being selected
+   */
   onSelect?: (selectedItem: any | null, stateAndHelpers: ControllerStateAndHelpers<any>) => void;
+  /**
+   * Handles dropdown state changes
+   *
+   * @param {StateChangeOptions} options The state change options
+   * @param {ControllerStateAndHelpers} stateAndHelpers The state and helpers for the change
+   */
   onStateChange?: (
     options: StateChangeOptions<any>,
     stateAndHelpers: ControllerStateAndHelpers<any>
   ) => void;
+  /**
+   * Handles input value changes
+   *
+   * @param {string} inputValue The input value for the change
+   * @param {ControllerStateAndHelpers} stateAndHelpers The state and helpers for the change
+   */
   onInputValueChange?: (
     inputValue: string,
     stateAndHelpers: ControllerStateAndHelpers<any>
