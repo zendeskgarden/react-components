@@ -46,7 +46,7 @@ interface IAccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange
   /**
    * Handles accordion state expansion changes
    *
-   * @param {number} index The index being expanded
+   * @param {number} index The index of the section being expanded
    */
   onChange?: (index: number) => void;
 }
