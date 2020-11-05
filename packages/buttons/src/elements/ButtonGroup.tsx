@@ -12,9 +12,6 @@ import { useButtonGroup } from '@zendeskgarden/container-buttongroup';
 import { StyledButtonGroup } from '../styled';
 import { ButtonGroupContext } from '../utils/useButtonGroupContext';
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
 export interface IButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
   selectedItem?: any;
   onSelect?: (item: any) => void;

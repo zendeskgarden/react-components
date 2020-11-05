@@ -11,9 +11,6 @@ import { StyledButton, StyledIcon } from '../styled';
 import { useButtonGroupContext } from '../utils/useButtonGroupContext';
 import { useSplitButtonContext } from '../utils/useSplitButtonContext';
 
-/**
- * @extends ButtonHTMLAttributes<HTMLButtonElement>
- */
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Determines if danger styling is used */
   isDanger?: boolean;
@@ -81,9 +78,6 @@ Button.defaultProps = {
   size: 'medium'
 };
 
-/**
- * @extends HTMLAttributes<HTMLElement>
- */
 export interface IIconProps extends HTMLAttributes<HTMLElement> {
   /** Determines if the button is rotated */
   isRotated?: boolean;

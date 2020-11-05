@@ -10,9 +10,6 @@ import PropTypes from 'prop-types';
 import { StyledIconButton, StyledIcon } from '../styled';
 import { useSplitButtonContext } from '../utils/useSplitButtonContext';
 
-/**
- * @extends ButtonHTMLAttributes<HTMLButtonElement>
- */
 export interface IIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Determines if primary button styling is used */
   isPrimary?: boolean;
