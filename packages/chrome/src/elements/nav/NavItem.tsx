@@ -15,7 +15,7 @@ import { useChromeContext } from '../../utils/useChromeContext';
 interface INavItemProps extends HTMLAttributes<any> {
   /** Sets a product-specific color palette */
   product?: PRODUCT;
-  /** Determines if the current item is in the navigation */
+  /** Determines if the current item is in the nav */
   isCurrent?: boolean;
   /** Determines if the item contains a product logo */
   hasLogo?: boolean;
