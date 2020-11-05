@@ -41,11 +41,22 @@ export const Default: Story = ({
               restoreFocus={restoreFocus}
               onClose={() => setVisible(false)}
             >
-              <Header>Do you need plant food?</Header>
+              <Header>Brussels Sprout</Header>
               <Body>
-                To boost your plants chances of success, use a combination of top-quality soil and
-                the right plant food. Try growing in containers filled with plant food, which can
-                help protect plants from over-watering.
+                Soko radicchio bunya nuts gram dulse silver beet parsnip napa cabbage lotus root sea
+                lettuce brussels sprout cabbage.
+                {isLarge && (
+                  <>
+                    {' '}
+                    Catsear cauliflower garbanzo yarrow salsify chicory garlic bell pepper napa
+                    cabbage lettuce. Tomato kale arugula melon sierra leone bologi rutabaga
+                    tigernut. Sea lettuce gumbo grape kale kombu cauliflower salsify kohlrabi okra
+                    sea lettuce broccoli celery lotus root carrot winter purslane turnip greens
+                    garlic. Jícama garlic courgette coriander radicchio plantain scallion
+                    cauliflower fava bean desert raisin spring onion chicory bunya nuts. Sea lettuce
+                    water spinach gram fava bean leek dandelion silver beet eggplant bush.
+                  </>
+                )}
               </Body>
               <Footer>
                 <FooterItem>
@@ -55,7 +66,7 @@ export const Default: Story = ({
                 </FooterItem>
                 <FooterItem>
                   <Button isPrimary onClick={() => setVisible(false)}>
-                    Add plant food
+                    Save
                   </Button>
                 </FooterItem>
               </Footer>
