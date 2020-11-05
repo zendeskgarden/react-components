@@ -44,7 +44,7 @@ interface IAccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange
   /** Determines if multiple panels can be expanded simultaneously in an uncontrolled accordion*/
   isExpandable?: boolean;
   /**
-   * Handles acoordion state expansion changes
+   * Handles accordion state expansion changes
    *
    * @param {number} index The index being expanded
    */
