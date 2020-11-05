@@ -30,10 +30,15 @@ import { getStartOfWeek } from '../../../utils/calendar-utils';
 import MonthSelector from './MonthSelector';
 
 interface ICalendarProps {
+  /** Sets the current date value */
   value?: Date;
+  /** Sets the minimum date value */
   minValue?: Date;
+  /** Sets the maximum date value */
   maxValue?: Date;
+  /** Determines if compact styling is used */
   isCompact?: boolean;
+  /** Sets the locale */
   locale?: string;
 }
 

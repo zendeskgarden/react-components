@@ -30,66 +30,41 @@ import { DatepickerContext } from './utils/useDatepickerContext';
 import { StyledMenu, StyledMenuWrapper } from '../../styled';
 
 export interface IDatepickerProps {
-  /**
-   * The selected date to display
-   */
+  /** Sets the selected date */
   value?: Date;
   /**
-   * Returns the parsed date
+   * Handles changes to the selected date
+   *
+   * @param {Date} date The selected date to use
    */
   onChange?: (date: Date) => void;
-  /**
-   * Allows customization of date formatting within input.
-   */
+  /** Formats the date */
   formatDate?: (date: Date) => string;
-  /**
-   * Accepts [all valid Intl locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation)
-   */
+  /** Sets the locale. This accepts [all valid international locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation). */
   locale?: string;
-  /**
-   * Minimum value. Users are still able to manually enter a date below this value.
-   */
+  /** Sets the minimum date value. Note: Users can still manually enter a date below this value. */
   minValue?: Date;
-  /**
-   * Maximum value. Users are still able to manually enter a date above this value.
-   */
+  /** Sets the maximum value. Note: Users can still manually enter a date below this value. */
   maxValue?: Date;
-  /**
-   * Show compact styling
-   */
+  /** Show compact styling */
   isCompact?: boolean;
   /**
-   * Override default date parsing. Receives a localized input value and returns a `Date` object.
+   * Parses the date with a custom format and returns a `Date` object
+   *
+   * @param {string} inputValue The format used for parsing
    */
   customParseDate?: (inputValue: string) => Date;
-  /**
-   * The ref key used to position the dropdown
-   * @default ref
-   */
+  /** Sets the reference key used to position the dropdown */
   refKey?: string;
-  /**
-   * Locale-aware placement for the dropdown element
-   * @default bottom-start
-   **/
+  /** Sets the locale-aware placement for the dropdown element */
   placement?: GARDEN_PLACEMENT;
-  /**
-   * Passes options to [Popper.JS Instance](https://github.com/FezVrasta/popper.js/blob/master/docs/_includes/popper-documentation.md#new-popperreference-popper-options)
-   */
+  /** Sets the popper modifiers and passes their options to the [Popper.JS Instance](https://github.com/FezVrasta/popper.js/blob/master/docs/_includes/popper-documentation.md#new-popperreference-popper-options) */
   popperModifiers?: any;
-  /**
-   * Show open animations
-   * @default true
-   */
+  /** Determines if the open animations are shown */
   isAnimated?: boolean;
-  /**
-   * Allow dropdown to reposition during browser resize events
-   * @default true
-   */
+  /** Determines if the is dropdown repositioned when the browser resizes */
   eventsEnabled?: boolean;
-  /**
-   * The z-index of the dropdown
-   * @default 1000
-   */
+  /** Sets the z-index property for the dropdown */
   zIndex?: number;
 }
 

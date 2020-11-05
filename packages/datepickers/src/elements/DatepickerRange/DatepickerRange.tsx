@@ -15,37 +15,34 @@ import Calendar from './components/Calendar';
 
 export interface IDatepickerRangeProps {
   locale?: string;
-  /**
-   * The start date to display
-   */
+  /** Sets the start date to display */
   startValue?: Date;
-  /**
-   * The end date to display
-   */
+  /** Sets the end date to display */
   endValue?: Date;
-  /**
-   * Minimum value. Users are still able to manually enter a date below this value.
-   */
+  /** Sets the minimum date value. Note: Users can still manually enter a date below this value. */
   minValue?: Date;
-  /**
-   * Maximum value. Users are still able to manually enter a date above this value.
-   */
+  /** Sets the maximum date value. Note: Users can still manually enter a date above this value. */
   maxValue?: Date;
   /**
-   * Returns the parsed start and end dates
+   * Handles changes to the start and end dates
+   *
+   * @param {Date} startValue The start date to use
+   * @param {Date} endValue The end date to use
    */
   onChange?: (values: { startValue?: Date; endValue?: Date }) => void;
   /**
-   * Allows customization of date formatting within input.
+   * Formats the date
+   *
+   * @param {Date} date The date to format
    */
   formatDate?: (date: Date) => string;
   /**
-   * Override default date parsing
+   * Parses the date with a custom format and returns a `Date` object
+   *
+   * @param {string} inputValue The format used for parsing
    */
   customParseDate?: (inputValue?: string) => Date;
-  /**
-   * Show compact styling
-   */
+  /** Determines if compact styling is used */
   isCompact?: boolean;
 }
 
