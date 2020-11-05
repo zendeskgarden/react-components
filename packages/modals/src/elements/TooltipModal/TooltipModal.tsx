@@ -205,6 +205,7 @@ TooltipModal.propTypes = {
   referenceElement: PropTypes.any,
   popperModifiers: PropTypes.any,
   placement: PropTypes.any,
+  isAnimated: PropTypes.bool,
   hasArrow: PropTypes.bool,
   zIndex: PropTypes.number,
   onClose: PropTypes.func,
