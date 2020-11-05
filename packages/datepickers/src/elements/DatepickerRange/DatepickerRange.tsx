@@ -34,12 +34,14 @@ export interface IDatepickerRangeProps {
    * Formats the date
    *
    * @param {Date} date The date to format
+   * @return {string}
    */
   formatDate?: (date: Date) => string;
   /**
    * Parses the date with a custom format and returns a `Date` object
    *
    * @param {string} inputValue The format used for parsing
+   * @return {Date}
    */
   customParseDate?: (inputValue?: string) => Date;
   /** Determines if compact styling is used */

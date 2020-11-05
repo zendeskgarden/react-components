@@ -46,12 +46,13 @@ export interface IDatepickerProps {
   minValue?: Date;
   /** Sets the maximum value. Note: Users can still manually enter a date below this value. */
   maxValue?: Date;
-  /** Show compact styling */
+  /** Determines if compact styling is uesed */
   isCompact?: boolean;
   /**
    * Parses the date with a custom format and returns a `Date` object
    *
    * @param {string} inputValue The format used for parsing
+   * @return {Date}
    */
   customParseDate?: (inputValue: string) => Date;
   /** Sets the reference key used to position the dropdown */
