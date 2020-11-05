@@ -84,9 +84,7 @@ Avatar.defaultProps = {
 
 (Avatar as any).Text = StyledText;
 
-/** @component
- * @extends HTMLAttributes<HTMLElement>
- */
+/** @component */
 export default Avatar as React.FunctionComponent<
   IAvatarProps & React.RefAttributes<HTMLElement>
 > & {
