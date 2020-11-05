@@ -11,9 +11,6 @@ import { useCombinedRefs } from '@zendeskgarden/container-utilities';
 import { useAccordionContext, useSectionContext } from '../../../utils';
 import { StyledPanel, StyledInnerPanel } from '../../../styled';
 
-/**
- * @extends HTMLAttributes<HTMLElement>
- */
 export const Panel = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
   const { isCompact, isBare, getPanelProps, expandedSections } = useAccordionContext();
   const panelRef = useCombinedRefs<HTMLElement>(ref);

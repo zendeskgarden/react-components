@@ -18,9 +18,6 @@ interface ILabel {
   isHidden?: boolean;
 }
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
 export const Label = forwardRef<HTMLDivElement, ILabel & HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
     const { currentStepIndex } = useStepContext();
