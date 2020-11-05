@@ -23,6 +23,7 @@ export interface IIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement
   focusInset?: boolean;
   /** Determines if the icon is rotated 180 degrees */
   isRotated?: boolean;
+  /** Determines the size of the icon */
   size?: 'small' | 'medium' | 'large';
 }
 

@@ -14,6 +14,11 @@ import { ButtonGroupContext } from '../utils/useButtonGroupContext';
 
 export interface IButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
   selectedItem?: any;
+  /**
+   * Handles button selection changes
+   *
+   * @param {any} item The item selected
+   */
   onSelect?: (item: any) => void;
 }
 
