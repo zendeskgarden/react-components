@@ -14,6 +14,9 @@ import {
   StyledChevronIcon
 } from '../styled';
 
+/**
+ * @extends HTMLAttributes<HTMLElement>
+ */
 export const Breadcrumb = React.forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
   (props, ref) => {
     const { getContainerProps, getCurrentPageProps } = useBreadcrumb();
