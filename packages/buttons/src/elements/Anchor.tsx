@@ -19,12 +19,6 @@ export interface IAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   isExternal?: boolean;
 }
 
-/**
- * Accepts all `<a>` props
- *
- * @component
- * @name Anchor
- */
 const Anchor: React.FunctionComponent<
   IAnchorProps & React.RefAttributes<HTMLAnchorElement>
 > = React.forwardRef<HTMLAnchorElement, IAnchorProps>(
@@ -55,5 +49,4 @@ Anchor.propTypes = {
   isDanger: PropTypes.bool
 };
 
-/** @component */
 export default Anchor;

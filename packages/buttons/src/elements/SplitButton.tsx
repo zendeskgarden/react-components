@@ -21,5 +21,4 @@ const SplitButton: React.FunctionComponent<HTMLAttributes<HTMLDivElement>> = ({
   </SplitButtonContext.Provider>
 );
 
-/** @component */
 export default SplitButton;

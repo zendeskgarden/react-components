@@ -91,7 +91,6 @@ const EndIcon = (props: IIconProps) => <StyledIcon position="end" {...props} />;
 (Button as any).StartIcon = StartIcon;
 (Button as any).EndIcon = EndIcon;
 
-/** @component */
 export default Button as React.FunctionComponent<
   IButtonProps & React.RefAttributes<HTMLButtonElement>
 > & {
