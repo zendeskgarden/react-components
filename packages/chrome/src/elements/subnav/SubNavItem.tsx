@@ -11,6 +11,7 @@ import { StyledSubNavItem } from '../../styled';
 import { useChromeContext } from '../../utils/useChromeContext';
 
 interface ISubNavItemProps {
+  /** Determines if the current item is in the sub-navigation */
   isCurrent?: boolean;
 }
 

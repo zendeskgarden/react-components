@@ -13,21 +13,13 @@ import { useNavContext } from '../../utils/useNavContext';
 import { useChromeContext } from '../../utils/useChromeContext';
 
 interface INavItemProps extends HTMLAttributes<any> {
-  /**
-   * Applies product-specific color palette
-   **/
+  /** Sets a product-specific color palette */
   product?: PRODUCT;
-  /**
-   * Indicate which item is current in the nav
-   **/
+  /** Determines if the current item is in the navigation */
   isCurrent?: boolean;
-  /**
-   * Indicate that the item contains a product logo
-   */
+  /** Determines if the item contains a product logo and prepares the item content to display the logo */
   hasLogo?: boolean;
-  /**
-   * Indicate that the item contains the company brandmark
-   */
+  /** Determines if the item contains a brandmark and prepares the item content to display the brandmark */
   hasBrandmark?: boolean;
 }
 
