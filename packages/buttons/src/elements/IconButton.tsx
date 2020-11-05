@@ -10,18 +10,21 @@ import PropTypes from 'prop-types';
 import { StyledIconButton, StyledIcon } from '../styled';
 import { useSplitButtonContext } from '../utils/useSplitButtonContext';
 
+/**
+ * @extends ButtonHTMLAttributes<HTMLButtonElement>
+ */
 export interface IIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  /** Applies primary button styling */
+  /** Determines if primary button styling is used */
   isPrimary?: boolean;
-  /** Apply danger styling */
+  /** Determines if danger styling is used */
   isDanger?: boolean;
-  /** Applies basic button styling */
+  /** Determines if basic button styling is used */
   isBasic?: boolean;
-  /** Applies pill styling */
+  /** Determines if pill styling is used */
   isPill?: boolean;
-  /** Applies inset `box-shadow` styling on focus */
+  /** Determines if inset `box-shadow` styling is applied on focus */
   focusInset?: boolean;
-  /** Rotates icon 180 degrees */
+  /** Determines if the icon is rotated 180 degrees */
   isRotated?: boolean;
   size?: 'small' | 'medium' | 'large';
 }

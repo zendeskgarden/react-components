@@ -11,21 +11,25 @@ import { StyledButton, StyledIcon } from '../styled';
 import { useButtonGroupContext } from '../utils/useButtonGroupContext';
 import { useSplitButtonContext } from '../utils/useSplitButtonContext';
 
+/**
+ * @extends ButtonHTMLAttributes<HTMLButtonElement>
+ */
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  /** Apply danger styling */
+  /** Determines if danger styling is used */
   isDanger?: boolean;
+  /** Determines the button size */
   size?: 'small' | 'medium' | 'large';
-  /** Stretch the button to its container width */
+  /** Determines if the button stretches to fit its container width */
   isStretched?: boolean;
-  /** Applies primary button styling */
+  /** Determines if primary button styling is used */
   isPrimary?: boolean;
-  /** Applies basic button styling */
+  /** Determines if basic button styling is used */
   isBasic?: boolean;
-  /** Applies link (anchor) button styling */
+  /** Determines if link (anchor) button styling is used */
   isLink?: boolean;
-  /** Applies pill styling */
+  /** Determines if pill styling is used */
   isPill?: boolean;
-  /** Applies inset `box-shadow` styling on focus */
+  /** Determines if inset `box-shadow` styling is applied on focus */
   focusInset?: boolean;
   /** @ignore prop used by `ButtonGroup` */
   isSelected?: boolean;
@@ -77,6 +81,9 @@ Button.defaultProps = {
   size: 'medium'
 };
 
+/**
+ * @extends HTMLAttributes<HTMLElement>
+ */
 export interface IIconProps extends HTMLAttributes<HTMLElement> {
   isRotated?: boolean;
   children: any;
