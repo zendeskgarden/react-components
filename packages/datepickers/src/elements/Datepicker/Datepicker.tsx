@@ -42,9 +42,9 @@ export interface IDatepickerProps {
   formatDate?: (date: Date) => string;
   /** Sets the locale. This accepts [all valid international locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation). */
   locale?: string;
-  /** Sets the minimum date value. Note: Users can still manually enter a date below this value. */
+  /** Sets the minimum value, but users can still enter a date below this value. */
   minValue?: Date;
-  /** Sets the maximum value. Note: Users can still manually enter a date below this value. */
+  /** Sets the maximum value, but users can still enter a date above this value. */
   maxValue?: Date;
   /** Determines if compact styling is uesed */
   isCompact?: boolean;
