@@ -85,7 +85,9 @@ Button.defaultProps = {
  * @extends HTMLAttributes<HTMLElement>
  */
 export interface IIconProps extends HTMLAttributes<HTMLElement> {
+  /** Determines if the button is rotated */
   isRotated?: boolean;
+  /** Adds children to the button object */
   children: any;
 }
 
