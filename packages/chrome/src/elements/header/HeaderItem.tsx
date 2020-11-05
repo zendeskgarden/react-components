@@ -19,7 +19,7 @@ interface IHeadItemProps
   extends IStyledBaseHeaderItemProps,
     IStyledLogoHeaderItemProps,
     HTMLAttributes<HTMLElement> {
-  /** Determines if the header contains a logo and prepares the header content for the logo space */
+  /** Determines if the header contains a logo */
   hasLogo?: boolean;
 }
 

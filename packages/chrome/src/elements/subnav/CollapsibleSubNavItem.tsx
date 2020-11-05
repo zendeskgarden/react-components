@@ -25,7 +25,7 @@ export interface ICollapsibleSubNavItemProps
   /**
    * Handles item expansion changes
    *
-   * @param {boolean} isExpanded Determines if the item is expanded
+   * @param {boolean} isExpanded Indicates if the item is expanded
    */
   onChange?: (isExpanded: boolean) => void;
 }

@@ -17,9 +17,9 @@ interface INavItemProps extends HTMLAttributes<any> {
   product?: PRODUCT;
   /** Determines if the current item is in the navigation */
   isCurrent?: boolean;
-  /** Determines if the item contains a product logo and prepares the item content to display the logo */
+  /** Determines if the item contains a product logo */
   hasLogo?: boolean;
-  /** Determines if the item contains a brandmark and prepares the item content to display the brandmark */
+  /** Determines if the item contains a brandmark */
   hasBrandmark?: boolean;
 }
 
