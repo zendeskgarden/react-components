@@ -39,7 +39,7 @@ interface IAccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange
   isBare?: boolean;
   /** Determines if panels can be collapsed in an uncontrolled accordion */
   isCollapsible?: boolean;
-  /** Reduces padding on the accordion headers and panels */
+  /** Reduces the padding on the accordion headers and panels */
   isCompact?: boolean;
   /** Determines if multiple panels can be expanded simultaneously in an uncontrolled accordion*/
   isExpandable?: boolean;
