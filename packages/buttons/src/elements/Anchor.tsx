@@ -13,8 +13,8 @@ export interface IAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   /** Determines if danger styling is used */
   isDanger?: boolean;
   /**
-   * Determines if the anchor navigates to an external resource.
-   * Applies `target="_blank"` and `rel="noopener noreferrer"` to ensure safe [cross-origin destination links](https://web.dev/external-anchors-use-rel-noopener/).
+   * Determines if the anchor navigates to an external resource. When enabled, target="_blank"
+   * and rel="noopener noreferrer" attributes are added to ensure safe [cross-origin destination links](https://web.dev/external-anchors-use-rel-noopener/).
    **/
   isExternal?: boolean;
 }

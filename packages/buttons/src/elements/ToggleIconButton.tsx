@@ -11,8 +11,8 @@ import IconButton, { IIconButtonProps } from './IconButton';
 
 export interface IToggleIconButtonProps extends IIconButtonProps {
   /**
-   * Determines if the icon button is pressed.
-   * Use `mixed` to indicate if the toggle controls other elements which don't share the same value.
+   * Determines if the icon button is pressed. Use `mixed` to indicate if the toggle controls
+   * other elements which don't share the same value.
    */
   isPressed?: boolean | 'mixed';
 }
