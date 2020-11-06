@@ -18,6 +18,7 @@ export default {
 
 export const Default: Story = ({
   isLarge,
+  isDanger,
   isAnimated,
   isCentered,
   focusOnMount,
@@ -30,7 +31,9 @@ export const Default: Story = ({
     <Grid>
       <Row>
         <Col textAlign="center">
-          <Button onClick={() => setVisible(true)}>Open modal</Button>
+          <Button isDanger={isDanger} onClick={() => setVisible(true)}>
+            Open modal
+          </Button>
           {visible && (
             <Modal
               id={id}
@@ -41,7 +44,7 @@ export const Default: Story = ({
               restoreFocus={restoreFocus}
               onClose={() => setVisible(false)}
             >
-              <Header>Brussels Sprout</Header>
+              <Header isDanger={isDanger}>Brussels Sprout</Header>
               <Body>
                 Soko radicchio bunya nuts gram dulse silver beet parsnip napa cabbage lotus root sea
                 lettuce brussels sprout cabbage.
@@ -65,7 +68,7 @@ export const Default: Story = ({
                   </Button>
                 </FooterItem>
                 <FooterItem>
-                  <Button isPrimary onClick={() => setVisible(false)}>
+                  <Button isPrimary isDanger={isDanger} onClick={() => setVisible(false)}>
                     Save
                   </Button>
                 </FooterItem>
@@ -82,6 +85,9 @@ export const Default: Story = ({
 Default.argTypes = {
   backdropProps: { control: { disable: true } },
   isLarge: {
+    control: 'boolean'
+  },
+  isDanger: {
     control: 'boolean'
   },
   isAnimated: {
