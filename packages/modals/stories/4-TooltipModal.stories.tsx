@@ -1,24 +1,43 @@
-```jsx
-const { getColor } = require('@zendeskgarden/react-theming/src');
-const { Button } = require('@zendeskgarden/react-buttons/src');
-const { Field, Label, Toggle } = require('@zendeskgarden/react-forms/src');
-const { Code } = require('@zendeskgarden/react-typography/src');
-const { Well } = require('@zendeskgarden/react-notifications/src');
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import React from 'react';
+import styled from 'styled-components';
+import { getColor } from '@zendeskgarden/react-theming';
+import { Story, Meta } from '@storybook/react';
+import { Button } from '@zendeskgarden/react-buttons';
+import { TooltipModal } from '@zendeskgarden/react-modals';
+import { Col, Grid, Row } from '@zendeskgarden/react-grid';
+
+export default {
+  title: 'Components/Modals/TooltipModal',
+  component: TooltipModal
+} as Meta;
 
 const StyledProgress = styled(TooltipModal.FooterItem)`
+  flex-grow: 1;
   color: ${p => getColor('neutralHue', 600, p.theme)};
   font-size: ${p => p.theme.fontSizes.sm};
-  flex-grow: 1;
 `;
 
-const Example = () => {
-  const [hasArrow, setHasArrow] = React.useState(true);
-  const [isAnimated, setIsAnimated] = React.useState(true);
-  const [step, setStep] = React.useState();
-  const step1Ref = React.useRef();
-  const step2Ref = React.useRef();
-  const step3Ref = React.useRef();
-  const step4Ref = React.useRef();
+export const Default: Story = ({
+  id,
+  zIndex,
+  hasArrow,
+  isAnimated,
+  restoreFocus,
+  focusOnMount,
+  backdropProps
+}) => {
+  const [step, setStep] = React.useState<any>();
+  const step1Ref = React.useRef(null);
+  const step2Ref = React.useRef(null);
+  const step3Ref = React.useRef(null);
+  const step4Ref = React.useRef(null);
 
   const referenceElement = React.useMemo(() => {
     if (step === 1) {
@@ -48,33 +67,7 @@ const Example = () => {
 
   return (
     <Grid>
-      <Row className="u-mb-md">
-        <Col>
-          <Well isRecessed>
-            <Row>
-              <Col>
-                <Field>
-                  <Toggle checked={hasArrow} onChange={e => setHasArrow(e.target.checked)}>
-                    <Label>
-                      <Code>hasArrow</Code>
-                    </Label>
-                  </Toggle>
-                </Field>
-              </Col>
-              <Col>
-                <Field>
-                  <Toggle checked={isAnimated} onChange={e => setIsAnimated(e.target.checked)}>
-                    <Label>
-                      <Code>isAnimated</Code>
-                    </Label>
-                  </Toggle>
-                </Field>
-              </Col>
-            </Row>
-          </Well>
-        </Col>
-      </Row>
-      <Row>
+      <Row justifyContent="center">
         <Col>
           <Button ref={step1Ref} onClick={() => setStep(1)}>
             Step 1
@@ -96,12 +89,18 @@ const Example = () => {
           </Button>
         </Col>
       </Row>
+
       <TooltipModal
-        referenceElement={referenceElement}
-        placement={placement}
+        id={id}
+        zIndex={zIndex}
         hasArrow={hasArrow}
+        placement={placement}
         isAnimated={isAnimated}
+        restoreFocus={restoreFocus}
+        focusOnMount={focusOnMount}
+        backdropProps={backdropProps}
         onClose={() => setStep(undefined)}
+        referenceElement={referenceElement}
       >
         <TooltipModal.Title>Title for step {step}</TooltipModal.Title>
         <TooltipModal.Body>
@@ -142,5 +141,29 @@ const Example = () => {
   );
 };
 
-<Example />;
-```
+Default.argTypes = {
+  isAnimated: {
+    control: 'boolean'
+  },
+  hasArrow: {
+    control: 'boolean'
+  },
+  zIndex: {
+    control: 'boolean'
+  },
+  focusOnMount: {
+    control: 'boolean'
+  },
+  restoreFocus: {
+    control: 'boolean'
+  },
+  id: {
+    control: 'text'
+  },
+  referenceElement: { control: { disable: true } },
+  popperModifiers: { control: { disable: true } },
+  backdropProps: { control: { disable: true } },
+  placement: {
+    control: { disable: true }
+  }
+};

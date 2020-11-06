@@ -5,14 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export { StyledBackdrop, IStyledBackdropProps } from './StyledBackdrop';
+export { StyledBackdrop } from './StyledBackdrop';
+export type { IStyledBackdropProps } from './StyledBackdrop';
 export { StyledBody } from './StyledBody';
 export { StyledClose } from './StyledClose';
 export { StyledFooter } from './StyledFooter';
 export { StyledFooterItem } from './StyledFooterItem';
-export { StyledHeader, IStyledHeaderProps } from './StyledHeader';
+export { StyledHeader } from './StyledHeader';
+export type { IStyledHeaderProps } from './StyledHeader';
 export { StyledDangerIcon } from './StyledDangerIcon';
-export { StyledModal, IStyledModalProps } from './StyledModal';
+export { StyledModal } from './StyledModal';
+export type { IStyledModalProps } from './StyledModal';
 export { StyledTooltipModalBackdrop } from './StyledTooltipModalBackdrop';
 export { StyledTooltipWrapper } from './StyledTooltipWrapper';
 export { StyledTooltipModal } from './StyledTooltipModal';
