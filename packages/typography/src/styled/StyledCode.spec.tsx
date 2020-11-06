@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { getColor } from '@zendeskgarden/react-theming';
+import { getColor, PALETTE } from '@zendeskgarden/react-theming';
 import { StyledCode } from './StyledCode';
 
 describe('StyledCode', () => {
@@ -30,7 +30,7 @@ describe('StyledCode', () => {
       </a>
     );
 
-    expect(getByTestId('test')).toHaveStyleRule('color', 'inherit', { modifier: 'a &' });
+    expect(getByTestId('test')).toHaveStyleRule('color', PALETTE.blue[700], { modifier: 'a &' });
   });
 
   describe('size', () => {
