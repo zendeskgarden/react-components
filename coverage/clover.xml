@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1604685652629" clover="3.2.0">
-  <project timestamp="1604685652629" name="All files">
+<coverage generated="1604947169200" clover="3.2.0">
+  <project timestamp="1604947169200" name="All files">
     <metrics statements="6834" coveredstatements="6690" conditionals="2727" coveredconditionals="2473" methods="1436" coveredmethods="1404" elements="10997" coveredelements="10567" complexity="0" loc="6834" ncloc="6834" packages="113" files="449" classes="449"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
@@ -85,20 +85,20 @@
         <line num="21" count="8" type="stmt"/>
         <line num="22" count="8" type="stmt"/>
         <line num="23" count="8" type="stmt"/>
-        <line num="60" count="8" type="stmt"/>
-        <line num="74" count="11" type="stmt"/>
-        <line num="80" count="11" type="stmt"/>
-        <line num="82" count="11" type="stmt"/>
-        <line num="83" count="11" type="stmt"/>
+        <line num="64" count="8" type="stmt"/>
+        <line num="78" count="11" type="stmt"/>
+        <line num="84" count="11" type="stmt"/>
         <line num="86" count="11" type="stmt"/>
-        <line num="98" count="11" type="stmt"/>
-        <line num="106" count="8" type="stmt"/>
-        <line num="107" count="8" type="stmt"/>
-        <line num="108" count="8" type="stmt"/>
-        <line num="109" count="8" type="stmt"/>
+        <line num="87" count="11" type="stmt"/>
+        <line num="90" count="11" type="stmt"/>
+        <line num="102" count="11" type="stmt"/>
+        <line num="110" count="8" type="stmt"/>
         <line num="111" count="8" type="stmt"/>
+        <line num="112" count="8" type="stmt"/>
         <line num="113" count="8" type="stmt"/>
-        <line num="119" count="1" type="stmt"/>
+        <line num="115" count="8" type="stmt"/>
+        <line num="117" count="8" type="stmt"/>
+        <line num="123" count="1" type="stmt"/>
       </file>
     </package>
     <package name="accordions.src.elements.accordion.components">
@@ -242,17 +242,17 @@
         <line num="10" count="4" type="stmt"/>
         <line num="11" count="4" type="stmt"/>
         <line num="12" count="4" type="stmt"/>
-        <line num="19" count="4" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
         <line num="23" count="1" type="stmt"/>
-        <line num="24" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="1" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
+        <line num="26" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="27" count="1" type="stmt"/>
         <line num="28" count="1" type="stmt"/>
-        <line num="33" count="1" type="stmt"/>
-        <line num="48" count="4" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
         <line num="50" count="4" type="stmt"/>
+        <line num="52" count="4" type="stmt"/>
       </file>
       <file name="Step.tsx" path="/home/circleci/project/packages/accordions/src/elements/stepper/components/Step.tsx">
         <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
