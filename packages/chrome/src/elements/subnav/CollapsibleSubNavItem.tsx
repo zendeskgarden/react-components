@@ -18,9 +18,9 @@ import {
 
 export interface ICollapsibleSubNavItemProps
   extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onChange'> {
-  /** Sets the header */
+  /** Sets the collapsible header content */
   header?: React.ReactNode;
-  /** Expands the nav item */
+  /** Indicates if the nav item is expanded */
   isExpanded?: boolean;
   /**
    * Handles item expansion changes

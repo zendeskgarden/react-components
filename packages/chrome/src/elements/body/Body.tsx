@@ -11,7 +11,7 @@ import { StyledBody } from '../../styled';
 import { BodyContext } from '../../utils/useBodyContext';
 
 interface IBodyProps {
-  /** Applies a footer and prepares the body content height for the footer space */
+  /** Prepares the body's content height for the footer */
   hasFooter?: boolean;
 }
 
