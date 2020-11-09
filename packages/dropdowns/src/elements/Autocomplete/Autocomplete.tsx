@@ -22,7 +22,7 @@ interface IAutocompleteProps extends HTMLAttributes<HTMLDivElement> {
   isBare?: boolean;
   /** Disables the element's interactivity */
   disabled?: boolean;
-  /** Applies an inset `box-shadow` styling */
+  /** Applies an inset `box-shadow` styling on focus */
   focusInset?: boolean;
   /** Sets the the element's menu to open */
   isOpen?: boolean;
@@ -30,7 +30,7 @@ interface IAutocompleteProps extends HTMLAttributes<HTMLDivElement> {
   validation?: VALIDATION;
   /** Sets the input ref for DOM access */
   inputRef?: React.Ref<HTMLInputElement>;
-  /** Sets and renders the start icon */
+  /** Renders the start icon */
   start?: any;
 }
 

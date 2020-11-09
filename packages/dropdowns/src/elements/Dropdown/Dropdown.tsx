@@ -21,16 +21,19 @@ export interface IDropdownProps {
   isOpen?: boolean;
   /** Sets the selected item for the dropdown */
   selectedItem?: any;
-  /** Sets the selected items for the dropdown */
+  /** Sets the selected items for the dropdown when multi-select is enabled. For an example,
+   * see [Multiselect](https://garden.zendesk.com/components/multiselect).
+   */
   selectedItems?: any[];
   /** Sets the highlighted dropdown index */
   highlightedIndex?: number;
-  /** Sets the input value */
+  /** Sets the current input value */
   inputValue?: string;
   /**
    * Handles dropdown selection changes regardless of the previously selected item
    *
-   * @param {any} selectedItem The dropdown item being selected
+   * @param {any} selectedItem The dropdown item or items being selected
+   * @param {ControllerStateAndHelpers<any>} stateAndHelpers The state and helpers for the change. This also calls the children functions.
    */
   onSelect?: (selectedItem: any | null, stateAndHelpers: ControllerStateAndHelpers<any>) => void;
   /**

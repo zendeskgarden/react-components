@@ -28,13 +28,13 @@ interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
   eventsEnabled?: boolean;
   /** Sets the `z-index` */
   zIndex?: number;
-  /** Sets the locale-aware placement for the dropdown menu */
+  /** Sets the RTL-aware placement for the dropdown menu */
   placement?: GARDEN_PLACEMENT;
   /** Enables appearance and dismissal menu animations */
   isAnimated?: boolean;
   /** Applies compact styling */
   isCompact?: boolean;
-  /** Applies an arrow icon to the menu. For example, see this [arrow sample](https://garden.zendesk.com/components/menu#arrow). */
+  /** Applies an arrow icon to the menu. For an example, see [Arrow](https://garden.zendesk.com/components/menu#arrow). */
   hasArrow?: boolean;
   /** Sets the maximum height for the menu. The menu contents will scroll when the maximum height is exceeded. */
   maxHeight?: string;

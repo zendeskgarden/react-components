@@ -47,18 +47,18 @@ interface IMultiselectProps extends HTMLAttributes<HTMLDivElement> {
   /** Sets the maximum number of items displayed when collapsed */
   maxItems?: number;
   /**
-   * Handles when more items are shown during expansion, and updates the number value in the "+ NUMBER more" text.
-   * This callback only applies when the total number of items exceeds `maxItems`.
+   * Handles when more items are shown during expansion. This callback only applies when the total
+   * number of items exceeds `maxItems`.
    *
    * @param {number} index The index being expanded
-   * @return {string}
+   * @returns {string} Overrides the *N more* default text
    */
   renderShowMore?: (index: number) => string;
   /**
    * Handles rendering for each item
    *
    * @param {value: any; removeValue: () => void} options The index being expanded
-   * @return {React.ReactElement}
+   * @returns {React.ReactElement}
    */
   renderItem: (options: { value: any; removeValue: () => void }) => React.ReactElement;
   /** Sets the input reference for DOM access */
