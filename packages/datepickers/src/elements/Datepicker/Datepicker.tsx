@@ -59,7 +59,7 @@ export interface IDatepickerProps {
   refKey?: string;
   /** Sets the locale-aware placement for the dropdown element */
   placement?: GARDEN_PLACEMENT;
-  /** Sets the popper modifiers and passes their options to the [Popper.JS Instance](https://github.com/FezVrasta/popper.js/blob/master/docs/_includes/popper-documentation.md#new-popperreference-popper-options) */
+  /** Sets the popper modifiers and passes their options to the [Popper Instance](https://popper.js.org/docs/v2/modifiers/) */
   popperModifiers?: any;
   /** Applies opening animations */
   isAnimated?: boolean;
