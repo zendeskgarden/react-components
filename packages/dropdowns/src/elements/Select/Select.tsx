@@ -20,19 +20,19 @@ import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 
 interface ISelectProps extends HTMLAttributes<HTMLDivElement> {
-  /** Determines if compact styling is used */
+  /** Applies compact styling */
   isCompact?: boolean;
-  /** Determines if the borders and padding are removed */
+  /** Removes the borders and padding  */
   isBare?: boolean;
-  /** Determines if the element is interactive */
+  /** Disables the element's interactivity */
   disabled?: boolean;
-  /** DeterminesApplies inset `box-shadow` styling on focus */
+  /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Indicates that the element's menu is open */
+  /** Sets the element's menu to open */
   isOpen?: boolean;
-  /** Defines the element's validation state */
+  /** Sets the element's validation state */
   validation?: VALIDATION;
-  /** Defines the icon rendered in the start position */
+  /** Sets the icon rendered in the start position */
   start?: any;
 }
 

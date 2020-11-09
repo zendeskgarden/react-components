@@ -17,7 +17,7 @@ import { DropdownContext } from '../../utils/useDropdownContext';
 export const REMOVE_ITEM_STATE_TYPE = 'REMOVE_ITEM';
 
 export interface IDropdownProps {
-  /** Determines if the dropdown is open */
+  /** Sets the dropdown to open */
   isOpen?: boolean;
   /** Sets the selected item for the dropdown */
   selectedItem?: any;
@@ -90,7 +90,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
 
   /**
    * Add additional keyboard nav to the basics provided by Downshift
-   **/
+   */
   const customGetInputProps = (
     { onKeyDown, ...other }: any,
     downshift: ControllerStateAndHelpers<any>,
@@ -187,7 +187,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
               /**
                * Customize the changes returned from `onStateChange` as
                * Downshift has no concept of a "multiselect".
-               **/
+               */
               (changes as any).selectedItems = updatedSelectedItems;
               delete changes.selectedItem;
 

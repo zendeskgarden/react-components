@@ -30,15 +30,15 @@ import useFieldContext from '../../utils/useFieldContext';
 import { REMOVE_ITEM_STATE_TYPE } from '../Dropdown/Dropdown';
 
 interface IMultiselectProps extends HTMLAttributes<HTMLDivElement> {
-  /** Determines if compact styling is used */
+  /** Applies compact styling */
   isCompact?: boolean;
-  /** Determines if borders and padding are removed */
+  /** Removes the borders and padding */
   isBare?: boolean;
-  /** Determines if the element is interactive */
+  /** Disables the element's interactivity */
   disabled?: boolean;
-  /** Determines if the `box-shadow` styling is applied when the element is in focus */
+  /** Applies `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Determines if the element's menu is open */
+  /** Sets the element's menu to open */
   isOpen?: boolean;
   /** Sets the placeholder text which appears when no items are selected */
   placeholder?: string;
@@ -293,7 +293,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
                   /**
                    * Prevent anchor from receiving focus on mouse down.
                    * This allows the input to receive focus.
-                   **/
+                   */
                   e.preventDefault();
                 }}
               >

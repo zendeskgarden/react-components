@@ -24,7 +24,7 @@ import { MenuContext } from '../../utils/useMenuContext';
 interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
   /** Sets the [Popper](https://popper.js.org/docs/v2/modifiers/) modifiers */
   popperModifiers?: Modifiers;
-  /** Determines if events are enabled */
+  /** Enables events */
   eventsEnabled?: boolean;
   /** Sets the z-index */
   zIndex?: number;
@@ -32,11 +32,11 @@ interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
    * from the default Popper placements and accommodates RTL layouts.
    */
   placement?: GARDEN_PLACEMENT;
-  /** Determines if the menu is animated */
+  /** Enables menu animations */
   isAnimated?: boolean;
-  /** Determines if compact styling is used */
+  /** Applies compact styling */
   isCompact?: boolean;
-  /** Determines if the menu uses an arrow icon */
+  /** Applies an arrow icon to the menu */
   hasArrow?: boolean;
   /** Sets the maximum height for the menu */
   maxHeight?: string;
@@ -74,7 +74,7 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
      * Recalculate popper placement while open to allow animations to complete.
      * This must be ran every render to allow for the number of items to change
      * and still be placed correctly.
-     **/
+     */
     if (isOpen) {
       scheduleUpdateRef.current && scheduleUpdateRef.current();
     }
@@ -172,7 +172,7 @@ Menu.propTypes = {
   /**
    * These placements differ from the default naming of Popper.JS placements to help
    * assist with RTL layouts.
-   **/
+   */
   placement: PropTypes.oneOf([
     'auto',
     'top',

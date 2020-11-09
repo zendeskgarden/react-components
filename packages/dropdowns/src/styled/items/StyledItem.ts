@@ -39,7 +39,7 @@ const getColorStyles = (props: IStyledItemProps & ThemeProps<DefaultTheme>) => {
 /**
  * 1. Allows an item to contain a positioned sub-menu.
  * 2. Reset stacking context for sub-menu css-arrows.
- **/
+ */
 export const StyledItem = styled.li.attrs<IStyledItemProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,

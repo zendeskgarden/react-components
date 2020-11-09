@@ -16,15 +16,15 @@ import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 
 interface IAutocompleteProps extends HTMLAttributes<HTMLDivElement> {
-  /** Determines if compact styling is used */
+  /** Applies compact styling */
   isCompact?: boolean;
-  /** Determines if the borders and padding are removed */
+  /** Removes the borders and padding */
   isBare?: boolean;
-  /** Determines if the element is not interactive */
+  /** Disables the element's interactivity */
   disabled?: boolean;
-  /** Determines if an inset `box-shadow` styling is applied on focus */
+  /** Applies an inset `box-shadow` styling */
   focusInset?: boolean;
-  /** Determines if the element's menu is open */
+  /** Sets the the element's menu to open */
   isOpen?: boolean;
   /** Sets the element's validation state */
   validation?: VALIDATION;
