@@ -38,7 +38,12 @@ export interface IDatepickerProps {
    * @param {Date} date The selected date to use
    */
   onChange?: (date: Date) => void;
-  /** Formats the date */
+  /**
+   * Formats the date to a string. The result is displayed in the date input box when a date is selected.
+   *
+   * @param {Date} date The date to format
+   * @returns {string}
+   */
   formatDate?: (date: Date) => string;
   /** Sets the locale. This accepts
    * [all valid `Intl` locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation).
@@ -59,7 +64,7 @@ export interface IDatepickerProps {
   customParseDate?: (inputValue: string) => Date;
   /** Sets the reference key used to position the dropdown */
   refKey?: string;
-  /** Sets the locale-aware placement for the dropdown element */
+  /** Sets the RTL-aware placement for the dropdown element */
   placement?: GARDEN_PLACEMENT;
   /** Sets the popper modifiers and passes their options to the [Popper Instance](https://popper.js.org/docs/v2/modifiers/) */
   popperModifiers?: any;
