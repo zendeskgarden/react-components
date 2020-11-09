@@ -22,7 +22,7 @@ import {
 import { MenuContext } from '../../utils/useMenuContext';
 
 interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
-  /** Sets the [Popper](https://popper.js.org/docs/v2/modifiers/) modifiers */
+  /** Sets the [Popper modifiers](https://popper.js.org/docs/v2/modifiers/) */
   popperModifiers?: Modifiers;
   /** Enables events */
   eventsEnabled?: boolean;
@@ -32,13 +32,13 @@ interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
    * from the default Popper placements and accommodates RTL layouts.
    */
   placement?: GARDEN_PLACEMENT;
-  /** Enables menu animations */
+  /** Enables appearance and dismissal menu animations */
   isAnimated?: boolean;
   /** Applies compact styling */
   isCompact?: boolean;
-  /** Applies an arrow icon to the menu */
+  /** Applies an arrow icon to the menu. For example, see this [arrow sample](https://garden.zendesk.com/components/menu#arrow). */
   hasArrow?: boolean;
-  /** Sets the maximum height for the menu */
+  /** Sets the maximum height for the menu. The menu contents will scroll when the maximum height is exceeded. */
   maxHeight?: string;
 }
 

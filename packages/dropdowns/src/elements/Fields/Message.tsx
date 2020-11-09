@@ -11,7 +11,7 @@ import { Message as FormMessage } from '@zendeskgarden/react-forms';
 import { VALIDATION } from '../../utils/validation';
 
 export interface IMessageProps extends HTMLAttributes<HTMLDivElement> {
-  /** Sets the validation */
+  /** Show success, warning, and danger validation messages with the Message component. */
   validation?: VALIDATION;
 }
 

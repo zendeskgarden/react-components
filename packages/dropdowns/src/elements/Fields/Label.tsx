@@ -13,7 +13,7 @@ import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 
 interface ILabelProps extends HTMLAttributes<HTMLLabelElement> {
-  /** Applies regular styling to the label */
+  /** Applies regular `font-weight` styling to the label */
   isRegular?: boolean;
 }
 
