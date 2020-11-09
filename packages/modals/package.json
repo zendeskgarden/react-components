@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "version": "8.25.1",
+  "version": "8.25.2",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "files": [
@@ -16,7 +16,6 @@
   ],
   "scripts": {
     "build": "../../utils/scripts/build.sh",
-    "build:demo": "../../utils/scripts/build-demo.sh",
     "start": "../../utils/scripts/start.sh"
   },
   "sideEffects": false,
@@ -40,8 +39,8 @@
   },
   "devDependencies": {
     "@types/react-transition-group": "^4.4.0",
-    "@zendeskgarden/react-theming": "^8.25.1",
-    "@zendeskgarden/svg-icons": "6.22.0"
+    "@zendeskgarden/react-theming": "^8.25.2",
+    "@zendeskgarden/svg-icons": "6.25.1"
   },
   "keywords": [
     "components",
