@@ -36,7 +36,7 @@ interface ICalendarProps {
   minValue?: Date;
   /** Sets the maximum date value */
   maxValue?: Date;
-  /** Determines if compact styling is used */
+  /** Applies compact styling */
   isCompact?: boolean;
   /** Sets the locale */
   locale?: string;

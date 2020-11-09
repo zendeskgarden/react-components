@@ -46,7 +46,7 @@ export interface IDatepickerProps {
   minValue?: Date;
   /** Sets the maximum value, but users can still enter a date above this value. */
   maxValue?: Date;
-  /** Determines if compact styling is uesed */
+  /** Applies compact styling */
   isCompact?: boolean;
   /**
    * Parses the date with a custom format and returns a `Date` object
@@ -61,9 +61,9 @@ export interface IDatepickerProps {
   placement?: GARDEN_PLACEMENT;
   /** Sets the popper modifiers and passes their options to the [Popper.JS Instance](https://github.com/FezVrasta/popper.js/blob/master/docs/_includes/popper-documentation.md#new-popperreference-popper-options) */
   popperModifiers?: any;
-  /** Determines if the open animations are shown */
+  /** Applies opening animations */
   isAnimated?: boolean;
-  /** Determines if the is dropdown repositioned when the browser resizes */
+  /** Respositions the dropdown when the browser resizes */
   eventsEnabled?: boolean;
   /** Sets the z-index property for the dropdown */
   zIndex?: number;

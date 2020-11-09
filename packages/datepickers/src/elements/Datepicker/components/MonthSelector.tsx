@@ -15,7 +15,7 @@ import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-righ
 interface IMonthSelectorProps {
   /** Sets the locale */
   locale?: string;
-  /** Determines if compact styling is used */
+  /** Applies compact styling */
   isCompact: boolean;
 }
 

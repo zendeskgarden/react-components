@@ -44,7 +44,7 @@ export interface IDatepickerRangeProps {
    * @return {Date}
    */
   customParseDate?: (inputValue?: string) => Date;
-  /** Determines if compact styling is used */
+  /** Applies if compact styling */
   isCompact?: boolean;
 }
 
