@@ -10,16 +10,19 @@ import PropTypes from 'prop-types';
 import { StyledAvatar, StyledText } from '../styled';
 
 interface IAvatarProps extends HTMLAttributes<HTMLElement> {
-  /** Set the avatar background color */
+  /** Sets the avatar's background color */
   backgroundColor?: string;
-  /** Set the color for child SVG or `Avatar.Text` components */
+  /** Sets the color for the child SVG or `Avatar.Text` components */
   foregroundColor?: string;
-  /** Set the color of the surface behind the avatar – used to manipulate the inner status rings */
+  /** Sets the color of the surface behind the avatar, which is used to manipulate the inner status rings */
   surfaceColor?: string;
   /** Applies system styling */
   isSystem?: boolean;
+  /** Sets the avatar's size */
   size?: 'extraextrasmall' | 'extrasmall' | 'small' | 'medium' | 'large';
+  /** Sets the avatar's status */
   status?: 'available' | 'away';
+  /** Sets the badge text */
   badge?: string | number;
 }
 
@@ -81,7 +84,6 @@ Avatar.defaultProps = {
 
 (Avatar as any).Text = StyledText;
 
-/** @component */
 export default Avatar as React.FunctionComponent<
   IAvatarProps & React.RefAttributes<HTMLElement>
 > & {
