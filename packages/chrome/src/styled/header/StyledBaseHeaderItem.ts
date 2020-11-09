@@ -17,15 +17,15 @@ const COMPONENT_ID = 'chrome.base_header_item';
 export interface IStyledBaseHeaderItemProps {
   /**
    * Horizontally maximize a flex item in the header to take as much space as possible (i.e. breadcrumb container)
-   **/
+   */
   maxX?: boolean;
   /**
    * Vertically maximize the height for a header item (i.e. contains a search input)
-   **/
+   */
   maxY?: boolean;
   /**
    * Round the border radius for a header item (i.e. user icon)
-   **/
+   */
   isRound?: boolean;
 }
 
