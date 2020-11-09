@@ -26,11 +26,9 @@ interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
   popperModifiers?: Modifiers;
   /** Enables events */
   eventsEnabled?: boolean;
-  /** Sets the z-index */
+  /** Sets the `z-index` */
   zIndex?: number;
-  /** Sets the [Popper](https://popper.js.org/docs/v2/modifiers/) placement. This property differs
-   * from the default Popper placements and accommodates RTL layouts.
-   */
+  /** Sets the locale-aware placement for the dropdown menu */
   placement?: GARDEN_PLACEMENT;
   /** Enables appearance and dismissal menu animations */
   isAnimated?: boolean;
