@@ -10,17 +10,17 @@ import PropTypes from 'prop-types';
 import { StyledAvatar, StyledText } from '../styled';
 
 interface IAvatarProps extends HTMLAttributes<HTMLElement> {
-  /** Sets the avatar background color */
+  /** Sets the avatar's background color */
   backgroundColor?: string;
   /** Sets the color for the child SVG or `Avatar.Text` components */
   foregroundColor?: string;
   /** Sets the color of the surface behind the avatar, which is used to manipulate the inner status rings */
   surfaceColor?: string;
-  /** Determines if the avatar uses system styling */
+  /** Applies system styling */
   isSystem?: boolean;
-  /** Sets the avatar size */
+  /** Sets the avatar's size */
   size?: 'extraextrasmall' | 'extrasmall' | 'small' | 'medium' | 'large';
-  /** Sets the avatar status */
+  /** Sets the avatar's status */
   status?: 'available' | 'away';
   /** Sets the badge text */
   badge?: string | number;
