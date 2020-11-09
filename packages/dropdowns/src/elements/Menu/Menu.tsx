@@ -24,7 +24,7 @@ import { MenuContext } from '../../utils/useMenuContext';
 interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
   /** Sets the [Popper modifiers](https://popper.js.org/docs/v2/modifiers/) */
   popperModifiers?: Modifiers;
-  /** Enables events */
+  /** Enables resize and scroll events */
   eventsEnabled?: boolean;
   /** Sets the `z-index` */
   zIndex?: number;
