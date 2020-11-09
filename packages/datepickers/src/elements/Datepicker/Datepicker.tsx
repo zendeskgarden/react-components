@@ -40,7 +40,9 @@ export interface IDatepickerProps {
   onChange?: (date: Date) => void;
   /** Formats the date */
   formatDate?: (date: Date) => string;
-  /** Sets the locale. This accepts [all valid `Intl` locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation). */
+  /** Sets the locale. This accepts
+   * [all valid `Intl` locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation).
+   */
   locale?: string;
   /** Sets the minimum value, but users can still enter a date below this value */
   minValue?: Date;
