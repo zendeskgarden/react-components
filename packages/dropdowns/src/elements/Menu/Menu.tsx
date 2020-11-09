@@ -22,18 +22,21 @@ import {
 import { MenuContext } from '../../utils/useMenuContext';
 
 interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
-  /** See Popper [documentation](https://popper.js.org/docs/v2/modifiers/) for details */
+  /** Sets the [Popper modifiers](https://popper.js.org/docs/v2/modifiers/) */
   popperModifiers?: Modifiers;
+  /** Enables resize and scroll events */
   eventsEnabled?: boolean;
+  /** Sets the `z-index` */
   zIndex?: number;
-  /**
-   * These placements differ from the default naming of Popper placements to
-   * accommodate RTL layouts
-   **/
+  /** Sets the RTL-aware placement for the dropdown menu */
   placement?: GARDEN_PLACEMENT;
+  /** Enables appearance and dismissal menu animations */
   isAnimated?: boolean;
+  /** Applies compact styling */
   isCompact?: boolean;
+  /** Applies an arrow icon to the menu. For an example, see [Arrow](https://garden.zendesk.com/components/menu#arrow). */
   hasArrow?: boolean;
+  /** Sets the maximum height for the menu. The menu contents will scroll when the maximum height is exceeded. */
   maxHeight?: string;
 }
 
@@ -69,7 +72,7 @@ const Menu: React.FunctionComponent<IMenuProps & ThemeProps<DefaultTheme>> = pro
      * Recalculate popper placement while open to allow animations to complete.
      * This must be ran every render to allow for the number of items to change
      * and still be placed correctly.
-     **/
+     */
     if (isOpen) {
       scheduleUpdateRef.current && scheduleUpdateRef.current();
     }
@@ -167,7 +170,7 @@ Menu.propTypes = {
   /**
    * These placements differ from the default naming of Popper.JS placements to help
    * assist with RTL layouts.
-   **/
+   */
   placement: PropTypes.oneOf([
     'auto',
     'top',
@@ -197,5 +200,4 @@ Menu.defaultProps = {
   zIndex: 1000
 };
 
-/** @component */
 export default withTheme(Menu) as React.FunctionComponent<IMenuProps>;

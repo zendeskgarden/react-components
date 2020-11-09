@@ -17,16 +17,41 @@ import { DropdownContext } from '../../utils/useDropdownContext';
 export const REMOVE_ITEM_STATE_TYPE = 'REMOVE_ITEM';
 
 export interface IDropdownProps {
+  /** Sets the dropdown to open */
   isOpen?: boolean;
+  /** Sets the selected item for the dropdown */
   selectedItem?: any;
+  /** Sets the selected items for the dropdown when multi-select is enabled. For an example,
+   * see [Multiselect](https://garden.zendesk.com/components/multiselect).
+   */
   selectedItems?: any[];
+  /** Sets the highlighted dropdown index */
   highlightedIndex?: number;
+  /** Sets the current input value */
   inputValue?: string;
+  /**
+   * Handles dropdown selection changes regardless of the previously selected item
+   *
+   * @param {any} selectedItem The dropdown item or items being selected
+   * @param {ControllerStateAndHelpers<any>} stateAndHelpers The state and helpers for the change. This also calls the children functions.
+   */
   onSelect?: (selectedItem: any | null, stateAndHelpers: ControllerStateAndHelpers<any>) => void;
+  /**
+   * Handles dropdown state changes
+   *
+   * @param {StateChangeOptions} options The state change options
+   * @param {ControllerStateAndHelpers} stateAndHelpers The state and helpers for the change. This also calls the children functions.
+   */
   onStateChange?: (
     options: StateChangeOptions<any>,
     stateAndHelpers: ControllerStateAndHelpers<any>
   ) => void;
+  /**
+   * Handles input value changes
+   *
+   * @param {string} inputValue The input value for the change
+   * @param {ControllerStateAndHelpers} stateAndHelpers The state and helpers for the change. This also calls the children functions.
+   */
   onInputValueChange?: (
     inputValue: string,
     stateAndHelpers: ControllerStateAndHelpers<any>
@@ -68,7 +93,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
 
   /**
    * Add additional keyboard nav to the basics provided by Downshift
-   **/
+   */
   const customGetInputProps = (
     { onKeyDown, ...other }: any,
     downshift: ControllerStateAndHelpers<any>,
@@ -165,7 +190,7 @@ const Dropdown: React.FunctionComponent<IDropdownProps & ThemeProps<DefaultTheme
               /**
                * Customize the changes returned from `onStateChange` as
                * Downshift has no concept of a "multiselect".
-               **/
+               */
               (changes as any).selectedItems = updatedSelectedItems;
               delete changes.selectedItem;
 

@@ -22,24 +22,22 @@ import useFieldContext from '../../utils/useFieldContext';
 interface ISelectProps extends HTMLAttributes<HTMLDivElement> {
   /** Applies compact styling */
   isCompact?: boolean;
-  /** Removes borders and padding */
+  /** Removes the borders and padding  */
   isBare?: boolean;
-  /** Indicates that the element is not interactive */
+  /** Disables the element's interactivity */
   disabled?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Indicates that the element's menu is open */
+  /** Sets the element's menu to open */
   isOpen?: boolean;
-  /** Defines the element's validation state */
+  /** Sets the element's validation state */
   validation?: VALIDATION;
-  /** Defines the icon rendered in the start position */
+  /** Sets the icon rendered in the start position */
   start?: any;
 }
 
 /**
  * Applies state and a11y attributes to its children. Must be nested within a `<Field>` component.
- *
- * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
   ({ children, start, ...props }, ref) => {

@@ -13,7 +13,8 @@ import { StyledInput } from '../../styled';
 import useDropdownContext from '../../utils/useDropdownContext';
 
 interface ITriggerProps extends HTMLAttributes<HTMLElement> {
-  /** Used to pass the ref callback to components with non-standard ref props i.e. `innerRef` */
+  /** Provides a reference key for trigger components that use a non-standard ref prop
+   * such as `innerRef` */
   refKey?: string;
 }
 
