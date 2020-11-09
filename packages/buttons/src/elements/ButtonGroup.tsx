@@ -16,7 +16,7 @@ export interface IButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
   /** Set the selected item */
   selectedItem?: any;
   /**
-   * Handles button selection changes
+   * Handles button selection changes which applies button styling and invokes button actions
    *
    * @param {any} item The item selected
    */
