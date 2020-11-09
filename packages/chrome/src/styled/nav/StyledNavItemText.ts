@@ -20,7 +20,7 @@ const COMPONENT_ID = 'chrome.nav_item_text';
 export interface IStyledNavItemTextProps {
   /**
    * Wrap overflow text instead of truncating long strings with an ellipsis
-   **/
+   */
   isWrapped?: boolean;
   isExpanded?: boolean;
 }

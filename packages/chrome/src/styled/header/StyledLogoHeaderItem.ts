@@ -23,7 +23,7 @@ const COMPONENT_ID = 'chrome.header_item';
 export interface IStyledLogoHeaderItemProps {
   /**
    * Applies product-specific color palette
-   **/
+   */
   product?: PRODUCT;
 }
 

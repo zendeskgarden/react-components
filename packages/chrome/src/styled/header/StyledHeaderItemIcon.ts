@@ -12,7 +12,7 @@ const COMPONENT_ID = 'chrome.header_item_icon';
 
 /**
  * Applies styling directly to child component
- **/
+ */
 export const StyledHeaderItemIcon = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION

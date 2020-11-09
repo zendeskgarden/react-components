@@ -13,7 +13,7 @@ const COMPONENT_ID = 'chrome.header_item_text';
 export interface IStyledHeaderItemTextProps {
   /**
    * Clip text (but leave accessible to screenreaders) for an icon-only header item
-   **/
+   */
   isClipped?: boolean;
 }
 

@@ -20,7 +20,7 @@ export interface IStyledSubNavItemTextProps {
   /**
    * Wrap overflow text instead of truncating long strings with an ellipsis
    * (use in conjunction with max-width styling applied to the `SubNav` container)
-   **/
+   */
   isWrapped?: boolean;
 }
 

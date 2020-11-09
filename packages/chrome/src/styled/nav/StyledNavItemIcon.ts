@@ -12,7 +12,7 @@ const COMPONENT_ID = 'chrome.nav_item_icon';
 
 /**
  * Applies styling directly to child component
- **/
+ */
 export const StyledNavItemIcon = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
