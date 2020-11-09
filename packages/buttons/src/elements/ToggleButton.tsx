@@ -11,7 +11,7 @@ import Button, { IButtonProps } from './Button';
 
 export interface IToggleButtonProps extends IButtonProps {
   /**
-   * Determines if the button is pressed. Use `mixed` to indicate if the toggle controls other
+   * Sets the button to pressed status. Use `mixed` to indicate if the toggle controls other
    * elements which don't share the same value.
    */
   isPressed?: boolean | 'mixed';

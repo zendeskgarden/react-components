@@ -11,19 +11,19 @@ import { StyledIconButton, StyledIcon } from '../styled';
 import { useSplitButtonContext } from '../utils/useSplitButtonContext';
 
 export interface IIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  /** Determines if primary button styling is used */
+  /** Applies primary button styling */
   isPrimary?: boolean;
-  /** Determines if danger styling is used */
+  /** Applies danger styling */
   isDanger?: boolean;
-  /** Determines if basic button styling is used */
+  /** Applies basic button styling */
   isBasic?: boolean;
-  /** Determines if pill styling is used */
+  /** Applies pill styling */
   isPill?: boolean;
-  /** Determines if inset `box-shadow` styling is applied on focus */
+  /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Determines if the icon is rotated 180 degrees */
+  /** Rotates the icon 180 degrees */
   isRotated?: boolean;
-  /** Determines the size of the icon */
+  /** Sets the size of the icon */
   size?: 'small' | 'medium' | 'large';
 }
 

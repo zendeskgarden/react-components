@@ -12,21 +12,21 @@ import { useButtonGroupContext } from '../utils/useButtonGroupContext';
 import { useSplitButtonContext } from '../utils/useSplitButtonContext';
 
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  /** Determines if danger styling is used */
+  /** Applies danger styling */
   isDanger?: boolean;
-  /** Determines the button size */
+  /** Sets the button size */
   size?: 'small' | 'medium' | 'large';
-  /** Determines if the button stretches to fit its container width */
+  /** Stretches button to fit its container width */
   isStretched?: boolean;
-  /** Determines if primary button styling is used */
+  /** Applies primary button styling */
   isPrimary?: boolean;
-  /** Determines if basic button styling is used */
+  /** Applies basic button styling */
   isBasic?: boolean;
-  /** Determines if link (anchor) button styling is used */
+  /** Applies link (anchor) button styling */
   isLink?: boolean;
-  /** Determines if pill styling is used */
+  /** Applies pill styling */
   isPill?: boolean;
-  /** Determines if inset `box-shadow` styling is applied on focus */
+  /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
   /** @ignore prop used by `ButtonGroup` */
   isSelected?: boolean;
@@ -79,7 +79,7 @@ Button.defaultProps = {
 };
 
 export interface IIconProps extends HTMLAttributes<HTMLElement> {
-  /** Determines if the button is rotated */
+  /** Rotates the button */
   isRotated?: boolean;
   /** @ignore */
   children: any;
