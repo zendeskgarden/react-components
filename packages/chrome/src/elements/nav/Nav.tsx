@@ -12,7 +12,7 @@ import { NavContext } from '../../utils/useNavContext';
 import { StyledNav } from '../../styled';
 
 interface INavProps extends HTMLAttributes<HTMLElement> {
-  /** Determines if the nav area is expanded to include item text */
+  /** Expands the nav area to include the item text */
   isExpanded?: boolean;
 }
 

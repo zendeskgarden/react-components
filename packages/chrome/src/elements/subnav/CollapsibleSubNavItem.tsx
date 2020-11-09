@@ -20,7 +20,7 @@ export interface ICollapsibleSubNavItemProps
   extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onChange'> {
   /** Sets the header */
   header?: React.ReactNode;
-  /** Determines if the item is expanded */
+  /** Expands the nav item */
   isExpanded?: boolean;
   /**
    * Handles item expansion changes

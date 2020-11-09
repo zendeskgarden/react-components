@@ -16,7 +16,7 @@ import { StyledChrome } from '../styled';
 interface IChromeProps extends HTMLAttributes<HTMLDivElement> {
   /** Sets a custom hue to the chrome navigation */
   hue?: string;
-  /** Determines if fixed positioning should not be applied to the `<html>` element */
+  /** Removes fixed positioning from the `<html>` element */
   isFluid?: boolean;
 }
 
