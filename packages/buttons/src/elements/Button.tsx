@@ -16,7 +16,7 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isDanger?: boolean;
   /** Sets the button size */
   size?: 'small' | 'medium' | 'large';
-  /** Stretches button to fit its container width */
+  /** Stretches the button to fit its container width */
   isStretched?: boolean;
   /** Applies primary button styling */
   isPrimary?: boolean;
