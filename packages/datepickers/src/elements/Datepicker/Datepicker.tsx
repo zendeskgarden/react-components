@@ -40,11 +40,11 @@ export interface IDatepickerProps {
   onChange?: (date: Date) => void;
   /** Formats the date */
   formatDate?: (date: Date) => string;
-  /** Sets the locale. This accepts [all valid international locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation). */
+  /** Sets the locale. This accepts [all valid `Intl` locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation). */
   locale?: string;
-  /** Sets the minimum value, but users can still enter a date below this value. */
+  /** Sets the minimum value, but users can still enter a date below this value */
   minValue?: Date;
-  /** Sets the maximum value, but users can still enter a date above this value. */
+  /** Sets the maximum value, but users can still enter a date above this value */
   maxValue?: Date;
   /** Applies compact styling */
   isCompact?: boolean;
@@ -52,7 +52,7 @@ export interface IDatepickerProps {
    * Parses the date with a custom format and returns a `Date` object
    *
    * @param {string} inputValue The format used for parsing
-   * @return {Date}
+   * @returns {Date}
    */
   customParseDate?: (inputValue: string) => Date;
   /** Sets the reference key used to position the dropdown */
@@ -65,7 +65,7 @@ export interface IDatepickerProps {
   isAnimated?: boolean;
   /** Respositions the dropdown when the browser resizes */
   eventsEnabled?: boolean;
-  /** Sets the z-index property for the dropdown */
+  /** Sets the `z-index` property for the dropdown */
   zIndex?: number;
 }
 

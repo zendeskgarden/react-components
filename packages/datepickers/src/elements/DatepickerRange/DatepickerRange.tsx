@@ -19,9 +19,9 @@ export interface IDatepickerRangeProps {
   startValue?: Date;
   /** Sets the end date to display */
   endValue?: Date;
-  /** Sets the minimum date value. Note: Users can still manually enter a date below this value. */
+  /** Sets the minimum date value. Note: users can still manually enter a date below this value. */
   minValue?: Date;
-  /** Sets the maximum date value. Note: Users can still manually enter a date above this value. */
+  /** Sets the maximum date value. Note: users can still manually enter a date above this value. */
   maxValue?: Date;
   /**
    * Handles changes to the start and end dates
@@ -34,14 +34,14 @@ export interface IDatepickerRangeProps {
    * Formats the date
    *
    * @param {Date} date The date to format
-   * @return {string}
+   * @returns {string}
    */
   formatDate?: (date: Date) => string;
   /**
    * Parses the date with a custom format and returns a `Date` object
    *
    * @param {string} inputValue The format used for parsing
-   * @return {Date}
+   * @returns {Date}
    */
   customParseDate?: (inputValue?: string) => Date;
   /** Applies if compact styling */
