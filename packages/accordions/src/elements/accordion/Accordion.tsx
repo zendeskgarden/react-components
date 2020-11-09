@@ -33,15 +33,15 @@ interface IStaticAccordionExport<T, P>
 interface IAccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   /** The `aria-level` used to apply heading rank on accordion headers */
   level: number;
-  /** Determines which sections are expanded */
+  /** Sets the sections for expansion */
   expandedSections?: number[];
   /** Hides the bottom border under each accordion panel */
   isBare?: boolean;
-  /** Determines if panels can be collapsed in an uncontrolled accordion */
+  /** Collapses panels in an uncontrolled accordion */
   isCollapsible?: boolean;
   /** Reduces the padding on the accordion headers and panels */
   isCompact?: boolean;
-  /** Determines if multiple panels can be expanded simultaneously in an uncontrolled accordion */
+  /** Enables simultaneous expansions of multiple panels in an uncontrolled accordion */
   isExpandable?: boolean;
   /**
    * Handles accordion state expansion changes
