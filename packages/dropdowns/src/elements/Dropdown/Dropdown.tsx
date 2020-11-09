@@ -28,16 +28,16 @@ export interface IDropdownProps {
   /** Sets the input value */
   inputValue?: string;
   /**
-   * Handles dropdown selection changes
+   * Handles dropdown selection changes regardless of the previously selected item
    *
-   * @param {any} selectedItem The item being selected
+   * @param {any} selectedItem The dropdown item being selected
    */
   onSelect?: (selectedItem: any | null, stateAndHelpers: ControllerStateAndHelpers<any>) => void;
   /**
    * Handles dropdown state changes
    *
    * @param {StateChangeOptions} options The state change options
-   * @param {ControllerStateAndHelpers} stateAndHelpers The state and helpers for the change
+   * @param {ControllerStateAndHelpers} stateAndHelpers The state and helpers for the change. This also calls the children functions.
    */
   onStateChange?: (
     options: StateChangeOptions<any>,
@@ -47,7 +47,7 @@ export interface IDropdownProps {
    * Handles input value changes
    *
    * @param {string} inputValue The input value for the change
-   * @param {ControllerStateAndHelpers} stateAndHelpers The state and helpers for the change
+   * @param {ControllerStateAndHelpers} stateAndHelpers The state and helpers for the change. This also calls the children functions.
    */
   onInputValueChange?: (
     inputValue: string,
