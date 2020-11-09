@@ -14,37 +14,46 @@ import End from './components/End';
 import Calendar from './components/Calendar';
 
 export interface IDatepickerRangeProps {
+  /** Sets the locale. This accepts all valid `Intl`
+   * [locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation).
+   */
   locale?: string;
   /** Sets the start date to display */
   startValue?: Date;
   /** Sets the end date to display */
   endValue?: Date;
-  /** Sets the minimum date value. Note: users can still manually enter a date below this value. */
+  /** Sets the minimum value, but users can still enter a date below this value. If a date earlier
+   * than today is set, a validation message is shown. For an example, see
+   * [Time Window](https://garden.zendesk.com/components/datepicker#time-window)
+   */
   minValue?: Date;
-  /** Sets the maximum date value. Note: users can still manually enter a date above this value. */
+  /** Sets the maximum value, but users can still enter a date above this value. If a date later
+   * than today is set, a validation message is shown. For an example, see
+   * [Time Window](https://garden.zendesk.com/components/datepicker#time-window)
+   */
   maxValue?: Date;
   /**
    * Handles changes to the start and end dates
    *
-   * @param {Date} startValue The start date to use
-   * @param {Date} endValue The end date to use
+   * @param {Date} values.startValue The start date to use
+   * @param {Date} values.endValue The end date to use
    */
   onChange?: (values: { startValue?: Date; endValue?: Date }) => void;
   /**
    * Formats the date
    *
    * @param {Date} date The date to format
-   * @returns {string}
+   * @returns {string} The formatted date text
    */
   formatDate?: (date: Date) => string;
   /**
-   * Parses the date with a custom format and returns a `Date` object
+   * Parses the date with a custom format
    *
    * @param {string} inputValue The format used for parsing
-   * @returns {Date}
+   * @returns {Date} A valid `Date` object
    */
   customParseDate?: (inputValue?: string) => Date;
-  /** Applies if compact styling */
+  /** Applies compact styling */
   isCompact?: boolean;
 }
 

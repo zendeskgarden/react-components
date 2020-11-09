@@ -39,27 +39,33 @@ export interface IDatepickerProps {
    */
   onChange?: (date: Date) => void;
   /**
-   * Formats the date to a string. The result is displayed in the date input box when a date is selected.
+   * Formats the date into a string
    *
    * @param {Date} date The date to format
-   * @returns {string}
+   * @returns {string} Text displayed in the input box when a date is selected
    */
   formatDate?: (date: Date) => string;
-  /** Sets the locale. This accepts
-   * [all valid `Intl` locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation).
+  /** Sets the locale. This accepts all valid `Intl`
+   * [locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation).
    */
   locale?: string;
-  /** Sets the minimum value, but users can still enter a date below this value */
+  /** Sets the minimum value, but users can still enter a date below this value. If a date earlier
+   * than today is set, a validation message is shown. For an example, see
+   * [Time Window](https://garden.zendesk.com/components/datepicker#time-window)
+   */
   minValue?: Date;
-  /** Sets the maximum value, but users can still enter a date above this value */
+  /** Sets the maximum value, but users can still enter a date above this value. If a date later
+   * than today is set, a validation message is shown. For an example, see
+   * [Time Window](https://garden.zendesk.com/components/datepicker#time-window)
+   */
   maxValue?: Date;
   /** Applies compact styling */
   isCompact?: boolean;
   /**
-   * Parses the date with a custom format and returns a `Date` object
+   * Parses the date with a custom format
    *
    * @param {string} inputValue The format used for parsing
-   * @returns {Date}
+   * @returns {Date} A valid `Date` object
    */
   customParseDate?: (inputValue: string) => Date;
   /** Sets the reference key used to position the dropdown */
