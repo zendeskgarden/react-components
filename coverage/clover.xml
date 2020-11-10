@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1604951304930" clover="3.2.0">
-  <project timestamp="1604951304930" name="All files">
+<coverage generated="1604966071298" clover="3.2.0">
+  <project timestamp="1604966071298" name="All files">
     <metrics statements="6834" coveredstatements="6690" conditionals="2727" coveredconditionals="2473" methods="1436" coveredmethods="1404" elements="10997" coveredelements="10567" complexity="0" loc="6834" ncloc="6834" packages="113" files="449" classes="449"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
@@ -579,14 +579,14 @@
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="44" count="9" type="cond" truecount="2" falsecount="0"/>
-        <line num="46" count="9" type="stmt"/>
-        <line num="66" count="1" type="stmt"/>
-        <line num="68" count="1" type="stmt"/>
-        <line num="78" count="1" type="stmt"/>
-        <line num="82" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="47" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="49" count="9" type="stmt"/>
+        <line num="69" count="1" type="stmt"/>
+        <line num="71" count="1" type="stmt"/>
+        <line num="81" count="1" type="stmt"/>
         <line num="85" count="1" type="stmt"/>
+        <line num="87" count="1" type="stmt"/>
       </file>
     </package>
     <package name="avatars.src.styled">
