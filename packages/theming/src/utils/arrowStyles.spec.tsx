@@ -9,8 +9,7 @@ import React from 'react';
 import { render } from 'garden-test-utils';
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import exponentialSymbols from 'polished/lib/math/presets/exponentialSymbols';
-import arrowStyles, { ARROW_POSITION } from './arrowStyles';
+import arrowStyles, { ARROW_POSITION, exponentialSymbols } from './arrowStyles';
 
 interface IStyledDivProps extends ThemeProps<DefaultTheme> {
   arrowPosition: ARROW_POSITION;

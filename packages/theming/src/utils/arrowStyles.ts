@@ -28,6 +28,24 @@ export type ARROW_OPTIONS = {
   animationModifier?: string;
 };
 
+// Workaround for https://github.com/styled-components/polished/issues/550
+export const exponentialSymbols = {
+  symbols: {
+    sqrt: {
+      func: {
+        symbol: 'sqrt',
+        f: (a: number) => Math.sqrt(a),
+        notation: 'func',
+        precedence: 0,
+        rightToLeft: 0,
+        argCount: 1
+      },
+      symbol: 'sqrt',
+      regSymbol: 'sqrt\\b'
+    }
+  }
+};
+
 const animationStyles = (position: ARROW_POSITION, modifier: string) => {
   const property = position.split('-')[0];
   /**
@@ -147,22 +165,7 @@ const positionStyles = (position: ARROW_POSITION, size: string, inset: string) =
 export default function arrowStyles(position: ARROW_POSITION, options: ARROW_OPTIONS = {}) {
   const size = options.size || '6px';
   const inset = options.inset || '0';
-  const squareSize = math(`${size} * 2 / sqrt(2)`, {
-    symbols: {
-      sqrt: {
-        func: {
-          symbol: 'sqrt',
-          f: (a: number) => Math.sqrt(a),
-          notation: 'func',
-          precedence: 0,
-          rightToLeft: 0,
-          argCount: 1
-        },
-        symbol: 'sqrt',
-        regSymbol: 'sqrt\\b'
-      }
-    }
-  });
+  const squareSize = math(`${size} * 2 / sqrt(2)`, exponentialSymbols);
 
   /**
    * 1. Set base positioning for an element with an arrow.
