@@ -11,9 +11,9 @@ import { useTilesContext } from '../../../utils/useTilesContext';
 import { StyledTile, StyledTileInput } from '../../../styled';
 
 interface ITileProps {
-  /** The value of the input */
+  /** Value for the input */
   value?: string;
-  /** Whether the tile is disabled */
+  /** Indicates if the tile is disabled */
   disabled?: boolean;
 }
 

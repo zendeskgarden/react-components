@@ -12,7 +12,7 @@ import { FieldContext } from '../../utils/useFieldContext';
 import { StyledField } from '../../styled';
 
 export interface IFieldProps extends HTMLAttributes<HTMLDivElement> {
-  /** Field ID and prefix for generated label, input, and hint IDs */
+  /** Sets the field ID and prefix for the generated label, input, and hint IDs */
   id?: string;
 }
 

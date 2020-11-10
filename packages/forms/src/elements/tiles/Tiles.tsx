@@ -23,21 +23,29 @@ import { Icon } from './components/Icon';
 import { Label } from './components/Label';
 
 interface ITilesProps extends HTMLAttributes<HTMLDivElement> {
-  /** Value of the selected radio button */
+  /** Sets the value for the selected radio button */
   value?: string;
-  /** Callback when a radio is selected */
+  /**
+   * Handles radio selection changes
+   *
+   * @returns {ChangeEventHandler<HTMLInputElement>} The element invoking the change
+   */
   onChange?: ChangeEventHandler<HTMLInputElement>;
-  /** The name used to reference the value of the control. */
+  /** Sets the name used for the control's value reference */
   name: string;
-  /** Displays the tiles in their vertical arrangement */
+  /** Displays the tiles vertically */
   isCentered?: boolean;
 }
 
 interface IStaticTilesExport<T, P>
   extends ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> {
+  /** Sets the tile type */
   Tile: typeof Tile;
+  /** Sets the description */
   Description: typeof Description;
+  /** Sets the icon */
   Icon: typeof Icon;
+  /** Sets the label */
   Label: typeof Label;
 }
 
