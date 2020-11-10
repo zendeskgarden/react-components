@@ -7,6 +7,7 @@
 
 import { css, keyframes } from 'styled-components';
 import { math } from 'polished';
+import exponentialSymbols from 'polished/lib/math/presets/exponentialSymbols';
 
 export type ARROW_POSITION =
   | 'top'
@@ -147,7 +148,7 @@ const positionStyles = (position: ARROW_POSITION, size: string, inset: string) =
 export default function arrowStyles(position: ARROW_POSITION, options: ARROW_OPTIONS = {}) {
   const size = options.size || '6px';
   const inset = options.inset || '0';
-  const squareSize = math(`${size} * 2 / sqrt(2)`);
+  const squareSize = math(`${size} * 2 / sqrt(2)`, exponentialSymbols);
 
   /**
    * 1. Set base positioning for an element with an arrow.
