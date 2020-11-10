@@ -29,10 +29,11 @@ const Chrome = React.forwardRef<HTMLDivElement, IChromeProps>(({ hue, isFluid, .
     if (hue) {
       const backgroundColor = getColor(hue, 600, theme);
       const LIGHT_COLOR = 'white';
-      const DARK_COLOR = 'black';
 
       /* prevent this expensive computation on every render */
-      return readableColor(backgroundColor!, LIGHT_COLOR, DARK_COLOR) === LIGHT_COLOR;
+      return (
+        readableColor(backgroundColor!, LIGHT_COLOR, undefined, false /* strict */) === LIGHT_COLOR
+      );
     }
 
     return false;
