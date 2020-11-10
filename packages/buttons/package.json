@@ -23,7 +23,7 @@
   "dependencies": {
     "@zendeskgarden/container-buttongroup": "^0.3.1",
     "@zendeskgarden/container-keyboardfocus": "^0.4.1",
-    "polished": "^3.5.1"
+    "polished": "^4.0.0"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^8.1.0",
