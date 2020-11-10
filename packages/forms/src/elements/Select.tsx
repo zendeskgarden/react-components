@@ -17,11 +17,11 @@ import { VALIDATION } from '../utils/validation';
 export interface ISelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   /** Applies compact styling */
   isCompact?: boolean;
-  /** Removes borders and padding */
+  /** Removes the borders and padding */
   isBare?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Defines the element's validation state */
+  /** Sets the element's validation state */
   validation?: VALIDATION;
 }
 

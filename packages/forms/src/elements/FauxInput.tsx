@@ -20,10 +20,15 @@ import { StyledTextFauxInput, StyledTextMediaFigure } from '../styled';
 import { VALIDATION } from '../utils/validation';
 
 export interface IIconProps extends HTMLAttributes<HTMLElement> {
+  /** Sets the state to hover */
   isHovered?: boolean;
+  /** Sets the state to focused */
   isFocused?: boolean;
+  /** Sets the state to disabled */
   isDisabled?: boolean;
+  /** Sets the state to rotated */
   isRotated?: boolean;
+  /** @ignore */
   children: any;
 }
 
@@ -32,25 +37,28 @@ const EndIcon = (props: IIconProps) => <StyledTextMediaFigure position="end" {..
 
 export interface IStaticFauxInputExport<T, P>
   extends ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> {
+  /** Sets the start icon */
   StartIcon: typeof StartIcon;
+  /** Sets the end icon */
   EndIcon: typeof EndIcon;
 }
 
 export interface IFauxInputProps extends HTMLAttributes<HTMLDivElement> {
-  /** Apply compact styling */
+  /** Applies compact styling */
   isCompact?: boolean;
-  /** Remove borders and padding */
+  /** Removes the borders and padding */
   isBare?: boolean;
-  /** Apply inset `box-shadow` styling on focus */
+  /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Apply disabled styling */
+  /** Applies disabled styling */
   disabled?: boolean;
-  /** Apply read-only styling */
+  /** Applies read-only styling */
   readOnly?: boolean;
+  /** Sets the element's validation state */
   validation?: VALIDATION;
-  /** Apply focused styling */
+  /** Applies focused styling */
   isFocused?: boolean;
-  /** Apply hovered styling */
+  /** Applies hovered styling */
   isHovered?: boolean;
 }
 

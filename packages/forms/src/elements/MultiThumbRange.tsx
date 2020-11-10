@@ -36,11 +36,16 @@ export interface IMultiThumbRangeProps extends Omit<HTMLAttributes<HTMLDivElemen
   minValue?: number;
   /** The maximum thumb input value */
   maxValue?: number;
-  /** The stepping interval */
+  /** The step interval */
   step?: number;
-  /** Apply disabled styling */
+  /** Applies disabled styling */
   disabled?: boolean;
-  /** Handler for processing change events */
+  /**
+   * Handles change events
+   *
+   * @param {number} updatedValues.minValue The minimum value during the change
+   * @param {number} updatedValues.maxValue The maximum value during the change
+   */
   onChange?: (updatedValues: { minValue?: number; maxValue?: number }) => void;
 }
 
@@ -453,5 +458,4 @@ MultiThumbRange.defaultProps = {
   theme: DEFAULT_THEME
 };
 
-/** @component */
 export default withTheme(MultiThumbRange) as FunctionComponent<IMultiThumbRangeProps>;

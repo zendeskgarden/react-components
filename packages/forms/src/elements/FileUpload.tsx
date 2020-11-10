@@ -10,11 +10,11 @@ import PropTypes from 'prop-types';
 import { StyledFileUpload } from '../styled';
 
 export interface IFileUploadProps extends HTMLAttributes<HTMLDivElement> {
-  /** Determines whether to apply drag styling */
+  /** Applies drag styling */
   isDragging?: boolean;
-  /** Apply compact styling */
+  /** Applies compact styling */
   isCompact?: boolean;
-  /** Apply disabled styling */
+  /** Applies disabled styling */
   disabled?: boolean;
 }
 

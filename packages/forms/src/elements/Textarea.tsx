@@ -21,18 +21,19 @@ import { StyledTextarea } from '../styled';
 import { VALIDATION } from '../utils/validation';
 
 export interface ITextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
-  /** Apply compact styling */
+  /** Applies compact styling */
   isCompact?: boolean;
-  /** Remove borders and padding */
+  /** Removes the borders and padding */
   isBare?: boolean;
-  /** Apply inset `box-shadow` styling on focus */
+  /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Display a mechanism for vertical resize */
+  /** Displays a vertical resize mechanism */
   isResizable?: boolean;
-  /** Lower-bound for dynamic height changes */
+  /** Sets the lower-bound for dynamic height changes */
   minRows?: number;
-  /** Upper-bound for dynamic height changes */
+  /** Sets the upper-bound for dynamic height changes */
   maxRows?: number;
+  /** Sets the element's validation state */
   validation?: VALIDATION;
 }
 
