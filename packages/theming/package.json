@@ -24,7 +24,7 @@
   "dependencies": {
     "@zendeskgarden/container-focusvisible": "^0.4.3",
     "@zendeskgarden/container-utilities": "^0.5.1",
-    "polished": "^3.5.1"
+    "polished": "^4.0.0"
   },
   "peerDependencies": {
     "react": "^16.8.0",

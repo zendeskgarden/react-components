@@ -6,12 +6,12 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { stripUnit } from 'polished';
 import {
   arrowStyles,
   retrieveComponentStyles,
   getColor,
-  DEFAULT_THEME
+  DEFAULT_THEME,
+  getLineHeight
 } from '@zendeskgarden/react-theming';
 
 import { POPPER_PLACEMENT, getArrowPosition } from '../utils/gardenPlacements';
@@ -45,7 +45,7 @@ const sizeStyles = ({
   let maxWidth;
   let overflowWrap;
   let whiteSpace = 'nowrap';
-  let lineHeight = (theme.space.base * 5) / stripUnit(theme.fontSizes.sm);
+  let lineHeight = getLineHeight(theme.space.base * 5, theme.fontSizes.sm);
   let fontSize = theme.fontSizes.sm;
   let titleDisplay;
   let paragraphMarginTop;
@@ -61,17 +61,17 @@ const sizeStyles = ({
   if (size === 'extra-large') {
     padding = `${theme.space.base * 10}px`;
     maxWidth = `460px`;
-    lineHeight = (theme.space.base * 5) / stripUnit(theme.fontSizes.md);
+    lineHeight = getLineHeight(theme.space.base * 5, theme.fontSizes.md);
     paragraphMarginTop = `${theme.space.base * 2.5}px`;
   } else if (size === 'large') {
     padding = `${theme.space.base * 5}px`;
     maxWidth = `270px`;
-    lineHeight = (theme.space.base * 5) / stripUnit(theme.fontSizes.md);
+    lineHeight = getLineHeight(theme.space.base * 5, theme.fontSizes.md);
     paragraphMarginTop = `${theme.space.base * 2}px`;
   } else if (size === 'medium') {
     padding = '1em';
     maxWidth = `140px`;
-    lineHeight = (theme.space.base * 4) / stripUnit(theme.fontSizes.sm);
+    lineHeight = getLineHeight(theme.space.base * 4, theme.fontSizes.sm);
   }
 
   if (size === 'extra-large' || size === 'large') {

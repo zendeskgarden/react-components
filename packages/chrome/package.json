@@ -24,7 +24,7 @@
     "@zendeskgarden/container-accordion": "^1.0.0",
     "@zendeskgarden/container-keyboardfocus": "^0.4.1",
     "@zendeskgarden/container-utilities": "^0.5.1",
-    "polished": "^3.5.1"
+    "polished": "^4.0.0"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^8.1.0",

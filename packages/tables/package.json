@@ -24,7 +24,7 @@
   "dependencies": {
     "@zendeskgarden/container-utilities": "^0.5.1",
     "dom-helpers": "^5.1.0",
-    "polished": "^3.5.1"
+    "polished": "^4.0.0"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^8.1.0",

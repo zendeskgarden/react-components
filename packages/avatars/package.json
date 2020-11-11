@@ -21,7 +21,7 @@
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "dependencies": {
-    "polished": "^3.5.1"
+    "polished": "^4.0.0"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": "^8.1.0",
