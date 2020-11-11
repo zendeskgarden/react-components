@@ -12,6 +12,7 @@ export interface IStyledPanel {
   isBare?: boolean;
   isCompact?: boolean;
   isExpanded?: boolean;
+  isAnimated?: boolean;
 }
 
 const COMPONENT_ID = 'accordions.panel';
@@ -34,7 +35,7 @@ const paddingStyles = (props: IStyledPanel & ThemeProps<DefaultTheme>) => {
   }
 
   return css`
-    transition: padding 0.25s ease-in-out;
+    transition: ${props.isAnimated && 'padding 0.25s ease-in-out'};
     padding: ${paddingTop}px ${paddingHorizontal}px ${paddingBottom}px;
   `;
 };
@@ -53,5 +54,6 @@ export const StyledPanel = styled.section.attrs<IStyledPanel>({
 `;
 
 StyledPanel.defaultProps = {
+  isAnimated: true,
   theme: DEFAULT_THEME
 };

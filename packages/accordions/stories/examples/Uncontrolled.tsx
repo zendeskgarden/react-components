@@ -14,13 +14,15 @@ interface IStoryProps {
   isExpandable: boolean;
   isBare: boolean;
   isCompact: boolean;
+  isAnimated: boolean;
 }
 
 export const Uncontrolled: Story<IStoryProps> = ({
   isCollapsible,
   isExpandable,
   isBare,
-  isCompact
+  isCompact,
+  isAnimated
 }) => {
   return (
     <Accordion
@@ -29,6 +31,7 @@ export const Uncontrolled: Story<IStoryProps> = ({
       isExpandable={isExpandable}
       isBare={isBare}
       isCompact={isCompact}
+      isAnimated={isAnimated}
     >
       <Accordion.Section>
         <Accordion.Header>
@@ -102,6 +105,7 @@ Uncontrolled.args = {
   isCollapsible: true,
   isExpandable: false,
   isCompact: false,
+  isAnimated: true,
   isBare: false
 };
 

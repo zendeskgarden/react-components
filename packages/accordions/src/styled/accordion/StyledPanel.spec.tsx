@@ -19,6 +19,7 @@ describe('StyledPanel', () => {
       'border-bottom',
       `${DEFAULT_THEME.borders.sm} ${getColor('neutralHue', 300, DEFAULT_THEME)}`
     );
+    expect(container.firstChild).toHaveStyleRule('transition', 'padding 0.25s ease-in-out');
   });
 
   it('renders isCompact styling correctly', () => {
@@ -46,5 +47,11 @@ describe('StyledPanel', () => {
       'border-bottom',
       `${DEFAULT_THEME.borders.sm} transparent`
     );
+  });
+
+  it('renders transition styling correctly', () => {
+    const { container } = render(<StyledPanel isAnimated={false} />);
+
+    expect(container.firstChild).not.toHaveStyleRule('transition');
   });
 });

@@ -41,6 +41,8 @@ interface IAccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange
   isCollapsible?: boolean;
   /** Reduces the padding on the accordion headers and panels */
   isCompact?: boolean;
+  /** Determines whether the accordion panels animates */
+  isAnimated?: boolean;
   /** Enables simultaneous expansions of multiple panels in an uncontrolled accordion */
   isExpandable?: boolean;
   /**
@@ -68,6 +70,7 @@ export const Accordion = forwardRef<HTMLDivElement, IAccordionProps>(
       isBare,
       onChange,
       isCompact,
+      isAnimated,
       isExpandable,
       isCollapsible,
       expandedSections: controlledExpandedSections,
@@ -91,6 +94,7 @@ export const Accordion = forwardRef<HTMLDivElement, IAccordionProps>(
       level,
       isBare,
       isCompact,
+      isAnimated,
       isCollapsible,
       getPanelProps,
       getHeaderProps,
@@ -117,6 +121,7 @@ Accordion.displayName = 'Accordion';
 Accordion.defaultProps = {
   isBare: false,
   isCompact: false,
+  isAnimated: true,
   isCollapsible: true,
   isExpandable: false,
   expandedSections: undefined,
