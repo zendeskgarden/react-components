@@ -12,7 +12,7 @@ import { useAccordionContext, useSectionContext } from '../../../utils';
 import { StyledPanel, StyledInnerPanel } from '../../../styled';
 
 export const Panel = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
-  const { isCompact, isBare, getPanelProps, expandedSections } = useAccordionContext();
+  const { isCompact, isBare, isAnimated, getPanelProps, expandedSections } = useAccordionContext();
   const panelRef = useCombinedRefs<HTMLElement>(ref);
   const index = useSectionContext();
   const isExpanded = expandedSections.includes(index);
@@ -29,13 +29,17 @@ export const Panel = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props
   );
 
   React.useEffect(() => {
+    if (!isAnimated) {
+      return undefined;
+    }
+
     addEventListener('resize', updateMaxHeight);
     updateMaxHeight();
 
     return () => {
       removeEventListener('resize', updateMaxHeight);
     };
-  }, [isExpanded, updateMaxHeight, props.children]);
+  }, [isAnimated, isExpanded, updateMaxHeight, props.children]);
 
   return (
     <StyledPanel
@@ -46,10 +50,13 @@ export const Panel = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props
         isBare,
         isCompact,
         isExpanded,
+        isAnimated,
         ...props
       })}
     >
-      <StyledInnerPanel isExpanded={isExpanded}>{props.children}</StyledInnerPanel>
+      <StyledInnerPanel isExpanded={isExpanded} isAnimated={isAnimated}>
+        {props.children}
+      </StyledInnerPanel>
     </StyledPanel>
   );
 });

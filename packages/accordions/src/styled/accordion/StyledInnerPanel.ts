@@ -16,6 +16,7 @@ const COMPONENT_ID = 'accordions.step_inner_panel';
 
 export interface IStyledInnerPanel {
   isExpanded?: boolean;
+  isAnimated?: boolean;
 }
 
 /**
@@ -25,7 +26,7 @@ export const StyledInnerPanel = styled.div.attrs<IStyledInnerPanel>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledInnerPanel>`
-  transition: max-height 0.25s ease-in-out;
+  transition: ${props => props.isAnimated && 'max-height 0.25s ease-in-out'};
   /* stylelint-disable-next-line declaration-no-important */
   max-height: ${props => !props.isExpanded && '0 !important'}; /* [1] */
   overflow: hidden;
@@ -36,5 +37,6 @@ export const StyledInnerPanel = styled.div.attrs<IStyledInnerPanel>({
 `;
 
 StyledInnerPanel.defaultProps = {
+  isAnimated: true,
   theme: DEFAULT_THEME
 };

@@ -12,6 +12,7 @@ export interface IAccordionContext extends IUseAccordionPropGetters {
   currentIndexRef: MutableRefObject<number>;
   level: number;
   isCompact?: boolean;
+  isAnimated?: boolean;
   isBare?: boolean;
   isCollapsible?: boolean;
 }
