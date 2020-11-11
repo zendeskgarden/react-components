@@ -31,6 +31,11 @@ export const Default: Story = ({ hue, size }) => (
           </Code>
         </Anchor>
       </Col>
+      <Col textAlign="center">
+        <Code hue={hue} size={size}>
+          Code &gt; <Anchor href="#">Anchor</Anchor>
+        </Code>
+      </Col>
     </Row>
   </Grid>
 );

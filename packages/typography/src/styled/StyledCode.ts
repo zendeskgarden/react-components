@@ -11,34 +11,18 @@ import { StyledFont, IStyledFontProps } from './StyledFont';
 
 const COMPONENT_ID = 'typography.code';
 
-/**
- * 1. override CSS bedrock
- */
 const colorStyles = (props: IStyledCodeProps & ThemeProps<DefaultTheme>) => {
   const hue = props.hue || 'neutralHue';
   const backgroundColor = getColor(hue, 200, props.theme);
   const shade = hue === 'yellow' ? 800 : 700;
   const foregroundColor = getColor(hue, shade, props.theme);
-  const baseAnchorColor = getColor('primaryHue', shade, props.theme);
-  const hoverAnchorColor = getColor('primaryHue', shade + 100, props.theme);
-  const activeAnchorColor = getColor('primaryHue', shade + 200, props.theme);
 
   return css`
     background-color: ${backgroundColor};
     color: ${foregroundColor};
 
     a & {
-      color: ${baseAnchorColor};
-
-      &:hover,
-      &:focus, /* [1] */
-      &[data-garden-focus-visible] {
-        color: ${hoverAnchorColor};
-      }
-
-      &:active {
-        color: ${activeAnchorColor};
-      }
+      color: inherit;
     }
   `;
 };
