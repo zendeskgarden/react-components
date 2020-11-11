@@ -54,7 +54,9 @@ const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const paddingTop = theme.space.base * 2.5;
   const paddingHorizontal = theme.space.base * 7;
   const paddingBottom =
-    paddingTop - stripUnit(theme.borderWidths.md) - stripUnit(theme.borderWidths.sm);
+    paddingTop -
+    (stripUnit(theme.borderWidths.md) as number) -
+    (stripUnit(theme.borderWidths.sm) as number);
 
   return css`
     padding: ${paddingTop}px ${paddingHorizontal}px ${paddingBottom}px;

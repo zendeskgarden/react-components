@@ -57,8 +57,7 @@ export const StyledHeaderCell = styled(StyledCell).attrs({
   ${props => sizeStyles(props)}
   ${props => props.isTruncated && truncatedStyling}
 
-  ${props =>
-    retrieveComponentStyles(COMPONENT_ID, props)};
+  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledHeaderCell.defaultProps = {

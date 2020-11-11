@@ -2,12 +2,19 @@
 # yarn lockfile v1
 
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.6.3":
+"@babel/runtime@^7.1.2":
   version "7.8.4"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.4.tgz#d79f5a2040f7caa24d53e563aad49cbc05581308"
   integrity sha512-neAp3zt80trRVBI1x0azq6c57aNBqYZH8KhMm3TaB7wEI5Q4A2SHfBHE8w9gOhI/lrqxtEbXZgQIrHP+wvSGwQ==
   dependencies:
     regenerator-runtime "^0.13.2"
+
+"@babel/runtime@^7.12.0":
+  version "7.12.5"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
+  integrity sha512-plcc+hbExy3McchJCEQG3knOsuh3HH+Prx1P6cLIkET/0dLuQDEnrT+s27Axgc9bqfsmNUNHfscgMUdBpC9xfg==
+  dependencies:
+    regenerator-runtime "^0.13.4"
 
 "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7":
   version "7.9.2"
@@ -36,14 +43,14 @@
   resolved "https://registry.yarnpkg.com/@zendeskgarden/container-utilities/-/container-utilities-0.5.1.tgz#738dc99dbe4a98809fdc015e5a8e000997725876"
   integrity sha512-+nswWqFEiWHkuQeYSdftJ5c3Xy48IHPKb23qktIeEl+ZibMXzWVytdg91zOerI/HGJizNJ0gKmq+0A/4//eiQQ==
 
-"@zendeskgarden/react-theming@^8.4.1":
-  version "8.4.1"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.4.1.tgz#8dd2a165a0146c31cc093e733c544895a0837f4c"
-  integrity sha512-KHTP09GpJQf+5+0ax6ONHwsXDxCsJy3PmWQ9nMv5poAsLzpocVp+E8P3rxwjuK1cnxD13cwtcrZ0MHSIA0E7Vg==
+"@zendeskgarden/react-theming@^8.25.2":
+  version "8.25.2"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.25.2.tgz#61c0b0346154e7238645125533d33bf7ff26a481"
+  integrity sha512-/HefQjvFQpiQSEFoVZ6D7QSbyZkAviGE5op8GXqMp4angmt2evXhkSu2JT49xPV5WI8EfMUXWdHVHbPuhcrtdA==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^0.4.3"
     "@zendeskgarden/container-utilities" "^0.5.1"
-    polished "^3.4.4"
+    polished "^3.5.1"
 
 create-react-context@^0.3.0:
   version "0.3.0"
@@ -191,19 +198,19 @@ object.assign@^4.1.0:
     has-symbols "^1.0.0"
     object-keys "^1.0.11"
 
-polished@^3.4.4:
-  version "3.4.4"
-  resolved "https://registry.yarnpkg.com/polished/-/polished-3.4.4.tgz#ac8cd6e704887398f3b802718f9d389b9ea4307b"
-  integrity sha512-x9PKeExyI9AhWrJP3Q57I1k7GInujjiVBJMPFmycj9hX1yCOo/X9eu9eZwxgOziiXge3WbFQ5XOmkzunOntBSA==
-  dependencies:
-    "@babel/runtime" "^7.6.3"
-
 polished@^3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/polished/-/polished-3.5.1.tgz#657b6faf4c2308f3e0b1951196803a5e5d67b122"
   integrity sha512-GVbvskpBiDV5TknurGL6OyFfLHsCknxbU8w5iMppT8rW0tLEoQHrIRfrPNPqGXNj3HGhkjRvhmg59Fy7HSnCAw==
   dependencies:
     "@babel/runtime" "^7.8.7"
+
+polished@^4.0.0:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/polished/-/polished-4.0.3.tgz#e2bde249f8884bdabc6997dd3eca225ee32f7a26"
+  integrity sha512-yOALHMrqcYHlHIxFkHvGX8NGsjsbSaYMZ8Z3uEElVpzF5ZgNmTgqMOh4bnSVXGC6sXjBTZCH6+GebTRWhJR4zQ==
+  dependencies:
+    "@babel/runtime" "^7.12.0"
 
 popper.js@^1.14.4:
   version "1.16.1"

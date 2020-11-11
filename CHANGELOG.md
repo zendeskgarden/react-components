@@ -11,6 +11,18 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+
+## v8.25.2 (2020-11-04)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#923](https://github.com/zendeskgarden/react-components/pull/923) fix(dropdowns): keep focus on multiselect input when navigating previous item ([@hzhu](https://github.com/hzhu))
+
+#### :memo: Documentation
+* [#909](https://github.com/zendeskgarden/react-components/pull/909) chore(docs): update migration doc ([@hzhu](https://github.com/hzhu))
+
+#### :seedling: Internal
+* [#922](https://github.com/zendeskgarden/react-components/pull/922) chore(deps): update node orb to v4.1.0 ([@renovate[bot]](https://github.com/apps/renovate))
 ## v8.25.1 (2020-10-28)
 
 #### :bug: Bug Fix

@@ -9,7 +9,7 @@ import React from 'react';
 import { render } from 'garden-test-utils';
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import arrowStyles, { ARROW_POSITION } from './arrowStyles';
+import arrowStyles, { ARROW_POSITION, exponentialSymbols } from './arrowStyles';
 
 interface IStyledDivProps extends ThemeProps<DefaultTheme> {
   arrowPosition: ARROW_POSITION;
@@ -28,7 +28,7 @@ const StyledDiv = styled.div<IStyledDivProps>`
 `;
 
 const getArrowSize = (size = '6px') => {
-  return math(`${size} * 2 / sqrt(2)`);
+  return math(`${size} * 2 / sqrt(2)`, exponentialSymbols);
 };
 
 const getArrowInset = (inset: string, size?: string) => {

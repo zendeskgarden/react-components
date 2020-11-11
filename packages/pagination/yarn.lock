@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@babel/runtime@^7.12.0":
+  version "7.12.5"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
+  integrity sha512-plcc+hbExy3McchJCEQG3knOsuh3HH+Prx1P6cLIkET/0dLuQDEnrT+s27Axgc9bqfsmNUNHfscgMUdBpC9xfg==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/runtime@^7.8.4":
   version "7.8.7"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.7.tgz#8fefce9802db54881ba59f90bb28719b4996324d"
@@ -51,19 +58,19 @@
   dependencies:
     "@babel/runtime" "^7.8.4"
 
-"@zendeskgarden/react-theming@^8.25.0":
-  version "8.25.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.25.0.tgz#e8ce04368a585ee1a9df459c3db5d8e59667e3a3"
-  integrity sha512-FrdlKxKNgU/h2CO5FoFAyBX3cCU5j04QhCPpfe/hflqW+KNfYOHLVYGdGlgGapxwtCSdX3drv1AZqp2VnGAE8Q==
+"@zendeskgarden/react-theming@^8.25.2":
+  version "8.25.2"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/react-theming/-/react-theming-8.25.2.tgz#61c0b0346154e7238645125533d33bf7ff26a481"
+  integrity sha512-/HefQjvFQpiQSEFoVZ6D7QSbyZkAviGE5op8GXqMp4angmt2evXhkSu2JT49xPV5WI8EfMUXWdHVHbPuhcrtdA==
   dependencies:
     "@zendeskgarden/container-focusvisible" "^0.4.3"
     "@zendeskgarden/container-utilities" "^0.5.1"
     polished "^3.5.1"
 
-"@zendeskgarden/svg-icons@6.22.0":
-  version "6.22.0"
-  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-6.22.0.tgz#e34b9096933961464db4ed61295d57fc4082a755"
-  integrity sha512-vwHJmue4KtngBxM2RfIn09g8OQLnA0DRhWxjTi6Fxm7KZ95knuxtPVSMoCtP8adNXe9J7Ky9y5gCp77HwsU2Og==
+"@zendeskgarden/svg-icons@6.25.1":
+  version "6.25.1"
+  resolved "https://registry.yarnpkg.com/@zendeskgarden/svg-icons/-/svg-icons-6.25.1.tgz#d58b2e602672597b50b9e8f6edc71183ac5ac808"
+  integrity sha512-D1e2znJ04GZYnvUB62f2gnAwSeSlGQLm2CdF4YL5T/++h2iiyQYv1pppN8jk8U/twiGtOkHk2wRyky60zXmGNQ==
 
 polished@^3.5.1:
   version "3.5.1"
@@ -71,6 +78,13 @@ polished@^3.5.1:
   integrity sha512-GVbvskpBiDV5TknurGL6OyFfLHsCknxbU8w5iMppT8rW0tLEoQHrIRfrPNPqGXNj3HGhkjRvhmg59Fy7HSnCAw==
   dependencies:
     "@babel/runtime" "^7.8.7"
+
+polished@^4.0.0:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/polished/-/polished-4.0.3.tgz#e2bde249f8884bdabc6997dd3eca225ee32f7a26"
+  integrity sha512-yOALHMrqcYHlHIxFkHvGX8NGsjsbSaYMZ8Z3uEElVpzF5ZgNmTgqMOh4bnSVXGC6sXjBTZCH6+GebTRWhJR4zQ==
+  dependencies:
+    "@babel/runtime" "^7.12.0"
 
 regenerator-runtime@^0.13.4:
   version "0.13.4"

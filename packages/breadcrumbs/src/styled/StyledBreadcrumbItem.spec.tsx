@@ -6,15 +6,14 @@
  */
 
 import React from 'react';
-import { stripUnit } from 'polished';
 import { render } from 'garden-test-utils';
-import { getColor, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColor, DEFAULT_THEME, getLineHeight } from '@zendeskgarden/react-theming';
 import { StyledBreadcrumbItem } from './StyledBreadcrumbItem';
 
 describe('StyledBreadcrumbItem', () => {
   it('renders default styling', () => {
     const { container } = render(<StyledBreadcrumbItem />);
-    const lineHeight = (DEFAULT_THEME.space.base * 5) / stripUnit(DEFAULT_THEME.fontSizes.md);
+    const lineHeight = getLineHeight(DEFAULT_THEME.space.md, DEFAULT_THEME.fontSizes.md);
 
     expect(container.firstChild).toHaveStyleRule('line-height', lineHeight.toString());
     expect(container.firstChild).toHaveStyleRule('white-space', 'nowrap');

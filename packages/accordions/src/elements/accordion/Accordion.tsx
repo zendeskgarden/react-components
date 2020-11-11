@@ -33,17 +33,23 @@ interface IStaticAccordionExport<T, P>
 interface IAccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   /** The `aria-level` used to apply heading rank on accordion headers */
   level: number;
-  /** Determines which sections are expanded */
+  /** Sets the sections for expansion */
   expandedSections?: number[];
   /** Hides the bottom border under each accordion panel */
   isBare?: boolean;
-  /** Determines if panels can be collapsed in an uncontrolled accordion */
+  /** Collapses panels in an uncontrolled accordion */
   isCollapsible?: boolean;
-  /** Reduces padding on accordion headers and panels */
+  /** Reduces the padding on the accordion headers and panels */
   isCompact?: boolean;
-  /** Determines if multiple panels can be expanded at the same time in an uncontrolled accordion */
+  /** Determines whether the accordion panels animate */
+  isAnimated?: boolean;
+  /** Enables simultaneous expansions of multiple panels in an uncontrolled accordion */
   isExpandable?: boolean;
-  /** A callback that is invoked with an accordion section’s index when the expanded state changes */
+  /**
+   * Handles accordion state expansion changes
+   *
+   * @param {number} index The index of the section being expanded
+   */
   onChange?: (index: number) => void;
 }
 
@@ -64,6 +70,7 @@ export const Accordion = forwardRef<HTMLDivElement, IAccordionProps>(
       isBare,
       onChange,
       isCompact,
+      isAnimated,
       isExpandable,
       isCollapsible,
       expandedSections: controlledExpandedSections,
@@ -87,6 +94,7 @@ export const Accordion = forwardRef<HTMLDivElement, IAccordionProps>(
       level,
       isBare,
       isCompact,
+      isAnimated,
       isCollapsible,
       getPanelProps,
       getHeaderProps,
@@ -113,6 +121,7 @@ Accordion.displayName = 'Accordion';
 Accordion.defaultProps = {
   isBare: false,
   isCompact: false,
+  isAnimated: true,
   isCollapsible: true,
   isExpandable: false,
   expandedSections: undefined,

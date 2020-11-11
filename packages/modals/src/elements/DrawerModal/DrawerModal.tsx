@@ -187,5 +187,6 @@ DrawerModal.propTypes = {
   restoreFocus: PropTypes.bool,
   onClose: PropTypes.func,
   appendToNode: PropTypes.any,
-  id: PropTypes.string
+  id: PropTypes.string,
+  isOpen: PropTypes.bool
 };
