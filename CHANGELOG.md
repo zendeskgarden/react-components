@@ -11,6 +11,40 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+## v8.26.0 (2020-11-11)
+
+#### :rocket: New Feature
+
+- `accordions`
+  - [#935](https://github.com/zendeskgarden/react-components/pull/935) feat(accordions): allow animation to be turned off ([@hzhu](https://github.com/hzhu))
+- `modals`
+  - [#929](https://github.com/zendeskgarden/react-components/pull/929) feat(modals): add prop type checks ([@hzhu](https://github.com/hzhu))
+
+#### :memo: Documentation
+
+- `avatars`
+  - [#926](https://github.com/zendeskgarden/react-components/pull/926) chore(avatars): update prop descriptions ([@KICKdesigns](https://github.com/KICKdesigns))
+- `accordions`
+  - [#924](https://github.com/zendeskgarden/react-components/pull/924) chore(accordions): update prop descriptions ([@KICKdesigns](https://github.com/KICKdesigns))
+- `modals`
+  - [#910](https://github.com/zendeskgarden/react-components/pull/910) chore(docs): migrate react-modals examples to Storybook ([@hzhu](https://github.com/hzhu))
+- `breadcrumbs`
+  - [#927](https://github.com/zendeskgarden/react-components/pull/927) chore(breadcrumbs): update prop descriptions ([@KICKdesigns](https://github.com/KICKdesigns))
+
+#### :seedling: Internal
+
+- `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `dropdowns`, `forms`, `grid`, `loaders`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  - [#920](https://github.com/zendeskgarden/react-components/pull/920) fix(deps): update dependency polished to v4 ([@renovate[bot]](https://github.com/apps/renovate))
+- Other
+  - [#917](https://github.com/zendeskgarden/react-components/pull/917) chore(deps): update dependency markdown-loader to v6 ([@renovate[bot]](https://github.com/apps/renovate))
+  - [#914](https://github.com/zendeskgarden/react-components/pull/914) chore(deps): update dependency @rollup/plugin-commonjs to v16 ([@renovate[bot]](https://github.com/apps/renovate))
+  - [#933](https://github.com/zendeskgarden/react-components/pull/933) chore(deps): update react ([@austingreendev](https://github.com/austingreendev))
+  - [#915](https://github.com/zendeskgarden/react-components/pull/915) chore(deps): update dependency @rollup/plugin-node-resolve to v10 ([@renovate[bot]](https://github.com/apps/renovate))
+  - [#921](https://github.com/zendeskgarden/react-components/pull/921) fix(deps): update dependency react-scripts to v4 ([@renovate[bot]](https://github.com/apps/renovate))
+- `chrome`, `modals`, `tables`
+  - [#913](https://github.com/zendeskgarden/react-components/pull/913) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+- `accordions`, `breadcrumbs`, `buttons`, `chrome`, `datepickers`, `dropdowns`, `forms`, `modals`, `notifications`, `pagination`, `tables`, `tags`
+  - [#912](https://github.com/zendeskgarden/react-components/pull/912) chore(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
 
 ## v8.25.2 (2020-11-04)
 
