@@ -79,7 +79,7 @@
     "commander": "6.2.0",
     "core-js": "3.6.5",
     "coveralls": "3.1.0",
-    "enhanced-resolve": "4.3.0",
+    "enhanced-resolve": "5.3.1",
     "envalid": "6.0.2",
     "eslint": "7.12.1",
     "eslint-config-prettier": "6.15.0",
