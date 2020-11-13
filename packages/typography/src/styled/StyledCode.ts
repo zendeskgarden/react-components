@@ -20,6 +20,10 @@ const colorStyles = (props: IStyledCodeProps & ThemeProps<DefaultTheme>) => {
   return css`
     background-color: ${backgroundColor};
     color: ${foregroundColor};
+
+    a & {
+      color: inherit;
+    }
   `;
 };
 
