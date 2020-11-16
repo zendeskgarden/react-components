@@ -46,6 +46,7 @@ const Dots: React.FC<IDotsProps> = ({ size, color, duration, delayMS, ...other }
 
   if (environment && canTransformSVG.current === null) {
     const svg = environment.createElementNS('http://www.w3.org/2000/svg', 'svg');
+
     canTransformSVG.current = 'transform' in svg;
   }
 
