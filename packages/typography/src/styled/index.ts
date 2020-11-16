@@ -5,6 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+export * from './StyledBlockquote';
 export * from './StyledCode';
 export * from './StyledCodeBlock';
 export * from './StyledCodeBlockLine';

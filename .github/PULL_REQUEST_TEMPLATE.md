@@ -21,7 +21,7 @@
 
 - [ ] :ok_hand: design updates are Garden Designer approved (add the
       designer as a reviewer)
-- [ ] :globe_with_meridians: Styleguidist demo is up-to-date (`yarn start`)
+- [ ] :globe_with_meridians: demo is up-to-date (`yarn start`)
 - [ ] :arrow_left: renders as expected with reversed (RTL) direction
 - [ ] :metal: renders as expected with Bedrock CSS (`?bedrock`)
 - [ ] :wheelchair: analyzed via [axe](https://www.deque.com/axe/) and evaluated using VoiceOver

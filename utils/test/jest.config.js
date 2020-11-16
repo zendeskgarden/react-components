@@ -18,7 +18,7 @@ module.exports = {
   globals: {
     PACKAGE_VERSION: 'version',
     'ts-jest': {
-      tsConfig: path.resolve(__dirname, 'tsconfig.test.json')
+      tsconfig: path.resolve(__dirname, 'tsconfig.test.json')
     }
   },
   moduleFileExtensions: [...defaults.moduleFileExtensions],
