@@ -15,7 +15,6 @@ import {
   StyledSVG,
   StyledLoadingPlaceholder
 } from '../styled';
-import { useCSSSVGAnimation } from '../utils/useCSSSVGAnimation';
 
 const COMPONENT_ID = 'loaders.dots';
 
@@ -38,15 +37,17 @@ export interface IDotsProps extends React.HTMLAttributes<SVGSVGElement> {
   delayMS?: number;
 }
 
+const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+const canTransformSVG = 'transform' in svg;
+
 const Dots: React.FC<IDotsProps> = ({ size, color, duration, delayMS, ...other }) => {
-  const noAnimatedSVGSupport = useCSSSVGAnimation();
-  const { delayComplete } = useSchedule({ duration, delayMS, loop: noAnimatedSVGSupport });
+  const { delayComplete } = useSchedule({ duration, delayMS, loop: true });
   const dotOne = useRef<SVGCircleElement>(null);
   const dotTwo = useRef<SVGCircleElement>(null);
   const dotThree = useRef<SVGCircleElement>(null);
 
   useEffect(() => {
-    if (noAnimatedSVGSupport && delayComplete) {
+    if (!canTransformSVG && delayComplete) {
       const transforms = [
         window.getComputedStyle(dotOne.current!).getPropertyValue('transform'),
         window.getComputedStyle(dotTwo.current!).getPropertyValue('transform'),

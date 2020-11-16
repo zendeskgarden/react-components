@@ -9,12 +9,8 @@ import React from 'react';
 import { render, act } from 'garden-test-utils';
 import mockDate from 'mockdate';
 import Dots from './Dots';
-import { useCSSSVGAnimation } from '../utils/useCSSSVGAnimation';
 
 jest.useFakeTimers();
-jest.mock('../utils/useCSSSVGAnimation', () => ({
-  useCSSSVGAnimation: jest.fn(() => false)
-}));
 
 const DEFAULT_DATE = new Date(2019, 1, 5, 1, 1, 1);
 
@@ -51,7 +47,6 @@ describe('Dots', () => {
 
   describe('Animation', () => {
     it('relies on svg transition attribute if css svg animation is not supported', () => {
-      (useCSSSVGAnimation as jest.Mock).mockReturnValue(true);
       const { container } = render(<Dots data-test-id="dots" />);
 
       act(() => {
@@ -100,8 +95,6 @@ describe('Dots', () => {
           />
         </g>
       `);
-
-      (useCSSSVGAnimation as jest.Mock).mockReset();
     });
 
     it('updates animation after request animation frame', () => {
@@ -135,18 +128,21 @@ describe('Dots', () => {
             cx="9"
             cy="36"
             r="9"
+            transform=""
           />
           <circle
             class="c1"
             cx="40"
             cy="36"
             r="9"
+            transform=""
           />
           <circle
             class="c2"
             cx="71"
             cy="36"
             r="9"
+            transform=""
           />
         </g>
       `);
@@ -166,18 +162,21 @@ describe('Dots', () => {
             cx="9"
             cy="36"
             r="9"
+            transform=""
           />
           <circle
             class="sc-bdVaJa sc-htpNat yBsjz"
             cx="40"
             cy="36"
             r="9"
+            transform=""
           />
           <circle
             class="sc-bdVaJa sc-bxivhb eQgpbI"
             cx="71"
             cy="36"
             r="9"
+            transform=""
           />
         </g>
       `);
@@ -214,18 +213,21 @@ describe('Dots', () => {
             cx="9"
             cy="36"
             r="9"
+            transform=""
           />
           <circle
             class="c1"
             cx="40"
             cy="36"
             r="9"
+            transform=""
           />
           <circle
             class="c2"
             cx="71"
             cy="36"
             r="9"
+            transform=""
           />
         </g>
       `);
@@ -245,18 +247,21 @@ describe('Dots', () => {
             cx="9"
             cy="36"
             r="9"
+            transform=""
           />
           <circle
             class="sc-bdVaJa sc-htpNat kPGrdX"
             cx="40"
             cy="36"
             r="9"
+            transform=""
           />
           <circle
             class="sc-bdVaJa sc-bxivhb hGBsiB"
             cx="71"
             cy="36"
             r="9"
+            transform=""
           />
         </g>
       `);
@@ -293,18 +298,21 @@ describe('Dots', () => {
             cx="9"
             cy="36"
             r="9"
+            transform=""
           />
           <circle
             class="c1"
             cx="40"
             cy="36"
             r="9"
+            transform=""
           />
           <circle
             class="c2"
             cx="71"
             cy="36"
             r="9"
+            transform=""
           />
         </g>
       `);
@@ -324,18 +332,21 @@ describe('Dots', () => {
             cx="9"
             cy="36"
             r="9"
+            transform=""
           />
           <circle
             class="sc-bdVaJa sc-htpNat gYiuXr"
             cx="40"
             cy="36"
             r="9"
+            transform=""
           />
           <circle
             class="sc-bdVaJa sc-bxivhb iRhcNm"
             cx="71"
             cy="36"
             r="9"
+            transform=""
           />
         </g>
       `);
