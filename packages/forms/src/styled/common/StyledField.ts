@@ -11,7 +11,7 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 const COMPONENT_ID = 'forms.field';
 
 /**
- * 1. Set positioning context for absolute Checkbox, Radio, and Toggle.
+ * 1. Set positioning context for absolute contents (Checkbox, Radio, Toggle).
  * 2. Resets for <fieldset>.
  */
 export const StyledField = styled.div.attrs({
