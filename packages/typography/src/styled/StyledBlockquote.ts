@@ -29,8 +29,8 @@ export const StyledBlockquote = styled.blockquote.attrs({
   /* stylelint-enable property-no-unknown */
   direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
 
-  & + &,
-  p + & {
+  p + &,
+  & + & {
     margin-top: ${props => props.theme.lineHeights[props.size!]};
   }
 
