@@ -10,10 +10,14 @@ import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden
 
 const COMPONENT_ID = 'typography.blockquote';
 
+interface IStyledBlockquoteProps {
+  size?: 'sm' | 'md' | 'lg';
+}
+
 export const StyledBlockquote = styled.blockquote.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+})<IStyledBlockquoteProps>`
   margin: 0;
   /* stylelint-disable property-no-unknown */
   border-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
@@ -25,9 +29,15 @@ export const StyledBlockquote = styled.blockquote.attrs({
   /* stylelint-enable property-no-unknown */
   direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
 
+  & + &,
+  p + & {
+    margin-top: ${props => props.theme.lineHeights[props.size!]};
+  }
+
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledBlockquote.defaultProps = {
-  theme: DEFAULT_THEME
+  theme: DEFAULT_THEME,
+  size: 'md'
 };

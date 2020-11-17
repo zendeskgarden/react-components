@@ -7,6 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { StyledBlockquote } from './StyledBlockquote';
 
 describe('StyledBlockquote', () => {
@@ -20,5 +21,31 @@ describe('StyledBlockquote', () => {
     const { container } = renderRtl(<StyledBlockquote />);
 
     expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
+  });
+
+  describe('size', () => {
+    it('renders small size', () => {
+      const { container } = render(<StyledBlockquote size="sm" />);
+
+      expect(container.firstChild).toHaveStyleRule('margin-top', DEFAULT_THEME.lineHeights.sm, {
+        modifier: ` + ${StyledBlockquote}`
+      });
+    });
+
+    it('renders medium size', () => {
+      const { container } = render(<StyledBlockquote size="md" />);
+
+      expect(container.firstChild).toHaveStyleRule('margin-top', DEFAULT_THEME.lineHeights.md, {
+        modifier: ` + ${StyledBlockquote}`
+      });
+    });
+
+    it('renders large size', () => {
+      const { container } = render(<StyledBlockquote size="lg" />);
+
+      expect(container.firstChild).toHaveStyleRule('margin-top', DEFAULT_THEME.lineHeights.lg, {
+        modifier: ` + ${StyledBlockquote}`
+      });
+    });
   });
 });
