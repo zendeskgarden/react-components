@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import Blockquote from './Blockquote';
+import { Blockquote } from './Blockquote';
 
 describe('Blockquote', () => {
   it('applies correct styling with RTL locale', () => {
