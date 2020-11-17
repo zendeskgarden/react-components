@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1605649611683" clover="3.2.0">
-  <project timestamp="1605649611683" name="All files">
+<coverage generated="1605655747765" clover="3.2.0">
+  <project timestamp="1605655747765" name="All files">
     <metrics statements="6854" coveredstatements="6705" conditionals="2747" coveredconditionals="2488" methods="1445" coveredmethods="1413" elements="11046" coveredelements="10606" complexity="0" loc="6854" ncloc="6854" packages="113" files="450" classes="450"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
@@ -4501,10 +4501,10 @@
         <line num="8" count="41" type="stmt"/>
         <line num="9" count="41" type="stmt"/>
         <line num="11" count="41" type="stmt"/>
-        <line num="13" count="41" type="stmt"/>
-        <line num="17" count="230" type="cond" truecount="2" falsecount="0"/>
-        <line num="23" count="230" type="stmt"/>
-        <line num="26" count="41" type="stmt"/>
+        <line num="17" count="41" type="stmt"/>
+        <line num="22" count="230" type="cond" truecount="2" falsecount="0"/>
+        <line num="27" count="230" type="stmt"/>
+        <line num="30" count="41" type="stmt"/>
       </file>
       <file name="StyledHint.ts" path="/home/circleci/project/packages/forms/src/styled/common/StyledHint.ts">
         <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="5"/>
