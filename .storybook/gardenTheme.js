@@ -8,16 +8,19 @@
 import { create } from '@storybook/theming/create';
 import { DEFAULT_THEME } from '../packages/theming/src';
 
-export const managerTheme = create({
+const theme = {
   fontBase: DEFAULT_THEME.fonts.system,
-  fontCode: DEFAULT_THEME.fonts.mono,
+  fontCode: DEFAULT_THEME.fonts.mono
+};
+
+export const managerTheme = create({
   brandTitle: 'React Components / Zendesk Garden',
   brandUrl: 'https://zendeskgarden.github.io/react-components/storybook',
-  brandImage: './images/garden.svg'
+  brandImage: './images/garden.svg',
+  ...theme
 });
 
 export const previewTheme = create({
   base: DEFAULT_THEME.colors.base,
-  fontBase: DEFAULT_THEME.fonts.system,
-  fontCode: DEFAULT_THEME.fonts.mono
+  ...theme
 });
