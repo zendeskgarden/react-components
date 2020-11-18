@@ -11,6 +11,25 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+## v8.27.0 (2020-11-18)
+
+#### :rocket: New Feature
+
+- `typography`
+  - [#939](https://github.com/zendeskgarden/react-components/pull/939) feat(typography): add Blockquote size prop to control sibling spacing ([@jzempel](https://github.com/jzempel))
+  - [#937](https://github.com/zendeskgarden/react-components/pull/937) feat(typography): add Blockquote component ([@jzempel](https://github.com/jzempel))
+  - [#925](https://github.com/zendeskgarden/react-components/pull/925) feat(typography): support anchor-styled code snippets ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+
+- `forms`
+  - [#940](https://github.com/zendeskgarden/react-components/pull/940) fix(forms): restore relative positioning context on Field container ([@jzempel](https://github.com/jzempel))
+- `loaders`
+  - [#936](https://github.com/zendeskgarden/react-components/pull/936) fix(loaders): fix Dot loader for IE11 ([@hzhu](https://github.com/hzhu))
+
+#### :seedling: Internal
+
+- [#941](https://github.com/zendeskgarden/react-components/pull/941) chore: fix production storybook navigation ([@jzempel](https://github.com/jzempel))
 ## v8.26.0 (2020-11-11)
 
 #### :rocket: New Feature
