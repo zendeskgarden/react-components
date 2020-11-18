@@ -7,6 +7,7 @@
 
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
+import { PARAM_KEY as viewMode } from '@storybook/addon-docs/dist/shared';
 import { previewTheme } from './gardenTheme';
 import { ThemeProvider, DEFAULT_THEME } from '../packages/theming/src';
 
@@ -15,7 +16,8 @@ export const parameters = {
   backgrounds: { disable: true },
   docs: {
     theme: previewTheme
-  }
+  },
+  viewMode
 };
 
 const GlobalPreviewStyling = createGlobalStyle`
