@@ -9,7 +9,6 @@ import { create } from '@storybook/theming/create';
 import { DEFAULT_THEME } from '../packages/theming/src';
 
 export const managerTheme = create({
-  base: 'dark',
   fontBase: DEFAULT_THEME.fonts.system,
   fontCode: DEFAULT_THEME.fonts.mono,
   brandTitle: 'React Components / Zendesk Garden',
@@ -18,7 +17,7 @@ export const managerTheme = create({
 });
 
 export const previewTheme = create({
-  base: 'light',
+  base: DEFAULT_THEME.colors.base,
   fontBase: DEFAULT_THEME.fonts.system,
   fontCode: DEFAULT_THEME.fonts.mono
 });
