@@ -60,7 +60,7 @@ initialState = {
   </Field>
   <Menu>
     {options.map(option => (
-      <Item key={option.value} value={option}>
+      <Item key={`${option.label}-${option.value}`} value={option}>
         <Color color={option.value} name={option.label} includeSample />
       </Item>
     ))}
