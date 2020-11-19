@@ -244,6 +244,11 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
                 tabIndex: -1,
                 ref: hiddenInputRef,
                 value: '',
+                onClick: (e: any) => {
+                  if (isOpen) {
+                    (e.nativeEvent as any).preventDownshiftDefault = true;
+                  }
+                },
                 onKeyDown: onInputKeyDown
               } as any)}
             ></StyledInput>

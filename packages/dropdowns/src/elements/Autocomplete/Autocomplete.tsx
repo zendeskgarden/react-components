@@ -158,6 +158,11 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
                 onBlur: () => {
                   setIsFocused(false);
                 },
+                onClick: (e: any) => {
+                  if (isOpen) {
+                    (e.nativeEvent as any).preventDownshiftDefault = true;
+                  }
+                },
                 onKeyDown: onInputKeyDown,
                 role: 'combobox',
                 ref: inputRef
