@@ -346,6 +346,65 @@ describe('Multiselect', () => {
       userEvent.click(getAllByTestId('tag')[0]);
       expect(multiselect).toHaveAttribute('data-test-is-open', 'false');
     });
+
+    it('selects highlighted item when tab is pressed', () => {
+      const onSelectSpy = jest.fn();
+
+      const { getByRole, getByTestId } = render(
+        <ExampleWrapper selectedItems={['celosia']} onSelect={items => onSelectSpy(items)}>
+          <Label data-test-id="label">Label</Label>
+          <Multiselect
+            data-test-id="multiselect"
+            renderItem={({ value, removeValue }) => (
+              <div data-test-id="tag">
+                {value}
+                <button data-test-id="remove" onClick={() => removeValue()} tabIndex={-1}>
+                  Remove
+                </button>
+              </div>
+            )}
+          />
+        </ExampleWrapper>
+      );
+      const multiselect = getByTestId('multiselect');
+      const input = getByRole('combobox');
+
+      userEvent.click(multiselect);
+      fireEvent.keyDown(input, { key: 'ArrowDown', keyCode: 38 });
+      fireEvent.keyDown(input, { key: 'ArrowDown', keyCode: 38 });
+      userEvent.tab();
+
+      expect(onSelectSpy).toHaveBeenCalledWith(['celosia', 'dusty-miller']);
+    });
+
+    it('does not select item when tab is pressed with no highlighted item', () => {
+      const onSelectSpy = jest.fn();
+
+      const { getByTestId } = render(
+        <ExampleWrapper selectedItems={['celosia']} onSelect={items => onSelectSpy(items)}>
+          <Label data-test-id="label">Label</Label>
+          <Multiselect
+            data-test-id="multiselect"
+            renderItem={({ value, removeValue }) => (
+              <div data-test-id="tag">
+                {value}
+                <button data-test-id="remove" onClick={() => removeValue()} tabIndex={-1}>
+                  Remove
+                </button>
+              </div>
+            )}
+          />
+        </ExampleWrapper>
+      );
+      const multiselect = getByTestId('multiselect');
+
+      act(() => {
+        userEvent.click(multiselect);
+        userEvent.tab();
+      });
+
+      expect(onSelectSpy).not.toHaveBeenCalled();
+    });
   });
 
   describe('Tags', () => {

@@ -10,8 +10,8 @@ import userEvent from '@testing-library/user-event';
 import { render, fireEvent } from 'garden-test-utils';
 import { Dropdown, Autocomplete, Field, Menu, Item, Label } from '../..';
 
-const ExampleAutocomplete = () => (
-  <Dropdown>
+const ExampleAutocomplete = (props: any) => (
+  <Dropdown {...props}>
     <Field>
       <Autocomplete data-test-id="autocomplete">Test</Autocomplete>
     </Field>
@@ -155,6 +155,36 @@ describe('Autocomplete', () => {
 
       userEvent.type(autocomplete.querySelector('input')!, '{escape}');
       expect(autocomplete).not.toHaveClass('is-open');
+    });
+
+    it('selects highlighted item when tab is pressed', () => {
+      const onSelectSpy = jest.fn();
+
+      const { getByRole, getByTestId } = render(
+        <ExampleAutocomplete onSelect={(item: string) => onSelectSpy(item)} />
+      );
+      const autocomplete = getByTestId('autocomplete');
+      const input = getByRole('combobox');
+
+      userEvent.click(autocomplete);
+      fireEvent.keyDown(input, { key: 'ArrowDown', keyCode: 38 });
+      userEvent.tab();
+
+      expect(onSelectSpy).toHaveBeenCalledWith('item-1');
+    });
+
+    it('does not select item when tab is pressed with no highlighted item', () => {
+      const onSelectSpy = jest.fn();
+
+      const { getByTestId } = render(
+        <ExampleAutocomplete onSelect={(item: string) => onSelectSpy(item)} />
+      );
+      const autocomplete = getByTestId('autocomplete');
+
+      userEvent.click(autocomplete);
+      userEvent.tab();
+
+      expect(onSelectSpy).not.toHaveBeenCalled();
     });
   });
 });

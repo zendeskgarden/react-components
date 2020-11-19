@@ -30,7 +30,6 @@ const Trigger: React.FunctionComponent<ITriggerProps> = ({ children, refKey, ...
       getInputProps,
       isOpen,
       highlightedIndex,
-      closeMenu,
       selectItemAtIndex,
       setHighlightedIndex
     }
@@ -101,6 +100,17 @@ const Trigger: React.FunctionComponent<ITriggerProps> = ({ children, refKey, ...
 
   const onInputKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
+      if (
+        e.keyCode === KEY_CODES.TAB &&
+        isOpen &&
+        highlightedIndex !== null &&
+        highlightedIndex !== undefined
+      ) {
+        e.preventDefault();
+        e.stopPropagation();
+        selectItemAtIndex(highlightedIndex);
+      }
+
       if (e.keyCode === KEY_CODES.SPACE) {
         // Prevent space from closing Menu only if used with existing search value
         if (searchString) {
@@ -111,7 +121,6 @@ const Trigger: React.FunctionComponent<ITriggerProps> = ({ children, refKey, ...
           e.stopPropagation();
 
           selectItemAtIndex(highlightedIndex);
-          closeMenu();
         }
       }
 
@@ -158,12 +167,12 @@ const Trigger: React.FunctionComponent<ITriggerProps> = ({ children, refKey, ...
       }
     },
     [
+      isOpen,
+      highlightedIndex,
       searchString,
       searchItems,
       itemSearchRegistry,
-      highlightedIndex,
       selectItemAtIndex,
-      closeMenu,
       setHighlightedIndex
     ]
   );
