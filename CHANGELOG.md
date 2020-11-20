@@ -11,6 +11,15 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+
+## v8.28.0 (2020-11-19)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#943](https://github.com/zendeskgarden/react-components/pull/943) feat(dropdowns): ensure dropdowns allow space key in Safari with voiceover ([@austingreendev](https://github.com/austingreendev))
+  * [#942](https://github.com/zendeskgarden/react-components/pull/942) fix(dropdowns): ensure Tab key selects highlighted items ([@austingreendev](https://github.com/austingreendev))
+* Other
+  * [#944](https://github.com/zendeskgarden/react-components/pull/944) fix(build): ensure jest is able to run tests in all environments ([@austingreendev](https://github.com/austingreendev))
 ## v8.27.0 (2020-11-18)
 
 #### :rocket: New Feature
