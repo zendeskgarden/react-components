@@ -61,6 +61,15 @@ describe('Textarea', () => {
         borderBottomWidth: '1px'
       };
 
+      const mockIntersectionObserver = jest.fn();
+
+      mockIntersectionObserver.mockReturnValue({
+        observe: () => null,
+        unobserve: () => null,
+        disconnect: () => null
+      });
+      window.IntersectionObserver = mockIntersectionObserver;
+
       window.getComputedStyle = jest.fn().mockReturnValue({
         ...styles,
         getPropertyValue: (prop: any) => {

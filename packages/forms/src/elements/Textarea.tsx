@@ -129,17 +129,24 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
         return undefined;
       }
 
-      const resizeHandler = debounce(() => {
-        calculateHeight();
-      });
+      const resizeHandler = debounce(calculateHeight);
 
       window.addEventListener('resize', resizeHandler);
 
+      const textarea = textAreaRef.current;
+      let observer: IntersectionObserver | undefined;
+
+      if (textarea) {
+        observer = new IntersectionObserver(resizeHandler);
+        observer.observe(textarea);
+      }
+
       return () => {
+        observer?.disconnect();
         resizeHandler.cancel();
         window.removeEventListener('resize', resizeHandler);
       };
-    }, [calculateHeight, isAutoResizable]);
+    }, [calculateHeight, isAutoResizable, textAreaRef]);
 
     useLayoutEffect(() => {
       calculateHeight();
