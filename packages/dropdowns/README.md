@@ -26,7 +26,7 @@ import { Dropdown, Menu, Item, Trigger } from '@zendeskgarden/react-dropdowns';
     <Trigger>
       <button>This triggers a menu</button>
     </Trigger>
-    <Menu placement="end" arrow>
+    <Menu placement="end" hasArrow>
       <Item value="option-1">Option 1</Item>
       <Item value="option-2">Option 2</Item>
       <Item value="option-3">Option 3</Item>
