@@ -12,6 +12,16 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.28.1 (2020-12-02)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#948](https://github.com/zendeskgarden/react-components/pull/948) fix(dropdowns): revert tab selection #943 ([@austingreendev](https://github.com/austingreendev))
+
+#### :memo: Documentation
+* `dropdowns`
+  * [#947](https://github.com/zendeskgarden/react-components/pull/947) chore(docs): update Menu arrow usage ([@austingreendev](https://github.com/austingreendev))
+
 ## v8.28.0 (2020-11-19)
 
 #### :bug: Bug Fix
