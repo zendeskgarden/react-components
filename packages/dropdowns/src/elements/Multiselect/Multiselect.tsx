@@ -87,9 +87,7 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
         closeMenu,
         inputValue,
         setState: setDownshiftState,
-        itemToString,
-        highlightedIndex,
-        selectItemAtIndex
+        itemToString
       }
     } = useDropdownContext();
     const { isLabelHovered } = useFieldContext();
@@ -357,17 +355,6 @@ const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps & ThemePr
                     }
                   },
                   onKeyDown: (e: KeyboardEvent) => {
-                    if (
-                      e.keyCode === KEY_CODES.TAB &&
-                      isOpen &&
-                      highlightedIndex !== null &&
-                      highlightedIndex !== undefined
-                    ) {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      selectItemAtIndex(highlightedIndex);
-                    }
-
                     if (!inputValue) {
                       if (
                         isRtl(props) &&

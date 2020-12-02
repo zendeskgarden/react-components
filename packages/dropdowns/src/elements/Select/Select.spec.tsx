@@ -10,8 +10,8 @@ import userEvent from '@testing-library/user-event';
 import { render, fireEvent } from 'garden-test-utils';
 import { Dropdown, Select, Field, Menu, Item, Label } from '../..';
 
-const ExampleSelect = (props: any) => (
-  <Dropdown {...props}>
+const ExampleSelect = () => (
+  <Dropdown>
     <Field>
       <Select data-test-id="select">Test</Select>
     </Field>
@@ -182,36 +182,6 @@ describe('Select', () => {
 
       userEvent.type(select, '{esc}');
       expect(select).not.toHaveClass('is-open');
-    });
-
-    it('selects highlighted item when tab is pressed', () => {
-      const onSelectSpy = jest.fn();
-
-      const { getByRole, getByTestId } = render(
-        <ExampleSelect onSelect={(item: string) => onSelectSpy(item)} />
-      );
-      const select = getByTestId('select');
-      const input = getByRole('textbox', { hidden: true });
-
-      userEvent.click(select);
-      fireEvent.keyDown(input, { key: 'ArrowDown', keyCode: 38 });
-      userEvent.tab();
-
-      expect(onSelectSpy).toHaveBeenCalledWith('item-1');
-    });
-
-    it('does not select item when tab is pressed with no highlighted item', () => {
-      const onSelectSpy = jest.fn();
-
-      const { getByTestId } = render(
-        <ExampleSelect onSelect={(item: string) => onSelectSpy(item)} />
-      );
-      const select = getByTestId('select');
-
-      userEvent.click(select);
-      userEvent.tab();
-
-      expect(onSelectSpy).not.toHaveBeenCalled();
     });
   });
 });

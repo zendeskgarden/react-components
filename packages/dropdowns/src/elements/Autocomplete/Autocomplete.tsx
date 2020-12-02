@@ -5,21 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  useRef,
-  useEffect,
-  useState,
-  useCallback,
-  HTMLAttributes,
-  KeyboardEvent
-} from 'react';
+import React, { useRef, useEffect, useState, HTMLAttributes, KeyboardEvent } from 'react';
 import PropTypes from 'prop-types';
 import { Reference } from 'react-popper';
-import {
-  composeEventHandlers,
-  useCombinedRefs,
-  KEY_CODES
-} from '@zendeskgarden/container-utilities';
+import { composeEventHandlers, useCombinedRefs } from '@zendeskgarden/container-utilities';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { StyledFauxInput, StyledInput, StyledSelect } from '../../styled';
 import { VALIDATION } from '../../utils/validation';
@@ -54,14 +43,7 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
   ({ children, inputRef: controlledInputRef, start, ...props }, ref) => {
     const {
       popperReferenceElementRef,
-      downshift: {
-        getToggleButtonProps,
-        getInputProps,
-        getRootProps,
-        isOpen,
-        highlightedIndex,
-        selectItemAtIndex
-      }
+      downshift: { getToggleButtonProps, getInputProps, getRootProps, isOpen }
     } = useDropdownContext();
     const { isLabelHovered } = useFieldContext();
     const inputRef = useCombinedRefs<HTMLInputElement>(controlledInputRef);
@@ -77,22 +59,6 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
 
       previousIsOpenRef.current = isOpen;
     }, [inputRef, isOpen]);
-
-    const onInputKeyDown = useCallback(
-      (e: React.KeyboardEvent) => {
-        if (
-          e.keyCode === KEY_CODES.TAB &&
-          isOpen &&
-          highlightedIndex !== null &&
-          highlightedIndex !== undefined
-        ) {
-          e.preventDefault();
-          e.stopPropagation();
-          selectItemAtIndex(highlightedIndex);
-        }
-      },
-      [highlightedIndex, isOpen, selectItemAtIndex]
-    );
 
     /**
      * Destructure type out of props so that `type="button"`
@@ -163,7 +129,6 @@ const Autocomplete = React.forwardRef<HTMLDivElement, IAutocompleteProps>(
                     (e.nativeEvent as any).preventDownshiftDefault = true;
                   }
                 },
-                onKeyDown: onInputKeyDown,
                 role: 'combobox',
                 ref: inputRef
               } as any)}
