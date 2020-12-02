@@ -52,7 +52,8 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
         isOpen,
         highlightedIndex,
         setHighlightedIndex,
-        selectItemAtIndex
+        selectItemAtIndex,
+        closeMenu
       }
     } = useDropdownContext();
     const { isLabelHovered } = useFieldContext();
@@ -119,17 +120,6 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
 
     const onInputKeyDown = useCallback(
       (e: React.KeyboardEvent) => {
-        if (
-          e.keyCode === KEY_CODES.TAB &&
-          isOpen &&
-          highlightedIndex !== null &&
-          highlightedIndex !== undefined
-        ) {
-          e.preventDefault();
-          e.stopPropagation();
-          selectItemAtIndex(highlightedIndex);
-        }
-
         if (e.keyCode === KEY_CODES.SPACE) {
           // Prevent space from closing Menu only if used with existing search value
           if (searchString) {
@@ -140,6 +130,7 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
             e.stopPropagation();
 
             selectItemAtIndex(highlightedIndex);
+            closeMenu();
           }
         }
 
@@ -186,12 +177,12 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
         }
       },
       [
-        isOpen,
-        highlightedIndex,
         searchString,
         searchItems,
         itemSearchRegistry,
+        highlightedIndex,
         selectItemAtIndex,
+        closeMenu,
         setHighlightedIndex
       ]
     );
