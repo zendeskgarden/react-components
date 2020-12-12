@@ -10,24 +10,24 @@ import PropTypes from 'prop-types';
 import { StyledAvatar, StyledText } from '../styled';
 
 interface IAvatarProps extends HTMLAttributes<HTMLElement> {
-  /** Sets the avatar's background color */
+  /** Sets the avatar background color */
   backgroundColor?: string;
-  /** Sets the color for the child SVG or `Avatar.Text` components */
+  /** Sets the color for SVG or `Avatar.Text` child components */
   foregroundColor?: string;
-  /** Sets the color of the surface behind the avatar, which is used to manipulate the inner status rings */
+  /** Provides surface color for an avatar placed on a non-white background */
   surfaceColor?: string;
-  /** Applies system styling */
+  /** Applies system styling for representing objects, brands, or products */
   isSystem?: boolean;
-  /** Sets the avatar's size */
+  /** Specifies the avatar size */
   size?: 'extraextrasmall' | 'extrasmall' | 'small' | 'medium' | 'large';
-  /** Sets the avatar's status */
+  /** Applies status styling */
   status?: 'available' | 'away';
-  /** Sets the badge text */
+  /** Sets the badge text and applies active styling */
   badge?: string | number;
 }
 
 /**
- * Accepts all `<figure>` attributes and events
+ * @extends HTMLAttributes<HTMLElement>
  */
 const Avatar: React.FunctionComponent<IAvatarProps> = React.forwardRef<HTMLElement, IAvatarProps>(
   (
