@@ -13,7 +13,13 @@ import { StyledButtonGroup } from '../styled';
 import { ButtonGroupContext } from '../utils/useButtonGroupContext';
 
 export interface IButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
+  /** Defines the currently selected button in the group */
   selectedItem?: any;
+  /**
+   * Handles button selection
+   *
+   * @param {any} item The selected item
+   */
   onSelect?: (item: any) => void;
 }
 

@@ -12,10 +12,11 @@ import { useButtonGroupContext } from '../utils/useButtonGroupContext';
 import { useSplitButtonContext } from '../utils/useSplitButtonContext';
 
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  /** Apply danger styling */
+  /** Applies danger styling */
   isDanger?: boolean;
+  /** Specifies the buton size */
   size?: 'small' | 'medium' | 'large';
-  /** Stretch the button to its container width */
+  /** Stretches the button fill to its container width */
   isStretched?: boolean;
   /** Applies primary button styling */
   isPrimary?: boolean;
@@ -23,7 +24,7 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isBasic?: boolean;
   /** Applies link (anchor) button styling */
   isLink?: boolean;
-  /** Applies pill styling */
+  /** Applies pill button styling */
   isPill?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
@@ -32,7 +33,7 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 /**
- * Accepts all `<button>` props
+ * @extends HTMLAttributes<HTMLButtonElement>
  */
 const Button: React.FunctionComponent<
   IButtonProps & React.RefAttributes<HTMLButtonElement>
