@@ -12,7 +12,7 @@ import { StyledAvatar, StyledText } from '../styled';
 interface IAvatarProps extends HTMLAttributes<HTMLElement> {
   /** Sets the avatar background color */
   backgroundColor?: string;
-  /** Sets the color for SVG or `Avatar.Text` child components */
+  /** Sets the color for child SVG or `Avatar.Text` components */
   foregroundColor?: string;
   /** Provides surface color for an avatar placed on a non-white background */
   surfaceColor?: string;
