@@ -27,7 +27,7 @@ interface IAvatarProps extends HTMLAttributes<HTMLElement> {
 }
 
 /**
- * @extends HTMLAttributes<HTMLElement>
+ * Accepts all `<figure>` attributes and events
  */
 const Avatar: React.FunctionComponent<IAvatarProps> = React.forwardRef<HTMLElement, IAvatarProps>(
   (
