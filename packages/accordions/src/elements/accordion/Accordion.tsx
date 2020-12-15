@@ -31,37 +31,39 @@ interface IStaticAccordionExport<T, P>
 }
 
 interface IAccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
-  /** The `aria-level` used to apply heading rank on accordion headers */
+  /** Sets `aria-level` heading rank in the document structure */
   level: number;
-  /** Sets the sections for expansion */
+  /** Sets the expanded sections in a controlled accordion */
   expandedSections?: number[];
-  /** Hides the bottom border under each accordion panel */
+  /** Hides section borders */
   isBare?: boolean;
-  /** Collapses panels in an uncontrolled accordion */
+  /** Allows uncontrolled accordion sections to collapse */
   isCollapsible?: boolean;
-  /** Reduces the padding on the accordion headers and panels */
+  /** Applies compact styling */
   isCompact?: boolean;
-  /** Determines whether the accordion panels animate */
+  /** Animates section expansion and collapse */
   isAnimated?: boolean;
-  /** Enables simultaneous expansions of multiple panels in an uncontrolled accordion */
+  /** Enables simultaneous expansion of uncontrolled accordion sections */
   isExpandable?: boolean;
   /**
-   * Handles accordion state expansion changes
+   * Handles accordion expansion changes
    *
-   * @param {number} index The index of the section being expanded
+   * @param {number} index A section index
    */
   onChange?: (index: number) => void;
 }
 
 /**
- * Accepts all `<div>` attributes and events. Also accepts sub-components:
-
+ *  Accepts sub-components:
+ *
  *  - `Accordion.Section`
  *  - `Accordion.Header`
  *  - `Accordion.Label`
  *  - `Accordion.Panel`
  *
  * Note: The `Accordion.Label` is a sub-component of `Accordion.Header`.
+ *
+ * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Accordion = forwardRef<HTMLDivElement, IAccordionProps>(
   (

@@ -28,18 +28,20 @@ interface IStaticStepperExport<T, P>
 }
 
 interface IStepperProps extends HTMLAttributes<HTMLOListElement> {
-  /** Used to show the current step and compute completed steps */
+  /** Defines the currently active step, starting at 0 */
   activeIndex?: number;
-  /** Displays the Stepper in a horizontal layout */
+  /** Applies horizontal layout styling */
   isHorizontal?: boolean;
 }
 
 /**
- * Accepts all `<ol>` attributes and events. Also accepts sub-components:
+ * Accepts sub-components:
 
  *  - `Stepper.Step`
  *  - `Stepper.Label`
  *  - `Stepper.Content`
+ * 
+ * @extends HTMLAttributes<HTMLOListElement>
  */
 // eslint-disable-next-line react/display-name
 export const Stepper = forwardRef<HTMLOListElement, IStepperProps>(
