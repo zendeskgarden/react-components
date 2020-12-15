@@ -13,16 +13,17 @@ import { useSplitButtonContext } from '../utils/useSplitButtonContext';
 export interface IIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Applies primary button styling */
   isPrimary?: boolean;
-  /** Apply danger styling */
+  /** Applies danger button styling */
   isDanger?: boolean;
   /** Applies basic button styling */
   isBasic?: boolean;
-  /** Applies pill styling */
+  /** Applies pill button styling */
   isPill?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
   /** Rotates icon 180 degrees */
   isRotated?: boolean;
+  /** Specifies icon button size */
   size?: 'small' | 'medium' | 'large';
 }
 

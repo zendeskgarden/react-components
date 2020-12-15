@@ -11,9 +11,8 @@ import Button, { IButtonProps } from './Button';
 
 export interface IToggleButtonProps extends IButtonProps {
   /**
-   * Determine if the button is pressed or not. Use `'mixed'` to indicate
-   * whether the toggle controls other elements which do not share the same
-   * value.
+   * Determines if the button is pressed. Use "mixed" to indicate that
+   * the toggle controls other elements which do not share the same value.
    */
   isPressed?: boolean | 'mixed';
 }
@@ -21,7 +20,7 @@ export interface IToggleButtonProps extends IButtonProps {
 /**
  * A `Button` with the [ARIA
  * attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role#Toggle_buttons)
- * to indicate a pressed state.
+ * to indicate a pressed state
  */
 const ToggleButton: React.FunctionComponent<
   IToggleButtonProps & React.RefAttributes<HTMLButtonElement>
