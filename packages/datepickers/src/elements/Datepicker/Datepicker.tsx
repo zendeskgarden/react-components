@@ -31,7 +31,7 @@ import { StyledMenu, StyledMenuWrapper } from '../../styled';
 
 export interface IDatepickerProps {
   /**
-   * Sets the date to display
+   * Sets the selected date
    */
   value?: Date;
   /**
@@ -41,23 +41,23 @@ export interface IDatepickerProps {
    */
   onChange?: (date: Date) => void;
   /**
-   * Customizes date formatting within input element
+   * Adjusts the input element date formatting
    *
    *  @param {Date} date The selected date
    *  @returns {string} A formatted date string
    */
   formatDate?: (date: Date) => string;
   /**
-   * Sets the locale
-   * Accepts [all valid Intl locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation)
+   * Adjusts date formatting to match locale.
+   * Accepts [all valid Intl locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation).
    */
   locale?: string;
   /**
-   * Minimum value. Users are still able to manually enter a date below this value.
+   * Disables dates before this value on the calendar element
    */
   minValue?: Date;
   /**
-   * Maximum value. Users are still able to manually enter a date above this value.
+   * Disables dates after this value on the calendar element
    */
   maxValue?: Date;
   /**
@@ -77,21 +77,21 @@ export interface IDatepickerProps {
    */
   refKey?: string;
   /**
-   * Sets the locale-aware placement for the calendar element
+   * Adjusts the position of the calendar element
    * @default bottom-start
    **/
   placement?: GARDEN_PLACEMENT;
   /**
-   * Passes options to [Popper.JS Instance](https://github.com/FezVrasta/popper.js/blob/master/docs/_includes/popper-documentation.md#new-popperreference-popper-options)
+   * Passes configurations to the [Popper.JS Instance](https://github.com/FezVrasta/popper.js/blob/master/docs/_includes/popper-documentation.md#new-popperreference-popper-options)
    */
   popperModifiers?: any;
   /**
-   * Animates calendar element
+   * Animates the calendar element
    * @default true
    */
   isAnimated?: boolean;
   /**
-   * Allows calendar element to reposition during browser resize events
+   * Allows the calendar element to reposition during browser resize events
    * @default true
    */
   eventsEnabled?: boolean;

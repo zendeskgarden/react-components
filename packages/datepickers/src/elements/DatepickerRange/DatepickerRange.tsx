@@ -15,34 +15,34 @@ import Calendar from './components/Calendar';
 
 export interface IDatepickerRangeProps {
   /**
-   * Sets the locale
-   * Accepts [all valid Intl locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation)
+   * Adjusts date formatting to match locale.
+   * Accepts [all valid Intl locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation).
    */
   locale?: string;
   /**
-   * Defines the start date
+   * Sets the start date
    */
   startValue?: Date;
   /**
-   * Defines the end date
+   * Sets the end date
    */
   endValue?: Date;
   /**
-   * Minimum value. Users are still able to manually enter a date below this value.
+   * Disables dates before this value on the calendar element
    */
   minValue?: Date;
   /**
-   * Maximum value. Users are still able to manually enter a date above this value.
+   * Disables dates after this value on the calendar element
    */
   maxValue?: Date;
   /**
-   * Handles change in start and end dates
+   * Handles start and end date changes
    *
    * @param {Object} values The selected start and end dates
    */
   onChange?: (values: { startValue?: Date; endValue?: Date }) => void;
   /**
-   * Customizes date formatting within input element
+   * Adjusts the input element date formatting
    *
    *  @param {Date} date The selected date
    *  @returns {string} A formatted date string
@@ -51,8 +51,8 @@ export interface IDatepickerRangeProps {
   /**
    * Overrides default date parsing
    *
-   * @param {string} inputValue
-   * @returns {Date}
+   * @param {string} inputValue A date string
+   * @returns {Date} The parsed date
    */
   customParseDate?: (inputValue?: string) => Date;
   /**
