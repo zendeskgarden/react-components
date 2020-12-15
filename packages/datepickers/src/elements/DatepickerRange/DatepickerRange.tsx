@@ -14,13 +14,17 @@ import End from './components/End';
 import Calendar from './components/Calendar';
 
 export interface IDatepickerRangeProps {
+  /**
+   * Sets the locale
+   * Accepts [all valid Intl locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation)
+   */
   locale?: string;
   /**
-   * The start date to display
+   * Defines the start date
    */
   startValue?: Date;
   /**
-   * The end date to display
+   * Defines the end date
    */
   endValue?: Date;
   /**
@@ -32,19 +36,27 @@ export interface IDatepickerRangeProps {
    */
   maxValue?: Date;
   /**
-   * Returns the parsed start and end dates
+   * Handles change in start and end dates
+   *
+   * @param {Object} values The selected start and end dates
    */
   onChange?: (values: { startValue?: Date; endValue?: Date }) => void;
   /**
-   * Allows customization of date formatting within input.
+   * Customizes date formatting within input element
+   *
+   *  @param {Date} date The selected date
+   *  @returns {string} A formatted date string
    */
   formatDate?: (date: Date) => string;
   /**
-   * Override default date parsing
+   * Overrides default date parsing
+   *
+   * @param {string} inputValue
+   * @returns {Date}
    */
   customParseDate?: (inputValue?: string) => Date;
   /**
-   * Show compact styling
+   * Applies compact styling
    */
   isCompact?: boolean;
 }

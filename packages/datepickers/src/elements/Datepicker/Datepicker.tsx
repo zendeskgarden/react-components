@@ -31,18 +31,24 @@ import { StyledMenu, StyledMenuWrapper } from '../../styled';
 
 export interface IDatepickerProps {
   /**
-   * The selected date to display
+   * Sets the date to display
    */
   value?: Date;
   /**
-   * Returns the parsed date
+   * Handles date change
+   *
+   * @param {Date} date The selected date
    */
   onChange?: (date: Date) => void;
   /**
-   * Allows customization of date formatting within input.
+   * Customizes date formatting within input element
+   *
+   *  @param {Date} date The selected date
+   *  @returns {string} A formatted date string
    */
   formatDate?: (date: Date) => string;
   /**
+   * Sets the locale
    * Accepts [all valid Intl locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation)
    */
   locale?: string;
@@ -55,20 +61,23 @@ export interface IDatepickerProps {
    */
   maxValue?: Date;
   /**
-   * Show compact styling
+   * Applies compact styling
    */
   isCompact?: boolean;
   /**
-   * Override default date parsing. Receives a localized input value and returns a `Date` object.
+   * Overrides default date parsing
+   *
+   * @param {string} inputValue
+   * @returns {Date}
    */
   customParseDate?: (inputValue: string) => Date;
   /**
-   * The ref key used to position the dropdown
+   * Defines the ref key used to position the calendar element
    * @default ref
    */
   refKey?: string;
   /**
-   * Locale-aware placement for the dropdown element
+   * Sets the locale-aware placement for the calendar element
    * @default bottom-start
    **/
   placement?: GARDEN_PLACEMENT;
@@ -77,17 +86,17 @@ export interface IDatepickerProps {
    */
   popperModifiers?: any;
   /**
-   * Show open animations
+   * Animates calendar element
    * @default true
    */
   isAnimated?: boolean;
   /**
-   * Allow dropdown to reposition during browser resize events
+   * Allows calendar element to reposition during browser resize events
    * @default true
    */
   eventsEnabled?: boolean;
   /**
-   * The z-index of the dropdown
+   * Sets the z-index of the calendar element
    * @default 1000
    */
   zIndex?: number;
