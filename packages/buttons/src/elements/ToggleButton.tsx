@@ -21,8 +21,6 @@ export interface IToggleButtonProps extends IButtonProps {
  * A `Button` with the [ARIA
  * attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role#Toggle_buttons)
  * to indicate a pressed state
- *
- * @extends HTMLAttributes<HTMLButtonElement>
  */
 const ToggleButton: React.FunctionComponent<
   IToggleButtonProps & React.RefAttributes<HTMLButtonElement>

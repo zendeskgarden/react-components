@@ -28,7 +28,7 @@ export interface IIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement
 }
 
 /**
- * @extends HTMLAttributes<HTMLButtonElement>
+ * Accepts all `<button>` props
  */
 const IconButton: React.FunctionComponent<
   IIconButtonProps & React.RefAttributes<HTMLButtonElement>
