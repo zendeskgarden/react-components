@@ -82,7 +82,7 @@ export interface IDatepickerProps {
    **/
   placement?: GARDEN_PLACEMENT;
   /**
-   * Passes configurations to the [Popper.JS Instance](https://github.com/FezVrasta/popper.js/blob/master/docs/_includes/popper-documentation.md#new-popperreference-popper-options)
+   * Passes configuration options to the [Popper.JS Instance](https://popper.js.org/docs/v2/modifiers/)
    */
   popperModifiers?: any;
   /**
