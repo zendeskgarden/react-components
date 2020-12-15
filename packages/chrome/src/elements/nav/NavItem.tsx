@@ -14,19 +14,19 @@ import { useChromeContext } from '../../utils/useChromeContext';
 
 interface INavItemProps extends HTMLAttributes<any> {
   /**
-   * Applies product-specific color palette
+   * Applies a product-specific color palette
    **/
   product?: PRODUCT;
   /**
-   * Indicate which item is current in the nav
+   * Indicates that the item is current in the nav
    **/
   isCurrent?: boolean;
   /**
-   * Indicate that the item contains a product logo
+   * Indicates that the item contains a product logo
    */
   hasLogo?: boolean;
   /**
-   * Indicate that the item contains the company brandmark
+   * Indicates that the item contains the company brandmark
    */
   hasBrandmark?: boolean;
 }

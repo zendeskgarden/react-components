@@ -13,7 +13,7 @@ import { StyledNav } from '../../styled';
 
 interface INavProps extends HTMLAttributes<HTMLElement> {
   /**
-   * Expand navigation area to include item text
+   * Expands nav area to include item text
    **/
   isExpanded?: boolean;
 }
