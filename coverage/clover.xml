@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1607970753929" clover="3.2.0">
-  <project timestamp="1607970753929" name="All files">
+<coverage generated="1607989702050" clover="3.2.0">
+  <project timestamp="1607989702050" name="All files">
     <metrics statements="6859" coveredstatements="6710" conditionals="2753" coveredconditionals="2492" methods="1448" coveredmethods="1416" elements="11060" coveredelements="10618" complexity="0" loc="6859" ncloc="6859" packages="113" files="450" classes="450"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
@@ -85,20 +85,20 @@
         <line num="21" count="8" type="stmt"/>
         <line num="22" count="8" type="stmt"/>
         <line num="23" count="8" type="stmt"/>
-        <line num="66" count="8" type="stmt"/>
-        <line num="81" count="11" type="stmt"/>
-        <line num="87" count="11" type="stmt"/>
+        <line num="68" count="8" type="stmt"/>
+        <line num="83" count="11" type="stmt"/>
         <line num="89" count="11" type="stmt"/>
-        <line num="90" count="11" type="stmt"/>
-        <line num="93" count="11" type="stmt"/>
-        <line num="106" count="11" type="stmt"/>
-        <line num="114" count="8" type="stmt"/>
-        <line num="115" count="8" type="stmt"/>
+        <line num="91" count="11" type="stmt"/>
+        <line num="92" count="11" type="stmt"/>
+        <line num="95" count="11" type="stmt"/>
+        <line num="108" count="11" type="stmt"/>
         <line num="116" count="8" type="stmt"/>
         <line num="117" count="8" type="stmt"/>
+        <line num="118" count="8" type="stmt"/>
         <line num="119" count="8" type="stmt"/>
         <line num="121" count="8" type="stmt"/>
-        <line num="128" count="1" type="stmt"/>
+        <line num="123" count="8" type="stmt"/>
+        <line num="130" count="1" type="stmt"/>
       </file>
     </package>
     <package name="accordions.src.elements.accordion.components">
@@ -196,17 +196,17 @@
         <line num="19" count="4" type="stmt"/>
         <line num="20" count="4" type="stmt"/>
         <line num="21" count="4" type="stmt"/>
-        <line num="45" count="4" type="stmt"/>
-        <line num="47" count="8" type="stmt"/>
-        <line num="48" count="8" type="stmt"/>
-        <line num="54" count="8" type="stmt"/>
-        <line num="55" count="8" type="stmt"/>
-        <line num="58" count="8" type="stmt"/>
-        <line num="66" count="4" type="stmt"/>
-        <line num="67" count="4" type="stmt"/>
+        <line num="47" count="4" type="stmt"/>
+        <line num="49" count="8" type="stmt"/>
+        <line num="50" count="8" type="stmt"/>
+        <line num="56" count="8" type="stmt"/>
+        <line num="57" count="8" type="stmt"/>
+        <line num="60" count="8" type="stmt"/>
         <line num="68" count="4" type="stmt"/>
+        <line num="69" count="4" type="stmt"/>
         <line num="70" count="4" type="stmt"/>
         <line num="72" count="4" type="stmt"/>
+        <line num="74" count="4" type="stmt"/>
       </file>
     </package>
     <package name="accordions.src.elements.stepper.components">
