@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1607996622312" clover="3.2.0">
-  <project timestamp="1607996622312" name="All files">
+<coverage generated="1608077121274" clover="3.2.0">
+  <project timestamp="1608077121275" name="All files">
     <metrics statements="6859" coveredstatements="6710" conditionals="2753" coveredconditionals="2492" methods="1448" coveredmethods="1416" elements="11060" coveredelements="10618" complexity="0" loc="6859" ncloc="6859" packages="113" files="450" classes="450"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
@@ -817,22 +817,22 @@
         <line num="10" count="4" type="stmt"/>
         <line num="11" count="4" type="stmt"/>
         <line num="12" count="4" type="stmt"/>
-        <line num="39" count="4" type="stmt"/>
-        <line num="40" count="40" type="stmt"/>
+        <line num="40" count="4" type="stmt"/>
         <line num="41" count="40" type="stmt"/>
-        <line num="43" count="40" type="stmt"/>
-        <line num="48" count="40" type="cond" truecount="4" falsecount="0"/>
-        <line num="49" count="28" type="cond" truecount="2" falsecount="0"/>
-        <line num="50" count="2" type="stmt"/>
-        <line num="53" count="26" type="stmt"/>
-        <line num="61" count="38" type="stmt"/>
-        <line num="64" count="4" type="stmt"/>
-        <line num="76" count="4" type="stmt"/>
-        <line num="85" count="4" type="stmt"/>
+        <line num="42" count="40" type="stmt"/>
+        <line num="44" count="40" type="stmt"/>
+        <line num="49" count="40" type="cond" truecount="4" falsecount="0"/>
+        <line num="50" count="28" type="cond" truecount="2" falsecount="0"/>
+        <line num="51" count="2" type="stmt"/>
+        <line num="54" count="26" type="stmt"/>
+        <line num="62" count="38" type="stmt"/>
+        <line num="65" count="4" type="stmt"/>
+        <line num="77" count="4" type="stmt"/>
         <line num="86" count="4" type="stmt"/>
-        <line num="88" count="4" type="stmt"/>
+        <line num="87" count="4" type="stmt"/>
         <line num="89" count="4" type="stmt"/>
-        <line num="92" count="4" type="stmt"/>
+        <line num="90" count="4" type="stmt"/>
+        <line num="93" count="4" type="stmt"/>
       </file>
       <file name="ButtonGroup.tsx" path="/home/circleci/project/packages/buttons/src/elements/ButtonGroup.tsx">
         <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -841,12 +841,12 @@
         <line num="10" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="29" count="17" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
         <line num="35" count="17" type="stmt"/>
-        <line num="37" count="17" type="stmt"/>
-        <line num="44" count="1" type="stmt"/>
-        <line num="49" count="1" type="stmt"/>
+        <line num="41" count="17" type="stmt"/>
+        <line num="43" count="17" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
       </file>
       <file name="ChevronButton.tsx" path="/home/circleci/project/packages/buttons/src/elements/ChevronButton.tsx">
         <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -866,13 +866,13 @@
         <line num="9" count="4" type="stmt"/>
         <line num="10" count="4" type="stmt"/>
         <line num="11" count="4" type="stmt"/>
-        <line num="34" count="4" type="stmt"/>
-        <line num="36" count="10" type="stmt"/>
-        <line num="38" count="10" type="stmt"/>
-        <line num="46" count="4" type="stmt"/>
-        <line num="48" count="4" type="stmt"/>
-        <line num="58" count="4" type="stmt"/>
-        <line num="65" count="4" type="stmt"/>
+        <line num="35" count="4" type="stmt"/>
+        <line num="37" count="10" type="stmt"/>
+        <line num="39" count="10" type="stmt"/>
+        <line num="47" count="4" type="stmt"/>
+        <line num="49" count="4" type="stmt"/>
+        <line num="59" count="4" type="stmt"/>
+        <line num="66" count="4" type="stmt"/>
       </file>
       <file name="SplitButton.tsx" path="/home/circleci/project/packages/buttons/src/elements/SplitButton.tsx">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -888,24 +888,24 @@
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
-        <line num="29" count="4" type="stmt"/>
-        <line num="32" count="1" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
-        <line num="39" count="1" type="stmt"/>
-        <line num="44" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="4" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
       </file>
       <file name="ToggleIconButton.tsx" path="/home/circleci/project/packages/buttons/src/elements/ToggleIconButton.tsx">
         <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
-        <line num="30" count="4" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
-        <line num="48" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="29" count="4" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
       </file>
     </package>
     <package name="buttons.src.styled">
