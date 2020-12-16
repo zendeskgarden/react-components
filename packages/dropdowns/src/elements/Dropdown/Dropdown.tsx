@@ -17,9 +17,13 @@ import { DropdownContext } from '../../utils/useDropdownContext';
 export const REMOVE_ITEM_STATE_TYPE = 'REMOVE_ITEM';
 
 export interface IDropdownProps {
+  /** Opens the dropdown */
   isOpen?: boolean;
+  /** Indicates the selected item */
   selectedItem?: any;
+  /** Indicates multiple selected items */
   selectedItems?: any[];
+  /** Highlights element at selected index */
   highlightedIndex?: number;
   inputValue?: string;
   onSelect?: (selectedItem: any | null, stateAndHelpers: ControllerStateAndHelpers<any>) => void;
