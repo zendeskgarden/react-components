@@ -12,9 +12,8 @@ import { StyledCheckInput } from '../styled';
 
 export interface ICheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   /**
-   * Set
+   * Sets checkbox state to
    * [indeterminate](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes)
-   * checkbox state
    */
   indeterminate?: boolean;
 }

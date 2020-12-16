@@ -14,20 +14,21 @@ import useFieldContext from '../utils/useFieldContext';
 import { VALIDATION } from '../utils/validation';
 
 export interface IMediaInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  /** Apply compact styling */
+  /** Applies compact styling */
   isCompact?: boolean;
-  /** Remove borders and padding */
+  /** Removes borders and padding */
   isBare?: boolean;
-  /** Apply inset `box-shadow` styling on focus */
+  /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Slot for "start" icon */
+  /** Accepts a "start" icon to display */
   start?: any;
-  /** Slot for "end" icon */
+  /** Accepts an "end" icon to display */
   end?: any;
+  /** Defines the element's validation state */
   validation?: VALIDATION;
-  /** Apply props to the wrapping `FauxInput` element */
+  /** Applies props to the wrapping fauxinput element */
   wrapperProps?: any;
-  /** Apply ref to the wrapping `FauxInput` element */
+  /** Applies a ref to the wrapping fauxinput element */
   wrapperRef?: any;
   /** @ignore */
   isFocused?: boolean;

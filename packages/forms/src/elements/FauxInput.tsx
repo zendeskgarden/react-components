@@ -37,20 +37,21 @@ export interface IStaticFauxInputExport<T, P>
 }
 
 export interface IFauxInputProps extends HTMLAttributes<HTMLDivElement> {
-  /** Apply compact styling */
+  /** Applies compact styling */
   isCompact?: boolean;
-  /** Remove borders and padding */
+  /** Removes borders and padding */
   isBare?: boolean;
-  /** Apply inset `box-shadow` styling on focus */
+  /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Apply disabled styling */
+  /** Indicates that the element is not interactive */
   disabled?: boolean;
-  /** Apply read-only styling */
+  /** Applies read-only styling */
   readOnly?: boolean;
+  /** Defines the element's validation state */
   validation?: VALIDATION;
-  /** Apply focused styling */
+  /** Applies focus stying */
   isFocused?: boolean;
-  /** Apply hovered styling */
+  /** Applies hover stying */
   isHovered?: boolean;
 }
 

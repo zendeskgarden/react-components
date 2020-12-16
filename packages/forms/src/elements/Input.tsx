@@ -14,12 +14,13 @@ import { StyledTextInput } from '../styled';
 import { VALIDATION } from '../utils/validation';
 
 export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  /** Apply compact styling */
+  /** Applies compact styling */
   isCompact?: boolean;
-  /** Remove borders and padding */
+  /** Removes borders and padding */
   isBare?: boolean;
-  /** Apply inset `box-shadow` styling on focus */
+  /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
+  /** Defines the input's validation state */
   validation?: VALIDATION;
 }
 
