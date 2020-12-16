@@ -19,22 +19,42 @@ export const REMOVE_ITEM_STATE_TYPE = 'REMOVE_ITEM';
 export interface IDropdownProps {
   /** Opens the dropdown */
   isOpen?: boolean;
-  /** Indicates the selected item */
+  /** Identifies the selected item */
   selectedItem?: any;
-  /** Indicates multiple selected items */
+  /** Identifies multiple selected items */
   selectedItems?: any[];
-  /** Highlights element at selected index */
+  /** Highlights an element at a selected index */
   highlightedIndex?: number;
+  /** Sets the value of the input element*/
   inputValue?: string;
+  /**
+   * Handles item selection
+   *
+   * @param {any|null} selectedItem The selected item value
+   * @param {ControllerStateAndHelpers<any>} stateAndHelpers
+   * */
   onSelect?: (selectedItem: any | null, stateAndHelpers: ControllerStateAndHelpers<any>) => void;
+  /**
+   * Handles state change
+   *
+   * @param {StateChangeOptions<any>} options
+   * @param {ControllerStateAndHelpers<any>} stateAndHelpers
+   * */
   onStateChange?: (
     options: StateChangeOptions<any>,
     stateAndHelpers: ControllerStateAndHelpers<any>
   ) => void;
+  /**
+   * Handles input value change
+   *
+   * @param {string} inputValue Value of the input element
+   * @param {ControllerStateAndHelpers<any>} stateAndHelpers
+   * */
   onInputValueChange?: (
     inputValue: string,
     stateAndHelpers: ControllerStateAndHelpers<any>
   ) => void;
+  /** Provides props for the downshift component */
   // eslint-disable-next-line @typescript-eslint/ban-types
   downshiftProps?: object;
 }
