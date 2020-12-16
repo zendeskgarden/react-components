@@ -19,9 +19,9 @@ export const REMOVE_ITEM_STATE_TYPE = 'REMOVE_ITEM';
 export interface IDropdownProps {
   /** Opens the dropdown */
   isOpen?: boolean;
-  /** Identifies the selected item */
+  /** Identifies the currently selected item */
   selectedItem?: any;
-  /** Identifies multiple selected items */
+  /** Identifies the currently selected items */
   selectedItems?: any[];
   /** Highlights an element at a selected index */
   highlightedIndex?: number;
@@ -54,7 +54,7 @@ export interface IDropdownProps {
     inputValue: string,
     stateAndHelpers: ControllerStateAndHelpers<any>
   ) => void;
-  /** Provides props for the downshift component */
+  /** Passes customization props to the downshift component */
   // eslint-disable-next-line @typescript-eslint/ban-types
   downshiftProps?: object;
 }
