@@ -11,7 +11,7 @@ import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-the
 const COMPONENT_ID = 'chrome.header_item_text';
 
 export interface IStyledHeaderItemTextProps {
-  /** Hides item text. Text remains accessible to screenreaders. */
+  /** Hides item text. Text remains accessible to screen readers. */
   isClipped?: boolean;
 }
 
