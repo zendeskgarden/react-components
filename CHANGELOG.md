@@ -12,6 +12,19 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.28.2 (2020-12-16)
+
+#### :memo: Documentation
+* `buttons`
+  * [#953](https://github.com/zendeskgarden/react-components/pull/953) chore(buttons): update prop descriptions ([@Mikaelia](https://github.com/Mikaelia))
+* `avatars`
+  * [#952](https://github.com/zendeskgarden/react-components/pull/952) chore(avatars): update prop descriptions ([@Mikaelia](https://github.com/Mikaelia))
+* `accordions`
+  * [#951](https://github.com/zendeskgarden/react-components/pull/951) chore(accordions): update prop descriptions ([@Mikaelia](https://github.com/Mikaelia))
+
+#### :seedling: Internal
+* [#950](https://github.com/zendeskgarden/react-components/pull/950) chore(deps): bump ini from 1.3.5 to 1.3.8 in /examples/gatsby ([@dependabot[bot]](https://github.com/apps/dependabot))
+
 ## v8.28.1 (2020-12-02)
 
 #### :bug: Bug Fix

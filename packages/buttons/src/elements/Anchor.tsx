@@ -10,12 +10,12 @@ import PropTypes from 'prop-types';
 import { StyledAnchor, StyledExternalIcon } from '../styled';
 
 export interface IAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  /** Apply danger styling */
+  /** Applies danger styling */
   isDanger?: boolean;
   /**
-   * Used when the anchor navigates to an external resource. Applies `target="_blank"`
-   * along with `rel="noopener noreferrer"` to ensure safe
-   * [cross-origin destination links](https://web.dev/external-anchors-use-rel-noopener/).
+   * Attaches `target="_blank"` and `rel="noopener noreferrer"` to an anchor that
+   * navigates to an external resource. This ensures ensures that the anchor is a
+   * safe [cross-origin destination link](https://web.dev/external-anchors-use-rel-noopener/).
    **/
   isExternal?: boolean;
 }
