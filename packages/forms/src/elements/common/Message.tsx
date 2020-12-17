@@ -19,6 +19,7 @@ import {
 import { VALIDATION } from '../../utils/validation';
 
 export interface IMessageProps extends HTMLAttributes<HTMLDivElement> {
+  /** Applies validation state styles */
   validation?: VALIDATION;
 }
 

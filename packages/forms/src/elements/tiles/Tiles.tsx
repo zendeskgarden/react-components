@@ -23,13 +23,13 @@ import { Icon } from './components/Icon';
 import { Label } from './components/Label';
 
 interface ITilesProps extends HTMLAttributes<HTMLDivElement> {
-  /** Value of the selected radio button */
+  /** Sets the value of the selected radio button */
   value?: string;
-  /** Callback when a radio is selected */
+  /** Handles radio selection */
   onChange?: ChangeEventHandler<HTMLInputElement>;
-  /** The name used to reference the value of the control. */
+  /** Sets the name used to reference the value of the control */
   name: string;
-  /** Displays the tiles in their vertical arrangement */
+  /** Arranges the tiles vertically */
   isCentered?: boolean;
 }
 
