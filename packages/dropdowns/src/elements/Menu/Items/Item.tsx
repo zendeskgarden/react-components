@@ -15,14 +15,13 @@ import useMenuContext from '../../../utils/useMenuContext';
 import { ItemContext } from '../../../utils/useItemContext';
 
 export interface IItemProps extends HTMLAttributes<HTMLLIElement> {
-  /**
-   * The value that is returned through Dropdown during selection
-   */
+  /** Sets the value that is returned upon selection */
   value?: any;
   /**
    * @ignore
    */
   component?: any;
+  /** Indicates that the element is not interactive */
   disabled?: boolean;
 }
 
