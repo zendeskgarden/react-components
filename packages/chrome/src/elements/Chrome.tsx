@@ -14,9 +14,9 @@ import { ChromeContext } from '../utils/useChromeContext';
 import { StyledChrome } from '../styled';
 
 interface IChromeProps extends HTMLAttributes<HTMLDivElement> {
-  /** Apply a custom hue to chrome navigation */
+  /** Applies a custom hue to the chrome navigation */
   hue?: string;
-  /** Prevent fixed positioning from being applied to the <html> element */
+  /** Prevents fixed positioning from being applied to the `<html>` element */
   isFluid?: boolean;
 }
 

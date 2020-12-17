@@ -11,9 +11,7 @@ import { StyledBody } from '../../styled';
 import { BodyContext } from '../../utils/useBodyContext';
 
 interface IBodyProps {
-  /**
-   * Prepare the body content height to allow space for a footer component
-   **/
+  /** Adjusts the body content height to allow space for a footer component */
   hasFooter?: boolean;
 }
 
