@@ -10,14 +10,16 @@ import PropTypes from 'prop-types';
 import { StyledTable, IStyledTableProps } from '../styled';
 import { TableContext } from '../utils/useTableContext';
 
+interface ITableProps extends IStyledTableProps, HTMLAttributes<HTMLTableElement> {
+  /** Removes interactive styling from Table Rows */
+  isReadOnly?: boolean;
+}
+
 /**
  * Accepts all `<table>` attributes and events
  */
-export const Table = React.forwardRef<
-  HTMLTableElement,
-  IStyledTableProps & HTMLAttributes<HTMLTableElement>
->((props, ref) => {
-  const tableContextValue = { size: props.size! };
+export const Table = React.forwardRef<HTMLTableElement, ITableProps>((props, ref) => {
+  const tableContextValue = { size: props.size!, isReadOnly: props.isReadOnly! };
 
   return (
     <TableContext.Provider value={tableContextValue}>

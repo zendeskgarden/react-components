@@ -176,4 +176,35 @@ describe('Row', () => {
       expect(getByTestId('row')).toHaveStyleRule('height', '64px');
     });
   });
+
+  describe('ReadOnly', () => {
+    it('removes tabIndex while in read-only mode', () => {
+      const { getByTestId } = render(
+        <Table isReadOnly>
+          <Body>
+            <Row data-test-id="row" />
+          </Body>
+        </Table>
+      );
+
+      expect(getByTestId('row')).not.toHaveAttribute('tabindex');
+    });
+
+    it('removes :hover styling while in read-only mode', () => {
+      const { getByTestId } = render(
+        <Table isReadOnly>
+          <Body>
+            <Row data-test-id="row" />
+          </Body>
+        </Table>
+      );
+
+      expect(getByTestId('row')).toHaveStyleRule('border-bottom-color', undefined, {
+        modifier: '&:hover'
+      });
+      expect(getByTestId('row')).toHaveStyleRule('background-color', undefined, {
+        modifier: '&:hover'
+      });
+    });
+  });
 });

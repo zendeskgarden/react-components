@@ -20,6 +20,7 @@ export interface IStyledRowProps {
   isFocused?: boolean;
   isHovered?: boolean;
   isSelected?: boolean;
+  isReadOnly?: boolean;
   size: SIZE;
 }
 
@@ -67,10 +68,24 @@ const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
     background-color: ${backgroundColor};
 
     &:hover {
-      border-bottom-color: ${props.isSelected ? selectedBorderColor : hoveredBorderColor};
-      background-color: ${props.isSelected
-        ? hoveredSelectedBackgroundColor
-        : hoveredBackgroundColor};
+      border-bottom-color: ${() => {
+        if (props.isSelected) {
+          return selectedBorderColor;
+        } else if (!props.isReadOnly) {
+          return hoveredBorderColor;
+        }
+
+        return undefined;
+      }};
+      background-color: ${() => {
+        if (props.isSelected) {
+          return hoveredSelectedBackgroundColor;
+        } else if (!props.isReadOnly) {
+          return hoveredBackgroundColor;
+        }
+
+        return undefined;
+      }};
 
       ${StyledOverflowButton} {
         opacity: 1;
@@ -91,11 +106,11 @@ const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledRow = styled(StyledBaseRow).attrs({
+export const StyledRow = styled(StyledBaseRow).attrs<IStyledRowProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  tabIndex: -1 as number
-})<IStyledRowProps>`
+  tabIndex: props.isReadOnly ? undefined : (-1 as number)
+}))<IStyledRowProps>`
   height: ${getRowHeight};
 
   ${props => colorStyles(props)}

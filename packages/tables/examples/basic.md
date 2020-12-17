@@ -18,6 +18,7 @@ initialState = {
   rowSize: 'medium',
   isStriped: false,
   isGrouped: false,
+  isReadOnly: false,
   showCaption: true,
   data: [
     {
@@ -127,12 +128,22 @@ const StyledCaption = styled(Caption)`
           </Toggle>
         </FormsField>
       </Layout.Col>
+      <Layout.Col>
+        <FormsField>
+          <Toggle
+            checked={state.isReadOnly}
+            onChange={e => setState({ isReadOnly: e.target.checked })}
+          >
+            <ToggleLabel>Read only</ToggleLabel>
+          </Toggle>
+        </FormsField>
+      </Layout.Col>
     </Layout.Row>
   </Well>
   <StyledSpacer />
   <Layout.Row>
     <Layout.Col>
-      <Table size={state.rowSize}>
+      <Table size={state.rowSize} isReadOnly={state.isReadOnly}>
         {state.showCaption && <StyledCaption>Your Unsolved Tickets</StyledCaption>}
         <Head>
           <HeaderRow>
