@@ -15,7 +15,7 @@ import Calendar from './components/Calendar';
 
 export interface IDatepickerRangeProps {
   /**
-   * Adjusts date formatting to match the locale.
+   * Applies locale-based formatting.
    * Accepts [all valid Intl locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation).
    */
   locale?: string;
