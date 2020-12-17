@@ -62,7 +62,7 @@ interface IMultiselectProps extends HTMLAttributes<HTMLDivElement> {
   renderItem: (options: { value: any; removeValue: () => void }) => React.ReactElement;
   /** Provides DOM access to the underlying input element */
   inputRef?: React.Ref<HTMLInputElement>;
-  /** Defines the icon rendered in the start position */
+  /** Defines the icon rendered before the element's content */
   start?: any;
 }
 
