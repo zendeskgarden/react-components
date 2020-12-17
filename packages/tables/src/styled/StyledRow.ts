@@ -49,6 +49,8 @@ const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
   const hoveredSelectedBackgroundColor = getColor('primaryHue', 600, props.theme, 0.28);
   let backgroundColor = undefined;
   let borderColor = undefined;
+  let hoverBorderBottomColor = undefined;
+  let hoverBackgroundColor = undefined;
 
   if (props.isSelected) {
     if (props.isHovered) {
@@ -58,9 +60,14 @@ const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
     }
 
     borderColor = selectedBorderColor;
+    hoverBorderBottomColor = selectedBorderColor;
+    hoverBackgroundColor = hoveredSelectedBackgroundColor;
   } else if (props.isHovered) {
     backgroundColor = hoveredBackgroundColor;
     borderColor = hoveredBorderColor;
+  } else if (!props.isReadOnly) {
+    hoverBorderBottomColor = hoveredBorderColor;
+    hoverBackgroundColor = hoveredBackgroundColor;
   }
 
   return css`
@@ -68,24 +75,8 @@ const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
     background-color: ${backgroundColor};
 
     &:hover {
-      border-bottom-color: ${() => {
-        if (props.isSelected) {
-          return selectedBorderColor;
-        } else if (!props.isReadOnly) {
-          return hoveredBorderColor;
-        }
-
-        return undefined;
-      }};
-      background-color: ${() => {
-        if (props.isSelected) {
-          return hoveredSelectedBackgroundColor;
-        } else if (!props.isReadOnly) {
-          return hoveredBackgroundColor;
-        }
-
-        return undefined;
-      }};
+      border-bottom-color: ${hoverBorderBottomColor};
+      background-color: ${hoverBackgroundColor};
 
       ${StyledOverflowButton} {
         opacity: 1;

@@ -11,7 +11,7 @@ import { StyledTable, IStyledTableProps } from '../styled';
 import { TableContext } from '../utils/useTableContext';
 
 interface ITableProps extends IStyledTableProps, HTMLAttributes<HTMLTableElement> {
-  /** Removes interactive styling from Table Rows */
+  /** Removes interactive styling from table rows */
   isReadOnly?: boolean;
 }
 
