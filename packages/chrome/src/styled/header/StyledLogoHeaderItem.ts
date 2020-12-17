@@ -21,9 +21,7 @@ import { getNavWidth } from '../nav/StyledNav';
 const COMPONENT_ID = 'chrome.header_item';
 
 export interface IStyledLogoHeaderItemProps {
-  /**
-   * Applies product-specific color palette
-   **/
+  /** Applies a product-specific color palette */
   product?: PRODUCT;
 }
 
