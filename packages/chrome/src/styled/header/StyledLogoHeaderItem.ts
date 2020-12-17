@@ -21,7 +21,11 @@ import { getNavWidth } from '../nav/StyledNav';
 const COMPONENT_ID = 'chrome.header_item';
 
 export interface IStyledLogoHeaderItemProps {
-  /** Applies a brand color to the product logo */
+  /**
+   * Applies a
+   * [brand color](https://garden.zendesk.com/design/color#brand-colors)
+   * to the product logo
+   */
   product?: PRODUCT;
 }
 
