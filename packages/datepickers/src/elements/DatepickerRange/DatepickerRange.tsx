@@ -15,7 +15,7 @@ import Calendar from './components/Calendar';
 
 export interface IDatepickerRangeProps {
   /**
-   * Adjusts date formatting to match locale.
+   * Adjusts date formatting to match the locale.
    * Accepts [all valid Intl locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation).
    */
   locale?: string;
@@ -42,14 +42,14 @@ export interface IDatepickerRangeProps {
    */
   onChange?: (values: { startValue?: Date; endValue?: Date }) => void;
   /**
-   * Adjusts the input element date formatting
+   * Adjusts the input element's date formatting
    *
    *  @param {Date} date The selected date
    *  @returns {string} A formatted date string
    */
   formatDate?: (date: Date) => string;
   /**
-   * Overrides default date parsing
+   * Overrides the default date parsing
    *
    * @param {string} inputValue A date string
    * @returns {Date} The parsed date
