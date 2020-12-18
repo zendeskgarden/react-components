@@ -51,7 +51,7 @@ interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
    */
   hasArrow?: boolean;
   /**
-   * Sets the max-height of the menu
+   * Sets the `max-height` of the menu
    */
   maxHeight?: string;
 }
