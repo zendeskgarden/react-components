@@ -12,11 +12,11 @@ import { GridContext } from '../utils/useGridContext';
 import { StyledGrid } from '../styled';
 
 export interface IGridProps extends HTMLAttributes<HTMLDivElement> {
-  /** Customize the number of individual columns that this grid can contain */
+  /** Defines the number of individual columns that the grid can contain */
   columns?: GRID_NUMBER;
-  /** Customize column gutter width or specify `false` to collapse */
+  /** Specifies the grid's column gutter width. The value `false` collapses the gutters*/
   gutters?: SPACE;
-  /** Highlight columns to debug layout */
+  /** Highlights the columns for layout debugging */
   debug?: boolean;
 }
 

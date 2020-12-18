@@ -20,23 +20,23 @@ import { StyledRow } from '../styled';
 
 export interface IRowProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * Applies the `align-items` flex container property, affecting vertical `Col`
-   * alignment, for all screen sizes
+   * Applies the `align-items` flex container property to the row.
+   * This affects vertical `Col` alignment for all screen sizes.
    */
   alignItems?: ALIGN_ITEMS;
-  /** Applies the `align-items` flex container property for extra-small screen sizes */
+  /** Applies the `align-items` flex container property to the row for extra-small screen sizes */
   alignItemsXs?: ALIGN_ITEMS;
-  /** Applies the `align-items` flex container property for small screen sizes */
+  /** Applies the `align-items` flex container property to the row for small screen sizes */
   alignItemsSm?: ALIGN_ITEMS;
-  /** Applies the `align-items` flex container property for medium screen sizes */
+  /** Applies the `align-items` flex container property to the row for medium screen sizes */
   alignItemsMd?: ALIGN_ITEMS;
-  /** Applies the `align-items` flex container property for large screen sizes */
+  /** Applies the `align-items` flex container property to the row for large screen sizes */
   alignItemsLg?: ALIGN_ITEMS;
-  /** Applies the `align-items` flex container property for extra-large screen sizes */
+  /** Applies the `align-items` flex container property to the row for extra-large screen sizes */
   alignItemsXl?: ALIGN_ITEMS;
   /**
-   * Applies the `justify-content` flex container property, affecting horizontal
-   * `Col` distribution, for all screen sizes
+   * Applies the `justify-content` flex container property to the row.
+   * This affects horizontal `Col` alignment for all screen sizes.
    */
   justifyContent?: JUSTIFY_CONTENT;
   /** Applies the `justify-content` flex container property for extra-small screen sizes */
