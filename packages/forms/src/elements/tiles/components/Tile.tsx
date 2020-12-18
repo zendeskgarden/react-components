@@ -13,7 +13,7 @@ import { StyledTile, StyledTileInput } from '../../../styled';
 interface ITileProps {
   /** Sets the value of the input */
   value?: string;
-  /** Indicates that the tile is not interactive */
+  /** Indicates that the element is not interactive */
   disabled?: boolean;
 }
 

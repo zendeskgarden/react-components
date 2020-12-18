@@ -26,9 +26,9 @@ export interface IMediaInputProps extends InputHTMLAttributes<HTMLInputElement> 
   end?: any;
   /** Applies validation state styling */
   validation?: VALIDATION;
-  /** Applies props to the wrapping fauxinput element */
+  /** Applies props to the wrapping faux-input element */
   wrapperProps?: any;
-  /** Applies a ref to the wrapping fauxinput element */
+  /** Applies a ref to the wrapping faux-input element */
   wrapperRef?: any;
   /** @ignore */
   isFocused?: boolean;
