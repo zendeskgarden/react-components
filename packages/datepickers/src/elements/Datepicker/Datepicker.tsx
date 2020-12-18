@@ -31,64 +31,68 @@ import { StyledMenu, StyledMenuWrapper } from '../../styled';
 
 export interface IDatepickerProps {
   /**
-   * The selected date to display
+   * Sets the selected date
    */
   value?: Date;
   /**
-   * Returns the parsed date
+   * Handles date change
+   *
+   * @param {Date} date The selected date
    */
   onChange?: (date: Date) => void;
   /**
-   * Allows customization of date formatting within input.
+   * Customizes the input element's date formatting
+   *
+   *  @param {Date} date The selected date
+   *  @returns {string} A formatted date string
    */
   formatDate?: (date: Date) => string;
   /**
-   * Accepts [all valid Intl locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation)
+   * Applies locale-based formatting.
+   * Accepts all valid `Intl` [locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation).
    */
   locale?: string;
   /**
-   * Minimum value. Users are still able to manually enter a date below this value.
+   * Disables dates before this value on the calendar
    */
   minValue?: Date;
   /**
-   * Maximum value. Users are still able to manually enter a date above this value.
+   * Disables dates after this value on the calendar
    */
   maxValue?: Date;
   /**
-   * Show compact styling
+   * Applies compact styling
    */
   isCompact?: boolean;
   /**
-   * Override default date parsing. Receives a localized input value and returns a `Date` object.
+   * Overrides default date parsing
+   *
+   * @param {string} inputValue A localized input value
+   * @returns {Date} The parsed date
    */
   customParseDate?: (inputValue: string) => Date;
   /**
-   * The ref key used to position the dropdown
-   * @default ref
+   * Defines the ref key used to position the calendar
    */
   refKey?: string;
   /**
-   * Locale-aware placement for the dropdown element
-   * @default bottom-start
+   * Adjusts the position of the calendar
    **/
   placement?: GARDEN_PLACEMENT;
   /**
-   * Passes options to [Popper.JS Instance](https://github.com/FezVrasta/popper.js/blob/master/docs/_includes/popper-documentation.md#new-popperreference-popper-options)
+   * Passes configuration options to the [Popper instance](https://popper.js.org/docs/v2/modifiers/)
    */
   popperModifiers?: any;
   /**
-   * Show open animations
-   * @default true
+   * Animates the calendar
    */
   isAnimated?: boolean;
   /**
-   * Allow dropdown to reposition during browser resize events
-   * @default true
+   * Allows the calendar to reposition during browser resize events
    */
   eventsEnabled?: boolean;
   /**
-   * The z-index of the dropdown
-   * @default 1000
+   * Sets the `z-index` of the calendar
    */
   zIndex?: number;
 }
