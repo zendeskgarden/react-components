@@ -49,49 +49,51 @@ interface IStaticTooltipModalExport<T, P>
 
 export interface ITooltipModalProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * The `HTMLElement` to position the `TooltipModal` relative to.
+   * Positions the modal relative to the provided `HTMLElement`
    */
   referenceElement?: HTMLElement | null;
   /**
-   * [Popper.js v2 modifiers](https://popper.js.org/docs/v2/modifiers/)
-   * to customize positioning logic.
+   * Modifies [Popper instance](https://popper.js.org/docs/v2/modifiers/) to customize positioning logic
    */
   popperModifiers?: Array<Partial<Modifier<any, any>>>;
   /**
-   * These placements differ from the default naming of Popper placements to help
-   * assist with RTL layouts.
+   * Provides placement names differing from the default Popper placement names to
+   * assist with RTL layout creation
    **/
   placement?: GARDEN_PLACEMENT;
   /**
-   * Whether to display an arrow.
+   * Adds an arrow to the tooltop
    */
   hasArrow?: boolean;
+  /**
+   * Animates the tooltop
+   */
   isAnimated?: boolean;
   /**
-   * The `z-index` of the positioned element.
+   * Sets the `z-index` of the tooltip
    */
   zIndex?: number;
   /**
-   * Callback when a close action has been completed.
-   * Can be triggered from the backdrop and Close icon.
-   * @param {Object} event - DOM event that triggered the close action
+   * Handles close actions. Can be triggered from the backdrop and from the close icon.
+   *
+   * @param {Object} event The DOM event that triggered the close action
    */
   onClose?: (event: KeyboardEvent | MouseEvent) => void;
   /**
-   * HTML attributes to spread onto backdrop element
+   * Passes HTML attributes to the backdrop element
    */
   backdropProps?: any;
   /**
-   * Determines whether to apply keyboard focus on the modal on mount
+   * Directs keyboard focus to the modal on mount
    */
   focusOnMount?: boolean;
   /**
-   * Determines whether to return keyboard focus to the element that triggered the modal
+   * Returns keyboard focus to the element that triggered the modal
    */
   restoreFocus?: boolean;
   /**
-   * The root ID to use for descendants. A unique ID is created if none is provided.
-   **/
+   * Sets the root ID. A unique ID is created if none is provided.
+   */
   id?: string;
 }
 
