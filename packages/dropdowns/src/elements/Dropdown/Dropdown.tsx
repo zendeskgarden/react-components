@@ -30,15 +30,15 @@ export interface IDropdownProps {
   /**
    * Handles item selection
    *
-   * @param {any|null} selectedItem The selected item value
-   * @param {ControllerStateAndHelpers<any>} stateAndHelpers
+   * @param {any|null} selectedItem The selected item
+   * @param {Object} stateAndHelpers [Downshift state and helpers](https://github.com/downshift-js/downshift#onselect)
    * */
   onSelect?: (selectedItem: any | null, stateAndHelpers: ControllerStateAndHelpers<any>) => void;
   /**
    * Handles state change
    *
-   * @param {StateChangeOptions<any>} options
-   * @param {ControllerStateAndHelpers<any>} stateAndHelpers
+   * @param {Object} options [Downshift internal state changes](https://github.com/downshift-js/downshift#onstatechange)
+   * @param {Object} stateAndHelpers [Downshift state and helpers](https://github.com/downshift-js/downshift#onstatechange)
    * */
   onStateChange?: (
     options: StateChangeOptions<any>,
@@ -48,13 +48,13 @@ export interface IDropdownProps {
    * Handles input value change
    *
    * @param {string} inputValue Value of the input element
-   * @param {ControllerStateAndHelpers<any>} stateAndHelpers
+   * @param {Object} stateAndHelpers [Downshift state and helpers](https://github.com/downshift-js/downshift#oninputvaluechange)
    * */
   onInputValueChange?: (
     inputValue: string,
     stateAndHelpers: ControllerStateAndHelpers<any>
   ) => void;
-  /** Passes customization props to the downshift component */
+  /** Passes customization props to the [Downshift](https://www.downshift-js.com/) component */
   // eslint-disable-next-line @typescript-eslint/ban-types
   downshiftProps?: object;
 }
