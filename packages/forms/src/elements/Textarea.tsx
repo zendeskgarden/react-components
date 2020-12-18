@@ -27,13 +27,13 @@ export interface ITextareaProps extends TextareaHTMLAttributes<HTMLTextAreaEleme
   isBare?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Displays a mechanism for vertical resize */
+  /** Enables manual vertical resize */
   isResizable?: boolean;
-  /** Sets lower-bound for dynamic height changes */
+  /** Defines the minimum height in rows */
   minRows?: number;
-  /** Sets upper-bound for dynamic height changes */
+  /** Defines the maximum height in rows */
   maxRows?: number;
-  /** Defines the element's validation state */
+  /** Applies validation state styling */
   validation?: VALIDATION;
 }
 

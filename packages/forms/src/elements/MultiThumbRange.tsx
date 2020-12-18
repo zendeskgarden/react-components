@@ -44,6 +44,8 @@ export interface IMultiThumbRangeProps extends Omit<HTMLAttributes<HTMLDivElemen
    * Handles change events
    *
    * @param {Object} updatedValues The values that have changed
+   * @param {Object} minValue The optional minimum value
+   * @param {Object} maxValue the optional maximum value
    * */
   onChange?: (updatedValues: { minValue?: number; maxValue?: number }) => void;
 }

@@ -20,7 +20,7 @@ export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   isBare?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
-  /** Defines the input's validation state */
+  /** Applies validation state styling */
   validation?: VALIDATION;
 }
 
