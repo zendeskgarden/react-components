@@ -47,7 +47,7 @@ const computeFrames = (
 
 export interface ISpinnerProps extends React.HTMLAttributes<SVGSVGElement> {
   /**
-   * Sets the height and width in pixels. Inherits the parent's `font-size` by default
+   * Sets the height and width in pixels. Inherits the parent's `font-size` by default.
    **/
   size?: string;
   /**
@@ -55,7 +55,7 @@ export interface ISpinnerProps extends React.HTMLAttributes<SVGSVGElement> {
    **/
   duration?: number;
   /**
-   * Sets the fill color. Inherits the parent's font `color` by default
+   * Sets the fill color. Inherits the parent's `color` by default.
    **/
   color?: string;
   /**

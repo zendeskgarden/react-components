@@ -14,7 +14,7 @@ export interface ISkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
   width?: string;
   /** Sets the height as a percentage of parent element's height if the height is not already inherited by `line-height` */
   height?: string;
-  /** Inverts the loader color for use on dark backgrounds */
+  /** Inverts the color for use on dark backgrounds */
   isLight?: boolean;
 }
 

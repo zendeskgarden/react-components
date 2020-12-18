@@ -23,7 +23,7 @@ const COMPONENT_ID = 'loaders.dots';
 export interface IDotsProps extends React.HTMLAttributes<SVGSVGElement> {
   /** Sets the height and width in pixels. Inherits the parent's `font-size` by default. */
   size?: string | number;
-  /** Sets the fill color. Inherits the parent's font `color` by default. */
+  /** Sets the fill color. Inherits the parent's `color` by default. */
   color?: string;
   /** Sets the length of the loading animation in milliseconds **/
   duration?: number;
