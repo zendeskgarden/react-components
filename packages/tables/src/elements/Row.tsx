@@ -19,7 +19,7 @@ export const Row = React.forwardRef<
   Omit<IStyledRowProps, 'size'> & HTMLAttributes<HTMLTableRowElement>
 >(({ onFocus, onBlur, isFocused: focused, ...otherProps }, ref) => {
   const [isFocused, setIsFocused] = useState(false);
-  const { size } = useTableContext();
+  const { size, isReadOnly } = useTableContext();
 
   return (
     <StyledRow
@@ -30,6 +30,7 @@ export const Row = React.forwardRef<
         setIsFocused(false);
       })}
       size={size}
+      isReadOnly={isReadOnly}
       isFocused={typeof focused === 'undefined' ? isFocused : focused}
       ref={ref}
       {...otherProps}

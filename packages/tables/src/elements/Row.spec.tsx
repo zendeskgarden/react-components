@@ -30,6 +30,18 @@ describe('Row', () => {
     expect(getByTestId('row')).toBe(ref.current);
   });
 
+  it('adds interactive tabIndex by default', () => {
+    const { getByTestId } = render(
+      <Table>
+        <Body>
+          <Row data-test-id="row" />
+        </Body>
+      </Table>
+    );
+
+    expect(getByTestId('row')).toHaveAttribute('tabindex', '-1');
+  });
+
   it('applies focus styling', () => {
     const { getByTestId } = render(
       <Table>
@@ -174,6 +186,20 @@ describe('Row', () => {
       );
 
       expect(getByTestId('row')).toHaveStyleRule('height', '64px');
+    });
+  });
+
+  describe('ReadOnly', () => {
+    it('removes tabIndex while in read-only mode', () => {
+      const { getByTestId } = render(
+        <Table isReadOnly>
+          <Body>
+            <Row data-test-id="row" />
+          </Body>
+        </Table>
+      );
+
+      expect(getByTestId('row')).not.toHaveAttribute('tabindex');
     });
   });
 });

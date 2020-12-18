@@ -20,6 +20,7 @@ export interface IStyledRowProps {
   isFocused?: boolean;
   isHovered?: boolean;
   isSelected?: boolean;
+  isReadOnly?: boolean;
   size: SIZE;
 }
 
@@ -48,6 +49,8 @@ const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
   const hoveredSelectedBackgroundColor = getColor('primaryHue', 600, props.theme, 0.28);
   let backgroundColor = undefined;
   let borderColor = undefined;
+  let hoverBorderBottomColor = undefined;
+  let hoverBackgroundColor = undefined;
 
   if (props.isSelected) {
     if (props.isHovered) {
@@ -57,9 +60,14 @@ const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
     }
 
     borderColor = selectedBorderColor;
+    hoverBorderBottomColor = selectedBorderColor;
+    hoverBackgroundColor = hoveredSelectedBackgroundColor;
   } else if (props.isHovered) {
     backgroundColor = hoveredBackgroundColor;
     borderColor = hoveredBorderColor;
+  } else if (!props.isReadOnly) {
+    hoverBorderBottomColor = hoveredBorderColor;
+    hoverBackgroundColor = hoveredBackgroundColor;
   }
 
   return css`
@@ -67,10 +75,8 @@ const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
     background-color: ${backgroundColor};
 
     &:hover {
-      border-bottom-color: ${props.isSelected ? selectedBorderColor : hoveredBorderColor};
-      background-color: ${props.isSelected
-        ? hoveredSelectedBackgroundColor
-        : hoveredBackgroundColor};
+      border-bottom-color: ${hoverBorderBottomColor};
+      background-color: ${hoverBackgroundColor};
 
       ${StyledOverflowButton} {
         opacity: 1;
@@ -91,11 +97,11 @@ const colorStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledRow = styled(StyledBaseRow).attrs({
+export const StyledRow = styled(StyledBaseRow).attrs<IStyledRowProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  tabIndex: -1 as number
-})<IStyledRowProps>`
+  tabIndex: props.isReadOnly ? undefined : (-1 as number)
+}))<IStyledRowProps>`
   height: ${getRowHeight};
 
   ${props => colorStyles(props)}
