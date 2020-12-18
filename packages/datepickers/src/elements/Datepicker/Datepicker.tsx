@@ -49,15 +49,15 @@ export interface IDatepickerProps {
   formatDate?: (date: Date) => string;
   /**
    * Applies locale-based formatting.
-   * Accepts [all valid Intl locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation).
+   * Accepts all valid `Intl` [locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation).
    */
   locale?: string;
   /**
-   * Disables dates before this value on the calendar element
+   * Disables dates before this value on the calendar
    */
   minValue?: Date;
   /**
-   * Disables dates after this value on the calendar element
+   * Disables dates after this value on the calendar
    */
   maxValue?: Date;
   /**
@@ -67,37 +67,32 @@ export interface IDatepickerProps {
   /**
    * Overrides default date parsing
    *
-   * @param {string} inputValue
-   * @returns {Date}
+   * @param {string} inputValue A localized input value
+   * @returns {Date} The parsed date
    */
   customParseDate?: (inputValue: string) => Date;
   /**
-   * Defines the ref key used to position the calendar element
-   * @default ref
+   * Defines the ref key used to position the calendar
    */
   refKey?: string;
   /**
-   * Adjusts the position of the calendar element
-   * @default bottom-start
+   * Adjusts the position of the calendar
    **/
   placement?: GARDEN_PLACEMENT;
   /**
-   * Passes configuration options to the [Popper.JS Instance](https://popper.js.org/docs/v2/modifiers/)
+   * Passes configuration options to the [Popper instance](https://popper.js.org/docs/v2/modifiers/)
    */
   popperModifiers?: any;
   /**
-   * Animates the calendar element
-   * @default true
+   * Animates the calendar
    */
   isAnimated?: boolean;
   /**
-   * Allows the calendar element to reposition during browser resize events
-   * @default true
+   * Allows the calendar to reposition during browser resize events
    */
   eventsEnabled?: boolean;
   /**
-   * Sets the z-index of the calendar element
-   * @default 1000
+   * Sets the `z-index` of the calendar
    */
   zIndex?: number;
 }

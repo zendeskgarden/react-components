@@ -16,7 +16,7 @@ import Calendar from './components/Calendar';
 export interface IDatepickerRangeProps {
   /**
    * Applies locale-based formatting.
-   * Accepts [all valid Intl locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation).
+   * Accepts all valid `Intl` [locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation).
    */
   locale?: string;
   /**
@@ -28,17 +28,19 @@ export interface IDatepickerRangeProps {
    */
   endValue?: Date;
   /**
-   * Disables dates before this value on the calendar element
+   * Disables dates before this value on the calendar
    */
   minValue?: Date;
   /**
-   * Disables dates after this value on the calendar element
+   * Disables dates after this value on the calendar
    */
   maxValue?: Date;
   /**
    * Handles start and end date changes
    *
-   * @param {Object} values The selected start and end dates
+   * @param {Object} values The selected dates
+   * @param {Date} [values.startValue] Optional start date
+   * @param {Date} [values.endValue] Optional end date
    */
   onChange?: (values: { startValue?: Date; endValue?: Date }) => void;
   /**
