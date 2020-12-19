@@ -44,8 +44,9 @@ StyledSortableFillIconWrapper.defaultProps = {
 };
 
 export interface IStyledSortableButtonProps {
+  /** Sets the sort order */
   sort?: SORT;
-  /** The width of the cell */
+  /** Sets the width of the cell */
   width?: string | number;
 }
 
