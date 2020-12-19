@@ -10,8 +10,9 @@ import PropTypes from 'prop-types';
 import { StyledCode } from '../styled';
 
 export interface ICodeProps extends HTMLAttributes<HTMLDivElement> {
+  /** Applies color to the background and the text */
   hue?: 'grey' | 'red' | 'green' | 'yellow';
-  /** By default font size is inherited from surrounding text */
+  /** Adjusts the font size. By default font size is inherited from the surrounding text. */
   size?: 'small' | 'medium' | 'large' | 'inherit';
 }
 

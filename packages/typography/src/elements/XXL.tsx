@@ -10,9 +10,9 @@ import PropTypes from 'prop-types';
 import { StyledFont } from '../styled';
 
 interface IXXLProps extends HTMLAttributes<HTMLDivElement> {
-  /** Any valid DOM element for the styled component */
+  /** Updates the element tag */
   tag?: any;
-  /** Render bold font */
+  /** Applies bold font style */
   isBold?: boolean;
 }
 
