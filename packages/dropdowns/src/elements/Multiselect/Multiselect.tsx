@@ -49,15 +49,17 @@ interface IMultiselectProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Overrides the "+ N more" text displayed when the total number of items exceeds `maxItems`
    *
-   * @param {number} index
-   * @returns {string} A replacement for the "+ N more" text
+   * @param {number} value The number of hidden items
+   * @returns {string} a replacement for the "+ N more" text
    */
-  renderShowMore?: (index: number) => string;
+  renderShowMore?: (value: number) => string;
   /**
-   * Renders each item element
+   * Renders each item element. Designed to be used with [Tag](https://garden.zendesk.com/components/tags).
    *
-   * @param {Object} options An object containing the element value and a remove element callback
-   * @returns {React.ReactElement} The item element
+   * @param {Object} options Rendered item options
+   * @param {any} options.value The item value
+   * @param {Function} options.removeValue Remove item callback
+   * @returns {React.ReactElement} the item element
    */
   renderItem: (options: { value: any; removeValue: () => void }) => React.ReactElement;
   /** Provides DOM access to the underlying input element */
