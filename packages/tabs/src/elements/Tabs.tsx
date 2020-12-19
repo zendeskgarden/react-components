@@ -16,16 +16,17 @@ import { StyledTabs } from '../styled/StyledTabs';
 
 export interface ITabsProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * Displays child `Tab` components in a vertical orientation
+   * Arranges tab components vertically
    */
   isVertical?: boolean;
   /**
-   * Sets the currently selected `Tab` to display
+   * Specifies the currently selected tab
    */
   selectedItem?: any;
   /**
-   * Provides a callback function that returns the `selectedItem` when a `Tab` has been selected by keyboard or mouse
-   * @param {String} selectedItem The `item` value of the selected `Tab`
+   * Handles tab selection
+   *
+   * @param {String} selectedItem The selected tab's `item` value
    */
   onChange?: (updatedSelectedItem: any) => void;
 }

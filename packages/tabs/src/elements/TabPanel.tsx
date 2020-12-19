@@ -12,7 +12,7 @@ import { useTabsContext } from '../utils/useTabsContext';
 
 export interface ITabPanelProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * Defines a value used to match a `TabPanel` with its associated `Tab`
+   * Defines a value used to match a tab panel with its associated tab
    */
   item?: any;
 }
