@@ -22,33 +22,34 @@ export type PAGE_TYPE = 'next' | 'page' | 'gap' | 'previous';
 
 export interface IPaginationProps extends Omit<HTMLAttributes<HTMLUListElement>, 'onChange'> {
   /**
-   * The currently selected page
+   * Sets the current page
    */
   currentPage: number;
   /**
-   * The total number of pages available
+   * Defines the total number of pages
    */
   totalPages: number;
   /**
-   * The number of pages to pad the current page with when page gaps are
-   * displayed
+   * Sets the number of pages that appear between the current page and a gap indicator
    */
   pagePadding?: number;
   /**
-   * Position for the leading and trailing gap indicator, if needed based on
-   * current and total pages
+   * Positions the leading and trailing gap indicator, based on
+   * the current and total pages
    */
   pageGap?: number;
   /**
-   * @param {Any} currentPage - The currently selected page
+   * Handles page change events
+   *
+   * @param {Any} currentPage - The current page
    */
   onChange?: (currentPage: number) => void;
   /**
-   * Apply localized labels, test attributes, etc. to individual pages.
+   * Applies localized labels, test attributes, etc. to individual pages
    *
-   * @param {PAGE_TYPE} pageType - the type of the page to transform props for;
-   *  one of: `'previous'`, `'gap'`, `'page'`, `'next'`
-   * @param {Any} props - default page props to transform
+   * @param {PAGE_TYPE} pageType The type of the page accepting the props.
+   *  One of: `'previous'`, `'gap'`, `'page'`, `'next'`
+   * @param {Any} props Default page props to transform
    */
   transformPageProps?: (pageType: PAGE_TYPE, props: any) => any;
 }
