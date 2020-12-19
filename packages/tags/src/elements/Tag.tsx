@@ -11,16 +11,19 @@ import { StyledTag, StyledAvatar } from '../styled';
 import Close from './Close';
 
 interface ITagProps extends HTMLAttributes<HTMLDivElement> {
+  /** Adjusts font size and padding */
   size?: 'small' | 'medium' | 'large';
   /**
-   * Apply a custom tag hue – typically constrained to a
+   * Sets the color of the tag. Refer to
    * [palette](https://zendeskgarden.github.io/react-components/theming/#palette)
-   * hue, but with the ability to override using any hex value.
+   * for available colors. Accepts any hex value.
    */
   hue?: string;
+  /** Applies pill styling */
   isPill?: boolean;
+  /** Applies round styling */
   isRound?: boolean;
-  /** Style using regular (non-bold) font weight */
+  /** Applies regular (non-bold) `font-weight` */
   isRegular?: boolean;
 }
 
