@@ -27,28 +27,35 @@ export interface ITooltipProps
     React.HTMLAttributes<HTMLDivElement> {
   /** Appends the tooltip to the body element */
   appendToNode?: Element;
+  /** Appends an arrow to the tooltip */
   hasArrow?: boolean;
-  /** Milliseconds of delay before open/close of tooltip is initiated */
+  /** Adds milliseconds of delay to the opening and closing of the tooltip */
   delayMS?: number;
-  /** Whether Popper should update based on DOM resize events */
+  /** Allows the tooltip to reposition during browser resize events */
   eventsEnabled?: boolean;
+  /** Sets the ID of the tooltip */
   id?: string;
+  /** Defines the content of the tooltip */
   content: React.ReactNode;
   /**
-   * These placements differ from the default naming of Popper placements to help
+   * Adjusts the placement of the tooltip. Placement values differ Popper placement values to
    * assist with RTL layouts.
    **/
   placement?: GARDEN_PLACEMENT;
-  /** See Popper [documentation](https://popper.js.org/docs/v1/#modifiers--codeobjectcode) for details */
+  /** Passes configurations to the [Popper instance](https://popper.js.org/docs/v1/#modifiers--codeobjectcode) */
   popperModifiers?: Modifiers;
+  /** Adjusts the padding and font size */
   size?: TOOLTIP_SIZE;
+  /** Applies either light or dark styling */
   type?: TOOLTIP_TYPE;
+  /** Sets the `z-index` of the tooltip */
   zIndex?: number | string;
-  /** Determine visibility on initial render */
+  /** Displays the tooltip on initial render */
   isInitialVisible?: boolean;
-  /** Control visibility state of the Tooltip */
+  /** Displays the tooltip */
   isVisible?: boolean;
   children: React.ReactElement;
+  /** Defines the ref key used to position the tooltip */
   refKey?: string;
 }
 
