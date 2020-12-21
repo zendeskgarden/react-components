@@ -22,8 +22,10 @@ const COMPONENT_ID = 'chrome.header_item';
 
 export interface IStyledLogoHeaderItemProps {
   /**
-   * Applies product-specific color palette
-   **/
+   * Applies a
+   * [brand color](https://garden.zendesk.com/design/color#brand-colors)
+   * to the product logo
+   */
   product?: PRODUCT;
 }
 

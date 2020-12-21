@@ -18,8 +18,8 @@ const COMPONENT_ID = 'chrome.subnav_item_text';
 
 export interface IStyledSubNavItemTextProps {
   /**
-   * Wrap overflow text instead of truncating long strings with an ellipsis
-   * (use in conjunction with max-width styling applied to the `SubNav` container)
+   * Wraps overflow item text instead of truncating long strings with an ellipsis.
+   * Use when `max-width` styling is applied to the subnav container.
    **/
   isWrapped?: boolean;
 }

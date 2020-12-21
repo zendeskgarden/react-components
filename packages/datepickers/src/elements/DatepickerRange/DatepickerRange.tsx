@@ -14,37 +14,51 @@ import End from './components/End';
 import Calendar from './components/Calendar';
 
 export interface IDatepickerRangeProps {
+  /**
+   * Applies locale-based formatting.
+   * Accepts all valid `Intl` [locales](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation).
+   */
   locale?: string;
   /**
-   * The start date to display
+   * Sets the start date
    */
   startValue?: Date;
   /**
-   * The end date to display
+   * Sets the end date
    */
   endValue?: Date;
   /**
-   * Minimum value. Users are still able to manually enter a date below this value.
+   * Disables dates before this value on the calendar
    */
   minValue?: Date;
   /**
-   * Maximum value. Users are still able to manually enter a date above this value.
+   * Disables dates after this value on the calendar
    */
   maxValue?: Date;
   /**
-   * Returns the parsed start and end dates
+   * Handles start and end date changes
+   *
+   * @param {Object} values The selected dates
+   * @param {Date} [values.startValue] Optional start date
+   * @param {Date} [values.endValue] Optional end date
    */
   onChange?: (values: { startValue?: Date; endValue?: Date }) => void;
   /**
-   * Allows customization of date formatting within input.
+   * Adjusts the input element's date formatting
+   *
+   *  @param {Date} date The selected date
+   *  @returns {string} A formatted date string
    */
   formatDate?: (date: Date) => string;
   /**
-   * Override default date parsing
+   * Overrides the default date parsing
+   *
+   * @param {string} inputValue A date string
+   * @returns {Date} The parsed date
    */
   customParseDate?: (inputValue?: string) => Date;
   /**
-   * Show compact styling
+   * Applies compact styling
    */
   isCompact?: boolean;
 }

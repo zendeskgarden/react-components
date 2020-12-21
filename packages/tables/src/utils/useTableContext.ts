@@ -10,9 +10,13 @@ import { SIZE } from '../styled/StyledTable';
 
 interface ITableContext {
   size: SIZE;
+  isReadOnly: boolean;
 }
 
-export const TableContext = React.createContext<ITableContext>({ size: 'medium' });
+export const TableContext = React.createContext<ITableContext>({
+  size: 'medium',
+  isReadOnly: false
+});
 
 export const useTableContext = () => {
   return useContext(TableContext);
