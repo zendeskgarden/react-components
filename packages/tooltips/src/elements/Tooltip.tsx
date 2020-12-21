@@ -25,9 +25,9 @@ import { StyledTooltipWrapper, StyledTooltip, TOOLTIP_SIZE, TOOLTIP_TYPE } from 
 export interface ITooltipProps
   extends Partial<ThemeProps<DefaultTheme>>,
     React.HTMLAttributes<HTMLDivElement> {
-  /** Appends the tooltip to the body element */
+  /** Appends the tooltip to the element provided */
   appendToNode?: Element;
-  /** Appends an arrow to the tooltip */
+  /** Adds an arrow to the tooltip */
   hasArrow?: boolean;
   /** Adds milliseconds of delay to the opening and closing of the tooltip */
   delayMS?: number;
@@ -38,7 +38,7 @@ export interface ITooltipProps
   /** Defines the content of the tooltip */
   content: React.ReactNode;
   /**
-   * Adjusts the placement of the tooltip. Placement values differ Popper placement values to
+   * Adjusts the placement of the tooltip. Placement values differ from Popper placement values to
    * assist with RTL layouts.
    **/
   placement?: GARDEN_PLACEMENT;
