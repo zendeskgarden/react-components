@@ -16,7 +16,7 @@ import { StyledTabs } from '../styled/StyledTabs';
 
 export interface ITabsProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * Arranges tab components vertically
+   * Arranges the tabs vertically
    */
   isVertical?: boolean;
   /**
