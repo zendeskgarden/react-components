@@ -29,7 +29,7 @@ interface ITilesProps extends HTMLAttributes<HTMLDivElement> {
   onChange?: ChangeEventHandler<HTMLInputElement>;
   /** Sets the name used to reference the value of the control */
   name: string;
-  /** Arranges the tiles vertically */
+  /** Centers tile content */
   isCentered?: boolean;
 }
 
