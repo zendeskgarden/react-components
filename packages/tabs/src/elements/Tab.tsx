@@ -14,7 +14,7 @@ import { useTabsContext } from '../utils/useTabsContext';
 export interface ITabProps extends HTMLAttributes<HTMLDivElement> {
   /** Indicates that the element is not interactive */
   disabled?: boolean;
-  /** Defines a value to uniquely identify the tab. Provided to the `onChange` event in the tabs component. */
+  /** Defines a unique value to identify the tab. Provided to the `onChange` event in the tabs component. */
   item?: any;
 }
 
