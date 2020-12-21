@@ -21,7 +21,7 @@ interface ITagProps extends HTMLAttributes<HTMLDivElement> {
   hue?: string;
   /** Applies pill styling */
   isPill?: boolean;
-  /** Applies round styling */
+  /** Applies styles to round the tag */
   isRound?: boolean;
   /** Applies regular (non-bold) `font-weight` */
   isRegular?: boolean;
