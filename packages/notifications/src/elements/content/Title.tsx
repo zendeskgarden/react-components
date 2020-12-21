@@ -9,7 +9,7 @@ import React, { HTMLAttributes } from 'react';
 import { StyledTitle } from '../../styled';
 
 export interface ITitleProps extends HTMLAttributes<HTMLDivElement> {
-  /** Style using regular (non-bold) font weight */
+  /** Applies regular (non-bold) font weight */
   isRegular?: boolean;
 }
 
