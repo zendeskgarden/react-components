@@ -19,7 +19,7 @@ export interface IStyledCellProps {
    * checkboxes or icons)
    */
   isMinimum?: boolean;
-  /** Applies truncated text styling */
+  /** Truncates long text with an ellipsis */
   isTruncated?: boolean;
   /** Applies styling for a cell that contains an overflow menu */
   hasOverflow?: boolean;

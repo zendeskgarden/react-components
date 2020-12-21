@@ -17,7 +17,7 @@ const COMPONENT_ID = 'tables.row';
 export interface IStyledRowProps {
   /** Applies striped styling */
   isStriped?: boolean;
-  /** Applies focused styling */
+  /** Applies focus styling */
   isFocused?: boolean;
   /** Applies hover styling */
   isHovered?: boolean;
