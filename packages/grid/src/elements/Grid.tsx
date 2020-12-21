@@ -12,9 +12,9 @@ import { GridContext } from '../utils/useGridContext';
 import { StyledGrid } from '../styled';
 
 export interface IGridProps extends HTMLAttributes<HTMLDivElement> {
-  /** Defines the number of individual columns that the grid can contain */
+  /** Defines the number of individual columns that the grid contains */
   columns?: GRID_NUMBER;
-  /** Specifies the grid's column gutter width. The value `false` collapses the gutters*/
+  /** Specifies the grid column gutter width. The value `false` collapses the gutters */
   gutters?: SPACE;
   /** Highlights the columns for layout debugging */
   debug?: boolean;
