@@ -19,7 +19,7 @@ export interface IProgressProps extends HTMLAttributes<HTMLDivElement> {
    * Defaults to the `successHue` [theme](https://garden.zendesk.com/components/theme-object#default_theme) value.
    */
   color?: string;
-  /** Sets the height */
+  /** Adjusts the height */
   size?: 'small' | 'medium' | 'large';
 }
 
