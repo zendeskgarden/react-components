@@ -10,9 +10,9 @@ import PropTypes from 'prop-types';
 import { StyledWell } from '../styled';
 
 interface IWellProps {
-  /** Applies a background color to differentiate the well from the rest of the page */
+  /** Applies a background color */
   isRecessed?: boolean;
-  /** Applies a drop shadow to lift the well off of the page */
+  /** Applies a drop shadow */
   isFloating?: boolean;
 }
 
