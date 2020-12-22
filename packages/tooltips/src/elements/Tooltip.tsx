@@ -38,11 +38,10 @@ export interface ITooltipProps
   /** Defines the content of the tooltip */
   content: React.ReactNode;
   /**
-   * Adjusts the placement of the tooltip. Placement values differ from Popper placement values to
-   * assist with RTL layouts.
+   * Adjusts the placement of the tooltip
    **/
   placement?: GARDEN_PLACEMENT;
-  /** Passes configurations to the [Popper instance](https://popper.js.org/docs/v1/#modifiers--codeobjectcode) */
+  /** Passes configurations to the [Popper instance](https://popper.js.org/docs/v2/modifiers/) */
   popperModifiers?: Modifiers;
   /** Adjusts the padding and font size */
   size?: TOOLTIP_SIZE;
