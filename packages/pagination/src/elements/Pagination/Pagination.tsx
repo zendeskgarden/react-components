@@ -22,7 +22,7 @@ export type PAGE_TYPE = 'next' | 'page' | 'gap' | 'previous';
 
 export interface IPaginationProps extends Omit<HTMLAttributes<HTMLUListElement>, 'onChange'> {
   /**
-   * Sets the current page
+   * Sets the current page. Pages start at 1.
    */
   currentPage: number;
   /**
@@ -41,7 +41,7 @@ export interface IPaginationProps extends Omit<HTMLAttributes<HTMLUListElement>,
   /**
    * Handles page change events
    *
-   * @param {Any} currentPage - The current page
+   * @param {any} currentPage The current page
    */
   onChange?: (currentPage: number) => void;
   /**
@@ -49,7 +49,7 @@ export interface IPaginationProps extends Omit<HTMLAttributes<HTMLUListElement>,
    *
    * @param {PAGE_TYPE} pageType The type of the page accepting the props.
    *  One of: `'previous'`, `'gap'`, `'page'`, `'next'`
-   * @param {Any} props Default page props to transform
+   * @param {any} props Default page props to transform
    */
   transformPageProps?: (pageType: PAGE_TYPE, props: any) => any;
 }
