@@ -26,7 +26,7 @@ export interface ITabsProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Handles tab selection
    *
-   * @param {String} selectedItem The selected tab's `item` value
+   * @param {String} updatedSelectedItem The selected tab's `item` value
    */
   onChange?: (updatedSelectedItem: any) => void;
 }
