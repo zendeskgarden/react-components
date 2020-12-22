@@ -45,7 +45,7 @@ export interface ITooltipProps
   popperModifiers?: Modifiers;
   /** Adjusts the padding and font size */
   size?: TOOLTIP_SIZE;
-  /** Applies either light or dark styling */
+  /** Specifies the tooltip type */
   type?: TOOLTIP_TYPE;
   /** Sets the `z-index` of the tooltip */
   zIndex?: number | string;
