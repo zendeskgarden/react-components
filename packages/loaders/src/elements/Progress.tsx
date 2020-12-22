@@ -16,7 +16,7 @@ export interface IProgressProps extends HTMLAttributes<HTMLDivElement> {
   value?: number;
   /**
    * Sets the foreground bar's fill color.
-   * Defaults to the `successHue` [theme](https://garden.zendesk.com/components/theme-object#default_theme) value.
+   * Defaults to the `successHue` [theme](/components/theme-object#default_theme) value.
    */
   color?: string;
   /** Adjusts the height */

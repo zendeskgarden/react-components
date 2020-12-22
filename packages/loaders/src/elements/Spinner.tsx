@@ -59,7 +59,7 @@ export interface ISpinnerProps extends React.HTMLAttributes<SVGSVGElement> {
    **/
   color?: string;
   /**
-   * Delays displaying the loader to prevent a quick render flash during normal loading times
+   * Delays displaying the loader to prevent a render flash during normal loading times
    **/
   delayMS?: number;
 }
