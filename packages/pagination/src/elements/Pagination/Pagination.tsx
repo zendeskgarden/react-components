@@ -47,7 +47,7 @@ export interface IPaginationProps extends Omit<HTMLAttributes<HTMLUListElement>,
   /**
    * Applies localized labels, test attributes, etc. to individual pages
    *
-   * @param {PAGE_TYPE} pageType The type of the page accepting the props.
+   * @param {string} pageType The type of the page accepting the props.
    *  One of: `'previous'`, `'gap'`, `'page'`, `'next'`
    * @param {any} props Default page props to transform
    */
