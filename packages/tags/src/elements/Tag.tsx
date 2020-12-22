@@ -15,7 +15,7 @@ interface ITagProps extends HTMLAttributes<HTMLDivElement> {
   size?: 'small' | 'medium' | 'large';
   /**
    * Sets the color of the tag. Refer to
-   * [palette](https://zendeskgarden.github.io/react-components/theming/#palette)
+   * [PALETTE](/components/palette#palette)
    * for available colors. Accepts any hex value.
    */
   hue?: string;
@@ -23,7 +23,7 @@ interface ITagProps extends HTMLAttributes<HTMLDivElement> {
   isPill?: boolean;
   /** Applies styles to round the tag */
   isRound?: boolean;
-  /** Applies regular (non-bold) `font-weight` */
+  /** Applies regular (non-bold) font weight */
   isRegular?: boolean;
 }
 
