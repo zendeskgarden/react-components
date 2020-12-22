@@ -22,7 +22,7 @@ export interface IColProps extends HTMLAttributes<HTMLDivElement> {
   /** Sets the total number of grid `columns` that the col spans on all screen sizes */
   size?: GRID_NUMBER;
   /** Defines the col size on extra-small screens.
-   *  See [breakpoints](https://garden.zendesk.com/components/theme-object#default_theme).
+   *  See [breakpoints](/components/theme-object#default_theme).
    */
   xs?: BREAKPOINT;
   /** Defines the col size on small screens*/
