@@ -57,8 +57,7 @@ export interface ITooltipModalProps extends HTMLAttributes<HTMLDivElement> {
    */
   popperModifiers?: Array<Partial<Modifier<any, any>>>;
   /**
-   * Provides placement names differing from the default Popper placement names to
-   * assist with RTL layout creation
+   * Adjusts the placement of the tooltip
    **/
   placement?: GARDEN_PLACEMENT;
   /**
