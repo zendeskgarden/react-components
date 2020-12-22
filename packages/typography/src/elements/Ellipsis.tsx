@@ -12,7 +12,7 @@ import { StyledEllipsis } from '../styled';
 interface IEllipsisProps extends HTMLAttributes<HTMLSpanElement> {
   /** Overrides the auto-generated `title` attribute */
   title?: string;
-  /** Updates the element tag */
+  /** Updates the element's HTML tag */
   tag?: any;
 }
 
