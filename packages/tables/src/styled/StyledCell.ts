@@ -25,7 +25,7 @@ export interface IStyledCellProps {
   hasOverflow?: boolean;
   /** Adjusts the width of the cell */
   width?: string | number;
-  /** Adjusts the vertical pading of the cell */
+  /** Adjusts the vertical padding of the cell */
   size: SIZE;
 }
 
