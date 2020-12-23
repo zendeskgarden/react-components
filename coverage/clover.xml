@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1608754833202" clover="3.2.0">
-  <project timestamp="1608754833202" name="All files">
+<coverage generated="1608755541231" clover="3.2.0">
+  <project timestamp="1608755541231" name="All files">
     <metrics statements="6866" coveredstatements="6717" conditionals="2753" coveredconditionals="2492" methods="1449" coveredmethods="1417" elements="11068" coveredelements="10626" complexity="0" loc="6866" ncloc="6866" packages="113" files="450" classes="450"/>
     <package name=".template.src.elements">
       <metrics statements="18" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
@@ -5305,11 +5305,11 @@
         <line num="10" count="1" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
-        <line num="102" count="1" type="stmt"/>
-        <line num="103" count="4" type="stmt"/>
-        <line num="105" count="4" type="stmt"/>
-        <line num="117" count="1" type="stmt"/>
-        <line num="119" count="1" type="stmt"/>
+        <line num="101" count="1" type="stmt"/>
+        <line num="102" count="4" type="stmt"/>
+        <line num="104" count="4" type="stmt"/>
+        <line num="116" count="1" type="stmt"/>
+        <line num="118" count="1" type="stmt"/>
       </file>
       <file name="Grid.tsx" path="/home/circleci/project/packages/grid/src/elements/Grid.tsx">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -5488,29 +5488,29 @@
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
-        <line num="43" count="20" type="stmt"/>
-        <line num="44" count="20" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="35" count="20" type="stmt"/>
+        <line num="36" count="20" type="stmt"/>
+        <line num="37" count="20" type="stmt"/>
+        <line num="39" count="20" type="cond" truecount="4" falsecount="0"/>
+        <line num="40" count="6" type="stmt"/>
+        <line num="42" count="6" type="stmt"/>
         <line num="45" count="20" type="stmt"/>
-        <line num="47" count="20" type="cond" truecount="4" falsecount="0"/>
-        <line num="48" count="6" type="stmt"/>
-        <line num="50" count="6" type="stmt"/>
-        <line num="53" count="20" type="stmt"/>
-        <line num="54" count="20" type="stmt"/>
-        <line num="55" count="20" type="stmt"/>
-        <line num="56" count="20" type="stmt"/>
-        <line num="58" count="20" type="stmt"/>
-        <line num="59" count="18" type="cond" truecount="4" falsecount="0"/>
+        <line num="46" count="20" type="stmt"/>
+        <line num="47" count="20" type="stmt"/>
+        <line num="48" count="20" type="stmt"/>
+        <line num="50" count="20" type="stmt"/>
+        <line num="51" count="18" type="cond" truecount="4" falsecount="0"/>
+        <line num="52" count="6" type="stmt"/>
+        <line num="58" count="6" type="stmt"/>
+        <line num="59" count="6" type="stmt"/>
         <line num="60" count="6" type="stmt"/>
-        <line num="66" count="6" type="stmt"/>
-        <line num="67" count="6" type="stmt"/>
-        <line num="68" count="6" type="stmt"/>
-        <line num="72" count="20" type="cond" truecount="4" falsecount="0"/>
-        <line num="73" count="12" type="stmt"/>
-        <line num="76" count="8" type="stmt"/>
-        <line num="94" count="1" type="stmt"/>
+        <line num="64" count="20" type="cond" truecount="4" falsecount="0"/>
+        <line num="65" count="12" type="stmt"/>
+        <line num="68" count="8" type="stmt"/>
+        <line num="86" count="1" type="stmt"/>
+        <line num="93" count="1" type="stmt"/>
         <line num="101" count="1" type="stmt"/>
-        <line num="109" count="1" type="stmt"/>
       </file>
       <file name="Inline.tsx" path="/home/circleci/project/packages/loaders/src/elements/Inline.tsx">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -5531,13 +5531,13 @@
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="25" count="10" type="stmt"/>
-        <line num="27" count="10" type="stmt"/>
-        <line num="45" count="1" type="stmt"/>
-        <line num="47" count="1" type="stmt"/>
-        <line num="53" count="1" type="stmt"/>
-        <line num="59" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="28" count="10" type="stmt"/>
+        <line num="30" count="10" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="56" count="1" type="stmt"/>
+        <line num="62" count="1" type="stmt"/>
       </file>
       <file name="Skeleton.tsx" path="/home/circleci/project/packages/loaders/src/elements/Skeleton.tsx">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
